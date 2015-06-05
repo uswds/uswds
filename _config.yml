@@ -1,0 +1,32 @@
+# 18F pages base url config
+baseurl: /govt-wide-patternlibrary
+
+url: https://pages.18f.gov/govt-wide-patternlibrary
+
+# Markdown config
+markdown: redcarpet
+highlighter: rouge
+name: Government-wide Pattern Library
+exclude:
+- go
+- Gemfile
+- Gemfile.lock
+- README.md
+- LICENSE.md
+- CONTRIBUTING.md
+- ".sass-cache"
+- ".ruby-version"
+
+permalink: pretty
+
+repos:
+- name: Government-wide Pattern Library
+  description: Main repository for the government-wide pattern library.
+  url: https://github.com/18F/govt-wide-patternlibrary
+
+google_analytics_ua: UA-48605964-19
+
+sass:
+  sass_dir: assets/_scss
+  style: :compressed
+

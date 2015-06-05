@@ -1,2 +1,4 @@
-# Mac specific
-.DS_Store
+_site/
+.sass-cache/
+.DS_store
+.*.swp
