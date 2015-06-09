@@ -6,6 +6,26 @@ Before contributing, we encourage you to read our CONTRIBUTING policy (you are h
 
 ## Guidelines
 
+### Submitting an issue
+
+To help us get a better understanding of the issue you are submitting, please leverage the following outline (as used in the following [Girl Develop It issue template](https://github.com/girldevelopit/gdi-new-site/issues/83)):
+
+**Description**
+*Include a high level description of the feature or error here including steps of how to recreate if applicable. Include any benefits, challenges or considerations. Can be short and sweet.*
+
+**Ask**
+*Describe the desired behavior and what would deem this issue/bug/feature complete.*
+
+**To Do**
+- [ ] Steps
+- [ ] To
+- [ ] Complete/Fix
+
+**Additional Info**
+*Include any images, steps to recreate, notes, emojis, or whatever.*
+
+### Submitting a pull request
+
 Here are a few guidelines to follow when submitting a pull request:
 
 1. Create a Github account or log in to your existing account.
