@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.2.0
+
+script: ./go build
+
+notifications:
+  email:
+    - julia.elman@gsa.gov
+    - maya.ben-ari@gsa.gov
