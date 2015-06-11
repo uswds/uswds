@@ -28,5 +28,3 @@ google_analytics_ua: UA-48605964-19
 
 sass:
   sass_dir: assets/_scss
-  style: :compressed
-
