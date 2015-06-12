@@ -12,19 +12,19 @@
 @import 'core/grid';
 
 
-// Fundamentals -------------- //
+// Elements -------------- //
 // Styles basic html elements
 
-@import 'fundamentals/typography';
-@import 'fundamentals/list';
-@import 'fundamentals/form';
-@import 'fundamentals/table';
+@import 'elements/typography';
+@import 'elements/list';
+@import 'elements/form';
+@import 'elements/table';
 
 
-// Patterns -------------- //
+// Components -------------- //
 
-@import 'patterns/header';
-@import 'patterns/navigation';
-@import 'patterns/footer';
-@import 'patterns/search';
-@import 'patterns/alerts';
+@import 'components/header';
+@import 'components/navigation';
+@import 'components/footer';
+@import 'components/search';
+@import 'components/alerts';
