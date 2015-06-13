@@ -35,3 +35,16 @@
          url('../fonts/sourcesanspro-bold-webfont.ttf') format('truetype'),
          url('../fonts/sourcesanspro-bold-webfont.svg#source_sans_probold') format('svg');
 }
+
+@font-face {
+    font-family: 'Source Code Pro';
+    font-weight: normal;
+    font-style: normal;    
+    src: url('sourcecodepro-regular-webfont.eot');
+    src: url('sourcecodepro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('sourcecodepro-regular-webfont.woff2') format('woff2'),
+         url('sourcecodepro-regular-webfont.woff') format('woff'),
+         url('sourcecodepro-regular-webfont.ttf') format('truetype'),
+         url('sourcecodepro-regular-webfont.svg#source_code_proregular') format('svg');
+
+}
