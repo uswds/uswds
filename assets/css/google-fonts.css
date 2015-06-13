@@ -11,6 +11,19 @@
 
 }
 
+@font-face {  
+    font-family: 'Source Sans Pro';
+    font-style: italic;          
+    font-weight: 400;
+    src: url('../fonts/sourcesanspro-italic-webfont.eot');
+    src: url('../fonts/sourcesanspro-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/sourcesanspro-italic-webfont.woff2') format('woff2'),
+         url('../fonts/sourcesanspro-italic-webfont.woff') format('woff'),
+         url('../fonts/sourcesanspro-italic-webfont.ttf') format('truetype'),
+         url('../fonts/sourcesanspro-italic-webfont.svg#source_sans_proitalic') format('svg');
+
+}
+
 @font-face {
     font-family: 'Source Sans Pro';
     font-style: normal;
