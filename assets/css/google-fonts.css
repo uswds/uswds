@@ -34,6 +34,7 @@
          url('../fonts/sourcesanspro-bold-webfont.woff') format('woff'),
          url('../fonts/sourcesanspro-bold-webfont.ttf') format('truetype'),
          url('../fonts/sourcesanspro-bold-webfont.svg#source_sans_probold') format('svg');
+
 }
 
 @font-face {
