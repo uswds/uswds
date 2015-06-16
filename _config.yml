@@ -31,3 +31,14 @@ sass:
   sass_dir: assets/_scss
   style: :compressed
 
+collections:
+	visual:
+		output: true
+		permalink: /visual-style/:path/
+	layout-system:
+		output: true
+		permalink: /layout-system/:path/
+	elements:
+		type: pattern
+	components:
+		type: pattern
