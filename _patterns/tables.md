@@ -1,5 +1,5 @@
 ---
 layout: default
-type: component
+type: element
 title: Tables
 ---

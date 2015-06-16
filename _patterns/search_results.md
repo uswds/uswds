@@ -1,5 +1,5 @@
 ---
 layout: default
-type: element
+type: component
 title: Search Results
 ---
