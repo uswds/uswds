@@ -32,13 +32,13 @@ sass:
   style: :compressed
 
 collections:
-	visual:
-		output: true
-		permalink: /visual-style/:path/
-	layout-system:
-		output: true
-		permalink: /layout-system/:path/
-	elements:
-		type: pattern
-	components:
-		type: pattern
+  visual:
+    output: true
+    permalink: /visual-style/:path/
+  layout-system:
+    output: true
+    permalink: /layout-system/:path/
+  elements:
+    type: pattern
+  components:
+    type: pattern
