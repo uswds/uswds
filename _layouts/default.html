@@ -7,11 +7,16 @@
 
   <body>
 
+  	{% include navbar.html %}
+	
+  	{% include sidenav.html %}
+
     <section id="main" class="main-content" role="main">
       {{ content }}
     </section>
 
     {% include analytics.html %}
+    {% include scripts.html %}
 
   </body>
 

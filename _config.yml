@@ -30,3 +30,13 @@ google_analytics_ua: UA-48605964-19
 sass:
   sass_dir: assets/_scss
   style: :compressed
+
+collections:
+  visual:
+    output: true
+    permalink: /visual-style/:path/
+  layout-system:
+    output: true
+    permalink: /layout-system/:path/
+  patterns:
+    output: true
