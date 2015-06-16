@@ -1,0 +1,46 @@
+// Typography
+$em-base:       10px;
+$base-font-size:    rem(16px);
+$small-font-size:   rem(14px);
+$title-font-size:   rem(48px);
+$h1-font-size:      rem(36px);
+$h2-font-size:      rem(28px);
+$h3-font-size:      rem(24px);
+$h4-font-size:      rem(18px);
+$h5-font-size:      rem(16px);
+$h6-font-size:      rem(14px);
+$base-line-height:    1.5em;
+$heading-line-height: 1.3em;
+
+$font-sans:       'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+$font-serif:      'Georgia', 'Times New Roman', serif;
+
+// Color
+$color-grey-50:     #fafafa;
+$color-grey-100:    #f5f5f5;
+$color-grey-200:    #eeeeee;
+$color-grey-300:    #e0e0e0;
+$color-grey-400:    #bdbdbd;
+$color-grey-500:    #9e9e9e;
+$color-grey-600:    #757575;
+$color-grey-700:    #616161;
+$color-grey-800:    #424242;
+$color-grey-900:    #212121;
+
+$color-base-link:   #000000;
+
+$color-main:        #0071bc;
+$color-main-dark:   #00609f;
+
+// Mobile First Breakpoints
+$mobile-up:         481px !default;
+$tablet-up:         600px !default;
+$widescreen-up:     1201px !default;
+
+
+// Magic Numbers
+$site-max-width:    960px !default;
+$site-margins:      40px !default;
+$article-max-width: 600px !default;
+$border-radius:     0px !default;
+$box-shadow:        0 0 2px rgba(#000, .3) !default;
