@@ -1,0 +1,35 @@
+.grid-box {
+  @include outer-container();
+  max-width: $site-max-width;
+
+  @include media($tablet-up) {
+    .width-one-whole {
+      @include span-columns(12);
+    }
+    .width-one-half {
+      @include span-columns(6);
+    }
+    .width-one-third {
+      @include span-columns(4);
+    }
+    .width-two-thirds {
+      @include span-columns(8);
+    }
+    .width-one-fourth {
+      @include span-columns(3);
+    }
+    .width-three-fourths {
+      @include span-columns(9);
+    }
+    .width-one-sixth {
+      @include span-columns(2);
+    }
+    .width-five-sixths {
+      @include span-columns(10);
+    }
+
+    .end-row {
+      @include omega();
+    }
+  }
+}

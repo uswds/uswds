@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.lt-ie9 {
+  // Hack for clearfixes
+  * {
+    filter: none !important;
+  }
+}
