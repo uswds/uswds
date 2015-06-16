@@ -16,6 +16,7 @@ exclude:
 - CONTRIBUTING.md
 - ".sass-cache"
 - ".ruby-version"
+- vendor
 
 permalink: pretty
 
