@@ -35,10 +35,8 @@ collections:
   visual:
     output: true
     permalink: /visual-style/:path/
-  layout-system:
+  layout_system:
     output: true
     permalink: /layout-system/:path/
-  elements:
-    type: pattern
-  components:
-    type: pattern
+  patterns:
+    output: true
