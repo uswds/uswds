@@ -1,5 +1,5 @@
 ---
 layout: default
 type: component
-title: Headers and Footer
+title: Footers
 ---
