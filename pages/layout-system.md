@@ -6,7 +6,7 @@ title: Layout System
 
 <h2>Layout System</h2>
 <ul>
-{% for layout in site.layout_system %}
+{% for layout in site.layout-system %}
 	<li>{{ layout.title }}</li>
 {% endfor %}
 </ul>
