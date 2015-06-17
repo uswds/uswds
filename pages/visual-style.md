@@ -4,7 +4,7 @@ layout: styleguide
 title: Visual Style
 ---
 
-<h2>Visual Style</h2>
+# Visual Style
 <ul>
 {% for visual in site.visual %}
 	<li>{{ visual.title }}</li>

@@ -7,14 +7,14 @@ title: Patterns
 {% assign components = site.patterns | where:"type","component" %}
 {% assign elements = site.patterns | where:"type","element" %}
 
-<h2>Components</h2>
+# Components
 <ul>
 {% for component in components %}
 	<li>{{ component.title }}</li>
 {% endfor %}
 </ul>
 
-<h2>Elements</h2>
+# Elements
 <ul>
 {% for element in elements %}
 	<li>{{ element.title }}</li>
