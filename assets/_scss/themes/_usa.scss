@@ -24,7 +24,6 @@ h4 {
 
 a {
 	color: $color-main;
-	font-family: $font-sans;
 	text-decoration: none;
 	&:hover, &:active {
 		color: $color-main-dark;
@@ -44,6 +43,7 @@ button[type="reset"] {
 	color: #fff;
 	background-color: $color-main;
 	border-radius: $border-radius;
+	font-family: $font-sans;	
 }
 
 input[type="button"]:hover,
