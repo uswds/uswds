@@ -1,12 +1,13 @@
 ---
 permalink: /layout-system/
-layout: default
+layout: styleguide
 title: Layout System
 ---
 
-<h2>Layout System</h2>
-<ul>
-{% for layout in site.layout-system %}
-	<li>{{ layout.title }}</li>
+# Layout System
+
+<h2>{% for layout in site.layout-system %}
+	{{ layout.title }}
+</h2>
+  {{ layout.content }}
 {% endfor %}
-</ul>
