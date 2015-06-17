@@ -10,11 +10,14 @@ $border-radius: rem(4px);
 
 // Elements
 
-p {
+p,
+li {
 	font-family: $font-serif;
 }
 
-h2, h3, h4 {
+h2,
+h3,
+h4 {
 	font-family: $font-serif;
 	font-weight: normal;
 }
