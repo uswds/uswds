@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    {% include head.html %}
+  </head>
+
+  <body>
+    <div class="template-styleguide">
+      <div class="nav-sidebar">
+        <h1>USA Pattern Library</h1>
+      </div>
+
+    	{% include navbar.html %}
+  	
+    	{% include sidenav.html %}
+
+      <div class="main-content">
+        <article class="style-guide-content">
+          {{ content }}
+        </article>
+      </div>
+    </div>
+    {% include analytics.html %}
+    {% include scripts.html %}
+
+  </body>
+
+</html>
