@@ -1,6 +1,6 @@
 ---
 permalink: /patterns/
-layout: default
+layout: styleguide
 title: Patterns
 ---
 

@@ -1,6 +1,6 @@
 ---
 permalink: /visual-style/
-layout: default
+layout: styleguide
 title: Visual Style
 ---
 
