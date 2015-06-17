@@ -12,25 +12,25 @@ $border-radius: rem(4px);
 
 p,
 li {
-	font-family: $font-serif;
+  font-family: $font-serif;
 }
 
 h2,
 h3,
 h4 {
-	font-family: $font-serif;
-	font-weight: normal;
+  font-family: $font-serif;
+  font-weight: normal;
 }
 
 a {
-	color: $color-main;
-	text-decoration: none;
-	&:hover, &:active {
-		color: $color-main-dark;
-	}
-	&:visited {
-		color: $color-main;
-	}
+  color: $color-main;
+  text-decoration: none;
+  &:hover, &:active {
+    color: $color-main-dark;
+  }
+  &:visited {
+    color: $color-main;
+  }
 }
 
 input[type="button"],
@@ -40,10 +40,10 @@ input[type="image"],
 button[type="button"],
 button[type="submit"],
 button[type="reset"] {
-	color: #fff;
-	background-color: $color-main;
-	border-radius: $border-radius;
-	font-family: $font-sans;	
+  color: #fff;
+  background-color: $color-main;
+  border-radius: $border-radius;
+  font-family: $font-sans;  
 }
 
 input[type="button"]:hover,
@@ -53,7 +53,7 @@ input[type="image"]:hover,
 button[type="button"]:hover,
 button[type="submit"]:hover,
 button[type="reset"]:hover {
-	background-color: $color-main-dark;	
+  background-color: $color-main-dark; 
 }
 
 input[type="text"],
@@ -70,41 +70,41 @@ input[type="month"],
 input[type="time"],
 input[type="week"],
 textarea {
-	border-radius: $border-radius;
+  border-radius: $border-radius;
 }
 
 aside {
-	color: #fff;
-	background-color: $color-main;
+  color: #fff;
+  background-color: $color-main;
 }
 
 // Site Patterns
 
 .site-search {
-	input[type="search"] {
-		border-top-right-radius: 0px;
-		border-bottom-right-radius: 0px;
-	}
-	input[type="submit"] {
-		border-top-left-radius: 0px;
-		border-bottom-left-radius: 0px;
-	}
+  input[type="search"] {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  input[type="submit"] {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
 }
 
 .global-header {
-	background-color: #fff;
-	border-bottom: 1px solid $color-grey-300;
-	h1 {
-		color: $color-main;
-	}
-	.site-search {
-		input[type="search"] {
-			border: 1px solid $color-grey-200;
-		}
-	}
+  background-color: #fff;
+  border-bottom: 1px solid $color-grey-300;
+  h1 {
+    color: $color-main;
+  }
+  .site-search {
+    input[type="search"] {
+      border: 1px solid $color-grey-200;
+    }
+  }
 }
 
 .global-footer {
-	color: #fff;
-	background-color: #000; 
+  color: #fff;
+  background-color: #000; 
 }
