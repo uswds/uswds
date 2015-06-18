@@ -6,8 +6,8 @@ title: Layout System
 
 # Layout System
 
-<h2>{% for layout in site.layout-system %}
-	{{ layout.title }}
-</h2>
+{% for layout in site.layout-system %}
+	## {{ layout.title }}
+
   {{ layout.content }}
 {% endfor %}
