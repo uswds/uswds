@@ -1,8 +1,7 @@
 ---
 ---
 
-// Imports
-///////////////////////////////////
+// Imports -------------- //
 
 @import 'lib/bourbon/bourbon';
 @import 'lib/neat/neat';
@@ -10,14 +9,13 @@
 @import 'core/defaults';
 @import 'core/utilities';
 
+
 // Variables
-///////////////////////////
 
 $width-nav-sidebar: 250px;
 
 
 // Navigation
-///////////////////////////////////
 
 a#skipnav {
     padding: 10px 15px;
@@ -113,8 +111,8 @@ aside.sidenav {
   }
 }
 
+
 // Main Content
-///////////////////////////////////
 
 .main-content {
   position: absolute;
@@ -136,8 +134,8 @@ aside.sidenav {
   }
 }
 
+
 // Style Guide Content
-///////////////////////////////////
 
 .styleguide-content {
   position: relative;
@@ -157,7 +155,8 @@ aside.sidenav {
   }
 }
 
-//Pattern Preview Boxes
+// Pattern Preview Boxes
+
 .preview {
   @include clearfix();
   background-color: #fff;
@@ -172,7 +171,8 @@ aside.sidenav {
   }
 }
 
-//Code Sample Boxes
+// Code Sample Boxes
+
 .code-sample {
   @include clearfix();
   border: 1px solid $color-grey-200;
