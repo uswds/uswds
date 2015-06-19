@@ -10,12 +10,12 @@
 @import 'core/utilities';
 
 
-// Variables
+// Variables -------------- //
 
 $width-nav-sidebar: 250px;
 
 
-// Navigation
+// Navigation ------------- //
 
 a#skipnav {
     padding: 10px 15px;
@@ -112,7 +112,7 @@ aside.sidenav {
 }
 
 
-// Main Content
+// Main Content --------- //
 
 .main-content {
   position: absolute;
@@ -134,8 +134,7 @@ aside.sidenav {
   }
 }
 
-
-// Style Guide Content
+// Style Guide Content -------- //
 
 .styleguide-content {
   position: relative;
@@ -155,7 +154,7 @@ aside.sidenav {
   }
 }
 
-// Pattern Preview Boxes
+// Pattern Preview Boxes -------- //
 
 .preview {
   @include clearfix();
@@ -171,7 +170,7 @@ aside.sidenav {
   }
 }
 
-// Code Sample Boxes
+// Code Sample Boxes --------- //
 
 .code-sample {
   @include clearfix();
