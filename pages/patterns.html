@@ -10,6 +10,7 @@ title: Patterns
 <h1>Elements</h1>
 
 {% for element in elements %}
+  <a class="anchor" id="{{ element.title | slugify }}"></a>
 	<h2>{{ element.title }}</h2>
 	<p>{{ element.content }}</p>
 {% endfor %}
@@ -18,6 +19,7 @@ title: Patterns
 <h1>Components</h1>
 
 {% for component in components %}
+  <a class="anchor" id="{{ component.title | slugify }}"></a>
 	<h2>{{ component.title }}</h2>
 	<p>{{ component.content }}</p>
 {% endfor %}
