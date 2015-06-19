@@ -10,12 +10,12 @@ title: Patterns
 # Elements
 
 {% for element in elements %}
-{{ element.title }}
+## {{ element.title }}
 {% endfor %}
 
 
 # Components
 
 {% for component in components %}
-{{ component.title }}
+## {{ component.title }}
 {% endfor %}
