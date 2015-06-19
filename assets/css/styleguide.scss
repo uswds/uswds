@@ -19,6 +19,25 @@ $width-nav-sidebar: 250px;
 // Navigation
 ///////////////////////////////////
 
+a#skipnav {
+    padding: 10px 15px;
+    position: absolute;
+    top: -40px;
+    left: 0px;
+    color: $color-grey-900;
+    background: transparent;
+    @include transition(top 1s ease-out, background 1s linear);
+    z-index: 100;
+    &:focus {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      background: white;
+      outline: 0;
+      @include transition(top .1s ease-in, background .5s linear);
+    }
+}
+
 nav.navbar {
   background-color: $color-grey-900;
   height: 45px;
