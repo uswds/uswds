@@ -60,7 +60,7 @@ header[role="banner"] {
       margin-left: 15px;
       font-family: $font-sans;
     }
-    @include media($tablet-up + $width-nav-sidebar) {
+    @include media($mobile-up) {
       display: block;
     }
   }
