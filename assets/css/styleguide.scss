@@ -51,10 +51,14 @@ nav.navbar {
   ul {
     float: right;
     padding-right: 20px;
+    display: none;
     li { 
       display: inline; 
       margin-left: 15px;
       font-family: $font-sans;
+    }
+    @include media($tablet-up + $width-nav-sidebar) {
+      display: block;
     }
   }
 }
