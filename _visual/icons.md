@@ -5,7 +5,7 @@ title: Icons
 ---
 
 <div class="preview">
-<!-- Add HTML markup here for example -->
+<!-- Add HTML markup for example here -->
 </div>
 
 <div class="grid-box">
@@ -17,4 +17,4 @@ title: Icons
     <h3>Accessibility</h3>
     <p>Add accessibility content here.</p>
   </div>  
-</div> 
+</div>
