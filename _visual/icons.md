@@ -11,10 +11,10 @@ title: Icons
 <div class="grid-box">
   <div class="grid-item width-one-half annotation">
     <h3>Use</h3>
-    <p>Add usage content here.</p>
+    <p>This is the usage content for the example.</p>
   </div>
   <div class="grid-item width-one-half annotation">
     <h3>Accessibility</h3>
-    <p>Add accessibility content here.</p>
+    <p>This is the accessibility content for the example.</p>
   </div>  
 </div>
