@@ -4,11 +4,11 @@ $base-font-size:    rem(16px);
 $small-font-size:   rem(14px);
 $title-font-size:   rem(48px);
 $h1-font-size:      rem(36px);
-$h2-font-size:      rem(28px);
-$h3-font-size:      rem(24px);
-$h4-font-size:      rem(18px);
-$h5-font-size:      rem(16px);
-$h6-font-size:      rem(14px);
+$h2-font-size:      rem(24px);
+$h3-font-size:      rem(19px);
+$h4-font-size:      rem(16px);
+$h5-font-size:      rem(14px);
+$h6-font-size:      rem(12px);
 $base-line-height:    1.5em;
 $heading-line-height: 1.3em;
 
@@ -33,14 +33,14 @@ $color-main:        #0071bc;
 $color-main-dark:   #00609f;
 
 // Mobile First Breakpoints
-$mobile-up:         481px !default;
-$tablet-up:         600px !default;
-$widescreen-up:     1201px !default;
+$mobile-up:         481px;
+$tablet-up:         600px;
+$widescreen-up:     1201px;
 
 
 // Magic Numbers
-$site-max-width:    960px !default;
-$site-margins:      40px !default;
-$article-max-width: 600px !default;
-$border-radius:     0px !default;
-$box-shadow:        0 0 2px rgba(#000, .3) !default;
+$site-max-width:    960px;
+$site-margins:      40px;
+$article-max-width: 600px;
+$border-radius:     0px;
+$box-shadow:        0 0 2px rgba(#000, .3);
