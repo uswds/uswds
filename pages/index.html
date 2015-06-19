@@ -28,6 +28,7 @@ title: Government Wide Pattern Library
 <h1>Visual Style</h1>
 
 {% for visual in site.visual %}
+  <a class="anchor" id="{{ visual.title | slugify }}"></a>
 	<h2>{{ visual.title }}</h2>
 	<p>{{ visual.content }}</p>
 {% endfor %}
@@ -35,6 +36,7 @@ title: Government Wide Pattern Library
 <h1>Layout System</h1> 
 
 {% for layout in site.layout-system %}
+  <a class="anchor" id="{{ layout.title | slugify }}"></a>
 	<h2>{{ layout.title }}</h2>
 	<p>{{ layout.content }}</p>
 {% endfor %}
@@ -45,6 +47,7 @@ title: Government Wide Pattern Library
 <h1>Elements</h1>
 
 {% for element in elements %}
+  <a class="anchor" id="{{ element.title | slugify }}"></a>
 	<h2>{{ element.title }}</h2>
 	<p>{{ element.content }}</p>
 {% endfor %}
@@ -53,6 +56,7 @@ title: Government Wide Pattern Library
 <h1>Components</h1>
 
 {% for component in components %}
+  <a class="anchor" id="{{ component.title | slugify }}"></a>
 	<h2>{{ component.title }}</h2>
 	<p>{{ component.content }}</p>
 {% endfor %}
