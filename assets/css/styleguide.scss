@@ -38,13 +38,16 @@ a#skipnav {
     }
 }
 
-nav.navbar {
+header[role="banner"] {
   background-color: $color-grey-900;
   height: 45px;
   line-height: 45px;
   a { color: white; }
-  .branding {
+  .logo-link-heading {
+    font-weight: normal;
     float: left;
+    line-height: 45px;
+    margin: 0;
     padding-left: 20px;
     font-size: $base-font-size * 1.25;
   }
