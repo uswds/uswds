@@ -5,8 +5,7 @@ title: Visual Style
 ---
 
 # Visual Style
-<ul>
+
 {% for visual in site.visual %}
-	<li>{{ visual.title }}</li>
+{{ visual.title }}
 {% endfor %}
-</ul>

@@ -8,15 +8,14 @@ title: Patterns
 {% assign elements = site.patterns | where:"type","element" %}
 
 # Elements
-<ul>
+
 {% for element in elements %}
-  <li>{{ element.title }}</li>
+{{ element.title }}
 {% endfor %}
-</ul>
+
 
 # Components
-<ul>
+
 {% for component in components %}
-	<li>{{ component.title }}</li>
+{{ component.title }}
 {% endfor %}
-</ul>
