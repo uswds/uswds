@@ -7,17 +7,17 @@ title: Patterns
 {% assign components = site.patterns | where:"type","component" %}
 {% assign elements = site.patterns | where:"type","element" %}
 
-# Elements
+<h1>Elements</h1>
 
 {% for element in elements %}
-## {{ element.title }}
-{{ element.content }}
+	<h2>{{ element.title }}</h2>
+	<p>{{ element.content }}</p>
 {% endfor %}
 
 
-# Components
+<h1>Components</h1>
 
 {% for component in components %}
-## {{ component.title }}
-{{ component.content }}
+	<h2>{{ component.title }}</h2>
+	<p>{{ component.content }}</p>
 {% endfor %}

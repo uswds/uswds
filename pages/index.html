@@ -4,11 +4,11 @@ layout: styleguide
 title: Government-wide Pattern Library
 ---
 
-# About this Guide
+<h1>About this Guide</h1> 
 
-This style guide is meant for as reference for designers, developers, as well as anyone else interested in the design and frontend concepts that make up the building blocks of federal government websites.
+<p>This style guide is meant for as reference for designers, developers, as well as anyone else interested in the design and frontend concepts that make up the building blocks of federal government websites.</p>
 
-# Component name
+<h1>Component name</h1>
 
 <div class="preview">
 <!-- Add HTML markup for example here -->
@@ -25,36 +25,35 @@ This style guide is meant for as reference for designers, developers, as well as
   </div>  
 </div> 
 
-# Visual Style
+<h1>Visual Style</h1>
 
 {% for visual in site.visual %}
-## {{ visual.title }}
-{{ visual.content }}
+<h2>{{ visual.title }}</h2> 
+<p>{{ visual.content }}</p>
 {% endfor %}
 
-# Layout System
+<h1>Layout System</h1>
 
 {% for layout in site.layout-system %}
-## {{ layout.title }}
-
-{{ layout.content }}
+<h2>{{ layout.title }}</h2>
+<p>{{ layout.content }}</p>
 {% endfor %}
 
 {% assign components = site.patterns | where:"type","component" %}
 {% assign elements = site.patterns | where:"type","element" %}
 
-# Elements
+<h1>Elements</h1>
 
 {% for element in elements %}
-## {{ element.title }}
-{{ element.content }}
+<h2>{{ element.title }}</h2>
+<p>{ element.content }}</p>{
 {% endfor %}
 
 # Components
 
 {% for component in components %}
-## {{ component.title }}
-{{ component.content }}
+<h2>{{ component.title }}</h2>
+<p>{{ component.content }}</p>
 {% endfor %}
 
 <a href="#">Text link</a>
