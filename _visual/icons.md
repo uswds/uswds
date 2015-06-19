@@ -5,7 +5,7 @@ title: Icons
 ---
 
 <div class="preview">
-<!-- Add HTML markup here -->
+<!-- Add HTML markup here for example -->
 </div>
 
 <div class="grid-box">
