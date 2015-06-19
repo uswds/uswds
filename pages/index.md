@@ -17,15 +17,13 @@ This style guide is meant for as reference for designers, developers, as well as
 <div class="grid-box">
   <div class="grid-item width-one-half annotation">
     <h3>Use</h3>
-    <p>This demonstrates how to use the component. The grid layout system is a basic grid system used to build site pages where they layout is largely rectangular blocks of content (e.g., homepages and navigation pages).</p>
+    <p>This is where you'll find basic guidelines about the usage of a component. For example, a minimal palette, clear hierarchy, good information design, and ample whitespace will ensure a voice of authority and expertise in communication.</p>
   </div>
   <div class="grid-item width-one-half annotation">
     <h3>Accessibility</h3>
     <p>Accessibility is one of the most important aspects of modern web development. Accessibility means the greatest number of users can view your content.</p>
   </div>  
 </div> 
-
-### Code
 
 # Visual Style
 
