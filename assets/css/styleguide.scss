@@ -111,12 +111,14 @@ aside.sidenav {
     }
     .patterns-list h3 {
       &:first-child {
-        padding-bottom: .25em;
         padding-top: 0.75em;
       }
     }    
     .patterns-list-item {
       padding-left: 1em;
+      h3 {
+        padding-bottom: .25em;
+      }
       li {
         padding-left: 0;
       }
@@ -129,6 +131,7 @@ aside.sidenav {
     }
   }
 }
+
 
 // Main Content --------- //
 
