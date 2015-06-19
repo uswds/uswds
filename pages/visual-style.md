@@ -1,12 +1,12 @@
 ---
 permalink: /visual-style/
-layout: default
+layout: styleguide
 title: Visual Style
 ---
 
-<h2>Visual Style</h2>
-<ul>
+# Visual Style
+
 {% for visual in site.visual %}
-	<li>{{ visual.title }}</li>
+## {{ visual.title }}
+{{ visual.content }}
 {% endfor %}
-</ul>

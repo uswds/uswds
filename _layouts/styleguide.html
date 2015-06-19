@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    {% include head.html %}
+  </head>
+
+  <body>
+    <div class="template-styleguide">
+
+    	{% include navbar.html %}
+  	
+    	{% include sidenav.html %}
+
+      <div class="main-content">
+        <article class="styleguide-content">
+          {{ content }}
+        </article>
+      </div>
+    </div>
+    {% include analytics.html %}
+    {% include scripts.html %}
+
+  </body>
+
+</html>
