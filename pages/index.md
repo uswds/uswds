@@ -4,9 +4,15 @@ layout: styleguide
 title: Government-wide Pattern Library
 ---
 
+# About this Guide
+
+This style guide is meant for as reference for designers, developers, as well as anyone else interested in the design and frontend concepts that make up the building blocks of federal government websites.
+
 # Component name
 
-[Example]
+<div class="preview">
+<!-- Add HTML markup for example here -->
+</div>
 
 <div class="grid-box">
   <div class="grid-item width-one-half annotation">
@@ -21,32 +27,37 @@ title: Government-wide Pattern Library
 
 ### Code
 
+# Visual Style
 
-# About this Guide
+{% for visual in site.visual %}
+## {{ visual.title }}
+{{ visual.content }}
+{% endfor %}
 
-This style guide is meant for as reference for designers, developers, as well as anyone else interested in the design and frontend concepts that make up the building blocks of federal government websites.
+# Layout System
 
-# Colors
+{% for layout in site.layout-system %}
+## {{ layout.title }}
 
-This style guide automatically pulls colors from the `_variables.scss` file as long as the color variable is prefixed with `$color-`. Additionaly, website brand colors can be added in the `themes/my-theme.scss` file.
+{{ layout.content }}
+{% endfor %}
 
-# Layout Systems
+{% assign components = site.patterns | where:"type","component" %}
+{% assign elements = site.patterns | where:"type","element" %}
 
-## Grid Layout
+# Elements
 
-The grid layout system is a basic grid system used to build site pages where they layout is largely rectangular blocks of content (e.g., homepages and navigation pages). Content in the grid layout is placed with modular **grid items** which live inside **grid boxes**. Grid items require width classes to define what percentage of the screen they should take up. Width classes include:
+{% for element in elements %}
+## {{ element.title }}
+{{ element.content }}
+{% endfor %}
 
-- `.width-one-half`
-- `.width-one-third`
-- `.width-two-thirds`
-- `.width-one-fourth`
-- `.width-three-fourths`
-- `.width-one-six`
-- `.width-five-sixths`
-- `.width-one-twelfth`
-- `.width-five-twelfths`  
-- `.width-seven-twelfths`
-- `.width-eleven-twelfths`
+# Components
+
+{% for component in components %}
+## {{ component.title }}
+{{ component.content }}
+{% endfor %}
 
 <a href="#">Text link</a>
 
