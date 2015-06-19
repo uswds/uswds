@@ -4,10 +4,9 @@ layout: styleguide
 title: Layout System
 ---
 
-# Layout System
+<h1>Layout System</h1> 
 
 {% for layout in site.layout-system %}
-## {{ layout.title }}
-
-{{ layout.content }}
+	<h2>{{ layout.title }}</h2>
+	<p>{{ layout.content }}</p>
 {% endfor %}

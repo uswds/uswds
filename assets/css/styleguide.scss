@@ -1,156 +1,210 @@
 ---
 ---
 
+// Imports -------------- //
+
 @import 'lib/bourbon/bourbon';
 @import 'lib/neat/neat';
 @import 'core/grid-settings';
 @import 'core/defaults';
 @import 'core/utilities';
 
+
+// Variables -------------- //
+
 $width-nav-sidebar: 250px;
 
-.template-styleguide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
 
-  .nav-sidebar {
+// Navigation ------------- //
+
+a#skipnav {
+    padding: 10px 15px;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: $width-nav-sidebar;
-    background-color: $color-grey-50;
-    border-right: 1px solid $color-grey-200;
-    padding: 1em 2em;
-    overflow: auto;
-    display: none;
-    .lt-ie9 & {
-      width: 25%;
+    top: -40px;
+    left: 0px;
+    color: $color-grey-900;
+    background: transparent;
+    @include transition(top 1s ease-out, background 1s linear);
+    z-index: 100;
+    &:focus {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      background: white;
+      outline: 0;
+      @include transition(top .1s ease-in, background .5s linear);
     }
+}
 
-    @include media($tablet-up + $width-nav-sidebar) {
+header[role="banner"] {
+  background-color: $color-grey-900;
+  height: 45px;
+  line-height: 45px;
+  a { color: white; }
+  h1 {
+    font-weight: normal;
+    float: left;
+    line-height: 45px;
+    margin: 0;
+    padding-left: 20px;
+    font-size: $base-font-size * 1.25;
+  }
+  ul {
+    float: right;
+    padding-right: 20px;
+    display: none;
+    li { 
+      display: inline; 
+      margin-left: 15px;
+      font-family: $font-sans;
+    }
+    @include media($mobile-up) {
       display: block;
     }
-    
-    h1 {
-      font-weight: bold;
-      font-size: $h3-font-size;
-      padding-bottom: 1.1em;
-      border-bottom: 1px solid #000;
-    }
-    .link-h1 {
-      font-size: $h5-font-size;
-      font-weight: bold;
-    }
-    ul {
-      li {
-        padding: .25em 0;
-      }
-    }
+  }
+}
 
-    ul ul {
-      padding-left: 1em;
-    }
+aside.sidenav {
+  position: absolute;
+  top: 45px;
+  bottom: 0;
+  left: 0;
+  width: $width-nav-sidebar;
+  background-color: $color-grey-50;
+  border-right: 1px solid $color-grey-200;
+  padding: 1em 2em;
+  overflow: auto;
+  display: none;
+  .lt-ie9 & {
+    width: 25%;
+  }
 
-    a {
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
+  @include media($tablet-up + $width-nav-sidebar) {
+    display: block;
+  }
+  
+  h1 {
+    font-weight: bold;
+    font-size: $h3-font-size;
+    padding-bottom: 1.1em;
+    border-bottom: 1px solid #000;
+  }
+  .link-h1 {
+    font-size: $h5-font-size;
+    font-weight: bold;
+  }
+  ul {
+    li {
+      padding: .25em 0;
     }
   }
 
-  .main-content {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    overflow: auto;
-    width: 100%;
+  ul ul {
+    padding-left: 1em;
+  }
 
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+// Main Content --------- //
+
+.main-content {
+  position: absolute;
+  top: 45px;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  width: 100%;
+  padding: 1em 2em;
+  .lt-ie9 & {
+    width: 75%;
+  }
+
+  @include media($tablet-up + $width-nav-sidebar) {
+    width: calc(100% - #{$width-nav-sidebar});
     .lt-ie9 & {
       width: 75%;
     }
-
-    @include media($tablet-up + $width-nav-sidebar) {
-      width: calc(100% - #{$width-nav-sidebar});
-      .lt-ie9 & {
-        width: 75%;
-      }
-    }
   }
+}
 
-  .styleguide-content {
-    position: relative;
-    padding: 1em 2em;
-    > h2, > h3, > p, > ul, > ol {
-      max-width: 500px;
-    }
-    > h1 {
-      border-bottom: 1px solid #000;
-      padding-bottom: .5em;
-      &:not(:first-child) {
-        margin-top: 2em;
-      }
-    }
-    > h2, > h3 {
+// Style Guide Content -------- //
+
+.styleguide-content {
+  position: relative;
+  padding: 0 2em 1em 2em;
+  > h2, > h3, > p, > ul, > ol {
+    max-width: 500px;
+  }
+  > h1 {
+    border-bottom: 1px solid #000;
+    padding-bottom: .5em;
+    &:not(:first-child) {
       margin-top: 2em;
     }
   }
-
-  //Pattern Preview Boxes
-  .preview {
-    @include clearfix();
-    background-color: #fff;
-    margin: {
-      top: 2em;
-      bottom: 2em;
-    }
-    padding: 1em $site-margins;
-    border: 1px solid $color-grey-200;
-    .is-peripheral {
-      opacity: .2;
-    }
+  > h2, > h3 {
+    margin-top: 2em;
   }
+}
 
-  //Code Sample Boxes
-  .code-sample {
-    @include clearfix();
-    border: 1px solid $color-grey-200;
-    background-color: $color-grey-50;
+// Pattern Preview Boxes -------- //
 
-    &.is-open {
-      .button-toggle:before {
-        content: 'Hide code';
-      }
-      pre {
-        display: block;
-      }
-    }
-    .button-toggle {
-      font-size: $small-font-size;
-      display: block;
-      padding: .5em $site-margins;
-      text-decoration: underline;
-      &:before {
-        content: 'Show code';
-      }
+.preview {
+  @include clearfix();
+  background-color: #fff;
+  margin: {
+    top: 2em;
+    bottom: 2em;
+  }
+  padding: 1em $site-margins;
+  border: 1px solid $color-grey-200;
+  .is-peripheral {
+    opacity: .2;
+  }
+}
+
+// Code Sample Boxes --------- //
+
+.code-sample {
+  @include clearfix();
+  border: 1px solid $color-grey-200;
+  background-color: $color-grey-50;
+
+  &.is-open {
+    .button-toggle:before {
+      content: 'Hide code';
     }
     pre {
-      display: none;
-      background-color: transparent;
-      overflow-y: hidden;
-      code {
-        background-color: transparent;
-      }     
+      display: block;
     }
   }
-
-  .preview + .code-sample {
-    margin-top: -2em;
-    border-top: 0px;
+  .button-toggle {
+    font-size: $small-font-size;
+    display: block;
+    padding: .5em $site-margins;
+    text-decoration: underline;
+    &:before {
+      content: 'Show code';
+    }
   }
+  pre {
+    display: none;
+    background-color: transparent;
+    overflow-y: hidden;
+    code {
+      background-color: transparent;
+    }     
+  }
+}
+
+.preview + .code-sample {
+  margin-top: -2em;
+  border-top: 0px;
 }
