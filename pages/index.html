@@ -25,37 +25,8 @@ title: Government-wide Pattern Library
   </div>  
 </div> 
 
-<h1>Visual Style</h1>
+{% include_relative visual-style.html %}
 
-{% for visual in site.visual %}
-<h2>{{ visual.title }}</h2> 
-<p>{{ visual.content }}</p>
-{% endfor %}
+{% include_relative layout-system.html %}
 
-<h1>Layout System</h1>
-
-{% for layout in site.layout-system %}
-<h2>{{ layout.title }}</h2>
-<p>{{ layout.content }}</p>
-{% endfor %}
-
-{% assign components = site.patterns | where:"type","component" %}
-{% assign elements = site.patterns | where:"type","element" %}
-
-<h1>Elements</h1>
-
-{% for element in elements %}
-<h2>{{ element.title }}</h2>
-<p>{ element.content }}</p>{
-{% endfor %}
-
-# Components
-
-{% for component in components %}
-<h2>{{ component.title }}</h2>
-<p>{{ component.content }}</p>
-{% endfor %}
-
-<a href="#">Text link</a>
-
-<button type="button">Button link</button>
+{% include_relative patterns.html %}
