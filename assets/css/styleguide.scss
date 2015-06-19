@@ -81,31 +81,20 @@ aside.sidenav {
   @include media($tablet-up + $width-nav-sidebar) {
     display: block;
   }
-  
-  h1 {
-    font-weight: bold;
-    font-size: $h3-font-size;
-    padding-bottom: 1.1em;
-    border-bottom: 1px solid #000;
-  }
-  .link-h1 {
-    font-size: $h5-font-size;
-    font-weight: bold;
-  }
-  ul {
-    li {
-      padding: .25em 0;
+
+  nav {
+    ul {
+      color: $color-grey-500;
+      li {
+        padding: .25em 0;
+      }
     }
-  }
 
-  ul ul {
-    padding-left: 1em;
-  }
-
-  a {
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
