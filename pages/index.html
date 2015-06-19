@@ -1,0 +1,66 @@
+---
+permalink: /
+layout: styleguide
+title: Government Wide Pattern Library
+---
+
+<h1>About this Guide</h1> 
+
+<p>This style guide is meant for as reference for designers, developers, as well as anyone else interested in the design and frontend concepts that make up the building blocks of federal government websites.</p>
+
+<h1>Component name</h1>
+
+<div class="preview">
+<!-- Add HTML markup for example here -->
+</div>
+
+<div class="grid-box">
+  <div class="grid-item width-one-half annotation">
+    <h3>Use</h3>
+    <p>This is where you'll find basic guidelines about the usage of a component. For example, a minimal palette, clear hierarchy, good information design, and ample whitespace will ensure a voice of authority and expertise in communication.</p>
+  </div>
+  <div class="grid-item width-one-half annotation">
+    <h3>Accessibility</h3>
+    <p>Accessibility is one of the most important aspects of modern web development. Accessibility means the greatest number of users can view your content.</p>
+  </div>  
+</div> 
+
+<h1>Visual Style</h1>
+
+{% for visual in site.visual %}
+  <a class="anchor" id="{{ visual.title | slugify }}"></a>
+	<h2>{{ visual.title }}</h2>
+	<p>{{ visual.content }}</p>
+{% endfor %}
+
+<h1>Layout System</h1> 
+
+{% for layout in site.layout-system %}
+  <a class="anchor" id="{{ layout.title | slugify }}"></a>
+	<h2>{{ layout.title }}</h2>
+	<p>{{ layout.content }}</p>
+{% endfor %}
+
+{% assign components = site.patterns | where:"type","component" %}
+{% assign elements = site.patterns | where:"type","element" %}
+
+<h1>Elements</h1>
+
+{% for element in elements %}
+  <a class="anchor" id="{{ element.title | slugify }}"></a>
+	<h2>{{ element.title }}</h2>
+	<p>{{ element.content }}</p>
+{% endfor %}
+
+
+<h1>Components</h1>
+
+{% for component in components %}
+  <a class="anchor" id="{{ component.title | slugify }}"></a>
+	<h2>{{ component.title }}</h2>
+	<p>{{ component.content }}</p>
+{% endfor %}
+
+<a href="#">Text link</a>
+
+<button type="button">Button link</button>

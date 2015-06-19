@@ -1,0 +1,13 @@
+---
+permalink: /visual-style/
+layout: styleguide
+title: Visual Style
+---
+
+<h1>Visual Style</h1>
+
+{% for visual in site.visual %}
+  <a class="anchor" id="{{ visual.title | slugify }}"></a>
+  <h2>{{ visual.title }}</h2>
+  <p>{{ visual.content }}</p>
+{% endfor %}

@@ -1,0 +1,13 @@
+---
+permalink: /layout-system/
+layout: styleguide
+title: Layout System
+---
+
+<h1>Layout System</h1> 
+
+{% for layout in site.layout-system %}
+  <a class="anchor" id="{{ layout.title | slugify }}"></a>
+  <h2>{{ layout.title }}</h2>
+  <p>{{ layout.content }}</p>
+{% endfor %}

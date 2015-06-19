@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+  - 2.2.0
+
+script: ./go build
+
+notifications:
+  email:
+    - julia.elman@gsa.gov
+    - maya.ben-ari@gsa.gov
+
+branches:
+  only:
+    - 18f-pages
+    - 18f-pages-staging
