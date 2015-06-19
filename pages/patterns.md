@@ -11,6 +11,7 @@ title: Patterns
 
 {% for element in elements %}
 ## {{ element.title }}
+{{ element.content }}
 {% endfor %}
 
 
@@ -18,4 +19,5 @@ title: Patterns
 
 {% for component in components %}
 ## {{ component.title }}
+{{ component.content }}
 {% endfor %}

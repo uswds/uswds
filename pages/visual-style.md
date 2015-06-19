@@ -8,4 +8,5 @@ title: Visual Style
 
 {% for visual in site.visual %}
 ## {{ visual.title }}
+{{ visual.content }}
 {% endfor %}
