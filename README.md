@@ -1,5 +1,7 @@
 # Government Wide Pattern Library
 
+[![Build Status](https://api.travis-ci.org/18F/govt-wide-patternlibrary.svg?branch=18f-pages-staging)](https://travis-ci.org/18F/govt-wide-patternlibrary)
+
 This is the repo for the government wide pattern library project.
 The structural setup of this repo is based off of the 18F pages project: 
 [https://github.com/18F/pages](https://github.com/18F/pages)
