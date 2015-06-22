@@ -17,9 +17,9 @@ $width-nav-sidebar: 250px;
 // Generic -------------- //
 
 .mobile-only {
-  display: none;
-  @include media(max-width: $mobile-up) {
-    display: block;
+  display: block;
+  @include media($mobile-up) {
+    display: none;
   }
 }
 
