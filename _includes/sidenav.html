@@ -2,54 +2,54 @@
 {% assign elements = site.patterns | where:"type","element" %}
 
 <div class="sidenav">
-	<nav>
-		<ul>
-			<li class="visual-style-list">
-				<h2>
-					<a href="{{ site.baseurl }}/visual-style/">Visual Style</a>
-				</h2>
-				<ul>
-				{% for visual in site.visual %}
-					<li><a href="{{ site.baseurl }}/visual-style/{{ visual.title | slugify }}">{{ visual.title }}</a></li>
-				{% endfor %}
-				</ul>
-			</li>
-			<li class="layout-systems-list">
-				<h2>
-					<a href="{{ site.baseurl }}/layout-system/">Layout System</a>
-				</h2>
-				<ul>
-				{% for layout in site.layout-system %}
-					<li>
-						<a href="{{ site.baseurl }}/layout-system/#{{ layout.title | slugify }}">{{ layout.title }}</a>
-					</li>
-				{% endfor %}
-				</ul>
-			</li>
-			<li class="patterns-list">
-				<h2>
-					<a href="{{ site.baseurl }}/layout-system/">Elements</a>
-				</h2>
-				<ul>
-					{% for element in elements %}
-					<li>
-						<a href="{{ site.baseurl }}/patterns/#{{ element.title | slugify }}">{{ element.title }}</a>
-					</li>
-					{% endfor %}
-				</ul>
-			</li>
-			<li class="patterns-list">
-				<h2>
-					<a href="{{ site.baseurl }}/layout-system/">Components</a>
-				</h2>
-				<ul>
-					{% for component in components %}
-					<li>
-						<a href="{{ site.baseurl }}/patterns/#{{ component.title | slugify }}">{{ component.title }}</a>
-					</li>
-					{% endfor %}
-				</ul>
-			</li>
-		</ul>
-	</nav>
+  <nav>
+    <ul>
+      <li class="visual-style-list">
+        <h2>
+          <a href="{{ site.baseurl }}/visual-style/">Visual Style</a>
+        </h2>
+        <ul>
+        {% for visual in site.visual %}
+          <li><a href="{{ site.baseurl }}/visual-style/{{ visual.title | slugify }}">{{ visual.title }}</a></li>
+        {% endfor %}
+        </ul>
+      </li>
+      <li class="layout-systems-list">
+        <h2>
+          <a href="{{ site.baseurl }}/layout-system/">Layout System</a>
+        </h2>
+        <ul>
+        {% for layout in site.layout-system %}
+          <li>
+            <a href="{{ site.baseurl }}/layout-system/#{{ layout.title | slugify }}">{{ layout.title }}</a>
+          </li>
+        {% endfor %}
+        </ul>
+      </li>
+      <li class="patterns-list">
+        <h2>
+          <a href="{{ site.baseurl }}/layout-system/">Elements</a>
+        </h2>
+        <ul>
+          {% for element in elements %}
+          <li>
+            <a href="{{ site.baseurl }}/patterns/#{{ element.title | slugify }}">{{ element.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li class="patterns-list">
+        <h2>
+          <a href="{{ site.baseurl }}/layout-system/">Components</a>
+        </h2>
+        <ul>
+          {% for component in components %}
+          <li>
+            <a href="{{ site.baseurl }}/patterns/#{{ component.title | slugify }}">{{ component.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>
+  </nav>
 </div>
