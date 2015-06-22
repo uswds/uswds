@@ -10,7 +10,7 @@
 				</h2>
 				<ul>
 				{% for visual in site.visual %}
-					<li><a href="#{{ visual.title | slugify }}">{{ visual.title }}</a></li>
+					<li><a href="{{ site.baseurl }}/visual-style/{{ visual.title | slugify }}">{{ visual.title }}</a></li>
 				{% endfor %}
 				</ul>
 			</li>
@@ -21,30 +21,31 @@
 				<ul>
 				{% for layout in site.layout-system %}
 					<li>
-						<a href="#{{ layout.title | slugify }}">{{ layout.title }}</a>
+						<a href="{{ site.baseurl }}/layout-system/#{{ layout.title | slugify }}">{{ layout.title }}</a>
 					</li>
 				{% endfor %}
 				</ul>
 			</li>
 			<li class="patterns-list">
 				<h2>
-					<a href="{{ site.baseurl }}/patterns/">Patterns</a>	
+					<a href="{{ site.baseurl }}/layout-system/">Elements</a>
 				</h2>
-				<ul class="patterns-list-item">
-					<h3>Elements</h3>
+				<ul>
 					{% for element in elements %}
 					<li>
-						<a href="#{{ element.title | slugify }}">{{ element.title }}</a>
+						<a href="{{ site.baseurl }}/patterns/#{{ element.title | slugify }}">{{ element.title }}</a>
 					</li>
 					{% endfor %}
 				</ul>
 			</li>
-			<li>
-				<ul class="patterns-list-item">
-					<h3>Components</h3>
+			<li class="patterns-list">
+				<h2>
+					<a href="{{ site.baseurl }}/layout-system/">Components</a>
+				</h2>
+				<ul>
 					{% for component in components %}
 					<li>
-						<a href="#{{ component.title | slugify }}">{{ component.title }}</a>
+						<a href="{{ site.baseurl }}/patterns/#{{ component.title | slugify }}">{{ component.title }}</a>
 					</li>
 					{% endfor %}
 				</ul>
