@@ -4,11 +4,9 @@ layout: styleguide
 title: Elements
 ---
 
-{% assign elements = site.patterns | where:"type","element" %}
-
 <h1>Elements</h1>
 
-{% for element in elements %}
+{% for element in site.elements %}
   <a class="anchor" id="{{ element.title | slugify }}"></a>
   <h2>{{ element.title }}</h2>
   <p>{{ element.content }}</p>

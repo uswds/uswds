@@ -39,7 +39,7 @@
           <a href="{{ site.baseurl }}/elements/">Elements</a>
         </h2>
         <ul>
-          {% for element in elements %}
+          {% for element in site.elements %}
           <li>
             <a href="{{ site.baseurl }}/elements/#{{ element.title | slugify }}">{{ element.title }}</a>
           </li>
@@ -51,7 +51,7 @@
           <a href="{{ site.baseurl }}/components/">Components</a>
         </h2>
         <ul>
-          {% for component in components %}
+          {% for component in site.components %}
           <li>
             <a href="{{ site.baseurl }}/components/#{{ component.title | slugify }}">{{ component.title }}</a>
           </li>
