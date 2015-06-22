@@ -1,17 +1,23 @@
 {% assign components = site.patterns | where:"type","component" %}
 {% assign elements = site.patterns | where:"type","element" %}
 
-<aside class="sidenav">
+<aside class="sidenav" id="menu-content">
 	<nav>
 		<ul>
+			<li class="mobile-only">
+				<a href="{{ site.baseurl }}/">Home</a>
+			</li>
+			<li class="mobile-only">
+				<a href="{{ site.baseurl }}/about/">About</a>
+			</li>
 			<li class="visual-style-list">
 				<h2>
 					<a href="{{ site.baseurl }}/visual-style/">Visual Style</a>
 				</h2>
 				<ul>
-				{% for visual in site.visual %}
+					{% for visual in site.visual %}
 					<li><a href="#{{ visual.title | slugify }}">{{ visual.title }}</a></li>
-				{% endfor %}
+					{% endfor %}
 				</ul>
 			</li>
 			<li class="layout-systems-list">
@@ -19,11 +25,11 @@
 					<a href="{{ site.baseurl }}/layout-system/">Layout System</a>
 				</h2>
 				<ul>
-				{% for layout in site.layout-system %}
+					{% for layout in site.layout-system %}
 					<li>
 						<a href="#{{ layout.title | slugify }}">{{ layout.title }}</a>
 					</li>
-				{% endfor %}
+					{% endfor %}
 				</ul>
 			</li>
 			<li class="patterns-list">
