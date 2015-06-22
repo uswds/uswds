@@ -154,24 +154,9 @@ header[role="banner"] {
           padding-left: 1em;          
         }
       }
-      
       li {
         font-family: $font-sans;
         padding: .25em 0;
-      }
-    }
-    .patterns-list h3 {
-      &:first-child {
-        padding-top: 0.75em;
-      }
-    }    
-    .patterns-list-item {
-      padding-left: 1em;
-      h3 {
-        padding-bottom: .25em;
-      }
-      li {
-        padding-left: 0;
       }
     }
     a {

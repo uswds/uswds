@@ -1,0 +1,15 @@
+---
+permalink: /components/
+layout: styleguide
+title: Components
+---
+
+{% assign components = site.patterns | where:"type","component" %}
+
+<h1>Components</h1>
+
+{% for component in components %}
+  <a class="anchor" id="{{ component.title | slugify }}"></a>
+  <h2>{{ component.title }}</h2>
+  <p>{{ component.content }}</p>
+{% endfor %}
