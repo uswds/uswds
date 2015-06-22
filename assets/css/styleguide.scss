@@ -16,10 +16,10 @@ $width-nav-sidebar: 250px;
 
 // Generic -------------- //
 
-.mobile-only {
-  display: block;
-  @include media($mobile-up) {
-    display: none;
+.tablet-only {
+  display: none;
+  @media (max-width: $tablet-up + $width-nav-sidebar) {
+    display: block;
   }
 }
 
@@ -76,31 +76,33 @@ header[role="banner"] {
 #menu-btn {
   display: inline;
   padding-left: 20px;
-  @include media($tablet-up) {
+  @include media($tablet-up + $width-nav-sidebar) {
     display: none;
   }
 }
 
 #menu-content{
-  $sliding-panel-width: 220px;
+  @media (max-width: $tablet-up + $width-nav-sidebar) {
+    $sliding-panel-width: 220px;
 
-  @include position(fixed, 0 auto 0 0);
-  @include size($sliding-panel-width 100%);
-  @include transform(translateX(- $sliding-panel-width));
-  @include transition(all 0.25s linear);
-  background: #fff;
-  -webkit-overflow-scrolling: touch;
-  overflow-y: auto;
-  z-index: 999999;
-  display: block;
-  ul {
-    padding: 14px;
-    font-weight: 300;
-    line-height: 1.8em;
-  }
-  &.is-visible {
+    @include position(fixed, 0 auto 0 0);
+    @include size($sliding-panel-width 100%);
+    @include transform(translateX(- $sliding-panel-width));
+    @include transition(all 0.25s linear);
+    background: #fff;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    z-index: 999999;
     display: block;
-    @include transform(translateX(0));
+    ul {
+      padding: 14px;
+      font-weight: 300;
+      line-height: 1.8em;
+    }
+    &.is-visible {
+      display: block;
+      @include transform(translateX(0));
+    }
   }
 }
 
