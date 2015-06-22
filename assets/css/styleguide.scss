@@ -18,22 +18,22 @@ $width-nav-sidebar: 250px;
 // Navigation ------------- //
 
 a#skipnav {
-    padding: 10px 15px;
+  padding: 10px 15px;
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  color: $color-grey-900;
+  background: transparent;
+  @include transition(top 1s ease-out, background 1s linear);
+  z-index: 100;
+  &:focus {
     position: absolute;
-    top: -40px;
     left: 0px;
-    color: $color-grey-900;
-    background: transparent;
-    @include transition(top 1s ease-out, background 1s linear);
-    z-index: 100;
-    &:focus {
-      position: absolute;
-      left: 0px;
-      top: 0px;
-      background: white;
-      outline: 0;
-      @include transition(top .1s ease-in, background .5s linear);
-    }
+    top: 0px;
+    background: white;
+    outline: 0;
+    @include transition(top .1s ease-in, background .5s linear);
+  }
 }
 
 header[role="banner"] {
@@ -64,7 +64,9 @@ header[role="banner"] {
   }
 }
 
-aside.sidenav {
+// Sidebar Nav --------- //
+
+.sidenav {
   position: absolute;
   top: 45px;
   bottom: 0;
@@ -72,7 +74,7 @@ aside.sidenav {
   width: $width-nav-sidebar;
   background-color: $color-grey-50;
   border-right: 1px solid $color-grey-200;
-  padding: 1em 2em;
+  padding: 5rem 2em 2em;
   overflow: auto;
   display: none;
   .lt-ie9 & {
@@ -84,13 +86,28 @@ aside.sidenav {
   }
 
   nav {
+    h2, 
+    h3 {
+      font-size: $h4-font-size;
+      font-weight: bold;
+      margin: 0;
+    }
+    h3 {
+      margin: 0;
+    }  
     ul {
-      color: $color-grey-500;
+      color: $color-main;
+      ul {
+        padding: 0;
+        li {
+          padding-left: 1em;          
+        }
+      }
       li {
+        font-family: $font-sans;
         padding: .25em 0;
       }
     }
-
     a {
       text-decoration: none;
       &:hover {
@@ -134,6 +151,7 @@ aside.sidenav {
   > h1 {
     border-bottom: 1px solid #000;
     padding-bottom: .5em;
+    margin-top: 3.4rem;
     &:not(:first-child) {
       margin-top: 2em;
     }
