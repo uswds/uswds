@@ -39,12 +39,9 @@ title: Government Wide Pattern Library
 	<p>{{ layout.content }}</p>
 {% endfor %}
 
-{% assign components = site.patterns | where:"type","component" %}
-{% assign elements = site.patterns | where:"type","element" %}
-
 <h1>Elements</h1>
 
-{% for element in elements %}
+{% for element in site.elements %}
 	<h2>{{ element.title }}</h2>
 	<p>{{ element.content }}</p>
 {% endfor %}
@@ -52,7 +49,7 @@ title: Government Wide Pattern Library
 
 <h1>Components</h1>
 
-{% for component in components %}
+{% for component in site.components %}
 	<h2>{{ component.title }}</h2>
 	<p>{{ component.content }}</p>
 {% endfor %}
