@@ -1,7 +1,7 @@
 ---
 layout: default
 type: component
-title: Accordians
+title: Accordions
 ---
 
 <div class="preview">
