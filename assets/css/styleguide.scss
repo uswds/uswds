@@ -14,6 +14,15 @@
 
 $width-nav-sidebar: 250px;
 
+// Generic -------------- //
+
+.mobile-only {
+  display: none;
+  @include media(max-width: $mobile-up) {
+    display: block;
+  }
+}
+
 
 // Navigation ------------- //
 
@@ -63,6 +72,52 @@ header[role="banner"] {
     }
   }
 }
+
+#menu-btn {
+  display: inline;
+  padding-left: 20px;
+  @include media($tablet-up) {
+    display: none;
+  }
+}
+
+#menu-content{
+  $sliding-panel-width: 220px;
+
+  @include position(fixed, 0 auto 0 0);
+  @include size($sliding-panel-width 100%);
+  @include transform(translateX(- $sliding-panel-width));
+  @include transition(all 0.25s linear);
+  background: #fff;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  z-index: 999999;
+  display: block;
+  ul {
+    padding: 14px;
+    font-weight: 300;
+    line-height: 1.8em;
+  }
+  &.is-visible {
+    display: block;
+    @include transform(translateX(0));
+  }
+}
+
+.overlay {
+  @include position(fixed, 0 0 0 0);
+  @include transition;
+  background: #000;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 9999;
+
+  &.is-visible {
+    visibility: visible;
+  }
+}
+
+// Based on code by Diego Eis
 
 // Sidebar Nav --------- //
 
