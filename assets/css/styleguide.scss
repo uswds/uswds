@@ -81,26 +81,20 @@ header[role="banner"] {
   }
 }
 
-#menu-content{
+#menu-content {
   @media (max-width: $tablet-up + $width-nav-sidebar) {
     $sliding-panel-width: 220px;
 
     @include position(fixed, 0 auto 0 0);
     @include size($sliding-panel-width 100%);
     @include transform(translateX(- $sliding-panel-width));
-    @include transition(all 0.25s linear);
     background: #fff;
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
     z-index: 999999;
     display: block;
-    ul {
-      padding: 14px;
-      font-weight: 300;
-      line-height: 1.8em;
-    }
     &.is-visible {
-      display: block;
+      @include transition(all 0.25s linear);
       @include transform(translateX(0));
     }
   }
