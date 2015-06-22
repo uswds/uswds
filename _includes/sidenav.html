@@ -8,7 +8,7 @@
 		</h2>
 		<ul>
 		{% for visual in site.visual %}
-			<li><a href="#{{ visual.title | slugify }}">{{ visual.title }}</a></li>
+			<li><a href="{{ site.baseurl }}/visual-style/#{{ visual.title | slugify }}">{{ visual.title }}</a></li>
 		{% endfor %}
 		</ul>
 		<h2>
@@ -17,7 +17,7 @@
 		<ul>
 		{% for layout in site.layout-system %}
 			<li>
-				<a href="#{{ layout.title | slugify }}">{{ layout.title }}</a>
+				<a href="{{ site.baseurl }}/layout-system/#{{ layout.title | slugify }}">{{ layout.title }}</a>
 			</li>
 		{% endfor %}
 		</ul>
@@ -28,7 +28,7 @@
 			<h3>ELEMENTS</h3>
 			{% for element in elements %}
 			<li>
-				<a href="#{{ element.title | slugify }}">{{ element.title }}</a>
+				<a href="{{ site.baseurl }}/patterns/#{{ element.title | slugify }}">{{ element.title }}</a>
 			</li>
 			{% endfor %}
 		</ul>
@@ -36,7 +36,7 @@
 			<h3>COMPONENTS</h3>
 			{% for component in components %}
 			<li>
-				<a href="#{{ component.title | slugify }}">{{ component.title }}</a>
+				<a href="{{ site.baseurl }}/patterns/#{{ component.title | slugify }}">{{ component.title }}</a>
 			</li>
 			{% endfor %}
 		</ul>
