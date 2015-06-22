@@ -38,5 +38,9 @@ collections:
   layout-system:
     output: true
     permalink: /layout-system/:path/
-  patterns:
+  elements:
     output: true
+    permalink: /elements/:path/
+  components:
+    output: true
+    permalink: /components/:path/
