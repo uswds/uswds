@@ -233,6 +233,12 @@ header[role="banner"] {
   }
 }
 
+// ***** TEMPORARY FIX - REMOVE AFTER CONTENT IS ADDED ***** //
+
+.styleguide-content {
+  padding-bottom: 25em;
+}
+
 // Pattern Preview Boxes -------- //
 
 .preview {
