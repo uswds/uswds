@@ -35,6 +35,9 @@ collections:
   visual:
     output: true
     permalink: /visual-style/:path/
+  content:
+    output: true
+    permalink: /content-style/:path/
   layout-system:
     output: true
     permalink: /layout-system/:path/
