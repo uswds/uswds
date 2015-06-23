@@ -147,9 +147,10 @@ header[role="banner"] {
       margin: 0;
     }  
     ul {
-      color: $color-main;
+      color: $color-main;      
       ul {
-        padding: 0;
+        display: none;
+        padding: 0;        
         li {
           padding-left: 1em;          
         }
@@ -168,6 +169,26 @@ header[role="banner"] {
   }
 }
 
+.visual-style .sidenav .visual-style-list {
+  ul {
+    display: block;
+  }
+}
+.layout-system .sidenav .layout-systems-list {
+  ul {
+    display: block;
+  }
+}
+.elements .sidenav .elements-list {
+  ul {
+    display: block;
+  }
+}
+.components .sidenav .components-list {
+  ul {
+    display: block;
+  }
+} 
 
 // Main Content --------- //
 
@@ -210,6 +231,12 @@ header[role="banner"] {
   > h2, > h3 {
     margin-top: 2em;
   }
+}
+
+// ***** TEMPORARY FIX - REMOVE AFTER CONTENT IS ADDED ***** //
+
+.styleguide-content {
+  padding-bottom: 25em;
 }
 
 // Pattern Preview Boxes -------- //
