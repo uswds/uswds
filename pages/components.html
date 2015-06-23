@@ -8,7 +8,6 @@ slug: components
 <h1>Components</h1>
 
 {% for component in site.components %}
-  <a class="anchor" id="{{ component.title | slugify }}"></a>
-  <h2>{{ component.title }}</h2>
+  <h2 id="{{ component.title | slugify }}">{{ component.title }}</h2>
   <p>{{ component.content }}</p>
 {% endfor %}
