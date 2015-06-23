@@ -148,9 +148,10 @@ header[role="banner"] {
     }  
     ul {
       color: $color-main;
+
       ul {
         display: none;
-        padding: 0;
+        padding: 0;        
         li {
           padding-left: 1em;          
         }
@@ -168,6 +169,7 @@ header[role="banner"] {
     }
   }
 }
+
 
 
 // Main Content --------- //
