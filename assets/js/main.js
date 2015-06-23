@@ -4,3 +4,12 @@ $(function(){
     e.preventDefault();
   });
 });
+
+$('.sidenav nav a').click(function(e) {
+  e.preventDefault();
+  var hashLocation = $(this).attr('href');
+  $('.main-content').animate({
+    scrollTop: $(hashLocation).position().top
+  }, 200);
+  window.location.hash = hashLocation;
+});
