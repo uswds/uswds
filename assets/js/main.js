@@ -5,7 +5,7 @@ $(function(){
   });
 });
 
-$('.sidenav nav a').click(function(e) {
+$('.secondary-sidenav-link').click(function(e) {
   e.preventDefault();
   var hashLocation = $(this).attr('href').split('#')[1]; // long url splitting
   $('.main-content').animate({
