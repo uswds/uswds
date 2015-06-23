@@ -1,0 +1,14 @@
+---
+permalink: /content-style/
+layout: styleguide
+title: Content Style
+slug: content-style
+---
+
+<h1>Content Style</h1>
+
+{% for content in site.content %}
+  <a class="anchor" id="{{ content.title | slugify }}"></a>
+  <h2>{{ content.title }}</h2>
+  <p>{{ content.content }}</p>
+{% endfor %}
