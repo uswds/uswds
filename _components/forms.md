@@ -20,7 +20,7 @@ title: Forms
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Radio_Buttons_UI_v1.png">
+  <img src="{{ site.baseurl }}/assets/img/static/SSN_UI_v1.png">
 </div>
 
 <h2>Login</h2>
