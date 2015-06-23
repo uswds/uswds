@@ -148,7 +148,7 @@ header[role="banner"] {
     }  
     ul {
       color: $color-main;
-
+      }      
       ul {
         display: none;
         padding: 0;        
@@ -170,7 +170,26 @@ header[role="banner"] {
   }
 }
 
-
+.visual-style .sidenav .visual-style-list {
+  ul {
+    display: block;
+  }
+}
+.layout-system .sidenav .layout-systems-list {
+  ul {
+    display: block;
+  }
+}
+.elements .sidenav .elements-list {
+  ul {
+    display: block;
+  }
+}
+.componentss .sidenav .components-list {
+  ul {
+    display: block;
+  }
+} 
 
 // Main Content --------- //
 
