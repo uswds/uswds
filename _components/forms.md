@@ -44,13 +44,6 @@ title: Forms
   <img src="{{ site.baseurl }}/assets/img/static/Contact-Form_UI_v1.png">
 </div>
 
-<h2>Social Security</h2>
-
-<div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Radio_Buttons_UI_v1.png">
-</div> 
-
 <div class="grid-box">
   <div class="grid-item width-one-half annotation">
     <h3>Use</h3>
