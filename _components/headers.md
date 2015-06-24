@@ -1,7 +1,7 @@
 ---
 layout: default
 type: component
-title: Headers
+title: Headers & Navigation
 ---
 
 <div class="preview">
