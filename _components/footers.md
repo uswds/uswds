@@ -1,11 +1,12 @@
 ---
 layout: default
 type: component
-title: Headers
+title: Footers
 ---
 
 <div class="preview">
-<!-- Add HTML markup for example here -->
+  <!-- Add HTML markup for example here -->
+  <img src="{{ site.baseurl }}/assets/img/static/Footer_FullUI_v1-930width.png">
 </div>
 
 <div class="grid-box">

@@ -14,26 +14,35 @@
 
 $width-nav-sidebar: 250px;
 
+// Generic -------------- //
+
+.tablet-only {
+  display: none;
+  @media (max-width: $tablet-up + $width-nav-sidebar) {
+    display: block;
+  }
+}
+
 
 // Navigation ------------- //
 
 a#skipnav {
-    padding: 10px 15px;
+  padding: 10px 15px;
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  color: $color-grey-900;
+  background: transparent;
+  @include transition(top 1s ease-out, background 1s linear);
+  z-index: 100;
+  &:focus {
     position: absolute;
-    top: -40px;
     left: 0px;
-    color: $color-grey-900;
-    background: transparent;
-    @include transition(top 1s ease-out, background 1s linear);
-    z-index: 100;
-    &:focus {
-      position: absolute;
-      left: 0px;
-      top: 0px;
-      background: white;
-      outline: 0;
-      @include transition(top .1s ease-in, background .5s linear);
-    }
+    top: 0px;
+    background: white;
+    outline: 0;
+    @include transition(top .1s ease-in, background .5s linear);
+  }
 }
 
 header[role="banner"] {
@@ -64,7 +73,51 @@ header[role="banner"] {
   }
 }
 
-aside.sidenav {
+#menu-btn {
+  display: inline;
+  padding-left: 20px;
+  @include media($tablet-up + $width-nav-sidebar) {
+    display: none;
+  }
+}
+
+#menu-content {
+  @media (max-width: $tablet-up + $width-nav-sidebar) {
+    $sliding-panel-width: 220px;
+
+    @include position(fixed, 0 auto 0 0);
+    @include size($sliding-panel-width 100%);
+    @include transform(translateX(- $sliding-panel-width));
+    background: #fff;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    z-index: 999999;
+    display: block;
+    &.is-visible {
+      @include transition(all 0.25s linear);
+      @include transform(translateX(0));
+    }
+  }
+}
+
+.overlay {
+  @include position(fixed, 0 0 0 0);
+  @include transition;
+  background: #000;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 9999;
+
+  &.is-visible {
+    visibility: visible;
+  }
+}
+
+// Based on code by Diego Eis
+
+// Sidebar Nav --------- //
+
+.sidenav {
   position: absolute;
   top: 45px;
   bottom: 0;
@@ -72,7 +125,7 @@ aside.sidenav {
   width: $width-nav-sidebar;
   background-color: $color-grey-50;
   border-right: 1px solid $color-grey-200;
-  padding: 1em 2em;
+  padding: 5rem 2em 2em;
   overflow: auto;
   display: none;
   .lt-ie9 & {
@@ -84,13 +137,29 @@ aside.sidenav {
   }
 
   nav {
+    h2, 
+    h3 {
+      font-size: $h4-font-size;
+      font-weight: bold;
+      margin: 0;
+    }
+    h3 {
+      margin: 0;
+    }  
     ul {
-      color: $color-grey-500;
+      color: $color-main;      
+      ul {
+        display: none;
+        padding: 0;        
+        li {
+          padding-left: 1em;          
+        }
+      }
       li {
+        font-family: $font-sans;
         padding: .25em 0;
       }
     }
-
     a {
       text-decoration: none;
       &:hover {
@@ -100,6 +169,26 @@ aside.sidenav {
   }
 }
 
+.visual-style .sidenav .visual-style-list {
+  ul {
+    display: block;
+  }
+}
+.layout-system .sidenav .layout-systems-list {
+  ul {
+    display: block;
+  }
+}
+.elements .sidenav .elements-list {
+  ul {
+    display: block;
+  }
+}
+.components .sidenav .components-list {
+  ul {
+    display: block;
+  }
+} 
 
 // Main Content --------- //
 
@@ -134,13 +223,20 @@ aside.sidenav {
   > h1 {
     border-bottom: 1px solid #000;
     padding-bottom: .5em;
+    margin-top: 3.4rem;
     &:not(:first-child) {
       margin-top: 2em;
     }
   }
   > h2, > h3 {
-    margin-top: 2em;
+    padding-top: 52px;
   }
+}
+
+// ***** TEMPORARY FIX - REMOVE AFTER CONTENT IS ADDED ***** //
+
+.styleguide-content {
+  padding-bottom: 25em;
 }
 
 // Pattern Preview Boxes -------- //
@@ -156,6 +252,9 @@ aside.sidenav {
   border: 1px solid $color-grey-200;
   .is-peripheral {
     opacity: .2;
+  }
+  img {
+  max-width: 100%;
   }
 }
 

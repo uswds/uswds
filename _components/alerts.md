@@ -1,11 +1,12 @@
 ---
 layout: default
 type: component
-title: Accordians
+title: Alerts
 ---
 
 <div class="preview">
-<!-- Add HTML markup for example here -->
+  <!-- Add HTML markup for example here -->
+  <img src="{{ site.baseurl }}/assets/img/static/Alerts_UI_v1.png">
 </div>
 
 <div class="grid-box">

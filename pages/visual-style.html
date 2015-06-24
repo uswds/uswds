@@ -2,12 +2,12 @@
 permalink: /visual-style/
 layout: styleguide
 title: Visual Style
+slug: visual-style
 ---
 
 <h1>Visual Style</h1>
 
 {% for visual in site.visual %}
-  <a class="anchor" id="{{ visual.title | slugify }}"></a>
-  <h2>{{ visual.title }}</h2>
+  <h2 id="{{ visual.title | slugify }}">{{ visual.title }}</h2>
   <p>{{ visual.content }}</p>
 {% endfor %}

@@ -1,44 +1,63 @@
 {% assign components = site.patterns | where:"type","component" %}
 {% assign elements = site.patterns | where:"type","element" %}
 
-<aside class="sidenav">
-	<nav>
-		<h2>
-			<a href="{{ site.baseurl }}/visual-style/">Visual Style</a>
-		</h2>
-		<ul>
-		{% for visual in site.visual %}
-			<li><a href="#{{ visual.title | slugify }}">{{ visual.title }}</a></li>
-		{% endfor %}
-		</ul>
-		<h2>
-			<a href="{{ site.baseurl }}/layout-system/">Layout System</a>
-		</h2>
-		<ul>
-		{% for layout in site.layout-system %}
-			<li>
-				<a href="#{{ layout.title | slugify }}">{{ layout.title }}</a>
-			</li>
-		{% endfor %}
-		</ul>
-		<h2>
-			<a href="{{ site.baseurl }}/patterns/">Patterns</a>	
-		</h2>
-		<ul>
-			<h3>ELEMENTS</h3>
-			{% for element in elements %}
-			<li>
-				<a href="#{{ element.title | slugify }}">{{ element.title }}</a>
-			</li>
-			{% endfor %}
-		</ul>
-		<ul>
-			<h3>COMPONENTS</h3>
-			{% for component in components %}
-			<li>
-				<a href="#{{ component.title | slugify }}">{{ component.title }}</a>
-			</li>
-			{% endfor %}
-		</ul>
-	</nav>
+<aside class="sidenav" id="menu-content">
+  <nav>
+    <ul>
+      <li class="tablet-only">
+        <a href="{{ site.baseurl }}/">Home</a>
+      </li>
+      <li class="tablet-only">
+        <a href="{{ site.baseurl }}/about/">About</a>
+      </li>
+      <li class="visual-style-list">
+        <h2>
+          <a href="{{ site.baseurl }}/visual-style/">Visual Style</a>
+        </h2>
+        <ul>
+          {% for visual in site.visual %}
+            <li>
+              <a href="{{ site.baseurl }}/visual-style/#{{ visual.title | slugify }}">{{ visual.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li class="layout-systems-list">
+        <h2>
+          <a href="{{ site.baseurl }}/layout-system/">Layout System</a>
+        </h2>
+        <ul>
+          {% for layout in site.layout-system %}
+          <li>
+            <a href="{{ site.baseurl }}/layout-system/#{{ layout.title | slugify }}">{{ layout.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li class="elements-list">
+        <h2>
+          <a href="{{ site.baseurl }}/elements/">Elements</a>
+        </h2>
+        <ul>
+          {% for element in site.elements %}
+          <li>
+            <a href="{{ site.baseurl }}/elements/#{{ element.title | slugify }}">{{ element.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li class="components-list">
+        <h2>
+          <a href="{{ site.baseurl }}/components/">Components</a>
+        </h2>
+        <ul>
+          {% for component in site.components %}
+          <li>
+            <a href="{{ site.baseurl }}/components/#{{ component.title | slugify }}">{{ component.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>
+  </nav>
 </aside>
