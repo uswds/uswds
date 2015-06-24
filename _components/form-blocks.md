@@ -1,47 +1,47 @@
 ---
 layout: default
 type: component
-title: Forms
+title: Forms Blocks
 ---
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Text_Input_UI_v1.png">
+  <img src="{{ site.baseurl }}/assets/img/static/USAddressForm_UI_v1.png">
 </div>
 
-<h2>Checkboxes</h2>
+<h2>Name</h2>
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Checkboxes_UI_v1.png">
+  <img src="{{ site.baseurl }}/assets/img/static/NameBlock_UI_v1.png">
 </div>
 
-<h2>Radio Buttons</h2>
+<h2>Social Security</h2>
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Radio_Buttons_UI_v1.png">
+  <img src="{{ site.baseurl }}/assets/img/static/SSN_UI_v1.png">
 </div>
 
-<h2>Range Slider</h2>
+<h2>Login</h2>
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Range_Slider_UI_v1.png">
+  <img src="{{ site.baseurl }}/assets/img/static/Login_UI_v1.png">
 </div>
 
-<h2>Dropdown</h2>
+<h2>Password Reset</h2>
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Dropdown_UI_v1.png">
-</div>
+  <img src="{{ site.baseurl }}/assets/img/static/PasswordReset_UI_v1.png">
+</div> 
 
-<h2>Date Picker</h2>
+<h2>Contact Form</h2>
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Date_Picker_UI_v1.png">
+  <img src="{{ site.baseurl }}/assets/img/static/Contact-Form_UI_v1.png">
 </div>
 
 <div class="grid-box">
