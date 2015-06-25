@@ -4,7 +4,7 @@
 
 Welcome to the repo for the US government web pattern library project. This site is currently under development and your feedback is important to us as we build this site and we encourage you to contribute your input at https://github.com/18F/govt-wide-patternlibrary/issues
 
-This project is a partnership of the US Digital Service (https://github.com/18F/pages) and 18F (https://18f.gsa.gov) with the support of partners across the Federal Government. If you'd like to learn more, please email govtwidepatternlibrary@gsa.gov.
+This project is a partnership of the US Digital Service (https://whitehouse.gov/usds) and 18F (https://18f.gsa.gov) with the support of partners across the Federal Government. If you'd like to learn more, please email govtwidepatternlibrary@gsa.gov.
 
 The structural setup of this repo is based off of the 18F pages project: 
 [https://github.com/18F/pages](https://github.com/18F/pages)
