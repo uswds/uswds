@@ -47,30 +47,60 @@ a#skipnav {
 
 header[role="banner"] {
   background-color: $color-grey-900;
-  height: 45px;
-  line-height: 45px;
   a { color: white; }
-  h1 {
-    font-weight: normal;
-    float: left;
+  nav {
+    height: 45px;
     line-height: 45px;
-    margin: 0;
-    padding-left: 20px;
-    font-size: $base-font-size * 1.25;
-  }
-  ul {
-    float: right;
-    padding-right: 20px;
-    display: none;
-    li { 
-      display: inline; 
-      margin-left: 15px;
-      font-family: $font-sans;
+    h1 {
+      font-weight: normal;
+      float: left;
+      line-height: 45px;
+      margin: 0;
+      padding-left: 20px;
+      font-size: $base-font-size * 1.25;
     }
-    @include media($mobile-up) {
+    ul {
+      float: right;
+      padding-right: 20px;
+      display: none;
+      li { 
+        display: inline; 
+        margin-left: 15px;
+        font-family: $font-sans;
+      }
+      @include media($mobile-up) {
+        display: block;
+      }
+    }
+  }
+
+  .disclaimer {
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+    font-size: $base-font-size / 1.25;
+    border-bottom: 1px solid $color-grey-700;
+    font-weight: 100;
+    a { text-decoration: underline; }
+    .us-official { 
+      margin: 0;
+    }
+    .stage { 
+      float: none;
       display: block;
+      padding-top: 5px;
+    }
+    @include media($tablet-up + $width-nav-sidebar) {
+      .us-official { 
+        margin-left: 177px; 
+      }
+      .stage { 
+        float: right; 
+        padding: 0;
+      }
     }
   }
+
 }
 
 #menu-btn {
@@ -119,7 +149,7 @@ header[role="banner"] {
 
 .sidenav {
   position: absolute;
-  top: 45px;
+  top: 83px;
   bottom: 0;
   left: 0;
   width: $width-nav-sidebar;
@@ -194,7 +224,7 @@ header[role="banner"] {
 
 .main-content {
   position: absolute;
-  top: 45px;
+  top: 83px;
   bottom: 0;
   right: 0;
   overflow: auto;

@@ -17,7 +17,7 @@
         <ul>
           {% for visual in site.visual %}
             <li>
-              <a href="{{ site.baseurl }}/visual-style/#{{ visual.title | slugify }}">{{ visual.title }}</a>
+              <a class="secondary-sidenav-link" href="{{ site.baseurl }}/visual-style/#{{ visual.title | slugify }}">{{ visual.title }}</a>
             </li>
           {% endfor %}
         </ul>
@@ -29,7 +29,7 @@
         <ul>
           {% for layout in site.layout-system %}
           <li>
-            <a href="{{ site.baseurl }}/layout-system/#{{ layout.title | slugify }}">{{ layout.title }}</a>
+            <a class="secondary-sidenav-link" href="{{ site.baseurl }}/layout-system/#{{ layout.title | slugify }}">{{ layout.title }}</a>
           </li>
           {% endfor %}
         </ul>
@@ -41,7 +41,7 @@
         <ul>
           {% for element in site.elements %}
           <li>
-            <a href="{{ site.baseurl }}/elements/#{{ element.title | slugify }}">{{ element.title }}</a>
+            <a class="secondary-sidenav-link" href="{{ site.baseurl }}/elements/#{{ element.title | slugify }}">{{ element.title }}</a>
           </li>
           {% endfor %}
         </ul>
@@ -53,7 +53,7 @@
         <ul>
           {% for component in site.components %}
           <li>
-            <a href="{{ site.baseurl }}/components/#{{ component.title | slugify }}">{{ component.title }}</a>
+            <a class="secondary-sidenav-link" href="{{ site.baseurl }}/components/#{{ component.title | slugify }}">{{ component.title }}</a>
           </li>
           {% endfor %}
         </ul>
