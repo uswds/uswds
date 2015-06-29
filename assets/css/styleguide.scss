@@ -8,7 +8,7 @@
 @import 'core/grid-settings';
 @import 'core/defaults';
 @import 'core/utilities';
-
+@import 'themes/usa';
 
 // Variables -------------- //
 
@@ -177,7 +177,7 @@ header[role="banner"] {
       margin: 0;
     }  
     ul {
-      color: $color-main;      
+      color: $color-primary;      
       ul {
         display: none;
         padding: 0;        
