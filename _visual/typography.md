@@ -20,12 +20,26 @@ title: Typography
 
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-
   <!-- Links title -->
   <h3>Links</h3>
 
   <p>This is <a href="#">linked text</a></p>
   <p>This is <a href="#">linked text</a></p>
+
+  <!-- Lists title -->
+  <h3>Lists</h3>
+
+  <ul>
+    <li>Unordered list item</li>
+    <li>Unordered list item</li>
+    <li>Unordered list item</li>
+  </ul>
+
+  <ol>
+    <li>Ordered list item</li>
+    <li>Ordered list item</li>
+    <li>Ordered list item</li>
+  </ol>
 
   <img src="{{ site.baseurl }}/assets/img/static/Typography_UI_v1.png">
 </div>
