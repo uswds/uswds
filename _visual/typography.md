@@ -24,8 +24,8 @@ title: Typography
   <!-- Links title -->
   <h3>Links</h3>
 
-  <p>This is <a href="#">linked text</a></p>
-  <p>This is <a class="usa-link" href="#">linked text</a></p>
+  <p>This is <a href="#">linked text</a> for body copy</p>
+  <p>This is <a class="usa-link" href="#">linked text</a> for everything else</p>
 
   <!-- Lists title -->
   <h3>Lists</h3>
