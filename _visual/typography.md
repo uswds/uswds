@@ -9,6 +9,7 @@ title: Typography
   <!-- Heading title -->
   <h3>Headings</h3>
 
+  <h3 class="usa-display">Display 48px in Source Sans Pro 700</h3>
   <h1>Heading 1 in 36px in Source Sans Pro 700</h1>
   <h2>Heading 2 in 24px in Source Sans Pro 700</h2>
   <h3>Heading 3 in 19px in Source Sans Pro 700</h3>
