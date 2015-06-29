@@ -1,6 +1,7 @@
 // Colors
-$color-main:        #0071bc;
-$color-main-dark:   #00609f;
+
+$color-primary:        #0071bc;
+$color-primary-darker:   #00609f;
 
 
 // Magic Numbers
@@ -16,13 +17,13 @@ li {
 }
 
 a {
-  color: $color-main;
+  color: $color-primary;
   text-decoration: none;
   &:hover, &:active {
-    color: $color-main-dark;
+    color: $color-primary-darker;
   }
   &:visited {
-    color: $color-main;
+    color: $color-primary;
   }
 }
 
@@ -34,7 +35,7 @@ button[type="button"],
 button[type="submit"],
 button[type="reset"] {
   color: #fff;
-  background-color: $color-main;
+  background-color: $color-primary;
   border-radius: $border-radius;
   font-family: $font-sans;  
 }
@@ -46,7 +47,7 @@ input[type="image"]:hover,
 button[type="button"]:hover,
 button[type="submit"]:hover,
 button[type="reset"]:hover {
-  background-color: $color-main-dark; 
+  background-color: $color-primary-darker; 
 }
 
 input[type="text"],
@@ -68,7 +69,7 @@ textarea {
 
 aside {
   color: #fff;
-  background-color: $color-main;
+  background-color: $color-primary;
 }
 
 // Site Patterns
@@ -88,7 +89,7 @@ aside {
   background-color: #fff;
   border-bottom: 1px solid $color-grey-300;
   h1 {
-    color: $color-main;
+    color: $color-primary;
   }
   .site-search {
     input[type="search"] {
