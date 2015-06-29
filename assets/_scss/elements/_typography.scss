@@ -18,13 +18,19 @@ p {
 
 a {
   color: $color-base-link;
+  border-bottom: 1px dotted;
   &:hover, &:active, &:visited {
     color: $color-base-link;
+  }
+  &:hover {
+    border-bottom: 1px solid;
   }
 }
 
 .usa-link {
+  border-bottom: none;
   font-family: $font-sans; 
+  font-weight: 700;
 }
 
 .usa-display {
