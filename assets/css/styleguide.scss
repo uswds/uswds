@@ -191,7 +191,12 @@ header[role="banner"] {
       }
     }
     a {
-      text-decoration: none;
+      text-decoration: 0px;
+      border-bottom: none;
+      &:hover {
+        border-bottom: 1px solid;
+        color: $color-primary-darker;
+      }
     }
   }
 }
