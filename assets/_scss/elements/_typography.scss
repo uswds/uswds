@@ -17,10 +17,10 @@ p {
 }
 
 a {
-  color: $color-base-link;
+  color: $color-primary;
   border-bottom: 1px dotted;
   &:hover, &:active, &:visited {
-    color: $color-base-link;
+    color: $color-primary-darker;
   }
   &:hover {
     border-bottom: 1px solid;
