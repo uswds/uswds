@@ -23,20 +23,6 @@ a {
   }
 }
 
-.sans {
-  font-family: $font-sans;
-}
-
-.usa-link {
-  border-bottom: none;
-  font-family: $font-sans; 
-  font-weight: $font-bold;
-}
-
-.usa-display {
-  font-size: $title-font-size;
-}
-
 h1, h2, h3, h4, h5, h6 {
   clear: both;
   margin: {
@@ -109,4 +95,20 @@ h5 {
 
 h6 {
   @include h6();
+}
+
+// Custom typography
+
+.sans {
+  font-family: $font-sans;
+}
+
+.usa-link {
+  border-bottom: none;
+  font-family: $font-sans; 
+  font-weight: $font-bold;
+}
+
+.usa-display {
+  font-size: $title-font-size;
 }
