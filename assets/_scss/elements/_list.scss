@@ -1,8 +1,8 @@
 ul, ol {
-  padding-left: 2em;
   margin: {
     top: 2em;
     bottom: 2em;
+  padding-left: 2em;
   }
   li {
     line-height: $base-line-height;
@@ -12,9 +12,11 @@ ul, ol {
     }
   }
 }
+
 ul {
   list-style-type: square;
 }
+
 ol {
   list-style-type: decimal;
 }
