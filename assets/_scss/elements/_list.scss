@@ -1,24 +1,29 @@
+// Make lists unstyled by default
 ul, ol {
-  margin: 0;  
-  list-style-type: none;  
-  padding-left: 2em;
-  margin: {
-    top: 2em;
-    bottom: 2em;
-  }
-  li {
-    line-height: $base-line-height;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+article {
+  ul, ol {
+    padding-left: 2em;
     margin: {
-      top: 1em;
-      bottom: 1em;
+      top: 2em;
+      bottom: 2em;
+    }
+    li {
+      line-height: $base-line-height;
+      margin: {
+        top: 1em;
+        bottom: 1em;
+      }
     }
   }
-}
-
-ul {
-  list-style-type: square;
-}
-
-ol {
-  list-style-type: decimal;
+  ul {
+    list-style-type: square;
+  }
+  ol {
+    list-style-type: decimal;
+  }
 }
