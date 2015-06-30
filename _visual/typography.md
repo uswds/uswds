@@ -25,7 +25,7 @@ title: Typography
   <h3>Links</h3>
 
   <p>This is <a href="#">linked text</a> for body copy</p>
-  <p class="sans">This is <a href="#">linked text</a> for everything else</p>
+  <p class="usa-sans">This is <a href="#">linked text</a> for everything else</p>
 
   <!-- Lists title -->
   <h3>Lists</h3>
