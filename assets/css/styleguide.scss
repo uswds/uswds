@@ -47,7 +47,10 @@ a#skipnav {
 
 header[role="banner"] {
   background-color: $color-grey-900;
-  a { color: white; }
+  a {
+    border-bottom: none;
+    color: white;
+  }
   nav {
     height: 45px;
     line-height: 45px;
@@ -81,11 +84,11 @@ header[role="banner"] {
     font-size: $base-font-size / 1.25;
     border-bottom: 1px solid $color-grey-700;
     font-weight: 100;
-    a { text-decoration: underline; }
     .us-official { 
       margin: 0;
     }
-    .stage { 
+    .stage {
+      a { text-decoration: underline; }
       float: none;
       display: block;
       padding-top: 5px;
@@ -191,7 +194,6 @@ header[role="banner"] {
       }
     }
     a {
-      text-decoration: 0px;
       border-bottom: none;
       &:hover {
         border-bottom: 1px solid;
