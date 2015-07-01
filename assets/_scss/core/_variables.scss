@@ -17,6 +17,8 @@ $font-serif:      'Georgia', 'Times New Roman', serif;
 
 $font-bold:         700;
 
+$border-radius: rem(4px);
+
 // Color
 $color-grey-50:     #fafafa;
 $color-grey-100:    #f5f5f5;
@@ -30,6 +32,9 @@ $color-grey-800:    #424242;
 $color-grey-900:    #212121;
 
 $color-base-link:   #000000;
+
+$color-primary:         #0071bc;
+$color-primary-darker:  #00609f;
 
 // Mobile First Breakpoints
 $mobile-up:         481px;
