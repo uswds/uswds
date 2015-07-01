@@ -7,7 +7,7 @@ title: Buttons
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <label for="button-type-button">Buttons</label>
+  <label for="button-type-button">Primary Buttons</label>
   <button type="button">Button</button>
   <button type="reset">Reset</button>
   <button type="submit">Submit</button>
