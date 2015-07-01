@@ -57,7 +57,7 @@ button[type="submit"].button-outlined,
 button[type="reset"].button-outlined {
   background-color: $color-white;
   color: $color-grey-900;
-  outline: 2px solid $color-grey-900;
+  border: 2px solid $color-grey-900;
 }
 
 input[type="button"].button-big,
