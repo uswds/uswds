@@ -16,9 +16,10 @@ $h6-font-size:      rem(12px) !default;
 $base-line-height:    1.5em !default;
 $heading-line-height: 1.3em !default;
 
-$font-sans:       'Source Sans Pro', 'Helvetica', 'Arial', sans-serif !default;
-$font-serif:      'Georgia', 'Times New Roman', serif;
+$font-sans:        'Source Sans Pro', 'Helvetica', 'Arial', sans-serif !default;
+$font-serif:       'Georgia', 'Times New Roman', serif;
 
+$font-bold:         700 !default;
 
 // Color
 $color-grey-50:     #fafafa !default;
@@ -33,9 +34,6 @@ $color-grey-800:    #424242 !default;
 $color-grey-900:    #212121 !default;
 
 $color-base-link:   #000000 !default;
-
-$color-main:        #0071bc !default;
-$color-main-dark:   #00609f !default;
 
 // Mobile First Breakpoints
 $mobile-up:         481px !default;

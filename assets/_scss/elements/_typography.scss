@@ -17,9 +17,10 @@ p {
 }
 
 a {
-  color: $color-base-link;
-  &:hover, &:active, &:visited {
-    color: $color-base-link;
+  border-bottom: 1px dotted;
+
+  &:hover {
+    border-bottom: 1px solid;
   }
 }
 
@@ -32,41 +33,45 @@ h1, h2, h3, h4, h5, h6 {
   line-height: $heading-line-height;
 }
 
+h5 {
+  text-transform: uppercase;
+}
+
 // Create heading mixins 
 
 @mixin title {
   font-size: $title-font-size;
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 
 @mixin h1 {
   font-size: $h1-font-size;
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 
 @mixin h2 {
   font-size: $h2-font-size;
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 
 @mixin h3 {
   font-size: $h3-font-size;
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 
 @mixin h4 {
   font-size: $h4-font-size;
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 
 @mixin h5 {
   font-size: $h5-font-size;
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 
 @mixin h6 {
   font-size: $h6-font-size;
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 
 h1 {
@@ -91,4 +96,20 @@ h5 {
 
 h6 {
   @include h6();
+}
+
+// Custom typography
+
+.usa-sans {
+  font-family: $font-sans;
+}
+
+.usa-sans a {
+  border-bottom: none;
+  font-family: $font-sans; 
+  font-weight: $font-bold;
+}
+
+.usa-display {
+  font-size: $title-font-size;
 }
