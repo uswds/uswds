@@ -7,26 +7,26 @@ title: Buttons
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <label for="button-type-button">Primary Buttons</label>
+  <h3>Primary Buttons</h3>
   <button type="button">Button</button>
   <button type="reset">Reset</button>
   <button type="submit">Submit</button>
 
-  <label for="button-type-secondary">Secondary Buttons</label>
+  <h3>Secondary Buttons</h3>
   <button class="button-secondary" type="button">Button</button>
   <button class="button-secondary" type="reset">Reset</button>
   <button class="button-secondary" type="submit">Submit</button>
 
-  <label for="button-type-submit">Input Buttons</label>
+  <h3>Input Buttons</h3>
   <input type="button" name="input-type-button" value="Button">
   <input type="reset" name="input-type-reset">
   <input type="submit" name="input-type-submit">
   <input type="submit" name="input-type-submit" disabled="">
 
-  <label for="button-type-outlined">Outlined Button</label>
+  <h3>Outlined Button</h3>
   <button class="button-outlined" type="button">Button</button>
 
-  <label for="button-type-big">Big Button</label>
+  <h3>Big Button</h3>
   <button class="button-big" type="button">Button</button>
 
 </div>
