@@ -29,7 +29,6 @@ title: Buttons
   <label for="button-type-big">Big Button</label>
   <button class="button-big" type="button">Button</button>
 
-  <img src="{{ site.baseurl }}/assets/img/static/Buttons_UI_v1.png">
 </div>
 
 <div class="grid-box">
