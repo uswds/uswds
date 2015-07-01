@@ -24,9 +24,11 @@ button[type="reset"] {
   outline: none;
   padding: 1rem 2rem;
   -webkit-font-smoothing: antialiased;  
+
   &:hover {
     background-color: $color-grey-700;
   }
+
   &:focus {
     box-shadow: 0 0 0 2px $color-focus;
   }  
@@ -45,6 +47,7 @@ button[type="button"].button-secondary,
 button[type="submit"].button-secondary,
 button[type="reset"].button-secondary {
   background-color: $color-grey-600;
+  
   &:hover {
     background-color: $color-grey-800;
   }  
