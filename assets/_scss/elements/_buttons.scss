@@ -25,6 +25,9 @@ button[type="reset"] {
   &:hover {
     background-color: $color-grey-700;
   }
+  &:focus {
+    outline: 2px solid $color-focus;
+  }  
 }
 
 input[type="submit"]:disabled {
