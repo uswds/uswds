@@ -13,6 +13,7 @@ button[type="reset"] {
   border-radius: $usa-border-radius;
   color: $color-white;
   font-size: $base-font-size;
+  font-weight: $font-bold;  
   line-height: 1;
   text-align: center;
   margin: {
@@ -22,11 +23,12 @@ button[type="reset"] {
   }
   outline: none;
   padding: 1rem 2rem;
+  -webkit-font-smoothing: antialiased;  
   &:hover {
     background-color: $color-grey-700;
   }
   &:focus {
-    outline: 2px solid $color-focus;
+    box-shadow: 0 0 0 2px $color-focus;
   }  
 }
 
