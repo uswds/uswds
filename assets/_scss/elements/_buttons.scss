@@ -12,15 +12,15 @@ button[type="reset"] {
   border: 0;
   border-radius: $border-radius;
   font-size: $base-font-size;
+  line-height: 1;
   text-align: center;
-  width: 8em;
   margin: {
     top: .5em;
     bottom: .5em;
     right: .5em;
   }
   outline: none;
-  padding: .5em .7em;
+  padding: 1rem 2rem;
   &:hover {
     background-color: $color-grey-400;
   }
