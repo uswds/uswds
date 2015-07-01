@@ -11,17 +11,18 @@ $border-radius: rem(4px);
 
 // Elements
 
-p,
-li {
+p, li {
   font-family: $font-serif;
 }
 
 a {
   color: $color-primary;
   text-decoration: none;
+
   &:hover, &:active {
     color: $color-primary-darker;
   }
+
   &:visited {
     color: $color-primary;
   }
@@ -79,6 +80,7 @@ aside {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
   }
+
   input[type="submit"] {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -88,9 +90,11 @@ aside {
 .global-header {
   background-color: #fff;
   border-bottom: 1px solid $color-grey-300;
+
   h1 {
     color: $color-primary;
   }
+
   .site-search {
     input[type="search"] {
       border: 1px solid $color-grey-200;
