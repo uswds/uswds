@@ -1,0 +1,34 @@
+// Buttons
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="image"],
+button[type="button"],
+button[type="submit"],
+button[type="reset"] {
+  -webkit-appearance: none;
+  background-color: $color-grey-300;
+  border: 0;
+  border-radius: $border-radius;
+  font-size: $base-font-size;
+  text-align: center;
+  width: 8em;
+  margin: {
+    top: .5em;
+    bottom: .5em;
+    right: .5em;
+  }
+  outline: none;
+  padding: .5em .7em;
+  &:hover {
+    background-color: $color-grey-400;
+  }
+}
+
+input[type="submit"]:disabled {
+  color: $color-grey-700;
+  &:hover {
+    background-color: $color-grey-300;
+  }
+}
