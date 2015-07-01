@@ -12,12 +12,23 @@ title: Buttons
   <button type="reset">Reset</button>
   <button type="submit">Submit</button>
 
+  <label for="button-type-secondary">Secondary Buttons</label>
+  <button class="button-secondary" type="button">Button</button>
+  <button class="button-secondary" type="reset">Reset</button>
+  <button class="button-secondary" type="submit">Submit</button>
+
   <label for="button-type-submit">Input Buttons</label>
   <input type="button" name="input-type-button" value="Button">
   <input type="reset" name="input-type-reset">
   <input type="submit" name="input-type-submit">
   <input type="submit" name="input-type-submit" disabled="">
-    
+
+  <label for="button-type-outlined">Outlined Button</label>
+  <button class="button-outlined" type="button">Button</button>
+
+  <label for="button-type-big">Big Button</label>
+  <button class="button-big" type="button">Button</button>
+
   <img src="{{ site.baseurl }}/assets/img/static/Buttons_UI_v1.png">
 </div>
 

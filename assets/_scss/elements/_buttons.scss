@@ -31,8 +31,41 @@ button[type="reset"] {
 }
 
 input[type="submit"]:disabled {
+  background-color: $color-grey-300;
   color: $color-grey-700;
+}
+
+input[type="button"].button-secondary,
+input[type="submit"].button-secondary,
+input[type="reset"].button-secondary,
+input[type="image"].button-secondary,
+button[type="button"].button-secondary,
+button[type="submit"].button-secondary,
+button[type="reset"].button-secondary {
+  background-color: $color-grey-600;
   &:hover {
-    background-color: $color-grey-300;
-  }
+    background-color: $color-grey-800;
+  }  
+}
+
+input[type="button"].button-outlined,
+input[type="submit"].button-outlined,
+input[type="reset"].button-outlined,
+input[type="image"].button-outlined,
+button[type="button"].button-outlined,
+button[type="submit"].button-outlined,
+button[type="reset"].button-outlined {
+  background-color: $color-white;
+  color: $color-grey-900;
+  outline: 2px solid $color-grey-900;
+}
+
+input[type="button"].button-big,
+input[type="submit"].button-big,
+input[type="reset"].button-big,
+input[type="image"].button-big,
+button[type="button"].button-big,
+button[type="submit"].button-big,
+button[type="reset"].button-big {
+
 }
