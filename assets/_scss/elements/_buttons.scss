@@ -8,7 +8,7 @@ button[type="button"],
 button[type="submit"],
 button[type="reset"] {
   -webkit-appearance: none;
-  background-color: $color-grey-300;
+  background-color: $color-grey-900;
   border: 0;
   border-radius: $border-radius;
   font-size: $base-font-size;
@@ -22,7 +22,7 @@ button[type="reset"] {
   outline: none;
   padding: 1rem 2rem;
   &:hover {
-    background-color: $color-grey-400;
+    background-color: $color-grey-700;
   }
 }
 
