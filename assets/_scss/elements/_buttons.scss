@@ -7,7 +7,6 @@ input[type="image"],
 button[type="button"],
 button[type="submit"],
 button[type="reset"] {
-  -webkit-appearance: none;
   background-color: $color-grey-900;
   border: 0;
   border-radius: $usa-border-radius;
@@ -15,7 +14,6 @@ button[type="reset"] {
   font-size: $base-font-size;
   font-weight: $font-bold;  
   line-height: 1;
-  text-align: center;
   margin: {
     top: .5em;
     bottom: .5em;
@@ -23,6 +21,8 @@ button[type="reset"] {
   }
   outline: none;
   padding: 1rem 2rem;
+  text-align: center;  
+  -webkit-appearance: none;  
   -webkit-font-smoothing: antialiased;  
 
   &:hover {
@@ -61,8 +61,8 @@ button[type="button"].button-outlined,
 button[type="submit"].button-outlined,
 button[type="reset"].button-outlined {
   background-color: $color-white;
+  border: 2px solid $color-grey-900;  
   color: $color-grey-900;
-  border: 2px solid $color-grey-900;
 }
 
 input[type="button"].button-big,
