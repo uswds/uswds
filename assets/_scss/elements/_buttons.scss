@@ -7,6 +7,7 @@ input[type="image"],
 button[type="button"],
 button[type="submit"],
 button[type="reset"] {
+  appearance: none;  
   background-color: $color-grey-900;
   border: 0;
   border-radius: $usa-border-radius;
@@ -22,7 +23,6 @@ button[type="reset"] {
   outline: none;
   padding: 1rem 2rem;
   text-align: center;  
-  -webkit-appearance: none;  
   -webkit-font-smoothing: antialiased;  
 
   &:hover {
