@@ -7,7 +7,7 @@ title: Accordions
 <h3>Bordered Accordion</h3>
 
 <div class="code-sample">
-  <ul id="accordion-menu">
+  <ul class="usa-accordion">
     <li>
       <p>Apple Pie h4</p>
       <div class="content">
@@ -49,7 +49,7 @@ title: Accordions
       <tr>
         <td>
           {% highlight html %}
-<ul id="accordion-menu">
+<ul class="usa-accordion">
   <li>
     <p>Apple Pie h4</p>
     <div class="content">
@@ -93,7 +93,7 @@ title: Accordions
       <tr>
         <td>
         {% highlight css %}
-#accordion-menu {
+.usa-accordion {
   border-top: 1px solid #757575;
   border-right: 1px solid #757575;
   border-left: 1px solid #757575;
@@ -102,7 +102,7 @@ title: Accordions
   margin: 0; 
 }
 
-#accordion-menu li {
+.usa-accordion li {
   background-color: #eeeeee;
   font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
   border-bottom: 1px solid #757575;
@@ -110,16 +110,16 @@ title: Accordions
   margin: 0; 
 }
 
-#accordion-menu li.hidden .content {
+.usa-accordion li.hidden .content {
   display: none; 
 }
 
-#accordion-menu li.hidden p {
+.usa-accordion li.hidden p {
   background: url("../img/arrow-down.png") no-repeat;
   background-position: 15px; 
 }
 
-#accordion-menu li p {
+.usa-accordion li p {
   font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
   color: #212121;
   display: inline-block;
@@ -131,7 +131,7 @@ title: Accordions
   background-position: 15px; 
 }
 
-#accordion-menu li .content {
+.usa-accordion li .content {
   display: block;
   background-color: white;
   padding: 15px; 
@@ -141,7 +141,7 @@ title: Accordions
         <td>
         {% highlight js %}
 $(function() {
-  $('#accordion-menu').on('click', 'p', function() {
+  $('.usa-accordion').on('click', 'p', function() {
    $(this).parent().removeClass("hidden")
     .siblings().addClass("hidden");
   });
