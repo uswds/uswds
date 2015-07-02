@@ -26,14 +26,17 @@ input[type="image"] {
   text-align: center;  
   -webkit-font-smoothing: antialiased;  
 
-  &:hover, &.usa-button-hover {
+  &:hover, 
+  &.usa-button-hover {
     background-color: $color-grey-700;
   }
 
-  &:focus, &.usa-button-focus {
+  &:focus, 
+  &.usa-button-focus {
     box-shadow: 0 0 0 2px $color-focus;
   }
-  &:active, &.usa-button-active {
+  &:active, 
+  &.usa-button-active {
     background-color: $color-base-link;
   }
 }
@@ -59,10 +62,12 @@ input[type="reset"].usa-button-secondary,
 input[type="image"].usa-button-secondary {
   background-color: $color-grey-600;
   
-  &:hover, &.usa-button-secondary-hover {
+  &:hover, 
+  &.usa-button-secondary-hover {
     background-color: $color-grey-800;
   }
-  &:active, &.usa-button-secondary-active {
+  &:active, 
+  &.usa-button-secondary-active {
     background-color: $color-base-link;
   }  
 }
