@@ -262,15 +262,6 @@ header[role="banner"] {
       margin-top: 2em;
     }
   }
-  > h2, > h3 {
-    padding-top: 52px;
-  }
-}
-
-// ***** TEMPORARY FIX - REMOVE AFTER CONTENT IS ADDED ***** //
-
-.styleguide-content {
-  padding-bottom: 25em;
 }
 
 // Pattern Preview Boxes -------- //
@@ -295,38 +286,40 @@ header[role="banner"] {
 // Code Sample Boxes --------- //
 
 .code-sample {
-  @include clearfix();
-  border: 1px solid $color-grey-200;
-  background-color: $color-grey-50;
-
-  &.is-open {
-    .button-toggle:before {
-      content: 'Hide code';
+  table {
+    table-layout: fixed;
+    width: 100%;
+    padding: 3em 0 0 0;
+    td {
+      background-color: $color-grey-100;
+      border: 1px solid $color-grey-300;
+    }
+    th {
+      border: none;
+      text-align: left;
+    }
+    pre, code {
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
     }
     pre {
-      display: block;
+      padding: 0 1em 1em 1em;
+      overflow: auto;
+      height: 300px;
     }
-  }
-  .button-toggle {
-    font-size: $small-font-size;
-    display: block;
-    padding: .5em $site-margins;
-    text-decoration: underline;
-    &:before {
-      content: 'Show code';
-    }
-  }
-  pre {
-    display: none;
-    background-color: transparent;
-    overflow-y: hidden;
     code {
-      background-color: transparent;
-    }     
+      font-size: $base-font-size / 1.5;
+      line-height: 1.4em;
+      overflow: scroll;
+      max-height: 25em;
+      &.language-html {
+        max-width: 25em;
+        word-wrap: break-word;
+      }
+      
+    }
   }
-}
-
-.preview + .code-sample {
-  margin-top: -2em;
-  border-top: 0px;
 }
