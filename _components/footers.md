@@ -8,7 +8,7 @@ title: Footers
   <!-- Add HTML markup for example here -->
 
   <footer class="footer" role="contentinfo">
-    <div class="footer-links">
+    <nav class="nav-footer">
       <ul class="usa-unstyled-list">
         <li><h3>Primary link</h3></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
@@ -37,7 +37,7 @@ title: Footers
         <li><a href="javascript:void(0)">Secondary link</a></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
       </ul>
-    </div>
+    </nav>
 
     <h3>Sign up</h3>
 
