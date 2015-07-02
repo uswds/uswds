@@ -9,36 +9,52 @@ title: Accordions
 <div class="code-sample">
   <ul id="accordion-menu">
     <li>
-      <p>Apple Pie h4</p>
-      <div class="content">
+      <button class="button-unstyled"
+          aria-expanded="true" aria-controls="collapsible-0">
+        Apple Pie h4
+      </button>
+      <div id="collapsible-0" aria-hidden="false" class="content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
-    <li class="hidden">
-      <p>Strawberry Pie</p>
-      <div class="content">
+    <li>
+      <button class="button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-1">
+        Stawberry Pie h4
+      </button>
+      <div id="collapsible-1" aria-hidden="true" class="content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
-    <li class="hidden">
-      <p>Peach Pie</p>
-      <div class="content">
+    <li>
+      <button class="button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-2">
+        Peace Pie h4
+      </button>
+      <div id="collapsible-2" aria-hidden="true" class="content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
-    <li class="hidden">
-      <p>Key Lime Pie</p>
-      <div class="content">
+    <li>
+      <button class="button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-3">
+        Key Lime h4
+      </button>
+      <div id="collapsible-3" aria-hidden="true" class="content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
-    <li class="hidden">
-      <p>Blackberry Pie</p>
-      <div class="content">
+    <li>
+      <button class="button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-3">
+        Blackberry h4
+      </button>
+      <div id="collapsible-3" aria-hidden="true" class="content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
   </ul>
+
   <div class="code-snippet">
     <table>
       <tr>

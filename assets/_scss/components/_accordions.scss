@@ -7,6 +7,10 @@
   margin: 0;
   padding: 0;
 
+  [aria-hidden=true] {
+    display: none !important;
+  }
+
   li {
     background-color: $color-grey-200;
     border-bottom-width: 1px;
@@ -19,13 +23,13 @@
         display: none;
       }
 
-      p {
+      button {
         background: url('../img/arrow-right.png') no-repeat;
         background-position: 15px;
       }
     }
 
-    p {
+    button {
       background: url('../img/arrow-down.png') no-repeat;
       background-position: 15px;
       color: $color-grey-900;

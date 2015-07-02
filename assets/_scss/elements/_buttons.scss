@@ -75,3 +75,11 @@ button[type="reset"].button-big {
   font-size: 1.9rem;
   padding: 1.5rem 3rem;
 }
+
+.button-unstyled {
+  background: none;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  text-align: left;
+}
