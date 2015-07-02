@@ -13,9 +13,9 @@ title: Buttons
   <button type="submit">Submit</button>
 
   <h3>Secondary Buttons</h3>
-  <button class="button-secondary" type="button">Button</button>
-  <button class="button-secondary" type="reset">Reset</button>
-  <button class="button-secondary" type="submit">Submit</button>
+  <button class="usa-button-secondary" type="button">Button</button>
+  <button class="usa-button-secondary" type="reset">Reset</button>
+  <button class="usa-button-secondary" type="submit">Submit</button>
 
   <h3>Input Buttons</h3>
   <input type="button" name="input-type-button" value="Button">
@@ -24,10 +24,10 @@ title: Buttons
   <input type="submit" name="input-type-submit" disabled="">
 
   <h3>Outlined Button</h3>
-  <button class="button-outlined" type="button">Button</button>
+  <button class="usa-button-outlined" type="button">Button</button>
 
   <h3>Big Button</h3>
-  <button class="button-big" type="button">Button</button>
+  <button class="usa-button-big" type="button">Button</button>
 
 </div>
 
