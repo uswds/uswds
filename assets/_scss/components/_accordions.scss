@@ -18,15 +18,9 @@
     list-style: none;
     margin: 0;
 
-    &.hidden {
-      .content {
-        display: none;
-      }
-
-      button {
-        background: url('../img/arrow-right.png') no-repeat;
-        background-position: 15px;
-      }
+    button[aria-expanded=false] {
+      background: url('../img/arrow-right.png') no-repeat;
+      background-position: 15px;
     }
 
     button {
