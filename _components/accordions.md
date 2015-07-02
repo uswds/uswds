@@ -7,13 +7,13 @@ title: Accordions
 <h3>Bordered Accordion</h3>
 
 <div class="code-sample">
-  <ul id="accordion-menu">
+  <ul class="usa-accordion">
     <li>
       <button class="button-unstyled"
           aria-expanded="true" aria-controls="collapsible-0">
         Apple Pie h4
       </button>
-      <div id="collapsible-0" aria-hidden="false" class="content">
+      <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
@@ -22,7 +22,7 @@ title: Accordions
           aria-expanded="false" aria-controls="collapsible-1">
         Stawberry Pie h4
       </button>
-      <div id="collapsible-1" aria-hidden="true" class="content">
+      <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
@@ -31,7 +31,7 @@ title: Accordions
           aria-expanded="false" aria-controls="collapsible-2">
         Peace Pie h4
       </button>
-      <div id="collapsible-2" aria-hidden="true" class="content">
+      <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
@@ -40,16 +40,16 @@ title: Accordions
           aria-expanded="false" aria-controls="collapsible-3">
         Key Lime h4
       </button>
-      <div id="collapsible-3" aria-hidden="true" class="content">
+      <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
     <li>
       <button class="button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-3">
+          aria-expanded="false" aria-controls="collapsible-4">
         Blackberry h4
       </button>
-      <div id="collapsible-3" aria-hidden="true" class="content">
+      <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
@@ -65,34 +65,34 @@ title: Accordions
       <tr>
         <td>
           {% highlight html %}
-<ul id="accordion-menu">
+<ul class="usa-accordion">
   <li>
     <p>Apple Pie h4</p>
-    <div class="content">
+    <div class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
   </li>
   <li class="hidden">
     <p>Strawberry Pie</p>
-    <div class="content">
+    <div class="usa-accordion-content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
   </li>
   <li class="hidden">
     <p>Peach Pie</p>
-    <div class="content">
+    <div class="usa-accordion-content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
   </li>
   <li class="hidden">
     <p>Key Lime Pie</p>
-    <div class="content">
+    <div class="usa-accordion-content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
   </li>
   <li class="hidden">
     <p>Blackberry Pie</p>
-    <div class="content">
+    <div class="usa-accordion-content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
   </li>
@@ -109,7 +109,7 @@ title: Accordions
       <tr>
         <td>
         {% highlight css %}
-#accordion-menu {
+.usa-accordion {
   border-top: 1px solid #757575;
   border-right: 1px solid #757575;
   border-left: 1px solid #757575;
@@ -118,7 +118,7 @@ title: Accordions
   margin: 0; 
 }
 
-#accordion-menu li {
+.usa-accordion li {
   background-color: #eeeeee;
   font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
   border-bottom: 1px solid #757575;
@@ -126,16 +126,16 @@ title: Accordions
   margin: 0; 
 }
 
-#accordion-menu li.hidden .content {
+.usa-accordion li.hidden .content {
   display: none; 
 }
 
-#accordion-menu li.hidden p {
+.usa-accordion li.hidden p {
   background: url("../img/arrow-down.png") no-repeat;
   background-position: 15px; 
 }
 
-#accordion-menu li p {
+.usa-accordion li p {
   font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
   color: #212121;
   display: inline-block;
@@ -147,7 +147,7 @@ title: Accordions
   background-position: 15px; 
 }
 
-#accordion-menu li .content {
+.usa-accordion li .content {
   display: block;
   background-color: white;
   padding: 15px; 
@@ -157,7 +157,7 @@ title: Accordions
         <td>
         {% highlight js %}
 $(function() {
-  $('#accordion-menu').on('click', 'p', function() {
+  $('.usa-accordion').on('click', 'p', function() {
    $(this).parent().removeClass("hidden")
     .siblings().addClass("hidden");
   });

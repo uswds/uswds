@@ -1,3 +1,5 @@
+'use strict';
+
 function hide($el) {
   var selector = $el.attr('aria-controls'),
       $content = $('#' + selector);
@@ -21,8 +23,8 @@ function hideAll($container) {
 }
 
 $(function() {
-  $('#accordion-menu').on('click', 'button', function(ev) {
-    hideAll($('#accordion-menu'));
+  $('.usa-accordion').on('click', 'button', function() {
+    hideAll($('.usa-accordion'));
     show($(this));
   });
 });

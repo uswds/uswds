@@ -1,4 +1,4 @@
-#accordion-menu {
+.usa-accordion {
   border: 1px solid $color-grey-600;
   border-radius: 5px;
   color: $color-grey-900;
@@ -20,22 +20,11 @@
     button[aria-expanded=false] {
       background: url('../img/arrow-right.png') no-repeat;
       background-position: 15px;
+      border-bottom: 0;
     }
 
     &:last-child {
       border-bottom: 0;
-    }
-
-    &.hidden {
-      .content {
-        display: none;
-      }
-
-      p {
-        background: url('../img/arrow-right.png') no-repeat;
-        background-position: 15px;
-        border-bottom: 0;
-      }
     }
 
     button {
@@ -51,7 +40,7 @@
       width: 100%;
     }
 
-    .content {
+    .usa-accordion-content {
       display: block;
       background-color: white;
       padding: 15px;
