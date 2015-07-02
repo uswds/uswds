@@ -8,23 +8,23 @@ title: Buttons
   <!-- Add HTML markup for example here -->
 
   <h3>Primary Buttons</h3>
-  <button type="button">Button</button>
-  <button type="reset">Reset</button>
-  <button type="submit">Submit</button>
+  <button type="button">Static</button>
+  <button type="reset">Active</button>
+  <button type="submit">Hover</button>
 
   <h3>Secondary Buttons</h3>
-  <button class="usa-button-secondary" type="button">Button</button>
-  <button class="usa-button-secondary" type="reset">Reset</button>
-  <button class="usa-button-secondary" type="submit">Submit</button>
+  <button class="usa-button-secondary">Static</button>
+  <button class="usa-button-secondary">Active</button>
+  <button class="usa-button-secondary">Hover</button>
 
-  <h3>Input Buttons</h3>
-  <input type="button" name="input-type-button" value="Button">
-  <input type="reset" name="input-type-reset">
-  <input type="submit" name="input-type-submit">
-  <input type="submit" name="input-type-submit" disabled="">
+  <h3>Button Focus</h3>
+  <button class="usa-button-focus">Hover</button>
 
   <h3>Outlined Button</h3>
   <button class="usa-button-outlined" type="button">Button</button>
+
+  <h3>Disabled Button</h3>
+  <input type="submit" name="input-type-submit" disabled="">
 
   <h3>Big Button</h3>
   <button class="usa-button-big" type="button">Button</button>
