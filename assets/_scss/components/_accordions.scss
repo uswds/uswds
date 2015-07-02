@@ -1,14 +1,16 @@
 #accordion-menu {
-  border-top: 1px solid $color-grey-600;
-  border-right: 1px solid $color-grey-600;
-  border-left: 1px solid $color-grey-600;
-  color: #212121;
-  padding: 0;
+  border-color: $color-grey-600;
+  border-style: solid;
+  border-width: 1px;
+  border-bottom-width: 0;
+  color: $color-grey-900;
   margin: 0;
+  padding: 0;
+
   li {
     background-color: $color-grey-200;
+    border-bottom-width: 1px;
     font-family: $font-sans;
-    border-bottom: 1px solid $color-grey-600;
     list-style: none;
     margin: 0;
 
@@ -16,22 +18,25 @@
       .content {
         display: none;
       }
+
       p {
-        background: url("../img/arrow-right.png") no-repeat;
+        background: url('../img/arrow-right.png') no-repeat;
         background-position: 15px;
       }
     }
+
     p {
-      font-family: $font-sans; 
-      color: $color-grey-900;
-      display: inline-block;
-      padding: 10px 15px 10px 35px;
-      cursor: pointer;
-      margin: 0;
-      width: 100%;
-      background: url("../img/arrow-down.png") no-repeat;
+      background: url('../img/arrow-down.png') no-repeat;
       background-position: 15px;
+      color: $color-grey-900;
+      cursor: pointer;
+      display: inline-block;
+      font-family: $font-sans;
+      margin: 0;
+      padding: 10px 15px 10px 35px;
+      width: 100%;
     }
+
     .content {
       display: block;
       background-color: white;
