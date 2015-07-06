@@ -6,8 +6,8 @@ title: Accordions
 
 <h3>Bordered Accordion</h3>
 
-<div class="code-sample">
-  <ul id="accordion-menu">
+<div id="accordion-menu">
+  <ul>
     <li>
       <p>Apple Pie h4</p>
       <div class="content">
@@ -39,16 +39,34 @@ title: Accordions
       </div>
     </li>
   </ul>
-  <div class="code-snippet">
-    <table>
-      <tr>
-        <th>
-          HTML
-        </th>
-      </tr>
-      <tr>
-        <td>
-          {% highlight html %}
+
+  <div class="grid-box">
+    <div class="grid-item width-one-half annotation">
+      <h3>Use</h3>
+      <p>This is the usage content for the example.</p>
+    </div>
+    <div class="grid-item width-one-half annotation">
+      <h3>Accessibility</h3>
+      <p>This is the accessibility content for the example.</p>
+    </div>  
+  </div>
+</div>
+
+<hr>
+
+<div class="code-snippet hidden">
+
+  <a href="#" class="code-snippet-button"></a>
+  
+  <table>
+    <tr>
+      <th>
+        HTML
+      </th>
+    </tr>
+    <tr>
+      <td>
+        {% highlight html %}
 <ul id="accordion-menu">
   <li>
     <p>Apple Pie h4</p>
@@ -81,18 +99,18 @@ title: Accordions
     </div>
   </li>
 </ul>
-        {% endhighlight %}
-        </td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <th>CSS</th>
-        <th>JavaScript</th>
-      </tr>
-      <tr>
-        <td>
-        {% highlight css %}
+      {% endhighlight %}
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <th>CSS</th>
+      <th>JavaScript</th>
+    </tr>
+    <tr>
+      <td>
+      {% highlight css %}
 #accordion-menu {
   border-top: 1px solid #757575;
   border-right: 1px solid #757575;
@@ -136,10 +154,10 @@ title: Accordions
   background-color: white;
   padding: 15px; 
 }
-        {% endhighlight %}
-        </td>
-        <td>
-        {% highlight js %}
+      {% endhighlight %}
+      </td>
+      <td>
+      {% highlight js %}
 $(function() {
   $('#accordion-menu').on('click', 'p', function() {
    $(this).parent().removeClass("hidden")
@@ -147,21 +165,9 @@ $(function() {
   });
 });
         {% endhighlight %}     
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
-
-<div class="grid-box">
-  <div class="grid-item width-one-half annotation">
-    <h3>Use</h3>
-    <p>This is the usage content for the example.</p>
-  </div>
-  <div class="grid-item width-one-half annotation">
-    <h3>Accessibility</h3>
-    <p>This is the accessibility content for the example.</p>
-  </div>  
+      </td>
+    </tr>
+  </table>
 </div>
 
 <!-- TODO: Add borderless accordion -->

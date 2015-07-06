@@ -285,7 +285,18 @@ header[role="banner"] {
 
 // Code Sample Boxes --------- //
 
-.code-sample {
+.code-snippet {
+  .code-snippet-button:after {
+    content: "\25be  hide code";
+  }
+  &.hidden {
+    table {
+      display: none;
+    }
+    .code-snippet-button:after {
+      content: "\25b8  show code";
+    }
+  }
   table {
     table-layout: fixed;
     width: 100%;
