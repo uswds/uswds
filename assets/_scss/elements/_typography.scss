@@ -113,3 +113,15 @@ h6 {
 .usa-display {
   font-size: $title-font-size;
 }
+
+.usa-image-block {
+  position: relative; 
+}
+
+.usa-image-text-block {
+  color: $color-white;
+  left: 0;
+  margin-left: 2em;
+  position: absolute;
+  top: 0;
+}
