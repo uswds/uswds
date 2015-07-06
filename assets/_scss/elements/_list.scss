@@ -17,6 +17,7 @@ ul, ol {
   list-style: none;
   padding-left: 0;
   display: table;
+
   li:after {
     content: "";
     display: block;
@@ -26,6 +27,7 @@ ul, ol {
 
 ul li {
   display: table-row;
+
   &:before {
     content: "•";
     display: table-cell;
@@ -36,6 +38,7 @@ ul li {
 ol li {
   display: table-row;
   counter-increment: table-ol;
+  
   &:before {
     content: counter(table-ol) ".";
     display: table-cell;
