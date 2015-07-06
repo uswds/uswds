@@ -7,47 +7,51 @@ title: Footers
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <footer class="footer" role="contentinfo">
-    <nav class="nav-footer">
-      <ul class="usa-unstyled-list">
-        <li><h3>Topic</h3></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-      </ul>
-      <ul class="usa-unstyled-list">
-        <li><h3>Topic</h3></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-      </ul>
-      <ul class="usa-unstyled-list">
-        <li><h3>Topic</h3></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-      </ul>
-      <ul class="usa-unstyled-list">
-        <li><h3>Topic</h3></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-        <li><a href="javascript:void(0)">Secondary link</a></li>
-      </ul>
-    </nav>
+  <footer class="footer footer-big" role="contentinfo">
+    <div class="primary-section grid-box">
+      <nav class="nav-footer">
+        <ul class="usa-unstyled-list width-one-sixth">
+          <li><h3>Topic</h3></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+        </ul>
+        <ul class="usa-unstyled-list width-one-sixth">
+          <li><h3>Topic</h3></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+        </ul>
+        <ul class="usa-unstyled-list width-one-sixth">
+          <li><h3>Topic</h3></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+        </ul>
+        <ul class="usa-unstyled-list width-one-sixth">
+          <li><h3>Topic</h3></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+          <li><a href="javascript:void(0)">Secondary link</a></li>
+        </ul>
+      </nav>
 
-    <h3>Sign up</h3>
+      <div class="sign_up-block grid-item width-one-third">
+        <h3>Sign up</h3>
 
-    <label for="">Input Type Text</label>
-    <input type="text" name="input-type-text">
+        <label for="">Input Type Text</label>
+        <input type="text" name="input-type-text">
 
-    <label for="">Input Type Email</label>
-    <input type="email" name="input-type-email">
+        <label for="">Input Type Email</label>
+        <input type="email" name="input-type-email">
 
-    <button type="submit">Sign up</button>
+        <button type="submit">Sign up</button>
+      </div>
+    </div>
 
     <div class="footer-logo">
       <img src="" alt="Logo image">
