@@ -10,28 +10,28 @@ title: Footers
   <footer class="footer" role="contentinfo">
     <nav class="nav-footer">
       <ul class="usa-unstyled-list">
-        <li><h3>Primary link</h3></li>
+        <li><h3>Topic</h3></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
       </ul>
       <ul class="usa-unstyled-list">
-        <li><h3>Primary link</h3></li>
+        <li><h3>Topic</h3></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
       </ul>
       <ul class="usa-unstyled-list">
-        <li><h3>Primary link</h3></li>
+        <li><h3>Topic</h3></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
       </ul>
       <ul class="usa-unstyled-list">
-        <li><h3>Primary link</h3></li>
+        <li><h3>Topic</h3></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
         <li><a href="javascript:void(0)">Secondary link</a></li>
