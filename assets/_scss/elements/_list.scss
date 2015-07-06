@@ -2,7 +2,6 @@ ul, ol {
   margin: {
     top: 2em;
     bottom: 2em;
-  padding-left: 2em;
   }
 
   li {
@@ -16,10 +15,12 @@ ul, ol {
 
 ul {
   list-style-type: square;
+  padding-left: 1.1em;
 }
 
 ol {
   list-style-type: decimal;
+  padding-left: 1.4em;
 }
 
 // Unstyled lists
