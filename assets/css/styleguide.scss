@@ -175,6 +175,7 @@ header[role="banner"] {
       font-size: $h4-font-size;
       font-weight: bold;
       margin: 0;
+      padding-bottom: .2em;
     }
     h3 {
       margin: 0;
@@ -185,7 +186,16 @@ header[role="banner"] {
         display: none;
         padding: 0;        
         li {
-          padding-left: 1em;          
+          line-height: 1.8em;
+          padding-left: 1em;
+
+          &:before {
+            content: "";
+            padding-right: 1em;
+          }
+          &:after {
+            margin-bottom: 0;
+          }
         }
       }
       li {

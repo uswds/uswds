@@ -13,14 +13,39 @@ ul, ol {
   }
 }
 
-ul {
-  list-style-type: square;
-  padding-left: 1.1em;
+ul, ol {
+  list-style: none;
+  padding-left: 0;
+  display: table;
+  li:after {
+    content: "";
+    display: block;
+    margin-bottom: 0.5em;
+  }
 }
 
-ol {
-  list-style-type: decimal;
-  padding-left: 1.4em;
+ul li {
+  display: table-row;
+  &:before {
+    content: "•";
+    display: table-cell;
+    padding-right: 0.4em;
+  }
+}
+
+ol li {
+  display: table-row;
+  counter-increment: table-ol;
+  &:before {
+    content: counter(table-ol) ".";
+    display: table-cell;
+    padding-right: 0.4em;
+    text-align: right;
+  }
+}
+
+li {
+  margin-bottom: 0.5em;
 }
 
 // Unstyled lists
@@ -32,5 +57,10 @@ ol {
   
   li {
     margin: 0;
+
+    &:before {
+      content: "";
+      padding-right: 0;
+    }
   }
 }
