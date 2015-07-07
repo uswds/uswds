@@ -319,6 +319,9 @@ header[role="banner"] {
         top: 0;
         margin: 0;
         border-radius: 0;
+        &:hover {
+          background-color: $color-grey-900;
+        }
       }
     }
     th {
