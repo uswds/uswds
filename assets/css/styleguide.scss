@@ -29,7 +29,7 @@ $width-nav-sidebar: 250px;
 a#skipnav {
   padding: 10px 15px;
   position: absolute;
-  top: -40px;
+  top: -42px;
   left: 0px;
   color: $color-grey-900;
   background: transparent;
@@ -78,7 +78,7 @@ header[role="banner"] {
   }
 
   .disclaimer {
-    padding: 10px 20px;
+    padding: .5rem 2rem;
     color: white;
     text-align: center;
     font-size: $base-font-size / 1.25;
@@ -152,7 +152,7 @@ header[role="banner"] {
 
 .sidenav {
   position: absolute;
-  top: 83px;
+  top: 73px;
   bottom: 0;
   left: 0;
   width: $width-nav-sidebar;
@@ -175,6 +175,7 @@ header[role="banner"] {
       font-size: $h4-font-size;
       font-weight: bold;
       margin: 0;
+      padding-bottom: .2em;
     }
     h3 {
       margin: 0;
@@ -185,7 +186,16 @@ header[role="banner"] {
         display: none;
         padding: 0;        
         li {
-          padding-left: 1em;          
+          line-height: 1.8em;
+          padding-left: 1em;
+
+          &:before {
+            content: "";
+            padding-right: 1em;
+          }
+          &:after {
+            margin-bottom: 0;
+          }
         }
       }
       li {
@@ -228,7 +238,7 @@ header[role="banner"] {
 
 .main-content {
   position: absolute;
-  top: 83px;
+  top: 73px;
   bottom: 0;
   right: 0;
   overflow: auto;
@@ -252,7 +262,7 @@ header[role="banner"] {
   position: relative;
   padding: 0 2em 1em 2em;
   > h2, > h3, > p, > ul, > ol {
-    max-width: 500px;
+    max-width: 50rem;
   }
   > h1 {
     border-bottom: 1px solid #000;
@@ -262,15 +272,6 @@ header[role="banner"] {
       margin-top: 2em;
     }
   }
-  > h2, > h3 {
-    padding-top: 52px;
-  }
-}
-
-// ***** TEMPORARY FIX - REMOVE AFTER CONTENT IS ADDED ***** //
-
-.styleguide-content {
-  padding-bottom: 25em;
 }
 
 // Pattern Preview Boxes -------- //
@@ -294,39 +295,52 @@ header[role="banner"] {
 
 // Code Sample Boxes --------- //
 
-.code-sample {
-  @include clearfix();
-  border: 1px solid $color-grey-200;
-  background-color: $color-grey-50;
-
-  &.is-open {
-    .button-toggle:before {
-      content: 'Hide code';
+.code-snippet {
+  .code-snippet-button:after {
+    content: "\25be  hide code";
+  }
+  &.hidden {
+    table {
+      display: none;
+    }
+    .code-snippet-button:after {
+      content: "\25b8  show code";
+    }
+  }
+  table {
+    table-layout: fixed;
+    width: 100%;
+    padding: 3em 0 0 0;
+    td {
+      background-color: $color-grey-100;
+      border: 1px solid $color-grey-300;
+    }
+    th {
+      border: none;
+      text-align: left;
+    }
+    pre, code {
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
     }
     pre {
-      display: block;
+      padding: 0 1em 1em 1em;
+      overflow: auto;
+      height: 300px;
     }
-  }
-  .button-toggle {
-    font-size: $small-font-size;
-    display: block;
-    padding: .5em $site-margins;
-    text-decoration: underline;
-    &:before {
-      content: 'Show code';
-    }
-  }
-  pre {
-    display: none;
-    background-color: transparent;
-    overflow-y: hidden;
     code {
-      background-color: transparent;
-    }     
+      font-size: $base-font-size / 1.5;
+      line-height: 1.4em;
+      overflow: scroll;
+      max-height: 25em;
+      &.language-html {
+        max-width: 25em;
+        word-wrap: break-word;
+      }
+      
+    }
   }
-}
-
-.preview + .code-sample {
-  margin-top: -2em;
-  border-top: 0px;
 }

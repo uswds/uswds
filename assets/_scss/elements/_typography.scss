@@ -100,8 +100,13 @@ h6 {
 
 // Custom typography
 
-.usa-sans,
-.usa-sans p {
+.usa-content {
+  > p, > ul, > ol {
+    max-width: 50rem;
+  }  
+}
+
+.usa-sans {
   font-family: $font-sans;
 }
 
