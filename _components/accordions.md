@@ -7,7 +7,7 @@ title: Accordions
 <h3>Bordered Accordion</h3>
 
 <div id="accordion-menu">
-  <ul>
+  <ul class="usa-unstyled-list">
     <li>
       <p>Apple Pie h4</p>
       <div class="content">
