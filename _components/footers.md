@@ -45,13 +45,13 @@ title: Footers
         </nav>
 
         <div class="usa-sign_up-block width-one-third">
-          <h3>Sign up</h3>
+          <h3 class="usa-sign_up-header">Sign up</h3>
 
-          <label for="">Your name</label>
-          <input type="text" name="input-type-text" placeholder="Your name">
+          <label class="" for="name">Your name</label>
+          <input id="name" name="name" type="input-type-text"  placeholder="Your name">
 
-          <label for="">Your email address</label>
-          <input type="email" name="input-type-email" placeholder="yourname@email.com">
+          <label class="" for="email" id="">Your email address</label>
+          <input id="email" name="email" type="input-type-email" placeholder="yourname@email.com">
 
           <button type="submit">Sign up</button>
         </div>

@@ -4,16 +4,16 @@
 
 .usa-footer-return-to-top {
   padding: {
-    top: 2em;
-    bottom: 2em;
+    top: 2rem;
+    bottom: 2rem;
   }
 }
 
 .usa-footer-primary-section {
   background-color: $color-grey-100;
   padding: {
-    top: 2em;
-    bottom: 2em;
+    top: 2rem;
+    bottom: 5rem;
   }
 }
 
@@ -23,13 +23,21 @@
 
 .usa-sign_up-block button {
   float: right;
+  margin: {
+    right: 0;
+    top: 1.5rem;
+  }
+}
+
+.usa-sign_up-block input {
+  width: 100%;
 }
 
 .usa-footer-secondary-section {
   background-color: $color-grey-300;
   padding: {
-    top: 2em;
-    bottom: 2em;
+    top: 3rem;
+    bottom: 3rem;
   }
 }
 
@@ -39,6 +47,10 @@
 
 .usa-footer-big .usa-footer-topic {
   text-transform: uppercase;
+}
+
+.usa-footer-topic, .usa-sign_up-header {
+  margin-top: 3rem;
 }
 
 img.usa-footer-logo-img {
