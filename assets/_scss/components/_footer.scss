@@ -17,6 +17,13 @@
   }
 }
 
+.usa-footer-medium .usa-footer-primary-section {
+  padding: {
+    top: 0;
+    bottom: 2.5rem;
+  }
+}
+
 .usa-footer-nav li {
   margin: 1rem 0;
 }
@@ -43,6 +50,11 @@
 
 .usa-footer-contact-links {
   text-align: right;
+}
+
+.usa-footer .usa-footer-primary-link {
+  @include h3();
+  color: $color-base-link;
 }
 
 .usa-footer-big .usa-footer-topic {
