@@ -29,7 +29,7 @@ $width-nav-sidebar: 250px;
 a#skipnav {
   padding: 10px 15px;
   position: absolute;
-  top: -42px;
+  top: -40px;
   left: 0px;
   color: $color-grey-900;
   background: transparent;
@@ -78,7 +78,7 @@ header[role="banner"] {
   }
 
   .disclaimer {
-    padding: .5rem 2rem;
+    padding: 10px 20px;
     color: white;
     text-align: center;
     font-size: $base-font-size / 1.25;
@@ -152,7 +152,7 @@ header[role="banner"] {
 
 .sidenav {
   position: absolute;
-  top: 73px;
+  top: 83px;
   bottom: 0;
   left: 0;
   width: $width-nav-sidebar;
@@ -175,7 +175,6 @@ header[role="banner"] {
       font-size: $h4-font-size;
       font-weight: bold;
       margin: 0;
-      padding-bottom: .2em;
     }
     h3 {
       margin: 0;
@@ -186,16 +185,7 @@ header[role="banner"] {
         display: none;
         padding: 0;        
         li {
-          line-height: 1.8em;
-          padding-left: 1em;
-
-          &:before {
-            content: "";
-            padding-right: 1em;
-          }
-          &:after {
-            margin-bottom: 0;
-          }
+          padding-left: 1em;          
         }
       }
       li {
@@ -238,7 +228,7 @@ header[role="banner"] {
 
 .main-content {
   position: absolute;
-  top: 73px;
+  top: 83px;
   bottom: 0;
   right: 0;
   overflow: auto;
@@ -262,7 +252,7 @@ header[role="banner"] {
   position: relative;
   padding: 0 2em 1em 2em;
   > h2, > h3, > p, > ul, > ol {
-    max-width: 50rem;
+    max-width: 500px;
   }
   > h1 {
     border-bottom: 1px solid #000;
