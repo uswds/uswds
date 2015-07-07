@@ -312,10 +312,13 @@ header[role="banner"] {
       background-color: $color-grey-100;
       border: 1px solid $color-grey-300;
       position: relative;
+      vertical-align: top;
       .code-copy-button {
         position: absolute;
         right: 0;
         top: 0;
+        margin: 0;
+        border-radius: 0;
       }
     }
     th {
@@ -331,14 +334,10 @@ header[role="banner"] {
     }
     pre {
       padding: 0 1em 1em 1em;
-      overflow: auto;
-      height: 300px;
     }
     code {
       font-size: $base-font-size / 1.5;
       line-height: 1.4em;
-      overflow: scroll;
-      max-height: 25em;
       &.language-html {
         max-width: 25em;
         word-wrap: break-word;
