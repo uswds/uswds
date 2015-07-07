@@ -17,15 +17,25 @@
   }
 }
 
-.usa-footer-medium .usa-footer-primary-section {
+.usa-footer-medium .usa-footer-primary-section,
+.usa-footer-slim .usa-footer-primary-section {
   padding: {
     top: 0;
-    bottom: 2.5rem;
+    bottom: 2rem;
   }
 }
 
 .usa-footer-nav li {
   margin: 1rem 0;
+}
+
+.usa-footer-nav p,
+.usa-footer-nav a {
+  margin-top: 3rem;
+}
+
+.usa-footer-slim .usa-footer-nav a {
+  display: block;
 }
 
 .usa-sign_up-block button {
@@ -61,7 +71,8 @@
   text-transform: uppercase;
 }
 
-.usa-footer-topic, .usa-sign_up-header {
+.usa-footer-topic, 
+.usa-sign_up-header {
   margin-top: 3rem;
 }
 
@@ -72,6 +83,10 @@ img.usa-footer-logo-img {
 img.usa-footer-slim-logo-img {
   float: left;
   max-width: 100px; 
+}
+
+.usa-footer-logo-heading {
+  margin-top: 2rem;
 }
 
 .usa-footer-slim-logo-heading {

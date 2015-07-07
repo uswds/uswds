@@ -61,7 +61,7 @@ title: Footers
       <div class="grid-box">
         <div class="usa-footer-logo width-one-half">
           <img class="usa-footer-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
-          <h3>Name of Agency</h3>
+          <h3 class="usa-footer-logo-heading">Name of Agency</h3>
         </div>
 
         <div class="usa-footer-contact-links width-one-half">
@@ -122,7 +122,7 @@ title: Footers
       <div class="grid-box">
         <div class="usa-footer-logo width-one-half">
           <img class="usa-footer-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
-          <h3>Name of Agency</h3>
+          <h3 class="usa-footer-logo-heading">Name of Agency</h3>
         </div>
 
         <div class="usa-footer-contact-links width-one-half">
