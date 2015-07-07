@@ -62,10 +62,7 @@ title: Typography
     <h4>Subsection of the page</h4>
     <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
   </div>
-
-  <img src="{{ site.baseurl }}/assets/img/static/Typography_UI_v1.png">
 </div>
- 
 
 <div class="grid-box">
   <div class="grid-item width-one-half annotation">
