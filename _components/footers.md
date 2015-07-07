@@ -7,6 +7,8 @@ title: Footers
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
+  <h3>Footer Big</h3>
+
   <footer class="usa-footer usa-footer-big usa-sans" role="contentinfo">
     <div class="grid-box usa-footer-return-to-top">
       <a href="#">Return to top</a>
@@ -71,13 +73,14 @@ title: Footers
           </div>
           
           <h3>Agency Contact Center</h3>
-          <p class="usa-sans">(800) CALL-GOVT</p>
+          <p>(800) CALL-GOVT</p>
           <a href="mailto:javascript:void(0)">info@agency.gov</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <h3>Footer Medium</h3>
 
   <footer class="usa-footer usa-footer-medium usa-sans" role="contentinfo">
     <div class="grid-box usa-footer-return-to-top">
@@ -131,8 +134,57 @@ title: Footers
           </div>
           
           <h3>Agency Contact Center</h3>
-          <p class="usa-sans">(800) CALL-GOVT</p>
+          <p>(800) CALL-GOVT</p>
           <a href="mailto:javascript:void(0)">info@agency.gov</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <h3>Footer Slim</h3>
+
+  <footer class="usa-footer usa-footer-slim usa-sans" role="contentinfo">
+    <div class="grid-box usa-footer-return-to-top">
+      <a href="#">Return to top</a>
+    </div>
+    <div class="usa-footer-primary-section">
+      <div class="grid-box">
+        <nav class="usa-footer-nav">
+          <div class="width-one-sixth">
+            <h3 class="usa-footer-topic">
+              <a class="usa-footer-primary-link" href="#">Primary link</a>
+            </h3>
+          </div>
+          <div class="width-one-sixth">
+            <h3 class="usa-footer-topic">
+              <a class="usa-footer-primary-link" href="#">Primary link</a>
+            </h3>
+          </div>
+          <div class="width-one-sixth">
+            <h3 class="usa-footer-topic">
+              <a class="usa-footer-primary-link" href="#">Primary link</a>
+            </h3>
+          </div>
+          <div class="width-one-sixth">
+            <h3 class="usa-footer-topic">
+              <a class="usa-footer-primary-link" href="#">Primary link</a>
+            </h3>
+          </div>
+          <div class="width-one-sixth">
+           <p>(800) CALL-GOVT</p>
+          </div>
+          <div class="width-one-sixth">
+            <a href="mailto:javascript:void(0)">info@agency.gov</a>
+          </div>          
+        </nav>
+      </div>
+    </div>
+
+    <div class="usa-footer-secondary-section">
+      <div class="grid-box">
+        <div class="usa-footer-logo width-one-half">
+          <img class="usa-footer-slim-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
+          <h3 class="usa-footer-slim-logo-heading">Name of Agency</h3>
         </div>
       </div>
     </div>
