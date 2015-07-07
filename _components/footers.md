@@ -11,7 +11,7 @@ title: Footers
 
   <footer class="usa-footer usa-footer-big usa-sans" role="contentinfo">
     <div class="grid-box usa-footer-return-to-top">
-      <a href="#">Return to top</a>
+      <a href="#usa-top-of-page">Return to top</a>
     </div>
     <div class="usa-footer-primary-section">
       <div class="grid-box">
@@ -84,7 +84,7 @@ title: Footers
 
   <footer class="usa-footer usa-footer-medium usa-sans" role="contentinfo">
     <div class="grid-box usa-footer-return-to-top">
-      <a href="#">Return to top</a>
+      <a href="#usa-top-of-page">Return to top</a>
     </div>
     <div class="usa-footer-primary-section">
       <div class="grid-box">
@@ -145,7 +145,7 @@ title: Footers
 
   <footer class="usa-footer usa-footer-slim usa-sans" role="contentinfo">
     <div class="grid-box usa-footer-return-to-top">
-      <a href="#">Return to top</a>
+      <a href="#usa-top-of-page">Return to top</a>
     </div>
     <div class="usa-footer-primary-section">
       <div class="grid-box">
