@@ -7,67 +7,78 @@ title: Footers
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <footer class="footer footer-big" role="contentinfo">
-    <div class="primary-section grid-box">
-      <nav class="nav-footer">
-        <ul class="usa-unstyled-list width-one-sixth">
-          <li><h3>Topic</h3></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-        </ul>
-        <ul class="usa-unstyled-list width-one-sixth">
-          <li><h3>Topic</h3></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-        </ul>
-        <ul class="usa-unstyled-list width-one-sixth">
-          <li><h3>Topic</h3></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-        </ul>
-        <ul class="usa-unstyled-list width-one-sixth">
-          <li><h3>Topic</h3></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-          <li><a href="javascript:void(0)">Secondary link</a></li>
-        </ul>
-      </nav>
+  <footer class="usa-footer usa-footer-big" role="contentinfo">
+    <div class="grid-box usa-footer-return-to-top">
+      <a href="#">Return to top</a>
+    </div>
+    <div class="usa-footer-primary-section">
+      <div class="grid-box">
+        <nav class="usa-nav-footer">
+          <ul class="usa-unstyled-list width-one-sixth">
+            <h3 class="usa-footer-topic">Topic</h3>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+          </ul>
+          <ul class="usa-unstyled-list width-one-sixth">
+            <h3 class="usa-footer-topic">Topic</h3>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+          </ul>
+          <ul class="usa-unstyled-list width-one-sixth">
+            <h3 class="usa-footer-topic">Topic</h3>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+          </ul>
+          <ul class="usa-unstyled-list width-one-sixth">
+            <h3 class="usa-footer-topic">Topic</h3>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="javascript:void(0)">Secondary link</a></li>
+          </ul>
+        </nav>
 
-      <div class="sign_up-block grid-item width-one-third">
-        <h3>Sign up</h3>
+        <div class="usa-sign_up-block width-one-third">
+          <h3>Sign up</h3>
 
-        <label for="">Input Type Text</label>
-        <input type="text" name="input-type-text">
+          <label for="">Input Type Text</label>
+          <input type="text" name="input-type-text">
 
-        <label for="">Input Type Email</label>
-        <input type="email" name="input-type-email">
+          <label for="">Input Type Email</label>
+          <input type="email" name="input-type-email">
 
-        <button type="submit">Sign up</button>
+          <button type="submit">Sign up</button>
+        </div>
       </div>
     </div>
 
-    <div class="footer-logo">
-      <img src="" alt="Logo image">
-      <h3>Name of Agency</h3>
-    </div>
+    <div class="usa-footer-secondary-section">
+      <div class="grid-box">
+        <div class="usa-footer-logo width-one-half">
+          <img src="" alt="Logo image">
+          <h3>Name of Agency</h3>
+        </div>
 
-    <div class="social-links">
-      <img src="" alt="Facebook image">
-      <img src="" alt="Twitter image">
-      <img src="" alt="YouTube image">
-      <img src="" alt="RSS image">
+        <div class="usa-footer-contact-links width-one-half">
+          <div class="usa-social-links">
+            <img src="" alt="Facebook image">
+            <img src="" alt="Twitter image">
+            <img src="" alt="YouTube image">
+            <img src="" alt="RSS image">
+          </div>
+          
+          <h3>Agency Contact Center</h3>
+          <p class="usa-sans">1-800-CALL-GOVT</p>
+          <a href="mailto:javascript:void(0)">info@agency.gov</a>
+        </div>
+      </div>
     </div>
-    
-    <h3>Agency Contact Center</h3>
-    <p class="usa-sans">1-800-CALL-GOVT</p>
-    <a href="mailto:javascript:void(0)">info@agency.gov</a>
   </footer>
 
   <img src="{{ site.baseurl }}/assets/img/static/Footer_FullUI_v1-930width.png">
