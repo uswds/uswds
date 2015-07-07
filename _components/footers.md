@@ -15,29 +15,29 @@ title: Footers
     </div>
     <div class="usa-footer-primary-section">
       <div class="grid-box">
-        <nav class="usa-footer-nav">
-          <ul class="usa-unstyled-list width-one-sixth">
+        <nav class="usa-footer-nav width-two-thirds">
+          <ul class="usa-unstyled-list width-one-fourth">
             <h3 class="usa-footer-topic">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
-          <ul class="usa-unstyled-list width-one-sixth">
+          <ul class="usa-unstyled-list width-one-fourth">
             <h3 class="usa-footer-topic">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
-          <ul class="usa-unstyled-list width-one-sixth">
+          <ul class="usa-unstyled-list width-one-fourth">
             <h3 class="usa-footer-topic">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
-          <ul class="usa-unstyled-list width-one-sixth">
+          <ul class="usa-unstyled-list width-one-fourth">
             <h3 class="usa-footer-topic">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
