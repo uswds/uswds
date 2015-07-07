@@ -17,12 +17,10 @@ $width-nav-sidebar: 250px;
 // Generic -------------- //
 
 .tablet-only {
-  display: none;
-  @media (max-width: $tablet-up + $width-nav-sidebar) {
-    display: block;
+  @media (min-width: $tablet-up + $width-nav-sidebar) {
+    display: none;
   }
 }
-
 
 // Navigation ------------- //
 
