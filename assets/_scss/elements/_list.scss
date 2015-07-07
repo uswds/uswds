@@ -59,11 +59,15 @@ li {
   list-style-type: none;
   
   li {
+    display: list-item;
     margin: 0;
 
     &:before {
-      content: "";
-      padding-right: 0;
+      display: none;
     }
+
+    &:after {
+      display: none;
+    }    
   }
 }

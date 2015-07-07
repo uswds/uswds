@@ -17,12 +17,10 @@ $width-nav-sidebar: 250px;
 // Generic -------------- //
 
 .tablet-only {
-  display: none;
-  @media (max-width: $tablet-up + $width-nav-sidebar) {
-    display: block;
+  @media (min-width: $tablet-up + $width-nav-sidebar) {
+    display: none !important;
   }
 }
-
 
 // Navigation ------------- //
 
@@ -186,7 +184,6 @@ header[role="banner"] {
         display: none;
         padding: 0;        
         li {
-          line-height: 1.8em;
           padding-left: 1em;
 
           &:before {
@@ -295,7 +292,7 @@ header[role="banner"] {
 
 // Code Sample Boxes --------- //
 
-.code-snippet {
+.code-snippets {
   .code-snippet-button:after {
     content: "\25be  hide code";
   }
@@ -314,6 +311,18 @@ header[role="banner"] {
     td {
       background-color: $color-grey-100;
       border: 1px solid $color-grey-300;
+      position: relative;
+      vertical-align: top;
+      .code-copy-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 0;
+        border-radius: 0;
+        &:hover {
+          background-color: $color-grey-900;
+        }
+      }
     }
     th {
       border: none;
@@ -328,14 +337,10 @@ header[role="banner"] {
     }
     pre {
       padding: 0 1em 1em 1em;
-      overflow: auto;
-      height: 300px;
     }
     code {
       font-size: $base-font-size / 1.5;
       line-height: 1.4em;
-      overflow: scroll;
-      max-height: 25em;
       &.language-html {
         max-width: 25em;
         word-wrap: break-word;
