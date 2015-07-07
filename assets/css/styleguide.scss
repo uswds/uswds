@@ -292,7 +292,7 @@ header[role="banner"] {
 
 // Code Sample Boxes --------- //
 
-.code-snippet {
+.code-snippets {
   .code-snippet-button:after {
     content: "\25be  hide code";
   }
@@ -311,6 +311,12 @@ header[role="banner"] {
     td {
       background-color: $color-grey-100;
       border: 1px solid $color-grey-300;
+      position: relative;
+      .code-copy-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
     }
     th {
       border: none;
