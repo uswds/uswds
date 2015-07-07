@@ -18,7 +18,7 @@ $width-nav-sidebar: 250px;
 
 .tablet-only {
   @media (min-width: $tablet-up + $width-nav-sidebar) {
-    display: none;
+    display: none !important;
   }
 }
 
