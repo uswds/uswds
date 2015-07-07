@@ -1,3 +1,7 @@
+.usa-footer a {
+  font-weight: normal;
+}
+
 .usa-footer-return-to-top {
   padding: {
     top: 2em;
@@ -13,6 +17,14 @@
   }
 }
 
+.usa-footer-nav li {
+  margin: 1rem 0;
+}
+
+.usa-sign_up-block button {
+  float: right;
+}
+
 .usa-footer-secondary-section {
   background-color: $color-grey-300;
   padding: {
@@ -25,6 +37,10 @@
   text-align: right;
 }
 
-.usa-footer-topic {
+.usa-footer-big .usa-footer-topic {
   text-transform: uppercase;
+}
+
+img.usa-footer-logo-img {
+  max-width: 140px;
 }

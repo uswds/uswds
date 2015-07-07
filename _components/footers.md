@@ -7,13 +7,13 @@ title: Footers
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <footer class="usa-footer usa-footer-big" role="contentinfo">
+  <footer class="usa-footer usa-footer-big usa-sans" role="contentinfo">
     <div class="grid-box usa-footer-return-to-top">
       <a href="#">Return to top</a>
     </div>
     <div class="usa-footer-primary-section">
       <div class="grid-box">
-        <nav class="usa-nav-footer">
+        <nav class="usa-footer-nav">
           <ul class="usa-unstyled-list width-one-sixth">
             <h3 class="usa-footer-topic">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
@@ -47,11 +47,11 @@ title: Footers
         <div class="usa-sign_up-block width-one-third">
           <h3>Sign up</h3>
 
-          <label for="">Input Type Text</label>
-          <input type="text" name="input-type-text">
+          <label for="">Your name</label>
+          <input type="text" name="input-type-text" placeholder="Your name">
 
-          <label for="">Input Type Email</label>
-          <input type="email" name="input-type-email">
+          <label for="">Your email address</label>
+          <input type="email" name="input-type-email" placeholder="yourname@email.com">
 
           <button type="submit">Sign up</button>
         </div>
@@ -61,7 +61,7 @@ title: Footers
     <div class="usa-footer-secondary-section">
       <div class="grid-box">
         <div class="usa-footer-logo width-one-half">
-          <img src="" alt="Logo image">
+          <img class="usa-footer-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
           <h3>Name of Agency</h3>
         </div>
 
@@ -74,7 +74,7 @@ title: Footers
           </div>
           
           <h3>Agency Contact Center</h3>
-          <p class="usa-sans">1-800-CALL-GOVT</p>
+          <p class="usa-sans">(800) CALL-GOVT</p>
           <a href="mailto:javascript:void(0)">info@agency.gov</a>
         </div>
       </div>
