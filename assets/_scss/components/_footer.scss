@@ -1,4 +1,5 @@
 .usa-footer {
+
   button {
     width: 100%;
   
@@ -6,6 +7,7 @@
       width: auto;
     }
   }
+
   .usa-unstyled-list {
     display: block;
   }
@@ -25,11 +27,32 @@
 .usa-footer-primary-section {
   background-color: $color-grey-100;
   padding: {
-    top: 2rem;
-    bottom: 5rem;
+//    top: 2rem;
+//    bottom: 5rem;
   }
-  .grid-box {
+  a, 
+  p, 
+  .usa-footer-primary-link {
+    padding: {
+      left: 2.5rem;
+      right: 2.5rem;
+    }
+    @media (min-width: $tablet-up) {
+      padding: {
+        left: 0;
+        right: 0;
+      }
+    }  
+  }
+  .grid-box {   
     padding: 0;
+
+    @media (min-width: $tablet-up) {
+      padding: {
+        left: 2.5rem;
+        right: 2.5rem;
+      }
+    }
   }
 }
 
@@ -42,13 +65,26 @@
       top: 1rem;
       bottom: 1rem;
     }
-  }  
+  }
+
+  .grid-box {
+    align-items: center;
+    display: flex;     
+  }
 }
 
-.usa-footer-nav li {
-//  margin: 1rem 0;
-}
+.usa-footer-nav {
+  li {
 
+    @media (min-width: $tablet-up) {
+      margin: 1rem 0;
+    }
+
+    &:last-child {
+//      border-bottom: 1px solid $color-base-link; 
+    }
+  }
+}
 .usa-footer-nav p,
 .usa-footer-nav a {
 //  margin-top: 3rem;
@@ -58,14 +94,21 @@
   display: block;
 }
 
-.usa-sign_up-block button {
-  float: right;
-  margin: {
-    right: 0;
-    top: 1.5rem;
+.usa-sign_up-block {
+  padding: 0 2.5rem;
+
+  @media (min-width: $tablet-up) {
+    padding: 0;
+  }
+
+  button {
+    float: right;
+    margin: {
+      right: 0;
+      top: 1.5rem;
+    }
   }
 }
-
 .usa-sign_up-block input {
   width: 100%;
 }
@@ -79,7 +122,10 @@
 }
 
 .usa-footer-contact-links {
-  text-align: right;
+
+  @media (min-width: $tablet-up) {
+    text-align: right;
+  }
 }
 
 .usa-footer .usa-footer-primary-link {
@@ -87,7 +133,11 @@
   color: $color-base-link;
   display: block;
   font-weight: $font-bold;
-  padding: 2rem 2.5rem;
+  margin-top: 0;
+  padding: {
+    bottom: 2rem;
+    top: 2rem;
+  }
   text-transform: uppercase;
 
   @media (min-width: $tablet-up) {
@@ -95,6 +145,33 @@
     font-size: 1.9rem;
     text-transform: none;
   }  
+}
+
+.usa-footer-big  .usa-footer-primary-section {
+
+    @media (min-width: $tablet-up) {
+      padding: {
+        top: 3rem;
+        bottom: 4rem;
+      }      
+    }
+  }
+
+.usa-footer-big {
+
+  .usa-footer-primary-link {
+    text-transform: none;
+  }
+
+  ul {
+    a {
+      padding: 0 2.5rem;
+      
+      @media (min-width: $tablet-up) {
+        padding: 0;       
+      }   
+    }
+  }
 }
 
 .usa-footer-big .usa-footer-topic {
@@ -121,6 +198,14 @@ img.usa-footer-slim-logo-img {
 }
 
 .usa-footer-slim-logo-heading {
-  display: inline-block;
-  padding-left: 2em;
+  display: block;
+  padding-top: 2rem;
+
+  @media (min-width: $tablet-up) {
+    display: inline-block;
+    padding: {
+      left: 2em;
+      top: 0;
+    }
+  }
 }

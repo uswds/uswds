@@ -17,28 +17,28 @@ title: Footers
       <div class="grid-box">
         <nav class="usa-footer-nav width-two-thirds">
           <ul class="usa-unstyled-list width-one-fourth">
-            <h3 class="usa-footer-topic">Topic</h3>
+            <h3 class="usa-footer-primary-link">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list width-one-fourth">
-            <h3 class="usa-footer-topic">Topic</h3>
+            <h3 class="usa-footer-primary-link">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list width-one-fourth">
-            <h3 class="usa-footer-topic">Topic</h3>
+            <h3 class="usa-footer-primary-link">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list width-one-fourth">
-            <h3 class="usa-footer-topic">Topic</h3>
+            <h3 class="usa-footer-primary-link">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
@@ -86,28 +86,6 @@ title: Footers
     <div class="grid-box usa-footer-return-to-top">
       <a href="#usa-top-of-page">Return to top</a>
     </div>
-    <div class="usa-footer-primary-section">
-      <div class="grid-box">
-        <nav class="usa-footer-nav">
-          <div class="width-one-sixth">
-              <a class="usa-footer-primary-link" href="#">Primary link</a>
-          </div>
-          <div class="width-one-sixth">
-            <a class="usa-footer-primary-link" href="#">Primary link</a>
-          </div>
-          <div class="width-one-sixth">
-            <a class="usa-footer-primary-link" href="#">Primary link</a>
-          </div>
-          <div class="width-one-sixth">
-            <a class="usa-footer-primary-link" href="#">Primary link</a>
-          </div>
-          <div class="width-one-sixth">
-            <a class="usa-footer-primary-link" href="#">Primary link</a>
-          </div>
-        </nav>
-      </div>
-    </div>
-
     <div class="usa-footer-primary-section">
       <div class="grid-box">
         <nav class="usa-footer-nav">
@@ -163,26 +141,28 @@ title: Footers
     </div>
     <div class="usa-footer-primary-section">
       <div class="grid-box">
-        <nav class="usa-footer-nav">
-          <div class="width-one-sixth">
-            <a class="usa-footer-primary-link" href="#">Primary link</a>
-          </div>
-          <div class="width-one-sixth">
-            <a class="usa-footer-primary-link" href="#">Primary link</a>
-          </div>
-          <div class="width-one-sixth">
-            <a class="usa-footer-primary-link" href="#">Primary link</a>
-          </div>
-          <div class="width-one-sixth">
-            <a class="usa-footer-primary-link" href="#">Primary link</a>
-          </div>
-          <div class="width-one-sixth">
-           <p>(800) CALL-GOVT</p>
-          </div>
-          <div class="width-one-sixth">
-            <a href="mailto:javascript:void(0)">info@agency.gov</a>
-          </div>          
+        <nav class="usa-footer-nav width-two-thirds">
+          <ul class="usa-unstyled-list">
+            <li class="width-one-fourth">
+              <a class="usa-footer-primary-link" href="#">Primary link</a>
+            </li>
+            <li class="width-one-fourth">
+              <a class="usa-footer-primary-link" href="#">Primary link</a>
+            </li>
+            <li class="width-one-fourth">
+              <a class="usa-footer-primary-link" href="#">Primary link</a>
+            </li>
+            <li class="width-one-fourth">
+              <a class="usa-footer-primary-link" href="#">Primary link</a>
+            </li>
+          </ul>
         </nav>
+        <div class="width-one-sixth">
+          <p>(800) CALL-GOVT</p>
+        </div>
+        <div class="width-one-sixth">
+          <a href="mailto:javascript:void(0)">info@agency.gov</a>
+        </div>          
       </div>
     </div>
 
