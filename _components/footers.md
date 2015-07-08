@@ -104,7 +104,7 @@ title: Footers
             </li>
             <li class="width-one-sixth">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
-            </li>
+            </li>                    
           </ul>
         </nav>
       </div>

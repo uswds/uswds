@@ -26,10 +26,6 @@
 
 .usa-footer-primary-section {
   background-color: $color-grey-100;
-  padding: {
-//    top: 2rem;
-//    bottom: 5rem;
-  }
   a, 
   p, 
   .usa-footer-primary-link {
@@ -66,11 +62,18 @@
       bottom: 1rem;
     }
   }
+}
 
+.usa-footer-slim .usa-footer-primary-section {
   .grid-box {
     align-items: center;
     display: flex;     
   }
+}
+
+.usa-footer-medium .usa-footer-nav ul {
+    align-items: center;
+    display: flex;   
 }
 
 .usa-footer-nav {
@@ -84,10 +87,6 @@
 //      border-bottom: 1px solid $color-base-link; 
     }
   }
-}
-.usa-footer-nav p,
-.usa-footer-nav a {
-//  margin-top: 3rem;
 }
 
 .usa-footer-slim .usa-footer-nav a {
