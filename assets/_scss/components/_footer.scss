@@ -1,3 +1,16 @@
+.usa-footer {
+  button {
+    width: 100%;
+  
+    @media (min-width: $tablet-up) {
+      width: auto;
+    }
+  }
+  .usa-unstyled-list {
+    display: block;
+  }
+}
+
 .usa-footer a {
   font-weight: normal;
 }
@@ -15,23 +28,30 @@
     top: 2rem;
     bottom: 5rem;
   }
+  .grid-box {
+    padding: 0;
+  }
 }
 
 .usa-footer-medium .usa-footer-primary-section,
 .usa-footer-slim .usa-footer-primary-section {
-  padding: {
-    top: 0;
-    bottom: 2rem;
-  }
+  padding: 0;
+  
+  @media (min-width: $tablet-up) {
+    padding: {
+      top: 1rem;
+      bottom: 1rem;
+    }
+  }  
 }
 
 .usa-footer-nav li {
-  margin: 1rem 0;
+//  margin: 1rem 0;
 }
 
 .usa-footer-nav p,
 .usa-footer-nav a {
-  margin-top: 3rem;
+//  margin-top: 3rem;
 }
 
 .usa-footer-slim .usa-footer-nav a {
@@ -63,8 +83,18 @@
 }
 
 .usa-footer .usa-footer-primary-link {
-  @include h3();
+  border-top: 1px solid $color-base-link;  
   color: $color-base-link;
+  display: block;
+  font-weight: $font-bold;
+  padding: 2rem 2.5rem;
+  text-transform: uppercase;
+
+  @media (min-width: $tablet-up) {
+    border-top: none;
+    font-size: 1.9rem;
+    text-transform: none;
+  }  
 }
 
 .usa-footer-big .usa-footer-topic {
@@ -73,7 +103,8 @@
 
 .usa-footer-topic, 
 .usa-sign_up-header {
-  margin-top: 3rem;
+  margin: 0;
+  padding: 2rem 0;
 }
 
 img.usa-footer-logo-img {

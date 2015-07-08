@@ -90,30 +90,44 @@ title: Footers
       <div class="grid-box">
         <nav class="usa-footer-nav">
           <div class="width-one-sixth">
-            <h3 class="usa-footer-topic">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
-            </h3>
           </div>
           <div class="width-one-sixth">
-            <h3 class="usa-footer-topic">
-              <a class="usa-footer-primary-link" href="#">Primary link</a>
-            </h3>
+            <a class="usa-footer-primary-link" href="#">Primary link</a>
           </div>
           <div class="width-one-sixth">
-            <h3 class="usa-footer-topic">
-              <a class="usa-footer-primary-link" href="#">Primary link</a>
-            </h3>
+            <a class="usa-footer-primary-link" href="#">Primary link</a>
           </div>
           <div class="width-one-sixth">
-            <h3 class="usa-footer-topic">
-              <a class="usa-footer-primary-link" href="#">Primary link</a>
-            </h3>
+            <a class="usa-footer-primary-link" href="#">Primary link</a>
           </div>
           <div class="width-one-sixth">
-            <h3 class="usa-footer-topic">
-              <a class="usa-footer-primary-link" href="#">Primary link</a>
-            </h3>
+            <a class="usa-footer-primary-link" href="#">Primary link</a>
           </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="usa-footer-primary-section">
+      <div class="grid-box">
+        <nav class="usa-footer-nav">
+          <ul class="usa-unstyled-list">
+            <li class="width-one-sixth">
+              <a class="usa-footer-primary-link" href="#">Primary link</a>
+            </li>
+            <li class="width-one-sixth">
+              <a class="usa-footer-primary-link" href="#">Primary link</a>
+            </li>
+            <li class="width-one-sixth">
+              <a class="usa-footer-primary-link" href="#">Primary link</a>
+            </li>
+            <li class="width-one-sixth">
+              <a class="usa-footer-primary-link" href="#">Primary link</a>
+            </li>
+            <li class="width-one-sixth">
+              <a class="usa-footer-primary-link" href="#">Primary link</a>
+            </li>
+          </ul>
         </nav>
       </div>
     </div>
@@ -151,24 +165,16 @@ title: Footers
       <div class="grid-box">
         <nav class="usa-footer-nav">
           <div class="width-one-sixth">
-            <h3 class="usa-footer-topic">
-              <a class="usa-footer-primary-link" href="#">Primary link</a>
-            </h3>
+            <a class="usa-footer-primary-link" href="#">Primary link</a>
           </div>
           <div class="width-one-sixth">
-            <h3 class="usa-footer-topic">
-              <a class="usa-footer-primary-link" href="#">Primary link</a>
-            </h3>
+            <a class="usa-footer-primary-link" href="#">Primary link</a>
           </div>
           <div class="width-one-sixth">
-            <h3 class="usa-footer-topic">
-              <a class="usa-footer-primary-link" href="#">Primary link</a>
-            </h3>
+            <a class="usa-footer-primary-link" href="#">Primary link</a>
           </div>
           <div class="width-one-sixth">
-            <h3 class="usa-footer-topic">
-              <a class="usa-footer-primary-link" href="#">Primary link</a>
-            </h3>
+            <a class="usa-footer-primary-link" href="#">Primary link</a>
           </div>
           <div class="width-one-sixth">
            <p>(800) CALL-GOVT</p>
