@@ -313,12 +313,15 @@ header[role="banner"] {
       border: 1px solid $color-grey-300;
       position: relative;
       vertical-align: top;
+
       .code-copy-button {
+        border-radius: 0;
         position: absolute;
+        margin: 0;
         right: 0;
         top: 0;
-        margin: 0;
-        border-radius: 0;
+
+
         &:hover {
           background-color: $color-grey-900;
         }
