@@ -45,6 +45,7 @@ a#skipnav {
 
 header[role="banner"] {
   background-color: $color-grey-900;
+  z-index: 1;
   a {
     border-bottom: none;
     color: white;
@@ -59,6 +60,10 @@ header[role="banner"] {
       margin: 0;
       padding-left: 20px;
       font-size: $base-font-size * 1.25;
+      display: none;
+      @include media($tablet-up + $width-nav-sidebar) {
+        display: block;
+      }
     }
     ul {
       float: right;
@@ -69,7 +74,7 @@ header[role="banner"] {
         margin-left: 15px;
         font-family: $font-sans;
       }
-      @include media($mobile-up) {
+      @include media($tablet-up + $width-nav-sidebar) {
         display: block;
       }
     }
@@ -159,6 +164,7 @@ header[role="banner"] {
   padding: 5rem 2em 2em;
   overflow: auto;
   display: none;
+  z-index: -1;
   .lt-ie9 & {
     width: 25%;
   }
@@ -241,6 +247,7 @@ header[role="banner"] {
   overflow: auto;
   width: 100%;
   padding: 1em 2em;
+  z-index: -1;
   .lt-ie9 & {
     width: 75%;
   }
