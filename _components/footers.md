@@ -131,10 +131,22 @@ title: Footers
 
         <div class="usa-footer-contact-links width-one-half">
           <div class="usa-social-links">
-            <img src="" alt="Facebook image">
-            <img src="" alt="Twitter image">
-            <img src="" alt="YouTube image">
-            <img src="" alt="RSS image">
+            <svg width="26" height="39" role="img" aria-label="Facebook">
+              <title>Facebook</title>
+              <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook25.png" width="26" height="39" />
+            </svg>
+            <svg width="26" height="39" role="img" aria-label="Twitter">
+              <title>Twitter</title>
+              <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter16.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter16.png" width="26" height="39" />
+            </svg>
+            <svg width="26" height="39" role="img" aria-label="YouTube">
+              <title>YouTube</title>
+              <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube15.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube15.png" width="26" height="39" />
+            </svg>
+            <svg width="26" height="39" role="img" aria-label="RSS">
+              <title>RSS</title>
+              <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss25.png" width="26" height="39" />
+            </svg>
           </div>
           
           <h3>Agency Contact Center</h3>
