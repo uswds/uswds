@@ -26,6 +26,7 @@
 
 .usa-footer-primary-section {
   background-color: $color-grey-100;
+
   a, 
   p, 
   .usa-footer-primary-link {
@@ -33,6 +34,7 @@
       left: 2.5rem;
       right: 2.5rem;
     }
+
     @media (min-width: $tablet-up) {
       padding: {
         left: 0;
@@ -65,15 +67,19 @@
 }
 
 .usa-footer-slim .usa-footer-primary-section {
-  .grid-box {
-    align-items: center;
-    display: flex;     
+  @media (min-width: $tablet-up) {
+    .grid-box {
+      align-items: center;
+      display: flex;     
+    }
   }
 }
 
 .usa-footer-medium .usa-footer-nav ul {
+  @media (min-width: $tablet-up) {
     align-items: center;
-    display: flex;   
+    display: flex;  
+  }
 }
 
 .usa-footer-nav {
@@ -108,6 +114,7 @@
     }
   }
 }
+
 .usa-sign_up-block input {
   width: 100%;
 }
@@ -118,6 +125,12 @@
     top: 3rem;
     bottom: 3rem;
   }
+}
+
+.usa-footer-big-secondary-section {
+  @media (min-width: $tablet-up) {
+    padding-top: 5rem;
+  }  
 }
 
 .usa-footer-contact-links {
@@ -194,6 +207,24 @@ img.usa-footer-slim-logo-img {
 
 .usa-footer-logo-heading {
   margin-top: 2rem;
+}
+
+.usa-footer-contact-heading {
+  margin-top: 0;
+  
+  @media (min-width: $tablet-up) {
+  margin-top: 1rem;  
+  }
+}
+
+.usa-footer-phone-number {
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+  line-height: 1;
+  
+  @media (min-width: $tablet-up) {
+  margin-top: 2rem;
+  }
 }
 
 .usa-footer-slim-logo-heading {

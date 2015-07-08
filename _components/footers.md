@@ -57,7 +57,7 @@ title: Footers
       </div>
     </div>
 
-    <div class="usa-footer-secondary-section">
+    <div class="usa-footer-secondary-section usa-footer-big-secondary-section">
       <div class="grid-box">
         <div class="usa-footer-logo width-one-half">
           <img class="usa-footer-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
@@ -92,8 +92,8 @@ title: Footers
             </a>
           </div>
           
-          <h3>Agency Contact Center</h3>
-          <p>(800) CALL-GOVT</p>
+          <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
+          <p class="usa-footer-phone-number">(800) CALL-GOVT</p>
           <a href="mailto:javascript:void(0)">info@agency.gov</a>
         </div>
       </div>
@@ -165,7 +165,7 @@ title: Footers
             </a>
           </div>
           
-          <h3>Agency Contact Center</h3>
+          <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
           <p>(800) CALL-GOVT</p>
           <a href="mailto:javascript:void(0)">info@agency.gov</a>
         </div>
