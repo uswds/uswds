@@ -144,13 +144,13 @@ title: Accordions
 }
 
 #accordion-menu ul li.hidden p {
-  background: url("https://raw.githubusercontent.com/18F/govt-wide-patternlibrary/18f-pages-staging/assets/img/arrow-right.png") no-repeat;
+  background: url("https://cdn.rawgit.com/18F/govt-wide-patternlibrary/18f-pages-staging/assets/img/arrow-right.png") no-repeat;
   background-position: 15px;
   border-bottom: 0; 
 }
 
 #accordion-menu ul li p {
-  background: url("https://raw.githubusercontent.com/18F/govt-wide-patternlibrary/18f-pages-staging/assets/img/arrow-down.png") no-repeat;
+  background: url("https://cdn.rawgit.com/18F/govt-wide-patternlibrary/18f-pages-staging/assets/img/arrow-down.png") no-repeat;
   background-position: 15px;
   border-bottom: 1px solid #757575;
   color: #212121;
