@@ -54,8 +54,7 @@
   }
 }
 
-.usa-footer-medium .usa-footer-primary-section,
-.usa-footer-slim .usa-footer-primary-section {
+.usa-footer-medium .usa-footer-primary-section {
   padding: 0;
   
   @media (min-width: $tablet-up) {
@@ -65,6 +64,18 @@
     }
   }
 }
+
+.usa-footer-slim .usa-footer-primary-section {
+  padding-bottom: 2rem;
+  
+  @media (min-width: $tablet-up) {
+    padding: {
+      top: 1rem;
+      bottom: 1rem;
+    }
+  }
+}
+
 
 .usa-footer-slim .usa-footer-primary-section {
   @media (min-width: $tablet-up) {
@@ -179,7 +190,7 @@
   ul {
 
     padding-bottom: 2.5rem;
-    
+
     @media (min-width: $tablet-up) {
       padding-bottom: 0;
     }    
