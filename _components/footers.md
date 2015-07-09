@@ -229,10 +229,16 @@ title: Footers
 <div class="grid-box">
   <div class="grid-item width-one-half annotation">
     <h3>Use</h3>
-    <p>This is the usage content for the example.</p>
+    <p>Footers serve site visitors who arrive at the bottom of a page without finding what they want.</p>
+    <p>Footer links should point to popular content that might answer a visitor’s remaining questions. Links to disclaimers and legal content sometimes need to be in the footer, but try to minimize “disclaimer bloat” wherever possible.</p>
+    <p>Links do not have to be grouped in the same way they are in the header navigation (especially if the navigation offers many more links than the footer can).</p>
+    <p>Include the newsletter sign up if one of your website’s goals is getting visitors to sign up for a newsletter.</p>
+    <p>Link only to social media your agency updates frequently or uses to communicate with customers.</p>
+    <p>Important contact information should be limited to general email or phone numbers, which should be clickable links to dial from a mobile phone. (Physical addresses should live on contact pages users can navigate to from the accordion links).</p>
   </div>
   <div class="grid-item width-one-half annotation">
     <h3>Accessibility</h3>
-    <p>This is the accessibility content for the example.</p>
+    <p>Code the navigation so that pressing the  tab key moves focus from link to link in the navigation,even when the navigation has collapsed into an accordion.</p>
+    <p>When collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the “Accordion” section.</p>
   </div>  
 </div>
