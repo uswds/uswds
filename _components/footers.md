@@ -228,16 +228,20 @@ title: Footers
 <div class="grid-box">
   <div class="grid-item width-one-half annotation">
     <h3>Use</h3>
-    <p>Footers serve site visitors who arrive at the bottom of a page without finding what they want.</p>
-    <p>Footer links should point to popular content that might answer a visitor’s remaining questions. Links to disclaimers and legal content sometimes need to be in the footer, but try to minimize “disclaimer bloat” wherever possible.</p>
-    <p>Links do not have to be grouped in the same way they are in the header navigation (especially if the navigation offers many more links than the footer can).</p>
-    <p>Include the newsletter sign up if one of your website’s goals is getting visitors to sign up for a newsletter.</p>
-    <p>Link only to social media your agency updates frequently or uses to communicate with customers.</p>
-    <p>Important contact information should be limited to general email or phone numbers, which should be clickable links to dial from a mobile phone. (Physical addresses should live on contact pages users can navigate to from the accordion links).</p>
+    <ul>
+      <li>Footers serve site visitors who arrive at the bottom of a page without finding what they want.</li>
+      <li>Footer links should point to popular content that might answer a visitor’s remaining questions. Links to disclaimers and legal content sometimes need to be in the footer, but try to minimize “disclaimer bloat” wherever possible.</li>
+      <li>Links do not have to be grouped in the same way they are in the header navigation (especially if the navigation offers many more links than the footer can).</li>
+      <li>Include the newsletter sign up if one of your website’s goals is getting visitors to sign up for a newsletter.</li>
+      <li>Link only to social media your agency updates frequently or uses to communicate with customers.</li>
+      <li>Important contact information should be limited to general email or phone numbers, which should be clickable links to dial from a mobile phone. (Physical addresses should live on contact pages users can navigate to from the accordion links).</li>
+    </ul>
   </div>
   <div class="grid-item width-one-half annotation">
     <h3>Accessibility</h3>
-    <p>Code the navigation so that pressing the  tab key moves focus from link to link in the navigation,even when the navigation has collapsed into an accordion.</p>
-    <p>When collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the “Accordion” section.</p>
+    <ul>
+    <li>Code the navigation so that pressing the  tab key moves focus from link to link in the navigation,even when the navigation has collapsed into an accordion.</li>
+    <li>When collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the “Accordion” section.</li>
+    </ul>
   </div>  
 </div>
