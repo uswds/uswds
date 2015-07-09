@@ -13,18 +13,18 @@ input[type="month"],
 input[type="time"],
 input[type="week"],
 textarea  {
-  color: #000; // standardize on firefox
-  box-sizing: border-box;
-  -webkit-appearance: none;
   border: 1px solid $color-grey-500;
   border-radius: $usa-border-radius;
+  box-sizing: border-box;    
+  color: #000; // standardize on firefox 
   display: block;
+  font-size: $base-font-size;
+  margin: 1.5rem 0;
+  max-width: 38rem;  
   width: 100%;
   outline: none;
-  font-size: $base-font-size;
   padding: 1rem .7em;
-  margin: 1.5rem 0;
-  max-width: 38rem;
+  -webkit-appearance: none;
 
   &:focus, 
   &.usa-input-focus {
