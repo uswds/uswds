@@ -121,13 +121,29 @@ h6 {
 }
 
 .usa-image-block {
-  position: relative; 
+  position: relative;
 }
 
 .usa-image-text-block {
   color: $color-white;
   left: 0;
-  margin-left: 2em;
+  margin-left: 8%;
   position: absolute;
   top: 0;
+}
+
+.usa-image-display {
+  font-size: 1.8rem;
+  margin: {
+    bottom: 0;
+  }
+
+  @media (min-width: $tablet-up) {
+    @include title();
+    margin-top: 2em;
+  }
+}
+
+.usa-image-text {
+  margin-top: 0;
 }

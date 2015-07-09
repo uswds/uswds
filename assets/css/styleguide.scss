@@ -264,7 +264,7 @@ header[role="banner"] {
 
 .styleguide-content {
   position: relative;
-  padding: 0 2em 1em 2em;
+  padding-bottom: 1em;
   > h2, > h3, > p, > ul, > ol {
     max-width: 50rem;
   }
@@ -274,6 +274,12 @@ header[role="banner"] {
     margin-top: 3.4rem;
     &:not(:first-child) {
       margin-top: 2em;
+    }
+  }
+  @media (min-width: $tablet-up + $width-nav-sidebar) {
+    padding: {
+      left: 2em;
+      right: 2em;
     }
   }
 }
