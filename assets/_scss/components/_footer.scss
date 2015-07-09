@@ -86,7 +86,6 @@
     }
   }
 }
-    
 
 .usa-footer-slim .usa-footer-primary-section {
   @media (min-width: $tablet-up) {
@@ -197,6 +196,14 @@
   ul {
 
     padding-bottom: 2.5rem;
+    
+    &:last-child {
+      border-bottom: 1px solid $color-base-link;
+
+      @media (min-width: $tablet-up) {
+        border-bottom: none;
+      }
+    }
 
     @media (min-width: $tablet-up) {
       padding-bottom: 0;
