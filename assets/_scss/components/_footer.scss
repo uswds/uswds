@@ -176,6 +176,32 @@
   }
 
   ul {
+
+    padding-bottom: 2.5rem;
+
+    @media (max-width: $tablet-up) {
+
+      .usa-footer-primary-link {
+        background: url('../img/arrow-down.png') no-repeat;
+        background-position: 15px;
+        padding-left: 35px;
+      }
+
+      &.hidden {
+
+        padding-bottom: 0;
+
+        .usa-footer-primary-link { 
+          margin: 0; 
+          background: url('../img/arrow-right.png') no-repeat;
+          background-position: 15px;
+        }
+          
+        li { display: none; }
+        
+      }
+    }
+
     a {
       padding: 0 2.5rem;
       
