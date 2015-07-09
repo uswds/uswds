@@ -33,11 +33,13 @@ textarea  {
   }
 
   &.usa-input-error {
-
+    border-color: $color-error;
+    box-shadow: 0 0 0 1px $color-error;
   }
 
   &.usa-input-success {
-
+    border-color: $color-success;
+    box-shadow: 0 0 0 1px $color-success;
   }
 }
 
