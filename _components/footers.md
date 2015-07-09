@@ -216,12 +216,14 @@ title: Footers
     </div>
   </footer>
 
-  <h2>Get the Code</h2>
-  <p>This zip file includes the HTML, CSS, and JS for this component.</p>
+  <div class="download-code">
+    <h2>Get the Code</h2>
+    <p>This zip file includes the HTML, CSS, and JS for this component.</p>
 
-  <form method="get" action="{{ site.baseurl }}/assets/component-test/usa-footer.zip">
-    <button type="submit">Download ZIP</button>
-  </form>
+    <form method="get" action="{{ site.baseurl }}/assets/component-test/usa-footer.zip">
+      <button type="submit">Download ZIP</button>
+    </form>
+  </div>
 
 </div>
 
