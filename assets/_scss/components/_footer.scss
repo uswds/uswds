@@ -122,7 +122,6 @@
   
   &:last-child {
     border-bottom: 1px solid $color-base-link;
-
     @media (min-width: $tablet-up) {
       border-bottom: none;
     }
@@ -132,7 +131,6 @@
 .usa-footer-nav {
   
   li {
-
     @media (min-width: $tablet-up) {
       margin: 1rem 0;
     }
