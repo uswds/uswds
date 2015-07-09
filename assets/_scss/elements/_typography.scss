@@ -27,7 +27,7 @@ a {
 h1, h2, h3, h4, h5, h6 {
   clear: both;
   margin: {
-    top: 2em;
+    top: 1.5em;
     bottom: .5em;
   }
   line-height: $heading-line-height;
@@ -100,6 +100,12 @@ h6 {
 
 // Custom typography
 
+.usa-content {
+  > p, > ul, > ol {
+    max-width: 50rem;
+  }  
+}
+
 .usa-sans {
   font-family: $font-sans;
 }
@@ -111,5 +117,30 @@ h6 {
 }
 
 .usa-display {
-  font-size: $title-font-size;
+  @include h3();
+  margin-bottom: 0;
+
+  @media (min-width: $mobile-up) {
+    @include h1();
+  }
+
+  @media (min-width: $tablet-up) {
+    @include title();
+  }
+}
+
+.usa-image-block {
+  position: relative;
+}
+
+.usa-image-text-block {
+  color: $color-white;
+  left: 0;
+  margin-left: 8%;
+  position: absolute;
+  top: 0; 
+}
+
+.usa-image-text {
+  margin-top: 0;
 }
