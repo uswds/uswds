@@ -117,7 +117,16 @@ h6 {
 }
 
 .usa-display {
-  font-size: $title-font-size;
+  @include h3();
+  margin-bottom: 0;
+
+  @media (min-width: $mobile-up) {
+    @include h1();
+  }
+
+  @media (min-width: $tablet-up) {
+    @include title();
+  }
 }
 
 .usa-image-block {
@@ -129,19 +138,7 @@ h6 {
   left: 0;
   margin-left: 8%;
   position: absolute;
-  top: 0;
-}
-
-.usa-image-display {
-  font-size: 1.8rem;
-  margin: {
-    bottom: 0;
-  }
-
-  @media (min-width: $tablet-up) {
-    @include title();
-    margin-top: 2em;
-  }
+  top: 0; 
 }
 
 .usa-image-text {

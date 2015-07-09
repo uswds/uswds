@@ -48,7 +48,7 @@ title: Typography
     <div class="usa-image-block">
       <img src="{{ site.baseurl }}/assets/img/typography_example_apple_pie.png"  alt="Apple Pie">
       <div class="usa-image-text-block">
-        <h2 class="usa-display usa-image-display">Apple pie</h2>
+        <h2 class="usa-display">Apple pie</h2>
         <p class="usa-sans usa-image-text">It's delicious.</p>
       </div>    
     </div>
