@@ -223,7 +223,6 @@ title: Footers
     <button type="submit">Download ZIP</button>
   </form>
 
-  <img src="{{ site.baseurl }}/assets/img/static/Footer_FullUI_v1-930width.png">
 </div>
 
 <div class="grid-box">
