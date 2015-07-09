@@ -23,7 +23,6 @@ title: Inputs
   <label for="">Text Area Label</label>
   <textarea class="usa-textarea"></textarea>
 
-  <img src="{{ site.baseurl }}/assets/img/static/Text_Input_UI_v1.png">
 </div>
 
 <h2>Checkboxes</h2>
