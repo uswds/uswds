@@ -100,14 +100,19 @@
 }
 
 .usa-sign_up-block {
-  padding: 0 2.5rem;
+  padding: {
+    bottom: 2rem;
+    left: 2.5rem;
+    right: 2.5rem;
+  }
 
   @media (min-width: $tablet-up) {
+    float: right;
     padding: 0;
   }
 
   button {
-    float: right;
+    float: none;
     margin: {
       right: 0;
       top: 1.5rem;
