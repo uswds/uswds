@@ -57,7 +57,7 @@ title: Footers
       </div>
     </div>
 
-    <div class="usa-footer-secondary-section usa-footer-big-secondary-section">
+    <div class="usa-footer-secondary_section usa-footer-big-secondary-section">
       <div class="grid-box">
         <div class="usa-footer-logo width-one-half">
           <img class="usa-footer-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
@@ -130,7 +130,7 @@ title: Footers
       </div>
     </div>
 
-    <div class="usa-footer-secondary-section">
+    <div class="usa-footer-secondary_section">
       <div class="grid-box">
         <div class="usa-footer-logo width-one-half">
           <img class="usa-footer-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
@@ -206,7 +206,7 @@ title: Footers
       </div>
     </div>
 
-    <div class="usa-footer-secondary-section">
+    <div class="usa-footer-secondary_section">
       <div class="grid-box">
         <div class="usa-footer-logo width-one-half">
           <img class="usa-footer-slim-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
