@@ -9,7 +9,7 @@ title: Accordions
 <div id="accordion-menu">
   <ul class="usa-unstyled-list">
     <li>
-      <p>Apple Pie h4</p>
+      <p>Apple Pie</p>
       <div class="content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
@@ -72,7 +72,7 @@ title: Accordions
 <div id="accordion-menu">
   <ul>
     <li>
-      <p>Apple Pie h4</p>
+      <p>Apple Pie</p>
       <div class="content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
@@ -144,13 +144,13 @@ title: Accordions
 }
 
 #accordion-menu ul li.hidden p {
-  background: url("https://raw.githubusercontent.com/18F/govt-wide-patternlibrary/18f-pages-staging/assets/img/arrow-right.png") no-repeat;
+  background: url("https://cdn.rawgit.com/18F/govt-wide-patternlibrary/18f-pages-staging/assets/img/arrow-right.png") no-repeat;
   background-position: 15px;
   border-bottom: 0; 
 }
 
 #accordion-menu ul li p {
-  background: url("https://raw.githubusercontent.com/18F/govt-wide-patternlibrary/18f-pages-staging/assets/img/arrow-down.png") no-repeat;
+  background: url("https://cdn.rawgit.com/18F/govt-wide-patternlibrary/18f-pages-staging/assets/img/arrow-down.png") no-repeat;
   background-position: 15px;
   border-bottom: 1px solid #757575;
   color: #212121;

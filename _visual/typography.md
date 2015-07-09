@@ -44,7 +44,24 @@ title: Typography
     <li>Ordered list item</li>
   </ol>
 
-  <img src="{{ site.baseurl }}/assets/img/static/Typography_UI_v1.png">
+  <div class="usa-content">
+    <div class="usa-image-block">
+      <img src="{{ site.baseurl }}/assets/img/typography_example_apple_pie.png"  alt="Apple Pie">
+      <div class="usa-image-text-block">
+        <h2 class="usa-display">Apple pie</h2>
+        <p class="usa-sans usa-image-text">It's delicious.</p>
+      </div>    
+    </div>
+
+    <h1>Some important heading</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2>A section of the page</h2>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    <h3>Subsection of the page</h3>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem ccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+    <h4>Subsection of the page</h4>
+    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+  </div>
 </div>
 
 <div class="grid-box">

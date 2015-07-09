@@ -45,6 +45,7 @@ a#skipnav {
 
 header[role="banner"] {
   background-color: $color-grey-900;
+  z-index: 1;
   a {
     border-bottom: none;
     color: white;
@@ -59,6 +60,10 @@ header[role="banner"] {
       margin: 0;
       padding-left: 20px;
       font-size: $base-font-size * 1.25;
+      display: none;
+      @include media($tablet-up + $width-nav-sidebar) {
+        display: block;
+      }
     }
     ul {
       float: right;
@@ -69,7 +74,7 @@ header[role="banner"] {
         margin-left: 15px;
         font-family: $font-sans;
       }
-      @include media($mobile-up) {
+      @include media($tablet-up + $width-nav-sidebar) {
         display: block;
       }
     }
@@ -159,6 +164,7 @@ header[role="banner"] {
   padding: 5rem 2em 2em;
   overflow: auto;
   display: none;
+  z-index: -1;
   .lt-ie9 & {
     width: 25%;
   }
@@ -241,6 +247,7 @@ header[role="banner"] {
   overflow: auto;
   width: 100%;
   padding: 1em 2em;
+  z-index: -1;
   .lt-ie9 & {
     width: 75%;
   }
@@ -257,7 +264,7 @@ header[role="banner"] {
 
 .styleguide-content {
   position: relative;
-  padding: 0 2em 1em 2em;
+  padding-bottom: 1em;
   > h2, > h3, > p, > ul, > ol {
     max-width: 50rem;
   }
@@ -267,6 +274,12 @@ header[role="banner"] {
     margin-top: 3.4rem;
     &:not(:first-child) {
       margin-top: 2em;
+    }
+  }
+  @media (min-width: $tablet-up + $width-nav-sidebar) {
+    padding: {
+      left: 2em;
+      right: 2em;
     }
   }
 }
@@ -313,12 +326,15 @@ header[role="banner"] {
       border: 1px solid $color-grey-300;
       position: relative;
       vertical-align: top;
+
       .code-copy-button {
+        border-radius: 0;
         position: absolute;
+        margin: 0;
         right: 0;
         top: 0;
-        margin: 0;
-        border-radius: 0;
+
+
         &:hover {
           background-color: $color-grey-900;
         }
