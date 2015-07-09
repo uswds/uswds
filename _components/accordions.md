@@ -39,17 +39,53 @@ title: Accordions
       </div>
     </li>
   </ul>
+</div>
 
-  <div class="grid-box">
-    <div class="grid-item width-one-half annotation">
-      <h3>Use</h3>
-      <p>This is the usage content for the example.</p>
-    </div>
-    <div class="grid-item width-one-half annotation">
-      <h3>Accessibility</h3>
-      <p>This is the accessibility content for the example.</p>
-    </div>  
+<div class="grid-box">
+  <div class="grid-item width-one-half annotation">
+    <h3>Use</h3>
+    <p>Accordions are a list of headers that can be clicked to hide or reveal additional content.</p>
+    <ul>
+      <li>
+        They are best used when users only need a few specific pieces of content within a page.
+      </li>
+      <li>
+        Accordion headers can serve as a mini-outline for the content on a page.
+      </li>
+      <li>
+        Accordions can also be useful when information needs to be displayed in a small space.
+      </li>
+      <li>
+        One major drawback of accordions is that they increase cognitive load and interaction cost, as users have to make decisions on what headers to click on.
+      </li>
+      <li>
+        Accordions should <em>not</em> be used when visitors need to see most or all of the information on a page, or when there is not enough content to warrant condensing.
+      </li>
+      <li>
+        Clicking anywhere on the header (not just on the icon) triggers expansion or collapse of that section.
+      </li>
+      <li>
+        Any interactive element within each section should be placed a minimum of 2 mm from the header to avoid accidentally triggering the wrong interaction.
+      </li>
+      </ul>
   </div>
+  <div class="grid-item width-one-half annotation">
+    <h3>Accessibility</h3>
+    <ul>
+      <li>
+        Code header areas in the accordion as <code>&lt;buttons&gt;</code> so that they are usable with both screen readers and the keyboard.
+      </li>
+      <li>
+        All the buttons need to state whether they are expanded or not with the appropriate attribute, either <code>aria-expanded=’true’</code> or <code>aria-expanded=’false’</code>.
+      </li>
+      <li>
+        Each button has a unique name <code>aria-controls=’collapsible-#’</code> that associates the control to the appropriate region by referencing the controlled elements <code>id</code>.
+      </li>
+      <li>
+        Each content area has an <code>aria-hidden</code> attribute set to either <code>true</code> or<code>false</code>. When <code>false</code>, the element (and all children) are neither visible or perceivable, and assistive technologies will skip this content.
+      </li>
+    </ul>
+  </div>  
 </div>
 
 <hr>
