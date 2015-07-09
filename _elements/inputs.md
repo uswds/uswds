@@ -19,6 +19,10 @@ title: Inputs
   <label for="">Text Input Success</label>
   <input class="usa-input-success" type="text" name="input-type-text">
 
+  <h2>Text Area</h2>
+  <label for="">Text Area Label</label>
+  <textarea class="usa-textarea"></textarea>
+
   <img src="{{ site.baseurl }}/assets/img/static/Text_Input_UI_v1.png">
 </div>
 

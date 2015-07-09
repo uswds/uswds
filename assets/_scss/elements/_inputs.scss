@@ -45,9 +45,13 @@ textarea  {
 
 label {
   display: block;
-  font-weight: bold;
+  font-weight: $font-bold;
   margin: {
     top: 3rem;
     bottom: 1.5rem;
   }
+}
+
+textarea {
+  height: 16rem;
 }
