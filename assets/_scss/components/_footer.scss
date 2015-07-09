@@ -11,6 +11,25 @@
   .usa-unstyled-list {
     display: block;
   }
+
+  .usa-footer-primary-link {
+    border-top: 1px solid $color-base-link;  
+    color: $color-base-link;
+    display: block;
+    font-weight: $font-bold;
+    margin-top: 0;
+    padding: {
+      bottom: 2rem;
+      top: 2rem;
+    }
+    text-transform: uppercase;
+
+    @media (min-width: $tablet-up) {
+      border-top: none;
+      font-size: 1.9rem;
+      text-transform: none;
+    }  
+  }  
 }
 
 .usa-footer a {
@@ -19,8 +38,8 @@
 
 .usa-footer-return-to-top {
   padding: {
+    bottom: 2rem;    
     top: 2rem;
-    bottom: 2rem;
   }
 }
 
@@ -54,30 +73,54 @@
   }
 }
 
-.usa-footer-medium .usa-footer-primary-section {
-  padding: 0;
+.usa-footer-medium {
   
-  @media (min-width: $tablet-up) {
-    padding: {
-      top: 1rem;
-      bottom: 1rem;
+  .usa-footer-primary-section {
+    padding: 0;
+    
+    @media (min-width: $tablet-up) {
+      padding: {
+        top: 1rem;
+        bottom: 1rem;
+      }
     }
   }
+
+  .usa-footer-nav ul {
+    
+    @media (min-width: $tablet-up) {
+      align-items: center;
+      display: flex;  
+    }
+  }  
 }
 
-.usa-footer-slim .usa-footer-primary-section {
-  padding-bottom: 2rem;
-  
-  @media (min-width: $tablet-up) {
-    padding: {
-      top: 1rem;
-      bottom: 1rem;
+.usa-footer-slim {
+
+  .usa-footer-nav a {
+    display: block;
+  }
+
+  .usa-footer-primary-section {
+    padding-bottom: 2rem;
+    
+    @media (min-width: $tablet-up) {
+      padding: {
+        top: 1rem;
+        bottom: 1rem;
+      }
+
+      .grid-box {
+        align-items: center;
+        display: flex;     
+      }      
     }
   }
 }
 
 .usa-footer-slim li,
 .usa-footer-medium li {
+  
   &:last-child {
     border-bottom: 1px solid $color-base-link;
 
@@ -87,33 +130,14 @@
   }
 }
 
-.usa-footer-slim .usa-footer-primary-section {
-  @media (min-width: $tablet-up) {
-    .grid-box {
-      align-items: center;
-      display: flex;     
-    }
-  }
-}
-
-.usa-footer-medium .usa-footer-nav ul {
-  @media (min-width: $tablet-up) {
-    align-items: center;
-    display: flex;  
-  }
-}
-
 .usa-footer-nav {
+  
   li {
 
     @media (min-width: $tablet-up) {
       margin: 1rem 0;
     }
   }
-}
-
-.usa-footer-slim .usa-footer-nav a {
-  display: block;
 }
 
 .usa-sign_up-block {
@@ -123,11 +147,6 @@
     right: 2.5rem;
   }
 
-  @media (min-width: $tablet-up) {
-    float: right;
-    padding: 0;
-  }
-
   button {
     float: none;
     margin: {
@@ -135,10 +154,15 @@
       top: 1.5rem;
     }
   }
-}
 
-.usa-sign_up-block input {
-  width: 100%;
+  input {
+    width: 100%;
+  }
+
+  @media (min-width: $tablet-up) {
+    float: right;
+    padding: 0;
+  }  
 }
 
 .usa-footer-secondary-section {
@@ -150,6 +174,7 @@
 }
 
 .usa-footer-big-secondary-section {
+  
   @media (min-width: $tablet-up) {
     padding-top: 5rem;
   }  
@@ -162,36 +187,17 @@
   }
 }
 
-.usa-footer .usa-footer-primary-link {
-  border-top: 1px solid $color-base-link;  
-  color: $color-base-link;
-  display: block;
-  font-weight: $font-bold;
-  margin-top: 0;
-  padding: {
-    bottom: 2rem;
-    top: 2rem;
-  }
-  text-transform: uppercase;
-
-  @media (min-width: $tablet-up) {
-    border-top: none;
-    font-size: 1.9rem;
-    text-transform: none;
-  }  
-}
-
-.usa-footer-big  .usa-footer-primary-section {
-
-  @media (min-width: $tablet-up) {
-    padding: {
-      top: 3rem;
-      bottom: 4rem;
-    }      
-  }
-}
-
 .usa-footer-big {
+
+  .usa-footer-primary-section {
+
+    @media (min-width: $tablet-up) {
+      padding: {
+        top: 3rem;
+        bottom: 4rem;
+      }      
+    }
+  }
 
   ul {
 
@@ -242,11 +248,6 @@
   }
 }
 
-
-.usa-footer-big .usa-footer-topic {
-  text-transform: uppercase;
-}
-
 .usa-footer-topic, 
 .usa-sign_up-header {
   margin: 0;
@@ -270,17 +271,17 @@ img.usa-footer-slim-logo-img {
   margin-top: 0;
   
   @media (min-width: $tablet-up) {
-  margin-top: 1rem;  
+    margin-top: 1rem;  
   }
 }
 
 .usa-footer-phone-number {
+  line-height: 1;  
   margin-top: 1.5rem;
   margin-bottom: 3rem;
-  line-height: 1;
   
   @media (min-width: $tablet-up) {
-  margin-top: 2rem;
+    margin-top: 2rem;
   }
 }
 
