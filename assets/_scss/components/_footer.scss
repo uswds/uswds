@@ -76,6 +76,17 @@
   }
 }
 
+.usa-footer-slim li,
+.usa-footer-medium li {
+  &:last-child {
+    border-bottom: 1px solid $color-base-link;
+
+    @media (min-width: $tablet-up) {
+      border-bottom: none;
+    }
+  }
+}
+    
 
 .usa-footer-slim .usa-footer-primary-section {
   @media (min-width: $tablet-up) {
@@ -98,10 +109,6 @@
 
     @media (min-width: $tablet-up) {
       margin: 1rem 0;
-    }
-
-    &:last-child {
-//      border-bottom: 1px solid $color-base-link; 
     }
   }
 }
