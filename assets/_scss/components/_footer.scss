@@ -166,23 +166,23 @@
 
 .usa-footer-big  .usa-footer-primary-section {
 
-    @media (min-width: $tablet-up) {
-      padding: {
-        top: 3rem;
-        bottom: 4rem;
-      }      
-    }
+  @media (min-width: $tablet-up) {
+    padding: {
+      top: 3rem;
+      bottom: 4rem;
+    }      
   }
+}
 
 .usa-footer-big {
-
-  .usa-footer-primary-link {
-    text-transform: none;
-  }
 
   ul {
 
     padding-bottom: 2.5rem;
+    
+    @media (min-width: $tablet-up) {
+      padding-bottom: 0;
+    }    
 
     .usa-footer-primary-link {
       background: url('../img/arrow-down.png') no-repeat;
@@ -191,6 +191,7 @@
 
       @media (min-width: $tablet-up) {
         background: none;
+        padding-bottom: 1rem;
         padding-left: 0;
       }
     }
