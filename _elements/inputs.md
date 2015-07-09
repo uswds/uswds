@@ -6,6 +6,19 @@ title: Inputs
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
+
+  <label for="">Text Input Label h4</label>
+  <input type="text" name="input-type-text">
+
+  <label for="">Text Input Focused</label>
+  <input type="text" name="input-type-text">
+
+  <label for="">Text Input Error</label>
+  <input type="text" name="input-type-text">
+
+  <label for="">Text Input Success</label>
+  <input type="text" name="input-type-text">
+
   <img src="{{ site.baseurl }}/assets/img/static/Text_Input_UI_v1.png">
 </div>
 
