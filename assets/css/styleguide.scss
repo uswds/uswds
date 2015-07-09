@@ -300,21 +300,27 @@ header[role="banner"] {
 // Code Sample Boxes --------- //
 
 .code-snippets {
+
   .code-snippet-button:after {
     content: "\25be  hide code";
   }
+
   &.hidden {
+
     table {
       display: none;
     }
+    
     .code-snippet-button:after {
       content: "\25b8  show code";
     }
   }
   table {
+
     table-layout: fixed;
     width: 100%;
     padding: 3em 0 0 0;
+
     td {
       background-color: $color-grey-100;
       border: 1px solid $color-grey-300;
@@ -328,16 +334,17 @@ header[role="banner"] {
         right: 0;
         top: 0;
 
-
         &:hover {
           background-color: $color-grey-900;
         }
       }
     }
+
     th {
       border: none;
       text-align: left;
     }
+
     pre, code {
       direction: ltr;
       text-align: left;
@@ -345,17 +352,18 @@ header[role="banner"] {
       word-spacing: normal;
       word-break: normal;
     }
+
     pre {
       padding: 0 1em 1em 1em;
     }
+
     code {
       font-size: $base-font-size / 1.5;
       line-height: 1.4em;
+      word-wrap: break-word;
       &.language-html {
         max-width: 25em;
-        word-wrap: break-word;
       }
-      
     }
   }
 }
