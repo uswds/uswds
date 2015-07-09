@@ -218,7 +218,10 @@ title: Footers
 
   <h2>Get the Code</h2>
   <p>This zip file includes the HTML, CSS, and JS for this component.</p>
-  <button>Download ZIP</button>
+
+  <form method="get" action="file.doc">
+    <button type="submit">Download ZIP</button>
+  </form>
 
   <img src="{{ site.baseurl }}/assets/img/static/Footer_FullUI_v1-930width.png">
 </div>
