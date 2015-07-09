@@ -7,7 +7,7 @@ title: Inputs
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <label for="">Text Input Label h4</label>
+  <label for="">Text Input Label</label>
   <input type="text" name="input-type-text">
 
   <label for="">Text Input Focused</label>

@@ -23,7 +23,7 @@ textarea  {
   outline: none;
   font-size: $base-font-size;
   padding: 1rem .7em;
-  margin: .5em 0;
+  margin: 1.5rem 0;
   max-width: 38rem;
 
   &:focus, 
@@ -47,7 +47,7 @@ label {
   display: block;
   font-weight: bold;
   margin: {
-    top: .5em;
-    bottom: .5em;
+    top: 3rem;
+    bottom: 1.5rem;
   }
 }
