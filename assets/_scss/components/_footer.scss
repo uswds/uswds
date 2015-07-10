@@ -130,15 +130,6 @@ li.usa-footer-primary-content {
   }
 }
 
-.usa-footer-nav {
-  
-  li {
-    @media (min-width: $tablet-up) {
-      margin: 1rem 0;
-    }
-  }
-}
-
 .usa-sign_up-block {
   padding: {
     bottom: 2rem;
@@ -208,6 +199,10 @@ li.usa-footer-primary-content {
       @media (min-width: $tablet-up) {
         border-bottom: none;
       }
+    }
+
+    li {
+      line-height: 2em;
     }
 
     @media (min-width: $tablet-up) {
