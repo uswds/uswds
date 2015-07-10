@@ -242,8 +242,8 @@ title: Footers
   <div class="grid-item width-one-half annotation">
     <h3>Accessibility</h3>
     <ul>
-    <li>Code the navigation so that pressing the  tab key moves focus from link to link in the navigation,even when the navigation has collapsed into an accordion.</li>
-    <li>When collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the “Accordion” section.</li>
+      <li>Code the navigation so that pressing the  tab key moves focus from link to link in the navigation,even when the navigation has collapsed into an accordion.</li>
+      <li>When collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the “Accordion” section.</li>
     </ul>
   </div>  
 </div>
