@@ -246,10 +246,16 @@
   }
 }
 
-.usa-footer-topic, 
-.usa-sign_up-header {
+.usa-footer-topic {
   margin: 0;
   padding: 2rem 0;
+}
+
+.usa-sign_up-header {
+  @media (min-width: $tablet-up) {
+    margin: 0;
+    padding: 2rem 0;
+  }
 }
 
 img.usa-footer-logo-img {
