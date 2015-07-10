@@ -13,7 +13,7 @@ title: Footers
       <a href="#">Return to top</a>
     </div>
     <div class="usa-footer-primary-section">
-      <div class="grid-box">
+      <div class="grid-box-full">
         <nav class="usa-footer-nav width-two-thirds">
           <ul class="usa-unstyled-list width-one-fourth">
             <h3 class="usa-footer-primary-link">Topic</h3>
@@ -108,7 +108,7 @@ title: Footers
       <a href="#">Return to top</a>
     </div>
     <div class="usa-footer-primary-section">
-      <div class="grid-box">
+      <div class="grid-box-full">
         <nav class="usa-footer-nav">
           <ul class="usa-unstyled-list">
             <li class="width-one-sixth">
@@ -183,7 +183,7 @@ title: Footers
       <a href="#">Return to top</a>
     </div>
     <div class="usa-footer-primary-section">
-      <div class="grid-box">
+      <div class="grid-box-full">
         <nav class="usa-footer-nav width-two-thirds">
           <ul class="usa-unstyled-list">
             <li class="width-one-fourth">

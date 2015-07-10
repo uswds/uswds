@@ -62,9 +62,7 @@
     }  
   }
 
-  .grid-box {   
-    padding: 0;
-
+  .grid-box-full {   
     @media (min-width: $tablet-up) {
       padding: {
         left: 2.5rem;

@@ -1,4 +1,5 @@
-.grid-box {
+.grid-box,
+.grid-box-full {
   @include outer-container();
   max-width: $site-max-width;
 
@@ -36,4 +37,8 @@
 
 .grid-box {
   padding: 0 $grid-margins;
+}
+
+.grid-box-full {
+  padding: 0;
 }
