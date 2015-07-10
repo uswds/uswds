@@ -92,7 +92,7 @@ title: Footers
           </div>
           
           <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
-          <p class="usa-footer-phone-number">(800) CALL-GOVT</p>
+          <p>(800) CALL-GOVT</p>
           <a href="mailto:javascript:void(0)">info@agency.gov</a>
         </div>
       </div>
