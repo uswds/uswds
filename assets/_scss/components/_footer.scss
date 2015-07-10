@@ -232,6 +232,7 @@
         margin: 0; 
         background: url('../img/arrow-right.png') no-repeat;
         background-position: 1.5rem;
+        cursor: pointer;
 
         @media (min-width: $tablet-up) {
           background: none;
