@@ -5,7 +5,6 @@ title: Footers
 ---
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
 
   <h3>Footer Big</h3>
 
