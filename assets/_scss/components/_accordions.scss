@@ -1,25 +1,27 @@
 .usa-accordion {
-  border: 1px solid $color-grey-600;
-  border-radius: 5px;
-  color: $color-grey-900;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-
-  li {
-    background-color: $color-grey-200;
-    border-bottom: 1px solid $color-grey-600;
-    font-family: $font-sans;
-    list-style: none;
+  ul {
+    border: 1px solid $color-grey-600;
+    border-radius: 5px;
+    color: $color-grey-900;
     margin: 0;
+    overflow: hidden;
+    padding: 0;
+
+    li {
+      background-color: $color-grey-200;
+      border-bottom: 1px solid $color-grey-600;
+      font-family: $font-sans;
+      list-style: none;
+      margin: 0;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
 
     button[aria-expanded=false] {
       background: url('../img/arrow-right.png') no-repeat;
       background-position: 15px;
-      border-bottom: 0;
-    }
-
-    &:last-child {
       border-bottom: 0;
     }
 
@@ -35,11 +37,11 @@
       padding: 10px 15px 10px 35px;
       width: 100%;
     }
-
-    .usa-accordion-content {
-      display: block;
-      background-color: white;
-      padding: 15px;
-    }
   }
+}
+
+.usa-accordion-content {
+  display: block;
+  background-color: white;
+  padding: 15px;
 }
