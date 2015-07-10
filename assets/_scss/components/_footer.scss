@@ -60,7 +60,7 @@
     }  
   }
 
-  .grid-box-full {   
+  .grid-box-full {
     @media (min-width: $tablet-up) {
       padding: {
         left: 2.5rem;
@@ -68,6 +68,12 @@
       }
     }
   }
+}
+
+.width-one-sixth {
+  @include media($medium) {
+    @include span-columns(2);
+  }  
 }
 
 .usa-footer-medium {
