@@ -15,28 +15,28 @@ title: Footers
     <div class="usa-footer-primary-section">
       <div class="grid-box-full">
         <nav class="usa-footer-nav width-two-thirds">
-          <ul class="usa-unstyled-list width-one-fourth">
+          <ul class="usa-unstyled-list width-one-fourth usa-footer-primary-content">
             <h3 class="usa-footer-primary-link">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
-          <ul class="usa-unstyled-list width-one-fourth">
+          <ul class="usa-unstyled-list width-one-fourth usa-footer-primary-content">
             <h3 class="usa-footer-primary-link">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
-          <ul class="usa-unstyled-list width-one-fourth">
+          <ul class="usa-unstyled-list width-one-fourth usa-footer-primary-content">
             <h3 class="usa-footer-primary-link">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
-          <ul class="usa-unstyled-list width-one-fourth">
+          <ul class="usa-unstyled-list width-one-fourth usa-footer-primary-content">
             <h3 class="usa-footer-primary-link">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
@@ -111,19 +111,19 @@ title: Footers
       <div class="grid-box-full">
         <nav class="usa-footer-nav">
           <ul class="usa-unstyled-list">
-            <li class="width-one-sixth">
+            <li class="width-one-sixth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
             </li>
-            <li class="width-one-sixth">
+            <li class="width-one-sixth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
             </li>
-            <li class="width-one-sixth">
+            <li class="width-one-sixth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
             </li>
-            <li class="width-one-sixth">
+            <li class="width-one-sixth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
             </li>
-            <li class="width-one-sixth">
+            <li class="width-one-sixth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
             </li>                    
           </ul>
@@ -186,24 +186,24 @@ title: Footers
       <div class="grid-box-full">
         <nav class="usa-footer-nav width-two-thirds">
           <ul class="usa-unstyled-list">
-            <li class="width-one-fourth">
+            <li class="width-one-fourth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
             </li>
-            <li class="width-one-fourth">
+            <li class="width-one-fourth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
             </li>
-            <li class="width-one-fourth">
+            <li class="width-one-fourth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
             </li>
-            <li class="width-one-fourth">
+            <li class="width-one-fourth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
             </li>
           </ul>
         </nav>
-        <div class="width-one-sixth">
+        <div class="width-one-sixth usa-footer-primary-content">
           <p>(800) CALL-GOVT</p>
         </div>
-        <div class="width-one-sixth">
+        <div class="width-one-sixth usa-footer-primary-content">
           <a href="mailto:javascript:void(0)">info@agency.gov</a>
         </div>          
       </div>

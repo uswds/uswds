@@ -13,7 +13,7 @@
   }
 
   .usa-footer-primary-link {
-    border-top: 1px solid $color-base-link;  
+
     color: $color-base-link;
     display: block;
     font-weight: $font-bold;
@@ -46,9 +46,7 @@
 .usa-footer-primary-section {
   background-color: $color-grey-100;
 
-  a, 
-  p, 
-  .usa-footer-primary-link {
+  .usa-footer-primary-content {
     padding: {
       left: 2.5rem;
       right: 2.5rem;
@@ -115,14 +113,20 @@
   }
 }
 
-.usa-footer-slim li,
-.usa-footer-medium li {
-  
+ul.usa-footer-primary-content,
+li.usa-footer-primary-content,
+li.usa-footer-primary-content {
+  border-top: 1px solid $color-base-link;      
+
   &:last-child {
     border-bottom: 1px solid $color-base-link;
     @media (min-width: $tablet-up) {
       border-bottom: none;
     }
+  }
+
+  @media (min-width: $tablet-up) {
+    border: none;
   }
 }
 
