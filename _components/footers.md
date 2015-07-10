@@ -49,7 +49,7 @@ title: Footers
           <h3 class="usa-sign_up-header">Sign up</h3>
 
           <label class="" for="email" id="">Your email address</label>
-          <input id="email" name="email" type="input-type-email">
+          <input id="email" name="email" type="email">
 
           <button type="submit">Sign up</button>
         </div>
