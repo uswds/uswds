@@ -98,6 +98,12 @@ h6 {
   @include h6();
 }
 
+// Remove user agent styles
+
+i, cite, em, var, address, dfn {
+ font-style: italic;
+}
+
 // Custom typography
 
 .usa-content {
