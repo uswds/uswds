@@ -91,9 +91,11 @@ title: Footers
             </a>
           </div>
           
-          <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
-          <p>(800) CALL-GOVT</p>
-          <a href="mailto:javascript:void(0)">info@agency.gov</a>
+          <address>
+            <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
+            <p>(800) CALL-GOVT</p>
+            <a href="mailto:javascript:void(0)">info@agency.gov</a>
+          </address>
         </div>
       </div>
     </div>
@@ -164,9 +166,11 @@ title: Footers
             </a>
           </div>
           
-          <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
-          <p>(800) CALL-GOVT</p>
-          <a href="mailto:javascript:void(0)">info@agency.gov</a>
+          <address>
+            <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
+            <p>(800) CALL-GOVT</p>
+            <a href="mailto:javascript:void(0)">info@agency.gov</a>
+          </address>
         </div>
       </div>
     </div>
