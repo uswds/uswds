@@ -211,7 +211,7 @@ title: Footers
 
     <div class="usa-footer-secondary_section">
       <div class="grid-box">
-        <div class="usa-footer-logo width-one-half">
+        <div class="usa-footer-logo">
           <img class="usa-footer-slim-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
           <h3 class="usa-footer-slim-logo-heading">Name of Agency</h3>
         </div>
