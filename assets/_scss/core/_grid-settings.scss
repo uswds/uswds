@@ -1,1 +1,10 @@
 // Add custom grid settings here (i.e. gutters, columns, etc)
+
+// Mobile First Breakpoints
+$mobile-up:         481px;
+$tablet-up:         600px;
+$widescreen-up:     1201px;
+
+$large: new-breakpoint(min-width $widescreen-up 12);
+$medium: new-breakpoint(min-width $tablet-up 2);
+$small: new-breakpoint(min-width $mobile-up 1);
