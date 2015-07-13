@@ -45,11 +45,11 @@ title: Forms Blocks
 </div>
 
 <div class="usa-grid-box">
-  <div class="grid-item width-one-half annotation">
+  <div class="width-one-half annotation">
     <h3>Use</h3>
     <p>This is the usage content for the example.</p>
   </div>
-  <div class="grid-item width-one-half annotation">
+  <div class="width-one-half annotation">
     <h3>Accessibility</h3>
     <p>This is the accessibility content for the example.</p>
   </div>  
