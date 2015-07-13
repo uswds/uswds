@@ -41,7 +41,7 @@ title: Accordions
   </ul>
 </div>
 
-<div class="grid-box">
+<div class="usa-grid-box">
   <div class="grid-item width-one-half annotation">
     <h3>Use</h3>
     <p>Accordions are a list of headers that can be clicked to hide or reveal additional content.</p>

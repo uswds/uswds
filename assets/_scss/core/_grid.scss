@@ -1,5 +1,5 @@
-.grid-box,
-.grid-box-full {
+.usa-grid-box,
+.usa-grid-box-full {
   @include outer-container();
   max-width: $site-max-width;
 
@@ -35,10 +35,10 @@
   }
 }
 
-.grid-box {
+.usa-grid-box {
   padding: 0 $grid-margins;
 }
 
-.grid-box-full {
+.usa-grid-box-full {
   padding: 0;
 }

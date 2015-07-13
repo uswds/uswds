@@ -9,7 +9,7 @@ title: Icons
   <img src="{{ site.baseurl }}/assets/img/static/Icons_v1.png">
 </div>
 
-<div class="grid-box">
+<div class="usa-grid-box">
   <div class="grid-item width-one-half annotation">
     <h3>Use</h3>
     <p>This is the usage content for the example.</p>

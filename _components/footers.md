@@ -9,11 +9,11 @@ title: Footers
   <h3>Footer Big</h3>
 
   <footer class="usa-footer usa-footer-big usa-sans" role="contentinfo">
-    <div class="grid-box usa-footer-return-to-top">
+    <div class="usa-grid-box usa-footer-return-to-top">
       <a href="#">Return to top</a>
     </div>
     <div class="usa-footer-primary-section">
-      <div class="grid-box-full">
+      <div class="usa-grid-box-full">
         <nav class="usa-footer-nav width-two-thirds">
           <ul class="usa-unstyled-list width-one-fourth usa-footer-primary-content">
             <h3 class="usa-footer-primary-link">Topic</h3>
@@ -57,7 +57,7 @@ title: Footers
     </div>
 
     <div class="usa-footer-secondary_section usa-footer-big-secondary-section">
-      <div class="grid-box">
+      <div class="usa-grid-box">
         <div class="usa-footer-logo width-one-half">
           <img class="usa-footer-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
           <h3 class="usa-footer-logo-heading">Name of Agency</h3>
@@ -104,11 +104,11 @@ title: Footers
   <h3>Footer Medium</h3>
 
   <footer class="usa-footer usa-footer-medium usa-sans" role="contentinfo">
-    <div class="grid-box usa-footer-return-to-top">
+    <div class="usa-grid-box usa-footer-return-to-top">
       <a href="#">Return to top</a>
     </div>
     <div class="usa-footer-primary-section">
-      <div class="grid-box-full">
+      <div class="usa-grid-box-full">
         <nav class="usa-footer-nav">
           <ul class="usa-unstyled-list">
             <li class="width-one-sixth usa-footer-primary-content">
@@ -132,7 +132,7 @@ title: Footers
     </div>
 
     <div class="usa-footer-secondary_section">
-      <div class="grid-box">
+      <div class="usa-grid-box">
         <div class="usa-footer-logo width-one-half">
           <img class="usa-footer-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
           <h3 class="usa-footer-logo-heading">Name of Agency</h3>
@@ -179,11 +179,11 @@ title: Footers
   <h3>Footer Slim</h3>
 
   <footer class="usa-footer usa-footer-slim usa-sans" role="contentinfo">
-    <div class="grid-box usa-footer-return-to-top">
+    <div class="usa-grid-box usa-footer-return-to-top">
       <a href="#">Return to top</a>
     </div>
     <div class="usa-footer-primary-section">
-      <div class="grid-box-full">
+      <div class="usa-grid-box-full">
         <nav class="usa-footer-nav width-two-thirds">
           <ul class="usa-unstyled-list">
             <li class="width-one-fourth usa-footer-primary-content">
@@ -210,7 +210,7 @@ title: Footers
     </div>
 
     <div class="usa-footer-secondary_section">
-      <div class="grid-box">
+      <div class="usa-grid-box">
         <div class="usa-footer-logo">
           <img class="usa-footer-slim-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
           <h3 class="usa-footer-slim-logo-heading">Name of Agency</h3>
@@ -230,7 +230,7 @@ title: Footers
 
 </div>
 
-<div class="grid-box">
+<div class="usa-grid-box">
   <div class="grid-item width-one-half annotation">
     <h3>Use</h3>
     <ul>
