@@ -9,7 +9,7 @@ title: Accordions
 <div class="usa-accordion">
   <ul class="usa-unstyled-list">
     <li>
-      <button class="button-unstyled"
+      <button class="usa-button-unstyled"
           aria-expanded="true" aria-controls="collapsible-0">
         Apple Pie
       </button>
@@ -18,7 +18,7 @@ title: Accordions
       </div>
     </li>
     <li>
-      <button class="button-unstyled"
+      <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-1">
         Stawberry Pie
       </button>
@@ -27,7 +27,7 @@ title: Accordions
       </div>
     </li>
     <li>
-      <button class="button-unstyled"
+      <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-2">
         Peace Pie
       </button>
@@ -36,7 +36,7 @@ title: Accordions
       </div>
     </li>
     <li>
-      <button class="button-unstyled"
+      <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-3">
         Key Lime
       </button>
@@ -45,7 +45,7 @@ title: Accordions
       </div>
     </li>
     <li>
-      <button class="button-unstyled"
+      <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-4">
         Blackberry
       </button>
@@ -123,7 +123,7 @@ title: Accordions
 <div class="usa-accordion">
   <ul class="usa-unstyled-list">
     <li>
-      <button class="button-unstyled"
+      <button class="usa-button-unstyled"
           aria-expanded="true" aria-controls="collapsible-0">
         Apple Pie
       </button>
@@ -132,7 +132,7 @@ title: Accordions
       </div>
     </li>
     <li>
-      <button class="button-unstyled"
+      <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-1">
         Stawberry Pie
       </button>
@@ -141,7 +141,7 @@ title: Accordions
       </div>
     </li>
     <li>
-      <button class="button-unstyled"
+      <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-2">
         Peace Pie
       </button>
@@ -150,7 +150,7 @@ title: Accordions
       </div>
     </li>
     <li>
-      <button class="button-unstyled"
+      <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-3">
         Key Lime
       </button>
@@ -159,7 +159,7 @@ title: Accordions
       </div>
     </li>
     <li>
-      <button class="button-unstyled"
+      <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-4">
         Blackberry
       </button>

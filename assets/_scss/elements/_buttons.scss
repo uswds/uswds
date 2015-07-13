@@ -99,10 +99,16 @@ input[type="image"].usa-button-big {
   padding: 1.5rem 3rem;
 }
 
-.button-unstyled {
+.usa-button-unstyled {
   background: none;
   border: 0;
+  border-radius: 0;
   outline: 0;
   padding: 0;
   text-align: left;
+
+  &:focus,
+  &:hover {
+    box-shadow: initial !important;
+  }
 }
