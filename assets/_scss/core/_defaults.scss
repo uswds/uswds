@@ -16,9 +16,12 @@ $h6-font-size:      rem(12px) !default;
 $base-line-height:    1.5em !default;
 $heading-line-height: 1.3em !default;
 
-$font-sans:       'Source Sans Pro', 'Helvetica', 'Arial', sans-serif !default;
-$font-serif:      'Georgia', 'Times New Roman', serif;
+$font-sans:        'Source Sans Pro', 'Helvetica', 'Arial', sans-serif !default;
+$font-serif:       'Georgia', 'Times New Roman', serif;
 
+$font-bold:         700 !default;
+
+$usa-border-radius:     rem(4px) !default;
 
 // Color
 $color-grey-50:     #fafafa !default;
@@ -32,10 +35,14 @@ $color-grey-700:    #616161 !default;
 $color-grey-800:    #424242 !default;
 $color-grey-900:    #212121 !default;
 
+$color-white:       #ffffff !default;
 $color-base-link:   #000000 !default;
+$color-focus:       #f7e10f !default;
+$color-error:       #d83530 !default;
+$color-success:     #26bf7d !default;
 
-$color-main:        #0071bc !default;
-$color-main-dark:   #00609f !default;
+$color-primary:         #0071bc !default;
+$color-primary-darker:  #00609f !default;
 
 // Mobile First Breakpoints
 $mobile-up:         481px !default;
@@ -44,8 +51,9 @@ $widescreen-up:     1201px !default;
 
 
 // Magic Numbers
-$site-max-width:    960px !default;
+$site-max-width:    980px !default;
 $site-margins:      40px !default;
 $article-max-width: 600px !default;
 $border-radius:     0px !default;
 $box-shadow:        0 0 2px rgba(#000, .3) !default;
+$grid-margins:      2.5rem !default;

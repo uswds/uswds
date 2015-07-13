@@ -17,56 +17,61 @@ p {
 }
 
 a {
-  color: $color-base-link;
-  &:hover, &:active, &:visited {
-    color: $color-base-link;
+  border-bottom: 1px dotted;
+
+  &:hover {
+    border-bottom: 1px solid;
   }
 }
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
   margin: {
-    top: 2em;
+    top: 1.5em;
     bottom: .5em;
   }
   line-height: $heading-line-height;
+}
+
+h5 {
+  text-transform: uppercase;
 }
 
 // Create heading mixins 
 
 @mixin title {
   font-size: $title-font-size;
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 
 @mixin h1 {
   font-size: $h1-font-size;
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 
 @mixin h2 {
   font-size: $h2-font-size;
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 
 @mixin h3 {
   font-size: $h3-font-size;
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 
 @mixin h4 {
   font-size: $h4-font-size;
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 
 @mixin h5 {
   font-size: $h5-font-size;
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 
 @mixin h6 {
   font-size: $h6-font-size;
-  font-weight: 700;
+  font-weight: $font-bold;
 }
 
 h1 {
@@ -91,4 +96,61 @@ h5 {
 
 h6 {
   @include h6();
+}
+
+// Remove user agent styles
+
+cite, 
+var, 
+address, 
+dfn {
+ font-style: normal;
+}
+
+// Custom typography
+
+.usa-content {
+  > p, > ul, > ol {
+    max-width: 50rem;
+  }  
+}
+
+.usa-sans,
+.usa-sans p {
+  font-family: $font-sans;
+}
+
+.usa-sans a {
+  border-bottom: none;
+  font-family: $font-sans; 
+  font-weight: $font-bold;
+}
+
+.usa-display {
+  @include h3();
+  margin-bottom: 0;
+
+  @media (min-width: $mobile-up) {
+    @include h1();
+  }
+
+  @media (min-width: $tablet-up) {
+    @include title();
+  }
+}
+
+.usa-image-block {
+  position: relative;
+}
+
+.usa-image-text-block {
+  color: $color-white;
+  left: 0;
+  margin-left: 8%;
+  position: absolute;
+  top: 0; 
+}
+
+.usa-image-text {
+  margin-top: 0;
 }

@@ -3,7 +3,7 @@
 
 <aside class="sidenav" id="menu-content">
   <nav>
-    <ul>
+    <ul class="usa-unstyled-list">
       <li class="tablet-only">
         <a href="{{ site.baseurl }}/">Home</a>
       </li>
@@ -14,7 +14,7 @@
         <h2>
           <a href="{{ site.baseurl }}/visual-style/">Visual Style</a>
         </h2>
-        <ul>
+        <ul class="usa-unstyled-list">
           {% for visual in site.visual %}
             <li>
               <a class="secondary-sidenav-link" href="{{ site.baseurl }}/visual-style/#{{ visual.title | slugify }}">{{ visual.title }}</a>
@@ -26,7 +26,7 @@
         <h2>
           <a href="{{ site.baseurl }}/layout-system/">Layout System</a>
         </h2>
-        <ul>
+        <ul class="usa-unstyled-list">
           {% for layout in site.layout-system %}
           <li>
             <a class="secondary-sidenav-link" href="{{ site.baseurl }}/layout-system/#{{ layout.title | slugify }}">{{ layout.title }}</a>
@@ -38,7 +38,7 @@
         <h2>
           <a href="{{ site.baseurl }}/elements/">Elements</a>
         </h2>
-        <ul>
+        <ul class="usa-unstyled-list">
           {% for element in site.elements %}
           <li>
             <a class="secondary-sidenav-link" href="{{ site.baseurl }}/elements/#{{ element.title | slugify }}">{{ element.title }}</a>
@@ -50,7 +50,7 @@
         <h2>
           <a href="{{ site.baseurl }}/components/">Components</a>
         </h2>
-        <ul>
+        <ul class="usa-unstyled-list">
           {% for component in site.components %}
           <li>
             <a class="secondary-sidenav-link" href="{{ site.baseurl }}/components/#{{ component.title | slugify }}">{{ component.title }}</a>
