@@ -1,0 +1,58 @@
+// Block form elements
+input,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+input[type="file"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+textarea  {
+  border: 1px solid $color-grey-500;
+  border-radius: $usa-border-radius;
+  box-sizing: border-box;    
+  color: $color-base-link; // standardize on firefox 
+  display: block;
+  font-size: $base-font-size;
+  margin: 1.5rem 0;
+  max-width: 38rem;  
+  width: 100%;
+  outline: none;
+  padding: 1rem .7em;
+  -webkit-appearance: none;
+
+  &:focus, 
+  &.usa-input-focus {
+    border-color: $color-focus;
+    box-shadow: 0 0 0 1px $color-focus;
+  }
+
+  &.usa-input-error {
+    border-color: $color-error;
+    box-shadow: 0 0 0 1px $color-error;
+  }
+
+  &.usa-input-success {
+    border-color: $color-success;
+    box-shadow: 0 0 0 1px $color-success;
+  }
+}
+
+label {
+  display: block;
+  font-weight: $font-bold;
+  margin: {
+    top: 3rem;
+    bottom: 1.5rem;
+  }
+}
+
+textarea {
+  height: 16rem;
+}

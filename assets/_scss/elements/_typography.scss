@@ -98,6 +98,15 @@ h6 {
   @include h6();
 }
 
+// Remove user agent styles
+
+cite, 
+var, 
+address, 
+dfn {
+ font-style: normal;
+}
+
 // Custom typography
 
 .usa-content {
@@ -106,7 +115,8 @@ h6 {
   }  
 }
 
-.usa-sans {
+.usa-sans,
+.usa-sans p {
   font-family: $font-sans;
 }
 

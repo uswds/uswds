@@ -8,13 +8,13 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"],
 input[type="image"] {
-  appearance: none;  
+  appearance: none;
   background-color: $color-grey-900;
   border: 0;
   border-radius: $usa-border-radius;
   color: $color-white;
   font-size: $base-font-size;
-  font-weight: $font-bold;  
+  font-weight: $font-bold;
   line-height: 1;
   margin: {
     top: .5em;
@@ -23,33 +23,34 @@ input[type="image"] {
   }
   outline: none;
   padding: 1rem 2rem;
-  text-align: center;  
-  -webkit-font-smoothing: antialiased;  
+  text-align: center;
+  text-transform: capitalize;
+  -webkit-font-smoothing: antialiased;
 
-  &:hover, 
+  &:hover,
   &.usa-button-hover {
     background-color: $color-grey-700;
   }
 
-  &:focus, 
+  &:focus,
   &.usa-button-focus {
     box-shadow: 0 0 0 2px $color-focus;
   }
-  &:active, 
+  &:active,
   &.usa-button-active {
     background-color: $color-base-link;
   }
 }
-  
+
 input[type="submit"]:disabled,
 .usa-button-disabled {
   background-color: $color-grey-300;
   color: $color-grey-700;
   cursor: default;
-  
+
   &:hover {
     background-color: $color-grey-300;
-  }  
+  }
 }
 
 button.usa-button-secondary,
@@ -61,15 +62,15 @@ input[type="submit"].usa-button-secondary,
 input[type="reset"].usa-button-secondary,
 input[type="image"].usa-button-secondary {
   background-color: $color-grey-600;
-  
-  &:hover, 
+
+  &:hover,
   &.usa-button-secondary-hover {
     background-color: $color-grey-800;
   }
-  &:active, 
+  &:active,
   &.usa-button-secondary-active {
     background-color: $color-base-link;
-  }  
+  }
 }
 
 .usa-button-outlined,
@@ -81,7 +82,7 @@ input[type="submit"].usa-button-outlined,
 input[type="reset"].usa-button-outlined,
 input[type="image"].usa-button-outlined {
   background-color: $color-white;
-  border: 2px solid $color-grey-900;  
+  border: 2px solid $color-grey-900;
   color: $color-grey-900;
   padding: .8rem 1.8rem;
 }
