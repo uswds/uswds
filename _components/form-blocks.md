@@ -18,13 +18,21 @@ title: Forms Blocks
 
     <div class="usa-width-one-third">
 
-      <div class="usa-width-one-fourth">
-        <label for="title">Title</label>
-        <input type="text" name="title">
-      </div>
+      <label for="title">Title</label>
+      <input class="usa-width-one-fourth" type="text" name="title">
 
       <label for="first-name">First Name</label>
       <input class="" type="text" name="first-name">
+
+      <label for="middle-name">Middle Name</label>
+      <input class="" type="text" name="first-name">
+
+      <label for="last-name">Last Name</label>
+      <input class="" type="text" name="first-name">
+
+      <label for="suffix">Suffix</label>
+      <input class="usa-width-one-fourth" type="text" name="suffix">
+
     </div>
 
   </form>
@@ -51,7 +59,7 @@ title: Forms Blocks
 <div class="preview">
   <!-- Add HTML markup for example here -->
   <img src="{{ site.baseurl }}/assets/img/static/PasswordReset_UI_v1.png">
-</div> 
+</div>
 
 <h2>Contact Form</h2>
 
