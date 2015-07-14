@@ -54,10 +54,13 @@ title: Forms Blocks
       placeholder="Your username or email">
 
     <label for="password">Password</label>
-    <input id="username" name="first-name" type="text"
+    <input id="password" name="first-name" type="text"
       placeholder="Your password">
     <p class="usa-form-note">
-      <a title="Show password" href="javascript:void(0)">Show password</a>
+      <a title="Show password" href="javascript:void(0)"
+          class="usa-show_password"
+          aria-controls="password">
+        Show password</a>
     </p>
 
     <input type="submit" value="Sign in" />
