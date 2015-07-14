@@ -65,6 +65,35 @@ title: Inputs
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
+
+  <fieldset class="guide-forms">
+
+    <legend>Radio buttons</legend>
+    <h1 class="search_category">Radio buttons</h1>
+
+    <ul>
+      <li>
+        <label for="frito-pie" class="radio">
+          <input id="frito-pie" type="radio" checked name="pie" value="frito" tabindex="0">
+          <span tabindex="-1" class="checkbox-focus"></span>Pea Soup
+        </label>
+      </li>
+      <li>
+        <label for="strawberry-pie" class="radio">
+          <input id="strawberry-pie" type="radio" name="pie" value="strawberry" tabindex="0">
+          <span tabindex="-1" class="checkbox-focus"></span>Chicken Noodle
+        </label>
+      </li>
+      <li>
+        <label for="apple-pie" class="radio">
+          <input id="apple-pie" type="radio" name="pie" value="apple" tabindex="0">
+          <span tabindex="-1" class="checkbox-focus"></span>Tomato
+        </label>
+      </li>
+    </ul>
+
+  </fieldset>
+
   <img src="{{ site.baseurl }}/assets/img/static/Radio_Buttons_UI_v1.png">
 </div>
 
