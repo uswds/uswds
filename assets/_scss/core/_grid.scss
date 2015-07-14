@@ -28,6 +28,9 @@
     .usa-width-five-sixths {
       @include span-columns(10);
     }
+    .usa-width-one-twelfth {
+      @include span-columns(1);
+    }    
 
     .usa-end-row {
       @include omega();
