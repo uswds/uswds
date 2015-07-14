@@ -231,7 +231,7 @@ title: Footers
 </div>
 
 <div class="usa-grid-box">
-  <div class="width-one-half annotation">
+  <div class="width-one-half">
     <h3>Use</h3>
     <ul>
       <li>Footers serve site visitors who arrive at the bottom of a page without finding what they want.</li>
@@ -242,7 +242,7 @@ title: Footers
       <li>Important contact information should be limited to general email or phone numbers, which should be clickable links to dial from a mobile phone. (Physical addresses should live on contact pages users can navigate to from the accordion links).</li>
     </ul>
   </div>
-  <div class="width-one-half annotation">
+  <div class="width-one-half">
     <h3>Accessibility</h3>
     <ul>
       <li>Code the navigation so that pressing the  tab key moves focus from link to link in the navigation,even when the navigation has collapsed into an accordion.</li>
