@@ -16,19 +16,19 @@ title: Forms Blocks
   <form>
 
     <label for="title">Title</label>
-    <input class="usa-input-small" type="text" name="title">
+    <input class="usa-input-small" id="title" name="title" type="text">
 
     <label for="first-name">First Name <span class="usa-additional_text">Required</span></label>
-    <input type="text" name="first-name">
+    <input id="first-name" name="first-name" type="text">
 
     <label for="middle-name">Middle Name</label>
-    <input type="text" name="first-name">
+    <input id="middle-name" name="middle-name" type="text">
 
     <label for="last-name">Last Name <span class="usa-additional_text">Required</span></label>
-    <input type="text" name="first-name">
+    <input id="last-name" name="last-name" type="text">
 
     <label for="suffix">Suffix</label>
-    <input class="usa-input-small" type="text" name="suffix">
+    <input class="usa-input-small" id="suffix" name="suffix" type="text">
 
   </form>
 
