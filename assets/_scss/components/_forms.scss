@@ -1,10 +1,10 @@
-input.input-small {
+input.usa-input-small {
   @include media($tablet-up) {
     max-width: 6rem;
   }
 }
 
-.additional_text {
+.usa-additional_text {
   float: right;
   font-style: italic;
   font-weight: normal;

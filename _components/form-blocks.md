@@ -16,19 +16,19 @@ title: Forms Blocks
   <form class="usa-form-one-third">
 
     <label for="title">Title</label>
-    <input class="input-small" type="text" name="title">
+    <input class="usa-input-small" type="text" name="title">
 
-    <label for="first-name">First Name <span class="additional_text">Required</span></label>
+    <label for="first-name">First Name <span class="usa-additional_text">Required</span></label>
     <input class="" type="text" name="first-name">
 
     <label for="middle-name">Middle Name</label>
     <input class="" type="text" name="first-name">
 
-    <label for="last-name">Last Name <span class="additional_text">Required</span></label>
+    <label for="last-name">Last Name <span class="usa-additional_text">Required</span></label>
     <input class="" type="text" name="first-name">
 
     <label for="suffix">Suffix</label>
-    <input class="input-small" type="text" name="suffix">
+    <input class="usa-input-small" type="text" name="suffix">
 
   </form>
 
