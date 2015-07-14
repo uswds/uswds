@@ -14,7 +14,7 @@ title: Footers
     </div>
     <div class="usa-footer-primary-section">
       <div class="usa-grid-box-full">
-        <nav class="usa-footer-nav usa-usa-width-two-thirds">
+        <nav class="usa-footer-nav usa-width-two-thirds">
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
             <h3 class="usa-footer-primary-link">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
@@ -22,21 +22,21 @@ title: Footers
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
-          <ul class="usa-unstyled-list usa-usa-width-one-fourth usa-footer-primary-content">
+          <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
             <h3 class="usa-footer-primary-link">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
-          <ul class="usa-unstyled-list usa-usa-width-one-fourth usa-footer-primary-content">
+          <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
             <h3 class="usa-footer-primary-link">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
-          <ul class="usa-unstyled-list usa-usa-width-one-fourth usa-footer-primary-content">
+          <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
             <h3 class="usa-footer-primary-link">Topic</h3>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
@@ -45,7 +45,7 @@ title: Footers
           </ul>
         </nav>
 
-        <div class="usa-sign_up-block usa-usa-width-one-third">
+        <div class="usa-sign_up-block usa-width-one-third">
           <h3 class="usa-sign_up-header">Sign up</h3>
 
           <label class="" for="email" id="">Your email address</label>
@@ -58,12 +58,12 @@ title: Footers
 
     <div class="usa-footer-secondary_section usa-footer-big-secondary-section">
       <div class="usa-grid-box">
-        <div class="usa-footer-logo usa-usa-width-one-half">
+        <div class="usa-footer-logo usa-width-one-half">
           <img class="usa-footer-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
           <h3 class="usa-footer-logo-heading">Name of Agency</h3>
         </div>
 
-        <div class="usa-footer-contact-links usa-usa-width-one-half">
+        <div class="usa-footer-contact-links usa-width-one-half">
           <div class="usa-social-links">
             <a href="javascript:void(0)">
               <svg width="26" height="39" role="img" aria-label="Facebook">
@@ -231,7 +231,7 @@ title: Footers
 </div>
 
 <div class="usa-grid-box">
-  <div class="usa-usa-width-one-half">
+  <div class="usa-width-one-half">
     <h3>Use</h3>
     <ul>
       <li>Footers serve site visitors who arrive at the bottom of a page without finding what they want.</li>
@@ -242,7 +242,7 @@ title: Footers
       <li>Important contact information should be limited to general email or phone numbers, which should be clickable links to dial from a mobile phone. (Physical addresses should live on contact pages users can navigate to from the accordion links).</li>
     </ul>
   </div>
-  <div class="usa-usa-width-one-half">
+  <div class="usa-width-one-half">
     <h3>Accessibility</h3>
     <ul>
       <li>Code the navigation so that pressing the  tab key moves focus from link to link in the navigation,even when the navigation has collapsed into an accordion.</li>
