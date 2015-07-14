@@ -4,6 +4,16 @@ form {
   }
 }
 
+.form-large {
+  @include media($tablet-up) {
+    max-width: 46rem;
+  }
+
+  input[type] {
+    max-width: 100%;
+  }
+}
+
 input.usa-input-small {
   @include media($tablet-up) {
     max-width: 6rem;
