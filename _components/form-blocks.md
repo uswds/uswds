@@ -12,7 +12,6 @@ title: Forms Blocks
 <h2>Name</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
 
   <form class="usa-form-one-third">
 
