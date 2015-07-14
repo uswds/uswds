@@ -6,6 +6,33 @@ title: Forms Blocks
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
+
+  <form>
+
+    <label for="mailing-address-1">Mailing Address 1</label>
+    <input id="mailing-address-1" name="mailing-address-1" type="text">
+
+    <label for="mailing-address-2">Mailing Address 2 <span class="usa-additional_text">Optional</span></label>
+    <input id="mailing-address-2" name="mailing-address-2" type="text">
+
+    <label for="city">City</label>
+    <input id="city" name="city" type="text">
+
+    <label for="state">State</label>
+    <input id="state" name="state" type="text" list="states">
+    <datalist id="states">
+      <option value="Alabama">
+      <option value="Alaska">
+      <option value="Arizona">
+      <option value="Arkansas">
+      <option value="California">
+    </datalist>
+
+    <label for="zip">Zip</label>
+    <input id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})">
+
+  </form>
+
   <img src="{{ site.baseurl }}/assets/img/static/USAddressForm_UI_v1.png">
 </div>
 
