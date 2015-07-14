@@ -29,6 +29,35 @@ title: Inputs
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
+
+  <fieldset class="nested_fieldset">
+
+    <legend>Best Pies</legend>
+    <h1>Best Pies</h1>
+
+    <ul>
+      <li>
+        <label for="apple-pie" class="checkbox">
+          <input id="apple-pie" type="checkbox" name="apple-pie" value="apple-pie" tabindex="0">
+          <span tabindex="-1" class="checkbox-focus"></span>Apple Pie
+        </label>
+      </li>
+      <li>
+        <label for="key-lime-pie" class="checkbox">
+          <input id="key-lime-pie" type="checkbox" name="key-lime-pie" value="key-lime-pie" tabindex="0">
+          <span tabindex="-1" class="checkbox-focus"></span>Key Line Pie
+        </label>
+      </li>
+      <li>
+        <label for="peach-pie" class="checkbox">
+          <input id="peach-pie" type="checkbox" name="peach-pie" value="peach-pie" tabindex="0">
+          <span tabindex="-1" class="checkbox-focus"></span>Peach Pie
+        </label>
+      </li>
+    </ul>
+
+  </fieldset>
+
   <img src="{{ site.baseurl }}/assets/img/static/Checkboxes_UI_v1.png">
 </div>
 
