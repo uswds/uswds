@@ -4,7 +4,7 @@ form {
   }
 }
 
-.form-large {
+.usa-form-large {
   @include media($tablet-up) {
     max-width: 46rem;
   }

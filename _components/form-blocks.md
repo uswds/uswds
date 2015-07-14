@@ -7,7 +7,7 @@ title: Forms Blocks
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <form class="form-large">
+  <form class="usa-form-large">
 
     <label for="mailing-address-1">Mailing Address 1</label>
     <input id="mailing-address-1" name="mailing-address-1" type="text">
