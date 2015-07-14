@@ -9,7 +9,8 @@ form {
     max-width: 46rem;
   }
 
-  input[type] {
+  input[type],
+  label {
     max-width: 100%;
   }
 }
