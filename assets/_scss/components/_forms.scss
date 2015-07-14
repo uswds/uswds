@@ -2,6 +2,29 @@ form {
   @include media($tablet-up) {
     max-width: 32rem;
   }
+
+  a {
+    border-bottom: 0;
+  }
+
+  button[type="submit"],
+  input[type="submit"] {
+    clear: both;
+    margin-top: 1.875em;
+    margin-bottom: 1.25em;
+    width: 10em;
+  }
+}
+
+.usa-form-note {
+  float: right;
+  font-size: $small-font-size;
+  margin: 0;
+  margin-bottom: 2.125em;
+
+  & + * {
+    clear: both;
+  }
 }
 
 input.usa-input-small {

@@ -44,8 +44,28 @@ title: Forms Blocks
 <h2>Login</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Login_UI_v1.png">
+  <form>
+
+    <h2 class="usa-drop_text">Sign in</h2>
+    <span>or <a href="javascript:void(0)">create an account</a></span>
+
+    <label for="username">Username or email address</label>
+    <input id="username" name="first-name" type="text"
+      placeholder="Your username or email">
+
+    <label for="password">Password</label>
+    <input id="username" name="first-name" type="text"
+      placeholder="Your password">
+    <p class="usa-form-note">
+      <a title="Show password" href="javascript:void(0)">Show password</a>
+    </p>
+
+    <input type="submit" value="Sign in" />
+    <p><a href="javascript:void(0)" title="Forgot password">
+      Forgot username?</a></p>
+    <p><a href="javascript:void(0)" title="Forgot password">
+      Forgot password?</a></p>
+  </form>
 </div>
 
 <h2>Password Reset</h2>
