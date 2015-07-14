@@ -29,7 +29,7 @@ title: Forms Blocks
     </datalist>
 
     <label for="zip">Zip</label>
-    <input id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})">
+    <input class="usa-input-medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})">
 
   </form>
 

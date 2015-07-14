@@ -20,6 +20,12 @@ input.usa-input-small {
   }
 }
 
+input.usa-input-medium {
+  @include media($tablet-up) {
+    max-width: 12rem;
+  }
+}
+
 .usa-additional_text {
   float: right;
   font-style: italic;
