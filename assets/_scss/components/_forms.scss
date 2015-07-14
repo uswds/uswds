@@ -1,1 +1,10 @@
-.small_input + label { clear: both }
+input.input-small {
+  @include media($tablet-up) {
+    max-width: 8rem;
+  }
+}
+
+.optional {
+  float: right;
+  font-weight: normal;
+}

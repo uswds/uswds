@@ -14,14 +14,14 @@ title: Forms Blocks
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <form class="usa-grid-box">
+  <form>
 
     <div class="usa-width-one-third">
 
       <label for="title">Title</label>
-      <input class="usa-width-one-fourth small_input" type="text" name="title">
+      <input class="input-small" type="text" name="title">
 
-      <label for="first-name">First Name</label>
+      <label for="first-name">First Name <span class="optional">optional</span></label>
       <input class="" type="text" name="first-name">
 
       <label for="middle-name">Middle Name</label>
@@ -31,7 +31,7 @@ title: Forms Blocks
       <input class="" type="text" name="first-name">
 
       <label for="suffix">Suffix</label>
-      <input class="usa-width-one-fourth" type="text" name="suffix">
+      <input class="small_input" type="text" name="suffix">
 
     </div>
 
