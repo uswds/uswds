@@ -13,6 +13,22 @@ title: Forms Blocks
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
+
+  <form class="usa-grid-box">
+
+    <div class="usa-width-one-third">
+
+      <div class="usa-width-one-fourth">
+        <label for="title">Title</label>
+        <input type="text" name="title">
+      </div>
+
+      <label for="first-name">First Name</label>
+      <input class="" type="text" name="first-name">
+    </div>
+
+  </form>
+
   <img src="{{ site.baseurl }}/assets/img/static/NameBlock_UI_v1.png">
 </div>
 
