@@ -1,11 +1,17 @@
 input.input-small {
   @include media($tablet-up) {
-    max-width: 8rem;
+    max-width: 6rem;
   }
 }
 
-.optional {
+.additional_text {
   float: right;
   font-style: italic;
   font-weight: normal;
+}
+
+.usa-form-one-third {
+  @include media($tablet-up) {
+    max-width: 32rem;
+  }
 }

@@ -14,26 +14,22 @@ title: Forms Blocks
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <form>
+  <form class="usa-form-one-third">
 
-    <div class="usa-width-one-third">
+    <label for="title">Title</label>
+    <input class="input-small" type="text" name="title">
 
-      <label for="title">Title</label>
-      <input class="input-small" type="text" name="title">
+    <label for="first-name">First Name <span class="additional_text">Required</span></label>
+    <input class="" type="text" name="first-name">
 
-      <label for="first-name">First Name <span class="optional">optional</span></label>
-      <input class="" type="text" name="first-name">
+    <label for="middle-name">Middle Name</label>
+    <input class="" type="text" name="first-name">
 
-      <label for="middle-name">Middle Name</label>
-      <input class="" type="text" name="first-name">
+    <label for="last-name">Last Name <span class="additional_text">Required</span></label>
+    <input class="" type="text" name="first-name">
 
-      <label for="last-name">Last Name</label>
-      <input class="" type="text" name="first-name">
-
-      <label for="suffix">Suffix</label>
-      <input class="small_input" type="text" name="suffix">
-
-    </div>
+    <label for="suffix">Suffix</label>
+    <input class="input-small" type="text" name="suffix">
 
   </form>
 
