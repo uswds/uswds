@@ -6,11 +6,11 @@
 
 // Core -------------- //
 
+@import 'core/grid-settings';
 @import 'core/defaults';
 @import 'core/variables';
 @import 'core/base';
 @import 'core/grid';
-@import 'core/grid-settings';
 
 
 // Elements -------------- //
@@ -18,9 +18,10 @@
 
 @import 'elements/typography';
 @import 'elements/list';
-@import 'elements/form';
+@import 'elements/inputs';
 @import 'elements/buttons';
 @import 'elements/table';
+@import 'elements/figure';
 
 
 // Components -------------- //

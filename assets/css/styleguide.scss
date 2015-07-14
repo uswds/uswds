@@ -298,9 +298,6 @@ header[role="banner"] {
   .is-peripheral {
     opacity: .2;
   }
-  img {
-  max-width: 100%;
-  }
 }
 
 // Code Sample Boxes --------- //
@@ -374,4 +371,10 @@ header[role="banner"] {
       }
     }
   }
+}
+
+// Download Code Boxes --------- //
+
+.download-code {
+  padding-top: 3em;
 }

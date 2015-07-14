@@ -6,7 +6,23 @@ title: Inputs
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Text_Input_UI_v1.png">
+
+  <label for="input-type-text">Text Input Label</label>
+  <input type="text" name="input-type-text">
+
+  <label for="input-focus">Text Input Focused</label>
+  <input class="usa-input-focus" type="text" name="input-focus">
+
+  <label for="input-error">Text Input Error</label>
+  <input class="usa-input-error" type="text" name="input-error">
+
+  <label for="input-success">Text Input Success</label>
+  <input class="usa-input-success" type="text" name="input-success">
+
+  <h2>Text Area</h2>
+  <label for="input-type-textarea">Text Area Label</label>
+  <textarea name="input-type-textarea"></textarea>
+
 </div>
 
 <h2>Checkboxes</h2>
