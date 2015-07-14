@@ -32,7 +32,6 @@ title: Forms Blocks
 
   </form>
 
-  <img src="{{ site.baseurl }}/assets/img/static/NameBlock_UI_v1.png">
 </div>
 
 <h2>Social Security</h2>
