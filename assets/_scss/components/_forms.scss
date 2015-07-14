@@ -1,3 +1,1 @@
-.small-input {
-  @include clearfix();
-}
+.small_input + label { clear: both }

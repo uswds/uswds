@@ -19,7 +19,7 @@ title: Forms Blocks
     <div class="usa-width-one-third">
 
       <label for="title">Title</label>
-      <input class="usa-width-one-fourth small-input" type="text" name="title">
+      <input class="usa-width-one-fourth small_input" type="text" name="title">
 
       <label for="first-name">First Name</label>
       <input class="" type="text" name="first-name">
