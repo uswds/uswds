@@ -13,7 +13,7 @@ title: Forms Blocks
 
 <div class="preview">
 
-  <form class="usa-form-one-third">
+  <form>
 
     <label for="title">Title</label>
     <input class="usa-input-small" type="text" name="title">

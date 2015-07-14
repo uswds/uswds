@@ -1,3 +1,9 @@
+form {
+  @include media($tablet-up) {
+    max-width: 32rem;
+  }
+}
+
 input.usa-input-small {
   @include media($tablet-up) {
     max-width: 6rem;
@@ -8,10 +14,4 @@ input.usa-input-small {
   float: right;
   font-style: italic;
   font-weight: normal;
-}
-
-.usa-form-one-third {
-  @include media($tablet-up) {
-    max-width: 32rem;
-  }
 }
