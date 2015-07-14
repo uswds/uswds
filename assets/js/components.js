@@ -67,6 +67,8 @@ $(function() {
 
       $('.usa-footer-big nav ul').addClass('hidden');
 
+      $('.usa-footer-big nav h3').unbind('click');
+
       $('.usa-footer-big nav h3').bind('click', function() {
         $(this).parent().removeClass('hidden')
         .siblings().addClass('hidden');
