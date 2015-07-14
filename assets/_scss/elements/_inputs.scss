@@ -21,7 +21,7 @@ textarea  {
   display: block;
   font-size: $base-font-size;
   margin: 1.5rem 0;
-  max-width: 38rem;
+  max-width: $input-max-width;
   width: 100%;
   outline: none;
   padding: 1rem .7em;
@@ -51,7 +51,7 @@ label {
     top: 3rem;
     bottom: 1.5rem;
   }
-  max-width: 38rem;
+  max-width: $input-max-width;
 }
 
 textarea {
