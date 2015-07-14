@@ -57,3 +57,87 @@ label {
 textarea {
   height: 16rem;
 }
+
+label.checkbox,
+label.radio {
+  display: inline-block;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+
+  input[type="checkbox"] + span {
+    box-shadow: 0 0 1px $color-base-link;
+    border-radius: 1px;
+    display: inline-block;
+    height: 20px;
+    margin-top: 0;
+    margin-right: 0.5em;
+    margin-bottom: 0;
+    vertical-align: -4px;
+    padding-top: 4px; //compensate for FA vertical-align
+    width: 20px;
+  }
+
+  input[type="radio"] + span {
+    box-shadow: 0 0 1px $color-base-link;
+    border-radius: 500px;
+    display: inline-block;
+    height: 20px;
+    margin-top: 0;
+    margin-right: 0.5em;
+    margin-bottom: 0;
+    vertical-align: -4px;
+    width: 20px;
+  }
+}
+
+label.checkbox :checked + span {
+  background-color: $color-primary;
+  border: 1px solid $color-primary;
+  box-shadow: 0 0 0 0 $color-white;
+  position: relative;
+
+  &:after {
+    color: $color-white;
+    font-family: "FontAwesome";
+    content: x;
+    position: relative;
+    left: 2px;
+    top: -5px;
+  }
+}
+
+label.radio :checked + span {
+  background-color: $color-primary;
+  border: 6px solid $color-white !important;
+  box-shadow: 0 0 1px $color-base-link;
+  vertical-align: -4px;
+  position: relative;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  @include appearance(none);
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  vertical-align: -4px;
+
+  // to hide checkbox/radio from visual but 
+  // still read to screenreaders
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+
+  &:focus {
+    + .checkbox-focus {
+      border: 1px solid $color-white;
+      box-shadow: $box-shadow;
+      outline: none;
+    }
+  }
+}
