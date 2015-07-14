@@ -1,0 +1,17 @@
+form {
+  @include media($tablet-up) {
+    max-width: 32rem;
+  }
+}
+
+input.usa-input-small {
+  @include media($tablet-up) {
+    max-width: 6rem;
+  }
+}
+
+.usa-additional_text {
+  float: right;
+  font-style: italic;
+  font-weight: normal;
+}

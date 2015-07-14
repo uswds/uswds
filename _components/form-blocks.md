@@ -12,8 +12,26 @@ title: Forms Blocks
 <h2>Name</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/NameBlock_UI_v1.png">
+
+  <form>
+
+    <label for="title">Title</label>
+    <input class="usa-input-small" type="text" name="title">
+
+    <label for="first-name">First Name <span class="usa-additional_text">Required</span></label>
+    <input type="text" name="first-name">
+
+    <label for="middle-name">Middle Name</label>
+    <input type="text" name="first-name">
+
+    <label for="last-name">Last Name <span class="usa-additional_text">Required</span></label>
+    <input type="text" name="first-name">
+
+    <label for="suffix">Suffix</label>
+    <input class="usa-input-small" type="text" name="suffix">
+
+  </form>
+
 </div>
 
 <h2>Social Security</h2>
@@ -35,7 +53,7 @@ title: Forms Blocks
 <div class="preview">
   <!-- Add HTML markup for example here -->
   <img src="{{ site.baseurl }}/assets/img/static/PasswordReset_UI_v1.png">
-</div> 
+</div>
 
 <h2>Contact Form</h2>
 
