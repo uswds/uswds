@@ -65,28 +65,28 @@ label.radio {
   margin-bottom: 0.5em;
 
   input[type="checkbox"] + span {
-    box-shadow: 0 0 1px $color-base-link;
+    box-shadow: 0 0 0 1px $color-grey-600;
     border-radius: $usa-border-radius;
     display: inline-block;
-    height: 1.8rem;
+    height: 1.6rem;
     margin-top: 0;
     margin-right: 0.5em;
     margin-bottom: 0;
     vertical-align: -4px;
     padding-top: 4px; //compensate for FA vertical-align
-    width: 1.8rem;
+    width: 1.6rem;
   }
 
   input[type="radio"] + span {
-    box-shadow: 0 0 1px $color-base-link;
+    box-shadow: 0 0 0 1px $color-grey-600;
     border-radius: 100%;
     display: inline-block;
-    height: 1.8rem;
+    height: 1.6rem;
     margin-top: 0;
     margin-right: 0.5em;
     margin-bottom: 0;
     vertical-align: -4px;
-    width: 1.8rem;
+    width: 1.6rem;
   }
 }
 
@@ -108,8 +108,8 @@ label.checkbox :checked + span {
 
 label.radio :checked + span {
   background-color: $color-primary;
-  border: 6px solid $color-white !important;
-  box-shadow: 0 0 1px $color-primary;
+  border: 2px solid $color-white !important;
+  box-shadow: 0 0 0 2px $color-primary;
   vertical-align: -4px;
   position: relative;
 }
@@ -136,7 +136,7 @@ input[type="radio"] {
   &:focus {
     + .checkbox-focus {
       border: 1px solid $color-white;
-      box-shadow: $box-shadow;
+      box-shadow: 0 0 0 2px $color-primary;
       outline: none;
     }
   }
