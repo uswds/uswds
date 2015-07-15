@@ -15,18 +15,22 @@ title: Forms Blocks
     <label for="mailing-address-2">Mailing Address 2 <span class="usa-additional_text">Optional</span></label>
     <input id="mailing-address-2" name="mailing-address-2" type="text">
 
-    <label for="city">City</label>
-    <input id="city" name="city" type="text">
+    <div class="usa-input-grid-medium">
+      <label for="city">City</label>
+      <input id="city" name="city" type="text">
+    </div>
 
-    <label for="state">State</label>
-    <input id="state" name="state" type="text" list="states">
-    <datalist id="states">
-      <option value="Alabama">
-      <option value="Alaska">
-      <option value="Arizona">
-      <option value="Arkansas">
-      <option value="California">
-    </datalist>
+    <div class="usa-input-grid-small">
+      <label for="state">State</label>
+      <input id="state" name="state" type="text" list="states">
+      <datalist id="states">
+        <option value="Alabama">
+        <option value="Alaska">
+        <option value="Arizona">
+        <option value="Arkansas">
+        <option value="California">
+      </datalist>
+    </div>
 
     <label for="zip">Zip</label>
     <input class="usa-input-medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})">
