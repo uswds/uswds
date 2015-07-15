@@ -68,25 +68,25 @@ label.radio {
     box-shadow: 0 0 1px $color-base-link;
     border-radius: 1px;
     display: inline-block;
-    height: 20px;
+    height: 1.8rem;
     margin-top: 0;
     margin-right: 0.5em;
     margin-bottom: 0;
     vertical-align: -4px;
     padding-top: 4px; //compensate for FA vertical-align
-    width: 20px;
+    width: 1.8rem;
   }
 
   input[type="radio"] + span {
     box-shadow: 0 0 1px $color-base-link;
     border-radius: 500px;
     display: inline-block;
-    height: 20px;
+    height: 1.8rem;
     margin-top: 0;
     margin-right: 0.5em;
     margin-bottom: 0;
     vertical-align: -4px;
-    width: 20px;
+    width: 1.8rem;
   }
 }
 
