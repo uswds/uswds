@@ -21,7 +21,7 @@ title: Forms Blocks
 
     <div class="usa-input-grid-small">
       <label for="state">State</label>
-      <select class="usa-input-dropdown" id="state" name="state" type="text" list="states">
+      <select class="usa-input-dropdown" id="state" name="state" type="text">
 
         <option value></option>
         <option value="AL">Alabama</option>
