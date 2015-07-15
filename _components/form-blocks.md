@@ -21,9 +21,8 @@ title: Forms Blocks
 
     <div class="usa-input-grid-small">
       <label for="state">State</label>
-      <input class="usa-input-dropdown" id="state" name="state" type="text" list="states">
-      <datalist id="states">
-        <!--[if IE 9]><select disabled style="display:none"><![endif]-->
+      <select class="usa-input-dropdown" id="state" name="state" type="text" list="states">
+
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
         <option value="AZ">Arizona</option>
@@ -75,8 +74,7 @@ title: Forms Blocks
         <option value="WV">West Virginia</option>
         <option value="WI">Wisconsin</option>
         <option value="WY">Wyoming</option>
-        <!--[if IE 9]></select><![endif]-->  
-      </datalist>
+      </select>
     </div>
 
     <label for="zip">Zip</label>
