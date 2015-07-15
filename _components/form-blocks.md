@@ -22,7 +22,7 @@ title: Forms Blocks
 
     <div class="usa-input-grid-small">
       <label for="state">State</label>
-      <input id="state" name="state" type="text" list="states">
+      <input class="usa-input-dropdown" id="state" name="state" type="text" list="states">
       <datalist id="states">
         <option value="Alabama">
         <option value="Alaska">

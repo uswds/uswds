@@ -53,6 +53,15 @@ input.usa-input-medium {
   }  
 }
 
+.usa-input-dropdown {
+  background: url("../img/arrow-down.png") no-repeat;
+  background-position: 87%;
+}
+
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
 .usa-additional_text {
   float: right;
   font-style: italic;
