@@ -32,7 +32,7 @@ title: Inputs
 
   <fieldset class="nested_fieldset">
 
-    <legend>Best Pies</legend>
+    <legend class"usa-sr-only">Best Pies</legend>
     <h3>Best Pies</h3>
 
     <ul class="usa-unstyled-list">
@@ -68,7 +68,7 @@ title: Inputs
 
   <fieldset class="guide-forms">
 
-    <legend>Radio buttons</legend>
+    <legend class"usa-sr-only">Radio buttons</legend>
     <h3 class="search_category">Radio buttons</h3>
 
     <ul class="usa-unstyled-list">

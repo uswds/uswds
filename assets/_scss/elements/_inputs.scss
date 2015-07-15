@@ -109,7 +109,7 @@ label.checkbox :checked + span {
 label.radio :checked + span {
   background-color: $color-primary;
   border: 6px solid $color-white !important;
-  box-shadow: 0 0 1px $color-base-link;
+  box-shadow: 0 0 1px $color-primary;
   vertical-align: -4px;
   position: relative;
 }
@@ -118,8 +118,8 @@ input[type="checkbox"],
 input[type="radio"] {
   @include appearance(none);
   display: inline-block;
-  height: 20px;
-  width: 20px;
+  height: 1.8rem;
+  width: 1.8rem;
   vertical-align: -4px;
 
   // to hide checkbox/radio from visual but 
