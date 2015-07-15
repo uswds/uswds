@@ -23,6 +23,7 @@ title: Forms Blocks
       <label for="state">State</label>
       <select class="usa-input-dropdown" id="state" name="state" type="text" list="states">
 
+        <option value></option>
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
         <option value="AZ">Arizona</option>
