@@ -43,7 +43,7 @@ title: Forms Blocks
   <form>
 
     <label for="title">Title</label>
-    <input class="usa-input-small" id="title" name="title" type="text">
+    <input class="usa-input-tiny" id="title" name="title" type="text">
 
     <label for="first-name">First Name <span class="usa-additional_text">Required</span></label>
     <input id="first-name" name="first-name" type="text">
@@ -55,7 +55,7 @@ title: Forms Blocks
     <input id="last-name" name="last-name" type="text">
 
     <label for="suffix">Suffix</label>
-    <input class="usa-input-small" id="suffix" name="suffix" type="text">
+    <input class="usa-input-tiny" id="suffix" name="suffix" type="text">
 
   </form>
 
