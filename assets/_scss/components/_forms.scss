@@ -8,11 +8,6 @@ form {
   @include media($tablet-up) {
     max-width: 46rem;
   }
-
-  input[type],
-  label {
-    max-width: 100%;
-  }
 }
 
 input.usa-input-small {
