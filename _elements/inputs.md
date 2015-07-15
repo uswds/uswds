@@ -30,7 +30,7 @@ title: Inputs
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <fieldset class="nested_fieldset">
+  <fieldset class="fieldset-inputs">
 
     <legend class"usa-sr-only">Best Pies</legend>
     <h3>Best Pies</h3>
@@ -66,7 +66,7 @@ title: Inputs
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <fieldset class="guide-forms">
+  <fieldset class="fieldset-inputs">
 
     <legend class"usa-sr-only">Radio buttons</legend>
     <h3 class="search_category">Radio buttons</h3>
