@@ -66,7 +66,7 @@ label.radio {
 
   input[type="checkbox"] + span {
     box-shadow: 0 0 1px $color-base-link;
-    border-radius: 1px;
+    border-radius: $usa-border-radius;
     display: inline-block;
     height: 1.8rem;
     margin-top: 0;
@@ -79,7 +79,7 @@ label.radio {
 
   input[type="radio"] + span {
     box-shadow: 0 0 1px $color-base-link;
-    border-radius: 500px;
+    border-radius: 100%;
     display: inline-block;
     height: 1.8rem;
     margin-top: 0;
