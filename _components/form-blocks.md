@@ -24,11 +24,13 @@ title: Forms Blocks
       <label for="state">State</label>
       <input class="usa-input-dropdown" id="state" name="state" type="text" list="states">
       <datalist id="states">
+        <!--[if IE 9]><select disabled style="display:none"><![endif]-->
         <option value="Alabama">
         <option value="Alaska">
         <option value="Arizona">
         <option value="Arkansas">
         <option value="California">
+        <!--[if IE 9]></select><![endif]-->  
       </datalist>
     </div>
 
