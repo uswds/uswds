@@ -5,7 +5,6 @@ title: Forms Blocks
 ---
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
 
   <form class="usa-form-large">
 
@@ -85,7 +84,6 @@ title: Forms Blocks
 
   </form>
 
-  <img src="{{ site.baseurl }}/assets/img/static/USAddressForm_UI_v1.png">
 </div>
 
 <h2>Name</h2>
