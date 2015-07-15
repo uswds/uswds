@@ -35,7 +35,7 @@ title: Inputs
     <legend>Best Pies</legend>
     <h3>Best Pies</h3>
 
-    <ul>
+    <ul class="usa-unstyled-list">
       <li>
         <label for="apple-pie" class="checkbox">
           <input id="apple-pie" type="checkbox" name="apple-pie" value="apple-pie" tabindex="0">
@@ -71,7 +71,7 @@ title: Inputs
     <legend>Radio buttons</legend>
     <h3 class="search_category">Radio buttons</h3>
 
-    <ul>
+    <ul class="usa-unstyled-list">
       <li>
         <label for="frito-pie" class="radio">
           <input id="frito-pie" type="radio" checked name="pie" value="frito" tabindex="0">
