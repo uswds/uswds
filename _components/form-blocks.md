@@ -46,29 +46,32 @@ title: Forms Blocks
 <div class="preview">
   <form>
 
-    <h2 class="usa-drop_text">Sign in</h2>
-    <span>or <a href="javascript:void(0)">create an account</a></span>
+    <fieldset>
+      <legend class="usa-drop_text">Sign in</legend>
+      <span>or <a href="javascript:void(0)">create an account</a></span>
 
-    <label for="username">Username or email address</label>
-    <input id="username" name="first-name" type="text"
-      placeholder="Your username or email">
+      <label for="username">Username or email address</label>
+      <input id="username" name="first-name" type="text"
+        placeholder="Your username or email">
 
-    <label for="password">Password</label>
-    <input id="password" name="first-name" type="text"
-      placeholder="Your password">
-    <p class="usa-form-note">
-      <a title="Show password" href="javascript:void(0)"
-          class="usa-show_password"
-          aria-controls="password">
-        Show password</a>
-    </p>
+      <label for="password">Password</label>
+      <input id="password" name="first-name" type="text"
+        placeholder="Your password">
+      <p class="usa-form-note">
+        <a title="Show password" href="javascript:void(0)"
+            class="usa-show_password"
+            aria-controls="password">
+          Show password</a>
+      </p>
 
-    <input type="submit" value="Sign in" />
-    <p><a href="javascript:void(0)" title="Forgot password">
-      Forgot username?</a></p>
-    <p><a href="javascript:void(0)" title="Forgot password">
-      Forgot password?</a></p>
+      <input type="submit" value="Sign in" />
+      <p><a href="javascript:void(0)" title="Forgot password">
+        Forgot username?</a></p>
+      <p><a href="javascript:void(0)" title="Forgot password">
+        Forgot password?</a></p>
+      </fieldset>
   </form>
+
 </div>
 
 <h2>Password Reset</h2>
