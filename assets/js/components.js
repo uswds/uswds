@@ -57,6 +57,19 @@ function accordion($el) {
   return new Accordion($el);
 }
 
+function togglePassword($el) {
+  var fieldSelector =  '#' + $el.attr('aria-controls'),
+      $field = $el.parents('form').find(fieldSelector),
+      showing = false;
+
+  $el.on('click', function(ev) {
+    ev.preventDefault();
+    $field.attr('type', showing ? 'password' : 'text');
+    $el.text(showing ? 'Show password' : 'Hide password');
+    showing = !showing;
+  });
+}
+
 $(function() {
   $('.usa-accordion').each(function() {
     accordion($(this));
@@ -88,4 +101,8 @@ $(function() {
     footerAccordion();
   });
 
+  togglePassword($('.usa-show_password'));
+
 });
+
+

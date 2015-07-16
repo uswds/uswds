@@ -2,6 +2,41 @@ form {
   @include media($tablet-up) {
     max-width: 32rem;
   }
+
+  a {
+    border-bottom: 0;
+  }
+
+  button[type="submit"],
+  input[type="submit"] {
+    @include media($tablet-up) {
+      padding: {
+        left: 2.7em;
+        right: 2.7em;
+      }      
+      width: auto;
+    }
+    clear: both;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5em;
+  }
+  
+  input[name="password"] {
+    margin-bottom: 1.1rem;
+  }  
+}
+
+
+
+.usa-form-note {
+  float: right;
+  font-size: $small-font-size;
+  margin: 0;
+  margin-bottom: 1.5rem;
+
+  & + * {
+    clear: both;
+  }
 }
 
 fieldset {
