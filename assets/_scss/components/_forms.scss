@@ -9,10 +9,16 @@ form {
 
   button[type="submit"],
   input[type="submit"] {
+    @include media($tablet-up) {
+      padding: {
+        left: 2.7em;
+        right: 2.7em;
+      }      
+      width: auto;
+    }
     clear: both;
     margin-top: 1.875em;
     margin-bottom: 1.25em;
-    width: 10em;
   }
 }
 
