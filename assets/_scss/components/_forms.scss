@@ -21,10 +21,8 @@ form {
     margin-bottom: 1em;
   }
   
-  input[type="text"] {
-    &#password {
-      margin-bottom: 1.1rem;
-    }
+  input[name="password"] {
+    margin-bottom: 1.1rem;
   }  
 }
 
