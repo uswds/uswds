@@ -9,11 +9,11 @@ title: Forms Blocks
   <form class="usa-form-large">
 
     <fieldset>
-      <legend>Address</legend>
-      <label for="mailing-address-1">Mailing Address 1</label>
+      <legend>Mailing Address</legend>
+      <label for="mailing-address-1">Street Address 1</label>
       <input id="mailing-address-1" name="mailing-address-1" type="text">
 
-      <label for="mailing-address-2">Mailing Address 2 <span class="usa-additional_text">Optional</span></label>
+      <label for="mailing-address-2">Street Address 2 <span class="usa-additional_text">Optional</span></label>
       <input id="mailing-address-2" name="mailing-address-2" type="text">
 
       <div>
@@ -84,7 +84,7 @@ title: Forms Blocks
       <label for="zip">Zip</label>
       <input class="usa-input-medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})">
       </fieldset>
-      
+
     </form>
 
   </div>
