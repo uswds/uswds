@@ -22,10 +22,15 @@ input.usa-input-medium {
   }
 }
 
+.usa-input-grid:last-child {
+  @include media($tablet-up) {
+    padding-left: 5%;
+  }
+}
+
 .usa-input-grid-small {
   @include media($tablet-up) {
     float: left;
-    padding-left: 5%;
     width: 35%;
   }
 
