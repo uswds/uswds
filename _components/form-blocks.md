@@ -51,10 +51,10 @@ title: Forms Blocks
       <span>or <a href="javascript:void(0)">create an account</a></span>
 
       <label for="username">Username or email address</label>
-      <input id="username" name="first-name" type="text">
+      <input id="username" name="username" type="text">
 
       <label for="password">Password</label>
-      <input id="password" name="first-name" type="text">
+      <input id="password" name="password" type="text">
       <p class="usa-form-note">
         <a title="Show password" href="javascript:void(0)"
             class="usa-show_password"
