@@ -48,7 +48,7 @@ title: Forms Blocks
 
     <fieldset>
       <legend class="usa-drop_text">Sign in</legend>
-      <span>or <a href="javascript:void(0)">create an account</a></span>
+      <p>or <a href="javascript:void(0)">create an account</a></p>
 
       <label for="username">Username or email address</label>
       <input id="username" name="username" type="text">
