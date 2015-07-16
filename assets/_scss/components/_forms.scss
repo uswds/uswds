@@ -10,6 +10,10 @@ fieldset {
   padding: 0;
 }
 
+legend {
+  @include h2;
+}
+
 .usa-form-large {
   @include media($tablet-up) {
     max-width: 46rem;
