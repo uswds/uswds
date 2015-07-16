@@ -20,7 +20,15 @@ form {
     margin-top: 1.875em;
     margin-bottom: 1em;
   }
+  
+  input[type="text"] {
+    &#password {
+      margin-bottom: 1.1rem;
+    }
+  }  
 }
+
+
 
 .usa-form-note {
   float: right;
