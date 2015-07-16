@@ -4,6 +4,12 @@ form {
   }
 }
 
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
 .usa-form-large {
   @include media($tablet-up) {
     max-width: 46rem;
