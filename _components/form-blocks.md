@@ -67,7 +67,7 @@ title: Forms Blocks
         Forgot username?</a></p>
       <p><a href="javascript:void(0)" title="Forgot password">
         Forgot password?</a></p>
-      </fieldset>
+    </fieldset>
   </form>
 
 </div>
