@@ -25,6 +25,7 @@ input[type="image"] {
   padding: 1rem 2rem;
   text-align: center;
   text-transform: capitalize;
+  width: 100%;
   -webkit-font-smoothing: antialiased;
 
   &:hover,
@@ -40,6 +41,10 @@ input[type="image"] {
   &.usa-button-active {
     background-color: $color-base-link;
   }
+
+  @media (min-width: $mobile-up) {
+    width: auto;
+  }  
 }
 
 input[type="submit"]:disabled,

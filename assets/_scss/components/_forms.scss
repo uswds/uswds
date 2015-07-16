@@ -39,10 +39,88 @@ form {
   }
 }
 
-input.usa-input-small {
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  @include h2;
+}
+
+.usa-form-large {
+  @include media($tablet-up) {
+    max-width: 46rem;
+  }
+}
+
+input.usa-input-tiny {
   @include media($tablet-up) {
     max-width: 6rem;
   }
+}
+
+input.usa-input-medium {
+  @include media($tablet-up) {
+    max-width: 12rem;
+  }
+}
+
+.usa-input-grid {
+  @include media($tablet-up) {
+    padding-right: 5%;
+  }
+}
+
+.usa-input-grid:last-of-type {
+  @include media($tablet-up) {
+    padding-right: 0;
+  }
+}
+
+.usa-input-grid-small {
+  @include media($tablet-up) {
+    float: left;
+    width: 35%;
+  }
+
+  label {
+    margin-top: 1.5rem;
+  }
+
+  input {
+    margin-bottom: 3rem;
+  }
+
+  select {
+    margin-bottom: 3rem;
+  }  
+}
+
+.usa-input-grid-medium {
+  @include media($tablet-up) {
+    float: left;
+    width: 65%;
+  }
+
+  label {
+    margin-top: 1.5rem;
+  }
+
+  input {
+    margin-bottom: 3rem;
+  }
+
+  select {
+    margin-bottom: 3rem;
+  }  
+}
+
+.usa-input-dropdown {
+  background: url("../img/arrow-down.png") no-repeat;
+  background-position: right 1.3rem center;
+  -webkit-appearance:none;
 }
 
 .usa-additional_text {

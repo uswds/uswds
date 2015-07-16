@@ -13,7 +13,8 @@ input[type="datetime-local"],
 input[type="month"],
 input[type="time"],
 input[type="week"],
-textarea  {
+textarea,
+select  {
   border: 1px solid $color-grey-500;
   border-radius: $usa-border-radius;
   box-sizing: border-box;    
