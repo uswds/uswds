@@ -126,6 +126,10 @@ dfn {
   font-weight: $font-bold;
 }
 
+.usa-serif {
+  font-family: $font-serif; 
+}
+
 .usa-display {
   @include h3();
   margin-bottom: 0;
