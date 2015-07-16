@@ -117,8 +117,24 @@ title: Forms Blocks
 <h2>Social Security</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/SSN_UI_v1.png">
+  <form>
+
+    <fieldset>
+      <legend>Hide SSN</legend>
+
+      <label for="ssn">SSN <span class="usa-additional_text">Required</span>
+      </label>
+      <input id="ssn" name="ssn" type="password" class="usa-ssn">
+      <p class="usa-form-note">
+        <a title="Show password" href="javascript:void(0)"
+            class="usa-show_ssn"
+            aria-controls="ssn">
+          Show SSN</a>
+      </p>
+
+    </fieldset>
+
+  </form>
 </div>
 
 <h2>Login</h2>
