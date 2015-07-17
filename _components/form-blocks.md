@@ -81,7 +81,7 @@ title: Forms Blocks
         </div>
       </div>
 
-      <label for="zip">Zip</label>
+      <label for="zip">ZIP</label>
       <input class="usa-input-medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})">
       </fieldset>
 
