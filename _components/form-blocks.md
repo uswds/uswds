@@ -134,7 +134,7 @@ title: Forms Blocks
       <input id="username" name="username" type="text">
 
       <label for="password">Password</label>
-      <input id="password" name="password" type="text">
+      <input id="password" name="password" type="password">
       <p class="usa-form-note">
         <a title="Show password" href="javascript:void(0)"
             class="usa-show_password"
