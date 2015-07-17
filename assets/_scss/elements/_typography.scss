@@ -126,6 +126,10 @@ dfn {
   font-weight: $font-bold;
 }
 
+.usa-serif {
+  font-family: $font-serif; 
+}
+
 .usa-display {
   @include h3();
   margin-bottom: 0;
@@ -148,9 +152,13 @@ dfn {
   left: 0;
   margin-left: 8%;
   position: absolute;
-  top: 0; 
+  top: 0;
 }
 
 .usa-image-text {
   margin-top: 0;
+}
+
+.usa-drop_text {
+  margin-bottom: 0;
 }
