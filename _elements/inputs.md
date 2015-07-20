@@ -73,20 +73,20 @@ title: Inputs
 
     <ul class="usa-unstyled-list">
       <li>
-        <label for="frito-pie" class="radio">
-          <input id="frito-pie" type="radio" checked name="pie" value="frito" tabindex="0">
+        <label for="pea-soup" class="radio">
+          <input id="pea-soup" type="radio" checked name="soup" value="pea" tabindex="0">
           <span tabindex="-1" class="checkbox-focus"></span>Pea Soup
         </label>
       </li>
       <li>
-        <label for="strawberry-pie" class="radio">
-          <input id="strawberry-pie" type="radio" name="pie" value="strawberry" tabindex="0">
+        <label for="chicken-noodle" class="radio">
+          <input id="chicken-noodle" type="radio" name="soup" value="chicken-noodle" tabindex="0">
           <span tabindex="-1" class="checkbox-focus"></span>Chicken Noodle
         </label>
       </li>
       <li>
-        <label for="apple-pie" class="radio">
-          <input id="apple-pie" type="radio" name="pie" value="apple" tabindex="0">
+        <label for="tomato" class="radio">
+          <input id="tomato" type="radio" name="soup" value="tomato" tabindex="0">
           <span tabindex="-1" class="checkbox-focus"></span>Tomato
         </label>
       </li>
