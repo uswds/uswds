@@ -7,16 +7,6 @@ url: https://pages.18f.gov/govt-wide-patternlibrary
 markdown: redcarpet
 highlighter: rouge
 name: Government Wide Pattern Library
-exclude:
-- go
-- Gemfile
-- Gemfile.lock
-- README.md
-- LICENSE.md
-- CONTRIBUTING.md
-- ".sass-cache"
-- ".ruby-version"
-- vendor
 
 permalink: pretty
 
