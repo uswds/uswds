@@ -83,9 +83,11 @@ label.radio {
     border-radius: 100%;
     display: inline-block;
     height: 1.8rem;
-    margin-top: 0;
-    margin-right: 0.5em;
-    margin-bottom: 0;
+    margin: {
+      top: 0;
+      right: 0.5em;
+      bottom: 0;
+    }
     vertical-align: -4px;
     width: 1.8rem;
   }
