@@ -4,8 +4,11 @@ input[type="search"] {
     right: none;    
     top-right-radius: 0;    
   }
-
   float: left;
+  padding: {
+    bottom: .95rem;
+    top: .95rem;
+  }
 }
 
 .usa-search-bar {
@@ -20,4 +23,11 @@ input[type="search"] {
   position: absolute;
   line-height: inherit;
   margin: 1.5rem 0;  
+}
+
+.usa-search-submit-big {
+  padding: {
+    left: 3rem;
+    right: 3rem;
+  }
 }

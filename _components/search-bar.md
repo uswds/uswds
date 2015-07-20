@@ -10,10 +10,10 @@ title: Search Bar
   <form action="#" method="post" class="usa-search usa-search-big">           
     <fieldset>
       <legend class="usa-sr-only">Search</legend>
-      <label for="search-field" class="is-vishidden">Search</label>
+      <label for="search-field" class="is-vishidden">Search Big</label>
       <div class="usa-search-bar">
         <input type="search" placeholder="Search" id="search-field" class="usa-search-field">
-        <button class="usa-search-submit">
+        <button class="usa-search-submit usa-search-submit-big">
           <span class="usa-search-submit-text">Search</span>
         </button>
       </div>
@@ -23,7 +23,7 @@ title: Search Bar
   <form action="#" method="post" class="usa-search usa-search-medium">           
     <fieldset>
       <legend class="usa-sr-only">Search</legend>
-      <label for="search-field" class="is-vishidden">Search</label>
+      <label for="search-field" class="is-vishidden">Search Medium</label>
       <div class="usa-search-bar">
         <input type="search" placeholder="Search" id="search-field" class="usa-search-field">
         <button class="usa-search-submit">
@@ -36,7 +36,7 @@ title: Search Bar
   <form action="#" method="post" class="usa-search usa-search-small">           
     <fieldset>
       <legend class="usa-sr-only">Search</legend>
-      <label for="search-field" class="is-vishidden">Search</label>
+      <label for="search-field" class="is-vishidden">Search Small</label>
       <div class="usa-search-bar">
         <input type="search" placeholder="Search" id="search-field" class="usa-search-field">
         <button class="usa-search-submit">
