@@ -1,0 +1,23 @@
+input[type="search"] {
+  border: {
+    bottom-right-radius: 0;
+    right: none;    
+    top-right-radius: 0;    
+  }
+
+  float: left;
+}
+
+.usa-search-bar {
+  position: relative;
+}
+
+.usa-search-submit {
+  border: {
+    bottom-left-radius: 0;
+    top-left-radius: 0;
+  }
+  position: absolute;
+  line-height: inherit;
+  margin: 1.5rem 0;  
+}

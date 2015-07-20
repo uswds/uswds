@@ -11,10 +11,12 @@ title: Search Bar
     <fieldset>
       <legend class="usa-sr-only">Search</legend>
       <label for="search-field" class="is-vishidden">Search</label>
-      <input type="search" placeholder="Search" id="search-field" class="usa-search-field">
-      <button class="usa-search-submit">
-        <span class="usa-search-submit-text">Search</span>
-      </button>
+      <div class="usa-search-bar">
+        <input type="search" placeholder="Search" id="search-field" class="usa-search-field">
+        <button class="usa-search-submit">
+          <span class="usa-search-submit-text">Search</span>
+        </button>
+      </div>
     </fieldset>
   </form>
 
@@ -22,10 +24,12 @@ title: Search Bar
     <fieldset>
       <legend class="usa-sr-only">Search</legend>
       <label for="search-field" class="is-vishidden">Search</label>
-      <input type="search" placeholder="Search" id="search-field" class="usa-search-field">
-      <button class="usa-search-submit">
-        <span class="usa-search-submit-text">Search</span>
-      </button>
+      <div class="usa-search-bar">
+        <input type="search" placeholder="Search" id="search-field" class="usa-search-field">
+        <button class="usa-search-submit">
+          <span class="usa-search-submit-text">Search</span>
+        </button>
+      </div>
     </fieldset>
   </form>
 
@@ -33,11 +37,13 @@ title: Search Bar
     <fieldset>
       <legend class="usa-sr-only">Search</legend>
       <label for="search-field" class="is-vishidden">Search</label>
-      <input type="search" placeholder="Search" id="search-field" class="usa-search-field">
-      <button class="usa-search-submit">
-        <span class="usa-icon-search" aria-hidden="true"></span>
-        <span class="usa-sr-only">Search</span>
-      </button>
+      <div class="usa-search-bar">
+        <input type="search" placeholder="Search" id="search-field" class="usa-search-field">
+        <button class="usa-search-submit">
+          <span class="usa-icon-search" aria-hidden="true"></span>
+          <span class="usa-sr-only">Search</span>
+        </button>
+      </div>
     </fieldset>
   </form>
   
