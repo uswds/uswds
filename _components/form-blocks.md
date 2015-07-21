@@ -173,6 +173,28 @@ title: Forms Blocks
   <img src="{{ site.baseurl }}/assets/img/static/SSN_UI_v1.png">
 </div>
 
+<div class="usa-grid-box">
+  <div class="usa-width-one-half">
+    <h3>Use</h3>
+    <ul>
+      <li>Don’t ask for a social security number unless it’s absolutely essential. Users are reluctant to divulge personal information unless the reason for why it’s needed is clear.  If it’s not clear why it’s needed, offer an explanation.</li>
+      <li>Allow users to show or hide their entry so they can check for errors.</li>
+    </ul>
+  </div>
+  <div class="usa-width-one-half">
+    <h3>Accessibility</h3>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul>
+      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+    </ul>
+    <p>We also recommend:</p>
+    <ul>
+      <li>Make sure any input masking is accessible to people using screen readers. We use <a href="https://github.com/filamentgroup/politespace">Filament Group's</a> Politespace to ensure a good experience.</li>
+    </ul>
+  </div>  
+</div>
+
 <h2>Login</h2>
 
 <div class="preview">
@@ -202,6 +224,31 @@ title: Forms Blocks
     </fieldset>
   </form>
 
+</div>
+
+<div class="usa-grid-box">
+  <div class="usa-width-one-half">
+    <h3>Use</h3>
+    <ul>
+      <li>Sign in forms are a barrier between users and the content they want, so allow users to access as much as of your online services as possible without having to log in.</li>
+      <li>People have an easier time remembering their email address rather than a unique username, so allow them to use their email address to log in. However, some people don’t have an email address, so don’t let this be the only option.</li>
+      <li>When a Sign in form is required, consider allowing users to stay logged in ("Remember me") on trusted computers so they can avoid this barrier in the future.</li>
+      <li>Make it easy to retrieve a forgotten username and password. Most authentication failures occur because a user has forgotten their username or password. This is especially common when a long time passes between visits, as is the case with most federal websites.</li>
+      <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to log in without offering much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile, when mistakes are more likely.</li>
+    </ul>
+  </div>
+  <div class="usa-width-one-half">
+    <h3>Accessibility</h3>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul>
+      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+    </ul>
+    <p>We also recommend:</p>
+    <ul>
+      <li>Don’t automatically log a user out without giving them 20 seconds advance notice to request more time. Users with disabilities sometimes require more time to respond to prompts.</li>
+    </ul>
+  </div>  
 </div>
 
 <h2>Password Reset</h2>
