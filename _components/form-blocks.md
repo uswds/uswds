@@ -221,10 +221,18 @@ title: Forms Blocks
 <div class="usa-grid-box">
   <div class="usa-width-one-half">
     <h3>Use</h3>
-    <p>This is the usage content for the example.</p>
+    <ul>
+      <li>Avoid adding too many fields to this form – the more you add, the less likely people are to complete the form. This is especially true if you ask for unnecessary personal information, such as phone numbers, that people may not be ready to give out.</li>
+      <li>Wherever possible, include a direct email address and phone number on your form. Some users may prefer to write an email or call.</li>
+    </ul>
   </div>
   <div class="usa-width-one-half">
     <h3>Accessibility</h3>
-    <p>This is the accessibility content for the example.</p>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul>
+      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
   </div>  
 </div>
