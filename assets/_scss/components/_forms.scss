@@ -30,6 +30,7 @@ form {
 
 .usa-form-note {
   float: right;
+  font-family: $font-sans;
   font-size: $small-font-size;
   margin: 0;
   margin-bottom: 1.5rem;
@@ -118,9 +119,9 @@ input.usa-input-medium {
 }
 
 .usa-input-dropdown {
+  appearance: none;  
   background: url("../img/arrow-down.png") no-repeat;
   background-position: right 1.3rem center;
-  -webkit-appearance:none;
 }
 
 .usa-additional_text {

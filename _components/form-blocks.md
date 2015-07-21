@@ -81,7 +81,7 @@ title: Forms Blocks
         </div>
       </div>
 
-      <label for="zip">Zip</label>
+      <label for="zip">ZIP</label>
       <input class="usa-input-medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})">
       </fieldset>
 
@@ -151,7 +151,7 @@ title: Forms Blocks
       <input id="username" name="username" type="text">
 
       <label for="password">Password</label>
-      <input id="password" name="password" type="text">
+      <input id="password" name="password" type="password">
       <p class="usa-form-note">
         <a title="Show password" href="javascript:void(0)"
             class="usa-show_password"
