@@ -211,6 +211,25 @@ title: Forms Blocks
   <img src="{{ site.baseurl }}/assets/img/static/PasswordReset_UI_v1.png">
 </div>
 
+<div class="usa-grid-box">
+  <div class="usa-width-one-half">
+    <h3>Use</h3>
+    <ul>
+      <li>Most authentication failures occur because a user has forgotten their username or password. This is especially common when a long time passes between visits, as is the case with most federal websites.</li>
+      <li>State any password requirements (e.g. "Must include one capital letter") upfront. Don’t leave users guessing only to hit them with an error message later.</li>
+      <li>Indicate which criteria have been fulfilled as the user types.</li>
+    </ul>
+  </div>
+  <div class="usa-width-one-half">
+    <h3>Accessibility</h3>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul>
+      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+    </ul>
+  </div>  
+</div>
+
 <h2>Contact Form</h2>
 
 <div class="preview">
