@@ -7,46 +7,59 @@ title: Search Bar
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <form action="#" method="post" class="usa-search usa-search-big">           
-    <fieldset>
-      <legend class="usa-sr-only">Search</legend>
-      <label for="search-field">Search Big</label>
-      <div class="usa-search-bar">
-        <input class="usa-search-input-big" type="search" id="search-field" class="usa-search-field">
-        <button class="usa-search-submit usa-search-submit-big">
-          <span class="usa-search-submit-text">Search</span>
-        </button>
-      </div>
-    </fieldset>
-  </form>
+  <div class="usa-grid-box">
+    <div class="usa-width-one-half">
+      <form action="#" method="post" class="usa-search usa-search-big">           
+        <fieldset>
+          <legend class="usa-sr-only">Search</legend>
+          <label for="search-field">Search Big</label>
+          <div class="usa-search-bar">
+            <input class="usa-search-input-big" type="search" id="search-field" class="usa-search-field">
+            <button class="usa-search-submit usa-search-submit-big">
+              <span class="usa-search-submit-text">Search</span>
+            </button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
 
-  <form action="#" method="post" class="usa-search usa-search-medium">           
-    <fieldset>
-      <legend class="usa-sr-only">Search</legend>
-      <label for="search-field">Search Medium</label>
-      <div class="usa-search-bar">
-        <input class="usa-search-input-medium" type="search" id="search-field" class="usa-search-field">
-        <button class="usa-search-submit usa-search-submit-medium">
-          <span class="usa-search-submit-text">Search</span>
-        </button>
-      </div>
-    </fieldset>
-  </form>
+  <div class="usa-grid-box">
+    <div class="usa-width-one-third">
+      <form action="#" method="post" class="usa-search usa-search-medium">           
+        <fieldset>
+          <legend class="usa-sr-only">Search</legend>
+          <label for="search-field">Search Medium</label>
+          <div class="usa-search-bar">
+            <input class="usa-search-input-medium" type="search" id="search-field" class="usa-search-field">
+            <button class="usa-search-submit usa-search-submit-medium">
+              <span class="usa-search-submit-text">Search</span>
+            </button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
 
-  <form action="#" method="post" class="usa-search usa-search-small">           
-    <fieldset>
-      <legend class="usa-sr-only">Search</legend>
-      <label for="search-field">Search Small</label>
-      <div class="usa-search-bar">
-        <input class="usa-search-input-small" type="search" id="search-field" class="usa-search-field">
-        <button class="usa-search-submit usa-search-submit-small">
-          <span class="usa-icon-search" aria-hidden="true"></span>
-          <span class="usa-sr-only">Search</span>
-        </button>
-      </div>
-    </fieldset>
-  </form>
-  
+
+  <div class="usa-grid-box">
+    <div class="usa-width-one-fourth">  
+      <form action="#" method="post" class="usa-search usa-search-small">           
+        <fieldset>
+          <legend class="usa-sr-only">Search</legend>
+          <label for="search-field">Search Small</label>
+          <div class="usa-search-bar">
+            <input class="usa-search-input-small" type="search" id="search-field" class="usa-search-field">
+            <button class="usa-search-submit usa-search-submit-small">
+              <span class="usa-icon-search" aria-hidden="true"></span>
+              <span class="usa-sr-only">Search</span>
+            </button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>  
+
   <img src="{{ site.baseurl }}/assets/img/static/Search_Bar_UI_v1.png">
 </div>
 
