@@ -4,8 +4,19 @@ type: component
 title: Inputs
 ---
 
+<h3>Accessibility</h3>
+
+<p>As you customize form controls from this library, be sure they continue to meet the following accessibility requirements:</p>
+
+<ul>
+  <li>All  form control tags  should have an associated label. The label’s value for the <code>for</code> attribute should exactly match the value for the input’s <code>id</code> attribute. For example, the input with <code>id="favorite-pie"</code> will always have a label with <code>for="favorite-pie"</code>. This way screen readers are able to perceive the relevant content.</li>
+  <li>Any additional information – such as required, optional, or example text – should be wrapped within the label tags. For example: <label for="name">Favorite Pie <span>Optional</span></label>. This way screen readers know what additional information is related to each field.</li>
+  <li>Do not replace <code>&lt;input&gt;</code> tag-based form controls with styled <code>&lt;div&gt;</code> tags or JavaScript that "fake" form controls. Form controls not written in semantic HTML are very difficult for screen readers to handle.</li>
+</ul>
+
+<p>If you are a building a form with multiple controls, also consider the <a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines in the “Common Form Templates” section</a>.</p>
+
 <div class="preview">
-  <!-- Add HTML markup for example here -->
 
   <label for="input-type-text">Text Input Label</label>
   <input type="text" name="input-type-text">
