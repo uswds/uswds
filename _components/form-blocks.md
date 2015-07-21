@@ -95,35 +95,54 @@ title: Forms Blocks
 
       <label for="zip">ZIP</label>
       <input class="usa-input-medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})">
-      </fieldset>
+    </fieldset>
 
-    </form>
+  </form>
 
-  </div>
+</div>
 
-  <div class="preview">
+<div class="preview">
 
-    <form>
+  <form>
 
-      <fieldset>
-        <legend>Name</legend>
-        <label for="title">Title</label>
-        <input class="usa-input-tiny" id="title" name="title" type="text">
+    <fieldset>
+      <legend>Name</legend>
+      <label for="title">Title</label>
+      <input class="usa-input-tiny" id="title" name="title" type="text">
 
-        <label for="first-name">First Name <span class="usa-additional_text">Required</span></label>
-        <input id="first-name" name="first-name" type="text">
+      <label for="first-name">First Name <span class="usa-additional_text">Required</span></label>
+      <input id="first-name" name="first-name" type="text">
 
-        <label for="middle-name">Middle Name</label>
-        <input id="middle-name" name="middle-name" type="text">
+      <label for="middle-name">Middle Name</label>
+      <input id="middle-name" name="middle-name" type="text">
 
-        <label for="last-name">Last Name <span class="usa-additional_text">Required</span></label>
-        <input id="last-name" name="last-name" type="text">
+      <label for="last-name">Last Name <span class="usa-additional_text">Required</span></label>
+      <input id="last-name" name="last-name" type="text">
 
-        <label for="suffix">Suffix</label>
-        <input class="usa-input-tiny" id="suffix" name="suffix" type="text">
+      <label for="suffix">Suffix</label>
+      <input class="usa-input-tiny" id="suffix" name="suffix" type="text">
     </fieldset>
   </form>
 
+</div>
+
+<div class="usa-grid-box">
+  <div class="usa-width-one-half">
+    <h3>Use</h3>
+    <ul>
+      <li>Leave the title and suffix fields as text boxes (instead of offering drop downs.) There are many possible titles and suffixes; text boxes accommodate them all.</li>
+      <li>Do not restrict the types of characters users can enter in any of these fields. Names can include characters outside the standard Roman alphabet.</li>
+    </ul>
+  </div>
+  <div class="usa-width-one-half">
+    <h3>Accessibility</h3>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul>
+      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
+  </div>  
 </div>
 
 <h2>Social Security</h2>
