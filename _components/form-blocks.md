@@ -125,7 +125,8 @@ title: Forms Blocks
       <label for="ssn">SSN <span class="usa-additional_text">Required</span>
       </label>
       <input id="ssn" name="ssn" type="password" class="usa-ssn"
-          required pattern="^d{3}-d{2}-d{4}$">
+          data-grouplength="3,2,4" data-delimiter="-" data-politespace
+          required pattern="^d{8}$">
       <p class="usa-form-note">
         <a title="Show password" href="javascript:void(0)"
             class="usa-show_ssn"
