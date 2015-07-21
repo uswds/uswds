@@ -22,7 +22,6 @@ input[type="search"] {
     top-left-radius: 0;
   }
   height: 3.3rem;
-  line-height: inherit;
   margin: 1.5rem 0;
   padding: 0;
   position: absolute;
@@ -57,4 +56,11 @@ input[type="search"].usa-search-input-medium {
 
 input[type="search"].usa-search-input-small {
   width: calc(100% - 4.5rem);
+}
+
+.usa-search-icon {
+  fill: #fff;
+  height: 2.4rem;  
+  width: 2.4rem;
+  vertical-align: middle;
 }
