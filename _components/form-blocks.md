@@ -162,8 +162,31 @@ title: Forms Blocks
 <h2>Contact Form</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Contact-Form_UI_v1.png">
+  
+  <!-- <img src="{{ site.baseurl }}/assets/img/static/Contact-Form_UI_v1.png"> -->
+  
+  <form>
+    
+    <fieldset>
+    
+      <legend>Contact us</legend>
+      <p>Email us <a href="javascript:void(0)">info@agency.gov</a>, give us a call at (800)-CALL-GOVT, or send us a message below.</p>
+      
+      <label for="contact-name">Name <span class="usa-additional_text">Optional</span></label>
+      <input id="contact-name" name="contact-name" type="text">
+      
+      <label for="contact-email">Email Address</label>
+      <input id="contact-email" name="contact-email" type="text">
+    
+      <label for="contact-comments">Comments</label>
+      <textarea id="contact-comments" name="contact-comments" rows="4" cols="50"></textarea>
+      
+      <input type="submit" value="Sign in"><a href="javascript:void(0)">Cancel</a>
+      
+    </fieldset>
+    
+  </form>
+  
 </div>
 
 <div class="usa-grid-box">
