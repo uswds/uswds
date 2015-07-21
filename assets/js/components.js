@@ -86,7 +86,6 @@ $(function() {
         $(this).parent().removeClass('hidden')
         .siblings().addClass('hidden');
       });
-      
     } else {
 
       $('.usa-footer-big nav ul').removeClass('hidden');
