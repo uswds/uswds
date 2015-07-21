@@ -12,7 +12,7 @@ title: Search Bar
       <legend class="usa-sr-only">Search</legend>
       <label for="search-field">Search Big</label>
       <div class="usa-search-bar">
-        <input type="search" placeholder="Search" id="search-field" class="usa-search-field">
+        <input class="usa-search-input-big" type="search" placeholder="Search" id="search-field" class="usa-search-field">
         <button class="usa-search-submit usa-search-submit-big">
           <span class="usa-search-submit-text">Search</span>
         </button>
@@ -25,8 +25,8 @@ title: Search Bar
       <legend class="usa-sr-only">Search</legend>
       <label for="search-field">Search Medium</label>
       <div class="usa-search-bar">
-        <input type="search" placeholder="Search" id="search-field" class="usa-search-field">
-        <button class="usa-search-submit">
+        <input class="usa-search-input-medium" type="search" placeholder="Search" id="search-field" class="usa-search-field">
+        <button class="usa-search-submit usa-search-submit-medium">
           <span class="usa-search-submit-text">Search</span>
         </button>
       </div>
@@ -38,8 +38,8 @@ title: Search Bar
       <legend class="usa-sr-only">Search</legend>
       <label for="search-field">Search Small</label>
       <div class="usa-search-bar">
-        <input type="search" placeholder="Search" id="search-field" class="usa-search-field">
-        <button class="usa-search-submit">
+        <input class="usa-search-input-small" type="search" placeholder="Search" id="search-field" class="usa-search-field">
+        <button class="usa-search-submit usa-search-submit-small">
           <span class="usa-icon-search" aria-hidden="true"></span>
           <span class="usa-sr-only">Search</span>
         </button>

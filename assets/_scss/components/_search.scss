@@ -5,10 +5,10 @@ input[type="search"] {
     top-right-radius: 0;    
   }
   float: left;
-  padding: {
-    bottom: .95rem;
-    top: .95rem;
-  }
+}
+
+.usa-search {
+  max-width: none;
 }
 
 .usa-search-bar {
@@ -20,14 +20,53 @@ input[type="search"] {
     bottom-left-radius: 0;
     top-left-radius: 0;
   }
-  position: absolute;
+  height: 4.4rem;
   line-height: inherit;
   margin: 1.5rem 0;  
+  position: absolute;
+  width: auto;  
 }
 
 .usa-search-submit-big {
   padding: {
     left: 3rem;
     right: 3rem;
+  }
+}
+
+.usa-search-input-big, 
+.usa-search-submit-big {
+  height: 4.4rem;
+}
+
+.usa-search-input-small, 
+.usa-search-input-medium, 
+.usa-search-submit-small, 
+.usa-search-submit-medium {
+  height: 3.3rem;
+}
+
+button.usa-search-submit-medium {
+  padding: {
+    bottom: 0;
+    top: 0;
+  }
+}
+
+input[type="search"].usa-search-input-big {
+  @include media($tablet-up) {
+    width: 50%;
+  }
+}
+
+input[type="search"].usa-search-input-medium {
+  @include media($tablet-up) {
+    width: 33%;
+  }
+}
+
+input[type="search"].usa-search-input-small {
+  @include media($tablet-up) {
+    width: 25%;
   }
 }
