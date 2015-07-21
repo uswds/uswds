@@ -10,7 +10,7 @@ title: Inputs
 
 <ul>
   <li>All  form control tags  should have an associated label. The label’s value for the <code>for</code> attribute should exactly match the value for the input’s <code>id</code> attribute. For example, the input with <code>id="favorite-pie"</code> will always have a label with <code>for="favorite-pie"</code>. This way screen readers are able to perceive the relevant content.</li>
-  <li>Any additional information – such as required, optional, or example text – should be wrapped within the label tags. For example: <label for="name">Favorite Pie <span>Optional</span></label>. This way screen readers know what additional information is related to each field.</li>
+  <li>Any additional information – such as required, optional, or example text – should be wrapped within the label tags. For example: <code>&lt;label for="name"&gt;Favorite Pie &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;</code>. This way screen readers know what additional information is related to each field.</li>
   <li>Do not replace <code>&lt;input&gt;</code> tag-based form controls with styled <code>&lt;div&gt;</code> tags or JavaScript that "fake" form controls. Form controls not written in semantic HTML are very difficult for screen readers to handle.</li>
 </ul>
 
