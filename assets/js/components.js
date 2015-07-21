@@ -278,7 +278,6 @@ function toggleSSN($el) {
     $el.text(showing ? 'Show SSN' : 'Hide SSN');
     showing = !showing;
   });
-
 }
 
 $(function() {
