@@ -4,7 +4,7 @@ type: component
 title: Search Bar
 ---
 
-<div class="preview">
+<div class="preview preview-search-bar">
   <!-- Add HTML markup for example here -->
 
   <div class="usa-grid-box">
