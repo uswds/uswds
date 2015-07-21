@@ -101,6 +101,27 @@ title: Forms Blocks
 
 </div>
 
+<div class="usa-grid-box">
+  <div class="usa-width-one-half">
+    <h3>Use</h3>
+    <p>As you customize this form, ensure it continues to:</p>
+    <ul>
+      <li>Label the optional ones. Users can infer that all the others are required.</li>
+      <li>Let users type their state's abbreviation when they reach the "state" drop down menu.</li>
+      <li>Support both 5 and 9 digit zips. Some addresses require a nine digit ZIP code. The input mask should be "#####-####"" so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit zip code.</li>
+    </ul>
+  </div>
+  <div class="usa-width-one-half">
+    <h3>Accessibility</h3>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul>
+      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
+  </div>  
+</div>
+
 <div class="preview">
 
   <form>
