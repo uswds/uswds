@@ -21,6 +21,7 @@ input[type="search"] {
     bottom-left-radius: 0;
     top-left-radius: 0;
   }
+  font-weight: $font-normal;
   height: 3.3rem;
   line-height: inherit;
   margin: 1.5rem 0;
@@ -32,6 +33,10 @@ input[type="search"] {
 .usa-search-submit-big {
   height: 4.4rem;  
   width: 116px;
+
+  .usa-search-submit-text {
+    font-size: $h3-font-size;
+  }
 }
 
 .usa-search-submit-small {
@@ -44,22 +49,13 @@ input[type="search"].usa-search-input-big,
 }
 
 input[type="search"].usa-search-input-big {
-  @include media($tablet-up) {
-//    width: 50%;
-  }
   width: calc(100% - 116px);
 }
 
 input[type="search"].usa-search-input-medium {
-  @include media($tablet-up) {
-//    width: 33%;
-  }
   width: calc(100% - 85px);
 }
 
 input[type="search"].usa-search-input-small {
-  @include media($tablet-up) {
-//    width: 25%;
-  }
   width: calc(100% - 45px);
 }
