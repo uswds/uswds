@@ -27,12 +27,12 @@ input[type="search"] {
   margin: 1.5rem 0;
   padding: 0;
   position: absolute;
-  width: 85px;  
+  width: 8.5rem;  
 }
 
 .usa-search-submit-big {
   height: 4.4rem;  
-  width: 116px;
+  width: 11.6rem;
 
   .usa-search-submit-text {
     font-size: $h3-font-size;
@@ -40,7 +40,7 @@ input[type="search"] {
 }
 
 .usa-search-submit-small {
-  width: 45px;
+  width: 4.5rem;
 }
 
 input[type="search"].usa-search-input-big, 
@@ -49,13 +49,13 @@ input[type="search"].usa-search-input-big,
 }
 
 input[type="search"].usa-search-input-big {
-  width: calc(100% - 116px);
+  width: calc(100% - 11.6rem);
 }
 
 input[type="search"].usa-search-input-medium {
-  width: calc(100% - 85px);
+  width: calc(100% - 8.5rem);
 }
 
 input[type="search"].usa-search-input-small {
-  width: calc(100% - 45px);
+  width: calc(100% - 4.5rem);
 }
