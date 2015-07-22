@@ -47,6 +47,7 @@ input[type="search"].usa-search-input-big,
 }
 
 input[type="search"].usa-search-input-big {
+  padding-left: 3rem;
   width: calc(100% - 11.6rem);
 }
 
@@ -63,4 +64,16 @@ input[type="search"].usa-search-input-small {
   height: 2.4rem;  
   width: 2.4rem;
   vertical-align: middle;
+}
+
+.usa-search-icon-dark {
+  fill: #000;
+}
+
+.usa-search-input-big {
+  background-image: url(/govt-wide-patternlibrary/assets/img/search19.svg);
+  background-size: 24px;
+  background-position: 5px;
+  opacity: .5;
+  background-repeat: no-repeat;
 }
