@@ -53,7 +53,6 @@ title: Search Bar
             <button class="usa-search-submit usa-search-submit-small">
               <span class="usa-icon-search" aria-hidden="true"></span>
               <span class="usa-sr-only">Search</span>
-
             </button>
           </div>
         </fieldset>
