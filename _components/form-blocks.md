@@ -94,7 +94,7 @@ title: Forms Blocks
       </div>
 
       <label for="zip">ZIP</label>
-      <input class="usa-input-medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})">
+      <input class="usa-input-medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})" data-grouplength="5,4" data-delimiter="-" data-politespace>
     </fieldset>
 
   </form>
