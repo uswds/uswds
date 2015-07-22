@@ -184,7 +184,7 @@ title: Forms Blocks
       </div>
       
       <div class="usa-input-grid-medium usa-input-buttons_inline">
-        <input type="submit" value="Sign in">
+        <input type="submit" value="Submit">
         <a class="usa-button-cancel" href="javascript:void(0)">Cancel</a>
       </div>
       
