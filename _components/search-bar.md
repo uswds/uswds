@@ -14,7 +14,7 @@ title: Search Bar
           <label for="search-field-big">Search Big</label>
           <div class="usa-search-bar">
             <input class="usa-search-input-big" type="search" id="search-field-big" class="usa-search-field">
-            <button class="usa-search-submit usa-search-submit-big">
+            <button class="usa-search-submit usa-search-submit-big" type="submit">
               <span class="usa-search-submit-text">Search</span>
             </button>
           </div>
@@ -31,7 +31,7 @@ title: Search Bar
           <label for="search-field">Search Medium</label>
           <div class="usa-search-bar">
             <input class="usa-search-input-medium" type="search" id="search-field" class="usa-search-field">
-            <button class="usa-search-submit usa-search-submit-medium">
+            <button class="usa-search-submit usa-search-submit-medium" type="submit">
               <span class="usa-search-submit-text">Search</span>
             </button>
           </div>
@@ -48,7 +48,7 @@ title: Search Bar
           <label for="search-field-small">Search Small</label>
           <div class="usa-search-bar">
             <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
-            <button class="usa-search-submit usa-search-submit-small">
+            <button class="usa-search-submit usa-search-submit-small" type="submit">
               <span class="usa-sr-only">Search</span>
             </button>
           </div>

@@ -40,7 +40,7 @@ input[type="search"] {
   position: relative;
 }
 
-.usa-search-submit {
+button[type="submit"].usa-search-submit {
   @include usa-search-submit-small;
   @include usa-search-submit-default;
   border: {
@@ -54,7 +54,7 @@ input[type="search"] {
 
 }
 
-.usa-search-submit-big {
+button[type="submit"].usa-search-submit-big {
   @include media($tablet-up) {
     @include usa-search-submit-default;
   }
@@ -64,7 +64,7 @@ input[type="search"] {
   }
 }
 
-.usa-search-submit-small {
+button[type="submit"].usa-search-submit-small {
   @include usa-search-submit-small;
 }
 
@@ -88,7 +88,7 @@ input[type="search"] {
     width: calc(100% - 11.6rem);    
   }
 
-  .usa-search-submit-big {
+  button[type="submit"].usa-search-submit-big {
     height: 4.4rem;
 
     .usa-search-submit-text {
