@@ -98,8 +98,13 @@ label.checkbox :checked + span {
   border: 1px solid $color-primary;
   box-shadow: 0 0 0 0 $color-white;
   position: relative;
-
+  background-image: url('../img/correct8.png');  
+  background-image: url('../img/correct8.svg');  
+  background-position: 50%;
+  background-repeat: no-repeat; 
+  
   &:after {
+
     color: $color-white;
     font-family: "FontAwesome";
     content: x;
