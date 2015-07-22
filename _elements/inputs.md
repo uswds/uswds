@@ -41,28 +41,27 @@ title: Inputs
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <fieldset class="fieldset-inputs">
+  <fieldset class="usa-fieldset-inputs">
 
     <legend class"usa-sr-only">Best Pies</legend>
-    <h3>Best Pies</h3>
 
     <ul class="usa-unstyled-list">
       <li>
-        <label for="apple-pie" class="checkbox">
+        <label for="apple-pie" class="usa-checkbox">
           <input id="apple-pie" type="checkbox" name="apple-pie" value="apple-pie" tabindex="0">
-          <span tabindex="-1" class="checkbox-focus"></span>Apple Pie
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Apple Pie
         </label>
       </li>
       <li>
-        <label for="key-lime-pie" class="checkbox">
+        <label for="key-lime-pie" class="usa-checkbox">
           <input id="key-lime-pie" type="checkbox" name="key-lime-pie" value="key-lime-pie" tabindex="0">
-          <span tabindex="-1" class="checkbox-focus"></span>Key Line Pie
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Key Line Pie
         </label>
       </li>
       <li>
-        <label for="peach-pie" class="checkbox">
+        <label for="peach-pie" class="usa-checkbox">
           <input id="peach-pie" type="checkbox" name="peach-pie" value="peach-pie" tabindex="0">
-          <span tabindex="-1" class="checkbox-focus"></span>Peach Pie
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Peach Pie
         </label>
       </li>
     </ul>
@@ -77,28 +76,27 @@ title: Inputs
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <fieldset class="fieldset-inputs">
+  <fieldset class="usa-fieldset-inputs">
 
     <legend class"usa-sr-only">Radio buttons</legend>
-    <h3 class="search_category">Radio buttons</h3>
 
     <ul class="usa-unstyled-list">
       <li>
-        <label for="pea-soup" class="radio">
+        <label for="pea-soup" class="usa-radio">
           <input id="pea-soup" type="radio" checked name="soup" value="pea" tabindex="0">
-          <span tabindex="-1" class="checkbox-focus"></span>Pea Soup
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Pea Soup
         </label>
       </li>
       <li>
-        <label for="chicken-noodle" class="radio">
+        <label for="chicken-noodle" class="usa-radio">
           <input id="chicken-noodle" type="radio" name="soup" value="chicken-noodle" tabindex="0">
-          <span tabindex="-1" class="checkbox-focus"></span>Chicken Noodle
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Chicken Noodle
         </label>
       </li>
       <li>
-        <label for="tomato" class="radio">
+        <label for="tomato" class="usa-radio">
           <input id="tomato" type="radio" name="soup" value="tomato" tabindex="0">
-          <span tabindex="-1" class="checkbox-focus"></span>Tomato
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Tomato
         </label>
       </li>
     </ul>
