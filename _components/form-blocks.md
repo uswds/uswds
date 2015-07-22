@@ -183,7 +183,7 @@ title: Forms Blocks
         <textarea id="contact-comments" name="contact-comments" rows="4" cols="50"></textarea>
       </div>
       
-      <div class="usa-input-grid-medium usa-input-buttons_inline">
+      <div class="usa-input-grid-medium usa-input-buttons-inline">
         <input type="submit" value="Submit">
         <a class="usa-button-cancel" href="javascript:void(0)">Cancel</a>
       </div>
