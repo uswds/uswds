@@ -51,7 +51,6 @@ title: Search Bar
           <div class="usa-search-bar">
             <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
             <button class="usa-search-submit usa-search-submit-small">
-              <span class="usa-icon-search" aria-hidden="true"></span>
               <span class="usa-sr-only">Search</span>
             </button>
           </div>
