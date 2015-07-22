@@ -8,7 +8,7 @@ title: Search Bar
 
   <div class="usa-grid-box">
     <div class="usa-width-one-half">
-      <form action="#" method="post" class="usa-search usa-search-big">           
+      <form class="usa-search usa-search-big">           
         <fieldset>
           <legend class="usa-sr-only">Search</legend>
           <label for="search-field-big">Search Big</label>
@@ -25,7 +25,7 @@ title: Search Bar
 
   <div class="usa-grid-box">
     <div class="usa-width-one-third">
-      <form action="#" method="post" class="usa-search usa-search-medium">           
+      <form class="usa-search usa-search-medium">           
         <fieldset>
           <legend class="usa-sr-only">Search</legend>
           <label for="search-field">Search Medium</label>
@@ -42,7 +42,7 @@ title: Search Bar
 
   <div class="usa-grid-box">
     <div class="usa-width-one-fourth">  
-      <form action="#" method="post" class="usa-search usa-search-small">           
+      <form class="usa-search usa-search-small">           
         <fieldset>
           <legend class="usa-sr-only">Search</legend>
           <label for="search-field-small">Search Small</label>
