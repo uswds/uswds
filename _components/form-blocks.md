@@ -190,7 +190,7 @@ title: Forms Blocks
     </ul>
     <p>We also recommend:</p>
     <ul>
-      <li>Make sure any input masking is accessible to people using screen readers. We use <a href="https://github.com/filamentgroup/politespace">Filament Group's</a> Politespace to ensure a good experience.</li>
+      <li>Make sure any input masking is accessible to people using screen readers. We use <a href="https://github.com/filamentgroup/politespace">Filament Group's Politespace</a> to ensure a good experience.</li>
     </ul>
   </div>  
 </div>
