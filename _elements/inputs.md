@@ -43,7 +43,7 @@ title: Inputs
 
   <fieldset class="usa-fieldset-inputs">
 
-    <legend class"usa-sr-only">Best Pies</legend>
+    <legend class="usa-sr-only">Best Pies</legend>
 
     <ul class="usa-unstyled-list">
       <li>
@@ -78,7 +78,7 @@ title: Inputs
 
   <fieldset class="usa-fieldset-inputs">
 
-    <legend class"usa-sr-only">Radio buttons</legend>
+    <legend class="usa-sr-only">Radio buttons</legend>
 
     <ul class="usa-unstyled-list">
       <li>
