@@ -41,7 +41,7 @@ title: Inputs
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <fieldset class="usa-fieldset-inputs">
+  <fieldset class="usa-fieldset-inputs usa-sans">
 
     <legend class="usa-sr-only">Best Pies</legend>
 
@@ -76,7 +76,7 @@ title: Inputs
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <fieldset class="usa-fieldset-inputs">
+  <fieldset class="usa-fieldset-inputs usa-sans">
 
     <legend class="usa-sr-only">Radio buttons</legend>
 
