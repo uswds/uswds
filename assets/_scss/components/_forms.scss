@@ -148,3 +148,14 @@ input.usa-input-medium {
   font-style: italic;
   font-weight: normal;
 }
+
+.usa-input-buttons_inline {
+  button[type="submit"],
+  input[type="submit"] {
+    display: inline;
+  }
+  
+  .usa-button-cancel {
+    margin-left: 1em;
+  }
+}
