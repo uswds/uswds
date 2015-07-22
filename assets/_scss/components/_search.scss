@@ -36,7 +36,7 @@ input[type="search"] {
   max-width: none;
 }
 
-.usa-search-bar {
+.usa-search_bar {
   position: relative;
 }
 
@@ -72,7 +72,7 @@ button[type="submit"].usa-search-submit-small {
   input[type="search"] {
     width: calc(100% - 8.5rem);
   }
-  
+
   input[type="search"].usa-search-input-small {
     width: calc(100% - 4.5rem);
   }   

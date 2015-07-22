@@ -12,7 +12,7 @@ title: Search Bar
         <fieldset>
           <legend class="usa-sr-only">Search</legend>
           <label for="search-field-big">Search Big</label>
-          <div class="usa-search-bar">
+          <div class="usa-search_bar">
             <input class="usa-search-input-big" type="search" id="search-field-big" class="usa-search-field">
             <button class="usa-search-submit usa-search-submit-big" type="submit">
               <span class="usa-search-submit-text">Search</span>
@@ -29,7 +29,7 @@ title: Search Bar
         <fieldset>
           <legend class="usa-sr-only">Search</legend>
           <label for="search-field">Search Medium</label>
-          <div class="usa-search-bar">
+          <div class="usa-search_bar">
             <input class="usa-search-input-medium" type="search" id="search-field" class="usa-search-field">
             <button class="usa-search-submit usa-search-submit-medium" type="submit">
               <span class="usa-search-submit-text">Search</span>
@@ -46,7 +46,7 @@ title: Search Bar
         <fieldset>
           <legend class="usa-sr-only">Search</legend>
           <label for="search-field-small">Search Small</label>
-          <div class="usa-search-bar">
+          <div class="usa-search_bar">
             <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
             <button class="usa-search-submit usa-search-submit-small" type="submit">
               <span class="usa-sr-only">Search</span>
