@@ -40,7 +40,6 @@ title: Search Bar
     </div>
   </div>
 
-
   <div class="usa-grid-box">
     <div class="usa-width-one-fourth">  
       <form action="#" method="post" class="usa-search usa-search-small">           
@@ -56,8 +55,8 @@ title: Search Bar
         </fieldset>
       </form>
     </div>
-  </div>  
-
+  </div>
+  
 </div>
 
 <div class="usa-grid-box">
