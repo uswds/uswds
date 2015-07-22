@@ -39,7 +39,6 @@ title: Inputs
 <h2>Checkboxes</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
 
   <fieldset class="usa-fieldset-inputs usa-sans">
 
@@ -68,13 +67,11 @@ title: Inputs
 
   </fieldset>
 
-  <img src="{{ site.baseurl }}/assets/img/static/Checkboxes_UI_v1.png">
 </div>
 
 <h2>Radio Buttons</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
 
   <fieldset class="usa-fieldset-inputs usa-sans">
 
@@ -103,7 +100,6 @@ title: Inputs
 
   </fieldset>
 
-  <img src="{{ site.baseurl }}/assets/img/static/Radio_Buttons_UI_v1.png">
 </div>
 
 <h2>Range Slider</h2>
