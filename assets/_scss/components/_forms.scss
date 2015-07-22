@@ -118,6 +118,25 @@ input.usa-input-medium {
   }  
 }
 
+.usa-input-grid-large {
+  @include media($tablet-up) {
+    float: left;
+    width: 100%;
+  }
+
+  label {
+    margin-top: 1.5rem;
+  }
+
+  input {
+    margin-bottom: 3rem;
+  }
+
+  select {
+    margin-bottom: 3rem;
+  }  
+}
+
 .usa-input-dropdown {
   appearance: none;  
   background: url("../img/arrow-down.png") no-repeat;
