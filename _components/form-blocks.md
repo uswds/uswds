@@ -178,7 +178,7 @@ title: Forms Blocks
         <input id="contact-email" name="contact-email" type="text">
       </div>
       
-      <div class="">
+      <div>
         <label for="contact-comments">Comments</label>
         <textarea id="contact-comments" name="contact-comments" rows="4" cols="50"></textarea>
       </div>
