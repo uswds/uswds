@@ -170,7 +170,7 @@ title: Forms Blocks
       <legend>Contact us</legend>
       <p>Email us <a href="javascript:void(0)">info@agency.gov</a>, give us a call at (800)-CALL-GOVT, or send us a message below.</p>
       
-      <div class="usa-input-grid-medium">
+      <div class="usa-form-width">
         <label for="contact-name">Name <span class="usa-additional_text">Optional</span></label>
         <input id="contact-name" name="contact-name" type="text">
         
@@ -178,12 +178,12 @@ title: Forms Blocks
         <input id="contact-email" name="contact-email" type="text">
       </div>
       
-      <div class="usa-input-grid-large">
+      <div class="">
         <label for="contact-comments">Comments</label>
         <textarea id="contact-comments" name="contact-comments" rows="4" cols="50"></textarea>
       </div>
       
-      <div class="usa-input-grid-medium usa-input-buttons-inline">
+      <div class="usa-input-buttons-inline">
         <input type="submit" value="Submit">
         <a class="usa-button-cancel" href="javascript:void(0)">Cancel</a>
       </div>

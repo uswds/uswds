@@ -1,6 +1,8 @@
+$usa-form-width: 32rem;
+
 form {
   @include media($tablet-up) {
-    max-width: 32rem;
+    max-width: $usa-form-width;
   }
 
   a {
@@ -25,8 +27,6 @@ form {
     margin-bottom: 1.1rem;
   }  
 }
-
-
 
 .usa-form-note {
   float: right;
@@ -135,6 +135,10 @@ input.usa-input-medium {
   select {
     margin-bottom: 3rem;
   }  
+}
+
+.usa-form-width {
+  max-width: $usa-form-width;
 }
 
 .usa-input-dropdown {
