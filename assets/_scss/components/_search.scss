@@ -1,3 +1,11 @@
+@mixin usa-search-submit-small {
+  background-image: url('../img/search.png');  
+  background-image: url('../img/search.svg');  
+  background-position: 50%;
+  background-repeat: no-repeat;
+  width: 4.5rem;
+}
+
 input[type="search"] {
   border: {
     bottom-right-radius: 0;
@@ -6,6 +14,7 @@ input[type="search"] {
   }
   float: left;
   height: 3.3rem;
+  width: calc(100% - 4.5rem);
 }
 
 .usa-search {
@@ -17,6 +26,7 @@ input[type="search"] {
 }
 
 .usa-search-submit {
+  @include usa-search-submit-small;
   border: {
     bottom-left-radius: 0;
     top-left-radius: 0;
@@ -25,55 +35,51 @@ input[type="search"] {
   margin: 1.5rem 0;
   padding: 0;
   position: absolute;
-  width: 8.5rem;  
-}
-
-.usa-search-submit-big {
-  height: 4.4rem;  
-  width: 11.6rem;
+  
+  @include media($tablet-up) {
+    background-image: none;
+    width: 8.5rem;
+  }
 
   .usa-search-submit-text {
-    font-size: $h3-font-size;
+    display: none;
+
+    @include media($tablet-up) {
+      display: block;
+    }
   }
 }
 
-.usa-search-submit-small {
-  background-image: url('../img/search.png');  
-  background-image: url('../img/search.svg');  
-  background-position: 50%;
-  background-repeat: no-repeat;
-  width: 4.5rem;
-}
-
-input[type="search"].usa-search-input-big, 
 .usa-search-submit-big {
-  height: 4.4rem;
+  .usa-search-submit-text {
+    font-size: $h3-font-size;
+  }
+
+  @include media($tablet-up) {
+    width: 11.6rem;
+  }  
 }
 
-input[type="search"].usa-search-input-big {
-  padding-left: 3.5rem;
-  width: calc(100% - 11.6rem);
+.usa-search-submit-small {
+  @include usa-search-submit-small;
 }
 
-input[type="search"].usa-search-input-medium {
-  width: calc(100% - 8.5rem);
-}
+@include media($tablet-up) {
+  input[type="search"].usa-search-input-big {
+    background-image: url('../img/search-dark.png');  
+    background-image: url('../img/search-dark.svg');  
+    background-position: 1rem;
+    background-repeat: no-repeat;      
+    padding-left: 3.5rem;
+    width: calc(100% - 11.6rem);
+  }
 
-input[type="search"].usa-search-input-small {
-  width: calc(100% - 4.5rem);
-}
+  input[type="search"].usa-search-input-big, 
+  .usa-search-submit-big {
+    height: 4.4rem;
+  }
 
-.usa-search-icon {
-  fill: #fff;
-  height: 2.4rem;  
-  width: 2.4rem;
-  vertical-align: middle;
+  input[type="search"].usa-search-input-medium {
+    width: calc(100% - 8.5rem);
+  }
 }
-
-.usa-search-input-big {
-  background-image: url('../img/search-dark.png');  
-  background-image: url('../img/search-dark.svg');  
-  background-position: 1rem;
-  background-repeat: no-repeat;  
-}
-
