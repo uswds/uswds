@@ -57,6 +57,9 @@ button[type="submit"].usa-search-submit {
 button[type="submit"].usa-search-submit-big {
   @include media($tablet-up) {
     @include usa-search-submit-default;
+  }
+
+  @include media($tablet-up) {
     width: 11.6rem;
   }
 }
