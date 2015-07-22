@@ -1,15 +1,19 @@
+$usa-btn-small-width:   4.5rem;
+$usa-btn-medium-width:  8.5rem;
+$usa-btn-big-width:     11.6rem;
+
 @mixin usa-search-submit-small {
   background-image: url('../img/search.png');  
   background-image: url('../img/search.svg');  
   background-position: 50%;
   background-repeat: no-repeat;
-  width: 4.5rem;
+  width: $usa-btn-small-width;
 }
 
 @mixin usa-search-submit-default {
   @include media($mobile-up) {
     background-image: none;
-    width: 8.5rem;
+    width: $usa-btn-medium-width;
   }
 
   .usa-search-submit-text {
@@ -29,7 +33,7 @@ input[type="search"] {
   }
   float: left;
   height: 3.3rem;
-  width: calc(100% - 4.5rem);
+  width: calc(100% - $usa-btn-small-width);
 }
 
 .usa-search {
@@ -60,7 +64,7 @@ button[type="submit"].usa-search-submit-big {
   }
 
   @include media($tablet-up) {
-    width: 11.6rem;
+    width: $usa-btn-big-width;
   }
 }
 
@@ -70,18 +74,18 @@ button[type="submit"].usa-search-submit-small {
 
 @include media($mobile-up) {
   input[type="search"] {
-    width: calc(100% - 8.5rem);
+    width: calc(100% - $usa-btn-medium-width);
   }
 
   input[type="search"].usa-search-input-small {
-    width: calc(100% - 4.5rem);
+    width: calc(100% - $usa-btn-small-width);
   }   
 }
 
 @include media($tablet-up) {
   input[type="search"].usa-search-input-big {
     height: 4.4rem;    
-    width: calc(100% - 11.6rem);    
+    width: calc(100% - $usa-btn-big-width);    
   }
 
   button[type="submit"].usa-search-submit-big {
@@ -93,6 +97,6 @@ button[type="submit"].usa-search-submit-small {
   }
 
   input[type="search"] {
-    width: calc(100% - 8.5rem);
+    width: calc(100% - $usa-btn-medium-width);
   }
 }
