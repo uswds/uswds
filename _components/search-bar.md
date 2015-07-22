@@ -5,7 +5,6 @@ title: Search Bar
 ---
 
 <div class="preview preview-search-bar">
-  <!-- Add HTML markup for example here -->
 
   <div class="usa-grid-box">
     <div class="usa-width-one-half">
