@@ -80,12 +80,7 @@ button[type="submit"].usa-search-submit-small {
 
 @include media($tablet-up) {
   input[type="search"].usa-search-input-big {
-    background-image: url('../img/search-dark.png');  
-    background-image: url('../img/search-dark.svg');  
-    background-position: 1rem;
-    background-repeat: no-repeat;
     height: 4.4rem;    
-    padding-left: 3.5rem;
     width: calc(100% - 11.6rem);    
   }
 
