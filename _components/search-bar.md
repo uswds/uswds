@@ -59,7 +59,6 @@ title: Search Bar
     </div>
   </div>  
 
-  <img src="{{ site.baseurl }}/assets/img/static/Search_Bar_UI_v1.png">
 </div>
 
 <div class="usa-grid-box">
