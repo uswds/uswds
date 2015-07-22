@@ -59,7 +59,7 @@ button[type="submit"].usa-search-submit {
 }
 
 button[type="submit"].usa-search-submit-big {
-  @include media($tablet-up) {
+  @include media($mobile-up) {
     @include usa-search-submit-default;
   }
 
