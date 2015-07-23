@@ -19,20 +19,20 @@ title: Inputs
 <div class="preview">
 
   <label for="input-type-text">Text Input Label</label>
-  <input type="text" name="input-type-text">
+  <input id="input-type-text" name="input-type-text" type="text">
 
   <label for="input-focus">Text Input Focused</label>
-  <input class="usa-input-focus" type="text" name="input-focus">
+  <input class="usa-input-focus" id="input-focus" name="input-focus" type="text">
 
   <label for="input-error">Text Input Error</label>
-  <input class="usa-input-error" type="text" name="input-error">
+  <input class="usa-input-error" id="input-error" name="input-error" type="text">
 
   <label for="input-success">Text Input Success</label>
-  <input class="usa-input-success" type="text" name="input-success">
+  <input class="usa-input-success" id="input-success" name="input-success" type="text">
 
   <h2>Text Area</h2>
   <label for="input-type-textarea">Text Area Label</label>
-  <textarea name="input-type-textarea"></textarea>
+  <textarea id="input-type-textarea" name="input-type-textarea"></textarea>
 
 </div>
 
