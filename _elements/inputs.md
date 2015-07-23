@@ -39,18 +39,70 @@ title: Inputs
 <h2>Checkboxes</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Checkboxes_UI_v1.png">
+
+  <fieldset class="usa-fieldset-inputs usa-sans">
+
+    <legend class="usa-sr-only">Best pies</legend>
+
+    <ul class="usa-unstyled-list">
+      <li>
+        <label for="apple-pie" class="usa-checkbox">
+          <input id="apple-pie" type="checkbox" name="apple-pie" value="apple-pie" tabindex="0">
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Apple pie
+        </label>
+      </li>
+      <li>
+        <label for="key-lime-pie" class="usa-checkbox">
+          <input id="key-lime-pie" type="checkbox" name="key-lime-pie" value="key-lime-pie" tabindex="0">
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Key lime pie
+        </label>
+      </li>
+      <li>
+        <label for="peach-pie" class="usa-checkbox">
+          <input id="peach-pie" type="checkbox" name="peach-pie" value="peach-pie" tabindex="0">
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Peach pie
+        </label>
+      </li>
+    </ul>
+
+  </fieldset> 
+
 </div>
 
-<h2>Radio Buttons</h2>
+<h2>Radio buttons</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Radio_Buttons_UI_v1.png">
+
+  <fieldset class="usa-fieldset-inputs usa-sans">
+
+    <legend class="usa-sr-only">Radio buttons</legend>
+
+    <ul class="usa-unstyled-list">
+      <li>
+        <label for="pea-soup" class="usa-radio">
+          <input id="pea-soup" type="radio" checked name="soup" value="pea" tabindex="0">
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Pea soup
+        </label>
+      </li>
+      <li>
+        <label for="chicken-noodle" class="usa-radio">
+          <input id="chicken-noodle" type="radio" name="soup" value="chicken-noodle" tabindex="0">
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Chicken noodle
+        </label>
+      </li>
+      <li>
+        <label for="tomato" class="usa-radio">
+          <input id="tomato" type="radio" name="soup" value="tomato" tabindex="0">
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Tomato
+        </label>
+      </li>
+    </ul>
+
+  </fieldset>
+
 </div>
 
-<h2>Range Slider</h2>
+<h2>Range slider</h2>
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
@@ -64,7 +116,7 @@ title: Inputs
   <img src="{{ site.baseurl }}/assets/img/static/Dropdown_UI_v1.png">
 </div>
 
-<h2>Date Picker</h2>
+<h2>Date picker</h2>
 
 <div class="preview">
   <!-- Add HTML markup for example here -->

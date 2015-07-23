@@ -58,3 +58,87 @@ label {
 textarea {
   height: 16rem;
 }
+
+.usa-checkbox,
+.usa-radio {
+  display: inline-block;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+
+  input[type="checkbox"] + span {
+    box-shadow: 0 0 0 1px $color-grey-600;
+    border-radius: $usa-border-radius;
+    display: inline-block;
+    height: 1.8rem;
+    margin-top: 0;
+    margin-right: 0.5em;
+    margin-bottom: 0;
+    vertical-align: -4px;
+    padding-top: 4px; //compensate for FA vertical-align
+    width: 1.8rem;
+  }
+
+  input[type="radio"] + span {
+    box-shadow: 0 0 0 1px $color-grey-600;
+    border-radius: 100%;
+    display: inline-block;
+    height: 1.8rem;
+    margin: {
+      top: 0;
+      right: 0.5em;
+      bottom: 0;
+    }
+    vertical-align: -4px;
+    width: 1.8rem;
+  }
+}
+
+.usa-checkbox :checked + .usa-checkbox-focus {
+  background-color: $color-primary;
+  border: 1px solid $color-primary;
+  box-shadow: 0 0 0 0 $color-white;
+  position: relative;
+  background-image: url('../img/correct8.png');  
+  background-image: url('../img/correct8.svg');  
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.usa-radio :checked + .usa-checkbox-focus {
+  background-color: $color-primary;
+  border: 2px solid $color-white !important;
+  box-shadow: 0 0 0 2px $color-primary;
+  vertical-align: -4px;
+  position: relative;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  @include appearance(none);
+  display: inline-block;
+  height: 1.8rem;
+  width: 1.8rem;
+  vertical-align: -4px;
+
+  // to hide checkbox/radio from visual but 
+  // still read to screenreaders
+  position: absolute !important;
+  height: 1px; width: 1px; 
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+
+  &:focus {
+    + .usa-checkbox-focus {
+      border: 1px solid $color-white;
+      box-shadow: 0 0 0 2px $color-primary;
+      outline: none;
+    }
+  }
+}
+
+.usa-fieldset-inputs {
+  label {
+    margin-top: 0;
+  }
+}
