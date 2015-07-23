@@ -69,7 +69,7 @@ title: Inputs
 
 </div>
 
-<h2>Radio Buttons</h2>
+<h2>Radio buttons</h2>
 
 <div class="preview">
 
