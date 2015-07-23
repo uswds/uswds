@@ -18,20 +18,20 @@ title: Inputs
 
 <div class="preview">
 
-  <label for="input-type-text">Text Input Label</label>
+  <label for="input-type-text">Text input label</label>
   <input type="text" name="input-type-text">
 
-  <label for="input-focus">Text Input Focused</label>
+  <label for="input-focus">Text input focused</label>
   <input class="usa-input-focus" type="text" name="input-focus">
 
-  <label for="input-error">Text Input Error</label>
+  <label for="input-error">Text input error</label>
   <input class="usa-input-error" type="text" name="input-error">
 
-  <label for="input-success">Text Input Success</label>
+  <label for="input-success">Text input success</label>
   <input class="usa-input-success" type="text" name="input-success">
 
   <h2>Text Area</h2>
-  <label for="input-type-textarea">Text Area Label</label>
+  <label for="input-type-textarea">Text area label</label>
   <textarea name="input-type-textarea"></textarea>
 
 </div>
@@ -42,25 +42,25 @@ title: Inputs
 
   <fieldset class="usa-fieldset-inputs usa-sans">
 
-    <legend class="usa-sr-only">Best Pies</legend>
+    <legend class="usa-sr-only">Best pies</legend>
 
     <ul class="usa-unstyled-list">
       <li>
         <label for="apple-pie" class="usa-checkbox">
           <input id="apple-pie" type="checkbox" name="apple-pie" value="apple-pie" tabindex="0">
-          <span tabindex="-1" class="usa-checkbox-focus"></span>Apple Pie
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Apple pie
         </label>
       </li>
       <li>
         <label for="key-lime-pie" class="usa-checkbox">
           <input id="key-lime-pie" type="checkbox" name="key-lime-pie" value="key-lime-pie" tabindex="0">
-          <span tabindex="-1" class="usa-checkbox-focus"></span>Key Line Pie
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Key lime pie
         </label>
       </li>
       <li>
         <label for="peach-pie" class="usa-checkbox">
           <input id="peach-pie" type="checkbox" name="peach-pie" value="peach-pie" tabindex="0">
-          <span tabindex="-1" class="usa-checkbox-focus"></span>Peach Pie
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Peach pie
         </label>
       </li>
     </ul>
@@ -81,13 +81,13 @@ title: Inputs
       <li>
         <label for="pea-soup" class="usa-radio">
           <input id="pea-soup" type="radio" checked name="soup" value="pea" tabindex="0">
-          <span tabindex="-1" class="usa-checkbox-focus"></span>Pea Soup
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Pea soup
         </label>
       </li>
       <li>
         <label for="chicken-noodle" class="usa-radio">
           <input id="chicken-noodle" type="radio" name="soup" value="chicken-noodle" tabindex="0">
-          <span tabindex="-1" class="usa-checkbox-focus"></span>Chicken Noodle
+          <span tabindex="-1" class="usa-checkbox-focus"></span>Chicken noodle
         </label>
       </li>
       <li>
@@ -102,7 +102,7 @@ title: Inputs
 
 </div>
 
-<h2>Range Slider</h2>
+<h2>Range slider</h2>
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
@@ -116,7 +116,7 @@ title: Inputs
   <img src="{{ site.baseurl }}/assets/img/static/Dropdown_UI_v1.png">
 </div>
 
-<h2>Date Picker</h2>
+<h2>Date picker</h2>
 
 <div class="preview">
   <!-- Add HTML markup for example here -->

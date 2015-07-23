@@ -104,7 +104,6 @@ label.usa-checkbox :checked + span {
   background-repeat: no-repeat; 
   
   &:after {
-
     color: $color-white;
     font-family: "FontAwesome";
     content: x;
@@ -114,7 +113,7 @@ label.usa-checkbox :checked + span {
   }
 }
 
-label.usa-radio :checked + span {
+label.usa-radio :checked + .usa-checkbox-focus {
   background-color: $color-primary;
   border: 2px solid $color-white !important;
   box-shadow: 0 0 0 2px $color-primary;
