@@ -65,7 +65,7 @@ title: Inputs
       </li>
     </ul>
 
-  </fieldset>
+  </fieldset> 
 
 </div>
 
