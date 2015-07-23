@@ -1,0 +1,102 @@
+$usa-btn-small-width:   4.5rem;
+$usa-btn-medium-width:  8.5rem;
+$usa-btn-big-width:     11.6rem;
+
+@mixin usa-search-submit-small {
+  background-image: url('../img/search.png');  
+  background-image: url('../img/search.svg');  
+  background-position: 50%;
+  background-repeat: no-repeat;
+  width: $usa-btn-small-width;
+}
+
+@mixin usa-search-submit-default {
+  @include media($mobile-up) {
+    background-image: none;
+    width: $usa-btn-medium-width;
+  }
+
+  .usa-search-submit-text {
+    display: none;
+
+    @include media($mobile-up) {
+      display: block;
+    }
+  }
+}
+
+input[type="search"] {
+  border: {
+    bottom-right-radius: 0;
+    right: none;    
+    top-right-radius: 0;    
+  }
+  float: left;
+  height: 3.3rem;
+  width: calc(100% - #{$usa-btn-small-width});
+}
+
+.usa-search {
+  max-width: none;
+}
+
+.usa-search-bar {
+  position: relative;
+}
+
+button[type="submit"].usa-search-submit {
+  @include usa-search-submit-small;
+  @include usa-search-submit-default;
+  border: {
+    bottom-left-radius: 0;
+    top-left-radius: 0;
+  }
+  height: 3.3rem;
+  margin: 1.5rem 0;
+  padding: 0;
+  position: absolute;
+
+}
+
+button[type="submit"].usa-search-submit-big {
+  @include media($mobile-up) {
+    @include usa-search-submit-default;
+  }
+
+  @include media($tablet-up) {
+    width: $usa-btn-big-width;
+  }
+}
+
+button[type="submit"].usa-search-submit-small {
+  @include usa-search-submit-small;
+}
+
+@include media($mobile-up) {
+  input[type="search"] {
+    width: calc(100% - #{$usa-btn-medium-width});
+  }
+
+  input[type="search"].usa-search-input-small {
+    width: calc(100% - #{$usa-btn-small-width});
+  }   
+}
+
+@include media($tablet-up) {
+  input[type="search"].usa-search-input-big {
+    height: 4.4rem;    
+    width: calc(100% - #{$usa-btn-big-width});    
+  }
+
+  button[type="submit"].usa-search-submit-big {
+    height: 4.4rem;
+
+    .usa-search-submit-text {
+      font-size: $h3-font-size;
+    }
+  }
+
+  input[type="search"] {
+    width: calc(100% - #{$usa-btn-medium-width});
+  }
+}

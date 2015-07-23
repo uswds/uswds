@@ -94,7 +94,7 @@ title: Forms Blocks
       </div>
 
       <label for="zip">ZIP</label>
-      <input class="usa-input-medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})">
+      <input class="usa-input-medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})" data-grouplength="5,4" data-delimiter="-" data-politespace>
     </fieldset>
 
   </form>
@@ -169,8 +169,26 @@ title: Forms Blocks
 <h2>Social Security</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/SSN_UI_v1.png">
+  <form>
+
+    <fieldset>
+      <legend>Hide SSN</legend>
+
+      <label for="ssn">SSN <span class="usa-additional_text">Required</span>
+      </label>
+      <input id="ssn" name="ssn" type="password" class="usa-ssn"
+          data-grouplength="3,2,4" data-delimiter="-" data-politespace
+          required pattern="^d{8}$">
+      <p class="usa-form-note">
+        <a title="Show password" href="javascript:void(0)"
+            class="usa-show_ssn"
+            aria-controls="ssn">
+          Show SSN</a>
+      </p>
+
+    </fieldset>
+
+  </form>
 </div>
 
 <div class="usa-grid-box">
