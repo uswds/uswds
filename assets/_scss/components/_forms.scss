@@ -1,6 +1,8 @@
+$usa-form-width: 32rem;
+
 form {
   @include media($tablet-up) {
-    max-width: 32rem;
+    max-width: $usa-form-width;
   }
 
   a {
@@ -25,8 +27,6 @@ form {
     margin-bottom: 1.1rem;
   }  
 }
-
-
 
 .usa-form-note {
   float: right;
@@ -118,6 +118,29 @@ input.usa-input-medium {
   }  
 }
 
+.usa-input-grid-large {
+  @include media($tablet-up) {
+    float: left;
+    width: 100%;
+  }
+
+  label {
+    margin-top: 1.5rem;
+  }
+
+  input {
+    margin-bottom: 3rem;
+  }
+
+  select {
+    margin-bottom: 3rem;
+  }  
+}
+
+.usa-form-width {
+  max-width: $usa-form-width;
+}
+
 .usa-input-dropdown {
   appearance: none;  
   background: url("../img/arrow-down.png") no-repeat;
@@ -128,4 +151,14 @@ input.usa-input-medium {
   float: right;
   font-style: italic;
   font-weight: normal;
+}
+
+.usa-input-buttons-inline {
+  button,
+  button[type="submit"],
+  input[type="submit"],
+  & > * {
+    display: inline;
+    margin-right: 1.5em;
+  }
 }
