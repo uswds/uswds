@@ -185,7 +185,7 @@ title: Forms Blocks
       
       <div class="usa-input-buttons-inline">
         <input type="submit" value="Submit">
-        <a class="usa-button-cancel" href="javascript:void(0)">Cancel</a>
+        <a href="javascript:void(0)">Cancel</a>
       </div>
       
     </fieldset>

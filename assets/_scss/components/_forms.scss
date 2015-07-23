@@ -154,12 +154,11 @@ input.usa-input-medium {
 }
 
 .usa-input-buttons-inline {
+  button,
   button[type="submit"],
-  input[type="submit"] {
+  input[type="submit"],
+  & > * {
     display: inline;
-  }
-  
-  .usa-button-cancel {
-    margin-left: 1em;
+    margin-right: 1.5em;
   }
 }
