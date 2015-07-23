@@ -124,13 +124,22 @@ label.usa-radio :checked + span {
 
 input[type="checkbox"],
 input[type="radio"] {
-  // to hide checkbox/radio from visual but 
-  // still read to screenreaders  
-  @include usa-sr-only();
+  @include appearance(none);
   display: inline-block;
   height: 1.8rem;
   width: 1.8rem;
   vertical-align: -4px;
+
+  // to hide checkbox/radio from visual but 
+  // still read to screenreaders
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 
   &:focus {
     + .usa-checkbox-focus {
