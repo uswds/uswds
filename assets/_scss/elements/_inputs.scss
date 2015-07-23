@@ -122,14 +122,11 @@ input[type="radio"] {
 
   // to hide checkbox/radio from visual but 
   // still read to screenreaders
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
+  position: absolute !important;
+  height: 1px; width: 1px; 
   overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
 
   &:focus {
     + .usa-checkbox-focus {
