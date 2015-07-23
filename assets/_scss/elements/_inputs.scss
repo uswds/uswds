@@ -59,8 +59,8 @@ textarea {
   height: 16rem;
 }
 
-label.usa-checkbox,
-label.usa-radio {
+.usa-checkbox,
+.usa-radio {
   display: inline-block;
   font-weight: 400;
   margin-bottom: 0.5em;
@@ -93,7 +93,7 @@ label.usa-radio {
   }
 }
 
-label.usa-checkbox :checked + span {
+.usa-checkbox :checked + .usa-checkbox-focus {
   background-color: $color-primary;
   border: 1px solid $color-primary;
   box-shadow: 0 0 0 0 $color-white;
@@ -104,7 +104,7 @@ label.usa-checkbox :checked + span {
   background-repeat: no-repeat;
 }
 
-label.usa-radio :checked + .usa-checkbox-focus {
+.usa-radio :checked + .usa-checkbox-focus {
   background-color: $color-primary;
   border: 2px solid $color-white !important;
   box-shadow: 0 0 0 2px $color-primary;
