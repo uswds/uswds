@@ -116,13 +116,15 @@ dfn {
 }
 
 .usa-sans,
-.usa-sans p {
+.usa-sans p,
+.usa-sans a, 
+.usa-sans li,
+.usa-sans span {
   font-family: $font-sans;
 }
 
 .usa-sans a {
   border-bottom: none;
-  font-family: $font-sans; 
   font-weight: $font-bold;
 }
 
