@@ -46,38 +46,11 @@ title: Inputs
 
     <ul class="usa-unstyled-list">
       <li>
-        <label for="apple-pie" class="usa-checkbox">
-          <input id="apple-pie" type="checkbox" name="apple-pie" value="apple-pie" tabindex="0">
-          <span tabindex="-1" class="usa-checkbox-focus"></span>Apple pie
-        </label>
-      </li>
-      <li>
-        <label for="key-lime-pie" class="usa-checkbox">
-          <input id="key-lime-pie" type="checkbox" name="key-lime-pie" value="key-lime-pie" tabindex="0">
-          <span tabindex="-1" class="usa-checkbox-focus"></span>Key lime pie
-        </label>
-      </li>
-      <li>
-        <label for="peach-pie" class="usa-checkbox">
-          <input id="peach-pie" type="checkbox" name="peach-pie" value="peach-pie" tabindex="0">
-          <span tabindex="-1" class="usa-checkbox-focus"></span>Peach pie
-        </label>
-      </li>
-    </ul>
-
-  </fieldset>
-
-  <fieldset class="usa-fieldset-inputs usa-sans">
-
-    <legend class="usa-sr-only">Best pies</legend>
-
-    <ul class="usa-unstyled-list">
-      <li>
-        <input type="checkbox" id="awesome" autofocus />
+        <input type="checkbox" id="awesome" checked />
         <label for="awesome">Apple pie</label>
       </li>
       <li>
-        <input type="checkbox" id="awesome2" checked />
+        <input type="checkbox" id="awesome2" />
         <label for="awesome2">Key lime</label>
       </li>
       <li>
@@ -92,10 +65,15 @@ title: Inputs
 
   </fieldset>
 
+</div>
+
+<h2>Radio buttons</h2>
+
+<div class="preview">
+
   <fieldset class="usa-fieldset-inputs usa-sans">
 
     <legend class="usa-sr-only">Best pies</legend>
-    <h3>radio radio</h3>
 
     <ul class="usa-unstyled-list">
       <li>
@@ -109,39 +87,6 @@ title: Inputs
       <li>
         <input id="tomato" type="radio" name="soup" value="tomato" tabindex="0">
         <label for="tomato">Tomato</label>
-      </li>
-    </ul>
-
-  </fieldset>
-
-</div>
-
-<h2>Radio buttons</h2>
-
-<div class="preview">
-
-  <fieldset class="usa-fieldset-inputs usa-sans">
-
-    <legend class="usa-sr-only">Radio buttons</legend>
-
-    <ul class="usa-unstyled-list">
-      <li>
-        <label for="pea-soup" class="usa-radio">
-          <input id="pea-soup" type="radio" checked name="soup" value="pea" tabindex="0">
-          <span tabindex="-1" class="usa-checkbox-focus"></span>Pea soup
-        </label>
-      </li>
-      <li>
-        <label for="chicken-noodle" class="usa-radio">
-          <input id="chicken-noodle" type="radio" name="soup" value="chicken-noodle" tabindex="0">
-          <span tabindex="-1" class="usa-checkbox-focus"></span>Chicken noodle
-        </label>
-      </li>
-      <li>
-        <label for="tomato" class="usa-radio">
-          <input id="tomato" type="radio" name="soup" value="tomato" tabindex="0">
-          <span tabindex="-1" class="usa-checkbox-focus"></span>Tomato
-        </label>
       </li>
     </ul>
 
