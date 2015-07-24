@@ -67,6 +67,31 @@ title: Inputs
 
   </fieldset> 
 
+  <fieldset class="usa-fieldset-inputs usa-sans">
+
+    <legend class="usa-sr-only">Best pies</legend>
+
+    <ul class="usa-unstyled-list">
+      <li>
+        <input type="checkbox" id="awesome" autofocus />
+        <label class="usa-checkbox" for="awesome">Apple pie</label>
+      </li>
+      <li>
+        <input type="checkbox" id="awesome2" checked />
+        <label class="usa-checkbox" for="awesome2">Key lime</label>
+      </li>
+      <li>
+        <input type="checkbox" id="awesome3" disabled />
+        <label class="usa-checkbox" for="awesome3">Peach pie</label>
+      </li>
+      <li>
+        <input type="checkbox" id="awesome4" checked disabled />
+        <label class="usa-checkbox" for="awesome4">Disabled</label>
+      </li>
+    </ul>
+
+  </fieldset>
+
 </div>
 
 <h2>Radio buttons</h2>
