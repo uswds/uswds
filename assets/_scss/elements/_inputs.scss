@@ -84,7 +84,7 @@ input[type="checkbox"] + label::before,
 input[type="radio"] + label::before {
   background: white;  
   border-radius: $usa-border-radius;
-  box-shadow: 0 0 0 1px $color-grey-600;  
+  box-shadow: 0 0 0 1px $color-grey-600;
   content: '\a0';
   display: inline-block;
   height: 1.8rem;  
@@ -108,6 +108,7 @@ input[type="radio"] + label::before {
 input[type="checkbox"]:checked + label::before,
 input[type="radio"]:checked + label::before {
   background-color: $color-primary;
+  box-shadow: 0 0 0 1px $color-primary;
 }
 
 input[type="radio"]:checked + label::before {
