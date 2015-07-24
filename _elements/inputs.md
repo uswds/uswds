@@ -46,20 +46,20 @@ title: Inputs
 
     <ul class="usa-unstyled-list">
       <li>
-        <input type="checkbox" id="awesome" checked />
-        <label for="awesome">Apple pie</label>
+        <input id="apple-pie" type="checkbox" name="apple-pie" value="apple-pie" tabindex="0" checked />
+        <label for="apple-pie">Apple pie</label>
       </li>
       <li>
-        <input type="checkbox" id="awesome2" />
-        <label for="awesome2">Key lime</label>
+        <input id="key-lime-pie" type="checkbox" name="key-lime-pie" value="key-lime-pie" tabindex="0">
+        <label for="key-lime-pie">Key lime</label>
       </li>
       <li>
-        <input type="checkbox" id="awesome3" />
-        <label for="awesome3">Peach pie</label>
+        <input id="peach-pie" type="checkbox" name="peach-pie" value="peach-pie" tabindex="0">
+        <label for="peach-pie">Peach pie</label>
       </li>
       <li>
-        <input type="checkbox" id="awesome4" disabled />
-        <label for="awesome4">Disabled</label>
+        <input id="disabled" type="checkbox" disabled />
+        <label for="disabled">Disabled</label>
       </li>
     </ul>
 
