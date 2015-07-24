@@ -74,7 +74,7 @@ title: Inputs
     <ul class="usa-unstyled-list">
       <li>
         <input type="checkbox" id="awesome" autofocus />
-        <label class="usa-checkbox" for="awesome">Apple pie</label>
+        <label class="usa-checkbox" for="awesome"><span tabindex="-1" class="usa-checkbox-focus"></span>Apple pie</label>
       </li>
       <li>
         <input type="checkbox" id="awesome2" checked />

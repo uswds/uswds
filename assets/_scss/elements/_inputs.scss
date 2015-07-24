@@ -73,8 +73,6 @@ textarea {
     margin-top: 0;
     margin-right: 0.5em;
     margin-bottom: 0;
-    vertical-align: -4px;
-    padding-top: 4px; //compensate for FA vertical-align
     width: 1.8rem;
   }
 
@@ -88,7 +86,6 @@ textarea {
       right: 0.5em;
       bottom: 0;
     }
-    vertical-align: -4px;
     width: 1.8rem;
   }
 }
@@ -108,7 +105,6 @@ textarea {
   background-color: $color-primary;
   border: 2px solid $color-white !important;
   box-shadow: 0 0 0 2px $color-primary;
-  vertical-align: -4px;
   position: relative;
 }
 
@@ -118,7 +114,6 @@ input[type="radio"] {
   display: inline-block;
   height: 1.8rem;
   width: 1.8rem;
-  vertical-align: -4px;
 
   // to hide checkbox/radio from visual but 
   // still read to screenreaders
@@ -153,6 +148,8 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"] + label::before {
+  box-shadow: 0 0 0 1px $color-grey-600;
+  border-radius: $usa-border-radius;  
   content: '\a0';
   display: inline-block;
   vertical-align: .2em;
@@ -160,18 +157,22 @@ input[type="checkbox"] + label::before {
   height: 1.8rem;
   margin-right: .5em;
   border-radius: .2em;
-  background: silver;
+  background: white;
   text-indent: .15em;
   line-height: .65;
 }
 
 input[type="checkbox"]:checked + label::before {
-  content: '\2713';
-  background: yellowgreen;
+  background-image: url('../img/correct8.png');  
+  background-image: url('../img/correct8.svg');  
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-color: $color-primary;
 }
 
 input[type="checkbox"]:focus + label::before {
-  box-shadow: 0 0 .1em .1em #58a;
+//  border: 1px solid $color-white;
+  box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-primary;
 }
 
 input[type="checkbox"]:disabled + label::before {
