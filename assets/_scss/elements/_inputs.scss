@@ -71,8 +71,7 @@ textarea {
 
 input[type="checkbox"],
 input[type="radio"] {
-  position: absolute;
-  clip: rect(0,0,0,0);
+  @include sr-only();
 }
 
 input[type="checkbox"] + label,

@@ -26,6 +26,15 @@
   overflow: hidden;
 }
 
+@mixin sr-only() {
+  position: absolute;
+  left: -10000;
+  top: 0;
+  width: 1px;
+  height: auto;
+  overflow: hidden;
+}
+
 // Content size helpers
 @mixin allow-layout-classes {
 
