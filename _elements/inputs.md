@@ -99,15 +99,15 @@ title: Inputs
 
     <ul class="usa-unstyled-list">
       <li>
-        <input id="pea-soup" type="radio"/>
+        <input id="pea-soup" type="radio" checked name="soup" value="pea" tabindex="0">
         <label class="usa-checkbox" for="pea-soup">Pea soup</label>
       </li>
       <li>
-        <input id="chicken-noodle" type="radio"/>
+        <input id="chicken-noodle" type="radio" name="soup" value="chicken-noodle" tabindex="0">
         <label class="usa-checkbox" for="chicken-noodle">Chicken noodle</label>
       </li>
       <li>
-        <input id="tomato" type="radio"/>
+        <input id="tomato" type="radio" name="soup" value="tomato" tabindex="0">
         <label class="usa-checkbox" for="tomato">Tomato</label>
       </li>
     </ul>
