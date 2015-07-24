@@ -18,11 +18,12 @@
 
 // Screen reader only helper
 .usa-sr-only {
-  position: absolute !important;
-  height: 1px; width: 1px; 
+  position: absolute;
+  left: -10000;
+  top: 0;
+  width: 1px;
+  height: auto;
   overflow: hidden;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
 }
 
 // Content size helpers
