@@ -59,79 +59,6 @@ textarea {
   height: 16rem;
 }
 
-.usa-checkbox,
-.usa-radio {
-  display: inline-block;
-  font-weight: 400;
-  margin-bottom: 0.5em;
-
-  input[type="checkbox"] + span {
-    box-shadow: 0 0 0 1px $color-grey-600;
-    border-radius: $usa-border-radius;
-    display: inline-block;
-    height: 1.8rem;
-    margin-top: 0;
-    margin-right: 0.5em;
-    margin-bottom: 0;
-    width: 1.8rem;
-  }
-
-  input[type="radio"] + span {
-    box-shadow: 0 0 0 1px $color-grey-600;
-    border-radius: 100%;
-    display: inline-block;
-    height: 1.8rem;
-    margin: {
-      top: 0;
-      right: 0.5em;
-      bottom: 0;
-    }
-    width: 1.8rem;
-  }
-}
-
-.usa-checkbox :checked + .usa-checkbox-focus {
-  background-color: $color-primary;
-  border: 1px solid $color-primary;
-  box-shadow: 0 0 0 0 $color-white;
-  position: relative;
-  background-image: url('../img/correct8.png');  
-  background-image: url('../img/correct8.svg');  
-  background-position: 50%;
-  background-repeat: no-repeat;
-}
-
-.usa-radio :checked + .usa-checkbox-focus {
-  background-color: $color-primary;
-  border: 2px solid $color-white !important;
-  box-shadow: 0 0 0 2px $color-primary;
-  position: relative;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  @include appearance(none);
-  display: inline-block;
-  height: 1.8rem;
-  width: 1.8rem;
-
-  // to hide checkbox/radio from visual but 
-  // still read to screenreaders
-  position: absolute !important;
-  height: 1px; width: 1px; 
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
-
-  &:focus {
-    + .usa-checkbox-focus {
-      border: 1px solid $color-white;
-      box-shadow: 0 0 0 2px $color-primary;
-      outline: none;
-    }
-  }
-}
-
 .usa-fieldset-inputs {
   label {
     margin-top: 0;
@@ -164,10 +91,15 @@ input[type="radio"] + label::before {
   line-height: .65;
 }
 
+input[type="radio"] + label::before {
+  border-radius: 100%;
+}
+
 input[type="checkbox"]:checked + label::before,
 input[type="radio"]:checked + label::before {
   background-color: $color-primary;
 }
+
 
 input[type="checkbox"]:checked + label::before {
   background-image: url('../img/correct8.png');  
@@ -176,10 +108,15 @@ input[type="checkbox"]:checked + label::before {
   background-repeat: no-repeat;
 }
 
-input[type="checkbox"]:focus + label::before,
-input[type="radio"]:focus + label::before {
-//  border: 1px solid $color-white;
+input[type="checkbox"]:focus + label::before {
   box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-primary;
+}
+
+input[type="radio"]:focus + label::before {
+  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary;
+  margin-right: 1rem;
+  width: 1.6rem;
+  height: 1.6rem;  
 }
 
 input[type="checkbox"]:disabled + label::before,

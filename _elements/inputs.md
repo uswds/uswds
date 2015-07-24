@@ -65,7 +65,7 @@ title: Inputs
       </li>
     </ul>
 
-  </fieldset> 
+  </fieldset>
 
   <fieldset class="usa-fieldset-inputs usa-sans">
 
@@ -74,19 +74,41 @@ title: Inputs
     <ul class="usa-unstyled-list">
       <li>
         <input type="checkbox" id="awesome" autofocus />
-        <label class="usa-checkbox" for="awesome"><span tabindex="-1" class="usa-checkbox-focus"></span>Apple pie</label>
+        <label class="usa-checkbox" for="awesome">Apple pie</label>
       </li>
       <li>
         <input type="checkbox" id="awesome2" checked />
         <label class="usa-checkbox" for="awesome2">Key lime</label>
       </li>
       <li>
-        <input type="checkbox" id="awesome3" disabled />
+        <input type="checkbox" id="awesome3" />
         <label class="usa-checkbox" for="awesome3">Peach pie</label>
       </li>
       <li>
-        <input type="checkbox" id="awesome4" checked disabled />
+        <input type="checkbox" id="awesome4" />
         <label class="usa-checkbox" for="awesome4">Disabled</label>
+      </li>
+    </ul>
+
+  </fieldset>
+
+  <fieldset class="usa-fieldset-inputs usa-sans">
+
+    <legend class="usa-sr-only">Best pies</legend>
+    <h3>radio radio</h3>
+
+    <ul class="usa-unstyled-list">
+      <li>
+        <input id="pea-soup" type="radio"/>
+        <label class="usa-checkbox" for="pea-soup">Pea soup</label>
+      </li>
+      <li>
+        <input id="chicken-noodle" type="radio"/>
+        <label class="usa-checkbox" for="chicken-noodle">Chicken noodle</label>
+      </li>
+      <li>
+        <input id="tomato" type="radio"/>
+        <label class="usa-checkbox" for="tomato">Tomato</label>
       </li>
     </ul>
 
