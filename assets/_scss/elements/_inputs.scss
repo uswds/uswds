@@ -75,6 +75,12 @@ input[type="radio"] {
   clip: rect(0,0,0,0);
 }
 
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+
 input[type="checkbox"] + label::before,
 input[type="radio"] + label::before {
   box-shadow: 0 0 0 1px $color-grey-600;
@@ -85,10 +91,16 @@ input[type="radio"] + label::before {
   width: 1.8rem;
   height: 1.8rem;
   margin-right: .5em;
-  border-radius: .2em;
+  border-radius: .4rem;
   background: white;
   text-indent: .15em;
   line-height: .65;
+}
+
+input[type="radio"] + label::before {  
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3px #757575;
+  width: 1.6rem;
+  height: 1.6rem;  
 }
 
 input[type="radio"] + label::before {
@@ -100,6 +112,9 @@ input[type="radio"]:checked + label::before {
   background-color: $color-primary;
 }
 
+input[type="radio"]:checked + label::before {
+  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary; 
+}
 
 input[type="checkbox"]:checked + label::before {
   background-image: url('../img/correct8.png');  
@@ -112,17 +127,9 @@ input[type="checkbox"]:focus + label::before {
   box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-primary;
 }
 
-input[type="radio"]:focus + label::before {
-  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary;
-  margin-right: 1rem;
-  width: 1.6rem;
-  height: 1.6rem;  
-}
-
 input[type="checkbox"]:disabled + label::before,
 input[type="radio"]:disabled + label::before {
-  background: gray;
-  box-shadow: none;
-  color: #555;
+  background: $color-grey-600;
+  color: $color-grey-600;
   cursor: not-allowed;
 }

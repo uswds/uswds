@@ -74,19 +74,19 @@ title: Inputs
     <ul class="usa-unstyled-list">
       <li>
         <input type="checkbox" id="awesome" autofocus />
-        <label class="usa-checkbox" for="awesome">Apple pie</label>
+        <label for="awesome">Apple pie</label>
       </li>
       <li>
         <input type="checkbox" id="awesome2" checked />
-        <label class="usa-checkbox" for="awesome2">Key lime</label>
+        <label for="awesome2">Key lime</label>
       </li>
       <li>
         <input type="checkbox" id="awesome3" />
-        <label class="usa-checkbox" for="awesome3">Peach pie</label>
+        <label for="awesome3">Peach pie</label>
       </li>
       <li>
-        <input type="checkbox" id="awesome4" />
-        <label class="usa-checkbox" for="awesome4">Disabled</label>
+        <input type="checkbox" id="awesome4" disabled />
+        <label for="awesome4">Disabled</label>
       </li>
     </ul>
 
@@ -100,15 +100,15 @@ title: Inputs
     <ul class="usa-unstyled-list">
       <li>
         <input id="pea-soup" type="radio" checked name="soup" value="pea" tabindex="0">
-        <label class="usa-checkbox" for="pea-soup">Pea soup</label>
+        <label for="pea-soup">Pea soup</label>
       </li>
       <li>
         <input id="chicken-noodle" type="radio" name="soup" value="chicken-noodle" tabindex="0">
-        <label class="usa-checkbox" for="chicken-noodle">Chicken noodle</label>
+        <label for="chicken-noodle">Chicken noodle</label>
       </li>
       <li>
         <input id="tomato" type="radio" name="soup" value="tomato" tabindex="0">
-        <label class="usa-checkbox" for="tomato">Tomato</label>
+        <label for="tomato">Tomato</label>
       </li>
     </ul>
 
