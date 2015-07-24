@@ -116,7 +116,10 @@ dfn {
 }
 
 .usa-sans,
-.usa-sans * {
+.usa-sans p,
+.usa-sans a, 
+.usa-sans li,
+.usa-sans span {
   font-family: $font-sans;
 }
 
