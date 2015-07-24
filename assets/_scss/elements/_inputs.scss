@@ -142,12 +142,14 @@ input[type="radio"] {
  * Custom checkboxes
  */
 
-input[type="checkbox"] {
+input[type="checkbox"],
+input[type="radio"] {
   position: absolute;
   clip: rect(0,0,0,0);
 }
 
-input[type="checkbox"] + label::before {
+input[type="checkbox"] + label::before,
+input[type="radio"] + label::before {
   box-shadow: 0 0 0 1px $color-grey-600;
   border-radius: $usa-border-radius;  
   content: '\a0';
@@ -162,20 +164,26 @@ input[type="checkbox"] + label::before {
   line-height: .65;
 }
 
+input[type="checkbox"]:checked + label::before,
+input[type="radio"]:checked + label::before {
+  background-color: $color-primary;
+}
+
 input[type="checkbox"]:checked + label::before {
   background-image: url('../img/correct8.png');  
   background-image: url('../img/correct8.svg');  
   background-position: 50%;
   background-repeat: no-repeat;
-  background-color: $color-primary;
 }
 
-input[type="checkbox"]:focus + label::before {
+input[type="checkbox"]:focus + label::before,
+input[type="radio"]:focus + label::before {
 //  border: 1px solid $color-white;
   box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-primary;
 }
 
-input[type="checkbox"]:disabled + label::before {
+input[type="checkbox"]:disabled + label::before,
+input[type="radio"]:disabled + label::before {
   background: gray;
   box-shadow: none;
   color: #555;
