@@ -7,10 +7,10 @@ title: Labels
 <div class="preview">
 
   <h3>Small</h3>
-  <a class="usa-label">New</a>
+  <a class="usa-label" href="javascript:void(0)">New</a>
 
   <h3>Large</h3>
-  <a class="usa-label-big">New</a>
+  <a class="usa-label-big" href="javascript:void(0)">New</a>
 
 </div>
 
