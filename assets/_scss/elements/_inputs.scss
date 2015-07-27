@@ -16,7 +16,7 @@ input[type="week"],
 textarea,
 select  {
   border: 1px solid $color-grey-500;
-  border-radius: $usa-border-radius;
+  border-radius: $border-radius;
   box-sizing: border-box;    
   color: $color-base-link; // standardize on firefox 
   display: block;
@@ -83,7 +83,7 @@ input[type="radio"] + label {
 input[type="checkbox"] + label::before,
 input[type="radio"] + label::before {
   background: white;  
-  border-radius: $usa-border-radius;
+  border-radius: $border-radius;
   box-shadow: 0 0 0 1px $color-grey-600;
   content: '\a0';
   display: inline-block;
