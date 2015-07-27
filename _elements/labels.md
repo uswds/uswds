@@ -6,6 +6,11 @@ title: Labels
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
+
+  <div class="usa-label">New</div>
+
+  <div class="usa-label-big">New</div>
+
   <img src="{{ site.baseurl }}/assets/img/static/Labels_UI_v1.png">
 </div>
 

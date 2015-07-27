@@ -1,0 +1,9 @@
+.usa-label {
+  background-color: $color-primary;
+  color: $color-white;
+  display: inline-block;
+}
+
+.usa-label-big {
+  @extend .usa-label;
+}
