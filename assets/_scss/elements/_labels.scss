@@ -1,12 +1,24 @@
 .usa-label {
+  border-bottom: none;  
   background-color: $color-primary;
   border-radius: $border-radius;
   color: $color-white;
-  line-height: 1;
-  padding: 0.2em 0.6em;
+  font-size: $small-font-size;
+  padding: 0.1rem 0.7rem;
   text-transform: uppercase;
 }
 
 .usa-label-big {
-//  @extend .usa-label;
+  @extend .usa-label;
+  font-size: $base-font-size;
+  padding: {
+    left: .9rem;
+    right: .9rem;
+  }
+}
+
+.usa-label:hover {
+  background-color: $color-primary-darker;
+  border-bottom: none;
+  color: $color-white;
 }

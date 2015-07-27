@@ -7,9 +7,9 @@ title: Labels
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <span class="usa-label">New</span>
+  <a class="usa-label">New</a>
 
-  <span class="usa-label-big">New</span>
+  <a class="usa-label-big">New</a>
 
   <img src="{{ site.baseurl }}/assets/img/static/Labels_UI_v1.png">
 </div>
