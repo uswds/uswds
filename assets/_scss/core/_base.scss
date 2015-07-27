@@ -18,3 +18,7 @@ body {
     filter: none !important;
   }
 }
+
+[aria-hidden=true] {
+  display: none !important;
+}

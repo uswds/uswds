@@ -1,4 +1,4 @@
-#accordion-menu {
+.usa-accordion {
   ul {
     border: 1px solid $color-grey-600;
     border-radius: 5px;
@@ -17,37 +17,31 @@
       &:last-child {
         border-bottom: 0;
       }
+    }
 
-      &.hidden {
-        .content {
-          display: none;
-        }
+    button[aria-expanded=false] {
+      background: url('../img/arrow-right.png') no-repeat;
+      background-position: 15px;
+      border-bottom: 0;
+    }
 
-        p {
-          background: url('../img/arrow-right.png') no-repeat;
-          background-position: 15px;
-          border-bottom: 0;
-        }
-      }
-
-      p {
-        background: url('../img/arrow-down.png') no-repeat;
-        background-position: 15px;
-        border-bottom: 1px solid $color-grey-600;
-        color: $color-grey-900;
-        cursor: pointer;
-        display: inline-block;
-        font-family: $font-sans;
-        margin: 0;
-        padding: 10px 15px 10px 35px;
-        width: 100%;
-      }
-
-      .content {
-        display: block;
-        background-color: white;
-        padding: 15px;
-      }
+    button {
+      background: url('../img/arrow-down.png') no-repeat;
+      background-position: 15px;
+      border-bottom: 1px solid $color-grey-600;
+      color: $color-grey-900;
+      cursor: pointer;
+      display: inline-block;
+      font-family: $font-sans;
+      margin: 0;
+      padding: 10px 15px 10px 35px;
+      width: 100%;
     }
   }
+}
+
+.usa-accordion-content {
+  display: block;
+  background-color: white;
+  padding: 15px;
 }

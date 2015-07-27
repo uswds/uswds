@@ -5,9 +5,7 @@
 
 @import 'lib/bourbon/bourbon';
 @import 'lib/neat/neat';
-@import 'core/grid-settings';
-@import 'core/defaults';
-@import 'core/utilities';
+@import 'all';
 @import 'themes/usa';
 
 // Variables -------------- //
@@ -377,4 +375,12 @@ header[role="banner"] {
 
 .download-code {
   padding-top: 3em;
+}
+
+// Search bar grid --------- //
+
+.preview-search-bar {
+  .usa-grid-box {
+    padding: 0;
+  }
 }

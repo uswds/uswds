@@ -6,43 +6,58 @@ title: Accordions
 
 <h3>Bordered Accordion</h3>
 
-<div id="accordion-menu">
+<div class="usa-accordion">
   <ul class="usa-unstyled-list">
     <li>
-      <p>Apple Pie</p>
-      <div class="content">
+      <button class="usa-button-unstyled"
+          aria-expanded="true" aria-controls="collapsible-0">
+        Apple Pie
+      </button>
+      <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
-    <li class="hidden">
-      <p>Strawberry Pie</p>
-      <div class="content">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-1">
+        Stawberry Pie
+      </button>
+      <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
-    <li class="hidden">
-      <p>Peach Pie</p>
-      <div class="content">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-2">
+        Peace Pie
+      </button>
+      <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
-    <li class="hidden">
-      <p>Key Lime Pie</p>
-      <div class="content">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-3">
+        Key Lime
+      </button>
+      <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
-    <li class="hidden">
-      <p>Blackberry Pie</p>
-      <div class="content">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-4">
+        Blackberry
+      </button>
+      <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
   </ul>
 </div>
 
-<div class="grid-box">
-  <div class="grid-item width-one-half annotation">
+<div class="usa-grid-box">
+  <div class="usa-width-one-half">
     <h3>Use</h3>
     <p>Accordions are a list of headers that can be clicked to hide or reveal additional content.</p>
     <ul>
@@ -69,7 +84,7 @@ title: Accordions
       </li>
       </ul>
   </div>
-  <div class="grid-item width-one-half annotation">
+  <div class="usa-width-one-half">
     <h3>Accessibility</h3>
     <ul>
       <li>
@@ -82,10 +97,10 @@ title: Accordions
         Each button has a unique name <code>aria-controls=’collapsible-#’</code> that associates the control to the appropriate region by referencing the controlled elements <code>id</code>.
       </li>
       <li>
-        Each content area has an <code>aria-hidden</code> attribute set to either <code>true</code> or<code>false</code>. When <code>false</code>, the element (and all children) are neither visible or perceivable, and assistive technologies will skip this content.
+        Each content area has an <code>aria-hidden</code> attribute set to either <code>true</code> or <code>false</code>. When <code>false</code>, the element (and all children) are neither visible or perceivable, and assistive technologies will skip this content.
       </li>
     </ul>
-  </div>  
+  </div>
 </div>
 
 <hr>
@@ -93,7 +108,7 @@ title: Accordions
 <div class="code-snippets hidden">
 
   <a href="#" class="code-snippet-button"></a>
-  
+
   <table>
     <tr>
       <th>
@@ -105,35 +120,50 @@ title: Accordions
         <button class="code-copy-button" data-clipboard-target="accordion-html">Copy</button>
         <div id="accordion-html">
           {% highlight html %}
-<div id="accordion-menu">
-  <ul>
+<div class="usa-accordion">
+  <ul class="usa-unstyled-list">
     <li>
-      <p>Apple Pie</p>
-      <div class="content">
+      <button class="usa-button-unstyled"
+          aria-expanded="true" aria-controls="collapsible-0">
+        Apple Pie
+      </button>
+      <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
-    <li class="hidden">
-      <p>Strawberry Pie</p>
-      <div class="content">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-1">
+        Stawberry Pie
+      </button>
+      <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
-    <li class="hidden">
-      <p>Peach Pie</p>
-      <div class="content">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-2">
+        Peace Pie
+      </button>
+      <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
-    <li class="hidden">
-      <p>Key Lime Pie</p>
-      <div class="content">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-3">
+        Key Lime
+      </button>
+      <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
-    <li class="hidden">
-      <p>Blackberry Pie</p>
-      <div class="content">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-4">
+        Blackberry
+      </button>
+      <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </li>
@@ -154,39 +184,35 @@ title: Accordions
         <button class="code-copy-button" data-clipboard-target="accordion-css">Copy</button>
         <div id="accordion-css">
           {% highlight css %}
-#accordion-menu ul {
+.usa-accordion ul {
   border: 1px solid #757575;
   border-radius: 5px;
   color: #212121;
   margin: 0;
   overflow: hidden;
-  padding: 0; 
+  padding: 0;
 }
 
-#accordion-menu ul li {
+.usa-accordion ul li {
   background-color: #eeeeee;
   border-bottom: 1px solid #757575;
   font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
   list-style: none;
-  margin: 0; 
+  margin: 0;
 }
 
-#accordion-menu ul li:last-child {
-  border-bottom: 0; 
+.usa-accordion ul li:last-child {
+  border-bottom: 0;
 }
 
-#accordion-menu ul li.hidden .content {
-  display: none; 
-}
-
-#accordion-menu ul li.hidden p {
-  background: url("https://cdn.rawgit.com/18F/govt-wide-patternlibrary/18f-pages-staging/assets/img/arrow-right.png") no-repeat;
+.usa-accordion ul button[aria-expanded=false] {
+  background: url("../img/arrow-right.png") no-repeat;
   background-position: 15px;
-  border-bottom: 0; 
+  border-bottom: 0;
 }
 
-#accordion-menu ul li p {
-  background: url("https://cdn.rawgit.com/18F/govt-wide-patternlibrary/18f-pages-staging/assets/img/arrow-down.png") no-repeat;
+.usa-accordion ul button {
+  background: url("../img/arrow-down.png") no-repeat;
   background-position: 15px;
   border-bottom: 1px solid #757575;
   color: #212121;
@@ -195,13 +221,13 @@ title: Accordions
   font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
   margin: 0;
   padding: 10px 15px 10px 35px;
-  width: 100%; 
+  width: 100%;
 }
 
-#accordion-menu ul li .content {
+.usa-accordion-content {
   display: block;
   background-color: white;
-  padding: 15px; 
+  padding: 15px;
 }
           {% endhighlight %}
         </div>
@@ -210,14 +236,54 @@ title: Accordions
         <button class="code-copy-button" data-clipboard-target="accordion-js">Copy</button>
         <div id="accordion-js">
           {% highlight js %}
+function Accordion($el) {
+  var self = this;
+  this.$root = $el;
+  this.$root.on('click', 'button', function(ev) {
+    ev.preventDefault();
+    self.hideAll();
+    self.show($(this));
+  });
+}
+
+Accordion.prototype.$ = function(selector) {
+  return this.$root.find(selector);
+}
+
+Accordion.prototype.hide = function($button) {
+  var selector = $button.attr('aria-controls'),
+      $content = this.$('#' + selector);
+
+  $button.attr('aria-expanded', false);
+  $content.attr('aria-hidden', true);
+};
+
+Accordion.prototype.show = function($button) {
+  var selector = $button.attr('aria-controls'),
+      $content = this.$('#' + selector);
+
+  $button.attr('aria-expanded', true);
+  $content.attr('aria-hidden', false);
+};
+
+Accordion.prototype.hideAll = function() {
+  var self = this;
+  this.$('button').each(function() {
+    self.hide($(this));
+  });
+};
+
+function accordion($el) {
+  return new Accordion($el);
+}
+
 $(function() {
-  $('#accordion-menu').on('click', 'p', function() {
-   $(this).parent().removeClass('hidden')
-    .siblings().addClass('hidden');
+  $('.usa-accordion').each(function() {
+    accordion($(this));
   });
 });
-          {% endhighlight %}  
-        </div>   
+          {% endhighlight %}
+        </div>
       </td>
     </tr>
   </table>

@@ -19,6 +19,7 @@ $heading-line-height: 1.3em !default;
 $font-sans:        'Source Sans Pro', 'Helvetica', 'Arial', sans-serif !default;
 $font-serif:       'Georgia', 'Times New Roman', serif;
 
+$font-normal:       400 !default;
 $font-bold:         700 !default;
 
 $usa-border-radius:     rem(4px) !default;
@@ -54,6 +55,7 @@ $widescreen-up:     1201px !default;
 $site-max-width:    980px !default;
 $site-margins:      40px !default;
 $article-max-width: 600px !default;
+$input-max-width:   46rem !default;
 $border-radius:     0px !default;
 $box-shadow:        0 0 2px rgba(#000, .3) !default;
 $grid-margins:      2.5rem !default;

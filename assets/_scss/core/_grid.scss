@@ -1,44 +1,47 @@
-.grid-box,
-.grid-box-full {
+.usa-grid-box,
+.usa-grid-box-full {
   @include outer-container();
   max-width: $site-max-width;
 
   @include media($tablet-up) {
-    .width-one-whole {
+    .usa-width-one-whole {
       @include span-columns(12);
     }
-    .width-one-half {
+    .usa-width-one-half {
       @include span-columns(6);
     }
-    .width-one-third {
+    .usa-width-one-third {
       @include span-columns(4);
     }
-    .width-two-thirds {
+    .usa-width-two-thirds {
       @include span-columns(8);
     }
-    .width-one-fourth {
+    .usa-width-one-fourth {
       @include span-columns(3);
     }
-    .width-three-fourths {
+    .usa-width-three-fourths {
       @include span-columns(9);
     }
-    .width-one-sixth {
+    .usa-width-one-sixth {
       @include span-columns(2);
     }
-    .width-five-sixths {
+    .usa-width-five-sixths {
       @include span-columns(10);
     }
+    .usa-width-one-twelfth {
+      @include span-columns(1);
+    }    
 
-    .end-row {
+    .usa-end-row {
       @include omega();
     }
   }
 }
 
-.grid-box {
+.usa-grid-box {
   padding: 0 $grid-margins;
 }
 
-.grid-box-full {
+.usa-grid-box-full {
   padding: 0;
 }

@@ -116,14 +116,20 @@ dfn {
 }
 
 .usa-sans,
-.usa-sans p {
+.usa-sans p,
+.usa-sans a, 
+.usa-sans li,
+.usa-sans span {
   font-family: $font-sans;
 }
 
 .usa-sans a {
   border-bottom: none;
-  font-family: $font-sans; 
   font-weight: $font-bold;
+}
+
+.usa-serif {
+  font-family: $font-serif; 
 }
 
 .usa-display {
@@ -148,9 +154,13 @@ dfn {
   left: 0;
   margin-left: 8%;
   position: absolute;
-  top: 0; 
+  top: 0;
 }
 
 .usa-image-text {
   margin-top: 0;
+}
+
+.usa-drop_text {
+  margin-bottom: 0;
 }

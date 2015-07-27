@@ -1,13 +1,4 @@
 .usa-footer {
-
-  button {
-    width: 100%;
-  
-    @media (min-width: $tablet-up) {
-      width: auto;
-    }
-  }
-
   .usa-unstyled-list {
     display: block;
   }
@@ -60,7 +51,7 @@
     }  
   }
 
-  .grid-box-full {
+  .usa-grid-box-full {
     @media (min-width: $tablet-up) {
       padding: {
         left: 2.5rem;
@@ -111,7 +102,7 @@
         top: 1rem;
       }
 
-      .grid-box-full {
+      .usa-grid-box-full {
         align-items: center;
         display: flex;     
       }      
