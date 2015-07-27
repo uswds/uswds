@@ -2,10 +2,11 @@
   background-color: $color-primary;
   border-radius: $border-radius;
   color: $color-white;
+  line-height: 1;
   padding: 0.2em 0.6em;
   text-transform: uppercase;
 }
 
 .usa-label-big {
-  @extend .usa-label;
+//  @extend .usa-label;
 }
