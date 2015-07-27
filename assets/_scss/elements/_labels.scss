@@ -1,7 +1,9 @@
 .usa-label {
   background-color: $color-primary;
+  border-radius: $border-radius;
   color: $color-white;
-  display: inline-block;
+  padding: 0.2em 0.6em;
+  text-transform: uppercase;
 }
 
 .usa-label-big {
