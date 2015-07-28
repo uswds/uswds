@@ -1,5 +1,4 @@
 .usa-label {
-  border-bottom: none;  
   background-color: $color-primary;
   border-radius: $border-radius;
   color: $color-white;
@@ -17,8 +16,16 @@
   }
 }
 
-.usa-label:hover {
-  background-color: $color-primary-darker;
-  border-bottom: none;
-  color: $color-white;
+a {
+  &.usa-label {
+    border-bottom: none;  
+  }
+}
+
+a {
+  &.usa-label:hover {
+    background-color: $color-primary-darker;
+    border-bottom: none;
+    color: $color-white;
+  }
 }
