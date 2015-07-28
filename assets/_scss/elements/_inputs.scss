@@ -59,6 +59,10 @@ textarea {
   height: 16rem;
 }
 
+select {
+  -webkit-appearance: menulist;
+}
+
 .usa-fieldset-inputs {
   label {
     margin-top: 0;
