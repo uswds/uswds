@@ -6,12 +6,12 @@ title: Alerts
 
 <div class="preview">
 
-  <div class="usa-alert">
+  <div class="usa-alert usa-sans">
     <div class="usa-alert-icon">
     </div>
     <div class="usa-alert-body">
-      <h3>Success Status h3</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+      <h3 class="usa-alert-heading">Success Status h3</h3>
+      <p class="usa-alert-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
     </div>
   </div>
 
