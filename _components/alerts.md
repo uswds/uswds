@@ -5,7 +5,16 @@ title: Alerts
 ---
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
+
+  <div class="usa-alert">
+    <div class="usa-alert-icon">
+    </div>
+    <div class="usa-alert-body">
+      <h3>Success Status h3</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+    </div>
+  </div>
+
   <img src="{{ site.baseurl }}/assets/img/static/Alerts_UI_v1.png">
 </div>
 
