@@ -22,8 +22,6 @@ $font-serif:       'Georgia', 'Times New Roman', serif;
 $font-normal:       400 !default;
 $font-bold:         700 !default;
 
-$usa-border-radius:     rem(4px) !default;
-
 // Color
 $color-grey-50:     #fafafa !default;
 $color-grey-100:    #f5f5f5 !default;
@@ -56,6 +54,6 @@ $site-max-width:    980px !default;
 $site-margins:      40px !default;
 $article-max-width: 600px !default;
 $input-max-width:   46rem !default;
-$border-radius:     0px !default;
+$border-radius:     rem(4px) !default;
 $box-shadow:        0 0 2px rgba(#000, .3) !default;
 $grid-margins:      2.5rem !default;
