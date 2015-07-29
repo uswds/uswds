@@ -6,6 +6,8 @@ title: Tables
 
 <div class="preview">
 
+  <h3>Bordered Table</h3>
+
   <table class="usa-table-bordered">
     <thead>
       <tr>
@@ -47,6 +49,8 @@ title: Tables
       </tr>      
     </tbody>
   </table>
+
+  <h3>Borderless Table</h3>
 
   <table class="usa-table-borderless">
     <thead>
