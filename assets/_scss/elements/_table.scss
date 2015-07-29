@@ -7,14 +7,19 @@ table {
       text-align: left;
     }
   }
+  
   th, td {
-    border: 1px solid $color-grey-900;
+    border: 1px solid $color-grey-600;
     padding: .5em;
   }
 }
 
 .usa-table-bordered {
-
+  thead {
+    tr {
+      background-color: $color-grey-200;
+    }
+  }
 }
 
 .usa-table-borderless {
