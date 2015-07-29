@@ -1,5 +1,6 @@
 .usa-alert {
   background-color: $color-grey-200;
+  margin-top: 1.5em;
   padding: 1em;
 }
 
@@ -24,6 +25,7 @@
 
 .usa-alert-icon {
   display: table-cell;
+  padding-right: 1rem;
 }
 
 .usa-alert-success {
