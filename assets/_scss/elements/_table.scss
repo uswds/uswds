@@ -16,6 +16,8 @@ table {
 }
 
 .usa-table-bordered {
+  border-spacing: 0;
+
   thead {
     tr {
       background-color: $color-grey-200;
