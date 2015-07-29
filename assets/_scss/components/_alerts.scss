@@ -1,10 +1,14 @@
 .usa-alert {
   background-color: $color-grey-200;  
   background-position: 1rem 2rem;
-  background-size: 52px;
-  background-repeat: no-repeat;    
+  background-repeat: no-repeat;
+  background-size: 24px;
   margin-top: 1.5em;
   padding: 1em;
+
+  @include media($tablet-up) {
+    background-size: 52px;
+  }  
 }
 
 .usa-alert-icon {
@@ -14,9 +18,15 @@
 
 .usa-alert-body {
   display: table-cell;
-  padding-left: 5rem;
+  padding-left: 2rem;
   vertical-align: top;
+
+  @include media($tablet-up) {
+    padding-left: 5rem;
+  }
 }
+
+
 
 .usa-alert-heading {
   margin: {
