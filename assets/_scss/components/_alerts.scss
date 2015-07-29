@@ -4,6 +4,16 @@
   padding: 1em;
 }
 
+.usa-alert-icon {
+  display: table-cell;
+  padding-right: 1rem;
+}
+
+.usa-alert-body {
+  display: table-cell;
+  vertical-align: top;
+}
+
 .usa-alert-heading {
   margin: {
     bottom: .15em;
@@ -16,16 +26,6 @@
     bottom: 0;
     top: 0;
   }
-}
-
-.usa-alert-body {
-  display: table-cell;
-  vertical-align: top;
-}
-
-.usa-alert-icon {
-  display: table-cell;
-  padding-right: 1rem;
 }
 
 .usa-alert-success {
