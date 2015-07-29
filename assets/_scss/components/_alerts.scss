@@ -2,12 +2,12 @@
   background-color: $color-grey-200;  
   background-position: 1rem 2rem;
   background-repeat: no-repeat;
-  background-size: 24px;
+  background-size: 2.4rem;
   margin-top: 1.5em;
   padding: 1em;
 
   @include media($tablet-up) {
-    background-size: 52px;
+    background-size: 5.2rem;
   }  
 }
 
