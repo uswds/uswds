@@ -41,7 +41,6 @@ title: Alerts
     </div>
   </div>
 
-  <img src="{{ site.baseurl }}/assets/img/static/Alerts_UI_v1.png">
 </div>
 
 <div class="usa-grid-box">
