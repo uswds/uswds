@@ -21,8 +21,8 @@ title: Alerts
 
   <div class="usa-alert-warning usa-sans">
     <div class="usa-alert-icon">
-    <svg width="52" height="52" role="img" aria-label="success">
-      <title>Success</title>
+    <svg width="52" height="52" role="img" aria-label="warning">
+      <title>Warning</title>
       <image xlink:href="{{ site.baseurl }}/assets/img/alerts/warning.svg" src="{{ site.baseurl }}/assets/img/alerts/warning.png" width="52" height="52" />
     </svg>
     </div>
@@ -34,8 +34,8 @@ title: Alerts
 
   <div class="usa-alert-error usa-sans">
     <div class="usa-alert-icon">
-    <svg width="52" height="52" role="img" aria-label="success">
-      <title>Success</title>
+    <svg width="52" height="52" role="img" aria-label="error">
+      <title>Error</title>
       <image xlink:href="{{ site.baseurl }}/assets/img/alerts/error.svg" src="{{ site.baseurl }}/assets/img/alerts/error.png" width="52" height="52" />
     </svg>
     </div>
@@ -47,8 +47,8 @@ title: Alerts
 
   <div class="usa-alert-info usa-sans">
     <div class="usa-alert-icon">
-    <svg width="52" height="52" role="img" aria-label="success">
-      <title>Success</title>
+    <svg width="52" height="52" role="img" aria-label="info">
+      <title>Info</title>
       <image xlink:href="{{ site.baseurl }}/assets/img/alerts/info.svg" src="{{ site.baseurl }}/assets/img/alerts/info.png" width="52" height="52" />
     </svg>
     </div>
@@ -60,8 +60,8 @@ title: Alerts
 
   <div class="usa-alert-info usa-sans">
     <div class="usa-alert-icon">
-    <svg width="52" height="52" role="img" aria-label="success">
-      <title>Success</title>
+    <svg width="52" height="52" role="img" aria-label="info">
+      <title>Info</title>
       <image xlink:href="{{ site.baseurl }}/assets/img/alerts/info.svg" src="{{ site.baseurl }}/assets/img/alerts/info.png" width="52" height="52" />
     </svg>
     </div>
