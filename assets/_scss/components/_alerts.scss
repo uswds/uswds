@@ -1,0 +1,66 @@
+.usa-alert {
+  background-color: $color-grey-200;  
+  background-position: 1rem 2rem;
+  background-repeat: no-repeat;
+  background-size: 2.4rem;
+  margin-top: 1.5em;
+  padding: 1em;
+
+  @include media($tablet-up) {
+    background-size: 5.2rem;
+  }  
+}
+
+.usa-alert-icon {
+  display: table-cell;
+  padding-right: 1rem;
+}
+
+.usa-alert-body {
+  display: table-cell;
+  padding-left: 2rem;
+  vertical-align: top;
+
+  @include media($tablet-up) {
+    padding-left: 5rem;
+  }
+}
+
+.usa-alert-heading {
+  margin: {
+    bottom: .15em;
+    top: 0;
+  }
+}
+
+.usa-alert-text {
+  font-family: $font-sans;  
+  margin: {
+    bottom: 0;
+    top: 0;
+  }
+}
+
+.usa-alert-success {
+  background-color: #E5FCDE;
+  background-image: url('../img/alerts/success.png');  
+  background-image: url('../img/alerts/success.svg');  
+}
+
+.usa-alert-warning {
+  background-color: #FDF7DC;
+  background-image: url('../img/alerts/warning.png');  
+  background-image: url('../img/alerts/warning.svg');   
+}
+
+.usa-alert-error {
+  background-color: #F9DEDE;
+  background-image: url('../img/alerts/error.png');  
+  background-image: url('../img/alerts/error.svg');   
+}
+
+.usa-alert-info {
+  background-color: #E8F5FA;
+  background-image: url('../img/alerts/info.png');  
+  background-image: url('../img/alerts/info.svg');   
+}
