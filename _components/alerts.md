@@ -6,7 +6,7 @@ title: Alerts
 
 <div class="preview">
 
-  <div class="usa-alert-success usa-sans">
+  <div class="usa-alert usa-alert-success usa-sans">
     <div class="usa-alert-icon">
     <svg width="52" height="52" role="img" aria-label="success">
       <title>Success</title>
@@ -19,7 +19,7 @@ title: Alerts
     </div>
   </div>
 
-  <div class="usa-alert-warning usa-sans">
+  <div class="usa-alert usa-alert-warning usa-sans">
     <div class="usa-alert-icon">
     <svg width="52" height="52" role="img" aria-label="warning">
       <title>Warning</title>
@@ -32,7 +32,7 @@ title: Alerts
     </div>
   </div>
 
-  <div class="usa-alert-error usa-sans">
+  <div class="usa-alert usa-alert-error usa-sans">
     <div class="usa-alert-icon">
     <svg width="52" height="52" role="img" aria-label="error">
       <title>Error</title>
@@ -45,7 +45,7 @@ title: Alerts
     </div>
   </div>
 
-  <div class="usa-alert-info usa-sans">
+  <div class="usa-alert usa-alert-info usa-sans">
     <div class="usa-alert-icon">
     <svg width="52" height="52" role="img" aria-label="info">
       <title>Info</title>
@@ -58,7 +58,7 @@ title: Alerts
     </div>
   </div>
 
-  <div class="usa-alert-info usa-sans">
+  <div class="usa-alert usa-alert-info usa-sans">
     <div class="usa-alert-icon">
     <svg width="52" height="52" role="img" aria-label="info">
       <title>Info</title>
