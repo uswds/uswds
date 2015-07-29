@@ -26,8 +26,6 @@
   }
 }
 
-
-
 .usa-alert-heading {
   margin: {
     bottom: .15em;
@@ -36,6 +34,7 @@
 }
 
 .usa-alert-text {
+  font-family: $font-sans;  
   margin: {
     bottom: 0;
     top: 0;
