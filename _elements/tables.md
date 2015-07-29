@@ -6,30 +6,45 @@ title: Tables
 
 <div class="preview">
 
-  <table>
+  <table class="usa-table-bordered">
     <thead>
       <tr>
-        <th>Row 1</th>
-        <th>Row 2</th>
-        <th>Row 3</th>
+        <th>Project Name</th>
+        <th>Description</th>
+        <th>Price</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>item 1</td>
-        <td>item 2</td>
-        <td>item 3</td>
+        <td>Apple Pie</td>
+        <td>A fruit pie in which the principal filling ingredient is apple</td>
+        <td>$4.50</td>
       </tr>
       <tr>
-        <td>item 1</td>
-        <td>item 2</td>
-        <td>item 3</td>
+        <td>Blueberry Pie</td>
+        <td>Composed of blackberry filling, usually in the form of either blackberry jam</td>
+        <td>$4.25</td>
       </tr>
       <tr>
-        <td>item 1</td>
-        <td>item 2</td>
-        <td>item 3</td>
+        <td>Blackberry Pie</td>
+        <td>A fruit pie in which the principal filling ingredient is blackberry</td>
+        <td>$3.78</td>
       </tr>
+      <tr>
+        <td>Key Lime Pie</td>
+        <td>Made of Key lime juice, egg yolks, and sweetened condensed milk in a pie crust</td>
+        <td>$1.99</td>
+      </tr>
+      <tr>
+        <td>Lemon Meringue Pie</td>
+        <td>Made of shortcrust pastry, lemon custard filling and a fluffy meringue topping</td>
+        <td>$2.66</td>
+      </tr>
+      <tr>
+        <td>Boston Creme Pie</td>
+        <td>A cake that is filled with a custard or cream filling and frosted with chocolate</td>
+        <td>$5.55</td>
+      </tr>      
     </tbody>
   </table>
 

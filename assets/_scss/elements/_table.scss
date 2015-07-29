@@ -1,6 +1,7 @@
 table {
   margin: 2em 0;
   min-width: 100%;
+  
   thead {
     th {
       text-align: left;
@@ -10,4 +11,8 @@ table {
     border: 1px solid $color-grey-900;
     padding: .5em;
   }
+}
+
+.usa-table-bordered {
+ 
 }
