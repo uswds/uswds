@@ -1,5 +1,8 @@
 .usa-alert {
-  background-color: $color-grey-200;
+  background-color: $color-grey-200;  
+  background-position: 1rem 2rem;
+  background-size: 52px;
+  background-repeat: no-repeat;    
   margin-top: 1.5em;
   padding: 1em;
 }
@@ -11,6 +14,7 @@
 
 .usa-alert-body {
   display: table-cell;
+  padding-left: 5rem;
   vertical-align: top;
 }
 
@@ -30,16 +34,24 @@
 
 .usa-alert-success {
   background-color: #E5FCDE;
+  background-image: url('../img/alerts/success.png');  
+  background-image: url('../img/alerts/success.svg');  
 }
 
 .usa-alert-warning {
   background-color: #FDF7DC;
+  background-image: url('../img/alerts/warning.png');  
+  background-image: url('../img/alerts/warning.svg');   
 }
 
 .usa-alert-error {
   background-color: #F9DEDE;
+  background-image: url('../img/alerts/error.png');  
+  background-image: url('../img/alerts/error.svg');   
 }
 
 .usa-alert-info {
   background-color: #E8F5FA;
+  background-image: url('../img/alerts/info.png');  
+  background-image: url('../img/alerts/info.svg');   
 }

@@ -116,9 +116,9 @@ input[type="radio"]:checked + label::before {
 }
 
 input[type="checkbox"]:checked + label::before {
-  background-image: url('../img/correct8.png');  
-  background-image: url('../img/correct8.svg');  
-  background-position: 50%;
+  background-image: url('../img/alerts/success.png');  
+  background-image: url('../img/alerts/success.svg');  
+  background-position: 1.5rem;
   background-repeat: no-repeat;
 }
 
