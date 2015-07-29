@@ -14,5 +14,22 @@ table {
 }
 
 .usa-table-bordered {
- 
+
+}
+
+.usa-table-borderless {
+  thead {
+    tr {
+      th {
+        border-top: 0;
+      }
+    }
+  }
+  
+  th, td {
+    border: {
+      left: 0;
+      right: 0;
+    }
+  }
 }
