@@ -8,6 +8,10 @@ title: Alerts
 
   <div class="usa-alert usa-sans">
     <div class="usa-alert-icon">
+    <svg width="52" height="52" role="img" aria-label="success">
+      <title>Success</title>
+      <image xlink:href="{{ site.baseurl }}/assets/img/alerts/success.svg" src="{{ site.baseurl }}/assets/img/alerts/success.png" width="52" height="52" />
+    </svg>
     </div>
     <div class="usa-alert-body">
       <h3 class="usa-alert-heading">Success Status h3</h3>

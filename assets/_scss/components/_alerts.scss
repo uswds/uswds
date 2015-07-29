@@ -16,3 +16,32 @@
     top: 0;
   }
 }
+
+.usa-alert-body {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.usa-alert-icon {
+  display: table-cell;
+}
+
+.usa-alert-success {
+  @extend .usa-alert;
+  background-color: #E5FCDE;
+}
+
+.usa-alert-warning {
+  @extend .usa-alert;
+  background-color: #FDF7DC;
+}
+
+.usa-alert-error {
+  @extend .usa-alert;
+  background-color: #F9DEDE;
+}
+
+.usa-alert-info {
+  @extend .usa-alert;
+  background-color: #E8F5FA;
+}
