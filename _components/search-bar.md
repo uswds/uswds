@@ -64,7 +64,7 @@ title: Search Bar
     <h3>Use</h3>
     <ul>
       <li>Allow the search bar to be as wide as possible, but a minimum of 27 characters wide. This allows users to enter multiple search terms without their inputs being obscured. The more users can see their search terms, the easier it is to review, verify, and submit their search query.</li>
-      <li>The magnifying glass has been shown to be almost universally recognized by users as an indicator of search functionality, and doesn’t need to be paired with the word "Search."</li>
+      <li>The magnifying glass has been shown to be almost universally recognized by users as an indicator of search functionality and doesn’t need to be paired with the word "Search" (except for screen readers, see the accessibility guidelines).</li>
       <li>Maintain this search bar when displaying the search results with the original search terms.</li>
       <li>On a site's home page the search function should appear as a search box instead of a link so users can locate it easily.</li>
       <li>Don't offer advanced search as the default option. The majority of people will do a simple search with one or two search terms. If advanced search is offered, it increases the likelihood of a person making a mistake in their query.</li>
@@ -77,6 +77,9 @@ title: Search Bar
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
       <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
     </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
+    <p>We also recommend:</p>
+    <ul>
+      <li>Even when the search button contains an icon and no text, make sure the word "search" is still inside the <button> element. You can hide this text by absolutely positioning it to -999em (as we have here). This descriptive text tells screen reader users the button's purpose.
+    </ul>
   </div>  
 </div>
