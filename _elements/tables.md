@@ -11,9 +11,9 @@ title: Tables
   <table class="usa-table-bordered">
     <thead>
       <tr>
-        <th>Project Name</th>
-        <th>Description</th>
-        <th>Price</th>
+        <th scope='col'>Project Name</th>
+        <th scope='col'>Description</th>
+        <th scope='col'>Price</th>
       </tr>
     </thead>
     <tbody>
@@ -55,9 +55,9 @@ title: Tables
   <table class="usa-table-borderless">
     <thead>
       <tr>
-        <th>Project Name</th>
-        <th>Description</th>
-        <th>Price</th>
+        <th scope='col'>Project Name</th>
+        <th scope='col'>Description</th>
+        <th scope='col'>Price</th>
       </tr>
     </thead>
     <tbody>
