@@ -118,7 +118,10 @@ title: Forms Blocks
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
       <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
     </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
+    <p>We also recommend:</p>
+    <ul>
+      <li>Make sure any input masking is accessible to people using screen readers. We use <a href="https://github.com/filamentgroup/politespace">Filament Group's Politespace</a> to ensure a good experience.</li>
+    </ul>
   </div>  
 </div>
 
