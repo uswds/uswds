@@ -104,8 +104,14 @@ title: Inputs
 <h2>Dropdown</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Dropdown_UI_v1.png">
+<form>
+  <label for="options">Dropdown Label h4</label>
+  <select name="options" id="options">
+    <option value="value1">Option A</option>
+    <option value="value2">Option B</option>
+    <option value="value3">Option C</option>
+  </select>
+</form>
 </div>
 
 <h2>Date picker</h2>

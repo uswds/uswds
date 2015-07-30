@@ -59,6 +59,12 @@ textarea {
   height: 16rem;
 }
 
+select {
+  appearance: none;  
+  background: url("../img/arrow-down.png") no-repeat;
+  background-position: right 1.3rem center;
+}
+
 .usa-fieldset-inputs {
   label {
     margin-top: 0;
