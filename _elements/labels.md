@@ -5,8 +5,13 @@ title: Labels
 ---
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Labels_UI_v1.png">
+
+  <h3>Small</h3>
+  <span class="usa-label">New</span>
+
+  <h3>Large</h3>
+  <span class="usa-label-big">New</span>
+
 </div>
 
 <div class="usa-grid-box">

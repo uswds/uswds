@@ -97,7 +97,7 @@ title: Accordions
         Each button has a unique name <code>aria-controls=’collapsible-#’</code> that associates the control to the appropriate region by referencing the controlled elements <code>id</code>.
       </li>
       <li>
-        Each content area has an <code>aria-hidden</code> attribute set to either <code>true</code> or<code>false</code>. When <code>false</code>, the element (and all children) are neither visible or perceivable, and assistive technologies will skip this content.
+        Each content area has an <code>aria-hidden</code> attribute set to either <code>true</code> or <code>false</code>. When <code>false</code>, the element (and all children) are neither visible or perceivable, and assistive technologies will skip this content.
       </li>
     </ul>
   </div>
