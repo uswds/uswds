@@ -105,14 +105,12 @@ title: Inputs
 
 <div class="preview">
 <form>
-  <fieldset>
-    <label for="options">Dropdown Label h4</label>
-    <select name="options" id="options">
-      <option value="value1">Option A</option>
-      <option value="value2">Option B</option>
-      <option value="value3">Option C</option>
-    </select>
-  </fieldset>
+  <label for="options">Dropdown Label h4</label>
+  <select name="options" id="options">
+    <option value="value1">Option A</option>
+    <option value="value2">Option B</option>
+    <option value="value3">Option C</option>
+  </select>
 </form>
 </div>
 
