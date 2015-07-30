@@ -79,7 +79,7 @@ title: Accordions
         Clicking anywhere on the header (not just on the icon) triggers expansion or collapse of that section.
       </li>
       <li>
-        Any interactive element within each section should be placed a minimum of 2 mm from the header to avoid accidentally triggering the wrong interaction.
+        Any interactive element within each section should be placed a minimum of 10 pixels from the header to avoid accidentally triggering the wrong interaction.
       </li>
       </ul>
   </div>
