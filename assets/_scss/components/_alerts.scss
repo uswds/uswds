@@ -8,7 +8,7 @@
 
   ul {
     margin: {
-      bottom: 1em;
+      bottom: 0;
       top: 1em;
     }
   }
@@ -36,12 +36,12 @@
 .usa-alert-heading {
   margin: {
     bottom: .15em;
-    top: 0;
+    top: .5em;
   }
 }
 
 .usa-alert-text {
-  font-family: $font-sans;  
+  font-family: $font-sans;
   margin: {
     bottom: 0;
     top: 0;

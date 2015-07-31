@@ -39,7 +39,7 @@ ul li {
 ol li {
   display: table-row;
   counter-increment: table-ol;
-  
+
   &:before {
     content: counter(table-ol) ".";
     display: table-cell;
@@ -79,12 +79,33 @@ li {
   padding-left: 0;
 
   li {
+    display: inline-block;
     list-style: none;
-    padding-left: 1em;
+    margin: {
+      bottom: .5em;
+      top: .5em;
+    }
+    padding-left: 2em;
+    text-indent: -1.6em;
 
     &:before {
       content: ' ';
+      display: inline-block;
+      height: 1rem;
+      line-height: .8;
+      margin-right: .6em;
       padding-right: 5px;
+      text-indent: .15em;
+      width: 1.8rem;
     }
+  }
+}
+
+.usa-check_list-active {
+  &:before {
+    background-image: url('../img/correct9.png');
+    background-image: url('../img/correct9.svg');
+    background-position: 50%;
+    background-repeat: no-repeat;
   }
 }

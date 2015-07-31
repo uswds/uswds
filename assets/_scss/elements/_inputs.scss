@@ -88,23 +88,23 @@ input[type="radio"] + label {
 
 input[type="checkbox"] + label::before,
 input[type="radio"] + label::before {
-  background: white;  
+  background: white;
   border-radius: $border-radius;
   box-shadow: 0 0 0 1px $color-grey-600;
   content: '\a0';
   display: inline-block;
-  height: 1.8rem;  
-  line-height: .8;  
-  margin-right: .6em;  
+  height: 1.8rem;
+  line-height: .8;
+  margin-right: .6em;
   text-indent: .15em;
   vertical-align: .2em;
   width: 1.8rem;
 }
 
-input[type="radio"] + label::before {  
+input[type="radio"] + label::before {
   box-shadow: 0 0 0 2px #fff, 0 0 0 3px #757575;
-  height: 1.6rem;  
-  width: 1.6rem;  
+  height: 1.6rem;
+  width: 1.6rem;
 }
 
 input[type="radio"] + label::before {
@@ -122,8 +122,8 @@ input[type="radio"]:checked + label::before {
 }
 
 input[type="checkbox"]:checked + label::before {
-  background-image: url('../img/correct8.png');  
-  background-image: url('../img/correct8.svg');  
+  background-image: url('../img/correct8.png');
+  background-image: url('../img/correct8.svg');
   background-position: 50%;
   background-repeat: no-repeat;
 }
