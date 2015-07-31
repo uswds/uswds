@@ -38,7 +38,7 @@ title: Grids
   </div>
 
   <h3>Grid Examples</h3>
-  <div class="usa-grid-box usa-grid-box-example .usa-grid-box-examples">
+  <div class="usa-grid-box usa-grid-box-example usa-grid-box-text">
     <div class="usa-width-one-half">
       <h3>One Half</h3>
       <p>Synth polaroid occupy ennui sustainable, craft beer chambray viral church-key typewriter letterpress McSweeney's Etsy. Banh mi Brooklyn single-origin coffee, meditation swag sriracha artisan disrupt cliche sustainable selfies wayfarers. Hoodie iPhone occupy you probably haven't heard of them synth seitan four loko kale chips, wayfarers salvia literally. Squid sartorial fixie yr, retro normcore banjo hella typewriter cray lomo asymmetrical post-ironic mustache pickled. Ennui roof party health goth, next level Etsy letterpress polaroid mixtape.</p>
