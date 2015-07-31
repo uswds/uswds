@@ -9,7 +9,9 @@
 
 // Variables -------------- //
 
-$width-nav-sidebar: 250px;
+$width-nav-sidebar:  250px;
+$color-grid-dark:    #727272;
+$color-grid-light:   #e3e4e5;
 
 // Generic -------------- //
 
@@ -387,12 +389,12 @@ header[role="banner"] {
 // Custom styles to illustrate invisible grid for pattern library
 
 .usa-grid-box-example {
-  background: #e3e4e5;
+  background: $color-grid-light;
 
   > * {
     color: $color-white;
     padding: 1em;
-    background: #727272;
+    background: $color-grid-dark;
     margin: {
       top: .5em;
       bottom: .5em;
@@ -404,10 +406,10 @@ header[role="banner"] {
 }
 
 .usa-grid-box-text {
-  background: #727272;
+  background: $color-grid-dark;
 
   > * {
-  background: #e3e4e5;
+  background: $color-grid-light;
   color: $color-base-link;
   }
 }
