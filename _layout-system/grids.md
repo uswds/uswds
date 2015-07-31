@@ -23,18 +23,18 @@ title: Grids
     <div class="usa-grid-item usa-width-one-sixth">One Sixth</div>
     <div class="usa-grid-item usa-width-one-sixth">One Sixth</div>
     <div class="usa-grid-item usa-width-one-sixth usa-end-row">One Sixth</div>
-    <div class="usa-grid-item usa-width-one-twelfth">One Twelfth</div>
-    <div class="usa-grid-item usa-width-one-twelfth">One Twelfth</div>
-    <div class="usa-grid-item usa-width-one-twelfth">One Twelfth</div>
-    <div class="usa-grid-item usa-width-one-twelfth">One Twelfth</div>
-    <div class="usa-grid-item usa-width-one-twelfth">One Twelfth</div>
-    <div class="usa-grid-item usa-width-one-twelfth">One Twelfth</div>
-    <div class="usa-grid-item usa-width-one-twelfth">One Twelfth</div>
-    <div class="usa-grid-item usa-width-one-twelfth">One Twelfth</div>
-    <div class="usa-grid-item usa-width-one-twelfth">One Twelfth</div>
-    <div class="usa-grid-item usa-width-one-twelfth">One Twelfth</div>
-    <div class="usa-grid-item usa-width-one-twelfth">One Twelfth</div>
-    <div class="usa-grid-item usa-width-one-twelfth usa-end-row">One Twelfth</div>    
+    <div class="usa-grid-item usa-width-one-twelfth">1/12</div>
+    <div class="usa-grid-item usa-width-one-twelfth">1/12</div>
+    <div class="usa-grid-item usa-width-one-twelfth">1/12</div>
+    <div class="usa-grid-item usa-width-one-twelfth">1/12</div>
+    <div class="usa-grid-item usa-width-one-twelfth">1/12</div>
+    <div class="usa-grid-item usa-width-one-twelfth">1/12</div>
+    <div class="usa-grid-item usa-width-one-twelfth">1/12</div>
+    <div class="usa-grid-item usa-width-one-twelfth">1/12</div>
+    <div class="usa-grid-item usa-width-one-twelfth">1/12</div>
+    <div class="usa-grid-item usa-width-one-twelfth">1/12</div>
+    <div class="usa-grid-item usa-width-one-twelfth">1/12</div>
+    <div class="usa-grid-item usa-width-one-twelfth usa-end-row">1/12</div>   
   </div>
 
   <img src="{{ site.baseurl }}/assets/img/static/Grid_UI_v1.png">
