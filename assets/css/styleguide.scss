@@ -387,7 +387,7 @@ header[role="banner"] {
 // Custom styles to illustrate invisible grid for pattern library
 
 .usa-grid-box-example {
-  .usa-grid-item {
+  * {
     padding: 1em;
     background: $color-grey-200;
     margin: {
