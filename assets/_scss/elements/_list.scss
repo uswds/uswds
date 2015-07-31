@@ -58,7 +58,7 @@ li {
   margin: 0;
   padding: 0;
   list-style-type: none;
-  
+
   li {
     display: list-item;
     margin: 0;
@@ -69,6 +69,22 @@ li {
 
     &:after {
       display: none;
-    }    
+    }
+  }
+}
+
+.usa-check_list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+
+  li {
+    list-style: none;
+    padding-left: 1em;
+
+    &:before {
+      content: ' ';
+      padding-right: 5px;
+    }
   }
 }

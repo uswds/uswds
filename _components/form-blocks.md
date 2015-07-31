@@ -281,6 +281,18 @@ title: Forms Blocks
       <legend class="usa-drop_text">Reset Password</legend>
       <span class="usa-serif">Please enter your new password</span>
 
+      <div class="usa-alert">
+        <div class="usa-alert-body">
+          <h3 class="usa-alert-heading">Passwords must:</h3>
+        </div>
+        <ul class="usa-check_list">
+          <li>Be at least 8 characters</li>
+          <li>Have at least 1 uppercase character</li>
+          <li>Have at least 1 numerical character</li>
+          <li>Another requirement</li>
+        </ul>
+      </div>
+
       <label for="password">New Password</label>
       <input id="password" name="password" type="password">
       <p class="usa-form-note">
