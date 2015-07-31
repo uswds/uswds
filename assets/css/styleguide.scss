@@ -383,3 +383,16 @@ header[role="banner"] {
     padding: 0;
   }
 }
+
+// Custom styles to illustrate invisible grid for pattern library
+
+.grid-box-example {
+  .grid-item {
+    padding: 1em;
+    background: $color-grey-200;
+    margin: {
+      top: .5em;
+      bottom: .5em;
+    }
+  }
+}
