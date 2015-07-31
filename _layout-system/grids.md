@@ -4,7 +4,6 @@ title: Grids
 ---
 
 <div class="preview">
-<!-- Add HTML markup for example here -->
 
   <h3>Grid</h3>
   <div class="usa-grid-box usa-grid-box-example">
