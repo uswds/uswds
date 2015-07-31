@@ -16,7 +16,7 @@ input[type="week"],
 textarea,
 select  {
   border: 1px solid $color-grey-500;
-  border-radius: $usa-border-radius;
+  border-radius: $border-radius;
   box-sizing: border-box;    
   color: $color-base-link; // standardize on firefox 
   display: block;
@@ -57,4 +57,84 @@ label {
 
 textarea {
   height: 16rem;
+}
+
+select {
+  appearance: none;  
+  background: url("../img/arrow-down.png") no-repeat;
+  background-position: right 1.3rem center;
+}
+
+.usa-fieldset-inputs {
+  label {
+    margin-top: 0;
+  }
+}
+
+/**
+ * Custom checkboxes
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  @include sr-only();
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+
+input[type="checkbox"] + label::before,
+input[type="radio"] + label::before {
+  background: white;  
+  border-radius: $border-radius;
+  box-shadow: 0 0 0 1px $color-grey-600;
+  content: '\a0';
+  display: inline-block;
+  height: 1.8rem;  
+  line-height: .8;  
+  margin-right: .6em;  
+  text-indent: .15em;
+  vertical-align: .2em;
+  width: 1.8rem;
+}
+
+input[type="radio"] + label::before {  
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3px #757575;
+  height: 1.6rem;  
+  width: 1.6rem;  
+}
+
+input[type="radio"] + label::before {
+  border-radius: 100%;
+}
+
+input[type="checkbox"]:checked + label::before,
+input[type="radio"]:checked + label::before {
+  background-color: $color-primary;
+  box-shadow: 0 0 0 1px $color-primary;
+}
+
+input[type="radio"]:checked + label::before {
+  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary; 
+}
+
+input[type="checkbox"]:checked + label::before {
+  background-image: url('../img/correct8.png');  
+  background-image: url('../img/correct8.svg');  
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+input[type="checkbox"]:focus + label::before {
+  box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-primary;
+}
+
+input[type="checkbox"]:disabled + label::before,
+input[type="radio"]:disabled + label::before {
+  background: $color-grey-600;
+  color: $color-grey-600;
+  cursor: not-allowed;
 }
