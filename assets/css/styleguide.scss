@@ -400,8 +400,15 @@ header[role="banner"] {
       bottom: .5em;
     }
   }
+
   .usa-width-one-twelfth {
-    padding-left: .5rem;
+    @include media($tablet-up) {
+      padding: {
+        left: 0;
+        right: 0;
+      }
+      text-align: center;
+    }
   }
 }
 
