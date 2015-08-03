@@ -79,7 +79,7 @@ title: Search Bar
     </ul>
     <p>We also recommend:</p>
     <ul>
-      <li>Even when the search button contains an icon and no text, make sure the word "search" is still inside the <button> element. You can hide this text by absolutely positioning it to -999em (as we have here). This descriptive text tells screen reader users the button's purpose.
+      <li>Always include the word "search" inside the <code>&lt;button&gt;</code> element for screen readers. You can hide this text with <code>position: absolute; left: -999em;</code> (as we have here).
     </ul>
   </div>  
 </div>
