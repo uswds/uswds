@@ -99,7 +99,7 @@ title: Inputs
 <div class="preview">
 
   <label for="range-slider">Range Slider Label h4</label>
-  <input id="range-slider" type="range" min="0" max="100">
+  <input id="range-slider" type="range" min="0" max="100" value="50">
 
 </div>
 
