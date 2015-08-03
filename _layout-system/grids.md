@@ -97,8 +97,6 @@ title: Grids
     </div>   
   </div>
 
-  <img src="{{ site.baseurl }}/assets/img/static/Grid_UI_v1.png">
-  <img src="{{ site.baseurl }}/assets/img/static/Grid_Examples_UI_v1.png">  
 </div>
 
 <div class="usa-grid-box">
