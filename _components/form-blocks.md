@@ -16,6 +16,8 @@ title: Forms Blocks
   <li>Group each set of thematically related controls in a "fieldset" element. Use the "legend" element to offer a label within each one. The fieldset and legend element makes it easier for screen reader users to navigate the form. </li>
 </ul>
 
+
+
 <div class="preview">
 
   <form class="usa-form-large">
@@ -107,7 +109,7 @@ title: Forms Blocks
     <p>As you customize this form, ensure it continues to:</p>
     <ul>
       <li>Label the optional ones. Users can infer that all the others are required.</li>
-      <li>Support both 5 and 9 digit zips. Some addresses require a nine digit ZIP code. The input mask should be "#####-####"" so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit zip code.</li>
+      <li>Support both 5 and 9 digit zips. Some addresses require a nine digit ZIP code. The input mask should be "#####-####"" so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit zip code. However, this input mask should only appear when people click away from the ZIP code input box (see the accessibility guidelines).</li>
     </ul>
   </div>
   <div class="usa-width-one-half">
