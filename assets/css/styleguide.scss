@@ -419,4 +419,12 @@ header[role="banner"] {
   background: $color-grid-light;
   color: $color-base-link;
   }
+
+  h3 {
+    margin-top: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
 }
