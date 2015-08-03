@@ -399,7 +399,6 @@ header[role="banner"] {
       top: .5em;
       bottom: .5em;
     }
-    text-align: center;
   }
 
   .usa-width-one-twelfth {
@@ -410,6 +409,10 @@ header[role="banner"] {
       }
     }
   }
+}
+
+.usa-grid-box-example-blank {
+  text-align: center;
 }
 
 .usa-grid-box-text {

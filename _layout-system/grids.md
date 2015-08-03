@@ -6,7 +6,7 @@ title: Grids
 <div class="preview">
 
   <h3>Grid</h3>
-  <div class="usa-grid-box usa-grid-box-example">
+  <div class="usa-grid-box usa-grid-box-example usa-grid-box-example-blank">
     <div class="usa-width-one-whole">1/1</div>
     <div class="usa-width-one-half">1/2</div>
     <div class="usa-width-one-half usa-end-row">1/2</div>
