@@ -99,8 +99,9 @@ title: Inputs
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
-  <input type="range" min="0" max="100">
-  
+  <label for="range-slider">Range Slider Label h4</label>
+  <input id="range-slider" type="range" min="0" max="100">
+
   <img src="{{ site.baseurl }}/assets/img/static/Range_Slider_UI_v1.png">
 </div>
 
