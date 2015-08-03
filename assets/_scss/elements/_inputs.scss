@@ -82,6 +82,7 @@ input[type="radio"] {
 
 input[type="checkbox"] + label,
 input[type="radio"] + label {
+  cursor: pointer;
   font-weight: 400;
   margin-bottom: 0.5em;
 }
