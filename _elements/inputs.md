@@ -98,6 +98,9 @@ title: Inputs
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
+
+  <input type="range" min="0" max="100">
+  
   <img src="{{ site.baseurl }}/assets/img/static/Range_Slider_UI_v1.png">
 </div>
 
