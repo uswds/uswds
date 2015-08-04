@@ -280,6 +280,19 @@ function toggleSSN($el) {
   });
 }
 
+function toggleMultiPassword($el) {
+  var fieldSelector = '#password, #confirmPassword',
+      $fields = $el.parents('form').find(fieldSelector),
+      showing = false;
+
+  $el.on('click', function(ev) {
+    ev.preventDefault();
+    $fields.attr('type', showing ? 'password' : 'text');
+    $el.text(showing ? 'Show My Typing' : 'Hide My Typing');
+    showing = !showing;
+  });
+}
+
 $(function() {
   $('.usa-accordion').each(function() {
     accordion($(this));
@@ -311,6 +324,7 @@ $(function() {
   });
 
   togglePassword($('.usa-show_password'));
+  toggleMultiPassword($('.usa-show_multipassword'));
   toggleSSN($('.usa-show_ssn'));
 
 });
