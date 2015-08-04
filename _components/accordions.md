@@ -59,10 +59,9 @@ title: Accordions
 <div class="usa-grid-box">
   <div class="usa-width-one-half">
     <h3>Use</h3>
-    <p>Accordions are a list of headers that can be clicked to hide or reveal additional content.</p>
     <ul>
       <li>
-        They are best used when users only need a few specific pieces of content within a page.
+        Accordions are best used when users only need a few specific pieces of content within a page.
       </li>
       <li>
         Accordion headers can serve as a mini-outline for the content on a page.
@@ -80,7 +79,7 @@ title: Accordions
         Clicking anywhere on the header (not just on the icon) triggers expansion or collapse of that section.
       </li>
       <li>
-        Any interactive element within each section should be placed a minimum of 2 mm from the header to avoid accidentally triggering the wrong interaction.
+        Make sure interactive elements within the collapsable region are far enough from the headers that users don't accidentally trigger a collapse. (The exact distance depends on the device.)
       </li>
       </ul>
   </div>
