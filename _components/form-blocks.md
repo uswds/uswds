@@ -16,8 +16,6 @@ title: Forms Blocks
   <li>Group each set of thematically related controls in a "fieldset" element. Use the "legend" element to offer a label within each one. The fieldset and legend element makes it easier for screen reader users to navigate the form. </li>
 </ul>
 
-
-
 <div class="preview">
 
   <form class="usa-form-large">
