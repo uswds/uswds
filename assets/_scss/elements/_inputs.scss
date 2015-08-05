@@ -202,6 +202,16 @@ input[type=range]::-moz-range-thumb {
   width: 20px;
 }
 
+input[type=range]::-ms-thumb {
+  background: #eeeeee;
+  border: 1.8px solid $color-grey-600;
+  border-radius: 15px;
+  cursor: pointer;
+  height: 20px;
+  height: 9px;
+  width: 20px;
+}
+
 input[type=range]::-ms-fill-lower {
   background: $color-primary;
   border: 1px solid $color-grey-600;
@@ -212,16 +222,6 @@ input[type=range]::-ms-fill-upper {
   background: $color-primary;
   border: 1px solid $color-grey-600;
   border-radius: 19.8px;
-}
-
-input[type=range]::-ms-thumb {
-  background: #eeeeee;
-  border: 1.8px solid $color-grey-600;
-  border-radius: 15px;
-  cursor: pointer;
-  height: 20px;
-  height: 9px;
-  width: 20px;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track,
