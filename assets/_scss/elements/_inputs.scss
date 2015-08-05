@@ -183,7 +183,7 @@ input[type=range]::-ms-track {
 
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  border: 1.8px solid $color-grey-600;
+  border: 1px solid $color-grey-600;
   height: 2rem;
   border-radius: 1.5rem;
   background: #eeeeee;
@@ -194,7 +194,7 @@ input[type=range]::-webkit-slider-thumb {
 
 input[type=range]::-moz-range-thumb {
   background: #eeeeee;
-  border: 1.8px solid $color-grey-600;
+  border: 1px solid $color-grey-600;
   border-radius: 1.5rem;
   cursor: pointer;
   height: 2rem;
@@ -203,7 +203,7 @@ input[type=range]::-moz-range-thumb {
 
 input[type=range]::-ms-thumb {
   background: #eeeeee;
-  border: 1.8px solid $color-grey-600;
+  border: 1px solid $color-grey-600;
   border-radius: 1.5rem;
   cursor: pointer;
   height: 2rem;
