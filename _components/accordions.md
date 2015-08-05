@@ -56,7 +56,7 @@ title: Accordions
   </ul>
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <ul>

@@ -31,7 +31,7 @@ title: Buttons
 
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <p>This is the usage content for the example.</p>

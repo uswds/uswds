@@ -51,7 +51,7 @@
     }  
   }
 
-  .usa-grid-box-full {
+  .usa-grid-full {
     @media (min-width: $tablet-up) {
       padding: {
         left: 2.5rem;
@@ -102,7 +102,7 @@
         top: 1rem;
       }
 
-      .usa-grid-box-full {
+      .usa-grid-full {
         align-items: center;
         display: flex;     
       }      
