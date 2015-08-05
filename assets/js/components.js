@@ -314,7 +314,6 @@ function validator($el) {
         }
         else {
           $validatorCheckbox.toggleClass('usa-check_list-checked', true);
-          console.log('passed', validatorName);
         }
       }
     }
