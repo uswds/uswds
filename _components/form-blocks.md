@@ -107,8 +107,7 @@ title: Forms Blocks
     <p>As you customize this form, ensure it continues to:</p>
     <ul>
       <li>Label the optional ones. Users can infer that all the others are required.</li>
-      <li>Let users type their state's abbreviation when they reach the "state" drop down menu.</li>
-      <li>Support both 5 and 9 digit zips. Some addresses require a nine digit ZIP code. The input mask should be "#####-####"" so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit zip code.</li>
+      <li>Support both 5 and 9 digit zips. Some addresses require a nine digit ZIP code. The input mask should be "#####-####"" so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit zip code. However, this input mask should only appear when people click away from the ZIP code input box (see the accessibility guidelines).</li>
     </ul>
   </div>
   <div class="usa-width-one-half">
@@ -275,8 +274,43 @@ title: Forms Blocks
 <h2>Password Reset</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/PasswordReset_UI_v1.png">
+  <form>
+
+    <fieldset>
+      <legend class="usa-drop_text">Reset Password</legend>
+      <span class="usa-serif">Please enter your new password</span>
+
+      <div class="usa-alert usa-alert-info">
+        <div class="usa-alert-body">
+          <h3 class="usa-alert-heading">Passwords must:</h3>
+        </div>
+        <ul class="usa-check_list">
+          <li class="usa-check_list-active">Be at least 8 characters</li>
+          <li class="usa-check_list-active">Have at least 1 uppercase character</li>
+          <li>Have at least 1 numerical character</li>
+          <li>Another requirement</li>
+        </ul>
+      </div>
+
+      <label for="password">New Password</label>
+      <input id="password" name="password" type="password">
+      <p class="usa-form-note">
+        Password strength
+      </p>
+
+      <label for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" name="confirmPassword" type="password">
+      <p class="usa-form-note">
+        <a title="Show My Typing" href="javascript:void(0)"
+            class="usa-show_multipassword"
+            aria-controls="password">
+          Show My Typing</a>
+      </p>
+
+      <input type="submit" value="Reset Password" />
+    </fieldset>
+
+  </form>
 </div>
 
 <div class="usa-grid-box">
