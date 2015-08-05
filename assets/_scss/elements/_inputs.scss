@@ -157,18 +157,18 @@ input[type=range]:focus {
 input[type=range]::-webkit-slider-runnable-track {
   background: $color-primary;
   border: 1px solid $color-grey-600;
-  border-radius: 10px;
+  border-radius: 1rem;
   cursor: pointer;
-  height: 9px;
+  height: .9rem;
   width: 100%;
 }
 
 input[type=range]::-moz-range-track {
   background: $color-primary;
   border: 1px solid $color-grey-600;
-  border-radius: 10px;
+  border-radius: 1rem;
   cursor: pointer;
-  height: 9px;
+  height: .9rem;
   width: 100%;
 }
 
@@ -177,49 +177,49 @@ input[type=range]::-ms-track {
   border-color: transparent;
   color: transparent;
   cursor: pointer;
-  height: 9px;
+  height: .9rem;
   width: 100%;
 }
 
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 1.8px solid $color-grey-600;
-  height: 20px;
-  border-radius: 15px;
+  height: 2rem;
+  border-radius: 1.5rem;
   background: #eeeeee;
   cursor: pointer;
-  margin-top: -6.5px;  
-  width: 20px;
+  margin-top: -.65rem;  
+  width: 2rem;
 }
 
 input[type=range]::-moz-range-thumb {
   background: #eeeeee;
   border: 1.8px solid $color-grey-600;
-  border-radius: 15px;
+  border-radius: 1.5rem;
   cursor: pointer;
-  height: 20px;
-  width: 20px;
+  height: 2rem;
+  width: 2rem;
 }
 
 input[type=range]::-ms-thumb {
   background: #eeeeee;
   border: 1.8px solid $color-grey-600;
-  border-radius: 15px;
+  border-radius: 1.5rem;
   cursor: pointer;
-  height: 20px;
-  width: 20px;
+  height: 2rem;
+  width: 2rem;
 }
 
 input[type=range]::-ms-fill-lower {
   background: $color-primary;
   border: 1px solid $color-grey-600;
-  border-radius: 19.8px;
+  border-radius: 2rem;
 }
 
 input[type=range]::-ms-fill-upper {
   background: $color-primary;
   border: 1px solid $color-grey-600;
-  border-radius: 19.8px;
+  border-radius: 2rem;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track,
