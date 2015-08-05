@@ -164,6 +164,24 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
 }
 
+input[type=range]::-moz-range-track {
+  background: $color-primary;
+  border: 1px solid $color-grey-600;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 9px;
+  width: 100%;
+}
+
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+  cursor: pointer;
+  height: 9px;
+  width: 100%;
+}
+
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 1.8px solid $color-grey-600;
@@ -175,19 +193,6 @@ input[type=range]::-webkit-slider-thumb {
   width: 20px;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: $color-primary;
-}
-
-input[type=range]::-moz-range-track {
-  background: $color-primary;
-  border: 1px solid $color-grey-600;
-  border-radius: 10px;
-  cursor: pointer;
-  height: 9px;
-  width: 100%;
-}
-
 input[type=range]::-moz-range-thumb {
   background: #eeeeee;
   border: 1.8px solid $color-grey-600;
@@ -195,14 +200,6 @@ input[type=range]::-moz-range-thumb {
   cursor: pointer;
   height: 20px;
   width: 20px;
-}
-input[type=range]::-ms-track {
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-  cursor: pointer;
-  height: 9px;
-  width: 100%;
 }
 
 input[type=range]::-ms-fill-lower {
@@ -227,10 +224,8 @@ input[type=range]::-ms-thumb {
   width: 20px;
 }
 
-input[type=range]:focus::-ms-fill-lower {
-  background: $color-primary;
-}
-
+input[type=range]:focus::-webkit-slider-runnable-track,
+input[type=range]:focus::-ms-fill-lower,
 input[type=range]:focus::-ms-fill-upper {
   background: $color-primary;
 }
