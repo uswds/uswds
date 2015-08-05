@@ -233,15 +233,3 @@ input[type=range]:focus::-moz-range-thumb {
 input[type=range]:focus::-ms-thumb {
   border: 2px solid $color-focus;
 }
-
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: $color-primary;
-}
-
-input[type=range]:focus::-ms-fill-lower {
-  background: $color-primary;
-}
-
-input[type=range]:focus::-ms-fill-upper {
-  background: $color-primary;
-}
