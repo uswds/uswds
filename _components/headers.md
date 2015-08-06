@@ -33,7 +33,7 @@ title: Headers & Navigation
   <img src="{{ site.baseurl }}/assets/img/static/HeaderNav_FullUI_v1-930width.png">
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <p>This is the usage content for the example.</p>

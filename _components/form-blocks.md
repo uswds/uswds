@@ -101,7 +101,7 @@ title: Forms Blocks
 
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <p>As you customize this form, ensure it continues to:</p>
@@ -149,7 +149,7 @@ title: Forms Blocks
 
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <ul>
@@ -193,7 +193,7 @@ title: Forms Blocks
   </form>
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <ul>
@@ -246,7 +246,7 @@ title: Forms Blocks
 
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <ul>
@@ -313,7 +313,7 @@ title: Forms Blocks
   </form>
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <ul>
@@ -365,7 +365,7 @@ title: Forms Blocks
   
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <ul>

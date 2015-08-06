@@ -381,14 +381,14 @@ header[role="banner"].usa-header-styleguide {
 // Search bar grid --------- //
 
 .preview-search-bar {
-  .usa-grid-box {
+  .usa-grid {
     padding: 0;
   }
 }
 
 // Custom styles to illustrate invisible grid for pattern library
 
-.usa-grid-box-example {
+.usa-grid-example {
   background: $color-grid-light;
 
   > * {
@@ -411,11 +411,11 @@ header[role="banner"].usa-header-styleguide {
   }
 }
 
-.usa-grid-box-example-blank {
+.usa-grid-example-blank {
   text-align: center;
 }
 
-.usa-grid-box-text {
+.usa-grid-text {
   background: $color-grid-dark;
 
   > * {
