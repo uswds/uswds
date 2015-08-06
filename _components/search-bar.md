@@ -6,7 +6,7 @@ title: Search Bar
 
 <div class="preview preview-search-bar">
 
-  <div class="usa-grid-box">
+  <div class="usa-grid">
     <div class="usa-width-one-half">
       <form class="usa-search usa-search-big">           
         <fieldset>
@@ -23,7 +23,7 @@ title: Search Bar
     </div>
   </div>
 
-  <div class="usa-grid-box">
+  <div class="usa-grid">
     <div class="usa-width-one-third">
       <form class="usa-search usa-search-medium">           
         <fieldset>
@@ -40,7 +40,7 @@ title: Search Bar
     </div>
   </div>
 
-  <div class="usa-grid-box">
+  <div class="usa-grid">
     <div class="usa-width-one-fourth">  
       <form class="usa-search usa-search-small">           
         <fieldset>
@@ -59,7 +59,7 @@ title: Search Bar
   
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <ul>
