@@ -6,7 +6,7 @@ title: Grids
 <div class="preview">
 
   <h3>Grid</h3>
-  <div class="usa-grid-box usa-grid-box-example usa-grid-box-example-blank">
+  <div class="usa-grid usa-grid-example usa-grid-example-blank">
     <div class="usa-width-one-whole">1/1</div>
     <div class="usa-width-one-half">1/2</div>
     <div class="usa-width-one-half usa-end-row">1/2</div>
@@ -38,7 +38,7 @@ title: Grids
   </div>
 
   <h3>Grid Examples</h3>
-  <div class="usa-grid-box usa-grid-box-example usa-grid-box-text">
+  <div class="usa-grid usa-grid-example usa-grid-text">
     <div class="usa-width-one-half">
       <h3>One Half</h3>
       <p>Synth polaroid occupy ennui sustainable, craft beer chambray viral church-key typewriter letterpress McSweeney's Etsy. Banh mi Brooklyn single-origin coffee, meditation swag sriracha artisan disrupt cliche sustainable selfies wayfarers. Hoodie iPhone occupy you probably haven't heard of them synth seitan four loko kale chips, wayfarers salvia literally. Squid sartorial fixie yr, retro normcore banjo hella typewriter cray lomo asymmetrical post-ironic mustache pickled. Ennui roof party health goth, next level Etsy letterpress polaroid mixtape.</p>
@@ -99,7 +99,7 @@ title: Grids
 
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <p>This is the usage content for the example.</p>
