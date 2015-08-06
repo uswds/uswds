@@ -33,7 +33,7 @@ title: Headers & Navigation
         <form class="usa-search usa-search-small">           
           <fieldset>
             <legend class="usa-sr-only">Search</legend>
-            <label for="search-field-small usa-sr-only">Search</label>
+            <label for="search-field-small">Search</label>
             <div class="usa-search-bar">
               <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
               <button class="usa-search-submit usa-search-submit-small" type="submit">

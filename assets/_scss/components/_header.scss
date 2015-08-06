@@ -34,4 +34,9 @@ header[role="banner"] {
       }
     }
   }
+  .usa-search-small {
+    label {
+      @include sr-only;
+    }
+  }
 }
