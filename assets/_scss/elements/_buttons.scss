@@ -41,7 +41,7 @@ input[type="image"] {
     background-color: $color-base-link;
   }
 
-  @media (min-width: $mobile-up) {
+  @media (min-width: $small-screen) {
     width: auto;
   }  
 }

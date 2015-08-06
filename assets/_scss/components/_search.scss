@@ -11,7 +11,7 @@ $usa-btn-big-width:     11.6rem;
 }
 
 @mixin usa-search-submit-default {
-  @include media($mobile-up) {
+  @include media($small-screen) {
     background-image: none;
     width: $usa-btn-medium-width;
   }
@@ -19,7 +19,7 @@ $usa-btn-big-width:     11.6rem;
   .usa-search-submit-text {
     display: none;
 
-    @include media($mobile-up) {
+    @include media($small-screen) {
       display: block;
     }
   }
@@ -59,11 +59,11 @@ button[type="submit"].usa-search-submit {
 }
 
 button[type="submit"].usa-search-submit-big {
-  @include media($mobile-up) {
+  @include media($small-screen) {
     @include usa-search-submit-default;
   }
 
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     width: $usa-btn-big-width;
   }
 }
@@ -72,7 +72,7 @@ button[type="submit"].usa-search-submit-small {
   @include usa-search-submit-small;
 }
 
-@include media($mobile-up) {
+@include media($small-screen) {
   input[type="search"] {
     width: calc(100% - #{$usa-btn-medium-width});
   }
@@ -82,7 +82,7 @@ button[type="submit"].usa-search-submit-small {
   }   
 }
 
-@include media($tablet-up) {
+@include media($medium-screen) {
   input[type="search"].usa-search-input-big {
     height: 4.4rem;    
     width: calc(100% - #{$usa-btn-big-width});    

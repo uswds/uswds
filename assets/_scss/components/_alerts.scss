@@ -13,7 +13,7 @@
     }
   }
 
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     background-size: 5.2rem;
   }
 }
@@ -28,7 +28,7 @@
   padding-left: 2rem;
   vertical-align: top;
 
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     padding-left: 5rem;
   }
 }

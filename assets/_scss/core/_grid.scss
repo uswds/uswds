@@ -3,7 +3,7 @@
   @include outer-container();
   max-width: $site-max-width;
 
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     .usa-width-one-whole {
       @include span-columns(12);
     }

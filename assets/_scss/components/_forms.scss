@@ -1,7 +1,7 @@
 $usa-form-width: 32rem;
 
 form {
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     max-width: $usa-form-width;
   }
 
@@ -11,7 +11,7 @@ form {
 
   button[type="submit"],
   input[type="submit"] {
-    @include media($tablet-up) {
+    @include media($medium-screen) {
       padding: {
         left: 2.7em;
         right: 2.7em;
@@ -51,37 +51,37 @@ legend {
 }
 
 .usa-form-large {
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     max-width: 46rem;
   }
 }
 
 input.usa-input-tiny {
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     max-width: 6rem;
   }
 }
 
 input.usa-input-medium {
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     max-width: 12rem;
   }
 }
 
 .usa-input-grid {
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     padding-right: 5%;
   }
 }
 
 .usa-input-grid:last-of-type {
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     padding-right: 0;
   }
 }
 
 .usa-input-grid-small {
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     float: left;
     width: 35%;
   }
@@ -100,7 +100,7 @@ input.usa-input-medium {
 }
 
 .usa-input-grid-medium {
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     float: left;
     width: 65%;
   }
@@ -119,7 +119,7 @@ input.usa-input-medium {
 }
 
 .usa-input-grid-large {
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     float: left;
     width: 100%;
   }
