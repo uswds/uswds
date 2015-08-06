@@ -13,7 +13,6 @@ header[role="banner"] {
   .usa-header-title {
     float: left;
     font-size: 2.1rem;
-    line-height: 45px;
     margin: 0;
     padding-left: 20px;
   }
@@ -30,7 +29,7 @@ header[role="banner"] {
         font-family: $font-sans;
         font-size: $h3-font-size;
       }
-      @include media($tablet-up) {
+      @include media($medium-screen) {
         display: block;
       }
     }
