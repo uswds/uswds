@@ -12,7 +12,7 @@ title: Headers & Navigation
     <a href="#" id="menu-btn">&#9776; MENU</a>
     <div id="logo">
       <a href="javascript:void(0)" accesskey="1" aria-label="Home">
-        <h1>Name of Agency</h1>
+        <h1 class="usa-header-title">Name of Agency</h1>
       </a>
     </div>
     <nav role="navigation">

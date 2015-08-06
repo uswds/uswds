@@ -42,7 +42,7 @@ a#skipnav {
   }
 }
 
-header[role="banner"] {
+header[role="banner"].usa-header-styleguide {
   background-color: $color-grey-900;
   z-index: 1;
   a {
@@ -86,7 +86,7 @@ header[role="banner"] {
     font-size: $base-font-size / 1.25;
     border-bottom: 1px solid $color-grey-700;
     font-weight: 100;
-    .us-official { 
+    .usa-official { 
       margin: 0;
     }
     .stage {
@@ -96,7 +96,7 @@ header[role="banner"] {
       padding-top: 5px;
     }
     @include media($tablet-up + $width-nav-sidebar) {
-      .us-official { 
+      .usa-official { 
         margin-left: 177px; 
       }
       .stage { 
