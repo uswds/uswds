@@ -14,28 +14,35 @@ header[role="banner"] {
     float: left;
     font-size: 2.1rem;
     margin: 0;
-    padding-left: 20px;
   }
   nav {
-    height: 45px;
-    line-height: 45px;
     ul {
-      padding-right: 20px;
       display: none;
       li { 
         display: inline; 
-        margin-left: 15px;
+        margin-right: 2em;
         font-family: $font-sans;
         font-size: $h3-font-size;
+        &:last-child {
+          margin-left: 0;
+        }
       }
       @include media($medium-screen) {
         display: block;
+      }
+    }
+    .usa-nav-list {
+      @include media($medium-screen) {
+        padding-top: 2.6rem;
       }
     }
   }
   .usa-search-small {
     label {
       @include sr-only;
+    }
+    @include media($medium-screen) {
+      padding-top: .6rem;
     }
   }
   .usa-search-submit,
