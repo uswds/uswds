@@ -147,7 +147,7 @@ dfn {
   @include h3();
   margin-bottom: 0;
 
-  @media (min-width: $mobile-up) {
+  @media (min-width: $small-screen) {
     @include h1();
   }
 
