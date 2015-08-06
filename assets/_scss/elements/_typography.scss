@@ -147,11 +147,11 @@ dfn {
   @include h3();
   margin-bottom: 0;
 
-  @media (min-width: $mobile-up) {
+  @media (min-width: $small-screen) {
     @include h1();
   }
 
-  @media (min-width: $tablet-up) {
+  @media (min-width: $medium-screen) {
     @include title();
   }
 }
