@@ -63,7 +63,7 @@ button[type="submit"].usa-search-submit-big {
     @include usa-search-submit-default;
   }
 
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     width: $usa-btn-big-width;
   }
 }
@@ -82,7 +82,7 @@ button[type="submit"].usa-search-submit-small {
   }   
 }
 
-@include media($tablet-up) {
+@include media($medium-screen) {
   input[type="search"].usa-search-input-big {
     height: 4.4rem;    
     width: calc(100% - #{$usa-btn-big-width});    

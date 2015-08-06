@@ -151,7 +151,7 @@ dfn {
     @include h1();
   }
 
-  @media (min-width: $tablet-up) {
+  @media (min-width: $medium-screen) {
     @include title();
   }
 }

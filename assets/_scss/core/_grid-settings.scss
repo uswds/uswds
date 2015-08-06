@@ -2,9 +2,9 @@
 
 // Mobile First Breakpoints
 $small-screen:         481px;
-$tablet-up:         600px;
-$widescreen-up:     1201px;
+$medium-screen:         600px;
+$large-screen:     1201px;
 
-$large: new-breakpoint(min-width $widescreen-up 12);
-$medium: new-breakpoint(min-width $tablet-up 2);
+$large: new-breakpoint(min-width $large-screen 12);
+$medium: new-breakpoint(min-width $medium-screen 2);
 $small: new-breakpoint(min-width $small-screen 1);

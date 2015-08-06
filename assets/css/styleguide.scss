@@ -16,7 +16,7 @@ $color-grid-light:   #e3e4e5;
 // Generic -------------- //
 
 .tablet-only {
-  @media (min-width: $tablet-up + $width-nav-sidebar) {
+  @media (min-width: $medium-screen + $width-nav-sidebar) {
     display: none !important;
   }
 }
@@ -60,7 +60,7 @@ header[role="banner"] {
       padding-left: 20px;
       font-size: $base-font-size * 1.25;
       display: none;
-      @include media($tablet-up + $width-nav-sidebar) {
+      @include media($medium-screen + $width-nav-sidebar) {
         display: block;
       }
     }
@@ -73,7 +73,7 @@ header[role="banner"] {
         margin-left: 15px;
         font-family: $font-sans;
       }
-      @include media($tablet-up + $width-nav-sidebar) {
+      @include media($medium-screen + $width-nav-sidebar) {
         display: block;
       }
     }
@@ -95,7 +95,7 @@ header[role="banner"] {
       display: block;
       padding-top: 5px;
     }
-    @include media($tablet-up + $width-nav-sidebar) {
+    @include media($medium-screen + $width-nav-sidebar) {
       .us-official { 
         margin-left: 177px; 
       }
@@ -111,13 +111,13 @@ header[role="banner"] {
 #menu-btn {
   display: inline;
   padding-left: 20px;
-  @include media($tablet-up + $width-nav-sidebar) {
+  @include media($medium-screen + $width-nav-sidebar) {
     display: none;
   }
 }
 
 #menu-content {
-  @media (max-width: $tablet-up + $width-nav-sidebar) {
+  @media (max-width: $medium-screen + $width-nav-sidebar) {
     $sliding-panel-width: 220px;
 
     @include position(fixed, 0 auto 0 0);
@@ -168,7 +168,7 @@ header[role="banner"] {
     width: 25%;
   }
 
-  @include media($tablet-up + $width-nav-sidebar) {
+  @include media($medium-screen + $width-nav-sidebar) {
     display: block;
   }
 
@@ -251,7 +251,7 @@ header[role="banner"] {
     width: 75%;
   }
 
-  @include media($tablet-up + $width-nav-sidebar) {
+  @include media($medium-screen + $width-nav-sidebar) {
     width: calc(100% - #{$width-nav-sidebar});
     .lt-ie9 & {
       width: 75%;
@@ -275,7 +275,7 @@ header[role="banner"] {
       margin-top: 2em;
     }
   }
-  @media (min-width: $tablet-up + $width-nav-sidebar) {
+  @media (min-width: $medium-screen + $width-nav-sidebar) {
     padding: {
       left: 2em;
       right: 2em;
@@ -402,7 +402,7 @@ header[role="banner"] {
   }
 
   .usa-width-one-twelfth {
-    @include media($tablet-up) {
+    @include media($medium-screen) {
       padding: {
         left: 0;
         right: 0;
