@@ -6,7 +6,7 @@ title: Headers & Navigation
 
 <div class="preview">
 
-  <h3>Header Nav Simple</h3>
+  <h2>Header Nav Simple</h2>
 
   <header role="banner">
     <a href="#" id="menu-btn">&#9776; MENU</a>
@@ -15,8 +15,8 @@ title: Headers & Navigation
         <h1 class="usa-header-title">Name of Agency</h1>
       </a>
     </div>
-    <nav role="navigation">
-      <ul class="usa-unstyled-list">
+    <nav class="usa-nav-primary" role="navigation">
+      <ul class="usa-nav-list usa-unstyled-list">
         <li>
           <a href="javascript:void(0)">Nav Link 1</a>
         </li>
@@ -28,6 +28,18 @@ title: Headers & Navigation
         </li>
       </ul>
     </nav>
+    <form class="usa-search usa-search-small">           
+      <fieldset>
+        <legend class="usa-sr-only">Search</legend>
+        <label for="search-field-small">Search Small</label>
+        <div class="usa-search-bar">
+          <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
+          <button class="usa-search-submit usa-search-submit-small" type="submit">
+            <span class="usa-sr-only">Search</span>
+          </button>
+        </div>
+      </fieldset>
+    </form>
   </header>
 
   <img src="{{ site.baseurl }}/assets/img/static/HeaderNav_FullUI_v1-930width.png">
