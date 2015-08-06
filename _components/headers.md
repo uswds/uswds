@@ -11,20 +11,20 @@ title: Headers & Navigation
   <header role="banner">
     <a href="#" id="menu-btn">&#9776; MENU</a>
     <div id="logo">
-      <a href="#" accesskey="1" aria-label="Home">
+      <a href="javascript:void(0)" accesskey="1" aria-label="Home">
         <h1>Name of Agency</h1>
       </a>
     </div>
     <nav role="navigation">
       <ul class="usa-unstyled-list">
         <li>
-          <a href="#">Nav Link 1</a>
+          <a href="javascript:void(0)">Nav Link 1</a>
         </li>
         <li>
-          <a href="#">Nav Link 2</a>
+          <a href="javascript:void(0)">Nav Link 2</a>
         </li>
         <li>
-          <a href="#">Nav Link 3</a>
+          <a href="javascript:void(0)">Nav Link 3</a>
         </li>
       </ul>
     </nav>
