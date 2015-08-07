@@ -71,6 +71,14 @@ select {
   }
 }
 
+// Hint text
+
+.usa-form-hint {
+  color: $color-grey-600;
+  font-family: $font-sans;
+  margin-bottom: 0;
+}
+
 /**
  * Custom checkboxes
  */
@@ -233,3 +241,36 @@ input[type=range]:focus::-moz-range-thumb {
 input[type=range]:focus::-ms-thumb {
   border: 2px solid $color-focus;
 }
+
+// Memorable dates
+
+.usa-date-of-birth {
+  label {
+    margin-top: 1em;
+  }
+
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0; 
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+
+.usa-form-group-day, 
+.usa-form-group-month, 
+.usa-form-group-year {
+  float: left;
+  clear: none;
+  margin-right: 1.5rem;
+  width: 5rem;
+}
+
+.usa-form-group-year {
+  width: 7rem;
+}
+
