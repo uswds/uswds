@@ -36,12 +36,14 @@ header[role="banner"] {
         display: block;
       }
     }
+    
     .usa-nav-list {
       @include media($medium-screen) {
         padding-top: 2.6rem;
       }
     }
   }
+  
   .usa-search-small {
     label {
       @include sr-only;
