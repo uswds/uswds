@@ -23,9 +23,9 @@ header[role="banner"] {
       
       li { 
         display: inline; 
-        margin-right: 2em;
         font-family: $font-sans;
         font-size: $h3-font-size;
+        margin-right: 2em;
         
         &:last-child {
           margin-left: 0;
@@ -63,8 +63,8 @@ header[role="banner"] {
   
   a {
     border: none;
+    font-family: $font-sans;
     padding-left: 1em;
-    font-family: $font-sans;    
   }
   
   .usa-current-page {
