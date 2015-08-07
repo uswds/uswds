@@ -154,6 +154,12 @@ input[type="radio"]:disabled + label::before {
   label {
     margin-top: 1em;
   }
+
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+      appearance: none;
+      margin: 0; 
+  }  
 }
 
 .usa-form-group-day, 
