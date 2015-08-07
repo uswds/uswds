@@ -102,10 +102,10 @@ input[type="radio"] + label::before {
   width: 1.8rem;
 }
 
-input[type="radio"] + label::before {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 3px #757575;
-  height: 1.6rem;
-  width: 1.6rem;
+input[type="radio"] + label::before {  
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3px $color-grey-600;
+  height: 1.6rem;  
+  width: 1.6rem;  
 }
 
 input[type="radio"] + label::before {
@@ -138,4 +138,98 @@ input[type="radio"]:disabled + label::before {
   background: $color-grey-600;
   color: $color-grey-600;
   cursor: not-allowed;
+}
+
+// Range inputs
+
+input[type=range] {
+  -webkit-appearance: none;
+  border: none;
+  padding-left: 0;
+  width: 100%;
+}
+
+input[type=range]:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: $color-primary;
+  border: 1px solid $color-grey-600;
+  border-radius: 1rem;
+  cursor: pointer;
+  height: .9rem;
+  width: 100%;
+}
+
+input[type=range]::-moz-range-track {
+  background: $color-primary;
+  border: 1px solid $color-grey-600;
+  border-radius: 1rem;
+  cursor: pointer;
+  height: .9rem;
+  width: 100%;
+}
+
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+  cursor: pointer;
+  height: .9rem;
+  width: 100%;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid $color-grey-600;
+  height: 2rem;
+  border-radius: 1.5rem;
+  background: $color-grey-200;
+  cursor: pointer;
+  margin-top: -.65rem;  
+  width: 2rem;
+}
+
+input[type=range]::-moz-range-thumb {
+  background: $color-grey-200;
+  border: 1px solid $color-grey-600;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+}
+
+input[type=range]::-ms-thumb {
+  background: $color-grey-200;
+  border: 1px solid $color-grey-600;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: $color-primary;
+  border: 1px solid $color-grey-600;
+  border-radius: 2rem;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: $color-primary;
+  border: 1px solid $color-grey-600;
+  border-radius: 2rem;
+}
+
+input[type=range]:focus::-webkit-slider-thumb {
+  border: 2px solid $color-focus;
+}
+
+input[type=range]:focus::-moz-range-thumb {
+  border: 2px solid $color-focus;
+}
+
+input[type=range]:focus::-ms-thumb {
+  border: 2px solid $color-focus;
 }

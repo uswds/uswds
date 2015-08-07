@@ -98,8 +98,10 @@ title: Inputs
 <h2>Range slider</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Range_Slider_UI_v1.png">
+
+  <label for="range-slider">Range Slider Label h4</label>
+  <input id="range-slider" type="range" min="0" max="100">
+
 </div>
 
 <h2>Dropdown</h2>
