@@ -46,6 +46,26 @@ title: Headers & Navigation
     </div>
   </header>
 
+  <h2>Side Nav</h2>
+
+  <div class="usa-grid">
+    <aside class="side_nav usa-width-one-sixth">
+      <ul class="usa-nav-list usa-unstyled-list">
+        <li>
+          <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">Secondary link</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">Secondary link</a>
+        </li>
+      </ul>
+    </aside>
+    <main class="usa-width-five-sixths">
+    </main>
+  </div>
+
   <img src="{{ site.baseurl }}/assets/img/static/HeaderNav_FullUI_v1-930width.png">
 </div>
 
