@@ -129,10 +129,7 @@ title: Inputs
 <div class="preview">
 
   <fieldset>
-    <legend>
-      Date of birth
-      <span class="usa-validation-message"></span>
-    </legend>
+    <legend>Date of birth</legend>
     <div class="usa-date-of-birth">
       <p class="usa-form-hint usa-datefield-hint" id="dobHint">For example: 04 28 1986</p>
       <div class="usa-datefield usa-form-group usa-form-group-month">
