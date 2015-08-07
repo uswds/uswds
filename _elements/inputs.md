@@ -121,6 +121,34 @@ title: Inputs
   <img src="{{ site.baseurl }}/assets/img/static/Date_Picker_UI_v1.png">
 </div>
 
+<h2>Memorable Dates</h2>
+
+<div class="preview">
+
+  <fieldset>
+    <legend>
+      Date of birth
+      <span class="validation-message"></span>
+    </legend>
+    <div class="date-of-birth">
+      <p class="form-hint datefield-hint" id="dobHint">eg 04 28 1996</p>
+      <div class="datefield form-group form-group-month">
+        <label for="date_of_birth_2i">Month</label>
+        <input aria-describedby="dobHint" class="form-control" id="date_of_birth_2i" max="12" min="1" name="[date_of_birth(2i)]" pattern="[0-9]*" type="number" value="">
+      </div>
+      <div class="datefield form-group form-group-day">
+        <label for="date_of_birth_3i">Day</label>
+        <input aria-describedby="dobHint" class="form-control" id="date_of_birth_3i" max="31" min="1" name="[date_of_birth(3i)]" pattern="[0-9]*" type="number" value="">
+      </div>
+      <div class="datefield form-group form-group-year">
+        <label for="date_of_birth_1i">Year</label>
+        <input aria-describedby="dobHint" class="form-control" id="date_of_birth_1i" max="2000" min="1900" name="[date_of_birth(1i)]" pattern="[0-9]*" type="number" value="">
+      </div>
+    </div>
+  </fieldset>
+
+</div>
+
 <div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
