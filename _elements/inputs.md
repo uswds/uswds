@@ -142,7 +142,7 @@ title: Inputs
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-year">
         <label for="date_of_birth_3">Year</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3" max="2000" min="1900" name="date_of_birth_3" pattern="[0-9]*" type="number" value="">
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3" max="2015" min="1900" name="date_of_birth_3" pattern="[0-9]*" type="number" value="">
       </div>
     </div>
   </fieldset>
