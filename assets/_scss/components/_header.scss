@@ -5,27 +5,33 @@ header[role="banner"] {
     top: 3rem;
   }
   z-index: 1;
+  
   a {
     border-bottom: none;
     color: $color-base-link;
   }
+  
   .usa-header-title {
     float: left;
     font-size: 2.1rem;
     margin: 0;
   }
+  
   nav {
     ul {
       display: none;
+      
       li { 
         display: inline; 
         margin-right: 2em;
         font-family: $font-sans;
         font-size: $h3-font-size;
+        
         &:last-child {
           margin-left: 0;
         }
       }
+      
       @include media($medium-screen) {
         display: block;
       }
@@ -40,10 +46,12 @@ header[role="banner"] {
     label {
       @include sr-only;
     }
+    
     @include media($medium-screen) {
       padding-top: .6rem;
     }
   }
+  
   .usa-search-submit,
   .usa-search-input-small {
     margin-bottom: 0;
@@ -52,17 +60,20 @@ header[role="banner"] {
 
 .side_nav {
   border-right: 1px solid $color-grey-500;
+  
   a {
     border: none;
     padding-left: 1em;
     font-family: $font-sans;    
   }
+  
   .usa-current-page {
     border-left: 4px solid $color-base-link;
     color: $color-base-link;
     font-weight: $font-bold;
     padding-left: .6em;
   }
+  
   li {
     padding: .3em 0;
   }
