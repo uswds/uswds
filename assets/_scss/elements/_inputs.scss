@@ -71,6 +71,14 @@ select {
   }
 }
 
+// Hint text
+
+.usa-form-hint {
+  color: $color-grey-600;
+  font-family: $font-sans;
+  margin-bottom: 0;
+}
+
 /**
  * Custom checkboxes
  */
@@ -148,7 +156,6 @@ input[type="radio"]:disabled + label::before {
   }
 }
 
-
 .usa-form-group-day, 
 .usa-form-group-month, 
 .usa-form-group-year {
@@ -160,10 +167,4 @@ input[type="radio"]:disabled + label::before {
 
 .usa-form-group-year {
   width: 7rem;
-}
-
-.usa-form-hint {
-  color: $color-grey-600;
-  font-family: $font-sans;
-  margin-bottom: 0;
 }
