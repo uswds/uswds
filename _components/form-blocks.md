@@ -13,7 +13,10 @@ title: Forms Blocks
 <ul>
   <li>Form controls should appear in the same  order in the HTML as they do on the screen. Do not use CSS to rearrange the form controls so they are in a different order. Screen readers narrate forms in the order they appear in the HTML, not on screen.</li>
   <li>Visually align validation messages are with the input fields, so people using screen magnifiers can read them quickly.</li>
-  <li>Group each set of thematically related controls in a "fieldset" element. Use the "legend" element to offer a label within each one. The fieldset and legend element makes it easier for screen reader users to navigate the form. </li>
+  <li>Group each set of thematically related controls in a "fieldset" element. Use the "legend" element to offer a label within each one. The fieldset and legend element makes it easier for screen reader users to navigate the form.</li>
+  <li>A single legend is always required for fieldset. For example, a question with radio button options for answer is a good example of fieldset and legend. The whole group is wrapped in a fieldset with the question itself being the legend</li>
+  <li>You can embed multiple fieldsets and legends for more complex forms.</li>
+  <li>Keep your form blocks in a vertical pattern. It is an ideal approach for accessibility, due to limited vision that makes it hard to scan from right to left.</li>
 </ul>
 
 <div class="preview">
@@ -324,6 +327,9 @@ title: Forms Blocks
   </div>
   <div class="usa-width-one-half">
     <h3>Accessibility</h3>
+    <ul>
+      <li>Using aria-describedby is a good way to associate the password strength information with the field.</li>
+    </ul>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul>
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
