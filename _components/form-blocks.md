@@ -296,8 +296,8 @@ title: Forms Blocks
       <input id="password" name="password" type="password"
         class="js-validate_password"
         data-validate-length=".{8,}"
-        data-validate-uppercase="b"
-        data-validate-numerical="^.*[a-zA-z].*\d.*"
+        data-validate-uppercase="[A-Z]"
+        data-validate-numerical="\d"
         data-validation-element="#validation_list">
       <p class="usa-form-note">
         Password strength
