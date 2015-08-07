@@ -111,7 +111,7 @@ header[role="banner"] {
   }
 }
 
-#menu-btn {
+.usa-styleguide-menu-btn {
   display: inline;
   padding-left: 20px;
   @include media($medium-screen + $width-nav-sidebar) {

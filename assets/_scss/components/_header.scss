@@ -60,6 +60,14 @@ header[role="banner"] {
   }
 }
 
+.usa-menu-btn {
+  @include media($medium-screen) {
+    display: none;
+  }
+  display: inline;
+  padding-left: 1rem;
+}
+
 .side_nav {
   border-right: 1px solid $color-grey-500;
   
