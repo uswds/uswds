@@ -128,21 +128,21 @@ title: Inputs
   <fieldset>
     <legend>
       Date of birth
-      <span class="validation-message"></span>
+      <span class="usa-validation-message"></span>
     </legend>
-    <div class="date-of-birth">
-      <p class="form-hint datefield-hint" id="dobHint">eg 04 28 1996</p>
-      <div class="datefield form-group form-group-month">
+    <div class="usa-date-of-birth">
+      <p class="usa-form-hint usa-datefield-hint" id="dobHint">eg 04 28 1996</p>
+      <div class="usa-datefield usa-form-group usa-form-group-month">
         <label for="date_of_birth_2i">Month</label>
-        <input aria-describedby="dobHint" class="form-control" id="date_of_birth_2i" max="12" min="1" name="[date_of_birth(2i)]" pattern="[0-9]*" type="number" value="">
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_2i" max="12" min="1" name="[date_of_birth(2i)]" pattern="[0-9]*" type="number" value="">
       </div>
-      <div class="datefield form-group form-group-day">
+      <div class="usa-datefield usa-form-group usa-form-group-day">
         <label for="date_of_birth_3i">Day</label>
-        <input aria-describedby="dobHint" class="form-control" id="date_of_birth_3i" max="31" min="1" name="[date_of_birth(3i)]" pattern="[0-9]*" type="number" value="">
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3i" max="31" min="1" name="[date_of_birth(3i)]" pattern="[0-9]*" type="number" value="">
       </div>
-      <div class="datefield form-group form-group-year">
+      <div class="usa-datefield usa-form-group usa-form-group-year">
         <label for="date_of_birth_1i">Year</label>
-        <input aria-describedby="dobHint" class="form-control" id="date_of_birth_1i" max="2000" min="1900" name="[date_of_birth(1i)]" pattern="[0-9]*" type="number" value="">
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1i" max="2000" min="1900" name="[date_of_birth(1i)]" pattern="[0-9]*" type="number" value="">
       </div>
     </div>
   </fieldset>

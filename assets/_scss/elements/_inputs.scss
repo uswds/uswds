@@ -139,3 +139,18 @@ input[type="radio"]:disabled + label::before {
   color: $color-grey-600;
   cursor: not-allowed;
 }
+
+// Memorable dates
+
+.usa-form-group-day, 
+.usa-form-group-month, 
+.usa-form-group-year {
+  float: left;
+  margin-right: 2rem;
+  clear: none;
+  width: 5.5rem;
+}
+
+.usa-form-group-year {
+  width: 7rem;
+}
