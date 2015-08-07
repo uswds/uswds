@@ -9,7 +9,7 @@ title: Headers & Navigation
   <h2>Header Nav Simple</h2>
 
   <header role="banner">
-    <a href="#" id="menu-btn">&#9776; MENU</a>
+    <a href="#" id="menu-btn">MENU</a>
     <div class="usa-grid">
       <div class="usa-width-one-sixth" id="logo">
         <a href="javascript:void(0)" accesskey="1" aria-label="Home">

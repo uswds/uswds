@@ -19,6 +19,10 @@ header[role="banner"] {
   
   nav {
     ul {
+      @include media($medium-screen) {
+        display: block;
+      }
+
       display: none;
       
       li { 
@@ -31,10 +35,6 @@ header[role="banner"] {
           margin-right: 0;
         }
       }
-      
-      @include media($medium-screen) {
-        display: block;
-      }
     }
     
     .usa-nav-list {
@@ -45,12 +45,12 @@ header[role="banner"] {
   }
   
   .usa-search-small {
-    label {
-      @include sr-only;
-    }
-    
     @include media($medium-screen) {
       padding-top: .6rem;
+    }
+
+    label {
+      @include sr-only;
     }
   }
   
