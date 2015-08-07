@@ -133,16 +133,16 @@ title: Inputs
     <div class="usa-date-of-birth">
       <p class="usa-form-hint usa-datefield-hint" id="dobHint">eg 04 28 1996</p>
       <div class="usa-datefield usa-form-group usa-form-group-month">
-        <label for="date_of_birth_2i">Month</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_2i" max="12" min="1" name="[date_of_birth(2i)]" pattern="[0-9]*" type="number" value="">
+        <label for="date_of_birth_1">Month</label>
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1" max="12" min="1" name="date_of_birth_1" pattern="[0-9]*" type="number" value="">
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-day">
-        <label for="date_of_birth_3i">Day</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3i" max="31" min="1" name="[date_of_birth(3i)]" pattern="[0-9]*" type="number" value="">
+        <label for="date_of_birth_2">Day</label>
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_2" max="31" min="1" name="date_of_birth_2" pattern="[0-9]*" type="number" value="">
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-year">
-        <label for="date_of_birth_1i">Year</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1i" max="2000" min="1900" name="[date_of_birth(1i)]" pattern="[0-9]*" type="number" value="">
+        <label for="date_of_birth_3">Year</label>
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3" max="2000" min="1900" name="date_of_birth_3" pattern="[0-9]*" type="number" value="">
       </div>
     </div>
   </fieldset>
