@@ -17,8 +17,8 @@ title: Headers & Navigation
             <h1 class="usa-header-title">Name of Agency</h1>
           </a>
         </div>
-        <button class="usa-search-submit usa-search-submit-small usa-search-submit-header" type="submit">
-        </button>
+        <a class="usa-search-trigger" href="#">
+        </a>
         <nav class="usa-nav-primary usa-width-one-half" role="navigation">
           <ul class="usa-nav-list usa-unstyled-list">
             <li>
@@ -33,7 +33,7 @@ title: Headers & Navigation
           </ul>
         </nav>
       </div>
-      <div  class="usa-search-container usa-width-one-third">
+      <div class="usa-search-container usa-width-one-third">
         <form class="usa-search usa-search-small">           
           <fieldset>
             <legend class="usa-sr-only">Search</legend>
@@ -53,7 +53,7 @@ title: Headers & Navigation
   <h2>Side Nav</h2>
 
   <div class="usa-grid">
-    <aside class="side_nav usa-width-one-sixth">
+    <aside class="side_nav usa-width-one-fourth">
       <ul class="usa-nav-list usa-unstyled-list">
         <li>
           <a class="usa-current-page" href="javascript:void(0)">Current page</a>
@@ -66,7 +66,7 @@ title: Headers & Navigation
         </li>
       </ul>
     </aside>
-    <main class="usa-width-five-sixths">
+    <main class="usa-width-three-fourths">
     </main>
   </div>
 

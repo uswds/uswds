@@ -17,15 +17,16 @@ header[role="banner"] {
   }
   
   .usa-nav-group {
-    text-align: center;
+//    text-align: center;
   }
 
   .usa-logo-block {
-//    @include media($medium-screen) {
-//     display: block;
-//    }
+    @include media($medium-screen) {
+      @include span-columns(2);
+    }
     display: block;
     float: left;
+    width: calc(100% - 10rem);
   }
 
   .usa-search-container {
@@ -41,16 +42,32 @@ header[role="banner"] {
   }
   
   .usa-header-title {
+    @include media($medium-screen) {
+      line-height: normal;
+      padding-left: 0;
+    }
     font-size: 2.1rem;
+    line-height: 5rem;
     margin: 0;
+    padding-left: 10%;
   }
 
-  button[type="submit"].usa-search-submit-header {
+  .usa-search-trigger {
+    @include media($medium-screen) {
+      display: none;
+    }
+    background-color: $color-base-link;
+    background-image: url("../img/search.png");
+    background-image: url("../img/search.svg");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 60%;    
     border-radius: 0;
     display: block;
+    float: right;
     margin: 0;
-    position: relative;
-    right: 0;
+    width: 5rem;
+    height: 5rem;
   }
   
   nav {
@@ -65,7 +82,7 @@ header[role="banner"] {
         display: inline; 
         font-family: $font-sans;
         font-size: $h3-font-size;
-        margin-right: 2em;
+        margin-right: 5%;
         
         &:last-child {
           margin-right: 0;
@@ -103,8 +120,11 @@ header[role="banner"] {
   background-color: $color-base-link;
   color: $color-white !important;
   display: block;
+  height: 5rem;
   float: left;
-  padding: 1rem;
+  line-height: 5rem;
+  text-align: center;
+  width: 5rem;
 }
 
 .side_nav {
@@ -113,17 +133,21 @@ header[role="banner"] {
   a {
     border: none;
     font-family: $font-sans;
-    padding-left: 1em;
+    padding: {
+      bottom: .5em;
+      left: 1.8rem;
+      top: .5em;
+    }
   }
   
   .usa-current-page {
     border-left: 4px solid $color-base-link;
     color: $color-base-link;
     font-weight: $font-bold;
-    padding-left: .6em;
+    padding-left: 1.4rem;
   }
   
   li {
-    padding: .3em 0;
+    padding: .5em 0;
   }
 }
