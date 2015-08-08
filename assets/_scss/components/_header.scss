@@ -1,20 +1,56 @@
 header[role="banner"] {
-  background-color: $color-white;
-  padding: {
-    bottom: 2rem;
-    top: 3rem;
+  @include media($medium-screen) {
+    padding: {
+      bottom: 2rem;
+      top: 3rem;
+    }    
   }
+  background-color: $color-white;
   z-index: 1;
+
+  .usa-grid {
+    padding: 0;
+
+    @include media($medium-screen) {
+      padding: 0 2.5rem;
+    }
+  }
   
+  .usa-nav-group {
+    text-align: center;
+  }
+
+  .usa-logo-block {
+//    @include media($medium-screen) {
+//     display: block;
+//    }
+    display: block;
+    float: left;
+  }
+
+  .usa-search-container {
+    @include media($medium-screen) {
+      clear: none;
+    }
+    clear: both;
+  }
+
   a {
     border-bottom: none;
     color: $color-base-link;
   }
   
   .usa-header-title {
-    float: left;
     font-size: 2.1rem;
     margin: 0;
+  }
+
+  button[type="submit"].usa-search-submit-header {
+    border-radius: 0;
+    display: block;
+    margin: 0;
+    position: relative;
+    right: 0;
   }
   
   nav {
@@ -64,8 +100,11 @@ header[role="banner"] {
   @include media($medium-screen) {
     display: none;
   }
-  display: inline;
-  padding-left: 1rem;
+  background-color: $color-base-link;
+  color: $color-white !important;
+  display: block;
+  float: left;
+  padding: 1rem;
 }
 
 .side_nav {
