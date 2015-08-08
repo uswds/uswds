@@ -5,7 +5,7 @@ header[role="banner"] {
       top: 3rem;
     }    
   }
-  background-color: $color-white;
+  background-color: $color-grey-800;
   z-index: 1;
 
   .usa-grid {
@@ -14,10 +14,6 @@ header[role="banner"] {
     @include media($medium-screen) {
       padding: 0 2.5rem;
     }
-  }
-  
-  .usa-nav-group {
-//    text-align: center;
   }
 
   .usa-logo-block {
@@ -38,18 +34,24 @@ header[role="banner"] {
 
   a {
     border-bottom: none;
-    color: $color-base-link;
+    color: $color-white;
+    font-weight: $font-bold;
   }
   
   .usa-header-title {
     @include media($medium-screen) {
       line-height: normal;
-      padding-left: 0;
+      padding: {
+        left: 0;
+        top: 0;
+      }
     }
     font-size: 2.1rem;
-    line-height: 5rem;
     margin: 0;
-    padding-left: 10%;
+    padding: {
+      left: 10%;
+      top: 1.5rem;
+    }
   }
 
   .usa-search-trigger {
@@ -92,7 +94,7 @@ header[role="banner"] {
     
     .usa-nav-list {
       @include media($medium-screen) {
-        padding-top: 2.6rem;
+        padding-top: 2.8rem;
       }
     }
   }
@@ -111,6 +113,13 @@ header[role="banner"] {
   .usa-search-input-small {
     margin-bottom: 0;
   }
+
+  .usa-search-submit {
+    background-color: $color-primary;
+    &:hover {
+      background-color: $color-primary-darker;
+    }
+  }
 }
 
 .usa-menu-btn {
@@ -127,9 +136,9 @@ header[role="banner"] {
   width: 5rem;
 }
 
-.side_nav {
-  border-right: 1px solid $color-grey-500;
-  
+// Side Nav
+
+.side_nav {  
   a {
     border: none;
     font-family: $font-sans;

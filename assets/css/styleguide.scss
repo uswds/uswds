@@ -43,14 +43,13 @@ a#skipnav {
 }
 
 header[role="banner"] {
-  border: 1px solid $color-grey-900;
   &.usa-header-styleguide {
     background-color: $color-grey-900;
-    border: none;
     padding: 0;
     a {
       border-bottom: none;
       color: white;
+      font-weight: $font-normal;
     }
     nav {
       height: 45px;
