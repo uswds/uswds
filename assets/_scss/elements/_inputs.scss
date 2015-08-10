@@ -163,7 +163,7 @@ input[type=range]:focus {
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-  background: $color-primary;
+  background: $color-grey-400;
   border: 1px solid $color-grey-600;
   border-radius: 1rem;
   cursor: pointer;
@@ -219,13 +219,13 @@ input[type=range]::-ms-thumb {
 }
 
 input[type=range]::-ms-fill-lower {
-  background: $color-primary;
+  background: $color-grey-400;
   border: 1px solid $color-grey-600;
   border-radius: 2rem;
 }
 
 input[type=range]::-ms-fill-upper {
-  background: $color-primary;
+  background: $color-grey-400;
   border: 1px solid $color-grey-600;
   border-radius: 2rem;
 }
