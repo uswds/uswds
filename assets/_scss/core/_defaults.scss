@@ -3,7 +3,7 @@
 // These variables can be modified in _variables.scss
 
 // Typography
-$em-base:       10px; // default is already defined in bourbon
+$em-base:           10px; // default is already defined in bourbon
 $base-font-size:    rem(16px) !default;
 $small-font-size:   rem(14px) !default;
 $title-font-size:   rem(48px) !default;
@@ -16,8 +16,8 @@ $h6-font-size:      rem(12px) !default;
 $base-line-height:    1.5em !default;
 $heading-line-height: 1.3em !default;
 
-$font-sans:        'Source Sans Pro', 'Helvetica', 'Arial', sans-serif !default;
-$font-serif:       'Georgia', 'Times New Roman', serif;
+$font-sans:         'Source Sans Pro', 'Helvetica', 'Arial', sans-serif !default;
+$font-serif:        'Georgia', 'Times New Roman', serif;
 
 $font-normal:       400 !default;
 $font-bold:         700 !default;
@@ -47,7 +47,6 @@ $color-primary-darker:  #00609f !default;
 $small-screen:      481px !default;
 $medium-screen:     600px !default;
 $large-screen:      1201px !default;
-
 
 // Magic Numbers
 $site-max-width:    980px !default;
