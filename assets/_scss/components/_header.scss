@@ -138,23 +138,23 @@ header[role="banner"] {
 
 // Side Nav
 
-.side_nav {
-  .usa-nav-list {
+.usa-side-nav-list {
   width: 100%;
 
-    li {
-      border-top: 1px solid $color-grey-600;
-    }
+  li {
+    border-top: 1px solid $color-grey-600;
+    padding: .5em 0;
+  }
 
-    a {
-      border: none;
-      color: $color-grey-900;
-      font-family: $font-sans;
-      padding: {
-        bottom: 1rem;
-        left: 1.8rem;
-        top: 1rem;
-      }
+  a {
+    border: none;
+    color: $color-grey-900;
+    font-family: $font-sans;
+    padding: {
+      bottom: 1rem;
+      left: 1.8rem;
+      top: 1rem;
+    }
 
     &.usa-current-page {
       border-left: 4px solid $color-primary;
@@ -165,14 +165,5 @@ header[role="banner"] {
       color: $color-base-link;
       font-weight: $font-bold;
     }
-  }
-}
-
-
-
-
-
-  li {
-    padding: .5em 0;
   }
 }

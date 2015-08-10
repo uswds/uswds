@@ -54,13 +54,49 @@ title: Headers & Navigation
 
   <div class="usa-grid">
     <aside class="side_nav usa-width-one-fourth">
-      <ul class="usa-nav-list usa-unstyled-list">
+      <ul class="usa-side-nav-list usa-unstyled-list">
         <li>
           <a class="usa-current-page" href="javascript:void(0)">Current page</a>
         </li>
         <li>
           <a href="javascript:void(0)">Secondary link</a>
         </li>
+        <li>
+          <a href="javascript:void(0)">Secondary link</a>
+        </li>
+      </ul>
+    </aside>
+    <main class="usa-width-three-fourths">
+    </main>
+  </div>
+
+  <h2>Side Nav with Sub Items</h2>
+  <div class="usa-grid">
+    <aside class="side_nav usa-width-one-fourth">
+      <ul class="usa-side-nav-list usa-unstyled-list">
+        <li>
+          <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">Secondary link</a>
+        </li>
+        <ul class="usa-nav-list-sub-list">
+          <li>
+            <a href="javascript:void(0)">Headers & Navigation</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Footers</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Buttons</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Tables</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Accordion</a>
+          </li>
+        </ul>
         <li>
           <a href="javascript:void(0)">Secondary link</a>
         </li>
