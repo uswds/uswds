@@ -171,13 +171,11 @@ title: Forms Blocks
   </div>  
 </div>
 
-<h2>Social Security</h2>
-
 <div class="preview">
   <form>
 
     <fieldset>
-      <legend>Hide SSN</legend>
+      <legend>Social Security Number</legend>
 
       <label for="ssn">SSN <span class="usa-additional_text">Required</span>
       </label>
