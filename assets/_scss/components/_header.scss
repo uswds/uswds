@@ -138,24 +138,40 @@ header[role="banner"] {
 
 // Side Nav
 
-.side_nav {  
-  a {
-    border: none;
-    font-family: $font-sans;
-    padding: {
-      bottom: .5em;
-      left: 1.8rem;
-      top: .5em;
+.side_nav {
+  .usa-nav-list {
+  width: 100%;
+
+    li {
+      border-top: 1px solid $color-grey-600;
+    }
+
+    a {
+      border: none;
+      color: $color-grey-900;
+      font-family: $font-sans;
+      padding: {
+        bottom: 1rem;
+        left: 1.8rem;
+        top: 1rem;
+      }
+
+    &.usa-current-page {
+      border-left: 4px solid $color-primary;
+      padding-left: 1.4rem;
+    }
+
+    &.usa-current-page-active {
+      color: $color-base-link;
+      font-weight: $font-bold;
     }
   }
-  
-  .usa-current-page {
-    border-left: 4px solid $color-base-link;
-    color: $color-base-link;
-    font-weight: $font-bold;
-    padding-left: 1.4rem;
-  }
-  
+}
+
+
+
+
+
   li {
     padding: .5em 0;
   }
