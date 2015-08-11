@@ -33,6 +33,13 @@ header[role="banner"] {
   }
 
   a {
+    @include media($medium-screen) {
+      padding-bottom: 2.2rem;
+      &.active {
+        border-bottom: 4px solid $color-primary;
+        padding-bottom: 1.8rem;
+      }
+    }
     border-bottom: none;
     color: $color-white;
     font-weight: $font-bold;
