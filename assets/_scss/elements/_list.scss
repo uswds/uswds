@@ -5,6 +5,7 @@ ul, ol {
   }
 
   li {
+    font-family: $font-serif;
     line-height: $base-line-height;
     margin: {
       top: .75em;
@@ -38,7 +39,7 @@ ul li {
 ol li {
   display: table-row;
   counter-increment: table-ol;
-  
+
   &:before {
     content: counter(table-ol) ".";
     display: table-cell;
@@ -57,7 +58,7 @@ li {
   margin: 0;
   padding: 0;
   list-style-type: none;
-  
+
   li {
     display: list-item;
     margin: 0;
@@ -68,6 +69,40 @@ li {
 
     &:after {
       display: none;
-    }    
+    }
+  }
+}
+
+.usa-check_list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+
+  li {
+    display: inline-block;
+    list-style: none;
+    margin: {
+      bottom: .5em;
+      top: .5em;
+    }
+    padding-left: 2em;
+    text-indent: -1.6em;
+
+    &:before {
+      content: ' ';
+      display: inline-block;
+      height: 0.8em;
+      padding-right: 5px;
+      width: 1.4em;
+    }
+  }
+}
+
+.usa-check_list-checked {
+  &:before {
+    background-image: url('../img/correct9.png');
+    background-image: url('../img/correct9.svg');
+    background-position: 50%;
+    background-repeat: no-repeat;
   }
 }

@@ -11,7 +11,7 @@ input[type="image"] {
   appearance: none;
   background-color: $color-grey-900;
   border: 0;
-  border-radius: $usa-border-radius;
+  border-radius: $border-radius;
   color: $color-white;
   font-size: $base-font-size;
   font-weight: $font-bold;
@@ -41,7 +41,7 @@ input[type="image"] {
     background-color: $color-base-link;
   }
 
-  @media (min-width: $mobile-up) {
+  @media (min-width: $small-screen) {
     width: auto;
   }  
 }

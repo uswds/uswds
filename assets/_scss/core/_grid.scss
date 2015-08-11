@@ -1,9 +1,9 @@
-.usa-grid-box,
-.usa-grid-box-full {
+.usa-grid,
+.usa-grid-full {
   @include outer-container();
   max-width: $site-max-width;
 
-  @include media($tablet-up) {
+  @include media($medium-screen) {
     .usa-width-one-whole {
       @include span-columns(12);
     }
@@ -38,10 +38,10 @@
   }
 }
 
-.usa-grid-box {
+.usa-grid {
   padding: 0 $grid-margins;
 }
 
-.usa-grid-box-full {
+.usa-grid-full {
   padding: 0;
 }

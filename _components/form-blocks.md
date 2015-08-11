@@ -12,8 +12,11 @@ title: Forms Blocks
 
 <ul>
   <li>Form controls should appear in the same  order in the HTML as they do on the screen. Do not use CSS to rearrange the form controls so they are in a different order. Screen readers narrate forms in the order they appear in the HTML, not on screen.</li>
-  <li>Visually align validation messages are with the input fields, so people using screen magnifiers can read them quickly.</li>
-  <li>Group each set of thematically related controls in a "fieldset" element. Use the "legend" element to offer a label within each one. The fieldset and legend element makes it easier for screen reader users to navigate the form. </li>
+  <li>Visually align validation messages with the input fields, so people using screen magnifiers can read them quickly.</li>
+  <li>Group each set of thematically related controls in a "fieldset" element. Use the "legend" element to offer a label within each one. The fieldset and legend element makes it easier for screen reader users to navigate the form.</li>
+  <li>A single legend is always required for fieldset. A common use of fieldset and legend is a question with radio button options for answers. The question text and radio buttons are wrapped in a fieldset, with the question itself being inside the legend tag.</li>
+  <li>You can embed multiple fieldsets and legends for more complex forms.</li>
+  <li>Keep your form blocks in a vertical pattern. It is an ideal approach for accessibility, due to limited vision that makes it hard to scan from right to left.</li>
 </ul>
 
 <div class="preview">
@@ -36,7 +39,7 @@ title: Forms Blocks
 
         <div class="usa-input-grid usa-input-grid-small">
           <label for="state">State</label>
-          <select class="usa-input-dropdown" id="state" name="state" type="text">
+          <select id="state" name="state" type="text">
             <option value></option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -101,14 +104,13 @@ title: Forms Blocks
 
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <p>As you customize this form, ensure it continues to:</p>
     <ul>
       <li>Label the optional ones. Users can infer that all the others are required.</li>
-      <li>Let users type their state's abbreviation when they reach the "state" drop down menu.</li>
-      <li>Support both 5 and 9 digit zips. Some addresses require a nine digit ZIP code. The input mask should be "#####-####"" so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit zip code.</li>
+      <li>Support both 5 and 9 digit zips. Some addresses require a nine digit ZIP code. The input mask should be "#####-####"" so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit zip code. However, this input mask should only appear when people click away from the ZIP code input box (see the accessibility guidelines).</li>
     </ul>
   </div>
   <div class="usa-width-one-half">
@@ -118,7 +120,10 @@ title: Forms Blocks
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
       <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
     </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
+    <p>We also recommend:</p>
+    <ul>
+      <li>Make sure any input masking is accessible to people using screen readers. We use <a href="https://github.com/filamentgroup/politespace">Filament Group's Politespace</a> to ensure a good experience.</li>
+    </ul>
   </div>  
 </div>
 
@@ -147,7 +152,7 @@ title: Forms Blocks
 
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <ul>
@@ -166,13 +171,11 @@ title: Forms Blocks
   </div>  
 </div>
 
-<h2>Social Security</h2>
-
 <div class="preview">
   <form>
 
     <fieldset>
-      <legend>Hide SSN</legend>
+      <legend>Social Security Number</legend>
 
       <label for="ssn">SSN <span class="usa-additional_text">Required</span>
       </label>
@@ -191,7 +194,7 @@ title: Forms Blocks
   </form>
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <ul>
@@ -244,7 +247,7 @@ title: Forms Blocks
 
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <ul>
@@ -272,11 +275,51 @@ title: Forms Blocks
 <h2>Password Reset</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/PasswordReset_UI_v1.png">
+  <form>
+
+    <fieldset>
+      <legend class="usa-drop_text">Reset Password</legend>
+      <span class="usa-serif">Please enter your new password</span>
+
+      <div class="usa-alert usa-alert-info">
+        <div class="usa-alert-body">
+          <h3 class="usa-alert-heading">Passwords must:</h3>
+        </div>
+        <ul class="usa-check_list" id="validation_list">
+          <li data-validator="length">Be at least 8 characters</li>
+          <li data-validator="uppercase">Have at least 1 uppercase character</li>
+          <li data-validator="numerical">Have at least 1 numerical character</li>
+          <li>Another requirement</li>
+        </ul>
+      </div>
+
+      <label for="password">New Password</label>
+      <input id="password" name="password" type="password"
+        class="js-validate_password"
+        data-validate-length=".{8,}"
+        data-validate-uppercase="[A-Z]"
+        data-validate-numerical="\d"
+        data-validation-element="#validation_list">
+      <p class="usa-form-note">
+        Password strength
+      </p>
+
+      <label for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" name="confirmPassword" type="password">
+      <p class="usa-form-note">
+        <a title="Show My Typing" href="javascript:void(0)"
+            class="usa-show_multipassword"
+            aria-controls="password">
+          Show My Typing</a>
+      </p>
+
+      <input type="submit" value="Reset Password" />
+    </fieldset>
+
+  </form>
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <ul>
@@ -287,6 +330,9 @@ title: Forms Blocks
   </div>
   <div class="usa-width-one-half">
     <h3>Accessibility</h3>
+    <ul>
+      <li>Using aria-describedby is a good way to associate the password strength information with the field.</li>
+    </ul>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul>
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
@@ -328,7 +374,7 @@ title: Forms Blocks
   
 </div>
 
-<div class="usa-grid-box">
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <ul>

@@ -9,9 +9,10 @@ title: Inputs
 <p>As you customize form controls from this library, be sure they continue to meet the following accessibility requirements:</p>
 
 <ul>
-  <li>All  form control tags  should have an associated label. The label’s value for the <code>for</code> attribute should exactly match the value for the input’s <code>id</code> attribute. For example, the input with <code>id="favorite-pie"</code> will always have a label with <code>for="favorite-pie"</code>. This way screen readers are able to perceive the relevant content.</li>
+  <li>All form control tags should have an associated label. The labels for attribute value should match the related input <code>id</code> attribute and should also be unique to the entire page. For example, the input with <code>id="favorite-pie"</code> will always have a label with <code>for="favorite-pie"</code>. This way screen readers are able to perceive the relevant content.</li>
   <li>Any additional information – such as required, optional, or example text – should be wrapped within the label tags. For example: <code>&lt;label for="name"&gt;Favorite Pie &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;</code>. This way screen readers know what additional information is related to each field.</li>
   <li>Do not replace <code>&lt;input&gt;</code> tag-based form controls with styled <code>&lt;div&gt;</code> tags or JavaScript that "fake" form controls. Form controls not written in semantic HTML are very difficult for screen readers to handle.</li>
+  <li>If the color scheme of the buttons are adjusted ensure all states have a minimum contrast ratio of 4.5:1 (for small text, 3:1 for large) for all states of the button. This includes default, hover, selected, disabled.</li>
 </ul>
 
 <p>If you are a building a form with multiple controls, also consider the <a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines in the “Common Form Templates” section</a>.</p>
@@ -97,15 +98,23 @@ title: Inputs
 <h2>Range slider</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Range_Slider_UI_v1.png">
+
+  <label for="range-slider">Range Slider Label h4</label>
+  <input id="range-slider" type="range" min="0" max="100">
+
 </div>
 
 <h2>Dropdown</h2>
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Dropdown_UI_v1.png">
+<form>
+  <label for="options">Dropdown Label h4</label>
+  <select name="options" id="options">
+    <option value="value1">Option A</option>
+    <option value="value2">Option B</option>
+    <option value="value3">Option C</option>
+  </select>
+</form>
 </div>
 
 <h2>Date picker</h2>
@@ -115,7 +124,32 @@ title: Inputs
   <img src="{{ site.baseurl }}/assets/img/static/Date_Picker_UI_v1.png">
 </div>
 
-<div class="usa-grid-box">
+<h2>Memorable Dates</h2>
+
+<div class="preview">
+
+  <fieldset>
+    <legend>Date of birth</legend>
+    <div class="usa-date-of-birth">
+      <p class="usa-form-hint usa-datefield-hint" id="dobHint">For example: 04 28 1986</p>
+      <div class="usa-datefield usa-form-group usa-form-group-month">
+        <label for="date_of_birth_1">Month</label>
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1" max="12" min="1" name="date_of_birth_1" pattern="[0-9]*" type="number" value="">
+      </div>
+      <div class="usa-datefield usa-form-group usa-form-group-day">
+        <label for="date_of_birth_2">Day</label>
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_2" max="31" min="1" name="date_of_birth_2" pattern="[0-9]*" type="number" value="">
+      </div>
+      <div class="usa-datefield usa-form-group usa-form-group-year">
+        <label for="date_of_birth_3">Year</label>
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3" max="2015" min="1900" name="date_of_birth_3" pattern="[0-9]*" type="number" value="">
+      </div>
+    </div>
+  </fieldset>
+
+</div>
+
+<div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Use</h3>
     <p>This is the usage content for the example.</p>

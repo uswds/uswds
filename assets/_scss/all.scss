@@ -2,6 +2,7 @@
 
 @import 'lib/bourbon/bourbon';
 @import 'lib/neat/neat';
+@import 'lib/normalize';
 
 
 // Core -------------- //
@@ -23,6 +24,7 @@
 @import 'elements/buttons';
 @import 'elements/table';
 @import 'elements/figure';
+@import 'elements/labels';
 
 
 // Components -------------- //
@@ -34,9 +36,3 @@
 @import 'components/search';
 @import 'components/alerts';
 @import 'components/accordions';
-
-
-// Themes ------------ //
-
-@import 'themes/usa';
-// @import 'themes/my-theme';
