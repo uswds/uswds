@@ -91,17 +91,14 @@ li {
     &:before {
       content: ' ';
       display: inline-block;
-      height: 1rem;
-      line-height: .8;
-      margin-right: .6em;
+      height: 0.8em;
       padding-right: 5px;
-      text-indent: .15em;
-      width: 1.8rem;
+      width: 1.4em;
     }
   }
 }
 
-.usa-check_list-active {
+.usa-check_list-checked {
   &:before {
     background-image: url('../img/correct9.png');
     background-image: url('../img/correct9.svg');
