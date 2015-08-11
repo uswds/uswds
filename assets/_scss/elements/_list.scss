@@ -82,18 +82,18 @@ li {
     display: inline-block;
     list-style: none;
     margin: {
-      bottom: .5em;
-      top: .5em;
+      bottom: 0em;
+      top: 0em;
     }
     padding-left: 2em;
-    text-indent: -1.6em;
+    text-indent: -2em;
 
     &:before {
       content: ' ';
       display: inline-block;
-      height: 0.8em;
-      padding-right: 5px;
-      width: 1.4em;
+      height: .8em;
+      margin-right: .2em;
+      width: 1.8em;
     }
   }
 }
@@ -102,7 +102,8 @@ li {
   &:before {
     background-image: url('../img/correct9.png');
     background-image: url('../img/correct9.svg');
-    background-position: 50%;
+    background-position: 100%;
     background-repeat: no-repeat;
+    background-size: 100%;
   }
 }
