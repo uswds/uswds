@@ -295,14 +295,12 @@ title: Forms Blocks
 
       <label for="password">New Password</label>
       <input id="password" name="password" type="password"
+        aria-describedby="validation_list"
         class="js-validate_password"
         data-validate-length=".{8,}"
         data-validate-uppercase="[A-Z]"
         data-validate-numerical="\d"
         data-validation-element="#validation_list">
-      <p class="usa-form-note">
-        Password strength
-      </p>
 
       <label for="confirmPassword">Confirm Password</label>
       <input id="confirmPassword" name="confirmPassword" type="password">
