@@ -110,7 +110,7 @@ title: Headers & Navigation
         <nav class="usa-nav-primary usa-width-one-half" role="navigation">
           <ul class="usa-nav-list usa-unstyled-list">
             <li>
-              <a class="active" href="javascript:void(0)">Nav Link 1</a>
+              <a class="current-menu-item" href="javascript:void(0)">Nav Link 1</a>
             </li>
             <li>
               <a href="javascript:void(0)">Nav Link 2</a>

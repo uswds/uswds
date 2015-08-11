@@ -35,7 +35,7 @@ header[role="banner"] {
   a {
     @include media($medium-screen) {
       padding-bottom: 2.2rem;
-      &.active {
+      &.current-menu-item {
         border-bottom: 4px solid $color-primary;
         padding-bottom: 1.8rem;
       }
