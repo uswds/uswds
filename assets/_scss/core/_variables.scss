@@ -18,51 +18,51 @@ $font-serif:        'Georgia', 'Times New Roman', serif;
 $font-normal:       400;
 $font-bold:         700;
 
+
 // Color
-$color-primary:         #0071bc;
-$color-primary-darker:  #00609f;
-$color-primary-darkest: #000000;
+$color-primary:               #0071bc;
+$color-primary-darker:        #205493;
+$color-primary-darkest:       #112e51;
 
-$color-white:           #ffffff;
-$color-base-link:       #000000;
-$color-base:            #212121;
+$color-primary-alt:           #02bfe7;
+$color-primary-alt-darkest:   #046b99;
+$color-primary-alt-dark:      #00a6d2;
+$color-primary-alt-light:     lighten($color-primary-alt, 60%); // #9BDAF1
+$color-primary-alt-lightest:  lighten($color-primary-alt, 90%); // #E1F3F8
 
-$color-primary-alt:           #000000;
-$color-primary-alt-darkest:   #000000;
-$color-primary-alt-dark:      #000000;
-$color-primary-alt-light:     #000000;
-$color-primary-alt-lightest:  #000000;
+$color-secondary:             #e31c3d;
+$color-secondary-darkest:     #981b1e;
+$color-secondary-dark:        #cd2026;
+$color-secondary-light:       lighten($color-secondary, 60%); // #e59393
+$color-secondary-lightest:    lighten($color-secondary, 90%); // #f9dede
 
-$color-secondary:             #000000;
-$color-secondary-darkest:     #000000;
-$color-secondary-dark:        #000000;
-$color-secondary-light:       #000000;
-$color-secondary-lightest:    #000000;
+$color-white:         #ffffff;
+$color-base:          #212121;
 
-$color-gray-dark:     #000000;
-$color-gray:          #000000;
-$color-gray-light:    #000000;
-$color-gray-lighter:  #000000;
-$color-gray-lightest: #000000;
+$color-gray-dark:         #323a45;
+$color-gray:              lighten($color-gray-dark, 20%); // #205493
+$color-gray-light:        lighten($color-gray-dark, 60%); // #112E51
+$color-gray-lighter:      lighten($color-gray-dark, 80%); // #212121
+$color-gray-lightest:     lighten($color-gray-dark, 90%); // #323A45
 
-$gray-warm-dark:    #000000;
-$gray-warm-light:   #000000;
-$gray-cool-light:   #000000;
+$gray-warm-dark:          #494440;
+$gray-warm-light:         lighten($gray-warm-dark, 90%); // #dfdbd9
+$gray-cool-light:         lighten($color-primary, 90%); // #dce4ef
 
-$color-gold:          #000000;
-$color-gold-light:    #000000;
-$color-gold-lighter:  #000000;
-$color-gold-lightest: #000000;
+$color-gold:              #fdb81e;
+$color-gold-light:        lighten($color-gold, 20%); // #f9c642
+$color-gold-lighter:      lighten($color-gold, 60%); // #fad980
+$color-gold-lightest:     lighten($color-gold, 83%); // #fff1d2
 
-$color-green:          #000000;  
-$color-green-light:    #000000;
-$color-green-lighter:  #000000;
-$color-green-lightest: #000000;
+$color-green:              #2e8540;  
+$color-green-light:        lighten($color-green, 20%); // #649967
+$color-green-lighter:      lighten($color-green, 60%); // #94bfa2
+$color-green-lightest:     lighten($color-green, 80%); // #e7f4e4
 
-$color-cool-blue:          #000000;
-$color-cool-blue-light:    #000000;
-$color-cool-blue-lighter:  #000000;
-$color-cool-blue-lightest: #000000;
+$color-cool-blue:          #205493;
+$color-cool-blue-light:    lighten($color-cool-blue, 20%); // #4773aa
+$color-cool-blue-lighter:  lighten($color-cool-blue, 60%); // #8ba6ca
+$color-cool-blue-lightest: lighten($color-cool-blue, 90%); // #dce4ef
 
 $color-grey-50:     #fafafa;
 $color-grey-100:    #f5f5f5;
@@ -75,6 +75,7 @@ $color-grey-700:    #616161;
 $color-grey-800:    #424242;
 $color-grey-900:    #212121;
 
+$color-base-link:   #000000;
 $color-focus:       #f7e10f;
 $color-error:       #d83530;
 $color-success:     #26bf7d;
@@ -84,6 +85,7 @@ $color-success:     #26bf7d;
 $small-screen:      481px;
 $medium-screen:     600px;
 $large-screen:      1201px;
+
 
 // Magic Numbers
 $site-max-width:    980px;
