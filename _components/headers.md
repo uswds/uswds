@@ -142,7 +142,7 @@ title: Headers & Navigation
 
   <div class="usa-grid">
     <aside class="side_nav usa-width-one-fourth">
-      <ul class="usa-side-nav-list usa-unstyled-list">
+      <ul class="usa-sidenav-list usa-unstyled-list">
         <li>
           <a class="usa-current-page" href="javascript:void(0)">Current page</a>
         </li>
@@ -161,7 +161,7 @@ title: Headers & Navigation
   <h2>Side Nav with Sub Items</h2>
   <div class="usa-grid">
     <aside class="side_nav usa-width-one-fourth">
-      <ul class="usa-side-nav-list usa-unstyled-list">
+      <ul class="usa-sidenav-list usa-unstyled-list">
         <li>
           <a href="javascript:void(0)">Secondary link</a>
         </li>
@@ -182,7 +182,7 @@ title: Headers & Navigation
             <a href="javascript:void(0)">Tables</a>
           </li>
           <li>
-            <a class="usa-current-page" href="javascript:void(0)">Accordion</a>
+            <a href="javascript:void(0)">Accordion</a>
           </li>
         </ul>
         <li>
