@@ -38,7 +38,7 @@ Here are a few guidelines to follow when submitting a pull request:
 4. Once you are ready to submit a pull request, push your branch up to the repo.
 5. Submit your pull request against `18f-pages-staging` branch.
 
-Questions or need help with setup? Feel free to open an issue here [https://github.com/18F/govt-wide-patternlibrary/issues](https://github.com/18F/govt-wide-patternlibrary/issues).
+Questions or need help with setup? Feel free to open an issue here [https://github.com/18F/usfwds/issues](https://github.com/18F/usfwds/issues).
 
 ## Public domain
 
