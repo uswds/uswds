@@ -5,7 +5,8 @@ header[role="banner"] {
       top: 3rem;
     }    
   }
-  background-color: #112e51;
+  background-color: $color-grey-100;
+  border-bottom: 2px solid $color-grey-400;
   z-index: 1;
 
   .usa-grid {
@@ -42,7 +43,7 @@ header[role="banner"] {
       }
     }
     border-bottom: none;
-    color: $color-white;
+    color: $color-grey-900;
     font-weight: $font-bold;
   }
   
@@ -124,6 +125,7 @@ header[role="banner"] {
 
   .usa-search-submit {
     background-color: $color-primary;
+    
     &:hover {
       background-color: $color-primary-darker;
     }
@@ -159,24 +161,27 @@ header[role="banner"] {
     border: none;
     color: $color-grey-900;
     font-family: $font-sans;
+    line-height: 1;
     padding: {
       bottom: 1rem;
       left: 1.8rem;
       top: 1rem;
     }
 
-    &.usa-current-page {
+    &.usa-current-page,
+    &:hover {
       border-left: 4px solid $color-primary;
+      color: $color-primary;
+      font-weight: $font-bold;
       padding-left: 1.4rem;
     }
 
     &.usa-current-page-active {
-      color: $color-base-link;
-      font-weight: $font-bold;
+
     }
   }
 
-  .usa-nav-list-sub-list{
+  .usa-nav-list-sub-list {
     border-top: 1px solid $color-grey-600;
     margin: 0;
     width: 100%;
@@ -184,6 +189,16 @@ header[role="banner"] {
     li {
       border: none;
       font-size: $base-font-size;
+    }
+
+    a {
+      color: $color-primary;
+    }
+
+    a:hover,
+    .usa-current-page {
+      border: none;
+      padding-left: 1.8rem;
     }
   }
 }

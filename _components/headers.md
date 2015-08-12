@@ -163,10 +163,10 @@ title: Headers & Navigation
     <aside class="side_nav usa-width-one-fourth">
       <ul class="usa-side-nav-list usa-unstyled-list">
         <li>
-          <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+          <a href="javascript:void(0)">Secondary link</a>
         </li>
         <li>
-          <a href="javascript:void(0)">Secondary link</a>
+          <a class="usa-current-page" href="javascript:void(0)">Current page</a>
         </li>
         <ul class="usa-nav-list-sub-list">
           <li>
@@ -182,7 +182,7 @@ title: Headers & Navigation
             <a href="javascript:void(0)">Tables</a>
           </li>
           <li>
-            <a href="javascript:void(0)">Accordion</a>
+            <a class="usa-current-page" href="javascript:void(0)">Accordion</a>
           </li>
         </ul>
         <li>
