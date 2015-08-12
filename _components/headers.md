@@ -167,24 +167,26 @@ title: Headers & Navigation
         </li>
         <li>
           <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+
+          <ul class="usa-nav-list-sub-list">
+            <li>
+              <a href="javascript:void(0)">Headers & Navigation</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Footers</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Buttons</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Tables</a>
+            </li>
+            <li>
+              <a class="usa-current-page" href="javascript:void(0)">Accordion</a>
+            </li>
+          </ul>
         </li>
-        <ul class="usa-nav-list-sub-list">
-          <li>
-            <a href="javascript:void(0)">Headers & Navigation</a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">Footers</a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">Buttons</a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">Tables</a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">Accordion</a>
-          </li>
-        </ul>
+
         <li>
           <a href="javascript:void(0)">Secondary link</a>
         </li>
