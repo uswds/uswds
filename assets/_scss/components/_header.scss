@@ -37,7 +37,8 @@ header[role="banner"] {
     @include media($medium-screen) {
       padding-bottom: 2.2rem;
       
-      &.current-menu-item {
+      &:hover,
+      .current-menu-item {
         border-bottom: 4px solid $color-primary;
         padding-bottom: 1.8rem;
       }
@@ -184,15 +185,12 @@ header[role="banner"] {
   .usa-nav-list-sub-list {
     border-top: 1px solid $color-grey-600;
     margin: 0;
+    padding-left: 1rem;
     width: 100%;
 
     li {
       border: none;
       font-size: $base-font-size;
-    }
-
-    a {
-      color: $color-primary;
     }
 
     a:hover,
