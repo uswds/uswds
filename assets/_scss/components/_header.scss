@@ -54,7 +54,7 @@ header[role="banner"] {
       }
     }
     border-bottom: none;
-    color: #555;
+    color: $color-base;
     font-weight: $font-bold;
   }
   
@@ -183,10 +183,14 @@ header[role="banner"] {
       top: 1rem;
     }
 
-    &.usa-current-page {
-      border-left: 4px solid $color-primary;
+    &.usa-current-page,
+    &:hover {
       color: $color-primary;
       font-weight: $font-bold;
+    }
+
+    &.usa-current-page {
+      border-left: 4px solid $color-primary;
       padding-left: 1.4rem;
     }
 
@@ -207,6 +211,7 @@ header[role="banner"] {
 
     a:hover,
     .usa-current-page {
+      background-color: transparent;
       border: none;
       padding-left: 1.8rem;
     }
