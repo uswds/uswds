@@ -43,7 +43,7 @@ $color-gray-dark:         #323a45;
 $color-gray:              lighten($color-gray-dark, 20%); // #205493
 $color-gray-light:        lighten($color-gray-dark, 60%); // #112E51
 $color-gray-lighter:      lighten($color-gray-dark, 80%); // #212121
-$color-gray-lightest:     lighten($color-gray-dark, 90%); // #323A45
+$color-gray-lightest:     lighten($color-gray-dark, 90%); // #f2f2f3
 
 $gray-warm-dark:          #494440;
 $gray-warm-light:         lighten($gray-warm-dark, 90%); // #dfdbd9

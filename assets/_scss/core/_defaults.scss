@@ -46,7 +46,7 @@ $color-gray-dark:         #323a45 !default;
 $color-gray:              lighten($color-gray-dark, 20%) !default; // #205493
 $color-gray-light:        lighten($color-gray-dark, 60%) !default; // #112E51
 $color-gray-lighter:      lighten($color-gray-dark, 80%) !default !default; // #212121
-$color-gray-lightest:     lighten($color-gray-dark, 90%) !default; // #323A45
+$color-gray-lightest:     lighten($color-gray-dark, 90%) !default; // #f2f2f3
 
 $gray-warm-dark:          #494440 !default;
 $gray-warm-light:         lighten($gray-warm-dark, 90%) !default; // #dfdbd9
