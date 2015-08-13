@@ -28,7 +28,7 @@ a#skipnav {
   position: absolute;
   top: -42px;
   left: 0px;
-  color: $color-grey-900;
+  color: $color-base;
   background: transparent;
   @include transition(top 1s ease-out, background 1s linear);
   z-index: 100;
@@ -43,7 +43,7 @@ a#skipnav {
 }
 
 header[role="banner"] {
-  background-color: $color-grey-900;
+  background-color: $color-base;
   z-index: 1;
   a {
     border-bottom: none;
@@ -338,7 +338,7 @@ header[role="banner"] {
         top: 0;
 
         &:hover {
-          background-color: $color-grey-900;
+          background-color: $color-base;
         }
       }
     }

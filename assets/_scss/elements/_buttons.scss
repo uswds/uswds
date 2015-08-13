@@ -9,7 +9,7 @@ input[type="submit"],
 input[type="reset"],
 input[type="image"] {
   appearance: none;
-  background-color: $color-grey-900;
+  background-color: $color-base;
   border: 0;
   border-radius: $border-radius;
   color: $color-white;
@@ -86,8 +86,8 @@ input[type="submit"].usa-button-outlined,
 input[type="reset"].usa-button-outlined,
 input[type="image"].usa-button-outlined {
   background-color: $color-white;
-  border: 2px solid $color-grey-900;
-  color: $color-grey-900;
+  border: 2px solid $color-base;
+  color: $color-base;
   padding: .8rem 1.8rem;
 }
 

@@ -2,7 +2,7 @@
   ul {
     border: 1px solid $color-grey-600;
     border-radius: 5px;
-    color: $color-grey-900;
+    color: $color-base;
     margin: 0;
     overflow: hidden;
     padding: 0;
@@ -29,7 +29,7 @@
       background: url('../img/arrow-down.png') no-repeat;
       background-position: 15px;
       border-bottom: 1px solid $color-grey-600;
-      color: $color-grey-900;
+      color: $color-base;
       cursor: pointer;
       display: inline-block;
       font-family: $font-sans;
