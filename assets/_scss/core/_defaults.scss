@@ -22,6 +22,7 @@ $font-serif:        'Georgia', 'Times New Roman', serif;
 $font-normal:       400 !default;
 $font-bold:         700 !default;
 
+
 // Color
 $color-primary:               #0071bc !default;
 $color-primary-darker:        #205493 !default;
@@ -30,42 +31,42 @@ $color-primary-darkest:       #112e51 !default;
 $color-primary-alt:           #02bfe7 !default;
 $color-primary-alt-darkest:   #046b99 !default;
 $color-primary-alt-dark:      #00a6d2 !default;
-$color-primary-alt-light:     lighten($color-primary-alt, 60%) !default; // #9BDAF1
-$color-primary-alt-lightest:  lighten($color-primary-alt, 90%) !default; // #E1F3F8
+$color-primary-alt-light:     #9BDAF1 !default; // lighten($color-primary-alt, 60%)
+$color-primary-alt-lightest:  #E1F3F8 !default; // lighten($color-primary-alt, 90%)
 
 $color-secondary:             #e31c3d !default;
 $color-secondary-darkest:     #981b1e !default;
 $color-secondary-dark:        #cd2026 !default;
-$color-secondary-light:       lighten($color-secondary, 60%) !default; // #e59393
-$color-secondary-lightest:    lighten($color-secondary, 90%) !default; // #f9dede
+$color-secondary-light:       #e59393 !default; // lighten($color-secondary, 60%)
+$color-secondary-lightest:    #f9dede !default; // lighten($color-secondary, 90%)
 
 $color-white:         #ffffff !default;
 $color-base:          #212121 !default;
 
 $color-gray-dark:         #323a45 !default;
-$color-gray:              lighten($color-gray-dark, 20%) !default; // #205493
-$color-gray-light:        lighten($color-gray-dark, 60%) !default; // #112E51
-$color-gray-lighter:      lighten($color-gray-dark, 80%) !default !default; // #212121
-$color-gray-lightest:     lighten($color-gray-dark, 90%) !default; // #f2f2f3
+$color-gray:              #205493 !default; // lighten($color-gray-dark, 20%)
+$color-gray-light:        #112E51 !default; // lighten($color-gray-dark, 60%)
+$color-gray-lighter:      #212121 !default; // lighten($color-gray-dark, 80%)
+$color-gray-lightest:     #f2f2f3 !default; // lighten($color-gray-dark, 90%)
 
-$color-gray-warm-dark:          #494440 !default;
-$color-gray-warm-light:         lighten($color-gray-warm-dark, 90%) !default; // #dfdbd9
-$color-gray-cool-light:         lighten($color-primary, 90%) !default; // #dce4ef
+$color-gray-warm-dark:    #494440 !default;
+$color-gray-warm-light:   #dfdbd9 !default; // lighten($color-gray-warm-dark, 90%)
+$color-gray-cool-light:   #dce4ef !default; // lighten($color-primary, 90%)
 
 $color-gold:              #fdb81e !default;
-$color-gold-light:        lighten($color-gold, 20%) !default; // #f9c642
-$color-gold-lighter:      lighten($color-gold, 60%) !default; // #fad980
-$color-gold-lightest:     lighten($color-gold, 83%) !default; // #fff1d2
+$color-gold-light:        #f9c642 !default; //  lighten($color-gold, 20%)
+$color-gold-lighter:      #fad980 !default; //  lighten($color-gold, 60%)
+$color-gold-lightest:     #fff1d2 !default; //  lighten($color-gold, 83%)
 
 $color-green:              #2e8540 !default;  
-$color-green-light:        lighten($color-green, 20%) !default; // #649967
-$color-green-lighter:      lighten($color-green, 60%) !default; // #94bfa2
-$color-green-lightest:     lighten($color-green, 80%) !default; // #e7f4e4
+$color-green-light:        #649967 !default; // lighten($color-green, 20%)
+$color-green-lighter:      #94bfa2 !default; // lighten($color-green, 60%)
+$color-green-lightest:     #e7f4e4 !default; // lighten($color-green, 60%)
 
 $color-cool-blue:          #205493 !default;
-$color-cool-blue-light:    lighten($color-cool-blue, 20%) !default; // #4773aa
-$color-cool-blue-lighter:  lighten($color-cool-blue, 60%) !default; // #8ba6ca
-$color-cool-blue-lightest: lighten($color-cool-blue, 90%) !default; // #dce4ef
+$color-cool-blue-light:    #4773aa !default; // lighten($color-cool-blue, 20%)
+$color-cool-blue-lighter:  #8ba6ca !default; // lighten($color-cool-blue, 60%)
+$color-cool-blue-lightest: #dce4ef !default; // lighten($color-cool-blue, 90%)
 
 $color-grey-50:     #fafafa !default;
 $color-grey-100:    #f5f5f5 !default;
@@ -79,7 +80,7 @@ $color-grey-800:    #424242 !default;
 $color-grey-900:    #212121 !default;
 
 $color-white:       #ffffff !default;
-$color-base-link:   #000000 !default;
+$color-black:       #000000 !default;
 $color-focus:       #f7e10f !default;
 $color-error:       #d83530 !default;
 $color-success:     #26bf7d !default;
@@ -87,10 +88,12 @@ $color-success:     #26bf7d !default;
 $color-primary:         #0071bc !default;
 $color-primary-darker:  #00609f !default;
 
+
 // Mobile First Breakpoints
 $small-screen:      481px !default;
 $medium-screen:     600px !default;
 $large-screen:      1201px !default;
+
 
 // Magic Numbers
 $site-max-width:    980px !default;
