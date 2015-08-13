@@ -5,8 +5,8 @@ header[role="banner"] {
       top: 3rem;
     }    
   }
-  background-color: $color-grey-100;
-  border-bottom: 2px solid $color-grey-400;
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #bdbdbd;
   z-index: 1;
 
   .usa-grid {
@@ -54,7 +54,7 @@ header[role="banner"] {
       }
     }
     border-bottom: none;
-    color: $color-grey-900;
+    color: #555;
     font-weight: $font-bold;
   }
   
@@ -74,7 +74,7 @@ header[role="banner"] {
     }
 
     &:hover {
-      color: $color-grey-900;
+      color: $color-base;
     }
   }
 
@@ -82,7 +82,7 @@ header[role="banner"] {
     @include media($medium-screen) {
       display: none;
     }
-    background-color: $color-base-link;
+    background-color: $color-base;
     background-image: url("../img/search.png");
     background-image: url("../img/search.svg");
     background-position: 50%;
@@ -151,7 +151,7 @@ header[role="banner"] {
   @include media($medium-screen) {
     display: none;
   }
-  background-color: $color-base-link;
+  background-color: $color-base;
   color: $color-white !important;
   display: block;
   height: 5rem;
@@ -167,13 +167,13 @@ header[role="banner"] {
   width: 100%;
 
   li {
-    border-top: 1px solid $color-grey-600;
+    border-top: 1px solid #757575;
     font-size: $h3-font-size;
   }
 
   a {
     border: none;
-    color: $color-grey-900;
+    color: $color-base;
     display: block;
     font-family: $font-sans;
     line-height: 1;
@@ -183,16 +183,15 @@ header[role="banner"] {
       top: 1rem;
     }
 
-    &.usa-current-page,
-    &:hover {
+    &.usa-current-page {
       border-left: 4px solid $color-primary;
       color: $color-primary;
       font-weight: $font-bold;
       padding-left: 1.4rem;
     }
 
-    &.usa-current-page-active {
-
+    &:hover {
+      background-color: $color-gray-lightest;
     }
   }
 

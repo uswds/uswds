@@ -43,9 +43,8 @@ a#skipnav {
 }
 
 header[role="banner"] {
-<<<<<<< HEAD
   &.usa-header-styleguide {
-    background-color: $color-grey-900;
+    background-color: $color-base;
     padding: 0;
     a {
       border-bottom: none;
@@ -54,20 +53,6 @@ header[role="banner"] {
     }
     nav {
       height: 45px;
-=======
-  background-color: $color-base;
-  z-index: 1;
-  a {
-    border-bottom: none;
-    color: white;
-  }
-  nav {
-    height: 45px;
-    line-height: 45px;
-    h1 {
-      font-weight: normal;
-      float: left;
->>>>>>> 96075d5908a8d792188a653dd8ca467de8c50bb7
       line-height: 45px;
       a {
         padding: 0;
