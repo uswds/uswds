@@ -76,8 +76,7 @@ $color-grey-800:    #424242;
 $color-grey-900:    #212121;
 
 $color-black:       #000000;
-$color-focus:       #f7e10f;
-$color-error:       #d83530;
+$color-focus:       #3e94cf;
 $color-success:     #26bf7d;
 
 
@@ -94,4 +93,5 @@ $article-max-width: 600px;
 $input-max-width:   46rem;
 $border-radius:     rem(4px);
 $box-shadow:        0 0 2px rgba(#000, .3);
+$focus-shadow:      0 0 2px rgba($color-focus, .3);
 $grid-margins:      2.5rem;
