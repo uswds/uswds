@@ -45,9 +45,9 @@ $color-gray-light:        lighten($color-gray-dark, 60%); // #112E51
 $color-gray-lighter:      lighten($color-gray-dark, 80%); // #212121
 $color-gray-lightest:     lighten($color-gray-dark, 90%); // #f2f2f3
 
-$gray-warm-dark:          #494440;
-$gray-warm-light:         lighten($gray-warm-dark, 90%); // #dfdbd9
-$gray-cool-light:         lighten($color-primary, 90%); // #dce4ef
+$color-gray-warm-dark:    #494440;
+$color-gray-warm-light:   lighten($color-gray-warm-dark, 90%); // #dfdbd9
+$color-gray-cool-light:   lighten($color-primary, 90%); // #dce4ef
 
 $color-gold:              #fdb81e;
 $color-gold-light:        lighten($color-gold, 20%); // #f9c642
