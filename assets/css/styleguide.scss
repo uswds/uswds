@@ -159,7 +159,7 @@ header[role="banner"] {
   left: 0;
   width: $width-nav-sidebar;
   background-color: #fafafa;
-  border-right: 1px solid $color-grey-200;
+  border-right: 1px solid #eeeeee;
   padding: 5rem 2em 2em;
   overflow: auto;
   display: none;
@@ -293,7 +293,7 @@ header[role="banner"] {
     bottom: 2em;
   }
   padding: 1em $site-margins;
-  border: 1px solid $color-grey-200;
+  border: 1px solid #eeeeee;
   .is-peripheral {
     opacity: .2;
   }
@@ -325,7 +325,7 @@ header[role="banner"] {
     padding: 3em 0 0 0;
 
     td {
-      background-color: $color-grey-100;
+      background-color: #f5f5f5;
       border: 1px solid $color-grey-300;
       position: relative;
       vertical-align: top;
