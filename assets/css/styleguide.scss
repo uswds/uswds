@@ -84,7 +84,7 @@ header[role="banner"] {
     color: white;
     text-align: center;
     font-size: $base-font-size / 1.25;
-    border-bottom: 1px solid $color-grey-700;
+    border-bottom: 1px solid #616161;
     font-weight: 100;
     .us-official { 
       margin: 0;
@@ -326,7 +326,7 @@ header[role="banner"] {
 
     td {
       background-color: #f5f5f5;
-      border: 1px solid $color-grey-300;
+      border: 1px solid #e0e0e0;
       position: relative;
       vertical-align: top;
 

@@ -1,6 +1,6 @@
 .usa-accordion {
   ul {
-    border: 1px solid $color-grey-600;
+    border: 1px solid #757575;
     border-radius: 5px;
     color: $color-base;
     margin: 0;
@@ -9,7 +9,7 @@
 
     li {
       background-color: #eeeeee;
-      border-bottom: 1px solid $color-grey-600;
+      border-bottom: 1px solid #757575;
       font-family: $font-sans;
       list-style: none;
       margin: 0;
@@ -28,7 +28,7 @@
     button {
       background: url('../img/arrow-down.png') no-repeat;
       background-position: 15px;
-      border-bottom: 1px solid $color-grey-600;
+      border-bottom: 1px solid #757575;
       color: $color-base;
       cursor: pointer;
       display: inline-block;

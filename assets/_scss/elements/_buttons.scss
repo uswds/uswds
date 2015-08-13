@@ -29,7 +29,7 @@ input[type="image"] {
 
   &:hover,
   &.usa-button-hover {
-    background-color: $color-grey-700;
+    background-color: #616161;
   }
 
   &:focus,
@@ -48,12 +48,12 @@ input[type="image"] {
 
 input[type="submit"]:disabled,
 .usa-button-disabled {
-  background-color: $color-grey-300;
-  color: $color-grey-700;
+  background-color: #e0e0e0;
+  color: #616161;
   cursor: default;
 
   &:hover {
-    background-color: $color-grey-300;
+    background-color: #e0e0e0;
   }
 }
 
@@ -65,11 +65,11 @@ input[type="button"].usa-button-secondary,
 input[type="submit"].usa-button-secondary,
 input[type="reset"].usa-button-secondary,
 input[type="image"].usa-button-secondary {
-  background-color: $color-grey-600;
+  background-color: #757575;
 
   &:hover,
   &.usa-button-secondary-hover {
-    background-color: $color-grey-800;
+    background-color: #424242;
   }
   &:active,
   &.usa-button-secondary-active {
