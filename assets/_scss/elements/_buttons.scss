@@ -38,7 +38,7 @@ input[type="image"] {
   }
   &:active,
   &.usa-button-active {
-    background-color: $color-black;
+    background-color: #000;
   }
 
   @media (min-width: $small-screen) {
@@ -73,7 +73,7 @@ input[type="image"].usa-button-secondary {
   }
   &:active,
   &.usa-button-secondary-active {
-    background-color: $color-black;
+    background-color: #000;
   }
 }
 

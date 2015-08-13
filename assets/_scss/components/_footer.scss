@@ -5,7 +5,7 @@
 
   .usa-footer-primary-link {
 
-    color: $color-black;
+    color: #000;
     display: block;
     font-weight: $font-bold;
     margin-top: 0;
@@ -113,10 +113,10 @@
 ul.usa-footer-primary-content,
 li.usa-footer-primary-content,
 li.usa-footer-primary-content {
-  border-top: 1px solid $color-black;      
+  border-top: 1px solid #000;      
 
   &:last-child {
-    border-bottom: 1px solid $color-black;
+    border-bottom: 1px solid #000;
     @media (min-width: $medium-screen) {
       border-bottom: none;
     }
@@ -195,7 +195,7 @@ li.usa-footer-primary-content {
     padding-bottom: 2.5rem;
 
     &:last-child {
-      border-bottom: 1px solid $color-black;
+      border-bottom: 1px solid #000;
 
       @media (min-width: $medium-screen) {
         border-bottom: none;
