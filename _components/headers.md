@@ -196,7 +196,7 @@ title: Headers & Navigation
     </main>
   </div>
 
-  <img src="{{ site.baseurl }}/assets/img/static/HeaderNav_FullUI_v1-930width.png">
+  <img src="{{ site.baseurl }}/assets/img/static/Headers_Navigation_UI_v2.png">
 </div>
 
 <div class="usa-grid">
