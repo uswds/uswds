@@ -21,9 +21,10 @@ header[role="banner"] {
     @include media($medium-screen) {
       @include span-columns(2);
     }
-    display: block;
-    float: left;
-    width: calc(100% - 10rem);
+
+    a {
+      padding: 0;
+    }
   }
 
   .usa-search-container {
@@ -37,6 +38,8 @@ header[role="banner"] {
     @include media($medium-screen) {
       padding: {
         bottom: 2.2rem;
+        left: 1rem;
+        right: 1rem;
         top: 2.2rem;
       }
       

@@ -54,6 +54,13 @@ header[role="banner"] {
     nav {
       height: 45px;
       line-height: 45px;
+      a {
+        padding: 0;
+
+        &:hover {
+          background-color: transparent;
+        }
+      }
       h1 {
         font-weight: normal;
         float: left;
