@@ -4,3 +4,4 @@ gem 'jekyll'
 
 gem 'rouge'
 gem 'redcarpet'
+gem 'octopress-autoprefixer'

@@ -9,7 +9,7 @@ input[type="submit"],
 input[type="reset"],
 input[type="image"] {
   appearance: none;
-  background-color: $color-grey-900;
+  background-color: $color-base;
   border: 0;
   border-radius: $border-radius;
   color: $color-white;
@@ -29,7 +29,7 @@ input[type="image"] {
 
   &:hover,
   &.usa-button-hover {
-    background-color: $color-grey-700;
+    background-color: #616161;
   }
 
   &:focus,
@@ -38,7 +38,7 @@ input[type="image"] {
   }
   &:active,
   &.usa-button-active {
-    background-color: $color-base-link;
+    background-color: #000;
   }
 
   @media (min-width: $small-screen) {
@@ -48,12 +48,12 @@ input[type="image"] {
 
 input[type="submit"]:disabled,
 .usa-button-disabled {
-  background-color: $color-grey-300;
-  color: $color-grey-700;
+  background-color: #e0e0e0;
+  color: #616161;
   cursor: default;
 
   &:hover {
-    background-color: $color-grey-300;
+    background-color: #e0e0e0;
   }
 }
 
@@ -65,15 +65,15 @@ input[type="button"].usa-button-secondary,
 input[type="submit"].usa-button-secondary,
 input[type="reset"].usa-button-secondary,
 input[type="image"].usa-button-secondary {
-  background-color: $color-grey-600;
+  background-color: #757575;
 
   &:hover,
   &.usa-button-secondary-hover {
-    background-color: $color-grey-800;
+    background-color: #424242;
   }
   &:active,
   &.usa-button-secondary-active {
-    background-color: $color-base-link;
+    background-color: #000;
   }
 }
 
@@ -86,8 +86,8 @@ input[type="submit"].usa-button-outlined,
 input[type="reset"].usa-button-outlined,
 input[type="image"].usa-button-outlined {
   background-color: $color-white;
-  border: 2px solid $color-grey-900;
-  color: $color-grey-900;
+  border: 2px solid $color-base;
+  color: $color-base;
   padding: .8rem 1.8rem;
 }
 

@@ -293,6 +293,35 @@ function toggleMultiPassword($el) {
   });
 }
 
+function validator($el) {
+  var data = $('#password[data-validation-element]').data(),
+      key,
+      validatorName,
+      validatorPattern,
+      $validatorCheckbox,
+      $checkList = $($el.data('validationElement'));
+
+  function validate() {
+    for (key in data) {
+      if (key.startsWith('validate')) {
+        validatorName = key.split('validate')[1];
+        validatorPattern = new RegExp(data[key]);
+        $validatorCheckbox = $checkList.find('[data-validator=' +
+            validatorName.toLowerCase() + ']');
+
+        if (!validatorPattern.test($el.val())) {
+          $validatorCheckbox.toggleClass('usa-check_list-checked', false);
+        }
+        else {
+          $validatorCheckbox.toggleClass('usa-check_list-checked', true);
+        }
+      }
+    }
+  }
+
+  $el.on('keyup', validate);
+}
+
 $(function() {
   $('.usa-accordion').each(function() {
     accordion($(this));
@@ -326,9 +355,11 @@ $(function() {
   togglePassword($('.usa-show_password'));
   toggleMultiPassword($('.usa-show_multipassword'));
   toggleSSN($('.usa-show_ssn'));
+  validator($('.js-validate_password'));
 
 });
 
 $(".usa-nav-list a").on( "click", function() {
   $( ".usa-nav-list a" ).toggleClass( "active" );
 });
+

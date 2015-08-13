@@ -1,8 +1,8 @@
-# Government Wide Pattern Library
+# U.S. Federal Web Design Standards
 
-[![Build Status](https://api.travis-ci.org/18F/govt-wide-patternlibrary.svg?branch=18f-pages-staging)](https://travis-ci.org/18F/govt-wide-patternlibrary)
+[![Build Status](https://api.travis-ci.org/18F/usfwds.svg?branch=18f-pages-staging)](https://travis-ci.org/18F/usfwds)
 
-This is the repo for the government wide pattern library project.
+This is the repo for the U.S. Federal Web Design Standards project.
 The structural setup of this repo is based off of the 18F pages project: 
 [https://github.com/18F/pages](https://github.com/18F/pages)
 
@@ -31,16 +31,16 @@ Now that you have verified that you have Ruby installed, clone and run the
 following [go](https://golang.org/) commands to initialize and serve the library locally.
 
 ```shell
-$ git clone git@github.com:18F/govt-wide-patternlibrary.git
-$ cd govt-wide-patternlibrary
+$ git clone git@github.com:18F/usfwds.git
+$ cd usfwds
 $ ./go init
 $ ./go serve
 ```
 
-You should now be able to visit `http://127.0.0.1:4000/govt-wide-patternlibrary/` 
-and view the pattern library locally.
+You should now be able to visit `http://127.0.0.1:4000/usfwds/` 
+and view the web design standards locally.
 
-Questions or need help with setup? Feel free to open an issue here [https://github.com/18F/govt-wide-patternlibrary/issues](https://github.com/18F/govt-wide-patternlibrary/issues).
+Questions or need help with setup? Feel free to open an issue here [https://github.com/18F/usfwds/issues](https://github.com/18F/usfwds/issues).
 
 
 ### Public domain
