@@ -166,12 +166,12 @@ header[role="banner"] {
   li {
     border-top: 1px solid $color-grey-600;
     font-size: $h3-font-size;
-    padding: .8rem 0;
   }
 
   a {
     border: none;
     color: $color-grey-900;
+    display: block;
     font-family: $font-sans;
     line-height: 1;
     padding: {
