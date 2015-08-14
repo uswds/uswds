@@ -45,12 +45,12 @@ $color-base:                 #212121 !default;
 
 $color-gray-dark:            #323a45 !default;
 $color-gray:                 #205493 !default; // lighten($color-gray-dark, 20%)
-$color-gray-light:           #112E51 !default; // lighten($color-gray-dark, 60%)
-$color-gray-lighter:         #212121 !default; // lighten($color-gray-dark, 80%)
-$color-gray-lightest:        #f2f2f3 !default; // lighten($color-gray-dark, 90%)
+$color-gray-light:           #aeb0b5 !default; // lighten($color-gray-dark, 60%)
+$color-gray-lighter:         #d6d7d9 !default; // lighten($color-gray-dark, 80%)
+$color-gray-lightest:        #efefef !default; // lighten($color-gray-dark, 90%)
 
 $color-gray-warm-dark:       #494440 !default;
-$color-gray-warm-light:      #dfdbd9 !default; // lighten($color-gray-warm-dark, 90%)
+$color-gray-warm-light:      #e4e2e0 !default; // lighten($color-gray-warm-dark, 90%)
 $color-gray-cool-light:      #dce4ef !default; // lighten($color-primary, 90%)
 
 $color-gold:                 #fdb81e !default;
@@ -59,7 +59,7 @@ $color-gold-lighter:         #fad980 !default; //  lighten($color-gold, 60%)
 $color-gold-lightest:        #fff1d2 !default; //  lighten($color-gold, 83%)
 
 $color-green:                #2e8540 !default;  
-$color-green-light:          #649967 !default; // lighten($color-green, 20%)
+$color-green-light:          #4aa564 !default; // lighten($color-green, 20%)
 $color-green-lighter:        #94bfa2 !default; // lighten($color-green, 60%)
 $color-green-lightest:       #e7f4e4 !default; // lighten($color-green, 60%)
 
