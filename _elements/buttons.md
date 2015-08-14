@@ -1,33 +1,62 @@
 ---
 layout: default
 type: element
-title: Buttons
+title: Sign ups
 ---
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
 
   <h3>Primary Buttons</h3>
-  <button>Static</button>
-  <button class="usa-button-active">Active</button>
-  <button class="usa-button-hover">Hover</button>
+  <div class="button_wrapper">
+    <button>Sign up</button>
+    <button class="usa-button-active">Sign up</button>
+    <button class="usa-button-hover">Sign up</button>
+  </div>
+
+  <div class="button_wrapper">
+    <button class="usa-button-primary-alt">Sign up</button>
+    <button class="usa-button-primary-alt usa-button-active">Sign up</button>
+    <button class="usa-button-primary-alt usa-button-hover">Sign up</button>
+  </div>
 
   <h3>Secondary Buttons</h3>
-  <button class="usa-button-secondary">Static</button>
-  <button class="usa-button-secondary usa-button-secondary-active">Active</button>
-  <button class="usa-button-secondary usa-button-secondary-hover">Hover</button>
+  <div class="button_wrapper">
+    <button class="usa-button-secondary">Sign up</button>
+    <button class="usa-button-secondary usa-button-active">Sign up</button>
+    <button class="usa-button-secondary usa-button-hover">Sign up</button>
+  </div>
+
+  <div class="button_wrapper">
+    <button class="usa-button-gray">Sign up</button>
+    <button class="usa-button-gray usa-button-active">Sign up</button>
+    <button class="usa-button-gray usa-button-hover">Sign up</button>
+  </div>
+
+  <div class="button_wrapper">
+    <button class="usa-button-outlined" type="button">Sign up</button>
+    <button class="usa-button-outlined usa-button-active">Sign up</button>
+    <button class="usa-button-outlined usa-button-hover">Sign up</button>
+  </div>
+
+  <div class="button_wrapper" style="background: #323a45">
+    <button class="usa-button-negative" type="button">Sign up</button>
+    <button class="usa-button-negative usa-button-active">Sign up</button>
+    <button class="usa-button-negative usa-button-hover">Sign up</button>
+  </div>
 
   <h3>Button Focus</h3>
-  <button class="usa-button-focus">Button</button>
-
-  <h3>Outlined Button</h3>
-  <button class="usa-button-outlined" type="button">Button</button>
+  <div class="button_wrapper">
+    <button class="usa-button-focus">Sign up</button>
+    <button class="usa-button-primary-alt usa-button-focus">Sign up</button>
+    <button class="usa-button-secondary usa-button-focus">Sign up</button>
+  </div>
 
   <h3>Disabled Button</h3>
-  <button class="usa-button-disabled">Button</button>
+  <button class="usa-button-disabled">Sign up</button>
 
   <h3>Big Button</h3>
-  <button class="usa-button-big" type="button">Button</button>
+  <button class="usa-button-big" type="button">Sign up</button>
 
 </div>
 
