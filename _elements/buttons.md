@@ -1,7 +1,7 @@
 ---
 layout: default
 type: element
-title: Sign ups
+title: Buttons
 ---
 
 <div class="preview">
