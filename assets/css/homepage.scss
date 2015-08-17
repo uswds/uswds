@@ -118,6 +118,16 @@ p {
   .intro-heading {
     color: $color-white;
   }
+
+  .usa-width-one-half {
+    h3 {
+      clear: none;
+    }
+
+    h3, p {
+      overflow: hidden;
+    }
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -145,4 +155,9 @@ a:hover {
 
 .usa-text-small {
   font-size: 1.3rem;
+}
+
+.usa-img-circle {
+  float: left;
+  margin-right: 3rem;
 }
