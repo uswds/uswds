@@ -12,7 +12,6 @@
 $text-width:      660px;
 $section-padding: 7.2rem;
 $intro-heading:   2rem;
-$intro-text:      1.5rem;
 
 // Styles --------------- //
 
@@ -148,8 +147,6 @@ h1, h2 {
 
 .intro-text {
   font-family: $font-serif;
-  font-size: $intro-text;
-  font-style: italic;
 }
 
 a,
