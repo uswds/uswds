@@ -116,7 +116,6 @@ title: Accordions
     </tr>
     <tr>
       <td class="snippet">
-        <button class="code-copy-button" data-clipboard-target="accordion-html">Copy</button>
         <div id="accordion-html">
           {% highlight html %}
 <div class="usa-accordion">
@@ -180,7 +179,6 @@ title: Accordions
     </tr>
     <tr>
       <td>
-        <button class="code-copy-button" data-clipboard-target="accordion-css">Copy</button>
         <div id="accordion-css">
           {% highlight css %}
 .usa-accordion ul {
@@ -232,7 +230,6 @@ title: Accordions
         </div>
       </td>
       <td>
-        <button class="code-copy-button" data-clipboard-target="accordion-js">Copy</button>
         <div id="accordion-js">
           {% highlight js %}
 function Accordion($el) {
@@ -287,5 +284,3 @@ $(function() {
     </tr>
   </table>
 </div>
-
-<!-- TODO: Add borderless accordion -->

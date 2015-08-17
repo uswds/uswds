@@ -3,5 +3,4 @@ $(function() {
     $(this).parent().toggleClass('hidden');
   });
 
-  var client = new ZeroClipboard($(".code-copy-button"));
 });
