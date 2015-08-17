@@ -99,6 +99,10 @@ p {
   color: $color-white;
   float: right;
   font-weight: $font-bold;
+
+  &:visited {
+    color: $color-white;
+  }
 }
 
 .usa-banner-content {
