@@ -198,3 +198,7 @@ a:hover {
     margin-bottom: 5rem;
   }
 }
+
+a > h3 {
+  color: $color-primary;
+}
