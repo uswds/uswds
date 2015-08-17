@@ -183,8 +183,10 @@ a:hover {
 }
 
 .usa-link-external {
+  display: inline-block;
   font-family: $font-serif;
   font-size: $h3-font-size;
+  margin-bottom: 1.6rem;
 }
 
 .usa-section-examples {
