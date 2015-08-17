@@ -20,7 +20,7 @@ select  {
   color: #000; // standardize on firefox 
   display: block;
   font-size: $base-font-size;
-  margin: 1.5rem 0;
+  margin: .2em 0;
   max-width: $input-max-width;
   width: 100%;
   outline: none;
@@ -41,11 +41,16 @@ select  {
   }
 }
 
+.input-error_message {
+  color: $color-secondary-dark;
+  font-size: $small-font-size;
+  font-weight: $font-bold;
+}
+
 label {
   display: block;
   margin: {
     top: 3rem;
-    bottom: 1.5rem;
   }
   max-width: $input-max-width;
 }
