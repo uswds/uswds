@@ -122,6 +122,7 @@ p {
   .usa-width-one-half {
     h3 {
       clear: none;
+      margin-top: 0;
     }
 
     h3, p {
@@ -133,6 +134,9 @@ p {
 h1, h2, h3, h4, h5, h6 {
   color: $color-primary-darker;
   font-family: $font-serif;
+}
+
+h1, h2 {
   margin-top: 0;
 }
 
