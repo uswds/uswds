@@ -9,7 +9,7 @@
 
 // Variables -------------- //
 
-$text-max-width: 660px;
+$text-width: 660px;
 
 .usa-disclaimer {
   background-color: $color-gray-lighter;
@@ -19,11 +19,25 @@ $text-max-width: 660px;
   float: right;
 }
 
+.usa-intro {
+  max-width: $text-width;
+}
+
 .usa-section {
   padding: {
     bottom: 7.2rem;
     top: 7.2rem;
   }
+}
+
+.usa-button-block {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.usa-cta {
+  clear: both;
+  display: block;
 }
 
 .usa-banner {
@@ -57,7 +71,7 @@ $text-max-width: 660px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: $color-primary-darkest;
+  color: $color-primary-darker;
   font-family: $font-serif;
   margin-top: 0;
 }
