@@ -15,20 +15,20 @@
 
     button[aria-expanded=false] {
       background: url('../img/plus.png') no-repeat;
-      background-position: 96%;
+      background-position: 94%;
       background-size: 13px;
     }
 
     button {
       background: url('../img/minus.png') no-repeat;
-      background-position: 96%;
+      background-position: 94%;
       background-size: 13px;
       color: $color-base;
       cursor: pointer;
       display: inline-block;
       font-family: $font-sans;
       margin: 0;
-      padding: 15px 30px;
+      padding: 1.5rem 3rem;
       width: 100%;
       &:hover {
         background-color: $color-gray-lightest;
@@ -41,5 +41,5 @@
 .usa-accordion-content {
   display: block;
   background-color: white;
-  padding: 30px;
+  padding: 3rem;
 }
