@@ -29,7 +29,6 @@ select  {
 
   &:focus, 
   &.usa-input-focus {
-    border-color: $color-focus;
     box-shadow: $focus-shadow;
   }
 
