@@ -17,6 +17,7 @@ $intro-heading:   2rem;
 
 p {
   font-family: $font-sans;
+  font-size: 1.7rem;
 }
 
 .skipnav {
@@ -143,10 +144,12 @@ h1, h2 {
   color: $color-gray-dark;
   font-weight: $font-normal;
   font-size: $intro-heading;
+  margin-bottom: 5rem;
 }
 
 .intro-text {
   font-family: $font-serif;
+  margin-bottom: 4rem;
 }
 
 a,
@@ -161,4 +164,10 @@ a:hover {
 .usa-img-circle {
   float: left;
   margin-right: 3rem;
+}
+
+.usa-standlast {
+  p {
+    font-size: $h3-font-size;
+  }
 }
