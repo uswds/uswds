@@ -15,7 +15,7 @@ input[type="time"],
 input[type="week"],
 textarea,
 select  {
-  border: 1px solid #5b616b;
+  border: 1px solid $color-gray;
   box-sizing: border-box;
   color: #000; // standardize on firefox 
   display: block;
