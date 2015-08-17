@@ -93,7 +93,7 @@ button,
     }
   }
 
-  &.usa-button-outlined {
+  &.usa-button-outline {
     background-color: $color-white;
     border: 2px solid;
     border-color: $color-primary;
@@ -113,7 +113,7 @@ button,
     }
   }
 
-  &.usa-button-negative {
+  &.usa-button-inverse {
     background: transparent;
     border: 2px solid;
     border-color: $color-white;
@@ -145,8 +145,14 @@ button,
   color: $color-gray-dark;
   cursor: default;
 
-  &:hover {
+  &:hover,
+  &.usa-button-hover,
+  &:active,
+  &.usa-button-active,
+  &:focus  {
     background-color: $color-gray-lighter;
+    border: 0;
+    box-shadow: none;
     color: $color-gray-dark;
   }
 }

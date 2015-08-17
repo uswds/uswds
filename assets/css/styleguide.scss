@@ -364,7 +364,7 @@ header[role="banner"] {
       font-size: $base-font-size / 1.5;
       line-height: 1.4em;
       word-wrap: break-word;
-      
+
       &.language-html {
         max-width: 25em;
       }
@@ -433,6 +433,10 @@ header[role="banner"] {
 }
 
 .button_wrapper {
-  max-width: 600px;
+  max-width: 330px;
   padding: 2rem 1rem;
+}
+
+.button_wrapper-dark {
+  background: #323a45
 }
