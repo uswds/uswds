@@ -7,9 +7,40 @@
 @import 'lib/neat/neat';
 @import 'all';
 
+// Variables -------------- //
+
+$text-max-width: 660px;
+
+.usa-disclaimer {
+  background-color: $color-gray-lighter;
+}
+
+.usa-disclaimer-stage {
+  float: right;
+}
+
+.usa-section {
+  padding: {
+    bottom: 7.2rem;
+    top: 7.2rem;
+  }
+}
+
 .usa-banner {
   background-color: $color-primary-darkest;
   color: $color-white;
+
+  h1 {
+    color: $color-white;
+
+    @media (min-width: $medium-screen) {
+      font-size: 5.6rem;
+    }
+  }
+}
+
+.usa-banner-content {
+  max-width: 66rem;
 }
 
 .usa-section-alt {
@@ -19,10 +50,16 @@
 .usa-section-dark {
   background-color: $color-gray-dark;
   color: $color-white;
+
+  h2, h3 {
+    color: $color-white;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
+  color: $color-primary-darkest;
   font-family: $font-serif;
+  margin-top: 0;
 }
 
 a,
