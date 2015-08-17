@@ -32,8 +32,51 @@
       @include span-columns(1);
     }    
 
-    .usa-end-row {
+    // Shift Classes (adds white space to the left of grid item)
+    .shift-one-half {
+      @include shift(6);
+    }
+    .shift-one-third {
+      @include shift(4);
+    }
+    .shift-two-thirds {
+      @include shift(8);
+    }
+    .shift-one-fourth {
+      @include shift(3);
+    }
+    .shift-three-fourths {
+      @include shift(9);
+    }
+    .shift-one-sixth {
+      @include shift(2);
+    }
+    .shift-five-sixths {
+      @include shift(10);
+    }
+    .shift-one-twelfth {
+      @include shift(1);
+    }
+    .shift-five-twelfths {
+      @include shift(5);
+    }
+    .shift-seven-twelfths {
+      @include shift(7);
+    }
+    .shift-eleven-twelfths {
+      @include shift(11);
+    }
+
+    // Specificies end of a row.
+    // Required if grid-box contains multiple rows.
+    // Required if browser does not support :last-child
+    .end-row {
       @include omega();
+    }
+
+    // Fixes grid alignment when grid-items have varying heights.
+    .end-row + .grid-item {
+      clear: left;
     }
   }
 }
