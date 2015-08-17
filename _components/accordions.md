@@ -182,49 +182,47 @@ title: Accordions
         <div id="accordion-css">
           {% highlight css %}
 .usa-accordion ul {
-  border: 1px solid #757575;
-  border-radius: 5px;
   color: #212121;
   margin: 0;
   overflow: hidden;
-  padding: 0;
+  padding: 0; 
 }
-
+  
 .usa-accordion ul li {
-  background-color: #eeeeee;
-  border-bottom: 1px solid #757575;
+  background-color: #efefef;
   font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
   list-style: none;
-  margin: 0;
+  margin-bottom: 6px; 
 }
-
-.usa-accordion ul li:last-child {
-  border-bottom: 0;
-}
-
+  
 .usa-accordion ul button[aria-expanded=false] {
-  background: url("../img/arrow-right.png") no-repeat;
-  background-position: 15px;
-  border-bottom: 0;
+  background: url("../img/plus.png") no-repeat;
+  background-position: 96%;
+  background-size: 13px; 
 }
 
 .usa-accordion ul button {
-  background: url("../img/arrow-down.png") no-repeat;
-  background-position: 15px;
-  border-bottom: 1px solid #757575;
+  background: url("../img/minus.png") no-repeat;
+  background-position: 96%;
+  background-size: 13px;
   color: #212121;
   cursor: pointer;
   display: inline-block;
   font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
   margin: 0;
-  padding: 10px 15px 10px 35px;
-  width: 100%;
+  padding: 15px 30px;
+  width: 100%; 
+}
+
+.usa-accordion ul button:hover {
+  background-color: #efefef;
+  color: #212121; 
 }
 
 .usa-accordion-content {
   display: block;
   background-color: white;
-  padding: 15px;
+  padding: 30px; 
 }
           {% endhighlight %}
         </div>
