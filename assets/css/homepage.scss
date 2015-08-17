@@ -129,6 +129,12 @@ p {
       overflow: hidden;
     }
   }
+
+  .usa-width-one-half-top {
+    @media (min-width: $medium-screen) {
+      margin-bottom: 7rem;
+    }
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -171,3 +177,4 @@ a:hover {
     font-size: $h3-font-size;
   }
 }
+
