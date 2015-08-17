@@ -6,3 +6,26 @@
 @import 'lib/bourbon/bourbon';
 @import 'lib/neat/neat';
 @import 'all';
+
+.usa-banner {
+  background-color: $color-primary-darkest;
+  color: $color-white;
+}
+
+.usa-section-alt {
+  background-color: $color-gray-lightest;
+}
+
+.usa-section-dark {
+  background-color: $color-gray-dark;
+  color: $color-white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-serif;
+}
+
+a,
+a:hover {
+  border-bottom: 0;
+}
