@@ -7,9 +7,37 @@
 @import 'lib/neat/neat';
 @import 'all';
 
-// Variables -------------- //
+// Variables ------------ //
 
-$text-width: 660px;
+$text-width:      660px;
+$section-padding: 7.2rem;
+$intro-heading:   2rem;
+$intro-text:      1.5rem;
+
+// Styles --------------- //
+
+p {
+  font-family: $font-sans;
+}
+
+.skipnav {
+  padding: 10px 15px;
+  position: absolute;
+  top: -42px;
+  left: 0px;
+  color: $color-base;
+  background: transparent;
+  @include transition(top 1s ease-out, background 1s linear);
+  z-index: 100;
+  &:focus {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: white;
+    outline: 0;
+    @include transition(top .1s ease-in, background .5s linear);
+  }
+}
 
 .usa-disclaimer {
   background-color: $color-gray-lighter;
@@ -25,8 +53,8 @@ $text-width: 660px;
 
 .usa-section {
   padding: {
-    bottom: 7.2rem;
-    top: 7.2rem;
+    bottom: $section-padding;
+    top: $section-padding;
   }
 }
 
@@ -43,6 +71,14 @@ $text-width: 660px;
 .usa-banner {
   background-color: $color-primary-darkest;
   color: $color-white;
+  padding: {
+    bottom: $section-padding;
+    top: 2rem;
+  }
+
+  .intro-heading {
+    color: $color-white;
+  }
 
   h1 {
     color: $color-white;
@@ -53,8 +89,14 @@ $text-width: 660px;
   }
 }
 
+.usa-banner-link-top {
+  color: $color-white;
+  float: right;
+  font-weight: $font-bold;
+}
+
 .usa-banner-content {
-  max-width: 66rem;
+  max-width: 48rem;
 }
 
 .usa-section-alt {
@@ -65,7 +107,9 @@ $text-width: 660px;
   background-color: $color-gray-dark;
   color: $color-white;
 
-  h2, h3 {
+  h2,
+  h3,
+  .intro-heading {
     color: $color-white;
   }
 }
@@ -76,7 +120,23 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
 }
 
+.intro-heading {
+  color: $color-gray-dark;
+  font-weight: $font-normal;
+  font-size: $intro-heading;
+}
+
+.intro-text {
+  font-family: $font-serif;
+  font-size: $intro-text;
+  font-style: italic;
+}
+
 a,
 a:hover {
   border-bottom: 0;
+}
+
+.usa-text-small {
+  font-size: 1.3rem;
 }
