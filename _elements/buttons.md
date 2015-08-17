@@ -40,9 +40,9 @@ title: Buttons
   </div>
 
   <div class="button_wrapper button_wrapper-dark">
-    <button class="usa-button-inverse" type="button">Sign up</button>
-    <button class="usa-button-inverse usa-button-active">Active</button>
-    <button class="usa-button-inverse usa-button-hover">Hover</button>
+    <button class="usa-button-outline-inverse" type="button">Sign up</button>
+    <button class="usa-button-outline-inverse usa-button-active">Active</button>
+    <button class="usa-button-outline-inverse usa-button-hover">Hover</button>
   </div>
 
   <h3>Button Focus</h3>
