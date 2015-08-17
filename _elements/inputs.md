@@ -19,6 +19,8 @@ title: Inputs
 
 <div class="preview">
 
+  <h2>Text Input</h2>
+
   <label for="input-type-text">Text Input Label</label>
   <input id="input-type-text" name="input-type-text" type="text">
 
@@ -26,12 +28,14 @@ title: Inputs
   <input class="usa-input-focus" id="input-focus" name="input-focus" type="text">
 
   <label for="input-error">Text Input Error</label>
-  <input class="usa-input-error" id="input-error" name="input-error" type="text">
+  <span class="input-error_message" role="alert">Helpful error message</span>
+  <input class="usa-input-error" id="input-error"  aria-describedby="input-error-message" name="input-error" type="text">
 
   <label for="input-success">Text Input Success</label>
   <input class="usa-input-success" id="input-success" name="input-success" type="text">
 
   <h2>Text Area</h2>
+
   <label for="input-type-textarea">Text Area Label</label>
   <textarea id="input-type-textarea" name="input-type-textarea"></textarea>
 
