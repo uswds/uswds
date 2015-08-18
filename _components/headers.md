@@ -21,13 +21,13 @@ title: Headers & Navigation
         </a>
         <nav class="usa-nav-primary usa-width-one-half" role="navigation">
           <ul class="usa-nav-list usa-unstyled-list">
-            <li>
+            <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 1</a>
             </li>
-            <li>
+            <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 2</a>
             </li>
-            <li>
+            <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 3</a>
             </li>
           </ul>
@@ -65,13 +65,33 @@ title: Headers & Navigation
         </a>
         <nav class="usa-nav-primary usa-width-one-half" role="navigation">
           <ul class="usa-nav-list usa-unstyled-list">
-            <li>
+            <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 1</a>
+
+              <ul class="usa-unstyled-list usa-sub-menu usa-active">
+                <span>Topic</span>
+                <li>
+                  <a href="javascript:void(0)">Secondary link</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">Secondary link</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">Secondary link</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">Secondary link</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">Secondary link</a>
+                </li>
+              </ul>
+
             </li>
-            <li>
+            <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 2</a>
             </li>
-            <li>
+            <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 3</a>
             </li>
           </ul>
@@ -109,13 +129,13 @@ title: Headers & Navigation
         </a>
         <nav class="usa-nav-primary usa-width-one-half" role="navigation">
           <ul class="usa-nav-list usa-unstyled-list">
-            <li>
+            <li class="usa-menu-item">
               <a class="current-menu-item" href="javascript:void(0)">Nav Link 1</a>
             </li>
-            <li>
+            <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 2</a>
             </li>
-            <li>
+            <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 3</a>
             </li>
           </ul>

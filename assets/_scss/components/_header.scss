@@ -34,30 +34,49 @@ header[role="banner"] {
     clear: both;
   }
 
-  a {
-    @include media($medium-screen) {
-      padding: {
-        bottom: 2.2rem;
-        left: 1rem;
-        right: 1rem;
-        top: 2.2rem;
-      }
-      
-      &:hover {
-        background-color: $color-primary;
-        color: $color-white;
-      }
+  .usa-menu-item {
+    position: relative;
 
-      &.current-menu-item {
-        border-bottom: 4px solid $color-primary;
-        padding-bottom: 1.8rem;
+    > a {
+      @include media($medium-screen) {
+        padding: {
+          bottom: 2.2rem;
+          left: 1rem;
+          right: 1rem;
+          top: 2.2rem;
+        }
+        
+        &:hover {
+          background-color: $color-primary;
+          color: $color-white;
+        }
+
+        &.current-menu-item {
+          border-bottom: 4px solid $color-primary;
+          padding-bottom: 1.8rem;
+        }
       }
-    }
-    border-bottom: none;
-    color: $color-base;
-    font-weight: $font-bold;
+      border-bottom: none;
+      color: $color-base;
+      font-weight: $font-bold;
+    }    
   }
   
+  .usa-sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+    background-color: $color-white;
+    line-height: 1.2;
+    padding: .5em;
+    min-width: 12em;
+
+    li {
+      display: list-item;
+    }
+  }
+
   .usa-header-title {
     @include media($medium-screen) {
       line-height: normal;
@@ -159,6 +178,12 @@ header[role="banner"] {
   line-height: 5rem;
   text-align: center;
   width: 5rem;
+}
+
+.usa-sub-menu {
+  .usa-active {
+    display: block;
+  }
 }
 
 // Side Nav
