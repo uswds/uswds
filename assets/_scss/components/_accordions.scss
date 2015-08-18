@@ -1,4 +1,5 @@
-.usa-accordion {
+.usa-accordion,
+.usa-accordion-bordered {
 
   ul {
     color: $color-base;
@@ -35,6 +36,14 @@
         color: $color-base;
       }
     }
+  }
+
+}
+
+.usa-accordion-bordered {
+
+  .usa-accordion-content {
+    border: 3px solid $color-gray-lightest;
   }
 }
 
