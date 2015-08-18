@@ -174,6 +174,18 @@ title: Headers & Navigation
             </li>
             <li>
               <a href="javascript:void(0)">Footers</a>
+
+              <ul class="usa-nav-list-sub-list usa-nav-list-sub-list-2">
+                <li>
+                  <a href="javascript:void(0)">Grandchild 1</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">Grandchild 2</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">Grandchild 3</a>
+                </li>
+              </ul>
             </li>
             <li>
               <a href="javascript:void(0)">Buttons</a>
