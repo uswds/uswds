@@ -8,7 +8,7 @@ title: Tables
 
   <h3>Bordered Table</h3>
 
-  <table class="usa-table-bordered">
+  <table>
     <thead>
       <tr>
         <th scope='col'>Project Name</th>
