@@ -11,7 +11,7 @@
 
 $text-width:      660px;
 $section-padding: 7.2rem;
-$intro-heading:   2rem;
+$font-lead:   2rem;
 
 // Styles --------------- //
 
@@ -61,6 +61,10 @@ p {
     bottom: $section-padding;
     top: $section-padding;
   }
+
+  h2 {
+    font-size: 3rem;
+  }
 }
 
 .usa-button-block {
@@ -81,7 +85,7 @@ p {
     top: 2rem;
   }
 
-  .usa-intro-heading {
+  .usa-lead {
     color: $color-white;
     margin-bottom: 1rem;
   }
@@ -130,7 +134,7 @@ p {
 
   h2,
   h3,
-  .usa-intro-heading {
+  .usa-lead {
     color: $color-white;
   }
 
@@ -161,10 +165,10 @@ h1, h2 {
   margin-top: 0;
 }
 
-.usa-intro-heading {
+.usa-lead {
   color: $color-gray-dark;
-  font-weight: $font-normal;
-  font-size: $intro-heading;
+  font-weight: 300;
+  font-size: $font-lead;
   margin-bottom: 5rem;
 }
 
