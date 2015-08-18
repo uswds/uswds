@@ -15,42 +15,52 @@ input[type="time"],
 input[type="week"],
 textarea,
 select  {
-  border: 1px solid #9e9e9e;
-  border-radius: $border-radius;
+  border: 1px solid $color-gray;
   box-sizing: border-box;
   color: #000; // standardize on firefox 
   display: block;
   font-size: $base-font-size;
-  margin: 1.5rem 0;
+  margin: .2em 0;
   max-width: $input-max-width;
   width: 100%;
   outline: none;
   padding: 1rem .7em;
-  -webkit-appearance: none;
+  appearance: none;
 
   &:focus, 
   &.usa-input-focus {
-    border-color: $color-focus;
-    box-shadow: 0 0 0 1px $color-focus;
-  }
-
-  &.usa-input-error {
-    border-color: $color-secondary-dark;
-    box-shadow: 0 0 0 1px $color-secondary-dark;
+    box-shadow: $focus-shadow;
   }
 
   &.usa-input-success {
-    border-color: $color-green;
-    box-shadow: 0 0 0 1px $color-green;
+    border: 3px solid $color-green;
   }
+}
+
+.usa-input-error {
+  border-left: 4px solid $color-secondary-dark;
+  padding: .5em 1.5rem; 
+  position: relative;
+  right: 1.5rem;
+  margin-top: 3rem;
+  input {
+    border: 3px solid $color-secondary-dark;
+  }
+  label {
+    margin-top: 0;
+  }
+}
+
+.usa-input-error-message {
+  color: $color-secondary-dark;
+  font-size: $small-font-size;
+  font-weight: $font-bold;
 }
 
 label {
   display: block;
-  font-weight: $font-bold;
   margin: {
     top: 3rem;
-    bottom: 1.5rem;
   }
   max-width: $input-max-width;
 }

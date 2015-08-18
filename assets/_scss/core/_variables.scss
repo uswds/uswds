@@ -13,7 +13,7 @@ $base-line-height:    1.5em;
 $heading-line-height: 1.3em;
 
 $font-sans:           'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
-$font-serif:          'Georgia', 'Times New Roman', serif;
+$font-serif:          'Merriweather', 'Georgia', 'Times New Roman', serif;
 
 $font-normal:         400;
 $font-bold:           700;
@@ -25,14 +25,14 @@ $color-primary-darker:       #205493;
 $color-primary-darkest:      #112e51;
 
 $color-primary-alt:          #02bfe7;
-$color-primary-alt-darkest:  #046b99;
 $color-primary-alt-dark:     #00a6d2;
-$color-primary-alt-light:    #9BDAF1; // lighten($color-primary-alt, 60%)
-$color-primary-alt-lightest: #E1F3F8; // lighten($color-primary-alt, 90%)
+$color-primary-alt-darkest:  #046b99;
+$color-primary-alt-light:    #9bdaf1; // lighten($color-primary-alt, 60%)
+$color-primary-alt-lightest: #e1f3f8; // lighten($color-primary-alt, 90%)
 
 $color-secondary:            #e31c3d;
-$color-secondary-darkest:    #981b1e;
 $color-secondary-dark:       #cd2026;
+$color-secondary-darkest:    #981b1e;
 $color-secondary-light:      #e59393; // lighten($color-secondary, 60%)
 $color-secondary-lightest:   #f9dede; // lighten($color-secondary, 90%)
 
@@ -40,13 +40,13 @@ $color-white:                #ffffff;
 $color-base:                 #212121;
 
 $color-gray-dark:            #323a45;
-$color-gray:                 #205493; // lighten($color-gray-dark, 20%)
-$color-gray-light:           #112E51; // lighten($color-gray-dark, 60%)
-$color-gray-lighter:         #212121; // lighten($color-gray-dark, 80%)
-$color-gray-lightest:        #f2f2f3; // lighten($color-gray-dark, 90%)
+$color-gray:                 #5b616b; // lighten($color-gray-dark, 20%)
+$color-gray-light:           #aeb0b5; // lighten($color-gray-dark, 60%)
+$color-gray-lighter:         #d6d7d9; // lighten($color-gray-dark, 80%)
+$color-gray-lightest:        #efefef; // lighten($color-gray-dark, 90%)
 
 $color-gray-warm-dark:       #494440;
-$color-gray-warm-light:      #dfdbd9; // lighten($color-gray-warm-dark, 90%)
+$color-gray-warm-light:      #e4e2e0; // lighten($color-gray-warm-dark, 90%)
 $color-gray-cool-light:      #dce4ef; // lighten($color-primary, 90%)
 
 $color-gold:                 #fdb81e;
@@ -54,17 +54,17 @@ $color-gold-light:           #f9c642; //  lighten($color-gold, 20%)
 $color-gold-lighter:         #fad980; //  lighten($color-gold, 60%)
 $color-gold-lightest:        #fff1d2; //  lighten($color-gold, 83%)
 
-$color-green:                 #2e8540;  
-$color-green-light:           #649967; // lighten($color-green, 20%)
-$color-green-lighter:         #94bfa2; // lighten($color-green, 60%)
-$color-green-lightest:        #e7f4e4; // lighten($color-green, 60%)
+$color-green:                #2e8540;  
+$color-green-light:          #4aa564; // lighten($color-green, 20%)
+$color-green-lighter:        #94bfa2; // lighten($color-green, 60%)
+$color-green-lightest:       #e7f4e4; // lighten($color-green, 60%)
 
-$color-cool-blue:             #205493;
-$color-cool-blue-light:       #4773aa; // lighten($color-cool-blue, 20%)
-$color-cool-blue-lighter:     #8ba6ca; // lighten($color-cool-blue, 60%)
-$color-cool-blue-lightest:    #dce4ef; // lighten($color-cool-blue, 90%)
+$color-cool-blue:            #205493;
+$color-cool-blue-light:      #4773aa; // lighten($color-cool-blue, 20%)
+$color-cool-blue-lighter:    #8ba6ca; // lighten($color-cool-blue, 60%)
+$color-cool-blue-lightest:   #dce4ef; // lighten($color-cool-blue, 90%)
 
-$color-focus:                 #3e94cf;
+$color-focus:                #3e94cf;
 
 
 // Mobile First Breakpoints
@@ -78,7 +78,7 @@ $site-max-width:    980px;
 $site-margins:      40px;
 $article-max-width: 600px;
 $input-max-width:   46rem;
-$border-radius:     rem(4px);
-$box-shadow:        0 0 7px rgba(#000, .3);
-$focus-shadow:      0 0 2px rgba($color-focus, .3);
+$border-radius:     rem(3px);
+$box-shadow:        0 0 2px rgba(#000, .3);
+$focus-shadow:      0 0 3px $color-focus, 0 0 7px $color-focus;
 $grid-margins:      2.5rem;
