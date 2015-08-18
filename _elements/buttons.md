@@ -9,9 +9,9 @@ title: Buttons
 
   <h3>Primary Buttons</h3>
   <div class="button_wrapper">
-    <a class="usa-button">Default</a>
-    <a class="usa-button usa-button-active">Active</a>
-    <a class="usa-button usa-button-hover">Hover</a>
+    <button>Default</button>
+    <button class="usa-button-active">Active</button>
+    <button class="usa-button-hover">Hover</button>
   </div>
   <div class="button_wrapper">
     <button class="usa-button-primary-alt">Default</button>
