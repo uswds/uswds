@@ -432,9 +432,24 @@ header[role="banner"] {
   }
 }
 
+h3 + .button_wrapper {
+  margin-top: -.5em
+}
+
 .button_wrapper {
-  max-width: 330px;
-  padding: 2rem 1rem;
+  clear: both;
+  display: table;
+  margin-left: -1rem;
+  padding: 0rem 1rem;
+
+  &:after {
+    content:"\A";
+    white-space:pre;
+  }
+
+  button:last-child {
+    margin-right: 0;
+  }
 }
 
 .button_wrapper-dark {
