@@ -80,6 +80,3 @@ DEPENDENCIES
   octopress-autoprefixer
   redcarpet
   rouge
-
-BUNDLED WITH
-   1.10.5

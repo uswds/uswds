@@ -1,18 +1,21 @@
 // Buttons
 
+.usa-button,
+.usa-button-primary,
 button,
-button[type="button"],
-button[type="submit"],
-button[type="reset"],
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-input[type="image"] {
+[type="button"],
+[type="submit"],
+[type="reset"],
+[type="button"],
+[type="submit"],
+[type="reset"],
+[type="image"] {
   appearance: none;
-  background-color: $color-base;
+  background-color: $color-primary;
   border: 0;
   border-radius: $border-radius;
   color: $color-white;
+  font-family: $font-sans;
   font-size: $base-font-size;
   font-weight: $font-bold;
   line-height: 1;
@@ -29,78 +32,129 @@ input[type="image"] {
 
   &:hover,
   &.usa-button-hover {
-    background-color: #616161;
+    background-color: $color-primary-darker;
   }
 
   &:focus,
   &.usa-button-focus {
-    box-shadow: 0 0 0 2px $color-focus;
+    box-shadow: $focus-shadow;
   }
+
   &:active,
   &.usa-button-active {
-    background-color: #000;
+    background-color: $color-primary-darkest;
   }
 
   @media (min-width: $small-screen) {
     width: auto;
-  }  
+  }
+
+  &.usa-button-primary-alt {
+    background-color: $color-primary-alt;
+    color: $color-base;
+
+    &:hover,
+    &.usa-button-hover {
+      background-color: $color-primary-alt-dark;
+    }
+
+    &:active,
+    &.usa-button-active {
+      background-color: $color-primary-alt-darkest;
+      color: $color-white;
+    }
+  }
+
+  &.usa-button-secondary {
+    background-color: $color-secondary;
+
+    &:hover,
+    &.usa-button-hover {
+      background-color: $color-secondary-dark;
+    }
+
+    &:active,
+    &.usa-button-active {
+      background-color: $color-secondary-darkest;
+    }
+  }
+
+  &.usa-button-gray {
+    background-color: $color-gray;
+
+    &:hover,
+    &.usa-button-hover {
+      background-color: $color-gray-dark;
+    }
+
+    &:active,
+    &.usa-button-active {
+      background-color: $color-base;
+    }
+  }
+
+  &.usa-button-outline {
+    background-color: $color-white;
+    border: 2px solid;
+    border-color: $color-primary;
+    color: $color-primary;
+    padding: .8rem 1.8rem;
+
+    &:hover,
+    &.usa-button-hover {
+      border-color: $color-primary-darker;
+      color: $color-primary-darker;
+    }
+
+    &:active,
+    &.usa-button-active {
+      border-color: $color-primary-darkest;
+      color: $color-primary-darkest;
+    }
+  }
+
+  &.usa-button-outline-inverse {
+    background: transparent;
+    border: 2px solid;
+    border-color: $color-white;
+    color: $color-white;
+    padding: .8rem 1.8rem;
+
+    &:hover,
+    &.usa-button-hover {
+      border-color: $color-gray-lighter;
+      color: $color-gray-lighter;
+    }
+
+    &:active,
+    &.usa-button-active {
+      border-color: $color-gray-light;
+      color: $color-gray-lighter;
+    }
+  }
+
+  &.usa-button-big {
+    font-size: 1.9rem;
+    padding: 1.5rem 3rem;
+  }
 }
 
-input[type="submit"]:disabled,
+[type="submit"]:disabled,
 .usa-button-disabled {
-  background-color: #e0e0e0;
-  color: #616161;
+  background-color: $color-gray-lighter;
+  color: $color-gray-dark;
   cursor: default;
 
-  &:hover {
-    background-color: #e0e0e0;
-  }
-}
-
-button.usa-button-secondary,
-button[type="button"].usa-button-secondary,
-button[type="submit"].usa-button-secondary,
-button[type="reset"].usa-button-secondary,
-input[type="button"].usa-button-secondary,
-input[type="submit"].usa-button-secondary,
-input[type="reset"].usa-button-secondary,
-input[type="image"].usa-button-secondary {
-  background-color: #757575;
-
   &:hover,
-  &.usa-button-secondary-hover {
-    background-color: #424242;
-  }
+  &.usa-button-hover,
   &:active,
-  &.usa-button-secondary-active {
-    background-color: #000;
+  &.usa-button-active,
+  &:focus  {
+    background-color: $color-gray-lighter;
+    border: 0;
+    box-shadow: none;
+    color: $color-gray-dark;
   }
-}
-
-.usa-button-outlined,
-button[type="button"].usa-button-outlined,
-button[type="submit"].usa-button-outlined,
-button[type="reset"].usa-button-outlined,
-input[type="button"].usa-button-outlined,
-input[type="submit"].usa-button-outlined,
-input[type="reset"].usa-button-outlined,
-input[type="image"].usa-button-outlined {
-  background-color: $color-white;
-  border: 2px solid $color-base;
-  color: $color-base;
-  padding: .8rem 1.8rem;
-}
-
-.usa-button-big,
-button[type="button"].usa-button-big,
-button[type="submit"].usa-button-big,
-button[type="reset"].usa-button-big,
-input[type="button"].usa-button-big,
-input[type="submit"].usa-button-big,
-input[type="reset"].usa-button-big,
-input[type="image"].usa-button-big {
-  font-size: 1.9rem;
-  padding: 1.5rem 3rem;
 }
 
 .usa-button-unstyled {

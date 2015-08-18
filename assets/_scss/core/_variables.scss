@@ -25,14 +25,14 @@ $color-primary-darker:       #205493;
 $color-primary-darkest:      #112e51;
 
 $color-primary-alt:          #02bfe7;
-$color-primary-alt-darkest:  #046b99;
 $color-primary-alt-dark:     #00a6d2;
+$color-primary-alt-darkest:  #046b99;
 $color-primary-alt-light:    #9bdaf1; // lighten($color-primary-alt, 60%)
 $color-primary-alt-lightest: #e1f3f8; // lighten($color-primary-alt, 90%)
 
 $color-secondary:            #e31c3d;
-$color-secondary-darkest:    #981b1e;
 $color-secondary-dark:       #cd2026;
+$color-secondary-darkest:    #981b1e;
 $color-secondary-light:      #e59393; // lighten($color-secondary, 60%)
 $color-secondary-lightest:   #f9dede; // lighten($color-secondary, 90%)
 
@@ -40,7 +40,7 @@ $color-white:                #ffffff;
 $color-base:                 #212121;
 
 $color-gray-dark:            #323a45;
-$color-gray:                 #205493; // lighten($color-gray-dark, 20%)
+$color-gray:                 #5b616b; // lighten($color-gray-dark, 20%)
 $color-gray-light:           #aeb0b5; // lighten($color-gray-dark, 60%)
 $color-gray-lighter:         #d6d7d9; // lighten($color-gray-dark, 80%)
 $color-gray-lightest:        #efefef; // lighten($color-gray-dark, 90%)
@@ -78,7 +78,7 @@ $site-max-width:    980px;
 $site-margins:      40px;
 $article-max-width: 600px;
 $input-max-width:   46rem;
-$border-radius:     rem(4px);
+$border-radius:     rem(3px);
 $box-shadow:        0 0 2px rgba(#000, .3);
-$focus-shadow:      0 0 2px rgba($color-focus, .3);
+$focus-shadow:      0 0 3px $color-focus, 0 0 12px $color-focus;
 $grid-margins:      2.5rem;
