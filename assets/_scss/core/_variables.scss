@@ -13,7 +13,7 @@ $base-line-height:    1.5em;
 $heading-line-height: 1.3em;
 
 $font-sans:           'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
-$font-serif:          'Georgia', 'Times New Roman', serif;
+$font-serif:          'Merriweather', 'Georgia', 'Times New Roman', serif;
 
 $font-normal:         400;
 $font-bold:           700;
@@ -80,5 +80,5 @@ $article-max-width: 600px;
 $input-max-width:   46rem;
 $border-radius:     rem(3px);
 $box-shadow:        0 0 2px rgba(#000, .3);
-$focus-shadow:      0 0 3px $color-focus, 0 0 12px $color-focus;
+$focus-shadow:      0 0 3px $color-focus, 0 0 7px $color-focus;
 $grid-margins:      2.5rem;
