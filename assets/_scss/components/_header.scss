@@ -63,14 +63,15 @@ header[role="banner"] {
   }
   
   .usa-sub-menu {
+    background-color: $color-white;
+    box-shadow: $box-shadow;
+    left: 0;
+    line-height: 1.2;
+    min-width: 12em;
+    padding: .5em;
     position: absolute;
     top: 100%;
-    left: 0;
     z-index: 2;
-    background-color: $color-white;
-    line-height: 1.2;
-    padding: .5em;
-    min-width: 12em;
 
     li {
       display: list-item;
