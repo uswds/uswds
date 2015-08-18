@@ -27,10 +27,10 @@ title: Inputs
   <label for="input-focus">Text Input Focused</label>
   <input class="usa-input-focus" id="input-focus" name="input-focus" type="text">
 
-  <div class="input-error">
+  <div class="usa-input-error">
     <label for="input-error">Text Input Error</label>
-    <span class="input-error_message" role="alert">Helpful error message</span>
-    <input class="usa-input-error" id="input-error"  aria-describedby="input-error-message" name="input-error" type="text">
+    <span class="usa-input-error-message" role="alert">Helpful error message</span>
+    <input id="input-error"  aria-describedby="usa-input-error-message" name="input-error" type="text">
   </div>
 
   <label for="input-success">Text Input Success</label>

@@ -32,27 +32,26 @@ select  {
     box-shadow: $focus-shadow;
   }
 
-  &.usa-input-error {
-    border: 3px solid $color-secondary-dark;
-  }
-
   &.usa-input-success {
     border: 3px solid $color-green;
   }
 }
 
-.input-error {
+.usa-input-error {
   border-left: 4px solid $color-secondary-dark;
   padding: .5em 1.5rem; 
   position: relative;
   right: 1.5rem;
   margin-top: 3rem;
+  input {
+    border: 3px solid $color-secondary-dark;
+  }
   label {
     margin-top: 0;
   }
 }
 
-.input-error_message {
+.usa-input-error-message {
   color: $color-secondary-dark;
   font-size: $small-font-size;
   font-weight: $font-bold;
