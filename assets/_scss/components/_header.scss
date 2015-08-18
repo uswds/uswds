@@ -35,8 +35,6 @@ header[role="banner"] {
   }
 
   .usa-menu-item {
-
-
     > a {
       @include media($medium-screen) {
         padding: {
@@ -80,6 +78,7 @@ header[role="banner"] {
 
     .usa-sub-menu-heading {
       color: $color-gray;
+      font-family: $font-sans;
       font-size: 1.7rem;
       margin-top: 0;
     }
@@ -93,6 +92,10 @@ header[role="banner"] {
       border-bottom: 0;
       font-family: $font-sans;
     }
+  }
+
+  .usa-sub-menu-mega {
+    min-width: 30em;
   }
 
   .usa-header-title {
@@ -272,4 +275,17 @@ header[role="banner"] {
       padding-left: 3.8rem;
     }
   }
+}
+
+.usa-sub-menu-item {
+  display: block;
+  float: left;
+
+  ul {
+    margin: 0;
+  }
+}
+
+.usa-sub-menu-item + .usa-sub-menu-item {
+  margin-left: 3rem;
 }

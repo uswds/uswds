@@ -50,6 +50,50 @@ title: Headers & Navigation
     </div>
   </header>
 
+  <h2>Header Nav Active</h2>
+
+  <header role="banner">
+    <div class="usa-grid">
+      <div class="usa-nav-group">
+        <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
+        <div class="usa-width-one-sixth usa-logo-block" id="logo">
+          <a href="javascript:void(0)" accesskey="1" aria-label="Home">
+            <h1 class="usa-header-title">Name of Agency</h1>
+          </a>
+        </div>
+        <a class="usa-search-trigger" href="#">
+        </a>
+        <nav class="usa-nav-primary usa-width-one-half" role="navigation">
+          <ul class="usa-nav-list usa-unstyled-list">
+            <li class="usa-menu-item">
+              <a class="current-menu-item" href="javascript:void(0)">Nav Link 1</a>
+            </li>
+            <li class="usa-menu-item">
+              <a href="javascript:void(0)">Nav Link 2</a>
+            </li>
+            <li class="usa-menu-item">
+              <a href="javascript:void(0)">Nav Link 3</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="usa-search-container usa-width-one-third">
+        <form class="usa-search usa-search-small">           
+          <fieldset>
+            <legend class="usa-sr-only">Search</legend>
+            <label for="search-field-small">Search</label>
+            <div class="usa-search-bar">
+              <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
+              <button class="usa-search-submit usa-search-submit-small" type="submit">
+                <span class="usa-sr-only">Search</span>
+              </button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </header>
+
   <h2>Header Nav Dropdown</h2>
 
   <header role="banner">
@@ -114,7 +158,7 @@ title: Headers & Navigation
     </div>
   </header>
 
-  <h2>Header Nav Active</h2>
+  <h2 class="usa-mega_menu-example">Header Nav Mega Menu</h2>
 
   <header role="banner">
     <div class="usa-grid">
@@ -130,7 +174,75 @@ title: Headers & Navigation
         <nav class="usa-nav-primary usa-width-one-half" role="navigation">
           <ul class="usa-nav-list usa-unstyled-list">
             <li class="usa-menu-item">
-              <a class="current-menu-item" href="javascript:void(0)">Nav Link 1</a>
+              <a href="javascript:void(0)">Nav Link 1</a>
+
+              <ul class="usa-unstyled-list usa-sub-menu usa-sub-menu-mega">
+
+                <li class="usa-sub-menu-item">
+                  <ul>
+                    <h3 class="usa-sub-menu-heading">Topic</h3>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="usa-sub-menu-item">
+                  <ul>
+                    <h3 class="usa-sub-menu-heading">Topic</h3>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="usa-sub-menu-item">
+                  <ul>
+                    <h3 class="usa-sub-menu-heading">Topic</h3>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Secondary link</a>
+                    </li>
+                  </ul>
+                </li>
+
+              </ul>
+
             </li>
             <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 2</a>
