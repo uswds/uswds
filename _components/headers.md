@@ -174,6 +174,43 @@ title: Headers & Navigation
             </li>
             <li>
               <a href="javascript:void(0)">Footers</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Buttons</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Tables</a>
+            </li>
+            <li>
+              <a class="usa-current-page" href="javascript:void(0)">Accordion</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:void(0)">Secondary link</a>
+        </li>
+      </ul>
+    </aside>
+    <main class="usa-width-three-fourths">
+    </main>
+  </div>
+
+  <h2>Side Nav with Sub Items + Grandchild Items</h2>
+  <div class="usa-grid">
+    <aside class="side_nav usa-width-one-fourth">
+      <ul class="usa-sidenav-list usa-unstyled-list">
+        <li>
+          <a href="javascript:void(0)">Secondary link</a>
+        </li>
+        <li>
+          <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+
+          <ul class="usa-nav-list-sub-list">
+            <li>
+              <a href="javascript:void(0)">Headers & Navigation</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Footers</a>
 
               <ul class="usa-nav-list-sub-list usa-nav-list-sub-list-2">
                 <li>
@@ -198,7 +235,6 @@ title: Headers & Navigation
             </li>
           </ul>
         </li>
-
         <li>
           <a href="javascript:void(0)">Secondary link</a>
         </li>
