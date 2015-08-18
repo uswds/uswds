@@ -68,13 +68,30 @@ header[role="banner"] {
     left: 0;
     line-height: 1.2;
     min-width: 12em;
-    padding: .5em;
+    padding: {
+      bottom: 1rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      top: 2rem;
+    }
     position: absolute;
     top: 100%;
     z-index: 2;
 
+    .usa-sub-menu-heading {
+      color: $color-gray;
+      font-size: 1.7rem;
+      margin-top: 0;
+    }
+
     li {
       display: list-item;
+      line-height: 2;
+    }
+
+    a {
+      border-bottom: 0;
+      font-family: $font-sans;
     }
   }
 

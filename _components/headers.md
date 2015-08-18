@@ -69,7 +69,7 @@ title: Headers & Navigation
               <a href="javascript:void(0)">Nav Link 1</a>
 
               <ul class="usa-unstyled-list usa-sub-menu usa-active">
-                <span>Topic</span>
+                <h3 class="usa-sub-menu-heading">Topic</h3>
                 <li>
                   <a href="javascript:void(0)">Secondary link</a>
                 </li>
