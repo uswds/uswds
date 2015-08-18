@@ -170,7 +170,62 @@ title: Accordions
       <td class="snippet">
         <div id="accordion-html">
           {% highlight html %}
+          
+<!-- Borderless -->
+
 <div class="usa-accordion">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="true" aria-controls="collapsible-0">
+        Apple Pie
+      </button>
+      <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </li>
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-1">
+        Stawberry Pie
+      </button>
+      <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </li>
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-2">
+        Peace Pie
+      </button>
+      <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </li>
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-3">
+        Key Lime
+      </button>
+      <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </li>
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-4">
+        Blackberry
+      </button>
+      <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- Bordered -->
+
+<div class="usa-accordion-bordered">
   <ul class="usa-unstyled-list">
     <li>
       <button class="usa-button-unstyled"
@@ -276,6 +331,10 @@ title: Accordions
   background-color: white;
   padding: 30px; 
 }
+
+.usa-accordion-bordered .usa-accordion-content {
+  border: 3px solid #efefef;
+}
           {% endhighlight %}
         </div>
       </td>
@@ -323,10 +382,8 @@ function accordion($el) {
   return new Accordion($el);
 }
 
-$(function() {
-  $('.usa-accordion').each(function() {
-    accordion($(this));
-  });
+$('[class^=usa-accordion]').each(function() {
+  accordion($(this));
 });
           {% endhighlight %}
         </div>
