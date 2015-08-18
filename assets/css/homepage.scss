@@ -83,6 +83,7 @@ p {
 
   .intro-heading {
     color: $color-white;
+    margin-bottom: 1rem;
   }
 
   h1 {
@@ -92,6 +93,16 @@ p {
       font-size: 5.6rem;
       padding-top: 4.5rem;
     }
+  }
+
+  .usa-text-small {
+    font-size: 1.3rem;
+    margin-top: 0.1em;
+    text-align: center;
+  }
+
+  .usa-button-outline-inverse {
+    margin-right: 0;
   }
 }
 
@@ -165,10 +176,6 @@ h1, h2 {
 a,
 a:hover {
   border-bottom: 0;
-}
-
-.usa-text-small {
-  font-size: 1.3rem;
 }
 
 .usa-img-circle {
