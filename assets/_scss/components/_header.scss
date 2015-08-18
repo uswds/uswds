@@ -35,7 +35,7 @@ header[role="banner"] {
   }
 
   .usa-menu-item {
-    position: relative;
+
 
     > a {
       @include media($medium-screen) {
@@ -124,12 +124,13 @@ header[role="banner"] {
 
       display: none;
       
-      li { 
+      .usa-menu-item { 
         display: inline; 
         font-family: $font-sans;
-        font-size: $h3-font-size;
         margin-right: 5%;
-        
+        padding-bottom: 2.2rem;
+        position: relative;
+
         &:last-child {
           margin-right: 0;
         }
@@ -138,7 +139,7 @@ header[role="banner"] {
     
     .usa-nav-list {
       @include media($medium-screen) {
-        padding-top: 2.8rem;
+        padding-top: 3.1rem;
       }
     }
   }
