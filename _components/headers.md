@@ -32,20 +32,21 @@ title: Headers & Navigation
             </li>
           </ul>
         </nav>
-      </div>
-      <div class="usa-nav-search usa-width-one-third">
-        <form class="usa-search usa-search-small">           
-          <fieldset>
-            <legend class="usa-sr-only">Search</legend>
-            <label for="search-field-small">Search</label>
-            <div class="usa-search-bar">
-              <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
-              <button class="usa-search-submit usa-search-submit-small" type="submit">
-                <span class="usa-sr-only">Search</span>
-              </button>
-            </div>
-          </fieldset>
-        </form>
+      
+        <div class="usa-nav-search usa-width-one-third">
+          <form class="usa-search usa-search-small">           
+            <fieldset>
+              <legend class="usa-sr-only">Search</legend>
+              <label for="search-field-small">Search</label>
+              <div class="usa-search-bar">
+                <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
+                <button class="usa-search-submit usa-search-submit-small" type="submit">
+                  <span class="usa-sr-only">Search</span>
+                </button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
       </div>
     </div>
   </header>
@@ -147,20 +148,21 @@ title: Headers & Navigation
             </li>
           </ul>
         </nav>
-      </div>
-      <div class="usa-nav-search usa-width-one-third">
-        <form class="usa-search usa-search-small">           
-          <fieldset>
-            <legend class="usa-sr-only">Search</legend>
-            <label for="search-field-small">Search</label>
-            <div class="usa-search-bar">
-              <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
-              <button class="usa-search-submit usa-search-submit-small" type="submit">
-                <span class="usa-sr-only">Search</span>
-              </button>
-            </div>
-          </fieldset>
-        </form>
+
+        <div class="usa-nav-search usa-width-one-third">
+          <form class="usa-search usa-search-small">           
+            <fieldset>
+              <legend class="usa-sr-only">Search</legend>
+              <label for="search-field-small">Search</label>
+              <div class="usa-search-bar">
+                <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
+                <button class="usa-search-submit usa-search-submit-small" type="submit">
+                  <span class="usa-sr-only">Search</span>
+                </button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
       </div>
     </div>
   </header>
@@ -211,20 +213,21 @@ title: Headers & Navigation
             </li>
           </ul>
         </nav>
-      </div>
-      <div class="usa-nav-search usa-width-one-third">
-        <form class="usa-search usa-search-small">           
-          <fieldset>
-            <legend class="usa-sr-only">Search</legend>
-            <label for="search-field-small">Search</label>
-            <div class="usa-search-bar">
-              <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
-              <button class="usa-search-submit usa-search-submit-small" type="submit">
-                <span class="usa-sr-only">Search</span>
-              </button>
-            </div>
-          </fieldset>
-        </form>
+
+        <div class="usa-nav-search usa-width-one-third">
+          <form class="usa-search usa-search-small">           
+            <fieldset>
+              <legend class="usa-sr-only">Search</legend>
+              <label for="search-field-small">Search</label>
+              <div class="usa-search-bar">
+                <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
+                <button class="usa-search-submit usa-search-submit-small" type="submit">
+                  <span class="usa-sr-only">Search</span>
+                </button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
       </div>
     </div>
   </header>
@@ -323,20 +326,21 @@ title: Headers & Navigation
             </li>
           </ul>
         </nav>
-      </div>
-      <div class="usa-nav-search usa-width-one-third">
-        <form class="usa-search usa-search-small">           
-          <fieldset>
-            <legend class="usa-sr-only">Search</legend>
-            <label for="search-field-small">Search</label>
-            <div class="usa-search-bar">
-              <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
-              <button class="usa-search-submit usa-search-submit-small" type="submit">
-                <span class="usa-sr-only">Search</span>
-              </button>
-            </div>
-          </fieldset>
-        </form>
+
+        <div class="usa-nav-search usa-width-one-third">
+          <form class="usa-search usa-search-small">           
+            <fieldset>
+              <legend class="usa-sr-only">Search</legend>
+              <label for="search-field-small">Search</label>
+              <div class="usa-search-bar">
+                <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
+                <button class="usa-search-submit usa-search-submit-small" type="submit">
+                  <span class="usa-sr-only">Search</span>
+                </button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
       </div>
     </div>
   </header>
