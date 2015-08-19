@@ -4,7 +4,7 @@ GEM
     autoprefixer-rails (2.2.0.20140804)
       execjs
     blankslate (2.1.2.4)
-    celluloid (0.16.1)
+    celluloid (0.16.0)
       timers (~> 4.0.0)
     classifier-reborn (2.0.3)
       fast-stemmer (~> 1.0)
@@ -76,7 +76,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  celluloid (= 0.16.0)
   jekyll (= 2.4.0)
   octopress-autoprefixer
   redcarpet
   rouge
+
+BUNDLED WITH
+   1.10.4
