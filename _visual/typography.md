@@ -9,12 +9,12 @@ title: Typography
   <!-- Heading title -->
   <h3>Headings</h3>
 
-  <h3 class="usa-display">Display 48px in Source Sans Pro 700</h3>
-  <h1>Heading 1 in 36px in Source Sans Pro 700</h1>
-  <h2>Heading 2 in 24px in Source Sans Pro 700</h2>
-  <h3>Heading 3 in 19px in Source Sans Pro 700</h3>
-  <h4>Heading 4 in 16px in Source Sans Pro 700</h4>
-  <h5>Heading 5 in 14px in Source Sans Pro 700</h5>
+  <h3 class="usa-display">Display 52px in Merriweather 700</h3>
+  <h1>Heading 1 in 40px in Merriweather 700</h1>
+  <h2>Heading 2 in 30px in Merriweather 700</h2>
+  <h3>Heading 3 in 20px in Merriweather 700</h3>
+  <h4>Heading 4 in 17px in Merriweather 700</h4>
+  <h5>Heading 5 in 14px in Merriweather 700</h5>
 
   <!-- Body title -->
   <h3>Body</h3>
