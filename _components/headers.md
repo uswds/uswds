@@ -14,7 +14,7 @@ title: Headers & Navigation
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
         <div class="usa-width-one-sixth usa-logo-block" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
-            <h1 class="usa-header-title">Name of Agency</h1>
+            <h1 class="usa-logo-title">Name of Agency</h1>
           </a>
         </div>
         <a class="usa-search-trigger" href="#">
@@ -50,6 +50,51 @@ title: Headers & Navigation
     </div>
   </header>
 
+  <h2>Header Nav Complex</h2>
+
+  <header role="banner">
+    <div class="usa-grid">
+      <div class="usa-nav-group usa-nav-complex">
+        <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
+        <div class="usa-logo-block" id="logo">
+          <a class="usa-logo-link" href="javascript:void(0)" accesskey="1" aria-label="Home">
+            <img src="{{ site.baseurl }}/assets/img/gray-circle.png">
+            <h1 class="usa-logo-title usa-complex-logo-title">Name of Agency</h1>
+          </a>
+        </div>
+        <a class="usa-search-trigger" href="#">
+        </a>
+      </div>
+      <div class="usa-search-container">
+        <form class="usa-search usa-search-small">           
+          <fieldset>
+            <legend class="usa-sr-only">Search</legend>
+            <label for="search-field-small">Search</label>
+            <div class="usa-search-bar">
+              <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
+              <button class="usa-search-submit usa-search-submit-small" type="submit">
+                <span class="usa-sr-only">Search</span>
+              </button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <nav class="usa-nav-primary" role="navigation">
+        <ul class="usa-nav-list usa-unstyled-list">
+          <li class="usa-menu-item">
+            <a href="javascript:void(0)">Nav Link 1</a>
+          </li>
+          <li class="usa-menu-item">
+            <a href="javascript:void(0)">Nav Link 2</a>
+          </li>
+          <li class="usa-menu-item">
+            <a href="javascript:void(0)">Nav Link 3</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <h2>Header Nav Active</h2>
 
   <header role="banner">
@@ -58,7 +103,7 @@ title: Headers & Navigation
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
         <div class="usa-width-one-sixth usa-logo-block" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
-            <h1 class="usa-header-title">Name of Agency</h1>
+            <h1 class="usa-logo-title">Name of Agency</h1>
           </a>
         </div>
         <a class="usa-search-trigger" href="#">
@@ -102,7 +147,7 @@ title: Headers & Navigation
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
         <div class="usa-width-one-sixth usa-logo-block" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
-            <h1 class="usa-header-title">Name of Agency</h1>
+            <h1 class="usa-logo-title">Name of Agency</h1>
           </a>
         </div>
         <a class="usa-search-trigger" href="#">
@@ -166,7 +211,7 @@ title: Headers & Navigation
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
         <div class="usa-width-one-sixth usa-logo-block" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
-            <h1 class="usa-header-title">Name of Agency</h1>
+            <h1 class="usa-logo-title">Name of Agency</h1>
           </a>
         </div>
         <a class="usa-search-trigger" href="#">

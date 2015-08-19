@@ -18,9 +18,7 @@ header[role="banner"] {
   }
 
   .usa-logo-block {
-    @include media($medium-screen) {
-      @include span-columns(2);
-    }
+    float: left;
 
     a {
       padding: 0;
@@ -98,23 +96,32 @@ header[role="banner"] {
     min-width: 30em;
   }
 
-  .usa-header-title {
+  .usa-logo-link {
+    img {
+      float: left;
+      margin-right: 1.5rem;
+    }
+  }
+
+  .usa-logo-title {
     @include media($medium-screen) {
       line-height: normal;
       padding: {
         left: 0;
         top: 0;
       }
+      &.usa-complex-logo-title {
+        margin-top: 3.5rem;
+      }
     }
+    clear: none;
+    color: $color-base;
+    float: left;
     font-size: 2.1rem;
     margin: 0;
     padding: {
       left: 10%;
       top: 1.5rem;
-    }
-
-    &:hover {
-      color: $color-base;
     }
   }
 
@@ -135,7 +142,17 @@ header[role="banner"] {
     width: 5rem;
     height: 5rem;
   }
-  
+
+  .usa-search-container {
+    float: right;
+  }
+
+  .usa-nav-list {
+    &.usa-nav-list {
+      clear: both;
+    }
+  }
+
   nav {
     ul {
       @include media($medium-screen) {
@@ -147,7 +164,7 @@ header[role="banner"] {
       .usa-menu-item { 
         display: inline; 
         font-family: $font-sans;
-        margin-right: 5%;
+        margin-right: 1rem;
         padding-bottom: 2.2rem;
         position: relative;
 
@@ -206,6 +223,19 @@ header[role="banner"] {
   .usa-active {
     display: block;
   }
+}
+
+.usa-sub-menu-item {
+  display: block;
+  float: left;
+
+  ul {
+    margin: 0;
+  }
+}
+
+.usa-sub-menu-item + .usa-sub-menu-item {
+  margin-left: 3rem;
 }
 
 // Side Nav
@@ -275,17 +305,4 @@ header[role="banner"] {
       padding-left: 3.8rem;
     }
   }
-}
-
-.usa-sub-menu-item {
-  display: block;
-  float: left;
-
-  ul {
-    margin: 0;
-  }
-}
-
-.usa-sub-menu-item + .usa-sub-menu-item {
-  margin-left: 3rem;
 }
