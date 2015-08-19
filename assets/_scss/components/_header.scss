@@ -326,3 +326,27 @@ header[role="banner"] {
     }
   }
 }
+
+// Breadcrumbs
+
+.usa-list-breadcrumb {
+  > li {
+    display: inline-block;
+    font-family: $font-sans;
+
+    &:before {
+      content: ">";
+      vertical-align: middle;
+      padding-right: .5rem;
+      padding-left: .5rem;
+    }
+
+    &:first-child:before {
+      content: "";
+    }
+
+    a {
+      border-bottom: none;
+    }
+  }
+}
