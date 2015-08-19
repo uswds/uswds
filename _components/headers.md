@@ -65,7 +65,7 @@ title: Headers & Navigation
         <a class="usa-search-trigger" href="#">
         </a>
       </div>
-      <div class="usa-nav-search usa-width-one-fourth">
+      <div class="usa-nav-search usa-width-one-third">
         <form class="usa-search usa-search-small">           
           <fieldset>
             <legend class="usa-sr-only">Search</legend>
@@ -79,7 +79,7 @@ title: Headers & Navigation
           </fieldset>
         </form>
       </div>
-      <nav class="usa-nav-primary" role="navigation">
+      <nav class="usa-nav-primary usa-nav-complex-primary" role="navigation">
         <ul class="usa-nav-list usa-unstyled-list">
           <li class="usa-menu-item">
             <a href="javascript:void(0)">Nav Link 1</a>

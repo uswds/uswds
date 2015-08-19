@@ -194,14 +194,20 @@ header[role="banner"] {
         }
       }
     }
-    
-    .usa-nav-list {
-      @include media($medium-screen) {
-        padding-top: 3.1rem;
-      }
+  }
+
+  .usa-nav-list {
+    @include media($medium-screen) {
+      padding-top: 3.1rem;
     }
   }
-  
+
+  .usa-nav-complex-primary{
+    @include media($medium-screen) {
+      clear: both;
+    }
+  }
+
   .usa-search-small {
     @include media($medium-screen) {
       padding-top: .6rem;
