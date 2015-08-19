@@ -28,8 +28,10 @@ header[role="banner"] {
 
   .usa-nav-search {
     @include media($medium-screen) {
+      background-color: transparent;
       clear: none;
     }
+    background-color: $color-primary-darkest;
     clear: both;
     float: right;
   }
@@ -128,22 +130,42 @@ header[role="banner"] {
     }
   }
 
+  .usa-menu-btn,
   .usa-search-trigger {
     @include media($medium-screen) {
       display: none;
     }
-    background-color: $color-base;
+    background-color: $color-primary;
+    border-radius: 0;
+    border-bottom: none;
+    color: $color-white !important;
+    display: block;
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
+    width: 5rem;
+
+    &:hover {
+      background-color: $color-primary-darker;
+    }
+
+    &:focus {
+      background-color: $color-primary-darkest;
+    }
+  }
+
+  .usa-menu-btn {
+    float: left;
+  }
+
+  .usa-search-trigger {
     background-image: url("../img/search.png");
     background-image: url("../img/search.svg");
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: 60%;    
-    border-radius: 0;
-    display: block;
     float: right;
     margin: 0;
-    width: 5rem;
-    height: 5rem;
   }
 
   .usa-nav-list {
@@ -202,20 +224,6 @@ header[role="banner"] {
       background-color: $color-primary-darker;
     }
   }
-}
-
-.usa-menu-btn {
-  @include media($medium-screen) {
-    display: none;
-  }
-  background-color: $color-base;
-  color: $color-white !important;
-  display: block;
-  height: 5rem;
-  float: left;
-  line-height: 5rem;
-  text-align: center;
-  width: 5rem;
 }
 
 .usa-sub-menu {
