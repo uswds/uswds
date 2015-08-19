@@ -7,7 +7,7 @@ title: Typography
   <!-- Add HTML markup for example here -->
 
   <!-- Heading title -->
-  <h3>Headings</h3>
+  <h3 class="usa-usfwds-heading">Headings</h3>
 
   <h3 class="usa-display">Display 52px in Merriweather 700</h3>
   <h1>Heading 1 in 40px in Merriweather 700</h1>
@@ -17,20 +17,20 @@ title: Typography
   <h5>Heading 5 in 14px in Merriweather 700</h5>
 
   <!-- Body title -->
-  <h3>Body</h3>
+  <h3 class="usa-usfwds-heading">Body</h3>
 
   <div class="usa-content">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   </div>
 
   <!-- Links title -->
-  <h3>Links</h3>
+  <h3 class="usa-usfwds-heading">Links</h3>
 
   <p>This is <a href="#">linked text</a> for body copy</p>
   <p class="usa-sans">This is <a href="#">linked text</a> for everything else</p>
 
   <!-- Lists title -->
-  <h3>Lists</h3>
+  <h3 class="usa-usfwds-heading">Lists</h3>
 
   <ul>
     <li>Unordered list item</li>
@@ -66,11 +66,11 @@ title: Typography
 
 <div class="usa-grid">
   <div class="usa-width-one-half">
-    <h3>Use</h3>
+    <h3 class="usa-usfwds-heading">Use</h3>
     <p>This is the usage content for the example.</p>
   </div>
   <div class="usa-width-one-half">
-    <h3>Accessibility</h3>
+    <h3 class="usa-usfwds-heading">Accessibility</h3>
     <p>This is the accessibility content for the example.</p>
   </div>  
 </div> 
