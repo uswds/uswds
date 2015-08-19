@@ -16,13 +16,16 @@
 
     button[aria-expanded=false] {
       background: url('../img/plus.png') no-repeat;
-      background-position: 94%;
+      background-position: 90.5%;
       background-size: 13px;
+      @include media($small-screen) {
+        background-position: 96.5%;
+      }
     }
 
     button {
       background: url('../img/minus.png') no-repeat;
-      background-position: 94%;
+      background-position: 90.5%;
       background-size: 13px;
       color: $color-base;
       cursor: pointer;
@@ -34,6 +37,9 @@
       &:hover {
         background-color: $color-gray-lightest;
         color: $color-base;
+      }
+      @include media($small-screen) {
+        background-position: 96.5%;
       }
     }
   }
