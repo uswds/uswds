@@ -35,7 +35,7 @@
       padding: 1.5rem 3rem;
       width: 100%;
       &:hover {
-        background-color: $color-gray-lightest;
+        background-color: $color-gray-lighter;
         color: $color-base;
       }
       @include media($small-screen) {

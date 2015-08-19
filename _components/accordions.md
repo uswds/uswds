@@ -334,7 +334,7 @@ title: Accordions
 
 .usa-accordion ul button:hover,
 .usa-accordion-bordered ul button:hover {
-  background-color: #efefef;
+  background-color: #d6d7d9;
   color: #212121; 
 }
 
