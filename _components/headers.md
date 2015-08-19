@@ -12,14 +12,14 @@ title: Headers & Navigation
     <div class="usa-grid">
       <div class="usa-nav-group">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
-        <div class="usa-width-one-sixth usa-logo-block" id="logo">
+        <div class="usa-logo-block" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
-            <h1 class="usa-logo-title">Name of Agency</h1>
+            <h1 class="usa-logo-title">Department of Web Standards</h1>
           </a>
         </div>
         <a class="usa-search-trigger" href="#">
         </a>
-        <nav class="usa-nav-primary usa-width-one-half" role="navigation">
+        <nav class="usa-nav-primary" role="navigation">
           <ul class="usa-nav-list usa-unstyled-list">
             <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 1</a>
@@ -33,7 +33,7 @@ title: Headers & Navigation
           </ul>
         </nav>
       </div>
-      <div class="usa-nav-right usa-width-one-third">
+      <div class="usa-nav-search usa-width-one-third">
         <form class="usa-search usa-search-small">           
           <fieldset>
             <legend class="usa-sr-only">Search</legend>
@@ -59,13 +59,13 @@ title: Headers & Navigation
         <div class="usa-logo-block" id="logo">
           <a class="usa-logo-link" href="javascript:void(0)" accesskey="1" aria-label="Home">
             <img src="{{ site.baseurl }}/assets/img/gray-circle.png">
-            <h1 class="usa-logo-title usa-complex-logo-title">Name of Agency</h1>
+            <h1 class="usa-logo-title usa-complex-logo-title">Department of Web Standards</h1>
           </a>
         </div>
         <a class="usa-search-trigger" href="#">
         </a>
       </div>
-      <div class="usa-nav-right">
+      <div class="usa-nav-search usa-width-one-fourth">
         <form class="usa-search usa-search-small">           
           <fieldset>
             <legend class="usa-sr-only">Search</legend>
@@ -101,14 +101,14 @@ title: Headers & Navigation
     <div class="usa-grid">
       <div class="usa-nav-group">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
-        <div class="usa-width-one-sixth usa-logo-block" id="logo">
+        <div class="usa-logo-block" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
-            <h1 class="usa-logo-title">Name of Agency</h1>
+            <h1 class="usa-logo-title">Department of Web Standards</h1>
           </a>
         </div>
         <a class="usa-search-trigger" href="#">
         </a>
-        <nav class="usa-nav-primary usa-width-one-half" role="navigation">
+        <nav class="usa-nav-primary" role="navigation">
           <ul class="usa-nav-list usa-unstyled-list">
             <li class="usa-menu-item">
               <a class="current-menu-item" href="javascript:void(0)">Nav Link 1</a>
@@ -122,7 +122,7 @@ title: Headers & Navigation
           </ul>
         </nav>
       </div>
-      <div class="usa-nav-right usa-width-one-third">
+      <div class="usa-nav-search usa-width-one-third">
         <form class="usa-search usa-search-small">           
           <fieldset>
             <legend class="usa-sr-only">Search</legend>
@@ -145,14 +145,14 @@ title: Headers & Navigation
     <div class="usa-grid">
       <div class="usa-nav-group">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
-        <div class="usa-width-one-sixth usa-logo-block" id="logo">
+        <div class="usa-logo-block" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
-            <h1 class="usa-logo-title">Name of Agency</h1>
+            <h1 class="usa-logo-title">Department of Web Standards</h1>
           </a>
         </div>
         <a class="usa-search-trigger" href="#">
         </a>
-        <nav class="usa-nav-primary usa-width-one-half" role="navigation">
+        <nav class="usa-nav-primary" role="navigation">
           <ul class="usa-nav-list usa-unstyled-list">
             <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 1</a>
@@ -186,7 +186,7 @@ title: Headers & Navigation
           </ul>
         </nav>
       </div>
-      <div class="usa-nav-right usa-width-one-third">
+      <div class="usa-nav-search usa-width-one-third">
         <form class="usa-search usa-search-small">           
           <fieldset>
             <legend class="usa-sr-only">Search</legend>
@@ -209,14 +209,14 @@ title: Headers & Navigation
     <div class="usa-grid">
       <div class="usa-nav-group">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
-        <div class="usa-width-one-sixth usa-logo-block" id="logo">
+        <div class="usa-logo-block" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
-            <h1 class="usa-logo-title">Name of Agency</h1>
+            <h1 class="usa-logo-title">Department of Web Standards</h1>
           </a>
         </div>
         <a class="usa-search-trigger" href="#">
         </a>
-        <nav class="usa-nav-primary usa-width-one-half" role="navigation">
+        <nav class="usa-nav-primary" role="navigation">
           <ul class="usa-nav-list usa-unstyled-list">
             <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 1</a>
@@ -298,7 +298,7 @@ title: Headers & Navigation
           </ul>
         </nav>
       </div>
-      <div class="usa-nav-right usa-width-one-third">
+      <div class="usa-nav-search usa-width-one-third">
         <form class="usa-search usa-search-small">           
           <fieldset>
             <legend class="usa-sr-only">Search</legend>

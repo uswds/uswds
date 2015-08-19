@@ -19,13 +19,14 @@ header[role="banner"] {
 
   .usa-logo-block {
     float: left;
+    max-width: calc(100% - 10rem);
 
     a {
       padding: 0;
     }
   }
 
-  .usa-nav-right {
+  .usa-nav-search {
     @include media($medium-screen) {
       clear: none;
     }
@@ -107,12 +108,13 @@ header[role="banner"] {
   .usa-logo-title {
     @include media($medium-screen) {
       line-height: normal;
+      max-width: 16rem;
       padding: {
         left: 0;
         top: 0;
       }
       &.usa-complex-logo-title {
-        margin-top: 3.5rem;
+        margin-top: 2.1rem;
       }
     }
     clear: none;
@@ -233,6 +235,13 @@ header[role="banner"] {
 
 .usa-sub-menu-item + .usa-sub-menu-item {
   margin-left: 3rem;
+}
+
+.usa-nav-primary {
+  @include media($medium-screen) {
+    clear: none;
+  }
+  float: left;
 }
 
 // Side Nav
