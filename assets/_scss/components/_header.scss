@@ -36,6 +36,12 @@ header[role="banner"] {
     float: right;
   }
 
+  .usa-nav-complex {
+    .usa-search {
+      clear: both;
+    }
+  }
+
   .usa-menu-item {
     > a {
       @include media($medium-screen) {
@@ -202,7 +208,7 @@ header[role="banner"] {
     }
   }
 
-  .usa-nav-complex-primary{
+  .usa-nav-complex-primary {
     @include media($medium-screen) {
       clear: both;
     }
@@ -258,10 +264,12 @@ header[role="banner"] {
   float: left;
 }
 
+
+
 // Side Nav
 
 .usa-sidenav-list {
-  width: 100%;
+  width: 101%;
 
   li {
     border-top: 1px solid #757575;
@@ -324,6 +332,20 @@ header[role="banner"] {
     a:hover {
       padding-left: 3.8rem;
     }
+  }
+}
+
+.usa-nav-links {
+  float: right;
+
+  > li {
+    display: inline-block;
+    font-family: $font-sans;
+    margin-right: 2rem;
+  }
+
+  a {
+    border-bottom: none;
   }
 }
 

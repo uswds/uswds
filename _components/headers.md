@@ -10,7 +10,7 @@ title: Headers & Navigation
 
   <header role="banner">
     <div class="usa-grid">
-      <div class="usa-nav-group">
+      <div class="usa-nav">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
         <div class="usa-logo-block" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
@@ -54,7 +54,7 @@ title: Headers & Navigation
 
   <header role="banner">
     <div class="usa-grid">
-      <div class="usa-nav-group usa-nav-complex">
+      <div class="usa-nav usa-nav-complex">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
         <div class="usa-logo-block" id="logo">
           <a class="usa-logo-link" href="javascript:void(0)" accesskey="1" aria-label="Home">
@@ -64,34 +64,46 @@ title: Headers & Navigation
         </div>
         <a class="usa-search-trigger" href="#">
         </a>
+      
+        <div class="usa-nav-search usa-width-one-third">
+          <ul class="usa-unstyled-list usa-nav-links">
+            <li>
+              <a href="javascript:void(0)">Utility 1</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Utility 2</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Utility 3</a>
+            </li>
+          </ul>
+          <form class="usa-search usa-search-small">           
+            <fieldset>
+              <legend class="usa-sr-only">Search</legend>
+              <label for="search-field-small">Search</label>
+              <div class="usa-search-bar">
+                <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
+                <button class="usa-search-submit usa-search-submit-small" type="submit">
+                  <span class="usa-sr-only">Search</span>
+                </button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <nav class="usa-nav-primary usa-nav-complex-primary" role="navigation">
+          <ul class="usa-nav-list usa-unstyled-list">
+            <li class="usa-menu-item">
+              <a href="javascript:void(0)">Nav Link 1</a>
+            </li>
+            <li class="usa-menu-item">
+              <a href="javascript:void(0)">Nav Link 2</a>
+            </li>
+            <li class="usa-menu-item">
+              <a href="javascript:void(0)">Nav Link 3</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <div class="usa-nav-search usa-width-one-third">
-        <form class="usa-search usa-search-small">           
-          <fieldset>
-            <legend class="usa-sr-only">Search</legend>
-            <label for="search-field-small">Search</label>
-            <div class="usa-search-bar">
-              <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
-              <button class="usa-search-submit usa-search-submit-small" type="submit">
-                <span class="usa-sr-only">Search</span>
-              </button>
-            </div>
-          </fieldset>
-        </form>
-      </div>
-      <nav class="usa-nav-primary usa-nav-complex-primary" role="navigation">
-        <ul class="usa-nav-list usa-unstyled-list">
-          <li class="usa-menu-item">
-            <a href="javascript:void(0)">Nav Link 1</a>
-          </li>
-          <li class="usa-menu-item">
-            <a href="javascript:void(0)">Nav Link 2</a>
-          </li>
-          <li class="usa-menu-item">
-            <a href="javascript:void(0)">Nav Link 3</a>
-          </li>
-        </ul>
-      </nav>
     </div>
   </header>
 
@@ -113,7 +125,7 @@ title: Headers & Navigation
 
   <header role="banner">
     <div class="usa-grid">
-      <div class="usa-nav-group">
+      <div class="usa-nav">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
         <div class="usa-logo-block" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
@@ -157,7 +169,7 @@ title: Headers & Navigation
 
   <header role="banner">
     <div class="usa-grid">
-      <div class="usa-nav-group">
+      <div class="usa-nav">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
         <div class="usa-logo-block" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
@@ -221,7 +233,7 @@ title: Headers & Navigation
 
   <header role="banner">
     <div class="usa-grid">
-      <div class="usa-nav-group">
+      <div class="usa-nav">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
         <div class="usa-logo-block" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
