@@ -33,7 +33,7 @@ title: Headers & Navigation
           </ul>
         </nav>
       </div>
-      <div class="usa-search-container usa-width-one-third">
+      <div class="usa-nav-right usa-width-one-third">
         <form class="usa-search usa-search-small">           
           <fieldset>
             <legend class="usa-sr-only">Search</legend>
@@ -65,7 +65,7 @@ title: Headers & Navigation
         <a class="usa-search-trigger" href="#">
         </a>
       </div>
-      <div class="usa-search-container">
+      <div class="usa-nav-right">
         <form class="usa-search usa-search-small">           
           <fieldset>
             <legend class="usa-sr-only">Search</legend>
@@ -122,7 +122,7 @@ title: Headers & Navigation
           </ul>
         </nav>
       </div>
-      <div class="usa-search-container usa-width-one-third">
+      <div class="usa-nav-right usa-width-one-third">
         <form class="usa-search usa-search-small">           
           <fieldset>
             <legend class="usa-sr-only">Search</legend>
@@ -186,7 +186,7 @@ title: Headers & Navigation
           </ul>
         </nav>
       </div>
-      <div class="usa-search-container usa-width-one-third">
+      <div class="usa-nav-right usa-width-one-third">
         <form class="usa-search usa-search-small">           
           <fieldset>
             <legend class="usa-sr-only">Search</legend>
@@ -298,7 +298,7 @@ title: Headers & Navigation
           </ul>
         </nav>
       </div>
-      <div class="usa-search-container usa-width-one-third">
+      <div class="usa-nav-right usa-width-one-third">
         <form class="usa-search usa-search-small">           
           <fieldset>
             <legend class="usa-sr-only">Search</legend>

@@ -25,11 +25,12 @@ header[role="banner"] {
     }
   }
 
-  .usa-search-container {
+  .usa-nav-right {
     @include media($medium-screen) {
       clear: none;
     }
     clear: both;
+    float: right;
   }
 
   .usa-menu-item {
@@ -141,10 +142,6 @@ header[role="banner"] {
     margin: 0;
     width: 5rem;
     height: 5rem;
-  }
-
-  .usa-search-container {
-    float: right;
   }
 
   .usa-nav-list {
