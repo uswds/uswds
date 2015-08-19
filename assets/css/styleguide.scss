@@ -455,3 +455,13 @@ h3 + .button_wrapper {
 .button_wrapper-dark {
   background: #323a45
 }
+
+h2, h3 {
+  color: $color-primary-darker;
+}
+
+.usa-typography-examples {
+  h2, h3 {
+    color: $color-base;
+  }
+}
