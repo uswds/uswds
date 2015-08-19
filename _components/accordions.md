@@ -20,7 +20,7 @@ title: Accordions
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-1">
-        Stawberry Pie
+        Strawberry Pie
       </button>
       <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -29,7 +29,7 @@ title: Accordions
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-2">
-        Peace Pie
+        Peach Pie
       </button>
       <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -38,7 +38,7 @@ title: Accordions
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-3">
-        Key Lime
+        Key Lime Pie
       </button>
       <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -47,7 +47,7 @@ title: Accordions
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-4">
-        Blackberry
+        Blackberry Pie
       </button>
       <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -72,7 +72,7 @@ title: Accordions
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-1">
-        Stawberry Pie
+        Strawberry Pie
       </button>
       <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -81,7 +81,7 @@ title: Accordions
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-2">
-        Peace Pie
+        Peach Pie
       </button>
       <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -90,7 +90,7 @@ title: Accordions
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-3">
-        Key Lime
+        Key Lime Pie
       </button>
       <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -99,7 +99,7 @@ title: Accordions
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-4">
-        Blackberry
+        Blackberry Pie
       </button>
       <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -288,52 +288,71 @@ title: Accordions
       <td>
         <div id="accordion-css">
           {% highlight css %}
-.usa-accordion ul {
+.usa-accordion ul,
+.usa-accordion-bordered ul {
   color: #212121;
   margin: 0;
   overflow: hidden;
   padding: 0; 
 }
-  
-.usa-accordion ul li {
+
+.usa-accordion ul li,
+.usa-accordion-bordered ul li {
   background-color: #efefef;
   font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
   list-style: none;
   margin-bottom: 6px; 
 }
-  
-.usa-accordion ul button[aria-expanded=false] {
+
+.usa-accordion ul button[aria-expanded=false],
+.usa-accordion-bordered ul button[aria-expanded=false] {
   background: url("../img/plus.png") no-repeat;
-  background-position: 96%;
+  background-position: 90.5%;
   background-size: 13px; 
 }
 
-.usa-accordion ul button {
+@media screen and (min-width: 481px) {
+  .usa-accordion ul button[aria-expanded=false],
+  .usa-accordion-bordered ul button[aria-expanded=false] {
+    background-position: 96.5%; 
+  } 
+}
+
+.usa-accordion ul button,
+.usa-accordion-bordered ul button {
   background: url("../img/minus.png") no-repeat;
-  background-position: 96%;
+  background-position: 90.5%;
   background-size: 13px;
   color: #212121;
   cursor: pointer;
   display: inline-block;
   font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
   margin: 0;
-  padding: 15px 30px;
+  padding: 1.5rem 3rem;
   width: 100%; 
 }
 
-.usa-accordion ul button:hover {
-  background-color: #efefef;
+.usa-accordion ul button:hover,
+.usa-accordion-bordered ul button:hover {
+  background-color: #d6d7d9;
   color: #212121; 
+}
+
+@media screen and (min-width: 481px) {
+  .usa-accordion ul button,
+  .usa-accordion-bordered ul button {
+    background-position: 96.5%; 
+  } 
+}
+
+.usa-accordion-bordered .usa-accordion-content {
+  border: 3px solid #efefef; 
 }
 
 .usa-accordion-content {
   display: block;
   background-color: white;
-  padding: 30px; 
-}
-
-.usa-accordion-bordered .usa-accordion-content {
-  border: 3px solid #efefef;
+  padding: 3rem; 
 }
           {% endhighlight %}
         </div>
