@@ -8,6 +8,6 @@ slug: layout-system
 <h1>Layout System</h1> 
 
 {% for layout in site.layout-system %}
-  <h2 id="{{ layout.title | slugify }}">{{ layout.title }}</h2>
+  <h2 class="usa-usfwds-heading" id="{{ layout.title | slugify }}">{{ layout.title }}</h2>
   <p>{{ layout.content }}</p>
 {% endfor %}
