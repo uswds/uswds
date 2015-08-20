@@ -455,3 +455,66 @@ h3 + .button_wrapper {
 .button_wrapper-dark {
   background: #323a45
 }
+
+// Colors section
+
+.usa-usfwds-color-square {
+  padding-bottom: 25%;
+  position: relative;
+}
+
+.usa-color-row {
+  margin-bottom: 7rem;
+}
+
+.usa-usfwds-color-inner-content {
+  bottom: -5rem;
+  position: absolute;
+
+  p {
+    font-family:  monospace, monospace;
+    margin: 0;
+  }
+}
+
+.usa-usfwds-color-hex {
+  font-weight: $font-bold;
+}
+
+.usa-usfwds-color-name {
+  font-size: $small-font-size;
+}
+
+.usa-usfwds-color-primary {
+  background-color: $color-primary;
+}
+
+.usa-usfwds-color-primary-darker {
+  background-color: $color-primary-darker;
+}
+
+.usa-usfwds-color-primary-darkest {
+  background-color: $color-primary-darkest;
+}
+
+.usa-usfwds-color-base {
+  background-color: $color-base;
+}
+
+.usa-usfwds-color-gray-dark {
+  background-color: $color-gray-dark;
+}
+
+.usa-usfwds-color-gray-light {
+  background-color: $color-gray-light;
+}
+
+.usa-usfwds-color-white {
+  background-color: $color-white;
+  box-shadow: inset 0 0 0 1px $color-gray;
+}
+
+
+
+
+
