@@ -317,6 +317,54 @@ title: Colors
 
   <p><b>Colors on a white background</b></p>
 
+  <div class="usa-grid usa-usfwds-color-outline">
+    <div class="usa-width-one-half">
+      <div class="usa-usfwds-color-text usa-usfwds-color-text-primary-darkest">
+        primary-darkest on white
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-text-primary-darker">
+        primary-darker on white
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-text-primary">
+        primary on white
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-text-cool-blue-light">
+        cool-blue-light on white
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-text-primary-alt-darkest">
+        primary-alt-darkest on white
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-text-green">
+        green on white
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-text-visited">
+        visited on white
+      </div>
+    </div>
+    <div class="usa-width-one-half usa-end-row">
+      <div class="usa-usfwds-color-text usa-usfwds-color-text-gray-dark">
+        base on white
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-text-gray-dark">
+        gray-dark on white
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-text-gray">
+        gray on white
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-text-gray-warm-dark">
+        gray-warm-dark on white
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-text-secondary-darkest">
+        secondary-darkest on white
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-text-secondary-dark">
+        secondary-dark on white
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-text-secondary">
+        secondary on white
+      </div>
+    </div>
+  </div>
 
   <p><b>Neutrals on a colored background</b></p>
 

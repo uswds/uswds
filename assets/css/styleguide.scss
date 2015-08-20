@@ -657,6 +657,64 @@ h3 + .button_wrapper {
   background-color: $color-visited;
 }
 
+.usa-usfwds-color-text-primary-darkest {
+  color: $color-primary-darkest;
+}
+
+.usa-usfwds-color-text-primary-darker {
+  color: $color-primary-darker;
+}
+
+.usa-usfwds-color-text-primary {
+  color: $color-primary;
+}
+
+.usa-usfwds-color-text-cool-blue-light {
+  color: $color-cool-blue-light;
+}
+
+.usa-usfwds-color-text-primary-alt-darkest {
+  color: $color-primary-alt-darkest;
+}
+
+.usa-usfwds-color-text-green {
+  color: $color-green;
+}
+
+.usa-usfwds-color-text-visited {
+  color: $color-visited;
+}
+
+.usa-usfwds-color-text-gray-dark {
+  color: $color-gray-dark;
+}
+
+.usa-usfwds-color-text-gray-dark {
+  color: $color-gray-dark;
+}
+
+.usa-usfwds-color-text-gray {
+  color: $color-gray;
+}
+
+.usa-usfwds-color-text-gray-warm-dark {
+  color: $color-gray-warm-dark;
+}
+
+.usa-usfwds-color-text-secondary-darkest {
+  color: $color-secondary-darkest;
+}
+
+.usa-usfwds-color-text-secondary-dark {
+  color: $color-secondary-dark;
+}
+
+.usa-usfwds-color-text-secondary {
+  color: $color-secondary;
+}
+
+
+
 .usa-usfwds-color-text {
   font-weight: $font-bold;
   margin-bottom: .4rem;
@@ -670,4 +728,10 @@ h3 + .button_wrapper {
 
 .usa-usfwds-color-text-white {
   color: $color-white;
+}
+
+.usa-usfwds-color-outline {
+  .usa-usfwds-color-text {
+    box-shadow: inset 0 0 0 1px $color-gray;
+  }
 }
