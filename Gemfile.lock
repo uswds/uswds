@@ -41,7 +41,7 @@ GEM
     kramdown (1.8.0)
     liquid (2.6.3)
     listen (2.10.1)
-      celluloid (~> 0.16.0)
+      celluloid (~> 0.16.1)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     mercenary (0.3.5)
