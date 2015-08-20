@@ -12,7 +12,7 @@ title: Headers & Navigation
     <div class="usa-grid">
       <div class="usa-nav">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
-        <div class="usa-logo-block" id="logo">
+        <div class="usa-logo" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
             <h1 class="usa-logo-title">Department of Web Standards</h1>
           </a>
@@ -20,7 +20,7 @@ title: Headers & Navigation
         <a class="usa-search-trigger" href="#">
         </a>
         <nav class="usa-nav-primary" role="navigation">
-          <ul class="usa-nav-list usa-unstyled-list">
+          <ul class="usa-nav-list">
             <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 1</a>
             </li>
@@ -57,7 +57,7 @@ title: Headers & Navigation
     <div class="usa-grid">
       <div class="usa-nav usa-nav-complex">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
-        <div class="usa-logo-block" id="logo">
+        <div class="usa-logo" id="logo">
           <a class="usa-logo-link" href="javascript:void(0)" accesskey="1" aria-label="Home">
             <img src="{{ site.baseurl }}/assets/img/gray-circle.png">
             <h1 class="usa-logo-title usa-complex-logo-title">Department of Web Standards</h1>
@@ -67,7 +67,7 @@ title: Headers & Navigation
         </a>
       
         <div class="usa-nav-search usa-width-one-third">
-          <ul class="usa-unstyled-list usa-nav-links">
+          <ul class="usa-nav-links">
             <li>
               <a href="javascript:void(0)">Utility 1</a>
             </li>
@@ -92,7 +92,7 @@ title: Headers & Navigation
           </form>
         </div>
         <nav class="usa-nav-primary usa-nav-complex-primary" role="navigation">
-          <ul class="usa-nav-list usa-unstyled-list">
+          <ul class="usa-nav-list">
             <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 1</a>
             </li>
@@ -109,7 +109,7 @@ title: Headers & Navigation
   </header>
 
   <div class="usa-grid">
-    <ul class="usa-unstyled-list usa-list-breadcrumb">
+    <ul class="usa-list-breadcrumb">
       <li>
         <a href="javascript:void(0)">Home</a>
       </li>
@@ -128,7 +128,7 @@ title: Headers & Navigation
     <div class="usa-grid">
       <div class="usa-nav">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
-        <div class="usa-logo-block" id="logo">
+        <div class="usa-logo" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
             <h1 class="usa-logo-title">Department of Web Standards</h1>
           </a>
@@ -136,7 +136,7 @@ title: Headers & Navigation
         <a class="usa-search-trigger" href="#">
         </a>
         <nav class="usa-nav-primary" role="navigation">
-          <ul class="usa-nav-list usa-unstyled-list">
+          <ul class="usa-nav-list">
             <li class="usa-menu-item">
               <a class="current-menu-item" href="javascript:void(0)">Nav Link 1</a>
             </li>
@@ -173,7 +173,7 @@ title: Headers & Navigation
     <div class="usa-grid">
       <div class="usa-nav">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
-        <div class="usa-logo-block" id="logo">
+        <div class="usa-logo" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
             <h1 class="usa-logo-title">Department of Web Standards</h1>
           </a>
@@ -181,11 +181,11 @@ title: Headers & Navigation
         <a class="usa-search-trigger" href="#">
         </a>
         <nav class="usa-nav-primary" role="navigation">
-          <ul class="usa-nav-list usa-unstyled-list">
+          <ul class="usa-nav-list">
             <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 1</a>
 
-              <ul class="usa-unstyled-list usa-sub-menu usa-active">
+              <ul class="usa-sub-menu usa-active">
                 <h3 class="usa-sub-menu-heading">Topic</h3>
                 <li>
                   <a href="javascript:void(0)">Secondary link</a>
@@ -238,7 +238,7 @@ title: Headers & Navigation
     <div class="usa-grid">
       <div class="usa-nav">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
-        <div class="usa-logo-block" id="logo">
+        <div class="usa-logo" id="logo">
           <a href="javascript:void(0)" accesskey="1" aria-label="Home">
             <h1 class="usa-logo-title">Department of Web Standards</h1>
           </a>
@@ -246,11 +246,11 @@ title: Headers & Navigation
         <a class="usa-search-trigger" href="#">
         </a>
         <nav class="usa-nav-primary" role="navigation">
-          <ul class="usa-nav-list usa-unstyled-list">
+          <ul class="usa-nav-list">
             <li class="usa-menu-item">
               <a href="javascript:void(0)">Nav Link 1</a>
 
-              <ul class="usa-unstyled-list usa-sub-menu usa-sub-menu-mega">
+              <ul class="usa-sub-menu usa-sub-menu-mega">
 
                 <li class="usa-sub-menu-item">
                   <ul>
@@ -349,7 +349,7 @@ title: Headers & Navigation
 
   <div class="usa-grid">
     <aside class="side_nav usa-width-one-fourth">
-      <ul class="usa-sidenav-list usa-unstyled-list">
+      <ul class="usa-sidenav-list">
         <li>
           <a class="usa-current-page" href="javascript:void(0)">Current page</a>
         </li>
@@ -368,7 +368,7 @@ title: Headers & Navigation
   <h2>Side Nav with Sub Items</h2>
   <div class="usa-grid">
     <aside class="side_nav usa-width-one-fourth">
-      <ul class="usa-sidenav-list usa-unstyled-list">
+      <ul class="usa-sidenav-list">
         <li>
           <a href="javascript:void(0)">Secondary link</a>
         </li>
@@ -405,7 +405,7 @@ title: Headers & Navigation
   <h2>Side Nav with Sub Items + Grandchild Items</h2>
   <div class="usa-grid">
     <aside class="side_nav usa-width-one-fourth">
-      <ul class="usa-sidenav-list usa-unstyled-list">
+      <ul class="usa-sidenav-list">
         <li>
           <a href="javascript:void(0)">Secondary link</a>
         </li>
