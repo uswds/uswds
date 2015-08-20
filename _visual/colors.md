@@ -15,7 +15,7 @@ title: Colors
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
-  <div class="usa-grid usa-color-row usa-primary-color-section">
+  <div class="usa-grid-full usa-color-row usa-primary-color-section">
     <div class="usa-usfwds-color-square usa-usfwds-color-primary">
       <div class="usa-usfwds-color-inner-content">
         <p class="usa-usfwds-color-hex">#0071bc</p>
@@ -42,7 +42,7 @@ title: Colors
     </div>
   </div>
 
-  <div class="usa-grid usa-color-row usa-primary-color-section">
+  <div class="usa-grid-full usa-color-row usa-primary-color-section">
     <div class="usa-usfwds-color-square usa-usfwds-color-gray-dark">
       <div class="usa-usfwds-color-inner-content">
         <p class="usa-usfwds-color-hex">#323a45</p>
@@ -67,7 +67,7 @@ title: Colors
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
-  <div class="usa-grid usa-color-row">
+  <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
       <div class="usa-usfwds-color-short usa-usfwds-color-primary-alt">
       </div>
@@ -100,7 +100,7 @@ title: Colors
     </div>
   </div>
 
-  <div class="usa-grid usa-color-row">
+  <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
       <div class="usa-usfwds-color-short usa-usfwds-color-secondary">
       </div>
@@ -137,7 +137,7 @@ title: Colors
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
-  <div class="usa-grid usa-color-row">
+  <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
       <div class="usa-usfwds-color-short usa-usfwds-color-gray-dark">
       </div>
@@ -170,7 +170,7 @@ title: Colors
     </div>
   </div>
 
-  <div class="usa-grid usa-color-row">
+  <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
       <div class="usa-usfwds-color-short usa-usfwds-color-gray-warm-dark">
       </div>
@@ -185,7 +185,7 @@ title: Colors
     </div>
   </div>
 
-  <div class="usa-grid usa-color-row">
+  <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
       <div class="usa-usfwds-color-short usa-usfwds-color-primary-darkest">
       </div>
@@ -204,7 +204,7 @@ title: Colors
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
-  <div class="usa-grid usa-color-row">
+  <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
       <div class="usa-usfwds-color-short usa-usfwds-color-gold">
       </div>
@@ -231,7 +231,7 @@ title: Colors
     </div>
   </div>
 
-  <div class="usa-grid usa-color-row">
+  <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
       <div class="usa-usfwds-color-short usa-usfwds-color-green">
       </div>
@@ -258,7 +258,7 @@ title: Colors
     </div>
   </div>
 
-  <div class="usa-grid usa-color-row">
+  <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
       <div class="usa-usfwds-color-short usa-usfwds-color-cool-blue">
       </div>
@@ -289,7 +289,7 @@ title: Colors
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
-  <div class="usa-grid usa-color-row">
+  <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth usa-end-row">
       <div class="usa-usfwds-color-short usa-usfwds-color-focus">
       </div>
@@ -298,7 +298,7 @@ title: Colors
     </div>
   </div>
 
-  <div class="usa-grid usa-color-row">
+  <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth usa-end-row">
       <div class="usa-usfwds-color-short usa-usfwds-color-visited">
       </div>
@@ -317,7 +317,7 @@ title: Colors
 
   <p><b>Colors on a white background</b></p>
 
-  <div class="usa-grid usa-usfwds-color-outline">
+  <div class="usa-grid-full usa-usfwds-color-outline">
     <div class="usa-width-one-half">
       <div class="usa-usfwds-color-text usa-usfwds-color-text-primary-darkest">
         primary-darkest on white
@@ -368,7 +368,7 @@ title: Colors
 
   <p><b>Neutrals on a colored background</b></p>
 
-  <div class="usa-grid">
+  <div class="usa-grid-full">
     <div class="usa-width-one-half">
       <div class="usa-usfwds-color-text usa-usfwds-color-base usa-usfwds-color-text-white">
         white on base
