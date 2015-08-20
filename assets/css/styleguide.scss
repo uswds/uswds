@@ -462,12 +462,12 @@ h3 + .button_wrapper {
 
 // Colors section
 
-.usa-usfwds-color-short {
+.usa-color-short {
   height: 7rem;
   margin-bottom: 1rem;
 }
 
-.usa-usfwds-color-name {
+.usa-color-name {
   @include media($medium-screen) {
     margin: 0;
   }
@@ -501,7 +501,7 @@ h3 + .button_wrapper {
   }
   margin-bottom: 0;
 
-  .usa-usfwds-color-square {
+  .usa-color-square {
     @include span-columns(6);
     margin-bottom: 7rem;
     padding-bottom: 50%;
@@ -521,17 +521,17 @@ h3 + .button_wrapper {
     margin-right: 0;
   }
 
-  .usa-usfwds-color-name {
+  .usa-color-name {
     margin: 0;
   }
 }
 
-.usa-usfwds-color-inner-content {
+.usa-color-inner-content {
   position: absolute;
   top: 100%;
 }
 
-.usa-usfwds-color-hex {
+.usa-color-hex {
   font-weight: $font-bold;
   margin: {
     bottom: 0;
@@ -539,224 +539,224 @@ h3 + .button_wrapper {
   }
 }
 
-.usa-usfwds-color-name {
+.usa-color-name {
   font-size: 1.2rem;
 }
 
-.usa-usfwds-color-primary {
+.usa-color-primary {
   background-color: $color-primary;
 }
 
-.usa-usfwds-color-primary-darker {
+.usa-color-primary-darker {
   background-color: $color-primary-darker;
 }
 
-.usa-usfwds-color-primary-darkest {
+.usa-color-primary-darkest {
   background-color: $color-primary-darkest;
 }
 
-.usa-usfwds-color-base {
+.usa-color-base {
   background-color: $color-base;
 }
 
-.usa-usfwds-color-gray-dark {
+.usa-color-gray-dark {
   background-color: $color-gray-dark;
 }
 
-.usa-usfwds-color-gray-light {
+.usa-color-gray-light {
   background-color: $color-gray-light;
 }
 
-.usa-usfwds-color-white {
+.usa-color-white {
   background-color: $color-white;
   box-shadow: inset 0 0 0 1px $color-gray;
 }
 
-.usa-usfwds-color-primary-alt {
+.usa-color-primary-alt {
   background-color: $color-primary-alt;
 }
 
-.usa-usfwds-color-primary-alt-dark {
+.usa-color-primary-alt-dark {
   background-color: $color-primary-alt-dark;
 }
 
-.usa-usfwds-color-primary-alt-darkest {
+.usa-color-primary-alt-darkest {
   background-color: $color-primary-alt-darkest;
 }
 
-.usa-usfwds-color-primary-alt-light {
+.usa-color-primary-alt-light {
   background-color: $color-primary-alt-light;
 }
 
-.usa-usfwds-color-primary-alt-lightest {
+.usa-color-primary-alt-lightest {
   background-color: $color-primary-alt-lightest;
 }
 
-.usa-usfwds-color-secondary {
+.usa-color-secondary {
   background-color: $color-secondary;
 }
 
-.usa-usfwds-color-secondary-dark {
+.usa-color-secondary-dark {
   background-color: $color-secondary-dark;
 }
 
-.usa-usfwds-color-secondary-darkest {
+.usa-color-secondary-darkest {
   background-color: $color-secondary-darkest;
 }
 
-.usa-usfwds-color-secondary-light {
+.usa-color-secondary-light {
   background-color: $color-secondary-light;
 }
 
-.usa-usfwds-color-secondary-lightest {
+.usa-color-secondary-lightest {
   background-color: $color-secondary-lightest;
 }
 
-.usa-usfwds-color-gray {
+.usa-color-gray {
   background-color: $color-gray;
 }
 
-.usa-usfwds-color-gray-dark {
+.usa-color-gray-dark {
   background-color: $color-gray-dark;
 }
 
-.usa-usfwds-color-gray-light {
+.usa-color-gray-light {
   background-color: $color-gray-light;
 }
 
-.usa-usfwds-color-gray-lighter {
+.usa-color-gray-lighter {
   background-color: $color-gray-lighter;
 }
 
-.usa-usfwds-color-gray-lightest {
+.usa-color-gray-lightest {
   background-color: $color-gray-lightest;
 }
 
-.usa-usfwds-color-gray-warm-dark {
+.usa-color-gray-warm-dark {
   background-color: $color-gray-warm-dark;
 }
 
-.usa-usfwds-color-gray-warm-light {
+.usa-color-gray-warm-light {
   background-color: $color-gray-warm-light;
 }
 
-.usa-usfwds-color-gray-cool-light {
+.usa-color-gray-cool-light {
   background-color: $color-gray-cool-light;
 }
 
-.usa-usfwds-color-gold {
+.usa-color-gold {
   background-color: $color-gold;
 }
 
-.usa-usfwds-color-gold-light {
+.usa-color-gold-light {
   background-color: $color-gold-light;
 }
 
-.usa-usfwds-color-gold-lighter {
+.usa-color-gold-lighter {
   background-color: $color-gold-lighter;
 }
 
-.usa-usfwds-color-gold-lightest {
+.usa-color-gold-lightest {
   background-color: $color-gold-lightest;
 }
 
-.usa-usfwds-color-green {
+.usa-color-green {
   background-color: $color-green;
 }
 
-.usa-usfwds-color-green-light {
+.usa-color-green-light {
   background-color: $color-green-light;
 }
 
-.usa-usfwds-color-green-lighter {
+.usa-color-green-lighter {
   background-color: $color-green-lighter;
 }
 
-.usa-usfwds-color-green-lightest {
+.usa-color-green-lightest {
   background-color: $color-green-lightest;
 }
 
-.usa-usfwds-color-cool-blue {
+.usa-color-cool-blue {
   background-color: $color-cool-blue;
 }
 
-.usa-usfwds-color-cool-blue-light {
+.usa-color-cool-blue-light {
   background-color: $color-cool-blue-light;
 }
 
-.usa-usfwds-color-cool-blue-lighter {
+.usa-color-cool-blue-lighter {
   background-color: $color-cool-blue-lighter;
 }
 
-.usa-usfwds-color-cool-blue-lightest {
+.usa-color-cool-blue-lightest {
   background-color: $color-cool-blue-lightest;
 }
 
-.usa-usfwds-color-focus {
+.usa-color-focus {
   background-color: $color-focus;
 }
 
-.usa-usfwds-color-visited {
+.usa-color-visited {
   background-color: $color-visited;
 }
 
-.usa-usfwds-color-text-primary-darkest {
+.usa-color-text-primary-darkest {
   color: $color-primary-darkest;
 }
 
-.usa-usfwds-color-text-primary-darker {
+.usa-color-text-primary-darker {
   color: $color-primary-darker;
 }
 
-.usa-usfwds-color-text-primary {
+.usa-color-text-primary {
   color: $color-primary;
 }
 
-.usa-usfwds-color-text-cool-blue-light {
+.usa-color-text-cool-blue-light {
   color: $color-cool-blue-light;
 }
 
-.usa-usfwds-color-text-primary-alt-darkest {
+.usa-color-text-primary-alt-darkest {
   color: $color-primary-alt-darkest;
 }
 
-.usa-usfwds-color-text-green {
+.usa-color-text-green {
   color: $color-green;
 }
 
-.usa-usfwds-color-text-visited {
+.usa-color-text-visited {
   color: $color-visited;
 }
 
-.usa-usfwds-color-text-gray-dark {
+.usa-color-text-gray-dark {
   color: $color-gray-dark;
 }
 
-.usa-usfwds-color-text-gray-dark {
+.usa-color-text-gray-dark {
   color: $color-gray-dark;
 }
 
-.usa-usfwds-color-text-gray {
+.usa-color-text-gray {
   color: $color-gray;
 }
 
-.usa-usfwds-color-text-gray-warm-dark {
+.usa-color-text-gray-warm-dark {
   color: $color-gray-warm-dark;
 }
 
-.usa-usfwds-color-text-secondary-darkest {
+.usa-color-text-secondary-darkest {
   color: $color-secondary-darkest;
 }
 
-.usa-usfwds-color-text-secondary-dark {
+.usa-color-text-secondary-dark {
   color: $color-secondary-dark;
 }
 
-.usa-usfwds-color-text-secondary {
+.usa-color-text-secondary {
   color: $color-secondary;
 }
 
-.usa-usfwds-color-text {
+.usa-color-text {
   font-weight: $font-bold;
   margin-bottom: .4rem;
   padding: {
@@ -767,14 +767,12 @@ h3 + .button_wrapper {
   }
 }
 
-.usa-usfwds-color-text-white {
+.usa-color-text-white {
   color: $color-white;
 }
 
-.usa-usfwds-color-outline {
-  .usa-usfwds-color-text {
+.usa-color-outline {
+  .usa-color-text {
     box-shadow: inset 0 0 0 1px $color-gray;
   }
 }
-
-

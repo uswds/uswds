@@ -16,49 +16,49 @@ title: Colors
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
   <div class="usa-grid-full usa-color-row usa-primary-color-section">
-    <div class="usa-usfwds-color-square usa-usfwds-color-primary">
-      <div class="usa-usfwds-color-inner-content">
-        <p class="usa-usfwds-color-hex">#0071bc</p>
-        <p class="usa-usfwds-color-name">primary</p>
+    <div class="usa-color-square usa-color-primary">
+      <div class="usa-color-inner-content">
+        <p class="usa-color-hex">#0071bc</p>
+        <p class="usa-color-name">primary</p>
       </div>
     </div>
-    <div class="usa-usfwds-color-square usa-usfwds-color-primary-darker usa-mobile-end-row">
-      <div class="usa-usfwds-color-inner-content">
-        <p class="usa-usfwds-color-hex">#205493</p>
-        <p class="usa-usfwds-color-name">primary-darker</p>
+    <div class="usa-color-square usa-color-primary-darker usa-mobile-end-row">
+      <div class="usa-color-inner-content">
+        <p class="usa-color-hex">#205493</p>
+        <p class="usa-color-name">primary-darker</p>
       </div>
     </div>
-    <div class="usa-usfwds-color-square usa-usfwds-color-primary-darkest">
-      <div class="usa-usfwds-color-inner-content">
-        <p class="usa-usfwds-color-hex">#112e51</p>
-        <p class="usa-usfwds-color-name">primary-darkest</p>
+    <div class="usa-color-square usa-color-primary-darkest">
+      <div class="usa-color-inner-content">
+        <p class="usa-color-hex">#112e51</p>
+        <p class="usa-color-name">primary-darkest</p>
       </div>
     </div>
-    <div class="usa-usfwds-color-square usa-usfwds-color-base usa-end-row">
-      <div class="usa-usfwds-color-inner-content">
-        <p class="usa-usfwds-color-hex">#212121</p>
-        <p class="usa-usfwds-color-name">base</p>
+    <div class="usa-color-square usa-color-base usa-end-row">
+      <div class="usa-color-inner-content">
+        <p class="usa-color-hex">#212121</p>
+        <p class="usa-color-name">base</p>
       </div>
     </div>
   </div>
 
   <div class="usa-grid-full usa-color-row usa-primary-color-section">
-    <div class="usa-usfwds-color-square usa-usfwds-color-gray-dark">
-      <div class="usa-usfwds-color-inner-content">
-        <p class="usa-usfwds-color-hex">#323a45</p>
-        <p class="usa-usfwds-color-name">gray-dark</p>
+    <div class="usa-color-square usa-color-gray-dark">
+      <div class="usa-color-inner-content">
+        <p class="usa-color-hex">#323a45</p>
+        <p class="usa-color-name">gray-dark</p>
       </div>
     </div>
-    <div class="usa-usfwds-color-square usa-usfwds-color-gray-light usa-mobile-end-row">
-      <div class="usa-usfwds-color-inner-content">
-        <p class="usa-usfwds-color-hex">#aeb0b5</p>
-        <p class="usa-usfwds-color-name">gray-light</p>
+    <div class="usa-color-square usa-color-gray-light usa-mobile-end-row">
+      <div class="usa-color-inner-content">
+        <p class="usa-color-hex">#aeb0b5</p>
+        <p class="usa-color-name">gray-light</p>
       </div>
     </div>
-    <div class="usa-usfwds-color-square usa-usfwds-color-white">
-      <div class="usa-usfwds-color-inner-content">
-        <p class="usa-usfwds-color-hex">#fff</p>
-        <p class="usa-usfwds-color-name">white</p>
+    <div class="usa-color-square usa-color-white">
+      <div class="usa-color-inner-content">
+        <p class="usa-color-hex">#fff</p>
+        <p class="usa-color-name">white</p>
       </div>
     </div>
   </div>
@@ -69,67 +69,67 @@ title: Colors
 
   <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-primary-alt">
+      <div class="usa-color-short usa-color-primary-alt">
       </div>
-        <p class="usa-usfwds-color-hex">#02bfe7</p>
-        <p class="usa-usfwds-color-name">primary-alt</p>
+        <p class="usa-color-hex">#02bfe7</p>
+        <p class="usa-color-name">primary-alt</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-primary-alt-darkest">
+      <div class="usa-color-short usa-color-primary-alt-darkest">
       </div>
-        <p class="usa-usfwds-color-hex">#046b99</p>
-        <p class="usa-usfwds-color-name">primary-alt-darkest</p>
+        <p class="usa-color-hex">#046b99</p>
+        <p class="usa-color-name">primary-alt-darkest</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-primary-alt-dark">
+      <div class="usa-color-short usa-color-primary-alt-dark">
       </div>
-        <p class="usa-usfwds-color-hex">#00a6d2</p>
-        <p class="usa-usfwds-color-name">primary-alt-dark</p>
+        <p class="usa-color-hex">#00a6d2</p>
+        <p class="usa-color-name">primary-alt-dark</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-primary-alt-light">
+      <div class="usa-color-short usa-color-primary-alt-light">
       </div>
-        <p class="usa-usfwds-color-hex">#9bdaf1</p>
-        <p class="usa-usfwds-color-name">primary-alt-light</p>
+        <p class="usa-color-hex">#9bdaf1</p>
+        <p class="usa-color-name">primary-alt-light</p>
     </div>
     <div class="usa-width-one-sixth usa-end-row">
-      <div class="usa-usfwds-color-short usa-usfwds-color-primary-alt-lightest">
+      <div class="usa-color-short usa-color-primary-alt-lightest">
       </div>
-        <p class="usa-usfwds-color-hex">#e1f3f8</p>
-        <p class="usa-usfwds-color-name">primary-alt-lightest</p>
+        <p class="usa-color-hex">#e1f3f8</p>
+        <p class="usa-color-name">primary-alt-lightest</p>
     </div>
   </div>
 
   <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-secondary">
+      <div class="usa-color-short usa-color-secondary">
       </div>
-        <p class="usa-usfwds-color-hex">#e31c3d</p>
-        <p class="usa-usfwds-color-name">secondary</p>
+        <p class="usa-color-hex">#e31c3d</p>
+        <p class="usa-color-name">secondary</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-secondary-darkest">
+      <div class="usa-color-short usa-color-secondary-darkest">
       </div>
-        <p class="usa-usfwds-color-hex">#cd2026</p>
-        <p class="usa-usfwds-color-name">secondary-darkest</p>
+        <p class="usa-color-hex">#cd2026</p>
+        <p class="usa-color-name">secondary-darkest</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-secondary-dark">
+      <div class="usa-color-short usa-color-secondary-dark">
       </div>
-        <p class="usa-usfwds-color-hex">#981b1e</p>
-        <p class="usa-usfwds-color-name">secondary-dark</p>
+        <p class="usa-color-hex">#981b1e</p>
+        <p class="usa-color-name">secondary-dark</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-secondary-light">
+      <div class="usa-color-short usa-color-secondary-light">
       </div>
-        <p class="usa-usfwds-color-hex">#e59393</p>
-        <p class="usa-usfwds-color-name">secondary-light</p>
+        <p class="usa-color-hex">#e59393</p>
+        <p class="usa-color-name">secondary-light</p>
     </div>
     <div class="usa-width-one-sixth usa-end-row">
-      <div class="usa-usfwds-color-short usa-usfwds-color-secondary-lightest">
+      <div class="usa-color-short usa-color-secondary-lightest">
       </div>
-        <p class="usa-usfwds-color-hex">#f9dede</p>
-        <p class="usa-usfwds-color-name">secondary-lightest</p>
+        <p class="usa-color-hex">#f9dede</p>
+        <p class="usa-color-name">secondary-lightest</p>
     </div>
   </div>
 
@@ -139,64 +139,64 @@ title: Colors
 
   <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-gray-dark">
+      <div class="usa-color-short usa-color-gray-dark">
       </div>
-        <p class="usa-usfwds-color-hex">#323a45</p>
-        <p class="usa-usfwds-color-name">gray-dark</p>
+        <p class="usa-color-hex">#323a45</p>
+        <p class="usa-color-name">gray-dark</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-gray">
+      <div class="usa-color-short usa-color-gray">
       </div>
-        <p class="usa-usfwds-color-hex">#5b616b</p>
-        <p class="usa-usfwds-color-name">gray</p>
+        <p class="usa-color-hex">#5b616b</p>
+        <p class="usa-color-name">gray</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-gray-light">
+      <div class="usa-color-short usa-color-gray-light">
       </div>
-        <p class="usa-usfwds-color-hex">#aeb0b5</p>
-        <p class="usa-usfwds-color-name">gray-light</p>
+        <p class="usa-color-hex">#aeb0b5</p>
+        <p class="usa-color-name">gray-light</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-gray-lighter">
+      <div class="usa-color-short usa-color-gray-lighter">
       </div>
-        <p class="usa-usfwds-color-hex">#d6d7d9</p>
-        <p class="usa-usfwds-color-name">gray-lighter</p>
+        <p class="usa-color-hex">#d6d7d9</p>
+        <p class="usa-color-name">gray-lighter</p>
     </div>
     <div class="usa-width-one-sixth usa-end-row">
-      <div class="usa-usfwds-color-short usa-usfwds-color-gray-lightest">
+      <div class="usa-color-short usa-color-gray-lightest">
       </div>
-        <p class="usa-usfwds-color-hex">#efefef</p>
-        <p class="usa-usfwds-color-name">gray-lightest</p>
+        <p class="usa-color-hex">#efefef</p>
+        <p class="usa-color-name">gray-lightest</p>
     </div>
   </div>
 
   <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-gray-warm-dark">
+      <div class="usa-color-short usa-color-gray-warm-dark">
       </div>
-        <p class="usa-usfwds-color-hex">#494440</p>
-        <p class="usa-usfwds-color-name">gray-warm-dark</p>
+        <p class="usa-color-hex">#494440</p>
+        <p class="usa-color-name">gray-warm-dark</p>
     </div>
     <div class="usa-width-one-sixth usa-end-row">
-      <div class="usa-usfwds-color-short usa-usfwds-color-gray-warm-light">
+      <div class="usa-color-short usa-color-gray-warm-light">
       </div>
-        <p class="usa-usfwds-color-hex">#e4e2e0</p>
-        <p class="usa-usfwds-color-name">gray-warm-light</p>
+        <p class="usa-color-hex">#e4e2e0</p>
+        <p class="usa-color-name">gray-warm-light</p>
     </div>
   </div>
 
   <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-primary-darkest">
+      <div class="usa-color-short usa-color-primary-darkest">
       </div>
-        <p class="usa-usfwds-color-hex">#046b99</p>
-        <p class="usa-usfwds-color-name">primary-darkest</p>
+        <p class="usa-color-hex">#046b99</p>
+        <p class="usa-color-name">primary-darkest</p>
     </div>
     <div class="usa-width-one-sixth usa-end-row">
-      <div class="usa-usfwds-color-short usa-usfwds-color-gray-cool-light">
+      <div class="usa-color-short usa-color-gray-cool-light">
       </div>
-        <p class="usa-usfwds-color-hex">#dce4ef</p>
-        <p class="usa-usfwds-color-name">gray-cool-light</p>
+        <p class="usa-color-hex">#dce4ef</p>
+        <p class="usa-color-name">gray-cool-light</p>
     </div>
   </div>
 
@@ -206,82 +206,82 @@ title: Colors
 
   <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-gold">
+      <div class="usa-color-short usa-color-gold">
       </div>
-        <p class="usa-usfwds-color-hex">#fdb81e</p>
-        <p class="usa-usfwds-color-name">gold</p>
+        <p class="usa-color-hex">#fdb81e</p>
+        <p class="usa-color-name">gold</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-gold-light">
+      <div class="usa-color-short usa-color-gold-light">
       </div>
-        <p class="usa-usfwds-color-hex">#f9c642</p>
-        <p class="usa-usfwds-color-name">gold-light</p>
+        <p class="usa-color-hex">#f9c642</p>
+        <p class="usa-color-name">gold-light</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-gold-lighter">
+      <div class="usa-color-short usa-color-gold-lighter">
       </div>
-        <p class="usa-usfwds-color-hex">#fad980</p>
-        <p class="usa-usfwds-color-name">gold-lighter</p>
+        <p class="usa-color-hex">#fad980</p>
+        <p class="usa-color-name">gold-lighter</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-gold-lightest usa-end-row">
+      <div class="usa-color-short usa-color-gold-lightest usa-end-row">
       </div>
-        <p class="usa-usfwds-color-hex">#fff1d2</p>
-        <p class="usa-usfwds-color-name">gold-lightest</p>
+        <p class="usa-color-hex">#fff1d2</p>
+        <p class="usa-color-name">gold-lightest</p>
     </div>
   </div>
 
   <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-green">
+      <div class="usa-color-short usa-color-green">
       </div>
-        <p class="usa-usfwds-color-hex">#2e8540</p>
-        <p class="usa-usfwds-color-name">green</p>
+        <p class="usa-color-hex">#2e8540</p>
+        <p class="usa-color-name">green</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-green-light">
+      <div class="usa-color-short usa-color-green-light">
       </div>
-        <p class="usa-usfwds-color-hex">#4aa564</p>
-        <p class="usa-usfwds-color-name">green-light</p>
+        <p class="usa-color-hex">#4aa564</p>
+        <p class="usa-color-name">green-light</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-green-lighter">
+      <div class="usa-color-short usa-color-green-lighter">
       </div>
-        <p class="usa-usfwds-color-hex">#94bfa2</p>
-        <p class="usa-usfwds-color-name">green-lighter</p>
+        <p class="usa-color-hex">#94bfa2</p>
+        <p class="usa-color-name">green-lighter</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-green-lightest usa-end-row">
+      <div class="usa-color-short usa-color-green-lightest usa-end-row">
       </div>
-        <p class="usa-usfwds-color-hex">#e7f4e4</p>
-        <p class="usa-usfwds-color-name">green-lightest</p>
+        <p class="usa-color-hex">#e7f4e4</p>
+        <p class="usa-color-name">green-lightest</p>
     </div>
   </div>
 
   <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-cool-blue">
+      <div class="usa-color-short usa-color-cool-blue">
       </div>
-        <p class="usa-usfwds-color-hex">#205493</p>
-        <p class="usa-usfwds-color-name">cool-blue</p>
+        <p class="usa-color-hex">#205493</p>
+        <p class="usa-color-name">cool-blue</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-cool-blue-light">
+      <div class="usa-color-short usa-color-cool-blue-light">
       </div>
-        <p class="usa-usfwds-color-hex">#4773aa</p>
-        <p class="usa-usfwds-color-name">cool-blue-light</p>
+        <p class="usa-color-hex">#4773aa</p>
+        <p class="usa-color-name">cool-blue-light</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-cool-blue-lighter">
+      <div class="usa-color-short usa-color-cool-blue-lighter">
       </div>
-        <p class="usa-usfwds-color-hex">#8ba6ca</p>
-        <p class="usa-usfwds-color-name">cool-blue-lighter</p>
+        <p class="usa-color-hex">#8ba6ca</p>
+        <p class="usa-color-name">cool-blue-lighter</p>
     </div>
     <div class="usa-width-one-sixth">
-      <div class="usa-usfwds-color-short usa-usfwds-color-cool-blue-lightest usa-end-row">
+      <div class="usa-color-short usa-color-cool-blue-lightest usa-end-row">
       </div>
-        <p class="usa-usfwds-color-hex">#dce4ef</p>
-        <p class="usa-usfwds-color-name">cool-blue-lightest</p>
+        <p class="usa-color-hex">#dce4ef</p>
+        <p class="usa-color-name">cool-blue-lightest</p>
     </div>
   </div>
 
@@ -291,19 +291,19 @@ title: Colors
 
   <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth usa-end-row">
-      <div class="usa-usfwds-color-short usa-usfwds-color-focus">
+      <div class="usa-color-short usa-color-focus">
       </div>
-      <p class="usa-usfwds-color-hex">#3e94cf</p>
-      <p class="usa-usfwds-color-name">focus</p>
+      <p class="usa-color-hex">#3e94cf</p>
+      <p class="usa-color-name">focus</p>
     </div>
   </div>
 
   <div class="usa-grid-full usa-color-row">
     <div class="usa-width-one-fourth usa-end-row">
-      <div class="usa-usfwds-color-short usa-usfwds-color-visited">
+      <div class="usa-color-short usa-color-visited">
       </div>
-      <p class="usa-usfwds-color-hex">#4c2c92</p>
-      <p class="usa-usfwds-color-name">visited</p>
+      <p class="usa-color-hex">#4c2c92</p>
+      <p class="usa-color-name">visited</p>
     </div>
   </div>
 
@@ -317,50 +317,50 @@ title: Colors
 
   <p><b>Colors on a white background</b></p>
 
-  <div class="usa-grid-full usa-usfwds-color-outline">
+  <div class="usa-grid-full usa-color-outline">
     <div class="usa-width-one-half">
-      <div class="usa-usfwds-color-text usa-usfwds-color-text-primary-darkest">
+      <div class="usa-color-text usa-color-text-primary-darkest">
         primary-darkest on white
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-text-primary-darker">
+      <div class="usa-color-text usa-color-text-primary-darker">
         primary-darker on white
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-text-primary">
+      <div class="usa-color-text usa-color-text-primary">
         primary on white
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-text-cool-blue-light">
+      <div class="usa-color-text usa-color-text-cool-blue-light">
         cool-blue-light on white
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-text-primary-alt-darkest">
+      <div class="usa-color-text usa-color-text-primary-alt-darkest">
         primary-alt-darkest on white
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-text-green">
+      <div class="usa-color-text usa-color-text-green">
         green on white
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-text-visited">
+      <div class="usa-color-text usa-color-text-visited">
         visited on white
       </div>
     </div>
     <div class="usa-width-one-half usa-end-row">
-      <div class="usa-usfwds-color-text usa-usfwds-color-text-gray-dark">
+      <div class="usa-color-text usa-color-text-gray-dark">
         base on white
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-text-gray-dark">
+      <div class="usa-color-text usa-color-text-gray-dark">
         gray-dark on white
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-text-gray">
+      <div class="usa-color-text usa-color-text-gray">
         gray on white
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-text-gray-warm-dark">
+      <div class="usa-color-text usa-color-text-gray-warm-dark">
         gray-warm-dark on white
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-text-secondary-darkest">
+      <div class="usa-color-text usa-color-text-secondary-darkest">
         secondary-darkest on white
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-text-secondary-dark">
+      <div class="usa-color-text usa-color-text-secondary-dark">
         secondary-dark on white
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-text-secondary">
+      <div class="usa-color-text usa-color-text-secondary">
         secondary on white
       </div>
     </div>
@@ -370,93 +370,93 @@ title: Colors
 
   <div class="usa-grid-full">
     <div class="usa-width-one-half">
-      <div class="usa-usfwds-color-text usa-usfwds-color-base usa-usfwds-color-text-white">
+      <div class="usa-color-text usa-color-base usa-color-text-white">
         white on base
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-gray-warm-dark usa-usfwds-color-text-white">
+      <div class="usa-color-text usa-color-gray-warm-dark usa-color-text-white">
         white on gray-warm-dark
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-gray-dark usa-usfwds-color-text-white">
+      <div class="usa-color-text usa-color-gray-dark usa-color-text-white">
         white on gray-dark
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-gray usa-usfwds-color-text-white">
+      <div class="usa-color-text usa-color-gray usa-color-text-white">
         white on gray
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-primary-darkest usa-usfwds-color-text-white">
+      <div class="usa-color-text usa-color-primary-darkest usa-color-text-white">
         white on primary-darkest
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-primary-darker usa-usfwds-color-text-white">
+      <div class="usa-color-text usa-color-primary-darker usa-color-text-white">
         white on primary-darker
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-primary usa-usfwds-color-text-white">
+      <div class="usa-color-text usa-color-primary usa-color-text-white">
         white on primary
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-cool-blue-light usa-usfwds-color-text-white">
+      <div class="usa-color-text usa-color-cool-blue-light usa-color-text-white">
         white on cool-blue-light
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-primary-alt-darkest usa-usfwds-color-text-white">
+      <div class="usa-color-text usa-color-primary-alt-darkest usa-color-text-white">
         white on primary-alt-darkest
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-primary-alt-dark">
+      <div class="usa-color-text usa-color-primary-alt-dark">
         base on primary-alt-dark
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-primary-alt">
+      <div class="usa-color-text usa-color-primary-alt">
         white on primary-alt
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-green usa-usfwds-color-text-white">
+      <div class="usa-color-text usa-color-green usa-color-text-white">
         white on green
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-green-light">
+      <div class="usa-color-text usa-color-green-light">
         base on green-light
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-gold">
+      <div class="usa-color-text usa-color-gold">
         base on gold
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-gold-light">
+      <div class="usa-color-text usa-color-gold-light">
         base on gold-light
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-secondary-darkest usa-usfwds-color-text-white">
+      <div class="usa-color-text usa-color-secondary-darkest usa-color-text-white">
         white on secondary-darkest
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-secondary-dark usa-usfwds-color-text-white">
+      <div class="usa-color-text usa-color-secondary-dark usa-color-text-white">
         white on secondary-dark
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-secondary usa-usfwds-color-text-white">
+      <div class="usa-color-text usa-color-secondary usa-color-text-white">
         white on secondary
       </div>
     </div>
     <div class="usa-width-one-half usa-end-row">
-      <div class="usa-usfwds-color-text usa-usfwds-color-gray-light">
+      <div class="usa-color-text usa-color-gray-light">
         base on gray-light
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-gray-lighter">
+      <div class="usa-color-text usa-color-gray-lighter">
         base on gray-lighter
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-gray-warm-light">
+      <div class="usa-color-text usa-color-gray-warm-light">
         base on gray-warm-light
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-cool-blue-lighter">
+      <div class="usa-color-text usa-color-cool-blue-lighter">
         base on cool-blue-lighter
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-cool-blue-lightest">
+      <div class="usa-color-text usa-color-cool-blue-lightest">
         base on cool-blue-lightest
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-primary-alt-lightest">
+      <div class="usa-color-text usa-color-primary-alt-lightest">
         base on primary-alt-lightest
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-green-lighter">
+      <div class="usa-color-text usa-color-green-lighter">
         base on green-lighter
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-green-lightest">
+      <div class="usa-color-text usa-color-green-lightest">
         base on green-lightest
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-gold-lighter">
+      <div class="usa-color-text usa-color-gold-lighter">
         base on gold-lighter
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-gold-lightest">
+      <div class="usa-color-text usa-color-gold-lightest">
         base on gold-lightest
       </div>
-      <div class="usa-usfwds-color-text usa-usfwds-color-secondary-lightest">
+      <div class="usa-color-text usa-color-secondary-lightest">
         base on secondary-lightest
       </div>
     </div>
