@@ -8,6 +8,6 @@ slug: elements
 <h1>Elements</h1>
 
 {% for element in site.elements %}
-  <h2 id="{{ element.title | slugify }}">{{ element.title }}</h2>
+  <h2 class="usa-heading" id="{{ element.title | slugify }}">{{ element.title }}</h2>
   <p>{{ element.content }}</p>
 {% endfor %}

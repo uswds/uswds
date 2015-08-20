@@ -4,7 +4,7 @@ type: component
 title: Forms Blocks
 ---
 
-<h3>Accessibility</h3>
+<h3 class="usa-heading">Accessibility</h3>
 
 <p>As you customize these templates, ensure they continue to meet the <a href="{{ site.baseurl }}/elements/#inputs">accessibility guidelines for all form controls</a> as well as the accessibility guidelines for each individual control.</p>
 
@@ -106,7 +106,7 @@ title: Forms Blocks
 
 <div class="usa-grid">
   <div class="usa-width-one-half">
-    <h3>Use</h3>
+    <h3 class="usa-heading">Use</h3>
     <p>As you customize this form, ensure it continues to:</p>
     <ul>
       <li>Label the optional ones. Users can infer that all the others are required.</li>
@@ -114,7 +114,7 @@ title: Forms Blocks
     </ul>
   </div>
   <div class="usa-width-one-half">
-    <h3>Accessibility</h3>
+    <h3 class="usa-heading">Accessibility</h3>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul>
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
@@ -154,14 +154,14 @@ title: Forms Blocks
 
 <div class="usa-grid">
   <div class="usa-width-one-half">
-    <h3>Use</h3>
+    <h3 class="usa-heading">Use</h3>
     <ul>
       <li>Leave the title and suffix fields as text boxes (instead of offering drop downs.) There are many possible titles and suffixes; text boxes accommodate them all.</li>
       <li>Do not restrict the types of characters users can enter in any of these fields. Names can include characters outside the standard Roman alphabet.</li>
     </ul>
   </div>
   <div class="usa-width-one-half">
-    <h3>Accessibility</h3>
+    <h3 class="usa-heading">Accessibility</h3>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul>
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
@@ -196,14 +196,14 @@ title: Forms Blocks
 
 <div class="usa-grid">
   <div class="usa-width-one-half">
-    <h3>Use</h3>
+    <h3 class="usa-heading">Use</h3>
     <ul>
       <li>Don’t ask for a social security number unless it’s absolutely essential. Users are reluctant to divulge personal information unless the reason for why it’s needed is clear.  If it’s not clear why it’s needed, offer an explanation.</li>
       <li>Allow users to show or hide their entry so they can check for errors.</li>
     </ul>
   </div>
   <div class="usa-width-one-half">
-    <h3>Accessibility</h3>
+    <h3 class="usa-heading">Accessibility</h3>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul>
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
@@ -249,7 +249,7 @@ title: Forms Blocks
 
 <div class="usa-grid">
   <div class="usa-width-one-half">
-    <h3>Use</h3>
+    <h3 class="usa-heading">Use</h3>
     <ul>
       <li>Sign in forms are a barrier between users and the content they want, so allow users to access as much as of your online services as possible without having to log in.</li>
       <li>People have an easier time remembering their email address rather than a unique username, so allow them to use their email address to log in. However, some people don’t have an email address, so don’t let this be the only option.</li>
@@ -259,7 +259,7 @@ title: Forms Blocks
     </ul>
   </div>
   <div class="usa-width-one-half">
-    <h3>Accessibility</h3>
+    <h3 class="usa-heading">Accessibility</h3>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul>
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
@@ -272,7 +272,7 @@ title: Forms Blocks
   </div>  
 </div>
 
-<h2>Password Reset</h2>
+<h2 class="usa-heading">Password Reset</h2>
 
 <div class="preview">
   <form>
@@ -319,7 +319,7 @@ title: Forms Blocks
 
 <div class="usa-grid">
   <div class="usa-width-one-half">
-    <h3>Use</h3>
+    <h3 class="usa-heading">Use</h3>
     <ul>
       <li>Most authentication failures occur because a user has forgotten their username or password. This is especially common when a long time passes between visits, as is the case with most federal websites.</li>
       <li>State any password requirements (e.g. "Must include one capital letter") upfront. Don’t leave users guessing only to hit them with an error message later.</li>
@@ -327,7 +327,7 @@ title: Forms Blocks
     </ul>
   </div>
   <div class="usa-width-one-half">
-    <h3>Accessibility</h3>
+    <h3 class="usa-heading">Accessibility</h3>
     <ul>
       <li>Using aria-describedby is a good way to associate the password strength information with the field.</li>
     </ul>
@@ -339,7 +339,7 @@ title: Forms Blocks
   </div>  
 </div>
 
-<h2>Contact Form</h2>
+<h2 class="usa-heading">Contact Form</h2>
 
 <div class="preview">
   
@@ -374,14 +374,14 @@ title: Forms Blocks
 
 <div class="usa-grid">
   <div class="usa-width-one-half">
-    <h3>Use</h3>
+    <h3 class="usa-heading">Use</h3>
     <ul>
       <li>Avoid adding too many fields to this form – the more you add, the less likely people are to complete the form. This is especially true if you ask for unnecessary personal information, such as phone numbers, that people may not be ready to give out.</li>
       <li>Wherever possible, include a direct email address and phone number on your form. Some users may prefer to write an email or call.</li>
     </ul>
   </div>
   <div class="usa-width-one-half">
-    <h3>Accessibility</h3>
+    <h3 class="usa-heading">Accessibility</h3>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul>
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
