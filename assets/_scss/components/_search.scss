@@ -88,11 +88,19 @@ button[type="submit"].usa-search-submit-small {
     float: left;
     height: 3.3rem;
     margin: 0;
-    width: calc(100% - #{$usa-btn-medium-width});
+    width: calc(100% - #{$usa-btn-small-width});
+
+    @include media($small-screen) {
+      width: calc(100% - #{$usa-btn-medium-width});
+    }
   }
 
   [type="submit"],
   .usa-search-submit {
+    background-image: url('../img/search.png');
+    background-image: url('../img/search.svg');
+    background-position: 50%;
+    background-repeat: no-repeat;
     @include usa-search-submit-default;
     border: {
       bottom-left-radius: 0;
@@ -101,41 +109,46 @@ button[type="submit"].usa-search-submit-small {
     height: 3.3rem;
     margin: 0;
     padding: 0;
+    width: $usa-btn-small-width;
   }
 
   &.usa-search-big {
-    $height: 4.4rem;
-    $width: $usa-btn-big-width;
+    @include media($small-screen) {
+      $height: 4.4rem;
+      $width: $usa-btn-big-width;
 
-    [type="search"],
-    .usa-search-input {
-      height: $height;
-      width: calc(100% - #{$width});
-    }
+      [type="search"],
+      .usa-search-input {
+        height: $height;
+        width: calc(100% - #{$width});
+      }
 
-    [type="submit"],
-    .usa-search-submit {
-      height: $height;
-      font-size: $h3-font-size;
-      width: $width;
+      [type="submit"],
+      .usa-search-submit {
+        height: $height;
+        font-size: $h3-font-size;
+        width: $width;
+      }
     }
   }
 
   &.usa-search-small {
-    $width: $usa-btn-small-width;
+    @include media($small-screen) {
+      $width: $usa-btn-small-width;
 
-    [type="search"],
-    .usa-search-input {
-      width: calc(100% - #{$width});
-    }
+      [type="search"],
+      .usa-search-input {
+        width: calc(100% - #{$width});
+      }
 
-    [type="submit"],
-    .usa-search-submit {
-      background-image: url('../img/search.png');
-      background-image: url('../img/search.svg');
-      background-position: 50%;
-      background-repeat: no-repeat;
-      width: $width;
+      [type="submit"],
+      .usa-search-submit {
+        background-image: url('../img/search.png');
+        background-image: url('../img/search.svg');
+        background-position: 50%;
+        background-repeat: no-repeat;
+        width: $width;
+      }
     }
   }
 }
