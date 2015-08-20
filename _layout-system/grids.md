@@ -5,7 +5,7 @@ title: Grids
 
 <div class="preview">
 
-  <h3>Grid</h3>
+  <h3 class="usa-heading">Grid</h3>
   <div class="usa-grid usa-grid-example usa-grid-example-blank">
     <div class="usa-width-one-whole">1/1</div>
     <div class="usa-width-one-half">1/2</div>
@@ -37,7 +37,7 @@ title: Grids
     <div class="usa-width-one-twelfth usa-end-row">1/12</div>
   </div>
 
-  <h3>Grid Examples</h3>
+  <h3 class="usa-heading">Grid Examples</h3>
   <div class="usa-grid usa-grid-example usa-grid-text">
     <div class="usa-width-one-half">
       <h3>One Half</h3>
@@ -101,11 +101,11 @@ title: Grids
 
 <div class="usa-grid">
   <div class="usa-width-one-half">
-    <h3>Use</h3>
+    <h3 class="usa-heading">Use</h3>
     <p>This is the usage content for the example.</p>
   </div>
   <div class="usa-width-one-half">
-    <h3>Accessibility</h3>
+    <h3 class="usa-heading">Accessibility</h3>
     <p>This is the accessibility content for the example.</p>
   </div>  
 </div>
