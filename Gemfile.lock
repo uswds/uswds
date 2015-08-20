@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     blankslate (2.1.2.4)
-    celluloid (0.16.0)
+    celluloid (0.16.1)
       timers (~> 4.0.0)
     classifier-reborn (2.0.3)
       fast-stemmer (~> 1.0)
@@ -72,6 +72,3 @@ DEPENDENCIES
   jekyll
   redcarpet
   rouge
-
-BUNDLED WITH
-   1.10.6
