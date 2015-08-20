@@ -68,7 +68,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  celluloid (= 0.16.0)
   jekyll
   redcarpet
   rouge
