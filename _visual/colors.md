@@ -378,12 +378,42 @@ title: Colors
       </div>
     </div>
     <div class="usa-width-one-half usa-end-row">
-      <div class="usa-usfwds-color-text">
-        base on gray-warm-dark
+      <div class="usa-usfwds-color-text usa-usfwds-color-gray-light">
+        base on gray-light
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-gray-lighter">
+        base on gray-lighter
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-gray-warm-light">
+        base on gray-warm-light
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-cool-blue-lighter">
+        base on cool-blue-lighter
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-cool-blue-lightest">
+        base on cool-blue-lightest
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-primary-alt-lightest">
+        base on primary-alt-lightest
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-green-lighter">
+        base on green-lighter
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-green-lightest">
+        base on green-lightest
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-gold-lighter">
+        base on gold-lighter
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-gold-lightest">
+        base on gold-lightest
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-secondary-lightest">
+        base on secondary-lightest
       </div>
     </div>
   </div>
-  
+
 </div>
 
 <div class="usa-grid">
