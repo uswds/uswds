@@ -3,8 +3,8 @@ $usa-btn-medium-width:  8.5rem;
 $usa-btn-big-width:     11.6rem;
 
 @mixin usa-search-submit-small {
-  background-image: url('../img/search.png');  
-  background-image: url('../img/search.svg');  
+  background-image: url('../img/search.png');
+  background-image: url('../img/search.svg');
   background-position: 50%;
   background-repeat: no-repeat;
   width: $usa-btn-small-width;
@@ -24,38 +24,9 @@ $usa-btn-big-width:     11.6rem;
     }
   }
 }
-
-input[type="search"] {
-  border: {
-    bottom-right-radius: 0;
-    right: none;    
-    top-right-radius: 0;    
-  }
-  float: left;
-  height: 3.3rem;
-  width: calc(100% - #{$usa-btn-small-width});
-}
-
-.usa-search {
-  max-width: none;
-}
-
-.usa-search-bar {
-  position: relative;
-}
+/*
 
 button[type="submit"].usa-search-submit {
-  @include usa-search-submit-small;
-  @include usa-search-submit-default;
-  border: {
-    bottom-left-radius: 0;
-    top-left-radius: 0;
-  }
-  height: 3.3rem;
-  margin: 1.5rem 0;
-  padding: 0;
-  position: absolute;
-
 }
 
 button[type="submit"].usa-search-submit-big {
@@ -79,13 +50,13 @@ button[type="submit"].usa-search-submit-small {
 
   input[type="search"].usa-search-input-small {
     width: calc(100% - #{$usa-btn-small-width});
-  }   
+  }
 }
 
 @include media($medium-screen) {
   input[type="search"].usa-search-input-big {
-    height: 4.4rem;    
-    width: calc(100% - #{$usa-btn-big-width});    
+    height: 4.4rem;
+    width: calc(100% - #{$usa-btn-big-width});
   }
 
   button[type="submit"].usa-search-submit-big {
@@ -98,5 +69,73 @@ button[type="submit"].usa-search-submit-small {
 
   input[type="search"] {
     width: calc(100% - #{$usa-btn-medium-width});
+  }
+}
+*/
+
+.usa-search {
+  @include clearfix;
+  max-width: none;
+  position: relative;
+
+  [type="search"],
+  .usa-search-input {
+    border: {
+      bottom-right-radius: 0;
+      right: none;
+      top-right-radius: 0;
+    }
+    float: left;
+    height: 3.3rem;
+    margin: 0;
+    width: calc(100% - #{$usa-btn-medium-width});
+  }
+
+  [type="submit"],
+  .usa-search-submit {
+    @include usa-search-submit-default;
+    border: {
+      bottom-left-radius: 0;
+      top-left-radius: 0;
+    }
+    height: 3.3rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  &.usa-search-big {
+    $height: 4.4rem;
+    $width: $usa-btn-big-width;
+
+    [type="search"],
+    .usa-search-input {
+      height: $height;
+      width: calc(100% - #{$width});
+    }
+
+    [type="submit"],
+    .usa-search-submit {
+      height: $height;
+      font-size: $h3-font-size;
+      width: $width;
+    }
+  }
+
+  &.usa-search-small {
+    $width: $usa-btn-small-width;
+
+    [type="search"],
+    .usa-search-input {
+      width: calc(100% - #{$width});
+    }
+
+    [type="submit"],
+    .usa-search-submit {
+      background-image: url('../img/search.png');
+      background-image: url('../img/search.svg');
+      background-position: 50%;
+      background-repeat: no-repeat;
+      width: $width;
+    }
   }
 }
