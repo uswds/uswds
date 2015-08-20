@@ -6,7 +6,7 @@ title: Headers & Navigation
 
 <div class="preview">
 
-  <h2>Header Nav Simple</h2>
+  <h2 class="usa-heading">Header Nav Simple</h2>
 
   <header class="usa-header" role="banner">
     <div class="usa-grid">
@@ -51,7 +51,7 @@ title: Headers & Navigation
     </div>
   </header>
 
-  <h2>Header Nav Complex</h2>
+  <h2 class="usa-heading">Header Nav Complex</h2>
 
   <header class="usa-header" role="banner">
     <div class="usa-grid">
@@ -122,7 +122,7 @@ title: Headers & Navigation
     </ul>
   </div>
 
-  <h2>Header Nav Active</h2>
+  <h2 class="usa-heading">Header Nav Active</h2>
 
   <header class="usa-header" role="banner">
     <div class="usa-grid">
@@ -167,7 +167,7 @@ title: Headers & Navigation
     </div>
   </header>
 
-  <h2>Header Nav Dropdown</h2>
+  <h2 class="usa-heading">Header Nav Dropdown</h2>
 
   <header class="usa-header" role="banner">
     <div class="usa-grid">
@@ -232,7 +232,7 @@ title: Headers & Navigation
     </div>
   </header>
 
-  <h2 class="usa-mega_menu-example">Header Nav Mega Menu</h2>
+  <h2 class="usa-heading usa-mega_menu-example">Header Nav Mega Menu</h2>
 
   <header class="usa-header" role="banner">
     <div class="usa-grid">
@@ -345,7 +345,7 @@ title: Headers & Navigation
     </div>
   </header>
 
-  <h2>Side Nav</h2>
+  <h2 class="usa-heading">Side Nav</h2>
 
   <div class="usa-grid">
     <aside class="side_nav usa-width-one-fourth">
@@ -365,7 +365,7 @@ title: Headers & Navigation
     </main>
   </div>
 
-  <h2>Side Nav with Sub Items</h2>
+  <h2 class="usa-heading">Side Nav with Sub Items</h2>
   <div class="usa-grid">
     <aside class="side_nav usa-width-one-fourth">
       <ul class="usa-sidenav-list">
@@ -402,7 +402,7 @@ title: Headers & Navigation
     </main>
   </div>
 
-  <h2>Side Nav with Sub Items + Grandchild Items</h2>
+  <h2 class="usa-heading">Side Nav with Sub Items + Grandchild Items</h2>
   <div class="usa-grid">
     <aside class="side_nav usa-width-one-fourth">
       <ul class="usa-sidenav-list">
