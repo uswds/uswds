@@ -15,7 +15,7 @@ title: Colors
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
-  <div class="usa-grid usa-color-row">
+  <div class="usa-grid usa-color-row usa-primary-color-section">
     <div class="usa-usfwds-color-square usa-usfwds-color-primary usa-width-one-fourth">
       <div class="usa-usfwds-color-inner-content">
         <p class="usa-usfwds-color-hex">#0071bc</p>
@@ -42,7 +42,7 @@ title: Colors
     </div>
   </div>
 
-  <div class="usa-grid usa-color-row">
+  <div class="usa-grid usa-color-row usa-primary-color-section">
     <div class="usa-usfwds-color-square usa-usfwds-color-gray-dark usa-width-one-fourth">
       <div class="usa-usfwds-color-inner-content">
         <p class="usa-usfwds-color-hex">#323a45</p>
@@ -63,11 +63,42 @@ title: Colors
     </div>
   </div>
 
-
-
-  <h3>Primary alernative colors</h2>
+  <h3>Primary alternative colors</h2>
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
+
+  <div class="usa-grid usa-color-row">
+    <div class="usa-width-one-fourth">
+      <div class="usa-usfwds-color-short usa-usfwds-color-primary-alt">
+      </div>
+        <p class="usa-usfwds-color-hex">#02bfe7</p>
+        <p class="usa-usfwds-color-name">primary-alt</p>
+    </div>
+    <div class="usa-width-one-sixth">
+      <div class="usa-usfwds-color-short usa-usfwds-color-primary-alt-darkest">
+      </div>
+        <p class="usa-usfwds-color-hex">#046b99</p>
+        <p class="usa-usfwds-color-name">primary-alt-darkest</p>
+    </div>
+    <div class="usa-width-one-sixth">
+      <div class="usa-usfwds-color-short usa-usfwds-color-primary-alt-dark">
+      </div>
+        <p class="usa-usfwds-color-hex">#00a6d2</p>
+        <p class="usa-usfwds-color-name">primary-alt-dark</p>
+    </div>
+    <div class="usa-width-one-sixth">
+      <div class="usa-usfwds-color-short usa-usfwds-color-primary-alt-light">
+      </div>
+        <p class="usa-usfwds-color-hex">#9bdaf1</p>
+        <p class="usa-usfwds-color-name">primary-alt-light</p>
+    </div>
+    <div class="usa-width-one-sixth usa-end-row">
+      <div class="usa-usfwds-color-short usa-usfwds-color-primary-alt-lightest">
+      </div>
+        <p class="usa-usfwds-color-hex">#e1f3f8</p>
+        <p class="usa-usfwds-color-name">primary-alt-lightest</p>
+    </div>
+  </div>
 
   <h3>Background colors</h2>
   
