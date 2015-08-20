@@ -289,6 +289,24 @@ title: Colors
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
+  <div class="usa-grid usa-color-row">
+    <div class="usa-width-one-fourth usa-end-row">
+      <div class="usa-usfwds-color-short usa-usfwds-color-focus">
+      </div>
+      <p class="usa-usfwds-color-hex">#3e94cf</p>
+      <p class="usa-usfwds-color-name">focus</p>
+    </div>
+  </div>
+
+  <div class="usa-grid usa-color-row">
+    <div class="usa-width-one-fourth usa-end-row">
+      <div class="usa-usfwds-color-short usa-usfwds-color-visited">
+      </div>
+      <p class="usa-usfwds-color-hex">#4c2c92</p>
+      <p class="usa-usfwds-color-name">visited</p>
+    </div>
+  </div>
+
   <h2>Text Accessibility</h2>
 
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
