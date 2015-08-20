@@ -656,3 +656,18 @@ h3 + .button_wrapper {
 .usa-usfwds-color-visited {
   background-color: $color-visited;
 }
+
+.usa-usfwds-color-text {
+  font-weight: $font-bold;
+  margin-bottom: .4rem;
+  padding: {
+    bottom: 1rem;
+    left: 2rem;
+    right: 2rem;
+    top: 1rem;
+  }
+}
+
+.usa-usfwds-color-text-white {
+  color: $color-white;
+}

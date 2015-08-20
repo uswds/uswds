@@ -309,7 +309,7 @@ title: Colors
 
   <h2>Text Accessibility</h2>
 
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi enim mauris, placerat ac convallis ut, tincidunt at erat. Mauris et dui et ligula viverra venenatis dignissim nec neque. Integer sit amet nibh ac nisi dapibus efficitur. Etiam egestas a arcu vitae dictum. Integer quis porta orci, luctus pulvinar erat. Sed elementum justo at egestas tincidunt. Quisque tristique sem at ipsum dapibus varius.</p>
 
   <h3>Fully accessible combinations</h2>
   
@@ -317,8 +317,73 @@ title: Colors
 
   <p><b>Colors on a white background</b></p>
 
+
   <p><b>Neutrals on a colored background</b></p>
 
+  <div class="usa-grid">
+    <div class="usa-width-one-half">
+      <div class="usa-usfwds-color-text usa-usfwds-color-base usa-usfwds-color-text-white">
+        white on base
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-gray-warm-dark usa-usfwds-color-text-white">
+        white on gray-warm-dark
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-gray-dark usa-usfwds-color-text-white">
+        white on gray-dark
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-gray usa-usfwds-color-text-white">
+        white on gray
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-primary-darkest usa-usfwds-color-text-white">
+        white on primary-darkest
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-primary-darker usa-usfwds-color-text-white">
+        white on primary-darker
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-primary usa-usfwds-color-text-white">
+        white on primary
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-cool-blue-light usa-usfwds-color-text-white">
+        white on cool-blue-light
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-primary-alt-darkest usa-usfwds-color-text-white">
+        white on primary-alt-darkest
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-primary-alt-dark">
+        base on primary-alt-dark
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-primary-alt">
+        white on primary-alt
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-green usa-usfwds-color-text-white">
+        white on green
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-green-light">
+        base on green-light
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-gold">
+        base on gold
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-gold-light">
+        base on gold-light
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-secondary-darkest usa-usfwds-color-text-white">
+        white on secondary-darkest
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-secondary-dark usa-usfwds-color-text-white">
+        white on secondary-dark
+      </div>
+      <div class="usa-usfwds-color-text usa-usfwds-color-secondary usa-usfwds-color-text-white">
+        white on secondary
+      </div>
+    </div>
+    <div class="usa-width-one-half usa-end-row">
+      <div class="usa-usfwds-color-text">
+        base on gray-warm-dark
+      </div>
+    </div>
+  </div>
+  
 </div>
 
 <div class="usa-grid">
