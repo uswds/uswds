@@ -480,12 +480,18 @@ h3 + .button_wrapper {
 .usa-color-row {
   margin-bottom: 3rem;
 
+  .usa-width-one-fourth {
+    @include media($medium-screen) {
+      width: 28%;
+    }
+  }
+
   .usa-width-one-sixth {
     float: left;
     width: 50%;
 
     @include media($medium-screen) {
-      width: 18%;
+      width: 17%;
     }
     margin-right: 0;
   }
