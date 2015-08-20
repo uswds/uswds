@@ -8,6 +8,6 @@ slug: visual-style
 <h1>Visual Style</h1>
 
 {% for visual in site.visual %}
-  <h2 class="usa-usfwds-heading" id="{{ visual.title | slugify }}">{{ visual.title }}</h2>
+  <h2 class="usa-heading" id="{{ visual.title | slugify }}">{{ visual.title }}</h2>
   <p>{{ visual.content }}</p>
 {% endfor %}

@@ -4,7 +4,7 @@ type: component
 title: Inputs
 ---
 
-<h3 class="usa-usfwds-heading">Accessibility</h3>
+<h3 class="usa-heading">Accessibility</h3>
 
 <p>As you customize form controls from this library, be sure they continue to meet the following accessibility requirements:</p>
 
@@ -19,7 +19,7 @@ title: Inputs
 
 <div class="preview">
 
-  <h2 class="usa-usfwds-heading">Text Input</h2>
+  <h2 class="usa-heading">Text Input</h2>
 
   <label for="input-type-text">Text Input Label</label>
   <input id="input-type-text" name="input-type-text" type="text">
@@ -36,14 +36,14 @@ title: Inputs
   <label for="input-success">Text Input Success</label>
   <input class="usa-input-success" id="input-success" name="input-success" type="text">
 
-  <h2 class="usa-usfwds-heading">Text Area</h2>
+  <h2 class="usa-heading">Text Area</h2>
 
   <label for="input-type-textarea">Text Area Label</label>
   <textarea id="input-type-textarea" name="input-type-textarea"></textarea>
 
 </div>
 
-<h2 class="usa-usfwds-heading">Checkboxes</h2>
+<h2 class="usa-heading">Checkboxes</h2>
 
 <div class="preview">
 
@@ -74,7 +74,7 @@ title: Inputs
 
 </div>
 
-<h2 class="usa-usfwds-heading">Radio buttons</h2>
+<h2 class="usa-heading">Radio buttons</h2>
 
 <div class="preview">
 
@@ -101,7 +101,7 @@ title: Inputs
 
 </div>
 
-<h2 class="usa-usfwds-heading">Range slider</h2>
+<h2 class="usa-heading">Range slider</h2>
 
 <div class="preview">
 
@@ -110,7 +110,7 @@ title: Inputs
 
 </div>
 
-<h2 class="usa-usfwds-heading">Dropdown</h2>
+<h2 class="usa-heading">Dropdown</h2>
 
 <div class="preview">
 <form>
@@ -123,14 +123,14 @@ title: Inputs
 </form>
 </div>
 
-<h2 class="usa-usfwds-heading">Date picker</h2>
+<h2 class="usa-heading">Date picker</h2>
 
 <div class="preview">
   <!-- Add HTML markup for example here -->
   <img src="{{ site.baseurl }}/assets/img/static/Date_Picker_UI_v1.png">
 </div>
 
-<h2 class="usa-usfwds-heading">Memorable Dates</h2>
+<h2 class="usa-heading">Memorable Dates</h2>
 
 <div class="preview">
 
@@ -157,11 +157,11 @@ title: Inputs
 
 <div class="usa-grid">
   <div class="usa-width-one-half">
-    <h3 class="usa-usfwds-heading">Use</h3>
+    <h3 class="usa-heading">Use</h3>
     <p>This is the usage content for the example.</p>
   </div>
   <div class="usa-width-one-half">
-    <h3 class="usa-usfwds-heading">Accessibility</h3>
+    <h3 class="usa-heading">Accessibility</h3>
     <p>This is the accessibility content for the example.</p>
   </div>  
 </div>

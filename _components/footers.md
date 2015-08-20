@@ -6,7 +6,7 @@ title: Footers
 
 <div class="preview">
 
-  <h3 class="usa-usfwds-heading">Footer Big</h3>
+  <h3 class="usa-heading">Footer Big</h3>
 
   <footer class="usa-footer usa-footer-big usa-sans" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
@@ -101,7 +101,7 @@ title: Footers
     </div>
   </footer>
 
-  <h3 class="usa-usfwds-heading">Footer Medium</h3>
+  <h3 class="usa-heading">Footer Medium</h3>
 
   <footer class="usa-footer usa-footer-medium usa-sans" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
@@ -176,7 +176,7 @@ title: Footers
     </div>
   </footer>
 
-  <h3 class="usa-usfwds-heading">Footer Slim</h3>
+  <h3 class="usa-heading">Footer Slim</h3>
 
   <footer class="usa-footer usa-footer-slim usa-sans" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
@@ -232,7 +232,7 @@ title: Footers
 
 <div class="usa-grid">
   <div class="usa-width-one-half">
-    <h3 class="usa-usfwds-heading">Use</h3>
+    <h3 class="usa-heading">Use</h3>
     <ul>
       <li>Footers serve site visitors who arrive at the bottom of a page without finding what they want.</li>
       <li>Footer links should point to popular content that might answer a visitor’s remaining questions. Links to disclaimers and legal content sometimes need to be in the footer, but try to minimize “disclaimer bloat” wherever possible.</li>
@@ -243,7 +243,7 @@ title: Footers
     </ul>
   </div>
   <div class="usa-width-one-half">
-    <h3 class="usa-usfwds-heading">Accessibility</h3>
+    <h3 class="usa-heading">Accessibility</h3>
     <ul>
       <li>Code the navigation so that pressing the  tab key moves focus from link to link in the navigation, even when the navigation has collapsed into an accordion.</li>
       <li>On small screens: when collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the "Accordion" section.</li>
