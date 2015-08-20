@@ -458,10 +458,7 @@ h3 + .button_wrapper {
 
 // Colors section
 
-.usa-usfwds-color-square {
-  padding-bottom: 25%;
-  position: relative;
-}
+
 
 .usa-usfwds-color-short {
   height: 7rem;
@@ -484,7 +481,30 @@ h3 + .button_wrapper {
 }
 
 .usa-primary-color-section {
-  margin-bottom: 7rem;
+  @include media($medium-screen) {
+    margin-bottom: 7rem;
+  }
+  margin-bottom: 0;
+
+  .usa-usfwds-color-square {
+    @include span-columns(6);
+    margin-bottom: 7rem;
+    padding-bottom: 50%;
+    position: relative;
+
+    @include media($medium-screen) {
+      @include span-columns(3);
+      margin-bottom: 0;
+      padding-bottom: 25%;
+    }
+  }
+
+  .usa-mobile-end-row {
+    @include media($medium-screen) {
+      margin-right: 2.35765%;
+    }
+    margin-right: 0;
+  }
 }
 
 .usa-usfwds-color-inner-content {
@@ -713,8 +733,6 @@ h3 + .button_wrapper {
   color: $color-secondary;
 }
 
-
-
 .usa-usfwds-color-text {
   font-weight: $font-bold;
   margin-bottom: .4rem;
@@ -735,3 +753,39 @@ h3 + .button_wrapper {
     box-shadow: inset 0 0 0 1px $color-gray;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

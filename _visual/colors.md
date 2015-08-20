@@ -16,25 +16,25 @@ title: Colors
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
   <div class="usa-grid usa-color-row usa-primary-color-section">
-    <div class="usa-usfwds-color-square usa-usfwds-color-primary usa-width-one-fourth">
+    <div class="usa-usfwds-color-square usa-usfwds-color-primary">
       <div class="usa-usfwds-color-inner-content">
         <p class="usa-usfwds-color-hex">#0071bc</p>
         <p class="usa-usfwds-color-name">primary</p>
       </div>
     </div>
-    <div class="usa-usfwds-color-square usa-usfwds-color-primary-darker usa-width-one-fourth">
+    <div class="usa-usfwds-color-square usa-usfwds-color-primary-darker usa-mobile-end-row">
       <div class="usa-usfwds-color-inner-content">
         <p class="usa-usfwds-color-hex">#205493</p>
         <p class="usa-usfwds-color-name">primary-darker</p>
       </div>
     </div>
-    <div class="usa-usfwds-color-square usa-usfwds-color-primary-darkest usa-width-one-fourth">
+    <div class="usa-usfwds-color-square usa-usfwds-color-primary-darkest">
       <div class="usa-usfwds-color-inner-content">
         <p class="usa-usfwds-color-hex">#112e51</p>
         <p class="usa-usfwds-color-name">primary-darkest</p>
       </div>
     </div>
-    <div class="usa-usfwds-color-square usa-usfwds-color-base usa-width-one-fourth usa-end-row">
+    <div class="usa-usfwds-color-square usa-usfwds-color-base usa-end-row">
       <div class="usa-usfwds-color-inner-content">
         <p class="usa-usfwds-color-hex">#212121</p>
         <p class="usa-usfwds-color-name">base</p>
@@ -43,19 +43,19 @@ title: Colors
   </div>
 
   <div class="usa-grid usa-color-row usa-primary-color-section">
-    <div class="usa-usfwds-color-square usa-usfwds-color-gray-dark usa-width-one-fourth">
+    <div class="usa-usfwds-color-square usa-usfwds-color-gray-dark">
       <div class="usa-usfwds-color-inner-content">
         <p class="usa-usfwds-color-hex">#323a45</p>
         <p class="usa-usfwds-color-name">gray-dark</p>
       </div>
     </div>
-    <div class="usa-usfwds-color-square usa-usfwds-color-gray-light usa-width-one-fourth">
+    <div class="usa-usfwds-color-square usa-usfwds-color-gray-light usa-mobile-end-row">
       <div class="usa-usfwds-color-inner-content">
         <p class="usa-usfwds-color-hex">#aeb0b5</p>
         <p class="usa-usfwds-color-name">gray-light</p>
       </div>
     </div>
-    <div class="usa-usfwds-color-square usa-usfwds-color-white usa-width-one-fourth">
+    <div class="usa-usfwds-color-square usa-usfwds-color-white">
       <div class="usa-usfwds-color-inner-content">
         <p class="usa-usfwds-color-hex">#fff</p>
         <p class="usa-usfwds-color-name">white</p>
