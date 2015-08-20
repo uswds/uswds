@@ -220,7 +220,6 @@ title: Colors
 
   <p><b>Neutrals on a colored background</b></p>
 
-  <img src="{{ site.baseurl }}/assets/img/static/Colors_UI_v1.png">
 </div>
 
 <div class="usa-grid">
