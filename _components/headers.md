@@ -8,7 +8,7 @@ title: Headers & Navigation
 
   <h2>Header Nav Simple</h2>
 
-  <header role="banner">
+  <header class="usa-header" role="banner">
     <div class="usa-grid">
       <div class="usa-nav">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
@@ -53,7 +53,7 @@ title: Headers & Navigation
 
   <h2>Header Nav Complex</h2>
 
-  <header role="banner">
+  <header class="usa-header" role="banner">
     <div class="usa-grid">
       <div class="usa-nav usa-nav-complex">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
@@ -124,7 +124,7 @@ title: Headers & Navigation
 
   <h2>Header Nav Active</h2>
 
-  <header role="banner">
+  <header class="usa-header" role="banner">
     <div class="usa-grid">
       <div class="usa-nav">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
@@ -169,7 +169,7 @@ title: Headers & Navigation
 
   <h2>Header Nav Dropdown</h2>
 
-  <header role="banner">
+  <header class="usa-header" role="banner">
     <div class="usa-grid">
       <div class="usa-nav">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
@@ -234,7 +234,7 @@ title: Headers & Navigation
 
   <h2 class="usa-mega_menu-example">Header Nav Mega Menu</h2>
 
-  <header role="banner">
+  <header class="usa-header" role="banner">
     <div class="usa-grid">
       <div class="usa-nav">
         <a class="usa-menu-btn" id="menu-btn" href="#">Menu</a>
