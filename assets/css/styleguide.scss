@@ -465,6 +465,16 @@ h3 + .button_wrapper {
   margin-bottom: 1rem;
 }
 
+.usa-usfwds-color-name {
+  @include media($medium-screen) {
+    margin: 0;
+  }
+  margin: {
+    bottom: 1em;
+    top: 0;
+  }
+}
+
 .usa-color-row {
   margin-bottom: 3rem;
 
@@ -480,7 +490,6 @@ h3 + .button_wrapper {
 
   p {
     font-family:  monospace, monospace;
-    margin: 0;
   }
 }
 
@@ -509,6 +518,10 @@ h3 + .button_wrapper {
     }
     margin-right: 0;
   }
+
+  .usa-usfwds-color-name {
+    margin: 0;
+  }
 }
 
 .usa-usfwds-color-inner-content {
@@ -518,6 +531,10 @@ h3 + .button_wrapper {
 
 .usa-usfwds-color-hex {
   font-weight: $font-bold;
+  margin: {
+    bottom: 0;
+    top: 1rem;
+  }
 }
 
 .usa-usfwds-color-name {
