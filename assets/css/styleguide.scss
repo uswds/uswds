@@ -467,11 +467,9 @@ h3 + .button_wrapper {
   height: 7rem;
 }
 
-.usa-primary-color-section {
-  margin-bottom: 7rem;
-}
-
 .usa-color-row {
+  margin-bottom: 3rem;
+
   .usa-width-one-sixth {
     @include media($medium-screen) {
       width: 18%;
@@ -483,6 +481,10 @@ h3 + .button_wrapper {
     font-family:  monospace, monospace;
     margin: 0;
   }
+}
+
+.usa-primary-color-section {
+  margin-bottom: 7rem;
 }
 
 .usa-usfwds-color-inner-content {
