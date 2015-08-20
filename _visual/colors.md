@@ -7,11 +7,11 @@ title: Colors
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
-  <h2>Palette</h2>
+  <h2 class="usa-heading">Palette</h2>
 
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
-  <h3>Primary colors</h2>
+  <h3 class="usa-heading">Primary colors</h2>
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
@@ -63,7 +63,7 @@ title: Colors
     </div>
   </div>
 
-  <h3>Secondary colors</h2>
+  <h3 class="usa-heading">Secondary colors</h2>
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
@@ -133,7 +133,7 @@ title: Colors
     </div>
   </div>
 
-  <h3>Background colors</h2>
+  <h3 class="usa-heading">Background colors</h2>
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
@@ -200,7 +200,7 @@ title: Colors
     </div>
   </div>
 
-  <h3>Tertiary colors</h2>
+  <h3 class="usa-heading">Tertiary colors</h2>
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
@@ -285,7 +285,7 @@ title: Colors
     </div>
   </div>
 
-  <h3>Focus colors</h2>
+  <h3 class="usa-heading">Focus colors</h2>
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
@@ -307,11 +307,11 @@ title: Colors
     </div>
   </div>
 
-  <h2>Text Accessibility</h2>
+  <h2 class="usa-heading">Text Accessibility</h2>
 
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi enim mauris, placerat ac convallis ut, tincidunt at erat. Mauris et dui et ligula viverra venenatis dignissim nec neque. Integer sit amet nibh ac nisi dapibus efficitur. Etiam egestas a arcu vitae dictum. Integer quis porta orci, luctus pulvinar erat. Sed elementum justo at egestas tincidunt. Quisque tristique sem at ipsum dapibus varius.</p>
 
-  <h3>Fully accessible combinations</h2>
+  <h3 class="usa-heading">Fully accessible combinations</h2>
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
@@ -466,11 +466,11 @@ title: Colors
 
 <div class="usa-grid">
   <div class="usa-width-one-half">
-    <h3>Use</h3>
+    <h3 class="usa-heading">Use</h3>
     <p>This is the usage content for the example.</p>
   </div>
   <div class="usa-width-one-half">
-    <h3>Accessibility</h3>
+    <h3 class="usa-heading">Accessibility</h3>
     <p>This is the accessibility content for the example.</p>
   </div>  
 </div>
