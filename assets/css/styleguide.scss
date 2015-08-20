@@ -468,6 +468,9 @@ h3 + .button_wrapper {
   margin-bottom: 3rem;
 
   .usa-width-one-sixth {
+    float: left;
+    width: 50%;
+
     @include media($medium-screen) {
       width: 18%;
     }
@@ -753,39 +756,3 @@ h3 + .button_wrapper {
     box-shadow: inset 0 0 0 1px $color-gray;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
