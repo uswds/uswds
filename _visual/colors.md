@@ -63,7 +63,7 @@ title: Colors
     </div>
   </div>
 
-  <h3>Primary alternative colors</h2>
+  <h3>Secondary colors</h2>
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
@@ -100,9 +100,105 @@ title: Colors
     </div>
   </div>
 
+  <div class="usa-grid usa-color-row">
+    <div class="usa-width-one-fourth">
+      <div class="usa-usfwds-color-short usa-usfwds-color-secondary">
+      </div>
+        <p class="usa-usfwds-color-hex">#e31c3d</p>
+        <p class="usa-usfwds-color-name">secondary</p>
+    </div>
+    <div class="usa-width-one-sixth">
+      <div class="usa-usfwds-color-short usa-usfwds-color-secondary-darkest">
+      </div>
+        <p class="usa-usfwds-color-hex">#cd2026</p>
+        <p class="usa-usfwds-color-name">primary-secondary-darkest</p>
+    </div>
+    <div class="usa-width-one-sixth">
+      <div class="usa-usfwds-color-short usa-usfwds-color-secondary-dark">
+      </div>
+        <p class="usa-usfwds-color-hex">#981b1e</p>
+        <p class="usa-usfwds-color-name">secondary-dark</p>
+    </div>
+    <div class="usa-width-one-sixth">
+      <div class="usa-usfwds-color-short usa-usfwds-color-secondary-light">
+      </div>
+        <p class="usa-usfwds-color-hex">#e59393</p>
+        <p class="usa-usfwds-color-name">secondary-light</p>
+    </div>
+    <div class="usa-width-one-sixth usa-end-row">
+      <div class="usa-usfwds-color-short usa-usfwds-color-secondary-lightest">
+      </div>
+        <p class="usa-usfwds-color-hex">#f9dede</p>
+        <p class="usa-usfwds-color-name">secondary-lightest</p>
+    </div>
+  </div>
+
   <h3>Background colors</h2>
   
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
+
+  <div class="usa-grid usa-color-row">
+    <div class="usa-width-one-fourth">
+      <div class="usa-usfwds-color-short usa-usfwds-color-gray-dark">
+      </div>
+        <p class="usa-usfwds-color-hex">#323a45</p>
+        <p class="usa-usfwds-color-name">gray-dark</p>
+    </div>
+    <div class="usa-width-one-sixth">
+      <div class="usa-usfwds-color-short usa-usfwds-color-gray">
+      </div>
+        <p class="usa-usfwds-color-hex">#5b616b</p>
+        <p class="usa-usfwds-color-name">primary-gray</p>
+    </div>
+    <div class="usa-width-one-sixth">
+      <div class="usa-usfwds-color-short usa-usfwds-color-gray-light">
+      </div>
+        <p class="usa-usfwds-color-hex">#aeb0b5</p>
+        <p class="usa-usfwds-color-name">gray-light</p>
+    </div>
+    <div class="usa-width-one-sixth">
+      <div class="usa-usfwds-color-short usa-usfwds-color-gray-lighter">
+      </div>
+        <p class="usa-usfwds-color-hex">#d6d7d9</p>
+        <p class="usa-usfwds-color-name">gray-lighter</p>
+    </div>
+    <div class="usa-width-one-sixth usa-end-row">
+      <div class="usa-usfwds-color-short usa-usfwds-color-gray-lightest">
+      </div>
+        <p class="usa-usfwds-color-hex">#efefef</p>
+        <p class="usa-usfwds-color-name">gray-lightest</p>
+    </div>
+  </div>
+
+  <div class="usa-grid usa-color-row">
+    <div class="usa-width-one-fourth">
+      <div class="usa-usfwds-color-short usa-usfwds-color-gray-warm-dark">
+      </div>
+        <p class="usa-usfwds-color-hex">#494440</p>
+        <p class="usa-usfwds-color-name">gray-warm-dark</p>
+    </div>
+    <div class="usa-width-one-sixth usa-end-row">
+      <div class="usa-usfwds-color-short usa-usfwds-color-gray-warm-light">
+      </div>
+        <p class="usa-usfwds-color-hex">#e4e2e0</p>
+        <p class="usa-usfwds-color-name">primary-gray-warm-light</p>
+    </div>
+  </div>
+
+  <div class="usa-grid usa-color-row">
+    <div class="usa-width-one-fourth">
+      <div class="usa-usfwds-color-short usa-usfwds-color-primary-darkest">
+      </div>
+        <p class="usa-usfwds-color-hex">#046b99</p>
+        <p class="usa-usfwds-color-name">primary-darkest</p>
+    </div>
+    <div class="usa-width-one-sixth usa-end-row">
+      <div class="usa-usfwds-color-short usa-usfwds-color-gray-cool-light">
+      </div>
+        <p class="usa-usfwds-color-hex">#dce4ef</p>
+        <p class="usa-usfwds-color-name">gray-cool-light</p>
+    </div>
+  </div>
 
   <h3>Tertiary colors</h2>
   
