@@ -5,7 +5,113 @@ title: Headers & Navigation
 ---
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
+  
+  <h2 class="usa-heading">Side Nav</h2>
+
+  <div class="usa-grid">
+    <aside class="side_nav usa-width-one-fourth">
+      <ul class="usa-sidenav-list">
+        <li>
+          <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">Secondary link</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">Secondary link</a>
+        </li>
+      </ul>
+    </aside>
+    <main class="usa-width-three-fourths">
+    </main>
+  </div>
+
+  <h2 class="usa-heading">Side Nav with Sub Items</h2>
+  <div class="usa-grid">
+    <aside class="side_nav usa-width-one-fourth">
+      <ul class="usa-sidenav-list">
+        <li>
+          <a href="javascript:void(0)">Secondary link</a>
+        </li>
+        <li>
+          <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+
+          <ul class="usa-nav-list-sub-list">
+            <li>
+              <a href="javascript:void(0)">Headers & Navigation</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Footers</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Buttons</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Tables</a>
+            </li>
+            <li>
+              <a class="usa-current-page" href="javascript:void(0)">Accordion</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:void(0)">Secondary link</a>
+        </li>
+      </ul>
+    </aside>
+    <main class="usa-width-three-fourths">
+    </main>
+  </div>
+
+  <h2 class="usa-heading">Side Nav with Sub Items + Grandchild Items</h2>
+  <div class="usa-grid">
+    <aside class="side_nav usa-width-one-fourth">
+      <ul class="usa-sidenav-list">
+        <li>
+          <a href="javascript:void(0)">Secondary link</a>
+        </li>
+        <li>
+          <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+
+          <ul class="usa-nav-list-sub-list">
+            <li>
+              <a href="javascript:void(0)">Headers & Navigation</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Footers</a>
+
+              <ul class="usa-nav-list-sub-list usa-nav-list-sub-list-2">
+                <li>
+                  <a href="javascript:void(0)">Grandchild 1</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">Grandchild 2</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">Grandchild 3</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Buttons</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Tables</a>
+            </li>
+            <li>
+              <a class="usa-current-page" href="javascript:void(0)">Accordion</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:void(0)">Secondary link</a>
+        </li>
+      </ul>
+    </aside>
+    <main class="usa-width-three-fourths">
+    </main>
+  </div>
+
   <img src="{{ site.baseurl }}/assets/img/static/HeaderNav_FullUI_v1-930width.png">
 </div>
 
