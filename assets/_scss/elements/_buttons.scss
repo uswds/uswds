@@ -174,3 +174,12 @@ button,
     box-shadow: initial !important;
   }
 }
+
+// Fix for visited links
+
+a {
+  &.usa-button,
+  &.usa-button-primary {
+    color: $color-white;
+  }
+}
