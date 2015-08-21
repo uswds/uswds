@@ -9,7 +9,7 @@ title: Headers & Navigation
   <h2 class="usa-heading">Side Nav</h2>
 
   <div class="usa-grid">
-    <aside class="side_nav usa-width-one-fourth">
+    <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
           <a class="usa-current-page" href="javascript:void(0)">Current page</a>
@@ -25,8 +25,9 @@ title: Headers & Navigation
   </div>
 
   <h2 class="usa-heading">Side Nav with Sub Items</h2>
+
   <div class="usa-grid">
-    <aside class="side_nav usa-width-one-fourth">
+    <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
           <a href="javascript:void(0)">Secondary link</a>
@@ -60,8 +61,9 @@ title: Headers & Navigation
   </div>
 
   <h2 class="usa-heading">Side Nav with Sub Items + Grandchild Items</h2>
+  
   <div class="usa-grid">
-    <aside class="side_nav usa-width-one-fourth">
+    <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
           <a href="javascript:void(0)">Secondary link</a>
