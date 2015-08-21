@@ -8,7 +8,6 @@ body {
 }
 
 p {
-  font-family: $font-serif;
   font-size: $base-font-size;
   line-height: $base-line-height;
   margin: {
@@ -37,11 +36,12 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
+  font-family: $font-serif;
+  line-height: $heading-line-height;
   margin: {
     top: 1.5em;
     bottom: .5em;
   }
-  line-height: $heading-line-height;
 }
 
 h5 {

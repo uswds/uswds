@@ -323,7 +323,7 @@ function validator($el) {
 }
 
 $(function() {
-  $('.usa-accordion').each(function() {
+  $('[class^=usa-accordion]').each(function() {
     accordion($(this));
   });
 

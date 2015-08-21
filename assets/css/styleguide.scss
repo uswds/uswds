@@ -364,7 +364,7 @@ header[role="banner"] {
       font-size: $base-font-size / 1.5;
       line-height: 1.4em;
       word-wrap: break-word;
-      
+
       &.language-html {
         max-width: 25em;
       }
@@ -430,4 +430,32 @@ header[role="banner"] {
   p {
     margin-bottom: 0;
   }
+}
+
+h3 + .button_wrapper {
+  margin-top: -.5em
+}
+
+.button_wrapper {
+  clear: both;
+  display: table;
+  margin-left: -1rem;
+  padding: 0rem 1rem;
+
+  &:after {
+    content:"\A";
+    white-space:pre;
+  }
+
+  button:last-child {
+    margin-right: 0;
+  }
+}
+
+.button_wrapper-dark {
+  background: #323a45
+}
+
+.usa-heading {
+  color: $color-primary-darker;
 }

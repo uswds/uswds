@@ -1,33 +1,30 @@
 table {
+  border-spacing: 0;
   margin: 2em 0;
   min-width: 100%;
-  
+
   thead {
+    tr {
+      background-color: $color-gray-lightest;
+    }
+
     th {
       text-align: left;
     }
   }
-  
+
   th, td {
-    border: 1px solid #757575;
+    border: 1px solid $color-gray;
     line-height: 1;
     padding: 1.5rem;
-  }
-}
-
-.usa-table-bordered {
-  border-spacing: 0;
-
-  thead {
-    tr {
-      background-color: #eeeeee;
-    }
   }
 }
 
 .usa-table-borderless {
   thead {
     tr {
+      background-color: transparent;
+
       th {
         border-top: 0;
       }
