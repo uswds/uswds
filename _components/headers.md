@@ -106,6 +106,7 @@ title: Headers & Navigation
     </aside>
   </div>
 
+  <img src="{{ site.baseurl }}/assets/img/static/Headers_Navigation_UI_v2.png">
 </div>
 
 <div class="usa-grid">
