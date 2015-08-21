@@ -22,8 +22,6 @@ title: Headers & Navigation
         </li>
       </ul>
     </aside>
-    <main class="usa-width-three-fourths">
-    </main>
   </div>
 
   <h2 class="usa-heading">Side Nav with Sub Items</h2>
@@ -59,8 +57,6 @@ title: Headers & Navigation
         </li>
       </ul>
     </aside>
-    <main class="usa-width-three-fourths">
-    </main>
   </div>
 
   <h2 class="usa-heading">Side Nav with Sub Items + Grandchild Items</h2>
@@ -108,8 +104,6 @@ title: Headers & Navigation
         </li>
       </ul>
     </aside>
-    <main class="usa-width-three-fourths">
-    </main>
   </div>
 
 </div>
