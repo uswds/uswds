@@ -34,7 +34,6 @@ title: Headers & Navigation
         </li>
         <li>
           <a class="usa-current-page" href="javascript:void(0)">Current page</a>
-
           <ul class="usa-sidenav-sub_list">
             <li>
               <a href="javascript:void(0)">Headers & Navigation</a>
@@ -61,7 +60,7 @@ title: Headers & Navigation
   </div>
 
   <h2 class="usa-heading">Side Nav with Sub Items + Grandchild Items</h2>
-  
+
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
@@ -70,14 +69,12 @@ title: Headers & Navigation
         </li>
         <li>
           <a class="usa-current-page" href="javascript:void(0)">Current page</a>
-
           <ul class="usa-sidenav-sub_list">
             <li>
               <a href="javascript:void(0)">Headers & Navigation</a>
             </li>
             <li>
               <a href="javascript:void(0)">Footers</a>
-
               <ul class="usa-sidenav-sub_list">
                 <li>
                   <a href="javascript:void(0)">Grandchild 1</a>
