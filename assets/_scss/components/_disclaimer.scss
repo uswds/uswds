@@ -8,5 +8,9 @@
 }
 
 .usa-disclaimer-stage {
+  @include media($medium-screen) {
+    display: block;
+  }
+  display: none;
   float: right;
 }

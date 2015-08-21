@@ -42,7 +42,7 @@ a#skipnav {
   }
 }
 
-header[role="banner"] {
+.usa-site-header {
   background-color: $color-white;
   border-bottom: 1px solid $color-gray-light;
   z-index: 1;
@@ -50,11 +50,12 @@ header[role="banner"] {
     border-bottom: none;
 //    color: white;
   }
-  nav {
-    height: 45px;
-    line-height: 45px;
+  .usa-site-navbar {
+    @include media($medium-screen) {
+      margin-top: 2rem;
+    }
     h1 {
-      font-family: $font-sans;
+      color: $color-gray;
       float: left;
       line-height: 45px;
       margin: 0;
@@ -69,7 +70,6 @@ header[role="banner"] {
       display: none;
       li { 
         display: inline; 
-        margin-left: 15px;
         font-family: $font-sans;
       }
       @include media($medium-screen + $width-nav-sidebar) {
