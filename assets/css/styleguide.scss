@@ -12,6 +12,7 @@
 $width-nav-sidebar:  250px;
 $color-grid-dark:    #727272;
 $color-grid-light:   #e3e4e5;
+$site-top:           124px;
 
 // Generic -------------- //
 
@@ -26,7 +27,7 @@ $color-grid-light:   #e3e4e5;
 a#skipnav {
   padding: 10px 15px;
   position: absolute;
-  top: -42px;
+  top: -44px;
   left: 0px;
   color: $color-base;
   background: transparent;
@@ -52,12 +53,17 @@ a#skipnav {
   }
   .usa-site-navbar {
     @include media($medium-screen) {
-      margin-top: 2rem;
+      margin: {
+        bottom: 1rem;
+        top: 2.5rem;
+      }
     }
     h1 {
+      @include media($medium-screen) {
+        max-width: 20rem;
+      }
       color: $color-gray;
       float: left;
-      line-height: 45px;
       margin: 0;
       font-size: $base-font-size * 1.25;
       display: none;
@@ -65,9 +71,10 @@ a#skipnav {
         display: block;
       }
     }
-    ul {
+    .usa-button-list {
       float: right;
       display: none;
+      margin-top: -5px;
       li { 
         display: inline; 
         font-family: $font-sans;
@@ -153,7 +160,7 @@ a#skipnav {
 
 .sidenav {
   position: absolute;
-  top: 73px;
+  top: $site-top;
   bottom: 0;
   left: 0;
   width: $width-nav-sidebar;
@@ -238,8 +245,11 @@ a#skipnav {
 // Main Content --------- //
 
 .main-content {
+  @include media($medium-screen) {
+    top: $site-top;
+  }
   position: absolute;
-  top: 73px;
+  top: 4rem;
   bottom: 0;
   right: 0;
   overflow: auto;
