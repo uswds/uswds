@@ -76,7 +76,7 @@ title: Headers & Navigation
             <li>
               <a href="javascript:void(0)">Footers</a>
 
-              <ul class="usa-nav-list-sub-list usa-nav-list-sub-list-2">
+              <ul class="usa-nav-list-sub-list">
                 <li>
                   <a href="javascript:void(0)">Grandchild 1</a>
                 </li>
