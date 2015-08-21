@@ -34,7 +34,7 @@ title: Headers & Navigation
         <li>
           <a class="usa-current-page" href="javascript:void(0)">Current page</a>
 
-          <ul class="usa-nav-list-sub-list">
+          <ul class="usa-sidenav-sub_list">
             <li>
               <a href="javascript:void(0)">Headers & Navigation</a>
             </li>
@@ -69,14 +69,14 @@ title: Headers & Navigation
         <li>
           <a class="usa-current-page" href="javascript:void(0)">Current page</a>
 
-          <ul class="usa-nav-list-sub-list">
+          <ul class="usa-sidenav-sub_list">
             <li>
               <a href="javascript:void(0)">Headers & Navigation</a>
             </li>
             <li>
               <a href="javascript:void(0)">Footers</a>
 
-              <ul class="usa-nav-list-sub-list">
+              <ul class="usa-sidenav-sub_list">
                 <li>
                   <a href="javascript:void(0)">Grandchild 1</a>
                 </li>
