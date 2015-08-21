@@ -8,55 +8,40 @@ title: Search Bar
 
   <div class="usa-grid">
     <div class="usa-width-one-half">
-      <form class="usa-search usa-search-big">           
-        <fieldset>
-          <legend class="usa-sr-only">Search</legend>
-          <label for="search-field-big">Search Big</label>
-          <div class="usa-search-bar">
-            <input class="usa-search-input-big" type="search" id="search-field-big" class="usa-search-field">
-            <button class="usa-search-submit usa-search-submit-big" type="submit">
-              <span class="usa-search-submit-text">Search</span>
-            </button>
-          </div>
-        </fieldset>
+      <form class="usa-search usa-search-big">
+        <label for="search-field-big">Search Big</label>
+        <input type="search" id="search-field-big">
+        <button type="submit">
+          <span class="usa-search-submit-text">Search</span>
+        </button>
       </form>
     </div>
   </div>
 
   <div class="usa-grid">
     <div class="usa-width-one-third">
-      <form class="usa-search usa-search-medium">           
-        <fieldset>
-          <legend class="usa-sr-only">Search</legend>
-          <label for="search-field">Search Medium</label>
-          <div class="usa-search-bar">
-            <input class="usa-search-input-medium" type="search" id="search-field" class="usa-search-field">
-            <button class="usa-search-submit usa-search-submit-medium" type="submit">
-              <span class="usa-search-submit-text">Search</span>
-            </button>
-          </div>
-        </fieldset>
+      <form class="usa-search">
+        <label for="search-field">Search Medium</label>
+        <input type="search" id="search-field">
+        <button type="submit">
+          <span class="usa-search-submit-text">Search</span>
+        </button>
       </form>
     </div>
   </div>
 
   <div class="usa-grid">
-    <div class="usa-width-one-fourth">  
-      <form class="usa-search usa-search-small">           
-        <fieldset>
-          <legend class="usa-sr-only">Search</legend>
-          <label for="search-field-small">Search Small</label>
-          <div class="usa-search-bar">
-            <input class="usa-search-input-small" type="search" id="search-field-small" class="usa-search-field">
-            <button class="usa-search-submit usa-search-submit-small" type="submit">
-              <span class="usa-sr-only">Search</span>
-            </button>
-          </div>
-        </fieldset>
+    <div class="usa-width-one-fourth">
+      <form class="usa-search usa-search-small">
+        <label for="search-field-small">Search Small</label>
+        <input type="search" id="search-field-small">
+        <button type="submit">
+          <span class="usa-sr-only">Search</span>
+        </button>
       </form>
     </div>
   </div>
-  
+
 </div>
 
 <div class="usa-grid">
@@ -83,5 +68,5 @@ title: Search Bar
     <ul>
       <li>Always include the word "search" inside the <code>&lt;button&gt;</code> element for screen readers. You can hide this text with <code>position: absolute; left: -999em;</code> (as we have here).
     </ul>
-  </div>  
+  </div>
 </div>
