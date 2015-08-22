@@ -254,7 +254,12 @@ a#skipnav {
   right: 0;
   overflow: auto;
   width: 100%;
-  padding: 1em 2em;
+  padding: {
+    bottom: 0;
+//    left: 2em;
+//    right: 2em;
+    top: 1em;
+  }
   z-index: -1;
   .lt-ie9 & {
     width: 75%;
@@ -271,6 +276,10 @@ a#skipnav {
 // Style Guide Content -------- //
 
 .styleguide-content {
+  padding: {
+    left: 2em;
+    right: 2em;
+  }  
   position: relative;
   padding-bottom: 1em;
   > h2, > h3, > p, > ul, > ol {
@@ -286,9 +295,28 @@ a#skipnav {
   }
   @media (min-width: $medium-screen + $width-nav-sidebar) {
     padding: {
-      left: 2em;
-      right: 2em;
+      left: 4em;
+      right: 4em;
     }
+  }
+}
+
+// Footer --------------- //
+
+.usa-site-footer {
+  background-color: $color-primary-darker;
+  padding: {
+    bottom: 3rem;
+    top: 3rem;
+  }
+
+  p, a {
+    color: $color-white;
+    margin: 0;
+  }
+
+  .usa-site-footer-content {
+
   }
 }
 

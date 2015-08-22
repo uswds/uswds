@@ -15,10 +15,14 @@
       <article class="styleguide-content">
         {{ content }}
       </article>
+
+      <footer class="usa-site-footer">
+        {% include footer.html %}
+      </footer>
     </div>
 
     {% include analytics.html %}
-    
+
     {% include scripts.html %}
 
     <script src="{{ site.baseurl }}/assets/js/code-snippets.js"></script>
