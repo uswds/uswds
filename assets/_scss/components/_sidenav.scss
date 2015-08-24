@@ -1,0 +1,69 @@
+// Side Nav
+
+.usa-sidenav-list {
+  @include unstyled-list();
+  width: 101%;
+
+  li {
+    border-top: 1px solid $color-gray;
+    font-size: $h3-font-size;
+  }
+
+  a {
+    border: none;
+    color: $color-base;
+    display: block;
+    font-family: $font-sans;
+    line-height: 1;
+    padding: {
+      bottom: 1rem;
+      left: 1.8rem;
+      top: 1rem;
+    }
+
+    &.usa-current-page,
+    &:hover {
+      color: $color-primary;
+      font-weight: $font-bold;
+    }
+
+    &:hover {
+      background-color: $color-gray-lightest;
+    }
+
+    &.usa-current-page {
+      border-left: 4px solid $color-primary;
+      padding-left: 1.4rem;
+    }
+  }
+}
+
+.usa-sidenav-sub_list {
+  margin: 0;
+  width: 100%;
+
+  li {
+    border: none;
+    font-size: $base-font-size;
+  }
+
+  a {
+    padding-left: 2.8rem;
+  }
+
+  a:hover,
+  .usa-current-page {
+    border: none;
+    padding-left: 2.8rem;
+  }
+
+  .usa-sidenav-sub_list {
+    a {
+      padding-left: 3.8rem;
+    }
+
+    a:hover {
+      padding-left: 3.8rem;
+    }
+  }
+}
