@@ -67,18 +67,3 @@
     }
   }
 }
-
-.usa-nav-links {
-  @include unstyled-list();
-  float: right;
-
-  > li {
-    display: inline-block;
-    font-family: $font-sans;
-    margin-right: 2rem;
-  }
-
-  a {
-    border-bottom: none;
-  }
-}
