@@ -514,9 +514,9 @@ h3 + .button_wrapper {
     position: relative;
 
     @include media($medium-screen) {
-      @include span-columns(3);
+      width: 20%;
       margin-bottom: 0;
-      padding-bottom: 25%;
+      padding-bottom: 20%;
     }
   }
 
