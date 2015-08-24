@@ -7,17 +7,24 @@
 
   <body class="{{ page.slug }}">
 
-    	{% include navbar.html %}
-  	
-    	{% include sidenav.html %}
+  	{% include navbar.html %}
+	
+  	{% include sidenav.html %}
 
-      <div class="main-content">
-        <article class="styleguide-content">
-          {{ content }}
-        </article>
-      </div>
+    <div class="main-content">
+      <article class="styleguide-content">
+        {{ content }}
+      </article>
+
+      <footer class="usa-styleguide-footer">
+        {% include footer.html %}
+      </footer>
+    </div>
+
     {% include analytics.html %}
+
     {% include scripts.html %}
+
     <script src="{{ site.baseurl }}/assets/js/code-snippets.js"></script>
     <script src="{{ site.baseurl }}/assets/js/components.js"></script>
 
