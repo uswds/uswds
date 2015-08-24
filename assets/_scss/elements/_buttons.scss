@@ -2,6 +2,8 @@
 
 .usa-button,
 .usa-button-primary,
+.usa-button:visited,
+.usa-button-primary:visited,
 button,
 [type="button"],
 [type="submit"],
@@ -172,14 +174,5 @@ button,
   &:focus,
   &:hover {
     box-shadow: initial !important;
-  }
-}
-
-// Fix for visited links
-
-a {
-  &.usa-button,
-  &.usa-button-primary {
-    color: $color-white;
   }
 }
