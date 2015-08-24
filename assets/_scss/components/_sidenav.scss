@@ -36,34 +36,34 @@
       padding-left: 1.4rem;
     }
   }
+}
+
+.usa-sidenav-sub_list {
+  margin: 0;
+  width: 100%;
+
+  li {
+    border: none;
+    font-size: $base-font-size;
+  }
+
+  a {
+    padding-left: 2.8rem;
+  }
+
+  a:hover,
+  .usa-current-page {
+    border: none;
+    padding-left: 2.8rem;
+  }
 
   .usa-sidenav-sub_list {
-    margin: 0;
-    width: 100%;
-
-    li {
-      border: none;
-      font-size: $base-font-size;
-    }
-
     a {
-      padding-left: 2.8rem;
+      padding-left: 3.8rem;
     }
 
-    a:hover,
-    .usa-current-page {
-      border: none;
-      padding-left: 2.8rem;
-    }
-
-    .usa-sidenav-sub_list {
-      a {
-        padding-left: 3.8rem;
-      }
-
-      a:hover {
-        padding-left: 3.8rem;
-      }
+    a:hover {
+      padding-left: 3.8rem;
     }
   }
 }
