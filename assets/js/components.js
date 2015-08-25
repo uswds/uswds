@@ -210,9 +210,14 @@ function Accordion($el) {
   var self = this;
   this.$root = $el;
   this.$root.on('click', 'button', function(ev) {
+    var expanded = JSON.parse($(this).attr('aria-expanded'));
     ev.preventDefault();
     self.hideAll();
-    self.show($(this));
+    console.log('expanded', expanded);
+    if (!expanded) {
+      console.log('show');
+      self.show($(this));
+    }
   });
 }
 
