@@ -18,17 +18,19 @@
     padding: {
       bottom: 1rem;
       left: 1.8rem;
+      right: 1rem;
       top: 1rem;
     }
 
-    &.usa-current-page,
-    &:hover {
-      color: $color-primary;
-      font-weight: $font-bold;
-    }
-
+    
     &:hover {
       background-color: $color-gray-lightest;
+      color: $color-primary;
+    }
+
+    &.usa-current-page {
+      color: $color-primary;
+      font-weight: $font-bold;
     }
 
     &.usa-current-page {
@@ -52,7 +54,7 @@
   }
 
   a:hover,
-  .usa-current-page {
+  a.usa-current-page {
     border: none;
     padding-left: 2.8rem;
   }
