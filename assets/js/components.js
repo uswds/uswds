@@ -213,9 +213,7 @@ function Accordion($el) {
     var expanded = JSON.parse($(this).attr('aria-expanded'));
     ev.preventDefault();
     self.hideAll();
-    console.log('expanded', expanded);
     if (!expanded) {
-      console.log('show');
       self.show($(this));
     }
   });
