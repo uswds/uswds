@@ -536,7 +536,7 @@ h3 + .button_wrapper {
 
 .usa-primary-color-section {
   @include media($medium-screen) {
-    margin-bottom: 7rem;
+    margin-bottom: 8rem;
   }
   margin-bottom: 0;
 
@@ -549,7 +549,7 @@ h3 + .button_wrapper {
     @include media($medium-screen) {
       @include span-columns(3);
       margin-bottom: 0;
-      padding-bottom: 25%;
+      padding-bottom: 19%;
     }
   }
 
