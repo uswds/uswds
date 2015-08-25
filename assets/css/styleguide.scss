@@ -303,9 +303,7 @@ a#skipnav {
   }  
   position: relative;
   padding-bottom: 1em;
-  > h2, > h3, > p, > ul, > ol {
-    max-width: 50rem;
-  }
+
   > h1 {
     margin-top: 3.4rem;
     &:not(:first-child) {
