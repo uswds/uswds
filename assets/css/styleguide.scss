@@ -286,11 +286,9 @@ a#skipnav {
     max-width: 50rem;
   }
   > h1 {
-    border-bottom: 1px solid #000;
-    padding-bottom: .5em;
     margin-top: 3.4rem;
     &:not(:first-child) {
-      margin-top: 2em;
+      margin-top: 1.5em;
     }
   }
   @media (min-width: $medium-screen + $width-nav-sidebar) {
