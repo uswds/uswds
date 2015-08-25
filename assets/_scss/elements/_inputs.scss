@@ -15,42 +15,52 @@ input[type="time"],
 input[type="week"],
 textarea,
 select  {
-  border: 1px solid $color-grey-500;
-  border-radius: $border-radius;
+  border: 1px solid $color-gray;
   box-sizing: border-box;
-  color: $color-base-link; // standardize on firefox 
+  color: #000; // standardize on firefox 
   display: block;
   font-size: $base-font-size;
-  margin: 1.5rem 0;
+  margin: .2em 0;
   max-width: $input-max-width;
   width: 100%;
   outline: none;
   padding: 1rem .7em;
-  -webkit-appearance: none;
+  appearance: none;
 
   &:focus, 
   &.usa-input-focus {
-    border-color: $color-focus;
-    box-shadow: 0 0 0 1px $color-focus;
-  }
-
-  &.usa-input-error {
-    border-color: $color-error;
-    box-shadow: 0 0 0 1px $color-error;
+    box-shadow: $focus-shadow;
   }
 
   &.usa-input-success {
-    border-color: $color-success;
-    box-shadow: 0 0 0 1px $color-success;
+    border: 3px solid $color-green;
   }
+}
+
+.usa-input-error {
+  border-left: 4px solid $color-secondary-dark;
+  padding: .5em 1.5rem; 
+  position: relative;
+  right: 1.5rem;
+  margin-top: 3rem;
+  input {
+    border: 3px solid $color-secondary-dark;
+  }
+  label {
+    margin-top: 0;
+  }
+}
+
+.usa-input-error-message {
+  color: $color-secondary-dark;
+  font-size: $small-font-size;
+  font-weight: $font-bold;
 }
 
 label {
   display: block;
-  font-weight: $font-bold;
   margin: {
     top: 3rem;
-    bottom: 1.5rem;
   }
   max-width: $input-max-width;
 }
@@ -74,7 +84,7 @@ select {
 // Hint text
 
 .usa-form-hint {
-  color: $color-grey-600;
+  color: #757575;
   font-family: $font-sans;
   margin-bottom: 0;
 }
@@ -99,7 +109,7 @@ input[type="checkbox"] + label::before,
 input[type="radio"] + label::before {
   background: white;
   border-radius: $border-radius;
-  box-shadow: 0 0 0 1px $color-grey-600;
+  box-shadow: 0 0 0 1px #757575;
   content: '\a0';
   display: inline-block;
   height: 1.8rem;
@@ -111,7 +121,7 @@ input[type="radio"] + label::before {
 }
 
 input[type="radio"] + label::before {  
-  box-shadow: 0 0 0 2px #fff, 0 0 0 3px $color-grey-600;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3px #757575;
   height: 1.6rem;  
   width: 1.6rem;  
 }
@@ -143,8 +153,8 @@ input[type="checkbox"]:focus + label::before {
 
 input[type="checkbox"]:disabled + label::before,
 input[type="radio"]:disabled + label::before {
-  background: $color-grey-600;
-  color: $color-grey-600;
+  background: #757575;
+  color: #757575;
   cursor: not-allowed;
 }
 
@@ -163,8 +173,8 @@ input[type=range]:focus {
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-  background: $color-grey-400;
-  border: 1px solid $color-grey-600;
+  background: #bdbdbd;
+  border: 1px solid #757575;
   border-radius: 1rem;
   cursor: pointer;
   height: .9rem;
@@ -173,7 +183,7 @@ input[type=range]::-webkit-slider-runnable-track {
 
 input[type=range]::-moz-range-track {
   background: $color-primary;
-  border: 1px solid $color-grey-600;
+  border: 1px solid #757575;
   border-radius: 1rem;
   cursor: pointer;
   height: .9rem;
@@ -191,18 +201,18 @@ input[type=range]::-ms-track {
 
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  border: 1px solid $color-grey-600;
+  border: 1px solid #757575;
   height: 2rem;
   border-radius: 1.5rem;
-  background: $color-grey-200;
+  background: #eeeeee;
   cursor: pointer;
   margin-top: -.65rem;  
   width: 2rem;
 }
 
 input[type=range]::-moz-range-thumb {
-  background: $color-grey-200;
-  border: 1px solid $color-grey-600;
+  background: #eeeeee;
+  border: 1px solid #757575;
   border-radius: 1.5rem;
   cursor: pointer;
   height: 2rem;
@@ -210,8 +220,8 @@ input[type=range]::-moz-range-thumb {
 }
 
 input[type=range]::-ms-thumb {
-  background: $color-grey-200;
-  border: 1px solid $color-grey-600;
+  background: #eeeeee;
+  border: 1px solid #757575;
   border-radius: 1.5rem;
   cursor: pointer;
   height: 2rem;
@@ -219,14 +229,14 @@ input[type=range]::-ms-thumb {
 }
 
 input[type=range]::-ms-fill-lower {
-  background: $color-grey-400;
-  border: 1px solid $color-grey-600;
+  background: #bdbdbd;
+  border: 1px solid #757575;
   border-radius: 2rem;
 }
 
 input[type=range]::-ms-fill-upper {
-  background: $color-grey-400;
-  border: 1px solid $color-grey-600;
+  background: #bdbdbd;
+  border: 1px solid #757575;
   border-radius: 2rem;
 }
 

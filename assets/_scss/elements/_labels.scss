@@ -3,6 +3,7 @@
   border-radius: $border-radius;
   color: $color-white;
   font-size: $small-font-size;
+  margin-right: .5rem;
   padding: {
     bottom: 0.1rem;
     left: 0.7rem;
@@ -10,6 +11,10 @@
     top: 0.3rem;
   }
   text-transform: uppercase;
+
+  &:only-of-type {
+    margin-right: 0;
+  }
 }
 
 .usa-label-big {

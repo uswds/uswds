@@ -31,9 +31,6 @@ sass:
   sass_dir: assets/_scss
 #  style: :compressed
 
-gems:
-- octopress-autoprefixer
-
 collections:
   visual:
     output: true

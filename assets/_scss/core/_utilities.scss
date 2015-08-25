@@ -27,6 +27,27 @@
   left:-999em;
 }
 
+// Unstyled list helper
+
+@mixin unstyled-list() {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    display: list-item;
+    margin: 0;
+
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
 // Content size helpers
 @mixin allow-layout-classes {
 

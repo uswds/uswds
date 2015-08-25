@@ -6,9 +6,9 @@ title: Tables
 
 <div class="preview">
 
-  <h3>Bordered Table</h3>
+  <h3 class="usa-heading">Bordered Table</h3>
 
-  <table class="usa-table-bordered">
+  <table>
     <thead>
       <tr>
         <th scope='col'>Project Name</th>
@@ -50,7 +50,7 @@ title: Tables
     </tbody>
   </table>
 
-  <h3>Borderless Table</h3>
+  <h3 class="usa-heading">Borderless Table</h3>
 
   <table class="usa-table-borderless">
     <thead>
@@ -98,11 +98,11 @@ title: Tables
 
 <div class="usa-grid">
   <div class="usa-width-one-half">
-    <h3>Use</h3>
+    <h3 class="usa-heading">Use</h3>
     <p>This is the usage content for the example.</p>
   </div>
   <div class="usa-width-one-half">
-    <h3>Accessibility</h3>
+    <h3 class="usa-heading">Accessibility</h3>
     <p>This is the accessibility content for the example.</p>
   </div>  
 </div>

@@ -3,56 +3,87 @@
 // These variables can be modified in _variables.scss
 
 // Typography
-$em-base:           10px; // default is already defined in bourbon
-$base-font-size:    rem(16px) !default;
-$small-font-size:   rem(14px) !default;
-$title-font-size:   rem(48px) !default;
-$h1-font-size:      rem(36px) !default;
-$h2-font-size:      rem(24px) !default;
-$h3-font-size:      rem(19px) !default;
-$h4-font-size:      rem(16px) !default;
-$h5-font-size:      rem(14px) !default;
-$h6-font-size:      rem(12px) !default;
-$base-line-height:    1.5em !default;
-$heading-line-height: 1.3em !default;
+$em-base:             10px; // default is already defined in bourbon
+$base-font-size:      rem(16px) !default;
+$small-font-size:     rem(14px) !default;
+$title-font-size:     rem(52px) !default;
+$h1-font-size:        rem(40px) !default;
+$h2-font-size:        rem(30px) !default;
+$h3-font-size:        rem(20px) !default;
+$h4-font-size:        rem(17px) !default;
+$h5-font-size:        rem(14px) !default;
+$h6-font-size:        rem(12px) !default;
+$base-line-height:    1.375em !default;
+$heading-line-height: 1.375em !default;
 
-$font-sans:         'Source Sans Pro', 'Helvetica', 'Arial', sans-serif !default;
-$font-serif:        'Georgia', 'Times New Roman', serif;
+$font-sans:           'Source Sans Pro', 'Helvetica', 'Arial', sans-serif !default;
+$font-serif:          'Merriweather', 'Georgia', 'Times New Roman', serif;
 
-$font-normal:       400 !default;
-$font-bold:         700 !default;
+$font-normal:         400 !default;
+$font-bold:           700 !default;
+
 
 // Color
-$color-grey-50:     #fafafa !default;
-$color-grey-100:    #f5f5f5 !default;
-$color-grey-200:    #eeeeee !default;
-$color-grey-300:    #e0e0e0 !default;
-$color-grey-400:    #bdbdbd !default;
-$color-grey-500:    #9e9e9e !default;
-$color-grey-600:    #757575 !default;
-$color-grey-700:    #616161 !default;
-$color-grey-800:    #424242 !default;
-$color-grey-900:    #212121 !default;
+$color-primary:              #0071bc !default;
+$color-primary-darker:       #205493 !default;
+$color-primary-darkest:      #112e51 !default;
 
-$color-white:       #ffffff !default;
-$color-base-link:   #000000 !default;
-$color-focus:       #f7e10f !default;
-$color-error:       #d83530 !default;
-$color-success:     #26bf7d !default;
+$color-primary-alt:          #02bfe7 !default;
+$color-primary-alt-darkest:  #046b99 !default;
+$color-primary-alt-dark:     #00a6d2 !default;
+$color-primary-alt-light:    #9bdaf1 !default; // lighten($color-primary-alt, 60%)
+$color-primary-alt-lightest: #e1f3f8 !default; // lighten($color-primary-alt, 90%)
 
-$color-primary:         #0071bc !default;
-$color-primary-darker:  #00609f !default;
+$color-secondary:            #e31c3d !default;
+$color-secondary-darkest:    #981b1e !default;
+$color-secondary-dark:       #cd2026 !default;
+$color-secondary-light:      #e59393 !default; // lighten($color-secondary, 60%)
+$color-secondary-lightest:   #f9dede !default; // lighten($color-secondary, 90%)
+
+$color-white:                #ffffff !default;
+$color-base:                 #212121 !default;
+
+$color-gray-dark:            #323a45 !default;
+$color-gray:                 #205493 !default; // lighten($color-gray-dark, 20%)
+$color-gray-light:           #aeb0b5 !default; // lighten($color-gray-dark, 60%)
+$color-gray-lighter:         #d6d7d9 !default; // lighten($color-gray-dark, 80%)
+$color-gray-lightest:        #efefef !default; // lighten($color-gray-dark, 90%)
+
+$color-gray-warm-dark:       #494440 !default;
+$color-gray-warm-light:      #e4e2e0 !default; // lighten($color-gray-warm-dark, 90%)
+$color-gray-cool-light:      #dce4ef !default; // lighten($color-primary, 90%)
+
+$color-gold:                 #fdb81e !default;
+$color-gold-light:           #f9c642 !default; //  lighten($color-gold, 20%)
+$color-gold-lighter:         #fad980 !default; //  lighten($color-gold, 60%)
+$color-gold-lightest:        #fff1d2 !default; //  lighten($color-gold, 83%)
+
+$color-green:                #2e8540 !default;  
+$color-green-light:          #4aa564 !default; // lighten($color-green, 20%)
+$color-green-lighter:        #94bfa2 !default; // lighten($color-green, 60%)
+$color-green-lightest:       #e7f4e4 !default; // lighten($color-green, 60%)
+
+$color-cool-blue:            #205493 !default;
+$color-cool-blue-light:      #4773aa !default; // lighten($color-cool-blue, 20%)
+$color-cool-blue-lighter:    #8ba6ca !default; // lighten($color-cool-blue, 60%)
+$color-cool-blue-lightest:   #dce4ef !default; // lighten($color-cool-blue, 90%)
+
+$color-focus:                #3e94cf !default;
+$color-visited:              #4c2c92 !default;
+
 
 // Mobile First Breakpoints
 $small-screen:      481px !default;
 $medium-screen:     600px !default;
 $large-screen:      1201px !default;
 
+
 // Magic Numbers
-$site-max-width:    980px !default;
+$site-max-width:    1040px !default;
 $site-margins:      40px !default;
 $article-max-width: 600px !default;
 $input-max-width:   46rem !default;
-$border-radius:     rem(4px) !default;
+$border-radius:     rem(3px) !default;
 $box-shadow:        0 0 2px rgba(#000, .3) !default;
-$grid-margins:      2.5rem !default;
+$focus-shadow:      0 0 3px $color-focus, 0 0 7px $color-focus;
+$grid-margins:      3rem !default;
