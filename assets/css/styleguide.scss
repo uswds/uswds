@@ -819,3 +819,11 @@ h3 + .button_wrapper {
 .usa-color-text-white {
   color: $color-white;
 }
+
+.usa-code-sample .usa-unstyled-list {
+  @include unstyled-list();
+}
+
+.usa-code-sample pre {
+  font-size: 1.2rem;
+}
