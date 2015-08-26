@@ -3,7 +3,41 @@
   @include outer-container();
   max-width: $site-max-width;
 
-  @include media($medium-screen) {
+  @include media($medium) {
+    .usa-width-one-whole {
+      @include span-columns(6);
+    }
+    .usa-width-one-half {
+      @include span-columns(3);
+      @include omega(2n);
+    }
+    .usa-width-one-third {
+      @include span-columns(2);
+    }
+    .usa-width-two-thirds {
+      @include span-columns(4);
+    }
+    .usa-width-one-fourth {
+      @include span-columns(3);
+      @include omega(2n);
+    }
+    .usa-width-three-fourths {
+      @include span-columns(6);
+    }
+    .usa-width-one-sixth {
+      @include span-columns(2);
+      @include omega(3n);
+    }
+    .usa-width-five-sixths {
+      @include span-columns(5);
+    }
+    .usa-width-one-twelfth {
+      @include span-columns(2);
+      @include omega(3n);
+    }
+  }
+
+  @include media($large) {
     .usa-width-one-whole {
       @include span-columns(12);
     }
@@ -30,11 +64,11 @@
     }
     .usa-width-one-twelfth {
       @include span-columns(1);
-    }    
-
-    .usa-end-row {
-      @include omega();
     }
+  }
+
+  .usa-end-row {
+    @include omega();
   }
 }
 
