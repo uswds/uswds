@@ -8,21 +8,31 @@ title: Grids
   <h3 class="usa-heading">Grid</h3>
   <div class="usa-grid usa-grid-example usa-grid-example-blank">
     <div class="usa-width-one-whole">1/1</div>
+  </div>
+  <div class="usa-grid usa-grid-example usa-grid-example-blank">
     <div class="usa-width-one-half">1/2</div>
-    <div class="usa-width-one-half usa-end-row">1/2</div>
+    <div class="usa-width-one-half">1/2</div>
+  </div>
+  <div class="usa-grid usa-grid-example usa-grid-example-blank">
     <div class="usa-width-one-third">1/3</div>
     <div class="usa-width-one-third">1/3</div>
-    <div class="usa-width-one-third usa-end-row">1/3</div>
+    <div class="usa-width-one-third">1/3</div>
+  </div>
+  <div class="usa-grid usa-grid-example usa-grid-example-blank">
     <div class="usa-width-one-fourth">1/4</div>
     <div class="usa-width-one-fourth">1/4</div>
     <div class="usa-width-one-fourth">1/4</div>
-    <div class="usa-width-one-fourth usa-end-row">1/4</div>
+    <div class="usa-width-one-fourth">1/4</div>
+  </div>
+  <div class="usa-grid usa-grid-example usa-grid-example-blank">
     <div class="usa-width-one-sixth">1/6</div>
     <div class="usa-width-one-sixth">1/6</div>
     <div class="usa-width-one-sixth">1/6</div>
     <div class="usa-width-one-sixth">1/6</div>
     <div class="usa-width-one-sixth">1/6</div>
-    <div class="usa-width-one-sixth usa-end-row">1/6</div>
+    <div class="usa-width-one-sixth">1/6</div>
+  </div>
+  <div class="usa-grid usa-grid-example usa-grid-example-blank">
     <div class="usa-width-one-twelfth">1/12</div>
     <div class="usa-width-one-twelfth">1/12</div>
     <div class="usa-width-one-twelfth">1/12</div>
@@ -34,7 +44,7 @@ title: Grids
     <div class="usa-width-one-twelfth">1/12</div>
     <div class="usa-width-one-twelfth">1/12</div>
     <div class="usa-width-one-twelfth">1/12</div>
-    <div class="usa-width-one-twelfth usa-end-row">1/12</div>
+    <div class="usa-width-one-twelfth">1/12</div>
   </div>
 
   <h3 class="usa-heading">Grid Examples</h3>
