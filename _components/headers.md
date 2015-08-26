@@ -83,7 +83,7 @@ title: Headers & Navigation
                   <a href="javascript:void(0)">Grandchild 2</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0)">Grandchild 3</a>
+                  <a class="usa-current-page" href="javascript:void(0)">Grandchild 3</a>
                 </li>
               </ul>
             </li>
@@ -94,7 +94,7 @@ title: Headers & Navigation
               <a href="javascript:void(0)">Tables</a>
             </li>
             <li>
-              <a class="usa-current-page" href="javascript:void(0)">Accordion</a>
+              <a href="javascript:void(0)">Accordion</a>
             </li>
           </ul>
         </li>
