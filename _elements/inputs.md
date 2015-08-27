@@ -123,13 +123,6 @@ title: Inputs
 </form>
 </div>
 
-<h2 class="usa-heading">Date picker</h2>
-
-<div class="preview">
-  <!-- Add HTML markup for example here -->
-  <img src="{{ site.baseurl }}/assets/img/static/Date_Picker_UI_v1.png">
-</div>
-
 <h2 class="usa-heading">Memorable Dates</h2>
 
 <div class="preview">
