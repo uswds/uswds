@@ -1,14 +1,14 @@
 .usa-accordion,
 .usa-accordion-bordered {
 
-  ul {
+  > ul {
     color: $color-base;
     margin: 0;
     overflow: hidden;
     padding: 0;
     width: 100%;
 
-    li {
+    > li {
       background-color: $color-gray-lightest;
       font-family: $font-sans;
       list-style: none;
