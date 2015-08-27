@@ -17,7 +17,7 @@ $(function(){
 
     this.render = function(previewBox, sampleCode) {
 
-      var sampleCodeBox = $('<div class="usa-accordion usa-code-sample"><ul class="usa-unstyled-list"><li><button class="usa-button-unstyled" aria-expanded="false" aria-controls="collapsible-0">Toggle code</button><div id="collapsible-0" aria-hidden="true" class="usa-accordion-content"><pre><code class="language-markup"></code></pre></div></li></ul></div>');
+      var sampleCodeBox = $('<div class="usa-accordion-bordered usa-code-sample"><ul class="usa-unstyled-list"><li><button class="usa-button-unstyled" aria-expanded="false" aria-controls="collapsible-0">Toggle code</button><div id="collapsible-0" aria-hidden="true" class="usa-accordion-content"><pre><code class="language-markup"></code></pre></div></li></ul></div>');
       $(sampleCodeBox).find('code').text($(sampleCode).html());
       $(previewBox).after(sampleCodeBox);
     }
