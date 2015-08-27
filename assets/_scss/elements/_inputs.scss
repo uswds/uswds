@@ -70,6 +70,8 @@ textarea {
 }
 
 select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
   appearance: none;
   background: url("../img/arrow-down.png") no-repeat;
   background-position: right 1.3rem center;
