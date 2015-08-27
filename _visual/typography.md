@@ -61,9 +61,9 @@ Something about load performance consideration and how we recommend one of the f
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
           </div>
           <div class="usa-width-one-third usa-end-row">
-            <h6>Page Performance</h6>
+            <h6 class="usa-heading-alt">Page Performance</h6>
             <img src="#">
-            <h6>Examples</h6>
+            <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
                 <a href="http://website.gov">website.gov</a>
@@ -73,7 +73,7 @@ Something about load performance consideration and how we recommend one of the f
               </li>
             </ul>
           </div>
-          <h6>Web Hierarchy</h6>
+          <h6 class="usa-heading-alt">Web Hierarchy</h6>
           <ul>
             <li>1. Merriweather Bold 700</li>
             <li>2. Source Sans Pro, Regular 400</li>
