@@ -5,8 +5,7 @@ title: Buttons
 ---
 
 <div class="preview">
-  <!-- Add HTML markup for example here -->
-
+  
   <h3 class="usa-heading">Primary Buttons</h3>
   <div class="button_wrapper">
     <button>Default</button>
