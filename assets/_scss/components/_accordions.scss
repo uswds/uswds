@@ -25,6 +25,9 @@
     }
 
     button {
+      @include media($small-screen) {
+        background-position: 96.5%;
+      }
       background: url('../img/minus.png') no-repeat;
       background-position: 90.5%;
       background-size: 13px;
@@ -35,12 +38,14 @@
       margin: 0;
       padding: 1.5rem 3rem;
       width: 100%;
+      
       &:hover {
         background-color: $color-gray-lighter;
         color: $color-base;
       }
-      @include media($small-screen) {
-        background-position: 96.5%;
+      
+      h1, h2, h3, h4, h5, h6 {
+        margin: 0;
       }
     }
   }
