@@ -837,10 +837,16 @@ h3 + .button_wrapper {
   color: $color-white;
 }
 
+// Code snippet boxes
+
 .usa-code-sample .usa-unstyled-list {
   @include unstyled-list();
 }
 
 .usa-code-sample pre {
   font-size: 1.2rem;
+}
+
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: #fafafa;
 }
