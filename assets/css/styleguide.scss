@@ -848,5 +848,25 @@ h3 + .button_wrapper {
 }
 
 :not(pre) > code[class*="language-"], pre[class*="language-"] {
-    background: #fafafa;
+    background: none;
+}
+
+code[class*="language-"], pre[class*="language-"] {
+  color: $color-base;
+}
+
+.token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted {
+  color: $color-primary-darker;
+}
+
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted {
+  color: $color-secondary;
+}
+
+.token.atrule, .token.attr-value, .token.keyword {
+  color: $color-green;
+}
+
+.token.punctuation {
+    color: $color-primary-darker;
 }
