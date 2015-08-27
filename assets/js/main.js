@@ -19,7 +19,7 @@ $(function(){
     this.render = function(previewBox, sampleCode) {
 
       var sampleCodeBox = $(''+
-        '<div class="usa-accordion usa-code-sample">' +
+        '<div class="usa-accordion-bordered usa-code-sample">' +
           '<ul class="usa-unstyled-list">' +
             '<li>' +
               '<button class="usa-button-unstyled" aria-expanded="false" aria-controls="collapsible-0">Code</button>' +
