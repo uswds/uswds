@@ -3,8 +3,8 @@ layout: default
 title: Colors
 ---
 
-<div class="preview">
-  
+<div class="preview preview-no_border">
+
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
   <h3 class="usa-heading">Palette</h3>
@@ -12,7 +12,7 @@ title: Colors
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
   <h4 class="usa-heading">Primary colors</h4>
-  
+
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
   <div class="usa-grid-full usa-color-row usa-primary-color-section">
@@ -64,7 +64,7 @@ title: Colors
   </div>
 
   <h4 class="usa-heading">Secondary colors</h4>
-  
+
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
   <div class="usa-grid-full usa-color-row">
@@ -134,7 +134,7 @@ title: Colors
   </div>
 
   <h4 class="usa-heading">Background colors</h4>
-  
+
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
   <div class="usa-grid-full usa-color-row">
@@ -201,7 +201,7 @@ title: Colors
   </div>
 
   <h4 class="usa-heading">Tertiary colors</h4>
-  
+
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
   <div class="usa-grid-full usa-color-row">
@@ -286,7 +286,7 @@ title: Colors
   </div>
 
   <h4 class="usa-heading">Focus colors</h4>
-  
+
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
   <div class="usa-grid-full usa-color-row">
@@ -312,7 +312,7 @@ title: Colors
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi enim mauris, placerat ac convallis ut, tincidunt at erat. Mauris et dui et ligula viverra venenatis dignissim nec neque. Integer sit amet nibh ac nisi dapibus efficitur. Etiam egestas a arcu vitae dictum. Integer quis porta orci, luctus pulvinar erat. Sed elementum justo at egestas tincidunt. Quisque tristique sem at ipsum dapibus varius.</p>
 
   <h4 class="usa-heading">Fully accessible combinations</h4>
-  
+
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
   <h5>Colors on a white background</h5>
@@ -472,5 +472,5 @@ title: Colors
   <div class="usa-width-one-half">
     <h3 class="usa-heading">Accessibility</h3>
     <p>This is the accessibility content for the example.</p>
-  </div>  
+  </div>
 </div>
