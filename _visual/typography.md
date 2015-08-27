@@ -232,6 +232,20 @@ Something about load performance consideration and how we recommend one of the f
 
 <!-- Typsetting section end -->
 
+<!-- Links section begin -->
+
+<h3 class="usa-heading">Links</h3>
+
+<div class="preview">
+  <p><a href="#">This</a> is a text link on light background</p>
+  <p><a class="usa-link-visited" href="#">This</a> a visited link.</p>
+  <p>This link which opens in a <a href="#" target="_blank">new tab</a>.</p>
+  <div class="button_wrapper-dark">
+    <p><a href="#">This</a> is a text link on light background</p>
+  </div>
+</div>
+
+<!-- Links section end -->
 
 <h3 class="usa-display">Display 52px in Merriweather 700</h3>
 <h1>Heading 1 in 40px in Merriweather 700</h1>
@@ -247,9 +261,6 @@ Something about load performance consideration and how we recommend one of the f
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
 
-<h3 class="usa-heading">Links</h3>
-
-<p>This is <a href="#">linked text</a> for body copy</p>
 <p class="usa-sans">This is <a href="#">linked text</a> for everything else</p>
 
 <h3 class="usa-heading">Lists</h3>
