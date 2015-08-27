@@ -853,3 +853,11 @@ code[class*="language-"], pre[class*="language-"] {
 .token.punctuation {
     color: $color-primary-darker;
 }
+
+.usa-code-sample .usa-accordion-content {
+  padding: 0;
+}
+
+.usa-code-sample pre[class*="language-"] {
+  margin-top: 0;
+}
