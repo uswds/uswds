@@ -77,8 +77,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @mixin h6 {
+  font-family: $font-sans;
   font-size: $h6-font-size;
-  font-weight: $font-bold;
+  font-weight: $font-normal;
+  text-transform: uppercase;
 }
 
 h1 {
@@ -102,8 +104,7 @@ h5 {
 }
 
 h6 {
-  @include h6();
-  text-transform: uppercase;  
+  @include h6(); 
 }
 
 // Remove user agent styles

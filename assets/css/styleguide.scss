@@ -817,3 +817,8 @@ h3 + .button_wrapper {
 .usa-color-text-white {
   color: $color-white;
 }
+
+.usa-typography-example h6 {
+  border-bottom: 1px solid $color-gray;
+  padding-bottom: .8rem;
+}
