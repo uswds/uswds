@@ -4,108 +4,112 @@ type: component
 title: Accordions
 ---
 
-<h3>Borderless</h3>
+<div class="preview">
 
-<div class="usa-accordion">
-  <ul class="usa-unstyled-list">
-    <li>
-      <button class="usa-button-unstyled"
-          aria-expanded="true" aria-controls="collapsible-0">
-        Apple Pie
-      </button>
-      <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </li>
-    <li>
-      <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-1">
-        Strawberry Pie
-      </button>
-      <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </li>
-    <li>
-      <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-2">
-        Peach Pie
-      </button>
-      <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </li>
-    <li>
-      <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-3">
-        Key Lime Pie
-      </button>
-      <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </li>
-    <li>
-      <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-4">
-        Blackberry Pie
-      </button>
-      <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </li>
-  </ul>
-</div>
+  <h3>Borderless</h3>
 
-<h3>Bordered</h3>
+  <div class="usa-accordion">
+    <ul class="usa-unstyled-list">
+      <li>
+        <button class="usa-button-unstyled"
+            aria-expanded="true" aria-controls="collapsible-0">
+          Apple Pie
+        </button>
+        <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </li>
+      <li>
+        <button class="usa-button-unstyled"
+            aria-expanded="false" aria-controls="collapsible-1">
+          Strawberry Pie
+        </button>
+        <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </li>
+      <li>
+        <button class="usa-button-unstyled"
+            aria-expanded="false" aria-controls="collapsible-2">
+          Peach Pie
+        </button>
+        <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </li>
+      <li>
+        <button class="usa-button-unstyled"
+            aria-expanded="false" aria-controls="collapsible-3">
+          Key Lime Pie
+        </button>
+        <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </li>
+      <li>
+        <button class="usa-button-unstyled"
+            aria-expanded="false" aria-controls="collapsible-4">
+          Blackberry Pie
+        </button>
+        <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </li>
+    </ul>
+  </div>
 
-<div class="usa-accordion-bordered">
-  <ul class="usa-unstyled-list">
-    <li>
-      <button class="usa-button-unstyled"
-          aria-expanded="true" aria-controls="collapsible-0">
-        Apple Pie
-      </button>
-      <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </li>
-    <li>
-      <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-1">
-        Strawberry Pie
-      </button>
-      <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </li>
-    <li>
-      <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-2">
-        Peach Pie
-      </button>
-      <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </li>
-    <li>
-      <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-3">
-        Key Lime Pie
-      </button>
-      <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </li>
-    <li>
-      <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-4">
-        Blackberry Pie
-      </button>
-      <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </li>
-  </ul>
+  <h3>Bordered</h3>
+
+  <div class="usa-accordion-bordered">
+    <ul class="usa-unstyled-list">
+      <li>
+        <button class="usa-button-unstyled"
+            aria-expanded="true" aria-controls="collapsible-0">
+          Apple Pie
+        </button>
+        <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </li>
+      <li>
+        <button class="usa-button-unstyled"
+            aria-expanded="false" aria-controls="collapsible-1">
+          Strawberry Pie
+        </button>
+        <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </li>
+      <li>
+        <button class="usa-button-unstyled"
+            aria-expanded="false" aria-controls="collapsible-2">
+          Peach Pie
+        </button>
+        <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </li>
+      <li>
+        <button class="usa-button-unstyled"
+            aria-expanded="false" aria-controls="collapsible-3">
+          Key Lime Pie
+        </button>
+        <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </li>
+      <li>
+        <button class="usa-button-unstyled"
+            aria-expanded="false" aria-controls="collapsible-4">
+          Blackberry Pie
+        </button>
+        <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </li>
+    </ul>
+  </div>
+
 </div>
 
 <div class="usa-grid">
