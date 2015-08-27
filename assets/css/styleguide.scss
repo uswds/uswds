@@ -822,3 +822,9 @@ h3 + .button_wrapper {
   border-bottom: 1px solid $color-gray;
   padding-bottom: .8rem;
 }
+
+.usa-typography-example-font {
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+}

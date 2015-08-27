@@ -71,12 +71,18 @@ Something about load performance consideration and how we recommend one of the f
             <h6>Page Performance</h6>
             <img src="#">
             <h6>Examples</h6>
-            <a href="http://website.gov">website.gov</a>
-            <a href="http://anotherwebsite.gov">anotherwebsite.gov</a>
+            <ul>
+              <li>
+                <a href="http://website.gov">website.gov</a>
+              </li>
+              <li>
+                <a href="http://anotherwebsite.gov">anotherwebsite.gov</a>
+              </li>
+            </ul>
           </div>
         </div>
         
-        <div class="usa-grid">
+        <div class="usa-grid usa-typography-example-font">
           <div class="usa-width-one-half">
             <h3 class="usa-display">Display</h3>
           </div>
