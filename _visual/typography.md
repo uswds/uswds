@@ -88,10 +88,10 @@ Something about load performance consideration and how we recommend one of the f
           </div>
           <div class="usa-width-one-half usa-end-row">
             <code>
-font-family: ‘Merriweather’<br>
-font-weight: 700<br>
-font-size: 52px<br>
-line-height: 1.375em/72px
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 52px<br>
+              line-height: 1.375em/72px
             </code>
           </div>
           <div class="usa-width-one-half">
@@ -99,10 +99,10 @@ line-height: 1.375em/72px
           </div>
           <div class="usa-width-one-half usa-end-row">
             <code>
-font-family: ‘Merriweather’<br>
-font-weight: 700<br>
-font-size: 52px<br>
-line-height: 1.375em/72px
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 52px<br>
+              line-height: 1.375em/72px
             </code>
           </div>
           <div class="usa-width-one-half">
@@ -110,10 +110,10 @@ line-height: 1.375em/72px
           </div>
           <div class="usa-width-one-half usa-end-row">
             <code>
-font-family: ‘Merriweather’<br>
-font-weight: 700<br>
-font-size: 52px<br>
-line-height: 1.375em/72px
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 52px<br>
+              line-height: 1.375em/72px
             </code>
           </div>
           <div class="usa-width-one-half">
@@ -121,10 +121,10 @@ line-height: 1.375em/72px
           </div>
           <div class="usa-width-one-half usa-end-row">
             <code>
-font-family: ‘Merriweather’<br>
-font-weight: 700<br>
-font-size: 52px<br>
-line-height: 1.375em/72px
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 52px<br>
+              line-height: 1.375em/72px
             </code>
           </div>
           <div class="usa-width-one-half">
@@ -132,10 +132,10 @@ line-height: 1.375em/72px
           </div>
           <div class="usa-width-one-half usa-end-row">
             <code>
-font-family: ‘Merriweather’<br>
-font-weight: 700<br>
-font-size: 52px<br>
-line-height: 1.375em/72px
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 52px<br>
+              line-height: 1.375em/72px
             </code>
           </div>
           <div class="usa-width-one-half">
@@ -143,10 +143,10 @@ line-height: 1.375em/72px
           </div>
           <div class="usa-width-one-half usa-end-row">
             <code>
-font-family: ‘Merriweather’<br>
-font-weight: 700<br>
-font-size: 52px<br>
-line-height: 1.375em/72px
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 52px<br>
+              line-height: 1.375em/72px
             </code>
           </div>
           <div class="usa-width-one-half">
@@ -154,10 +154,10 @@ line-height: 1.375em/72px
           </div>
           <div class="usa-width-one-half usa-end-row">
             <code>
-font-family: ‘Merriweather’<br>
-font-weight: 700<br>
-font-size: 52px<br>
-line-height: 1.375em/72px
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 52px<br>
+              line-height: 1.375em/72px
             </code>
           </div>
         </div>
