@@ -59,13 +59,6 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-two-thirds">
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
-            <h6>Web Hierarchy</h6>
-            <ul>
-              <li>1. Merriweather Bold 700</li>
-              <li>2. Source Sans Pro, Regular 400</li>
-              <li>3. Source Sans Pro, Bold 700</li>
-              <li>4. Source Sans Pro, Italic 400</li>
-            </ul>
           </div>
           <div class="usa-width-one-third usa-end-row">
             <h6>Page Performance</h6>
@@ -80,6 +73,13 @@ Something about load performance consideration and how we recommend one of the f
               </li>
             </ul>
           </div>
+          <h6>Web Hierarchy</h6>
+          <ul>
+            <li>1. Merriweather Bold 700</li>
+            <li>2. Source Sans Pro, Regular 400</li>
+            <li>3. Source Sans Pro, Bold 700</li>
+            <li>4. Source Sans Pro, Italic 400</li>
+          </ul>
         </div>
         
         <div class="usa-grid usa-typography-example-font">
@@ -87,7 +87,43 @@ Something about load performance consideration and how we recommend one of the f
             <h3 class="usa-display">Display</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
-            <code>some stuff</code>
+            <code>font-family: ‘Merriweather’</code>
+          </div>
+          <div class="usa-width-one-half">
+            <h1>Header 1</h1>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <code>font-family: ‘Merriweather’</code>
+          </div>
+          <div class="usa-width-one-half">
+            <h2>Header 2</h2>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <code>font-family: ‘Merriweather’</code>
+          </div>
+          <div class="usa-width-one-half">
+            <h3>Header 3</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <code>font-family: ‘Merriweather’</code>
+          </div>
+          <div class="usa-width-one-half">
+            <h4>Header 4</h4>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <code>font-family: ‘Merriweather’</code>
+          </div>
+          <div class="usa-width-one-half">
+            <h5>Header 5</h5>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <code>font-family: ‘Merriweather’</code>
+          </div>
+          <div class="usa-width-one-half">
+            <h6>Header 6</h6>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <code>font-family: ‘Merriweather’</code>
           </div>
         </div>
 
