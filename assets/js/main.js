@@ -3,7 +3,8 @@ $(function(){
     $('.sidenav, .overlay').toggleClass('is-visible');
     e.preventDefault();
   });
-
+  
+  // TODO restructure function so the use of "this" makes sense.
   var generateCodeSnippets = function(content, previewBox) {
 
     var self = this;
