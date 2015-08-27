@@ -856,7 +856,7 @@ code[class*="language-"], pre[class*="language-"] {
 }
 
 .token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted {
-  color: $color-primary-darker;
+  color: $color-primary-alt-darkest;
 }
 
 .token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted {
@@ -868,7 +868,7 @@ code[class*="language-"], pre[class*="language-"] {
 }
 
 .token.punctuation {
-    color: $color-primary-darker;
+    color: $color-primary-alt-darkest;
 }
 
 .usa-code-sample .usa-accordion-content {
