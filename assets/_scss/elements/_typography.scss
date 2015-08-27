@@ -103,6 +103,7 @@ h5 {
 
 h6 {
   @include h6();
+  text-transform: uppercase;  
 }
 
 // Remove user agent styles
