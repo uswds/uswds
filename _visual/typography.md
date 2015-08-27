@@ -60,7 +60,7 @@ Something about load performance consideration and how we recommend one of the f
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
           </div>
-          <div class="usa-width-one-third usa-end-row">
+          <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
             <img src="#">
             <h6 class="usa-heading-alt">Examples</h6>
@@ -72,7 +72,7 @@ Something about load performance consideration and how we recommend one of the f
                 <a href="http://anotherwebsite.gov">anotherwebsite.gov</a>
               </li>
             </ul>
-          </div>
+          </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
           <ul>
             <li>1. Merriweather Bold 700</li>
@@ -158,6 +158,40 @@ Something about load performance consideration and how we recommend one of the f
               font-weight: 700<br>
               font-size: 52px<br>
               line-height: 1.375em/72px
+            </code>
+          </div>
+          <div class="usa-width-one-half">
+            <p class="usa-font-lead">Lead <br>paragraph</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <code>
+              font-family: ‘Merriweather’<br>
+              font-weight: 300<br>
+              font-size: 22px<br>
+              line-height: 1.375em/30px
+            </code>
+          </div>
+          <div class="usa-width-one-half">
+            <p>Body copy. A series of sentences together which make a paragraph.</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <code>
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.375em/24px
+            </code>
+          </div>
+          <div class="usa-width-one-half">
+            <p><em>Italic body copy. A series of sentences together which make a paragraph.</em></p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <code>
+              font-family: ‘Source Sans Pro’<br>
+              font-style: Italic<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.375em/24px
             </code>
           </div>
         </div>
