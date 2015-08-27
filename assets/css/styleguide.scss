@@ -819,3 +819,45 @@ h3 + .button_wrapper {
 .usa-color-text-white {
   color: $color-white;
 }
+
+// Code snippet boxes
+
+.usa-code-sample .usa-unstyled-list {
+  @include unstyled-list();
+}
+
+.usa-code-sample pre {
+  font-size: 1.2rem;
+}
+
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: none;
+}
+
+code[class*="language-"], pre[class*="language-"] {
+  color: $color-base;
+}
+
+.token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted {
+  color: $color-primary-alt-darkest;
+}
+
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted {
+  color: $color-secondary;
+}
+
+.token.atrule, .token.attr-value, .token.keyword {
+  color: $color-green;
+}
+
+.token.punctuation {
+    color: $color-primary-alt-darkest;
+}
+
+.usa-code-sample .usa-accordion-content {
+  padding: 0;
+}
+
+.usa-code-sample pre[class*="language-"] {
+  margin-top: 0;
+}
