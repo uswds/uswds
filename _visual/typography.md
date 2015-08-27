@@ -62,7 +62,7 @@ Something about load performance consideration and how we recommend one of the f
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="#">
+            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
@@ -201,7 +201,37 @@ Something about load performance consideration and how we recommend one of the f
   </ul>
 </div>
 
-<h3 class="usa-heading">Headings</h3>
+<!-- Typsetting section begin -->
+
+<h3 class="usa-heading">Typesetting</h3>
+
+<div class="preview">
+  <h6 class="usa-heading-alt">Alignment</h6>
+  <div class="usa-alignment-example">
+    <h4>I am a subject</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+    
+    <h6 class="usa-heading-alt">Line length - Desktop</h6>
+    <div class="usa-line-length-example">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea sequat.</p>
+      <p class="usa-help-text">75 characaters max on desktop</p>
+    </div>
+    
+    <h6 class="usa-heading-alt">Spacing</h6>
+    <h1>Section heading</h1>
+    <p class="usa-font-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+    <h2>Section heading</h2>
+    <h3>Section of the page</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea sequat.</p>
+    <h4>Subsection of the page</h4>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    <h5>Subsection of the page</h5>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+  </div>
+
+<!-- Typsetting section end -->
+
 
 <h3 class="usa-display">Display 52px in Merriweather 700</h3>
 <h1>Heading 1 in 40px in Merriweather 700</h1>
@@ -211,6 +241,7 @@ Something about load performance consideration and how we recommend one of the f
 <h5>Heading 5 in 14px in Merriweather 700</h5>
 
 <h3 class="usa-heading">Body</h3>
+
 
 <div class="usa-content">
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
