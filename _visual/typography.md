@@ -46,14 +46,14 @@ Something about load performance consideration and how we recommend one of the f
 
 <h4 class="usa-heading">Style 1: Credible and warm</h4>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-typography-example">
   <ul class="usa-unstyled-list">
     <li>
       <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-0">
+          aria-expanded="true" aria-controls="collapsible-0">
         <h5>Pairing 1 - Default: Merriweather headers, Source Sans Pro body (basic)</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
+      <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
 
         <div class="usa-grid">
           <div class="usa-width-two-thirds">
