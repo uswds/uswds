@@ -996,6 +996,7 @@ $font-light: 300;
   &.serif-body {
     p {
       font-family: $font-serif;
+      line-height: 1.7;
     }
   }
 }
