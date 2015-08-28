@@ -951,3 +951,45 @@ $font-light: 300;
     font-size: $h5-font-size;
   }
 }
+
+.sans-style {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $font-sans;
+  }
+  
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-size: 34px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 19px;
+  }
+
+  h5 {
+    font-size: 16px;
+  }
+
+  h6 {
+    font-size: 13px;
+  }
+
+  .usa-display {
+    font-size: 59px;
+  }
+
+  .usa-display-alt {
+    font-size: 44px;
+  }
+
+  .usa-font-lead {
+    font-size: 22px;
+  }
+}
