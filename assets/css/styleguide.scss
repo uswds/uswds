@@ -273,9 +273,10 @@ a#skipnav {
   }
 }
 
-// Style Guide Content -------- //
+// Styleguide Content -------- //
 
 .styleguide-content {
+  max-width: $site-max-width;
   padding: {
     left: 2em;
     right: 2em;
@@ -861,3 +862,6 @@ code[class*="language-"], pre[class*="language-"] {
 .usa-code-sample pre[class*="language-"] {
   margin-top: 0;
 }
+
+// Max width for styleguide
+
