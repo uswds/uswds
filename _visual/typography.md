@@ -36,7 +36,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
   <p class="usa-text-tiny">0 1 2 3 4 5 6 7 8 9</p>
 </div>
 
-<a class="usa-button usa-button-secondary" href="#">Download the style files?</a>
+<a class="usa-button usa-button-primary-alt" href="#">Download the style files?</a>
 <p class="usa-small-text">Info about what files to expect when you download.</p>
 
 <h3 class="usa-heading">Pairings + Styles</h3>
@@ -270,7 +270,7 @@ Something about load performance consideration and how we recommend one of the f
     </div>
 
     <div class="usa-width-one-third">
-      
+
       <h6 class="usa-heading-alt">Unordered list</h6>
 
       <ol>
