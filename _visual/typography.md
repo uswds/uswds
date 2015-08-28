@@ -198,7 +198,6 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
         </div>
-
       </div>
     </li>
   </ul>
