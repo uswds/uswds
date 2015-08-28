@@ -242,13 +242,48 @@ Something about load performance consideration and how we recommend one of the f
   <p><a class="usa-link-visited" href="javascript:void(0)">This</a> is a visited link.</p>
 
   <p>This is a link which opens in a <a href="javascript:void(0)" target="_blank">new tab</a>.</p>
-  
+
   <div class="usa-background-dark">
     <p><a href="javascript:void(0)">This</a> is a text link on light background</p>
   </div>
 </div>
 
 <!-- Links section end -->
+
+<!-- Lists section begin -->
+
+<h3 class="usa-heading">Lists</h3>
+
+<div class="preview">
+
+  <div class="usa-grid">
+    <div class="usa-width-one-third">
+
+      <h6 class="usa-heading-alt">Unordered list</h6>
+
+      <ul>
+        <li>Unordered list item</li>
+        <li>Unordered list item</li>
+        <li>Unordered list item</li>
+      </ul>
+
+    </div>
+
+    <div class="usa-width-one-third">
+      
+      <h6 class="usa-heading-alt">Unordered list</h6>
+
+      <ol>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+      </ol>
+
+    </div>
+  </div>
+</div>
+
+<!-- Lists section end -->
 
 <h3 class="usa-display">Display 52px in Merriweather 700</h3>
 <h1>Heading 1 in 40px in Merriweather 700</h1>
