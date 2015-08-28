@@ -958,44 +958,45 @@ $font-light: 300;
   }
   
   h1 {
-    font-size: 44px;
+    font-size: rem(44px);
   }
 
   h2 {
-    font-size: 34px;
+    font-size: rem(34px);
   }
 
   h3 {
-    font-size: 24px;
+    font-size: rem(24px);
   }
 
   h4 {
-    font-size: 19px;
+    font-size: rem(19px);
   }
 
   h5 {
-    font-size: 16px;
+    font-size: rem(16px);
   }
 
   h6 {
-    font-size: 13px;
+    font-size: rem(13px);
   }
 
   .usa-display {
-    font-size: 59px;
+    font-size: rem(59px);
   }
 
   .usa-display-alt {
-    font-size: 44px;
+    font-size: rem(44px);
   }
 
   .usa-font-lead {
-    font-size: 22px;
+    font-size: rem(22px);
   }
 
   &.serif-body {
     p {
       font-family: $font-serif;
+      font-size: rem(15px);
       line-height: 1.7;
     }
   }
