@@ -992,4 +992,10 @@ $font-light: 300;
   .usa-font-lead {
     font-size: 22px;
   }
+
+  &.serif-body {
+    p {
+      font-family: $font-serif;
+    }
+  }
 }
