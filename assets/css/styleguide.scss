@@ -47,10 +47,19 @@ a#skipnav {
   background-color: $color-white;
   border-bottom: 1px solid $color-gray-light;
   z-index: 1;
+  
   a {
     border-bottom: none;
-//    color: white;
   }
+
+  .usa-disclaimer-official {
+    padding-left: $site-margins;
+  }
+
+  .usa-disclaimer-stage {
+    padding-right: $site-margins;
+  }
+
   .usa-site-navbar {
     @include media($medium-screen) {
       height: 6rem;
@@ -59,9 +68,11 @@ a#skipnav {
         top: 2.7rem;
       }
     }
+
     .logo {
         padding-left: $site-margins;
       }
+
     h1 {
       @include media($medium-screen) {
 
@@ -76,17 +87,19 @@ a#skipnav {
         display: block;
       }
     }
+
     .usa-button-list {
-      float: right;
-      display: none;
-      margin-top: -5px;
-      li { 
-        display: inline; 
-        font-family: $font-sans;
-      }
       @include media($medium-screen + $width-nav-sidebar) {
         display: block;
         padding-right: $site-margins;
+      }
+      float: right;
+      display: none;
+      margin-top: -5px;
+      
+      li { 
+        display: inline; 
+        font-family: $font-sans;
       }
     }
   }
