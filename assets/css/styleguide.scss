@@ -273,9 +273,10 @@ a#skipnav {
   }
 }
 
-// Style Guide Content -------- //
+// Styleguide Content -------- //
 
 .styleguide-content {
+  max-width: $site-max-width;
   padding: {
     left: 2em;
     right: 2em;
