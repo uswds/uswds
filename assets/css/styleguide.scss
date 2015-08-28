@@ -824,15 +824,23 @@ h3 + .button_wrapper {
 }
 
 .usa-typography-example-font {
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6, .usa-font-example p {
     margin: 0;
   }
 }
 
 .usa-typography-example {
-  code {
+  .usa-monospace {
     font-size: $em-base;
+    margin: {
+      bottom: 3rem;
+      top: 0;
+    }
   }
+}
+
+.usa-monospace {
+  font-family: monospace;
 }
 
 // Code snippet boxes
@@ -876,3 +884,4 @@ code[class*="language-"], pre[class*="language-"] {
 .usa-code-sample pre[class*="language-"] {
   margin-top: 0;
 }
+

@@ -87,112 +87,112 @@ Something about load performance consideration and how we recommend one of the f
             <h3 class="usa-display">Display</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
-            <code>
+            <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
               line-height: 1.375em/72px
-            </code>
+            </p>
           </div>
           <div class="usa-width-one-half">
             <h1>Header 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
-            <code>
+            <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
               line-height: 1.375em/72px
-            </code>
+            </p>
           </div>
           <div class="usa-width-one-half">
             <h2>Header 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
-            <code>
+            <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
               line-height: 1.375em/72px
-            </code>
+            </p>
           </div>
           <div class="usa-width-one-half">
             <h3>Header 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
-            <code>
+            <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
               line-height: 1.375em/72px
-            </code>
+            </p>
           </div>
           <div class="usa-width-one-half">
             <h4>Header 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
-            <code>
+            <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
               line-height: 1.375em/72px
-            </code>
+            </p>
           </div>
           <div class="usa-width-one-half">
             <h5>Header 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
-            <code>
+            <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
               line-height: 1.375em/72px
-            </code>
+            </p>
           </div>
           <div class="usa-width-one-half">
             <h6>Header 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
-            <code>
+            <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
               line-height: 1.375em/72px
-            </code>
+            </p>
           </div>
-          <div class="usa-width-one-half">
+          <div class="usa-font-example usa-width-one-half">
             <p class="usa-font-lead">Lead <br>paragraph</p>
           </div>
           <div class="usa-width-one-half usa-end-row">
-            <code>
+            <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 300<br>
               font-size: 22px<br>
               line-height: 1.375em/30px
-            </code>
+            </p>
           </div>
-          <div class="usa-width-one-half">
-            <p>Body copy. A series of sentences together which make a paragraph.</p>
+          <div class="usa-font-example usa-width-one-half">
+            <p>Body copy. A series of <br>sentences together which <br>make a paragraph.</p>
           </div>
           <div class="usa-width-one-half usa-end-row">
-            <code>
+            <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 17px<br>
               line-height: 1.375em/24px
-            </code>
+            </p>
           </div>
-          <div class="usa-width-one-half">
-            <p><em>Italic body copy. A series of sentences together which make a paragraph.</em></p>
+          <div class="usa-font-example usa-width-one-half">
+            <p><em>Italic body copy. A series of <br>sentences together which <br>make a paragraph.</em></p>
           </div>
           <div class="usa-width-one-half usa-end-row">
-            <code>
+            <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-style: Italic<br>
               font-weight: 400<br>
               font-size: 17px<br>
               line-height: 1.375em/24px
-            </code>
+            </p>
           </div>
         </div>
 
