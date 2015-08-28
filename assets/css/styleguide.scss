@@ -273,28 +273,27 @@ a#skipnav {
   }
 }
 
-// Style Guide Content -------- //
+// Styleguide Content -------- //
 
 .styleguide-content {
+  max-width: $site-max-width;
   padding: {
+    bottom: 1em;
     left: 2em;
     right: 2em;
   }  
   position: relative;
-  padding-bottom: 1em;
-  > h2, > h3, > p, > ul, > ol {
-    max-width: 50rem;
-  }
+
   > h1 {
     margin-top: 3.4rem;
     &:not(:first-child) {
-      margin-top: 2em;
+      margin-top: 1.5em;
     }
   }
   @media (min-width: $medium-screen + $width-nav-sidebar) {
     padding: {
-      left: 4em;
-      right: 4em;
+      left: 3em;
+      right: 3em;
     }
   }
 }

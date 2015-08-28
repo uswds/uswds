@@ -264,7 +264,7 @@ function togglePassword($el) {
 
   $el.on('click', function(ev) {
     ev.preventDefault();
-    $field.attr('type', showing ? 'password' : 'text');
+    toggleFieldMask($field, showing);
     $el.text(showing ? 'Show password' : 'Hide password');
     showing = !showing;
   });
@@ -277,7 +277,7 @@ function toggleSSN($el) {
 
   $el.on('click', function(ev) {
     ev.preventDefault();
-    $field.attr('type', showing ? 'password' : 'text');
+    toggleFieldMask($field, showing);
     $el.text(showing ? 'Show SSN' : 'Hide SSN');
     showing = !showing;
   });
@@ -290,10 +290,16 @@ function toggleMultiPassword($el) {
 
   $el.on('click', function(ev) {
     ev.preventDefault();
-    $fields.attr('type', showing ? 'password' : 'text');
+    toggleFieldMask($fields, showing);
     $el.text(showing ? 'Show My Typing' : 'Hide My Typing');
     showing = !showing;
   });
+}
+
+function toggleFieldMask($field, showing) {
+  $field.attr('autocapitalize', 'off');
+  $field.attr('autocorrect', 'off');
+  $field.attr('type', showing ? 'password' : 'text');
 }
 
 function validator($el) {
