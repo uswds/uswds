@@ -19,7 +19,7 @@ title: Search Bar
   </div>
 
   <div class="usa-grid">
-    <div class="usa-width-one-fourth">
+    <div class="usa-width-one-half">
       <form class="usa-search">
         <label for="search-field">Search Medium</label>
         <input type="search" id="search-field">
@@ -31,7 +31,7 @@ title: Search Bar
   </div>
 
   <div class="usa-grid">
-    <div class="usa-width-one-fourth">
+    <div class="usa-width-one-half">
       <form class="usa-search usa-search-small">
         <label for="search-field-small">Search Small</label>
         <input type="search" id="search-field-small">
