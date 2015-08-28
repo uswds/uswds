@@ -11,7 +11,7 @@ $('.secondary-sidenav-link').click(function(e) {
   var anchor       = $('#' + hashLocation);
   var headerOffset = 0;
 
-  /* :target already adds spacing to lign up the page correctly
+  /* :target already adds spacing to line up the page correctly
    * prevent double space if current page target already = new target
    */
   if (!anchor.is(":target")) {
