@@ -53,10 +53,10 @@ Something about load performance consideration and how we recommend one of the f
   <ul class="usa-unstyled-list">
     <li>
       <button class="usa-button-unstyled"
-          aria-expanded="true" aria-controls="collapsible-0">
+          aria-expanded="false" aria-controls="collapsible-0">
         <h5>Pairing 1 - Default: Merriweather headers, Source Sans Pro body (basic)</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
         <div class="usa-grid">
           <div class="usa-width-two-thirds">
@@ -94,7 +94,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
-              line-height: 1.375em/72px
+              line-height: 1.375em/55px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -104,8 +104,8 @@ Something about load performance consideration and how we recommend one of the f
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
-              font-size: 52px<br>
-              line-height: 1.375em/72px
+              font-size: 40px<br>
+              line-height: 1.375em/41px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -115,8 +115,8 @@ Something about load performance consideration and how we recommend one of the f
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
-              font-size: 52px<br>
-              line-height: 1.375em/72px
+              font-size: 30px<br>
+              line-height: 1.375em/28px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -126,8 +126,8 @@ Something about load performance consideration and how we recommend one of the f
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
-              font-size: 52px<br>
-              line-height: 1.375em/72px
+              font-size: 20px<br>
+              line-height: 1.375em/23px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -137,8 +137,8 @@ Something about load performance consideration and how we recommend one of the f
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
-              font-size: 52px<br>
-              line-height: 1.375em/72px
+              font-size: 17px<br>
+              line-height: 1.375em/20px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -148,8 +148,8 @@ Something about load performance consideration and how we recommend one of the f
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
-              font-size: 52px<br>
-              line-height: 1.375em/72px
+              font-size: 15px<br>
+              line-height: 1.375em/18px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -159,7 +159,7 @@ Something about load performance consideration and how we recommend one of the f
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
-              font-size: 52px<br>
+              font-size: 13px<br>
               line-height: 1.375em/72px
             </p>
           </div>
@@ -169,9 +169,187 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
-              font-weight: 300<br>
+              font-weight: 400<br>
               font-size: 22px<br>
               line-height: 1.375em/30px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p>Body copy. A series of <br>sentences together which <br>make a paragraph.</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.375em/24px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p><em>Italic body copy. A series of <br>sentences together which <br>make a paragraph.</em></p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-style: Italic<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.375em/24px
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered usa-typography-example serif-robust">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="true" aria-controls="collapsible-0">
+        <h5>Pairing 2 - Merriweather headers, Source Sans Pro body (robust)</h5>
+      </button>
+      <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+
+        <div class="usa-grid">
+          <div class="usa-width-two-thirds">
+            <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
+            <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+          </div>
+          <aside class="usa-width-one-third usa-end-row">
+            <h6 class="usa-heading-alt">Page Performance</h6>
+            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <h6 class="usa-heading-alt">Examples</h6>
+            <ul>
+              <li>
+                <a href="http://website.gov">website.gov</a>
+              </li>
+              <li>
+                <a href="http://anotherwebsite.gov">anotherwebsite.gov</a>
+              </li>
+            </ul>
+          </aside>
+          <h6 class="usa-heading-alt">Web Hierarchy</h6>
+          <ul>
+            <li>1. Merriweather Bold 700</li>
+            <li>2. Merriweather Light 300</li>
+            <li>3. Source Sans Pro, Regular 400</li>
+            <li>4. Source Sans Pro, Bold 700</li>
+            <li>5. Source Sans Pro, Italic 400</li>
+          </ul>
+        </div>
+        
+        <div class="usa-grid usa-typography-example-font">
+          <div class="usa-width-one-half">
+            <h3 class="usa-display">Display 1</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 52px<br>
+              line-height: 1.375em/72px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3 class="usa-display usa-display-alt">Display 2</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 40px<br>
+              line-height: 1.375em/55px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h1>Header 1</h1>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 40px<br>
+              line-height: 1.375em/55px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h2>Header 2</h2>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 30px<br>
+              line-height: 1.375em/41px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3>Header 3</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 20px<br>
+              line-height: 1.375em/28px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h4>Header 4</h4>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 17px<br>
+              line-height: 1.375em/23px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h5>Header 5</h5>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 15px<br>
+              line-height: 1.375em/20px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h6>Header 6</h6>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 13px<br>
+              line-height: 1.375em/18px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="usa-font-lead">Lead <br>paragraph 1</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 300<br>
+              font-size: 20px<br>
+              line-height: 1.375em/30px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="usa-font-lead usa-font-lead-alt">Lead <br>paragraph 2</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 400<br>
+              font-size: 15px<br>
+              line-height: 1.375em/20px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
