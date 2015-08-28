@@ -237,11 +237,14 @@ Something about load performance consideration and how we recommend one of the f
 <h3 class="usa-heading">Links</h3>
 
 <div class="preview">
-  <p><a href="#">This</a> is a text link on light background</p>
-  <p><a class="usa-link-visited" href="#">This</a> a visited link.</p>
-  <p>This link which opens in a <a href="#" target="_blank">new tab</a>.</p>
+  <p><a href="javascript:void(0)">This</a> is a text link on light background</p>
+
+  <p><a class="usa-link-visited" href="javascript:void(0)">This</a> is a visited link.</p>
+
+  <p>This is a link which opens in a <a href="javascript:void(0)" target="_blank">new tab</a>.</p>
+  
   <div class="usa-background-dark">
-    <p><a href="#">This</a> is a text link on light background</p>
+    <p><a href="javascript:void(0)">This</a> is a text link on light background</p>
   </div>
 </div>
 
@@ -261,7 +264,7 @@ Something about load performance consideration and how we recommend one of the f
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
 
-<p class="usa-sans">This is <a href="#">linked text</a> for everything else</p>
+<p class="usa-sans">This is <a href="javascript:void(0)">linked text</a> for everything else</p>
 
 <h3 class="usa-heading">Lists</h3>
 
