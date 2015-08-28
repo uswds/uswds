@@ -207,28 +207,29 @@ Something about load performance consideration and how we recommend one of the f
 
 <div class="preview">
   <h6 class="usa-heading-alt">Alignment</h6>
-  <div class="usa-alignment-example">
+  <div class="alignment-example">
     <h4>I am a subject</h4>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-    
-    <h6 class="usa-heading-alt">Line length - Desktop</h6>
-    <div class="usa-line-length-example">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea sequat.</p>
-      <p class="usa-help-text">75 characaters max on desktop</p>
-    </div>
-    
-    <h6 class="usa-heading-alt">Spacing</h6>
-    <h1>Section heading</h1>
-    <p class="usa-font-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-    <h2>Section heading</h2>
-    <h3>Section of the page</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea sequat.</p>
-    <h4>Subsection of the page</h4>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-    <h5>Subsection of the page</h5>
-    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
-    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
   </div>
+    
+  <h6 class="usa-heading-alt">Line length - Desktop</h6>
+  <div class="usa-line-length-example">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea sequat.</p>
+    <p class="help-text">75 characaters max on desktop</p>
+  </div>
+  
+  <h6 class="usa-heading-alt">Spacing</h6>
+  <h1>Section heading</h1>
+  <p class="usa-font-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+  <h2>Section heading</h2>
+  <h3>Section of the page</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea sequat.</p>
+  <h4>Subsection of the page</h4>
+  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+  <h5>Subsection of the page</h5>
+  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+  <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+</div>
 
 <!-- Typsetting section end -->
 
