@@ -8,32 +8,35 @@ Include intro of the two families, how we have diff packages, a bit on considera
 
 <h3 class="usa-heading">Typefaces</h3>
 
-<h4 class="usa-heading-underline">Source Sans Pro</h4>
+<h4 class="usa-heading-alt">Source Sans Pro</h4>
 
-<div class="usa-width-one-half">
-  <p>Explanation of font selection Explanation of font selection Explanation of font selection. Explanation of font selection Explanation of font selection Explanation of font selection.</p>
-  <p>Explanation of font selection Explanation of font selection. Explanation.</p>
+<div class="usa-grid-full">
+  <div class="usa-width-one-half">
+    <p>Explanation of font selection Explanation of font selection Explanation of font selection. Explanation of font selection Explanation of font selection Explanation of font selection.</p>
+    <p>Explanation of font selection Explanation of font selection. Explanation.</p>
+  </div>
+
+  <div class="typography-sans-intro usa-width-one-half usa-end-row">
+    <span class="text-huge">Aa</span>
+    <p class="text-tiny">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+    <p class="text-tiny">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+    <p class="text-tiny">0 1 2 3 4 5 6 7 8 9</p>
+  </div>
 </div>
+<h4 class="usa-heading-alt">Merriweather</h4>
 
-<div class="usa-width-one-half usa-end-row">
-  <span class="usa-text-huge">Aa</span>
-  <p class="usa-text-tiny">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
-  <p class="usa-text-tiny">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
-  <p class="usa-text-tiny">0 1 2 3 4 5 6 7 8 9</p>
-</div>
+<div class="usa-grid-full">
+  <div class="usa-width-one-half">
+    <p>Explanation of font selection Explanation of font selection Explanation of font selection. Explanation of font selection Explanation of font selection Explanation of font selection.</p>
+    <p>Explanation of font selection Explanation of font selection. Explanation.</p>
+  </div>
 
-<h4>Merriweather</h4>
-
-<div class="usa-width-one-half">
-  <p>Explanation of font selection Explanation of font selection Explanation of font selection. Explanation of font selection Explanation of font selection Explanation of font selection.</p>
-  <p>Explanation of font selection Explanation of font selection. Explanation.</p>
-</div>
-
-<div class="usa-width-one-half usa-end-row usa-serif">
-  <span class="usa-text-huge">Aa</span>
-  <p class="usa-text-tiny">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
-  <p class="usa-text-tiny">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
-  <p class="usa-text-tiny">0 1 2 3 4 5 6 7 8 9</p>
+  <div class="typography-serif-intro usa-width-one-half usa-end-row usa-serif">
+    <span class="text-huge">Aa</span>
+    <p class="text-tiny">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+    <p class="text-tiny">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+    <p class="text-tiny">0 1 2 3 4 5 6 7 8 9</p>
+  </div>
 </div>
 
 <a class="usa-button usa-button-primary-alt" href="#">Download the style files?</a>

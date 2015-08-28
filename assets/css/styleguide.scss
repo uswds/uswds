@@ -911,3 +911,23 @@ code[class*="language-"], pre[class*="language-"] {
   padding-top: 1rem;
   text-align: center;
 }
+
+.typography-sans-intro {
+  .text-huge {
+    font-size: 140px;
+    line-height: 1;
+  }
+  .text-tiny {
+    font-size: 15px;
+  }
+}
+
+.typography-serif-intro {
+  .text-huge {
+    font-size: 120px;
+    line-height: 1;
+  }
+  .text-tiny {
+    font-size: 13px;
+  }
+}
