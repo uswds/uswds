@@ -53,13 +53,18 @@ a#skipnav {
   }
   .usa-site-navbar {
     @include media($medium-screen) {
+      height: 6rem;
       margin: {
         bottom: 1rem;
-        top: 2.5rem;
+        top: 2.7rem;
       }
     }
+    .logo {
+        padding-left: $site-margins;
+      }
     h1 {
       @include media($medium-screen) {
+
         max-width: 20rem;
       }
       color: $color-gray;
@@ -81,6 +86,7 @@ a#skipnav {
       }
       @include media($medium-screen + $width-nav-sidebar) {
         display: block;
+        padding-right: $site-margins;
       }
     }
   }
