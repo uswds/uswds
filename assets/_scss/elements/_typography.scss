@@ -177,3 +177,15 @@ dfn {
 .usa-drop_text {
   margin-bottom: 0;
 }
+
+.usa-background-dark {
+  background-color: #333B46;
+
+  p {
+    color: $color-white;
+  }
+
+  a {
+    color: $color-gray-lighter;
+  }
+}

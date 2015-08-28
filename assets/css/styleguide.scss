@@ -885,3 +885,12 @@ code[class*="language-"], pre[class*="language-"] {
   margin-top: 0;
 }
 
+.preview {
+  .usa-background-dark {
+    display: inline-block;
+    padding: {
+      left: 1em;
+      right: 1em;
+    }
+  }
+}

@@ -240,7 +240,7 @@ Something about load performance consideration and how we recommend one of the f
   <p><a href="#">This</a> is a text link on light background</p>
   <p><a class="usa-link-visited" href="#">This</a> a visited link.</p>
   <p>This link which opens in a <a href="#" target="_blank">new tab</a>.</p>
-  <div class="button_wrapper-dark">
+  <div class="usa-background-dark">
     <p><a href="#">This</a> is a text link on light background</p>
   </div>
 </div>
