@@ -994,7 +994,7 @@ $font-light: 300;
   }
 
   &.serif-body {
-    p {
+    .usa-font-example p {
       font-family: $font-serif;
       font-size: rem(15px);
       line-height: 1.7;
