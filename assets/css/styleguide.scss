@@ -852,6 +852,10 @@ h3 + .button_wrapper {
   padding-bottom: .8rem;
 }
 
+h6.usa-heading-alt {
+  margin-top: 4rem;
+}
+
 .usa-typography-example-font {
   h1, h2, h3, h4, h5, h6, .usa-font-example p {
     margin: 0;
@@ -942,7 +946,7 @@ code[class*="language-"], pre[class*="language-"] {
     bottom: 0;
     top: 5px;
   }
-  
+
   &:first-child {
     margin-top: 0;
   }
