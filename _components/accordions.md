@@ -138,7 +138,7 @@ title: Accordions
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h3>Use</h3>
+    <h3 class="usa-heading">Use</h3>
     <ul>
       <li>
         Accordions are best used when users only need a few specific pieces of content within a page.
@@ -163,8 +163,7 @@ title: Accordions
       </li>
     </ul>
 
-    <h3>Accessibility</h3>
-    <h4>How to use</h4>
+    <h3 class="usa-heading">Accessibility</h3>
     <ul>
       <li>
         Code header areas in the accordion as <code>&lt;buttons&gt;</code> so that they are usable with both screen readers and the keyboard.
