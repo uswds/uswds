@@ -66,6 +66,12 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-two-thirds">
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+            <ul>
+              <li>1. Merriweather Bold 700</li>
+              <li>2. Source Sans Pro, Regular 400</li>
+              <li>3. Source Sans Pro, Bold 700</li>
+              <li>4. Source Sans Pro, Italic 400</li>
+            </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
@@ -81,12 +87,6 @@ Something about load performance consideration and how we recommend one of the f
             </ul>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
-          <ul>
-            <li>1. Merriweather Bold 700</li>
-            <li>2. Source Sans Pro, Regular 400</li>
-            <li>3. Source Sans Pro, Bold 700</li>
-            <li>4. Source Sans Pro, Italic 400</li>
-          </ul>
         </div>
         
         <div class="usa-grid usa-typography-example-font">
@@ -220,6 +220,13 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-two-thirds">
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+            <ul>
+              <li>1. Merriweather Bold 700</li>
+              <li>2. Merriweather Light 300</li>
+              <li>3. Source Sans Pro, Regular 400</li>
+              <li>4. Source Sans Pro, Bold 700</li>
+              <li>5. Source Sans Pro, Italic 400</li>
+            </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
@@ -235,13 +242,6 @@ Something about load performance consideration and how we recommend one of the f
             </ul>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
-          <ul>
-            <li>1. Merriweather Bold 700</li>
-            <li>2. Merriweather Light 300</li>
-            <li>3. Source Sans Pro, Regular 400</li>
-            <li>4. Source Sans Pro, Bold 700</li>
-            <li>5. Source Sans Pro, Italic 400</li>
-          </ul>
         </div>
         
         <div class="serif-robust usa-grid usa-typography-example-font">
@@ -399,6 +399,12 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-two-thirds">
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+            <ul>
+              <li>1. Source Sans Pro Light 700</li>
+              <li>2. Source Sans Pro, Regular 400</li>
+              <li>3. Source Sans Pro, Bold 700</li>
+              <li>4. Source Sans Pro, Italic 400</li>
+            </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
@@ -414,12 +420,7 @@ Something about load performance consideration and how we recommend one of the f
             </ul>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
-          <ul>
-            <li>1. Source Sans Pro Light 700</li>
-            <li>2. Source Sans Pro, Regular 400</li>
-            <li>3. Source Sans Pro, Bold 700</li>
-            <li>4. Source Sans Pro, Italic 400</li>
-          </ul>
+
         </div>
         
         <div class="sans-style usa-grid usa-typography-example-font">
@@ -564,6 +565,14 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-two-thirds">
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+            <ul>
+              <li>1. Source Sans Pro Light 300</li>
+              <li>2. Source Sans Pro, Regular 400</li>
+              <li>3. Source Sans Pro, Bold 700</li>
+              <li>4. Merriweather, Regular 400</li>
+              <li>5. Merriweather, Italic 400</li>
+              <li>6. Merriweather, Bold 700</li>
+            </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
@@ -579,14 +588,6 @@ Something about load performance consideration and how we recommend one of the f
             </ul>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
-          <ul>
-            <li>1. Source Sans Pro Light 300</li>
-            <li>2. Source Sans Pro, Regular 400</li>
-            <li>3. Source Sans Pro, Bold 700</li>
-            <li>4. Merriweather, Regular 400</li>
-            <li>5. Merriweather, Italic 400</li>
-            <li>6. Merriweather, Bold 700</li>
-          </ul>
         </div>
         
         <div class="sans-style serif-body usa-grid usa-typography-example-font">
@@ -733,6 +734,13 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-two-thirds">
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+            <ul>
+              <li>1. Merriweather Bold 700</li>
+              <li>2. Merriweather Light 300</li>
+              <li>3. Source Sans Pro, Regular 400</li>
+              <li>4. Source Sans Pro, Bold 700</li>
+              <li>5. Source Sans Pro, Italic 400</li>
+            </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
@@ -748,13 +756,6 @@ Something about load performance consideration and how we recommend one of the f
             </ul>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
-          <ul>
-            <li>1. Merriweather Bold 700</li>
-            <li>2. Merriweather Light 300</li>
-            <li>3. Source Sans Pro, Regular 400</li>
-            <li>4. Source Sans Pro, Bold 700</li>
-            <li>5. Source Sans Pro, Italic 400</li>
-          </ul>
         </div>
         
         <div class="serif-robust serif-sans-minor usa-grid usa-typography-example-font">
