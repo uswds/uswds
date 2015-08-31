@@ -49,8 +49,23 @@ $(function(){
 $('.secondary-sidenav-link').click(function(e) {
   e.preventDefault();
   var hashLocation = $(this).attr('href').split('#')[1]; // long url splitting
-  $('.main-content').animate({
-    scrollTop: $('#' + hashLocation).position().top +35
-  }, 200);
-  window.location.hash = hashLocation;
+  var anchor       = $('#' + hashLocation);
+  var headerOffset = 0;
+
+  /* :target already adds spacing to line up the page correctly
+   * prevent double space if current page target already = new target
+   */
+  if (!anchor.is(":target")) {
+    headerOffset = ($('.usa-site-header').first().outerHeight());
+  }
+  
+  /* Firefox needs html, others need body */
+  $('body,html').animate({
+    scrollTop: anchor.offset().top - headerOffset
+  }, {
+    duration: 200,
+    always: function () {
+      window.location.hash = hashLocation;
+    }
+  });
 });
