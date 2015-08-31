@@ -47,19 +47,35 @@ a#skipnav {
   background-color: $color-white;
   border-bottom: 1px solid $color-gray-light;
   z-index: 1;
+  
   a {
     border-bottom: none;
-//    color: white;
   }
+
+  .usa-disclaimer-official {
+    padding-left: $site-margins;
+  }
+
+  .usa-disclaimer-stage {
+    padding-right: $site-margins;
+  }
+
   .usa-site-navbar {
     @include media($medium-screen) {
+      height: 6rem;
       margin: {
         bottom: 1rem;
-        top: 2.5rem;
+        top: 2.7rem;
       }
     }
+
+    .logo {
+        padding-left: $site-margins;
+      }
+
     h1 {
       @include media($medium-screen) {
+
         max-width: 20rem;
       }
       color: $color-gray;
@@ -71,16 +87,19 @@ a#skipnav {
         display: block;
       }
     }
+
     .usa-button-list {
+      @include media($medium-screen + $width-nav-sidebar) {
+        display: block;
+        padding-right: $site-margins;
+      }
       float: right;
       display: none;
       margin-top: -5px;
+      
       li { 
         display: inline; 
         font-family: $font-sans;
-      }
-      @include media($medium-screen + $width-nav-sidebar) {
-        display: block;
       }
     }
   }
@@ -329,6 +348,15 @@ a#skipnav {
   }
 }
 
+.preview-no_border {
+  border: 0;
+  margin: {
+    top: 0;
+    bottom: 2em;
+  }
+  padding: 0;
+}
+
 // Code Sample Boxes --------- //
 
 .code-snippets {
@@ -510,13 +538,15 @@ h3 + .button_wrapper {
 .usa-color-row {
   margin-bottom: 3rem;
 
-  .usa-width-one-fourth {
+  .color-big {
     @include media($medium-screen) {
+      float: left;
+      padding-right: 4%;
       width: 28%;
     }
   }
 
-  .usa-width-one-sixth {
+  .color-small {
     float: left;
     width: 50%;
 

@@ -3,7 +3,7 @@ layout: default
 title: Grids
 ---
 
-<div class="preview">
+<div class="preview preview-no_border">
 
   <h3 class="usa-heading">Grid</h3>
   <div class="usa-grid usa-grid-example usa-grid-example-blank">
