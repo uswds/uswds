@@ -51,7 +51,11 @@
 
 .usa-accordion-bordered {
   .usa-accordion-content {
-    border: 3px solid $color-gray-lightest;
+    border: {
+      bottom: 3px solid $color-gray-lightest;
+      left: 3px solid $color-gray-lightest;
+      right: 3px solid $color-gray-lightest;
+    }
   }
 }
 
