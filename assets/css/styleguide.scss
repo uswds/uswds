@@ -43,9 +43,30 @@ a#skipnav {
   }
 }
 
+:target:before {
+  content: "";
+  display: block;
+  height: 75px;
+  margin-top: -75px;
+
+  @include media($medium-screen) {
+    height: 90px;
+    margin-top: -90px;
+  }
+
+  @include media($medium-screen + $width-nav-sidebar) {
+    height: $site-top;
+    margin-top: -$site-top;
+  }
+}
+
 .usa-site-header {
   background-color: $color-white;
   border-bottom: 1px solid $color-gray-light;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
   z-index: 1;
   
   a {
@@ -178,14 +199,14 @@ a#skipnav {
 // Sidebar Nav --------- //
 
 .sidenav {
-  position: absolute;
+  position: fixed;
   top: $site-top;
   bottom: 0;
   left: 0;
   width: $width-nav-sidebar;
   border-right: 1px solid $color-gray-light;
   padding: 5rem 3rem 3rem 3rem;
-  overflow: auto;
+  overflow: scroll;
   display: none;
   z-index: -1;
   
@@ -232,7 +253,6 @@ a#skipnav {
   top: 4rem;
   bottom: 0;
   right: 0;
-  overflow: auto;
   width: 100%;
   padding: {
     bottom: 0;
