@@ -57,7 +57,7 @@ title: Colors
     </div>
     <div class="usa-color-square usa-color-white">
       <div class="usa-color-inner-content">
-        <p class="usa-color-hex">#fff</p>
+        <p class="usa-color-hex">#ffffff</p>
         <p class="usa-color-name">white</p>
       </div>
     </div>
