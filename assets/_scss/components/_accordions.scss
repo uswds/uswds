@@ -19,21 +19,14 @@
     button[aria-expanded=false] {
       background-image: url('../img/plus.png');
       background-image: url('../img/plus.svg');
-      background-position: 90.5%;
       background-repeat: no-repeat;
       background-size: 13px;
-      @include media($small-screen) {
-        background-position: 96.5%;
-      }
     }
 
     button {
-      @include media($small-screen) {
-        background-position: 96.5%;
-      }
       background-image: url('../img/minus.png');
       background-image: url('../img/minus.svg');
-      background-position: 90.5%;
+      background-position: right $site-margins center;
       background-repeat: no-repeat;
       background-size: 13px;
       color: $color-base;
