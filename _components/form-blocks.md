@@ -226,7 +226,7 @@ title: Forms Blocks
       <span class="usa-serif">or <a href="javascript:void(0)">create an account</a></span>
 
       <label for="username">Username or email address</label>
-      <input id="username" name="username" type="text">
+      <input id="username" name="username" type="text" autocapitalize="off" autocorrect="off">
 
       <label for="password">Password</label>
       <input id="password" name="password" type="password">
