@@ -68,31 +68,31 @@ title: Colors
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
   <div class="usa-grid-full usa-color-row">
-    <div class="usa-width-one-fourth">
+    <div class="color-big">
       <div class="usa-color-short usa-color-primary-alt">
       </div>
         <p class="usa-color-hex">#02bfe7</p>
         <p class="usa-color-name">primary-alt</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-primary-alt-darkest">
       </div>
         <p class="usa-color-hex">#046b99</p>
         <p class="usa-color-name">primary-alt-darkest</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-primary-alt-dark">
       </div>
         <p class="usa-color-hex">#00a6d2</p>
         <p class="usa-color-name">primary-alt-dark</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-primary-alt-light">
       </div>
         <p class="usa-color-hex">#9bdaf1</p>
         <p class="usa-color-name">primary-alt-light</p>
     </div>
-    <div class="usa-width-one-sixth usa-end-row">
+    <div class="color-small">
       <div class="usa-color-short usa-color-primary-alt-lightest">
       </div>
         <p class="usa-color-hex">#e1f3f8</p>
@@ -101,31 +101,31 @@ title: Colors
   </div>
 
   <div class="usa-grid-full usa-color-row">
-    <div class="usa-width-one-fourth">
+    <div class="color-big">
       <div class="usa-color-short usa-color-secondary">
       </div>
         <p class="usa-color-hex">#e31c3d</p>
         <p class="usa-color-name">secondary</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-secondary-darkest">
       </div>
         <p class="usa-color-hex">#cd2026</p>
         <p class="usa-color-name">secondary-darkest</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-secondary-dark">
       </div>
         <p class="usa-color-hex">#981b1e</p>
         <p class="usa-color-name">secondary-dark</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-secondary-light">
       </div>
         <p class="usa-color-hex">#e59393</p>
         <p class="usa-color-name">secondary-light</p>
     </div>
-    <div class="usa-width-one-sixth usa-end-row">
+    <div class="color-small">
       <div class="usa-color-short usa-color-secondary-lightest">
       </div>
         <p class="usa-color-hex">#f9dede</p>
@@ -138,31 +138,31 @@ title: Colors
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
   <div class="usa-grid-full usa-color-row">
-    <div class="usa-width-one-fourth">
+    <div class="color-big">
       <div class="usa-color-short usa-color-gray-dark">
       </div>
         <p class="usa-color-hex">#323a45</p>
         <p class="usa-color-name">gray-dark</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-gray">
       </div>
         <p class="usa-color-hex">#5b616b</p>
         <p class="usa-color-name">gray</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-gray-light">
       </div>
         <p class="usa-color-hex">#aeb0b5</p>
         <p class="usa-color-name">gray-light</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-gray-lighter">
       </div>
         <p class="usa-color-hex">#d6d7d9</p>
         <p class="usa-color-name">gray-lighter</p>
     </div>
-    <div class="usa-width-one-sixth usa-end-row">
+    <div class="color-small">
       <div class="usa-color-short usa-color-gray-lightest">
       </div>
         <p class="usa-color-hex">#efefef</p>
@@ -171,13 +171,13 @@ title: Colors
   </div>
 
   <div class="usa-grid-full usa-color-row">
-    <div class="usa-width-one-fourth">
+    <div class="color-big">
       <div class="usa-color-short usa-color-gray-warm-dark">
       </div>
         <p class="usa-color-hex">#494440</p>
         <p class="usa-color-name">gray-warm-dark</p>
     </div>
-    <div class="usa-width-one-sixth usa-end-row">
+    <div class="color-small usa-end-row">
       <div class="usa-color-short usa-color-gray-warm-light">
       </div>
         <p class="usa-color-hex">#e4e2e0</p>
@@ -186,13 +186,13 @@ title: Colors
   </div>
 
   <div class="usa-grid-full usa-color-row">
-    <div class="usa-width-one-fourth">
+    <div class="color-big">
       <div class="usa-color-short usa-color-primary-darkest">
       </div>
         <p class="usa-color-hex">#046b99</p>
         <p class="usa-color-name">primary-darkest</p>
     </div>
-    <div class="usa-width-one-sixth usa-end-row">
+    <div class="color-small usa-end-row">
       <div class="usa-color-short usa-color-gray-cool-light">
       </div>
         <p class="usa-color-hex">#dce4ef</p>
@@ -205,25 +205,25 @@ title: Colors
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
   <div class="usa-grid-full usa-color-row">
-    <div class="usa-width-one-fourth">
+    <div class="color-big">
       <div class="usa-color-short usa-color-gold">
       </div>
         <p class="usa-color-hex">#fdb81e</p>
         <p class="usa-color-name">gold</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-gold-light">
       </div>
         <p class="usa-color-hex">#f9c642</p>
         <p class="usa-color-name">gold-light</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-gold-lighter">
       </div>
         <p class="usa-color-hex">#fad980</p>
         <p class="usa-color-name">gold-lighter</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-gold-lightest usa-end-row">
       </div>
         <p class="usa-color-hex">#fff1d2</p>
@@ -232,25 +232,25 @@ title: Colors
   </div>
 
   <div class="usa-grid-full usa-color-row">
-    <div class="usa-width-one-fourth">
+    <div class="color-big">
       <div class="usa-color-short usa-color-green">
       </div>
         <p class="usa-color-hex">#2e8540</p>
         <p class="usa-color-name">green</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-green-light">
       </div>
         <p class="usa-color-hex">#4aa564</p>
         <p class="usa-color-name">green-light</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-green-lighter">
       </div>
         <p class="usa-color-hex">#94bfa2</p>
         <p class="usa-color-name">green-lighter</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-green-lightest usa-end-row">
       </div>
         <p class="usa-color-hex">#e7f4e4</p>
@@ -259,26 +259,26 @@ title: Colors
   </div>
 
   <div class="usa-grid-full usa-color-row">
-    <div class="usa-width-one-fourth">
+    <div class="color-big">
       <div class="usa-color-short usa-color-cool-blue">
       </div>
         <p class="usa-color-hex">#205493</p>
         <p class="usa-color-name">cool-blue</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-cool-blue-light">
       </div>
         <p class="usa-color-hex">#4773aa</p>
         <p class="usa-color-name">cool-blue-light</p>
     </div>
-    <div class="usa-width-one-sixth">
+    <div class="color-small">
       <div class="usa-color-short usa-color-cool-blue-lighter">
       </div>
         <p class="usa-color-hex">#8ba6ca</p>
         <p class="usa-color-name">cool-blue-lighter</p>
     </div>
-    <div class="usa-width-one-sixth">
-      <div class="usa-color-short usa-color-cool-blue-lightest usa-end-row">
+    <div class="color-small">
+      <div class="usa-color-short usa-color-cool-blue-lightest">
       </div>
         <p class="usa-color-hex">#dce4ef</p>
         <p class="usa-color-name">cool-blue-lightest</p>
@@ -290,7 +290,7 @@ title: Colors
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
   <div class="usa-grid-full usa-color-row">
-    <div class="usa-width-one-fourth usa-end-row">
+    <div class="color-big">
       <div class="usa-color-short usa-color-focus">
       </div>
       <p class="usa-color-hex">#3e94cf</p>
@@ -299,7 +299,7 @@ title: Colors
   </div>
 
   <div class="usa-grid-full usa-color-row">
-    <div class="usa-width-one-fourth usa-end-row">
+    <div class="color-big">
       <div class="usa-color-short usa-color-visited">
       </div>
       <p class="usa-color-hex">#4c2c92</p>

@@ -516,13 +516,15 @@ h3 + .button_wrapper {
 .usa-color-row {
   margin-bottom: 3rem;
 
-  .usa-width-one-fourth {
+  .color-big {
     @include media($medium-screen) {
+      float: left;
+      padding-right: 4%;
       width: 28%;
     }
   }
 
-  .usa-width-one-sixth {
+  .color-small {
     float: left;
     width: 50%;
 
