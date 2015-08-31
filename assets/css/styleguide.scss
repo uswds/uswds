@@ -847,6 +847,31 @@ h3 + .button_wrapper {
   color: $color-white;
 }
 
+.usa-heading-alt {
+  border-bottom: 1px solid $color-gray;
+  padding-bottom: .8rem;
+}
+
+.usa-typography-example-font {
+  h1, h2, h3, h4, h5, h6, .usa-font-example p {
+    margin: 0;
+  }
+}
+
+.usa-typography-example {
+  .usa-monospace {
+    font-size: $em-base;
+    margin: {
+      bottom: 3rem;
+      top: 0;
+    }
+  }
+}
+
+.usa-monospace {
+  font-family: monospace;
+}
+
 // Code snippet boxes
 
 .usa-code-sample .usa-unstyled-list {
@@ -887,4 +912,123 @@ code[class*="language-"], pre[class*="language-"] {
 
 .usa-code-sample pre[class*="language-"] {
   margin-top: 0;
+}
+
+.preview {
+  .usa-background-dark {
+    display: inline-block;
+    padding: {
+      left: 1em;
+      right: 1em;
+    }
+  }
+}
+
+.alignment-example {
+  border-left: 2px solid $color-primary-darker;
+  padding-left: 1rem;
+}
+
+.help-text {
+  border-top: 2px solid $color-primary-darker;
+  color: $color-primary-darker;
+  font-size: $em-base;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.typography-sans-intro {
+  .text-huge {
+    font-size: 140px;
+    line-height: 1;
+  }
+  .text-tiny {
+    font-size: 15px;
+  }
+}
+
+.typography-serif-intro {
+  .text-huge {
+    font-size: 120px;
+    line-height: 1;
+  }
+  .text-tiny {
+    font-size: 13px;
+  }
+}
+
+// Alt font styles
+
+$font-light: 300;
+
+.serif-robust {
+  .usa-display-alt {
+    font-size: $h1-font-size;
+    font-weight: $font-light;
+  }
+
+  .usa-font-lead {
+    font-family: $font-serif;
+    font-size: $h3-font-size;
+  }
+
+  .usa-font-lead-alt {
+    font-size: $h5-font-size;
+  }
+}
+
+.sans-style {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $font-sans;
+  }
+  
+  h1 {
+    font-size: rem(44px);
+  }
+
+  h2 {
+    font-size: rem(34px);
+  }
+
+  h3 {
+    font-size: rem(24px);
+  }
+
+  h4 {
+    font-size: rem(19px);
+  }
+
+  h5 {
+    font-size: rem(16px);
+  }
+
+  h6 {
+    font-size: rem(13px);
+  }
+
+  .usa-display {
+    font-size: rem(59px);
+  }
+
+  .usa-display-alt {
+    font-size: rem(44px);
+  }
+
+  .usa-font-lead {
+    font-size: rem(22px);
+  }
+
+  &.serif-body {
+    .usa-font-example p {
+      font-family: $font-serif;
+      font-size: rem(15px);
+      line-height: 1.7;
+    }
+  }
+}
+
+.serif-sans-minor {
+  h6 {
+    font-family: $font-sans;
+  }
 }

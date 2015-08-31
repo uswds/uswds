@@ -1,18 +1,19 @@
 .usa-accordion,
 .usa-accordion-bordered {
 
-  ul {
+  > ul {
     color: $color-base;
     margin: 0;
     overflow: hidden;
     padding: 0;
     width: 100%;
 
-    li {
+    > li {
       background-color: $color-gray-lightest;
       font-family: $font-sans;
       list-style: none;
       margin-bottom: 6px;
+      width: 100%;
     }
 
     button[aria-expanded=false] {
@@ -27,6 +28,9 @@
     }
 
     button {
+      @include media($small-screen) {
+        background-position: 96.5%;
+      }
       background-image: url('../img/minus.png');
       background-image: url('../img/minus.svg');
       background-position: 90.5%;
@@ -39,12 +43,14 @@
       margin: 0;
       padding: 1.5rem 3rem;
       width: 100%;
+      
       &:hover {
         background-color: $color-gray-lighter;
         color: $color-base;
       }
-      @include media($small-screen) {
-        background-position: 96.5%;
+      
+      h1, h2, h3, h4, h5, h6 {
+        margin: 0;
       }
     }
   }
