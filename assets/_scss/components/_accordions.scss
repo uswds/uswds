@@ -16,8 +16,9 @@
     }
 
     button[aria-expanded=false] {
-      background: url('../img/plus.png') no-repeat;
+      background: url('../img/plus.png');
       background-position: 90.5%;
+      background-repeat: no-repeat;
       background-size: 13px;
       @include media($small-screen) {
         background-position: 96.5%;
@@ -25,8 +26,9 @@
     }
 
     button {
-      background: url('../img/minus.png') no-repeat;
+      background-image: url('../img/minus.png');
       background-position: 90.5%;
+      background-repeat: no-repeat;
       background-size: 13px;
       color: $color-base;
       cursor: pointer;
