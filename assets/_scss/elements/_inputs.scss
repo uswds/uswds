@@ -16,6 +16,7 @@ input[type="week"],
 textarea,
 select  {
   border: 1px solid $color-gray;
+  border-radius: 0;
   box-sizing: border-box;
   color: #000; // standardize on firefox 
   display: block;
