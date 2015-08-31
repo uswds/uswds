@@ -932,7 +932,7 @@ Something about load performance consideration and how we recommend one of the f
 <div class="preview">
   <p><a href="javascript:void(0)">This</a> is a text link on light background</p>
 
-  <p><a class="usa-link-visited" href="javascript:void(0)">This</a> is a visited link.</p>
+  <p><a class="usa-color-text-visited" href="javascript:void(0)">This</a> is a visited link.</p>
 
   <p>This is a link which opens in a <a href="javascript:void(0)" target="_blank">new tab</a>.</p>
 
