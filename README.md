@@ -11,10 +11,11 @@ Warning! This library is currently not ready for use as it is actively being dev
 
 The best way to currently use the library would be to follow the Setup instructions below,
 copy the full `_site/assets/` directory to a relevant place in your code base, and link
-`_site/assets/css/main.css` into your html. So something like this:
+`_site/assets/css/main.css` and `_site/assets/js/components.js` into your html. So something like this:
 
 - `cp ./_site/assets/css/main.css /path/to/your/repo/static/dir`
 - `<link rel="stylesheet" href="/path/to/your/assets/css/main.css" media="screen" />
+- `<script src="/path/to/your/assets/js/components.js"></script>`
 
 ## Setup for your local environment
 
