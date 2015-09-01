@@ -14,7 +14,7 @@ copy the full `_site/assets/` directory to a relevant place in your code base, a
 `_site/assets/css/main.css` and `_site/assets/js/components.js` into your html. So something like this:
 
 - `cp ./_site/assets/css/main.css /path/to/your/repo/static/dir`
-- `<link rel="stylesheet" href="/path/to/your/assets/css/main.css" media="screen" />
+- `<link rel="stylesheet" href="/path/to/your/assets/css/main.css" media="screen" />`
 - `<script src="/path/to/your/assets/js/components.js"></script>`
 
 ## Setup for your local environment
