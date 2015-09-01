@@ -230,12 +230,9 @@ a#skipnav {
         padding: .25em 0;
       }
     }
-    a {
-      border-bottom: none;
-      &:hover {
-        border-bottom: 1px solid;
-        color: $color-primary-darker;
-      }
+    a,
+    a:visited {
+      color: $color-primary;
     }
   }
 }
