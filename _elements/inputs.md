@@ -17,9 +17,9 @@ title: Inputs
 
 <p>If you are a building a form with multiple controls, also consider the <a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines in the “Common Form Templates” section</a>.</p>
 
-<div class="preview">
+<h2 class="usa-heading">Text Input</h2>
 
-  <h2 class="usa-heading">Text Input</h2>
+<div class="preview">
 
   <label for="input-type-text">Text Input Label</label>
   <input id="input-type-text" name="input-type-text" type="text">
