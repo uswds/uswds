@@ -935,6 +935,8 @@ Something about load performance consideration and how we recommend one of the f
 <h3 class="usa-heading">Links</h3>
 
 <div class="preview">
+
+  <a href="javascript:void(0)">This is a link without surrounding text</a>
   <p><a href="javascript:void(0)">This</a> is a text link on light background</p>
 
   <p><a class="usa-color-text-visited" href="javascript:void(0)">This</a> is a visited link.</p>
