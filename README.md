@@ -6,6 +6,16 @@ This is the repo for the U.S. Federal Web Design Standards project.
 The structural setup of this repo is based off of the 18F pages project: 
 [https://github.com/18F/pages](https://github.com/18F/pages)
 
+## Use
+Warning! This library is currently not ready for use as it is actively being developed.
+
+The best way to currently use the library would be to follow the Setup instructions below,
+copy the full `_site/assets/` directory to a relevant place in your code base, and link
+`_site/assets/css/main.css` into your html. So something like this:
+
+- `cp ./_site/assets/css/main.css /path/to/your/repo/static/dir`
+- `<link rel="stylesheet" href="/path/to/your/assets/css/main.css" media="screen" />
+
 ## Setup for your local environment
 
 ### Requirements
