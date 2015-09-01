@@ -18,9 +18,11 @@ Include intro of the two families, how we have diff packages, a bit on considera
 
   <div class="typography-sans-intro usa-width-one-half usa-end-row">
     <span class="text-huge">Aa</span>
-    <p class="text-tiny">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
-    <p class="text-tiny">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
-    <p class="text-tiny">0 1 2 3 4 5 6 7 8 9</p>
+    <div>
+      <p class="text-tiny">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+      <p class="text-tiny">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+      <p class="text-tiny">0 1 2 3 4 5 6 7 8 9</p>
+    </div>
   </div>
 </div>
 <h4 class="usa-heading-alt">Merriweather</h4>
@@ -33,9 +35,11 @@ Include intro of the two families, how we have diff packages, a bit on considera
 
   <div class="typography-serif-intro usa-width-one-half usa-end-row usa-serif">
     <span class="text-huge">Aa</span>
-    <p class="text-tiny">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
-    <p class="text-tiny">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
-    <p class="text-tiny">0 1 2 3 4 5 6 7 8 9</p>
+    <div>
+      <p class="text-tiny">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+      <p class="text-tiny">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+      <p class="text-tiny">0 1 2 3 4 5 6 7 8 9</p>
+    </div>
   </div>
 </div>
 
@@ -47,14 +51,14 @@ Include intro of the two families, how we have diff packages, a bit on considera
 <p>Guidance/overview on how our font packages were designed, etc.
 Something about load performance consideration and how we recommend one of the following font pages for use.  A bit on the rationale for the pairings if it’s not covered an above section.</p>
 
-<h4 class="usa-heading">Style 1: Credible and warm</h4>
+<h4 class="usa-heading">Credible and warm</h4>
 
 <div class="usa-accordion-bordered usa-typography-example">
   <ul class="usa-unstyled-list">
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Pairing 1 - Default: Merriweather headers, Source Sans Pro body (basic)</h5>
+        <h5>Default: Merriweather headers, Source Sans Pro body (basic)</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
@@ -62,6 +66,12 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-two-thirds">
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+            <ul>
+              <li>1. Merriweather Bold 700</li>
+              <li>2. Source Sans Pro, Regular 400</li>
+              <li>3. Source Sans Pro, Bold 700</li>
+              <li>4. Source Sans Pro, Italic 400</li>
+            </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
@@ -77,12 +87,6 @@ Something about load performance consideration and how we recommend one of the f
             </ul>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
-          <ul>
-            <li>1. Merriweather Bold 700</li>
-            <li>2. Source Sans Pro, Regular 400</li>
-            <li>3. Source Sans Pro, Bold 700</li>
-            <li>4. Source Sans Pro, Italic 400</li>
-          </ul>
         </div>
         
         <div class="usa-grid usa-typography-example-font">
@@ -208,7 +212,7 @@ Something about load performance consideration and how we recommend one of the f
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Pairing 2 - Merriweather headers, Source Sans Pro body (robust)</h5>
+        <h5>Merriweather headers, Source Sans Pro body (robust)</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
@@ -216,6 +220,13 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-two-thirds">
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+            <ul>
+              <li>1. Merriweather Bold 700</li>
+              <li>2. Merriweather Light 300</li>
+              <li>3. Source Sans Pro, Regular 400</li>
+              <li>4. Source Sans Pro, Bold 700</li>
+              <li>5. Source Sans Pro, Italic 400</li>
+            </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
@@ -231,13 +242,6 @@ Something about load performance consideration and how we recommend one of the f
             </ul>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
-          <ul>
-            <li>1. Merriweather Bold 700</li>
-            <li>2. Merriweather Light 300</li>
-            <li>3. Source Sans Pro, Regular 400</li>
-            <li>4. Source Sans Pro, Bold 700</li>
-            <li>5. Source Sans Pro, Italic 400</li>
-          </ul>
         </div>
         
         <div class="serif-robust usa-grid usa-typography-example-font">
@@ -380,14 +384,12 @@ Something about load performance consideration and how we recommend one of the f
   </ul>
 </div>
 
-<h4 class="usa-heading">Style 2: Simple and modern</h4>
-
 <div class="usa-accordion-bordered usa-typography-example">
   <ul class="usa-unstyled-list">
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Paring 3 - Source Sans Pro only</h5>
+        <h5>Merriweather with minor Source Sans Pro</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
@@ -395,6 +397,13 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-two-thirds">
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+            <ul>
+              <li>1. Merriweather Bold 700</li>
+              <li>2. Merriweather Light 300</li>
+              <li>3. Source Sans Pro, Regular 400</li>
+              <li>4. Source Sans Pro, Bold 700</li>
+              <li>5. Source Sans Pro, Italic 400</li>
+            </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
@@ -410,347 +419,6 @@ Something about load performance consideration and how we recommend one of the f
             </ul>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
-          <ul>
-            <li>1. Source Sans Pro Light 700</li>
-            <li>2. Source Sans Pro, Regular 400</li>
-            <li>3. Source Sans Pro, Bold 700</li>
-            <li>4. Source Sans Pro, Italic 400</li>
-          </ul>
-        </div>
-        
-        <div class="sans-style usa-grid usa-typography-example-font">
-          <div class="usa-width-one-half">
-            <h3 class="usa-display">Display 1</h3>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 59px<br>
-              line-height: 1.375em/72px
-            </p>
-          </div>
-          <div class="usa-width-one-half">
-            <h3 class="usa-display usa-display-alt">Display 2</h3>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 44px<br>
-              line-height: 1.375em/55px
-            </p>
-          </div>
-          <div class="usa-width-one-half">
-            <h1>Header 1</h1>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 44px<br>
-              line-height: 1.375em/55px
-            </p>
-          </div>
-          <div class="usa-width-one-half">
-            <h2>Header 2</h2>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 34px<br>
-              line-height: 1.375em/41px
-            </p>
-          </div>
-          <div class="usa-width-one-half">
-            <h3>Header 3</h3>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 24px<br>
-              line-height: 1.375em/28px
-            </p>
-          </div>
-          <div class="usa-width-one-half">
-            <h4>Header 4</h4>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 19px<br>
-              line-height: 1.375em/23px
-            </p>
-          </div>
-          <div class="usa-width-one-half">
-            <h5>Header 5</h5>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 16px<br>
-              line-height: 1.375em/20px
-            </p>
-          </div>
-          <div class="usa-width-one-half">
-            <h6>Header 6</h6>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 13px<br>
-              line-height: 1.375em/18px
-            </p>
-          </div>
-          <div class="usa-font-example usa-width-one-half">
-            <p class="usa-font-lead">Lead <br>paragraph 1</p>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 300<br>
-              font-size: 22px<br>
-              line-height: 1.375em/30px
-            </p>
-          </div>
-          <div class="usa-font-example usa-width-one-half">
-            <p>Body copy. A series of <br>sentences together which <br>make a paragraph.</p>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
-            </p>
-          </div>
-          <div class="usa-font-example usa-width-one-half">
-            <p><em>Italic body copy. A series of <br>sentences together which <br>make a paragraph.</em></p>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-style: Italic<br>
-              font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
-            </p>
-          </div>
-        </div>
-      </div>
-    </li>
-  </ul>
-</div>
-
-<div class="usa-accordion-bordered usa-typography-example">
-  <ul class="usa-unstyled-list">
-    <li>
-      <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Pairing 4 - Source Sans Pro headings, Merriweather body</h5>
-      </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
-
-        <div class="usa-grid">
-          <div class="usa-width-two-thirds">
-            <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
-            <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
-          </div>
-          <aside class="usa-width-one-third usa-end-row">
-            <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
-            <h6 class="usa-heading-alt">Examples</h6>
-            <ul>
-              <li>
-                <a href="http://website.gov">website.gov</a>
-              </li>
-              <li>
-                <a href="http://anotherwebsite.gov">anotherwebsite.gov</a>
-              </li>
-            </ul>
-          </aside>
-          <h6 class="usa-heading-alt">Web Hierarchy</h6>
-          <ul>
-            <li>1. Source Sans Pro Light 300</li>
-            <li>2. Source Sans Pro, Regular 400</li>
-            <li>3. Source Sans Pro, Bold 700</li>
-            <li>4. Merriweather, Regular 400</li>
-            <li>5. Merriweather, Italic 400</li>
-            <li>6. Merriweather, Bold 700</li>
-          </ul>
-        </div>
-        
-        <div class="sans-style serif-body usa-grid usa-typography-example-font">
-          <div class="usa-width-one-half">
-            <h3 class="usa-display">Display 1</h3>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 59px<br>
-              line-height: 1.375em/72px
-            </p>
-          </div>
-          <div class="usa-width-one-half">
-            <h3 class="usa-display usa-display-alt">Display 2</h3>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 44px<br>
-              line-height: 1.375em/55px
-            </p>
-          </div>
-          <div class="usa-width-one-half">
-            <h1>Header 1</h1>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 44px<br>
-              line-height: 1.375em/55px
-            </p>
-          </div>
-          <div class="usa-width-one-half">
-            <h2>Header 2</h2>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 34px<br>
-              line-height: 1.375em/41px
-            </p>
-          </div>
-          <div class="usa-width-one-half">
-            <h3>Header 3</h3>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 24px<br>
-              line-height: 1.375em/28px
-            </p>
-          </div>
-          <div class="usa-width-one-half">
-            <h4>Header 4</h4>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 19px<br>
-              line-height: 1.375em/23px
-            </p>
-          </div>
-          <div class="usa-width-one-half">
-            <h5>Header 5</h5>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 16px<br>
-              line-height: 1.375em/20px
-            </p>
-          </div>
-          <div class="usa-width-one-half">
-            <h6>Header 6</h6>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
-              font-size: 13px<br>
-              line-height: 1.375em/18px
-            </p>
-          </div>
-          <div class="usa-font-example usa-width-one-half">
-            <p class="usa-font-lead">Lead <br>paragraph 1</p>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 300<br>
-              font-size: 22px<br>
-              line-height: 1.375em/30px
-            </p>
-          </div>
-          <div class="usa-font-example usa-width-one-half">
-            <p>Body copy. A series of <br>sentences together which <br>make a paragraph.</p>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
-            </p>
-          </div>
-          <div class="usa-font-example usa-width-one-half">
-            <p><em>Italic body copy. A series of <br>sentences together which <br>make a paragraph.</em></p>
-          </div>
-          <div class="usa-width-one-half usa-end-row">
-            <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
-              font-style: Italic<br>
-              font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
-            </p>
-          </div>
-        </div>
-      </div>
-    </li>
-  </ul>
-</div>
-
-<h4 class="usa-heading">Style 3: Classic and elegant</h4>
-
-<div class="usa-accordion-bordered usa-typography-example">
-  <ul class="usa-unstyled-list">
-    <li>
-      <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Pairing 5 - Merriweather with minor Source Sans Pro</h5>
-      </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
-
-        <div class="usa-grid">
-          <div class="usa-width-two-thirds">
-            <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
-            <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
-          </div>
-          <aside class="usa-width-one-third usa-end-row">
-            <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
-            <h6 class="usa-heading-alt">Examples</h6>
-            <ul>
-              <li>
-                <a href="http://website.gov">website.gov</a>
-              </li>
-              <li>
-                <a href="http://anotherwebsite.gov">anotherwebsite.gov</a>
-              </li>
-            </ul>
-          </aside>
-          <h6 class="usa-heading-alt">Web Hierarchy</h6>
-          <ul>
-            <li>1. Merriweather Bold 700</li>
-            <li>2. Merriweather Light 300</li>
-            <li>3. Source Sans Pro, Regular 400</li>
-            <li>4. Source Sans Pro, Bold 700</li>
-            <li>5. Source Sans Pro, Italic 400</li>
-          </ul>
         </div>
         
         <div class="serif-robust serif-sans-minor usa-grid usa-typography-example-font">
@@ -893,6 +561,341 @@ Something about load performance consideration and how we recommend one of the f
   </ul>
 </div>
 
+<h4 class="usa-heading">Simple and modern</h4>
+
+<div class="usa-accordion-bordered usa-typography-example">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-0">
+        <h5>Source Sans Pro only</h5>
+      </button>
+      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
+
+        <div class="usa-grid">
+          <div class="usa-width-two-thirds">
+            <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
+            <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+            <ul>
+              <li>1. Source Sans Pro Light 700</li>
+              <li>2. Source Sans Pro, Regular 400</li>
+              <li>3. Source Sans Pro, Bold 700</li>
+              <li>4. Source Sans Pro, Italic 400</li>
+            </ul>
+          </div>
+          <aside class="usa-width-one-third usa-end-row">
+            <h6 class="usa-heading-alt">Page Performance</h6>
+            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <h6 class="usa-heading-alt">Examples</h6>
+            <ul>
+              <li>
+                <a href="http://website.gov">website.gov</a>
+              </li>
+              <li>
+                <a href="http://anotherwebsite.gov">anotherwebsite.gov</a>
+              </li>
+            </ul>
+          </aside>
+          <h6 class="usa-heading-alt">Web Hierarchy</h6>
+
+        </div>
+        
+        <div class="sans-style usa-grid usa-typography-example-font">
+          <div class="usa-width-one-half">
+            <h3 class="usa-display">Display 1</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 59px<br>
+              line-height: 1.375em/72px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3 class="usa-display usa-display-alt">Display 2</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 44px<br>
+              line-height: 1.375em/55px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h1>Header 1</h1>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 44px<br>
+              line-height: 1.375em/55px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h2>Header 2</h2>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 34px<br>
+              line-height: 1.375em/41px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3>Header 3</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 24px<br>
+              line-height: 1.375em/28px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h4>Header 4</h4>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 19px<br>
+              line-height: 1.375em/23px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h5>Header 5</h5>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 16px<br>
+              line-height: 1.375em/20px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h6>Header 6</h6>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 13px<br>
+              line-height: 1.375em/18px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="usa-font-lead">Lead <br>paragraph 1</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 300<br>
+              font-size: 22px<br>
+              line-height: 1.375em/30px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p>Body copy. A series of <br>sentences together which <br>make a paragraph.</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.375em/24px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p><em>Italic body copy. A series of <br>sentences together which <br>make a paragraph.</em></p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-style: Italic<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.375em/24px
+            </p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered usa-typography-example">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-0">
+        <h5>Source Sans Pro headings, Merriweather body</h5>
+      </button>
+      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
+
+        <div class="usa-grid">
+          <div class="usa-width-two-thirds">
+            <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
+            <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+            <ul>
+              <li>1. Source Sans Pro Light 300</li>
+              <li>2. Source Sans Pro, Regular 400</li>
+              <li>3. Source Sans Pro, Bold 700</li>
+              <li>4. Merriweather, Regular 400</li>
+              <li>5. Merriweather, Italic 400</li>
+              <li>6. Merriweather, Bold 700</li>
+            </ul>
+          </div>
+          <aside class="usa-width-one-third usa-end-row">
+            <h6 class="usa-heading-alt">Page Performance</h6>
+            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <h6 class="usa-heading-alt">Examples</h6>
+            <ul>
+              <li>
+                <a href="http://website.gov">website.gov</a>
+              </li>
+              <li>
+                <a href="http://anotherwebsite.gov">anotherwebsite.gov</a>
+              </li>
+            </ul>
+          </aside>
+          <h6 class="usa-heading-alt">Web Hierarchy</h6>
+        </div>
+        
+        <div class="sans-style serif-body usa-grid usa-typography-example-font">
+          <div class="usa-width-one-half">
+            <h3 class="usa-display">Display 1</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 59px<br>
+              line-height: 1.375em/72px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3 class="usa-display usa-display-alt">Display 2</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 44px<br>
+              line-height: 1.375em/55px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h1>Header 1</h1>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 44px<br>
+              line-height: 1.375em/55px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h2>Header 2</h2>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 34px<br>
+              line-height: 1.375em/41px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3>Header 3</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 24px<br>
+              line-height: 1.375em/28px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h4>Header 4</h4>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 19px<br>
+              line-height: 1.375em/23px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h5>Header 5</h5>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 16px<br>
+              line-height: 1.375em/20px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h6>Header 6</h6>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 13px<br>
+              line-height: 1.375em/18px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="usa-font-lead">Lead <br>paragraph 1</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 300<br>
+              font-size: 22px<br>
+              line-height: 1.375em/30px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p>Body copy. A series of <br>sentences together which <br>make a paragraph.</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.375em/24px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p><em>Italic body copy. A series of <br>sentences together which <br>make a paragraph.</em></p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-style: Italic<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.375em/24px
+            </p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
 <!-- Typsetting section begin -->
 
 <h3 class="usa-heading">Typesetting</h3>
@@ -930,11 +933,13 @@ Something about load performance consideration and how we recommend one of the f
 <h3 class="usa-heading">Links</h3>
 
 <div class="preview">
+
+  <a href="javascript:void(0)">This is a link without surrounding text</a>
   <p><a href="javascript:void(0)">This</a> is a text link on light background</p>
 
   <p><a class="usa-color-text-visited" href="javascript:void(0)">This</a> is a visited link.</p>
 
-  <p>This is a link which opens in a <a href="javascript:void(0)" target="_blank">new tab</a>.</p>
+  <p>This is a link which opens in a <a href="http://media.giphy.com/media/8sgNa77Dvj7tC/giphy.gif" target="_blank">new tab</a>.</p>
 
   <div class="usa-background-dark">
     <p><a href="javascript:void(0)">This</a> is a text link on light background</p>

@@ -230,12 +230,9 @@ a#skipnav {
         padding: .25em 0;
       }
     }
-    a {
-      border-bottom: none;
-      &:hover {
-        border-bottom: 1px solid;
-        color: $color-primary-darker;
-      }
+    a,
+    a:visited {
+      color: $color-primary;
     }
   }
 }
@@ -852,6 +849,10 @@ h3 + .button_wrapper {
   padding-bottom: .8rem;
 }
 
+h6.usa-heading-alt {
+  margin-top: 4rem;
+}
+
 .usa-typography-example-font {
   h1, h2, h3, h4, h5, h6, .usa-font-example p {
     margin: 0;
@@ -860,7 +861,7 @@ h3 + .button_wrapper {
 
 .usa-typography-example {
   .usa-monospace {
-    font-size: $em-base;
+    font-size: 1.2rem;
     margin: {
       bottom: 3rem;
       top: 0;
@@ -937,10 +938,21 @@ code[class*="language-"], pre[class*="language-"] {
   text-align: center;
 }
 
+.text-tiny {
+  margin: {
+    bottom: 0;
+    top: 5px;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
 .typography-sans-intro {
   .text-huge {
     font-size: 140px;
-    line-height: 1;
+    line-height: 1.05;
   }
   .text-tiny {
     font-size: 15px;
@@ -950,7 +962,7 @@ code[class*="language-"], pre[class*="language-"] {
 .typography-serif-intro {
   .text-huge {
     font-size: 120px;
-    line-height: 1;
+    line-height: 1.275;
   }
   .text-tiny {
     font-size: 13px;
