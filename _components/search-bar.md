@@ -1,7 +1,7 @@
 ---
 layout: styleguide
 type: component
-title: Search Bar
+title: Search bar
 lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
 ---
 
