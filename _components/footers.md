@@ -220,8 +220,12 @@ title: Footers
   </footer>
 </div>
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h3 class="usa-heading">Use</h3>
     <ul>
       <li>Footers serve site visitors who arrive at the bottom of a page without finding what they want.</li>
@@ -231,12 +235,11 @@ title: Footers
       <li>Link only to social media your agency updates frequently or uses to communicate with customers.</li>
       <li>Important contact information should be limited to general email or phone numbers (Physical addresses should live on contact pages users can navigate to from the footer links).</li>
     </ul>
-  </div>
-  <div class="usa-width-one-half">
+
     <h3 class="usa-heading">Accessibility</h3>
     <ul>
       <li>Code the navigation so that pressing the  tab key moves focus from link to link in the navigation, even when the navigation has collapsed into an accordion.</li>
       <li>On small screens: when collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the "Accordion" section.</li>
     </ul>
-  </div>  
+  </div>
 </div>

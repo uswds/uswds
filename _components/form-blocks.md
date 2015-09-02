@@ -20,9 +20,7 @@ title: Forms Blocks
 </ul>
 
 <div class="preview">
-
   <form class="usa-form-large">
-
     <fieldset>
       <legend>Mailing Address</legend>
       <label for="mailing-address-1">Street Address 1</label>
@@ -99,21 +97,22 @@ title: Forms Blocks
       <label for="zip">ZIP</label>
       <input class="usa-input-medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})" data-grouplength="5,4" data-delimiter="-" data-politespace>
     </fieldset>
-
   </form>
-
 </div>
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h3 class="usa-heading">Use</h3>
     <p>As you customize this form, ensure it continues to:</p>
     <ul>
       <li>Label the optional ones. Users can infer that all the others are required.</li>
       <li>Support both 5 and 9 digit zips. Some addresses require a nine digit ZIP code. The input mask should be "#####-####"" so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit zip code. However, this input mask should only appear when people click away from the ZIP code input box (see the accessibility guidelines).</li>
     </ul>
-  </div>
-  <div class="usa-width-one-half">
+
     <h3 class="usa-heading">Accessibility</h3>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul>
@@ -124,13 +123,11 @@ title: Forms Blocks
     <ul>
       <li>Make sure any input masking is accessible to people using screen readers. We use <a href="https://github.com/filamentgroup/politespace">Filament Group's Politespace</a> to ensure a good experience.</li>
     </ul>
-  </div>  
+  </div>
 </div>
 
 <div class="preview">
-
   <form>
-
     <fieldset>
       <legend>Name</legend>
       <label for="title">Title</label>
@@ -149,18 +146,20 @@ title: Forms Blocks
       <input class="usa-input-tiny" id="suffix" name="suffix" type="text">
     </fieldset>
   </form>
-
 </div>
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h3 class="usa-heading">Use</h3>
     <ul>
       <li>Leave the title and suffix fields as text boxes (instead of offering drop downs.) There are many possible titles and suffixes; text boxes accommodate them all.</li>
       <li>Do not restrict the types of characters users can enter in any of these fields. Names can include characters outside the standard Roman alphabet.</li>
     </ul>
-  </div>
-  <div class="usa-width-one-half">
+
     <h3 class="usa-heading">Accessibility</h3>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul>
@@ -168,8 +167,9 @@ title: Forms Blocks
       <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
-  </div>  
+  </div>
 </div>
+
 
 <div class="preview">
   <form>
@@ -194,15 +194,18 @@ title: Forms Blocks
   </form>
 </div>
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h3 class="usa-heading">Use</h3>
     <ul>
       <li>Don’t ask for a social security number unless it’s absolutely essential. Users are reluctant to divulge personal information unless the reason for why it’s needed is clear.  If it’s not clear why it’s needed, offer an explanation.</li>
       <li>Allow users to show or hide their entry so they can check for errors.</li>
     </ul>
-  </div>
-  <div class="usa-width-one-half">
+
     <h3 class="usa-heading">Accessibility</h3>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul>
@@ -213,14 +216,14 @@ title: Forms Blocks
     <ul>
       <li>Make sure any input masking is accessible to people using screen readers. We use <a href="https://github.com/filamentgroup/politespace">Filament Group's Politespace</a> to ensure a good experience.</li>
     </ul>
-  </div>  
+  </div>
 </div>
+
 
 <h2>Login</h2>
 
 <div class="preview">
   <form>
-
     <fieldset>
       <legend class="usa-drop_text">Sign in</legend>
       <span class="usa-serif">or <a href="javascript:void(0)">create an account</a></span>
@@ -244,11 +247,14 @@ title: Forms Blocks
         Forgot password?</a></p>
     </fieldset>
   </form>
-
 </div>
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h3 class="usa-heading">Use</h3>
     <ul>
       <li>Sign in forms are a barrier between users and the content they want, so allow users to access as much as of your online services as possible without having to log in.</li>
@@ -257,8 +263,7 @@ title: Forms Blocks
       <li>Make it easy to retrieve a forgotten username and password. Most authentication failures occur because a user has forgotten their username or password. This is especially common when a long time passes between visits, as is the case with most federal websites.</li>
       <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to log in without offering much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile, when mistakes are more likely.</li>
     </ul>
-  </div>
-  <div class="usa-width-one-half">
+
     <h3 class="usa-heading">Accessibility</h3>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul>
@@ -269,11 +274,11 @@ title: Forms Blocks
     <ul>
       <li>Don’t automatically log a user out without giving them 20 seconds advance notice to request more time. Users with disabilities sometimes require more time to respond to prompts.</li>
     </ul>
-  </div>  
+  </div>
 </div>
 
-<h2 class="usa-heading">Password Reset</h2>
 
+<h2 class="usa-heading">Password Reset</h2>
 <div class="preview">
   <form>
 
@@ -342,9 +347,7 @@ title: Forms Blocks
 <h2 class="usa-heading">Contact Form</h2>
 
 <div class="preview">
-  
   <form class="usa-form-large">
-    
     <fieldset>
       
       <legend>Contact us</legend>
@@ -367,20 +370,21 @@ title: Forms Blocks
       </div>
       
     </fieldset>
-    
   </form>
-  
 </div>
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h3 class="usa-heading">Use</h3>
     <ul>
       <li>Avoid adding too many fields to this form – the more you add, the less likely people are to complete the form. This is especially true if you ask for unnecessary personal information, such as phone numbers, that people may not be ready to give out.</li>
       <li>Wherever possible, include a direct email address and phone number on your form. Some users may prefer to write an email or call.</li>
     </ul>
-  </div>
-  <div class="usa-width-one-half">
+
     <h3 class="usa-heading">Accessibility</h3>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul>
@@ -388,5 +392,5 @@ title: Forms Blocks
       <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
-  </div>  
+  </div>
 </div>

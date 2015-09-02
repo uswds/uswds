@@ -5,7 +5,6 @@ title: Search Bar
 ---
 
 <div class="preview preview-search-bar">
-
   <div class="usa-grid">
     <div class="usa-width-one-half">
       <form class="usa-search usa-search-big">
@@ -41,11 +40,14 @@ title: Search Bar
       </form>
     </div>
   </div>
-
 </div>
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h3 class="usa-heading">Use</h3>
     <ul>
       <li>Allow the search bar to be as wide as possible, but a minimum of 27 characters wide. This allows users to enter multiple search terms without their inputs being obscured. The more users can see their search terms, the easier it is to review, verify, and submit their search query.</li>
@@ -56,8 +58,7 @@ title: Search Bar
       <li>Even if the search bar isn't using a label, the form field should include a label for screen reader users.</li>
       <li>The search button itself should be a submit button for the form to reduce the number of keystrokes required to use the form.</li>
     </ul>
-  </div>
-  <div class="usa-width-one-half">
+
     <h3 class="usa-heading">Accessibility</h3>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul>
