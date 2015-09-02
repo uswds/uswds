@@ -2,6 +2,7 @@
 layout: styleguide
 type: component
 title: Search Bar
+lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
 ---
 
 <div class="preview preview-search-bar">
