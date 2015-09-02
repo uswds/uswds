@@ -37,10 +37,10 @@ collections:
     permalink: /visual-style/:path/
   layout-system:
     output: true
-    permalink: /layout-system/:path/
+    permalink: /:path/
   elements:
     output: true
-    permalink: /elements/:path/
+    permalink: /:path/
   components:
     output: true
-    permalink: /components/:path/
+    permalink: /:path/
