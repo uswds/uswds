@@ -3,54 +3,46 @@
 
 <aside class="sidenav" id="menu-content">
   <nav>
-    <ul class="usa-unstyled-list">
-      <li class="tablet-only">
-        <a href="{{ site.baseurl }}/">Home</a>
+
+    <ul class="usa-sidenav-list">
+      <li>
+        <a href="javascript:void(0)">Secondary link</a>
       </li>
-      <li class="tablet-only">
-        <a href="{{ site.baseurl }}/about/">About</a>
-      </li>
-      <li class="visual-style-list">
-        <h2>
-          <a href="{{ site.baseurl }}/visual-style/">Visual Style</a>
-        </h2>
-        <ul class="usa-unstyled-list">
-          {% for visual in site.visual %}
-            <li>
-              <a class="secondary-sidenav-link" href="{{ site.baseurl }}/visual-style/#{{ visual.title | slugify }}">{{ visual.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </li>
-      <li class="layout-systems-list">
-        <h2>
-          <a href="{{ site.baseurl }}/grids/">Grids</a>
-        </h2>
-      </li>
-      <li class="elements-list">
-        <h2>
-          <a href="{{ site.baseurl }}/elements/">Elements</a>
-        </h2>
-        <ul class="usa-unstyled-list">
-          {% for element in site.elements %}
+      <li>
+        <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+        <ul class="usa-sidenav-sub_list">
           <li>
-            <a class="secondary-sidenav-link" href="{{ site.baseurl }}/elements/#{{ element.title | slugify }}">{{ element.title }}</a>
+            <a href="javascript:void(0)">Headers & Navigation</a>
           </li>
-          {% endfor %}
+          <li>
+            <a href="javascript:void(0)">Footers</a>
+            <ul class="usa-sidenav-sub_list">
+              <li>
+                <a href="javascript:void(0)">Grandchild 1</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">Grandchild 2</a>
+              </li>
+              <li>
+                <a class="usa-current-page" href="javascript:void(0)">Grandchild 3</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Buttons</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Tables</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Accordion</a>
+          </li>
         </ul>
       </li>
-      <li class="components-list">
-        <h2>
-          <a href="{{ site.baseurl }}/components/">Components</a>
-        </h2>
-        <ul class="usa-unstyled-list">
-          {% for component in site.components %}
-          <li>
-            <a class="secondary-sidenav-link" href="{{ site.baseurl }}/components/#{{ component.title | slugify }}">{{ component.title }}</a>
-          </li>
-          {% endfor %}
-        </ul>
+      <li>
+        <a href="javascript:void(0)">Secondary link</a>
       </li>
     </ul>
+    
   </nav>
 </aside>

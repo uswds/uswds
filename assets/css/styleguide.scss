@@ -196,45 +196,6 @@ a#skipnav {
   @include media($medium-screen + $width-nav-sidebar) {
     display: block;
   }
-
-  nav {
-    h2, 
-    h3 {
-      font-size: $h4-font-size;
-      font-weight: bold;
-      margin: 0;
-      padding-bottom: .2em;
-    }
-    h3 {
-      margin: 0;
-    }  
-    ul {
-      color: $color-primary;      
-      ul {
-        display: none;
-        padding: 0;        
-        li {
-          padding-left: 1em;
-
-          &:before {
-            content: "";
-            padding-right: 1em;
-          }
-          &:after {
-            margin-bottom: 0;
-          }
-        }
-      }
-      li {
-        font-family: $font-sans;
-        padding: .25em 0;
-      }
-    }
-    a,
-    a:visited {
-      color: $color-primary;
-    }
-  }
 }
 
 .visual-style .sidenav .visual-style-list {
