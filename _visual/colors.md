@@ -5,7 +5,7 @@ title: Colors
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
-<h3 class="usa-heading">Palette</h3>
+<h3 class="usa-heading" id="palette">Palette</h3>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
@@ -305,7 +305,7 @@ title: Colors
   </div>
 </div>
 
-<h3 class="usa-heading">Text Accessibility</h3>
+<h3 class="usa-heading" id="text-accessibility">Text Accessibility</h3>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi enim mauris, placerat ac convallis ut, tincidunt at erat. Mauris et dui et ligula viverra venenatis dignissim nec neque. Integer sit amet nibh ac nisi dapibus efficitur. Etiam egestas a arcu vitae dictum. Integer quis porta orci, luctus pulvinar erat. Sed elementum justo at egestas tincidunt. Quisque tristique sem at ipsum dapibus varius.</p>
 
