@@ -63,16 +63,26 @@
 }
 
 .usa-accordion-bordered {
-
   .usa-accordion-content {
-    border: 3px solid $color-gray-lightest;
+    border: {
+      bottom: 3px solid $color-gray-lightest;
+      left: 3px solid $color-gray-lightest;
+      right: 3px solid $color-gray-lightest;
+    }
   }
-
 }
 
 .usa-accordion-content {
   display: block;
   background-color: white;
   overflow: auto;
-  padding: 0 3rem;
+  padding: 3rem;
+
+  *:first-child {
+    margin-top: 0;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
 }

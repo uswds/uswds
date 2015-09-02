@@ -16,16 +16,12 @@ p {
 }
 
 a {
-  border-bottom: 1px dotted;
   color: $color-primary;
   text-decoration: none;
 
-  &:hover {
-    border-bottom: 1px solid;
-  }
-
   &:hover, &:active {
     color: $color-primary-darker;
+    text-decoration: underline;
   }
 
   &:visited {
@@ -117,6 +113,12 @@ dfn {
 
 // Custom typography
 
+p {
+  a {
+    text-decoration: underline;
+  }
+}
+
 .usa-content {
   p {
     max-width: 53rem;
@@ -186,5 +188,9 @@ dfn {
 
   a {
     color: $color-gray-lighter;
+    
+    &:hover {
+      color: $color-white;
+    }
   }
 }

@@ -31,6 +31,7 @@ button,
   outline: none;
   padding: 1rem 2rem;
   text-align: center;
+  text-decoration: none;
   width: 100%;
   -webkit-font-smoothing: antialiased;
 
@@ -39,6 +40,7 @@ button,
     background-color: $color-primary-darker;
     border-bottom: 0;
     color: $color-white;
+    text-decoration: none;
   }
 
   &:focus,
