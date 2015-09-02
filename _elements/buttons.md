@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: styleguide
 type: element
 title: Buttons
 ---

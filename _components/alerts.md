@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: styleguide
 type: component
 title: Alerts
 ---
