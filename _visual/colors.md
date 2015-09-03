@@ -1,6 +1,7 @@
 ---
 layout: styleguide
 title: Colors
+order: 02
 ---
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>

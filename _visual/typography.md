@@ -1,6 +1,7 @@
 ---
 layout: styleguide
 title: Typography
+order: 01
 ---
 
 <p>Introduction to the typography recommendations. 
