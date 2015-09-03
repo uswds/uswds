@@ -204,6 +204,10 @@ a#skipnav {
 
 .visual-style .sidenav .visual-style-sublist {
   display: block;
+  
+  ul {
+    display: block;
+  }
 }
 
 .form-controls .sidenav .form-controls-sublist {
