@@ -228,7 +228,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h3 class="usa-heading">Use</h3>
-    <ul>
+    <ul class="usa-content-list">
       <li>Footers serve site visitors who arrive at the bottom of a page without finding what they want.</li>
       <li>Footer links should point to popular content that might answer a visitor’s remaining questions. Links to disclaimers and legal content sometimes need to be in the footer, but try to minimize “disclaimer bloat” wherever possible.</li>
       <li>Links do not have to be grouped in the same way they are in the header navigation (especially if the navigation offers many more links than the footer can).</li>
@@ -238,7 +238,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </ul>
 
     <h3 class="usa-heading">Accessibility</h3>
-    <ul>
+    <ul class="usa-content-list">
       <li>Code the navigation so that pressing the  tab key moves focus from link to link in the navigation, even when the navigation has collapsed into an accordion.</li>
       <li>On small screens: when collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the "Accordion" section.</li>
     </ul>

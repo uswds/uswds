@@ -140,7 +140,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h3 class="usa-heading">Use</h3>
-    <ul>
+    <ul class="usa-content-list">
       <li>
         Accordions are best used when users only need a few specific pieces of content within a page.
       </li>
@@ -165,7 +165,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </ul>
 
     <h3 class="usa-heading">Accessibility</h3>
-    <ul>
+    <ul class="usa-content-list">
       <li>
         Code header areas in the accordion as <code>&lt;buttons&gt;</code> so that they are usable with both screen readers and the keyboard.
       </li>
