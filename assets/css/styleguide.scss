@@ -183,79 +183,43 @@ a#skipnav {
   bottom: 0;
   left: 0;
   width: $width-nav-sidebar;
-  background-color: #fafafa;
-  border-right: 1px solid #eeeeee;
-  padding: 5rem 2em 2em;
+  border-right: 1px solid $color-gray-light;
+  padding: 5rem 3rem 3rem 3rem;
   overflow: auto;
   display: none;
   z-index: -1;
+  
   .lt-ie9 & {
     width: 25%;
+  }
+
+  .usa-sidenav-sub_list {
+    display: none;
   }
 
   @include media($medium-screen + $width-nav-sidebar) {
     display: block;
   }
+}
 
-  nav {
-    h2, 
-    h3 {
-      font-size: $h4-font-size;
-      font-weight: bold;
-      margin: 0;
-      padding-bottom: .2em;
-    }
-    h3 {
-      margin: 0;
-    }  
-    ul {
-      color: $color-primary;      
-      ul {
-        display: none;
-        padding: 0;        
-        li {
-          padding-left: 1em;
-
-          &:before {
-            content: "";
-            padding-right: 1em;
-          }
-          &:after {
-            margin-bottom: 0;
-          }
-        }
-      }
-      li {
-        font-family: $font-sans;
-        padding: .25em 0;
-      }
-    }
-    a,
-    a:visited {
-      color: $color-primary;
-    }
+.visual-style .sidenav .visual-style-sublist {
+  display: block;
+  
+  ul {
+    display: block;
   }
 }
 
-.visual-style .sidenav .visual-style-list {
-  ul {
-    display: block;
-  }
+.form-controls .sidenav .form-controls-sublist {
+  display: block;
 }
-.layout-system .sidenav .layout-systems-list {
-  ul {
-    display: block;
-  }
+
+.form-templates .sidenav .form-templates-sublist {
+  display: block;
 }
-.elements .sidenav .elements-list {
-  ul {
-    display: block;
-  }
-}
-.components .sidenav .components-list {
-  ul {
-    display: block;
-  }
+
+.footers .sidenav .footers-sublist {
+  display: block;
 } 
 
 // Main Content --------- //

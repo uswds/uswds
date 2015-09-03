@@ -1,12 +1,13 @@
 ---
-layout: default
+layout: styleguide
 type: component
 title: Footers
+lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
 ---
 
 <div class="preview">
 
-  <h3 class="usa-heading">Footer Big</h3>
+  <h3 class="usa-heading" id="big-footer">Big footer</h3>
 
   <footer class="usa-footer usa-footer-big usa-sans" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
@@ -101,7 +102,7 @@ title: Footers
     </div>
   </footer>
 
-  <h3 class="usa-heading">Footer Medium</h3>
+  <h3 class="usa-heading" id="medium-footer">Medium footer</h3>
 
   <footer class="usa-footer usa-footer-medium usa-sans" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
@@ -176,7 +177,7 @@ title: Footers
     </div>
   </footer>
 
-  <h3 class="usa-heading">Footer Slim</h3>
+  <h3 class="usa-heading" id="slim-footer">Slim footer</h3>
 
   <footer class="usa-footer usa-footer-slim usa-sans" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">

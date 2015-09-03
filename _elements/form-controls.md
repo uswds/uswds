@@ -1,7 +1,8 @@
 ---
-layout: default
+layout: styleguide
 type: component
-title: Inputs
+title: Form controls
+lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
 ---
 
 <h3 class="usa-heading">Accessibility</h3>
@@ -17,7 +18,7 @@ title: Inputs
 
 <p>If you are a building a form with multiple controls, also consider the <a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines in the “Common Form Templates” section</a>.</p>
 
-<h2 class="usa-heading">Text Input</h2>
+<h2 class="usa-heading" id="text-inputs">Text Input</h2>
 
 <div class="preview">
 
@@ -43,7 +44,20 @@ title: Inputs
 
 </div>
 
-<h2 class="usa-heading">Checkboxes</h2>
+<h2 class="usa-heading" id="dropdown">Dropdown</h2>
+
+<div class="preview">
+<form>
+  <label for="options">Dropdown Label h4</label>
+  <select name="options" id="options">
+    <option value="value1">Option A</option>
+    <option value="value2">Option B</option>
+    <option value="value3">Option C</option>
+  </select>
+</form>
+</div>
+
+<h2 class="usa-heading" id="checkboxes">Checkboxes</h2>
 
 <div class="preview">
 
@@ -101,29 +115,7 @@ title: Inputs
 
 </div>
 
-<h2 class="usa-heading">Range slider</h2>
-
-<div class="preview">
-
-  <label for="range-slider">Range Slider Label h4</label>
-  <input id="range-slider" type="range" min="0" max="100">
-
-</div>
-
-<h2 class="usa-heading">Dropdown</h2>
-
-<div class="preview">
-<form>
-  <label for="options">Dropdown Label h4</label>
-  <select name="options" id="options">
-    <option value="value1">Option A</option>
-    <option value="value2">Option B</option>
-    <option value="value3">Option C</option>
-  </select>
-</form>
-</div>
-
-<h2 class="usa-heading">Memorable Dates</h2>
+<h2 class="usa-heading" id="date-input">Date input</h2>
 
 <div class="preview">
 
@@ -145,6 +137,15 @@ title: Inputs
       </div>
     </div>
   </fieldset>
+
+</div>
+
+<h2 class="usa-heading" id="range-slider">Range slider</h2>
+
+<div class="preview">
+
+  <label for="range-slider">Range Slider Label h4</label>
+  <input id="range-slider" type="range" min="0" max="100">
 
 </div>
 

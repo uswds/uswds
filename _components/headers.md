@@ -1,12 +1,13 @@
 ---
-layout: default
+layout: styleguide
 type: component
-title: Headers & Navigation
+title: Headers & navigation
+lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
 ---
 
 <div class="preview">
   
-  <h2 class="usa-heading">Side Nav</h2>
+  <h2 class="usa-heading">Sidenav</h2>
 
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
@@ -24,7 +25,7 @@ title: Headers & Navigation
     </aside>
   </div>
 
-  <h2 class="usa-heading">Side Nav with Sub Items</h2>
+  <h2 class="usa-heading">Sidenav with sub items</h2>
 
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
@@ -59,7 +60,7 @@ title: Headers & Navigation
     </aside>
   </div>
 
-  <h2 class="usa-heading">Side Nav with Sub Items + Grandchild Items</h2>
+  <h2 class="usa-heading">Sidenav with sub items + grandchild items</h2>
 
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">

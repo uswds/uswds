@@ -6,7 +6,11 @@
 
   li {
     border-top: 1px solid $color-gray;
-    font-size: $h3-font-size;
+    font-size: $h4-font-size;
+
+    &:first-child {
+      border-top: none;
+    }
   }
 
   a {
@@ -47,7 +51,7 @@
 
   li {
     border: none;
-    font-size: $base-font-size;
+    font-size: $h5-font-size;
   }
 
   a {

@@ -1,12 +1,13 @@
 ---
 layout: styleguide
 title: Typography
+order: 01
 ---
 
 <p>Introduction to the typography recommendations. 
 Include intro of the two families, how we have diff packages, a bit on considerations which informed this font choice (open source, accessible, modern + classic, flexible to a variety of styles, etc.)</p>
 
-<h3 class="usa-heading">Typefaces</h3>
+<h3 class="usa-heading" id="typefaces">Typefaces</h3>
 
 <h4 class="usa-heading-alt">Source Sans Pro</h4>
 
@@ -46,7 +47,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
 <a class="usa-button usa-button-primary-alt" href="#">Download the style files?</a>
 <p class="usa-small-text">Info about what files to expect when you download.</p>
 
-<h3 class="usa-heading">Pairings + Styles</h3>
+<h3 class="usa-heading" id="pairings">Pairings + Styles</h3>
 
 <p>Guidance/overview on how our font packages were designed, etc.
 Something about load performance consideration and how we recommend one of the following font pages for use.  A bit on the rationale for the pairings if it’s not covered an above section.</p>
@@ -898,7 +899,7 @@ Something about load performance consideration and how we recommend one of the f
 
 <!-- Typsetting section begin -->
 
-<h3 class="usa-heading">Typesetting</h3>
+<h3 class="usa-heading" id="typesetting">Typesetting</h3>
 
 <div class="preview">
   <h6 class="usa-heading-alt">Alignment</h6>
@@ -930,7 +931,7 @@ Something about load performance consideration and how we recommend one of the f
 
 <!-- Links section begin -->
 
-<h3 class="usa-heading">Links</h3>
+<h3 class="usa-heading" id="links">Links</h3>
 
 <div class="preview">
 
@@ -950,7 +951,7 @@ Something about load performance consideration and how we recommend one of the f
 
 <!-- Lists section begin -->
 
-<h3 class="usa-heading">Lists</h3>
+<h3 class="usa-heading" id="lists">Lists</h3>
 
 <div class="preview">
 
