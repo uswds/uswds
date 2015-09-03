@@ -121,8 +121,12 @@ p {
 
 .usa-content {
   p {
-    max-width: 53rem;
+    max-width: $text-max-width;
   }  
+}
+
+.usa-content-list {
+  max-width: $text-max-width;
 }
 
 .usa-sans,
