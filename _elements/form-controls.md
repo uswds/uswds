@@ -44,6 +44,20 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h3 class="usa-heading">Use</h3>
+    <p>This is the usage content for the example.</p>
+
+    <h3 class="usa-heading">Accessibility</h3>
+    <p>This is the accessibility content for the example.</p>
+  </div>
+</div>
+
 <h2 class="usa-heading" id="dropdown">Dropdown</h2>
 
 <div class="preview">
@@ -55,6 +69,20 @@ lead: Intro text on what is included in this section and how to use it. No more 
     <option value="value3">Option C</option>
   </select>
 </form>
+</div>
+
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h3 class="usa-heading">Use</h3>
+    <p>This is the usage content for the example.</p>
+
+    <h3 class="usa-heading">Accessibility</h3>
+    <p>This is the accessibility content for the example.</p>
+  </div>
 </div>
 
 <h2 class="usa-heading" id="checkboxes">Checkboxes</h2>
@@ -88,6 +116,20 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h3 class="usa-heading">Use</h3>
+    <p>This is the usage content for the example.</p>
+
+    <h3 class="usa-heading">Accessibility</h3>
+    <p>This is the accessibility content for the example.</p>
+  </div>
+</div>
+
 <h2 class="usa-heading">Radio buttons</h2>
 
 <div class="preview">
@@ -115,6 +157,20 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h3 class="usa-heading">Use</h3>
+    <p>This is the usage content for the example.</p>
+
+    <h3 class="usa-heading">Accessibility</h3>
+    <p>This is the accessibility content for the example.</p>
+  </div>
+</div>
+
 <h2 class="usa-heading" id="date-input">Date input</h2>
 
 <div class="preview">
@@ -140,6 +196,20 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h3 class="usa-heading">Use</h3>
+    <p>This is the usage content for the example.</p>
+
+    <h3 class="usa-heading">Accessibility</h3>
+    <p>This is the accessibility content for the example.</p>
+  </div>
+</div>
+
 <h2 class="usa-heading" id="range-slider">Range slider</h2>
 
 <div class="preview">
@@ -149,13 +219,16 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h3 class="usa-heading">Use</h3>
     <p>This is the usage content for the example.</p>
-  </div>
-  <div class="usa-width-one-half">
+
     <h3 class="usa-heading">Accessibility</h3>
     <p>This is the accessibility content for the example.</p>
-  </div>  
+  </div>
 </div>
