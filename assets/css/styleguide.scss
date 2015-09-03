@@ -188,8 +188,13 @@ a#skipnav {
   overflow: auto;
   display: none;
   z-index: -1;
+  
   .lt-ie9 & {
     width: 25%;
+  }
+
+  .usa-sidenav-sub_list {
+    display: none;
   }
 
   @include media($medium-screen + $width-nav-sidebar) {
@@ -197,25 +202,20 @@ a#skipnav {
   }
 }
 
-.visual-style .sidenav .visual-style-list {
-  ul {
-    display: block;
-  }
+.visual-style .sidenav .visual-style-sublist {
+  display: block;
 }
-.layout-system .sidenav .layout-systems-list {
-  ul {
-    display: block;
-  }
+
+.form-controls .sidenav .form-controls-sublist {
+  display: block;
 }
-.elements .sidenav .elements-list {
-  ul {
-    display: block;
-  }
+
+.form-templates .sidenav .form-templates-sublist {
+  display: block;
 }
-.components .sidenav .components-list {
-  ul {
-    display: block;
-  }
+
+.footers .sidenav .footers-sublist {
+  display: block;
 } 
 
 // Main Content --------- //

@@ -5,7 +5,7 @@
     {% include head.html %}
   </head>
 
-  <body class="{{ page.slug }}">
+  <body class="{{ page.title | slugify }}">
 
   	{% include navbar.html %}
 	
