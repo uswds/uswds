@@ -34,7 +34,7 @@ sass:
 collections:
   visual:
     output: true
-    permalink: /visual-style/:path/
+    permalink: /:path/
   layout-system:
     output: true
     permalink: /:path/
