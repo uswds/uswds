@@ -49,10 +49,33 @@ lead: Intro text on what is included in this section and how to use it. No more 
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h3 class="usa-heading">Use</h3>
-    <p>This is the usage content for the example.</p>
+    <h4 class="usa-heading">Accessibility</h3>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
 
-    <h3 class="usa-heading">Accessibility</h3>
-    <p>This is the accessibility content for the example.</p>
+    <h4 class="usa-heading">Usability</h3>
+    <h5>When to use</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>When to consider something different</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>Guidelines</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
   </div>
 </div>

@@ -9,7 +9,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 <p>As you customize form controls from this library, be sure they continue to meet the following accessibility requirements:</p>
 
-<ul>
+<ul class="usa-content-list">
   <li>All form control tags should have an associated label. The labels for attribute value should match the related input <code>id</code> attribute and should also be unique to the entire page. For example, the input with <code>id="favorite-pie"</code> will always have a label with <code>for="favorite-pie"</code>. This way screen readers are able to perceive the relevant content.</li>
   <li>Any additional information – such as required, optional, or example text – should be wrapped within the label tags. For example: <code>&lt;label for="name"&gt;Favorite Pie &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;</code>. This way screen readers know what additional information is related to each field.</li>
   <li>Do not replace <code>&lt;input&gt;</code> tag-based form controls with styled <code>&lt;div&gt;</code> tags or JavaScript that "fake" form controls. Form controls not written in semantic HTML are very difficult for screen readers to handle.</li>
@@ -44,6 +44,43 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h3>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
+
+    <h4 class="usa-heading">Usability</h3>
+    <h5>When to use</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>When to consider something different</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>Guidelines</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+</div>
+
 <h2 class="usa-heading" id="dropdown">Dropdown</h2>
 
 <div class="preview">
@@ -55,6 +92,43 @@ lead: Intro text on what is included in this section and how to use it. No more 
     <option value="value3">Option C</option>
   </select>
 </form>
+</div>
+
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h3>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
+
+    <h4 class="usa-heading">Usability</h3>
+    <h5>When to use</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>When to consider something different</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>Guidelines</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
 </div>
 
 <h2 class="usa-heading" id="checkboxes">Checkboxes</h2>
@@ -88,6 +162,43 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h3>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
+
+    <h4 class="usa-heading">Usability</h3>
+    <h5>When to use</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>When to consider something different</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>Guidelines</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+</div>
+
 <h2 class="usa-heading">Radio buttons</h2>
 
 <div class="preview">
@@ -115,6 +226,43 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h3>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
+
+    <h4 class="usa-heading">Usability</h3>
+    <h5>When to use</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>When to consider something different</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>Guidelines</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+</div>
+
 <h2 class="usa-heading" id="date-input">Date input</h2>
 
 <div class="preview">
@@ -140,6 +288,43 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h3>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
+
+    <h4 class="usa-heading">Usability</h3>
+    <h5>When to use</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>When to consider something different</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>Guidelines</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+</div>
+
 <h2 class="usa-heading" id="range-slider">Range slider</h2>
 
 <div class="preview">
@@ -149,13 +334,39 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
-    <h3 class="usa-heading">Use</h3>
-    <p>This is the usage content for the example.</p>
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h3>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
+
+    <h4 class="usa-heading">Usability</h3>
+    <h5>When to use</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>When to consider something different</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>Guidelines</h4>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
   </div>
-  <div class="usa-width-one-half">
-    <h3 class="usa-heading">Accessibility</h3>
-    <p>This is the accessibility content for the example.</p>
-  </div>  
 </div>
