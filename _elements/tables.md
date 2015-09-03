@@ -47,7 +47,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
         <td scope='row'>Boston Creme Pie</td>
         <td>A cake that is filled with a custard or cream filling and frosted with chocolate</td>
         <td>$5.55</td>
-      </tr>      
+      </tr>
     </tbody>
   </table>
 
@@ -91,19 +91,21 @@ lead: Intro text on what is included in this section and how to use it. No more 
         <td scope='row'>Boston Creme Pie</td>
         <td>A cake that is filled with a custard or cream filling and frosted with chocolate</td>
         <td>$5.55</td>
-      </tr>      
+      </tr>
     </tbody>
   </table>
 
 </div>
-
-<div class="usa-grid">
-  <div class="usa-width-one-half">
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h3 class="usa-heading">Use</h3>
     <p>This is the usage content for the example.</p>
-  </div>
-  <div class="usa-width-one-half">
+
     <h3 class="usa-heading">Accessibility</h3>
     <p>This is the accessibility content for the example.</p>
-  </div>  
+  </div>
 </div>

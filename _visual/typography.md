@@ -4,7 +4,7 @@ title: Typography
 order: 01
 ---
 
-<p>Introduction to the typography recommendations. 
+<p>Introduction to the typography recommendations.
 Include intro of the two families, how we have diff packages, a bit on considerations which informed this font choice (open source, accessible, modern + classic, flexible to a variety of styles, etc.)</p>
 
 <h3 class="usa-heading" id="typefaces">Typefaces</h3>
@@ -89,7 +89,7 @@ Something about load performance consideration and how we recommend one of the f
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
-        
+
         <div class="usa-grid usa-typography-example-font">
           <div class="usa-width-one-half">
             <h3 class="usa-display">Display</h3>
@@ -244,7 +244,7 @@ Something about load performance consideration and how we recommend one of the f
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
-        
+
         <div class="serif-robust usa-grid usa-typography-example-font">
           <div class="usa-width-one-half">
             <h3 class="usa-display">Display 1</h3>
@@ -421,7 +421,7 @@ Something about load performance consideration and how we recommend one of the f
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
-        
+
         <div class="serif-robust serif-sans-minor usa-grid usa-typography-example-font">
           <div class="usa-width-one-half">
             <h3 class="usa-display">Display 1</h3>
@@ -600,7 +600,7 @@ Something about load performance consideration and how we recommend one of the f
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
 
         </div>
-        
+
         <div class="sans-style usa-grid usa-typography-example-font">
           <div class="usa-width-one-half">
             <h3 class="usa-display">Display 1</h3>
@@ -767,7 +767,7 @@ Something about load performance consideration and how we recommend one of the f
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
-        
+
         <div class="sans-style serif-body usa-grid usa-typography-example-font">
           <div class="usa-width-one-half">
             <h3 class="usa-display">Display 1</h3>
@@ -907,13 +907,13 @@ Something about load performance consideration and how we recommend one of the f
     <h4>I am a subject</h4>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
   </div>
-    
+
   <h6 class="usa-heading-alt">Line length - Desktop</h6>
   <div class="usa-line-length-example">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea sequat.</p>
     <p class="help-text">75 characaters max on desktop</p>
   </div>
-  
+
   <h6 class="usa-heading-alt">Spacing</h6>
   <h1>Section heading</h1>
   <p class="usa-font-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
@@ -984,13 +984,16 @@ Something about load performance consideration and how we recommend one of the f
 
 <!-- Lists section end -->
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h3 class="usa-heading">Use</h3>
     <p>This is the usage content for the example.</p>
-  </div>
-  <div class="usa-width-one-half">
+
     <h3 class="usa-heading">Accessibility</h3>
     <p>This is the accessibility content for the example.</p>
-  </div>  
+  </div>
 </div>
