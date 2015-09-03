@@ -109,13 +109,16 @@ lead: Intro text on what is included in this section and how to use it. No more 
   <img src="{{ site.baseurl }}/assets/img/static/Headers_Navigation_UI_v2.png">
 </div>
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h3 class="usa-heading">Use</h3>
     <p>This is the usage content for the example.</p>
-  </div>
-  <div class="usa-width-one-half">
+
     <h3 class="usa-heading">Accessibility</h3>
     <p>This is the accessibility content for the example.</p>
-  </div>  
+  </div>
 </div>

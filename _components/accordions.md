@@ -17,7 +17,9 @@ lead: Intro text on what is included in this section and how to use it. No more 
           Apple Pie
         </button>
         <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+          <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </div>
       </li>
       <li>
@@ -26,7 +28,9 @@ lead: Intro text on what is included in this section and how to use it. No more 
           Strawberry Pie
         </button>
         <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
+          <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </div>
       </li>
       <li>
@@ -35,7 +39,9 @@ lead: Intro text on what is included in this section and how to use it. No more 
           Peach Pie
         </button>
         <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
+          <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </div>
       </li>
       <li>
@@ -44,7 +50,9 @@ lead: Intro text on what is included in this section and how to use it. No more 
           Key Lime Pie
         </button>
         <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
+          <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </div>
       </li>
       <li>
@@ -53,7 +61,9 @@ lead: Intro text on what is included in this section and how to use it. No more 
           Blackberry Pie
         </button>
         <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
+          <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </div>
       </li>
     </ul>
@@ -69,7 +79,9 @@ lead: Intro text on what is included in this section and how to use it. No more 
           Apple Pie
         </button>
         <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+          <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </div>
       </li>
       <li>
@@ -78,7 +90,9 @@ lead: Intro text on what is included in this section and how to use it. No more 
           Strawberry Pie
         </button>
         <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
+          <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </div>
       </li>
       <li>
@@ -87,7 +101,9 @@ lead: Intro text on what is included in this section and how to use it. No more 
           Peach Pie
         </button>
         <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
+          <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </div>
       </li>
       <li>
@@ -96,7 +112,9 @@ lead: Intro text on what is included in this section and how to use it. No more 
           Key Lime Pie
         </button>
         <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
+          <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </div>
       </li>
       <li>
@@ -105,7 +123,9 @@ lead: Intro text on what is included in this section and how to use it. No more 
           Blackberry Pie
         </button>
         <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
+          <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </div>
       </li>
     </ul>
@@ -113,9 +133,13 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
-    <h3>Use</h3>
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h3 class="usa-heading">Use</h3>
     <ul>
       <li>
         Accordions are best used when users only need a few specific pieces of content within a page.
@@ -138,10 +162,9 @@ lead: Intro text on what is included in this section and how to use it. No more 
       <li>
         Make sure interactive elements within the collapsable region are far enough from the headers that users don't accidentally trigger a collapse. (The exact distance depends on the device.)
       </li>
-      </ul>
-  </div>
-  <div class="usa-width-one-half">
-    <h3>Accessibility</h3>
+    </ul>
+
+    <h3 class="usa-heading">Accessibility</h3>
     <ul>
       <li>
         Code header areas in the accordion as <code>&lt;buttons&gt;</code> so that they are usable with both screen readers and the keyboard.

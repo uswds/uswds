@@ -41,16 +41,18 @@ lead: Intro text on what is included in this section and how to use it. No more 
       <p class="usa-alert-text">Multi line. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui atione voluptatem sequi nesciunt. Neque porro quisquam est, qui doloremipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
     </div>
   </div>
-
 </div>
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h3 class="usa-heading">Use</h3>
     <p>This is the usage content for the example.</p>
-  </div>
-  <div class="usa-width-one-half">
+
     <h3 class="usa-heading">Accessibility</h3>
     <p>This is the accessibility content for the example.</p>
-  </div>  
+  </div>
 </div>
