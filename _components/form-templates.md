@@ -20,12 +20,56 @@ lead: asjac Intro text on what is included in this section and how to use it. No
   <li>Keep your form blocks in a vertical pattern. It is an ideal approach for accessibility, due to limited vision that makes it hard to scan from right to left.</li>
 </ul>
 
-<div class="preview">
+<div class="preview" id="name-form">
+
+  <form>
+
+    <fieldset>
+      <legend>Name</legend>
+      <label for="title">Title</label>
+      <input class="usa-input-tiny" id="title" name="title" type="text">
+
+      <label for="first-name">First Name <span class="usa-additional_text">Required</span></label>
+      <input id="first-name" name="first-name" type="text">
+
+      <label for="middle-name">Middle Name</label>
+      <input id="middle-name" name="middle-name" type="text">
+
+      <label for="last-name">Last Name <span class="usa-additional_text">Required</span></label>
+      <input id="last-name" name="last-name" type="text">
+
+      <label for="suffix">Suffix</label>
+      <input class="usa-input-tiny" id="suffix" name="suffix" type="text">
+    </fieldset>
+  </form>
+
+</div>
+
+<div class="usa-grid">
+  <div class="usa-width-one-half">
+    <h3 class="usa-heading">Use</h3>
+    <ul>
+      <li>Leave the title and suffix fields as text boxes (instead of offering drop downs.) There are many possible titles and suffixes; text boxes accommodate them all.</li>
+      <li>Do not restrict the types of characters users can enter in any of these fields. Names can include characters outside the standard Roman alphabet.</li>
+    </ul>
+  </div>
+  <div class="usa-width-one-half">
+    <h3 class="usa-heading">Accessibility</h3>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul>
+      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
+  </div>  
+</div>
+
+<div class="preview" id="address-form">
 
   <form class="usa-form-large">
 
     <fieldset>
-      <legend>Mailing Address</legend>
+      <legend>Mailing address</legend>
       <label for="mailing-address-1">Street Address 1</label>
       <input id="mailing-address-1" name="mailing-address-1" type="text">
 
@@ -128,96 +172,7 @@ lead: asjac Intro text on what is included in this section and how to use it. No
   </div>  
 </div>
 
-<div class="preview">
-
-  <form>
-
-    <fieldset>
-      <legend>Name</legend>
-      <label for="title">Title</label>
-      <input class="usa-input-tiny" id="title" name="title" type="text">
-
-      <label for="first-name">First Name <span class="usa-additional_text">Required</span></label>
-      <input id="first-name" name="first-name" type="text">
-
-      <label for="middle-name">Middle Name</label>
-      <input id="middle-name" name="middle-name" type="text">
-
-      <label for="last-name">Last Name <span class="usa-additional_text">Required</span></label>
-      <input id="last-name" name="last-name" type="text">
-
-      <label for="suffix">Suffix</label>
-      <input class="usa-input-tiny" id="suffix" name="suffix" type="text">
-    </fieldset>
-  </form>
-
-</div>
-
-<div class="usa-grid">
-  <div class="usa-width-one-half">
-    <h3 class="usa-heading">Use</h3>
-    <ul>
-      <li>Leave the title and suffix fields as text boxes (instead of offering drop downs.) There are many possible titles and suffixes; text boxes accommodate them all.</li>
-      <li>Do not restrict the types of characters users can enter in any of these fields. Names can include characters outside the standard Roman alphabet.</li>
-    </ul>
-  </div>
-  <div class="usa-width-one-half">
-    <h3 class="usa-heading">Accessibility</h3>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
-    <ul>
-      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
-      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
-    </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
-  </div>  
-</div>
-
-<div class="preview">
-  <form>
-
-    <fieldset>
-      <legend>Social Security Number</legend>
-
-      <label for="ssn">SSN <span class="usa-additional_text">Required</span>
-      </label>
-      <input id="ssn" name="ssn" type="password" class="usa-ssn"
-          data-grouplength="3,2,4" data-delimiter="-" data-politespace
-          required pattern="^d{8}$">
-      <p class="usa-form-note">
-        <a title="Show password" href="javascript:void(0)"
-            class="usa-show_ssn"
-            aria-controls="ssn">
-          Show SSN</a>
-      </p>
-
-    </fieldset>
-
-  </form>
-</div>
-
-<div class="usa-grid">
-  <div class="usa-width-one-half">
-    <h3 class="usa-heading">Use</h3>
-    <ul>
-      <li>Don’t ask for a social security number unless it’s absolutely essential. Users are reluctant to divulge personal information unless the reason for why it’s needed is clear.  If it’s not clear why it’s needed, offer an explanation.</li>
-      <li>Allow users to show or hide their entry so they can check for errors.</li>
-    </ul>
-  </div>
-  <div class="usa-width-one-half">
-    <h3 class="usa-heading">Accessibility</h3>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
-    <ul>
-      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
-      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
-    </ul>
-    <p>We also recommend:</p>
-    <ul>
-      <li>Make sure any input masking is accessible to people using screen readers. We use <a href="https://github.com/filamentgroup/politespace">Filament Group's Politespace</a> to ensure a good experience.</li>
-    </ul>
-  </div>  
-</div>
-
-<h2>Login</h2>
+<h2 id="login-form">Login</h2>
 
 <div class="preview">
   <form>
@@ -273,13 +228,13 @@ lead: asjac Intro text on what is included in this section and how to use it. No
   </div>  
 </div>
 
-<h2 class="usa-heading">Password Reset</h2>
+<h2 class="usa-heading" id="password-reset-form">Password reset</h2>
 
 <div class="preview">
   <form>
 
     <fieldset>
-      <legend class="usa-drop_text">Reset Password</legend>
+      <legend class="usa-drop_text">Reset password</legend>
       <span class="usa-serif">Please enter your new password</span>
 
       <div class="usa-alert usa-alert-info">
@@ -340,7 +295,52 @@ lead: asjac Intro text on what is included in this section and how to use it. No
   </div>  
 </div>
 
-<h2 class="usa-heading">Contact Form</h2>
+<div class="preview" id="ssn-form">
+  <form>
+
+    <fieldset>
+      <legend>Social Security Number</legend>
+
+      <label for="ssn">SSN <span class="usa-additional_text">Required</span>
+      </label>
+      <input id="ssn" name="ssn" type="password" class="usa-ssn"
+          data-grouplength="3,2,4" data-delimiter="-" data-politespace
+          required pattern="^d{8}$">
+      <p class="usa-form-note">
+        <a title="Show password" href="javascript:void(0)"
+            class="usa-show_ssn"
+            aria-controls="ssn">
+          Show SSN</a>
+      </p>
+
+    </fieldset>
+
+  </form>
+</div>
+
+<div class="usa-grid">
+  <div class="usa-width-one-half">
+    <h3 class="usa-heading">Use</h3>
+    <ul>
+      <li>Don’t ask for a social security number unless it’s absolutely essential. Users are reluctant to divulge personal information unless the reason for why it’s needed is clear.  If it’s not clear why it’s needed, offer an explanation.</li>
+      <li>Allow users to show or hide their entry so they can check for errors.</li>
+    </ul>
+  </div>
+  <div class="usa-width-one-half">
+    <h3 class="usa-heading">Accessibility</h3>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul>
+      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+    </ul>
+    <p>We also recommend:</p>
+    <ul>
+      <li>Make sure any input masking is accessible to people using screen readers. We use <a href="https://github.com/filamentgroup/politespace">Filament Group's Politespace</a> to ensure a good experience.</li>
+    </ul>
+  </div>  
+</div>
+
+<h2 class="usa-heading" id="contact-form">Contact form</h2>
 
 <div class="preview">
   
