@@ -51,13 +51,13 @@ lead: asjac Intro text on what is included in this section and how to use it. No
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h3 class="usa-heading">Use</h3>
+    <h4 class="usa-heading">Use</h4>
     <ul class="usa-content-list">
       <li>Leave the title and suffix fields as text boxes (instead of offering drop downs.) There are many possible titles and suffixes; text boxes accommodate them all.</li>
       <li>Do not restrict the types of characters users can enter in any of these fields. Names can include characters outside the standard Roman alphabet.</li>
     </ul>
 
-    <h3 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
@@ -155,14 +155,14 @@ lead: asjac Intro text on what is included in this section and how to use it. No
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h3 class="usa-heading">Use</h3>
+    <h4 class="usa-heading">Use</h4>
     <p>As you customize this form, ensure it continues to:</p>
     <ul class="usa-content-list">
       <li>Label the optional ones. Users can infer that all the others are required.</li>
       <li>Support both 5 and 9 digit zips. Some addresses require a nine digit ZIP code. The input mask should be "#####-####"" so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit zip code. However, this input mask should only appear when people click away from the ZIP code input box (see the accessibility guidelines).</li>
     </ul>
 
-    <h3 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
@@ -205,13 +205,13 @@ lead: asjac Intro text on what is included in this section and how to use it. No
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h3 class="usa-heading">Use</h3>
+    <h4 class="usa-heading">Use</h4>
     <ul class="usa-content-list">
       <li>Leave the title and suffix fields as text boxes (instead of offering drop downs.) There are many possible titles and suffixes; text boxes accommodate them all.</li>
       <li>Do not restrict the types of characters users can enter in any of these fields. Names can include characters outside the standard Roman alphabet.</li>
     </ul>
 
-    <h3 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
@@ -251,13 +251,13 @@ lead: asjac Intro text on what is included in this section and how to use it. No
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h3 class="usa-heading">Use</h3>
+    <h4 class="usa-heading">Use</h4>
     <ul class="usa-content-list">
       <li>Don’t ask for a social security number unless it’s absolutely essential. Users are reluctant to divulge personal information unless the reason for why it’s needed is clear.  If it’s not clear why it’s needed, offer an explanation.</li>
       <li>Allow users to show or hide their entry so they can check for errors.</li>
     </ul>
 
-    <h3 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
@@ -306,7 +306,7 @@ lead: asjac Intro text on what is included in this section and how to use it. No
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h3 class="usa-heading">Use</h3>
+    <h4 class="usa-heading">Use</h4>
     <ul class="usa-content-list">
       <li>Sign in forms are a barrier between users and the content they want, so allow users to access as much as of your online services as possible without having to log in.</li>
       <li>People have an easier time remembering their email address rather than a unique username, so allow them to use their email address to log in. However, some people don’t have an email address, so don’t let this be the only option.</li>
@@ -315,7 +315,7 @@ lead: asjac Intro text on what is included in this section and how to use it. No
       <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to log in without offering much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile, when mistakes are more likely.</li>
     </ul>
 
-    <h3 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
@@ -378,7 +378,7 @@ lead: asjac Intro text on what is included in this section and how to use it. No
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h3 class="usa-heading">Use</h3>
+    <h4 class="usa-heading">Use</h4>
     <ul class="usa-content-list">
       <li>Sign in forms are a barrier between users and the content they want, so allow users to access as much as of your online services as possible without having to log in.</li>
       <li>People have an easier time remembering their email address rather than a unique username, so allow them to use their email address to log in. However, some people don’t have an email address, so don’t let this be the only option.</li>
@@ -387,7 +387,7 @@ lead: asjac Intro text on what is included in this section and how to use it. No
       <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to log in without offering much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile, when mistakes are more likely.</li>
     </ul>
 
-    <h3 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
@@ -429,13 +429,13 @@ lead: asjac Intro text on what is included in this section and how to use it. No
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h3 class="usa-heading">Use</h3>
+    <h4 class="usa-heading">Use</h4>
     <ul class="usa-content-list">
       <li>Don’t ask for a social security number unless it’s absolutely essential. Users are reluctant to divulge personal information unless the reason for why it’s needed is clear.  If it’s not clear why it’s needed, offer an explanation.</li>
       <li>Allow users to show or hide their entry so they can check for errors.</li>
     </ul>
 
-    <h3 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
@@ -483,13 +483,13 @@ lead: asjac Intro text on what is included in this section and how to use it. No
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h3 class="usa-heading">Use</h3>
+    <h4 class="usa-heading">Use</h4>
     <ul class="usa-content-list">
       <li>Avoid adding too many fields to this form – the more you add, the less likely people are to complete the form. This is especially true if you ask for unnecessary personal information, such as phone numbers, that people may not be ready to give out.</li>
       <li>Wherever possible, include a direct email address and phone number on your form. Some users may prefer to write an email or call.</li>
     </ul>
 
-    <h3 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>

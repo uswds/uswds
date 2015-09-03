@@ -49,7 +49,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h3 class="usa-heading">Use</h3>
+    <h4 class="usa-heading">Use</h4>
     <ul class="usa-content-list">
       <li>Allow the search bar to be as wide as possible, but a minimum of 27 characters wide. This allows users to enter multiple search terms without their inputs being obscured. The more users can see their search terms, the easier it is to review, verify, and submit their search query.</li>
       <li>The magnifying glass has been shown to be almost universally recognized by users as an indicator of search functionality and doesn’t need to be paired with the word "Search" (except for screen readers, see the accessibility guidelines).</li>
@@ -60,7 +60,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
       <li>The search button itself should be a submit button for the form to reduce the number of keystrokes required to use the form.</li>
     </ul>
 
-    <h3 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
