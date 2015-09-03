@@ -1,7 +1,7 @@
 ---
 layout: styleguide
 type: component
-title: Headers & navigation
+title: Side navigation
 lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
 ---
 
@@ -106,7 +106,6 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </aside>
   </div>
 
-  <img src="{{ site.baseurl }}/assets/img/static/Headers_Navigation_UI_v2.png">
 </div>
 
 <div class="usa-accordion-bordered">
