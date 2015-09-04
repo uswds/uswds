@@ -204,9 +204,16 @@ a#skipnav {
   bottom: 0;
   left: 0;
   width: $width-nav-sidebar;
+<<<<<<< HEAD
   border-right: 1px solid $color-gray-light;
   padding: 5rem 3rem 3rem 3rem;
   overflow: scroll;
+=======
+  background-color: #fafafa;
+  border-right: 1px solid #eeeeee;
+  padding: 5rem 2em 2em;
+  overflow-y: scroll;
+>>>>>>> FETCH_HEAD
   display: none;
   z-index: -1;
   
