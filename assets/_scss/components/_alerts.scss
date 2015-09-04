@@ -2,7 +2,7 @@
   background-color: #eeeeee;  
   background-position: 1rem 2rem;
   background-repeat: no-repeat;
-  background-size: 2.4rem;
+  background-size: 4rem;
   margin-top: 1.5em;
   padding: 1em;
 
@@ -25,7 +25,7 @@
 
 .usa-alert-body {
   display: table-cell;
-  padding-left: 2rem;
+  padding-left: 3.5rem;
   vertical-align: top;
 
   @include media($medium-screen) {
