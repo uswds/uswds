@@ -121,6 +121,10 @@ a#skipnav {
       li { 
         display: inline; 
         font-family: $font-sans;
+
+        &:last-child .usa-button {
+          margin-right: 0;
+        }
       }
     }
   }
