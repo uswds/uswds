@@ -273,15 +273,15 @@ lead: Intro text on what is included in this section and how to use it. No more 
       <p class="usa-form-hint usa-datefield-hint" id="dobHint">For example: 04 28 1986</p>
       <div class="usa-datefield usa-form-group usa-form-group-month">
         <label for="date_of_birth_1">Month</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1" max="12" min="1" name="date_of_birth_1" pattern="[0-9]*" type="number" value="">
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="text" value="" maxlength="2">
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-day">
         <label for="date_of_birth_2">Day</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_2" max="31" min="1" name="date_of_birth_2" pattern="[0-9]*" type="number" value="">
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_2" name="date_of_birth_2" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="text" value="" maxlength="2">
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-year">
         <label for="date_of_birth_3">Year</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3" max="2015" min="1900" name="date_of_birth_3" pattern="[0-9]*" type="number" value="">
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3" name="date_of_birth_3" pattern="[0-9]{4}" type="text" value="" maxlength="4">
       </div>
     </div>
   </fieldset>
