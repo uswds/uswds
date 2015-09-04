@@ -308,8 +308,14 @@ a#skipnav {
   }
 
   p, a {
+    @include media($medium-screen) {
+      margin-bottom: 0;
+    }
     color: $color-white;
-    margin: 0;
+    margin: {
+      bottom: 1.5rem;
+      top: 0;
+    }
   }
 }
 
