@@ -224,13 +224,13 @@ lead: asjac Intro text on what is included in this section and how to use it. No
 </div>
 
 
-<h2>Login</h2>
+<h2 id="login-form">Login</h2>
 
 <div class="preview">
   <form>
     <fieldset>
       <legend class="usa-drop_text">Sign in</legend>
-      <span class="usa-serif">or <a href="javascript:void(0)">create an account</a></span>
+      <span>or <a href="javascript:void(0)">create an account</a></span>
 
       <label for="username">Username or email address</label>
       <input id="username" name="username" type="text" autocapitalize="off" autocorrect="off">
