@@ -37,8 +37,6 @@ lead: Intro text on what is included in this section and how to use it. No more 
   <label for="input-success">Text Input Success</label>
   <input class="usa-input-success" id="input-success" name="input-success" type="text">
 
-  <h2 class="usa-heading">Text Area</h2>
-
   <label for="input-type-textarea">Text Area Label</label>
   <textarea id="input-type-textarea" name="input-type-textarea"></textarea>
 
