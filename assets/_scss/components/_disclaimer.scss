@@ -1,0 +1,16 @@
+.usa-disclaimer {
+  background-color: $color-gray-lighter;
+  font-size: 1.5rem;
+  padding: {
+    bottom: .5rem;
+    top: .5rem;
+  }
+}
+
+.usa-disclaimer-stage {
+  @include media($medium-screen) {
+    display: block;
+  }
+  display: none;
+  float: right;
+}

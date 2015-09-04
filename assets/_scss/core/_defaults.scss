@@ -6,15 +6,16 @@
 $em-base:             10px; // default is already defined in bourbon
 $base-font-size:      rem(16px) !default;
 $small-font-size:     rem(14px) !default;
-$title-font-size:     rem(48px) !default;
-$h1-font-size:        rem(36px) !default;
-$h2-font-size:        rem(24px) !default;
-$h3-font-size:        rem(19px) !default;
-$h4-font-size:        rem(16px) !default;
-$h5-font-size:        rem(14px) !default;
-$h6-font-size:        rem(12px) !default;
-$base-line-height:    1.5em !default;
-$heading-line-height: 1.3em !default;
+$lead-font-size:      rem(22px) !default;
+$title-font-size:     rem(52px) !default;
+$h1-font-size:        rem(40px) !default;
+$h2-font-size:        rem(30px) !default;
+$h3-font-size:        rem(20px) !default;
+$h4-font-size:        rem(17px) !default;
+$h5-font-size:        rem(15px) !default;
+$h6-font-size:        rem(13px) !default;
+$base-line-height:    1.5 !default;
+$heading-line-height: 1.3 !default;
 
 $font-sans:           'Source Sans Pro', 'Helvetica', 'Arial', sans-serif !default;
 $font-serif:          'Merriweather', 'Georgia', 'Times New Roman', serif;
@@ -69,6 +70,7 @@ $color-cool-blue-lighter:    #8ba6ca !default; // lighten($color-cool-blue, 60%)
 $color-cool-blue-lightest:   #dce4ef !default; // lighten($color-cool-blue, 90%)
 
 $color-focus:                #3e94cf !default;
+$color-visited:              #4c2c92 !default;
 
 
 // Mobile First Breakpoints
@@ -78,11 +80,12 @@ $large-screen:      1201px !default;
 
 
 // Magic Numbers
-$site-max-width:    980px !default;
-$site-margins:      40px !default;
+$text-max-width:    53rem !default;
+$site-max-width:    1040px !default;
+$site-margins:      3rem !default;
 $article-max-width: 600px !default;
 $input-max-width:   46rem !default;
 $border-radius:     rem(3px) !default;
 $box-shadow:        0 0 2px rgba(#000, .3) !default;
 $focus-shadow:      0 0 3px $color-focus, 0 0 7px $color-focus;
-$grid-margins:      2.5rem !default;
+$grid-margins:      3rem !default;

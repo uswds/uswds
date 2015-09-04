@@ -31,19 +31,16 @@ sass:
   sass_dir: assets/_scss
 #  style: :compressed
 
-gems:
-- octopress-autoprefixer
-
 collections:
   visual:
     output: true
-    permalink: /visual-style/:path/
+    permalink: /:path/
   layout-system:
     output: true
-    permalink: /layout-system/:path/
+    permalink: /:path/
   elements:
     output: true
-    permalink: /elements/:path/
+    permalink: /:path/
   components:
     output: true
-    permalink: /components/:path/
+    permalink: /:path/

@@ -16,6 +16,7 @@ input[type="week"],
 textarea,
 select  {
   border: 1px solid $color-gray;
+  border-radius: 0;
   box-sizing: border-box;
   color: #000; // standardize on firefox 
   display: block;
@@ -70,6 +71,8 @@ textarea {
 }
 
 select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
   appearance: none;
   background: url("../img/arrow-down.png") no-repeat;
   background-position: right 1.3rem center;

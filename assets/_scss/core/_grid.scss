@@ -3,7 +3,49 @@
   @include outer-container();
   max-width: $site-max-width;
 
-  @include media($medium-screen) {
+  @include media($medium) {
+    .usa-width-one-whole {
+      @include span-columns(6);
+    }
+    .usa-width-one-half {
+      @include span-columns(3);
+    }
+    .usa-width-one-third {
+      @include span-columns(2);
+    }
+    .usa-width-two-thirds {
+      @include span-columns(4);
+    }
+    .usa-width-one-fourth {
+      @include span-columns(3);
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+    .usa-width-three-fourths {
+      @include span-columns(6);
+    }
+    .usa-width-one-sixth {
+      @include span-columns(2);
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+    .usa-width-five-sixths {
+      @include span-columns(5);
+    }
+    .usa-width-one-twelfth {
+      @include span-columns(2);
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include media($large) {
     .usa-width-one-whole {
       @include span-columns(12);
     }
@@ -18,19 +60,35 @@
     }
     .usa-width-one-fourth {
       @include span-columns(3);
+
+      &:nth-child(2n) {
+        @include span-columns(3);
+      }
+
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
     }
     .usa-width-three-fourths {
       @include span-columns(9);
     }
     .usa-width-one-sixth {
       @include span-columns(2);
+
+      &:nth-child(3n) {
+        @include span-columns(2);
+      }
+
+      &:nth-child(6n) {
+        margin-right: 0;
+      }
     }
     .usa-width-five-sixths {
       @include span-columns(10);
     }
     .usa-width-one-twelfth {
       @include span-columns(1);
-    }    
+
 
     // Shift Classes (adds white space to the left of grid item)
     .usa-shift-one-half {
@@ -72,12 +130,25 @@
     // Required if browser does not support :last-child
     .usa-end-row {
       @include omega();
+
+      &:nth-child(3n) {
+        @include span-columns(1);
+      }
+
+      &:nth-child(12n) {
+        margin-right: 0;
+      }
+
     }
 
     // Fixes grid alignment when grid-items have varying heights.
     .usa-end-row + .grid-item {
       clear: left;
     }
+  }
+
+  .usa-end-row {
+    @include omega();
   }
 }
 

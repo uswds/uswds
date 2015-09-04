@@ -1,12 +1,13 @@
 ---
-layout: default
+layout: styleguide
 type: component
 title: Footers
+lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
 ---
 
 <div class="preview">
 
-  <h3>Footer Big</h3>
+  <h3 class="usa-heading" id="big-footer">Big footer</h3>
 
   <footer class="usa-footer usa-footer-big usa-sans" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
@@ -101,7 +102,7 @@ title: Footers
     </div>
   </footer>
 
-  <h3>Footer Medium</h3>
+  <h3 class="usa-heading" id="medium-footer">Medium footer</h3>
 
   <footer class="usa-footer usa-footer-medium usa-sans" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
@@ -176,7 +177,7 @@ title: Footers
     </div>
   </footer>
 
-  <h3>Footer Slim</h3>
+  <h3 class="usa-heading" id="slim-footer">Slim footer</h3>
 
   <footer class="usa-footer usa-footer-slim usa-sans" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
@@ -218,22 +219,16 @@ title: Footers
       </div>
     </div>
   </footer>
-
-  <div class="download-code">
-    <h2>Get the Code</h2>
-    <p>This zip file includes the HTML, CSS, and JS for this component.</p>
-
-    <form method="get" action="{{ site.baseurl }}/assets/component-test/usa-footer.zip">
-      <button type="submit">Download ZIP</button>
-    </form>
-  </div>
-
 </div>
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
-    <h3>Use</h3>
-    <ul>
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Use</h4>
+    <ul class="usa-content-list">
       <li>Footers serve site visitors who arrive at the bottom of a page without finding what they want.</li>
       <li>Footer links should point to popular content that might answer a visitor’s remaining questions. Links to disclaimers and legal content sometimes need to be in the footer, but try to minimize “disclaimer bloat” wherever possible.</li>
       <li>Links do not have to be grouped in the same way they are in the header navigation (especially if the navigation offers many more links than the footer can).</li>
@@ -241,12 +236,11 @@ title: Footers
       <li>Link only to social media your agency updates frequently or uses to communicate with customers.</li>
       <li>Important contact information should be limited to general email or phone numbers (Physical addresses should live on contact pages users can navigate to from the footer links).</li>
     </ul>
-  </div>
-  <div class="usa-width-one-half">
-    <h3>Accessibility</h3>
-    <ul>
+
+    <h4 class="usa-heading">Accessibility</h4>
+    <ul class="usa-content-list">
       <li>Code the navigation so that pressing the  tab key moves focus from link to link in the navigation, even when the navigation has collapsed into an accordion.</li>
       <li>On small screens: when collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the "Accordion" section.</li>
     </ul>
-  </div>  
+  </div>
 </div>

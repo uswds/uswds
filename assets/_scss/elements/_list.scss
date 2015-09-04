@@ -5,11 +5,19 @@ ul, ol {
   }
 
   li {
-    font-family: $font-serif;
     line-height: $base-line-height;
     margin: {
       top: .75em;
       bottom: .75em;
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  + ul,
+  + ol {
+    margin: {
+      top: 0;
     }
   }
 }
