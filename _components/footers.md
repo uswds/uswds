@@ -17,28 +17,28 @@ lead: Intro text on what is included in this section and how to use it. No more 
       <div class="usa-grid-full">
         <nav class="usa-footer-nav usa-width-two-thirds">
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-            <h3 class="usa-footer-primary-link">Topic</h3>
+            <h4 class="usa-footer-primary-link">Topic</h4>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-            <h3 class="usa-footer-primary-link">Topic</h3>
+            <h4 class="usa-footer-primary-link">Topic</h4>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-            <h3 class="usa-footer-primary-link">Topic</h3>
+            <h4 class="usa-footer-primary-link">Topic</h4>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-            <h3 class="usa-footer-primary-link">Topic</h3>
+            <h4 class="usa-footer-primary-link">Topic</h4>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>

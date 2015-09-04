@@ -13,12 +13,9 @@
       bottom: 2rem;
       top: 2rem;
     }
-    text-transform: uppercase;
 
     @media (min-width: $medium-screen) {
       border-top: none;
-      font-size: 1.9rem;
-      text-transform: none;
     }  
   }  
 }
@@ -279,12 +276,12 @@ li.usa-footer-primary-content {
 
 .usa-footer-slim-logo-heading {
   display: block;
-  padding-top: 2rem;
+  padding-top: 1rem;
 
   @media (min-width: $medium-screen) {
     display: inline-block;
     padding: {
-      left: 2em;
+      left: 1em;
     }
   }
 }
