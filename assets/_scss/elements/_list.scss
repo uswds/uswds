@@ -80,38 +80,3 @@ li {
     }
   }
 }
-
-.usa-check_list {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-
-  li {
-    display: inline-block;
-    list-style: none;
-    margin: {
-      bottom: 0em;
-      top: 0em;
-    }
-    padding-left: 2em;
-    text-indent: -2em;
-
-    &:before {
-      content: ' ';
-      display: inline-block;
-      height: .8em;
-      margin-right: .2em;
-      width: 1.8em;
-    }
-  }
-}
-
-.usa-check_list-checked {
-  &:before {
-    background-image: url('../img/correct9.png');
-    background-image: url('../img/correct9.svg');
-    background-position: 100%;
-    background-repeat: no-repeat;
-    background-size: 100%;
-  }
-}

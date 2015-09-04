@@ -293,7 +293,7 @@ lead: asjac Intro text on what is included in this section and how to use it. No
         <div class="usa-alert-body">
           <h3 class="usa-alert-heading">Passwords must:</h3>
         </div>
-        <ul class="usa-check_list" id="validation_list">
+        <ul class="usa-checklist" id="validation_list">
           <li data-validator="length">Be at least 8 characters</li>
           <li data-validator="uppercase">Have at least 1 uppercase character</li>
           <li data-validator="numerical">Have at least 1 numerical character</li>
