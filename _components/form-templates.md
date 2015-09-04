@@ -234,7 +234,7 @@ lead: asjac Intro text on what is included in this section and how to use it. No
           data-grouplength="3,2,4" data-delimiter="-" data-politespace
           required pattern="^d{8}$">
       <p class="usa-form-note">
-        <a title="Show password" href="javascript:void(0)"
+        <a title="Show SSN" href="javascript:void(0)"
             class="usa-show_ssn"
             aria-controls="ssn">
           Show SSN</a>
