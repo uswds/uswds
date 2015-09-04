@@ -123,13 +123,6 @@
     }
     .usa-width-one-twelfth {
       @include span-columns(1);
-    }
-
-    // Specificies end of a row.
-    // Required if grid-box contains multiple rows.
-    // Required if browser does not support :last-child
-    .usa-end-row {
-      @include omega();
 
       &:nth-child(3n) {
         @include span-columns(1);
@@ -138,17 +131,19 @@
       &:nth-child(12n) {
         margin-right: 0;
       }
-
-    }
-
-    // Fixes grid alignment when grid-items have varying heights.
-    .usa-end-row + .grid-item {
-      clear: left;
     }
   }
 
+  // Specificies end of a row.
+  // Required if grid-box contains multiple rows.
+  // Required if browser does not support :last-child
   .usa-end-row {
     @include omega();
+  }
+
+  // Fixes grid alignment when grid-items have varying heights.
+  .usa-end-row + .grid-item {
+    clear: left;
   }
 }
 
