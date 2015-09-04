@@ -34,9 +34,12 @@
 }
 
 .usa-alert-heading {
+  @include media($medium-screen) {
+    margin-top: .3rem;
+  }
   margin: {
     bottom: .15em;
-    top: .3rem;
+    top: 0;
   }
 }
 
