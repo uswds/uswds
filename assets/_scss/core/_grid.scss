@@ -43,41 +43,6 @@
         margin-right: 0;
       }
     }
-
-    // Shift Classes (adds white space to the left of grid item)
-    .usa-shift-one-half {
-      @include shift(6);
-    }
-    .usa-shift-one-third {
-      @include shift(4);
-    }
-    .usa-shift-two-thirds {
-      @include shift(8);
-    }
-    .usa-shift-one-fourth {
-      @include shift(3);
-    }
-    .usa-shift-three-fourths {
-      @include shift(9);
-    }
-    .usa-shift-one-sixth {
-      @include shift(2);
-    }
-    .usa-shift-five-sixths {
-      @include shift(10);
-    }
-    .usa-shift-one-twelfth {
-      @include shift(1);
-    }
-    .usa-shift-five-twelfths {
-      @include shift(5);
-    }
-    .usa-shift-seven-twelfths {
-      @include shift(7);
-    }
-    .usa-shift-eleven-twelfths {
-      @include shift(11);
-    }
   }
 
   @include media($large) {
