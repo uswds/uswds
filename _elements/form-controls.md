@@ -269,8 +269,9 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
   <fieldset>
     <legend>Date of birth</legend>
+      <span class="usa-form-hint usa-datefield-hint" id="dobHint">For example: 04 28 1986</span>
+
     <div class="usa-date-of-birth">
-      <p class="usa-form-hint usa-datefield-hint" id="dobHint">For example: 04 28 1986</p>
       <div class="usa-datefield usa-form-group usa-form-group-month">
         <label for="date_of_birth_1">Month</label>
         <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="text" value="" maxlength="2">
