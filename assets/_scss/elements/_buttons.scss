@@ -103,40 +103,36 @@ button,
 
   &.usa-button-outline {
     background-color: $color-white;
-    border: 2px solid;
-    border-color: $color-primary;
+    box-shadow: inset 0 0 0 2px $color-primary;
     color: $color-primary;
-    padding: .8rem 1.8rem;
 
     &:hover,
     &.usa-button-hover {
-      border-color: $color-primary-darker;
+      box-shadow: inset 0 0 0 2px $color-primary-darker;
       color: $color-primary-darker;
     }
 
     &:active,
     &.usa-button-active {
-      border-color: $color-primary-darkest;
+      box-shadow: inset 0 0 0 2px $color-primary-darkest;
       color: $color-primary-darkest;
     }
   }
 
   &.usa-button-outline-inverse {
     background: transparent;
-    border: 2px solid;
-    border-color: $color-white;
+    box-shadow: inset 0 0 0 2px $color-white;
     color: $color-white;
-    padding: .8rem 1.8rem;
 
     &:hover,
     &.usa-button-hover {
-      border-color: $color-gray-lighter;
+      box-shadow: inset 0 0 0 2px $color-gray-lighter;
       color: $color-gray-lighter;
     }
 
     &:active,
     &.usa-button-active {
-      border-color: $color-gray-light;
+      box-shadow: inset 0 0 0 2px $color-gray-light;
       color: $color-gray-lighter;
     }
   }
