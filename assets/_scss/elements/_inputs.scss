@@ -86,6 +86,12 @@ legend {
   font-weight: $font-bold;
 }
 
+fieldset {
+  legend {
+    font-size: $h3-font-size;
+  }
+}
+
 .usa-fieldset-inputs {
   label {
     margin-top: 0;
