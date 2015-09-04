@@ -56,6 +56,14 @@ p {
   max-width: $text-width;
 }
 
+.usa-section-examples {
+  @include media($medium-screen) {
+    .usa-width-five-sixths {
+      @include shift(1);
+    }
+  }
+}
+
 .usa-section {
   padding: {
     bottom: $section-padding;
