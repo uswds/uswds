@@ -276,12 +276,12 @@ a#skipnav {
 // Styleguide Content -------- //
 
 .styleguide-content {
+  margin-bottom: 5em;
   max-width: $site-max-width;
   padding: {
-    bottom: 1em;
     left: 2em;
     right: 2em;
-  }  
+  }
   position: relative;
 
   > h1 {
