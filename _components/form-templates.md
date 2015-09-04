@@ -224,7 +224,7 @@ lead: asjac Intro text on what is included in this section and how to use it. No
 </div>
 
 
-<h2 id="login-form">Login</h2>
+<h2 class="usa-heading" id="login-form">Login</h2>
 
 <div class="preview">
   <form>
@@ -281,7 +281,7 @@ lead: asjac Intro text on what is included in this section and how to use it. No
   </div>
 </div>
 
-<h2 class="usa-heading" id="password-reset-form">Password Reset</h2>
+<h2 class="usa-heading" id="password-reset-form">Password reset</h2>
 <div class="preview">
   <form>
 
