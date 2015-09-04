@@ -40,10 +40,10 @@ select  {
 
 .usa-input-error {
   border-left: 4px solid $color-secondary-dark;
+  margin-top: 3rem;
   padding: .5em 1.5rem; 
   position: relative;
   right: 1.5rem;
-  margin-top: 3rem;
   input {
     border: 3px solid $color-secondary-dark;
   }
@@ -54,8 +54,11 @@ select  {
 
 .usa-input-error-message {
   color: $color-secondary-dark;
-  font-size: $small-font-size;
-  font-weight: $font-bold;
+  display: block;
+  padding: {
+    bottom: 3px;
+    top: 3px;
+  }
 }
 
 label {
@@ -76,6 +79,11 @@ select {
   appearance: none;
   background: url("../img/arrow-down.png") no-repeat;
   background-position: right 1.3rem center;
+}
+
+legend {
+  font-size: $base-font-size;
+  font-weight: $font-bold;
 }
 
 .usa-fieldset-inputs {
