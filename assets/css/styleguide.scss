@@ -73,14 +73,6 @@ a#skipnav {
     border-bottom: none;
   }
 
-  .usa-disclaimer-official {
-    padding-left: $site-margins;
-  }
-
-  .usa-disclaimer-stage {
-    padding-right: $site-margins;
-  }
-
   .usa-site-navbar {
     @include media($medium-screen) {
       height: 6rem;
