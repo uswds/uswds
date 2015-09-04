@@ -40,6 +40,13 @@
       right: 2.5rem;
     }
 
+    li {
+      @media (min-width: $medium-screen) {
+        margin-left: 0;
+      }
+      margin-left: 1rem;
+    }
+
     @media (min-width: $medium-screen) {
       padding: {
         left: 0;
@@ -214,7 +221,7 @@ li.usa-footer-primary-content {
 
       @media (min-width: $medium-screen) {
         background: none;
-        padding-bottom: 1rem;
+        padding-bottom: 0;
         padding-left: 0;
       }
     }
