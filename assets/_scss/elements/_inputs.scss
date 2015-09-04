@@ -162,10 +162,14 @@ input[type="checkbox"]:focus + label::before {
   box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-primary;
 }
 
+input[type="checkbox"]:disabled + label {
+  color: $color-gray;
+}
+
 input[type="checkbox"]:disabled + label::before,
 input[type="radio"]:disabled + label::before {
-  background: #757575;
-  color: #757575;
+  background: $color-gray-lighter;
+  box-shadow: 0 0 0 1px $color-gray-light;
   cursor: not-allowed;
 }
 
