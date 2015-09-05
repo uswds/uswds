@@ -7,10 +7,10 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 <div class="preview">
 
-  <h3 class="usa-heading">Small</h3>
+  <h4>Small</h4>
   <span class="usa-label">New</span>
 
-  <h3 class="usa-heading">Large</h3>
+  <h4>Large</h4>
   <span class="usa-label-big">New</span>
 
 </div>
