@@ -1,5 +1,5 @@
 .usa-disclaimer {
-  @include media($medium-screen) {
+  @include media($small-screen) {
     font-size: $h5-font-size;
   }
   background-color: $color-gray-lighter;
@@ -10,8 +10,9 @@
   }
 }
 
+// This hides the stage note of the disclaimer in anything smaller than 690px
 .usa-disclaimer-stage {
-  @include media($medium-screen) {
+  @include media(690px) {
     display: block;
   }
   display: none;
