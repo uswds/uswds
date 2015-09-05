@@ -13,7 +13,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
-          <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+          <a class="usa-current" href="javascript:void(0)">Current page</a>
         </li>
         <li>
           <a href="javascript:void(0)">Secondary link</a>
@@ -34,7 +34,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
           <a href="javascript:void(0)">Secondary link</a>
         </li>
         <li>
-          <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+          <a class="usa-current" href="javascript:void(0)">Current page</a>
           <ul class="usa-sidenav-sub_list">
             <li>
               <a href="javascript:void(0)">Headers & Navigation</a>
@@ -49,7 +49,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
               <a href="javascript:void(0)">Tables</a>
             </li>
             <li>
-              <a class="usa-current-page" href="javascript:void(0)">Accordion</a>
+              <a class="usa-current" href="javascript:void(0)">Accordion</a>
             </li>
           </ul>
         </li>
@@ -69,7 +69,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
           <a href="javascript:void(0)">Secondary link</a>
         </li>
         <li>
-          <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+          <a class="usa-current" href="javascript:void(0)">Current page</a>
           <ul class="usa-sidenav-sub_list">
             <li>
               <a href="javascript:void(0)">Headers & Navigation</a>
@@ -84,7 +84,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
                   <a href="javascript:void(0)">Grandchild 2</a>
                 </li>
                 <li>
-                  <a class="usa-current-page" href="javascript:void(0)">Grandchild 3</a>
+                  <a class="usa-current" href="javascript:void(0)">Grandchild 3</a>
                 </li>
               </ul>
             </li>
