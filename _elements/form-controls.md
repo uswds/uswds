@@ -269,7 +269,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
   <fieldset>
     <legend>Date of birth</legend>
-      <span class="usa-form-hint usa-datefield-hint" id="dobHint">For example: 04 28 1986</span>
+    <span class="usa-form-hint usa-datefield-hint" id="dobHint">For example: 04 28 1986</span>
 
     <div class="usa-date-of-birth">
       <div class="usa-datefield usa-form-group usa-form-group-month">
