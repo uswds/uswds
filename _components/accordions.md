@@ -71,7 +71,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
   <h3>Bordered</h3>
 
-  <div class="usa-accordion-bordered">
+  <div class="usa-accordion-bordered usa-accordion-docs">
     <ul class="usa-unstyled-list">
       <li>
         <button class="usa-button-unstyled"
@@ -133,7 +133,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation

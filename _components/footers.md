@@ -221,7 +221,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </footer>
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
