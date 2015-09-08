@@ -188,7 +188,7 @@ order: 02
   <div class="color-big">
     <div class="usa-color-short usa-color-primary-darkest">
     </div>
-      <p class="usa-color-hex">#046b99</p>
+      <p class="usa-color-hex">#112e51</p>
       <p class="usa-color-name">primary-darkest</p>
   </div>
   <div class="color-small usa-end-row">
