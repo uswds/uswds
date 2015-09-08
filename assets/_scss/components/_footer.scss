@@ -14,7 +14,7 @@
       top: 2rem;
     }
 
-    @media (min-width: $medium-screen) {
+    @include media($medium-screen) {
       border-top: none;
     }  
   }  
@@ -41,13 +41,13 @@
     }
 
     li {
-      @media (min-width: $medium-screen) {
+      @include media($medium-screen) {
         margin-left: 0;
       }
       margin-left: 1rem;
     }
 
-    @media (min-width: $medium-screen) {
+    @include media($medium-screen) {
       padding: {
         left: 0;
         right: 0;
@@ -56,7 +56,7 @@
   }
 
   .usa-grid-full {
-    @media (min-width: $medium-screen) {
+    @include media($medium-screen) {
       padding: {
         left: 2.5rem;
         right: 2.5rem;
@@ -75,7 +75,7 @@
   .usa-footer-primary-section {
     padding: 0;
     
-    @media (min-width: $medium-screen) {
+    @include media($medium-screen) {
       padding: {
         top: 1rem;
         bottom: 1rem;
@@ -84,7 +84,7 @@
   }
 
   .usa-footer-nav ul {
-    @media (min-width: $medium-screen) {
+    @include media($medium-screen) {
       align-items: center;
       display: flex;  
     }
@@ -100,7 +100,7 @@
   .usa-footer-primary-section {
     padding-bottom: 2rem;
     
-    @media (min-width: $medium-screen) {
+    @include media($medium-screen) {
       padding: {
         bottom: 1rem;
         top: 1rem;
@@ -121,12 +121,12 @@ li.usa-footer-primary-content {
 
   &:last-child {
     border-bottom: 1px solid #000;
-    @media (min-width: $medium-screen) {
+    @include media($medium-screen) {
       border-bottom: none;
     }
   }
 
-  @media (min-width: $medium-screen) {
+  @include media($medium-screen) {
     border: none;
   }
 }
@@ -154,7 +154,7 @@ li.usa-footer-primary-content {
     width: 100%;
   }
 
-  @media (min-width: $medium-screen) {
+  @include media($medium-screen) {
     float: right;
     padding: 0;
   }  
@@ -170,14 +170,14 @@ li.usa-footer-primary-content {
 
 .usa-footer-big-secondary-section {
   
-  @media (min-width: $medium-screen) {
+  @include media($medium-screen) {
     padding-top: 5rem;
   }  
 }
 
 .usa-footer-contact-links {
 
-  @media (min-width: $medium-screen) {
+  @include media($medium-screen) {
     text-align: right;
   }
 }
@@ -186,7 +186,7 @@ li.usa-footer-primary-content {
 
   .usa-footer-primary-section {
 
-    @media (min-width: $medium-screen) {
+    @include media($medium-screen) {
       padding: {
         top: 3rem;
         bottom: 4rem;
@@ -201,7 +201,7 @@ li.usa-footer-primary-content {
     &:last-child {
       border-bottom: 1px solid #000;
 
-      @media (min-width: $medium-screen) {
+      @include media($medium-screen) {
         border-bottom: none;
       }
     }
@@ -210,7 +210,7 @@ li.usa-footer-primary-content {
       line-height: 2em;
     }
 
-    @media (min-width: $medium-screen) {
+    @include media($medium-screen) {
       padding-bottom: 0;
     }    
 
@@ -219,7 +219,7 @@ li.usa-footer-primary-content {
       background-position: 1.5rem;
       padding-left: 3.5rem;
 
-      @media (min-width: $medium-screen) {
+      @include media($medium-screen) {
         background: none;
         padding-bottom: 0;
         padding-left: 0;
@@ -236,7 +236,7 @@ li.usa-footer-primary-content {
         background-position: 1.5rem;
         cursor: pointer;
 
-        @media (min-width: $medium-screen) {
+        @include media($medium-screen) {
           background: none;
           padding-left: 0;
         }        
@@ -254,7 +254,7 @@ li.usa-footer-primary-content {
 }
 
 .usa-sign_up-header {
-  @media (min-width: $medium-screen) {
+  @include media($medium-screen) {
     margin: 0;
     padding: 2rem 0;
   }
@@ -276,7 +276,7 @@ li.usa-footer-primary-content {
 .usa-footer-contact-heading {
   margin-top: 0;
   
-  @media (min-width: $medium-screen) {
+  @include media($medium-screen) {
     margin-top: 1rem;  
   }
 }
@@ -285,7 +285,7 @@ li.usa-footer-primary-content {
   display: block;
   padding-top: 1rem;
 
-  @media (min-width: $medium-screen) {
+  @include media($medium-screen) {
     display: inline-block;
     padding: {
       left: 1em;
