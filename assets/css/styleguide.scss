@@ -303,6 +303,9 @@ a#skipnav {
     top: 3rem;
   }
 
+// This is a styleguide-only rule and is not needed in the main library code for 
+// the footer component which uses different styles
+// TODO investigate why it's not needed in the main library CSS
   p, a {
     @include media($medium-screen) {
       margin-bottom: 0;
