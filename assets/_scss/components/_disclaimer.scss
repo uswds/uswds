@@ -12,7 +12,7 @@
 
 // This hides the stage note of the disclaimer in anything smaller than 690px
 .usa-disclaimer-stage {
-  @include media(690px) {
+  @include media($large-screen) {
     display: block;
   }
   display: none;
