@@ -966,10 +966,12 @@ $font-light: 300;
   .usa-font-lead {
     font-family: $font-serif;
     font-size: $h3-font-size;
+    font-weight: $font-light;
   }
 
   .usa-font-lead-alt {
     font-size: $h5-font-size;
+    font-weight: $font-light;
   }
 }
 
