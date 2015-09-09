@@ -8,7 +8,6 @@ body {
 }
 
 p {
-  font-size: $base-font-size;
   line-height: $base-line-height;
   margin: {
     top: 1em;
@@ -17,20 +16,16 @@ p {
 }
 
 a {
-  border-bottom: 1px dotted;
   color: $color-primary;
   text-decoration: none;
 
-  &:hover {
-    border-bottom: 1px solid;
-  }
-
   &:hover, &:active {
     color: $color-primary-darker;
+    text-decoration: underline;
   }
 
   &:visited {
-    color: $color-primary;
+    color: $color-visited;
   }  
 }
 
@@ -42,10 +37,6 @@ h1, h2, h3, h4, h5, h6 {
     top: 1.5em;
     bottom: .5em;
   }
-}
-
-h5 {
-  text-transform: uppercase;
 }
 
 // Create heading mixins 
@@ -81,8 +72,10 @@ h5 {
 }
 
 @mixin h6 {
+  font-family: $font-sans;
   font-size: $h6-font-size;
-  font-weight: $font-bold;
+  font-weight: $font-normal;
+  text-transform: uppercase;
 }
 
 h1 {
@@ -106,7 +99,7 @@ h5 {
 }
 
 h6 {
-  @include h6();
+  @include h6(); 
 }
 
 // Remove user agent styles
@@ -120,10 +113,20 @@ dfn {
 
 // Custom typography
 
+p {
+  a {
+    text-decoration: underline;
+  }
+}
+
 .usa-content {
-  > p, > ul, > ol {
-    max-width: 50rem;
+  p {
+    max-width: $text-max-width;
   }  
+}
+
+.usa-content-list {
+  max-width: $text-max-width;
 }
 
 .usa-sans,
@@ -156,6 +159,10 @@ dfn {
   }
 }
 
+.usa-font-lead {
+  font-size: $lead-font-size;
+}
+
 .usa-image-block {
   position: relative;
 }
@@ -174,4 +181,25 @@ dfn {
 
 .usa-drop_text {
   margin-bottom: 0;
+}
+
+.usa-background-dark {
+  background-color: $color-gray-dark;
+
+  p, span {
+    color: $color-white;
+  }
+
+  a {
+    color: $color-gray-lighter;
+    
+    &:hover {
+      color: $color-white;
+    }
+  }
+}
+
+.usa-text-small {
+  font-size: $h6-font-size;
+  margin-top: 0;
 }

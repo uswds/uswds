@@ -1,13 +1,13 @@
 ---
 permalink: /visual-style/
 layout: styleguide
-title: Visual Style
+title: Visual style
 slug: visual-style
+lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
 ---
 
-<h1>Visual Style</h1>
-
-{% for visual in site.visual %}
+{% assign sorted_pages = site.visual | sort: 'order' %}
+{% for visual in sorted_pages %}
   <h2 class="usa-heading" id="{{ visual.title | slugify }}">{{ visual.title }}</h2>
   <p>{{ visual.content }}</p>
 {% endfor %}

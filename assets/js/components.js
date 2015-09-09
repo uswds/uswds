@@ -210,9 +210,12 @@ function Accordion($el) {
   var self = this;
   this.$root = $el;
   this.$root.on('click', 'button', function(ev) {
+    var expanded = JSON.parse($(this).attr('aria-expanded'));
     ev.preventDefault();
     self.hideAll();
-    self.show($(this));
+    if (!expanded) {
+      self.show($(this));
+    }
   });
 }
 
@@ -261,7 +264,7 @@ function togglePassword($el) {
 
   $el.on('click', function(ev) {
     ev.preventDefault();
-    $field.attr('type', showing ? 'password' : 'text');
+    toggleFieldMask($field, showing);
     $el.text(showing ? 'Show password' : 'Hide password');
     showing = !showing;
   });
@@ -274,7 +277,7 @@ function toggleSSN($el) {
 
   $el.on('click', function(ev) {
     ev.preventDefault();
-    $field.attr('type', showing ? 'password' : 'text');
+    toggleFieldMask($field, showing);
     $el.text(showing ? 'Show SSN' : 'Hide SSN');
     showing = !showing;
   });
@@ -287,10 +290,16 @@ function toggleMultiPassword($el) {
 
   $el.on('click', function(ev) {
     ev.preventDefault();
-    $fields.attr('type', showing ? 'password' : 'text');
+    toggleFieldMask($fields, showing);
     $el.text(showing ? 'Show My Typing' : 'Hide My Typing');
     showing = !showing;
   });
+}
+
+function toggleFieldMask($field, showing) {
+  $field.attr('autocapitalize', 'off');
+  $field.attr('autocorrect', 'off');
+  $field.attr('type', showing ? 'password' : 'text');
 }
 
 function validator($el) {
@@ -332,9 +341,9 @@ $(function() {
 
       $('.usa-footer-big nav ul').addClass('hidden');
 
-      $('.usa-footer-big nav h3').unbind('click');
+      $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
 
-      $('.usa-footer-big nav h3').bind('click', function() {
+      $('.usa-footer-big nav .usa-footer-primary-link').bind('click', function() {
         $(this).parent().removeClass('hidden')
         .siblings().addClass('hidden');
       });
@@ -342,7 +351,7 @@ $(function() {
 
       $('.usa-footer-big nav ul').removeClass('hidden');
 
-      $('.usa-footer-big nav h3').unbind('click');
+      $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
     }
   };
 

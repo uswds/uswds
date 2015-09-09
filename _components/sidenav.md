@@ -1,18 +1,19 @@
 ---
-layout: default
+layout: styleguide
 type: component
-title: Headers & Navigation
+title: Side navigation
+lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
 ---
 
 <div class="preview">
   
-  <h2 class="usa-heading">Side Nav</h2>
+  <h2 class="usa-heading">Sidenav</h2>
 
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
-          <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+          <a class="usa-current" href="javascript:void(0)">Current page</a>
         </li>
         <li>
           <a href="javascript:void(0)">Secondary link</a>
@@ -24,7 +25,7 @@ title: Headers & Navigation
     </aside>
   </div>
 
-  <h2 class="usa-heading">Side Nav with Sub Items</h2>
+  <h2 class="usa-heading">Sidenav with sub items</h2>
 
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
@@ -33,7 +34,7 @@ title: Headers & Navigation
           <a href="javascript:void(0)">Secondary link</a>
         </li>
         <li>
-          <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+          <a class="usa-current" href="javascript:void(0)">Current page</a>
           <ul class="usa-sidenav-sub_list">
             <li>
               <a href="javascript:void(0)">Headers & Navigation</a>
@@ -48,7 +49,7 @@ title: Headers & Navigation
               <a href="javascript:void(0)">Tables</a>
             </li>
             <li>
-              <a class="usa-current-page" href="javascript:void(0)">Accordion</a>
+              <a class="usa-current" href="javascript:void(0)">Accordion</a>
             </li>
           </ul>
         </li>
@@ -59,7 +60,7 @@ title: Headers & Navigation
     </aside>
   </div>
 
-  <h2 class="usa-heading">Side Nav with Sub Items + Grandchild Items</h2>
+  <h2 class="usa-heading">Sidenav with sub items + grandchild items</h2>
 
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
@@ -68,7 +69,7 @@ title: Headers & Navigation
           <a href="javascript:void(0)">Secondary link</a>
         </li>
         <li>
-          <a class="usa-current-page" href="javascript:void(0)">Current page</a>
+          <a class="usa-current" href="javascript:void(0)">Current page</a>
           <ul class="usa-sidenav-sub_list">
             <li>
               <a href="javascript:void(0)">Headers & Navigation</a>
@@ -83,7 +84,7 @@ title: Headers & Navigation
                   <a href="javascript:void(0)">Grandchild 2</a>
                 </li>
                 <li>
-                  <a class="usa-current-page" href="javascript:void(0)">Grandchild 3</a>
+                  <a class="usa-current" href="javascript:void(0)">Grandchild 3</a>
                 </li>
               </ul>
             </li>
@@ -105,16 +106,41 @@ title: Headers & Navigation
     </aside>
   </div>
 
-  <img src="{{ site.baseurl }}/assets/img/static/Headers_Navigation_UI_v2.png">
 </div>
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
-    <h3 class="usa-heading">Use</h3>
-    <p>This is the usage content for the example.</p>
+<div class="usa-accordion-bordered usa-accordion-docs">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h4>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
+
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>When to consider something different</h5>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>Guidelines</h5>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
   </div>
-  <div class="usa-width-one-half">
-    <h3 class="usa-heading">Accessibility</h3>
-    <p>This is the accessibility content for the example.</p>
-  </div>  
 </div>

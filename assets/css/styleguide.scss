@@ -43,23 +43,52 @@ a#skipnav {
   }
 }
 
+:target:before {
+  content: "";
+  display: block;
+  height: 75px;
+  margin-top: -75px;
+
+  @include media($medium-screen) {
+    height: 90px;
+    margin-top: -90px;
+  }
+
+  @include media($medium-screen + $width-nav-sidebar) {
+    height: $site-top;
+    margin-top: -$site-top;
+  }
+}
+
 .usa-site-header {
   background-color: $color-white;
   border-bottom: 1px solid $color-gray-light;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
   z-index: 1;
+  
   a {
     border-bottom: none;
-//    color: white;
   }
+
   .usa-site-navbar {
     @include media($medium-screen) {
+      height: 6rem;
       margin: {
         bottom: 1rem;
-        top: 2.5rem;
+        top: 2.7rem;
       }
     }
+
+    .logo {
+        padding-left: $site-margins;
+      }
+
     h1 {
       @include media($medium-screen) {
+
         max-width: 20rem;
       }
       color: $color-gray;
@@ -71,16 +100,23 @@ a#skipnav {
         display: block;
       }
     }
+
     .usa-button-list {
+      @include media($medium-screen + $width-nav-sidebar) {
+        display: block;
+        padding-right: $site-margins;
+      }
       float: right;
       display: none;
       margin-top: -5px;
+      
       li { 
         display: inline; 
         font-family: $font-sans;
-      }
-      @include media($medium-screen + $width-nav-sidebar) {
-        display: block;
+
+        &:last-child .usa-button {
+          margin-right: 0;
+        }
       }
     }
   }
@@ -159,87 +195,48 @@ a#skipnav {
 // Sidebar Nav --------- //
 
 .sidenav {
-  position: absolute;
+  position: fixed;
   top: $site-top;
   bottom: 0;
   left: 0;
   width: $width-nav-sidebar;
-  background-color: #fafafa;
-  border-right: 1px solid #eeeeee;
-  padding: 5rem 2em 2em;
-  overflow: auto;
+  border-right: 1px solid $color-gray-light;
+  padding: 5rem 3rem 3rem 3rem;
+  overflow: scroll;
   display: none;
   z-index: -1;
+  
   .lt-ie9 & {
     width: 25%;
+  }
+
+  .usa-sidenav-sub_list {
+    display: none;
   }
 
   @include media($medium-screen + $width-nav-sidebar) {
     display: block;
   }
+}
 
-  nav {
-    h2, 
-    h3 {
-      font-size: $h4-font-size;
-      font-weight: bold;
-      margin: 0;
-      padding-bottom: .2em;
-    }
-    h3 {
-      margin: 0;
-    }  
-    ul {
-      color: $color-primary;      
-      ul {
-        display: none;
-        padding: 0;        
-        li {
-          padding-left: 1em;
-
-          &:before {
-            content: "";
-            padding-right: 1em;
-          }
-          &:after {
-            margin-bottom: 0;
-          }
-        }
-      }
-      li {
-        font-family: $font-sans;
-        padding: .25em 0;
-      }
-    }
-    a {
-      border-bottom: none;
-      &:hover {
-        border-bottom: 1px solid;
-        color: $color-primary-darker;
-      }
-    }
+.visual-style .sidenav .visual-style-sublist {
+  display: block;
+  
+  ul {
+    display: block;
   }
 }
 
-.visual-style .sidenav .visual-style-list {
-  ul {
-    display: block;
-  }
+.form-controls .sidenav .form-controls-sublist {
+  display: block;
 }
-.layout-system .sidenav .layout-systems-list {
-  ul {
-    display: block;
-  }
+
+.form-templates .sidenav .form-templates-sublist {
+  display: block;
 }
-.elements .sidenav .elements-list {
-  ul {
-    display: block;
-  }
-}
-.components .sidenav .components-list {
-  ul {
-    display: block;
-  }
+
+.footers .sidenav .footers-sublist {
+  display: block;
 } 
 
 // Main Content --------- //
@@ -252,7 +249,6 @@ a#skipnav {
   top: 4rem;
   bottom: 0;
   right: 0;
-  overflow: auto;
   width: 100%;
   padding: {
     bottom: 0;
@@ -273,30 +269,27 @@ a#skipnav {
   }
 }
 
-// Style Guide Content -------- //
+// Styleguide Content -------- //
 
 .styleguide-content {
+  margin-bottom: 5em;
+  max-width: $site-max-width;
   padding: {
     left: 2em;
     right: 2em;
-  }  
-  position: relative;
-  padding-bottom: 1em;
-  > h2, > h3, > p, > ul, > ol {
-    max-width: 50rem;
   }
+  position: relative;
+
   > h1 {
-    border-bottom: 1px solid #000;
-    padding-bottom: .5em;
     margin-top: 3.4rem;
     &:not(:first-child) {
-      margin-top: 2em;
+      margin-top: 1.5em;
     }
   }
   @media (min-width: $medium-screen + $width-nav-sidebar) {
     padding: {
-      left: 4em;
-      right: 4em;
+      left: 3em;
+      right: 3em;
     }
   }
 }
@@ -310,9 +303,19 @@ a#skipnav {
     top: 3rem;
   }
 
+// This is a styleguide-only rule and is not needed in the main library code for 
+// the footer component which uses different styles
+// TODO investigate why it's not needed in the main library CSS
   p, a {
+    @include media($medium-screen) {
+      margin-bottom: 0;
+    }
     color: $color-white;
-    margin: 0;
+    font-size: $h5-font-size;
+    margin: {
+      bottom: 1.5rem;
+      top: 0;
+    }
   }
 }
 
@@ -330,6 +333,15 @@ a#skipnav {
   .is-peripheral {
     opacity: .2;
   }
+}
+
+.preview-no_border {
+  border: 0;
+  margin: {
+    top: 0;
+    bottom: 2em;
+  }
+  padding: 0;
 }
 
 // Code Sample Boxes --------- //
@@ -513,13 +525,15 @@ h3 + .button_wrapper {
 .usa-color-row {
   margin-bottom: 3rem;
 
-  .usa-width-one-fourth {
+  .color-big {
     @include media($medium-screen) {
-      width: 28%;
+      float: left;
+      padding-right: 4%;
+      width: 32%;
     }
   }
 
-  .usa-width-one-sixth {
+  .color-small {
     float: left;
     width: 50%;
 
@@ -818,4 +832,213 @@ h3 + .button_wrapper {
 
 .usa-color-text-white {
   color: $color-white;
+}
+
+.usa-heading-alt {
+  border-bottom: 1px solid $color-gray;
+  padding-bottom: .8rem;
+}
+
+h6.usa-heading-alt {
+  margin-top: 4rem;
+}
+
+.usa-typography-example-font {
+  h1, h2, h3, h4, h5, h6, .usa-font-example p {
+    margin: 0;
+  }
+}
+
+.usa-typography-example {
+  .usa-monospace {
+    font-size: 1.2rem;
+    margin: {
+      bottom: 3rem;
+      top: 0;
+    }
+  }
+}
+
+.usa-monospace {
+  font-family: monospace;
+}
+
+// Code snippet boxes
+
+.usa-code-sample .usa-unstyled-list {
+  @include unstyled-list();
+}
+
+.usa-code-sample pre {
+  font-size: 1.2rem;
+}
+
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: none;
+}
+
+code[class*="language-"], pre[class*="language-"] {
+  color: $color-base;
+}
+
+.token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted {
+  color: $color-primary-alt-darkest;
+}
+
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted {
+  color: $color-secondary;
+}
+
+.token.atrule, .token.attr-value, .token.keyword {
+  color: $color-green;
+}
+
+.token.punctuation {
+    color: $color-primary-alt-darkest;
+}
+
+.usa-code-sample .usa-accordion-content {
+  padding: 0;
+}
+
+.usa-code-sample pre[class*="language-"] {
+  margin-top: 0;
+}
+
+.preview {
+  .usa-background-dark {
+    display: inline-block;
+    padding: {
+      left: 1em;
+      right: 1em;
+    }
+  }
+}
+
+.alignment-example {
+  border-left: 2px solid $color-primary-darker;
+  padding-left: 1rem;
+}
+
+.help-text {
+  border-top: 2px solid $color-primary-darker;
+  color: $color-primary-darker;
+  font-size: $em-base;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.text-tiny {
+  margin: {
+    bottom: 0;
+    top: 5px;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.typography-sans-intro {
+  .text-huge {
+    font-size: 140px;
+    line-height: 1.05;
+  }
+  .text-tiny {
+    font-size: 15px;
+  }
+}
+
+.typography-serif-intro {
+  .text-huge {
+    font-size: 120px;
+    line-height: 1.275;
+  }
+  .text-tiny {
+    font-size: 13px;
+  }
+}
+
+.usa-color-bg-example {
+  margin-bottom: 3rem;
+}
+
+// Alt font styles
+
+$font-light: 300;
+
+.serif-robust {
+  .usa-display-alt {
+    font-size: $h1-font-size;
+    font-weight: $font-light;
+  }
+
+  .usa-font-lead {
+    font-family: $font-serif;
+    font-size: $h3-font-size;
+  }
+
+  .usa-font-lead-alt {
+    font-size: $h5-font-size;
+  }
+}
+
+.sans-style {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $font-sans;
+  }
+  
+  h1 {
+    font-size: rem(44px);
+  }
+
+  h2 {
+    font-size: rem(34px);
+  }
+
+  h3 {
+    font-size: rem(24px);
+  }
+
+  h4 {
+    font-size: rem(19px);
+  }
+
+  h5 {
+    font-size: rem(16px);
+  }
+
+  h6 {
+    font-size: rem(13px);
+  }
+
+  .usa-display {
+    font-size: rem(59px);
+  }
+
+  .usa-display-alt {
+    font-size: rem(44px);
+  }
+
+  .usa-font-lead {
+    font-size: rem(22px);
+  }
+
+  &.serif-body {
+    .usa-font-example p {
+      font-family: $font-serif;
+      font-size: rem(15px);
+      line-height: 1.7;
+    }
+  }
+}
+
+.serif-sans-minor {
+  h6 {
+    font-family: $font-sans;
+  }
+}
+
+.usa-accordion-docs {
+  margin-bottom: 6rem;
 }

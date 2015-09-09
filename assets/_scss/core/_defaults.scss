@@ -6,15 +6,16 @@
 $em-base:             10px; // default is already defined in bourbon
 $base-font-size:      rem(16px) !default;
 $small-font-size:     rem(14px) !default;
+$lead-font-size:      rem(22px) !default;
 $title-font-size:     rem(52px) !default;
 $h1-font-size:        rem(40px) !default;
 $h2-font-size:        rem(30px) !default;
 $h3-font-size:        rem(20px) !default;
 $h4-font-size:        rem(17px) !default;
-$h5-font-size:        rem(14px) !default;
-$h6-font-size:        rem(12px) !default;
-$base-line-height:    1.375em !default;
-$heading-line-height: 1.375em !default;
+$h5-font-size:        rem(15px) !default;
+$h6-font-size:        rem(13px) !default;
+$base-line-height:    1.5 !default;
+$heading-line-height: 1.3 !default;
 
 $font-sans:           'Source Sans Pro', 'Helvetica', 'Arial', sans-serif !default;
 $font-serif:          'Merriweather', 'Georgia', 'Times New Roman', serif;
@@ -79,8 +80,9 @@ $large-screen:      1201px !default;
 
 
 // Magic Numbers
+$text-max-width:    53rem !default;
 $site-max-width:    1040px !default;
-$site-margins:      40px !default;
+$site-margins:      3rem !default;
 $article-max-width: 600px !default;
 $input-max-width:   46rem !default;
 $border-radius:     rem(3px) !default;
