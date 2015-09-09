@@ -17,15 +17,6 @@
   }
   display: none;
   float: right;
-  padding-right: $site-margins;
-}
-
-
-.usa-disclaimer-official {
-  @include media($medium-screen) {
-    padding-left: 3rem;
-  }
-  padding-left: 2rem;
 }
 
 .usa-flag_icon {

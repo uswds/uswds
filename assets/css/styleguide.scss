@@ -1042,3 +1042,16 @@ $font-light: 300;
 .usa-accordion-docs {
   margin-bottom: 6rem;
 }
+
+// This adds styleguide-only right and left margins for our disclaimer 
+// Since the layout we use is not in a grid
+.usa-disclaimer-stage {
+  padding-right: $site-margins;
+}
+
+.usa-disclaimer-official {
+  @include media($medium-screen) {
+    padding-left: $site-margins;
+  }
+  padding-left: 2rem;
+}
