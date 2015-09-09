@@ -7,7 +7,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
 
 <h3 class="usa-heading">Accessibility</h3>
 
-<p>As you customize these templates, ensure they continue to meet the <a href="{{ site.baseurl }}/elements/#inputs">accessibility guidelines for all form controls</a> as well as the accessibility guidelines for each individual control.</p>
+<p>As you customize these templates, ensure they continue to meet the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for all form controls</a> as well as the accessibility guidelines for each individual control.</p>
 
 <p>In addition, when creating forms with multiple controls or customizing these templates, ensure:</p>
 
@@ -60,8 +60,8 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
-      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+      <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/form-controls/">the accessibility guidelines for form controls</a>.</li>
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
   </div>
@@ -165,8 +165,8 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
-      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+      <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/form-controls/">the accessibility guidelines for form controls</a>.</li>
     </ul>
     <p>We also recommend:</p>
     <ul class="usa-content-list">
@@ -213,8 +213,8 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
-      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+      <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/form-controls/">the accessibility guidelines for form controls</a>.</li>
     </ul>
     <p>We also recommend:</p>
     <ul class="usa-content-list">
@@ -271,8 +271,8 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
-      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+      <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/form-controls/">the accessibility guidelines for form controls</a>.</li>
     </ul>
     <p>We also recommend:</p>
     <ul class="usa-content-list">
@@ -343,8 +343,8 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
-      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+      <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/form-controls/">the accessibility guidelines for form controls</a>.</li>
     </ul>
     <p>We also recommend:</p>
     <ul class="usa-content-list">
@@ -391,8 +391,8 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
-      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+      <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/form-controls/">the accessibility guidelines for form controls</a>.</li>
     </ul>
     <p>We also recommend:</p>
     <ul class="usa-content-list">
@@ -445,8 +445,8 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
-      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+      <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
+      <li><a href="{{ site.baseurl }}/form-controls/">the accessibility guidelines for form controls</a>.</li>
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
   </div>
