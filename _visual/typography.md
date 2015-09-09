@@ -406,7 +406,6 @@ Something about load performance consideration and how we recommend one of the f
               <li>3. Merriweather Regular 400</li>
               <li>4. Source Sans Pro Regular 400</li>
               <li>5. Source Sans Pro Bold 700</li>
-              <li>6. Source Sans Pro Italic 400</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
