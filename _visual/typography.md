@@ -353,7 +353,7 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
-              font-weight: 300<br>
+              font-weight: 400<br>
               font-size: 17px<br>
               line-height: 1.7em/29px
             </p>
@@ -531,7 +531,7 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
-              font-weight: 300<br>
+              font-weight: 400<br>
               font-size: 17px<br>
               line-height: 1.7em/29px
             </p>
