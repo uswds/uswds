@@ -7,7 +7,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 <div class="preview">
   
-  <h3 class="usa-heading">1. Single level</h3>
+  <h3 class="usa-heading">Single level</h3>
   
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
@@ -25,7 +25,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </aside>
   </div>
 
-  <h3 class="usa-heading">2. Two levels</h3>
+  <h3 class="usa-heading">Two levels</h3>
 
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
@@ -60,7 +60,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </aside>
   </div>
 
-  <h3 class="usa-heading">3. Three levels</h3>
+  <h3 class="usa-heading">Three levels</h3>
 
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
