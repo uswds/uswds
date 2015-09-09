@@ -1010,10 +1010,12 @@ $font-light: 300;
 
   .usa-display-alt {
     font-size: rem(44px);
+    font-weight: $font-light;
   }
 
   .usa-font-lead {
     font-size: rem(22px);
+    font-weight: $font-light;
   }
 
   &.serif-body {
