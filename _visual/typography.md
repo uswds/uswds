@@ -69,9 +69,9 @@ Something about load performance consideration and how we recommend one of the f
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
               <li>1. Merriweather Bold 700</li>
-              <li>2. Source Sans Pro, Regular 400</li>
-              <li>3. Source Sans Pro, Bold 700</li>
-              <li>4. Source Sans Pro, Italic 400</li>
+              <li>2. Source Sans Pro Regular 400</li>
+              <li>3. Source Sans Pro Bold 700</li>
+              <li>4. Source Sans Pro Italic 400</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
@@ -99,7 +99,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/68px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -110,7 +110,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 40px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -121,7 +121,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 30px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/39px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -132,7 +132,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 20px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/26px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -143,7 +143,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 17px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/22px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -154,7 +154,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 15px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/20px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -162,10 +162,10 @@ Something about load performance consideration and how we recommend one of the f
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/17px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -175,8 +175,8 @@ Something about load performance consideration and how we recommend one of the f
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 400<br>
-              font-size: 22px<br>
-              line-height: 1.375em/30px
+              font-size: 20px<br>
+              line-height: 1.7em/34px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -187,7 +187,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -199,7 +199,7 @@ Something about load performance consideration and how we recommend one of the f
               font-style: Italic<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
         </div>
@@ -224,9 +224,9 @@ Something about load performance consideration and how we recommend one of the f
             <ul>
               <li>1. Merriweather Bold 700</li>
               <li>2. Merriweather Light 300</li>
-              <li>3. Source Sans Pro, Regular 400</li>
-              <li>4. Source Sans Pro, Bold 700</li>
-              <li>5. Source Sans Pro, Italic 400</li>
+              <li>3. Source Sans Pro Regular 400</li>
+              <li>4. Source Sans Pro Bold 700</li>
+              <li>5. Source Sans Pro Italic 400</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
@@ -254,7 +254,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/68px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -263,9 +263,9 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-weight: 300<br>
               font-size: 40px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -276,7 +276,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 40px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -287,7 +287,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 30px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/39px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -298,7 +298,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 20px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/26px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -309,7 +309,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 17px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/22px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -320,7 +320,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 15px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/20px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -328,10 +328,10 @@ Something about load performance consideration and how we recommend one of the f
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/17px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -342,7 +342,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 300<br>
               font-size: 20px<br>
-              line-height: 1.375em/30px
+              line-height: 1.7em/34px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -351,9 +351,9 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
-              font-weight: 400<br>
-              font-size: 15px<br>
-              line-height: 1.375em/20px
+              font-weight: 300<br>
+              font-size: 17px<br>
+              line-height: 1.7em/29px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -364,7 +364,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -376,7 +376,7 @@ Something about load performance consideration and how we recommend one of the f
               font-style: Italic<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
         </div>
@@ -401,9 +401,9 @@ Something about load performance consideration and how we recommend one of the f
             <ul>
               <li>1. Merriweather Bold 700</li>
               <li>2. Merriweather Light 300</li>
-              <li>3. Source Sans Pro, Regular 400</li>
-              <li>4. Source Sans Pro, Bold 700</li>
-              <li>5. Source Sans Pro, Italic 400</li>
+              <li>3. Source Sans Pro Regular 400</li>
+              <li>4. Source Sans Pro Bold 700</li>
+              <li>5. Source Sans Pro Italic 400</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
@@ -431,7 +431,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/68px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -440,9 +440,9 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-weight: 300<br>
               font-size: 40px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -453,7 +453,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 40px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -464,7 +464,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 30px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/39px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -475,7 +475,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 20px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/26px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -486,7 +486,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 17px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/22px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -497,7 +497,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 15px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/20px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -505,10 +505,10 @@ Something about load performance consideration and how we recommend one of the f
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/17px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -519,7 +519,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 300<br>
               font-size: 20px<br>
-              line-height: 1.375em/30px
+              line-height: 1.7em/34px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -528,9 +528,9 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
-              font-weight: 400<br>
-              font-size: 15px<br>
-              line-height: 1.375em/20px
+              font-weight: 300<br>
+              font-size: 17px<br>
+              line-height: 1.7em/29px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -538,10 +538,10 @@ Something about load performance consideration and how we recommend one of the f
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
+              font-family: ‘Merriweather’<br>
               font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
+              font-size: 15px<br>
+              line-height: 1.7em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -549,11 +549,11 @@ Something about load performance consideration and how we recommend one of the f
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
+              font-family: ‘Merriweather’<br>
               font-style: Italic<br>
               font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
+              font-size: 15px<br>
+              line-height: 1.7em/26px
             </p>
           </div>
         </div>
@@ -578,10 +578,10 @@ Something about load performance consideration and how we recommend one of the f
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
-              <li>1. Source Sans Pro Light 700</li>
-              <li>2. Source Sans Pro, Regular 400</li>
-              <li>3. Source Sans Pro, Bold 700</li>
-              <li>4. Source Sans Pro, Italic 400</li>
+              <li>1. Source Sans Pro Light 300</li>
+              <li>2. Source Sans Pro Regular 400</li>
+              <li>3. Source Sans Pro Bold 700</li>
+              <li>4. Source Sans Pro Italic 400</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
@@ -610,7 +610,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 59px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/77px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -619,9 +619,9 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
+              font-weight: 300<br>
               font-size: 44px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/57px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -632,7 +632,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 44px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/57px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -643,7 +643,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 34px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/44px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -654,7 +654,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 24px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/31px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -665,7 +665,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 19px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/25px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -676,7 +676,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 16px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/21px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -685,20 +685,20 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/17px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
-            <p class="usa-font-lead">Lead <br>paragraph 1</p>
+            <p class="usa-font-lead">Lead <br>paragraph</p>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 300<br>
               font-size: 22px<br>
-              line-height: 1.375em/30px
+              line-height: 1.5em/33px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -709,7 +709,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -721,7 +721,7 @@ Something about load performance consideration and how we recommend one of the f
               font-style: Italic<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
         </div>
@@ -745,11 +745,11 @@ Something about load performance consideration and how we recommend one of the f
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
               <li>1. Source Sans Pro Light 300</li>
-              <li>2. Source Sans Pro, Regular 400</li>
-              <li>3. Source Sans Pro, Bold 700</li>
-              <li>4. Merriweather, Regular 400</li>
-              <li>5. Merriweather, Italic 400</li>
-              <li>6. Merriweather, Bold 700</li>
+              <li>2. Source Sans Pro Regular 400</li>
+              <li>3. Source Sans Pro Bold 700</li>
+              <li>4. Merriweather Regular 400</li>
+              <li>5. Merriweather Italic 400</li>
+              <li>6. Merriweather Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
@@ -777,7 +777,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 59px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/77px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -786,9 +786,9 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
+              font-weight: 300<br>
               font-size: 44px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/57px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -799,7 +799,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 44px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/57px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -810,7 +810,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 34px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/44px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -821,7 +821,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 24px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/31px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -832,7 +832,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 19px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/25px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -843,7 +843,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 16px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/21px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -852,20 +852,20 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/17px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
-            <p class="usa-font-lead">Lead <br>paragraph 1</p>
+            <p class="usa-font-lead">Lead <br>paragraph</p>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 300<br>
               font-size: 22px<br>
-              line-height: 1.375em/30px
+              line-height: 1.5em/33px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -873,10 +873,10 @@ Something about load performance consideration and how we recommend one of the f
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
+              font-family: ‘Merriweather’<br>
               font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
+              font-size: 15px<br>
+              line-height: 1.7em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -884,11 +884,11 @@ Something about load performance consideration and how we recommend one of the f
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
+              font-family: ‘Merriweather’<br>
               font-style: Italic<br>
               font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
+              font-size: 15px<br>
+              line-height: 1.7em/26px
             </p>
           </div>
         </div>
