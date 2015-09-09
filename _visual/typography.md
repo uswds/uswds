@@ -165,7 +165,8 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.3em/17px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -331,7 +332,8 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.3em/17px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -508,7 +510,8 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.3em/17px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -687,7 +690,8 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.3em/17px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -854,7 +858,8 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.3em/17px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
