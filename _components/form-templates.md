@@ -2,7 +2,7 @@
 layout: styleguide
 type: component
 title: Form templates
-lead: asjac Intro text on what is included in this section and how to use it. No more than one or two sentences.
+lead: Patterns for some of the most commonly used forms on government websites.
 ---
 
 <h3 class="usa-heading">Accessibility</h3>
