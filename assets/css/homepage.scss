@@ -87,7 +87,7 @@ p {
 
 .usa-banner {
   @include media ($medium-screen) {
-    background-image: url("../img/home/homepage_illustrations_flag.png");
+    background-image: url("../img/home/homepage_illustrations_flag_cropped.png");
     background-position: right bottom;
     background-repeat: no-repeat;
   }
