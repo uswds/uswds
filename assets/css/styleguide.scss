@@ -43,21 +43,34 @@ a#skipnav {
   }
 }
 
+:target:before {
+  content: "";
+  display: block;
+  height: 75px;
+  margin-top: -75px;
+
+  @include media($medium-screen) {
+    height: 90px;
+    margin-top: -90px;
+  }
+
+  @include media($medium-screen + $width-nav-sidebar) {
+    height: $site-top;
+    margin-top: -$site-top;
+  }
+}
+
 .usa-site-header {
   background-color: $color-white;
   border-bottom: 1px solid $color-gray-light;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
   z-index: 1;
   
   a {
     border-bottom: none;
-  }
-
-  .usa-disclaimer-official {
-    padding-left: $site-margins;
-  }
-
-  .usa-disclaimer-stage {
-    padding-right: $site-margins;
   }
 
   .usa-site-navbar {
@@ -100,6 +113,10 @@ a#skipnav {
       li { 
         display: inline; 
         font-family: $font-sans;
+
+        &:last-child .usa-button {
+          margin-right: 0;
+        }
       }
     }
   }
@@ -178,14 +195,14 @@ a#skipnav {
 // Sidebar Nav --------- //
 
 .sidenav {
-  position: absolute;
+  position: fixed;
   top: $site-top;
   bottom: 0;
   left: 0;
   width: $width-nav-sidebar;
   border-right: 1px solid $color-gray-light;
   padding: 5rem 3rem 3rem 3rem;
-  overflow: auto;
+  overflow: scroll;
   display: none;
   z-index: -1;
   
@@ -232,7 +249,6 @@ a#skipnav {
   top: 4rem;
   bottom: 0;
   right: 0;
-  overflow: auto;
   width: 100%;
   padding: {
     bottom: 0;
@@ -256,12 +272,12 @@ a#skipnav {
 // Styleguide Content -------- //
 
 .styleguide-content {
+  margin-bottom: 5em;
   max-width: $site-max-width;
   padding: {
-    bottom: 1em;
     left: 2em;
     right: 2em;
-  }  
+  }
   position: relative;
 
   > h1 {
@@ -287,9 +303,19 @@ a#skipnav {
     top: 3rem;
   }
 
+// This is a styleguide-only rule and is not needed in the main library code for 
+// the footer component which uses different styles
+// TODO investigate why it's not needed in the main library CSS
   p, a {
+    @include media($medium-screen) {
+      margin-bottom: 0;
+    }
     color: $color-white;
-    margin: 0;
+    font-size: $h5-font-size;
+    margin: {
+      bottom: 1.5rem;
+      top: 0;
+    }
   }
 }
 
@@ -503,7 +529,7 @@ h3 + .button_wrapper {
     @include media($medium-screen) {
       float: left;
       padding-right: 4%;
-      width: 28%;
+      width: 32%;
     }
   }
 
@@ -1007,4 +1033,8 @@ $font-light: 300;
   h6 {
     font-family: $font-sans;
   }
+}
+
+.usa-accordion-docs {
+  margin-bottom: 6rem;
 }

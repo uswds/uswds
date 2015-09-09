@@ -26,6 +26,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
     </div>
   </div>
 </div>
+
 <h4 class="usa-heading-alt">Merriweather</h4>
 
 <div class="usa-grid-full">
@@ -45,15 +46,12 @@ Include intro of the two families, how we have diff packages, a bit on considera
 </div>
 
 <a class="usa-button usa-button-primary-alt" href="#">Download the style files?</a>
-<p class="usa-small-text">Info about what files to expect when you download.</p>
+<p class="usa-text-small">Info about what files to expect when you download.</p>
 
 <h3 class="usa-heading" id="pairings">Pairings + Styles</h3>
-
-<p>Guidance/overview on how our font packages were designed, etc.
-Something about load performance consideration and how we recommend one of the following font pages for use.  A bit on the rationale for the pairings if it’s not covered an above section.</p>
+<p>Guidance/overview on how our font packages were designed, etc. Something about load performance consideration and how we recommend one of the following font pages for use. A bit on the rationale for the pairings if it’s not covered an above section.</p>
 
 <h4 class="usa-heading">Credible and warm</h4>
-
 <div class="usa-accordion-bordered usa-typography-example">
   <ul class="usa-unstyled-list">
     <li>
@@ -935,7 +933,7 @@ Something about load performance consideration and how we recommend one of the f
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li>Item 1</li>
@@ -944,20 +942,20 @@ Something about load performance consideration and how we recommend one of the f
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
 
-    <h4 class="usa-heading">Usability</h3>
-    <h5>When to use</h4>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>When to consider something different</h4>
+    <h5>When to consider something different</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>Guidelines</h4>
+    <h5>Guidelines</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
@@ -992,7 +990,7 @@ Something about load performance consideration and how we recommend one of the f
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li>Item 1</li>
@@ -1001,20 +999,20 @@ Something about load performance consideration and how we recommend one of the f
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
 
-    <h4 class="usa-heading">Usability</h3>
-    <h5>When to use</h4>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>When to consider something different</h4>
+    <h5>When to consider something different</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>Guidelines</h4>
+    <h5>Guidelines</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
@@ -1064,7 +1062,7 @@ Something about load performance consideration and how we recommend one of the f
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li>Item 1</li>
@@ -1073,20 +1071,20 @@ Something about load performance consideration and how we recommend one of the f
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
 
-    <h4 class="usa-heading">Usability</h3>
-    <h5>When to use</h4>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>When to consider something different</h4>
+    <h5>When to consider something different</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>Guidelines</h4>
+    <h5>Guidelines</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
