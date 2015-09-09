@@ -728,7 +728,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
   </ul>
 </div>
 
-<div class="usa-accordion-bordered usa-typography-example">
+<div class="usa-accordion-bordered usa-typography-example usa-accordion-docs">
   <ul class="usa-unstyled-list">
     <li>
       <button class="usa-button-unstyled"
@@ -927,7 +927,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
 
 <!-- Typsetting section end -->
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
@@ -984,7 +984,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
 
 <!-- Links section end -->
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
@@ -1056,7 +1056,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
 
 <!-- Lists section end -->
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
