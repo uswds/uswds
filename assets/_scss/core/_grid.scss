@@ -105,11 +105,6 @@
   .usa-end-row {
     @include omega();
   }
-
-  // Fixes grid alignment when grid-items have varying heights.
-  .usa-end-row + .grid-item {
-    clear: left;
-  }
 }
 
 .usa-grid {
