@@ -31,7 +31,7 @@ form {
 .usa-form-note {
   float: right;
   font-family: $font-sans;
-  font-size: $small-font-size;
+  font-size: $h5-font-size;
   margin: 0;
   margin-bottom: 1.5rem;
 
@@ -44,10 +44,6 @@ fieldset {
   border: none;
   margin: 0;
   padding: 0;
-}
-
-legend {
-  @include h2;
 }
 
 .usa-form-large {
@@ -86,10 +82,6 @@ input.usa-input-medium {
     width: 35%;
   }
 
-  label {
-    margin-top: 1.5rem;
-  }
-
   input {
     margin-bottom: 3rem;
   }
@@ -105,10 +97,6 @@ input.usa-input-medium {
     width: 65%;
   }
 
-  label {
-    margin-top: 1.5rem;
-  }
-
   input {
     margin-bottom: 3rem;
   }
@@ -122,10 +110,6 @@ input.usa-input-medium {
   @include media($medium-screen) {
     float: left;
     width: 100%;
-  }
-
-  label {
-    margin-top: 1.5rem;
   }
 
   input {
@@ -154,5 +138,42 @@ input.usa-input-medium {
   & > * {
     display: inline;
     margin-right: 1.5em;
+  }
+}
+
+// Reset password checklist
+
+.usa-checklist {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+
+  li {
+    display: inline-block;
+    list-style: none;
+    margin: {
+      bottom: 0em;
+      top: 0em;
+    }
+    padding-left: 3em;
+    text-indent: -2em;
+
+    &:before {
+      content: ' ';
+      display: inline-block;
+      height: .8em;
+      margin-right: .2em;
+      width: 1.8em;
+    }
+  }
+}
+
+.usa-checklist-checked {
+  &:before {
+    background-image: url('../img/correct9.png');
+    background-image: url('../img/correct9.svg');
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
   }
 }
