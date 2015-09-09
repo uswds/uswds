@@ -7,8 +7,8 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 <div class="preview">
   
-  <h2 class="usa-heading">Sidenav</h2>
-
+  <h3 class="usa-heading">Single level</h3>
+  
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
@@ -25,7 +25,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </aside>
   </div>
 
-  <h2 class="usa-heading">Sidenav with sub items</h2>
+  <h3 class="usa-heading">Two levels</h3>
 
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
@@ -60,7 +60,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </aside>
   </div>
 
-  <h2 class="usa-heading">Sidenav with sub items + grandchild items</h2>
+  <h3 class="usa-heading">Three levels</h3>
 
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
