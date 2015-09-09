@@ -40,10 +40,11 @@ select  {
 
 .usa-input-error {
   border-left: 4px solid $color-secondary-dark;
+  font-size: $base-font-size;
+  margin-top: 3rem;
   padding: .5em 1.5rem; 
   position: relative;
   right: 1.5rem;
-  margin-top: 3rem;
   input {
     border: 3px solid $color-secondary-dark;
   }
@@ -54,8 +55,12 @@ select  {
 
 .usa-input-error-message {
   color: $color-secondary-dark;
-  font-size: $small-font-size;
-  font-weight: $font-bold;
+  display: block;
+  font-size: $base-font-size;
+  padding: {
+    bottom: 3px;
+    top: 3px;
+  }
 }
 
 label {
@@ -76,6 +81,11 @@ select {
   appearance: none;
   background: url("../img/arrow-down.png") no-repeat;
   background-position: right 1.3rem center;
+}
+
+legend {
+  font-size: $h2-font-size;
+  font-weight: $font-bold;
 }
 
 .usa-fieldset-inputs {
@@ -154,10 +164,14 @@ input[type="checkbox"]:focus + label::before {
   box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-primary;
 }
 
+input[type="checkbox"]:disabled + label {
+  color: $color-gray;
+}
+
 input[type="checkbox"]:disabled + label::before,
 input[type="radio"]:disabled + label::before {
-  background: #757575;
-  color: #757575;
+  background: $color-gray-lighter;
+  box-shadow: 0 0 0 1px $color-gray-light;
   cursor: not-allowed;
 }
 
@@ -178,39 +192,36 @@ input[type=range]:focus {
 input[type=range]::-webkit-slider-runnable-track {
   background: #bdbdbd;
   border: 1px solid #757575;
-  border-radius: 1rem;
   cursor: pointer;
-  height: .9rem;
+  height: 1.2rem;
   width: 100%;
 }
 
 input[type=range]::-moz-range-track {
   background: $color-primary;
   border: 1px solid #757575;
-  border-radius: 1rem;
   cursor: pointer;
-  height: .9rem;
+  height: 1.2rem;
   width: 100%;
 }
 
 input[type=range]::-ms-track {
   background: transparent;
-  border-color: transparent;
   color: transparent;
   cursor: pointer;
-  height: .9rem;
+  height: 1.2rem;
   width: 100%;
 }
 
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 1px solid #757575;
-  height: 2rem;
+  height: 2.2rem;
   border-radius: 1.5rem;
   background: #eeeeee;
   cursor: pointer;
   margin-top: -.65rem;  
-  width: 2rem;
+  width: 2.2rem;
 }
 
 input[type=range]::-moz-range-thumb {
@@ -218,8 +229,8 @@ input[type=range]::-moz-range-thumb {
   border: 1px solid #757575;
   border-radius: 1.5rem;
   cursor: pointer;
-  height: 2rem;
-  width: 2rem;
+  height: 2.2rem;
+  width: 2.2rem;
 }
 
 input[type=range]::-ms-thumb {
@@ -227,8 +238,8 @@ input[type=range]::-ms-thumb {
   border: 1px solid #757575;
   border-radius: 1.5rem;
   cursor: pointer;
-  height: 2rem;
-  width: 2rem;
+  height: 2.2rem;
+  width: 2.2rem;
 }
 
 input[type=range]::-ms-fill-lower {
@@ -259,7 +270,7 @@ input[type=range]:focus::-ms-thumb {
 
 .usa-date-of-birth {
   label {
-    margin-top: 1em;
+    margin-top: 0;
   }
 
   input[type=number]::-webkit-inner-spin-button, 

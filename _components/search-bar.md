@@ -9,11 +9,13 @@ lead: Intro text on what is included in this section and how to use it. No more 
   <div class="usa-grid">
     <div class="usa-width-one-half">
       <form class="usa-search usa-search-big">
-        <label for="search-field-big">Search Big</label>
-        <input type="search" id="search-field-big">
-        <button type="submit">
-          <span class="usa-search-submit-text">Search</span>
-        </button>
+        <div role="search">
+          <label for="search-field-big">Search Big</label>
+          <input type="search" id="search-field-big">
+          <button type="submit">
+            <span class="usa-search-submit-text">Search</span>
+          </button>
+        </div>
       </form>
     </div>
   </div>
@@ -21,11 +23,13 @@ lead: Intro text on what is included in this section and how to use it. No more 
   <div class="usa-grid">
     <div class="usa-width-one-half">
       <form class="usa-search">
-        <label for="search-field">Search Medium</label>
-        <input type="search" id="search-field">
-        <button type="submit">
-          <span class="usa-search-submit-text">Search</span>
-        </button>
+        <div role="search">
+          <label for="search-field">Search Medium</label>
+          <input type="search" id="search-field">
+          <button type="submit">
+            <span class="usa-search-submit-text">Search</span>
+          </button>
+        </div>
       </form>
     </div>
   </div>
@@ -33,17 +37,19 @@ lead: Intro text on what is included in this section and how to use it. No more 
   <div class="usa-grid">
     <div class="usa-width-one-half">
       <form class="usa-search usa-search-small">
-        <label for="search-field-small">Search Small</label>
-        <input type="search" id="search-field-small">
-        <button type="submit">
-          <span class="usa-sr-only">Search</span>
-        </button>
+        <div role="search">
+          <label for="search-field-small">Search Small</label>
+          <input type="search" id="search-field-small">
+          <button type="submit">
+            <span class="usa-sr-only">Search</span>
+          </button>
+        </div>
       </form>
     </div>
   </div>
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation

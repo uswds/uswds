@@ -341,9 +341,9 @@ $(function() {
 
       $('.usa-footer-big nav ul').addClass('hidden');
 
-      $('.usa-footer-big nav h3').unbind('click');
+      $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
 
-      $('.usa-footer-big nav h3').bind('click', function() {
+      $('.usa-footer-big nav .usa-footer-primary-link').bind('click', function() {
         $(this).parent().removeClass('hidden')
         .siblings().addClass('hidden');
       });
@@ -351,7 +351,7 @@ $(function() {
 
       $('.usa-footer-big nav ul').removeClass('hidden');
 
-      $('.usa-footer-big nav h3').unbind('click');
+      $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
     }
   };
 

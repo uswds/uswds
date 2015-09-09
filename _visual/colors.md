@@ -367,7 +367,7 @@ order: 02
 
 <h5>Neutrals on a colored background</h5>
 
-<div class="usa-grid-full">
+<div class="usa-grid-full usa-color-bg-example">
   <div class="usa-width-one-half">
     <div class="usa-color-text usa-color-base usa-color-text-white">
       white on base
@@ -461,13 +461,13 @@ order: 02
   </div>
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li>Item 1</li>
@@ -476,20 +476,20 @@ order: 02
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
 
-    <h4 class="usa-heading">Usability</h3>
-    <h5>When to use</h4>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>When to consider something different</h4>
+    <h5>When to consider something different</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>Guidelines</h4>
+    <h5>Guidelines</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>

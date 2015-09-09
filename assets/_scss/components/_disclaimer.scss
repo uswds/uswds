@@ -1,16 +1,33 @@
 .usa-disclaimer {
+  @include media($small-screen) {
+    font-size: $h5-font-size;
+  }
   background-color: $color-gray-lighter;
-  font-size: 1.5rem;
+  font-size: $h6-font-size;
   padding: {
     bottom: .5rem;
     top: .5rem;
   }
 }
 
+// This hides the stage note of the disclaimer in anything smaller than 690px
 .usa-disclaimer-stage {
-  @include media($medium-screen) {
+  @include media($large-screen) {
     display: block;
   }
   display: none;
   float: right;
+  padding-right: $site-margins;
+}
+
+
+.usa-disclaimer-official {
+  @include media($medium-screen) {
+    padding-left: 3rem;
+  }
+  padding-left: 2rem;
+}
+
+.usa-flag_icon {
+  margin-right: .2rem;
 }

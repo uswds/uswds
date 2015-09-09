@@ -2,7 +2,7 @@
 layout: styleguide
 type: component
 title: Form templates
-lead: asjac Intro text on what is included in this section and how to use it. No more than one or two sentences.
+lead: Patterns for some of the most commonly used forms on government websites.
 ---
 
 <h3 class="usa-heading">Accessibility</h3>
@@ -45,7 +45,7 @@ lead: asjac Intro text on what is included in this section and how to use it. No
 
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
@@ -175,53 +175,6 @@ lead: asjac Intro text on what is included in this section and how to use it. No
   </div>
 </div>
 
-<h2 id="login-form">Login</h2>
-
-<div class="preview">
-  <form>
-    <fieldset>
-      <legend>Name</legend>
-      <label for="title">Title</label>
-      <input class="usa-input-tiny" id="title" name="title" type="text">
-
-      <label for="first-name">First Name <span class="usa-additional_text">Required</span></label>
-      <input id="first-name" name="first-name" type="text">
-
-      <label for="middle-name">Middle Name</label>
-      <input id="middle-name" name="middle-name" type="text">
-
-      <label for="last-name">Last Name <span class="usa-additional_text">Required</span></label>
-      <input id="last-name" name="last-name" type="text">
-
-      <label for="suffix">Suffix</label>
-      <input class="usa-input-tiny" id="suffix" name="suffix" type="text">
-    </fieldset>
-  </form>
-</div>
-
-<div class="usa-accordion-bordered">
-  <button class="usa-button-unstyled usa-accordion-button"
-      aria-expanded="true" aria-controls="collapsible-0">
-    Documentation
-  </button>
-  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Use</h4>
-    <ul class="usa-content-list">
-      <li>Leave the title and suffix fields as text boxes (instead of offering drop downs.) There are many possible titles and suffixes; text boxes accommodate them all.</li>
-      <li>Do not restrict the types of characters users can enter in any of these fields. Names can include characters outside the standard Roman alphabet.</li>
-    </ul>
-
-    <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
-    <ul class="usa-content-list">
-      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
-      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
-    </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
-  </div>
-</div>
-
-
 <div class="preview">
   <form>
 
@@ -271,13 +224,13 @@ lead: asjac Intro text on what is included in this section and how to use it. No
 </div>
 
 
-<h2>Login</h2>
+<h2 class="usa-heading" id="login-form">Login</h2>
 
 <div class="preview">
   <form>
     <fieldset>
       <legend class="usa-drop_text">Sign in</legend>
-      <span class="usa-serif">or <a href="javascript:void(0)">create an account</a></span>
+      <span>or <a href="javascript:void(0)">create an account</a></span>
 
       <label for="username">Username or email address</label>
       <input id="username" name="username" type="text" autocapitalize="off" autocorrect="off">
@@ -328,7 +281,7 @@ lead: asjac Intro text on what is included in this section and how to use it. No
   </div>
 </div>
 
-<h2 class="usa-heading" id="password-reset-form">Password Reset</h2>
+<h2 class="usa-heading" id="password-reset-form">Password reset</h2>
 <div class="preview">
   <form>
 
@@ -340,7 +293,7 @@ lead: asjac Intro text on what is included in this section and how to use it. No
         <div class="usa-alert-body">
           <h3 class="usa-alert-heading">Passwords must:</h3>
         </div>
-        <ul class="usa-check_list" id="validation_list">
+        <ul class="usa-checklist" id="validation_list">
           <li data-validator="length">Be at least 8 characters</li>
           <li data-validator="uppercase">Have at least 1 uppercase character</li>
           <li data-validator="numerical">Have at least 1 numerical character</li>

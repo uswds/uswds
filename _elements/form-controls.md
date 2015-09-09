@@ -29,28 +29,28 @@ lead: Intro text on what is included in this section and how to use it. No more 
   <input class="usa-input-focus" id="input-focus" name="input-focus" type="text">
 
   <div class="usa-input-error">
-    <label for="input-error">Text Input Error</label>
-    <span class="usa-input-error-message" role="alert">Helpful error message</span>
+    <legend>
+      <span for="input-error">Text Input Error</span>
+      <span class="usa-input-error-message" role="alert">Helpful error message</span>
+    </legend>
     <input id="input-error"  aria-describedby="usa-input-error-message" name="input-error" type="text">
   </div>
 
   <label for="input-success">Text Input Success</label>
   <input class="usa-input-success" id="input-success" name="input-success" type="text">
 
-  <h2 class="usa-heading">Text Area</h2>
-
   <label for="input-type-textarea">Text Area Label</label>
   <textarea id="input-type-textarea" name="input-type-textarea"></textarea>
 
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li>Item 1</li>
@@ -59,20 +59,20 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
 
-    <h4 class="usa-heading">Usability</h3>
-    <h5>When to use</h4>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>When to consider something different</h4>
+    <h5>When to consider something different</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>Guidelines</h4>
+    <h5>Guidelines</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
@@ -94,13 +94,13 @@ lead: Intro text on what is included in this section and how to use it. No more 
 </form>
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li>Item 1</li>
@@ -109,20 +109,20 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
 
-    <h4 class="usa-heading">Usability</h3>
-    <h5>When to use</h4>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>When to consider something different</h4>
+    <h5>When to consider something different</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>Guidelines</h4>
+    <h5>Guidelines</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
@@ -162,13 +162,13 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li>Item 1</li>
@@ -177,20 +177,20 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
 
-    <h4 class="usa-heading">Usability</h3>
-    <h5>When to use</h4>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>When to consider something different</h4>
+    <h5>When to consider something different</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>Guidelines</h4>
+    <h5>Guidelines</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
@@ -226,13 +226,13 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li>Item 1</li>
@@ -241,20 +241,20 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
 
-    <h4 class="usa-heading">Usability</h3>
-    <h5>When to use</h4>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>When to consider something different</h4>
+    <h5>When to consider something different</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>Guidelines</h4>
+    <h5>Guidelines</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
@@ -269,8 +269,9 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
   <fieldset>
     <legend>Date of birth</legend>
+    <span class="usa-form-hint usa-datefield-hint" id="dobHint">For example: 04 28 1986</span>
+
     <div class="usa-date-of-birth">
-      <p class="usa-form-hint usa-datefield-hint" id="dobHint">For example: 04 28 1986</p>
       <div class="usa-datefield usa-form-group usa-form-group-month">
         <label for="date_of_birth_1">Month</label>
         <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="text" value="" maxlength="2">
@@ -288,13 +289,13 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li>Item 1</li>
@@ -303,20 +304,20 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
 
-    <h4 class="usa-heading">Usability</h3>
-    <h5>When to use</h4>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>When to consider something different</h4>
+    <h5>When to consider something different</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>Guidelines</h4>
+    <h5>Guidelines</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
@@ -334,13 +335,13 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li>Item 1</li>
@@ -349,20 +350,20 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
 
-    <h4 class="usa-heading">Usability</h3>
-    <h5>When to use</h4>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>When to consider something different</h4>
+    <h5>When to consider something different</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>Guidelines</h4>
+    <h5>Guidelines</h5>
     <ul class="usa-content-list">
       <li>Item 1</li>
       <li>Item 2</li>
