@@ -367,7 +367,7 @@ order: 02
 
 <h5>Neutrals on a colored background</h5>
 
-<div class="usa-grid-full">
+<div class="usa-grid-full usa-color-bg-example">
   <div class="usa-width-one-half">
     <div class="usa-color-text usa-color-base usa-color-text-white">
       white on base
@@ -461,7 +461,7 @@ order: 02
   </div>
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
