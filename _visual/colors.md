@@ -367,7 +367,7 @@ order: 02
 
 <h5>Neutrals on a colored background</h5>
 
-<div class="usa-grid-full">
+<div class="usa-grid-full usa-color-bg-example">
   <div class="usa-width-one-half">
     <div class="usa-color-text usa-color-base usa-color-text-white">
       white on base
