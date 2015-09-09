@@ -424,7 +424,7 @@ Something about load performance consideration and how we recommend one of the f
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
         
-        <div class="serif-robust serif-sans-minor usa-grid usa-typography-example-font">
+        <div class="serif-robust serif-sans-minor serif-body usa-grid usa-typography-example-font">
           <div class="usa-width-one-half">
             <h3 class="usa-display">Display 1</h3>
           </div>

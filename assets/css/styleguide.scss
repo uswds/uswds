@@ -973,6 +973,14 @@ $font-light: 300;
     font-size: $h4-font-size;
     font-weight: $font-normal;
   }
+
+  &.serif-body {
+    .usa-font-example p {
+      font-family: $font-serif;
+      font-size: rem(15px);
+      line-height: 1.7;
+    }
+  }
 }
 
 .sans-style {
