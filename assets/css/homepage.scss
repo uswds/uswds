@@ -43,11 +43,6 @@ p {
   vertical-align: top;
 }
 
-.usa-cta {
-  clear: both;
-  display: block;
-}
-
 .usa-banner {
   @include media ($medium-screen) {
     background-image: url("../img/home/homepage_illustrations_flag_cropped.png");
