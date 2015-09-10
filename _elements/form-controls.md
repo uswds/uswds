@@ -51,32 +51,29 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <p>If you customize the text inputs, ensure they continue to meet the the <a href="{{ site.baseurl }}/form-controls/"> accessibility requirements that apply to all form controls.</a></p>
+    <p>In addition, ensure text inputs:</p>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Avoid placeholder text for accessibility reasons. Most browsers’ default rendering of placeholder text does not provide a high enough contrast.</li>
+      <li>Avoid breaking numbers with distinct sections (such as phone numbers, social security numbers, or credit card numbers)  into separate input fields. For example, use one input for phone number, not three (one for area code, one for local code and one for number). Each field needs to be labeled for a screen reader and the labels for fields broken into segments are not often not meaningful.</li>
     </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
-
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>If you  can’t reasonably predict a user’s answer to a prompt and there might be wide variability in users’ answers.</li>
+      <li>When using another type of input will make answering more difficult. For example, birthdays and other known dates are easier to type in than they are to select from a calendar picker.</li>
+      <li>When users want to be able to paste in a response.</li>
     </ul>
     <h5>When to consider something different</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>When users are choosing from a specific set of options. </li>
     </ul>
     <h5>Guidelines</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>The length of the text input provides a hint to users as to how much text to write.  Do not require users to write paragraphs of text into a single-line input box; use a text box instead.</li>
+      <li>Text inputs are among the easiest type of input for desktop users but are more difficult for mobile users.</li> 
+      <li>Only show error validation messages or stylings after a user has interacted with a particular field.</li>
+      <li>Avoid using placeholder text that appears within a text field before a user starts typing. If placeholder text is no longer visible after a user clicks into the field, users will no longer have that text available when they need to review their entries.  (People who have cognitive or visual disabilities have additional problems with placeholder text. )</li>
     </ul>
   </div>
 </div>
