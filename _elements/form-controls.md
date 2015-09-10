@@ -19,7 +19,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
 <p>If you are a building a form with multiple controls, also consider the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines in the “Form Templates” section</a>.</p>
 
 <h2 class="usa-heading" id="text-inputs">Text Input</h2>
-
+<p class="usa-font-lead">Text inputs allow people to enter any combination of letters, numbers, or symbols of their choosing (unless otherwise restricted). Text input boxes can span single or multiple lines.</p>
 <div class="preview">
 
   <label for="input-type-text">Text Input Label</label>
@@ -82,6 +82,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
 </div>
 
 <h2 class="usa-heading" id="dropdown">Dropdown</h2>
+<p class="usa-font-lead">A dropdown allows users to select one option from a list.</p>
 
 <div class="preview">
 <form>
@@ -132,6 +133,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
 </div>
 
 <h2 class="usa-heading" id="checkboxes">Checkboxes</h2>
+<p class="usa-font-lead">Checkboxes allow users to select one or more options from a visible list. </p>
 
 <div class="preview">
 
@@ -200,6 +202,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
 </div>
 
 <h2 class="usa-heading">Radio buttons</h2>
+<p class="usa-font-lead">Radio buttons allow users to see all available choices at once and select exactly one option.</p>
 
 <div class="preview">
 
@@ -264,6 +267,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
 </div>
 
 <h2 class="usa-heading" id="date-input">Date input</h2>
+<p class="usa-font-lead">Three text fields are the easiest way for users to enter most dates. </p>
 
 <div class="preview">
 
@@ -286,7 +290,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
       </div>
     </div>
   </fieldset>
-
+c
 </div>
 
 <div class="usa-accordion-bordered usa-accordion-docs">
@@ -327,6 +331,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
 </div>
 
 <h2 class="usa-heading" id="range-slider">Range slider</h2>
+<!--<p class="usa-font-lead">placeholder for range slider intro text </p>-->
 
 <div class="preview">
 
