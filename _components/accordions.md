@@ -139,29 +139,21 @@ lead: Intro text on what is included in this section and how to use it. No more 
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Use</h4>
+    <h4 class="usa-heading">Usability</h3>
+    <h5>When to use</h4>
     <ul class="usa-content-list">
-      <li>
-        Accordions are best used when users only need a few specific pieces of content within a page.
-      </li>
-      <li>
-        Accordion headers can serve as a mini-outline for the content on a page.
-      </li>
-      <li>
-        Accordions can also be useful when information needs to be displayed in a small space.
-      </li>
-      <li>
-        One major drawback of accordions is that they increase cognitive load and interaction cost, as users have to make decisions on what headers to click on.
-      </li>
-      <li>
-        Accordions should <em>not</em> be used when visitors need to see most or all of the information on a page, or when there is not enough content to warrant condensing.
-      </li>
-      <li>
-        Clicking anywhere on the header (not just on the icon) triggers expansion or collapse of that section.
-      </li>
-      <li>
-        Make sure interactive elements within the collapsable region are far enough from the headers that users don't accidentally trigger a collapse. (The exact distance depends on the device.)
-      </li>
+      <li>Users only need a few specific pieces of content within a page. </li>
+      <li>Information needs to be displayed in a small space.</li>
+    </ul>
+    <h5>When to consider something different</h4>
+    <ul class="usa-content-list">
+      <li>If visitors need to see most or all of the information on a page, use well-formatted text instead.</li> 
+      <li>If there is not enough content to warrant condensing. (Accordions increase cognitive load and interaction cost, as users have to make decisions on what headers to click on).</li>
+    </ul>
+    <h5>Guidelines</h4>
+    <ul class="usa-content-list">
+      <li>Allow users to click anywhere in the header area to expand or collapse the content; a larger target is easier to manipulate. </li>
+      <li>Make sure interactive elements within the collapsible region are far enough from the headers that users don't accidentally trigger a collapse. (The exact distance depends on the device.)</li>
     </ul>
 
     <h4 class="usa-heading">Accessibility</h4>
@@ -170,7 +162,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
         Code header areas in the accordion as <code>&lt;buttons&gt;</code> so that they are usable with both screen readers and the keyboard.
       </li>
       <li>
-        All the buttons need to state whether they are expanded or not with the appropriate attribute, either <code>aria-expanded=’true’</code> or <code>aria-expanded=’false’</code>.
+        Buttons should  state whether they are expanded or not with the appropriate attribute: use either  <code>aria-expanded=’true’</code> or <code>aria-expanded=’false’</code>.
       </li>
       <li>
         Each button has a unique name <code>aria-controls=’collapsible-#’</code> that associates the control to the appropriate region by referencing the controlled elements <code>id</code>.
