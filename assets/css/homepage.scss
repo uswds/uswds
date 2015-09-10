@@ -114,22 +114,20 @@ p {
     color: $color-white;
   }
 
-  .usa-width-one-half {
-    h3 {
-      clear: none;
-      margin-top: 0;
-    }
-
-    h3, p {
-      overflow: hidden;
-    }
-  }
-
   .usa-width-one-half-top {
     @include media($medium-screen) {
       margin-bottom: 7rem;
     }
   }
+}
+
+.usa-graphic-list-heading {
+  clear: none;
+  margin-top: 0;
+}
+
+.usa-graphic-list-text {
+  overflow: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
