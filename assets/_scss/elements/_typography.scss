@@ -26,7 +26,12 @@ a {
 
   &:visited {
     color: $color-visited;
-  }  
+  }
+
+  &:focus {
+    box-shadow: $focus-shadow;
+    outline: 0;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
