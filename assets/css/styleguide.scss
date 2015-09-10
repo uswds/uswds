@@ -24,25 +24,6 @@ $site-top:           124px;
 
 // Navigation ------------- //
 
-a#skipnav {
-  padding: 10px 15px;
-  position: absolute;
-  top: -44px;
-  left: 0px;
-  color: $color-base;
-  background: transparent;
-  @include transition(top 1s ease-out, background 1s linear);
-  z-index: 100;
-  &:focus {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    background: white;
-    outline: 0;
-    @include transition(top .1s ease-in, background .5s linear);
-  }
-}
-
 :target:before {
   content: "";
   display: block;
