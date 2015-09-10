@@ -331,7 +331,6 @@ c
 </div>
 
 <h2 class="usa-heading" id="range-slider">Range slider</h2>
-<!--<p class="usa-font-lead">placeholder for range slider intro text </p>-->
 
 <div class="preview">
 
