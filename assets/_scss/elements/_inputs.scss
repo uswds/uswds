@@ -40,17 +40,23 @@ select  {
 
 .usa-input-error {
   border-left: 4px solid $color-secondary-dark;
-  font-size: $base-font-size;
   margin-top: 3rem;
-  padding: .5em 1.5rem; 
+  padding: .5em 1.5rem;
   position: relative;
   right: 1.5rem;
+  
   input {
     border: 3px solid $color-secondary-dark;
   }
+  
   label {
     margin-top: 0;
   }
+}
+
+.usa-input-label {
+  display: block;
+  font-size: $base-font-size;  
 }
 
 .usa-input-error-message {
