@@ -94,7 +94,7 @@ p {
   h1 {
     color: $color-white;
 
-    @media (min-width: $medium-screen) {
+    @include media($medium-screen) {
       font-size: 5.6rem;
       padding-top: 4.5rem;
     }
@@ -151,7 +151,7 @@ p {
   }
 
   .usa-width-one-half-top {
-    @media (min-width: $medium-screen) {
+    @include media($medium-screen) {
       margin-bottom: 7rem;
     }
   }
