@@ -2,7 +2,7 @@
 layout: styleguide
 type: component
 title: Accordions
-lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
+lead: Accordions are a list of headers that can be clicked to hide or reveal additional content. 
 ---
 
 <div class="preview">
