@@ -290,7 +290,6 @@ lead: Intro text on what is included in this section and how to use it. No more 
       </div>
     </div>
   </fieldset>
-c
 </div>
 
 <div class="usa-accordion-bordered usa-accordion-docs">
