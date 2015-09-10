@@ -1,7 +1,7 @@
 ---
 layout: styleguide
 title: Grids
-lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
+lead:  This 12 column responsive grid provides structure for website content. 
 ---
 
 <div class="preview preview-no_border">
