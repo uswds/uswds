@@ -4,7 +4,7 @@ title: Colors
 order: 02
 ---
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
+<p>A flexible yet distinctly American palette, designed to communicate warmth and trustworthiness while meeting the highest standards of 508 color contrast requirements.</p>
 
 <h3 class="usa-heading" id="palette">Palette</h3>
 
