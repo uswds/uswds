@@ -70,8 +70,8 @@ Something about load performance consideration and how we recommend one of the f
             <ul>
               <li>1. Merriweather Bold 700</li>
               <li>2. Source Sans Pro Regular 400</li>
-              <li>3. Source Sans Pro Bold 700</li>
-              <li>4. Source Sans Pro Italic 400</li>
+              <li>3. Source Sans Pro Italic 400</li>
+              <li>4. Source Sans Pro Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
@@ -223,11 +223,11 @@ Something about load performance consideration and how we recommend one of the f
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
-              <li>1. Merriweather Bold 700</li>
-              <li>2. Merriweather Light 300</li>
+              <li>1. Merriweather Light 300</li>
+              <li>2. Merriweather Bold 700</li>
               <li>3. Source Sans Pro Regular 400</li>
-              <li>4. Source Sans Pro Bold 700</li>
-              <li>5. Source Sans Pro Italic 400</li>
+              <li>4. Source Sans Pro Italic 400</li>
+              <li>5. Source Sans Pro Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
@@ -401,9 +401,9 @@ Something about load performance consideration and how we recommend one of the f
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
-              <li>1. Merriweather Bold 700</li>
-              <li>2. Merriweather Light 300</li>
-              <li>3. Merriweather Regular 400</li>
+              <li>1. Merriweather Light 300</li>
+              <li>2. Merriweather Regular 400</li>
+              <li>3. Merriweather Bold 700</li>
               <li>4. Source Sans Pro Regular 400</li>
               <li>5. Source Sans Pro Bold 700</li>
             </ul>
@@ -583,8 +583,8 @@ Something about load performance consideration and how we recommend one of the f
             <ul>
               <li>1. Source Sans Pro Light 300</li>
               <li>2. Source Sans Pro Regular 400</li>
-              <li>3. Source Sans Pro Bold 700</li>
-              <li>4. Source Sans Pro Italic 400</li>
+              <li>3. Source Sans Pro Italic 400</li>
+              <li>4. Source Sans Pro Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
