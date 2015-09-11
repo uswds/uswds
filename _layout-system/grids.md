@@ -141,7 +141,7 @@ lead:  This 12 column responsive grid provides structure for website content.
     <h5>Guidelines</h4>
     <ul class="usa-content-list">
       <li>Choose a twelve-column grid with flexible column widths and fixed gutters. The width of the padding on the left and right edge of the grid depends on device size.</li>
-<li> Avoid text lines longer than 75 characters. Place text in narrower grid boxes to keep text lines from becoming too wide. </li>
+      <li> Avoid text lines longer than 75 characters. Place text in narrower grid boxes to keep text lines from becoming too wide. </li>
     </ul>
   </div>
 </div>
