@@ -1,12 +1,12 @@
 # 18F pages base url config
-baseurl: /usfwds
+baseurl: /web-design-standards
 
-url: https://pages.18f.gov/usfwds
+url: https://pages.18f.gov/web-design-standards
 
 # Markdown config
 markdown: redcarpet
 highlighter: rouge
-name: U.S. Federal Web Design Standards
+name: U.S. Web Design Standards
 exclude:
 - go
 - Gemfile
@@ -21,9 +21,9 @@ exclude:
 permalink: pretty
 
 repos:
-- name: U.S. Federal Web Design Standards
-  description: Main repository for the U.S. Federal Web Design Standards.
-  url: https://github.com/18F/usfwds
+- name: U.S. Web Design Standards
+  description: Main repository for the U.S. Web Design Standards.
+  url: https://github.com/18F/web-design-standards
 
 google_analytics_ua: UA-48605964-19
 
