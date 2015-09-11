@@ -69,11 +69,19 @@ var calculateAnchorPosition = function (hash) {
   return anchor.offset().top - topOffset;
 }
 
+
+/* When user lands on a page with a hash in the url
+ * default behavior will put the title at the very top
+ * and the header will cover the top of the section.
+ * This interrupts that and positions section title correctly
+ */
 $(function () {
   var hash          = window.location.hash.substr(1);
   var scrollTopPos  = calculateAnchorPosition(hash);
 
   if (scrollTopPos > 0) {
+    //setTimeout ensures proper ordering of events
+    //and makes this happens after the browser's default jump
     setTimeout(function () {
       $(window).scrollTop(scrollTopPos);
     }, 1);
@@ -82,11 +90,11 @@ $(function () {
 
 $('.sidenav').on('click', 'a', function(e) {
   var hashLocation  = $(this).attr('href').split('#')[1]; // long url splitting
-  var anchor        = $('#' + hashLocation);
   var scrollTopPos  = calculateAnchorPosition(hashLocation);
 
-  //if anchor doesn't exist on the page, exit gracefully
-  if (anchor.length === 0) {
+  //if anchor doesn't exist on the page, or calc fails
+  //then exit gracefully
+  if (scrollTopPos === 0) {
     return true;
   }
   
