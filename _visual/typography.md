@@ -59,7 +59,7 @@ Something about load performance consideration and how we recommend one of the f
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Default: Merriweather headers, Source Sans Pro body (basic)</h5>
+        <h5>Default: Merriweather headings with Source Sans Pro body (basic)</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
@@ -103,7 +103,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -114,7 +114,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -125,7 +125,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -136,7 +136,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -147,7 +147,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -158,7 +158,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -214,7 +214,7 @@ Something about load performance consideration and how we recommend one of the f
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Merriweather headers, Source Sans Pro body (robust)</h5>
+        <h5>Merriweather headings with Source Sans Pro body (robust)</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
@@ -270,7 +270,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -281,7 +281,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -292,7 +292,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -303,7 +303,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -314,7 +314,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -325,7 +325,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -448,7 +448,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -459,7 +459,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -470,7 +470,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -481,7 +481,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -492,7 +492,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -503,7 +503,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -628,7 +628,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -639,7 +639,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -650,7 +650,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -661,7 +661,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -672,7 +672,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -683,7 +683,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -739,7 +739,7 @@ Something about load performance consideration and how we recommend one of the f
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Source Sans Pro headings, Merriweather body</h5>
+        <h5>Source Sans Pro headings with Merriweather body</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
@@ -796,7 +796,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -807,7 +807,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -818,7 +818,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -829,7 +829,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -840,7 +840,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -851,7 +851,7 @@ Something about load performance consideration and how we recommend one of the f
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
