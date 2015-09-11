@@ -1,6 +1,6 @@
 # U.S. Federal Web Design Standards
 
-[![Build Status](https://api.travis-ci.org/18F/usfwds.svg?branch=18f-pages-staging)](https://travis-ci.org/18F/usfwds)
+[![Build Status](https://api.travis-ci.org/18F/web-design-standards.svg?branch=18f-pages-staging)](https://travis-ci.org/18F/web-design-standards)
 
 This is the repo for the U.S. Federal Web Design Standards project.
 The structural setup of this repo is based off of the 18F pages project: 
