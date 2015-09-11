@@ -19,8 +19,9 @@ lead: Patterns for some of the most commonly used forms on government websites.
   <li>You can embed multiple fieldsets and legends for more complex forms.</li>
   <li>Keep your form blocks in a vertical pattern. It is an ideal approach for accessibility, due to limited vision that makes it hard to scan from right to left.</li>
 </ul>
-
-<div class="preview" id="name-form">
+<h2 class="usa-heading" id="name-form">Name form</h2>
+<p class="usa-font-lead">A standard template for collecting a person’s full name.</p>
+<div class="preview" >
 
   <form>
 
@@ -66,8 +67,10 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <p>There are no other specific accessibility guidelines for this form template.</p>
   </div>
 </div>
-
-<div class="preview" id="address-form">
+<h2 class="usa-heading" id="address-form">Address form</h2>
+<p class="usa-font-lead">A standard template for entering a U.S. mailing or shipping address. 
+</p>
+<div class="preview">
 
   <form class="usa-form-large">
     <fieldset>
@@ -175,61 +178,12 @@ lead: Patterns for some of the most commonly used forms on government websites.
   </div>
 </div>
 
-<div class="preview">
-  <form>
-
-    <fieldset>
-      <legend>Social Security Number</legend>
-
-      <label for="ssn">SSN <span class="usa-additional_text">Required</span>
-      </label>
-      <input id="ssn" name="ssn" type="password" class="usa-ssn"
-          data-grouplength="3,2,4" data-delimiter="-" data-politespace
-          required pattern="^d{8}$">
-      <p class="usa-form-note">
-        <a title="Show SSN" href="javascript:void(0)"
-            class="usa-show_ssn"
-            aria-controls="ssn">
-          Show SSN</a>
-      </p>
-
-    </fieldset>
-
-  </form>
-</div>
-
-<div class="usa-accordion-bordered">
-  <button class="usa-button-unstyled usa-accordion-button"
-      aria-expanded="true" aria-controls="collapsible-0">
-    Documentation
-  </button>
-  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Use</h4>
-    <ul class="usa-content-list">
-      <li>Don’t ask for a social security number unless it’s absolutely essential. Users are reluctant to divulge personal information unless the reason for why it’s needed is clear.  If it’s not clear why it’s needed, offer an explanation.</li>
-      <li>Allow users to show or hide their entry so they can check for errors.</li>
-    </ul>
-
-    <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
-    <ul class="usa-content-list">
-      <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
-      <li><a href="{{ site.baseurl }}/form-controls/">the accessibility guidelines for form controls</a>.</li>
-    </ul>
-    <p>We also recommend:</p>
-    <ul class="usa-content-list">
-      <li>Make sure any input masking is accessible to people using screen readers. We use <a href="https://github.com/filamentgroup/politespace">Filament Group's Politespace</a> to ensure a good experience.</li>
-    </ul>
-  </div>
-</div>
-
-
-<h2 class="usa-heading" id="login-form">Login</h2>
-
+<h2 class="usa-heading" id="login-form">Login form</h2>
+<p class="usa-font-lead">A  template for signing a user into a website or online app. </p>
 <div class="preview">
   <form>
     <fieldset>
-      <legend class="usa-drop_text">Sign in</legend>
+      <legend class="usa-drop_text">Log in</legend>
       <span>or <a href="javascript:void(0)">create an account</a></span>
 
       <label for="username">Username or email address</label>
@@ -281,7 +235,8 @@ lead: Patterns for some of the most commonly used forms on government websites.
   </div>
 </div>
 
-<h2 class="usa-heading" id="password-reset-form">Password reset</h2>
+<h2 class="usa-heading" id="password-reset-form">Password reset form</h2>
+<p class="usa-font-lead">A standard template for resetting a password.</p>
 <div class="preview">
   <form>
 
@@ -352,8 +307,8 @@ lead: Patterns for some of the most commonly used forms on government websites.
     </ul>
   </div>
 </div>
-
-<div class="preview" id="ssn-form">
+<h2 class="usa-heading" id="ssn-form">Social Security Number form</h2>
+<div class="preview">
   <form>
 
     <fieldset>
