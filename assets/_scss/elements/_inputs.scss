@@ -61,13 +61,15 @@ select  {
 
 .usa-input-label {
   display: block;
-  font-size: $base-font-size;  
+  font-size: $base-font-size;
+  font-weight: $font-bold;
 }
 
 .usa-input-error-message {
   color: $color-secondary-dark;
   display: block;
   font-size: $base-font-size;
+  font-weight: $font-bold;
   padding: {
     bottom: 3px;
     top: 3px;
