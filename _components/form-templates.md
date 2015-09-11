@@ -52,19 +52,29 @@ lead: Patterns for some of the most commonly used forms on government websites.
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Use</h4>
-    <ul class="usa-content-list">
-      <li>Leave the title and suffix fields as text boxes (instead of offering drop downs.) There are many possible titles and suffixes; text boxes accommodate them all.</li>
-      <li>Do not restrict the types of characters users can enter in any of these fields. Names can include characters outside the standard Roman alphabet.</li>
-    </ul>
-
-    <h4 class="usa-heading">Accessibility</h4>
+<h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
       <li><a href="{{ site.baseurl }}/form-controls/">the accessibility guidelines for form controls</a>.</li>
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
+    
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+      <ul class="usa-content-list">
+      <li>When you need to collect user’s full names and store the parts separately in a database. </li>
+    </ul>
+    <h5>When to consider something else</h5>
+          <ul class="usa-content-list">
+            <li>If you don’t need to parse out the separate pieces of a person’s name, consider letting them enter it into a single text field.  
+            </li>
+          </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>Leave the title and suffix fields as text boxes (instead of offering drop downs.) There are many possible titles and suffixes; text boxes accommodate them all.</li>
+      <li>Do not restrict the types of characters users can enter in any of these fields. Names can include characters outside the standard Roman alphabet.</li>
+    </ul>
   </div>
 </div>
 <h2 class="usa-heading" id="address-form">Address form</h2>
@@ -158,15 +168,8 @@ lead: Patterns for some of the most commonly used forms on government websites.
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Use</h4>
-    <p>As you customize this form, ensure it continues to:</p>
-    <ul class="usa-content-list">
-      <li>Label the optional ones. Users can infer that all the others are required.</li>
-      <li>Support both 5 and 9 digit zips. Some addresses require a nine digit ZIP code. The input mask should be "#####-####"" so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit zip code. However, this input mask should only appear when people click away from the ZIP code input box (see the accessibility guidelines).</li>
-    </ul>
-
-    <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
+       <h4 class="usa-heading">Accessibility</h4>
+   <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
       <li><a href="{{ site.baseurl }}/form-controls/">the accessibility guidelines for form controls</a>.</li>
@@ -175,6 +178,25 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <ul class="usa-content-list">
       <li>Make sure any input masking is accessible to people using screen readers. We use <a href="https://github.com/filamentgroup/politespace">Filament Group's Politespace</a> to ensure a good experience.</li>
     </ul>
+
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>When you need to be able to parse out the specific parts of a mailing address. </li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>If you need to collect addresses that may not fit this format (for example, international addresses). </li>
+      <li> If you don’t need to be able to parse out the individual pieces of an address, consider letting users type the whole thing in one large text area. </li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>Only label the optional inputs. Users can infer that all the others are required.</li>
+      <li>If possible, let users type their state’s abbreviation when they reach the “state” drop down menu.</li>
+      <li>Support both 5 and 9 digit ZIP codes.  Some addresses require a nine digit ZIP code. The input mask should be “#####-####” so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit zip code. </li>
+    </ul>
+  </div>
+
   </div>
 </div>
 
