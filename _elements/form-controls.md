@@ -170,7 +170,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     <ul class="usa-content-list">
       <li>Surround a related set of checkboxes with a <code>&lt;fieldset&gt;</code>. The <code>&lt;legend&gt;</code> provides context for the grouping. Do not use fieldset and legend for a single check.</li>
       <li>The custom checkboxes here are accessible to screen readers because the default checkboxes are moved off-screen with <code>position: absolute; left: -999em</code>.</li>
-      <li>Each input should have a semantic <code>id<code> attribute, and its corresponding label should have the same value in it’s <code>for</code> attribute.</li>
+      <li>Each input should have a semantic <code>id</code> attribute, and its corresponding label should have the same value in it’s <code>for</code> attribute.</li>
       <li>The <code>title</code> attribute can replace <code>&lt;label&gt;</code>.</li>
     </ul>
     <p>There are no other specific accessibility guidelines for this form template.</p>
