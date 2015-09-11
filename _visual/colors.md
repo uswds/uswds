@@ -203,7 +203,7 @@ order: 02
 
 <h4 class="usa-heading">Tertiary colors</h4>
 
-<p>These colors are used primarily for content-specific needs, such as alerts and and illustrations. They should never overpower the primary colors.</p>
+<p>These colors are used primarily for content-specific needs, such as alerts and illustrations. They should never overpower the primary colors.</p>
 
 <div class="usa-grid-full usa-color-row">
   <div class="color-big">
