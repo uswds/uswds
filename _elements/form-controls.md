@@ -110,7 +110,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Use sparingly - only when a user needs to choose from about 7 to 15 possible options and you have limited space to display the options. </li>
+      <li>Use sparingly - only when a user needs to choose from about 7 to 15 possible options and you have limited space to display the options.</li>
     </ul>
     <h5>When to consider something different</h5>
     <ul class="usa-content-list">
