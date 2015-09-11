@@ -24,23 +24,6 @@ $site-top:           124px;
 
 // Navigation ------------- //
 
-:target:before {
-  content: "";
-  display: block;
-  height: 75px;
-  margin-top: -75px;
-
-  @include media($medium-screen) {
-    height: 90px;
-    margin-top: -90px;
-  }
-
-  @include media($medium-screen + $width-nav-sidebar) {
-    height: $site-top;
-    margin-top: -$site-top;
-  }
-}
-
 .usa-site-header {
   background-color: $color-white;
   border-bottom: 1px solid $color-gray-light;
