@@ -139,18 +139,18 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Usability</h3>
-    <h5>When to use</h4>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>Users only need a few specific pieces of content within a page. </li>
       <li>Information needs to be displayed in a small space.</li>
     </ul>
-    <h5>When to consider something different</h4>
+    <h5>When to consider something different</h5>
     <ul class="usa-content-list">
       <li>If visitors need to see most or all of the information on a page, use well-formatted text instead.</li> 
       <li>If there is not enough content to warrant condensing. (Accordions increase cognitive load and interaction cost, as users have to make decisions on what headers to click on).</li>
     </ul>
-    <h5>Guidelines</h4>
+    <h5>Guidelines</h5>
     <ul class="usa-content-list">
       <li>Allow users to click anywhere in the header area to expand or collapse the content; a larger target is easier to manipulate. </li>
       <li>Make sure interactive elements within the collapsible region are far enough from the headers that users don't accidentally trigger a collapse. (The exact distance depends on the device.)</li>
