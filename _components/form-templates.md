@@ -307,7 +307,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
     </ul>
   </div>
 </div>
-<h2 class="usa-heading" id="ssn-form">Social security number form</h2>
+<h2 class="usa-heading" id="ssn-form">Social Security Number form</h2>
 <div class="preview">
   <form>
 
