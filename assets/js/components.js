@@ -319,10 +319,10 @@ function validator($el) {
             validatorName.toLowerCase() + ']');
 
         if (!validatorPattern.test($el.val())) {
-          $validatorCheckbox.toggleClass('usa-check_list-checked', false);
+          $validatorCheckbox.toggleClass('usa-checklist-checked', false);
         }
         else {
-          $validatorCheckbox.toggleClass('usa-check_list-checked', true);
+          $validatorCheckbox.toggleClass('usa-checklist-checked', true);
         }
       }
     }
