@@ -80,7 +80,7 @@ $(function () {
   }
 });
 
-$('.sidenav').delegate('a', 'click', function(e) {
+$('.sidenav').on('click', 'a', function(e) {
   var hashLocation  = $(this).attr('href').split('#')[1]; // long url splitting
   var anchor        = $('#' + hashLocation);
   var scrollTopPos  = calculateAnchorPosition(hashLocation);
