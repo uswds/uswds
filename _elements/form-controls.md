@@ -245,17 +245,14 @@ lead: Intro text on what is included in this section and how to use it. No more 
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>When users need to select only one option out of a set of mutually exclusive choices. 
-</li>
-      <li>When the number of available options can fit onto a mobile screen. 
-</li>
-      <li>Item 3</li>
+      <li>When users need to select only one option out of a set of mutually exclusive choices.</li>
+      <li>When the number of available options can fit onto a mobile screen.</li>
     </ul>
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>Consider checkboxes if  users need to select more than one option or if there is only one item to select. </li>
+      <li>Consider checkboxes if  users need to select more than one option or if there is only one item to select.</li>
       <li>Consider a  dropdown if you don’t have enough space to list out all available options.</li>
-      <li>If users should be able to select zero of the options. </li>
+      <li>If users should be able to select zero of the options.</li>
     </ul>
     <h5>Guidance</h5>
     <ul class="usa-content-list">
@@ -309,8 +306,6 @@ lead: Intro text on what is included in this section and how to use it. No more 
     <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>Use this format for most dates, particularly memorized dates. </li>
-      <li>Item 2</li>
-      <li>Item 3</li>
     </ul>
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
