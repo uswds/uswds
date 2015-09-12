@@ -1038,17 +1038,19 @@ $font-light: 300;
   }
 
   &.serif-body {
-    .usa-font-example p {
-      font-family: $font-serif;
-      font-size: rem(15px);
-      line-height: $lead-line-height;
-    }
+    .usa-font-example {
+      p {
+        font-family: $font-serif;
+        font-size: rem(15px);
+        line-height: $lead-line-height;
+      }
 
-    .usa-font-example .usa-font-lead {
-      font-family: $font-sans;
-      font-size: rem(22px);
-      font-weight: $font-light;
-      line-height: $base-line-height;
+      .usa-font-lead {
+        font-family: $font-sans;
+        font-size: rem(22px);
+        font-weight: $font-light;
+        line-height: $base-line-height;
+      }      
     }
   }
 }
