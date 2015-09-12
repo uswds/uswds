@@ -958,7 +958,7 @@ code[class*="language-"], pre[class*="language-"] {
 $font-light: 300;
 
 @mixin font-lead-alt {
-  font-size: $h4-font-size;
+  font-size: $base-font-size;
   font-weight: $font-normal;
 }
 
