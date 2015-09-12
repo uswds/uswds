@@ -299,32 +299,26 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>These text fields should follow the <a href="{{ site.baseurl }}/form-controls/#text-inputs"> accessibility guidelines for all text inputs.</a> </li>
+      <li>Do not use JavaScript to auto advance the focus from one field to the next. This makes it difficult for keyboard-only users to navigate and correct mistakes. </li>
     </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
-
+    
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
+      <li>Use this format for most dates, particularly memorized dates. </li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-    <h5>When to consider something different</h5>
+    <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>If users are trying to schedule something, a calendar picker might make more sense. Be sure to also provide an option for text entry as well.</li>
     </ul>
     <h5>Guidelines</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Be sure each field is properly labeled – some countries enter dates in day, month, year order.</li>
+      <li>It may be tempting to switch all or some of these text fields to drop downs, but these tend to be more difficult to use than text boxes.</li>
     </ul>
   </div>
 </div>
