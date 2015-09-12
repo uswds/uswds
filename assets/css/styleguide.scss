@@ -970,12 +970,12 @@ $font-light: 300;
       line-height: $lead-line-height;
     }
 
-    .usa-font-example p.usa-font-lead {
+    .usa-font-example .usa-font-lead {
       font-size: $h3-font-size;
       font-weight: $font-light;
     }
 
-    .usa-font-example p.usa-font-lead.usa-font-lead-alt {
+    .usa-font-example .usa-font-lead.usa-font-lead-alt {
       font-size: $h4-font-size;
       font-weight: $font-normal;
       line-height: $lead-line-height;
