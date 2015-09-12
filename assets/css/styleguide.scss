@@ -1035,7 +1035,7 @@ $font-light: 300;
       line-height: $lead-line-height;
     }
 
-    .usa-font-example p.usa-font-lead {
+    .usa-font-example .usa-font-lead {
       font-family: $font-sans;
       font-size: rem(22px);
       font-weight: $font-light;
