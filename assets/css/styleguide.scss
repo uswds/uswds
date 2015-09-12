@@ -957,10 +957,19 @@ code[class*="language-"], pre[class*="language-"] {
 
 $font-light: 300;
 
+@mixin font-lead-alt {
+  font-size: $h4-font-size;
+  font-weight: $font-normal;
+}
+
 .serif-robust {
   .usa-display-alt {
     font-size: $h1-font-size;
     font-weight: $font-light;
+  }
+
+  .usa-font-example .usa-font-lead.usa-font-lead-alt {
+    @include font-lead-alt();
   }
 
   &.serif-body {
@@ -974,10 +983,9 @@ $font-light: 300;
       font-size: $h3-font-size;
       font-weight: $font-light;
     }
-
+  
     .usa-font-example .usa-font-lead.usa-font-lead-alt {
-      font-size: $h4-font-size;
-      font-weight: $font-normal;
+      @include font-lead-alt();
     }
   }
 }
