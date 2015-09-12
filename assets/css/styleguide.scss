@@ -13,7 +13,6 @@ $width-nav-sidebar:  250px;
 $color-grid-dark:    #727272;
 $color-grid-light:   #e3e4e5;
 $site-top:           124px;
-$base-line-height-serif:    1.7;
 
 // Generic -------------- //
 
@@ -968,7 +967,7 @@ $font-light: 300;
     .usa-font-example p {
       font-family: $font-serif;
       font-size: rem(15px);
-      line-height: $base-line-height-serif;
+      line-height: $lead-line-height;
     }
 
     .usa-font-example p.usa-font-lead {
@@ -980,7 +979,7 @@ $font-light: 300;
     .usa-font-example p.usa-font-lead.usa-font-lead-alt {
       font-size: $h4-font-size;
       font-weight: $font-normal;
-      line-height: $base-line-height-serif;
+      line-height: $lead-line-height;
     }
   }
 }
@@ -1034,7 +1033,7 @@ $font-light: 300;
     .usa-font-example p {
       font-family: $font-serif;
       font-size: rem(15px);
-      line-height: $base-line-height-serif;
+      line-height: $lead-line-height;
     }
 
     .usa-font-example p.usa-font-lead {
