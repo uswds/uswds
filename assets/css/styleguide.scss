@@ -968,7 +968,7 @@ $font-light: 300;
     font-weight: $font-light;
   }
 
-  .usa-font-example .usa-font-lead.usa-font-lead-alt {
+  .usa-font-lead.usa-font-lead-alt {
     @include font-lead-alt();
   }
 
