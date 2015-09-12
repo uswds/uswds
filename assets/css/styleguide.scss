@@ -973,19 +973,21 @@ $font-light: 300;
   }
 
   &.serif-body {
-    .usa-font-example p {
-      font-family: $font-serif;
-      font-size: rem(15px);
-      line-height: $lead-line-height;
-    }
+    .usa-font-example {
+      p {
+        font-family: $font-serif;
+        font-size: rem(15px);
+        line-height: $lead-line-height;
+      }
 
-    .usa-font-example .usa-font-lead {
-      font-size: $h3-font-size;
-      font-weight: $font-light;
-    }
-  
-    .usa-font-example .usa-font-lead.usa-font-lead-alt {
-      @include font-lead-alt();
+      .usa-font-lead {
+        font-size: $h3-font-size;
+        font-weight: $font-light;
+      }
+    
+      .usa-font-lead.usa-font-lead-alt {
+        @include font-lead-alt();
+      }
     }
   }
 }
