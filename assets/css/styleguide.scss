@@ -968,6 +968,10 @@ $font-light: 300;
     font-weight: $font-light;
   }
 
+  .usa-font-lead {
+    font-weight: $font-light;
+  }
+  
   .usa-font-lead.usa-font-lead-alt {
     @include font-lead-alt();
   }
@@ -982,7 +986,6 @@ $font-light: 300;
 
       .usa-font-lead {
         font-size: $h3-font-size;
-        font-weight: $font-light;
       }
     
       .usa-font-lead.usa-font-lead-alt {
