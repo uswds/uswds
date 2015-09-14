@@ -198,7 +198,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </div>
 </div>
 
-<h2 class="usa-heading">Radio buttons</h2>
+<h2 class="usa-heading" id="radiobuttons">Radio buttons</h2>
 <p class="usa-font-lead">Radio buttons allow users to see all available choices at once and select exactly one option.</p>
 
 <div class="preview">
