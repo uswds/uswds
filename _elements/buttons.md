@@ -2,7 +2,7 @@
 layout: styleguide
 type: element
 title: Buttons
-lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
+lead: Use buttons to signal actions. 
 ---
 
 <div class="preview">
@@ -63,39 +63,35 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h3>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
+    <h4 class="usa-heading">Accessibility</h4>
+    <p>No specific accessibility guidelines for this form template.</p>
 
-    <h4 class="usa-heading">Usability</h3>
-    <h5>When to use</h4>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Use buttons for the most important actions you want users to take on your site, like "download," "sign up," or "log out."</li>
     </ul>
-    <h5>When to consider something different</h4>
+    <h5>When to consider something different</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>If you want to lead users between pages of a website: Use links instead.</li>
+      <li>Less popular or less important actions may be visually styled as links.</li>
     </ul>
-    <h5>Guidelines</h4>
+    <h5>Guidelines</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Generally, use primary buttons for actions that go to the next step and use secondary buttons for actions that happen on the current page.</li>
+      <li>Style the button most users should click in a way that distinguishes from other buttons on the page.  Try using the  “large button” or the most visually distinct fill color.</li>
+      <li>Make sure buttons should look clickable - use color variations to distinguish static, hover and active states.</li>
+      <li>Avoid using too many buttons on a page.</li>
+      <li>Use sentence case for button labels. </li>
+      <li>Button labels should be as short as possible with “trigger words” that your users will recognize to clearly explain what will happen when the button is clicked. (eg: “download,” “view” or “sign up”).</li>
+      <li>Make the first word of the button’s label a verb. For example, instead of “Complaint Filing” label the button “File a complaint.”</li>
+      <li>At times, consider using an icon to signal specific actions (“download”, “open in a new window”, etc). </li>
     </ul>
   </div>
 </div>

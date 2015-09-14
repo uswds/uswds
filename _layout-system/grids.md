@@ -1,7 +1,7 @@
 ---
 layout: styleguide
 title: Grids
-lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
+lead:  This 12 column responsive grid provides structure for website content. 
 ---
 
 <div class="preview preview-no_border">
@@ -118,39 +118,30 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h3>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Low vision users should be able to increase the size of the text by up to 200% without breaking the layout.</li>
     </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
-
+    
     <h4 class="usa-heading">Usability</h3>
     <h5>When to use</h4>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Almost always use a grid layout - visitors can read more quickly on pages that use grids. Choose a single grid system for your entire site.</li>
     </ul>
     <h5>When to consider something different</h4>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Avoid mixing this grid and other grid systems. </li>
     </ul>
     <h5>Guidelines</h4>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Choose a twelve-column grid with flexible column widths and fixed gutters. The width of the padding on the left and right edge of the grid depends on device size.</li>
+      <li> Avoid text lines longer than 75 characters. Place text in narrower grid boxes to keep text lines from becoming too wide. </li>
     </ul>
   </div>
 </div>

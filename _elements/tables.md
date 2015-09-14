@@ -2,7 +2,7 @@
 layout: styleguide
 type: element
 title: Tables
-lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
+lead: Tables show tabular data in columns and rows.
 ---
 
 <div class="preview">
@@ -97,39 +97,31 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h3>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Simple tables can have two levels of headers. Each header cell should have <code>scope='col'</code> or <code>scope='row'</code>.</li>
+      <li>Complex tables are tables with more than two levels of headers. Each header should be given a unique <code>id</code> and each data cell should have a <code>headers</code> attribute with each related header cell’s <code>id</code> listed.
+stuff about <code>scope="col"</code> and <code>scope="row"</code>.</li>
     </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
-
-    <h4 class="usa-heading">Usability</h3>
-    <h5>When to use</h4>
+    
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>When you need tabular information, such as statistical data.</li>
     </ul>
-    <h5>When to consider something different</h4>
+    <h5>When to consider something different</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Depending on the type of content, consider using other presentation formats such as definition lists or hierarchical lists. </li>
     </ul>
-    <h5>Guidelines</h4>
+    <h5>Guidelines</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Tables are great at displaying tabular data – minimal visual styling helps surface this information more easily.</li>
     </ul>
   </div>
 </div>

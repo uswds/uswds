@@ -46,26 +46,74 @@ $(function(){
 
 });
 
-$('.secondary-sidenav-link').click(function(e) {
-  e.preventDefault();
-  var hashLocation = $(this).attr('href').split('#')[1]; // long url splitting
-  var anchor       = $('#' + hashLocation);
-  var headerOffset = 0;
+/* Calculates what scrollTop should be in order to
+ * show an anchor properly under the header
+ * and lined up with the nav like the H1
+ */
+var calculateAnchorPosition = function (hash) {
+  var anchor        = $('#' + hash);
+  var topOffset     = 0;
+  var navPadding    = parseInt($('.sidenav').css('padding-top'), 10);
+  var anchorPadding = parseInt(anchor.css('padding-top'), 10);
 
-  /* :target already adds spacing to line up the page correctly
-   * prevent double space if current page target already = new target
-   */
-  if (!anchor.is(":target")) {
-    headerOffset = ($('.usa-site-header').first().outerHeight());
+  if (anchor.length === 0) {
+    return topOffset;
   }
+  
+  //start with the height of the header
+  topOffset = $('.usa-site-header').first().outerHeight();
+  //subtract the diffence in padding between nav top and anchor
+  topOffset = topOffset - (anchorPadding - navPadding);
+  
+  //anchor should now align with first item inside nav
+  return anchor.offset().top - topOffset;
+}
+
+
+/* When user lands on a page with a hash in the url
+ * default behavior will put the title at the very top
+ * and the header will cover the top of the section.
+ * This interrupts that and positions section title correctly
+ */
+$(function () {
+  var hash          = window.location.hash.substr(1);
+  var scrollTopPos  = calculateAnchorPosition(hash);
+
+  if (scrollTopPos > 0) {
+    //setTimeout ensures proper ordering of events
+    //and makes this happens after the browser's default jump
+    setTimeout(function () {
+      $(window).scrollTop(scrollTopPos);
+    }, 1);
+  }
+});
+
+$('.sidenav').on('click', 'a', function(e) {
+  var hashLocation  = $(this).attr('href').split('#')[1]; // long url splitting
+  var scrollTopPos  = calculateAnchorPosition(hashLocation);
+
+  //if anchor doesn't exist on the page, or calc fails
+  //then exit gracefully
+  if (scrollTopPos === 0) {
+    return true;
+  }
+  
+  e.preventDefault();
 
   /* Firefox needs html, others need body */
   $('body,html').animate({
-    scrollTop: anchor.offset().top - headerOffset
+    scrollTop: scrollTopPos
   }, {
     duration: 200,
-    always: function () {
-      window.location.hash = hashLocation;
+    start: function () {
+      var newHash = '#' + hashLocation;
+
+      //using pushState is easiest way to prevent double jumps
+      if(history && history.pushState && window.location.hash !== newHash) {
+        history.pushState(null, null, newHash);
+      } else if (window.location.hash !== newHash) {
+        window.location.hash = newHash;
+      }
     }
   });
 });
