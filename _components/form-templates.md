@@ -158,14 +158,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Use</h4>
-    <p>As you customize this form, ensure it continues to:</p>
-    <ul class="usa-content-list">
-      <li>Label the optional ones. Users can infer that all the others are required.</li>
-      <li>Support both 5 and 9 digit zips. Some addresses require a nine digit ZIP code. The input mask should be "#####-####"" so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit zip code. However, this input mask should only appear when people click away from the ZIP code input box (see the accessibility guidelines).</li>
-    </ul>
-
-    <h4 class="usa-heading">Accessibility</h4>
+   <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
@@ -175,15 +168,31 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <ul class="usa-content-list">
       <li>Make sure any input masking is accessible to people using screen readers. We use <a href="https://github.com/filamentgroup/politespace">Filament Group's Politespace</a> to ensure a good experience.</li>
     </ul>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>When you need to be able to parse out the specific parts of a mailing address. </li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>If you need to collect addresses that may not fit this format (for example, international addresses). </li>
+      <li> If you don’t need to be able to parse out the individual pieces of an address, consider letting users type the whole thing in one large text area. </li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>Only label the optional inputs. Users can infer that all the others are required.</li>
+      <li>If possible, let users type their state’s abbreviation when they reach the “state” drop down menu.</li>
+      <li>Support both 5 and 9 digit ZIP codes.  Some addresses require a nine digit ZIP code. The input mask should be “#####-####” so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit ZIP code. </li>
+    </ul>
   </div>
 </div>
 
-<h2 class="usa-heading" id="login-form">Login form</h2>
+<h2 class="usa-heading" id="login-form">Sign-in form</h2>
 <p class="usa-font-lead">A  template for signing a user into a website or online app. </p>
 <div class="preview">
   <form>
     <fieldset>
-      <legend class="usa-drop_text">Log in</legend>
+      <legend class="usa-drop_text">Sign in</legend>
       <span>or <a href="javascript:void(0)">create an account</a></span>
 
       <label for="username">Username or email address</label>
@@ -213,15 +222,6 @@ lead: Patterns for some of the most commonly used forms on government websites.
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Use</h4>
-    <ul class="usa-content-list">
-      <li>Sign in forms are a barrier between users and the content they want, so allow users to access as much as of your online services as possible without having to log in.</li>
-      <li>People have an easier time remembering their email address rather than a unique username, so allow them to use their email address to log in. However, some people don’t have an email address, so don’t let this be the only option.</li>
-      <li>When a Sign in form is required, consider allowing users to stay logged in ("Remember me") on trusted computers so they can avoid this barrier in the future.</li>
-      <li>Make it easy to retrieve a forgotten username and password. Most authentication failures occur because a user has forgotten their username or password. This is especially common when a long time passes between visits, as is the case with most federal websites.</li>
-      <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to log in without offering much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile, when mistakes are more likely.</li>
-    </ul>
-
     <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
@@ -230,7 +230,24 @@ lead: Patterns for some of the most commonly used forms on government websites.
     </ul>
     <p>We also recommend:</p>
     <ul class="usa-content-list">
-      <li>Don’t automatically log a user out without giving them 20 seconds advance notice to request more time. Users with disabilities sometimes require more time to respond to prompts.</li>
+      <li>Don’t automatically sign out a user without giving them 20 seconds advance notice to request more time. Users with disabilities sometimes require more time to respond to prompts.</li>
+    </ul>
+        <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>When users expect information to be customized or private, place it behind a sign-in form. </li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>Allow users to access as much as of your online services as possible without having to sign in. Sign-in forms are a barrier between users and the content they want.</li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>Less is more&mdash;make your explanations concise. Users sign in faster when less text surrounds the form.</li>
+      <li>Allow people to use their email address to sign in; people have an easier time remembering their email address rather than a unique username.</li>
+      <li>When a sign-in form is required, consider allowing users to stay logged in (“Remember me”) on trusted computers so they can avoid this barrier in the future.</li>
+      <li>Make it easy to retrieve a forgotten username and password. Most authentication failures occur because a user has forgotten their username or password, especially common when a long time passes between visits, as is the case with most federal websites. </li>
+      <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to log in, and doesn't offer much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile, when mistakes are more likely.</li>
     </ul>
   </div>
 </div>
@@ -286,24 +303,23 @@ lead: Patterns for some of the most commonly used forms on government websites.
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Use</h4>
-    <ul class="usa-content-list">
-      <li>Sign in forms are a barrier between users and the content they want, so allow users to access as much as of your online services as possible without having to log in.</li>
-      <li>People have an easier time remembering their email address rather than a unique username, so allow them to use their email address to log in. However, some people don’t have an email address, so don’t let this be the only option.</li>
-      <li>When a Sign in form is required, consider allowing users to stay logged in ("Remember me") on trusted computers so they can avoid this barrier in the future.</li>
-      <li>Make it easy to retrieve a forgotten username and password. Most authentication failures occur because a user has forgotten their username or password. This is especially common when a long time passes between visits, as is the case with most federal websites.</li>
-      <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to log in without offering much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile, when mistakes are more likely.</li>
-    </ul>
-
-    <h4 class="usa-heading">Accessibility</h4>
+   <h4 class="usa-heading">Accessibility</h4> 
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
       <li><a href="{{ site.baseurl }}/form-controls/">the accessibility guidelines for form controls</a>.</li>
-    </ul>
-    <p>We also recommend:</p>
+    </ul>    
+    <p>There are no other specific accessibility guidelines for this form template.</p>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Don’t automatically log a user out without giving them 20 seconds advance notice to request more time. Users with disabilities sometimes require more time to respond to prompts.</li>
+      <li>To offer a way to easily reset a password any time users are able to sign in to your site.</li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>If users need a password to access your site, they will forget that password and need a way to reset it.</li>
+      <li>State any password requirements (for example, “Must include one capital letter”) upfront. Don’t leave users guessing, only to hit them with an error message later.</li>
+      <li>The requirements shown above are just provided as an example and should not be taken as recommendations.</li>
     </ul>
   </div>
 </div>
