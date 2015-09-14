@@ -78,7 +78,7 @@
   overflow: auto;
   padding: 3rem;
 
-  *:first-child {
+  > *:first-child {
     margin-top: 0;
   }
 
