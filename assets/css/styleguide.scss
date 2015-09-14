@@ -56,7 +56,6 @@ $site-top:           124px;
 
     h1 {
       @include media($medium-screen) {
-
         max-width: 20rem;
       }
       float: left;
