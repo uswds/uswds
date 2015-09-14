@@ -178,12 +178,12 @@ lead: Patterns for some of the most commonly used forms on government websites.
   </div>
 </div>
 
-<h2 class="usa-heading" id="login-form">Login form</h2>
+<h2 class="usa-heading" id="sign-in-form">Sign in form</h2>
 <p class="usa-font-lead">A  template for signing a user into a website or online app. </p>
 <div class="preview">
   <form>
     <fieldset>
-      <legend class="usa-drop_text">Log in</legend>
+      <legend class="usa-drop_text">Sign in</legend>
       <span>or <a href="javascript:void(0)">create an account</a></span>
 
       <label for="username">Username or email address</label>
@@ -215,11 +215,11 @@ lead: Patterns for some of the most commonly used forms on government websites.
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Use</h4>
     <ul class="usa-content-list">
-      <li>Sign in forms are a barrier between users and the content they want, so allow users to access as much as of your online services as possible without having to log in.</li>
-      <li>People have an easier time remembering their email address rather than a unique username, so allow them to use their email address to log in. However, some people don’t have an email address, so don’t let this be the only option.</li>
+      <li>Sign in forms are a barrier between users and the content they want, so allow users to access as much as of your online services as possible without having to sign in.</li>
+      <li>People have an easier time remembering their email address rather than a unique username, so allow them to use their email address to sign in. However, some people don’t have an email address, so don’t let this be the only option.</li>
       <li>When a Sign in form is required, consider allowing users to stay logged in ("Remember me") on trusted computers so they can avoid this barrier in the future.</li>
       <li>Make it easy to retrieve a forgotten username and password. Most authentication failures occur because a user has forgotten their username or password. This is especially common when a long time passes between visits, as is the case with most federal websites.</li>
-      <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to log in without offering much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile, when mistakes are more likely.</li>
+      <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to sign in without offering much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile, when mistakes are more likely.</li>
     </ul>
 
     <h4 class="usa-heading">Accessibility</h4>
@@ -288,11 +288,11 @@ lead: Patterns for some of the most commonly used forms on government websites.
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Use</h4>
     <ul class="usa-content-list">
-      <li>Sign in forms are a barrier between users and the content they want, so allow users to access as much as of your online services as possible without having to log in.</li>
-      <li>People have an easier time remembering their email address rather than a unique username, so allow them to use their email address to log in. However, some people don’t have an email address, so don’t let this be the only option.</li>
+      <li>Sign in forms are a barrier between users and the content they want, so allow users to access as much as of your online services as possible without having to sign in.</li>
+      <li>People have an easier time remembering their email address rather than a unique username, so allow them to use their email address to sign in. However, some people don’t have an email address, so don’t let this be the only option.</li>
       <li>When a Sign in form is required, consider allowing users to stay logged in ("Remember me") on trusted computers so they can avoid this barrier in the future.</li>
       <li>Make it easy to retrieve a forgotten username and password. Most authentication failures occur because a user has forgotten their username or password. This is especially common when a long time passes between visits, as is the case with most federal websites.</li>
-      <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to log in without offering much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile, when mistakes are more likely.</li>
+      <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to sign in without offering much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile, when mistakes are more likely.</li>
     </ul>
 
     <h4 class="usa-heading">Accessibility</h4>
