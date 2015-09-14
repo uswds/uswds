@@ -29,11 +29,9 @@ lead: Intro text on what is included in this section and how to use it. No more 
   <input class="usa-input-focus" id="input-focus" name="input-focus" type="text">
 
   <div class="usa-input-error">
-    <legend>
-      <span for="input-error">Text Input Error</span>
-      <span class="usa-input-error-message" role="alert">Helpful error message</span>
-    </legend>
-    <input id="input-error"  aria-describedby="usa-input-error-message" name="input-error" type="text">
+    <label class="usa-input-error-label" for="input-error">Text Input Error</label>
+    <span class="usa-input-error-message" id="input-error-message" role="alert">Helpful error message</span>
+    <input id="input-error" name="input-error" type="text" aria-describedby="input-error-message">
   </div>
 
   <label for="input-success">Text Input Success</label>
