@@ -47,15 +47,17 @@ $site-top:           124px;
     }
 
     .logo {
-        padding-left: $site-margins;
+      padding-left: $site-margins;
+
+      a {
+        color: $color-gray;
       }
+    }
 
     h1 {
       @include media($medium-screen) {
-
         max-width: 20rem;
       }
-      color: $color-gray;
       float: left;
       margin: 0;
       font-size: $base-font-size * 1.25;
