@@ -52,7 +52,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
     <p>If you customize the text inputs, ensure they continue to meet the the <a href="{{ site.baseurl }}/form-controls/"> accessibility requirements that apply to all form controls.</a></p>
-    <p>In addition, ensure text inputs:</p>
+    <p>We also recommend:</p>
     <ul class="usa-content-list">
       <li>Avoid placeholder text for accessibility reasons. Most browsers’ default rendering of placeholder text does not provide a high enough contrast.</li>
       <li>Avoid breaking numbers with distinct sections (such as phone numbers, social security numbers, or credit card numbers)  into separate input fields. For example, use one input for phone number, not three (one for area code, one for local code and one for number). Each field needs to be labeled for a screen reader and the labels for fields broken into segments are not often not meaningful.</li>
@@ -169,6 +169,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
     <p>If you customize the text inputs, ensure they continue to meet the the <a href="{{ site.baseurl }}/form-controls/"> accessibility requirements that apply to all form controls.</a></p>
+    <p>We also recommend:</p>
     <ul class="usa-content-list">
       <li>Surround a related set of checkboxes with a <code>&lt;fieldset&gt;</code>. The <code>&lt;legend&gt;</code> provides context for the grouping. Do not use fieldset and legend for a single check.</li>
       <li>The custom checkboxes here are accessible to screen readers because the default checkboxes are moved off-screen with <code>position: absolute; left: -999em</code>.</li>
@@ -244,17 +245,14 @@ lead: Intro text on what is included in this section and how to use it. No more 
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>When users need to select only one option out of a set of mutually exclusive choices. 
-</li>
-      <li>When the number of available options can fit onto a mobile screen. 
-</li>
-      <li>Item 3</li>
+      <li>When users need to select only one option out of a set of mutually exclusive choices.</li>
+      <li>When the number of available options can fit onto a mobile screen.</li>
     </ul>
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>Consider checkboxes if  users need to select more than one option or if there is only one item to select. </li>
+      <li>Consider checkboxes if  users need to select more than one option or if there is only one item to select.</li>
       <li>Consider a  dropdown if you don’t have enough space to list out all available options.</li>
-      <li>If users should be able to select zero of the options. </li>
+      <li>If users should be able to select zero of the options.</li>
     </ul>
     <h5>Guidance</h5>
     <ul class="usa-content-list">
@@ -299,32 +297,24 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>These text fields should follow the <a href="{{ site.baseurl }}/form-controls/#text-inputs"> accessibility guidelines for all text inputs.</a> </li>
+      <li>Do not use JavaScript to auto advance the focus from one field to the next. This makes it difficult for keyboard-only users to navigate and correct mistakes. </li>
     </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
-
+    
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Use this format for most dates, particularly memorized dates. </li>
     </ul>
-    <h5>When to consider something different</h5>
+    <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>If users are trying to schedule something, a calendar picker might make more sense. Be sure to also provide an option for text entry as well.</li>
     </ul>
     <h5>Guidelines</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Be sure each field is properly labeled – some countries enter dates in day, month, year order.</li>
+      <li>It may be tempting to switch all or some of these text fields to drop downs, but these tend to be more difficult to use than text boxes.</li>
     </ul>
   </div>
 </div>
