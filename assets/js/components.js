@@ -361,10 +361,18 @@ $(function() {
     footerAccordion();
   });
 
+  // Fixing skip nav focus behavior in chrome
+  $('.skipnav').click(function(){
+    $('#main-content').attr('tabindex','0');
+  });
+
+  $('#main-content').blur(function(){
+    $(this).attr('tabindex','-1');
+  });
+
   togglePassword($('.usa-show_password'));
   toggleMultiPassword($('.usa-show_multipassword'));
   toggleSSN($('.usa-show_ssn'));
   validator($('.js-validate_password'));
 
 });
-
