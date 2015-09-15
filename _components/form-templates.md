@@ -57,7 +57,6 @@ lead: Patterns for some of the most commonly used forms on government websites.
       <li>Leave the title and suffix fields as text boxes (instead of offering drop downs.) There are many possible titles and suffixes; text boxes accommodate them all.</li>
       <li>Do not restrict the types of characters users can enter in any of these fields. Names can include characters outside the standard Roman alphabet.</li>
     </ul>
-
     <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
@@ -71,7 +70,6 @@ lead: Patterns for some of the most commonly used forms on government websites.
 <p class="usa-font-lead">A standard template for entering a U.S. mailing or shipping address. 
 </p>
 <div class="preview">
-
   <form class="usa-form-large">
     <fieldset>
       <legend>Mailing address</legend>
@@ -158,7 +156,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-   <h4 class="usa-heading">Accessibility</h4>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
@@ -175,14 +173,14 @@ lead: Patterns for some of the most commonly used forms on government websites.
     </ul>
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>If you need to collect addresses that may not fit this format (for example, international addresses). </li>
+      <li>If you need to collect addresses that may not fit this format (for example, international addresses).</li>
       <li> If you don’t need to be able to parse out the individual pieces of an address, consider letting users type the whole thing in one large text area. </li>
     </ul>
     <h5>Guidance</h5>
     <ul class="usa-content-list">
       <li>Only label the optional inputs. Users can infer that all the others are required.</li>
       <li>If possible, let users type their state’s abbreviation when they reach the “state” drop down menu.</li>
-      <li>Support both 5 and 9 digit ZIP codes.  Some addresses require a nine digit ZIP code. The input mask should be “#####-####” so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit ZIP code. </li>
+      <li>Support both 5 and 9 digit ZIP codes.  Some addresses require a nine digit ZIP code. The input mask should be “#####-####” so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit ZIP code.</li>
     </ul>
   </div>
 </div>
@@ -232,7 +230,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <ul class="usa-content-list">
       <li>Don’t automatically sign out a user without giving them 20 seconds advance notice to request more time. Users with disabilities sometimes require more time to respond to prompts.</li>
     </ul>
-        <h4 class="usa-heading">Usability</h4>
+    <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>When users expect information to be customized or private, place it behind a sign-in form. </li>
@@ -303,7 +301,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-   <h4 class="usa-heading">Accessibility</h4> 
+    <h4 class="usa-heading">Accessibility</h4> 
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
