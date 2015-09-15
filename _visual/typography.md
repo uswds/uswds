@@ -57,7 +57,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Default: Merriweather headers, Source Sans Pro body (basic)</h5>
+        <h5>Default: Merriweather headings with Source Sans Pro body (basic)</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
@@ -67,9 +67,9 @@ Include intro of the two families, how we have diff packages, a bit on considera
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
               <li>1. Merriweather Bold 700</li>
-              <li>2. Source Sans Pro, Regular 400</li>
-              <li>3. Source Sans Pro, Bold 700</li>
-              <li>4. Source Sans Pro, Italic 400</li>
+              <li>2. Source Sans Pro Regular 400</li>
+              <li>3. Source Sans Pro Italic 400</li>
+              <li>4. Source Sans Pro Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
@@ -97,73 +97,74 @@ Include intro of the two families, how we have diff packages, a bit on considera
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/68px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 40px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 30px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/39px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 20px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/26px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 17px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/22px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 15px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/20px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -173,8 +174,8 @@ Include intro of the two families, how we have diff packages, a bit on considera
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 400<br>
-              font-size: 22px<br>
-              line-height: 1.375em/30px
+              font-size: 20px<br>
+              line-height: 1.7em/34px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -185,7 +186,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -197,7 +198,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
               font-style: Italic<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
         </div>
@@ -211,7 +212,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Merriweather headers, Source Sans Pro body (robust)</h5>
+        <h5>Merriweather headings with Source Sans Pro body (robust)</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
@@ -220,11 +221,11 @@ Include intro of the two families, how we have diff packages, a bit on considera
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
-              <li>1. Merriweather Bold 700</li>
-              <li>2. Merriweather Light 300</li>
-              <li>3. Source Sans Pro, Regular 400</li>
-              <li>4. Source Sans Pro, Bold 700</li>
-              <li>5. Source Sans Pro, Italic 400</li>
+              <li>1. Merriweather Light 300</li>
+              <li>2. Merriweather Bold 700</li>
+              <li>3. Source Sans Pro Regular 400</li>
+              <li>4. Source Sans Pro Italic 400</li>
+              <li>5. Source Sans Pro Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
@@ -252,7 +253,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/68px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -261,75 +262,76 @@ Include intro of the two families, how we have diff packages, a bit on considera
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-weight: 300<br>
               font-size: 40px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 40px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 30px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/39px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 20px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/26px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 17px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/22px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 15px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/20px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -340,7 +342,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
               font-family: ‘Merriweather’<br>
               font-weight: 300<br>
               font-size: 20px<br>
-              line-height: 1.375em/30px
+              line-height: 1.7em/34px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -350,8 +352,8 @@ Include intro of the two families, how we have diff packages, a bit on considera
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 400<br>
-              font-size: 15px<br>
-              line-height: 1.375em/20px
+              font-size: 17px<br>
+              line-height: 1.7em/29px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -362,7 +364,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -374,7 +376,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
               font-style: Italic<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
         </div>
@@ -397,11 +399,11 @@ Include intro of the two families, how we have diff packages, a bit on considera
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
-              <li>1. Merriweather Bold 700</li>
-              <li>2. Merriweather Light 300</li>
-              <li>3. Source Sans Pro, Regular 400</li>
-              <li>4. Source Sans Pro, Bold 700</li>
-              <li>5. Source Sans Pro, Italic 400</li>
+              <li>1. Merriweather Light 300</li>
+              <li>2. Merriweather Regular 400</li>
+              <li>3. Merriweather Bold 700</li>
+              <li>4. Source Sans Pro Regular 400</li>
+              <li>5. Source Sans Pro Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
@@ -420,7 +422,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
         
-        <div class="serif-robust serif-sans-minor usa-grid usa-typography-example-font">
+        <div class="serif-robust serif-sans-minor serif-body usa-grid usa-typography-example-font">
           <div class="usa-width-one-half">
             <h3 class="usa-display">Display 1</h3>
           </div>
@@ -429,7 +431,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/68px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -438,75 +440,76 @@ Include intro of the two families, how we have diff packages, a bit on considera
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-weight: 300<br>
               font-size: 40px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 40px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 30px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/39px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 20px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/26px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 17px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/22px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 15px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/20px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -517,7 +520,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
               font-family: ‘Merriweather’<br>
               font-weight: 300<br>
               font-size: 20px<br>
-              line-height: 1.375em/30px
+              line-height: 1.7em/34px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -527,8 +530,8 @@ Include intro of the two families, how we have diff packages, a bit on considera
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 400<br>
-              font-size: 15px<br>
-              line-height: 1.375em/20px
+              font-size: 17px<br>
+              line-height: 1.7em/29px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -536,10 +539,10 @@ Include intro of the two families, how we have diff packages, a bit on considera
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
+              font-family: ‘Merriweather’<br>
               font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
+              font-size: 15px<br>
+              line-height: 1.7em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -547,11 +550,11 @@ Include intro of the two families, how we have diff packages, a bit on considera
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
+              font-family: ‘Merriweather’<br>
               font-style: Italic<br>
               font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
+              font-size: 15px<br>
+              line-height: 1.7em/26px
             </p>
           </div>
         </div>
@@ -576,10 +579,10 @@ Include intro of the two families, how we have diff packages, a bit on considera
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
-              <li>1. Source Sans Pro Light 700</li>
-              <li>2. Source Sans Pro, Regular 400</li>
-              <li>3. Source Sans Pro, Bold 700</li>
-              <li>4. Source Sans Pro, Italic 400</li>
+              <li>1. Source Sans Pro Light 300</li>
+              <li>2. Source Sans Pro Regular 400</li>
+              <li>3. Source Sans Pro Italic 400</li>
+              <li>4. Source Sans Pro Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
@@ -608,7 +611,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 59px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/77px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -617,86 +620,87 @@ Include intro of the two families, how we have diff packages, a bit on considera
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
+              font-weight: 300<br>
               font-size: 44px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/57px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 44px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/57px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 34px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/44px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 24px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/31px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 19px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/25px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 16px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/21px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
-            <p class="usa-font-lead">Lead <br>paragraph 1</p>
+            <p class="usa-font-lead">Lead <br>paragraph</p>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 300<br>
               font-size: 22px<br>
-              line-height: 1.375em/30px
+              line-height: 1.5em/33px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -707,7 +711,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -719,7 +723,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
               font-style: Italic<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
         </div>
@@ -733,7 +737,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Source Sans Pro headings, Merriweather body</h5>
+        <h5>Source Sans Pro headings with Merriweather body</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
@@ -743,11 +747,11 @@ Include intro of the two families, how we have diff packages, a bit on considera
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
               <li>1. Source Sans Pro Light 300</li>
-              <li>2. Source Sans Pro, Regular 400</li>
-              <li>3. Source Sans Pro, Bold 700</li>
-              <li>4. Merriweather, Regular 400</li>
-              <li>5. Merriweather, Italic 400</li>
-              <li>6. Merriweather, Bold 700</li>
+              <li>2. Source Sans Pro Regular 400</li>
+              <li>3. Source Sans Pro Bold 700</li>
+              <li>4. Merriweather Regular 400</li>
+              <li>5. Merriweather Italic 400</li>
+              <li>6. Merriweather Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
@@ -775,7 +779,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 59px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/77px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -784,86 +788,87 @@ Include intro of the two families, how we have diff packages, a bit on considera
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
+              font-weight: 300<br>
               font-size: 44px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/57px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 44px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/57px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 34px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/44px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 24px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/31px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 19px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/25px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 16px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/21px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
-            <p class="usa-font-lead">Lead <br>paragraph 1</p>
+            <p class="usa-font-lead">Lead <br>paragraph</p>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 300<br>
               font-size: 22px<br>
-              line-height: 1.375em/30px
+              line-height: 1.5em/33px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -871,10 +876,10 @@ Include intro of the two families, how we have diff packages, a bit on considera
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
+              font-family: ‘Merriweather’<br>
               font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
+              font-size: 15px<br>
+              line-height: 1.7em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -882,11 +887,11 @@ Include intro of the two families, how we have diff packages, a bit on considera
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
+              font-family: ‘Merriweather’<br>
               font-style: Italic<br>
               font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
+              font-size: 15px<br>
+              line-height: 1.7em/26px
             </p>
           </div>
         </div>

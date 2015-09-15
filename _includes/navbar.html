@@ -1,4 +1,4 @@
-<a class="skipnav" href="#main">Skip to main content</a>
+<a class="skipnav" href="#main-content">Skip to main content</a>
 
 <header class="usa-site-header" role="banner">
 
@@ -13,16 +13,18 @@
     <nav class="usa-site-navbar">
       <a href="#" id="menu-btn">&#9776; MENU</a>
       <div class="logo" id="logo">
-        <a href="{{ site.baseurl }}/" accesskey="1" title="Home" aria-label="Home">
-          <h1>U.S. Federal Web Design Standards</h1>
-        </a>
+        <h1>
+          <a href="{{ site.baseurl }}/" accesskey="1" title="Home" aria-label="Home">
+          U.S. Federal Web Design Standards</a>
+        </h1>
       </div>
       <ul class="usa-button-list usa-unstyled-list">
         <li>
-          <a class="usa-button" href="#">Download</a>
+          <a class="usa-button" href="#" onclick="ga('send', 'event', 'Downloaded framework', 'Clicked download button inside site');">Download</a>
         </li>
         <li>
-          <a class="usa-button usa-button-outline" href="https://github.com/18F/usfwds/" target="_blank">
+          <a class="usa-button usa-button-outline" href="https://github.com/18F/usfwds/" target="_blank" onclick="ga('send', 'event', 'Viewed on Github', 'Clicked View on Github from inside site');"
+>
             View on Github
           </a>
           </li>

@@ -47,15 +47,17 @@ $site-top:           124px;
     }
 
     .logo {
-        padding-left: $site-margins;
+      padding-left: $site-margins;
+
+      a {
+        color: $color-gray;
       }
+    }
 
     h1 {
       @include media($medium-screen) {
-
         max-width: 20rem;
       }
-      color: $color-gray;
       float: left;
       margin: 0;
       font-size: $base-font-size * 1.25;
@@ -923,13 +925,14 @@ code[class*="language-"], pre[class*="language-"] {
   }
 }
 
-.usa-color-bg-example {
-  margin-bottom: 3rem;
-}
-
 // Alt font styles
 
 $font-light: 300;
+
+@mixin font-lead-alt {
+  font-size: $base-font-size;
+  font-weight: $font-normal;
+}
 
 .serif-robust {
   .usa-display-alt {
@@ -938,12 +941,29 @@ $font-light: 300;
   }
 
   .usa-font-lead {
-    font-family: $font-serif;
-    font-size: $h3-font-size;
+    font-weight: $font-light;
+  }
+  
+  .usa-font-lead.usa-font-lead-alt {
+    @include font-lead-alt();
   }
 
-  .usa-font-lead-alt {
-    font-size: $h5-font-size;
+  &.serif-body {
+    .usa-font-example {
+      p {
+        font-family: $font-serif;
+        font-size: rem(15px);
+        line-height: $lead-line-height;
+      }
+
+      .usa-font-lead {
+        font-size: $h3-font-size;
+      }
+    
+      .usa-font-lead.usa-font-lead-alt {
+        @include font-lead-alt();
+      }
+    }
   }
 }
 
@@ -982,17 +1002,30 @@ $font-light: 300;
 
   .usa-display-alt {
     font-size: rem(44px);
+    font-weight: $font-light;
   }
 
   .usa-font-lead {
+    font-family: $font-sans;
     font-size: rem(22px);
+    font-weight: $font-light;
+    line-height: $base-line-height;
   }
 
   &.serif-body {
-    .usa-font-example p {
-      font-family: $font-serif;
-      font-size: rem(15px);
-      line-height: 1.7;
+    .usa-font-example {
+      p {
+        font-family: $font-serif;
+        font-size: rem(15px);
+        line-height: $lead-line-height;
+      }
+
+      .usa-font-lead {
+        font-family: $font-sans;
+        font-size: rem(22px);
+        font-weight: $font-light;
+        line-height: $base-line-height;
+      }      
     }
   }
 }
