@@ -117,8 +117,7 @@ lead: Hierarchical, vertical navigation to place at the side of a page. Note: we
     <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li>Ensure the side navigational system is keyboard accessible. Users should be able to tab through each link.
-</li>
+      <li>Ensure the side navigational system is keyboard accessible. Users should be able to tab through each link.</li>
     </ul>
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
@@ -136,8 +135,7 @@ lead: Hierarchical, vertical navigation to place at the side of a page. Note: we
     <ul class="usa-content-list">
       <li>Indicate where a user is within the navigational hierarchy. Use the “active” state to show users which page they have navigated to.</li>
       <li>Keep the navigation links short. They can be shorter derivatives of page titles themselves.</li>
-      <li>If the navigation hierarchy is too long, users may miss items at the bottom. If it’s too deep, users may miss items that require too many clicks. Usability test to find the right balance between breadth and depth.
-</li>
+      <li>If the navigation hierarchy is too long, users may miss items at the bottom. If it’s too deep, users may miss items that require too many clicks. Usability test to find the right balance between breadth and depth.</li>
     </ul>
   </div>
 </div>
