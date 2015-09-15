@@ -8,7 +8,6 @@ lead: Patterns for some of the most commonly used forms on government websites.
 <h3 class="usa-heading">Accessibility</h3>
 
 <p>As you customize these templates, ensure they continue to meet the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for all form controls</a> as well as the accessibility guidelines for each individual control.</p>
-
 <p>In addition, when creating forms with multiple controls or customizing these templates, ensure:</p>
 
 <ul class="usa-content-list">
@@ -19,12 +18,13 @@ lead: Patterns for some of the most commonly used forms on government websites.
   <li>You can embed multiple fieldsets and legends for more complex forms.</li>
   <li>Keep your form blocks in a vertical pattern. It is an ideal approach for accessibility, due to limited vision that makes it hard to scan from right to left.</li>
 </ul>
+
 <h2 class="usa-heading" id="name-form">Name form</h2>
 <p class="usa-font-lead">A standard template for collecting a person’s full name.</p>
-<div class="preview" >
+
+<div class="preview">
 
   <form>
-
     <fieldset>
       <legend>Name</legend>
       <label for="title">Title</label>
@@ -66,9 +66,12 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <p>There are no other specific accessibility guidelines for this form template.</p>
   </div>
 </div>
+
 <h2 class="usa-heading" id="address-form">Address form</h2>
 <p class="usa-font-lead">A standard template for entering a U.S. mailing or shipping address.</p>
+
 <div class="preview">
+
   <form class="usa-form-large">
     <fieldset>
       <legend>Mailing address</legend>
@@ -147,6 +150,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
       <input class="usa-input-medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})?" data-grouplength="5,4" data-delimiter="-" data-politespace>
     </fieldset>
   </form>
+
 </div>
 
 <div class="usa-accordion-bordered">
@@ -168,7 +172,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>When you need to be able to parse out the specific parts of a mailing address. </li>
+      <li>When you need to be able to parse out the specific parts of a mailing address.</li>
     </ul>
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
@@ -185,8 +189,10 @@ lead: Patterns for some of the most commonly used forms on government websites.
 </div>
 
 <h2 class="usa-heading" id="login-form">Sign-in form</h2>
-<p class="usa-font-lead">A  template for signing a user into a website or online app. </p>
+<p class="usa-font-lead">A template for signing a user into a website or online app.</p>
+
 <div class="preview">
+
   <form>
     <fieldset>
       <legend class="usa-drop_text">Sign in</legend>
@@ -211,6 +217,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
         Forgot password?</a></p>
     </fieldset>
   </form>
+
 </div>
 
 <div class="usa-accordion-bordered">
@@ -232,7 +239,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>When users expect information to be customized or private, place it behind a sign-in form. </li>
+      <li>When users expect information to be customized or private, place it behind a sign-in form.</li>
     </ul>
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
@@ -243,7 +250,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
       <li>Less is more&mdash;make your explanations concise. Users sign in faster when less text surrounds the form.</li>
       <li>Allow people to use their email address to sign in; people have an easier time remembering their email address rather than a unique username.</li>
       <li>When a sign-in form is required, consider allowing users to stay logged in (“Remember me”) on trusted computers so they can avoid this barrier in the future.</li>
-      <li>Make it easy to retrieve a forgotten username and password. Most authentication failures occur because a user has forgotten their username or password, especially common when a long time passes between visits, as is the case with most federal websites. </li>
+      <li>Make it easy to retrieve a forgotten username and password. Most authentication failures occur because a user has forgotten their username or password, especially common when a long time passes between visits, as is the case with most federal websites.</li>
       <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to log in, and doesn't offer much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile, when mistakes are more likely.</li>
     </ul>
   </div>
@@ -251,9 +258,10 @@ lead: Patterns for some of the most commonly used forms on government websites.
 
 <h2 class="usa-heading" id="password-reset-form">Password reset form</h2>
 <p class="usa-font-lead">A standard template for resetting a password.</p>
-<div class="preview">
-  <form>
 
+<div class="preview">
+  
+  <form>
     <fieldset>
       <legend class="usa-drop_text">Reset password</legend>
       <span class="usa-serif">Please enter your new password</span>
@@ -290,8 +298,8 @@ lead: Patterns for some of the most commonly used forms on government websites.
 
       <input type="submit" value="Reset Password" />
     </fieldset>
-
   </form>
+
 </div>
 
 <div class="usa-accordion-bordered">
