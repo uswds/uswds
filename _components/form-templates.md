@@ -67,8 +67,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
   </div>
 </div>
 <h2 class="usa-heading" id="address-form">Address form</h2>
-<p class="usa-font-lead">A standard template for entering a U.S. mailing or shipping address. 
-</p>
+<p class="usa-font-lead">A standard template for entering a U.S. mailing or shipping address.</p>
 <div class="preview">
   <form class="usa-form-large">
     <fieldset>
