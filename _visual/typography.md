@@ -74,7 +74,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <img src="{{ site.baseurl }}/assets-styleguide/img/page-performance.jpg">
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
@@ -230,7 +230,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <img src="{{ site.baseurl }}/assets-styleguide/img/page-performance.jpg">
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
@@ -408,7 +408,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <img src="{{ site.baseurl }}/assets-styleguide/img/page-performance.jpg">
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
@@ -587,7 +587,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <img src="{{ site.baseurl }}/assets-styleguide/img/page-performance.jpg">
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
@@ -756,7 +756,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <img src="{{ site.baseurl }}/assets-styleguide/img/page-performance.jpg">
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
