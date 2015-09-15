@@ -1,6 +1,3 @@
-# 18F pages base url config
-baseurl: /web-design-standards
-
 # Markdown config
 markdown: redcarpet
 highlighter: rouge
