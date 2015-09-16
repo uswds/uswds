@@ -213,25 +213,27 @@ order: 01
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Merriweather headings with Source Sans Pro body (robust)</h5>
+        <h5>Merriweather headings, Source Sans Pro Body (robust)</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
         <div class="usa-grid">
           <div class="usa-width-two-thirds">
-            <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
-            <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+            <p>A variation of the previous font pairing, expanded to include an additional Merriweather weight. The slimmer Merriweather headings creates an elegance that compliments weights and allows you to intentionally move users’ attention around a page.</p>
+            <p>Recommended applications: text heavy sites and more visual promotional sites.</p>
+            <p>Font weights included in this package:</p>
             <ul>
-              <li>1. Merriweather Light 300</li>
-              <li>2. Merriweather Bold 700</li>
-              <li>3. Source Sans Pro Regular 400</li>
-              <li>4. Source Sans Pro Italic 400</li>
-              <li>5. Source Sans Pro Bold 700</li>
+              <li>1. Merriweather, Bold 700</li>
+              <li>2. Merriweather, Light 300</li>
+              <li>3. Source Sans Pro, Regular 400</li>
+              <li>4. Source Sans Pro, Bold 700</li>
+              <li>5. Source Sans Pro, Italic 400</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <p><span class="usa-label-big">Medium</span></p>
+            <p>Exceeds ideal number of fonts by one. May negatively impact page load performance.</p>
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
