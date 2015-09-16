@@ -958,6 +958,9 @@ order: 01
 
 <h3 class="usa-heading" id="links">Links</h3>
 
+<p class="usa-font-lead">Links lead users to a different page or further information. 
+</p>
+
 <div class="preview">
 
   <a href="javascript:void(0)">This is a link without surrounding text</a>
@@ -981,32 +984,11 @@ order: 01
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
-
-    <h4 class="usa-heading">Usability</h4>
-    <h5>When to use</h5>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    <h5>When to consider something different</h5>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    <h5>Guidelines</h5>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Users should be able to tab to navigate to between links. 
+      <li>Users should be able to activate a link when pressing ‘Enter’ on their keyboard.</li>
+      <li>Users should be able to identify links without relying on color alone.</li> 
+      <li>User should be able to activate hover and and focus states in both mouse and keyboard.</li>
     </ul>
   </div>
 </div>
