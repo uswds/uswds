@@ -4,8 +4,7 @@ title: Typography
 order: 01
 ---
 
-<p>Introduction to the typography recommendations. 
-Include intro of the two families, how we have diff packages, a bit on considerations which informed this font choice (open source, accessible, modern + classic, flexible to a variety of styles, etc.)</p>
+<p>U.S. Government websites have common typographic needs: clear and consistent headings, highly legible body paragraphs, clear labels, and easy-to-use input fields.  We recommend a font system that uses two open-source font families: Source Sans Pro and Merriweather, both of which are designed for legibility and can beautifully adapt to a variety of visual styles.</p>
 
 <h3 class="usa-heading" id="typefaces">Typefaces</h3>
 
