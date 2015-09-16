@@ -946,33 +946,10 @@ order: 01
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
-
     <h4 class="usa-heading">Usability</h4>
-    <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    <h5>When to consider something different</h5>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    <h5>Guidelines</h5>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Alignment: Type set flush left provides the eye a constant starting point for each line, making text easier to read.</li>
+      <li>Spacing: White space affects how the user focuses their attention on the content. It makes it easier to know what to read and where to begin. Spacing between typographic elements should be open enough to feel light, but close enough to establish a proper relationship between elements. When setting headers and body copy, white space should be 60px, 30px, 20px, or 15px.</li>
     </ul>
   </div>
 </div>
