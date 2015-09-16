@@ -55,24 +55,27 @@ order: 01
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Default: Merriweather headings with Source Sans Pro body (basic)</h5>
+        <h5>Default: Merriweather headings, Source Sans Pro body (lite)</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
         <div class="usa-grid">
           <div class="usa-width-two-thirds">
-            <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
-            <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+            <p>A simple serif and sans serif combination designed to communicate warmth and credibility. Strong Merriweather heading weights offer clear information hierarchy and when paired with Source Sans Pro’s easy-to-read body text, creates a clean and professional feel.</p>
+            <p>This is pairing is included in the Web Design Standards framework.</p>
+            <p>Recommended applications: digital services that feature forms; basic and text heavy sites.</p>
+            <p>Font weights included in this package:</p>
             <ul>
-              <li>1. Merriweather Bold 700</li>
-              <li>2. Source Sans Pro Regular 400</li>
-              <li>3. Source Sans Pro Italic 400</li>
-              <li>4. Source Sans Pro Bold 700</li>
+              <li>1. Merriweather, Bold 700</li>
+              <li>2. Source Sans Pro, Regular 400</li>
+              <li>3. Source Sans Pro, Bold 700</li>
+              <li>4. Source Sans Pro, Italic 400</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <p><span class="usa-label-big">High</span></p>
+            <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
