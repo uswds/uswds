@@ -576,24 +576,26 @@ order: 01
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Source Sans Pro only</h5>
+        <h5>Source Sans Pro headings and body</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
         <div class="usa-grid">
           <div class="usa-width-two-thirds">
-            <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
-            <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+            <p>Inspired by the growth of simple and welcoming type in modern web UI design, this suite uses Source Sans Pro exclusively.  With a range of weights designed to fit into heading styles to clearly communicate hierarchy of information, this pairing can support both extremely simple designs and more polished, promotional sites.</p>
+            <p>Recommended applications:  digital services that feature forms; basic and text heavy sites; marketing sites.</p>
+            <p>Font weights included in this package:</p>
             <ul>
-              <li>1. Source Sans Pro Light 300</li>
-              <li>2. Source Sans Pro Regular 400</li>
-              <li>3. Source Sans Pro Italic 400</li>
-              <li>4. Source Sans Pro Bold 700</li>
+              <li>1. Source Sans Pro, Light 300</li>
+              <li>2. Source Sans Pro, Regular 400</li>
+              <li>3. Source Sans Pro, Bold 700</li>
+              <li>4. Source Sans Pro, Italic 400</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <p><span class="usa-label-big">High</span></p>
+            <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
