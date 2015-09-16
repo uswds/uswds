@@ -910,6 +910,7 @@ order: 01
 <!-- Typsetting section begin -->
 
 <h3 class="usa-heading" id="typesetting">Typesetting</h3>
+<p>Readable text allows users to efficiently read and take in textual information, whereas text that is not readable turns off readers or makes it challenging for them to stay focused. The following guidelines promote good readability.</p>
 
 <div class="preview">
   <h6 class="usa-heading-alt">Alignment</h6>
