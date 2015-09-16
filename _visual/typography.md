@@ -997,6 +997,8 @@ order: 01
 
 <h3 class="usa-heading" id="lists">Lists</h3>
 
+<p class="usa-font-lead">Lists organize written information for users.</p>
+
 <div class="preview">
 
   <div class="usa-grid">
@@ -1034,33 +1036,20 @@ order: 01
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
-
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+        <li>Use an ordered list when you need to display text in some ranking, hierarchy or series of steps.</li>
+        <li>Use unordered lists display text in no specific order.</li>
     </ul>
     <h5>When to consider something different</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>If you need to communicate long lists of narrative text.</li>
     </ul>
     <h5>Guidelines</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Use sentence case and begin lists with a capital letter.</li>
+      <li>Use punctuation appropriate to the text. Do not leave sentences without periods.</li>
     </ul>
   </div>
 </div>
