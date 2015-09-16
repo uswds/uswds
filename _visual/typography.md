@@ -49,7 +49,6 @@ order: 01
 <p>To support both more contemporary and more traditional web design aesthetics, this font system offers recommended font pairings. Each pairing includes web hierarchy guidance on font family, weight, size, and spacing which express either more modern or more classical type design.</p>
 <p>Note: Some pairings require more font weights than others. While this allows more typographic expression, the use of four or more font weights will have a negative impact on page load performance. Find the balance that works for your product.</p>
 
-<h4 class="usa-heading">Credible and warm</h4>
 <div class="usa-accordion-bordered usa-typography-example">
   <ul class="usa-unstyled-list">
     <li>
@@ -568,8 +567,6 @@ order: 01
     </li>
   </ul>
 </div>
-
-<h4 class="usa-heading">Simple and modern</h4>
 
 <div class="usa-accordion-bordered usa-typography-example">
   <ul class="usa-unstyled-list">
