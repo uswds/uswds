@@ -46,7 +46,8 @@ order: 01
 <p class="usa-text-small">Info about what files to expect when you download.</p>
 
 <h3 class="usa-heading" id="pairings">Pairings + Styles</h3>
-<p>Guidance/overview on how our font packages were designed, etc. Something about load performance consideration and how we recommend one of the following font pages for use. A bit on the rationale for the pairings if it’s not covered an above section.</p>
+<p>To support both more contemporary and more traditional web design aesthetics, this font system offers recommended font pairings. Each pairing includes web hierarchy guidance on font family, weight, size, and spacing which express either more modern or more classical type design.</p>
+<p>Note: Some pairings require more font weights than others. While this allows more typographic expression, the use of four or more font weights will have a negative impact on page load performance. Find the balance that works for your product.</p>
 
 <h4 class="usa-heading">Credible and warm</h4>
 <div class="usa-accordion-bordered usa-typography-example">
