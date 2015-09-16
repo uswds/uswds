@@ -745,26 +745,28 @@ order: 01
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Source Sans Pro headings with Merriweather body</h5>
+        <h5>Source Sans Pro headings, Merriweather body</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
         <div class="usa-grid">
           <div class="usa-width-two-thirds">
-            <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
-            <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
+            <p>A variation on the serif and sans serif pairing, this combination uses multiple weights of Source Sans Pro for clear headings combined with the formal feeling of Merriweather for body text. This pair similarly communicates professionalism, with extra emphasis on sleek and legible headings.</p>
+            <p>Recommended applications: digital services that feature forms; basic and text heavy sites; marketing sites.</p>
+            <p>Font weights included in this package:</p>
             <ul>
-              <li>1. Source Sans Pro Light 300</li>
-              <li>2. Source Sans Pro Regular 400</li>
-              <li>3. Source Sans Pro Bold 700</li>
-              <li>4. Merriweather Regular 400</li>
-              <li>5. Merriweather Italic 400</li>
-              <li>6. Merriweather Bold 700</li>
+              <li>1. Source Sans Pro, Light 300</li>
+              <li>2. Source Sans Pro, Regular 400</li>
+              <li>3. Source Sans Pro, Bold 700</li>
+              <li>4. Merriweather, Regular 400</li>
+              <li>5. Merriweather, Italic 400</li>
+              <li>6. Merriweather, Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <p><span class="usa-label-big">Medium</span></p>
+            <p>Exceeds ideal number of fonts by two. May negatively impact page load performance.</p>
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
