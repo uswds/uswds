@@ -233,6 +233,7 @@ order: 01
             <h6 class="usa-heading-alt">Page Performance</h6>
             <p><span class="usa-label-big">Medium</span></p>
             <p>Exceeds ideal number of fonts by one. May negatively impact page load performance.</p>
+            <img src="{{ site.baseurl }}/assets-styleguide/img/page-performance.jpg">
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
@@ -414,6 +415,7 @@ order: 01
             <h6 class="usa-heading-alt">Page Performance</h6>
             <p><span class="usa-label-big">Medium</span></p>
             <p>Exceeds ideal number of fonts by two. May negatively impact page load performance.</p>
+            <img src="{{ site.baseurl }}/assets-styleguide/img/page-performance.jpg">
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
