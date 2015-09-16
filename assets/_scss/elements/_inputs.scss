@@ -34,7 +34,7 @@ select  {
   }
 
   &.usa-input-success {
-    border: 3px solid $color-green;
+    border: 3px solid $color-green-light;
   }
 }
 
@@ -171,8 +171,8 @@ input[type="radio"]:focus + label::before {
 }
 
 input[type="checkbox"]:checked + label::before {
-  background-image: url('../img/correct8.png');
-  background-image: url('../img/correct8.svg');
+  background-image: url('/assets/img/correct8.png');
+  background-image: url('/assets/img/correct8.svg');
   background-position: 50%;
   background-repeat: no-repeat;
 }
