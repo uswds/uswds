@@ -3,8 +3,8 @@ $usa-btn-medium-width:  8.5rem;
 $usa-btn-big-width:     11.6rem;
 
 @mixin search-icon {
-  background-image: url('../img/search.png');
-  background-image: url('../img/search.svg');
+  background-image: url('/assets/img/search.png');
+  background-image: url('/assets/img/search.svg');
   background-position: 50%;
   background-repeat: no-repeat;
 }
