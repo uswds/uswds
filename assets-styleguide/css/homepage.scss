@@ -151,6 +151,13 @@ a:hover {
   border-bottom: 0;
 }
 
+a {
+  > h3,
+  &:visited  {
+    color: $color-primary;
+  }
+}
+
 .usa-img-circle {
   float: left;
   margin-right: 3rem;
@@ -178,10 +185,6 @@ a:hover {
   .usa-img-example {
     margin-bottom: 5rem;
   }
-}
-
-a > h3 {
-  color: $color-primary;
 }
 
 .usa-img-secondary {
