@@ -139,23 +139,6 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Usability</h4>
-    <h5>When to use</h5>
-    <ul class="usa-content-list">
-      <li>Users only need a few specific pieces of content within a page. </li>
-      <li>Information needs to be displayed in a small space.</li>
-    </ul>
-    <h5>When to consider something different</h5>
-    <ul class="usa-content-list">
-      <li>If visitors need to see most or all of the information on a page, use well-formatted text instead.</li> 
-      <li>If there is not enough content to warrant condensing. (Accordions increase cognitive load and interaction cost, as users have to make decisions on what headers to click on).</li>
-    </ul>
-    <h5>Guidelines</h5>
-    <ul class="usa-content-list">
-      <li>Allow users to click anywhere in the header area to expand or collapse the content; a larger target is easier to manipulate. </li>
-      <li>Make sure interactive elements within the collapsible region are far enough from the headers that users don't accidentally trigger a collapse. (The exact distance depends on the device.)</li>
-    </ul>
-
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
       <li>
@@ -170,6 +153,22 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
       <li>
         Each content area has an <code>aria-hidden</code> attribute set to either <code>true</code> or <code>false</code>. When <code>false</code>, the element (and all children) are neither visible or perceivable, and assistive technologies will skip this content.
       </li>
+    </ul>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>Users only need a few specific pieces of content within a page. </li>
+      <li>Information needs to be displayed in a small space.</li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>If visitors need to see most or all of the information on a page, use well-formatted text instead.</li> 
+      <li>If there is not enough content to warrant condensing. Accordions increase cognitive load and interaction cost, as users have to make decisions about what headers to click on.</li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>Allow users to click anywhere in the header area to expand or collapse the content; a larger target is easier to manipulate. </li>
+      <li>Make sure interactive elements within the collapsible region are far enough from the headers that users don’t accidentally trigger a collapse. (The exact distance depends on the device.)</li>
     </ul>
   </div>
 </div>
