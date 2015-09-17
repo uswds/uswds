@@ -4,7 +4,7 @@ title: Typography
 order: 01
 ---
 
-<p>U.S. Government websites have common typographic needs: clear and consistent headings, highly legible body paragraphs, clear labels, and easy-to-use input fields.  We recommend a font system that uses two open-source font families: Source Sans Pro and Merriweather, both of which are designed for legibility and can beautifully adapt to a variety of visual styles.</p>
+<p>U.S. government websites have common typographic needs: clear and consistent headings, highly legible body paragraphs, clear labels, and easy-to-use input fields.  We recommend a font system that uses two open-source font families: Source Sans Pro and Merriweather, both of which are designed for legibility and can beautifully adapt to a variety of visual styles.</p>
 
 <h3 class="usa-heading" id="typefaces">Typefaces</h3>
 
@@ -922,7 +922,7 @@ order: 01
   <h6 class="usa-heading-alt">Line length - Desktop</h6>
   <div class="usa-line-length-example">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea sequat.</p>
-    <p class="help-text">75 characaters max on desktop</p>
+    <p class="help-text">75 characters max on desktop</p>
   </div>
   
   <h6 class="usa-heading-alt">Spacing</h6>
