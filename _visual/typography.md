@@ -26,6 +26,7 @@ Include intro of the two families, how we have diff packages, a bit on considera
     </div>
   </div>
 </div>
+
 <h4 class="usa-heading-alt">Merriweather</h4>
 
 <div class="usa-grid-full">
@@ -45,21 +46,18 @@ Include intro of the two families, how we have diff packages, a bit on considera
 </div>
 
 <a class="usa-button usa-button-primary-alt" href="#">Download the style files?</a>
-<p class="usa-small-text">Info about what files to expect when you download.</p>
+<p class="usa-text-small">Info about what files to expect when you download.</p>
 
 <h3 class="usa-heading" id="pairings">Pairings + Styles</h3>
-
-<p>Guidance/overview on how our font packages were designed, etc.
-Something about load performance consideration and how we recommend one of the following font pages for use.  A bit on the rationale for the pairings if it’s not covered an above section.</p>
+<p>Guidance/overview on how our font packages were designed, etc. Something about load performance consideration and how we recommend one of the following font pages for use. A bit on the rationale for the pairings if it’s not covered an above section.</p>
 
 <h4 class="usa-heading">Credible and warm</h4>
-
 <div class="usa-accordion-bordered usa-typography-example">
   <ul class="usa-unstyled-list">
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Default: Merriweather headers, Source Sans Pro body (basic)</h5>
+        <h5>Default: Merriweather headings with Source Sans Pro body (basic)</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
@@ -69,14 +67,14 @@ Something about load performance consideration and how we recommend one of the f
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
               <li>1. Merriweather Bold 700</li>
-              <li>2. Source Sans Pro, Regular 400</li>
-              <li>3. Source Sans Pro, Bold 700</li>
-              <li>4. Source Sans Pro, Italic 400</li>
+              <li>2. Source Sans Pro Regular 400</li>
+              <li>3. Source Sans Pro Italic 400</li>
+              <li>4. Source Sans Pro Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <img src="{{ site.baseurl }}/assets-styleguide/img/page-performance.jpg">
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
@@ -99,73 +97,74 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/68px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 40px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 30px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/39px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 20px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/26px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 17px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/22px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 15px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/20px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -175,8 +174,8 @@ Something about load performance consideration and how we recommend one of the f
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 400<br>
-              font-size: 22px<br>
-              line-height: 1.375em/30px
+              font-size: 20px<br>
+              line-height: 1.7em/34px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -187,7 +186,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -199,7 +198,7 @@ Something about load performance consideration and how we recommend one of the f
               font-style: Italic<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
         </div>
@@ -213,7 +212,7 @@ Something about load performance consideration and how we recommend one of the f
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Merriweather headers, Source Sans Pro body (robust)</h5>
+        <h5>Merriweather headings with Source Sans Pro body (robust)</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
@@ -222,16 +221,16 @@ Something about load performance consideration and how we recommend one of the f
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
-              <li>1. Merriweather Bold 700</li>
-              <li>2. Merriweather Light 300</li>
-              <li>3. Source Sans Pro, Regular 400</li>
-              <li>4. Source Sans Pro, Bold 700</li>
-              <li>5. Source Sans Pro, Italic 400</li>
+              <li>1. Merriweather Light 300</li>
+              <li>2. Merriweather Bold 700</li>
+              <li>3. Source Sans Pro Regular 400</li>
+              <li>4. Source Sans Pro Italic 400</li>
+              <li>5. Source Sans Pro Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <img src="{{ site.baseurl }}/assets-styleguide/img/page-performance.jpg">
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
@@ -254,7 +253,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/68px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -263,75 +262,76 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-weight: 300<br>
               font-size: 40px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 40px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 30px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/39px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 20px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/26px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 17px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/22px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 15px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/20px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -342,7 +342,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 300<br>
               font-size: 20px<br>
-              line-height: 1.375em/30px
+              line-height: 1.7em/34px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -352,8 +352,8 @@ Something about load performance consideration and how we recommend one of the f
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 400<br>
-              font-size: 15px<br>
-              line-height: 1.375em/20px
+              font-size: 17px<br>
+              line-height: 1.7em/29px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -364,7 +364,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -376,7 +376,7 @@ Something about load performance consideration and how we recommend one of the f
               font-style: Italic<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
         </div>
@@ -399,16 +399,16 @@ Something about load performance consideration and how we recommend one of the f
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
-              <li>1. Merriweather Bold 700</li>
-              <li>2. Merriweather Light 300</li>
-              <li>3. Source Sans Pro, Regular 400</li>
-              <li>4. Source Sans Pro, Bold 700</li>
-              <li>5. Source Sans Pro, Italic 400</li>
+              <li>1. Merriweather Light 300</li>
+              <li>2. Merriweather Regular 400</li>
+              <li>3. Merriweather Bold 700</li>
+              <li>4. Source Sans Pro Regular 400</li>
+              <li>5. Source Sans Pro Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <img src="{{ site.baseurl }}/assets-styleguide/img/page-performance.jpg">
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
@@ -422,7 +422,7 @@ Something about load performance consideration and how we recommend one of the f
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
         
-        <div class="serif-robust serif-sans-minor usa-grid usa-typography-example-font">
+        <div class="serif-robust serif-sans-minor serif-body usa-grid usa-typography-example-font">
           <div class="usa-width-one-half">
             <h3 class="usa-display">Display 1</h3>
           </div>
@@ -431,7 +431,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 52px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/68px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -440,75 +440,76 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-weight: 300<br>
               font-size: 40px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 40px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/52px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 30px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/39px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 20px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/26px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 17px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/22px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 700<br>
               font-size: 15px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/20px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Merriweather’<br>
-              font-weight: 700<br>
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -519,7 +520,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Merriweather’<br>
               font-weight: 300<br>
               font-size: 20px<br>
-              line-height: 1.375em/30px
+              line-height: 1.7em/34px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -529,8 +530,8 @@ Something about load performance consideration and how we recommend one of the f
             <p class="usa-monospace">
               font-family: ‘Merriweather’<br>
               font-weight: 400<br>
-              font-size: 15px<br>
-              line-height: 1.375em/20px
+              font-size: 17px<br>
+              line-height: 1.7em/29px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -538,10 +539,10 @@ Something about load performance consideration and how we recommend one of the f
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
+              font-family: ‘Merriweather’<br>
               font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
+              font-size: 15px<br>
+              line-height: 1.7em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -549,11 +550,11 @@ Something about load performance consideration and how we recommend one of the f
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
+              font-family: ‘Merriweather’<br>
               font-style: Italic<br>
               font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
+              font-size: 15px<br>
+              line-height: 1.7em/26px
             </p>
           </div>
         </div>
@@ -578,15 +579,15 @@ Something about load performance consideration and how we recommend one of the f
             <p>Overview of this pairing. Explain design decision and recommended use. Indicate this is the font pairing that comes with the framework download and used on this site.</p>
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
-              <li>1. Source Sans Pro Light 700</li>
-              <li>2. Source Sans Pro, Regular 400</li>
-              <li>3. Source Sans Pro, Bold 700</li>
-              <li>4. Source Sans Pro, Italic 400</li>
+              <li>1. Source Sans Pro Light 300</li>
+              <li>2. Source Sans Pro Regular 400</li>
+              <li>3. Source Sans Pro Italic 400</li>
+              <li>4. Source Sans Pro Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <img src="{{ site.baseurl }}/assets-styleguide/img/page-performance.jpg">
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
@@ -610,7 +611,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 59px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/77px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -619,86 +620,87 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
+              font-weight: 300<br>
               font-size: 44px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/57px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 44px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/57px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 34px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/44px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 24px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/31px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 19px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/25px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 16px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/21px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
-            <p class="usa-font-lead">Lead <br>paragraph 1</p>
+            <p class="usa-font-lead">Lead <br>paragraph</p>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 300<br>
               font-size: 22px<br>
-              line-height: 1.375em/30px
+              line-height: 1.5em/33px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -709,7 +711,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -721,7 +723,7 @@ Something about load performance consideration and how we recommend one of the f
               font-style: Italic<br>
               font-weight: 400<br>
               font-size: 17px<br>
-              line-height: 1.375em/24px
+              line-height: 1.5em/26px
             </p>
           </div>
         </div>
@@ -730,12 +732,12 @@ Something about load performance consideration and how we recommend one of the f
   </ul>
 </div>
 
-<div class="usa-accordion-bordered usa-typography-example">
+<div class="usa-accordion-bordered usa-typography-example usa-accordion-docs">
   <ul class="usa-unstyled-list">
     <li>
       <button class="usa-button-unstyled"
           aria-expanded="false" aria-controls="collapsible-0">
-        <h5>Source Sans Pro headings, Merriweather body</h5>
+        <h5>Source Sans Pro headings with Merriweather body</h5>
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
@@ -745,16 +747,16 @@ Something about load performance consideration and how we recommend one of the f
             <p>Overview of this pairing. Explain design decision and recommended use. More explaining design decision and recommended use. And here are the fonts included:</p>
             <ul>
               <li>1. Source Sans Pro Light 300</li>
-              <li>2. Source Sans Pro, Regular 400</li>
-              <li>3. Source Sans Pro, Bold 700</li>
-              <li>4. Merriweather, Regular 400</li>
-              <li>5. Merriweather, Italic 400</li>
-              <li>6. Merriweather, Bold 700</li>
+              <li>2. Source Sans Pro Regular 400</li>
+              <li>3. Source Sans Pro Bold 700</li>
+              <li>4. Merriweather Regular 400</li>
+              <li>5. Merriweather Italic 400</li>
+              <li>6. Merriweather Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <img src="{{ site.baseurl }}/assets/img/page-performance.jpg">
+            <img src="{{ site.baseurl }}/assets-styleguide/img/page-performance.jpg">
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
               <li>
@@ -777,7 +779,7 @@ Something about load performance consideration and how we recommend one of the f
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 59px<br>
-              line-height: 1.375em/72px
+              line-height: 1.3em/77px
             </p>
           </div>
           <div class="usa-width-one-half">
@@ -786,86 +788,87 @@ Something about load performance consideration and how we recommend one of the f
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
+              font-weight: 300<br>
               font-size: 44px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/57px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h1>Header 1</h1>
+            <h1>Heading 1</h1>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 44px<br>
-              line-height: 1.375em/55px
+              line-height: 1.3em/57px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h2>Header 2</h2>
+            <h2>Heading 2</h2>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 34px<br>
-              line-height: 1.375em/41px
+              line-height: 1.3em/44px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h3>Header 3</h3>
+            <h3>Heading 3</h3>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 24px<br>
-              line-height: 1.375em/28px
+              line-height: 1.3em/31px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h4>Header 4</h4>
+            <h4>Heading 4</h4>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 19px<br>
-              line-height: 1.375em/23px
+              line-height: 1.3em/25px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h5>Header 5</h5>
+            <h5>Heading 5</h5>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 700<br>
               font-size: 16px<br>
-              line-height: 1.375em/20px
+              line-height: 1.3em/21px
             </p>
           </div>
           <div class="usa-width-one-half">
-            <h6>Header 6</h6>
+            <h6>Heading 6</h6>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
-              font-weight: 700<br>
+              font-weight: 400<br>
               font-size: 13px<br>
-              line-height: 1.375em/18px
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
-            <p class="usa-font-lead">Lead <br>paragraph 1</p>
+            <p class="usa-font-lead">Lead <br>paragraph</p>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
               font-family: ‘Source Sans Pro’<br>
               font-weight: 300<br>
               font-size: 22px<br>
-              line-height: 1.375em/30px
+              line-height: 1.5em/33px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -873,10 +876,10 @@ Something about load performance consideration and how we recommend one of the f
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
+              font-family: ‘Merriweather’<br>
               font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
+              font-size: 15px<br>
+              line-height: 1.7em/26px
             </p>
           </div>
           <div class="usa-font-example usa-width-one-half">
@@ -884,11 +887,11 @@ Something about load performance consideration and how we recommend one of the f
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
-              font-family: ‘Source Sans Pro’<br>
+              font-family: ‘Merriweather’<br>
               font-style: Italic<br>
               font-weight: 400<br>
-              font-size: 17px<br>
-              line-height: 1.375em/24px
+              font-size: 15px<br>
+              line-height: 1.7em/26px
             </p>
           </div>
         </div>
@@ -929,6 +932,43 @@ Something about load performance consideration and how we recommend one of the f
 
 <!-- Typsetting section end -->
 
+<div class="usa-accordion-bordered usa-accordion-docs">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h4>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
+
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>When to consider something different</h5>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>Guidelines</h5>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+</div>
+
 <!-- Links section begin -->
 
 <h3 class="usa-heading" id="links">Links</h3>
@@ -948,6 +988,43 @@ Something about load performance consideration and how we recommend one of the f
 </div>
 
 <!-- Links section end -->
+
+<div class="usa-accordion-bordered usa-accordion-docs">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h4>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
+
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>When to consider something different</h5>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>Guidelines</h5>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+</div>
 
 <!-- Lists section begin -->
 
@@ -984,13 +1061,39 @@ Something about load performance consideration and how we recommend one of the f
 
 <!-- Lists section end -->
 
-<div class="usa-grid">
-  <div class="usa-width-one-half">
-    <h3 class="usa-heading">Use</h3>
-    <p>This is the usage content for the example.</p>
+<div class="usa-accordion-bordered usa-accordion-docs">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h4>
+    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <p>There are no other specific accessibility guidelines for this form template.</p>
+
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>When to consider something different</h5>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <h5>Guidelines</h5>
+    <ul class="usa-content-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
   </div>
-  <div class="usa-width-one-half">
-    <h3 class="usa-heading">Accessibility</h3>
-    <p>This is the accessibility content for the example.</p>
-  </div>  
 </div>

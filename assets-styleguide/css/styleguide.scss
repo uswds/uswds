@@ -24,40 +24,17 @@ $site-top:           124px;
 
 // Navigation ------------- //
 
-a#skipnav {
-  padding: 10px 15px;
-  position: absolute;
-  top: -44px;
-  left: 0px;
-  color: $color-base;
-  background: transparent;
-  @include transition(top 1s ease-out, background 1s linear);
-  z-index: 100;
-  &:focus {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    background: white;
-    outline: 0;
-    @include transition(top .1s ease-in, background .5s linear);
-  }
-}
-
 .usa-site-header {
   background-color: $color-white;
   border-bottom: 1px solid $color-gray-light;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
   z-index: 1;
   
   a {
     border-bottom: none;
-  }
-
-  .usa-disclaimer-official {
-    padding-left: $site-margins;
-  }
-
-  .usa-disclaimer-stage {
-    padding-right: $site-margins;
   }
 
   .usa-site-navbar {
@@ -70,15 +47,17 @@ a#skipnav {
     }
 
     .logo {
-        padding-left: $site-margins;
+      padding-left: $site-margins;
+
+      a {
+        color: $color-gray;
       }
+    }
 
     h1 {
       @include media($medium-screen) {
-
-        max-width: 20rem;
+        margin-top: .9rem;
       }
-      color: $color-gray;
       float: left;
       margin: 0;
       font-size: $base-font-size * 1.25;
@@ -100,6 +79,10 @@ a#skipnav {
       li { 
         display: inline; 
         font-family: $font-sans;
+
+        &:last-child .usa-button {
+          margin-right: 0;
+        }
       }
     }
   }
@@ -178,14 +161,14 @@ a#skipnav {
 // Sidebar Nav --------- //
 
 .sidenav {
-  position: absolute;
+  position: fixed;
   top: $site-top;
   bottom: 0;
   left: 0;
   width: $width-nav-sidebar;
   border-right: 1px solid $color-gray-light;
   padding: 5rem 3rem 3rem 3rem;
-  overflow: auto;
+  overflow: scroll;
   display: none;
   z-index: -1;
   
@@ -232,7 +215,6 @@ a#skipnav {
   top: 4rem;
   bottom: 0;
   right: 0;
-  overflow: auto;
   width: 100%;
   padding: {
     bottom: 0;
@@ -256,12 +238,12 @@ a#skipnav {
 // Styleguide Content -------- //
 
 .styleguide-content {
+  margin-bottom: 5em;
   max-width: $site-max-width;
   padding: {
-    bottom: 1em;
     left: 2em;
     right: 2em;
-  }  
+  }
   position: relative;
 
   > h1 {
@@ -287,9 +269,19 @@ a#skipnav {
     top: 3rem;
   }
 
+// This is a styleguide-only rule and is not needed in the main library code for 
+// the footer component which uses different styles
+// TODO investigate why it's not needed in the main library CSS
   p, a {
+    @include media($medium-screen) {
+      margin-bottom: 0;
+    }
     color: $color-white;
-    margin: 0;
+    font-size: $h5-font-size;
+    margin: {
+      bottom: 1.5rem;
+      top: 0;
+    }
   }
 }
 
@@ -503,7 +495,7 @@ h3 + .button_wrapper {
     @include media($medium-screen) {
       float: left;
       padding-right: 4%;
-      width: 28%;
+      width: 32%;
     }
   }
 
@@ -937,6 +929,11 @@ code[class*="language-"], pre[class*="language-"] {
 
 $font-light: 300;
 
+@mixin font-lead-alt {
+  font-size: $base-font-size;
+  font-weight: $font-normal;
+}
+
 .serif-robust {
   .usa-display-alt {
     font-size: $h1-font-size;
@@ -944,12 +941,29 @@ $font-light: 300;
   }
 
   .usa-font-lead {
-    font-family: $font-serif;
-    font-size: $h3-font-size;
+    font-weight: $font-light;
+  }
+  
+  .usa-font-lead.usa-font-lead-alt {
+    @include font-lead-alt();
   }
 
-  .usa-font-lead-alt {
-    font-size: $h5-font-size;
+  &.serif-body {
+    .usa-font-example {
+      p {
+        font-family: $font-serif;
+        font-size: rem(15px);
+        line-height: $lead-line-height;
+      }
+
+      .usa-font-lead {
+        font-size: $h3-font-size;
+      }
+    
+      .usa-font-lead.usa-font-lead-alt {
+        @include font-lead-alt();
+      }
+    }
   }
 }
 
@@ -988,17 +1002,30 @@ $font-light: 300;
 
   .usa-display-alt {
     font-size: rem(44px);
+    font-weight: $font-light;
   }
 
   .usa-font-lead {
+    font-family: $font-sans;
     font-size: rem(22px);
+    font-weight: $font-light;
+    line-height: $base-line-height;
   }
 
   &.serif-body {
-    .usa-font-example p {
-      font-family: $font-serif;
-      font-size: rem(15px);
-      line-height: 1.7;
+    .usa-font-example {
+      p {
+        font-family: $font-serif;
+        font-size: rem(15px);
+        line-height: $lead-line-height;
+      }
+
+      .usa-font-lead {
+        font-family: $font-sans;
+        font-size: rem(22px);
+        font-weight: $font-light;
+        line-height: $base-line-height;
+      }      
     }
   }
 }
@@ -1007,4 +1034,21 @@ $font-light: 300;
   h6 {
     font-family: $font-sans;
   }
+}
+
+.usa-accordion-docs {
+  margin-bottom: 6rem;
+}
+
+// This adds styleguide-only right and left margins for our disclaimer 
+// Since the layout we use is not in a grid
+.usa-disclaimer-stage {
+  padding-right: $site-margins;
+}
+
+.usa-disclaimer-official {
+  @include media($medium-screen) {
+    padding-left: $site-margins;
+  }
+  padding-left: 2rem;
 }

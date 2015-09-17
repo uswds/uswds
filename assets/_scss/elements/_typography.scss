@@ -26,7 +26,12 @@ a {
 
   &:visited {
     color: $color-visited;
-  }  
+  }
+
+  &:focus {
+    box-shadow: $focus-shadow;
+    outline: 0;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -161,6 +166,8 @@ p {
 
 .usa-font-lead {
   font-size: $lead-font-size;
+  font-family: $font-serif;
+  line-height: $lead-line-height;
 }
 
 .usa-image-block {
@@ -197,4 +204,9 @@ p {
       color: $color-white;
     }
   }
+}
+
+.usa-text-small {
+  font-size: $h6-font-size;
+  margin-top: 0;
 }

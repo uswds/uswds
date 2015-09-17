@@ -2,7 +2,7 @@
   background-color: #eeeeee;  
   background-position: 1rem 2rem;
   background-repeat: no-repeat;
-  background-size: 2.4rem;
+  background-size: 4rem;
   margin-top: 1.5em;
   padding: 1em;
 
@@ -25,7 +25,7 @@
 
 .usa-alert-body {
   display: table-cell;
-  padding-left: 2rem;
+  padding-left: 3.5rem;
   vertical-align: top;
 
   @include media($medium-screen) {
@@ -34,9 +34,12 @@
 }
 
 .usa-alert-heading {
+  @include media($medium-screen) {
+    margin-top: .3rem;
+  }
   margin: {
-    bottom: .15em;
-    top: .5em;
+    bottom: .3rem;
+    top: 0;
   }
 }
 
@@ -50,26 +53,26 @@
 
 .usa-alert-success {
   background-color: #E5FCDE;
-  background-image: url('../img/alerts/success.png');  
-  background-image: url('../img/alerts/success.svg');  
+  background-image: url('/assets/img/alerts/success.png');  
+  background-image: url('/assets/img/alerts/success.svg');  
 }
 
 .usa-alert-warning {
   background-color: #FDF7DC;
-  background-image: url('../img/alerts/warning.png');  
-  background-image: url('../img/alerts/warning.svg');   
+  background-image: url('/assets/img/alerts/warning.png');  
+  background-image: url('/assets/img/alerts/warning.svg');   
 }
 
 .usa-alert-error {
   background-color: #F9DEDE;
-  background-image: url('../img/alerts/error.png');  
-  background-image: url('../img/alerts/error.svg');   
+  background-image: url('/assets/img/alerts/error.png');  
+  background-image: url('/assets/img/alerts/error.svg');   
 }
 
 .usa-alert-info {
   background-color: #E8F5FA;
-  background-image: url('../img/alerts/info.png');  
-  background-image: url('../img/alerts/info.svg');   
+  background-image: url('/assets/img/alerts/info.png');  
+  background-image: url('/assets/img/alerts/info.svg');   
 }
 
 .usa-alert-no_icon {

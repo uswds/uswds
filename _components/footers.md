@@ -17,28 +17,28 @@ lead: Intro text on what is included in this section and how to use it. No more 
       <div class="usa-grid-full">
         <nav class="usa-footer-nav usa-width-two-thirds">
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-            <h3 class="usa-footer-primary-link">Topic</h3>
+            <h4 class="usa-footer-primary-link">Topic</h4>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-            <h3 class="usa-footer-primary-link">Topic</h3>
+            <h4 class="usa-footer-primary-link">Topic</h4>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-            <h3 class="usa-footer-primary-link">Topic</h3>
+            <h4 class="usa-footer-primary-link">Topic</h4>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-            <h3 class="usa-footer-primary-link">Topic</h3>
+            <h4 class="usa-footer-primary-link">Topic</h4>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
             <li><a href="javascript:void(0)">Secondary link</a></li>
@@ -221,13 +221,13 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </footer>
 </div>
 
-<div class="usa-accordion-bordered">
+<div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h3 class="usa-heading">Use</h3>
+    <h4 class="usa-heading">Use</h4>
     <ul class="usa-content-list">
       <li>Footers serve site visitors who arrive at the bottom of a page without finding what they want.</li>
       <li>Footer links should point to popular content that might answer a visitor’s remaining questions. Links to disclaimers and legal content sometimes need to be in the footer, but try to minimize “disclaimer bloat” wherever possible.</li>
@@ -237,7 +237,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
       <li>Important contact information should be limited to general email or phone numbers (Physical addresses should live on contact pages users can navigate to from the footer links).</li>
     </ul>
 
-    <h3 class="usa-heading">Accessibility</h3>
+    <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
       <li>Code the navigation so that pressing the  tab key moves focus from link to link in the navigation, even when the navigation has collapsed into an accordion.</li>
       <li>On small screens: when collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the "Accordion" section.</li>

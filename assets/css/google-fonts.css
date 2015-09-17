@@ -1,6 +1,18 @@
 @font-face {
     font-family: 'Source Sans Pro';
     font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/sourcesanspro-light-webfont.eot');
+    src: url('../fonts/sourcesanspro-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/sourcesanspro-light-webfont.woff2') format('woff2'),
+         url('../fonts/sourcesanspro-light-webfont.woff') format('woff'),
+         url('../fonts/sourcesanspro-light-webfont.ttf') format('truetype'),
+         url('../fonts/sourcesanspro-light-webfont.svg#source_sans_prolight') format('svg');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
   	font-weight: 400;
     src: url('../fonts/sourcesanspro-regular-webfont.eot');
     src: url('../fonts/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),

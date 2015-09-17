@@ -319,10 +319,10 @@ function validator($el) {
             validatorName.toLowerCase() + ']');
 
         if (!validatorPattern.test($el.val())) {
-          $validatorCheckbox.toggleClass('usa-check_list-checked', false);
+          $validatorCheckbox.toggleClass('usa-checklist-checked', false);
         }
         else {
-          $validatorCheckbox.toggleClass('usa-check_list-checked', true);
+          $validatorCheckbox.toggleClass('usa-checklist-checked', true);
         }
       }
     }
@@ -341,9 +341,9 @@ $(function() {
 
       $('.usa-footer-big nav ul').addClass('hidden');
 
-      $('.usa-footer-big nav h3').unbind('click');
+      $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
 
-      $('.usa-footer-big nav h3').bind('click', function() {
+      $('.usa-footer-big nav .usa-footer-primary-link').bind('click', function() {
         $(this).parent().removeClass('hidden')
         .siblings().addClass('hidden');
       });
@@ -351,7 +351,7 @@ $(function() {
 
       $('.usa-footer-big nav ul').removeClass('hidden');
 
-      $('.usa-footer-big nav h3').unbind('click');
+      $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
     }
   };
 
@@ -361,10 +361,18 @@ $(function() {
     footerAccordion();
   });
 
+  // Fixing skip nav focus behavior in chrome
+  $('.skipnav').click(function(){
+    $('#main-content').attr('tabindex','0');
+  });
+
+  $('#main-content').blur(function(){
+    $(this).attr('tabindex','-1');
+  });
+
   togglePassword($('.usa-show_password'));
   toggleMultiPassword($('.usa-show_multipassword'));
   toggleSSN($('.usa-show_ssn'));
   validator($('.js-validate_password'));
 
 });
-

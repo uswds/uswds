@@ -33,12 +33,12 @@
       text-decoration: none;
     }
 
-    &.usa-current-page {
+    &.usa-current {
       color: $color-primary;
       font-weight: $font-bold;
     }
 
-    &.usa-current-page {
+    &.usa-current {
       border-left: 4px solid $color-primary;
       padding-left: 1.4rem;
     }
@@ -56,10 +56,11 @@
 
   a {
     padding-left: 2.8rem;
+    line-height: 1.3;
   }
 
   a:hover,
-  a.usa-current-page {
+  a.usa-current {
     border: none;
     padding-left: 2.8rem;
   }

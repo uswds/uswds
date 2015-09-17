@@ -1,39 +1,181 @@
 ---
 permalink: /
-layout: styleguide
-title: U.S. Federal Web Design Standards
+layout: homepage
+title: U.S. Web Design Standards
 ---
 
-<h1>About this Guide</h1> 
+<a class="skipnav" href="#main-content">Skip main navigation</a>
 
-<p>Welcome to the alpha site for the U.S. Federal Web Design Standards project.</p> 
+<header role="banner">
+  
+  <div class="usa-disclaimer">
+    <div class="usa-grid">
+      <span class="usa-disclaimer-official">
+        <img class="usa-flag_icon" alt="U.S. flag signifying that this is a United States federal government website" src="{{ site.baseurl }}/assets/img/us_flag_small.png">
+        An official website of the United States government
+      </span>
+      <span class="usa-disclaimer-stage">This site is currently in alpha. <a href="https://18f.gsa.gov/dashboard/stages/#alpha">Learn more.</a></span>
+    </div>
+  </div>
+  
+  <section class="usa-banner">
+    <div class="usa-grid">
+      <nav>
+        <a class="usa-banner-link-top" href="https://github.com/18F/web-design-standards">View on GitHub</a>
+      </nav>
+      <div class="usa-banner-content" id="main-content">
+        <h1>U.S. Web Design Standards</h1>
+        <h2 class="usa-font-lead">Open source UI components and a visual style guide for U.S. federal government websites.</h2>
+      </div>
+        <a class="usa-button usa-button-big usa-button-secondary" href="{{ site.baseurl }}/getting-started" onclick="ga('send', 'event', 'Viewed the standards', 'Clicked View the Standards button in homepage splash');">View the standards</a>
+        <div class="usa-button-block">
+          <a class="usa-button usa-button-big usa-button-outline-inverse" onclick="ga('send', 'event', 'Downloaded framework', 'Clicked download button on homepage');">Download the components</a>
+          <p class="usa-text-small">Download a zip file with the assets of this library</p>
+        </div>
+    </div>
+  </section>
+  
+</header>
 
-<p>This web design standards is intended to provide reference for designers, developers, as well as anyone else interested in the design and frontend principles that make up the building blocks of federal government websites.</p>
+<section class="usa-section usa-section-alt">
+  <div class="usa-grid">
+    <div class="usa-intro">
+      <h2>Tools for creating beautiful online experiences for the American people.</h2>
+      <p class="intro-text">Built and maintained by a team of U.S. Digital Service and 18F designers and developers, this resource is built on the highest standards of 508 compliance, reuses best practices of existing style libraries and modern web design to guide us in creating beautiful and easy-to-use online experiences for the American people.</p>
+    </div>
+  </div>
+  <div class="usa-grid">
+    <div class="usa-width-one-half">
+      <a href="{{ site.baseurl }}/getting-started">
+        <div class="usa-img-secondary">
+          <img src="{{ site.baseurl }}/assets-styleguide/img/home/homepage_illustrations_ui_components.png" alt="UI Components">
+        </div>
+        <h3>UI Components</h3>
+      </a>
+      <p>Common web interactions (buttons, forms, navigation, etc.) with reusable and downloadable code</p>
+    </div>
+    <div class="usa-width-one-half">
+      <a href="{{ site.baseurl }}/visual-style/">
+        <div class="usa-img-secondary">
+          <img src="{{ site.baseurl }}/assets-styleguide/img/home/homepage_illustrations_visual_style_guide.png" alt="Visual Style Guide">
+        </div>
+        <h3>Visual Style Guide</h3>
+      </a>
+      <p>508-compliant colors, typography and iconography designed to bring consistency to government web design.</p>
+    </div>
+  </div>
+  <div class="usa-grid usa-cta">
+    <a class="usa-button usa-button-secondary" href="{{ site.baseurl }}/getting-started" onclick="ga('send', 'event', 'Viewed the standards', 'Clicked View the Standards button in homepage body');"
+>View the standards</a>
+  </div>
+</section>
 
-<p>This site is currently under development and your feedback is important to us. We encourage you to contribute your input at <a href="https://github.com/18F/usfwds/issues">https://github.com/18F/usfwds/issues</a>.</p> 
+<section class="usa-section">
+  <div class="usa-grid">
+    <div class="usa-intro">
+      <h2>How to use these tools</h2>
+      <h3 class="usa-font-lead">Use a little, use a lot, use it all.<br>Here’s how the web design standards may help you...</h3>
+    </div>
+  </div>
+  <div class="usa-grid">
+    <div class="usa-width-one-half">
+      <div class="usa-img-secondary">
+        <img src="{{ site.baseurl }}/assets-styleguide/img/home/homepage_illustrations_designer.png" alt="For designers">
+      </div>
+      <h3>Designers</h3>
+      <p>From prototyping to designing a look and feel, use these tools for designing websites and digital services for your agency.</p>
+    </div>
+    <div class="usa-width-one-half">
+      <div class="usa-img-secondary">
+        <img src="{{ site.baseurl }}/assets-styleguide/img/home/homepage_illustrations_developer.png" alt="For developers">
+      </div>
+      <h3>Developers</h3>
+      <p>Stand up quick prototypes and save yourself time by reusing our code to efficiently update and launch  government sites.</p>
+    </div>
+  </div>
+  <div class="usa-grid usa-cta">
+    <a class="usa-button usa-button-secondary" href="{{ site.baseurl }}/getting-started" onclick="ga('send', 'event', 'Viewed the standards', 'Clicked View the Standards button in homepage body');"
+>View the standards</a>
+  </div>
+</section>
 
-<p>The U.S. Federal Web Design Standards project is a partnership of the <a href="https://whitehouse.gov/usds">U.S. Digital Service</a> and <a href="https://18f.gsa.gov">18F</a> with the support of partners across the Federal Government. If you'd like to learn more, please send a note to <a href="mailto:govtwidepatternlibrary@gsa.gov">govtwidepatternlibrary@gsa.gov</a>.</p>
+<section class="usa-section usa-section-dark">
+  <div class="usa-grid">
+    <div class="usa-intro">
+      <h2>Principles</h2>
+      <h3 class="usa-font-lead">The U.S. government web design standards are designed to meet these guidelines.</h3>
+    </div>
+  </div>
+  <div class="usa-grid">
+    <div class="usa-width-one-half usa-width-one-half-top">
+      <img class="usa-img-circle"  src="{{ site.baseurl }}/assets-styleguide/img/home/homepage_illustrations_best_easiest.png" alt="Make the best thing the easiest thing">
+      <h3 class="usa-graphic-list-heading">Make the best thing <br>the easiest thing</h3>
+      <p class="usa-graphic-list-text">The web design standards are designed to provide designers and developers easy-to-use tools to most effectively deliver the highest quality government websites to the American people.</p>
+    </div>
+    <div class="usa-width-one-half usa-width-one-half-top">
+      <img class="usa-img-circle" src="{{ site.baseurl }}/assets-styleguide/img/home/homepage_illustrations_508_box.png" alt="Accessibility">
+      <h3 class="usa-graphic-list-heading">Accessibility out of the box</h3>
+      <p class="usa-graphic-list-text">These standards were built with a priority on 508 compliance and ADA accessibility at every step of the design process. From colors to code, everything you need to meet the highest standards of accessibility are baked into these tools.</p>
+    </div>
+  </div>
+  <div class="usa-grid">
+    <div class="usa-width-one-half">
+      <img class="usa-img-circle" src="{{ site.baseurl }}/assets-styleguide/img/home/homepage_illustrations_flexible.png" alt="Design for flexibility">
+      <h3 class="usa-graphic-list-heading">Design for flexibility</h3>
+      <p class="usa-graphic-list-text">These patterns and designs are made to easily adapt. They are guidelines which encourage consistency over uniformity, to give the American people a sense of familiarity and ease when navigating government services, while also allowing for customization of each agency’s unique flavors.</p>
+    </div>
+    <div class="usa-width-one-half">
+      <img class="usa-img-circle" src="{{ site.baseurl }}/assets-styleguide/img/home/homepage_illustrations_reuse.png" alt="Reuse">
+      <h3 class="usa-graphic-list-heading">Reuse reuse reuse.</h3>
+      <p class="usa-graphic-list-text">We reviewed, tested, evaluated and repurposed patterns, code and designs from dozens of government and private sector style guides to make use of tried-and-true best practices.</p>
+    </div> 
+  </div>
+  <div class="usa-grid usa-cta">
+    <a class="usa-button usa-button-secondary" href="{{ site.baseurl }}/getting-started" onclick="ga('send', 'event', 'Viewed the standards', 'Clicked View the Standards button in homepage body');"
+>View the standards</a>
+  </div>
+</section>
 
-<h1>Visual Style</h1>
+<section class="usa-section usa-section-alt usa-section-examples">
+  <div class="usa-grid">
+    <div class="usa-intro">
+      <h2>For example...</h2>
+      <h3 class="usa-font-lead">A few samples of the web design standards at work:</h3>
+    </div>
+  </div>
+  <div class="usa-grid">
+    <div class="usa-width-five-sixths">
+      <a class="usa-example-link" href="#">
+        <h3 class="usa-example-heading usa-link-external">MyUSCIS.gov</h3>
+        <img class="usa-img-example" src="{{ site.baseurl }}/assets-styleguide/img/home/sample-uscis.jpg" alt="MyUSCIS.gov">
+      </a>
+      <a class="usa-example-link" href="#">
+        <h3 class="usa-example-heading usa-link-external">Data.gov</h3>
+        <img class="usa-img-example" src="{{ site.baseurl }}/assets-styleguide/img/home/sample-datagov.jpg" alt="Data.gov">
+      </a>
+      <a class="usa-example-link" href="#">
+        <h3 class="usa-example-heading usa-link-external">Explore VA.gov</h3>
+        <img class="usa-img-example" src="{{ site.baseurl }}/assets-styleguide/img/home/sample-va.jpg" alt="Explore VA.gov">
+      </a>
+    </div>
+  </div>
+  <div class="usa-grid usa-cta">
+    <a class="usa-button usa-button-secondary" href="{{ site.baseurl }}/getting-started" onclick="ga('send', 'event', 'Viewed the standards', 'Clicked View the Standards button in homepage body');"
+>View the standards</a>
+  </div>
+</section>
 
-{% for visual in site.visual %}
-	<h2>{{ visual.title }}</h2>
-	<p>{{ visual.content }}</p>
-{% endfor %}
-
-<h1>Grids</h1>
-
-<h1>Elements</h1>
-
-{% for element in site.elements %}
-	<h2>{{ element.title }}</h2>
-	<p>{{ element.content }}</p>
-{% endfor %}
-
-
-<h1>Components</h1>
-
-{% for component in site.components %}
-	<h2>{{ component.title }}</h2>
-	<p>{{ component.content }}</p>
-{% endfor %}
+<section class="usa-section">
+  <div class="usa-grid">
+    <div class="usa-intro usa-standlast">
+      <h2>Contribute</h2>
+      <p>The web design standards alpha was created during the summer of 2015 by designers and developers at the U.S. Digital Service and 18F.</p>
+      <p>We will continue to maintain and update these resources as we learn what works best for the people we serve.</p>
+      <p>Help us make it better.</p>
+    </div>
+    <div class="usa-cta">
+      <a class="usa-button usa-button-secondary" href="https://github.com/18F/web-design-standards">Contribute on GitHub</a>
+    </div>
+    <a href="{{ site.baseurl }}/getting-started" onclick="ga('send', 'event', 'Viewed the standards', 'Clicked View the Standards link at the bottom of the homepage');">Or view the standards</a>
+  </div>
+</section>
