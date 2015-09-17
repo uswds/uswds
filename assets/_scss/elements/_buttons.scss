@@ -1,3 +1,7 @@
+// Buttons variables
+
+$button-stroke: inset 0 0 0 2px;
+
 // Buttons
 
 .usa-button,
@@ -103,36 +107,36 @@ button,
 
   &.usa-button-outline {
     background-color: $color-white;
-    box-shadow: inset 0 0 0 2px $color-primary;
+    box-shadow: $button-stroke $color-primary;
     color: $color-primary;
 
     &:hover,
     &.usa-button-hover {
-      box-shadow: inset 0 0 0 2px $color-primary-darker;
+      box-shadow: $button-stroke $color-primary-darker;
       color: $color-primary-darker;
     }
 
     &:active,
     &.usa-button-active {
-      box-shadow: inset 0 0 0 2px $color-primary-darkest;
+      box-shadow: $button-stroke $color-primary-darkest;
       color: $color-primary-darkest;
     }
   }
 
   &.usa-button-outline-inverse {
     background: transparent;
-    box-shadow: inset 0 0 0 2px $color-white;
+    box-shadow: $button-stroke $color-white;
     color: $color-white;
 
     &:hover,
     &.usa-button-hover {
-      box-shadow: inset 0 0 0 2px $color-gray-lighter;
+      box-shadow: $button-stroke $color-gray-lighter;
       color: $color-gray-lighter;
     }
 
     &:active,
     &.usa-button-active {
-      box-shadow: inset 0 0 0 2px $color-gray-light;
+      box-shadow: $button-stroke $color-gray-light;
       color: $color-gray-lighter;
     }
   }
