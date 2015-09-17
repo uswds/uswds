@@ -61,17 +61,17 @@ lead: Alerts keep users informed of important and sometimes time-sensitive chang
       <li>As a notification that keeps people informed of the status of the system and which may or may not require the user to respond. This includes errors, warnings, and general updates. </li>
       <li>As a validation message that alerts someone that they just did something that needs to be corrected, or as confirmation that a task was completed successfully. </li>
     </ul>
-    <h5>When to consider something different</h5>
+    <h5>When to consider something else</h5>
     <ul class="usa-content-list">
       <li>On long forms, always include in-line validation in addition to any error messages that appear at the top of the form. </li>
       <li>If an action will result in destroying a user’s work (for example, deleting an application) use a more intrusive pattern, such as a confirmation modal dialogue, to allow the user to confirm that this is what they want.</li>
     </ul>
-    <h5>Guidelines</h5>
+    <h5>Guidance</h5>
     <ul class="usa-content-list">
       <li>When the user is required to do something in response to an alert, let them know what they need to do and make that task as easy as possible. Think about how much context to provide with your message. For example, a notification of a system change may require more contextual information than a validation message. Write the message in concise, human readable language; avoid jargon and computer code.</li>
-      <li>Be polite in error messages – don’t place blame on the user. </li>
+      <li>Be polite in error messages—don’t place blame on the user. </li>
       <li>Users generally won’t read documentation but will read a message that helps them resolve an error; include some educational material in your error message.</li>
-      <li>But don’t overdo it – too many notifications will either overwhelm or annoy the user, and are likely to be ignored.</li>
+      <li>But don’t overdo it—too many notifications will either overwhelm or annoy the user, and are likely to be ignored.</li>
       <li>Allow a user to dismiss a notification wherever appropriate. </li>
       <li>Don’t include notifications that aren’t related to the user’s current goal.</li>
     </ul>
