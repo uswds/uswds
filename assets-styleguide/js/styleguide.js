@@ -88,6 +88,13 @@ $(function () {
   }
 });
 
+//capture that the enter key was used to "click"
+$('.sidenav').on('keydown', 'a', function (e) {
+  if (e.which === 13) {
+    $(this).data('keypress', true);
+  }
+});
+
 $('.sidenav').on('click', 'a', function(e) {
   var hashLocation  = $(this).attr('href').split('#')[1]; // long url splitting
   var scrollTopPos  = calculateAnchorPosition(hashLocation);
@@ -113,6 +120,17 @@ $('.sidenav').on('click', 'a', function(e) {
         history.pushState(null, null, newHash);
       } else if (window.location.hash !== newHash) {
         window.location.hash = newHash;
+      }
+    },
+    done: function () {
+      //if keyboard was used, update keyboard focus to section
+      var link    = $(e.target);
+      var section = $('#' + hashLocation);
+
+      if (link.data('keypress') === true) {
+        link.removeData('keypress');
+        section.attr('tabindex','0');
+        section.focus();
       }
     }
   });
