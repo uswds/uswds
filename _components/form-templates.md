@@ -290,7 +290,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
       <label for="confirmPassword">Confirm password</label>
       <input id="confirmPassword" name="confirmPassword" type="password">
       <p class="usa-form-note">
-        <a title="Show My Typing" href="javascript:void(0)"
+        <a title="Show my typing" href="javascript:void(0)"
             class="usa-show_multipassword"
             aria-controls="password">
           Show my typing</a>
