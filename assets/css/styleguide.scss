@@ -54,6 +54,11 @@ $site-top:           124px;
 
       a {
         color: $color-gray;
+
+        &:hover {
+          color: $color-gray-dark;
+          text-decoration: none;
+        }
       }
     }
 
