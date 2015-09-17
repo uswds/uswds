@@ -59,14 +59,12 @@ $site-top:           124px;
 
     h1 {
       @include media($medium-screen + $width-nav-sidebar) {
+        display: block;
+        font-size: $h3-font-size;
         margin-top: .9rem;
       }
       margin: 0;
       font-size: $h5-font-size;
-      @include media($medium-screen + $width-nav-sidebar) {
-        display: block;
-        font-size: $h3-font-size;
-      }
     }
 
     .usa-button-list {
