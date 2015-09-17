@@ -13,6 +13,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     <div class="usa-width-one-half">
       <form class="usa-search usa-search-big">
         <div role="search">
+          <label for="search-field-big">Search big</label>
           <input type="search" id="search-field-big">
           <button type="submit">
             <span class="usa-search-submit-text">Search</span>
@@ -28,6 +29,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     <div class="usa-width-one-half">
       <form class="usa-search">
         <div role="search">
+          <label for="search-field">Search medium</label>
           <input type="search" id="search-field">
           <button type="submit">
             <span class="usa-search-submit-text">Search</span>
@@ -43,6 +45,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     <div class="usa-width-one-half">
       <form class="usa-search usa-search-small">
         <div role="search">
+          <label for="search-field-small">Search small</label>
           <input type="search" id="search-field-small">
           <button type="submit">
             <span class="usa-sr-only">Search</span>
