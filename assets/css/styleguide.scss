@@ -45,6 +45,7 @@ $site-top:           124px;
     }
 
     .logo {
+      float: left;
       padding-left: $site-margins;
 
       a {
@@ -56,7 +57,6 @@ $site-top:           124px;
       @include media($medium-screen) {
         margin-top: .9rem;
       }
-      float: left;
       margin: 0;
       font-size: $h4-font-size;
       @include media($medium-screen + $width-nav-sidebar) {
@@ -115,11 +115,12 @@ $site-top:           124px;
 }
 
 .menu-btn {
-  display: inline;
-  padding-left: 20px;
   @include media($medium-screen + $width-nav-sidebar) {
     display: none;
   }
+  display: inline;
+  float: left;
+  padding-left: 20px;
 }
 
 #menu-content {
