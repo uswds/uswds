@@ -58,7 +58,7 @@ order: 01
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
-        <div class="usa-grid">
+        <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
             <p>A simple serif and sans serif combination designed to communicate warmth and credibility. Strong Merriweather heading weights offer clear information hierarchy and when paired with Source Sans Pro’s easy-to-read body text, creates a clean and professional feel.</p>
             <p>This is pairing is included in the Web Design Standards framework.</p>
@@ -216,7 +216,7 @@ order: 01
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
-        <div class="usa-grid">
+        <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
             <p>A variation of the previous font pairing, expanded to include an additional Merriweather weight. The slimmer Merriweather headings creates an elegance that compliments weights and allows you to intentionally move users’ attention around a page.</p>
             <p>Recommended applications: text heavy sites and more visual promotional sites.</p>
@@ -396,7 +396,7 @@ order: 01
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
-        <div class="usa-grid">
+        <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
             <p>The most formal of the options, this pairing uses Merriweather for both headings and body text. The full suite of serif styles communicates trustworthiness, while Merriweather’s contemporary shapes convey freshness and a modern relevance.  The weights are designed to pair together for easy reading and clean page design. Light use of Source Sans Pro suggested for legibility of small text needs.</p>
             <p>Recommended applications: sites which need to convey reliability and trust; basic and text heavy sites.</p>
@@ -577,7 +577,7 @@ order: 01
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
-        <div class="usa-grid">
+        <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
             <p>A variation on the serif and sans serif pairing, this combination uses multiple weights of Source Sans Pro for clear headings combined with the formal feeling of Merriweather for body text. This pair similarly communicates professionalism, with extra emphasis on sleek and legible headings.</p>
             <p>Recommended applications: digital services that feature forms; basic and text heavy sites; marketing sites.</p>
@@ -747,7 +747,7 @@ order: 01
       </button>
       <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
-        <div class="usa-grid">
+        <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
             <p>Inspired by the growth of simple and welcoming type in modern web UI design, this suite uses Source Sans Pro exclusively.  With a range of weights designed to fit into heading styles to clearly communicate hierarchy of information, this pairing can support both extremely simple designs and more polished, promotional sites.</p>
             <p>Recommended applications:  digital services that feature forms; basic and text heavy sites; marketing sites.</p>
