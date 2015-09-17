@@ -58,10 +58,10 @@ $site-top:           124px;
       }
       float: left;
       margin: 0;
-      font-size: $base-font-size * 1.25;
-      display: none;
+      font-size: $h4-font-size;
       @include media($medium-screen + $width-nav-sidebar) {
         display: block;
+        font-size: $h3-font-size;
       }
     }
 
