@@ -23,8 +23,8 @@
   }
 
   button[aria-expanded=false] {
-    background-image: url('/assets/img/plus.png');
-    background-image: url('/assets/img/plus.svg');
+    background-image: url('../img/plus.png');
+    background-image: url('../img/plus.svg');
     background-position: 90.5%;
     background-repeat: no-repeat;
     background-size: 13px;
@@ -38,8 +38,8 @@
       background-position: 96.5%;
     }
     background-color: $color-gray-lightest;
-    background-image: url('/assets/img/minus.png');
-    background-image: url('/assets/img/minus.svg');
+    background-image: url('../img/minus.png');
+    background-image: url('../img/minus.svg');
     background-position: 90.5%;
     background-repeat: no-repeat;
     background-size: 13px;
