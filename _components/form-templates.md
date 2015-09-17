@@ -75,10 +75,10 @@ lead: Patterns for some of the most commonly used forms on government websites.
   <form class="usa-form-large">
     <fieldset>
       <legend>Mailing address</legend>
-      <label for="mailing-address-1">Street Address 1</label>
+      <label for="mailing-address-1">Street address 1</label>
       <input id="mailing-address-1" name="mailing-address-1" type="text">
 
-      <label for="mailing-address-2">Street Address 2 <span class="usa-additional_text">Optional</span></label>
+      <label for="mailing-address-2">Street address 2 <span class="usa-additional_text">Optional</span></label>
       <input id="mailing-address-2" name="mailing-address-2" type="text">
 
       <div>
