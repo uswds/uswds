@@ -52,7 +52,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-      <h4 class="usa-heading">Accessibility</h4>
+    <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li><a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and</li>
