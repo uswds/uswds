@@ -51,6 +51,10 @@
     padding: 1.5rem 3rem;
     width: 100%;
 
+    &:focus {
+      box-shadow: $focus-shadow !important;
+    }
+
     &:hover {
       background-color: $color-gray-lighter;
       color: $color-base;
