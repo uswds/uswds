@@ -2,7 +2,7 @@
 layout: styleguide
 type: component
 title: Search bar
-lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
+lead: A block that allows users to search for specific content if they know what search terms to use or can’t find desired content in the main navigation.
 ---
 
 <div class="preview preview-search-bar">
