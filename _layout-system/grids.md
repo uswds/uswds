@@ -6,7 +6,7 @@ lead:  This 12 column responsive grid provides structure for website content.
 
 <div class="preview preview-no_border">
 
-  <h3 class="usa-heading">Grid</h3>
+  <h2 class="usa-heading">Grid</h2>
   <div class="usa-grid usa-grid-example usa-grid-example-blank">
     <div class="usa-width-one-whole">1/1</div>
   </div>
@@ -48,7 +48,7 @@ lead:  This 12 column responsive grid provides structure for website content.
     <div class="usa-width-one-twelfth">1/12</div>
   </div>
 
-  <h3 class="usa-heading">Grid Examples</h3>
+  <h2 class="usa-heading">Grid Examples</h2>
   <div class="usa-grid usa-grid-example usa-grid-text">
     <div class="usa-width-one-half">
       <h3>One Half</h3>
