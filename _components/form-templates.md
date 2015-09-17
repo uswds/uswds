@@ -63,7 +63,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
     <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>When you need to collect users’ full names and store the parts separately in a database.</li>
-      </ul>
+    </ul>
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
       <li>If you don’t need to parse out the separate pieces of a person’s name, consider letting them enter it into a single text field.</li>
