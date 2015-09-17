@@ -106,8 +106,7 @@ lead: Tables show tabular data in columns and rows.
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
       <li>Simple tables can have two levels of headers. Each header cell should have <code>scope='col'</code> or <code>scope='row'</code>.</li>
-      <li>Complex tables are tables with more than two levels of headers. Each header should be given a unique <code>id</code> and each data cell should have a <code>headers</code> attribute with each related header cell’s <code>id</code> listed.
-stuff about <code>scope="col"</code> and <code>scope="row"</code>.</li>
+      <li>Complex tables are tables with more than two levels of headers. Each header should be given a unique <code>id</code> and each data cell should have a <code>headers</code> attribute with each related header cell’s <code>id</code> listed.</li>
     </ul>
     
     <h4 class="usa-heading">Usability</h4>
@@ -115,13 +114,13 @@ stuff about <code>scope="col"</code> and <code>scope="row"</code>.</li>
     <ul class="usa-content-list">
       <li>When you need tabular information, such as statistical data.</li>
     </ul>
-    <h5>When to consider something different</h5>
+    <h5>When to consider something else</h5>
     <ul class="usa-content-list">
       <li>Depending on the type of content, consider using other presentation formats such as definition lists or hierarchical lists. </li>
     </ul>
-    <h5>Guidelines</h5>
+    <h5>Guidance</h5>
     <ul class="usa-content-list">
-      <li>Tables are great at displaying tabular data – minimal visual styling helps surface this information more easily.</li>
+      <li>Tables are great at displaying tabular data—minimal visual styling helps surface this information more easily.</li>
     </ul>
   </div>
 </div>
