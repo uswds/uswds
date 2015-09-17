@@ -81,7 +81,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 <div class="preview">
 <form>
-  <label for="options">Dropdown Label h4</label>
+  <label for="options">Dropdown label</label>
   <select name="options" id="options">
     <option value="value1">Option A</option>
     <option value="value2">Option B</option>
