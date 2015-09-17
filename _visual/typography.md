@@ -12,7 +12,7 @@ order: 01
 
 <div class="usa-grid-full">
   <div class="usa-width-one-half">
-    <p>Source Sans Pro is an open-source sans serif typeface created for legibility in UI design.  With a variety of weights that read easily at all sizes, Source Sans Pro provides clear headers as well as highly readable body text.  Its slender but open letters offer a clean and friendly simplicity. Advanced hinting allows Source Sans Pro to render well on Windows systems which run Cleartype, and across browsers and devices. Moreover, it supports a variety of languages and alphabets, including Western and European language, Vietnamese, pinyin Romanization of Chinese, and Navajo.</p>
+    <p>Source Sans Pro is an open-source sans serif typeface created for legibility in UI design. With a variety of weights that read easily at all sizes, Source Sans Pro provides clear headers as well as highly readable body text. Its slender but open letters offer a clean and friendly simplicity. Advanced hinting allows Source Sans Pro to render well on Windows systems which run Cleartype, and across browsers and devices. Moreover, it supports a variety of languages and alphabets, including Western and European language, Vietnamese, pinyin Romanization of Chinese, and Navajo.</p>
   </div>
 
   <div class="typography-sans-intro usa-width-one-half usa-end-row">
