@@ -6,11 +6,13 @@ lead: Intro text on what is included in this section and how to use it. No more 
 ---
 
 <div class="preview preview-search-bar">
+
+  <h6>Search big</h6>
+
   <div class="usa-grid">
     <div class="usa-width-one-half">
       <form class="usa-search usa-search-big">
         <div role="search">
-          <label for="search-field-big">Search Big</label>
           <input type="search" id="search-field-big">
           <button type="submit">
             <span class="usa-search-submit-text">Search</span>
@@ -20,11 +22,12 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </div>
   </div>
 
+  <h6>Search medium</h6>
+
   <div class="usa-grid">
     <div class="usa-width-one-half">
       <form class="usa-search">
         <div role="search">
-          <label for="search-field">Search Medium</label>
           <input type="search" id="search-field">
           <button type="submit">
             <span class="usa-search-submit-text">Search</span>
@@ -34,11 +37,12 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </div>
   </div>
 
+  <h6>Search small</h6>
+
   <div class="usa-grid">
     <div class="usa-width-one-half">
       <form class="usa-search usa-search-small">
         <div role="search">
-          <label for="search-field-small">Search Small</label>
           <input type="search" id="search-field-small">
           <button type="submit">
             <span class="usa-sr-only">Search</span>
