@@ -7,7 +7,7 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: w
 
 <div class="preview">
   
-  <h3 class="usa-heading">Single level</h3>
+  <h6 class="usa-heading-alt">Single level</h6>
   
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
@@ -25,7 +25,7 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: w
     </aside>
   </div>
 
-  <h3 class="usa-heading">Two levels</h3>
+  <h6 class="usa-heading-alt">Two levels</h6>
 
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
@@ -60,7 +60,7 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: w
     </aside>
   </div>
 
-  <h3 class="usa-heading">Three levels</h3>
+  <h6 class="usa-heading-alt">Three levels</h6>
 
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
