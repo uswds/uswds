@@ -7,7 +7,7 @@ lead: Use buttons to signal actions.
 
 <div class="preview">
   
-  <h3 class="usa-heading">Primary Buttons</h3>
+  <h6>Primary Buttons</h6>
   <div class="button_wrapper">
     <button>Default</button>
     <button class="usa-button-active">Active</button>
@@ -19,7 +19,7 @@ lead: Use buttons to signal actions.
     <button class="usa-button-primary-alt usa-button-hover">Hover</button>
   </div>
 
-  <h3 class="usa-heading">Secondary Buttons</h3>
+  <h6>Secondary Buttons</h6>
   <div class="button_wrapper">
     <button class="usa-button-secondary">Default</button>
     <button class="usa-button-secondary usa-button-active">Active</button>
@@ -44,19 +44,19 @@ lead: Use buttons to signal actions.
     <button class="usa-button-outline-inverse usa-button-hover">Hover</button>
   </div>
 
-  <h3 class="usa-heading">Button Focus</h3>
+  <h6>Button Focus</h6>
   <div class="button_wrapper">
     <button class="usa-button-focus">Default</button>
     <button class="usa-button-primary-alt usa-button-focus">Default</button>
     <button class="usa-button-secondary usa-button-focus">Default</button>
   </div>
 
-  <h3 class="usa-heading">Disabled Button</h3>
+  <h6>Disabled Button</h6>
   <div class="button_wrapper">
     <button class="usa-button-disabled">Default</button>
   </div>
 
-  <h3 class="usa-heading">Big Button</h3>
+  <h6>Big Button</h6>
   <div class="button_wrapper">
     <button class="usa-button-big" type="button">Default</button>
   </div>
