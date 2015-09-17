@@ -7,10 +7,10 @@ lead: Labels draw attention to new or important content.
 
 <div class="preview">
 
-  <h4>Small</h4>
+  <h6>Small</h6>
   <span class="usa-label">New</span>
 
-  <h4>Large</h4>
+  <h6>Large</h6>
   <span class="usa-label-big">New</span>
 
 </div>
