@@ -2,7 +2,7 @@
 layout: styleguide
 type: component
 title: Footers
-lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
+lead: Footers serve site visitors who arrive at the bottom of a page without finding what they want.
 ---
 
 <div class="preview">
@@ -91,7 +91,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
               </svg>
             </a>
           </div>
-          
+
           <address>
             <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
             <p>(800) CALL-GOVT</p>
@@ -166,7 +166,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
               </svg>
             </a>
           </div>
-          
+
           <address>
             <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
             <p>(800) CALL-GOVT</p>

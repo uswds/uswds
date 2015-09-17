@@ -2,7 +2,7 @@
 layout: styleguide
 type: component
 title: Form controls
-lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
+lead: Form controls allow users to enter information into a page.
 ---
 
 <h3 class="usa-heading">Accessibility</h3>
@@ -69,7 +69,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     <h5>Guidelines</h5>
     <ul class="usa-content-list">
       <li>The length of the text input provides a hint to users as to how much text to write.  Do not require users to write paragraphs of text into a single-line input box; use a text box instead.</li>
-      <li>Text inputs are among the easiest type of input for desktop users but are more difficult for mobile users.</li> 
+      <li>Text inputs are among the easiest type of input for desktop users but are more difficult for mobile users.</li>
       <li>Only show error validation messages or stylings after a user has interacted with a particular field.</li>
       <li>Avoid using placeholder text that appears within a text field before a user starts typing. If placeholder text is no longer visible after a user clicks into the field, users will no longer have that text available when they need to review their entries.  (People who have cognitive or visual disabilities have additional problems with placeholder text. )</li>
     </ul>
@@ -239,7 +239,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
       <li>Each radio button should have a <code>&lt;label&gt;</code>. Associate the two by matching the <code>&lt;label&gt;</code>’s for attribute to the <code>&lt;input&gt;</code>’s <code>id</code> attribute. </li>
       <li>The <code>title</code> attribute can replace <code>&lt;label&gt;</code>. </li>
     </ul>
-    
+
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
@@ -299,7 +299,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
       <li>These text fields should follow the <a href="{{ site.baseurl }}/form-controls/#text-inputs"> accessibility guidelines for all text inputs.</a> </li>
       <li>Do not use JavaScript to auto advance the focus from one field to the next. This makes it difficult for keyboard-only users to navigate and correct mistakes. </li>
     </ul>
-    
+
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
