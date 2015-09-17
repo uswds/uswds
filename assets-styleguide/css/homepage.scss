@@ -37,8 +37,12 @@ p {
 }
 
 .usa-button-block {
+  @include media($medium-screen) {
+    width: auto;
+  }
   display: inline-block;
   vertical-align: top;
+  width: 100%;
 }
 
 .usa-banner {
