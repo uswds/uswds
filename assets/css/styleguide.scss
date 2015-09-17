@@ -114,7 +114,7 @@ $site-top:           124px;
 
 }
 
-#menu-btn {
+.menu-btn {
   display: inline;
   padding-left: 20px;
   @include media($medium-screen + $width-nav-sidebar) {
