@@ -3,9 +3,8 @@
 
 // Imports -------------- //
 
-@import 'lib/bourbon/bourbon';
-@import 'lib/neat/neat';
-@import 'all';
+@import 'base';
+@import url('{{ site.baseurl }}/assets/css/main.css');
 
 // Variables -------------- //
 
