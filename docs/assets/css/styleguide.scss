@@ -276,7 +276,7 @@ $site-top:           124px;
     > h1 {
       margin-top: 3.4rem;
     }
-    
+
     padding: {
       left: 3em;
       right: 3em;
@@ -318,11 +318,22 @@ $site-top:           124px;
     top: 2em;
     bottom: 2em;
   }
-  padding: 1em $site-margins;
-  border: 1px solid #eeeeee;
+  padding: $site-margins;
+  border: 1px solid $color-gray-warm-light;
   .is-peripheral {
     opacity: .2;
   }
+
+  .usa-background-dark {
+    display: inline-block;
+    padding: {
+      left: 1em;
+      right: 1em;
+    }
+  h6:first-child {
+    margin-top: 0;
+  }
+>>>>>>> Removed top margin of first h6 in preview box to have more consistent spacing:src/stylesheets/css/styleguide.scss
 }
 
 .preview-no_border {
