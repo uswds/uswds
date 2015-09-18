@@ -313,15 +313,16 @@ $site-top:           124px;
 
 .preview {
   @include clearfix();
-  background-color: #fff;
+  background-color: $color-white;
   margin: {
-    top: 2em;
     bottom: 2em;
+    top: 2em;
   }
-  padding: $site-margins;
+  padding: 0 $site-margins $site-margins;
   border: 1px solid $color-gray-warm-light;
-  .is-peripheral {
-    opacity: .2;
+
+  .is-peripheral { 
+    opacity: .2; 
   }
 
   .usa-background-dark {
@@ -330,17 +331,18 @@ $site-top:           124px;
       left: 1em;
       right: 1em;
     }
-  h6:first-child {
-    margin-top: 0;
   }
->>>>>>> Removed top margin of first h6 in preview box to have more consistent spacing:src/stylesheets/css/styleguide.scss
+  .preview-first {
+    margin-top: 3rem;
+    display: block;
+  }
 }
 
 .preview-no_border {
   border: 0;
   margin: {
-    top: 0;
     bottom: 2em;
+    top: 0;
   }
   padding: 0;
 }
@@ -846,7 +848,9 @@ h3 + .button_wrapper {
   padding-bottom: .8rem;
 }
 
-h6.usa-heading-alt {
+
+// scss-lint:disable QualifyingElement
+h6, h6.usa-heading-alt {
   margin-top: 4rem;
 }
 
