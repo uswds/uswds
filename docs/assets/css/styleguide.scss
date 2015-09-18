@@ -267,12 +267,16 @@ $site-top:           124px;
   position: relative;
 
   > h1 {
-    margin-top: 3.4rem;
+    margin-top: 5.4rem;
     &:not(:first-child) {
       margin-top: 1.5em;
     }
   }
   @media (min-width: $medium-screen + $width-nav-sidebar) {
+    > h1 {
+      margin-top: 3.4rem;
+    }
+    
     padding: {
       left: 3em;
       right: 3em;
