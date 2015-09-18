@@ -65,12 +65,12 @@ p {
   }
 
   h1 {
-    color: $color-white;
-
     @include media($medium-screen) {
       font-size: 5.6rem;
       padding-top: 4.5rem;
     }
+    color: $color-white;
+    padding-top: 1.5rem;
   }
 
   .usa-text-small {
