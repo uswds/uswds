@@ -175,6 +175,17 @@ li.usa-footer-primary-content {
     top: 3rem;
     bottom: 3rem;
   }
+
+  a {
+    color: $color-white;
+
+    &:hover {
+      color: $color-gray-lighter;
+    }
+    &:visited {
+      color: $color-white;
+    }
+  }
 }
 
 .usa-footer-big-secondary-section {
