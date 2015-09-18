@@ -291,7 +291,7 @@ function toggleMultiPassword($el) {
   $el.on('click', function(ev) {
     ev.preventDefault();
     toggleFieldMask($fields, showing);
-    $el.text(showing ? 'Show My Typing' : 'Hide My Typing');
+    $el.text(showing ? 'Show my typing' : 'Hide my typing');
     showing = !showing;
   });
 }
