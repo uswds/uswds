@@ -2,7 +2,7 @@
 layout: styleguide
 type: component
 title: Search bar
-lead: A block that allows users to search for specific content if they know what search terms to use or can’t find desired content in the main navigation.
+lead: A block that allows users to search for specific content if they know what search terms to use or can’t find desired content in the main navigation
 ---
 
 <div class="preview preview-search-bar">
@@ -62,17 +62,6 @@ lead: A block that allows users to search for specific content if they know what
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Use</h4>
-    <ul class="usa-content-list">
-      <li>Allow the search bar to be as wide as possible, but a minimum of 27 characters wide. This allows users to enter multiple search terms without their inputs being obscured. The more users can see their search terms, the easier it is to review, verify, and submit their search query.</li>
-      <li>The magnifying glass has been shown to be almost universally recognized by users as an indicator of search functionality and doesn’t need to be paired with the word "Search" (except for screen readers, see the accessibility guidelines).</li>
-      <li>Maintain this search bar when displaying the search results with the original search terms.</li>
-      <li>On a site's home page the search function should appear as a search box instead of a link so users can locate it easily.</li>
-      <li>Don't offer advanced search as the default option. The majority of people will do a simple search with one or two search terms. If advanced search is offered, it increases the likelihood of a person making a mistake in their query.</li>
-      <li>Even if the search bar isn't using a label, the form field should include a label for screen reader users.</li>
-      <li>The search button itself should be a submit button for the form to reduce the number of keystrokes required to use the form.</li>
-    </ul>
-
     <h4 class="usa-heading">Accessibility</h4>
     <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
@@ -82,6 +71,25 @@ lead: A block that allows users to search for specific content if they know what
     <p>We also recommend:</p>
     <ul class="usa-content-list">
       <li>Always include the word "search" inside the <code>&lt;button&gt;</code> element for screen readers. You can hide this text with <code>position: absolute; left: -999em;</code> (as we have here).
+    </ul>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>There will always be users who are confused by your navigation system and who would benefit from being able to search your site.</li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>On single-page or very small sites, you may be able to get away without a search bar.</li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>Allow the search bar to be as wide as possible, but a minimum of 27 characters wide. This allows users to enter multiple search terms and still be able to see all of them. The more users can see their search terms, the easier it is to review, verify, and submit their search query.</li>
+      <li>The magnifying glass has been shown to be almost universally recognized by users as an indicator of search, and doesn’t need to be visually paired with the word "Search" as long as it remains for screen readers.</li>
+      <li>Maintain this search bar when displaying the search results with the original search terms.</li>
+      <li>On a site's home page the search function should appear as a search box instead of a link so users can locate it easily.</li>
+      <li>Don't offer advanced search as the default option. The majority of people will do a simple search with one or two search terms. If advanced search is offered, it increases the likelihood of a person making a mistake in their query.</li>
+      <li>Even if the search bar isn't visually displaying a label, the form field should include a label for screen reader users.</li>
+      <li>The search button itself should be a submit button for the form to reduce the number of keystrokes required to use the form.</li>
     </ul>
   </div>
 </div>
