@@ -117,13 +117,24 @@ p {
   }
 }
 
-.usa-graphic-list-heading {
-  clear: none;
-  margin-top: 0;
+@include media($medium-screen) {
+  .usa-img-circle {
+    float: left;
+    margin-right: 3rem;
+  }
+
+  .usa-graphic-list-heading {
+    clear: none;
+    margin-top: 0;
+  }
+
+  .usa-graphic-list-text {
+    overflow: hidden;
+  }
 }
 
-.usa-graphic-list-text {
-  overflow: hidden;
+.usa-circle-block {
+  text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -156,11 +167,6 @@ a {
   &:visited  {
     color: $color-primary;
   }
-}
-
-.usa-img-circle {
-  float: left;
-  margin-right: 3rem;
 }
 
 .usa-standlast {
