@@ -130,11 +130,13 @@ $site-top:           124px;
   display: inline;
   float: left;
   margin-top: -4px;
-  padding: 15px 12px;
+  padding-top: 15px;
+  padding-bottom:15px;
   color: $color-white;
   background-color: $color-primary;
   font-size: 15px;
   width: 15%;
+  text-align: center;
   &:visited {
     color: $color-white;
   }
