@@ -122,7 +122,8 @@ button,
       color: $color-primary-darkest;
     }
 
-    &:focus {
+    &:focus,
+    &.usa-button-focus {
       box-shadow: $button-stroke $color-primary-darkest, $focus-shadow;
     }
   }
@@ -144,7 +145,8 @@ button,
       color: $color-gray-lighter;
     }
 
-    &:focus {
+    &:focus,
+    &.usa-button-focus {
       box-shadow: $button-stroke $color-gray-light, $focus-shadow;
     }
   }
