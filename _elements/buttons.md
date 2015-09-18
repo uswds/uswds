@@ -71,7 +71,7 @@ lead: Use buttons to signal actions.
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
     <ul>
-      <li>Buttons should display a "halo" when users tab to them.</li>
+      <li>Buttons should display a visible focus state when users tab to them.</li>
       <li>Whenever possible, use the <code>&lt;button&gt;</code> to display buttons rather than styling links to look like buttons. Screen readers treat buttons differently than they do links.</li>
       <li>Avoid using <code>&lt;div&gt;</code> or <code>&lt;img&gt;</code> tags to create buttons. Screen readers don't automatically know either is an usable button.</li>
     </ul>
