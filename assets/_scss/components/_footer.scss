@@ -185,6 +185,11 @@ li.usa-footer-primary-content {
   @include media($medium-screen) {
     text-align: right;
   }
+
+  .usa-social-links {
+    margin-bottom: 3rem;
+  }
+
 }
 
 .usa-footer-big {
@@ -263,6 +268,13 @@ li.usa-footer-primary-content {
     margin: 0;
     padding: 2rem 0;
   }
+}
+
+.usa-footer-logo {
+  @include media($medium-screen) {
+    margin-bottom: 0;
+  }
+  margin-bottom: 3rem;
 }
 
 .usa-footer-logo-img {
