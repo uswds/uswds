@@ -67,27 +67,27 @@ lead: Intro text on what is included in this section and how to use it. No more 
         <div class="usa-footer-contact-links usa-width-one-half">
           <div class="usa-social-links">
             <a href="javascript:void(0)">
-              <svg width="26" height="39" role="img" aria-label="Facebook">
+              <svg width="40" height="40" role="img" aria-label="Facebook">
                 <title>Facebook</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook-white.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook-white.png" width="40" height="40" />
               </svg>
             </a>
             <a href="javascript:void(0)">            
-              <svg width="26" height="39" role="img" aria-label="Twitter">
+              <svg width="40" height="40" role="img" aria-label="Twitter">
                 <title>Twitter</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter-white.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter-white.png" width="40" height="40" />
               </svg>
             </a>
             <a href="javascript:void(0)">
-              <svg width="26" height="39" role="img" aria-label="YouTube">
+              <svg width="40" height="40" role="img" aria-label="YouTube">
                 <title>YouTube</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube-white.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube-white.png" width="40" height="40" />
               </svg>
             </a>
             <a href="javascript:void(0)">
-              <svg width="26" height="39" role="img" aria-label="RSS">
+              <svg width="40" height="40" role="img" aria-label="RSS">
                 <title>RSS</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss-white.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss-white.png" width="40" height="40" />
               </svg>
             </a>
           </div>
