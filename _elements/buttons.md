@@ -72,7 +72,7 @@ lead: Use buttons to signal actions.
     <h4 class="usa-heading">Accessibility</h4>
     <ul>
       <li>Buttons should display a "halo" when users tab to them.</li>
-      <li>Whenever possible, use the <code>&lt;button&gt;</code> to display buttons rather than styling links to look like buttons. Screen readers treat buttons differently than links.</li>
+      <li>Whenever possible, use the <code>&lt;button&gt;</code> to display buttons rather than styling links to look like buttons. Screen readers treat buttons differently than they do links.</li>
       <li>Avoid using <code>&lt;div&gt;</code> or <code>&lt;img&gt;</code> tags to create buttons. Screen readers don't automatically know either is an usable button.</li>
     </ul>
 
