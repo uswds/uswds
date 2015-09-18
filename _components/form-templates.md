@@ -2,25 +2,25 @@
 layout: styleguide
 type: component
 title: Form templates
-lead: Patterns for some of the most commonly used forms on government websites.
+lead: Patterns for some of the most commonly used forms on government websites
 ---
 
 <h3 class="usa-heading">Accessibility</h3>
 
 <p>As you customize these templates, ensure they continue to meet the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for all form controls</a> as well as the accessibility guidelines for each individual control.</p>
-<p>In addition, when creating forms with multiple controls or customizing these templates, ensure:</p>
+<p>In addition, when creating forms with multiple controls or customizing these templates, be sure to:</p>
 
 <ul class="usa-content-list">
-  <li>Form controls should appear in the same  order in the HTML as they do on the screen. Do not use CSS to rearrange the form controls so they are in a different order. Screen readers narrate forms in the order they appear in the HTML, not on screen.</li>
+  <li>Display form controls in the same order in HTML as they do on screen. Do not use CSS to rearrange the form controls. Screen readers narrate forms in the order they appear in the HTML.</li>
   <li>Visually align validation messages with the input fields, so people using screen magnifiers can read them quickly.</li>
-  <li>Group each set of thematically related controls in a "fieldset" element. Use the "legend" element to offer a label within each one. The fieldset and legend element makes it easier for screen reader users to navigate the form.</li>
+  <li>Group each set of thematically related controls in a fieldset element. Use the legend element to offer a label within each one. The fieldset and legend element makes it easier for screen reader users to navigate the form.</li>
   <li>A single legend is always required for fieldset. A common use of fieldset and legend is a question with radio button options for answers. The question text and radio buttons are wrapped in a fieldset, with the question itself being inside the legend tag.</li>
   <li>You can embed multiple fieldsets and legends for more complex forms.</li>
   <li>Keep your form blocks in a vertical pattern. It is an ideal approach for accessibility, due to limited vision that makes it hard to scan from right to left.</li>
 </ul>
 
 <h2 class="usa-heading" id="name-form">Name form</h2>
-<p class="usa-font-lead">A standard template for collecting a person’s full name.</p>
+<p class="usa-font-lead">A standard template for collecting a person’s full name</p>
 
 <div class="preview">
 
@@ -30,13 +30,13 @@ lead: Patterns for some of the most commonly used forms on government websites.
       <label for="title">Title</label>
       <input class="usa-input-tiny" id="title" name="title" type="text">
 
-      <label for="first-name">First Name <span class="usa-additional_text">Required</span></label>
+      <label for="first-name">First name <span class="usa-additional_text">Required</span></label>
       <input id="first-name" name="first-name" type="text">
 
-      <label for="middle-name">Middle Name</label>
+      <label for="middle-name">Middle name</label>
       <input id="middle-name" name="middle-name" type="text">
 
-      <label for="last-name">Last Name <span class="usa-additional_text">Required</span></label>
+      <label for="last-name">Last name <span class="usa-additional_text">Required</span></label>
       <input id="last-name" name="last-name" type="text">
 
       <label for="suffix">Suffix</label>
@@ -77,17 +77,17 @@ lead: Patterns for some of the most commonly used forms on government websites.
 </div>
 
 <h2 class="usa-heading" id="address-form">Address form</h2>
-<p class="usa-font-lead">A standard template for entering a U.S. mailing or shipping address.</p>
+<p class="usa-font-lead">A standard template for entering a U.S. mailing or shipping address</p>
 
 <div class="preview">
 
   <form class="usa-form-large">
     <fieldset>
       <legend>Mailing address</legend>
-      <label for="mailing-address-1">Street Address 1</label>
+      <label for="mailing-address-1">Street address 1</label>
       <input id="mailing-address-1" name="mailing-address-1" type="text">
 
-      <label for="mailing-address-2">Street Address 2 <span class="usa-additional_text">Optional</span></label>
+      <label for="mailing-address-2">Street address 2 <span class="usa-additional_text">Optional</span></label>
       <input id="mailing-address-2" name="mailing-address-2" type="text">
 
       <div>
@@ -198,7 +198,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
 </div>
 
 <h2 class="usa-heading" id="login-form">Sign-in form</h2>
-<p class="usa-font-lead">A template for signing a user into a website or online app.</p>
+<p class="usa-font-lead">A template for signing a user into a website or online app</p>
 
 <div class="preview">
 
@@ -266,7 +266,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
 </div>
 
 <h2 class="usa-heading" id="password-reset-form">Password reset form</h2>
-<p class="usa-font-lead">A standard template for resetting a password.</p>
+<p class="usa-font-lead">A standard template for resetting a password</p>
 
 <div class="preview">
   
@@ -287,7 +287,7 @@ lead: Patterns for some of the most commonly used forms on government websites.
         </ul>
       </div>
 
-      <label for="password">New Password</label>
+      <label for="password">New password</label>
       <input id="password" name="password" type="password"
         aria-describedby="validation_list"
         class="js-validate_password"
@@ -296,16 +296,16 @@ lead: Patterns for some of the most commonly used forms on government websites.
         data-validate-numerical="\d"
         data-validation-element="#validation_list">
 
-      <label for="confirmPassword">Confirm Password</label>
+      <label for="confirmPassword">Confirm password</label>
       <input id="confirmPassword" name="confirmPassword" type="password">
       <p class="usa-form-note">
-        <a title="Show My Typing" href="javascript:void(0)"
+        <a title="Show my typing" href="javascript:void(0)"
             class="usa-show_multipassword"
             aria-controls="password">
-          Show My Typing</a>
+          Show my typing</a>
       </p>
 
-      <input type="submit" value="Reset Password" />
+      <input type="submit" value="Reset password" />
     </fieldset>
   </form>
 

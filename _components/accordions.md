@@ -7,7 +7,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
 
 <div class="preview">
 
-  <h3>Borderless</h3>
+  <h6>Borderless</h6>
 
   <div class="usa-accordion">
     <ul class="usa-unstyled-list">
@@ -69,7 +69,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
     </ul>
   </div>
 
-  <h3>Bordered</h3>
+  <h6>Bordered</h6>
 
   <div class="usa-accordion-bordered usa-accordion-docs">
     <ul class="usa-unstyled-list">

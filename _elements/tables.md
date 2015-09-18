@@ -7,7 +7,7 @@ lead: Tables show tabular data in columns and rows.
 
 <div class="preview">
 
-  <h3 class="usa-heading">Bordered Table</h3>
+  <h6>Bordered Table</h6>
 
   <table>
     <thead>
@@ -51,7 +51,7 @@ lead: Tables show tabular data in columns and rows.
     </tbody>
   </table>
 
-  <h3 class="usa-heading">Borderless Table</h3>
+  <h6>Borderless Table</h6>
 
   <table class="usa-table-borderless">
     <thead>
