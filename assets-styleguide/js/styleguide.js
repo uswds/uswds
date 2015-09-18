@@ -90,7 +90,8 @@ $(function () {
 
 //capture that the enter key was used to "click"
 $('.sidenav').on('keydown', 'a', function (e) {
-  if (e.which === 13) {
+  var ENTER = 13;
+  if (e.which === ENTER) {
     $(this).data('keypress', true);
   }
 });
