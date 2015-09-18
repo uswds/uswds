@@ -73,7 +73,7 @@ order: 01
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <p><span class="usa-label-big">High</span></p>
+            <p><span class="usa-label-big">Fast</span></p>
             <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
@@ -761,7 +761,7 @@ order: 01
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
-            <p><span class="usa-label-big">High</span></p>
+            <p><span class="usa-label-big">Fast</span></p>
             <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
             <h6 class="usa-heading-alt">Examples</h6>
             <ul>
