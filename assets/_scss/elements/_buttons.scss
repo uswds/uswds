@@ -121,6 +121,10 @@ button,
       box-shadow: $button-stroke $color-primary-darkest;
       color: $color-primary-darkest;
     }
+
+    &:focus {
+      box-shadow: $button-stroke $color-primary-darkest, $focus-shadow;
+    }
   }
 
   &.usa-button-outline-inverse {
@@ -138,6 +142,10 @@ button,
     &.usa-button-active {
       box-shadow: $button-stroke $color-gray-light;
       color: $color-gray-lighter;
+    }
+
+    &:focus {
+      box-shadow: $button-stroke $color-gray-light, $focus-shadow;
     }
   }
 
