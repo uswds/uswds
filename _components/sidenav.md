@@ -2,7 +2,7 @@
 layout: styleguide
 type: component
 title: Side navigation
-lead: "Hierarchical, vertical navigation to place at the side of a page. Note: we are currently developing horizontal navigation and headers for the top of a page."
+lead: "Hierarchical, vertical navigation to place at the side of a page. Note: we are currently developing horizontal navigation and headers for the top of a page"
 ---
 
 <div class="preview">
@@ -115,7 +115,6 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: w
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
       <li>Ensure the side navigational system is keyboard accessible. Users should be able to tab through each link.</li>
     </ul>
@@ -131,7 +130,7 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: w
       <li>If your page already has a horizontal and vertical navigation bar, consider ways to simplify your navigation system.</li>
       <li>If your content is within a frame or sub-area of a page, consider ways to simplify your navigation system.</li>
     </ul>
-    <h5>Guidelines</h5>
+    <h5>Guidance</h5>
     <ul class="usa-content-list">
       <li>Indicate where a user is within the navigational hierarchy. Use the “active” state to show users which page they have navigated to.</li>
       <li>Keep the navigation links short. They can be shorter derivatives of page titles themselves.</li>
