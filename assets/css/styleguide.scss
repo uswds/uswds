@@ -139,6 +139,13 @@ $site-top:           124px;
   font-size: 1.5rem;
   width: 15%;
   text-align: center;
+
+  &:hover {
+    text-decoration: none;
+    color: $color-white;
+    background-color: $color-primary-darker;
+  }
+  
   &:visited {
     color: $color-white;
   }
