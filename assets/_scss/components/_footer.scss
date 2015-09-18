@@ -140,6 +140,10 @@ li.usa-footer-primary-content {
 }
 
 .usa-sign_up-block {
+  legend {
+    font-size: 2.4rem;
+  }
+
   padding: {
     bottom: 2rem;
     left: 2.5rem;
@@ -211,6 +215,10 @@ li.usa-footer-primary-content {
 
   .usa-footer-primary-section {
 
+    h4 {
+      font-family: $font-sans;
+    }
+
     @include media($medium-screen) {
       padding: {
         top: 3rem;
@@ -281,8 +289,10 @@ li.usa-footer-primary-content {
 .usa-sign_up-header {
   @include media($medium-screen) {
     margin: 0;
-    padding: 2rem 0;
+    padding: 1.8rem 0 .6rem;
   }
+
+  padding: 2rem 0 1rem;
 }
 
 .usa-footer-logo {

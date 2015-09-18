@@ -47,7 +47,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
         </nav>
 
         <div class="usa-sign_up-block usa-width-one-third">
-          <h3 class="usa-sign_up-header">Sign up</h3>
+          <legend class="usa-sign_up-header">Sign up</legend>
 
           <label class="" for="email" id="">Your email address</label>
           <input id="email" name="email" type="email">
