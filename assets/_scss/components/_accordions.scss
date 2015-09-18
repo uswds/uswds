@@ -9,7 +9,6 @@
   > ul {
     color: $color-base;
     margin: 0;
-    overflow: hidden;
     padding: 0;
     width: 100%;
 
@@ -50,6 +49,10 @@
     margin: 0;
     padding: 1.5rem 3rem;
     width: 100%;
+
+    &:focus {
+      box-shadow: $focus-shadow;
+    }
 
     &:hover {
       background-color: $color-gray-lighter;
