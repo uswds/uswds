@@ -43,7 +43,7 @@ $site-top:           124px;
         top: 2.7rem;
       }
     }
-    margin-top: 6px;
+    margin-top: 4px;
 
     .logo {
       @include media($medium-screen + $width-nav-sidebar) {
@@ -128,7 +128,10 @@ $site-top:           124px;
   display: inline;
   float: left;
   margin-top: -4px;
-  padding-left: 20px;
+  padding: 15px 10px;
+  color: $color-white;
+  background-color: $color-primary;
+  font-size: 15px;
 }
 
 #menu-content {
