@@ -161,7 +161,8 @@ li.usa-footer-primary-content {
 }
 
 .usa-footer-secondary_section {
-  background-color: #e0e0e0;
+  background-color: $color-primary-darkest;
+  color: $color-white;
   padding: {
     top: 3rem;
     bottom: 3rem;
