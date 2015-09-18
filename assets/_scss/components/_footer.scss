@@ -126,6 +126,10 @@ li.usa-footer-primary-content {
     }
   }
 
+  a {
+    color: $color-gray;
+  }
+
   @include media($medium-screen) {
     border: none;
   }
