@@ -51,7 +51,7 @@
     width: 100%;
 
     &:focus {
-      box-shadow: $focus-shadow !important;
+      box-shadow: $focus-shadow;
     }
 
     &:hover {
