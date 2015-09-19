@@ -157,11 +157,11 @@ p,
   @include h3();
   margin-bottom: 0;
 
-  @media (min-width: $small-screen) {
+  @include media($small-screen) {
     @include h1();
   }
 
-  @media (min-width: $medium-screen) {
+  @include media($medium-screen) {
     @include title();
   }
 }
