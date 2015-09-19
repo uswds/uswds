@@ -47,7 +47,12 @@
     display: inline-block;
     font-family: $font-sans;
     margin: 0;
-    padding: 1.5rem 3rem;
+    padding: {
+      bottom: 1.5rem;
+      left: 3rem;
+      right: 5.5rem;
+      top: 1.5rem;
+    }
     width: 100%;
 
     &:focus {
