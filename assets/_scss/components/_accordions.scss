@@ -1,3 +1,9 @@
+// Variables
+
+$accordion-border: 3px solid $color-gray-lightest;
+
+// Accordion Styles
+
 .usa-accordion,
 .usa-accordion-bordered {
 
@@ -66,9 +72,9 @@
 .usa-accordion-bordered {
   .usa-accordion-content {
     border: {
-      bottom: 3px solid $color-gray-lightest;
-      left: 3px solid $color-gray-lightest;
-      right: 3px solid $color-gray-lightest;
+      bottom: $accordion-border;
+      left: $accordion-border;
+      right: $accordion-border;
     }
   }
 }
