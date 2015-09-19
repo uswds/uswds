@@ -19,7 +19,8 @@ a {
   color: $color-primary;
   text-decoration: none;
 
-  &:hover, &:active {
+  &:hover, 
+  &:active {
     color: $color-primary-darker;
     text-decoration: underline;
   }
@@ -118,13 +119,6 @@ dfn {
 
 // Custom typography
 
-p, 
-.usa-content-list {
-  a {
-    text-decoration: underline;
-  }
-}
-
 .usa-content {
   p {
     max-width: $text-max-width;
@@ -133,6 +127,13 @@ p,
 
 .usa-content-list {
   max-width: $text-max-width;
+}
+
+p, 
+.usa-content-list {
+  a {
+    text-decoration: underline;
+  }
 }
 
 .usa-sans,
