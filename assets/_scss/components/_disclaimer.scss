@@ -10,7 +10,8 @@
   }
 }
 
-// This hides the stage note of the disclaimer in anything smaller than 690px
+// This hides the stage note (i.e. alpha, beta, etc) of the disclaimer for 
+// anything smaller than large screen sizes
 .usa-disclaimer-stage {
   @include media($large-screen) {
     display: block;
