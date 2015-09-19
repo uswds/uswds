@@ -12,7 +12,7 @@
     padding: 0;
     width: 100%;
 
-    > li{
+    > li {
       background-color: $color-gray-lightest;
       font-family: $font-sans;
       list-style: none;
@@ -25,7 +25,7 @@
     background-image: url('../img/plus.png');
     background-image: url('../img/plus.svg');
     background-repeat: no-repeat;
-    background-size: 13px;
+    background-size: 1.3rem;
   }
 
   button {
