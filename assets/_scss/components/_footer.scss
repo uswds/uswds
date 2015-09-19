@@ -167,23 +167,19 @@ li.usa-footer-primary-content {
 }
 
 .usa-footer-big-secondary-section {
-  
   @include media($medium-screen) {
     padding-top: 5rem;
   }  
 }
 
 .usa-footer-contact-links {
-
   @include media($medium-screen) {
     text-align: right;
   }
 }
 
 .usa-footer-big {
-
   .usa-footer-primary-section {
-
     @include media($medium-screen) {
       padding: {
         top: 3rem;
@@ -193,7 +189,6 @@ li.usa-footer-primary-content {
   }
 
   ul {
-
     padding-bottom: 2.5rem;
 
     &:last-child {
@@ -225,7 +220,6 @@ li.usa-footer-primary-content {
     }
 
     &.hidden {
-
       padding-bottom: 0;
 
       .usa-footer-primary-link { 
@@ -241,7 +235,6 @@ li.usa-footer-primary-content {
       }
         
       li { display: none; }
-      
     }
   }
 }
