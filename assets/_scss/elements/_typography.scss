@@ -136,21 +136,27 @@ p,
   }
 }
 
-.usa-sans,
-.usa-sans p,
-.usa-sans a, 
-.usa-sans li,
-.usa-sans span {
-  font-family: $font-sans;
+.usa-sans {
+  p, 
+  a, 
+  li, 
+  span {
+    font-family: $font-sans;
+  }
+}
+
+.usa-serif {
+  p, 
+  a, 
+  li, 
+  span {
+    font-family: $font-serif;
+  }
 }
 
 .usa-sans a {
   border-bottom: none;
   font-weight: $font-bold;
-}
-
-.usa-serif {
-  font-family: $font-serif; 
 }
 
 .usa-display {
