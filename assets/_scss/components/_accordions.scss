@@ -1,3 +1,9 @@
+// Variables
+
+$accordion-border: 3px solid $color-gray-lightest;
+
+// Accordion Styles
+
 .usa-accordion,
 .usa-accordion-bordered {
 
@@ -12,7 +18,7 @@
     padding: 0;
     width: 100%;
 
-    > li{
+    > li {
       background-color: $color-gray-lightest;
       font-family: $font-sans;
       list-style: none;
@@ -24,22 +30,15 @@
   button[aria-expanded=false] {
     background-image: url('../img/plus.png');
     background-image: url('../img/plus.svg');
-    background-position: 90.5%;
     background-repeat: no-repeat;
-    background-size: 13px;
-    @include media($small-screen) {
-      background-position: 96.5%;
-    }
+    background-size: 1.3rem;
   }
 
   button {
-    @include media($small-screen) {
-      background-position: 96.5%;
-    }
     background-color: $color-gray-lightest;
     background-image: url('../img/minus.png');
     background-image: url('../img/minus.svg');
-    background-position: 90.5%;
+    background-position: right 3rem center;
     background-repeat: no-repeat;
     background-size: 13px;
     color: $color-base;
@@ -47,7 +46,12 @@
     display: inline-block;
     font-family: $font-sans;
     margin: 0;
-    padding: 1.5rem 3rem;
+    padding: {
+      bottom: 1.5rem;
+      left: 3rem;
+      right: 5.5rem;
+      top: 1.5rem;
+    }
     width: 100%;
 
     &:focus {
@@ -68,9 +72,9 @@
 .usa-accordion-bordered {
   .usa-accordion-content {
     border: {
-      bottom: 3px solid $color-gray-lightest;
-      left: 3px solid $color-gray-lightest;
-      right: 3px solid $color-gray-lightest;
+      bottom: $accordion-border;
+      left: $accordion-border;
+      right: $accordion-border;
     }
   }
 }
