@@ -61,7 +61,7 @@ order: 01
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
             <p>A simple serif and sans serif combination designed to communicate warmth and credibility. Strong Merriweather heading weights offer clear information hierarchy and when paired with Source Sans Pro’s easy-to-read body text, creates a clean and professional feel.</p>
-            <p>This pairing is included in the Web Design Standards framework.</p>
+            <p>This pairing is included in our design standards.</p>
             <p>Recommended applications: digital services that feature forms; basic and text heavy sites.</p>
             <p>Font weights included in this package:</p>
             <ul>
