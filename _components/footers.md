@@ -237,11 +237,11 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
     <ul class="usa-content-list">
       <li>Use the big footer when you want to replicate your site’s navigation scheme in the footer and offer newsletter signups.</li>
       <li>Use the medium footer when you want to offer only a few footer links (for disclaimers, terms of service, etc.), social media icons, and contact information.</li>
-      <li>Use the small footer when you only want to offer a few footer links and nothing else.</li>
+      <li>Use the slim footer when you only want to offer a few footer links and nothing else.</li>
     </ul>
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>Avoid using the medium and small footers when your footer has more than five links.</li>
+      <li>Avoid using the medium and slim footers when your footer has more than five links.</li>
     </ul>
     <h5>Guidance</h5>
     <ul class="usa-content-list">
