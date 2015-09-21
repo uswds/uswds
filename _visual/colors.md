@@ -286,9 +286,7 @@ order: 02
   </div>
 </div>
 
-<h4 class="usa-heading">Focus colors</h4>
-
-<p>The focus blue color passes 3:1 contrast ratio.</p>
+<h4 class="usa-heading">Special state colors</h4>
 
 <div class="usa-grid-full usa-color-row">
   <div class="color-big">
