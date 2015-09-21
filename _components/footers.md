@@ -47,7 +47,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
         </nav>
 
         <div class="usa-sign_up-block usa-width-one-third">
-          <h3 class="usa-sign_up-header">Sign up</h3>
+          <legend class="usa-sign_up-header">Sign up</legend>
 
           <label class="" for="email" id="">Your email address</label>
           <input id="email" name="email" type="email">
@@ -67,27 +67,27 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
         <div class="usa-footer-contact-links usa-width-one-half">
           <div class="usa-social-links">
             <a href="javascript:void(0)">
-              <svg width="26" height="39" role="img" aria-label="Facebook">
+              <svg width="40" height="40" role="img" aria-label="Facebook">
                 <title>Facebook</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook25.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook-white.png" width="40" height="40" />
               </svg>
             </a>
             <a href="javascript:void(0)">            
-              <svg width="26" height="39" role="img" aria-label="Twitter">
+              <svg width="40" height="40" role="img" aria-label="Twitter">
                 <title>Twitter</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter16.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter16.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter-white.png" width="40" height="40" />
               </svg>
             </a>
             <a href="javascript:void(0)">
-              <svg width="26" height="39" role="img" aria-label="YouTube">
+              <svg width="40" height="40" role="img" aria-label="YouTube">
                 <title>YouTube</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube15.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube15.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube-white.png" width="40" height="40" />
               </svg>
             </a>
             <a href="javascript:void(0)">
-              <svg width="26" height="39" role="img" aria-label="RSS">
+              <svg width="40" height="40" role="img" aria-label="RSS">
                 <title>RSS</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss25.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss-white.png" width="40" height="40" />
               </svg>
             </a>
           </div>
@@ -142,27 +142,27 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
         <div class="usa-footer-contact-links usa-width-one-half">
           <div class="usa-social-links">
             <a href="javascript:void(0)">
-              <svg width="26" height="39" role="img" aria-label="Facebook">
+              <svg width="40" height="40" role="img" aria-label="Facebook">
                 <title>Facebook</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook25.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook-white.png" width="40" height="40" />
               </svg>
             </a>
             <a href="javascript:void(0)">            
-              <svg width="26" height="39" role="img" aria-label="Twitter">
+              <svg width="40" height="40" role="img" aria-label="Twitter">
                 <title>Twitter</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter16.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter16.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter-white.png" width="40" height="40" />
               </svg>
             </a>
             <a href="javascript:void(0)">
-              <svg width="26" height="39" role="img" aria-label="YouTube">
+              <svg width="40" height="40" role="img" aria-label="YouTube">
                 <title>YouTube</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube15.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube15.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube-white.png" width="40" height="40" />
               </svg>
             </a>
             <a href="javascript:void(0)">
-              <svg width="26" height="39" role="img" aria-label="RSS">
+              <svg width="40" height="40" role="img" aria-label="RSS">
                 <title>RSS</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss25.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss-white.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss-white.png" width="40" height="40" />
               </svg>
             </a>
           </div>

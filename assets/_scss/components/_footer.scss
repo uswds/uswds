@@ -5,7 +5,7 @@
 
   .usa-footer-primary-link {
 
-    color: #000;
+    color: $color-base;
     display: block;
     font-weight: $font-bold;
     margin-top: 0;
@@ -112,18 +112,26 @@
       }      
     }
   }
+
+  .usa-footer-logo {
+    margin-bottom: 0;
+  }
 }
 
 ul.usa-footer-primary-content,
 li.usa-footer-primary-content,
 li.usa-footer-primary-content {
-  border-top: 1px solid #000;      
+  border-top: 1px solid $color-gray;      
 
   &:last-child {
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid $color-gray;
     @include media($medium-screen) {
       border-bottom: none;
     }
+  }
+
+  a {
+    color: $color-gray;
   }
 
   @include media($medium-screen) {
@@ -132,6 +140,10 @@ li.usa-footer-primary-content {
 }
 
 .usa-sign_up-block {
+  legend {
+    font-size: 2.4rem;
+  }
+
   padding: {
     bottom: 2rem;
     left: 2.5rem;
@@ -161,10 +173,22 @@ li.usa-footer-primary-content {
 }
 
 .usa-footer-secondary_section {
-  background-color: #e0e0e0;
+  background-color: $color-primary-darkest;
+  color: $color-white;
   padding: {
     top: 3rem;
     bottom: 3rem;
+  }
+
+  a {
+    color: $color-white;
+
+    &:hover {
+      color: $color-gray-lighter;
+    }
+    &:visited {
+      color: $color-white;
+    }
   }
 }
 
@@ -180,11 +204,20 @@ li.usa-footer-primary-content {
   @include media($medium-screen) {
     text-align: right;
   }
+
+  .usa-social-links {
+    margin-bottom: 2rem;
+  }
+
 }
 
 .usa-footer-big {
 
   .usa-footer-primary-section {
+
+    h4 {
+      font-family: $font-sans;
+    }
 
     @include media($medium-screen) {
       padding: {
@@ -199,7 +232,7 @@ li.usa-footer-primary-content {
     padding-bottom: 2.5rem;
 
     &:last-child {
-      border-bottom: 1px solid #000;
+      border-bottom: 1px solid $color-gray;
 
       @include media($medium-screen) {
         border-bottom: none;
@@ -256,8 +289,17 @@ li.usa-footer-primary-content {
 .usa-sign_up-header {
   @include media($medium-screen) {
     margin: 0;
-    padding: 2rem 0;
+    padding: 1.8rem 0 .6rem;
   }
+
+  padding: 2rem 0 1rem;
+}
+
+.usa-footer-logo {
+  @include media($medium-screen) {
+    margin-bottom: 0;
+  }
+  margin-bottom: 3rem;
 }
 
 .usa-footer-logo-img {
