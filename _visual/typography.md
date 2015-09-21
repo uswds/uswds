@@ -61,7 +61,7 @@ order: 01
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
             <p>A simple serif and sans serif combination designed to communicate warmth and credibility. Strong Merriweather heading weights offer clear information hierarchy and when paired with Source Sans Pro’s easy-to-read body text, creates a clean and professional feel.</p>
-            <p>This is pairing is included in the Web Design Standards framework.</p>
+            <p>This pairing is included in our design standards.</p>
             <p>Recommended applications: digital services that feature forms; basic and text heavy sites.</p>
             <p>Font weights included in this package:</p>
             <ul>
@@ -963,15 +963,15 @@ order: 01
 
 <div class="preview">
 
-  <a href="javascript:void(0)">This is a link without surrounding text</a>
-  <p><a href="javascript:void(0)">This</a> is a text link on light background</p>
+  <a href="javascript:void(0)">This is a link without surrounding text.</a>
+  <p><a href="javascript:void(0)">This</a> is a text link on a light background.</p>
 
   <p><a class="usa-color-text-visited" href="javascript:void(0)">This</a> is a visited link.</p>
 
   <p>This is a link which opens in a <a href="http://media.giphy.com/media/8sgNa77Dvj7tC/giphy.gif" target="_blank">new tab</a>.</p>
 
   <div class="usa-background-dark">
-    <p><a href="javascript:void(0)">This</a> is a text link on light background</p>
+    <p><a href="javascript:void(0)">This</a> is a text link on a dark background.</p>
   </div>
 </div>
 
