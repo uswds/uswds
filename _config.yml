@@ -20,7 +20,7 @@ repos:
   description: Main repository for the U.S. Web Design Standards.
   url: https://github.com/18F/web-design-standards
 
-google_analytics_ua: UA-48605964-19
+google_analytics_ua: UA-48605964-33
 
 sass:
   sass_dir: assets/_scss
