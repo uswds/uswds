@@ -949,8 +949,8 @@ order: 01
 
 <div class="preview">
 
-  <a href="#">This is a link without surrounding text.</a>
-  <p><a href="#">This</a> is a text link on a light background.</p>
+  <a class="styleguide" href="#">This is a link without surrounding text</a>
+  <p><a href="#">This</a> is a text link on light background</p>
 
   <p><a class="usa-color-text-visited" href="#">This</a> is a visited link.</p>
 
@@ -990,7 +990,7 @@ order: 01
   <div class="usa-grid">
     <div class="usa-width-one-third">
 
-      <h6 class="usa-heading-alt">Unordered list</h6>
+      <h6 class="usa-heading-alt styleguide">Unordered list</h6>
 
       <ul>
         <li>Unordered list item</li>
