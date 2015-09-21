@@ -71,7 +71,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
 
   <h6>Bordered</h6>
 
-  <div class="usa-accordion-bordered usa-accordion-docs">
+  <div class="usa-accordion-bordered">
     <ul class="usa-unstyled-list">
       <li>
         <button class="usa-button-unstyled"

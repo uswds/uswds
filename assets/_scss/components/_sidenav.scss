@@ -1,8 +1,5 @@
-// Side Nav
-
 .usa-sidenav-list {
   @include unstyled-list();
-  width: 101%;
 
   li {
     border-top: 1px solid $color-gray;
@@ -26,7 +23,6 @@
       top: 1rem;
     }
 
-    
     &:hover {
       background-color: $color-gray-lightest;
       color: $color-primary;
@@ -56,7 +52,7 @@
 
   a {
     padding-left: 2.8rem;
-    line-height: 1.3;
+    line-height: $heading-line-height;
   }
 
   a:hover,

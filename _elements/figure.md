@@ -6,7 +6,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
 
 <div class="preview">
   <div class="usa-image-block">
-    <img src="{{ site.baseurl }}/assets/img/typography_example_apple_pie.png"  alt="Apple Pie">
+    <img src="{{ site.baseurl }}/assets-styleguide/img/typography_example_apple_pie.png"  alt="Apple Pie">
     <div class="usa-image-text-block">
       <h2 class="usa-display">Apple pie</h2>
       <p class="usa-image-text">It's delicious.</p>

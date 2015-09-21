@@ -12,14 +12,6 @@ $color-grid-dark:    #727272;
 $color-grid-light:   #e3e4e5;
 $site-top:           124px;
 
-// Generic -------------- //
-
-.tablet-only {
-  @media (min-width: $medium-screen + $width-nav-sidebar) {
-    display: none !important;
-  }
-}
-
 // Navigation ------------- //
 
 .usa-site-header {
@@ -50,6 +42,7 @@ $site-top:           124px;
         padding-left: $site-margins;
         text-align: left; 
         padding-top: 0;
+        width: auto;
       }
       float: left;
       text-align: center;

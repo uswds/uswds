@@ -14,7 +14,7 @@ lead: A block that allows users to search for specific content if they know what
       <form class="usa-search usa-search-big">
         <div role="search">
           <label class="usa-sr-only" for="search-field-big">Search big</label>
-          <input type="search" id="search-field-big">
+          <input id="search-field-big" type="search" name="search">
           <button type="submit">
             <span class="usa-search-submit-text">Search</span>
           </button>
@@ -30,7 +30,7 @@ lead: A block that allows users to search for specific content if they know what
       <form class="usa-search">
         <div role="search">
           <label class="usa-sr-only" for="search-field">Search medium</label>
-          <input type="search" id="search-field">
+          <input id="search-field" type="search" name="search">
           <button type="submit">
             <span class="usa-search-submit-text">Search</span>
           </button>
@@ -46,7 +46,7 @@ lead: A block that allows users to search for specific content if they know what
       <form class="usa-search usa-search-small">
         <div role="search">
           <label class="usa-sr-only" for="search-field-small">Search small</label>
-          <input type="search" id="search-field-small">
+          <input id="search-field-small" type="search" name="search">
           <button type="submit">
             <span class="usa-sr-only">Search</span>
           </button>
