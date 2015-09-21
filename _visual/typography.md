@@ -971,7 +971,7 @@ order: 01
   <p>This is a link which opens in a <a href="http://media.giphy.com/media/8sgNa77Dvj7tC/giphy.gif" target="_blank">new tab</a>.</p>
 
   <div class="usa-background-dark">
-    <p><a href="javascript:void(0)">This</a> is a text link on dark background</p>
+    <p><a href="javascript:void(0)">This</a> is a text link on a dark background</p>
   </div>
 </div>
 
