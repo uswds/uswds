@@ -77,7 +77,7 @@ var calculateAnchorPosition = function (hash) {
  */
 $(function () {
   var hash          = window.location.hash.substr(1);
-  var scrollTopPos  = calculateAnchorPosition(hash);
+  var scrollTopPos  = (hash ? calculateAnchorPosition(hash) : 0);
 
   if (scrollTopPos > 0) {
     //setTimeout ensures proper ordering of events
