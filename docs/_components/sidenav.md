@@ -6,9 +6,9 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: W
 ---
 
 <div class="preview">
-
-  <h6 class="usa-heading-alt">Single level</h6>
-
+  
+  <h6 class="usa-heading-alt styleguide">Single level</h6>
+  
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">

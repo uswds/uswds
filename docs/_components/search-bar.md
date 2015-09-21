@@ -7,7 +7,7 @@ lead: A block that allows users to search for specific content if they know what
 
 <div class="preview preview-search-bar">
 
-  <h6>Search big</h6>
+  <h6 class="styleguide">Search big</h6>
 
   <div class="usa-grid">
     <div class="usa-width-one-half">
