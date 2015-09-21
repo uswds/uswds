@@ -6,6 +6,9 @@ order: 02
 
 <p>A flexible yet distinctly American palette, designed to communicate warmth and trustworthiness while meeting the highest standards of 508 color contrast requirements.</p>
 
+<a class="usa-button usa-button-primary-alt" href="#">Download the design files</a>
+<p class="usa-text-small">Download a zip file with font files and color swatches.</p>
+
 <h3 class="usa-heading" id="palette">Palette</h3>
 
 <p>This palette is designed to support a range of distinct visual styles that  continue to feel connected. The intent of the palette is to convey a warm and open American spirit, with bright saturated tints of blue and red, grounded in sophisticated deeper shades of cool blues and grays. These colors—combined with clear hierarchy, good information design, and ample white space—should leave users feeling welcomed and in good hands.</p>
