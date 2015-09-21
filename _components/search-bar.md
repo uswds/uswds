@@ -63,14 +63,11 @@ lead: A block that allows users to search for specific content if they know what
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li><a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and</li>
-      <li><a href="{{ site.baseurl }}/elements/#inputs">the accessibility guidelines for form controls</a>.</li>
+      <li>As you customize this form template, ensure it continues to follow the <a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and the <a href="{{ site.baseurl }}/elements/#inputs">accessibility guidelines for form controls</a>.</li>
     </ul>
-    <p>We also recommend:</p>
     <ul class="usa-content-list">
-      <li>Always include the word "search" inside the <code>&lt;button&gt;</code> element for screen readers. You can hide this text with <code>position: absolute; left: -999em;</code> (as we have here).
+      <li>Always include the word "search" inside the <code>&lt;button&gt;</code> element for screen readers. You can visually hide this text with <code>position: absolute; left: -999em;</code>.
     </ul>
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
