@@ -145,10 +145,10 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
         Code header areas in the accordion as <code>&lt;buttons&gt;</code> so that they are usable with both screen readers and the keyboard.
       </li>
       <li>
-        Buttons should  state whether they are expanded or not with the appropriate attribute: use either  <code>aria-expanded=’true’</code> or <code>aria-expanded=’false’</code>.
+        Buttons should  state whether they are expanded or not with the appropriate attribute: use either  <code>aria-expanded=<wbr>’true’</code> or <code>aria-expanded=<wbr>’false’</code>.
       </li>
       <li>
-        Each button has a unique name <code>aria-controls=’collapsible-#’</code> that associates the control to the appropriate region by referencing the controlled elements <code>id</code>.
+        Each button has a unique name <code>aria-controls=<wbr>’collapsible-#’</code> that associates the control to the appropriate region by referencing the controlled elements <code>id</code>.
       </li>
       <li>
         Each content area has an <code>aria-hidden</code> attribute set to either <code>true</code> or <code>false</code>. When <code>false</code>, the element (and all children) are neither visible or perceivable, and assistive technologies will skip this content.

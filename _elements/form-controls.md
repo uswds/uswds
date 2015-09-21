@@ -10,8 +10,8 @@ lead: Form controls allow users to enter information into a page.
 <p>As you customize form controls from this library, be sure they continue to meet the following accessibility requirements:</p>
 
 <ul class="usa-content-list">
-  <li>All form control tags should have an associated label. The labels for attribute value should match the related input <code>id</code> attribute and should also be unique to the entire page. For example, the input with <code>id="favorite-pie"</code> will always have a label with <code>for="favorite-pie"</code>. This way screen readers are able to perceive the relevant content.</li>
-  <li>Any additional information—such as required, optional, or example text—should be wrapped within the label tags. For example: <code>&lt;label for="name"&gt;Favorite Pie &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;</code>. This way screen readers know what additional information is related to each field.</li>
+  <li>All form control tags should have an associated label. The labels for attribute value should match the related input <code>id</code> attribute and should also be unique to the entire page. For example, the input with <code>id=<wbr>"favorite-pie"</code> will always have a label with <code>for=<wbr>"favorite-pie"</code>. This way screen readers are able to perceive the relevant content.</li>
+  <li>Any additional information—such as required, optional, or example text—should be wrapped within the label tags. For example: <code>&lt;label for=<wbr>"name"&gt;Favorite Pie &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;</code>. This way screen readers know what additional information is related to each field.</li>
   <li>Do not replace <code>&lt;input&gt;</code> tag-based form controls with styled <code>&lt;div&gt;</code> tags, or use JavaScript to create 'fake' form controls. Screen readers have a difficult time reading form controls that are not written in semantic HTML.</li>
   <li>If you adjust the color scheme of the buttons, ensure a minimum contrast ratio of 4.5:1 (for small text, 3:1 for large) for all states of the button. This includes default, hover, selected, and disabled.</li>
 </ul>
@@ -120,7 +120,7 @@ lead: Form controls allow users to enter information into a page.
     <ul class="usa-content-list">
       <li>Test dropdowns thoroughly with members of your target audience. Several usability experts suggest they should be the “UI of last resort.” Many users find them confusing and difficult to use.</li>
       <li>Avoid making options in one dropdown menu change based on the input to another. Users often don’t understand how selecting an item in one impacts another.</li>
-      <li>When most users will (or should) pick a particular option, make it the default: <code>&lt;option selected="selected"&gt;Default&lt;/option&gt;</code></li>
+      <li>When most users will (or should) pick a particular option, make it the default: <code>&lt;option selected=<wbr>"selected"&gt;Default&lt;/option&gt;</code></li>
       <li>Don’t use JavaScript to automatically submit the form (or do anything else) when an option is selected. Offer a “submit” button at the end of the form instead. Users often change their choices multiple times. Auto-submission is also less accessible.</li>
     </ul>
   </div>
