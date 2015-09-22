@@ -1048,8 +1048,8 @@ order: 01
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-        <li>Use an ordered list when you need to display text in some ranking, hierarchy or series of steps.</li>
-        <li>Use unordered lists display text in no specific order.</li>
+      <li>Use an ordered list when you need to display text in some ranking, hierarchy or series of steps.</li>
+      <li>Use unordered lists display text in no specific order.</li>
     </ul>
     <h5>When to consider something different</h5>
     <ul class="usa-content-list">
