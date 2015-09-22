@@ -71,7 +71,7 @@ lead: Use buttons to signal actions.
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Implementation</h4>
     <p>The examples shown here are for button elements. To use button styles on an anchor link, add the <code>usa-button</code> class to your anchor link. 
-    <p>To use a different style button on your anchor link, add the special button class in addition to `usa-button`:</p>
+    <p>To use a different style button on your anchor link, add the special button class in addition to <code>usa-button</code>:</p>
     <ul>
       <li><code>usa-button-primary-alt</code></li>
       <li><code>usa-button-secondary</code></li>
@@ -82,9 +82,8 @@ lead: Use buttons to signal actions.
       <li><code>usa-button-big</code></li>
     </ul>
     <p>For example, a secondary button style would use the following code:
-    <code><a class="usa-button usa-button-secondary" href="/my-link">My button</a></code></p>
-    <p>When styling button directly, you don’t need to add `usa-button` 
-    for alternate styles.</p>
+    <code>&lt;a class="usa-button usa-button-secondary" href="/my-link"&gt;My button&lt;/a&gt;</code></p>
+    <p>When styling button directly, you don’t need to add the <code>usa-button</code> class for alternate styles.</p>
     <h4 class="usa-heading">Accessibility</h4>
     <ul>
       <li>Buttons should display a visible focus state when users tab to them.</li>
