@@ -978,7 +978,7 @@ order: 01
 
     <div class="usa-width-one-third">
 
-      <h6 class="usa-heading-alt">Unordered list</h6>
+      <h6 class="usa-heading-alt">Ordered list</h6>
 
       <ol>
         <li>Ordered list item</li>
