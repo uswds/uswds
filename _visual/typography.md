@@ -76,7 +76,7 @@ order: 01
             <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
             <p>
-              <img class="usa-pairing-example-img" src="{{ site.baseurl }}/assets-styleguide/img/default_example_emanifest.png" alt="EPA eManifest example">
+              <img src="{{ site.baseurl }}/assets-styleguide/img/default_example_emanifest.png" alt="EPA eManifest example">
               <a href="{{ site.baseurl }}/assets-styleguide/img/epa-emanifest-screenshot.png">EPA eManifest  (screenshot of non-public site)</a>
             </p>
           </aside>
@@ -230,7 +230,7 @@ order: 01
             <p>Exceeds ideal number of fonts by one. May negatively impact page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
             <p>
-              <img class="usa-pairing-example-img" src="{{ site.baseurl }}/assets-styleguide/img/robust_example_standardshome.png" alt="U.S. Web Design Standards homepage example">
+              <img src="{{ site.baseurl }}/assets-styleguide/img/robust_example_standardshome.png" alt="U.S. Web Design Standards homepage example">
               <a href="/">U.S. Web Design Standards homepage</a>
             </p>
           </aside>
@@ -407,7 +407,7 @@ order: 01
             <p>Exceeds ideal number of fonts by two. May negatively impact page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
             <p>
-              <img class="usa-pairing-example-img" src="{{ site.baseurl }}/assets-styleguide/img/merriweatheronly_example_playbook.png" alt="U.S. Digital Service Playbook example">
+              <img src="{{ site.baseurl }}/assets-styleguide/img/merriweatheronly_example_playbook.png" alt="U.S. Digital Service Playbook example">
               <a href="http://playbook.cio.gov">U.S. Digital Service Playbook</a>
             </p>
           </aside>
@@ -743,7 +743,7 @@ order: 01
             <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
             <p>
-              <img class="usa-pairing-example-img" src="{{ site.baseurl }}/assets-styleguide/img/ssponly_example_va.png" alt="Veterans Affairs appeals review example">
+              <img src="{{ site.baseurl }}/assets-styleguide/img/ssponly_example_va.png" alt="Veterans Affairs appeals review example">
               <a href="{{ site.baseurl }}/assets-styleguide/img/va-appeals-screenshot.png">Department of Veterans Affairs appeals review (screenshot of non-public site)</a>
             </p>
           </aside>
