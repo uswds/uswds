@@ -6,7 +6,7 @@ order: 02
 
 <p>A flexible yet distinctly American palette, designed to communicate warmth and trustworthiness while meeting the highest standards of 508 color contrast requirements.</p>
 
-<a class="usa-button usa-button-primary-alt" href="#">Download the design files</a>
+<a class="usa-button usa-button-primary-alt" href="{{ site.baseurl }}/assets/releases/wds-design-v0.8">Download the design files</a>
 <p class="usa-text-small">Download a zip file with font files and color swatches.</p>
 
 <h3 class="usa-heading" id="palette">Palette</h3>
