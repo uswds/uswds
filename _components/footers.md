@@ -2,12 +2,12 @@
 layout: styleguide
 type: component
 title: Footers
-lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
+lead: Footers serve site visitors who arrive at the bottom of a page without finding what they want.
 ---
 
 <div class="preview">
 
-  <h3 class="usa-heading" id="big-footer">Big footer</h3>
+  <h6 class="usa-heading-alt" id="big-footer">Big footer</h6>
 
   <footer class="usa-footer usa-footer-big usa-sans" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
@@ -91,7 +91,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
               </svg>
             </a>
           </div>
-          
+
           <address>
             <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
             <p>(800) CALL-GOVT</p>
@@ -102,7 +102,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </div>
   </footer>
 
-  <h3 class="usa-heading" id="medium-footer">Medium footer</h3>
+  <h6 class="usa-heading-alt" id="medium-footer">Medium footer</h6>
 
   <footer class="usa-footer usa-footer-medium usa-sans" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
@@ -166,7 +166,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
               </svg>
             </a>
           </div>
-          
+
           <address>
             <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
             <p>(800) CALL-GOVT</p>
@@ -177,7 +177,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </div>
   </footer>
 
-  <h3 class="usa-heading" id="slim-footer">Slim footer</h3>
+  <h6 class="usa-heading-alt" id="slim-footer">Slim footer</h6>
 
   <footer class="usa-footer usa-footer-slim usa-sans" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
@@ -227,20 +227,29 @@ lead: Intro text on what is included in this section and how to use it. No more 
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Use</h4>
-    <ul class="usa-content-list">
-      <li>Footers serve site visitors who arrive at the bottom of a page without finding what they want.</li>
-      <li>Footer links should point to popular content that might answer a visitor’s remaining questions. Links to disclaimers and legal content sometimes need to be in the footer, but try to minimize “disclaimer bloat” wherever possible.</li>
-      <li>Links do not have to be grouped in the same way they are in the header navigation (especially if the navigation offers many more links than the footer can).</li>
-      <li>Include the newsletter sign up if one of your website’s goals is getting visitors to sign up for a newsletter.</li>
-      <li>Link only to social media your agency updates frequently or uses to communicate with customers.</li>
-      <li>Important contact information should be limited to general email or phone numbers (Physical addresses should live on contact pages users can navigate to from the footer links).</li>
-    </ul>
-
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
       <li>Code the navigation so that pressing the  tab key moves focus from link to link in the navigation, even when the navigation has collapsed into an accordion.</li>
       <li>On small screens: when collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the "Accordion" section.</li>
+    </ul>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>Use the big footer when you want to replicate your site’s navigation scheme in the footer and offer newsletter signups.</li>
+      <li>Use the medium footer when you want to offer only a few footer links (for disclaimers, terms of service, etc.), social media icons, and contact information.</li>
+      <li>Use the slim footer when you only want to offer a few footer links and nothing else.</li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>Avoid using the medium and slim footers when your footer has more than five links.</li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>Footer links should point to popular content that might answer a visitor’s remaining questions. Links to disclaimers and legal content sometimes need to be in the footer, but try to minimize “disclaimer bloat” wherever possible.</li>
+      <li>Link grouping in the footer does not have to mirror link grouping in top level header navigation (especially if the navigation offers many more links than the footer can).</li>
+      <li>Include the newsletter sign up if one of your website’s goals is getting visitors to sign up for a newsletter.</li>
+      <li>Link only to social media your agency updates frequently or uses to communicate with customers.</li>
+      <li>Important contact information should be limited to general email or phone numbers, which should be clickable links to dial from a mobile phone. (Physical addresses should live on contact pages users can navigate to from the accordion links).</li>
     </ul>
   </div>
 </div>

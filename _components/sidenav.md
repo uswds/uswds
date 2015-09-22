@@ -2,13 +2,13 @@
 layout: styleguide
 type: component
 title: Side navigation
-lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
+lead: "Hierarchical, vertical navigation to place at the side of a page. Note: we are currently developing horizontal navigation and headers for the top of a page"
 ---
 
 <div class="preview">
   
-  <h2 class="usa-heading">Sidenav</h2>
-
+  <h6 class="usa-heading-alt">Single level</h6>
+  
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
@@ -25,7 +25,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </aside>
   </div>
 
-  <h2 class="usa-heading">Sidenav with sub items</h2>
+  <h6 class="usa-heading-alt">Two levels</h6>
 
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
@@ -60,7 +60,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     </aside>
   </div>
 
-  <h2 class="usa-heading">Sidenav with sub items + grandchild items</h2>
+  <h6 class="usa-heading-alt">Three levels</h6>
 
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
@@ -115,32 +115,26 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Ensure the side navigational system is keyboard accessible. Users should be able to tab through each link.</li>
     </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
-
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>To display a navigational hierarchy with one to three levels.</li>
+      <li>To display the “sub-navigation” within a section of the website.</li>
     </ul>
-    <h5>When to consider something different</h5>
+    <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>If the site has fewer than five pages, consider organizing the page without a navigational hierarchy.</li>
+      <li>If your page already has a horizontal and vertical navigation bar, consider ways to simplify your navigation system.</li>
+      <li>If your content is within a frame or sub-area of a page, consider ways to simplify your navigation system.</li>
     </ul>
-    <h5>Guidelines</h5>
+    <h5>Guidance</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Indicate where a user is within the navigational hierarchy. Use the “active” state to show users which page they have navigated to.</li>
+      <li>Keep the navigation links short. They can be shorter derivatives of page titles themselves.</li>
+      <li>If the navigation hierarchy is too long, users may miss items at the bottom. If it’s too deep, users may miss items that require too many clicks. Usability test to find the right balance between breadth and depth.</li>
     </ul>
   </div>
 </div>

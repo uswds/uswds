@@ -2,7 +2,7 @@
 layout: styleguide
 type: component
 title: Form controls
-lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
+lead: Form controls allow users to enter information into a page.
 ---
 
 <h3 class="usa-heading">Accessibility</h3>
@@ -10,36 +10,34 @@ lead: Intro text on what is included in this section and how to use it. No more 
 <p>As you customize form controls from this library, be sure they continue to meet the following accessibility requirements:</p>
 
 <ul class="usa-content-list">
-  <li>All form control tags should have an associated label. The labels for attribute value should match the related input <code>id</code> attribute and should also be unique to the entire page. For example, the input with <code>id="favorite-pie"</code> will always have a label with <code>for="favorite-pie"</code>. This way screen readers are able to perceive the relevant content.</li>
-  <li>Any additional information – such as required, optional, or example text – should be wrapped within the label tags. For example: <code>&lt;label for="name"&gt;Favorite Pie &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;</code>. This way screen readers know what additional information is related to each field.</li>
-  <li>Do not replace <code>&lt;input&gt;</code> tag-based form controls with styled <code>&lt;div&gt;</code> tags or JavaScript that "fake" form controls. Form controls not written in semantic HTML are very difficult for screen readers to handle.</li>
-  <li>If the color scheme of the buttons are adjusted ensure all states have a minimum contrast ratio of 4.5:1 (for small text, 3:1 for large) for all states of the button. This includes default, hover, selected, disabled.</li>
+  <li>All form control tags should have an associated label. The labels for attribute value should match the related input <code>id</code> attribute and should also be unique to the entire page. For example, the input with <code>id=<wbr>"favorite-pie"</code> will always have a label with <code>for=<wbr>"favorite-pie"</code>. This way screen readers are able to perceive the relevant content.</li>
+  <li>Any additional information—such as required, optional, or example text—should be wrapped within the label tags. For example: <code>&lt;label for=<wbr>"name"&gt;Favorite Pie &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;</code>. This way screen readers know what additional information is related to each field.</li>
+  <li>Do not replace <code>&lt;input&gt;</code> tag-based form controls with styled <code>&lt;div&gt;</code> tags, or use JavaScript to create 'fake' form controls. Screen readers have a difficult time reading form controls that are not written in semantic HTML.</li>
+  <li>If you adjust the color scheme of the buttons, ensure a minimum contrast ratio of 4.5:1 (for small text, 3:1 for large) for all states of the button. This includes default, hover, selected, and disabled.</li>
 </ul>
 
-<p>If you are a building a form with multiple controls, also consider the <a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines in the “Common Form Templates” section</a>.</p>
+<p>If you are a building a form with multiple controls, also consider the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines in the “Form Templates” section</a>.</p>
 
 <h2 class="usa-heading" id="text-inputs">Text Input</h2>
-
+<p class="usa-font-lead">Text inputs allow people to enter any combination of letters, numbers, or symbols of their choosing (unless otherwise restricted). Text input boxes can span single or multiple lines.</p>
 <div class="preview">
 
-  <label for="input-type-text">Text Input Label</label>
+  <label for="input-type-text">Text input label</label>
   <input id="input-type-text" name="input-type-text" type="text">
 
-  <label for="input-focus">Text Input Focused</label>
+  <label for="input-focus">Text input focused</label>
   <input class="usa-input-focus" id="input-focus" name="input-focus" type="text">
 
   <div class="usa-input-error">
-    <legend>
-      <span for="input-error">Text Input Error</span>
-      <span class="usa-input-error-message" role="alert">Helpful error message</span>
-    </legend>
-    <input id="input-error"  aria-describedby="usa-input-error-message" name="input-error" type="text">
+    <label class="usa-input-error-label" for="input-error">Text input error</label>
+    <span class="usa-input-error-message" id="input-error-message" role="alert">Helpful error message</span>
+    <input id="input-error" name="input-error" type="text" aria-describedby="input-error-message">
   </div>
 
-  <label for="input-success">Text Input Success</label>
+  <label for="input-success">Text input success</label>
   <input class="usa-input-success" id="input-success" name="input-success" type="text">
 
-  <label for="input-type-textarea">Text Area Label</label>
+  <label for="input-type-textarea">Text area label</label>
   <textarea id="input-type-textarea" name="input-type-textarea"></textarea>
 
 </div>
@@ -51,41 +49,38 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <p>If you customize the text inputs, ensure they continue to meet the the <a href="{{ site.baseurl }}/form-controls/"> accessibility requirements that apply to all form controls.</a></p>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Avoid placeholder text for accessibility reasons. Most browsers’ default rendering of placeholder text does not provide a high enough contrast ratio.</li>
+      <li>Avoid breaking numbers with distinct sections (such as phone numbers, social security numbers, or credit card numbers) into separate input fields. For example, use one input for phone number, not three (one for area code, one for local code and one for number). Each field needs to be labeled for a screen reader and the labels for fields broken into segments are not often not meaningful.</li>
     </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
-
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>If you  can’t reasonably predict a user’s answer to a prompt and there might be wide variability in users’ answers.</li>
+      <li>When using another type of input will make answering more difficult. For example, birthdays and other known dates are easier to type in than they are to select from a calendar picker.</li>
+      <li>When users want to be able to paste in a response.</li>
     </ul>
-    <h5>When to consider something different</h5>
+    <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>When users are choosing from a specific set of options. </li>
     </ul>
-    <h5>Guidelines</h5>
+    <h5>Guidance</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>The length of the text input provides a hint to users as to how much text to write. Do not require users to write paragraphs of text into a single-line input box; use a text area instead.</li>
+      <li>Text inputs are among the easiest type of input for desktop users but are more difficult for mobile users.</li>
+      <li>Only show error validation messages or stylings after a user has interacted with a particular field.</li>
+      <li>Avoid using placeholder text that appears within a text field before a user starts typing. If placeholder text is no longer visible after a user clicks into the field, users will no longer have that text available when they need to review their entries. (People who have cognitive or visual disabilities have additional problems with placeholder text.)</li>
     </ul>
   </div>
 </div>
 
 <h2 class="usa-heading" id="dropdown">Dropdown</h2>
+<p class="usa-font-lead">A dropdown allows users to select one option from a list.</p>
 
 <div class="preview">
 <form>
-  <label for="options">Dropdown Label h4</label>
+  <label for="options">Dropdown label</label>
   <select name="options" id="options">
     <option value="value1">Option A</option>
     <option value="value2">Option B</option>
@@ -101,37 +96,36 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <p>If you customize the dropdown, ensure it continues to meet the the <a href="{{ site.baseurl }}/form-controls/"> accessibility requirements that apply to all form controls.</a></p>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Make sure your dropdown has a label. Don’t replace it with the default menu option (for example, removing the “State” label and just having the dropdown read “Select a state” by default).</li>
+      <li>Don’t use JavaScript to automatically submit the form (or do anything else) when an option is selected. Auto-submission disrupts screen readers because they select each option as they read them.</li>
     </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
 
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Use sparingly—only when a user needs to choose from about 7 to 15 possible options and you have limited space to display the options.</li>
     </ul>
-    <h5>When to consider something different</h5>
+    <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>If the list of options is very short. Use radio buttons instead.</li>
+      <li>If the list of options is very long. Let users type the same information into a text input that suggests possible options instead.</li>
+      <li>If you need to allow users to select more than one option at once. Users often don’t understand how to select multiple items from dropdowns. Use checkboxes instead.</li>
+      <li>For site navigation (use the navigation components instead).</li>
     </ul>
-    <h5>Guidelines</h5>
+    <h5>Guidance</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Test dropdowns thoroughly with members of your target audience. Several usability experts suggest they should be the “UI of last resort.” Many users find them confusing and difficult to use.</li>
+      <li>Avoid making options in one dropdown menu change based on the input to another. Users often don’t understand how selecting an item in one impacts another.</li>
+      <li>When most users will (or should) pick a particular option, make it the default: <code>&lt;option selected=<wbr>"selected"&gt;Default<wbr>&lt;/option&gt;</code></li>
+      <li>Don’t use JavaScript to automatically submit the form (or do anything else) when an option is selected. Offer a “submit” button at the end of the form instead. Users often change their choices multiple times. Auto-submission is also less accessible.</li>
     </ul>
   </div>
 </div>
 
 <h2 class="usa-heading" id="checkboxes">Checkboxes</h2>
+<p class="usa-font-lead">Checkboxes allow users to select one or more options from a visible list. </p>
 
 <div class="preview">
 
@@ -169,37 +163,38 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <p>If you customize the text inputs, ensure they continue to meet the the <a href="{{ site.baseurl }}/form-controls/"> accessibility requirements that apply to all form controls.</a></p>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Surround a related set of checkboxes with a <code>&lt;fieldset&gt;</code>. The <code>&lt;legend&gt;</code> provides context for the grouping. Do not use fieldset and legend for a single check.</li>
+      <li>The custom checkboxes here are accessible to screen readers because the default checkboxes are moved off-screen with <code>position: absolute; left: -999em</code>.</li>
+      <li>Each input should have a semantic <code>id</code> attribute, and its corresponding label should have the same value in it’s <code>for</code> attribute.</li>
+      <li>The <code>title</code> attribute can replace <code>&lt;label&gt;</code>.</li>
     </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
 
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>When a user can select any number of choices from a set list. </li>
+      <li>When a user needs to choose “yes” or “no” on only one option (use a stand-alone checkbox). For example, to toggle a setting on or off.</li>
+      <li>When users need to see all the available options at a glance. </li>
     </ul>
     <h5>When to consider something different</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>If there are too many options to display on a mobile screen.</li>
+      <li>If a user can only select one option from a list (use radio buttons instead).</li>
     </ul>
     <h5>Guidelines</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Users should be able to tap on or click on either the text label or the checkbox to select or deselect an option.</li>
+      <li>List options vertically if possible; horizontal listings can make it difficult to tell which label pertains to which checkbox.</li>
+      <li>Avoid using negative language in labels as they can be counterintuitive. For example, “I want to receive a promotional email” instead of “I don’t want to receive promotional email.”</li>
+      <li>If you customize, make sure selections are adequately spaced for touch screen.</li>
     </ul>
   </div>
 </div>
 
-<h2 class="usa-heading">Radio buttons</h2>
+<h2 class="usa-heading" id="radiobuttons">Radio buttons</h2>
+<p class="usa-font-lead">Radio buttons allow users to see all available choices at once and select exactly one option.</p>
 
 <div class="preview">
 
@@ -233,37 +228,37 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
+    <p>If you customize the radio buttons, ensure they continue to meet the the <a href="{{ site.baseurl }}/form-controls/"> accessibility requirements that apply to all form controls.</a></p>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Group related radio buttons together with <code>&lt;fieldset></code> and describe the group with <code>&lt;legend&gt;</code>.</li>
+      <li>Each radio button should have a <code>&lt;label&gt;</code>. Associate the two by matching the <code>&lt;label&gt;</code>’s for attribute to the <code>&lt;input&gt;</code>’s <code>id</code> attribute. </li>
+      <li>The <code>title</code> attribute can replace <code>&lt;label&gt;</code>. </li>
     </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
 
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>When users need to select only one option out of a set of mutually exclusive choices.</li>
+      <li>When the number of available options can fit onto a mobile screen.</li>
     </ul>
-    <h5>When to consider something different</h5>
+    <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Consider checkboxes if  users need to select more than one option or if there is only one item to select.</li>
+      <li>Consider a  dropdown if you don’t have enough space to list out all available options.</li>
+      <li>If users should be able to select zero of the options.</li>
     </ul>
-    <h5>Guidelines</h5>
+    <h5>Guidance</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Users should be able to tap on or click on either the text "label" or the radio button to select or deselect an option.</li>
+      <li>Options that are listed vertically are easier to read than those that are listed horizontally. Horizontal listings can make it difficult to tell which label pertains to which radio button. </li>
+      <li>If you customize, make sure selections are adequately spaced for touch screens.</li>
+      <li>Use caution if you decide to set a default value. Setting a default value can discourage users from making conscious decisions, seem pushy, or alienate users who don’t fit into your assumptions. If you are unsure, leave nothing selected by default.</li>
     </ul>
   </div>
 </div>
 
 <h2 class="usa-heading" id="date-input">Date input</h2>
+<p class="usa-font-lead">Three text fields are the easiest way for users to enter most dates. </p>
 
 <div class="preview">
 
@@ -274,19 +269,18 @@ lead: Intro text on what is included in this section and how to use it. No more 
     <div class="usa-date-of-birth">
       <div class="usa-datefield usa-form-group usa-form-group-month">
         <label for="date_of_birth_1">Month</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="text" value="" maxlength="2">
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="number" value="" maxlength="2">
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-day">
         <label for="date_of_birth_2">Day</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_2" name="date_of_birth_2" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="text" value="" maxlength="2">
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_2" name="date_of_birth_2" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="number" value="" maxlength="2">
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-year">
         <label for="date_of_birth_3">Year</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3" name="date_of_birth_3" pattern="[0-9]{4}" type="text" value="" maxlength="4">
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3" name="date_of_birth_3" pattern="[0-9]{4}" type="number" value="" maxlength="4">
       </div>
     </div>
   </fieldset>
-
 </div>
 
 <div class="usa-accordion-bordered usa-accordion-docs">
@@ -296,78 +290,24 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>These text fields should follow the <a href="{{ site.baseurl }}/form-controls/#text-inputs"> accessibility guidelines for all text inputs.</a> </li>
+      <li>Do not use JavaScript to auto advance the focus from one field to the next. This makes it difficult for keyboard-only users to navigate and correct mistakes. </li>
     </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
 
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Use this format for most dates, particularly memorized dates. </li>
     </ul>
-    <h5>When to consider something different</h5>
+    <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>If users are trying to schedule something, a calendar picker might make more sense. Be sure to also provide an option for text entry as well.</li>
     </ul>
     <h5>Guidelines</h5>
     <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-  </div>
-</div>
-
-<h2 class="usa-heading" id="range-slider">Range slider</h2>
-
-<div class="preview">
-
-  <label for="range-slider">Range Slider Label h4</label>
-  <input id="range-slider" type="range" min="0" max="100">
-
-</div>
-
-<div class="usa-accordion-bordered usa-accordion-docs">
-  <button class="usa-button-unstyled usa-accordion-button"
-      aria-expanded="true" aria-controls="collapsible-0">
-    Documentation
-  </button>
-  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
-
-    <h4 class="usa-heading">Usability</h4>
-    <h5>When to use</h5>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    <h5>When to consider something different</h5>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    <h5>Guidelines</h5>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>Be sure each field is properly labeled—some countries enter dates in day, month, year order.</li>
+      <li>It may be tempting to switch all or some of these text fields to drop downs, but these tend to be more difficult to use than text boxes.</li>
     </ul>
   </div>
 </div>

@@ -1,4 +1,7 @@
 .usa-alert {
+  @include media($medium-screen) {
+    background-size: 5.2rem;
+  }
   background-color: #eeeeee;  
   background-position: 1rem 2rem;
   background-repeat: no-repeat;
@@ -12,10 +15,6 @@
       top: 1em;
     }
   }
-
-  @include media($medium-screen) {
-    background-size: 5.2rem;
-  }
 }
 
 .usa-alert-icon {
@@ -24,13 +23,12 @@
 }
 
 .usa-alert-body {
-  display: table-cell;
-  padding-left: 3.5rem;
-  vertical-align: top;
-
   @include media($medium-screen) {
     padding-left: 5rem;
   }
+  display: table-cell;
+  padding-left: 3.5rem;
+  vertical-align: top;
 }
 
 .usa-alert-heading {

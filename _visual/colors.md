@@ -4,15 +4,20 @@ title: Colors
 order: 02
 ---
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
+<p>A flexible yet distinctly American palette, designed to communicate warmth and trustworthiness while meeting the highest standards of 508 color contrast requirements.</p>
+
+<a class="usa-button usa-button-primary-alt" href="{{ site.baseurl }}/assets/releases/wds-design-v0.8.zip">Download the design files</a>
+<p class="usa-text-small">Download a zip file with font files and color swatches.</p>
 
 <h3 class="usa-heading" id="palette">Palette</h3>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
+<p>This palette is designed to support a range of distinct visual styles that  continue to feel connected. The intent of the palette is to convey a warm and open American spirit, with bright saturated tints of blue and red, grounded in sophisticated deeper shades of cool blues and grays. These colors—combined with clear hierarchy, good information design, and ample white space—should leave users feeling welcomed and in good hands.</p>
+
+<p>This is a simple, minimalist color palette. Shades of blue dominate, providing a neutral backdrop on which brighter shades, clean type treatment and bright white content areas "pop" on the page.</p>
 
 <h4 class="usa-heading">Primary colors</h4>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
+<p>This palette’s primary colors are blue, gray and white. Blue is commonly associated with trust, confidence, and sincerity; it is also used to represent calmness and responsibility.</p>
 
 <div class="usa-grid-full usa-color-row usa-primary-color-section">
   <div class="usa-color-square usa-color-primary">
@@ -64,7 +69,7 @@ order: 02
 
 <h4 class="usa-heading">Secondary colors</h4>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
+<p>These are accent colors to provide additional lightness and style to pages looking for a more modern flair.  These colors should be used to highlight important features on a page, such as buttons, or for visual style elements, such as illustrations. They should be used sparingly and never draw the eye to more than one piece of information at a time.</p>
 
 <div class="usa-grid-full usa-color-row">
   <div class="color-big">
@@ -134,7 +139,7 @@ order: 02
 
 <h4 class="usa-heading">Background colors</h4>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
+<p>These colors are used largely for background blocks and large content areas. When alternating between tones, be sure to use enough contrast between adjacent colors.</p>
 
 <div class="usa-grid-full usa-color-row">
   <div class="color-big">
@@ -201,7 +206,7 @@ order: 02
 
 <h4 class="usa-heading">Tertiary colors</h4>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
+<p>These colors are used primarily for content-specific needs, such as alerts and illustrations. They should never overpower the primary colors.</p>
 
 <div class="usa-grid-full usa-color-row">
   <div class="color-big">
@@ -284,9 +289,7 @@ order: 02
   </div>
 </div>
 
-<h4 class="usa-heading">Focus colors</h4>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
+<h4 class="usa-heading">Special state colors</h4>
 
 <div class="usa-grid-full usa-color-row">
   <div class="color-big">
@@ -307,12 +310,10 @@ order: 02
 </div>
 
 <h3 class="usa-heading" id="text-accessibility">Text Accessibility</h3>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi enim mauris, placerat ac convallis ut, tincidunt at erat. Mauris et dui et ligula viverra venenatis dignissim nec neque. Integer sit amet nibh ac nisi dapibus efficitur. Etiam egestas a arcu vitae dictum. Integer quis porta orci, luctus pulvinar erat. Sed elementum justo at egestas tincidunt. Quisque tristique sem at ipsum dapibus varius.</p>
-
+<p>WCA (Web Content Accessibility) standards ensure that content is accessible by everyone, regardless of disability or user device. To meet these standards, text and interactive elements should have a color contrast ratio of <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">at least 4.5:1</a>. This ensures that viewers who cannot see the full color spectrum are able to read the text.</p>
+<p>The options below offer color palette combinations that fall within the range of Section 508 compliant foreground/background color contrast ratios. To ensure that text remains accessible,  use only these permitted color combinations.</p>
+<p>If you choose to customize beyond this palette, this <a href="http://webaim.org/resources/contrastchecker/">color contrast tool</a> is a useful resource for testing the compliance of any color combination.</p>
 <h4 class="usa-heading">Fully accessible combinations</h4>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur placerat ultrices.</p>
 
 <h5>Colors on a white background</h5>
 
@@ -367,7 +368,7 @@ order: 02
 
 <h5>Neutrals on a colored background</h5>
 
-<div class="usa-grid-full usa-color-bg-example">
+<div class="usa-grid-full">
   <div class="usa-width-one-half">
     <div class="usa-color-text usa-color-base usa-color-text-white">
       white on base
@@ -458,42 +459,5 @@ order: 02
     <div class="usa-color-text usa-color-secondary-lightest">
       base on secondary-lightest
     </div>
-  </div>
-</div>
-
-<div class="usa-accordion-bordered usa-accordion-docs">
-  <button class="usa-button-unstyled usa-accordion-button"
-      aria-expanded="true" aria-controls="collapsible-0">
-    Documentation
-  </button>
-  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h4>
-    <p>As you customize this form template, ensure it continues to follow the:</p>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    <p>There are no other specific accessibility guidelines for this form template.</p>
-
-    <h4 class="usa-heading">Usability</h4>
-    <h5>When to use</h5>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    <h5>When to consider something different</h5>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    <h5>Guidelines</h5>
-    <ul class="usa-content-list">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
   </div>
 </div>

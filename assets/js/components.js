@@ -291,7 +291,7 @@ function toggleMultiPassword($el) {
   $el.on('click', function(ev) {
     ev.preventDefault();
     toggleFieldMask($fields, showing);
-    $el.text(showing ? 'Show My Typing' : 'Hide My Typing');
+    $el.text(showing ? 'Show my typing' : 'Hide my typing');
     showing = !showing;
   });
 }
@@ -319,10 +319,10 @@ function validator($el) {
             validatorName.toLowerCase() + ']');
 
         if (!validatorPattern.test($el.val())) {
-          $validatorCheckbox.toggleClass('usa-check_list-checked', false);
+          $validatorCheckbox.toggleClass('usa-checklist-checked', false);
         }
         else {
-          $validatorCheckbox.toggleClass('usa-check_list-checked', true);
+          $validatorCheckbox.toggleClass('usa-checklist-checked', true);
         }
       }
     }
@@ -361,10 +361,18 @@ $(function() {
     footerAccordion();
   });
 
+  // Fixing skip nav focus behavior in chrome
+  $('.skipnav').click(function(){
+    $('#main-content').attr('tabindex','0');
+  });
+
+  $('#main-content').blur(function(){
+    $(this).attr('tabindex','-1');
+  });
+
   togglePassword($('.usa-show_password'));
   toggleMultiPassword($('.usa-show_multipassword'));
   toggleSSN($('.usa-show_ssn'));
   validator($('.js-validate_password'));
 
 });
-

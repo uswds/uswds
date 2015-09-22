@@ -34,29 +34,42 @@ select  {
   }
 
   &.usa-input-success {
-    border: 3px solid $color-green;
+    border: 3px solid $color-green-light;
   }
 }
 
 .usa-input-error {
   border-left: 4px solid $color-secondary-dark;
-  font-size: $base-font-size;
   margin-top: 3rem;
-  padding: .5em 1.5rem; 
+  padding: {
+    bottom: .8rem;
+    left: 1.5rem;
+    top: .8rem;
+  }
   position: relative;
-  right: 1.5rem;
+  right: 1.9rem;
+  
   input {
     border: 3px solid $color-secondary-dark;
+    width: calc(100% + 1.5rem);
   }
+  
   label {
     margin-top: 0;
   }
+}
+
+.usa-input-error-label {
+  display: block;
+  font-size: $base-font-size;
+  font-weight: $font-bold;
 }
 
 .usa-input-error-message {
   color: $color-secondary-dark;
   display: block;
   font-size: $base-font-size;
+  font-weight: $font-bold;
   padding: {
     bottom: 3px;
     top: 3px;
@@ -151,6 +164,10 @@ input[type="radio"]:checked + label::before {
 
 input[type="radio"]:checked + label::before {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary; 
+}
+
+input[type="radio"]:focus + label::before {
+  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary, 0 0 3px 4px $color-focus, 0 0 7px 4px $color-focus;
 }
 
 input[type="checkbox"]:checked + label::before {
@@ -297,4 +314,3 @@ input[type=range]:focus::-ms-thumb {
 .usa-form-group-year {
   width: 7rem;
 }
-

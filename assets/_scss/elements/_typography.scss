@@ -19,14 +19,20 @@ a {
   color: $color-primary;
   text-decoration: none;
 
-  &:hover, &:active {
+  &:hover, 
+  &:active {
     color: $color-primary-darker;
     text-decoration: underline;
   }
 
   &:visited {
     color: $color-visited;
-  }  
+  }
+
+  &:focus {
+    box-shadow: $focus-shadow;
+    outline: 0;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -113,12 +119,6 @@ dfn {
 
 // Custom typography
 
-p {
-  a {
-    text-decoration: underline;
-  }
-}
-
 .usa-content {
   p {
     max-width: $text-max-width;
@@ -129,12 +129,29 @@ p {
   max-width: $text-max-width;
 }
 
-.usa-sans,
-.usa-sans p,
-.usa-sans a, 
-.usa-sans li,
-.usa-sans span {
-  font-family: $font-sans;
+p, 
+.usa-content-list {
+  a {
+    text-decoration: underline;
+  }
+}
+
+.usa-sans {
+  p, 
+  a, 
+  li, 
+  span {
+    font-family: $font-sans;
+  }
+}
+
+.usa-serif {
+  p, 
+  a, 
+  li, 
+  span {
+    font-family: $font-serif;
+  }
 }
 
 .usa-sans a {
@@ -142,25 +159,23 @@ p {
   font-weight: $font-bold;
 }
 
-.usa-serif {
-  font-family: $font-serif; 
-}
-
 .usa-display {
   @include h3();
   margin-bottom: 0;
 
-  @media (min-width: $small-screen) {
+  @include media($small-screen) {
     @include h1();
   }
 
-  @media (min-width: $medium-screen) {
+  @include media($medium-screen) {
     @include title();
   }
 }
 
 .usa-font-lead {
   font-size: $lead-font-size;
+  font-family: $font-serif;
+  line-height: $lead-line-height;
 }
 
 .usa-image-block {

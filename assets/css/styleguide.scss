@@ -3,8 +3,6 @@
 
 // Imports -------------- //
 
-@import 'lib/bourbon/bourbon';
-@import 'lib/neat/neat';
 @import 'all';
 
 // Variables -------------- //
@@ -14,51 +12,7 @@ $color-grid-dark:    #727272;
 $color-grid-light:   #e3e4e5;
 $site-top:           124px;
 
-// Generic -------------- //
-
-.tablet-only {
-  @media (min-width: $medium-screen + $width-nav-sidebar) {
-    display: none !important;
-  }
-}
-
 // Navigation ------------- //
-
-a#skipnav {
-  padding: 10px 15px;
-  position: absolute;
-  top: -44px;
-  left: 0px;
-  color: $color-base;
-  background: transparent;
-  @include transition(top 1s ease-out, background 1s linear);
-  z-index: 100;
-  &:focus {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    background: white;
-    outline: 0;
-    @include transition(top .1s ease-in, background .5s linear);
-  }
-}
-
-:target:before {
-  content: "";
-  display: block;
-  height: 75px;
-  margin-top: -75px;
-
-  @include media($medium-screen) {
-    height: 90px;
-    margin-top: -90px;
-  }
-
-  @include media($medium-screen + $width-nav-sidebar) {
-    height: $site-top;
-    margin-top: -$site-top;
-  }
-}
 
 .usa-site-header {
   background-color: $color-white;
@@ -74,31 +28,45 @@ a#skipnav {
   }
 
   .usa-site-navbar {
-    @include media($medium-screen) {
+    @include media($medium-screen + $width-nav-sidebar) {
       height: 6rem;
       margin: {
         bottom: 1rem;
         top: 2.7rem;
       }
     }
+    margin-top: 4px;
 
     .logo {
+      @include media($medium-screen + $width-nav-sidebar) {
         padding-left: $site-margins;
+        text-align: left; 
+        padding-top: 0;
+        width: auto;
       }
+      float: left;
+      text-align: center;
+      padding-top: 1.3rem;
+      width: 70%;
+
+      a {
+        color: $color-gray;
+
+        &:hover {
+          color: $color-gray-dark;
+          text-decoration: none;
+        }
+      }
+    }
 
     h1 {
-      @include media($medium-screen) {
-
-        max-width: 20rem;
-      }
-      color: $color-gray;
-      float: left;
-      margin: 0;
-      font-size: $base-font-size * 1.25;
-      display: none;
       @include media($medium-screen + $width-nav-sidebar) {
         display: block;
+        font-size: $h3-font-size;
+        margin-top: .9rem;
       }
+      margin: 0;
+      font-size: $h5-font-size;
     }
 
     .usa-button-list {
@@ -150,11 +118,29 @@ a#skipnav {
 
 }
 
-#menu-btn {
-  display: inline;
-  padding-left: 20px;
+.menu-btn {
   @include media($medium-screen + $width-nav-sidebar) {
     display: none;
+  }
+  display: inline;
+  float: left;
+  margin-top: -4px;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  color: $color-white;
+  background-color: $color-primary;
+  font-size: 1.5rem;
+  width: 15%;
+  text-align: center;
+
+  &:hover {
+    text-decoration: none;
+    color: $color-white;
+    background-color: $color-primary-darker;
+  }
+  
+  &:visited {
+    color: $color-white;
   }
 }
 
@@ -959,13 +945,14 @@ code[class*="language-"], pre[class*="language-"] {
   }
 }
 
-.usa-color-bg-example {
-  margin-bottom: 3rem;
-}
-
 // Alt font styles
 
 $font-light: 300;
+
+@mixin font-lead-alt {
+  font-size: $base-font-size;
+  font-weight: $font-normal;
+}
 
 .serif-robust {
   .usa-display-alt {
@@ -974,12 +961,29 @@ $font-light: 300;
   }
 
   .usa-font-lead {
-    font-family: $font-serif;
-    font-size: $h3-font-size;
+    font-weight: $font-light;
+  }
+  
+  .usa-font-lead.usa-font-lead-alt {
+    @include font-lead-alt();
   }
 
-  .usa-font-lead-alt {
-    font-size: $h5-font-size;
+  &.serif-body {
+    .usa-font-example {
+      p {
+        font-family: $font-serif;
+        font-size: rem(15px);
+        line-height: $lead-line-height;
+      }
+
+      .usa-font-lead {
+        font-size: $h3-font-size;
+      }
+    
+      .usa-font-lead.usa-font-lead-alt {
+        @include font-lead-alt();
+      }
+    }
   }
 }
 
@@ -1018,17 +1022,30 @@ $font-light: 300;
 
   .usa-display-alt {
     font-size: rem(44px);
+    font-weight: $font-light;
   }
 
   .usa-font-lead {
+    font-family: $font-sans;
     font-size: rem(22px);
+    font-weight: $font-light;
+    line-height: $base-line-height;
   }
 
   &.serif-body {
-    .usa-font-example p {
-      font-family: $font-serif;
-      font-size: rem(15px);
-      line-height: 1.7;
+    .usa-font-example {
+      p {
+        font-family: $font-serif;
+        font-size: rem(15px);
+        line-height: $lead-line-height;
+      }
+
+      .usa-font-lead {
+        font-family: $font-sans;
+        font-size: rem(22px);
+        font-weight: $font-light;
+        line-height: $base-line-height;
+      }      
     }
   }
 }
@@ -1041,4 +1058,17 @@ $font-light: 300;
 
 .usa-accordion-docs {
   margin-bottom: 6rem;
+}
+
+// This adds styleguide-only right and left margins for our disclaimer 
+// Since the layout we use is not in a grid
+.usa-disclaimer-stage {
+  padding-right: $site-margins;
+}
+
+.usa-disclaimer-official {
+  @include media($medium-screen) {
+    padding-left: $site-margins;
+  }
+  padding-left: 2rem;
 }
