@@ -6,6 +6,9 @@ order: 01
 
 <p>U.S. government websites have common typographic needs: clear and consistent headings, highly legible body paragraphs, clear labels, and easy-to-use input fields.  We recommend a font system that uses two open-source font families: Source Sans Pro and Merriweather, both of which are designed for legibility and can beautifully adapt to a variety of visual styles.</p>
 
+<a class="usa-button usa-button-primary-alt" href="#">Download the style files?</a>
+<p class="usa-text-small">Info about what files to expect when you download.</p>
+
 <h3 class="usa-heading" id="typefaces">Typefaces</h3>
 
 <h4 class="usa-heading-alt">Source Sans Pro</h4>
@@ -43,9 +46,6 @@ order: 01
     </div>
   </div>
 </div>
-
-<a class="usa-button usa-button-primary-alt" href="#">Download the style files?</a>
-<p class="usa-text-small">Info about what files to expect when you download.</p>
 
 <h3 class="usa-heading" id="pairings">Pairings + Styles</h3>
 <p>To support both more contemporary and more traditional web design aesthetics, this font system offers recommended font pairings. Each pairing includes web hierarchy guidance on font family, weight, size, and spacing which express either more modern or more classical type design.</p>
