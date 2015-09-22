@@ -67,7 +67,7 @@ lead: A block that allows users to search for specific content if they know what
       <li>As you customize this form template, ensure it continues to follow the <a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and the <a href="{{ site.baseurl }}/elements/#inputs">accessibility guidelines for form controls</a>.</li>
     </ul>
     <ul class="usa-content-list">
-      <li>Always include the word "search" inside the <code>&lt;button&gt;</code> element for screen readers. You can visually hide this text using the CSS class <code>usa-sr-only</code> or Sass mixin <code>@include sr-only</code>.
+      <li>Always include the word "search" inside the <code>&lt;button&gt;</code> element for screen readers. You can visually hide this text using the CSS class <code>usa-sr-only</code> or Sass mixin <code>@include sr-only;</code>.
     </ul>
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
