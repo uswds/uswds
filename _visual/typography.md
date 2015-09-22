@@ -1044,7 +1044,7 @@ order: 01
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
   <h4 class="usa-heading">Implementation</h4>
-  <p>Lists are styled by default. For unstyled lists, use either the <code>usa-unstyled-list</code> class or unstyled list mixin: <code>@include unstyled-list;</code>. Both are located in <code>assets/_scss/core/variables.scss</code>.</p>
+  <p>Lists are styled by default. For unstyled lists, use either the <code>usa-unstyled-list</code> class or unstyled list mixin: <code>@include unstyled-list;</code>. Both are located in <code>assets/_scss/core/utilities.scss</code>.</p>
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
