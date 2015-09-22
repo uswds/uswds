@@ -126,8 +126,8 @@ lead:  This 12 column responsive grid provides structure for website content.
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Implementation</h4>
     <p>To use the grid, wrap each grid row in a <code>div</code> with the <code>usa-grid</code> class. To use a grid without padding on the right and left, use the <code>usa-grid-full</code> class instead.</p>
-    <p>Each width class is written semantically by the fractions used. For example <code>usa-width-one-half</code> = 1/2 grid, <code>usa-width-two-thirds</code> = 2/3</p>
-    <p>Medium breakpoints are used for 1/6 and 1/12 grids which both transform into 1/3 at medium screen sizes.</p> 
+    <p>Each grid item is written semantically by its width. For example: <code>usa-width-one-half</code> = 1/2 grid item, <code>usa-width-two-thirds</code> = 2/3 grid item.</p>
+    <p>Medium breakpoints are used for 1/6 and 1/12 grid items, which both transform into a 1/3 grid item at medium screen sizes.</p> 
     <p>All grid items are full-width at small screen sizes.</p>
     <h4 class="usa-heading">Accessibility</h3>
     <ul class="usa-content-list">
