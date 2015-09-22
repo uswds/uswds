@@ -77,7 +77,7 @@ order: 01
             <h6 class="usa-heading-alt">Example</h6>
             <p>
               <a href="{{ site.baseurl }}/assets-styleguide/img/epa-emanifest-screenshot.png">
-                <img src="{{ site.baseurl }}/assets-styleguide/img/default_example_emanifest.png" alt="EPA eManifest example"><br>EPA eManifest  (screenshot of non-public site)
+                <img class="usa-pairing-example-img" src="{{ site.baseurl }}/assets-styleguide/img/default_example_emanifest.png" alt="EPA eManifest example"><br>EPA eManifest  (screenshot of non-public site)
               </a>
             </p>
           </aside>
@@ -232,7 +232,7 @@ order: 01
             <h6 class="usa-heading-alt">Example</h6>
             <p>
               <a href="/">
-                <img src="{{ site.baseurl }}/assets-styleguide/img/robust_example_standardshome.png" alt="U.S. Web Design Standards homepage example"><br>U.S. Web Design Standards homepage
+                <img class="usa-pairing-example-img" src="{{ site.baseurl }}/assets-styleguide/img/robust_example_standardshome.png" alt="U.S. Web Design Standards homepage example"><br>U.S. Web Design Standards homepage
               </a>
             </p>
           </aside>
@@ -410,7 +410,7 @@ order: 01
             <h6 class="usa-heading-alt">Example</h6>
             <p>
               <a href="http://playbook.cio.gov">
-                <img src="{{ site.baseurl }}/assets-styleguide/img/merriweatheronly_example_playbook.png" alt="U.S. Digital Service Playbook example"><br>U.S. Digital Service Playbook
+                <img class="usa-pairing-example-img" src="{{ site.baseurl }}/assets-styleguide/img/merriweatheronly_example_playbook.png" alt="U.S. Digital Service Playbook example"><br>U.S. Digital Service Playbook
               </a>
             </p>
           </aside>
@@ -747,7 +747,7 @@ order: 01
             <h6 class="usa-heading-alt">Example</h6>
             <p>
               <a href="{{ site.baseurl }}/assets-styleguide/img/va-appeals-screenshot.png">
-                <img src="{{ site.baseurl }}/assets-styleguide/img/default_example_emanifest.png" alt="Veterans Affairs appeals review example"><br>Department of Veterans Affairs appeals review (screenshot of non-public site)
+                <img class="usa-pairing-example-img" src="{{ site.baseurl }}/assets-styleguide/img/default_example_emanifest.png" alt="Veterans Affairs appeals review example"><br>Department of Veterans Affairs appeals review (screenshot of non-public site)
               </a>
             </p>
           </aside>
