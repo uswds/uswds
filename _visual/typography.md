@@ -74,15 +74,8 @@ order: 01
             <h6 class="usa-heading-alt">Page Performance</h6>
             <p><span class="usa-label-big">Fast</span></p>
             <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
-            <h6 class="usa-heading-alt">Examples</h6>
-            <ul>
-              <li>
-                <a href="http://website.gov">website.gov</a>
-              </li>
-              <li>
-                <a href="http://anotherwebsite.gov">anotherwebsite.gov</a>
-              </li>
-            </ul>
+            <h6 class="usa-heading-alt">Example</h6>
+            <p><a href="{{ site.baseurl }}/assets-styleguide/img/epa-emanifest-screenshot.png">EPA eManifest  (screenshot of non-public site)</a></p>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
@@ -232,15 +225,8 @@ order: 01
             <h6 class="usa-heading-alt">Page Performance</h6>
             <p><span class="usa-label-big">Medium</span></p>
             <p>Exceeds ideal number of fonts by one. May negatively impact page load performance.</p>
-            <h6 class="usa-heading-alt">Examples</h6>
-            <ul>
-              <li>
-                <a href="http://website.gov">website.gov</a>
-              </li>
-              <li>
-                <a href="http://anotherwebsite.gov">anotherwebsite.gov</a>
-              </li>
-            </ul>
+            <h6 class="usa-heading-alt">Example</h6>
+            <p><a href="/">U.S. Web Design Standards homepage</a></p>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
@@ -413,15 +399,8 @@ order: 01
             <h6 class="usa-heading-alt">Page Performance</h6>
             <p><span class="usa-label-big">Medium</span></p>
             <p>Exceeds ideal number of fonts by two. May negatively impact page load performance.</p>
-            <h6 class="usa-heading-alt">Examples</h6>
-            <ul>
-              <li>
-                <a href="http://website.gov">website.gov</a>
-              </li>
-              <li>
-                <a href="http://anotherwebsite.gov">anotherwebsite.gov</a>
-              </li>
-            </ul>
+            <h6 class="usa-heading-alt">Example</h6>
+            <p><a href="http://playbook.cio.gov">U.S. Digital Service Playbook</a></p>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
@@ -594,15 +573,6 @@ order: 01
             <h6 class="usa-heading-alt">Page Performance</h6>
             <p><span class="usa-label-big">Medium</span></p>
             <p>Exceeds ideal number of fonts by two. May negatively impact page load performance.</p>
-            <h6 class="usa-heading-alt">Examples</h6>
-            <ul>
-              <li>
-                <a href="http://website.gov">website.gov</a>
-              </li>
-              <li>
-                <a href="http://anotherwebsite.gov">anotherwebsite.gov</a>
-              </li>
-            </ul>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
@@ -762,18 +732,10 @@ order: 01
             <h6 class="usa-heading-alt">Page Performance</h6>
             <p><span class="usa-label-big">Fast</span></p>
             <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
-            <h6 class="usa-heading-alt">Examples</h6>
-            <ul>
-              <li>
-                <a href="http://website.gov">website.gov</a>
-              </li>
-              <li>
-                <a href="http://anotherwebsite.gov">anotherwebsite.gov</a>
-              </li>
-            </ul>
+            <h6 class="usa-heading-alt">Example</h6>
+            <a href="{{ site.baseurl }}/assets-styleguide/img/va-appeals-screenshot.png">Department of Veterans Affairs appeals review (screenshot of non-public site)</a>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
-
         </div>
         
         <div class="sans-style usa-grid usa-typography-example-font">
