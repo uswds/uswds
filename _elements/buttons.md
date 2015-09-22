@@ -84,7 +84,7 @@ lead: Use buttons to signal actions.
     <p>For example, a secondary button style would use the following code:
     <code>&lt;a class="usa-button usa-button-secondary" href="/my-link"&gt;My button&lt;/a&gt;</code></p>
     <h4 class="usa-heading">Accessibility</h4>
-    <ul>
+    <ul class="usa-content-list">
       <li>Buttons should display a visible focus state when users tab to them.</li>
       <li>Avoid using <code>&lt;div&gt;</code> or <code>&lt;img&gt;</code> tags to create buttons. Screen readers don't automatically know either is an usable button.</li>
       <li>When styling links to look like buttons, remember that screen readers handle links slightly differently than they do buttons. Pressing the Space key triggers a button, but pressing the Enter key triggers a link.</li>
