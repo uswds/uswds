@@ -2,12 +2,25 @@
 
 [![Build Status](https://api.travis-ci.org/18F/web-design-standards.svg?branch=18f-pages-staging)](https://travis-ci.org/18F/web-design-standards)
 
-This is the repo for the U.S. Web Design Standards project.
-The structural setup of this repo is based off of the 18F pages project: 
-[https://github.com/18F/pages](https://github.com/18F/pages)
+The [U.S. Web Design Standards](https://playbook.cio.gov/designstandards) is a library of open source UI components and a visual style guide for U.S. federal government websites.
+
+The standards are built on the highest standards of 508 compliance, reuse best practices of existing style libraries, and follow modern web design techniques to guide us in creating beautiful and easy-to-use online experiences for the American people. Created and maintained by a team of [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov) designers and developers, the Web Design Standards are designed for government product teams. Learn more about this project in our announcement [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/).
+
+Design files of all the assets included on this site are available for download here: [https://github.com/18F/web-design-standards-assets](https://github.com/18F/web-design-standards-assets).
+
+The structural setup of this repo is based off of [https://github.com/18F/pages](https://github.com/18F/pages)
+
+### Reuse of open source style guides
+
+Much of the guidance in Web Design Standards leans on open source designs, code, and patterns from other civic and government organizations, including:
+- The Consumer Financial Protection Bureau’s [Design Manual](https://cfpb.github.io/design-manual/)
+- U.S. Patent and Trademark Office’s [Design Patterns](http://uspto.github.io/designpatterns/)
+- The Healthcare.gov [Style Guide](http://styleguide.healthcare.gov/)
+- The UK’s Government Digital Service’s [UI Elements](http://govuk-elements.herokuapp.com/)
+- Code for America’s [Chime Styleguide](https://github.com/chimecms/chime-starter)
+- Pivotal Labs [Component Library](http://styleguide.cfapps.io/)
 
 ## Getting started
-Warning! This library is currently not ready for use as it is being actively developed.
 
 To begin using the U.S. Web Design Standards, include the CSS and JavaScript files in each HTML page of your project. Copy the full `_site/assets/` directory to a relevant place in your code base `cp ./_site/assets/css/main.css /path/to/your/repo/static/dir`. Add the following `<link>` and `<script>` elements in your HTML:
 
