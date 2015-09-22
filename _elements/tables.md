@@ -105,7 +105,7 @@ lead: Tables show tabular data in columns and rows.
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
-      <li>Simple tables can have two levels of headers. Each header cell should have <code>scope='col'</code> or <code>scope='row'</code>.</li>
+      <li>Simple tables can have two levels of headers. Each header cell should have <code>scope=<wbr>'col'</code> or <code>scope=<wbr>'row'</code>.</li>
       <li>Complex tables are tables with more than two levels of headers. Each header should be given a unique <code>id</code> and each data cell should have a <code>headers</code> attribute with each related header cell’s <code>id</code> listed.</li>
     </ul>
     
