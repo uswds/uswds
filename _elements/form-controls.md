@@ -10,7 +10,7 @@ lead: Form controls allow users to enter information into a page.
 <p>As you customize form controls from this library, be sure they continue to meet the following accessibility requirements:</p>
 
 <ul class="usa-content-list">
-  <li>All form control tags should have an associated label. The labels for attribute value should match the related input <code>id</code> attribute and should also be unique to the entire page. For example, the input with <code>id=<wbr>"favorite-pie"</code> will always have a label with <code>for=<wbr>"favorite-pie"</code>. This way screen readers are able to perceive the relevant content.</li>
+  <li>All form control tags should have an associated label. The labels for attribute value should match the related input <code>id</code> attribute and should also be unique to the entire page. For example, the input with <code>id=<wbr>"favorite-national-park"</code> will always have a label with <code>for=<wbr>"favorite-national-park"</code>. This way screen readers are able to perceive the relevant content.</li>
   <li>Any additional information—such as required, optional, or example text—should be wrapped within the label tags. For example: <code>&lt;label for=<wbr>"name"&gt;Favorite Pie &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;</code>. This way screen readers know what additional information is related to each field.</li>
   <li>Do not replace <code>&lt;input&gt;</code> tag-based form controls with styled <code>&lt;div&gt;</code> tags, or use JavaScript to create 'fake' form controls. Screen readers have a difficult time reading form controls that are not written in semantic HTML.</li>
   <li>If you adjust the color scheme of the buttons, ensure a minimum contrast ratio of 4.5:1 (for small text, 3:1 for large) for all states of the button. This includes default, hover, selected, and disabled.</li>
@@ -131,24 +131,24 @@ lead: Form controls allow users to enter information into a page.
 
   <fieldset class="usa-fieldset-inputs usa-sans">
 
-    <legend class="usa-sr-only">Best pies</legend>
+    <legend class="usa-sr-only">Historical figures 1</legend>
 
     <ul class="usa-unstyled-list">
       <li>
         <input id="apple-pie" type="checkbox" name="apple-pie" value="apple-pie" tabindex="0" checked />
-        <label for="apple-pie">Apple pie</label>
+        <label for="apple-pie">Sojourner Truth</label>
       </li>
       <li>
         <input id="key-lime-pie" type="checkbox" name="key-lime-pie" value="key-lime-pie" tabindex="0">
-        <label for="key-lime-pie">Key lime</label>
+        <label for="key-lime-pie">Frederick Douglass</label>
       </li>
       <li>
         <input id="peach-pie" type="checkbox" name="peach-pie" value="peach-pie" tabindex="0">
-        <label for="peach-pie">Peach pie</label>
+        <label for="peach-pie">Booker T. Washington</label>
       </li>
       <li>
         <input id="disabled" type="checkbox" disabled />
-        <label for="disabled">Disabled</label>
+        <label for="disabled">George Washington Carver</label>
       </li>
     </ul>
 
@@ -200,20 +200,20 @@ lead: Form controls allow users to enter information into a page.
 
   <fieldset class="usa-fieldset-inputs usa-sans">
 
-    <legend class="usa-sr-only">Best pies</legend>
+    <legend class="usa-sr-only">Historical figures 2</legend>
 
     <ul class="usa-unstyled-list">
       <li>
         <input id="pea-soup" type="radio" checked name="soup" value="pea" tabindex="0">
-        <label for="pea-soup">Pea soup</label>
+        <label for="pea-soup">Elizabeth Cady Stanton</label>
       </li>
       <li>
         <input id="chicken-noodle" type="radio" name="soup" value="chicken-noodle" tabindex="0">
-        <label for="chicken-noodle">Chicken noodle</label>
+        <label for="chicken-noodle">Susan B. Anthony</label>
       </li>
       <li>
         <input id="tomato" type="radio" name="soup" value="tomato" tabindex="0">
-        <label for="tomato">Tomato</label>
+        <label for="tomato">Harriet Tubman</label>
       </li>
     </ul>
 
