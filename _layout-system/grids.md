@@ -66,7 +66,7 @@ lead:  This 12 column responsive grid provides structure for website content.
     </div>
     <div class="usa-width-one-third">
       <h3>One Third</h3>
-      <p>Massachusetts is a state in theNew England region of the northeastern United States. It is bordered by Rhode Island and Connecticutto the south, New York to the west, Vermont and New Hampshire to the north, and the Atlantic Ocean to the east.</p>
+      <p>Massachusetts is a state in the northeastern United States, bordered by Rhode Island and Connecticut to the south, New York to the west, Vermont and New Hampshire to the north, and the Atlantic Ocean to the east.</p>
     </div>
     <div class="usa-width-one-third">
       <h3>One Third</h3>
