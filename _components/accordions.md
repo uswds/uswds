@@ -13,7 +13,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
     <ul class="usa-unstyled-list">
       <li>
         <button class="usa-button-unstyled"
-            aria-expanded="true" aria-controls="collapsible-0">
+          aria-expanded="true" aria-controls="collapsible-0">
           First Amendment
         </button>
         <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
@@ -24,7 +24,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
       </li>
       <li>
         <button class="usa-button-unstyled"
-            aria-expanded="false" aria-controls="collapsible-1">
+          aria-expanded="false" aria-controls="collapsible-1">
           Second Amendment
         </button>
         <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
@@ -46,9 +46,8 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
       </li>
       <li>
         <button class="usa-button-unstyled"
-            aria-expanded="false" aria-controls="collapsible-3">
+          aria-expanded="false" aria-controls="collapsible-3">
           Fourth Amendment
-
         </button>
         <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
           <p>
@@ -58,7 +57,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
       </li>
       <li>
         <button class="usa-button-unstyled"
-            aria-expanded="false" aria-controls="collapsible-4">
+          aria-expanded="false" aria-controls="collapsible-4">
           Fifth Amendment
         </button>
         <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
@@ -76,8 +75,8 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
     <ul class="usa-unstyled-list">
       <li>
         <button class="usa-button-unstyled"
-            aria-expanded="true" aria-controls="collapsible-0">
-            First Amendment
+          aria-expanded="true" aria-controls="collapsible-0">
+          First Amendment
         </button>
         <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
           <p>
@@ -87,7 +86,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
       </li>
       <li>
         <button class="usa-button-unstyled"
-            aria-expanded="false" aria-controls="collapsible-1">
+          aria-expanded="false" aria-controls="collapsible-1">
           Second Amendment
         </button>
         <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
@@ -98,7 +97,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
       </li>
       <li>
         <button class="usa-button-unstyled"
-            aria-expanded="false" aria-controls="collapsible-2">
+          aria-expanded="false" aria-controls="collapsible-2">
           Third Amendment
         </button>
         <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
@@ -109,9 +108,8 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
       </li>
       <li>
         <button class="usa-button-unstyled"
-            aria-expanded="false" aria-controls="collapsible-3">
+          aria-expanded="false" aria-controls="collapsible-3">
           Fourth Amendment
-
         </button>
         <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
           <p>
@@ -121,7 +119,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
       </li>
       <li>
         <button class="usa-button-unstyled"
-            aria-expanded="false" aria-controls="collapsible-4">
+          aria-expanded="false" aria-controls="collapsible-4">
           Fifth Amendment
         </button>
         <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
@@ -137,7 +135,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
 
 <div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
-      aria-expanded="true" aria-controls="collapsible-0">
+    aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
