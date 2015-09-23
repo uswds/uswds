@@ -56,13 +56,13 @@ lead:  This 12 column responsive grid provides structure for website content.
     </div>
     <div class="usa-width-one-half">
       <h3>One Half</h3>
-      <p>Michigan is a state in the Great Lakes region of the Midwestern United States. The name Michigan is the French form of the Ojibwa word mishigamaa, meaning "large water" or "large lake".Michigan is the tenth most populous state, with the 11th most extensive total area (the largest state by total area east of the Mississippi River). Its capital is Lansing, and the largest city is Detroit. Michigan is the only state to consist of two peninsulas. A person in the state is never more than six miles (9.7 km) from a natural water source or more than 85 miles (137 km) from a Great Lakes shoreline.</p>
+      <p>Michigan is a state in the Great Lakes region of the Midwestern United States. The name Michigan is the French form of the Ojibwa word mishigamaa, meaning "large water" or "large lake".Michigan is the tenth most populous state, with the 11th most extensive total area (the largest state by total area east of the Mississippi River). Its capital is Lansing, and the largest city is Detroit. Michigan is the only state to consist of two peninsulas. A person in the state is never more than six miles from a natural water source or 85 miles from a Great Lakes shoreline.</p>
     </div>
   </div>
   <div class="usa-grid usa-grid-example usa-grid-text">
     <div class="usa-width-one-third">
       <h3>One Third</h3>
-      <p>Maryland is a state located in the Mid-Atlantic region of the United States, borderingVirginia, West Virginia, and Washington, D.C. to its south and west; Pennsylvania to its north; and Delaware to its east.</p>
+      <p>Maryland is a state located in the Mid-Atlantic region of the United States, bordering Virginia, West Virginia, and Washington, D.C. to its south and west; Pennsylvania to its north; and Delaware to its east.</p>
     </div>
     <div class="usa-width-one-third">
       <h3>One Third</h3>
@@ -104,7 +104,7 @@ lead:  This 12 column responsive grid provides structure for website content.
   <div class="usa-grid usa-grid-example usa-grid-text">
     <div class="usa-width-one-half">
       <h3>One Half</h3>
-      <p>Virginia is a U.S. state located in the South Atlantic region of the United States. Virginia is nicknamed the "Old Dominion" due to its status as the first colonial possession established in mainland British America, and "Mother of Presidents" because eight U.S. presidents were born there, more than any other state. The geography and climate of the Commonwealth are shaped by the Blue Ridge Mountains and the Chesapeake Bay, which provide habitat for much of its flora and fauna.</p>
+      <p>Virginia, is a U.S. state located in the South Atlantic region of the United States. Virginia, formally the Commonwealth of Virginia, is nicknamed the "Old Dominion" due to its status as the first colonial possession established in mainland British America, and "Mother of Presidents" because eight U.S. presidents were born there, more than any other state. The geography and climate of the Commonwealth are shaped by the Blue Ridge Mountains and the Chesapeake Bay, which provide habitat for much of its flora and fauna.</p>
     </div>
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
