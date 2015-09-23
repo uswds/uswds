@@ -13,10 +13,10 @@ The structural setup of this repo is based off of [https://github.com/18F/pages]
 ### Reuse of open source style guides
 
 Much of the guidance in Web Design Standards leans on open source designs, code, and patterns from other civic and government organizations, including:
-- The Consumer Financial Protection Bureau’s [Design Manual](https://cfpb.github.io/design-manual/)
+- Consumer Financial Protection Bureau’s [Design Manual](https://cfpb.github.io/design-manual/)
 - U.S. Patent and Trademark Office’s [Design Patterns](http://uspto.github.io/designpatterns/)
-- The Healthcare.gov [Style Guide](http://styleguide.healthcare.gov/)
-- The UK’s Government Digital Service’s [UI Elements](http://govuk-elements.herokuapp.com/)
+- Healthcare.gov [Style Guide](http://styleguide.healthcare.gov/)
+- UK’s Government Digital Service’s [UI Elements](http://govuk-elements.herokuapp.com/)
 - Code for America’s [Chime Styleguide](https://github.com/chimecms/chime-starter)
 - Pivotal Labs [Component Library](http://styleguide.cfapps.io/)
 
