@@ -52,7 +52,7 @@ lead:  This 12 column responsive grid provides structure for website content.
   <div class="usa-grid usa-grid-example usa-grid-text">
     <div class="usa-width-one-half">
       <h3>One Half</h3>
-      <p>Georgia is a state located in the southeastern United States. It was established in 1732, the last of the original Thirteen Colonies. Named after King George II of Great Britain, Georgia was the fourth state to ratify the United States Constitution, on January 2, 1788. It declared its secession from the Union on January 19, 1861, and was one of the original seven Confederate states. It was the last state to be restored to the Union, on July 15, 1870. Georgia is the 24th largest and the 8th most populous of the 50 United States.</p>
+      <p>Georgia is a state located in the southeastern United States. It was established in 1732 and was the last of the original Thirteen Colonies. Named after King George II of Great Britain, Georgia was the fourth state to ratify the United States Constitution, on January 2, 1788. Georgia declared its secession from the Union on January 19, 1861, and was one of the original seven Confederate states. Georgia was the last state to be restored to the Union, on July 15, 1870. Georgia is the 24th largest and the 8th most populous of the 50 United States.</p>
     </div>
     <div class="usa-width-one-half">
       <h3>One Half</h3>
