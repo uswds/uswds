@@ -19,7 +19,7 @@ lead: Tables show tabular data in columns and rows.
     </thead>
     <tbody>
       <tr>
-        <td scope='row'>Declaration of Independence </td>
+        <td scope='row'>Declaration of Independence</td>
         <td>Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
         <td>1776</td>
       </tr>
@@ -58,7 +58,7 @@ lead: Tables show tabular data in columns and rows.
     </thead>
     <tbody>
       <tr>
-        <td scope='row'>Declaration of Independence </td>
+        <td scope='row'>Declaration of Independence</td>
         <td>Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
         <td>1776</td>
       </tr>
