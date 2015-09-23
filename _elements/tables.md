@@ -29,13 +29,8 @@ lead: Tables show tabular data in columns and rows.
         <td>1791</td>
       </tr>
       <tr>
-        <td scope='row'>Blackberry Pie</td>
-        <td>A fruit pie in which the principal filling ingredient is blackberry</td>
-        <td>$3.78</td>
-      </tr>
-      <tr>
         <td scope='row'>Declaration of Sentiments</td>
-        <td>MadeA document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.</td>
+        <td>A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.</td>
         <td>1848</td>
       </tr>
       <tr>
@@ -66,11 +61,6 @@ lead: Tables show tabular data in columns and rows.
         <td scope='row'>Bill of Rights</td>
         <td>The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
         <td>1791</td>
-      </tr>
-      <tr>
-        <td scope='row'>Blackberry Pie</td>
-        <td>A fruit pie in which the principal filling ingredient is blackberry</td>
-        <td>$3.78</td>
       </tr>
       <tr>
         <td scope='row'>Declaration of Sentiments</td>
