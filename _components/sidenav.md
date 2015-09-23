@@ -49,7 +49,7 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: w
               <a href="javascript:void(0)">Child link</a>
             </li>
             <li>
-              <a class="usa-current" href="javascript:void(0)">Accordion</a>
+              <a class="usa-current" href="javascript:void(0)">Child Link</a>
             </li>
           </ul>
         </li>
