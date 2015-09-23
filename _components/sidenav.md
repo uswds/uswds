@@ -16,10 +16,10 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: w
           <a class="usa-current" href="javascript:void(0)">Current page</a>
         </li>
         <li>
-          <a href="javascript:void(0)">Secondary link</a>
+          <a href="javascript:void(0)">Parent link</a>
         </li>
         <li>
-          <a href="javascript:void(0)">Secondary link</a>
+          <a href="javascript:void(0)">Parent link</a>
         </li>
       </ul>
     </aside>
@@ -31,22 +31,22 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: w
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
-          <a href="javascript:void(0)">Secondary link</a>
+          <a href="javascript:void(0)">Parent link</a>
         </li>
         <li>
           <a class="usa-current" href="javascript:void(0)">Current page</a>
           <ul class="usa-sidenav-sub_list">
             <li>
-              <a href="javascript:void(0)">Headers & Navigation</a>
+              <a href="javascript:void(0)">Child link</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Footers</a>
+              <a href="javascript:void(0)">Child link</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Buttons</a>
+              <a href="javascript:void(0)">Child link</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Tables</a>
+              <a href="javascript:void(0)">Child link</a>
             </li>
             <li>
               <a class="usa-current" href="javascript:void(0)">Accordion</a>
@@ -54,7 +54,7 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: w
           </ul>
         </li>
         <li>
-          <a href="javascript:void(0)">Secondary link</a>
+          <a href="javascript:void(0)">Parent link</a>
         </li>
       </ul>
     </aside>
@@ -66,41 +66,41 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: w
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
-          <a href="javascript:void(0)">Secondary link</a>
+          <a href="javascript:void(0)">Parent link</a>
         </li>
         <li>
           <a class="usa-current" href="javascript:void(0)">Current page</a>
           <ul class="usa-sidenav-sub_list">
             <li>
-              <a href="javascript:void(0)">Headers & Navigation</a>
+              <a href="javascript:void(0)">Child link</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Footers</a>
+              <a href="javascript:void(0)">Child link</a>
               <ul class="usa-sidenav-sub_list">
                 <li>
-                  <a href="javascript:void(0)">Grandchild 1</a>
+                  <a href="javascript:void(0)">Grandchild link</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0)">Grandchild 2</a>
+                  <a href="javascript:void(0)">Grandchild link</a>
                 </li>
                 <li>
-                  <a class="usa-current" href="javascript:void(0)">Grandchild 3</a>
+                  <a class="usa-current" href="javascript:void(0)">Grandchild link</a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="javascript:void(0)">Buttons</a>
+              <a href="javascript:void(0)">Child link</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Tables</a>
+              <a href="javascript:void(0)">Child link</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Accordion</a>
+              <a href="javascript:void(0)">Child link</a>
             </li>
           </ul>
         </li>
         <li>
-          <a href="javascript:void(0)">Secondary link</a>
+          <a href="javascript:void(0)">Parent link</a>
         </li>
       </ul>
     </aside>
