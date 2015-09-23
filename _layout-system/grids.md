@@ -62,7 +62,7 @@ lead:  This 12 column responsive grid provides structure for website content.
   <div class="usa-grid usa-grid-example usa-grid-text">
     <div class="usa-width-one-third">
       <h3>One Third</h3>
-      <p>Maryland is a state located in the Mid-Atlantic region of the United States, borderingVirginia, West Virginia, and Washington, D.C. to its south and west; Pennsylvania to its north; and Delaware to its east. </p>
+      <p>Maryland is a state located in the Mid-Atlantic region of the United States, borderingVirginia, West Virginia, and Washington, D.C. to its south and west; Pennsylvania to its north; and Delaware to its east.</p>
     </div>
     <div class="usa-width-one-third">
       <h3>One Third</h3>
@@ -70,13 +70,13 @@ lead:  This 12 column responsive grid provides structure for website content.
     </div>
     <div class="usa-width-one-third">
       <h3>One Third</h3>
-      <p>North Carolina is a state in the Southeastern United States. The state borders South Carolina and Georgia to the south, Tennessee to the west, Virginia to the north, and the Atlantic Ocean to the east. </p>
+      <p>North Carolina is a state in the Southeastern United States. The state borders South Carolina and Georgia to the south, Tennessee to the west, Virginia to the north, and the Atlantic Ocean to the east.</p>
     </div>
   </div>
   <div class="usa-grid usa-grid-example usa-grid-text">
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
-      <p>California is a state located on theWest Coast of the United States. It is the most populous U.S. state, with 38 million people, and thethird largest state by area (after Alaska and Texas). </p>
+      <p>California is a state located on theWest Coast of the United States. It is the most populous U.S. state, with 38 million people, and thethird largest state by area (after Alaska and Texas).</p>
     </div>
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
@@ -94,7 +94,7 @@ lead:  This 12 column responsive grid provides structure for website content.
   <div class="usa-grid usa-grid-example usa-grid-text">
     <div class="usa-width-two-thirds">
       <h3>Two Thirds</h3>
-      <p>Oregon is a state in the Pacific Northwest of the United States. Oregon is bordered on the west by the Pacific Ocean, on the north by Washington, on the south by California, on the east by Idaho, and on the southeast by Nevada. The Columbia River delineates much of Oregon's northern boundary, and the Snake River delineates much of the eastern boundary. It is one of only three states of the contiguous United States to have a coastline on the Pacific Ocean. The capital of Oregon is Salem, the second most populous of its cities, with 160,614 residents (2013 estimate). </p>
+      <p>Oregon is a state in the Pacific Northwest of the United States. Oregon is bordered on the west by the Pacific Ocean, on the north by Washington, on the south by California, on the east by Idaho, and on the southeast by Nevada. The Columbia River delineates much of Oregon's northern boundary, and the Snake River delineates much of the eastern boundary. It is one of only three states of the contiguous United States to have a coastline on the Pacific Ocean. The capital of Oregon is Salem, the second most populous of its cities, with 160,614 residents (2013 estimate).</p>
     </div>
     <div class="usa-width-one-third">
       <h3>One Third</h3>
@@ -104,11 +104,11 @@ lead:  This 12 column responsive grid provides structure for website content.
   <div class="usa-grid usa-grid-example usa-grid-text">
     <div class="usa-width-one-half">
       <h3>One Half</h3>
-      <p>Virginia officially the Commonwealth of Virginia, is a U.S. state located in the South Atlantic region of the United States. Virginia is nicknamed the "Old Dominion" due to its status as the first colonial possession established in mainland British America, and "Mother of Presidents" because eight U.S. presidents were born there, more than any other state. The geography and climate of the Commonwealth are shaped by the Blue Ridge Mountains and the Chesapeake Bay, which provide habitat for much of its flora and fauna. </p>
+      <p>Virginia officially the Commonwealth of Virginia, is a U.S. state located in the South Atlantic region of the United States. Virginia is nicknamed the "Old Dominion" due to its status as the first colonial possession established in mainland British America, and "Mother of Presidents" because eight U.S. presidents were born there, more than any other state. The geography and climate of the Commonwealth are shaped by the Blue Ridge Mountains and the Chesapeake Bay, which provide habitat for much of its flora and fauna.</p>
     </div>
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
-      <p>New York is a state in the Northeastern and Mid-Atlantic regions of the United States. New York is the 27th-most extensive, the fourth-most populous, and the seventh-most densely populated of the 50 United States. </p>
+      <p>New York is a state in the Northeastern and Mid-Atlantic regions of the United States. New York is the 27th-most extensive, the fourth-most populous, and the seventh-most densely populated of the 50 United States.</p>
     </div>
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
@@ -136,12 +136,12 @@ lead:  This 12 column responsive grid provides structure for website content.
     </ul>
     <h5>When to consider something else</h4>
     <ul class="usa-content-list">
-      <li>Avoid mixing this grid and other grid systems. </li>
+      <li>Avoid mixing this grid and other grid systems.</li>
     </ul>
     <h5>Guidance</h4>
     <ul class="usa-content-list">
       <li>Choose a twelve-column grid with flexible column widths and fixed gutters. The width of the padding on the left and right edge of the grid depends on device size.</li>
-      <li> Avoid text lines longer than 75 characters. Place text in narrower grid boxes to keep text lines from becoming too wide. </li>
+      <li> Avoid text lines longer than 75 characters. Place text in narrower grid boxes to keep text lines from becoming too wide.</li>
     </ul>
   </div>
 </div>
