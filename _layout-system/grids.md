@@ -56,7 +56,7 @@ lead:  This 12 column responsive grid provides structure for website content.
     </div>
     <div class="usa-width-one-half">
       <h3>One Half</h3>
-      <p>Michigan is a state in the Great Lakes region of the Midwestern United States. The name Michigan is the French form of the Ojibwa word mishigamaa, meaning "large water" or "large lake".Michigan is the tenth most populous of the 50 United States, with the 11th most extensive total area (the largest state by total area east of the Mississippi River). Its capital is Lansing, and the largest city is Detroit. Michigan is the only state to consist of two peninsulas. A person in the state is never more than six miles (9.7 km) from a natural water source or more than 85 miles (137 km) from a Great Lakes shoreline.</p>
+      <p>Michigan is a state in the Great Lakes region of the Midwestern United States. The name Michigan is the French form of the Ojibwa word mishigamaa, meaning "large water" or "large lake".Michigan is the tenth most populous state, with the 11th most extensive total area (the largest state by total area east of the Mississippi River). Its capital is Lansing, and the largest city is Detroit. Michigan is the only state to consist of two peninsulas. A person in the state is never more than six miles (9.7 km) from a natural water source or more than 85 miles (137 km) from a Great Lakes shoreline.</p>
     </div>
   </div>
   <div class="usa-grid usa-grid-example usa-grid-text">
@@ -70,7 +70,7 @@ lead:  This 12 column responsive grid provides structure for website content.
     </div>
     <div class="usa-width-one-third">
       <h3>One Third</h3>
-      <p>North Carolina is a state in the Southeastern United States. The state borders South Carolina and Georgia to the south, Tennessee to the west, Virginia to the north, and the Atlantic Ocean to the east.</p>
+      <p>North Carolina is a state in the Southeastern United States. North Carolina borders South Carolina and Georgia to the south, Tennessee to the west, Virginia to the north, and the Atlantic Ocean to the east.</p>
     </div>
   </div>
   <div class="usa-grid usa-grid-example usa-grid-text">
@@ -88,7 +88,7 @@ lead:  This 12 column responsive grid provides structure for website content.
     </div>
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
-      <p>Indiana is a U.S. state located in the midwestern and Great Lakes regions of North America. Indiana is the 38th largest by area and the 16th most populous of the 50 United States. Its capital and largest city is Indianapolis.</p>
+      <p>Indiana is a U.S. state located in the midwestern and Great Lakes regions of North America. Indiana is the 38th largest by area and the 16th most populous of the 50 United States.</p>
     </div>
   </div>
   <div class="usa-grid usa-grid-example usa-grid-text">
@@ -104,15 +104,15 @@ lead:  This 12 column responsive grid provides structure for website content.
   <div class="usa-grid usa-grid-example usa-grid-text">
     <div class="usa-width-one-half">
       <h3>One Half</h3>
-      <p>Virginia officially the Commonwealth of Virginia, is a U.S. state located in the South Atlantic region of the United States. Virginia is nicknamed the "Old Dominion" due to its status as the first colonial possession established in mainland British America, and "Mother of Presidents" because eight U.S. presidents were born there, more than any other state. The geography and climate of the Commonwealth are shaped by the Blue Ridge Mountains and the Chesapeake Bay, which provide habitat for much of its flora and fauna.</p>
+      <p>Virginia is a U.S. state located in the South Atlantic region of the United States. Virginia is nicknamed the "Old Dominion" due to its status as the first colonial possession established in mainland British America, and "Mother of Presidents" because eight U.S. presidents were born there, more than any other state. The geography and climate of the Commonwealth are shaped by the Blue Ridge Mountains and the Chesapeake Bay, which provide habitat for much of its flora and fauna.</p>
     </div>
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
-      <p>New York is a state in the Northeastern and Mid-Atlantic regions of the United States. New York is the 27th-most extensive, the fourth-most populous, and the seventh-most densely populated of the 50 United States.</p>
+      <p>New York is a state in the Northeastern and Mid-Atlantic regions of the United States. New York is the twenty-seventh-most extensive, the fourth-most populous, and the seventh-most densely populated of the 50 United States.</p>
     </div>
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
-      <p>Washington, D.C. formally the District of Columbia and commonly referred to as "Washington", "the District", or simply "D.C.", is the capital of the United States. The Washington metropolitan area has a population of 5.8 million.</p>
+      <p>Washington, D.C. is the capital of the United States, bordered by the states of Maryland and Virginia. Formally known as the District of Columbia, it is also commonly referred to as "Washington", "the District", or simply "D.C."</p>
     </div>   
   </div>
 
