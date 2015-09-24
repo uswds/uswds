@@ -12,11 +12,11 @@ To help us get a better understanding of the issue you are submitting, please le
 
 **Description**
 
-*Include a high level description of the feature or error here including steps of how to recreate if applicable. Include any benefits, challenges or considerations. Can be short and sweet.*
+*Include a high-level description of the feature or error here including steps of how to recreate it if applicable. Include any benefits, challenges, or considerations. This can be short and sweet.*
 
 **Ask**
 
-*Describe the desired behavior and what would deem this issue/bug/feature complete.*
+*Describe the desired behavior and what would deem this issue,bug, or feature complete.*
 
 **To Do**
 - [ ] Steps
@@ -31,12 +31,12 @@ To help us get a better understanding of the issue you are submitting, please le
 
 Here are a few guidelines to follow when submitting a pull request:
 
-1. Create a Github account or log in to your existing account.
-2. Fork this repo into your Github account (or just clone it if you're an 18F team member), read more about forking a repo here on Github:
+1. Create a GitHub account or log in to your existing account.
+2. Fork this repo into your GitHub account (or just clone it if you're an 18F team member). Read more about forking a repo here on GithHub:
 [https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/)
-3. Create a branch that lightly defines what you are working on (e.g. add-styles).
-4. Once you are ready to submit a pull request, push your branch up to the repo.
-5. Submit your pull request against `18f-pages-staging` branch.
+3. Create a branch that lightly defines what you're working on (e.g. add-styles).
+4. Once you're ready to submit a pull request, push your branch up to the repo.
+5. Submit your pull request against the `18f-pages-staging` branch.
 
 Questions or need help with setup? Feel free to open an issue here [https://github.com/18F/usfwds/issues](https://github.com/18F/usfwds/issues).
 

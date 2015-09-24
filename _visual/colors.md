@@ -4,20 +4,20 @@ title: Colors
 order: 02
 ---
 
-<p>A flexible yet distinctly American palette, designed to communicate warmth and trustworthiness while meeting the highest standards of 508 color contrast requirements.</p>
+<p>A flexible, yet distinctly American palette designed to communicate warmth and trustworthiness while meeting the highest standards of 508 color contrast requirements.</p>
 
 <a class="usa-button usa-button-primary-alt" href="{{ site.baseurl }}/assets/releases/wds-design-v0.8.zip">Download the design files</a>
 <p class="usa-text-small">Download a zip file with font files and color swatches.</p>
 
 <h3 class="usa-heading" id="palette">Palette</h3>
 
-<p>This palette is designed to support a range of distinct visual styles that  continue to feel connected. The intent of the palette is to convey a warm and open American spirit, with bright saturated tints of blue and red, grounded in sophisticated deeper shades of cool blues and grays. These colors—combined with clear hierarchy, good information design, and ample white space—should leave users feeling welcomed and in good hands.</p>
+<p>This palette is designed to support a range of distinct visual styles that continue to feel connected. The intent of the palette is to convey a warm and open American spirit, with bright saturated tints of blue and red, grounded in sophisticated deeper shades of cool blues and grays. These colors — combined with clear hierarchy, good information design, and ample white space — should leave users feeling welcomed and in good hands.</p>
 
-<p>This is a simple, minimalist color palette. Shades of blue dominate, providing a neutral backdrop on which brighter shades, clean type treatment and bright white content areas "pop" on the page.</p>
+<p>This is a simple, minimalist color palette. Shades of blue dominate, providing a neutral backdrop on which brighter shades, clean type treatment, and bright white content areas "pop" on the page.</p>
 
 <h4 class="usa-heading">Primary colors</h4>
 
-<p>This palette’s primary colors are blue, gray and white. Blue is commonly associated with trust, confidence, and sincerity; it is also used to represent calmness and responsibility.</p>
+<p>This palette’s primary colors are blue, gray, and white. Blue is commonly associated with trust, confidence, and sincerity; it is also used to represent calmness and responsibility.</p>
 
 <div class="usa-grid-full usa-color-row usa-primary-color-section">
   <div class="usa-color-square usa-color-primary">
@@ -69,7 +69,7 @@ order: 02
 
 <h4 class="usa-heading">Secondary colors</h4>
 
-<p>These are accent colors to provide additional lightness and style to pages looking for a more modern flair.  These colors should be used to highlight important features on a page, such as buttons, or for visual style elements, such as illustrations. They should be used sparingly and never draw the eye to more than one piece of information at a time.</p>
+<p>These are accent colors to provide additional lightness and style to pages looking for a more modern flair. These colors should be used to highlight important features on a page, such as buttons, or for visual style elements, such as illustrations. They should be used sparingly and never draw the eye to more than one piece of information at a time.</p>
 
 <div class="usa-grid-full usa-color-row">
   <div class="color-big">
@@ -311,7 +311,7 @@ order: 02
 
 <h3 class="usa-heading" id="text-accessibility">Text Accessibility</h3>
 <p>WCA (Web Content Accessibility) standards ensure that content is accessible by everyone, regardless of disability or user device. To meet these standards, text and interactive elements should have a color contrast ratio of <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">at least 4.5:1</a>. This ensures that viewers who cannot see the full color spectrum are able to read the text.</p>
-<p>The options below offer color palette combinations that fall within the range of Section 508 compliant foreground/background color contrast ratios. To ensure that text remains accessible,  use only these permitted color combinations.</p>
+<p>The options below offer color palette combinations that fall within the range of Section 508 compliant foreground/background color contrast ratios. To ensure that text remains accessible, use only these permitted color combinations.</p>
 <p>If you choose to customize beyond this palette, this <a href="http://webaim.org/resources/contrastchecker/">color contrast tool</a> is a useful resource for testing the compliance of any color combination.</p>
 <h4 class="usa-heading">Fully accessible combinations</h4>
 
@@ -401,7 +401,7 @@ order: 02
       base on primary-alt-dark
     </div>
     <div class="usa-color-text usa-color-primary-alt">
-      white on primary-alt
+      base on primary-alt
     </div>
     <div class="usa-color-text usa-color-green usa-color-text-white">
       white on green
