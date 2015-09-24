@@ -13,10 +13,10 @@ lead: Patterns for some of the most commonly used forms on government websites
 <ul class="usa-content-list">
   <li>Display form controls in the same order in HTML as they do on screen. Do not use CSS to rearrange the form controls. Screen readers narrate forms in the order they appear in the HTML.</li>
   <li>Visually align validation messages with the input fields, so people using screen magnifiers can read them quickly.</li>
-  <li>Group each set of thematically related controls in a fieldset element. Use the legend element to offer a label within each one. The fieldset and legend element makes it easier for screen reader users to navigate the form.</li>
+  <li>Group each set of thematically related controls in a fieldset element. Use the legend element to offer a label within each one. The fieldset and legend elements make it easier for screen reader users to navigate the form.</li>
   <li>A single legend is always required for fieldset. A common use of fieldset and legend is a question with radio button options for answers. The question text and radio buttons are wrapped in a fieldset, with the question itself being inside the legend tag.</li>
   <li>You can embed multiple fieldsets and legends for more complex forms.</li>
-  <li>Keep your form blocks in a vertical pattern. It is an ideal approach for accessibility, due to limited vision that makes it hard to scan from right to left.</li>
+  <li>Keep your form blocks in a vertical pattern. It's an ideal approach for accessibility, due to limited vision that makes it hard to scan from right to left.</li>
 </ul>
 
 <h2 class="usa-heading" id="name-form">Name form</h2>
@@ -67,7 +67,7 @@ lead: Patterns for some of the most commonly used forms on government websites
     </ul>
     <h5>Guidance</h5>
     <ul class="usa-content-list">
-      <li>Leave the title and suffix fields as text boxes (instead of offering drop downs.) There are many possible titles and suffixes; text boxes accommodate them all.</li>
+      <li>Leave the title and suffix fields as text boxes instead of offering drop downs. There are many possible titles and suffixes; text boxes accommodate them all.</li>
       <li>Do not restrict the types of characters users can enter in any of these fields. Names can include characters outside the standard Roman alphabet.</li>
     </ul>
   </div>
@@ -184,7 +184,7 @@ lead: Patterns for some of the most commonly used forms on government websites
     <ul class="usa-content-list">
       <li>Only label the optional inputs. Users can infer that all the others are required.</li>
       <li>If possible, let users type their state’s abbreviation when they reach the “state” drop down menu.</li>
-      <li>Support both 5 and 9 digit ZIP codes.  Some addresses require a nine digit ZIP code. The input mask should be “#####-####” so that the text is properly formatted, regardless of whether a user enters a 5 or 9 digit ZIP code.</li>
+      <li>Support both five and nine digit ZIP codes. Some addresses require a nine digit ZIP code. The input mask should be “#####-####” so that the text is properly formatted, regardless of whether a user enters a five or nine digit ZIP code.</li>
     </ul>
   </div>
 </div>
@@ -243,11 +243,11 @@ lead: Patterns for some of the most commonly used forms on government websites
     </ul>
     <h5>Guidance</h5>
     <ul class="usa-content-list">
-      <li>Less is more&mdash;make your explanations concise. Users sign in faster when less text surrounds the form.</li>
+      <li>Less is more — make your explanations concise. Users sign in faster when less text surrounds the form.</li>
       <li>Allow people to use their email address to sign in; people have an easier time remembering their email address rather than a unique username.</li>
       <li>When a sign-in form is required, consider allowing users to stay logged in (“Remember me”) on trusted computers so they can avoid this barrier in the future.</li>
       <li>Make it easy to retrieve a forgotten username and password. Most authentication failures occur because a user has forgotten their username or password, especially common when a long time passes between visits, as is the case with most federal websites.</li>
-      <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to log in, and doesn't offer much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile, when mistakes are more likely.</li>
+      <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to log in, and doesn't offer much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile devices, when mistakes are more likely.</li>
     </ul>
   </div>
 </div>
@@ -256,7 +256,7 @@ lead: Patterns for some of the most commonly used forms on government websites
 <p class="usa-font-lead">A standard template for resetting a password</p>
 
 <div class="preview">
-  
+
   <form>
     <fieldset>
       <legend class="usa-drop_text">Reset password</legend>
@@ -304,7 +304,7 @@ lead: Patterns for some of the most commonly used forms on government websites
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h4> 
+    <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
       <li>As you customize this form template, ensure it continues to follow the <a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for form controls</a>.</li>
     </ul>    

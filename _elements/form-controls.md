@@ -11,14 +11,14 @@ lead: Form controls allow users to enter information into a page.
 
 <ul class="usa-content-list">
   <li>All form control tags should have an associated label. The labels for attribute value should match the related input <code>id</code> attribute and should also be unique to the entire page. For example, the input with <code>id=<wbr>"favorite-national-park"</code> will always have a label with <code>for=<wbr>"favorite-national-park"</code>. This way screen readers are able to perceive the relevant content.</li>
-  <li>Any additional information—such as required, optional, or example text—should be wrapped within the label tags. For example: <code>&lt;label for=<wbr>"name"&gt;Favorite Pie &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;</code>. This way screen readers know what additional information is related to each field.</li>
+  <li>Any additional information — such as required, optional, or example text — should be wrapped within the label tags. For example: <code>&lt;label for=<wbr>"name"&gt;Favorite Pie &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;</code>. This way screen readers know what additional information is related to each field.</li>
   <li>Do not replace <code>&lt;input&gt;</code> tag-based form controls with styled <code>&lt;div&gt;</code> tags, or use JavaScript to create 'fake' form controls. Screen readers have a difficult time reading form controls that are not written in semantic HTML.</li>
   <li>If you adjust the color scheme of the buttons, ensure a minimum contrast ratio of 4.5:1 (for small text, 3:1 for large) for all states of the button. This includes default, hover, selected, and disabled.</li>
 </ul>
 
 <p>If you are a building a form with multiple controls, also consider the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines in the “Form Templates” section</a>.</p>
 
-<h2 class="usa-heading" id="text-inputs">Text Input</h2>
+<h2 class="usa-heading" id="text-inputs">Text input</h2>
 <p class="usa-font-lead">Text inputs allow people to enter any combination of letters, numbers, or symbols of their choosing (unless otherwise restricted). Text input boxes can span single or multiple lines.</p>
 <div class="preview">
 
@@ -52,18 +52,18 @@ lead: Form controls allow users to enter information into a page.
     <p>If you customize the text inputs, ensure they continue to meet the the <a href="{{ site.baseurl }}/form-controls/"> accessibility requirements that apply to all form controls.</a></p>
     <ul class="usa-content-list">
       <li>Avoid placeholder text for accessibility reasons. Most browsers’ default rendering of placeholder text does not provide a high enough contrast ratio.</li>
-      <li>Avoid breaking numbers with distinct sections (such as phone numbers, social security numbers, or credit card numbers) into separate input fields. For example, use one input for phone number, not three (one for area code, one for local code and one for number). Each field needs to be labeled for a screen reader and the labels for fields broken into segments are not often not meaningful.</li>
+      <li>Avoid breaking numbers with distinct sections (such as phone numbers, Social Security Numbers, or credit card numbers) into separate input fields. For example, use one input for phone number, not three (one for area code, one for local code, and one for number). Each field needs to be labeled for a screen reader and the labels for fields broken into segments are often not meaningful.</li>
     </ul>
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>If you  can’t reasonably predict a user’s answer to a prompt and there might be wide variability in users’ answers.</li>
+      <li>If you can’t reasonably predict a user’s answer to a prompt and there might be wide variability in users’ answers.</li>
       <li>When using another type of input will make answering more difficult. For example, birthdays and other known dates are easier to type in than they are to select from a calendar picker.</li>
       <li>When users want to be able to paste in a response.</li>
     </ul>
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>When users are choosing from a specific set of options. </li>
+      <li>When users are choosing from a specific set of options.</li>
     </ul>
     <h5>Guidance</h5>
     <ul class="usa-content-list">
@@ -105,7 +105,7 @@ lead: Form controls allow users to enter information into a page.
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Use sparingly—only when a user needs to choose from about 7 to 15 possible options and you have limited space to display the options.</li>
+      <li>Use sparingly — only when a user needs to choose from about seven to 15 possible options and you have limited space to display the options.</li>
     </ul>
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
@@ -125,7 +125,7 @@ lead: Form controls allow users to enter information into a page.
 </div>
 
 <h2 class="usa-heading" id="checkboxes">Checkboxes</h2>
-<p class="usa-font-lead">Checkboxes allow users to select one or more options from a visible list. </p>
+<p class="usa-font-lead">Checkboxes allow users to select one or more options from a visible list.</p>
 
 <div class="preview">
 
@@ -174,9 +174,9 @@ lead: Form controls allow users to enter information into a page.
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>When a user can select any number of choices from a set list. </li>
+      <li>When a user can select any number of choices from a set list.</li>
       <li>When a user needs to choose “yes” or “no” on only one option (use a stand-alone checkbox). For example, to toggle a setting on or off.</li>
-      <li>When users need to see all the available options at a glance. </li>
+      <li>When users need to see all the available options at a glance.</li>
     </ul>
     <h5>When to consider something different</h5>
     <ul class="usa-content-list">
@@ -188,7 +188,7 @@ lead: Form controls allow users to enter information into a page.
       <li>Users should be able to tap on or click on either the text label or the checkbox to select or deselect an option.</li>
       <li>List options vertically if possible; horizontal listings can make it difficult to tell which label pertains to which checkbox.</li>
       <li>Avoid using negative language in labels as they can be counterintuitive. For example, “I want to receive a promotional email” instead of “I don’t want to receive promotional email.”</li>
-      <li>If you customize, make sure selections are adequately spaced for touch screen.</li>
+      <li>If you customize, make sure selections are adequately spaced for touch screens.</li>
     </ul>
   </div>
 </div>
@@ -231,8 +231,8 @@ lead: Form controls allow users to enter information into a page.
     <p>If you customize the radio buttons, ensure they continue to meet the the <a href="{{ site.baseurl }}/form-controls/"> accessibility requirements that apply to all form controls.</a></p>
     <ul class="usa-content-list">
       <li>Group related radio buttons together with <code>&lt;fieldset></code> and describe the group with <code>&lt;legend&gt;</code>.</li>
-      <li>Each radio button should have a <code>&lt;label&gt;</code>. Associate the two by matching the <code>&lt;label&gt;</code>’s for attribute to the <code>&lt;input&gt;</code>’s <code>id</code> attribute. </li>
-      <li>The <code>title</code> attribute can replace <code>&lt;label&gt;</code>. </li>
+      <li>Each radio button should have a <code>&lt;label&gt;</code>. Associate the two by matching the <code>&lt;label&gt;</code>’s for attribute to the <code>&lt;input&gt;</code>’s <code>id</code> attribute.</li>
+      <li>The <code>title</code> attribute can replace <code>&lt;label&gt;</code>.</li>
     </ul>
 
     <h4 class="usa-heading">Usability</h4>
@@ -250,7 +250,7 @@ lead: Form controls allow users to enter information into a page.
     <h5>Guidance</h5>
     <ul class="usa-content-list">
       <li>Users should be able to tap on or click on either the text "label" or the radio button to select or deselect an option.</li>
-      <li>Options that are listed vertically are easier to read than those that are listed horizontally. Horizontal listings can make it difficult to tell which label pertains to which radio button. </li>
+      <li>Options that are listed vertically are easier to read than those that are listed horizontally. Horizontal listings can make it difficult to tell which label pertains to which radio button.</li>
       <li>If you customize, make sure selections are adequately spaced for touch screens.</li>
       <li>Use caution if you decide to set a default value. Setting a default value can discourage users from making conscious decisions, seem pushy, or alienate users who don’t fit into your assumptions. If you are unsure, leave nothing selected by default.</li>
     </ul>
@@ -258,7 +258,7 @@ lead: Form controls allow users to enter information into a page.
 </div>
 
 <h2 class="usa-heading" id="date-input">Date input</h2>
-<p class="usa-font-lead">Three text fields are the easiest way for users to enter most dates. </p>
+<p class="usa-font-lead">Three text fields are the easiest way for users to enter most dates.</p>
 
 <div class="preview">
 
@@ -291,14 +291,14 @@ lead: Form controls allow users to enter information into a page.
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
-      <li>These text fields should follow the <a href="{{ site.baseurl }}/form-controls/#text-inputs"> accessibility guidelines for all text inputs.</a> </li>
-      <li>Do not use JavaScript to auto advance the focus from one field to the next. This makes it difficult for keyboard-only users to navigate and correct mistakes. </li>
+      <li>These text fields should follow the <a href="{{ site.baseurl }}/form-controls/#text-inputs"> accessibility guidelines for all text inputs.</a></li>
+      <li>Do not use JavaScript to auto advance the focus from one field to the next. This makes it difficult for keyboard-only users to navigate and correct mistakes.</li>
     </ul>
 
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Use this format for most dates, particularly memorized dates. </li>
+      <li>Use this format for most dates, particularly memorized dates.</li>
     </ul>
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
@@ -306,7 +306,7 @@ lead: Form controls allow users to enter information into a page.
     </ul>
     <h5>Guidelines</h5>
     <ul class="usa-content-list">
-      <li>Be sure each field is properly labeled—some countries enter dates in day, month, year order.</li>
+      <li>Be sure each field is properly labeled — some countries enter dates in day, month, year order.</li>
       <li>It may be tempting to switch all or some of these text fields to drop downs, but these tend to be more difficult to use than text boxes.</li>
     </ul>
   </div>
