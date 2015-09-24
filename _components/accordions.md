@@ -162,7 +162,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
     </ul>
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>If visitors need to see most or all of the information on a page. Wse well-formatted text instead.</li>
+      <li>If visitors need to see most or all of the information on a page. Use well-formatted text instead.</li>
       <li>If there is not enough content to warrant condensing. Accordions increase cognitive load and interaction cost, as users have to make decisions about what headers to click on.</li>
     </ul>
     <h5>Guidance</h5>
