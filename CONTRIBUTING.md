@@ -31,8 +31,8 @@ To help us get a better understanding of the issue you are submitting, please le
 
 Here are a few guidelines to follow when submitting a pull request:
 
-1. Create a GitHub account or log in to your existing account.
-2. Fork this repo into your GitHub account (or just clone it if you're an 18F team member). Read more about forking a repo here on GithHub:
+1. Create a GitHub account or sign in to your existing account.
+2. Fork this repo into your GitHub account (or just clone it if you're an 18F team member). Read more about forking a repo here on GitHub:
 [https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/)
 3. Create a branch that lightly defines what you're working on (e.g. add-styles).
 4. Once you're ready to submit a pull request, push your branch up to the repo.
