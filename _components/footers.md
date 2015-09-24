@@ -229,7 +229,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
-      <li>Code the navigation so that pressing the  tab key moves focus from link to link in the navigation, even when the navigation has collapsed into an accordion.</li>
+      <li>Code the navigation so that pressing the tab key moves focus from link to link in the navigation, even when the navigation has collapsed into an accordion.</li>
       <li>On small screens: when collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the "Accordion" section.</li>
     </ul>
     <h4 class="usa-heading">Usability</h4>
@@ -249,7 +249,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
       <li>Link grouping in the footer does not have to mirror link grouping in top level header navigation (especially if the navigation offers many more links than the footer can).</li>
       <li>Include the newsletter sign up if one of your website’s goals is getting visitors to sign up for a newsletter.</li>
       <li>Link only to social media your agency updates frequently or uses to communicate with customers.</li>
-      <li>Important contact information should be limited to general email or phone numbers, which should be clickable links to dial from a mobile phone. (Physical addresses should live on contact pages users can navigate to from the accordion links).</li>
+      <li>Important contact information should be limited to general email or phone numbers, which should be clickable links to dial from a mobile phone. Physical addresses should live on contact pages users can navigate to from the accordion links.</li>
     </ul>
   </div>
 </div>
