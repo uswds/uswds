@@ -69,13 +69,26 @@ lead: Use buttons to signal actions.
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h4>
+    <h4 class="usa-heading">Implementation</h4>
+    <p>The examples demonstrate how to use button elements. To use a button style on an anchor link, add the <code>usa-button</code> class to your anchor link. 
+    <p>To use a different style button on your anchor link, add the special button class in addition to <code>usa-button</code>:</p>
     <ul>
+      <li><code>usa-button-primary-alt</code></li>
+      <li><code>usa-button-secondary</code></li>
+      <li><code>usa-button-gray</code></li>
+      <li><code>usa-button-outline</code></li>
+      <li><code>usa-button-outline-inverse</code></li>
+      <li><code>usa-button-disabled</code></li>
+      <li><code>usa-button-big</code></li>
+    </ul>
+    <p>For example, a secondary button style would use the following code:
+    <code>&lt;a class="usa-button usa-button-secondary" href="/my-link"&gt;My button&lt;/a&gt;</code></p>
+    <h4 class="usa-heading">Accessibility</h4>
+    <ul class="usa-content-list">
       <li>Buttons should display a visible focus state when users tab to them.</li>
       <li>Avoid using <code>&lt;div&gt;</code> or <code>&lt;img&gt;</code> tags to create buttons. Screen readers don't automatically know either is an usable button.</li>
       <li>When styling links to look like buttons, remember that screen readers handle links slightly differently than they do buttons. Pressing the Space key triggers a button, but pressing the Enter key triggers a link.</li>
     </ul>
-
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
