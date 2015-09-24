@@ -919,6 +919,10 @@ order: 01
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Implementation</h4>
+    <p>To get the max-width on body text, add the class <code>usa-content</code> to your document. Use at the specificity that best suits your project's needs.</p>
+    <p>Lists must use <code>usa-content-list</code> for the above.</p>
+    <p>You can change the max-width value <code>$text-max-width</code> in <code>assets/_scss/core/<wbr>variables.scss</code>.</p>
     <h4 class="usa-heading">Usability</h4>
     <ul class="usa-content-list">
       <li>Alignment: Type set flush left provides the eye a constant starting point for each line, making text easier to read.</li>
@@ -1010,11 +1014,13 @@ order: 01
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+  <h4 class="usa-heading">Implementation</h4>
+  <p>Lists are styled by default. For unstyled lists, use either the <code>usa-unstyled-list</code> class or unstyled list mixin: <code>@include unstyled-list;</code>. Both are located in <code>assets/_scss/core/<wbr>utilities.scss</code>.</p>
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-        <li>Use an ordered list when you need to display text in some ranking, hierarchy, or series of steps.</li>
-        <li>Use unordered lists to display text in no specific order.</li>
+      <li>Use an ordered list when you need to display text in some ranking, hierarchy, or series of steps.</li>
+      <li>Use unordered lists to display text in no specific order.</li>
     </ul>
     <h5>When to consider something different</h5>
     <ul class="usa-content-list">
