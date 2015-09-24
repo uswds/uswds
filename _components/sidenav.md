@@ -2,13 +2,13 @@
 layout: styleguide
 type: component
 title: Side navigation
-lead: "Hierarchical, vertical navigation to place at the side of a page. Note: we are currently developing horizontal navigation and headers for the top of a page"
+lead: Hierarchical, vertical navigation to place at the side of a page. Note: We're currently developing horizontal navigation and headers for the top of a page.
 ---
 
 <div class="preview">
-  
+
   <h6 class="usa-heading-alt">Single level</h6>
-  
+
   <div class="usa-grid">
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
