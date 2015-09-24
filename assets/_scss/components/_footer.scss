@@ -212,8 +212,11 @@ li.usa-footer-primary-content {
     }    
 
     .usa-footer-primary-link {
-      background: url('../img/arrow-down.png') no-repeat;
-      background-position: 1.5rem;
+      background-image: url('../img/arrow-down.png');
+      background-image: url('../img/arrow-down.svg');
+      background-position: 1.5rem center;
+      background-repeat: no-repeat;
+      background-size: 1.3rem;
       padding-left: 3.5rem;
 
       @include media($medium-screen) {
@@ -227,10 +230,10 @@ li.usa-footer-primary-content {
       padding-bottom: 0;
 
       .usa-footer-primary-link { 
-        margin: 0; 
-        background: url('../img/arrow-right.png') no-repeat;
-        background-position: 1.5rem;
+        background-image: url('../img/arrow-right.png');
+        background-image: url('../img/arrow-right.svg');
         cursor: pointer;
+        margin: 0;
 
         @include media($medium-screen) {
           background: none;
