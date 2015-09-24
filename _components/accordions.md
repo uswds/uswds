@@ -2,7 +2,7 @@
 layout: styleguide
 type: component
 title: Accordions
-lead: Accordions are a list of headers that can be clicked to hide or reveal additional content. 
+lead: Accordions are a list of headers that can be clicked to hide or reveal additional content.
 ---
 
 <div class="preview">
@@ -145,7 +145,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
         Code header areas in the accordion as <code>&lt;buttons&gt;</code> so that they are usable with both screen readers and the keyboard.
       </li>
       <li>
-        Buttons should  state whether they are expanded or not with the appropriate attribute: use either  <code>aria-expanded=<wbr>’true’</code> or <code>aria-expanded=<wbr>’false’</code>.
+        Buttons should  state whether they are expanded or not with the appropriate attribute: use either <code>aria-expanded=<wbr>’true’</code> or <code>aria-expanded=<wbr>’false’</code>.
       </li>
       <li>
         Each button has a unique name <code>aria-controls=<wbr>’collapsible-#’</code> that associates the control to the appropriate region by referencing the controlled elements <code>id</code>.
@@ -157,17 +157,17 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>Users only need a few specific pieces of content within a page. </li>
+      <li>Users only need a few specific pieces of content within a page.</li>
       <li>Information needs to be displayed in a small space.</li>
     </ul>
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>If visitors need to see most or all of the information on a page, use well-formatted text instead.</li> 
+      <li>If visitors need to see most or all of the information on a page. Use well-formatted text instead.</li>
       <li>If there is not enough content to warrant condensing. Accordions increase cognitive load and interaction cost, as users have to make decisions about what headers to click on.</li>
     </ul>
     <h5>Guidance</h5>
     <ul class="usa-content-list">
-      <li>Allow users to click anywhere in the header area to expand or collapse the content; a larger target is easier to manipulate. </li>
+      <li>Allow users to click anywhere in the header area to expand or collapse the content; a larger target is easier to manipulate.</li>
       <li>Make sure interactive elements within the collapsible region are far enough from the headers that users don’t accidentally trigger a collapse. (The exact distance depends on the device.)</li>
     </ul>
   </div>
