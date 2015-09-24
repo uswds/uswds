@@ -908,7 +908,7 @@ order: 01
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Implementation</h4>
-    <p>To get the max-width on body text, add the class <code>usa-content</code> to your document. Use at the specificity that best suits to your project's needs.</p>
+    <p>To get the max-width on body text, add the class <code>usa-content</code> to your document. Use at the specificity that best suits your project's needs.</p>
     <p>Lists must use <code>usa-content-list</code> for the above.</p>
     <p>You can change the max-width value <code>$text-max-width</code> in <code>assets/_scss/core/<wbr>variables.scss</code>.</p>
     <h4 class="usa-heading">Usability</h4>
