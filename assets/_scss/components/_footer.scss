@@ -115,10 +115,10 @@
 ul.usa-footer-primary-content,
 li.usa-footer-primary-content,
 li.usa-footer-primary-content {
-  border-top: 1px solid #000;      
+  border-top: 1px solid $color-base;      
 
   &:last-child {
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid $color-base;
     @include media($medium-screen) {
       border-bottom: none;
     }
@@ -159,10 +159,14 @@ li.usa-footer-primary-content {
 }
 
 .usa-footer-secondary_section {
-  background-color: #e0e0e0;
+  background-color: $color-gray-lighter;
   padding: {
     top: 3rem;
     bottom: 3rem;
+  }
+
+  a {
+    color: $color-base;
   }
 }
 
@@ -192,7 +196,7 @@ li.usa-footer-primary-content {
     padding-bottom: 2.5rem;
 
     &:last-child {
-      border-bottom: 1px solid #000;
+      border-bottom: 1px solid $color-base;
 
       @include media($medium-screen) {
         border-bottom: none;
