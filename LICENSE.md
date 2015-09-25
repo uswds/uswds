@@ -1,6 +1,10 @@
 ## A few parts of this project are not in the public domain
 
-Font files in `assets/fonts` are free, open source typefaces available on [Google Web Fonts] (https://www.google.com/fonts#UsePlace:use/Collection:Source+Sans+Pro:400,300,400italic,700,700italic|Merriweather:400,300,400italic,700,700italic), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL).
+The font files in `assets/fonts` are from [Google Web Fonts](https://www.google.com/fonts#UsePlace:use/Collection:Source+Sans+Pro:400,300,400italic,700,700italic|Merriweather:400,300,400italic,700,700italic), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL).
+
+The Source Sans Pro fonts are copyright 2010, 2012 [Adobe Systems Incorporated](http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries.
+
+The Merriweather fonts are copyright © 2010-2013, [Sorkin Type Co](www.sorkintype.com) with Reserved Font Name 'Merriweather'.
 
 The files in `assets/img` are from [Font Awesome](http://fontawesome.io/) by Dave Gandy. They are under the [SIL Open Font License 1.1](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL).
 
