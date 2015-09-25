@@ -72,9 +72,9 @@ See [CONTRIBUTING](CONTRIBUTING.md)
 
 Please create a [GitHub Issue](https://github.com/18F/web-design-standards/issues)
 
-### Licenses and attribution
+## Licenses and attribution
 
-#### A few parts of this project are not in the public domain
+### A few parts of this project are not in the public domain
 
 The files in `assets/img` are from [Font Awesome](http://fontawesome.io/) by Dave Gandy. They are under the [SIL Open Font License 1.1](http://scripts.sil.org/OFL).
 
@@ -82,7 +82,7 @@ The files in `assets/_scss/lib/bourbon` are from [Bourbon](http://bourbon.io/), 
 
 The files in `assets/_scss/lib/neat` are from [Neat](http://neat.bourbon.io/), copyright © 2012–2015 [thoughtbot](https://thoughtbot.com/), inc., also under the [MIT license](https://github.com/thoughtbot/neat/blob/master/LICENSE.md).
 
-#### The rest of this project is in the public domain
+### The rest of this project is in the public domain
 
 The rest of this project is in the worldwide [public domain](LICENSE.md). As stated in [CONTRIBUTING](CONTRIBUTING.md):
 
