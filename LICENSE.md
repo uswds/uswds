@@ -1,6 +1,8 @@
 ## A few parts of this project are not in the public domain
 
-The files in `assets/img` are from [Font Awesome](http://fontawesome.io/) by Dave Gandy. They are under the [SIL Open Font License 1.1](http://scripts.sil.org/OFL).
+Font files in `assets/fonts` are free, open source typefaces available on [Google Web Fonts] (https://www.google.com/fonts#UsePlace:use/Collection:Source+Sans+Pro:400,300,400italic,700,700italic|Merriweather:400,300,400italic,700,700italic), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL).
+
+The files in `assets/img` are from [Font Awesome](http://fontawesome.io/) by Dave Gandy. They are under the [SIL Open Font License 1.1](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL).
 
 The files in `assets/_scss/lib/bourbon` are from [Bourbon](http://bourbon.io/). License:
 
