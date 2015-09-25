@@ -66,11 +66,11 @@ Questions or need help with setup? Feel free to open an issue here [https://gith
 
 ## Contributing to the code base
 
-See [CONTRIBUTING](CONTRIBUTING.md)
+See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Got feedback?
 
-Please create a [GitHub Issue](https://github.com/18F/web-design-standards/issues)
+Please create a [GitHub Issue](https://github.com/18F/web-design-standards/issues).
 
 ## Licenses and attribution
 
