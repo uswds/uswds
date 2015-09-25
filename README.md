@@ -96,7 +96,7 @@ The file `assets/js/vendor/respond.js` is from [Respond.js](https://github.com/s
 
 The file `assets/js/vendor/selectivisr-min.js` is from [Selectivizr](http://selectivizr.com/), copyright © Keith Clark, under the [MIT license](http://opensource.org/licenses/mit-license.php).
 
-The file `assets-styleguide/js/vendor/prism.js` and `assets-styleguide/css/prism.css` are from [Prism](http://prismjs.com/), copyright © 2012-2013 Lea Verou, under the [MIT license](https://github.com/PrismJS/prism/blob/gh-pages/LICENSE).
+The files `assets-styleguide/js/vendor/prism.js` and `assets-styleguide/css/prism.css` are from [Prism](http://prismjs.com/), copyright © 2012-2013 Lea Verou, under the [MIT license](https://github.com/PrismJS/prism/blob/gh-pages/LICENSE).
 
 ### The rest of this project is in the public domain
 
