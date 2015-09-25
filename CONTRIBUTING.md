@@ -16,7 +16,7 @@ To help us get a better understanding of the issue you are submitting, please le
 
 **Ask**
 
-*Describe the desired behavior and what would deem this issue,bug, or feature complete.*
+*Describe the desired behavior and what would deem this issue, bug, or feature complete.*
 
 **To Do**
 - [ ] Steps
