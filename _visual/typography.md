@@ -4,7 +4,7 @@ title: Typography
 order: 01
 ---
 
-<p>U.S. government websites have common typographic needs: clear and consistent headings, highly legible body paragraphs, clear labels, and easy-to-use input fields.  We recommend a font system that uses two open-source font families: Source Sans Pro and Merriweather, both of which are designed for legibility and can beautifully adapt to a variety of visual styles.</p>
+<p>U.S. government websites have common typographic needs: clear and consistent headings, highly legible body paragraphs, clear labels, and easy-to-use input fields. We recommend a font system that uses two open-source font families: Source Sans Pro and Merriweather, both of which are designed for legibility and can beautifully adapt to a variety of visual styles.</p>
 
 <h3 class="usa-heading" id="typefaces">Typefaces</h3>
 
@@ -12,7 +12,7 @@ order: 01
 
 <div class="usa-grid-full">
   <div class="usa-width-one-half">
-    <p>Source Sans Pro is an open-source sans serif typeface created for legibility in UI design. With a variety of weights that read easily at all sizes, Source Sans Pro provides clear headers as well as highly readable body text.</p>
+    <p>Source Sans Pro is an open-source sans serif typeface created for legibility in UI design. With a variety of weights that read easily at all sizes, Source Sans Pro provides clear headers as well as highly-readable body text.</p>
     <p>Inspired by twentieth-century American gothic typeface design, its slender but open letters offer a clean and friendly simplicity. Advanced hinting allows Source Sans Pro to render well on Windows systems which run Cleartype, and across browsers and devices. Moreover, it supports a variety of languages and alphabets, including Western and European language, Vietnamese, pinyin Romanization of Chinese, and Navajo.</p>
   </div>
 
@@ -59,7 +59,7 @@ order: 01
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
-            <p>A simple serif and sans serif combination designed to communicate warmth and credibility. Strong Merriweather heading weights offer clear information hierarchy and when paired with Source Sans Pro’s easy-to-read body text, creates a clean and professional feel.</p>
+            <p>A simple serif and sans serif combination designed to communicate warmth and credibility. Strong Merriweather heading weights offer clear information hierarchy and when paired with Source Sans Pro’s easy-to-read body text, create a clean and professional feel.</p>
             <p>This pairing is included in our design standards.</p>
             <p>Recommended applications: digital services that feature forms; basic and text heavy sites.</p>
             <p>Font weights included in this package:</p>
@@ -75,11 +75,14 @@ order: 01
             <p><span class="usa-label-big">Fast</span></p>
             <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
-            <p><a href="{{ site.baseurl }}/assets-styleguide/img/epa-emanifest-screenshot.png">EPA eManifest  (screenshot of non-public site)</a></p>
+            <p>
+              <img src="{{ site.baseurl }}/assets-styleguide/img/default_example_emanifest.png" alt="EPA eManifest example">
+              <a href="{{ site.baseurl }}/assets-styleguide/img/epa-emanifest-screenshot.png">EPA eManifest  (screenshot of non-public site)</a>
+            </p>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
-        
+
         <div class="usa-grid usa-typography-example-font">
           <div class="usa-width-one-half">
             <h3 class="usa-display">Display</h3>
@@ -226,11 +229,14 @@ order: 01
             <p><span class="usa-label-big">Medium</span></p>
             <p>Exceeds ideal number of fonts by one. May negatively impact page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
-            <p><a href="/">U.S. Web Design Standards homepage</a></p>
+            <p>
+              <img src="{{ site.baseurl }}/assets-styleguide/img/robust_example_standardshome.png" alt="U.S. Web Design Standards homepage example">
+              <a href="/">U.S. Web Design Standards homepage</a>
+            </p>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
-        
+
         <div class="serif-robust usa-grid usa-typography-example-font">
           <div class="usa-width-one-half">
             <h3 class="usa-display">Display 1</h3>
@@ -383,7 +389,7 @@ order: 01
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
-            <p>The most formal of the options, this pairing uses Merriweather for both headings and body text. The full suite of serif styles communicates trustworthiness, while Merriweather’s contemporary shapes convey freshness and a modern relevance.  The weights are designed to pair together for easy reading and clean page design. Light use of Source Sans Pro suggested for legibility of small text needs.</p>
+            <p>The most formal of the options, this pairing uses Merriweather for both headings and body text. The full suite of serif styles communicates trustworthiness, while Merriweather’s contemporary shapes convey freshness and a modern relevance. The weights are designed to pair together for easy reading and clean page design. Light use of Source Sans Pro suggested for legibility of small text needs.</p>
             <p>Recommended applications: sites which need to convey reliability and trust; basic and text heavy sites.</p>
             <p>Font weights included in this package:</p>
             <ul>
@@ -400,11 +406,14 @@ order: 01
             <p><span class="usa-label-big">Medium</span></p>
             <p>Exceeds ideal number of fonts by two. May negatively impact page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
-            <p><a href="http://playbook.cio.gov">U.S. Digital Service Playbook</a></p>
+            <p>
+              <img src="{{ site.baseurl }}/assets-styleguide/img/merriweatheronly_example_playbook.png" alt="U.S. Digital Service Playbook example">
+              <a href="http://playbook.cio.gov">U.S. Digital Service Playbook</a>
+            </p>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
-        
+
         <div class="serif-robust serif-sans-minor serif-body usa-grid usa-typography-example-font">
           <div class="usa-width-one-half">
             <h3 class="usa-display">Display 1</h3>
@@ -576,7 +585,7 @@ order: 01
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
-        
+
         <div class="sans-style serif-body usa-grid usa-typography-example-font">
           <div class="usa-width-one-half">
             <h3 class="usa-display">Display 1</h3>
@@ -718,8 +727,8 @@ order: 01
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
-            <p>Inspired by the growth of simple and welcoming type in modern web UI design, this suite uses Source Sans Pro exclusively.  With a range of weights designed to fit into heading styles to clearly communicate hierarchy of information, this pairing can support both extremely simple designs and more polished, promotional sites.</p>
-            <p>Recommended applications:  digital services that feature forms; basic and text heavy sites; marketing sites.</p>
+            <p>Inspired by the growth of simple and welcoming type in modern web UI design, this suite uses Source Sans Pro exclusively. With a range of weights designed to fit into heading styles to clearly communicate hierarchy of information, this pairing can support both extremely simple designs and more polished, promotional sites.</p>
+            <p>Recommended applications: digital services that feature forms; basic and text heavy sites; marketing sites.</p>
             <p>Font weights included in this package:</p>
             <ul>
               <li>1. Source Sans Pro, Light 300</li>
@@ -733,11 +742,14 @@ order: 01
             <p><span class="usa-label-big">Fast</span></p>
             <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
-            <a href="{{ site.baseurl }}/assets-styleguide/img/va-appeals-screenshot.png">Department of Veterans Affairs appeals review (screenshot of non-public site)</a>
+            <p>
+              <img src="{{ site.baseurl }}/assets-styleguide/img/ssponly_example_va.png" alt="Veterans Affairs appeals review example">
+              <a href="{{ site.baseurl }}/assets-styleguide/img/va-appeals-screenshot.png">Department of Veterans Affairs appeals review (screenshot of non-public site)</a>
+            </p>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
         </div>
-        
+
         <div class="sans-style usa-grid usa-typography-example-font">
           <div class="usa-width-one-half">
             <h3 class="usa-display">Display 1</h3>
@@ -876,27 +888,27 @@ order: 01
 <div class="preview">
   <h6 class="usa-heading-alt">Alignment</h6>
   <div class="alignment-example">
-    <h4>I am a subject</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+    <h4>The Grand Canyon</h4>
+    <p>Grand Canyon National Park is the United States' 15th oldest national park. Named a UNESCO World Heritage Site in 1979, the park is located in Arizona.</p>
   </div>
-    
+
   <h6 class="usa-heading-alt">Line length - Desktop</h6>
   <div class="usa-line-length-example">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea sequat.</p>
+    <p>Yosemite National Park is set within California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoias, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome.</p>
     <p class="help-text">75 characters max on desktop</p>
   </div>
-  
+
   <h6 class="usa-heading-alt">Spacing</h6>
   <h1>Section heading</h1>
-  <p class="usa-font-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+  <p class="usa-font-lead">Great Smoky Mountains National Park straddles the border of North Carolina and Tennessee.</p>
   <h2>Section heading</h2>
   <h3>Section of the page</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea sequat.</p>
+  <p>The sprawling landscape encompases lush forests and an abundance of wildflowers that bloom year-round. Streams, rivers and waterfalls appear along hiking routes that include a segment of the Appalachian Trail.</p>
   <h4>Subsection of the page</h4>
-  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+  <p>World renowned for its diversity of plant and animal life, the beauty of its ancient mountains, and the quality of its remnants of Southern Appalachian mountain culture, this is America's most visited national park.</p>
+  <p>Right now scientists think that we only know about 17 percent of the plants and animals that live in the park, or about 17,000 species of a probable 100,000 different organisms.</p>
   <h5>Subsection of the page</h5>
-  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
-  <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+  <p>Entrance to Great Smoky Mountains National Park is free. The park is one of the few national parks where no entrance fees are charged.</p>
 </div>
 
 <!-- Typsetting section end -->
@@ -907,6 +919,10 @@ order: 01
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Implementation</h4>
+    <p>To get the max-width on body text, add the class <code>usa-content</code> to your document. Use at the specificity that best suits your project's needs.</p>
+    <p>Lists must use <code>usa-content-list</code> for the above.</p>
+    <p>You can change the max-width value <code>$text-max-width</code> in <code>assets/_scss/core/<wbr>variables.scss</code>.</p>
     <h4 class="usa-heading">Usability</h4>
     <ul class="usa-content-list">
       <li>Alignment: Type set flush left provides the eye a constant starting point for each line, making text easier to read.</li>
@@ -920,7 +936,7 @@ order: 01
 
 <h3 class="usa-heading" id="links">Links</h3>
 
-<p class="usa-font-lead">Links lead users to a different page or further information. 
+<p class="usa-font-lead">Links lead users to a different page or further information.
 </p>
 
 <div class="preview">
@@ -947,10 +963,10 @@ order: 01
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
-      <li>Users should be able to tab to navigate to between links. 
+      <li>Users should be able to tab to navigate between links.
       <li>Users should be able to activate a link when pressing ‘Enter’ on their keyboard.</li>
-      <li>Users should be able to identify links without relying on color alone.</li> 
-      <li>User should be able to activate hover and and focus states in both mouse and keyboard.</li>
+      <li>Users should be able to identify links without relying on color alone.</li>
+      <li>Users should be able to activate hover and and focus states with both a mouse and a keyboard.</li>
     </ul>
   </div>
 </div>
@@ -978,7 +994,7 @@ order: 01
 
     <div class="usa-width-one-third">
 
-      <h6 class="usa-heading-alt">Unordered list</h6>
+      <h6 class="usa-heading-alt">Ordered list</h6>
 
       <ol>
         <li>Ordered list item</li>
@@ -998,11 +1014,13 @@ order: 01
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+  <h4 class="usa-heading">Implementation</h4>
+  <p>Lists are styled by default. For unstyled lists, use either the <code>usa-unstyled-list</code> class or unstyled list mixin: <code>@include unstyled-list;</code>. Both are located in <code>assets/_scss/core/<wbr>utilities.scss</code>.</p>
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-        <li>Use an ordered list when you need to display text in some ranking, hierarchy or series of steps.</li>
-        <li>Use unordered lists display text in no specific order.</li>
+      <li>Use an ordered list when you need to display text in some ranking, hierarchy, or series of steps.</li>
+      <li>Use unordered lists to display text in no specific order.</li>
     </ul>
     <h5>When to consider something different</h5>
     <ul class="usa-content-list">

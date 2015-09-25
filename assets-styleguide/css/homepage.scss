@@ -47,15 +47,16 @@ p {
 
 .usa-banner {
   @include media ($medium-screen) {
-    background-image: url("../img/home/homepage_illustrations_flag_cropped.png");
+    background-image: url("../img/home/homepage_illustrations_flag_cropped_2x.png");
     background-position: right bottom;
     background-repeat: no-repeat;
+    background-size: 582px auto;
   }
   background-color: $color-primary-darkest;
   background-image: none;
   color: $color-white;
   padding: {
-    bottom: 10rem;
+    bottom: 3.7rem;
     top: 2rem;
   }
 
@@ -115,6 +116,18 @@ p {
       margin-bottom: 7rem;
     }
   }
+}
+
+.usa-img-secondary {
+  text-align: center;
+
+  img {
+    width: 260px;
+  }
+}
+
+.usa-circle-block img {
+  width: 124px;
 }
 
 @include media($medium-screen) {
@@ -192,8 +205,4 @@ a {
   .usa-img-example {
     margin-bottom: 5rem;
   }
-}
-
-.usa-img-secondary {
-  text-align: center;
 }
