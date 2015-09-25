@@ -76,7 +76,7 @@ Please create a [GitHub Issue](https://github.com/18F/web-design-standards/issue
 
 ### A few parts of this project are not in the public domain
 
-The files in `assets/img` are from [this version of Font Awesome by Dave Gandy](http://www.flaticon.com/packs/font-awesome/4), under the [Creative Commons Attribution 3.0](http://creativecommons.org/licenses/by/3.0/) license. The [main version of Font Awesome](http://fontawesome.io/) is under the [SIL Open Font License 1.1](http://scripts.sil.org/OFL).
+The files in `assets/img` are from [Font Awesome](http://fontawesome.io/) under the [SIL Open Font License 1.1](http://scripts.sil.org/OFL).
 
 The files in `assets/_scss/lib/bourbon` are from [Bourbon](http://bourbon.io/), copyright © 2011–2015 [thoughtbot](https://thoughtbot.com/), inc., under the [MIT license](https://github.com/thoughtbot/neat/blob/master/LICENSE.md).
 
