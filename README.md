@@ -84,7 +84,7 @@ The files in `assets/_scss/lib/neat` are from [Neat](http://neat.bourbon.io/), c
 
 The file `assets/css/normalize.min.css` is from [Normalize.css](https://github.com/necolas/normalize.css), copyright © Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
 
-The file `assets/js/component.js` includes `politespace.js` and the file `assets/_scss/lib/politespace.scss` is from [Politespace](https://github.com/filamentgroup/politespace), copyright © 2013 Zach Leatherman, under the [MIT license](https://github.com/filamentgroup/politespace/blob/master/LICENSE).
+The file `assets/js/component.js` includes `politespace.js` from [Politespace](https://github.com/filamentgroup/politespace), copyright © 2013 Zach Leatherman, under the [MIT license](https://github.com/filamentgroup/politespace/blob/master/LICENSE).
 
 The file `assets/js/vendor/html5shiv.js` is from [HTML5 Shiv](https://github.com/afarkas/html5shiv), copyright © 2014 Alexander Farkas (aFarkas), under the [MIT and GPL2 licenses](https://github.com/aFarkas/html5shiv/blob/master/MIT%20and%20GPL2%20licenses.md).
 
