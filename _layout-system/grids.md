@@ -133,17 +133,17 @@ lead:  This 12-column, responsive grid provides structure for website content.
     <ul class="usa-content-list">
       <li>Low-vision users should be able to increase the size of the text by up to 200 percent without breaking the layout.</li>
     </ul>
-
-    <h4 class="usa-heading">Usability</h3>
-    <h5>When to use</h4>
+    
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
     <ul class="usa-content-list">
       <li>Almost always use a grid layout — visitors can read more quickly on pages that use grids. Choose a single grid system for your entire site.</li>
     </ul>
-    <h5>When to consider something else</h4>
+    <h5>When to consider something else</h5>
     <ul class="usa-content-list">
       <li>Avoid mixing this grid and other grid systems.</li>
     </ul>
-    <h5>Guidance</h4>
+    <h5>Guidance</h5>
     <ul class="usa-content-list">
       <li>Choose a 12-column grid with flexible column widths and fixed gutters. The width of the padding on the left and right edge of the grid depends on device size.</li>
       <li>Avoid text lines longer than 75 characters. Place text in narrower grid boxes to keep text lines from becoming too wide.</li>
