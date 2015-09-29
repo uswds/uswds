@@ -76,7 +76,7 @@ lead:  This 12-column, responsive grid provides structure for website content.
   <div class="usa-grid usa-grid-example usa-grid-text">
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
-      <p>California is a state located on theWest Coast of the United States. It is the most populous U.S. state, with 38 million people, and thethird largest state by area (after Alaska and Texas).</p>
+      <p>California is a state located on theWest Coast of the United States. It is the most populous U.S. state, with 38 million people, and the third largest state by area (after Alaska and Texas).</p>
     </div>
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
