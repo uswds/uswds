@@ -56,7 +56,7 @@ lead:  This 12-column, responsive grid provides structure for website content.
     </div>
     <div class="usa-width-one-half">
       <h3>One Half</h3>
-      <p>Michigan is a state in the Great Lakes region of the Midwestern United States. The name Michigan is the French form of the Ojibwa word mishigamaa, meaning "large water" or "large lake".Michigan is the tenth most populous state, with the 11th most extensive total area (the largest state by total area east of the Mississippi River). Its capital is Lansing, and the largest city is Detroit. Michigan is the only state to consist of two peninsulas. A person in the state is never more than six miles from a natural water source or 85 miles from a Great Lakes shoreline.</p>
+      <p>Michigan is a state in the Great Lakes region of the Midwestern United States. The name Michigan is the French form of the Ojibwa word mishigamaa, meaning "large water" or "large lake". Michigan is the tenth most populous state, with the 11th most extensive total area (the largest state by total area east of the Mississippi River). Its capital is Lansing, and the largest city is Detroit. Michigan is the only state to consist of two peninsulas. A person in the state is never more than six miles from a natural water source or 85 miles from a Great Lakes shoreline.</p>
     </div>
   </div>
   <div class="usa-grid usa-grid-example usa-grid-text">
@@ -76,7 +76,7 @@ lead:  This 12-column, responsive grid provides structure for website content.
   <div class="usa-grid usa-grid-example usa-grid-text">
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
-      <p>California is a state located on theWest Coast of the United States. It is the most populous U.S. state, with 38 million people, and thethird largest state by area (after Alaska and Texas).</p>
+      <p>California is a state located on the West Coast of the United States. It is the most populous U.S. state, with 38 million people, and thethird largest state by area (after Alaska and Texas).</p>
     </div>
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
@@ -84,7 +84,7 @@ lead:  This 12-column, responsive grid provides structure for website content.
     </div>
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
-      <p>Maine is a state in the New England region of the northeastern United States. In spite of its maritime position, it has a continental climateeven in coastal cities such as its largest city Portland.</p>
+      <p>Maine is a state in the New England region of the northeastern United States. In spite of its maritime position, it has a continental climate even in coastal cities such as its largest city Portland.</p>
     </div>
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
