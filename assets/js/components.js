@@ -357,9 +357,7 @@ $(function() {
 
   footerAccordion();
 
-  $(window).resize(function() {
-    footerAccordion();
-  });
+  $(window).resize(footerAccordion);
 
   // Fixing skip nav focus behavior in chrome
   $('.skipnav').click(function(){
