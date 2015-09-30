@@ -43,3 +43,6 @@ collections:
   components:
     output: true
     permalink: /:path/
+  datasets:
+    output: true
+    permalink: /:path/
