@@ -4,3 +4,5 @@ gem 'jekyll'
 
 gem 'rouge'
 gem 'redcarpet'
+
+gem 'go_script'
