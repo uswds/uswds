@@ -50,7 +50,7 @@ $ brew install ruby
 ### Installation
 
 Now that you have verified that you have Ruby installed, clone and run the
-following go commands to initialize and serve the library locally.
+following [go script](https://github.com/18F/go_script) commands to initialize and serve the library locally.
 
 ```shell
 $ git clone git@github.com:18F/web-design-standards.git
