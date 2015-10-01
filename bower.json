@@ -1,0 +1,16 @@
+{
+  "name": "web-design-standards",
+  "description": "The U.S. Web Design Standards is a library of open source UI components and a visual style guide for U.S. federal government websites.",
+  "version": "4.2.5",
+  "main": [
+    "./assets/_scss/**/*.scss",
+  ],
+  "authors": [
+    "18F (https://playbook.cio.gov/designstandards/)"
+  ],
+  "homepage": "https://playbook.cio.gov/designstandards/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:18F/web-design-standards.git"
+  }
+}
