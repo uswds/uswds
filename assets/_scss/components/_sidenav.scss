@@ -29,6 +29,11 @@
       text-decoration: none;
     }
 
+    &:focus {
+      position: relative;
+      z-index: 1;
+    }
+
     &.usa-current {
       color: $color-primary;
       font-weight: $font-bold;
