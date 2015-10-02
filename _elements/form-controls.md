@@ -289,6 +289,8 @@ lead: Form controls allow users to enter information into a page.
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Implementation</h4>
+      <p>Currently, the max limit for the year input is set to 2000, but it should be changed depending on the context of the form.</p>
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
       <li>These text fields should follow the <a href="{{ site.baseurl }}/form-controls/#text-inputs"> accessibility guidelines for all text inputs.</a></li>
