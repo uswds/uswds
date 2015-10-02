@@ -123,7 +123,7 @@ $site-top:           124px;
     display: none;
   }
   display: inline;
-  float: left;
+  float: right;
   margin-top: -4px;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -148,9 +148,9 @@ $site-top:           124px;
   @media (max-width: $medium-screen + $width-nav-sidebar) {
     $sliding-panel-width: 220px;
 
-    @include position(fixed, 0 auto 0 0);
+    @include position(fixed, 0 0 auto 0);
     @include size($sliding-panel-width 100%);
-    @include transform(translateX(- $sliding-panel-width));
+    @include transform(translateX($sliding-panel-width));
     background: #fff;
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
