@@ -1,0 +1,39 @@
+/*
+Error: Invalid CSS after "@import 'all'": expected "{", was ";"
+        on line 6 of /Users/tait/web-design-standards/assets/css/styleguide.scss
+
+1: ---
+2: ---
+3: 
+4: // Imports -------------- //
+5: 
+6: @import 'all';
+7: 
+8: // Variables -------------- //
+9: 
+10: $width-nav-sidebar:  250px;
+11: $color-grid-dark:    #727272;
+
+Backtrace:
+/Users/tait/web-design-standards/assets/css/styleguide.scss:6
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/scss/parser.rb:1162:in `expected'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/scss/parser.rb:1098:in `expected'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/scss/parser.rb:1093:in `tok!'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/scss/parser.rb:638:in `block'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/scss/parser.rb:632:in `ruleset'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/scss/parser.rb:657:in `block_child'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/scss/parser.rb:647:in `block_contents'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/scss/parser.rb:117:in `stylesheet'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/scss/parser.rb:42:in `parse'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:403:in `_to_tree'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:278:in `render'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/exec/sass_scss.rb:418:in `run'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/exec/base.rb:52:in `parse'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/exec/base.rb:19:in `parse!'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/bin/scss:13:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"@import 'all'\": expected \"{\", was \";\"\A         on line 6 of /Users/tait/web-design-standards/assets/css/styleguide.scss\A \A 1: ---\A 2: ---\A 3: \A 4: // Imports -------------- //\A 5: \A 6: @import 'all';\A 7: \A 8: // Variables -------------- //\A 9: \A 10: $width-nav-sidebar:  250px;\A 11: $color-grid-dark:    #727272;"; }
