@@ -21,7 +21,7 @@ lead: Alerts keep users informed of important and sometimes time-sensitive chang
     </div>
   </div>
 
-  <div class="usa-alert usa-alert-error">
+  <div class="usa-alert usa-alert-error" role="alert">
     <div class="usa-alert-body">
       <h3 class="usa-alert-heading">Error Status</h3>
       <p class="usa-alert-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
