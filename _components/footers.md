@@ -18,31 +18,31 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
         <nav class="usa-footer-nav usa-width-two-thirds">
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
             <h4 class="usa-footer-primary-link">Topic</h4>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
             <h4 class="usa-footer-primary-link">Topic</h4>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
             <h4 class="usa-footer-primary-link">Topic</h4>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
             <h4 class="usa-footer-primary-link">Topic</h4>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
-            <li><a href="javascript:void(0)">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
+            <li><a href="#">Secondary link</a></li>
           </ul>
         </nav>
 
@@ -66,25 +66,25 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
 
         <div class="usa-footer-contact-links usa-width-one-half">
           <div class="usa-social-links">
-            <a href="javascript:void(0)">
+            <a href="#">
               <svg width="26" height="39" role="img" aria-label="Facebook">
                 <title>Facebook</title>
                 <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook25.png" width="26" height="39" />
               </svg>
             </a>
-            <a href="javascript:void(0)">            
+            <a href="#">            
               <svg width="26" height="39" role="img" aria-label="Twitter">
                 <title>Twitter</title>
                 <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter16.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter16.png" width="26" height="39" />
               </svg>
             </a>
-            <a href="javascript:void(0)">
+            <a href="#">
               <svg width="26" height="39" role="img" aria-label="YouTube">
                 <title>YouTube</title>
                 <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube15.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube15.png" width="26" height="39" />
               </svg>
             </a>
-            <a href="javascript:void(0)">
+            <a href="#">
               <svg width="26" height="39" role="img" aria-label="RSS">
                 <title>RSS</title>
                 <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss25.png" width="26" height="39" />
@@ -95,7 +95,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
           <address>
             <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
             <p>(800) CALL-GOVT</p>
-            <a href="mailto:javascript:void(0)">info@agency.gov</a>
+            <a href="mailto:#">info@agency.gov</a>
           </address>
         </div>
       </div>
@@ -141,25 +141,25 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
 
         <div class="usa-footer-contact-links usa-width-one-half">
           <div class="usa-social-links">
-            <a href="javascript:void(0)">
+            <a href="#">
               <svg width="26" height="39" role="img" aria-label="Facebook">
                 <title>Facebook</title>
                 <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook25.png" width="26" height="39" />
               </svg>
             </a>
-            <a href="javascript:void(0)">            
+            <a href="#">            
               <svg width="26" height="39" role="img" aria-label="Twitter">
                 <title>Twitter</title>
                 <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter16.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter16.png" width="26" height="39" />
               </svg>
             </a>
-            <a href="javascript:void(0)">
+            <a href="#">
               <svg width="26" height="39" role="img" aria-label="YouTube">
                 <title>YouTube</title>
                 <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube15.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube15.png" width="26" height="39" />
               </svg>
             </a>
-            <a href="javascript:void(0)">
+            <a href="#">
               <svg width="26" height="39" role="img" aria-label="RSS">
                 <title>RSS</title>
                 <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss25.png" width="26" height="39" />
@@ -170,7 +170,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
           <address>
             <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
             <p>(800) CALL-GOVT</p>
-            <a href="mailto:javascript:void(0)">info@agency.gov</a>
+            <a href="mailto:#">info@agency.gov</a>
           </address>
         </div>
       </div>
@@ -205,7 +205,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
           <p>(800) CALL-GOVT</p>
         </div>
         <div class="usa-width-one-sixth usa-footer-primary-content">
-          <a href="mailto:javascript:void(0)">info@agency.gov</a>
+          <a href="mailto:#">info@agency.gov</a>
         </div>          
       </div>
     </div>
