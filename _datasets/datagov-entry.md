@@ -1,97 +1,82 @@
 ---
+published: true
 layout: dataset
 type: datasets
-title: Data.gov JSON v1.1 # Replace with Title of Dataset
-lead: Accordions are a list of headers that can be clicked to hide or reveal additional content.
-     conformsTo: "https://project-open-data.cio.gov/v1.1/schema"
-     dataset:
-       -
-         accessLevel: "public"
-         bureauCode:
-           - "018:10"
-         contactPoint:
-           fn: "Jane Doe"
-           hasEmail: "mailto:jane.doe@agency.gov"
-         description: "This dataset provides national statistics on the production of widgets"
-         distribution:
-           -
-             downloadURL: "https://data.agency.gov/datasets/widgets-statistics/widgets.csv"
-             mediaType: "text/csv"
-           -
-             downloadURL: "https://data.agency.gov/datasets/widgets-statistics/widgets-all.zip"
-             mediaType: "application/zip"
-           -
-             downloadURL: "http://www.agency.gov/feeds/widgets-all.json"
-             mediaType: "application/json"
-           -
-             accessURL: "https://data.agency.gov/api/widgets-statistics/"
-         identifier: "http://dx.doi.org/10.7927/H45X26V8"
-         keyword:
-           - "widget"
-           - "manufacturing"
-           - "factory"
-         modified: "2011-11-19T12:00:00Z"
-         programCode:
-           - "018:001"
-         publisher:
-           name: "Widget Services"
-           subOrganizationOf:
-             name: "Office of Citizen Services and Innovative Technologies"
-             subOrganizationOf:
-               name: "General Services Administration"
-               subOrganizationOf:
-                 name: "U.S. Government"
-         title: "U.S. Widget Manufacturing Statistics"
-       -
-         accessLevel: "public"
-         bureauCode:
-           - "018:10"
-         contactPoint:
-           fn: "James Doe"
-           hasEmail: "mailto:james.doe@agency.gov"
-         description: "This dataset provides ranges on widget phase modulation"
-         identifier: "http://dx.doi.org/10.7927/H4K64G12"
-         keyword:
-           - "widget"
-           - "modulation"
-         modified: "2011-11-19T12:00:00Z"
-         programCode:
-           - "018:001"
-         publisher:
-           name: "Widget Modulation Program"
-           subOrganizationOf:
-             name: "Office of Citizen Services and Innovative Technologies"
-             subOrganizationOf:
-               name: "General Services Administration"
-               subOrganizationOf:
-                 name: "U.S. Government"
-         title: "U.S. Widget Phase Modulation Ranges"
-       -
-         accessLevel: "public"
-         bureauCode:
-           - "018:10"
-         contactPoint:
-           fn: "James Doe"
-           hasEmail: "mailto:james.doe@agency.gov"
-         description: "This dataset provides ranges on widget phase modulators for 2011"
-         distribution:
-           -
-             downloadURL: "https://data.agency.gov/datasets/widgets-modulator-ranges.csv"
-             mediaType: "text/csv"
-         identifier: "http://dx.doi.org/10.7927/H49P2ZKM"
-         keyword:
-           - "widget"
-           - "modulation"
-         modified: "2011-11-19T12:00:00Z"
-         programCode:
-           - "018:001"
-         publisher:
-           name: "Widget Modulation Program"
-           subOrganizationOf:
-             name: "Office of Citizen Services and Innovative Technologies"
-             subOrganizationOf:
-               name: "General Services Administration"
-               subOrganizationOf:
-                 name: "U.S. Government"
-         title: "U.S. Widget Phase Modulation Ranges for 2011"
+# NOTE see https://project-open-data.cio.gov/v1.1/metadata-resources/#field-mappings for HELP
+modified: YYYY-MM-DD
+title: "Dataset Title"
+lead: "Introduction Text"
+# NOTE description should = lead
+description: "Abstract"
+identifier: "UniqueID or Permalink"
+license: "http://creativecommons.org/publicdomain/mark/1.0/"
+rights: "Attribution"
+spatial: "Place/WKT/GeoJSON/BBOX"
+modified: YYYY-MM-DD
+keywords: [one, two, three]
+themes: [one, two, three]
+references: [URL, URL, URL]
+bureauCode: 000:00
+programCode: 000:00
+# NOTE see http://goals.performance.gov/sites/default/files/images/FederalProgramInventory_FY13_MachineReadable_091613.xls
+accessLevel: public
+#publisher:
+officeName: Office
+programName: Service/Bureau/Program
+agencyName: Agency/Department
+govName: U.S. Government
+contactPoints:
+  - name: Name
+    email: Email
+    role: Title
+distributions:
+  - downloadURL: "/_data/redirect.html"
+    format: HTML
+    mediaType: text/html
+  - downloadURL: "/_data/linkto.csv"
+    format: CSV
+    mediaType: text/csv  
+  - downloadURL: "/_data/linkto.zip"
+    format: ZIP
+    mediaType: application/zip
+  - downloadURL: "/_data/linkto.json"
+    format: JSON
+    mediaType: application/json
+  - downloadURL: "/_data/linkto.xls"
+    format: XLS
+    mediaType: application/vnd.ms-excel
+  - downloadURL: "/_data/linkto.pdf"
+    format: PDF
+    mediaType: application/pdf
+  - downloadURL: "https://project-open-data.cio.gov/v1.1/api/"
+    format: API
+    mediaType: application/+json
+    accessURL: "URL to API Documentation"
+    description: ""
+    conformsTo: "URL"
+    describedBy: "URL"
+    describedByType: "URL"
+
+## Optional Fields ##
+#isPartOf: "@Collection"
+#See https://github.com/project-open-data/project-open-data.github.io/blob/master/v1.1/collections.md"
+#temporal: YYYY-MM-DDT12:00:00Z/YYYY-MM-DDT12:00:00Z
+#issued: YYYY-MM-DD
+#conformsTo: "Data Standard"
+#describedBy: "Data Dictionary"
+#describedByType: "Data Dictionary Type"
+
+## Optional Default Overrides ##
+#landingPage: "/_dataset/thispost.md"
+#dataQuality: true
+#systemOfRecords: "URL"
+#language: en
+#primaryITInvestmentUII: "#"
+#accrualPeriodicity: "R/P1Y"
+
+# NOTE accessURL/conformsTo/describedBy/describedByType/description/title are optional for common mediaTypes http://www.iana.org/assignments/media-types/media-types.xhtml
+
+# NOTE `format` should be based on mediaType
+# NOTE where is `attribution` field?
+# NOTE `publisher` names should be dynamic based on converting `bureauCode` & `programCode`
 ---

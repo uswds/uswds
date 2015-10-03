@@ -1,0 +1,70 @@
+---
+layout: dataset
+---
+{
+  "@context": "https://project-open-data.cio.gov/v1.1/schema/catalog.jsonld",
+  "@id": "{{ site.url }}/data.json",
+  "@type": "dcat:Catalog",
+  "conformsTo": "https://project-open-data.cio.gov/v1.1/schema",
+  "describedBy": "https://project-open-data.cio.gov/v1.1/schema/catalog.json",
+  "dataset": [{% for dataset in site.datasets %}
+    {
+      "@type": "dcat:Dataset",
+      "title": "{{ dataset.title }}",
+      "description": "{{ dataset.description }}",
+      "landingPage": "{{ dataset.url }}",
+      "rights": "{{ dataset.landingPage }}",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "modified": "{{ dataset.modified }}T12:00:00Z",
+      "accrualPeriodicity": "{{ dataset.accrualPeriodicity }}",
+      "conformsTo": "{{ dataset.conformsTo }}",
+      "describedBy": "{{ dataset.describedBy }}",
+      "bureauCode": [
+        "{{ dataset.bureauCode }}"
+      ],
+      "programCode": [
+        "{{ dataset.programCode }}"
+      ],
+      "keyword": [
+        "{{ dataset.keywords | jsonify }}",
+      ],
+      "theme": [
+        "{{ dataset.themes | jsonify }}",
+      ],
+      "references": [
+        "{{ dataset.references | jsonify }}",
+      ],
+      "publisher": {
+        "name": "{{ dataset.officeName }}",
+        "subOrganizationOf": {
+          "name": "{{ dataset.programName }}",
+          "subOrganizationOf": {
+            "name": "{{ dataset.agencyName }}",
+            "subOrganizationOf": {
+              "name": "{{ dataset.govName }}"
+            }
+          }
+        }
+      },
+      "contactPoint": {
+        "@type": "vcard:Contact",
+        "fn": "{{ contactPoint.name }}",
+        "hasEmail": "{{ contactPoint.email }}",
+        "title": "{{ contactPoint.role }}"
+        },
+      "distribution": [{% for distribution in dataset.distributions %}
+        {
+        "@type": "dcat:Distribution",
+        {% if dataset.distributions contains format.API %}
+        "conformsTo": "{{ distribution.conformsTo }}",
+        "describedBy": "{{ distribution.describedBy }}",
+        "describedByType": "{{ distribution.describedByType }}",
+        {% endif %}
+        "description": "{{ distribution.description }}",
+        "downloadURL": "{{ distribution.downloadURL | cgi_escape }}",
+        "format": "{{ distribution.format }}",
+        "mediaType": "{{ distribution.mediaType }}",
+        },
+      ],
+    },
+ }
