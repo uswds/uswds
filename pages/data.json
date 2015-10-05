@@ -1,6 +1,7 @@
 ---
 permalink: /data.json
 layout: dataset
+title: data.json
 ---
 {
   "@context": "https://project-open-data.cio.gov/v1.1/schema/catalog.jsonld",
