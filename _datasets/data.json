@@ -52,7 +52,7 @@ layout: dataset
         "hasEmail": "{{ contactPoint.email }}",
         "title": "{{ contactPoint.role }}"
         },
-      "distribution": [{% for distribution in dataset.distributions %}
+      "distribution": [
         {
         "@type": "dcat:Distribution",
         "conformsTo": "{{ distribution.conformsTo }}",
