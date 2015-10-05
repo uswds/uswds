@@ -1,6 +1,6 @@
 # Markdown config
 markdown: redcarpet
-highlighter: pygments
+highlighter: rouge
 name: U.S. Open Data Shared Services
 exclude:
 - go
@@ -22,7 +22,7 @@ repos:
   url: https://github.com/18F/web-design-standards
 - name: U.S. Open Data Shared Services
   description: Shared Services to help government agencies automate registering Open Data to Data.gov
-  url: https://github.com/18F/web-design-standards-assets
+  url: https://github.com/JJediny/web-design-standards
 
 google_analytics_ua: UA-48605964-33
 

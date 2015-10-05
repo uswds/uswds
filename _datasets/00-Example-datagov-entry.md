@@ -48,10 +48,10 @@ distributions:
   - downloadURL: "/_data/linkto.pdf"
     format: PDF
     mediaType: application/pdf
-  - downloadURL: "https://project-open-data.cio.gov/v1.1/api/"
+  - downloadURL: "/permalink.json"
     format: API
     mediaType: application/+json
-    accessURL: "URL to API Documentation"
+    accessURL: "https://project-open-data.cio.gov/v1.1/api/"
     description: ""
     conformsTo: "URL"
     describedBy: "URL"
