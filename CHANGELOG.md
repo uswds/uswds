@@ -4,9 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 ### Added
+- Add alert role to error alerts
 - Add link to thoughtbot.com in pages/getting-started.html
 
 ### Changed
+- Change link values to use hashes
+- Update memorable dates inputs
 - Change link to ./go script in README.md
 - Ensure focus shadow on sidenav is above hover fill in assets/_scss/components/_sidenav.scss
 
