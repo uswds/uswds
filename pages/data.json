@@ -8,7 +8,7 @@ layout: dataset
   "@type": "dcat:Catalog",
   "conformsTo": "https://project-open-data.cio.gov/v1.1/schema",
   "describedBy": "https://project-open-data.cio.gov/v1.1/schema/catalog.json",
-  "dataset": [{% for dataset in site.datasets %}
+  "dataset": [
     {
       "@type": "dcat:Dataset",
       "title": "{{ dataset.title }}",
@@ -64,5 +64,5 @@ layout: dataset
         "format": "{{ distribution.format }}",
         "mediaType": "{{ distribution.mediaType }}",
         },
-      {% endfor %}]
+      ]
  }
