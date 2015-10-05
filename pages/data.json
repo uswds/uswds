@@ -48,7 +48,7 @@ title: data.json
         "hasEmail": "{{ contactPoint.email }}",
         "title": "{{ contactPoint.role }}"
         },
-      "distribution": {
+      "distribution": [{% for distribution in dataset.distributions %}
         "@type": "dcat:Distribution",
         "conformsTo": "{{ distribution.conformsTo }}",
         "describedBy": "{{ distribution.describedBy }}",
@@ -57,6 +57,6 @@ title: data.json
         "downloadURL": "{{ distribution.downloadURL }}",
         "format": "{{ distribution.format }}",
         "mediaType": "{{ distribution.mediaType }}"
-        },
-      {% endfor %}]
+      {% endfor %}],
+    {% endfor %}]
  }
