@@ -34,7 +34,6 @@ collections:
   visual:
     output: true
     permalink: /:path/
-    layout: page
   layout-system:
     output: true
     permalink: /:path/

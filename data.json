@@ -7,7 +7,7 @@ layout: dataset
   "@type": "dcat:Catalog",
   "conformsTo": "https://project-open-data.cio.gov/v1.1/schema",
   "describedBy": "https://project-open-data.cio.gov/v1.1/schema/catalog.json",
-  "dataset": [{% for dataset in site.datasets %}
+  "dataset": [{% for dataset in site.categories.datasets %}
     {
       "@type": "dcat:Dataset",
       "title": "{{ dataset.title }}",
@@ -55,11 +55,9 @@ layout: dataset
       "distribution": [{% for distribution in dataset.distributions %}
         {
         "@type": "dcat:Distribution",
-        {% if dataset.distributions contains format.API %}
         "conformsTo": "{{ distribution.conformsTo }}",
         "describedBy": "{{ distribution.describedBy }}",
         "describedByType": "{{ distribution.describedByType }}",
-        {% endif %}
         "description": "{{ distribution.description }}",
         "downloadURL": "{{ distribution.downloadURL | cgi_escape }}",
         "format": "{{ distribution.format }}",
