@@ -27,9 +27,9 @@ title: data.json
       "programCode": [
         "{{ dataset.programCode }}"
       ],
-      "keyword": "{{ dataset.keywords | jsonify }}",
-      "theme": "{{ dataset.themes | jsonify }}",
-      "references": "{{ dataset.references | jsonify }}",
+      "keyword": {{ dataset.keywords | jsonify }},
+      "theme": {{ dataset.themes | jsonify }},
+      "references": {{ dataset.references | jsonify }},
       "publisher": {
         "name": "{{ dataset.officeName }}",
         "subOrganizationOf": {
