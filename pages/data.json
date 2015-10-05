@@ -21,21 +21,21 @@ title: data.json
       "accrualPeriodicity": "{{ dataset.accrualPeriodicity }}",
       "conformsTo": "{{ dataset.conformsTo }}",
       "describedBy": "{{ dataset.describedBy }}",
-      "bureauCode": [
+      "bureauCode": {
         "{{ dataset.bureauCode }}"
-      ],
-      "programCode": [
+      },
+      "programCode": {
         "{{ dataset.programCode }}"
-      ],
-      "keyword": [
-        "{{ dataset.keywords }}",
-      ],
-      "theme": [
-        "{{ dataset.themes }}",
-      ],
-      "references": [
-        "{{ dataset.references }}",
-      ],
+      },
+      "keyword": {
+        "{{ dataset.keywords | jsonify }}",
+      },
+      "theme": {
+        "{{ dataset.themes | jsonify }}",
+      },
+      "references": {
+        "{{ dataset.references | jsonify }}",
+      },
       "publisher": {
         "name": "{{ dataset.officeName }}",
         "subOrganizationOf": {
