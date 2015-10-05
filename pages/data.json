@@ -1,265 +1,67 @@
 ---
-layout: default
+layout: dataset
 ---
 {
-  "type": "FeatureCollection",
-  "features": [{% for dataset in site.categories.datasets %}
+  "@context": "https://project-open-data.cio.gov/v1.1/schema/catalog.jsonld",
+  "@id": "{{ site.url }}/data.json",
+  "@type": "dcat:Catalog",
+  "conformsTo": "https://project-open-data.cio.gov/v1.1/schema",
+  "describedBy": "https://project-open-data.cio.gov/v1.1/schema/catalog.json",
+  "dataset": [{% for dataset in site.categories.datasets %}
     {
-      "type": "Feature",
-      "properties": {
-        "title": "{{ product.title }}",
-        "date_published": "{{ product.date_published | date: '%B %d, %Y' }}",
-        "region_id": "{{ product.region_id }}",
-        "region_title": "{{ product.region_title }}",
-        "featured": "{{ product.featured }}",
-        "url": "{{ site.url }}{{ product.url }}",
-        "pdf": "https://s3.amazonaws.com/hiu-products/{{ product.pdf }}",
-        "thumbnail_150": "https://s3.amazonaws.com/hiu-thumbnails/products/{{ product.thumbnail_150 }}",
-        "thumbnail_300": "https://s3.amazonaws.com/hiu-thumbnails/products/{{ product.thumbnail_300 }}",
-        "marker-color": "#8cc250"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [{{ product.lon }}, {{ product.lat }}]
-      }
-    }{% unless forloop.last %},{% endunless %}
-    {% endif %}{% endfor %}
-  ]
-}
-
-{
-    "@context": "https://project-open-data.cio.gov/v1.1/schema/catalog.jsonld",
-    "@id": "http://www.agency.gov/data.json",
-    "@type": "dcat:Catalog",
-    "conformsTo": "https://project-open-data.cio.gov/v1.1/schema",
-    "describedBy": "https://project-open-data.cio.gov/v1.1/schema/catalog.json",
-    "dataset": [
-        {
-            "@type": "dcat:Dataset",
-            "accessLevel": "public",
-            "accrualPeriodicity": "R/P1Y",
-            "bureauCode": [
-                "018:10"
-            ],
-            "conformsTo": "http://www.agency.gov/widget-taxonomy/",
-            "contactPoint": {
-                "@type": "vcard:Contact",
-                "fn": "Jane Doe",
-                "hasEmail": "mailto:jane.doe@agency.gov"
-            },
-            "describedBy": "http://www.agency.gov/datasets/widgets-dictionary.html",
-            "dataQuality": true,
-            "description": "This dataset provides national statistics on the production of widgets",
-            "distribution": [
-                {
-                    "@type": "dcat:Distribution",
-                    "description": "Widgets data as a CSV file",
-                    "downloadURL": "https://data.agency.gov/datasets/widgets-statistics/widgets.csv",
-                    "format": "CSV",
-                    "mediaType": "text/csv",
-                    "title": "widgets.csv"
-                },
-                {
-                    "@type": "dcat:Distribution",
-                    "description": "Widgets data as a zipped CSV file with attached data dictionary",
-                    "downloadURL": "https://data.agency.gov/datasets/widgets-statistics/widgets-all.zip",
-                    "format": "Zipped CSV",
-                    "mediaType": "application/zip",
-                    "title": "widgets-all.zip"
-                },
-                {
-                    "@type": "dcat:Distribution",
-                    "conformsTo": "http://www.agency.gov/widget-data-standard/",
-                    "describedBy": "http://www.agency.gov/widgets/schema.json",
-                    "describedByType": "application/schema+json",
-                    "description": "Widget data as a JSON feed",
-                    "downloadURL": "http://www.agency.gov/feeds/widgets-all.json",
-                    "format": "JSON",
-                    "mediaType": "application/json",
-                    "title": "widgets-all.json"
-                },
-                {
-                    "@type": "dcat:Distribution",
-                    "accessURL": "https://data.agency.gov/api/widgets-statistics/",
-                    "description": "A fully queryable REST API with JSON and XML output",
-                    "format": "API",
-                    "title": "Widgets REST API"
-                }
-            ],
-            "identifier": "http://dx.doi.org/10.7927/H4PZ56R2",
-            "issued": "2011-11-22",
-            "keyword": [
-                "widget",
-                "manufacturing",
-                "factory"
-            ],
-            "landingPage": "http://agency.gov/widgets/data",
-            "language": [
-                "en-US"
-            ],
-            "license": "http://creativecommons.org/publicdomain/zero/1.0/",
-            "modified": "2011-11-19T12:00:00Z",
-            "primaryITInvestmentUII": "021-006227212",
-            "programCode": [
-                "018:001"
-            ],
-            "publisher": {
-                "@type": "org:Organization",
-                "name": "Widget Services",
-                "subOrganizationOf": {
-                    "@type": "org:Organization",
-                    "name": "Office of Citizen Services and Innovative Technologies",
-                    "subOrganizationOf": {
-                        "@type": "org:Organization",
-                        "name": "General Services Administration",
-                        "subOrganizationOf": {
-                            "@type": "org:Organization",
-                            "name": "U.S. Government"
-                        }
-                    }
-                }
-            },
-            "references": [
-                "http://agency.gov/docs/widgets-1.html",
-                "http://agency.gov/docs/widgets-2.html"
-            ],
-            "rights": "This dataset has been given an international public domain dedication for worldwide reuse",
-            "spatial": "United States",
-            "systemOfRecords": "http://www.agency.gov/widgets/sorn/",
-            "temporal": "2009-09-01T12:00:00Z/2010-05-31T12:00:00Z",
-            "theme": [
-                "manufacturing"
-            ],
-            "title": "U.S. Widget Manufacturing Statistics"
-        },
-        {
-            "@type": "dcat:Dataset",
-            "accessLevel": "public",
-            "accrualPeriodicity": "R/P1Y",
-            "bureauCode": [
-                "018:10"
-            ],
-            "contactPoint": {
-                "@type": "vcard:Contact",
-                "fn": "James Doe",
-                "hasEmail": "mailto:james.doe@agency.gov"
-            },
-            "description": "This dataset provides ranges on widget phase modulation",
-            "identifier": "http://dx.doi.org/10.7927/H4K64G12",
-            "issued": "2011-11-22",
-            "keyword": [
-                "widget",
-                "modulation"
-            ],
-            "landingPage": "http://agency.gov/widgets/data",
-            "language": [
-                "en-US"
-            ],
-            "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-            "modified": "2011-11-19T12:00:00Z",
-            "primaryITInvestmentUII": "021-006227212",
-            "programCode": [
-                "018:001"
-            ],
-            "publisher": {
-                "@type": "org:Organization",
-                "name": "Widget Modulation Program",
-                "subOrganizationOf": {
-                    "@type": "org:Organization",
-                    "name": "Office of Citizen Services and Innovative Technologies",
-                    "subOrganizationOf": {
-                        "@type": "org:Organization",
-                        "name": "General Services Administration",
-                        "subOrganizationOf": {
-                            "@type": "org:Organization",
-                            "name": "U.S. Government"
-                        }
-                    }
-                }
-            },
-            "references": [
-                "http://agency.gov/docs/widgets-1.html",
-                "http://agency.gov/docs/widgets-2.html"
-            ],
-            "rights": "This dataset is a U.S. Government Work and is not covered by copyright in the United States of America",
-            "spatial": "United States",
-            "systemOfRecords": "http://www.agency.gov/widgets/sorn/",
-            "temporal": "2009-09-01T12:00:00Z/2010-05-31T12:00:00Z",
-            "theme": [
-                "manufacturing"
-            ],
-            "title": "U.S. Widget Phase Modulation Ranges"
-        },
-        {
-            "@type": "dcat:Dataset",
-            "accessLevel": "public",
-            "accrualPeriodicity": "R/P1Y",
-            "bureauCode": [
-                "018:10"
-            ],
-            "contactPoint": {
-                "@type": "vcard:Contact",
-                "fn": "James Doe",
-                "hasEmail": "mailto:james.doe@agency.gov"
-            },
-            "describedBy": "http://www.agency.gov/datasets/widget-modulation-dictionary.html",
-            "dataQuality": true,
-            "description": "This dataset provides ranges on widget phase modulators for 2011",
-            "distribution": [
-                {
-                    "@type": "dcat:Distribution",
-                    "description": "Widget modulator data as a CSV file",
-                    "downloadURL": "https://data.agency.gov/datasets/widgets-modulator-ranges.csv",
-                    "format": "CSV",
-                    "mediaType": "text/csv",
-                    "title": "widgets.csv"
-                }
-            ],
-            "identifier": "http://dx.doi.org/10.7927/H49P2ZKM",
-            "isPartOf": "widget-modulators",
-            "issued": "2011-11-22",
-            "keyword": [
-                "widget",
-                "modulation"
-            ],
-            "landingPage": "http://agency.gov/widgets/data",
-            "language": [
-                "en-US"
-            ],
-            "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-            "modified": "2011-11-19T12:00:00Z",
-            "primaryITInvestmentUII": "021-006227212",
-            "programCode": [
-                "018:001"
-            ],
-            "publisher": {
-                "@type": "org:Organization",
-                "name": "Widget Modulation Program",
-                "subOrganizationOf": {
-                    "@type": "org:Organization",
-                    "name": "Office of Citizen Services and Innovative Technologies",
-                    "subOrganizationOf": {
-                        "@type": "org:Organization",
-                        "name": "General Services Administration",
-                        "subOrganizationOf": {
-                            "@type": "org:Organization",
-                            "name": "U.S. Government"
-                        }
-                    }
-                }
-            },
-            "references": [
-                "http://agency.gov/docs/widgets-1.html",
-                "http://agency.gov/docs/widgets-2.html"
-            ],
-            "rights": "This dataset is a U.S. Government Work and is not covered by copyright in the United States of America",
-            "spatial": "United States",
-            "systemOfRecords": "http://www.agency.gov/widgets/sorn/",
-            "temporal": "2009-09-01T12:00:00Z/2010-05-31T12:00:00Z",
-            "theme": [
-                "manufacturing"
-            ],
-            "title": "U.S. Widget Phase Modulation Ranges for 2011"
+      "@type": "dcat:Dataset",
+      "title": "{{ dataset.title }}",
+      "description": "{{ dataset.description }}",
+      "landingPage": "{{ dataset.url }}",
+      "rights": "{{ dataset.landingPage }}",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "modified": "{{ dataset.modified }}T12:00:00Z",
+      "accrualPeriodicity": "{{ dataset.accrualPeriodicity }}",
+      "conformsTo": "{{ dataset.conformsTo }}",
+      "describedBy": "{{ dataset.describedBy }}",
+      "bureauCode": [
+        "{{ dataset.bureauCode }}"
+      ],
+      "programCode": [
+        "{{ dataset.programCode }}"
+      ],
+      "keyword": [
+        "{{ dataset.keywords | jsonify }}",
+      ],
+      "theme": [
+        "{{ dataset.themes | jsonify }}",
+      ],
+      "references": [
+        "{{ dataset.references | jsonify }}",
+      ],
+      "publisher": {
+        "name": "{{ dataset.officeName }}",
+        "subOrganizationOf": {
+          "name": "{{ dataset.programName }}",
+          "subOrganizationOf": {
+            "name": "{{ dataset.agencyName }}",
+            "subOrganizationOf": {
+              "name": "{{ dataset.govName }}"
+            }
+          }
         }
-    ]
-}
+      },
+      "contactPoint": {
+        "@type": "vcard:Contact",
+        "fn": "{{ contactPoint.name }}",
+        "hasEmail": "{{ contactPoint.email }}",
+        "title": "{{ contactPoint.role }}"
+        },
+      "distribution": [
+        {
+        "@type": "dcat:Distribution",
+        "conformsTo": "{{ distribution.conformsTo }}",
+        "describedBy": "{{ distribution.describedBy }}",
+        "describedByType": "{{ distribution.describedByType }}",
+        "description": "{{ distribution.description }}",
+        "downloadURL": "{{ distribution.downloadURL | cgi_escape }}",
+        "format": "{{ distribution.format }}",
+        "mediaType": "{{ distribution.mediaType }}",
+        },
+      {% endfor %}],
+ }
