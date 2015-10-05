@@ -16,7 +16,7 @@ title: data.json
       "description": "{{ dataset.description }}",
       "landingPage": "{{ dataset.url }}",
       "rights": "{{ dataset.landingPage }}",
-      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "license": "{{ dataset.license }}",
       "modified": "{{ dataset.modified }}T12:00:00Z",
       "accrualPeriodicity": "{{ dataset.accrualPeriodicity }}",
       "conformsTo": "{{ dataset.conformsTo }}",
@@ -28,13 +28,13 @@ title: data.json
         "{{ dataset.programCode }}"
       ],
       "keyword": [
-        "{{ dataset.keywords }}, ",
+        "{{ dataset.keywords }}",
       ],
       "theme": [
-        "{{ dataset.themes }}, ",
+        "{{ dataset.themes }}",
       ],
       "references": [
-        "{{ dataset.references }}, ",
+        "{{ dataset.references }}",
       ],
       "publisher": {
         "name": "{{ dataset.officeName }}",
