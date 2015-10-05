@@ -55,7 +55,6 @@ following [go script](https://github.com/18F/go_script) commands to initialize a
 ```shell
 $ git clone git@github.com:18F/web-design-standards.git
 $ cd web-design-standards
-$ ./go init
 $ ./go serve
 ```
 
