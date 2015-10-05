@@ -28,13 +28,13 @@ title: data.json
         "{{ dataset.programCode }}"
       ],
       "keyword": [
-        "{{ dataset.keywords | jsonify }}",
+        "{{ dataset.keywords }}, ",
       ],
       "theme": [
-        "{{ dataset.themes | jsonify }}",
+        "{{ dataset.themes }}, ",
       ],
       "references": [
-        "{{ dataset.references | jsonify }}",
+        "{{ dataset.references }}, ",
       ],
       "publisher": {
         "name": "{{ dataset.officeName }}",
@@ -61,7 +61,7 @@ title: data.json
         "describedBy": "{{ distribution.describedBy }}",
         "describedByType": "{{ distribution.describedByType }}",
         "description": "{{ distribution.description }}",
-        "downloadURL": "{{ distribution.downloadURL | cgi_escape }}",
+        "downloadURL": "{{ distribution.downloadURL }}",
         "format": "{{ distribution.format }}",
         "mediaType": "{{ distribution.mediaType }}",
         },
