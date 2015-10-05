@@ -14,7 +14,7 @@ title: data.json
       "@type": "dcat:Dataset",
       "title": "{{ dataset.title }}",
       "description": "{{ dataset.description }}",
-      "landingPage": "{{ dataset.url }}",
+      "landingPage": "{{ site.url }}{{ dataset.url }}",
       "rights": "{{ dataset.landingPage }}",
       "license": "{{ dataset.license }}",
       "modified": "{{ dataset.modified }}T12:00:00Z",
@@ -48,8 +48,7 @@ title: data.json
         "hasEmail": "{{ contactPoint.email }}",
         "title": "{{ contactPoint.role }}"
         },
-      "distribution": [
-        {
+      "distribution": {
         "@type": "dcat:Distribution",
         "conformsTo": "{{ distribution.conformsTo }}",
         "describedBy": "{{ distribution.describedBy }}",
@@ -57,7 +56,7 @@ title: data.json
         "description": "{{ distribution.description }}",
         "downloadURL": "{{ distribution.downloadURL }}",
         "format": "{{ distribution.format }}",
-        "mediaType": "{{ distribution.mediaType }}",
+        "mediaType": "{{ distribution.mediaType }}"
         },
       {% endfor %}]
  }
