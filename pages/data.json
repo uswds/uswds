@@ -9,7 +9,7 @@ title: data.json
   "@type": "dcat:Catalog",
   "conformsTo": "https://project-open-data.cio.gov/v1.1/schema",
   "describedBy": "https://project-open-data.cio.gov/v1.1/schema/catalog.json",
-  "dataset": [
+  "dataset": [{% for dataset in site.datasets %}
     {
       "@type": "dcat:Dataset",
       "title": "{{ dataset.title }}",
@@ -65,5 +65,5 @@ title: data.json
         "format": "{{ distribution.format }}",
         "mediaType": "{{ distribution.mediaType }}",
         },
-      ]
+      {% endfor %}]
  }
