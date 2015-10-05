@@ -13,13 +13,13 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: W
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
-          <a class="usa-current" href="javascript:void(0)">Current page</a>
+          <a class="usa-current" href="#">Current page</a>
         </li>
         <li>
-          <a href="javascript:void(0)">Parent link</a>
+          <a href="#">Parent link</a>
         </li>
         <li>
-          <a href="javascript:void(0)">Parent link</a>
+          <a href="#">Parent link</a>
         </li>
       </ul>
     </aside>
@@ -31,30 +31,30 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: W
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
-          <a href="javascript:void(0)">Parent link</a>
+          <a href="#">Parent link</a>
         </li>
         <li>
-          <a class="usa-current" href="javascript:void(0)">Current page</a>
+          <a class="usa-current" href="#">Current page</a>
           <ul class="usa-sidenav-sub_list">
             <li>
-              <a href="javascript:void(0)">Child link</a>
+              <a href="#">Child link</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Child link</a>
+              <a href="#">Child link</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Child link</a>
+              <a href="#">Child link</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Child link</a>
+              <a href="#">Child link</a>
             </li>
             <li>
-              <a class="usa-current" href="javascript:void(0)">Child Link</a>
+              <a class="usa-current" href="#">Child Link</a>
             </li>
           </ul>
         </li>
         <li>
-          <a href="javascript:void(0)">Parent link</a>
+          <a href="#">Parent link</a>
         </li>
       </ul>
     </aside>
@@ -66,41 +66,41 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: W
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
-          <a href="javascript:void(0)">Parent link</a>
+          <a href="#">Parent link</a>
         </li>
         <li>
-          <a class="usa-current" href="javascript:void(0)">Current page</a>
+          <a class="usa-current" href="#">Current page</a>
           <ul class="usa-sidenav-sub_list">
             <li>
-              <a href="javascript:void(0)">Child link</a>
+              <a href="#">Child link</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Child link</a>
+              <a href="#">Child link</a>
               <ul class="usa-sidenav-sub_list">
                 <li>
-                  <a href="javascript:void(0)">Grandchild link</a>
+                  <a href="#">Grandchild link</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0)">Grandchild link</a>
+                  <a href="#">Grandchild link</a>
                 </li>
                 <li>
-                  <a class="usa-current" href="javascript:void(0)">Grandchild link</a>
+                  <a class="usa-current" href="#">Grandchild link</a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="javascript:void(0)">Child link</a>
+              <a href="#">Child link</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Child link</a>
+              <a href="#">Child link</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Child link</a>
+              <a href="#">Child link</a>
             </li>
           </ul>
         </li>
         <li>
-          <a href="javascript:void(0)">Parent link</a>
+          <a href="#">Parent link</a>
         </li>
       </ul>
     </aside>
