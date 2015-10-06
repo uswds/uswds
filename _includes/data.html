@@ -1,0 +1,24 @@
+    <div class="main-content" id="main-content">
+      <div class="styleguide-content usa-content">
+        <ul>
+        {% for FederalProgram in site.data.FederalPrograms %}
+        <div class="usa-accordion-bordered">
+          <ul class="usa-unstyled-list">
+            <li>
+              <button class="usa-button-unstyled"
+                aria-expanded="true" aria-controls="collapsible-0">
+                {{ FederalProgram.AgencyName }}
+              </button>
+              <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+                <h4>{{ FederalProgram.ProgramName }}
+                </h4>
+                <p>{{ FederalProgram.AgencyCode }}
+                </p>
+                <p>{{ FederalProgram.ProgramCode }}
+                </p>
+              </div>
+            </li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>

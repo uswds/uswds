@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
   <head>
     {% include head.html %}
   </head>
@@ -8,11 +8,12 @@
   <body>
 
   	{% include navbar.html %}
-	
+
   	{% include sidenav.html %}
 
     <section id="main" class="main-content" role="main">
       {{ content }}
+      {% include data.html %}
     </section>
 
     {% include analytics.html %}
