@@ -3,16 +3,16 @@
   <ul class="usa-unstyled-list">
     <li>
       <button class="usa-button-unstyled" aria-expanded="true" aria-controls="collapsible">
-       {{ FederalProgram.AgencyName | group_by:"AgencyCode" }}
+       {{ FederalProgram.AgencyName | group_by:"AgencyName" }}
       </button>
-      <div id="collapsible" aria-hidden="true" class="usa-accordion-content">
+      <div id="collapsible" aria-hidden="false" class="usa-accordion-content">
         <ul class="usa-unstyled-list">
-          <h4>
-          {{ FederalProgram.ProgramName }}
-          </h4>
-          <p>
-          Program Code: {{ FederalProgram.ProgramCode }}
-          </p>
+          <li>
+           <h3>{{ FederalProgram.ProgramName }}</h3>
+          </li>
+          <li>
+           <p>Program Code: {{ FederalProgram.ProgramCode }}</p>
+          </li>
         </ui>
       </div>
     </li>

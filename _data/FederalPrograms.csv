@@ -11,8 +11,8 @@ Department of Agriculture,Farm labor Housing,005,005-009
 Department of Agriculture,Rental Assistance,005,005-010
 Department of Agriculture,Community Facilities,005,005-011
 Department of Agriculture,Farm Loans,005,005-012
-Department of Agriculture,"Commodity Programs, Commodity Credit Corporation",005,005-013
-Department of Agriculture,"Conservation Programs, Commodity Credit Corporation",005,005-014
+Department of Agriculture,Commodity Programs, Commodity Credit Corporation,005,005-013
+Department of Agriculture,Conservation Programs, Commodity Credit Corporation,005,005-014
 Department of Agriculture,Grassroots Source Water Protection Program,005,005-015
 Department of Agriculture,Reforestation Pilot Program,005,005-016
 Department of Agriculture,State Mediation Grants,005,005-017
@@ -39,7 +39,7 @@ Department of Agriculture,Research and Education,005,005-037
 Department of Agriculture,Extension,005,005-038
 Department of Agriculture,Integrated Activities,005,005-039
 Department of Agriculture,National Research,005,005-040
-Department of Agriculture,"Economic Research, Market Outlook, and Policy Analysis",005,005-041
+Department of Agriculture,Economic Research, Market Outlook, and Policy Analysis,005,005-041
 Department of Agriculture,Agricultural Estimates,005,005-042
 Department of Agriculture,Census of Agriculture,005,005-043
 Department of Agriculture,Grain Regulatory Program,005,005-044
@@ -116,7 +116,7 @@ Department of Commerce,National Ocean Service,006,006-055
 Department of Commerce,National Marine Fisheries Service,006,006-056
 Department of Commerce,Oceanic and Atmospheric Research,006,006-057
 Department of Commerce,National Weather Service,006,006-058
-Department of Commerce,"National Environmental Satellite, Data and Information Service",006,006-059
+Department of Commerce,National Environmental Satellite, Data and Information Service,006,006-059
 Department of Commerce,Program Support,006,006-060
 Department of Commerce,Information Clearinghouse Program,006,006-061
 Department of Commerce,Domestic and International Policy,006,006-062
@@ -124,7 +124,7 @@ Department of Commerce,Spectrum Management,006,006-063
 Department of Commerce,Telecommunications Science Research,006,006-064
 Department of Commerce,Broadband Programs,006,006-065
 Department of Commerce,Wireless Broadband Access,006,006-066
-Department of Commerce,"Public Telecommunications Facilities, Planning and Construction",006,006-067
+Department of Commerce,Public Telecommunications Facilities, Planning and Construction,006,006-067
 Department of Commerce,Digital Television Transition and Public Safety Fund (mandatory),006,006-068
 Department of Commerce,Public Safety Broadband Corporation (mandatory),006,006-069
 Department of Commerce,Patents,006,006-070
@@ -147,7 +147,7 @@ Department of Defense,Army Non-Divisional Combat Increment,007,007-015
 Department of Defense,Army Tactical Support Increment,007,007-016
 Department of Defense,Marine Ground Forces,007,007-017
 Department of Defense,Army Special Mission Forces,007,007-018
-Department of Defense,"Army Base Operations Support (BOS) and Mgmt., Headquarters (HQ)s",007,007-019
+Department of Defense,Army Base Operations Support (BOS) and Mgmt., Headquarters (HQ)s,007,007-019
 Department of Defense,Army Operational Support,007,007-020
 Department of Defense,Army Research and Development Support (R&D),007,007-021
 Department of Defense,Army Systems Support,007,007-022
@@ -166,7 +166,7 @@ Department of Defense,Non-Strategic Nuclear Naval Forces,007,007-034
 Department of Defense,Fleet Support,007,007-035
 Department of Defense,Navy Systems Support,007,007-036
 Department of Defense,Navy R&D Support,007,007-037
-Department of Defense,"Navy BOS & Mgmt., HQs",007,007-038
+Department of Defense,Navy BOS & Mgmt., HQs,007,007-038
 Department of Defense,Other Operational Support,007,007-039
 Department of Defense,Multimode & lntermodal Lift,007,007-040
 Department of Defense,Airlift Forces,007,007-041
@@ -189,7 +189,7 @@ Department of Defense,Undistributed Engineering and Manufacturing Development (E
 Department of Defense,R&D Support Activities,007,007-058
 Department of Defense,R&D BOS & Mgmt. HQs,007,007-059
 Department of Defense,Geophysical Activities,007,007-060
-Department of Defense,"Geophysical BOS & Mgmt., HQs",007,007-061
+Department of Defense,Geophysical BOS & Mgmt., HQs,007,007-061
 Department of Defense,Space Launch Support,007,007-062
 Department of Defense,Nuclear Weapons Support,007,007-063
 Department of Defense,International Support,007,007-064
@@ -216,10 +216,10 @@ Department of Defense,Federal Agency Support,007,007-084
 Department of Defense,Family Housing ,007,007-085
 Department of Defense,Dependent Education,007,007-086
 Department of Defense,Other Personnel Support Activities,007,007-087
-Department of Defense,"Personnel BOS & Mgmt., HQs",007,007-088
+Department of Defense,Personnel BOS & Mgmt., HQs,007,007-088
 Department of Defense,Departmental HQ,007,007-089
 Department of Defense,Departmental Services,007,007-090
-Department of Defense,"Departmental BOS & Mgmt., HQs",007,007-091
+Department of Defense,Departmental BOS & Mgmt., HQs,007,007-091
 Department of Health and Human Services,Foods Program,009,009-001
 Department of Health and Human Services,Human Drugs,009,009-002
 Department of Health and Human Services,Biologics,009,009-003
@@ -242,14 +242,14 @@ Department of Health and Human Services,Family Planning,009,009-019
 Department of Health and Human Services,Program Management,009,009-020
 Department of Health and Human Services,Clinical Services,009,009-021
 Department of Health and Human Services,Preventive Health,009,009-022
-Department of Health and Human Services,"Operations, Support, and Other Services",009,009-023
+Department of Health and Human Services,Operations, Support, and Other Services,009,009-023
 Department of Health and Human Services,Indian Health Facilities,009,009-024
 Department of Health and Human Services,Special Diabetes Program for Indians,009,009-025
 Department of Health and Human Services,Immunization and Respiratory Diseases,009,009-026
-Department of Health and Human Services,"HIV/AIDS, Viral Hepatitis, Sexually Transmitted Diseases (STD), and Tuberculosis (TB) Prevention",009,009-027
+Department of Health and Human Services,HIV/AIDS, Viral Hepatitis, Sexually Transmitted Diseases (STD), and Tuberculosis (TB) Prevention,009,009-027
 Department of Health and Human Services,Emerging and Zoonotic Infectious Diseases,009,009-028
 Department of Health and Human Services,Chronic Disease and Prevention and Health Promotion,009,009-029
-Department of Health and Human Services,"Birth Defects, Developmental Disabilities, Disabilities and Health",009,009-030
+Department of Health and Human Services,Birth Defects, Developmental Disabilities, Disabilities and Health,009,009-030
 Department of Health and Human Services,Public Health Scientific Services,009,009-031
 Department of Health and Human Services,Environmental Health,009,009-032
 Department of Health and Human Services,Injury Prevention and Control,009,009-033
@@ -269,7 +269,7 @@ Department of Health and Human Services,NIH Program Support and Crosscutting Res
 Department of Health and Human Services,Cancer Research,009,009-047
 Department of Health and Human Services,General Medical Sciences Research,009,009-048
 Department of Health and Human Services,Environmental Health Sciences Research,009,009-049
-Department of Health and Human Services,"Heart, Lung, and Blood Research",009,009-050
+Department of Health and Human Services,Heart, Lung, and Blood Research,009,009-050
 Department of Health and Human Services,Dental and Craniofacial Research,009,009-051
 Department of Health and Human Services,Diabetes and Digestive and Kidney Disease Research,009,009-052
 Department of Health and Human Services,Allergy and Infectious Diseases Research,009,009-053
@@ -291,7 +291,7 @@ Department of Health and Human Services,Mental Health,009,009-068
 Department of Health and Human Services,Substance Abuse Prevention,009,009-069
 Department of Health and Human Services,Substance Abuse Treatment,009,009-070
 Department of Health and Human Services,Health Surveillance and Program Support,009,009-071
-Department of Health and Human Services,"Research on Health Costs, Quality and Outcomes",009,009-072
+Department of Health and Human Services,Research on Health Costs, Quality and Outcomes,009,009-072
 Department of Health and Human Services,Medical Expenditure Panel Survey,009,009-073
 Department of Health and Human Services,AHRQ Program Support,009,009-074
 Department of Health and Human Services,Children’s Health Insurance Program,009,009-075
@@ -299,7 +299,7 @@ Department of Health and Human Services,Medicaid,009,009-076
 Department of Health and Human Services,Health Care Fraud and Abuse Control,009,009-077
 Department of Health and Human Services,Medicare,009,009-078
 Department of Health and Human Services,Clinical Laboratory Improvement Amendments,009,009-079
-Department of Health and Human Services,"Research, Demonstrations and Innovations",009,009-080
+Department of Health and Human Services,Research, Demonstrations and Innovations,009,009-080
 Department of Health and Human Services,Private Market Insurance,009,009-081
 Department of Health and Human Services,Health Insurance Marketplaces,009,009-082
 Department of Health and Human Services,Consumer Operated and Oriented Plan Program,009,009-083
@@ -358,7 +358,7 @@ Department of the Interior,Elementary and Secondary Programs,010,010-020
 Department of the Interior,Post Secondary Programs,010,010-021
 Department of the Interior,Education Management,010,010-022
 Department of the Interior,Indian Arts and Crafts Board,010,010-023
-Department of the Interior,"Land Resources (Management of: Soil, Water & Air; Riparian; Wild Horse & Burro; partial Rangeland)",010,010-024
+Department of the Interior,Land Resources (Management of: Soil, Water & Air; Riparian; Wild Horse & Burro; partial Rangeland),010,010-024
 Department of the Interior,Land Resources (Management of Cultural Resources),010,010-025
 Department of the Interior,Land Resources (Management of Rangeland),010,010-026
 Department of the Interior,Land Resources (Management of Public Domain Forestry),010,010-027
@@ -366,12 +366,12 @@ Department of the Interior,Wildlife and Fisheries,010,010-028
 Department of the Interior,Threatened and Endangered Species,010,010-029
 Department of the Interior,Recreation Management (Wilderness),010,010-030
 Department of the Interior,Recreation Management (Recreation),010,010-031
-Department of the Interior,"Energy and Minerals Management (Oil, Natural Gas and Coal; includes offsetting fees)",010,010-032
+Department of the Interior,Energy and Minerals Management (Oil, Natural Gas and Coal; includes offsetting fees),010,010-032
 Department of the Interior,Energy and Minerals Management (Renewable Energy),010,010-033
 Department of the Interior,Energy and Minerals Management (Other Mineral Resources),010,010-034
 Department of the Interior,Realty and Ownership Management,010,010-035
 Department of the Interior,Communication Site Management,010,010-036
-Department of the Interior,"Resource Protection and Maintenance (Land Use Planning, Abandoned Mine Lands, Hazardous Materials)",010,010-037
+Department of the Interior,Resource Protection and Maintenance (Land Use Planning, Abandoned Mine Lands, Hazardous Materials),010,010-037
 Department of the Interior,Resource Protection and Maintenance (Law Enforcement),010,010-038
 Department of the Interior,Transportation and Facilities Mgmt.,010,010-039
 Department of the Interior,National Landscape Conservation System,010,010-040
@@ -383,7 +383,7 @@ Department of the Interior,Land Acquisition (Mandatory),010,010-045
 Department of the Interior,Oregon & California Grant Lands (Western Oregon: Forest Management; Reforestation & Forest Development; and Other Forest Resources),010,010-046
 Department of the Interior,Oregon & California Grant Lands (Western Oregon Resource Management Planning),010,010-047
 Department of the Interior,Oregon & California Grant Lands (Western Oregon transportation and facilities maintenance),010,010-048
-Department of the Interior,"Range Improvements (Includes Public Lands Improvements, Farm Tenant Act Lands Improvements, and Administrative Expenses)",010,010-049
+Department of the Interior,Range Improvements (Includes Public Lands Improvements, Farm Tenant Act Lands Improvements, and Administrative Expenses),010,010-049
 Department of the Interior,Miscellaneous Trust Funds,010,010-050
 Department of the Interior,Miscellaneous Permanent Payment Accounts,010,010-051
 Department of the Interior,Permanent Operating Funds,010,010-052
@@ -412,24 +412,24 @@ Department of the Interior,California Bay‐Delta Restoration,010,010-074
 Department of the Interior,Central Valley Project Restoration Fund,010,010-075
 Department of the Interior,Lower Colorado River Basin Development Fund,010,010-076
 Department of the Interior,Upper Colorado River Basin Fund,010,010-077
-Department of the Interior,"Miscellaneous Permanent Accounts ‐ Operation, Maintenance, and Replacement of Project Works, North Platte Project (included in W&RR in MAX because under $million)",010,010-078
+Department of the Interior,Miscellaneous Permanent Accounts ‐ Operation, Maintenance, and Replacement of Project Works, North Platte Project (included in W&RR in MAX because under $million),010,010-078
 Department of the Interior,Miscellaneous Permanent Accounts ‐ Payments to Farmers Irrigation District (included in W&RR in MAX because under $million),010,010-079
 Department of the Interior,Miscellaneous Permanent Accounts ‐ Klamath Payments to Local Units‐ Klamath Recreation Area (included in W&RR in MAX because under $million),010,010-080
 Department of the Interior,Miscellaneous Permanent Accounts ‐ O&M of Quarters (included in W&RR in MAX because under $million),010,010-081
 Department of the Interior,San Joaquin Restoration Fund,010,010-082
 Department of the Interior,Reclamation Water Settlements Fund,010,010-083
 Department of the Interior,Federal Lands Recreation Enhancement Act (included in W&RR in MAX because under $million),010,010-084
-Department of the Interior,"Colorado Dam Fund, Boulder Canyon Project",010,010-085
+Department of the Interior,Colorado Dam Fund, Boulder Canyon Project,010,010-085
 Department of the Interior,Reclamation Trust Funds,010,010-086
 Department of the Interior,Central Utah Project Completion Account ‐ proposed to be included under BOR in 2013 & 2014,010,010-087
 Department of the Interior,Utah Reclamation Mitigation and Conservation Account ‐ proposed to be included under BOR in 2013 & 2014,010,010-088
 Department of the Interior,Environmental Enforcement,010,010-089
-Department of the Interior,"Operations, Safety and Regulation",010,010-090
-Department of the Interior,"Administrative Operations, General Support Services, Executive Direction",010,010-091
+Department of the Interior,Operations, Safety and Regulation,010,010-090
+Department of the Interior,Administrative Operations, General Support Services, Executive Direction,010,010-091
 Department of the Interior,Oil Spill Research,010,010-092
 Department of the Interior,Ecological Services,010,010-093
 Department of the Interior,National Wildlife Refuge System,010,010-094
-Department of the Interior,"Conservation, Enforcement and Science (new title & components 2014)",010,010-095
+Department of the Interior,Conservation, Enforcement and Science (new title & components 2014),010,010-095
 Department of the Interior,Fish and Aquatic Conservation (new title 2013),010,010-096
 Department of the Interior,Cooperative Landscape Conservation (new title & components 2014),010,010-097
 Department of the Interior,General Operations,010,010-098
@@ -478,7 +478,7 @@ Department of the Interior,Covenant Grants,010,010-140
 Department of the Interior,Federal Services,010,010-141
 Department of the Interior,Enewetak Support,010,010-142
 Department of the Interior,Palau Compact Support,010,010-143
-Department of the Interior,"Payments to the U.S. Territories, Fiscal Assistance",010,010-144
+Department of the Interior,Payments to the U.S. Territories, Fiscal Assistance,010,010-144
 Department of the Interior,Compact of Free Association,010,010-145
 Department of the Interior,Payments in Lieu of Taxes,010,010-146
 Department of the Interior,Central Hazardous Materials Fund,010,010-147
@@ -502,7 +502,7 @@ Department of the Interior,Joint Fire Science Program,010,010-164
 Department of the Interior,Suppression Operations,010,010-165
 Department of the Interior,Ecosystems,010,010-166
 Department of the Interior,Climate and Land Use Change,010,010-167
-Department of the Interior,"Energy, Minerals, and Environmental Health",010,010-168
+Department of the Interior,Energy, Minerals, and Environmental Health,010,010-168
 Department of the Interior,Natural Hazards,010,010-169
 Department of the Interior,Water Resources,010,010-170
 Department of the Interior,Core Science Systems,010,010-171
@@ -514,7 +514,7 @@ Department of Justice,Executive Support and Professional Responsibilities,011,01
 Department of Justice,Justice Management Division,011,011-004
 Department of Justice,Justice Information Sharing Technology,011,011-005
 Department of Justice,Federal Prisoner Detention,011,011-006
-Department of Justice,"OIG Audits, Inspections, Investigations, and Reviews",011,011-007
+Department of Justice,OIG Audits, Inspections, Investigations, and Reviews,011,011-007
 Department of Justice,Executive Office for Immigration Review (EOIR),011,011-008
 Department of Justice,Office of Pardon Attorney (OPA),011,011-009
 Department of Justice,U.S. Parole Commission (USPC),011,011-010
@@ -555,11 +555,11 @@ Department of Justice,Federal Bureau of Investigation (Construction),011,011-044
 Department of Justice,International Enforcement,011,011-045
 Department of Justice,Domestic Enforcement,011,011-046
 Department of Justice,State and Local Assistance,011,011-047
-Department of Justice,"Drug Enforcement Administration, Construction",011,011-048
+Department of Justice,Drug Enforcement Administration, Construction,011,011-048
 Department of Justice,Diversion Control Program,011,011-049
 Department of Justice,Law Enforcement Operations (new for FY14),011,011-050
 Department of Justice,Investigative Support Services (new for FY14),011,011-051
-Department of Justice,"Bureau of Prison, Construction",011,011-052
+Department of Justice,Bureau of Prison, Construction,011,011-052
 Department of Justice,Modernization and Repair (M&R),011,011-053
 Department of Justice,Inmate Care & Programs,011,011-054
 Department of Justice,Institution Security and Administration,011,011-055
@@ -677,7 +677,7 @@ Department of State ,Overseas Programs,014,014-002
 Department of State ,Diplomatic Policy & Support,014,014-003
 Department of State ,Security Programs,014,014-004
 Department of State ,Capital Investment Fund,014,014-005
-Department of State ,"Embassy Security, Construction and Maintenance",014,014-006
+Department of State ,Embassy Security, Construction and Maintenance,014,014-006
 Department of State ,Conflict Stabilization Operations,014,014-007
 Department of State ,Office of the Inspector General,014,014-008
 Department of State ,Education and Cultural Exchanges Programs,014,014-009
@@ -785,7 +785,7 @@ Department of the Treasury,Contribution to the Multilateral Debt Relief Initiati
 Department of the Treasury,Contribution to the Multilateral Debt Relief Initiative for the AfDF,015,015-089
 Department of the Treasury,Tropical Forest Conservation Act (TFCA),015,015-090
 Department of the Treasury,Office of Technical Assistance (OTA),015,015-091
-Department of the Treasury,"United States Quota, International Monetary Fund (IMF)",015,015-092
+Department of the Treasury,United States Quota, International Monetary Fund (IMF),015,015-092
 Department of the Treasury,Loans to the International Monetary Fund (IMF),015,015-093
 Department of the Treasury,Contribution to the Multilateral Investment Guarantee Agency,015,015-094
 Social Security Administration,Old Age and Survivors Insurance,016,016-001
@@ -798,7 +798,7 @@ Department of Education,Striving Readers (CFDA # 84.371),018,018-003
 Department of Education,Migrant (CFDA # 84.011),018,018-004
 Department of Education,Neglected and Delinquent (CFDA # 84.013),018,018-005
 Department of Education,Evaluation,018,018-006
-Department of Education,"Special Programs for Migrant Students (CFDA # 84.141, 84.149)",018,018-007
+Department of Education,Special Programs for Migrant Students (CFDA # 84.141, 84.149),018,018-007
 Department of Education,High School Graduation Initiative (CFDA # 84.360),018,018-008
 Department of Education,Payments for Federally Connected Children,018,018-009
 Department of Education,Facilities Maintenance,018,018-010
@@ -822,7 +822,7 @@ Department of Education,Safe & Drug-free Schools and Communities National Progra
 Department of Education,Elementary and Secondary School Counseling (CFDA # 84.215),018,018-028
 Department of Education,Physical Education Program (CFDA # 84.215),018,018-029
 Department of Education,Promise Neighborhoods (CFDA # 84.215),018,018-030
-Department of Education,"Race to The Top Fund (CFDA # 84.395, 84.412, 84.416)",018,018-031
+Department of Education,Race to The Top Fund (CFDA # 84.395, 84.412, 84.416),018,018-031
 Department of Education,Investing in Innovation Fund (CFDA # 84.396),018,018-032
 Department of Education,Teacher Incentive Fund Grants (CFDA # 84.374),018,018-033
 Department of Education,Transition to Teaching (CFDA # 84.350),018,018-034
@@ -842,7 +842,7 @@ Department of Education,State Personnel Development (CFDA # 84.323),018,018-047
 Department of Education,Technical Assistance and Dissemination (CFDA # 84.326),018,018-048
 Department of Education,Personnel Preparation (CFDA # 84.323),018,018-049
 Department of Education,Parent Information Centers (CFDA # 84.328),018,018-050
-Department of Education,"Educational, Technology, Media, and Materials (CFDA # 84.327)",018,018-051
+Department of Education,Educational, Technology, Media, and Materials (CFDA # 84.327),018,018-051
 Department of Education,Special Olympics Education Programs (CFDA # 84.380),018,018-052
 Department of Education,PROMISE: Promoting Readiness of Minors in SSI (CFDA # 84.418P),018,018-053
 Department of Education,Vocational Rehabilitation State Grants,018,018-054
@@ -884,11 +884,11 @@ Department of Education,Minority Science and Engineering Improvement (CFDA # 84.
 Department of Education,Developing Hispanic-Serving Institutions (CFDA # 84.031),018,018-090
 Department of Education,Mandatory Developing HIS STEM and Articulation Program (CFDA # 84.031),018,018-091
 Department of Education,Prompting Postbaccalaureate Opportunities for Hispanic American (CFDA # 84.031),018,018-092
-Department of Education,"International Education and Foreign Language Studies (CFDA # 84.015, 84.016, 84.017, 84.018, 84.019, 84.021, 84.022, 84.153, 84.220, 84.229, 84.274, 84.337)",018,018-093
+Department of Education,International Education and Foreign Language Studies (CFDA # 84.015, 84.016, 84.017, 84.018, 84.019, 84.021, 84.022, 84.153, 84.220, 84.229, 84.274, 84.337),018,018-093
 Department of Education,Fund for the improvement of Postsecondary Education (CFDA # 84.116),018,018-094
 Department of Education,Model Transition Programs for Student With Intellectual Disabilities Into Higher Education (CFDA # 84.407),018,018-095
 Department of Education,Tribally Controlled Postsecondary Career and Technical Institutions (CFDA # 84.245),018,018-096
-Department of Education,"Federal TRIO Program (CFDA # 84.042, 84.044, 84.047, 84.066, 84.217)",018,018-097
+Department of Education,Federal TRIO Program (CFDA # 84.042, 84.044, 84.047, 84.066, 84.217),018,018-097
 Department of Education,Gaining Early Awareness and Readiness for Undergraduate Programs (CFDA # 84.334),018,018-098
 Department of Education,Graduate Assistance in Areas of National Need (CFDA # 84.200),018,018-099
 Department of Education,Child Care Access Means Parents in School (CFDA # 84.335),018,018-100
@@ -961,10 +961,10 @@ Department of Energy,NNSA Office of the Administrator,019,019-050
 Department of Energy,Environmental Management (EM),019,019-051
 Department of Energy,Legacy Management (LM),019,019-052
 Department of Energy,Departmental Administration:  Support Offices/Corporate Management,019,019-053
-Environmental Protection Agency,"Acquisition Management (Environmental Programs & Management, Superfund, Leaking Underground Storage Tanks)",020,020-001
+Environmental Protection Agency,Acquisition Management (Environmental Programs & Management, Superfund, Leaking Underground Storage Tanks),020,020-001
 Environmental Protection Agency,Administrative Law (Environmental Programs & Management),020,020-002
-Environmental Protection Agency,"Alternative Dispute Resolution (Environmental Programs & Management, Superfund)",020,020-003
-Environmental Protection Agency,"Audits, Evaluations, and Investigations (Inspector General, Superfund)",020,020-004
+Environmental Protection Agency,Alternative Dispute Resolution (Environmental Programs & Management, Superfund),020,020-003
+Environmental Protection Agency,Audits, Evaluations, and Investigations (Inspector General, Superfund),020,020-004
 Environmental Protection Agency,Beach / Fish Programs (Environmental Programs & Management),020,020-005
 Environmental Protection Agency,Brownfields (Environmental Programs & Management),020,020-006
 Environmental Protection Agency,Brownfields Projects (State & Tribal Assistance Grants),020,020-007
@@ -988,27 +988,27 @@ Environmental Protection Agency,Categorical Grant: Tribal General Assistance Pro
 Environmental Protection Agency,Categorical Grant: Underground Injection Control (UIC) (State & Tribal Assistance Grants),020,020-025
 Environmental Protection Agency,Categorical Grant: Underground Storage Tanks (State & Tribal Assistance Grants),020,020-026
 Environmental Protection Agency,Categorical Grant: Wetlands Program Development (State & Tribal Assistance Grants),020,020-027
-Environmental Protection Agency,"Central Planning, Budgeting, and Finance (Environmental Programs & Management, Superfund, Leaking Underground Storage Tanks)",020,020-028
+Environmental Protection Agency,Central Planning, Budgeting, and Finance (Environmental Programs & Management, Superfund, Leaking Underground Storage Tanks),020,020-028
 Environmental Protection Agency,Children and Other Sensitive Populations: Agency Coordination (Environmental Programs & Management),020,020-029
-Environmental Protection Agency,"Civil Enforcement (Environmental Programs & Management, Leaking Underground Storage Tanks, Oil Spill Response)",020,020-030
+Environmental Protection Agency,Civil Enforcement (Environmental Programs & Management, Leaking Underground Storage Tanks, Oil Spill Response),020,020-030
 Environmental Protection Agency,Civil Rights / Title VI Compliance (Environmental Programs & Management),020,020-031
-Environmental Protection Agency,"Clean Air Allowance Trading Programs (Science & Technology, Environmental Programs & Management)",020,020-032
-Environmental Protection Agency,"Climate Protection Program (Science & Technology, Environmental Programs & Management)",020,020-033
-Environmental Protection Agency,"Compliance Monitoring (Environmental Programs & Management, Superfund, Oil Spill Response)",020,020-034
-Environmental Protection Agency,"Congressional, Intergovernmental, External Relations (Environmental Programs & Management)",020,020-035
-Environmental Protection Agency,"Criminal Enforcement (Environmental Programs & Management, Superfund)",020,020-036
+Environmental Protection Agency,Clean Air Allowance Trading Programs (Science & Technology, Environmental Programs & Management),020,020-032
+Environmental Protection Agency,Climate Protection Program (Science & Technology, Environmental Programs & Management),020,020-033
+Environmental Protection Agency,Compliance Monitoring (Environmental Programs & Management, Superfund, Oil Spill Response),020,020-034
+Environmental Protection Agency,Congressional, Intergovernmental, External Relations (Environmental Programs & Management),020,020-035
+Environmental Protection Agency,Criminal Enforcement (Environmental Programs & Management, Superfund),020,020-036
 Environmental Protection Agency,Diesel Emissions Reduction Grant Program (State & Tribal Assistance Grants),020,020-037
-Environmental Protection Agency,"Drinking Water Programs (Science & Technology, Environmental Programs & Management)",020,020-038
+Environmental Protection Agency,Drinking Water Programs (Science & Technology, Environmental Programs & Management),020,020-038
 Environmental Protection Agency,Endocrine Disruptors (Environmental Programs & Management),020,020-039
 Environmental Protection Agency,Environmental Education (Environmental Programs & Management),020,020-040
-Environmental Protection Agency,"Environmental Justice (Environmental Programs & Management, Superfund)",020,020-041
-Environmental Protection Agency,"Exchange Network (Environmental Programs & Management, Superfund)",020,020-042
-Environmental Protection Agency,"Facilities Infrastructure and Operations (Science & Technology, Environmental Programs & Management, Buildings & Facilities, Superfund, Leaking Underground Storage Tanks, Oil Spill Response)",020,020-043
+Environmental Protection Agency,Environmental Justice (Environmental Programs & Management, Superfund),020,020-041
+Environmental Protection Agency,Exchange Network (Environmental Programs & Management, Superfund),020,020-042
+Environmental Protection Agency,Facilities Infrastructure and Operations (Science & Technology, Environmental Programs & Management, Buildings & Facilities, Superfund, Leaking Underground Storage Tanks, Oil Spill Response),020,020-043
 Environmental Protection Agency,Federal Stationary Source Regulations (Environmental Programs & Management),020,020-044
-Environmental Protection Agency,"Federal Support for Air Quality Management (Science & Technology, Environmental Programs & Management)",020,020-045
+Environmental Protection Agency,Federal Support for Air Quality Management (Science & Technology, Environmental Programs & Management),020,020-045
 Environmental Protection Agency,Federal Vehicle and Fuels Standards and Certification (Science & Technology,020,020-046
-Environmental Protection Agency,"Financial Assistance Grants / IAG Management (Environmental Programs & Management, Superfund)",020,020-047
-Environmental Protection Agency,"Forensics Support (Science & Technology, Superfund)",020,020-048
+Environmental Protection Agency,Financial Assistance Grants / IAG Management (Environmental Programs & Management, Superfund),020,020-047
+Environmental Protection Agency,Forensics Support (Science & Technology, Superfund),020,020-048
 Environmental Protection Agency,Geographic Program: Chesapeake Bay (Environmental Programs & Management),020,020-049
 Environmental Protection Agency,Geographic Program: Gulf of Mexico (Environmental Programs & Management),020,020-050
 Environmental Protection Agency,Geographic Program: Lake Champlain (Environmental Programs & Management),020,020-051
@@ -1019,45 +1019,45 @@ Environmental Protection Agency,Geographic Program: San Francisco Bay (Environme
 Environmental Protection Agency,Geographic Program: South Florida (Environmental Programs & Management),020,020-056
 Environmental Protection Agency,Great Lakes Restoration (Environmental Programs & Management),020,020-057
 Environmental Protection Agency,Homeland Security: Communication and Information (Environmental Programs & Management),020,020-058
-Environmental Protection Agency,"Homeland Security: Critical Infrastructure Protection (Science & Technology, Environmental Programs & Management)",020,020-059
-Environmental Protection Agency,"Homeland Security: Preparedness, Response, and Recovery (Science & Technology, Environmental Programs & Management, Superfund)",020,020-060
-Environmental Protection Agency,"Homeland Security: Protection of EPA Personnel and Infrastructure (Science & Technology, Environmental Programs & Management, Buildings & Facilities, Superfund)",020,020-061
-Environmental Protection Agency,"Human Health Risk Assessment (Science & Technology, Superfund)",020,020-062
-Environmental Protection Agency,"Human Resources Management (Environmental Programs & Management, Superfund)",020,020-063
-Environmental Protection Agency,"Indoor Air: Radon Program (Science & Technology, Environmental Programs & Management)",020,020-064
-Environmental Protection Agency,"Information Security (Environmental Programs & Management, Superfund)",020,020-065
+Environmental Protection Agency,Homeland Security: Critical Infrastructure Protection (Science & Technology, Environmental Programs & Management),020,020-059
+Environmental Protection Agency,Homeland Security: Preparedness, Response, and Recovery (Science & Technology, Environmental Programs & Management, Superfund),020,020-060
+Environmental Protection Agency,Homeland Security: Protection of EPA Personnel and Infrastructure (Science & Technology, Environmental Programs & Management, Buildings & Facilities, Superfund),020,020-061
+Environmental Protection Agency,Human Health Risk Assessment (Science & Technology, Superfund),020,020-062
+Environmental Protection Agency,Human Resources Management (Environmental Programs & Management, Superfund),020,020-063
+Environmental Protection Agency,Indoor Air: Radon Program (Science & Technology, Environmental Programs & Management),020,020-064
+Environmental Protection Agency,Information Security (Environmental Programs & Management, Superfund),020,020-065
 Environmental Protection Agency,Infrastructure Assistance: Alaska Native Villages (State & Tribal Assistance Grants),020,020-066
 Environmental Protection Agency,Infrastructure Assistance: Clean Water SRF (State & Tribal Assistance Grants),020,020-067
 Environmental Protection Agency,Infrastructure Assistance: Drinking Water SRF (State & Tribal Assistance Grants),020,020-068
 Environmental Protection Agency,Infrastructure Assistance: Mexico Border (State & Tribal Assistance Grants),020,020-069
 Environmental Protection Agency,Integrated Environmental Strategies (Environmental Programs & Management),020,020-070
 Environmental Protection Agency,International Sources of Pollution (Environmental Programs & Management),020,020-071
-Environmental Protection Agency,"IT / Data Management (Science & Technology, Environmental Programs & Management, Superfund, Leaking Underground Storage Tanks)",020,020-072
-Environmental Protection Agency,"Legal Advice: Environmental Program (Environmental Programs & Management, Superfund)",020,020-073
+Environmental Protection Agency,IT / Data Management (Science & Technology, Environmental Programs & Management, Superfund, Leaking Underground Storage Tanks),020,020-072
+Environmental Protection Agency,Legal Advice: Environmental Program (Environmental Programs & Management, Superfund),020,020-073
 Environmental Protection Agency,Legal Advice: Support Program (Environmental Programs & Management),020,020-074
-Environmental Protection Agency,"Leaking Underground Storage Tanks / UST (Environmental Programs & Management, Superfund)",020,020-075
+Environmental Protection Agency,Leaking Underground Storage Tanks / UST (Environmental Programs & Management, Superfund),020,020-075
 Environmental Protection Agency,Leaking Underground Storage Tanks Cooperative Agreements (Leaking Underground Storage Tanks),020,020-076
 Environmental Protection Agency,Leaking Underground Storage Tanks Prevention (Leaking Underground Storage Tanks),020,020-077
 Environmental Protection Agency,Marine Pollution (Environmental Programs & Management),020,020-078
 Environmental Protection Agency,National Estuary Program / Coastal Waterways (Environmental Programs & Management),020,020-079
 Environmental Protection Agency,National Environmental Policy Act Implementation (Environmental Programs & Management),020,020-080
-Environmental Protection Agency,"Oil Spill Response Spill: Prevention, Preparedness and Response (Oil Spill Response)",020,020-081
-Environmental Protection Agency,"Pesticides: Protect Human Health from Pesticide Risk (Science & Technology, Environmental Programs & Management)",020,020-082
-Environmental Protection Agency,"Pesticides: Protect the Environment from Pesticide Risk (Science & Technology, Environmental Programs & Management)",020,020-083
-Environmental Protection Agency,"Pesticides: Realize the Value of Pesticide Availability (Science & Technology, Environmental Programs & Management)",020,020-084
+Environmental Protection Agency,Oil Spill Response Spill: Prevention, Preparedness and Response (Oil Spill Response),020,020-081
+Environmental Protection Agency,Pesticides: Protect Human Health from Pesticide Risk (Science & Technology, Environmental Programs & Management),020,020-082
+Environmental Protection Agency,Pesticides: Protect the Environment from Pesticide Risk (Science & Technology, Environmental Programs & Management),020,020-083
+Environmental Protection Agency,Pesticides: Realize the Value of Pesticide Availability (Science & Technology, Environmental Programs & Management),020,020-084
 Environmental Protection Agency,Pollution Prevention Program (Environmental Programs & Management),020,020-085
-Environmental Protection Agency,"Radiation: Protection (Environmental Programs & Management, Science & Technology, Superfund)",020,020-086
-Environmental Protection Agency,"Radiation: Response Preparedness (Science & Technology, Environmental Programs & Management)",020,020-087
-Environmental Protection Agency,"RCRA: Corrective Action (Environmental Programs & Management, Oil Spill Response)",020,020-088
-Environmental Protection Agency,"RCRA: Waste Management (Environmental Programs & Management, E-Manifest)",020,020-089
-Environmental Protection Agency,"RCRA: Waste Minimization & Recycling (Environmental Programs & Management, E-Manifest)",020,020-090
-Environmental Protection Agency,"Reduce Risks from Indoor Air (Science & Technology, Environmental Programs & Management)",020,020-091
+Environmental Protection Agency,Radiation: Protection (Environmental Programs & Management, Science & Technology, Superfund),020,020-086
+Environmental Protection Agency,Radiation: Response Preparedness (Science & Technology, Environmental Programs & Management),020,020-087
+Environmental Protection Agency,RCRA: Corrective Action (Environmental Programs & Management, Oil Spill Response),020,020-088
+Environmental Protection Agency,RCRA: Waste Management (Environmental Programs & Management, E-Manifest),020,020-089
+Environmental Protection Agency,RCRA: Waste Minimization & Recycling (Environmental Programs & Management, E-Manifest),020,020-090
+Environmental Protection Agency,Reduce Risks from Indoor Air (Science & Technology, Environmental Programs & Management),020,020-091
 Environmental Protection Agency,Regional Science and Technology (Environmental Programs & Management),020,020-092
 Environmental Protection Agency,Regulatory/Economic-Management and Analysis (Environmental Programs & Management),020,020-093
-Environmental Protection Agency,"Research: Air, Climate and Energy (Science & Technology)",020,020-094
+Environmental Protection Agency,Research: Air, Climate and Energy (Science & Technology),020,020-094
 Environmental Protection Agency,Research: Chemical Safety and Sustainability (Science & Technology),020,020-095
 Environmental Protection Agency,Research: Safe and Sustainable Water Resources (Science & Technology),020,020-096
-Environmental Protection Agency,"Research: Sustainable and Healthy Communities (Science & Technology, Superfund, Leaking Underground Storage Tanks, Oil Spill Response)",020,020-097
+Environmental Protection Agency,Research: Sustainable and Healthy Communities (Science & Technology, Superfund, Leaking Underground Storage Tanks, Oil Spill Response),020,020-097
 Environmental Protection Agency,Science Advisory Board (Environmental Programs & Management),020,020-098
 Environmental Protection Agency,Science Policy and Biotechnology (Environmental Programs & Management),020,020-099
 Environmental Protection Agency,Small Business Ombudsman (Environmental Programs & Management),020,020-100
@@ -1065,10 +1065,10 @@ Environmental Protection Agency,Small Minority Business Assistance (Environmenta
 Environmental Protection Agency,State and Local Prevention and Preparedness (Environmental Programs & Management),020,020-102
 Environmental Protection Agency,Stratospheric Ozone: Domestic Programs (Environmental Programs & Management),020,020-103
 Environmental Protection Agency,Stratospheric Ozone: Multilateral Fund (Environmental Programs & Management),020,020-104
-Environmental Protection Agency,"Superfund: Emergency Response and Removal (Environmental Programs & Management, Superfund, Oil Spill Respond",020,020-105
+Environmental Protection Agency,Superfund: Emergency Response and Removal (Environmental Programs & Management, Superfund, Oil Spill Respond,020,020-105
 Environmental Protection Agency,Superfund: Enforcement (Superfund),020,020-106
 Environmental Protection Agency,Superfund: EPA Emergency Preparedness (Superfund),020,020-107
-Environmental Protection Agency,"Superfund: Federal Facilities (Environmental Programs & Management, Superfund, Oil Spill Response)",020,020-108
+Environmental Protection Agency,Superfund: Federal Facilities (Environmental Programs & Management, Superfund, Oil Spill Response),020,020-108
 Environmental Protection Agency,Superfund: Remedial (Superfund),020,020-109
 Environmental Protection Agency,Superfund: Support to Other Federal Agencies (Superfund),020,020-110
 Environmental Protection Agency,Superfund: Federal Facilities Enforcement (Superfund,020,020-111
@@ -1080,21 +1080,21 @@ Environmental Protection Agency,Trade and Governance (Environmental Programs & M
 Environmental Protection Agency,TRI / Right to Know (Environmental Programs & Management),020,020-117
 Environmental Protection Agency,Tribal - Capacity Building (Environmental Programs & Management),020,020-118
 Environmental Protection Agency,US Mexico Border (Environmental Programs & Management),020,020-119
-Environmental Protection Agency,"Water Quality Research and Support Grants (Science & Technology, Environmental Programs & Management)",020,020-120
+Environmental Protection Agency,Water Quality Research and Support Grants (Science & Technology, Environmental Programs & Management),020,020-120
 Environmental Protection Agency,Wetlands (Environmental Programs & Management),020,020-121
 Department of Transportation,Air Traffic Organization (Operations),021,021-001
 Department of Transportation,Aviation Safety (Operations),021,021-002
 Department of Transportation,Commercial Space Transportation (Operations),021,021-003
 Department of Transportation,General Administrative Support (Operations),021,021-004
-Department of Transportation,"Facilities and Equipment (F&E): Engineering, Development, Test and Evaluation",021,021-005
-Department of Transportation,"Facilities and Equipment: Facilities, Equipment, Mission Support and General Expenses",021,021-006
-Department of Transportation,"Research, Engineering and Development",021,021-007
+Department of Transportation,Facilities and Equipment (F&E): Engineering, Development, Test and Evaluation,021,021-005
+Department of Transportation,Facilities and Equipment: Facilities, Equipment, Mission Support and General Expenses,021,021-006
+Department of Transportation,Research, Engineering and Development,021,021-007
 Department of Transportation,Airports,021,021-008
 Department of Transportation,Federal-Aid Highways & Highway Safety Construction Programs,021,021-009
 Department of Transportation,Transportation Infrastructure Finance and Innovation Program,021,021-010
 Department of Transportation,General Administrative Expenses,021,021-011
 Department of Transportation,Formula Grants Programs,021,021-012
-Department of Transportation,"Research, Development Demonstration and Deployment Projects",021,021-013
+Department of Transportation,Research, Development Demonstration and Deployment Projects,021,021-013
 Department of Transportation,Technical Assistance and Workforce Development Programs,021,021-014
 Department of Transportation,Capital Investment Grants,021,021-015
 Department of Transportation,Washington Metropolitan Area Transit Authority,021,021-016
@@ -1133,7 +1133,7 @@ Department of Transportation,Ship Disposal Program,021,021-048
 Department of Transportation,Maritime Security Program,021,021-049
 Department of Transportation,Maritime Guaranteed Loan Program,021,021-050
 Department of Transportation,Saint Lawrence Seaway Development Corporation,021,021-051
-Department of Transportation,"Transportation Planning, Research and Development",021,021-052
+Department of Transportation,Transportation Planning, Research and Development,021,021-052
 Department of Transportation,Research & Technology,021,021-053
 Department of Transportation,Payments to Air Carriers/Essential Air Service,021,021-054
 Department of Transportation,National Infrastructure Investments,021,021-055
@@ -1151,7 +1151,7 @@ General Services Administration,Real Property Relocation Program,023,023-006
 General Services Administration,Assisted Acquisition Services Program,023,023-007
 General Services Administration,Integrated Technology Services Program,023,023-008
 General Services Administration,General Supplies and Services Program,023,023-009
-General Services Administration,"Travel, Motor Vehicle and Card Services Program",023,023-010
+General Services Administration,Travel, Motor Vehicle and Card Services Program,023,023-010
 General Services Administration,Integrated Award Environment Program,023,023-011
 General Services Administration,Federal Acquisition Service Integrators Program,023,023-012
 General Services Administration,Transportation Audits Program,023,023-013
@@ -1167,7 +1167,7 @@ General Services Administration,Presidential Transition Program,023,023-022
 Department of Homeland Security,Analysis and Operations,024,024-001
 Department of Homeland Security,Office of the Secretary and Executive Management,024,024-002
 Department of Homeland Security,Under Secretary for Management,024,024-003
-Department of Homeland Security,"Domestic Rad/Nuc Detection, Forensics and Prevention Capability",024,024-004
+Department of Homeland Security,Domestic Rad/Nuc Detection, Forensics and Prevention Capability,024,024-004
 Department of Homeland Security,Mitigation,024,024-005
 Department of Homeland Security,Preparedness,024,024-006
 Department of Homeland Security,Protection,024,024-007
@@ -1181,10 +1181,10 @@ Department of Homeland Security,Cybersecurity and Communications,024,024-014
 Department of Homeland Security,US-VISIT,024,024-015
 Department of Homeland Security,Health Threats Resilience,024,024-016
 Department of Homeland Security,Workforce Health and Medical Support,024,024-017
-Department of Homeland Security,"Audits, Inspections, and Investigations",024,024-018
+Department of Homeland Security,Audits, Inspections, and Investigations,024,024-018
 Department of Homeland Security,Acquisition and Operations Support,024,024-019
 Department of Homeland Security,Laboratory Facilities,024,024-020
-Department of Homeland Security,"Research, Development, and Innovation",024,024-021
+Department of Homeland Security,Research, Development, and Innovation,024,024-021
 Department of Homeland Security,University Programs,024,024-022
 Department of Homeland Security,In-Flight Security,024,024-023
 Department of Homeland Security,Intermodal Assessments and Enforcement,024,024-024
@@ -1418,9 +1418,9 @@ Department of Veterans Affairs,Vocational Rehabilitation and Employment – VetS
 Department of Veterans Affairs,Vocational Rehabilitation and Employment – Independent Living (IL),029,029-039
 Department of Veterans Affairs,Inpatient Care,029,029-040
 Department of Veterans Affairs,Ambulatory Care,029,029-041
-Department of Veterans Affairs,"Mental Health Service, General Outpatient Care",029,029-042
-Department of Veterans Affairs,"Mental Health, Intensive Recovery-Oriented Program",029,029-043
-Department of Veterans Affairs,"Mental Health, Inpatient Care",029,029-044
+Department of Veterans Affairs,Mental Health Service, General Outpatient Care,029,029-042
+Department of Veterans Affairs,Mental Health, Intensive Recovery-Oriented Program,029,029-043
+Department of Veterans Affairs,Mental Health, Inpatient Care,029,029-044
 Department of Veterans Affairs,Mental Health Residential Rehabilitation Treatment Programs (MH RRTP),029,029-045
 Department of Veterans Affairs,Readjustment Counseling,029,029-046
 Department of Veterans Affairs,Pharmacy,029,029-047
@@ -1466,7 +1466,7 @@ Department of Veterans Affairs,Office of Policy and Planning,029,029-086
 Department of Veterans Affairs,Office of Security and Preparedness,029,029-087
 Department of Veterans Affairs,Office of Public and Intergovernmental Affairs,029,029-088
 Department of Veterans Affairs,Office of Congressional and Legislative Affairs,029,029-089
-Department of Veterans Affairs,"Office of Acquisitions, Logistics and Construction",029,029-090
+Department of Veterans Affairs,Office of Acquisitions, Logistics and Construction,029,029-090
 Department of Veterans Affairs,Office of the Inspector General,029,029-091
 Department of Veterans Affairs,Construction – Major Projects,029,029-092
 Department of Veterans Affairs,Construction – Minor Projects,029,029-093
@@ -1491,7 +1491,7 @@ USAID-State,Water Supply and Sanitation,184,184-018
 USAID-State,Nutrition,184,184-019
 USAID-State,Basic Education,184,184-020
 USAID-State,Higher Education,184,184-021
-USAID-State,"Policies, Regulations, and Systems",184,184-022
+USAID-State,Policies, Regulations, and Systems,184,184-022
 USAID-State,Social Services,184,184-023
 USAID-State,Social Assistance,184,184-024
 USAID-State,Macroeconomic Foundations for Growth,184,184-025
@@ -1502,7 +1502,7 @@ USAID-State,Agriculture,184,184-029
 USAID-State,Private Sector Competitiveness ,184,184-030
 USAID-State,Economic Opportunity,184,184-031
 USAID-State,Environment,184,184-032
-USAID-State,"Protection, Assistance, and Solutions",184,184-033
+USAID-State,Protection, Assistance, and Solutions,184,184-033
 USAID-State,Disaster Readiness,184,184-034
 USAID-State,Migration Management,184,184-035
 USAID-State,Direct Administrative Costs,184,184-036
@@ -1520,7 +1520,7 @@ National Science Foundation,Computer and Information Science and Engineering (CI
 National Science Foundation,Engineering (ENG),422,422-003
 National Science Foundation,Geosciences (GEO),422,422-004
 National Science Foundation,Mathematical and Physical Sciences (MPS),422,422-005
-National Science Foundation,"Social, Behavioral and Economic Sciences (SBE)",422,422-006
+National Science Foundation,Social, Behavioral and Economic Sciences (SBE),422,422-006
 National Science Foundation,International and Integrative Activities (IIA),422,422-007
 National Science Foundation,United States Arctic Research Commission (USARC),422,422-008
 National Science Foundation,Education and Human Resources (EHR),422,422-009
