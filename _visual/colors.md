@@ -114,13 +114,13 @@ order: 02
   <div class="color-small">
     <div class="usa-color-short usa-color-secondary-darkest">
     </div>
-      <p class="usa-color-hex">#cd2026</p>
+      <p class="usa-color-hex">#981b1e</p>
       <p class="usa-color-name">secondary-darkest</p>
   </div>
   <div class="color-small">
     <div class="usa-color-short usa-color-secondary-dark">
     </div>
-      <p class="usa-color-hex">#981b1e</p>
+      <p class="usa-color-hex">#cd2026</p>
       <p class="usa-color-name">secondary-dark</p>
   </div>
   <div class="color-small">
