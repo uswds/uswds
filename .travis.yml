@@ -2,14 +2,12 @@ language: ruby
 rvm:
   - 2.2.3
 
-script: ./go build
+script: "bundle exec jekyll build"
 
 notifications:
   email:
-    - julia.elman@gsa.gov
-    - maya.ben-ari@gsa.gov
+    - john.jediny@gmail.com
 
 branches:
   only:
-    - 18f-pages
-    - 18f-pages-staging
+    - gh-pages

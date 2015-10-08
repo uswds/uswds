@@ -1,0 +1,21 @@
+{% for FederalProgram in site.data.FederalPrograms %}
+<div class="usa-accordion-bordered">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled" aria-expanded="true" aria-controls="collapsible">
+       {{ FederalProgram.AgencyName | group_by:"AgencyName" }}
+      </button>
+      <div id="collapsible" aria-hidden="false" class="usa-accordion-content">
+        <ul class="usa-unstyled-list">
+          <li>
+           <h3>{{ FederalProgram.ProgramName }}</h3>
+          </li>
+          <li>
+           <p>Program Code: {{ FederalProgram.ProgramCode }}</p>
+          </li>
+        </ui>
+      </div>
+    </li>
+  </ul>
+</div>
+{% endfor %}
