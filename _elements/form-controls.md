@@ -135,15 +135,15 @@ lead: Form controls allow users to enter information into a page.
 
     <ul class="usa-unstyled-list">
       <li>
-        <input id="apple-pie" type="checkbox" name="apple-pie" value="apple-pie" tabindex="0" checked />
+        <input id="apple-pie" type="checkbox" name="apple-pie" value="apple-pie" checked />
         <label for="apple-pie">Sojourner Truth</label>
       </li>
       <li>
-        <input id="key-lime-pie" type="checkbox" name="key-lime-pie" value="key-lime-pie" tabindex="0">
+        <input id="key-lime-pie" type="checkbox" name="key-lime-pie" value="key-lime-pie">
         <label for="key-lime-pie">Frederick Douglass</label>
       </li>
       <li>
-        <input id="peach-pie" type="checkbox" name="peach-pie" value="peach-pie" tabindex="0">
+        <input id="peach-pie" type="checkbox" name="peach-pie" value="peach-pie">
         <label for="peach-pie">Booker T. Washington</label>
       </li>
       <li>
@@ -204,15 +204,15 @@ lead: Form controls allow users to enter information into a page.
 
     <ul class="usa-unstyled-list">
       <li>
-        <input id="pea-soup" type="radio" checked name="soup" value="pea" tabindex="0">
+        <input id="pea-soup" type="radio" checked name="soup" value="pea">
         <label for="pea-soup">Elizabeth Cady Stanton</label>
       </li>
       <li>
-        <input id="chicken-noodle" type="radio" name="soup" value="chicken-noodle" tabindex="0">
+        <input id="chicken-noodle" type="radio" name="soup" value="chicken-noodle">
         <label for="chicken-noodle">Susan B. Anthony</label>
       </li>
       <li>
-        <input id="tomato" type="radio" name="soup" value="tomato" tabindex="0">
+        <input id="tomato" type="radio" name="soup" value="tomato">
         <label for="tomato">Harriet Tubman</label>
       </li>
     </ul>
@@ -269,15 +269,15 @@ lead: Form controls allow users to enter information into a page.
     <div class="usa-date-of-birth">
       <div class="usa-datefield usa-form-group usa-form-group-month">
         <label for="date_of_birth_1">Month</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="number" value="" maxlength="2">
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="number" min="1" max="12" value="">
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-day">
         <label for="date_of_birth_2">Day</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_2" name="date_of_birth_2" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="number" value="" maxlength="2">
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_2" name="date_of_birth_2" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="number" min="1" max="31" value="">
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-year">
         <label for="date_of_birth_3">Year</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3" name="date_of_birth_3" pattern="[0-9]{4}" type="number" value="" maxlength="4">
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3" name="date_of_birth_3" pattern="[0-9]{4}" type="number" min="1900" max="2000" value="">
       </div>
     </div>
   </fieldset>
@@ -289,6 +289,8 @@ lead: Form controls allow users to enter information into a page.
     Documentation
   </button>
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Implementation</h4>
+      <p>Currently, the max limit for the year input is set to 2000, but it should be changed depending on the context of the form.</p>
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
       <li>These text fields should follow the <a href="{{ site.baseurl }}/form-controls/#text-inputs"> accessibility guidelines for all text inputs.</a></li>

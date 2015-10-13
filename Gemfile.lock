@@ -14,6 +14,9 @@ GEM
     execjs (2.6.0)
     fast-stemmer (1.0.2)
     ffi (1.9.10)
+    go_script (0.1.5)
+      bundler (~> 1.10)
+      safe_yaml (~> 1.0)
     hitimes (1.2.2)
     jekyll (2.5.3)
       classifier-reborn (~> 2.0)
@@ -38,6 +41,7 @@ GEM
       sass (~> 3.2)
     jekyll-watch (1.2.1)
       listen (~> 2.7)
+    json (1.8.3)
     kramdown (1.8.0)
     liquid (2.6.3)
     listen (2.10.1)
@@ -55,7 +59,7 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     redcarpet (3.3.2)
-    rouge (1.9.1)
+    rouge (1.9.0)
     safe_yaml (1.0.4)
     sass (3.4.16)
     timers (4.0.1)
@@ -68,6 +72,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  go_script
   jekyll
+  json
   redcarpet
-  rouge
+  rouge (= 1.9)
+
+BUNDLED WITH
+   1.10.6
