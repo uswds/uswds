@@ -197,7 +197,7 @@ lead: Patterns for some of the most commonly used forms on government websites
   <form>
     <fieldset>
       <legend class="usa-drop_text">Sign in</legend>
-      <span>or <a href="javascript:void(0)">create an account</a></span>
+      <span>or <a href="#">create an account</a></span>
 
       <label for="username">Username or email address</label>
       <input id="username" name="username" type="text" autocapitalize="off" autocorrect="off">
@@ -205,16 +205,16 @@ lead: Patterns for some of the most commonly used forms on government websites
       <label for="password">Password</label>
       <input id="password" name="password" type="password">
       <p class="usa-form-note">
-        <a title="Show password" href="javascript:void(0)"
+        <a title="Show password" href="#"
             class="usa-show_password"
             aria-controls="password">
           Show password</a>
       </p>
 
       <input type="submit" value="Sign in" />
-      <p><a href="javascript:void(0)" title="Forgot password">
+      <p><a href="#" title="Forgot username">
         Forgot username?</a></p>
-      <p><a href="javascript:void(0)" title="Forgot password">
+      <p><a href="#" title="Forgot password">
         Forgot password?</a></p>
     </fieldset>
   </form>
@@ -286,7 +286,7 @@ lead: Patterns for some of the most commonly used forms on government websites
       <label for="confirmPassword">Confirm password</label>
       <input id="confirmPassword" name="confirmPassword" type="password">
       <p class="usa-form-note">
-        <a title="Show my typing" href="javascript:void(0)"
+        <a title="Show my typing" href="#"
             class="usa-show_multipassword"
             aria-controls="password">
           Show my typing</a>
