@@ -71,7 +71,6 @@ title: Search Results
 
   <h2 class="usa-no-results">We didn’t find any matches for your search. Please try again.</h2>
 
-  <img src="{{ site.baseurl }}/assets/img/static/Search_Results_UI_v1.png">
 </div>
 
 <div class="usa-grid">
