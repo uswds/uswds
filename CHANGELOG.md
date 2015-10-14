@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 ### Added
+- Add force the ruby version when using RVM/rbenv
+- Add note in docs about using caption tag inside table element
+- Add missing checkmark png
+- Add gem 'json' to the Gemfile
 - Add alert role to error alerts
 - Add link to thoughtbot.com in pages/getting-started.html
 
@@ -14,11 +18,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Ensure focus shadow on sidenav is above hover fill in assets/_scss/components/_sidenav.scss
 
 ### Removed
+- Remove duplicate selectors in buttons
+- Remove tabindex="0" on inputs
 - Remove Omnigraffle mention in README.md
 - Remove link to golang site from README.md
 - Remove unnecessary function wrapping in assets/js/components.js
 
 ### Fixed
+- Fix incorrect hex codes
+- Fix typo of encompasses
+- Fix WCAG name
 - Fix typos in _layout-system/grids.md
 - Fix alertdialog spelling in _components/alerts.md documentation
 - Fix aria-hidden note in documentation in _components/accordions.md
