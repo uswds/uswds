@@ -212,7 +212,7 @@ lead: Patterns for some of the most commonly used forms on government websites
       </p>
 
       <input type="submit" value="Sign in" />
-      <p><a href="javascript:void(0)" title="Forgot password">
+      <p><a href="javascript:void(0)" title="Forgot username">
         Forgot username?</a></p>
       <p><a href="javascript:void(0)" title="Forgot password">
         Forgot password?</a></p>
