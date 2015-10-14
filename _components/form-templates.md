@@ -31,13 +31,13 @@ lead: Patterns for some of the most commonly used forms on government websites
       <input class="usa-input-tiny" id="title" name="title" type="text">
 
       <label for="first-name">First name <span class="usa-additional_text">Required</span></label>
-      <input id="first-name" name="first-name" type="text">
+      <input id="first-name" name="first-name" type="text" required="" aria-required="true">
 
       <label for="middle-name">Middle name</label>
       <input id="middle-name" name="middle-name" type="text">
 
       <label for="last-name">Last name <span class="usa-additional_text">Required</span></label>
-      <input id="last-name" name="last-name" type="text">
+      <input id="last-name" name="last-name" type="text" required="" aria-required="true">
 
       <label for="suffix">Suffix</label>
       <input class="usa-input-tiny" id="suffix" name="suffix" type="text">
