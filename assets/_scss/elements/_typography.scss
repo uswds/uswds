@@ -8,7 +8,6 @@ body {
 }
 
 p {
-  font-size: $base-font-size;
   line-height: $base-line-height;
   margin: {
     top: 1em;
@@ -17,21 +16,23 @@ p {
 }
 
 a {
-  border-bottom: 1px dotted;
   color: $color-primary;
   text-decoration: none;
 
-  &:hover {
-    border-bottom: 1px solid;
-  }
-
-  &:hover, &:active {
+  &:hover, 
+  &:active {
     color: $color-primary-darker;
+    text-decoration: underline;
   }
 
   &:visited {
-    color: $color-primary;
-  }  
+    color: $color-visited;
+  }
+
+  &:focus {
+    box-shadow: $focus-shadow;
+    outline: 0;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,10 +43,6 @@ h1, h2, h3, h4, h5, h6 {
     top: 1.5em;
     bottom: .5em;
   }
-}
-
-h5 {
-  text-transform: uppercase;
 }
 
 // Create heading mixins 
@@ -81,8 +78,10 @@ h5 {
 }
 
 @mixin h6 {
+  font-family: $font-sans;
   font-size: $h6-font-size;
-  font-weight: $font-bold;
+  font-weight: $font-normal;
+  text-transform: uppercase;
 }
 
 h1 {
@@ -106,7 +105,7 @@ h5 {
 }
 
 h6 {
-  @include h6();
+  @include h6(); 
 }
 
 // Remove user agent styles
@@ -121,17 +120,38 @@ dfn {
 // Custom typography
 
 .usa-content {
-  > p, > ul, > ol {
-    max-width: 50rem;
+  p {
+    max-width: $text-max-width;
   }  
 }
 
-.usa-sans,
-.usa-sans p,
-.usa-sans a, 
-.usa-sans li,
-.usa-sans span {
-  font-family: $font-sans;
+.usa-content-list {
+  max-width: $text-max-width;
+}
+
+p, 
+.usa-content-list {
+  a {
+    text-decoration: underline;
+  }
+}
+
+.usa-sans {
+  p, 
+  a, 
+  li, 
+  span {
+    font-family: $font-sans;
+  }
+}
+
+.usa-serif {
+  p, 
+  a, 
+  li, 
+  span {
+    font-family: $font-serif;
+  }
 }
 
 .usa-sans a {
@@ -139,21 +159,23 @@ dfn {
   font-weight: $font-bold;
 }
 
-.usa-serif {
-  font-family: $font-serif; 
-}
-
 .usa-display {
   @include h3();
   margin-bottom: 0;
 
-  @media (min-width: $small-screen) {
+  @include media($small-screen) {
     @include h1();
   }
 
-  @media (min-width: $medium-screen) {
+  @include media($medium-screen) {
     @include title();
   }
+}
+
+.usa-font-lead {
+  font-size: $lead-font-size;
+  font-family: $font-serif;
+  line-height: $lead-line-height;
 }
 
 .usa-image-block {
@@ -174,4 +196,25 @@ dfn {
 
 .usa-drop_text {
   margin-bottom: 0;
+}
+
+.usa-background-dark {
+  background-color: $color-gray-dark;
+
+  p, span {
+    color: $color-white;
+  }
+
+  a {
+    color: $color-gray-lighter;
+    
+    &:hover {
+      color: $color-white;
+    }
+  }
+}
+
+.usa-text-small {
+  font-size: $h6-font-size;
+  margin-top: 0;
 }

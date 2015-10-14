@@ -16,6 +16,7 @@ input[type="week"],
 textarea,
 select  {
   border: 1px solid $color-gray;
+  border-radius: 0;
   box-sizing: border-box;
   color: #000; // standardize on firefox 
   display: block;
@@ -33,28 +34,46 @@ select  {
   }
 
   &.usa-input-success {
-    border: 3px solid $color-green;
+    border: 3px solid $color-green-light;
   }
 }
 
 .usa-input-error {
   border-left: 4px solid $color-secondary-dark;
-  padding: .5em 1.5rem; 
-  position: relative;
-  right: 1.5rem;
   margin-top: 3rem;
+  padding: {
+    bottom: .8rem;
+    left: 1.5rem;
+    top: .8rem;
+  }
+  position: relative;
+  right: 1.9rem;
+  
   input {
     border: 3px solid $color-secondary-dark;
+    width: calc(100% + 1.5rem);
   }
+  
   label {
     margin-top: 0;
   }
 }
 
+.usa-input-error-label {
+  display: block;
+  font-size: $base-font-size;
+  font-weight: $font-bold;
+}
+
 .usa-input-error-message {
   color: $color-secondary-dark;
-  font-size: $small-font-size;
+  display: block;
+  font-size: $base-font-size;
   font-weight: $font-bold;
+  padding: {
+    bottom: 3px;
+    top: 3px;
+  }
 }
 
 label {
@@ -70,9 +89,20 @@ textarea {
 }
 
 select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
   appearance: none;
-  background: url("../img/arrow-down.png") no-repeat;
+  background-color: $color-white;
+  background-image: url('../img/arrow-down.png');
+  background-image: url('../img/arrow-down.svg');
   background-position: right 1.3rem center;
+  background-repeat: no-repeat;
+  background-size: 1.3rem;
+}
+
+legend {
+  font-size: $h2-font-size;
+  font-weight: $font-bold;
 }
 
 .usa-fieldset-inputs {
@@ -96,6 +126,14 @@ select {
 input[type="checkbox"],
 input[type="radio"] {
   @include sr-only();
+
+  .lt-ie9 & {
+    border: 0;
+    float: left;
+    margin: .4em .4em 0 0;
+    position: static;
+    width: auto;
+  }
 }
 
 input[type="checkbox"] + label,
@@ -140,6 +178,10 @@ input[type="radio"]:checked + label::before {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary; 
 }
 
+input[type="radio"]:focus + label::before {
+  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary, 0 0 3px 4px $color-focus, 0 0 7px 4px $color-focus;
+}
+
 input[type="checkbox"]:checked + label::before {
   background-image: url('../img/correct8.png');
   background-image: url('../img/correct8.svg');
@@ -151,10 +193,14 @@ input[type="checkbox"]:focus + label::before {
   box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-primary;
 }
 
+input[type="checkbox"]:disabled + label {
+  color: $color-gray;
+}
+
 input[type="checkbox"]:disabled + label::before,
 input[type="radio"]:disabled + label::before {
-  background: #757575;
-  color: #757575;
+  background: $color-gray-lighter;
+  box-shadow: 0 0 0 1px $color-gray-light;
   cursor: not-allowed;
 }
 
@@ -175,39 +221,36 @@ input[type=range]:focus {
 input[type=range]::-webkit-slider-runnable-track {
   background: #bdbdbd;
   border: 1px solid #757575;
-  border-radius: 1rem;
   cursor: pointer;
-  height: .9rem;
+  height: 1.2rem;
   width: 100%;
 }
 
 input[type=range]::-moz-range-track {
   background: $color-primary;
   border: 1px solid #757575;
-  border-radius: 1rem;
   cursor: pointer;
-  height: .9rem;
+  height: 1.2rem;
   width: 100%;
 }
 
 input[type=range]::-ms-track {
   background: transparent;
-  border-color: transparent;
   color: transparent;
   cursor: pointer;
-  height: .9rem;
+  height: 1.2rem;
   width: 100%;
 }
 
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 1px solid #757575;
-  height: 2rem;
+  height: 2.2rem;
   border-radius: 1.5rem;
   background: #eeeeee;
   cursor: pointer;
   margin-top: -.65rem;  
-  width: 2rem;
+  width: 2.2rem;
 }
 
 input[type=range]::-moz-range-thumb {
@@ -215,8 +258,8 @@ input[type=range]::-moz-range-thumb {
   border: 1px solid #757575;
   border-radius: 1.5rem;
   cursor: pointer;
-  height: 2rem;
-  width: 2rem;
+  height: 2.2rem;
+  width: 2.2rem;
 }
 
 input[type=range]::-ms-thumb {
@@ -224,8 +267,8 @@ input[type=range]::-ms-thumb {
   border: 1px solid #757575;
   border-radius: 1.5rem;
   cursor: pointer;
-  height: 2rem;
-  width: 2rem;
+  height: 2.2rem;
+  width: 2.2rem;
 }
 
 input[type=range]::-ms-fill-lower {
@@ -256,7 +299,7 @@ input[type=range]:focus::-ms-thumb {
 
 .usa-date-of-birth {
   label {
-    margin-top: 1em;
+    margin-top: 0;
   }
 
   input[type=number]::-webkit-inner-spin-button, 
@@ -283,4 +326,3 @@ input[type=range]:focus::-ms-thumb {
 .usa-form-group-year {
   width: 7rem;
 }
-

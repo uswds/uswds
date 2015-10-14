@@ -1,0 +1,25 @@
+.usa-disclaimer {
+  @include media($small-screen) {
+    font-size: $h5-font-size;
+  }
+  background-color: $color-gray-lightest;
+  font-size: $h6-font-size;
+  padding: {
+    bottom: .5rem;
+    top: .5rem;
+  }
+}
+
+// This hides the stage note (i.e. alpha, beta, etc) of the disclaimer for 
+// anything smaller than large screen sizes
+.usa-disclaimer-stage {
+  @include media($large-screen) {
+    display: block;
+  }
+  display: none;
+  float: right;
+}
+
+.usa-flag_icon {
+  margin-right: .2rem;
+}

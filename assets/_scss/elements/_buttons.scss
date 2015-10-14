@@ -1,11 +1,14 @@
+// Buttons variables
+
+$button-stroke: inset 0 0 0 2px;
+
 // Buttons
 
 .usa-button,
 .usa-button-primary,
+.usa-button:visited,
+.usa-button-primary:visited,
 button,
-[type="button"],
-[type="submit"],
-[type="reset"],
 [type="button"],
 [type="submit"],
 [type="reset"],
@@ -29,6 +32,7 @@ button,
   outline: none;
   padding: 1rem 2rem;
   text-align: center;
+  text-decoration: none;
   width: 100%;
   -webkit-font-smoothing: antialiased;
 
@@ -37,6 +41,7 @@ button,
     background-color: $color-primary-darker;
     border-bottom: 0;
     color: $color-white;
+    text-decoration: none;
   }
 
   &:focus,
@@ -99,41 +104,47 @@ button,
 
   &.usa-button-outline {
     background-color: $color-white;
-    border: 2px solid;
-    border-color: $color-primary;
+    box-shadow: $button-stroke $color-primary;
     color: $color-primary;
-    padding: .8rem 1.8rem;
 
     &:hover,
     &.usa-button-hover {
-      border-color: $color-primary-darker;
+      box-shadow: $button-stroke $color-primary-darker;
       color: $color-primary-darker;
     }
 
     &:active,
     &.usa-button-active {
-      border-color: $color-primary-darkest;
+      box-shadow: $button-stroke $color-primary-darkest;
       color: $color-primary-darkest;
+    }
+
+    &:focus,
+    &.usa-button-focus {
+      box-shadow: $button-stroke $color-primary-darkest, $focus-shadow;
     }
   }
 
   &.usa-button-outline-inverse {
     background: transparent;
-    border: 2px solid;
-    border-color: $color-white;
+    box-shadow: $button-stroke $color-white;
     color: $color-white;
-    padding: .8rem 1.8rem;
 
     &:hover,
     &.usa-button-hover {
-      border-color: $color-gray-lighter;
+      box-shadow: $button-stroke $color-gray-lighter;
       color: $color-gray-lighter;
     }
 
     &:active,
     &.usa-button-active {
-      border-color: $color-gray-light;
+      box-shadow: $button-stroke $color-gray-light;
       color: $color-gray-lighter;
+    }
+
+    &:focus,
+    &.usa-button-focus {
+      box-shadow: $button-stroke $color-gray-light, $focus-shadow;
     }
   }
 
@@ -171,6 +182,6 @@ button,
 
   &:focus,
   &:hover {
-    box-shadow: initial !important;
+    box-shadow: initial;
   }
 }

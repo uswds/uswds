@@ -210,9 +210,12 @@ function Accordion($el) {
   var self = this;
   this.$root = $el;
   this.$root.on('click', 'button', function(ev) {
+    var expanded = JSON.parse($(this).attr('aria-expanded'));
     ev.preventDefault();
     self.hideAll();
-    self.show($(this));
+    if (!expanded) {
+      self.show($(this));
+    }
   });
 }
 
@@ -261,7 +264,7 @@ function togglePassword($el) {
 
   $el.on('click', function(ev) {
     ev.preventDefault();
-    $field.attr('type', showing ? 'password' : 'text');
+    toggleFieldMask($field, showing);
     $el.text(showing ? 'Show password' : 'Hide password');
     showing = !showing;
   });
@@ -274,7 +277,7 @@ function toggleSSN($el) {
 
   $el.on('click', function(ev) {
     ev.preventDefault();
-    $field.attr('type', showing ? 'password' : 'text');
+    toggleFieldMask($field, showing);
     $el.text(showing ? 'Show SSN' : 'Hide SSN');
     showing = !showing;
   });
@@ -287,10 +290,16 @@ function toggleMultiPassword($el) {
 
   $el.on('click', function(ev) {
     ev.preventDefault();
-    $fields.attr('type', showing ? 'password' : 'text');
-    $el.text(showing ? 'Show My Typing' : 'Hide My Typing');
+    toggleFieldMask($fields, showing);
+    $el.text(showing ? 'Show my typing' : 'Hide my typing');
     showing = !showing;
   });
+}
+
+function toggleFieldMask($field, showing) {
+  $field.attr('autocapitalize', 'off');
+  $field.attr('autocorrect', 'off');
+  $field.attr('type', showing ? 'password' : 'text');
 }
 
 function validator($el) {
@@ -310,10 +319,10 @@ function validator($el) {
             validatorName.toLowerCase() + ']');
 
         if (!validatorPattern.test($el.val())) {
-          $validatorCheckbox.toggleClass('usa-check_list-checked', false);
+          $validatorCheckbox.toggleClass('usa-checklist-checked', false);
         }
         else {
-          $validatorCheckbox.toggleClass('usa-check_list-checked', true);
+          $validatorCheckbox.toggleClass('usa-checklist-checked', true);
         }
       }
     }
@@ -332,9 +341,9 @@ $(function() {
 
       $('.usa-footer-big nav ul').addClass('hidden');
 
-      $('.usa-footer-big nav h3').unbind('click');
+      $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
 
-      $('.usa-footer-big nav h3').bind('click', function() {
+      $('.usa-footer-big nav .usa-footer-primary-link').bind('click', function() {
         $(this).parent().removeClass('hidden')
         .siblings().addClass('hidden');
       });
@@ -342,14 +351,21 @@ $(function() {
 
       $('.usa-footer-big nav ul').removeClass('hidden');
 
-      $('.usa-footer-big nav h3').unbind('click');
+      $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
     }
   };
 
   footerAccordion();
 
-  $(window).resize(function() {
-    footerAccordion();
+  $(window).resize(footerAccordion);
+
+  // Fixing skip nav focus behavior in chrome
+  $('.skipnav').click(function(){
+    $('#main-content').attr('tabindex','0');
+  });
+
+  $('#main-content').blur(function(){
+    $(this).attr('tabindex','-1');
   });
 
   togglePassword($('.usa-show_password'));
@@ -358,4 +374,3 @@ $(function() {
   validator($('.js-validate_password'));
 
 });
-
