@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 ### Added
+- Add required attributes to required fields
 - Add force the ruby version when using RVM/rbenv
 - Add note in docs about using caption tag inside table element
 - Add missing checkmark png
@@ -25,6 +26,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Remove unnecessary function wrapping in assets/js/components.js
 
 ### Fixed
+- Fix title for Forgot username in Sign in form
+- Fix accessibility citation
 - Fix incorrect hex codes
 - Fix typo of encompasses
 - Fix WCAG name
