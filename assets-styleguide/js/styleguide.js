@@ -4,6 +4,14 @@ $(function(){
     e.preventDefault();
   });
   
+  function handleDisabledLinks() {
+    $(document).on('click', 'a[href="#"]', function (event) {
+      // Stop default browser action which would likely return to the top of the page
+      event.preventDefault();
+    });
+  }
+  handleDisabledLinks()
+
   // TODO restructure function so the use of "this" makes sense.
   var generateCodeSnippets = function(content, previewBox) {
 
