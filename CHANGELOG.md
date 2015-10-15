@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 ### Added
+- Add image links
 - Add required attributes to required fields
 - Add force the ruby version when using RVM/rbenv
 - Add note in docs about using caption tag inside table element
@@ -13,6 +14,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Add link to thoughtbot.com in pages/getting-started.html
 
 ### Changed
+- Update footer text to be consistent with 18F policy
 - Change link values to use hashes
 - Update memorable dates inputs
 - Change link to ./go script in README.md
