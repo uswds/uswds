@@ -202,7 +202,11 @@ a {
     margin-bottom: 1.6rem;
   }
 
-  .usa-img-example {
-    margin-bottom: 5rem;
+  .usa-example-link {
+    margin-top: 5rem;
+    
+    &:first-of-type {
+      margin-top: 0;
+    }
   }
 }
