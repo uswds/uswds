@@ -169,7 +169,7 @@ order: 02
   <div class="color-small">
     <div class="usa-color-short usa-color-gray-lightest">
     </div>
-      <p class="usa-color-hex">#efefef</p>
+      <p class="usa-color-hex">#f1f1f1</p>
       <p class="usa-color-name">gray-lightest</p>
   </div>
 </div>
