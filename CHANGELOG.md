@@ -17,6 +17,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Add link to thoughtbot.com in `pages/getting-started.html` [styleguide-only]
 
 ### Changed
+- Change overflow to auto on styleguide sidenav [styleguide-only]
 - Update footer text to be consistent with 18F policy [styleguide-only]
 - Change link values to use hashes
 - Update memorable dates inputs
