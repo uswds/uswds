@@ -188,7 +188,7 @@ $site-top:           124px;
   width: $width-nav-sidebar;
   border-right: 1px solid $color-gray-light;
   padding: 5rem 3rem 3rem 3rem;
-  overflow: scroll;
+  overflow: auto;
   display: none;
   z-index: -1;
   
