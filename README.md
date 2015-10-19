@@ -8,7 +8,7 @@ These tools follow industry-standard web accessibility guidelines and reuse the 
 
 Design files of all the assets included on this site are available for download here: [https://github.com/18F/web-design-standards-assets](https://github.com/18F/web-design-standards-assets).
 
-The structural setup of this repo is based off of [https://github.com/18F/pages](https://github.com/18F/pages)
+The structural setup of this repo is based off of [https://github.com/18F/pages](https://github.com/18F/pages).
 
 ### Reuse of open source style guides
 
@@ -32,7 +32,7 @@ To begin using the U.S. Web Design Standards, include the CSS and JavaScript fil
 
 ### Requirements
 
-You will need [Ruby](https://www.ruby-lang.org) ( > version 2.1.5 ). You may
+You will need [Ruby](https://www.ruby-lang.org) ( > version 2.2.3 ). You may
 consider using a Ruby version manager such as
 [rbenv](https://github.com/sstephenson/rbenv) or [rvm](https://rvm.io/) to
 help ensure that Ruby version upgrades don't mean all your
@@ -50,12 +50,11 @@ $ brew install ruby
 ### Installation
 
 Now that you have verified that you have Ruby installed, clone and run the
-following [go](https://golang.org/) commands to initialize and serve the library locally.
+following [go script](https://github.com/18F/go_script) commands to initialize and serve the library locally.
 
 ```shell
 $ git clone git@github.com:18F/web-design-standards.git
 $ cd web-design-standards
-$ ./go init
 $ ./go serve
 ```
 
