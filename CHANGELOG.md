@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 ### Added
+- Add ethnio activation code [styleguide-only]
 - Add image links with `media_link` class
 - Add required attributes to required fields
 - Add force the ruby version when using RVM/rbenv
