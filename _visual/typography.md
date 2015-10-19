@@ -76,8 +76,10 @@ order: 01
             <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
             <p>
-              <img src="{{ site.baseurl }}/assets-styleguide/img/default_example_emanifest.png" alt="EPA eManifest example">
-              <a href="{{ site.baseurl }}/assets-styleguide/img/epa-emanifest-screenshot.png">EPA eManifest  (screenshot of non-public site)</a>
+              <a class="media_link" href="{{ site.baseurl }}/assets-styleguide/img/epa-emanifest-screenshot.png">
+                <img src="{{ site.baseurl }}/assets-styleguide/img/default_example_emanifest.png" alt="EPA eManifest example">
+              </a>
+              <a href="{{ site.baseurl }}/assets-styleguide/img/epa-emanifest-screenshot.png">EPA eManifest (screenshot of non-public site)</a>
             </p>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
@@ -230,7 +232,9 @@ order: 01
             <p>Exceeds ideal number of fonts by one. May negatively impact page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
             <p>
-              <img src="{{ site.baseurl }}/assets-styleguide/img/robust_example_standardshome.png" alt="U.S. Web Design Standards homepage example">
+              <a class="media_link" href="/">
+                <img src="{{ site.baseurl }}/assets-styleguide/img/robust_example_standardshome.png" alt="U.S. Web Design Standards homepage example">
+              </a>
               <a href="/">U.S. Web Design Standards homepage</a>
             </p>
           </aside>
@@ -407,7 +411,9 @@ order: 01
             <p>Exceeds ideal number of fonts by two. May negatively impact page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
             <p>
-              <img src="{{ site.baseurl }}/assets-styleguide/img/merriweatheronly_example_playbook.png" alt="U.S. Digital Service Playbook example">
+              <a class="media_link" href="http://playbook.cio.gov">
+                <img src="{{ site.baseurl }}/assets-styleguide/img/merriweatheronly_example_playbook.png" alt="U.S. Digital Service Playbook example">
+              </a>
               <a href="http://playbook.cio.gov">U.S. Digital Service Playbook</a>
             </p>
           </aside>
@@ -743,7 +749,9 @@ order: 01
             <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
             <p>
-              <img src="{{ site.baseurl }}/assets-styleguide/img/ssponly_example_va.png" alt="Veterans Affairs appeals review example">
+              <a class="media_link" href="{{ site.baseurl }}/assets-styleguide/img/va-appeals-screenshot.png">
+                <img src="{{ site.baseurl }}/assets-styleguide/img/ssponly_example_va.png" alt="Veterans Affairs appeals review example">
+              </a>
               <a href="{{ site.baseurl }}/assets-styleguide/img/va-appeals-screenshot.png">Department of Veterans Affairs appeals review (screenshot of non-public site)</a>
             </p>
           </aside>
@@ -903,7 +911,7 @@ order: 01
   <p class="usa-font-lead">Great Smoky Mountains National Park straddles the border of North Carolina and Tennessee.</p>
   <h2>Section heading</h2>
   <h3>Section of the page</h3>
-  <p>The sprawling landscape encompases lush forests and an abundance of wildflowers that bloom year-round. Streams, rivers and waterfalls appear along hiking routes that include a segment of the Appalachian Trail.</p>
+  <p>The sprawling landscape encompasses lush forests and an abundance of wildflowers that bloom year-round. Streams, rivers and waterfalls appear along hiking routes that include a segment of the Appalachian Trail.</p>
   <h4>Subsection of the page</h4>
   <p>World renowned for its diversity of plant and animal life, the beauty of its ancient mountains, and the quality of its remnants of Southern Appalachian mountain culture, this is America's most visited national park.</p>
   <p>Right now scientists think that we only know about 17 percent of the plants and animals that live in the park, or about 17,000 species of a probable 100,000 different organisms.</p>
@@ -941,15 +949,15 @@ order: 01
 
 <div class="preview">
 
-  <a href="javascript:void(0)">This is a link without surrounding text.</a>
-  <p><a href="javascript:void(0)">This</a> is a text link on a light background.</p>
+  <a href="#">This is a link without surrounding text.</a>
+  <p><a href="#">This</a> is a text link on a light background.</p>
 
-  <p><a class="usa-color-text-visited" href="javascript:void(0)">This</a> is a visited link.</p>
+  <p><a class="usa-color-text-visited" href="#">This</a> is a visited link.</p>
 
   <p>This is a link which opens in a <a href="http://media.giphy.com/media/8sgNa77Dvj7tC/giphy.gif" target="_blank">new tab</a>.</p>
 
   <div class="usa-background-dark">
-    <p><a href="javascript:void(0)">This</a> is a text link on a dark background.</p>
+    <p><a href="#">This</a> is a text link on a dark background.</p>
   </div>
 </div>
 

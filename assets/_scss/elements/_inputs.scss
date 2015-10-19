@@ -126,6 +126,14 @@ legend {
 input[type="checkbox"],
 input[type="radio"] {
   @include sr-only();
+
+  .lt-ie9 & {
+    border: 0;
+    float: left;
+    margin: .4em .4em 0 0;
+    position: static;
+    width: auto;
+  }
 }
 
 input[type="checkbox"] + label,

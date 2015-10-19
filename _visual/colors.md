@@ -4,9 +4,7 @@ title: Colors
 order: 02
 ---
 
-<p>A flexible, yet distinctly American palette designed to communicate warmth and trustworthiness while meeting the highest standards of 508 color contrast requirements.</p>
-
-<a class="usa-button usa-button-primary-alt" href="{{ site.baseurl }}/assets/releases/wds-design-v0.8.zip">Download the design files</a>
+<p>A flexible, yet distinctly American palette designed to communicate warmth and trustworthiness while meeting the highest standards of 508 color contrast requirements.</p><a class="usa-button usa-button-primary-alt" href="{{ site.baseurl }}/assets/releases/wds-design-v0.8.zip">Download the design files</a>
 <p class="usa-text-small">Download a zip file with font files and color swatches.</p>
 
 <h3 class="usa-heading" id="palette">Palette</h3>
@@ -114,13 +112,13 @@ order: 02
   <div class="color-small">
     <div class="usa-color-short usa-color-secondary-darkest">
     </div>
-      <p class="usa-color-hex">#cd2026</p>
+      <p class="usa-color-hex">#981b1e</p>
       <p class="usa-color-name">secondary-darkest</p>
   </div>
   <div class="color-small">
     <div class="usa-color-short usa-color-secondary-dark">
     </div>
-      <p class="usa-color-hex">#981b1e</p>
+      <p class="usa-color-hex">#cd2026</p>
       <p class="usa-color-name">secondary-dark</p>
   </div>
   <div class="color-small">
@@ -169,7 +167,7 @@ order: 02
   <div class="color-small">
     <div class="usa-color-short usa-color-gray-lightest">
     </div>
-      <p class="usa-color-hex">#efefef</p>
+      <p class="usa-color-hex">#f1f1f1</p>
       <p class="usa-color-name">gray-lightest</p>
   </div>
 </div>
@@ -310,7 +308,7 @@ order: 02
 </div>
 
 <h3 class="usa-heading" id="text-accessibility">Text Accessibility</h3>
-<p>WCA (Web Content Accessibility) standards ensure that content is accessible by everyone, regardless of disability or user device. To meet these standards, text and interactive elements should have a color contrast ratio of <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">at least 4.5:1</a>. This ensures that viewers who cannot see the full color spectrum are able to read the text.</p>
+<p>WCAG (Web Content Accessibility Guidelines) ensure that content is accessible by everyone, regardless of disability or user device. To meet these standards, text and interactive elements should have a color contrast ratio of <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">at least 4.5:1</a>. This ensures that viewers who cannot see the full color spectrum are able to read the text.</p>
 <p>The options below offer color palette combinations that fall within the range of Section 508 compliant foreground/background color contrast ratios. To ensure that text remains accessible, use only these permitted color combinations.</p>
 <p>If you choose to customize beyond this palette, this <a href="http://webaim.org/resources/contrastchecker/">color contrast tool</a> is a useful resource for testing the compliance of any color combination.</p>
 <h4 class="usa-heading">Fully accessible combinations</h4>
