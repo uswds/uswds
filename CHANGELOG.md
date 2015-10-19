@@ -28,6 +28,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Remove unnecessary function wrapping in assets/js/components.js
 
 ### Fixed
+- Fix markdown spacing issue on colors page
+- Fix $color-gray-lightest label to correct hex code
 - Fix title for Forgot username in Sign in form
 - Fix accessibility citation
 - Fix incorrect hex codes
