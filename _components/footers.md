@@ -95,7 +95,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
           <address>
             <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
             <p>(800) CALL-GOVT</p>
-            <a href="mailto:#">info@agency.gov</a>
+            <a href="mailto:info@agency.gov">info@agency.gov</a>
           </address>
         </div>
       </div>
@@ -170,7 +170,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
           <address>
             <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
             <p>(800) CALL-GOVT</p>
-            <a href="mailto:#">info@agency.gov</a>
+            <a href="mailto:info@agency.gov">info@agency.gov</a>
           </address>
         </div>
       </div>
@@ -205,7 +205,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
           <p>(800) CALL-GOVT</p>
         </div>
         <div class="usa-width-one-sixth usa-footer-primary-content">
-          <a href="mailto:#">info@agency.gov</a>
+          <a href="mailto:info@agency.gov">info@agency.gov</a>
         </div>          
       </div>
     </div>
