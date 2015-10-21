@@ -13,7 +13,7 @@ lead: Form controls allow users to enter information into a page.
   <li>All form control tags should have an associated label. The labels for attribute value should match the related input <code>id</code> attribute and should also be unique to the entire page. For example, the input with <code>id=<wbr>"favorite-national-park"</code> will always have a label with <code>for=<wbr>"favorite-national-park"</code>. This way screen readers are able to perceive the relevant content.</li>
   <li>Any additional information — such as required, optional, or example text — should be wrapped within the label tags. For example: <code>&lt;label for=<wbr>"name"&gt;Favorite Pie &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;</code>. This way screen readers know what additional information is related to each field.</li>
   <li>Do not replace <code>&lt;input&gt;</code> tag-based form controls with styled <code>&lt;div&gt;</code> tags, or use JavaScript to create 'fake' form controls. Screen readers have a difficult time reading form controls that are not written in semantic HTML.</li>
-  <li>If you adjust the color scheme of the buttons, ensure a minimum contrast ratio of 4.5:1 (for small text, 3:1 for large) for all states of the button. This includes default, hover, selected, and disabled.</li>
+  <li>If you adjust the color scheme of the buttons, ensure a minimum contrast ratio of 4.5:1 (for small text, 3:1 for large) for the default, hover, focus and selected states of the button. The disabled state may have less contrast to indicate that it is inactive.</li>
 </ul>
 
 <p>If you are a building a form with multiple controls, also consider the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines in the “Form Templates” section</a>.</p>
