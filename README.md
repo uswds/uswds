@@ -69,7 +69,9 @@ See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Got feedback?
 
-Please create a [GitHub Issue](https://github.com/18F/web-design-standards/issues).
+Please create a [GitHub Issue](https://github.com/18F/web-design-standards/issues). 
+
+If you'd rather email, you can reach us at uswebdesignstandards@gsa.gov.
 
 ## Licenses and attribution
 
