@@ -67,8 +67,16 @@ Questions or need help with setup? Feel free to open an issue here [https://gith
 
 See [CONTRIBUTING](CONTRIBUTING.md).
 
+### Deployment and workflow
+
+* The staging branch `18f-pages-staging` is **automatically deployed** to our staging site: https://pages-staging.18f.gov/designstandards/.
+* The production branch `18f-pages` is **automatically deployed** to our production site: https://pages.18f.gov/designstandards/.
+
 **All development and pull requests should be done against the `18f-pages-staging` branch.**
 
+`18f-pages-staging` is already set to the default branch in this repository.
+
+Deployments to production will be done by site admins, using pull requests from `18f-pages-staging` to `18f-pages`.
 ## Got feedback?
 
 Please create a [GitHub Issue](https://github.com/18F/web-design-standards/issues). 
