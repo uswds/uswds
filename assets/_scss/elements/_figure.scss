@@ -12,8 +12,8 @@ img {
 // blocks
 @-moz-document url-prefix() {
   .media_link {
-   display: table;
-   table-layout: fixed;
-   width: 100%;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
   }
 }
