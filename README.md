@@ -67,7 +67,7 @@ Questions or need help with setup? Feel free to open an issue here [https://gith
 
 See [CONTRIBUTING](CONTRIBUTING.md).
 
-**All development and pull requests should be done against the `staging` branch.**
+**All development and pull requests should be done against the `18f-pages-staging` branch.**
 
 ## Got feedback?
 
