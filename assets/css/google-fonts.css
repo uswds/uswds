@@ -6,8 +6,7 @@
     src: url('../fonts/sourcesanspro-light-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/sourcesanspro-light-webfont.woff2') format('woff2'),
          url('../fonts/sourcesanspro-light-webfont.woff') format('woff'),
-         url('../fonts/sourcesanspro-light-webfont.ttf') format('truetype'),
-         url('../fonts/sourcesanspro-light-webfont.svg#source_sans_prolight') format('svg');
+         url('../fonts/sourcesanspro-light-webfont.ttf') format('truetype');
 }
 
 @font-face {
@@ -18,8 +17,7 @@
     src: url('../fonts/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
          url('../fonts/sourcesanspro-regular-webfont.woff') format('woff'),
-         url('../fonts/sourcesanspro-regular-webfont.ttf') format('truetype'),
-         url('../fonts/sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+         url('../fonts/sourcesanspro-regular-webfont.ttf') format('truetype');
 
 }
 
@@ -31,8 +29,7 @@
     src: url('../fonts/sourcesanspro-italic-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/sourcesanspro-italic-webfont.woff2') format('woff2'),
          url('../fonts/sourcesanspro-italic-webfont.woff') format('woff'),
-         url('../fonts/sourcesanspro-italic-webfont.ttf') format('truetype'),
-         url('../fonts/sourcesanspro-italic-webfont.svg#source_sans_proitalic') format('svg');
+         url('../fonts/sourcesanspro-italic-webfont.ttf') format('truetype');
 
 }
 
@@ -44,8 +41,7 @@
     src: url('../fonts/sourcesanspro-bold-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/sourcesanspro-bold-webfont.woff2') format('woff2'),
          url('../fonts/sourcesanspro-bold-webfont.woff') format('woff'),
-         url('../fonts/sourcesanspro-bold-webfont.ttf') format('truetype'),
-         url('../fonts/sourcesanspro-bold-webfont.svg#source_sans_probold') format('svg');
+         url('../fonts/sourcesanspro-bold-webfont.ttf') format('truetype');
 
 }
 
@@ -57,8 +53,7 @@
     src: url('../fonts/merriweather-light-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/merriweather-light-webfont.woff2') format('woff2'),
          url('../fonts/merriweather-light-webfont.woff') format('woff'),
-         url('../fonts/merriweather-light-webfont.ttf') format('truetype'),
-         url('../fonts/merriweather-light-webfont.svg#source_sans_proregular') format('svg');
+         url('../fonts/merriweather-light-webfont.ttf') format('truetype');
 
 }
 
@@ -70,8 +65,7 @@
     src: url('../fonts/merriweather-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/merriweather-regular-webfont.woff2') format('woff2'),
          url('../fonts/merriweather-regular-webfont.woff') format('woff'),
-         url('../fonts/merriweather-regular-webfont.ttf') format('truetype'),
-         url('../fonts/merriweather-regular-webfont.svg#source_sans_proitalic') format('svg');
+         url('../fonts/merriweather-regular-webfont.ttf') format('truetype');
 
 }
 
@@ -83,8 +77,7 @@
     src: url('../fonts/merriweather-italic-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/merriweather-italic-webfont.woff2') format('woff2'),
          url('../fonts/merriweather-italic-webfont.woff') format('woff'),
-         url('../fonts/merriweather-italic-webfont.ttf') format('truetype'),
-         url('../fonts/merriweather-italic-webfont.svg#source_sans_proitalic') format('svg');
+         url('../fonts/merriweather-italic-webfont.ttf') format('truetype');
 
 }
 
@@ -96,7 +89,6 @@
     src: url('../fonts/merriweather-bold-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/merriweather-bold-webfont.woff2') format('woff2'),
          url('../fonts/merriweather-bold-webfont.woff') format('woff'),
-         url('../fonts/merriweather-bold-webfont.ttf') format('truetype'),
-         url('../fonts/merriweather-bold-webfont.svg#source_sans_probold') format('svg');
+         url('../fonts/merriweather-bold-webfont.ttf') format('truetype');
 
 }
