@@ -70,7 +70,7 @@ See [CONTRIBUTING](CONTRIBUTING.md).
 ### Deployment and workflow
 
 * The staging branch `18f-pages-staging` is **automatically deployed** to our staging site: https://pages-staging.18f.gov/designstandards/.
-* The production branch `18f-pages` is **automatically deployed** to our production site: https://pages.18f.gov/designstandards/.
+* The production branch `18f-pages` is **automatically deployed** to our production site: https://playbook.cio.gov/designstandards/.
 
 **All development and pull requests should be done against the `18f-pages-staging` branch.**
 
