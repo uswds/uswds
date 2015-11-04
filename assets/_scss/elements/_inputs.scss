@@ -1,20 +1,35 @@
 // Block form elements
-input,
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="url"],
-input[type="tel"],
-input[type="number"],
-input[type="search"],
-input[type="file"],
-input[type="date"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-textarea,
-select  {
+@mixin block-input {
+  input,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  input[type="file"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  textarea,
+  select {
+    @content
+  }
+}
+
+@mixin focused($color, $opacity) {
+  &:focus,
+  &.usa-input-focus {
+    border-color: $color;
+    box-shadow: 0 0 0 3px rgba($color, $opacity);
+  }
+}
+
+@include block-input {
   border: 1px solid $color-gray;
   border-radius: 0;
   box-sizing: border-box;
@@ -24,20 +39,21 @@ select  {
   margin: .2em 0;
   max-width: $input-max-width;
   width: 100%;
+  height: 4.4rem;
   outline: none;
   padding: 1rem .7em;
   appearance: none;
+  @include transition(border-color .3s, box-shadow .3s);
+  @include focused($color-focus, 0.5);
 
-  &:focus, 
-  &.usa-input-focus {
-    box-shadow: $focus-shadow;
-  }
-
+  // "Success" input modifier
   &.usa-input-success {
     border: 3px solid $color-green-light;
+    @include focused($color-green-light, 0.3);
   }
 }
 
+// "Error" input block
 .usa-input-error {
   border-left: 4px solid $color-secondary-dark;
   margin-top: 3rem;
@@ -49,9 +65,10 @@ select  {
   position: relative;
   right: 1.9rem;
   
-  input {
-    border: 3px solid $color-secondary-dark;
+  @include block-input {
     width: calc(100% + 1.5rem);
+    border: 3px solid $color-secondary-dark;
+    @include focused($color-secondary-dark, 0.3);
   }
   
   label {
