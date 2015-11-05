@@ -3,6 +3,22 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Add Sketch and OmniGraffle files to design download zip
+- Add language to specify to use staging branch for development in README
+- Add link on the word "Sass" to its project page [styleguide-only]
+- Add email address into the mailto link on footer component
+- Add email address to web standards email [styleguide-only]
+
+### Changed
+- Change alert colors to use variables
+- Update text about Source Sans Pro's origin and license
+- Update color contrast guidance
+- Update Source Sans Pro fonts
+
+### Removed
+- Remove extra jQuery link on homepage [styleguide-only]
+- Remove SVG fonts
 
 ## [0.8.1] - 2015-10-19
 ### Added
