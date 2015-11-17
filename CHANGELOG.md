@@ -17,8 +17,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Update Source Sans Pro fonts
 
 ### Removed
+- Remove reference to Americans with Disabilities Act (ADA) on homepage [styleguide-only]
+- Remove unmatched strong tag [styleguide-only]
 - Remove extra jQuery link on homepage [styleguide-only]
 - Remove SVG fonts
+
+### Fixed
+- Fix grammar for "a" vs. "an" in docs [styleguide-only]
 
 ## [0.8.1] - 2015-10-19
 ### Added
