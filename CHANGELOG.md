@@ -11,19 +11,19 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Add email address to web standards email [styleguide-only]
 
 ### Changed
+- Change accessibility copy on homepage [styleguide-only]
 - Change alert colors to use variables
 - Update text about Source Sans Pro's origin and license
 - Update color contrast guidance
 - Update Source Sans Pro fonts
 
 ### Removed
-- Remove reference to Americans with Disabilities Act (ADA) on homepage [styleguide-only]
-- Remove unmatched strong tag [styleguide-only]
-- Remove extra jQuery link on homepage [styleguide-only]
 - Remove SVG fonts
 
 ### Fixed
-- Fix grammar for "a" vs. "an" in docs [styleguide-only]
+- Fix unmatched strong tag [styleguide-only]
+- Fix typo in docs [styleguide-only]
+- Remove extra jQuery link on homepage [styleguide-only]
 
 ## [0.8.1] - 2015-10-19
 ### Added
