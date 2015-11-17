@@ -68,3 +68,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.8.0] - 2015-09-25
 ### Added
 - Initial alpha release
+
+[Unreleased]: https://github.com/18F/web-design-standards/compare/v0.8.1...HEAD
+[0.8.1]: https://github.com/18F/web-design-standards/compare/v0.8...v0.8.1
