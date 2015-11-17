@@ -23,6 +23,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Fix unmatched strong tag [styleguide-only]
 - Fix typo in docs [styleguide-only]
+- Add patch for Firefox media blocks (media_link class)
 - Remove extra jQuery link on homepage [styleguide-only]
 
 ## [0.8.1] - 2015-10-19
