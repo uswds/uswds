@@ -78,6 +78,10 @@ See [CONTRIBUTING](CONTRIBUTING.md).
 
 Deployments to production will be done by site admins, using pull requests from `18f-pages-staging` to `18f-pages`.
 
+## Examples of Projects Using the Web Design Standards
+
+* USGS [Earthquake Hazards Program](http://earthquake.usgs.gov/earthquakes/eventpage/ci37272591#general_summary)
+
 ## Got feedback?
 
 Please create a [GitHub Issue](https://github.com/18F/web-design-standards/issues). 
