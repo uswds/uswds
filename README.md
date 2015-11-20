@@ -22,11 +22,13 @@ Much of the guidance in Web Design Standards leans on open source designs, code,
 
 ## Getting started
 
-To begin using the U.S. Web Design Standards, include the CSS and JavaScript files in each HTML page of your project. Copy the full `_site/assets/` directory to a relevant place in your code base `cp ./_site/assets/css/main.css /path/to/your/repo/static/dir`. Add the following `<link>` and `<script>` elements in your HTML:
+Include the Web Design Standards CSS and JavaScript files in each HTML page in your project. Download the the Web Design Standards assets: https://playbook.cio.gov/designstandards/assets/releases/wds-v0.8.1.zip Add them to your source code to host them yourself.
 
-- `<link rel="stylesheet" href="/path/to/your/assets/css/main.css">`
-- `<link rel="stylesheet" href="/path/to/your/assets/css/google-fonts.css">`
-- `<script src="/path/to/your/assets/js/components.js"></script>`
+Refer to these files by adding a `<link>` and a `<script>` element into your HTML pages and also include the font font:
+
+`<link rel="stylesheet" href="/path/to/your/assets/css/main.css">`
+`<link rel="stylesheet" href="/path/to/your/assets/css/google-fonts.css">`
+`<script src="/path/to/your/assets/js/components.js"></script>`
 
 ## Setup for your local environment
 
