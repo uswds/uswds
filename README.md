@@ -26,9 +26,9 @@ Include the Web Design Standards CSS and JavaScript files in each HTML page in y
 
 Refer to these files by adding a `<link>` and a `<script>` element into your HTML pages and also include the font font:
 
-`<link rel="stylesheet" href="/path/to/your/assets/css/main.css">`
-`<link rel="stylesheet" href="/path/to/your/assets/css/google-fonts.css">`
-`<script src="/path/to/your/assets/js/components.js"></script>`
+```<link rel="stylesheet" href="/path/to/your/assets/css/main.css">
+<link rel="stylesheet" href="/path/to/your/assets/css/google-fonts.css">
+<script src="/path/to/your/assets/js/components.js"></script>```
 
 ## Setup for your local environment
 
