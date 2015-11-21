@@ -22,7 +22,7 @@ Much of the guidance in Web Design Standards leans on open source designs, code,
 
 ## Getting started
 
-Include the Web Design Standards CSS and JavaScript files in each HTML page in your project. Download the the Web Design Standards assets: https://playbook.cio.gov/designstandards/assets/releases/wds-v0.8.1.zip. Add them to your source code to host them yourself.
+Include the Web Design Standards CSS and JavaScript files in each HTML page in your project. Download the the Web Design Standards assets: https://playbook.cio.gov/designstandards/assets/releases/wds-v0.8.1.zip. Add the assets directory to a relevant place in your code base.
 
 Refer to these files by adding a `<link>` and a `<script>` element into your HTML pages:
 
