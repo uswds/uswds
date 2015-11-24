@@ -2,7 +2,29 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [0.8.2] - 2015-11-24
+### Added
+- Add Sketch and OmniGraffle files to design download zip
+- Add language to specify to use staging branch for development in README
+- Add link on the word "Sass" to its project page [styleguide-only]
+- Add email address into the mailto link on footer component
+- Add email address to web standards email [styleguide-only]
+
+### Changed
+- Change accessibility copy on homepage [styleguide-only]
+- Change alert colors to use variables
+- Update text about Source Sans Pro's origin and license
+- Update color contrast guidance
+- Update Source Sans Pro fonts
+
+### Removed
+- Remove SVG fonts
+
+### Fixed
+- Fix unmatched strong tag [styleguide-only]
+- Fix typo in docs [styleguide-only]
+- Add patch for Firefox media blocks (media_link class)
+- Remove extra jQuery link on homepage [styleguide-only]
 
 ## [0.8.1] - 2015-10-19
 ### Added
@@ -47,3 +69,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.8.0] - 2015-09-25
 ### Added
 - Initial alpha release
+
+[Unreleased]: https://github.com/18F/web-design-standards/compare/v0.8.1...HEAD
+[0.8.1]: https://github.com/18F/web-design-standards/compare/v0.8...v0.8.1
