@@ -67,19 +67,30 @@ Questions or need help with setup? Feel free to open an issue here [https://gith
 
 See [CONTRIBUTING](CONTRIBUTING.md).
 
+### Deployment and workflow
+
+* The staging branch `18f-pages-staging` is **automatically deployed** to our staging site: https://pages-staging.18f.gov/designstandards/.
+* The production branch `18f-pages` is **automatically deployed** to our production site: https://playbook.cio.gov/designstandards/.
+
+**All development and pull requests should be done against the `18f-pages-staging` branch.**
+
+`18f-pages-staging` is already set to the default branch in this repository.
+
+Deployments to production will be done by site admins, using pull requests from `18f-pages-staging` to `18f-pages`.
+
 ## Got feedback?
 
-Please create a [GitHub Issue](https://github.com/18F/web-design-standards/issues).
+Please create a [GitHub Issue](https://github.com/18F/web-design-standards/issues). 
+
+If you'd rather email, you can reach us at uswebdesignstandards@gsa.gov.
 
 ## Licenses and attribution
 
 ### A few parts of this project are not in the public domain
 
-The font files in `assets/fonts` are from [Google Web Fonts](https://www.google.com/fonts#UsePlace:use/Collection:Source+Sans+Pro:400,300,400italic,700,700italic|Merriweather:400,300,400italic,700,700italic), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL).
+The Source Sans Pro font files in `assets/fonts` are a customized subset of [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL), and copyright 2010, 2012, 2014 [Adobe Systems Incorporated](http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries.
 
-* The Source Sans Pro fonts are copyright 2010, 2012 [Adobe Systems Incorporated](http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries.
-
-* The Merriweather fonts are copyright © 2010-2013, [Sorkin Type Co](www.sorkintype.com) with Reserved Font Name 'Merriweather'.
+The Merriweather font files in `assets/fonts` are from [Google Web Fonts](https://www.google.com/fonts#UsePlace:use/Collection:Merriweather:400,300,400italic,700,700italic), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL), and copyright © 2010-2013, [Sorkin Type Co](www.sorkintype.com) with Reserved Font Name 'Merriweather'.
 
 The files in `assets/img` are from [Font Awesome](http://fontawesome.io/) by Dave Gandy under the [SIL Open Font License 1.1](http://scripts.sil.org/OFL).
 

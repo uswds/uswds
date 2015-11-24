@@ -2,7 +2,7 @@
   @include media($medium-screen) {
     background-size: 5.2rem;
   }
-  background-color: #eeeeee;  
+  background-color: $color-gray-lightest;  
   background-position: 1rem 2rem;
   background-repeat: no-repeat;
   background-size: 4rem;
@@ -50,25 +50,25 @@
 }
 
 .usa-alert-success {
-  background-color: #E5FCDE;
+  background-color: $color-green-lightest;
   background-image: url('../img/alerts/success.png');  
   background-image: url('../img/alerts/success.svg');  
 }
 
 .usa-alert-warning {
-  background-color: #FDF7DC;
+  background-color: $color-gold-lightest;
   background-image: url('../img/alerts/warning.png');  
   background-image: url('../img/alerts/warning.svg');   
 }
 
 .usa-alert-error {
-  background-color: #F9DEDE;
+  background-color: $color-secondary-lightest;
   background-image: url('../img/alerts/error.png');  
   background-image: url('../img/alerts/error.svg');   
 }
 
 .usa-alert-info {
-  background-color: #E8F5FA;
+  background-color: $color-primary-alt-lightest;
   background-image: url('../img/alerts/info.png');  
   background-image: url('../img/alerts/info.svg');   
 }
