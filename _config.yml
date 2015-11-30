@@ -1,7 +1,7 @@
 # Markdown config
 markdown: redcarpet
 highlighter: rouge
-name: U.S. Web Design Standards
+name: U.S. Web Design Draft Standards
 exclude:
 - go
 - Gemfile
