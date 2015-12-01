@@ -15,14 +15,6 @@ exclude:
 
 permalink: pretty
 
-repos:
-- name: U.S. Web Design Standards
-  description: Main repository for the U.S. Web Design Standards.
-  url: https://github.com/18F/web-design-standards
-- name: U.S. Federal Web Design Standards Assets
-  description: U.S. Federal Web Design Standards visual design assets
-  url: https://github.com/18F/web-design-standards-assets
-
 google_analytics_ua: UA-48605964-33
 
 sass:
