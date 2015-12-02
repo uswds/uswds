@@ -32,6 +32,18 @@ Refer to these files by adding a `<link>` and a `<script>` element into your HTM
 <script src="/path/to/your/assets/js/components.js"></script>
 ```
 
+### Install with NPM
+
+If you have `node` installed on your machine, you can use `npm` to install the Web Design Standards. In your `package.json` list the following under `dependencies`:
+
+```json
+  "uswds": "git@github.com:18F/web-design-standards.git#v0.9.0"
+```
+
+On subsequent runs of `npm install`, the package will be installed in `node_modules` under `uswds`. The CSS will be compiled after it is installed, and the final CSS file will be named `uswds.css`. You should be able to find it in `node_modules/uswds/assets/css/uswds.css`.
+
+*Note:* You might get an [`npm` warning related to `lodash`](https://github.com/18F/web-design-standards/pull/902#issuecomment-161076213), but you can generally ignore it.
+
 ## Setup for your local environment
 
 ### Requirements
@@ -84,7 +96,7 @@ Deployments to production will be done by site admins, using pull requests from 
 
 ## Got feedback?
 
-Please create a [GitHub Issue](https://github.com/18F/web-design-standards/issues). 
+Please create a [GitHub Issue](https://github.com/18F/web-design-standards/issues).
 
 If you'd rather email, you can reach us at uswebdesignstandards@gsa.gov.
 
