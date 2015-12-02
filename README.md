@@ -63,7 +63,7 @@ $ ./go serve
 ```
 
 You should now be able to visit `http://127.0.0.1:4000/`
-and view the web design draft standards locally.
+and view the draft web design standards locally.
 
 Questions or need help with setup? Feel free to open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
 
