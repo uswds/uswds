@@ -4,7 +4,7 @@
 
 The [Draft U.S. Web Design Standards](https://playbook.cio.gov/designstandards) is a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-These tools follow industry-standard web accessibility guidelines and reuse the best practices of existing style libraries and modern web design. Created and maintained by [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov) designers and developers, the Web Design Draft Standards are designed to support government product teams in creating beautiful and easy-to-use online experiences for the American people. Learn more about this project in our announcement [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/).
+These tools follow industry-standard web accessibility guidelines and reuse the best practices of existing style libraries and modern web design. Created and maintained by [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov) designers and developers, the Draft Web Design Standards are designed to support government product teams in creating beautiful and easy-to-use online experiences for the American people. Learn more about this project in our announcement [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/).
 
 Design files of all the assets included on this site are available for download here: [https://github.com/18F/web-design-standards-assets](https://github.com/18F/web-design-standards-assets).
 
@@ -12,7 +12,7 @@ The structural setup of this repo is based off of [https://github.com/18F/pages]
 
 ### Reuse of open source style guides
 
-Much of the guidance in Web Design Draft Standards leans on open source designs, code, and patterns from other civic and government organizations, including:
+Much of the guidance in Draft Web Design Standards leans on open source designs, code, and patterns from other civic and government organizations, including:
 - Consumer Financial Protection Bureau’s [Design Manual](https://cfpb.github.io/design-manual/)
 - U.S. Patent and Trademark Office’s [Design Patterns](http://uspto.github.io/designpatterns/)
 - Healthcare.gov [Style Guide](http://styleguide.healthcare.gov/)
@@ -22,7 +22,7 @@ Much of the guidance in Web Design Draft Standards leans on open source designs,
 
 ## Getting started
 
-To begin using the Web Design Draft Standards, include the CSS and JavaScript files in each HTML page in your project. Download the the Web Design Draft Standards assets: https://playbook.cio.gov/designstandards/assets/releases/wds-v0.8.2.zip. Add the assets directory to a relevant place in your code base.
+To begin using the Draft Web Design Standards, include the CSS and JavaScript files in each HTML page in your project. Download the the Draft Web Design Standards assets: https://playbook.cio.gov/designstandards/assets/releases/wds-v0.8.2.zip. Add the assets directory to a relevant place in your code base.
 
 Refer to these files by adding a `<link>` and a `<script>` element into your HTML pages:
 
