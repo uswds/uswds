@@ -4,28 +4,28 @@ title: Grids
 lead:  This 12-column, responsive grid provides structure for website content.
 ---
 
-<div class="preview preview-no_border">
+<h2 class="usa-heading">Grid</h2>
+<div class="preview preview-no_border grid-example grid-example-blank">
 
-  <h2 class="usa-heading">Grid</h2>
-  <div class="usa-grid usa-grid-example usa-grid-example-blank">
+  <div class="usa-grid">
     <div class="usa-width-one-whole">1/1</div>
   </div>
-  <div class="usa-grid usa-grid-example usa-grid-example-blank">
+  <div class="usa-grid">
     <div class="usa-width-one-half">1/2</div>
     <div class="usa-width-one-half">1/2</div>
   </div>
-  <div class="usa-grid usa-grid-example usa-grid-example-blank">
+  <div class="usa-grid">
     <div class="usa-width-one-third">1/3</div>
     <div class="usa-width-one-third">1/3</div>
     <div class="usa-width-one-third">1/3</div>
   </div>
-  <div class="usa-grid usa-grid-example usa-grid-example-blank">
+  <div class="usa-grid">
     <div class="usa-width-one-fourth">1/4</div>
     <div class="usa-width-one-fourth">1/4</div>
     <div class="usa-width-one-fourth">1/4</div>
     <div class="usa-width-one-fourth">1/4</div>
   </div>
-  <div class="usa-grid usa-grid-example usa-grid-example-blank">
+  <div class="usa-grid">
     <div class="usa-width-one-sixth">1/6</div>
     <div class="usa-width-one-sixth">1/6</div>
     <div class="usa-width-one-sixth">1/6</div>
@@ -33,7 +33,7 @@ lead:  This 12-column, responsive grid provides structure for website content.
     <div class="usa-width-one-sixth">1/6</div>
     <div class="usa-width-one-sixth">1/6</div>
   </div>
-  <div class="usa-grid usa-grid-example usa-grid-example-blank">
+  <div class="usa-grid">
     <div class="usa-width-one-twelfth">1/12</div>
     <div class="usa-width-one-twelfth">1/12</div>
     <div class="usa-width-one-twelfth">1/12</div>
@@ -47,9 +47,12 @@ lead:  This 12-column, responsive grid provides structure for website content.
     <div class="usa-width-one-twelfth">1/12</div>
     <div class="usa-width-one-twelfth">1/12</div>
   </div>
+</div>
 
-  <h2 class="usa-heading">Grid Examples</h2>
-  <div class="usa-grid usa-grid-example usa-grid-text">
+<h2 class="usa-heading">Grid Examples</h2>
+<div class="preview preview-no_border grid-example grid-text">
+  
+  <div class="usa-grid">
     <div class="usa-width-one-half">
       <h3>One Half</h3>
       <p>Georgia is a state located in the southeastern United States. It was established in 1732 and was the last of the original Thirteen Colonies. Named after King George II of Great Britain, Georgia was the fourth state to ratify the United States Constitution, on January 2, 1788. Georgia declared its secession from the Union on January 19, 1861, and was one of the original seven Confederate states. Georgia was the last state to be restored to the Union, on July 15, 1870. Georgia is the 24th largest and the 8th most populous of the 50 United States.</p>
@@ -59,7 +62,7 @@ lead:  This 12-column, responsive grid provides structure for website content.
       <p>Michigan is a state in the Great Lakes region of the Midwestern United States. The name Michigan is the French form of the Ojibwa word mishigamaa, meaning "large water" or "large lake". Michigan is the tenth most populous state, with the 11th most extensive total area (the largest state by total area east of the Mississippi River). Its capital is Lansing, and the largest city is Detroit. Michigan is the only state to consist of two peninsulas. A person in the state is never more than six miles from a natural water source or 85 miles from a Great Lakes shoreline.</p>
     </div>
   </div>
-  <div class="usa-grid usa-grid-example usa-grid-text">
+  <div class="usa-grid">
     <div class="usa-width-one-third">
       <h3>One Third</h3>
       <p>Maryland is a state located in the Mid-Atlantic region of the United States, bordering Virginia, West Virginia, and Washington, D.C. to its south and west; Pennsylvania to its north; and Delaware to its east.</p>
@@ -73,7 +76,7 @@ lead:  This 12-column, responsive grid provides structure for website content.
       <p>North Carolina is a state in the Southeastern United States. North Carolina borders South Carolina and Georgia to the south, Tennessee to the west, Virginia to the north, and the Atlantic Ocean to the east.</p>
     </div>
   </div>
-  <div class="usa-grid usa-grid-example usa-grid-text">
+  <div class="usa-grid">
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
       <p>California is a state located on the West Coast of the United States. It is the most populous U.S. state, with 38 million people, and the third largest state by area (after Alaska and Texas).</p>
@@ -91,7 +94,7 @@ lead:  This 12-column, responsive grid provides structure for website content.
       <p>Indiana is a U.S. state located in the midwestern and Great Lakes regions of North America. Indiana is the 38th largest by area and the 16th most populous of the 50 United States.</p>
     </div>
   </div>
-  <div class="usa-grid usa-grid-example usa-grid-text">
+  <div class="usa-grid">
     <div class="usa-width-two-thirds">
       <h3>Two Thirds</h3>
       <p>Oregon is a state in the Pacific Northwest of the United States. Oregon is bordered on the west by the Pacific Ocean, on the north by Washington, on the south by California, on the east by Idaho, and on the southeast by Nevada. The Columbia River delineates much of Oregon's northern boundary, and the Snake River delineates much of the eastern boundary. It is one of only three states of the contiguous United States to have a coastline on the Pacific Ocean. The capital of Oregon is Salem, the second most populous of its cities, with 160,614 residents (2013 estimate).</p>
@@ -101,7 +104,7 @@ lead:  This 12-column, responsive grid provides structure for website content.
       <p>Minnesota is a state in the Midwestern United States. Minnesota was admitted as the 32nd state on May 11, 1858, created from the eastern half of the Minnesota Territory. Its name comes from the Dakota word for "clear blue water".</p>
     </div>
   </div>
-  <div class="usa-grid usa-grid-example usa-grid-text">
+  <div class="usa-grid">
     <div class="usa-width-one-half">
       <h3>One Half</h3>
       <p>Virginia, is a U.S. state located in the South Atlantic region of the United States. Virginia, formally the Commonwealth of Virginia, is nicknamed the "Old Dominion" due to its status as the first colonial possession established in mainland British America, and "Mother of Presidents" because eight U.S. presidents were born there, more than any other state. The geography and climate of the Commonwealth are shaped by the Blue Ridge Mountains and the Chesapeake Bay, which provide habitat for much of its flora and fauna.</p>
