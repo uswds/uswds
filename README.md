@@ -37,7 +37,7 @@ Refer to these files by adding a `<link>` and a `<script>` element into your HTM
 If you have `node` installed on your machine, you can use `npm` to install the Web Design Standards. In your `package.json` list the following under `dependencies`:
 
 ```json
-  "uswds": "git@github.com:18F/web-design-standards.git#v0.9.0"
+  "uswds": "git@github.com:18F/web-design-standards.git#v0.9"
 ```
 
 On subsequent runs of `npm install`, the package will be installed in `node_modules` under `uswds`. The CSS will be compiled after it is installed, and the final CSS file will be named `uswds.css`. You should be able to find it in `node_modules/uswds/assets/css/uswds.css`.
