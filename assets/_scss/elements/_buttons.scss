@@ -36,6 +36,10 @@ button,
   width: 100%;
   -webkit-font-smoothing: antialiased;
 
+  @include media($small-screen) {
+    width: auto;
+  }
+
   &:hover,
   &.usa-button-hover {
     background-color: $color-primary-darker;
@@ -52,10 +56,6 @@ button,
   &:active,
   &.usa-button-active {
     background-color: $color-primary-darkest;
-  }
-
-  @include media($small-screen) {
-    width: auto;
   }
 
   &.usa-button-primary-alt {
