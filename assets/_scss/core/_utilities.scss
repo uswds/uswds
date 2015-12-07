@@ -51,11 +51,9 @@
 
 // Content size helpers
 @mixin allow-layout-classes {
-  margin: {
-    left: auto;
-    right: auto;
-  }
-
+  margin-left: auto;
+  margin-right: auto;
+  
   &.width-one-half {
     @include media($medium-screen) {
       width: 50%;
