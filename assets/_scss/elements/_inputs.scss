@@ -15,6 +15,7 @@ input[type="time"],
 input[type="week"],
 textarea,
 select  {
+  appearance: none;
   border: 1px solid $color-gray;
   border-radius: 0;
   box-sizing: border-box;
@@ -23,10 +24,9 @@ select  {
   font-size: $base-font-size;
   margin: .2em 0;
   max-width: $input-max-width;
-  width: 100%;
   outline: none;
   padding: 1rem .7em;
-  appearance: none;
+  width: 100%;
 
   &:focus, 
   &.usa-input-focus {
