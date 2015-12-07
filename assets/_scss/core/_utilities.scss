@@ -87,16 +87,16 @@
   &.align-left {
     @include media($medium-screen) {
       float: left;
-      margin-top: .5em;
       margin-right: 2em;
+      margin-top: .5em;
     }
   }
 
   &.align-right {
     @include media($medium-screen) {
       float: right;
-      margin-top: .5em;
       margin-left: 2em;
+      margin-top: .5em;
     }
   }
 }
