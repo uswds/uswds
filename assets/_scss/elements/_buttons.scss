@@ -54,7 +54,7 @@ button,
     background-color: $color-primary-darkest;
   }
 
-  @media (min-width: $small-screen) {
+  @include media($small-screen) {
     width: auto;
   }
 
