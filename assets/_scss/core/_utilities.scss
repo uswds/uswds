@@ -53,11 +53,7 @@
 @mixin allow-layout-classes {
   margin-left: auto;
   margin-right: auto;
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> a64a9616a936240cd9403b0148c409235b6763de
   &.width-one-half {
     @include media($medium-screen) {
       width: 50%;
