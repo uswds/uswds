@@ -44,8 +44,8 @@ ul li {
 }
 
 ol li {
-  display: table-row;
   counter-increment: table-ol;
+  display: table-row;
 
   &:before {
     content: counter(table-ol) ".";
@@ -62,9 +62,9 @@ li {
 // Unstyled lists
 
 .usa-unstyled-list {
+  list-style-type: none;
   margin: 0;
   padding: 0;
-  list-style-type: none;
 
   li {
     display: list-item;
