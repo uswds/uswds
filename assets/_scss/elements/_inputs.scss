@@ -19,7 +19,7 @@ select  {
   border: 1px solid $color-gray;
   border-radius: 0;
   box-sizing: border-box;
-  color: #000; // standardize on firefox 
+  color: $color-base; // standardize on firefox 
   display: block;
   font-size: $base-font-size;
   margin: .2em 0;
@@ -157,7 +157,7 @@ input[type="radio"] + label::before {
 }
 
 input[type="radio"] + label::before {  
-  box-shadow: 0 0 0 2px #fff, 0 0 0 3px #757575;
+  box-shadow: 0 0 0 2px $color-white, 0 0 0 3px #757575;
   height: 1.6rem;  
   width: 1.6rem;  
 }
@@ -217,7 +217,7 @@ input[type=range]:focus {
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-  background: #bdbdbd;
+  background: $color-gray-light;
   border: 1px solid #757575;
   cursor: pointer;
   height: 1.2rem;
@@ -245,14 +245,14 @@ input[type=range]::-webkit-slider-thumb {
   border: 1px solid #757575;
   height: 2.2rem;
   border-radius: 1.5rem;
-  background: #eeeeee;
+  background: $color-gray-lightest;
   cursor: pointer;
   margin-top: -.65rem;  
   width: 2.2rem;
 }
 
 input[type=range]::-moz-range-thumb {
-  background: #eeeeee;
+  background: $color-gray-lightest;
   border: 1px solid #757575;
   border-radius: 1.5rem;
   cursor: pointer;
@@ -261,7 +261,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 input[type=range]::-ms-thumb {
-  background: #eeeeee;
+  background: $color-gray-lightest;
   border: 1px solid #757575;
   border-radius: 1.5rem;
   cursor: pointer;
@@ -270,13 +270,13 @@ input[type=range]::-ms-thumb {
 }
 
 input[type=range]::-ms-fill-lower {
-  background: #bdbdbd;
+  background: $color-gray-light;
   border: 1px solid #757575;
   border-radius: 2rem;
 }
 
 input[type=range]::-ms-fill-upper {
-  background: #bdbdbd;
+  background: $color-gray-light;
   border: 1px solid #757575;
   border-radius: 2rem;
 }
