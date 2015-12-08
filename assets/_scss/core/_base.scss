@@ -12,8 +12,8 @@ body {
   background-color: #ffffff;
 }
 
+// Hack for clearfixes
 .lt-ie9 {
-  // Hack for clearfixes
   * {
     filter: none !important;
   }
