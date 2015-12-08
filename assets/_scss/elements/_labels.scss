@@ -3,7 +3,7 @@
   border-radius: $border-radius;
   color: $color-white;
   font-size: $h5-font-size;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   padding: 0.3rem 0.7rem 0.1rem 0.7rem;
   text-transform: uppercase;
 
@@ -15,8 +15,8 @@
 .usa-label-big {
   @extend .usa-label;
   font-size: $base-font-size;
-  padding-left: .9rem;
-  padding-right: .9rem;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
 }
 
 a {

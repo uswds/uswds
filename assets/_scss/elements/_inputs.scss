@@ -22,10 +22,10 @@ select  {
   color: $color-base; // standardize on firefox 
   display: block;
   font-size: $base-font-size;
-  margin: .2em 0;
+  margin: 0.2em 0;
   max-width: $input-max-width;
   outline: none;
-  padding: 1rem .7em;
+  padding: 1rem 0.7em;
   width: 100%;
 
   &:focus, 
@@ -41,9 +41,9 @@ select  {
 .usa-input-error {
   border-left: 4px solid $color-secondary-dark;
   margin-top: 3rem;
-  padding-bottom: .8rem;
+  padding-bottom: 0.8rem;
   padding-left: 1.5rem;
-  padding-top: .8rem;
+  padding-top: 0.8rem;
   position: relative;
   right: 1.9rem;
   
@@ -124,7 +124,7 @@ input[type="radio"] {
   .lt-ie9 & {
     border: 0;
     float: left;
-    margin: .4em .4em 0 0;
+    margin: 0.4em 0.4em 0 0;
     position: static;
     width: auto;
   }
@@ -145,10 +145,10 @@ input[type="radio"] + label::before {
   content: '\a0';
   display: inline-block;
   height: 1.8rem;
-  line-height: .8;
-  margin-right: .6em;
-  text-indent: .15em;
-  vertical-align: .2em;
+  line-height: 0.8;
+  margin-right: 0.6em;
+  text-indent: 0.15em;
+  vertical-align: 0.2em;
   width: 1.8rem;
 }
 
