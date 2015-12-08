@@ -1,18 +1,23 @@
 ul, ol {
-  margin-bottom: 2em;
-  margin-top: 2em;
+  margin: {
+    top: 2em;
+    bottom: 2em;
   }
 
   li {
     line-height: $base-line-height;
-    margin-bottom: 0.75em;
-    margin-top: 0.75em;
+    margin: {
+      top: .75em;
+      bottom: .75em;
+    }
   }
 }
 
 h1, h2, h3, h4, h5, h6, p {
   + ul, + ol {
-    margin-top: 0;
+    margin: {
+      top: 0;
+    }
   }
 }
 

@@ -4,7 +4,12 @@
   color: $color-white;
   font-size: $h5-font-size;
   margin-right: 0.5rem;
-  padding: 0.3rem 0.7rem 0.1rem 0.7rem;
+  padding: {
+    bottom: 0.1rem;
+    left: 0.7rem;
+    right: 0.7rem;
+    top: 0.3rem;
+  }
   text-transform: uppercase;
 
   &:only-of-type {
@@ -15,8 +20,10 @@
 .usa-label-big {
   @extend .usa-label;
   font-size: $base-font-size;
-  padding-left: 0.9rem;
-  padding-right: 0.9rem;
+  padding: {
+    left: .9rem;
+    right: .9rem;
+  }
 }
 
 a {

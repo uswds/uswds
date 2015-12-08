@@ -41,9 +41,11 @@ select  {
 .usa-input-error {
   border-left: 4px solid $color-secondary-dark;
   margin-top: 3rem;
-  padding-bottom: 0.8rem;
-  padding-left: 1.5rem;
-  padding-top: 0.8rem;
+  padding: {
+    bottom: .8rem;
+    left: 1.5rem;
+    top: .8rem;
+  }
   position: relative;
   right: 1.9rem;
   
@@ -68,8 +70,10 @@ select  {
   display: block;
   font-size: $base-font-size;
   font-weight: $font-bold;
-  padding-bottom: 3px;
-  padding-top: 3px;
+  padding: {
+    bottom: 3px;
+    top: 3px;
+  }
 }
 
 label {
