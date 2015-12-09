@@ -4,4 +4,42 @@
 
 // Place list of your partial imports below, located in assets/_scss.
 
-@import 'all';
+// Vendor -------------- //
+
+@import 'lib/bourbon/bourbon';
+@import 'lib/neat/neat';
+@import 'lib/normalize';
+
+
+// Core -------------- //
+
+@import 'core/base';
+@import 'core/defaults';
+@import 'core/grid';
+@import 'core/grid-settings';
+@import 'core/utilities';
+@import 'core/variables';
+
+
+// Elements -------------- //
+// Styles basic html elements
+
+@import 'elements/buttons';
+@import 'elements/figure';
+@import 'elements/inputs';
+@import 'elements/labels';
+@import 'elements/list';
+@import 'elements/table';
+@import 'elements/typography';
+
+
+// Components -------------- //
+
+@import 'components/accordions';
+@import 'components/alerts';
+@import 'components/disclaimer';
+@import 'components/footer';
+@import 'components/forms';
+@import 'components/search';
+@import 'components/sidenav';
+@import 'components/skipnav';
