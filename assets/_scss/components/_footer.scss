@@ -4,15 +4,16 @@
   }
 
   .usa-footer-primary-link {
-    @include media($medium-screen) {
-      border-top: none;
-    }
     color: $color-base;
     display: block;
     font-weight: $font-bold;
     margin-top: 0;
     padding-bottom: 2rem;
     padding-top: 2rem;
+
+    @include media($medium-screen) {
+      border-top: none;
+    }
   }
 
   a {
@@ -32,17 +33,18 @@
     padding-left: 2.5rem;
     padding-right: 2.5rem;
 
-    li {
-      @include media($medium-screen) {
-        margin-left: 0;
-      }
-      margin-left: 1rem;
-    }
-
     @include media($medium-screen) {
       padding-left: 0;
       padding-right: 0;
-    }  
+    }
+
+    li {
+      margin-left: 1rem;
+
+      @include media($medium-screen) {
+        margin-left: 0;
+      }
+    } 
   }
 
   .usa-grid-full {
@@ -78,7 +80,6 @@
 }
 
 .usa-footer-slim {
-
   .usa-footer-nav a {
     display: block;
   }
@@ -103,15 +104,16 @@ li.usa-footer-primary-content,
 li.usa-footer-primary-content {
   border-top: 1px solid $color-base;      
 
+  @include media($medium-screen) {
+    border: none;
+  }
+
   &:last-child {
     border-bottom: 1px solid $color-base;
+
     @include media($medium-screen) {
       border-bottom: none;
     }
-  }
-
-  @include media($medium-screen) {
-    border: none;
   }
 }
 
@@ -119,6 +121,11 @@ li.usa-footer-primary-content {
   padding-bottom: 2rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+
+  @include media($medium-screen) {
+    float: right;
+    padding: 0;
+  }
 
   label:first-of-type {
     margin-top: 0;
@@ -132,11 +139,6 @@ li.usa-footer-primary-content {
 
   input {
     width: 100%;
-  }
-
-  @include media($medium-screen) {
-    float: right;
-    padding: 0;
   }  
 }
 
@@ -173,6 +175,10 @@ li.usa-footer-primary-content {
   ul {
     padding-bottom: 2.5rem;
 
+    @include media($medium-screen) {
+      padding-bottom: 0;
+    }
+    
     &:last-child {
       border-bottom: 1px solid $color-base;
 
@@ -184,10 +190,6 @@ li.usa-footer-primary-content {
     li {
       line-height: 2em;
     }
-
-    @include media($medium-screen) {
-      padding-bottom: 0;
-    }    
 
     .usa-footer-primary-link {
       background-image: url('../img/arrow-down.png');
