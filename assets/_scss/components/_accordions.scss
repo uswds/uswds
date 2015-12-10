@@ -72,8 +72,8 @@ $accordion-border: 3px solid $color-gray-lightest;
 }
 
 .usa-accordion-content {
+  background-color: $color-white;
   display: block;
-  background-color: white;
   overflow: auto;
   padding: 3rem;
 
