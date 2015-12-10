@@ -11,14 +11,15 @@ form {
 
   button[type="submit"],
   input[type="submit"] {
+    display: block;
+    margin-bottom: 1.5em;
+    margin-top: 2.5rem;
+
     @include media($medium-screen) {
       padding-left: 2.7em;
       padding-right: 2.7em;
       width: auto;
     }
-    display: block;
-    margin-bottom: 1.5em;
-    margin-top: 2.5rem;
   }
 
   input[name="password"] {
@@ -30,7 +31,7 @@ form {
   float: right;
   font-family: $font-sans;
   font-size: $h5-font-size;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1.5rem;
 
   & + * {
     clear: both;
