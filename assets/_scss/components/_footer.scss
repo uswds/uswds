@@ -64,8 +64,8 @@
     padding: 0;
     
     @include media($medium-screen) {
-      padding-top: 1rem;
       padding-bottom: 1rem;
+      padding-top: 1rem;
     }
   }
 
@@ -142,8 +142,8 @@ li.usa-footer-primary-content {
 
 .usa-footer-secondary_section {
   background-color: $color-gray-lighter;
-  padding-top: 3rem;
   padding-bottom: 3rem;
+  padding-top: 3rem;
 
   a {
     color: $color-base;
@@ -165,8 +165,8 @@ li.usa-footer-primary-content {
 .usa-footer-big {
   .usa-footer-primary-section {
     @include media($medium-screen) {
-      padding-top: 3rem;
       padding-bottom: 4rem;
+      padding-top: 3rem;
     }
   }
 
