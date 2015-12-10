@@ -11,10 +11,8 @@
     display: block;
     font-weight: $font-bold;
     margin-top: 0;
-    padding: {
-      bottom: 2rem;
-      top: 2rem;
-    }
+    padding-bottom: 2rem;
+    padding-top: 2rem;
   }
 
   a {
@@ -23,20 +21,16 @@
 }
 
 .usa-footer-return-to-top {
-  padding: {
-    bottom: 2rem;    
-    top: 2rem;
-  }
+  padding-bottom: 2rem;    
+  padding-top: 2rem;
 }
 
 .usa-footer-primary-section {
   background-color: $color-gray-lightest;
 
   .usa-footer-primary-content {
-    padding: {
-      left: 2.5rem;
-      right: 2.5rem;
-    }
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
 
     li {
       @include media($medium-screen) {
@@ -46,19 +40,15 @@
     }
 
     @include media($medium-screen) {
-      padding: {
-        left: 0;
-        right: 0;
-      }
+      padding-left: 0;
+      padding-right: 0;
     }  
   }
 
   .usa-grid-full {
     @include media($medium-screen) {
-      padding: {
-        left: 2.5rem;
-        right: 2.5rem;
-      }
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
     }
   }
 }
@@ -74,10 +64,8 @@
     padding: 0;
     
     @include media($medium-screen) {
-      padding: {
-        top: 1rem;
-        bottom: 1rem;
-      }
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
   }
 
@@ -99,10 +87,8 @@
     padding-bottom: 2rem;
     
     @include media($medium-screen) {
-      padding: {
-        bottom: 1rem;
-        top: 1rem;
-      }
+      padding-bottom: 1rem;
+      padding-top: 1rem;
 
       .usa-grid-full {
         align-items: center;
@@ -130,11 +116,9 @@ li.usa-footer-primary-content {
 }
 
 .usa-sign_up-block {
-  padding: {
-    bottom: 2rem;
-    left: 2.5rem;
-    right: 2.5rem;
-  }
+  padding-bottom: 2rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 
   label:first-of-type {
     margin-top: 0;
@@ -142,10 +126,8 @@ li.usa-footer-primary-content {
 
   button {
     float: none;
-    margin: {
-      right: 0;
-      top: 1.5rem;
-    }
+    margin-right: 0;
+    margin-top: 1.5rem;
   }
 
   input {
@@ -160,10 +142,8 @@ li.usa-footer-primary-content {
 
 .usa-footer-secondary_section {
   background-color: $color-gray-lighter;
-  padding: {
-    top: 3rem;
-    bottom: 3rem;
-  }
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 
   a {
     color: $color-base;
@@ -185,10 +165,8 @@ li.usa-footer-primary-content {
 .usa-footer-big {
   .usa-footer-primary-section {
     @include media($medium-screen) {
-      padding: {
-        top: 3rem;
-        bottom: 4rem;
-      }      
+      padding-top: 3rem;
+      padding-bottom: 4rem;
     }
   }
 
@@ -285,8 +263,6 @@ li.usa-footer-primary-content {
 
   @include media($medium-screen) {
     display: inline-block;
-    padding: {
-      left: 1em;
-    }
+    padding-left: 1em;
   }
 }
