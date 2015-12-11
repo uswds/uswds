@@ -13,6 +13,12 @@ table {
     }
   }
 
+  tbody {
+    th {
+      font-weight: $font-normal;
+    }
+  }
+
   th, td {
     border: 1px solid $color-gray;
     padding: 1.5rem;
