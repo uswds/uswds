@@ -5,7 +5,7 @@
   "main": "package.json",
   "scripts": {
     "postinstall": "npm run build-sass",
-    "build-sass": "node-sass assets/_scss/all.scss > assets/css/uswds.css",
+    "build-sass": "node-sass assets/css/main.scss > assets/css/uswds.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "assets": "assets/",
