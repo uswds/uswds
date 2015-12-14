@@ -47,6 +47,7 @@ $color-base:                 #212121 !default;
 
 $color-gray-dark:            #323a45 !default;
 $color-gray:                 #205493 !default; // lighten($color-gray-dark, 20%)
+$color-gray-medium:          #757575 !default; // lightest gray that passes color contrast
 $color-gray-light:           #aeb0b5 !default; // lighten($color-gray-dark, 60%)
 $color-gray-lighter:         #d6d7d9 !default; // lighten($color-gray-dark, 80%)
 $color-gray-lightest:        #f1f1f1 !default; // lighten($color-gray-dark, 91%)
