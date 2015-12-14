@@ -108,7 +108,7 @@ legend {
 // Hint text
 
 .usa-form-hint {
-  color: #757575;
+  color: $color-gray-medium;
   font-family: $font-sans;
   margin-bottom: 0;
 }
@@ -141,7 +141,7 @@ input[type="checkbox"] + label::before,
 input[type="radio"] + label::before {
   background: white;
   border-radius: $border-radius;
-  box-shadow: 0 0 0 1px #757575;
+  box-shadow: 0 0 0 1px $color-gray-medium;
   content: '\a0';
   display: inline-block;
   height: 1.8rem;
@@ -153,7 +153,7 @@ input[type="radio"] + label::before {
 }
 
 input[type="radio"] + label::before {  
-  box-shadow: 0 0 0 2px $color-white, 0 0 0 3px #757575;
+  box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-gray-medium;
   height: 1.6rem;  
   width: 1.6rem;  
 }
@@ -214,7 +214,7 @@ input[type=range]:focus {
 
 input[type=range]::-webkit-slider-runnable-track {
   background: $color-gray-light;
-  border: 1px solid #757575;
+  border: 1px solid $color-gray-medium;
   cursor: pointer;
   height: 1.2rem;
   width: 100%;
@@ -222,7 +222,7 @@ input[type=range]::-webkit-slider-runnable-track {
 
 input[type=range]::-moz-range-track {
   background: $color-primary;
-  border: 1px solid #757575;
+  border: 1px solid $color-gray-medium;
   cursor: pointer;
   height: 1.2rem;
   width: 100%;
@@ -238,7 +238,7 @@ input[type=range]::-ms-track {
 
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  border: 1px solid #757575;
+  border: 1px solid $color-gray-medium;
   height: 2.2rem;
   border-radius: 1.5rem;
   background: $color-gray-lightest;
@@ -249,7 +249,7 @@ input[type=range]::-webkit-slider-thumb {
 
 input[type=range]::-moz-range-thumb {
   background: $color-gray-lightest;
-  border: 1px solid #757575;
+  border: 1px solid $color-gray-medium;
   border-radius: 1.5rem;
   cursor: pointer;
   height: 2.2rem;
@@ -258,7 +258,7 @@ input[type=range]::-moz-range-thumb {
 
 input[type=range]::-ms-thumb {
   background: $color-gray-lightest;
-  border: 1px solid #757575;
+  border: 1px solid $color-gray-medium;
   border-radius: 1.5rem;
   cursor: pointer;
   height: 2.2rem;
@@ -267,13 +267,13 @@ input[type=range]::-ms-thumb {
 
 input[type=range]::-ms-fill-lower {
   background: $color-gray-light;
-  border: 1px solid #757575;
+  border: 1px solid $color-gray-medium;
   border-radius: 2rem;
 }
 
 input[type=range]::-ms-fill-upper {
   background: $color-gray-light;
-  border: 1px solid #757575;
+  border: 1px solid $color-gray-medium;
   border-radius: 2rem;
 }
 
