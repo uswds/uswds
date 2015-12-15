@@ -6,7 +6,6 @@ $accordion-border: 3px solid $color-gray-lightest;
 
 .usa-accordion,
 .usa-accordion-bordered {
-
   + .usa-accordion,
   + .usa-accordion-bordered {
     margin-top: 1rem;
@@ -46,12 +45,7 @@ $accordion-border: 3px solid $color-gray-lightest;
     display: inline-block;
     font-family: $font-sans;
     margin: 0;
-    padding: {
-      bottom: 1.5rem;
-      left: 3rem;
-      right: 5.5rem;
-      top: 1.5rem;
-    }
+    padding: 1.5rem 5.5rem 1.5rem 3rem;
     width: 100%;
 
     &:focus {
@@ -71,17 +65,15 @@ $accordion-border: 3px solid $color-gray-lightest;
 
 .usa-accordion-bordered {
   .usa-accordion-content {
-    border: {
-      bottom: $accordion-border;
-      left: $accordion-border;
-      right: $accordion-border;
-    }
+    border-bottom: $accordion-border;
+    border-left: $accordion-border;
+    border-right: $accordion-border;
   }
 }
 
 .usa-accordion-content {
+  background-color: $color-white;
   display: block;
-  background-color: white;
   overflow: auto;
   padding: 3rem;
 
