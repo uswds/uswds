@@ -1,24 +1,17 @@
 ul, ol {
-  margin: {
-    top: 2em;
-    bottom: 2em;
-  }
+  margin-bottom: 2em;
+  margin-top: 2em;
 
   li {
     line-height: $base-line-height;
-    margin: {
-      top: .75em;
-      bottom: .75em;
-    }
+    margin-bottom: 0.75em;
+    margin-top: 0.75em;
   }
 }
 
 h1, h2, h3, h4, h5, h6, p {
-  + ul,
-  + ol {
-    margin: {
-      top: 0;
-    }
+  + ul, + ol {
+    margin-top: 0;
   }
 }
 
@@ -45,8 +38,8 @@ ul li {
 }
 
 ol li {
-  display: table-row;
   counter-increment: table-ol;
+  display: table-row;
 
   &:before {
     content: counter(table-ol) ".";
@@ -63,9 +56,9 @@ li {
 // Unstyled lists
 
 .usa-unstyled-list {
+  list-style-type: none;
   margin: 0;
   padding: 0;
-  list-style-type: none;
 
   li {
     display: list-item;
