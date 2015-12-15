@@ -4,16 +4,15 @@
   }
 
   .usa-footer-primary-link {
-    @include media($medium-screen) {
-      border-top: none;
-    }
     color: $color-base;
     display: block;
     font-weight: $font-bold;
     margin-top: 0;
-    padding: {
-      bottom: 2rem;
-      top: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+
+    @include media($medium-screen) {
+      border-top: none;
     }
   }
 
@@ -23,42 +22,35 @@
 }
 
 .usa-footer-return-to-top {
-  padding: {
-    bottom: 2rem;    
-    top: 2rem;
-  }
+  padding-bottom: 2rem;    
+  padding-top: 2rem;
 }
 
 .usa-footer-primary-section {
   background-color: $color-gray-lightest;
 
   .usa-footer-primary-content {
-    padding: {
-      left: 2.5rem;
-      right: 2.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+
+    @include media($medium-screen) {
+      padding-left: 0;
+      padding-right: 0;
     }
 
     li {
+      margin-left: 1rem;
+
       @include media($medium-screen) {
         margin-left: 0;
       }
-      margin-left: 1rem;
-    }
-
-    @include media($medium-screen) {
-      padding: {
-        left: 0;
-        right: 0;
-      }
-    }  
+    } 
   }
 
   .usa-grid-full {
     @include media($medium-screen) {
-      padding: {
-        left: 2.5rem;
-        right: 2.5rem;
-      }
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
     }
   }
 }
@@ -74,10 +66,8 @@
     padding: 0;
     
     @include media($medium-screen) {
-      padding: {
-        top: 1rem;
-        bottom: 1rem;
-      }
+      padding-bottom: 1rem;
+      padding-top: 1rem;
     }
   }
 
@@ -90,7 +80,6 @@
 }
 
 .usa-footer-slim {
-
   .usa-footer-nav a {
     display: block;
   }
@@ -99,10 +88,8 @@
     padding-bottom: 2rem;
     
     @include media($medium-screen) {
-      padding: {
-        bottom: 1rem;
-        top: 1rem;
-      }
+      padding-bottom: 1rem;
+      padding-top: 1rem;
 
       .usa-grid-full {
         align-items: center;
@@ -117,23 +104,27 @@ li.usa-footer-primary-content,
 li.usa-footer-primary-content {
   border-top: 1px solid $color-base;      
 
+  @include media($medium-screen) {
+    border: none;
+  }
+
   &:last-child {
     border-bottom: 1px solid $color-base;
+
     @include media($medium-screen) {
       border-bottom: none;
     }
   }
-
-  @include media($medium-screen) {
-    border: none;
-  }
 }
 
 .usa-sign_up-block {
-  padding: {
-    bottom: 2rem;
-    left: 2.5rem;
-    right: 2.5rem;
+  padding-bottom: 2rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+
+  @include media($medium-screen) {
+    float: right;
+    padding: 0;
   }
 
   label:first-of-type {
@@ -142,28 +133,19 @@ li.usa-footer-primary-content {
 
   button {
     float: none;
-    margin: {
-      right: 0;
-      top: 1.5rem;
-    }
+    margin-right: 0;
+    margin-top: 1.5rem;
   }
 
   input {
     width: 100%;
-  }
-
-  @include media($medium-screen) {
-    float: right;
-    padding: 0;
   }  
 }
 
 .usa-footer-secondary_section {
   background-color: $color-gray-lighter;
-  padding: {
-    top: 3rem;
-    bottom: 3rem;
-  }
+  padding-bottom: 3rem;
+  padding-top: 3rem;
 
   a {
     color: $color-base;
@@ -185,16 +167,18 @@ li.usa-footer-primary-content {
 .usa-footer-big {
   .usa-footer-primary-section {
     @include media($medium-screen) {
-      padding: {
-        top: 3rem;
-        bottom: 4rem;
-      }      
+      padding-bottom: 4rem;
+      padding-top: 3rem;
     }
   }
 
   ul {
     padding-bottom: 2.5rem;
 
+    @include media($medium-screen) {
+      padding-bottom: 0;
+    }
+    
     &:last-child {
       border-bottom: 1px solid $color-base;
 
@@ -206,10 +190,6 @@ li.usa-footer-primary-content {
     li {
       line-height: 2em;
     }
-
-    @include media($medium-screen) {
-      padding-bottom: 0;
-    }    
 
     .usa-footer-primary-link {
       background-image: url('../img/arrow-down.png');
@@ -285,8 +265,6 @@ li.usa-footer-primary-content {
 
   @include media($medium-screen) {
     display: inline-block;
-    padding: {
-      left: 1em;
-    }
+    padding-left: 1em;
   }
 }

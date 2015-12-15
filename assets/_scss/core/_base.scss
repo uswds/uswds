@@ -10,11 +10,11 @@ html {
 }
 
 body {
-  background-color: #ffffff;
+  background-color: $color-white;
 }
 
+// Hack for clearfixes
 .lt-ie9 {
-  // Hack for clearfixes
   * {
     filter: none !important;
   }

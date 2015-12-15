@@ -15,18 +15,18 @@ input[type="time"],
 input[type="week"],
 textarea,
 select  {
+  appearance: none;
   border: 1px solid $color-gray;
   border-radius: 0;
   box-sizing: border-box;
-  color: #000; // standardize on firefox 
+  color: $color-base; // standardize on firefox 
   display: block;
   font-size: $base-font-size;
-  margin: .2em 0;
+  margin: 0.2em 0;
   max-width: $input-max-width;
-  width: 100%;
   outline: none;
-  padding: 1rem .7em;
-  appearance: none;
+  padding: 1rem 0.7em;
+  width: 100%;
 
   &:focus, 
   &.usa-input-focus {
@@ -41,11 +41,9 @@ select  {
 .usa-input-error {
   border-left: 4px solid $color-secondary-dark;
   margin-top: 3rem;
-  padding: {
-    bottom: .8rem;
-    left: 1.5rem;
-    top: .8rem;
-  }
+  padding-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  padding-top: 0.8rem;
   position: relative;
   right: 1.9rem;
   
@@ -70,17 +68,13 @@ select  {
   display: block;
   font-size: $base-font-size;
   font-weight: $font-bold;
-  padding: {
-    bottom: 3px;
-    top: 3px;
-  }
+  padding-bottom: 3px;
+  padding-top: 3px;
 }
 
 label {
   display: block;
-  margin: {
-    top: 3rem;
-  }
+  margin-top: 3rem;
   max-width: $input-max-width;
 }
 
@@ -114,7 +108,7 @@ legend {
 // Hint text
 
 .usa-form-hint {
-  color: #757575;
+  color: $color-gray-medium;
   font-family: $font-sans;
   margin-bottom: 0;
 }
@@ -130,7 +124,7 @@ input[type="radio"] {
   .lt-ie9 & {
     border: 0;
     float: left;
-    margin: .4em .4em 0 0;
+    margin: 0.4em 0.4em 0 0;
     position: static;
     width: auto;
   }
@@ -147,19 +141,19 @@ input[type="checkbox"] + label::before,
 input[type="radio"] + label::before {
   background: white;
   border-radius: $border-radius;
-  box-shadow: 0 0 0 1px #757575;
+  box-shadow: 0 0 0 1px $color-gray-medium;
   content: '\a0';
   display: inline-block;
   height: 1.8rem;
-  line-height: .8;
-  margin-right: .6em;
-  text-indent: .15em;
-  vertical-align: .2em;
+  line-height: 0.8;
+  margin-right: 0.6em;
+  text-indent: 0.15em;
+  vertical-align: 0.2em;
   width: 1.8rem;
 }
 
 input[type="radio"] + label::before {  
-  box-shadow: 0 0 0 2px #fff, 0 0 0 3px #757575;
+  box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-gray-medium;
   height: 1.6rem;  
   width: 1.6rem;  
 }
@@ -219,8 +213,8 @@ input[type=range]:focus {
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-  background: #bdbdbd;
-  border: 1px solid #757575;
+  background: $color-gray-light;
+  border: 1px solid $color-gray-medium;
   cursor: pointer;
   height: 1.2rem;
   width: 100%;
@@ -228,7 +222,7 @@ input[type=range]::-webkit-slider-runnable-track {
 
 input[type=range]::-moz-range-track {
   background: $color-primary;
-  border: 1px solid #757575;
+  border: 1px solid $color-gray-medium;
   cursor: pointer;
   height: 1.2rem;
   width: 100%;
@@ -244,18 +238,18 @@ input[type=range]::-ms-track {
 
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  border: 1px solid #757575;
+  border: 1px solid $color-gray-medium;
   height: 2.2rem;
   border-radius: 1.5rem;
-  background: #eeeeee;
+  background: $color-gray-lightest;
   cursor: pointer;
   margin-top: -.65rem;  
   width: 2.2rem;
 }
 
 input[type=range]::-moz-range-thumb {
-  background: #eeeeee;
-  border: 1px solid #757575;
+  background: $color-gray-lightest;
+  border: 1px solid $color-gray-medium;
   border-radius: 1.5rem;
   cursor: pointer;
   height: 2.2rem;
@@ -263,8 +257,8 @@ input[type=range]::-moz-range-thumb {
 }
 
 input[type=range]::-ms-thumb {
-  background: #eeeeee;
-  border: 1px solid #757575;
+  background: $color-gray-lightest;
+  border: 1px solid $color-gray-medium;
   border-radius: 1.5rem;
   cursor: pointer;
   height: 2.2rem;
@@ -272,14 +266,14 @@ input[type=range]::-ms-thumb {
 }
 
 input[type=range]::-ms-fill-lower {
-  background: #bdbdbd;
-  border: 1px solid #757575;
+  background: $color-gray-light;
+  border: 1px solid $color-gray-medium;
   border-radius: 2rem;
 }
 
 input[type=range]::-ms-fill-upper {
-  background: #bdbdbd;
-  border: 1px solid #757575;
+  background: $color-gray-light;
+  border: 1px solid $color-gray-medium;
   border-radius: 2rem;
 }
 
@@ -317,8 +311,8 @@ input[type=range]:focus::-ms-thumb {
 .usa-form-group-day, 
 .usa-form-group-month, 
 .usa-form-group-year {
-  float: left;
   clear: none;
+  float: left;
   margin-right: 1.5rem;
   width: 5rem;
 }

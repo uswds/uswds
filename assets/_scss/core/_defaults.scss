@@ -47,6 +47,7 @@ $color-base:                 #212121 !default;
 
 $color-gray-dark:            #323a45 !default;
 $color-gray:                 #205493 !default; // lighten($color-gray-dark, 20%)
+$color-gray-medium:          #757575 !default; // lightest gray that passes color contrast
 $color-gray-light:           #aeb0b5 !default; // lighten($color-gray-dark, 60%)
 $color-gray-lighter:         #d6d7d9 !default; // lighten($color-gray-dark, 80%)
 $color-gray-lightest:        #f1f1f1 !default; // lighten($color-gray-dark, 91%)
@@ -87,6 +88,6 @@ $site-margins:      3rem !default;
 $article-max-width: 600px !default;
 $input-max-width:   46rem !default;
 $border-radius:     rem(3px) !default;
-$box-shadow:        0 0 2px rgba(#000, .3) !default;
+$box-shadow:        0 0 2px rgba(#000, 0.3) !default;
 $focus-shadow:      0 0 3px $color-focus, 0 0 7px $color-focus;
 $grid-margins:      3rem !default;
