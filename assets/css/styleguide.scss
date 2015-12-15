@@ -12,12 +12,12 @@
 
 // Core -------------- //
 
-@import 'core/base';
 @import 'core/defaults';
+@import 'core/variables';
+@import 'core/base';
 @import 'core/grid-settings';
 @import 'core/grid';
 @import 'core/utilities';
-@import 'core/variables';
 
 
 // Elements -------------- //
