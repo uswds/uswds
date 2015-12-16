@@ -10,8 +10,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Change explanation in accessibility callout
 - Change name of project to draft standards
 
+### Removed
+- Remove copyright year and sign from license and attributions
+
 ### Fixed
-- Refactor Sass in Core
+- Refactor Sass in Core, Elements, and Components
 - Fix design assets zip file name
 - Fix tables by using table headers for accessibility
 
