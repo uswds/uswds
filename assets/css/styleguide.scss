@@ -419,16 +419,18 @@ $site-top:           124px;
 
 // Custom styles to illustrate invisible grid for web design standards
 
-.usa-grid-example {
-  background: $color-grid-light;
+.grid-example {
+  .usa-grid {
+    background: $color-grid-light;
 
-  > * {
-    color: $color-white;
-    padding: 1em;
-    background: $color-grid-dark;
-    margin: {
-      top: .5em;
-      bottom: .5em;
+    > * {
+      color: $color-white;
+      padding: 1em;
+      background: $color-grid-dark;
+      margin: {
+        top: .5em;
+        bottom: .5em;
+      }
     }
   }
 
@@ -442,24 +444,28 @@ $site-top:           124px;
   }
 }
 
-.usa-grid-example-blank {
-  text-align: center;
+.grid-example-blank {
+  .usa-grid {
+    text-align: center;
+  }
 }
 
-.usa-grid-text {
-  background: $color-grid-dark;
+.grid-text {
+  .usa-grid {
+    background: $color-grid-dark;
 
-  > * {
-  background: $color-grid-light;
-  color: #000;
-  }
+    > * {
+    background: $color-grid-light;
+    color: #000;
+    }
 
-  h3 {
-    margin-top: 0;
-  }
+    h3 {
+      margin-top: 0;
+    }
 
-  p {
-    margin-bottom: 0;
+    p {
+      margin-bottom: 0;
+    }
   }
 }
 
