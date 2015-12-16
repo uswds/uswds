@@ -14,6 +14,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Remove copyright year and sign from license and attributions
 
 ### Fixed
+- Add the same margin bottom on all password inputs
 - Refactor Sass in Core, Elements, and Components
 - Fix design assets zip file name
 - Fix tables by using table headers for accessibility
