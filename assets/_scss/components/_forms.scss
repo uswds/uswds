@@ -22,7 +22,7 @@ form {
     }
   }
 
-  input[name="password"] {
+  input[name="password"], input[name="confirmPassword"] {
     margin-bottom: 1.1rem;
   }
 }
