@@ -374,3 +374,7 @@ $(function() {
   validator($('.js-validate_password'));
 
 });
+
+$(".usa-nav-list a").on( "click", function() {
+  $( ".usa-nav-list a" ).toggleClass( "active" );
+});
