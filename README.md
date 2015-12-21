@@ -42,9 +42,9 @@ If you have `node` installed on your machine, you can use `npm` to install the W
 
 On subsequent runs of `npm install`, the package will be installed in `node_modules` under `uswds`. The CSS will be *not* compiled after it is installed. Instead, you are able to compile it however it fits into your project.
 
-An `npm` task called `build-sass` is supplied, though you are not required to use it, that will compile the SASS to a CSS file named `uswds.css` (in `node_modules/uswds/assets/css/uswds.css`).
+An `npm` task called `build-sass` is supplied, though you are not required to use it, that will compile the Sass to a CSS file named `uswds.css` (in `node_modules/uswds/assets/css/uswds.css`).
 
-If you simply want to compile the SASS you could do something like:
+If you simply want to compile the Sass you could do something like:
 
 `cd node_modules/uswds && npm run build-sass`
 
