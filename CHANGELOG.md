@@ -7,10 +7,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Add package.json for npm support
 
 ### Changed
+- Alphabetize Sass `@include`s
 - Change explanation in accessibility callout
 - Change name of project to draft standards
 
 ### Removed
+- Remove postinstall script, users will have to compile Sass on their own
 - Remove copyright year and sign from license and attributions
 
 ### Fixed
