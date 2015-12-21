@@ -2,6 +2,25 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.9.0] - 2015-12-21
+### Added
+- Add package.json for npm support
+
+### Changed
+- Alphabetize Sass `@include`s
+- Change explanation in accessibility callout
+- Change name of project to draft standards
+
+### Removed
+- Remove postinstall script, users will have to compile Sass on their own
+- Remove copyright year and sign from license and attributions
+
+### Fixed
+- Add the same margin bottom on all password inputs
+- Refactor Sass in Core, Elements, and Components
+- Fix design assets zip file name
+- Fix tables by using table headers for accessibility
+
 ## [0.8.2] - 2015-11-24
 ### Added
 - Add Sketch and OmniGraffle files to design download zip
