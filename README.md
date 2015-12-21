@@ -40,7 +40,13 @@ If you have `node` installed on your machine, you can use `npm` to install the W
   "uswds": "git@github.com:18F/web-design-standards.git#v0.9.0"
 ```
 
-On subsequent runs of `npm install`, the package will be installed in `node_modules` under `uswds`. The CSS will be compiled after it is installed, and the final CSS file will be named `uswds.css`. You should be able to find it in `node_modules/uswds/assets/css/uswds.css`.
+On subsequent runs of `npm install`, the package will be installed in `node_modules` under `uswds`. The CSS will be *not* compiled after it is installed. Instead, you are able to compile it however it fits into your project.
+
+An `npm` task called `build-sass` is supplied, though you are not required to use it, that will compile the Sass to a CSS file named `uswds.css` (in `node_modules/uswds/assets/css/uswds.css`).
+
+If you simply want to compile the Sass you could do something like:
+
+`cd node_modules/uswds && npm run build-sass`
 
 *Note:* You might get an [`npm` warning related to `lodash`](https://github.com/18F/web-design-standards/pull/902#issuecomment-161076213), but you can generally ignore it.
 
