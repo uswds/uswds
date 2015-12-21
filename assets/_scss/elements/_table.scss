@@ -13,6 +13,12 @@ table {
     }
   }
 
+  tbody {
+    th {
+      font-weight: $font-normal;
+    }
+  }
+
   th, td {
     border: 1px solid $color-gray;
     padding: 1.5rem;
@@ -31,9 +37,7 @@ table {
   }
 
   th, td {
-    border: {
-      left: 0;
-      right: 0;
-    }
+    border-left: 0;
+    border-right: 0;
   }
 }

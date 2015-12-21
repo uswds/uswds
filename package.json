@@ -1,0 +1,30 @@
+{
+  "name": "uswds",
+  "version": "0.9.0",
+  "description": "Open source UI components and visual style guide for U.S. government websites",
+  "main": "package.json",
+  "scripts": {
+    "build-sass": "node-sass assets/_scss/all.scss > assets/css/uswds.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "assets": "assets/",
+  "scss": "assets/_scss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/18F/web-design-standards.git"
+  },
+  "author": "18F",
+  "contributors": [
+    "Maya Benari <maya.ben-ari@gsa.gov>",
+    "Marco Segreto <marco.segreto@gsa.gov>",
+    "Jeremia Kimelman <jeremia.kimelman@gsa.gov>"
+  ],
+  "license": "SEE LICENSE in LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/18F/web-design-standards/issues"
+  },
+  "homepage": "https://github.com/18F/web-design-standards#readme",
+  "dependencies": {
+    "node-sass": "^3.4.2"
+  }
+}

@@ -16,12 +16,7 @@
     display: block;
     font-family: $font-sans;
     line-height: 1;
-    padding: {
-      bottom: 1rem;
-      left: 1.8rem;
-      right: 1rem;
-      top: 1rem;
-    }
+    padding: 1rem 1rem 1rem 1.8rem;
 
     &:hover {
       background-color: $color-gray-lightest;

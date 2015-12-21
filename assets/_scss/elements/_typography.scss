@@ -9,10 +9,8 @@ body {
 
 p {
   line-height: $base-line-height;
-  margin: {
-    top: 1em;
-    bottom: 1em;
-  }
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
 
 a {
@@ -39,10 +37,8 @@ h1, h2, h3, h4, h5, h6 {
   clear: both;
   font-family: $font-serif;
   line-height: $heading-line-height;
-  margin: {
-    top: 1.5em;
-    bottom: .5em;
-  }
+  margin-bottom: .5em;
+  margin-top: 1.5em;
 }
 
 // Create heading mixins 
@@ -137,19 +133,13 @@ p,
 }
 
 .usa-sans {
-  p, 
-  a, 
-  li, 
-  span {
+  p, a, li, span {
     font-family: $font-sans;
   }
 }
 
 .usa-serif {
-  p, 
-  a, 
-  li, 
-  span {
+  p, a, li, span {
     font-family: $font-serif;
   }
 }
@@ -173,8 +163,8 @@ p,
 }
 
 .usa-font-lead {
-  font-size: $lead-font-size;
   font-family: $font-serif;
+  font-size: $lead-font-size;
   line-height: $lead-line-height;
 }
 

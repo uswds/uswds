@@ -43,6 +43,7 @@ $color-base:                 #212121;
 
 $color-gray-dark:            #323a45;
 $color-gray:                 #5b616b; // lighten($color-gray-dark, 20%)
+$color-gray-medium:          #757575; // lightest gray that passes color contrast
 $color-gray-light:           #aeb0b5; // lighten($color-gray-dark, 60%)
 $color-gray-lighter:         #d6d7d9; // lighten($color-gray-dark, 80%)
 $color-gray-lightest:        #f1f1f1; // lighten($color-gray-dark, 91%)
@@ -83,6 +84,6 @@ $site-margins:      3rem;
 $article-max-width: 600px;
 $input-max-width:   46rem;
 $border-radius:     rem(3px);
-$box-shadow:        0 0 2px rgba(#000, .3);
+$box-shadow:        0 0 2px rgba(#000, 0.3);
 $focus-shadow:      0 0 3px $color-focus, 0 0 7px $color-focus;
 $grid-margins:      3rem;

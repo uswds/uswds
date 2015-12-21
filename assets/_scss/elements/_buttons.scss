@@ -24,17 +24,19 @@ button,
   font-size: $base-font-size;
   font-weight: $font-bold;
   line-height: 1;
-  margin: {
-    top: .5em;
-    bottom: .5em;
-    right: .5em;
-  }
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+  margin-top: 0.5em;
   outline: none;
   padding: 1rem 2rem;
   text-align: center;
   text-decoration: none;
   width: 100%;
   -webkit-font-smoothing: antialiased;
+
+  @include media($small-screen) {
+    width: auto;
+  }
 
   &:hover,
   &.usa-button-hover {
@@ -52,10 +54,6 @@ button,
   &:active,
   &.usa-button-active {
     background-color: $color-primary-darkest;
-  }
-
-  @media (min-width: $small-screen) {
-    width: auto;
   }
 
   &.usa-button-primary-alt {
