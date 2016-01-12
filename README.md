@@ -48,7 +48,7 @@ If you simply want to compile the Sass you could do something like:
 
 `cd node_modules/uswds && npm run build-sass`
 
-*Note:* You might get an [`npm` warning related to `lodash`](https://github.com/18F/web-design-standards/pull/902#issuecomment-161076213), but you can generally ignore it.
+Note: You might get an [`npm` warning related to `lodash`](https://github.com/18F/web-design-standards/pull/902#issuecomment-161076213), but you can generally ignore it.
 
 ## Setup for your local environment
 
