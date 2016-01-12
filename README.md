@@ -65,6 +65,8 @@ $ brew update
 $ brew install ruby
 ```
 
+Note: The website is published with [18F Pages](https://github.com/18F/pages).
+
 ### Installation
 
 Now that you have verified that you have Ruby installed, clone and run the following [go script](https://github.com/18F/go_script) commands to initialize and serve the library locally.
