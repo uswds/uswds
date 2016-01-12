@@ -8,7 +8,7 @@ These tools follow industry-standard web accessibility guidelines and reuse the 
 
 Design files of all the assets included on this site are available for download here: [https://github.com/18F/web-design-standards-assets](https://github.com/18F/web-design-standards-assets).
 
-To begin using the Draft Web Design Standards on your project, go to [Getting Started](https://github.com/18F/web-design-standards#getting-started). To run the [Draft Web Design Standards website](https://playbook.cio.gov/designstandards/) locally on your machine, go to [Setup for your local environment](https://github.com/18F/web-design-standards/#setup-for-your-local-environment). The structural setup of this repo is based off of [https://github.com/18F/pages](https://github.com/18F/pages). 
+To begin using the Draft Web Design Standards on your project, go to [Getting Started](https://github.com/18F/web-design-standards#getting-started). To run the [Draft Web Design Standards website](https://playbook.cio.gov/designstandards/) locally on your machine, go to [Setup for your local environment](https://github.com/18F/web-design-standards/#setup-for-your-local-environment).
 
 ### Reuse of open source style guides
 
@@ -56,15 +56,9 @@ If you simply want to compile the Sass you could do something like:
 
 These setup instructions are for running the [Draft Web Design Standards website](https://playbook.cio.gov/designstandards/) locally on your machine and not for using the assets (CSS, JavaScript, etc) on your own project. If you want to use the standards assets, go to [Getting Started](https://github.com/18F/web-design-standards#getting-started). For context, the styleguide website uses [Jekyll](http://jekyllrb.com/) which is run via a [`./go` script](https://github.com/18F/go_script).
 
-You will need [Ruby](https://www.ruby-lang.org) ( > version 2.2.3 ). You may
-consider using a Ruby version manager such as
-[rbenv](https://github.com/sstephenson/rbenv) or [rvm](https://rvm.io/) to
-help ensure that Ruby version upgrades don't mean all your
-[gems](https://rubygems.org/) will need to be rebuilt.
+You will need [Ruby](https://www.ruby-lang.org) ( > version 2.2.3 ). You may consider using a Ruby version manager such as [rbenv](https://github.com/sstephenson/rbenv) or [rvm](https://rvm.io/) to help ensure that Ruby version upgrades don't mean all your [gems](https://rubygems.org/) will need to be rebuilt.
 
-On OS X, you can also use [Homebrew](http://brew.sh/) to install Ruby in
-`/usr/local/bin`, which may require you to update your `$PATH` environment
-variable. Here are the commands to follow to install via homebrew:
+On OS X, you can also use [Homebrew](http://brew.sh/) to install Ruby in `/usr/local/bin`, which may require you to update your `$PATH` environment variable. Here are the commands to follow to install via homebrew:
 
 ```shell
 $ brew update
@@ -73,8 +67,7 @@ $ brew install ruby
 
 ### Installation
 
-Now that you have verified that you have Ruby installed, clone and run the
-following [go script](https://github.com/18F/go_script) commands to initialize and serve the library locally.
+Now that you have verified that you have Ruby installed, clone and run the following [go script](https://github.com/18F/go_script) commands to initialize and serve the library locally.
 
 ```shell
 $ git clone git@github.com:18F/web-design-standards.git
