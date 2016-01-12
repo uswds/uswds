@@ -5,9 +5,10 @@
   "main": "assets/js/components.js",
   "scripts": {
     "build-sass": "node-sass assets/_scss/all.scss > assets/css/uswds.css",
-    "prepublish": "npm run build-sass build"
+    "prepublish": "npm run build-sass"
   },
   "assets": "assets/",
+  "style": "assets/css/uswds.css",
   "css": "assets/css/uswds.css",
   "scss": "assets/_scss/all.scss",
   "repository": {
