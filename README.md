@@ -22,7 +22,7 @@ Much of the guidance in Draft Web Design Standards leans on open source designs,
 
 ## Getting started
 
-To begin using the Draft Web Design Standards, include the CSS and JavaScript files in each HTML page in your project. Download the the Draft Web Design Standards assets: https://playbook.cio.gov/designstandards/assets/releases/wds-v0.9.0.zip. Add the assets directory to a relevant place in your code base.
+To begin using the Draft Web Design Standards on your project, include the CSS and JavaScript files in each HTML page in your project. Download the the Draft Web Design Standards assets: https://playbook.cio.gov/designstandards/assets/releases/wds-v0.9.0.zip. Add the assets directory to a relevant place in your code base.
 
 Refer to these files by adding a `<link>` and a `<script>` element into your HTML pages:
 
@@ -53,6 +53,8 @@ If you simply want to compile the Sass you could do something like:
 ## Setup for your local environment
 
 ### Requirements
+
+This is for running the draft web design standards website locally on your machine and not for using the assets (CSS, JavaScript, etc) on your own project - which is under [Getting Started]({{ site.repos[0].url }}#getting-started). The styleguide website uses Jekyll which is run via the [`./go` script](https://github.com/18F/go_script).
 
 You will need [Ruby](https://www.ruby-lang.org) ( > version 2.2.3 ). You may
 consider using a Ruby version manager such as
