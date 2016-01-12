@@ -8,7 +8,7 @@ These tools follow industry-standard web accessibility guidelines and reuse the 
 
 Design files of all the assets included on this site are available for download here: [https://github.com/18F/web-design-standards-assets](https://github.com/18F/web-design-standards-assets).
 
-The structural setup of this repo is based off of [https://github.com/18F/pages](https://github.com/18F/pages).
+The structural setup of this repo is based off of [https://github.com/18F/pages](https://github.com/18F/pages). To begin using the Draft Web Design Standards on your project, go to [Getting Started](https://github.com/18F/web-design-standards#getting-started). To run the [Draft Web Design Standards website](https://playbook.cio.gov/designstandards/) locally on your machine, go to [Setup for your local environment](https://github.com/18F/web-design-standards/#setup-for-your-local-environment)
 
 ### Reuse of open source style guides
 
