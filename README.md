@@ -54,7 +54,7 @@ If you simply want to compile the Sass you could do something like:
 
 ### Requirements
 
-These setup instructions are for running the [Draft Web Design Standards website](https://playbook.cio.gov/designstandards/) locally on your machine and not for using the assets (CSS, JavaScript, etc) on your own project. If you want to use the standards assets, go to [Getting Started](https://github.com/18F/web-design-standards#getting-started). For context, the styleguide website uses [Jekyll](http://jekyllrb.com/) which is run via the [`./go` script](https://github.com/18F/go_script).
+These setup instructions are for running the [Draft Web Design Standards website](https://playbook.cio.gov/designstandards/) locally on your machine and not for using the assets (CSS, JavaScript, etc) on your own project. If you want to use the standards assets, go to [Getting Started](https://github.com/18F/web-design-standards#getting-started). For context, the styleguide website uses [Jekyll](http://jekyllrb.com/) which is run via a [`./go` script](https://github.com/18F/go_script).
 
 You will need [Ruby](https://www.ruby-lang.org) ( > version 2.2.3 ). You may
 consider using a Ruby version manager such as
