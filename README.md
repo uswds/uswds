@@ -6,9 +6,9 @@ The [Draft U.S. Web Design Standards](https://playbook.cio.gov/designstandards) 
 
 These tools follow industry-standard web accessibility guidelines and reuse the best practices of existing style libraries and modern web design. Created and maintained by [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov) designers and developers, the Draft Web Design Standards are designed to support government product teams in creating beautiful and easy-to-use online experiences for the American people. Learn more about this project in our announcement [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/).
 
-Design files of all the assets included on this site are available for download here: [https://github.com/18F/web-design-standards-assets](https://github.com/18F/web-design-standards-assets).
-
 The structural setup of this repo is based off of [https://github.com/18F/pages](https://github.com/18F/pages). To begin using the Draft Web Design Standards on your project, go to [Getting Started](https://github.com/18F/web-design-standards#getting-started). To run the [Draft Web Design Standards website](https://playbook.cio.gov/designstandards/) locally on your machine, go to [Setup for your local environment](https://github.com/18F/web-design-standards/#setup-for-your-local-environment)
+
+Design files of all the assets included on this site are available for download here: [https://github.com/18F/web-design-standards-assets](https://github.com/18F/web-design-standards-assets).
 
 ### Reuse of open source style guides
 
