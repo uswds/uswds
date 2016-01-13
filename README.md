@@ -54,7 +54,7 @@ Note: You might get an [`npm` warning related to `lodash`](https://github.com/18
 
 ### Requirements
 
-These setup instructions are for running the [Draft Web Design Standards website](https://playbook.cio.gov/designstandards/) locally on your machine and not for using the assets (CSS, JavaScript, etc) on your own project. If you want to use the standards assets, go to [Getting Started](https://github.com/18F/web-design-standards#getting-started). For context, the styleguide website uses [Jekyll](http://jekyllrb.com/) (a static site generator), which is run via a [`./go` script](https://github.com/18F/go_script). At 18F, we then use [[18F Pages](https://github.com/18F/pages) to publish and serve the site.
+These setup instructions are for running the [Draft Web Design Standards website](https://playbook.cio.gov/designstandards/) locally on your machine and not for using the assets (CSS, JavaScript, etc) on your own project. If you want to use the standards assets, go to [Getting Started](https://github.com/18F/web-design-standards#getting-started). For context, the styleguide website uses [Jekyll](http://jekyllrb.com/) (a static site generator), which is run via a [`./go` script](https://github.com/18F/go_script). At 18F, we then use [18F Pages](https://github.com/18F/pages) to publish and serve the site.
 
 You will need [Ruby](https://www.ruby-lang.org) ( > version 2.2.3 ). You may consider using a Ruby version manager such as [rbenv](https://github.com/sstephenson/rbenv) or [rvm](https://rvm.io/) to help ensure that Ruby version upgrades don't mean all your [gems](https://rubygems.org/) will need to be rebuilt.
 
