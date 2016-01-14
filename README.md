@@ -8,7 +8,7 @@ These tools follow industry-standard web accessibility guidelines and reuse the 
 
 Design files of all the assets included on this site are available for download here: [https://github.com/18F/web-design-standards-assets](https://github.com/18F/web-design-standards-assets).
 
-The structural setup of this repo is based off of [https://github.com/18F/pages](https://github.com/18F/pages).
+To begin using the Draft Web Design Standards (to help you contribute to it or reuse it for your own purposes), go to [Getting Started](https://github.com/18F/web-design-standards#getting-started). To run the [Draft Web Design Standards website](https://playbook.cio.gov/designstandards/) locally on your machine, go to [Setup for your local environment](https://github.com/18F/web-design-standards/#setup-for-your-local-environment).
 
 ### Reuse of open source style guides
 
@@ -22,7 +22,7 @@ Much of the guidance in Draft Web Design Standards leans on open source designs,
 
 ## Getting started
 
-To begin using the Draft Web Design Standards, include the CSS and JavaScript files in each HTML page in your project. Download the the Draft Web Design Standards assets: https://playbook.cio.gov/designstandards/assets/releases/wds-v0.9.0.zip. Add the assets directory to a relevant place in your code base.
+To begin using the Draft Web Design Standards on your project, include the CSS and JavaScript files in each HTML page in your project. Download the the Draft Web Design Standards assets: https://playbook.cio.gov/designstandards/assets/releases/wds-v0.9.0.zip. Add the assets directory to a relevant place in your code base.
 
 Refer to these files by adding a `<link>` and a `<script>` element into your HTML pages:
 
@@ -48,31 +48,28 @@ If you simply want to compile the Sass you could do something like:
 
 `cd node_modules/uswds && npm run build-sass`
 
-*Note:* You might get an [`npm` warning related to `lodash`](https://github.com/18F/web-design-standards/pull/902#issuecomment-161076213), but you can generally ignore it.
+Note: You might get an [`npm` warning related to `lodash`](https://github.com/18F/web-design-standards/pull/902#issuecomment-161076213), but you can generally ignore it.
 
 ## Setup for your local environment
 
 ### Requirements
 
-You will need [Ruby](https://www.ruby-lang.org) ( > version 2.2.3 ). You may
-consider using a Ruby version manager such as
-[rbenv](https://github.com/sstephenson/rbenv) or [rvm](https://rvm.io/) to
-help ensure that Ruby version upgrades don't mean all your
-[gems](https://rubygems.org/) will need to be rebuilt.
+These setup instructions are for running the [Draft Web Design Standards website](https://playbook.cio.gov/designstandards/) locally on your machine and not for using the assets (CSS, JavaScript, etc) on your own project. If you want to use the standards assets, go to [Getting Started](https://github.com/18F/web-design-standards#getting-started). For context, the styleguide website uses [Jekyll](http://jekyllrb.com/) (a static site generator), which is run via a [`./go` script](https://github.com/18F/go_script). At 18F, we then use [18F Pages](https://github.com/18F/pages) to publish and serve the site.
 
-On OS X, you can also use [Homebrew](http://brew.sh/) to install Ruby in
-`/usr/local/bin`, which may require you to update your `$PATH` environment
-variable. Here are the commands to follow to install via homebrew:
+You will need [Ruby](https://www.ruby-lang.org) ( > version 2.2.3 ). You may consider using a Ruby version manager such as [rbenv](https://github.com/sstephenson/rbenv) or [rvm](https://rvm.io/) to help ensure that Ruby version upgrades don't mean all your [gems](https://rubygems.org/) will need to be rebuilt.
+
+On OS X, you can also use [Homebrew](http://brew.sh/) to install Ruby in `/usr/local/bin`, which may require you to update your `$PATH` environment variable. Here are the commands to follow to install via homebrew:
 
 ```shell
 $ brew update
 $ brew install ruby
 ```
 
+Note: The website is published with [18F Pages](https://github.com/18F/pages).
+
 ### Installation
 
-Now that you have verified that you have Ruby installed, clone and run the
-following [go script](https://github.com/18F/go_script) commands to initialize and serve the library locally.
+Now that you have verified that you have Ruby installed, clone and run the following [go script](https://github.com/18F/go_script) commands to initialize and serve the library locally.
 
 ```shell
 $ git clone git@github.com:18F/web-design-standards.git
@@ -83,7 +80,7 @@ $ ./go serve
 You should now be able to visit `http://127.0.0.1:4000/`
 and view the draft web design standards locally.
 
-Questions or need help with setup? Feel free to open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
+Questions or need help with setup? Did you run into any weird errors while following these instructions? Feel free to open an issue here: [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
 
 ## Contributing to the code base
 
