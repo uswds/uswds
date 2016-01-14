@@ -17,6 +17,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Fix homepage image links that were too large in Internet Explorer [styleguide-only]
+- Remove frontmatter from main.scss in assets zip file
 - Add the same margin bottom on all password inputs
 - Refactor Sass in Core, Elements, and Components
 - Fix design assets zip file name
