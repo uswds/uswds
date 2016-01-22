@@ -3,3 +3,4 @@ _site/
 node_modules/
 .DS_store
 .*.swp
+npm-debug.log
