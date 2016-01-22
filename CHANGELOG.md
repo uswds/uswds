@@ -16,7 +16,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Remove copyright year and sign from license and attributions
 
 ### Fixed
-- Fix homepage image links that were too large in Internet Explorer 11 and below [styleguide-only]
+- Fix homepage image links that were too large in Internet Explorer 9-11 [styleguide-only]
 - Remove frontmatter from main.scss in assets zip file
 - Add the same margin bottom on all password inputs
 - Refactor Sass in Core, Elements, and Components
