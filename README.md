@@ -42,21 +42,51 @@ Refer to these files by adding a `<link>` and a `<script>` element into your HTM
 
 ### Install with NPM
 
-If you have `node` installed on your machine, you can use `npm` to install the Web Design Standards. In your `package.json` list the following under `dependencies`:
+If you have `node` installed on your machine, you can use `npm` to install the
+Web Design Standards.
 
-```json
-  "uswds": "git@github.com:18F/web-design-standards.git#v0.8.3"
+```shell
+cd path/to/project-using-npm
+npm install --save uswds
 ```
 
-On subsequent runs of `npm install`, the package will be installed in `node_modules` under `uswds`. The CSS will be *not* compiled after it is installed. Instead, you are able to compile it however it fits into your project.
+This will add the Web Design Standards as a dependency for your project and save
+it to your `package.json` file. The package will be installed in `node_modules`
+under `uswds`. The CSS file(s) are generated on the `npm-prepublish` hook and can
+found in the following directory: `./node_modules/uswds/assets/css`.
 
-An `npm` task called `build-sass` is supplied, though you are not required to use it, that will compile the Sass to a CSS file named `uswds.css` (in `node_modules/uswds/assets/css/uswds.css`).
-
-If you simply want to compile the Sass you could do something like:
-
-`cd node_modules/uswds && npm run build-sass`
+An `npm` task called `build-sass` is supplied, though you are not required to
+use it, that will compile the Sass to a CSS file named `uswds.css` (in
+`node_modules/uswds/assets/css/uswds.css`).
 
 Note: You might get an [`npm` warning related to `lodash`](https://github.com/18F/web-design-standards/pull/902#issuecomment-161076213), but you can generally ignore it.
+This error is related to a dependency found in `node-sass`.
+
+#### Install with `npm-link`
+
+If you have a clone of this repository locally and would like to use it on
+another project without using the published version, you can use `npm link`.
+
+**Please note** that this use case is primarily useful if you're developing on the
+Web Design Standards locally and would like to see those changes in another
+project that is using them. Using `npm link` _should not be done_ if you are using
+a release version of the Web Design Standards. Please follow the `npm install`
+instructions above if you are using a release version.
+
+The following commands will link your local `web-design-standards` project to
+another project.
+
+```
+cd path/to/web-design-standards # note: your paths will differ
+npm link
+cd path/to/another/project-using-npm # note: this project name is reused below
+npm link uswds
+```
+
+The `node_modules` directory in your project will contain a symbolic link of the
+contents of the `web-design-standards` project under `node_modules/uswds` within
+the `project-using-npm`. For more information on `npm-link`, you can read about
+it in the [`npm-link` documentation](https://docs.npmjs.com/cli/link).
 
 ## Setup for your local environment
 
