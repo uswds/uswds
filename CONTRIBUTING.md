@@ -4,7 +4,7 @@ We're so glad you're thinking about contributing to an 18F open source project! 
 
 We want to ensure a welcoming environment for all of our projects. Our staff follows the [18F Code of Conduct](https://github.com/18F/code-of-conduct/blob/master/code-of-conduct.md) and all contributors should do the same.
 
-We encourage you to read this project's CONTRIBUTING policy (you are here), its [LICENSE](LICENSE.md), and its [README](README.md). 
+We encourage you to read this project's CONTRIBUTING policy (you are here), its [LICENSE](LICENSE.md), and its [README](README.md).
 
 If you have any questions or want to read more, check out the [18F Open Source Policy GitHub repository]( https://github.com/18f/open-source-policy), or just [shoot us an email](mailto:18f@gsa.gov).
 
@@ -36,13 +36,61 @@ To help us get a better understanding of the issue you are submitting, please le
 Here are a few guidelines to follow when submitting a pull request:
 
 1. Create a GitHub account or sign in to your existing account.
-2. Fork this repo into your GitHub account (or just clone it if you're an 18F team member). Read more about forking a repo here on GitHub:
+1. Fork this repo into your GitHub account (or just clone it if you're an 18F team member). Read more about forking a repo here on GitHub:
 [https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/)
-3. Create a branch that lightly defines what you're working on (e.g. add-styles).
-4. Once you're ready to submit a pull request, push your branch up to the repo.
-5. Submit your pull request against the `18f-pages-staging` branch.
+1. Create a branch that lightly defines what you're working on (e.g. add-styles).
+1. Ensure that your contribution works via `npm`, if applicable. See below under
+   _Install the package locally via `npm-link`_.
+1. Once you're ready to submit a pull request, push your branch up to the repo.
+1. Submit your pull request against the `18f-pages-staging` branch.
 
 Questions or need help with setup? Feel free to open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
+
+## Install the package locally via `npm-link`
+
+If you have a clone of this repository locally and would like to use it on
+another project without using the published version, you can use `npm link`.
+
+**Please note** that this use case is primarily useful if you're developing on the
+Web Design Standards locally and would like to see those changes in another
+project that is using them. Using `npm link` _should not be done_ if you are using
+a release version of the Web Design Standards. Please follow the `npm install`
+instructions above if you are using a release version.
+
+The following commands will link your local `web-design-standards` project to
+another project.
+
+```
+cd path/to/web-design-standards # note: your paths will differ
+npm link
+cd path/to/another/project-using-npm # note: this project name is reused below
+npm link uswds
+```
+
+The `node_modules` directory in your project will contain a symbolic link of the
+contents of the `web-design-standards` project under `node_modules/uswds` within
+the `project-using-npm`. For more information on `npm-link`, you can read about
+it in the [`npm-link` documentation](https://docs.npmjs.com/cli/link).
+
+### Using `uswds` with `npm`
+
+With the `uswds` package installed in your `node_modules` directory, you can
+access various included dependencies from the package itself.
+
+Running `require( 'uswds' )` will include the contents of the `components.js`
+file in your project. This file does not export currently export anything so it
+doesn't need to be assigned to a variable. This library depends on `jQuery` and
+`$` to be on the `window` object before it is required. So please be sure that
+you include the jQuery dependency from the `uswds` package before `components.js`
+is loaded via the `require()` statement.
+
+```html
+<script src="./node_modules/uswds/assets/js/vendor/jquery-1.11.3.min.js"></script>
+<!-- Loading the components.js file directly from the package -->
+<script src="./node_modules/uswds/assets/js/components.js"></script>
+<!-- Or loading the components.js file via `require()` within your project's npm-asset-pipeline -->
+<script src="path/to/project/all.js"></script>
+```
 
 ## Licenses and attribution
 
