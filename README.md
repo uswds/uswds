@@ -54,52 +54,6 @@ use it, that will compile the Sass to a CSS file named `uswds.css` (in
 Note: You might get an [`npm` warning related to `lodash`](https://github.com/18F/web-design-standards/pull/902#issuecomment-161076213), but you can generally ignore it.
 This error is related to a dependency found in `node-sass`.
 
-#### Install with `npm-link`
-
-If you have a clone of this repository locally and would like to use it on
-another project without using the published version, you can use `npm link`.
-
-**Please note** that this use case is primarily useful if you're developing on the
-Web Design Standards locally and would like to see those changes in another
-project that is using them. Using `npm link` _should not be done_ if you are using
-a release version of the Web Design Standards. Please follow the `npm install`
-instructions above if you are using a release version.
-
-The following commands will link your local `web-design-standards` project to
-another project.
-
-```
-cd path/to/web-design-standards # note: your paths will differ
-npm link
-cd path/to/another/project-using-npm # note: this project name is reused below
-npm link uswds
-```
-
-The `node_modules` directory in your project will contain a symbolic link of the
-contents of the `web-design-standards` project under `node_modules/uswds` within
-the `project-using-npm`. For more information on `npm-link`, you can read about
-it in the [`npm-link` documentation](https://docs.npmjs.com/cli/link).
-
-##### Using `uswds` with `npm`
-
-With the `uswds` package installed in your `node_modules` directory, you can
-access various included dependencies from the package itself.
-
-Running `require( 'uswds' )` will include the contents of the `components.js`
-file in your project. This file does not export currently export anything so it
-doesn't need to be assigned to a variable. This library depends on `jQuery` and
-`$` to be on the `window` object before it is required. So please be sure that
-you include the jQuery dependency from the `uswds` package before `components.js`
-is loaded via the `require()` statement.
-
-```html
-<script src="./node_modules/uswds/assets/js/vendor/jquery-1.11.3.min.js"></script>
-<!-- Loading the components.js file directly from the package -->
-<script src="./node_modules/uswds/assets/js/components.js"></script>
-<!-- Or loading the components.js file via `require()` within your project's npm-asset-pipeline -->
-<script src="path/to/project/all.js"></script>
-```
-
 ## Setup for your local environment
 
 ### Requirements
