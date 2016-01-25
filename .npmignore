@@ -1,0 +1,16 @@
+_components/
+_elements/
+_includes/
+_layout-system/
+_layouts/
+_visual/
+assets-styleguide/
+pages/
+.ruby-version
+.travis.yml
+_config.yml
+_config_18f_pages.yml
+Gemfile
+Gemfile.lock
+go
+
