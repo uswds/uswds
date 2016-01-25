@@ -80,6 +80,26 @@ contents of the `web-design-standards` project under `node_modules/uswds` within
 the `project-using-npm`. For more information on `npm-link`, you can read about
 it in the [`npm-link` documentation](https://docs.npmjs.com/cli/link).
 
+##### Using `uswds` with `npm`
+
+With the `uswds` package installed in your `node_modules` directory, you can
+access various included dependencies from the package itself.
+
+Running `require( 'uswds' )` will include the contents of the `components.js`
+file in your project. This file does not export currently export anything so it
+doesn't need to be assigned to a variable. This library depends on `jQuery` and
+`$` to be on the `window` object before it is required. So please be sure that
+you include the jQuery dependency from the `uswds` package before `components.js`
+is loaded via the `require()` statement.
+
+```html
+<script src="./node_modules/uswds/assets/js/vendor/jquery-1.11.3.min.js"></script>
+<!-- Loading the components.js file directly from the package -->
+<script src="./node_modules/uswds/assets/js/components.js"></script>
+<!-- Or loading the components.js file via `require()` within your project's npm-asset-pipeline -->
+<script src="path/to/project/all.js"></script>
+```
+
 ## Setup for your local environment
 
 ### Requirements
