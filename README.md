@@ -35,14 +35,14 @@ Refer to these files by adding a `<link>` and a `<script>` element into your HTM
 ### Install with NPM
 
 If you have `node` installed on your machine, you can use `npm` to install the
-Web Design Standards.
+Draft Web Design Standards.
 
 ```shell
 cd path/to/project-using-npm
 npm install --save uswds
 ```
 
-This will add the Web Design Standards as a dependency for your project and save
+This will add the Draft Web Design Standards as a dependency for your project and save
 it to your `package.json` file. The package will be installed in `node_modules`
 under `uswds`. The CSS file(s) are generated on the `npm-prepublish` hook and can
 found in the following directory: `./node_modules/uswds/assets/css`.
