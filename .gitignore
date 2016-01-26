@@ -4,3 +4,7 @@ node_modules/
 .DS_store
 .*.swp
 npm-debug.log
+
+# Ignore generated files
+#
+assets/css/uswds.css
