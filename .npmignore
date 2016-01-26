@@ -1,13 +1,23 @@
+# Jekyll files and directories
+#
 _components/
 _elements/
 _includes/
 _layout-system/
 _layouts/
 _visual/
+pages/
 assets-styleguide/
 assets/css/styelguide.css
+assets/css/main.scss
+assets/css/main.css
+
+# Releases
+#
 assets/releases/
-pages/
+
+# Configuration and scripts
+#
 .ruby-version
 .travis.yml
 _config.yml
