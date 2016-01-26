@@ -8,9 +8,7 @@
     "prepublish": "npm run build-sass"
   },
   "assets": "assets/",
-  "style": "assets/css/uswds.css",
-  "css": "assets/css/uswds.css",
-  "scss": "assets/_scss/all.scss",
+  "style": "assets/_scss/all.scss",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/18F/web-design-standards.git"
