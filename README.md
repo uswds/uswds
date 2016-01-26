@@ -53,11 +53,8 @@ npm install --save uswds
 This will add the Draft Web Design Standards as a dependency for your project and save
 it to your `package.json` file. The package will be installed in `node_modules`
 under `uswds`. The CSS file(s) are generated on the `npm-prepublish` hook and can
-found in the following directory: `./node_modules/uswds/assets/css`.
-
-An `npm` task called `build-sass` is supplied, though you are not required to
-use it, that will compile the Sass to a CSS file named `uswds.css` (in
-`node_modules/uswds/assets/css/uswds.css`).
+found in the following directory `./node_modules/uswds/assets/css` once the
+package is installed.
 
 Note: You might get an [`npm` warning related to `lodash`](https://github.com/18F/web-design-standards/pull/902#issuecomment-161076213), but you can generally ignore it.
 This error is related to a dependency found in `node-sass`.
