@@ -52,9 +52,9 @@ If you have a clone of this repository locally and would like to use it on
 another project without using the published version, you can use `npm link`.
 
 **Please note** that this use case is primarily useful if you're developing on the
-Web Design Standards locally and would like to see those changes in another
+Draft Web Design Standards locally and would like to see those changes in another
 project that is using them. Using `npm link` _should not be done_ if you are using
-a release version of the Web Design Standards. Please follow the `npm install`
+a release version of the Draft Web Design Standards. Please follow the `npm install`
 instructions above if you are using a release version.
 
 The following commands will link your local `web-design-standards` project to
