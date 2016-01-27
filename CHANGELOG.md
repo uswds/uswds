@@ -2,9 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.9.0] - 2016-01-xx
+## [0.8.3] - 2016-01-27
 ### Added
-- Add package.json for npm support
+- Add package.json to get ready for npm support
 
 ### Changed
 - Alphabetize Sass `@include`s

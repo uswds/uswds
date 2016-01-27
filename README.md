@@ -22,7 +22,7 @@ Much of the guidance in Draft Web Design Standards leans on open source designs,
 
 ## Getting started
 
-To begin using the Draft Web Design Standards on your project, include the CSS and JavaScript files in each HTML page in your project. Download the the Draft Web Design Standards assets: https://playbook.cio.gov/designstandards/assets/releases/wds-v0.9.0.zip. Add the assets directory to a relevant place in your code base.
+To begin using the Draft Web Design Standards on your project, include the CSS and JavaScript files in each HTML page in your project. Download the the Draft Web Design Standards assets: https://playbook.cio.gov/designstandards/assets/releases/wds-v0.8.3.zip. Add the assets directory to a relevant place in your code base.
 
 Refer to these files by adding a `<link>` and a `<script>` element into your HTML pages:
 
@@ -37,7 +37,7 @@ Refer to these files by adding a `<link>` and a `<script>` element into your HTM
 If you have `node` installed on your machine, you can use `npm` to install the Web Design Standards. In your `package.json` list the following under `dependencies`:
 
 ```json
-  "uswds": "git@github.com:18F/web-design-standards.git#v0.9.0"
+  "uswds": "git@github.com:18F/web-design-standards.git#v0.8.3"
 ```
 
 On subsequent runs of `npm install`, the package will be installed in `node_modules` under `uswds`. The CSS will be *not* compiled after it is installed. Instead, you are able to compile it however it fits into your project.
