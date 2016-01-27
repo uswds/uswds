@@ -51,7 +51,35 @@ Refer to these files by adding a `<link>` and a `<script>` element into your HTM
 ```
 <link rel="stylesheet" href="./node_modules/uswds/assets/css/uswds.css">
 <link rel="stylesheet" href="./node_modules/uswds/assets/css/google-fonts.css">
+<!-- Include jQuery from the `uswds` project before `components.js` -->
+<script src="./node_modules/uswds/assets/js/vendor/jquery-1.11.3.min.js"></script>
 <script src="./node_modules/uswds/assets/js/components.js"></script>
+```
+
+#### Using `uswds` with an `npm`-based asset pipeline
+
+With the `uswds` package installed in your `node_modules` directory, you can
+access various included dependencies from the package itself. These dependencies
+include both JavaScript and Sass files.
+
+Running `require( 'uswds' )` will include the contents of the `components.js`
+file in your project. This file does not export currently export anything so it
+doesn't need to be assigned to a variable. This library depends on `jQuery` and
+`$` to be on the `window` object before it is required. So please be sure that
+you include the jQuery dependency from the `uswds` package before `components.js`
+is loaded via the `require()` statement.
+
+```js
+window.$ = window.jQuery = require( 'jquery' );
+require( 'uswds' );
+// ...
+```
+
+To use the styles from the Draft Web Design Standards you can import it into
+your main Sass file like so:
+
+```scss
+@import './node_modules/uswds/assets/_scss/all.scss';
 ```
 
 Note: You might get an [`npm` warning related to `lodash`](https://github.com/18F/web-design-standards/pull/902#issuecomment-161076213), but you can generally ignore it.
