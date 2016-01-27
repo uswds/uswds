@@ -60,6 +60,13 @@ p {
     top: 2rem;
   }
 
+  .usa-label {
+    display: table;
+    font-family: $font-sans;
+    font-weight: $font-normal;
+    margin-bottom: 1rem;
+  }
+
   .usa-font-lead {
     color: $color-white;
     margin-bottom: 1rem;
@@ -68,7 +75,7 @@ p {
   h1 {
     @include media($medium-screen) {
       font-size: 5.6rem;
-      padding-top: 4.5rem;
+      padding-top: 1.2rem;
     }
     color: $color-white;
     padding-top: 1.5rem;
@@ -204,6 +211,7 @@ a {
 
   .usa-example-link {
     margin-top: 5rem;
+    max-width: 980px;
     
     &:first-of-type {
       margin-top: 0;

@@ -7,33 +7,33 @@
 
 // Core -------------- //
 
-@import 'core/grid-settings';
 @import 'core/defaults';
 @import 'core/variables';
 @import 'core/base';
+@import 'core/grid-settings';
 @import 'core/grid';
 @import 'core/utilities';
 
 
 // Elements -------------- //
-// Styles basic html elements
+// Styles basic HTML elements
 
-@import 'elements/typography';
-@import 'elements/list';
-@import 'elements/inputs';
 @import 'elements/buttons';
-@import 'elements/table';
 @import 'elements/figure';
+@import 'elements/inputs';
 @import 'elements/labels';
+@import 'elements/list';
+@import 'elements/table';
+@import 'elements/typography';
 
 
 // Components -------------- //
 
-@import 'components/skipnav';
+@import 'components/accordions';
+@import 'components/alerts';
 @import 'components/disclaimer';
-@import 'components/sidenav';
 @import 'components/footer';
 @import 'components/forms';
 @import 'components/search';
-@import 'components/alerts';
-@import 'components/accordions';
+@import 'components/sidenav';
+@import 'components/skipnav';

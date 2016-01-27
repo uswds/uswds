@@ -1,4 +1,5 @@
-/* apply a natural box layout model to all elements, but allowing components to change */
+/* Apply a natural box layout model to all elements, but allowing components to 
+change */
 
 html {
   box-sizing: border-box;
@@ -9,11 +10,11 @@ html {
 }
 
 body {
-  background-color: #ffffff;
+  background-color: $color-white;
 }
 
+// Hack for clearfixes
 .lt-ie9 {
-  // Hack for clearfixes
   * {
     filter: none !important;
   }
