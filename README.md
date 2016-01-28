@@ -42,17 +42,35 @@ cd path/to/project-using-npm
 npm install --save uswds
 ```
 
-This will add the Draft Web Design Standards as a dependency for your project and save
-it to your `package.json` file. The package will be installed in `node_modules`
+This will add the Draft Web Design Standards as a dependency for your project and
+save it to your `package.json` file. The package will be installed in `node_modules`
 under `uswds`.
 
-Refer to these files by adding a `<link>` and a `<script>` element into your HTML pages:
+Refer to these files by adding a `<link>` and a `<script>` element into your
+HTML pages:
 
+If your project _does not_ already include jQuery please use the version of
+jQuery that is included in the package.
+
+```html
+<!-- CSS Includes -->
+<link rel="stylesheet" href="./node_modules/uswds/assets/css/google-fonts.css">
+<link rel="stylesheet" href="./node_modules/uswds/assets/css/uswds.css">
+
+<!-- JavaScript Includes -->
+<script src="./node_modules/uswds/assets/js/vendor/jquery-1.11.3.min.js"></script>
+<script src="./node_modules/uswds/assets/js/components.js"></script>
 ```
+
+If your project already includes jQuery via a script tag, feel free to use that
+version of jQuery.
+
+```html
+<!-- CSS Includes -->
 <link rel="stylesheet" href="./node_modules/uswds/assets/css/uswds.css">
 <link rel="stylesheet" href="./node_modules/uswds/assets/css/google-fonts.css">
-<!-- Include jQuery from the `uswds` project before `components.js` -->
-<script src="./node_modules/uswds/assets/js/vendor/jquery-1.11.3.min.js"></script>
+
+<!-- JavaScript Includes -->
 <script src="./node_modules/uswds/assets/js/components.js"></script>
 ```
 
@@ -66,8 +84,8 @@ Running `require( 'uswds' )` will include the contents of the `components.js`
 file in your project. This file does not export currently export anything so it
 doesn't need to be assigned to a variable. This library depends on `jQuery` and
 `$` to be on the `window` object before it is required. So please be sure that
-you include the jQuery dependency from the `uswds` package before `components.js`
-is loaded via the `require()` statement.
+you include the jQuery dependency on your HTML page or via `npm` and set it to
+the `window` object as `jQuery` and `$`.
 
 ```js
 window.$ = window.jQuery = require( 'jquery' );
@@ -80,6 +98,19 @@ your main Sass file like so:
 
 ```scss
 @import './node_modules/uswds/assets/_scss/all.scss';
+```
+
+Your HTML file may be structured link this.
+
+```html
+<!-- CSS Includes -->
+<link rel="stylesheet" href="./node_modules/uswds/assets/css/google-fonts.css">
+
+<!-- Your compiled CSS, which imports the Draft Web Design Standards -->
+<link rel="stylesheet" href="./path/to/assets/style.css">
+
+<!-- Your compiled JavaScript, which creates jQuery on the `window` object. -->
+<script src="./path/to/assets/start-app.js"></script>
 ```
 
 Note: You might get an [`npm` warning related to `lodash`](https://github.com/18F/web-design-standards/pull/902#issuecomment-161076213), but you can generally ignore it.
