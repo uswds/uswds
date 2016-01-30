@@ -1,9 +1,10 @@
 .usa-grid,
 .usa-grid-full {
-  @include outer-container();
-  max-width: $site-max-width;
+	@include outer-container();
+    max-width: $site-max-width;
+}
 
-  @include media($medium) {
+@include media($medium) {
     .usa-width-one-whole {
       @include span-columns(6);
     }
@@ -43,9 +44,9 @@
         margin-right: 0;
       }
     }
-  }
+}
 
-  @include media($large) {
+@include media($large) {
     .usa-width-one-whole {
       @include span-columns(12);
     }
@@ -97,14 +98,13 @@
         margin-right: 0;
       }
     }
-  }
+}
 
-  // Specificies end of a row.
-  // Required if grid-box contains multiple rows.
-  // Required if browser does not support :last-child
-  .usa-end-row {
-    @include omega();
-  }
+// Specificies end of a row.
+// Required if grid-box contains multiple rows.
+// Required if browser does not support :last-child
+.usa-end-row {
+  @include omega();
 }
 
 .usa-grid {
