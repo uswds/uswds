@@ -1,3 +1,6 @@
+scss_files: 'assets/_scss/**/*.scss'
+exclude: 'assets/_scss/lib/**'
+
 linters:
   BangFormat:
     enabled: true
