@@ -1,0 +1,145 @@
+linters:
+  BangFormat:
+    enabled: true
+    space_before_bang: true
+    space_after_bang: false
+  BorderZero:
+    enabled: false
+    convention: zero
+  ColorKeyword:
+    enabled: true
+    severity: warning
+  ColorVariable:
+    enabled: true
+  Comment:
+    enabled: true
+  DebugStatement:
+    enabled: true
+  DeclarationOrder:
+    enabled: false
+  DuplicateProperty:
+    enabled: true
+  ElsePlacement:
+    enabled: true
+    style: same_line
+  EmptyLineBetweenBlocks:
+    enabled: true
+    ignore_single_line_blocks: true
+  EmptyRule:
+    enabled: true
+  FinalNewline:
+    enabled: true
+    present: true
+  HexLength:
+    enabled: false
+    style: short
+  HexNotation:
+    enabled: true
+    style: lowercase
+  HexValidation:
+    enabled: true
+  IdSelector:
+    enabled: true
+  ImportantRule:
+    enabled: true
+  ImportPath:
+    enabled: true
+    leading_underscore: false
+    filename_extension: false
+  Indentation:
+    enabled: true
+    allow_non_nested_indentation: false
+    character: space
+    width: 2
+  LeadingZero:
+    enabled: false
+    style: include_zero
+  MergeableSelector:
+    enabled: true
+    force_nesting: true
+  NameFormat:
+    enabled: true
+    allow_leading_underscore: true
+    convention: hyphenated_lowercase # or 'camel_case', or 'snake_case', or a regex pattern
+  NestingDepth:
+    enabled: true
+    max_depth: 4
+    severity: warning
+  PlaceholderInExtend:
+    enabled: false
+  PropertyCount:
+    enabled: true
+    include_nested: false
+    max_properties: 10
+  PropertySortOrder:
+    enabled: false
+    ignore_unspecified: false
+    severity: warning
+    separate_groups: false
+  PropertySpelling:
+    enabled: true
+    extra_properties: []
+  QualifyingElement:
+    enabled: true
+    allow_element_with_attribute: false
+    allow_element_with_class: false
+    allow_element_with_id: false
+    severity: warning
+  SelectorDepth:
+    enabled: true
+    max_depth: 2
+    severity: warning
+  SelectorFormat:
+    enabled: false # strict_BEM doesn't seem to be supported by Hound
+    convention: strict_BEM
+  Shorthand:
+    enabled: true
+    allowed_shorthands: [1, 2]
+    severity: warning
+  SingleLinePerProperty:
+    enabled: true
+    allow_single_line_rule_sets: true
+  SingleLinePerSelector:
+    enabled: true
+  SpaceAfterComma:
+    enabled: true
+  SpaceAfterPropertyColon:
+    enabled: true
+    style: one_space
+  SpaceAfterPropertyName:
+    enabled: true
+  SpaceBeforeBrace:
+    enabled: true
+    style: space
+    allow_single_line_padding: false
+  SpaceBetweenParens:
+    enabled: true
+    spaces: 0
+  StringQuotes:
+    enabled: true
+    style: single_quotes
+  TrailingSemicolon:
+    enabled: true
+  TrailingZero:
+    enabled: false
+  UnnecessaryMantissa:
+    enabled: true
+  UnnecessaryParentReference:
+    enabled: true
+  UrlFormat:
+    enabled: true
+  UrlQuotes:
+    enabled: true
+  VariableForProperty:
+    enabled: false
+    properties: []
+  VendorPrefixes:
+    enabled: true
+    identifier_list: bourbon
+    include: []
+    exclude: []
+  ZeroUnit:
+    enabled: true
+    severity: warning
+  Compass::PropertyWithMixin:
+    enabled: false
