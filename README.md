@@ -82,6 +82,27 @@ and view the draft web design standards locally.
 
 Questions or need help with setup? Did you run into any weird errors while following these instructions? Feel free to open an issue here: [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
 
+### Linting
+
+```shell
+$ scss-lint
+```
+
+By default this will run scss-lint on `assets/_scss` (except `lib/`) and return all warnings or errors. Errors must be fixed before code can be committed, but ideally try to fix warnings as well.
+
+You can also run scss-lint on other files:
+
+```shell
+$ scss-lint assets/css/styleguide.scss
+```
+
+Note, however, that scss-lint is not compatible with Jekyll's front matter, so you'll need to remove the following code (temporarily) before running scss-lint on files that contain it:
+
+```ruby
+---
+---
+```
+
 ## Contributing to the code base
 
 See [CONTRIBUTING](CONTRIBUTING.md).
