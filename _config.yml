@@ -2,6 +2,7 @@
 markdown: redcarpet
 highlighter: rouge
 name: Draft U.S. Web Design Standards
+source: docs
 exclude:
 - go
 - Gemfile
