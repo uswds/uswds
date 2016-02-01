@@ -22,7 +22,7 @@ $site-top:           124px;
   top: 0;
   width: 100%;
   z-index: 1;
-  
+
   a {
     border-bottom: none;
   }
@@ -35,15 +35,17 @@ $site-top:           124px;
         top: 2.7rem;
       }
     }
+
     margin-top: 4px;
 
     .logo {
       @include media($medium-screen + $width-nav-sidebar) {
         padding-left: $site-margins;
-        text-align: left; 
+        text-align: left;
         padding-top: 0;
         width: auto;
       }
+
       float: left;
       text-align: center;
       padding-top: 1.3rem;
@@ -65,6 +67,7 @@ $site-top:           124px;
         font-size: $h3-font-size;
         margin-top: .9rem;
       }
+
       margin: 0;
       font-size: $h5-font-size;
     }
@@ -74,12 +77,13 @@ $site-top:           124px;
         display: block;
         padding-right: $site-margins;
       }
+
       float: right;
       display: none;
       margin-top: -5px;
-      
-      li { 
-        display: inline; 
+
+      li {
+        display: inline;
         font-family: $font-sans;
 
         &:last-child .usa-button {
@@ -96,21 +100,25 @@ $site-top:           124px;
     font-size: $base-font-size / 1.25;
     border-bottom: 1px solid #616161;
     font-weight: 100;
-    .us-official { 
+
+    .us-official {
       margin: 0;
     }
+
     .stage {
       a { text-decoration: underline; }
       float: none;
       display: block;
       padding-top: 5px;
     }
+
     @include media($medium-screen + $width-nav-sidebar) {
-      .us-official { 
-        margin-left: 177px; 
+      .us-official {
+        margin-left: 177px;
       }
-      .stage { 
-        float: right; 
+
+      .stage {
+        float: right;
         padding: 0;
       }
     }
@@ -122,6 +130,7 @@ $site-top:           124px;
   @include media($medium-screen + $width-nav-sidebar) {
     display: none;
   }
+
   display: inline;
   float: left;
   margin-top: -4px;
@@ -138,7 +147,7 @@ $site-top:           124px;
     color: $color-white;
     background-color: $color-primary-darker;
   }
-  
+
   &:visited {
     color: $color-white;
   }
@@ -156,6 +165,7 @@ $site-top:           124px;
     overflow-y: auto;
     z-index: 999999;
     display: block;
+
     &.is-visible {
       @include transition(all 0.25s linear);
       @include transform(translateX(0));
@@ -191,7 +201,7 @@ $site-top:           124px;
   overflow: auto;
   display: none;
   z-index: -1;
-  
+
   .lt-ie9 & {
     width: 25%;
   }
@@ -207,7 +217,7 @@ $site-top:           124px;
 
 .visual-style .sidenav .visual-style-sublist {
   display: block;
-  
+
   ul {
     display: block;
   }
@@ -223,7 +233,7 @@ $site-top:           124px;
 
 .footers .sidenav .footers-sublist {
   display: block;
-} 
+}
 
 // Main Content --------- //
 
@@ -231,6 +241,7 @@ $site-top:           124px;
   @include media($medium-screen) {
     top: $site-top;
   }
+
   position: absolute;
   top: 4rem;
   bottom: 0;
@@ -238,8 +249,6 @@ $site-top:           124px;
   width: 100%;
   padding: {
     bottom: 0;
-//    left: 2em;
-//    right: 2em;
     top: 1em;
   }
   z-index: -1;
@@ -268,10 +277,12 @@ $site-top:           124px;
 
   > h1 {
     margin-top: 3.4rem;
+
     &:not(:first-child) {
       margin-top: 1.5em;
     }
   }
+
   @media (min-width: $medium-screen + $width-nav-sidebar) {
     padding: {
       left: 3em;
@@ -289,13 +300,15 @@ $site-top:           124px;
     top: 3rem;
   }
 
-// This is a styleguide-only rule and is not needed in the main library code for 
-// the footer component which uses different styles
-// TODO investigate why it's not needed in the main library CSS
-  p, a {
+  // This is a styleguide-only rule and is not needed in the main library code for
+  // the footer component which uses different styles
+  // TODO investigate why it's not needed in the main library CSS
+  p,
+  a {
     @include media($medium-screen) {
       margin-bottom: 0;
     }
+
     color: $color-white;
     font-size: $h5-font-size;
     margin: {
@@ -316,6 +329,7 @@ $site-top:           124px;
   }
   padding: 1em $site-margins;
   border: 1px solid #eeeeee;
+
   .is-peripheral {
     opacity: .2;
   }
@@ -334,18 +348,17 @@ $site-top:           124px;
 
 .code-snippets {
 
-  .code-snippet-button:after {
-    content: "\25be  hide code";
+  .code-snippet-button::after {
+    content: '\25be  hide code';
   }
 
   &.hidden {
-
     table {
       display: none;
     }
-    
-    .code-snippet-button:after {
-      content: "\25b8  show code";
+
+    .code-snippet-button::after {
+      content: '\25b8  show code';
     }
   }
 
@@ -379,7 +392,8 @@ $site-top:           124px;
       text-align: left;
     }
 
-    pre, code {
+    pre,
+    code {
       direction: ltr;
       text-align: left;
       white-space: pre;
@@ -508,6 +522,7 @@ h3 + .button_wrapper {
   @include media($medium-screen) {
     margin: 0;
   }
+
   margin: {
     bottom: 1em;
     top: 0;
@@ -536,7 +551,7 @@ h3 + .button_wrapper {
   }
 
   p {
-    font-family:  monospace, monospace;
+    font-family: monospace, monospace;
   }
 }
 
@@ -544,6 +559,7 @@ h3 + .button_wrapper {
   @include media($medium-screen) {
     margin-bottom: 8rem;
   }
+
   margin-bottom: 0;
 
   .usa-color-square {
@@ -563,6 +579,7 @@ h3 + .button_wrapper {
     @include media($medium-screen) {
       margin-right: 2.35765%;
     }
+
     margin-right: 0;
   }
 
@@ -836,7 +853,13 @@ h6.usa-heading-alt {
 }
 
 .usa-typography-example-font {
-  h1, h2, h3, h4, h5, h6, .usa-font-example p {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .usa-font-example p {
     margin: 0;
   }
 }
@@ -873,20 +896,33 @@ code[class*="language-"], pre[class*="language-"] {
   color: $color-base;
 }
 
-.token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted {
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
   color: $color-primary-alt-darkest;
 }
 
-.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted {
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
   color: $color-secondary;
 }
 
-.token.atrule, .token.attr-value, .token.keyword {
+.token.atrule,
+.token.attr-value,
+.token.keyword {
   color: $color-green;
 }
 
 .token.punctuation {
-    color: $color-primary-alt-darkest;
+  color: $color-primary-alt-darkest;
 }
 
 .usa-code-sample .usa-accordion-content {
@@ -936,6 +972,7 @@ code[class*="language-"], pre[class*="language-"] {
     font-size: 140px;
     line-height: 1.05;
   }
+
   .text-tiny {
     font-size: 15px;
   }
@@ -946,6 +983,7 @@ code[class*="language-"], pre[class*="language-"] {
     font-size: 120px;
     line-height: 1.275;
   }
+
   .text-tiny {
     font-size: 13px;
   }
@@ -968,10 +1006,10 @@ $font-light: 300;
 
   .usa-font-lead {
     font-weight: $font-light;
-  }
-  
-  .usa-font-lead.usa-font-lead-alt {
-    @include font-lead-alt();
+
+    .usa-font-lead-alt {
+      @include font-lead-alt();
+    }
   }
 
   &.serif-body {
@@ -984,20 +1022,25 @@ $font-light: 300;
 
       .usa-font-lead {
         font-size: $h3-font-size;
-      }
-    
-      .usa-font-lead.usa-font-lead-alt {
-        @include font-lead-alt();
+
+        .usa-font-lead-alt {
+          @include font-lead-alt();
+        }
       }
     }
   }
 }
 
 .sans-style {
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: $font-sans;
   }
-  
+
   h1 {
     font-size: rem(44px);
   }
@@ -1051,7 +1094,7 @@ $font-light: 300;
         font-size: rem(22px);
         font-weight: $font-light;
         line-height: $base-line-height;
-      }      
+      }
     }
   }
 }
@@ -1066,7 +1109,7 @@ $font-light: 300;
   margin-bottom: 6rem;
 }
 
-// This adds styleguide-only right and left margins for our disclaimer 
+// This adds styleguide-only right and left margins for our disclaimer
 // Since the layout we use is not in a grid
 .usa-disclaimer-stage {
   padding-right: $site-margins;
@@ -1076,5 +1119,6 @@ $font-light: 300;
   @include media($medium-screen) {
     padding-left: $site-margins;
   }
+
   padding-left: 2rem;
 }
