@@ -55,6 +55,7 @@ GEM
     pygments.rb (0.6.3)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.2.0)
+    rake (10.5.0)
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -62,6 +63,9 @@ GEM
     rouge (1.9.0)
     safe_yaml (1.0.4)
     sass (3.4.16)
+    scss_lint (0.44.0)
+      rake (~> 10.0)
+      sass (~> 3.4.15)
     timers (4.0.1)
       hitimes
     toml (0.1.2)
@@ -77,6 +81,7 @@ DEPENDENCIES
   json
   redcarpet
   rouge (= 1.9)
+  scss_lint
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
