@@ -221,12 +221,14 @@ $site-top:           124px;
     top: 1em;
   }
   z-index: -1;
+
   .lt-ie9 & {
     width: 75%;
   }
 
   @include media($medium-screen + $width-nav-sidebar) {
     width: calc(100% - #{$width-nav-sidebar});
+
     .lt-ie9 & {
       width: 75%;
     }
@@ -302,6 +304,14 @@ $site-top:           124px;
   .is-peripheral {
     opacity: .2;
   }
+
+  .usa-background-dark {
+    display: inline-block;
+    padding: {
+      left: 1em;
+      right: 1em;
+    }
+  }
 }
 
 .preview-no_border {
@@ -374,18 +384,18 @@ $site-top:           124px;
 }
 
 h3 + .button_wrapper {
-  margin-top: -.5em
+  margin-top: -.5em;
 }
 
 .button_wrapper {
   clear: both;
   display: table;
   margin-left: -1rem;
-  padding: 0rem 1rem;
+  padding: 0 1rem;
 
-  &:after {
-    content:"\A";
-    white-space:pre;
+  &::after {
+    content: '\A';
+    white-space: pre;
   }
 
   button:last-child {
@@ -417,6 +427,8 @@ h3 + .button_wrapper {
     bottom: 1em;
     top: 0;
   }
+
+  font-size: 1.2rem;
 }
 
 .usa-color-row {
@@ -433,11 +445,11 @@ h3 + .button_wrapper {
   .color-small {
     float: left;
     width: 50%;
+    margin-right: 0;
 
     @include media($medium-screen) {
       width: 17%;
     }
-    margin-right: 0;
   }
 
   p {
@@ -491,10 +503,6 @@ h3 + .button_wrapper {
   }
 }
 
-.usa-color-name {
-  font-size: 1.2rem;
-}
-
 .usa-color-text {
   font-weight: $font-bold;
   margin-bottom: .4rem;
@@ -528,14 +536,6 @@ h3 + .button_wrapper {
 
 .usa-color-base {
   background-color: $color-base;
-}
-
-.usa-color-gray-dark {
-  background-color: $color-gray-dark;
-}
-
-.usa-color-gray-light {
-  background-color: $color-gray-light;
 }
 
 .usa-color-white {
@@ -705,10 +705,6 @@ h3 + .button_wrapper {
   color: $color-gray-dark;
 }
 
-.usa-color-text-gray-dark {
-  color: $color-gray-dark;
-}
-
 .usa-color-text-gray {
   color: $color-gray;
 }
@@ -738,9 +734,11 @@ h3 + .button_wrapper {
   padding-bottom: .8rem;
 }
 
+// scss-lint:disable QualifyingElement
 h6.usa-heading-alt {
   margin-top: 4rem;
 }
+// scss-lint:enable QualifyingElement
 
 .usa-typography-example-font {
   h1,
@@ -778,11 +776,14 @@ h6.usa-heading-alt {
   font-size: 1.2rem;
 }
 
-:not(pre) > code[class*="language-"], pre[class*="language-"] {
-    background: none;
+// scss-lint:disable QualifyingElement
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: none;
 }
 
-code[class*="language-"], pre[class*="language-"] {
+code[class*="language-"],
+pre[class*="language-"] {
   color: $color-base;
 }
 
@@ -822,16 +823,7 @@ code[class*="language-"], pre[class*="language-"] {
 .usa-code-sample pre[class*="language-"] {
   margin-top: 0;
 }
-
-.preview {
-  .usa-background-dark {
-    display: inline-block;
-    padding: {
-      left: 1em;
-      right: 1em;
-    }
-  }
-}
+// scss-lint:enable QualifyingElement
 
 .alignment-example {
   border-left: 2px solid $color-primary-darker;
