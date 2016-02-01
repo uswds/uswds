@@ -160,7 +160,7 @@ $site-top:           124px;
     @include position(fixed, 0 auto 0 0);
     @include size($sliding-panel-width 100%);
     @include transform(translateX(- $sliding-panel-width));
-    background: #fff;
+    background: $color-white;
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
     z-index: 999999;
@@ -176,7 +176,7 @@ $site-top:           124px;
 .overlay {
   @include position(fixed, 0 0 0 0);
   @include transition;
-  background: #000;
+  background: $color-black;
   opacity: 0;
   visibility: hidden;
   z-index: 9999;
@@ -322,13 +322,13 @@ $site-top:           124px;
 
 .preview {
   @include clearfix();
-  background-color: #fff;
+  background-color: $color-white;
   margin: {
     top: 2em;
     bottom: 2em;
   }
   padding: 1em $site-margins;
-  border: 1px solid #eeeeee;
+  border: 1px solid $color-gray-warm-light;
 
   .is-peripheral {
     opacity: .2;
@@ -470,7 +470,7 @@ $site-top:           124px;
 
     > * {
       background: $color-grid-light;
-      color: #000;
+      color: $color-black;
     }
 
     h3 {
@@ -504,7 +504,7 @@ h3 + .button_wrapper {
 }
 
 .button_wrapper-dark {
-  background: #323a45
+  background: $color-gray-dark;
 }
 
 .usa-heading {
