@@ -28,5 +28,7 @@
   "homepage": "https://github.com/18F/web-design-standards#readme",
   "dependencies": {
     "node-sass": "^3.4.2"
+ "uswds": "git@github.com:18F/web-design-standards.git#v0.8.3"
+
   }
 }
