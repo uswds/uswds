@@ -76,10 +76,10 @@ order: 01
             <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
             <p>
-              <a class="media_link" href="{{ site.baseurl }}/assets-styleguide/img/epa-emanifest-screenshot.png">
-                <img src="{{ site.baseurl }}/assets-styleguide/img/default_example_emanifest.png" alt="EPA eManifest example">
+              <a class="media_link" href="{{ site.baseurl }}/assets/img/epa-emanifest-screenshot.png">
+                <img src="{{ site.baseurl }}/assets/img/default_example_emanifest.png" alt="EPA eManifest example">
               </a>
-              <a href="{{ site.baseurl }}/assets-styleguide/img/epa-emanifest-screenshot.png">EPA eManifest (screenshot of non-public site)</a>
+              <a href="{{ site.baseurl }}/assets/img/epa-emanifest-screenshot.png">EPA eManifest (screenshot of non-public site)</a>
             </p>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
@@ -233,7 +233,7 @@ order: 01
             <h6 class="usa-heading-alt">Example</h6>
             <p>
               <a class="media_link" href="/">
-                <img src="{{ site.baseurl }}/assets-styleguide/img/robust_example_standardshome.png" alt="Draft U.S. Web Design Standards homepage example">
+                <img src="{{ site.baseurl }}/assets/img/robust_example_standardshome.png" alt="Draft U.S. Web Design Standards homepage example">
               </a>
               <a href="/">Draft U.S. Web Design Standards homepage</a>
             </p>
@@ -412,7 +412,7 @@ order: 01
             <h6 class="usa-heading-alt">Example</h6>
             <p>
               <a class="media_link" href="http://playbook.cio.gov">
-                <img src="{{ site.baseurl }}/assets-styleguide/img/merriweatheronly_example_playbook.png" alt="U.S. Digital Service Playbook example">
+                <img src="{{ site.baseurl }}/assets/img/merriweatheronly_example_playbook.png" alt="U.S. Digital Service Playbook example">
               </a>
               <a href="http://playbook.cio.gov">U.S. Digital Service Playbook</a>
             </p>
@@ -749,10 +749,10 @@ order: 01
             <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
             <p>
-              <a class="media_link" href="{{ site.baseurl }}/assets-styleguide/img/va-appeals-screenshot.png">
-                <img src="{{ site.baseurl }}/assets-styleguide/img/ssponly_example_va.png" alt="Veterans Affairs appeals review example">
+              <a class="media_link" href="{{ site.baseurl }}/assets/img/va-appeals-screenshot.png">
+                <img src="{{ site.baseurl }}/assets/img/ssponly_example_va.png" alt="Veterans Affairs appeals review example">
               </a>
-              <a href="{{ site.baseurl }}/assets-styleguide/img/va-appeals-screenshot.png">Department of Veterans Affairs appeals review (screenshot of non-public site)</a>
+              <a href="{{ site.baseurl }}/assets/img/va-appeals-screenshot.png">Department of Veterans Affairs appeals review (screenshot of non-public site)</a>
             </p>
           </aside>
           <h6 class="usa-heading-alt">Web Hierarchy</h6>
