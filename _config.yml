@@ -1,8 +1,13 @@
 # Markdown config
 markdown: redcarpet
 highlighter: rouge
+
 name: Draft U.S. Web Design Standards
+
 source: docs
+
+version: 0.8.3
+
 exclude:
 - go
 - Gemfile
