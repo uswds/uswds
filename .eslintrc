@@ -1,0 +1,19 @@
+{
+    "rules": {
+        "no-unused-vars": [ 0 ],
+        "no-console": [ 0 ],
+        "indent": [ 2, 2 ],
+        "quotes": [ 2, "single" ],
+        "linebreak-style": [ 2, "unix" ],
+        "semi": [ 2, "always" ],
+        "comma-dangle": [ 1, "always-multiline" ],
+        "no-console": [ 0 ],
+        "no-undef": [ 0 ],
+        "space-before-function-paren": [ 2, "always" ]
+    },
+    "env": {
+        "node": true,
+        "browser": true
+    },
+    "extends": "eslint:recommended"
+}
