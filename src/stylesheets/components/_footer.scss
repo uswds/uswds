@@ -55,12 +55,6 @@
   }
 }
 
-.width-one-sixth {
-  @include media($medium) {
-    @include span-columns(2);
-  }  
-}
-
 .usa-footer-medium {
   .usa-footer-primary-section {
     padding: 0;
