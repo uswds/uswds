@@ -7,7 +7,7 @@ lead: Use buttons to signal actions.
 
 <div class="preview">
   
-  <h6 class="styleguide">Primary Buttons</h6>
+  <h6 class="preview-first">Primary Buttons</h6>
   <div class="button_wrapper">
     <button>Default</button>
     <button class="usa-button-active">Active</button>

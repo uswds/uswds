@@ -949,7 +949,7 @@ order: 01
 
 <div class="preview">
 
-  <a class="styleguide" href="#">This is a link without surrounding text</a>
+  <a class="preview-first" href="#">This is a link without surrounding text</a>
   <p><a href="#">This</a> is a text link on light background</p>
 
   <p><a class="usa-color-text-visited" href="#">This</a> is a visited link.</p>

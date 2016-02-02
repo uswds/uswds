@@ -22,7 +22,7 @@ lead: Form controls allow users to enter information into a page.
 <p class="usa-font-lead">Text inputs allow people to enter any combination of letters, numbers, or symbols of their choosing (unless otherwise restricted). Text input boxes can span single or multiple lines.</p>
 <div class="preview">
 
-  <label class="styleguide" for="input-type-text">Text input label</label>
+  <label class="preview-first" for="input-type-text">Text input label</label>
   <input id="input-type-text" name="input-type-text" type="text">
 
   <label for="input-focus">Text input focused</label>
@@ -262,7 +262,7 @@ lead: Form controls allow users to enter information into a page.
 
 <div class="preview">
 
-  <fieldset class="styleguide">
+  <fieldset class="preview-first">
     <legend>Date of birth</legend>
     <span class="usa-form-hint usa-datefield-hint" id="dobHint">For example: 04 28 1986</span>
 
