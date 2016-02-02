@@ -27,7 +27,7 @@ repos:
 google_analytics_ua: UA-48605964-33
 
 sass:
-  sass_dir: assets/_scss
+  sass_dir: assets/css
 #  style: :compressed
 
 collections:
