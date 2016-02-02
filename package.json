@@ -24,18 +24,22 @@
     "url": "https://github.com/18F/web-design-standards/issues"
   },
   "homepage": "https://github.com/18F/web-design-standards#readme",
-  "dependencies": {
-    "node-sass": "^3.4.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
     "gulp-cached": "^1.1.0",
     "gulp-concat": "^2.6.0",
     "gulp-eslint": "^1.1.1",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.1",
     "gulp-scss-lint": "^0.3.9",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
-    "gulp-zip": "^3.1.0"
+    "gulp-util": "^3.0.7",
+    "gulp-zip": "^3.1.0",
+    "jquery": "^2.2.0",
+    "node-sass": "^3.4.2",
+    "politespace": "^0.1.4"
   }
 }
