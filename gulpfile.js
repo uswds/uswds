@@ -1,4 +1,5 @@
 require( './config/gulp/stylesheet' );
+require( './config/gulp/javascript' );
 require( './config/gulp/website' );
 
 var gulp = require( 'gulp' );
