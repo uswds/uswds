@@ -4,8 +4,7 @@
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "main": "assets/js/components.js",
   "scripts": {
-    "build-sass": "node-sass assets/_scss/all.scss > assets/css/uswds.css",
-    "prepublish": "npm run build-sass"
+    "prepublish": "gulp build:npm"
   },
   "assets": "assets/",
   "style": "assets/_scss/all.scss",
