@@ -1,4 +1,4 @@
-var version = require( '../../package.json' ).version;
+var pkg = require( '../../package.json' );
 var gutil = require( 'gulp-util' );
 
 var shellPrefix = '$';
@@ -58,17 +58,24 @@ function drawFlag () {
 
 module.exports = {
 
+  pkg: {
+
+    name: pkg.name,
+    version: pkg.version,
+
+  },
+
   logIntroduction: function ( message ) {
 
     message = message || 'Draft U.S. Web Design Standards';
 
     gutil.log(
-      gutil.colors.yellow( 'v' + version ),
+      gutil.colors.yellow( 'v' + pkg.version ),
       message
     );
     drawFlag();
     gutil.log(
-      gutil.colors.yellow( 'v' + version ),
+      gutil.colors.yellow( 'v' + pkg.version ),
       'The following gulp commands are available'
     );
 
