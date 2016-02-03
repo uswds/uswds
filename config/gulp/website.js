@@ -8,10 +8,12 @@ gulp.task( 'bundle-gems', function ( done ) {
 
   bundle.stdout.on( 'data', function ( data ) {
 
-    gutil.log(
-      gutil.colors.cyan( 'bundle-gems' ),
-      gutil.colors.yellow( '\n' + data )
-    );
+    if ( /[\w\d]+/.test( data ) ) {
+      gutil.log(
+        gutil.colors.cyan( 'bundle-gems' ),
+        gutil.colors.yellow( data )
+      );
+    }
 
   } );
 
