@@ -12,3 +12,4 @@ assets/css/uswds.css
 # Ignore the dist directory
 #
 dist/
+dist-gem/
