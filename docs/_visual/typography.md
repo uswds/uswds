@@ -990,7 +990,7 @@ order: 01
   <div class="usa-grid">
     <div class="usa-width-one-third">
 
-      <h6 class="usa-heading-alt styleguide">Unordered list</h6>
+      <h6 class="usa-heading-alt preview-first">Unordered list</h6>
 
       <ul>
         <li>Unordered list item</li>

@@ -78,7 +78,7 @@ lead: Patterns for some of the most commonly used forms on government websites
 
 <div class="preview">
 
-  <form class="usa-form-large styleguide">
+  <form class="usa-form-large preview-first">
     <fieldset>
       <legend>Mailing address</legend>
       <label for="mailing-address-1">Street address 1</label>

@@ -129,7 +129,7 @@ lead: Form controls allow users to enter information into a page.
 
 <div class="preview">
 
-  <fieldset class="usa-fieldset-inputs usa-sans styleguide">
+  <fieldset class="usa-fieldset-inputs usa-sans preview-first">
 
     <legend class="usa-sr-only">Historical figures 1</legend>
 
@@ -198,7 +198,7 @@ lead: Form controls allow users to enter information into a page.
 
 <div class="preview">
 
-  <fieldset class="usa-fieldset-inputs usa-sans styleguide">
+  <fieldset class="usa-fieldset-inputs usa-sans preview-first">
 
     <legend class="usa-sr-only">Historical figures 2</legend>
 
