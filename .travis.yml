@@ -2,7 +2,7 @@ language: ruby
 rvm:
   - 2.2.3
 
-script: ./go build
+script: bundle exec jekyll build
 
 notifications:
   email:
