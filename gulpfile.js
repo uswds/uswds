@@ -1,5 +1,9 @@
+// Bring in individual Gulp configurations
+//
 require( './config/gulp/sass' );
 require( './config/gulp/javascript' );
+require( './config/gulp/images' );
+require( './config/gulp/fonts' );
 require( './config/gulp/website' );
 
 var gulp = require( 'gulp' );
@@ -12,6 +16,11 @@ gulp.task( 'default', function ( done ) {
   dutil.logHelp(
     'gulp',
     'This task will output the currently supported automation tasks.'
+  );
+
+  dutil.logCommand(
+    'gulp sass',
+    'This task will build a uswds.css file in the dist/ directory using node-sass.'
   );
 
   dutil.logCommand(
