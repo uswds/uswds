@@ -11,7 +11,7 @@ var validator = require( './components/validator' );
 // README: This is necessary because politespace doesn't properly export anything
 // in its package.json. TODO: Let's open a PR related to this so we can fix it in Politespace.js
 //
-var Politespace = require( '../node_modules/politespace/src/politespace' ).Politespace;
+var Politespace = require( '../../node_modules/politespace/src/politespace' ).Politespace;
 
 $(function() {
 

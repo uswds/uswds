@@ -5,7 +5,7 @@ var rename = require( 'gulp-rename' );
 
 var files = [
 
-  'js/start.js',
+  'src/js/start.js',
 
 ];
 
