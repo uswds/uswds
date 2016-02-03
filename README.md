@@ -96,12 +96,12 @@ Questions or need help with setup? Did you run into any weird errors while follo
 $ scss-lint
 ```
 
-By default this will run scss-lint on `assets/_scss` (except `lib/`) and return all warnings or errors. Errors must be fixed before code can be committed, but ideally try to fix warnings as well.
+By default this will run scss-lint on `stylesheets/_scss` (except `lib/`) and return all warnings or errors. Errors must be fixed before code can be committed, but ideally try to fix warnings as well.
 
 You can also run scss-lint on other files:
 
 ```shell
-$ scss-lint assets/css/styleguide.scss
+$ scss-lint stylesheets/css/styleguide.scss
 ```
 
 Note, however, that scss-lint is not compatible with Jekyll's front matter, so you'll need to remove the following code (temporarily) before running scss-lint on files that contain it:
