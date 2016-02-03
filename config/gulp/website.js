@@ -1,5 +1,5 @@
 var gulp = require( 'gulp' );
-var gutil = require( 'gulp-util' );
+var dutil = require( './doc-util' );
 var spawn = require( 'child_process' ).spawn;
 
 gulp.task( 'bundle-gems', function ( done ) {
@@ -9,10 +9,9 @@ gulp.task( 'bundle-gems', function ( done ) {
   bundle.stdout.on( 'data', function ( data ) {
 
     if ( /[\w\d]+/.test( data ) ) {
-      gutil.log(
-        gutil.colors.cyan( 'bundle-gems' ),
-        gutil.colors.yellow( data )
-      );
+
+      dutil.logData( 'bundle-gems', data );
+
     }
 
   } );
@@ -25,20 +24,21 @@ gulp.task( 'bundle-gems', function ( done ) {
 
 gulp.task( 'website', function ( done ) {
 
-  gutil.log(
-    '$',
-    gutil.colors.cyan( 'gulp website' ),
-    gutil.colors.yellow( 'This is the default website task. Please review the available commands.' )
+  dutil.logIntroduction();
+
+  dutil.logHelp(
+    'gulp website',
+    'This is the default website task. Please review the available commands.'
   );
-  gutil.log(
-    '$',
-    gutil.colors.cyan( 'gulp website:build' ),
-    gutil.colors.magenta( 'Build the website.' )
+
+  dutil.logCommand(
+    'gulp website:build',
+    'Build the website.'
   );
-  gutil.log(
-    '$',
-    gutil.colors.cyan( 'gulp website:serve' ),
-    gutil.colors.magenta( 'Preview the website locally and rebuild it when files change.' )
+
+  dutil.logCommand(
+    'gulp website:serve',
+    'Preview the website locally and rebuild it when files change.'
   );
 
   done();
@@ -55,16 +55,15 @@ gulp.task( 'website:serve', [ 'bundle-gems' ], function ( done ) {
 
       data += '';
       data = data.replace( /[\s]+/g, ' ' );
+
       if ( /done|regen/i.test( data ) ) {
-        gutil.log(
-          gutil.colors.cyan( 'website:watch' ),
-          gutil.colors.green( data )
-        );
+
+        dutil.logMessage( 'website:watch', data );
+
       } else {
-        gutil.log(
-          gutil.colors.cyan( 'website:watch' ),
-          gutil.colors.yellow( data )
-        );
+
+        dutil.logData( 'website:watch', data );
+
       }
 
     }
@@ -88,10 +87,7 @@ gulp.task( 'website:build', [ 'bundle-gems' ], function ( done ) {
 
       data += '';
       data = data.replace( /[\s]+/g, ' ' );
-      gutil.log(
-        gutil.colors.cyan( 'website:build' ),
-        gutil.colors.yellow( data )
-      );
+      dutil.logData( 'website:watch', data );
 
     }
 
