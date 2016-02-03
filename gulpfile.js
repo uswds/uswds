@@ -1,4 +1,4 @@
-require( './config/gulp/stylesheet' );
+require( './config/gulp/sass' );
 require( './config/gulp/javascript' );
 require( './config/gulp/website' );
 

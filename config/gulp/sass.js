@@ -11,7 +11,7 @@ var files = [
   //'stylesheets/_scss/core/*.scss',
   //'stylesheets/_scss/components/*.scss',
   //'stylesheets/_scss/elements/*.scss',
-  'stylesheets/_scss/all.scss',
+  'src/stylesheets/_scss/all.scss',
 
 ];
 
@@ -23,11 +23,9 @@ var options = {
 
 gulp.task( 'sass', function ( done ) {
 
-  sass.on( 'error', sass.logError );
-
   return gulp.src( files )
     .pipe( sourcemaps.init() )
-    .pipe( sass( options ) )
+    .pipe( sass( options ).on( 'error', sass.logError ) )
     .pipe( sourcemaps.write() )
     .pipe( rename( { basename: 'uswds' } ) )
     .pipe( gulp.dest( 'dist/css' ) );
