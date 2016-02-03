@@ -4,7 +4,7 @@ var spawn = require( 'child_process' ).spawn;
 
 gulp.task( 'bundle-gems', function ( done ) {
 
-  var bundle = spawn( 'bundle' );
+  var bundle = spawn( './go', [ 'update_gems' ] );
 
   bundle.stdout.on( 'data', function ( data ) {
 
@@ -37,7 +37,7 @@ gulp.task( 'website', function ( done ) {
   );
   gutil.log(
     '$',
-    gutil.colors.cyan( 'gulp website:watch' ),
+    gutil.colors.cyan( 'gulp website:serve' ),
     gutil.colors.magenta( 'Preview the website locally and rebuild it when files change.' )
   );
 
@@ -45,10 +45,9 @@ gulp.task( 'website', function ( done ) {
 
 } );
 
-// TODO: Review that this should be using the `go` script
-gulp.task( 'website:watch', function ( done ) {
+gulp.task( 'website:serve', [ 'bundle-gems' ], function ( done ) {
 
-  var jekyll = spawn( 'jekyll', [ 'serve', '-w' ] );
+  var jekyll = spawn( './go', [ 'serve' ] );
 
   jekyll.stdout.on( 'data', function ( data ) {
 
@@ -81,7 +80,7 @@ gulp.task( 'website:watch', function ( done ) {
 
 gulp.task( 'website:build', [ 'bundle-gems' ], function ( done ) {
 
-  var jekyll = spawn( 'jekyll', [ 'build' ] );
+  var jekyll = spawn( './go', [ 'build' ] );
 
   jekyll.stdout.on( 'data', function ( data ) {
 
