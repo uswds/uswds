@@ -114,7 +114,7 @@ module.exports = {
 
     gutil.log(
       gutil.colors.cyan( name ),
-      gutil.colors.green( messsage )
+      gutil.colors.green( message )
     );
 
   },
