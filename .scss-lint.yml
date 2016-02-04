@@ -1,5 +1,5 @@
-scss_files: 'src/stylesheets/_scss/**/*.scss'
-exclude: 'src/stylesheets/_scss/lib/**'
+scss_files: 'src/stylesheets/**/*.scss'
+exclude: 'src/stylesheets/lib/**'
 
 linters:
   BangFormat:
