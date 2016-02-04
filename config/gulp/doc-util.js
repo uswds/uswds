@@ -74,10 +74,10 @@ module.exports = {
       message
     );
     drawFlag();
-    gutil.log(
-      gutil.colors.yellow( 'v' + pkg.version ),
-      'The following gulp commands are available'
-    );
+    //gutil.log(
+      //gutil.colors.yellow( 'v' + pkg.version ),
+      //'The following gulp commands are available'
+    //);
 
   },
 
