@@ -8,7 +8,7 @@ img {
   line-height: 0;
 }
 
-// Patch for Firefox: max-width:100% is not respected within auto-width inline 
+// Patch for Firefox: max-width:100% is not respected within auto-width inline
 // blocks
 @-moz-document url-prefix() {
   .media_link {

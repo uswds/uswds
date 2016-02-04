@@ -1,4 +1,7 @@
+// scss-lint:disable QualifyingElement, PropertyCount
+
 // Block form elements
+
 input,
 input[type="text"],
 input[type="email"],
@@ -14,12 +17,12 @@ input[type="month"],
 input[type="time"],
 input[type="week"],
 textarea,
-select  {
+select {
   appearance: none;
   border: 1px solid $color-gray;
   border-radius: 0;
   box-sizing: border-box;
-  color: $color-base; // standardize on firefox 
+  color: $color-base; // standardize on firefox
   display: block;
   font-size: $base-font-size;
   margin: 0.2em 0;
@@ -28,7 +31,7 @@ select  {
   padding: 1rem 0.7em;
   width: 100%;
 
-  &:focus, 
+  &:focus,
   &.usa-input-focus {
     box-shadow: $focus-shadow;
   }
@@ -46,12 +49,12 @@ select  {
   padding-top: 0.8rem;
   position: relative;
   right: 1.9rem;
-  
+
   input {
     border: 3px solid $color-secondary-dark;
     width: calc(100% + 1.5rem);
   }
-  
+
   label {
     margin-top: 0;
   }
@@ -88,7 +91,6 @@ select {
   appearance: none;
   background-color: $color-white;
   background-image: url('../img/arrow-down.png');
-  background-image: url('../img/arrow-down.svg');
   background-position: right 1.3rem center;
   background-repeat: no-repeat;
   background-size: 1.3rem;
@@ -113,9 +115,7 @@ legend {
   margin-bottom: 0;
 }
 
-/**
- * Custom checkboxes
- */
+// Custom checkboxes
 
 input[type="checkbox"],
 input[type="radio"] {
@@ -139,7 +139,7 @@ input[type="radio"] + label {
 
 input[type="checkbox"] + label::before,
 input[type="radio"] + label::before {
-  background: white;
+  background: $color-white;
   border-radius: $border-radius;
   box-shadow: 0 0 0 1px $color-gray-medium;
   content: '\a0';
@@ -152,10 +152,10 @@ input[type="radio"] + label::before {
   width: 1.8rem;
 }
 
-input[type="radio"] + label::before {  
+input[type="radio"] + label::before {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-gray-medium;
-  height: 1.6rem;  
-  width: 1.6rem;  
+  height: 1.6rem;
+  width: 1.6rem;
 }
 
 input[type="radio"] + label::before {
@@ -169,7 +169,7 @@ input[type="radio"]:checked + label::before {
 }
 
 input[type="radio"]:checked + label::before {
-  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary; 
+  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary;
 }
 
 input[type="radio"]:focus + label::before {
@@ -178,7 +178,6 @@ input[type="radio"]:focus + label::before {
 
 input[type="checkbox"]:checked + label::before {
   background-image: url('../img/correct8.png');
-  background-image: url('../img/correct8.svg');
   background-position: 50%;
   background-repeat: no-repeat;
 }
@@ -243,7 +242,7 @@ input[type=range]::-webkit-slider-thumb {
   border-radius: 1.5rem;
   background: $color-gray-lightest;
   cursor: pointer;
-  margin-top: -.65rem;  
+  margin-top: -.65rem;
   width: 2.2rem;
 }
 
@@ -296,11 +295,11 @@ input[type=range]:focus::-ms-thumb {
     margin-top: 0;
   }
 
-  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-inner-spin-button,
   input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
-    margin: 0; 
+    margin: 0;
   }
 
   input[type=number] {
@@ -308,8 +307,8 @@ input[type=range]:focus::-ms-thumb {
   }
 }
 
-.usa-form-group-day, 
-.usa-form-group-month, 
+.usa-form-group-day,
+.usa-form-group-month,
 .usa-form-group-year {
   clear: none;
   float: left;
