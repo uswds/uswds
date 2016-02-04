@@ -1,56 +1,58 @@
-ul, ol {
+ul,
+ol {
   margin-bottom: 2em;
   margin-top: 2em;
-
-  li {
-    line-height: $base-line-height;
-    margin-bottom: 0.75em;
-    margin-top: 0.75em;
-  }
-}
-
-h1, h2, h3, h4, h5, h6, p {
-  + ul, + ol {
-    margin-top: 0;
-  }
-}
-
-ul, ol {
   list-style: none;
   padding-left: 0;
   display: table;
 
-  li:after {
-    content: "";
-    display: block;
-    margin-bottom: 0.5em;
+  li {
+    display: table-row;
+    line-height: $base-line-height;
+    margin-bottom: 0.75em;
+    margin-top: 0.75em;
+
+    &::before {
+      display: table-cell;
+      padding-right: 0.4em;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      margin-bottom: 0.5em;
+    }
   }
 }
 
-ul li {
-  display: table-row;
-
-  &:before {
-    content: "•";
-    display: table-cell;
-    padding-right: 0.4em;
-  }
+ul li::before {
+  content: '•';
 }
 
 ol li {
   counter-increment: table-ol;
-  display: table-row;
 
-  &:before {
-    content: counter(table-ol) ".";
-    display: table-cell;
-    padding-right: 0.4em;
+  &::before {
+    content: counter(table-ol) '.';
     text-align: right;
   }
 }
 
 li {
   margin-bottom: 0.5em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  + ul,
+  + ol {
+    margin-top: 0;
+  }
 }
 
 // Unstyled lists
@@ -64,11 +66,11 @@ li {
     display: list-item;
     margin: 0;
 
-    &:before {
+    &::before {
       display: none;
     }
 
-    &:after {
+    &::after {
       display: none;
     }
   }
