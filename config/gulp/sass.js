@@ -3,13 +3,8 @@ var dutil = require( './doc-util' );
 var sass = require( 'gulp-sass' );
 var sourcemaps = require( 'gulp-sourcemaps' );
 var rename = require( 'gulp-rename' );
+var linter = require( 'gulp-scss-lint' );
 var task = /([\w\d-_]+)\.js$/.exec( __filename )[ 1 ];
-
-var files = [
-
-  'src/stylesheets/_scss/all.scss',
-
-];
 
 var options = {
 
@@ -17,11 +12,25 @@ var options = {
 
 };
 
-gulp.task( task, function ( done ) {
+gulp.task( 'scss-lint', function ( done ) {
+
+  if ( ! cFlags.test ) {
+    dutil.logMessage( 'scss-lint', 'Skipping linting of Sass files.' );
+    return done();
+  }
+
+  return gulp.src( 'src/stylesheets/**/*.scss' )
+    .pipe( linter( {
+      config: '.scss-lint.yml',
+    } ) );
+
+} );
+
+gulp.task( task, [ 'scss-lint' ], function ( done ) {
 
   dutil.logMessage( task, 'Compiling Sass' );
 
-  var stream = gulp.src( files )
+  var stream = gulp.src( 'src/stylesheets/all.scss' )
     .pipe( sourcemaps.init() )
     .pipe( sass( options ).on( 'error', sass.logError ) )
     .pipe( sourcemaps.write() )

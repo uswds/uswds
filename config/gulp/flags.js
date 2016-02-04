@@ -4,6 +4,7 @@ var dutil = require( './doc-util' );
 global.cFlags = {
 
   production: false,
+  test: false,
   gem: true,
 
 };
@@ -20,6 +21,14 @@ gulp.task( 'no-gem', function ( done ) {
 
   dutil.logMessage( 'no-gem', 'Disabling gem support' );
   cFlags.gem = false;
+  done();
+
+} );
+
+gulp.task( 'test', function ( done ) {
+
+  dutil.logMessage( 'test', 'All assets will run through linting and tests.' );
+  cFlags.test = true;
   done();
 
 } );
