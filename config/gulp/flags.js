@@ -11,7 +11,7 @@ global.cFlags = {
 
 gulp.task( 'production', function ( done ) {
 
-  dutil.logMessage( 'production', 'Assets will be production ready' );
+  dutil.logMessage( 'production', 'Assets will be production ready.' );
   cFlags.production = true;
   done();
 
@@ -19,7 +19,7 @@ gulp.task( 'production', function ( done ) {
 
 gulp.task( 'no-gem', function ( done ) {
 
-  dutil.logMessage( 'no-gem', 'Disabling gem support' );
+  dutil.logMessage( 'no-gem', 'Disabling gem support for all tasks.' );
   cFlags.gem = false;
   done();
 
