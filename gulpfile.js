@@ -1,5 +1,6 @@
 // Bring in individual Gulp configurations
 //
+require( './config/gulp/flags' );
 require( './config/gulp/sass' );
 require( './config/gulp/javascript' );
 require( './config/gulp/images' );
