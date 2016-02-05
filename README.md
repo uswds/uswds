@@ -157,12 +157,19 @@ and view the draft web design standards locally.
 
 Questions or need help with setup? Did you run into any weird errors while following these instructions? Feel free to open an issue here: [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
 
-### Gulp work flow
+### Gulp workflow
 
 The Draft Web Design Standards repository includes `gulp` to help with the
 automation of certain tasks. Once the project is installed on your local
 machine, you can run `gulp` within the project directory and see all available
 commands.
+
+The `gulp-cli` package will need to be installed globally in order to use the
+`gulp` tasks.
+
+```shell
+npm install --global gulp-cli
+```
 
 ## Contributing to the code base
 
