@@ -28,6 +28,7 @@ $accordion-border: 3px solid $color-gray-lightest;
 
   button[aria-expanded=false] {
     background-image: url('../img/plus.png');
+    background-image: url('../img/plus.svg');
     background-repeat: no-repeat;
     background-size: 1.3rem;
   }
@@ -35,6 +36,7 @@ $accordion-border: 3px solid $color-gray-lightest;
   button {
     background-color: $color-gray-lightest;
     background-image: url('../img/minus.png');
+    background-image: url('../img/minus.svg');
     background-position: right 3rem center;
     background-repeat: no-repeat;
     background-size: 13px;
