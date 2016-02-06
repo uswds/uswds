@@ -8,7 +8,7 @@
 // Clearfix helper
 @mixin clearfix() {
   &:after {
-    content: ".";  
+    content: ".";
     display: block;
     height: 0;
     clear: both;
@@ -51,8 +51,7 @@
 
 // Content size helpers
 @mixin allow-layout-classes {
-  margin-left: auto;
-  margin-right: auto;
+  @include margin(null auto);
 
   &.width-one-half {
     @include media($medium-screen) {
@@ -82,7 +81,7 @@
     @include media($medium-screen) {
       width: 75%;
     }
-  } 
+  }
 
   &.align-left {
     @include media($medium-screen) {

@@ -30,10 +30,7 @@ p {
 }
 
 .usa-section {
-  padding: {
-    bottom: $section-padding;
-    top: $section-padding;
-  }
+  @include padding($section-padding null);
 }
 
 .usa-button-block {
@@ -55,10 +52,7 @@ p {
   background-color: $color-primary-darkest;
   background-image: none;
   color: $color-white;
-  padding: {
-    bottom: 3.7rem;
-    top: 2rem;
-  }
+  @include padding(2rem null 3.7rem);
 
   .usa-label {
     display: table;
@@ -198,10 +192,7 @@ a {
 
 .usa-example-heading {
   font-weight: $font-normal;
-  margin: {
-    bottom: 1.6rem;
-    top: 0;
-  }
+  @include margin(0 null 1.6rem);
 }
 
 .usa-section-examples {
@@ -212,7 +203,7 @@ a {
   .usa-example-link {
     margin-top: 5rem;
     max-width: 980px;
-    
+
     &:first-of-type {
       margin-top: 0;
     }
