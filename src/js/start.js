@@ -1,7 +1,7 @@
 'use strict';
 
 var $ = require( 'jquery' );
-var Accordion = require( './components/accordian' );
+var Accordion = require( './components/accordion' );
 var toggleFieldMask = require( './components/toggle-field-mask' );
 var togglePassword = require( './components/toggle-password' );
 var toggleMultiPassword = require( './components/toggle-multi-password' );
