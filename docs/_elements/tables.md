@@ -7,7 +7,7 @@ lead: Tables show tabular data in columns and rows.
 
 <div class="preview">
 
-  <h6>Bordered Table</h6>
+  <h6 class="preview-first">Bordered Table</h6>
 
   <table>
     <thead>

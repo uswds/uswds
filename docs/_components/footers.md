@@ -7,7 +7,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
 
 <div class="preview">
 
-  <h6 class="usa-heading-alt" id="big-footer">Big footer</h6>
+  <h6 class="usa-heading-alt styleguide" id="big-footer">Big footer</h6>
 
   <footer class="usa-footer usa-footer-big usa-sans" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">

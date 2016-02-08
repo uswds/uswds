@@ -267,12 +267,16 @@ $site-top:           124px;
   position: relative;
 
   > h1 {
-    margin-top: 3.4rem;
+    margin-top: 5.4rem;
     &:not(:first-child) {
       margin-top: 1.5em;
     }
   }
   @media (min-width: $medium-screen + $width-nav-sidebar) {
+    > h1 {
+      margin-top: 3.4rem;
+    }
+
     padding: {
       left: 3em;
       right: 3em;
@@ -309,23 +313,36 @@ $site-top:           124px;
 
 .preview {
   @include clearfix();
-  background-color: #fff;
+  background-color: $color-white;
   margin: {
-    top: 2em;
     bottom: 2em;
+    top: 2em;
   }
-  padding: 1em $site-margins;
-  border: 1px solid #eeeeee;
-  .is-peripheral {
-    opacity: .2;
+  padding: 0 $site-margins $site-margins;
+  border: 1px solid $color-gray-warm-light;
+
+  .is-peripheral { 
+    opacity: .2; 
+  }
+
+  .usa-background-dark {
+    display: inline-block;
+    padding: {
+      left: 1em;
+      right: 1em;
+    }
+  }
+  .preview-first {
+    margin-top: 3rem;
+    display: block;
   }
 }
 
 .preview-no_border {
   border: 0;
   margin: {
-    top: 0;
     bottom: 2em;
+    top: 0;
   }
   padding: 0;
 }
@@ -831,7 +848,9 @@ h3 + .button_wrapper {
   padding-bottom: .8rem;
 }
 
-h6.usa-heading-alt {
+
+// scss-lint:disable QualifyingElement
+h6, h6.usa-heading-alt {
   margin-top: 4rem;
 }
 
