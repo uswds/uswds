@@ -13,3 +13,7 @@ assets/css/uswds.css
 #
 dist/
 dist-gem/
+
+# Ignore the .bundle directory used for bundle config & local-gem development
+#
+.bundle/
