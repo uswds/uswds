@@ -105,7 +105,7 @@ module.exports = {
 
     gutil.log(
       gutil.colors.cyan( name ),
-      gutil.colors.yellow( messsage )
+      gutil.colors.yellow( message )
     );
 
   },
