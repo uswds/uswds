@@ -6,7 +6,7 @@ gulp.task( 'build', [ 'sass', 'javascript', 'images', 'fonts' ], function ( done
   dutil.logIntroduction();
   dutil.logMessage(
     'build',
-    'The build task has created dist and dist-gem directories.'
+    'The build task has created distrubtion directories.'
   );
   done();
 
