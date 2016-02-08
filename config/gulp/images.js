@@ -11,8 +11,8 @@ gulp.task( task, function ( done ) {
 
   if ( cFlags.gem ) {
     dutil.logMessage( task, 'Creating gem directories' );
-    stream = stream.pipe( gulp.dest( 'dist-gem/assets/images' ) );
-    stream = stream.pipe( gulp.dest( 'dist-gem/app/assets/img' ) );
+    stream = stream.pipe( gulp.dest( 'dist-gem/assets/img' ) );
+    stream = stream.pipe( gulp.dest( 'dist-gem/app/assets/images' ) );
   }
 
   return stream;
