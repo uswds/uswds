@@ -6,6 +6,8 @@ global.cFlags = {
   production: false,
   test: false,
   gem: true,
+  local: false,
+  cleanup: true,
 
 };
 
@@ -25,9 +27,23 @@ gulp.task( 'no-gem', function ( done ) {
 
 } );
 
+gulp.task( 'local-gem', function ( done ) {
+
+  dutil.logMessage(
+    'local-gem',
+    'Enabling local gem development for the Jekyll site'
+  );
+  cFlags.local = true;
+  done();
+
+} );
+
 gulp.task( 'test', function ( done ) {
 
-  dutil.logMessage( 'test', 'All assets will run through linting and tests.' );
+  dutil.logMessage(
+    'test',
+    'All assets will run through linting and tests.'
+  );
   cFlags.test = true;
   done();
 
