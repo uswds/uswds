@@ -13,7 +13,7 @@ var task = /([\w\d-_]+)\.js$/.exec(__filename)[ 1 ];
 
 gulp.task('eslint', function (done) {
 
-  if (! cFlags.test) {
+  if (!cFlags.test) {
     dutil.logMessage('eslint', 'Skipping linting of JavaScript files.');
     return done();
   }

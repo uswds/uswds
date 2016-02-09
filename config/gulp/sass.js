@@ -14,7 +14,7 @@ var options = {
 
 gulp.task('scss-lint', function (done) {
 
-  if (! cFlags.test) {
+  if (!cFlags.test) {
     dutil.logMessage('scss-lint', 'Skipping linting of Sass files.');
     return done();
   }
