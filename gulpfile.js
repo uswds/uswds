@@ -47,8 +47,23 @@ gulp.task( 'default', function ( done ) {
   );
 
   dutil.logHelp(
-    'gulp test [ task-name ]',
-    'Prefixing tasks with `test` will trigger testing and linting for all supported tasks.'
+    'gulp no-cleanup [ task-name ]',
+    'Prefixing tasks with `no-cleanup ` will not remove the distribution directories.'
+  );
+
+  dutil.logHelp(
+    'gulp no-test [ task-name ]',
+    'Prefixing tasks with `no-test` will disable testing and linting for all supported tasks.'
+  );
+
+  dutil.logHelp(
+    'gulp local-gem [ task-name ]',
+    'Prefixing tasks with `local-gem` will clone the us_web_design_standards_gem locally in `dist-gem` for the Jekyll site.'
+  );
+
+  dutil.logCommand(
+    'gulp clean-dist',
+    'This task will remove the distribution directories.'
   );
 
   dutil.logHelp(
@@ -70,6 +85,7 @@ gulp.task( 'default', function ( done ) {
     'gulp images',
     'This task will copy all the image files into distribution directories.'
   );
+
   dutil.logCommand(
     'gulp fonts',
     'This task will copy all the font files into distribution directories.'
