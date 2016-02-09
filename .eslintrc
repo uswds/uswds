@@ -13,8 +13,8 @@
         "array-bracket-spacing": [ 2, "always" ],
         "block-spacing": [ 2, "always" ],
         "comma-spacing": [ 2, { "before": false, "after": true } ],
-        "computed-property": [ 2, "never" ],
-        "object-curly-spacing": [ 2, "always "]
+        "computed-property-spacing": [ 2, "always" ],
+        "object-curly-spacing": [ 2, "always" ]
     },
     "env": {
         "node": true,
