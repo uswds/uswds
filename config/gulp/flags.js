@@ -30,7 +30,7 @@ gulp.task('no-gem', function (done) {
 gulp.task('no-test', function (done) {
 
   dutil.logMessage(
-    'test',
+    'no-test',
     'Disabling linting and tests for all assets.'
   );
   cFlags.test = false;
