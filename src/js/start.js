@@ -1,17 +1,17 @@
 'use strict';
 
-var $ = require( 'jquery' );
-var Accordion = require( './components/accordion' );
-var toggleFieldMask = require( './components/toggle-field-mask' );
-var togglePassword = require( './components/toggle-password' );
-var toggleMultiPassword = require( './components/toggle-multi-password' );
-var toggleSSN = require( './components/toggle-ssn' );
-var validator = require( './components/validator' );
+var $ = require('jquery');
+var Accordion = require('./components/accordion');
+var toggleFieldMask = require('./components/toggle-field-mask');
+var togglePassword = require('./components/toggle-password');
+var toggleMultiPassword = require('./components/toggle-multi-password');
+var toggleSSN = require('./components/toggle-ssn');
+var validator = require('./components/validator');
 
 // README: This is necessary because politespace doesn't properly export anything
 // in its package.json. TODO: Let's open a PR related to this so we can fix it in Politespace.js
 //
-var Politespace = require( '../../node_modules/politespace/src/politespace' ).Politespace;
+var Politespace = require('../../node_modules/politespace/src/politespace').Politespace;
 
 $(function() {
 
@@ -22,26 +22,26 @@ $(function() {
 		initSelector = "[data-" + componentName + "]:not([" + enhancedAttr + "])";
 
 	$.fn[ componentName ] = function(){
-		return this.each( function(){
-			var polite = new Politespace( this );
-			if( polite.type === "number" ) {
+		return this.each(function(){
+			var polite = new Politespace(this);
+			if(polite.type === "number") {
 				polite.createProxy();
 			}
 
-			$( this )
-				.bind( "input keydown", function() {
+			$(this)
+				.bind("input keydown", function() {
 					polite.updateProxy();
 				})
-				.bind( "blur", function() {
-					$( this ).closest( ".politespace-proxy" ).addClass( "active" );
+				.bind("blur", function() {
+					$(this).closest(".politespace-proxy").addClass("active");
 					polite.update();
 					polite.updateProxy();
 				})
-				.bind( "focus", function() {
-					$( this ).closest( ".politespace-proxy" ).removeClass( "active" );
+				.bind("focus", function() {
+					$(this).closest(".politespace-proxy").removeClass("active");
 					polite.reset();
 				})
-				.data( componentName, polite );
+				.data(componentName, polite);
 
 			polite.update();
 		});
