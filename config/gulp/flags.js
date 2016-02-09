@@ -7,6 +7,7 @@ global.cFlags = {
   test: true,
   gem: true,
   cleanup: true,
+  local: false,
 
 };
 
@@ -40,10 +41,18 @@ gulp.task('no-test', function (done) {
 gulp.task('no-cleanup', function (done) {
 
   dutil.logMessage(
-    'cleanup',
+    'no-cleanup',
     'Disabling cleanup of distribution directories.'
   );
   cFlags.cleanup = false;
+  done();
+
+});
+
+gulp.task('local-gem', function (done) {
+
+  dutil.logMessage('local-gem', 'Building us_web_design_standards_gem locally.');
+  cFlags.local = true;
   done();
 
 });
