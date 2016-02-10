@@ -15,33 +15,27 @@ $site-top:           124px;
 // Navigation ------------- //
 
 .usa-site-header {
+  @include position(fixed, 0 null null 0);
   background-color: $color-white;
   border-bottom: 1px solid $color-gray-light;
-  position: fixed;
-  left: 0;
-  top: 0;
   width: 100%;
   z-index: 1;
-  
+
   a {
     border-bottom: none;
   }
 
   .usa-site-navbar {
     @include media($medium-screen + $width-nav-sidebar) {
+      @include margin(2.7rem 0 1rem);
       height: 6rem;
-      margin: {
-        bottom: 1rem;
-        top: 2.7rem;
-      }
     }
     margin-top: 4px;
 
     .logo {
       @include media($medium-screen + $width-nav-sidebar) {
-        padding-left: $site-margins;
-        text-align: left; 
-        padding-top: 0;
+        @include padding(0 null null $site-margins);
+        text-align: left;
         width: auto;
       }
       float: left;
@@ -77,9 +71,9 @@ $site-top:           124px;
       float: right;
       display: none;
       margin-top: -5px;
-      
-      li { 
-        display: inline; 
+
+      li {
+        display: inline;
         font-family: $font-sans;
 
         &:last-child .usa-button {
@@ -96,7 +90,7 @@ $site-top:           124px;
     font-size: $base-font-size / 1.25;
     border-bottom: 1px solid #616161;
     font-weight: 100;
-    .us-official { 
+    .us-official {
       margin: 0;
     }
     .stage {
@@ -106,11 +100,11 @@ $site-top:           124px;
       padding-top: 5px;
     }
     @include media($medium-screen + $width-nav-sidebar) {
-      .us-official { 
-        margin-left: 177px; 
+      .us-official {
+        margin-left: 177px;
       }
-      .stage { 
-        float: right; 
+      .stage {
+        float: right;
         padding: 0;
       }
     }
@@ -122,11 +116,10 @@ $site-top:           124px;
   @include media($medium-screen + $width-nav-sidebar) {
     display: none;
   }
+  @include padding(1.5rem null);
   display: inline;
   float: left;
   margin-top: -4px;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
   color: $color-white;
   background-color: $color-primary;
   font-size: 1.5rem;
@@ -138,7 +131,7 @@ $site-top:           124px;
     color: $color-white;
     background-color: $color-primary-darker;
   }
-  
+
   &:visited {
     color: $color-white;
   }
@@ -164,7 +157,7 @@ $site-top:           124px;
 }
 
 .overlay {
-  @include position(fixed, 0 0 0 0);
+  @include position(fixed, 0);
   @include transition;
   background: #000;
   opacity: 0;
@@ -181,17 +174,14 @@ $site-top:           124px;
 // Sidebar Nav --------- //
 
 .sidenav {
-  position: fixed;
-  top: $site-top;
-  bottom: 0;
-  left: 0;
+  @include position(fixed, $site-top null 0 0);
   width: $width-nav-sidebar;
   border-right: 1px solid $color-gray-light;
   padding: 5rem 3rem 3rem 3rem;
   overflow: auto;
   display: none;
   z-index: -1;
-  
+
   .lt-ie9 & {
     width: 25%;
   }
@@ -207,7 +197,7 @@ $site-top:           124px;
 
 .visual-style .sidenav .visual-style-sublist {
   display: block;
-  
+
   ul {
     display: block;
   }
@@ -223,7 +213,7 @@ $site-top:           124px;
 
 .footers .sidenav .footers-sublist {
   display: block;
-} 
+}
 
 // Main Content --------- //
 
@@ -231,17 +221,9 @@ $site-top:           124px;
   @include media($medium-screen) {
     top: $site-top;
   }
-  position: absolute;
-  top: 4rem;
-  bottom: 0;
-  right: 0;
+  @include position(absolute, 4rem 0 0 null);
+  @include padding(1em null 0);
   width: 100%;
-  padding: {
-    bottom: 0;
-//    left: 2em;
-//    right: 2em;
-    top: 1em;
-  }
   z-index: -1;
   .lt-ie9 & {
     width: 75%;
@@ -260,10 +242,7 @@ $site-top:           124px;
 .styleguide-content {
   margin-bottom: 5em;
   max-width: $site-max-width;
-  padding: {
-    left: 2em;
-    right: 2em;
-  }
+  @include padding(null 2em);
   position: relative;
 
   > h1 {
@@ -273,10 +252,7 @@ $site-top:           124px;
     }
   }
   @media (min-width: $medium-screen + $width-nav-sidebar) {
-    padding: {
-      left: 3em;
-      right: 3em;
-    }
+    @include padding(null 3em);
   }
 }
 
@@ -284,12 +260,9 @@ $site-top:           124px;
 
 .usa-styleguide-footer {
   background-color: $color-primary-darker;
-  padding: {
-    bottom: 3rem;
-    top: 3rem;
-  }
+  @include padding(3rem null);
 
-// This is a styleguide-only rule and is not needed in the main library code for 
+// This is a styleguide-only rule and is not needed in the main library code for
 // the footer component which uses different styles
 // TODO investigate why it's not needed in the main library CSS
   p, a {
@@ -298,10 +271,7 @@ $site-top:           124px;
     }
     color: $color-white;
     font-size: $h5-font-size;
-    margin: {
-      bottom: 1.5rem;
-      top: 0;
-    }
+    @include margin(0 null 1.5rem);
   }
 }
 
@@ -310,10 +280,7 @@ $site-top:           124px;
 .preview {
   @include clearfix();
   background-color: #fff;
-  margin: {
-    top: 2em;
-    bottom: 2em;
-  }
+  @include margin(2em null);
   padding: 1em $site-margins;
   border: 1px solid #eeeeee;
   .is-peripheral {
@@ -323,10 +290,7 @@ $site-top:           124px;
 
 .preview-no_border {
   border: 0;
-  margin: {
-    top: 0;
-    bottom: 2em;
-  }
+  @include margin(0 null 2em);
   padding: 0;
 }
 
@@ -343,7 +307,7 @@ $site-top:           124px;
     table {
       display: none;
     }
-    
+
     .code-snippet-button:after {
       content: "\25b8  show code";
     }
@@ -362,11 +326,9 @@ $site-top:           124px;
       vertical-align: top;
 
       .code-copy-button {
+        @include position(absolute, 0 0 null null);
         border-radius: 0;
-        position: absolute;
         margin: 0;
-        right: 0;
-        top: 0;
 
         &:hover {
           background-color: $color-base;
@@ -427,19 +389,13 @@ $site-top:           124px;
       color: $color-white;
       padding: 1em;
       background: $color-grid-dark;
-      margin: {
-        top: .5em;
-        bottom: .5em;
-      }
+      @include margin(.5em null);
     }
   }
 
   .usa-width-one-twelfth {
     @include media($medium-screen) {
-      padding: {
-        left: 0;
-        right: 0;
-      }
+      @include padding(null 0);
     }
   }
 }
@@ -508,10 +464,7 @@ h3 + .button_wrapper {
   @include media($medium-screen) {
     margin: 0;
   }
-  margin: {
-    bottom: 1em;
-    top: 0;
-  }
+  @include margin(0 null 1em);
 }
 
 .usa-color-row {
@@ -578,10 +531,7 @@ h3 + .button_wrapper {
 
 .usa-color-hex {
   font-weight: $font-bold;
-  margin: {
-    bottom: 0;
-    top: 1rem;
-  }
+  @include margin(1rem null 0);
 }
 
 .usa-color-name {
@@ -591,12 +541,7 @@ h3 + .button_wrapper {
 .usa-color-text {
   font-weight: $font-bold;
   margin-bottom: .4rem;
-  padding: {
-    bottom: 1rem;
-    left: 2rem;
-    right: 2rem;
-    top: 1rem;
-  }
+  @include padding(1rem 2rem);
 }
 
 .usa-color-outline {
@@ -844,10 +789,7 @@ h6.usa-heading-alt {
 .usa-typography-example {
   .usa-monospace {
     font-size: 1.2rem;
-    margin: {
-      bottom: 3rem;
-      top: 0;
-    }
+    @include margin(0 null 3rem);
   }
 }
 
@@ -900,10 +842,7 @@ code[class*="language-"], pre[class*="language-"] {
 .preview {
   .usa-background-dark {
     display: inline-block;
-    padding: {
-      left: 1em;
-      right: 1em;
-    }
+    @include padding(null 1em);
   }
 }
 
@@ -921,10 +860,7 @@ code[class*="language-"], pre[class*="language-"] {
 }
 
 .text-tiny {
-  margin: {
-    bottom: 0;
-    top: 5px;
-  }
+  @include margin(5px null 0);
 
   &:first-child {
     margin-top: 0;
@@ -969,7 +905,7 @@ $font-light: 300;
   .usa-font-lead {
     font-weight: $font-light;
   }
-  
+
   .usa-font-lead.usa-font-lead-alt {
     @include font-lead-alt();
   }
@@ -985,7 +921,7 @@ $font-light: 300;
       .usa-font-lead {
         font-size: $h3-font-size;
       }
-    
+
       .usa-font-lead.usa-font-lead-alt {
         @include font-lead-alt();
       }
@@ -997,7 +933,7 @@ $font-light: 300;
   h1, h2, h3, h4, h5, h6 {
     font-family: $font-sans;
   }
-  
+
   h1 {
     font-size: rem(44px);
   }
@@ -1051,7 +987,7 @@ $font-light: 300;
         font-size: rem(22px);
         font-weight: $font-light;
         line-height: $base-line-height;
-      }      
+      }
     }
   }
 }
@@ -1066,7 +1002,7 @@ $font-light: 300;
   margin-bottom: 6rem;
 }
 
-// This adds styleguide-only right and left margins for our disclaimer 
+// This adds styleguide-only right and left margins for our disclaimer
 // Since the layout we use is not in a grid
 .usa-disclaimer-stage {
   padding-right: $site-margins;
