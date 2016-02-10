@@ -148,7 +148,8 @@ Now that you have verified that you have Ruby installed, clone and run the follo
 ```shell
 $ git clone git@github.com:18F/web-design-standards.git
 $ cd web-design-standards
-$ ./go serve
+$ npm install
+$ gulp website:watch
 ```
 
 You should now be able to visit `http://127.0.0.1:4000/`
@@ -156,25 +157,18 @@ and view the draft web design standards locally.
 
 Questions or need help with setup? Did you run into any weird errors while following these instructions? Feel free to open an issue here: [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
 
-### Linting
+### Gulp workflow
+
+The Draft Web Design Standards repository includes `gulp` to help with the
+automation of certain tasks. Once the project is installed on your local
+machine, you can run `gulp` within the project directory and see all available
+commands.
+
+The `gulp-cli` package will need to be installed globally in order to use the
+`gulp` tasks.
 
 ```shell
-$ scss-lint
-```
-
-By default this will run scss-lint on `stylesheets/_scss` (except `lib/`) and return all warnings or errors. Errors must be fixed before code can be committed, but ideally try to fix warnings as well.
-
-You can also run scss-lint on other files:
-
-```shell
-$ scss-lint src/stylesheets/css/styleguide.scss
-```
-
-Note, however, that scss-lint is not compatible with Jekyll's front matter, so you'll need to remove the following code (temporarily) before running scss-lint on files that contain it:
-
-```ruby
----
----
+npm install --global gulp-cli
 ```
 
 ## Contributing to the code base
