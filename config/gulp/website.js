@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var dutil = require('./doc-util');
 var process = require('child_process');
 var spawn = process.spawn;
-var cleanup = require('gulp-cleanup');
 var runSequence = require('run-sequence');
 var clean = require('gulp-clean');
 

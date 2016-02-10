@@ -29,7 +29,6 @@
     "gulp": "^3.9.0",
     "gulp-cached": "^1.1.0",
     "gulp-clean": "^0.3.1",
-    "gulp-cleanup": "^1.0.0",
     "gulp-concat": "^2.6.0",
     "gulp-eslint": "^1.1.1",
     "gulp-filter": "^3.0.1",
