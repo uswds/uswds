@@ -12,6 +12,7 @@
     "preversion": "npm test",
     "version": "npm run prepublish",
     "deploy": "gulp copy-vendor-sass && gulp website:build"
+
   },
   "repository": {
     "type": "git",
