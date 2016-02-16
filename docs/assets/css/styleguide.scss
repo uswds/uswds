@@ -272,6 +272,11 @@ $site-top:           124px;
   .is-peripheral {
     opacity: .2;
   }
+
+  .usa-background-dark {
+    display: inline-block;
+    @include padding(null 1em);
+  }
 }
 
 .preview-no_border {
@@ -760,13 +765,6 @@ pre[class*="language-"] {
   margin-top: 0;
 }
 // scss-lint:enable QualifyingElement
-
-.preview {
-  .usa-background-dark {
-    display: inline-block;
-    @include padding(null 1em);
-  }
-}
 
 .alignment-example {
   border-left: 2px solid $color-primary-darker;
