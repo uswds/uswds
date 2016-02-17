@@ -5,6 +5,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var linter = require('gulp-scss-lint');
 var merge = require('merge-stream');
+var filter = require('gulp-filter');
 var task = /([\w\d-_]+)\.js$/.exec(__filename)[ 1 ];
 
 var options = {
@@ -12,6 +13,8 @@ var options = {
   outputStyle: cFlags.production ? 'compressed' : 'expanded',
 
 };
+
+var entryFile = filter('all.scss', { restore: true });
 
 gulp.task('scss-lint', function (done) {
 
@@ -46,6 +49,9 @@ gulp.task(task, [ 'scss-lint' ], function (done) {
       .pipe(gulp.dest('dist-gem/app/assets/stylesheets'));
     dutil.logMessage(task, 'Creating gem src directories');
     var srcStream = gulp.src('src/stylesheets/**/*.scss')
+      .pipe(entryFile)
+        .pipe(rename('us_web_design_standards.scss'))
+      .pipe(entryFile.restore)
       .pipe(gulp.dest('dist-gem/assets/sass'));
     streams.add(srcStream);
   }
