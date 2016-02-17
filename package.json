@@ -42,6 +42,7 @@
     "gulp-zip": "^3.1.0",
     "inquirer": "^0.11.4",
     "jquery": "^2.2.0",
+    "merge-stream": "^1.0.0",
     "minimist": "^1.2.0",
     "node-sass": "^3.4.2",
     "politespace": "^0.1.4",
