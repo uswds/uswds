@@ -31,19 +31,25 @@ gulp.task(task, [ 'scss-lint' ], function (done) {
 
   dutil.logMessage(task, 'Compiling Sass');
 
-  var stream = gulp.src('src/stylesheets/all.scss')
+  var compiledStream = gulp.src('src/stylesheets/all.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(options).on('error', sass.logError))
     .pipe(sourcemaps.write())
     .pipe(rename({ basename: dutil.pkg.name }))
     .pipe(gulp.dest('dist/css'));
 
+  var streams = merge(compiledStream);
+
   if (cFlags.gem) {
     dutil.logMessage(task, 'Creating gem directories');
-    stream = stream.pipe(gulp.dest('dist-gem/assets/css'));
-    stream = stream.pipe(gulp.dest('dist-gem/app/assets/stylesheets'));
+    stream.pipe(gulp.dest('dist-gem/assets/css'))
+      .pipe(gulp.dest('dist-gem/app/assets/stylesheets'));
+    dutil.logMessage(task, 'Creating gem src directories');
+    var srcStream = gulp.src('src/stylesheets/**/*.scss')
+      .pipe(gulp.dest('dist-gem/assets/sass'));
+    streams.add(srcStream);
   }
 
-  return stream;
+  return streams;
 
 });
