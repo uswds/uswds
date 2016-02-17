@@ -4,6 +4,7 @@ var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var linter = require('gulp-scss-lint');
+var merge = require('merge-stream');
 var task = /([\w\d-_]+)\.js$/.exec(__filename)[ 1 ];
 
 var options = {
