@@ -45,7 +45,7 @@ gulp.task(task, [ 'scss-lint' ], function (done) {
 
   if (cFlags.gem) {
     dutil.logMessage(task, 'Creating gem directories');
-    stream.pipe(gulp.dest('dist-gem/assets/css'))
+    compiledStream.pipe(gulp.dest('dist-gem/assets/css'))
       .pipe(gulp.dest('dist-gem/app/assets/stylesheets'));
     dutil.logMessage(task, 'Creating gem src directories');
     var srcStream = gulp.src('src/stylesheets/**/*.scss')
