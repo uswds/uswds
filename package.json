@@ -26,6 +26,8 @@
   "homepage": "https://github.com/18F/web-design-standards#readme",
   "dependencies": {
     "jquery": "^2.2.0",
+    "node-bourbon": "^4.2.3",
+    "node-neat": "^1.7.2",
     "politespace": "^0.1.4"
   },
   "devDependencies": {
