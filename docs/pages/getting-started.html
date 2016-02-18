@@ -21,8 +21,10 @@ lead: The Draft U.S. Web Design Standards are designed to set a new bar for simp
   <li>Uses a <strong><a href="https://pages.18f.gov/frontend/css-coding-styleguide/naming/">modified BEM</a></strong> approach created by 18F for naming CSS selectors. Objects in CSS are separated by single dashes. Multi-word objects are separated by an underscore (For example: <code>.usa-button-cool_feature-active</code>).</li>
   <li>Uses <strong>modular CSS</strong> for scalable, modular, and flexible code.</li>
   <li>Uses <strong>nesting</strong> when appropriate. Nest minimally with up to two levels of nesting.</li>
-  <li><strong>Global variables</strong> are defined in the _variables.scss file. This is where custom theming can be done to change site-wide colors, fonts, etc.</li>
-  <li>Hard-coded magic numbers are avoided and, if necessary, defined in the <code>_variables.scss</code> file.</li>
+  <li><strong>Global variables</strong> are defined in the <code>_defaults.scss</code> file.
+    Any of these variables can be changed by a user of the library by
+    overwriting them with their own Sass file.</li>
+  <li>Hard-coded magic numbers are avoided and, if necessary, defined in the <code>_defaults.scss</code> file.</li>
   <li>Media queries are built <strong>mobile first</strong>.</li>
   <li><strong>Spacing units</strong> are as much as possible defined as rem or em units so they scale appropriately with text size. Pixels can be used for detail work and should not exceed 5px (For example: 3px borders).</li>
 </ol>
