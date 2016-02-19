@@ -7,7 +7,6 @@
         "linebreak-style": [ 2, "unix" ],
         "semi": [ 2, "always" ],
         "comma-dangle": [ 1, "always-multiline" ],
-        "no-console": [ 0 ],
         "no-undef": [ 0 ],
         "space-before-function-paren": [ 2, "always" ],
         "array-bracket-spacing": [ 2, "always" ],
