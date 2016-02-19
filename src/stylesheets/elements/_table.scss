@@ -2,27 +2,28 @@ table {
   border-spacing: 0;
   margin: 2em 0;
   min-width: 100%;
+}
 
-  thead {
-    tr {
-      background-color: $color-gray-lightest;
-    }
-
-    th {
-      text-align: left;
-    }
+thead {
+  tr {
+    background-color: $color-gray-lightest;
   }
 
-  tbody {
-    th {
-      font-weight: $font-normal;
-    }
+  th {
+    text-align: left;
   }
+}
 
-  th, td {
-    border: 1px solid $color-gray;
-    padding: 1.5rem;
+tbody {
+  th {
+    font-weight: $font-normal;
   }
+}
+
+th,
+td {
+  border: 1px solid $color-gray;
+  padding: 1.5rem;
 }
 
 .usa-table-borderless {
@@ -36,7 +37,8 @@ table {
     }
   }
 
-  th, td {
+  th,
+  td {
     border-left: 0;
     border-right: 0;
   }
