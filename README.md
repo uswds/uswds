@@ -47,7 +47,7 @@ Draft Web Design Standards.
 
 ```shell
 cd path/to/project-using-npm
-npm install --save uswds
+npm install --save git+https://git@github.com/18F/web-design-standards.git#18f-pages-staging --registry https://registry.npmjs.org/
 ```
 
 This will add the Draft Web Design Standards as a dependency for your project and
