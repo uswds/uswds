@@ -34,7 +34,7 @@
       }
     }
     .usa-width-five-sixths {
-      @include span-columns(5);
+      @include span-columns(4);
     }
     .usa-width-one-twelfth {
       @include span-columns(2);
