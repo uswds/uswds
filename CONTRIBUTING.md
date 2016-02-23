@@ -14,22 +14,7 @@ If you have any questions or want to read more, check out the [18F Open Source P
 
 To help us get a better understanding of the issue you are submitting, please leverage the following outline (as used in the following [Girl Develop It issue template](https://github.com/girldevelopit/gdi-new-site/issues/83)):
 
-**Description**
-
-*Include a high-level description of the feature or error here including steps of how to recreate it if applicable. Include any benefits, challenges, or considerations. This can be short and sweet.*
-
-**Ask**
-
-*Describe the desired behavior and what would deem this issue, bug, or feature complete.*
-
-**To Do**
-- [ ] Steps
-- [ ] To
-- [ ] Complete/Fix
-
-**Additional Info**
-
-*Include any images, steps to recreate, notes, emojis, or whatever.*
+[View the `ISSUE_TEMPLATE.md` in this repository](.github/ISSUE_TEMPLATE.md)
 
 ### Submitting a pull request
 
