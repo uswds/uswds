@@ -47,8 +47,14 @@ Draft Web Design Standards.
 
 ```shell
 cd path/to/project-using-npm
-npm install --save uswds
+npm install --save git+https://git@github.com/18F/web-design-standards.git#18f-pages-staging --registry https://registry.npmjs.org/
 ```
+
+> __Please note__ that installing the `uswds` package via Github will use the
+development version of the Draft Web Design Standards and is not tied to a
+stable release. Installation via Github will also be deprecated once this package
+is published to `npm`. The library may also have a different structure so some
+file paths may be different.
 
 This will add the Draft Web Design Standards as a dependency for your project and
 save it to your `package.json` file. The package will be installed in `node_modules`
