@@ -5,17 +5,6 @@
   }
 }
 
-// Clearfix helper
-@mixin clearfix() {
-  &:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-  }
-}
-
 // Screen reader only helper
 .usa-sr-only {
   position: absolute;
