@@ -11,9 +11,9 @@ These tools follow industry-standard web accessibility guidelines and use the be
 We’re glad you’d like to use the Standards — here’s how you can get started:
 
 * Designers: Check out Getting Started for Designers here [link to Playbook].
-** Design files of all the assets included on this site are available for download here.
+** Design files of all the assets included on this site are available for download [here](https://playbook.cio.gov/designstandards/designstandards/assets/releases/wds-design-assets.zip).
 * Developers: Likewise, visit Getting Started for Developers here [link to Playbook].
-** CSS and JavaScript files of all the assets on this site are available for download [here][link-to-zip-archive].
+** CSS and JavaScript files of all the assets on this site are available for download [here](https://github.com/18F/web-design-standards/archive/v0.8.3.zip).
 * Or review this README for installation instructions, and then check out the Playbook for more detailed information.
 
 Here are a few different ways to use the Standards within your project.
