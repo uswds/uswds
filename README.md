@@ -28,16 +28,20 @@ First, download the Draft Web Design Standards assets:
 
 Then, add the `dist` directory files into a relevant place in your code base — likely a directory where you keep third-party libraries:
 
-- `uswds`
-  - `fonts/`
-  - `img/`
-  - `js/`
-  - `css/`
+```
+- uswds
+  - fonts/
+  - img/
+  - js/
+  - css/
+```
 
 Refer to these files by adding a `<link>` and a `<script>` element into your HTML pages:
 
-`<link rel="stylesheet" href="/path/to/your/assets/css/main.css">`
-`<script src="/path/to/your/assets/js/components.js"></script>`
+```
+<link rel="stylesheet" href="/path/to/your/assets/css/main.css">
+<script src="/path/to/your/assets/js/components.js"></script>
+```
 
 And that’s it — you should be set to use the Standards.
 
