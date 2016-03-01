@@ -10,11 +10,11 @@ These tools follow industry-standard web accessibility guidelines and use the be
 
 We’re glad you’d like to use the Standards — here’s how you can get started:
 
-* Designers: Check out Getting Started for Designers here [link to Playbook].
+* Designers: Check out our Getting Started for Designers information [here](https://playbook.cio.gov/designstandards/getting-started/).
 ** Design files of all the assets included on this site are available for download [here](https://playbook.cio.gov/designstandards/designstandards/assets/releases/wds-design-assets.zip).
-* Developers: Likewise, visit Getting Started for Developers here [link to Playbook].
+* Developers: Follow the instructions in this README to get started.
 ** CSS and JavaScript files of all the assets on this site are available for download [here](https://github.com/18F/web-design-standards/archive/v0.8.3.zip).
-* Or review this README for installation instructions, and then check out the Playbook for more detailed information.
+
 
 Here are a few different ways to use the Standards within your project.
 
@@ -61,7 +61,7 @@ If you’re using another framework or package manager that doesn’t support NP
 
 If you’re interested in maintaining a package that helps us distribute the Draft Web Design Standards, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](link-to-contributing#gulp-section) to locally build distributions for your framework or package manager.
 
-If you’d like to use the Standards on a Ruby project, please use the Ruby gem [link to docs site].
+If you’d like to use the Standards on a Ruby project, please use the [Ruby gem](https://github.com/18F/us_web_design_standards_gem).
 
 ## Need installation help?
 
@@ -79,7 +79,14 @@ If you have questions or concerns about our contributing workflow, please contac
 
 ## Reuse of open-source style guides
 
-Much of the guidance in Draft Web Design Standards leans on open-source designs, code, and patterns from other civic and government organizations, which you can learn more about [here](link to section in docs site).
+Much of the guidance in the Draft Web Design Standards leans on open source designs, code, and patterns from other civic and government organizations, including:
+
+* Consumer Financial Protection Bureau’s [Design Manual](https://cfpb.github.io/design-manual/)
+* U.S. Patent and Trademark Office’s [Design Patterns](http://uspto.github.io/designpatterns/)
+* Healthcare.gov [Style Guide](http://styleguide.healthcare.gov/)
+* UK’s Government Digital Service’s [UI Elements](http://govuk-elements.herokuapp.com/)
+* Code for America’s Chime [Styleguide](https://github.com/chimecms/chime-starter)
+* Pivotal Labs [Component Library](http://styleguide.cfapps.io/)
 
 ## Licenses and attribution
 
