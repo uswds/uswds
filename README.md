@@ -13,7 +13,7 @@ We’re glad you’d like to use the Standards — here’s how you can get star
 * Designers: Check out our Getting Started for Designers information [here](https://playbook.cio.gov/designstandards/getting-started/).
     * Design files of all the assets included on this site are available for download [here](https://playbook.cio.gov/designstandards/designstandards/assets/releases/wds-design-assets.zip).
 * Developers: Follow the instructions in this README to get started.
-    * CSS and JavaScript files of all the assets on this site are available for download [here](https://github.com/18F/web-design-standards/archive/v0.8.3.zip).
+    * CSS, JavaScript, image, and font files of all the assets on this site are available for download [here](https://github.com/18F/web-design-standards/archive/v0.8.3.zip).
 
 
 Here are a few different ways to use the Standards within your project.
