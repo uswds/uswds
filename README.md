@@ -51,7 +51,7 @@ If you have `node` installed on your machine, you can use npm to install the Sta
 
 ```shell
 cd path/to/project-using-npm
-npm install --save git+https://git@github.com/18F/web-design-standards.git#18f-pages-staging --registry https://registry.npmjs.org/
+npm install --save 'git+https://git@github.com/18F/web-design-standards.git#18f-pages-staging' --registry https://registry.npmjs.org/
 ```
 
 > __Please note__ that installing the `uswds` package via Github will use the
