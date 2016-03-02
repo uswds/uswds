@@ -9,9 +9,7 @@ var filter = require('gulp-filter');
 var task = /([\w\d-_]+)\.js$/.exec(__filename)[ 1 ];
 
 var options = {
-  outputStyle: cFlags.production ? 'compressed' : 'expanded',
-  includePaths: require('node-bourbon').includePaths.concat(
-                require('node-neat').includePaths)
+  outputStyle: cFlags.production ? 'compressed' : 'expanded'
 };
 
 var entryFile = filter('all.scss', { restore: true });
