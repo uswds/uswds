@@ -45,7 +45,7 @@ Refer to these files by adding a `<link>` and a `<script>` element into your HTM
 
 And that’s it — you should be set to use the Standards.
 
-## Using NPM
+## Using npm
 
 If you have `node` installed on your machine, you can use npm to install the Standards. Add `uswds` to your `package.json` as a dependency or a development dependency:
 
