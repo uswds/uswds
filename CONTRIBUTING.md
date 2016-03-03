@@ -76,10 +76,12 @@ If you'd like to see the changes to the Draft Web Design Standards in the local
 version of the website, you will need to run the `local-gem` gulp task before
 the `website:serve` task. This flag will generate a local version of the Ruby
 gem that the Jekyll site will use instead of the version described in the
-`Gemfile`.
+`Gemfile`. Please make sure to run all three commands on your machine in order
+to properly prepare the `local-gem` flag.
 
 ```sh
-gulp clean-dist && \ # Cleans up `dist-gem` if it exists
+gulp local-bundle-clean && \
+gulp clean-dist && \
 gulp local-gem website:serve
 ```
 
@@ -88,6 +90,12 @@ directory and run the necessary build steps to copy the local contents of the
 Draft Web Design Standards and then run the Jekyll server. This development
 workflow helps verify updates to the standards within the standards website
 itself without needing to update the Ruby gem.
+
+### Troubleshooting issues with `local-gem`
+
+Because of limitations of Jekyll / Ruby Gems, changes to the `dist-gem` __are not__
+reflected unless you kill the `jekyll serve` process with `Ctrl + C` and then
+re-run the above commands.
 
 ## Licenses and attribution
 
