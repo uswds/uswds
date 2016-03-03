@@ -70,7 +70,7 @@ contents of the `web-design-standards` project under `node_modules/uswds` within
 the `project-using-npm`. For more information on `npm-link`, you can read about
 it in the [`npm-link` documentation](https://docs.npmjs.com/cli/link).
 
-## Local Gem Development for [Styleguide Website](https://playbook.cio.gov/designstandards)
+## Local gem development for [styleguide website](https://playbook.cio.gov/designstandards)
 
 If you'd like to see the changes to the Draft Web Design Standards in the local
 version of the website, you will need to run the `local-gem` gulp task before
