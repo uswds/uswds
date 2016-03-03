@@ -11,7 +11,7 @@ These tools follow industry-standard web accessibility guidelines and use the be
 We’re glad you’d like to use the Standards — here’s how you can get started:
 
 * Designers: Check out our Getting Started for Designers information [here](https://playbook.cio.gov/designstandards/getting-started/).
-    * Design files of all the assets included on this site are available for download [here](https://playbook.cio.gov/designstandards/designstandards/assets/releases/wds-design-assets.zip).
+    * Design files of all the assets included on this site are available for download [here](https://playbook.cio.gov/designstandards/assets/releases/wds-design-assets.zip).
 * Developers: Follow the instructions in this README to get started.
     * CSS, JavaScript, image, and font files of all the assets on this site are available for download [here](https://github.com/18F/web-design-standards/releases/download/v0.8.3/wds-v0.8.3.zip).
 
@@ -45,13 +45,13 @@ Refer to these files by adding a `<link>` and a `<script>` element into your HTM
 
 And that’s it — you should be set to use the Standards.
 
-## Using NPM
+## Using npm
 
 If you have `node` installed on your machine, you can use npm to install the Standards. Add `uswds` to your `package.json` as a dependency or a development dependency:
 
 ```shell
 cd path/to/project-using-npm
-npm install --save git+https://git@github.com/18F/web-design-standards.git#18f-pages-staging --registry https://registry.npmjs.org/
+npm install --save 'git+https://git@github.com/18F/web-design-standards.git#18f-pages-staging' --registry https://registry.npmjs.org/
 ```
 
 > __Please note__ that installing the `uswds` package via Github will use the
@@ -66,7 +66,7 @@ Because both the source and compiled/bundled CSS are available to you, you may i
 
 ## Using another framework or package manager
 
-If you’re using another framework or package manager that doesn’t support NPM, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions][link-to-downloads#above-section]. Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/18F/web-design-standards/issues/877).
+If you’re using another framework or package manager that doesn’t support npm, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions][link-to-downloads#above-section]. Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/18F/web-design-standards/issues/877).
 
 If you’re interested in maintaining a package that helps us distribute the Draft Web Design Standards, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](link-to-contributing#gulp-section) to locally build distributions for your framework or package manager.
 
