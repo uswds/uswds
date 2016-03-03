@@ -70,7 +70,7 @@ If you’re using another framework or package manager that doesn’t support np
 
 If you’re interested in maintaining a package that helps us distribute the Draft Web Design Standards, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](link-to-contributing#gulp-section) to locally build distributions for your framework or package manager.
 
-If you’d like to use the Standards on a Ruby project, please use the [Ruby gem](https://github.com/18F/us_web_design_standards_gem).
+If you’d like to use the Standards on a Ruby project, you can use the [Ruby gem](https://github.com/18F/us_web_design_standards_gem).
 
 ## Need installation help?
 
