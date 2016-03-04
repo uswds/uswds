@@ -6,6 +6,7 @@ var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
+var merge = require('merge-stream');
 var rename = require('gulp-rename');
 var assert = require('gulp-if');
 var linter = require('gulp-eslint');
@@ -28,28 +29,42 @@ gulp.task(task, [ 'eslint' ], function (done) {
 
   dutil.logMessage(task, 'Compiling JavaScript');
 
-  var bundleStream = browserify({
-
+  var defaultStream = browserify({
     entries: 'src/js/start.js',
     debug: true,
+  });
 
-  })
-  .bundle()
-  .pipe(source('components.js'))
-  .pipe(buffer())
-  .pipe(sourcemaps.init({ loadMaps: true }))
-  .pipe(assert(cFlags.production, uglify()))
-  .on('error', gutil.log)
-  .pipe(sourcemaps.write())
-  .pipe(rename({ basename: dutil.pkg.name }))
-  .pipe(gulp.dest('dist/js'));
+  defaultStream = defaultStream.bundle()
+    .pipe(source('components.js'))
+    .pipe(buffer())
+    .pipe(rename({ basename: dutil.pkg.name }))
+    .pipe(gulp.dest('dist/js'));
+
+  var minifiedStream = browserify({
+    entries: 'src/js/start.js',
+    debug: true,
+  });
+
+  minifiedStream = minifiedStream.bundle()
+    .pipe(source('components.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({ loadMaps: true }))
+      .pipe(uglify())
+      .on('error', gutil.log)
+      .pipe(rename({
+        basename: dutil.pkg.name,
+        suffix: '.min',
+      }))
+    .pipe(sourcemaps.write('.', { addComment: false }))
+    .pipe(gulp.dest('dist/js'));
+
 
   if (cFlags.gem) {
     dutil.logMessage(task, 'Creating gem directories');
-    bundleStream = bundleStream.pipe(gulp.dest('dist-gem/assets/js'));
-    bundleStream = bundleStream.pipe(gulp.dest('dist-gem/app/assets/javascript'));
+    defaultStream = defaultStream.pipe(gulp.dest('dist-gem/assets/js'));
+    defaultStream = defaultStream.pipe(gulp.dest('dist-gem/app/assets/javascript'));
   }
 
-  return bundleStream;
+  return merge(defaultStream, minifiedStream);
 
 });

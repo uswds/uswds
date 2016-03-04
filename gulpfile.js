@@ -37,11 +37,6 @@ gulp.task( 'default', function ( done ) {
   );
 
   dutil.logHelp(
-    'gulp production [ task-name ]',
-    'Prefixing tasks with production will generate production-ready files. ( e.g. minification )'
-  );
-
-  dutil.logHelp(
     'gulp no-gem [ task-name ]',
     'Prefixing tasks with `no-gem` will not generate files related to the Ruby gem.'
   );

@@ -3,21 +3,12 @@ var dutil = require('./doc-util');
 
 global.cFlags = {
 
-  production: false,
   test: true,
   gem: true,
   cleanup: true,
   local: false,
 
 };
-
-gulp.task('production', function (done) {
-
-  dutil.logMessage('production', 'Assets will be production ready.');
-  cFlags.production = true;
-  done();
-
-});
 
 gulp.task('no-gem', function (done) {
 
