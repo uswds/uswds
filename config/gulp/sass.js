@@ -8,12 +8,8 @@ var merge = require('merge-stream');
 var filter = require('gulp-filter');
 var task = /([\w\d-_]+)\.js$/.exec(__filename)[ 1 ];
 
-var options = {
-  outputStyle: cFlags.production ? 'compressed' : 'expanded',
-};
-
-var entryFile = filter('all.scss', { restore: true });
-var normalizeCss = filter('normalize.css', { restore: true });
+var entryFileFilter = filter('all.scss', { restore: true });
+var normalizeCssFilter = filter('normalize.css', { restore: true });
 
 gulp.task('scss-lint', function (done) {
 
@@ -37,9 +33,9 @@ gulp.task('copy-vendor-sass', function (done) {
     './node_modules/normalize.css/normalize.css',
     './node_modules/bourbon/app/assets/stylesheets/**/*.scss',
     './node_modules/bourbon-neat/app/assets/stylesheets/**/*.scss'])
-  .pipe(normalizeCss)
-  .pipe(rename('_normalize.scss'))
-  .pipe(normalizeCss.restore)
+  .pipe(normalizeCssFilter)
+    .pipe(rename('_normalize.scss'))
+  .pipe(normalizeCssFilter.restore)
   .pipe(gulp.dest('src/stylesheets/lib'));
 
   return stream;
@@ -49,26 +45,38 @@ gulp.task(task, [ 'scss-lint', 'copy-vendor-sass' ], function (done) {
 
   dutil.logMessage(task, 'Compiling Sass');
 
-  var compiledStream = gulp.src('src/stylesheets/all.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass(options).on('error', sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(rename({ basename: dutil.pkg.name }))
+  var entryFile = 'src/stylesheets/all.scss';
+
+  var defaultStream = gulp.src(entryFile)
+    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+    .pipe(rename({
+      basename: dutil.pkg.name,
+    }))
     .pipe(gulp.dest('dist/css'));
 
-  var streams = merge(compiledStream);
+  var minifiedStream = gulp.src(entryFile)
+    .pipe(sourcemaps.init({ loadMaps: true }))
+      .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+      .pipe(rename({
+        basename: dutil.pkg.name,
+        suffix: '.min',
+      }))
+    .pipe(sourcemaps.write('.', { addComment: false }))
+    .pipe(gulp.dest('dist/css'));
+
+  var streams = merge(defaultStream, minifiedStream);
 
   if (cFlags.gem) {
     dutil.logMessage(task, 'Creating gem directories');
-    compiledStream.pipe(gulp.dest('dist-gem/assets/css'))
+    defaultStream.pipe(gulp.dest('dist-gem/assets/css'))
       .pipe(gulp.dest('dist-gem/app/assets/stylesheets'));
     dutil.logMessage(task, 'Creating gem src directories');
-    var srcStream = gulp.src('src/stylesheets/**/*.scss')
-      .pipe(entryFile)
+    var railsStream = gulp.src('src/stylesheets/**/*.scss')
+      .pipe(entryFileFilter)
         .pipe(rename('us_web_design_standards.scss'))
-      .pipe(entryFile.restore)
+      .pipe(entryFileFilter.restore)
       .pipe(gulp.dest('dist-gem/assets/sass'));
-    streams.add(srcStream);
+    streams.add(railsStream);
   }
 
   return streams;
