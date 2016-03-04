@@ -9,7 +9,7 @@ var filter = require('gulp-filter');
 var task = /([\w\d-_]+)\.js$/.exec(__filename)[ 1 ];
 
 var options = {
-  outputStyle: cFlags.production ? 'compressed' : 'expanded'
+  outputStyle: cFlags.production ? 'compressed' : 'expanded',
 };
 
 var entryFile = filter('all.scss', { restore: true });
@@ -29,7 +29,7 @@ gulp.task('scss-lint', function (done) {
 
 });
 
-gulp.task('copy-vendor-sass', function(done) {
+gulp.task('copy-vendor-sass', function (done) {
 
   dutil.logMessage('copy-vendor-sass', 'Compiling vendor CSS');
 
