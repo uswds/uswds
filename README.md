@@ -30,10 +30,10 @@ Then, add the `dist` directory files into a relevant place in your code base —
 ```
 - uswds-0.9.0/
   - dist/
+    - css/
     - fonts/
     - img/
     - js/
-    - css/
 ```
 
 Refer to these files by adding a `<link>` and a `<script>` element into your HTML pages.
