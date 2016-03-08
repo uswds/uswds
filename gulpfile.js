@@ -86,6 +86,11 @@ gulp.task( 'default', function ( done ) {
     'This task will copy all the font files into distribution directories.'
   );
 
+  dutil.logCommand(
+    'gulp release',
+    'This task will run `gulp build` and prepare a release directory.'
+  );
+
   done();
 
 } );
