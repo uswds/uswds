@@ -36,7 +36,7 @@ Then, add the `dist` directory files into a relevant place in your code base —
     - js/
 ```
 
-Refer to these files by adding a `<link>` and a `<script>` element into your HTML pages.
+Refer to these files by adding the following `<link>` and `<script>` elements into your HTML pages.
 
 Add this to your `<head>` element:
 
@@ -44,7 +44,7 @@ Add this to your `<head>` element:
 <link rel="stylesheet" href="/path/to/your/assets/css/uswds-0.9.0.css">
 ```
 
-After before the closing `</body>` tag:
+Add this before the closing `</body>` tag:
 
 ```html
 <script src="/path/to/your/assets/js/uswds-0.9.0.js"></script>
