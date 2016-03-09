@@ -177,6 +177,34 @@ gulp.task(task, function (done) {
 //
 gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
 
+  gulp.watch('src/stylesheets/**/*.scss', function (event) {
+    runSequence(
+      'sass',
+      function () { return del('docs/_scss'); },
+      'copy-bundled-javascript'
+    );
+  });
+  gulp.watch('src/scripts/**/*.js', function (event) {
+    runSequence(
+      'javascript',
+      function () { return del('docs/assets/js/vendor/' + dutil.fileName + '.js'); },
+      'copy-bundled-javascript'
+    );
+  });
+  gulp.watch('src/img/**/*', function (event) {
+    runSequence(
+      'images',
+      'copy-images'
+    );
+  });
+  gulp.watch('src/fonts/**/*', function (event) {
+    runSequence(
+      'fonts',
+      function () { return del('docs/assets/fonts') },
+      'copy-fonts'
+    );
+  });
+
   var jekyll = spawn('jekyll', [ 'serve', '-w' ]);
 
   jekyll.stdout.on('data', function (data) {
