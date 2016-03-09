@@ -200,7 +200,7 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
   gulp.watch('src/fonts/**/*', function (event) {
     runSequence(
       'fonts',
-      function () { return del('docs/assets/fonts') },
+      function () { return del('docs/assets/fonts'); },
       'copy-fonts'
     );
   });
