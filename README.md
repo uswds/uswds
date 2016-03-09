@@ -70,12 +70,31 @@ The package will be installed in `node_modules/uswds`. You can use the files
 found in the `src/` directory.
 
 ```
-- uswds-0.9.0/
+- node_modules/uswds/
+  - dist/
+    - css/
+    - fonts/
+    - img/
+    - js/
   - src/
     - fonts/
     - img/
     - js/
     - stylesheets/
+```
+
+`require('uswds')` will load all of Draft U.S. Web Design Standard's JavaScript onto the page. The uswds module itself does not export anything.
+
+The main Sass (SCSS) source file is here: 
+
+```
+node_modules/uswds/src/stylesheets/all.scss
+```
+
+The non-minified CSS that’s been precompiled is here:
+
+```
+node_modules/uswds/dist/css/uswds-0.9.0.css
 ```
 
 ## Using another framework or package manager

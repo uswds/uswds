@@ -9,8 +9,6 @@
     "build": "gulp release",
     "test": "gulp eslint scss-lint"
   },
-  "assets": "assets/",
-  "style": "assets/_scss/all.scss",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/18F/web-design-standards.git"
