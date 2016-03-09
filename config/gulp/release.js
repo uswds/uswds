@@ -10,7 +10,7 @@ gulp.task('make-tmp-directory', function (done) {
   var cp = spawn('cp', [
     '-rvf',
     'dist',
-    dutil.fileName,
+    dutil.dirName,
   ]);
 
   cp.stdout.on('data', function (data) {
@@ -30,7 +30,7 @@ gulp.task('make-tmp-directory', function (done) {
 });
 
 gulp.task('clean-tmp-directory', function (done) {
-  return del(dutil.fileName);
+  return del(dutil.dirName);
 });
 
 gulp.task('zip-archives', function (done) {
@@ -38,8 +38,8 @@ gulp.task('zip-archives', function (done) {
   var zip = spawn('zip', [
     '--log-info',
     '-r',
-    './dist/' + dutil.fileName + '.zip',
-    dutil.fileName,
+    './dist/' + dutil.dirName + '.zip',
+    dutil.dirName,
     '-x "*.DS_Store"',
   ]);
 
@@ -61,7 +61,7 @@ gulp.task('zip-archives', function (done) {
 
 gulp.task(task, [ 'build' ], function (done) {
 
-  dutil.logMessage(task, 'Creating a zip archive at dist/' + dutil.fileName);
+  dutil.logMessage(task, 'Creating a zip archive at dist/' + dutil.dirName + '.zip');
 
   runSequence(
     'make-tmp-directory',

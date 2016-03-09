@@ -65,7 +65,7 @@ module.exports = {
 
   },
 
-  fileName: pkg.name + '-' + pkg.version,
+  dirName: pkg.name + '-' + pkg.version,
 
   logIntroduction: function (message) {
 

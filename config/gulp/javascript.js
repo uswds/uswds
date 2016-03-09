@@ -37,7 +37,7 @@ gulp.task(task, [ 'eslint' ], function (done) {
   defaultStream = defaultStream.bundle()
     .pipe(source('components.js'))
     .pipe(buffer())
-    .pipe(rename({ basename: dutil.fileName }))
+    .pipe(rename({ basename: dutil.pkg.name }))
     .pipe(gulp.dest('dist/js'));
 
   var minifiedStream = browserify({
@@ -52,7 +52,7 @@ gulp.task(task, [ 'eslint' ], function (done) {
       .pipe(uglify())
       .on('error', gutil.log)
       .pipe(rename({
-        basename: dutil.fileName,
+        basename: dutil.pkg.name,
         suffix: '.min',
       }))
     .pipe(sourcemaps.write('.', { addComment: false }))
