@@ -9,12 +9,6 @@ gulp.task(task, function (done) {
   var stream = gulp.src('src/fonts/**/*')
     .pipe(gulp.dest('dist/fonts'));
 
-  if (cFlags.gem) {
-    dutil.logMessage(task, 'Creating gem directories');
-    stream = stream.pipe(gulp.dest('dist-gem/assets/fonts'));
-    stream = stream.pipe(gulp.dest('dist-gem/app/assets/fonts'));
-  }
-
   return stream;
 
 });

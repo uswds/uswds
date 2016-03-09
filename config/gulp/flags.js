@@ -4,19 +4,10 @@ var dutil = require('./doc-util');
 global.cFlags = {
 
   test: true,
-  gem: true,
   cleanup: true,
   local: false,
 
 };
-
-gulp.task('no-gem', function (done) {
-
-  dutil.logMessage('no-gem', 'Disabling gem support for all tasks.');
-  cFlags.gem = false;
-  done();
-
-});
 
 gulp.task('no-test', function (done) {
 
@@ -36,14 +27,6 @@ gulp.task('no-cleanup', function (done) {
     'Disabling cleanup of distribution directories.'
   );
   cFlags.cleanup = false;
-  done();
-
-});
-
-gulp.task('local-gem', function (done) {
-
-  dutil.logMessage('local-gem', 'Building us_web_design_standards_gem locally.');
-  cFlags.local = true;
   done();
 
 });
