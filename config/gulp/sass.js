@@ -50,7 +50,7 @@ gulp.task(task, [ 'scss-lint', 'copy-vendor-sass' ], function (done) {
   var defaultStream = gulp.src(entryFile)
     .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
     .pipe(rename({
-      basename: dutil.pkg.name,
+      basename: dutil.fileName,
     }))
     .pipe(gulp.dest('dist/css'));
 
@@ -58,7 +58,7 @@ gulp.task(task, [ 'scss-lint', 'copy-vendor-sass' ], function (done) {
     .pipe(sourcemaps.init({ loadMaps: true }))
       .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
       .pipe(rename({
-        basename: dutil.pkg.name,
+        basename: dutil.fileName,
         suffix: '.min',
       }))
     .pipe(sourcemaps.write('.', { addComment: false }))

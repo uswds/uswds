@@ -21,6 +21,7 @@ npm-debug.log
 #
 !dist/
 dist-gem/
+dist/uswds*.zip
 
 # Ignore the .bundle directory used for bundle config & local-gem development
 #

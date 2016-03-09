@@ -65,6 +65,8 @@ module.exports = {
 
   },
 
+  fileName: pkg.name + '-' + pkg.version,
+
   logIntroduction: function (message) {
 
     message = message || 'Draft U.S. Web Design Standards';

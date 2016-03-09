@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "0.8.3",
+  "version": "0.9.0",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "main": "src/js/start.js",
   "scripts": {
@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "browserify": "^13.0.0",
+    "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-cached": "^1.1.0",
     "gulp-clean": "^0.3.1",
