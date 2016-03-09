@@ -29,11 +29,10 @@ Then, add the `dist` directory files into a relevant place in your code base —
 
 ```
 - uswds-0.9.0/
-  - dist/
-    - css/
-    - fonts/
-    - img/
-    - js/
+  - css/
+  - fonts/
+  - img/
+  - js/
 ```
 
 Refer to these files by adding the following `<link>` and `<script>` elements
@@ -42,13 +41,13 @@ into your HTML pages:
 Add this to your `<head>` element:
 
 ```html
-<link rel="stylesheet" href="/path/to/your/assets/css/uswds-0.9.0.css">
+<link rel="stylesheet" href="/path/to/your/assets/css/uswds.css">
 ```
 
 Add this before the closing `</body>` tag:
 
 ```html
-<script src="/path/to/your/assets/js/uswds-0.9.0.js"></script>
+<script src="/path/to/your/assets/js/uswds.js"></script>
 ```
 
 This version of the Standards includes jQuery version `2.2.0` bundled within the
@@ -94,7 +93,7 @@ node_modules/uswds/src/stylesheets/all.scss
 The non-minified CSS that’s been precompiled is here:
 
 ```
-node_modules/uswds/dist/css/uswds-0.9.0.css
+node_modules/uswds/dist/css/uswds.css
 ```
 
 ## Using another framework or package manager
