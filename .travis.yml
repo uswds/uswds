@@ -11,6 +11,7 @@ notifications:
   email:
     - julia.elman@gsa.gov
     - maya.ben-ari@gsa.gov
+    - roger.ruiz@gsa.gov
 
 branches:
   only:
