@@ -46,29 +46,49 @@ Here are a few guidelines to follow when submitting a pull request:
 
 Questions or need help with setup? Feel free to open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
 
-## Install the package locally via `npm-link`
+### Building the project locally with Gulp
 
-If you have a clone of this repository locally and would like to use it on
-another project without using the published version, you can use `npm link`.
+The Draft Web Design Standards `uswds` package and style guide website are built
+using Gulp automation. To use Gulp, please make sure you have it installed
+on your machine globally.
 
-**Please note** that this use case is primarily useful if you're developing on the
-Draft Web Design Standards locally and would like to see those changes in another
-project that is using them.
-
-The following commands will link your local `web-design-standards` project to
-another project.
-
-```
-cd path/to/web-design-standards # note: your paths will differ
-npm link
-cd path/to/another/project-using-npm # note: this project name is reused below
-npm link uswds
+```sh
+npm install --global gulp-cli
 ```
 
-The `node_modules` directory in your project will contain a symbolic link of the
-contents of the `web-design-standards` project under `node_modules/uswds` within
-the `project-using-npm`. For more information on `npm-link`, you can read about
-it in the [`npm-link` documentation](https://docs.npmjs.com/cli/link).
+Once you have Gulp installed globally, you can run the following command to
+see all the commands available to you.
+
+```sh
+gulp
+```
+
+Building the package will generate a `dist/` directory with the contents of the
+ZIP archive made available to download. Building just the package is useful if
+you'd like to create your own distribution bundle for frameworks that aren't
+supported via `npm`.  This package contains no documentation and the compiled
+and bundled CSS, JavaScript, fonts, and images. To build the package locally,
+run the following command:
+
+```
+gulp build
+```
+
+Building the Draft Web Design Standards Website can be done via `gulp` with the
+following command. This will create a `_site/` directory which contains the
+Jekyll-built site.
+
+```sh
+gulp website:build
+```
+
+Working on the Draft Web Design Standards site locally can be done via `gulp`
+with the following command. This will setup Gulp and Jekyll to watch for file
+changes to the `docs/` and `src/` directory and update the website accordingly.
+
+```sh
+gulp website:serve
+```
 
 ## Licenses and attribution
 

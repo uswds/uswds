@@ -36,7 +36,8 @@ Then, add the `dist` directory files into a relevant place in your code base —
     - js/
 ```
 
-Refer to these files by adding the following `<link>` and `<script>` elements into your HTML pages.
+Refer to these files by adding the following `<link>` and `<script>` elements
+into your HTML pages:
 
 Add this to your `<head>` element:
 
@@ -51,25 +52,19 @@ Add this before the closing `</body>` tag:
 ```
 
 This version of the Standards includes jQuery version `2.2.0` bundled within the
-JavaScript file. Please make sure that you are not including any other version
+JavaScript file. Please make sure that you're not including any other version
 of jQuery on your page.
 
 And that’s it — you should be set to use the Standards.
 
 ## Using npm
 
-If you have `node` installed on your machine, you can use npm to install the Standards. Add `uswds` to your `package.json` as a dependency or a development dependency:
+If you have `node` installed on your machine, you can use npm to install the Standards. Add `uswds`
+to your projet's `package.json` as a dependency:
 
 ```shell
-cd path/to/project-using-npm
-npm install --save 'git+https://git@github.com/18F/web-design-standards.git#18f-pages-staging' --registry https://registry.npmjs.org/
+npm install --save uswds
 ```
-
-> __Please note__ that installing the `uswds` package via Github will use the
-development version of the Draft Web Design Standards and is not tied to a
-stable release. Installation via Github will also be deprecated once this package
-is published to `npm`. The library may also have a different structure so some
-file paths may be different.
 
 The package will be installed in `node_modules/uswds`. You can use the files
 found in the `src/` directory.
@@ -87,7 +82,7 @@ found in the `src/` directory.
 
 If you’re using another framework or package manager that doesn’t support NPM, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/18F/web-design-standards/issues/877).
 
-If you’re interested in maintaining a package that helps us distribute the Draft Web Design Standards, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](link-to-contributing#gulp-section) to locally build distributions for your framework or package manager.
+If you’re interested in maintaining a package that helps us distribute the Draft Web Design Standards, the project's build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
 ## Need installation help?
 
