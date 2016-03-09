@@ -82,7 +82,7 @@ found in the `src/` directory.
     - stylesheets/
 ```
 
-`require('uswds')` will load all of Draft U.S. Web Design Standard's JavaScript onto the page. The uswds module itself does not export anything.
+`require('uswds')` will load all of the Draft U.S. Web Design Standard's JavaScript onto the page. The uswds module itself does not export anything.
 
 The main Sass (SCSS) source file is here: 
 
