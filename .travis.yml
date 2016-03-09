@@ -2,7 +2,10 @@ language: ruby
 rvm:
   - 2.2.3
 
-script: bundle exec jekyll build
+install:
+  - npm install
+
+script: gulp website:build
 
 notifications:
   email:
