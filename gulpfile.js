@@ -37,11 +37,6 @@ gulp.task( 'default', function ( done ) {
   );
 
   dutil.logHelp(
-    'gulp no-gem [ task-name ]',
-    'Prefixing tasks with `no-gem` will not generate files related to the Ruby gem.'
-  );
-
-  dutil.logHelp(
     'gulp no-cleanup [ task-name ]',
     'Prefixing tasks with `no-cleanup ` will not remove the distribution directories.'
   );
@@ -49,11 +44,6 @@ gulp.task( 'default', function ( done ) {
   dutil.logHelp(
     'gulp no-test [ task-name ]',
     'Prefixing tasks with `no-test` will disable testing and linting for all supported tasks.'
-  );
-
-  dutil.logHelp(
-    'gulp local-gem [ task-name ]',
-    'Prefixing tasks with `local-gem` will clone the us_web_design_standards_gem locally in `dist-gem` for the Jekyll site.'
   );
 
   dutil.logCommand(

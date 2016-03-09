@@ -9,12 +9,6 @@ gulp.task(task, function (done) {
   var stream = gulp.src('src/img/**/*')
     .pipe(gulp.dest('dist/img'));
 
-  if (cFlags.gem) {
-    dutil.logMessage(task, 'Creating gem directories');
-    stream = stream.pipe(gulp.dest('dist-gem/assets/img'));
-    stream = stream.pipe(gulp.dest('dist-gem/app/assets/images'));
-  }
-
   return stream;
 
 });
