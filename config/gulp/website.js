@@ -142,7 +142,7 @@ gulp.task(task, function (done) {
 // Wrapper task for `jekyll serve --watch` which runs after `gulp bundle-gems` to make sure
 // the gems are properly bundled.
 //
-gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
+gulp.task(taskServe, [ 'bundle-gems', 'build' ], function (done) {
 
   var jekyll = spawn('jekyll', [ 'serve', '-w' ]);
 
@@ -177,7 +177,7 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
 // Wrapper task for `jekyll build` which runs after `gulp bundle-gems` to make sure
 // the gems are properly bundled.
 //
-gulp.task(taskBuild, [ 'bundle-gems' ], function (done) {
+gulp.task(taskBuild, [ 'bundle-gems', 'build' ], function (done) {
 
   var jekyll = spawn('jekyll', [ 'build' ]);
 

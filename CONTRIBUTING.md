@@ -70,6 +70,33 @@ contents of the `web-design-standards` project under `node_modules/uswds` within
 the `project-using-npm`. For more information on `npm-link`, you can read about
 it in the [`npm-link` documentation](https://docs.npmjs.com/cli/link).
 
+## Local gem development for [styleguide website](https://playbook.cio.gov/designstandards)
+
+If you'd like to see the changes to the Draft Web Design Standards in the local
+version of the website, you will need to run the `local-gem` gulp task before
+the `website:serve` task. This flag will generate a local version of the Ruby
+gem that the Jekyll site will use instead of the version described in the
+`Gemfile`. Please make sure to run all three commands on your machine in order
+to properly prepare the `local-gem` flag.
+
+```sh
+gulp local-bundle-clean && \
+gulp clean-dist && \
+gulp local-gem website:serve
+```
+
+This will clone a copy of the `us_web_design_standards_gem` to your `dist-gem`
+directory and run the necessary build steps to copy the local contents of the
+Draft Web Design Standards and then run the Jekyll server. This development
+workflow helps verify updates to the standards within the standards website
+itself without needing to update the Ruby gem.
+
+### Troubleshooting issues with `local-gem`
+
+Because of limitations of Jekyll / Ruby Gems, changes to the `dist-gem` __are not__
+reflected unless you kill the `jekyll serve` process with `Ctrl + C` and then
+re-run the above commands.
+
 ## Licenses and attribution
 
 ### A few parts of this project are not in the public domain
