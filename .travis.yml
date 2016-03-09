@@ -1,8 +1,12 @@
-language: ruby
-rvm:
-  - 2.2.3
+language: node_js
+node_js:
+  - 5.5.0
+
+before_install:
+  - rvm install 2.2.3
 
 install:
+  - bundle
   - npm install
 
 script: gulp website:build
