@@ -58,13 +58,6 @@ gulp.task(task, [ 'eslint' ], function (done) {
     .pipe(sourcemaps.write('.', { addComment: false }))
     .pipe(gulp.dest('dist/js'));
 
-
-  if (cFlags.gem) {
-    dutil.logMessage(task, 'Creating gem directories');
-    defaultStream = defaultStream.pipe(gulp.dest('dist-gem/assets/js'));
-    defaultStream = defaultStream.pipe(gulp.dest('dist-gem/app/assets/javascript'));
-  }
-
   return merge(defaultStream, minifiedStream);
 
 });
