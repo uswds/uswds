@@ -4,7 +4,7 @@
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "main": "src/js/start.js",
   "scripts": {
-    "prepublish": "gulp no-gem build"
+    "test": "curl --header x-api-key: $SCREENER_API_KEY --data '' https://screener.io/api/projects/$SCREENER_PROJECT_ID/groups/$SCEENER_GROUP_ID/queue"
   },
   "assets": "assets/",
   "style": "assets/_scss/all.scss",
