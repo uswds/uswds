@@ -84,7 +84,7 @@ found in the `src/` directory.
 
 `require('uswds')` will load all of the Draft U.S. Web Design Standard's JavaScript onto the page. The `uswds` module itself does not export anything.
 
-The main Sass (SCSS) source file is here: 
+The main Sass (SCSS) source file is here:
 
 ```
 node_modules/uswds/src/stylesheets/all.scss
