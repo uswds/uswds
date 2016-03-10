@@ -84,9 +84,9 @@ gulp website:build
 
 The task above builds the entire Draft U.S. Web Design Standards website locally.
 It can be useful when debugging for build errors or generating a deployable
-version of the Standards website. This will create a `/_site` directory which
-contains the Jekyll-built site. This is the same build step that occurs when the
-website is deployed.
+version of the Standards website. This creates a `/_site` directory that
+contains the Jekyll-built site. This is the same build step that we use to
+deploy the website.
 
 ```sh
 gulp website:serve
@@ -94,7 +94,7 @@ gulp website:serve
 
 The task above is similar to the previous `./go` serve command from earlier
 versions of the Standards. After running this command, you’ll be able to view
-the Draft U.S.  Web Design Standards website locally (http://127.0.0.1:4000).
+the Draft U.S. Web Design Standards website locally (http://127.0.0.1:4000).
 This also sets up gulp and Jekyll to watch for file changes to the `/docs`
 and `/src` directories and rebuilds the website accordingly.
 
