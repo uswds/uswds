@@ -41,13 +41,13 @@ into your HTML pages:
 Add this to your `<head>` element:
 
 ```html
-<link rel="stylesheet" href="/path/to/your/assets/css/uswds.css">
+<link rel="stylesheet" href="/path/to/your/assets/css/lib/uswds.min.css">
 ```
 
 Add this before the closing `</body>` tag:
 
 ```html
-<script src="/path/to/your/assets/js/uswds.js"></script>
+<script src="/path/to/your/assets/js/lib/uswds.min.js"></script>
 ```
 
 This version of the Standards includes jQuery version `2.2.0` bundled within the
