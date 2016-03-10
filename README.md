@@ -29,11 +29,29 @@ Then, add the `dist` directory files into a relevant place in your code base —
 
 ```
 - uswds-0.9.0/
-  - css/
-  - fonts/
-  - img/
-  - js/
+  ├── js
+  │   ├── uswds.min.js.map
+  │   ├── uswds.min.js
+  │   └── uswds.js
+  ├── css
+  │   ├── uswds.min.css.map
+  │   ├── uswds.min.css
+  │   └── uswds.css
+  ├── img/
+  │   ├── social-icons/
+  │   ├── favicons/
+  │   ├── alerts/
+  └── fonts/
 ```
+
+We offer two versions — a minified version, and an un-minified one. The minified
+versions contain a `.min` suffix in the filename before the file's extension.
+The un-minified versions do not contain the `.min` suffix.
+
+Use the minified version in a production environment or to reduce the file size
+of your downloaded assets. And the un-minified version is better if you are in a
+development environment or would like to debug the CSS or JavaScript assets in
+the browser. The examples below recommend using the minified versions.
 
 Refer to these files by adding the following `<link>` and `<script>` elements
 into your HTML pages:
