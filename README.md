@@ -29,12 +29,29 @@ Then, add the `dist` directory files into a relevant place in your code base —
 
 ```
 - uswds-0.9.0/
-  - dist/
-    - css/
-    - fonts/
-    - img/
-    - js/
+  ├── js
+  │   ├── uswds.min.js.map
+  │   ├── uswds.min.js
+  │   └── uswds.js
+  ├── css
+  │   ├── uswds.min.css.map
+  │   ├── uswds.min.css
+  │   └── uswds.css
+  ├── img/
+  │   ├── social-icons/
+  │   ├── favicons/
+  │   ├── alerts/
+  └── fonts/
 ```
+
+We offer two versions — a minified version, and an un-minified one. The minified
+versions contain a `.min` suffix in the filename before the file's extension.
+The un-minified versions do not contain the `.min` suffix.
+
+Use the minified version in a production environment or to reduce the file size
+of your downloaded assets. And the un-minified version is better if you are in a
+development environment or would like to debug the CSS or JavaScript assets in
+the browser. The examples below recommend using the minified versions.
 
 Refer to these files by adding the following `<link>` and `<script>` elements
 into your HTML pages:
@@ -42,13 +59,13 @@ into your HTML pages:
 Add this to your `<head>` element:
 
 ```html
-<link rel="stylesheet" href="/path/to/your/assets/css/uswds-0.9.0.css">
+<link rel="stylesheet" href="/path/to/your/assets/css/lib/uswds.min.css">
 ```
 
 Add this before the closing `</body>` tag:
 
 ```html
-<script src="/path/to/your/assets/js/uswds-0.9.0.js"></script>
+<script src="/path/to/your/assets/js/lib/uswds.min.js"></script>
 ```
 
 This version of the Standards includes jQuery version `2.2.0` bundled within the
@@ -70,12 +87,31 @@ The package will be installed in `node_modules/uswds`. You can use the files
 found in the `src/` directory.
 
 ```
-- uswds-0.9.0/
+- node_modules/uswds/
+  - dist/
+    - css/
+    - fonts/
+    - img/
+    - js/
   - src/
     - fonts/
     - img/
     - js/
     - stylesheets/
+```
+
+`require('uswds')` will load all of the Draft U.S. Web Design Standard's JavaScript onto the page. The `uswds` module itself does not export anything.
+
+The main Sass (SCSS) source file is here:
+
+```
+node_modules/uswds/src/stylesheets/all.scss
+```
+
+The non-minified CSS that’s been precompiled is here:
+
+```
+node_modules/uswds/dist/css/uswds.css
 ```
 
 ## Using another framework or package manager
