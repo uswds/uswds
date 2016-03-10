@@ -66,19 +66,6 @@ gulp.task(task, [ 'scss-lint', 'copy-vendor-sass' ], function (done) {
 
   var streams = merge(defaultStream, minifiedStream);
 
-  if (cFlags.gem) {
-    dutil.logMessage(task, 'Creating gem directories');
-    defaultStream.pipe(gulp.dest('dist-gem/assets/css'))
-      .pipe(gulp.dest('dist-gem/app/assets/stylesheets'));
-    dutil.logMessage(task, 'Creating gem src directories');
-    var railsStream = gulp.src('src/stylesheets/**/*.scss')
-      .pipe(entryFileFilter)
-        .pipe(rename('us_web_design_standards.scss'))
-      .pipe(entryFileFilter.restore)
-      .pipe(gulp.dest('dist-gem/assets/sass'));
-    streams.add(railsStream);
-  }
-
   return streams;
 
 });
