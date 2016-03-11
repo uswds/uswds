@@ -76,7 +76,7 @@ directory with the contents of the ZIP archive made available to download.
 Building just the package is useful if you'd like to create your own
 distribution bundle for frameworks that aren't supported via npm. This files in
 `/dist` contain no documentation and are compiled and bundled CSS, JavaScript,
-fonts, and images files.
+fonts, and images files. The command is aliased by `npm run prepublish`.
 
 ```sh
 gulp website:build
@@ -86,7 +86,7 @@ The task above builds the entire Draft U.S. Web Design Standards website locally
 It can be useful when debugging for build errors or generating a deployable
 version of the Standards website. This creates a `/_site` directory that
 contains the Jekyll-built site. This is the same build step that we use to
-deploy the website.
+deploy the website. The command is aliased by `npm run deploy`.
 
 ```sh
 gulp website:serve
@@ -96,7 +96,8 @@ The task above is similar to the previous `./go` serve command from earlier
 versions of the Standards. After running this command, you’ll be able to view
 the Draft U.S. Web Design Standards website locally (http://127.0.0.1:4000).
 This also sets up gulp and Jekyll to watch for file changes to the `/docs`
-and `/src` directories and rebuilds the website accordingly.
+and `/src` directories and rebuilds the website accordingly. The command is
+aliased by `npm start`
 
 ## Licenses and attribution
 
