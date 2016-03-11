@@ -9,7 +9,8 @@
     "build": "gulp release",
     "test": "gulp eslint scss-lint",
     "preversion": "npm test",
-    "version": "npm run prepublish"
+    "version": "npm run prepublish",
+    "deploy": "gulp website:build"
   },
   "repository": {
     "type": "git",
