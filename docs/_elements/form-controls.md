@@ -112,7 +112,7 @@ lead: Form controls allow users to enter information into a page.
       <li>If the list of options is very short. Use radio buttons instead.</li>
       <li>If the list of options is very long. Let users type the same information into a text input that suggests possible options instead.</li>
       <li>If you need to allow users to select more than one option at once. Users often don’t understand how to select multiple items from dropdowns. Use checkboxes instead.</li>
-      <li>For site navigation (use the navigation components instead).</li>
+      <li>For site navigation (use the navigation UI Components instead).</li>
     </ul>
     <h5>Guidance</h5>
     <ul class="usa-content-list">
