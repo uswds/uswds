@@ -44,7 +44,7 @@ Here are a few guidelines to follow when submitting a pull request:
 1. Once you're ready to submit a pull request, push your branch up to the repo.
 1. Submit your pull request against the `18f-pages-staging` branch.
 
-Questions or need help with setup? Feel free to open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
+Have questions or need help with setup? Open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
 
 ### Building the project locally with gulp
 
