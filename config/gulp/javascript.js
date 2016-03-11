@@ -19,9 +19,24 @@ gulp.task('eslint', function (done) {
     return done();
   }
 
-  return gulp.src([ 'src/js/**/*.js', '!src/js/vendor/**/*.js' ])
+  var stream = gulp.src([ 'src/js/**/*.js', '!src/js/vendor/**/*.js' ])
     .pipe(linter('.eslintrc'))
     .pipe(linter.format());
+
+  if (cFlags.failFast) {
+    stream
+      .pipe(linter.failAfterError())
+      .on('error', function (error) {
+        gutil.log(
+          gutil.colors.yellow('eslint'),
+          gutil.colors.red('error')
+        );
+
+        process.exit(1);
+      });
+  }
+
+  return stream;
 
 });
 

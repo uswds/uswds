@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var dutil = require('./doc-util');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
@@ -18,10 +19,25 @@ gulp.task('scss-lint', function (done) {
     return done();
   }
 
-  return gulp.src('src/stylesheets/**/*.scss')
+  var stream = gulp.src('src/stylesheets/**/*.scss')
     .pipe(linter({
       config: '.scss-lint.yml',
     }));
+
+  if (cFlags.failFast) {
+    stream
+      .pipe(linter.failReporter())
+      .on('error', function (error) {
+        gutil.log(
+          gutil.colors.yellow('scss-lint'),
+          gutil.colors.red('error')
+        );
+
+        process.exit(1);
+      });
+  }
+
+  return stream;
 
 });
 

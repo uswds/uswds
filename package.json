@@ -8,10 +8,10 @@
     "prestart": "gulp copy-vendor-sass",
     "start": "gulp website:serve",
     "build": "gulp copy-vendor-sass && gulp release",
-    "test": "gulp eslint scss-lint",
     "preversion": "npm test",
     "version": "npm run prepublish",
-    "deploy": "gulp copy-vendor-sass && gulp website:build"
+    "deploy": "gulp copy-vendor-sass && gulp website:build",
+    "test": "gulp fail-fast scss-lint ; gulp fail-fast eslint"
   },
   "repository": {
     "type": "git",
