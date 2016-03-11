@@ -9,7 +9,8 @@ install:
   - bundle
   - npm install
 
-script: gulp website:build
+script:
+  - npm run deploy
 
 notifications:
   email:

@@ -44,51 +44,60 @@ Here are a few guidelines to follow when submitting a pull request:
 1. Once you're ready to submit a pull request, push your branch up to the repo.
 1. Submit your pull request against the `18f-pages-staging` branch.
 
-Questions or need help with setup? Feel free to open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
+Have questions or need help with setup? Open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
 
-### Building the project locally with Gulp
+### Building the project locally with gulp
 
-The Draft Web Design Standards `uswds` package and style guide website are built
-using Gulp automation. To use Gulp, please make sure you have it installed
-on your machine globally.
+The Draft U.S. Web Design Standards `uswds` package (the ZIP download and the
+files needed to use the Standards on your project) and Standards website (our
+public site that displays examples of each component and the HTML code) are
+built using gulp automation. To use gulp, first make sure you've installed it on
+your machine globally.
 
 ```sh
 npm install --global gulp-cli
 ```
 
-Once you have Gulp installed globally, you can run the following command to
-see all the commands available to you.
+Then to start, run the following command to install any new dependencies:
 
 ```sh
-gulp
+npm install
 ```
 
-Building the package will generate a `dist/` directory with the contents of the
-ZIP archive made available to download. Building just the package is useful if
-you'd like to create your own distribution bundle for frameworks that aren't
-supported via `npm`.  This package contains no documentation and the compiled
-and bundled CSS, JavaScript, fonts, and images. To build the package locally,
-run the following command:
+The following examples detail a few tasks you'll encounter as you use gulp:
 
-```
+```sh
 gulp build
 ```
 
-Building the Draft Web Design Standards Website can be done via `gulp` with the
-following command. This will create a `_site/` directory which contains the
-Jekyll-built site.
+The task above is an alias for running `gulp sass javascript images fonts` and
+is the task to build all assets. Building the package will generate a `/dist`
+directory with the contents of the ZIP archive made available to download.
+Building just the package is useful if you'd like to create your own
+distribution bundle for frameworks that aren't supported via npm. This files in
+`/dist` contain no documentation and are compiled and bundled CSS, JavaScript,
+fonts, and images files. The command is aliased by `npm run prepublish`.
 
 ```sh
 gulp website:build
 ```
 
-Working on the Draft Web Design Standards site locally can be done via `gulp`
-with the following command. This will setup Gulp and Jekyll to watch for file
-changes to the `docs/` and `src/` directory and update the website accordingly.
+The task above builds the entire Draft U.S. Web Design Standards website locally.
+It can be useful when debugging for build errors or generating a deployable
+version of the Standards website. This creates a `/_site` directory that
+contains the Jekyll-built site. This is the same build step that we use to
+deploy the website. The command is aliased by `npm run deploy`.
 
 ```sh
 gulp website:serve
 ```
+
+The task above is similar to the previous `./go` serve command from earlier
+versions of the Standards. After running this command, you’ll be able to view
+the Draft U.S. Web Design Standards website locally (http://127.0.0.1:4000).
+This also sets up gulp and Jekyll to watch for file changes to the `/docs`
+and `/src` directories and rebuilds the website accordingly. The command is
+aliased by `npm start`
 
 ## Licenses and attribution
 
