@@ -64,7 +64,7 @@ Then to start, run the following command to install any new dependencies:
 npm install
 ```
 
-The following examples detail a few tasks you'll encounter as you use gulp
+The following examples detail a few tasks you'll encounter as you use gulp:
 
 ```sh
 gulp build
