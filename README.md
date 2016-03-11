@@ -28,12 +28,12 @@ First, download the Draft Web Design Standards assets:
 Then, add the `dist` directory files into a relevant place in your code base — likely a directory where you keep third-party libraries:
 
 ```
-- uswds-0.9.0/
-  ├── js
+uswds-0.9.0/
+  ├── js/
   │   ├── uswds.min.js.map
   │   ├── uswds.min.js
   │   └── uswds.js
-  ├── css
+  ├── css/
   │   ├── uswds.min.css.map
   │   ├── uswds.min.css
   │   └── uswds.css
