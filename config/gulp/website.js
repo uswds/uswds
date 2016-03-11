@@ -129,7 +129,7 @@ gulp.task('copy-assets', [ 'build' ], function (done) {
 //
 gulp.task('bundle-gems', [ 'copy-assets' ], function (done) {
 
-  var bundle = spawn('bundle', [ 'update' ]);
+  var bundle = spawn('bundle');
 
   bundle.stdout.on('data', function (data) {
 
