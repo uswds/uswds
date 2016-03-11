@@ -16,7 +16,7 @@ gulp.task('clean-generated-assets', function (done) {
   return del([
     'docs/_scss',
     'docs/assets/fonts/',
-    'docs/assets/js/vendor/' + dutil.fileName + '.js',
+    'docs/assets/js/vendor/' + dutil.pkg.name + '.js',
   ]);
 });
 
@@ -54,7 +54,7 @@ gulp.task('copy-bundled-javascript', function (done) {
 
   var copyBundledJavaScript = spawn('cp', [
     '-rvf',
-    'dist/js/' + dutil.fileName + '.js',
+    'dist/js/' + dutil.pkg.name + '.js',
     'docs/assets/js/vendor/',
   ]);
 
@@ -187,7 +187,7 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
   gulp.watch('src/scripts/**/*.js', function (event) {
     runSequence(
       'javascript',
-      function () { return del('docs/assets/js/vendor/' + dutil.fileName + '.js'); },
+      function () { return del('docs/assets/js/vendor/' + dutil.pkg.name + '.js'); },
       'copy-bundled-javascript'
     );
   });
