@@ -44,15 +44,6 @@ uswds-0.9.0/
   └── fonts/
 ```
 
-We offer two versions — a minified version, and an un-minified one. The minified
-versions contain a `.min` suffix in the filename before the file's extension.
-The un-minified versions do not contain the `.min` suffix.
-
-Use the minified version in a production environment or to reduce the file size
-of your downloaded assets. And the un-minified version is better if you are in a
-development environment or would like to debug the CSS or JavaScript assets in
-the browser. The examples below recommend using the minified versions.
-
 Refer to these files by adding the following `<link>` and `<script>` elements
 into your HTML pages:
 
@@ -67,6 +58,11 @@ Add this before the closing `</body>` tag:
 ```html
 <script src="/path/to/your/assets/js/lib/uswds.min.js"></script>
 ```
+
+We offer two versions — a minified version, and an un-minified one. Use the minified version in a production environment or to reduce the file size
+of your downloaded assets. And the un-minified version is better if you are in a
+development environment or would like to debug the CSS or JavaScript assets in
+the browser. The examples above recommend using the minified versions.
 
 This version of the Standards includes jQuery version `2.2.0` bundled within the
 JavaScript file. Please make sure that you're not including any other version
