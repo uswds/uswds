@@ -10,7 +10,6 @@
 @import 'core/defaults';
 @import 'core/variables';
 @import 'core/fonts';
-@import 'core/base';
 @import 'core/grid-settings';
 @import 'core/grid';
 @import 'core/mixins';
@@ -24,6 +23,7 @@
 // Elements -------------- //
 // Styles basic HTML elements
 
+@import 'elements/base';
 @import 'elements/buttons';
 @import 'elements/figure';
 @import 'elements/inputs';
