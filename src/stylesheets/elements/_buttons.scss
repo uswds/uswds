@@ -11,8 +11,7 @@ $button-stroke: inset 0 0 0 2px;
 button,
 [type="button"],
 [type="submit"],
-[type="reset"],
-[type="image"] {
+[type="reset"] {
   appearance: none;
   background-color: $color-primary;
   border: 0;
