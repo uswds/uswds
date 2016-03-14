@@ -80,17 +80,17 @@ The package will be installed in `node_modules/uswds`. You can use the files
 found in the `src/` directory.
 
 ```
-- node_modules/uswds/
-  - dist/
-    - css/
-    - fonts/
-    - img/
-    - js/
-  - src/
-    - fonts/
-    - img/
-    - js/
-    - stylesheets/
+node_modules/uswds/
+  ├── dist/
+  │   ├── css/
+  │   ├── fonts/
+  │   ├── img/
+  │   ├── js/
+  ├── src/
+  │   ├── fonts/
+  │   ├── img/
+  │   ├── js/
+  │   ├── stylesheets/
 ```
 
 `require('uswds')` will load all of the Draft U.S. Web Design Standard's JavaScript onto the page. The `uswds` module itself does not export anything.
