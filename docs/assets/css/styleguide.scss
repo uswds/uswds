@@ -1,0 +1,1016 @@
+---
+---
+
+// Imports -------------- //
+
+@import 'uswds';
+
+// Variables -------------- //
+
+$width-nav-sidebar:  250px;
+$color-grid-dark:    #727272;
+$color-grid-light:   #e3e4e5;
+$site-top:           124px;
+
+// Navigation ------------- //
+
+.usa-site-header {
+  @include position(fixed, 0 null null 0);
+  background-color: $color-white;
+  border-bottom: 1px solid $color-gray-light;
+  width: 100%;
+  z-index: 1;
+
+  a {
+    border-bottom: none;
+  }
+
+  .usa-site-navbar {
+    @include media($medium-screen + $width-nav-sidebar) {
+      @include margin(2.7rem 0 1rem);
+      height: 6rem;
+    }
+    margin-top: 4px;
+
+    .logo {
+      @include media($medium-screen + $width-nav-sidebar) {
+        @include padding(0 null null $site-margins);
+        text-align: left;
+        width: auto;
+      }
+      float: left;
+      text-align: center;
+      padding-top: 1.3rem;
+      width: 70%;
+
+      a {
+        color: $color-gray;
+
+        &:hover {
+          color: $color-gray-dark;
+          text-decoration: none;
+        }
+      }
+    }
+
+    h1 {
+      @include media($medium-screen + $width-nav-sidebar) {
+        display: block;
+        font-size: $h3-font-size;
+        margin-top: .9rem;
+      }
+      margin: 0;
+      font-size: $h5-font-size;
+    }
+
+    .usa-button-list {
+      @include media($medium-screen + $width-nav-sidebar) {
+        display: block;
+        padding-right: $site-margins;
+      }
+      float: right;
+      display: none;
+      margin-top: -5px;
+
+      li {
+        display: inline;
+        font-family: $font-sans;
+
+        &:last-child .usa-button {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .disclaimer {
+    padding: .5rem 2rem;
+    color: white;
+    text-align: center;
+    font-size: $base-font-size / 1.25;
+    border-bottom: 1px solid #616161;
+    font-weight: 100;
+    .us-official {
+      margin: 0;
+    }
+    .stage {
+      a { text-decoration: underline; }
+      float: none;
+      display: block;
+      padding-top: 5px;
+    }
+    @include media($medium-screen + $width-nav-sidebar) {
+      .us-official {
+        margin-left: 177px;
+      }
+      .stage {
+        float: right;
+        padding: 0;
+      }
+    }
+  }
+
+}
+
+.menu-btn {
+  @include media($medium-screen + $width-nav-sidebar) {
+    display: none;
+  }
+  @include padding(1.5rem null);
+  display: inline;
+  float: left;
+  margin-top: -4px;
+  color: $color-white;
+  background-color: $color-primary;
+  font-size: 1.5rem;
+  width: 15%;
+  text-align: center;
+
+  &:hover {
+    text-decoration: none;
+    color: $color-white;
+    background-color: $color-primary-darker;
+  }
+
+  &:visited {
+    color: $color-white;
+  }
+}
+
+#menu-content {
+  @media (max-width: $medium-screen + $width-nav-sidebar) {
+    $sliding-panel-width: 220px;
+
+    @include position(fixed, 0 auto 0 0);
+    @include size($sliding-panel-width 100%);
+    @include transform(translateX(- $sliding-panel-width));
+    background: #fff;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    z-index: 999999;
+    display: block;
+    &.is-visible {
+      @include transition(all 0.25s linear);
+      @include transform(translateX(0));
+    }
+  }
+}
+
+.overlay {
+  @include position(fixed, 0);
+  @include transition;
+  background: #000;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 9999;
+
+  &.is-visible {
+    visibility: visible;
+  }
+}
+
+// Based on code by Diego Eis
+
+// Sidebar Nav --------- //
+
+.sidenav {
+  @include position(fixed, $site-top null 0 0);
+  width: $width-nav-sidebar;
+  border-right: 1px solid $color-gray-light;
+  padding: 5rem 3rem 3rem 3rem;
+  overflow: auto;
+  display: none;
+  z-index: -1;
+
+  .lt-ie9 & {
+    width: 25%;
+  }
+
+  .usa-sidenav-sub_list {
+    display: none;
+  }
+
+  @include media($medium-screen + $width-nav-sidebar) {
+    display: block;
+  }
+}
+
+.visual-style .sidenav .visual-style-sublist {
+  display: block;
+
+  ul {
+    display: block;
+  }
+}
+
+.form-controls .sidenav .form-controls-sublist {
+  display: block;
+}
+
+.form-templates .sidenav .form-templates-sublist {
+  display: block;
+}
+
+.footers .sidenav .footers-sublist {
+  display: block;
+}
+
+// Main Content --------- //
+
+.main-content {
+  @include media($medium-screen) {
+    top: $site-top;
+  }
+  @include position(absolute, 4rem 0 0 null);
+  @include padding(1em null 0);
+  width: 100%;
+  z-index: -1;
+  .lt-ie9 & {
+    width: 75%;
+  }
+
+  @include media($medium-screen + $width-nav-sidebar) {
+    width: calc(100% - #{$width-nav-sidebar});
+    .lt-ie9 & {
+      width: 75%;
+    }
+  }
+}
+
+// Styleguide Content -------- //
+
+.styleguide-content {
+  margin-bottom: 5em;
+  max-width: $site-max-width;
+  @include padding(null 2em);
+  position: relative;
+
+  > h1 {
+    margin-top: 3.4rem;
+    &:not(:first-child) {
+      margin-top: 1.5em;
+    }
+  }
+  @media (min-width: $medium-screen + $width-nav-sidebar) {
+    @include padding(null 3em);
+  }
+}
+
+// Footer --------------- //
+
+.usa-styleguide-footer {
+  background-color: $color-primary-darker;
+  @include padding(3rem null);
+
+// This is a styleguide-only rule and is not needed in the main library code for
+// the footer component which uses different styles
+// TODO investigate why it's not needed in the main library CSS
+  p, a {
+    @include media($medium-screen) {
+      margin-bottom: 0;
+    }
+    color: $color-white;
+    font-size: $h5-font-size;
+    @include margin(0 null 1.5rem);
+  }
+}
+
+// Pattern Preview Boxes -------- //
+
+.preview {
+  @include clearfix();
+  background-color: #fff;
+  @include margin(2em null);
+  padding: 1em $site-margins;
+  border: 1px solid #eeeeee;
+  .is-peripheral {
+    opacity: .2;
+  }
+}
+
+.preview-no_border {
+  border: 0;
+  @include margin(0 null 2em);
+  padding: 0;
+}
+
+// Code Sample Boxes --------- //
+
+.code-snippets {
+
+  .code-snippet-button:after {
+    content: "\25be  hide code";
+  }
+
+  &.hidden {
+
+    table {
+      display: none;
+    }
+
+    .code-snippet-button:after {
+      content: "\25b8  show code";
+    }
+  }
+
+  table {
+
+    table-layout: fixed;
+    width: 100%;
+    padding: 3em 0 0 0;
+
+    td {
+      background-color: #f5f5f5;
+      border: 1px solid #e0e0e0;
+      position: relative;
+      vertical-align: top;
+
+      .code-copy-button {
+        @include position(absolute, 0 0 null null);
+        border-radius: 0;
+        margin: 0;
+
+        &:hover {
+          background-color: $color-base;
+        }
+      }
+    }
+
+    th {
+      border: none;
+      text-align: left;
+    }
+
+    pre, code {
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+    }
+
+    pre {
+      padding: 0 1em 1em 1em;
+    }
+
+    code {
+      font-size: $base-font-size / 1.5;
+      line-height: 1.4em;
+      word-wrap: break-word;
+
+      &.language-html {
+        max-width: 25em;
+      }
+    }
+  }
+}
+
+// Download Code Boxes --------- //
+
+.download-code {
+  padding-top: 3em;
+}
+
+// Search bar grid --------- //
+
+.preview-search-bar {
+  .usa-grid {
+    padding: 0;
+  }
+}
+
+// Custom styles to illustrate invisible grid for web design standards
+
+.grid-example {
+  .usa-grid {
+    background: $color-grid-light;
+
+    > * {
+      color: $color-white;
+      padding: 1em;
+      background: $color-grid-dark;
+      @include margin(.5em null);
+    }
+  }
+
+  .usa-width-one-twelfth {
+    @include media($medium-screen) {
+      @include padding(null 0);
+    }
+  }
+}
+
+.grid-example-blank {
+  .usa-grid {
+    text-align: center;
+  }
+}
+
+.grid-text {
+  .usa-grid {
+    background: $color-grid-dark;
+
+    > * {
+      background: $color-grid-light;
+      color: #000;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+h3 + .button_wrapper {
+  margin-top: -.5em
+}
+
+.button_wrapper {
+  clear: both;
+  display: table;
+  margin-left: -1rem;
+  padding: 0rem 1rem;
+
+  &:after {
+    content:"\A";
+    white-space:pre;
+  }
+
+  button:last-child {
+    margin-right: 0;
+  }
+}
+
+.button_wrapper-dark {
+  background: #323a45
+}
+
+.usa-heading {
+  color: $color-primary-darker;
+}
+
+// Colors -------------- //
+
+.usa-color-short {
+  height: 7rem;
+  margin-bottom: 1rem;
+}
+
+.usa-color-name {
+  @include media($medium-screen) {
+    margin: 0;
+  }
+  @include margin(0 null 1em);
+}
+
+.usa-color-row {
+  margin-bottom: 3rem;
+
+  .color-big {
+    @include media($medium-screen) {
+      float: left;
+      padding-right: 4%;
+      width: 32%;
+    }
+  }
+
+  .color-small {
+    float: left;
+    width: 50%;
+
+    @include media($medium-screen) {
+      width: 17%;
+    }
+    margin-right: 0;
+  }
+
+  p {
+    font-family:  monospace, monospace;
+  }
+}
+
+.usa-primary-color-section {
+  @include media($medium-screen) {
+    margin-bottom: 8rem;
+  }
+  margin-bottom: 0;
+
+  .usa-color-square {
+    @include span-columns(6);
+    margin-bottom: 7rem;
+    padding-bottom: 50%;
+    position: relative;
+
+    @include media($medium-screen) {
+      @include span-columns(3);
+      margin-bottom: 0;
+      padding-bottom: 19%;
+    }
+  }
+
+  .usa-mobile-end-row {
+    @include media($medium-screen) {
+      margin-right: 2.35765%;
+    }
+    margin-right: 0;
+  }
+
+  .usa-color-name {
+    margin: 0;
+  }
+}
+
+.usa-color-inner-content {
+  position: absolute;
+  top: 100%;
+}
+
+.usa-color-hex {
+  font-weight: $font-bold;
+  @include margin(1rem null 0);
+}
+
+.usa-color-name {
+  font-size: 1.2rem;
+}
+
+.usa-color-text {
+  font-weight: $font-bold;
+  margin-bottom: .4rem;
+  @include padding(1rem 2rem);
+}
+
+.usa-color-outline {
+  .usa-color-text {
+    box-shadow: inset 0 0 0 1px $color-gray;
+  }
+}
+
+// Color background helpers
+
+.usa-color-primary {
+  background-color: $color-primary;
+}
+
+.usa-color-primary-darker {
+  background-color: $color-primary-darker;
+}
+
+.usa-color-primary-darkest {
+  background-color: $color-primary-darkest;
+}
+
+.usa-color-base {
+  background-color: $color-base;
+}
+
+.usa-color-gray-dark {
+  background-color: $color-gray-dark;
+}
+
+.usa-color-gray-light {
+  background-color: $color-gray-light;
+}
+
+.usa-color-white {
+  background-color: $color-white;
+  box-shadow: inset 0 0 0 1px $color-gray;
+}
+
+.usa-color-primary-alt {
+  background-color: $color-primary-alt;
+}
+
+.usa-color-primary-alt-dark {
+  background-color: $color-primary-alt-dark;
+}
+
+.usa-color-primary-alt-darkest {
+  background-color: $color-primary-alt-darkest;
+}
+
+.usa-color-primary-alt-light {
+  background-color: $color-primary-alt-light;
+}
+
+.usa-color-primary-alt-lightest {
+  background-color: $color-primary-alt-lightest;
+}
+
+.usa-color-secondary {
+  background-color: $color-secondary;
+}
+
+.usa-color-secondary-dark {
+  background-color: $color-secondary-dark;
+}
+
+.usa-color-secondary-darkest {
+  background-color: $color-secondary-darkest;
+}
+
+.usa-color-secondary-light {
+  background-color: $color-secondary-light;
+}
+
+.usa-color-secondary-lightest {
+  background-color: $color-secondary-lightest;
+}
+
+.usa-color-gray {
+  background-color: $color-gray;
+}
+
+.usa-color-gray-dark {
+  background-color: $color-gray-dark;
+}
+
+.usa-color-gray-light {
+  background-color: $color-gray-light;
+}
+
+.usa-color-gray-lighter {
+  background-color: $color-gray-lighter;
+}
+
+.usa-color-gray-lightest {
+  background-color: $color-gray-lightest;
+}
+
+.usa-color-gray-warm-dark {
+  background-color: $color-gray-warm-dark;
+}
+
+.usa-color-gray-warm-light {
+  background-color: $color-gray-warm-light;
+}
+
+.usa-color-gray-cool-light {
+  background-color: $color-gray-cool-light;
+}
+
+.usa-color-gold {
+  background-color: $color-gold;
+}
+
+.usa-color-gold-light {
+  background-color: $color-gold-light;
+}
+
+.usa-color-gold-lighter {
+  background-color: $color-gold-lighter;
+}
+
+.usa-color-gold-lightest {
+  background-color: $color-gold-lightest;
+}
+
+.usa-color-green {
+  background-color: $color-green;
+}
+
+.usa-color-green-light {
+  background-color: $color-green-light;
+}
+
+.usa-color-green-lighter {
+  background-color: $color-green-lighter;
+}
+
+.usa-color-green-lightest {
+  background-color: $color-green-lightest;
+}
+
+.usa-color-cool-blue {
+  background-color: $color-cool-blue;
+}
+
+.usa-color-cool-blue-light {
+  background-color: $color-cool-blue-light;
+}
+
+.usa-color-cool-blue-lighter {
+  background-color: $color-cool-blue-lighter;
+}
+
+.usa-color-cool-blue-lightest {
+  background-color: $color-cool-blue-lightest;
+}
+
+.usa-color-focus {
+  background-color: $color-focus;
+}
+
+.usa-color-visited {
+  background-color: $color-visited;
+}
+
+// Color text helpers
+
+.usa-color-text-primary-darkest {
+  color: $color-primary-darkest;
+}
+
+.usa-color-text-primary-darker {
+  color: $color-primary-darker;
+}
+
+.usa-color-text-primary {
+  color: $color-primary;
+}
+
+.usa-color-text-cool-blue-light {
+  color: $color-cool-blue-light;
+}
+
+.usa-color-text-primary-alt-darkest {
+  color: $color-primary-alt-darkest;
+}
+
+.usa-color-text-green {
+  color: $color-green;
+}
+
+.usa-color-text-visited {
+  color: $color-visited;
+}
+
+.usa-color-text-gray-dark {
+  color: $color-gray-dark;
+}
+
+.usa-color-text-gray-dark {
+  color: $color-gray-dark;
+}
+
+.usa-color-text-gray {
+  color: $color-gray;
+}
+
+.usa-color-text-gray-warm-dark {
+  color: $color-gray-warm-dark;
+}
+
+.usa-color-text-secondary-darkest {
+  color: $color-secondary-darkest;
+}
+
+.usa-color-text-secondary-dark {
+  color: $color-secondary-dark;
+}
+
+.usa-color-text-secondary {
+  color: $color-secondary;
+}
+
+.usa-color-text-white {
+  color: $color-white;
+}
+
+.usa-heading-alt {
+  border-bottom: 1px solid $color-gray;
+  padding-bottom: .8rem;
+}
+
+h6.usa-heading-alt {
+  margin-top: 4rem;
+}
+
+.usa-typography-example-font {
+  h1, h2, h3, h4, h5, h6, .usa-font-example p {
+    margin: 0;
+  }
+}
+
+.usa-typography-example {
+  .usa-monospace {
+    font-size: 1.2rem;
+    @include margin(0 null 3rem);
+  }
+}
+
+.usa-monospace {
+  font-family: monospace;
+}
+
+// Code snippet boxes
+
+.usa-code-sample .usa-unstyled-list {
+  @include unstyled-list();
+}
+
+.usa-code-sample pre {
+  font-size: 1.2rem;
+}
+
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: none;
+}
+
+code[class*="language-"], pre[class*="language-"] {
+  color: $color-base;
+}
+
+.token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted {
+  color: $color-primary-alt-darkest;
+}
+
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted {
+  color: $color-secondary;
+}
+
+.token.atrule, .token.attr-value, .token.keyword {
+  color: $color-green;
+}
+
+.token.punctuation {
+    color: $color-primary-alt-darkest;
+}
+
+.usa-code-sample .usa-accordion-content {
+  padding: 0;
+}
+
+.usa-code-sample pre[class*="language-"] {
+  margin-top: 0;
+}
+
+.preview {
+  .usa-background-dark {
+    display: inline-block;
+    @include padding(null 1em);
+  }
+}
+
+.alignment-example {
+  border-left: 2px solid $color-primary-darker;
+  padding-left: 1rem;
+}
+
+.help-text {
+  border-top: 2px solid $color-primary-darker;
+  color: $color-primary-darker;
+  font-size: $em-base;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.text-tiny {
+  @include margin(5px null 0);
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.typography-sans-intro {
+  .text-huge {
+    font-size: 140px;
+    line-height: 1.05;
+  }
+  .text-tiny {
+    font-size: 15px;
+  }
+}
+
+.typography-serif-intro {
+  .text-huge {
+    font-size: 120px;
+    line-height: 1.275;
+  }
+  .text-tiny {
+    font-size: 13px;
+  }
+}
+
+// Alt font styles
+
+$font-light: 300;
+
+@mixin font-lead-alt {
+  font-size: $base-font-size;
+  font-weight: $font-normal;
+}
+
+.serif-robust {
+  .usa-display-alt {
+    font-size: $h1-font-size;
+    font-weight: $font-light;
+  }
+
+  .usa-font-lead {
+    font-weight: $font-light;
+  }
+
+  .usa-font-lead.usa-font-lead-alt {
+    @include font-lead-alt();
+  }
+
+  &.serif-body {
+    .usa-font-example {
+      p {
+        font-family: $font-serif;
+        font-size: rem(15px);
+        line-height: $lead-line-height;
+      }
+
+      .usa-font-lead {
+        font-size: $h3-font-size;
+      }
+
+      .usa-font-lead.usa-font-lead-alt {
+        @include font-lead-alt();
+      }
+    }
+  }
+}
+
+.sans-style {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $font-sans;
+  }
+
+  h1 {
+    font-size: rem(44px);
+  }
+
+  h2 {
+    font-size: rem(34px);
+  }
+
+  h3 {
+    font-size: rem(24px);
+  }
+
+  h4 {
+    font-size: rem(19px);
+  }
+
+  h5 {
+    font-size: rem(16px);
+  }
+
+  h6 {
+    font-size: rem(13px);
+  }
+
+  .usa-display {
+    font-size: rem(59px);
+  }
+
+  .usa-display-alt {
+    font-size: rem(44px);
+    font-weight: $font-light;
+  }
+
+  .usa-font-lead {
+    font-family: $font-sans;
+    font-size: rem(22px);
+    font-weight: $font-light;
+    line-height: $base-line-height;
+  }
+
+  &.serif-body {
+    .usa-font-example {
+      p {
+        font-family: $font-serif;
+        font-size: rem(15px);
+        line-height: $lead-line-height;
+      }
+
+      .usa-font-lead {
+        font-family: $font-sans;
+        font-size: rem(22px);
+        font-weight: $font-light;
+        line-height: $base-line-height;
+      }
+    }
+  }
+}
+
+.serif-sans-minor {
+  h6 {
+    font-family: $font-sans;
+  }
+}
+
+.usa-accordion-docs {
+  margin-bottom: 6rem;
+}
+
+// This adds styleguide-only right and left margins for our disclaimer
+// Since the layout we use is not in a grid
+.usa-disclaimer-stage {
+  padding-right: $site-margins;
+}
+
+.usa-disclaimer-official {
+  @include media($medium-screen) {
+    padding-left: $site-margins;
+  }
+  padding-left: 2rem;
+}

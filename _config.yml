@@ -1,7 +1,13 @@
 # Markdown config
 markdown: redcarpet
 highlighter: rouge
+
 name: Draft U.S. Web Design Standards
+
+source: docs
+
+version: 0.9.0
+
 exclude:
 - go
 - Gemfile
@@ -12,6 +18,7 @@ exclude:
 - ".sass-cache"
 - ".ruby-version"
 - vendor
+- node_modules
 
 permalink: pretty
 
@@ -26,7 +33,7 @@ repos:
 google_analytics_ua: UA-48605964-33
 
 sass:
-  sass_dir: assets/_scss
+  sass_dir: _scss
 #  style: :compressed
 
 collections:

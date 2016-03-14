@@ -1,0 +1,26 @@
+# Jekyll files and directories
+#
+docs/
+_site/
+
+# Gem releases
+#
+dist-gem/
+
+# Configuration and scripts
+#
+.ruby-version
+.travis.yml
+_config.yml
+_config_18f_pages.yml
+.scss-lint.yml
+Gemfile
+Gemfile.lock
+go
+.sass-cache/
+.bundle/
+
+# Ensure that src and dist are published
+#
+!dist/
+!src/
