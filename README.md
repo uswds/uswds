@@ -38,9 +38,6 @@ uswds-0.9.0/
   │   ├── uswds.min.css
   │   └── uswds.css
   ├── img/
-  │   ├── social-icons/
-  │   ├── favicons/
-  │   ├── alerts/
   └── fonts/
 ```
 
