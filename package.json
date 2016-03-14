@@ -1,16 +1,17 @@
 {
   "name": "uswds",
-  "version": "0.8.3",
+  "version": "0.9.0",
   "description": "Open source UI components and visual style guide for U.S. government websites",
-  "main": "assets/js/components.js",
+  "main": "src/js/start.js",
   "scripts": {
-    "build-sass": "node-sass assets/_scss/all.scss > assets/css/uswds.css",
-    "prepublish": "npm run build-sass"
+    "prepublish": "bundle && gulp build",
+    "start": "gulp website:serve",
+    "build": "gulp release",
+    "test": "gulp eslint scss-lint",
+    "preversion": "npm test",
+    "version": "npm run prepublish",
+    "deploy": "gulp website:build"
   },
-  "assets": "assets/",
-  "style": "assets/css/uswds.css",
-  "css": "assets/css/uswds.css",
-  "scss": "assets/_scss/all.scss",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/18F/web-design-standards.git"
@@ -19,7 +20,8 @@
   "contributors": [
     "Maya Benari <maya.ben-ari@gsa.gov>",
     "Marco Segreto <marco.segreto@gsa.gov>",
-    "Jeremia Kimelman <jeremia.kimelman@gsa.gov>"
+    "Jeremia Kimelman <jeremia.kimelman@gsa.gov>",
+    "Roger Steve Ruiz <roger.ruiz@gsa.gov>"
   ],
   "license": "SEE LICENSE in LICENSE.md",
   "bugs": {
@@ -27,6 +29,36 @@
   },
   "homepage": "https://github.com/18F/web-design-standards#readme",
   "dependencies": {
-    "node-sass": "^3.4.2"
+    "bourbon": "^4.2.6",
+    "bourbon-neat": "^1.7.3",
+    "jquery": "^2.2.0",
+    "normalize.css": "^3.0.3",
+    "politespace": "^0.1.4"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-cached": "^1.1.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-eslint": "^1.1.1",
+    "gulp-filter": "^3.0.1",
+    "gulp-if": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-scss-lint": "^0.3.9",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "gulp-zip": "^3.1.0",
+    "inquirer": "^0.11.4",
+    "merge-stream": "^1.0.0",
+    "minimist": "^1.2.0",
+    "node-sass": "^3.4.2",
+    "run-sequence": "^1.1.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
   }
 }
