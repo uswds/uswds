@@ -11,6 +11,7 @@ install:
 
 script:
   - npm run deploy
+  - ./go build
 
 notifications:
   email:
