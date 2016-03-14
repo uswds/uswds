@@ -86,11 +86,11 @@ node_modules/uswds/
 │   ├── fonts/
 │   ├── img/
 │   ├── js/
-├── src/
-│   ├── fonts/
-│   ├── img/
-│   ├── js/
-│   ├── stylesheets/
+└── src/
+    ├── fonts/
+    ├── img/
+    ├── js/
+    └── stylesheets/
 ```
 
 `require('uswds')` will load all of the Draft U.S. Web Design Standard's JavaScript onto the page. The `uswds` module itself does not export anything.
