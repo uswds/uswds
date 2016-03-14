@@ -29,19 +29,16 @@ Then, add the `dist` directory files into a relevant place in your code base —
 
 ```
 uswds-0.9.0/
-  ├── js/
-  │   ├── uswds.min.js.map
-  │   ├── uswds.min.js
-  │   └── uswds.js
-  ├── css/
-  │   ├── uswds.min.css.map
-  │   ├── uswds.min.css
-  │   └── uswds.css
-  ├── img/
-  │   ├── social-icons/
-  │   ├── favicons/
-  │   ├── alerts/
-  └── fonts/
+├── js/
+│   ├── uswds.min.js.map
+│   ├── uswds.min.js
+│   └── uswds.js
+├── css/
+│   ├── uswds.min.css.map
+│   ├── uswds.min.css
+│   └── uswds.css
+├── img/
+└── fonts/
 ```
 
 Refer to these files by adding the following `<link>` and `<script>` elements
@@ -83,17 +80,17 @@ The package will be installed in `node_modules/uswds`. You can use the files
 found in the `src/` directory.
 
 ```
-- node_modules/uswds/
-  - dist/
-    - css/
-    - fonts/
-    - img/
-    - js/
-  - src/
-    - fonts/
-    - img/
-    - js/
-    - stylesheets/
+node_modules/uswds/
+├── dist/
+│   ├── css/
+│   ├── fonts/
+│   ├── img/
+│   ├── js/
+└── src/
+    ├── fonts/
+    ├── img/
+    ├── js/
+    └── stylesheets/
 ```
 
 `require('uswds')` will load all of the Draft U.S. Web Design Standard's JavaScript onto the page. The `uswds` module itself does not export anything.
