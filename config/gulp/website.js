@@ -12,12 +12,25 @@ var taskBuild = task + ':build';
 var taskServe = task + ':serve';
 var taskDev = task + ':development';
 
+gulp.task('clean-source-sass', function () {
+  return del('docs/_scss');
+});
+gulp.task('clean-fonts', function () {
+  return del('docs/assets/fonts/');
+});
+gulp.task('clean-bundled-javascript', function () {
+  return del('docs/assets/js/vendor/' + dutil.pkg.name + '.min.js');
+});
+
 gulp.task('clean-generated-assets', function (done) {
-  return del([
-    'docs/_scss',
-    'docs/assets/fonts/',
-    'docs/assets/js/vendor/' + dutil.pkg.name + '.js',
-  ]);
+  runSequence(
+    [
+      'clean-source-sass',
+      'clean-fonts',
+      'clean-bundled-javascript',
+    ],
+    done
+  );
 });
 
 gulp.task('copy-source-sass', function (done) {
@@ -180,14 +193,14 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
   gulp.watch('src/stylesheets/**/*.scss', function (event) {
     runSequence(
       'sass',
-      function () { return del('docs/_scss'); },
-      'copy-bundled-javascript'
+      'clean-source-sass',
+      'copy-source-sass'
     );
   });
-  gulp.watch('src/scripts/**/*.js', function (event) {
+  gulp.watch('src/js/**/*.js', function (event) {
     runSequence(
       'javascript',
-      function () { return del('docs/assets/js/vendor/' + dutil.pkg.name + '.js'); },
+      'clean-bundled-javascript',
       'copy-bundled-javascript'
     );
   });
@@ -200,7 +213,7 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
   gulp.watch('src/fonts/**/*', function (event) {
     runSequence(
       'fonts',
-      function () { return del('docs/assets/fonts'); },
+      'clean-fonts',
       'copy-fonts'
     );
   });
