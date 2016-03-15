@@ -54,7 +54,7 @@ gulp.task('copy-bundled-javascript', function (done) {
 
   var copyBundledJavaScript = spawn('cp', [
     '-rvf',
-    'dist/js/' + dutil.pkg.name + '.js',
+    'dist/js/' + dutil.pkg.name + '.min.js',
     'docs/assets/js/vendor/',
   ]);
 
