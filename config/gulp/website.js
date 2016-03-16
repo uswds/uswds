@@ -188,16 +188,36 @@ gulp.task(task, function (done) {
 // Wrapper task for `jekyll serve --watch` which runs after `gulp bundle-gems` to make sure
 // the gems are properly bundled.
 //
-gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
-
-  gulp.watch('src/stylesheets/**/*.scss', function (event) {
+gulp.task('sass-watch', function (done) {
+  gulp.watch([
+    'src/stylesheets/**/*.scss',
+    '!src/stylesheets/lib/**/*',
+  ], function (event) {
+    console.log('FILES CHANGES', event);
     runSequence(
       'sass',
       'clean-source-sass',
       'copy-source-sass'
     );
   });
-  gulp.watch('src/js/**/*.js', function (event) {
+});
+gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
+
+  gulp.watch([
+    'src/stylesheets/**/*.scss',
+    '!src/stylesheets/lib/**/*',
+  ], function (event) {
+    console.log('FILES CHANGES', event);
+    runSequence(
+      'sass',
+      'clean-source-sass',
+      'copy-source-sass'
+    );
+  });
+  gulp.watch([
+    'src/js/**/*.js',
+    '!src/js/vendor/**/*',
+  ], function (event) {
     runSequence(
       'javascript',
       'clean-bundled-javascript',

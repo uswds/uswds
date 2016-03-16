@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var dutil = require('./doc-util');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
@@ -48,23 +49,45 @@ gulp.task(task, [ 'scss-lint', 'copy-vendor-sass' ], function (done) {
   var entryFile = 'src/stylesheets/all.scss';
 
   var defaultStream = gulp.src(entryFile)
-    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+    .pipe(
+      sass({ outputStyle: 'expanded' })
+        .on('error', function (error) {
+          console.log(error);
+          gutil.log(
+            gutil.colors.yellow(task),
+            gutil.colors.red('error'),
+            '\n',
+            error.messageformatted
+          );
+          this.emit('end');
+        })
+    )
     .pipe(rename({
       basename: dutil.pkg.name,
     }))
     .pipe(gulp.dest('dist/css'));
 
-  var minifiedStream = gulp.src(entryFile)
-    .pipe(sourcemaps.init({ loadMaps: true }))
-      .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-      .pipe(rename({
-        basename: dutil.pkg.name,
-        suffix: '.min',
-      }))
-    .pipe(sourcemaps.write('.', { addComment: false }))
-    .pipe(gulp.dest('dist/css'));
+  //var minifiedStream = gulp.src(entryFile)
+    //.pipe(sourcemaps.init({ loadMaps: true }))
+      //.pipe(sass({ outputStyle: 'compressed' }))
+      //.on('error', function (error) {
+        //gutil.log(
+          //gutil.colors.yellow(task),
+          //gutil.colors.red('error'),
+          //'\n',
+          //error.messageformatted
+        //);
 
-  var streams = merge(defaultStream, minifiedStream);
+        //this.emit('end');
+      //})
+      //.pipe(rename({
+        //basename: dutil.pkg.name,
+        //suffix: '.min',
+      //}))
+    //.pipe(sourcemaps.write('.', { addComment: false }))
+    //.pipe(gulp.dest('dist/css'));
+
+  var streams = merge(defaultStream/*, minifiedStream*/);
 
   return streams;
 
