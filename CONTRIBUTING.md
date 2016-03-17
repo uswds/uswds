@@ -99,6 +99,59 @@ This also sets up gulp and Jekyll to watch for file changes to the `/docs`
 and `/src` directories and rebuilds the website accordingly. The command is
 aliased by `npm start`
 
+### Committing files when updating the `/src` directory
+
+When you run `npm start` to preview the website locally, many files are
+generated that are tracked by Git. This leaves your working directory in a dirty
+state and knowing which files need to be included in your commit can seem like a
+daunting task. The following steps can help in committing changes while the team
+looks into different approaches to handling changes to both the Standards
+website and the `uswds` package.
+
+If you made any changes to the `/src` directory, you have also made changes in
+the following directories. This is due to how the Standards website consumes
+the `uswds` package.
+
+```
+docs/_scss/
+docs/assets/img/
+docs/assets/fonts/
+docs/assets/js/vendor/
+```
+
+Changes may also appear in these directories and files, if you've made any
+changes to `/src`.
+
+```
+dist/css/
+dist/js/
+dist/fonts/
+dist/img/
+```
+
+These changes must be committed in order for our distribution directories and
+Standards website to remain in sync with the `uswds` package. Please keep
+changes in a directory within it's own series of commits. The commit messages
+below are examples.
+
+```sh
+git add src/ && \
+git commit -m "Update the src files"
+
+git add docs/ && \
+git commit -m "Update the Standards website"
+
+git add dist && \
+git commit -m "Update the dist directory"
+```
+
+Because this will produce three commits, the only commits that may be reviewed
+are the commits to the `/src` directory. This only applies to contributions that
+are done solely on the `/src` directory. If any contributions are added to the
+Standards website, the `/docs` directory will also be reviewed. The contents of
+the `/dist` directory is generated automatically, so commits may not need a
+review.
+
 ## Licenses and attribution
 
 ### A few parts of this project are not in the public domain
