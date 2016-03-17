@@ -44,31 +44,60 @@ Here are a few guidelines to follow when submitting a pull request:
 1. Once you're ready to submit a pull request, push your branch up to the repo.
 1. Submit your pull request against the `18f-pages-staging` branch.
 
-Questions or need help with setup? Feel free to open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
+Have questions or need help with setup? Open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
 
-## Install the package locally via `npm-link`
+### Building the project locally with gulp
 
-If you have a clone of this repository locally and would like to use it on
-another project without using the published version, you can use `npm link`.
+The Draft U.S. Web Design Standards `uswds` package (the ZIP download and the
+files needed to use the Standards on your project) and Standards website (our
+public site that displays examples of each component and the HTML code) are
+built using gulp automation. To use gulp, first make sure you've installed it on
+your machine globally.
 
-**Please note** that this use case is primarily useful if you're developing on the
-Draft Web Design Standards locally and would like to see those changes in another
-project that is using them.
-
-The following commands will link your local `web-design-standards` project to
-another project.
-
-```
-cd path/to/web-design-standards # note: your paths will differ
-npm link
-cd path/to/another/project-using-npm # note: this project name is reused below
-npm link uswds
+```sh
+npm install --global gulp-cli
 ```
 
-The `node_modules` directory in your project will contain a symbolic link of the
-contents of the `web-design-standards` project under `node_modules/uswds` within
-the `project-using-npm`. For more information on `npm-link`, you can read about
-it in the [`npm-link` documentation](https://docs.npmjs.com/cli/link).
+Then to start, run the following command to install any new dependencies:
+
+```sh
+npm install
+```
+
+The following examples detail a few tasks you'll encounter as you use gulp:
+
+```sh
+gulp build
+```
+
+The task above is an alias for running `gulp sass javascript images fonts` and
+is the task to build all assets. Building the package will generate a `/dist`
+directory with the contents of the ZIP archive made available to download.
+Building just the package is useful if you'd like to create your own
+distribution bundle for frameworks that aren't supported via npm. This files in
+`/dist` contain no documentation and are compiled and bundled CSS, JavaScript,
+fonts, and images files. The command is aliased by `npm run prepublish`.
+
+```sh
+gulp website:build
+```
+
+The task above builds the entire Draft U.S. Web Design Standards website locally.
+It can be useful when debugging for build errors or generating a deployable
+version of the Standards website. This creates a `/_site` directory that
+contains the Jekyll-built site. This is the same build step that we use to
+deploy the website. The command is aliased by `npm run deploy`.
+
+```sh
+gulp website:serve
+```
+
+The task above is similar to the previous `./go` serve command from earlier
+versions of the Standards. After running this command, you’ll be able to view
+the Draft U.S. Web Design Standards website locally (http://127.0.0.1:4000).
+This also sets up gulp and Jekyll to watch for file changes to the `/docs`
+and `/src` directories and rebuilds the website accordingly. The command is
+aliased by `npm start`
 
 ## Licenses and attribution
 
@@ -96,7 +125,7 @@ The file `assets/js/vendor/rem.min.js` is from [REM unit polyfill](https://githu
 
 The file `assets/js/vendor/respond.js` is from [Respond.js](https://github.com/scottjehl/Respond), copyright Scott Jehl, under the [MIT license](https://github.com/scottjehl/Respond/blob/master/LICENSE-MIT).
 
-The file `assets/js/vendor/selectivisr-min.js` is from [Selectivizr](http://selectivizr.com/), copyright Keith Clark, under the [MIT license](http://opensource.org/licenses/mit-license.php).
+The file `assets/js/vendor/selectivizr-min.js` is from [Selectivizr](http://selectivizr.com/), copyright Keith Clark, under the [MIT license](http://opensource.org/licenses/mit-license.php).
 
 The files `assets-styleguide/js/vendor/prism.js` and `assets-styleguide/css/prism.css` are from [Prism](http://prismjs.com/), copyright Lea Verou, under the [MIT license](https://github.com/PrismJS/prism/blob/gh-pages/LICENSE).
 

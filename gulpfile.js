@@ -37,16 +37,6 @@ gulp.task( 'default', function ( done ) {
   );
 
   dutil.logHelp(
-    'gulp production [ task-name ]',
-    'Prefixing tasks with production will generate production-ready files. ( e.g. minification )'
-  );
-
-  dutil.logHelp(
-    'gulp no-gem [ task-name ]',
-    'Prefixing tasks with `no-gem` will not generate files related to the Ruby gem.'
-  );
-
-  dutil.logHelp(
     'gulp no-cleanup [ task-name ]',
     'Prefixing tasks with `no-cleanup ` will not remove the distribution directories.'
   );
@@ -54,11 +44,6 @@ gulp.task( 'default', function ( done ) {
   dutil.logHelp(
     'gulp no-test [ task-name ]',
     'Prefixing tasks with `no-test` will disable testing and linting for all supported tasks.'
-  );
-
-  dutil.logHelp(
-    'gulp local-gem [ task-name ]',
-    'Prefixing tasks with `local-gem` will clone the us_web_design_standards_gem locally in `dist-gem` for the Jekyll site.'
   );
 
   dutil.logCommand(
@@ -89,6 +74,11 @@ gulp.task( 'default', function ( done ) {
   dutil.logCommand(
     'gulp fonts',
     'This task will copy all the font files into distribution directories.'
+  );
+
+  dutil.logCommand(
+    'gulp release',
+    'This task will run `gulp build` and prepare a release directory.'
   );
 
   done();

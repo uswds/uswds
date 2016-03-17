@@ -2,195 +2,141 @@
 
 [![Build Status](https://api.travis-ci.org/18F/web-design-standards.svg?branch=18f-pages-staging)](https://travis-ci.org/18F/web-design-standards)
 
-The [Draft U.S. Web Design Standards](https://playbook.cio.gov/designstandards) is a library of open source UI components and a visual style guide for U.S. federal government websites.
+The [Draft U.S. Web Design Standards](https://playbook.cio.gov/designstandards) include a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-These tools follow industry-standard web accessibility guidelines and reuse the best practices of existing style libraries and modern web design. Created and maintained by [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov) designers and developers, the Draft Web Design Standards are designed to support government product teams in creating beautiful and easy-to-use online experiences for the American people. Learn more about this project in our announcement [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/).
-
-Design files of all the assets included on this site are available for download here: [https://github.com/18F/web-design-standards-assets](https://github.com/18F/web-design-standards-assets).
-
-To begin using the Draft Web Design Standards (to help you contribute to it or reuse it for your own purposes), go to [Getting Started](https://github.com/18F/web-design-standards#getting-started). To run the [Draft Web Design Standards website](https://playbook.cio.gov/designstandards/) locally on your machine, go to [Setup for your local environment](https://github.com/18F/web-design-standards/#setup-for-your-local-environment).
-
-### Reuse of open source style guides
-
-Much of the guidance in Draft Web Design Standards leans on open source designs, code, and patterns from other civic and government organizations, including:
-- Consumer Financial Protection Bureau’s [Design Manual](https://cfpb.github.io/design-manual/)
-- U.S. Patent and Trademark Office’s [Design Patterns](http://uspto.github.io/designpatterns/)
-- Healthcare.gov [Style Guide](http://styleguide.healthcare.gov/)
-- UK’s Government Digital Service’s [UI Elements](http://govuk-elements.herokuapp.com/)
-- Code for America’s [Chime Styleguide](https://github.com/chimecms/chime-starter)
-- Pivotal Labs [Component Library](http://styleguide.cfapps.io/)
+These tools follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. Created and maintained by [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) designers and developers, the Draft Web Design Standards are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/).
 
 ## Getting started
 
-To begin using the Draft Web Design Standards on your project, include the CSS and JavaScript files in each HTML page in your project. Download the Draft Web Design Standards assets: https://github.com/18F/web-design-standards/archive/v0.8.3.zip. Add the `dist` directory files into a relevant places in your code base.
+We’re glad you’d like to use the Standards — here’s how you can get started:
+
+* Designers: Check out our Getting Started for Designers information [here](https://playbook.cio.gov/designstandards/getting-started/).
+    * Design files of all the assets included on this site are available for download [here](https://playbook.cio.gov/designstandards/assets/releases/wds-design-assets.zip).
+* Developers: Follow the instructions in this README to get started.
+    * CSS, JavaScript, image, and font files of all the assets on this site are available for download [here](https://github.com/18F/web-design-standards/releases/download/v0.9.0/uswds-0.9.0.zip).
+
+Here are a few different ways to use the Standards within your project.
+
+## Download
+
+To use the Draft Web Design Standards on your project, you’ll need to include the CSS and JavaScript files in each HTML page in your project.
+
+First, download the Draft Web Design Standards assets:
+
+[https://github.com/18F/web-design-standards/releases/download/v0.9.0/uswds-0.9.0.zip](https://github.com/18F/web-design-standards/releases/download/v0.9.0/uswds-0.9.0.zip)
+
+Then, add the `dist` directory files into a relevant place in your code base — likely a directory where you keep third-party libraries:
 
 ```
-- dist
-  - fonts/
-  - img/
-  - js/
-  - css/
+uswds-0.9.0/
+├── js/
+│   ├── uswds.min.js.map
+│   ├── uswds.min.js
+│   └── uswds.js
+├── css/
+│   ├── uswds.min.css.map
+│   ├── uswds.min.css
+│   └── uswds.css
+├── img/
+└── fonts/
 ```
 
-Refer to these files by adding a `<link>` and a `<script>` element into your HTML pages:
+Refer to these files by adding the following `<link>` and `<script>` elements
+into your HTML pages:
 
+Add this to your `<head>` element:
+
+```html
+<link rel="stylesheet" href="/path/to/your/assets/css/lib/uswds.min.css">
 ```
-<link rel="stylesheet" href="/path/to/your/assets/css/main.css">
-<link rel="stylesheet" href="/path/to/your/assets/css/google-fonts.css">
-<script src="/path/to/your/assets/js/components.js"></script>
+
+Add this before the closing `</body>` tag:
+
+```html
+<script src="/path/to/your/assets/js/lib/uswds.min.js"></script>
 ```
 
-### Install with NPM
+We offer two versions — a minified version, and an un-minified one. Use the minified version in a production environment or to reduce the file size
+of your downloaded assets. And the un-minified version is better if you are in a
+development environment or would like to debug the CSS or JavaScript assets in
+the browser. The examples above recommend using the minified versions.
 
-If you have `node` installed on your machine, you can use `npm` to install the
-Draft Web Design Standards.
+This version of the Standards includes jQuery version `2.2.0` bundled within the
+JavaScript file. Please make sure that you're not including any other version
+of jQuery on your page.
+
+And that’s it — you should be set to use the Standards.
+
+## Using npm
+
+If you have `node` installed on your machine, you can use npm to install the Standards. Add `uswds`
+to your projet's `package.json` as a dependency:
 
 ```shell
-cd path/to/project-using-npm
 npm install --save uswds
 ```
 
-This will add the Draft Web Design Standards as a dependency for your project and
-save it to your `package.json` file. The package will be installed in `node_modules`
-under `uswds`.
+The package will be installed in `node_modules/uswds`. You can use the files
+found in the `src/` directory.
 
-Refer to these files by adding a `<link>` and a `<script>` element into your
-HTML pages:
-
-If your project _does not_ already include jQuery please use the version of
-jQuery that is included in the package.
-
-```html
-<!-- CSS Includes -->
-<link rel="stylesheet" href="./node_modules/uswds/assets/css/google-fonts.css">
-<link rel="stylesheet" href="./node_modules/uswds/assets/css/uswds.css">
-
-<!-- JavaScript Includes -->
-<script src="./node_modules/uswds/assets/js/vendor/jquery-1.11.3.min.js"></script>
-<script src="./node_modules/uswds/assets/js/components.js"></script>
+```
+node_modules/uswds/
+├── dist/
+│   ├── css/
+│   ├── fonts/
+│   ├── img/
+│   ├── js/
+└── src/
+    ├── fonts/
+    ├── img/
+    ├── js/
+    └── stylesheets/
 ```
 
-If your project already includes jQuery via a script tag, feel free to use that
-version of jQuery.
+`require('uswds')` will load all of the Draft U.S. Web Design Standard's JavaScript onto the page. The `uswds` module itself does not export anything.
 
-```html
-<!-- CSS Includes -->
-<link rel="stylesheet" href="./node_modules/uswds/assets/css/uswds.css">
-<link rel="stylesheet" href="./node_modules/uswds/assets/css/google-fonts.css">
+The main Sass (SCSS) source file is here:
 
-<!-- JavaScript Includes -->
-<script src="./node_modules/uswds/assets/js/components.js"></script>
+```
+node_modules/uswds/src/stylesheets/all.scss
 ```
 
-#### Using `uswds` with an `npm`-based asset pipeline
+The non-minified CSS that’s been precompiled is here:
 
-With the `uswds` package installed in your `node_modules` directory, you can
-access various included dependencies from the package itself. These dependencies
-include both JavaScript and Sass files.
-
-Running `require( 'uswds' )` will include the contents of the `components.js`
-file in your project. This file does not export currently export anything so it
-doesn't need to be assigned to a variable. This library depends on `jQuery` and
-`$` to be on the `window` object before it is required. So please be sure that
-you include the jQuery dependency on your HTML page or via `npm` and set it to
-the `window` object as `jQuery` and `$`.
-
-```js
-window.$ = window.jQuery = require( 'jquery' );
-require( 'uswds' );
-// ...
+```
+node_modules/uswds/dist/css/uswds.css
 ```
 
-To use the styles from the Draft Web Design Standards you can import it into
-your main Sass file like so:
+## Using another framework or package manager
 
-```scss
-@import './node_modules/uswds/assets/_scss/all.scss';
-```
+If you’re using another framework or package manager that doesn’t support NPM, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/18F/web-design-standards/issues/877).
 
-Your HTML file may be structured like this:
+If you’re interested in maintaining a package that helps us distribute the Draft Web Design Standards, the project's build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
-```html
-<!-- CSS Includes -->
-<link rel="stylesheet" href="./node_modules/uswds/assets/css/google-fonts.css">
+## Need installation help?
 
-<!-- Your compiled CSS, which imports the Draft Web Design Standards -->
-<link rel="stylesheet" href="./path/to/assets/style.css">
+Do you have questions or need help with setup? Did you run into any weird errors while following these instructions? Feel free to open an issue here:
 
-<!-- Your compiled JavaScript, which creates jQuery on the `window` object. -->
-<script src="./path/to/assets/start-app.js"></script>
-```
+[https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
 
-Note: You might get an [`npm` warning related to `lodash`](https://github.com/18F/web-design-standards/pull/902#issuecomment-161076213), but you can generally ignore it.
-This error is related to a dependency found in `node-sass`.
-
-## Setup for your local environment
-
-### Requirements
-
-These setup instructions are for running the [Draft Web Design Standards website](https://playbook.cio.gov/designstandards/) locally on your machine and not for using the assets (CSS, JavaScript, etc) on your own project. If you want to use the standards assets, go to [Getting Started](https://github.com/18F/web-design-standards#getting-started). For context, the styleguide website uses [Jekyll](http://jekyllrb.com/) (a static site generator), which is run via a [`./go` script](https://github.com/18F/go_script). At 18F, we then use [18F Pages](https://github.com/18F/pages) to publish and serve the site.
-
-You will need [Ruby](https://www.ruby-lang.org) ( > version 2.2.3 ). You may consider using a Ruby version manager such as [rbenv](https://github.com/sstephenson/rbenv) or [rvm](https://rvm.io/) to help ensure that Ruby version upgrades don't mean all your [gems](https://rubygems.org/) will need to be rebuilt.
-
-On OS X, you can also use [Homebrew](http://brew.sh/) to install Ruby in `/usr/local/bin`, which may require you to update your `$PATH` environment variable. Here are the commands to follow to install via homebrew:
-
-```shell
-$ brew update
-$ brew install ruby
-```
-
-Note: The website is published with [18F Pages](https://github.com/18F/pages).
-
-### Installation
-
-Now that you have verified that you have Ruby installed, clone and run the following [go script](https://github.com/18F/go_script) commands to initialize and serve the library locally.
-
-```shell
-$ git clone git@github.com:18F/web-design-standards.git
-$ cd web-design-standards
-$ npm install
-$ gulp website:watch
-```
-
-You should now be able to visit `http://127.0.0.1:4000/`
-and view the draft web design standards locally.
-
-Questions or need help with setup? Did you run into any weird errors while following these instructions? Feel free to open an issue here: [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
-
-### Gulp workflow
-
-The Draft Web Design Standards repository includes `gulp` to help with the
-automation of certain tasks. Once the project is installed on your local
-machine, you can run `gulp` within the project directory and see all available
-commands.
-
-The `gulp-cli` package will need to be installed globally in order to use the
-`gulp` tasks.
-
-```shell
-npm install --global gulp-cli
-```
+You can also email us directly at uswebdesignstandards@gsa.gov.
 
 ## Contributing to the code base
 
-See [CONTRIBUTING](CONTRIBUTING.md).
+For complete instructions on how to contribute code, please read [CONTRIBUTING.md](https://github.com/18F/web-design-standards/blob/18f-pages-staging/CONTRIBUTING.md). These instructions also include guidance on how to set up your own copy of the Standards style guide website for development.
 
-### Deployment and workflow
+If you have questions or concerns about our contributing workflow, please contact us by [filing a GitHub issue](https://github.com/18F/web-design-standards/issues) or [emailing our team](mailto:uswebdesignstandards@gsa.gov).
 
-* The staging branch `18f-pages-staging` is **automatically deployed** to our staging site: https://pages-staging.18f.gov/designstandards/.
-* The production branch `18f-pages` is **automatically deployed** to our production site: https://playbook.cio.gov/designstandards/.
+## Reuse of open-source style guides
 
-**All development and pull requests should be done against the `18f-pages-staging` branch.**
+Much of the guidance in the Draft Web Design Standards leans on open source designs, code, and patterns from other civic and government organizations, including:
 
-`18f-pages-staging` is already set to the default branch in this repository.
-
-Deployments to production will be done by site admins, using pull requests from `18f-pages-staging` to `18f-pages`.
-
-## Got feedback?
-
-Please create a [GitHub Issue](https://github.com/18F/web-design-standards/issues).
-
-If you'd rather email, you can reach us at uswebdesignstandards@gsa.gov.
+* Consumer Financial Protection Bureau’s [Design Manual](https://cfpb.github.io/design-manual/)
+* U.S. Patent and Trademark Office’s [Design Patterns](http://uspto.github.io/designpatterns/)
+* Healthcare.gov [Style Guide](http://styleguide.healthcare.gov/)
+* UK’s Government Digital Service’s [UI Elements](http://govuk-elements.herokuapp.com/)
+* Code for America’s Chime [Styleguide](https://github.com/chimecms/chime-starter)
+* Pivotal Labs [Component Library](http://styleguide.cfapps.io/)
 
 ## Licenses and attribution
 
@@ -218,7 +164,7 @@ The file `src/js/vendor/rem.min.js` is from [REM unit polyfill](https://github.c
 
 The file `src/js/vendor/respond.js` is from [Respond.js](https://github.com/scottjehl/Respond), copyright Scott Jehl, under the [MIT license](https://github.com/scottjehl/Respond/blob/master/LICENSE-MIT).
 
-The file `src/js/vendor/selectivisr-min.js` is from [Selectivizr](http://selectivizr.com/), copyright Keith Clark, under the [MIT license](http://opensource.org/licenses/mit-license.php).
+The file `src/js/vendor/selectivizr-min.js` is from [Selectivizr](http://selectivizr.com/), copyright Keith Clark, under the [MIT license](http://opensource.org/licenses/mit-license.php).
 
 The files `docs/assets/js/vendor/prism.js` and `assets-styleguide/css/prism.css` are from [Prism](http://prismjs.com/), copyright Lea Verou, under the [MIT license](https://github.com/PrismJS/prism/blob/gh-pages/LICENSE).
 

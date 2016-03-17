@@ -25,11 +25,11 @@ function drawFlag () {
   );
   gutil.log(
     gutil.colors.blue('xxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
-    gutil.colors.white('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+    gutil.colors.red('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
   );
   gutil.log(
     gutil.colors.blue('xxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
-    gutil.colors.red('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+    gutil.colors.white('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
   );
   gutil.log(
     gutil.colors.blue('xxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
@@ -64,6 +64,8 @@ module.exports = {
     version: pkg.version,
 
   },
+
+  dirName: pkg.name + '-' + pkg.version,
 
   logIntroduction: function (message) {
 

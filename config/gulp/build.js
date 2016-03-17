@@ -29,7 +29,7 @@ gulp.task('build', function (done) {
   dutil.logIntroduction();
   dutil.logMessage(
     'build',
-    'The build task has created distrubtion directories.'
+    'Creating distrubtion directories.'
   );
 
   runSequence(
