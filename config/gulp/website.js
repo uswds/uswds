@@ -55,10 +55,10 @@ gulp.task('copy-source-sass', function (done) {
 
   copySourceSass.on('close', function (code) { if (0 === code) {
     process.execSync(
-      'mv docs/_scss/all.scss ' +
+      'mv -fv docs/_scss/all.scss ' +
       'docs/_scss/_' + dutil.pkg.name + '.scss'
     );
-     done();
+    done();
   } });
 
 });
@@ -188,26 +188,15 @@ gulp.task(task, function (done) {
 // Wrapper task for `jekyll serve --watch` which runs after `gulp bundle-gems` to make sure
 // the gems are properly bundled.
 //
-gulp.task('sass-watch', function (done) {
-  gulp.watch([
-    'src/stylesheets/**/*.scss',
-    '!src/stylesheets/lib/**/*',
-  ], function (event) {
-    console.log('FILES CHANGES', event);
-    runSequence(
-      'sass',
-      'clean-source-sass',
-      'copy-source-sass'
-    );
-  });
-});
 gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
 
   gulp.watch([
-    'src/stylesheets/**/*.scss',
+    'src/stylesheets/components/**/*.scss',
+    'src/stylesheets/elements/**/*.scss',
+    'src/stylesheets/core/**/*.scss',
+    'src/stylesheets/all.scss',
     '!src/stylesheets/lib/**/*',
   ], function (event) {
-    console.log('FILES CHANGES', event);
     runSequence(
       'sass',
       'clean-source-sass',
