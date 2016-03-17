@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var gutil = require('gulp-util');
 var dutil = require('./doc-util');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
