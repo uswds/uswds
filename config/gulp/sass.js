@@ -32,31 +32,37 @@ gulp.task('copy-vendor-sass', function (done) {
   var stream = gulp.src([
     './node_modules/normalize.css/normalize.css',
     './node_modules/bourbon/app/assets/stylesheets/**/*.scss',
-    './node_modules/bourbon-neat/app/assets/stylesheets/**/*.scss'])
-  .pipe(normalizeCssFilter)
-    .pipe(rename('_normalize.scss'))
-  .pipe(normalizeCssFilter.restore)
-  .pipe(gulp.dest('src/stylesheets/lib'));
+    './node_modules/bourbon-neat/app/assets/stylesheets/**/*.scss',
+  ])
+    .pipe(normalizeCssFilter)
+      .pipe(rename('_normalize.scss'))
+    .pipe(normalizeCssFilter.restore)
+    .on('error', function (error) { console.log(error); })
+    .pipe(gulp.dest('src/stylesheets/lib'));
 
   return stream;
 });
 
-gulp.task(task, [ 'scss-lint', 'copy-vendor-sass' ], function (done) {
+gulp.task(task, [ 'scss-lint' ], function (done) {
 
   dutil.logMessage(task, 'Compiling Sass');
 
   var entryFile = 'src/stylesheets/all.scss';
 
   var defaultStream = gulp.src(entryFile)
-    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-    .pipe(rename({
-      basename: dutil.pkg.name,
-    }))
+    .pipe(
+      sass({ outputStyle: 'expanded' })
+        .on('error', sass.logError)
+    )
+    .pipe(rename({ basename: dutil.pkg.name }))
     .pipe(gulp.dest('dist/css'));
 
   var minifiedStream = gulp.src(entryFile)
     .pipe(sourcemaps.init({ loadMaps: true }))
-      .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+      .pipe(
+        sass({ outputStyle: 'compressed' })
+          .on('error', sass.logError)
+      )
       .pipe(rename({
         basename: dutil.pkg.name,
         suffix: '.min',

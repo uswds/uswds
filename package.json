@@ -4,13 +4,14 @@
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "main": "src/js/start.js",
   "scripts": {
-    "prepublish": "bundle && gulp build",
+    "prepublish": "bundle && gulp copy-vendor-sass && gulp build",
+    "prestart": "gulp copy-vendor-sass",
     "start": "gulp website:serve",
-    "build": "gulp release",
+    "build": "gulp copy-vendor-sass && gulp release",
     "test": "gulp eslint scss-lint",
     "preversion": "npm test",
     "version": "npm run prepublish",
-    "deploy": "gulp website:build"
+    "deploy": "gulp copy-vendor-sass && gulp website:build"
   },
   "repository": {
     "type": "git",
