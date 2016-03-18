@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var gutil = require('gulp-util');
 var dutil = require('./doc-util');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
@@ -28,11 +27,7 @@ gulp.task('scss-lint', function (done) {
     stream
       .pipe(linter.failReporter())
       .on('error', function (error) {
-        gutil.log(
-          gutil.colors.yellow('scss-lint'),
-          gutil.colors.red('error')
-        );
-
+        dutil.logError('scss-lint', 'error');
         process.exit(1);
       });
   }
@@ -53,7 +48,10 @@ gulp.task('copy-vendor-sass', function (done) {
     .pipe(normalizeCssFilter)
       .pipe(rename('_normalize.scss'))
     .pipe(normalizeCssFilter.restore)
-    .on('error', function (error) { console.log(error); })
+    .on('error', function (error) {
+      dutil.logError('copy-vendor-sass', 'error');
+      this.emit('end');
+    })
     .pipe(gulp.dest('src/stylesheets/lib'));
 
   return stream;

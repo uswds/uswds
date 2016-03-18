@@ -27,11 +27,7 @@ gulp.task('eslint', function (done) {
     stream
       .pipe(linter.failAfterError())
       .on('error', function (error) {
-        gutil.log(
-          gutil.colors.yellow('eslint'),
-          gutil.colors.red('error')
-        );
-
+        dutil.logError('eslint', 'error');
         process.exit(1);
       });
   }
@@ -65,7 +61,10 @@ gulp.task(task, [ 'eslint' ], function (done) {
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
       .pipe(uglify())
-      .on('error', gutil.log)
+      .on('error', function (error) {
+        dutil.logError('eslint', 'error');
+        this.emit('end');
+      })
       .pipe(rename({
         basename: dutil.pkg.name,
         suffix: '.min',
