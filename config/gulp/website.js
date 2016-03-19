@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var dutil = require('./doc-util');
-var spawn = require('child_process').spawn;
+var spawn = require('cross-spawn');
 var exec = require('child_process').exec;
 var execSync = require('child_process').execSync;
 var runSequence = require('run-sequence');
