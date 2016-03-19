@@ -143,8 +143,7 @@ gulp.task('copy-assets', [ 'build' ], function (done) {
 gulp.task('bundle-gems', [ 'copy-assets' ], function (done) {
 
   var bundle = spawn('bundle');
-
-  console.log(process.env.PATH)
+  
   bundle.stdout.on('data', function (data) {
 
     if (/[\w\d]+/.test(data)) {
