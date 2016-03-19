@@ -1,8 +1,8 @@
 var gulp = require('gulp');
 var dutil = require('./doc-util');
-var process = require('child_process');
-var spawn = process.spawn;
-var exec = process.exec;
+var spawn = require('child_process').spawn;
+var exec = require('child_process').exec;
+var execSync = require('child_process').execSync;
 var runSequence = require('run-sequence');
 var del = require('del');
 var clean = require('gulp-clean');
@@ -54,7 +54,7 @@ gulp.task('copy-source-sass', function (done) {
   copySourceSass.on('error', function (error) { done(error); });
 
   copySourceSass.on('close', function (code) { if (0 === code) {
-    process.execSync(
+    execSync(
       'mv -fv docs/_scss/all.scss ' +
       'docs/_scss/_' + dutil.pkg.name + '.scss'
     );
@@ -144,6 +144,7 @@ gulp.task('bundle-gems', [ 'copy-assets' ], function (done) {
 
   var bundle = spawn('bundle');
 
+  console.log(process.env.PATH)
   bundle.stdout.on('data', function (data) {
 
     if (/[\w\d]+/.test(data)) {
