@@ -18,10 +18,21 @@ gulp.task('scss-lint', function (done) {
     return done();
   }
 
-  return gulp.src('src/stylesheets/**/*.scss')
+  var stream = gulp.src('src/stylesheets/**/*.scss')
     .pipe(linter({
       config: '.scss-lint.yml',
     }));
+
+  if (cFlags.failFast) {
+    stream
+      .pipe(linter.failReporter())
+      .on('error', function (error) {
+        dutil.logError('scss-lint', 'error');
+        process.exit(1);
+      });
+  }
+
+  return stream;
 
 });
 
@@ -37,7 +48,10 @@ gulp.task('copy-vendor-sass', function (done) {
     .pipe(normalizeCssFilter)
       .pipe(rename('_normalize.scss'))
     .pipe(normalizeCssFilter.restore)
-    .on('error', function (error) { console.log(error); })
+    .on('error', function (error) {
+      dutil.logError('copy-vendor-sass', 'error');
+      this.emit('end');
+    })
     .pipe(gulp.dest('src/stylesheets/lib'));
 
   return stream;

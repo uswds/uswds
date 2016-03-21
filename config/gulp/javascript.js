@@ -19,9 +19,20 @@ gulp.task('eslint', function (done) {
     return done();
   }
 
-  return gulp.src([ 'src/js/**/*.js', '!src/js/vendor/**/*.js' ])
+  var stream = gulp.src([ 'src/js/**/*.js', '!src/js/vendor/**/*.js' ])
     .pipe(linter('.eslintrc'))
     .pipe(linter.format());
+
+  if (cFlags.failFast) {
+    stream
+      .pipe(linter.failAfterError())
+      .on('error', function (error) {
+        dutil.logError('eslint', 'error');
+        process.exit(1);
+      });
+  }
+
+  return stream;
 
 });
 
@@ -50,7 +61,10 @@ gulp.task(task, [ 'eslint' ], function (done) {
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
       .pipe(uglify())
-      .on('error', gutil.log)
+      .on('error', function (error) {
+        dutil.logError('eslint', 'error');
+        this.emit('end');
+      })
       .pipe(rename({
         basename: dutil.pkg.name,
         suffix: '.min',

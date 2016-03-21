@@ -46,6 +46,11 @@ gulp.task( 'default', function ( done ) {
     'Prefixing tasks with `no-test` will disable testing and linting for all supported tasks.'
   );
 
+  dutil.logHelp(
+    'gulp fail-fast [ task-name ]',
+    'Prefixing tasks with `fail-fast` will cause the task to fail after it encounters the first error or warning.'
+  );
+
   dutil.logCommand(
     'gulp clean-dist',
     'This task will remove the distribution directories.'

@@ -5,6 +5,7 @@ global.cFlags = {
 
   test: true,
   cleanup: true,
+  failFast: false,
 
 };
 
@@ -26,6 +27,17 @@ gulp.task('no-cleanup', function (done) {
     'Disabling cleanup of distribution directories.'
   );
   cFlags.cleanup = false;
+  done();
+
+});
+
+gulp.task('fail-fast', function (done) {
+
+  dutil.logMessage(
+    'fail-fast',
+    'Failing when encountering linter warnings & errors.'
+  );
+  cFlags.failFast = true;
   done();
 
 });

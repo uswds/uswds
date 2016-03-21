@@ -76,10 +76,6 @@ module.exports = {
       message
     );
     drawFlag();
-    //gutil.log(
-      //gutil.colors.yellow('v' + pkg.version),
-      //'The following gulp commands are available'
-    //);
 
   },
 
@@ -117,6 +113,15 @@ module.exports = {
     gutil.log(
       gutil.colors.cyan(name),
       gutil.colors.green(message)
+    );
+
+  },
+
+  logError: function (name, message) {
+
+    gutil.log(
+      gutil.colors.yellow(name),
+      gutil.colors.red(message)
     );
 
   },
