@@ -6,7 +6,7 @@
   margin-top: 1.5em;
   padding: 1em;
 
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     background-size: 5.2rem;
   }
 
@@ -26,7 +26,7 @@
   padding-left: 3.5rem;
   vertical-align: top;
 
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     padding-left: 5rem;
   }
 }
@@ -34,8 +34,8 @@
 .usa-alert-heading {
   margin-bottom: .3rem;
   margin-top: 0;
-  
-  @include media($medium-screen) {
+
+  @include uswds-media($medium-screen) {
     margin-top: .3rem;
   }
 }

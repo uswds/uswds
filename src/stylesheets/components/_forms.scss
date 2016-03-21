@@ -1,7 +1,7 @@
 $usa-form-width: 32rem;
 
 form {
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     max-width: $usa-form-width;
   }
 
@@ -15,7 +15,7 @@ form {
     margin-bottom: 1.5em;
     margin-top: 2.5rem;
 
-    @include media($medium-screen) {
+    @include uswds-media($medium-screen) {
       padding-left: 2.7em;
       padding-right: 2.7em;
       width: auto;
@@ -45,37 +45,37 @@ fieldset {
 }
 
 .usa-form-large {
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     max-width: 46rem;
   }
 }
 
 input.usa-input-tiny {
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     max-width: 6rem;
   }
 }
 
 input.usa-input-medium {
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     max-width: 12rem;
   }
 }
 
 .usa-input-grid {
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     padding-right: 5%;
   }
 }
 
 .usa-input-grid:last-of-type {
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     padding-right: 0;
   }
 }
 
 .usa-input-grid-small {
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     float: left;
     width: 35%;
   }
@@ -90,7 +90,7 @@ input.usa-input-medium {
 }
 
 .usa-input-grid-medium {
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     float: left;
     width: 65%;
   }
@@ -105,7 +105,7 @@ input.usa-input-medium {
 }
 
 .usa-input-grid-large {
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     float: left;
     width: 100%;
   }

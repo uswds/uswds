@@ -153,11 +153,11 @@ p,
   @include h3();
   margin-bottom: 0;
 
-  @include media($small-screen) {
+  @include uswds-media($small-screen) {
     @include h1();
   }
 
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     @include title();
   }
 }

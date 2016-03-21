@@ -4,7 +4,7 @@
   padding-bottom: .5rem;
   padding-top: .5rem;
 
-  @include media($small-screen) {
+  @include uswds-media($small-screen) {
     font-size: $h5-font-size;
   }
 }
@@ -15,7 +15,7 @@
   display: none;
   float: right;
 
-  @include media($large-screen) {
+  @include uswds-media($large-screen) {
     display: block;
   }
 }
