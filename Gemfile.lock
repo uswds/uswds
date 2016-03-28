@@ -48,6 +48,3 @@ DEPENDENCIES
   redcarpet
   rouge (= 1.9)
   scss_lint
-
-BUNDLED WITH
-   1.11.2
