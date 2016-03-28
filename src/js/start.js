@@ -52,7 +52,7 @@ $(function() {
     $('[data-' + componentName + ']').politespace();
   });
 
-  $('[class^=usa-accordion]').each(function() {
+  $('*[class*=usa-accordion]').each(function() {
     new Accordion($(this));
   });
 
