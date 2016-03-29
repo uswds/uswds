@@ -1,8 +1,8 @@
 var gulp = require('gulp');
 var dutil = require('./doc-util');
-var process = require('child_process');
-var spawn = process.spawn;
-var exec = process.exec;
+var spawn = require('cross-spawn');
+var exec = require('child_process').exec;
+var execSync = require('child_process').execSync;
 var runSequence = require('run-sequence');
 var del = require('del');
 var clean = require('gulp-clean');
@@ -54,11 +54,11 @@ gulp.task('copy-source-sass', function (done) {
   copySourceSass.on('error', function (error) { done(error); });
 
   copySourceSass.on('close', function (code) { if (0 === code) {
-    process.execSync(
-      'mv docs/_scss/all.scss ' +
+    execSync(
+      'mv -fv docs/_scss/all.scss ' +
       'docs/_scss/_' + dutil.pkg.name + '.scss'
     );
-     done();
+    done();
   } });
 
 });
@@ -143,7 +143,7 @@ gulp.task('copy-assets', [ 'build' ], function (done) {
 gulp.task('bundle-gems', [ 'copy-assets' ], function (done) {
 
   var bundle = spawn('bundle');
-
+  
   bundle.stdout.on('data', function (data) {
 
     if (/[\w\d]+/.test(data)) {
@@ -190,14 +190,23 @@ gulp.task(task, function (done) {
 //
 gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
 
-  gulp.watch('src/stylesheets/**/*.scss', function (event) {
+  gulp.watch([
+    'src/stylesheets/components/**/*.scss',
+    'src/stylesheets/elements/**/*.scss',
+    'src/stylesheets/core/**/*.scss',
+    'src/stylesheets/all.scss',
+    '!src/stylesheets/lib/**/*',
+  ], function (event) {
     runSequence(
       'sass',
       'clean-source-sass',
       'copy-source-sass'
     );
   });
-  gulp.watch('src/js/**/*.js', function (event) {
+  gulp.watch([
+    'src/js/**/*.js',
+    '!src/js/vendor/**/*',
+  ], function (event) {
     runSequence(
       'javascript',
       'clean-bundled-javascript',

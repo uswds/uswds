@@ -18,8 +18,8 @@ $base-line-height:    1.5 !default;
 $heading-line-height: 1.3 !default;
 $lead-line-height:    1.7 !default;
 
-$font-sans:           'Source Sans Pro', 'Helvetica', 'Arial', sans-serif !default;
-$font-serif:          'Merriweather', 'Georgia', 'Times New Roman', serif;
+$font-sans:           'Source Sans Pro', $helvetica !default;
+$font-serif:          'Merriweather', $georgia !default;
 
 $font-normal:         400 !default;
 $font-bold:           700 !default;
@@ -61,7 +61,7 @@ $color-gold-light:           #f9c642 !default; //  lighten($color-gold, 20%)
 $color-gold-lighter:         #fad980 !default; //  lighten($color-gold, 60%)
 $color-gold-lightest:        #fff1d2 !default; //  lighten($color-gold, 83%)
 
-$color-green:                #2e8540 !default;  
+$color-green:                #2e8540 !default;
 $color-green-light:          #4aa564 !default; // lighten($color-green, 20%)
 $color-green-lighter:        #94bfa2 !default; // lighten($color-green, 60%)
 $color-green-lightest:       #e7f4e4 !default; // lighten($color-green, 60%)
@@ -89,5 +89,5 @@ $article-max-width: 600px !default;
 $input-max-width:   46rem !default;
 $border-radius:     rem(3px) !default;
 $box-shadow:        0 0 2px rgba(#000, 0.3) !default;
-$focus-shadow:      0 0 3px $color-focus, 0 0 7px $color-focus;
+$focus-shadow:      0 0 3px $color-focus, 0 0 7px $color-focus !default;
 $grid-margins:      3rem !default;
