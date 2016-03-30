@@ -70,7 +70,7 @@ And that’s it — you should be set to use the Standards.
 ## Using npm
 
 If you have `node` installed on your machine, you can use npm to install the Standards. Add `uswds`
-to your projet's `package.json` as a dependency:
+to your project's `package.json` as a dependency:
 
 ```shell
 npm install --save uswds
