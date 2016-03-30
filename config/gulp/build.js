@@ -8,12 +8,12 @@ gulp.task('clean-dist', function (done) {
   if (!cFlags.cleanup) {
     dutil.logMessage(
       'clean-dist',
-      'Skipping cleaning up the distrubtion directories.'
+      'Skipping cleaning up the distribution directories.'
     );
     return done();
   }
 
-  dutil.logMessage('clean-dist', 'Removing distrubtion directories.');
+  dutil.logMessage('clean-dist', 'Removing distribution directories.');
 
   if (!cFlags.local) {
     dutil.logMessage('clean-dist', 'Removing gem distribution directory');
@@ -29,7 +29,7 @@ gulp.task('build', function (done) {
   dutil.logIntroduction();
   dutil.logMessage(
     'build',
-    'Creating distrubtion directories.'
+    'Creating distribution directories.'
   );
 
   runSequence(

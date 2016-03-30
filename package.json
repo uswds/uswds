@@ -1,16 +1,17 @@
 {
   "name": "uswds",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "main": "src/js/start.js",
   "scripts": {
-    "prepublish": "bundle && gulp build",
+    "prepublish": "bundle && gulp copy-vendor-sass && gulp build",
+    "prestart": "gulp copy-vendor-sass",
     "start": "gulp website:serve",
-    "build": "gulp release",
+    "build": "gulp copy-vendor-sass && gulp release",
     "test": "gulp eslint scss-lint",
     "preversion": "npm test",
     "version": "npm run prepublish",
-    "deploy": "gulp website:build"
+    "deploy": "gulp copy-vendor-sass && gulp website:build"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
   "dependencies": {
     "bourbon": "^4.2.6",
     "bourbon-neat": "^1.7.3",
+    "cross-spawn": "^2.1.5",
     "jquery": "^2.2.0",
     "normalize.css": "^3.0.3",
     "politespace": "^0.1.4"
