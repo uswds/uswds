@@ -82,7 +82,9 @@ textarea {
   height: 16rem;
 }
 
+// padding right added to avoid text overlapping with bg image
 select {
+  padding-right: 3.2rem;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
