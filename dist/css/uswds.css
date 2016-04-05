@@ -1276,11 +1276,13 @@ select {
   color: #212121;
   display: block;
   font-size: 1.7rem;
+  line-height: 1.3;
   margin: 0.2em 0;
   max-width: 46rem;
   outline: none;
   padding: 1rem 0.7em;
   width: 100%;
+  height: 4.4rem;
 }
 
 input:focus, input.usa-input-focus,
@@ -1381,6 +1383,8 @@ textarea {
 }
 
 select {
+  padding-right: 32px;
+  /* to avoid text overlapping with dropdown chevron */
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
