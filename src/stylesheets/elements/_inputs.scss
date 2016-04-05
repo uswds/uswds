@@ -1,3 +1,21 @@
+$input-line-height: 1.3;
+$input-border-width: 1px;
+$input-padding-v: 1rem;
+$input-padding-h: 0.7em;
+
+// input heights will vary by browser and type
+// (i.e., select inputs) if height not explicitly set
+$input-height-computed: (
+  ($base-font-size * $input-line-height) +
+  ($input-padding-v * 2) +
+  (rem($input-border-width * 2))
+);
+
+// truncated to 1 decimal place
+// (i.e., 1.21rem -> 1.2rem)
+$input-height: floor($input-height-computed * 10) / 10;
+
+
 // Block form elements
 input,
 input[type="text"],
@@ -14,21 +32,23 @@ input[type="month"],
 input[type="time"],
 input[type="week"],
 textarea,
-select  {
+select {
   appearance: none;
-  border: 1px solid $color-gray;
+  border: $input-border-width solid $color-gray;
   border-radius: 0;
   box-sizing: border-box;
-  color: $color-base; // standardize on firefox 
+  color: $color-base; // standardize on firefox
   display: block;
   font-size: $base-font-size;
+  line-height: $input-line-height;
   margin: 0.2em 0;
   max-width: $input-max-width;
   outline: none;
-  padding: 1rem 0.7em;
+  padding: $input-padding-v $input-padding-h;
   width: 100%;
+  height: $input-height;
 
-  &:focus, 
+  &:focus,
   &.usa-input-focus {
     box-shadow: $focus-shadow;
   }
@@ -83,6 +103,7 @@ textarea {
 }
 
 select {
+  padding-right: 32px; /* to avoid text overlapping with dropdown chevron */
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
