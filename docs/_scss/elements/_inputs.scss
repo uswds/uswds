@@ -82,18 +82,17 @@ textarea {
   height: 16rem;
 }
 
-// padding right added to avoid text overlapping with bg image
 select {
-  padding-right: 3.2rem;
+  appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-  appearance: none;
   background-color: $color-white;
   background-image: url('../img/arrow-down.png');
   background-image: url('../img/arrow-down.svg');
   background-position: right 1.3rem center;
   background-repeat: no-repeat;
   background-size: 1.3rem;
+  padding-right: 3.2rem;
 }
 
 legend {
