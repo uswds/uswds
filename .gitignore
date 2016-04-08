@@ -29,7 +29,7 @@ dist/uswds*.zip
 
 # Ignore gulp-generated vendor files
 #
-src/stylesheets/lib
+#src/stylesheets/lib
 #docs/assets/fonts/
 #docs/assets/js/vendor/uswds.js
 #docs/_scss/
