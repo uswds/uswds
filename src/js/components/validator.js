@@ -14,7 +14,7 @@ module.exports = function ($el) {
         validatorName = key.split('validate')[1];
         validatorPattern = new RegExp(data[key]);
         $validatorCheckbox = $checkList.find('[data-validator=' +
-            validatorName.toLowerCase() + ']');
+        validatorName.toLowerCase() + ']');
 
         if (!validatorPattern.test($el.val())) {
           $validatorCheckbox.toggleClass('usa-checklist-checked', false);
@@ -28,4 +28,3 @@ module.exports = function ($el) {
 
   $el.on('keyup', validate);
 };
-
