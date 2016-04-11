@@ -90,7 +90,7 @@ lead: Patterns for some of the most commonly used forms on government websites
       <div>
         <div class="usa-input-grid usa-input-grid-medium">
           <label for="city">City</label>
-          <input id="city" name="city" type="text">
+          <input id="city" name="city">
         </div>
 
         <div class="usa-input-grid usa-input-grid-small">
