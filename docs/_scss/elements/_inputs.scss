@@ -83,9 +83,9 @@ textarea {
 }
 
 select {
-  appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
+  appearance: none;
   background-color: $color-white;
   background-image: url('../img/arrow-down.png');
   background-image: url('../img/arrow-down.svg');
