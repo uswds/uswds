@@ -87,6 +87,19 @@ lead: Form controls allow users to enter information into a page.
     <option value="value3">Option C</option>
   </select>
 </form>
+
+<form>
+  <div class="usa-input-error">
+    <label for="options" class="usa-input-error-label">Dropdown label</label>
+    <span id="options-input-error" class="usa-input-error-message" role="alert">Helpful error message</span>
+    <select name="options" id="options" aria-describedby="options-input-error">
+      <option value="value1">Option A</option>
+      <option value="value2">Option B</option>
+      <option value="value3">Option C</option>
+    </select>
+  </div>
+</form>
+
 </div>
 
 <div class="usa-accordion-bordered usa-accordion-docs">
@@ -154,6 +167,57 @@ lead: Form controls allow users to enter information into a page.
 
   </fieldset>
 
+  <fieldset class="usa-fieldset-inputs usa-sans">
+
+    <legend>Historical figures 1</legend>
+
+    <ul class="usa-unstyled-list">
+      <li>
+        <input id="apple-pie" type="checkbox" name="pies[]" value="apple-pie" checked />
+        <label for="apple-pie">Sojourner Truth</label>
+      </li>
+      <li>
+        <input id="key-lime-pie" type="checkbox" name="pies[]" value="key-lime-pie">
+        <label for="key-lime-pie">Frederick Douglass</label>
+      </li>
+      <li>
+        <input id="peach-pie" type="checkbox" name="pies[]" value="peach-pie">
+        <label for="peach-pie">Booker T. Washington</label>
+      </li>
+      <li>
+        <input id="disabled" type="checkbox" disabled />
+        <label for="disabled">George Washington Carver</label>
+      </li>
+    </ul>
+
+  </fieldset>
+
+  <div class="usa-input-error">
+    <fieldset class="usa-fieldset-inputs usa-sans">
+      <span id="pies-input-error" class="usa-input-error-message" role="alert">Helpful error message</span>
+      <legend class="usa-input-error-label">Historical figures 1</legend>
+
+      <ul class="usa-unstyled-list">
+        <li>
+          <input id="apple-pie" type="checkbox" name="pies[]" value="apple-pie" checked />
+          <label for="apple-pie">Sojourner Truth</label>
+        </li>
+        <li>
+          <input id="key-lime-pie" aria-describedby="pies-input-error" type="checkbox" name="pies[]" value="key-lime-pie">
+          <label for="key-lime-pie">Frederick Douglass</label>
+        </li>
+        <li>
+          <input id="peach-pie" aria-describedby="pies-input-error" type="checkbox" name="pies[]" value="peach-pie">
+          <label for="peach-pie">Booker T. Washington</label>
+        </li>
+        <li>
+          <input id="disabled" aria-describedby="pies-input-error" type="checkbox" disabled />
+          <label for="disabled">George Washington Carver</label>
+        </li>
+      </ul>
+
+    </fieldset> 
+  </div>
 </div>
 
 <div class="usa-accordion-bordered usa-accordion-docs">
@@ -219,6 +283,49 @@ lead: Form controls allow users to enter information into a page.
 
   </fieldset>
 
+  <fieldset class="usa-fieldset-inputs usa-sans">
+
+    <legend>Historical figures 2</legend>
+
+    <ul class="usa-unstyled-list">
+      <li>
+        <input id="pea-soup" type="radio" checked name="soup" value="pea">
+        <label for="pea-soup">Elizabeth Cady Stanton</label>
+      </li>
+      <li>
+        <input id="chicken-noodle" type="radio" name="soup" value="chicken-noodle">
+        <label for="chicken-noodle">Susan B. Anthony</label>
+      </li>
+      <li>
+        <input id="tomato" type="radio" name="soup" value="tomato">
+        <label for="tomato">Harriet Tubman</label>
+      </li>
+    </ul>
+
+  </fieldset>
+
+  <div class="usa-input-error">
+    <fieldset class="usa-fieldset-inputs usa-sans">
+
+      <legend class="usa-input-error-label">Historical figures 2</legend>
+      <span id="soup-input-error" class="usa-input-error-message" role="alert">Helpful error message</span>
+      <ul class="usa-unstyled-list">
+        <li>
+          <input id="pea-soup" aria-describedby="soup-input-error" type="radio" checked name="soup" value="pea">
+          <label for="pea-soup">Elizabeth Cady Stanton</label>
+        </li>
+        <li>
+          <input id="chicken-noodle" aria-describedby="soup-input-error" type="radio" name="soup" value="chicken-noodle">
+          <label for="chicken-noodle">Susan B. Anthony</label>
+        </li>
+        <li>
+          <input id="tomato" aria-describedby="soup-input-error" type="radio" name="soup" value="tomato">
+          <label for="tomato">Harriet Tubman</label>
+        </li>
+      </ul>
+
+    </fieldset>  
+  </div>
 </div>
 
 <div class="usa-accordion-bordered usa-accordion-docs">
@@ -281,6 +388,49 @@ lead: Form controls allow users to enter information into a page.
       </div>
     </div>
   </fieldset>
+
+  <fieldset class="usa-fieldset-inputs">
+    <legend>Date of birth</legend>
+    <span class="usa-form-hint usa-datefield-hint" id="dobHint">For example: 04 28 1986</span>
+
+    <div class="usa-date-of-birth">
+      <div class="usa-datefield usa-form-group usa-form-group-month">
+        <label for="date_of_birth_1">Month</label>
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="number" min="1" max="12" value="">
+      </div>
+      <div class="usa-datefield usa-form-group usa-form-group-day">
+        <label for="date_of_birth_2">Day</label>
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_2" name="date_of_birth_2" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="number" min="1" max="31" value="">
+      </div>
+      <div class="usa-datefield usa-form-group usa-form-group-year">
+        <label for="date_of_birth_3">Year</label>
+        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3" name="date_of_birth_3" pattern="[0-9]{4}" type="number" min="1900" max="2000" value="">
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="usa-input-error">
+    <fieldset class="usa-fieldset-inputs">
+      <legend class="usa-input-error-label">Date of birth</legend>
+      <span id="date_of_birth-input-error" class="usa-input-error-message" role="alert">Helpful error message</span>
+      <span class="usa-form-hint usa-datefield-hint" id="dobHint">For example: 04 28 1986</span>
+
+      <div class="usa-date-of-birth">
+        <div class="usa-datefield usa-form-group usa-form-group-month">
+          <label for="date_of_birth_1">Month</label>
+          <input aria-describedby="date_of_birth-input-error" class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="number" min="1" max="12" value="">
+        </div>
+        <div class="usa-datefield usa-form-group usa-form-group-day">
+          <label for="date_of_birth_2">Day</label>
+          <input aria-describedby="date_of_birth-input-error" class="usa-form-control" id="date_of_birth_2" name="date_of_birth_2" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="number" min="1" max="31" value="">
+        </div>
+        <div class="usa-datefield usa-form-group usa-form-group-year">
+          <label for="date_of_birth_3">Year</label>
+          <input aria-describedby="date_of_birth-input-error" class="usa-form-control" id="date_of_birth_3" name="date_of_birth_3" pattern="[0-9]{4}" type="number" min="1900" max="2000" value="">
+        </div>
+      </div>
+    </fieldset>
+  </div> 
 </div>
 
 <div class="usa-accordion-bordered usa-accordion-docs">
