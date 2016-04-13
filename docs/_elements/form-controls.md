@@ -147,7 +147,7 @@ lead: Form controls allow users to enter information into a page.
         <label for="peach-pie">Booker T. Washington</label>
       </li>
       <li>
-        <input id="disabled" type="checkbox" disabled />
+        <input id="disabled" type="checkbox" name="pies" disabled />
         <label for="disabled">George Washington Carver</label>
       </li>
     </ul>
