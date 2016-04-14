@@ -135,19 +135,19 @@ lead: Form controls allow users to enter information into a page.
 
     <ul class="usa-unstyled-list">
       <li>
-        <input id="apple-pie" type="checkbox" name="pies[]" value="apple-pie" checked />
+        <input id="apple-pie" type="checkbox" name="pies" value="apple-pie" checked />
         <label for="apple-pie">Sojourner Truth</label>
       </li>
       <li>
-        <input id="key-lime-pie" type="checkbox" name="pies[]" value="key-lime-pie">
+        <input id="key-lime-pie" type="checkbox" name="pies" value="key-lime-pie">
         <label for="key-lime-pie">Frederick Douglass</label>
       </li>
       <li>
-        <input id="peach-pie" type="checkbox" name="pies[]" value="peach-pie">
+        <input id="peach-pie" type="checkbox" name="pies" value="peach-pie">
         <label for="peach-pie">Booker T. Washington</label>
       </li>
       <li>
-        <input id="disabled" type="checkbox" disabled />
+        <input id="disabled" type="checkbox" name="pies" disabled />
         <label for="disabled">George Washington Carver</label>
       </li>
     </ul>
