@@ -41,6 +41,15 @@ lead: Alerts keep users informed of important and sometimes time-sensitive chang
       <p class="usa-alert-text">Multi line. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui atione voluptatem sequi nesciunt. Neque porro quisquam est, qui doloremipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
     </div>
   </div>
+  <div class="usa-alert usa-alert-info">
+    <form>
+      <button class="usa-button-dismiss"><span class="usa-sr-only">dismiss</span></button>  
+    </form>      
+    <div class="usa-alert-body">
+      <h3 class="usa-alert-heading">Information Status</h3>
+      <p class="usa-alert-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+    </div>
+  </div>  
 </div>
 
 <div class="usa-accordion-bordered usa-accordion-docs">

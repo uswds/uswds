@@ -61,6 +61,12 @@ lead: Use buttons to signal actions.
     <button class="usa-button-big" type="button">Default</button>
   </div>
 
+  <h6>Dismiss Button</h6>
+  <div class="button_wrapper">
+    <button class="usa-button-dismiss"><span class="usa-sr-only">Dismiss</span></button>
+  </div>
+
+
 </div>
 
 <div class="usa-accordion-bordered usa-accordion-docs">
