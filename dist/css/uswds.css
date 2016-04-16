@@ -1390,6 +1390,7 @@ select {
   background-position: right 1.3rem center;
   background-repeat: no-repeat;
   background-size: 1.3rem;
+  padding-right: 3.2rem;
 }
 
 legend {
