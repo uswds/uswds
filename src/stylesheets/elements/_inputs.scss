@@ -139,12 +139,14 @@ input[type="radio"] + label {
 
 input[type="checkbox"] + label::before,
 input[type="radio"] + label::before {
+  position: relative;
   background: white;
   border-radius: $border-radius;
   box-shadow: 0 0 0 1px $color-gray-medium;
   content: '\a0';
   display: inline-block;
   height: 1.8rem;
+  top: 2px;
   line-height: 0.8;
   margin-right: 0.6em;
   text-indent: 0.15em;
@@ -152,10 +154,11 @@ input[type="radio"] + label::before {
   width: 1.8rem;
 }
 
-input[type="radio"] + label::before {  
+input[type="radio"] + label::before {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-gray-medium;
-  height: 1.6rem;  
-  width: 1.6rem;  
+  top: 2.5px;
+  height: 1.6rem;
+  width: 1.6rem;
 }
 
 input[type="radio"] + label::before {
