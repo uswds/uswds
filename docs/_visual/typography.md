@@ -930,7 +930,8 @@ order: 01
     <h4 class="usa-heading">Implementation</h4>
     <p>To get the max-width on body text, add the class <code>usa-content</code> to your document. Use at the specificity that best suits your project's needs.</p>
     <p>Lists must use <code>usa-content-list</code> for the above.</p>
-    <p>You can change the max-width value <code>$text-max-width</code> in <code>assets/_scss/core/<wbr>variables.scss</code>.</p>
+    <p>You can change the max-width value <code>$text-max-width</code> by
+    overwriting the variables in <code><wbr>_defaults.scss</code>.</p>
     <h4 class="usa-heading">Usability</h4>
     <ul class="usa-content-list">
       <li>Alignment: Type set flush left provides the eye a constant starting point for each line, making text easier to read.</li>
