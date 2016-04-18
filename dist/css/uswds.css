@@ -790,7 +790,7 @@ button,
   cursor: pointer;
   display: inline-block;
   font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 0.5em;
@@ -996,7 +996,7 @@ button.usa-button-gray,
 [type="submit"].usa-button-gray,
 [type="reset"].usa-button-gray,
 [type="image"].usa-button-gray {
-  background-color: #5b616b;
+  background-color: #205493;
 }
 
 .usa-button.usa-button-gray:hover, .usa-button.usa-button-gray.usa-button-hover,
@@ -1270,12 +1270,12 @@ input[type="week"],
 textarea,
 select {
   appearance: none;
-  border: 1px solid #5b616b;
+  border: 1px solid #205493;
   border-radius: 0;
   box-sizing: border-box;
   color: #212121;
   display: block;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   margin: 0.2em 0;
   max-width: 46rem;
   outline: none;
@@ -1357,14 +1357,14 @@ select.usa-input-success {
 
 .usa-input-error-label {
   display: block;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: 700;
 }
 
 .usa-input-error-message {
   color: #cd2026;
   display: block;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: 700;
   padding-bottom: 3px;
   padding-top: 3px;
@@ -1483,7 +1483,7 @@ input[type="checkbox"]:focus + label::before {
 }
 
 input[type="checkbox"]:disabled + label {
-  color: #5b616b;
+  color: #205493;
 }
 
 input[type="checkbox"]:disabled + label::before,
@@ -1625,7 +1625,7 @@ input[type=range]:focus::-ms-thumb {
 }
 
 .usa-label-big {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   padding-left: 0.9rem;
   padding-right: 0.9rem;
 }
@@ -1731,7 +1731,7 @@ table tbody th {
 }
 
 table th, table td {
-  border: 1px solid #5b616b;
+  border: 1px solid #205493;
   padding: 1.5rem;
 }
 
@@ -1754,7 +1754,7 @@ html {
 }
 
 body {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
 }
 
 p {
@@ -1877,7 +1877,7 @@ p a,
 
 .usa-font-lead {
   font-family: "Merriweather", "Georgia", "Cambria", "Times New Roman", "Times", serif;
-  font-size: 2rem;
+  font-size: 2.2rem;
   line-height: 1.7;
 }
 
@@ -2700,7 +2700,7 @@ fieldset {
 }
 
 .usa-sidenav-list li {
-  border-top: 1px solid #5b616b;
+  border-top: 1px solid #205493;
   font-size: 1.7rem;
 }
 

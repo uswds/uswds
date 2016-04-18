@@ -166,8 +166,8 @@ input.usa-input-medium {
 
 .usa-checklist-checked {
   &:before {
-    background-image: url('../img/correct9.png');
-    background-image: url('../img/correct9.svg');
+    background-image: url('#{$static-img-path}/correct9.png');
+    background-image: url('#{$static-img-path}/correct9.svg');
     background-position: 100%;
     background-repeat: no-repeat;
     background-size: 100%;
