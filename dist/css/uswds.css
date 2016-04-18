@@ -1442,16 +1442,16 @@ input[type="radio"] + label::before {
   content: '\a0';
   display: inline-block;
   height: 1.8rem;
-  line-height: 0.8;
+  line-height: 1.8rem;
   margin-right: 0.6em;
   text-indent: 0.15em;
-  vertical-align: 0.2em;
   width: 1.8rem;
 }
 
 input[type="radio"] + label::before {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #757575;
   height: 1.6rem;
+  line-height: 1.6rem;
   width: 1.6rem;
 }
 
