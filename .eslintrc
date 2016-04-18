@@ -1,0 +1,23 @@
+{
+    "rules": {
+        "no-unused-vars": [ 0 ],
+        "no-console": [ 0 ],
+        "indent": [ 1, 2 ],
+        "quotes": [ 2, "single" ],
+        "linebreak-style": [ 2, "unix" ],
+        "semi": [ 2, "always" ],
+        "comma-dangle": [ 1, "always-multiline" ],
+        "no-undef": [ 0 ],
+        "space-before-function-paren": [ 2, "always" ],
+        "array-bracket-spacing": [ 2, "always" ],
+        "block-spacing": [ 2, "always" ],
+        "comma-spacing": [ 2, { "before": false, "after": true } ],
+        "computed-property-spacing": [ 2, "always" ],
+        "object-curly-spacing": [ 2, "always" ]
+    },
+    "env": {
+        "node": true,
+        "browser": true
+    },
+    "extends": "eslint:recommended"
+}
