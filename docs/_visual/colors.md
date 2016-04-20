@@ -368,93 +368,96 @@ order: 02
 
 <div class="usa-grid-full">
   <div class="usa-width-one-half">
-    <div class="usa-color-text usa-color-base usa-color-text-white">
+    <div class="usa-color-text usa-bgcolor-base">
       white on base
     </div>
-    <div class="usa-color-text usa-color-gray-warm-dark usa-color-text-white">
+    <div class="usa-color-text usa-bgcolor-gray-warm-dark">
       white on gray-warm-dark
     </div>
-    <div class="usa-color-text usa-color-gray-dark usa-color-text-white">
+    <div class="usa-color-text usa-bgcolor-gray-dark">
       white on gray-dark
     </div>
-    <div class="usa-color-text usa-color-gray usa-color-text-white">
+    <div class="usa-color-text usa-bgcolor-gray">
       white on gray
     </div>
-    <div class="usa-color-text usa-color-primary-darkest usa-color-text-white">
+    <div class="usa-color-text usa-bgcolor-primary-darkest">
       white on primary-darkest
     </div>
-    <div class="usa-color-text usa-color-primary-darker usa-color-text-white">
+    <div class="usa-color-text usa-bgcolor-primary-darker">
       white on primary-darker
     </div>
-    <div class="usa-color-text usa-color-primary usa-color-text-white">
+    <div class="usa-color-text usa-bgcolor-primary">
       white on primary
     </div>
-    <div class="usa-color-text usa-color-cool-blue-light usa-color-text-white">
+    <div class="usa-color-text usa-bgcolor-cool-blue-light">
       white on cool-blue-light
     </div>
-    <div class="usa-color-text usa-color-primary-alt-darkest usa-color-text-white">
+    <div class="usa-color-text usa-bgcolor-primary-alt-darkest">
       white on primary-alt-darkest
     </div>
-    <div class="usa-color-text usa-color-primary-alt-dark">
+    <div class="usa-color-text usa-bgcolor-primary-alt-dark">
       base on primary-alt-dark
     </div>
-    <div class="usa-color-text usa-color-primary-alt">
+    <div class="usa-color-text usa-bgcolor-primary-alt">
       base on primary-alt
     </div>
-    <div class="usa-color-text usa-color-green usa-color-text-white">
+    <div class="usa-color-text usa-bgcolor-green">
       white on green
     </div>
-    <div class="usa-color-text usa-color-green-light">
+    <div class="usa-color-text usa-bgcolor-green-light">
       base on green-light
     </div>
-    <div class="usa-color-text usa-color-gold">
+    <div class="usa-color-text usa-bgcolor-gold">
       base on gold
     </div>
-    <div class="usa-color-text usa-color-gold-light">
+    <div class="usa-color-text usa-bgcolor-gold-light">
       base on gold-light
     </div>
-    <div class="usa-color-text usa-color-secondary-darkest usa-color-text-white">
+    <div class="usa-color-text usa-bgcolor-secondary-darkest">
       white on secondary-darkest
     </div>
-    <div class="usa-color-text usa-color-secondary-dark usa-color-text-white">
+    <div class="usa-color-text usa-bgcolor-secondary-dark">
       white on secondary-dark
     </div>
-    <div class="usa-color-text usa-color-secondary usa-color-text-white">
+    <div class="usa-color-text usa-bgcolor-secondary">
       white on secondary
     </div>
   </div>
   <div class="usa-width-one-half usa-end-row">
-    <div class="usa-color-text usa-color-gray-light">
+    <div class="usa-color-text usa-bgcolor-gray-light">
       base on gray-light
     </div>
-    <div class="usa-color-text usa-color-gray-lighter">
-      base on gray-lighter
+    <div class="usa-color-text usa-bgcolor-gray-lighter">
+      base on gray-lightest
     </div>
-    <div class="usa-color-text usa-color-gray-warm-light">
+    <div class="usa-color-text usa-bgcolor-gray-lightest">
+      base on gray-lighter
+    </div>    
+    <div class="usa-color-text usa-bgcolor-gray-warm-light">
       base on gray-warm-light
     </div>
-    <div class="usa-color-text usa-color-cool-blue-lighter">
+    <div class="usa-color-text usa-bgcolor-cool-blue-lighter">
       base on cool-blue-lighter
     </div>
-    <div class="usa-color-text usa-color-cool-blue-lightest">
+    <div class="usa-color-text usa-bgcolor-cool-blue-lightest">
       base on cool-blue-lightest
     </div>
-    <div class="usa-color-text usa-color-primary-alt-lightest">
+    <div class="usa-color-text usa-bgcolor-primary-alt-lightest">
       base on primary-alt-lightest
     </div>
-    <div class="usa-color-text usa-color-green-lighter">
+    <div class="usa-color-text usa-bgcolor-green-lighter">
       base on green-lighter
     </div>
-    <div class="usa-color-text usa-color-green-lightest">
+    <div class="usa-color-text usa-bgcolor-green-lightest">
       base on green-lightest
     </div>
-    <div class="usa-color-text usa-color-gold-lighter">
+    <div class="usa-color-text usa-bgcolor-gold-lighter">
       base on gold-lighter
     </div>
-    <div class="usa-color-text usa-color-gold-lightest">
+    <div class="usa-color-text usa-bgcolor-gold-lightest">
       base on gold-lightest
     </div>
-    <div class="usa-color-text usa-color-secondary-lightest">
+    <div class="usa-color-text usa-bgcolor-secondary-lightest">
       base on secondary-lightest
     </div>
   </div>

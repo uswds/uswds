@@ -88,3 +88,129 @@
     }
   }
 }
+
+// Background and text color combinations
+
+@mixin bgcolor($background, $color) {
+  background-color: $background;
+  color: $color;
+}
+
+@mixin usa-bgcolor-base() {
+  @include bgcolor($color-base, $color-white);
+}
+@mixin usa-bgcolor-gray-warm-dark() {
+  @include bgcolor($color-gray-warm-dark, $color-white);
+}
+
+@mixin usa-bgcolor-gray-dark() {
+  @include bgcolor($color-gray-dark, $color-white);
+}
+
+@mixin usa-bgcolor-gray() {
+  @include bgcolor($color-gray, $color-white);
+}
+
+@mixin usa-bgcolor-primary-darkest() {
+  @include bgcolor($color-primary-darkest, $color-white); 
+}
+
+@mixin usa-bgcolor-primary-darker() {
+  @include bgcolor($color-primary-darker, $color-white); 
+}
+
+@mixin usa-bgcolor-primary() {
+  @include bgcolor($color-primary, $color-white);  
+}
+
+@mixin usa-bgcolor-cool-blue-light() {
+  @include bgcolor($color-cool-blue-light, $color-white);  
+}
+
+@mixin usa-bgcolor-primary-alt-darkest() {
+  @include bgcolor($color-primary-alt-darkest, $color-white);  
+}
+
+@mixin usa-bgcolor-primary-alt-dark() {
+  @include bgcolor($color-primary-alt-dark, $color-black);  
+}
+
+@mixin usa-bgcolor-primary-alt() {
+  @include bgcolor($color-primary-alt, $color-black);  
+}
+
+@mixin usa-bgcolor-green() {
+  @include bgcolor($color-green, $color-white);  
+}
+
+@mixin usa-bgcolor-green-light() {
+  @include bgcolor($color-green-light, $color-black);  
+}
+
+@mixin usa-bgcolor-gold() {
+  @include bgcolor($color-gold, $color-black);  
+}
+
+@mixin usa-bgcolor-gold-light() {
+  @include bgcolor($color-gold-light, $color-black);    
+}
+
+@mixin usa-bgcolor-secondary-darkest() {
+  @include bgcolor($color-secondary-darkest, $color-white);    
+}
+
+@mixin usa-bgcolor-secondary-dark() {
+  @include bgcolor($color-secondary-dark, $color-white);
+}
+
+@mixin usa-bgcolor-secondary() {
+  @include bgcolor($color-secondary, $color-white);
+}
+
+@mixin usa-bgcolor-gray-light() {
+  @include bgcolor($color-gray-light, $color-black); 
+}
+
+@mixin usa-bgcolor-gray-lighter() {
+  @include bgcolor($color-gray-lighter, $color-black); 
+}
+
+@mixin usa-bgcolor-gray-lightest() {
+  @include bgcolor($color-gray-lightest, $color-black);
+}
+
+@mixin usa-bgcolor-gray-warm-light() {
+  @include bgcolor($color-gray-warm-light, $color-black);
+}
+
+@mixin usa-bgcolor-cool-blue-lighter() {
+  @include bgcolor($color-cool-blue-lighter, $color-black);
+}
+
+@mixin usa-bgcolor-cool-blue-lightest() {
+  @include bgcolor($color-cool-blue-lightest, $color-black);
+}
+
+@mixin usa-bgcolor-primary-alt-lightest() {
+  @include bgcolor($color-primary-alt-lightest, $color-black);
+}
+
+@mixin usa-bgcolor-green-lighter() {
+  @include bgcolor($color-green-lighter, $color-black);
+}
+
+@mixin usa-bgcolor-green-lightest() {
+  @include bgcolor($color-green-lightest, $color-black);
+}
+
+@mixin usa-bgcolor-gold-lighter() {
+  @include bgcolor($color-gold-lighter, $color-black);
+}
+
+@mixin usa-bgcolor-gold-lightest() {
+  @include bgcolor($color-gold-lightest, $color-black);
+}
+
+@mixin usa-bgcolor-secondary-lightest() {
+  @include bgcolor($color-secondary-lightest, $color-black);
+}
