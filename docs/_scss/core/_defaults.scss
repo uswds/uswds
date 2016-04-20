@@ -4,9 +4,9 @@
 
 // Typography
 $em-base:             10px; // default is already defined in bourbon
-$base-font-size:      rem(16px) !default;
+$base-font-size:      rem(17px) !default;
 $small-font-size:     rem(14px) !default;
-$lead-font-size:      rem(22px) !default;
+$lead-font-size:      rem(20px) !default;
 $title-font-size:     rem(52px) !default;
 $h1-font-size:        rem(40px) !default;
 $h2-font-size:        rem(30px) !default;
@@ -44,9 +44,10 @@ $color-secondary-lightest:   #f9dede !default; // lighten($color-secondary, 90%)
 
 $color-white:                #ffffff !default;
 $color-base:                 #212121 !default;
+$color-black:                #000000 !default;
 
 $color-gray-dark:            #323a45 !default;
-$color-gray:                 #205493 !default; // lighten($color-gray-dark, 20%)
+$color-gray:                 #5b616b !default; // lighten($color-gray-dark, 20%)
 $color-gray-medium:          #757575 !default; // lightest gray that passes color contrast
 $color-gray-light:           #aeb0b5 !default; // lighten($color-gray-dark, 60%)
 $color-gray-lighter:         #d6d7d9 !default; // lighten($color-gray-dark, 80%)
