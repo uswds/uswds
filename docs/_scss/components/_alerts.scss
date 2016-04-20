@@ -48,7 +48,7 @@
 }
 
 .usa-alert-success {
-  @include usa-bgcolor-green-lightest;
+  @include usa-bgcolor-green-lightest();
 
   background-image: url('../img/alerts/success.png');  
   background-image: url('../img/alerts/success.svg');  
@@ -62,14 +62,14 @@
 }
 
 .usa-alert-error {
-  @include usa-bgcolor-secondary-lightest;
+  @include usa-bgcolor-secondary-lightest();
 
   background-image: url('../img/alerts/error.png');  
   background-image: url('../img/alerts/error.svg');   
 }
 
 .usa-alert-info {
-  @include usa-bgcolor-primary-alt-lightest;
+  @include usa-bgcolor-primary-alt-lightest();
   
   background-image: url('../img/alerts/info.png');  
   background-image: url('../img/alerts/info.svg');   
