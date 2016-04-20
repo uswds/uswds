@@ -431,7 +431,7 @@ order: 02
       base on gray-lightest
     </div>
     <div class="usa-color-text usa-bgcolor-gray-lightest">
-      base on gray-lighter
+      base on gray-lightest
     </div>    
     <div class="usa-color-text usa-bgcolor-gray-warm-light">
       base on gray-warm-light
