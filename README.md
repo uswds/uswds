@@ -10,7 +10,7 @@ These tools follow industry-standard web accessibility guidelines and use the be
 
 We’re glad you’d like to use the Standards — here’s how you can get started:
 
-* Designers: Check out our Getting Started for Designers information [here](https://standards.usa.gov/getting-started/).
+* Designers: [Check out our Getting Started for Designers information](https://standards.usa.gov/getting-started/).
     * [Design files of all the assets included on this site are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
 * Developers: Follow the instructions in this README to get started.
     * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v0.9.1/uswds-0.9.1.zip).
