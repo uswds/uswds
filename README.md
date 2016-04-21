@@ -2,7 +2,7 @@
 
 [![Build Status](https://api.travis-ci.org/18F/web-design-standards.svg?branch=18f-pages-staging)](https://travis-ci.org/18F/web-design-standards)
 
-The [Draft U.S. Web Design Standards](https://playbook.cio.gov/designstandards) include a library of open source UI components and a visual style guide for U.S. federal government websites.
+The [Draft U.S. Web Design Standards](https://standards.usa.gov) include a library of open source UI components and a visual style guide for U.S. federal government websites.
 
 These tools follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. Created and maintained by [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) designers and developers, the Draft Web Design Standards are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/).
 
@@ -10,10 +10,10 @@ These tools follow industry-standard web accessibility guidelines and use the be
 
 We’re glad you’d like to use the Standards — here’s how you can get started:
 
-* Designers: Check out our Getting Started for Designers information [here](https://playbook.cio.gov/designstandards/getting-started/).
-    * Design files of all the assets included on this site are available for download [here](https://playbook.cio.gov/designstandards/assets/releases/wds-design-assets.zip).
+* Designers: Check out our Getting Started for Designers information [here](https://standards.usa.gov/getting-started/).
+    * [Design files of all the assets included on this site are available for download](https://standards.usa.gov/assets/releases/wds-design-assets.zip).
 * Developers: Follow the instructions in this README to get started.
-    * CSS, JavaScript, image, and font files of all the assets on this site are available for download [here](https://github.com/18F/web-design-standards/releases/download/v0.9.1/uswds-0.9.1.zip).
+    * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v0.9.1/uswds-0.9.1.zip).
 
 Here are a few different ways to use the Standards within your project.
 
