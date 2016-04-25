@@ -77,7 +77,12 @@ $(function() {
 
   footerAccordion();
 
-  $(window).resize(footerAccordion);
+  var resizeTimer;
+
+  $(window).resize(function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(footerAccordion, 250);
+  });
 
   // Fixing skip nav focus behavior in chrome
   $('.skipnav').click(function(){
