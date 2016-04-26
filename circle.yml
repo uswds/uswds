@@ -16,11 +16,11 @@ deployment:
     branch: [master, 18f-pages]
     commands:
       - gulp website:build
-      - cf login -a https://api.cloud.gov -u gsa-ffd_deployer -p $CF_PASS -o gsa-ffd -s wds-production
+      - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-production
       - cf push
   staging:
     branch: [staging, 18f-pages-staging]
     commands:
       - gulp website:build
-      - cf login -a https://api.cloud.gov -u gsa-ffd_deployer -p $CF_PASS -o gsa-ffd -s wds-staging
+      - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-staging
       - cf push wds-microsite-staging
