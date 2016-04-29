@@ -56,29 +56,6 @@ $(function() {
     new Accordion($(this));
   });
 
-  var footerAccordion = function() {
-    if (window.innerWidth < 600) {
-
-      $('.usa-footer-big nav ul').addClass('hidden');
-
-      $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
-
-      $('.usa-footer-big nav .usa-footer-primary-link').bind('click', function() {
-        $(this).parent().removeClass('hidden')
-        .siblings().addClass('hidden');
-      });
-    } else {
-
-      $('.usa-footer-big nav ul').removeClass('hidden');
-
-      $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
-    }
-  };
-
-  footerAccordion();
-
-  $(window).resize(footerAccordion);
-
   // Fixing skip nav focus behavior in chrome
   $('.skipnav').click(function(){
     $('#main-content').attr('tabindex','0');
