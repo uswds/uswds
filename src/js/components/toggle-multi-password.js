@@ -1,3 +1,6 @@
+
+var toggleFieldMask = require('./toggle-field-mask');
+
 module.exports = function ($el) {
   var fieldSelector = '#password, #confirmPassword',
       $fields = $el.parents('form').find(fieldSelector),
