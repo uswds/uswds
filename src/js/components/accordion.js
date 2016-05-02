@@ -1,3 +1,6 @@
+
+var $ = require('jquery');
+
 /**
  * Accordion
  *

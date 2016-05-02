@@ -1,0 +1,8 @@
+---
+memory: 64MB
+applications:
+- name: wds-microsite
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  path: _site
+  env:
+    FORCE_HTTPS: true
