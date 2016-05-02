@@ -167,7 +167,7 @@ li.usa-footer-primary-content {
   }
 
   ul {
-    padding-bottom: 2.5rem;
+    padding-bottom: 0;
 
     @include media($medium-screen) {
       padding-bottom: 0;
@@ -182,40 +182,63 @@ li.usa-footer-primary-content {
     }
 
     li {
+      display: none;
       line-height: 2em;
-    }
 
-    .usa-footer-primary-link {
-      background-image: url('../img/arrow-down.png');
-      background-image: url('../img/arrow-down.svg');
-      background-position: 1.5rem center;
-      background-repeat: no-repeat;
-      background-size: 1.3rem;
-      padding-left: 3.5rem;
+      &:last-child {
+        padding-bottom: 2.5rem;
+      }
 
       @include media($medium-screen) {
-        background: none;
-        padding-bottom: 0;
-        padding-left: 0;
+        display: block;
+
+        &:last-child {
+          padding-bottom: 0;
+        }
       }
     }
 
-    &.hidden {
-      padding-bottom: 0;
+    li.usa-footer-primary-link {
+      margin: 0;
 
-      .usa-footer-primary-link { 
+      h4 {
         background-image: url('../img/arrow-right.png');
         background-image: url('../img/arrow-right.svg');
+        background-position: 1.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.3rem;
         cursor: pointer;
         margin: 0;
-
-        @include media($medium-screen) {
-          background: none;
-          padding-left: 0;
-        }        
+        padding-left: 3.5rem;
       }
-        
-      li { display: none; }
+
+      @include media($medium-screen) {
+        padding-bottom: 1rem;
+
+        h4 {
+          background: none;
+          cursor: auto;
+          padding-bottom: 0;
+          padding-left: 0;
+        }
+      }
+    }
+
+    &:hover {
+      li.usa-footer-primary-link {
+        h4 {
+          background-image: url('../img/arrow-down.png');
+          background-image: url('../img/arrow-down.svg');
+
+          @include media($medium-screen) {
+            background: none;
+          }
+        }
+      }
+
+      li {
+        display: block;
+      }
     }
   }
 }
