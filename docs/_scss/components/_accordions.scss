@@ -11,21 +11,6 @@ $accordion-border: 3px solid $color-gray-lightest;
     margin-top: 1rem;
   }
 
-  > ul {
-    color: $color-base;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-
-    > li {
-      background-color: $color-gray-lightest;
-      font-family: $font-sans;
-      list-style: none;
-      margin-bottom: 6px;
-      width: 100%;
-    }
-  }
-
   button[aria-expanded=false] {
     background-image: url('../img/plus.png');
     background-image: url('../img/plus.svg');
@@ -45,6 +30,7 @@ $accordion-border: 3px solid $color-gray-lightest;
     display: inline-block;
     font-family: $font-sans;
     margin: 0;
+    margin-top: 6px;
     padding: 1.5rem 5.5rem 1.5rem 3rem;
     width: 100%;
 

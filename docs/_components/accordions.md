@@ -10,127 +10,102 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
   <h6>Borderless</h6>
 
   <div class="usa-accordion">
-    <ul class="usa-unstyled-list">
-      <li>
-        <button class="usa-button-unstyled"
-          aria-expanded="true" aria-controls="collapsible-0">
-          First Amendment
-        </button>
-        <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-          <p>
-          Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
-          </p>
-        </div>
-      </li>
-      <li>
-        <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-1">
-          Second Amendment
-        </button>
-        <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
-          <p>
-          A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
-          </p>
-        </div>
-      </li>
-      <li>
-        <button class="usa-button-unstyled"
-            aria-expanded="false" aria-controls="collapsible-2">
-          Third Amendment
-        </button>
-        <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
-          <p>
-          No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
-          </p>
-        </div>
-      </li>
-      <li>
-        <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-3">
-          Fourth Amendment
-        </button>
-        <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
-          <p>
-          The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
-          </p>
-        </div>
-      </li>
-      <li>
-        <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-4">
-          Fifth Amendment
-        </button>
-        <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
-          <p>
-          No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
-          </p>
-        </div>
-      </li>
-    </ul>
+    <button class="usa-button-unstyled"
+      aria-expanded="true" aria-controls="collapsible-0">
+      First Amendment
+    </button>
+    <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+      <p>
+      Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
+      </p>
+    </div>
+    <button class="usa-button-unstyled"
+      aria-expanded="false" aria-controls="collapsible-1">
+      Second Amendment
+    </button>
+    <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
+      <p>
+      A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
+      </p>
+    </div>
+    <button class="usa-button-unstyled"
+        aria-expanded="false" aria-controls="collapsible-2">
+      Third Amendment
+    </button>
+    <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
+      <p>
+      No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
+      </p>
+    </div>
+    <button class="usa-button-unstyled"
+      aria-expanded="false" aria-controls="collapsible-3">
+      Fourth Amendment
+    </button>
+    <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
+      <p>
+      The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
+      </p>
+    </div>
+    <button class="usa-button-unstyled"
+      aria-expanded="false" aria-controls="collapsible-4">
+      Fifth Amendment
+    </button>
+    <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
+      <p>
+      No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
+      </p>
+    </div>
   </div>
 
   <h6>Bordered</h6>
 
   <div class="usa-accordion-bordered">
-    <ul class="usa-unstyled-list">
-      <li>
-        <button class="usa-button-unstyled"
-          aria-expanded="true" aria-controls="collapsible-0">
-          First Amendment
-        </button>
-        <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
-          <p>
-          Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
-          </p>
-        </div>
-      </li>
-      <li>
-        <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-1">
-          Second Amendment
-        </button>
-        <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
-          <p>
-          A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
-          </p>
-        </div>
-      </li>
-      <li>
-        <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-2">
-          Third Amendment
-        </button>
-        <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
-          <p>
-          No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
-          </p>
-        </div>
-      </li>
-      <li>
-        <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-3">
-          Fourth Amendment
-        </button>
-        <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
-          <p>
-          The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
-          </p>
-        </div>
-      </li>
-      <li>
-        <button class="usa-button-unstyled"
-          aria-expanded="false" aria-controls="collapsible-4">
-          Fifth Amendment
-        </button>
-        <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
-          <p>
-          No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
-          </p>
-        </div>
-      </li>
-    </ul>
+    <button class="usa-button-unstyled"
+      aria-expanded="true" aria-controls="collapsible-0">
+      First Amendment
+    </button>
+    <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+      <p>
+      Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
+      </p>
+    </div>
+    <button class="usa-button-unstyled"
+      aria-expanded="false" aria-controls="collapsible-1">
+      Second Amendment
+    </button>
+    <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
+      <p>
+      A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
+      </p>
+    </div>
+    <button class="usa-button-unstyled"
+      aria-expanded="false" aria-controls="collapsible-2">
+      Third Amendment
+    </button>
+    <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
+      <p>
+      No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
+      </p>
+    </div>
+    <button class="usa-button-unstyled"
+      aria-expanded="false" aria-controls="collapsible-3">
+      Fourth Amendment
+    </button>
+    <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
+      <p>
+      The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
+      </p>
+    </div>
+    <button class="usa-button-unstyled"
+      aria-expanded="false" aria-controls="collapsible-4">
+      Fifth Amendment
+    </button>
+    <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
+      <p>
+      No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
+      </p>
+    </div>
   </div>
-
 </div>
 
 <div class="usa-accordion-bordered usa-accordion-docs">
