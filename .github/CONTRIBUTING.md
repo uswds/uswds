@@ -12,24 +12,7 @@ If you have any questions or want to read more, check out the [18F Open Source P
 
 ### Submitting an issue
 
-To help us get a better understanding of the issue you are submitting, please leverage the following outline (as used in the following [Girl Develop It issue template](https://github.com/girldevelopit/gdi-new-site/issues/83)):
-
-**Description**
-
-*Include a high-level description of the feature or error here including steps of how to recreate it if applicable. Include any benefits, challenges, or considerations. This can be short and sweet.*
-
-**Ask**
-
-*Describe the desired behavior and what would deem this issue, bug, or feature complete.*
-
-**To Do**
-- [ ] Steps
-- [ ] To
-- [ ] Complete/Fix
-
-**Additional Info**
-
-*Include any images, steps to recreate, notes, emojis, or whatever.*
+To help us get a better understanding of the issue you are submitting, follow our ISSUE TEMPLATE and the guidelines outlined in that document.
 
 ### Submitting a pull request
 
@@ -41,7 +24,7 @@ Here are a few guidelines to follow when submitting a pull request:
 1. Create a branch that lightly defines what you're working on (e.g. add-styles).
 1. Ensure that your contribution works via `npm`, if applicable. See below under
    _Install the package locally via `npm-link`_.
-1. Once you're ready to submit a pull request, push your branch up to the repo.
+1. Once you're ready to submit a pull request and fill out the PULL REQUEST template provided.
 1. Submit your pull request against the `18f-pages-staging` branch.
 
 Have questions or need help with setup? Open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
