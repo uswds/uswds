@@ -2,12 +2,12 @@
 var $ = require( 'jquery' );
 
 module.exports = function ($el) {
-  var data = $('#password[data-validation-element]').data(),
+  var data = $el.data(),
     key,
     validatorName,
     validatorPattern,
     $validatorCheckbox,
-    $checkList = $($el.data('validationElement'));
+    $checkList = $(data['validationElement']);
 
   function validate () {
     for (key in data) {

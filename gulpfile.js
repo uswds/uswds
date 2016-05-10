@@ -8,6 +8,7 @@ require( './config/gulp/fonts' );
 require( './config/gulp/website' );
 require( './config/gulp/build' );
 require( './config/gulp/release' );
+require( './config/gulp/test' );
 
 var gulp = require( 'gulp' );
 var dutil = require( './config/gulp/doc-util' );
@@ -79,6 +80,11 @@ gulp.task( 'default', function ( done ) {
   dutil.logCommand(
     'gulp release',
     'This task will run `gulp build` and prepare a release directory.'
+  );
+
+  dutil.logCommand(
+    'gulp test',
+    'This task will run `gulp test` and run this repository\'s unit tests.'
   );
 
   done();
