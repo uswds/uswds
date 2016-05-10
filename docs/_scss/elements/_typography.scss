@@ -208,3 +208,125 @@ p,
   font-size: $h6-font-size;
   margin-top: 0;
 }
+
+// Background and text color combinations
+
+.usa-bgcolor-base {
+  @include usa-bgcolor-base();
+}
+
+.usa-bgcolor-gray-warm-dark {
+  @include usa-bgcolor-gray-warm-dark();
+}
+
+.usa-bgcolor-gray-dark {
+  @include usa-bgcolor-gray-dark();
+}
+
+.usa-bgcolor-gray {
+  @include usa-bgcolor-gray();
+}
+
+.usa-bgcolor-primary-darkest {
+  @include usa-bgcolor-primary-darkest();
+}
+
+.usa-bgcolor-primary-darker {
+  @include usa-bgcolor-primary-darker(); 
+}
+
+.usa-bgcolor-primary {
+  @include usa-bgcolor-primary();  
+}
+
+.usa-bgcolor-cool-blue-light {
+  @include usa-bgcolor-cool-blue-light();  
+}
+
+.usa-bgcolor-primary-alt-darkest {
+  @include usa-bgcolor-primary-alt-darkest();  
+}
+
+.usa-bgcolor-primary-alt-dark {
+  @include usa-bgcolor-primary-alt-dark();  
+}
+
+.usa-bgcolor-primary-alt {
+  @include usa-bgcolor-primary-alt();  
+}
+
+.usa-bgcolor-green {
+  @include usa-bgcolor-green();  
+}
+
+.usa-bgcolor-green-light {
+  @include usa-bgcolor-green-light();  
+}
+
+.usa-bgcolor-gold {
+  @include usa-bgcolor-gold();  
+}
+
+.usa-bgcolor-gold-light {
+  @include usa-bgcolor-gold-light();    
+}
+
+.usa-bgcolor-secondary-darkest {
+  @include usa-bgcolor-secondary-darkest();    
+}
+
+.usa-bgcolor-secondary-dark {
+  @include usa-bgcolor-secondary-dark();
+}
+
+.usa-bgcolor-secondary {
+  @include usa-bgcolor-secondary();
+}
+
+.usa-bgcolor-gray-light {
+  @include usa-bgcolor-gray-light(); 
+}
+
+.usa-bgcolor-gray-lighter {
+  @include usa-bgcolor-gray-lighter(); 
+}
+
+.usa-bgcolor-gray-lighter {
+  @include usa-bgcolor-gray-lightest();
+}
+
+.usa-bgcolor-gray-warm-light {
+  @include usa-bgcolor-gray-warm-light();
+}
+
+.usa-bgcolor-cool-blue-lighter {
+  @include usa-bgcolor-cool-blue-lighter();
+}
+
+.usa-bgcolor-cool-blue-lightest {
+  @include usa-bgcolor-cool-blue-lightest();
+}
+
+.usa-bgcolor-primary-alt-lightest {
+  @include usa-bgcolor-primary-alt-lightest();
+}
+
+.usa-bgcolor-green-lighter {
+  @include usa-bgcolor-green-lighter();
+}
+
+.usa-bgcolor-green-lightest {
+  @include usa-bgcolor-green-lightest();
+}
+
+.usa-bgcolor-gold-lighter {
+  @include usa-bgcolor-gold-lighter();
+}
+
+.usa-bgcolor-gold-lightest {
+  @include usa-bgcolor-gold-lightest();
+}
+
+.usa-bgcolor-secondary-lightest {
+  @include usa-bgcolor-secondary-lightest();
+}
