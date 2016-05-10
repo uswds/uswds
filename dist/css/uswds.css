@@ -2339,26 +2339,36 @@ li.usa-footer-primary-content:last-child {
   background-position: 1.5rem center;
   background-repeat: no-repeat;
   background-size: 1.3rem;
+  margin: 0;
   padding-left: 3.5rem;
 }
 
 @media screen and (min-width: 600px) {
   .usa-footer-big ul .usa-footer-primary-link {
     background: none;
+    margin-bottom: .8rem;
     padding-bottom: 0;
     padding-left: 0;
   }
+}
+
+.usa-footer-big ul h4 {
+  margin: 0;
 }
 
 .usa-footer-big ul.hidden {
   padding-bottom: 0;
 }
 
+.usa-footer-big ul.hidden li {
+  display: none;
+}
+
 .usa-footer-big ul.hidden .usa-footer-primary-link {
   background-image: url("../img/arrow-right.png");
   background-image: url("../img/arrow-right.svg");
   cursor: pointer;
-  margin: 0;
+  display: block;
 }
 
 @media screen and (min-width: 600px) {
@@ -2366,10 +2376,6 @@ li.usa-footer-primary-content:last-child {
     background: none;
     padding-left: 0;
   }
-}
-
-.usa-footer-big ul.hidden li {
-  display: none;
 }
 
 .usa-footer-topic {
