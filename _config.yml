@@ -33,7 +33,10 @@ repos:
 google_analytics_ua: UA-48605964-33
 
 sass:
-  sass_dir: _scss
+  load_paths:
+    - src/stylesheets
+    - docs/_scss
+
 #  style: :compressed
 
 collections:

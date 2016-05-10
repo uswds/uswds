@@ -12,9 +12,6 @@ var taskBuild = task + ':build';
 var taskServe = task + ':serve';
 var taskDev = task + ':development';
 
-gulp.task('clean-source-sass', function () {
-  return del('docs/_scss');
-});
 gulp.task('clean-fonts', function () {
   return del('docs/assets/fonts/');
 });
@@ -25,42 +22,11 @@ gulp.task('clean-bundled-javascript', function () {
 gulp.task('clean-generated-assets', function (done) {
   runSequence(
     [
-      'clean-source-sass',
       'clean-fonts',
       'clean-bundled-javascript',
     ],
     done
   );
-});
-
-gulp.task('copy-source-sass', function (done) {
-
-  var copySourceSass = spawn('cp', [
-    '-rvf',
-    'src/stylesheets',
-    'docs/_scss',
-  ]);
-
-  copySourceSass.stdout.on('data', function (data) {
-
-    if (/[\w\d]+/.test(data)) {
-
-      dutil.logData('copy-source-sass', data);
-
-    }
-
-  });
-
-  copySourceSass.on('error', function (error) { done(error); });
-
-  copySourceSass.on('close', function (code) { if (0 === code) {
-    execSync(
-      'mv -fv docs/_scss/all.scss ' +
-      'docs/_scss/_' + dutil.pkg.name + '.scss'
-    );
-    done();
-  } });
-
 });
 
 gulp.task('copy-bundled-javascript', function (done) {
@@ -130,7 +96,6 @@ gulp.task('copy-images', function (done) {
 gulp.task('copy-assets', [ 'build' ], function (done) {
   runSequence(
     'clean-generated-assets',
-    'copy-source-sass',
     'copy-bundled-javascript',
     'copy-fonts',
     'copy-images',
@@ -143,7 +108,7 @@ gulp.task('copy-assets', [ 'build' ], function (done) {
 gulp.task('bundle-gems', [ 'copy-assets' ], function (done) {
 
   var bundle = spawn('bundle');
-  
+
   bundle.stdout.on('data', function (data) {
 
     if (/[\w\d]+/.test(data)) {
@@ -198,9 +163,7 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
     '!src/stylesheets/lib/**/*',
   ], function (event) {
     runSequence(
-      'sass',
-      'clean-source-sass',
-      'copy-source-sass'
+      'sass'
     );
   });
   gulp.watch([
