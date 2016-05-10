@@ -1,12 +1,19 @@
 <!-- Please feel free to remove whatever sections/lines in this aren't relevant. -->
 
-## Title Line Template: [Website] - [UI component]: [Brief description.]
+## Title Line Template: [Website or UI component]: [Brief description]
 <!-- Use the title line as the title of your pull request, then delete these lines. 
 
 Website: Issues that impact standards.usa.gov look, feel or functionality.
 UI component: Issues that impact the look, feel or functionality of the standards themselves.
 
 -->
+
+## Issue type
+What kind of issue are you working on?
+
+* Website
+* UI component
+* Something else...
 
 ## Description
 
