@@ -13,7 +13,7 @@ What kind of issue are you working on?
 
 * Website
 * UI component
-* Something else...
+* Something else: Please add a descriptive title
 
 ## Description
 
