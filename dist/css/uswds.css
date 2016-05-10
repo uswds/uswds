@@ -2013,6 +2013,10 @@ p a,
   margin-bottom: 0;
 }
 
+.usa-accordion-content-collapsed {
+  display: none !important;
+}
+
 .usa-alert {
   background-color: #f1f1f1;
   background-position: 1rem 2rem;

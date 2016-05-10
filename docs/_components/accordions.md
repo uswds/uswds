@@ -27,7 +27,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
           aria-expanded="false" aria-controls="collapsible-1">
           Second Amendment
         </button>
-        <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
+        <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content-collapsed">
           <p>
           A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
           </p>
@@ -38,7 +38,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
             aria-expanded="false" aria-controls="collapsible-2">
           Third Amendment
         </button>
-        <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
+        <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content-collapsed">
           <p>
           No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
           </p>
@@ -49,7 +49,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
           aria-expanded="false" aria-controls="collapsible-3">
           Fourth Amendment
         </button>
-        <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
+        <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content-collapsed">
           <p>
           The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
           </p>
@@ -60,7 +60,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
           aria-expanded="false" aria-controls="collapsible-4">
           Fifth Amendment
         </button>
-        <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
+        <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content-collapsed">
           <p>
           No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
           </p>
@@ -89,7 +89,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
           aria-expanded="false" aria-controls="collapsible-1">
           Second Amendment
         </button>
-        <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content">
+        <div id="collapsible-1" aria-hidden="true" class="usa-accordion-content-collapsed">
           <p>
           A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
           </p>
@@ -100,7 +100,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
           aria-expanded="false" aria-controls="collapsible-2">
           Third Amendment
         </button>
-        <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content">
+        <div id="collapsible-2" aria-hidden="true" class="usa-accordion-content-collapsed">
           <p>
           No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
           </p>
@@ -111,7 +111,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
           aria-expanded="false" aria-controls="collapsible-3">
           Fourth Amendment
         </button>
-        <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content">
+        <div id="collapsible-3" aria-hidden="true" class="usa-accordion-content-collapsed">
           <p>
           The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
           </p>
@@ -122,7 +122,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
           aria-expanded="false" aria-controls="collapsible-4">
           Fifth Amendment
         </button>
-        <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content">
+        <div id="collapsible-4" aria-hidden="true" class="usa-accordion-content-collapsed">
           <p>
           No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
           </p>
