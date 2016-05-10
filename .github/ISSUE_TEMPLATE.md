@@ -26,4 +26,4 @@ Include any benefits, challenges, or considerations. This can be short and sweet
 * Relevant research and support documents
 * Screen shot images
 * Notes
-* etc.
+* And so on
