@@ -3,17 +3,17 @@ var $ = require( 'jquery' );
 
 module.exports = function ($el) {
   var data = $('#password[data-validation-element]').data(),
-      key,
-      validatorName,
-      validatorPattern,
-      $validatorCheckbox,
-      $checkList = $($el.data('validationElement'));
+    key,
+    validatorName,
+    validatorPattern,
+    $validatorCheckbox,
+    $checkList = $($el.data('validationElement'));
 
-  function validate() {
+  function validate () {
     for (key in data) {
       if (key.startsWith('validate')) {
-        validatorName = key.split('validate')[1];
-        validatorPattern = new RegExp(data[key]);
+        validatorName = key.split('validate')[ 1 ];
+        validatorPattern = new RegExp(data[ key ]);
         $validatorCheckbox = $checkList.find('[data-validator=' +
             validatorName.toLowerCase() + ']');
 
@@ -29,4 +29,3 @@ module.exports = function ($el) {
 
   $el.on('keyup', validate);
 };
-
