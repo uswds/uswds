@@ -196,6 +196,7 @@ li.usa-footer-primary-content {
 
       @include media($medium-screen) {
         background: none;
+        margin-bottom: .8rem;
         padding-bottom: 0;
         padding-left: 0;
       }
