@@ -30,3 +30,4 @@ dist/uswds*.zip
 # Ignore gulp-generated vendor files
 #
 src/stylesheets/lib
+docs/assets
