@@ -19,9 +19,8 @@ npm-debug.log
 # like to include it in the repository for the time being. The `dist-gem/`
 # directory though will keep being ignored for the time being.
 #
-!dist/
+dist/
 dist-gem/
-dist/uswds*.zip
 
 # Ignore the .bundle directory used for bundle config & local-gem development
 #
