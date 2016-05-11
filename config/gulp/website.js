@@ -149,6 +149,7 @@ gulp.task('copy-images', function (done) {
 
 gulp.task('copy-assets', [ 'build' ], function (done) {
   runSequence(
+    'build',
     'clean-generated-assets',
     'make-bundled-javascript-dirs',
     'copy-bundled-javascript',
