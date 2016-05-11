@@ -47,13 +47,13 @@ into your HTML pages:
 Add this to your `<head>` element:
 
 ```html
-<link rel="stylesheet" href="/path/to/your/assets/css/lib/uswds.min.css">
+<link rel="stylesheet" href="/path/to/your/assets/css/uswds.min.css">
 ```
 
 Add this before the closing `</body>` tag:
 
 ```html
-<script src="/path/to/your/assets/js/lib/uswds.min.js"></script>
+<script src="/path/to/your/assets/js/uswds.min.js"></script>
 ```
 
 We offer two versions — a minified version, and an un-minified one. Use the minified version in a production environment or to reduce the file size
