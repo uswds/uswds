@@ -29,6 +29,34 @@ gulp.task('clean-generated-assets', function (done) {
   );
 });
 
+gulp.task('copy-docs-assets', function(done) {
+  var copyDoc = exec('cp -rvf docs/doc_assets/* docs/assets ', function (error, stdout, stderr) {
+    if (stdout && /[\w\d]+/.test(stdout)) {
+      dutil.logData('copy-docs-assets', stdout);
+    }
+
+    done();
+  });
+
+});
+
+gulp.task('make-bundled-javascript-dirs', function(done) {
+  var makeBundledJavaScriptDirs = spawn('mkdir', [
+    '-p',
+    'docs/assets/js/vendor'
+  ]);
+
+  makeBundledJavaScriptDirs.stdout.on('data', function (data) {
+    if (/[\w\d]+/.test(data)) {
+      dutil.logData('make-bundled-javascript-dirs', data);
+    }
+  });
+
+  makeBundledJavaScriptDirs.on('error', function (error) { done(error); });
+
+  makeBundledJavaScriptDirs.on('close', function (code) { if (0 === code) { done(); } });
+});
+
 gulp.task('copy-bundled-javascript', function (done) {
 
   var copyBundledJavaScript = spawn('cp', [
@@ -53,28 +81,54 @@ gulp.task('copy-bundled-javascript', function (done) {
 
 });
 
-gulp.task('copy-fonts', function (done) {
-
-  var copyFonts = spawn('cp', [
-    '-rvf',
-    'dist/fonts',
-    'docs/assets/fonts',
+gulp.task('make-fonts-dirs', function(done) {
+  var makeFontsDirs = spawn('mkdir', [
+    '-p',
+    'docs/assets/fonts'
   ]);
 
-  copyFonts.stdout.on('data', function (data) {
-
+  makeFontsDirs.stdout.on('data', function (data) {
     if (/[\w\d]+/.test(data)) {
+      dutil.logData('make-fonts-dirs', data);
+    }
+  });
 
-      dutil.logData('copy-fonts', data);
+  makeFontsDirs.on('error', function (error) { done(error); });
+
+  makeFontsDirs.on('close', function (code) { if (0 === code) { done(); } });
+});
+
+gulp.task('copy-fonts', function (done) {
+
+  var copyFonts = exec('cp -rvf dist/fonts/* docs/assets/fonts/', function (error, stdout, stderr) {
+
+    if (stdout && /[\w\d]+/.test(stdout)) {
+
+      dutil.logData('copy-fonts', stdout);
 
     }
 
+    done();
+
   });
 
-  copyFonts.on('error', function (error) { done(error); });
+});
 
-  copyFonts.on('close', function (code) { if (0 === code) { done(); } });
+gulp.task('make-images-dirs', function(done) {
+  var makeImagesDirs = spawn('mkdir', [
+    '-p',
+    'docs/assets/fonts'
+  ]);
 
+  makeImagesDirs.stdout.on('data', function (data) {
+    if (/[\w\d]+/.test(data)) {
+      dutil.logData('make-images-dirs', data);
+    }
+  });
+
+  makeImagesDirs.on('error', function (error) { done(error); });
+
+  makeImagesDirs.on('close', function (code) { if (0 === code) { done(); } });
 });
 
 gulp.task('copy-images', function (done) {
@@ -96,9 +150,13 @@ gulp.task('copy-images', function (done) {
 gulp.task('copy-assets', [ 'build' ], function (done) {
   runSequence(
     'clean-generated-assets',
+    'make-bundled-javascript-dirs',
     'copy-bundled-javascript',
+    'make-fonts-dirs',
     'copy-fonts',
+    'make-images-dirs',
     'copy-images',
+    'copy-docs-assets',
     done
   );
 });
@@ -173,20 +231,26 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
     runSequence(
       'javascript',
       'clean-bundled-javascript',
-      'copy-bundled-javascript'
+      'make-bundled-javascript-dirs',
+      'copy-bundled-javascript',
+      'copy-docs-assets'
     );
   });
   gulp.watch('src/img/**/*', function (event) {
     runSequence(
       'images',
-      'copy-images'
+      'make-images-dirs',
+      'copy-images',
+      'copy-docs-assets'
     );
   });
   gulp.watch('src/fonts/**/*', function (event) {
     runSequence(
       'fonts',
       'clean-fonts',
-      'copy-fonts'
+      'make-fonts-dirs',
+      'copy-fonts',
+      'copy-docs-assets'
     );
   });
 
