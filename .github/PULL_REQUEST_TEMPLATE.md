@@ -1,5 +1,4 @@
 <!-- Please feel free to remove whatever sections/lines in this aren't relevant. 
-Before submitting a pull request, please be sure to read our guidelines [here](https://github.com/18F/web-design-standards/blob/18f-pages-staging/CONTRIBUTING.md#submitting-a-pull-request).
 
 ## Title Line Template: [Website] - [UI component]: [Brief statement describing what this pull request solves.]
 
