@@ -117,7 +117,7 @@ gulp.task('copy-fonts', function (done) {
 gulp.task('make-images-dirs', function(done) {
   var makeImagesDirs = spawn('mkdir', [
     '-p',
-    'docs/assets/fonts'
+    'docs/assets/img'
   ]);
 
   makeImagesDirs.stdout.on('data', function (data) {
