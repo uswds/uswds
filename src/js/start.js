@@ -1,6 +1,6 @@
 'use strict';
 
-var $ = require('jquery');
+var $ = window.jQuery = require('jquery');
 var Accordion = require('./components/accordion');
 var validator = require('./components/validator');
 var toggleFormInput = require('./components/toggle-form-input');
