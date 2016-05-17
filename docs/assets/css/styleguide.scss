@@ -431,13 +431,12 @@ h3 + .button_wrapper {
 
 .button_wrapper {
   clear: both;
-  display: table;
+  display: block;
   margin-left: -1rem;
   padding: 0rem 1rem;
 
-  &:after {
-    content:"\A";
-    white-space:pre;
+  @include media($small-screen) {
+    display: table;
   }
 
   button:last-child {

@@ -95,7 +95,7 @@ lead: Patterns for some of the most commonly used forms on government websites
 
         <div class="usa-input-grid usa-input-grid-small">
           <label for="state">State</label>
-          <select id="state" name="state" type="text">
+          <select id="state" name="state">
             <option value></option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
