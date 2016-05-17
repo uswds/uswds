@@ -1,0 +1,4 @@
+// Screen reader only helper
+.usa-sr-only {
+  @include sr-only;
+}

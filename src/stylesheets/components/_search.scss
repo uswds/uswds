@@ -27,7 +27,7 @@ $usa-btn-big-width:     11.6rem;
     padding-top: 0;
     width: calc(100% - #{$usa-btn-small-width});
 
-    @include media($small-screen) {
+    @include uswds-media($small-screen) {
       width: calc(100% - #{$usa-btn-medium-width});
     }
   }
@@ -42,7 +42,7 @@ $usa-btn-big-width:     11.6rem;
     padding: 0;
     width: $usa-btn-small-width;
 
-    @include media($small-screen) {
+    @include uswds-media($small-screen) {
       background-image: none;
       width: $usa-btn-medium-width;
     }
@@ -51,13 +51,13 @@ $usa-btn-big-width:     11.6rem;
   .usa-search-submit-text {
     display: none;
 
-    @include media($small-screen) {
+    @include uswds-media($small-screen) {
       display: block;
     }
   }
 
   &.usa-search-big {
-    @include media($small-screen) {
+    @include uswds-media($small-screen) {
       $height: 4.4rem;
       $width: $usa-btn-big-width;
 
@@ -77,7 +77,7 @@ $usa-btn-big-width:     11.6rem;
   }
 
   &.usa-search-small {
-    @include media($small-screen) {
+    @include uswds-media($small-screen) {
       $width: $usa-btn-small-width;
 
       [type="search"],

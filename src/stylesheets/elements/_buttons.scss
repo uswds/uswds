@@ -34,7 +34,7 @@ button,
   width: 100%;
   -webkit-font-smoothing: antialiased;
 
-  @include media($small-screen) {
+  @include uswds-media($small-screen) {
     width: auto;
   }
 

@@ -1,17 +1,11 @@
 // Mobile-first media query helper
-@mixin media($bp) {
+@mixin uswds-media($bp) {
   @media screen and (min-width: #{$bp}) {
     @content;
   }
 }
 
-// Screen reader only helper
-.usa-sr-only {
-  position: absolute;
-  left:-999em;
-}
-
-@mixin sr-only() {
+@mixin sr-only {
   position: absolute;
   left:-999em;
 }

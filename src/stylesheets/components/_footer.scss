@@ -11,7 +11,7 @@
     padding-bottom: 2rem;
     padding-top: 2rem;
 
-    @include media($medium-screen) {
+    @include uswds-media($medium-screen) {
       border-top: none;
     }
   }
@@ -33,7 +33,7 @@
     padding-left: 2.5rem;
     padding-right: 2.5rem;
 
-    @include media($medium-screen) {
+    @include uswds-media($medium-screen) {
       padding-left: 0;
       padding-right: 0;
     }
@@ -41,14 +41,14 @@
     li {
       margin-left: 1rem;
 
-      @include media($medium-screen) {
+      @include uswds-media($medium-screen) {
         margin-left: 0;
       }
     } 
   }
 
   .usa-grid-full {
-    @include media($medium-screen) {
+    @include uswds-media($medium-screen) {
       padding-left: 2.5rem;
       padding-right: 2.5rem;
     }
@@ -58,15 +58,15 @@
 .usa-footer-medium {
   .usa-footer-primary-section {
     padding: 0;
-    
-    @include media($medium-screen) {
+
+    @include uswds-media($medium-screen) {
       padding-bottom: 1rem;
       padding-top: 1rem;
     }
   }
 
   .usa-footer-nav ul {
-    @include media($medium-screen) {
+    @include uswds-media($medium-screen) {
       align-items: center;
       display: flex;  
     }
@@ -80,8 +80,8 @@
 
   .usa-footer-primary-section {
     padding-bottom: 2rem;
-    
-    @include media($medium-screen) {
+
+    @include uswds-media($medium-screen) {
       padding-bottom: 1rem;
       padding-top: 1rem;
 
@@ -98,14 +98,14 @@ li.usa-footer-primary-content,
 li.usa-footer-primary-content {
   border-top: 1px solid $color-base;      
 
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     border: none;
   }
 
   &:last-child {
     border-bottom: 1px solid $color-base;
 
-    @include media($medium-screen) {
+    @include uswds-media($medium-screen) {
       border-bottom: none;
     }
   }
@@ -116,7 +116,7 @@ li.usa-footer-primary-content {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
 
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     float: right;
     padding: 0;
   }
@@ -147,20 +147,20 @@ li.usa-footer-primary-content {
 }
 
 .usa-footer-big-secondary-section {
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     padding-top: 5rem;
   }  
 }
 
 .usa-footer-contact-links {
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     text-align: right;
   }
 }
 
 .usa-footer-big {
   .usa-footer-primary-section {
-    @include media($medium-screen) {
+    @include uswds-media($medium-screen) {
       padding-bottom: 4rem;
       padding-top: 3rem;
     }
@@ -169,14 +169,14 @@ li.usa-footer-primary-content {
   ul {
     padding-bottom: 2.5rem;
 
-    @include media($medium-screen) {
+    @include uswds-media($medium-screen) {
       padding-bottom: 0;
     }
     
     &:last-child {
       border-bottom: 1px solid $color-base;
 
-      @include media($medium-screen) {
+      @include uswds-media($medium-screen) {
         border-bottom: none;
       }
     }
@@ -193,7 +193,7 @@ li.usa-footer-primary-content {
       background-size: 1.3rem;
       padding-left: 3.5rem;
 
-      @include media($medium-screen) {
+      @include uswds-media($medium-screen) {
         background: none;
         padding-bottom: 0;
         padding-left: 0;
@@ -209,7 +209,7 @@ li.usa-footer-primary-content {
         cursor: pointer;
         margin: 0;
 
-        @include media($medium-screen) {
+        @include uswds-media($medium-screen) {
           background: none;
           padding-left: 0;
         }        
@@ -226,7 +226,7 @@ li.usa-footer-primary-content {
 }
 
 .usa-sign_up-header {
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     margin: 0;
     padding: 2rem 0;
   }
@@ -247,9 +247,9 @@ li.usa-footer-primary-content {
 
 .usa-footer-contact-heading {
   margin-top: 0;
-  
-  @include media($medium-screen) {
-    margin-top: 1rem;  
+
+  @include uswds-media($medium-screen) {
+    margin-top: 1rem;
   }
 }
 
@@ -257,7 +257,7 @@ li.usa-footer-primary-content {
   display: block;
   padding-top: 1rem;
 
-  @include media($medium-screen) {
+  @include uswds-media($medium-screen) {
     display: inline-block;
     padding-left: 1em;
   }

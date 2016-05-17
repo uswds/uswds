@@ -6,19 +6,25 @@
 
 
 // Core -------------- //
+// Non-rendering Sass
 
 @import 'core/defaults';
-@import 'core/variables';
 @import 'core/fonts';
-@import 'core/base';
 @import 'core/grid-settings';
-@import 'core/grid';
-@import 'core/utilities';
+@import 'core/mixins';
+@import 'core/variables';
+
+
+// Utilities -------------- //
+
+@import 'utilities/grid';
+@import 'utilities/usa-sr-only';
 
 
 // Elements -------------- //
 // Styles basic HTML elements
 
+@import 'elements/base';
 @import 'elements/buttons';
 @import 'elements/figure';
 @import 'elements/inputs';
