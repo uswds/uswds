@@ -69,11 +69,20 @@ select {
   textarea,
   select {
     border: 3px solid $color-secondary-dark;
-    width: calc(100% + 1.5rem);
+    width: 100%;
+  }
+
+  select {
+    width: calc(100% + 1.9rem);
   }
 
   label {
     margin-top: 0;
+  }
+
+  fieldset {
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -95,7 +104,31 @@ select {
 label {
   display: block;
   margin-top: 3rem;
-  max-width: $input-max-width;
+  max-width: $input-max-width;  
+}
+
+.usa-fieldset-inputs {
+  margin-top: 3rem;
+
+  legend {
+    font-size: $base-font-size;
+    font-weight: $font-normal;
+    display: block;
+    max-width: $input-max-width;
+    margin-bottom: 1rem;
+
+    &.usa-input-error-label {
+      display: block;
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+  }
+
+  div, ul, ol {
+    margin-top: 0.5rem;
+
+  }  
 }
 
 textarea {
