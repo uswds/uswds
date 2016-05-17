@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var dutil = require('./doc-util');
 var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var linter = require('gulp-scss-lint');
@@ -10,6 +11,13 @@ var task = /([\w\d-_]+)\.js$/.exec(__filename)[ 1 ];
 
 var entryFileFilter = filter('all.scss', { restore: true });
 var normalizeCssFilter = filter('normalize.css', { restore: true });
+var supportedBrowsers = [
+  '> 1%',
+  'Last 2 versions',
+  'IE 11',
+  'IE 10',
+  'IE 9',
+];
 
 gulp.task('scss-lint', function (done) {
 
@@ -54,6 +62,12 @@ gulp.task(task, [ 'scss-lint' ], function (done) {
       sass({ outputStyle: 'expanded' })
         .on('error', sass.logError)
     )
+    .pipe(
+      autoprefixer({
+        browsers: supportedBrowsers,
+        cascade: false,
+      })
+    )
     .pipe(rename({ basename: dutil.pkg.name }))
     .pipe(gulp.dest('dist/css'));
 
@@ -62,6 +76,12 @@ gulp.task(task, [ 'scss-lint' ], function (done) {
       .pipe(
         sass({ outputStyle: 'compressed' })
           .on('error', sass.logError)
+      )
+      .pipe(
+        autoprefixer({
+          browsers: supportedBrowsers,
+          cascade: false,
+        })
       )
       .pipe(rename({
         basename: dutil.pkg.name,
