@@ -3,10 +3,6 @@
 docs/
 _site/
 
-# Gem releases
-#
-dist-gem/
-
 # Configuration and scripts
 #
 .ruby-version
