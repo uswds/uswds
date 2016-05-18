@@ -25,7 +25,7 @@ First, download the Draft Web Design Standards assets:
 
 [https://github.com/18F/web-design-standards/releases/download/v0.9.2/uswds-0.9.2.zip](https://github.com/18F/web-design-standards/releases/download/v0.9.2/uswds-0.9.2.zip)
 
-Then, add the `dist` directory files into a relevant place in your code base — likely a directory where you keep third-party libraries:
+Then, add the following folders into a relevant place in your code base — likely a directory where you keep third-party libraries:
 
 ```
 uswds-0.9.2/
@@ -76,16 +76,16 @@ to your project's `package.json` as a dependency:
 npm install --save uswds
 ```
 
-The package will be installed in `node_modules/uswds`. You can use the files
-found in the `src/` directory.
+The package will be installed in `node_modules/uswds`. You can use the un-compiled files
+found in the `src/` or the compiled files in the `dist/` directory.
 
 ```
 node_modules/uswds/
 ├── dist/
 │   ├── css/
 │   ├── fonts/
-│   ├── img/
-│   ├── js/
+│   ├── img//
+│   ├── js
 └── src/
     ├── fonts/
     ├── img/
@@ -111,7 +111,7 @@ node_modules/uswds/dist/css/uswds.css
 
 If you’re using another framework or package manager that doesn’t support NPM, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/18F/web-design-standards/issues/877).
 
-If you’re interested in maintaining a package that helps us distribute the Draft Web Design Standards, the project's build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](.github/CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
+If you’re interested in maintaining a package that helps us distribute the Draft U.S. Web Design Standards, the project's build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](.github/CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
 ## Need installation help?
 
@@ -131,7 +131,7 @@ If you have questions or concerns about our contributing workflow, please contac
 
 ## Reuse of open-source style guides
 
-Much of the guidance in the Draft Web Design Standards leans on open source designs, code, and patterns from other civic and government organizations, including:
+Much of the guidance in the Draft U.S. Web Design Standards leans on open source designs, code, and patterns from other civic and government organizations, including:
 
 * Consumer Financial Protection Bureau’s [Design Manual](https://cfpb.github.io/design-manual/)
 * U.S. Patent and Trademark Office’s [Design Patterns](http://uspto.github.io/designpatterns/)
