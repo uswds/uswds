@@ -35,7 +35,7 @@
     "bourbon-neat": "^1.7.3",
     "cross-spawn": "^2.1.5",
     "jquery": "^2.2.0",
-    "normalize.css": "^3.0.3",
+    "normalize-scss": "^4.2.1",
     "politespace": "^0.1.4"
   },
   "devDependencies": {
