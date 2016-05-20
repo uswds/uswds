@@ -1,8 +1,8 @@
 // Vendor -------------- //
 
-@import 'lib/bourbon';
-@import 'lib/neat';
-@import 'lib/normalize';
+@import '../../node_modules/bourbon/app/assets/stylesheets/bourbon';
+@import '../../node_modules/bourbon-neat/app/assets/stylesheets/neat';
+@import '../../node_modules/normalize-scss/sass/_normalize';
 
 
 // Core -------------- //
