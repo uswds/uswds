@@ -33,24 +33,6 @@ gulp.task('scss-lint', function (done) {
 
 });
 
-gulp.task('copy-vendor-sass', function (done) {
-
-  dutil.logMessage('copy-vendor-sass', 'Compiling vendor CSS');
-
-  var stream = gulp.src([
-    './node_modules/normalize.css/normalize.css',
-    './node_modules/bourbon/app/assets/stylesheets/**/*.scss',
-    './node_modules/bourbon-neat/app/assets/stylesheets/**/*.scss',
-  ])
-    .pipe(normalizeCssFilter)
-      .pipe(rename('_normalize.scss'))
-    .pipe(normalizeCssFilter.restore)
-    .on('error', function (error) { console.log(error); })
-    .pipe(gulp.dest('src/stylesheets/lib'));
-
-  return stream;
-});
-
 gulp.task(task, [ 'scss-lint' ], function (done) {
 
   dutil.logMessage(task, 'Compiling Sass');
