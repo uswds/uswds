@@ -472,6 +472,7 @@ body {
 }
 
 .lt-ie9 * {
+  -webkit-filter: none !important;
   filter: none !important;
 }
 
@@ -778,6 +779,8 @@ button,
 [type="submit"],
 [type="reset"],
 [type="image"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   background-color: #0071bc;
   border: 0;
@@ -1265,6 +1268,8 @@ input[type="time"],
 input[type="week"],
 textarea,
 select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   border: 1px solid #5b616b;
   border-radius: 0;
@@ -2201,7 +2206,11 @@ p a,
 
 @media screen and (min-width: 600px) {
   .usa-footer-medium .usa-footer-nav ul {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
 }
@@ -2220,7 +2229,11 @@ p a,
     padding-top: 1rem;
   }
   .usa-footer-slim .usa-footer-primary-section .usa-grid-full {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
 }
@@ -2772,25 +2785,23 @@ fieldset {
 }
 
 .skipnav {
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
   background: transparent;
   color: #212121;
   left: 0;
   padding: 1rem 1.5rem;
   position: absolute;
   top: -4.2rem;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   z-index: 100;
 }
 
 .skipnav:focus {
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
   background: #ffffff;
   left: 0;
   outline: 0;
   position: absolute;
   top: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
