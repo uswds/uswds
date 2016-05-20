@@ -288,7 +288,7 @@ lead: Patterns for some of the most commonly used forms on government websites
       <p class="usa-form-note">
         <a title="Show my typing" href="#"
             class="usa-show_multipassword"
-            aria-controls="password">
+            aria-controls="password confirmPassword">
           Show my typing</a>
       </p>
 
@@ -307,7 +307,7 @@ lead: Patterns for some of the most commonly used forms on government websites
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
       <li>As you customize this form template, ensure it continues to follow the <a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for form controls</a>.</li>
-    </ul>    
+    </ul>
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">

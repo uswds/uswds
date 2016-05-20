@@ -1,12 +1,9 @@
 'use strict';
 
-var $ = require('jquery');
+var $ = window.jQuery = require('jquery');
 var Accordion = require('./components/accordion');
-var toggleFieldMask = require('./components/toggle-field-mask');
-var togglePassword = require('./components/toggle-password');
-var toggleMultiPassword = require('./components/toggle-multi-password');
-var toggleSSN = require('./components/toggle-ssn');
 var validator = require('./components/validator');
+var toggleFormInput = require('./components/toggle-form-input');
 
 // README: This is necessary because politespace doesn't properly export anything
 // in its package.json. TODO: Let's open a PR related to this so we can fix it in Politespace.js
@@ -88,9 +85,7 @@ $(function () {
     $(this).attr('tabindex', '-1');
   });
 
-  togglePassword($('.usa-show_password'));
-  toggleMultiPassword($('.usa-show_multipassword'));
-  toggleSSN($('.usa-show_ssn'));
+  toggleFormInput($('.usa-show_password'), 'Show Password', 'Hide Password');
+  toggleFormInput($('.usa-show_multipassword'), 'Show my typing', 'Hide my typing');
   validator($('.js-validate_password'));
-
 });

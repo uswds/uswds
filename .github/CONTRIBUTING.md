@@ -4,7 +4,7 @@ We're so glad you're thinking about contributing to an 18F open source project! 
 
 One of our goals is to ensure a welcoming environment for all contibutors to our projects. Our staff follows the [18F Code of Conduct](https://github.com/18F/code-of-conduct/blob/master/code-of-conduct.md), and all contributors should do the same.
 
-We encourage you to read this project's CONTRIBUTING policy (you are here), its [LICENSE](LICENSE.md), and its [README](README.md).
+We encourage you to read this project's CONTRIBUTING policy (you are here), its [LICENSE](../LICENSE.md), [README](../README.md) and its [Workflow](https://github.com/18F/web-design-standards/wiki/Workflow) process.
 
 If you have any questions or want to read more, check out the [18F Open Source Policy GitHub repository]( https://github.com/18f/open-source-policy), or just [shoot us an email](mailto:18f@gsa.gov).
 
@@ -57,7 +57,7 @@ The task above is an alias for running `gulp sass javascript images fonts` and
 is the task to build all assets. Building the package will generate a `/dist`
 directory with the contents of the ZIP archive made available to download.
 Building just the package is useful if you'd like to create your own
-distribution bundle for frameworks that aren't supported via npm. This files in
+distribution bundle for frameworks that aren't supported via npm. The files in
 `/dist` contain no documentation and are compiled and bundled CSS, JavaScript,
 fonts, and images files. The command is aliased by `npm run prepublish`.
 
@@ -81,60 +81,6 @@ the Draft U.S. Web Design Standards website locally (http://127.0.0.1:4000).
 This also sets up gulp and Jekyll to watch for file changes to the `/docs`
 and `/src` directories and rebuilds the website accordingly. The command is
 aliased by `npm start`
-
-### Committing files when updating the `/src` directory
-
-When you run `npm start` to preview the website locally, you generate many files
-that are tracked by Git. This leaves your working directory in a dirty state,
-and it can make knowing which files to include in your commit seem like a
-daunting task. The following steps will make it easier for you to commit changes
-while the team looks into different approaches for handling changes to the
-Standards website and the `uswds` package.
-
-If you made any changes to the `/src` directory, you have also made changes in
-the following directories:
-
-```
-docs/_scss/
-docs/assets/img/
-docs/assets/fonts/
-docs/assets/js/vendor/
-```
-
-This is due to how the Standards website consumes the `uswds` package.
-
-Changes may also appear in these directories and files, if you've made any
-changes to `/src`.
-
-```
-dist/css/
-dist/js/
-dist/fonts/
-dist/img/
-```
-
-These changes must be committed in order for our distribution directories and
-Standards website to remain in sync with the `uswds` package. Please keep
-changes in a directory within its own series of commits. The commit messages
-below offer a few examples.
-
-```sh
-git add src/ && \
-git commit -m "Update the src files"
-
-git add docs/ && \
-git commit -m "Update the Standards website"
-
-git add dist && \
-git commit -m "Update the dist directory"
-```
-
-Because this will produce three commits, the only commits that may be reviewed
-are the commits to the `/src` directory. This only applies to contributions that
-are made strictly to the `/src` directory. If any contributions are added to the
-Standards website, the `/docs` directory will also be reviewed. The contents of
-the `/dist` directory is generated automatically, so commits may not need a
-review.
 
 ## Licenses and attribution
 
