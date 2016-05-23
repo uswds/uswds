@@ -200,10 +200,10 @@ li.usa-footer-primary-content {
         padding-bottom: 0;
         padding-left: 0;
       }
-    }
 
-    h4 {
-      @include margin(0 null);
+      > * {
+        @include margin(0 null);
+      }
     }
 
     &.hidden {
