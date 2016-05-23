@@ -191,7 +191,7 @@ li.usa-footer-primary-content {
       background-position: 1.5rem center;
       background-repeat: no-repeat;
       background-size: 1.3rem;
-      margin: 0;
+      margin-left: 0;
       padding-left: 3.5rem;
 
       @include media($medium-screen) {
@@ -203,7 +203,7 @@ li.usa-footer-primary-content {
     }
 
     h4 {
-      margin: 0;
+      @include margin(0 null);
     }
 
     &.hidden {
