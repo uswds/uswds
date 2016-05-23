@@ -17,28 +17,36 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
       <div class="usa-grid-full">
         <nav class="usa-footer-nav usa-width-two-thirds">
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-            <li class="usa-footer-primary-link"><h4>Topic</h4></li>
+            <li class="usa-footer-primary-link">
+              <h4>Topic</h4>
+            </li>
             <li><a href="#">Secondary link</a></li>
             <li><a href="#">Secondary link</a></li>
             <li><a href="#">Secondary link</a></li>
             <li><a href="#">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-            <li class="usa-footer-primary-link"><h4>Topic</h4></li>
+            <li class="usa-footer-primary-link">
+              <h4>Topic</h4>
+            </li>
             <li><a href="#">Secondary link</a></li>
             <li><a href="#">Secondary link</a></li>
             <li><a href="#">Secondary link</a></li>
             <li><a href="#">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-            <li class="usa-footer-primary-link"><h4>Topic</h4></li>
+            <li class="usa-footer-primary-link">
+              <h4>Topic</h4>
+            </li>
             <li><a href="#">Secondary link</a></li>
             <li><a href="#">Secondary link</a></li>
             <li><a href="#">Secondary link</a></li>
             <li><a href="#">Secondary link</a></li>
           </ul>
           <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-            <li class="usa-footer-primary-link"><h4>Topic</h4></li>
+            <li class="usa-footer-primary-link">
+              <h4>Topic</h4>
+            </li>
             <li><a href="#">Secondary link</a></li>
             <li><a href="#">Secondary link</a></li>
             <li><a href="#">Secondary link</a></li>
