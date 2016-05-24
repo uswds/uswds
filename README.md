@@ -111,7 +111,7 @@ node_modules/uswds/dist/css/uswds.css
 
 If you’re using another framework or package manager that doesn’t support NPM, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/18F/web-design-standards/issues/877).
 
-If you’re interested in maintaining a package that helps us distribute the Draft U.S. Web Design Standards, the project's build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](.github/CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
+If you’re interested in maintaining a package that helps us distribute the Draft U.S. Web Design Standards, the project's build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
 ## Need installation help?
 
@@ -123,7 +123,7 @@ You can also email us directly at uswebdesignstandards@gsa.gov.
 
 ## Contributing to the code base
 
-For complete instructions on how to contribute code, please read [CONTRIBUTING.md](.github/CONTRIBUTING.md). These instructions also include guidance on how to set up your own copy of the Standards style guide website for development.
+For complete instructions on how to contribute code, please read [CONTRIBUTING.md](CONTRIBUTING.md). These instructions also include guidance on how to set up your own copy of the Standards style guide website for development.
 
 If you would like to learn more about our workflow process, check out the [Workflow](https://github.com/18F/web-design-standards/wiki/Workflow) and [Label Glossary](https://github.com/18F/web-design-standards/wiki/Label-glossary) pages on the wiki.
 
@@ -172,7 +172,7 @@ The files `docs/assets/js/vendor/prism.js` and `assets-styleguide/css/prism.css`
 
 ### The rest of this project is in the public domain
 
-The rest of this project is in the worldwide [public domain](LICENSE.md). As stated in [CONTRIBUTING](.github/CONTRIBUTING.md):
+The rest of this project is in the worldwide [public domain](LICENSE.md). As stated in [CONTRIBUTING](CONTRIBUTING.md):
 
 > This project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
 >
