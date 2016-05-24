@@ -17,7 +17,7 @@ a {
   color: $color-primary;
   text-decoration: none;
 
-  &:hover, 
+  &:hover,
   &:active {
     color: $color-primary-darker;
     text-decoration: underline;
@@ -33,7 +33,12 @@ a {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   clear: both;
   font-family: $font-serif;
   line-height: $heading-line-height;
@@ -41,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 1.5em;
 }
 
-// Create heading mixins 
+// Create heading mixins
 
 @mixin title {
   font-size: $title-font-size;
@@ -101,16 +106,16 @@ h5 {
 }
 
 h6 {
-  @include h6(); 
+  @include h6();
 }
 
 // Remove user agent styles
 
-cite, 
-var, 
-address, 
+cite,
+var,
+address,
 dfn {
- font-style: normal;
+  font-style: normal;
 }
 
 // Custom typography
@@ -118,14 +123,14 @@ dfn {
 .usa-content {
   p {
     max-width: $text-max-width;
-  }  
+  }
 }
 
 .usa-content-list {
   max-width: $text-max-width;
 }
 
-p, 
+p,
 .usa-content-list {
   a {
     text-decoration: underline;
@@ -133,20 +138,26 @@ p,
 }
 
 .usa-sans {
-  p, a, li, span {
+  p,
+  a,
+  li,
+  span {
     font-family: $font-sans;
+  }
+
+  a {
+    border-bottom: none;
+    font-weight: $font-bold;
   }
 }
 
 .usa-serif {
-  p, a, li, span {
+  p,
+  a,
+  li,
+  span {
     font-family: $font-serif;
   }
-}
-
-.usa-sans a {
-  border-bottom: none;
-  font-weight: $font-bold;
 }
 
 .usa-display {
@@ -191,13 +202,14 @@ p,
 .usa-background-dark {
   background-color: $color-gray-dark;
 
-  p, span {
+  p,
+  span {
     color: $color-white;
   }
 
   a {
     color: $color-gray-lighter;
-    
+
     &:hover {
       color: $color-white;
     }
