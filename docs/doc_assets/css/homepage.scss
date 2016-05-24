@@ -21,14 +21,6 @@ p {
   max-width: $text-width;
 }
 
-.usa-section-examples {
-  @include media($medium-screen) {
-    .usa-width-five-sixths {
-      @include shift(1);
-    }
-  }
-}
-
 .usa-section {
   @include padding($section-padding null);
 }
@@ -37,6 +29,7 @@ p {
   @include media($medium-screen) {
     width: auto;
   }
+
   display: inline-block;
   vertical-align: top;
   width: 100%;
@@ -44,11 +37,12 @@ p {
 
 .usa-banner {
   @include media ($medium-screen) {
-    background-image: url("../img/home/homepage_illustrations_flag_cropped_2x.png");
+    background-image: url('../img/home/homepage_illustrations_flag_cropped_2x.png');
     background-position: right bottom;
     background-repeat: no-repeat;
     background-size: 582px auto;
   }
+
   background-color: $color-primary-darkest;
   background-image: none;
   color: $color-white;
@@ -71,6 +65,7 @@ p {
       font-size: 5.6rem;
       padding-top: 1.2rem;
     }
+
     color: $color-white;
     padding-top: 1.5rem;
   }
@@ -127,8 +122,12 @@ p {
   }
 }
 
-.usa-circle-block img {
-  width: 124px;
+.usa-circle-block {
+  text-align: center;
+
+  img {
+    width: 124px;
+  }
 }
 
 @include media($medium-screen) {
@@ -147,16 +146,18 @@ p {
   }
 }
 
-.usa-circle-block {
-  text-align: center;
-}
-
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $color-primary-darker;
   font-family: $font-serif;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin-top: 0;
 }
 
@@ -179,7 +180,7 @@ a:hover {
 
 a {
   > h3,
-  &:visited  {
+  &:visited {
     color: $color-primary;
   }
 }
@@ -206,6 +207,12 @@ a {
 
     &:first-of-type {
       margin-top: 0;
+    }
+  }
+
+  @include media($medium-screen) {
+    .usa-width-five-sixths {
+      @include shift(1);
     }
   }
 }
