@@ -60,6 +60,8 @@ gulp.task('scss-lint-docs', function (done) {
     return done();
   }
 
+  dutil.logMessage('scss-lint-docs', 'Linting files found by `docs/doc_assets/**/*.scss`');
+
   runSequence(
     // README: The SCSS files have Jekyll dashes at the top. You'd think the best way
     // to lint them would be to pipe straight from gulp.replace to the linter.
