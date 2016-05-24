@@ -191,31 +191,37 @@ li.usa-footer-primary-content {
       background-position: 1.5rem center;
       background-repeat: no-repeat;
       background-size: 1.3rem;
+      margin-left: 0;
       padding-left: 3.5rem;
 
       @include media($medium-screen) {
         background: none;
+        margin-bottom: .8rem;
         padding-bottom: 0;
         padding-left: 0;
+      }
+
+      > * {
+        @include margin(0 null);
       }
     }
 
     &.hidden {
       padding-bottom: 0;
 
+      li { display: none; }
+
       .usa-footer-primary-link { 
         background-image: url('../img/arrow-right.png');
         background-image: url('../img/arrow-right.svg');
         cursor: pointer;
-        margin: 0;
+        display: block;
 
         @include media($medium-screen) {
           background: none;
           padding-left: 0;
-        }        
+        }
       }
-        
-      li { display: none; }
     }
   }
 }
