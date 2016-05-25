@@ -90,3 +90,7 @@ $accordion-border: 3px solid $color-gray-lightest;
     margin-bottom: 0;
   }
 }
+
+.usa-accordion-content-collapsed {
+  display: none !important;
+}
