@@ -93,6 +93,7 @@
   }
 }
 
+// scss-lint:disable QualifyingElement
 ul.usa-footer-primary-content,
 li.usa-footer-primary-content,
 li.usa-footer-primary-content {
@@ -110,6 +111,8 @@ li.usa-footer-primary-content {
     }
   }
 }
+// scss-lint:enable QualifyingElement
+
 
 .usa-sign_up-block {
   padding-bottom: 2rem;
@@ -201,6 +204,7 @@ li.usa-footer-primary-content {
         padding-left: 0;
       }
 
+      // scss-lint:disable SelectorDepth
       > * {
         @include margin(0 null);
       }
