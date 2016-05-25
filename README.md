@@ -113,6 +113,14 @@ If you’re using another framework or package manager that doesn’t support NP
 
 If you’re interested in maintaining a package that helps us distribute the Draft U.S. Web Design Standards, the project's build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
+## Our use of branches
+
+The `staging` branch is the bleeding edge of development. When developing, we create a feature branch from `staging`, do our work in that, then create a pull request which merges back to `staging`. New commits to `staging` are automatically deployed to [our staging site](https://standards-staging.usa.gov/).
+
+When cutting a [release](https://github.com/18F/web-design-standards/releases), we merge from `staging` to `master`. The `master` branch holds the latest production-ready release, as well as [the production website](https://standards.usa.gov/).
+
+The branches `18f-pages` and `18f-pages-staging` _used_ to be the primary release & development branches, back when the site was hosted on `pages.18f.gov`. Those branches still auto-deploy to 18F Pages, but will now only contain minimal redirects to the new site.
+
 ## Need installation help?
 
 Do you have questions or need help with setup? Did you run into any weird errors while following these instructions? Feel free to open an issue here:
