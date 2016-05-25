@@ -89,4 +89,9 @@ $accordion-border: 3px solid $color-gray-lightest;
   > *:last-child {
     margin-bottom: 0;
   }
+
+  &[aria-hidden=true] {
+    visibility: hidden;
+    height: 0;
+  }
 }
