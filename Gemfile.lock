@@ -3,9 +3,6 @@ GEM
   specs:
     colorator (0.1)
     ffi (1.9.10)
-    go_script (0.1.9)
-      bundler (~> 1.10)
-      safe_yaml (~> 1.0)
     jekyll (3.1.2)
       colorator (~> 0.1)
       jekyll-sass-converter (~> 1.0)
@@ -42,9 +39,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  go_script
   jekyll
   json
   redcarpet
   rouge (= 1.9)
   scss_lint
+
+BUNDLED WITH
+   1.11.2
