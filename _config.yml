@@ -9,7 +9,6 @@ source: docs
 version: 0.9.2
 
 exclude:
-- go
 - Gemfile
 - Gemfile.lock
 - README.md
