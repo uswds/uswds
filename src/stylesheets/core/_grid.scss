@@ -7,15 +7,19 @@
     .usa-width-one-whole {
       @include span-columns(6);
     }
+
     .usa-width-one-half {
       @include span-columns(3);
     }
+
     .usa-width-one-third {
       @include span-columns(2);
     }
+
     .usa-width-two-thirds {
       @include span-columns(4);
     }
+
     .usa-width-one-fourth {
       @include span-columns(3);
 
@@ -23,9 +27,11 @@
         margin-right: 0;
       }
     }
+
     .usa-width-three-fourths {
       @include span-columns(6);
     }
+
     .usa-width-one-sixth {
       @include span-columns(2);
 
@@ -33,9 +39,11 @@
         margin-right: 0;
       }
     }
+
     .usa-width-five-sixths {
       @include span-columns(4);
     }
+
     .usa-width-one-twelfth {
       @include span-columns(2);
 
@@ -49,15 +57,19 @@
     .usa-width-one-whole {
       @include span-columns(12);
     }
+
     .usa-width-one-half {
       @include span-columns(6);
     }
+
     .usa-width-one-third {
       @include span-columns(4);
     }
+
     .usa-width-two-thirds {
       @include span-columns(8);
     }
+
     .usa-width-one-fourth {
       @include span-columns(3);
 
@@ -69,9 +81,11 @@
         margin-right: 0;
       }
     }
+
     .usa-width-three-fourths {
       @include span-columns(9);
     }
+
     .usa-width-one-sixth {
       @include span-columns(2);
 
@@ -83,9 +97,11 @@
         margin-right: 0;
       }
     }
+
     .usa-width-five-sixths {
       @include span-columns(10);
     }
+
     .usa-width-one-twelfth {
       @include span-columns(1);
 

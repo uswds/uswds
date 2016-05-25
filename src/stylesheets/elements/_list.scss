@@ -1,37 +1,42 @@
-ul, ol {
+ul,
+ol {
   margin-bottom: 2em;
   margin-top: 2em;
+  list-style: none;
+  padding-left: 0;
+  display: table;
 
   li {
     line-height: $base-line-height;
     margin-bottom: 0.75em;
     margin-top: 0.75em;
+
+    &::after {
+      content: '';
+      display: block;
+      margin-bottom: 0.5em;
+    }
   }
 }
 
-h1, h2, h3, h4, h5, h6, p {
-  + ul, + ol {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  + ul,
+  + ol {
     margin-top: 0;
-  }
-}
-
-ul, ol {
-  list-style: none;
-  padding-left: 0;
-  display: table;
-
-  li:after {
-    content: "";
-    display: block;
-    margin-bottom: 0.5em;
   }
 }
 
 ul li {
   display: table-row;
 
-  &:before {
-    content: "\2022";
+  &::before {
+    content: '\2022';
     display: table-cell;
     padding-right: 0.4em;
   }
@@ -41,8 +46,8 @@ ol li {
   counter-increment: table-ol;
   display: table-row;
 
-  &:before {
-    content: counter(table-ol) ".";
+  &::before {
+    content: counter(table-ol) '.';
     display: table-cell;
     padding-right: 0.4em;
     text-align: right;
@@ -64,11 +69,11 @@ li {
     display: list-item;
     margin: 0;
 
-    &:before {
+    &::before {
       display: none;
     }
 
-    &:after {
+    &::after {
       display: none;
     }
   }

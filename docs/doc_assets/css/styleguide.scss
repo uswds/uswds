@@ -30,19 +30,23 @@ $site-top:           124px;
       @include margin(2.7rem 0 1rem);
       height: 6rem;
     }
+
     margin-top: 4px;
 
     .logo {
+
       @include media($medium-screen + $width-nav-sidebar) {
         @include padding(0 null null $site-margins);
         text-align: left;
         width: auto;
       }
+
       float: left;
       text-align: center;
       padding-top: 1.3rem;
       width: 70%;
 
+      // scss-lint:disable SelectorDepth, NestingDepth
       a {
         color: $color-gray;
 
@@ -59,6 +63,7 @@ $site-top:           124px;
         font-size: $h3-font-size;
         margin-top: .9rem;
       }
+
       margin: 0;
       font-size: $h5-font-size;
     }
@@ -68,10 +73,12 @@ $site-top:           124px;
         display: block;
         padding-right: $site-margins;
       }
+
       float: right;
       display: none;
       margin-top: -5px;
 
+      // scss-lint:disable SelectorDepth, NestingDepth
       li {
         display: inline;
         font-family: $font-sans;
@@ -84,25 +91,33 @@ $site-top:           124px;
   }
 
   .disclaimer {
+    $color-gray-border: #616161;
     padding: .5rem 2rem;
-    color: white;
+    color: $color-white;
     text-align: center;
     font-size: $base-font-size / 1.25;
-    border-bottom: 1px solid #616161;
+    border-bottom: 1px solid $color-gray-border;
     font-weight: 100;
+
     .us-official {
       margin: 0;
     }
+
     .stage {
+      // scss-lint:disable SelectorDepth
+
       a { text-decoration: underline; }
+
       float: none;
       display: block;
       padding-top: 5px;
     }
+
     @include media($medium-screen + $width-nav-sidebar) {
       .us-official {
         margin-left: 177px;
       }
+
       .stage {
         float: right;
         padding: 0;
@@ -116,6 +131,7 @@ $site-top:           124px;
   @include media($medium-screen + $width-nav-sidebar) {
     display: none;
   }
+
   @include padding(1.5rem null);
   display: inline;
   float: left;
@@ -137,18 +153,19 @@ $site-top:           124px;
   }
 }
 
-#menu-content {
+.menu-content {
   @media (max-width: $medium-screen + $width-nav-sidebar) {
     $sliding-panel-width: 220px;
 
     @include position(fixed, 0 auto 0 0);
     @include size($sliding-panel-width 100%);
     @include transform(translateX(- $sliding-panel-width));
-    background: #fff;
+    background: $color-white;
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
     z-index: 999999;
     display: block;
+
     &.is-visible {
       @include transition(all 0.25s linear);
       @include transform(translateX(0));
@@ -159,7 +176,7 @@ $site-top:           124px;
 .overlay {
   @include position(fixed, 0);
   @include transition;
-  background: #000;
+  background: $color-black;
   opacity: 0;
   visibility: hidden;
   z-index: 9999;
@@ -198,6 +215,7 @@ $site-top:           124px;
 .visual-style .sidenav .visual-style-sublist {
   display: block;
 
+  // scss-lint:disable SelectorDepth
   ul {
     display: block;
   }
@@ -221,16 +239,19 @@ $site-top:           124px;
   @include media($medium-screen) {
     top: $site-top;
   }
+
   @include position(absolute, 4rem 0 0 null);
   @include padding(1em null 0);
   width: 100%;
   z-index: -1;
+
   .lt-ie9 & {
     width: 75%;
   }
 
   @include media($medium-screen + $width-nav-sidebar) {
     width: calc(100% - #{$width-nav-sidebar});
+
     .lt-ie9 & {
       width: 75%;
     }
@@ -247,10 +268,12 @@ $site-top:           124px;
 
   > h1 {
     margin-top: 3.4rem;
+
     &:not(:first-child) {
       margin-top: 1.5em;
     }
   }
+
   @media (min-width: $medium-screen + $width-nav-sidebar) {
     @include padding(null 3em);
   }
@@ -265,10 +288,12 @@ $site-top:           124px;
 // This is a styleguide-only rule and is not needed in the main library code for
 // the footer component which uses different styles
 // TODO investigate why it's not needed in the main library CSS
-  p, a {
+  p,
+  a {
     @include media($medium-screen) {
       margin-bottom: 0;
     }
+
     color: $color-white;
     font-size: $h5-font-size;
     @include margin(0 null 1.5rem);
@@ -278,13 +303,20 @@ $site-top:           124px;
 // Pattern Preview Boxes -------- //
 
 .preview {
+  $color-grayee: #eeeeee;
   @include clearfix();
-  background-color: #fff;
+  background-color: $color-white;
   @include margin(2em null);
   padding: 1em $site-margins;
-  border: 1px solid #eeeeee;
+  border: 1px solid $color-grayee;
+
   .is-peripheral {
     opacity: .2;
+  }
+
+  .usa-background-dark {
+    display: inline-block;
+    @include padding(null 1em);
   }
 }
 
@@ -298,8 +330,8 @@ $site-top:           124px;
 
 .code-snippets {
 
-  .code-snippet-button:after {
-    content: "\25be  hide code";
+  .code-snippet-button::after {
+    content: '\25be  hide code';
   }
 
   &.hidden {
@@ -308,8 +340,8 @@ $site-top:           124px;
       display: none;
     }
 
-    .code-snippet-button:after {
-      content: "\25b8  show code";
+    .code-snippet-button::after {
+      content: '\25b8  show code';
     }
   }
 
@@ -320,11 +352,14 @@ $site-top:           124px;
     padding: 3em 0 0 0;
 
     td {
-      background-color: #f5f5f5;
-      border: 1px solid #e0e0e0;
+      $color-white-smoke: #f5f5f5;
+      $color-gray88: #e0e0e0;
+      background-color: $color-white-smoke;
+      border: 1px solid $color-gray88;
       position: relative;
       vertical-align: top;
 
+      // scss-lint:disable SelectorDepth, NestingDepth
       .code-copy-button {
         @include position(absolute, 0 0 null null);
         border-radius: 0;
@@ -341,7 +376,8 @@ $site-top:           124px;
       text-align: left;
     }
 
-    pre, code {
+    pre,
+    code {
       direction: ltr;
       text-align: left;
       white-space: pre;
@@ -412,7 +448,7 @@ $site-top:           124px;
 
     > * {
       background: $color-grid-light;
-      color: #000;
+      color: $color-black;
     }
 
     h3 {
@@ -426,14 +462,14 @@ $site-top:           124px;
 }
 
 h3 + .button_wrapper {
-  margin-top: -.5em
+  margin-top: -.5em;
 }
 
 .button_wrapper {
   clear: both;
   display: block;
   margin-left: -1rem;
-  padding: 0rem 1rem;
+  padding: 0 1rem;
 
   @include media($small-screen) {
     display: table;
@@ -445,7 +481,7 @@ h3 + .button_wrapper {
 }
 
 .button_wrapper-dark {
-  background: #323a45
+  background: $color-gray-dark;
 }
 
 .usa-heading {
@@ -460,9 +496,12 @@ h3 + .button_wrapper {
 }
 
 .usa-color-name {
+  font-size: 1.2rem;
+
   @include media($medium-screen) {
     margin: 0;
   }
+
   @include margin(0 null 1em);
 }
 
@@ -484,11 +523,12 @@ h3 + .button_wrapper {
     @include media($medium-screen) {
       width: 17%;
     }
+
     margin-right: 0;
   }
 
   p {
-    font-family:  monospace, monospace;
+    font-family: monospace, monospace;
   }
 }
 
@@ -496,6 +536,7 @@ h3 + .button_wrapper {
   @include media($medium-screen) {
     margin-bottom: 8rem;
   }
+
   margin-bottom: 0;
 
   .usa-color-square {
@@ -515,6 +556,7 @@ h3 + .button_wrapper {
     @include media($medium-screen) {
       margin-right: 2.35765%;
     }
+
     margin-right: 0;
   }
 
@@ -531,10 +573,6 @@ h3 + .button_wrapper {
 .usa-color-hex {
   font-weight: $font-bold;
   @include margin(1rem null 0);
-}
-
-.usa-color-name {
-  font-size: 1.2rem;
 }
 
 .usa-color-text {
@@ -622,14 +660,6 @@ h3 + .button_wrapper {
 
 .usa-color-gray {
   background-color: $color-gray;
-}
-
-.usa-color-gray-dark {
-  background-color: $color-gray-dark;
-}
-
-.usa-color-gray-light {
-  background-color: $color-gray-light;
 }
 
 .usa-color-gray-lighter {
@@ -742,10 +772,6 @@ h3 + .button_wrapper {
   color: $color-gray-dark;
 }
 
-.usa-color-text-gray-dark {
-  color: $color-gray-dark;
-}
-
 .usa-color-text-gray {
   color: $color-gray;
 }
@@ -775,12 +801,20 @@ h3 + .button_wrapper {
   padding-bottom: .8rem;
 }
 
+// scss-lint:disable QualifyingElement
 h6.usa-heading-alt {
   margin-top: 4rem;
 }
+// scss-lint:enable QualifyingElement
 
 .usa-typography-example-font {
-  h1, h2, h3, h4, h5, h6, .usa-font-example p {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .usa-font-example p {
     margin: 0;
   }
 }
@@ -806,44 +840,56 @@ h6.usa-heading-alt {
   font-size: 1.2rem;
 }
 
-:not(pre) > code[class*="language-"], pre[class*="language-"] {
-    background: none;
+// scss-lint:disable QualifyingElement
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: none;
 }
 
-code[class*="language-"], pre[class*="language-"] {
+code[class*="language-"],
+pre[class*="language-"] {
   color: $color-base;
 }
+// scss-lint:enable QualifyingElement
 
-.token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted {
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
   color: $color-primary-alt-darkest;
 }
 
-.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted {
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
   color: $color-secondary;
 }
 
-.token.atrule, .token.attr-value, .token.keyword {
+.token.atrule,
+.token.attr-value,
+.token.keyword {
   color: $color-green;
 }
 
 .token.punctuation {
-    color: $color-primary-alt-darkest;
+  color: $color-primary-alt-darkest;
 }
 
 .usa-code-sample .usa-accordion-content {
   padding: 0;
 }
 
+// scss-lint:disable QualifyingElement
 .usa-code-sample pre[class*="language-"] {
   margin-top: 0;
 }
-
-.preview {
-  .usa-background-dark {
-    display: inline-block;
-    @include padding(null 1em);
-  }
-}
+// scss-lint:enable QualifyingElement
 
 .alignment-example {
   border-left: 2px solid $color-primary-darker;
@@ -871,6 +917,7 @@ code[class*="language-"], pre[class*="language-"] {
     font-size: 140px;
     line-height: 1.05;
   }
+
   .text-tiny {
     font-size: 15px;
   }
@@ -881,6 +928,7 @@ code[class*="language-"], pre[class*="language-"] {
     font-size: 120px;
     line-height: 1.275;
   }
+
   .text-tiny {
     font-size: 13px;
   }
@@ -903,10 +951,10 @@ $font-light: 300;
 
   .usa-font-lead {
     font-weight: $font-light;
-  }
 
-  .usa-font-lead.usa-font-lead-alt {
-    @include font-lead-alt();
+    .usa-font-lead-alt {
+      @include font-lead-alt();
+    }
   }
 
   &.serif-body {
@@ -917,19 +965,25 @@ $font-light: 300;
         line-height: $lead-line-height;
       }
 
+      // scss-lint:disable SelectorDepth, NestingDepth
       .usa-font-lead {
         font-size: $h3-font-size;
-      }
 
-      .usa-font-lead.usa-font-lead-alt {
-        @include font-lead-alt();
+        .usa-font-lead-alt {
+          @include font-lead-alt();
+        }
       }
     }
   }
 }
 
 .sans-style {
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: $font-sans;
   }
 
@@ -1011,5 +1065,6 @@ $font-light: 300;
   @include media($medium-screen) {
     padding-left: $site-margins;
   }
+
   padding-left: 2rem;
 }
