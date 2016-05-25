@@ -82,16 +82,15 @@ $accordion-border: 3px solid $color-gray-lightest;
   overflow: auto;
   padding: 3rem;
 
+  &[aria-hidden=true] {
+    display: none;
+  }
+  
   > *:first-child {
     margin-top: 0;
   }
 
   > *:last-child {
     margin-bottom: 0;
-  }
-
-  &[aria-hidden=true] {
-    visibility: hidden;
-    height: 0;
   }
 }
