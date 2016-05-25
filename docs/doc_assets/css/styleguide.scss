@@ -1,8 +1,6 @@
 ---
 ---
 
-// scss-lint:disable SelectorDepth, NestingDepth, IdSelector, QualifyingElement, MergeableSelector
-
 // Imports -------------- //
 
 @import 'all';
@@ -48,6 +46,7 @@ $site-top:           124px;
       padding-top: 1.3rem;
       width: 70%;
 
+      // scss-lint:disable SelectorDepth, NestingDepth
       a {
         color: $color-gray;
 
@@ -79,6 +78,7 @@ $site-top:           124px;
       display: none;
       margin-top: -5px;
 
+      // scss-lint:disable SelectorDepth, NestingDepth
       li {
         display: inline;
         font-family: $font-sans;
@@ -104,6 +104,8 @@ $site-top:           124px;
     }
 
     .stage {
+      // scss-lint:disable SelectorDepth
+
       a { text-decoration: underline; }
 
       float: none;
@@ -151,7 +153,7 @@ $site-top:           124px;
   }
 }
 
-#menu-content {
+.menu-content {
   @media (max-width: $medium-screen + $width-nav-sidebar) {
     $sliding-panel-width: 220px;
 
@@ -213,6 +215,7 @@ $site-top:           124px;
 .visual-style .sidenav .visual-style-sublist {
   display: block;
 
+  // scss-lint:disable SelectorDepth
   ul {
     display: block;
   }
@@ -356,6 +359,7 @@ $site-top:           124px;
       position: relative;
       vertical-align: top;
 
+      // scss-lint:disable SelectorDepth, NestingDepth
       .code-copy-button {
         @include position(absolute, 0 0 null null);
         border-radius: 0;
@@ -797,9 +801,11 @@ h3 + .button_wrapper {
   padding-bottom: .8rem;
 }
 
+// scss-lint:disable QualifyingElement
 h6.usa-heading-alt {
   margin-top: 4rem;
 }
+// scss-lint:enable QualifyingElement
 
 .usa-typography-example-font {
   h1,
@@ -834,6 +840,7 @@ h6.usa-heading-alt {
   font-size: 1.2rem;
 }
 
+// scss-lint:disable QualifyingElement
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
   background: none;
@@ -843,6 +850,7 @@ code[class*="language-"],
 pre[class*="language-"] {
   color: $color-base;
 }
+// scss-lint:enable QualifyingElement
 
 .token.property,
 .token.tag,
@@ -877,9 +885,11 @@ pre[class*="language-"] {
   padding: 0;
 }
 
+// scss-lint:disable QualifyingElement
 .usa-code-sample pre[class*="language-"] {
   margin-top: 0;
 }
+// scss-lint:enable QualifyingElement
 
 .alignment-example {
   border-left: 2px solid $color-primary-darker;
@@ -941,10 +951,10 @@ $font-light: 300;
 
   .usa-font-lead {
     font-weight: $font-light;
-  }
 
-  .usa-font-lead.usa-font-lead-alt {
-    @include font-lead-alt();
+    .usa-font-lead-alt {
+      @include font-lead-alt();
+    }
   }
 
   &.serif-body {
@@ -955,12 +965,13 @@ $font-light: 300;
         line-height: $lead-line-height;
       }
 
+      // scss-lint:disable SelectorDepth, NestingDepth
       .usa-font-lead {
         font-size: $h3-font-size;
-      }
 
-      .usa-font-lead.usa-font-lead-alt {
-        @include font-lead-alt();
+        .usa-font-lead-alt {
+          @include font-lead-alt();
+        }
       }
     }
   }
