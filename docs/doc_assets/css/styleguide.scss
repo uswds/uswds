@@ -174,7 +174,7 @@ $site-top:           124px;
 .overlay {
   @include position(fixed, 0);
   @include transition;
-  background: $color-dark;
+  background: $color-black;
   opacity: 0;
   visibility: hidden;
   z-index: 9999;
