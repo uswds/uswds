@@ -25,7 +25,7 @@ Here are a few guidelines to follow when submitting a pull request:
 1. Ensure that your contribution works via `npm`, if applicable. See below under
    _Install the package locally via `npm-link`_.
 1. Once you're ready to submit a pull request, fill out the PULL REQUEST template provided.
-1. Submit your pull request against the `18f-pages-staging` branch.
+1. Submit your pull request against the `staging` branch.
 
 Have questions or need help with setup? Open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
 
