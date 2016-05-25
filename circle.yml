@@ -13,13 +13,13 @@ dependencies:
 
 deployment:
   production:
-    branch: [master, 18f-pages]
+    branch: [master]
     commands:
       - gulp website:build
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-production
       - cf push
   staging:
-    branch: [staging, 18f-pages-staging]
+    branch: [staging]
     commands:
       - gulp website:build
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-staging
