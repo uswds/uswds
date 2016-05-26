@@ -115,11 +115,11 @@ If you’re interested in maintaining a package that helps us distribute the Dra
 
 ## Our use of branches
 
-The `staging` branch is the bleeding edge of development. When developing, we create a feature branch from `staging`, do our work in that, then create a pull request which merges back to `staging`. New commits to `staging` are automatically deployed to [our staging site](https://standards-staging.usa.gov/).
+The `staging` branch is the bleeding edge of development. When developing, we create a feature branch from `staging`, do our work in that branch, and then create a pull request that merges back into `staging`. New commits to `staging` are automatically deployed to [our staging site](https://standards-staging.usa.gov/).
 
 When cutting a [release](https://github.com/18F/web-design-standards/releases), we merge from `staging` to `master`. The `master` branch holds the latest production-ready release, as well as [the production website](https://standards.usa.gov/).
 
-The branches `18f-pages` and `18f-pages-staging` _used_ to be the primary release & development branches, back when the site was hosted on `pages.18f.gov`. Those branches still auto-deploy to 18F Pages, but will now only contain minimal redirects to the new site.
+The branches `18f-pages` and `18f-pages-staging` _used_ to be the primary release and development branches, back when the site was hosted on `pages.18f.gov`. Those branches still autodeploy to 18F Pages, but will now only contain minimal redirects to the new site.
 
 ## Need installation help?
 
