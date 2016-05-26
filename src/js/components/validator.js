@@ -7,7 +7,7 @@ module.exports = function ($el) {
     validatorName,
     validatorPattern,
     $validatorCheckbox,
-    $checkList = $(data['validationElement']);
+    $checkList = $(data.validationElement);
 
   function validate () {
     for (key in data) {
