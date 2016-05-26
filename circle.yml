@@ -8,6 +8,7 @@ dependencies:
     - if [ ! -f debs/temp.deb ]; then wget -qO debs/temp.deb https://cli.run.pivotal.io/stable?release=debian64; fi
     - sudo dpkg -i debs/temp.deb
     - cf -v
+    - bundle install
   cache_directories:
     - debs
 
