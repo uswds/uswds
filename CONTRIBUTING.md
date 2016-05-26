@@ -75,8 +75,7 @@ deploy the website. The command is aliased by `npm run deploy`.
 gulp website:serve
 ```
 
-The task above is similar to the previous `./go` serve command from earlier
-versions of the Standards. After running this command, you’ll be able to view
+After running this command, you’ll be able to view
 the Draft U.S. Web Design Standards website locally (http://127.0.0.1:4000).
 This also sets up gulp and Jekyll to watch for file changes to the `/docs`
 and `/src` directories and rebuilds the website accordingly. The command is
