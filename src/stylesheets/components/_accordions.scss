@@ -89,8 +89,6 @@ $accordion-border: 3px solid $color-gray-lightest;
   > *:last-child {
     margin-bottom: 0;
   }
-}
 
-.usa-accordion-content-collapsed {
-  display: none !important;
+  @include aria-hidden();
 }

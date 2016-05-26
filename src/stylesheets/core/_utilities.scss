@@ -16,6 +16,13 @@
   left: -999em;
 }
 
+// Aria hidden helper
+@mixin aria-hidden() {
+  &[aria-hiddent=true] {
+    display: none;
+  }
+}
+
 // Unstyled list helper
 
 @mixin unstyled-list() {

@@ -29,9 +29,6 @@ Accordion.prototype.hide = function ($button) {
   var selector = $button.attr('aria-controls'),
     $content = this.$('#' + selector);
   
-  $content.removeClass('usa-accordion-content')
-    .addClass('usa-accordion-content-collapsed');
-
   $button.attr('aria-expanded', false);
   $content.attr('aria-hidden', true);
 };
@@ -40,9 +37,6 @@ Accordion.prototype.show = function ($button) {
   var selector = $button.attr('aria-controls'),
     $content = this.$('#' + selector);
 
-  $content.removeClass('usa-accordion-content-collapsed')
-    .addClass('usa-accordion-content');
-  
   $button.attr('aria-expanded', true);
   $content.attr('aria-hidden', false);
 };

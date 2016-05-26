@@ -55,7 +55,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Default: Merriweather headings, Source Sans Pro body (lite)</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content-collapsed">
+      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
@@ -211,7 +211,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Merriweather headings, Source Sans Pro Body (robust)</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content-collapsed">
+      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
@@ -389,7 +389,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Merriweather headings and body</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content-collapsed">
+      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
@@ -568,7 +568,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Source Sans Pro headings, Merriweather body</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content-collapsed">
+      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
@@ -729,7 +729,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Source Sans Pro headings and body</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content-collapsed">
+      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
