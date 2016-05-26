@@ -157,6 +157,7 @@ button,
   background-color: $color-gray-lighter;
   color: $color-gray-dark;
   cursor: default;
+  pointer-events: none;
 
   &:hover,
   &.usa-button-hover,
