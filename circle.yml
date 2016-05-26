@@ -12,21 +12,26 @@ dependencies:
     - debs
 
 test:
+  pre:
+    - gulp -v
+    - scss-lint -v
+    - jekyll version
   override:
-    - npm test # Run unit tests
-    - gulp website:build # Build Jekyll based docs website
-
+    - npm test # Run the package and docs test suite
+    - npm run build:package # Run the release process
+    - npm run build:website # Build Jekyll based docs website
+  post:
+    - ls -agolf dist/ # Ensure that build:package worked
+    - ls -agolf _site/ # Ensure that build:website worked
 
 deployment:
   production:
     branch: [master]
     commands:
-      - gulp website:build
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-production
       - cf push
   staging:
     branch: [staging]
     commands:
-      - gulp website:build
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-staging
-      - cf push wds-microsite-staging
+      - cf push -f manifest-staging.yml

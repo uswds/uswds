@@ -1,0 +1,3 @@
+---
+inherit: manifest.yml
+host: wds-microsite-staging
