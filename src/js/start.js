@@ -49,7 +49,8 @@ $(function () {
     $('[data-' + componentName + ']').politespace();
   });
 
-  $('.usa-accordion,.usa-accordion-bordered').each(function () {
+  $('.usa-accordion, .usa-accordion-bordered').each(function () {
+    console.log(this.className);
     new Accordion($(this));
   });
 
