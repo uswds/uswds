@@ -11,6 +11,12 @@ dependencies:
   cache_directories:
     - debs
 
+test:
+  override:
+    - npm test # Run unit tests
+    - gulp website:build # Build Jekyll based docs website
+
+
 deployment:
   production:
     branch: [master]
