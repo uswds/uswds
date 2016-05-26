@@ -21,7 +21,7 @@ Here are a few guidelines to follow when submitting a pull request:
 1. Create a GitHub account or sign in to your existing account.
 1. Fork this repo into your GitHub account (or just clone it if you're an 18F team member). Read more about forking a repo here on GitHub:
 [https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/)
-1. Create a branch that lightly defines what you're working on (for example, add-styles).
+1. Create a branch from `staging` that lightly defines what you're working on (for example, add-styles).
 1. Ensure that your contribution works via `npm`, if applicable. See below under
    _Install the package locally via `npm-link`_.
 1. Once you're ready to submit a pull request, fill out the PULL REQUEST template provided.
