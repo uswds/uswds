@@ -25,9 +25,9 @@
     </div>
 
     {% include analytics.html %}
-    {% include scripts.html %}
-    <script src="{{ site.baseurl }}/assets/js/vendor/uswds.min.js"></script>
+    {% include ie-polyfill-scripts.html %}
     {% include docs-scripts.html %}
+    <script src="{{ site.baseurl }}/assets/js/vendor/uswds.min.js"></script>
   </body>
 
 </html>

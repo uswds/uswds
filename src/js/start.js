@@ -50,7 +50,6 @@ $(function () {
   });
 
   $('.usa-accordion, .usa-accordion-bordered').each(function () {
-    console.log(this.className);
     new Accordion($(this));
   });
 

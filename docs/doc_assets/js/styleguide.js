@@ -1,5 +1,4 @@
 $(function() {
-  console.log(Accordion);
   $('.menu-btn, .overlay, .sliding-panel-close').on('click touchstart',function (e) {
     $('.sidenav, .overlay').toggleClass('is-visible');
     e.preventDefault();
@@ -27,7 +26,7 @@ $(function() {
 
     this.render = function(previewBox, sampleCode) {
 
-      var sampleCodeBox = $(''+
+      var sampleCodeBox = $('' +
         '<div class="usa-accordion-bordered usa-code-sample">' +
           '<ul class="usa-unstyled-list">' +
             '<li>' +
@@ -38,6 +37,7 @@ $(function() {
             '</li>' +
           '</ul>' +
         '</div>');
+
       $(sampleCodeBox).find('code').text($(sampleCode).html());
       $(previewBox).after(sampleCodeBox);
     }
@@ -49,7 +49,7 @@ $(function() {
 
     });
 
-  }
+  };
 
   generateCodeSnippets('.main-content', '.preview');
 
