@@ -6,13 +6,10 @@ _site/
 # Configuration and scripts
 #
 .ruby-version
-.travis.yml
 _config.yml
-_config_18f_pages.yml
 .scss-lint.yml
 Gemfile
 Gemfile.lock
-go
 .sass-cache/
 .bundle/
 

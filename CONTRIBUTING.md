@@ -21,7 +21,7 @@ Here are a few guidelines to follow when submitting a pull request:
 1. Create a GitHub account or sign in to your existing account.
 1. Fork this repo into your GitHub account (or just clone it if you're an 18F team member). Read more about forking a repo here on GitHub:
 [https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/)
-1. Create a branch that lightly defines what you're working on (for example, add-styles).
+1. Create a branch from `staging` that lightly defines what you're working on (for example, add-styles).
 1. Ensure that your contribution works via `npm`, if applicable. See below under
    _Install the package locally via `npm-link`_.
 1. Once you're ready to submit a pull request, fill out the PULL REQUEST template provided.
@@ -75,8 +75,7 @@ deploy the website. The command is aliased by `npm run deploy`.
 gulp website:serve
 ```
 
-The task above is similar to the previous `./go` serve command from earlier
-versions of the Standards. After running this command, you’ll be able to view
+After running this command, you’ll be able to view
 the Draft U.S. Web Design Standards website locally (http://127.0.0.1:4000).
 This also sets up gulp and Jekyll to watch for file changes to the `/docs`
 and `/src` directories and rebuilds the website accordingly. The command is

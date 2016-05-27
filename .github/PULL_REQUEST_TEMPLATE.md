@@ -16,6 +16,7 @@ Include a high-level description for what the pull request fixes and links to Gi
 ## Additional information
 
 * Relevant research and support documents
+* Type of content review needed: stylistic or copy editing
 * Screen shot images
 * Notes
 * etc.
