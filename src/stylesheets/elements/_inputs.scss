@@ -139,7 +139,9 @@ legend {
 
 input[type="checkbox"],
 input[type="radio"] {
-  @include sr-only();
+  margin-left: -2rem;
+  opacity: 0;
+  position: absolute;
 
   .lt-ie9 & {
     border: 0;
