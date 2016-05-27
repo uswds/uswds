@@ -18,7 +18,7 @@
 
 // Aria hidden helper
 @mixin aria-hidden() {
-  &[aria-hiddent=true] {
+  &[aria-hidden=true] {
     display: none;
   }
 }
