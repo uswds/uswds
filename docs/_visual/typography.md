@@ -175,8 +175,8 @@ order: 01
               line-height: 1.7em/34px
             </p>
           </div>
-          <div class="usa-font-example usa-width-one-half">
-            <p>Body copy. A series of <br>sentences together which <br>make a paragraph.</p>
+          <div class="usa-font-example font-example-paragraph usa-width-one-half">
+            <p>Body copy. A series of sentences together which make a paragraph.</p>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
@@ -186,8 +186,8 @@ order: 01
               line-height: 1.5em/26px
             </p>
           </div>
-          <div class="usa-font-example usa-width-one-half">
-            <p><em>Italic body copy. A series of <br>sentences together which <br>make a paragraph.</em></p>
+          <div class="usa-font-example font-example-paragraph usa-width-one-half">
+            <p><em>Italic body copy. A series of sentences together which make a paragraph.</em></p>
           </div>
           <div class="usa-width-one-half usa-end-row">
             <p class="usa-monospace">
