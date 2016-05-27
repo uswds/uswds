@@ -1,6 +1,6 @@
 'use strict';
 
-var $ = window.jQuery = require('jquery');
+var $ = window.jQuery = window.$ = require('jquery');
 var Accordion = require('./components/accordion');
 var validator = require('./components/validator');
 var toggleFormInput = require('./components/toggle-form-input');
@@ -49,7 +49,7 @@ $(function () {
     $('[data-' + componentName + ']').politespace();
   });
 
-  $('.usa-accordion,.usa-accordion-bordered').each(function () {
+  $('.usa-accordion, .usa-accordion-bordered').each(function () {
     new Accordion($(this));
   });
 
@@ -85,7 +85,9 @@ $(function () {
     $(this).attr('tabindex', '-1');
   });
 
-  toggleFormInput($('.usa-show_password'), 'Show Password', 'Hide Password');
-  toggleFormInput($('.usa-show_multipassword'), 'Show my typing', 'Hide my typing');
-  validator($('.js-validate_password'));
+  if (/form-controls/.test(window.location.pathname)) {
+    toggleFormInput($('.usa-show_password'), 'Show Password', 'Hide Password');
+    toggleFormInput($('.usa-show_multipassword'), 'Show my typing', 'Hide my typing');
+    validator($('.js-validate_password'));
+  }
 });

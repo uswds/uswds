@@ -1,9 +1,9 @@
-$(function(){
+$(function() {
   $('.menu-btn, .overlay, .sliding-panel-close').on('click touchstart',function (e) {
     $('.sidenav, .overlay').toggleClass('is-visible');
     e.preventDefault();
   });
-  
+
   function handleDisabledLinks() {
     $(document).on('click', 'a[href="#"]', function (event) {
       // Stop default browser action which would likely return to the top of the page
@@ -26,7 +26,7 @@ $(function(){
 
     this.render = function(previewBox, sampleCode) {
 
-      var sampleCodeBox = $(''+
+      var sampleCodeBox = $('' +
         '<div class="usa-accordion-bordered usa-code-sample">' +
           '<ul class="usa-unstyled-list">' +
             '<li>' +
@@ -37,6 +37,7 @@ $(function(){
             '</li>' +
           '</ul>' +
         '</div>');
+
       $(sampleCodeBox).find('code').text($(sampleCode).html());
       $(previewBox).after(sampleCodeBox);
     }
@@ -48,7 +49,7 @@ $(function(){
 
     });
 
-  }
+  };
 
   generateCodeSnippets('.main-content', '.preview');
 
@@ -67,12 +68,12 @@ var calculateAnchorPosition = function (hash) {
   if (anchor.length === 0) {
     return topOffset;
   }
-  
+
   //start with the height of the header
   topOffset = $('.usa-site-header').first().outerHeight();
   //subtract the diffence in padding between nav top and anchor
   topOffset = topOffset - (anchorPadding - navPadding);
-  
+
   //anchor should now align with first item inside nav
   return anchor.offset().top - topOffset;
 }
@@ -113,7 +114,7 @@ $('.sidenav').on('click', 'a', function(e) {
   if (scrollTopPos === 0) {
     return true;
   }
-  
+
   e.preventDefault();
 
   /* Firefox needs html, others need body */
