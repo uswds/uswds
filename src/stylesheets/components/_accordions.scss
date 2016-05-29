@@ -90,5 +90,5 @@ $accordion-border: 3px solid $color-gray-lightest;
     margin-bottom: 0;
   }
 
-  @include aria-hidden();
+  @include accessibility-hidden();
 }
