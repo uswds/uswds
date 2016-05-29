@@ -17,7 +17,7 @@
 }
 
 // Aria hidden helper
-@mixin accessibility-hidden() {
+@mixin accessibly-hidden() {
   &[aria-hidden=true] {
     display: none;
   }
