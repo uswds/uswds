@@ -85,7 +85,11 @@ $(function () {
     $(this).attr('tabindex', '-1');
   });
 
-  toggleFormInput($('.usa-show_password'), 'Show Password', 'Hide Password');
-  toggleFormInput($('.usa-show_multipassword'), 'Show my typing', 'Hide my typing');
-  validator($('.js-validate_password'));
+  var $showPassword = $('.usa-show_password');
+  var $formInput = $('.usa-show_multipassword');
+  var $validator = $('.js-validate_password');
+
+  $showPassword.length && toggleFormInput($showPassword, 'Show Password', 'Hide Password');
+  $formInput.length && toggleFormInput($formInput, 'Show my typing', 'Hide my typing');
+  $validator.length && validator($validator);
 });

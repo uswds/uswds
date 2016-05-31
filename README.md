@@ -13,7 +13,7 @@ We’re glad you’d like to use the Standards — here’s how you can get star
 * Designers: [Check out our Getting Started for Designers information](https://standards.usa.gov/getting-started/).
     * [Design files of all the assets included on this site are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
 * Developers: Follow the instructions in this README to get started.
-    * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v0.9.2/uswds-0.9.2.zip).
+    * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v0.9.3/uswds-0.9.3.zip).
 
 Here are a few different ways to use the Standards within your project.
 
@@ -23,12 +23,12 @@ To use the Draft Web Design Standards on your project, you’ll need to include 
 
 First, download the Draft Web Design Standards assets:
 
-[https://github.com/18F/web-design-standards/releases/download/v0.9.2/uswds-0.9.2.zip](https://github.com/18F/web-design-standards/releases/download/v0.9.2/uswds-0.9.2.zip)
+[https://github.com/18F/web-design-standards/releases/download/v0.9.3/uswds-0.9.3.zip](https://github.com/18F/web-design-standards/releases/download/v0.9.3/uswds-0.9.3.zip)
 
 Then, add the following folders into a relevant place in your code base — likely a directory where you keep third-party libraries:
 
 ```
-uswds-0.9.2/
+uswds-0.9.3/
 ├── js/
 │   ├── uswds.min.js.map
 │   ├── uswds.min.js
@@ -117,7 +117,7 @@ If you’re interested in maintaining a package that helps us distribute the Dra
 
 The `staging` branch is the bleeding edge of development. When developing, we create a feature branch from `staging`, do our work in that branch, and then create a pull request that merges back into `staging`. New commits to `staging` are automatically deployed to [our staging site](https://standards-staging.usa.gov/).
 
-The `master` branch always holds the latest production-ready release, as well as [the production website](https://standards.usa.gov/). When cutting a [release](https://github.com/18F/web-design-standards/releases), we create a release branch from `staging` named for the new version: for example, `0.9.2`. Once we've completed QA on that branch, we tag the release and merge it into the `master` branch.
+The `master` branch always holds the latest production-ready release, as well as [the production website](https://standards.usa.gov/). When cutting a [release](https://github.com/18F/web-design-standards/releases), we create a release branch from `staging` named for the new version: for example, `v0.9.x`. Once we've completed QA on that branch, we tag the release and merge it into the `master` branch.
 
 The branches `18f-pages` and `18f-pages-staging` _used_ to be the primary release and development branches, back when the site was hosted on `pages.18f.gov`. Those branches still auto deploy to 18F Pages, but will now only contain minimal redirects to the new site.
 
