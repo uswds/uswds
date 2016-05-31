@@ -25,6 +25,14 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
     position: relative;
   }
 
+  @media screen and (min-aspect-ratio: 13/9) {
+    position: absolute;
+  }
+
+  a {
+    border-bottom: none;
+  }
+
   em {
     display: block;
     font-family: $font-serif;
