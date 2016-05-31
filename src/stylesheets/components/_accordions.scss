@@ -89,4 +89,6 @@ $accordion-border: 3px solid $color-gray-lightest;
   > *:last-child {
     margin-bottom: 0;
   }
+
+  @include accessibly-hidden();
 }
