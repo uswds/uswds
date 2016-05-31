@@ -7,10 +7,10 @@ table {
     tr {
       background-color: $color-gray-lightest;
     }
+  }
 
-    th {
-      text-align: left;
-    }
+  th {
+    text-align: left;
   }
 
   tbody {
@@ -19,7 +19,8 @@ table {
     }
   }
 
-  th, td {
+  th,
+  td {
     border: 1px solid $color-gray;
     padding: 1.5rem;
   }
@@ -29,14 +30,15 @@ table {
   thead {
     tr {
       background-color: transparent;
+    }
 
-      th {
-        border-top: 0;
-      }
+    th {
+      border-top: 0;
     }
   }
 
-  th, td {
+  th,
+  td {
     border-left: 0;
     border-right: 0;
   }

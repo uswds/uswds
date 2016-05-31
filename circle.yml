@@ -8,19 +8,31 @@ dependencies:
     - if [ ! -f debs/temp.deb ]; then wget -qO debs/temp.deb https://cli.run.pivotal.io/stable?release=debian64; fi
     - sudo dpkg -i debs/temp.deb
     - cf -v
+    - bundle install
   cache_directories:
     - debs
 
+test:
+  pre:
+    - gulp -v
+    - scss-lint -v
+    - jekyll -v
+  override:
+    - npm test # Run the package and docs test suite
+    - npm run build:package # Run the release process
+    - npm run build:website # Build Jekyll based docs website
+  post:
+    - ls -agolf dist/ # Ensure that build:package worked
+    - ls -agolf _site/ # Ensure that build:website worked
+
 deployment:
   production:
-    branch: [master, 18f-pages]
+    branch: [master]
     commands:
-      - gulp website:build
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-production
       - cf push
   staging:
-    branch: [staging, 18f-pages-staging]
+    branch: [staging]
     commands:
-      - gulp website:build
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-staging
-      - cf push wds-microsite-staging
+      - cf push -f manifest-staging.yml

@@ -22,7 +22,8 @@ form {
     }
   }
 
-  input[name="password"], input[name="confirmPassword"] {
+  input[name="password"],
+  input[name="confirmPassword"] {
     margin-bottom: 1.1rem;
   }
 }
@@ -33,7 +34,7 @@ form {
   font-size: $h5-font-size;
   margin: 0 0 1.5rem;
 
-  & + * {
+  + * {
     clear: both;
   }
 }
@@ -154,7 +155,7 @@ input.usa-input-medium {
     padding-left: 3em;
     text-indent: -2em;
 
-    &:before {
+    &::before {
       content: ' ';
       display: inline-block;
       height: .8em;
@@ -165,7 +166,7 @@ input.usa-input-medium {
 }
 
 .usa-checklist-checked {
-  &:before {
+  &::before {
     background-image: url('../img/correct9.png');
     background-image: url('../img/correct9.svg');
     background-position: 100%;
