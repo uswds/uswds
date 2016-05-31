@@ -82,6 +82,10 @@ $accordion-border: 3px solid $color-gray-lightest;
   overflow: auto;
   padding: 3rem;
 
+  &[aria-hidden=true] {
+    display: none;
+  }
+  
   > *:first-child {
     margin-top: 0;
   }
