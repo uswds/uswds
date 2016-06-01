@@ -8,12 +8,19 @@
 // Screen reader only helper
 .usa-sr-only {
   position: absolute;
-  left:-999em;
+  left: -999em;
 }
 
 @mixin sr-only() {
   position: absolute;
-  left:-999em;
+  left: -999em;
+}
+
+// Aria hidden helper
+@mixin accessibly-hidden() {
+  &[aria-hidden=true] {
+    display: none;
+  }
 }
 
 // Unstyled list helper
@@ -28,11 +35,11 @@
     display: list-item;
     margin: 0;
 
-    &:before {
+    &::before {
       display: none;
     }
 
-    &:after {
+    &::after {
       display: none;
     }
   }

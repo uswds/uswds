@@ -53,7 +53,7 @@ lead: Use buttons to signal actions.
 
   <h6>Disabled Button</h6>
   <div class="button_wrapper">
-    <button class="usa-button-disabled">Default</button>
+    <button class="usa-button-disabled" disabled>Default</button>
   </div>
 
   <h6>Big Button</h6>
