@@ -4,7 +4,7 @@ table {
   min-width: 100%;
 
   thead {
-    tr {
+    th {
       background-color: $color-gray-lightest;
     }
   }
@@ -21,6 +21,7 @@ table {
 
   th,
   td {
+    background-color: $color-white;
     border: 1px solid $color-gray;
     padding: 1.5rem;
   }

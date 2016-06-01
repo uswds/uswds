@@ -28,7 +28,7 @@ Accordion.prototype.$ = function (selector) {
 Accordion.prototype.hide = function ($button) {
   var selector = $button.attr('aria-controls'),
     $content = this.$('#' + selector);
-
+  
   $button.attr('aria-expanded', false);
   $content.attr('aria-hidden', true);
 };
