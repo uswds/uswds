@@ -19,6 +19,10 @@ lead: Patterns for some of the most commonly used forms on government websites
   <li>Keep your form blocks in a vertical pattern. It's an ideal approach for accessibility, due to limited vision that makes it hard to scan from right to left.</li>
 </ul>
 
+<h4>Supporting screen readers</h4>
+
+<p>content goes here</p>
+
 <h2 class="usa-heading" id="name-form">Name form</h2>
 <p class="usa-font-lead">A standard template for collecting a person’s full name</p>
 

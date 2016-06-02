@@ -16,6 +16,10 @@ lead: Form controls allow users to enter information into a page.
   <li>If you adjust the color scheme of the buttons, ensure a minimum contrast ratio of 4.5:1 (for small text, 3:1 for large) for the default, hover, focus, and selected states of the button. The disabled state may have less contrast to indicate that it is inactive.</li>
 </ul>
 
+<h4>Supporting screen readers</h4>
+
+<p>content goes here</p>
+
 <p>If you are a building a form with multiple controls, also consider the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines in the “Form Templates” section</a>.</p>
 
 <h2 class="usa-heading" id="text-inputs">Text input</h2>
