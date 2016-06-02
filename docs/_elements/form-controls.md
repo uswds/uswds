@@ -269,15 +269,15 @@ lead: Form controls allow users to enter information into a page.
     <div class="usa-date-of-birth">
       <div class="usa-datefield usa-form-group usa-form-group-month">
         <label for="date_of_birth_1">Month</label>
-        <input class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="number" min="1" max="12" value="" aria-labeledby="memorable-date date_of_birth_1" aria-describedby="dobHint">
+        <input class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="number" min="1" max="12" value="" aria-labeledby="memorable-date dobHint date_of_birth_1">
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-day">
         <label for="date_of_birth_2">Day</label>
-        <input class="usa-form-control" id="date_of_birth_2" name="date_of_birth_2" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="number" min="1" max="31" value="" aria-labeledby="memorable-date date_of_birth_2" aria-describedby="dobHint">
+        <input class="usa-form-control" id="date_of_birth_2" name="date_of_birth_2" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="number" min="1" max="31" value="" aria-labeledby="memorable-date dobHint date_of_birth_2">
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-year">
         <label for="date_of_birth_3">Year</label>
-        <input class="usa-form-control" id="date_of_birth_3" name="date_of_birth_3" pattern="[0-9]{4}" type="number" min="1900" max="2000" value="" aria-labeledby="memorable-date date_of_birth_3" aria-describedby="dobHint">
+        <input class="usa-form-control" id="date_of_birth_3" name="date_of_birth_3" pattern="[0-9]{4}" type="number" min="1900" max="2000" value="" aria-labeledby="memorable-date dobHint date_of_birth_3">
       </div>
     </div>
   </fieldset>
