@@ -263,21 +263,21 @@ lead: Form controls allow users to enter information into a page.
 <div class="preview">
 
   <fieldset>
-    <legend>Date of birth</legend>
+    <legend id="memorable-date">Date of birth</legend>
     <span class="usa-form-hint usa-datefield-hint" id="dobHint">For example: 04 28 1986</span>
 
     <div class="usa-date-of-birth">
       <div class="usa-datefield usa-form-group usa-form-group-month">
         <label for="date_of_birth_1">Month</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="number" min="1" max="12" value="">
+        <input class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="number" min="1" max="12" value="" aria-labeledby="memorable-date date_of_birth_1" aria-describedby="dobHint">
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-day">
         <label for="date_of_birth_2">Day</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_2" name="date_of_birth_2" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="number" min="1" max="31" value="">
+        <input class="usa-form-control" id="date_of_birth_2" name="date_of_birth_2" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="number" min="1" max="31" value="" aria-labeledby="memorable-date date_of_birth_2" aria-describedby="dobHint">
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-year">
         <label for="date_of_birth_3">Year</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3" name="date_of_birth_3" pattern="[0-9]{4}" type="number" min="1900" max="2000" value="">
+        <input class="usa-form-control" id="date_of_birth_3" name="date_of_birth_3" pattern="[0-9]{4}" type="number" min="1900" max="2000" value="" aria-labeledby="memorable-date date_of_birth_3" aria-describedby="dobHint">
       </div>
     </div>
   </fieldset>
