@@ -36,3 +36,8 @@ deployment:
     commands:
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-staging
       - cf push -f manifest-staging.yml
+  release:
+    branch: [release]
+    commands:
+      - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-release
+      - cf push -f manifest-release.yml
