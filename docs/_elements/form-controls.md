@@ -131,23 +131,23 @@ lead: Form controls allow users to enter information into a page.
 
   <fieldset class="usa-fieldset-inputs usa-sans">
 
-    <legend class="usa-sr-only">Historical figures 1</legend>
+    <legend class="usa-sr-only" id="historical-figures-1">Historical figures 1</legend>
 
     <ul class="usa-unstyled-list">
       <li>
-        <input id="apple-pie" type="checkbox" name="pies" value="apple-pie" checked />
+        <input id="apple-pie" type="checkbox" name="pies" value="apple-pie" checked aria-describedby="historical-figures-1">
         <label for="apple-pie">Sojourner Truth</label>
       </li>
       <li>
-        <input id="key-lime-pie" type="checkbox" name="pies" value="key-lime-pie">
+        <input id="key-lime-pie" type="checkbox" name="pies" value="key-lime-pie" aria-describedby="historical-figures-1">
         <label for="key-lime-pie">Frederick Douglass</label>
       </li>
       <li>
-        <input id="peach-pie" type="checkbox" name="pies" value="peach-pie">
+        <input id="peach-pie" type="checkbox" name="pies" value="peach-pie" aria-describedby="historical-figures-1">
         <label for="peach-pie">Booker T. Washington</label>
       </li>
       <li>
-        <input id="disabled" type="checkbox" name="pies" disabled />
+        <input id="disabled" type="checkbox" name="pies" disabled  aria-describedby="historical-figures-1">
         <label for="disabled">George Washington Carver</label>
       </li>
     </ul>
@@ -200,19 +200,19 @@ lead: Form controls allow users to enter information into a page.
 
   <fieldset class="usa-fieldset-inputs usa-sans">
 
-    <legend class="usa-sr-only">Historical figures 2</legend>
+    <legend class="usa-sr-only" id="historical-figures-2">Historical figures 2</legend>
 
     <ul class="usa-unstyled-list">
       <li>
-        <input id="pea-soup" type="radio" checked name="soup" value="pea">
+        <input id="pea-soup" type="radio" checked name="soup" value="pea" aria-describedby="historical-figures-2">
         <label for="pea-soup">Elizabeth Cady Stanton</label>
       </li>
       <li>
-        <input id="chicken-noodle" type="radio" name="soup" value="chicken-noodle">
+        <input id="chicken-noodle" type="radio" name="soup" value="chicken-noodle" aria-describedby="historical-figures-2">
         <label for="chicken-noodle">Susan B. Anthony</label>
       </li>
       <li>
-        <input id="tomato" type="radio" name="soup" value="tomato">
+        <input id="tomato" type="radio" name="soup" value="tomato" aria-describedby="historical-figures-2">
         <label for="tomato">Harriet Tubman</label>
       </li>
     </ul>
