@@ -131,24 +131,24 @@ lead: Form controls allow users to enter information into a page.
 
   <fieldset class="usa-fieldset-inputs usa-sans">
 
-    <legend class="usa-sr-only">Historical figures 1</legend>
+    <legend class="usa-sr-only" id="historical-figures-1">Historical figures 1</legend>
 
     <ul class="usa-unstyled-list">
       <li>
-        <input id="apple-pie" type="checkbox" name="pies" value="apple-pie" checked />
-        <label for="apple-pie">Sojourner Truth</label>
+        <input id="truth" type="checkbox" name="historical-figures-1" value="truth" checked aria-labeledby="truth historical-figures-1">
+        <label for="truth">Sojourner Truth</label>
       </li>
       <li>
-        <input id="key-lime-pie" type="checkbox" name="pies" value="key-lime-pie">
-        <label for="key-lime-pie">Frederick Douglass</label>
+        <input id="douglass" type="checkbox" name="historical-figures-1" value="douglass" aria-labeledby="douglass historical-figures-1">
+        <label for="douglass">Frederick Douglass</label>
       </li>
       <li>
-        <input id="peach-pie" type="checkbox" name="pies" value="peach-pie">
-        <label for="peach-pie">Booker T. Washington</label>
+        <input id="washington" type="checkbox" name="historical-figures-1" value="washington" aria-labeledby="washington historical-figures-1">
+        <label for="washington">Booker T. Washington</label>
       </li>
       <li>
-        <input id="disabled" type="checkbox" name="pies" disabled />
-        <label for="disabled">George Washington Carver</label>
+        <input id="carver" type="checkbox" name="historical-figures-1" disabled  aria-labeledby="carver historical-figures-1">
+        <label for="carver">George Washington Carver</label>
       </li>
     </ul>
 
@@ -200,20 +200,20 @@ lead: Form controls allow users to enter information into a page.
 
   <fieldset class="usa-fieldset-inputs usa-sans">
 
-    <legend class="usa-sr-only">Historical figures 2</legend>
+    <legend class="usa-sr-only" id="historical-figures-2">Historical figures 2</legend>
 
     <ul class="usa-unstyled-list">
       <li>
-        <input id="pea-soup" type="radio" checked name="soup" value="pea">
-        <label for="pea-soup">Elizabeth Cady Stanton</label>
+        <input id="stanton" type="radio" checked name="historical-figures-2" value="stanton" aria-labeledby="stanton historical-figures-2">
+        <label for="stanton">Elizabeth Cady Stanton</label>
       </li>
       <li>
-        <input id="chicken-noodle" type="radio" name="soup" value="chicken-noodle">
-        <label for="chicken-noodle">Susan B. Anthony</label>
+        <input id="anthony" type="radio" name="historical-figures-2" value="anthony" aria-labeledby="stanton historical-figures-2">
+        <label for="anthony">Susan B. Anthony</label>
       </li>
       <li>
-        <input id="tomato" type="radio" name="soup" value="tomato">
-        <label for="tomato">Harriet Tubman</label>
+        <input id="tubman" type="radio" name="historical-figures-2" value="tubman" aria-labeledby="tubman historical-figures-2">
+        <label for="tubman">Harriet Tubman</label>
       </li>
     </ul>
 
@@ -263,21 +263,21 @@ lead: Form controls allow users to enter information into a page.
 <div class="preview">
 
   <fieldset>
-    <legend>Date of birth</legend>
+    <legend id="memorable-date">Date of birth</legend>
     <span class="usa-form-hint usa-datefield-hint" id="dobHint">For example: 04 28 1986</span>
 
     <div class="usa-date-of-birth">
       <div class="usa-datefield usa-form-group usa-form-group-month">
         <label for="date_of_birth_1">Month</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="number" min="1" max="12" value="">
+        <input class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="number" min="1" max="12" value="" aria-labeledby="date_of_birth_1 memorable-date dobHint">
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-day">
         <label for="date_of_birth_2">Day</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_2" name="date_of_birth_2" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="number" min="1" max="31" value="">
+        <input class="usa-form-control" id="date_of_birth_2" name="date_of_birth_2" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="number" min="1" max="31" value="" aria-labeledby="date_of_birth_2 memorable-date dobHint">
       </div>
       <div class="usa-datefield usa-form-group usa-form-group-year">
         <label for="date_of_birth_3">Year</label>
-        <input aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3" name="date_of_birth_3" pattern="[0-9]{4}" type="number" min="1900" max="2000" value="">
+        <input class="usa-form-control" id="date_of_birth_3" name="date_of_birth_3" pattern="[0-9]{4}" type="number" min="1900" max="2000" value="" aria-labeledby="date_of_birth_3 memorable-date dobHint">
       </div>
     </div>
   </fieldset>
