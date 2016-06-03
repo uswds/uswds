@@ -2,11 +2,11 @@
 var $ = require('jquery');
 
 /**
- * Accordion
+ * @class Accordion
  *
  * An accordion component.
  *
- * @param {jQuery} $el A jQuery html element to turn into an accordion.
+ * @param {jQuery} el A jQuery html element to turn into an accordion.
  */
 function Accordion ($el) {
   var self = this;
@@ -32,18 +32,31 @@ function Accordion ($el) {
   }
 }
 
+/**
+ * @param {String} selector
+ * @return {jQuery}
+ */
 Accordion.prototype.$ = function (selector) {
   return this.$root.find(selector);
 };
 
+/**
+ * @param {jQuery} button
+ * @return {Accordion}
+ */
 Accordion.prototype.hide = function ($button) {
   var selector = $button.attr('aria-controls'),
     $content = this.$('#' + selector);
-  
+
   $button.attr('aria-expanded', false);
   $content.attr('aria-hidden', true);
+  return this;
 };
 
+/**
+ * @param {jQuery} button
+ * @return {Accordion}
+ */
 Accordion.prototype.show = function ($button) {
   var selector = $button.attr('aria-controls'),
     $content = this.$('#' + selector);
@@ -52,6 +65,9 @@ Accordion.prototype.show = function ($button) {
   $content.attr('aria-hidden', false);
 };
 
+/**
+ * @return {Accordion}
+ */
 Accordion.prototype.hideAll = function () {
   var self = this;
   this.$('button').each(function () {
