@@ -63,6 +63,7 @@ Accordion.prototype.show = function ($button) {
 
   $button.attr('aria-expanded', true);
   $content.attr('aria-hidden', false);
+  return this;
 };
 
 /**
@@ -73,6 +74,7 @@ Accordion.prototype.hideAll = function () {
   this.$('button').each(function () {
     self.hide($(this));
   });
+  return this;
 };
 
 module.exports = Accordion;
