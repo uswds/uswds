@@ -19,6 +19,14 @@ function Accordion ($el) {
       self.show($(this));
     }
   });
+
+  // find the first expanded button
+  var $expanded = this.$('button[aria-expanded=true]');
+  if ($expanded.length) {
+    this.show($expanded);
+  } else {
+    this.hideAll();
+  }
 }
 
 Accordion.prototype.$ = function (selector) {
