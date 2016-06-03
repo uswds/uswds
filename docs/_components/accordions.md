@@ -145,13 +145,13 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
         Code header areas in the accordion as <code>&lt;buttons&gt;</code> so that they are usable with both screen readers and the keyboard.
       </li>
       <li>
-        Buttons should state whether they are expanded or not with the appropriate attribute: use either <code>aria-expanded=<wbr>"true"</code> or <code>aria-expanded=<wbr>"false"</code>.
+        Buttons should state if they are expanded with <code>aria-expanded=<wbr>"true"</code>. The <code>aria-expanded=<wbr>"false"</code> attributes will be added to other buttons when the accordion is initialized by the JavaScript.
       </li>
       <li>
-        Each button has a unique name <code>aria-controls=<wbr>"collapsible-#"</code> that associates the control to the appropriate region by referencing the controlled elements <code>id</code>.
+        Each button has a unique name <code>aria-controls=<wbr>"id"</code> that associates the control to the appropriate region by referencing the controlled element&rsquo;s <code>id</code>.
       </li>
       <li>
-        Each content area has an <code>aria-hidden</code> attribute set to either <code>true</code> or <code>false</code>. When <code>true</code>, the element (and all children) are neither visible or perceivable, and assistive technologies will skip this content.
+        Each content area will have its <code>aria-hidden</code> attribute set to either <code>true</code> or <code>false</code> by the component, depending on its corresponding button&rsquo;s <code>aria-expaded</code> attribute. To ensure that your content is accessible in the event that the JavaScript does not load or is disabled, you should not set <code>aria-hidden=<wbr>"true"</wbr></code> on any of your content areas.
       </li>
     </ul>
     <h4 class="usa-heading">Usability</h4>
