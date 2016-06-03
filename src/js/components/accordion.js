@@ -11,12 +11,15 @@ var $ = require('jquery');
 function Accordion ($el) {
   var self = this;
   this.$root = $el;
+
+  // delegate click events on each <button>
   this.$root.on('click', 'button', function (ev) {
-    var expanded = JSON.parse($(this).attr('aria-expanded'));
+    var $button = $(this);
+    var expanded = $button.attr('aria-expanded') === 'true';
     ev.preventDefault();
     self.hideAll();
     if (!expanded) {
-      self.show($(this));
+      self.show($button);
     }
   });
 
