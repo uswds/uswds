@@ -25,10 +25,9 @@ function Accordion ($el) {
 
   // find the first expanded button
   var $expanded = this.$('button[aria-expanded=true]');
+  this.hideAll();
   if ($expanded.length) {
     this.show($expanded);
-  } else {
-    this.hideAll();
   }
 }
 
