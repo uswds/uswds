@@ -18,12 +18,12 @@ lead: Form controls allow users to enter information into a page.
 
 <h4>Supporting screen readers</h4>
 
-<p><b>Note: </b>These code examples have been designed to support a wide range of screen readers, but that does not guarantee it will work with all versions.</p>
+<p><b>Note:</b> These code examples have been designed to support a wide range of screen readers, but that does not guarantee it will work with all versions.</p>
 
 <h5>Known issues</h5>
+
 <ul>
   <li>Voiceover on iOS currently does not support fieldset and legend for forms. This can be addressed by using `aria-labeledby='for-attribute-of-label id-of-legend id-of-additional-info'` on each input in the fieldset. Using `aria-labeledby` will overwrite the default text read by the screen reader, so it is important to include all relevant information.</li>
-  
   <li>Voiceover on OSX currently does not support `aria-describedby`. Use `aria-labeledby` instead, and include all related fields including, labels, legned, and hint text</li>
 </ul>
 
