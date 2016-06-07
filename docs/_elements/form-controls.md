@@ -204,7 +204,7 @@ lead: Form controls allow users to enter information into a page.
 
     <ul class="usa-unstyled-list">
       <li>
-        <input id="stanton" type="radio" checked name="historical-figures-2" value="pea">
+        <input id="stanton" type="radio" checked name="historical-figures-2" value="stanton">
         <label for="stanton">Elizabeth Cady Stanton</label>
       </li>
       <li>
