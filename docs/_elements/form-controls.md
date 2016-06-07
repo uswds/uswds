@@ -149,7 +149,7 @@ lead: Form controls allow users to enter information into a page.
 
     <ul class="usa-unstyled-list">
       <li>
-        <input id="truth" type="checkbox" name="historical-figures-1" value="truth" checked />
+        <input id="truth" type="checkbox" name="historical-figures-1" value="truth" checked>
         <label for="truth">Sojourner Truth</label>
       </li>
       <li>
@@ -161,7 +161,7 @@ lead: Form controls allow users to enter information into a page.
         <label for="washington">Booker T. Washington</label>
       </li>
       <li>
-        <input id="carver" type="checkbox" name="historical-figures-1" disabled />
+        <input id="carver" type="checkbox" name="historical-figures-1" disabled>
         <label for="carver">George Washington Carver</label>
       </li>
     </ul>
