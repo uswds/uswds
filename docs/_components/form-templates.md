@@ -7,16 +7,27 @@ lead: Patterns for some of the most commonly used forms on government websites
 
 <h3 class="usa-heading">Accessibility</h3>
 
-<p>As you customize these templates, ensure they continue to meet the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for all form controls</a> as well as the accessibility guidelines for each individual control.</p>
+<p>As you customize these templates, make sure they continue to meet the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for all form controls</a> as well as the accessibility guidelines for each individual control.</p>
 <p>In addition, when creating forms with multiple controls or customizing these templates, be sure to:</p>
 
 <ul class="usa-content-list">
-  <li>Display form controls in the same order in HTML as they do on screen. Do not use CSS to rearrange the form controls. Screen readers narrate forms in the order they appear in the HTML.</li>
+  <li>Display form controls in the same order in HTML as they appear on screen. Do not use CSS to rearrange the form controls. Screen readers narrate forms in the order they appear in the HTML.</li>
   <li>Visually align validation messages with the input fields, so people using screen magnifiers can read them quickly.</li>
   <li>Group each set of thematically related controls in a fieldset element. Use the legend element to offer a label within each one. The fieldset and legend elements make it easier for screen reader users to navigate the form.</li>
-  <li>A single legend is always required for fieldset. A common use of fieldset and legend is a question with radio button options for answers. The question text and radio buttons are wrapped in a fieldset, with the question itself being inside the legend tag.</li>
-  <li>You can embed multiple fieldsets and legends for more complex forms.</li>
-  <li>Keep your form blocks in a vertical pattern. It's an ideal approach for accessibility, due to limited vision that makes it hard to scan from right to left.</li>
+  <li>Use a single legend for fieldset (this is required). One example of a common use of fieldset and legend is a question with radio button options for answers. The question text and radio buttons are wrapped in a fieldset, with the question itself being inside the legend tag.</li>
+  <li>Embed multiple fieldsets and legends for more complex forms.</li>
+  <li>Keep your form blocks in a vertical pattern. This approach is ideal, from an accessibility standpoint, because of limited vision that makes it hard to scan from right to left.</li>
+</ul>
+
+<h4>Supporting screen readers</h4>
+
+<p><b>Note:</b> These code examples have been designed to support a range of screen readers. That said, they may not work with all versions.</p>
+
+<h5>Known issues</h5>
+
+<ul class="usa-content-list">
+  <li>VoiceOver on iOS currently does not support fieldset and legend for forms. You can address this by using <code>aria-labeledby="for-attribute-of-label id-of-legend id-of-additional-info"</code> on each input in the fieldset. Using <code>aria-labeledby</code> will overwrite the default text read by the screen reader, so it is important to include all relevant information.</li>
+  <li>VoiceOver on OS X currently does not support <code>aria-describedby</code>. Use <code>aria-labeledby</code> instead, and include all related fields, including, labels, legend, and hint text</li>
 </ul>
 
 <h2 class="usa-heading" id="name-form">Name form</h2>
@@ -167,8 +178,8 @@ lead: Patterns for some of the most commonly used forms on government websites
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
-      <li>As you customize this form template, ensure it continues to follow the <a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for form controls</a>.</li>
-      <li>Ensure that the input masking on the ZIP field, which inserts a hyphen before the four-digit extension, is accessible to people using screen readers. We use <a href="https://github.com/filamentgroup/politespace">Filament Group's Politespace</a>.</li>
+      <li>As you customize this form template, make sure it continues to follow the <a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for form controls</a>.</li>
+      <li>Also make sure that the input masking on the ZIP field, which inserts a hyphen before the four-digit extension, is accessible to people using screen readers. We use <a href="https://github.com/filamentgroup/politespace">Filament Group's Politespace</a>.</li>
     </ul>
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
@@ -178,13 +189,13 @@ lead: Patterns for some of the most commonly used forms on government websites
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
       <li>If you need to collect addresses that may not fit this format (for example, international addresses).</li>
-      <li> If you don’t need to be able to parse out the individual pieces of an address, consider letting users type the whole thing in one large text area. </li>
+      <li> If you don’t need to be able to parse out the individual pieces of an address, consider letting users type the entire address into one large text area. </li>
     </ul>
     <h5>Guidance</h5>
     <ul class="usa-content-list">
       <li>Only label the optional inputs. Users can infer that all the others are required.</li>
-      <li>If possible, let users type their state’s abbreviation when they reach the “state” drop down menu.</li>
-      <li>Support both five and nine digit ZIP codes. Some addresses require a nine digit ZIP code. The input mask should be “#####-####” so that the text is properly formatted, regardless of whether a user enters a five or nine digit ZIP code.</li>
+      <li>If possible, let users type their state’s abbreviation when they reach the state drop-down menu.</li>
+      <li>Support both five- and nine-digit ZIP codes. Some addresses require a nine-digit ZIP code. The input mask should be “#####-####” so that the text is properly formatted, regardless of whether a user enters a five- or nine-digit ZIP code.</li>
     </ul>
   </div>
 </div>
@@ -229,8 +240,8 @@ lead: Patterns for some of the most commonly used forms on government websites
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
-      <li>As you customize this form template, ensure it continues to follow the <a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for form controls</a>.</li>
-      <li>Don’t automatically sign out a user without giving them 20 seconds advance notice to request more time. Users with disabilities sometimes require more time to respond to prompts.</li>
+      <li>As you customize this form template, make sure it continues to follow the <a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for form controls</a>.</li>
+      <li>Don’t automatically sign out a user without giving them 20 seconds' advance notice to request more time. Users with disabilities sometimes require more time to respond to prompts.</li>
     </ul>
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
@@ -244,10 +255,10 @@ lead: Patterns for some of the most commonly used forms on government websites
     <h5>Guidance</h5>
     <ul class="usa-content-list">
       <li>Less is more — make your explanations concise. Users sign in faster when less text surrounds the form.</li>
-      <li>Allow people to use their email address to sign in; people have an easier time remembering their email address rather than a unique username.</li>
-      <li>When a sign-in form is required, consider allowing users to stay logged in (“Remember me”) on trusted computers so they can avoid this barrier in the future.</li>
-      <li>Make it easy to retrieve a forgotten username and password. Most authentication failures occur because a user has forgotten their username or password, especially common when a long time passes between visits, as is the case with most federal websites.</li>
-      <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to log in, and doesn't offer much in additional security. Allow users to unmask this field so they can see what they type. This is especially useful on mobile devices, when mistakes are more likely.</li>
+      <li>Allow people to use their email address to sign in. People have an easier time remembering their email address than they do a unique username.</li>
+      <li>If you must include a sign-in form, consider allowing users to stay logged in (“Remember me”) on trusted computers so they can avoid this barrier in the future.</li>
+      <li>Make it easy for users to retrieve a forgotten username and password. Most authentication failures occur because a user has forgotten their username or password. This is especially common when a long time passes between visits, as is the case with most federal websites.</li>
+      <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to sign in, and doesn't offer much in the way of additional security. Allow users to unmask the password field so they can see what they type. This is especially useful on mobile devices, when users are more likely to mistype.</li>
     </ul>
   </div>
 </div>
@@ -306,7 +317,7 @@ lead: Patterns for some of the most commonly used forms on government websites
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
-      <li>As you customize this form template, ensure it continues to follow the <a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for form controls</a>.</li>
+      <li>As you customize this form template, make sure it continues to follow the <a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for form controls</a>.</li>
     </ul>
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
@@ -316,7 +327,7 @@ lead: Patterns for some of the most commonly used forms on government websites
     <h5>Guidance</h5>
     <ul class="usa-content-list">
       <li>If users need a password to access your site, they will forget that password and need a way to reset it.</li>
-      <li>State any password requirements (for example, “Must include one capital letter”) upfront. Don’t leave users guessing, only to hit them with an error message later.</li>
+      <li>State any password requirements (for example, “Must include one capital letter”) up front. Don’t leave users guessing about password requirements, only to hit them with an error message later.</li>
       <li>The requirements shown above are just provided as an example and should not be taken as recommendations.</li>
     </ul>
   </div>
