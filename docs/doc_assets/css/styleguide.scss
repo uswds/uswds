@@ -818,6 +818,12 @@ h6.usa-heading-alt {
   }
 }
 
+.font-example-paragraph {
+  @include media($medium-screen) {
+    width: 20rem;
+  }
+}
+
 .usa-typography-example {
   .usa-monospace {
     font-size: 1.2rem;
