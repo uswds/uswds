@@ -272,3 +272,14 @@ li.usa-footer-primary-content {
     padding-left: 1em;
   }
 }
+
+.usa-social-links {
+  a {
+    display: inline-block;
+    height: 44px;
+    width: 44px;
+    text-align: center;
+    position: relative;
+    left: 13px;
+  }
+}
