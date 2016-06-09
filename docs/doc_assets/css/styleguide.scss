@@ -153,26 +153,6 @@ $site-top:           124px;
   }
 }
 
-.menu-content {
-  @media (max-width: $medium-screen + $width-nav-sidebar) {
-    $sliding-panel-width: 220px;
-
-    @include position(fixed, 0 auto 0 0);
-    @include size($sliding-panel-width 100%);
-    @include transform(translateX(- $sliding-panel-width));
-    background: $color-white;
-    -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
-    z-index: 999999;
-    display: block;
-
-    &.is-visible {
-      @include transition(all 0.25s linear);
-      @include transform(translateX(0));
-    }
-  }
-}
-
 .overlay {
   @include position(fixed, 0);
   @include transition;
@@ -198,6 +178,25 @@ $site-top:           124px;
   overflow: auto;
   display: none;
   z-index: -1;
+  &.menu-content {
+    @media (max-width: $medium-screen + $width-nav-sidebar) {
+      $sliding-panel-width: 220px;
+
+      @include position(fixed, 0 auto 0 0);
+      @include size($sliding-panel-width 100%);
+      @include transform(translateX(- $sliding-panel-width));
+      background: $color-white;
+      -webkit-overflow-scrolling: touch;
+      overflow-y: auto;
+      z-index: 999999;
+      display: block;
+
+      &.is-visible {
+        @include transition(all 0.25s linear);
+        @include transform(translateX(0));
+      }
+    }
+  }
 
   .lt-ie9 & {
     width: 25%;
@@ -816,6 +815,12 @@ h6.usa-heading-alt {
   h6,
   .usa-font-example p {
     margin: 0;
+  }
+}
+
+.font-example-paragraph {
+  @include media($medium-screen) {
+    width: 20rem;
   }
 }
 
