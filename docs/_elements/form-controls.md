@@ -93,7 +93,7 @@ lead: Form controls allow users to enter information into a page.
 <p class="usa-font-lead">A dropdown allows users to select one option from a list.</p>
 
 <div class="preview">
-<form>
+<form class="usa-form">
   <label for="options">Dropdown label</label>
   <select name="options" id="options">
     <option value="value1">Option A</option>
