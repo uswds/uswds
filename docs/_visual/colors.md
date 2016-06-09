@@ -368,7 +368,7 @@ order: 02
 
 <div class="usa-grid-full">
   <div class="usa-width-one-half">
-    <div class="usa-color-text usa-color-base usa-color-text-base">
+    <div class="usa-color-text usa-color-base">
       white on base
     </div>
     <div class="usa-color-text usa-color-gray-warm-dark">
