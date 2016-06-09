@@ -95,3 +95,50 @@
     }
   }
 }
+
+// Background and text color helpers
+@mixin background-color($background-color: transparent) {
+  background-color: $background-color;
+
+  // Use reverse-text for the following background values
+  @if $background-color  == $color-primary
+    or $background-color == $color-primary-darker
+    or $background-color == $color-primary-darkest
+    or $background-color == $color-base
+    or $background-color == $color-primary-alt-darkest
+    or $background-color == $color-secondary
+    or $background-color == $color-secondary-darkest
+    or $background-color == $color-secondary-dark
+    or $background-color == $color-gray-warm-dark
+    or $background-color == $color-gray-dark
+    or $background-color == $color-gray
+    or $background-color == $color-green
+    or $background-color == $color-cool-blue-light {
+    color: $color-white;
+    a {
+      color: $color-gray-lighter;
+      text-decoration: underline;
+
+      &:hover,
+      &:visited {
+        color: $color-white;
+      }
+    }
+
+  // Use dark text color for all other background colors,
+  // except transparent or white; results in background-color
+  // only include - probably should not be used for these instances.
+  } @else if $background-color not transparent
+    or $background-color not $color-white {
+    color: $color-black;
+    a {
+      color: $color-gray-dark;
+      text-decoration: underline;
+
+      &:hover,
+      &:visited {
+        color: $color-black;
+      }
+    }
+  }
+}

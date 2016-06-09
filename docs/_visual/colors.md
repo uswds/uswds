@@ -368,31 +368,31 @@ order: 02
 
 <div class="usa-grid-full">
   <div class="usa-width-one-half">
-    <div class="usa-color-text usa-color-base usa-color-text-white">
+    <div class="usa-color-text usa-color-base usa-color-text-base">
       white on base
     </div>
-    <div class="usa-color-text usa-color-gray-warm-dark usa-color-text-white">
+    <div class="usa-color-text usa-color-gray-warm-dark">
       white on gray-warm-dark
     </div>
-    <div class="usa-color-text usa-color-gray-dark usa-color-text-white">
+    <div class="usa-color-text usa-color-gray-dark">
       white on gray-dark
     </div>
-    <div class="usa-color-text usa-color-gray usa-color-text-white">
+    <div class="usa-color-text usa-color-gray">
       white on gray
     </div>
-    <div class="usa-color-text usa-color-primary-darkest usa-color-text-white">
+    <div class="usa-color-text usa-color-primary-darkest">
       white on primary-darkest
     </div>
-    <div class="usa-color-text usa-color-primary-darker usa-color-text-white">
+    <div class="usa-color-text usa-color-primary-darker">
       white on primary-darker
     </div>
-    <div class="usa-color-text usa-color-primary usa-color-text-white">
+    <div class="usa-color-text usa-color-primary">
       white on primary
     </div>
-    <div class="usa-color-text usa-color-cool-blue-light usa-color-text-white">
+    <div class="usa-color-text usa-color-cool-blue-light">
       white on cool-blue-light
     </div>
-    <div class="usa-color-text usa-color-primary-alt-darkest usa-color-text-white">
+    <div class="usa-color-text usa-color-primary-alt-darkest">
       white on primary-alt-darkest
     </div>
     <div class="usa-color-text usa-color-primary-alt-dark">
@@ -401,7 +401,7 @@ order: 02
     <div class="usa-color-text usa-color-primary-alt">
       base on primary-alt
     </div>
-    <div class="usa-color-text usa-color-green usa-color-text-white">
+    <div class="usa-color-text usa-color-green">
       white on green
     </div>
     <div class="usa-color-text usa-color-green-light">
@@ -413,13 +413,13 @@ order: 02
     <div class="usa-color-text usa-color-gold-light">
       base on gold-light
     </div>
-    <div class="usa-color-text usa-color-secondary-darkest usa-color-text-white">
+    <div class="usa-color-text usa-color-secondary-darkest">
       white on secondary-darkest
     </div>
-    <div class="usa-color-text usa-color-secondary-dark usa-color-text-white">
+    <div class="usa-color-text usa-color-secondary-dark">
       white on secondary-dark
     </div>
-    <div class="usa-color-text usa-color-secondary usa-color-text-white">
+    <div class="usa-color-text usa-color-secondary">
       white on secondary
     </div>
   </div>
