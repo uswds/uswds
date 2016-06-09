@@ -25,7 +25,7 @@ describe('Accordion component', function () {
     $el = accordion.$root;
     $button = $el.find('button');
     $content = $el.find('#' + $button.attr(CONTROLS));
-  });   
+  });
 
   afterEach(function () {
     document.body.textContent = '';

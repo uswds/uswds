@@ -1,4 +1,6 @@
 machine:
+  hosts:
+    ci.server: 127.0.0.1
   node:
     version: 5.1.0
 
@@ -9,6 +11,11 @@ dependencies:
     - sudo dpkg -i debs/temp.deb
     - cf -v
     - bundle install
+    - wget https://s3-us-west-2.amazonaws.com/screener-files/ci/v2/screener-ci.zip
+    - unzip screener-ci.zip
+    # Install Screener Tunnel Client
+    - wget https://s3-us-west-2.amazonaws.com/screener-files/screener-tunnel/screener-tunnel-client-linux-amd64.zip
+    - unzip screener-tunnel-client-linux-amd64.zip
   cache_directories:
     - debs
 
@@ -21,6 +28,14 @@ test:
     - npm test # Run the package and docs test suite
     - npm run build:package # Run the release process
     - npm run build:website # Build Jekyll based docs website
+    - jekyll serve -w:
+       background: true
+    # start tunnel
+    - ./screener-tunnel-client -apikey="$SCREENER_API_KEY" -host="ci.server:4000":
+        background: true
+    - sleep 20
+    # run tests
+    - ./screener-ci.sh $SCREENER_API_KEY $SCREENER_GROUP_ID $CIRCLE_BUILD_NUM
   post:
     - ls -agolf dist/ # Ensure that build:package worked
     - ls -agolf _site/ # Ensure that build:website worked
@@ -36,3 +51,8 @@ deployment:
     commands:
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-staging
       - cf push -f manifest-staging.yml
+  release:
+    branch: [release]
+    commands:
+      - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-release
+      - cf push -f manifest-release.yml
