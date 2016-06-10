@@ -954,7 +954,7 @@ order: 01
 
   <p><a class="usa-color-text-visited" href="#">This</a> is a visited link.</p>
 
-  <p>This is a link which opens in a <a class="usa-external_link" href="http://media.giphy.com/media/8sgNa77Dvj7tC/giphy.gif" target="_blank">new tab</a>.</p>
+  <p>This is a link which goes to an <a class="usa-external_link" href="http://media.giphy.com/media/8sgNa77Dvj7tC/giphy.gif">external website</a>.</p>
 
   <div class="usa-background-dark">
     <p><a href="#">This</a> is a text link on a dark background.</p>

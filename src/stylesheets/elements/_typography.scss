@@ -33,6 +33,10 @@ a {
   }
 }
 
+// External link consider "effortless style approach":
+// [href^="http:"]:not([href*="127.0.0.1:4000"])
+// [href^="https:"]:not([href*="127.0.0.1:4000"]) 
+
 .usa-external_link {
   &::after {
     display: inline-block;
@@ -47,6 +51,10 @@ a {
 
   &:hover::after {
     background-image: url('../img/external-link-hover.svg');
+  }
+
+  &:visited:after {
+    background-image: url('../img/external-link-visited.svg');
   }
 }
 
