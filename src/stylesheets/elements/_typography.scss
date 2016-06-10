@@ -33,6 +33,23 @@ a {
   }
 }
 
+.usa-external_link {
+  &::after {
+    display: inline-block;
+    width: $base-font-size;
+    height: $base-font-size;
+    margin-bottom: -1px;
+    margin-left: 4px;
+    content: '';
+    background: url('../img/external-link.svg') no-repeat 0 0;
+    background-size: 100%;
+  }
+
+  &:hover::after {
+    background-image: url('../img/external-link-hover.svg');
+  }
+}
+
 h1,
 h2,
 h3,
