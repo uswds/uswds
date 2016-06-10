@@ -78,12 +78,17 @@ select {
     margin-top: 0;
   }
 
-  .usa-datefield {
-    input {
-      width: inherit;
-    }
+  .usa-input-inline {
+    border: $input-border-width solid $color-gray;
+    width: inherit;
+  }
+
+  .usa-input-inline-error {
+    border: 3px solid $color-secondary-dark;
   }
 }
+
+
 
 .usa-input-error-label {
   display: block;
