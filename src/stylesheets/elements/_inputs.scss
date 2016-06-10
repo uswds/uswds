@@ -77,6 +77,12 @@ select {
   label {
     margin-top: 0;
   }
+
+  .usa-datefield {
+    input {
+      width: inherit;
+    }
+  }
 }
 
 .usa-input-error-label {
