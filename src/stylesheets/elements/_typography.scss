@@ -35,7 +35,7 @@ a {
 
 // External link consider "effortless style approach":
 // [href^="http:"]:not([href*="my-domain.com"])
-// [href^="https:"]:not([href*="my-domain.com"]) 
+// [href^="https:"]:not([href*="my-domain.com"])
 
 .usa-external_link {
   &::after {
