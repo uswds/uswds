@@ -29,12 +29,15 @@ $site-top:           124px;
     @include media($medium-screen + $width-nav-sidebar) {
       display: block;
       font-size: $h3-font-size;
-      font-weight: $font-bold;
       margin-top: .8rem;
     }
-
-    margin: 0;
+    
+    display: block;
+    font-family: $font-serif;
     font-size: $h5-font-size;
+    font-style: normal;
+    font-weight: $font-bold;
+    margin: 0;
   }
 
   .usa-site-navbar {
