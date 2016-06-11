@@ -68,7 +68,6 @@
   .usa-footer-nav ul {
     @include media($medium-screen) {
       align-items: center;
-      display: flex;
     }
   }
 }
