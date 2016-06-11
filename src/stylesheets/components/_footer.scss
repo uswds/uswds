@@ -74,10 +74,6 @@
 }
 
 .usa-footer-slim {
-  ul {
-    display: flex;
-  }
-
   li > * {
     @include padding (2rem null);
     margin: 0;
