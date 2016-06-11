@@ -52,10 +52,6 @@ a {
   &:hover::after {
     background-image: url('../img/external-link-hover.svg');
   }
-
-  &:visited:after {
-    background-image: url('../img/external-link-visited.svg');
-  }
 }
 
 h1,
