@@ -26,18 +26,18 @@ $site-top:           124px;
   }
 
   em {
-    @include media($medium-screen + $width-nav-sidebar) {
-      display: block;
-      font-size: $h3-font-size;
-      margin-top: .8rem;
-    }
-    
     display: block;
     font-family: $font-serif;
     font-size: $h5-font-size;
     font-style: normal;
     font-weight: $font-bold;
     margin: 0;
+    
+    @include media($medium-screen + $width-nav-sidebar) {
+      display: block;
+      font-size: $h3-font-size;
+      margin-top: .8rem;
+    }
   }
 
   .usa-site-navbar {
