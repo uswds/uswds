@@ -86,8 +86,27 @@
 
       .usa-grid-full {
         align-items: center;
-        display: flex;
       }
+    }
+  }
+
+  .usa-footer-contact_info {
+    > * {
+      @include media($medium-screen) {
+        margin: 0;
+      }
+    }
+
+    @include media($medium-screen) {
+      @include padding (2rem null);
+    }
+
+    @include media($medium-screen) {
+      width: 100%;
+    }
+
+    @include media($large-screen) {
+      @include span-columns(6);
     }
   }
 }

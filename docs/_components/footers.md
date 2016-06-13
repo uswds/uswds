@@ -210,10 +210,10 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
           </ul>
         </nav>
         <div class="usa-width-one-third">
-          <div class="usa-width-one-half usa-footer-primary-content">
+          <div class="usa-footer-primary-content usa-footer-contact_info">
             <p>(800) CALL-GOVT</p>
           </div>
-          <div class="usa-width-one-half usa-footer-primary-content">
+          <div class="usa-footer-primary-content usa-footer-contact_info">
             <a href="mailto:info@agency.gov">info@agency.gov</a>
           </div>
         </div>
