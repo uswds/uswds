@@ -39,6 +39,7 @@ a {
 
 .usa-external_link {
   &::after {
+    background: url('../img/external-link.png') no-repeat 0 0;
     background: url('../img/external-link.svg') no-repeat 0 0;
     background-size: 100%;
     content: '';
@@ -50,6 +51,7 @@ a {
   }
 
   &:hover::after {
+    background-image: url('../img/external-link-hover.png');
     background-image: url('../img/external-link-hover.svg');
   }
 }
