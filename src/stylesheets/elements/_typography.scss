@@ -39,14 +39,14 @@ a {
 
 .usa-external_link {
   &::after {
+    background: url('../img/external-link.svg') no-repeat 0 0;
+    background-size: 100%;
+    content: '';
     display: inline-block;
-    width: $base-font-size;
     height: $base-font-size;
     margin-bottom: -1px;
     margin-left: 4px;
-    content: '';
-    background: url('../img/external-link.svg') no-repeat 0 0;
-    background-size: 100%;
+    width: $base-font-size;
   }
 
   &:hover::after {
