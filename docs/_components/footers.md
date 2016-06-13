@@ -193,28 +193,28 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
     </div>
     <div class="usa-footer-primary-section">
       <div class="usa-grid-full">
-        <nav class="usa-footer-nav usa-width-two-thirds">
+        <nav class="usa-footer-nav">
           <ul class="usa-unstyled-list">
-            <li class="usa-width-one-fourth usa-footer-primary-content">
+            <li class="usa-width-one-sixth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
             </li>
-            <li class="usa-width-one-fourth usa-footer-primary-content">
+            <li class="usa-width-one-sixth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
             </li>
-            <li class="usa-width-one-fourth usa-footer-primary-content">
+            <li class="usa-width-one-sixth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
             </li>
-            <li class="usa-width-one-fourth usa-footer-primary-content">
+            <li class="usa-width-one-sixth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
+            </li>
+            <li class="usa-width-one-sixth usa-footer-primary-content">
+              <p>(800) CALL-GOVT</p>
+            </li>
+            <li class="usa-width-one-sixth usa-footer-primary-content">
+              <a href="mailto:info@agency.gov">info@agency.gov</a>
             </li>
           </ul>
-        </nav>
-        <div class="usa-width-one-sixth usa-footer-primary-content">
-          <p>(800) CALL-GOVT</p>
-        </div>
-        <div class="usa-width-one-sixth usa-footer-primary-content">
-          <a href="mailto:info@agency.gov">info@agency.gov</a>
-        </div>          
+        </nav>         
       </div>
     </div>
 

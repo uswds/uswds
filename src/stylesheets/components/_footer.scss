@@ -74,20 +74,22 @@
 }
 
 .usa-footer-slim {
+  li > * {
+    @include padding (2rem null);
+    margin: 0;
+  }
+
   .usa-footer-nav a {
     display: block;
   }
 
   .usa-footer-primary-section {
-    padding-bottom: 2rem;
-
     @include media($medium-screen) {
       padding-bottom: 1rem;
       padding-top: 1rem;
 
       .usa-grid-full {
         align-items: center;
-        display: flex;
       }
     }
   }
