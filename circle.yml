@@ -50,9 +50,14 @@ deployment:
     branch: [staging]
     commands:
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-staging
-      - cf push -f manifest-staging.yml
+      - cf push -f config/cf/manifest-staging.yml
   release:
     branch: [release]
     commands:
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-release
-      - cf push -f manifest-release.yml
+      - cf push -f config/cf/manifest-release.yml
+  user-testing:
+    branch: [user-testing]
+    commands:
+      - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-user-testing
+      - cf push -f config/cf/manifest-user-testing.yml
