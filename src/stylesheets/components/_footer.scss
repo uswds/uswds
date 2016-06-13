@@ -10,9 +10,14 @@
     margin-top: 0;
     padding-bottom: 2rem;
     padding-top: 2rem;
+    text-decoration: none;
 
     @include media($medium-screen) {
       border-top: none;
+    }
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 
@@ -113,7 +118,6 @@ li.usa-footer-primary-content {
 }
 // scss-lint:enable QualifyingElement
 
-
 .usa-sign_up-block {
   padding-bottom: 2rem;
   padding-left: 2.5rem;
@@ -158,6 +162,12 @@ li.usa-footer-primary-content {
 .usa-footer-contact-links {
   @include media($medium-screen) {
     text-align: right;
+  }
+}
+
+.usa-social-links {
+  a {
+    text-decoration: none;
   }
 }
 

@@ -183,6 +183,20 @@ a {
   &:visited {
     color: $color-primary;
   }
+
+  &:hover {
+    color: $color-primary-darker;
+  }
+}
+
+.usa-img-secondary-link,
+.usa-example-link {
+  text-decoration: none;
+
+  &:hover {
+    color: $color-primary-darker;
+    text-decoration: underline;
+  }
 }
 
 .usa-standlast {
