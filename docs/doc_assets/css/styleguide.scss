@@ -49,10 +49,10 @@ $site-top:           124px;
       // scss-lint:disable SelectorDepth, NestingDepth
       a {
         color: $color-gray;
+        text-decoration: none;
 
         &:hover {
           color: $color-gray-dark;
-          text-decoration: none;
         }
       }
     }
