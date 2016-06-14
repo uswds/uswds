@@ -33,11 +33,7 @@ a {
   }
 }
 
-// External link consider "effortless style approach":
-// [href^="http:"]:not([href*="my-domain.com"])
-// [href^="https:"]:not([href*="my-domain.com"])
-
-.usa-external_link {
+@mixin external-link {
   &::after {
     background: url('../img/external-link.png') no-repeat 0 0;
     background: url('../img/external-link.svg') no-repeat 0 0;
@@ -54,6 +50,14 @@ a {
     background-image: url('../img/external-link-hover.png');
     background-image: url('../img/external-link-hover.svg');
   }
+}
+
+// External link consider "effortless style approach":
+// [href^="http:"]:not([href*="my-domain.com"])
+// [href^="https:"]:not([href*="my-domain.com"])
+
+.usa-external_link {
+  @include external-link();
 }
 
 h1,
