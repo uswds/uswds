@@ -33,10 +33,10 @@ a {
   }
 }
 
-@mixin external-link {
+@mixin external-link($external-link, $external-link-hover) {
   &::after {
-    background: url('../img/external-link.png') no-repeat 0 0;
-    background: url('../img/external-link.svg') no-repeat 0 0;
+    background: url('../img/#{$external-link}.png') no-repeat 0 0;
+    background: url('../img/#{$external-link}.svg') no-repeat 0 0;
     background-size: 100%;
     content: '';
     display: inline-block;
@@ -47,8 +47,8 @@ a {
   }
 
   &:hover::after {
-    background-image: url('../img/external-link-hover.png');
-    background-image: url('../img/external-link-hover.svg');
+    background-image: url('../img/#{$external-link-hover}.png');
+    background-image: url('../img/#{$external-link-hover}.svg');
   }
 }
 
@@ -57,7 +57,11 @@ a {
 // [href^="https:"]:not([href*="my-domain.com"])
 
 .usa-external_link {
-  @include external-link();
+  @include external-link(external-link, external-link-hover);
+}
+
+.usa-external_link-alt {
+  @include external-link(external-link-alt, external-link-alt);
 }
 
 h1,
