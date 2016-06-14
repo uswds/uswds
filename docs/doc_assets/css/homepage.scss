@@ -179,23 +179,25 @@ a:hover {
 }
 
 a {
-  > h3,
   &:visited {
     color: $color-primary;
   }
 
-  &:hover {
-    color: $color-primary-darker;
+  &.usa-img-secondary-link {
+    text-decoration: none;
+
+    &:hover {
+      color: $color-primary-darker;
+      text-decoration: underline;
+    }
   }
-}
 
-.usa-img-secondary-link,
-.usa-example-link {
-  text-decoration: none;
+  &.usa-example-link {
+    text-decoration: none;
 
-  &:hover {
-    color: $color-primary-darker;
-    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -206,8 +208,9 @@ a {
 }
 
 .usa-example-heading {
-  font-weight: $font-normal;
   @include margin(0 null 1.6rem);
+  color: $color-primary;
+  font-weight: $font-normal;
 }
 
 .usa-section-examples {
