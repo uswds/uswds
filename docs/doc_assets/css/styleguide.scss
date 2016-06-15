@@ -25,6 +25,21 @@ $site-top:           124px;
     border-bottom: none;
   }
 
+  em {
+    display: block;
+    font-family: $font-serif;
+    font-size: $h5-font-size;
+    font-style: normal;
+    font-weight: $font-bold;
+    margin: 0;
+    
+    @include media($medium-screen + $width-nav-sidebar) {
+      display: block;
+      font-size: $h3-font-size;
+      margin-top: .8rem;
+    }
+  }
+
   .usa-site-navbar {
     @include media($medium-screen + $width-nav-sidebar) {
       @include margin(2.7rem 0 1rem);
@@ -49,23 +64,12 @@ $site-top:           124px;
       // scss-lint:disable SelectorDepth, NestingDepth
       a {
         color: $color-gray;
+        text-decoration: none;
 
         &:hover {
           color: $color-gray-dark;
-          text-decoration: none;
         }
       }
-    }
-
-    h1 {
-      @include media($medium-screen + $width-nav-sidebar) {
-        display: block;
-        font-size: $h3-font-size;
-        margin-top: .9rem;
-      }
-
-      margin: 0;
-      font-size: $h5-font-size;
     }
 
     .usa-button-list {
