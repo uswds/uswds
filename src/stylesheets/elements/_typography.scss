@@ -15,12 +15,11 @@ p {
 
 a {
   color: $color-primary;
-  text-decoration: none;
+  text-decoration: underline;
 
   &:hover,
   &:active {
     color: $color-primary-darker;
-    text-decoration: underline;
   }
 
   &:visited {
@@ -159,13 +158,6 @@ dfn {
 
 .usa-content-list {
   max-width: $text-max-width;
-}
-
-p,
-.usa-content-list {
-  a {
-    text-decoration: underline;
-  }
 }
 
 .usa-sans {
