@@ -215,10 +215,12 @@ gulp.task(task, function (done) {
 gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
 
   gulp.watch([
+    'docs/doc_assets/css/**/*.scss',
     'src/stylesheets/components/**/*.scss',
     'src/stylesheets/elements/**/*.scss',
     'src/stylesheets/core/**/*.scss',
     'src/stylesheets/all.scss',
+    '!docs/doc_assets/css/lib/**/*',
     '!src/stylesheets/lib/**/*',
   ], function (event) {
     runSequence(
