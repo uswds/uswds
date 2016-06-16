@@ -222,7 +222,8 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
     '!src/stylesheets/lib/**/*',
   ], function (event) {
     runSequence(
-      'sass'
+      'sass',
+      'copy-docs-assets'
     );
   });
   gulp.watch([
