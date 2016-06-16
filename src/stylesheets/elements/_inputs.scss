@@ -77,6 +77,15 @@ select {
   label {
     margin-top: 0;
   }
+
+  .usa-input-inline {
+    border: $input-border-width solid $color-gray;
+    width: inherit;
+  }
+
+  .usa-input-inline-error {
+    border: 3px solid $color-secondary-dark;
+  }
 }
 
 .usa-input-error-label {
