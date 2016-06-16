@@ -39,10 +39,10 @@ a {
     background-size: 100%;
     content: '';
     display: inline-block;
-    height: $base-font-size;
+    height: 0.65em;
     margin-bottom: -1px;
     margin-left: 4px;
-    width: $base-font-size;
+    width: 0.65em;
   }
 
   &:hover::after {
