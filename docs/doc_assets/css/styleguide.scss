@@ -1078,10 +1078,13 @@ $font-light: 300;
   padding-left: 2rem;
 }
 
-[href^="http:"]:not([href*="standards.com"]),
-[href^="https:"]:not([href*="standards.com"]) {
-  @include external-link(external-link, external-link-hover);
+.main-content {
+  [href^="http:"]:not([href*="standards.com"]),
+  [href^="https:"]:not([href*="standards.com"]) {
+    @include external-link(external-link, external-link-hover);
+  }
 }
+
 
 .usa-button {
   &[href^="http:"]:not([href*="standards.com"]),
