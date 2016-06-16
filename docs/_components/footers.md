@@ -73,32 +73,10 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
         </div>
 
         <div class="usa-footer-contact-links usa-width-one-half">
-          <div class="usa-social-links">
-            <a href="#">
-              <svg width="29" height="29" role="img" aria-label="Facebook">
-                <title>Facebook</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook25.png" width="29" height="29" />
-              </svg>
-            </a>
-            <a href="#">            
-              <svg width="29" height="29" role="img" aria-label="Twitter">
-                <title>Twitter</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter16.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter16.png" width="29" height="29" />
-              </svg>
-            </a>
-            <a href="#">
-              <svg width="29" height="29" role="img" aria-label="YouTube">
-                <title>YouTube</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube15.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube15.png" width="29" height="29" />
-              </svg>
-            </a>
-            <a href="#">
-              <svg width="29" height="29" role="img" aria-label="RSS">
-                <title>RSS</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss25.png" width="29" height="29" />
-              </svg>
-            </a>
-          </div>
+          <a class="usa-social-link facebook" href="#"><span class="usa-sr-only">Facebook</span></a>
+          <a class="usa-social-link twitter" href="#"><span class="usa-sr-only">Twitter</span></a>
+          <a class="usa-social-link youtube" href="#"><span class="usa-sr-only">YouTube</span></a>
+          <a class="usa-social-link rss" href="#"><span class="usa-sr-only">RSS</span></a>
 
           <address>
             <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
@@ -148,32 +126,10 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
         </div>
 
         <div class="usa-footer-contact-links usa-width-one-half">
-          <div class="usa-social-links">
-            <a href="#">
-              <svg width="29" height="29" role="img" aria-label="Facebook">
-                <title>Facebook</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook25.png" width="29" height="29" />
-              </svg>
-            </a>
-            <a href="#">            
-              <svg width="29" height="29" role="img" aria-label="Twitter">
-                <title>Twitter</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter16.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter16.png" width="29" height="29" />
-              </svg>
-            </a>
-            <a href="#">
-              <svg width="29" height="29" role="img" aria-label="YouTube">
-                <title>YouTube</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube15.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube15.png" width="29" height="29" />
-              </svg>
-            </a>
-            <a href="#">
-              <svg width="29" height="29" role="img" aria-label="RSS">
-                <title>RSS</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss25.png" width="29" height="29" />
-              </svg>
-            </a>
-          </div>
+          <a class="usa-social-link facebook" href="#"><span class="usa-sr-only">Facebook</span></a>
+          <a class="usa-social-link twitter" href="#"><span class="usa-sr-only">Twitter</span></a>
+          <a class="usa-social-link youtube" href="#"><span class="usa-sr-only">YouTube</span></a>
+          <a class="usa-social-link rss" href="#"><span class="usa-sr-only">RSS</span></a>
 
           <address>
             <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
