@@ -84,8 +84,8 @@ node_modules/uswds/
 ├── dist/
 │   ├── css/
 │   ├── fonts/
-│   ├── img//
-│   ├── js
+│   ├── img/
+│   ├── js/
 └── src/
     ├── fonts/
     ├── img/
