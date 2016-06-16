@@ -75,27 +75,27 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
         <div class="usa-footer-contact-links usa-width-one-half">
           <div class="usa-social-links">
             <a href="#">
-              <svg width="26" height="39" role="img" aria-label="Facebook">
+              <svg width="29" height="29" role="img" aria-label="Facebook">
                 <title>Facebook</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook25.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook25.png" width="29" height="29" />
               </svg>
             </a>
             <a href="#">            
-              <svg width="26" height="39" role="img" aria-label="Twitter">
+              <svg width="29" height="29" role="img" aria-label="Twitter">
                 <title>Twitter</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter16.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter16.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter16.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter16.png" width="29" height="29" />
               </svg>
             </a>
             <a href="#">
-              <svg width="26" height="39" role="img" aria-label="YouTube">
+              <svg width="29" height="29" role="img" aria-label="YouTube">
                 <title>YouTube</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube15.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube15.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube15.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube15.png" width="29" height="29" />
               </svg>
             </a>
             <a href="#">
-              <svg width="26" height="39" role="img" aria-label="RSS">
+              <svg width="29" height="29" role="img" aria-label="RSS">
                 <title>RSS</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss25.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss25.png" width="29" height="29" />
               </svg>
             </a>
           </div>
@@ -150,27 +150,27 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
         <div class="usa-footer-contact-links usa-width-one-half">
           <div class="usa-social-links">
             <a href="#">
-              <svg width="26" height="39" role="img" aria-label="Facebook">
+              <svg width="29" height="29" role="img" aria-label="Facebook">
                 <title>Facebook</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook25.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/facebook25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/facebook25.png" width="29" height="29" />
               </svg>
             </a>
             <a href="#">            
-              <svg width="26" height="39" role="img" aria-label="Twitter">
+              <svg width="29" height="29" role="img" aria-label="Twitter">
                 <title>Twitter</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter16.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter16.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/twitter16.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/twitter16.png" width="29" height="29" />
               </svg>
             </a>
             <a href="#">
-              <svg width="26" height="39" role="img" aria-label="YouTube">
+              <svg width="29" height="29" role="img" aria-label="YouTube">
                 <title>YouTube</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube15.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube15.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/youtube15.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/youtube15.png" width="29" height="29" />
               </svg>
             </a>
             <a href="#">
-              <svg width="26" height="39" role="img" aria-label="RSS">
+              <svg width="29" height="29" role="img" aria-label="RSS">
                 <title>RSS</title>
-                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss25.png" width="26" height="39" />
+                <image xlink:href="{{ site.baseurl }}/assets/img/social-icons/svg/rss25.svg" src="{{ site.baseurl }}/assets/img/social-icons/png/rss25.png" width="29" height="29" />
               </svg>
             </a>
           </div>
