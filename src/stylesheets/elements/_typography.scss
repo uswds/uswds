@@ -60,7 +60,7 @@ a {
 }
 
 .usa-external_link-alt {
-  @include external-link(external-link-alt, external-link-alt);
+  @include external-link(external-link-alt, external-link-alt-hover);
 }
 
 h1,

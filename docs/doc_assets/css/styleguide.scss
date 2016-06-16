@@ -291,8 +291,7 @@ $site-top:           124px;
 // This is a styleguide-only rule and is not needed in the main library code for
 // the footer component which uses different styles
 // TODO investigate why it's not needed in the main library CSS
-  p,
-  a {
+  p {
     @include media($medium-screen) {
       margin-bottom: 0;
     }
@@ -300,6 +299,14 @@ $site-top:           124px;
     color: $color-white;
     font-size: $h5-font-size;
     @include margin(0 null 1.5rem);
+  }
+  
+  a {
+    color: $color-gray-lighter;
+
+    &:hover {
+      color: $color-white;
+    }
   }
 }
 
@@ -1078,6 +1085,7 @@ $font-light: 300;
   padding-left: 2rem;
 }
 
+// External link styles
 .main-content {
   [href^="http:"]:not([href*="standards.com"]),
   [href^="https:"]:not([href*="standards.com"]) {
@@ -1098,6 +1106,6 @@ $font-light: 300;
 .usa-styleguide-footer {
   [href^="http:"]:not([href*="standards.com"]),
   [href^="https:"]:not([href*="standards.com"]) {
-    @include external-link(external-link-alt, external-link-alt);
+    @include external-link(external-link-alt, external-link-alt-hover);
   }
 }
