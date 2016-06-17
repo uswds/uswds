@@ -274,8 +274,11 @@ li.usa-footer-primary-content {
 }
 
 .usa-social_link {
-  $background-height: 3rem; // height of icon within hit area
-  $hit-area: 4.4rem; // used for height and width
+  // height of icon within hit area
+  $background-height: 3rem;
+
+  // Link hit target is 44 x 44 pixels following Apple iOS Human Interface Guidelines
+  $hit-area: 4.4rem; 
 
   background-position: center center;
   background-repeat: no-repeat;
