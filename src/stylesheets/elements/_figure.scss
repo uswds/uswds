@@ -3,9 +3,13 @@ img {
 }
 
 // TODO: Add documentation instructions for using this class on image links
-.media_link {
+@mixin media_link {
   display: inline-block;
-  line-height: 0;
+  line-height: 0; 
+}
+
+.media_link {
+  @include media_link();
 }
 
 // Patch for Firefox: max-width:100% is not respected within auto-width inline
