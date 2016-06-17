@@ -237,7 +237,7 @@ $site-top:           116px;
   @include media($medium-screen + $width-nav-sidebar) {
     top: $site-top;
   }
-  
+
   .lt-ie9 & {
     width: 75%;
   }
@@ -279,8 +279,8 @@ $site-top:           116px;
 // Footer --------------- //
 
 .usa-styleguide-footer {
-  background-color: $color-primary-darker;
   @include padding(3rem null);
+  border-top: 1px solid $color-gray-light;
 
 // This is a styleguide-only rule and is not needed in the main library code for
 // the footer component which uses different styles
@@ -290,7 +290,6 @@ $site-top:           116px;
       margin-bottom: 0;
     }
 
-    color: $color-white;
     font-size: $h5-font-size;
     @include margin(0 null 1.5rem);
   }
