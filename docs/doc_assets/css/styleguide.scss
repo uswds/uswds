@@ -278,7 +278,19 @@ $site-top:           116px;
 
 // Footer --------------- //
 
-.usa-styleguide-footer {
+.site-footer-nav {
+  margin-bottom: 55px;
+
+  @media (min-width: $medium-screen + $width-nav-sidebar) {
+    display: none;
+  }
+
+  .usa-sidenav-sub_list {
+    display: none;
+  }
+}
+
+.site-footer-info {
   @include padding(3rem null);
   border-top: 1px solid $color-gray-light;
 

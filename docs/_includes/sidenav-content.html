@@ -1,0 +1,120 @@
+{% assign current = page.url | downcase | split: '/' %}
+
+<nav>
+  <ul class="usa-sidenav-list">
+    <li>
+      <a {% if current[1] == 'getting-started' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/getting-started/">Getting started</a>
+    </li>
+    <li>
+      <a {% if current[1] == 'visual-style' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/visual-style/">Visual style</a>
+      <ul class="usa-sidenav-sub_list visual-style-sublist">
+        <li>
+          <a href="{{ site.baseurl }}/visual-style/#typography">Typography</a>
+          <ul class="usa-sidenav-sub_list">
+            <li>
+              <a href="{{ site.baseurl }}/visual-style/#typefaces">Typefaces</a>
+            </li>
+            <li>
+              <a href="{{ site.baseurl }}/visual-style/#pairings">Pairings and styles</a>
+            </li>
+            <li>
+              <a href="{{ site.baseurl }}/visual-style/#typesetting">Typesetting</a>
+            </li>
+            <li>
+              <a href="{{ site.baseurl }}/visual-style/#links">Links</a>
+            </li>
+            <li>
+              <a href="{{ site.baseurl }}/visual-style/#lists">Lists</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/visual-style/#colors">Colors</a>
+          <ul class="usa-sidenav-sub_list">
+            <li>
+              <a href="{{ site.baseurl }}/visual-style/#palette">Palette</a>
+            </li>
+            <li>
+              <a href="{{ site.baseurl }}/visual-style/#text-accessibility">Text accessibility</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a {% if current[1] == 'grids' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/grids/">Grid</a>
+    </li>
+    <li>
+      <a {% if current[1] == 'buttons' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/buttons/">Buttons</a>
+    </li>
+    <li>
+      <a {% if current[1] == 'labels' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/labels/">Labels</a>
+    </li>
+    <li>
+      <a {% if current[1] == 'tables' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/tables/">Tables</a>
+    </li>
+    <li>
+      <a {% if current[1] == 'alerts' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/alerts/">Alerts</a>
+    </li>
+    <li>
+      <a {% if current[1] == 'accordions' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/accordions/">Accordions</a>
+    </li>
+    <li>
+      <a {% if current[1] == 'form-controls' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/form-controls/">Form controls</a>
+      <ul class="usa-sidenav-sub_list form-controls-sublist">
+        <li>
+          <a href="{{ site.baseurl }}/form-controls/#text-inputs">Text inputs and area</a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/form-controls/#dropdown">Dropdown</a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/form-controls/#checkboxes">Checkboxes</a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/form-controls/#radiobuttons">Radio buttons</a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/form-controls/#date-input">Date input</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a {% if current[1] == 'form-templates' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/form-templates/">Form templates</a>
+      <ul class="usa-sidenav-sub_list form-templates-sublist">
+        <li>
+          <a href="{{ site.baseurl }}/form-templates/#name-form">Name form</a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/form-templates/#address-form">Address form</a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/form-templates/#login-form">Sign-in form</a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/form-templates/#password-reset-form">Password reset form</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a {% if current[1] == 'search-bar' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/search-bar/">Search bar</a>
+    </li>
+    <li>
+      <a {% if current[1] == 'sidenav' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/sidenav/">Side navigation</a>
+    </li>
+    <li>
+      <a {% if current[1] == 'footers' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/footers/">Footers</a>
+      <ul class="usa-sidenav-sub_list footers-sublist">
+        <li>
+          <a href="{{ site.baseurl }}/footers/#big-footer">Big footer</a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/footers/#medium-footer">Medium footer</a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/footers/#slim-footer">Slim footer</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

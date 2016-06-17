@@ -19,8 +19,13 @@
         {{ content }}
       </div>
 
-      <footer class="usa-styleguide-footer" role="contentinfo">
-        {% include footer.html %}
+      <footer role="contentinfo">
+        <div class="site-footer-nav usa-grid">
+          {% include sidenav-content.html %}
+        </div>
+        <div class="site-footer-info">
+          {% include footer.html %}
+        </div>
       </footer>
     </div>
 
