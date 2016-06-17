@@ -73,10 +73,18 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
         </div>
 
         <div class="usa-footer-contact-links usa-width-one-half">
-          <a class="usa-social-link facebook" href="#"><span class="usa-sr-only">Facebook</span></a>
-          <a class="usa-social-link twitter" href="#"><span class="usa-sr-only">Twitter</span></a>
-          <a class="usa-social-link youtube" href="#"><span class="usa-sr-only">YouTube</span></a>
-          <a class="usa-social-link rss" href="#"><span class="usa-sr-only">RSS</span></a>
+          <a class="usa-link-facebook" href="#">
+            <span>Facebook</span>
+          </a>
+          <a class="usa-link-twitter" href="#">
+            <span>Twitter</span>
+          </a>
+          <a class="usa-link-youtube" href="#">
+            <span>YouTube</span>
+          </a>
+          <a class="usa-link-rss" href="#">
+            <span>RSS</span>
+          </a>
 
           <address>
             <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
@@ -126,10 +134,18 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
         </div>
 
         <div class="usa-footer-contact-links usa-width-one-half">
-          <a class="usa-social-link facebook" href="#"><span class="usa-sr-only">Facebook</span></a>
-          <a class="usa-social-link twitter" href="#"><span class="usa-sr-only">Twitter</span></a>
-          <a class="usa-social-link youtube" href="#"><span class="usa-sr-only">YouTube</span></a>
-          <a class="usa-social-link rss" href="#"><span class="usa-sr-only">RSS</span></a>
+          <a class="usa-link-facebook" href="#">
+            <span>Facebook</span>
+          </a>
+          <a class="usa-link-twitter" href="#">
+            <span>Twitter</span>
+          </a>
+          <a class="usa-link-youtube" href="#">
+            <span>YouTube</span>
+          </a>
+          <a class="usa-link-rss" href="#">
+            <span>RSS</span>
+          </a>
 
           <address>
             <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>

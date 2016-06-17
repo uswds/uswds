@@ -273,42 +273,46 @@ li.usa-footer-primary-content {
   }
 }
 
-.usa-social-link {
-  $hit-area: 4.5rem; // used for height and width
-  $left-align-adjust: 1.2rem; // relative left positioning
-  $blank-space: 1rem; // spacing between link hit areas
+.usa-social_link {
+  $background-height: 3rem; // height of icon within hit area
+  $hit-area: 4.4rem; // used for height and width
 
   background-position: center center;
   background-repeat: no-repeat;
+  background-size: auto $background-height;
   display: inline-block;
   height: $hit-area;
-  left: $left-align-adjust;
-  margin-left: $blank-space;
+  left: 1.2rem; // relative left positioning
+  margin-left: 1rem; // spacing between link hit areas
   position: relative;
   text-align: center;
   width: $hit-area;
 
-  &.facebook {
-    background-image: url("../img/social-icons/png/facebook25.png");
-    background-image: url("../img/social-icons/svg/facebook25.svg");
-    background-size: auto 3rem;
+  span {
+    @include sr-only();
   }
+}
 
-  &.twitter {
-    background-image: url("../img/social-icons/png/twitter16.png");
-    background-image: url("../img/social-icons/svg/twitter16.svg");
-    background-size: auto 3rem;
-  }
+.usa-link-facebook {
+  @extend .usa-social_link;
+  background-image: url("../img/social-icons/png/facebook25.png");
+  background-image: url("../img/social-icons/svg/facebook25.svg");
+}
 
-  &.youtube {
-    background-image: url("../img/social-icons/png/youtube15.png");
-    background-image: url("../img/social-icons/svg/youtube15.svg");
-    background-size: auto 3rem;
-  }
+.usa-link-twitter {
+  @extend .usa-social_link;
+  background-image: url("../img/social-icons/png/twitter16.png");
+  background-image: url("../img/social-icons/svg/twitter16.svg");
+}
 
-  &.rss {
-    background-image: url("../img/social-icons/png/rss25.png");
-    background-image: url("../img/social-icons/svg/rss25.svg");
-    background-size: auto 3rem;
-  }
+.usa-link-youtube {
+  @extend .usa-social_link;
+  background-image: url("../img/social-icons/png/youtube15.png");
+  background-image: url("../img/social-icons/svg/youtube15.svg");
+}
+
+.usa-link-rss {
+  @extend .usa-social_link;
+  background-image: url("../img/social-icons/png/rss25.png");
+  background-image: url("../img/social-icons/svg/rss25.svg");
 }
