@@ -10,14 +10,13 @@
 $width-nav-sidebar:  250px;
 $color-grid-dark:    #727272;
 $color-grid-light:   #e3e4e5;
-$site-top:           124px;
+$site-top:           116px;
 
 // Navigation ------------- //
 
 .usa-site-header {
   @include position(fixed, 0 null null 0);
-  background-color: $color-white;
-  border-bottom: 1px solid $color-gray-light;
+  background-color: $color-primary-darkest;
   width: 100%;
   z-index: 1;
 
@@ -36,51 +35,39 @@ $site-top:           124px;
     @include media($medium-screen + $width-nav-sidebar) {
       display: block;
       font-size: $h3-font-size;
-      margin-top: .8rem;
     }
   }
 
   .usa-site-navbar {
-    @include media($medium-screen + $width-nav-sidebar) {
-      @include margin(2.7rem 0 1rem);
-      height: 6rem;
-    }
-
-    margin-top: 4px;
-
     .logo {
-
-      @include media($medium-screen + $width-nav-sidebar) {
-        @include padding(0 null null $site-margins);
-        text-align: left;
-        width: auto;
-      }
-
+      @include padding(1.5rem null null $site-margins);
       float: left;
       text-align: center;
-      padding-top: 1.3rem;
-      width: 70%;
+
+      @include media($medium-screen + $width-nav-sidebar) {
+        margin: 3rem 0;
+        padding-top: 0;
+        width: auto;
+        text-align: left;
+      }
 
       // scss-lint:disable SelectorDepth, NestingDepth
       a {
-        color: $color-gray;
+        color: $color-white;
         text-decoration: none;
-
-        &:hover {
-          color: $color-gray-dark;
-        }
       }
     }
 
     .usa-button-list {
-      @include media($medium-screen + $width-nav-sidebar) {
-        display: block;
-        padding-right: $site-margins;
-      }
-
       float: right;
       display: none;
       margin-top: -5px;
+
+      @media screen and (min-width: 960px)  {
+        @include margin(2.47rem null);
+        display: block;
+        padding-right: $site-margins;
+      }
 
       // scss-lint:disable SelectorDepth, NestingDepth
       li {
@@ -90,6 +77,10 @@ $site-top:           124px;
         &:last-child .usa-button {
           margin-right: 0;
         }
+      }
+
+      .usa-button {
+        @include margin(0 null);
       }
     }
   }
@@ -132,22 +123,21 @@ $site-top:           124px;
 }
 
 .menu-btn {
+  @include padding(1.5rem null);
+  display: inline;
+  float: right;
+  color: $color-white;
+  background-color: $color-primary;
+  font-size: 1.5rem;
+  width: 5.8rem;
+  text-align: center;
+  text-decoration: none;
+
   @include media($medium-screen + $width-nav-sidebar) {
     display: none;
   }
 
-  @include padding(1.5rem null);
-  display: inline;
-  float: left;
-  margin-top: -4px;
-  color: $color-white;
-  background-color: $color-primary;
-  font-size: 1.5rem;
-  width: 15%;
-  text-align: center;
-
   &:hover {
-    text-decoration: none;
     color: $color-white;
     background-color: $color-primary-darker;
   }
@@ -239,15 +229,15 @@ $site-top:           124px;
 // Main Content --------- //
 
 .main-content {
-  @include media($medium-screen) {
-    top: $site-top;
-  }
-
   @include position(absolute, 4rem 0 0 null);
   @include padding(1em null 0);
   width: 100%;
   z-index: -1;
 
+  @include media($medium-screen + $width-nav-sidebar) {
+    top: $site-top;
+  }
+  
   .lt-ie9 & {
     width: 75%;
   }

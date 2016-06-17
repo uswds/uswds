@@ -20,10 +20,13 @@
       </div>
       <ul class="usa-button-list usa-unstyled-list">
         <li>
-          <a class="usa-button" href="{{ site.repos[0].url }}/releases/download/v{{ site.version }}/uswds-{{ site.version }}.zip" onclick="ga('send', 'event', 'Downloaded framework', 'Clicked download button inside site');">Download code</a>
+          <a class="usa-button" href="{{ site.repos[0].url }}/releases/download/v{{ site.version }}/uswds-{{ site.version }}.zip" onclick="ga('send', 'event', 'Downloaded code', 'Clicked download code button inside site');">Download code</a>
         </li>
         <li>
-          <a class="usa-button usa-button-outline" href="{{ site.repos[0].url }}" onclick="ga('send', 'event', 'Viewed on Github', 'Clicked View on Github from inside site');">
+          <a class="usa-button" href="https://github.com/18F/web-design-standards-assets/archive/master.zip" onclick="ga('send', 'event', 'Downloaded design files', 'Clicked download design files button inside site');">Download design files</a>
+        </li>
+        <li>
+          <a class="usa-button usa-button-outline-inverse" href="{{ site.repos[0].url }}" onclick="ga('send', 'event', 'Viewed on Github', 'Clicked View on Github from inside site');">
             View on GitHub
           </a>
           </li>
