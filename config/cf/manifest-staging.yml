@@ -1,4 +1,4 @@
-# Manifest file for automated deployments to our staging environment. 
+# Manifest file for automated deployments to our staging environment.
 # Main manifest.yml can be found in the root level directory.
 ---
 inherit: ../../manifest.yml
