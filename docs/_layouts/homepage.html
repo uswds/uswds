@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
   <head>
     {% include head-home.html %}
   </head>
@@ -10,10 +10,8 @@
     <div id="main" class="main-content" role="main">
       {{ content }}
     </div>
-
+    {% include ie-polyfill-scripts.html %}
     {% include analytics.html %}
-    {% include scripts.html %}
-
   </body>
 
 </html>

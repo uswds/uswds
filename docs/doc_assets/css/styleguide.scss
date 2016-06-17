@@ -25,6 +25,21 @@ $site-top:           124px;
     border-bottom: none;
   }
 
+  em {
+    display: block;
+    font-family: $font-serif;
+    font-size: $h5-font-size;
+    font-style: normal;
+    font-weight: $font-bold;
+    margin: 0;
+    
+    @include media($medium-screen + $width-nav-sidebar) {
+      display: block;
+      font-size: $h3-font-size;
+      margin-top: .8rem;
+    }
+  }
+
   .usa-site-navbar {
     @include media($medium-screen + $width-nav-sidebar) {
       @include margin(2.7rem 0 1rem);
@@ -49,23 +64,12 @@ $site-top:           124px;
       // scss-lint:disable SelectorDepth, NestingDepth
       a {
         color: $color-gray;
+        text-decoration: none;
 
         &:hover {
           color: $color-gray-dark;
-          text-decoration: none;
         }
       }
-    }
-
-    h1 {
-      @include media($medium-screen + $width-nav-sidebar) {
-        display: block;
-        font-size: $h3-font-size;
-        margin-top: .9rem;
-      }
-
-      margin: 0;
-      font-size: $h5-font-size;
     }
 
     .usa-button-list {
@@ -153,26 +157,6 @@ $site-top:           124px;
   }
 }
 
-.menu-content {
-  @media (max-width: $medium-screen + $width-nav-sidebar) {
-    $sliding-panel-width: 220px;
-
-    @include position(fixed, 0 auto 0 0);
-    @include size($sliding-panel-width 100%);
-    @include transform(translateX(- $sliding-panel-width));
-    background: $color-white;
-    -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
-    z-index: 999999;
-    display: block;
-
-    &.is-visible {
-      @include transition(all 0.25s linear);
-      @include transform(translateX(0));
-    }
-  }
-}
-
 .overlay {
   @include position(fixed, 0);
   @include transition;
@@ -198,6 +182,25 @@ $site-top:           124px;
   overflow: auto;
   display: none;
   z-index: -1;
+  &.menu-content {
+    @media (max-width: $medium-screen + $width-nav-sidebar) {
+      $sliding-panel-width: 220px;
+
+      @include position(fixed, 0 auto 0 0);
+      @include size($sliding-panel-width 100%);
+      @include transform(translateX(- $sliding-panel-width));
+      background: $color-white;
+      -webkit-overflow-scrolling: touch;
+      overflow-y: auto;
+      z-index: 999999;
+      display: block;
+
+      &.is-visible {
+        @include transition(all 0.25s linear);
+        @include transform(translateX(0));
+      }
+    }
+  }
 
   .lt-ie9 & {
     width: 25%;
@@ -816,6 +819,12 @@ h6.usa-heading-alt {
   h6,
   .usa-font-example p {
     margin: 0;
+  }
+}
+
+.font-example-paragraph {
+  @include media($medium-screen) {
+    width: 20rem;
   }
 }
 
