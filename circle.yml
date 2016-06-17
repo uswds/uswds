@@ -30,19 +30,19 @@ deployment:
     branch: [master]
     commands:
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-production
-      - cf push
+      - cf push -p _site
   staging:
     branch: [staging]
     commands:
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-staging
-      - cf push -f config/cf/manifest-staging.yml
+      - cf push -f config/cf/manifest-staging.yml -p _site
   release:
     branch: [release]
     commands:
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-release
-      - cf push -f config/cf/manifest-release.yml
+      - cf push -f config/cf/manifest-release.yml -p _site
   user-testing:
     branch: [user-testing]
     commands:
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-user-testing
-      - cf push -f config/cf/manifest-user-testing.yml
+      - cf push -f config/cf/manifest-user-testing.yml -p _site
