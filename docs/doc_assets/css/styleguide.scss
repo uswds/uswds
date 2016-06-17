@@ -285,13 +285,39 @@ $site-top:           116px;
 // This is a styleguide-only rule and is not needed in the main library code for
 // the footer component which uses different styles
 // TODO investigate why it's not needed in the main library CSS
+<<<<<<< HEAD
   p {
     @include media($medium-screen) {
       margin-bottom: 0;
-    }
-
-    font-size: $h5-font-size;
+=======
+  p,
+  a {
     @include margin(0 null 1.5rem);
+    font-size: $h6-font-size;
+  }
+
+  img {
+    margin-right: 1.2rem;
+    width: 3.2rem;
+
+    &.logo-usds {
+      width: 4.3rem;
+>>>>>>> Style footer
+    }
+  }
+}
+
+.logo-links {
+  margin-bottom: 3rem;
+  margin-right: 1rem;
+
+  @include media($medium-screen) {
+    float: left;
+    margin-bottom: 0;
+  }
+
+  a {
+    @include media_link();
   }
 
   a {
@@ -303,23 +329,26 @@ $site-top:           116px;
   }
 }
 
+.footer-text {
+  overflow: hidden;
+}
+
 // Pattern Preview Boxes -------- //
 
 .preview {
-  $color-grayee: #eeeeee;
   @include clearfix();
-  background-color: $color-white;
   @include margin(2em null);
+  background-color: $color-white;
   padding: 1em $site-margins;
-  border: 1px solid $color-grayee;
+  border: 1px solid #eeeeee;
 
   .is-peripheral {
     opacity: .2;
   }
 
   .usa-background-dark {
-    display: inline-block;
     @include padding(null 1em);
+    display: inline-block;
   }
 }
 
@@ -332,13 +361,11 @@ $site-top:           116px;
 // Code Sample Boxes --------- //
 
 .code-snippets {
-
   .code-snippet-button::after {
     content: '\25be  hide code';
   }
 
   &.hidden {
-
     table {
       display: none;
     }
@@ -349,7 +376,6 @@ $site-top:           116px;
   }
 
   table {
-
     table-layout: fixed;
     width: 100%;
     padding: 3em 0 0 0;
