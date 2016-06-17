@@ -28,6 +28,10 @@ form {
   @include media($medium-screen) {
     max-width: $usa-form-width;
   }
+
+  select {
+    padding-right: 2em;
+  }
 }
 
 .usa-form-note {
