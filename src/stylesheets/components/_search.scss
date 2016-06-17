@@ -76,6 +76,17 @@ $usa-btn-big-width:     11.6rem;
     }
   }
 
+&.usa-search-medium {
+    @include media($small-screen) {
+
+      [type="search"],
+      .usa-search-input {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+
   &.usa-search-small {
     @include media($small-screen) {
       $width: $usa-btn-small-width;
@@ -83,7 +94,10 @@ $usa-btn-big-width:     11.6rem;
       [type="search"],
       .usa-search-input {
         width: calc(100% - #{$width});
+        font-size: 1.5rem;
       }
+
+
 
       [type="submit"],
       .usa-search-submit {
