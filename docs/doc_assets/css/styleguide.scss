@@ -137,13 +137,14 @@ $site-top:           116px;
   overflow: auto;
   display: none;
   z-index: -1;
+
   &.menu-content {
     @media (max-width: $medium-screen + $width-nav-sidebar) {
       $sliding-panel-width: 220px;
 
-      @include position(fixed, 0 auto 0 0);
+      @include position(fixed, 0 0 0 auto);
       @include size($sliding-panel-width 100%);
-      @include transform(translateX(- $sliding-panel-width));
+      @include transform(translateX($sliding-panel-width));
       background: $color-white;
       -webkit-overflow-scrolling: touch;
       overflow-y: auto;
