@@ -151,7 +151,7 @@ $site-top:           116px;
   @include position(fixed, 0);
   @include transition;
   background: $color-black;
-  opacity: 0;
+  opacity: 0.1;
   visibility: hidden;
   z-index: 9999;
 
