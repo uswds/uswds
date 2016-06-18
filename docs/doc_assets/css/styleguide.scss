@@ -279,7 +279,7 @@ $site-top:           116px;
 // Footer --------------- //
 
 .site-footer-nav {
-  margin-bottom: 55px;
+  margin-bottom: 5.5rem;
 
   @media (min-width: $medium-screen + $width-nav-sidebar) {
     display: none;
@@ -287,6 +287,19 @@ $site-top:           116px;
 
   .usa-sidenav-sub_list {
     display: none;
+  }
+
+  .usa-button.usa-button-outline-inverse {
+    box-shadow: inset 0 0 0 2px $color-primary;
+    color: $color-primary;
+  }
+
+  .usa-button-list {
+    margin-bottom: 5.5rem;
+
+    li {
+      display: initial;
+    }
   }
 }
 
