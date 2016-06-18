@@ -113,13 +113,14 @@ $site-top:           116px;
 
 .overlay {
   @include position(fixed, 0);
-  @include transition;
   background: $color-black;
-  opacity: 0.1;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
   visibility: hidden;
   z-index: 9999;
 
   &.is-visible {
+    opacity: 0.1;
     visibility: visible;
   }
 }
