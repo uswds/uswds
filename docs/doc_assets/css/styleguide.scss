@@ -84,42 +84,6 @@ $site-top:           116px;
       }
     }
   }
-
-  .disclaimer {
-    $color-gray-border: #616161;
-    padding: .5rem 2rem;
-    color: $color-white;
-    text-align: center;
-    font-size: $base-font-size / 1.25;
-    border-bottom: 1px solid $color-gray-border;
-    font-weight: 100;
-
-    .us-official {
-      margin: 0;
-    }
-
-    .stage {
-      // scss-lint:disable SelectorDepth
-
-      a { text-decoration: underline; }
-
-      float: none;
-      display: block;
-      padding-top: 5px;
-    }
-
-    @include media($medium-screen + $width-nav-sidebar) {
-      .us-official {
-        margin-left: 177px;
-      }
-
-      .stage {
-        float: right;
-        padding: 0;
-      }
-    }
-  }
-
 }
 
 .menu-btn {
