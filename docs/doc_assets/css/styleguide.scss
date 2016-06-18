@@ -138,23 +138,20 @@ $site-top:           116px;
   display: none;
   z-index: -1;
 
-  &.menu-content {
-    @media (max-width: $medium-screen + $width-nav-sidebar) {
-      $sliding-panel-width: 220px;
+  @media (max-width: $medium-screen + $width-nav-sidebar) {
+    $sliding-panel-width: 220px;
+    @include position(fixed, 0 0 0 auto);
+    @include size($sliding-panel-width 100%);
+    @include transform(translateX($sliding-panel-width));
+    background: $color-white;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    z-index: 999999;
+    display: block;
 
-      @include position(fixed, 0 0 0 auto);
-      @include size($sliding-panel-width 100%);
-      @include transform(translateX($sliding-panel-width));
-      background: $color-white;
-      -webkit-overflow-scrolling: touch;
-      overflow-y: auto;
-      z-index: 999999;
-      display: block;
-
-      &.is-visible {
-        @include transition(all 0.25s linear);
-        @include transform(translateX(0));
-      }
+    &.is-visible {
+      @include transition(all 0.25s linear);
+      @include transform(translateX(0));
     }
   }
 
