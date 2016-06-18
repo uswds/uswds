@@ -342,7 +342,7 @@ $site-top:           116px;
   }
 
   a {
-    @include media_link();
+    @include media_link;
   }
 
   a {
@@ -361,7 +361,7 @@ $site-top:           116px;
 // Pattern Preview Boxes -------- //
 
 .preview {
-  @include clearfix();
+  @include clearfix;
   @include margin(2em null);
   background-color: $color-white;
   padding: 1em $site-margins;
@@ -893,7 +893,7 @@ h6.usa-heading-alt {
 // Code snippet boxes
 
 .usa-code-sample .usa-unstyled-list {
-  @include unstyled-list();
+  @include unstyled-list;
 }
 
 .usa-code-sample pre {
@@ -1013,7 +1013,7 @@ $font-light: 300;
     font-weight: $font-light;
 
     .usa-font-lead-alt {
-      @include font-lead-alt();
+      @include font-lead-alt;
     }
   }
 
@@ -1030,7 +1030,7 @@ $font-light: 300;
         font-size: $h3-font-size;
 
         .usa-font-lead-alt {
-          @include font-lead-alt();
+          @include font-lead-alt;
         }
       }
     }
