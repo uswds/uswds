@@ -10,7 +10,7 @@
 $width-nav-sidebar:  250px;
 $color-grid-dark:    #727272;
 $color-grid-light:   #e3e4e5;
-$site-top:           166px;
+$site-top:           156px;
 
 // Navigation ------------- //
 
@@ -40,7 +40,8 @@ $site-top:           166px;
     margin-top: -5px;
 
     @media screen and (min-width: 960px)  {
-      @include margin(2.47rem null);
+      line-height: 8rem;
+      margin-top: 0;
       display: block;
       padding-right: $site-margins;
     }
@@ -61,16 +62,20 @@ $site-top:           166px;
   }
 }
 
+
+.site-navbar {
+  height: 4rem;
+}
+
 .site-logo {
-  @include padding(1.5rem null null $site-margins);
   float: left;
-  text-align: center;
+  line-height: 37px;
+  margin-top: 3px;
+  padding-left: $site-margins;
 
   @include media($medium-screen + $width-nav-sidebar) {
-    margin: 3rem 0;
-    padding-top: 0;
-    width: auto;
-    text-align: left;
+    line-height: 7.5rem;
+    margin-top: 5px;
   }
 
   a {
@@ -87,13 +92,12 @@ $site-top:           166px;
     border-bottom: 1px solid $color-gray-light;
     clear: both;
     display: block;
-    height: 5.3rem;
+    height: 5rem;
     padding-left: 3rem;
   }
 
   ul {
     @include unstyled-list;
-    line-height: 5.3rem;
 
     li {
       display: inline;
@@ -102,9 +106,10 @@ $site-top:           166px;
   }
 
   a {
-    @include padding (2rem null);
+    @include padding (1.6rem null);
     color: $color-gray;
     font-size: $h6-font-size;
+    line-height: 5rem;
     text-decoration: none;
 
     &:hover {
@@ -115,15 +120,17 @@ $site-top:           166px;
 }
 
 .menu-btn {
-  @include padding(1.5rem null);
   background-color: $color-primary;
   color: $color-white;
   display: inline;
   float: right;
-  font-size: 1.5rem;
+  font-size: $h6-font-size;
+  line-height: 4rem;
+  height: 4rem;
   width: 5.8rem;
   text-align: center;
   text-decoration: none;
+  text-transform: uppercase;
 
   @include media($medium-screen + $width-nav-sidebar) {
     display: none;
