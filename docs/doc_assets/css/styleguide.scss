@@ -10,7 +10,7 @@
 $width-nav-sidebar:  250px;
 $color-grid-dark:    #727272;
 $color-grid-light:   #e3e4e5;
-$site-top:           116px;
+$site-top:           113px;
 
 // Navigation ------------- //
 
@@ -133,25 +133,27 @@ $site-top:           116px;
   @include position(fixed, $site-top null 0 0);
   width: $width-nav-sidebar;
   border-right: 1px solid $color-gray-light;
-  padding: 5rem 3rem 3rem 3rem;
+  padding: 4rem 3rem 3rem 3rem;
   overflow: auto;
   display: none;
   z-index: -1;
 
   @media (max-width: $medium-screen + $width-nav-sidebar) {
-    $sliding-panel-width: 220px;
+    $sliding-panel-width: 26rem;
     @include position(fixed, 0 0 0 auto);
     @include size($sliding-panel-width 100%);
     @include transform(translateX($sliding-panel-width));
     background: $color-white;
+    border-left: 1px solid $color-gray-light;
+    border-right: 0;
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
     z-index: 999999;
     display: block;
 
     &.is-visible {
-      @include transition(all 0.25s linear);
       @include transform(translateX(0));
+      @include transition(all 0.3s ease-in-out);
     }
   }
 
@@ -193,11 +195,12 @@ $site-top:           116px;
 
 .main-content {
   @include position(absolute, 4rem 0 0 null);
-  @include padding(1em null 0);
+  margin-top: 7.6rem;
   width: 100%;
   z-index: -1;
 
   @include media($medium-screen + $width-nav-sidebar) {
+    margin-top: 4rem;
     top: $site-top;
   }
 
@@ -223,7 +226,7 @@ $site-top:           116px;
   position: relative;
 
   > h1 {
-    margin-top: 3.4rem;
+    margin-top: 0;
 
     &:not(:first-child) {
       margin-top: 1.5em;
