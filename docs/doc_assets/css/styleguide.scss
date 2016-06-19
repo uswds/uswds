@@ -205,25 +205,12 @@ $site-top:           156px;
   }
 }
 
-.visual-style .sidenav .visual-style-sublist {
+.usa-current + .usa-sidenav-sub_list {
   display: block;
 
-  // scss-lint:disable SelectorDepth
-  ul {
-    display: block;
+  .usa-sidenav-sub_list {
+    display: block; // for third level nesting
   }
-}
-
-.form-controls .sidenav .form-controls-sublist {
-  display: block;
-}
-
-.form-templates .sidenav .form-templates-sublist {
-  display: block;
-}
-
-.footers .sidenav .footers-sublist {
-  display: block;
 }
 
 // Main Content --------- //
