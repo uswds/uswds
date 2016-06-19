@@ -20,10 +20,6 @@ $site-top:           166px;
   width: 100%;
   z-index: 1;
 
-  a {
-    border-bottom: none;
-  }
-
   em {
     display: block;
     font-family: $font-serif;
@@ -35,25 +31,6 @@ $site-top:           166px;
     @include media($medium-screen + $width-nav-sidebar) {
       display: block;
       font-size: $h3-font-size;
-    }
-  }
-
-  .site-logo {
-    @include padding(1.5rem null null $site-margins);
-    float: left;
-    text-align: center;
-
-    @include media($medium-screen + $width-nav-sidebar) {
-      margin: 3rem 0;
-      padding-top: 0;
-      width: auto;
-      text-align: left;
-    }
-
-    // scss-lint:disable SelectorDepth, NestingDepth
-    a {
-      color: $color-white;
-      text-decoration: none;
     }
   }
 
@@ -84,6 +61,24 @@ $site-top:           166px;
   }
 }
 
+.site-logo {
+  @include padding(1.5rem null null $site-margins);
+  float: left;
+  text-align: center;
+
+  @include media($medium-screen + $width-nav-sidebar) {
+    margin: 3rem 0;
+    padding-top: 0;
+    width: auto;
+    text-align: left;
+  }
+
+  a {
+    color: $color-white;
+    text-decoration: none;
+  }
+}
+
 .site-nav-secondary {
   display: none;
 
@@ -95,7 +90,6 @@ $site-top:           166px;
     height: 5.3rem;
     padding-left: 3rem;
   }
-
 
   ul {
     @include unstyled-list;
@@ -122,10 +116,10 @@ $site-top:           166px;
 
 .menu-btn {
   @include padding(1.5rem null);
+  background-color: $color-primary;
+  color: $color-white;
   display: inline;
   float: right;
-  color: $color-white;
-  background-color: $color-primary;
   font-size: 1.5rem;
   width: 5.8rem;
   text-align: center;
@@ -165,11 +159,11 @@ $site-top:           166px;
 
 .sidenav {
   @include position(fixed, $site-top null 0 0);
-  width: $width-nav-sidebar;
   border-right: 1px solid $color-gray-light;
-  padding: 4rem 3rem 3rem 3rem;
-  overflow: auto;
   display: none;
+  overflow: auto;
+  padding: 4rem 3rem 3rem 3rem;
+  width: $width-nav-sidebar;
   z-index: -1;
 
   @media (max-width: $medium-screen + $width-nav-sidebar) {
@@ -180,10 +174,10 @@ $site-top:           166px;
     background: $color-white;
     border-left: 1px solid $color-gray-light;
     border-right: 0;
-    -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
-    z-index: 999999;
     display: block;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 999999;
 
     &.is-visible {
       @include transform(translateX(0));
@@ -254,9 +248,9 @@ $site-top:           166px;
 // Styleguide Content -------- //
 
 .styleguide-content {
+  @include padding(null 2em);
   margin-bottom: 5em;
   max-width: $site-max-width;
-  @include padding(null 2em);
   position: relative;
 
   > h1 {
@@ -289,6 +283,7 @@ $site-top:           166px;
     display: none;
   }
 
+  // TODO: Fix this with button mixin
   .usa-button.usa-button-outline-inverse {
     box-shadow: inset 0 0 0 2px $color-primary;
     color: $color-primary;
@@ -307,18 +302,10 @@ $site-top:           166px;
   @include padding(3rem null);
   border-top: 1px solid $color-gray-light;
 
-// This is a styleguide-only rule and is not needed in the main library code for
-// the footer component which uses different styles
-// TODO investigate why it's not needed in the main library CSS
-<<<<<<< HEAD
   p {
     @include media($medium-screen) {
       margin-bottom: 0;
-=======
-  p,
-  a {
-    @include margin(0 null 1.5rem);
-    font-size: $h6-font-size;
+    }
   }
 
   img {
@@ -327,7 +314,6 @@ $site-top:           166px;
 
     &.logo-usds {
       width: 4.3rem;
->>>>>>> Style footer
     }
   }
 }
@@ -367,10 +353,6 @@ $site-top:           166px;
   padding: 1em $site-margins;
   border: 1px solid #eeeeee;
 
-  .is-peripheral {
-    opacity: .2;
-  }
-
   .usa-background-dark {
     @include padding(null 1em);
     display: inline-block;
@@ -378,87 +360,9 @@ $site-top:           166px;
 }
 
 .preview-no_border {
-  border: 0;
   @include margin(0 null 2em);
+  border: 0;
   padding: 0;
-}
-
-// Code Sample Boxes --------- //
-
-.code-snippets {
-  .code-snippet-button::after {
-    content: '\25be  hide code';
-  }
-
-  &.hidden {
-    table {
-      display: none;
-    }
-
-    .code-snippet-button::after {
-      content: '\25b8  show code';
-    }
-  }
-
-  table {
-    table-layout: fixed;
-    width: 100%;
-    padding: 3em 0 0 0;
-
-    td {
-      $color-white-smoke: #f5f5f5;
-      $color-gray88: #e0e0e0;
-      background-color: $color-white-smoke;
-      border: 1px solid $color-gray88;
-      position: relative;
-      vertical-align: top;
-
-      // scss-lint:disable SelectorDepth, NestingDepth
-      .code-copy-button {
-        @include position(absolute, 0 0 null null);
-        border-radius: 0;
-        margin: 0;
-
-        &:hover {
-          background-color: $color-base;
-        }
-      }
-    }
-
-    th {
-      border: none;
-      text-align: left;
-    }
-
-    pre,
-    code {
-      direction: ltr;
-      text-align: left;
-      white-space: pre;
-      word-spacing: normal;
-      word-break: normal;
-    }
-
-    pre {
-      padding: 0 1em 1em 1em;
-    }
-
-    code {
-      font-size: $base-font-size / 1.5;
-      line-height: 1.4em;
-      word-wrap: break-word;
-
-      &.language-html {
-        max-width: 25em;
-      }
-    }
-  }
-}
-
-// Download Code Boxes --------- //
-
-.download-code {
-  padding-top: 3em;
 }
 
 // Search bar grid --------- //
@@ -476,10 +380,10 @@ $site-top:           166px;
     background: $color-grid-light;
 
     > * {
+      @include margin(.5em null);
       color: $color-white;
       padding: 1em;
       background: $color-grid-dark;
-      @include margin(.5em null);
     }
   }
 
@@ -516,7 +420,7 @@ $site-top:           166px;
 }
 
 h3 + .button_wrapper {
-  margin-top: -.5em;
+  margin-top: -0.5em;
 }
 
 .button_wrapper {
@@ -572,13 +476,12 @@ h3 + .button_wrapper {
 
   .color-small {
     float: left;
+    margin-right: 0;
     width: 50%;
 
     @include media($medium-screen) {
       width: 17%;
     }
-
-    margin-right: 0;
   }
 
   p {
@@ -587,11 +490,11 @@ h3 + .button_wrapper {
 }
 
 .usa-primary-color-section {
+  margin-bottom: 0;
+
   @include media($medium-screen) {
     margin-bottom: 8rem;
   }
-
-  margin-bottom: 0;
 
   .usa-color-square {
     @include span-columns(6);
@@ -607,11 +510,11 @@ h3 + .button_wrapper {
   }
 
   .usa-mobile-end-row {
+    margin-right: 0;
+
     @include media($medium-screen) {
       margin-right: 2.35765%;
     }
-
-    margin-right: 0;
   }
 
   .usa-color-name {
@@ -625,14 +528,14 @@ h3 + .button_wrapper {
 }
 
 .usa-color-hex {
-  font-weight: $font-bold;
   @include margin(1rem null 0);
+  font-weight: $font-bold;
 }
 
 .usa-color-text {
+  @include padding(1rem 2rem);
   font-weight: $font-bold;
   margin-bottom: .4rem;
-  @include padding(1rem 2rem);
 }
 
 .usa-color-outline {
@@ -881,8 +784,8 @@ h6.usa-heading-alt {
 
 .usa-typography-example {
   .usa-monospace {
-    font-size: 1.2rem;
     @include margin(0 null 3rem);
+    font-size: 1.2rem;
   }
 }
 
@@ -911,6 +814,8 @@ pre[class*="language-"] {
   color: $color-base;
 }
 // scss-lint:enable QualifyingElement
+
+// Custom code sample colors 
 
 .token.property,
 .token.tag,
@@ -1122,11 +1027,11 @@ $font-light: 300;
 }
 
 .usa-disclaimer-official {
+  padding-left: 2rem;
+
   @include media($medium-screen) {
     padding-left: $site-margins;
   }
-
-  padding-left: 2rem;
 }
 
 // External link styles
