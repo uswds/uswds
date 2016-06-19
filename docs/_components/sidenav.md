@@ -108,7 +108,7 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: W
 
 </div>
 
-<div class="usa-accordion-bordered usa-accordion-docs">
+<div class="usa-accordion-bordered">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
