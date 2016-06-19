@@ -121,7 +121,7 @@ lead:  This 12-column, responsive grid provides structure for website content.
 
 </div>
 
-<div class="usa-accordion-bordered usa-accordion-docs">
+<div class="usa-accordion-bordered">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation

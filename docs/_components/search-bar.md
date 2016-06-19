@@ -56,7 +56,7 @@ lead: A block that allows users to search for specific content if they know what
   </div>
 </div>
 
-<div class="usa-accordion-bordered usa-accordion-docs">
+<div class="usa-accordion-bordered">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation

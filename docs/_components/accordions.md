@@ -133,7 +133,7 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
 
 </div>
 
-<div class="usa-accordion-bordered usa-accordion-docs">
+<div class="usa-accordion-bordered">
   <button class="usa-button-unstyled usa-accordion-button"
     aria-expanded="true" aria-controls="documentation">
     Documentation

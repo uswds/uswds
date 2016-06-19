@@ -14,7 +14,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
   </div>
 </div>
 
-<div class="usa-accordion-bordered usa-accordion-docs">
+<div class="usa-accordion-bordered">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
