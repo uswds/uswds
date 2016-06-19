@@ -15,7 +15,7 @@
   display: none;
   float: right;
 
-  @include media($large-screen) {
+  @include media($medium-screen) {
     display: block;
   }
 }
