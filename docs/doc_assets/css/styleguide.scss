@@ -10,7 +10,7 @@
 $width-nav-sidebar:  250px;
 $color-grid-dark:    #727272;
 $color-grid-light:   #e3e4e5;
-$site-top:           113px;
+$site-top:           166px;
 
 // Navigation ------------- //
 
@@ -38,50 +38,84 @@ $site-top:           113px;
     }
   }
 
-  .usa-site-navbar {
-    .logo {
-      @include padding(1.5rem null null $site-margins);
-      float: left;
-      text-align: center;
+  .site-logo {
+    @include padding(1.5rem null null $site-margins);
+    float: left;
+    text-align: center;
 
-      @include media($medium-screen + $width-nav-sidebar) {
-        margin: 3rem 0;
-        padding-top: 0;
-        width: auto;
-        text-align: left;
-      }
+    @include media($medium-screen + $width-nav-sidebar) {
+      margin: 3rem 0;
+      padding-top: 0;
+      width: auto;
+      text-align: left;
+    }
 
-      // scss-lint:disable SelectorDepth, NestingDepth
-      a {
-        color: $color-white;
-        text-decoration: none;
+    // scss-lint:disable SelectorDepth, NestingDepth
+    a {
+      color: $color-white;
+      text-decoration: none;
+    }
+  }
+
+  .usa-button-list {
+    float: right;
+    display: none;
+    margin-top: -5px;
+
+    @media screen and (min-width: 960px)  {
+      @include margin(2.47rem null);
+      display: block;
+      padding-right: $site-margins;
+    }
+
+    // scss-lint:disable SelectorDepth, NestingDepth
+    li {
+      display: inline;
+      font-family: $font-sans;
+
+      &:last-child .usa-button {
+        margin-right: 0;
       }
     }
 
-    .usa-button-list {
-      float: right;
-      display: none;
-      margin-top: -5px;
+    .usa-button {
+      @include margin(0 null);
+    }
+  }
+}
 
-      @media screen and (min-width: 960px)  {
-        @include margin(2.47rem null);
-        display: block;
-        padding-right: $site-margins;
-      }
+.site-nav-secondary {
+  display: none;
 
-      // scss-lint:disable SelectorDepth, NestingDepth
-      li {
-        display: inline;
-        font-family: $font-sans;
+  @include media($medium-screen + $width-nav-sidebar) {
+    background-color: $color-white;
+    border-bottom: 1px solid $color-gray-light;
+    clear: both;
+    display: block;
+    height: 5.3rem;
+    padding-left: 3rem;
+  }
 
-        &:last-child .usa-button {
-          margin-right: 0;
-        }
-      }
 
-      .usa-button {
-        @include margin(0 null);
-      }
+  ul {
+    @include unstyled-list;
+    line-height: 5.3rem;
+
+    li {
+      display: inline;
+      padding-right: 3rem;
+    }
+  }
+
+  a {
+    @include padding (2rem null);
+    color: $color-gray;
+    font-size: $h6-font-size;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-primary;
+      text-decoration: underline;
     }
   }
 }
