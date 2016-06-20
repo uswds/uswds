@@ -58,18 +58,14 @@ $(function () {
 
       $('.usa-footer-big nav ul').addClass('hidden');
 
-      $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
-
       $('.usa-footer-big nav .usa-footer-primary-link').bind('click', function () {
         $(this).parent().removeClass('hidden')
         .siblings().addClass('hidden');
       });
     } else {
-
       $('.usa-footer-big nav ul').removeClass('hidden');
-
-      $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
     }
+
   };
 
   footerAccordion();
