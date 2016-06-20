@@ -9,7 +9,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
 
   <h6 class="usa-heading-alt" id="big-footer">Big footer</h6>
 
-  <footer class="usa-footer usa-footer-big usa-sans" role="contentinfo">
+  <footer class="usa-footer usa-footer-big" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
       <a href="#">Return to top</a>
     </div>
@@ -98,7 +98,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
 
   <h6 class="usa-heading-alt" id="medium-footer">Medium footer</h6>
 
-  <footer class="usa-footer usa-footer-medium usa-sans" role="contentinfo">
+  <footer class="usa-footer usa-footer-medium" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
       <a href="#">Return to top</a>
     </div>
@@ -159,7 +159,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
 
   <h6 class="usa-heading-alt" id="slim-footer">Slim footer</h6>
 
-  <footer class="usa-footer usa-footer-slim usa-sans" role="contentinfo">
+  <footer class="usa-footer usa-footer-slim" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
       <a href="#">Return to top</a>
     </div>
@@ -181,12 +181,14 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
             </li>
           </ul>
         </nav>
-        <div class="usa-width-one-sixth usa-footer-primary-content">
-          <p>(800) CALL-GOVT</p>
+        <div class="usa-width-one-third">
+          <div class="usa-footer-primary-content usa-footer-contact_info">
+            <p>(800) CALL-GOVT</p>
+          </div>
+          <div class="usa-footer-primary-content usa-footer-contact_info">
+            <a href="mailto:info@agency.gov">info@agency.gov</a>
+          </div>
         </div>
-        <div class="usa-width-one-sixth usa-footer-primary-content">
-          <a href="mailto:info@agency.gov">info@agency.gov</a>
-        </div>          
       </div>
     </div>
 

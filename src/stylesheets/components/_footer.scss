@@ -10,9 +10,14 @@
     margin-top: 0;
     padding-bottom: 2rem;
     padding-top: 2rem;
+    text-decoration: none;
 
     @include media($medium-screen) {
       border-top: none;
+    }
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 
@@ -68,7 +73,6 @@
   .usa-footer-nav ul {
     @include media($medium-screen) {
       align-items: center;
-      display: flex;
     }
   }
 }
@@ -87,8 +91,27 @@
 
       .usa-grid-full {
         align-items: center;
-        display: flex;
       }
+    }
+  }
+
+  .usa-footer-contact_info {
+    > * {
+      @include media($medium-screen) {
+        margin: 0;
+      }
+    }
+
+    @include media($medium-screen) {
+      @include padding (2rem null);
+    }
+
+    @include media($medium-screen) {
+      width: 100%;
+    }
+
+    @include media($large-screen) {
+      @include span-columns(6);
     }
   }
 }
@@ -112,7 +135,6 @@ li.usa-footer-primary-content {
   }
 }
 // scss-lint:enable QualifyingElement
-
 
 .usa-sign_up-block {
   padding-bottom: 2rem;
@@ -158,6 +180,12 @@ li.usa-footer-primary-content {
 .usa-footer-contact-links {
   @include media($medium-screen) {
     text-align: right;
+  }
+}
+
+.usa-social-links {
+  a {
+    text-decoration: none;
   }
 }
 
