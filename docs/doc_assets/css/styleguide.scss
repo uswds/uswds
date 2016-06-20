@@ -1035,6 +1035,12 @@ $font-light: 300;
   }
 }
 
+.usa-styleguide-footer {
+  [href^="http:"]:not([href*="standards.com"]),
+  [href^="https:"]:not([href*="standards.com"]) {
+    @include external-link(external-link-alt, external-link-alt-hover);
+  }
+}
 
 .usa-button {
   &[href^="http:"]:not([href*="standards.com"]),
@@ -1045,9 +1051,11 @@ $font-light: 300;
   }
 }
 
-.usa-styleguide-footer {
+.logo-links {
   [href^="http:"]:not([href*="standards.com"]),
   [href^="https:"]:not([href*="standards.com"]) {
-    @include external-link(external-link-alt, external-link-alt-hover);
+    &::after {
+      display: none;
+    }
   }
 }
