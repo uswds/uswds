@@ -5,7 +5,7 @@ title: Form templates
 lead: Patterns for some of the most commonly used forms on government websites
 ---
 
-<h3 class="usa-heading">Accessibility</h3>
+<h3 class="usa-heading margin-top">Accessibility</h3>
 
 <p>As you customize these templates, make sure they continue to meet the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for all form controls</a> as well as the accessibility guidelines for each individual control.</p>
 <p>In addition, when creating forms with multiple controls or customizing these templates, be sure to:</p>
