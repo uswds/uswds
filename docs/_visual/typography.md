@@ -55,7 +55,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Default: Merriweather headings, Source Sans Pro body (lite)</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
+      <div id="collapsible-0" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
@@ -211,7 +211,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Merriweather headings, Source Sans Pro Body (robust)</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
+      <div id="collapsible-0" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
@@ -389,7 +389,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Merriweather headings and body</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
+      <div id="collapsible-0" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
@@ -568,7 +568,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Source Sans Pro headings, Merriweather body</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
+      <div id="collapsible-0" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
@@ -729,7 +729,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Source Sans Pro headings and body</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
+      <div id="collapsible-0" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
@@ -926,7 +926,7 @@ order: 01
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
-  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+  <div id="collapsible-0" class="usa-accordion-content">
     <h4 class="usa-heading">Implementation</h4>
     <p>To get the max-width on body text, add the class <code>usa-content</code> to your document. Use at the specificity that best suits your project's needs.</p>
     <p>Lists must use <code>usa-content-list</code> for the above.</p>
@@ -967,7 +967,7 @@ order: 01
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
-  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+  <div id="collapsible-0" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
       <li>Users should be able to tab to navigate between links.
@@ -1020,7 +1020,7 @@ order: 01
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
-  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+  <div id="collapsible-0" class="usa-accordion-content">
   <h4 class="usa-heading">Implementation</h4>
   <p>Lists are styled by default. For unstyled lists, use either the <code>usa-unstyled-list</code> class or unstyled list mixin: <code>@include unstyled-list;</code>. Both are located in <code>assets/_scss/core/<wbr>utilities.scss</code>.</p>
     <h4 class="usa-heading">Usability</h4>
