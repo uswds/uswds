@@ -32,7 +32,7 @@ $site-top:           124px;
     font-style: normal;
     font-weight: $font-bold;
     margin: 0;
-    
+
     @include media($medium-screen + $width-nav-sidebar) {
       display: block;
       font-size: $h3-font-size;
@@ -300,7 +300,7 @@ $site-top:           124px;
     font-size: $h5-font-size;
     @include margin(0 null 1.5rem);
   }
-  
+
   a {
     color: $color-gray-lighter;
 
@@ -1108,4 +1108,8 @@ $font-light: 300;
   [href^="https:"]:not([href*="standards.com"]) {
     @include external-link(external-link-alt, external-link-alt-hover);
   }
+}
+
+.heading-margin-alt {
+  margin-top: 3em;
 }
