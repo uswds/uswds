@@ -72,7 +72,7 @@ The task above builds the entire Draft U.S. Web Design Standards website locally
 It can be useful when debugging for build errors or generating a deployable
 version of the Standards website. This creates a `/_site` directory that
 contains the Jekyll-built site. This is the same build step that we use to
-deploy the website. The command is aliased by `npm run deploy'.
+deploy the website. The command is aliased by `npm run deploy`.
 
 ```sh
 gulp website:serve
