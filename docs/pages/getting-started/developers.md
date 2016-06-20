@@ -5,7 +5,7 @@ title: For developers
 lead: The UI components are built on a solid HTML foundation, progressively enhanced to provide core experiences across browsers. All users will have access to the same critical information and experiences regardless of what browser they use, although those experiences will render better in newer browsers. If JavaScript fails, users will still get a robust HTML foundation.
 ---
 
-## Installation
+## Installation<a id="installation"></a>
 
 Here are a few different ways to use the Standards within your project.
 
@@ -113,7 +113,7 @@ Do you have questions or need help with setup? Did you run into any weird errors
 
 You can also email us directly at uswebdesignstandards@gsa.gov.
 
-## CSS architecture
+## CSS architecture<a id="css-architecture"></a>
 
 * The CSS foundation of this site is built with the **[Sass](https://sass-lang.com)** preprocessor language.
 * Uses **[Bourbon](http://bourbon.io/)** for its simple and lightweight Sass mixin library, and the **[Neat](http://neat.bourbon.io/)** library for the grid framework. Bourbon and Neat are open-source products from **[thoughtbot](https://thoughtbot.com/)**.
@@ -130,7 +130,7 @@ You can also email us directly at uswebdesignstandards@gsa.gov.
 **For more information, visit:  
 [https://pages.18f.gov/frontend/css-coding-styleguide/](https://pages.18f.gov/frontend/css-coding-styleguide/)**
 
-## Where things are:
+## Where things live<a id="where-things-live"></a>
 
 * **HTML** markup for the components are located in: `docs/_visual, docs/_layout-system, docs/_elements, docs/_components` in the site root.
 * **Sass** styles are located in: `src/stylesheets/ (/core, /elements, /components)`. **Compiled CSS** is located in the [downloadable zip file]({{ site.repos[0].url }}/releases/download/v{{ site.version }}/uswds-{{ site.version }}.zip) .
@@ -138,13 +138,13 @@ You can also email us directly at uswebdesignstandards@gsa.gov.
 * **Fonts** are located in: `src/fonts`.
 * **Images** and icons are located in: `src/img`.
 
-## Browser support:
+## Notes on accessibility<a id="notes-on-accessibility"></a>
 
 We’ve designed the Standards to support older and newer browsers through progressive enhancement, and they officially support Internet Explorer 9 and up, along with the latest versions of Chrome, Firefox, and Safari. Internet Explorer 8 and below generally see very low usage, and most agency websites should be able to safely begin support at Internet Explorer 9.
 
 The Standards also meet the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and are compliant with [Section 508 of the Rehabilitation Act](http://www.section508.gov/). We’re happy to answer questions about accessibility — email us for more information. 
 
-## Contribution guidelines
+## Contribution guidelines<a id="contribution-guidelines"></a>
 
 Welcome!
 
