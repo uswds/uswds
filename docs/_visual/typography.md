@@ -949,12 +949,11 @@ order: 01
 
 <div class="preview">
 
-  <a href="#">This is a link without surrounding text.</a>
   <p><a href="#">This</a> is a text link on a light background.</p>
 
   <p><a class="usa-color-text-visited" href="#">This</a> is a visited link.</p>
 
-  <p>This is a link which opens in a <a href="http://media.giphy.com/media/8sgNa77Dvj7tC/giphy.gif" target="_blank">new tab</a>.</p>
+  <p>This is a link that goes to an <a class="usa-external_link" href="http://media.giphy.com/media/8sgNa77Dvj7tC/giphy.gif">external website</a>.</p>
 
   <div class="usa-background-light usa-color-gray-lighter">
     <p><a href="#">This</a> is a text link on a light background.</p>

@@ -1,10 +1,6 @@
 $usa-form-width: 32rem;
 
 form {
-  @include media($medium-screen) {
-    max-width: $usa-form-width;
-  }
-
   a {
     border-bottom: 0;
   }
@@ -25,6 +21,12 @@ form {
   input[name="password"],
   input[name="confirmPassword"] {
     margin-bottom: 1.1rem;
+  }
+}
+
+.usa-form {
+  @include media($medium-screen) {
+    max-width: $usa-form-width;
   }
 }
 
@@ -118,10 +120,6 @@ input.usa-input-medium {
   select {
     margin-bottom: 3rem;
   }
-}
-
-.usa-form-width {
-  max-width: $usa-form-width;
 }
 
 .usa-additional_text {
