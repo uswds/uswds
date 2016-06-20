@@ -4,7 +4,7 @@ We're so glad you're thinking about contributing to an 18F open source project! 
 
 One of our goals is to ensure a welcoming environment for all contibutors to our projects. Our staff follows the [18F Code of Conduct](https://github.com/18F/code-of-conduct/blob/master/code-of-conduct.md), and all contributors should do the same.
 
-We encourage you to read this project's CONTRIBUTING policy (you are here), its [LICENSE](../LICENSE.md), [README](../README.md) and its [Workflow](https://github.com/18F/web-design-standards/wiki/Workflow) process.
+We encourage you to read this project's CONTRIBUTING policy (you are here), its [LICENSE](https://github.com/18F/web-design-standards/blob/staging/LICENSE.md), [README](https://github.com/18F/web-design-standards/blob/staging/README.md) and its [Workflow](https://github.com/18F/web-design-standards/wiki/Workflow) process.
 
 If you have any questions or want to read more, check out the [18F Open Source Policy GitHub repository]( https://github.com/18f/open-source-policy), or just [shoot us an email](mailto:18f@gsa.gov).
 
@@ -72,7 +72,7 @@ The task above builds the entire Draft U.S. Web Design Standards website locally
 It can be useful when debugging for build errors or generating a deployable
 version of the Standards website. This creates a `/_site` directory that
 contains the Jekyll-built site. This is the same build step that we use to
-deploy the website. The command is aliased by `npm run deploy`.
+deploy the website. The command is aliased by `npm run deploy'.
 
 ```sh
 gulp website:serve
@@ -82,7 +82,7 @@ After running this command, you’ll be able to view
 the Draft U.S. Web Design Standards website locally (http://127.0.0.1:4000).
 This also sets up gulp and Jekyll to watch for file changes to the `/docs`
 and `/src` directories and rebuilds the website accordingly. The command is
-aliased by `npm start`
+aliased by `npm start`.
 
 ## Licenses and attribution
 

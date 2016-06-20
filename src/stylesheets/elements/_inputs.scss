@@ -71,11 +71,20 @@ select {
   textarea,
   select {
     border: 3px solid $color-secondary-dark;
-    width: calc(100% + 1.5rem);
+    width: calc(100% + 1.9rem); // 1.5rem left padding + 4px border from input error spacing
   }
 
   label {
     margin-top: 0;
+  }
+
+  .usa-input-inline {
+    border: $input-border-width solid $color-gray;
+    width: inherit;
+  }
+
+  .usa-input-inline-error {
+    border: 3px solid $color-secondary-dark;
   }
 }
 
