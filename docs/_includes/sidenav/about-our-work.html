@@ -1,0 +1,12 @@
+{% assign current = page.url | downcase | split: '/' %}
+
+<nav>
+  <ul class="usa-sidenav-list">
+    <li>
+      <a {% if current[1] == 'about-our-work' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/">Overview</a>
+    </li>
+    <li>
+      <a {% if current[1] == 'product-roadmap' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/">Product roadmap</a>
+    </li>
+  </ul>
+</nav>

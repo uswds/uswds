@@ -1,0 +1,43 @@
+{% assign current = page.url | downcase | split: '/' %}
+
+<nav>
+  <ul class="usa-sidenav-list">
+    <li>
+      <a {% if current[1] == 'getting-started' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/getting-started/">Overview</a>
+    </li>
+    <li>
+      <a {% if current[1] == 'getting-started/developers' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/getting-started/developers">For developers</a>
+      <ul class="usa-sidenav-sub_list">
+        <li>
+          <a href="#installation">Installation</a>
+        </li>
+        <li>
+          <a href="#css-architecture">CSS architecture</a>
+        </li>
+        <li>
+          <a href="#where-things-live">Where things live</a>
+        </li>
+        <li>
+          <a href="#notes-on-accessibility">Notes on accessibility</a>
+        </li>
+        <li>
+          <a href="#contribution-guidelines">Contribution guidelines</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a {% if current[1] == 'getting-started/designers' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/getting-started/designers">For designers</a>
+      <ul class="usa-sidenav-sub_list">
+        <li>
+          <a href="#text-inputs">Design resources</a>
+        </li>
+        <li>
+          <a href="#notes-on-accessibility">Notes on accessibility</a>
+        </li>
+        <li>
+          <a href="#contribution-guidelines">Contribution guidelines</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
