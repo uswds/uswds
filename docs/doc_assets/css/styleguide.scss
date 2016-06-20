@@ -32,7 +32,7 @@ $site-top:           124px;
     font-style: normal;
     font-weight: $font-bold;
     margin: 0;
-    
+
     @include media($medium-screen + $width-nav-sidebar) {
       display: block;
       font-size: $h3-font-size;
@@ -1076,4 +1076,8 @@ $font-light: 300;
   }
 
   padding-left: 2rem;
+}
+
+.heading-margin-alt {
+  margin-top: 3em;
 }
