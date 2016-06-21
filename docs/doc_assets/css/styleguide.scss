@@ -116,8 +116,16 @@ $site-top:           156px;
       color: $color-primary;
       text-decoration: underline;
     }
+
+    &.usa-current {
+      color: $color-primary;
+      font-weight: $font-bold;
+    }
   }
 }
+
+
+
 
 .menu-btn {
   background-color: $color-primary;

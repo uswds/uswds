@@ -20,16 +20,16 @@
   <nav class="site-nav-secondary">
     <ul>
       <li>
-        <a href="/">UI COMPONENTS</a>
+        <a {% if page.subheading == 'UI components' or page.title == 'UI components' %}class="usa-current"{% endif %} href="/">UI COMPONENTS</a>
       </li>
       <li>
-        <a href="/getting-started/">GETTING STARTED</a>
+        <a {% if page.subheading == 'Getting started' or page.title == 'Getting started' %}class="usa-current"{% endif %} href="/getting-started/">GETTING STARTED</a>
       </li>
       <li>
-        <a href="/design-principles/">DESIGN PRINCIPLES</a>
+        <a {% if page.title == 'Design principles' %}class="usa-current"{% endif %} href="/design-principles/">DESIGN PRINCIPLES</a>
       </li>
       <li>
-        <a href="/about-our-work/">ABOUT OUR WORK</a>
+        <a {% if page.subheading == 'About our work' or page.title == 'About our work' %}class="usa-current"{% endif %} href="/about-our-work/">ABOUT OUR WORK</a>
       </li>
     </ul>
   </nav>
