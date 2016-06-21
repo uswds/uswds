@@ -1,0 +1,86 @@
+---
+permalink: /test-sidenav/
+layout: styleguide
+title: Test sidenav
+---
+
+{% assign current = page.url | downcase | split: '/' %}
+
+<aside class="sidenav sidenav-mobile">
+  <nav>
+    <ul class="usa-sidenav-list">
+      <li>
+        <a class="sidenav-components" {% if current[1] == '/' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/">UI Components</a>
+        <ul class="usa-sidenav-sub_list">
+          <li>
+            <a {% if current[1] == '/' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/">Overview</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'visual-style' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/visual-style/">Visual style</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'grids' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/grids/">Grid</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'buttons' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/buttons/">Buttons</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'labels' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/labels/">Labels</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'tables' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/tables/">Tables</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'alerts' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/alerts/">Alerts</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'accordions' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/accordions/">Accordions</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'form-controls' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/form-controls/">Form controls</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'form-templates' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/form-templates/">Form templates</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'search-bar' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/search-bar/">Search bar</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'sidenav' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/sidenav/">Side navigation</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'footers' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/footers/">Footers</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="sidenav-getting_started" {% if current[1] == '/' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/">Getting started</a>
+        <ul class="usa-sidenav-sub_list">
+          <li>
+            <a {% if current[1] == 'getting-started' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/getting-started/">Overview</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'getting-started/developers' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/getting-started/developers/">For developers</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'getting-started/designers' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/getting-started/designers/">For designers</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="sidenav-design_principles" {% if current[1] == 'design-principles' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/design-principles/">Design principles</a>
+      </li>
+      <li>
+        <a class="sidenav-about" {% if current[1] == '/' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/">About our work</a>
+        <ul class="usa-sidenav-sub_list">
+          <li>
+            <a {% if current[1] == 'about-our-work' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/about-our-work/">Overview</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'about-our-work/product-roadmap' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/about-our-work/product-roadmap/">Product roadmap</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</aside>
