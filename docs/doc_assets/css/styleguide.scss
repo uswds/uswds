@@ -108,6 +108,7 @@ $site-top:           156px;
     @include padding (1.6rem null);
     color: $color-gray;
     font-size: $h6-font-size;
+    letter-spacing: 0.3px;
     line-height: 5rem;
     text-decoration: none;
 
