@@ -11,7 +11,13 @@
   	{% include navbar.html %}
 
     <aside class="sidenav">
-      {% include sidenav/ui-components.html %}
+      {% if page.subheading == 'UI components' or page.title == 'UI components' %}
+        {% include sidenav/ui-components.html %}
+      {% elsif page.subheading == 'Getting started' or page.title == 'Getting started' %}
+        {% include sidenav/getting-started.html %}
+      {% elsif page.subheading == 'About our work' or page.title == 'About our work' %}
+        {% include sidenav/about-our-work.html %}
+      {% endif %}
     </aside>
 
     <div class="main-content" id="main-content">
