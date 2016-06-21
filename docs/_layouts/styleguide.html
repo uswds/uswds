@@ -16,9 +16,15 @@
 
     <div class="main-content" id="main-content">
       <div class="styleguide-content usa-content">
-        <span class="site-subheading">{{ page.subheading }}</span>
-        <h1 id="{{ page.title | slugify }}">{{ page.title }}</h1>
-        <p class="usa-font-lead">{{ page.lead }}</p>
+        <header>
+          {% if page.subheading != null %}
+            <p class="site-subheading">{{ page.subheading }}</p>
+          {% endif %}
+          <h1 id="{{ page.title | slugify }}">{{ page.title }}</h1>
+        </header>
+        {% if page.lead != null %}
+          <p class="usa-font-lead">{{ page.lead }}</p>
+        {% endif %}
         {{ content }}
       </div>
 

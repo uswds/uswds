@@ -2,6 +2,7 @@
 layout: styleguide
 type: element
 title: Tables
+subheading: UI components
 lead: Tables show tabular data in columns and rows.
 ---
 

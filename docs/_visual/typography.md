@@ -1,6 +1,7 @@
 ---
 layout: styleguide
 title: Typography
+subheading: UI components
 order: 01
 ---
 
