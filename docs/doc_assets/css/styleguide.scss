@@ -203,6 +203,10 @@ $site-top:           156px;
 
   .usa-sidenav-sub_list {
     display: none;
+
+    &[aria-hidden="false"] {
+      display: block;
+    }
   }
 
   @include media($medium-screen + $width-nav-sidebar) {
