@@ -314,16 +314,20 @@ li.usa-footer-primary-content {
   display: inline-block;
   height: $hit-area;
   left: -1.6rem; // relative left positioning
+  margin-bottom: 1.5rem;
   margin-left: 0;
   margin-right: 1rem; // spacing between link hit areas
+  margin-top: 2.5rem;
   position: relative;
   text-align: center;
   width: $hit-area;
 
   @include media($medium-screen) {
-    left: 1.2rem; 
+    left: 1.2rem;
+    margin-bottom: 0;
     margin-left: 1rem;
     margin-right: 0;
+    margin-top: 0;
   }
 
   span {
