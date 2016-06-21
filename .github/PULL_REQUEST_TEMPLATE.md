@@ -23,6 +23,6 @@ Include a high-level description for what the pull request fixes and links to Gi
 
 Make sure these boxes are checked before submitting your issue—thank you!
 
-- [ ] Followed the [18F Front end coding styleguide](https://pages.18f.gov/frontend/#css)
+- [ ] Follow the [18F Front end coding styleguide](https://pages.18f.gov/frontend/#css)
 - [ ] Run `scss-lint` Sass linter and tests passed
 - [ ] Run my code through [HTML_CodeSniffer](http://squizlabs.github.io/HTML_CodeSniffer/) and no new errors introduced
