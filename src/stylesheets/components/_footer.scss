@@ -313,11 +313,18 @@ li.usa-footer-primary-content {
   background-size: auto $background-height;
   display: inline-block;
   height: $hit-area;
-  left: 1.2rem; // relative left positioning
-  margin-left: 1rem; // spacing between link hit areas
+  left: -1.6rem; // relative left positioning
+  margin-left: 0;
+  margin-right: 1rem; // spacing between link hit areas
   position: relative;
   text-align: center;
   width: $hit-area;
+
+  @include media($medium-screen) {
+    left: 1.2rem; 
+    margin-left: 1rem;
+    margin-right: 0;
+  }
 
   span {
     @include sr-only();
