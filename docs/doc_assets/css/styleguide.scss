@@ -246,12 +246,8 @@ $site-top:           156px;
   max-width: $site-max-width;
   position: relative;
 
-  > h1 {
+  > h1:first-of-type {
     margin-top: 0;
-
-    &:not(:first-child) {
-      margin-top: 1.5em;
-    }
   }
 
   @media (min-width: $medium-screen + $width-nav-sidebar) {
@@ -261,6 +257,14 @@ $site-top:           156px;
 
 .heading-margin-alt {
   margin-top: 6rem;
+}
+
+.site-subheading {
+  @include h6;
+  color: $color-gray;
+  display: block;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.6rem;
 }
 
 // Footer --------------- //

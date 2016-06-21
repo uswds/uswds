@@ -2,7 +2,8 @@
 layout: styleguide
 type: element
 title: Buttons
-lead: Use buttons to signal actions. 
+subheading: UI components
+lead: Use buttons to signal actions.
 ---
 
 <div class="preview">
