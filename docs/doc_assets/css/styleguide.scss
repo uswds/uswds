@@ -282,6 +282,10 @@ $site-top:           124px;
   }
 }
 
+.heading-margin-alt {
+  margin-top: 6rem;
+}
+
 // Footer --------------- //
 
 .usa-styleguide-footer {
@@ -1108,8 +1112,4 @@ $font-light: 300;
   [href^="https:"]:not([href*="standards.com"]) {
     @include external-link(external-link-alt, external-link-alt-hover);
   }
-}
-
-.heading-margin-alt {
-  margin-top: 3em;
 }
