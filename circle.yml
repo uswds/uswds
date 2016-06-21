@@ -1,4 +1,6 @@
 machine:
+  environment:
+    GOPATH: "${HOME}/.go_workspace"
   node:
     version: 5.1.0
 
@@ -8,6 +10,8 @@ dependencies:
     - if [ ! -f debs/temp.deb ]; then wget -qO debs/temp.deb https://cli.run.pivotal.io/stable?release=debian64; fi
     - sudo dpkg -i debs/temp.deb
     - cf -v
+    - go get github.com/concourse/autopilot
+    - cf install-plugin $GOPATH/bin/autopilot -f
     - bundle install
   cache_directories:
     - debs
@@ -30,19 +34,19 @@ deployment:
     branch: [master]
     commands:
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-production
-      - cf push -p _site
+      - cf zero-downtime-push wds-microsite -f manifest.yml -p _site
   staging:
     branch: [staging]
     commands:
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-staging
-      - cf push -f config/cf/manifest-staging.yml -p _site
+      - cf zero-downtime-push wds-microsite -f config/cf/manifest-staging.yml -p _site
   release:
     branch: [release]
     commands:
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-release
-      - cf push -f config/cf/manifest-release.yml -p _site
+      - cf zero-downtime-push wds-microsite -f config/cf/manifest-release.yml -p _site
   user-testing:
     branch: [user-testing]
     commands:
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-user-testing
-      - cf push -f config/cf/manifest-user-testing.yml -p _site
+      - cf zero-downtime-push wds-microsite -f config/cf/manifest-user-testing.yml -p _site
