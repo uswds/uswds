@@ -10,7 +10,7 @@
 $width-nav-sidebar:  250px;
 $color-grid-dark:    #727272;
 $color-grid-light:   #e3e4e5;
-$site-top:           154px;
+$site-top:           5rem;
 
 // Navigation ------------- //
 
@@ -19,6 +19,10 @@ $site-top:           154px;
   background-color: $color-primary-darkest;
   width: 100%;
   z-index: 1;
+
+  @include media($medium-screen + $width-nav-sidebar) {
+    position: relative;
+  }
 
   em {
     display: block;
@@ -64,6 +68,10 @@ $site-top:           154px;
 
 .site-navbar {
   height: 4rem;
+
+  &.is-scrolled {
+    display: none;
+  }
 }
 
 .site-logo {
@@ -93,6 +101,12 @@ $site-top:           154px;
     display: block;
     height: 5rem;
     padding-left: 3rem;
+  }
+
+  &.is-scrolled {
+    position: fixed;
+    top: 0;
+    width: 100%;
   }
 
   ul {
@@ -171,13 +185,17 @@ $site-top:           154px;
 
 .sidenav {
   // sidenav desktop
-  @include position(fixed, $site-top null 0 0);
-  border-right: 1px solid $color-gray-light;
-  display: none;
+  @include position(null null 0 0);
+  display: block; // starting: not scrolled
+  float: left; // starting: not scrolled
   overflow: auto;
-  padding: 4rem 3rem 3rem 3rem;
+  padding: 4rem 0 3rem 3rem;
   width: $width-nav-sidebar;
-  z-index: -1;
+
+  &.is-scrolled {
+    position: fixed;
+    top: $site-top;
+  }
 
   .lt-ie9 & {
     width: 25%;
@@ -292,13 +310,18 @@ $site-top:           154px;
 
 .main-content {
   @include position(absolute, 4rem 0 0 null);
-  margin-top: 7.6rem;
+  display: inline-block; // starting: not scrolled
+  margin-top: 7.6rem; // starting: not scrolled
+  position: relative;
   width: 100%;
-  z-index: -1;
 
   @include media($medium-screen + $width-nav-sidebar) {
     margin-top: 4rem;
-    top: $site-top;
+    top: 0;
+
+    &.is-scrolled {
+      top: $site-top;
+    }
   }
 
   .lt-ie9 & {
@@ -329,7 +352,7 @@ $site-top:           154px;
   }
 
   @media (min-width: $medium-screen + $width-nav-sidebar) {
-    @include padding(null 3em);
+    @include padding(null 3rem);
   }
 }
 
@@ -1146,14 +1169,27 @@ $font-light: 300;
 // Design principles
 
 .design-principles {
-  img {
-    max-width: 18.4rem;
-  }
-
   @include media($medium-screen) {
     .usa-grid-full {
-      @include margin(4rem null 3rem null)
+      @include margin(4rem null 3rem null);
     }
+  }
+
+  // full-width styles. TODO: look into making a template instead.
+  .main-content {
+    width: 100%;
+  }
+
+  .styleguide-content {
+    @include margin(null auto);
+  }
+
+  .sidenav {
+    display: none;
+  }
+
+  img {
+    max-width: 18.4rem;
   }
 }
 
