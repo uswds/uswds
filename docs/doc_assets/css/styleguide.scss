@@ -225,7 +225,13 @@ $site-top:           156px;
 .sidenav-mobile {
   button {
     @include button-unstyled;
+    font-weight: $font-normal;
     padding: 1rem 1rem 1rem 1.8rem;
+
+    &:focus,
+    &:active {
+      box-shadow: $focus-shadow;
+    }
 
     &:hover {
       background-color: $color-gray-lightest;

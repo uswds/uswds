@@ -174,7 +174,6 @@ button,
   background: none;
   border: 0;
   border-radius: 0;
-  font-weight: $font-normal;
   outline: 0;
   padding: 0;
   text-align: left;
@@ -183,7 +182,7 @@ button,
   &:focus,
   &:hover {
     box-shadow: initial;
-  }  
+  }
 }
 
 .usa-button-unstyled {
