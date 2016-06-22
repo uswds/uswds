@@ -29,14 +29,100 @@ gulp.task('clean-generated-assets', function (done) {
   );
 });
 
-gulp.task('copy-docs-assets', function(done) {
-  var copyDoc = exec('cp -rvf docs/doc_assets/* docs/assets ', function (error, stdout, stderr) {
-    if (stdout && /[\w\d]+/.test(stdout)) {
-      dutil.logData('copy-docs-assets', stdout);
+
+gulp.task('copy-docs-assets:images', function (done) {
+
+  var cp = spawn('cp', [
+    '-rvf',
+    'docs/doc_assets/img/*',
+    'docs/assets/img',
+  ], { shell: true });
+
+  cp.stdout.on('data', function (data) {
+
+    if (/[\w\d]+/.test(data)) {
+
+      dutil.logData('copy-docs-assets:images', data);
+
     }
 
-    done();
   });
+
+  cp.stderr.on('data', function (data) {
+
+    dutil.logError('copy-docs-assets:images', data);
+
+  });
+
+  cp.on('error', function (error) { done(error); });
+
+  cp.on('close', function (code) { if (0 === code) { done(); } });
+
+});
+
+gulp.task('copy-docs-assets:stylesheets', function (done) {
+
+  var cp = spawn('cp', [
+    '-rvf',
+    'docs/doc_assets/css/*',
+    'docs/assets/css/',
+  ], { shell: true });
+
+  cp.stdout.on('data', function (data) {
+
+    if (/[\w\d]+/.test(data)) {
+
+      dutil.logData('copy-docs-assets:stylesheets', data);
+
+    }
+
+  });
+
+  cp.stderr.on('data', function (data) {
+
+    dutil.logError('copy-docs-assets:stylesheets', data);
+
+  });
+
+  cp.on('error', function (error) { done(error); });
+
+  cp.on('close', function (code) { if (0 === code) { done(); } });
+
+});
+gulp.task('copy-docs-assets:javascript', function (done) {
+
+  // Only copies over the vendor files. The source JavaScript is bundled using Browserify
+  // @see: config/gulp/javascript.js
+
+  var cp = spawn('cp', [
+    '-rvf',
+    'docs/doc_assets/js/vendor/*',
+    'docs/assets/js/vendor',
+  ], { shell: true });
+
+  cp.stdout.on('data', function (data) {
+
+    if (/[\w\d]+/.test(data)) {
+
+      dutil.logData('copy-docs-assets:javascript', data);
+
+    }
+
+  });
+
+  cp.stderr.on('data', function (data) {
+
+    if (/[\w\d]+/.test(data)) {
+
+      dutil.logError('copy-docs-assets:javascript', data);
+
+    }
+
+  });
+
+  cp.on('error', function (error) { done(error); });
+
+  cp.on('close', function (code) { if (0 === code) { done(); } });
 
 });
 
@@ -149,6 +235,7 @@ gulp.task('copy-images', function (done) {
 
 gulp.task('copy-assets', [ 'build' ], function (done) {
   runSequence(
+    'docs_javascript',
     'clean-generated-assets',
     'make-bundled-javascript-dirs',
     'copy-bundled-javascript',
@@ -156,7 +243,9 @@ gulp.task('copy-assets', [ 'build' ], function (done) {
     'copy-fonts',
     'make-images-dirs',
     'copy-images',
-    'copy-docs-assets',
+    'copy-docs-assets:images',
+    'copy-docs-assets:stylesheets',
+    'copy-docs-assets:javascript',
     done
   );
 });
@@ -224,7 +313,7 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
   ], function (event) {
     runSequence(
       'sass',
-      'copy-docs-assets'
+      'copy-docs-assets:stylesheets'
     );
   });
   gulp.watch([
@@ -236,15 +325,21 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
       'clean-bundled-javascript',
       'make-bundled-javascript-dirs',
       'copy-bundled-javascript',
-      'copy-docs-assets'
+      'copy-docs-assets:javascript'
     );
+  });
+  gulp.watch([
+    'docs/doc_assets/js/**/*.js',
+    '!docs/doc_assets/js/vendor/**/*',
+  ], function (event) {
+    runSequence('docs_javascript');
   });
   gulp.watch('src/img/**/*', function (event) {
     runSequence(
       'images',
       'make-images-dirs',
       'copy-images',
-      'copy-docs-assets'
+      'copy-docs-assets:images'
     );
   });
   gulp.watch('src/fonts/**/*', function (event) {
@@ -252,8 +347,7 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
       'fonts',
       'clean-fonts',
       'make-fonts-dirs',
-      'copy-fonts',
-      'copy-docs-assets'
+      'copy-fonts'
     );
   });
 
