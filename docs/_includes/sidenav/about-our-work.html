@@ -3,10 +3,10 @@
 <nav>
   <ul class="usa-sidenav-list">
     <li>
-      <a {% if current[1] == 'about-our-work' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/about-our-work/">Overview</a>
+      <a {% if page.url == '/about-our-work/' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/about-our-work/">Overview</a>
     </li>
     <li>
-      <a {% if current[1] == 'about-our-work/product-roadmap' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/about-our-work/product-roadmap/">Product roadmap</a>
+      <a {% if page.url contains 'about-our-work/product-roadmap' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/about-our-work/product-roadmap/">Product roadmap</a>
     </li>
   </ul>
 </nav>

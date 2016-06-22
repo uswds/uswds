@@ -1,12 +1,10 @@
-{% assign current = page.url | downcase | split: '/' %}
-
 <nav>
   <ul class="usa-sidenav-list">
     <li>
-      <a {% if current[1] == 'getting-started' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/getting-started/">Overview</a>
+      <a {% if page.url == '/getting-started/' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/getting-started/">Overview</a>
     </li>
     <li>
-      <a {% if current[1] == 'getting-started/developers' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/getting-started/developers">For developers</a>
+      <a {% if page.url contains '/getting-started/developers' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/getting-started/developers">For developers</a>
       <ul class="usa-sidenav-sub_list">
         <li>
           <a href="#installation">Installation</a>
@@ -26,7 +24,7 @@
       </ul>
     </li>
     <li>
-      <a {% if current[1] == 'getting-started/designers' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/getting-started/designers">For designers</a>
+      <a {% if page.url contains '/getting-started/designers' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/getting-started/designers">For designers</a>
       <ul class="usa-sidenav-sub_list">
         <li>
           <a href="#text-inputs">Design resources</a>

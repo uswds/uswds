@@ -3,7 +3,7 @@
 <nav>
   <ul class="usa-sidenav-list">
     <li>
-      <a {% if current[1] == '/' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/">Overview</a>
+      <a {% if page.url == '/' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/">Overview</a>
     </li>
     <li>
       <a {% if current[1] == 'visual-style' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/visual-style/">Visual style</a>
