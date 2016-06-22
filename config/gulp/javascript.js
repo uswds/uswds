@@ -12,6 +12,19 @@ var assert = require('gulp-if');
 var linter = require('gulp-eslint');
 var task = /([\w\d-_]+)\.js$/.exec(__filename)[ 1 ];
 
+gulp.task('doc_eslint', function (done) {
+
+  if (!cFlags.test) {
+    dutil.logMessage('eslint', 'Skipping linting of docs JavaScript files.');
+    return done();
+  }
+
+  return gulp.src([ 'docs/doc_assets/js/**/*.js', '!docs/doc_assets/js/vendor/**/*.js' ])
+    .pipe(linter('.eslintrc'))
+    .pipe(linter.format());
+
+});
+
 gulp.task('eslint', function (done) {
 
   if (!cFlags.test) {
