@@ -1151,6 +1151,20 @@ $font-light: 300;
   }
 }
 
+.ui-components {
+  .usa-font-lead:first-of-type {
+    margin-top: 3.2rem;
+  }
+}
+
+.design-principles {
+  @include media($medium-screen) {
+    .usa-grid-full {
+      @include margin(4rem null 3rem null)
+    }
+  }
+}
+
 .usa-center {
   text-align: center;
 }
