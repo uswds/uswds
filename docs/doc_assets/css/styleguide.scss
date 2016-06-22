@@ -262,6 +262,10 @@ $site-top:           156px;
       background-size: 1rem;
     }
   }
+  
+  .usa-sidenav-sub_list[aria-hidden=true] {
+    display: none;
+  }
 
   .usa-current {
     border-left: 4px solid $color-primary;
