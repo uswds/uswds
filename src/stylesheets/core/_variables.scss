@@ -89,3 +89,6 @@ $border-radius:     rem(3px);
 $box-shadow:        0 0 2px $color-shadow;
 $focus-shadow:      0 0 3px $color-focus, 0 0 7px $color-focus;
 $grid-margins:      3rem;
+
+// 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines
+$hit-area:          4.4rem; 

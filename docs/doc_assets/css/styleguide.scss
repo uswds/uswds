@@ -265,11 +265,13 @@ $site-top:           156px;
 
 .sliding-panel-close {
   float: right;
-  width: 44px;
-  text-align: right;
-  height: 44px;
+  height: $hit-area;
+  margin-right: -1.5rem;
+  text-align: center;
+  width: $hit-area;
 
   img {
+    margin-top: 1.6rem;
     width: 1.3rem;
   }
 }
