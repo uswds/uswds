@@ -348,6 +348,10 @@ $site-top:           156px;
 
   p {
     font-size: $h5-font-size;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   img {
