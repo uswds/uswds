@@ -23,6 +23,12 @@ gulp.task('make-tmp-directory', function (done) {
 
   });
 
+  cp.stderr.on('data', function (data) {
+
+    dutil.logError('make-tmp-directory', data);
+
+  });
+
   cp.on('error', function (error) { done(error); });
 
   cp.on('close', function (code) { if (0 === code) { done(); } });
@@ -50,6 +56,12 @@ gulp.task('zip-archives', function (done) {
       dutil.logData('zip-archives', data);
 
     }
+
+  });
+
+  zip.stderr.on('data', function (data) {
+
+    dutil.logError('zip-archives', data);
 
   });
 

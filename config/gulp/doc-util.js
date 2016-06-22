@@ -57,6 +57,15 @@ function drawFlag () {
 
 }
 
+function notify (title, message, wait) {
+  notifier.notify({
+    title: title,
+    message: message,
+    icon: 'src/img/favicons/favicon-192.png',
+    wait: wait,
+  });
+}
+
 module.exports = {
 
   pkg: {
@@ -119,12 +128,7 @@ module.exports = {
       gutil.colors.red(name),
       gutil.colors.yellow(message)
     );
-    notifier.notify({
-      title: this.dirName + ' ' + name,
-      message: message,
-      icon: 'src/img/us_flag_small.png',
-      wait: true,
-    });
+    notify(this.dirName + ' gulp ' + name, message, true);
 
   },
 
@@ -134,12 +138,7 @@ module.exports = {
       gutil.colors.cyan(name),
       gutil.colors.green(message)
     );
-
-    notifier.notify({
-      title: this.dirName + ' ' + name,
-      message: message,
-      icon: 'src/img/us_flag_small.png',
-    });
+    notify(this.dirName + ' gulp ' + name, message, false);
 
   },
 

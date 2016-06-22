@@ -138,6 +138,10 @@ gulp.task('make-bundled-javascript-dirs', function(done) {
     }
   });
 
+  makeBundledJavaScriptDirs.stderr.on('data', function (data) {
+    dutil.logError('make-bundled-javascript-dirs', data);
+  });
+
   makeBundledJavaScriptDirs.on('error', function (error) { done(error); });
 
   makeBundledJavaScriptDirs.on('close', function (code) { if (0 === code) { done(); } });
@@ -161,6 +165,12 @@ gulp.task('copy-bundled-javascript', function (done) {
 
   });
 
+  copyBundledJavaScript.stderr.on('data', function (data) {
+
+    dutil.logError('copy-bundled-javascript', data);
+
+  });
+
   copyBundledJavaScript.on('error', function (error) { done(error); });
 
   copyBundledJavaScript.on('close', function (code) { if (0 === code) { done(); } });
@@ -179,6 +189,10 @@ gulp.task('make-fonts-dirs', function(done) {
     }
   });
 
+  makeFontsDirs.stderr.on('data', function (data) {
+    dutil.logError('make-fonts-dirs', data);
+  });
+
   makeFontsDirs.on('error', function (error) { done(error); });
 
   makeFontsDirs.on('close', function (code) { if (0 === code) { done(); } });
@@ -192,6 +206,10 @@ gulp.task('copy-fonts', function (done) {
 
       dutil.logData('copy-fonts', stdout);
 
+    }
+
+    if (stderr) {
+      dutil.logError('copy-fonts', stderr);
     }
 
     done();
@@ -212,6 +230,10 @@ gulp.task('make-images-dirs', function(done) {
     }
   });
 
+  makeImagesDirs.stderr.on('data', function (data) {
+    dutil.logError('make-images-dirs', data);
+  });
+
   makeImagesDirs.on('error', function (error) { done(error); });
 
   makeImagesDirs.on('close', function (code) { if (0 === code) { done(); } });
@@ -225,6 +247,10 @@ gulp.task('copy-images', function (done) {
 
       dutil.logData('copy-images', stdout);
 
+    }
+
+    if (stderr) {
+      dutil.logError('copy-images', stderr);
     }
 
     done();
@@ -263,6 +289,12 @@ gulp.task('bundle-gems', [ 'copy-assets' ], function (done) {
       dutil.logData('bundle-gems', data);
 
     }
+
+  });
+
+  bundle.stderr.on('data', function (data) {
+
+    dutil.logError('bundle-gems', data);
 
   });
 
@@ -374,6 +406,10 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
 
   });
 
+  jekyll.stderr.on('data', function (data) {
+    dutil.logError(taskServe, data);
+  });
+
   jekyll.on('error', function (error) { done(error); });
 
   jekyll.on('close', function (code) { if (0 === code) { done(); } });
@@ -398,6 +434,10 @@ gulp.task(taskBuild, [ 'bundle-gems' ], function (done) {
 
     }
 
+  });
+
+  jekyll.stderr.on('data', function (data) {
+    dutil.logError(taskBuild, data);
   });
 
   jekyll.on('error', function (error) { done(error); });
