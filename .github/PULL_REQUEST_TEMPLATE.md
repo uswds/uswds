@@ -1,28 +1,29 @@
 <!-- Please feel free to remove whatever sections/lines in this aren't relevant. 
 
-## Title Line Template: [Website] - [UI component]: [Brief statement describing what this pull request solves.]
+## Title Line Template: [Website] - [UI component]: Brief statement describing what this pull request solves.
 
 Use the title line as the title of your pull request, then delete these lines.
 
-Website: Issues that impact standards.usa.gov look, feel or functionality.
-UI component: Issues that impact the look, feel or functionality of the standards themselves.
+Website: Issues that impact standards.usa.gov look, feel, or functionality.
+UI component: Issues that impact the look, feel, or functionality of the standards themselves.
 
 -->
 
 ## Description
 
-Include a high-level description for what the pull request fixes and links to Github issues it resolves.
+Include a high-level description of what the pull request fixes. Please also link to the GitHub issue it resolves.
 
 ## Additional information
 
+Include any of the following (as necessary): 
+
 * Relevant research and support documents
 * Type of content review needed: stylistic or copy editing
-* Screen shot images
+* Screenshot images
 * Notes
-* etc.
 
-Make sure these boxes are checked before submitting your issue—thank you!
+Before you hit Submit, make sure you’ve done the following:
 
-- [ ] Follow the [18F Front end coding styleguide](https://pages.18f.gov/frontend/#css)
-- [ ] Run `scss-lint` Sass linter and tests passed
-- [ ] Run my code through [HTML_CodeSniffer](http://squizlabs.github.io/HTML_CodeSniffer/) and no new errors introduced
+- [ ] Follow the [18F Front End Coding Style Guide](https://pages.18f.gov/frontend/#css).
+- [ ] Run `scss-lint` Sass linter and and make sure the tests have passed.
+- [ ] Run your code through [HTML_CodeSniffer](http://squizlabs.github.io/HTML_CodeSniffer/) and make sure it’s error free. - [ ] Title your pull request using this format: [Website] - [UI component]: Brief statement describing what this pull request solves.
