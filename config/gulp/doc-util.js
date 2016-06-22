@@ -1,5 +1,6 @@
 var pkg = require('../../package.json');
 var gutil = require('gulp-util');
+var notifier = require('node-notifier');
 
 var shellPrefix = '$';
 
@@ -112,12 +113,33 @@ module.exports = {
 
   },
 
+  logError: function (name, message) {
+
+    gutil.log(
+      gutil.colors.red(name),
+      gutil.colors.yellow(message)
+    );
+    notifier.notify({
+      title: this.dirName + ' ' + name,
+      message: message,
+      icon: 'src/img/us_flag_small.png',
+      wait: true,
+    });
+
+  },
+
   logMessage: function (name, message) {
 
     gutil.log(
       gutil.colors.cyan(name),
       gutil.colors.green(message)
     );
+
+    notifier.notify({
+      title: this.dirName + ' ' + name,
+      message: message,
+      icon: 'src/img/us_flag_small.png',
+    });
 
   },
 
