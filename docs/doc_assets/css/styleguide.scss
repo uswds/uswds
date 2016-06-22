@@ -39,7 +39,7 @@ $site-top:           156px;
     display: none;
     margin-top: -5px;
 
-    @media screen and (min-width: 960px)  {
+    @include media($medium-screen + $width-nav-sidebar) {
       line-height: 8rem;
       margin-top: 0;
       display: block;
