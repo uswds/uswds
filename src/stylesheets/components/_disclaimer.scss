@@ -1,11 +1,33 @@
 .usa-disclaimer {
   background-color: $color-gray-lightest;
+  display: block;
+  height: 2.3rem;
   font-size: 1.2rem;
-  padding-bottom: .5rem;
-  padding-top: .5rem;
 
   @include media($small-screen) {
     font-size: $h6-font-size;
+  }
+}
+
+.usa-disclaimer-official {
+  display: inline-block;
+  height: 2.3rem;
+
+  p {
+    display: inline-block;
+    margin: 0;
+    padding-top: 3px;
+
+    @include media($small-screen) {
+      padding-top: 2px;
+    }
+  }
+
+  img {
+    float: left;
+    margin-right: 0.7rem;
+    margin-top: 1px;
+    width: 2rem;
   }
 }
 
@@ -14,12 +36,11 @@
 .usa-disclaimer-stage {
   display: none;
   float: right;
+  margin-bottom: 0;
+  margin-top: 2px;
+  padding-right: 3rem;
 
   @include media($medium-screen) {
     display: block;
   }
-}
-
-.usa-flag_icon {
-  margin-right: .2rem;
 }
