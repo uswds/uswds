@@ -170,6 +170,7 @@ $site-top:           156px;
 // Sidebar Nav --------- //
 
 .sidenav {
+  // sidenav desktop
   @include position(fixed, $site-top null 0 0);
   border-right: 1px solid $color-gray-light;
   display: none;
@@ -177,25 +178,6 @@ $site-top:           156px;
   padding: 4rem 3rem 3rem 3rem;
   width: $width-nav-sidebar;
   z-index: -1;
-
-  @media (max-width: $medium-screen + $width-nav-sidebar) {
-    $sliding-panel-width: 26rem;
-    @include position(fixed, 0 0 0 auto);
-    @include size($sliding-panel-width 100%);
-    @include transform(translateX($sliding-panel-width));
-    background: $color-white;
-    border-left: 1px solid $color-gray-light;
-    border-right: 0;
-    display: block;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    z-index: 999999;
-
-    &.is-visible {
-      @include transform(translateX(0));
-      @include transition(all 0.3s ease-in-out);
-    }
-  }
 
   .lt-ie9 & {
     width: 25%;
@@ -223,6 +205,31 @@ $site-top:           156px;
 }
 
 .sidenav-mobile {
+  $sliding-panel-width: 26rem;
+  @include position(fixed, 0 0 0 auto);
+  @include size($sliding-panel-width 100%);
+  @include transform(translateX($sliding-panel-width));
+  background: $color-white;
+  border-left: 1px solid $color-gray-light;
+  border-right: 0;
+  display: block;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 999999;
+
+  &.is-visible {
+    @include transform(translateX(0));
+    @include transition(all 0.3s ease-in-out);
+  }
+
+  @media (min-width: $medium-screen + $width-nav-sidebar) {
+    display: none;
+  }
+
+  nav {
+    margin-top: 6rem;
+  }
+
   button {
     @include button-unstyled;
     font-weight: $font-normal;
@@ -253,6 +260,17 @@ $site-top:           156px;
       background-position: right 0 center;
       background-size: 1rem;
     }
+  }
+}
+
+.sliding-panel-close {
+  float: right;
+  width: 44px;
+  text-align: right;
+  height: 44px;
+
+  img {
+    width: 1.3rem;
   }
 }
 
