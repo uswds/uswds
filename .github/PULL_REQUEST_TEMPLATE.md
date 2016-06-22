@@ -11,7 +11,7 @@ UI component: Issues that impact the look, feel, or functionality of the standar
 
 ## Description
 
-Include a high-level description of what the pull request fixes. Please also link to the GitHub issue it resolves.
+Include a high-level description of the issue your pull request fixes; include only one issue per pull request. Please also link to the GitHub issue it resolves.
 
 ## Additional information
 
@@ -22,7 +22,7 @@ Include any of the following (as necessary):
 * Screenshot images
 * Notes
 
-Before you hit Submit, make sure you’ve done the following:
+Before you hit Submit, make sure you’ve done whichever of these applies to you:
 
 - [ ] Follow the [18F Front End Coding Style Guide](https://pages.18f.gov/frontend/#css).
 - [ ] Run `scss-lint` Sass linter and and make sure the tests have passed.
