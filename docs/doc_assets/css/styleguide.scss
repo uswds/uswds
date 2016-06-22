@@ -262,6 +262,13 @@ $site-top:           156px;
       background-size: 1rem;
     }
   }
+
+  .usa-current {
+    border-left: 4px solid $color-primary;
+    color: $color-primary;
+    font-weight: $font-bold;
+    padding-left: 1.4rem;
+  }
 }
 
 .sliding-panel-close {
