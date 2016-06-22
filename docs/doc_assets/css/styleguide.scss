@@ -1073,11 +1073,7 @@ $font-light: 300;
 }
 
 .usa-disclaimer-official {
-  padding-left: 2rem;
-
-  @include media($medium-screen) {
-    padding-left: $site-margins;
-  }
+  padding-left: $site-margins;
 }
 
 // External link styles
