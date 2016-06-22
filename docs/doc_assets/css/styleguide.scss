@@ -10,7 +10,7 @@
 $width-nav-sidebar:  250px;
 $color-grid-dark:    #727272;
 $color-grid-light:   #e3e4e5;
-$site-top:           156px;
+$site-top:           154px;
 
 // Navigation ------------- //
 
@@ -1100,12 +1100,14 @@ $font-light: 300;
 
 // This adds styleguide-only right and left margins for our disclaimer
 // Since the layout we use is not in a grid
-.usa-disclaimer-stage {
-  padding-right: $site-margins;
+.usa-disclaimer {
+  @include padding(null $site-margins);
 }
 
-.usa-disclaimer-official {
-  padding-left: $site-margins;
+.usa-disclaimer-stage {
+  @media (min-width: $medium-screen + $width-nav-sidebar) {
+    display: block;
+  }
 }
 
 // External link styles
