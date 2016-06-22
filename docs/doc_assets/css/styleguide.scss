@@ -347,9 +347,7 @@ $site-top:           156px;
   border-top: 1px solid $color-gray-light;
 
   p {
-    @include media($medium-screen) {
-      margin-bottom: 0;
-    }
+    font-size: $h5-font-size;
   }
 
   img {
