@@ -193,6 +193,7 @@ $height-nav-secondary: 5rem;
   display: none;
 
   @include media($medium-screen + $width-nav-sidebar) {
+    bottom: 0;
     display: block; // starting: not scrolled
     float: left; // starting: not scrolled
     overflow: auto;
