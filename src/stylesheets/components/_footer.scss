@@ -306,7 +306,7 @@ li.usa-footer-primary-content {
   $background-height: 3rem;
 
   // Link hit target is 44 x 44 pixels following Apple iOS Human Interface Guidelines.
-  $hit-area: 4.4rem; 
+  $hit-area: 4.4rem;
 
   background-position: center center;
   background-repeat: no-repeat;
@@ -337,24 +337,24 @@ li.usa-footer-primary-content {
 
 .usa-link-facebook {
   @extend .usa-social_link;
-  background-image: url("../img/social-icons/png/facebook25.png");
-  background-image: url("../img/social-icons/svg/facebook25.svg");
+  background-image: url('../img/social-icons/png/facebook25.png');
+  background-image: url('../img/social-icons/svg/facebook25.svg');
 }
 
 .usa-link-twitter {
   @extend .usa-social_link;
-  background-image: url("../img/social-icons/png/twitter16.png");
-  background-image: url("../img/social-icons/svg/twitter16.svg");
+  background-image: url('../img/social-icons/png/twitter16.png');
+  background-image: url('../img/social-icons/svg/twitter16.svg');
 }
 
 .usa-link-youtube {
   @extend .usa-social_link;
-  background-image: url("../img/social-icons/png/youtube15.png");
-  background-image: url("../img/social-icons/svg/youtube15.svg");
+  background-image: url('../img/social-icons/png/youtube15.png');
+  background-image: url('../img/social-icons/svg/youtube15.svg');
 }
 
 .usa-link-rss {
   @extend .usa-social_link;
-  background-image: url("../img/social-icons/png/rss25.png");
-  background-image: url("../img/social-icons/svg/rss25.svg");
+  background-image: url('../img/social-icons/png/rss25.png');
+  background-image: url('../img/social-icons/svg/rss25.svg');
 }
