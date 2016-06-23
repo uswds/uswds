@@ -7,39 +7,24 @@ var del = require('del');
 
 
 gulp.task('make-tmp-directory', function (done) {
-  var cp = spawn('cp', [
-    '-rvf',
-    'dist',
-    dutil.dirName,
-  ]);
 
-  cp.stdout.on('data', function (data) {
+  dutil.logMessage('make-tmp-directory', 'Creating temporary release directory.');
 
-    if (/[\w\d]+/.test(data)) {
-
-      dutil.logData('make-tmp-directory', data);
-
-    }
-
-  });
-
-  cp.stderr.on('data', function (data) {
-
-    dutil.logError('make-tmp-directory', data);
-
-  });
-
-  cp.on('error', function (error) { done(error); });
-
-  cp.on('close', function (code) { if (0 === code) { done(); } });
+  return gulp.src('dist/**/*')
+    .pipe(gulp.dest(dutil.dirName));
 
 });
 
 gulp.task('clean-tmp-directory', function (done) {
+
+  dutil.logMessage('clean-tmp-directory', 'Deleting temporary release directory.');
+
   return del(dutil.dirName);
 });
 
 gulp.task('zip-archives', function (done) {
+
+  dutil.logMessage('zip-archives', 'Creating a zip archive in dist/' + dutil.dirName + '.zip');
 
   var zip = spawn('zip', [
     '--log-info',
@@ -65,7 +50,12 @@ gulp.task('zip-archives', function (done) {
 
   });
 
-  zip.on('error', function (error) { done(error); });
+  zip.on('error', function (error) {
+
+     dutil.logError('zip-archives', 'Failed to create a zip archive');
+
+     done(error);
+  });
 
   zip.on('close', function (code) { if (0 === code) { done(); } });
 
