@@ -471,12 +471,11 @@ footer[role='contentinfo'] {
 // Pattern Preview Boxes -------- //
 
 .preview {
-  // scss-lint:disable ColorVariable
   @include clearfix;
   @include margin(2em null);
   background-color: $color-white;
   padding: 1em $site-margins;
-  border: 1px solid #eeeeee;
+  border: 1px solid #eeeeee; // scss-lint:disable ColorVariable
 
   .usa-background-dark {
     @include padding(null 1em);
