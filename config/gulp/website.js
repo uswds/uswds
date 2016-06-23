@@ -93,21 +93,23 @@ gulp.task('copy-images', function (done) {
 
 gulp.task('copy-assets', [ 'build' ], function (done) {
   runSequence(
-    'docs_javascript',
     'clean-generated-assets',
-    'copy-bundled-javascript',
-    'copy-fonts',
-    'copy-images',
-    'copy-docs-assets:images',
-    'copy-docs-assets:stylesheets',
-    'copy-docs-assets:javascript',
+    'docs_javascript',
+    [
+      'copy-bundled-javascript',
+      'copy-fonts',
+      'copy-images',
+      'copy-docs-assets:images',
+      'copy-docs-assets:stylesheets',
+      'copy-docs-assets:javascript',
+    ],
     done
   );
 });
 
 // Wrapper task for `bundle install` which installs gems for the Jekyll site.
 //
-gulp.task('bundle-gems', [ 'copy-assets' ], function (done) {
+gulp.task('bundle-gems', function (done) {
 
   var bundle = spawn('bundle');
 
@@ -161,7 +163,7 @@ gulp.task(task, function (done) {
 // Wrapper task for `jekyll serve --watch` which runs after `gulp bundle-gems` to make sure
 // the gems are properly bundled.
 //
-gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
+gulp.task(taskServe, [ 'copy-assets', 'bundle-gems' ], function (done) {
 
   gulp.watch([
     'docs/doc_assets/css/**/*.scss',
@@ -184,8 +186,10 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
     runSequence(
       'javascript',
       'clean-bundled-javascript',
-      'copy-bundled-javascript',
-      'copy-docs-assets:javascript'
+      [
+        'copy-bundled-javascript',
+        'copy-docs-assets:javascript',
+      ]
     );
   });
   gulp.watch([
@@ -197,8 +201,10 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
   gulp.watch('src/img/**/*', function (event) {
     runSequence(
       'images',
-      'copy-images',
-      'copy-docs-assets:images'
+      [
+        'copy-images',
+        'copy-docs-assets:images',
+      ]
     );
   });
   gulp.watch('src/fonts/**/*', function (event) {
@@ -218,7 +224,7 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
       data += '';
       data = data.replace(/[\s]+/g, ' ');
 
-      if (/done|regen/i.test(data)) {
+      if (/done|[^-]regen/i.test(data)) {
 
         dutil.logMessage(taskServe, data);
 
@@ -246,7 +252,7 @@ gulp.task(taskServe, [ 'bundle-gems' ], function (done) {
 // Wrapper task for `jekyll build` which runs after `gulp bundle-gems` to make sure
 // the gems are properly bundled.
 //
-gulp.task(taskBuild, [ 'bundle-gems' ], function (done) {
+gulp.task(taskBuild, [ 'copy-assets', 'bundle-gems' ], function (done) {
 
   var jekyll = spawn('jekyll', [ 'build' ]);
 
