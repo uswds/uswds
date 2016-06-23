@@ -19,9 +19,9 @@ The site contains HTML mockups of common UI components designed to follow the Dr
 
 All of these designs are also available in other file formats, which are available for download:
 
-* **Illustrator, EPS, Sketch, and OmniGraffle** art files of each component and pattern on this site are available at: https://github.com/18F/web-design-standards-assets/tree/master/Components
-* **.AI and .ASE color swatches** are available at: https://github.com/18F/web-design-standards-assets/tree/master/Colors
-* **.TTF files** of the font families and weights we recommend are available at: https://github.com/18F/web-design-standards-assets/tree/master/Fonts%20and%20pairings (Note: All of the fonts we use are are free, open source typefaces also available online.)
+* **Illustrator, EPS, Sketch, and OmniGraffle** art files of each component and pattern on this site are available at: [https://github.com/18F/web-design-standards-assets/tree/master/Components](https://github.com/18F/web-design-standards-assets/tree/master/Components)
+* **.AI and .ASE color swatches** are available at: [https://github.com/18F/web-design-standards-assets/tree/master/Colors](https://github.com/18F/web-design-standards-assets/tree/master/Colors)
+* **.TTF files** of the font families and weights we recommend are available at: [https://github.com/18F/web-design-standards-assets/tree/master/Fonts%20and%20pairings](https://github.com/18F/web-design-standards-assets/tree/master/Fonts%20and%20pairings) (Note: All of the fonts we use are are free, open source typefaces also available online.)
 
 ## Notes on accessibility<a id="notes-on-accessibility"></a>
 
