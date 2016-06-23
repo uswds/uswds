@@ -1246,6 +1246,14 @@ $font-light: 300;
   }
 }
 
+.page-product-roadmap {
+  .usa-content {
+    ul:not(.usa-content-list) {
+      max-width: $text-max-width;
+    }    
+  }
+}
+
 .usa-center {
   text-align: center;
 }
