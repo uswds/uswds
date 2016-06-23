@@ -2,7 +2,7 @@
 
 var $ = require('jquery');
 var calculateAnchorPosition = require('./components/calculate-anchor-position');
-
+var stickyNav = require('./components/sticky-nav');
 
 $(function (){
   $('.menu-btn, .overlay, .sliding-panel-close').on('click touchstart', function (e) {
@@ -71,3 +71,16 @@ $('.sidenav').on('click', 'a', function (e) {
 $('.preview-search-bar .usa-search').submit(function (event){
   event.preventDefault();
 });
+
+function resizeHandler (event) {
+  stickyNav(event);
+}
+
+function scrollHandler (event) {
+  stickyNav(event);
+}
+
+$(window).on('scroll', scrollHandler);
+$(window).on('resize', resizeHandler);
+
+stickyNav();
