@@ -1222,10 +1222,6 @@ $font-light: 300;
 
   .footer-text-one-half {
     @include media($medium-screen) {
-      @include span-columns(3);
-    }
-
-    @include media($large-screen) {
       @include span-columns(6);
     }
   }
