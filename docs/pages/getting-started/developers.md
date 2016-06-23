@@ -1,5 +1,5 @@
 ---
-permalink: /getting-started/developers
+permalink: /getting-started/developers/
 layout: styleguide
 title: For developers
 subheading: Getting started
