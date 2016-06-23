@@ -6,38 +6,33 @@
       <a {% if page.url == '/' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/">Overview</a>
     </li>
     <li>
-      <a {% if current[1] == 'visual-style' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/visual-style/">Visual style</a>
+      <a {% if current[1] == 'typography' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/typography/">Typography</a>
       <ul class="usa-sidenav-sub_list">
         <li>
-          <a href="#typography">Typography</a>
-          <ul class="usa-sidenav-sub_list">
-            <li>
-              <a href="#typefaces">Typefaces</a>
-            </li>
-            <li>
-              <a href="#pairings">Pairings and styles</a>
-            </li>
-            <li>
-              <a href="#typesetting">Typesetting</a>
-            </li>
-            <li>
-              <a href="#links">Links</a>
-            </li>
-            <li>
-              <a href="#lists">Lists</a>
-            </li>
-          </ul>
+          <a href="#typefaces">Typefaces</a>
         </li>
         <li>
-          <a href="{{ site.baseurl }}/visual-style/#colors">Colors</a>
-          <ul class="usa-sidenav-sub_list">
-            <li>
-              <a href="#palette">Palette</a>
-            </li>
-            <li>
-              <a href="#text-accessibility">Text accessibility</a>
-            </li>
-          </ul>
+          <a href="#pairings">Pairings and styles</a>
+        </li>
+        <li>
+          <a href="#typesetting">Typesetting</a>
+        </li>
+        <li>
+          <a href="#links">Links</a>
+        </li>
+        <li>
+          <a href="#lists">Lists</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a {% if current[1] == 'colors' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/colors/">Colors</a>
+      <ul class="usa-sidenav-sub_list">
+        <li>
+          <a href="#palette">Palette</a>
+        </li>
+        <li>
+          <a href="#text-accessibility">Text accessibility</a>
         </li>
       </ul>
     </li>

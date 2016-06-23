@@ -7,16 +7,22 @@
   <nav>
     <ul class="usa-sidenav-list usa-accordion">
       <li>
-        <button 
+        <button
           {% if page.subheading == 'UI components' or page.title == 'UI components' %}
             class="usa-current" aria-expanded="true"
           {% else %}
-            aria-expanded="false" 
+            aria-expanded="false"
           {% endif %}
           aria-controls="side-nav-1">UI components</button>
         <ul id="side-nav-1" class="usa-sidenav-sub_list">
           <li>
             <a {% if page.url == '/' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/">Overview</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'typography' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/">Typography</a>
+          </li>
+          <li>
+            <a {% if current[1] == 'colors' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/">Colors</a>
           </li>
           <li>
             <a {% if current[1] == 'visual-style' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/visual-style/">Visual style</a>
@@ -57,11 +63,11 @@
         </ul>
       </li>
       <li>
-        <button 
+        <button
           {% if page.subheading == 'Getting started' or page.title == 'Getting started' %}
             class="usa-current" aria-expanded="true"
           {% else %}
-            aria-expanded="false" 
+            aria-expanded="false"
           {% endif %}
           aria-controls="sidenav-2">Getting started</button>
         <ul id="sidenav-2" class="usa-sidenav-sub_list">
@@ -80,14 +86,14 @@
         </ul>
       </li>
       <li>
-        <a 
+        <a
         {% if page.title == 'Design principles' %}
-          class="usa-current" 
+          class="usa-current"
         {% endif %}
         href="{{ site.baseurl }}/design-principles/">Design principles</a>
       </li>
       <li>
-        <button 
+        <button
           {% if page.subheading == 'About our work' or page.title == 'About our work' %}
             class="usa-current" aria-expanded="true"
           {% else %}
