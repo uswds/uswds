@@ -5,7 +5,6 @@ var $ = require('jquery');
  * and lined up with the nav like the H1
  */
 var calculateAnchorPosition = function (hash) {
-  console.log(hash);
   var anchor        = $('#' + hash);
   var topOffset     = 0;
   var navPadding    = parseInt($('.sidenav').css('padding-top'), 10);

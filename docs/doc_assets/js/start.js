@@ -9,9 +9,11 @@ $(function (){
     $('.sidenav-mobile, .overlay').toggleClass('is-visible');
     e.preventDefault();
   });
-  require('./components/scroll-to-top-for-hash');
-  require('./components/handle-disabled-lints');
   require('./components/generate-code-snippets');
+  require('./components/handle-disabled-lints');
+  setTimeout(function () {
+    require('./components/scroll-to-top-for-hash');
+  }, 150);
 
 });
 
