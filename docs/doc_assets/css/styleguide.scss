@@ -382,6 +382,12 @@ $height-nav-secondary: 5rem;
 
 // Footer --------------- //
 
+footer[role='contentinfo'] {
+  @media (min-width: $medium-screen + $width-nav-sidebar) {
+    @include margin(null 3rem);
+  }
+}
+
 .site-footer-nav {
   margin-bottom: 5.5rem;
 
