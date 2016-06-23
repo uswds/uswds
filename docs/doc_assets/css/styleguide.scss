@@ -397,6 +397,11 @@ $height-nav-secondary: 5rem;
   .usa-button.usa-button-outline-inverse {
     box-shadow: inset 0 0 0 2px $color-primary;
     color: $color-primary;
+
+    &:hover {
+      box-shadow: inset 0 0 0 2px $color-primary-darker;
+      color: $color-primary-darker;
+    }
   }
 
   .usa-button-list {
