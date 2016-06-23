@@ -186,11 +186,15 @@ $site-top:           5rem;
 .sidenav {
   // sidenav desktop
   @include position(null null 0 0);
-  display: block; // starting: not scrolled
-  float: left; // starting: not scrolled
+  display: none;
   overflow: auto;
   padding: 4rem 0 3rem 3rem;
   width: $width-nav-sidebar;
+
+  @include media($medium-screen + $width-nav-sidebar) {
+    display: block; // starting: not scrolled
+    float: left; // starting: not scrolled
+  }
 
   &.is-scrolled {
     position: fixed;
@@ -207,10 +211,6 @@ $site-top:           5rem;
     &[aria-hidden="false"] {
       display: block;
     }
-  }
-
-  @include media($medium-screen + $width-nav-sidebar) {
-    display: block;
   }
 }
 
@@ -1168,7 +1168,7 @@ $font-light: 300;
 
 // Design principles
 
-.design-principles {
+.page-design-principles {
   @include media($medium-screen) {
     .usa-grid-full {
       @include margin(4rem null 3rem null);
@@ -1193,9 +1193,39 @@ $font-light: 300;
   }
 }
 
-.ui-components {
+.page-ui-components {
   .usa-font-lead:first-of-type {
     margin-top: 3.2rem;
+  }
+}
+
+.page-download-code-and-design-files {
+  .link-download {
+    display: table;
+  }
+}
+
+.link-download {
+  &::before {
+    background: url("../img/icon-download.png") no-repeat 0 0;
+    background: url("../img/icon-download.svg") no-repeat 0 0;
+    background-size: 100%;
+    content: '';
+    display: inline-block;
+    height: 0.8em;
+    margin-bottom: -1px;
+    margin-right: 1.2rem;
+    width: 0.8em;
+  }
+}
+
+.link-download-subtext {
+  margin-left: 2.6rem;
+}
+
+.link_group-download {
+  .link-download {
+    margin-bottom: 1rem;
   }
 }
 
