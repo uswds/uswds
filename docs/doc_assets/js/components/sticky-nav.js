@@ -1,15 +1,15 @@
 var $ = require('jquery');
 var calculateAnchorPosition = require('./calculate-anchor-position');
 var $nav = $('.js-sticky-nav');
+var bannerHeight = $('.usa-site-header').outerHeight(true);
 var STICKY_CLASS_NAME = 'is-scrolled';
 
 
 module.exports = function stickyNav (event) {
 
   var originalNavigationHeight = $nav.outerHeight(true);
-  var bannerHeight = $('.usa-site-header').outerHeight(true) - originalNavigationHeight * 0.5 - 50;
   var scrollY = $(window).scrollTop();
-  var scrollPositionY = scrollY - originalNavigationHeight * 0.5;
+  var scrollPositionY = scrollY + originalNavigationHeight * 0.25;
 
   if (scrollPositionY > bannerHeight) {
     $nav.addClass(STICKY_CLASS_NAME);
