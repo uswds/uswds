@@ -1234,13 +1234,9 @@ $font-light: 300;
   }
 }
 
-.page-download-code-and-design-files {
-  .link-download {
-    display: table;
-  }
-}
-
 .link-download {
+  display: table;
+
   &::before {
     background: url('../img/icon-download.png') no-repeat 0 0;
     background: url('../img/icon-download.svg') no-repeat 0 0;
