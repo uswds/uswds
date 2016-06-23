@@ -1246,9 +1246,10 @@ $font-light: 300;
   }
 }
 
-.page-product-roadmap {
+.page-product-roadmap,
+.page-for-developers {
   .usa-content {
-    ul:not(.usa-content-list) {
+    > ul:not(.usa-content-list) {
       max-width: $text-max-width;
     }    
   }
