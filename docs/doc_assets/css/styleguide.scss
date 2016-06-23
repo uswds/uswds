@@ -144,6 +144,7 @@ $height-nav-secondary: 5rem;
   }
 }
 
+// scss-lint:disable PropertyCount
 .menu-btn {
   background-color: $color-primary;
   color: $color-white;
@@ -170,6 +171,7 @@ $height-nav-secondary: 5rem;
     color: $color-white;
   }
 }
+// scss-lint:enable PropertyCount
 
 .overlay {
   @include position(fixed, 0);
@@ -285,7 +287,7 @@ $height-nav-secondary: 5rem;
       background-size: 1rem;
     }
   }
-  
+
   .usa-sidenav-sub_list[aria-hidden=true] {
     display: none;
   }
@@ -348,7 +350,7 @@ $height-nav-secondary: 5rem;
   margin-bottom: 5em;
   max-width: $site-max-width;
   position: relative;
-  
+
   header {
     > h1 {
       margin-top: 0;
@@ -382,11 +384,13 @@ $height-nav-secondary: 5rem;
 
 // Footer --------------- //
 
+// scss-lint:disable QualifyingElement
 footer[role='contentinfo'] {
   @media (min-width: $medium-screen + $width-nav-sidebar) {
     @include margin(null 3rem);
   }
 }
+// scss-lint:enable QualifyingElement
 
 .site-footer-nav {
   margin-bottom: 5.5rem;
@@ -452,9 +456,6 @@ footer[role='contentinfo'] {
 
   a {
     @include media-link;
-  }
-
-  a {
     color: $color-gray-lighter;
 
     &:hover {
@@ -470,6 +471,7 @@ footer[role='contentinfo'] {
 // Pattern Preview Boxes -------- //
 
 .preview {
+  // scss-lint:disable ColorVariable
   @include clearfix;
   @include margin(2em null);
   background-color: $color-white;
@@ -938,7 +940,7 @@ pre[class*="language-"] {
 }
 // scss-lint:enable QualifyingElement
 
-// Custom code sample colors 
+// Custom code sample colors
 
 .token.property,
 .token.tag,
@@ -1162,11 +1164,10 @@ $font-light: 300;
 }
 
 // External link styles
-.main-content {
-  [href^="http:"]:not([href*="standards.com"]),
-  [href^="https:"]:not([href*="standards.com"]) {
-    @include external-link(external-link, external-link-hover);
-  }
+
+[href^="http:"]:not([href*="standards.com"]),
+[href^="https:"]:not([href*="standards.com"]) {
+  @include external-link(external-link, external-link-hover);
 }
 
 .usa-styleguide-footer {
@@ -1185,7 +1186,8 @@ $font-light: 300;
   }
 }
 
-.logo-links {
+.logo-links,
+.usa-disclaimer-stage {
   [href^="http:"]:not([href*="standards.com"]),
   [href^="https:"]:not([href*="standards.com"]) {
     &::after {
@@ -1241,8 +1243,8 @@ $font-light: 300;
 
 .link-download {
   &::before {
-    background: url("../img/icon-download.png") no-repeat 0 0;
-    background: url("../img/icon-download.svg") no-repeat 0 0;
+    background: url('../img/icon-download.png') no-repeat 0 0;
+    background: url('../img/icon-download.svg') no-repeat 0 0;
     background-size: 100%;
     content: '';
     display: inline-block;
@@ -1269,7 +1271,7 @@ $font-light: 300;
   .usa-content {
     > ul:not(.usa-content-list) {
       max-width: $text-max-width;
-    }    
+    }
   }
 }
 
