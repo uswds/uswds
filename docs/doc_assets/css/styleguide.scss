@@ -242,13 +242,13 @@ $site-top:           5rem;
   -webkit-overflow-scrolling: touch;
   z-index: 999999;
 
+  @media (min-width: $medium-screen + $width-nav-sidebar) {
+    display: none;
+  }
+
   &.is-visible {
     @include transform(translateX(0));
     @include transition(all 0.3s ease-in-out);
-  }
-
-  @media (min-width: $medium-screen + $width-nav-sidebar) {
-    display: none;
   }
 
   nav {
@@ -375,6 +375,13 @@ $site-top:           5rem;
   margin-bottom: 0.6rem;
   margin-top: 0;
 }
+
+.usa-content {
+  .usa-font-lead {
+    max-width: 77rem; // produces max-width 75 characters for lead font styles
+  }
+}
+
 
 // Footer --------------- //
 
