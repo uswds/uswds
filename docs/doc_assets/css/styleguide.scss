@@ -328,8 +328,11 @@ $site-top:           124px;
     opacity: .2;
   }
 
-  .usa-background-dark {
-    display: inline-block;
+  .usa-background-dark,
+  .usa-background-light {
+    margin-bottom: 1rem;
+    float: left;
+    clear: both;
     @include padding(null 1em);
   }
 }
@@ -582,6 +585,7 @@ h3 + .button_wrapper {
 .usa-color-inner-content {
   position: absolute;
   top: 100%;
+  color: $color-base;
 }
 
 .usa-color-hex {

@@ -955,6 +955,10 @@ order: 01
 
   <p>This is a link that goes to an <a class="usa-external_link" href="http://media.giphy.com/media/8sgNa77Dvj7tC/giphy.gif">external website</a>.</p>
 
+  <div class="usa-background-light usa-color-gray-lighter">
+    <p><a href="#">This</a> is a text link on a light background.</p>
+  </div>
+  
   <div class="usa-background-dark">
     <p><a href="#">This</a> is a text link on a dark background.</p>
   </div>
