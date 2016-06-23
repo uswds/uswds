@@ -74,7 +74,9 @@ $site-top:           5rem;
   }
 
   &.is-scrolled {
-    display: none;
+    @include media($medium-screen + $width-nav-sidebar) {
+      display: none;
+    }
   }
 }
 
@@ -1130,6 +1132,12 @@ $font-light: 300;
 // Since the layout we use is not in a grid
 .usa-disclaimer {
   @include padding(null $site-margins);
+
+  &.is-scrolled {
+    @media (min-width: $medium-screen + $width-nav-sidebar) {
+      display: none;
+    }
+  }
 }
 
 .usa-disclaimer-stage {

@@ -9,11 +9,12 @@ module.exports = function stickyNav (event) {
 
   var originalNavigationHeight = $nav.outerHeight(true);
   var scrollY = $(window).scrollTop();
-  var scrollPositionY = scrollY + originalNavigationHeight * 0.25;
+  var scrollPositionY = scrollY + originalNavigationHeight;
 
   if (scrollPositionY > bannerHeight) {
     $nav.addClass(STICKY_CLASS_NAME);
     $('.usa-site-header').addClass(STICKY_CLASS_NAME);
+    $('.usa-disclaimer').addClass(STICKY_CLASS_NAME);
     $('.site-navbar').addClass(STICKY_CLASS_NAME);
     $('.site-nav-secondary').addClass(STICKY_CLASS_NAME);
     $('.sidenav').addClass(STICKY_CLASS_NAME);
@@ -22,6 +23,7 @@ module.exports = function stickyNav (event) {
   } else {
     $nav.removeClass(STICKY_CLASS_NAME);
     $('.usa-site-header').removeClass(STICKY_CLASS_NAME);
+    $('.usa-disclaimer').removeClass(STICKY_CLASS_NAME);
     $('.site-navbar').removeClass(STICKY_CLASS_NAME);
     $('.site-nav-secondary').removeClass(STICKY_CLASS_NAME);
     $('.sidenav').removeClass(STICKY_CLASS_NAME);
