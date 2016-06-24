@@ -18,15 +18,3 @@
   padding-left: 0.9rem;
   padding-right: 0.9rem;
 }
-
-a {
-  &.usa-label {
-    border-bottom: none;
-
-    &:hover {
-      background-color: $color-primary-darker;
-      border-bottom: none;
-      color: $color-white;
-    }
-  }
-}

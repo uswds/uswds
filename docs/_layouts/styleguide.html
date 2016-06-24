@@ -28,6 +28,11 @@
             <p class="site-subheading">{{ page.subheading }}</p>
           {% endif %}
           <h1 id="{{ page.title | slugify }}">{{ page.title }}</h1>
+          {% if page.subheading == 'UI components' and page.maturity != null %}
+            <a class="usa-label label-{{ page.maturity }}" href="#">
+              {{ page.maturity }}
+            </a>
+          {% endif %}
         </header>
         {% if page.lead != null %}
           <p class="usa-font-lead">{{ page.lead }}</p>

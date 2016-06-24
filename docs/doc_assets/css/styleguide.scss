@@ -359,9 +359,46 @@ $site-margins-mobile:  1.5rem;
 
   header {
     > h1 {
+      display: inline-block;
       margin-top: 0;
     }
   }
+}
+
+// Label links
+
+%label-maturity {
+  @include margin(1.2rem null null 1.2rem );
+  color: $color-gray-dark;
+  font-size: 1.4rem;
+  font-weight: $font-bold;
+  position: absolute;
+  text-decoration: none;
+
+  &:visited {
+    color: $color-gray-dark;
+  }
+}
+
+@mixin label-link($color-background, $color-background-hover) {
+  @extend %label-maturity;
+  background-color: $color-background;
+
+  &:hover {
+    background-color: $color-background-hover;
+  }
+}
+
+.label-alpha {
+  @include label-link($color-gold-lightest, $color-gold-lighter);
+}
+
+.label-beta {
+  @include label-link($color-primary-alt-lightest, $color-primary-alt-light);
+}
+
+.label-recommended {
+  @include label-link($color-green-lightest, $color-green-lighter);
 }
 
 .heading-margin-alt {
