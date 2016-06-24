@@ -377,13 +377,6 @@ $site-margins-mobile:  1.5rem;
   margin-top: 0;
 }
 
-.usa-content {
-  .usa-font-lead {
-    max-width: 77rem; // produces max-width 75 characters for lead font styles
-  }
-}
-
-
 // Footer --------------- //
 
 // scss-lint:disable QualifyingElement
@@ -1249,6 +1242,12 @@ $font-light: 300;
 
   img {
     max-width: 18.4rem;
+  }
+
+  .site-footer-info {
+    .usa-grid {
+      margin-left: auto;
+    }
   }
 
   .footer-text-one-half {
