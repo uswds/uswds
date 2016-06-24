@@ -404,25 +404,6 @@ footer[role='contentinfo'] {
   .usa-sidenav-sub_list {
     display: none;
   }
-
-  // TODO: Fix this with button mixin
-  .usa-button.usa-button-outline-inverse {
-    box-shadow: inset 0 0 0 2px $color-primary;
-    color: $color-primary;
-
-    &:hover {
-      box-shadow: inset 0 0 0 2px $color-primary-darker;
-      color: $color-primary-darker;
-    }
-  }
-
-  .usa-button-list {
-    margin-bottom: 5.5rem;
-
-    li {
-      display: initial;
-    }
-  }
 }
 
 .site-footer-info {
@@ -1201,7 +1182,30 @@ $font-light: 300;
   }
 }
 
-// Design principles
+// Page styles
+
+.page-ui-components {
+  .site-footer-nav {
+    // TODO: Fix this with button mixin
+    .usa-button.usa-button-outline-inverse {
+      box-shadow: inset 0 0 0 2px $color-primary;
+      color: $color-primary;
+
+      &:hover {
+        box-shadow: inset 0 0 0 2px $color-primary-darker;
+        color: $color-primary-darker;
+      }
+    }
+
+    .usa-button-list {
+      margin-bottom: 5.5rem;
+
+      li {
+        display: initial;
+      }
+    }
+  }
+}
 
 .page-design-principles {
   @include media($medium-screen) {

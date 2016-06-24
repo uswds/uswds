@@ -37,7 +37,10 @@
 
       <footer role="contentinfo">
         <div class="site-footer-nav usa-grid">
-          {% include download-buttons.html %}
+          {% if page.url == '/' %}
+            {% include download-buttons.html %}
+          {% endif %}
+          <h6>UI components</h6>
           {% if page.subheading == 'UI components' or page.title == 'UI components' %}
             {% include sidenav/ui-components.html %}
           {% elsif page.subheading == 'Getting started' or page.title == 'Getting started' %}
