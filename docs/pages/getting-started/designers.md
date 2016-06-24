@@ -15,7 +15,7 @@ As a complement to this visual style guidance, we strongly recommend you use 18F
 
 The site contains HTML mockups of common UI components designed to follow the Draft U.S. Web Design Standards' visual style guide. To view the specs of each design live on this website (padding, margins, stroke weight, line-height, and so on), use your browser’s developer tools.
 
-<a class="usa-button usa-button-primary-alt" href="https://github.com/18F/web-design-standards-assets/archive/master.zip">Download the design files</a>
+<a class="link-download" href="https://github.com/18F/web-design-standards-assets/archive/master.zip">Download the design files</a>
 
 All of these designs are also available in other file formats, which are available for download:
 
@@ -33,4 +33,4 @@ We’re glad you’re considering contributing to the Standards — their succes
 
 Please visit our [wiki](https://github.com/18F/web-design-standards/wiki/Contribution-Guidelines:-Design) to read our full contribution guidelines. Also, please note that every submission we receive goes through a full design review. (Changes that only affect underlying code are reviewed by our developers.)
 
-Questions or comments? [Email us](mailto:uswebdesignstandards@gsa.gov) and we’ll get back to you as quickly as we can. 
+Questions or comments? [Email us](mailto:uswebdesignstandards@gsa.gov) and we’ll get back to you as quickly as we can.
