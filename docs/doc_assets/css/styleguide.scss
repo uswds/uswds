@@ -1296,6 +1296,13 @@ $font-light: 300;
   }
 }
 
+.page-for-developers,
+.page-for-designers {
+  h2 {
+    color: $color-primary-darker;
+  }
+}
+
 .usa-center {
   text-align: center;
 }
