@@ -1,12 +1,11 @@
 ---
-type: component
 title: Checkboxes
-maturity: beta
 parent: Form controls
+maturity: beta
 order: 03
+lead: Checkboxes allow users to select one or more options from a visible list.
 ---
 
-<p class="usa-font-lead">Checkboxes allow users to select one or more options from a visible list.</p>
 
 <div class="preview">
 

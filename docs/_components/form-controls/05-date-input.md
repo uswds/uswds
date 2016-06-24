@@ -1,12 +1,10 @@
 ---
-type: component
 title: Date input
-maturity: beta
 parent: Form controls
+maturity: beta
 order: 05
+lead: Three text fields are the easiest way for users to enter most dates.
 ---
-
-<p class="usa-font-lead">Three text fields are the easiest way for users to enter most dates.</p>
 
 <div class="preview">
 

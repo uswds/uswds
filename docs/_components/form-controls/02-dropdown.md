@@ -1,12 +1,11 @@
 ---
-type: component
 title: Dropdown
-maturity: beta
 parent: Form controls
+maturity: beta
 order: 02
+lead: A dropdown allows users to select one option from a list.
 ---
 
-<p class="usa-font-lead">A dropdown allows users to select one option from a list.</p>
 
 <div class="preview">
 <form class="usa-form">

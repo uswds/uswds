@@ -1,12 +1,10 @@
 ---
-type: component
 title: Text input
-maturity: beta
 parent: Form controls
+maturity: beta
 order: 01
+lead: Text inputs allow people to enter any combination of letters, numbers, or symbols of their choosing (unless otherwise restricted). Text input boxes can span single or multiple lines.
 ---
-
-<p class="usa-font-lead">Text inputs allow people to enter any combination of letters, numbers, or symbols of their choosing (unless otherwise restricted). Text input boxes can span single or multiple lines.</p>
 
 <div class="preview">
 

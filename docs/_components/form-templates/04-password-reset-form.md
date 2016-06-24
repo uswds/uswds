@@ -1,12 +1,10 @@
 ---
-type: component
 title: Password reset form
-maturity: beta
 parent: Form templates
+maturity: beta
 order: 03
+lead: A standard template for resetting a password
 ---
-
-<p class="usa-font-lead">A standard template for resetting a password</p>
 
 <div class="preview">
 

@@ -1,12 +1,10 @@
 ---
-type: component
 title: Name form
-maturity: beta
 parent: Form templates
+maturity: beta
 order: 01
+lead: A standard template for collecting a person’s full name
 ---
-
-<p class="usa-font-lead">A standard template for collecting a person’s full name</p>
 
 <div class="preview">
 

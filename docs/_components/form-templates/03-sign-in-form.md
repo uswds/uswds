@@ -1,38 +1,41 @@
 ---
-type: component
 title: Sign-in form
-maturity: beta
 parent: Form templates
+maturity: beta
 order: 03
+lead: A template for signing a user into a website or app
 ---
-
-<p class="usa-font-lead">A standard template for collecting a person’s full name</p>
 
 <div class="preview">
 
   <form class="usa-form">
     <fieldset>
-      <legend>Name</legend>
-      <label for="title">Title</label>
-      <input class="usa-input-tiny" id="title" name="title" type="text">
+      <legend class="usa-drop_text">Sign in</legend>
+      <span>or <a href="#">create an account</a></span>
 
-      <label for="first-name">First name <span class="usa-additional_text">Required</span></label>
-      <input id="first-name" name="first-name" type="text" required="" aria-required="true">
+      <label for="username">Username or email address</label>
+      <input id="username" name="username" type="text" autocapitalize="off" autocorrect="off">
 
-      <label for="middle-name">Middle name</label>
-      <input id="middle-name" name="middle-name" type="text">
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password">
+      <p class="usa-form-note">
+        <a title="Show password" href="#"
+            class="usa-show_password"
+            aria-controls="password">
+          Show password</a>
+      </p>
 
-      <label for="last-name">Last name <span class="usa-additional_text">Required</span></label>
-      <input id="last-name" name="last-name" type="text" required="" aria-required="true">
-
-      <label for="suffix">Suffix</label>
-      <input class="usa-input-tiny" id="suffix" name="suffix" type="text">
+      <input type="submit" value="Sign in" />
+      <p><a href="#" title="Forgot username">
+        Forgot username?</a></p>
+      <p><a href="#" title="Forgot password">
+        Forgot password?</a></p>
     </fieldset>
   </form>
 
 </div>
 
-<div class="usa-accordion-bordered usa-accordion-docs">
+<div class="usa-accordion-bordered">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
@@ -40,21 +43,25 @@ order: 03
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
-      <li>As you customize this form template, ensure it continues to follow the <a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for form controls</a>.</li>
+      <li>As you customize this form template, make sure it continues to follow the <a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for form controls</a>.</li>
+      <li>Don’t automatically sign out a user without giving them 20 seconds' advance notice to request more time. Users with disabilities sometimes require more time to respond to prompts.</li>
     </ul>
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
-      <li>When you need to collect users’ full names and store the parts separately in a database.</li>
+      <li>When users expect information to be customized or private, place it behind a sign-in form.</li>
     </ul>
     <h5>When to consider something else</h5>
     <ul class="usa-content-list">
-      <li>If you don’t need to parse out the separate pieces of a person’s name, consider letting them enter it into a single text field.</li>
+      <li>Allow users to access as much as of your online services as possible without having to sign in. Sign-in forms are a barrier between users and the content they want.</li>
     </ul>
     <h5>Guidance</h5>
     <ul class="usa-content-list">
-      <li>Leave the title and suffix fields as text boxes instead of offering drop downs. There are many possible titles and suffixes; text boxes accommodate them all.</li>
-      <li>Do not restrict the types of characters users can enter in any of these fields. Names can include characters outside the standard Roman alphabet.</li>
+      <li>Less is more — make your explanations concise. Users sign in faster when less text surrounds the form.</li>
+      <li>Allow people to use their email address to sign in. People have an easier time remembering their email address than they do a unique username.</li>
+      <li>If you must include a sign-in form, consider allowing users to stay logged in (“Remember me”) on trusted computers so they can avoid this barrier in the future.</li>
+      <li>Make it easy for users to retrieve a forgotten username and password. Most authentication failures occur because a user has forgotten their username or password. This is especially common when a long time passes between visits, as is the case with most federal websites.</li>
+      <li>Password masking (replacing what the user types with a generic symbol) makes it more likely that users will make mistakes when trying to sign in, and doesn't offer much in the way of additional security. Allow users to unmask the password field so they can see what they type. This is especially useful on mobile devices, when users are more likely to mistype.</li>
     </ul>
   </div>
 </div>

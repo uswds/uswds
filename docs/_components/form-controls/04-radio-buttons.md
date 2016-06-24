@@ -1,12 +1,10 @@
 ---
-type: component
 title: Radio buttons
-maturity: beta
 parent: Form controls
+maturity: beta
 order: 04
+lead: Radio buttons allow users to see all available choices at once and select exactly one option.
 ---
-
-<p class="usa-font-lead">Radio buttons allow users to see all available choices at once and select exactly one option.</p>
 
 <div class="preview">
 
