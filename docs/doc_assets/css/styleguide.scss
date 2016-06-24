@@ -458,8 +458,10 @@ footer[role='contentinfo'] {
     }
   }
 
-  .usa-grid {
-    margin-left: 0;
+  > .usa-grid {
+    @media (min-width: $medium-screen + $width-nav-sidebar) {
+      padding-left: 0;
+    }
   }
 }
 
