@@ -375,6 +375,7 @@ $site-margins-mobile:  1.5rem;
   position: absolute;
   text-decoration: none;
 
+  &:hover,
   &:visited {
     color: $color-gray-dark;
   }
@@ -1345,4 +1346,43 @@ $font-light: 300;
 
 .usa-center {
   text-align: center;
+}
+
+// Custom tooltip styles -------------- //
+
+// Tooltip container
+.tooltip {
+  display: inline-block;
+  position: absolute;
+
+  // Show the tooltip text when you mouse over the tooltip container
+  &:hover .tooltip-text {
+    visibility: visible;
+  }
+
+  .tooltip-text {
+    @include margin(0 null 0 20px);
+    background-color: $color-gray-dark;
+    border-radius: $border-radius;
+    bottom: 100%;
+    color: $color-white;
+    font-size: 14px;
+    left: 50%;
+    padding: 7px 10px;
+    width: 267px;
+    visibility: hidden;
+    position: absolute; // Position the tooltip text
+    z-index: 1;
+
+    &::after {
+      border-width: 5px;
+      border-style: solid;
+      border-color: $color-base transparent transparent transparent;
+      content: " ";
+      left: 10%;
+      margin-left: -12px;
+      position: absolute;
+      top: 100%; // At the bottom of the tooltip
+    }
+  }
 }

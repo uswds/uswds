@@ -29,9 +29,12 @@
           {% endif %}
           <h1 id="{{ page.title | slugify }}">{{ page.title }}</h1>
           {% if page.subheading == 'UI components' and page.maturity != null %}
-            <a class="usa-label label-{{ page.maturity }}" href="#">
-              {{ page.maturity }}
-            </a>
+            <div class="tooltip">
+              <p class="tooltip-text" id="tooltip-text">Read about the component maturity scale</p>
+              <a class="usa-label label-{{ page.maturity }}" href="#" aria-describedby="tooltip-text">
+                {{ page.maturity }}
+              </a>
+            </div>
           {% endif %}
         </header>
         {% if page.lead != null %}
