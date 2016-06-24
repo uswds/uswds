@@ -6,6 +6,11 @@ lead: "U.S. government websites have common typographic needs: clear and consist
 maturity: beta
 ---
 
+{% assign component = site.components | where: 'path', 'dir' %}
+{% if component.url == '/test/hi/' %}
+  {{ content }}
+{% endif %}
+
 <h3 class="usa-heading heading-margin-alt" id="typefaces">Typefaces</h3>
 
 <h4 class="usa-heading-alt">Source Sans Pro</h4>
