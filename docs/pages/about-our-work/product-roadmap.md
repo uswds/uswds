@@ -19,7 +19,6 @@ lead: Here, you’ll find our product roadmap — an up-to-date report on the w
 
 Decision makers, designers, and developers want to know if the Standards will work for their projects.
 
-- Decision makers, designers, and developers want to know if the Standards will work for their projects.
 - A public, up-to-date product road map.
 - UI components are comprised of clean, semantic code.
 - The Standards offer core set of common, usable web components.
