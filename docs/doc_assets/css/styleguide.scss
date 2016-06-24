@@ -1167,7 +1167,7 @@ $font-light: 300;
 .usa-disclaimer {
   @include padding(null $site-margins-mobile);
 
-  @include media($medium-screen) {
+  @include media($medium-screen + $width-nav-sidebar) {
     @include padding(null $site-margins);
   }
 
@@ -1357,7 +1357,7 @@ $font-light: 300;
 
   // Show the tooltip text when you mouse over the tooltip container
   &:hover .tooltip-text {
-    visibility: visible;
+    opacity: 1;
   }
 
   .tooltip-text {
@@ -1370,8 +1370,10 @@ $font-light: 300;
     left: 50%;
     padding: 7px 10px;
     width: 267px;
-    visibility: hidden;
+    opacity: 0;
     position: absolute; // Position the tooltip text
+    transition: all 0.1s ease-in-out;
+    transition-delay: 0.2s;
     z-index: 1;
 
     &::after {
