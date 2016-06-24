@@ -31,7 +31,7 @@
           {% if page.subheading == 'UI components' and page.maturity != null %}
             <div class="tooltip">
               <p class="tooltip-text" id="tooltip-text">Read about the component maturity scale</p>
-              <a class="usa-label label-{{ page.maturity }}" href="#" aria-describedby="tooltip-text">
+              <a class="usa-label label-{{ page.maturity }}" href="{{ site.repos[0].url }}/wiki/Component-Maturity-Scale" aria-describedby="tooltip-text">
                 {{ page.maturity }}
               </a>
             </div>

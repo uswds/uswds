@@ -5,7 +5,7 @@
   {% if child.maturity != null %}
     <div class="tooltip">
       <p class="tooltip-text" id="tooltip-text">Read about the component maturity scale</p>
-      <a class="usa-label label-{{ child.maturity }}" href="#" aria-describedby="tooltip-text">
+      <a class="usa-label label-{{ child.maturity }}" href="{{ site.repos[0].url }}/wiki/Component-Maturity-Scale" aria-describedby="tooltip-text">
         {{ child.maturity }}
       </a>
     </div>

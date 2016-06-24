@@ -379,6 +379,13 @@ $site-margins-mobile:  1.5rem;
   &:visited {
     color: $color-gray-dark;
   }
+
+  &[href^="http:"]:not([href*="standards.com"]),
+  &[href^="https:"]:not([href*="standards.com"]) {
+    &::after {
+      display: none;
+    }
+  }
 }
 
 @mixin label-link($color-background, $color-background-hover) {
