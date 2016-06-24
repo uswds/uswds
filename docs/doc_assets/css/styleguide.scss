@@ -1184,18 +1184,22 @@ $font-light: 300;
 
 // Page styles
 
+@mixin outline-inverse-button {
+  // TODO: Fix this with button mixin
+  .usa-button.usa-button-outline-inverse {
+    box-shadow: inset 0 0 0 2px $color-primary;
+    color: $color-primary;
+
+    &:hover {
+      box-shadow: inset 0 0 0 2px $color-primary-darker;
+      color: $color-primary-darker;
+    }
+  }
+}
+
 .page-ui-components {
   .site-footer-nav {
-    // TODO: Fix this with button mixin
-    .usa-button.usa-button-outline-inverse {
-      box-shadow: inset 0 0 0 2px $color-primary;
-      color: $color-primary;
-
-      &:hover {
-        box-shadow: inset 0 0 0 2px $color-primary-darker;
-        color: $color-primary-darker;
-      }
-    }
+    @include outline-inverse-button;
 
     .usa-button-list {
       margin-bottom: 5.5rem;
@@ -1204,6 +1208,18 @@ $font-light: 300;
         display: initial;
       }
     }
+  }
+}
+
+.sidenav-mobile {
+  @include outline-inverse-button;
+
+  .usa-button {
+    width: 100%;
+  }
+
+  .usa-button-list {
+    margin-top: 4rem;
   }
 }
 
