@@ -4,6 +4,7 @@ type: component
 title: Form controls
 subheading: UI components
 lead: Form controls allow users to enter information into a page.
+maturity: beta
 ---
 
 <h3 class="usa-heading heading-margin-alt">Accessibility</h3>

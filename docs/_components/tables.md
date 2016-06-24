@@ -4,6 +4,7 @@ type: element
 title: Tables
 subheading: UI components
 lead: Tables show tabular data in columns and rows.
+maturity: beta
 ---
 
 <div class="preview">
@@ -72,7 +73,7 @@ lead: Tables show tabular data in columns and rows.
         <th scope="row">Emancipation Proclamation</th>
         <td>An executive order granting freedom to slaves in designated southern states.</td>
         <td>1863</td>
-      </tr>      
+      </tr>
     </tbody>
   </table>
 

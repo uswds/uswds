@@ -2,7 +2,8 @@
 layout: styleguide
 title: Grids
 subheading: UI components
-lead:  This 12-column, responsive grid provides structure for website content.
+lead: This 12-column, responsive grid provides structure for website content.
+maturity: alpha
 ---
 
 <h2 class="usa-heading">Grid</h2>
@@ -52,7 +53,7 @@ lead:  This 12-column, responsive grid provides structure for website content.
 
 <h2 class="usa-heading">Grid Examples</h2>
 <div class="preview preview-no_border grid-example grid-text">
-  
+
   <div class="usa-grid">
     <div class="usa-width-one-half">
       <h3>One Half</h3>
@@ -117,7 +118,7 @@ lead:  This 12-column, responsive grid provides structure for website content.
     <div class="usa-width-one-fourth">
       <h3>One Fourth</h3>
       <p>Washington, D.C. is the capital of the United States, bordered by the states of Maryland and Virginia. Formally known as the District of Columbia, it is also commonly referred to as "Washington", "the District", or simply "D.C."</p>
-    </div>   
+    </div>
   </div>
 
 </div>
@@ -131,13 +132,13 @@ lead:  This 12-column, responsive grid provides structure for website content.
     <h4 class="usa-heading">Implementation</h4>
     <p>To use the grid, wrap each grid row in a <code>&lt;div&gt;</code> with the <code>usa-grid</code> class. To use a grid without padding on the right and left, use the <code>usa-grid-full</code> class instead.</p>
     <p>Each grid item is written semantically by its width. For example: <code>usa-width-one-half</code> = 1/2 grid item, <code>usa-width-two-thirds</code> = 2/3 grid item.</p>
-    <p>Medium breakpoints are used for 1/6 and 1/12 grid items, which both transform into a 1/3 grid item at medium screen sizes.</p> 
+    <p>Medium breakpoints are used for 1/6 and 1/12 grid items, which both transform into a 1/3 grid item at medium screen sizes.</p>
     <p>All grid items are full-width at small screen sizes.</p>
     <h4 class="usa-heading">Accessibility</h3>
     <ul class="usa-content-list">
       <li>Low-vision users should be able to increase the size of the text by up to 200 percent without breaking the layout.</li>
     </ul>
-    
+
     <h4 class="usa-heading">Usability</h4>
     <h5>When to use</h5>
     <ul class="usa-content-list">
