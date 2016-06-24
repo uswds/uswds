@@ -1358,8 +1358,10 @@ $font-light: 300;
   position: absolute;
 
   // Show the tooltip text when you mouse over the tooltip container
-  &:hover .tooltip-text {
-    opacity: 1;
+  &:hover {
+     .tooltip-text {
+      opacity: 1;
+    }
   }
 
   .tooltip-text {
