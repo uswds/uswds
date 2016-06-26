@@ -1388,7 +1388,7 @@ $font-light: 300;
       opacity: 0;
       position: absolute; // Position the tooltip text
       transition: all 0.1s ease-in-out;
-      transition-delay: 0.2s;
+      transition-delay: 0.1s;
       z-index: 1;
 
       &::after {
