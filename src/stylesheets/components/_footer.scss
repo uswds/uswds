@@ -95,7 +95,7 @@
     }
   }
 
-  .usa-footer-contact_info {
+  .usa-footer-contact-info {
     > * {
       @include media($medium-screen) {
         margin: 0;
@@ -136,7 +136,7 @@ li.usa-footer-primary-content {
 }
 // scss-lint:enable QualifyingElement
 
-.usa-sign_up-block {
+.usa-sign-up-block {
   padding-bottom: 2rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -161,7 +161,7 @@ li.usa-footer-primary-content {
   }
 }
 
-.usa-footer-secondary_section {
+.usa-footer-secondary-section {
   background-color: $color-gray-lighter;
   padding-bottom: 3rem;
   padding-top: 3rem;
@@ -263,7 +263,7 @@ li.usa-footer-primary-content {
   padding: 2rem 0;
 }
 
-.usa-sign_up-header {
+.usa-sign-up-header {
   @include media($medium-screen) {
     margin: 0;
     padding: 2rem 0;
@@ -301,7 +301,7 @@ li.usa-footer-primary-content {
   }
 }
 
-.usa-social_link {
+.usa-social-link {
   // Height of icon within hit area.
   $background-height: 3rem;
 
@@ -336,25 +336,25 @@ li.usa-footer-primary-content {
 }
 
 .usa-link-facebook {
-  @extend .usa-social_link;
+  @extend .usa-social-link;
   background-image: url("../img/social-icons/png/facebook25.png");
   background-image: url("../img/social-icons/svg/facebook25.svg");
 }
 
 .usa-link-twitter {
-  @extend .usa-social_link;
+  @extend .usa-social-link;
   background-image: url("../img/social-icons/png/twitter16.png");
   background-image: url("../img/social-icons/svg/twitter16.svg");
 }
 
 .usa-link-youtube {
-  @extend .usa-social_link;
+  @extend .usa-social-link;
   background-image: url("../img/social-icons/png/youtube15.png");
   background-image: url("../img/social-icons/svg/youtube15.svg");
 }
 
 .usa-link-rss {
-  @extend .usa-social_link;
+  @extend .usa-social-link;
   background-image: url("../img/social-icons/png/rss25.png");
   background-image: url("../img/social-icons/svg/rss25.svg");
 }
