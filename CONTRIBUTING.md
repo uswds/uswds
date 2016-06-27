@@ -11,7 +11,7 @@ If you have any questions or want to read more, check out the [18F Open Source P
 ## Guidelines
 
 ### Contributor Guidelines for Design
-We have provided some guidelines for folks that would like to submit new components to the Draft Web Design Standards and the lifecycle those new components will go through. For more detail, please visit the [guidelines on our wiki](https://github.com/18F/web-design-standards/wiki/Component-Maturity-Scale).
+We have provided some guidelines for folks who would like to submit new components to the Draft Web Design Standards and the lifecycle those new components will go through. For more detail, please visit the [guidelines on our wiki](https://github.com/18F/web-design-standards/wiki/Component-Maturity-Scale).
 
 ### Submitting an issue
 
@@ -32,6 +32,74 @@ Here are a few guidelines to follow when submitting a pull request:
 
 Have questions or need help with setup? Open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
 
+### Confirming your environment is prepared
+
+#### Confirm Ruby
+
+To serve the site locally, we will need Ruby. Confirm Ruby is installed:
+
+```sh
+gem -v
+```
+
+If you do not see a version number, go to the [RubyGems download page](https://rubygems.org/pages/download) to install Ruby.
+
+#### Confirm Ruby Bundler
+
+```sh
+bundle -v
+```
+
+If you do not see a version number, and you have confirmed Ruby:
+
+```sh
+gem install bundler
+```
+
+#### Confirm NPM
+
+To install the required modules, we will need Node Package Manager (NPM). Confirm NPM is available:
+
+```sh
+npm -v
+```
+
+If you do not see a version number, go to the [Node.js download page](https://nodejs.org/en/download/) to install Node.js.
+
+#### Confirm Gulp 
+
+To compile the site, we will need Gulp - an NPM package. Confirm Gulp is available:
+
+```sh
+gulp -v
+```
+
+If you do not see a version number, and you have confirmed NPM:
+
+```sh
+npm install --global gulp-cli
+```
+
+Note: You may need to use `sudo` for this. If you are not comfortable using `sudo` to make `npm` a global command, you can find instructions on how to do so pretty easily through an online search.
+
+### Building the porject locally with NPM
+
+To start, run the following command to install any new dependencies:
+
+```sh
+npm install
+```
+
+The task above runs `bundle update`. If you prefer to use `npm update`, you may need to run `bundle update` separately.
+
+To serve the site locally:
+
+```sh
+npm start
+```
+
+The task above runs various `gulp` commands, which can be run independently, if you do not want to actually serve the site locally (see below for how to build the project using `gulp`).
+
 ### Building the project locally with gulp
 
 The Draft U.S. Web Design Standards `uswds` package (the ZIP download and the
@@ -40,11 +108,7 @@ public site that displays examples of each component and the HTML code) are
 built using gulp automation. To use gulp, first make sure you've installed it on
 your machine globally.
 
-```sh
-npm install --global gulp-cli
-```
-
-Then, to start, run the following command to install any new dependencies:
+To start, run the following command to install any new dependencies:
 
 ```sh
 npm install
