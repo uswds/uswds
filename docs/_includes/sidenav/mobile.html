@@ -9,7 +9,10 @@
       <li>
         <button
           {% if page.subheading == 'UI components' or page.title == 'UI components' %}
-            class="usa-current" aria-expanded="true"
+            class="usa-current"
+          {% endif %}
+          {% if page.subheading == 'UI components' %}
+            aria-expanded="true"
           {% else %}
             aria-expanded="false"
           {% endif %}
@@ -62,7 +65,10 @@
       <li>
         <button
           {% if page.subheading == 'Getting started' or page.title == 'Getting started' %}
-            class="usa-current" aria-expanded="true"
+            class="usa-current"
+          {% endif %}
+          {% if page.subheading == 'Getting started' %}
+            aria-expanded="true"
           {% else %}
             aria-expanded="false"
           {% endif %}
@@ -92,7 +98,10 @@
       <li>
         <button
           {% if page.subheading == 'About our work' or page.title == 'About our work' %}
-            class="usa-current" aria-expanded="true"
+            class="usa-current"
+          {% endif %}
+          {% if page.subheading == 'About our work' %}
+            aria-expanded="true"
           {% else %}
             aria-expanded="false"
           {% endif %}
