@@ -11,7 +11,6 @@ $width-nav-sidebar:    250px;
 $color-grid-dark:      #727272;
 $color-grid-light:     #e3e4e5;
 $height-nav-secondary: 5rem;
-$site-margins-mobile:  1.5rem;
 
 // Navigation ------------- //
 
@@ -324,7 +323,6 @@ $site-margins-mobile:  1.5rem;
   position: relative;
   width: 100%;
   top: 6.3rem; // height of disclaimer + navbar on mobile
-  z-index: -1;
 
   @include media($medium-screen + $width-nav-sidebar) {
     width: calc(100% - #{$width-nav-sidebar});
