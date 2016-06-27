@@ -54,8 +54,8 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
           </ul>
         </nav>
 
-        <div class="usa-sign_up-block usa-width-one-third">
-          <h3 class="usa-sign_up-header">Sign up</h3>
+        <div class="usa-sign-up-block usa-width-one-third">
+          <h3 class="usa-sign-up-header">Sign up</h3>
 
           <label class="" for="email" id="">Your email address</label>
           <input id="email" name="email" type="email">
@@ -65,7 +65,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
       </div>
     </div>
 
-    <div class="usa-footer-secondary_section usa-footer-big-secondary-section">
+    <div class="usa-footer-secondary-section usa-footer-big-secondary-section">
       <div class="usa-grid">
         <div class="usa-footer-logo usa-width-one-half">
           <img class="usa-footer-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
@@ -120,13 +120,13 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
             </li>
             <li class="usa-width-one-sixth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
-            </li>                    
+            </li>
           </ul>
         </nav>
       </div>
     </div>
 
-    <div class="usa-footer-secondary_section">
+    <div class="usa-footer-secondary-section">
       <div class="usa-grid">
         <div class="usa-footer-logo usa-width-one-half">
           <img class="usa-footer-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
@@ -182,17 +182,17 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
           </ul>
         </nav>
         <div class="usa-width-one-third">
-          <div class="usa-footer-primary-content usa-footer-contact_info">
+          <div class="usa-footer-primary-content usa-footer-contact-info">
             <p>(800) CALL-GOVT</p>
           </div>
-          <div class="usa-footer-primary-content usa-footer-contact_info">
+          <div class="usa-footer-primary-content usa-footer-contact-info">
             <a href="mailto:info@agency.gov">info@agency.gov</a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="usa-footer-secondary_section">
+    <div class="usa-footer-secondary-section">
       <div class="usa-grid">
         <div class="usa-footer-logo">
           <img class="usa-footer-slim-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
