@@ -1,7 +1,7 @@
 ---
 layout: styleguide
 title: Figure
-subheading: UI components
+category: UI components
 lead: Intro text on what is included in this section and how to use it. No more than one or two sentences.
 ---
 
@@ -11,7 +11,7 @@ lead: Intro text on what is included in this section and how to use it. No more 
     <div class="usa-image-text-block">
       <h2 class="usa-display">Apple pie</h2>
       <p class="usa-image-text">It's delicious.</p>
-    </div>    
+    </div>
   </div>
 </div>
 

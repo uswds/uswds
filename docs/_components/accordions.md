@@ -2,7 +2,7 @@
 layout: styleguide
 type: component
 title: Accordions
-subheading: UI components
+category: UI components
 lead: Accordions are a list of headers that can be clicked to hide or reveal additional content.
 maturity: alpha
 ---

@@ -8,11 +8,13 @@
     <ul class="usa-sidenav-list usa-accordion">
       <li>
         <button
-          {% if page.subheading == 'UI components' or page.title == 'UI components' %}
+          {% if page.category == 'UI components' == 'UI components' %}
             class="usa-current"
           {% endif %}
-          {% if page.subheading == 'UI components' %}
-            aria-expanded="true"
+          {% if page.category == 'UI components' %}
+            {% unless page.path contains 'overview' %}
+              aria-expanded="true"
+            {% endunless %}
           {% else %}
             aria-expanded="false"
           {% endif %}
@@ -64,11 +66,13 @@
       </li>
       <li>
         <button
-          {% if page.subheading == 'Getting started' or page.title == 'Getting started' %}
+          {% if page.category == 'Getting started' == 'Getting started' %}
             class="usa-current"
           {% endif %}
-          {% if page.subheading == 'Getting started' %}
-            aria-expanded="true"
+          {% if page.category == 'Getting started' %}
+            {% unless page.path contains 'overview' %}
+              aria-expanded="true"
+            {% endunless %}
           {% else %}
             aria-expanded="false"
           {% endif %}
@@ -97,11 +101,13 @@
       </li>
       <li>
         <button
-          {% if page.subheading == 'About our work' or page.title == 'About our work' %}
+          {% if page.category == 'About our work' %}
             class="usa-current"
           {% endif %}
-          {% if page.subheading == 'About our work' %}
-            aria-expanded="true"
+          {% if page.category == 'About our work' %}
+            {% unless page.path contains 'overview' %}
+              aria-expanded="true"
+            {% endunless %}
           {% else %}
             aria-expanded="false"
           {% endif %}

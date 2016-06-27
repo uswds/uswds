@@ -2,7 +2,7 @@
 layout: styleguide
 type: element
 title: Buttons
-subheading: UI components
+category: UI components
 lead: Use buttons to signal actions.
 maturity: alpha
 ---

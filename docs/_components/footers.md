@@ -2,7 +2,7 @@
 layout: styleguide
 type: component
 title: Footers
-subheading: UI components
+category: UI components
 lead: Footers serve site visitors who arrive at the bottom of a page without finding what they want.
 maturity: beta
 ---

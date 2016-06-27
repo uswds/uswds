@@ -2,6 +2,7 @@
 permalink: /getting-started/
 layout: styleguide
 title: Getting started
+category: Getting started
 lead: The Draft U.S. Web Design Standards provide the plug-and-play design and code to help you set a new bar for simplicity and consistency across government services.
 ---
 
