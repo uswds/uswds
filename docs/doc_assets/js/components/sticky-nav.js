@@ -10,8 +10,9 @@ module.exports = function stickyNav (event) {
   var originalNavigationHeight = $nav.outerHeight(true);
   var scrollY = $(window).scrollTop();
   var scrollPositionY = scrollY + originalNavigationHeight;
+  var maxMobileWidth = 850;
 
-  if (scrollPositionY > bannerHeight) {
+  if (window.innerWidth > maxMobileWidth && scrollPositionY > bannerHeight) {
     $nav.addClass(STICKY_CLASS_NAME);
     $('.usa-site-header').addClass(STICKY_CLASS_NAME);
     $('.usa-disclaimer').addClass(STICKY_CLASS_NAME);
