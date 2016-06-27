@@ -1207,7 +1207,8 @@ $font-light: 300;
   }
 }
 
-.usa-button {
+.usa-button,
+.link-download {
   &[href^="http:"]:not([href*="standards.com"]),
   &[href^="https:"]:not([href*="standards.com"]) {
     &::after {
