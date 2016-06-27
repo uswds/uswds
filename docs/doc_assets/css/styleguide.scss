@@ -324,6 +324,7 @@ $site-margins-mobile:  1.5rem;
   position: relative;
   width: 100%;
   top: 6.3rem; // height of disclaimer + navbar on mobile
+  z-index: -1;
 
   @include media($medium-screen + $width-nav-sidebar) {
     width: calc(100% - #{$width-nav-sidebar});
