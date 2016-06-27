@@ -323,25 +323,22 @@ $site-margins-mobile:  1.5rem;
   margin-top: 4rem; // starting: not scrolled
   position: relative;
   width: 100%;
-  top: 0;
+  top: 6.3rem; // height of disclaimer + navbar on mobile
+
+  @include media($medium-screen + $width-nav-sidebar) {
+    width: calc(100% - #{$width-nav-sidebar});
+    top: 0;
+  }
 
   &.is-scrolled {
     @include media($medium-screen + $width-nav-sidebar) {
       position: absolute;
-      top: 153px;
+      top: 15.3rem;
     }
   }
 
   .lt-ie9 & {
     width: 75%;
-  }
-
-  @include media($medium-screen + $width-nav-sidebar) {
-    width: calc(100% - #{$width-nav-sidebar});
-
-    .lt-ie9 & {
-      width: 75%;
-    }
   }
 }
 
