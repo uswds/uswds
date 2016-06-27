@@ -32,7 +32,7 @@ $site-top:           124px;
     font-style: normal;
     font-weight: $font-bold;
     margin: 0;
-    
+
     @include media($medium-screen + $width-nav-sidebar) {
       display: block;
       font-size: $h3-font-size;
@@ -282,6 +282,10 @@ $site-top:           124px;
   }
 }
 
+.heading-margin-alt {
+  margin-top: 6rem;
+}
+
 // Footer --------------- //
 
 .usa-styleguide-footer {
@@ -300,7 +304,7 @@ $site-top:           124px;
     font-size: $h5-font-size;
     @include margin(0 null 1.5rem);
   }
-  
+
   a {
     color: $color-gray-lighter;
 

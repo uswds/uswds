@@ -6,7 +6,7 @@ order: 01
 
 <p>U.S. government websites have common typographic needs: clear and consistent headings, highly legible body paragraphs, clear labels, and easy-to-use input fields. We recommend a font system that uses two open-source font families: Source Sans Pro and Merriweather, both of which are designed for legibility and can beautifully adapt to a variety of visual styles.</p>
 
-<h3 class="usa-heading" id="typefaces">Typefaces</h3>
+<h3 class="usa-heading heading-margin-alt" id="typefaces">Typefaces</h3>
 
 <h4 class="usa-heading-alt">Source Sans Pro</h4>
 
@@ -44,7 +44,7 @@ order: 01
   </div>
 </div>
 
-<h3 class="usa-heading" id="pairings">Pairings + Styles</h3>
+<h3 class="usa-heading heading-margin-alt" id="pairings">Pairings + Styles</h3>
 <p>To support both more contemporary and more traditional web design aesthetics, this font system offers recommended font pairings. Each pairing includes web hierarchy guidance on font family, weight, size, and spacing which express either more modern or more classical type design.</p>
 <p>Note: Some pairings require more font weights than others. While this allows more typographic expression, the use of more than four font weights will have a negative impact on page load performance. Find the balance that works for your product.</p>
 
@@ -55,7 +55,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Default: Merriweather headings, Source Sans Pro body (lite)</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
+      <div id="collapsible-0" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
@@ -211,7 +211,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Merriweather headings, Source Sans Pro Body (robust)</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
+      <div id="collapsible-0" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
@@ -389,7 +389,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Merriweather headings and body</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
+      <div id="collapsible-0" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
@@ -568,7 +568,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Source Sans Pro headings, Merriweather body</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
+      <div id="collapsible-0" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
@@ -729,7 +729,7 @@ order: 01
           aria-expanded="false" aria-controls="collapsible-0">
         <h5>Source Sans Pro headings and body</h5>
       </button>
-      <div id="collapsible-0" aria-hidden="true" class="usa-accordion-content">
+      <div id="collapsible-0" class="usa-accordion-content">
 
         <div class="usa-grid-full">
           <div class="usa-width-two-thirds">
@@ -926,7 +926,7 @@ order: 01
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
-  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+  <div id="collapsible-0" class="usa-accordion-content">
     <h4 class="usa-heading">Implementation</h4>
     <p>To get the max-width on body text, add the class <code>usa-content</code> to your document. Use at the specificity that best suits your project's needs.</p>
     <p>Lists must use <code>usa-content-list</code> for the above.</p>
@@ -967,7 +967,7 @@ order: 01
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
-  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+  <div id="collapsible-0" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
       <li>Users should be able to tab to navigate between links.
@@ -1020,7 +1020,7 @@ order: 01
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation
   </button>
-  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+  <div id="collapsible-0" class="usa-accordion-content">
   <h4 class="usa-heading">Implementation</h4>
   <p>Lists are styled by default. For unstyled lists, use either the <code>usa-unstyled-list</code> class or unstyled list mixin: <code>@include unstyled-list;</code>. Both are located in <code>assets/_scss/core/<wbr>utilities.scss</code>.</p>
     <h4 class="usa-heading">Usability</h4>
