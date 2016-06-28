@@ -148,8 +148,6 @@ The Standards also meet the [WCAG 2.0 AA accessibility guidelines](https://www.w
 
 ## Contribution guidelines<a id="contribution-guidelines"></a>
 
-Welcome!
-
 We're so glad you're thinking about contributing to the Standards! You can find our complete [contribution guidelines](https://github.com/18F/web-design-standards/blob/staging/CONTRIBUTING.md) in our repo — please review them before submitting your contribution.
 
 If you have any questions about these guidelines (or the Standards, more generally), don’t hesitate to [email us](mailto:uswebdesignstandards@gsa.gov) — we’ll get back to you within 48 hours.
