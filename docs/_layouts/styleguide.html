@@ -25,7 +25,9 @@
       <div class="styleguide-content usa-content">
         <header>
           {% if page.category != null %}
-            <p class="site-subheading">{{ page.category }}</p>
+            {% unless page.path contains 'overview' %}
+              <p class="site-subheading">{{ page.category }}</p>
+            {% endunless %}
           {% endif %}
           <h1 id="{{ page.title | slugify }}">{{ page.title }}</h1>
           {% if page.category == 'UI components' and page.maturity != null %}
