@@ -994,6 +994,12 @@ code {
   }
 }
 
+.highlight {
+  pre {
+    max-width: $lead-max-width;
+  }
+}
+
 // Code snippet boxes
 
 .usa-code-sample {
