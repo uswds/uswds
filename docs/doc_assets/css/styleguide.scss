@@ -481,6 +481,7 @@ footer[role='contentinfo'] {
 
   > .usa-grid {
     @media (min-width: $medium-screen + $width-nav-sidebar) {
+      margin-left: 0;
       padding-left: 0;
     }
   }
