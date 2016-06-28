@@ -11,6 +11,7 @@ $width-nav-sidebar:    250px;
 $color-grid-dark:      #727272;
 $color-grid-light:     #e3e4e5;
 $height-nav-secondary: 5rem;
+$font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 
 // Navigation ------------- //
 
@@ -632,7 +633,12 @@ h3 + .button_wrapper {
   }
 
   p {
-    font-family: monospace, monospace;
+    font-family: $font-monospace;
+    font-size: 1.5rem;
+
+    &:last-of-type {
+      font-size: 11px;
+    }
   }
 }
 
@@ -937,17 +943,52 @@ h6.usa-heading-alt {
 }
 
 .usa-monospace {
-  font-family: monospace;
+  font-family: $font-monospace;
+}
+
+code,
+pre {
+  background-color: $color-gray-lightest;
+  font-family: $font-monospace;
+  font-size: 1.3rem;
+}
+
+pre {
+  padding: 16px;
+
+  code {
+    padding: 0;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}
+
+code {
+  @include padding(0.2em null);
+
+  &::before,
+  &::after {
+    letter-spacing: -0.2em;
+    content: '\00a0';
+  }
 }
 
 // Code snippet boxes
 
-.usa-code-sample .usa-unstyled-list {
-  @include unstyled-list;
-}
+.usa-code-sample {
+  pre,
+  code {
+    background: none;
+    font-size: 1.2rem;
+    padding: 0;
+  }
 
-.usa-code-sample pre {
-  font-size: 1.2rem;
+ .usa-unstyled-list {
+  @include unstyled-list;
+  }
 }
 
 // scss-lint:disable QualifyingElement
