@@ -15,13 +15,9 @@ As a complement to this visual style guidance, we strongly recommend you use 18F
 
 The site contains HTML mockups of common UI components designed to follow the Draft U.S. Web Design Standards' visual style guide. To view the specs of each design live on this website (padding, margins, stroke weight, line-height, and so on), use your browser’s developer tools.
 
-<a class="link-download" href="https://github.com/18F/web-design-standards-assets/archive/master.zip">Download the design files</a>
+All of these designs are also available in various file formats, which are available for download:
 
-All of these designs are also available in other file formats, which are available for download:
-
-* **Illustrator, EPS, Sketch, and OmniGraffle** art files of each component and pattern on this site are available at: [https://github.com/18F/web-design-standards-assets/tree/master/Components](https://github.com/18F/web-design-standards-assets/tree/master/Components)
-* **.AI and .ASE color swatches** are available at: [https://github.com/18F/web-design-standards-assets/tree/master/Colors](https://github.com/18F/web-design-standards-assets/tree/master/Colors)
-* **.TTF files** of the font families and weights we recommend are available at: [https://github.com/18F/web-design-standards-assets/tree/master/Fonts%20and%20pairings](https://github.com/18F/web-design-standards-assets/tree/master/Fonts%20and%20pairings) (Note: All of the fonts we use are are free, open source typefaces also available online.)
+{% include download-buttons-design.html %}
 
 ## Notes on accessibility<a id="notes-on-accessibility"></a>
 
