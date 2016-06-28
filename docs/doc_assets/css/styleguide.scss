@@ -316,6 +316,10 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   }
 }
 
+.mobile-sidenav-active {
+  overflow: hidden;
+}
+
 // Main Content --------- //
 
 .main-content {
