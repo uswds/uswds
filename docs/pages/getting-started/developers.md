@@ -134,7 +134,7 @@ You can also email us directly at uswebdesignstandards@gsa.gov.
 
 ## Where things live<a id="where-things-live"></a>
 
-* **HTML** markup for the components are located in: `docs/_visual, docs/_layout-system, docs/_elements, docs/_components` in the site root.
+* **HTML** markup for the components are located in: `docs/_components` in the site root.
 * **Sass** styles are located in: `src/stylesheets/ (/core, /elements, /components)`. **Compiled CSS** is located in the [downloadable zip file]({{ site.repos[0].url }}/releases/download/v{{ site.version }}/uswds-{{ site.version }}.zip) .
 * **JS** is located in: `src/js/components (accordion.js, toggle-field-mark.js, toggle-form-input.js, validator.js)`.
 * **Fonts** are located in: `src/fonts`.
