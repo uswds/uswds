@@ -370,10 +370,10 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 // Label links
 
 %label-maturity {
-  @include margin(1.2rem null null 1.2rem );
   color: $color-gray-dark;
   font-size: 1.4rem;
   font-weight: $font-bold;
+  margin-left: 1.2rem;
   position: absolute;
   text-decoration: none;
 
@@ -409,6 +409,18 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 
 .label-recommended {
   @include label-link($color-green-lightest, $color-green-lighter);
+}
+
+h1 + .tooltip {
+  a {
+    margin-top: 1.7rem;
+  }
+}
+
+h2 + .tooltip {
+  a {
+    margin-top: 1.3rem;
+  }
 }
 
 .heading-margin-alt {
