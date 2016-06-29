@@ -26,13 +26,14 @@ $accordion-border: 3px solid $color-gray-lightest;
     }
   }
 
-  button[aria-expanded=false] {
+  [aria-expanded=false] {
     background-image: url('../img/plus.png');
     background-image: url('../img/plus.svg');
     background-repeat: no-repeat;
     background-size: 1.3rem;
   }
 
+  // scss-lint:disable PropertyCount
   button {
     background-color: $color-gray-lightest;
     background-image: url('../img/minus.png');
@@ -66,6 +67,7 @@ $accordion-border: 3px solid $color-gray-lightest;
       margin: 0;
     }
   }
+  // scss-lint:enable PropertyCount
 }
 
 .usa-accordion-bordered {

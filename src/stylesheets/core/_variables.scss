@@ -71,6 +71,7 @@ $color-cool-blue-lightest:   #dce4ef; // lighten($color-cool-blue, 90%)
 $color-focus:                #3e94cf;
 $color-visited:              #4c2c92;
 
+$color-shadow:               rgba(#000, 0.3);
 
 // Mobile First Breakpoints
 $small-screen:      481px;
@@ -85,6 +86,6 @@ $site-margins:      3rem;
 $article-max-width: 600px;
 $input-max-width:   46rem;
 $border-radius:     rem(3px);
-$box-shadow:        0 0 2px rgba(#000, 0.3);
+$box-shadow:        0 0 2px $color-shadow;
 $focus-shadow:      0 0 3px $color-focus, 0 0 7px $color-focus;
 $grid-margins:      3rem;
