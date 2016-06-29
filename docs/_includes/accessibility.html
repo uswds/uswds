@@ -1,0 +1,24 @@
+<h3 class="usa-heading heading-margin-alt">Accessibility</h3>
+
+<p>As you customize these templates, make sure they continue to meet the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for all form controls</a> as well as the accessibility guidelines for each individual control.</p>
+<p>In addition, when creating forms with multiple controls or customizing these templates, be sure to:</p>
+
+<ul class="usa-content-list">
+  <li>Display form controls in the same order in HTML as they appear on screen. Do not use CSS to rearrange the form controls. Screen readers narrate forms in the order they appear in the HTML.</li>
+  <li>Visually align validation messages with the input fields, so people using screen magnifiers can read them quickly.</li>
+  <li>Group each set of thematically related controls in a fieldset element. Use the legend element to offer a label within each one. The fieldset and legend elements make it easier for screen reader users to navigate the form.</li>
+  <li>Use a single legend for fieldset (this is required). One example of a common use of fieldset and legend is a question with radio button options for answers. The question text and radio buttons are wrapped in a fieldset, with the question itself being inside the legend tag.</li>
+  <li>Embed multiple fieldsets and legends for more complex forms.</li>
+  <li>Keep your form blocks in a vertical pattern. This approach is ideal, from an accessibility standpoint, because of limited vision that makes it hard to scan from right to left.</li>
+</ul>
+
+<h4>Supporting screen readers</h4>
+
+<p><b>Note:</b> These code examples have been designed to support a range of screen readers. That said, they may not work with all versions.</p>
+
+<h5>Known issues</h5>
+
+<ul class="usa-content-list">
+  <li>VoiceOver on iOS currently does not support fieldset and legend for forms. You can address this by using <code>aria-labeledby="for-attribute-of-label id-of-legend id-of-additional-info"</code> on each input in the fieldset. Using <code>aria-labeledby</code> will overwrite the default text read by the screen reader, so it is important to include all relevant information.</li>
+  <li>VoiceOver on OS X currently does not support <code>aria-describedby</code>. Use <code>aria-labeledby</code> instead, and include all related fields, including, labels, legend, and hint text</li>
+</ul>
