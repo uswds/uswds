@@ -365,6 +365,16 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
       margin-top: 0;
     }
   }
+
+  section {
+    > h2 {
+      display: inline-block;
+    }
+
+    > .tooltip {
+      margin-top: 56px;
+    }
+  }
 }
 
 // Label links
