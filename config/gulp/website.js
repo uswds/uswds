@@ -49,18 +49,6 @@ gulp.task('copy-docs-assets:stylesheets', function (done) {
     .pipe(gulp.dest('docs/assets/css'));
 
 });
-gulp.task('copy-docs-assets:javascript', function (done) {
-
-  // Only copies over the vendor files. The source JavaScript is bundled using Browserify
-  // @see: config/gulp/javascript.js
-
-  dutil.logMessage('copy-docs-assets:javascript', 'Copying docs/doc_assets/js/vendor to docs/assets/js/vendor');
-
-  return gulp.src('docs/doc_assets/js/vendor/**/*')
-    .on('error', function (data) { dutil.logError('copy-docs-assets:javascript', data); })
-    .pipe(gulp.dest('docs/assets/js/vendor'));
-
-});
 
 gulp.task('copy-bundled-javascript', function (done) {
 
@@ -101,7 +89,6 @@ gulp.task('copy-assets', [ 'build' ], function (done) {
       'copy-images',
       'copy-docs-assets:images',
       'copy-docs-assets:stylesheets',
-      'copy-docs-assets:javascript',
     ],
     done
   );
@@ -188,7 +175,6 @@ gulp.task(taskServe, [ 'copy-assets', 'bundle-gems' ], function (done) {
       'clean-bundled-javascript',
       [
         'copy-bundled-javascript',
-        'copy-docs-assets:javascript',
       ]
     );
   });
