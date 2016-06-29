@@ -1,4 +1,8 @@
 // TODO restructure function so the use of "this" makes sense.
+
+var Prism = require('prismjs');
+var $ = require('jquery');
+
 var generateCodeSnippets = function (content, previewBox) {
 
   var self = this;
@@ -23,7 +27,9 @@ var generateCodeSnippets = function (content, previewBox) {
           '</li>' +
         '</ul>' +
       '</div>');
-    $(sampleCodeBox).find('code').text($(sampleCode).html());
+    $(sampleCodeBox).find('code').html(
+      Prism.highlight($(sampleCode).html(), Prism.languages.markup)
+    );
     $(previewBox).after(sampleCodeBox);
   };
 
