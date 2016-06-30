@@ -363,13 +363,12 @@ order: 02
               <li>3. Merriweather, Italic 400</li>
               <li>4. Merriweather, Light 300</li>
               <li>5. Source Sans Pro, Regular 400</li>
-              <li>6. Source Sans Pro, Bold 700</li>
             </ul>
           </div>
           <aside class="usa-width-one-third usa-end-row">
             <h6 class="usa-heading-alt">Page Performance</h6>
             <p><span class="usa-label-big">Medium</span></p>
-            <p>Exceeds ideal number of fonts by two. May negatively impact page load performance.</p>
+            <p>Exceeds ideal number of fonts by one. May negatively impact page load performance.</p>
             <h6 class="usa-heading-alt">Example</h6>
             <p>
               <a class="media_link" href="http://playbook.cio.gov">
