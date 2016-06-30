@@ -1290,7 +1290,8 @@ $font-light: 300;
 }
 
 .usa-button,
-.link-download {
+.link-download,
+.media_link {
   &[href^="http:"]:not([href*="standards.com"]),
   &[href^="https:"]:not([href*="standards.com"]) {
     &::after {
@@ -1300,8 +1301,7 @@ $font-light: 300;
 }
 
 .logo-links,
-.usa-disclaimer-stage,
-.media_link {
+.usa-disclaimer-stage {
   [href^="http:"]:not([href*="standards.com"]),
   [href^="https:"]:not([href*="standards.com"]) {
     &::after {
