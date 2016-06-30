@@ -526,12 +526,16 @@ footer[role='contentinfo'] {
   @include clearfix;
   @include margin(2em null);
   background-color: $color-white;
-  padding: 1em $site-margins;
+  padding: $site-margins;
   border: 1px solid #eeeeee; // scss-lint:disable ColorVariable
 
   .usa-background-dark {
     @include padding(null 1em);
     display: inline-block;
+  }
+
+  > *:first-child {
+    margin-top: 0;
   }
 }
 
@@ -539,6 +543,20 @@ footer[role='contentinfo'] {
   @include margin(0 null 2em);
   border: 0;
   padding: 0;
+}
+
+// Custom preview box styles
+
+.preview-lists {
+  padding-bottom: 0;
+
+  h6 {
+    margin-top: 0;
+  }
+}
+
+.preview-dropdown {
+  padding-top: 0;
 }
 
 // Search bar grid --------- //

@@ -7,7 +7,7 @@ lead: A dropdown allows users to select one option from a list.
 ---
 
 
-<div class="preview">
+<div class="preview preview-dropdown">
 <form class="usa-form">
   <label for="options">Dropdown label</label>
   <select name="options" id="options">

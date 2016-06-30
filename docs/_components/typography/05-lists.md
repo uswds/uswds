@@ -10,9 +10,9 @@ order: 05
 
 <p class="usa-font-lead">Lists organize written information for users.</p>
 
-<div class="preview">
+<div class="preview preview-lists">
 
-  <div class="usa-grid">
+  <div class="usa-grid-full">
     <div class="usa-width-one-third">
 
       <h6 class="usa-heading-alt">Unordered list</h6>
@@ -27,7 +27,7 @@ order: 05
 
     <div class="usa-width-one-third">
 
-      <h6 class="usa-heading-alt">Ordered list</h6>
+      <h6 class="usa-heading-alt mt0">Ordered list</h6>
 
       <ol>
         <li>Ordered list item</li>

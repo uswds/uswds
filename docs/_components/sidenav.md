@@ -11,7 +11,7 @@ maturity: beta
 
   <h6 class="usa-heading-alt">Single level</h6>
 
-  <div class="usa-grid">
+  <div class="usa-grid-full">
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
@@ -29,7 +29,7 @@ maturity: beta
 
   <h6 class="usa-heading-alt">Two levels</h6>
 
-  <div class="usa-grid">
+  <div class="usa-grid-full">
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
@@ -64,7 +64,7 @@ maturity: beta
 
   <h6 class="usa-heading-alt">Three levels</h6>
 
-  <div class="usa-grid">
+  <div class="usa-grid-full">
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
