@@ -4,7 +4,7 @@ type: component
 title: Search bar
 category: UI components
 lead: A block that allows users to search for specific content if they know what search terms to use or can’t find desired content in the main navigation
-maturity: beta
+maturity: alpha
 ---
 
 <div class="preview preview-search-bar">

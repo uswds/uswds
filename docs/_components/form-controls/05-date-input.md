@@ -1,7 +1,7 @@
 ---
 title: Date input
 parent: Form controls
-maturity: beta
+maturity: alpha
 order: 05
 lead: Three text fields are the easiest way for users to enter most dates.
 ---

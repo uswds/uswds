@@ -1,7 +1,7 @@
 ---
 title: Sign-in form
 parent: Form templates
-maturity: beta
+maturity: alpha
 order: 03
 lead: A template for signing a user into a website or app
 ---

@@ -1,7 +1,7 @@
 ---
 type: component
 title: Typesetting
-maturity: beta
+maturity: alpha
 parent: typography
 order: 03
 ---

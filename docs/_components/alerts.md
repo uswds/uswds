@@ -4,7 +4,7 @@ type: component
 title: Alerts
 category: UI components
 lead: Alerts keep users informed of important and sometimes time-sensitive changes.
-maturity: beta
+maturity: alpha
 ---
 
 <div class="preview">

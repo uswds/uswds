@@ -1,7 +1,7 @@
 ---
 title: Password reset form
 parent: Form templates
-maturity: beta
+maturity: alpha
 order: 03
 lead: A standard template for resetting a password
 ---

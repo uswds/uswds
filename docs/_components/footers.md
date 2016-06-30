@@ -4,7 +4,7 @@ type: component
 title: Footers
 category: UI components
 lead: Footers serve site visitors who arrive at the bottom of a page without finding what they want.
-maturity: beta
+maturity: alpha
 ---
 
 <div class="preview">

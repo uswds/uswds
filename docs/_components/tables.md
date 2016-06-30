@@ -4,7 +4,7 @@ type: element
 title: Tables
 category: UI components
 lead: Tables show tabular data in columns and rows.
-maturity: beta
+maturity: alpha
 ---
 
 <div class="preview">
