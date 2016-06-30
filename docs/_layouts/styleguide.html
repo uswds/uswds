@@ -32,8 +32,8 @@
           <h1 id="{{ page.title | slugify }}">{{ page.title }}</h1>
           {% if page.category == 'UI components' and page.maturity != null %}
             <div class="tooltip">
-              <p class="tooltip-text" id="tooltip-text">Read about the component maturity scale</p>
-              <a class="usa-label label-{{ page.maturity }}" href="{{ site.repos[0].url }}/wiki/Component-Maturity-Scale" aria-describedby="tooltip-text">
+              <p class="tooltip-text" id="tooltip-text-{{ page.title | slugify }}">Read about the component maturity scale</p>
+              <a class="usa-label label-{{ page.maturity }}" href="{{ site.repos[0].url }}/wiki/Component-Maturity-Scale" aria-describedby="tooltip-text-{{ page.title | slugify }}">
                 {{ page.maturity }}
               </a>
             </div>
