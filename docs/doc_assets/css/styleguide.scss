@@ -1026,11 +1026,6 @@ code {
 }
 
 // scss-lint:disable QualifyingElement
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-  background: none;
-}
-
 code[class*="language-"],
 pre[class*="language-"] {
   color: $color-base;
