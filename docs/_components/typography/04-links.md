@@ -1,7 +1,7 @@
 ---
 type: component
 title: Links
-maturity: beta
+maturity: alpha
 parent: typography
 order: 04
 ---

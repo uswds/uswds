@@ -1,7 +1,7 @@
 ---
 type: component
 title: Text accessibility
-maturity: beta
+maturity: recommended
 parent: colors
 order: 02
 ---

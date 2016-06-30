@@ -5,7 +5,6 @@ type: component
 title: Form controls
 category: UI components
 lead: Form controls allow users to enter information into a page.
-maturity: beta
 ---
 
 {% include accessibility.html %}
