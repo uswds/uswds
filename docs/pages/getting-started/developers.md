@@ -10,7 +10,7 @@ lead: The UI components are built on a solid HTML foundation, progressively enha
 
 Here are a few different ways to use the Standards within your project.
 
-### Download
+### Download<a id="download"></a>
 
 To use the Draft Web Design Standards on your project, you’ll need to include the CSS and JavaScript files in each HTML page in your project.
 
