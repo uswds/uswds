@@ -40,13 +40,13 @@ into your HTML pages:
 
 Add this to your `<head>` element:
 
-```html
+```
 <link rel="stylesheet" href="/path/to/your/assets/css/lib/uswds.min.css">
 ```
 
 Add this before the closing `</body>` tag:
 
-```html
+```
 <script src="/path/to/your/assets/js/lib/uswds.min.js"></script>
 ```
 
