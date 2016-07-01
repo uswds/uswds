@@ -215,19 +215,9 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   }
 
   .usa-sidenav-sub_list {
-    display: none;
-
     &[aria-hidden="false"] {
       display: block;
     }
-  }
-}
-
-.usa-current + .usa-sidenav-sub_list {
-  display: block;
-
-  .usa-sidenav-sub_list {
-    display: block; // for third level nesting
   }
 }
 
