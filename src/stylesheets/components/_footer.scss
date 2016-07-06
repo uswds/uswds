@@ -10,9 +10,14 @@
     margin-top: 0;
     padding-bottom: 2rem;
     padding-top: 2rem;
+    text-decoration: none;
 
     @include media($medium-screen) {
       border-top: none;
+    }
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 
@@ -68,7 +73,6 @@
   .usa-footer-nav ul {
     @include media($medium-screen) {
       align-items: center;
-      display: flex;
     }
   }
 }
@@ -87,8 +91,27 @@
 
       .usa-grid-full {
         align-items: center;
-        display: flex;
       }
+    }
+  }
+
+  .usa-footer-contact_info {
+    > * {
+      @include media($medium-screen) {
+        margin: 0;
+      }
+    }
+
+    @include media($medium-screen) {
+      @include padding (2rem null);
+    }
+
+    @include media($medium-screen) {
+      width: 100%;
+    }
+
+    @include media($large-screen) {
+      @include span-columns(6);
     }
   }
 }
@@ -112,7 +135,6 @@ li.usa-footer-primary-content {
   }
 }
 // scss-lint:enable QualifyingElement
-
 
 .usa-sign_up-block {
   padding-bottom: 2rem;
@@ -158,6 +180,12 @@ li.usa-footer-primary-content {
 .usa-footer-contact-links {
   @include media($medium-screen) {
     text-align: right;
+  }
+}
+
+.usa-social-links {
+  a {
+    text-decoration: none;
   }
 }
 
@@ -271,4 +299,53 @@ li.usa-footer-primary-content {
     display: inline-block;
     padding-left: 1em;
   }
+}
+
+.usa-social_link {
+  $background-height: 3rem; // Height of icon within hit area.
+  $hit-area: 4.4rem; // Link hit target is 44 x 44 pixels following Apple iOS
+                     // Human Interface Guidelines.
+  @include margin(2.5rem 1rem 1.5rem 0);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto $background-height;
+  display: inline-block;
+  height: $hit-area;
+  left: -1.6rem; // relative left positioning
+  position: relative;
+  text-align: center;
+  width: $hit-area;
+
+  @include media($medium-screen) {
+    @include margin(0 0 0 1rem);
+    left: 1.2rem;
+  }
+
+  span {
+    @include sr-only();
+  }
+}
+
+.usa-link-facebook {
+  @extend .usa-social_link;
+  background-image: url('../img/social-icons/png/facebook25.png');
+  background-image: url('../img/social-icons/svg/facebook25.svg');
+}
+
+.usa-link-twitter {
+  @extend .usa-social_link;
+  background-image: url('../img/social-icons/png/twitter16.png');
+  background-image: url('../img/social-icons/svg/twitter16.svg');
+}
+
+.usa-link-youtube {
+  @extend .usa-social_link;
+  background-image: url('../img/social-icons/png/youtube15.png');
+  background-image: url('../img/social-icons/svg/youtube15.svg');
+}
+
+.usa-link-rss {
+  @extend .usa-social_link;
+  background-image: url('../img/social-icons/png/rss25.png');
+  background-image: url('../img/social-icons/svg/rss25.svg');
 }

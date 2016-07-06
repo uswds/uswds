@@ -3,11 +3,15 @@ $(function(){
     $('.sidenav, .overlay').toggleClass('is-visible');
     e.preventDefault();
   });
-  
+
   function handleDisabledLinks() {
     $(document).on('click', 'a[href="#"]', function (event) {
       // Stop default browser action which would likely return to the top of the page
-      event.preventDefault();
+      // unless it's an actual return-to-top link
+      var isReturnToTop = 'return to top' === $(event.target).text().toLowerCase();
+      if (! isReturnToTop) {
+        event.preventDefault();
+      }
     });
   }
   handleDisabledLinks()
@@ -67,12 +71,12 @@ var calculateAnchorPosition = function (hash) {
   if (anchor.length === 0) {
     return topOffset;
   }
-  
+
   //start with the height of the header
   topOffset = $('.usa-site-header').first().outerHeight();
   //subtract the diffence in padding between nav top and anchor
   topOffset = topOffset - (anchorPadding - navPadding);
-  
+
   //anchor should now align with first item inside nav
   return anchor.offset().top - topOffset;
 }
@@ -113,7 +117,7 @@ $('.sidenav').on('click', 'a', function(e) {
   if (scrollTopPos === 0) {
     return true;
   }
-  
+
   e.preventDefault();
 
   /* Firefox needs html, others need body */
@@ -143,4 +147,8 @@ $('.sidenav').on('click', 'a', function(e) {
       }
     }
   });
+});
+
+$(".preview-search-bar .usa-search").submit(function(event){
+  event.preventDefault();
 });

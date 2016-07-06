@@ -25,6 +25,21 @@ $site-top:           124px;
     border-bottom: none;
   }
 
+  em {
+    display: block;
+    font-family: $font-serif;
+    font-size: $h5-font-size;
+    font-style: normal;
+    font-weight: $font-bold;
+    margin: 0;
+
+    @include media($medium-screen + $width-nav-sidebar) {
+      display: block;
+      font-size: $h3-font-size;
+      margin-top: .8rem;
+    }
+  }
+
   .usa-site-navbar {
     @include media($medium-screen + $width-nav-sidebar) {
       @include margin(2.7rem 0 1rem);
@@ -49,23 +64,12 @@ $site-top:           124px;
       // scss-lint:disable SelectorDepth, NestingDepth
       a {
         color: $color-gray;
+        text-decoration: none;
 
         &:hover {
           color: $color-gray-dark;
-          text-decoration: none;
         }
       }
-    }
-
-    h1 {
-      @include media($medium-screen + $width-nav-sidebar) {
-        display: block;
-        font-size: $h3-font-size;
-        margin-top: .9rem;
-      }
-
-      margin: 0;
-      font-size: $h5-font-size;
     }
 
     .usa-button-list {
@@ -278,6 +282,10 @@ $site-top:           124px;
   }
 }
 
+.heading-margin-alt {
+  margin-top: 6rem;
+}
+
 // Footer --------------- //
 
 .usa-styleguide-footer {
@@ -287,8 +295,7 @@ $site-top:           124px;
 // This is a styleguide-only rule and is not needed in the main library code for
 // the footer component which uses different styles
 // TODO investigate why it's not needed in the main library CSS
-  p,
-  a {
+  p {
     @include media($medium-screen) {
       margin-bottom: 0;
     }
@@ -296,6 +303,14 @@ $site-top:           124px;
     color: $color-white;
     font-size: $h5-font-size;
     @include margin(0 null 1.5rem);
+  }
+
+  a {
+    color: $color-gray-lighter;
+
+    &:hover {
+      color: $color-white;
+    }
   }
 }
 
@@ -1072,4 +1087,29 @@ $font-light: 300;
   }
 
   padding-left: 2rem;
+}
+
+// External link styles
+.main-content {
+  [href^="http:"]:not([href*="standards.com"]),
+  [href^="https:"]:not([href*="standards.com"]) {
+    @include external-link(external-link, external-link-hover);
+  }
+}
+
+
+.usa-button {
+  &[href^="http:"]:not([href*="standards.com"]),
+  &[href^="https:"]:not([href*="standards.com"]) {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.usa-styleguide-footer {
+  [href^="http:"]:not([href*="standards.com"]),
+  [href^="https:"]:not([href*="standards.com"]) {
+    @include external-link(external-link-alt, external-link-alt-hover);
+  }
 }
