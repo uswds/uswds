@@ -35,11 +35,13 @@ deployment:
     commands:
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-production
       - cf zero-downtime-push wds-microsite -f manifest.yml -p _site
+      - cf map-route wds-microsite standards.usa.gov
   staging:
     branch: [staging]
     commands:
       - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-staging
       - cf zero-downtime-push wds-microsite -f config/cf/manifest-staging.yml -p _site
+      - cf map-route wds-microsite standards-staging.usa.gov
   release:
     branch: [release]
     commands:
