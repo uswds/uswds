@@ -4,6 +4,7 @@ $button-stroke: inset 0 0 0 2px;
 
 // Buttons
 
+// scss-lint:disable PropertyCount
 .usa-button,
 .usa-button-primary,
 .usa-button:visited,
@@ -13,6 +14,7 @@ button,
 [type="submit"],
 [type="reset"],
 [type="image"] {
+  @include margin(0.5em 0.5em 0.5em null);
   appearance: none;
   background-color: $color-primary;
   border: 0;
@@ -24,9 +26,6 @@ button,
   font-size: $base-font-size;
   font-weight: $font-bold;
   line-height: 1;
-  margin-bottom: 0.5em;
-  margin-right: 0.5em;
-  margin-top: 0.5em;
   outline: none;
   padding: 1rem 2rem;
   text-align: center;
@@ -151,6 +150,7 @@ button,
     padding: 1.5rem 3rem;
   }
 }
+// scss-lint:enable PropertyCount
 
 [type="submit"]:disabled,
 .usa-button-disabled {
@@ -162,7 +162,7 @@ button,
   &.usa-button-hover,
   &:active,
   &.usa-button-active,
-  &:focus  {
+  &:focus {
     background-color: $color-gray-lighter;
     border: 0;
     box-shadow: none;

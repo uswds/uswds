@@ -18,6 +18,7 @@ body {
 // Hack for clearfixes
 .lt-ie9 {
   * {
+    // scss-lint:disable ImportantRule
     filter: none !important;
   }
 }

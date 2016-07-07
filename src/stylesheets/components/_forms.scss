@@ -1,16 +1,12 @@
 $usa-form-width: 32rem;
 
 form {
-  @include media($medium-screen) {
-    max-width: $usa-form-width;
-  }
-
   a {
     border-bottom: 0;
   }
 
-  button[type="submit"],
-  input[type="submit"] {
+  [type="submit"],
+  [type="submit"] {
     display: block;
     margin-bottom: 1.5em;
     margin-top: 2.5rem;
@@ -22,9 +18,15 @@ form {
     }
   }
 
-  input[name="password"],
-  input[name="confirmPassword"] {
+  [name="password"],
+  [name="confirmPassword"] {
     margin-bottom: 1.1rem;
+  }
+}
+
+.usa-form {
+  @include media($medium-screen) {
+    max-width: $usa-form-width;
   }
 }
 
@@ -51,15 +53,17 @@ fieldset {
   }
 }
 
-input.usa-input-tiny {
-  @include media($medium-screen) {
-    max-width: 6rem;
+input {
+  &.usa-input-tiny {
+    @include media($medium-screen) {
+      max-width: 6rem;
+    }
   }
-}
 
-input.usa-input-medium {
-  @include media($medium-screen) {
-    max-width: 12rem;
+  &.usa-input-medium {
+    @include media($medium-screen) {
+      max-width: 12rem;
+    }
   }
 }
 
@@ -120,24 +124,10 @@ input.usa-input-medium {
   }
 }
 
-.usa-form-width {
-  max-width: $usa-form-width;
-}
-
 .usa-additional_text {
   float: right;
   font-style: italic;
   font-weight: normal;
-}
-
-.usa-input-buttons-inline {
-  button,
-  button[type="submit"],
-  input[type="submit"],
-  & > * {
-    display: inline;
-    margin-right: 1.5em;
-  }
 }
 
 // Reset password checklist
