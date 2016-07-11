@@ -156,10 +156,6 @@ dfn {
   }
 }
 
-.usa-font-lead {
-  max-width: $lead-max-width;
-}
-
 .usa-content-list {
   max-width: $text-max-width;
 }
@@ -204,6 +200,7 @@ dfn {
   font-family: $font-serif;
   font-size: $lead-font-size;
   line-height: $lead-line-height;
+  max-width: $lead-max-width;
 }
 
 .usa-image-block {
