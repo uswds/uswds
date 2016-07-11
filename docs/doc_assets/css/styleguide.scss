@@ -79,7 +79,16 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
       display: none;
     }
   }
+
+  // Firefox fix so that navbar buttons to align right
+  @-moz-document url-prefix() {
+    @include media($medium-screen + $width-nav-sidebar) {
+      padding-top: 1px;
+    }
+  }
 }
+
+
 
 .site-logo {
   float: left;
