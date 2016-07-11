@@ -4,7 +4,7 @@ type: element
 title: Labels
 category: UI components
 lead: Labels draw attention to new or important content.
-maturity: alpha
+maturity: beta
 ---
 
 <div class="preview">
