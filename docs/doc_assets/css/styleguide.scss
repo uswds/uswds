@@ -1421,7 +1421,8 @@ $font-light: 300;
 
 .page-product-roadmap,
 .page-for-developers,
-.page-for-designers {
+.page-for-designers,
+.page-component-maturity-scale {
   .usa-content {
     > ul:not(.usa-content-list) {
       max-width: $text-max-width;
@@ -1439,6 +1440,7 @@ $font-light: 300;
 .usa-center {
   text-align: center;
 }
+
 
 // Custom tooltip styles -------------- //
 
