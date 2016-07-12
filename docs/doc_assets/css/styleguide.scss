@@ -1431,13 +1431,9 @@ $font-light: 300;
 }
 
 .page-for-developers,
-.page-for-designers {
-  h2 {
-    color: $color-primary-darker;
-  }
-}
-
-.page-product-roadmap {
+.page-for-designers,
+.page-product-roadmap,
+.page-component-maturity-scale {
   h2 {
     color: $color-primary-darker;
   }
