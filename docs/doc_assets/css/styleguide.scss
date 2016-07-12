@@ -412,13 +412,31 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   @include label-link($color-gold-lightest, $color-gold-lighter);
 }
 
-.label-beta {
+.label-beta,
+.label-in-progress {
   @include label-link($color-primary-alt-lightest, $color-primary-alt-light);
 }
 
-.label-recommended {
+.label-recommended,
+.label-done {
   @include label-link($color-green-lightest, $color-green-lighter);
 }
+
+.page-product-roadmap {
+  .tooltip .tooltip-text {
+    @include media($medium-screen) {
+      margin-bottom: 6px;
+      margin-left: -10px;
+      width: 226px;
+    }
+  }
+
+  .usa-label {
+    position: relative;
+  }
+}
+
+
 
 h1 + .tooltip {
   a {
