@@ -2,6 +2,17 @@
 {% for child in children %}
 <section id="{{ child.slug }}">
   <h2 class="usa-heading heading-margin-alt" id="{{ child.title | slugify }}">{{ child.title }}</h2>
+  {% if child.maturity != null %}
+    <div class="tooltip">
+      <p class="tooltip-text" id="tooltip-text-{{ child.title | slugify }}">Read about the component maturity scale</p>
+      <a class="usa-label label-{{ child.maturity }}" href="{{ site.repos[0].url }}/wiki/Component-Maturity-Scale" aria-describedby="tooltip-text-{{ child.title | slugify }}">
+        {{ child.maturity }}
+      </a>
+    </div>
+  {% endif %}
+  {% if child.lead != null %}
+    <p class="usa-font-lead">{{ child.lead }}</p>
+  {% endif %}
   {{ child.content }}
 </section>
 {% endfor %}

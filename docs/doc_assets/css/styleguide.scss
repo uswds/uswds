@@ -7,28 +7,28 @@
 
 // Variables -------------- //
 
-$width-nav-sidebar:  250px;
-$color-grid-dark:    #727272;
-$color-grid-light:   #e3e4e5;
-$site-top:           124px;
+$width-nav-sidebar:    250px;
+$color-grid-dark:      #727272;
+$color-grid-light:     #e3e4e5;
+$height-nav-secondary: 5rem;
+$font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 
 // Navigation ------------- //
 
 .usa-site-header {
   @include position(fixed, 0 null null 0);
-  background-color: $color-white;
-  border-bottom: 1px solid $color-gray-light;
+  background-color: $color-primary-darkest;
   width: 100%;
   z-index: 1;
 
-  a {
-    border-bottom: none;
+  @include media($medium-screen + $width-nav-sidebar) {
+    position: relative;
   }
 
   em {
     display: block;
     font-family: $font-serif;
-    font-size: $h5-font-size;
+    font-size: 1.4rem;
     font-style: normal;
     font-weight: $font-bold;
     margin: 0;
@@ -36,118 +36,144 @@ $site-top:           124px;
     @include media($medium-screen + $width-nav-sidebar) {
       display: block;
       font-size: $h3-font-size;
-      margin-top: .8rem;
     }
   }
 
-  .usa-site-navbar {
+  .usa-button-list {
+    float: right;
+    display: none;
+    margin-top: -5px;
+
     @include media($medium-screen + $width-nav-sidebar) {
-      @include margin(2.7rem 0 1rem);
-      height: 6rem;
-    }
-
-    margin-top: 4px;
-
-    .logo {
-
-      @include media($medium-screen + $width-nav-sidebar) {
-        @include padding(0 null null $site-margins);
-        text-align: left;
-        width: auto;
-      }
-
-      float: left;
-      text-align: center;
-      padding-top: 1.3rem;
-      width: 70%;
-
-      // scss-lint:disable SelectorDepth, NestingDepth
-      a {
-        color: $color-gray;
-        text-decoration: none;
-
-        &:hover {
-          color: $color-gray-dark;
-        }
-      }
-    }
-
-    .usa-button-list {
-      @include media($medium-screen + $width-nav-sidebar) {
-        display: block;
-        padding-right: $site-margins;
-      }
-
-      float: right;
-      display: none;
-      margin-top: -5px;
-
-      // scss-lint:disable SelectorDepth, NestingDepth
-      li {
-        display: inline;
-        font-family: $font-sans;
-
-        &:last-child .usa-button {
-          margin-right: 0;
-        }
-      }
-    }
-  }
-
-  .disclaimer {
-    $color-gray-border: #616161;
-    padding: .5rem 2rem;
-    color: $color-white;
-    text-align: center;
-    font-size: $base-font-size / 1.25;
-    border-bottom: 1px solid $color-gray-border;
-    font-weight: 100;
-
-    .us-official {
-      margin: 0;
-    }
-
-    .stage {
-      // scss-lint:disable SelectorDepth
-
-      a { text-decoration: underline; }
-
-      float: none;
+      line-height: 8rem;
+      margin-top: 0;
       display: block;
-      padding-top: 5px;
+      padding-right: $site-margins;
     }
 
-    @include media($medium-screen + $width-nav-sidebar) {
-      .us-official {
-        margin-left: 177px;
-      }
+    // scss-lint:disable SelectorDepth, NestingDepth
+    li {
+      display: inline;
+      font-family: $font-sans;
 
-      .stage {
-        float: right;
-        padding: 0;
+      &:last-child .usa-button {
+        margin-right: 0;
       }
+    }
+
+    .usa-button {
+      @include margin(0 null);
     }
   }
-
 }
 
+.site-navbar {
+  height: 4rem;
+
+  @include media($medium-screen + $width-nav-sidebar) {
+    height: 8rem;
+  }
+
+  &.is-scrolled {
+    @include media($medium-screen + $width-nav-sidebar) {
+      display: none;
+    }
+  }
+
+  // Firefox fix so that navbar buttons to align right
+  @-moz-document url-prefix() {
+    @include media($medium-screen + $width-nav-sidebar) {
+      padding-top: 1px;
+    }
+  }
+}
+
+
+
+.site-logo {
+  float: left;
+  line-height: 37px;
+  margin-top: 3px;
+  padding-left: $site-margins-mobile;
+
+  @include media($medium-screen + $width-nav-sidebar) {
+    line-height: 7.5rem;
+    margin-top: 5px;
+    padding-left: $site-margins
+  }
+
+  a {
+    color: $color-white;
+    text-decoration: none;
+  }
+}
+
+.site-nav-secondary {
+  display: none;
+
+  @include media($medium-screen + $width-nav-sidebar) {
+    background-color: $color-white;
+    border-bottom: 1px solid $color-gray-light;
+    clear: both;
+    display: block;
+    height: $height-nav-secondary;
+    padding-left: 3rem;
+  }
+
+  &.is-scrolled {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  ul {
+    @include unstyled-list;
+
+    li {
+      display: inline;
+      padding-right: 3rem;
+    }
+  }
+
+  a {
+    @include padding (1.6rem null);
+    color: $color-gray;
+    font-size: $h6-font-size;
+    letter-spacing: 0.3px;
+    line-height: $height-nav-secondary;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-primary;
+      text-decoration: underline;
+    }
+
+    &.usa-current {
+      color: $color-primary;
+      font-weight: $font-bold;
+    }
+  }
+}
+
+// scss-lint:disable PropertyCount
 .menu-btn {
+  background-color: $color-primary;
+  color: $color-white;
+  display: inline;
+  float: right;
+  font-size: $h6-font-size;
+  line-height: 4rem;
+  height: 4rem;
+  width: 5.8rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
   @include media($medium-screen + $width-nav-sidebar) {
     display: none;
   }
 
-  @include padding(1.5rem null);
-  display: inline;
-  float: left;
-  margin-top: -4px;
-  color: $color-white;
-  background-color: $color-primary;
-  font-size: 1.5rem;
-  width: 15%;
-  text-align: center;
-
   &:hover {
-    text-decoration: none;
     color: $color-white;
     background-color: $color-primary-darker;
   }
@@ -156,16 +182,18 @@ $site-top:           124px;
     color: $color-white;
   }
 }
+// scss-lint:enable PropertyCount
 
 .overlay {
   @include position(fixed, 0);
-  @include transition;
   background: $color-black;
   opacity: 0;
+  transition: all 0.2s ease-in-out;
   visibility: hidden;
   z-index: 9999;
 
   &.is-visible {
+    opacity: 0.1;
     visibility: visible;
   }
 }
@@ -175,31 +203,20 @@ $site-top:           124px;
 // Sidebar Nav --------- //
 
 .sidenav {
-  @include position(fixed, $site-top null 0 0);
-  width: $width-nav-sidebar;
-  border-right: 1px solid $color-gray-light;
-  padding: 5rem 3rem 3rem 3rem;
-  overflow: auto;
   display: none;
-  z-index: -1;
-  &.menu-content {
-    @media (max-width: $medium-screen + $width-nav-sidebar) {
-      $sliding-panel-width: 220px;
 
-      @include position(fixed, 0 auto 0 0);
-      @include size($sliding-panel-width 100%);
-      @include transform(translateX(- $sliding-panel-width));
-      background: $color-white;
-      -webkit-overflow-scrolling: touch;
-      overflow-y: auto;
-      z-index: 999999;
-      display: block;
+  @include media($medium-screen + $width-nav-sidebar) {
+    bottom: 0;
+    display: block; // starting: not scrolled
+    float: left; // starting: not scrolled
+    overflow: auto;
+    padding: 4rem 1rem 3rem 3rem;
+    width: $width-nav-sidebar;
+  }
 
-      &.is-visible {
-        @include transition(all 0.25s linear);
-        @include transform(translateX(0));
-      }
-    }
+  &.is-scrolled {
+    position: fixed;
+    top: $height-nav-secondary;
   }
 
   .lt-ie9 & {
@@ -207,78 +224,211 @@ $site-top:           124px;
   }
 
   .usa-sidenav-sub_list {
+    &[aria-hidden="false"] {
+      display: block;
+    }
+  }
+}
+
+.sidenav-mobile {
+  $sliding-panel-width: 26rem;
+  @include padding (2rem);
+  @include position(fixed, 0 0 0 auto);
+  @include size($sliding-panel-width 100%);
+  @include transform(translateX($sliding-panel-width));
+  background: $color-white;
+  border-left: 1px solid $color-gray-light;
+  border-right: 0;
+  display: block;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 999999;
+
+  @media (min-width: $medium-screen + $width-nav-sidebar) {
     display: none;
   }
 
-  @include media($medium-screen + $width-nav-sidebar) {
-    display: block;
+  &.is-visible {
+    @include transform(translateX(0));
+    @include transition(all 0.3s ease-in-out);
+  }
+
+  nav {
+    margin-top: 6rem;
+    min-height: 100%;
+  }
+
+  button {
+    @include button-unstyled;
+    font-weight: $font-normal;
+    padding: 1rem 1rem 1rem 1.8rem;
+
+    &:focus,
+    &:active {
+      box-shadow: $focus-shadow;
+    }
+
+    &:hover {
+      background-color: $color-gray-lightest;
+      color: $color-primary;
+    }
+
+    &[aria-expanded=false] {
+      background-image: url('../img/plus-alt.png');
+      background-image: url('../img/plus-alt.svg');
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      background-size: 1rem;
+    }
+
+    &[aria-expanded=true] {
+      background-image: url('../img/minus-alt.png');
+      background-image: url('../img/minus-alt.svg');
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      background-size: 1rem;
+    }
+  }
+
+  .usa-sidenav-sub_list[aria-hidden=true] {
+    display: none;
+  }
+
+  .usa-current {
+    border-left: 4px solid $color-primary;
+    color: $color-primary;
+    font-weight: $font-bold;
+    padding-left: 1.4rem;
   }
 }
 
-.visual-style .sidenav .visual-style-sublist {
-  display: block;
+.sliding-panel-close {
+  float: right;
+  height: $hit-area;
+  margin-right: -1.5rem;
+  text-align: center;
+  width: $hit-area;
 
-  // scss-lint:disable SelectorDepth
-  ul {
-    display: block;
+  img {
+    margin-top: 1.6rem;
+    width: 1.3rem;
   }
 }
 
-.form-controls .sidenav .form-controls-sublist {
-  display: block;
-}
-
-.form-templates .sidenav .form-templates-sublist {
-  display: block;
-}
-
-.footers .sidenav .footers-sublist {
-  display: block;
+.mobile-sidenav-active {
+  overflow: hidden;
 }
 
 // Main Content --------- //
 
 .main-content {
-  @include media($medium-screen) {
-    top: $site-top;
-  }
-
   @include position(absolute, 4rem 0 0 null);
-  @include padding(1em null 0);
+  display: inline-block; // starting: not scrolled
+  margin-top: 4rem; // starting: not scrolled
+  position: relative;
   width: 100%;
-  z-index: -1;
-
-  .lt-ie9 & {
-    width: 75%;
-  }
+  top: 6.3rem; // height of disclaimer + navbar on mobile
 
   @include media($medium-screen + $width-nav-sidebar) {
     width: calc(100% - #{$width-nav-sidebar});
+    top: 0;
+  }
 
-    .lt-ie9 & {
-      width: 75%;
+  &.is-scrolled {
+    @include media($medium-screen + $width-nav-sidebar) {
+      position: absolute;
+      top: 15.3rem;
     }
+  }
+
+  .lt-ie9 & {
+    width: 75%;
   }
 }
 
 // Styleguide Content -------- //
 
 .styleguide-content {
+  @include padding(null $site-margins-mobile);
   margin-bottom: 5em;
   max-width: $site-max-width;
-  @include padding(null 2em);
   position: relative;
 
-  > h1 {
-    margin-top: 3.4rem;
+  @media (min-width: $medium-screen + $width-nav-sidebar) {
+    @include padding(null $site-margins);
+  }
 
-    &:not(:first-child) {
-      margin-top: 1.5em;
+  header {
+    > h1 {
+      display: inline-block;
+      margin-top: 0;
     }
   }
 
-  @media (min-width: $medium-screen + $width-nav-sidebar) {
-    @include padding(null 3em);
+  section {
+    > h2 {
+      display: inline-block;
+    }
+
+    > .tooltip {
+      margin-top: 56px;
+    }
+  }
+}
+
+// Label links
+
+%label-maturity {
+  color: $color-gray-dark;
+  font-size: 1.4rem;
+  font-weight: $font-bold;
+  margin-left: 1.2rem;
+  position: absolute;
+  text-decoration: none;
+
+  &:hover,
+  &:visited {
+    color: $color-gray-dark;
+  }
+
+  &[href^="http:"]:not([href*="standards.com"]),
+  &[href^="https:"]:not([href*="standards.com"]) {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+@mixin label-link($color-background, $color-background-hover) {
+  @extend %label-maturity;
+  background-color: $color-background;
+
+  &:hover {
+    background-color: $color-background-hover;
+  }
+}
+
+.label-alpha {
+  @include label-link($color-gold-lightest, $color-gold-lighter);
+}
+
+.label-beta {
+  @include label-link($color-primary-alt-lightest, $color-primary-alt-light);
+}
+
+.label-recommended {
+  @include label-link($color-green-lightest, $color-green-lighter);
+}
+
+h1 + .tooltip {
+  a {
+    margin-top: 1.7rem;
+  }
+}
+
+h2 + .tooltip {
+  a {
+    margin-top: 1.3rem;
   }
 }
 
@@ -286,26 +436,75 @@ $site-top:           124px;
   margin-top: 6rem;
 }
 
+.site-subheading {
+  @include h6;
+  color: $color-gray;
+  display: block;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.6rem;
+  margin-top: 0;
+}
+
 // Footer --------------- //
 
-.usa-styleguide-footer {
-  background-color: $color-primary-darker;
+.site-footer {
+  @media (min-width: $medium-screen + $width-nav-sidebar) {
+    @include margin(null 3rem);
+  }
+}
+
+.site-footer-nav {
+  margin-bottom: 5.5rem;
+
+  @media (min-width: $medium-screen + $width-nav-sidebar) {
+    display: none;
+  }
+
+  .usa-sidenav-sub_list {
+    display: none;
+  }
+}
+
+.site-footer-info {
   @include padding(3rem null);
+  border-top: 1px solid $color-gray-light;
 
-// This is a styleguide-only rule and is not needed in the main library code for
-// the footer component which uses different styles
-// TODO investigate why it's not needed in the main library CSS
   p {
-    @include media($medium-screen) {
-      margin-bottom: 0;
-    }
-
-    color: $color-white;
     font-size: $h5-font-size;
-    @include margin(0 null 1.5rem);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  img {
+    margin-right: 1.2rem;
+    width: 3.2rem;
+
+    &.logo-usds {
+      width: 4.3rem;
+    }
+  }
+
+  > .usa-grid {
+    @media (min-width: $medium-screen + $width-nav-sidebar) {
+      margin-left: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+.logo-links {
+  margin-bottom: 3rem;
+  margin-right: 1rem;
+
+  @include media($medium-screen) {
+    float: left;
+    margin-bottom: 0;
   }
 
   a {
+    @include media-link;
     color: $color-gray-lighter;
 
     &:hover {
@@ -314,111 +513,47 @@ $site-top:           124px;
   }
 }
 
+.footer-text {
+  overflow: hidden;
+}
+
 // Pattern Preview Boxes -------- //
 
 .preview {
-  $color-grayee: #eeeeee;
-  @include clearfix();
-  background-color: $color-white;
+  @include clearfix;
   @include margin(2em null);
-  padding: 1em $site-margins;
-  border: 1px solid $color-grayee;
-
-  .is-peripheral {
-    opacity: .2;
-  }
+  background-color: $color-white;
+  padding: $site-margins;
+  border: 1px solid #eeeeee; // scss-lint:disable ColorVariable
 
   .usa-background-dark {
-    display: inline-block;
     @include padding(null 1em);
+    display: inline-block;
+  }
+
+  > *:first-child {
+    margin-top: 0;
   }
 }
 
 .preview-no_border {
-  border: 0;
   @include margin(0 null 2em);
+  border: 0;
   padding: 0;
 }
 
-// Code Sample Boxes --------- //
+// Custom preview box styles
 
-.code-snippets {
+.preview-lists {
+  padding-bottom: 0;
 
-  .code-snippet-button::after {
-    content: '\25be  hide code';
-  }
-
-  &.hidden {
-
-    table {
-      display: none;
-    }
-
-    .code-snippet-button::after {
-      content: '\25b8  show code';
-    }
-  }
-
-  table {
-
-    table-layout: fixed;
-    width: 100%;
-    padding: 3em 0 0 0;
-
-    td {
-      $color-white-smoke: #f5f5f5;
-      $color-gray88: #e0e0e0;
-      background-color: $color-white-smoke;
-      border: 1px solid $color-gray88;
-      position: relative;
-      vertical-align: top;
-
-      // scss-lint:disable SelectorDepth, NestingDepth
-      .code-copy-button {
-        @include position(absolute, 0 0 null null);
-        border-radius: 0;
-        margin: 0;
-
-        &:hover {
-          background-color: $color-base;
-        }
-      }
-    }
-
-    th {
-      border: none;
-      text-align: left;
-    }
-
-    pre,
-    code {
-      direction: ltr;
-      text-align: left;
-      white-space: pre;
-      word-spacing: normal;
-      word-break: normal;
-    }
-
-    pre {
-      padding: 0 1em 1em 1em;
-    }
-
-    code {
-      font-size: $base-font-size / 1.5;
-      line-height: 1.4em;
-      word-wrap: break-word;
-
-      &.language-html {
-        max-width: 25em;
-      }
-    }
+  h6 {
+    margin-top: 0;
   }
 }
 
-// Download Code Boxes --------- //
-
-.download-code {
-  padding-top: 3em;
+.preview-dropdown {
+  padding-top: 0;
 }
 
 // Search bar grid --------- //
@@ -436,10 +571,10 @@ $site-top:           124px;
     background: $color-grid-light;
 
     > * {
+      @include margin(.5em null);
       color: $color-white;
       padding: 1em;
       background: $color-grid-dark;
-      @include margin(.5em null);
     }
   }
 
@@ -476,7 +611,7 @@ $site-top:           124px;
 }
 
 h3 + .button_wrapper {
-  margin-top: -.5em;
+  margin-top: -0.5em;
 }
 
 .button_wrapper {
@@ -532,26 +667,30 @@ h3 + .button_wrapper {
 
   .color-small {
     float: left;
+    margin-right: 0;
     width: 50%;
 
     @include media($medium-screen) {
       width: 17%;
     }
-
-    margin-right: 0;
   }
 
   p {
-    font-family: monospace, monospace;
+    font-family: $font-monospace;
+    font-size: 1.5rem;
+
+    &:last-of-type {
+      font-size: 11px;
+    }
   }
 }
 
 .usa-primary-color-section {
+  margin-bottom: 0;
+
   @include media($medium-screen) {
     margin-bottom: 8rem;
   }
-
-  margin-bottom: 0;
 
   .usa-color-square {
     @include span-columns(6);
@@ -567,11 +706,11 @@ h3 + .button_wrapper {
   }
 
   .usa-mobile-end-row {
+    margin-right: 0;
+
     @include media($medium-screen) {
       margin-right: 2.35765%;
     }
-
-    margin-right: 0;
   }
 
   .usa-color-name {
@@ -585,14 +724,14 @@ h3 + .button_wrapper {
 }
 
 .usa-color-hex {
-  font-weight: $font-bold;
   @include margin(1rem null 0);
+  font-weight: $font-bold;
 }
 
 .usa-color-text {
+  @include padding(1rem 2rem);
   font-weight: $font-bold;
   margin-bottom: .4rem;
-  @include padding(1rem 2rem);
 }
 
 .usa-color-outline {
@@ -841,36 +980,74 @@ h6.usa-heading-alt {
 
 .usa-typography-example {
   .usa-monospace {
-    font-size: 1.2rem;
     @include margin(0 null 3rem);
+    font-size: 1.2rem;
   }
 }
 
 .usa-monospace {
-  font-family: monospace;
+  font-family: $font-monospace;
+}
+
+code,
+pre {
+  background-color: $color-gray-lightest;
+  font-family: $font-monospace;
+  font-size: 1.3rem;
+}
+
+pre {
+  padding: 1.6rem;
+
+  code {
+    padding: 0;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}
+
+code {
+  @include padding(0.2em null);
+
+  &::before,
+  &::after {
+    letter-spacing: -0.2em;
+    content: '\00a0';
+  }
+}
+
+.highlight {
+  pre {
+    max-width: $lead-max-width;
+  }
 }
 
 // Code snippet boxes
 
-.usa-code-sample .usa-unstyled-list {
-  @include unstyled-list();
-}
+.usa-code-sample {
+  pre,
+  code {
+    background: none;
+    font-size: 1.2rem;
+    padding: 0;
+  }
 
-.usa-code-sample pre {
-  font-size: 1.2rem;
+ .usa-unstyled-list {
+  @include unstyled-list;
+  }
 }
 
 // scss-lint:disable QualifyingElement
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-  background: none;
-}
-
 code[class*="language-"],
 pre[class*="language-"] {
   color: $color-base;
 }
 // scss-lint:enable QualifyingElement
+
+// Custom code sample colors
 
 .token.property,
 .token.tag,
@@ -973,7 +1150,7 @@ $font-light: 300;
     font-weight: $font-light;
 
     .usa-font-lead-alt {
-      @include font-lead-alt();
+      @include font-lead-alt;
     }
   }
 
@@ -990,7 +1167,7 @@ $font-light: 300;
         font-size: $h3-font-size;
 
         .usa-font-lead-alt {
-          @include font-lead-alt();
+          @include font-lead-alt;
         }
       }
     }
@@ -1077,28 +1254,43 @@ $font-light: 300;
 
 // This adds styleguide-only right and left margins for our disclaimer
 // Since the layout we use is not in a grid
-.usa-disclaimer-stage {
-  padding-right: $site-margins;
-}
+.usa-disclaimer {
+  @include padding(null $site-margins-mobile);
 
-.usa-disclaimer-official {
-  @include media($medium-screen) {
-    padding-left: $site-margins;
+  @include media($medium-screen + $width-nav-sidebar) {
+    @include padding(null $site-margins);
   }
 
-  padding-left: 2rem;
+  &.is-scrolled {
+    @media (min-width: $medium-screen + $width-nav-sidebar) {
+      display: none;
+    }
+  }
+}
+
+.usa-disclaimer-stage {
+  @media (min-width: $medium-screen + $width-nav-sidebar) {
+    display: block;
+  }
 }
 
 // External link styles
-.main-content {
+
+[href^="http:"]:not([href*="standards.com"]),
+[href^="https:"]:not([href*="standards.com"]) {
+  @include external-link(external-link, external-link-hover);
+}
+
+.usa-styleguide-footer {
   [href^="http:"]:not([href*="standards.com"]),
   [href^="https:"]:not([href*="standards.com"]) {
-    @include external-link(external-link, external-link-hover);
+    @include external-link(external-link-alt, external-link-alt-hover);
   }
 }
 
-
-.usa-button {
+.usa-button,
+.link-download,
+.media_link {
   &[href^="http:"]:not([href*="standards.com"]),
   &[href^="https:"]:not([href*="standards.com"]) {
     &::after {
@@ -1107,9 +1299,191 @@ $font-light: 300;
   }
 }
 
-.usa-styleguide-footer {
+.logo-links,
+.usa-disclaimer-stage {
   [href^="http:"]:not([href*="standards.com"]),
   [href^="https:"]:not([href*="standards.com"]) {
-    @include external-link(external-link-alt, external-link-alt-hover);
+    &::after {
+      display: none;
+    }
+  }
+}
+
+// Page styles
+
+@mixin outline-inverse-button {
+  // TODO: Fix this with button mixin
+  .usa-button.usa-button-outline-inverse {
+    box-shadow: inset 0 0 0 2px $color-primary;
+    color: $color-primary;
+
+    &:hover {
+      box-shadow: inset 0 0 0 2px $color-primary-darker;
+      color: $color-primary-darker;
+    }
+  }
+}
+
+.page-ui-components {
+  .site-footer-nav {
+    @include outline-inverse-button;
+
+    .usa-button-list {
+      margin-bottom: 5.5rem;
+
+      li {
+        display: initial;
+      }
+    }
+  }
+}
+
+.sidenav-mobile {
+  @include outline-inverse-button;
+
+  .usa-button {
+    width: 100%;
+  }
+
+  .usa-button-list {
+    margin-top: 4rem;
+  }
+}
+
+.page-design-principles {
+  @include media($medium-screen) {
+    .usa-grid-full {
+      @include margin(4rem null 3rem null);
+    }
+  }
+
+  // full-width styles. TODO: look into making a template instead.
+  .main-content {
+    width: 100%;
+  }
+
+  .styleguide-content {
+    @include margin(null auto);
+  }
+
+  .sidenav {
+    display: none;
+  }
+
+  img {
+    max-width: 18.4rem;
+  }
+
+  .site-footer-info {
+    .usa-grid {
+      margin-left: auto;
+    }
+  }
+
+  .footer-text-one-half {
+    @include media($medium-screen) {
+      @include span-columns(6);
+    }
+  }
+}
+
+.page-ui-components {
+  .usa-font-lead:first-of-type {
+    margin-top: 3.2rem;
+  }
+}
+
+.link-download {
+  display: table;
+
+  &::before {
+    background: url('../img/icon-download.png') no-repeat 0 0;
+    background: url('../img/icon-download.svg') no-repeat 0 0;
+    background-size: 100%;
+    content: '';
+    display: inline-block;
+    height: 0.8em;
+    margin-bottom: -1px;
+    margin-right: 1.2rem;
+    width: 0.8em;
+  }
+}
+
+.link-download-subtext {
+  margin-left: 2.6rem;
+}
+
+.link_group-download {
+  .link-download {
+    margin-bottom: 1rem;
+  }
+}
+
+.page-product-roadmap,
+.page-for-developers,
+.page-for-designers {
+  .usa-content {
+    > ul:not(.usa-content-list) {
+      max-width: $text-max-width;
+    }
+  }
+}
+
+.page-for-developers,
+.page-for-designers {
+  h2 {
+    color: $color-primary-darker;
+  }
+}
+
+.usa-center {
+  text-align: center;
+}
+
+// Custom tooltip styles -------------- //
+
+// Tooltip container
+.tooltip {
+  display: inline-block;
+  position: absolute;
+
+  // Show the tooltip text when you mouse over the tooltip container
+  &:hover {
+     .tooltip-text {
+      opacity: 1;
+    }
+  }
+
+  .tooltip-text {
+    display: none;
+
+    @include media($medium-screen) {
+      @include margin(0 null 0 20px);
+      background-color: $color-gray-dark;
+      border-radius: $border-radius;
+      bottom: 100%;
+      color: $color-white;
+      display: block;
+      font-size: 14px;
+      left: 50%;
+      padding: 7px 10px;
+      width: 267px;
+      opacity: 0;
+      position: absolute; // Position the tooltip text
+      transition: all 0.1s ease-in-out;
+      transition-delay: 0.1s;
+      z-index: 1;
+
+      &::after {
+        border-width: 5px;
+        border-style: solid;
+        border-color: $color-base transparent transparent transparent;
+        content: " ";
+        left: 10%;
+        margin-left: -12px;
+        position: absolute;
+        top: 100%; // At the bottom of the tooltip
+      }
+    }
   }
 }

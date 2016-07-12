@@ -87,7 +87,9 @@ gulp.task('copy-vendor-sass', function (done) {
     .pipe(normalizeCssFilter)
       .pipe(rename('_normalize.scss'))
     .pipe(normalizeCssFilter.restore)
-    .on('error', function (error) { console.log(error); })
+    .on('error', function (error) {
+      dutil.logError('copy-vendor-sass', error);
+    })
     .pipe(gulp.dest('src/stylesheets/lib'));
 
   return stream;

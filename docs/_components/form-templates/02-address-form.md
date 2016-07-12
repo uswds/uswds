@@ -1,7 +1,7 @@
 ---
 type: component
 title: Address form
-maturity: beta
+maturity: alpha
 parent: Form templates
 order: 02
 ---
