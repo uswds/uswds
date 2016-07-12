@@ -15,6 +15,18 @@ lead: Here, you’ll find our product roadmap — an up-to-date report on the w
   <li>Using a federal website that incorporates the Standards as a member of the public</li>
 </ul>
 
+<ul>
+{% for milestone_info in site.data.milestones %}
+{% assign milestone = milestone_info[1] %}
+  <li>
+    {{ milestone.description }}
+    <a href="#">
+      {{ milestone.status }}
+    </a>
+  </li>
+{% endfor %}
+</ul>
+
 ## Milestone 1
 
 - A public, up-to-date product road map.
