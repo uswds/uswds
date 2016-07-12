@@ -6,15 +6,11 @@ category: About our work
 lead: The component maturity scale is a way to indicate the level of robustness of any component or asset within the Draft U.S. Web Design Standards. Best practices for agile delivery include releasing software incrementally, before it’s perfect. We can (and should) release new items in the Standards following this principle, and we assess each component independently of every other component or the library as a whole.
 ---
 
-
-
 We communicate the robustness of each new pattern in two ways: by displaying its maturity level in the UI for each particular component, and by indicating its maturity in release notes and other documentation.
 
 For more information on how a component moves from one maturity level to the next, please review our draft design [contribution guidelines](https://github.com/18F/web-design-standards/blob/staging/CONTRIBUTING.md). They define, in detail, the assessments and activities our team conducts to determine whether a component is ready to move to the next level.
 
-
 Our system is inspired by http://usajobs.github.io/design-system/getting-started/#maturity, who outline a maturity scale of their own in their Getting Started and who use these labels on the individual component page.
-
 
 ## Hypothesis
 ### Definitions of done
