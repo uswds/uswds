@@ -23,12 +23,9 @@ lead: Here, you’ll find our product roadmap — an up-to-date report on the w
     <li>
       {{ task.title }}
       {% if task.status %}
-        <div class="tooltip">
-          <p class="tooltip-text" id="tooltip-text-{{ task.title | slugify }}">See our progress on this milestone.</p>
           <a class="usa-label label-{{ task.status | slugify }}" href="{{ task.url }}" aria-describedby="tooltip-text-{{ task.title | slugify }}">
             {{ task.status }}
           </a>
-        </div>
       {% endif %}
     </li>
   {% endfor %}
