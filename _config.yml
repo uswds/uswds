@@ -6,7 +6,7 @@ name: Draft U.S. Web Design Standards
 
 source: docs
 
-version: 0.9.5
+version: 0.9.6
 
 exclude:
 - Gemfile
