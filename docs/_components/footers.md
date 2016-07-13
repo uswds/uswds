@@ -2,7 +2,9 @@
 layout: styleguide
 type: component
 title: Footers
+category: UI components
 lead: Footers serve site visitors who arrive at the bottom of a page without finding what they want.
+maturity: alpha
 ---
 
 <div class="preview">
@@ -71,7 +73,6 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
           <img class="usa-footer-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
           <h3 class="usa-footer-logo-heading">Name of Agency</h3>
         </div>
-
         <div class="usa-footer-contact-links usa-width-one-half">
           <a class="usa-link-facebook" href="#">
             <span>Facebook</span>
@@ -85,7 +86,6 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
           <a class="usa-link-rss" href="#">
             <span>RSS</span>
           </a>
-
           <address>
             <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
             <p>(800) CALL-GOVT</p>
@@ -120,7 +120,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
             </li>
             <li class="usa-width-one-sixth usa-footer-primary-content">
               <a class="usa-footer-primary-link" href="#">Primary link</a>
-            </li>                    
+            </li>
           </ul>
         </nav>
       </div>
@@ -132,7 +132,6 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
           <img class="usa-footer-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
           <h3 class="usa-footer-logo-heading">Name of Agency</h3>
         </div>
-
         <div class="usa-footer-contact-links usa-width-one-half">
           <a class="usa-link-facebook" href="#">
             <span>Facebook</span>
@@ -146,7 +145,6 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
           <a class="usa-link-rss" href="#">
             <span>RSS</span>
           </a>
-
           <address>
             <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
             <p>(800) CALL-GOVT</p>
@@ -203,7 +201,7 @@ lead: Footers serve site visitors who arrive at the bottom of a page without fin
   </footer>
 </div>
 
-<div class="usa-accordion-bordered usa-accordion-docs">
+<div class="usa-accordion-bordered">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation

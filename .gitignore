@@ -25,4 +25,11 @@ dist/
 # Ignore gulp-generated vendor files
 #
 src/stylesheets/lib
-docs/assets
+docs/assets/css/*
+docs/assets/fonts/*
+docs/assets/img/*
+docs/assets/js/*
+
+# Do not ignore uswds-assets zip archives
+#
+!doc/assets/files

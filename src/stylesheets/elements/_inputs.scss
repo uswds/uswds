@@ -179,6 +179,7 @@ input[type="radio"] + label::before {
   line-height: 1.8rem;
   margin-right: 0.6em;
   text-indent: 0.15em;
+  vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
   width: 1.8rem;
 }
 

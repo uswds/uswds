@@ -2,7 +2,9 @@
 layout: styleguide
 type: component
 title: Alerts
+category: UI components
 lead: Alerts keep users informed of important and sometimes time-sensitive changes.
+maturity: alpha
 ---
 
 <div class="preview">
@@ -43,7 +45,7 @@ lead: Alerts keep users informed of important and sometimes time-sensitive chang
   </div>
 </div>
 
-<div class="usa-accordion-bordered usa-accordion-docs">
+<div class="usa-accordion-bordered">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation

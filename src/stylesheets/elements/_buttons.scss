@@ -170,16 +170,21 @@ button,
   }
 }
 
-.usa-button-unstyled {
+@mixin button-unstyled {
   background: none;
   border: 0;
   border-radius: 0;
   outline: 0;
   padding: 0;
   text-align: left;
+  -webkit-font-smoothing: auto;
 
   &:focus,
   &:hover {
     box-shadow: initial;
   }
+}
+
+.usa-button-unstyled {
+  @include button-unstyled;
 }
