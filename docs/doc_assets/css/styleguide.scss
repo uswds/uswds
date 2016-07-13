@@ -412,11 +412,13 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   @include label-link($color-gold-lightest, $color-gold-lighter);
 }
 
-.label-beta {
+.label-beta,
+.label-in-progress {
   @include label-link($color-primary-alt-lightest, $color-primary-alt-light);
 }
 
-.label-recommended {
+.label-recommended,
+.label-done {
   @include label-link($color-green-lightest, $color-green-lighter);
 }
 
@@ -1421,7 +1423,8 @@ $font-light: 300;
 
 .page-product-roadmap,
 .page-for-developers,
-.page-for-designers {
+.page-for-designers,
+.page-component-maturity-scale {
   .usa-content {
     > ul:not(.usa-content-list) {
       max-width: $text-max-width;
@@ -1430,15 +1433,25 @@ $font-light: 300;
 }
 
 .page-for-developers,
-.page-for-designers {
+.page-for-designers,
+.page-product-roadmap,
+.page-component-maturity-scale {
   h2 {
     color: $color-primary-darker;
+  }
+}
+
+.page-product-roadmap {
+  .usa-label {
+    display: inline-block;
+    position: relative;
   }
 }
 
 .usa-center {
   text-align: center;
 }
+
 
 // Custom tooltip styles -------------- //
 
@@ -1453,37 +1466,37 @@ $font-light: 300;
       opacity: 1;
     }
   }
+}
 
-  .tooltip-text {
-    display: none;
+.tooltip-text {
+  display: none;
 
-    @include media($medium-screen) {
-      @include margin(0 null 0 20px);
-      background-color: $color-gray-dark;
-      border-radius: $border-radius;
-      bottom: 100%;
-      color: $color-white;
-      display: block;
-      font-size: 14px;
-      left: 50%;
-      padding: 7px 10px;
-      width: 267px;
-      opacity: 0;
-      position: absolute; // Position the tooltip text
-      transition: all 0.1s ease-in-out;
-      transition-delay: 0.1s;
-      z-index: 1;
+  @include media($medium-screen) {
+    @include margin(0 null 0 20px);
+    background-color: $color-gray-dark;
+    border-radius: $border-radius;
+    bottom: 100%;
+    color: $color-white;
+    display: block;
+    font-size: 14px;
+    left: 50%;
+    padding: 7px 10px;
+    width: 267px;
+    opacity: 0;
+    position: absolute; // Position the tooltip text
+    transition: all 0.1s ease-in-out;
+    transition-delay: 0.1s;
+    z-index: 1;
 
-      &::after {
-        border-width: 5px;
-        border-style: solid;
-        border-color: $color-base transparent transparent transparent;
-        content: " ";
-        left: 10%;
-        margin-left: -12px;
-        position: absolute;
-        top: 100%; // At the bottom of the tooltip
-      }
+    &::after {
+      border-width: 5px;
+      border-style: solid;
+      border-color: $color-base transparent transparent transparent;
+      content: " ";
+      left: 10%;
+      margin-left: -12px;
+      position: absolute;
+      top: 100%; // At the bottom of the tooltip
     }
   }
 }
