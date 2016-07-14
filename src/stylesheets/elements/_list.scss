@@ -1,7 +1,6 @@
 ul,
 ol {
-  margin-bottom: 2em;
-  margin-top: 2em;
+  @include margin(2em null 2em 0.9em);
   list-style: none;
   padding-left: 0;
   display: table;

@@ -2,14 +2,16 @@
 layout: styleguide
 type: component
 title: Side navigation
+category: UI components
 lead: "Hierarchical, vertical navigation to place at the side of a page. Note: We're currently developing horizontal navigation and headers for the top of a page."
+maturity: alpha
 ---
 
 <div class="preview">
 
   <h6 class="usa-heading-alt">Single level</h6>
 
-  <div class="usa-grid">
+  <div class="usa-grid-full">
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
@@ -27,7 +29,7 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: W
 
   <h6 class="usa-heading-alt">Two levels</h6>
 
-  <div class="usa-grid">
+  <div class="usa-grid-full">
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
@@ -62,7 +64,7 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: W
 
   <h6 class="usa-heading-alt">Three levels</h6>
 
-  <div class="usa-grid">
+  <div class="usa-grid-full">
     <aside class="usa-width-one-fourth">
       <ul class="usa-sidenav-list">
         <li>
@@ -108,7 +110,7 @@ lead: "Hierarchical, vertical navigation to place at the side of a page. Note: W
 
 </div>
 
-<div class="usa-accordion-bordered usa-accordion-docs">
+<div class="usa-accordion-bordered">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
     Documentation

@@ -3,9 +3,8 @@ layout: styleguide
 permalink: /form-controls/
 type: component
 title: Form controls
-subheading: UI components
+category: UI components
 lead: Form controls allow users to enter information into a page.
-maturity: beta
 ---
 
 {% include accessibility.html %}

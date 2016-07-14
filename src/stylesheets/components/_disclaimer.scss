@@ -1,25 +1,41 @@
 .usa-disclaimer {
   background-color: $color-gray-lightest;
-  font-size: $h6-font-size;
-  padding-bottom: .5rem;
-  padding-top: .5rem;
+  font-size: 1.2rem;
+  height: 2.3rem;
 
   @include media($small-screen) {
-    font-size: $h5-font-size;
+    font-size: $h6-font-size;
+  }
+}
+
+.usa-disclaimer-official {
+  display: inline-block;
+
+  p {
+    @include margin(3px 0);
+    display: inline-block;
+
+    @include media($small-screen) {
+      @include margin(2px null);
+    }
+  }
+
+  img {
+    float: left;
+    margin-right: 0.7rem;
+    margin-top: 1px;
+    width: 2rem;
   }
 }
 
 // This hides the stage note (i.e. alpha, beta, etc) of the disclaimer for
 // anything smaller than large screen sizes
 .usa-disclaimer-stage {
+  @include margin(2px null);
   display: none;
   float: right;
 
   @include media($large-screen) {
     display: block;
   }
-}
-
-.usa-flag_icon {
-  margin-right: .2rem;
 }
