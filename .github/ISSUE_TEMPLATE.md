@@ -9,13 +9,6 @@ UI component: Issues that impact the look, feel, or functionality of the standar
 
 -->
 
-## Issue type
-What kind of issue are you working on?
-
-* Website
-* UI component
-* Something else: Please add a descriptive title
-
 ## Description
 
 Include a high-level description of the issue. What did you expect to happen? What happened instead? What would you like to see changed?
