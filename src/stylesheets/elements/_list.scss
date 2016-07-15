@@ -41,7 +41,7 @@ ul li {
   }
 }
 
-ol li {
+ol > li {
   counter-increment: table-ol;
   display: table-row;
 
