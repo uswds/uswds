@@ -26,7 +26,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   }
 
   // Removes fixed header on Android in landscape with an open keyboard
-  @media screen and (min-aspect-ratio: 13/9) {
+  @media screen and (min-aspect-ratio: 13/9) and (max-width: ($medium-screen + $width-nav-sidebar)) {
     position: absolute;
   }
 
