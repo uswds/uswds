@@ -11,13 +11,3 @@ img {
 .media_link {
   @include media-link();
 }
-
-// Patch for Firefox: max-width:100% is not respected within auto-width inline
-// blocks
-@-moz-document url-prefix() {
-  .media_link {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-  }
-}
