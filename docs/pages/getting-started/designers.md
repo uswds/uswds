@@ -8,7 +8,7 @@ lead: While many programs maintain their own unique brand identities, the Standa
 
 We expect many teams will need to customize this guide, but we encourage you to incorporate as much consistency in look, feel, and usability as you can.
 
-As a complement to this visual style guidance, we strongly recommend you use 18F’s Content Guide when writing language for government services.
+As a complement to this visual style guidance, we strongly recommend you use [18F’s Content Guide](https://pages.18f.gov/content-guide/) when writing language for government services.
 
 ## Design resources<a id="design-resources"></a>
 
