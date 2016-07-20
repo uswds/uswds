@@ -82,7 +82,7 @@ npm install --global gulp-cli
 
 Note: You may need to use `sudo` for this. If you are not comfortable using `sudo` to make `npm` a global command, you can find instructions on how to do so pretty easily through an online search.
 
-### Building the porject locally with NPM
+### Building the project locally with NPM
 
 To start, run the following command to install any new dependencies:
 
