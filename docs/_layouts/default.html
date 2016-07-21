@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+
+  <head>
+    {% include head.html %}
+  </head>
+
+  <body class="page-{{ page.title | slugify }}">
+
+    {{ content }}
+
+    {% include ie-polyfill-scripts.html %}
+    {% include analytics.html %}
+    {% include docs-scripts.html %}
+    <script src="{{ site.baseurl }}/assets/js/vendor/uswds.min.js"></script>
+
+  </body>
+
+</html>
