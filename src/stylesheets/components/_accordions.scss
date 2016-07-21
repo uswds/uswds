@@ -34,7 +34,9 @@ $accordion-border: 3px solid $color-gray-lightest;
   }
 
   // scss-lint:disable PropertyCount
-  button {
+  > ul > li > button,
+  [aria-controls],
+  .usa-accordion-button {
     background-color: $color-gray-lightest;
     background-image: url('../img/minus.png');
     background-image: url('../img/minus.svg');
