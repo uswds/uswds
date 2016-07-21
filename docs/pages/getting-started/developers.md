@@ -124,7 +124,7 @@ You can also email us directly at uswebdesignstandards@gsa.gov.
 * Uses a **[modified BEM](https://pages.18f.gov/frontend/css-coding-styleguide/naming/)** approach created by 18F for naming CSS selectors. Objects in CSS are separated by single dashes. Multi-word objects are separated by an underscore (For example: `.usa-button-cool_feature-active`).
 * Uses **modular CSS** for scalable, modular, and flexible code.
 * Uses **nesting** when appropriate. Nest minimally with up to two levels of nesting.
-* **Global variables** are defined in the `_defaults.scss` file. Custom theming can be done by copying `_variables.scss`, changing variable values and importing it before uswds in Sass.
+* **Global variables** are defined in the `_defaults.scss` file. Custom theming can be done by copying the `_variables.scss` file into your own project's Sass folder, changing applicable variable values, and importing it before uswds in Sass.
 * Hard-coded magic numbers are avoided and, if necessary, defined in the `_defaults.scss` file.
 * Media queries are built **mobile first**.
 * **Spacing units** are as much as possible defined as rem or em units so they scale appropriately with text size. Pixels can be used for detail work and should not exceed 5px (For example: 3px borders).
