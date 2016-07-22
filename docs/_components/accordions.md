@@ -128,69 +128,6 @@ maturity: alpha
       </div>
     </li>
   </ul>
-
-  <h6>Deprecated</h6>
-
-  <div class="usa-accordion">
-    <ul class="usa-unstyled-list">
-      <li>
-        <button class="usa-button-unstyled"
-          aria-expanded="true" aria-controls="amendment-b-1">
-          First Amendment
-        </button>
-        <div id="amendment-b-1" class="usa-accordion-content">
-          <p>
-          Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
-          </p>
-        </div>
-      </li>
-      <li>
-        <button class="usa-button-unstyled"
-          aria-controls="amendment-b-2">
-          Second Amendment
-        </button>
-        <div id="amendment-b-2" class="usa-accordion-content">
-          <p>
-          A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
-          </p>
-        </div>
-      </li>
-      <li>
-        <button class="usa-button-unstyled"
-          aria-controls="amendment-b-3">
-          Third Amendment
-        </button>
-        <div id="amendment-b-3" class="usa-accordion-content">
-          <p>
-          No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
-          </p>
-        </div>
-      </li>
-      <li>
-        <button class="usa-button-unstyled"
-          aria-controls="amendment-b-4">
-          Fourth Amendment
-        </button>
-        <div id="amendment-b-4" class="usa-accordion-content">
-          <p>
-          The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
-          </p>
-        </div>
-      </li>
-      <li>
-        <button class="usa-button-unstyled"
-          aria-controls="amendment-b-5">
-          Fifth Amendment
-        </button>
-        <div id="amendment-b-5" class="usa-accordion-content">
-          <p>
-          No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
-          </p>
-        </div>
-      </li>
-    </ul>
-  </div>
-
 </div>
 
 <div class="usa-accordion-bordered">
@@ -230,5 +167,92 @@ maturity: alpha
       <li>Allow users to click anywhere in the header area to expand or collapse the content; a larger target is easier to manipulate.</li>
       <li>Make sure interactive elements within the collapsible region are far enough from the headers that users don’t accidentally trigger a collapse. (The exact distance depends on the device.)</li>
     </ul>
+    <a name="deprecated"></a>
+    <h4 class="usa-heading">Upgrading deprecated accordions</h4>
+    <p>The accordion was changed July 2016 in order to improve it's
+    implementation. Currently, both versions of the accordion work, but at some
+    point in the future, the deprecated accordion will no longer function correctly.
+    To upgrade your existing accordions to the new accordion:</p>
+    <ul class="usa-content-list">
+      <li>Remove the top level div that contains the <code>usa-accordion</code> or
+      <code>usa-accordion-bordered</code> class.</li>
+      <li>Add the <code>usa-accordion</code> or <code>usa-accordion-bordered</code>
+      class to the <code>ul</code> element that's now at the top level.
+    </ul>
+    </p>
   </div>
 </div>
+
+<div class="usa-alert usa-alert-warning" style="margin-bottom: 1rem;">
+  <div class="usa-alert-body">
+    <h3 class="usa-alert-heading">Deprecated</h3>
+    <p class="usa-alert-text">
+      The following accordion has been deprecated since July 2016. Please follow
+      <a href="#deprecated">the instructions</a> to update any existing
+      accordions to the new format.
+    </p>
+  </div>
+</div>
+
+<h6>Deprecated</h6>
+
+<div class="usa-accordion">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled"
+        aria-expanded="true" aria-controls="amendment-b-1">
+        First Amendment
+      </button>
+      <div id="amendment-b-1" class="usa-accordion-content">
+        <p>
+        Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-button-unstyled"
+        aria-controls="amendment-b-2">
+        Second Amendment
+      </button>
+      <div id="amendment-b-2" class="usa-accordion-content">
+        <p>
+        A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-button-unstyled"
+        aria-controls="amendment-b-3">
+        Third Amendment
+      </button>
+      <div id="amendment-b-3" class="usa-accordion-content">
+        <p>
+        No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-button-unstyled"
+        aria-controls="amendment-b-4">
+        Fourth Amendment
+      </button>
+      <div id="amendment-b-4" class="usa-accordion-content">
+        <p>
+        The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-button-unstyled"
+        aria-controls="amendment-b-5">
+        Fifth Amendment
+      </button>
+      <div id="amendment-b-5" class="usa-accordion-content">
+        <p>
+        No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
+        </p>
+      </div>
+    </li>
+  </ul>
+</div>
+
