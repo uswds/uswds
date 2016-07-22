@@ -57,6 +57,13 @@ $accordion-border: 3px solid $color-gray-lightest;
 }
 // scss-lint:enable PropertyCount
 
+@mixin accordion-button-unopened-styles {
+  background-image: url('../img/plus.png');
+  background-image: url('../img/plus.svg');
+  background-repeat: no-repeat;
+  background-size: 1.3rem;
+}
+
 .usa-accordion,
 .usa-accordion-bordered {
   @include accordion-list-styles;
@@ -74,22 +81,22 @@ $accordion-border: 3px solid $color-gray-lightest;
     > li {
       @include accordion-list-item-styles;
     }
+
+    // TODO deprecated ruleset based on old accordion.
+    button {
+      @include accordion-button-styles;
+    }
+
+    // TODO deprecated ruleset based on old accordion.
+    [aria-expanded=false] {
+      @include accordion-button-unopened-styles;
+    }
   }
 
   > li {
     @include accordion-list-item-styles;
   }
 
-  > ul > li > button {
-    background-image: url('../img/plus.png');
-    background-image: url('../img/plus.svg');
-    background-repeat: no-repeat;
-    background-size: 1.3rem;
-  }
-
-  [aria-controls] {
-    @include accordion-button-styles;
-  }
 }
 
 .usa-accordion-bordered {
@@ -119,4 +126,8 @@ $accordion-border: 3px solid $color-gray-lightest;
 
 .usa-accordion-button {
   @include accordion-button-styles;
+}
+
+.usa-accordion-button[aria-expanded=false] {
+  @include accordion-button-unopened-styles;
 }
