@@ -22,6 +22,7 @@ $accordion-border: 3px solid $color-gray-lightest;
 
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
+  @include button-unstyled;
   background-color: $color-gray-lightest;
   background-image: url('../img/minus.png');
   background-image: url('../img/minus.svg');
@@ -79,7 +80,7 @@ $accordion-border: 3px solid $color-gray-lightest;
     @include accordion-list-item-styles;
   }
 
-  [aria-expanded=false] {
+  > ul > li > button {
     background-image: url('../img/plus.png');
     background-image: url('../img/plus.svg');
     background-repeat: no-repeat;
