@@ -9,14 +9,17 @@ var $ = require('jquery');
  * @param {jQuery} el A jQuery html element to turn into an accordion.
  */
 function Accordion ($el) {
-  var self = this;
-  this.$root = $el;
+  var self = this; // Node
+  this.$root = $el; // jQuery powered element
 
   // delegate click events on each <button>
+  //         v------- utils/dispatch
   this.$root.on('click', 'button', function (ev) {
     var $button = $(this);
+    //                     v--- utils/mod-attr
     var expanded = $button.attr('aria-expanded') === 'true';
     ev.preventDefault();
+    //   v---- utils/mod-attr
     self.hideAll();
     if (!expanded) {
       self.show($button);
@@ -24,9 +27,12 @@ function Accordion ($el) {
   });
 
   // find the first expanded button
+  //                   v------ utils/select
   var $expanded = this.$('button[aria-expanded=true]');
+  //   v---- utils/mod-attr
   this.hideAll();
   if ($expanded.length) {
+    //   v---- utils/mod-attr
     this.show($expanded);
   }
 }
@@ -36,6 +42,7 @@ function Accordion ($el) {
  * @return {jQuery}
  */
 Accordion.prototype.$ = function (selector) {
+  //   v---- utils/select
   return this.$root.find(selector);
 };
 
@@ -44,10 +51,14 @@ Accordion.prototype.$ = function (selector) {
  * @return {Accordion}
  */
 Accordion.prototype.hide = function ($button) {
+  //   v---- utils/mod-attr
   var selector = $button.attr('aria-controls'),
+    //   v---- utils/select
     $content = this.$('#' + selector);
 
+  //      v---- utils/mod-attr
   $button.attr('aria-expanded', false);
+  //      v---- utils/mod-attr
   $content.attr('aria-hidden', true);
   return this;
 };
@@ -57,10 +68,14 @@ Accordion.prototype.hide = function ($button) {
  * @return {Accordion}
  */
 Accordion.prototype.show = function ($button) {
+  //                     v---- utils/mod-attr
   var selector = $button.attr('aria-controls'),
+    //              v---- utils/select
     $content = this.$('#' + selector);
 
+  //      v---- utils/mod-attr
   $button.attr('aria-expanded', true);
+  //       v---- utils/mod-attr
   $content.attr('aria-hidden', false);
   return this;
 };
@@ -73,6 +88,10 @@ Accordion.prototype.hideAll = function () {
   this.$('button').each(function () {
     self.hide($(this));
   });
+
+  _.map(select('button'), function(b) {
+    modAttr(b, 'style', 'display:none;');
+  })
   return this;
 };
 

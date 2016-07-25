@@ -4,6 +4,8 @@ var $ = window.jQuery = require('jquery');
 var Accordion = require('./components/accordion');
 var validator = require('./components/validator');
 var toggleFormInput = require('./components/toggle-form-input');
+var whenDOMReady = require('./utils/is-dom-ready');
+var footerAccordion = require('./components/footer');
 
 require('./initializers/politespace');
 
@@ -13,24 +15,6 @@ $(function () {
     new Accordion($(this));
   });
 
-  var footerAccordion = function () {
-    if (window.innerWidth < 600) {
-
-      $('.usa-footer-big nav ul').addClass('hidden');
-
-      $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
-
-      $('.usa-footer-big nav .usa-footer-primary-link').bind('click', function () {
-        $(this).parent().removeClass('hidden')
-        .siblings().addClass('hidden');
-      });
-    } else {
-
-      $('.usa-footer-big nav ul').removeClass('hidden');
-
-      $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
-    }
-  };
 
   footerAccordion();
 

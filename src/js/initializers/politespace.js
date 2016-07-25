@@ -1,4 +1,4 @@
-var verifyjQuery = require('../util/verify-jquery');
+var verifyjQuery = require('../utils/verify-jquery');
 
 // jQuery Plugin
 
