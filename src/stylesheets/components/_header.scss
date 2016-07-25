@@ -200,7 +200,7 @@ $width-nav-sidebar:    250px;
     width: 25%;
   }
 
-  .usa-sidenav-sub_list {
+  .usa-navigation-submenu {
     &[aria-hidden="false"] {
       display: block;
     }
@@ -211,9 +211,19 @@ $width-nav-sidebar:    250px;
   @include usa-sidenav-list;
 }
 
-@mixin navlink-hover {
-  background-color: $color-primary-darkest;
-  color: $color-white;
+.usa-navigation-submenu {
+  @include usa-sidenav-sub_list;
+}
+
+.usa-navlink {
+  &:hover {
+    span {
+      @include media($medium-screen) {
+        border-bottom: 1rem solid $color-primary;
+        padding-bottom: 1rem;
+      }
+    }
+  }
 }
 
 .sidenav-mobile {
@@ -242,13 +252,17 @@ $width-nav-sidebar:    250px;
 
       > li {
         display: inline-block;
+        margin-left: -4px;
 
         > a {
+          @include padding(null 1.5rem);
           color: $color-gray;
+          font-size: $h5-font-size;
           font-weight: $font-bold;
+          line-height: 1.2;
 
           &:hover {
-            @include navlink-hover;
+            background-color: transparent;
           }
         }
       }
@@ -276,7 +290,10 @@ $width-nav-sidebar:    250px;
 
     @include media($medium-screen) {
       color: $color-gray;
+      font-size: $h5-font-size;
       font-weight: $font-bold;
+      padding-left: 1.5rem;
+      padding-right: 3rem;
       width: initial;
     }
 
@@ -290,7 +307,9 @@ $width-nav-sidebar:    250px;
       color: $color-primary;
 
       @include media($medium-screen) {
-        @include navlink-hover;
+        &:hover {
+          background-color: transparent;
+        }
       }
     }
 
@@ -300,6 +319,12 @@ $width-nav-sidebar:    250px;
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: 1rem;
+
+      @include media($medium-screen) {
+        background-image: url('../img/angle-arrow-down.png');
+        background-image: url('../img/angle-arrow-down.svg');
+        background-position: right 1.5rem center;
+      }
     }
 
     &[aria-expanded=true] {
@@ -310,15 +335,24 @@ $width-nav-sidebar:    250px;
       background-size: 1rem;
 
       @include media($medium-screen) {
-        @include navlink-hover;
+        background-color: $color-primary-darkest;
+        color: $color-white;
+        background-image: url('../img/angle-arrow-down-hover.png');
+        background-image: url('../img/angle-arrow-down-hover.svg');
+        background-position: right 1.5rem center;
+
+        &:hover {
+          background-color: $color-primary-darkest;
+        }
       }
     }
   }
 
-  .usa-sidenav-sub_list {
+  .usa-navigation-submenu {
     @include media($medium-screen) {
+      @include padding(1.15rem null);
       background-color: $color-primary-darkest;
-      min-width: 200px;
+      min-width: 215px;
       width: initial;
       position: absolute;
     }
@@ -338,7 +372,9 @@ $width-nav-sidebar:    250px;
 
       &:hover,
       &.usa-current {
-        padding-left: 1.8rem;
+        @include media($medium-screen) {
+          padding-left: 1.8rem;
+        }
       }
     }
 
