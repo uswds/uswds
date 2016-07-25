@@ -13,91 +13,73 @@ permalink: /headers/site/
   </div>
   <div class="site-navbar">
     <a class="menu-btn" href="#">Menu</a>
-    <div class="site-logo" id="logo">
+    <div class="usa-site-logo" id="logo">
       <em>
         <a href="{{ site.baseurl }}/" accesskey="1" title="Home" aria-label="Home">Department of Web Standards</a>
       </em>
     </div>
   </div>
-  <nav class="site-nav-secondary js-sticky-nav">
-    <ul>
-      <li>
-        <a href="#">Section title</a>
-      </li>
-      <li>
-        <a href="#">Section title</a>
-      </li>
-      <li>
-        <a href="#">Section title</a>
-      </li>
-      <li>
-        <a href="#">Section title</a>
-      </li>
-    </ul>
-  </nav>
+  <aside class="sidenav-mobile">
+    <a class="sliding-panel-close" href="#">
+      <img src="/assets/img/close.svg" alt="close">
+    </a>
+    <nav>
+      <ul class="usa-navigation usa-accordion">
+        <li>
+          <button class="usa-navlink" aria-expanded="false" aria-controls="side-nav-1">
+            <span>Section title</span>
+          </button>
+          <ul id="side-nav-1" class="usa-navigation-submenu">
+            <li>
+              <a href="#">Subsection title</a>
+            </li>
+            <li>
+              <a href="#">Subsection title</a>
+            </li>
+            <li>
+              <a href="#">Subsection title</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <button class="usa-navlink" aria-expanded="false" aria-controls="sidenav-2">
+            <span>Section title</span>
+          </button>
+          <ul id="sidenav-2" class="usa-navigation-submenu">
+            <li>
+              <a href="#">Subsection title</a>
+            </li>
+            <li>
+              <a href="#">Subsection title</a>
+            </li>
+            <li>
+              <a href="#">Subsection title</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="usa-navlink" href="#">
+            <span>Section title</span>
+          </a>
+        </li>
+        <li>
+          <button class="usa-navlink" aria-expanded="false" aria-controls="sidenav-3">
+            <span>Section title</span>
+          </button>
+          <ul id="sidenav-3" class="usa-navigation-submenu">
+            <li>
+              <a href="#">Subsection title</a>
+            </li>
+            <li>
+              <a href="#">Subsection title</a>
+            </li>
+            <li>
+              <a href="#">Subsection title</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
 </header>
-
-<aside class="sidenav-mobile is-visible">
-  <a class="sliding-panel-close" href="#">
-    <img src="/assets/img/close.svg" alt="close">
-  </a>
-  <nav>
-    <ul class="usa-navigation usa-accordion">
-      <li>
-        <button class="usa-navlink" aria-expanded="false" aria-controls="side-nav-1">
-          <span>Section title</span>
-        </button>
-        <ul id="side-nav-1" class="usa-navigation-submenu">
-          <li>
-            <a href="#">Subsection title</a>
-          </li>
-          <li>
-            <a href="#">Subsection title</a>
-          </li>
-          <li>
-            <a href="#">Subsection title</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <button class="usa-navlink" aria-expanded="false" aria-controls="sidenav-2">
-          <span>Section title</span>
-        </button>
-        <ul id="sidenav-2" class="usa-navigation-submenu">
-          <li>
-            <a href="#">Subsection title</a>
-          </li>
-          <li>
-            <a href="#">Subsection title</a>
-          </li>
-          <li>
-            <a href="#">Subsection title</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a class="usa-navlink" href="#">
-          <span>Section title</span>
-        </a>
-      </li>
-      <li>
-        <button class="usa-navlink" aria-expanded="false" aria-controls="sidenav-3">
-          <span>Section title</span>
-        </button>
-        <ul id="sidenav-3" class="usa-navigation-submenu">
-          <li>
-            <a href="#">Subsection title</a>
-          </li>
-          <li>
-            <a href="#">Subsection title</a>
-          </li>
-          <li>
-            <a href="#">Subsection title</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-</aside>
-
 <div class="overlay"></div>

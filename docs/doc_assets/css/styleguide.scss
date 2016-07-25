@@ -14,6 +14,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 
 .sg-site-header {
   @include position(fixed, 0 null null 0);
+  background-color: $color-primary-darkest;
 
   @include media($medium-screen) {
     position: relative;
@@ -25,12 +26,66 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   }
 }
 
-.sg-site-nav-secondary {
+.site-logo {
+  a {
+    color: $color-white;
+  }
 
+  em {
+    font-family: $font-serif;
+
+    @include media($medium-screen) {
+      font-size: $h3-font-size;
+    }
+  }
+}
+
+.sg-site-nav-secondary {
   &.is-scrolled {
     position: fixed;
     top: 0;
     width: 100%;
+  }
+}
+
+.site-nav-secondary {
+  display: none;
+
+  @include media($medium-screen) {
+    background-color: $color-white;
+    border-bottom: 1px solid $color-gray-light;
+    clear: both;
+    display: block;
+    height: $height-nav-secondary;
+    padding-left: 3rem;
+  }
+
+  ul {
+    @include unstyled-list;
+
+    li {
+      display: inline;
+      padding-right: 3rem;
+    }
+  }
+
+  a {
+    @include padding (1.6rem null);
+    color: $color-gray;
+    font-size: $h6-font-size;
+    letter-spacing: 0.3px;
+    line-height: $height-nav-secondary;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-primary;
+      text-decoration: underline;
+    }
+
+    &.usa-current {
+      color: $color-primary;
+      font-weight: $font-bold;
+    }
   }
 }
 

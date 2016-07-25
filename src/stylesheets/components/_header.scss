@@ -4,7 +4,6 @@ $height-nav-secondary: 5rem;
 $width-nav-sidebar:    250px;
 
 .usa-site-header {
-  background-color: $color-primary-darkest;
   width: 100%;
   z-index: 1;
 
@@ -14,7 +13,6 @@ $width-nav-sidebar:    250px;
 
   em {
     display: block;
-    font-family: $font-serif;
     font-size: 1.4rem;
     font-style: normal;
     font-weight: $font-bold;
@@ -22,7 +20,7 @@ $width-nav-sidebar:    250px;
 
     @include media($medium-screen) {
       display: block;
-      font-size: $h3-font-size;
+      font-size: 2.4rem;
     }
   }
 
@@ -55,6 +53,7 @@ $width-nav-sidebar:    250px;
 }
 
 .site-navbar {
+  border-bottom: 1px solid $color-gray-light;
   height: 4rem;
 
   @include media($medium-screen) {
@@ -75,7 +74,7 @@ $width-nav-sidebar:    250px;
   }
 }
 
-.site-logo {
+.usa-site-logo {
   float: left;
   line-height: 37px;
   margin-top: 3px;
@@ -88,49 +87,8 @@ $width-nav-sidebar:    250px;
   }
 
   a {
-    color: $color-white;
+    color: $color-base;
     text-decoration: none;
-  }
-}
-
-.site-nav-secondary {
-  display: none;
-
-  @include media($medium-screen) {
-    background-color: $color-white;
-    border-bottom: 1px solid $color-gray-light;
-    clear: both;
-    display: block;
-    height: $height-nav-secondary;
-    padding-left: 3rem;
-  }
-
-  ul {
-    @include unstyled-list;
-
-    li {
-      display: inline;
-      padding-right: 3rem;
-    }
-  }
-
-  a {
-    @include padding (1.6rem null);
-    color: $color-gray;
-    font-size: $h6-font-size;
-    letter-spacing: 0.3px;
-    line-height: $height-nav-secondary;
-    text-decoration: none;
-
-    &:hover {
-      color: $color-primary;
-      text-decoration: underline;
-    }
-
-    &.usa-current {
-      color: $color-primary;
-      font-weight: $font-bold;
-    }
   }
 }
 
@@ -245,6 +203,7 @@ $width-nav-sidebar:    250px;
   z-index: 999999;
 
   @media (min-width: $medium-screen) {
+    @include transform(translateX(0));
     overflow-y: visible;
     position: relative;
     width: 100%;
@@ -290,14 +249,13 @@ $width-nav-sidebar:    250px;
   button {
     @include button-unstyled;
     font-weight: $font-normal;
-    padding: 1rem 1.5rem 2rem 1.8rem;
+    padding: 1rem 1.5rem 1rem 1.8rem;
 
     @include media($medium-screen) {
+      @include padding(null 3rem 1.9rem 1.5rem);
       color: $color-gray;
       font-size: $h5-font-size;
       font-weight: $font-bold;
-      padding-left: 1.5rem;
-      padding-right: 3rem;
       width: initial;
     }
 
