@@ -12,6 +12,28 @@ $color-grid-light:     #e3e4e5;
 $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 
 
+.sg-site-header {
+  @include position(fixed, 0 null null 0);
+
+  @include media($medium-screen) {
+    position: relative;
+  }
+
+  // Removes fixed header on Android in landscape with an open keyboard
+  @media screen and (min-aspect-ratio: 13/9) and (max-width: ($medium-screen)) {
+    position: absolute;
+  }
+}
+
+.sg-site-nav-secondary {
+
+  &.is-scrolled {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+}
+
 @mixin outline-inverse-button {
   // TODO: Fix this with button mixin
   .usa-button.usa-button-outline-inverse {

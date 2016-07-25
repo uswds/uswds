@@ -4,19 +4,9 @@ $height-nav-secondary: 5rem;
 $width-nav-sidebar:    250px;
 
 .usa-site-header {
-  @include position(fixed, 0 null null 0);
   background-color: $color-primary-darkest;
   width: 100%;
   z-index: 1;
-
-  @include media($medium-screen) {
-    position: relative;
-  }
-
-  // Removes fixed header on Android in landscape with an open keyboard
-  @media screen and (min-aspect-ratio: 13/9) and (max-width: ($medium-screen)) {
-    position: absolute;
-  }
 
   a {
     border-bottom: none;
@@ -113,12 +103,6 @@ $width-nav-sidebar:    250px;
     display: block;
     height: $height-nav-secondary;
     padding-left: 3rem;
-  }
-
-  &.is-scrolled {
-    position: fixed;
-    top: 0;
-    width: 100%;
   }
 
   ul {
@@ -223,6 +207,15 @@ $width-nav-sidebar:    250px;
   }
 }
 
+.usa-navigation {
+  @include usa-sidenav-list;
+}
+
+@mixin navlink-hover {
+  background-color: $color-primary-darkest;
+  color: $color-white;
+}
+
 .sidenav-mobile {
   $sliding-panel-width: 26rem;
   @include padding (2rem);
@@ -238,7 +231,28 @@ $width-nav-sidebar:    250px;
   z-index: 999999;
 
   @media (min-width: $medium-screen) {
-    display: none;
+    overflow-y: visible;
+    position: relative;
+    width: 100%;
+
+    .usa-navigation {
+      li {
+        border-top: none;
+      }
+
+      > li {
+        display: inline-block;
+
+        > a {
+          color: $color-gray;
+          font-weight: $font-bold;
+
+          &:hover {
+            @include navlink-hover;
+          }
+        }
+      }
+    }
   }
 
   &.is-visible {
@@ -249,12 +263,22 @@ $width-nav-sidebar:    250px;
   nav {
     margin-top: 6rem;
     min-height: 100%;
+
+    @media (min-width: $medium-screen) {
+      margin-top: 0;
+    }
   }
 
   button {
     @include button-unstyled;
     font-weight: $font-normal;
-    padding: 1rem 1rem 1rem 1.8rem;
+    padding: 1rem 1.5rem 1rem 1.8rem;
+
+    @include media($medium-screen) {
+      color: $color-gray;
+      font-weight: $font-bold;
+      width: initial;
+    }
 
     &:focus,
     &:active {
@@ -264,6 +288,10 @@ $width-nav-sidebar:    250px;
     &:hover {
       background-color: $color-gray-lightest;
       color: $color-primary;
+
+      @include media($medium-screen) {
+        @include navlink-hover;
+      }
     }
 
     &[aria-expanded=false] {
@@ -280,11 +308,43 @@ $width-nav-sidebar:    250px;
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: 1rem;
+
+      @include media($medium-screen) {
+        @include navlink-hover;
+      }
     }
   }
 
-  .usa-sidenav-sub_list[aria-hidden=true] {
-    display: none;
+  .usa-sidenav-sub_list {
+    @include media($medium-screen) {
+      background-color: $color-primary-darkest;
+      min-width: 200px;
+      width: initial;
+      position: absolute;
+    }
+
+    a {
+      @include media($medium-screen) {
+        color: $color-white;
+        padding-left: 1.8rem;
+      }
+
+      &:hover {
+        @include media($medium-screen) {
+          background-color: $color-primary-darkest;
+          text-decoration: underline;
+        }
+      }
+
+      &:hover,
+      &.usa-current {
+        padding-left: 1.8rem;
+      }
+    }
+
+    &[aria-hidden=true] {
+      display: none;
+    }
   }
 
   .usa-current {
@@ -309,6 +369,10 @@ $width-nav-sidebar:    250px;
   margin-right: -1.5rem;
   text-align: center;
   width: $hit-area;
+
+  @media (min-width: $medium-screen) {
+    display: none;
+  }
 
   img {
     margin-top: 1.6rem;

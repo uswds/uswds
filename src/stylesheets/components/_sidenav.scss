@@ -1,7 +1,7 @@
-.usa-sidenav-list {
+@mixin usa-sidenav-list {
   @include unstyled-list();
 
-  li {
+  > li {
     border-top: 1px solid $color-gray;
     font-size: $h4-font-size;
 
@@ -69,4 +69,12 @@
       }
     }
   }
+}
+
+.usa-sidenav-list {
+  @include usa-sidenav-list;
+}
+
+.usa-sidenav-sub_list {
+  @include usa-sidenav-sub_list;
 }
