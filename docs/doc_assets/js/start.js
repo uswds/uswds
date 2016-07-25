@@ -6,7 +6,7 @@ var stickyNav = require('./components/sticky-nav');
 
 $(function (){
   $('.menu-btn, .overlay, .sliding-panel-close').on('click touchstart', function (e) {
-    $('.sidenav-mobile, .overlay').toggleClass('is-visible');
+    $('.sidenav-mobile, .overlay, .nav-mobile').toggleClass('is-visible');
     $('body').toggleClass('mobile-sidenav-active');
     e.preventDefault();
   });
