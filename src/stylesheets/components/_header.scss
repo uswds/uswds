@@ -215,12 +215,16 @@ $width-nav-sidebar:    250px;
   @include usa-sidenav-sub_list;
 }
 
+@mixin nav-accent {
+  border-bottom: 0.7rem solid $color-primary;
+  padding-bottom: 1rem;
+}
+
 .usa-navlink {
   &:hover {
     span {
       @include media($medium-screen) {
-        border-bottom: 1rem solid $color-primary;
-        padding-bottom: 1rem;
+        @include nav-accent;
       }
     }
   }
@@ -286,7 +290,7 @@ $width-nav-sidebar:    250px;
   button {
     @include button-unstyled;
     font-weight: $font-normal;
-    padding: 1rem 1.5rem 1rem 1.8rem;
+    padding: 1rem 1.5rem 2rem 1.8rem;
 
     @include media($medium-screen) {
       color: $color-gray;
@@ -323,7 +327,7 @@ $width-nav-sidebar:    250px;
       @include media($medium-screen) {
         background-image: url('../img/angle-arrow-down.png');
         background-image: url('../img/angle-arrow-down.svg');
-        background-position: right 1.5rem center;
+        background-position: 88% 40%;
       }
     }
 
@@ -339,10 +343,14 @@ $width-nav-sidebar:    250px;
         color: $color-white;
         background-image: url('../img/angle-arrow-down-hover.png');
         background-image: url('../img/angle-arrow-down-hover.svg');
-        background-position: right 1.5rem center;
+        background-position: 88% 40%;
 
         &:hover {
           background-color: $color-primary-darkest;
+        }
+
+        span {
+          @include nav-accent;
         }
       }
     }
