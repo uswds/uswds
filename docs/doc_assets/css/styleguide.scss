@@ -25,6 +25,23 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   @media screen and (min-aspect-ratio: 13/9) and (max-width: ($medium-screen)) {
     position: absolute;
   }
+
+  .usa-disclaimer-official,
+  .usa-site-logo {
+    margin-left: $site-margins-mobile;
+
+    @include media($medium-screen) {
+      margin-left: $site-margins;
+    }
+  }
+
+  .usa-disclaimer-stage {
+    margin-right: $site-margins-mobile;
+
+    @include media($medium-screen) {
+      margin-right: $site-margins;
+    }
+  }
 }
 
 .site-header-navbar {
