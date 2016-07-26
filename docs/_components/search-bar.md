@@ -29,7 +29,7 @@ maturity: alpha
 
   <div class="usa-grid">
     <div class="usa-width-one-half">
-      <form class="usa-search">
+      <form class="usa-search usa-search-medium">
         <div role="search">
           <label class="usa-sr-only" for="search-field">Search medium</label>
           <input id="search-field" type="search" name="search">
