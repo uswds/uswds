@@ -12,7 +12,7 @@ $color-grid-light:     #e3e4e5;
 $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 
 
-.sg-site-header {
+.site-header {
   @include position(fixed, 0 null null 0);
   background-color: $color-primary-darkest;
 
@@ -23,6 +23,33 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   // Removes fixed header on Android in landscape with an open keyboard
   @media screen and (min-aspect-ratio: 13/9) and (max-width: ($medium-screen)) {
     position: absolute;
+  }
+}
+
+.site-header-navbar {
+  &.is-scrolled {
+    @include media($medium-screen) {
+      display: none;
+    }
+  }
+
+  // Firefox fix so that navbar buttons to align right
+  @-moz-document url-prefix() {
+    @include media($medium-screen) {
+      padding-top: 1px;
+    }
+  }
+}
+
+.sidenav-mobile {
+  @include media($medium-screen) {
+    display: none;
+  }
+
+  .usa-sidenav-sub_list {
+    &[aria-hidden=true] {
+      display: none;
+    }
   }
 }
 
@@ -40,14 +67,6 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   }
 }
 
-.sg-site-nav-secondary {
-  &.is-scrolled {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-}
-
 .site-nav-secondary {
   display: none;
 
@@ -58,6 +77,12 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
     display: block;
     height: $height-nav-secondary;
     padding-left: 3rem;
+  }
+
+  &.is-scrolled {
+    position: fixed;
+    top: 0;
+    width: 100%;
   }
 
   ul {
@@ -98,6 +123,36 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
     &:hover {
       box-shadow: inset 0 0 0 2px $color-primary-darker;
       color: $color-primary-darker;
+    }
+  }
+}
+
+// Sidebar Nav --------- //
+
+.sidenav {
+  display: none;
+
+  @include media($medium-screen) {
+    bottom: 0;
+    display: block; // starting: not scrolled
+    float: left; // starting: not scrolled
+    overflow: auto;
+    padding: 4rem 1rem 3rem 3rem;
+    width: $width-nav-sidebar;
+  }
+
+  &.is-scrolled {
+    position: fixed;
+    top: $height-nav-secondary;
+  }
+
+  .lt-ie9 & {
+    width: 25%;
+  }
+
+  .usa-navigation-submenu {
+    &[aria-hidden="false"] {
+      display: block;
     }
   }
 }

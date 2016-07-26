@@ -3,7 +3,7 @@
 $height-nav-secondary: 5rem;
 $width-nav-sidebar:    250px;
 
-.usa-site-header {
+.usa-header {
   width: 100%;
   z-index: 1;
 
@@ -52,25 +52,12 @@ $width-nav-sidebar:    250px;
   }
 }
 
-.site-navbar {
+.usa-header-navbar {
   border-bottom: 1px solid $color-gray-light;
   height: 4rem;
 
   @include media($medium-screen) {
     height: 8rem;
-  }
-
-  &.is-scrolled {
-    @include media($medium-screen) {
-      display: none;
-    }
-  }
-
-  // Firefox fix so that navbar buttons to align right
-  @-moz-document url-prefix() {
-    @include media($medium-screen) {
-      padding-top: 1px;
-    }
   }
 }
 
@@ -93,7 +80,7 @@ $width-nav-sidebar:    250px;
 }
 
 // scss-lint:disable PropertyCount
-.menu-btn {
+.usa-menu-btn {
   background-color: $color-primary;
   color: $color-white;
   display: inline;
@@ -121,7 +108,7 @@ $width-nav-sidebar:    250px;
 }
 // scss-lint:enable PropertyCount
 
-.overlay {
+.usa-overlay {
   @include position(fixed, 0);
   background: $color-black;
   opacity: 0;
@@ -135,37 +122,7 @@ $width-nav-sidebar:    250px;
   }
 }
 
-// Sidebar Nav --------- //
-
-.sidenav {
-  display: none;
-
-  @include media($medium-screen) {
-    bottom: 0;
-    display: block; // starting: not scrolled
-    float: left; // starting: not scrolled
-    overflow: auto;
-    padding: 4rem 1rem 3rem 3rem;
-    width: $width-nav-sidebar;
-  }
-
-  &.is-scrolled {
-    position: fixed;
-    top: $height-nav-secondary;
-  }
-
-  .lt-ie9 & {
-    width: 25%;
-  }
-
-  .usa-navigation-submenu {
-    &[aria-hidden="false"] {
-      display: block;
-    }
-  }
-}
-
-.usa-navigation {
+.usa-header-nav-list {
   @include usa-sidenav-list;
 }
 
@@ -188,7 +145,7 @@ $width-nav-sidebar:    250px;
   }
 }
 
-.sidenav-mobile {
+.usa-header-nav {
   $sliding-panel-width: 26rem;
   @include padding (2rem);
   @include position(fixed, 0 0 0 auto);
@@ -208,7 +165,7 @@ $width-nav-sidebar:    250px;
     position: relative;
     width: 100%;
 
-    .usa-navigation {
+    .usa-header-nav-list {
       li {
         border-top: none;
       }
@@ -372,7 +329,7 @@ $width-nav-sidebar:    250px;
   text-align: center;
   width: $hit-area;
 
-  @media (min-width: $medium-screen) {
+  @include media($medium-screen) {
     display: none;
   }
 

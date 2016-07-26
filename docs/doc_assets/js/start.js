@@ -5,8 +5,8 @@ var calculateAnchorPosition = require('./components/calculate-anchor-position');
 var stickyNav = require('./components/sticky-nav');
 
 $(function (){
-  $('.menu-btn, .overlay, .sliding-panel-close').on('click touchstart', function (e) {
-    $('.sidenav-mobile, .overlay, .nav-mobile').toggleClass('is-visible');
+  $('.usa-menu-btn, .usa-overlay, .sliding-panel-close').on('click touchstart', function (e) {
+    $('.sidenav-mobile, .usa-overlay, .nav-mobile, .usa-header-nav').toggleClass('is-visible');
     $('body').toggleClass('mobile-sidenav-active');
     e.preventDefault();
   });
