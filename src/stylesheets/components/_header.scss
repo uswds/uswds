@@ -163,6 +163,9 @@ $nav-width-extra:      336px;
 }
 
 .usa-header-nav-link {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
   &:hover {
     span {
       @include media($medium-screen) {
@@ -250,6 +253,8 @@ $nav-width-extra:      336px;
       @include button-unstyled;
       font-weight: $font-normal;
       padding: 1.4rem 1.5rem 1rem 1.8rem;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
 
       @include media($medium-screen) {
         @include padding(null 3rem 1.9rem 1.5rem);
