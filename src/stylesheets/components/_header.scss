@@ -83,12 +83,12 @@ $nav-width-extra:      336px;
 .usa-site-logo {
   float: left;
   line-height: 4rem;
-  padding-left: $site-margins-mobile;
+  margin-left: 1.5rem;
 
   @include media($medium-screen) {
     line-height: 7.5rem;
+    margin-left: 0;
     margin-top: 3.3rem;
-    padding-left: $site-margins;
   }
 
   a {
@@ -172,6 +172,14 @@ $nav-width-extra:      336px;
   }
 }
 
+.usa-header-nav-container {
+  @include media($medium-screen) {
+    @include outer-container();
+    @include padding(null $site-margins);
+    max-width: $site-max-width;
+  }
+}
+
 .usa-header-nav {
   $sliding-panel-width: 26rem;
   @include padding(2rem);
@@ -188,7 +196,7 @@ $nav-width-extra:      336px;
   z-index: 999999;
 
   @include media($medium-screen) {
-    @include padding(6rem null 0 null);
+    @include padding(6rem 0 0 null);
     @include transform(translateX(0));
     border-left: none;
     display: block;
@@ -373,8 +381,10 @@ $nav-width-extra:      336px;
 
   .usa-header-navbar {
     @include media($medium-screen) {
-      border-bottom: 1px solid $color-gray-light;
+      @include outer-container();
+      @include padding(null $site-margins);
       display: block;
+      max-width: $site-max-width;
     }
   }
 
@@ -382,6 +392,7 @@ $nav-width-extra:      336px;
     @include media($medium-screen) {
       @include padding(0.5rem 1.5rem 0 1.5rem);
       border-bottom: 1px solid $color-gray-light;
+      border-top: 1px solid $color-gray-light;
       width: 100%;
     }
   }
