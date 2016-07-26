@@ -6,7 +6,7 @@ var stickyNav = require('./components/sticky-nav');
 
 $(function (){
   $('.usa-menu-btn, .usa-overlay, .usa-sliding-panel-close').on('click touchstart', function (e) {
-    $('.sidenav-mobile, .usa-overlay, .nav-mobile, .usa-header-nav').toggleClass('is-visible');
+    $('.usa-overlay, .usa-header-nav').toggleClass('is-visible');
     $('body').toggleClass('mobile-sidenav-active');
     e.preventDefault();
   });
