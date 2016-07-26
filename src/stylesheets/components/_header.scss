@@ -59,8 +59,13 @@ $nav-width-extra:      336px;
   }
 
   .usa-search {
-    float: right;
-    max-width: 21.5rem;
+    margin-bottom: 1.5rem;
+
+    @include media($medium-screen) {
+      float: right;
+      margin-bottom: 0;
+      max-width: 21.5rem;
+    }
   }
 }
 
@@ -145,6 +150,7 @@ $nav-width-extra:      336px;
 
 .usa-header-nav-list {
   @include usa-sidenav-list;
+  order: 2;
 }
 
 .usa-navigation-submenu {
@@ -175,15 +181,17 @@ $nav-width-extra:      336px;
   background: $color-white;
   border-left: 1px solid $color-gray-light;
   border-right: 0;
-  display: block;
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   z-index: 999999;
 
   @include media($medium-screen) {
-    @include padding(6.4rem null 0 null);
+    @include padding(6rem null 0 null);
     @include transform(translateX(0));
     border-left: none;
+    display: block;
     float: right;
     overflow-y: visible;
     position: relative;
@@ -201,7 +209,7 @@ $nav-width-extra:      336px;
         margin-left: -4px;
 
         > a {
-          @include padding(null 1.5rem 1.7rem 1.5rem);
+          @include padding(1.3rem 1.5rem 1.7rem 1.5rem);
           color: $color-gray;
           font-size: $h5-font-size;
           font-weight: $font-bold;
@@ -233,7 +241,7 @@ $nav-width-extra:      336px;
     button {
       @include button-unstyled;
       font-weight: $font-normal;
-      padding: 1rem 1.5rem 1rem 1.8rem;
+      padding: 1.4rem 1.5rem 1rem 1.8rem;
 
       @include media($medium-screen) {
         @include padding(null 3rem 1.9rem 1.5rem);
@@ -269,7 +277,7 @@ $nav-width-extra:      336px;
         @include media($medium-screen) {
           background-image: url('../img/angle-arrow-down.png');
           background-image: url('../img/angle-arrow-down.svg');
-          background-position: 88% 40%;
+          background-position: 88% 44%;
         }
       }
 
@@ -285,7 +293,7 @@ $nav-width-extra:      336px;
           color: $color-white;
           background-image: url('../img/angle-arrow-down-hover.png');
           background-image: url('../img/angle-arrow-down-hover.svg');
-          background-position: 88% 40%;
+          background-position: 88% 44%;
 
           &:hover {
             background-color: $color-primary-darkest;
@@ -372,7 +380,7 @@ $nav-width-extra:      336px;
 
   .usa-header-nav {
     @include media($medium-screen) {
-      @include padding(1rem 1.5rem 0 1.5rem);
+      @include padding(0.5rem 1.5rem 0 1.5rem);
       border-bottom: 1px solid $color-gray-light;
       width: 100%;
     }
@@ -389,9 +397,9 @@ $nav-width-extra:      336px;
 }
 
 .sliding-panel-close {
+  @include margin(-1.2rem -1.5rem 2.4rem auto);
   float: right;
   height: $hit-area;
-  margin-right: -1.5rem;
   text-align: center;
   width: $hit-area;
 
