@@ -153,7 +153,7 @@ $nav-width-extra:      336px;
   order: 2;
 }
 
-.usa-navigation-submenu {
+.usa-header-nav-submenu {
   @include usa-sidenav-sub_list;
 }
 
@@ -162,7 +162,7 @@ $nav-width-extra:      336px;
   padding-bottom: 1rem;
 }
 
-.usa-navlink {
+.usa-header-nav-link {
   &:hover {
     span {
       @include media($medium-screen) {
@@ -307,7 +307,7 @@ $nav-width-extra:      336px;
     }
   }
 
-  .usa-navigation-submenu {
+  .usa-header-nav-submenu {
     @include media($medium-screen) {
       @include padding(1.15rem null);
       background-color: $color-primary-darkest;
@@ -396,7 +396,7 @@ $nav-width-extra:      336px;
   }
 }
 
-.sliding-panel-close {
+.usa-sliding-panel-close {
   @include margin(-1.2rem -1.5rem 2.4rem auto);
   float: right;
   height: $hit-area;
@@ -413,6 +413,6 @@ $nav-width-extra:      336px;
   }
 }
 
-.mobile-sidenav-active {
+.usa-mobile-sidenav-active {
   overflow: hidden;
 }
