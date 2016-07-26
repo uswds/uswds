@@ -2,10 +2,16 @@
 
 $height-nav-secondary: 5rem;
 $width-nav-sidebar:    250px;
+$nav-width-extra:      336px;
+
 
 .usa-header {
   width: 100%;
   z-index: 1;
+
+  @include media($medium-screen) {
+    border-bottom: 1px solid $color-gray-light;
+  }
 
   a {
     border-bottom: none;
@@ -13,7 +19,7 @@ $width-nav-sidebar:    250px;
 
   em {
     display: block;
-    font-size: 1.4rem;
+    font-size: $h5-font-size;
     font-style: normal;
     font-weight: $font-bold;
     margin: 0;
@@ -21,6 +27,7 @@ $width-nav-sidebar:    250px;
     @include media($medium-screen) {
       display: block;
       font-size: 2.4rem;
+      line-height: $heading-line-height;
     }
   }
 
@@ -50,6 +57,11 @@ $width-nav-sidebar:    250px;
       @include margin(0 null);
     }
   }
+
+  .usa-search {
+    float: right;
+    max-width: 21.5rem;
+  }
 }
 
 .usa-header-navbar {
@@ -57,25 +69,34 @@ $width-nav-sidebar:    250px;
   height: 4rem;
 
   @include media($medium-screen) {
-    height: 8rem;
+    border-bottom: none;
+    display: inline-block;
+    height: 103px;
   }
 }
 
 .usa-site-logo {
   float: left;
-  line-height: 37px;
-  margin-top: 3px;
+  line-height: 4rem;
   padding-left: $site-margins-mobile;
 
   @include media($medium-screen) {
     line-height: 7.5rem;
-    margin-top: 5px;
+    margin-top: 3.3rem;
     padding-left: $site-margins;
   }
 
   a {
     color: $color-base;
     text-decoration: none;
+  }
+
+  br {
+    display: none;
+
+    @include media($medium-screen) {
+      display: block;
+    }
   }
 }
 
@@ -147,7 +168,7 @@ $width-nav-sidebar:    250px;
 
 .usa-header-nav {
   $sliding-panel-width: 26rem;
-  @include padding (2rem);
+  @include padding(2rem);
   @include position(fixed, 0 0 0 auto);
   @include size($sliding-panel-width 100%);
   @include transform(translateX($sliding-panel-width));
@@ -159,13 +180,18 @@ $width-nav-sidebar:    250px;
   -webkit-overflow-scrolling: touch;
   z-index: 999999;
 
-  @media (min-width: $medium-screen) {
+  @include media($medium-screen) {
+    @include padding(6.4rem null 0 null);
     @include transform(translateX(0));
+    border-left: none;
+    float: right;
     overflow-y: visible;
     position: relative;
-    width: 100%;
+    width: auto;
 
     .usa-header-nav-list {
+      display: inline;
+
       li {
         border-top: none;
       }
@@ -175,7 +201,7 @@ $width-nav-sidebar:    250px;
         margin-left: -4px;
 
         > a {
-          @include padding(null 1.5rem);
+          @include padding(null 1.5rem 1.7rem 1.5rem);
           color: $color-gray;
           font-size: $h5-font-size;
           font-weight: $font-bold;
@@ -198,74 +224,76 @@ $width-nav-sidebar:    250px;
     margin-top: 6rem;
     min-height: 100%;
 
-    @media (min-width: $medium-screen) {
+    @include media($medium-screen) {
       margin-top: 0;
     }
   }
 
-  button {
-    @include button-unstyled;
-    font-weight: $font-normal;
-    padding: 1rem 1.5rem 1rem 1.8rem;
-
-    @include media($medium-screen) {
-      @include padding(null 3rem 1.9rem 1.5rem);
-      color: $color-gray;
-      font-size: $h5-font-size;
-      font-weight: $font-bold;
-      width: initial;
-    }
-
-    &:focus,
-    &:active {
-      box-shadow: $focus-shadow;
-    }
-
-    &:hover {
-      background-color: $color-gray-lightest;
-      color: $color-primary;
+  .usa-header-nav-list {
+    button {
+      @include button-unstyled;
+      font-weight: $font-normal;
+      padding: 1rem 1.5rem 1rem 1.8rem;
 
       @include media($medium-screen) {
-        &:hover {
-          background-color: transparent;
+        @include padding(null 3rem 1.9rem 1.5rem);
+        color: $color-gray;
+        font-size: $h5-font-size;
+        font-weight: $font-bold;
+        width: initial;
+      }
+
+      &:focus,
+      &:active {
+        box-shadow: $focus-shadow;
+      }
+
+      &:hover {
+        background-color: $color-gray-lightest;
+        color: $color-primary;
+
+        @include media($medium-screen) {
+          &:hover {
+            background-color: transparent;
+          }
         }
       }
-    }
 
-    &[aria-expanded=false] {
-      background-image: url('../img/plus-alt.png');
-      background-image: url('../img/plus-alt.svg');
-      background-repeat: no-repeat;
-      background-position: right 0 center;
-      background-size: 1rem;
+      &[aria-expanded=false] {
+        background-image: url('../img/plus-alt.png');
+        background-image: url('../img/plus-alt.svg');
+        background-repeat: no-repeat;
+        background-position: right 0 center;
+        background-size: 1rem;
 
-      @include media($medium-screen) {
-        background-image: url('../img/angle-arrow-down.png');
-        background-image: url('../img/angle-arrow-down.svg');
-        background-position: 88% 40%;
+        @include media($medium-screen) {
+          background-image: url('../img/angle-arrow-down.png');
+          background-image: url('../img/angle-arrow-down.svg');
+          background-position: 88% 40%;
+        }
       }
-    }
 
-    &[aria-expanded=true] {
-      background-image: url('../img/minus-alt.png');
-      background-image: url('../img/minus-alt.svg');
-      background-repeat: no-repeat;
-      background-position: right 0 center;
-      background-size: 1rem;
+      &[aria-expanded=true] {
+        background-image: url('../img/minus-alt.png');
+        background-image: url('../img/minus-alt.svg');
+        background-repeat: no-repeat;
+        background-position: right 0 center;
+        background-size: 1rem;
 
-      @include media($medium-screen) {
-        background-color: $color-primary-darkest;
-        color: $color-white;
-        background-image: url('../img/angle-arrow-down-hover.png');
-        background-image: url('../img/angle-arrow-down-hover.svg');
-        background-position: 88% 40%;
-
-        &:hover {
+        @include media($medium-screen) {
           background-color: $color-primary-darkest;
-        }
+          color: $color-white;
+          background-image: url('../img/angle-arrow-down-hover.png');
+          background-image: url('../img/angle-arrow-down-hover.svg');
+          background-position: 88% 40%;
 
-        span {
-          @include nav-accent;
+          &:hover {
+            background-color: $color-primary-darkest;
+          }
+
+          span {
+            @include nav-accent;
+          }
         }
       }
     }
@@ -319,6 +347,44 @@ $width-nav-sidebar:    250px;
 
   .usa-button-list {
     margin-top: 4rem;
+  }
+}
+
+.usa-header-extended {
+  .usa-header {
+    @include media($medium-screen) {
+      border-bottom: none;
+    }
+  }
+
+  em {
+    @include media($medium-screen) {
+      font-size: 3.2rem;
+    }
+  }
+
+  .usa-header-navbar {
+    @include media($medium-screen) {
+      border-bottom: 1px solid $color-gray-light;
+      display: block;
+    }
+  }
+
+  .usa-header-nav {
+    @include media($medium-screen) {
+      @include padding(1rem 1.5rem 0 1.5rem);
+      border-bottom: 1px solid $color-gray-light;
+      width: 100%;
+    }
+  }
+
+  .usa-search {
+    @include media($medium-screen) {
+      float: right;
+      position: absolute;
+      top: -7rem;
+      right: 3rem;
+    }
   }
 }
 

@@ -17,6 +17,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   background-color: $color-primary-darkest;
 
   @include media($medium-screen) {
+    border-bottom: none;
     position: relative;
   }
 
@@ -27,6 +28,11 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 }
 
 .site-header-navbar {
+  @include media($medium-screen) {
+    height: 8rem;
+    width: 100%;
+  }
+
   &.is-scrolled {
     @include media($medium-screen) {
       display: none;
@@ -60,9 +66,12 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 
   em {
     font-family: $font-serif;
+    font-size: 1.4rem;
+    line-height: 3.7rem;
 
     @include media($medium-screen) {
       font-size: $h3-font-size;
+      line-height: 7.5rem;
     }
   }
 }
