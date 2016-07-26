@@ -373,9 +373,16 @@ $nav-width-extra:      336px;
     }
   }
 
+  .usa-site-logo {
+    @include media($medium-screen) {
+      @include margin(3rem null);
+    }
+  }
+
   em {
     @include media($medium-screen) {
       font-size: 3.2rem;
+      line-height: 1;
     }
   }
 
@@ -384,6 +391,7 @@ $nav-width-extra:      336px;
       @include outer-container();
       @include padding(null $site-margins);
       display: block;
+      height: auto;
       max-width: $site-max-width;
     }
   }
@@ -409,7 +417,7 @@ $nav-width-extra:      336px;
     @include media($medium-screen) {
       float: right;
       position: absolute;
-      top: -7rem;
+      top: -64px;
       right: 3rem;
     }
   }
