@@ -468,6 +468,13 @@ $nav-width-extra:      336px;
   }
 
   .usa-header-button-search {
+    background-image: url('../img/search-alt.png');
+    background-image: url('../img/search-alt.svg');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 2.2rem;
+    padding-left: 2.3rem;
+
     &.is-hidden {
       display: none;
     }
