@@ -248,113 +248,6 @@ $nav-width-extra:      336px;
     }
   }
 
-  .usa-header-nav-list {
-    button {
-      @include button-unstyled;
-      font-weight: $font-normal;
-      padding: 1.4rem 1.5rem 1rem 1.8rem;
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
-
-      @include media($medium-screen) {
-        @include padding(null 3rem 1.9rem 1.5rem);
-        color: $color-gray;
-        font-size: $h5-font-size;
-        font-weight: $font-bold;
-        width: initial;
-      }
-
-      &:focus,
-      &:active {
-        box-shadow: $focus-shadow;
-      }
-
-      &:hover {
-        background-color: $color-gray-lightest;
-        color: $color-primary;
-
-        @include media($medium-screen) {
-          &:hover {
-            background-color: transparent;
-          }
-        }
-      }
-
-      &[aria-expanded=false] {
-        background-image: url('../img/plus-alt.png');
-        background-image: url('../img/plus-alt.svg');
-        background-repeat: no-repeat;
-        background-position: right 0 center;
-        background-size: 1rem;
-
-        @include media($medium-screen) {
-          background-image: url('../img/angle-arrow-down.png');
-          background-image: url('../img/angle-arrow-down.svg');
-          background-position: 88% 44%;
-        }
-      }
-
-      &[aria-expanded=true] {
-        background-image: url('../img/minus-alt.png');
-        background-image: url('../img/minus-alt.svg');
-        background-repeat: no-repeat;
-        background-position: right 0 center;
-        background-size: 1rem;
-
-        @include media($medium-screen) {
-          background-color: $color-primary-darkest;
-          color: $color-white;
-          background-image: url('../img/angle-arrow-down-hover.png');
-          background-image: url('../img/angle-arrow-down-hover.svg');
-          background-position: 88% 44%;
-
-          &:hover {
-            background-color: $color-primary-darkest;
-          }
-
-          span {
-            @include nav-accent;
-          }
-        }
-      }
-    }
-  }
-
-  .usa-header-nav-submenu {
-    @include media($medium-screen) {
-      @include padding(1.15rem null);
-      background-color: $color-primary-darkest;
-      min-width: 215px;
-      width: initial;
-      position: absolute;
-    }
-
-    a {
-      @include media($medium-screen) {
-        color: $color-white;
-        padding-left: 1.8rem;
-      }
-
-      &:hover {
-        @include media($medium-screen) {
-          background-color: $color-primary-darkest;
-          text-decoration: underline;
-        }
-      }
-
-      &:hover,
-      &.usa-current {
-        @include media($medium-screen) {
-          padding-left: 1.8rem;
-        }
-      }
-    }
-
-    &[aria-hidden=true] {
-      display: none;
-    }
-  }
-
   .usa-current {
     border-left: 4px solid $color-primary;
     color: $color-primary;
@@ -368,6 +261,78 @@ $nav-width-extra:      336px;
 
   .usa-button-list {
     margin-top: 4rem;
+  }
+}
+
+.usa-header-nav-list {
+  button {
+    @include button-unstyled;
+    font-weight: $font-normal;
+    padding: 1.4rem 1.5rem 1rem 1.8rem;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    @include media($medium-screen) {
+      @include padding(null 3rem 1.9rem 1.5rem);
+      color: $color-gray;
+      font-size: $h5-font-size;
+      font-weight: $font-bold;
+      width: initial;
+    }
+
+    &:focus,
+    &:active {
+      box-shadow: $focus-shadow;
+    }
+
+    &:hover {
+      background-color: $color-gray-lightest;
+      color: $color-primary;
+
+      @include media($medium-screen) {
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+
+    &[aria-expanded=false] {
+      background-image: url('../img/plus-alt.png');
+      background-image: url('../img/plus-alt.svg');
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      background-size: 1rem;
+
+      @include media($medium-screen) {
+        background-image: url('../img/angle-arrow-down.png');
+        background-image: url('../img/angle-arrow-down.svg');
+        background-position: 88% 44%;
+      }
+    }
+
+    &[aria-expanded=true] {
+      background-image: url('../img/minus-alt.png');
+      background-image: url('../img/minus-alt.svg');
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      background-size: 1rem;
+
+      @include media($medium-screen) {
+        background-color: $color-primary-darkest;
+        color: $color-white;
+        background-image: url('../img/angle-arrow-down-hover.png');
+        background-image: url('../img/angle-arrow-down-hover.svg');
+        background-position: 88% 44%;
+
+        &:hover {
+          background-color: $color-primary-darkest;
+        }
+
+        span {
+          @include nav-accent;
+        }
+      }
+    }
   }
 }
 
@@ -415,6 +380,7 @@ $nav-width-extra:      336px;
       @include outer-container();
       @include padding(null $site-margins null 2rem);
       max-width: $site-max-width;
+      position: relative;
     }
   }
 
@@ -481,6 +447,41 @@ $nav-width-extra:      336px;
   }
 }
 
+.usa-header-nav-submenu {
+  @include media($medium-screen) {
+    @include padding(1.15rem null);
+    background-color: $color-primary-darkest;
+    min-width: 215px;
+    width: initial;
+    position: absolute;
+  }
+
+  a {
+    @include media($medium-screen) {
+      color: $color-white;
+      padding-left: 1.8rem;
+    }
+
+    &:hover {
+      @include media($medium-screen) {
+        background-color: $color-primary-darkest;
+        text-decoration: underline;
+      }
+    }
+
+    &:hover,
+    &.usa-current {
+      @include media($medium-screen) {
+        padding-left: 1.8rem;
+      }
+    }
+  }
+
+  &[aria-hidden=true] {
+    display: none;
+  }
+}
+
 .usa-sliding-panel-close {
   @include margin(-1.2rem -1.5rem 2.4rem auto);
   float: right;
@@ -500,4 +501,12 @@ $nav-width-extra:      336px;
 
 .usa-mobile-sidenav-active {
   overflow: hidden;
+}
+
+.usa-header-nav-megamenu {
+  @include media($medium-screen) {
+    left: 0;
+    margin-left: 1.6rem;
+    width: calc(100% - 1.6rem);
+  }
 }
