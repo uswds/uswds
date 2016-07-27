@@ -418,10 +418,58 @@ $nav-width-extra:      336px;
     }
   }
 
-  .usa-search {
+  .usa-header-nav-secondary {
     @include media($medium-screen) {
       float: right;
-      top: -64px;
+      margin-top: -64px;
+    }
+  }
+
+  .usa-header-nav-secondary-links {
+    li {
+      @include media($medium-screen) {
+        display: inline;
+        padding-left: 1rem;
+      }
+
+      &:last-child {
+        a:after {
+          content: none;
+        }
+      }
+    }
+
+    a {
+      color: $color-gray;
+      display: inline-block;
+      font-size: $h5-font-size;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      &:after {
+        @include media($medium-screen) {
+          content: '|';
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+
+  .usa-header-search {
+    display: none;
+    float: left;
+
+    &.is-visible {
+      display: block;
+    }
+  }
+
+  .usa-header-button-search {
+    &.is-hidden {
+      display: none;
     }
   }
 }
