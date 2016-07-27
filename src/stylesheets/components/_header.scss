@@ -421,9 +421,7 @@ $nav-width-extra:      336px;
   .usa-search {
     @include media($medium-screen) {
       float: right;
-      position: absolute;
       top: -64px;
-      right: 3rem;
     }
   }
 }
