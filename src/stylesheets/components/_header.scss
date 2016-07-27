@@ -153,10 +153,6 @@ $nav-width-extra:      336px;
   order: 2;
 }
 
-.usa-header-nav-submenu {
-  @include usa-sidenav-sub_list;
-}
-
 @mixin nav-accent {
   border-bottom: 0.7rem solid $color-primary;
   padding-bottom: 1rem;
@@ -448,6 +444,8 @@ $nav-width-extra:      336px;
 }
 
 .usa-header-nav-submenu {
+  @include usa-sidenav-sub_list;
+
   @include media($medium-screen) {
     @include padding(1.15rem null);
     background-color: $color-primary-darkest;
@@ -465,6 +463,7 @@ $nav-width-extra:      336px;
     &:hover {
       @include media($medium-screen) {
         background-color: $color-primary-darkest;
+        color: $color-white;
         text-decoration: underline;
       }
     }
