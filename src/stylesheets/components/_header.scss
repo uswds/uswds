@@ -376,7 +376,6 @@ $nav-width-extra:      336px;
       @include outer-container();
       @include padding(null $site-margins null 2rem);
       max-width: $site-max-width;
-      position: relative;
     }
   }
 
@@ -505,7 +504,6 @@ $nav-width-extra:      336px;
 .usa-header-nav-megamenu {
   @include media($medium-screen) {
     left: 0;
-    margin-left: 1.6rem;
-    width: calc(100% - 1.6rem);
+    width: 100%;
   }
 }
