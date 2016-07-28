@@ -5,16 +5,6 @@ var calculateAnchorPosition = require('./components/calculate-anchor-position');
 var stickyNav = require('./components/sticky-nav');
 
 $(function (){
-  $('.usa-menu-btn, .usa-overlay, .usa-sliding-panel-close').on('click touchstart', function (e) {
-    $('.usa-overlay, .usa-header-nav').toggleClass('is-visible');
-    $('body').toggleClass('mobile-sidenav-active');
-    e.preventDefault();
-  });
-  $('.usa-header-button-search').on('click touchstart', function (e) {
-    $('.usa-header-search').toggleClass('is-visible');
-    $('.usa-header-button-search', 'body').toggleClass('is-hidden');
-    e.preventDefault();
-  });
   setTimeout(function () {
     require('./components/scroll-to-top-for-hash');
   }, 150);

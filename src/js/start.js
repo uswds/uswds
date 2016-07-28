@@ -4,6 +4,7 @@ var $ = window.jQuery = require('jquery');
 var Accordion = require('./components/accordion');
 var validator = require('./components/validator');
 var toggleFormInput = require('./components/toggle-form-input');
+require('./components/header');
 
 // README: This is necessary because politespace doesn't properly export anything
 // in its package.json. TODO: Let's open a PR related to this so we can fix it in Politespace.js
