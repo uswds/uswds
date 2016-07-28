@@ -1,7 +1,13 @@
 # Markdown config
 markdown: redcarpet
 highlighter: rouge
-name: U.S. Web Design Standards
+
+name: Draft U.S. Web Design Standards
+
+source: docs
+
+version: 0.9.2
+
 exclude:
 - go
 - Gemfile
@@ -12,21 +18,25 @@ exclude:
 - ".sass-cache"
 - ".ruby-version"
 - vendor
+- node_modules
 
 permalink: pretty
 
 repos:
-- name: U.S. Web Design Standards
-  description: Main repository for the U.S. Web Design Standards.
+- name: Draft U.S. Web Design Standards
+  description: Main repository for the Draft U.S. Web Design Standards
   url: https://github.com/18F/web-design-standards
-- name: U.S. Federal Web Design Standards Assets
-  description: U.S. Federal Web Design Standards visual design assets
+- name: Draft U.S. Web Design Standards Assets
+  description: Draft U.S. Web Design Standards visual design assets
   url: https://github.com/18F/web-design-standards-assets
 
 google_analytics_ua: UA-48605964-33
 
 sass:
-  sass_dir: assets/_scss
+  load_paths:
+    - src/stylesheets
+    - docs/_scss
+
 #  style: :compressed
 
 collections:

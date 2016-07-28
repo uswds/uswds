@@ -1,13 +1,22 @@
-language: ruby
-rvm:
-  - 2.2.0
+language: node_js
+node_js:
+  - 5.5.0
 
-script: ./go build
+before_install:
+  - rvm install 2.2.3
+
+install:
+  - bundle
+  - npm install
+
+script:
+  - npm run deploy
 
 notifications:
   email:
     - julia.elman@gsa.gov
     - maya.ben-ari@gsa.gov
+    - roger.ruiz@gsa.gov
 
 branches:
   only:
