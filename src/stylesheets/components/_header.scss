@@ -478,6 +478,12 @@ $nav-width-extra:      336px;
   &[aria-hidden=true] {
     display: none;
   }
+
+  .usa-grid-full {
+    @include media($medium-screen) {
+      padding-left: 1.2rem;
+    }
+  }
 }
 
 .usa-sliding-panel-close {
