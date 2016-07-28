@@ -509,6 +509,7 @@ $nav-width-extra:      336px;
 
 .usa-header-nav-megamenu {
   @include media($medium-screen) {
+    @include padding(3.15rem null);
     left: 0;
     width: 100%;
   }
