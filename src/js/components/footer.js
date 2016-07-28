@@ -1,31 +1,32 @@
-var cull = require('../utils/cull');
-var $ = require('jquery');
+var select = require('../utils/select');
+//var addClass = require('../utils/add-class');
+//var removeClass = require('../utils/remove-class');
+//var modAttr = require('../utils/mod-attr');
 
 module.exports = function footerAccordion () {
 
+  //dispatch(primaryLink, 'off', 'click');
+
   if (window.innerWidth < 600) {
 
-    // V---- utils/cull
-    //                          V--- utils/mod-attr
-    $('.usa-footer-big nav ul').addClass('hidden');
+    var navList = select('.usa-footer-big nav ul');
+    var primaryLink = select('.usa-footer-big nav .usa-footer-primary-link');
 
-    //                                                V--- utils/dispatch
-    $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
+    //modAttr.addClass(navList, 'hidden');
 
-    $('.usa-footer-big nav .usa-footer-primary-link').bind('click', function () {
-    //  V---- utils/traverse
-    //                 V--- utils/mod-attr
-      $(this).parent().removeClass('hidden')
-    //  V---- utils/traverse
-    //            V--- utils/mod-attr
-      .siblings().addClass('hidden');
-    });
+    //dispatch(primaryLink, 'on', 'click', function () {
+
+      var currentAccordion = this.parentNode;
+      var otherAccordions = select(currentAccordion);
+      //modAttr.removeClass(currentAccordion, 'hidden');;
+      //modAttr.addClass(otherAccordions, 'hidden');
+
+    //});
+
   } else {
 
-    //                          V--- utils/mod-attr
-    $('.usa-footer-big nav ul').removeClass('hidden');
+    //modAttr.removeClass(navList, 'hidden');
 
-    $('.usa-footer-big nav .usa-footer-primary-link').unbind('click');
   }
 };
 

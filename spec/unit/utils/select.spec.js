@@ -5,7 +5,6 @@ var jsdom = require('jsdom').jsdom;
 
 describe('select', function () {
 
-
   var oldDocument = global.document;
 
   after(function () {

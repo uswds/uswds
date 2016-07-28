@@ -88,10 +88,6 @@ Accordion.prototype.hideAll = function () {
   this.$('button').each(function () {
     self.hide($(this));
   });
-
-  _.map(select('button'), function(b) {
-    modAttr(b, 'style', 'display:none;');
-  })
   return this;
 };
 
