@@ -15,10 +15,6 @@ gulp.task('clean-dist', function (done) {
 
   dutil.logMessage('clean-dist', 'Removing distribution directories.');
 
-  if (!cFlags.local) {
-    dutil.logMessage('clean-dist', 'Removing gem distribution directory');
-  }
-
   return gulp.src([ 'dist' ], { read: false }).pipe(clean());
 
 });
