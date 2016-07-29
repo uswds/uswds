@@ -2,6 +2,7 @@
 .usa-grid-full {
   @include outer-container();
   max-width: $site-max-width;
+}
 
   @include media($medium) {
     .usa-width-one-whole {
@@ -113,8 +114,6 @@
         margin-right: 0;
       }
     }
-  }
-
   // Specificies end of a row.
   // Required if grid-box contains multiple rows.
   // Required if browser does not support :last-child
