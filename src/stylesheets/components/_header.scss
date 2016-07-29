@@ -371,18 +371,25 @@ $nav-width-extra:      336px;
     }
   }
 
+  .usa-header-nav-list {
+    @include media($medium-screen) {
+      padding-right: $site-max-width;
+    }
+  }
+
   .usa-header-nav-inner {
     @include media($medium-screen) {
       @include outer-container();
       @include padding(null $site-margins null 2rem);
       max-width: $site-max-width;
+      position: relative;
     }
   }
 
   .usa-header-nav-secondary {
     @include media($medium-screen) {
       float: right;
-      margin-top: -64px;
+      margin-top: -110px;
     }
   }
 
@@ -512,5 +519,12 @@ $nav-width-extra:      336px;
     @include padding(3.15rem null);
     left: 0;
     width: 100%;
+  }
+
+  &:before {
+    background-color: teal;
+    position: absolute;
+    top: 0;
+    width: 1000%;
   }
 }
