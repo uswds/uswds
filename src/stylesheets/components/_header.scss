@@ -514,6 +514,16 @@ $nav-width-extra:      336px;
   overflow: hidden;
 }
 
+@mixin outer-megamenu {
+  background-color: $color-primary-darkest;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 1000%;
+}
+
 .usa-header-nav-megamenu {
   @include media($medium-screen) {
     @include padding(3.15rem null);
@@ -522,9 +532,16 @@ $nav-width-extra:      336px;
   }
 
   &:before {
-    background-color: teal;
-    position: absolute;
-    top: 0;
-    width: 1000%;
+    @include media($medium-screen) {
+      @include outer-megamenu;
+      right: 100%;
+    }
+  }
+
+  &:after {
+    @include media($medium-screen) {
+      @include outer-megamenu;
+      left: 100%;
+    }
   }
 }
