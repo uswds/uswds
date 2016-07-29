@@ -389,7 +389,7 @@ $nav-width-extra:      336px;
   .usa-header-nav-secondary {
     @include media($medium-screen) {
       float: right;
-      margin-top: -54px;
+      margin-top: -57px;
     }
   }
 
@@ -424,27 +424,37 @@ $nav-width-extra:      336px;
         }
       }
     }
-  }
 
-  .usa-header-search {
-    display: none;
-    float: left;
+    .usa-header-button-search {
+      display: none;
 
-    &.is-visible {
-      display: block;
+      @include media($medium-screen) {
+        background-image: url('../img/search-alt.png');
+        background-image: url('../img/search-alt.svg');
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 2.2rem;
+        display: inline-block;
+        padding-left: 2.3rem;
+
+        &.is-hidden {
+          display: none;
+        }
+      }
     }
   }
 
-  .usa-header-button-search {
-    background-image: url('../img/search-alt.png');
-    background-image: url('../img/search-alt.svg');
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 2.2rem;
-    padding-left: 2.3rem;
+  .usa-header-search {
+    @include margin(3rem null);
 
-    &.is-hidden {
+    @include media($medium-screen) {
+      @include margin(-59px null 0 null);
       display: none;
+      float: left;
+
+      &.is-visible {
+        display: block;
+      }
     }
   }
 }
