@@ -8,10 +8,8 @@ var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var merge = require('merge-stream');
 var rename = require('gulp-rename');
-var assert = require('gulp-if');
 var linter = require('gulp-eslint');
 var task = /([\w\d-_]+)\.js$/.exec(__filename)[ 1 ];
-var doc_task = 'docs_' + task;
 
 gulp.task('eslint', function (done) {
 
