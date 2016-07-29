@@ -6,12 +6,10 @@
   "scripts": {
     "prepublish": "bundle && gulp copy-vendor-sass && gulp build",
     "prestart": "gulp copy-vendor-sass",
-    "start": "gulp website:serve",
     "build:package": "gulp copy-vendor-sass && gulp release",
-    "test": "gulp eslint scss-lint scss-lint-docs test",
+    "test": "gulp eslint scss-lint test",
     "preversion": "npm test",
-    "version": "npm run prepublish",
-    "build:website": "gulp copy-vendor-sass && gulp website:build"
+    "version": "npm run prepublish"
   },
   "repository": {
     "type": "git",
