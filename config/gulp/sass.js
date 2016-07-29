@@ -36,45 +36,6 @@ gulp.task('scss-lint', function (done) {
 
 });
 
-gulp.task('create-tmp-docs', function (done) {
-  return gulp.src('docs/doc_assets/css/**/*.scss')
-    .pipe(replace(/---/g, ''))
-    .pipe(gulp.dest('tmpdocs'));
-});
-
-gulp.task('lint-tmp-docs-scss', function (done) {
-  return gulp.src('tmpdocs/**/*.scss')
-    .pipe(linter({
-      config: '.scss-lint.yml',
-    }));
-});
-
-gulp.task('delete-tmp-docs', function (done) {
-  return del('tmpdocs');
-});
-
-gulp.task('scss-lint-docs', function (done) {
-
-  if (!cFlags.test) {
-    dutil.logMessage('scss-lint-docs', 'Skipping linting of Sass files.');
-    return done();
-  }
-
-  dutil.logMessage('scss-lint-docs', 'Linting files found by `docs/doc_assets/**/*.scss`');
-
-  runSequence(
-    // README: The SCSS files have Jekyll dashes at the top. You'd think the best way
-    // to lint them would be to pipe straight from gulp.replace to the linter.
-    // So did we. It doesn't work. We can't figure out why. So instead we're
-    // piping to a tmp folder and linting that.
-    'create-tmp-docs',
-    'lint-tmp-docs-scss',
-    'delete-tmp-docs',
-    done
-  );
-});
-
-
 gulp.task('copy-vendor-sass', function (done) {
 
   dutil.logMessage('copy-vendor-sass', 'Compiling vendor CSS');
