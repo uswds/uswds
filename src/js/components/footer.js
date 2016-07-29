@@ -1,32 +1,79 @@
 var select = require('../utils/select');
-//var addClass = require('../utils/add-class');
-//var removeClass = require('../utils/remove-class');
-//var modAttr = require('../utils/mod-attr');
+var _ = require('lodash');
+
+function removeClass(el, className) {
+  var classList = el.className.split(/\s+/);
+  el.className = _.filter(classList, function (c) {
+    return c != className;
+  }).join(' ');
+  return el;
+}
+
+function addClass(el, className) {
+  el.className += ' ' + className;
+}
+
+function getSiblings(el) {
+  var n = el.parentNode.firstChild;
+  var matches = [];
+
+  while (n) {
+    if (n.nodeType == 1 && n != elem) {
+      matches.push(n);
+    }
+    n = n.nextSibling;
+  }
+
+  return matches;
+}
+
+function attachPanelListener(el) {
+  if (el.attachEvent) {
+    el.attachEvent('onclick', showPanelListener); // support for IE8 is easy here
+  } else {
+    el.addEventListener('click', showPanelListener);
+  }
+}
+
+function detachPanelListener(el) {
+  if (el.detachEvent) {
+    el.detachEvent('onclick', showPanelListener);
+  } else {
+    el.removeEventListener('click', showPanelListener);
+  }
+}
+
+var showPanelListener = function () {
+  var panelToShow = this.parentNode;
+  var otherPanels = getSiblings(panelToShow);
+  removeClass(panelToShow, 'hidden');
+  _.each(otherPanels, function (el) {
+    addClass(el, 'hidden');
+  });
+};
 
 module.exports = function footerAccordion () {
 
-  //dispatch(primaryLink, 'off', 'click');
+  var navList = select('.usa-footer-big nav ul');
+  var primaryLink = select('.usa-footer-big nav .usa-footer-primary-link');
+
+  _.each(primaryLink, function (el) {
+    detachPanelListener(el);
+  });
 
   if (window.innerWidth < 600) {
 
-    var navList = select('.usa-footer-big nav ul');
-    var primaryLink = select('.usa-footer-big nav .usa-footer-primary-link');
+    _.each(navList, function (el) {
+      addClass(el, 'hidden');
+    });
 
-    //modAttr.addClass(navList, 'hidden');
-
-    //dispatch(primaryLink, 'on', 'click', function () {
-
-      var currentAccordion = this.parentNode;
-      var otherAccordions = select(currentAccordion);
-      //modAttr.removeClass(currentAccordion, 'hidden');;
-      //modAttr.addClass(otherAccordions, 'hidden');
-
-    //});
+    _.each(primaryLink, function(el) {
+      attachPanelListener(el);
+    });
 
   } else {
-
-    //modAttr.removeClass(navList, 'hidden');
-
+    _.each(navList, function (el) {
+      removeClass(el, 'hidden');
+    });
   }
 };
-
