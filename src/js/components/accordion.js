@@ -1,82 +1,76 @@
+var _ = require('lodash');
+var select = require('../utils/select');
 
-var $ = require('jquery');
+function showPanelListener(ev) {
+  var button = this;
+  var expanded = button.getAttribute('aria-expanded') === 'true';
+  ev.preventDefault();
+  self.hideAll();
+  if (!expanded) {
+    self.show(button);
+  }
+}
 
 /**
  * @class Accordion
  *
  * An accordion component.
  *
- * @param {jQuery} el A jQuery html element to turn into an accordion.
+ * @param {DOMElement} el A DOMElement to turn into an accordion.
  */
-function Accordion ($el) {
+function Accordion (el) {
   var self = this; // Node
-  this.$root = $el; // jQuery powered element
+  this.root = el; // underlying DOM Element
 
   // delegate click events on each <button>
-  //         v------- utils/dispatch
-  this.$root.on('click', 'button', function (ev) {
-    var $button = $(this);
-    //                     v--- utils/mod-attr
-    var expanded = $button.attr('aria-expanded') === 'true';
-    ev.preventDefault();
-    //   v---- utils/mod-attr
-    self.hideAll();
-    if (!expanded) {
-      self.show($button);
+  _.each(select(this.root,"button"), function (el) {
+    if (el.attachEvent) {
+      el.attachEvent('onclick', showPanelListener);
+    } else {
+      el.addEventListener('click', showPanelListener);
     }
   });
 
   // find the first expanded button
-  //                   v------ utils/select
-  var $expanded = this.$('button[aria-expanded=true]');
-  //   v---- utils/mod-attr
+  var expanded = this.$('button[aria-expanded=true]')[0];
   this.hideAll();
-  if ($expanded.length) {
-    //   v---- utils/mod-attr
-    this.show($expanded);
+  if (expanded !== undefined) {
+    this.show(expanded);
   }
 }
 
 /**
  * @param {String} selector
- * @return {jQuery}
+ * @return {Array}
  */
 Accordion.prototype.$ = function (selector) {
   //   v---- utils/select
-  return this.$root.find(selector);
+  return select(selector, this.root);
 };
 
 /**
- * @param {jQuery} button
+ * @param {DOMElement} button
  * @return {Accordion}
  */
-Accordion.prototype.hide = function ($button) {
-  //   v---- utils/mod-attr
-  var selector = $button.attr('aria-controls'),
-    //   v---- utils/select
-    $content = this.$('#' + selector);
+Accordion.prototype.hide = function (button) {
+  var selector = button.getAttribute('aria-controls'),
+    content = this.$('#' + selector)[0];
 
-  //      v---- utils/mod-attr
-  $button.attr('aria-expanded', false);
-  //      v---- utils/mod-attr
-  $content.attr('aria-hidden', true);
+  button.setAttribute('aria-expanded', false);
+  content.setAttribute('aria-hidden', true);
   return this;
 };
 
 /**
- * @param {jQuery} button
+ * @param {DOMElement} button
  * @return {Accordion}
  */
-Accordion.prototype.show = function ($button) {
-  //                     v---- utils/mod-attr
-  var selector = $button.attr('aria-controls'),
-    //              v---- utils/select
-    $content = this.$('#' + selector);
+Accordion.prototype.show = function (button) {
+  var selector = button.getAttribute('aria-controls'),
+    content = this.$('#' + selector)[0];
 
-  //      v---- utils/mod-attr
-  $button.attr('aria-expanded', true);
-  //       v---- utils/mod-attr
-  $content.attr('aria-hidden', false);
+  button.setAttribute('aria-expanded', true);
+  content.setAttribute('aria-hidden', false);
   return this;
 };
 
@@ -85,8 +79,8 @@ Accordion.prototype.show = function ($button) {
  */
 Accordion.prototype.hideAll = function () {
   var self = this;
-  this.$('button').each(function () {
-    self.hide($(this));
+  _.each(this.$('button'), function (button) {
+    self.hide(button);
   });
   return this;
 };
