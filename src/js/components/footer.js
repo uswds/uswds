@@ -18,7 +18,7 @@ function getSiblings(el) {
   var matches = [];
 
   while (n) {
-    if (n.nodeType == 1 && n != elem) {
+    if (n.nodeType == 1 && n != el) {
       matches.push(n);
     }
     n = n.nextSibling;
