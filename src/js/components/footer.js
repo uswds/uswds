@@ -1,19 +1,19 @@
 var select = require('../utils/select');
 var _ = require('lodash');
 
-function removeClass(el, className) {
+function removeClass (el, className) {
   var classList = el.className.split(/\s+/);
-  el.className = _.filter(classList, function (c) {
-    return c != className;
+  el.className = _.reject(classList, function (c) {
+    return c === className;
   }).join(' ');
   return el;
 }
 
-function addClass(el, className) {
+function addClass (el, className) {
   el.className += ' ' + className;
 }
 
-function getSiblings(el) {
+function getSiblings (el) {
   var n = el.parentNode.firstChild;
   var matches = [];
 
@@ -27,7 +27,7 @@ function getSiblings(el) {
   return matches;
 }
 
-function attachPanelListener(el) {
+function attachPanelListener (el) {
   if (el.attachEvent) {
     el.attachEvent('onclick', showPanelListener); // support for IE8 is easy here
   } else {
@@ -35,7 +35,7 @@ function attachPanelListener(el) {
   }
 }
 
-function detachPanelListener(el) {
+function detachPanelListener (el) {
   if (el.detachEvent) {
     el.detachEvent('onclick', showPanelListener);
   } else {
@@ -67,7 +67,7 @@ module.exports = function footerAccordion () {
       addClass(el, 'hidden');
     });
 
-    _.each(primaryLink, function(el) {
+    _.each(primaryLink, function (el) {
       attachPanelListener(el);
     });
 
