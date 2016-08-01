@@ -42,6 +42,34 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
       margin-right: $site-margins;
     }
   }
+
+
+  .usa-button-list {
+    float: right;
+    display: none;
+    margin-top: -5px;
+
+    @include media($medium-screen) {
+      line-height: 8rem;
+      margin-top: 0;
+      display: block;
+      padding-right: $site-margins;
+    }
+
+    // scss-lint:disable SelectorDepth, NestingDepth
+    li {
+      display: inline;
+      font-family: $font-sans;
+
+      &:last-child .usa-button {
+        margin-right: 0;
+      }
+    }
+
+    .usa-button {
+      @include margin(0 null);
+    }
+  }
 }
 
 .site-header-navbar {

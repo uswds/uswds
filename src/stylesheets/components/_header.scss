@@ -31,33 +31,6 @@ $nav-width-extra:      336px;
     }
   }
 
-  .usa-button-list {
-    float: right;
-    display: none;
-    margin-top: -5px;
-
-    @include media($medium-screen) {
-      line-height: 8rem;
-      margin-top: 0;
-      display: block;
-      padding-right: $site-margins;
-    }
-
-    // scss-lint:disable SelectorDepth, NestingDepth
-    li {
-      display: inline;
-      font-family: $font-sans;
-
-      &:last-child .usa-button {
-        margin-right: 0;
-      }
-    }
-
-    .usa-button {
-      @include margin(0 null);
-    }
-  }
-
   .usa-search {
     margin-bottom: 1.5rem;
 
@@ -148,7 +121,7 @@ $nav-width-extra:      336px;
   }
 }
 
-.usa-header-nav-list {
+.usa-header-nav-primary {
   @include usa-sidenav-list;
   order: 2;
 }
@@ -204,7 +177,7 @@ $nav-width-extra:      336px;
     position: relative;
     width: auto;
 
-    .usa-header-nav-list {
+    .usa-header-nav-primary {
       display: inline;
 
       li {
@@ -260,7 +233,7 @@ $nav-width-extra:      336px;
   }
 }
 
-.usa-header-nav-list {
+.usa-header-nav-primary {
   button {
     @include button-unstyled;
     font-weight: $font-normal;
@@ -371,7 +344,7 @@ $nav-width-extra:      336px;
     }
   }
 
-  .usa-header-nav-list {
+  .usa-header-nav-primary {
     @include media($medium-screen) {
       padding-right: $site-max-width;
     }
