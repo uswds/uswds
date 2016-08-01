@@ -121,12 +121,7 @@ $nav-width-extra:      336px;
   }
 }
 
-.usa-header-nav-primary {
-  @include usa-sidenav-list;
-  order: 2;
-}
-
-@mixin nav-accent {
+@mixin nav-border {
   border-bottom: 0.7rem solid $color-primary;
   padding-bottom: 1rem;
 }
@@ -138,7 +133,7 @@ $nav-width-extra:      336px;
   &:hover {
     span {
       @include media($medium-screen) {
-        @include nav-accent;
+        @include nav-border;
       }
     }
   }
@@ -227,13 +222,12 @@ $nav-width-extra:      336px;
   .usa-button {
     width: 100%;
   }
-
-  .usa-button-list {
-    margin-top: 4rem;
-  }
 }
 
 .usa-header-nav-primary {
+  @include usa-sidenav-list;
+  order: 2;
+
   button {
     @include button-unstyled;
     font-weight: $font-normal;
@@ -259,9 +253,7 @@ $nav-width-extra:      336px;
       color: $color-primary;
 
       @include media($medium-screen) {
-        &:hover {
-          background-color: transparent;
-        }
+        background-color: transparent;
       }
     }
 
@@ -298,7 +290,7 @@ $nav-width-extra:      336px;
         }
 
         span {
-          @include nav-accent;
+          @include nav-border;
         }
       }
     }
@@ -344,18 +336,18 @@ $nav-width-extra:      336px;
     }
   }
 
-  .usa-header-nav-primary {
-    @include media($medium-screen) {
-      padding-right: $site-max-width;
-    }
-  }
-
   .usa-header-nav-inner {
     @include media($medium-screen) {
       @include outer-container();
       @include padding(null $site-margins null 2rem);
       max-width: $site-max-width;
       position: relative;
+    }
+  }
+
+  .usa-header-nav-primary {
+    @include media($medium-screen) {
+      padding-right: $site-max-width;
     }
   }
 
@@ -398,7 +390,7 @@ $nav-width-extra:      336px;
       }
     }
 
-    .usa-header-button-search {
+    .usa-header-search-button {
       display: none;
 
       @include media($medium-screen) {
@@ -409,8 +401,10 @@ $nav-width-extra:      336px;
         background-size: 2.2rem;
         display: inline-block;
         padding-left: 2.3rem;
+      }
 
-        &.is-hidden {
+      &.is-hidden {
+        @include media($medium-screen) {
           display: none;
         }
       }
@@ -443,6 +437,10 @@ $nav-width-extra:      336px;
     position: absolute;
   }
 
+  &[aria-hidden=true] {
+    display: none;
+  }
+
   a {
     @include media($medium-screen) {
       color: $color-white;
@@ -465,10 +463,6 @@ $nav-width-extra:      336px;
     }
   }
 
-  &[aria-hidden=true] {
-    display: none;
-  }
-
   .usa-grid-full {
     @include media($medium-screen) {
       padding-left: 1.2rem;
@@ -476,7 +470,7 @@ $nav-width-extra:      336px;
   }
 }
 
-.usa-sliding-panel-close {
+.usa-header-nav-close {
   @include margin(-1.2rem -1.5rem 2.4rem auto);
   float: right;
   height: $hit-area;
@@ -493,7 +487,7 @@ $nav-width-extra:      336px;
   }
 }
 
-.usa-mobile-sidenav-active {
+.usa-mobile_nav-active {
   overflow: hidden;
 }
 
