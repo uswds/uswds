@@ -1,11 +1,11 @@
 var _ = require('lodash');
 
-/*
+/**
  * @name select
  * @desc selects elements from the DOM by class selector or ID selector.
  * @param {string} selector - The selector to traverse the DOM with.
- * @param {node} context - The context to traverse the DOM in.
- * @return {array} - An array of DOM nodes or an empty array.
+ * @param {HTMLElement} context - The context to traverse the DOM in.
+ * @return {Array.HTMLElement} - An array of DOM nodes or an empty array.
  */
 module.exports = function select (selector, context) {
 

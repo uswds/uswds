@@ -16,7 +16,7 @@ function showPanelListener(ev) {
  *
  * An accordion component.
  *
- * @param {DOMElement} el A DOMElement to turn into an accordion.
+ * @param {HTMLElement} el An HTMLElement to turn into an accordion.
  */
 function Accordion (el) {
   var self = this; // Node
@@ -44,12 +44,11 @@ function Accordion (el) {
  * @return {Array}
  */
 Accordion.prototype.$ = function (selector) {
-  //   v---- utils/select
   return select(selector, this.root);
 };
 
 /**
- * @param {DOMElement} button
+ * @param {HTMLElement} button
  * @return {Accordion}
  */
 Accordion.prototype.hide = function (button) {
@@ -62,7 +61,7 @@ Accordion.prototype.hide = function (button) {
 };
 
 /**
- * @param {DOMElement} button
+ * @param {HTMLElement} button
  * @return {Accordion}
  */
 Accordion.prototype.show = function (button) {
