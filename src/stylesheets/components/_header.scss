@@ -2,14 +2,14 @@
 
 $height-nav-secondary: 5rem;
 $width-nav-sidebar:    250px;
-$nav-width-extra:      336px;
+$nav-width:            936px;
 
 
 .usa-header {
   width: 100%;
   z-index: 1;
 
-  @include media($medium-screen) {
+  @include media($nav-width) {
     border-bottom: 1px solid $color-gray-light;
   }
 
@@ -24,7 +24,7 @@ $nav-width-extra:      336px;
     font-weight: $font-bold;
     margin: 0;
 
-    @include media($medium-screen) {
+    @include media($nav-width) {
       display: block;
       font-size: 2.4rem;
       line-height: $heading-line-height;
@@ -34,7 +34,7 @@ $nav-width-extra:      336px;
   .usa-search {
     margin-bottom: 1.5rem;
 
-    @include media($medium-screen) {
+    @include media($nav-width) {
       float: right;
       margin-bottom: 0;
       max-width: 21.5rem;
@@ -46,7 +46,7 @@ $nav-width-extra:      336px;
   border-bottom: 1px solid $color-gray-light;
   height: 4rem;
 
-  @include media($medium-screen) {
+  @include media($nav-width) {
     border-bottom: none;
     display: inline-block;
     height: 103px;
@@ -58,7 +58,7 @@ $nav-width-extra:      336px;
   line-height: 4rem;
   margin-left: 1.5rem;
 
-  @include media($medium-screen) {
+  @include media($nav-width) {
     line-height: 7.5rem;
     margin-left: 0;
     margin-top: 3.3rem;
@@ -72,7 +72,7 @@ $nav-width-extra:      336px;
   br {
     display: none;
 
-    @include media($medium-screen) {
+    @include media($nav-width) {
       display: block;
     }
   }
@@ -92,7 +92,7 @@ $nav-width-extra:      336px;
   text-decoration: none;
   text-transform: uppercase;
 
-  @include media($medium-screen) {
+  @include media($nav-width) {
     display: none;
   }
 
@@ -132,7 +132,7 @@ $nav-width-extra:      336px;
 
   &:hover {
     span {
-      @include media($medium-screen) {
+      @include media($nav-width) {
         @include nav-border;
       }
     }
@@ -140,7 +140,7 @@ $nav-width-extra:      336px;
 }
 
 .usa-header-nav-container {
-  @include media($medium-screen) {
+  @include media($nav-width) {
     @include outer-container();
     @include padding(null $site-margins);
     max-width: $site-max-width;
@@ -162,7 +162,7 @@ $nav-width-extra:      336px;
   -webkit-overflow-scrolling: touch;
   z-index: 999999;
 
-  @include media($medium-screen) {
+  @include media($nav-width) {
     @include padding(6rem 0 0 null);
     @include transform(translateX(0));
     border-left: none;
@@ -207,7 +207,7 @@ $nav-width-extra:      336px;
     margin-top: 6rem;
     min-height: 100%;
 
-    @include media($medium-screen) {
+    @include media($nav-width) {
       margin-top: 0;
     }
   }
@@ -235,7 +235,7 @@ $nav-width-extra:      336px;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 
-    @include media($medium-screen) {
+    @include media($nav-width) {
       @include padding(null 3rem 1.9rem 1.5rem);
       color: $color-gray;
       font-size: $h5-font-size;
@@ -252,7 +252,7 @@ $nav-width-extra:      336px;
       background-color: $color-gray-lightest;
       color: $color-primary;
 
-      @include media($medium-screen) {
+      @include media($nav-width) {
         background-color: transparent;
       }
     }
@@ -264,7 +264,7 @@ $nav-width-extra:      336px;
       background-position: right 0 center;
       background-size: 1rem;
 
-      @include media($medium-screen) {
+      @include media($nav-width) {
         background-image: url('../img/angle-arrow-down.png');
         background-image: url('../img/angle-arrow-down.svg');
         background-position: 88% 44%;
@@ -278,7 +278,7 @@ $nav-width-extra:      336px;
       background-position: right 0 center;
       background-size: 1rem;
 
-      @include media($medium-screen) {
+      @include media($nav-width) {
         background-color: $color-primary-darkest;
         color: $color-white;
         background-image: url('../img/angle-arrow-down-hover.png');
@@ -299,26 +299,26 @@ $nav-width-extra:      336px;
 
 .usa-header-extended {
   .usa-header {
-    @include media($medium-screen) {
+    @include media($nav-width) {
       border-bottom: none;
     }
   }
 
-  .usa-site-logo {
-    @include media($medium-screen) {
+  .usa-logo {
+    @include media($nav-width) {
       @include margin(3rem null);
     }
   }
 
   em {
-    @include media($medium-screen) {
+    @include media($nav-width) {
       font-size: 3.2rem;
       line-height: 1;
     }
   }
 
   .usa-header-navbar {
-    @include media($medium-screen) {
+    @include media($nav-width) {
       @include outer-container();
       @include padding(null $site-margins);
       display: block;
@@ -328,7 +328,7 @@ $nav-width-extra:      336px;
   }
 
   .usa-header-nav {
-    @include media($medium-screen) {
+    @include media($nav-width) {
       @include padding(0.5rem 0 0 0);
       border-bottom: 1px solid $color-gray-light;
       border-top: 1px solid $color-gray-light;
@@ -337,7 +337,7 @@ $nav-width-extra:      336px;
   }
 
   .usa-header-nav-inner {
-    @include media($medium-screen) {
+    @include media($nav-width) {
       @include outer-container();
       @include padding(null $site-margins null 2rem);
       max-width: $site-max-width;
@@ -346,13 +346,13 @@ $nav-width-extra:      336px;
   }
 
   .usa-header-nav-primary {
-    @include media($medium-screen) {
+    @include media($nav-width) {
       padding-right: $site-max-width;
     }
   }
 
   .usa-header-nav-secondary {
-    @include media($medium-screen) {
+    @include media($nav-width) {
       float: right;
       margin-top: -57px;
     }
@@ -360,7 +360,7 @@ $nav-width-extra:      336px;
 
   .usa-header-nav-secondary-links {
     li {
-      @include media($medium-screen) {
+      @include media($nav-width) {
         display: inline;
         padding-left: 1rem;
       }
@@ -383,7 +383,7 @@ $nav-width-extra:      336px;
       }
 
       &:after {
-        @include media($medium-screen) {
+        @include media($nav-width) {
           content: '|';
           padding-left: 1rem;
         }
@@ -393,7 +393,7 @@ $nav-width-extra:      336px;
     .usa-header-search-button {
       display: none;
 
-      @include media($medium-screen) {
+      @include media($nav-width) {
         background-image: url('../img/search-alt.png');
         background-image: url('../img/search-alt.svg');
         background-repeat: no-repeat;
@@ -404,7 +404,7 @@ $nav-width-extra:      336px;
       }
 
       &.is-hidden {
-        @include media($medium-screen) {
+        @include media($nav-width) {
           display: none;
         }
       }
@@ -414,7 +414,7 @@ $nav-width-extra:      336px;
   .usa-header-search {
     @include margin(3rem null);
 
-    @include media($medium-screen) {
+    @include media($nav-width) {
       @include margin(-59px null 0 null);
       display: none;
       float: left;
@@ -429,7 +429,7 @@ $nav-width-extra:      336px;
 .usa-header-nav-submenu {
   @include usa-sidenav-sub_list;
 
-  @include media($medium-screen) {
+  @include media($nav-width) {
     @include padding(1.15rem null);
     background-color: $color-primary-darkest;
     min-width: 215px;
@@ -442,13 +442,13 @@ $nav-width-extra:      336px;
   }
 
   a {
-    @include media($medium-screen) {
+    @include media($nav-width) {
       color: $color-white;
       padding-left: 1.8rem;
     }
 
     &:hover {
-      @include media($medium-screen) {
+      @include media($nav-width) {
         background-color: $color-primary-darkest;
         color: $color-white;
         text-decoration: underline;
@@ -457,14 +457,14 @@ $nav-width-extra:      336px;
 
     &:hover,
     &.usa-current {
-      @include media($medium-screen) {
+      @include media($nav-width) {
         padding-left: 1.8rem;
       }
     }
   }
 
   .usa-grid-full {
-    @include media($medium-screen) {
+    @include media($nav-width) {
       padding-left: 1.2rem;
     }
   }
@@ -477,7 +477,7 @@ $nav-width-extra:      336px;
   text-align: center;
   width: $hit-area;
 
-  @include media($medium-screen) {
+  @include media($nav-width) {
     display: none;
   }
 
@@ -502,21 +502,21 @@ $nav-width-extra:      336px;
 }
 
 .usa-header-nav-megamenu {
-  @include media($medium-screen) {
+  @include media($nav-width) {
     @include padding(3.15rem null);
     left: 0;
     width: 100%;
   }
 
   &:before {
-    @include media($medium-screen) {
+    @include media($nav-width) {
       @include outer-megamenu;
       right: 100%;
     }
   }
 
   &:after {
-    @include media($medium-screen) {
+    @include media($nav-width) {
       @include outer-megamenu;
       left: 100%;
     }

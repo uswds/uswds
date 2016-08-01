@@ -16,7 +16,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   @include position(fixed, 0 null null 0);
   background-color: $color-primary-darkest;
 
-  @include media($medium-screen) {
+  @include media($nav-width) {
     border-bottom: none;
     position: relative;
   }
@@ -27,10 +27,10 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   }
 
   .usa-disclaimer-official,
-  .usa-site-logo {
+  .site-logo {
     margin-left: $site-margins-mobile;
 
-    @include media($medium-screen) {
+    @include media($nav-width) {
       margin-left: $site-margins;
     }
   }
@@ -38,7 +38,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   .usa-disclaimer-stage {
     margin-right: $site-margins-mobile;
 
-    @include media($medium-screen) {
+    @include media($nav-width) {
       margin-right: $site-margins;
     }
   }
@@ -49,7 +49,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
     display: none;
     margin-top: -5px;
 
-    @include media($medium-screen) {
+    @include media($nav-width) {
       line-height: 8rem;
       margin-top: 0;
       display: block;
@@ -73,21 +73,21 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 }
 
 .site-header-navbar {
-  @include media($medium-screen) {
+  @include media($nav-width) {
     display: initial;
     height: 8rem;
     width: 100%;
   }
 
   &.is-scrolled {
-    @include media($medium-screen) {
+    @include media($nav-width) {
       display: none;
     }
   }
 
   // Firefox fix so that navbar buttons to align right
   @-moz-document url-prefix() {
-    @include media($medium-screen) {
+    @include media($nav-width) {
       padding-top: 1px;
     }
   }
@@ -109,7 +109,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 .sidenav-mobile {
   @include outline-inverse-button;
 
-  @include media($medium-screen) {
+  @include media($nav-width) {
     display: none;
   }
 
@@ -152,7 +152,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 }
 
 .site-logo {
-  @include media($medium-screen) {
+  @include media($nav-width) {
     margin-top: 0;
   }
 
@@ -165,7 +165,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
     font-size: 1.4rem;
     line-height: 4rem;
 
-    @include media($medium-screen) {
+    @include media($nav-width) {
       font-size: $h3-font-size;
       line-height: 8rem;
     }
@@ -175,7 +175,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 .site-nav-secondary {
   display: none;
 
-  @include media($medium-screen) {
+  @include media($nav-width) {
     background-color: $color-white;
     border-bottom: 1px solid $color-gray-light;
     clear: both;
@@ -224,7 +224,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 .sidenav {
   display: none;
 
-  @include media($medium-screen) {
+  @include media($nav-width) {
     bottom: 0;
     display: block; // starting: not scrolled
     float: left; // starting: not scrolled
@@ -259,13 +259,13 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   width: 100%;
   top: 6.3rem; // height of disclaimer + navbar on mobile
 
-  @include media($medium-screen + $width-nav-sidebar) {
+  @include media($nav-width) {
     width: calc(100% - #{$width-nav-sidebar});
     top: 0;
   }
 
   &.is-scrolled {
-    @include media($medium-screen + $width-nav-sidebar) {
+    @include media($nav-width) {
       position: absolute;
       top: 15.3rem;
     }
@@ -284,7 +284,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   max-width: $site-max-width;
   position: relative;
 
-  @media (min-width: $medium-screen + $width-nav-sidebar) {
+  @media (min-width: $nav-width) {
     @include padding(null $site-margins);
   }
 
