@@ -20,7 +20,7 @@ describe('Accordion component', function () {
 
     $('body').append($component);
 
-    accordion = new Accordion($component.get());
+    accordion = new Accordion($component.get()[0]);
 
     $el = $(accordion.root);
     $button = $el.find('button');
