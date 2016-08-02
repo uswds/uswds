@@ -1,6 +1,6 @@
 var _ = require('lodash');
 var select = require('../utils/select');
-var whenDOMReady = require('../utils/is-dom-ready');
+var whenDOMReady = require('../utils/when-dom-ready');
 var Accordion = require('../components/accordion');
 
 whenDOMReady(function initAccordions () {

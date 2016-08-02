@@ -1,5 +1,5 @@
 var _ = require('lodash');
-var whenDOMReady = require('../utils/is-dom-ready');
+var whenDOMReady = require('../utils/when-dom-ready');
 var dispatch = require('../utils/dispatch');
 var footerAccordion = require('../components/footer');
 
