@@ -1,13 +1,18 @@
 var _ = require('lodash');
 var select = require('../utils/select');
 
-function showPanelListener(ev) {
-  var button = this;
-  var expanded = button.getAttribute('aria-expanded') === 'true';
+/**
+ * @name showPanelListener
+ * @desc The event handler for clicking on a button in an accordion.
+ * @param {HTMLElement} el - An HTML element most likely a <button>.
+ * @param {Object} ev - A DOM event object.
+ */
+function showPanelListener (el, ev) {
+  var expanded = el.getAttribute('aria-expanded') === 'true';
   ev.preventDefault();
-  self.hideAll();
+  this.hideAll();
   if (!expanded) {
-    self.show(button);
+    this.show(el);
   }
 }
 
@@ -19,15 +24,15 @@ function showPanelListener(ev) {
  * @param {HTMLElement} el An HTMLElement to turn into an accordion.
  */
 function Accordion (el) {
-  var self = this; // Node
-  this.root = el; // underlying DOM Element
+  var self = this;
+  this.root = el;
 
   // delegate click events on each <button>
-  _.each(select(this.root,"button"), function (el) {
+  _.each(select('button', this.root), function (el) {
     if (el.attachEvent) {
-      el.attachEvent('onclick', showPanelListener);
+      el.attachEvent('onclick', _.bind(showPanelListener, self, el));
     } else {
-      el.addEventListener('click', showPanelListener);
+      el.addEventListener('click', _.bind(showPanelListener, self, el));
     }
   });
 
