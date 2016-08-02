@@ -3,15 +3,12 @@
 var $ = window.jQuery = require('jquery');
 var validator = require('./components/validator');
 var toggleFormInput = require('./components/toggle-form-input');
-var footerAccordion = require('./components/footer');
 
 require('./initializers/politespace');
 require('./initializers/accordions');
+require('./initializers/footer');
 
 $(function () {
-
-  footerAccordion();
-  $(window).resize(footerAccordion);
 
   // Fixing skip nav focus behavior in chrome
   $('.skipnav').click(function (){
