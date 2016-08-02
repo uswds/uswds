@@ -29,6 +29,7 @@ docs/assets/css/*
 docs/assets/fonts/*
 docs/assets/img/*
 docs/assets/js/*
+docs/_includes/code/components/*
 
 # Do not ignore uswds-assets zip archives
 #
