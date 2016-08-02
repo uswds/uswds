@@ -37,7 +37,7 @@ function Accordion (el) {
   });
 
   // find the first expanded button
-  var expanded = this.$('button[aria-expanded=true]')[0];
+  var expanded = this.$('button[aria-expanded=true]')[ 0 ];
   this.hideAll();
   if (expanded !== undefined) {
     this.show(expanded);
@@ -58,7 +58,7 @@ Accordion.prototype.$ = function (selector) {
  */
 Accordion.prototype.hide = function (button) {
   var selector = button.getAttribute('aria-controls'),
-    content = this.$('#' + selector)[0];
+    content = this.$('#' + selector)[ 0 ];
 
   button.setAttribute('aria-expanded', false);
   content.setAttribute('aria-hidden', true);
@@ -71,7 +71,7 @@ Accordion.prototype.hide = function (button) {
  */
 Accordion.prototype.show = function (button) {
   var selector = button.getAttribute('aria-controls'),
-    content = this.$('#' + selector)[0];
+    content = this.$('#' + selector)[ 0 ];
 
   button.setAttribute('aria-expanded', true);
   content.setAttribute('aria-hidden', false);
