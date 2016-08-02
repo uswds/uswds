@@ -1,7 +1,4 @@
-
-var $ = require( 'jquery' );
-
-module.exports = function ($el) {
+module.exports = function validator ($el) {
   var data = $el.data(),
     key,
     validatorName,

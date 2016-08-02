@@ -1,5 +1,5 @@
 var toggleFieldMask = require('./toggle-field-mask');
-var select = require('../utils/select')
+var select = require('../utils/select');
 
 /**
  * Component that decorates an HTML element with the ability to toggle the
@@ -59,8 +59,8 @@ function getSelectors (selectors) {
  * or null if no Form is found
  * @param {HTMLElement} el - Child element to start search
  */
-function getFormParent(el) {
-  while (el && el.tagName !== "FORM") {
+function getFormParent (el) {
+  while (el && el.tagName !== 'FORM') {
     el = el.parentNode;
   }
   return el;
