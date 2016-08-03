@@ -7,7 +7,7 @@ lead: A dropdown allows users to select one option from a list.
 ---
 
 
-{% include code/preview.html component="dropdown" %}
+{% include code/preview.html component="dropdown" classes="preview-dropdown" %}
 {% include code/accordion.html component="dropdown" %}
 <div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"

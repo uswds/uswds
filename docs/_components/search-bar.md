@@ -7,7 +7,7 @@ lead: A block that allows users to search for specific content if they know what
 maturity: alpha
 ---
 
-{% include code/preview.html component="search-bar" %}
+{% include code/preview.html component="search-bar" classes="preview-search-bar" %}
 {% include code/accordion.html component="search-bar" %}
 <div class="usa-accordion-bordered">
   <button class="usa-button-unstyled usa-accordion-button"

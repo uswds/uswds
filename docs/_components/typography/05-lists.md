@@ -10,7 +10,7 @@ order: 05
 
 <p class="usa-font-lead">Lists organize written information for users.</p>
 
-{% include code/preview.html component="lists" %}
+{% include code/preview.html component="lists" classes="preview-lists" %}
 {% include code/accordion.html component="lists" %}
 <div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
