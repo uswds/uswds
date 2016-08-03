@@ -6,28 +6,8 @@ order: 01
 lead: Text inputs allow people to enter any combination of letters, numbers, or symbols of their choosing (unless otherwise restricted). Text input boxes can span single or multiple lines.
 ---
 
-<div class="preview">
-
-  <label for="input-type-text">Text input label</label>
-  <input id="input-type-text" name="input-type-text" type="text">
-
-  <label for="input-focus">Text input focused</label>
-  <input class="usa-input-focus" id="input-focus" name="input-focus" type="text">
-
-  <div class="usa-input-error">
-    <label class="usa-input-error-label" for="input-error">Text input error</label>
-    <span class="usa-input-error-message" id="input-error-message" role="alert">Helpful error message</span>
-    <input id="input-error" name="input-error" type="text" aria-describedby="input-error-message">
-  </div>
-
-  <label for="input-success">Text input success</label>
-  <input class="usa-input-success" id="input-success" name="input-success" type="text">
-
-  <label for="input-type-textarea">Text area label</label>
-  <textarea id="input-type-textarea" name="input-type-textarea"></textarea>
-
-</div>
-
+{% include code/preview.html component="text-input" %}
+{% include code/accordion.html component="text-input" %}
 <div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">

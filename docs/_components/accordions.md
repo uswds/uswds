@@ -7,8 +7,8 @@ lead: Accordions are a list of headers that can be clicked to hide or reveal add
 maturity: alpha
 ---
 
-{% include code/preview.html component="preview-accordion" %}
-{% include code/accordion.html component="code-accordion" %}
+{% include code/preview.html component="accordion" %}
+{% include code/accordion.html component="accordion" %}
 <div class="usa-accordion-bordered">
   <button class="usa-button-unstyled usa-accordion-button"
     aria-expanded="true" aria-controls="documentation">

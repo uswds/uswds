@@ -6,35 +6,8 @@ order: 03
 lead: A template for signing a user into a website or app
 ---
 
-<div class="preview">
-
-  <form class="usa-form">
-    <fieldset>
-      <legend class="usa-drop_text">Sign in</legend>
-      <span>or <a href="#">create an account</a></span>
-
-      <label for="username">Username or email address</label>
-      <input id="username" name="username" type="text" autocapitalize="off" autocorrect="off">
-
-      <label for="password">Password</label>
-      <input id="password" name="password" type="password">
-      <p class="usa-form-note">
-        <a title="Show password" href="#"
-            class="usa-show_password"
-            aria-controls="password">
-          Show password</a>
-      </p>
-
-      <input type="submit" value="Sign in" />
-      <p><a href="#" title="Forgot username">
-        Forgot username?</a></p>
-      <p><a href="#" title="Forgot password">
-        Forgot password?</a></p>
-    </fieldset>
-  </form>
-
-</div>
-
+{% include code/preview.html component="sign-in-form" %}
+{% include code/accordion.html component="sign-in-form" %}
 <div class="usa-accordion-bordered">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">

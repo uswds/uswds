@@ -10,37 +10,8 @@ order: 05
 
 <p class="usa-font-lead">Lists organize written information for users.</p>
 
-<div class="preview preview-lists">
-
-  <div class="usa-grid-full">
-    <div class="usa-width-one-third">
-
-      <h6 class="usa-heading-alt">Unordered list</h6>
-
-      <ul>
-        <li>Unordered list item</li>
-        <li>Unordered list item</li>
-        <li>Unordered list item</li>
-      </ul>
-
-    </div>
-
-    <div class="usa-width-one-third">
-
-      <h6 class="usa-heading-alt mt0">Ordered list</h6>
-
-      <ol>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-      </ol>
-
-    </div>
-  </div>
-</div>
-
-<!-- Lists section end -->
-
+{% include code/preview.html component="lists" %}
+{% include code/accordion.html component="lists" %}
 <div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">

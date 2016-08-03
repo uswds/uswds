@@ -7,35 +7,8 @@ lead: Checkboxes allow users to select one or more options from a visible list.
 ---
 
 
-<div class="preview">
-
-  <fieldset class="usa-fieldset-inputs usa-sans">
-
-    <legend class="usa-sr-only">Historical figures 1</legend>
-
-    <ul class="usa-unstyled-list">
-      <li>
-        <input id="truth" type="checkbox" name="historical-figures-1" value="truth" checked>
-        <label for="truth">Sojourner Truth</label>
-      </li>
-      <li>
-        <input id="douglass" type="checkbox" name="historical-figures-1" value="douglass">
-        <label for="douglass">Frederick Douglass</label>
-      </li>
-      <li>
-        <input id="washington" type="checkbox" name="historical-figures-1" value="washington">
-        <label for="washington">Booker T. Washington</label>
-      </li>
-      <li>
-        <input id="carver" type="checkbox" name="historical-figures-1" disabled>
-        <label for="carver">George Washington Carver</label>
-      </li>
-    </ul>
-
-  </fieldset>
-
-</div>
-
+{% include code/preview.html component="checkboxes" %}
+{% include code/accordion.html component="checkboxes" %}
 <div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">

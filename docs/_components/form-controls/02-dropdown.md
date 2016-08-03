@@ -7,17 +7,8 @@ lead: A dropdown allows users to select one option from a list.
 ---
 
 
-<div class="preview preview-dropdown">
-<form class="usa-form">
-  <label for="options">Dropdown label</label>
-  <select name="options" id="options">
-    <option value="value1">Option A</option>
-    <option value="value2">Option B</option>
-    <option value="value3">Option C</option>
-  </select>
-</form>
-</div>
-
+{% include code/preview.html component="dropdown" %}
+{% include code/accordion.html component="dropdown" %}
 <div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
