@@ -26,9 +26,13 @@
 // Unstyled list helper
 
 @mixin unstyled-list() {
+  @include margin(0 null);
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  padding-left: 0;
+
+  > li {
+    margin-bottom: 0;
+  }
 }
 
 // Content size helpers
