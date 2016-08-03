@@ -183,6 +183,7 @@ button,
 
   &:focus,
   &:hover {
+    background-color: transparent;
     box-shadow: initial;
   }
 }

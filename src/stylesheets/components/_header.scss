@@ -79,6 +79,7 @@ $width-nav-sidebar:    250px;
 
 // scss-lint:disable PropertyCount
 .usa-menu-btn {
+  @include button-unstyled;
   background-color: $color-primary;
   color: $color-white;
   display: inline;
@@ -371,7 +372,8 @@ $width-nav-sidebar:    250px;
       }
     }
 
-    a {
+    a,
+    .usa-header-search-button {
       color: $color-gray;
       display: inline-block;
       font-size: $h5-font-size;
@@ -390,6 +392,7 @@ $width-nav-sidebar:    250px;
     }
 
     .usa-header-search-button {
+      @include button-unstyled;
       display: none;
 
       @include media($nav-width) {
@@ -470,6 +473,7 @@ $width-nav-sidebar:    250px;
 }
 
 .usa-header-nav-close {
+  @include button-unstyled;
   @include margin(-1.2rem -1.5rem 2.4rem auto);
   float: right;
   height: $hit-area;
@@ -481,7 +485,6 @@ $width-nav-sidebar:    250px;
   }
 
   img {
-    margin-top: 1.6rem;
     width: 1.3rem;
   }
 }
