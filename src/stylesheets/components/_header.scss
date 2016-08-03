@@ -377,7 +377,7 @@ $width-nav-sidebar:    250px;
       }
 
       &:last-child {
-        a:after {
+        a:after { // TODO: fix this when we add the pipebar after lists properly
           content: none;
         }
       }
