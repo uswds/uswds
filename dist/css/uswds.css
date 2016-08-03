@@ -1677,12 +1677,12 @@ ul li:before {
   padding-right: 0.4em;
 }
 
-ol li {
+ol > li {
   counter-increment: table-ol;
   display: table-row;
 }
 
-ol li:before {
+ol > li:before {
   content: counter(table-ol) ".";
   display: table-cell;
   padding-right: 0.4em;
