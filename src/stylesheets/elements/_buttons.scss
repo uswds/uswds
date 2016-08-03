@@ -171,7 +171,7 @@ button,
 }
 
 @mixin button-unstyled {
-  background: none;
+  background-color: transparent;
   border: 0;
   border-radius: 0;
   font-weight: $font-normal;
@@ -181,8 +181,9 @@ button,
   text-align: left;
   -webkit-font-smoothing: auto;
 
-  &:focus {
-    box-shadow: $focus-shadow;
+  &:focus,
+  &:hover {
+    background-color: transparent;
   }
 }
 
