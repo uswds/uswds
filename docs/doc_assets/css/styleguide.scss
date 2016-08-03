@@ -73,6 +73,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 }
 
 .site-header-navbar {
+  border-bottom: none;
   @include media($nav-width) {
     display: initial;
     height: 8rem;
@@ -119,7 +120,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
     }
   }
 
-  button {
+  li > button {
     @include button-unstyled;
     font-weight: $font-normal;
     padding: 1.4rem 1.5rem 1rem 1.8rem;
