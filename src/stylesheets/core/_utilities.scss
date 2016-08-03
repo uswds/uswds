@@ -26,23 +26,9 @@
 // Unstyled list helper
 
 @mixin unstyled-list() {
-  display: block;
   list-style-type: none;
   margin: 0;
   padding: 0;
-
-  > li {
-    display: list-item;
-    margin: 0;
-
-    &::before {
-      display: none;
-    }
-
-    &::after {
-      display: none;
-    }
-  }
 }
 
 // Content size helpers
