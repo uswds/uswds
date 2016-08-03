@@ -172,30 +172,7 @@ $width-nav-sidebar:    250px;
     position: relative;
     width: auto;
 
-    .usa-header-nav-primary {
-      display: inline;
 
-      li {
-        border-top: none;
-      }
-
-      > li {
-        display: inline-block;
-        margin-left: -4px;
-
-        > a {
-          @include padding(1.3rem 1.5rem 1.7rem 1.5rem);
-          color: $color-gray;
-          font-size: $h5-font-size;
-          font-weight: $font-bold;
-          line-height: 1.2;
-
-          &:hover {
-            background-color: transparent;
-          }
-        }
-      }
-    }
   }
 
   &.is-visible {
@@ -223,6 +200,7 @@ $width-nav-sidebar:    250px;
     width: 100%;
   }
 }
+
 
 .usa-header-nav-primary {
   @include usa-sidenav-list;
@@ -291,6 +269,41 @@ $width-nav-sidebar:    250px;
 
         span {
           @include nav-border;
+        }
+      }
+    }
+  }
+}
+
+.usa-header-nav-primary {
+  @include media($nav-width) {
+    display: inline;
+  }
+
+  li {
+    @include media($nav-width) {
+      border-top: none;
+    }
+  }
+
+  > li {
+    @include media($nav-width) {
+      display: inline-block;
+      margin-left: -4px;
+    }
+
+    > a {
+      @include media($nav-width) {
+        @include padding(1.3rem 1.5rem 1.7rem 1.5rem);
+        color: $color-gray;
+        font-size: $h5-font-size;
+        font-weight: $font-bold;
+        line-height: 1.2;
+      }
+
+      &:hover {
+        @include media($nav-width) {
+          background-color: transparent;
         }
       }
     }
