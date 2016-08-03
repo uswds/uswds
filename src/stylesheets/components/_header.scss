@@ -377,7 +377,7 @@ $width-nav-sidebar:    250px;
       }
 
       &:last-child {
-        a:after { // TODO: fix this when we add the pipebar after lists properly
+        a::after { // TODO: fix this when we add the pipebar after lists properly
           content: none;
         }
       }
@@ -394,7 +394,7 @@ $width-nav-sidebar:    250px;
         color: $color-primary;
       }
 
-      &:after {
+      &::after {
         @include media($nav-width) {
           content: '|';
           padding-left: 1rem;
@@ -521,14 +521,14 @@ $width-nav-sidebar:    250px;
     width: 100%;
   }
 
-  &:before {
+  &::before {
     @include media($nav-width) {
       @include outer-megamenu;
       right: 100%;
     }
   }
 
-  &:after {
+  &::after {
     @include media($nav-width) {
       @include outer-megamenu;
       left: 100%;
