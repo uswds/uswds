@@ -206,6 +206,39 @@ $width-nav-sidebar:    250px;
   @include usa-sidenav-list;
   order: 2;
 
+  @include media($nav-width) {
+    display: inline;
+  }
+
+  li {
+    @include media($nav-width) {
+      border-top: none;
+    }
+  }
+
+  > li {
+    @include media($nav-width) {
+      display: inline-block;
+      margin-left: -4px;
+    }
+
+    > a {
+      @include media($nav-width) {
+        @include padding(1.3rem 1.5rem 1.7rem 1.5rem);
+        color: $color-gray;
+        font-size: $h5-font-size;
+        font-weight: $font-bold;
+        line-height: 1.2;
+      }
+
+      &:hover {
+        @include media($nav-width) {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
   button {
     @include button-unstyled;
     font-weight: $font-normal;
@@ -269,41 +302,6 @@ $width-nav-sidebar:    250px;
 
         span {
           @include nav-border;
-        }
-      }
-    }
-  }
-}
-
-.usa-header-nav-primary {
-  @include media($nav-width) {
-    display: inline;
-  }
-
-  li {
-    @include media($nav-width) {
-      border-top: none;
-    }
-  }
-
-  > li {
-    @include media($nav-width) {
-      display: inline-block;
-      margin-left: -4px;
-    }
-
-    > a {
-      @include media($nav-width) {
-        @include padding(1.3rem 1.5rem 1.7rem 1.5rem);
-        color: $color-gray;
-        font-size: $h5-font-size;
-        font-weight: $font-bold;
-        line-height: 1.2;
-      }
-
-      &:hover {
-        @include media($nav-width) {
-          background-color: transparent;
         }
       }
     }
