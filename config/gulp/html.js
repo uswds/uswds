@@ -22,10 +22,13 @@ function generateCodeSnippets () {
     var codeContent = new Buffer(Prism.highlight(contents, Prism.languages.markup));
     var previewFile = file.clone({ contents: false });
     var codeFile = file.clone({ contents: false });
+    var previewFileName = 'preview-' + Path.basename(file.path);
+    var codeFileName = 'code-' + Path.basename(file.path);
 
-    previewFile.path = Path.join(Path.dirname(previewFile.path), 'preview-' + Path.basename(previewFile.path));
+    dutil.logMessage('generate-code-snippets', 'Generating files for ' + Path.basename(file.path));
+    previewFile.path = Path.join(Path.dirname(previewFile.path), previewFileName);
     previewFile.contents = previewContent;
-    codeFile.path = Path.join(Path.dirname(codeFile.path), 'code-' + Path.basename(codeFile.path));
+    codeFile.path = Path.join(Path.dirname(codeFile.path), codeFileName);
     codeFile.contents = codeContent;
 
     this.push(previewFile);
