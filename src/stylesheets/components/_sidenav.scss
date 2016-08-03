@@ -2,6 +2,7 @@
   @include unstyled-list();
 
   li {
+    @include margin(0 null);
     border-top: 1px solid $color-gray;
     font-size: $h4-font-size;
 
