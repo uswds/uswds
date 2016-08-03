@@ -429,7 +429,7 @@ $width-nav-sidebar:    250px;
 }
 
 .usa-header-nav-submenu {
-  @include usa-sidenav-sub_list;
+  @include usa-sidenav-sublist;
 
   @include media($nav-width) {
     @include padding(1.15rem null);
