@@ -181,10 +181,8 @@ button,
   text-align: left;
   -webkit-font-smoothing: auto;
 
-  &:focus,
-  &:hover {
-    background-color: transparent;
-    box-shadow: initial;
+  &:focus {
+    box-shadow: $focus-shadow;
   }
 }
 
