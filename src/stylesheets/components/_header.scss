@@ -384,6 +384,14 @@ $width-nav-sidebar:    250px;
     }
   }
 
+  .usa-header-nav-submenu {
+    .usa-grid-full {
+      @include media($nav-width) {
+        padding-left: 1.2rem;
+      }
+    }
+  }
+
   .usa-header-nav-secondary {
     @include media($nav-width) {
       float: right;
@@ -496,12 +504,6 @@ $width-nav-sidebar:    250px;
       @include media($nav-width) {
         padding-left: 1.8rem;
       }
-    }
-  }
-
-  .usa-grid-full {
-    @include media($nav-width) {
-      padding-left: 1.2rem;
     }
   }
 }
