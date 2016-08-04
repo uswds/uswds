@@ -21,6 +21,7 @@ $usa-btn-big-width:     11.6rem;
     border-right: none;
     border-top-right-radius: 0;
     float: left;
+    font-size: $small-font-size;
     height: 3.3rem;
     margin: 0;
     padding-bottom: 0;
@@ -63,6 +64,7 @@ $usa-btn-big-width:     11.6rem;
 
       [type="search"],
       .usa-search-input {
+        font-size: $base-font-size;
         height: $height;
         width: calc(100% - #{$width});
       }

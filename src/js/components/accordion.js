@@ -83,7 +83,7 @@ Accordion.prototype.show = function (button) {
  */
 Accordion.prototype.hideAll = function () {
   var self = this;
-  _.each(this.$('button'), function (button) {
+  _.each(this.$('ul > li > button, .usa-accordion-button'), function (button) {
     self.hide(button);
   });
   return this;
