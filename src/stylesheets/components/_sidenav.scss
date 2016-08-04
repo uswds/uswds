@@ -40,6 +40,7 @@
 }
 
 .usa-sidenav-sub_list {
+  @include unstyled-list();
   margin: 0;
   width: 100%;
 
