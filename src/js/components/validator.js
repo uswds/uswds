@@ -15,7 +15,7 @@ module.exports = function validator (el) {
         validatorName = key.split('validate')[ 1 ];
         validatorPattern = new RegExp(data[ key ]);
         validatorSelector = '[data-validator=' + validatorName + ']';
-        validatorCheckbox = select(validatorSelector, checkList);
+        validatorCheckbox = select(validatorSelector, checkList)[0];
 
         if (!validatorPattern.test(el.value)) {
           removeClass(validatorCheckbox, 'usa-checklist-checked');
@@ -61,6 +61,7 @@ function removeClass (el, className) {
 }
 
 function addClass (el, className) {
-  el.className += ' ' + className;
+  if (el.className.length) el.className += ' ';
+  el.className += className;
 }
 

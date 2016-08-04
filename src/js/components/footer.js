@@ -11,6 +11,7 @@ function removeClass (el, className) {
 }
 
 function addClass (el, className) {
+  if (el.className.length) el.className += ' ';
   el.className += ' ' + className;
 }
 
