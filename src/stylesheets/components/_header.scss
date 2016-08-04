@@ -560,5 +560,17 @@ $width-nav-sidebar:    250px;
 }
 
 .usa-header-megamenu {
+  .usa-header-nav {
+    @include media($nav-width) {
+      padding-top: 0;
+      width: 100%;
+    }
+  }
 
+  .usa-header-nav-inner {
+    @include media($nav-width) {
+      float: right;
+      margin-top: -4.8rem;
+    }
+  }
 }
