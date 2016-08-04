@@ -10,7 +10,6 @@ $(function (){
     $('body').toggleClass('mobile-sidenav-active');
     e.preventDefault();
   });
-  require('./components/handle-disabled-lints');
   setTimeout(function () {
     require('./components/scroll-to-top-for-hash');
   }, 150);
