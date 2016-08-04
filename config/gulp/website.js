@@ -184,6 +184,9 @@ gulp.task(taskServe, [ 'copy-assets', 'bundle-gems' ], function (done) {
   ], function (event) {
     runSequence('docs_javascript');
   });
+  gulp.watch('src/html/**/*', function (event) {
+    runSequence('html');
+  });
   gulp.watch('src/img/**/*', function (event) {
     runSequence(
       'images',
