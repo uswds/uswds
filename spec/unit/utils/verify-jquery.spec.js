@@ -21,13 +21,17 @@ describe('verifyjQuery', function () {
   });
 
   it('Returns true if jQuery is present on window with no object passed in', function () {
+    var oldWindow = global.window;
     global.window = fakeMoney;
     verifyjQuery().should.be.true();
+    global.window = oldWindow;
   });
 
   it('Returns false if jQuery is not present on window with no object passed in', function () {
+    var oldWindow = global.window;
     global.window = {};
     verifyjQuery().should.be.false();
+    global.window = oldWindow;
   });
 
 });
