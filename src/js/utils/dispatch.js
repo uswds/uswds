@@ -1,6 +1,14 @@
 var _ = require('lodash');
 
-module.exports = function dispatch (element, action, callback) {
+/**
+ * Attaches a given listener function to a given element which is
+ * triggered by a specified event type.
+ * @param {HTMLElement} element - the element to which the listener will be attached
+ * @param {String} eventType - the type of event which will trigger the listener
+ * @param {Function} listener - the function to be executed
+ * @returns {Object} - containing a <tt>trigger()</tt> method for executing the listener, and an <tt>off()</tt> method for detaching it
+ */
+module.exports = function dispatch (element, eventType, listener) {
   var attach = function (e, t, d) {
     if (e.attachEvent) {
       e.attachEvent('on' + t, d);
@@ -38,10 +46,10 @@ module.exports = function dispatch (element, action, callback) {
 
   return {
     trigger: function () {
-      trigger.call(null, element, action);
+      trigger.call(null, element, eventType);
     },
     off: function () {
-      detach.call(null, element, action, callback);
+      detach.call(null, element, eventType, listener);
     },
   };
 };
