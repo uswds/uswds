@@ -171,8 +171,6 @@ $width-nav-sidebar:    250px;
     overflow-y: visible;
     position: relative;
     width: auto;
-
-
   }
 
   &.is-visible {
@@ -199,8 +197,13 @@ $width-nav-sidebar:    250px;
   .usa-button {
     width: 100%;
   }
-}
 
+  .usa-search {
+    @include media($nav-width) {
+      margin-left: 1.5rem;
+    }
+  }
+}
 
 .usa-header-nav-primary {
   @include usa-sidenav-list;
@@ -428,7 +431,7 @@ $width-nav-sidebar:    250px;
     @include margin(3rem null);
 
     @include media($nav-width) {
-      @include margin(-59px null 0 null);
+      @include margin(-59px null 0 0);
       display: none;
       float: left;
 
