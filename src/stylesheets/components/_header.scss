@@ -575,4 +575,12 @@ $width-nav-sidebar:    250px;
       margin-top: -4.8rem;
     }
   }
+
+  .usa-header-nav-submenu {
+    .usa-grid-full {
+      @include media($nav-width) {
+        margin-left: -1.8rem;
+      }
+    }
+  }
 }
