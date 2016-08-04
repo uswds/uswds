@@ -220,6 +220,9 @@ $width-nav-sidebar:    250px;
   }
 
   > li {
+    background-color: transparent;
+    width: auto;
+
     @include media($nav-width) {
       display: inline-block;
       margin-left: -4px;
@@ -462,6 +465,7 @@ $width-nav-sidebar:    250px;
   @include usa-sidenav-sublist;
 
   @include media($nav-width) {
+    @include unstyled-list;
     @include padding(1.15rem null);
     background-color: $color-primary-darkest;
     min-width: 215px;
@@ -553,4 +557,8 @@ $width-nav-sidebar:    250px;
       left: 100%;
     }
   }
+}
+
+.usa-header-megamenu {
+
 }
