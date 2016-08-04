@@ -343,9 +343,9 @@ $width-nav-sidebar:    250px;
 
   .usa-header-nav {
     @include media($nav-width) {
-      @include padding(0.5rem 0 0 0);
       border-bottom: 1px solid $color-gray-light;
       border-top: 1px solid $color-gray-light;
+      padding: 0;
       width: 100%;
     }
   }
@@ -354,6 +354,7 @@ $width-nav-sidebar:    250px;
     @include media($nav-width) {
       @include outer-container();
       @include padding(null $site-margins null 2rem);
+      margin-top: -1px;
       max-width: $site-max-width;
       position: relative;
     }
@@ -362,6 +363,21 @@ $width-nav-sidebar:    250px;
   .usa-header-nav-primary {
     @include media($nav-width) {
       padding-right: $site-max-width;
+    }
+
+    button {
+      &[aria-expanded=false],
+      &[aria-expanded=true] {
+        @include media($nav-width) {
+          background-position: 88% 50%;
+        }
+      }
+    }
+  }
+
+  .usa-header-nav-link {
+    @include media($nav-width) {
+      padding-top: 1.9rem;
     }
   }
 
