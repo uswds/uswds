@@ -41,6 +41,7 @@
 
 
 @mixin usa-sidenav-sublist {
+  @include unstyled-list();
   margin: 0;
   width: 100%;
 
