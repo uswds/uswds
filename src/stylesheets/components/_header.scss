@@ -405,16 +405,10 @@ $width-nav-sidebar:    250px;
         padding-left: 1rem;
       }
 
-      &::after {
+      &:not(:last-child)::after {
         @include media($nav-width) {
           content: '|';
           padding-left: 1rem;
-        }
-      }
-
-      &:last-child {
-        &::after { // TODO: fix this when we add the pipebar after lists properly
-          content: none;
         }
       }
     }
