@@ -1420,6 +1420,13 @@ $font-light: 300;
   -webkit-font-smoothing: antialiased;
 
   button {
+    background-image: url('../img/angle-arrow-left-inverse.png');
+    background-image: url('../img/angle-arrow-left-inverse.svg');
+    background-repeat: no-repeat;
+    background-position: left 2rem center;
+    background-size: 1rem;
+    padding-left: 3.3rem;
+
     @include media($medium-screen) {
       @include margin(0 1.5rem 0 null);
     }
