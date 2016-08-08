@@ -220,7 +220,6 @@ $width-nav-sidebar:    250px;
   }
 
   > li {
-    background-color: transparent;
     width: auto;
 
     @include media($nav-width) {
