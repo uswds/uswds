@@ -1430,3 +1430,11 @@ $font-light: 300;
   color: $color-white;
   display: inline-block;
 }
+
+.demo-footer-content {
+  @include margin(null $site-margins-mobile);
+
+  @include media($medium-screen) {
+    @include margin(null $site-margins);
+  }
+}
