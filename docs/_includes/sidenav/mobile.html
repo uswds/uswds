@@ -7,7 +7,7 @@
     </button>
     <ul class="usa-sidenav-list usa-accordion">
       <li>
-        <button
+        <button class="usa-accordion-button"
           {% if page.category == 'UI components' %}
             class="usa-current"
           {% endif %}
@@ -65,7 +65,7 @@
         </ul>
       </li>
       <li>
-        <button
+        <button class="usa-accordion-button"
           {% if page.category == 'Getting started' %}
             class="usa-current"
           {% endif %}
@@ -103,7 +103,7 @@
         <a {% if current[1] == 'headers' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/headers/">Headers</a>
       </li>
       <li>
-        <button
+        <button class="usa-accordion-button"
           {% if page.category == 'About our work' %}
             class="usa-current"
           {% endif %}
