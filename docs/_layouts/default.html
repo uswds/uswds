@@ -6,7 +6,7 @@
     {% include head.html %}
   </head>
 
-  <body class="page-{{ page.title | slugify }}">
+  <body class="page-{{ page.title | slugify }} {% if page.layout == 'demo' %}layout-{{ page.layout | slugify }}{% endif %}">
 
     {{ content }}
 

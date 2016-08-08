@@ -1408,3 +1408,23 @@ $font-light: 300;
     }
   }
 }
+
+// Demo fixed footer
+.demo-footer {
+  background-color: $color-gray-dark;
+  box-shadow: 0 -2px 4px 0 rgba(0,0,0,0.5);
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+
+  button {
+    @include media($medium-screen) {
+      @include margin(0 1.5rem 0 null);
+    }
+  }
+}
+
+.demo-footer-title {
+  color: $color-white;
+  display: inline-block;
+}
