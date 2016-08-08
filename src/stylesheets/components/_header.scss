@@ -567,7 +567,11 @@ $width-nav-sidebar:    250px;
   }
 
   .usa-header-nav-inner {
+    display: flex;
+    flex-direction: column;
+
     @include media($nav-width) {
+      display: initial;
       float: right;
       margin-top: -4.8rem;
     }
