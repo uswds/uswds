@@ -1416,6 +1416,8 @@ $font-light: 300;
   bottom: 0;
   position: fixed;
   width: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 
   button {
     @include media($medium-screen) {
