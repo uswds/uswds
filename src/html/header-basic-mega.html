@@ -1,40 +1,40 @@
 
-<a class="usa-skipnav" href="#main-content">Skip to main content</a>
-<header class="usa-header usa-header-basic-megamenu" role="banner">
-  <div class="usa-disclaimer">
-    <div class="usa-disclaimer-inner">
-      <div class="usa-disclaimer-official">
-        <img src="{{ site.baseurl }}/assets/img/favicons/favicon-40.png" alt="U.S. flag">
-        <p>An official website of the United States government</p>
+  <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+  <header class="usa-header usa-header-basic-megamenu" role="banner">
+    <div class="usa-disclaimer">
+      <div class="usa-disclaimer-inner">
+        <div class="usa-disclaimer-official">
+          <img src="{{ site.baseurl }}/assets/img/favicons/favicon-40.png" alt="U.S. flag">
+          <p>An official website of the United States government</p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="usa-nav-container">
-    <div class="usa-navbar">
-      <button class="usa-menu-btn">Menu</button>
-      <div class="usa-logo" id="logo">
-        <em>
-          <a href="#" accesskey="1" title="Home" aria-label="Home">Department of <br>Web Standards</a>
-        </em>
+    <div class="usa-nav-container">
+      <div class="usa-navbar">
+        <button class="usa-menu-btn">Menu</button>
+        <div class="usa-logo" id="logo">
+          <em>
+            <a href="#" accesskey="1" title="Home" aria-label="Home">Department of <br>Web Standards</a>
+          </em>
+        </div>
       </div>
+      <nav role="navigation" class="usa-nav">
+        <div class="usa-nav-inner">
+          <button class="usa-nav-close">
+            <img src="/assets/img/close.svg" alt="close">
+          </button>
+          {% include code/demo.html component="header-nav-megamenu" %}
+          <form class="usa-search usa-search-small">
+            <div role="search">
+              <label class="usa-sr-only" for="search-field-small">Search small</label>
+              <input id="search-field-small" type="search" name="search">
+              <button type="submit">
+                <span class="usa-sr-only">Search</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </nav>
     </div>
-    <nav role="navigation" class="usa-nav">
-      <div class="usa-nav-inner">
-        <button class="usa-nav-close">
-          <img src="/assets/img/close.svg" alt="close">
-        </button>
-        {% include code/demo.html component="header-nav-megamenu" %}
-        <form class="usa-search usa-search-small">
-          <div role="search">
-            <label class="usa-sr-only" for="search-field-small">Search small</label>
-            <input id="search-field-small" type="search" name="search">
-            <button type="submit">
-              <span class="usa-sr-only">Search</span>
-            </button>
-          </div>
-        </form>
-      </div>
-    </nav>
-  </div>
-</header>
-<div class="usa-overlay"></div>
+  </header>
+  <div class="usa-overlay"></div>
