@@ -585,3 +585,17 @@ $width-nav-sidebar:    250px;
     }
   }
 }
+
+.usa-megamenu-col {
+  @include media($nav-width) {
+    @include span-columns(3);
+
+    &:nth-child(2n) {
+      @include span-columns(3);
+    }
+
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+  }
+}
