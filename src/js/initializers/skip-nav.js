@@ -1,4 +1,3 @@
-var _ = require('lodash');
 var dispatch = require('../utils/dispatch');
 var select = require('../utils/select');
 var whenDOMReady = require('../utils/when-dom-ready');

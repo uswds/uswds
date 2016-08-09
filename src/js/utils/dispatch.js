@@ -1,5 +1,3 @@
-var _ = require('lodash');
-
 /**
  * Attaches a given listener function to a given element which is
  * triggered by a specified event type.

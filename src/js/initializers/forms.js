@@ -1,4 +1,3 @@
-var _ = require('lodash');
 var whenDOMReady = require('../utils/when-dom-ready');
 var select = require('../utils/select');
 var validator = require('../components/validator');
