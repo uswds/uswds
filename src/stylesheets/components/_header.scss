@@ -536,7 +536,7 @@ $width-nav-sidebar:    250px;
   width: 1000%;
 }
 
-.usa-header-nav-megamenu {
+.usa-megamenu {
   @include media($nav-width) {
     @include padding(3.15rem null);
     left: 0;
