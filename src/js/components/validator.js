@@ -7,7 +7,7 @@ module.exports = function validator (el) {
     validatorName,
     validatorPattern,
     validatorCheckbox,
-    checkList = select(data.validationelement)[0];
+    checkList = select(data.validationelement)[ 0 ];
 
   function validate () {
     for (key in data) {
@@ -15,7 +15,7 @@ module.exports = function validator (el) {
         validatorName = key.split('validate')[ 1 ];
         validatorPattern = new RegExp(data[ key ]);
         validatorSelector = '[data-validator=' + validatorName + ']';
-        validatorCheckbox = select(validatorSelector, checkList)[0];
+        validatorCheckbox = select(validatorSelector, checkList)[ 0 ];
 
         if (!validatorPattern.test(el.value)) {
           removeClass(validatorCheckbox, 'usa-checklist-checked');
@@ -38,15 +38,15 @@ module.exports = function validator (el) {
  * @return {Object}
  */
 
-function getData(el) {
+function getData (el) {
   if (!el.hasAttributes()) return;
   var data = {};
   var attrs = el.attributes;
   for (var i = attrs.length - 1; i >= 0; i--) {
-    var matches = attrs[i].name.match(/data-(.*)/i);
-    if (matches && matches[1]) {
-      var name = matches[1].replace(/-/,'');
-      data[name] = attrs[i].value;
+    var matches = attrs[ i ].name.match(/data-(.*)/i);
+    if (matches && matches[ 1 ]) {
+      var name = matches[ 1 ].replace(/-/, '');
+      data[ name ] = attrs[ i ].value;
     }
   }
   return data;
