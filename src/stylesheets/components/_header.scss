@@ -41,7 +41,7 @@ $width-nav-sidebar:    250px;
   }
 }
 
-.usa-header-navbar {
+.usa-navbar {
   border-bottom: 1px solid $color-gray-light;
   height: 4rem;
 
@@ -126,7 +126,7 @@ $width-nav-sidebar:    250px;
   padding-bottom: 1rem;
 }
 
-.usa-header-nav-link {
+.usa-nav-link {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 
@@ -139,7 +139,7 @@ $width-nav-sidebar:    250px;
   }
 }
 
-.usa-header-nav-container {
+.usa-nav-container {
   @include media($nav-width) {
     @include outer-container();
     @include padding(null $site-margins);
@@ -147,7 +147,7 @@ $width-nav-sidebar:    250px;
   }
 }
 
-.usa-header-nav {
+.usa-nav {
   $sliding-panel-width: 26rem;
   @include padding(2rem);
   @include position(fixed, 0 0 0 auto);
@@ -205,7 +205,7 @@ $width-nav-sidebar:    250px;
   }
 }
 
-.usa-header-nav-primary {
+.usa-nav-primary {
   @include usa-sidenav-list;
   order: 2;
 
@@ -333,7 +333,7 @@ $width-nav-sidebar:    250px;
     }
   }
 
-  .usa-header-navbar {
+  .usa-navbar {
     @include media($nav-width) {
       @include outer-container();
       @include padding(null $site-margins);
@@ -343,7 +343,7 @@ $width-nav-sidebar:    250px;
     }
   }
 
-  .usa-header-nav {
+  .usa-nav {
     @include media($nav-width) {
       border-bottom: 1px solid $color-gray-light;
       border-top: 1px solid $color-gray-light;
@@ -352,7 +352,7 @@ $width-nav-sidebar:    250px;
     }
   }
 
-  .usa-header-nav-inner {
+  .usa-nav-inner {
     @include media($nav-width) {
       @include outer-container();
       @include padding(null $site-margins null 2rem);
@@ -362,7 +362,7 @@ $width-nav-sidebar:    250px;
     }
   }
 
-  .usa-header-nav-primary {
+  .usa-nav-primary {
     @include media($nav-width) {
       padding-right: $site-max-width;
     }
@@ -377,13 +377,13 @@ $width-nav-sidebar:    250px;
     }
   }
 
-  .usa-header-nav-link {
+  .usa-nav-link {
     @include media($nav-width) {
       padding-top: 1.9rem;
     }
   }
 
-  .usa-header-nav-submenu {
+  .usa-nav-submenu {
     .usa-grid-full {
       @include media($nav-width) {
         padding-left: 1.2rem;
@@ -391,14 +391,14 @@ $width-nav-sidebar:    250px;
     }
   }
 
-  .usa-header-nav-secondary {
+  .usa-nav-secondary {
     @include media($nav-width) {
       float: right;
       margin-top: -57px;
     }
   }
 
-  .usa-header-nav-secondary-links {
+  .usa-nav-secondary-links {
     li {
       @include media($nav-width) {
         display: inline;
@@ -462,7 +462,7 @@ $width-nav-sidebar:    250px;
   }
 }
 
-.usa-header-nav-submenu {
+.usa-nav-submenu {
   @include usa-sidenav-sublist;
 
   @include media($nav-width) {
@@ -505,7 +505,7 @@ $width-nav-sidebar:    250px;
   }
 }
 
-.usa-header-nav-close {
+.usa-nav-close {
   @include button-unstyled;
   @include margin(-1.2rem -1.5rem 2.4rem auto);
   float: right;
@@ -558,15 +558,15 @@ $width-nav-sidebar:    250px;
   }
 }
 
-.usa-header-megamenu {
-  .usa-header-nav {
+.usa-header-basic-megamenu {
+  .usa-nav {
     @include media($nav-width) {
       padding-top: 0;
       width: 100%;
     }
   }
 
-  .usa-header-nav-inner {
+  .usa-nav-inner {
     display: flex;
     flex-direction: column;
 
@@ -577,7 +577,7 @@ $width-nav-sidebar:    250px;
     }
   }
 
-  .usa-header-nav-submenu {
+  .usa-nav-submenu {
     .usa-grid-full {
       @include media($nav-width) {
         margin-left: -1.8rem;
