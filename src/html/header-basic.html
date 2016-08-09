@@ -22,7 +22,11 @@
         <button class="usa-nav-close">
           <img src="/assets/img/close.svg" alt="close">
         </button>
-        {% include code/demo.html component="header-nav-dropdown" %}
+        {% if page.layout == 'demo' %}
+          {% include code/demo.html component="header-nav-dropdown" %}
+          {% else %}
+          {% include code/components/code-header-nav-dropdown.html %}
+        {% endif %}
         <form class="usa-search usa-search-small">
           <div role="search">
             <label class="usa-sr-only" for="search-field-small">Search small</label>
