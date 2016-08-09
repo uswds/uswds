@@ -17,6 +17,14 @@
         </em>
       </div>
     </div>
-    {% include code/demo.html component="header-nav-megamenu" %}
+    <nav role="navigation" class="usa-header-nav">
+      <div class="usa-header-nav-inner">
+        <button class="usa-header-nav-close">
+          <img src="/assets/img/close.svg" alt="close">
+        </button>
+        {% include code/demo.html component="header-nav-dropdown" %}
+        {% include code/demo.html component="header-nav-secondary" %}
+      </div>
+    </nav>
   </header>
   <div class="usa-overlay"></div>
