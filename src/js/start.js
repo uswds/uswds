@@ -78,7 +78,7 @@ $(function () {
   $(window).resize(footerAccordion);
 
   // Fixing skip nav focus behavior in chrome
-  $('.skipnav').click(function (){
+  $('.usa-skipnav').click(function (){
     $('#main-content').attr('tabindex', '0');
   });
 
