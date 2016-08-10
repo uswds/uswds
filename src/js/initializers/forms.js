@@ -10,7 +10,6 @@ whenDOMReady(function () {
 
   elShowPassword && toggleFormInput(elShowPassword, 'Show Password', 'Hide Password');
   elFormInput && toggleFormInput(elFormInput, 'Show my typing', 'Hide my typing');
-  //elValidator && validator(elValidator);
-
+  elValidator && validator(elValidator);
 });
 
