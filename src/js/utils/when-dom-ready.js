@@ -1,5 +1,3 @@
-var _ = require('lodash');
-
 /*
  * @name DOMLoaded
  * @param {function} cb - The callback function to run when the DOM has loaded.
@@ -7,7 +5,7 @@ var _ = require('lodash');
 module.exports = function DOMLoaded (cb) {
   // in case the document is already rendered
   if ('loading' !== document.readyState) {
-    if (_.isFunction(cb)) {
+    if (isFunction(cb)) {
       cb();
     }
   } else if (document.addEventListener) { // modern browsers
@@ -15,10 +13,14 @@ module.exports = function DOMLoaded (cb) {
   } else { // IE <= 8
     document.attachEvent('onreadystatechange', function (){
       if ('complete' === document.readyState) {
-        if (_.isFunction(cb)) {
+        if (isFunction(cb)) {
           cb();
         }
       }
     });
   }
+};
+
+function isFunction (arg) {
+  return (typeof arg === 'function');
 };

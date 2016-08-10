@@ -1,5 +1,3 @@
-var _ = require('lodash');
-
 /**
  * @name select
  * @desc selects elements from the DOM by class selector or ID selector.
@@ -9,11 +7,11 @@ var _ = require('lodash');
  */
 module.exports = function select (selector, context) {
 
-  if (!_.isString(selector)) {
+  if (typeof selector !== 'string') {
     return [];
   }
 
-  if (_.isUndefined(context) || !_.isElement(context)) {
+  if ((context === undefined) || !isElement(context)) {
     context = window.document;
   }
 
@@ -22,3 +20,7 @@ module.exports = function select (selector, context) {
   return Array.prototype.slice.call(selection);
 
 };
+
+function isElement (value) {
+  return !!value && typeof value === 'object' && value.nodeType === 1;
+}
