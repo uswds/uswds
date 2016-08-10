@@ -51,8 +51,8 @@ describe('dispatch', function () {
   });
 });
 
-function click(el) {
-  var evt = document.createEvent("HTMLEvents");
-  evt.initEvent("click", false, true);
+function click (el) {
+  var evt = document.createEvent('HTMLEvents');
+  evt.initEvent('click', false, true);
   el.dispatchEvent(evt);
 }

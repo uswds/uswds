@@ -12,7 +12,7 @@
 // Reference: http://es5.github.io/#x15.4.4.18
 if (!Array.prototype.forEach) {
 
-  Array.prototype.forEach = function(callback, thisArg) {
+  Array.prototype.forEach = function (callback, thisArg) {
 
     var T, k;
 
@@ -31,7 +31,7 @@ if (!Array.prototype.forEach) {
 
     // 4. If isCallable(callback) is false, throw a TypeError exception. 
     // See: http://es5.github.com/#x9.11
-    if (typeof callback !== "function") {
+    if (typeof callback !== 'function') {
       throw new TypeError(callback + ' is not a function');
     }
 
@@ -59,7 +59,7 @@ if (!Array.prototype.forEach) {
 
         // i. Let kValue be the result of calling the Get internal
         // method of O with argument Pk.
-        kValue = O[k];
+        kValue = O[ k ];
 
         // ii. Call the Call internal method of callback with T as
         // the this value and argument list containing kValue, k, and O.
@@ -81,7 +81,7 @@ if (!Array.prototype.forEach) {
 // Reference: http://es5.github.io/#x15.3.4.5
 if (!Function.prototype.bind) {
 
-  Function.prototype.bind = function(oThis) {
+  Function.prototype.bind = function (oThis) {
     if (typeof this !== 'function') {
       // closest thing possible to the ECMAScript 5
       // internal IsCallable function
@@ -89,14 +89,12 @@ if (!Function.prototype.bind) {
     }
 
     var aArgs   = Array.prototype.slice.call(arguments, 1),
-        fToBind = this,
-        fNOP    = function() {},
-        fBound  = function() {
-          return fToBind.apply(this instanceof fNOP
-                 ? this
-                 : oThis,
-                 aArgs.concat(Array.prototype.slice.call(arguments)));
-        };
+      fToBind = this,
+      fNOP    = function () {},
+      fBound  = function () {
+        return fToBind.apply(this instanceof fNOP ? this : oThis,
+                aArgs.concat(Array.prototype.slice.call(arguments)));
+      };
 
     if (this.prototype) {
       // Function.prototype doesn't have a prototype property
