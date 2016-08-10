@@ -1,4 +1,3 @@
-var _ = require('lodash');
 var select = require('../utils/select');
 
 /**
@@ -28,11 +27,12 @@ function Accordion (el) {
   this.root = el;
 
   // delegate click events on each <button>
-  _.each(select('button', this.root), function (el) {
+  var buttons = select('button', this.root);
+  buttons.forEach(function (el) {
     if (el.attachEvent) {
-      el.attachEvent('onclick', _.bind(showPanelListener, self, el));
+      el.attachEvent('onclick', showPanelListener.bind(self, el));
     } else {
-      el.addEventListener('click', _.bind(showPanelListener, self, el));
+      el.addEventListener('click', showPanelListener.bind(self, el));
     }
   });
 
@@ -83,7 +83,8 @@ Accordion.prototype.show = function (button) {
  */
 Accordion.prototype.hideAll = function () {
   var self = this;
-  _.each(this.$('ul > li > button, .usa-accordion-button'), function (button) {
+  var buttons = this.$('ul > li > button, .usa-accordion-button');
+  buttons.forEach(function (button) {
     self.hide(button);
   });
   return this;

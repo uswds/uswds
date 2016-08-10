@@ -1,5 +1,4 @@
 var select = require('../utils/select');
-var _ = require('lodash');
 var dispatch = require('../utils/dispatch');
 
 function removeClass (el, className) {
@@ -33,7 +32,7 @@ var showPanelListener = function () {
   var panelToShow = this.parentNode;
   var otherPanels = getSiblings(panelToShow);
   removeClass(panelToShow, 'hidden');
-  _.each(otherPanels, function (el) {
+  otherPanels.forEach(function (el) {
     addClass(el, 'hidden');
   });
 };
@@ -46,7 +45,7 @@ module.exports = function footerAccordion () {
   var primaryLink = select('.usa-footer-big nav .usa-footer-primary-link');
 
   if (events.length) {
-    _.each(events, function (e) {
+    events.forEach(function (e) {
       e.off();
     });
     events = [];
@@ -54,18 +53,18 @@ module.exports = function footerAccordion () {
 
   if (window.innerWidth < 600) {
 
-    _.each(navList, function (el) {
+    navList.forEach(function (el) {
       addClass(el, 'hidden');
     });
 
-    _.each(primaryLink, function (el) {
+    primaryLink.forEach(function (el) {
       events.push(
         dispatch(el, 'click', showPanelListener)
       );
     });
 
   } else {
-    _.each(navList, function (el) {
+    navList.forEach(function (el) {
       removeClass(el, 'hidden');
     });
   }
