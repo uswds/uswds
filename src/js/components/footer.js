@@ -2,15 +2,23 @@ var select = require('../utils/select');
 var dispatch = require('../utils/dispatch');
 
 function removeClass (el, className) {
-  var classList = el.className.split(/\s+/);
-  el.className = _.reject(classList, function (c) {
-    return c === className;
-  }).join(' ');
+  var classList = el.classList;
+  if (classList === undefined) {
+    classList = el.className.split(/\s+/);
+  }
+
+  var newClassList = [];
+  classList.forEach(function (c) {
+    if (c !== className) {
+      newClassList.push(c);
+    }
+  });
+
+  el.className = newClassList.join(' ');
   return el;
 }
 
 function addClass (el, className) {
-  if (el.className.length) el.className += ' ';
   el.className += ' ' + className;
 }
 
