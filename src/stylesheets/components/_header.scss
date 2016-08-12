@@ -87,10 +87,10 @@ $width-nav-sidebar:    250px;
   font-size: $h6-font-size;
   line-height: 4rem;
   height: 4rem;
-  width: 5.8rem;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  width: 5.8rem;
 
   @include media($nav-width) {
     display: none;
