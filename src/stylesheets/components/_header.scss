@@ -3,10 +3,15 @@
 $height-nav-secondary: 5rem;
 $width-nav-sidebar:    250px;
 
+// z-indexes - TODO refactor to a site-wide z-index management approach
+$z-index-header:  7000;
+$z-index-overlay: 8000;
+$z-index-nav:     9000;
+
 
 .usa-header {
   width: 100%;
-  z-index: 1;
+  z-index: $z-index-header;
 
   @include media($nav-width) {
     border-bottom: 1px solid $color-gray-light;
@@ -113,7 +118,7 @@ $width-nav-sidebar:    250px;
   opacity: 0;
   transition: all 0.2s ease-in-out;
   visibility: hidden;
-  z-index: 9999;
+  z-index: $z-index-overlay;
 
   &.is-visible {
     opacity: 0.1;
@@ -159,7 +164,7 @@ $width-nav-sidebar:    250px;
   flex-direction: column;
   overflow-y: auto;
   padding: 2rem;
-  z-index: 99999;
+  z-index: $z-index-nav;
 
   @include media($nav-width) {
     @include padding(6rem 0 0 null);
