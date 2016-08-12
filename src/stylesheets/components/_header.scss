@@ -394,6 +394,12 @@ $z-index-nav:     9000;
       }
     }
   }
+
+  .usa-megamenu {
+    @include media($nav-width) {
+      padding-left: $site-margins;
+    }
+  }
 }
 
 .usa-nav-secondary {
@@ -544,7 +550,7 @@ $z-index-nav:     9000;
 .usa-megamenu {
   @include media($nav-width) {
     @include padding(3.15rem null);
-    left: 0;
+    left: -1.8rem;
     width: 100%;
   }
 
@@ -602,5 +608,9 @@ $z-index-nav:     9000;
     &:nth-child(4n) {
       margin-right: 0;
     }
+  }
+
+  > ul {
+    @include unstyled-list;
   }
 }
