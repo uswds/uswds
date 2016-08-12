@@ -6,31 +6,8 @@ order: 04
 lead: Radio buttons allow users to see all available choices at once and select exactly one option.
 ---
 
-<div class="preview">
-
-  <fieldset class="usa-fieldset-inputs usa-sans">
-
-    <legend class="usa-sr-only">Historical figures 2</legend>
-
-    <ul class="usa-unstyled-list">
-      <li>
-        <input id="stanton" type="radio" checked name="historical-figures-2" value="stanton">
-        <label for="stanton">Elizabeth Cady Stanton</label>
-      </li>
-      <li>
-        <input id="anthony" type="radio" name="historical-figures-2" value="anthony">
-        <label for="anthony">Susan B. Anthony</label>
-      </li>
-      <li>
-        <input id="tubman" type="radio" name="historical-figures-2" value="tubman">
-        <label for="tubman">Harriet Tubman</label>
-      </li>
-    </ul>
-
-  </fieldset>
-
-</div>
-
+{% include code/preview.html component="radio-buttons" %}
+{% include code/accordion.html component="radio-buttons" %}
 <div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
