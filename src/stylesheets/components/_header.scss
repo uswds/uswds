@@ -159,7 +159,6 @@ $width-nav-sidebar:    250px;
   flex-direction: column;
   overflow-y: auto;
   padding: 2rem;
-  -webkit-overflow-scrolling: touch;
   z-index: 99999;
 
   @include media($nav-width) {
