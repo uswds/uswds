@@ -48,7 +48,7 @@ $width-nav-sidebar:    250px;
   @include media($nav-width) {
     border-bottom: none;
     display: inline-block;
-    height: 103px;
+    height: 10.3rem;
   }
 }
 
@@ -395,7 +395,7 @@ $width-nav-sidebar:    250px;
 .usa-nav-secondary {
   @include media($nav-width) {
     float: right;
-    margin-top: -57px;
+    margin-top: -5.7rem;
   }
 
 
@@ -403,7 +403,7 @@ $width-nav-sidebar:    250px;
     @include margin(3rem null);
 
     @include media($nav-width) {
-      @include margin(-59px null 0 0);
+      @include margin(-5.9rem null 0 0);
       display: none;
       float: left;
 
@@ -470,7 +470,7 @@ $width-nav-sidebar:    250px;
     @include unstyled-list;
     @include padding(1.15rem null);
     background-color: $color-primary-darkest;
-    min-width: 215px;
+    min-width: 21.5rem;
     width: initial;
     position: absolute;
   }
