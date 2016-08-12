@@ -54,7 +54,7 @@ gulp.task('copy-bundled-javascript', function (done) {
 
   dutil.logMessage('copy-bundled-javascript', 'Copying ' + dutil.dirName + ' release JavaScript');
 
-  return gulp.src('dist/js/' + dutil.pkg.name + '.js')
+  return gulp.src('dist/js/' + dutil.pkg.name + '.min.js')
     .on('error', function (data) { dutil.logError('copy-bundled-javascript', data); })
     .pipe(gulp.dest('docs/assets/js/vendor'));
 
