@@ -1,4 +1,4 @@
-// Navigation ------------- //
+// Header variables ---------- //
 
 $height-nav-secondary: 5rem;
 $width-nav-sidebar:    250px;
@@ -8,6 +8,8 @@ $z-index-header:  7000;
 $z-index-overlay: 8000;
 $z-index-nav:     9000;
 
+
+// Header ------------- //
 
 .usa-header {
   width: 100%;
@@ -126,6 +128,8 @@ $z-index-nav:     9000;
   }
 }
 
+// Header navigation ------------- //
+
 @mixin nav-border {
   border-bottom: 0.7rem solid $color-primary;
   padding-bottom: 1rem;
@@ -208,6 +212,8 @@ $z-index-nav:     9000;
     }
   }
 }
+
+// Primary navigation ------------- //
 
 .usa-nav-primary {
   @include usa-sidenav-list;
@@ -317,6 +323,8 @@ $z-index-nav:     9000;
   }
 }
 
+// Extended header ----------- //
+
 .usa-header-extended {
   .usa-header {
     @include media($nav-width) {
@@ -402,12 +410,13 @@ $z-index-nav:     9000;
   }
 }
 
+// Secondary navigation ----------- //
+
 .usa-nav-secondary {
   @include media($nav-width) {
     float: right;
     margin-top: -5.7rem;
   }
-
 
   .usa-search {
     @include margin(3rem null);
@@ -473,6 +482,8 @@ $z-index-nav:     9000;
   }
 }
 
+// Navigation submenu (dropdown and mega menu) ----- //
+
 .usa-nav-submenu {
   @include usa-sidenav-sublist;
 
@@ -516,6 +527,8 @@ $z-index-nav:     9000;
   }
 }
 
+// Navigation close button -------- //
+
 .usa-nav-close {
   @include button-unstyled;
   @include margin(-1.2rem -1.5rem 2.4rem auto);
@@ -546,6 +559,8 @@ $z-index-nav:     9000;
   top: 0;
   width: 1000%;
 }
+
+// Navigation mega menu -------- //
 
 .usa-megamenu {
   @include media($nav-width) {
