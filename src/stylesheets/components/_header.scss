@@ -132,7 +132,7 @@ $z-index-nav:     9000;
 }
 
 .usa-nav-link {
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; // Antialiased font smoothing for light text on dark background
   -webkit-font-smoothing: antialiased;
 
   &:hover {
