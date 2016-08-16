@@ -8,11 +8,11 @@ var select = require('../utils/select');
  */
 function showPanelListener (el, ev) {
   var expanded = el.getAttribute('aria-expanded') === 'true';
-  ev.preventDefault();
   this.hideAll();
   if (!expanded) {
     this.show(el);
   }
+  return false;
 }
 
 /**
