@@ -63,7 +63,7 @@ gulp.task(task, [ 'eslint' ], function (done) {
     .pipe(source('components.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
-      // .pipe(uglify())
+      .pipe(uglify())
       .on('error', gutil.log)
       .pipe(rename({
         basename: dutil.pkg.name,
