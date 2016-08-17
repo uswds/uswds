@@ -376,7 +376,7 @@ $z-index-nav:     9000;
 
   .usa-nav-primary {
     @include media($nav-width) {
-      padding-right: $site-max-width;
+      @include clearfix;
     }
 
     button {
