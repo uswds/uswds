@@ -492,7 +492,7 @@ $z-index-nav:     9000;
     @include padding(1.15rem null);
     background-color: $color-primary-darkest;
     min-width: 21.5rem;
-    width: initial;
+    width: auto;
     position: absolute;
   }
 
