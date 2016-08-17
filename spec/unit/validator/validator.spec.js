@@ -1,8 +1,8 @@
+var $ = require('../setup.js');
 var mocha = require('mocha');
 var should = require('should');
-var $ = require('../setup.js');
-var template = require('./template.js');
 var validator = require('../../../src/js/components/validator.js');
+var template = require('./template.js');
 
 var INPUT_SELECTOR = '[aria-describedby="validation_list"]';
 var CHECKBOX_SELECTOR = '#validation_list';
@@ -18,7 +18,7 @@ describe('validator component', function () {
     $validatedField = $component.find(INPUT_SELECTOR);
     $validatorCheckboxes = $component.find(CHECKBOX_SELECTOR);
 
-    validator($validatedField);
+    validator($validatedField.get()[0]);
   });
 
   afterEach(function () {
@@ -27,10 +27,17 @@ describe('validator component', function () {
 
   it('updates fields in validation list with correct class on keyup', function() {
     $validatedField.val('GreatPassword1');
-    $validatedField.trigger('keyup'); 
+    keyup($validatedField); 
     $validatorCheckboxes.children().each(function() {
-      $(this).attr('class').should.equal('usa-checklist-checked');
+      this.className.should.equal('usa-checklist-checked');
     }); 
   });
 });
+
+function keyup(jqEl) {
+  var el = jqEl.get()[0];
+  var evt = document.createEvent("HTMLEvents");
+  evt.initEvent("keyup", false, true);
+  el.dispatchEvent(evt);
+}
 

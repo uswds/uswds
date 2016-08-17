@@ -9,12 +9,12 @@ var $password = $('<input type="password" autocapitalize="on" autocorrect="on"/>
 
 describe('ToggleFieldMask', function () {
   it('switches the type of an input from text to password when true', function() {
-    ToggleFieldMask($text, true); 
+    ToggleFieldMask($text.get(), true); 
     $text.attr('type').should.equal('password');
   });
 
   it('switches the type of an input from password to text when false', function() {
-    ToggleFieldMask($password, false); 
+    ToggleFieldMask($password.get(), false); 
     $password.attr('type').should.equal('text');
   });
 });
