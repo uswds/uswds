@@ -6,30 +6,8 @@ order: 01
 lead: A standard template for collecting a person’s full name
 ---
 
-<div class="preview">
-
-  <form class="usa-form">
-    <fieldset>
-      <legend>Name</legend>
-      <label for="title">Title</label>
-      <input class="usa-input-tiny" id="title" name="title" type="text">
-
-      <label for="first-name">First name <span class="usa-additional_text">Required</span></label>
-      <input id="first-name" name="first-name" type="text" required="" aria-required="true">
-
-      <label for="middle-name">Middle name</label>
-      <input id="middle-name" name="middle-name" type="text">
-
-      <label for="last-name">Last name <span class="usa-additional_text">Required</span></label>
-      <input id="last-name" name="last-name" type="text" required="" aria-required="true">
-
-      <label for="suffix">Suffix</label>
-      <input class="usa-input-tiny" id="suffix" name="suffix" type="text">
-    </fieldset>
-  </form>
-
-</div>
-
+{% include code/preview.html component="name-form" %}
+{% include code/accordion.html component="name-form" %}
 <div class="usa-accordion-bordered usa-accordion-docs">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">

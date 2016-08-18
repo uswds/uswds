@@ -7,16 +7,8 @@ lead: Labels draw attention to new or important content.
 maturity: beta
 ---
 
-<div class="preview">
-
-  <h6>Small</h6>
-  <span class="usa-label">New</span>
-
-  <h6>Large</h6>
-  <span class="usa-label-big">New</span>
-
-</div>
-
+{% include code/preview.html component="labels" %}
+{% include code/accordion.html component="labels" %}
 <div class="usa-accordion-bordered">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">

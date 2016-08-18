@@ -1,20 +1,15 @@
 ul,
 ol {
-  @include margin(2em null 2em 0.9em);
-  list-style: none;
-  padding-left: 0;
-  display: table;
+  @include margin(1em null);
+  padding-left: 1.94em; // Approximately 15px left padding at default font size
+}
 
-  li {
-    line-height: $base-line-height;
-    margin-bottom: 0.75em;
-    margin-top: 0.75em;
+li {
+  line-height: $base-line-height;
+  margin-bottom: 0.5em;
 
-    &::after {
-      content: '';
-      display: block;
-      margin-bottom: 0.5em;
-    }
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -31,49 +26,7 @@ p {
   }
 }
 
-ul li {
-  display: table-row;
-
-  &::before {
-    content: '\2022';
-    display: table-cell;
-    padding-right: 0.4em;
-  }
-}
-
-ol > li {
-  counter-increment: table-ol;
-  display: table-row;
-
-  &::before {
-    content: counter(table-ol) '.';
-    display: table-cell;
-    padding-right: 0.4em;
-    text-align: right;
-  }
-}
-
-li {
-  margin-bottom: 0.5em;
-}
-
 // Unstyled lists
-
 .usa-unstyled-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-
-  li {
-    display: list-item;
-    margin: 0;
-
-    &::before {
-      display: none;
-    }
-
-    &::after {
-      display: none;
-    }
-  }
+  @include unstyled-list;
 }

@@ -7,57 +7,8 @@ lead: A block that allows users to search for specific content if they know what
 maturity: alpha
 ---
 
-<div class="preview preview-search-bar">
-
-  <h6>Search big</h6>
-
-  <div class="usa-grid">
-    <div class="usa-width-one-half">
-      <form class="usa-search usa-search-big">
-        <div role="search">
-          <label class="usa-sr-only" for="search-field-big">Search big</label>
-          <input id="search-field-big" type="search" name="search">
-          <button type="submit">
-            <span class="usa-search-submit-text">Search</span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <h6>Search medium</h6>
-
-  <div class="usa-grid">
-    <div class="usa-width-one-half">
-      <form class="usa-search">
-        <div role="search">
-          <label class="usa-sr-only" for="search-field">Search medium</label>
-          <input id="search-field" type="search" name="search">
-          <button type="submit">
-            <span class="usa-search-submit-text">Search</span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <h6>Search small</h6>
-
-  <div class="usa-grid">
-    <div class="usa-width-one-half">
-      <form class="usa-search usa-search-small">
-        <div role="search">
-          <label class="usa-sr-only" for="search-field-small">Search small</label>
-          <input id="search-field-small" type="search" name="search">
-          <button type="submit">
-            <span class="usa-sr-only">Search</span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
+{% include code/preview.html component="search-bar" classes="preview-search-bar" %}
+{% include code/accordion.html component="search-bar" %}
 <div class="usa-accordion-bordered">
   <button class="usa-button-unstyled usa-accordion-button"
       aria-expanded="true" aria-controls="collapsible-0">
