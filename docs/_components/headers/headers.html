@@ -7,9 +7,43 @@ lead: 'Headers help users identify where they are and provide a quick, organized
 maturity: alpha
 ---
 
-<!-- <h3 class="usa-heading heading-margin-alt">Thematic header documentation</h3> -->
+<h3 class="usa-heading heading-margin-alt">Accessibility</h3>
+<ul class="usa-content-list">
+  <li>Include skip navigation links to allow users with screen readers to bypass long navigation lists. Make sure you include an id at the beginning of your main content and that it matches the skipnav link. Find more information here: <a href="http://webaim.org/techniques/skipnav/">http://webaim.org/techniques/skipnav/</a></li>
+  <li>Include Tab focus for all top-level navigation navigation items — this will allow keyboard-reliant users to easily navigate interactive items.</li>
+  <li>Ensure your horizontal navigation is keyboard compatible; test to make sure users can use Tab to navigate and Space (or Enter) to open pages.</li>
+  <li>Avoid using hover to expand dropdown lists. Hover is difficult for some users and won't work on touch screens. Drop downs should expand on click or with keyboard navigation.</li>
+  <li>We use semantic header and nav elements with role="banner" and role="navigation" respectively. role="banner" is your masthead.</li>
+  <li>You can use multiple nav elements for groups of navigation links, but you should only use one role=”navigation” for the main nav of a page.</li>
+  <li>Use lists for your nav links — this enables screen readers to decipher header contents.</li>
+  <li>If you’re using a logo that’s an image rather than text, make sure you include alternative text for screen readers.</li>
+  <li>If you’re using a logo that’s text, use an em, not an h1, unless it’s the homepage. Find more information here: <a href="http://csswizardry.com/2010/10/your-logo-is-an-image-not-a-h1/">http://csswizardry.com/2010/10/your-logo-is-an-image-not-a-h1/</a></li>
+</ul>
 
-<p>Thematic header documentation goes here.</p>
+<h3 class="usa-heading">Usability</h3>
+<h4>When to use</h4>
+<ul class="usa-content-list">
+  <li>We recommend that all federal government sites include the “official government site” banner and a logo or site name.</li>
+  <li>Most sites will require some form of navigation to help users find the information they’re looking for. While a horizontal navigation bar is just one option for navigation design, it is one of the most visible and familiar ways of helping users navigate a site.</li>
+</ul>
+
+<h4>Guidance</h4>
+<ul class="usa-content-list">
+  <li>List all important website sections as links in the horizontal navigation bar.</li>
+  <li>For large websites, use drop-down menus to help users preview lower-level content. If lower-level sections are closely related and users will need to quickly jump between them, consider using a side navigation instead of — or in addition to — a drop down.</li>
+  <li>Use descriptive, recognizable link labels. Don’t label links with jargon or unfamiliar terms.</li>
+  <li>Left-justify link labels to make them more easily scannable.</li>
+  <li>Present links in priority order: Higher-demand links should appear farther to the left, and lower-demand links should appear farther to the right.</li>
+  <li>Don’t model your navigation after your agency’s org structure. Instead, structure it according to the tasks and information your users most frequently need to access.</li>
+  <li>Show users where they are within the menu options by highlighting the current section.</li>
+  <li>Conduct research with your users and base decisions about your site’s information architecture and navigation structure on your findings. Continue researching to confirm that updates meet your users’ needs.</li>
+</ul>
+
+<h4>For further reading</h4>
+<ul>
+  <li><a href="https://www.nngroup.com/articles/menu-design/">https://www.nngroup.com/articles/menu-design/</a></li>
+  <li><a href="https://www.usertesting.com/blog/2015/03/19/site-navigation-tree-testing/">https://www.usertesting.com/blog/2015/03/19/site-navigation-tree-testing/</a></li>
+</ul>
 
 <h2 class="usa-heading" id="basic">Basic header</h2>
 <div class="preview">
@@ -26,6 +60,25 @@ maturity: alpha
   </button>
   <div id="documentation" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>If you have few enough sections in your main navigation to fit comfortably next to your logo; this will depend on the length of your text and whether you include a search bar.</li>
+      <li>If you’d like to include the full search bar in your header.</li>
+      <li>If each main section listed in the horizontal navigation has six or fewer subsections that you’d like to include in a drop-down menu.</li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>If you have too many sections in your horizontal navigation to allow it to fit comfortably next to your logo. In this case, the extended header might serve you better.</li>
+      <li>If you have complex sections that require the use of a mega menu.</li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>You can customize the header depending on your site structure and use it:</li>
+      <li>With a text or image logo.</li>
+      <li>With or without drop-down menus.</li>
+      <li>With or without a search bar.</li>
+      <li>With or without call-to-action buttons in place of the search bar.</li>
+    </ul>
   </div>
 </div>
 
@@ -44,6 +97,22 @@ maturity: alpha
   </button>
   <div id="documentation" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>If you have few enough main sections to allow your horizontal navigation to fit comfortably in the basic header.</li>
+      <li>If you’d like to include more than six links in any of your drop-down menus.</li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>Generally, we recommend using a basic drop down rather than a mega menu, unless you need to link to a very large number of sub pages.</li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>You can customize the header depending on your site structure and use it:</li>
+      <li>With a text or image logo.</li>
+      <li>With or without a search bar.</li>
+      <li>With or without call-to-action buttons in place of the search bar.</li>
+    </ul>
   </div>
 </div>
 
@@ -61,7 +130,24 @@ maturity: alpha
     Documentation
   </button>
   <div id="documentation" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h4>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>If you have too many sections in your horizontal navigation to fit comfortably in the basic header format.</li>
+      <li>When you’d like to include secondary links or specific calls to action in addition to the main content navigation — for example Log in and Sign up links.</li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>The basic header might be more appropriate when you have less information — it takes up less space.</li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>You can customize the header depending on your site structure and use it:</li>
+      <li>With a text or image logo.</li>
+      <li>With or without drop-down menus.</li>
+      <li>With or without the expandable search bar.</li>
+      <li>With or without call-to-action buttons in place of the secondary links featured in your horizontal navigation.</li>
+    </ul>
   </div>
 </div>
 
@@ -79,6 +165,23 @@ maturity: alpha
     Documentation
   </button>
   <div id="documentation" class="usa-accordion-content">
-    <h4 class="usa-heading">Accessibility</h4>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>If you have too many sections in your horizontal navigation to fit comfortably in the basic header format.</li>
+      <li>If you’d like to include secondary links or specific calls to action in addition to the main content navigation — for example Log in and Sign up links.</li>
+      <li>If you’d like to include more than six links in any of your drop downs.</li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>Generally, we recommend using a basic drop down rather than a mega menu, unless you need to link to a very large number of sub pages.</li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>You can customize the header depending on your site structure and use it:</li>
+      <li>With a text or image logo.</li>
+      <li>With or without the expandable search bar.</li>
+      <li>With or without call-to-action buttons in place of the secondary links in the horizontal navigation.</li>
+    </ul>
   </div>
 </div>
