@@ -414,15 +414,16 @@ $z-index-nav:     9000;
 
 .usa-nav-secondary {
   @include media($nav-width) {
-    float: right;
-    margin-top: -5.7rem;
+    position: absolute;
+    right: $site-margins;
+    top: -5.7rem;
   }
 
   .usa-search {
     @include margin(3rem null);
 
     @include media($nav-width) {
-      @include margin(-5.9rem null 0 0);
+      @include margin(-0.2rem null 0 0);
       display: none;
       float: left;
 
@@ -434,6 +435,10 @@ $z-index-nav:     9000;
 }
 
 .usa-nav-secondary-links {
+  @include media($nav-width) {
+    float: left;
+  }
+
   li {
     @include media($nav-width) {
       display: inline;
