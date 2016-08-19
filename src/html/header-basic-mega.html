@@ -13,7 +13,7 @@
       <div class="usa-navbar">
         <button class="usa-menu-btn">Menu</button>
         <div class="usa-logo" id="logo">
-          <em>
+          <em class="usa-logo-text">
             <a href="#" accesskey="1" title="Home" aria-label="Home">Department of <br>Web Standards</a>
           </em>
         </div>
@@ -23,7 +23,151 @@
           <button class="usa-nav-close">
             <img src="/assets/img/close.svg" alt="close">
           </button>
-          {% include code/demo.html component="header-nav-megamenu" %}
+          <ul class="usa-nav-primary usa-accordion">
+            <li>
+              <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="megamenu-1">
+                <span>Section title</span>
+              </button>
+              <ul class="usa-nav-submenu usa-megamenu usa-grid-full" id="megamenu-1">
+                <li class="usa-megamenu-col">
+                  <ul>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="usa-megamenu-col">
+                  <ul>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="usa-megamenu-col">
+                  <ul>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="megamenu-2">
+                <span>Section title</span>
+              </button>
+              <ul class="usa-nav-submenu usa-megamenu usa-grid-full" id="megamenu-2">
+                <li class="usa-megamenu-col">
+                  <ul>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="usa-megamenu-col">
+                  <ul>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="usa-megamenu-col">
+                  <ul>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a class="usa-nav-link" href="#">
+                <span>Section title</span>
+              </a>
+            </li>
+            <li>
+              <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="megamenu-3">
+                <span>Section title</span>
+              </button>
+              <ul class="usa-nav-submenu usa-megamenu usa-grid-full" id="megamenu-3">
+                <li class="usa-megamenu-col">
+                  <ul>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="usa-megamenu-col">
+                  <ul>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="usa-megamenu-col">
+                  <ul>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                    <li>
+                      <a href="#">Subsection title</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
           <form class="usa-search usa-search-small">
             <div role="search">
               <label class="usa-sr-only" for="search-field-small">Search small</label>
