@@ -1,14 +1,14 @@
 {% assign current = page.url | downcase | split: '/' %}
 
-<nav role="navigation" class="usa-nav sidenav-mobile">
-  <div class="usa-nav-inner">
-    <button class="usa-nav-close">
-      <img src="/assets/img/close.svg" alt="close">
-    </button>
+<aside class="sidenav-mobile">
+  <a class="sliding-panel-close" href="javascript:void(0);">
+    <img src="/assets/img/close.svg" alt="close">
+  </a>
+  <nav>
     <ul class="usa-sidenav-list usa-accordion">
       <li>
-        <button class="usa-accordion-button"
-          {% if page.category == 'UI components' %}
+        <button
+          {% if page.category == 'UI components' == 'UI components' %}
             class="usa-current"
           {% endif %}
           {% if page.category == 'UI components' %}
@@ -60,16 +60,13 @@
             <a {% if current[1] == 'sidenav' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/sidenav/">Side navigation</a>
           </li>
           <li>
-            <a {% if current[1] == 'headers' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/headers/">Headers</a>
-          </li>
-          <li>
             <a {% if current[1] == 'footers' %}class="usa-current"{% endif %} href="{{ site.baseurl }}/footers/">Footers</a>
           </li>
         </ul>
       </li>
       <li>
-        <button class="usa-accordion-button"
-          {% if page.category == 'Getting started' %}
+        <button
+          {% if page.category == 'Getting started' == 'Getting started' %}
             class="usa-current"
           {% endif %}
           {% if page.category == 'Getting started' %}
@@ -103,7 +100,7 @@
         href="{{ site.baseurl }}/design-principles/">Design principles</a>
       </li>
       <li>
-        <button class="usa-accordion-button"
+        <button
           {% if page.category == 'About our work' %}
             class="usa-current"
           {% endif %}
@@ -129,5 +126,5 @@
       </li>
     </ul>
     {% include download-buttons.html %}
-  </div>
-</nav>
+  </nav>
+</aside>
