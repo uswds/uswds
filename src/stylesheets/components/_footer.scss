@@ -217,8 +217,8 @@ li.usa-footer-primary-content {
     }
 
     .usa-footer-primary-link {
-      background-image: url('../img/arrow-down.png');
-      background-image: url('../img/arrow-down.svg');
+      background-image: url('#{$image-path}/arrow-down.png');
+      background-image: url('#{$image-path}/arrow-down.svg');
       background-position: 1.5rem center;
       background-repeat: no-repeat;
       background-size: 1.3rem;
@@ -244,8 +244,8 @@ li.usa-footer-primary-content {
       li { display: none; }
 
       .usa-footer-primary-link {
-        background-image: url('../img/arrow-right.png');
-        background-image: url('../img/arrow-right.svg');
+        background-image: url('#{$image-path}/arrow-right.png');
+        background-image: url('#{$image-path}/arrow-right.svg');
         cursor: pointer;
         display: block;
 
@@ -328,24 +328,24 @@ li.usa-footer-primary-content {
 
 .usa-link-facebook {
   @extend .usa-social_link;
-  background-image: url('../img/social-icons/png/facebook25.png');
-  background-image: url('../img/social-icons/svg/facebook25.svg');
+  background-image: url('#{$image-path}/social-icons/png/facebook25.png');
+  background-image: url('#{$image-path}/social-icons/svg/facebook25.svg');
 }
 
 .usa-link-twitter {
   @extend .usa-social_link;
-  background-image: url('../img/social-icons/png/twitter16.png');
-  background-image: url('../img/social-icons/svg/twitter16.svg');
+  background-image: url('#{$image-path}/social-icons/png/twitter16.png');
+  background-image: url('#{$image-path}/social-icons/svg/twitter16.svg');
 }
 
 .usa-link-youtube {
   @extend .usa-social_link;
-  background-image: url('../img/social-icons/png/youtube15.png');
-  background-image: url('../img/social-icons/svg/youtube15.svg');
+  background-image: url('#{$image-path}/social-icons/png/youtube15.png');
+  background-image: url('#{$image-path}/social-icons/svg/youtube15.svg');
 }
 
 .usa-link-rss {
   @extend .usa-social_link;
-  background-image: url('../img/social-icons/png/rss25.png');
-  background-image: url('../img/social-icons/svg/rss25.svg');
+  background-image: url('#{$image-path}/social-icons/png/rss25.png');
+  background-image: url('#{$image-path}/social-icons/svg/rss25.svg');
 }
