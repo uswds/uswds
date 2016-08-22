@@ -51,7 +51,7 @@ maturity: alpha
       <div class="usa-alert-body">
         <h3 class="usa-alert-heading">Deprecated</h3>
         <p class="usa-alert-text">
-          The accordion was changed <strong>July 2016</strong> in order to improve it's
+          The accordion was changed <strong>July 2016</strong> in order to improve its
           implementation. Currently, both versions of the accordion work, but at some
           point in the future, the deprecated accordion will no longer function correctly.
         </p>
@@ -69,9 +69,9 @@ maturity: alpha
 </div>
 
 <!--
-The following deprecated accordion is kept here for testing purposes for tthe
+The following deprecated accordion is kept here for testing purposes for the
 development team and should not be shown to users.
---!>
+-->
 <div style="display: none">
   <div class="usa-accordion">
     <ul class="usa-unstyled-list">
