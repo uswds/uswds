@@ -25,7 +25,7 @@ $accordion-border: 3px solid $color-gray-lightest;
   @include button-unstyled;
   background-color: $color-gray-lightest;
   background-image: url('#{$image-path}/minus.png');
-  background-image: url('#{image-path}/minus.svg');
+  background-image: url('#{$image-path}/minus.svg');
   background-position: right 3rem center;
   background-repeat: no-repeat;
   background-size: 13px;
