@@ -1,4 +1,5 @@
 var select = require('../utils/select');
+var addClass = require('../utils/add-class');
 var dispatch = require('../utils/dispatch');
 
 function removeClass (el, className) {
@@ -16,10 +17,6 @@ function removeClass (el, className) {
 
   el.className = newClassList.join(' ');
   return el;
-}
-
-function addClass (el, className) {
-  el.className += ' ' + className;
 }
 
 function getSiblings (el) {

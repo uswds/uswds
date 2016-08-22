@@ -1,4 +1,5 @@
 var select = require('../utils/select');
+var addClass = require('../utils/add-class');
 var dispatch = require('../utils/dispatch');
 
 module.exports = function validator (el) {
@@ -59,9 +60,3 @@ function removeClass (el, className) {
   }).join(' ');
   return el;
 }
-
-function addClass (el, className) {
-  if (el.className.length) el.className += ' ';
-  el.className += className;
-}
-
