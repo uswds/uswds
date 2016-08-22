@@ -1,5 +1,6 @@
 var select = require('../utils/select');
 var addClass = require('../utils/add-class');
+var removeClass = require('../utils/remove-class');
 var dispatch = require('../utils/dispatch');
 
 module.exports = function validator (el) {
