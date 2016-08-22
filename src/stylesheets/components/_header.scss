@@ -284,22 +284,22 @@ $z-index-nav:     9000;
     }
 
     &[aria-expanded=false] {
-      background-image: url('../img/plus-alt.png');
-      background-image: url('../img/plus-alt.svg');
+      background-image: url('#{$image-path}/plus-alt.png');
+      background-image: url('#{$image-path}/plus-alt.svg');
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: 1rem;
 
       @include media($nav-width) {
-        background-image: url('../img/angle-arrow-down.png');
-        background-image: url('../img/angle-arrow-down.svg');
+        background-image: url('#{$image-path}/angle-arrow-down.png');
+        background-image: url('#{$image-path}/angle-arrow-down.svg');
         background-position: 88% 44%;
       }
     }
 
     &[aria-expanded=true] {
-      background-image: url('../img/minus-alt.png');
-      background-image: url('../img/minus-alt.svg');
+      background-image: url('#{$image-path}/minus-alt.png');
+      background-image: url('#{$image-path}/minus-alt.svg');
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: 1rem;
@@ -307,8 +307,8 @@ $z-index-nav:     9000;
       @include media($nav-width) {
         background-color: $color-primary-darkest;
         color: $color-white;
-        background-image: url('../img/angle-arrow-down-hover.png');
-        background-image: url('../img/angle-arrow-down-hover.svg');
+        background-image: url('#{$image-path}/angle-arrow-down-hover.png');
+        background-image: url('#{$image-path}/angle-arrow-down-hover.svg');
         background-position: 88% 44%;
 
         &:hover {
@@ -470,8 +470,8 @@ $z-index-nav:     9000;
     display: none;
 
     @include media($nav-width) {
-      background-image: url('../img/search-alt.png');
-      background-image: url('../img/search-alt.svg');
+      background-image: url('#{$image-path}/search-alt.png');
+      background-image: url('#{$image-path}/search-alt.svg');
       background-repeat: no-repeat;
       background-position: left center;
       background-size: 2.2rem;

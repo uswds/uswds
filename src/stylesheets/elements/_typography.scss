@@ -34,8 +34,8 @@ a {
 
 @mixin external-link($external-link, $external-link-hover) {
   &::after {
-    background: url('../img/#{$external-link}.png') no-repeat 0 0;
-    background: url('../img/#{$external-link}.svg') no-repeat 0 0;
+    background: url('#{$image-path}/#{$external-link}.png') no-repeat 0 0;
+    background: url('#{$image-path}/#{$external-link}.svg') no-repeat 0 0;
     background-size: 100%;
     content: '';
     display: inline-block;
@@ -46,8 +46,8 @@ a {
   }
 
   &:hover::after {
-    background-image: url('../img/#{$external-link-hover}.png');
-    background-image: url('../img/#{$external-link-hover}.svg');
+    background-image: url('#{$image-path}/#{$external-link-hover}.png');
+    background-image: url('#{$image-path}/#{$external-link-hover}.svg');
   }
 }
 
