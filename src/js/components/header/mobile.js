@@ -1,8 +1,26 @@
-var $ = require('jquery');
+var select = require('../../utils/select');
+var addClass = require('../../utils/add-class');
+var removeClass = require('../../utils/remove-class');
+var dispatch = require('../../utils/dispatch');
 
-$('.usa-menu-btn, .usa-overlay, .usa-nav-close').on('click touchstart', function (e) {
-  $('.usa-overlay, .usa-nav').toggleClass('is-visible');
-  $('body').toggleClass('usa-mobile_nav-active');
-  $('.usa-nav-close').focus();
-  e.preventDefault();
+var navElements = select('.usa-menu-btn, .usa-overlay, .usa-nav-close');
+var toggleElements = select('.usa-overlay, .usa-nav');
+var navCloseElement = select('.usa-nav-close')[ 0 ];
+
+navElements.forEach(function (element) {
+  dispatch('click touchstart', function (e) {
+    toggleElements.forEach(function (element) {
+      toggleClass(element, 'is-visible');
+    });
+    toggleClass(document.body, 'usa-mobile_nav-active');
+    navCloseElement.focus();
+    return false;
+  });
 });
+
+function toggleClass (element, className) {
+  // TODO: Add IE8 support
+  if (element.classList) {
+    element.classList.toggle(className);
+  }
+}
