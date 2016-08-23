@@ -9,7 +9,7 @@ whenDOMReady(function () {
   var elMainContent = select('#main-content')[ 0 ];
 
   if (elSkipnav) {
-    dispatch(elSkipnav, 'click touchstart', function () {
+    dispatch(elSkipnav, 'click', function () {
       elMainContent.setAttribute('tabindex', '0');
     });
   }
