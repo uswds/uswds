@@ -19,7 +19,6 @@ navElements.forEach(function (element) {
 });
 
 function toggleClass (element, className) {
-  // TODO: Add IE8 support
   if (element.classList) {
     element.classList.toggle(className);
   }
