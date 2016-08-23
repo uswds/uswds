@@ -13,14 +13,14 @@ if (searchButton && searchForm) {
 }
 
 function searchButtonClickHandler (event) {
-  event.preventDefault();
-
   if (isOpen(searchForm)) {
     closeSearch();
   } else {
     openSearch();
     searchDispatcher = dispatch(document.body, 'click touchstart', searchOpenClickHandler);
   }
+
+  return false;
 }
 
 function searchOpenClickHandler (event) {
@@ -32,13 +32,13 @@ function searchOpenClickHandler (event) {
 }
 
 function openSearch () {
-  searchForm.addClass('is-visible');
-  searchButton.addClass('is-hidden');
+  addClass(searchForm, 'is-visible');
+  addClass(searchButton, 'is-hidden');
 }
 
 function closeSearch () {
-  searchForm.removeClass('is-visible');
-  searchButton.removeClass('is-hidden');
+  removeClass(searchForm, 'is-visible');
+  removeClass(searchButton, 'is-hidden');
 }
 
 function isOpen (element) {

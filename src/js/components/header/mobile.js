@@ -8,7 +8,7 @@ var toggleElements = select('.usa-overlay, .usa-nav');
 var navCloseElement = select('.usa-nav-close')[ 0 ];
 
 navElements.forEach(function (element) {
-  dispatch('click touchstart', function (e) {
+  dispatch(element, 'click touchstart', function (e) {
     toggleElements.forEach(function (element) {
       toggleClass(element, 'is-visible');
     });
