@@ -5,5 +5,9 @@
  */
 
 module.exports = function addClass (element, className) {
-  element.className += ' ' + className;
+  if (element.classList) {
+    element.classList.add(className);
+  } else {
+    element.className += ' ' + className;
+  }
 };
