@@ -53,11 +53,3 @@ function getData (el) {
   }
   return data;
 }
-
-function removeClass (el, className) {
-  var classList = el.className.split(/\s+/);
-  el.className = _.reject(classList, function (c) {
-    return c === className;
-  }).join(' ');
-  return el;
-}
