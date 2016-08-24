@@ -4,7 +4,7 @@ var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
-var linter = require('gulp-scss-lint');
+var linter = require('@18f/stylelint-rules');
 var merge = require('merge-stream');
 var filter = require('gulp-filter');
 var replace = require('gulp-replace');
@@ -21,6 +21,12 @@ var supportedBrowsers = [
   'IE 10',
   'IE 9',
 ];
+
+var lintFunction = linter('src/stylesheets/**/*.scss', {
+  ignore: 'src/stylesheets/lib/**/*.scss'
+});
+
+gulp.task('stylelint', lintFunction);
 
 gulp.task('scss-lint', function (done) {
 

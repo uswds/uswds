@@ -38,6 +38,7 @@
     "prismjs": "^1.5.1"
   },
   "devDependencies": {
+    "@18f/stylelint-rules": "^1.0.1",
     "browserify": "^13.0.0",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
@@ -54,6 +55,7 @@
     "gulp-sass": "^2.1.1",
     "gulp-scss-lint": "^0.3.9",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-stylelint": "^2.0.2",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
     "gulp-zip": "^3.1.0",
