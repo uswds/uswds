@@ -7,7 +7,7 @@
     "prepublish": "gulp copy-vendor-sass && gulp build",
     "prestart": "gulp copy-vendor-sass",
     "build:package": "gulp copy-vendor-sass && gulp release",
-    "test": "gulp eslint stylelint test",
+    "test": "gulp eslint test",
     "preversion": "npm test",
     "version": "npm run prepublish"
   },
