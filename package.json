@@ -7,7 +7,7 @@
     "prepublish": "bundle && gulp copy-vendor-sass && gulp build",
     "prestart": "gulp copy-vendor-sass",
     "build:package": "gulp copy-vendor-sass && gulp release",
-    "test": "gulp eslint scss-lint test",
+    "test": "gulp eslint stylelint test",
     "preversion": "npm test",
     "version": "npm run prepublish"
   },
@@ -53,7 +53,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.1.1",
-    "gulp-scss-lint": "^0.3.9",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-stylelint": "^2.0.2",
     "gulp-uglify": "^1.5.1",
