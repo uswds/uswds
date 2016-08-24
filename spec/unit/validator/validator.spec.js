@@ -25,19 +25,19 @@ describe('validator component', function () {
     document.body.textContent = '';
   });
 
-  it('updates fields in validation list with correct class on keyup', function() {
+  it('updates fields in validation list with correct class on keyup', function () {
     $validatedField.val('GreatPassword1');
     keyup($validatedField); 
-    $validatorCheckboxes.children().each(function() {
-      this.className.should.equal('usa-checklist-checked');
+    $validatorCheckboxes.children().each(function () {
+      $(this).hasClass('usa-checklist-checked').should.be.true();
     }); 
   });
 });
 
-function keyup(jqEl) {
-  var el = jqEl.get()[0];
-  var evt = document.createEvent("HTMLEvents");
-  evt.initEvent("keyup", false, true);
+function keyup (jqEl) {
+  var el = jqEl.get()[ 0 ];
+  var evt = document.createEvent('HTMLEvents');
+  evt.initEvent('keyup', false, true);
   el.dispatchEvent(evt);
 }
 

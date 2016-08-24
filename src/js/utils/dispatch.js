@@ -1,12 +1,14 @@
 /**
  * Attaches a given listener function to a given element which is
- * triggered by a specified event type.
+ * triggered by a specified list of event types.
  * @param {HTMLElement} element - the element to which the listener will be attached
- * @param {String} eventType - the type of event which will trigger the listener
+ * @param {String} eventTypes - space-separated list of event types which will trigger the listener
  * @param {Function} listener - the function to be executed
  * @returns {Object} - containing a <tt>trigger()</tt> method for executing the listener, and an <tt>off()</tt> method for detaching it
  */
-module.exports = function dispatch (element, eventType, listener) {
+module.exports = function dispatch (element, eventTypes, listener) {
+  var eventTypeArray = eventTypes.split(/\s+/);
+
   var attach = function (e, t, d) {
     if (e.attachEvent) {
       e.attachEvent('on' + t, d);
@@ -40,14 +42,18 @@ module.exports = function dispatch (element, eventType, listener) {
     }
   };
 
-  attach.apply(null, arguments);
+  eventTypeArray.forEach(function (eventType) {
+    attach.call(null, element, eventType, listener);
+  });
 
   return {
     trigger: function () {
-      trigger.call(null, element, eventType);
+      trigger.call(null, element, eventTypeArray[ 0 ]);
     },
     off: function () {
-      detach.call(null, element, eventType, listener);
+      eventTypeArray.forEach(function (eventType) {
+        detach.call(null, element, eventType, listener);
+      });
     },
   };
 };

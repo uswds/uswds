@@ -1,4 +1,6 @@
 var select = require('../utils/select');
+var addClass = require('../utils/add-class');
+var removeClass = require('../utils/remove-class');
 var dispatch = require('../utils/dispatch');
 
 module.exports = function validator (el) {
@@ -51,17 +53,3 @@ function getData (el) {
   }
   return data;
 }
-
-function removeClass (el, className) {
-  var classList = el.className.split(/\s+/);
-  el.className = _.reject(classList, function (c) {
-    return c === className;
-  }).join(' ');
-  return el;
-}
-
-function addClass (el, className) {
-  if (el.className.length) el.className += ' ';
-  el.className += className;
-}
-

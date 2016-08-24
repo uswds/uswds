@@ -1,38 +1,52 @@
-var $ = require('jquery');
+var select = require('../../utils/select');
+var addClass = require('../../utils/add-class');
+var removeClass = require('../../utils/remove-class');
+var dispatch = require('../../utils/dispatch');
 
-var $searchForm = $('.js-search-form');
-var $searchButton = $('.js-search-button');
+var searchForm = select('.js-search-form')[ 0 ];
+var searchButton = select('.js-search-button')[ 0 ];
+var searchButtonContainer = select('.js-search-button-container')[ 0 ];
+var searchDispatcher;
 
-$searchButton.on('click touchstart', function (e) {
-  e.preventDefault();
+if (searchButton && searchForm) {
+  dispatch(searchButton, 'click touchstart', searchButtonClickHandler);
+}
 
-  if (isOpen($searchForm)) {
+function searchButtonClickHandler (event) {
+  if (isOpen(searchForm)) {
     closeSearch();
   } else {
     openSearch();
-    $('html').on('click touchstart', function (e) {
-      var $target = $(e.target);
-      if ($target.parents('.js-search-form').length ||
-          $target.parents('.js-search-button-container').length) {
-        console.log('inside the item');
-      } else {
-        closeSearch();
-        $('html').off('click touchstart');
-      }
-    });
+    searchDispatcher = dispatch(document.body, 'click touchstart', searchOpenClickHandler);
   }
-});
+
+  return false;
+}
+
+function searchOpenClickHandler (event) {
+  var target = event.target;
+  if (! searchFormContains(target)) {
+    closeSearch();
+    searchDispatcher.off();
+  }
+}
 
 function openSearch () {
-  $searchForm.addClass('is-visible');
-  $searchButton.addClass('is-hidden');
+  addClass(searchForm, 'is-visible');
+  addClass(searchButton, 'is-hidden');
 }
 
 function closeSearch () {
-  $searchForm.removeClass('is-visible');
-  $searchButton.removeClass('is-hidden');
+  removeClass(searchForm, 'is-visible');
+  removeClass(searchButton, 'is-hidden');
 }
 
-function isOpen ($el) {
-  return $el.hasClass('is-visible');
+function isOpen (element) {
+  var classRegexp = new RegExp('(^| )is-visible( |$)', 'gi');
+  return classRegexp.test(element.className);
+}
+
+function searchFormContains (element) {
+  return (searchForm && searchForm.contains(element)) ||
+         (searchButtonContainer && searchButtonContainer.contains(element));
 }

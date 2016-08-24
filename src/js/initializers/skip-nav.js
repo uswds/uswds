@@ -8,12 +8,15 @@ whenDOMReady(function () {
   var elSkipnav = select('.skipnav')[ 0 ];
   var elMainContent = select('#main-content')[ 0 ];
 
-  dispatch(elSkipnav, 'click', function () {
-    elMainContent.setAttribute('tabindex', '0');
-  });
+  if (elSkipnav) {
+    dispatch(elSkipnav, 'click', function () {
+      elMainContent.setAttribute('tabindex', '0');
+    });
+  }
 
-  dispatch(elMainContent, 'blur', function () {
-    elMainContent.setAttribute('tabindex', '-1');
-  });
-
+  if (elMainContent) {
+    dispatch(elMainContent, 'blur', function () {
+      elMainContent.setAttribute('tabindex', '-1');
+    });
+  }
 });
