@@ -22,11 +22,12 @@ var supportedBrowsers = [
   'IE 9',
 ];
 
-var lintFunction = linter('src/stylesheets/**/*.scss', {
-  ignore: 'src/stylesheets/lib/**/*.scss'
-});
-
-gulp.task('stylelint', lintFunction);
+gulp.task('stylelint',
+  linter('./src/stylesheets/{,core/,components/,elements/}*.scss',
+  {
+    ignore: './src/stylesheets/lib/**/*.scss'
+  })
+);
 
 gulp.task('copy-vendor-sass', function (done) {
 
@@ -38,7 +39,7 @@ gulp.task('copy-vendor-sass', function (done) {
     './node_modules/bourbon-neat/app/assets/stylesheets/**/*.scss',
   ])
     .pipe(normalizeCssFilter)
-      .pipe(rename('_normalize.scss'))
+    .pipe(rename('_normalize.scss'))
     .pipe(normalizeCssFilter.restore)
     .on('error', function (error) {
       dutil.logError('copy-vendor-sass', error);
@@ -70,20 +71,20 @@ gulp.task(task, [ /* 'stylelint' */ ], function (done) {
 
   var minifiedStream = gulp.src(entryFile)
     .pipe(sourcemaps.init({ loadMaps: true }))
-      .pipe(
-        sass({ outputStyle: 'compressed' })
-          .on('error', sass.logError)
-      )
-      .pipe(
-        autoprefixer({
-          browsers: supportedBrowsers,
-          cascade: false,
-        })
-      )
-      .pipe(rename({
-        basename: dutil.pkg.name,
-        suffix: '.min',
-      }))
+    .pipe(
+      sass({ outputStyle: 'compressed' })
+        .on('error', sass.logError)
+    )
+    .pipe(
+      autoprefixer({
+        browsers: supportedBrowsers,
+        cascade: false,
+      })
+    )
+    .pipe(rename({
+      basename: dutil.pkg.name,
+      suffix: '.min',
+    }))
     .pipe(sourcemaps.write('.', { addComment: false }))
     .pipe(gulp.dest('dist/css'));
 
