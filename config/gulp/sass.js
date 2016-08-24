@@ -28,20 +28,6 @@ var lintFunction = linter('src/stylesheets/**/*.scss', {
 
 gulp.task('stylelint', lintFunction);
 
-gulp.task('scss-lint', function (done) {
-
-  if (!cFlags.test) {
-    dutil.logMessage('scss-lint', 'Skipping linting of Sass files.');
-    return done();
-  }
-
-  return gulp.src('src/stylesheets/**/*.scss')
-    .pipe(linter({
-      config: '.scss-lint.yml',
-    }));
-
-});
-
 gulp.task('copy-vendor-sass', function (done) {
 
   dutil.logMessage('copy-vendor-sass', 'Compiling vendor CSS');
