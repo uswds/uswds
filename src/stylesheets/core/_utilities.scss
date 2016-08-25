@@ -93,17 +93,14 @@
     content: '';
     display: inline-block;
     height: $size;
-//    margin-bottom: -1px;
     width: $size;
 
     @if $direction == 'after' {
       margin-left: $margin;
+    } @else {
+      margin-right: $margin;
     }
-
-      @else {
-        margin-right: $margin;
-      }
-    }
+  }
 
   &:hover::#{$direction} {
     background-image: url(#{$image-path}/#{$icon}-hover.png);
