@@ -63,6 +63,18 @@ npm run build:package
 
 This command builds the `uswds` package, which includes the zip files generated for release purposes. It is an alias for `gulp copy-vendor-sass && gulp release`.
 
+## Coding guidelines
+
+### CSS
+
+The purpose of the CSS coding styleguide is to create consistent CSS or preprocessor CSS code across 18F. The styleguide should be treated as a guide — rules can be modified according to project needs.
+
+This project follows the [18F Front End Guide - CSS](https://pages.18f.gov/frontend/#css). Please use this guide for your reference.
+
+### JavaScript
+
+This project follows the [18F Front End Guide - JavaScript](https://pages.18f.gov/frontend/#javascript). Please use this guide for your reference.
+
 ## Licenses and attribution
 
 ### A few parts of this project are not in the public domain
