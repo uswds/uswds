@@ -1,0 +1,636 @@
+// Header variables ---------- //
+
+$height-nav-secondary: 5rem;
+$width-nav-sidebar:    250px;
+
+// z-indexes - TODO refactor to a site-wide z-index management approach
+$z-index-header:  7000;
+$z-index-overlay: 8000;
+$z-index-nav:     9000;
+
+
+// Header ------------- //
+
+.usa-header {
+  width: 100%;
+  z-index: $z-index-header;
+
+  @include media($nav-width) {
+    border-bottom: 1px solid $color-gray-light;
+  }
+
+  a {
+    border-bottom: none;
+  }
+
+  .usa-search {
+    margin-bottom: 1.5rem;
+
+    @include media($nav-width) {
+      float: right;
+      margin-bottom: 0;
+      max-width: 21.5rem;
+    }
+  }
+}
+
+.usa-navbar {
+  border-bottom: 1px solid $color-gray-light;
+  height: 4rem;
+
+  @include media($nav-width) {
+    border-bottom: none;
+    display: inline-block;
+    height: 10.3rem;
+  }
+}
+
+.usa-logo {
+  float: left;
+  line-height: 4rem;
+  margin-left: 1.5rem;
+
+  @include media($nav-width) {
+    line-height: 7.5rem;
+    margin-left: 0;
+    margin-top: 3.3rem;
+  }
+
+  a {
+    color: $color-base;
+    text-decoration: none;
+  }
+
+  br {
+    display: none;
+
+    @include media($nav-width) {
+      display: block;
+    }
+  }
+}
+
+.usa-logo-text {
+  display: block;
+  font-size: $h5-font-size;
+  font-style: normal;
+  font-weight: $font-bold;
+  margin: 0;
+
+  @include media($nav-width) {
+    display: block;
+    font-size: 2.4rem;
+    line-height: $heading-line-height;
+  }
+}
+
+// scss-lint:disable PropertyCount
+.usa-menu-btn {
+  @include button-unstyled;
+  background-color: $color-primary;
+  color: $color-white;
+  display: inline;
+  float: right;
+  font-size: $h6-font-size;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 5.8rem;
+
+  @include media($nav-width) {
+    display: none;
+  }
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-primary-darker;
+  }
+
+  &:visited {
+    color: $color-white;
+  }
+}
+// scss-lint:enable PropertyCount
+
+.usa-overlay {
+  @include position(fixed, 0);
+  background: $color-black;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  visibility: hidden;
+  z-index: $z-index-overlay;
+
+  &.is-visible {
+    opacity: 0.1;
+    visibility: visible;
+  }
+}
+
+// Header navigation ------------- //
+
+@mixin nav-border {
+  border-bottom: 0.7rem solid $color-primary;
+  padding-bottom: 1rem;
+}
+
+.usa-nav-link {
+  -moz-osx-font-smoothing: grayscale; // Antialiased font smoothing for light text on dark background
+  -webkit-font-smoothing: antialiased;
+
+  &:hover {
+    span {
+      @include media($nav-width) {
+        @include nav-border;
+      }
+    }
+  }
+}
+
+.usa-nav-container {
+  @include media($nav-width) {
+    @include outer-container();
+    @include padding(null $site-margins);
+    max-width: $site-max-width;
+  }
+}
+
+.usa-nav {
+  $sliding-panel-width: 26rem;
+  @include position(fixed, 0 0 0 auto);
+  @include size($sliding-panel-width 100%);
+  @include transform(translateX($sliding-panel-width));
+  background: $color-white;
+  border-left: 1px solid $color-gray-light;
+  border-right: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 2rem;
+  z-index: $z-index-nav;
+
+  @include media($nav-width) {
+    @include padding(6rem 0 0 null);
+    @include transform(translateX(0));
+    border-left: none;
+    display: block;
+    float: right;
+    overflow-y: visible;
+    position: relative;
+    width: auto;
+  }
+
+  &.is-visible {
+    @include transform(translateX(0));
+    @include transition(all 0.3s ease-in-out);
+  }
+
+  nav {
+    margin-top: 6rem;
+    min-height: 100%;
+
+    @include media($nav-width) {
+      margin-top: 0;
+    }
+  }
+
+  .usa-current {
+    border-left: 4px solid $color-primary;
+    color: $color-primary;
+    font-weight: $font-bold;
+    padding-left: 1.4rem;
+  }
+
+  .usa-button {
+    width: 100%;
+  }
+
+  .usa-search {
+    @include media($nav-width) {
+      margin-left: 1.5rem;
+    }
+  }
+}
+
+// Primary navigation ------------- //
+
+.usa-nav-primary {
+  @include usa-sidenav-list;
+  order: 2;
+
+  @include media($nav-width) {
+    display: inline;
+  }
+
+  li {
+    @include media($nav-width) {
+      border-top: none;
+    }
+  }
+
+  > li {
+    width: auto;
+
+    @include media($nav-width) {
+      display: inline-block;
+      margin-left: -4px;
+    }
+
+    > a {
+      @include media($nav-width) {
+        @include padding(1.3rem 1.5rem 1.7rem 1.5rem);
+        color: $color-gray;
+        font-size: $h5-font-size;
+        font-weight: $font-bold;
+        line-height: 1.2;
+      }
+
+      &:hover {
+        @include media($nav-width) {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  button {
+    @include button-unstyled;
+    font-weight: $font-normal;
+    padding: 1.4rem 1.5rem 1rem 1.8rem;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    @include media($nav-width) {
+      @include padding(null 3rem 1.9rem 1.5rem);
+      color: $color-gray;
+      font-size: $h5-font-size;
+      font-weight: $font-bold;
+      width: initial;
+    }
+
+    &:focus,
+    &:active {
+      box-shadow: $focus-shadow;
+    }
+
+    &:hover {
+      background-color: $color-gray-lightest;
+      color: $color-primary;
+
+      @include media($nav-width) {
+        background-color: transparent;
+      }
+    }
+
+    &[aria-expanded=false] {
+      background-image: url('#{$image-path}/plus-alt.png');
+      background-image: url('#{$image-path}/plus-alt.svg');
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      background-size: 1rem;
+
+      @include media($nav-width) {
+        background-image: url('#{$image-path}/angle-arrow-down.png');
+        background-image: url('#{$image-path}/angle-arrow-down.svg');
+        background-position: 88% 44%;
+      }
+    }
+
+    &[aria-expanded=true] {
+      background-image: url('#{$image-path}/minus-alt.png');
+      background-image: url('#{$image-path}/minus-alt.svg');
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      background-size: 1rem;
+
+      @include media($nav-width) {
+        background-color: $color-primary-darkest;
+        color: $color-white;
+        background-image: url('#{$image-path}/angle-arrow-down-hover.png');
+        background-image: url('#{$image-path}/angle-arrow-down-hover.svg');
+        background-position: 88% 44%;
+
+        &:hover {
+          background-color: $color-primary-darkest;
+        }
+
+        span {
+          @include nav-border;
+        }
+      }
+    }
+  }
+}
+
+// Extended header ----------- //
+
+.usa-header-extended {
+  .usa-header {
+    @include media($nav-width) {
+      border-bottom: none;
+    }
+  }
+
+  .usa-logo {
+    @include media($nav-width) {
+      @include margin(3rem null);
+    }
+  }
+
+  em {
+    @include media($nav-width) {
+      font-size: 3.2rem;
+      line-height: 1;
+    }
+  }
+
+  .usa-navbar {
+    @include media($nav-width) {
+      @include outer-container();
+      @include padding(null $site-margins);
+      display: block;
+      height: auto;
+      max-width: $site-max-width;
+    }
+  }
+
+  .usa-nav {
+    @include media($nav-width) {
+      border-bottom: 1px solid $color-gray-light;
+      border-top: 1px solid $color-gray-light;
+      padding: 0;
+      width: 100%;
+    }
+  }
+
+  .usa-nav-inner {
+    @include media($nav-width) {
+      @include outer-container();
+      @include padding(null $site-margins null 2rem);
+      margin-top: -1px;
+      max-width: $site-max-width;
+      position: relative;
+    }
+  }
+
+  .usa-nav-primary {
+    @include media($nav-width) {
+      @include clearfix;
+    }
+
+    button {
+      &[aria-expanded=false],
+      &[aria-expanded=true] {
+        @include media($nav-width) {
+          background-position: 88% 50%;
+        }
+      }
+    }
+  }
+
+  .usa-nav-link {
+    @include media($nav-width) {
+      padding-top: 1.9rem;
+    }
+  }
+
+  .usa-nav-submenu {
+    .usa-grid-full {
+      @include media($nav-width) {
+        padding-left: 1.2rem;
+      }
+    }
+  }
+
+  .usa-megamenu {
+    @include media($nav-width) {
+      padding-left: $site-margins;
+    }
+  }
+}
+
+// Secondary navigation ----------- //
+
+.usa-nav-secondary {
+  @include media($nav-width) {
+    position: absolute;
+    right: $site-margins;
+    top: -5.7rem;
+  }
+
+  .usa-search {
+    @include margin(3rem null);
+
+    @include media($nav-width) {
+      @include margin(-0.2rem null 0 0);
+      display: none;
+      float: left;
+
+      &.is-visible {
+        display: block;
+      }
+    }
+  }
+}
+
+.usa-nav-secondary-links {
+  @include media($nav-width) {
+    float: left;
+  }
+
+  li {
+    @include media($nav-width) {
+      display: inline;
+      padding-left: 1rem;
+    }
+
+    &:not(:last-child)::after {
+      @include media($nav-width) {
+        content: '|';
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  a,
+  .usa-header-search-button {
+    color: $color-gray;
+    display: inline-block;
+    font-size: $h5-font-size;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  .usa-header-search-button {
+    @include button-unstyled;
+    display: none;
+
+    @include media($nav-width) {
+      background-image: url('#{$image-path}/search-alt.png');
+      background-image: url('#{$image-path}/search-alt.svg');
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 2.2rem;
+      display: inline-block;
+      padding-left: 2.3rem;
+    }
+
+    &.is-hidden {
+      @include media($nav-width) {
+        display: none;
+      }
+    }
+  }
+}
+
+// Navigation submenu (dropdown and mega menu) ----- //
+
+.usa-nav-submenu {
+  @include usa-sidenav-sublist;
+
+  @include media($nav-width) {
+    @include unstyled-list;
+    @include padding(1.15rem null);
+    background-color: $color-primary-darkest;
+    min-width: 21.5rem;
+    width: auto;
+    position: absolute;
+  }
+
+  &[aria-hidden=true] {
+    display: none;
+  }
+
+  a {
+    @include media($nav-width) {
+      color: $color-white;
+      padding-left: 1.8rem;
+    }
+
+    &:hover {
+      @include media($nav-width) {
+        background-color: $color-primary-darkest;
+        color: $color-white;
+        text-decoration: underline;
+      }
+    }
+
+    &:hover,
+    &.usa-current {
+      @include media($nav-width) {
+        padding-left: 1.8rem;
+      }
+    }
+  }
+
+  li {
+    margin-bottom: 0;
+  }
+}
+
+// Navigation close button -------- //
+
+.usa-nav-close {
+  @include button-unstyled;
+  @include margin(-1.2rem -1.5rem 2.4rem auto);
+  float: right;
+  height: $hit-area;
+  text-align: center;
+  width: $hit-area;
+
+  @include media($nav-width) {
+    display: none;
+  }
+
+  img {
+    width: 1.3rem;
+  }
+}
+
+.usa-mobile_nav-active {
+  overflow: hidden;
+}
+
+@mixin outer-megamenu {
+  background-color: $color-primary-darkest;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 1000%;
+}
+
+// Navigation mega menu -------- //
+
+.usa-megamenu {
+  @include media($nav-width) {
+    @include padding(3.15rem null);
+    left: -1.8rem;
+    width: 100%;
+  }
+
+  &::before {
+    @include media($nav-width) {
+      @include outer-megamenu;
+      right: 100%;
+    }
+  }
+
+  &::after {
+    @include media($nav-width) {
+      @include outer-megamenu;
+      left: 100%;
+    }
+  }
+}
+
+.usa-header-basic-megamenu {
+  .usa-nav {
+    @include media($nav-width) {
+      padding-top: 0;
+      width: 100%;
+    }
+  }
+
+  .usa-nav-inner {
+    display: flex;
+    flex-direction: column;
+
+    @include media($nav-width) {
+      display: initial;
+      float: right;
+      margin-top: -4.8rem;
+    }
+  }
+
+  .usa-nav-submenu {
+    .usa-grid-full {
+      @include media($nav-width) {
+        margin-left: -1.8rem;
+      }
+    }
+  }
+}
+
+.usa-megamenu-col {
+  @include media($nav-width) {
+    @include span-columns(3);
+
+    &:nth-child(2n) {
+      @include span-columns(3);
+    }
+
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+  }
+
+  > ul {
+    @include unstyled-list;
+  }
+}

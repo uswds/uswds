@@ -6,14 +6,13 @@
 }
 
 // Screen reader only helper
-.usa-sr-only {
+@mixin sr-only() {
   position: absolute;
   left: -999em;
 }
 
-@mixin sr-only() {
-  position: absolute;
-  left: -999em;
+.usa-sr-only {
+  @include sr-only();
 }
 
 // Aria hidden helper
@@ -26,22 +25,12 @@
 // Unstyled list helper
 
 @mixin unstyled-list() {
-  display: block;
+  @include margin(0 null);
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  padding-left: 0;
 
   > li {
-    display: list-item;
-    margin: 0;
-
-    &::before {
-      display: none;
-    }
-
-    &::after {
-      display: none;
-    }
+    margin-bottom: 0;
   }
 }
 

@@ -118,8 +118,8 @@ select {
   -webkit-appearance: none;
   appearance: none;
   background-color: $color-white;
-  background-image: url('../img/arrow-down.png');
-  background-image: url('../img/arrow-down.svg');
+  background-image: url('#{$image-path}/arrow-down.png');
+  background-image: url('#{$image-path}/arrow-down.svg');
   background-position: right 1.3rem center;
   background-repeat: no-repeat;
   background-size: 1.3rem;
@@ -206,8 +206,8 @@ input[type="radio"]:focus + label::before {
 }
 
 input[type="checkbox"]:checked + label::before {
-  background-image: url('../img/correct8.png');
-  background-image: url('../img/correct8.svg');
+  background-image: url('#{$image-path}/correct8.png');
+  background-image: url('#{$image-path}/correct8.svg');
   background-position: 50%;
   background-repeat: no-repeat;
 }

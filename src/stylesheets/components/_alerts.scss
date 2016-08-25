@@ -48,26 +48,26 @@
 
 .usa-alert-success {
   background-color: $color-green-lightest;
-  background-image: url('../img/alerts/success.png');
-  background-image: url('../img/alerts/success.svg');
+  background-image: url('#{$image-path}/alerts/success.png');
+  background-image: url('#{$image-path}/alerts/success.svg');
 }
 
 .usa-alert-warning {
   background-color: $color-gold-lightest;
-  background-image: url('../img/alerts/warning.png');
-  background-image: url('../img/alerts/warning.svg');
+  background-image: url('#{$image-path}/alerts/warning.png');
+  background-image: url('#{$image-path}/alerts/warning.svg');
 }
 
 .usa-alert-error {
   background-color: $color-secondary-lightest;
-  background-image: url('../img/alerts/error.png');
-  background-image: url('../img/alerts/error.svg');
+  background-image: url('#{$image-path}/alerts/error.png');
+  background-image: url('#{$image-path}/alerts/error.svg');
 }
 
 .usa-alert-info {
   background-color: $color-primary-alt-lightest;
-  background-image: url('../img/alerts/info.png');
-  background-image: url('../img/alerts/info.svg');
+  background-image: url('#{$image-path}/alerts/info.png');
+  background-image: url('#{$image-path}/alerts/info.svg');
 }
 
 .usa-alert-no_icon {
