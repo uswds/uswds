@@ -1,14 +1,14 @@
 .usa-disclaimer {
   background-color: $color-gray-lightest;
+  padding-bottom: 7px;
 //  height: 2.3rem;
+
+  @include media($medium-screen) {
+    padding-bottom: 0;
+  }
 
   @include media($small-screen) {
     font-size: $h6-font-size;
-  }
-
-  .usa-accordion-button {
-    margin-top: 4px;
-    width: auto;
   }
 
   .usa-accordion-content {
@@ -31,13 +31,10 @@
 .usa-disclaimer-official {
   display: inline-block;
   float: left;
-  font-size: $h5-font-size;
-  font-weight: $font-bold;
-
-  @include media($medium-screen) {
-    font-size: 1.2rem;
-    font-weight: $font-normal;
-  }
+  font-size: 1.2rem;
+  font-weight: $font-normal;
+//  font-size: $h5-font-size;
+//  font-weight: $font-bold;
 
   p {
     @include margin(3px 4px 3px null);
@@ -72,8 +69,9 @@
   @include button-unstyled;
   background-position-x: right;
   color: $color-primary;
-  font-size: $h6-font-size;
+  font-size: 1.2rem;
   text-decoration: underline;
+  width: auto;
 
   &:hover {
     color: $color-primary-darker;
@@ -81,13 +79,30 @@
   }
 
   &[aria-expanded=false] {
-    @include display-icon(angle-arrow-down-primary, after, 1rem, 0);
+    @include display-icon(angle-arrow-down-primary, after, 1rem, 0, hover);
     background-image: none;
   }
 
   &[aria-expanded=true] {
-    @include display-icon(angle-arrow-up-primary, after, 1rem, 0);
+    @include display-icon(close, after, 1.3rem, 0, no-hover);
+    @include padding(2rem 1.5rem);
     background-image: none;
+    position: absolute;
+    right: 0;
+
+    @include media($medium-screen) {
+      @include display-icon(angle-arrow-up-primary, after, 1rem, 0, hover);
+      padding: 0;
+      position: static;
+    }
+
+    .usa-disclaimer-button-text {
+      display: none;
+
+      @include media($medium-screen) {
+        display: inline;
+      }
+    }
   }
 }
 
