@@ -5,6 +5,17 @@
   @include media($small-screen) {
     font-size: $h6-font-size;
   }
+
+  .usa-accordion-button {
+    margin-top: 4px;
+    width: auto;
+  }
+
+  .usa-accordion-content {
+    background-color: transparent;
+    padding: 0;
+    width: 100%;
+  }
 }
 
 .usa-disclaimer-inner {
@@ -19,11 +30,18 @@
 
 .usa-disclaimer-official {
   display: inline-block;
-  font-size: 1.2rem;
+  float: left;
+  font-size: $h5-font-size;
+  font-weight: $font-bold;
+
+  @include media($medium-screen) {
+    font-size: 1.2rem;
+    font-weight: $font-normal;
+  }
 
   p {
-    @include margin(3px 0);
-    display: inline-block;
+    @include margin(3px 4px 3px null);
+    display: inline;
 
     @include media($small-screen) {
       @include margin(2px null);
@@ -52,6 +70,7 @@
 
 .usa-disclaimer-button {
   @include button-unstyled;
+  background-position-x: right;
   color: $color-primary;
   font-size: $h6-font-size;
   text-decoration: underline;
@@ -59,6 +78,16 @@
   &:hover {
     color: $color-primary-darker;
     text-decoration: underline;
+  }
+
+  &[aria-expanded=false] {
+    @include display-icon(angle-arrow-down-primary, after, 1rem, 0);
+    background-image: none;
+  }
+
+  &[aria-expanded=true] {
+    @include display-icon(angle-arrow-up-primary, after, 1rem, 0);
+    background-image: none;
   }
 }
 
@@ -82,3 +111,4 @@
 .usa-disclaimer-icon {
   width: 3.8rem;
 }
+
