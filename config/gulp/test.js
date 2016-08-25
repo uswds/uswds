@@ -12,7 +12,6 @@ gulp.task('test:watch', function () {
   gulp.watch([
     'spec/**/*.spec.js',
     'src/js/**/*.js',
-    'docs/doc_assets/js/**/*.js',
   ], function (event) {
     runSequence(
       'test'
