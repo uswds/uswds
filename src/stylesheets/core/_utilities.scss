@@ -85,7 +85,7 @@
   }
 }
 
-@mixin display-icon($icon, $direction, $size, $margin) {
+@mixin display-icon($icon, $direction, $size, $margin, $hover) {
   &:#{$direction} {
     background-image: url(#{$image-path}/#{$icon}.png);
     background-image: url(#{$image-path}/#{$icon}.svg);
@@ -102,8 +102,10 @@
     }
   }
 
-  &:hover::#{$direction} {
-    background-image: url(#{$image-path}/#{$icon}-hover.png);
-    background-image: url(#{$image-path}/#{$icon}-hover.svg);
+  @if $hover == 'hover' {
+    &:hover::#{$direction} {
+      background-image: url(#{$image-path}/#{$icon}-hover.png);
+      background-image: url(#{$image-path}/#{$icon}-hover.svg);
+    }
   }
 }
