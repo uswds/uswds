@@ -6,22 +6,27 @@
         <div class="usa-disclaimer-official">
           <img src="{{ site.baseurl }}/assets/img/favicons/favicon-40.png" alt="U.S. flag">
           <p>An official website of the United States government</p>
-          <button class="usa-disclaimer-button">Here's how you know</button>
         </div>
-        <div class="usa-disclaimer-guidance usa-grid-full">
-          <div class="usa-disclaimer-guidance-gov usa-width-one-half">
-            <img class="usa-disclaimer-icon usa-media_block-img" src="{{ site.baseurl }}/assets/img/icon-dot-gov.svg" alt="Dot gov">
-            <div class="usa-media_block-text">
-              <p>
-                <strong>The .gov means it’s official.</strong>
-              </p>
-              <p>Federal government websites always use a .gov or .mil domain. Before sharing sensitive information online, make sure you’re on a .gov or .mil site by inspecting your browser’s address (or “location”) bar.</p>
+        <div class="usa-accordion">
+          <button class="usa-accordion-button usa-disclaimer-button"
+            aria-expanded="false" aria-controls="gov-banner">
+            <span class="usa-disclaimer-button-text">Here's how you know</span>
+          </button>
+          <div class="usa-disclaimer-guidance usa-grid-full usa-accordion-content" id="gov-banner">
+            <div class="usa-disclaimer-guidance-gov usa-width-one-half">
+              <img class="usa-disclaimer-icon usa-media_block-img" src="{{ site.baseurl }}/assets/img/icon-dot-gov.svg" alt="Dot gov">
+              <div class="usa-media_block-text">
+                <p>
+                  <strong>The .gov means it’s official.</strong>
+                </p>
+                <p>Federal government websites always use a .gov or .mil domain. Before sharing sensitive information online, make sure you’re on a .gov or .mil site by inspecting your browser’s address (or “location”) bar.</p>
+              </div>
             </div>
-          </div>
-          <div class="usa-disclaimer-guidance-ssl usa-width-one-half">
-            <img class="usa-disclaimer-icon usa-media_block-img" src="{{ site.baseurl }}/assets/img/icon-https.svg" alt="SSL">
-            <div class="usa-media_block-text">
-              <p>This site is also protected by an SSL (Secure Sockets Layer) certificate that’s been signed by the U.S. government. The <strong>https://</strong> means all transmitted data is encrypted  — in other words, any information or browsing history that you provide is transmitted securely.</p>
+            <div class="usa-disclaimer-guidance-ssl usa-width-one-half">
+              <img class="usa-disclaimer-icon usa-media_block-img" src="{{ site.baseurl }}/assets/img/icon-https.svg" alt="SSL">
+              <div class="usa-media_block-text">
+                <p>This site is also protected by an SSL (Secure Sockets Layer) certificate that’s been signed by the U.S. government. The <strong>https://</strong> means all transmitted data is encrypted  — in other words, any information or browsing history that you provide is transmitted securely.</p>
+              </div>
             </div>
           </div>
         </div>
