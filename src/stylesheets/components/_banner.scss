@@ -1,7 +1,6 @@
 .usa-banner {
   background-color: $color-gray-lightest;
-  padding-bottom: 7px;
-//  height: 2.3rem;
+  padding-bottom: 0.7rem;
 
   @include media($medium-screen) {
     padding-bottom: 0;
@@ -12,8 +11,8 @@
   }
 
   .usa-accordion-content {
-    @include padding(null 0 0 0);
     background-color: transparent;
+    padding-bottom: 3px;
     width: 100%;
   }
 }
@@ -29,9 +28,7 @@
 }
 
 .usa-banner-header {
-  @include padding(6px null);
-  display: inline-block;
-  float: left;
+  @include padding(0.6rem null);
   font-size: 1.2rem;
   font-weight: $font-normal;
 
@@ -62,7 +59,7 @@
   font-weight: $font-bold;
   padding-right: 3rem;
 
-  @include media($medium-screen) {
+  @include media($small-screen) {
     border-bottom: none;
     font-size: 1.2rem;
     font-weight: $font-normal;
@@ -108,7 +105,7 @@
     right: 0;
     top: 0;
 
-    @include media($medium-screen) {
+    @include media($small-screen) {
       @include display-icon(angle-arrow-up-primary, after, 1rem, 0, hover);
       padding: 0;
       position: static;
@@ -117,7 +114,7 @@
     .usa-banner-button-text {
       display: none;
 
-      @include media($medium-screen) {
+      @include media($small-screen) {
         display: inline;
       }
     }
