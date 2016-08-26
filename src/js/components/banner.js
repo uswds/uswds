@@ -1,0 +1,16 @@
+var select = require('../utils/select');
+var addClass = require('../utils/add-class');
+var removeClass = require('../utils/remove-class');
+var dispatch = require('../utils/dispatch');
+
+var headers = select('.usa-banner-official');
+headers.forEach(function (header) {
+  var click = function (e) {
+    var expanded = this.getAttribute('aria-expanded') === 'true';
+    var toggleClass = expanded ? addClass : removeClass;
+    toggleClass(header, 'usa-banner-official-expanded');
+  };
+  select('[aria-controls]').forEach(function (button) {
+    dispatch(button, 'click', click.bind(button));
+  });
+});
