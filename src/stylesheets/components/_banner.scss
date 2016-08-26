@@ -12,8 +12,8 @@
   }
 
   .usa-accordion-content {
+    @include padding(null 0 0 0);
     background-color: transparent;
-    padding: 0;
     width: 100%;
   }
 }
@@ -89,6 +89,7 @@
     background-image: none;
     position: absolute;
     right: 0;
+    top: 0;
 
     @include media($medium-screen) {
       @include display-icon(angle-arrow-up-primary, after, 1rem, 0, hover);
@@ -108,10 +109,10 @@
 
 .usa-banner-guidance {
   font-size: $h5-font-size;
-  margin-top: 2rem;
+  padding-top: 2rem;
 
   @include media($medium-screen) {
-    margin-top: 4rem;
+    padding-top: 4rem;
   }
 
   p:first-child {
