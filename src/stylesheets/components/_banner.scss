@@ -1,4 +1,4 @@
-.usa-disclaimer {
+.usa-banner {
   background-color: $color-gray-lightest;
   padding-bottom: 7px;
 //  height: 2.3rem;
@@ -18,7 +18,7 @@
   }
 }
 
-.usa-disclaimer-inner {
+.usa-banner-inner {
   @include outer-container();
   @include padding(null $site-margins-mobile);
   max-width: $site-max-width;
@@ -28,7 +28,7 @@
   }
 }
 
-.usa-disclaimer-official {
+.usa-banner-official {
   display: inline-block;
   float: left;
   font-size: 1.2rem;
@@ -55,7 +55,7 @@
 
 // This hides the stage note (i.e. alpha, beta, etc) of the disclaimer for
 // anything smaller than large screen sizes
-.usa-disclaimer-stage {
+.usa-banner-stage {
   @include margin(2px null);
   display: none;
   float: right;
@@ -65,7 +65,7 @@
   }
 }
 
-.usa-disclaimer-button {
+.usa-banner-button {
   @include button-unstyled;
   background-position-x: right;
   color: $color-primary;
@@ -96,7 +96,7 @@
       position: static;
     }
 
-    .usa-disclaimer-button-text {
+    .usa-banner-button-text {
       display: none;
 
       @include media($medium-screen) {
@@ -106,7 +106,7 @@
   }
 }
 
-.usa-disclaimer-guidance {
+.usa-banner-guidance {
   font-size: $h5-font-size;
   margin-top: 2rem;
 
@@ -123,7 +123,6 @@
   }
 }
 
-.usa-disclaimer-icon {
+.usa-banner-icon {
   width: 3.8rem;
 }
-
