@@ -2,7 +2,7 @@
   background-color: $color-gray-lightest;
   padding-bottom: 0.7rem;
 
-  @include media($medium-screen) {
+  @include media($small-screen) {
     padding-bottom: 0;
   }
 
@@ -11,9 +11,13 @@
   }
 
   .usa-accordion-content {
+    @include padding(null $site-margins-mobile 3px $site-margins-mobile);
     background-color: transparent;
-    padding-bottom: 3px;
     width: 100%;
+
+    @include media($nav-width) {
+      @include padding(null $site-margins 2.3rem $site-margins);
+    }
   }
 }
 
@@ -28,28 +32,35 @@
 }
 
 .usa-banner-header {
-  @include padding(0.6rem null);
+  @include padding(0.55rem null);
   font-size: 1.2rem;
   font-weight: $font-normal;
 
-  @include media($medium-screen) {
+  @include media($small-screen) {
     @include padding(0 null);
   }
 
   p {
-    @include margin(3px 4px 3px null);
-    display: inline;
+    @include margin(0 4px 0 null);
+    display: block;
+    overflow: hidden;
 
     @include media($small-screen) {
       @include margin(2px null);
+      display: inline;
     }
   }
 
   img {
     float: left;
-    margin-right: 0.7rem;
+    margin-right: 1rem;
     margin-top: 1px;
-    width: 2rem;
+    width: 2.4rem;
+
+    @include media($small-screen) {
+      margin-right: 0.7rem;
+      width: 2rem;
+    }
   }
 }
 
@@ -57,13 +68,26 @@
   border-bottom: 1px solid $color-base;
   font-size: $h5-font-size;
   font-weight: $font-bold;
+  min-height: 5.6rem;
   padding-right: 3rem;
+
+  @include media($medium-screen) {
+    min-height: 0;
+  }
 
   @include media($small-screen) {
     border-bottom: none;
     font-size: 1.2rem;
     font-weight: $font-normal;
     padding-right: 0;
+  }
+
+  img {
+    margin-right: 2.4rem;
+
+    @include media($small-screen) {
+      margin-right: 0.7rem;
+    }
   }
 }
 
