@@ -29,12 +29,15 @@
 }
 
 .usa-banner-header {
+  @include padding(6px null);
   display: inline-block;
   float: left;
   font-size: 1.2rem;
   font-weight: $font-normal;
-//  font-size: $h5-font-size;
-//  font-weight: $font-bold;
+
+  @include media($medium-screen) {
+    @include padding(0 null);
+  }
 
   p {
     @include margin(3px 4px 3px null);
@@ -50,6 +53,20 @@
     margin-right: 0.7rem;
     margin-top: 1px;
     width: 2rem;
+  }
+}
+
+.usa-banner-header-expanded {
+  border-bottom: 1px solid $color-base;
+  font-size: $h5-font-size;
+  font-weight: $font-bold;
+  padding-right: 3rem;
+
+  @include media($medium-screen) {
+    border-bottom: none;
+    font-size: 1.2rem;
+    font-weight: $font-normal;
+    padding-right: 0;
   }
 }
 
