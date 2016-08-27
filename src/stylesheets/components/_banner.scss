@@ -42,12 +42,13 @@
 
   p {
     @include margin(0 4px 0 null);
-    display: block;
+    display: inline;
     overflow: hidden;
+    vertical-align: middle;
 
     @include media($small-screen) {
       @include margin(2px null);
-      display: inline;
+      display: inline-block;
     }
   }
 
@@ -89,6 +90,16 @@
       margin-right: 0.7rem;
     }
   }
+
+  p {
+    line-height: $heading-line-height;
+    vertical-align: top;
+
+    @include media($small-screen) {
+      line-height: $base-line-height;
+      vertical-align: middle;
+    }
+  }
 }
 
 // This hides the stage note (i.e. alpha, beta, etc) of the disclaimer for
@@ -107,9 +118,14 @@
   @include button-unstyled;
   background-position-x: right;
   color: $color-primary;
+  display: block;
   font-size: 1.2rem;
   text-decoration: underline;
   width: auto;
+
+  @include media($small-screen) {
+    display: inline;
+  }
 
   &:hover {
     color: $color-primary-darker;
@@ -132,7 +148,7 @@
     @include media($small-screen) {
       @include display-icon(angle-arrow-up-primary, after, 1rem, 0, hover);
       padding: 0;
-      position: static;
+      position: relative;
     }
 
     .usa-banner-button-text {
