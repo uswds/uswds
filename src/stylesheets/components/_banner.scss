@@ -45,7 +45,7 @@
   }
 
   p {
-    @include margin(0 4px 0 null);
+    @include margin(0 null);
     display: inline;
     overflow: hidden;
     vertical-align: middle;
