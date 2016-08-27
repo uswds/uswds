@@ -72,7 +72,7 @@
   min-height: 5.6rem;
   padding-right: 3rem;
 
-  @include media($medium-screen) {
+  @include media($small-screen) {
     min-height: 0;
   }
 
