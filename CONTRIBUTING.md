@@ -65,15 +65,9 @@ This command builds the `uswds` package, which includes the zip files generated 
 
 ## Coding guidelines
 
-### CSS
+The purpose of our coding styleguides are to create consistent coding practices across 18F. The styleguide should be treated as a guide — rules can be modified according to project needs.
 
-The purpose of the CSS coding styleguide is to create consistent CSS or preprocessor CSS code across 18F. The styleguide should be treated as a guide — rules can be modified according to project needs.
-
-This project follows the [18F Front End Guide - CSS](https://pages.18f.gov/frontend/#css). Please use this guide for your reference.
-
-### JavaScript
-
-This project follows the [18F Front End Guide - JavaScript](https://pages.18f.gov/frontend/#javascript). Please use this guide for your reference.
+This project follows the 18F Front End Guide [CSS](https://pages.18f.gov/frontend/#css) and [JavaScript](https://pages.18f.gov/frontend/#javascript). Please use this guide for your reference.
 
 ## Licenses and attribution
 
