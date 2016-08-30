@@ -5,11 +5,6 @@ var calculateAnchorPosition = require('./components/calculate-anchor-position');
 var stickyNav = require('./components/sticky-nav');
 
 $(function (){
-  $('.menu-btn, .overlay, .sliding-panel-close').on('click touchstart', function (e) {
-    $('.sidenav-mobile, .overlay').toggleClass('is-visible');
-    $('body').toggleClass('mobile-sidenav-active');
-    e.preventDefault();
-  });
   setTimeout(function () {
     require('./components/scroll-to-top-for-hash');
   }, 150);

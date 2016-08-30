@@ -7,53 +7,49 @@
 
 // Variables -------------- //
 
-$width-nav-sidebar:    250px;
 $color-grid-dark:      #727272;
 $color-grid-light:     #e3e4e5;
-$height-nav-secondary: 5rem;
 $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
 
-// Navigation ------------- //
 
-.usa-site-header {
+.site-header {
   @include position(fixed, 0 null null 0);
   background-color: $color-primary-darkest;
-  width: 100%;
-  z-index: 1;
 
-  @include media($medium-screen + $width-nav-sidebar) {
+  @include media($nav-width) {
+    border-bottom: none;
     position: relative;
   }
 
   // Removes fixed header on Android in landscape with an open keyboard
-  @media screen and (min-aspect-ratio: 13/9) and (max-width: ($medium-screen + $width-nav-sidebar)) {
+  @media screen and (min-aspect-ratio: 13/9) and (max-width: ($medium-screen)) {
     position: absolute;
   }
 
-  a {
-    border-bottom: none;
-  }
+  .usa-disclaimer-official,
+  .site-logo {
+    margin-left: $site-margins-mobile;
 
-  em {
-    display: block;
-    font-family: $font-serif;
-    font-size: 1.4rem;
-    font-style: normal;
-    font-weight: $font-bold;
-    margin: 0;
-
-    @include media($medium-screen + $width-nav-sidebar) {
-      display: block;
-      font-size: $h3-font-size;
+    @include media($nav-width) {
+      margin-left: $site-margins;
     }
   }
+
+  .usa-disclaimer-stage {
+    margin-right: $site-margins-mobile;
+
+    @include media($nav-width) {
+      margin-right: $site-margins;
+    }
+  }
+
 
   .usa-button-list {
     float: right;
     display: none;
     margin-top: -5px;
 
-    @include media($medium-screen + $width-nav-sidebar) {
+    @include media($nav-width) {
       line-height: 8rem;
       margin-top: 0;
       display: block;
@@ -76,51 +72,111 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   }
 }
 
-.site-navbar {
-  height: 4rem;
-
-  @include media($medium-screen + $width-nav-sidebar) {
+.site-header-navbar {
+  border-bottom: none;
+  @include media($nav-width) {
+    display: initial;
     height: 8rem;
+    width: 100%;
   }
 
   &.is-scrolled {
-    @include media($medium-screen + $width-nav-sidebar) {
+    @include media($nav-width) {
       display: none;
     }
   }
 
   // Firefox fix so that navbar buttons to align right
   @-moz-document url-prefix() {
-    @include media($medium-screen + $width-nav-sidebar) {
+    @include media($nav-width) {
       padding-top: 1px;
     }
   }
 }
 
+@mixin outline-inverse-button {
+  // TODO: Fix this with button mixin
+  .usa-button.usa-button-outline-inverse {
+    box-shadow: inset 0 0 0 2px $color-primary;
+    color: $color-primary;
 
+    &:hover {
+      box-shadow: inset 0 0 0 2px $color-primary-darker;
+      color: $color-primary-darker;
+    }
+  }
+}
+
+.sidenav-mobile {
+  @include outline-inverse-button;
+
+  @include media($nav-width) {
+    display: none;
+  }
+
+  .usa-sidenav-sub_list {
+    &[aria-hidden=true] {
+      display: none;
+    }
+  }
+
+  li > button {
+    @include button-unstyled;
+    font-weight: $font-normal;
+    padding: 1.4rem 1.5rem 1rem 1.8rem;
+
+    &:hover {
+      background-color: $color-gray-lightest;
+      color: $color-primary;
+    }
+
+    &[aria-expanded=false] {
+      background-image: url('../img/plus-alt.png');
+      background-image: url('../img/plus-alt.svg');
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      background-size: 1rem;
+    }
+
+    &[aria-expanded=true] {
+      background-image: url('../img/minus-alt.png');
+      background-image: url('../img/minus-alt.svg');
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      background-size: 1rem;
+    }
+  }
+
+  .usa-button-list {
+    margin-top: 4rem;
+  }
+}
 
 .site-logo {
-  float: left;
-  line-height: 37px;
-  margin-top: 3px;
-  padding-left: $site-margins-mobile;
-
-  @include media($medium-screen + $width-nav-sidebar) {
-    line-height: 7.5rem;
-    margin-top: 5px;
-    padding-left: $site-margins;
+  @include media($nav-width) {
+    margin-top: 0;
   }
 
   a {
     color: $color-white;
-    text-decoration: none;
+  }
+
+  em {
+    font-family: $font-serif;
+    font-size: 1.4rem;
+    line-height: 4rem;
+
+    @include media($nav-width) {
+      font-size: $h3-font-size;
+      line-height: 8rem;
+    }
   }
 }
 
 .site-nav-secondary {
   display: none;
 
-  @include media($medium-screen + $width-nav-sidebar) {
+  @include media($nav-width) {
     background-color: $color-white;
     border-bottom: 1px solid $color-gray-light;
     clear: both;
@@ -164,70 +220,12 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   }
 }
 
-// scss-lint:disable PropertyCount
-.menu-btn {
-  background-color: $color-primary;
-  color: $color-white;
-  display: inline;
-  float: right;
-  font-size: $h6-font-size;
-  line-height: 4rem;
-  height: 4rem;
-  width: 5.8rem;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-
-  @include media($medium-screen + $width-nav-sidebar) {
-    display: none;
-  }
-
-  &:hover {
-    color: $color-white;
-    background-color: $color-primary-darker;
-  }
-
-  &:visited {
-    color: $color-white;
-  }
-}
-// scss-lint:enable PropertyCount
-
-.overlay {
-  @include position(fixed, 0);
-  background: $color-black;
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
-  visibility: hidden;
-  z-index: 9999;
-
-  &.is-visible {
-    opacity: 0.1;
-    visibility: visible;
-  }
-}
-
-@mixin outline-inverse-button {
-  // TODO: Fix this with button mixin
-  .usa-button.usa-button-outline-inverse {
-    box-shadow: inset 0 0 0 2px $color-primary;
-    color: $color-primary;
-
-    &:hover {
-      box-shadow: inset 0 0 0 2px $color-primary-darker;
-      color: $color-primary-darker;
-    }
-  }
-}
-
-// Based on code by Diego Eis
-
 // Sidebar Nav --------- //
 
 .sidenav {
   display: none;
 
-  @include media($medium-screen + $width-nav-sidebar) {
+  @include media($nav-width) {
     bottom: 0;
     display: block; // starting: not scrolled
     float: left; // starting: not scrolled
@@ -245,109 +243,11 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
     width: 25%;
   }
 
-  .usa-sidenav-sub_list {
+  .usa-navigation-submenu {
     &[aria-hidden="false"] {
       display: block;
     }
   }
-}
-
-.sidenav-mobile {
-  $sliding-panel-width: 26rem;
-  @include outline-inverse-button;
-  @include padding (2rem);
-  @include position(fixed, 0 0 0 auto);
-  @include size($sliding-panel-width 100%);
-  @include transform(translateX($sliding-panel-width));
-  background: $color-white;
-  border-left: 1px solid $color-gray-light;
-  border-right: 0;
-  display: block;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  z-index: 999999;
-
-  @media (min-width: $medium-screen + $width-nav-sidebar) {
-    display: none;
-  }
-
-  &.is-visible {
-    @include transform(translateX(0));
-    @include transition(all 0.3s ease-in-out);
-  }
-
-  nav {
-    margin-top: 6rem;
-    min-height: 100%;
-  }
-
-  button {
-    @include button-unstyled;
-    font-weight: $font-normal;
-    padding: 1rem 1rem 1rem 1.8rem;
-
-    &:focus,
-    &:active {
-      box-shadow: $focus-shadow;
-    }
-
-    &:hover {
-      background-color: $color-gray-lightest;
-      color: $color-primary;
-    }
-
-    &[aria-expanded=false] {
-      background-image: url('../img/plus-alt.png');
-      background-image: url('../img/plus-alt.svg');
-      background-repeat: no-repeat;
-      background-position: right 0 center;
-      background-size: 1rem;
-    }
-
-    &[aria-expanded=true] {
-      background-image: url('../img/minus-alt.png');
-      background-image: url('../img/minus-alt.svg');
-      background-repeat: no-repeat;
-      background-position: right 0 center;
-      background-size: 1rem;
-    }
-  }
-
-  .usa-sidenav-sub_list[aria-hidden=true] {
-    display: none;
-  }
-
-  .usa-current {
-    border-left: 4px solid $color-primary;
-    color: $color-primary;
-    font-weight: $font-bold;
-    padding-left: 1.4rem;
-  }
-
-  .usa-button {
-    width: 100%;
-  }
-
-  .usa-button-list {
-    margin-top: 4rem;
-  }
-}
-
-.sliding-panel-close {
-  float: right;
-  height: $hit-area;
-  margin-right: -1.5rem;
-  text-align: center;
-  width: $hit-area;
-
-  img {
-    margin-top: 1.6rem;
-    width: 1.3rem;
-  }
-}
-
-.mobile-sidenav-active {
-  overflow: hidden;
 }
 
 // Main Content --------- //
@@ -360,13 +260,13 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   width: 100%;
   top: 6.3rem; // height of disclaimer + navbar on mobile
 
-  @include media($medium-screen + $width-nav-sidebar) {
+  @include media($nav-width) {
     width: calc(100% - #{$width-nav-sidebar});
     top: 0;
   }
 
   &.is-scrolled {
-    @include media($medium-screen + $width-nav-sidebar) {
+    @include media($nav-width) {
       position: absolute;
       top: 15.3rem;
     }
@@ -385,7 +285,7 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   max-width: $site-max-width;
   position: relative;
 
-  @media (min-width: $medium-screen + $width-nav-sidebar) {
+  @media (min-width: $nav-width) {
     @include padding(null $site-margins);
   }
 
@@ -1288,12 +1188,6 @@ $font-light: 300;
 // This adds styleguide-only right and left margins for our disclaimer
 // Since the layout we use is not in a grid
 .usa-disclaimer {
-  @include padding(null $site-margins-mobile);
-
-  @include media($medium-screen + $width-nav-sidebar) {
-    @include padding(null $site-margins);
-  }
-
   &.is-scrolled {
     @media (min-width: $medium-screen + $width-nav-sidebar) {
       display: none;
@@ -1458,6 +1352,14 @@ $font-light: 300;
   text-align: center;
 }
 
+// Headers page -------------- //
+.page-headers {
+  .preview {
+    img {
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    }
+  }
+}
 
 // Custom tooltip styles -------------- //
 
@@ -1504,5 +1406,42 @@ $font-light: 300;
       position: absolute;
       top: 100%; // At the bottom of the tooltip
     }
+  }
+}
+
+// Demo fixed footer
+.demo-footer {
+  background-color: $color-gray-dark;
+  box-shadow: 0 -2px 4px 0 rgba(0,0,0,0.5);
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  button {
+    background-image: url('../img/angle-arrow-left-inverse.png');
+    background-image: url('../img/angle-arrow-left-inverse.svg');
+    background-repeat: no-repeat;
+    background-position: left 2rem center;
+    background-size: 1rem;
+    padding-left: 3.3rem;
+
+    @include media($medium-screen) {
+      @include margin(0 1.5rem 0 null);
+    }
+  }
+}
+
+.demo-footer-title {
+  color: $color-white;
+  display: inline-block;
+}
+
+.demo-footer-content {
+  @include margin(null $site-margins-mobile);
+
+  @include media($medium-screen) {
+    @include margin(null $site-margins);
   }
 }

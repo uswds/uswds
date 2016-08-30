@@ -1,7 +1,8 @@
-.usa-sidenav-list {
+@mixin usa-sidenav-list {
   @include unstyled-list();
 
-  li {
+  > li {
+    background-color: transparent;
     border-top: 1px solid $color-gray;
     font-size: $h4-font-size;
 
@@ -39,7 +40,8 @@
   }
 }
 
-.usa-sidenav-sub_list {
+
+@mixin usa-sidenav-sublist {
   @include unstyled-list();
   margin: 0;
   width: 100%;
@@ -69,4 +71,12 @@
       }
     }
   }
+}
+
+.usa-sidenav-list {
+  @include usa-sidenav-list;
+}
+
+.usa-sidenav-sub_list {
+  @include usa-sidenav-sublist;
 }

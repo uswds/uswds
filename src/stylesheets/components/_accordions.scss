@@ -24,8 +24,8 @@ $accordion-border: 3px solid $color-gray-lightest;
 @mixin accordion-button-styles {
   @include button-unstyled;
   background-color: $color-gray-lightest;
-  background-image: url('../img/minus.png');
-  background-image: url('../img/minus.svg');
+  background-image: url('#{$image-path}/minus.png');
+  background-image: url('#{$image-path}/minus.svg');
   background-position: right 3rem center;
   background-repeat: no-repeat;
   background-size: 13px;
@@ -33,6 +33,7 @@ $accordion-border: 3px solid $color-gray-lightest;
   cursor: pointer;
   display: inline-block;
   font-family: $font-sans;
+  font-weight: $font-bold;
   margin: 0;
   padding: 1.5rem 5.5rem 1.5rem 3rem;
   width: 100%;
@@ -58,8 +59,8 @@ $accordion-border: 3px solid $color-gray-lightest;
 // scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
-  background-image: url('../img/plus.png');
-  background-image: url('../img/plus.svg');
+  background-image: url('#{$image-path}/plus.png');
+  background-image: url('#{$image-path}/plus.svg');
   background-repeat: no-repeat;
   background-size: 1.3rem;
 }

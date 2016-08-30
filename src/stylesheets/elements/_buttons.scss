@@ -171,17 +171,18 @@ button,
 }
 
 @mixin button-unstyled {
-  background: none;
+  background-color: transparent;
   border: 0;
   border-radius: 0;
+  font-weight: $font-normal;
+  margin: 0;
   outline: 0;
   padding: 0;
   text-align: left;
   -webkit-font-smoothing: auto;
 
-  &:focus,
   &:hover {
-    box-shadow: initial;
+    background-color: transparent;
   }
 }
 

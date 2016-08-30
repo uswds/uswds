@@ -13,6 +13,7 @@ html {
 
 body {
   background-color: $color-white;
+  overflow-x: hidden;
 }
 
 // Hack for clearfixes

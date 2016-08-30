@@ -11,7 +11,7 @@ var HIDDEN   = 'aria-hidden';
 
 describe('Accordion component', function () {
   var $el;
-  var $button;
+  var $button, button;
   var $content;
   var accordion;
 
@@ -20,10 +20,11 @@ describe('Accordion component', function () {
 
     $('body').append($component);
 
-    accordion = new Accordion($component);
+    accordion = new Accordion($component.get()[0]);
 
-    $el = accordion.$root;
+    $el = $(accordion.root);
     $button = $el.find('button');
+    button = $button.get()[0];
     $content = $el.find('#' + $button.attr(CONTROLS));
   });
 
@@ -32,7 +33,7 @@ describe('Accordion component', function () {
   });
 
   it('exposes its underlying html element', function () {
-    $el.should.not.be.undefined();
+    accordion.root.should.not.be.undefined();
   });
 
   describe('DOM state', function () {
@@ -46,11 +47,11 @@ describe('Accordion component', function () {
 
     describe('when show is triggered', function () {
       beforeEach(function () {
-        accordion.show($button);
+        accordion.show(button);
       });
 
       afterEach(function () {
-        accordion.hide($button);
+        accordion.hide(button);
       });
 
       it('toggles "aria-expanded" to true', function () {
@@ -64,8 +65,8 @@ describe('Accordion component', function () {
 
     describe('when hide is triggered', function () {
       beforeEach(function() {
-        accordion.show($button);
-        accordion.hide($button);
+        accordion.show(button);
+        accordion.hide(button);
       });
 
       it('toggles "aria-expanded" to false', function () {
