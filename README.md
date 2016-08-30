@@ -4,20 +4,47 @@
 
 The [Draft U.S. Web Design Standards](https://standards.usa.gov) include a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-These tools follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. Created and maintained by [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) designers and developers, the Draft Web Design Standards are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/).
+Previously, the website and documentation for the Draft U.S. Web Design Standards were also part of this repository. **To provide more clarity to people who want to work with the standards and people who want to work with the website itself, we have separated these into two separate repos.**
+
+18F maintains [another repository for the documentation and website](https://github.com/18F/web-design-standards-docs). To see the standards and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
+
+## Contents
+
+* [Background](#background)
+* [Most recent release](#most-recent-release)
+* [Getting started](#getting-started)
+* [Using the Standards](#using-the-standards)
+  * [Download](#download)
+  * [Install using npm](#install-using-npm)
+  * [Using another framework or package manager](#using-another-framework-or-package-manager)
+* [Our use of branches](#our-use-of-branches)
+* [Need installation help?](#need-installation-help)
+* [Contributing to the code base](#contributing-to-the-codebase)
+* [Reuse of open-source style guides](#reuse-of-open-source-style-guides)
+* [Licenses and attribution](#licenses-and-attribution)
+
+## Background
+
+The components and style guide of the Draft U.S. Web Design Standards follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created and maintain the Draft Web Design Standards for designers and developers. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/).
+
+## Most recent release
+
+The most recent release of the Standards is v0.11.1. The [release notes and release history](https://github.com/18F/web-design-standards/releases) will tell you about significant updates and any breaking changes.
 
 ## Getting started
 
 We’re glad you’d like to use the Standards — here’s how you can get started:
 
-* Designers: [Check out our Getting Started for Designers information](https://standards.usa.gov/getting-started/).
-    * [Design files of all the assets included on this site are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
+* Designers: [Check out our Getting Started for Designers information](https://standards.usa.gov/getting-started/designers/).
+    * [Design files of all the assets included in the standards are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
 * Developers: Follow the instructions in this README to get started.
-    * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v0.11.1/uswds-0.11.1.zip).
+    * [CSS, JavaScript, image, and font files of all the assets used in the standards are available for download](https://github.com/18F/web-design-standards/releases/download/v0.11.1/uswds-0.11.1.zip).
+
+## Using the Standards
 
 Here are a few different ways to use the Standards within your project.
 
-## Download
+### Download
 
 To use the Draft Web Design Standards on your project, you’ll need to include the CSS and JavaScript files in each HTML page in your project.
 
@@ -57,10 +84,8 @@ Add this before the closing `</body>` tag:
 <script src="/path/to/your/assets/js/lib/uswds.min.js"></script>
 ```
 
-We offer two versions — a minified version, and an un-minified one. Use the minified version in a production environment or to reduce the file size
-of your downloaded assets. And the un-minified version is better if you are in a
-development environment or would like to debug the CSS or JavaScript assets in
-the browser. The examples above recommend using the minified versions.
+We offer both files, the CSS and the JavaScript, in two versions — a minified version, and an un-minified one. (Minification removes characters that make code more readable but aren’t necessary for the code to function.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. And the un-minified files are better if you are in a
+development environment or would like to debug the CSS or JavaScript assets in the browser. The examples above recommend using the minified versions.
 
 This version of the Standards includes jQuery version `2.2.0` bundled within the
 JavaScript file. Please make sure that you're not including any other version
@@ -68,7 +93,7 @@ of jQuery on your page.
 
 And that’s it — you should be set to use the Standards.
 
-## Using npm
+### Install using npm
 
 If you have `node` installed on your machine, you can use npm to install the Standards. Add `uswds`
 to your project's `package.json` as a dependency:
@@ -108,7 +133,7 @@ The non-minified CSS that’s been precompiled is here:
 node_modules/uswds/dist/css/uswds.css
 ```
 
-## Using another framework or package manager
+### Using another framework or package manager
 
 If you’re using another framework or package manager that doesn’t support NPM, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/18F/web-design-standards/issues/877).
 
@@ -118,7 +143,7 @@ If you’re interested in maintaining a package that helps us distribute the Dra
 
 The `staging` branch is the bleeding edge of development. When developing, we create a feature branch from `staging`, do our work in that branch, and then create a pull request that merges back into `staging`. New commits to `staging` are automatically deployed to [our staging site](https://standards-staging.usa.gov/).
 
-The `master` branch always holds the latest production-ready release, as well as [the production website](https://standards.usa.gov/). When cutting a [release](https://github.com/18F/web-design-standards/releases), we create a release branch from `staging` named for the new version: for example, `v0.9.x`. Once we've completed QA on that branch, we tag the release and merge it into the `master` branch.
+The `master` branch always holds the latest production-ready release. When cutting a [release](https://github.com/18F/web-design-standards/releases), we create a release branch from `staging` named for the new version: for example, `v0.9.x`. Once we've completed QA on that branch, we tag the release and merge it into the `master` branch.
 
 The branches `18f-pages` and `18f-pages-staging` _used_ to be the primary release and development branches, back when the site was hosted on `pages.18f.gov`. Those branches still auto deploy to 18F Pages, but will now only contain minimal redirects to the new site.
 
@@ -151,6 +176,16 @@ Much of the guidance in the Draft U.S. Web Design Standards leans on open source
 
 ## Licenses and attribution
 
+A few parts of this project are not in the public domain. Attribution and licensing information for those parts are described in detail in [LICENSE.md](LICENSE.md).
+
+The rest of this project is in the worldwide public domain, released under the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
+
+## Contributing
+
+All contributions to this project will be released under the CC0 dedication alongside the public domain portions of this project. For more information, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+<!-- commenting out because I think we're going to consolidate into LICENSE.md. The items marked TK have issues with the existing references, and once correct I want to move it all over there.
+
 ### A few parts of this project are not in the public domain
 
 The Source Sans Pro font files in `src/fonts` are a customized subset of [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL), and copyright [Adobe Systems Incorporated](http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries.
@@ -159,17 +194,17 @@ The Merriweather font files in `src/fonts` are from [Google Web Fonts](https://w
 
 The files in `src/img` are from [Font Awesome](http://fontawesome.io/) by Dave Gandy under the [SIL Open Font License 1.1](http://scripts.sil.org/OFL).
 
-The files in `src/stylesheets/_scss/lib/bourbon` are from [Bourbon](http://bourbon.io/), copyright [thoughtbot](https://thoughtbot.com/), inc., under the [MIT license](https://github.com/thoughtbot/neat/blob/master/LICENSE.md).
+TK The files in `src/stylesheets/_scss/lib/bourbon` are from [Bourbon](http://bourbon.io/), copyright [thoughtbot](https://thoughtbot.com/), inc., under the [MIT license](https://github.com/thoughtbot/neat/blob/master/LICENSE.md).
 
-The files in `src/stylesheets/_scss/lib/neat` are from [Neat](http://neat.bourbon.io/), copyright [thoughtbot](https://thoughtbot.com/), inc., also under the [MIT license](https://github.com/thoughtbot/neat/blob/master/LICENSE.md).
+TK The files in `src/stylesheets/_scss/lib/neat` are from [Neat](http://neat.bourbon.io/), copyright [thoughtbot](https://thoughtbot.com/), inc., also under the [MIT license](https://github.com/thoughtbot/neat/blob/master/LICENSE.md).
 
-The file `src/stylesheets/css/normalize.min.css` is from [Normalize.css](https://github.com/necolas/normalize.css), copyright Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
+TK The file `src/stylesheets/css/normalize.min.css` is from [Normalize.css](https://github.com/necolas/normalize.css), copyright Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
 
-The file `src/js/component.js` includes `politespace.js` from [Politespace](https://github.com/filamentgroup/politespace), copyright Zach Leatherman, under the [MIT license](https://github.com/filamentgroup/politespace/blob/master/LICENSE).
+The file `src/js/initializers/component.js` includes `politespace.js` from [Politespace](https://github.com/filamentgroup/politespace), copyright Zach Leatherman, under the [MIT license](https://github.com/filamentgroup/politespace/blob/master/LICENSE).
 
 The file `src/js/vendor/html5shiv.js` is from [HTML5 Shiv](https://github.com/afarkas/html5shiv), copyright Alexander Farkas (aFarkas), under the [MIT license](https://github.com/aFarkas/html5shiv/blob/master/MIT%20and%20GPL2%20licenses.md).
 
-The file `src/js/vendor/jquery-1.11.3.min.js` is from [jQuery](https://jquery.com/), copyright The jQuery Foundation, under the [MIT license](https://jquery.org/license/).
+TK The file `src/js/vendor/jquery-1.11.3.min.js` is from [jQuery](https://jquery.com/), copyright The jQuery Foundation, under the [MIT license](https://jquery.org/license/).
 
 The file `src/js/vendor/rem.min.js` is from [REM unit polyfill](https://github.com/chuckcarpenter/REM-unit-polyfill), copyright Chuck Carpenter, under the [MIT license](https://github.com/chuckcarpenter/REM-unit-polyfill/blob/master/LICENSE.md).
 
@@ -177,7 +212,7 @@ The file `src/js/vendor/respond.js` is from [Respond.js](https://github.com/scot
 
 The file `src/js/vendor/selectivizr-min.js` is from [Selectivizr](http://selectivizr.com/), copyright Keith Clark, under the [MIT license](http://opensource.org/licenses/mit-license.php).
 
-The files `docs/assets/js/vendor/prism.js` and `assets-styleguide/css/prism.css` are from [Prism](http://prismjs.com/), copyright Lea Verou, under the [MIT license](https://github.com/PrismJS/prism/blob/gh-pages/LICENSE).
+TK The files `docs/assets/js/vendor/prism.js` and `assets-styleguide/css/prism.css` are from [Prism](http://prismjs.com/), copyright Lea Verou, under the [MIT license](https://github.com/PrismJS/prism/blob/gh-pages/LICENSE).
 
 ### The rest of this project is in the public domain
 
@@ -185,4 +220,4 @@ The rest of this project is in the worldwide [public domain](LICENSE.md). As sta
 
 > This project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
 >
-> All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
+> All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest. -->
