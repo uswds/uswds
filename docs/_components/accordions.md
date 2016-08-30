@@ -49,7 +49,7 @@ maturity: alpha
     <a name="deprecated"></a>
     <div class="usa-alert usa-alert-warning" style="margin-bottom: 1rem;">
       <div class="usa-alert-body">
-        <h3 class="usa-alert-heading">Deprecated</h3>
+        <h3 class="usa-alert-heading">Deprecated version</h3>
         <p class="usa-alert-text">
           The accordion was changed <strong>July 2016</strong> in order to improve its
           implementation. Currently, both versions of the accordion work, but at some
