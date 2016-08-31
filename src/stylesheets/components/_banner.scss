@@ -112,14 +112,13 @@
 
 .usa-banner-button {
   @include button-unstyled;
+  @include padding(1.3rem null null 4.8rem);
   background-position-x: right;
   color: $color-primary;
   display: block;
   font-size: 1.2rem;
   height: 4.3rem;
   left: 0;
-  padding-left: 4.8rem;
-  padding-top: 1.3rem;
   position: absolute;
   text-decoration: underline;
   top: 0;
