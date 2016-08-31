@@ -4,7 +4,7 @@
 
 The [Draft U.S. Web Design Standards](https://standards.usa.gov) include a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-Previously, the website and documentation for the Draft U.S. Web Design Standards were also part of this repository. **To provide more clarity to people who want to work with the standards and people who want to work with the website itself, we have separated these into two separate repos.**
+Previously, the website and documentation for the Draft U.S. Web Design Standards were also part of this repository. To provide more clarity to both people who want to work with the standards and people who work with the documentation locally, we have separated these into two repositories. This repository is for the Standards themselves.
 
 18F maintains [another repository for the documentation and website](https://github.com/18F/web-design-standards-docs). To see the standards and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
 
@@ -88,7 +88,7 @@ We offer both files, the CSS and the JavaScript, in two versions — a minified 
 development environment or would like to debug the CSS or JavaScript assets in the browser. The examples above recommend using the minified versions.
 
 This version of the Standards includes jQuery version `2.2.0` bundled within the
-JavaScript file. Please make sure that you're not including any other version
+JavaScript file. Please make sure that you’re not including any other version
 of jQuery on your page.
 
 And that’s it — you should be set to use the Standards.
@@ -96,7 +96,7 @@ And that’s it — you should be set to use the Standards.
 ### Install using npm
 
 If you have `node` installed on your machine, you can use npm to install the Standards. Add `uswds`
-to your project's `package.json` as a dependency:
+to your project’s `package.json` as a dependency:
 
 ```shell
 npm install --save uswds
@@ -119,7 +119,7 @@ node_modules/uswds/
     └── stylesheets/
 ```
 
-`require('uswds')` will load all of the Draft U.S. Web Design Standard's JavaScript onto the page. The `uswds` module itself does not export anything.
+`require('uswds')` will load all of the Draft U.S. Web Design Standards’ JavaScript onto the page. The `uswds` module itself does not export anything.
 
 The main Sass (SCSS) source file is here:
 
@@ -137,13 +137,13 @@ node_modules/uswds/dist/css/uswds.css
 
 If you’re using another framework or package manager that doesn’t support NPM, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/18F/web-design-standards/issues/877).
 
-If you’re interested in maintaining a package that helps us distribute the Draft U.S. Web Design Standards, the project's build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
+If you’re interested in maintaining a package that helps us distribute the Draft U.S. Web Design Standards, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
 ## Our use of branches
 
 The `staging` branch is the bleeding edge of development. When developing, we create a feature branch from `staging`, do our work in that branch, and then create a pull request that merges back into `staging`. New commits to `staging` are automatically deployed to [our staging site](https://standards-staging.usa.gov/).
 
-The `master` branch always holds the latest production-ready release. When cutting a [release](https://github.com/18F/web-design-standards/releases), we create a release branch from `staging` named for the new version: for example, `v0.9.x`. Once we've completed QA on that branch, we tag the release and merge it into the `master` branch.
+The `master` branch always holds the latest production-ready release. When cutting a [release](https://github.com/18F/web-design-standards/releases), we create a release branch from `staging` named for the new version: for example, `v0.9.x`. Once we’ve completed QA on that branch, we tag the release and merge it into the `master` branch.
 
 The branches `18f-pages` and `18f-pages-staging` _used_ to be the primary release and development branches, back when the site was hosted on `pages.18f.gov`. Those branches still auto deploy to 18F Pages, but will now only contain minimal redirects to the new site.
 
