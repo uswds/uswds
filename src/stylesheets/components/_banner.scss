@@ -102,18 +102,6 @@
   }
 }
 
-// This hides the stage note (i.e. alpha, beta, etc) of the disclaimer for
-// anything smaller than large screen sizes
-.usa-banner-stage {
-  @include margin(2px null);
-  display: none;
-  float: right;
-
-  @include media($large-screen) {
-    display: block;
-  }
-}
-
 .usa-banner-button {
   @include button-unstyled;
   background-position-x: right;
