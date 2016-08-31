@@ -71,16 +71,12 @@
 
 .usa-banner-header-expanded {
   border-bottom: 1px solid $color-gray-light;
-  display: flex;
-  flex-direction: column;
   font-size: $h5-font-size;
-  justify-content: center;
   min-height: 5.6rem;
   padding-right: 3rem;
 
   @include media($small-screen) {
     border-bottom: none;
-    display: block;
     font-size: 1.2rem;
     font-weight: $font-normal;
     min-height: 0;
@@ -155,9 +151,6 @@
     @include display-icon(close, after, 1.3rem, 0, no-hover);
     background-image: none;
     height: 5.6rem;
-//    position: absolute;
-//    right: 0;
-//    top: 0;
 
     @include media($small-screen) {
       @include display-icon(angle-arrow-up-primary, after, 1rem, 0, hover);
