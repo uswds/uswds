@@ -71,18 +71,19 @@
 
 .usa-banner-header-expanded {
   border-bottom: 1px solid $color-gray-light;
+  display: flex;
+  flex-direction: column;
   font-size: $h5-font-size;
+  justify-content: center;
   min-height: 5.6rem;
   padding-right: 3rem;
 
   @include media($small-screen) {
-    min-height: 0;
-  }
-
-  @include media($small-screen) {
     border-bottom: none;
+    display: block;
     font-size: 1.2rem;
     font-weight: $font-normal;
+    min-height: 0;
     padding-right: 0;
   }
 
