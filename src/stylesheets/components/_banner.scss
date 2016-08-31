@@ -153,7 +153,6 @@
 
   &[aria-expanded=true] {
     @include display-icon(close, after, 1.3rem, 0, no-hover);
-    @include padding(2rem 1.5rem);
     background-image: none;
     height: 5.6rem;
 //    position: absolute;
