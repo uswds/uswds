@@ -3,11 +3,8 @@
   padding-bottom: 0.7rem;
 
   @include media($small-screen) {
-    padding-bottom: 0;
-  }
-
-  @include media($small-screen) {
     font-size: $h6-font-size;
+    padding-bottom: 0;
   }
 
   .usa-accordion-content {
@@ -70,17 +67,28 @@
 }
 
 .usa-banner-header-expanded {
+  align-items: center;
   border-bottom: 1px solid $color-gray-light;
+  display: flex;
   font-size: $h5-font-size;
   min-height: 5.6rem;
   padding-right: 3rem;
 
   @include media($small-screen) {
     border-bottom: none;
+    display: block;
     font-size: 1.2rem;
     font-weight: $font-normal;
     min-height: 0;
     padding-right: 0;
+  }
+
+  > .usa-banner-inner {
+    margin-left: 0;
+
+    @include media($small-screen) {
+      margin-left: auto;
+    }
   }
 
   img {
@@ -175,11 +183,13 @@
     padding-top: 4rem;
   }
 
-  p:first-child {
-    margin-top: 1rem;
+  p {
+    &:first-child {
+      margin-top: 1rem;
 
-    @include media($medium-screen) {
-      margin-top: 0;
+      @include media($medium-screen) {
+        margin-top: 0;
+      }
     }
   }
 }
