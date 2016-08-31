@@ -123,11 +123,21 @@
   color: $color-primary;
   display: block;
   font-size: 1.2rem;
+  height: 4.3rem;
+  left: 0;
+  padding-left: 4.8rem;
+  padding-top: 1.3rem;
+  position: absolute;
   text-decoration: underline;
-  width: auto;
+  top: 0;
+  width: 100%;
 
   @include media($small-screen) {
+    @include padding(0 null null 0);
     display: inline;
+    height: initial;
+    position: relative;
+    width: initial;
   }
 
   &:hover {
@@ -144,14 +154,26 @@
     @include display-icon(close, after, 1.3rem, 0, no-hover);
     @include padding(2rem 1.5rem);
     background-image: none;
-    position: absolute;
-    right: 0;
-    top: 0;
+    height: 5.6rem;
+//    position: absolute;
+//    right: 0;
+//    top: 0;
 
     @include media($small-screen) {
       @include display-icon(angle-arrow-up-primary, after, 1rem, 0, hover);
+      height: initial;
       padding: 0;
       position: relative;
+    }
+
+    &:after {
+      position: absolute;
+      right: 1.5rem;
+      top: 2.15rem;
+
+      @include media($small-screen) {
+        position: static;
+      }
     }
 
     .usa-banner-button-text {
