@@ -1,0 +1,118 @@
+<div class="preview ">
+  
+  <form class="usa-form">
+    <fieldset>
+      <legend class="usa-drop_text">Reset password</legend>
+      <span class="usa-serif">Please enter your new password</span>
+
+      <div class="usa-alert usa-alert-info">
+        <div class="usa-alert-body">
+          <h3 class="usa-alert-heading">Passwords must:</h3>
+        </div>
+        <ul class="usa-checklist" id="validation_list">
+          <li data-validator="length">Be at least 8 characters</li>
+          <li data-validator="uppercase">Have at least 1 uppercase character</li>
+          <li data-validator="numerical">Have at least 1 numerical character</li>
+          <li>Another requirement</li>
+        </ul>
+      </div>
+
+      <label for="password">New password</label>
+      <input id="password" name="password" type="password"
+        aria-describedby="validation_list"
+        class="js-validate_password"
+        data-validate-length=".{8,}"
+        data-validate-uppercase="[A-Z]"
+        data-validate-numerical="\d"
+        data-validation-element="#validation_list">
+
+      <label for="confirmPassword">Confirm password</label>
+      <input id="confirmPassword" name="confirmPassword" type="password">
+      <p class="usa-form-note">
+        <a title="Show my typing" href="javascript:void(0);"
+            class="usa-show_multipassword"
+            aria-controls="password confirmPassword">
+          Show my typing</a>
+      </p>
+
+      <input type="submit" value="Reset password" />
+    </fieldset>
+  </form>
+
+
+</div>
+
+<div class="usa-accordion-bordered usa-code-sample">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled" aria-controls="code">Code</button>
+      <div id="code" class="usa-accordion-content">
+        <pre><code class="language-markup">
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>form</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-form<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>fieldset</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>legend</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-drop_text<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Reset password<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>legend</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-serif<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Please enter your new password<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span>
+
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-alert usa-alert-info<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-alert-body<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+          <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h3</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-alert-heading<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Passwords must:<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h3</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ul</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-checklist<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>validation_list<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+          <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span> <span class="token attr-name" >data-validator</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>length<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Be at least 8 characters<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+          <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span> <span class="token attr-name" >data-validator</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>uppercase<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Have at least 1 uppercase character<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+          <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span> <span class="token attr-name" >data-validator</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>numerical<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Have at least 1 numerical character<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+          <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>Another requirement<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ul</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>password<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>New password<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>password<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>password<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>password<span class="token punctuation" >"</span></span>
+        <span class="token attr-name" >aria-describedby</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>validation_list<span class="token punctuation" >"</span></span>
+        <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>js-validate_password<span class="token punctuation" >"</span></span>
+        <span class="token attr-name" >data-validate-length</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>.{8,}<span class="token punctuation" >"</span></span>
+        <span class="token attr-name" >data-validate-uppercase</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>[A-Z]<span class="token punctuation" >"</span></span>
+        <span class="token attr-name" >data-validate-numerical</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>\d<span class="token punctuation" >"</span></span>
+        <span class="token attr-name" >data-validation-element</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#validation_list<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>confirmPassword<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Confirm password<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>confirmPassword<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>confirmPassword<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>password<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-form-note<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >title</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>Show my typing<span class="token punctuation" >"</span></span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>javascript:void(0);<span class="token punctuation" >"</span></span>
+            <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-show_multipassword<span class="token punctuation" >"</span></span>
+            <span class="token attr-name" >aria-controls</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>password confirmPassword<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+          Show my typing<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>submit<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>Reset password<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>fieldset</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>form</span><span class="token punctuation" >></span></span>
+
+</code></pre>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h4>
+    <ul class="usa-content-list">
+      <li>As you customize this form template, make sure it continues to follow the <a href="/form-templates/">accessibility guidelines for form templates</a> and the <a href="/form-controls/">accessibility guidelines for form controls</a>.</li>
+    </ul>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>To offer a way to easily reset a password any time users are able to sign in to your site.</li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>If users need a password to access your site, they will forget that password and need a way to reset it.</li>
+      <li>State any password requirements (for example, “Must include one capital letter”) up front. Don’t leave users guessing about password requirements, only to hit them with an error message later.</li>
+      <li>The requirements shown above are just provided as an example and should not be taken as recommendations.</li>
+    </ul>
+  </div>
+</div>
