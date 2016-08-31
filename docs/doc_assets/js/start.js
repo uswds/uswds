@@ -1,6 +1,6 @@
 'use strict';
 
-window.$ = window.jQuery = require('../../../node_modules/jquery/dist/jquery');
+window.$ = window.jQuery = require('jquery');
 var calculateAnchorPosition = require('./components/calculate-anchor-position');
 var stickyNav = require('./components/sticky-nav');
 
