@@ -155,7 +155,7 @@
       position: relative;
     }
 
-    &:after {
+    &::after {
       position: absolute;
       right: 1.5rem;
       top: 2.15rem;
