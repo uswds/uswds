@@ -23,7 +23,6 @@
 }
 
 // Unstyled list helper
-
 @mixin unstyled-list() {
   @include margin(0 null);
   list-style-type: none;
@@ -32,6 +31,13 @@
   > li {
     margin-bottom: 0;
   }
+}
+
+// Font smoothing mixin
+// Only use for light text on dark background
+@mixin font-smoothing {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 // Content size helpers
