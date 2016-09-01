@@ -1,6 +1,6 @@
 // Alert variables ---------- //
 // scss-lint:disable TrailingWhitespace
-$custom-alerts:() !default;
+$usa-custom-alerts:() !default;
 
 $usa-alerts: ( 
   success: $color-green-lightest,
@@ -9,7 +9,7 @@ $usa-alerts: (
   info: $color-primary-alt-lightest
 );
 
-$alerts: map-merge($usa-alerts, $custom-alerts);
+$alerts: map-merge($usa-alerts, $usa-custom-alerts);
 // scss-lint:enable TrailingWhitespace
 
 .usa-alert {
