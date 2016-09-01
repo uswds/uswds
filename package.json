@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "0.11.1",
+  "version": "0.12.0",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "main": "src/js/start.js",
   "scripts": {
@@ -36,7 +36,7 @@
     "cross-spawn": "^2.1.5",
     "jquery": "^2.2.0",
     "normalize.css": "^3.0.3",
-    "politespace": "^0.1.4",
+    "politespace": "0.1.4",
     "prismjs": "^1.5.1"
   },
   "devDependencies": {
@@ -61,6 +61,7 @@
     "gulp-zip": "^3.1.0",
     "inquirer": "^0.11.4",
     "jsdom": "^9.0.0",
+    "lodash.debounce": "^4.0.7",
     "merge-stream": "^1.0.0",
     "minimist": "^1.2.0",
     "mocha": "^2.4.5",
@@ -68,6 +69,7 @@
     "node-sass": "^3.4.2",
     "run-sequence": "^1.1.5",
     "should": "^8.3.1",
+    "sinon": "^1.17.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"

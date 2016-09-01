@@ -17,7 +17,7 @@ maturity: alpha
   <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
     <h4 class="usa-heading">Accessibility</h4>
     <ul class="usa-content-list">
-      <li>As you customize this form template, ensure it continues to follow the <a href="{{ site.baseurl }}/components/#forms-blocks">accessibility guidelines for form templates</a> and the <a href="{{ site.baseurl }}/elements/#inputs">accessibility guidelines for form controls</a>.</li>
+      <li>As you customize this form template, ensure it continues to follow the <a href="{{ site.baseurl }}/form-templates/">accessibility guidelines for form templates</a> and the <a href="{{ site.baseurl }}/form-controls/">accessibility guidelines for form controls</a>.</li>
     </ul>
     <ul class="usa-content-list">
       <li>Always include the word "search" inside the <code>&lt;button&gt;</code> element for screen readers. You can visually hide this text using the CSS class <code>usa-sr-only</code> or Sass mixin <code>@include sr-only;</code>.

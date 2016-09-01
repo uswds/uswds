@@ -23,7 +23,7 @@ describe('ToggleFormInput', function () {
     $password = $component.find(PASSWORD_SELECTOR);
     $confirmPassword = $component.find(CONFIRM_SELECTOR);
 
-    ToggleFormInput($maskControl, SHOW_TEXT, HIDE_TEXT);
+    ToggleFormInput($maskControl.get()[0], SHOW_TEXT, HIDE_TEXT);
   });
 
   afterEach(function () {
@@ -36,17 +36,27 @@ describe('ToggleFormInput', function () {
   });
 
   it('switches type of inputs from password to text when true', function () {
-    $maskControl.trigger('click');
+    click($maskControl);
     $password.attr('type').should.equal('text');
     $confirmPassword.attr('type').should.equal('text');
   });
 
   it('changes text of mask control element to match show/hide text', function () {
-    $maskControl.trigger('click');
+    click($maskControl);
     $maskControl.text().should.equal(HIDE_TEXT);
 
-
-    $maskControl.trigger('click');
+    click($maskControl);
     $maskControl.text().should.equal(SHOW_TEXT);
   });
 });
+
+/**
+ * Fire an addEventListener()-added click event in jsdom
+ * See http://stackoverflow.com/a/27557936/9070
+ */
+function click(jqEl) {
+  var el = jqEl.get()[0];
+  var evt = document.createEvent("HTMLEvents");
+  evt.initEvent("click", false, true);
+  el.dispatchEvent(evt);
+}

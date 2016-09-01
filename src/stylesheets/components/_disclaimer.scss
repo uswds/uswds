@@ -8,6 +8,16 @@
   }
 }
 
+.usa-disclaimer-inner {
+  @include outer-container();
+  @include padding(null $site-margins-mobile);
+  max-width: $site-max-width;
+
+  @include media($nav-width) {
+    @include padding(null $site-margins);
+  }
+}
+
 .usa-disclaimer-official {
   display: inline-block;
 

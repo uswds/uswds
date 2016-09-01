@@ -22,10 +22,12 @@ $lead-line-height:    1.7 !default;
 
 $font-sans:           'Source Sans Pro', $helvetica !default;
 $font-serif:          'Merriweather', $georgia !default;
+$font-path:           '../fonts' !default;
 
 $font-normal:         400 !default;
 $font-bold:           700 !default;
 
+$image-path:           '../img' !default;
 
 // Color
 $color-primary:              #0071bc !default;
@@ -97,6 +99,7 @@ $input-max-width:     46rem !default;
 $border-radius:       rem(3px) !default;
 $box-shadow:          0 0 2px $color-shadow !default;
 $focus-shadow:        0 0 3px $color-focus, 0 0 7px $color-focus !default;
+$nav-width:           951px !default;
 
 // 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines
 $hit-area:          4.4rem !default;
