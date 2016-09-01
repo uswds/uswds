@@ -13,7 +13,7 @@ We’re glad you’d like to use the Standards — here’s how you can get star
 * Designers: [Check out our Getting Started for Designers information](https://standards.usa.gov/getting-started/).
     * [Design files of all the assets included on this site are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
 * Developers: Follow the instructions in this README to get started.
-    * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v0.11.1/uswds-0.11.1.zip).
+    * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v0.12.0/uswds-0.12.0.zip).
 
 Here are a few different ways to use the Standards within your project.
 
