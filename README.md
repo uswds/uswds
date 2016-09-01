@@ -11,12 +11,12 @@ Previously, the website and documentation for the Draft U.S. Web Design Standard
 ## Contents
 
 * [Background](#background)
-* [Most recent release](#most-recent-release)
+* [Recent updates](#recent-updates)
 * [Getting started](#getting-started)
-* [Using the Standards](#using-the-standards)
+* [Use the Standards](#using-the-standards)
   * [Download](#download)
   * [Install using npm](#install-using-npm)
-  * [Using another framework or package manager](#using-another-framework-or-package-manager)
+  * [Use another framework or package manager](#use-another-framework-or-package-manager)
 * [Our use of branches](#our-use-of-branches)
 * [Need installation help?](#need-installation-help)
 * [Contributing to the code base](#contributing-to-the-codebase)
@@ -27,9 +27,9 @@ Previously, the website and documentation for the Draft U.S. Web Design Standard
 
 The components and style guide of the Draft U.S. Web Design Standards follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created and maintain the Draft Web Design Standards for designers and developers. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/).
 
-## Most recent release
+## Recent updates
 
-The most recent release of the Standards is v0.11.1. The [release notes and release history](https://github.com/18F/web-design-standards/releases) will tell you about significant updates and any breaking changes.
+Information about the most recent release of the Standards can always be found in the [release history](https://github.com/18F/web-design-standards/releases). We include details about significant updates and any backwards incompatible changes along with a list of all changes.
 
 ## Getting started
 
@@ -42,7 +42,7 @@ We’re glad you’d like to use the Standards — here’s how you can get star
 
 ## Using the Standards
 
-Here are a few different ways to use the Standards within your project.
+There are a few different ways to use the Standards within your project. Which one you choose depends on the needs of your project and how you are most comfortable working.
 
 ### Download
 
@@ -70,7 +70,7 @@ uswds-0.11.1/
 ```
 
 Refer to these files by adding the following `<link>` and `<script>` elements
-into your HTML pages:
+into each of your HTML pages:
 
 Add this to your `<head>` element:
 
@@ -84,8 +84,12 @@ Add this before the closing `</body>` tag:
 <script src="/path/to/your/assets/js/lib/uswds.min.js"></script>
 ```
 
-We offer both files, the CSS and the JavaScript, in two versions — a minified version, and an un-minified one. (Minification removes characters that make code more readable but aren’t necessary for the code to function.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. And the un-minified files are better if you are in a
-development environment or would like to debug the CSS or JavaScript assets in the browser. The examples above recommend using the minified versions.
+We offer both files, the CSS and the JavaScript, in two versions — a minified
+version, and an un-minified one. (In the examples above, we are using the minified
+files.) Use the minified files in a production environment or to reduce the
+file size of your downloaded assets. And the un-minified files are better if you
+are in a development environment or would like to debug the CSS or JavaScript
+assets in the browser.
 
 This version of the Standards includes jQuery version `2.2.0` bundled within the
 JavaScript file. Please make sure that you’re not including any other version
@@ -133,7 +137,7 @@ The non-minified CSS that’s been precompiled is here:
 node_modules/uswds/dist/css/uswds.css
 ```
 
-### Using another framework or package manager
+### Use another framework or package manager
 
 If you’re using another framework or package manager that doesn’t support NPM, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/18F/web-design-standards/issues/877).
 
@@ -183,41 +187,3 @@ The rest of this project is in the worldwide public domain, released under the [
 ## Contributing
 
 All contributions to this project will be released under the CC0 dedication alongside the public domain portions of this project. For more information, see [CONTRIBUTING.md](CONTRIBUTING.md).
-
-<!-- commenting out because I think we're going to consolidate into LICENSE.md. The items marked TK have issues with the existing references, and once correct I want to move it all over there.
-
-### A few parts of this project are not in the public domain
-
-The Source Sans Pro font files in `src/fonts` are a customized subset of [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL), and copyright [Adobe Systems Incorporated](http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries.
-
-The Merriweather font files in `src/fonts` are from [Google Web Fonts](https://www.google.com/fonts#UsePlace:use/Collection:Merriweather:400,300,400italic,700,700italic), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL), and copyright [Sorkin Type Co](www.sorkintype.com) with Reserved Font Name 'Merriweather'.
-
-The files in `src/img` are from [Font Awesome](http://fontawesome.io/) by Dave Gandy under the [SIL Open Font License 1.1](http://scripts.sil.org/OFL).
-
-TK The files in `src/stylesheets/_scss/lib/bourbon` are from [Bourbon](http://bourbon.io/), copyright [thoughtbot](https://thoughtbot.com/), inc., under the [MIT license](https://github.com/thoughtbot/neat/blob/master/LICENSE.md).
-
-TK The files in `src/stylesheets/_scss/lib/neat` are from [Neat](http://neat.bourbon.io/), copyright [thoughtbot](https://thoughtbot.com/), inc., also under the [MIT license](https://github.com/thoughtbot/neat/blob/master/LICENSE.md).
-
-TK The file `src/stylesheets/css/normalize.min.css` is from [Normalize.css](https://github.com/necolas/normalize.css), copyright Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
-
-The file `src/js/initializers/component.js` includes `politespace.js` from [Politespace](https://github.com/filamentgroup/politespace), copyright Zach Leatherman, under the [MIT license](https://github.com/filamentgroup/politespace/blob/master/LICENSE).
-
-The file `src/js/vendor/html5shiv.js` is from [HTML5 Shiv](https://github.com/afarkas/html5shiv), copyright Alexander Farkas (aFarkas), under the [MIT license](https://github.com/aFarkas/html5shiv/blob/master/MIT%20and%20GPL2%20licenses.md).
-
-TK The file `src/js/vendor/jquery-1.11.3.min.js` is from [jQuery](https://jquery.com/), copyright The jQuery Foundation, under the [MIT license](https://jquery.org/license/).
-
-The file `src/js/vendor/rem.min.js` is from [REM unit polyfill](https://github.com/chuckcarpenter/REM-unit-polyfill), copyright Chuck Carpenter, under the [MIT license](https://github.com/chuckcarpenter/REM-unit-polyfill/blob/master/LICENSE.md).
-
-The file `src/js/vendor/respond.js` is from [Respond.js](https://github.com/scottjehl/Respond), copyright Scott Jehl, under the [MIT license](https://github.com/scottjehl/Respond/blob/master/LICENSE-MIT).
-
-The file `src/js/vendor/selectivizr-min.js` is from [Selectivizr](http://selectivizr.com/), copyright Keith Clark, under the [MIT license](http://opensource.org/licenses/mit-license.php).
-
-TK The files `docs/assets/js/vendor/prism.js` and `assets-styleguide/css/prism.css` are from [Prism](http://prismjs.com/), copyright Lea Verou, under the [MIT license](https://github.com/PrismJS/prism/blob/gh-pages/LICENSE).
-
-### The rest of this project is in the public domain
-
-The rest of this project is in the worldwide [public domain](LICENSE.md). As stated in [CONTRIBUTING](CONTRIBUTING.md):
-
-> This project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
->
-> All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest. -->
