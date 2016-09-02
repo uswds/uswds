@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+
+  <head>
+    <!-- Basic Page Needs
+================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Specific Metas
+================================================== -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Title and meta description
+================================================== -->
+
+  <title>Draft U.S. Web Design Standards | Form controls</title>
+  <meta property="og:title" content="Draft U.S. Web Design Standards | Form controls" />
+
+
+
+  <meta name="description" content="">
+  <meta property="og:description" content="" />
+
+
+  <link rel="canonical" href="/form-controls/" />
+
+<!--[if lt IE 9]>
+  <script src="/assets/js/vendor/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Favicons
+================================================== -->
+  <!-- 128x128 -->
+  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" href="/assets/img/favicons/favicon.png" />
+
+  <!-- 192x192, as recommended for Android
+  http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+  -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/favicon-192.png" />
+
+  <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicons/favicon-57.png">
+  <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/favicons/favicon-72.png">
+  <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/favicons/favicon-114.png">
+  <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/favicons/favicon-144.png">
+
+<!-- CSS
+================================================== -->
+  <link rel="stylesheet" href="/assets/css/styleguide.css">
+
+  </head>
+
+  <body class="page-form-controls">
+
+  	<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+<header class="usa-header site-header" role="banner">
+  <div class="usa-disclaimer">
+    <div class="usa-disclaimer-official">
+      <img src="/assets/img/favicons/favicon-40.png" alt="U.S. flag">
+      <p>An official website of the United States government</p>
+    </div>
+    <p class="usa-disclaimer-stage">
+      This site is currently in alpha.
+      <a href="https://18f.gsa.gov/dashboard/stages/#alpha">Learn more.</a>
+    </p>
+  </div>
+  <div class="usa-navbar site-header-navbar">
+    <button class="usa-menu-btn">Menu</button>
+    <div class="usa-logo site-logo" id="logo">
+      <em class="usa-logo-text">
+        <a href="/" accesskey="1" title="Home" aria-label="Home">
+        Draft U.S. Web Design Standards</a>
+      </em>
+    </div>
+    <ul class="usa-button-list usa-unstyled-list">
+  <li>
+    <a class="usa-button" href="/download/" onclick="ga('send', 'event', 'Downloaded code and design files', 'Clicked Download code and design files from inside site');">
+      Download code and design files
+    </a>
+  </li>
+  <li>
+    <a class="usa-button usa-button-outline-inverse" href="https://github.com/18F/web-design-standards" onclick="ga('send', 'event', 'Viewed on Github', 'Clicked View on Github from inside site');">
+      View on GitHub
+    </a>
+  </li>
+</ul>
+
+  </div>
+  <nav class="site-nav-secondary js-sticky-nav">
+    <ul>
+      <li>
+        <a class="usa-current" href="/">UI COMPONENTS</a>
+      </li>
+      <li>
+        <a  href="/getting-started/">GETTING STARTED</a>
+      </li>
+      <li>
+        <a  href="/design-principles/">DESIGN PRINCIPLES</a>
+      </li>
+      <li>
+        <a  href="/about-our-work/">ABOUT OUR WORK</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<div class="usa-overlay"></div>
+
+
+    <aside class="sidenav">
+      
+        
+
+<nav>
+  <ul class="usa-sidenav-list">
+    <li>
+      <a  href="/">Overview</a>
+    </li>
+    <li>
+      <a  href="/typography/">Typography</a>
+      
+    </li>
+    <li>
+      <a  href="/colors/">Colors</a>
+      
+    </li>
+    <li>
+      <a  href="/grids/">Grid</a>
+    </li>
+    <li>
+      <a  href="/buttons/">Buttons</a>
+    </li>
+    <li>
+      <a  href="/labels/">Labels</a>
+    </li>
+    <li>
+      <a  href="/tables/">Tables</a>
+    </li>
+    <li>
+      <a  href="/alerts/">Alerts</a>
+    </li>
+    <li>
+      <a  href="/accordions/">Accordions</a>
+    </li>
+    <li>
+      <a class="usa-current" href="/form-controls/">Form controls</a>
+      
+        <ul class="usa-sidenav-sub_list">
+          <li>
+            <a href="#text-input">Text inputs and area</a>
+          </li>
+          <li>
+            <a href="#dropdown">Dropdown</a>
+          </li>
+          <li>
+            <a href="#checkboxes">Checkboxes</a>
+          </li>
+          <li>
+            <a href="#radio-buttons">Radio buttons</a>
+          </li>
+          <li>
+            <a href="#date-input">Date input</a>
+          </li>
+        </ul>
+      
+    </li>
+    <li>
+      <a  href="/form-templates/">Form templates</a>
+      
+    </li>
+    <li>
+      <a  href="/search-bar/">Search bar</a>
+    </li>
+    <li>
+      <a  href="/sidenav/">Side navigation</a>
+    </li>
+    <li>
+      <a  href="/headers/">Headers</a>
+      
+    </li>
+    <li>
+      <a  href="/footers/">Footers</a>
+      
+    </li>
+  </ul>
+</nav>
+
+      
+    </aside>
+    
+
+<nav role="navigation" class="usa-nav sidenav-mobile">
+  <div class="usa-nav-inner">
+    <button class="usa-nav-close">
+      <img src="/assets/img/close.svg" alt="close">
+    </button>
+    <ul class="usa-sidenav-list usa-accordion">
+      <li>
+        <button class="usa-accordion-button"
+          
+            class="usa-current"
+          
+          
+            
+              aria-expanded="true"
+            
+          
+          aria-controls="side-nav-1">UI components</button>
+        <ul id="side-nav-1" class="usa-sidenav-sub_list">
+          <li>
+            <a  href="/">Overview</a>
+          </li>
+          <li>
+            <a  href="/typography/">Typography</a>
+          </li>
+          <li>
+            <a  href="/colors/">Colors</a>
+          </li>
+          <li>
+            <a  href="/grids/">Grid</a>
+          </li>
+          <li>
+            <a  href="/buttons/">Buttons</a>
+          </li>
+          <li>
+            <a  href="/labels/">Labels</a>
+          </li>
+          <li>
+            <a  href="/tables/">Tables</a>
+          </li>
+          <li>
+            <a  href="/alerts/">Alerts</a>
+          </li>
+          <li>
+            <a  href="/accordions/">Accordions</a>
+          </li>
+          <li>
+            <a class="usa-current" href="/form-controls/">Form controls</a>
+          </li>
+          <li>
+            <a  href="/form-templates/">Form templates</a>
+          </li>
+          <li>
+            <a  href="/search-bar/">Search bar</a>
+          </li>
+          <li>
+            <a  href="/sidenav/">Side navigation</a>
+          </li>
+          <li>
+            <a  href="/headers/">Headers</a>
+          </li>
+          <li>
+            <a  href="/footers/">Footers</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button class="usa-accordion-button"
+          
+          
+            aria-expanded="false"
+          
+          aria-controls="sidenav-2">Getting started</button>
+        <ul id="sidenav-2" class="usa-sidenav-sub_list">
+          <li>
+            <a  href="/getting-started/">Overview</a>
+          </li>
+          <li>
+            <a  href="/getting-started/developers/">For developers</a>
+          </li>
+          <li>
+            <a  href="/getting-started/designers/">For designers</a>
+          </li>
+          <li>
+            <a  href="/download">Download code and design files</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a
+        
+        href="/design-principles/">Design principles</a>
+      </li>
+      <li>
+        <button class="usa-accordion-button"
+          
+          
+            aria-expanded="false"
+          
+         aria-controls="sidenav-3" >About our work</button>
+        <ul id="sidenav-3" class="usa-sidenav-sub_list">
+          <li>
+            <a  href="/about-our-work/">Overview</a>
+          </li>
+          <li>
+            <a  href="/about-our-work/product-roadmap/">Product roadmap</a>
+          </li>
+          <li>
+            <a  href="/about-our-work/component-maturity-scale/">Component maturity scale</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="usa-button-list usa-unstyled-list">
+  <li>
+    <a class="usa-button" href="/download/" onclick="ga('send', 'event', 'Downloaded code and design files', 'Clicked Download code and design files from inside site');">
+      Download code and design files
+    </a>
+  </li>
+  <li>
+    <a class="usa-button usa-button-outline-inverse" href="https://github.com/18F/web-design-standards" onclick="ga('send', 'event', 'Viewed on Github', 'Clicked View on Github from inside site');">
+      View on GitHub
+    </a>
+  </li>
+</ul>
+
+  </div>
+</nav>
+
+
+    <div class="main-content" id="main-content">
+      <div class="styleguide-content usa-content">
+        <header>
+          
+            
+              <p class="site-subheading">UI components</p>
+            
+          
+          <h1 id="form-controls">Form controls</h1>
+          
+        </header>
+        
+          <p class="usa-font-lead">Form controls allow users to enter information into a page.</p>
+        
+        <h3 class="usa-heading heading-margin-alt">Accessibility</h3>
+
+<p>As you customize these templates, make sure they meet the accessibility guidelines in this introduction and as described for each control.</p>
+
+<ul class="usa-content-list">
+  <li>Display form controls in the same order in HTML as they appear on screen. Do not use CSS to rearrange the form controls. Screen readers narrate forms in the order they appear in the HTML.</li>
+  <li>Visually align validation messages with the input fields, so people using screen magnifiers can read them quickly.</li>
+  <li>Group each set of thematically related controls in a fieldset element. Use the legend element to offer a label within each one. The fieldset and legend elements make it easier for screen reader users to navigate the form.</li>
+  <li>Use a single legend for fieldset (this is required). One example of a common use of fieldset and legend is a question with radio button options for answers. The question text and radio buttons are wrapped in a fieldset, with the question itself being inside the legend tag.</li>
+  <li>Embed multiple fieldsets and legends for more complex forms.</li>
+  <li>Keep your form blocks in a vertical pattern. This approach is ideal, from an accessibility standpoint, because of limited vision that makes it hard to scan from right to left.</li>
+</ul>
+
+<h4>Supporting screen readers</h4>
+
+<p><b>Note:</b> These code examples have been designed to support a range of screen readers. That said, they may not work with all versions.</p>
+
+<h5>Known issues</h5>
+
+<ul class="usa-content-list">
+  <li>VoiceOver on iOS currently does not support fieldset and legend for forms. You can address this by using <code>aria-labeledby="for-attribute-of-label id-of-legend id-of-additional-info"</code> on each input in the fieldset. Using <code>aria-labeledby</code> will overwrite the default text read by the screen reader, so it is important to include all relevant information.</li>
+  <li>VoiceOver on OS X currently does not support <code>aria-describedby</code>. Use <code>aria-labeledby</code> instead, and include all related fields, including, labels, legend, and hint text</li>
+</ul>
+
+<p>If you are a building a form with multiple controls, also consider the <a href="/form-templates/">accessibility guidelines in the “Form Templates” section</a>.</p>
+
+<section id="01-text-input">
+  <h2 class="usa-heading heading-margin-alt" id="text-input">Text input</h2>
+  
+    <div class="tooltip">
+      <p class="tooltip-text" id="tooltip-text-text-input">Read about the component maturity scale</p>
+      <a class="usa-label label-alpha" href="/about-our-work/component-maturity-scale/" aria-describedby="tooltip-text-text-input">
+        alpha
+      </a>
+    </div>
+  
+  
+    <p class="usa-font-lead">Text inputs allow people to enter any combination of letters, numbers, or symbols of their choosing (unless otherwise restricted). Text input boxes can span single or multiple lines.</p>
+  
+  <div class="preview ">
+  
+  <label for="input-type-text">Text input label</label>
+  <input id="input-type-text" name="input-type-text" type="text">
+
+  <label for="input-focus">Text input focused</label>
+  <input class="usa-input-focus" id="input-focus" name="input-focus" type="text">
+
+  <div class="usa-input-error">
+    <label class="usa-input-error-label" for="input-error">Text input error</label>
+    <span class="usa-input-error-message" id="input-error-message" role="alert">Helpful error message</span>
+    <input id="input-error" name="input-error" type="text" aria-describedby="input-error-message">
+  </div>
+
+  <label for="input-success">Text input success</label>
+  <input class="usa-input-success" id="input-success" name="input-success" type="text">
+
+  <label for="input-type-textarea">Text area label</label>
+  <textarea id="input-type-textarea" name="input-type-textarea"></textarea>
+
+
+</div>
+
+<div class="usa-accordion-bordered usa-code-sample">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled" aria-controls="code">Code</button>
+      <div id="code" class="usa-accordion-content">
+        <pre><code class="language-markup">
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-type-text<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Text input label<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-type-text<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-type-text<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-focus<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Text input focused<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-input-focus<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-focus<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-focus<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-input-error<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-input-error-label<span class="token punctuation" >"</span></span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-error<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Text input error<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-input-error-message<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-error-message<span class="token punctuation" >"</span></span> <span class="token attr-name" >role</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>alert<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Helpful error message<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-error<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-error<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token attr-name" >aria-describedby</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-error-message<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-success<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Text input success<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-input-success<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-success<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-success<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-type-textarea<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Text area label<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>textarea</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-type-textarea<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input-type-textarea<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>textarea</span><span class="token punctuation" >></span></span>
+
+</code></pre>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered usa-accordion-docs">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h4>
+    <p>If you customize the text inputs, ensure they continue to meet the the <a href="/form-controls/"> accessibility requirements that apply to all form controls.</a></p>
+    <ul class="usa-content-list">
+      <li>Avoid placeholder text for accessibility reasons. Most browsers’ default rendering of placeholder text does not provide a high enough contrast ratio.</li>
+      <li>Avoid breaking numbers with distinct sections (such as phone numbers, Social Security Numbers, or credit card numbers) into separate input fields. For example, use one input for phone number, not three (one for area code, one for local code, and one for number). Each field needs to be labeled for a screen reader and the labels for fields broken into segments are often not meaningful.</li>
+    </ul>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>If you can’t reasonably predict a user’s answer to a prompt and there might be wide variability in users’ answers.</li>
+      <li>When using another type of input will make answering more difficult. For example, birthdays and other known dates are easier to type in than they are to select from a calendar picker.</li>
+      <li>When users want to be able to paste in a response.</li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>When users are choosing from a specific set of options.</li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>The length of the text input provides a hint to users as to how much text to write. Do not require users to write paragraphs of text into a single-line input box; use a text area instead.</li>
+      <li>Text inputs are among the easiest type of input for desktop users but are more difficult for mobile users.</li>
+      <li>Only show error validation messages or stylings after a user has interacted with a particular field.</li>
+      <li>Avoid using placeholder text that appears within a text field before a user starts typing. If placeholder text is no longer visible after a user clicks into the field, users will no longer have that text available when they need to review their entries. (People who have cognitive or visual disabilities have additional problems with placeholder text.)</li>
+    </ul>
+  </div>
+</div>
+
+</section>
+
+<section id="02-dropdown">
+  <h2 class="usa-heading heading-margin-alt" id="dropdown">Dropdown</h2>
+  
+    <div class="tooltip">
+      <p class="tooltip-text" id="tooltip-text-dropdown">Read about the component maturity scale</p>
+      <a class="usa-label label-alpha" href="/about-our-work/component-maturity-scale/" aria-describedby="tooltip-text-dropdown">
+        alpha
+      </a>
+    </div>
+  
+  
+    <p class="usa-font-lead">A dropdown allows users to select one option from a list.</p>
+  
+  <div class="preview preview-dropdown">
+  
+  <form class="usa-form">
+    <label for="options">Dropdown label</label>
+    <select name="options" id="options">
+      <option value="value1">Option A</option>
+      <option value="value2">Option B</option>
+      <option value="value3">Option C</option>
+    </select>
+  </form>
+
+
+</div>
+
+<div class="usa-accordion-bordered usa-code-sample">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled" aria-controls="code">Code</button>
+      <div id="code" class="usa-accordion-content">
+        <pre><code class="language-markup">
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>form</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-form<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>options<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Dropdown label<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>select</span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>options<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>options<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>option</span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>value1<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Option A<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>option</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>option</span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>value2<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Option B<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>option</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>option</span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>value3<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Option C<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>option</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>select</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>form</span><span class="token punctuation" >></span></span>
+
+</code></pre>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered usa-accordion-docs">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h4>
+    <p>If you customize the dropdown, ensure it continues to meet the the <a href="/form-controls/"> accessibility requirements that apply to all form controls.</a></p>
+    <ul class="usa-content-list">
+      <li>Make sure your dropdown has a label. Don’t replace it with the default menu option (for example, removing the “State” label and just having the dropdown read “Select a state” by default).</li>
+      <li>Don’t use JavaScript to automatically submit the form (or do anything else) when an option is selected. Auto-submission disrupts screen readers because they select each option as they read them.</li>
+    </ul>
+
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>Use sparingly — only when a user needs to choose from about seven to 15 possible options and you have limited space to display the options.</li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>If the list of options is very short. Use radio buttons instead.</li>
+      <li>If the list of options is very long. Let users type the same information into a text input that suggests possible options instead.</li>
+      <li>If you need to allow users to select more than one option at once. Users often don’t understand how to select multiple items from dropdowns. Use checkboxes instead.</li>
+      <li>For site navigation (use the navigation components instead).</li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>Test dropdowns thoroughly with members of your target audience. Several usability experts suggest they should be the “UI of last resort.” Many users find them confusing and difficult to use.</li>
+      <li>Avoid making options in one dropdown menu change based on the input to another. Users often don’t understand how selecting an item in one impacts another.</li>
+      <li>When most users will (or should) pick a particular option, make it the default: <code>&lt;option selected=<wbr>"selected"&gt;Default<wbr>&lt;/option&gt;</code></li>
+      <li>Don’t use JavaScript to automatically submit the form (or do anything else) when an option is selected. Offer a “submit” button at the end of the form instead. Users often change their choices multiple times. Auto-submission is also less accessible.</li>
+    </ul>
+  </div>
+</div>
+
+</section>
+
+<section id="03-checkboxes">
+  <h2 class="usa-heading heading-margin-alt" id="checkboxes">Checkboxes</h2>
+  
+    <div class="tooltip">
+      <p class="tooltip-text" id="tooltip-text-checkboxes">Read about the component maturity scale</p>
+      <a class="usa-label label-alpha" href="/about-our-work/component-maturity-scale/" aria-describedby="tooltip-text-checkboxes">
+        alpha
+      </a>
+    </div>
+  
+  
+    <p class="usa-font-lead">Checkboxes allow users to select one or more options from a visible list.</p>
+  
+  <div class="preview ">
+  
+  <fieldset class="usa-fieldset-inputs usa-sans">
+
+    <legend class="usa-sr-only">Historical figures 1</legend>
+
+    <ul class="usa-unstyled-list">
+      <li>
+        <input id="truth" type="checkbox" name="historical-figures-1" value="truth" checked>
+        <label for="truth">Sojourner Truth</label>
+      </li>
+      <li>
+        <input id="douglass" type="checkbox" name="historical-figures-1" value="douglass">
+        <label for="douglass">Frederick Douglass</label>
+      </li>
+      <li>
+        <input id="washington" type="checkbox" name="historical-figures-1" value="washington">
+        <label for="washington">Booker T. Washington</label>
+      </li>
+      <li>
+        <input id="carver" type="checkbox" name="historical-figures-1" disabled>
+        <label for="carver">George Washington Carver</label>
+      </li>
+    </ul>
+
+  </fieldset>
+
+
+</div>
+
+<div class="usa-accordion-bordered usa-code-sample">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled" aria-controls="code">Code</button>
+      <div id="code" class="usa-accordion-content">
+        <pre><code class="language-markup">
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>fieldset</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-fieldset-inputs usa-sans<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>legend</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-sr-only<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Historical figures 1<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>legend</span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ul</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-unstyled-list<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>truth<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>checkbox<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>historical-figures-1<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>truth<span class="token punctuation" >"</span></span> <span class="token attr-name" >checked</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>truth<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Sojourner Truth<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>douglass<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>checkbox<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>historical-figures-1<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>douglass<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>douglass<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Frederick Douglass<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>washington<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>checkbox<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>historical-figures-1<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>washington<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>washington<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Booker T. Washington<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>carver<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>checkbox<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>historical-figures-1<span class="token punctuation" >"</span></span> <span class="token attr-name" >disabled</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>carver<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>George Washington Carver<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ul</span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>fieldset</span><span class="token punctuation" >></span></span>
+
+</code></pre>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered usa-accordion-docs">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h4>
+    <p>If you customize the text inputs, ensure they continue to meet the the <a href="/form-controls/"> accessibility requirements that apply to all form controls.</a></p>
+    <ul class="usa-content-list">
+      <li>Surround a related set of checkboxes with a <code>&lt;fieldset&gt;</code>. The <code>&lt;legend&gt;</code> provides context for the grouping. Do not use fieldset and legend for a single check.</li>
+      <li>The custom checkboxes here are accessible to screen readers because the default checkboxes are moved off-screen with <code>position: absolute; left: -999em</code>.</li>
+      <li>Each input should have a semantic <code>id</code> attribute, and its corresponding label should have the same value in it’s <code>for</code> attribute.</li>
+      <li>The <code>title</code> attribute can replace <code>&lt;label&gt;</code>.</li>
+    </ul>
+
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>When a user can select any number of choices from a set list.</li>
+      <li>When a user needs to choose “yes” or “no” on only one option (use a stand-alone checkbox). For example, to toggle a setting on or off.</li>
+      <li>When users need to see all the available options at a glance.</li>
+    </ul>
+    <h5>When to consider something different</h5>
+    <ul class="usa-content-list">
+      <li>If there are too many options to display on a mobile screen.</li>
+      <li>If a user can only select one option from a list (use radio buttons instead).</li>
+    </ul>
+    <h5>Guidelines</h5>
+    <ul class="usa-content-list">
+      <li>Users should be able to tap on or click on either the text label or the checkbox to select or deselect an option.</li>
+      <li>List options vertically if possible; horizontal listings can make it difficult to tell which label pertains to which checkbox.</li>
+      <li>Avoid using negative language in labels as they can be counterintuitive. For example, “I want to receive a promotional email” instead of “I don’t want to receive promotional email.”</li>
+      <li>If you customize, make sure selections are adequately spaced for touch screens.</li>
+    </ul>
+  </div>
+</div>
+
+</section>
+
+<section id="04-radio-buttons">
+  <h2 class="usa-heading heading-margin-alt" id="radio-buttons">Radio buttons</h2>
+  
+    <div class="tooltip">
+      <p class="tooltip-text" id="tooltip-text-radio-buttons">Read about the component maturity scale</p>
+      <a class="usa-label label-alpha" href="/about-our-work/component-maturity-scale/" aria-describedby="tooltip-text-radio-buttons">
+        alpha
+      </a>
+    </div>
+  
+  
+    <p class="usa-font-lead">Radio buttons allow users to see all available choices at once and select exactly one option.</p>
+  
+  <div class="preview ">
+  
+  <fieldset class="usa-fieldset-inputs usa-sans">
+
+    <legend class="usa-sr-only">Historical figures 2</legend>
+
+    <ul class="usa-unstyled-list">
+      <li>
+        <input id="stanton" type="radio" checked name="historical-figures-2" value="stanton">
+        <label for="stanton">Elizabeth Cady Stanton</label>
+      </li>
+      <li>
+        <input id="anthony" type="radio" name="historical-figures-2" value="anthony">
+        <label for="anthony">Susan B. Anthony</label>
+      </li>
+      <li>
+        <input id="tubman" type="radio" name="historical-figures-2" value="tubman">
+        <label for="tubman">Harriet Tubman</label>
+      </li>
+    </ul>
+
+  </fieldset>
+
+
+</div>
+
+<div class="usa-accordion-bordered usa-code-sample">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled" aria-controls="code">Code</button>
+      <div id="code" class="usa-accordion-content">
+        <pre><code class="language-markup">
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>fieldset</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-fieldset-inputs usa-sans<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>legend</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-sr-only<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Historical figures 2<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>legend</span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ul</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-unstyled-list<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>stanton<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span> <span class="token attr-name" >checked</span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>historical-figures-2<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>stanton<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>stanton<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Elizabeth Cady Stanton<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>anthony<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>historical-figures-2<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>anthony<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>anthony<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Susan B. Anthony<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>tubman<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>historical-figures-2<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>tubman<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>tubman<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Harriet Tubman<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ul</span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>fieldset</span><span class="token punctuation" >></span></span>
+
+</code></pre>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered usa-accordion-docs">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h4>
+    <p>If you customize the radio buttons, ensure they continue to meet the the <a href="/form-controls/"> accessibility requirements that apply to all form controls.</a></p>
+    <ul class="usa-content-list">
+      <li>Group related radio buttons together with <code>&lt;fieldset></code> and describe the group with <code>&lt;legend&gt;</code>.</li>
+      <li>Each radio button should have a <code>&lt;label&gt;</code>. Associate the two by matching the <code>&lt;label&gt;</code>’s for attribute to the <code>&lt;input&gt;</code>’s <code>id</code> attribute.</li>
+      <li>The <code>title</code> attribute can replace <code>&lt;label&gt;</code>.</li>
+    </ul>
+
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>When users need to select only one option out of a set of mutually exclusive choices.</li>
+      <li>When the number of available options can fit onto a mobile screen.</li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>Consider checkboxes if  users need to select more than one option or if there is only one item to select.</li>
+      <li>Consider a  dropdown if you don’t have enough space to list out all available options.</li>
+      <li>If users should be able to select zero of the options.</li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>Users should be able to tap on or click on either the text "label" or the radio button to select or deselect an option.</li>
+      <li>Options that are listed vertically are easier to read than those that are listed horizontally. Horizontal listings can make it difficult to tell which label pertains to which radio button.</li>
+      <li>If you customize, make sure selections are adequately spaced for touch screens.</li>
+      <li>Use caution if you decide to set a default value. Setting a default value can discourage users from making conscious decisions, seem pushy, or alienate users who don’t fit into your assumptions. If you are unsure, leave nothing selected by default.</li>
+    </ul>
+  </div>
+</div>
+
+</section>
+
+<section id="05-date-input">
+  <h2 class="usa-heading heading-margin-alt" id="date-input">Date input</h2>
+  
+    <div class="tooltip">
+      <p class="tooltip-text" id="tooltip-text-date-input">Read about the component maturity scale</p>
+      <a class="usa-label label-alpha" href="/about-our-work/component-maturity-scale/" aria-describedby="tooltip-text-date-input">
+        alpha
+      </a>
+    </div>
+  
+  
+    <p class="usa-font-lead">Three text fields are the easiest way for users to enter most dates.</p>
+  
+  <div class="preview ">
+  
+  <fieldset>
+    <legend>Date of birth</legend>
+    <span class="usa-form-hint" id="dobHint">For example: 04 28 1986</span>
+
+    <div class="usa-date-of-birth">
+      <div class="usa-form-group usa-form-group-month">
+        <label for="date_of_birth_1">Month</label>
+        <input class="usa-input-inline" aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_1" name="date_of_birth_1" pattern="0?[1-9]|1[012]" type="number" min="1" max="12" value="">
+      </div>
+      <div class="usa-form-group usa-form-group-day">
+        <label for="date_of_birth_2">Day</label>
+        <input class="usa-input-inline" aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_2" name="date_of_birth_2" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="number" min="1" max="31" value="">
+      </div>
+      <div class="usa-form-group usa-form-group-year">
+        <label for="date_of_birth_3">Year</label>
+        <input class="usa-input-inline" aria-describedby="dobHint" class="usa-form-control" id="date_of_birth_3" name="date_of_birth_3" pattern="[0-9]{4}" type="number" min="1900" max="2000" value="">
+      </div>
+    </div>
+  </fieldset>
+
+
+</div>
+
+<div class="usa-accordion-bordered usa-code-sample">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled" aria-controls="code">Code</button>
+      <div id="code" class="usa-accordion-content">
+        <pre><code class="language-markup">
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>fieldset</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>legend</span><span class="token punctuation" >></span></span>Date of birth<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>legend</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-form-hint<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>dobHint<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>For example: 04 28 1986<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-date-of-birth<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-form-group usa-form-group-month<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>date_of_birth_1<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Month<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-input-inline<span class="token punctuation" >"</span></span> <span class="token attr-name" >aria-describedby</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>dobHint<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-form-control<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>date_of_birth_1<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>date_of_birth_1<span class="token punctuation" >"</span></span> <span class="token attr-name" >pattern</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>0?[1-9]|1[012]<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>number<span class="token punctuation" >"</span></span> <span class="token attr-name" >min</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>1<span class="token punctuation" >"</span></span> <span class="token attr-name" >max</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>12<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span><span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-form-group usa-form-group-day<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>date_of_birth_2<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Day<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-input-inline<span class="token punctuation" >"</span></span> <span class="token attr-name" >aria-describedby</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>dobHint<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-form-control<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>date_of_birth_2<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>date_of_birth_2<span class="token punctuation" >"</span></span> <span class="token attr-name" >pattern</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>0?[1-9]|1[0-9]|2[0-9]|3[01]<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>number<span class="token punctuation" >"</span></span> <span class="token attr-name" >min</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>1<span class="token punctuation" >"</span></span> <span class="token attr-name" >max</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>31<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span><span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-form-group usa-form-group-year<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>date_of_birth_3<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Year<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-input-inline<span class="token punctuation" >"</span></span> <span class="token attr-name" >aria-describedby</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>dobHint<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-form-control<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>date_of_birth_3<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>date_of_birth_3<span class="token punctuation" >"</span></span> <span class="token attr-name" >pattern</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>[0-9]{4}<span class="token punctuation" >"</span></span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>number<span class="token punctuation" >"</span></span> <span class="token attr-name" >min</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>1900<span class="token punctuation" >"</span></span> <span class="token attr-name" >max</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>2000<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span><span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>fieldset</span><span class="token punctuation" >></span></span>
+
+</code></pre>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" aria-hidden="false" class="usa-accordion-content">
+    <h4 class="usa-heading">Implementation</h4>
+      <p>Currently, the max limit for the year input is set to 2000, but it should be changed depending on the context of the form.</p>
+    <h4 class="usa-heading">Accessibility</h4>
+    <ul class="usa-content-list">
+      <li>These text fields should follow the <a href="/form-controls/#text-inputs"> accessibility guidelines for all text inputs.</a></li>
+      <li>Do not use JavaScript to auto advance the focus from one field to the next. This makes it difficult for keyboard-only users to navigate and correct mistakes.</li>
+    </ul>
+
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>Use this format for most dates, particularly memorized dates.</li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>If users are trying to schedule something, a calendar picker might make more sense. Be sure to also provide an option for text entry as well.</li>
+    </ul>
+    <h5>Guidelines</h5>
+    <ul class="usa-content-list">
+      <li>Be sure each field is properly labeled — some countries enter dates in day, month, year order.</li>
+      <li>It may be tempting to switch all or some of these text fields to drop downs, but these tend to be more difficult to use than text boxes.</li>
+    </ul>
+  </div>
+</div>
+
+</section>
+
+      </div>
+
+      <footer class="site-footer" role="contentinfo">
+        <div class="site-footer-nav usa-grid">
+          
+          
+            <h6>UI components</h6>
+          
+          
+            
+
+<nav>
+  <ul class="usa-sidenav-list">
+    <li>
+      <a  href="/">Overview</a>
+    </li>
+    <li>
+      <a  href="/typography/">Typography</a>
+      
+    </li>
+    <li>
+      <a  href="/colors/">Colors</a>
+      
+    </li>
+    <li>
+      <a  href="/grids/">Grid</a>
+    </li>
+    <li>
+      <a  href="/buttons/">Buttons</a>
+    </li>
+    <li>
+      <a  href="/labels/">Labels</a>
+    </li>
+    <li>
+      <a  href="/tables/">Tables</a>
+    </li>
+    <li>
+      <a  href="/alerts/">Alerts</a>
+    </li>
+    <li>
+      <a  href="/accordions/">Accordions</a>
+    </li>
+    <li>
+      <a class="usa-current" href="/form-controls/">Form controls</a>
+      
+        <ul class="usa-sidenav-sub_list">
+          <li>
+            <a href="#text-input">Text inputs and area</a>
+          </li>
+          <li>
+            <a href="#dropdown">Dropdown</a>
+          </li>
+          <li>
+            <a href="#checkboxes">Checkboxes</a>
+          </li>
+          <li>
+            <a href="#radio-buttons">Radio buttons</a>
+          </li>
+          <li>
+            <a href="#date-input">Date input</a>
+          </li>
+        </ul>
+      
+    </li>
+    <li>
+      <a  href="/form-templates/">Form templates</a>
+      
+    </li>
+    <li>
+      <a  href="/search-bar/">Search bar</a>
+    </li>
+    <li>
+      <a  href="/sidenav/">Side navigation</a>
+    </li>
+    <li>
+      <a  href="/headers/">Headers</a>
+      
+    </li>
+    <li>
+      <a  href="/footers/">Footers</a>
+      
+    </li>
+  </ul>
+</nav>
+
+          
+        </div>
+        <div class="site-footer-info">
+          <div class="usa-grid">
+  <div class="logo-links">
+    <a href="https://18f.gsa.gov/">
+      <img src="/assets/img/logo-18f.png" alt="18F">
+    </a>
+    <a href="http://www.gsa.gov/">
+      <img src="/assets/img/logo-gsa.png" alt="GSA">
+    </a>
+    <a href="https://www.usds.gov/">
+      <img class="logo-usds" src="/assets/img/logo-usds.png" alt="USDS">
+    </a>
+  </div>
+  <div class="footer-text">
+    <div class="footer-text-one-half">
+      <p>Feedback? Create an issue on the <a href="https://github.com/18F/web-design-standards">GitHub repository</a> or email us at <a href="mailto:uswebdesignstandards@gsa.gov">uswebdesignstandards@gsa.gov</a>.</p>
+      <p>Have an idea? Read our <a href="https://github.com/18F/web-design-standards/blob/master/CONTRIBUTING.md">contribution guidelines</a>.</p>      
+    </div>
+    <div class="footer-text-one-half">
+      <p>As a work of the United States government, this project is <a href="https://github.com/18F/web-design-standards/blob/master/LICENSE.md">in the public domain</a>.</p>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div>
+
+    <!--[if lt IE 9]>
+  <script src="/assets/js/vendor/selectivizr-min.js"></script>
+  <script src="/assets/js/vendor/respond.js"></script>
+  <script src="/assets/js/vendor/rem.min.js"></script>
+<![endif]-->
+
+    	<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+	<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+	<!-- Google Analytics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-48605964-43', 'gsa.gov');
+
+	  // anonymize user IPs (chops off the last IP triplet)
+	  ga('set', 'anonymizeIp', true);
+
+	  // forces SSL even if the page were somehow loaded over http://
+	  ga('set', 'forceSSL', true);
+
+	  ga('send', 'pageview');
+	</script>
+  
+  <!-- Ethnio Activation Code -->
+  <script type="text/javascript" language="javascript" src="//ethn.io/58707.js" async="true" charset="utf-8"></script>
+
+    <script src="/assets/js/styleguide.js"></script>
+
+    <script src="/assets/js/vendor/uswds.min.js"></script>
+
+  </body>
+
+</html>
