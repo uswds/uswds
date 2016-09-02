@@ -6,7 +6,7 @@ The [Draft U.S. Web Design Standards](https://standards.usa.gov) include a libra
 
 Previously, the website and documentation for the Draft U.S. Web Design Standards were also part of this repository. To provide more clarity to both people who want to work with the Standards and people who work with the documentation locally, we have separated these into two repositories. This repository is for the Standards themselves.
 
-18F maintains [another repository for the documentation and website](https://github.com/18F/web-design-standards-docs). To see the standards and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
+18F maintains [another repository for the documentation and website](https://github.com/18F/web-design-standards-docs). To see the Standards and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
 
 ## Contents
 
@@ -36,9 +36,9 @@ Information about the most recent release of the Standards can always be found i
 We’re glad you’d like to use the Standards — here’s how you can get started:
 
 * Designers: [Check out our Getting Started for Designers information](https://standards.usa.gov/getting-started/designers/).
-    * [Design files of all the assets included in the standards are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
+    * [Design files of all the assets included in the Standards are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
 * Developers: Follow the instructions in this README to get started.
-    * [CSS, JavaScript, image, and font files of all the assets used in the standards are available for download](https://github.com/18F/web-design-standards/releases/download/v0.11.1/uswds-0.11.1.zip).
+    * [CSS, JavaScript, image, and font files of all the assets used in the Standards are available for download](https://github.com/18F/web-design-standards/releases/download/v0.11.1/uswds-0.11.1.zip).
 
 ## Using the Standards
 
