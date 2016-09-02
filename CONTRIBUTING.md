@@ -88,7 +88,7 @@ aliased by `npm start`.
 
 ### A few parts of this project are not in the public domain
 
-For complete attribution and licensing information for parts of the project that are not in the public domain, see [LICENSING.md](LICENSING.md).
+For complete attribution and licensing information for parts of the project that are not in the public domain, see [LICENSE.md](LICENSE.md).
 
 ### The rest of this project is in the public domain
 

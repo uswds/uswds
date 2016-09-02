@@ -4,7 +4,7 @@
 
 The [Draft U.S. Web Design Standards](https://standards.usa.gov) include a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-Previously, the website and documentation for the Draft U.S. Web Design Standards were also part of this repository. To provide more clarity to both people who want to work with the standards and people who work with the documentation locally, we have separated these into two repositories. This repository is for the Standards themselves.
+Previously, the website and documentation for the Draft U.S. Web Design Standards were also part of this repository. To provide more clarity to both people who want to work with the Standards and people who work with the documentation locally, we have separated these into two repositories. This repository is for the Standards themselves.
 
 18F maintains [another repository for the documentation and website](https://github.com/18F/web-design-standards-docs). To see the standards and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
 
@@ -25,7 +25,7 @@ Previously, the website and documentation for the Draft U.S. Web Design Standard
 
 ## Background
 
-The components and style guide of the Draft U.S. Web Design Standards follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created and maintain the Draft Web Design Standards for designers and developers. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/).
+The components and style guide of the Draft U.S. Web Design Standards follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created and maintain the Draft U.S. Web Design Standards for designers and developers. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/).
 
 ## Recent updates
 
@@ -145,7 +145,7 @@ If you’re interested in maintaining a package that helps us distribute the Dra
 
 ## Our use of branches
 
-The `staging` branch is the bleeding edge of development. When developing, we create a feature branch from `staging`, do our work in that branch, and then create a pull request that merges back into `staging`. New commits to `staging` are automatically deployed to [our staging site](https://standards-staging.usa.gov/).
+The `staging` branch is the bleeding edge of development. When cutting a new [release](https://github.com/18F/web-design-standards/releases), we update the versioning on our files by branching off of the `staging` branch and submitting a pull request into our `release` branch. This helps to make `staging` a place that can always receive contributions, no matter where we are in the release process. New commits to `staging` are automatically deployed to [our staging site](https://standards-staging.usa.gov/).
 
 The `master` branch always holds the latest production-ready release. When cutting a [release](https://github.com/18F/web-design-standards/releases), we create a release branch from `staging` named for the new version: for example, `v0.9.x`. Once we’ve completed QA on that branch, we tag the release and merge it into the `master` branch.
 
