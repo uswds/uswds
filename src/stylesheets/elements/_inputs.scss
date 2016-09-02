@@ -18,19 +18,6 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 // Block form elements
 input,
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="url"],
-input[type="tel"],
-input[type="number"],
-input[type="search"],
-input[type="file"],
-input[type="date"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
 textarea,
 select {
   appearance: none;
