@@ -1,11 +1,9 @@
 var verifyjQuery = require('../utils/verify-jquery');
-// window.jQuery = require('jquery');
 
 // jQuery Plugin
 
 if (verifyjQuery(window)) {
 
-  console.log('loading Politespace');
   var $ = window.jQuery;
 
   // README: This is necessary because politespace doesn't properly export anything
@@ -44,9 +42,8 @@ if (verifyjQuery(window)) {
   };
 
 	// auto-init on enhance (which is called on domready)
-  $(document).ready(function () {
+  $(function () {
     $('[data-' + componentName + ']').politespace();
   });
 
 }
-

@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+
+  <head>
+    <!-- Basic Page Needs
+================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Specific Metas
+================================================== -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Title and meta description
+================================================== -->
+
+  <title>Draft U.S. Web Design Standards | Accordions</title>
+  <meta property="og:title" content="Draft U.S. Web Design Standards | Accordions" />
+
+
+
+  <meta name="description" content="">
+  <meta property="og:description" content="" />
+
+
+  <link rel="canonical" href="/accordions/" />
+
+<!--[if lt IE 9]>
+  <script src="/assets/js/vendor/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Favicons
+================================================== -->
+  <!-- 128x128 -->
+  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" href="/assets/img/favicons/favicon.png" />
+
+  <!-- 192x192, as recommended for Android
+  http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+  -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/favicon-192.png" />
+
+  <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicons/favicon-57.png">
+  <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/favicons/favicon-72.png">
+  <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/favicons/favicon-114.png">
+  <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/favicons/favicon-144.png">
+
+<!-- CSS
+================================================== -->
+  <link rel="stylesheet" href="/assets/css/styleguide.css">
+
+  </head>
+
+  <body class="page-accordions">
+
+  	<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+<header class="usa-header site-header" role="banner">
+  <div class="usa-disclaimer">
+    <div class="usa-disclaimer-official">
+      <img src="/assets/img/favicons/favicon-40.png" alt="U.S. flag">
+      <p>An official website of the United States government</p>
+    </div>
+    <p class="usa-disclaimer-stage">
+      This site is currently in alpha.
+      <a href="https://18f.gsa.gov/dashboard/stages/#alpha">Learn more.</a>
+    </p>
+  </div>
+  <div class="usa-navbar site-header-navbar">
+    <button class="usa-menu-btn">Menu</button>
+    <div class="usa-logo site-logo" id="logo">
+      <em class="usa-logo-text">
+        <a href="/" accesskey="1" title="Home" aria-label="Home">
+        Draft U.S. Web Design Standards</a>
+      </em>
+    </div>
+    <ul class="usa-button-list usa-unstyled-list">
+  <li>
+    <a class="usa-button" href="/download/" onclick="ga('send', 'event', 'Downloaded code and design files', 'Clicked Download code and design files from inside site');">
+      Download code and design files
+    </a>
+  </li>
+  <li>
+    <a class="usa-button usa-button-outline-inverse" href="https://github.com/18F/web-design-standards" onclick="ga('send', 'event', 'Viewed on Github', 'Clicked View on Github from inside site');">
+      View on GitHub
+    </a>
+  </li>
+</ul>
+
+  </div>
+  <nav class="site-nav-secondary js-sticky-nav">
+    <ul>
+      <li>
+        <a class="usa-current" href="/">UI COMPONENTS</a>
+      </li>
+      <li>
+        <a  href="/getting-started/">GETTING STARTED</a>
+      </li>
+      <li>
+        <a  href="/design-principles/">DESIGN PRINCIPLES</a>
+      </li>
+      <li>
+        <a  href="/about-our-work/">ABOUT OUR WORK</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<div class="usa-overlay"></div>
+
+
+    <aside class="sidenav">
+      
+        
+
+<nav>
+  <ul class="usa-sidenav-list">
+    <li>
+      <a  href="/">Overview</a>
+    </li>
+    <li>
+      <a  href="/typography/">Typography</a>
+      
+    </li>
+    <li>
+      <a  href="/colors/">Colors</a>
+      
+    </li>
+    <li>
+      <a  href="/grids/">Grid</a>
+    </li>
+    <li>
+      <a  href="/buttons/">Buttons</a>
+    </li>
+    <li>
+      <a  href="/labels/">Labels</a>
+    </li>
+    <li>
+      <a  href="/tables/">Tables</a>
+    </li>
+    <li>
+      <a  href="/alerts/">Alerts</a>
+    </li>
+    <li>
+      <a class="usa-current" href="/accordions/">Accordions</a>
+    </li>
+    <li>
+      <a  href="/form-controls/">Form controls</a>
+      
+    </li>
+    <li>
+      <a  href="/form-templates/">Form templates</a>
+      
+    </li>
+    <li>
+      <a  href="/search-bar/">Search bar</a>
+    </li>
+    <li>
+      <a  href="/sidenav/">Side navigation</a>
+    </li>
+    <li>
+      <a  href="/headers/">Headers</a>
+      
+    </li>
+    <li>
+      <a  href="/footers/">Footers</a>
+      
+    </li>
+  </ul>
+</nav>
+
+      
+    </aside>
+    
+
+<nav role="navigation" class="usa-nav sidenav-mobile">
+  <div class="usa-nav-inner">
+    <button class="usa-nav-close">
+      <img src="/assets/img/close.svg" alt="close">
+    </button>
+    <ul class="usa-sidenav-list usa-accordion">
+      <li>
+        <button class="usa-accordion-button"
+          
+            class="usa-current"
+          
+          
+            
+              aria-expanded="true"
+            
+          
+          aria-controls="side-nav-1">UI components</button>
+        <ul id="side-nav-1" class="usa-sidenav-sub_list">
+          <li>
+            <a  href="/">Overview</a>
+          </li>
+          <li>
+            <a  href="/typography/">Typography</a>
+          </li>
+          <li>
+            <a  href="/colors/">Colors</a>
+          </li>
+          <li>
+            <a  href="/grids/">Grid</a>
+          </li>
+          <li>
+            <a  href="/buttons/">Buttons</a>
+          </li>
+          <li>
+            <a  href="/labels/">Labels</a>
+          </li>
+          <li>
+            <a  href="/tables/">Tables</a>
+          </li>
+          <li>
+            <a  href="/alerts/">Alerts</a>
+          </li>
+          <li>
+            <a class="usa-current" href="/accordions/">Accordions</a>
+          </li>
+          <li>
+            <a  href="/form-controls/">Form controls</a>
+          </li>
+          <li>
+            <a  href="/form-templates/">Form templates</a>
+          </li>
+          <li>
+            <a  href="/search-bar/">Search bar</a>
+          </li>
+          <li>
+            <a  href="/sidenav/">Side navigation</a>
+          </li>
+          <li>
+            <a  href="/headers/">Headers</a>
+          </li>
+          <li>
+            <a  href="/footers/">Footers</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button class="usa-accordion-button"
+          
+          
+            aria-expanded="false"
+          
+          aria-controls="sidenav-2">Getting started</button>
+        <ul id="sidenav-2" class="usa-sidenav-sub_list">
+          <li>
+            <a  href="/getting-started/">Overview</a>
+          </li>
+          <li>
+            <a  href="/getting-started/developers/">For developers</a>
+          </li>
+          <li>
+            <a  href="/getting-started/designers/">For designers</a>
+          </li>
+          <li>
+            <a  href="/download">Download code and design files</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a
+        
+        href="/design-principles/">Design principles</a>
+      </li>
+      <li>
+        <button class="usa-accordion-button"
+          
+          
+            aria-expanded="false"
+          
+         aria-controls="sidenav-3" >About our work</button>
+        <ul id="sidenav-3" class="usa-sidenav-sub_list">
+          <li>
+            <a  href="/about-our-work/">Overview</a>
+          </li>
+          <li>
+            <a  href="/about-our-work/product-roadmap/">Product roadmap</a>
+          </li>
+          <li>
+            <a  href="/about-our-work/component-maturity-scale/">Component maturity scale</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="usa-button-list usa-unstyled-list">
+  <li>
+    <a class="usa-button" href="/download/" onclick="ga('send', 'event', 'Downloaded code and design files', 'Clicked Download code and design files from inside site');">
+      Download code and design files
+    </a>
+  </li>
+  <li>
+    <a class="usa-button usa-button-outline-inverse" href="https://github.com/18F/web-design-standards" onclick="ga('send', 'event', 'Viewed on Github', 'Clicked View on Github from inside site');">
+      View on GitHub
+    </a>
+  </li>
+</ul>
+
+  </div>
+</nav>
+
+
+    <div class="main-content" id="main-content">
+      <div class="styleguide-content usa-content">
+        <header>
+          
+            
+              <p class="site-subheading">UI components</p>
+            
+          
+          <h1 id="accordions">Accordions</h1>
+          
+            <div class="tooltip">
+              <p class="tooltip-text" id="tooltip-text-accordions">Read about the component maturity scale</p>
+              <a class="usa-label label-alpha" href="/about-our-work/component-maturity-scale/" aria-describedby="tooltip-text-accordions">
+                alpha
+              </a>
+            </div>
+          
+        </header>
+        
+          <p class="usa-font-lead">Accordions are a list of headers that can be clicked to hide or reveal additional content.</p>
+        
+        <div class="preview ">
+  
+  <h6>Borderless</h6>
+
+  <ul class="usa-accordion">
+    <li>
+      <button class="usa-accordion-button"
+        aria-expanded="true" aria-controls="amendment-1">
+        First Amendment
+      </button>
+      <div id="amendment-1" class="usa-accordion-content">
+        <p>
+        Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-accordion-button"
+        aria-controls="amendment-2">
+        Second Amendment
+      </button>
+      <div id="amendment-2" class="usa-accordion-content">
+        <p>
+        A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-accordion-button"
+          aria-controls="amendment-3">
+        Third Amendment
+      </button>
+      <div id="amendment-3" class="usa-accordion-content">
+        <p>
+        No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-accordion-button"
+        aria-controls="amendment-4">
+        Fourth Amendment
+      </button>
+      <div id="amendment-4" class="usa-accordion-content">
+        <p>
+        The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-accordion-button"
+        aria-controls="amendment-5">
+        Fifth Amendment
+      </button>
+      <div id="amendment-5" class="usa-accordion-content">
+        <p>
+        No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
+        </p>
+      </div>
+    </li>
+  </ul>
+
+  <h6>Bordered</h6>
+
+  <ul class="usa-accordion-bordered">
+    <li>
+      <button class="usa-accordion-button"
+        aria-expanded="true" aria-controls="amendment-b-1">
+        First Amendment
+      </button>
+      <div id="amendment-b-1" class="usa-accordion-content">
+        <p>
+        Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-accordion-button"
+        aria-controls="amendment-b-2">
+        Second Amendment
+      </button>
+      <div id="amendment-b-2" class="usa-accordion-content">
+        <p>
+        A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-accordion-button"
+          aria-controls="amendment-b-3">
+        Third Amendment
+      </button>
+      <div id="amendment-b-3" class="usa-accordion-content">
+        <p>
+        No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-accordion-button"
+        aria-controls="amendment-b-4">
+        Fourth Amendment
+      </button>
+      <div id="amendment-b-4" class="usa-accordion-content">
+        <p>
+        The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-accordion-button"
+        aria-controls="amendment-b-5">
+        Fifth Amendment
+      </button>
+      <div id="amendment-b-5" class="usa-accordion-content">
+        <p>
+        No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
+        </p>
+      </div>
+    </li>
+  </ul>
+
+
+</div>
+
+<div class="usa-accordion-bordered usa-code-sample">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled" aria-controls="code">Code</button>
+      <div id="code" class="usa-accordion-content">
+        <pre><code class="language-markup">
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h6</span><span class="token punctuation" >></span></span>Borderless<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h6</span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ul</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>button</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-button<span class="token punctuation" >"</span></span>
+        <span class="token attr-name" >aria-expanded</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>true<span class="token punctuation" >"</span></span> <span class="token attr-name" >aria-controls</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-1<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        First Amendment
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>button</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-1<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-content<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+        Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>button</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-button<span class="token punctuation" >"</span></span>
+        <span class="token attr-name" >aria-controls</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-2<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        Second Amendment
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>button</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-2<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-content<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+        A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>button</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-button<span class="token punctuation" >"</span></span>
+          <span class="token attr-name" >aria-controls</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-3<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        Third Amendment
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>button</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-3<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-content<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+        No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>button</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-button<span class="token punctuation" >"</span></span>
+        <span class="token attr-name" >aria-controls</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-4<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        Fourth Amendment
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>button</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-4<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-content<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+        The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>button</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-button<span class="token punctuation" >"</span></span>
+        <span class="token attr-name" >aria-controls</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-5<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        Fifth Amendment
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>button</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-5<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-content<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+        No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ul</span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h6</span><span class="token punctuation" >></span></span>Bordered<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h6</span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ul</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-bordered<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>button</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-button<span class="token punctuation" >"</span></span>
+        <span class="token attr-name" >aria-expanded</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>true<span class="token punctuation" >"</span></span> <span class="token attr-name" >aria-controls</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-b-1<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        First Amendment
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>button</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-b-1<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-content<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+        Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>button</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-button<span class="token punctuation" >"</span></span>
+        <span class="token attr-name" >aria-controls</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-b-2<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        Second Amendment
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>button</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-b-2<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-content<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+        A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>button</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-button<span class="token punctuation" >"</span></span>
+          <span class="token attr-name" >aria-controls</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-b-3<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        Third Amendment
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>button</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-b-3<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-content<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+        No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>button</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-button<span class="token punctuation" >"</span></span>
+        <span class="token attr-name" >aria-controls</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-b-4<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        Fourth Amendment
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>button</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-b-4<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-content<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+        The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>button</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-button<span class="token punctuation" >"</span></span>
+        <span class="token attr-name" >aria-controls</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-b-5<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        Fifth Amendment
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>button</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>amendment-b-5<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-accordion-content<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+        No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ul</span><span class="token punctuation" >></span></span>
+
+</code></pre>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered">
+  <button class="usa-button-unstyled usa-accordion-button"
+    aria-expanded="true" aria-controls="documentation">
+    Documentation
+  </button>
+  <div id="documentation" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h4>
+    <ul class="usa-content-list">
+      <li>
+        Code header areas in the accordion as <code>&lt;buttons&gt;</code> so that they are usable with both screen readers and the keyboard.
+      </li>
+      <li>
+        Buttons should state if they are expanded with <code>aria-expanded=<wbr>"true"</code>. The <code>aria-expanded=<wbr>"false"</code> attributes will be added to other buttons when the accordion is initialized by the JavaScript.
+      </li>
+      <li>
+        Each button has a unique name <code>aria-controls=<wbr>"id"</code> that associates the control to the appropriate region by referencing the controlled element&rsquo;s <code>id</code>.
+      </li>
+      <li>
+        Each content area will have its <code>aria-hidden</code> attribute set to either <code>true</code> or <code>false</code> by the component, depending on its corresponding button&rsquo;s <code>aria-expanded</code> attribute. To ensure that your content is accessible in the event that the JavaScript does not load or is disabled, you should not set <code>aria-hidden=<wbr>"true"</code> on any of your content areas.
+      </li>
+    </ul>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>Users only need a few specific pieces of content within a page.</li>
+      <li>Information needs to be displayed in a small space.</li>
+    </ul>
+    <h5>When to consider something else</h5>
+    <ul class="usa-content-list">
+      <li>If visitors need to see most or all of the information on a page. Use well-formatted text instead.</li>
+      <li>If there is not enough content to warrant condensing. Accordions increase cognitive load and interaction cost, as users have to make decisions about what headers to click on.</li>
+    </ul>
+    <h5>Guidance</h5>
+    <ul class="usa-content-list">
+      <li>Allow users to click anywhere in the header area to expand or collapse the content; a larger target is easier to manipulate.</li>
+      <li>Make sure interactive elements within the collapsible region are far enough from the headers that users don’t accidentally trigger a collapse. (The exact distance depends on the device.)</li>
+    </ul>
+    <a name="deprecated"></a>
+    <h4 class="usa-heading">Upgrading deprecated accordions</h4>
+    <p>The accordion was changed July 2016 in order to improve it's
+    implementation. Currently, both versions of the accordion work, but at some
+    point in the future, the deprecated accordion will no longer function correctly.
+    To upgrade your existing accordions to the new accordion:</p>
+    <ul class="usa-content-list">
+      <li>Remove the top level div that contains the <code>usa-accordion</code> or
+      <code>usa-accordion-bordered</code> class.</li>
+      <li>Add the <code>usa-accordion</code> or <code>usa-accordion-bordered</code>
+      class to the <code>ul</code> element that's now at the top level.
+    </ul>
+  </div>
+</div>
+
+<div class="usa-alert usa-alert-warning" style="margin-bottom: 1rem;">
+  <div class="usa-alert-body">
+    <h3 class="usa-alert-heading">Deprecated</h3>
+    <p class="usa-alert-text">
+      The following accordion has been deprecated since July 2016. Please follow
+      <a href="#deprecated">the instructions</a> to update any existing
+      accordions to the new format.
+    </p>
+  </div>
+</div>
+
+<h6>Deprecated</h6>
+
+<div class="usa-accordion">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled"
+        aria-expanded="true" aria-controls="amendment-c-1">
+        First Amendment
+      </button>
+      <div id="amendment-c-1" class="usa-accordion-content">
+        <p>
+        Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-button-unstyled"
+        aria-controls="amendment-c-2">
+        Second Amendment
+      </button>
+      <div id="amendment-c-2" class="usa-accordion-content">
+        <p>
+        A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-button-unstyled"
+        aria-controls="amendment-c-3">
+        Third Amendment
+      </button>
+      <div id="amendment-c-3" class="usa-accordion-content">
+        <p>
+        No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-button-unstyled"
+        aria-controls="amendment-c-4">
+        Fourth Amendment
+      </button>
+      <div id="amendment-c-4" class="usa-accordion-content">
+        <p>
+        The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
+        </p>
+      </div>
+    </li>
+    <li>
+      <button class="usa-button-unstyled"
+        aria-controls="amendment-c-5">
+        Fifth Amendment
+      </button>
+      <div id="amendment-c-5" class="usa-accordion-content">
+        <p>
+        No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
+        </p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+      </div>
+
+      <footer class="site-footer" role="contentinfo">
+        <div class="site-footer-nav usa-grid">
+          
+          
+            <h6>UI components</h6>
+          
+          
+            
+
+<nav>
+  <ul class="usa-sidenav-list">
+    <li>
+      <a  href="/">Overview</a>
+    </li>
+    <li>
+      <a  href="/typography/">Typography</a>
+      
+    </li>
+    <li>
+      <a  href="/colors/">Colors</a>
+      
+    </li>
+    <li>
+      <a  href="/grids/">Grid</a>
+    </li>
+    <li>
+      <a  href="/buttons/">Buttons</a>
+    </li>
+    <li>
+      <a  href="/labels/">Labels</a>
+    </li>
+    <li>
+      <a  href="/tables/">Tables</a>
+    </li>
+    <li>
+      <a  href="/alerts/">Alerts</a>
+    </li>
+    <li>
+      <a class="usa-current" href="/accordions/">Accordions</a>
+    </li>
+    <li>
+      <a  href="/form-controls/">Form controls</a>
+      
+    </li>
+    <li>
+      <a  href="/form-templates/">Form templates</a>
+      
+    </li>
+    <li>
+      <a  href="/search-bar/">Search bar</a>
+    </li>
+    <li>
+      <a  href="/sidenav/">Side navigation</a>
+    </li>
+    <li>
+      <a  href="/headers/">Headers</a>
+      
+    </li>
+    <li>
+      <a  href="/footers/">Footers</a>
+      
+    </li>
+  </ul>
+</nav>
+
+          
+        </div>
+        <div class="site-footer-info">
+          <div class="usa-grid">
+  <div class="logo-links">
+    <a href="https://18f.gsa.gov/">
+      <img src="/assets/img/logo-18f.png" alt="18F">
+    </a>
+    <a href="http://www.gsa.gov/">
+      <img src="/assets/img/logo-gsa.png" alt="GSA">
+    </a>
+    <a href="https://www.usds.gov/">
+      <img class="logo-usds" src="/assets/img/logo-usds.png" alt="USDS">
+    </a>
+  </div>
+  <div class="footer-text">
+    <div class="footer-text-one-half">
+      <p>Feedback? Create an issue on the <a href="https://github.com/18F/web-design-standards">GitHub repository</a> or email us at <a href="mailto:uswebdesignstandards@gsa.gov">uswebdesignstandards@gsa.gov</a>.</p>
+      <p>Have an idea? Read our <a href="https://github.com/18F/web-design-standards/blob/master/CONTRIBUTING.md">contribution guidelines</a>.</p>      
+    </div>
+    <div class="footer-text-one-half">
+      <p>As a work of the United States government, this project is <a href="https://github.com/18F/web-design-standards/blob/master/LICENSE.md">in the public domain</a>.</p>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div>
+
+    <!--[if lt IE 9]>
+  <script src="/assets/js/vendor/selectivizr-min.js"></script>
+  <script src="/assets/js/vendor/respond.js"></script>
+  <script src="/assets/js/vendor/rem.min.js"></script>
+<![endif]-->
+
+    	<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+	<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+	<!-- Google Analytics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-48605964-43', 'gsa.gov');
+
+	  // anonymize user IPs (chops off the last IP triplet)
+	  ga('set', 'anonymizeIp', true);
+
+	  // forces SSL even if the page were somehow loaded over http://
+	  ga('set', 'forceSSL', true);
+
+	  ga('send', 'pageview');
+	</script>
+  
+  <!-- Ethnio Activation Code -->
+  <script type="text/javascript" language="javascript" src="//ethn.io/58707.js" async="true" charset="utf-8"></script>
+
+    <script src="/assets/js/styleguide.js"></script>
+
+    <script src="/assets/js/vendor/uswds.min.js"></script>
+
+  </body>
+
+</html>
