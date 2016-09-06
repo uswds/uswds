@@ -1,9 +1,9 @@
 var whenDOMReady = require('../utils/when-dom-ready');
+var bannerInit = require('../components/banner');
 
-whenDOMReady(function initBanner () {
+whenDOMReady(function () {
 
-  // Banner
-  require('../components/banner');
+  bannerInit();
 
 });
 
