@@ -6,6 +6,7 @@ var dispatch = require('../utils/dispatch');
 var headers = select('.usa-banner-header');
 headers.forEach(function (header) {
   var click = function (e) {
+    (event.preventDefault) ? event.preventDefault() : event.returnValue = false;
     var expanded = this.getAttribute('aria-expanded') === 'true';
     var toggleClass = expanded ? addClass : removeClass;
     toggleClass(header, 'usa-banner-header-expanded');
