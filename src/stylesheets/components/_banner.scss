@@ -6,18 +6,31 @@
     font-size: $h6-font-size;
     padding-bottom: 0;
   }
+}
 
-  .usa-accordion-content {
-    @include padding(null $site-margins-mobile 3px $site-margins-mobile);
-    background-color: transparent;
-    width: 100%;
+.usa-banner-content {
+  @include padding(null $site-margins-mobile 3px $site-margins-mobile);
+  background-color: transparent;
+  font-size: $h5-font-size;
+  padding-top: 2rem;
+  width: 100%;
 
-    @include media($medium-screen) {
-      padding-bottom: 2.3rem;
-    }
+  @include media($medium-screen) {
+    padding-bottom: 2.3rem;
+    padding-top: 4rem;
+  }
 
-    @include media($nav-width) {
-      @include padding(null $site-margins);
+  @include media($nav-width) {
+    @include padding(null $site-margins);
+  }
+
+  p {
+    &:first-child {
+      margin-top: 1rem;
+
+      @include media($medium-screen) {
+        margin-top: 0;
+      }
     }
   }
 }
@@ -169,25 +182,6 @@
 
       @include media($small-screen) {
         display: inline;
-      }
-    }
-  }
-}
-
-.usa-banner-content {
-  font-size: $h5-font-size;
-  padding-top: 2rem;
-
-  @include media($medium-screen) {
-    padding-top: 4rem;
-  }
-
-  p {
-    &:first-child {
-      margin-top: 1rem;
-
-      @include media($medium-screen) {
-        margin-top: 0;
       }
     }
   }
