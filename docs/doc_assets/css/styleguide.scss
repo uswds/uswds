@@ -26,7 +26,6 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
     position: absolute;
   }
 
-  .usa-disclaimer-official,
   .site-logo {
     margin-left: $site-margins-mobile;
 
@@ -35,14 +34,13 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
     }
   }
 
-  .usa-disclaimer-stage {
-    margin-right: $site-margins-mobile;
-
-    @include media($nav-width) {
-      margin-right: $site-margins;
-    }
+  .usa-banner-inner {
+    max-width: 100%;
   }
 
+  .usa-banner-content {
+    margin-left: 0;
+  }
 
   .usa-button-list {
     float: right;
@@ -70,10 +68,6 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
       @include margin(0 null);
     }
   }
-}
-
-.site-banner-inner {
-  max-width: 100%;
 }
 
 .site-header-navbar {
