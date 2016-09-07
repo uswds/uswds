@@ -72,6 +72,10 @@ $font-monospace:       Consolas, Monaco, 'Andale Mono', monospace;
   }
 }
 
+.site-banner-inner {
+  max-width: 100%;
+}
+
 .site-header-navbar {
   border-bottom: none;
   @include media($nav-width) {
