@@ -3,14 +3,7 @@ var addClass = require('../../utils/add-class');
 var removeClass = require('../../utils/remove-class');
 var dispatch = require('../../utils/dispatch');
 
-var searchForm = select('.js-search-form')[ 0 ];
-var searchButton = select('.js-search-button')[ 0 ];
-var searchButtonContainer = select('.js-search-button-container')[ 0 ];
-var searchDispatcher;
-
-if (searchButton && searchForm) {
-  dispatch(searchButton, 'click touchstart', searchButtonClickHandler);
-}
+var searchForm, searchButton, searchButtonContainer, searchDispatcher;
 
 function searchButtonClickHandler (event) {
   if (isOpen(searchForm)) {
@@ -50,3 +43,15 @@ function searchFormContains (element) {
   return (searchForm && searchForm.contains(element)) ||
          (searchButtonContainer && searchButtonContainer.contains(element));
 }
+
+function searchInit () {
+  searchForm = select('.js-search-form')[ 0 ];
+  searchButton = select('.js-search-button')[ 0 ];
+  searchButtonContainer = select('.js-search-button-container')[ 0 ];
+
+  if (searchButton && searchForm) {
+    dispatch(searchButton, 'click touchstart', searchButtonClickHandler);
+  }
+}
+
+module.exports = searchInit;
