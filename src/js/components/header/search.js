@@ -5,10 +5,6 @@ var dispatch = require('../../utils/dispatch');
 
 var searchForm, searchButton, searchButtonContainer, searchDispatcher;
 
-if (searchButton && searchForm) {
-  dispatch(searchButton, 'click touchstart', searchButtonClickHandler);
-}
-
 function searchButtonClickHandler (event) {
   if (isOpen(searchForm)) {
     closeSearch();
