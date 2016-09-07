@@ -8,7 +8,7 @@ whenDOMReady(function initHeaders () {
   searchInit();
 
   // Mobile Navigation
-  mobileInit();  
+  mobileInit();
 
 });
 
