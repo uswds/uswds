@@ -141,7 +141,9 @@
     @include padding(0 null null 0);
     display: inline;
     height: initial;
+    margin-left: 3px;
     position: relative;
+    vertical-align: middle;
     width: initial;
   }
 
