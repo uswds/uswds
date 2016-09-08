@@ -155,6 +155,10 @@
   &[aria-expanded=false] {
     @include display-icon(angle-arrow-down-primary, after, 1rem, 0, hover);
     background-image: none;
+
+    &::after {
+      background-position-y: 1px;
+    }
   }
 
   &[aria-expanded=true] {
@@ -167,6 +171,10 @@
       height: initial;
       padding: 0;
       position: relative;
+
+      &::after {
+        background-position-y: 1px;
+      }
     }
 
     &::after {
