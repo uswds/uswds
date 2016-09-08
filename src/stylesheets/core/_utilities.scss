@@ -86,7 +86,7 @@
 }
 
 @mixin display-icon($icon, $direction, $size, $margin, $hover) {
-  &:#{$direction} {
+  &::#{$direction} {
     background-image: url(#{$image-path}/#{$icon}.png);
     background-image: url(#{$image-path}/#{$icon}.svg);
     background-size: 100%;
