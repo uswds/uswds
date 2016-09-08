@@ -18,19 +18,6 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 // Block form elements
 input,
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="url"],
-input[type="tel"],
-input[type="number"],
-input[type="search"],
-input[type="file"],
-input[type="date"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
 textarea,
 select {
   appearance: none;
@@ -146,8 +133,8 @@ legend {
 
 // Custom checkboxes
 
-input[type="checkbox"],
-input[type="radio"] {
+[type="checkbox"],
+[type="radio"] {
   margin-left: -2rem;
   opacity: 0;
   position: absolute;
@@ -161,15 +148,15 @@ input[type="radio"] {
   }
 }
 
-input[type="checkbox"] + label,
-input[type="radio"] + label {
+[type="checkbox"] + label,
+[type="radio"] + label {
   cursor: pointer;
   font-weight: 400;
   margin-bottom: 0.5em;
 }
 
-input[type="checkbox"] + label::before,
-input[type="radio"] + label::before {
+[type="checkbox"] + label::before,
+[type="radio"] + label::before {
   background: $color-white;
   border-radius: $border-radius;
   box-shadow: 0 0 0 1px $color-gray-medium;
@@ -183,7 +170,7 @@ input[type="radio"] + label::before {
   width: 1.8rem;
 }
 
-input[type="radio"] + label::before {
+[type="radio"] + label::before {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-gray-medium;
   height: 1.6rem;
   line-height: 1.6rem;
@@ -191,37 +178,37 @@ input[type="radio"] + label::before {
   border-radius: 100%;
 }
 
-input[type="checkbox"]:checked + label::before,
-input[type="radio"]:checked + label::before {
+[type="checkbox"]:checked + label::before,
+[type="radio"]:checked + label::before {
   background-color: $color-primary;
   box-shadow: 0 0 0 1px $color-primary;
 }
 
-input[type="radio"]:checked + label::before {
+[type="radio"]:checked + label::before {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary;
 }
 
-input[type="radio"]:focus + label::before {
+[type="radio"]:focus + label::before {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary, 0 0 3px 4px $color-focus, 0 0 7px 4px $color-focus;
 }
 
-input[type="checkbox"]:checked + label::before {
+[type="checkbox"]:checked + label::before {
   background-image: url('#{$image-path}/correct8.png');
   background-image: url('#{$image-path}/correct8.svg');
   background-position: 50%;
   background-repeat: no-repeat;
 }
 
-input[type="checkbox"]:focus + label::before {
+[type="checkbox"]:focus + label::before {
   box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-primary;
 }
 
-input[type="checkbox"]:disabled + label {
+[type="checkbox"]:disabled + label {
   color: $color-gray;
 }
 
-input[type="checkbox"]:disabled + label::before,
-input[type="radio"]:disabled + label::before {
+[type="checkbox"]:disabled + label::before,
+[type="radio"]:disabled + label::before {
   background: $color-gray-lighter;
   box-shadow: 0 0 0 1px $color-gray-light;
   cursor: not-allowed;
@@ -229,19 +216,19 @@ input[type="radio"]:disabled + label::before {
 
 // Range inputs
 
-input[type=range] {
+[type=range] {
   -webkit-appearance: none;
   border: none;
   padding-left: 0;
   width: 100%;
 }
 
-input[type=range]:focus {
+[type=range]:focus {
   box-shadow: none;
   outline: none;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
+[type=range]::-webkit-slider-runnable-track {
   background: $color-gray-light;
   border: 1px solid $color-gray-medium;
   cursor: pointer;
@@ -249,7 +236,7 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
 }
 
-input[type=range]::-moz-range-track {
+[type=range]::-moz-range-track {
   background: $color-primary;
   border: 1px solid $color-gray-medium;
   cursor: pointer;
@@ -257,7 +244,7 @@ input[type=range]::-moz-range-track {
   width: 100%;
 }
 
-input[type=range]::-ms-track {
+[type=range]::-ms-track {
   background: transparent;
   color: transparent;
   cursor: pointer;
@@ -265,7 +252,7 @@ input[type=range]::-ms-track {
   width: 100%;
 }
 
-input[type=range]::-webkit-slider-thumb {
+[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 1px solid $color-gray-medium;
   height: 2.2rem;
@@ -276,7 +263,7 @@ input[type=range]::-webkit-slider-thumb {
   width: 2.2rem;
 }
 
-input[type=range]::-moz-range-thumb {
+[type=range]::-moz-range-thumb {
   background: $color-gray-lightest;
   border: 1px solid $color-gray-medium;
   border-radius: 1.5rem;
@@ -285,7 +272,7 @@ input[type=range]::-moz-range-thumb {
   width: 2.2rem;
 }
 
-input[type=range]::-ms-thumb {
+[type=range]::-ms-thumb {
   background: $color-gray-lightest;
   border: 1px solid $color-gray-medium;
   border-radius: 1.5rem;
@@ -294,27 +281,27 @@ input[type=range]::-ms-thumb {
   width: 2.2rem;
 }
 
-input[type=range]::-ms-fill-lower {
+[type=range]::-ms-fill-lower {
   background: $color-gray-light;
   border: 1px solid $color-gray-medium;
   border-radius: 2rem;
 }
 
-input[type=range]::-ms-fill-upper {
+[type=range]::-ms-fill-upper {
   background: $color-gray-light;
   border: 1px solid $color-gray-medium;
   border-radius: 2rem;
 }
 
-input[type=range]:focus::-webkit-slider-thumb {
+[type=range]:focus::-webkit-slider-thumb {
   border: 2px solid $color-focus;
 }
 
-input[type=range]:focus::-moz-range-thumb {
+[type=range]:focus::-moz-range-thumb {
   border: 2px solid $color-focus;
 }
 
-input[type=range]:focus::-ms-thumb {
+[type=range]:focus::-ms-thumb {
   border: 2px solid $color-focus;
 }
 
@@ -325,14 +312,14 @@ input[type=range]:focus::-ms-thumb {
     margin-top: 0;
   }
 
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
+  [type=number]::-webkit-inner-spin-button,
+  [type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
     margin: 0;
   }
 
-  input[type=number] {
+  [type=number] {
     -moz-appearance: textfield;
   }
 }
