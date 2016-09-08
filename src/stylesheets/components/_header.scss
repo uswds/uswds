@@ -136,8 +136,7 @@ $z-index-nav:     9000;
 }
 
 .usa-nav-link {
-  -moz-osx-font-smoothing: grayscale; // Antialiased font smoothing for light text on dark background
-  -webkit-font-smoothing: antialiased;
+  @include font-smoothing;
 
   &:hover {
     span {
@@ -256,10 +255,9 @@ $z-index-nav:     9000;
 
   button {
     @include button-unstyled;
+    @include font-smoothing;
     font-weight: $font-normal;
     padding: 1.4rem 1.5rem 1rem 1.8rem;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
 
     @include media($nav-width) {
       @include padding(null 3rem 1.9rem 1.5rem);
