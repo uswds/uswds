@@ -32,13 +32,9 @@ Here are a few guidelines to follow when submitting a pull request:
 
 Have questions or need help with setup? Open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
 
-### Building the project locally with gulp
+### Running locally
 
-The Draft U.S. Web Design Standards `uswds` package (the ZIP download and the
-files needed to use the Standards on your project) and Standards website (our
-public site that displays examples of each component and the HTML code) are
-built using gulp automation. To use gulp, first make sure you’ve installed it on
-your machine globally.
+The Draft U.S. Web Design Standards `uswds` package (the ZIP download and the files needed to use the Standards on your project) is built using gulp automation. To use gulp, first make sure you've installed it on your machine globally.
 
 ```sh
 npm install --global gulp-cli
@@ -50,39 +46,25 @@ Then, to start, run the following command to install any new dependencies:
 npm install
 ```
 
-The following examples detail a few tasks you’ll encounter as you use gulp:
+The following examples detail a few `npm` commands that alias our gulp tasks and that are useful throughout local development:
 
 ```sh
-gulp build
+npm test
 ```
 
-The task above is an alias for running `gulp sass javascript images fonts` and
-is the task to build all assets. Building the package will generate a `/dist`
-directory with the contents of the ZIP archive made available to download.
-Building just the package is useful if you’d like to create your own
-distribution bundle for frameworks that aren’t supported via npm. The files in
-`/dist` contain no documentation and are compiled and bundled CSS, JavaScript,
-fonts, and images files. The command is aliased by `npm run prepublish`.
+This command runs the gulp task for `eslint` and our test suite for the `uswds` package. It is an alias for `gulp eslint test`.
 
 ```sh
-gulp website:build
+npm run build:package
 ```
 
-The task above builds the entire Draft U.S. Web Design Standards website locally.
-It can be useful when debugging for build errors or generating a deployable
-version of the Standards website. This creates a `/_site` directory that
-contains the Jekyll-built site. This is the same build step that we use to
-deploy the website. The command is aliased by `npm run deploy`.
+This command builds the `uswds` package, which includes the zip files generated for release purposes. It is an alias for `gulp copy-vendor-sass && gulp release`.
 
-```sh
-gulp website:serve
-```
+## Coding guidelines
 
-After running this command, you’ll be able to view
-the Draft U.S. Web Design Standards website locally (http://127.0.0.1:4000).
-This also sets up gulp and Jekyll to watch for file changes to the `/docs`
-and `/src` directories and rebuilds the website accordingly. The command is
-aliased by `npm start`.
+The purpose of our coding styleguides are to create consistent coding practices across 18F. The styleguide should be treated as a guide — rules can be modified according to project needs.
+
+This project follows the 18F Front End Guide [CSS](https://pages.18f.gov/frontend/#css) and [JavaScript](https://pages.18f.gov/frontend/#javascript). Please use this guide for your reference.
 
 ## Licenses and attribution
 
