@@ -46,27 +46,13 @@ Then, to start, run the following command to install any new dependencies:
 npm install
 ```
 
-<<<<<<< HEAD
 The following examples detail a few `npm` commands that alias our gulp tasks and that are useful throughout local development:
-=======
-The following examples detail a few tasks you’ll encounter as you use gulp:
->>>>>>> je-repo_split
 
 ```sh
-npm run test
+npm test
 ```
 
-<<<<<<< HEAD
 This command runs the gulp task for `eslint` and our test suite for the `uswds` package. It is an alias for `gulp eslint test`.
-=======
-The task above is an alias for running `gulp sass javascript images fonts` and
-is the task to build all assets. Building the package will generate a `/dist`
-directory with the contents of the ZIP archive made available to download.
-Building just the package is useful if you’d like to create your own
-distribution bundle for frameworks that aren’t supported via npm. The files in
-`/dist` contain no documentation and are compiled and bundled CSS, JavaScript,
-fonts, and images files. The command is aliased by `npm run prepublish`.
->>>>>>> je-repo_split
 
 ```sh
 npm run build:package
