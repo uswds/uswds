@@ -4,7 +4,8 @@ table {
   min-width: 100%;
 
   thead {
-    th {
+    th,
+    td {
       background-color: $color-gray-lightest;
     }
   }

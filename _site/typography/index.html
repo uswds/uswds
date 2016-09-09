@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+
+  <head>
+    <!-- Basic Page Needs
+================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Specific Metas
+================================================== -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Title and meta description
+================================================== -->
+
+  <title>Draft U.S. Web Design Standards | Typography</title>
+  <meta property="og:title" content="Draft U.S. Web Design Standards | Typography" />
+
+
+
+  <meta name="description" content="">
+  <meta property="og:description" content="" />
+
+
+  <link rel="canonical" href="/typography/" />
+
+<!--[if lt IE 9]>
+  <script src="/assets/js/vendor/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Favicons
+================================================== -->
+  <!-- 128x128 -->
+  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" href="/assets/img/favicons/favicon.png" />
+
+  <!-- 192x192, as recommended for Android
+  http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+  -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/favicon-192.png" />
+
+  <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicons/favicon-57.png">
+  <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/favicons/favicon-72.png">
+  <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/favicons/favicon-114.png">
+  <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/favicons/favicon-144.png">
+
+<!-- CSS
+================================================== -->
+  <link rel="stylesheet" href="/assets/css/styleguide.css">
+
+  </head>
+
+  <body class="page-typography">
+
+  	<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+<header class="usa-header site-header" role="banner">
+  <div class="usa-disclaimer">
+    <div class="usa-disclaimer-official">
+      <img src="/assets/img/favicons/favicon-40.png" alt="U.S. flag">
+      <p>An official website of the United States government</p>
+    </div>
+    <p class="usa-disclaimer-stage">
+      This site is currently in alpha.
+      <a href="https://18f.gsa.gov/dashboard/stages/#alpha">Learn more.</a>
+    </p>
+  </div>
+  <div class="usa-navbar site-header-navbar">
+    <button class="usa-menu-btn">Menu</button>
+    <div class="usa-logo site-logo" id="logo">
+      <em class="usa-logo-text">
+        <a href="/" accesskey="1" title="Home" aria-label="Home">
+        Draft U.S. Web Design Standards</a>
+      </em>
+    </div>
+    <ul class="usa-button-list usa-unstyled-list">
+  <li>
+    <a class="usa-button" href="/download/" onclick="ga('send', 'event', 'Downloaded code and design files', 'Clicked Download code and design files from inside site');">
+      Download code and design files
+    </a>
+  </li>
+  <li>
+    <a class="usa-button usa-button-outline-inverse" href="https://github.com/18F/web-design-standards" onclick="ga('send', 'event', 'Viewed on Github', 'Clicked View on Github from inside site');">
+      View on GitHub
+    </a>
+  </li>
+</ul>
+
+  </div>
+  <nav class="site-nav-secondary js-sticky-nav">
+    <ul>
+      <li>
+        <a class="usa-current" href="/">UI COMPONENTS</a>
+      </li>
+      <li>
+        <a  href="/getting-started/">GETTING STARTED</a>
+      </li>
+      <li>
+        <a  href="/design-principles/">DESIGN PRINCIPLES</a>
+      </li>
+      <li>
+        <a  href="/about-our-work/">ABOUT OUR WORK</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<div class="usa-overlay"></div>
+
+
+    <aside class="sidenav">
+      
+        
+
+<nav>
+  <ul class="usa-sidenav-list">
+    <li>
+      <a  href="/">Overview</a>
+    </li>
+    <li>
+      <a class="usa-current" href="/typography/">Typography</a>
+      
+        <ul class="usa-sidenav-sub_list">
+          <li>
+            <a href="#typefaces">Typefaces</a>
+          </li>
+          <li>
+            <a href="#pairings-and-styles">Pairings and styles</a>
+          </li>
+          <li>
+            <a href="#typesetting">Typesetting</a>
+          </li>
+          <li>
+            <a href="#links">Links</a>
+          </li>
+          <li>
+            <a href="#lists">Lists</a>
+          </li>
+        </ul>
+      
+    </li>
+    <li>
+      <a  href="/colors/">Colors</a>
+      
+    </li>
+    <li>
+      <a  href="/grids/">Grid</a>
+    </li>
+    <li>
+      <a  href="/buttons/">Buttons</a>
+    </li>
+    <li>
+      <a  href="/labels/">Labels</a>
+    </li>
+    <li>
+      <a  href="/tables/">Tables</a>
+    </li>
+    <li>
+      <a  href="/alerts/">Alerts</a>
+    </li>
+    <li>
+      <a  href="/accordions/">Accordions</a>
+    </li>
+    <li>
+      <a  href="/form-controls/">Form controls</a>
+      
+    </li>
+    <li>
+      <a  href="/form-templates/">Form templates</a>
+      
+    </li>
+    <li>
+      <a  href="/search-bar/">Search bar</a>
+    </li>
+    <li>
+      <a  href="/sidenav/">Side navigation</a>
+    </li>
+    <li>
+      <a  href="/headers/">Headers</a>
+      
+    </li>
+    <li>
+      <a  href="/footers/">Footers</a>
+      
+    </li>
+  </ul>
+</nav>
+
+      
+    </aside>
+    
+
+<nav role="navigation" class="usa-nav sidenav-mobile">
+  <div class="usa-nav-inner">
+    <button class="usa-nav-close">
+      <img src="/assets/img/close.svg" alt="close">
+    </button>
+    <ul class="usa-sidenav-list usa-accordion">
+      <li>
+        <button class="usa-accordion-button"
+          
+            class="usa-current"
+          
+          
+            
+              aria-expanded="true"
+            
+          
+          aria-controls="side-nav-1">UI components</button>
+        <ul id="side-nav-1" class="usa-sidenav-sub_list">
+          <li>
+            <a  href="/">Overview</a>
+          </li>
+          <li>
+            <a class="usa-current" href="/typography/">Typography</a>
+          </li>
+          <li>
+            <a  href="/colors/">Colors</a>
+          </li>
+          <li>
+            <a  href="/grids/">Grid</a>
+          </li>
+          <li>
+            <a  href="/buttons/">Buttons</a>
+          </li>
+          <li>
+            <a  href="/labels/">Labels</a>
+          </li>
+          <li>
+            <a  href="/tables/">Tables</a>
+          </li>
+          <li>
+            <a  href="/alerts/">Alerts</a>
+          </li>
+          <li>
+            <a  href="/accordions/">Accordions</a>
+          </li>
+          <li>
+            <a  href="/form-controls/">Form controls</a>
+          </li>
+          <li>
+            <a  href="/form-templates/">Form templates</a>
+          </li>
+          <li>
+            <a  href="/search-bar/">Search bar</a>
+          </li>
+          <li>
+            <a  href="/sidenav/">Side navigation</a>
+          </li>
+          <li>
+            <a  href="/headers/">Headers</a>
+          </li>
+          <li>
+            <a  href="/footers/">Footers</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button class="usa-accordion-button"
+          
+          
+            aria-expanded="false"
+          
+          aria-controls="sidenav-2">Getting started</button>
+        <ul id="sidenav-2" class="usa-sidenav-sub_list">
+          <li>
+            <a  href="/getting-started/">Overview</a>
+          </li>
+          <li>
+            <a  href="/getting-started/developers/">For developers</a>
+          </li>
+          <li>
+            <a  href="/getting-started/designers/">For designers</a>
+          </li>
+          <li>
+            <a  href="/download">Download code and design files</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a
+        
+        href="/design-principles/">Design principles</a>
+      </li>
+      <li>
+        <button class="usa-accordion-button"
+          
+          
+            aria-expanded="false"
+          
+         aria-controls="sidenav-3" >About our work</button>
+        <ul id="sidenav-3" class="usa-sidenav-sub_list">
+          <li>
+            <a  href="/about-our-work/">Overview</a>
+          </li>
+          <li>
+            <a  href="/about-our-work/product-roadmap/">Product roadmap</a>
+          </li>
+          <li>
+            <a  href="/about-our-work/component-maturity-scale/">Component maturity scale</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="usa-button-list usa-unstyled-list">
+  <li>
+    <a class="usa-button" href="/download/" onclick="ga('send', 'event', 'Downloaded code and design files', 'Clicked Download code and design files from inside site');">
+      Download code and design files
+    </a>
+  </li>
+  <li>
+    <a class="usa-button usa-button-outline-inverse" href="https://github.com/18F/web-design-standards" onclick="ga('send', 'event', 'Viewed on Github', 'Clicked View on Github from inside site');">
+      View on GitHub
+    </a>
+  </li>
+</ul>
+
+  </div>
+</nav>
+
+
+    <div class="main-content" id="main-content">
+      <div class="styleguide-content usa-content">
+        <header>
+          
+            
+              <p class="site-subheading">UI components</p>
+            
+          
+          <h1 id="typography">Typography</h1>
+          
+        </header>
+        
+          <p class="usa-font-lead">U.S. government websites have common typographic needs: clear and consistent headings, highly legible body paragraphs, clear labels, and easy-to-use input fields. We recommend a font system that uses two open-source font families: Source Sans Pro and Merriweather, both of which are designed for legibility and can beautifully adapt to a variety of visual styles.</p>
+        
+        <section id="01-typefaces">
+  <h2 class="usa-heading heading-margin-alt" id="typefaces">Typefaces</h2>
+  
+    <div class="tooltip">
+      <p class="tooltip-text" id="tooltip-text-typefaces">Read about the component maturity scale</p>
+      <a class="usa-label label-beta" href="/about-our-work/component-maturity-scale/" aria-describedby="tooltip-text-typefaces">
+        beta
+      </a>
+    </div>
+  
+  
+  <h4 class="usa-heading-alt">Source Sans Pro</h4>
+
+<div class="usa-grid-full">
+  <div class="usa-width-one-half">
+    <p>Source Sans Pro is an open-source sans serif typeface created for legibility in UI design. With a variety of weights that read easily at all sizes, Source Sans Pro provides clear headers as well as highly-readable body text.</p>
+    <p>Inspired by twentieth-century American gothic typeface design, its slender but open letters offer a clean and friendly simplicity. Advanced hinting allows Source Sans Pro to render well on Windows systems which run Cleartype, and across browsers and devices. Moreover, it supports a variety of languages and alphabets, including Western and European language, Vietnamese, pinyin Romanization of Chinese, and Navajo.</p>
+  </div>
+
+  <div class="typography-sans-intro usa-width-one-half usa-end-row">
+    <span class="text-huge">Aa</span>
+    <div>
+      <p class="text-tiny">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+      <p class="text-tiny">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+      <p class="text-tiny">0 1 2 3 4 5 6 7 8 9</p>
+    </div>
+  </div>
+</div>
+
+<h4 class="usa-heading-alt">Merriweather</h4>
+
+<div class="usa-grid-full">
+  <div class="usa-width-one-half">
+    <p>Merriweather is an open-source serif typeface designed for on-screen reading. This font is ideal for text-dense design: the letterforms have a tall x-height but remain relatively small, making for excellent readability across screen sizes while not occupying extra horizontal space.</p>
+    <p>The combination of slim and thick weights gives the font family stylistic range, while conveying a desirable mix of classic, yet modern simplicity. Merriweather communicates warmth and credibility at both large and smaller font sizes.</p>
+  </div>
+
+  <div class="typography-serif-intro usa-width-one-half usa-end-row usa-serif">
+    <span class="text-huge">Aa</span>
+    <div>
+      <p class="text-tiny">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+      <p class="text-tiny">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+      <p class="text-tiny">0 1 2 3 4 5 6 7 8 9</p>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<section id="02-pairing-and-styles">
+  <h2 class="usa-heading heading-margin-alt" id="pairings-and-styles">Pairings and styles</h2>
+  
+    <div class="tooltip">
+      <p class="tooltip-text" id="tooltip-text-pairings-and-styles">Read about the component maturity scale</p>
+      <a class="usa-label label-beta" href="/about-our-work/component-maturity-scale/" aria-describedby="tooltip-text-pairings-and-styles">
+        beta
+      </a>
+    </div>
+  
+  
+  <p>To support both more contemporary and more traditional web design aesthetics, this font system offers recommended font pairings. Each pairing includes web hierarchy guidance on font family, weight, size, and spacing which express either more modern or more classical type design.</p>
+
+<p>Note: Some pairings require more font weights than others. While this allows more typographic expression, the use of more than four font weights will have a negative impact on page load performance. Find the balance that works for your product.</p>
+
+<div class="usa-accordion-bordered usa-typography-example">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-0">
+        <h5>Default: Merriweather headings, Source Sans Pro body (lite)</h5>
+      </button>
+      <div id="collapsible-0" class="usa-accordion-content">
+
+        <div class="usa-grid-full">
+          <div class="usa-width-two-thirds">
+            <p>A simple serif and sans serif combination designed to communicate warmth and credibility. Strong Merriweather heading weights offer clear information hierarchy and when paired with Source Sans Pro’s easy-to-read body text, create a clean and professional feel.</p>
+            <p>This pairing is included in our design standards.</p>
+            <p>Recommended applications: digital services that feature forms; basic and text heavy sites.</p>
+            <p>Font weights included in this package:</p>
+            <ul>
+              <li>1. Merriweather, Bold 700</li>
+              <li>2. Source Sans Pro, Regular 400</li>
+              <li>3. Source Sans Pro, Bold 700</li>
+              <li>4. Source Sans Pro, Italic 400</li>
+            </ul>
+          </div>
+          <aside class="usa-width-one-third usa-end-row">
+            <h6 class="usa-heading-alt">Page Performance</h6>
+            <p><span class="usa-label-big">Fast</span></p>
+            <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
+            <h6 class="usa-heading-alt">Example</h6>
+            <p>
+              <a class="media_link" href="/assets/img/epa-emanifest-screenshot.png">
+                <img src="/assets/img/default_example_emanifest.png" alt="EPA eManifest example">
+              </a>
+              <a href="/assets/img/epa-emanifest-screenshot.png">EPA eManifest (screenshot of non-public site)</a>
+            </p>
+          </aside>
+          <h6 class="usa-heading-alt">Web Hierarchy</h6>
+        </div>
+
+        <div class="usa-grid usa-typography-example-font">
+          <div class="usa-width-one-half">
+            <h3 class="usa-display">Display</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 52px<br>
+              line-height: 1.3em/68px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h1>Heading 1</h1>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 40px<br>
+              line-height: 1.3em/52px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h2>Heading 2</h2>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 30px<br>
+              line-height: 1.3em/39px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3>Heading 3</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 20px<br>
+              line-height: 1.3em/26px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h4>Heading 4</h4>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 17px<br>
+              line-height: 1.3em/22px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h5>Heading 5</h5>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 15px<br>
+              line-height: 1.3em/20px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h6>Heading 6</h6>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
+              font-size: 13px<br>
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="usa-font-lead">Lead <br>paragraph</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 400<br>
+              font-size: 20px<br>
+              line-height: 1.7em/34px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="font-example-paragraph">Body copy. A series of sentences together which make a paragraph.</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.5em/26px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="font-example-paragraph"><em>Italic body copy. A series of sentences together which make a paragraph.</em></p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-style: Italic<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.5em/26px
+            </p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered usa-typography-example">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-0">
+        <h5>Merriweather headings, Source Sans Pro Body (robust)</h5>
+      </button>
+      <div id="collapsible-0" class="usa-accordion-content">
+
+        <div class="usa-grid-full">
+          <div class="usa-width-two-thirds">
+            <p>A variation of the previous font pairing, expanded to include an additional Merriweather weight. The slimmer Merriweather headings creates an elegance that compliments weights and allows you to intentionally move users’ attention around a page.</p>
+            <p>Recommended applications: text heavy sites and more visual promotional sites.</p>
+            <p>Font weights included in this package:</p>
+            <ul>
+              <li>1. Merriweather, Bold 700</li>
+              <li>2. Merriweather, Light 300</li>
+              <li>3. Source Sans Pro, Regular 400</li>
+              <li>4. Source Sans Pro, Bold 700</li>
+              <li>5. Source Sans Pro, Italic 400</li>
+            </ul>
+          </div>
+          <aside class="usa-width-one-third usa-end-row">
+            <h6 class="usa-heading-alt">Page Performance</h6>
+            <p><span class="usa-label-big">Medium</span></p>
+            <p>Exceeds ideal number of fonts by one. May negatively impact page load performance.</p>
+            <h6 class="usa-heading-alt">Example</h6>
+            <p>
+              <a class="media_link" href="/">
+                <img src="/assets/img/robust_example_standardshome.png" alt="Draft U.S. Web Design Standards homepage example">
+              </a>
+              <a href="/">Draft U.S. Web Design Standards homepage</a>
+            </p>
+          </aside>
+          <h6 class="usa-heading-alt">Web Hierarchy</h6>
+        </div>
+
+        <div class="serif-robust usa-grid usa-typography-example-font">
+          <div class="usa-width-one-half">
+            <h3 class="usa-display">Display 1</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 52px<br>
+              line-height: 1.3em/68px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3 class="usa-display usa-display-alt">Display 2</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 300<br>
+              font-size: 40px<br>
+              line-height: 1.3em/52px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h1>Heading 1</h1>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 40px<br>
+              line-height: 1.3em/52px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h2>Heading 2</h2>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 30px<br>
+              line-height: 1.3em/39px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3>Heading 3</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 20px<br>
+              line-height: 1.3em/26px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h4>Heading 4</h4>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 17px<br>
+              line-height: 1.3em/22px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h5>Heading 5</h5>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 15px<br>
+              line-height: 1.3em/20px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h6>Heading 6</h6>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
+              font-size: 13px<br>
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="usa-font-lead">Lead <br>paragraph 1</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 300<br>
+              font-size: 20px<br>
+              line-height: 1.7em/34px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="usa-font-lead usa-font-lead-alt">Lead <br>paragraph 2</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.7em/29px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="font-example-paragraph">Body copy. A series of sentences together which make a paragraph.</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.5em/26px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="font-example-paragraph"><em>Italic body copy. A series of sentences together which make a paragraph.</em></p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-style: Italic<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.5em/26px
+            </p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered usa-typography-example">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-0">
+        <h5>Merriweather headings and body</h5>
+      </button>
+      <div id="collapsible-0" class="usa-accordion-content">
+
+        <div class="usa-grid-full">
+          <div class="usa-width-two-thirds">
+            <p>The most formal of the options, this pairing uses Merriweather for both headings and body text. The full suite of serif styles communicates trustworthiness, while Merriweather’s contemporary shapes convey freshness and a modern relevance. The weights are designed to pair together for easy reading and clean page design. Light use of Source Sans Pro suggested for legibility of small text needs.</p>
+            <p>Recommended applications: sites which need to convey reliability and trust; basic and text heavy sites.</p>
+            <p>Font weights included in this package:</p>
+            <ul>
+              <li>1. Merriweather, Bold 700</li>
+              <li>2. Merriweather, Regular 400</li>
+              <li>3. Merriweather, Italic 400</li>
+              <li>4. Merriweather, Light 300</li>
+              <li>5. Source Sans Pro, Regular 400</li>
+            </ul>
+          </div>
+          <aside class="usa-width-one-third usa-end-row">
+            <h6 class="usa-heading-alt">Page Performance</h6>
+            <p><span class="usa-label-big">Medium</span></p>
+            <p>Exceeds ideal number of fonts by one. May negatively impact page load performance.</p>
+            <h6 class="usa-heading-alt">Example</h6>
+            <p>
+              <a class="media_link" href="http://playbook.cio.gov">
+                <img src="/assets/img/merriweatheronly_example_playbook.png" alt="U.S. Digital Service Playbook example">
+              </a>
+              <a href="http://playbook.cio.gov">U.S. Digital Service Playbook</a>
+            </p>
+          </aside>
+          <h6 class="usa-heading-alt">Web Hierarchy</h6>
+        </div>
+
+        <div class="serif-robust serif-sans-minor serif-body usa-grid usa-typography-example-font">
+          <div class="usa-width-one-half">
+            <h3 class="usa-display">Display 1</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 52px<br>
+              line-height: 1.3em/68px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3 class="usa-display usa-display-alt">Display 2</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 300<br>
+              font-size: 40px<br>
+              line-height: 1.3em/52px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h1>Heading 1</h1>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 40px<br>
+              line-height: 1.3em/52px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h2>Heading 2</h2>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 30px<br>
+              line-height: 1.3em/39px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3>Heading 3</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 20px<br>
+              line-height: 1.3em/26px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h4>Heading 4</h4>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 17px<br>
+              line-height: 1.3em/22px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h5>Heading 5</h5>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 700<br>
+              font-size: 15px<br>
+              line-height: 1.3em/20px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h6>Heading 6</h6>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
+              font-size: 13px<br>
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="usa-font-lead">Lead <br>paragraph 1</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 300<br>
+              font-size: 20px<br>
+              line-height: 1.7em/34px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="usa-font-lead usa-font-lead-alt">Lead <br>paragraph 2</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.7em/29px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="font-example-paragraph">Body copy. A series of sentences together which make a paragraph.</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 400<br>
+              font-size: 15px<br>
+              line-height: 1.7em/26px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="font-example-paragraph"><em>Italic body copy. A series of sentences together which make a paragraph.</em></p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-style: Italic<br>
+              font-weight: 400<br>
+              font-size: 15px<br>
+              line-height: 1.7em/26px
+            </p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered usa-typography-example">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-0">
+        <h5>Source Sans Pro headings, Merriweather body</h5>
+      </button>
+      <div id="collapsible-0" class="usa-accordion-content">
+
+        <div class="usa-grid-full">
+          <div class="usa-width-two-thirds">
+            <p>A variation on the serif and sans serif pairing, this combination uses multiple weights of Source Sans Pro for clear headings combined with the formal feeling of Merriweather for body text. This pair similarly communicates professionalism, with extra emphasis on sleek and legible headings.</p>
+            <p>Recommended applications: digital services that feature forms; basic and text heavy sites; marketing sites.</p>
+            <p>Font weights included in this package:</p>
+            <ul>
+              <li>1. Source Sans Pro, Light 300</li>
+              <li>2. Source Sans Pro, Regular 400</li>
+              <li>3. Source Sans Pro, Bold 700</li>
+              <li>4. Merriweather, Regular 400</li>
+              <li>5. Merriweather, Italic 400</li>
+              <li>6. Merriweather, Bold 700</li>
+            </ul>
+          </div>
+          <aside class="usa-width-one-third usa-end-row">
+            <h6 class="usa-heading-alt">Page Performance</h6>
+            <p><span class="usa-label-big">Medium</span></p>
+            <p>Exceeds ideal number of fonts by two. May negatively impact page load performance.</p>
+          </aside>
+          <h6 class="usa-heading-alt">Web Hierarchy</h6>
+        </div>
+
+        <div class="sans-style serif-body usa-grid usa-typography-example-font">
+          <div class="usa-width-one-half">
+            <h3 class="usa-display">Display 1</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 59px<br>
+              line-height: 1.3em/77px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3 class="usa-display usa-display-alt">Display 2</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 300<br>
+              font-size: 44px<br>
+              line-height: 1.3em/57px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h1>Heading 1</h1>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 44px<br>
+              line-height: 1.3em/57px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h2>Heading 2</h2>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 34px<br>
+              line-height: 1.3em/44px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3>Heading 3</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 24px<br>
+              line-height: 1.3em/31px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h4>Heading 4</h4>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 19px<br>
+              line-height: 1.3em/25px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h5>Heading 5</h5>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 16px<br>
+              line-height: 1.3em/21px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h6>Heading 6</h6>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
+              font-size: 13px<br>
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="usa-font-lead">Lead <br>paragraph</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 300<br>
+              font-size: 22px<br>
+              line-height: 1.5em/33px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="font-example-paragraph">Body copy. A series of sentences together which make a paragraph.</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-weight: 400<br>
+              font-size: 15px<br>
+              line-height: 1.7em/26px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="font-example-paragraph"><em>Italic body copy. A series of sentences together which make a paragraph.</em></p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Merriweather’<br>
+              font-style: Italic<br>
+              font-weight: 400<br>
+              font-size: 15px<br>
+              line-height: 1.7em/26px
+            </p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered usa-typography-example usa-accordion-docs">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled"
+          aria-expanded="false" aria-controls="collapsible-0">
+        <h5>Source Sans Pro headings and body</h5>
+      </button>
+      <div id="collapsible-0" class="usa-accordion-content">
+
+        <div class="usa-grid-full">
+          <div class="usa-width-two-thirds">
+            <p>Inspired by the growth of simple and welcoming type in modern web UI design, this suite uses Source Sans Pro exclusively. With a range of weights designed to fit into heading styles to clearly communicate hierarchy of information, this pairing can support both extremely simple designs and more polished, promotional sites.</p>
+            <p>Recommended applications: digital services that feature forms; basic and text heavy sites; marketing sites.</p>
+            <p>Font weights included in this package:</p>
+            <ul>
+              <li>1. Source Sans Pro, Light 300</li>
+              <li>2. Source Sans Pro, Regular 400</li>
+              <li>3. Source Sans Pro, Bold 700</li>
+              <li>4. Source Sans Pro, Italic 400</li>
+            </ul>
+          </div>
+          <aside class="usa-width-one-third usa-end-row">
+            <h6 class="usa-heading-alt">Page Performance</h6>
+            <p><span class="usa-label-big">Fast</span></p>
+            <p>Ideal number of fonts. Will allow for optimal page load performance.</p>
+            <h6 class="usa-heading-alt">Example</h6>
+            <p>
+              <a class="media_link" href="/assets/img/va-appeals-screenshot.png">
+                <img src="/assets/img/ssponly_example_va.png" alt="Veterans Affairs appeals review example">
+              </a>
+              <a href="/assets/img/va-appeals-screenshot.png">Department of Veterans Affairs appeals review (screenshot of non-public site)</a>
+            </p>
+          </aside>
+          <h6 class="usa-heading-alt">Web Hierarchy</h6>
+        </div>
+
+        <div class="sans-style usa-grid usa-typography-example-font">
+          <div class="usa-width-one-half">
+            <h3 class="usa-display">Display 1</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 59px<br>
+              line-height: 1.3em/77px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3 class="usa-display usa-display-alt">Display 2</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 300<br>
+              font-size: 44px<br>
+              line-height: 1.3em/57px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h1>Heading 1</h1>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 44px<br>
+              line-height: 1.3em/57px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h2>Heading 2</h2>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 34px<br>
+              line-height: 1.3em/44px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h3>Heading 3</h3>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 24px<br>
+              line-height: 1.3em/31px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h4>Heading 4</h4>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 19px<br>
+              line-height: 1.3em/25px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h5>Heading 5</h5>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 700<br>
+              font-size: 16px<br>
+              line-height: 1.3em/21px
+            </p>
+          </div>
+          <div class="usa-width-one-half">
+            <h6>Heading 6</h6>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
+              font-size: 13px<br>
+              line-height: 1.3em/17px<br>
+              text-transform: uppercase
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="usa-font-lead">Lead <br>paragraph</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 300<br>
+              font-size: 22px<br>
+              line-height: 1.5em/33px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="font-example-paragraph">Body copy. A series of sentences together which make a paragraph.</p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.5em/26px
+            </p>
+          </div>
+          <div class="usa-font-example usa-width-one-half">
+            <p class="font-example-paragraph"><em>Italic body copy. A series of sentences together which make a paragraph.</em></p>
+          </div>
+          <div class="usa-width-one-half usa-end-row">
+            <p class="usa-monospace">
+              font-family: ‘Source Sans Pro’<br>
+              font-style: Italic<br>
+              font-weight: 400<br>
+              font-size: 17px<br>
+              line-height: 1.5em/26px
+            </p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+</section>
+
+<section id="03-typesetting">
+  <h2 class="usa-heading heading-margin-alt" id="typesetting">Typesetting</h2>
+  
+    <div class="tooltip">
+      <p class="tooltip-text" id="tooltip-text-typesetting">Read about the component maturity scale</p>
+      <a class="usa-label label-alpha" href="/about-our-work/component-maturity-scale/" aria-describedby="tooltip-text-typesetting">
+        alpha
+      </a>
+    </div>
+  
+  
+  <!-- Typsetting section begin -->
+
+<p>Readable text allows users to efficiently read and take in textual information, whereas text that is not readable turns off readers or makes it challenging for them to stay focused. The following guidelines promote good readability.</p>
+
+<div class="preview ">
+  
+  <h6 class="usa-heading-alt">Alignment</h6>
+  <div class="alignment-example">
+    <h4>The Grand Canyon</h4>
+    <p>Grand Canyon National Park is the United States' 15th oldest national park. Named a UNESCO World Heritage Site in 1979, the park is located in Arizona.</p>
+  </div>
+
+  <h6 class="usa-heading-alt">Line length - Desktop</h6>
+  <div class="usa-line-length-example">
+    <p>Yosemite National Park is set within California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoias, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome.</p>
+    <p class="help-text">75 characters max on desktop</p>
+  </div>
+
+  <h6 class="usa-heading-alt">Spacing</h6>
+  <h1>Section heading</h1>
+  <p class="usa-font-lead">Great Smoky Mountains National Park straddles the border of North Carolina and Tennessee.</p>
+  <h2>Section heading</h2>
+  <h3>Section of the page</h3>
+  <p>The sprawling landscape encompasses lush forests and an abundance of wildflowers that bloom year-round. Streams, rivers and waterfalls appear along hiking routes that include a segment of the Appalachian Trail.</p>
+  <h4>Subsection of the page</h4>
+  <p>World renowned for its diversity of plant and animal life, the beauty of its ancient mountains, and the quality of its remnants of Southern Appalachian mountain culture, this is America's most visited national park.</p>
+  <p>Right now scientists think that we only know about 17 percent of the plants and animals that live in the park, or about 17,000 species of a probable 100,000 different organisms.</p>
+  <h5>Subsection of the page</h5>
+  <p>Entrance to Great Smoky Mountains National Park is free. The park is one of the few national parks where no entrance fees are charged.</p>
+
+
+</div>
+
+<div class="usa-accordion-bordered usa-code-sample">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled" aria-controls="code">Code</button>
+      <div id="code" class="usa-accordion-content">
+        <pre><code class="language-markup">
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h6</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-heading-alt<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Alignment<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h6</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>alignment-example<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h4</span><span class="token punctuation" >></span></span>The Grand Canyon<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h4</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>Grand Canyon National Park is the United States' 15th oldest national park. Named a UNESCO World Heritage Site in 1979, the park is located in Arizona.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h6</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-heading-alt<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Line length - Desktop<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h6</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-line-length-example<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>Yosemite National Park is set within California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoias, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>help-text<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>75 characters max on desktop<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h6</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-heading-alt<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Spacing<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h6</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span>Section heading<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-font-lead<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Great Smoky Mountains National Park straddles the border of North Carolina and Tennessee.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h2</span><span class="token punctuation" >></span></span>Section heading<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h2</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h3</span><span class="token punctuation" >></span></span>Section of the page<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h3</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>The sprawling landscape encompasses lush forests and an abundance of wildflowers that bloom year-round. Streams, rivers and waterfalls appear along hiking routes that include a segment of the Appalachian Trail.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h4</span><span class="token punctuation" >></span></span>Subsection of the page<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h4</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>World renowned for its diversity of plant and animal life, the beauty of its ancient mountains, and the quality of its remnants of Southern Appalachian mountain culture, this is America's most visited national park.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>Right now scientists think that we only know about 17 percent of the plants and animals that live in the park, or about 17,000 species of a probable 100,000 different organisms.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h5</span><span class="token punctuation" >></span></span>Subsection of the page<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h5</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>Entrance to Great Smoky Mountains National Park is free. The park is one of the few national parks where no entrance fees are charged.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+
+</code></pre>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered usa-accordion-docs">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" class="usa-accordion-content">
+    <h4 class="usa-heading">Implementation</h4>
+    <p>To get the max-width on body text, add the class <code>usa-content</code> to your document. Use at the specificity that best suits your project's needs.</p>
+    <p>Lists must use <code>usa-content-list</code> for the above.</p>
+    <p>You can change the max-width value <code>$text-max-width</code> in <code>assets/_scss/core/<wbr>variables.scss</code>.</p>
+    <h4 class="usa-heading">Usability</h4>
+    <ul class="usa-content-list">
+      <li>Alignment: Type set flush left provides the eye a constant starting point for each line, making text easier to read.</li>
+      <li>Line length: Controlling the length of lines of text in extended copy makes reading more comfortable by helping readers’ eyes flow easily from one line to the next. Somewhere between 50 and 75 characters per line is broadly considered to be a readable line length, while 66 characters is considered the ideal. Other factors beyond line length also affect reading comfort. Text with more space between lines can have somewhat longer line length. Also, contexts in which users will not be reading long passages of text (such as footnotes or alerts) can safely be set with somewhat longer lines as well.</li>
+      <li>Spacing: White space affects how the user focuses their attention on the content. It makes it easier to know what to read and where to begin. Spacing between typographic elements should be open enough to feel light, but close enough to establish a proper relationship between elements. When setting headers and body copy, white space should be 60px, 30px, 20px, or 15px.</li>
+    </ul>
+  </div>
+</div>
+
+</section>
+
+<section id="04-links">
+  <h2 class="usa-heading heading-margin-alt" id="links">Links</h2>
+  
+    <div class="tooltip">
+      <p class="tooltip-text" id="tooltip-text-links">Read about the component maturity scale</p>
+      <a class="usa-label label-alpha" href="/about-our-work/component-maturity-scale/" aria-describedby="tooltip-text-links">
+        alpha
+      </a>
+    </div>
+  
+  
+  <!-- Links section begin -->
+
+<p class="usa-font-lead">Links lead users to a different page or further information.
+</p>
+
+<div class="preview ">
+  
+  <p><a href="javascript:void(0);">This</a> is a text link on a light background.</p>
+
+  <p><a class="usa-color-text-visited" href="javascript:void(0);">This</a> is a visited link.</p>
+
+  <p>This is a link that goes to an <a class="usa-external_link" href="http://media.giphy.com/media/8sgNa77Dvj7tC/giphy.gif">external website</a>.</p>
+
+  <div class="usa-background-dark">
+    <p><a href="javascript:void(0);">This</a> is a text link on a dark background.</p>
+  </div>
+
+
+</div>
+
+<div class="usa-accordion-bordered usa-code-sample">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled" aria-controls="code">Code</button>
+      <div id="code" class="usa-accordion-content">
+        <pre><code class="language-markup">
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>javascript:void(0);<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>This<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span> is a text link on a light background.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-color-text-visited<span class="token punctuation" >"</span></span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>javascript:void(0);<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>This<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span> is a visited link.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>This is a link that goes to an <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-external_link<span class="token punctuation" >"</span></span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>http://media.giphy.com/media/8sgNa77Dvj7tC/giphy.gif<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>external website<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span>.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-background-dark<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>javascript:void(0);<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>This<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span> is a text link on a dark background.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+
+</code></pre>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered usa-accordion-docs">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" class="usa-accordion-content">
+    <h4 class="usa-heading">Accessibility</h4>
+    <ul class="usa-content-list">
+      <li>Users should be able to tab to navigate between links.
+      <li>Users should be able to activate a link when pressing ‘Enter’ on their keyboard.</li>
+      <li>Users should be able to identify links without relying on color alone.</li>
+      <li>Users should be able to activate hover and focus states with both a mouse and a keyboard.</li>
+    </ul>
+  </div>
+</div>
+
+</section>
+
+<section id="05-lists">
+  <h2 class="usa-heading heading-margin-alt" id="lists">Lists</h2>
+  
+    <div class="tooltip">
+      <p class="tooltip-text" id="tooltip-text-lists">Read about the component maturity scale</p>
+      <a class="usa-label label-alpha" href="/about-our-work/component-maturity-scale/" aria-describedby="tooltip-text-lists">
+        alpha
+      </a>
+    </div>
+  
+  
+  <!-- Lists section begin -->
+
+<p class="usa-font-lead">Lists organize written information for users.</p>
+
+<div class="preview preview-lists">
+  
+  <div class="usa-grid-full">
+    <div class="usa-width-one-third">
+
+      <h6 class="usa-heading-alt">Unordered list</h6>
+
+      <ul>
+        <li>Unordered list item</li>
+        <li>Unordered list item</li>
+        <li>Unordered list item</li>
+      </ul>
+
+    </div>
+
+    <div class="usa-width-one-third">
+
+      <h6 class="usa-heading-alt mt0">Ordered list</h6>
+
+      <ol>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+      </ol>
+
+    </div>
+  </div>
+
+
+</div>
+
+<div class="usa-accordion-bordered usa-code-sample">
+  <ul class="usa-unstyled-list">
+    <li>
+      <button class="usa-button-unstyled" aria-controls="code">Code</button>
+      <div id="code" class="usa-accordion-content">
+        <pre><code class="language-markup">
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-grid-full<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-width-one-third<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h6</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-heading-alt<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Unordered list<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h6</span><span class="token punctuation" >></span></span>
+
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ul</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>Unordered list item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>Unordered list item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>Unordered list item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ul</span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-width-one-third<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h6</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>usa-heading-alt mt0<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Ordered list<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h6</span><span class="token punctuation" >></span></span>
+
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ol</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>Ordered list item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>Ordered list item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>Ordered list item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ol</span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+
+</code></pre>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="usa-accordion-bordered usa-accordion-docs">
+  <button class="usa-button-unstyled usa-accordion-button"
+      aria-expanded="true" aria-controls="collapsible-0">
+    Documentation
+  </button>
+  <div id="collapsible-0" class="usa-accordion-content">
+  <h4 class="usa-heading">Implementation</h4>
+  <p>Lists are styled by default. For unstyled lists, use either the <code>usa-unstyled-list</code> class or unstyled list mixin: <code>@include unstyled-list;</code>. Both are located in <code>assets/_scss/core/<wbr>utilities.scss</code>.</p>
+    <h4 class="usa-heading">Usability</h4>
+    <h5>When to use</h5>
+    <ul class="usa-content-list">
+      <li>Use an ordered list when you need to display text in some ranking, hierarchy, or series of steps.</li>
+      <li>Use unordered lists to display text in no specific order.</li>
+    </ul>
+    <h5>When to consider something different</h5>
+    <ul class="usa-content-list">
+      <li>If you need to communicate long lists of narrative text.</li>
+    </ul>
+    <h5>Guidelines</h5>
+    <ul class="usa-content-list">
+      <li>Use sentence case and begin lists with a capital letter.</li>
+      <li>Use punctuation appropriate to the text. Do not leave sentences without periods.</li>
+    </ul>
+  </div>
+</div>
+
+</section>
+
+      </div>
+
+      <footer class="site-footer" role="contentinfo">
+        <div class="site-footer-nav usa-grid">
+          
+          
+            <h6>UI components</h6>
+          
+          
+            
+
+<nav>
+  <ul class="usa-sidenav-list">
+    <li>
+      <a  href="/">Overview</a>
+    </li>
+    <li>
+      <a class="usa-current" href="/typography/">Typography</a>
+      
+        <ul class="usa-sidenav-sub_list">
+          <li>
+            <a href="#typefaces">Typefaces</a>
+          </li>
+          <li>
+            <a href="#pairings-and-styles">Pairings and styles</a>
+          </li>
+          <li>
+            <a href="#typesetting">Typesetting</a>
+          </li>
+          <li>
+            <a href="#links">Links</a>
+          </li>
+          <li>
+            <a href="#lists">Lists</a>
+          </li>
+        </ul>
+      
+    </li>
+    <li>
+      <a  href="/colors/">Colors</a>
+      
+    </li>
+    <li>
+      <a  href="/grids/">Grid</a>
+    </li>
+    <li>
+      <a  href="/buttons/">Buttons</a>
+    </li>
+    <li>
+      <a  href="/labels/">Labels</a>
+    </li>
+    <li>
+      <a  href="/tables/">Tables</a>
+    </li>
+    <li>
+      <a  href="/alerts/">Alerts</a>
+    </li>
+    <li>
+      <a  href="/accordions/">Accordions</a>
+    </li>
+    <li>
+      <a  href="/form-controls/">Form controls</a>
+      
+    </li>
+    <li>
+      <a  href="/form-templates/">Form templates</a>
+      
+    </li>
+    <li>
+      <a  href="/search-bar/">Search bar</a>
+    </li>
+    <li>
+      <a  href="/sidenav/">Side navigation</a>
+    </li>
+    <li>
+      <a  href="/headers/">Headers</a>
+      
+    </li>
+    <li>
+      <a  href="/footers/">Footers</a>
+      
+    </li>
+  </ul>
+</nav>
+
+          
+        </div>
+        <div class="site-footer-info">
+          <div class="usa-grid">
+  <div class="logo-links">
+    <a href="https://18f.gsa.gov/">
+      <img src="/assets/img/logo-18f.png" alt="18F">
+    </a>
+    <a href="http://www.gsa.gov/">
+      <img src="/assets/img/logo-gsa.png" alt="GSA">
+    </a>
+    <a href="https://www.usds.gov/">
+      <img class="logo-usds" src="/assets/img/logo-usds.png" alt="USDS">
+    </a>
+  </div>
+  <div class="footer-text">
+    <div class="footer-text-one-half">
+      <p>Feedback? Create an issue on the <a href="https://github.com/18F/web-design-standards">GitHub repository</a> or email us at <a href="mailto:uswebdesignstandards@gsa.gov">uswebdesignstandards@gsa.gov</a>.</p>
+      <p>Have an idea? Read our <a href="https://github.com/18F/web-design-standards/blob/master/CONTRIBUTING.md">contribution guidelines</a>.</p>      
+    </div>
+    <div class="footer-text-one-half">
+      <p>As a work of the United States government, this project is <a href="https://github.com/18F/web-design-standards/blob/master/LICENSE.md">in the public domain</a>.</p>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div>
+
+    <!--[if lt IE 9]>
+  <script src="/assets/js/vendor/selectivizr-min.js"></script>
+  <script src="/assets/js/vendor/respond.js"></script>
+  <script src="/assets/js/vendor/rem.min.js"></script>
+<![endif]-->
+
+    	<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+	<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+	<!-- Google Analytics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-48605964-43', 'gsa.gov');
+
+	  // anonymize user IPs (chops off the last IP triplet)
+	  ga('set', 'anonymizeIp', true);
+
+	  // forces SSL even if the page were somehow loaded over http://
+	  ga('set', 'forceSSL', true);
+
+	  ga('send', 'pageview');
+	</script>
+  
+  <!-- Ethnio Activation Code -->
+  <script type="text/javascript" language="javascript" src="//ethn.io/58707.js" async="true" charset="utf-8"></script>
+
+    <script src="/assets/js/styleguide.js"></script>
+
+    <script src="/assets/js/vendor/uswds.min.js"></script>
+
+  </body>
+
+</html>
