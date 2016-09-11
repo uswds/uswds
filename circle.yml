@@ -1,6 +1,8 @@
 machine:
   node:
     version: 5.1.0
+  environment:
+    ACCESSLINT_MASTER_BRANCH: "staging"
 
 test:
   pre:
@@ -10,3 +12,7 @@ test:
     - npm run build:package # Run the release process
   post:
     - ls -agolf dist/ # Ensure that build:package worked
+    - ls -agolf _site/ # Ensure that build:website worked
+    - |
+      bundle exec jekyll serve --detach --no-watch && \
+      accesslint-ci scan http://localhost:4000
