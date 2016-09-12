@@ -1,4 +1,4 @@
-<!-- Please feel free to remove whatever sections/lines in this aren't relevant.
+<!-- Please feel free to remove whatever sections/lines in this aren’t relevant.
 
 Use the title line as the title of your pull request, then delete these lines.
 
