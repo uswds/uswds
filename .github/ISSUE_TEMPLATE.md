@@ -1,11 +1,10 @@
-<!-- Please feel free to remove whatever sections/lines in this aren't relevant.
+<!-- Please feel free to remove whatever sections/lines in this aren’t relevant.
 
-Use the title line as the title of your pull request, then delete these lines. 
+Use the title line as the title of your pull request, then delete these lines.
 
-## Title line template: [Website or UI component]: [Brief description]
+## Title line template: [Title]: Brief description
 
-Website: Issues that impact standards.usa.gov look, feel or functionality.
-UI component: Issues that impact the look, feel, or functionality of the standards themselves.
+Website: For issues that impact standards.usa.gov’s look, feel, or functionality, please open an issue on the web-design-standards-docs repo (https://github.com/18F/web-design-standards-docs/issues/new).
 
 -->
 
