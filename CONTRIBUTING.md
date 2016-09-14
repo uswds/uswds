@@ -55,10 +55,23 @@ npm test
 This command runs the gulp task for `eslint` and our test suite for the `uswds` package. It is an alias for `gulp eslint test`.
 
 ```sh
+npm run build
+```
+
+This command builds the `uswds` package. It is an alias for `gulp build`.
+
+```sh
 npm run build:package
 ```
 
 This command builds the `uswds` package, which includes the zip files generated for release purposes. It is an alias for `gulp copy-vendor-sass && gulp release`.
+
+
+```sh
+npm run watch
+```
+
+This command watches for any changes that happen in the `src` directory and rebuilds the package if any changes are made.
 
 ## Coding guidelines
 
