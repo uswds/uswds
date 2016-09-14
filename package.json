@@ -7,9 +7,11 @@
     "prepublish": "gulp copy-vendor-sass && gulp build",
     "prestart": "gulp copy-vendor-sass",
     "build:package": "gulp copy-vendor-sass && gulp release",
+    "build": "gulp build",
     "test": "gulp eslint test",
     "preversion": "npm test",
-    "version": "npm run prepublish"
+    "version": "npm run prepublish",
+    "watch": "watch 'npm run build' ./src"
   },
   "repository": {
     "type": "git",
@@ -66,6 +68,7 @@
     "should": "^8.3.1",
     "sinon": "^1.17.5",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "watch": "^0.17.1"
   }
 }
