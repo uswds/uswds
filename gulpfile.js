@@ -5,8 +5,6 @@ require( './config/gulp/sass' );
 require( './config/gulp/javascript' );
 require( './config/gulp/images' );
 require( './config/gulp/fonts' );
-require( './config/gulp/html' );
-require( './config/gulp/website' );
 require( './config/gulp/build' );
 require( './config/gulp/release' );
 require( './config/gulp/test' );
@@ -21,21 +19,6 @@ gulp.task( 'default', function ( done ) {
   dutil.logHelp(
     'gulp',
     'This task will output the currently supported automation tasks. ( e.g. This help message. )'
-  );
-
-  dutil.logHelp(
-    'gulp website',
-    'This is the default website task. Please review the available commands.'
-  );
-
-  dutil.logCommand(
-    'gulp website:build',
-    'Build the Jekyll website.'
-  );
-
-  dutil.logCommand(
-    'gulp website:serve',
-    'Preview the Jekyll website locally and watch for files change.'
   );
 
   dutil.logHelp(

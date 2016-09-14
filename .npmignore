@@ -1,19 +1,12 @@
-# Jekyll files and directories
-#
-docs/
-_site/
-
-# Configuration and scripts
-#
-.ruby-version
-_config.yml
-.scss-lint.yml
-Gemfile
-Gemfile.lock
-.sass-cache/
-.bundle/
-
-# Ensure that src and dist are published
-#
-!dist/
+# Ensure that src and dist are published   
+#   
+!dist/    
 !src/
+
+config/
+spec/
+.github/
+.editorconfig
+.eslintrc
+gulpfile.js
+circle.yml

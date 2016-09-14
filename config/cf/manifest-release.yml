@@ -1,5 +1,0 @@
-# Manifest file for automated deployments to our release environment
-# Main manifest.yml can be found in the root level directory.
----
-inherit: ../../manifest.yml
-host: wds-microsite-release

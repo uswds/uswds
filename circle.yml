@@ -1,64 +1,12 @@
 machine:
-  environment:
-    GOPATH: "${HOME}/.go_workspace"
   node:
     version: 5.1.0
-
-dependencies:
-  pre:
-    - mkdir -p debs
-    - if [ ! -f debs/temp.deb ]; then wget -qO debs/temp.deb https://cli.run.pivotal.io/stable?release=debian64; fi
-    - sudo dpkg -i debs/temp.deb
-    - cf -v
-    - go get github.com/concourse/autopilot
-    - cf install-plugin $GOPATH/bin/autopilot -f
-    - bundle install
-  cache_directories:
-    - debs
 
 test:
   pre:
     - gulp -v
-    - scss-lint -v
-    - jekyll -v
   override:
     - npm test # Run the package and docs test suite
     - npm run build:package # Run the release process
-    - npm run build:website # Build Jekyll based docs website
   post:
     - ls -agolf dist/ # Ensure that build:package worked
-    - ls -agolf _site/ # Ensure that build:website worked
-
-deployment:
-  add-headers:
-      branch: [add-headers]
-      commands:
-        - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-staging
-        - cf push wds-microsite-add-headers -n standards-staging-add-headers -f config/cf/manifest-staging.yml -p _site
-  new-designs:
-      branch: [add-new-designs]
-      commands:
-        - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-staging
-        - cf push wds-microsite-new-design -n standards-staging-new-design -f config/cf/manifest-staging.yml -p _site
-  production:
-    branch: [master]
-    commands:
-      - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-production
-      - cf zero-downtime-push wds-microsite -f manifest.yml -p _site
-      - cf map-route wds-microsite standards.usa.gov
-  staging:
-    branch: [staging]
-    commands:
-      - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-staging
-      - cf zero-downtime-push wds-microsite -f config/cf/manifest-staging.yml -p _site
-      - cf map-route wds-microsite standards-staging.usa.gov
-  release:
-    branch: [release]
-    commands:
-      - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-release
-      - cf zero-downtime-push wds-microsite -f config/cf/manifest-release.yml -p _site
-  user-testing:
-    branch: [user-testing]
-    commands:
-      - cf login -a https://api.cloud.gov -u gsa-wds_deployer -p $CF_GSA_WDS_PASS -o gsa-wds -s wds-user-testing
-      - cf zero-downtime-push wds-microsite -f config/cf/manifest-user-testing.yml -p _site
