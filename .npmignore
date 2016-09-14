@@ -1,0 +1,12 @@
+# Ensure that src and dist are published   
+#   
+!dist/    
+!src/
+
+config/
+spec/
+.github/
+.editorconfig
+.eslintrc
+gulpfile.js
+circle.yml
