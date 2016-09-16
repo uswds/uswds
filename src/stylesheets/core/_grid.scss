@@ -66,6 +66,14 @@
       margin-right: 0;
     }
   }
+
+  .usa-width-five-twelfths {
+    @include span-columns(2);
+  }
+
+  .usa-width-seven-twelfths {
+    @include span-columns(4);
+  }
 }
 
 @include media($large) {
@@ -117,6 +125,7 @@
     @include span-columns(10);
   }
 
+
   .usa-width-one-twelfth {
     @include span-columns(1);
 
@@ -127,6 +136,14 @@
     &:nth-child(12n) {
       margin-right: 0;
     }
+  }
+
+  .usa-width-five-twelfths {
+    @include span-columns(5);
+  }
+
+  .usa-width-seven-twelfths {
+    @include span-columns(7);
   }
 }
 
