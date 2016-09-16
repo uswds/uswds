@@ -1,18 +1,30 @@
+general:
+  artifacts:
+    - "tmp"
+
 machine:
-  node:
-    version: 5.1.0
   environment:
     ACCESSLINT_MASTER_BRANCH: "staging"
+  node:
+    version: 5.1.0
+  ruby:
+    version: 2.3.1
+
+dependencies:
+  post:
+    - gem install jekyll
+    - gem install accesslint-ci
+    - npm install -g accesslint-cli
 
 test:
   pre:
     - gulp -v
+    - jekyll -v
   override:
     - npm test # Run the package and docs test suite
     - npm run build:package # Run the release process
   post:
     - ls -agolf dist/ # Ensure that build:package worked
-    - ls -agolf _site/ # Ensure that build:website worked
     - |
-      bundle exec jekyll serve --detach --no-watch && \
+      jekyll serve --detach --no-watch && \
       accesslint-ci scan http://localhost:4000
