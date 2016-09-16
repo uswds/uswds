@@ -16,16 +16,16 @@ $usa-btn-big-width:     11.6rem;
 
   [type="search"],
   .usa-search-input {
+    @include padding(0 null);
     -webkit-appearance: none;
     border-bottom-right-radius: 0;
     border-right: none;
     border-top-right-radius: 0;
+    box-sizing: border-box;
     float: left;
     font-size: $small-font-size;
     height: 3.3rem;
     margin: 0;
-    padding-bottom: 0;
-    padding-top: 0;
     width: calc(100% - #{$usa-btn-small-width});
 
     @include media($small-screen) {
