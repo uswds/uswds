@@ -1,9 +1,23 @@
+// Grid container
 .usa-grid,
 .usa-grid-full {
   @include outer-container();
   max-width: $site-max-width;
 }
 
+.usa-grid {
+  @include padding(null $site-margins-mobile);
+
+  @include media($medium-screen) {
+    @include padding(null $site-margins);
+  }
+}
+
+.usa-grid-full {
+  padding: 0;
+}
+
+// Grid items
 @include media($medium) {
   .usa-width-one-whole {
     @include span-columns(6);
@@ -121,17 +135,4 @@
 // Required if browser does not support :last-child
 .usa-end-row {
   @include omega();
-}
-
-
-.usa-grid {
-  @include padding(null $site-margins-mobile);
-
-  @include media($medium-screen) {
-    @include padding(null $site-margins);
-  }
-}
-
-.usa-grid-full {
-  padding: 0;
 }
