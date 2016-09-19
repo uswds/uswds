@@ -19,26 +19,19 @@
   h3,
   h4,
   h5,
-  h6,
+  h6 {
+    color: $color-primary-alt;
+  }
+
   p {
     color: $color-white;
   }
 
-  .section-heading {
-    color: $color-white;
-    display: inline;
-    letter-spacing: 0.5px;
-  }
-
-  h2 {
-    letter-spacing: 0.5px;
-  }
-
   a {
-    color: $color-white;
+    color: $color-gray-lightest;
 
     &:hover {
-      color: $color-gray-lighter;
+      color: $color-white;
     }
   }
 }

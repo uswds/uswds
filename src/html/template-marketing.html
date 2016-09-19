@@ -1,6 +1,6 @@
 
   <a class="usa-skipnav" href="#main-content">Skip to main content</a>
-  <header class="usa-header" role="banner">
+  <header class="usa-header usa-header-extended" role="banner">
     <!-- Gov banner BEGIN -->
     <div class="usa-banner">
       <div class="usa-accordion">
@@ -35,16 +35,16 @@
       </div>
     </div>
     <!-- Gov banner END -->
-    <div class="usa-nav-container">
-      <div class="usa-navbar">
-        <button class="usa-menu-btn">Menu</button>
-        <div class="usa-logo" id="logo">
-          <em class="usa-logo-text">
-            <a href="#" accesskey="1" title="Home" aria-label="Home">Department of <br>Web Standards</a>
-          </em>
-        </div>
+    <div class="usa-navbar">
+      <button class="usa-menu-btn">Menu</button>
+      <div class="usa-logo" id="logo">
+        <em class="usa-logo-text">
+          <a href="#" accesskey="1" title="Home" aria-label="Home">Department of Web Standards</a>
+        </em>
       </div>
-      <nav role="navigation" class="usa-nav">
+    </div>
+    <nav role="navigation" class="usa-nav">
+      <div class="usa-nav-inner">
         <button class="usa-nav-close">
           <img src="/assets/img/close.svg" alt="close">
         </button>
@@ -104,49 +104,82 @@
             </ul>
           </li>
         </ul>
-        <form class="usa-search usa-search-small">
-          <div role="search">
-            <label class="usa-sr-only" for="search-field-small">Search small</label>
-            <input id="search-field-small" type="search" name="search">
-            <button type="submit">
-              <span class="usa-sr-only">Search</span>
-            </button>
-          </div>
-        </form>
-      </nav>
-    </div>
+        <div class="usa-nav-secondary">
+          <form class="usa-search usa-search-small js-search-form">
+            <div role="search">
+              <label class="usa-sr-only" for="search-field-small">Search small</label>
+              <input id="search-field-small" type="search" name="search">
+              <button type="submit">
+                <span class="usa-sr-only">Search</span>
+              </button>
+            </div>
+          </form>
+          <ul class="usa-unstyled-list usa-nav-secondary-links">
+            <li class="js-search-button-container">
+              <button class="usa-header-search-button js-search-button">Search</button>
+            </li>
+            <li>
+              <a href="#">Secondary link</a>
+            </li>
+            <li>
+              <a href="#">Secondary link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </header>
   <div class="usa-overlay"></div>
-  <main class="usa-content" id="main-content">
-  <section class="usa-hero">
-    <div class="usa-grid">
-      <div class="usa-hero-callout usa-section-dark">
-        <h2>We’re building:  <span class="usa-hero-callout-alt_color">A pass to get every kid in a national park</span></h2>
-        <a href="https://everykidinapark.gov/">everykidinapark.gov</a>
-        <a class="usa-button usa-button-big usa-button-secondary" href="#">Learn about what we do</a>
-      </div>
-    </div>
-  </section>
-    <section class="usa-section">
+  <main id="main-content">
+    <section class="usa-hero">
       <div class="usa-grid">
-        <h2>Section heading</h2>
-        <h3>Section of the page</h3>
-        <p>The sprawling landscape encompasses lush forests and an abundance of wildflowers that bloom year-round. Streams, rivers and waterfalls appear along hiking routes that include a segment of the Appalachian Trail.</p>
+        <div class="usa-hero-callout usa-section-dark">
+          <h2><span class="usa-hero-callout-alt">We’re building: </span> A pass to get every kid in a national park</h2>
+          <a href="https://everykidinapark.gov/">everykidinapark.gov</a>
+          <a class="usa-button usa-button-big usa-button-secondary" href="#">Learn about what we do</a>
+        </div>
       </div>
     </section>
-    <section class="usa-section usa-section-alt">
-      <div class="usa-grid">
-        <h2>Section heading</h2>
-        <p>World renowned for its diversity of plant and animal life, the beauty of its ancient mountains, and the quality of its remnants of Southern Appalachian mountain culture, this is America's most visited national park.</p>
-        <p>Right now scientists think that we only know about 17 percent of the plants and animals that live in the park, or about 17,000 species of a probable 100,000 different organisms.</p>
-        <h5>Subsection of the page</h5>
-        <p>Entrance to Great Smoky Mountains National Park is free. The park is one of the few national parks where no entrance fees are charged.</p>
+    <section class="usa-grid usa-section">
+      <div class="usa-width-one-third">
+        <h2>Delivery is the strategy.</h2>
+      </div>
+      <div class="usa-width-two-thirds">
+        <p>18F is an office inside the General Services Administration that helps other federal agencies build, buy, and share efficient and easy-to-use digital services.</p>
+        <p>We're transforming government from the inside out, creating cultural change by working with teams inside agencies who want to create great services for the public.</p>
       </div>
     </section>
     <section class="usa-section usa-section-dark">
+      <div class="usa-grid usa-media_block-list">
+        <div class="usa-width-one-half">
+          <img class="usa-media_block-img"  src="{{ site.baseurl }}/assets/img/circle-124.png" alt="Alt text">
+          <h3 class="usa-media_block-heading">Graphic heading</h3>
+          <p class="usa-media_block-text">The sprawling landscape encompasses lush forests and an abundance of wildflowers that bloom year-round. Streams, rivers and waterfalls appear along hiking routes that include a segment of the Appalachian Trail.</p>
+        </div>
+        <div class="usa-width-one-half">
+          <img class="usa-media_block-img" src="{{ site.baseurl }}/assets/img/circle-124.png" alt="Alt text">
+          <h3 class="usa-media_block-heading">Graphic heading</h3>
+          <p class="usa-media_block-text">World renowned for its diversity of plant and animal life, the beauty of its ancient mountains, and the quality of its remnants of Southern Appalachian mountain culture, this is America's most visited national park.</p>
+        </div>
+      </div>
+      <div class="usa-grid">
+        <div class="usa-width-one-half">
+          <img class="usa-media_block-img"  src="{{ site.baseurl }}/assets/img/circle-124.png" alt="Alt text">
+          <h3 class="usa-media_block-heading">Graphic heading</h3>
+          <p class="usa-media_block-text">Right now scientists think that we only know about 17 percent of the plants and animals that live in the park, or about 17,000 species of a probable 100,000 different organisms.</p>
+        </div>
+        <div class="usa-width-one-half">
+          <img class="usa-media_block-img" src="{{ site.baseurl }}/assets/img/circle-124.png" alt="Alt text">
+          <h3 class="usa-media_block-heading">Graphic heading</h3>
+          <p class="usa-media_block-text">Entrance to Great Smoky Mountains National Park is free. The park is one of the few national parks where no entrance fees are charged.</p>
+        </div>
+      </div>
+    </section>
+    <section class="usa-section">
       <div class="usa-grid">
         <h2>Section heading</h2>
-        <p>World renowned for its diversity of plant and animal life, the beauty of its ancient mountains, and the quality of its remnants of Southern Appalachian mountain culture, this is America's most visited national park.</p>
+        <p class="usa-font-lead">World renowned for its diversity of plant and animal life, the beauty of its ancient mountains, and the quality of its remnants of Southern Appalachian mountain culture, this is America's most visited national park.</p>
+        <a class="usa-button" href="#">Call to action</a>
       </div>
     </section>
   </main>
@@ -181,7 +214,7 @@
     <div class="usa-footer-secondary_section">
       <div class="usa-grid">
         <div class="usa-footer-logo usa-width-one-half">
-          <img class="usa-footer-logo-img" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
+          <img class="usa-footer-circle-124" src="{{ site.baseurl }}/assets/img/circle-124.png" alt="Logo image">
           <h3 class="usa-footer-logo-heading">Name of Agency</h3>
         </div>
         <div class="usa-footer-contact-links usa-width-one-half">
