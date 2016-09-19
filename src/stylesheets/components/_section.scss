@@ -1,5 +1,42 @@
 .usa-section {
-  @include margin(6rem null);
+  @include padding(6rem null);
+}
+
+.usa-section-alt {
+  background-color: $color-gray-lightest;
+}
+
+.usa-section-dark {
+  background-color: $color-primary-darkest;
+  color: $color-white;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    color: $color-white;
+  }
+
+  .section-heading {
+    color: $color-white;
+    display: inline;
+    letter-spacing: 0.5px;
+  }
+
+  h2 {
+    letter-spacing: 0.5px;
+  }
+
+  a {
+    color: $color-white;
+
+    &:hover {
+      color: $color-gray-lighter;
+    }
+  }
 }
 
 .usa-section,
