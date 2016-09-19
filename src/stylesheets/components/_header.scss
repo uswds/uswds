@@ -53,7 +53,7 @@ $z-index-nav:     9000;
   @include media($nav-width) {
     line-height: 7.5rem;
     margin-left: 0;
-    margin-top: 3.3rem;
+    margin-top: 2.3rem;
   }
 
   a {
@@ -170,7 +170,7 @@ $z-index-nav:     9000;
   z-index: $z-index-nav;
 
   @include media($nav-width) {
-    @include padding(6rem 0 0 null);
+    @include padding(5rem 0 0 null);
     @include transform(translateX(0));
     border-left: none;
     display: block;
