@@ -138,19 +138,20 @@ legend {
   margin-left: -2rem;
   opacity: 0;
   position: absolute;
+  width: auto;
 
   .lt-ie9 & {
     border: 0;
     float: left;
     margin: 0.4em 0.4em 0 0;
     position: static;
-    width: auto;
   }
 }
 
 [type="checkbox"] + label,
 [type="radio"] + label {
   cursor: pointer;
+  display: inline-block;
   font-weight: 400;
   margin-bottom: 0.5em;
 }
