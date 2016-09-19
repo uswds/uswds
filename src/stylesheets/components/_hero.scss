@@ -12,6 +12,12 @@
   }
 }
 
+.usa-section-dark {
+  .usa-hero-link {
+    color: $color-primary-alt;
+  }
+}
+
 .usa-hero-callout {
   background-color: $color-primary-darkest;
   padding: 3rem;
