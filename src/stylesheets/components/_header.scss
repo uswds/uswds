@@ -355,8 +355,8 @@ $z-index-nav:     9000;
 
   .usa-nav {
     @include media($nav-width) {
-      border-bottom: 1px solid $color-gray-light;
       border-top: 1px solid $color-gray-light;
+      float: none;
       padding: 0;
       width: 100%;
     }
