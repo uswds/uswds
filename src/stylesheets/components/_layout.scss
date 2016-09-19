@@ -1,5 +1,9 @@
 .usa-section {
-  @include padding(6rem null);
+  @include padding(3rem null);
+
+  @include media($medium-screen) {
+    @include padding(6rem null);
+  }
 }
 
 .usa-section-alt {
