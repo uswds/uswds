@@ -1,0 +1,31 @@
+.usa-section {
+  @include margin(6rem null);
+}
+
+.usa-section,
+.usa-grid,
+.usa-width-one-whole,
+.usa-width-one-half,
+.usa-width-one-third,
+.usa-width-two-thirds,
+.usa-width-one-fourth,
+.usa-width-three-fourths,
+.usa-width-one-sixth,
+.usa-width-five-sixths,
+.usa-width-one-twelfth {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child:not(:only-child) {
+      margin-bottom: 0;
+    }
+  }
+}
