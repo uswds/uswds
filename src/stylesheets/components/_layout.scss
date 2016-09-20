@@ -63,3 +63,20 @@
     }
   }
 }
+
+.usa-template-docs {
+  display: flex;
+  flex-direction: column;
+
+  @include media($large-screen) {
+    display: inherit;
+  }
+}
+
+.usa-template-docs-sidenav {
+  order: 2;
+}
+
+.usa-template-docs-main_content {
+  order: 1;
+}
