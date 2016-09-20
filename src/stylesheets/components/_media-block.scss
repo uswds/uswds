@@ -1,17 +1,30 @@
+// Media block
 .usa-media_block-img {
   float: left;
-  margin-right: 3rem;
+  margin-right: $site-margins;
 }
 
-.usa-media_block-heading {
-  clear: none;
-  margin-top: 0;
-}
-
-.usa-media_block-text {
+.usa-media_block-body {
   overflow: hidden;
 }
 
-.usa-media_block-list {
-  margin-bottom: 6rem;
+// Graphic list
+.usa-graphic_list {
+  .usa-graphic_list-item {
+    .usa-media_block {
+      margin-bottom: $site-margins;
+
+      @include media($medium-screen) {
+        margin-bottom: $site-margins * 2;
+      }
+    }
+
+    &:last-child {
+      .usa-media_block {
+        @include media($medium-screen) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
 }
