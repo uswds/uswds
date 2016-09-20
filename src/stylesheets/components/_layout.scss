@@ -78,5 +78,10 @@
 }
 
 .usa-template-docs-main_content {
+  margin-bottom: $site-margins;
   order: 1;
+
+  @include media($medium-screen) {
+    margin-bottom: 0;
+  }
 }
