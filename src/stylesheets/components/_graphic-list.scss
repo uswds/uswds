@@ -28,7 +28,7 @@
   }
 
   .usa-media_block-body {
-    * {
+    > * {
       &:first-child {
         margin-top: 0;
       }
