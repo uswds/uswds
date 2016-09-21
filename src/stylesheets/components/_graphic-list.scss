@@ -28,10 +28,8 @@
   }
 
   .usa-media_block-body {
-    > * {
-      &:first-child {
-        margin-top: 0;
-      }
+    > :first-child {
+      margin-top: 0;
     }
   }
 }
