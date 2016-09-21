@@ -26,4 +26,12 @@
   .usa-media_block-img {
     margin-right: $site-margins;
   }
+
+  .usa-media_block-body {
+    * {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
 }
