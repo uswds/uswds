@@ -1,7 +1,4 @@
-// Media block
-// ==========================
-
-@mixin media-block-img($margin-right: $site-margins) {
+@mixin media-block-img($margin-right: 1rem) {
   float: left;
   margin-right: $margin-right;
 }
