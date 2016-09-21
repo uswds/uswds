@@ -258,13 +258,7 @@ dfn {
 .usa-width-one-sixth,
 .usa-width-five-sixths,
 .usa-width-one-twelfth {
-  > h1,
-  > h2,
-  > h3,
-  > h4,
-  > h5,
-  > h6,
-  > p {
+  > * {
     &:first-child {
       margin-top: 0;
     }
