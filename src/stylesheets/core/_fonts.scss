@@ -3,7 +3,7 @@
   '#{$font-path}/sourcesanspro-light-webfont',
   300,
   normal,
-  $asset-pipeline: false,
+  $asset-pipeline: $asset-pipeline,
   $file-formats: eot woff2 woff ttf
 );
 
@@ -12,7 +12,7 @@
   '#{$font-path}/sourcesanspro-regular-webfont',
   400,
   normal,
-  $asset-pipeline: false,
+  $asset-pipeline: $asset-pipeline,
   $file-formats: eot woff2 woff ttf
 );
 
@@ -21,7 +21,7 @@
   '#{$font-path}/sourcesanspro-italic-webfont',
   400,
   italic,
-  $asset-pipeline: false,
+  $asset-pipeline: $asset-pipeline,
   $file-formats: eot woff2 woff ttf
 );
 
@@ -30,7 +30,7 @@
   '#{$font-path}/sourcesanspro-bold-webfont',
   700,
   normal,
-  $asset-pipeline: false,
+  $asset-pipeline: $asset-pipeline,
   $file-formats: eot woff2 woff ttf
 );
 
@@ -39,7 +39,7 @@
   '#{$font-path}/merriweather-light-webfont',
   300,
   normal,
-  $asset-pipeline: false,
+  $asset-pipeline: $asset-pipeline,
   $file-formats: eot woff2 woff ttf
 );
 
@@ -48,7 +48,7 @@
   '#{$font-path}/merriweather-regular-webfont',
   400,
   normal,
-  $asset-pipeline: false,
+  $asset-pipeline: $asset-pipeline,
   $file-formats: eot woff2 woff ttf
 );
 
@@ -57,7 +57,7 @@
   '#{$font-path}/merriweather-italic-webfont',
   400,
   italic,
-  $asset-pipeline: false,
+  $asset-pipeline: $asset-pipeline,
   $file-formats: eot woff2 woff ttf
 );
 
@@ -66,6 +66,6 @@
   '#{$font-path}/merriweather-bold-webfont',
   700,
   normal,
-  $asset-pipeline: false,
+  $asset-pipeline: $asset-pipeline,
   $file-formats: eot woff2 woff ttf
 );
