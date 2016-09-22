@@ -9,20 +9,26 @@ function toggleClass (element, className) {
   }
 }
 
-function mobileInit () {
-  var navElements = select('.usa-menu-btn, .usa-overlay, .usa-nav-close');
+function handleNavElements (e) {
+
   var toggleElements = select('.usa-overlay, .usa-nav');
   var navCloseElement = select('.usa-nav-close')[ 0 ];
 
+  toggleElements.forEach(function (element) {
+    toggleClass(element, 'is-visible');
+  });
+  toggleClass(document.body, 'usa-mobile_nav-active');
+  navCloseElement.focus();
+  shouldTrigger = false;
+  return false;
+}
+
+function mobileInit () {
+  var navElements = select('.usa-menu-btn, .usa-overlay, .usa-nav-close');
+  var clickHandler = ('ontouchstart' in document.documentElement ? 'touchstart' : 'click');
+
   navElements.forEach(function (element) {
-    dispatch(element, 'click touchstart', function (e) {
-      toggleElements.forEach(function (element) {
-        toggleClass(element, 'is-visible');
-      });
-      toggleClass(document.body, 'usa-mobile_nav-active');
-      navCloseElement.focus();
-      return false;
-    });
+    dispatch(element, clickHandler, handleNavElements);
   });
 }
 
