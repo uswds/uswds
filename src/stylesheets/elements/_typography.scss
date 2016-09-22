@@ -249,7 +249,16 @@ dfn {
 // headings and paragraph text when they are within those layout elements.
 .usa-section,
 .usa-grid,
-.usa-width-one-whole,
+.usa-width-one-whole {
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
 .usa-width-one-half,
 .usa-width-one-third,
 .usa-width-two-thirds,
@@ -258,11 +267,27 @@ dfn {
 .usa-width-one-sixth,
 .usa-width-five-sixths,
 .usa-width-one-twelfth {
+  &:first-child {
+    > :first-child {
+      margin-top: 0;
+    }
+  }
+
   > :first-child {
-    margin-top: 0;
+    @include media($medium-screen) {
+      margin-top: 0;
+    }
+  }
+
+  &:last-child {
+    > :last-child {
+      margin-bottom: 0;
+    }
   }
 
   > :last-child {
-    margin-bottom: 0;
+    @include media($medium-screen) {
+      margin-bottom: 0;
+    }
   }
 }
