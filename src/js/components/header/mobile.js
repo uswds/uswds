@@ -3,6 +3,8 @@ var addClass = require('../../utils/add-class');
 var removeClass = require('../../utils/remove-class');
 var dispatch = require('../../utils/dispatch');
 
+var clickHandler = ('ontouchstart' in document.documentElement ? 'touchstart' : 'click');
+
 function toggleClass (element, className) {
   if (element.classList) {
     element.classList.toggle(className);
@@ -25,7 +27,6 @@ function handleNavElements (e) {
 
 function mobileInit () {
   var navElements = select('.usa-menu-btn, .usa-overlay, .usa-nav-close');
-  var clickHandler = ('ontouchstart' in document.documentElement ? 'touchstart' : 'click');
 
   navElements.forEach(function (element) {
     dispatch(element, clickHandler, handleNavElements);
