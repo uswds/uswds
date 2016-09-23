@@ -291,7 +291,7 @@ $z-index-nav:     9000;
       @include media($nav-width) {
         background-image: url('#{$image-path}/angle-arrow-down.png');
         background-image: url('#{$image-path}/angle-arrow-down.svg');
-        background-position: 88% 44%;
+        background-position: right 1.5rem top 44%;
       }
     }
 
@@ -307,7 +307,7 @@ $z-index-nav:     9000;
         color: $color-white;
         background-image: url('#{$image-path}/angle-arrow-down-hover.png');
         background-image: url('#{$image-path}/angle-arrow-down-hover.svg');
-        background-position: 88% 44%;
+        background-position: right 1.5rem top 44%;
 
         &:hover {
           background-color: $color-primary-darkest;
