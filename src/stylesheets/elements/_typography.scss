@@ -250,11 +250,11 @@ dfn {
 .usa-section,
 .usa-grid,
 .usa-width-one-whole {
-  > :first-child {
+  > :first-child:not(.usa-width-*) {
     margin-top: 0;
   }
 
-  > :last-child {
+  > :last-child:not(.usa-width-*) {
     margin-bottom: 0;
   }
 }
