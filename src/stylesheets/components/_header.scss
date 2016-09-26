@@ -42,8 +42,6 @@ $z-index-nav:     9000;
     border-bottom: none;
     display: inline-block;
     height: 10.3rem;
-    position: relative;
-    width: 18%; // TODO: review this more
   }
 }
 
@@ -53,10 +51,8 @@ $z-index-nav:     9000;
   margin-left: 1.5rem;
 
   @include media($nav-width) {
-    bottom: 1.9rem;
     line-height: 7.5rem;
     margin-left: 0;
-    position: absolute;
   }
 
   a {
@@ -320,6 +316,24 @@ $z-index-nav:     9000;
           @include nav-border;
         }
       }
+    }
+  }
+}
+
+// Basic header ----------- //
+
+.usa-header-basic {
+  .usa-logo {
+    @include media($nav-width) {
+      bottom: 1.9rem;
+      position: absolute;
+    }
+  }
+
+  .usa-navbar {
+    @include media($nav-width) {
+      position: relative;
+      width: 18%; // TODO: review this more
     }
   }
 }
