@@ -6,6 +6,16 @@
   @include media($large-screen) {
     display: inherit;
   }
+
+  .usa-grid {
+    > :first-child:not(.usa-width-*) {
+      margin-top: 0;
+    }
+
+    > :last-child:not(.usa-width-*) {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .usa-layout-docs-sidenav {

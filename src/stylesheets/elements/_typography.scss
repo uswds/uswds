@@ -246,19 +246,19 @@ dfn {
 }
 
 // Removes top margin from first child and bottom margin from last child on
-// headings and paragraph text when they are within those layout elements.
+// elements when they are within those layout elements.
 .usa-section,
-.usa-grid,
-.usa-width-one-whole {
-  > :first-child:not(.usa-width-*) {
+.usa-grid {
+  > :first-child {
     margin-top: 0;
   }
 
-  > :last-child:not(.usa-width-*) {
+  > :last-child {
     margin-bottom: 0;
   }
 }
 
+.usa-width-one-whole,
 .usa-width-one-half,
 .usa-width-one-third,
 .usa-width-two-thirds,
