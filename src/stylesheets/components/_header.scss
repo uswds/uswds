@@ -53,7 +53,6 @@ $z-index-nav:     9000;
   @include media($nav-width) {
     line-height: 7.5rem;
     margin-left: 0;
-    margin-top: 3.3rem;
   }
 
   a {
@@ -170,7 +169,7 @@ $z-index-nav:     9000;
   z-index: $z-index-nav;
 
   @include media($nav-width) {
-    @include padding(6rem 0 0 null);
+    @include padding(5rem 0 0 null);
     @include transform(translateX(0));
     border-left: none;
     display: block;
@@ -291,7 +290,7 @@ $z-index-nav:     9000;
       @include media($nav-width) {
         background-image: url('#{$image-path}/angle-arrow-down.png');
         background-image: url('#{$image-path}/angle-arrow-down.svg');
-        background-position: 88% 44%;
+        background-position: right 1.5rem top 44%;
       }
     }
 
@@ -307,7 +306,7 @@ $z-index-nav:     9000;
         color: $color-white;
         background-image: url('#{$image-path}/angle-arrow-down-hover.png');
         background-image: url('#{$image-path}/angle-arrow-down-hover.svg');
-        background-position: 88% 44%;
+        background-position: right 1.5rem top 44%;
 
         &:hover {
           background-color: $color-primary-darkest;
@@ -317,6 +316,24 @@ $z-index-nav:     9000;
           @include nav-border;
         }
       }
+    }
+  }
+}
+
+// Basic header ----------- //
+
+.usa-header-basic {
+  .usa-logo {
+    @include media($nav-width) {
+      bottom: 1.9rem;
+      position: absolute;
+    }
+  }
+
+  .usa-navbar {
+    @include media($nav-width) {
+      position: relative;
+      width: 18%; // TODO: review this more
     }
   }
 }
@@ -355,8 +372,8 @@ $z-index-nav:     9000;
 
   .usa-nav {
     @include media($nav-width) {
-      border-bottom: 1px solid $color-gray-light;
       border-top: 1px solid $color-gray-light;
+      float: none;
       padding: 0;
       width: 100%;
     }
@@ -381,7 +398,7 @@ $z-index-nav:     9000;
       &[aria-expanded=false],
       &[aria-expanded=true] {
         @include media($nav-width) {
-          background-position: 88% 50%;
+          background-position: right 1.5rem top 50%;
         }
       }
     }

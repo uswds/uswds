@@ -1,0 +1,36 @@
+// Flexbox positioning to move sidenav below main content on small screens
+.usa-layout-docs {
+  display: flex;
+  flex-direction: column;
+
+  @include media($large-screen) {
+    display: inherit;
+  }
+
+  .usa-grid {
+    > :first-child:not(.usa-width-*) {
+      margin-top: 0;
+    }
+
+    > :last-child:not(.usa-width-*) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.usa-layout-docs-sidenav {
+  order: 2;
+}
+
+.usa-layout-docs-main_content {
+  margin-bottom: $site-margins;
+  order: 1;
+
+  @include media($large-screen) {
+    margin-bottom: 0;
+  }
+
+  > :first-child {
+    margin-top: 0;
+  }
+}

@@ -244,3 +244,50 @@ dfn {
   font-size: $h6-font-size;
   margin-top: 0;
 }
+
+// Removes top margin from first child and bottom margin from last child on
+// elements when they are within those layout elements.
+.usa-section,
+.usa-grid {
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.usa-width-one-whole,
+.usa-width-one-half,
+.usa-width-one-third,
+.usa-width-two-thirds,
+.usa-width-one-fourth,
+.usa-width-three-fourths,
+.usa-width-one-sixth,
+.usa-width-five-sixths,
+.usa-width-one-twelfth {
+  &:first-child {
+    > :first-child {
+      margin-top: 0;
+    }
+  }
+
+  > :first-child {
+    @include media($medium-screen) {
+      margin-top: 0;
+    }
+  }
+
+  &:last-child {
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  > :last-child {
+    @include media($medium-screen) {
+      margin-bottom: 0;
+    }
+  }
+}

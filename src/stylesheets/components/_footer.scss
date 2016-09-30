@@ -68,6 +68,19 @@
       padding-bottom: 1rem;
       padding-top: 1rem;
     }
+
+    .usa-footer-primary-content {
+      @include media($large-screen) {
+        margin-right: 6%;
+        width: inherit;
+      }
+
+      &:last-child {
+        @include media($large-screen) {
+          margin-right: 0;
+        }
+      }
+    }
   }
 
   .usa-footer-nav ul {
@@ -78,8 +91,23 @@
 }
 
 .usa-footer-slim {
-  .usa-footer-nav a {
-    display: block;
+  .usa-footer-nav {
+    a {
+      display: block;
+    }
+
+    .usa-footer-primary-content {
+      @include media($large-screen) {
+        margin-right: 9%;
+        width: inherit;
+      }
+
+      &:last-child {
+        @include media($large-screen) {
+          margin-right: 0;
+        }
+      }
+    }
   }
 
   .usa-footer-primary-section {
