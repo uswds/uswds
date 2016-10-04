@@ -10,7 +10,7 @@ var filter = require('gulp-filter');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
 var del = require('del');
-var task = /([\w\d-_]+)\.js$/.exec(__filename)[ 1 ];
+var task = 'sass';
 
 var entryFileFilter = filter('all.scss', { restore: true });
 var normalizeCssFilter = filter('normalize.css', { restore: true });
@@ -53,7 +53,10 @@ gulp.task('copy-vendor-sass', function (done) {
  * XXX the 'stylelint' prerequisite is commented out here because
  * there are currently a TON of linting errors in our SCSS files.
  */
-gulp.task(task, [ /* 'stylelint' */ ], function (done) {
+gulp.task(task, [
+  // 'stylelint',
+  'copy-vendor-sass',
+], function (done) {
 
   dutil.logMessage(task, 'Compiling Sass');
 
