@@ -10,7 +10,7 @@ var filter = require('gulp-filter');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
 var del = require('del');
-var task = /([\w\d-_]+)\.js$/.exec(__filename)[ 1 ];
+var task = 'sass';
 
 var entryFileFilter = filter('all.scss', { restore: true });
 var normalizeCssFilter = filter('normalize.css', { restore: true });
