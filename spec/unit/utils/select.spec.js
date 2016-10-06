@@ -1,4 +1,3 @@
-var mocha = require('mocha');
 var should = require('should');
 var select = require('../../../src/js/utils/select');
 var jsdom = require('jsdom').jsdom;

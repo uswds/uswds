@@ -1,8 +1,6 @@
-var mocha = require('mocha');
 var should = require('should');
 var dispatch = require('../../../src/js/utils/dispatch');
 var sinon = require('sinon');
-var jsdom = require('jsdom').jsdom;
 
 describe('dispatch', function () {
 

@@ -1,8 +1,6 @@
-var mocha = require('mocha');
 var should = require('should');
-var $ = require('../setup.js');
+var $ = require('jquery');
 var addClass = require('../../../src/js/utils/add-class');
-var jsdom = require('jsdom').jsdom;
 
 describe('addClass', function () {
 
@@ -15,14 +13,14 @@ describe('addClass', function () {
 
   it('adds a class to a class-less element', function () {
     $('body').append($('<div id="id1"></div>'));
-    var div = $('#id1').get()[ 0 ];
+    var div = $('#id1').get(0);
     addClass(div, 'myclass');
     $('#id1').hasClass('myclass').should.be.true();
   });
 
   it('adds a class to an element that already has classes', function () {
     $('body').append($('<div id="id2" class="bish bosh"></div>'));
-    var div = $('#id2').get()[ 0 ];
+    var div = $('#id2').get(0);
     addClass(div, 'myclass');
     $('#id2').hasClass('bish').should.be.true();
     $('#id2').hasClass('bosh').should.be.true();
