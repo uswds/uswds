@@ -1,0 +1,260 @@
+
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Page title</title>
+      <!-- Update the link path to where your stylesheet file is located. For example: /path/to/your/assets/css/lib/uswds.min.css -->
+      <link rel="stylesheet" href="{{ "/assets/css/styleguide.css" | prepend: site.baseurl }}">
+    </head>
+    <body class="layout-demo">
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+    <header class="usa-header usa-header-extended" role="banner">
+      <!-- Gov banner BEGIN -->
+      <div class="usa-banner">
+        <div class="usa-accordion">
+          <header class="usa-banner-header">
+            <div class="usa-grid usa-banner-inner">
+            <img src="{{ site.baseurl }}/assets/img/favicons/favicon-57.png" alt="U.S. flag">
+            <p>An official website of the United States government</p>
+            <button class="usa-accordion-button usa-banner-button"
+              aria-expanded="false" aria-controls="gov-banner">
+              <span class="usa-banner-button-text">Here's how you know</span>
+            </button>
+            </div>
+          </header>
+          <div class="usa-banner-content usa-grid usa-accordion-content" id="gov-banner">
+            <div class="usa-banner-guidance-gov usa-width-one-half">
+              <img class="usa-banner-icon usa-media_block-img" src="{{ site.baseurl }}/assets/img/icon-dot-gov.svg" alt="Dot gov">
+              <div class="usa-media_block-body">
+                <p>
+                  <strong>The .gov means it’s official.</strong>
+                  <br>
+                  Federal government websites always use a .gov or .mil domain. Before sharing sensitive information online, make sure you’re on a .gov or .mil site by inspecting your browser’s address (or “location”) bar.
+                </p>
+              </div>
+            </div>
+            <div class="usa-banner-guidance-ssl usa-width-one-half">
+              <img class="usa-banner-icon usa-media_block-img" src="{{ site.baseurl }}/assets/img/icon-https.svg" alt="SSL">
+              <div class="usa-media_block-body">
+                <p>This site is also protected by an SSL (Secure Sockets Layer) certificate that’s been signed by the U.S. government. The <strong>https://</strong> means all transmitted data is encrypted  — in other words, any information or browsing history that you provide is transmitted securely.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Gov banner END -->
+      <div class="usa-navbar">
+        <button class="usa-menu-btn">Menu</button>
+        <div class="usa-logo" id="logo">
+          <em class="usa-logo-text">
+            <a href="#" accesskey="1" title="Home" aria-label="Home">Federal Agency Name</a>
+          </em>
+        </div>
+      </div>
+      <nav role="navigation" class="usa-nav">
+        <div class="usa-nav-inner">
+          <button class="usa-nav-close">
+            <img src="{{ site.baseurl }}/assets/img/close.svg" alt="close">
+          </button>
+          <ul class="usa-nav-primary usa-accordion">
+            <li>
+              <button class="
+              usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="side-nav-1">
+                <span>Section title</span>
+              </button>
+              <ul id="side-nav-1" class="usa-nav-submenu">
+                <li>
+                  <a href="#">Page title</a>
+                </li>
+                <li>
+                  <a href="#">Page title</a>
+                </li>
+                <li>
+                  <a href="#">Page title</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="sidenav-2">
+                <span>Simple terms</span>
+              </button>
+              <ul id="sidenav-2" class="usa-nav-submenu">
+                <li>
+                  <a href="#">Page title</a>
+                </li>
+                <li>
+                  <a href="#">Page title</a>
+                </li>
+                <li>
+                  <a href="#">Page title</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a class="usa-nav-link" href="#">
+                <span>Distinct from each other</span>
+              </a>
+            </li>
+            <li>
+              <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="sidenav-3">
+                <span>More details in sub-menus</span>
+              </button>
+              <ul id="sidenav-3" class="usa-nav-submenu">
+                <li>
+                  <a href="#">Page title</a>
+                </li>
+                <li>
+                  <a href="#">Page title</a>
+                </li>
+                <li>
+                  <a href="#">Page title</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="usa-nav-secondary">
+            <form class="usa-search usa-search-small js-search-form">
+              <div role="search">
+                <label class="usa-sr-only" for="search-field-small">Search small</label>
+                <input id="search-field-small" type="search" name="search">
+                <button type="submit">
+                  <span class="usa-sr-only">Search</span>
+                </button>
+              </div>
+            </form>
+            <ul class="usa-unstyled-list usa-nav-secondary-links">
+              <li class="js-search-button-container">
+                <button class="usa-header-search-button js-search-button">Search</button>
+              </li>
+              <li>
+                <a href="#">Secondary priority link</a>
+              </li>
+              <li>
+                <a href="#">Easy to comprehend</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="usa-overlay"></div>
+    <main id="main-content">
+      <section class="usa-hero">
+        <div class="usa-grid">
+          <div class="usa-hero-callout usa-section-dark">
+            <h2><span class="usa-hero-callout-alt">Hero callout:</span> Call attention to a current priority</h2>
+            <a class="usa-hero-link" href="#">Link to more about that priority</a>
+            <a class="usa-button usa-button-big usa-button-secondary" href="#">Learn about what we do</a>
+          </div>
+        </div>
+      </section>
+      <section class="usa-grid usa-section">
+        <div class="usa-width-one-third">
+          <h2>A tagline highlights your approach.</h2>
+        </div>
+        <div class="usa-width-two-thirds">
+          <p>The tagline should inspire confidence and interest, focusing on the value that your overall approach offers to your audience. Use a heading typeface and keep your tagline to just a few words, and don’t confuse or mystify.</p>
+          <p>Use the right side of the grid to explain the tagline a bit more. What are your goals? How do you do your work? Write in the present tense, and stay brief here. People who are interested can find details on internal pages.</p>
+        </div>
+      </section>
+      <section class="usa-section usa-section-dark usa-graphic_list">
+        <div class="usa-grid usa-graphic_list-row">
+          <div class="usa-width-one-half usa-media_block">
+            <img class="usa-media_block-img"  src="{{ site.baseurl }}/assets/img/circle-124.png" alt="Alt text">
+            <div class="usa-media_block-body">
+              <h3>Graphic headings can vary.</h3>
+              <p>Graphic headings can be used a few different ways, depending on what your landing page is for. Highlight your values, specific program areas, or results.</p>
+            </div>
+          </div>
+          <div class="usa-width-one-half usa-media_block">
+            <img class="usa-media_block-img"  src="{{ site.baseurl }}/assets/img/circle-124.png" alt="Alt text">
+            <div class="usa-media_block-body">
+              <h3>Stick to 6 or fewer words.</h3>
+              <p>Keep body text to about 30. They can be shorter, but try to be somewhat balanced across all four. It creates a clean appearance with good spacing.</p>
+            </div>
+          </div>
+        </div>
+        <div class="usa-grid usa-graphic_list-row">
+          <div class="usa-width-one-half usa-media_block">
+            <img class="usa-media_block-img"  src="{{ site.baseurl }}/assets/img/circle-124.png" alt="Alt text">
+            <div class="usa-media_block-body">
+              <h3>Never highlight anything without a goal.</h3>
+              <p>For anything you want to highlight here, understand what your users know now, and what activity or impression you want from them after they see it.</p>
+            </div>
+          </div>
+          <div class="usa-width-one-half usa-media_block">
+            <img class="usa-media_block-img"  src="{{ site.baseurl }}/assets/img/circle-124.png" alt="Alt text">
+            <div class="usa-media_block-body">
+              <h3>Could also have 2 or 6.</h3>
+              <p>In addition to your goal, find out your users’ goals. What do they want to know or do that supports your mission? Use these headings to show those.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="usa-section">
+        <div class="usa-grid">
+          <h2>Section heading</h2>
+          <p class="usa-font-lead">Everything up to this point should help people understand your agency or project: who you are, your goal or mission, and how you approach it. Use this section to encourage them to act. Describe why they should get in touch here, and use an active verb on the button below. “Get in touch,” “Learn more,” and so on.</p>
+          <a class="usa-button usa-button-big" href="#">Call to action</a>
+        </div>
+      </section>
+    </main>
+    <footer class="usa-footer usa-footer-medium" role="contentinfo">
+      <div class="usa-grid usa-footer-return-to-top">
+        <a href="#">Return to top</a>
+      </div>
+      <div class="usa-footer-primary-section">
+        <div class="usa-grid-full">
+          <nav class="usa-footer-nav">
+            <ul class="usa-unstyled-list">
+              <li class="usa-width-one-fourth usa-footer-primary-content">
+                <a class="usa-footer-primary-link" href="javascript:void(0);">Primary link</a>
+              </li>
+              <li class="usa-width-one-fourth usa-footer-primary-content">
+                <a class="usa-footer-primary-link" href="javascript:void(0);">Permanently relevant</a>
+              </li>
+              <li class="usa-width-one-fourth usa-footer-primary-content">
+                <a class="usa-footer-primary-link" href="javascript:void(0);">Easy to understand</a>
+              </li>
+              <li class="usa-width-one-fourth usa-footer-primary-content">
+                <a class="usa-footer-primary-link" href="javascript:void(0);">Site policies (example)</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="usa-footer-secondary_section">
+        <div class="usa-grid">
+          <div class="usa-footer-logo usa-width-one-half">
+            <img class="usa-footer-circle-124" src="{{ site.baseurl }}/assets/img/logo-img.png" alt="Logo image">
+            <h3 class="usa-footer-logo-heading">Name of Agency</h3>
+          </div>
+          <div class="usa-footer-contact-links usa-width-one-half">
+            <a class="usa-link-facebook" href="javascript:void(0);">
+              <span>Facebook</span>
+            </a>
+            <a class="usa-link-twitter" href="javascript:void(0);">
+              <span>Twitter</span>
+            </a>
+            <a class="usa-link-youtube" href="javascript:void(0);">
+              <span>YouTube</span>
+            </a>
+            <a class="usa-link-rss" href="javascript:void(0);">
+              <span>RSS</span>
+            </a>
+            <address>
+              <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
+              <p>(800) CALL-GOVT</p>
+              <a href="mailto:info@agency.gov">info@agency.gov</a>
+            </address>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Update the link path to where your JavaScript file is located. For example: /path/to/your/assets/js/lib/uswds.min.js -->
+    <script src="{{ site.baseurl }}/assets/js/vendor/uswds.min.js"></script>
+    </body>
+  </html>

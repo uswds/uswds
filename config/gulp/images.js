@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var dutil = require('./doc-util');
-var task = /([\w\d-_]+)\.js$/.exec(__filename)[ 1 ];
+var task = 'images';
 
 gulp.task(task, function (done) {
 

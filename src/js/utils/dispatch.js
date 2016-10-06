@@ -6,15 +6,15 @@
  * @param {Function} listener - the function to be executed
  * @returns {Object} - containing a <tt>trigger()</tt> method for executing the listener, and an <tt>off()</tt> method for detaching it
  */
-module.exports = function dispatch (element, eventTypes, listener) {
+module.exports = function dispatch (element, eventTypes, listener, options) {
   var eventTypeArray = eventTypes.split(/\s+/);
 
   var attach = function (e, t, d) {
     if (e.attachEvent) {
-      e.attachEvent('on' + t, d);
+      e.attachEvent('on' + t, d, options);
     }
     if (e.addEventListener) {
-      e.addEventListener(t, d);
+      e.addEventListener(t, d, options);
     }
   };
 
@@ -35,10 +35,10 @@ module.exports = function dispatch (element, eventTypes, listener) {
 
   var detach = function (e, t, d) {
     if (e.detachEvent) {
-      e.detachEvent('on' + t, d);
+      e.detachEvent('on' + t, d, options);
     }
     if (e.removeEventListener) {
-      e.removeEventListener(t, d);
+      e.removeEventListener(t, d, options);
     }
   };
 

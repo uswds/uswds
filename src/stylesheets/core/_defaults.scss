@@ -23,6 +23,7 @@ $lead-line-height:    1.7 !default;
 $font-sans:           'Source Sans Pro', $helvetica !default;
 $font-serif:          'Merriweather', $georgia !default;
 $font-path:           '../fonts' !default;
+$asset-pipeline:      false !default;
 
 $font-normal:         400 !default;
 $font-bold:           700 !default;

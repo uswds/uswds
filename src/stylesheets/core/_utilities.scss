@@ -23,7 +23,6 @@
 }
 
 // Unstyled list helper
-
 @mixin unstyled-list() {
   @include margin(0 null);
   list-style-type: none;
@@ -32,6 +31,14 @@
   > li {
     margin-bottom: 0;
   }
+}
+
+// Font smoothing mixin
+// Only use for light text on dark background
+// TODO: Remove after adding PostCSS
+@mixin font-smoothing {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 // Content size helpers
@@ -81,6 +88,31 @@
       float: right;
       margin-left: 2em;
       margin-top: 0.5em;
+    }
+  }
+}
+
+@mixin display-icon($icon, $direction, $size, $margin, $hover) {
+  &::#{$direction} {
+    background-image: url(#{$image-path}/#{$icon}.png);
+    background-image: url(#{$image-path}/#{$icon}.svg);
+    background-size: 100%;
+    content: '';
+    display: inline-block;
+    height: $size;
+    width: $size;
+
+    @if $direction == 'after' {
+      margin-left: $margin;
+    } @else {
+      margin-right: $margin;
+    }
+  }
+
+  @if $hover == 'hover' {
+    &:hover::#{$direction} {
+      background-image: url(#{$image-path}/#{$icon}-hover.png);
+      background-image: url(#{$image-path}/#{$icon}-hover.svg);
     }
   }
 }
