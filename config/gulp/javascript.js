@@ -18,7 +18,11 @@ gulp.task('eslint', function (done) {
     return done();
   }
 
-  return gulp.src([ 'src/js/**/*.js', '!src/js/vendor/**/*.js' ])
+  return gulp.src([
+      'src/js/**/*.js',
+      '!src/js/vendor/**/*.js',
+      'spec/**/*.js'
+    ])
     .pipe(linter('.eslintrc'))
     .pipe(linter.format());
 
