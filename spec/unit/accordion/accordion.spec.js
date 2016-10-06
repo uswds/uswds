@@ -63,7 +63,7 @@ describe('Accordion component', function () {
     });
 
     describe('when hide is triggered', function () {
-      beforeEach(function() {
+      beforeEach(function () {
         accordion.show(button);
         accordion.hide(button);
       });

@@ -53,9 +53,9 @@ describe('ToggleFormInput', function () {
  * Fire an addEventListener()-added click event in jsdom
  * See http://stackoverflow.com/a/27557936/9070
  */
-function click(jqEl) {
+function click (jqEl) {
   var el = jqEl.get(0);
-  var evt = document.createEvent("HTMLEvents");
-  evt.initEvent("click", false, true);
+  var evt = document.createEvent('HTMLEvents');
+  evt.initEvent('click', false, true);
   el.dispatchEvent(evt);
 }
