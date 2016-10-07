@@ -1,6 +1,4 @@
 var select = require('../../utils/select');
-var addClass = require('../../utils/add-class');
-var removeClass = require('../../utils/remove-class');
 var dispatch = require('../../utils/dispatch');
 
 var searchForm, searchButton, searchButtonContainer, searchDispatcher;
@@ -25,13 +23,13 @@ function searchOpenClickHandler (event) {
 }
 
 function openSearch () {
-  addClass(searchForm, 'is-visible');
-  addClass(searchButton, 'is-hidden');
+  searchForm.classList.add('is-visible');
+  searchButton.classList.add('is-hidden');
 }
 
 function closeSearch () {
-  removeClass(searchForm, 'is-visible');
-  removeClass(searchButton, 'is-hidden');
+  searchForm.classList.remove('is-visible');
+  searchButton.classList.remove('is-hidden');
 }
 
 function isOpen (element) {

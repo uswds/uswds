@@ -1,6 +1,4 @@
 var select = require('../utils/select');
-var addClass = require('../utils/add-class');
-var removeClass = require('../utils/remove-class');
 var dispatch = require('../utils/dispatch');
 
 function getSiblings (el) {
@@ -20,9 +18,9 @@ function getSiblings (el) {
 var showPanelListener = function () {
   var panelToShow = this.parentNode;
   var otherPanels = getSiblings(panelToShow);
-  removeClass(panelToShow, 'hidden');
+  panelToShow.classList.remove('hidden');
   otherPanels.forEach(function (el) {
-    addClass(el, 'hidden');
+    el.classList.add('hidden');
   });
 };
 
@@ -43,7 +41,7 @@ module.exports = function footerAccordion () {
   if (window.innerWidth < 600) {
 
     navList.forEach(function (el) {
-      addClass(el, 'hidden');
+      el.classList.add('hidden');
     });
 
     primaryLink.forEach(function (el) {
@@ -54,7 +52,7 @@ module.exports = function footerAccordion () {
 
   } else {
     navList.forEach(function (el) {
-      removeClass(el, 'hidden');
+      el.classList.remove('hidden');
     });
   }
 };
