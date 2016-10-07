@@ -1,5 +1,5 @@
-var select = require('../../utils/select');
-var dispatch = require('../../utils/dispatch');
+var select = require('../utils/select');
+var dispatch = require('../utils/dispatch');
 
 var clickEvent = ('ontouchstart' in document.documentElement ? 'touchstart' : 'click');
 

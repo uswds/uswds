@@ -1,14 +1,21 @@
-var select = require('../../utils/select');
-var dispatch = require('../../utils/dispatch');
+var select = require('../utils/select');
+var dispatch = require('../utils/dispatch');
 
-var searchForm, searchButton, searchButtonContainer, searchDispatcher;
+var clickEvent = ('ontouchstart' in document.documentElement)
+  ? 'touchstart'
+  : 'click';
+
+var searchForm;
+var searchButton;
+var searchButtonContainer;
+var searchDispatcher;
 
 function searchButtonClickHandler (event) {
-  if (isOpen(searchForm)) {
+  if (searchForm.hidden) {
     closeSearch();
   } else {
     openSearch();
-    searchDispatcher = dispatch(document.body, 'click touchstart', searchOpenClickHandler);
+    searchDispatcher = dispatch(document.body, clickEvent, searchOpenClickHandler);
   }
 
   return false;
@@ -23,18 +30,13 @@ function searchOpenClickHandler (event) {
 }
 
 function openSearch () {
-  searchForm.classList.add('is-visible');
-  searchButton.classList.add('is-hidden');
+  searchForm.hidden = true;
+  searchButton.hidden = false;
 }
 
 function closeSearch () {
-  searchForm.classList.remove('is-visible');
-  searchButton.classList.remove('is-hidden');
-}
-
-function isOpen (element) {
-  var classRegexp = new RegExp('(^| )is-visible( |$)', 'gi');
-  return classRegexp.test(element.className);
+  searchForm.hidden = false;
+  searchButton.hidden = true;
 }
 
 function searchFormContains (element) {
@@ -48,7 +50,7 @@ function searchInit () {
   searchButtonContainer = select('.js-search-button-container')[ 0 ];
 
   if (searchButton && searchForm) {
-    dispatch(searchButton, 'click touchstart', searchButtonClickHandler);
+    dispatch(searchButton, clickEvent, searchButtonClickHandler);
   }
 }
 
