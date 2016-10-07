@@ -38,7 +38,7 @@ We’re glad you’d like to use the Standards — here’s how you can get star
 * Designers: [Check out our Getting Started for Designers information](https://standards.usa.gov/getting-started/designers/).
     * [Design files of all the assets included in the Standards are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
 * Developers: Follow the instructions in this README to get started.
-    * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v0.12.1/uswds-0.12.1.zip).
+    * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v0.13.1/uswds-0.13.1.zip).
 
 ## Using the Standards
 
@@ -50,13 +50,13 @@ To use the Draft Web Design Standards on your project, you’ll need to include 
 
 First, download the Draft Web Design Standards assets:
 
-[https://github.com/18F/web-design-standards/releases/download/v0.12.1/uswds-0.12.1.zip](https://github.com/18F/web-design-standards/releases/download/v0.12.1/uswds-0.12.1.zip)
+[https://github.com/18F/web-design-standards/releases/download/v0.13.1/uswds-0.13.1.zip](https://github.com/18F/web-design-standards/releases/download/v0.13.1/uswds-0.13.1.zip)
 
 Then, add the following folders into a relevant place in your code base — likely a directory where you keep third-party libraries:
 
 ```
 
-uswds-0.12.1/
+uswds-0.13.1/
 ├── js/
 │   ├── uswds.min.js.map
 │   ├── uswds.min.js

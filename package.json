@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "0.12.1",
+  "version": "0.13.1",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "main": "src/js/start.js",
   "scripts": {
