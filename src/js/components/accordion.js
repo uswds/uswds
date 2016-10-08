@@ -1,19 +1,7 @@
 var select = require('../utils/select');
+var dispatch = require('../utils/dispatch');
 
-/**
- * @name showPanelListener
- * @desc The event handler for clicking on a button in an accordion.
- * @param {HTMLElement} el - An HTML element most likely a <button>.
- * @param {Object} ev - A DOM event object.
- */
-function showPanelListener (el, ev) {
-  var expanded = el.getAttribute('aria-expanded') === 'true';
-  this.hideAll();
-  if (!expanded) {
-    this.show(el);
-  }
-  return false;
-}
+var EXPANDED = 'aria-expanded';
 
 /**
  * @class Accordion
@@ -23,33 +11,50 @@ function showPanelListener (el, ev) {
  * @param {HTMLElement} el An HTMLElement to turn into an accordion.
  */
 function Accordion (el) {
-  var self = this;
   this.root = el;
 
-  // delegate click events on each <button>
   var buttons = select('button', this.root);
-  buttons.forEach(function (el) {
-    if (el.attachEvent) {
-      el.attachEvent('onclick', showPanelListener.bind(self, el));
-    } else {
-      el.addEventListener('click', showPanelListener.bind(self, el));
-    }
-  });
+  var expanded;
 
-  // find the first expanded button
-  var expanded = this.$('button[aria-expanded=true]')[ 0 ];
-  this.hideAll();
-  if (expanded !== undefined) {
-    this.show(expanded);
-  }
+  // delegate click events on each <button>
+  buttons.forEach(function (button) {
+    this.toggle(button, button.getAttribute(EXPANDED) === 'true');
+    dispatch(button, 'click', this.toggle.bind(this, el));
+  }, this);
 }
+
+/**
+ * @param {String} selector
+ * @return {Element}
+ */
+Accordion.prototype.select = function (selector) {
+  return this.root.querySelector(selector);
+};
 
 /**
  * @param {String} selector
  * @return {Array}
  */
-Accordion.prototype.$ = function (selector) {
+Accordion.prototype.selectAll = function (selector) {
   return select(selector, this.root);
+};
+
+/**
+ * @param {HTMLElement} button
+ * @param {Boolean?} expanded
+ * @return {Accordion}
+ */
+Accordion.prototype.toggle = function (button, expanded) {
+  if (typeof expanded !== 'boolean') {
+    expanded = button.getAttribute(EXPANDED) !== 'true';
+  }
+  button.setAttribute(EXPANDED, expanded);
+  var controls = button.getAttribute('aria-controls');
+  var ids = controls ? controls.split(' ') : [];
+  ids.forEach(function (id) {
+    document.getElementById(id).hidden = !expanded;
+  });
+  return this;
 };
 
 /**
@@ -57,12 +62,7 @@ Accordion.prototype.$ = function (selector) {
  * @return {Accordion}
  */
 Accordion.prototype.hide = function (button) {
-  var selector = button.getAttribute('aria-controls'),
-    content = this.$('#' + selector)[ 0 ];
-
-  button.setAttribute('aria-expanded', false);
-  content.setAttribute('aria-hidden', true);
-  return this;
+  return this.toggle(button, false);
 };
 
 /**
@@ -70,23 +70,15 @@ Accordion.prototype.hide = function (button) {
  * @return {Accordion}
  */
 Accordion.prototype.show = function (button) {
-  var selector = button.getAttribute('aria-controls'),
-    content = this.$('#' + selector)[ 0 ];
-
-  button.setAttribute('aria-expanded', true);
-  content.setAttribute('aria-hidden', false);
-  return this;
+  return this.toggle(button, true);
 };
 
 /**
  * @return {Accordion}
  */
 Accordion.prototype.hideAll = function () {
-  var self = this;
-  var buttons = this.$('ul > li > button, .usa-accordion-button');
-  buttons.forEach(function (button) {
-    self.hide(button);
-  });
+  var buttons = this.selectAll('button[aria-controls]');
+  buttons.forEach(this.hide, this);
   return this;
 };
 

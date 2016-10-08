@@ -7,7 +7,7 @@ var Accordion = require('../../../src/js/components/accordion.js');
 // `aria` prefixed attributes
 var EXPANDED = 'aria-expanded';
 var CONTROLS = 'aria-controls';
-var HIDDEN   = 'aria-hidden';
+var HIDDEN   = 'hidden';
 
 describe('Accordion component', function () {
   var $el;
@@ -20,7 +20,7 @@ describe('Accordion component', function () {
 
     $('body').append($component);
 
-    accordion = new Accordion($component.get()[0]);
+    accordion = new Accordion($component.get(0));
 
     $el = $(accordion.root);
     $button = $el.find('button');
@@ -45,7 +45,7 @@ describe('Accordion component', function () {
       $button.attr(CONTROLS).should.not.be.undefined();
     });
 
-    describe('when show is triggered', function () {
+    describe('when show() is called', function () {
       beforeEach(function () {
         accordion.show(button);
       });
@@ -58,12 +58,12 @@ describe('Accordion component', function () {
         $button.attr(EXPANDED).should.equal('true');
       });
 
-      it('toggles "aria-hidden" to false', function () {
-        $content.attr(HIDDEN).should.equal('false');
+      it('toggles "hidden" to false', function () {
+        $content.prop(HIDDEN).should.equal(false);
       });
     });
 
-    describe('when hide is triggered', function () {
+    describe('when hide() is called', function () {
       beforeEach(function() {
         accordion.show(button);
         accordion.hide(button);
@@ -73,10 +73,33 @@ describe('Accordion component', function () {
         $button.attr(EXPANDED).should.equal('false');
       });
 
-      it('toggles "aria-hidden" to true', function () {
-        $content.attr(HIDDEN).should.equal('true');
+      it('toggles "hidden" to true', function () {
+        $content.prop(HIDDEN).should.equal(true);
       });
     });
+
+    describe('when toggle() is called', function () {
+      beforeEach(function() {
+        accordion.show(button);
+      });
+
+      it('toggles "aria-expanded" to false', function () {
+        accordion.toggle(button);
+        $button.attr(EXPANDED).should.equal('false');
+      });
+
+      it('toggles "aria-expanded" back to true', function () {
+        accordion.toggle(button);
+        accordion.toggle(button);
+        $button.attr(EXPANDED).should.equal('true');
+      });
+
+      it('toggles "aria-expanded" to false explicitly', function () {
+        accordion.toggle(button, false);
+        $button.attr(EXPANDED).should.equal('false');
+      });
+    });
+
   });
 });
 
