@@ -24,7 +24,7 @@ var showPanelListener = function () {
   });
 };
 
-var events= [];
+var events = [];
 
 module.exports = function footerAccordion () {
 
