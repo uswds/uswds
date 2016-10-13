@@ -1,4 +1,4 @@
-var head = document.head || document.getElementsByTagName('head')[0];
+var head = document.head || document.getElementsByTagName('head')[ 0 ];
 
 var createStyle = function (id, css, parent) {
   var style = document.createElement('style');
