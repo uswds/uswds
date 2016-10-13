@@ -8,24 +8,26 @@ var clickEvent = ('ontouchstart' in document.documentElement)
 var searchForm;
 var searchButton;
 var searchButtonContainer;
-var searchDispatcher;
+
+var activateDispatcher;
+var deactivateDispatcher;
 
 function searchButtonClickHandler (event) {
   if (searchForm.hidden) {
     closeSearch();
   } else {
     openSearch();
-    searchDispatcher = dispatch(document.body, clickEvent, searchOpenClickHandler);
+    deactivateDispatcher = dispatch(document.body, clickEvent, searchOpenClickHandler);
   }
 
   return false;
 }
 
 function searchOpenClickHandler (event) {
-  var target = event.target;
-  if (! searchFormContains(target)) {
+  if (! searchFormContains(event.target)) {
     closeSearch();
-    searchDispatcher.off();
+    deactivateDispatcher.off();
+    deactivateDispatcher = undefined;
   }
 }
 
@@ -50,8 +52,18 @@ function searchInit () {
   searchButtonContainer = select('.js-search-button-container')[ 0 ];
 
   if (searchButton && searchForm) {
-    dispatch(searchButton, clickEvent, searchButtonClickHandler);
+    activateDispatcher = dispatch(searchButton, clickEvent, searchButtonClickHandler);
+  }
+}
+
+function searchTeardown () {
+  if (activateDispatcher) {
+    activateDispatcher.off();
+  }
+  if (deactivateDispatcher) {
+    deactivateDispatcher.off();
   }
 }
 
 module.exports = searchInit;
+module.exports.off = searchTeardown;
