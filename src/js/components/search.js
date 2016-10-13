@@ -30,13 +30,13 @@ function searchOpenClickHandler (event) {
 }
 
 function openSearch () {
-  searchForm.hidden = true;
-  searchButton.hidden = false;
+  searchForm.hidden = false;
+  searchButton.hidden = true;
 }
 
 function closeSearch () {
-  searchForm.hidden = false;
-  searchButton.hidden = true;
+  searchForm.hidden = true;
+  searchButton.hidden = false;
 }
 
 function searchFormContains (element) {
