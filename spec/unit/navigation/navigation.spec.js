@@ -42,6 +42,13 @@ describe('navigation toggle', function () {
     assert.equal(isVisible(overlay), false);
   });
 
+  it('hides the nav when the overlay is clicked', function () {
+    menuButton.click();
+    overlay.click();
+    assert.equal(isVisible(nav), false);
+    assert.equal(isVisible(overlay), false);
+  });
+
   describe('off()', function () {
   });
 
