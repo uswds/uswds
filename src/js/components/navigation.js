@@ -2,6 +2,7 @@ var select = require('../utils/select');
 var dispatch = require('../utils/dispatch');
 
 var clickEvent = ('ontouchstart' in document.documentElement ? 'touchstart' : 'click');
+var dispatchers = [];
 
 function handleNavElements (e) {
 
@@ -21,9 +22,16 @@ function handleNavElements (e) {
 function mobileInit () {
   var navElements = select('.usa-menu-btn, .usa-overlay, .usa-nav-close');
 
-  navElements.forEach(function (element) {
-    dispatch(element, clickEvent, handleNavElements);
+  dispatchers = navElements.map(function (element) {
+    return dispatch(element, clickEvent, handleNavElements);
   });
 }
 
+function mobileTeardown () {
+  while (dispatchers.length) {
+    dispatchers.pop().off();
+  }
+}
+
 module.exports = mobileInit;
+module.exports.off = mobileTeardown;
