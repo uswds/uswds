@@ -1,10 +1,11 @@
+var head = document.head || document.getElementsByTagName('head')[0];
+
 var createStyle = function (id, css, parent) {
   var style = document.createElement('style');
   style.id = id;
   style.media = 'screen';
   style.textContent = css;
-  (parent || document.head).insertBefore(style);
-  return style;
+  return (parent || head).appendChild(style);
 };
 
 /**
