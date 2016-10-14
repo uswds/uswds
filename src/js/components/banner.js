@@ -1,14 +1,11 @@
 var select = require('../utils/select');
-var addClass = require('../utils/add-class');
-var removeClass = require('../utils/remove-class');
 var dispatch = require('../utils/dispatch');
 
 function headerClickHandler (event) {
   (event.preventDefault) ? event.preventDefault() : event.returnValue = false;
-  
+
   var expanded = event.target.getAttribute('aria-expanded') === 'true';
-  var toggleClass = expanded ? addClass : removeClass;
-  toggleClass(this, 'usa-banner-header-expanded');
+  this.classList.toggle('usa-banner-header-expanded', expanded);
 }
 
 function bannerInit () {

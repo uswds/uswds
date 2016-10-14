@@ -1,15 +1,13 @@
 var select = require('../utils/select');
-var addClass = require('../utils/add-class');
-var removeClass = require('../utils/remove-class');
 var dispatch = require('../utils/dispatch');
 
 module.exports = function validator (el) {
-  var data = getData(el),
-    key,
-    validatorName,
-    validatorPattern,
-    validatorCheckbox,
-    checkList = select(data.validationelement)[ 0 ];
+  var data = getData(el);
+  var key;
+  var validatorName;
+  var validatorPattern;
+  var validatorCheckbox;
+  var checkList = select(data.validationelement)[ 0 ];
 
   function validate () {
     for (key in data) {
@@ -19,12 +17,8 @@ module.exports = function validator (el) {
         validatorSelector = '[data-validator=' + validatorName + ']';
         validatorCheckbox = select(validatorSelector, checkList)[ 0 ];
 
-        if (!validatorPattern.test(el.value)) {
-          removeClass(validatorCheckbox, 'usa-checklist-checked');
-        }
-        else {
-          addClass(validatorCheckbox, 'usa-checklist-checked');
-        }
+        var checked = validatorPattern.test(el.value);
+        validatorCheckbox.classList.toggle('usa-checklist-checked', checked);
       }
     }
   }

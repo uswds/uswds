@@ -1,3 +1,5 @@
+require('classlist-polyfill');
+
 /**
  * This file defines key ECMAScript 5 methods that are used by the Standards
  * but may be missing in older browsers.
