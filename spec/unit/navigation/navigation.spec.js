@@ -25,7 +25,6 @@ describe('navigation toggle', function () {
   });
 
   afterEach(function () {
-    nav = overlay = closeButton = undefined;
     navigation.off();
   });
 
@@ -50,6 +49,31 @@ describe('navigation toggle', function () {
   });
 
   describe('off()', function () {
+    it('removes event listeners', function () {
+      assert.equal(isVisible(nav), false);
+      assert.equal(isVisible(overlay), false);
+
+      // remove event listeners, then click the button,
+      // and confirm that the nav is still hidden
+      navigation.off();
+      menuButton.click();
+      assert.equal(isVisible(nav), false);
+      assert.equal(isVisible(overlay), false);
+
+      // next, re-enable the event listeners, click the button,
+      // and confirm that the nav is visible again
+      navigation();
+      menuButton.click();
+      assert.equal(isVisible(nav), true);
+      assert.equal(isVisible(overlay), true);
+
+      // again, remove the event listeners, click the close button,
+      // and confirm that everything is still visible
+      navigation.off();
+      closeButton.click();
+      assert.equal(isVisible(nav), true);
+      assert.equal(isVisible(overlay), true);
+    });
   });
 
 });
