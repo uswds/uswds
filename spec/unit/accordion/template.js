@@ -5,7 +5,7 @@ var template = [
   '<div id="collapsible-0" aria-hidden="true" class="usa-accordion-content"></div>',
   '</div>',
   '</li>',
-  '</ul>'
+  '</ul>',
 ].join('');
 
 module.exports = template;

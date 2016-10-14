@@ -1,5 +1,4 @@
-var $ = require('../setup.js');
-var mocha = require('mocha');
+var $ = require('jquery');
 var should = require('should');
 var ToggleFormInput = require('../../../src/js/components/toggle-form-input');
 var template = require('./template.js');
@@ -23,7 +22,7 @@ describe('ToggleFormInput', function () {
     $password = $component.find(PASSWORD_SELECTOR);
     $confirmPassword = $component.find(CONFIRM_SELECTOR);
 
-    ToggleFormInput($maskControl.get()[0], SHOW_TEXT, HIDE_TEXT);
+    ToggleFormInput($maskControl.get(0), SHOW_TEXT, HIDE_TEXT);
   });
 
   afterEach(function () {
@@ -54,9 +53,9 @@ describe('ToggleFormInput', function () {
  * Fire an addEventListener()-added click event in jsdom
  * See http://stackoverflow.com/a/27557936/9070
  */
-function click(jqEl) {
-  var el = jqEl.get()[0];
-  var evt = document.createEvent("HTMLEvents");
-  evt.initEvent("click", false, true);
+function click (jqEl) {
+  var el = jqEl.get(0);
+  var evt = document.createEvent('HTMLEvents');
+  evt.initEvent('click', false, true);
   el.dispatchEvent(evt);
 }
