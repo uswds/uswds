@@ -21,7 +21,6 @@ describe('search toggle', function () {
   });
 
   afterEach(function () {
-    button = form = undefined;
     search.off();
   });
 
