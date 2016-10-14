@@ -1,5 +1,4 @@
-var $ = require('../setup.js');
-var mocha = require('mocha');
+var $ = require('jquery');
 var should = require('should');
 var validator = require('../../../src/js/components/validator.js');
 var template = require('./template.js');
@@ -18,7 +17,7 @@ describe('validator component', function () {
     $validatedField = $component.find(INPUT_SELECTOR);
     $validatorCheckboxes = $component.find(CHECKBOX_SELECTOR);
 
-    validator($validatedField.get()[0]);
+    validator($validatedField.get(0));
   });
 
   afterEach(function () {
@@ -35,7 +34,7 @@ describe('validator component', function () {
 });
 
 function keyup (jqEl) {
-  var el = jqEl.get()[ 0 ];
+  var el = jqEl.get(0);
   var evt = document.createEvent('HTMLEvents');
   evt.initEvent('keyup', false, true);
   el.dispatchEvent(evt);

@@ -4,7 +4,11 @@ var runSequence = require('run-sequence');
 
 gulp.task('test', function () {
   return gulp.src('spec/**/*.spec.js')
-    .pipe(mocha());
+    .pipe(mocha({
+      require: [
+        'jsdom-global/register'
+      ]
+    }));
 });
 
 
