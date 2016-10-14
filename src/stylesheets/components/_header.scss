@@ -439,12 +439,7 @@ $z-index-nav:     9000;
 
     @include media($nav-width) {
       @include margin(-0.2rem null 0 0);
-      display: none;
       float: left;
-
-      &.is-visible {
-        display: block;
-      }
     }
   }
 }
