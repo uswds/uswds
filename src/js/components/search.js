@@ -64,7 +64,7 @@ function searchInit () {
   }
 }
 
-function searchTeardown () {
+function searchOff () {
   if (activateDispatcher) {
     activateDispatcher.off();
   }
@@ -74,4 +74,4 @@ function searchTeardown () {
 }
 
 module.exports = searchInit;
-module.exports.off = searchTeardown;
+module.exports.off = searchOff;
