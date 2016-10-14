@@ -19,7 +19,7 @@ function handleNavElements (e) {
   return false;
 }
 
-function mobileInit () {
+function navInit () {
   var navElements = select('.usa-menu-btn, .usa-overlay, .usa-nav-close');
 
   dispatchers = navElements.map(function (element) {
@@ -27,11 +27,11 @@ function mobileInit () {
   });
 }
 
-function mobileTeardown () {
+function navOff () {
   while (dispatchers.length) {
     dispatchers.pop().off();
   }
 }
 
-module.exports = mobileInit;
-module.exports.off = mobileTeardown;
+module.exports = navInit;
+module.exports.off = navOff;
