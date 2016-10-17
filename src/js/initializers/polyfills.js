@@ -1,3 +1,6 @@
+// support for HTMLElement#hidden
+require('../polyfills/element-hidden');
+// support for Element#classList
 require('classlist-polyfill');
 
 /**
