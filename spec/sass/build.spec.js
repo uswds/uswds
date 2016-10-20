@@ -43,7 +43,7 @@ describe('build output', function () {
 describe('version output', function () {
   var versionString = '/*! uswds v' + pkg.version + ' */';
 
-  var containsVersion = function(filename, done) {
+  var checkVersion = function (filename, done) {
     fs.readFile(filename, function (error, buffer) {
       assert.ok(!error, error);
       var css = buffer.toString();
@@ -58,12 +58,12 @@ describe('version output', function () {
 
   it('includes the current version text in uswds.css', function (done) {
     var distFilename = path.join(distPath, 'uswds.css');
-    containsVersion(distFilename, done);
+    checkVersion(distFilename, done);
   });
 
   it('includes the current version text in uswds.min.css', function (done) {
     var distFilename = path.join(distPath, 'uswds.min.css');
-    containsVersion(distFilename, done);
+    checkVersion(distFilename, done);
   });
 
 });
