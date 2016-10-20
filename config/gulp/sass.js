@@ -60,6 +60,11 @@ gulp.task(task, [ /* 'stylelint' */ ], function (done) {
 
   var entryFile = 'src/stylesheets/uswds.scss';
 
+  var replaceVersion = replace(
+    /\buswds @version\b/g,
+    'uswds v' + pkg.version
+  );
+
   var defaultStream = gulp.src(entryFile)
     .pipe(
       sass({ outputStyle: 'expanded' })
@@ -72,7 +77,7 @@ gulp.task(task, [ /* 'stylelint' */ ], function (done) {
       })
     )
     .pipe(rename({ basename: dutil.pkg.name }))
-    .pipe(replace(/uswds @version/, 'uswds v' + pkg.version))
+    .pipe(replaceVersion)
     .pipe(gulp.dest('dist/css'));
 
   var minifiedStream = gulp.src(entryFile)
@@ -92,6 +97,7 @@ gulp.task(task, [ /* 'stylelint' */ ], function (done) {
       suffix: '.min',
     }))
     .pipe(sourcemaps.write('.', { addComment: false }))
+    .pipe(replaceVersion)
     .pipe(gulp.dest('dist/css'));
 
   var streams = merge(defaultStream, minifiedStream);
