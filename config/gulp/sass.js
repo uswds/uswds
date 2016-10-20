@@ -6,6 +6,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var linter = require('@18f/stylelint-rules');
 var merge = require('merge-stream');
+var pkg = require('../../package.json');
 var filter = require('gulp-filter');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
@@ -71,6 +72,7 @@ gulp.task(task, [ /* 'stylelint' */ ], function (done) {
       })
     )
     .pipe(rename({ basename: dutil.pkg.name }))
+    .pipe(replace(/uswds @version/, 'uswds v' + pkg.version))
     .pipe(gulp.dest('dist/css'));
 
   var minifiedStream = gulp.src(entryFile)
