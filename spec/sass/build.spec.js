@@ -41,19 +41,29 @@ describe('build output', function () {
 });
 
 describe('version output', function () {
+  var versionString = '/*! uswds v' + pkg.version + ' */';
 
-  it('includes the current version text in uswds.css', function (done) {
-    var distFilename = path.join(distPath, 'uswds.css');
-    var versionString = 'uswds v' + pkg.version;
-    fs.readFile(distFilename, function (error, buffer) {
+  var containsVersion = function(filename, done) {
+    fs.readFile(filename, function (error, buffer) {
       assert.ok(!error, error);
       var css = buffer.toString();
       assert.ok(
         css.indexOf(versionString) > -1,
-        'CSS does not include version string: ' + css.substr(0, 24) + '...'
+        'CSS does not include version string: "' +
+          css.substr(0, 24) + '"...'
       );
       done();
     });
+  };
+
+  it('includes the current version text in uswds.css', function (done) {
+    var distFilename = path.join(distPath, 'uswds.css');
+    containsVersion(distFilename, done);
+  });
+
+  it('includes the current version text in uswds.min.css', function (done) {
+    var distFilename = path.join(distPath, 'uswds.min.css');
+    containsVersion(distFilename, done);
   });
 
 });
