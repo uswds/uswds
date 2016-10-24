@@ -86,6 +86,16 @@ $small-screen:  481px !default;
 $medium-screen: 600px !default;
 $large-screen:  1201px !default;
 
+// Grid column counts by screen size
+$grid-columns-small: 1 !default;
+$grid-columns-medium: 6 !default;
+$grid-columns-large: 12 !default;
+
+// @media single-keyword helpers
+$small: new-breakpoint(min-width $small-screen $grid-columns-small) !default;
+$medium: new-breakpoint(min-width $medium-screen $grid-columns-medium) !default;
+$large: new-breakpoint(min-width $large-screen $grid-columns-large) !default;
+
 // Relative font and image file paths
 $font-path:   '../fonts' !default;
 $image-path:  '../img' !default;
