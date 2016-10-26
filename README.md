@@ -37,7 +37,7 @@ We’re glad you’d like to use the Standards — here’s how you can get star
 
 * Designers: [Check out our Getting Started for Designers information](https://standards.usa.gov/getting-started/designers/).
     * [Design files of all the assets included in the Standards are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
-* Developers: Follow the instructions in this README to get started.
+* Developers: [Follow the instructions in this README to get started.](#using-the-standards)
     * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v0.13.1/uswds-0.13.1.zip).
 
 ## Using the Standards
@@ -46,13 +46,13 @@ There are a few different ways to use the Standards within your project. Which o
 
 ### Download
 
-To use the Draft Web Design Standards on your project, you’ll need to include the CSS and JavaScript files in each HTML page in your project.
+To use the Draft Web Design Standards on your project, you’ll need to include the [CSS (*C*ascading *S*tyle *S*heets)](http://www.w3schools.com/css/css_intro.asp) and JavaScript files in each HTML page or dynamic templates in your project.
 
-First, download the Draft Web Design Standards assets:
+First, download the Draft U.S. Web Design Standards assets using the link below:
 
 [https://github.com/18F/web-design-standards/releases/download/v0.13.1/uswds-0.13.1.zip](https://github.com/18F/web-design-standards/releases/download/v0.13.1/uswds-0.13.1.zip)
 
-Then, add the following folders into a relevant place in your code base — likely a directory where you keep third-party libraries:
+You should now have a folder downloaded with the following file and folder structure:
 
 ```
 
@@ -69,44 +69,55 @@ uswds-0.13.1/
 └── fonts/
 ```
 
-Refer to these files by adding the following `<link>` and `<script>` elements
-into each of your HTML pages:
+Now you will want to copy these files and folders into a relevant place in your projects code base. Here is an example structure for how this might look:
 
-Add this to your `<head>` element:
-
-```html
-<link rel="stylesheet" href="/path/to/your/assets/css/lib/uswds.min.css">
 ```
 
-Add this before the closing `</body>` tag:
+example-project/
+├── assets/
+│   ├── uswds-0.13.1/
+│   ├── stylesheets/
+│   ├── images/
+│   └── javascript/
+└── index.html
+```
+You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any of these types of assets that are unique to your project. 
+
+Next, you will want to import these assets into your HTML. Below is an example of the code for our example projects `index.html` file:
 
 ```html
-<script src="/path/to/your/assets/js/lib/uswds.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My Example Project</title>
+  <link rel="stylesheet" href="assets/uswds-0.13.1/css/uswds.min.css">
+</head>
+<body>
+  
+  <script src="assets/uswds-0.13.1/js/uswds.min.js"></script>
+</body>
+</html>
 ```
 
 We offer both files, the CSS and the JavaScript, in two versions — a minified
-version, and an un-minified one. (In the examples above, we are using the minified
-files.) Use the minified files in a production environment or to reduce the
-file size of your downloaded assets. And the un-minified files are better if you
-are in a development environment or would like to debug the CSS or JavaScript
-assets in the browser.
+version, and an un-minified one. (In the examples above, we are using the minified files.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. And the un-minified files are better if you are in a development environment or would like to debug the CSS or JavaScript assets in the browser.
 
-This version of the Standards includes jQuery version `2.2.0` bundled within the
-JavaScript file. Please make sure that you’re not including any other version
-of jQuery on your page.
+**NOTE:** This version of the Standards includes jQuery version `2.2.0` bundled within the JavaScript file. Please make sure that you’re not including any other version of jQuery on your page.
 
-And that’s it — you should be set to use the Standards.
+And that’s it — you should now be able to copy our code samples into our `index.html` and start using the Standards.
 
 ### Install using npm
 
-If you have `node` installed on your machine, you can use npm to install the Standards. Add `uswds`
-to your project’s `package.json` as a dependency:
+If you have `node` installed on your machine, you can use [npm](https://www.npmjs.com/package/uswds) to install the Standards. Add `uswds`
+to your project’s `package.json`:
 
 ```shell
 npm install --save uswds
 ```
 
-The package will be installed in `node_modules/uswds`. You can use the un-compiled files
+The package will be installed in `node_modules/uswds` as a dependecy. You can use the un-compiled files
 found in the `src/` or the compiled files in the `dist/` directory.
 
 ```
