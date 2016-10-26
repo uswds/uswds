@@ -166,16 +166,16 @@ Since you are already using npm, the Draft U.S. Web Design Standards team recomm
 The Standards are easily customizable using the power of [Sass (Syntactically Awesome Style Sheets)](http://sass-lang.com/). The main Sass (SCSS) source file is located here:
 
 ```
-node_modules/uswds/src/stylesheets/all.scss
+node_modules/uswds/src/stylesheets/uswds.scss
 ```
 
-Global variables are defined in the `node_modules/uswds/src/stylesheets/core/_defaults.scss` file. Custom theming can be done by copying the `_variables.scss` file into your own project’s Sass folder, changing applicable variable values, and importing it before `all.scss`. 
+Global variables are defined in the `node_modules/uswds/src/stylesheets/core/_defaults.scss` file. Custom theming can be done by copying the `_variables.scss` file into your own project’s Sass folder, changing applicable variable values, and importing it before `uswds.scss`. 
 
 Below is an example of how you might setup your main Sass file to achieve this:
 
 ```
 @import 'variables.scss' # Custom Sass variables file
-@import 'node_modules/uswds/src/stylesheets/all.scss';
+@import 'node_modules/uswds/src/stylesheets/uswds.scss';
 
 ```
 
