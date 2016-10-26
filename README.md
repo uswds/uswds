@@ -16,6 +16,9 @@ Previously, the website and documentation for the Draft U.S. Web Design Standard
 * [Use the Standards](#using-the-standards)
   * [Download](#download)
   * [Install using npm](#install-using-npm)
+    * [Importing and copying assets](#importing-and-copying-assets)
+    * [Sass](#sass)
+    * [JavaScript](#javascript)
   * [Use another framework or package manager](#use-another-framework-or-package-manager)
 * [Our use of branches](#our-use-of-branches)
 * [Need installation help?](#need-installation-help)
@@ -124,7 +127,7 @@ $ npm -v
 3.10.8 # This line may vary depending on what version of Node you've installed.
 ```
 
-*INSTALLING NODE/NPM ON WINDOWS:* Team Treehouse has a tutorial on how to install Node.js/npm on your Windows machine: [http://blog.teamtreehouse.com/install-node-js-npm-windows](http://blog.teamtreehouse.com/install-node-js-npm-windows)
+**Windows installation:** Team Treehouse has a tutorial on how to install Node.js/npm on your Windows machine: [http://blog.teamtreehouse.com/install-node-js-npm-windows](http://blog.teamtreehouse.com/install-node-js-npm-windows)
 
 Your next step will to be to create a `package.json` file. You can do this manually, but an easier method is to use the `npm init` command. This command will prompt you with a few questions to create your `package.json` file. 
 
