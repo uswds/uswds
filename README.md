@@ -125,7 +125,7 @@ To use this method, you will need to have Node/npm installed on your local devel
 Now let's check to make sure you have installed it correctly:
 
 ```shell
-$ npm -v
+npm -v
 3.10.8 # This line may vary depending on what version of Node you've installed.
 ```
 
