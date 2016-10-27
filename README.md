@@ -169,7 +169,7 @@ The Standards are easily customizable using the power of [Sass (Syntactically Aw
 node_modules/uswds/src/stylesheets/uswds.scss
 ```
 
-Global variables are defined in the `node_modules/uswds/src/stylesheets/core/_defaults.scss` file. Custom theming can be done by copying the `_variables.scss` file into your own project’s Sass folder, changing applicable variable values, and importing it before `uswds.scss`. 
+Global variables are defined in the `node_modules/uswds/src/stylesheets/core/_variables.scss` file. Custom theming can be done by copying the `_variables.scss` file into your own project’s Sass folder, changing applicable variable values, and importing it before `uswds.scss`. 
 
 Below is an example of how you might setup your main Sass file to achieve this:
 
