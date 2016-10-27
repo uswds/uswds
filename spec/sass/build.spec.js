@@ -22,7 +22,7 @@ before(function (done) {
 
 describe('build output', function () {
 
-  it('generates CSS at dist/css/uwsds.css', function () {
+  it('generates CSS at dist/css/uswds.css', function () {
     var distFilename = path.join(distPath, 'uswds.css');
     assert.ok(
       fs.existsSync(distFilename),
@@ -30,7 +30,7 @@ describe('build output', function () {
     );
   });
 
-  it('generates minified CSS at dist/css/uwsds.min.css', function () {
+  it('generates minified CSS at dist/css/uswds.min.css', function () {
     var distFilename = path.join(distPath, 'uswds.min.css');
     assert.ok(
       fs.existsSync(distFilename),
