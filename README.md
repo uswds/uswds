@@ -49,7 +49,7 @@ There are a few different ways to use the Standards within your project. Which o
 
 ### Download
 
-To use the Draft Web Design Standards on your project, you’ll need to include the [CSS (*C*ascading *S*tyle *S*heets)](http://www.w3schools.com/css/css_intro.asp) and JavaScript files in each HTML page or dynamic templates in your project.
+To use the Draft Web Design Standards on your project, you’ll need to include the [CSS (*C*ascading *S*tyle *S*heets)](https://developer.mozilla.org/en-US/docs/Web/CSS) and JavaScript files in each HTML page or dynamic templates in your project.
 
 First, download the Draft U.S. Web Design Standards assets using the link below:
 
