@@ -118,7 +118,9 @@ And that’s it — you should now be able to copy our code samples into our `in
 
 To use this method, you will need to have Node/npm installed on your local development environment. Below is a link to find the install method that coincides with your operating system:
 
-1. Node v4.2.3+, [Installation guides](https://nodejs.org/en/download/)
+- Node v4.2.3+, [Installation guides](https://nodejs.org/en/download/)
+
+**Note for Windows users:** If you are using Windows and are unfamiliar with Node.js or npm, we recommend following [Team Treehouse's tutorial](http://blog.teamtreehouse.com/install-node-js-npm-windows) for more information.
 
 Now let's check to make sure you have installed it correctly:
 
@@ -126,8 +128,6 @@ Now let's check to make sure you have installed it correctly:
 $ npm -v
 3.10.8 # This line may vary depending on what version of Node you've installed.
 ```
-
-**Windows installation:** Team Treehouse has a tutorial on how to install Node.js/npm on your Windows machine: [http://blog.teamtreehouse.com/install-node-js-npm-windows](http://blog.teamtreehouse.com/install-node-js-npm-windows)
 
 Your next step will to be to create a `package.json` file. You can do this manually, but an easier method is to use the `npm init` command. This command will prompt you with a few questions to create your `package.json` file. 
 
