@@ -79,6 +79,14 @@ The purpose of our coding styleguides are to create consistent coding practices 
 
 This project follows the 18F Front End Guide [CSS](https://pages.18f.gov/frontend/#css) and [JavaScript](https://pages.18f.gov/frontend/#javascript). Please use this guide for your reference.
 
+## Our use of branches
+
+The `staging` branch is the bleeding edge of development. When cutting a new [release](https://github.com/18F/web-design-standards/releases), we update the versioning on our files by branching off of the `staging` branch and submitting a pull request into our `release` branch. This helps to make `staging` a place that can always receive contributions, no matter where we are in the release process. New commits to `staging` are automatically deployed to [our staging site](https://standards-staging.usa.gov/).
+
+The `master` branch always holds the latest production-ready release. When cutting a [release](https://github.com/18F/web-design-standards/releases), we create a release branch from `staging` named for the new version: for example, `v0.9.x`. Once we’ve completed QA on that branch, we tag the release and merge it into the `master` branch.
+
+The branches `18f-pages` and `18f-pages-staging` _used_ to be the primary release and development branches, back when the site was hosted on `pages.18f.gov`. Those branches still auto deploy to 18F Pages, but will now only contain minimal redirects to the new site.
+
 ## Licenses and attribution
 
 ### A few parts of this project are not in the public domain
