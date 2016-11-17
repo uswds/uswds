@@ -19,6 +19,7 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - [cloud.gov](https://cloud.gov/)
 - [Compliance viewer](https://compliance-viewer.18f.gov/)
 - Customs and Border Protection
+- [code.gov](https://code.gov/)
 - [Data Act Pilot](https://github.com/18F/data-act-pilot)
 - [Department of Defense](http://www.dodig.mil/)
 - [Department of Homeland Security](https://www.dhs.gov/)
@@ -55,6 +56,7 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - [Mass.gov](http://www.mass.gov/)
 - Microviz
 - [MIDAAS Commerce Data Service](https://midaas.commerce.gov/)
+- [Milwaukee Police Scanner](https://mke-police.herokuapp.com/)
 - [NASA Web Style Guide](https://app.frontify.com/d/NZPXDvjOcz5x/nasa-web-style-guide)
 - [National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov/labs/journals/)
 - [National Institute of Health](https://www.nih.gov/)
@@ -101,3 +103,4 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - [vote.org](https://vote.org/)
 - [We the People - Whitehouse Petitions](https://petitions.whitehouse.gov/)
 - Wisconsin State Department project
+- [worker.gov](http://worker.gov/)
