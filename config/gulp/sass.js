@@ -6,13 +6,14 @@ var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var linter = require('@18f/stylelint-rules');
 var merge = require('merge-stream');
+var pkg = require('../../package.json');
 var filter = require('gulp-filter');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
 var del = require('del');
 var task = 'sass';
 
-var entryFileFilter = filter('all.scss', { restore: true });
+var entryFileFilter = filter('uswds.scss', { restore: true });
 var normalizeCssFilter = filter('normalize.css', { restore: true });
 var supportedBrowsers = [
   '> 1%',
@@ -57,7 +58,12 @@ gulp.task(task, [ /* 'stylelint' */ ], function (done) {
 
   dutil.logMessage(task, 'Compiling Sass');
 
-  var entryFile = 'src/stylesheets/all.scss';
+  var entryFile = 'src/stylesheets/uswds.scss';
+
+  var replaceVersion = replace(
+    /\buswds @version\b/g,
+    'uswds v' + pkg.version
+  );
 
   var defaultStream = gulp.src(entryFile)
     .pipe(
@@ -71,6 +77,7 @@ gulp.task(task, [ /* 'stylelint' */ ], function (done) {
       })
     )
     .pipe(rename({ basename: dutil.pkg.name }))
+    .pipe(replaceVersion)
     .pipe(gulp.dest('dist/css'));
 
   var minifiedStream = gulp.src(entryFile)
@@ -90,6 +97,7 @@ gulp.task(task, [ /* 'stylelint' */ ], function (done) {
       suffix: '.min',
     }))
     .pipe(sourcemaps.write('.', { addComment: false }))
+    .pipe(replaceVersion)
     .pipe(gulp.dest('dist/css'));
 
   var streams = merge(defaultStream, minifiedStream);

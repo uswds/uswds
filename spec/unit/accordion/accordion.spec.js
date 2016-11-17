@@ -1,7 +1,6 @@
-var mocha = require('mocha');
 var should = require('should');
 var template = require('./template.js');
-var $ = require('../setup.js');
+var $ = require('jquery');
 var Accordion = require('../../../src/js/components/accordion.js');
 
 // `aria` prefixed attributes
@@ -20,11 +19,11 @@ describe('Accordion component', function () {
 
     $('body').append($component);
 
-    accordion = new Accordion($component.get()[0]);
+    accordion = new Accordion($component.get(0));
 
     $el = $(accordion.root);
     $button = $el.find('button');
-    button = $button.get()[0];
+    button = $button.get(0);
     $content = $el.find('#' + $button.attr(CONTROLS));
   });
 
@@ -64,7 +63,7 @@ describe('Accordion component', function () {
     });
 
     describe('when hide is triggered', function () {
-      beforeEach(function() {
+      beforeEach(function () {
         accordion.show(button);
         accordion.hide(button);
       });

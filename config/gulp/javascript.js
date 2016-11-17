@@ -8,7 +8,7 @@ var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var merge = require('merge-stream');
 var rename = require('gulp-rename');
-var linter = require('gulp-eslint');
+var eslint = require('gulp-eslint');
 var task = 'javascript';
 
 gulp.task('eslint', function (done) {
@@ -18,9 +18,13 @@ gulp.task('eslint', function (done) {
     return done();
   }
 
-  return gulp.src([ 'src/js/**/*.js', '!src/js/vendor/**/*.js' ])
-    .pipe(linter('.eslintrc'))
-    .pipe(linter.format());
+  return gulp.src([
+      'src/js/**/*.js',
+      '!src/js/vendor/**/*.js',
+      'spec/**/*.js'
+    ])
+    .pipe(eslint())
+    .pipe(eslint.format());
 
 });
 

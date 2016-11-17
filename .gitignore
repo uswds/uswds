@@ -4,7 +4,7 @@
 # Ignore Node specific files and directories
 #
 node_modules/
-npm-debug.log
+npm-debug.log*
 
 # README: Ignore the dist directories
 #

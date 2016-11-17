@@ -1,3 +1,8 @@
+// support for HTMLElement#hidden
+require('../polyfills/element-hidden');
+// support for Element#classList
+require('classlist-polyfill');
+
 /**
  * This file defines key ECMAScript 5 methods that are used by the Standards
  * but may be missing in older browsers.

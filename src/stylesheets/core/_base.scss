@@ -23,3 +23,10 @@ body {
     filter: none !important;
   }
 }
+
+// for IE < 11, see:
+// <http://caniuse.com/#feat=hidden>
+[hidden] {
+  // scss-lint:disable ImportantRule
+  display: none !important;
+}

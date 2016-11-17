@@ -1,4 +1,3 @@
-var mocha = require('mocha');
 var should = require('should');
 var verifyjQuery = require('../../../src/js/utils/verify-jquery');
 
