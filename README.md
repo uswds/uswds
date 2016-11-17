@@ -27,7 +27,7 @@ Previously, the website and documentation for the Draft U.S. Web Design Standard
 
 ## Background
 
-The components and style guide of the Draft U.S. Web Design Standards follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created and maintain the Draft U.S. Web Design Standards for designers and developers. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/).
+The components and style guide of the Draft U.S. Web Design Standards follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created and maintain the Draft U.S. Web Design Standards for designers and developers. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/) and to view websites and applications check out our list [here](WHO_IS_USING_USWDS.md).
 
 ## Recent updates
 
