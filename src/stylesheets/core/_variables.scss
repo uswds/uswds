@@ -8,7 +8,9 @@
 // own partials, then @import '{path/to/uswds/}core/variables'.
 
 // Typography
-$em-base:             10px !default;
+// Removing the !default from $em-base so we are not inheriting that 
+// value from Bourbon.
+$em-base:             10px;
 $base-font-size:      rem(17px) !default;
 $small-font-size:     rem(14px) !default;
 $lead-font-size:      rem(20px) !default;
