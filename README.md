@@ -4,9 +4,7 @@
 
 The [Draft U.S. Web Design Standards](https://standards.usa.gov) include a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-Previously, the website and documentation for the Draft U.S. Web Design Standards were also part of this repository. To provide more clarity to both people who want to work with the Standards and people who work with the documentation locally, we have separated these into two repositories. This repository is for the Standards themselves.
-
-18F maintains [another repository for the documentation and website](https://github.com/18F/web-design-standards-docs). To see the Standards and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
+This repository is for the Standards themselves. 18F maintains [another repository for the documentation and website](https://github.com/18F/web-design-standards-docs). To see the Standards and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
 
 ## Contents
 

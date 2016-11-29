@@ -8,7 +8,7 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - [Adobe Experience Manager](https://github.com/Adobe-Marketing-Cloud/adobe-digital-design-templates-for-government)
 - [Agile 6](http://agile6.com/)
 - [Apps.gov](https://apps.gov/)
-- [ATF eRegs](https://atf-eregs.apps.cloud.gov/)
+- [ATF eRegs](https://atf-eregs.18f.gov/)
 - BENEFEDS (FEDVIP)
 - Benefits research
 - Beta USDS website
@@ -32,6 +32,7 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - [EPA e-manifest form](https://e-manifest.18f.gov/)
 - [EPA eRegs Notice & Comment](https://epa-notice.usa.gov/)
 - EPA Clean Water Jurisdictional Determinations
+- [eCPIC Electronic Capital Planning and Investment Control System] (https://www.ecpic.gov/)
 - [Farm Service Agency](https://github.com/USDA-FSA/fsa-design-system)
 - [Federal Election Commission Legal Documents](https://beta.fec.gov/regulations/)
 - [Federal Election Commission](https://beta.fec.gov/)
