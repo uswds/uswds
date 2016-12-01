@@ -4,9 +4,7 @@
 
 The [Draft U.S. Web Design Standards](https://standards.usa.gov) include a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-Previously, the website and documentation for the Draft U.S. Web Design Standards were also part of this repository. To provide more clarity to both people who want to work with the Standards and people who work with the documentation locally, we have separated these into two repositories. This repository is for the Standards themselves.
-
-18F maintains [another repository for the documentation and website](https://github.com/18F/web-design-standards-docs). To see the Standards and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
+This repository is for the Standards themselves. 18F maintains [another repository for the documentation and website](https://github.com/18F/web-design-standards-docs). To see the Standards and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
 
 ## Contents
 
@@ -27,7 +25,7 @@ Previously, the website and documentation for the Draft U.S. Web Design Standard
 
 ## Background
 
-The components and style guide of the Draft U.S. Web Design Standards follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created and maintain the Draft U.S. Web Design Standards for designers and developers. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/).
+The components and style guide of the Draft U.S. Web Design Standards follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created and maintain the Draft U.S. Web Design Standards for designers and developers. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/) and to view websites and applications check out our list [here](WHO_IS_USING_USWDS.md).
 
 ## Recent updates
 
@@ -40,7 +38,7 @@ We’re glad you’d like to use the Standards — here’s how you can get star
 * Designers: [Check out our Getting Started for Designers information](https://standards.usa.gov/getting-started/designers/).
     * [Design files of all the assets included in the Standards are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
 * Developers: [Follow the instructions in this README to get started.](#using-the-standards)
-    * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v0.13.2/uswds-0.13.2.zip).
+    * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v0.13.3/uswds-0.13.3.zip).
 
 ## Using the Standards
 
@@ -55,12 +53,12 @@ There are a few different ways to use the Standards within your project. Which o
 
 ### Download
 
-1. Download the [Standards zip file](https://github.com/18F/web-design-standards/releases/download/v0.13.2/uswds-0.13.2.zip) and open that file.
+1. Download the [Standards zip file](https://github.com/18F/web-design-standards/releases/download/v0.13.3/uswds-0.13.3.zip) and open that file.
 
   After extracting the zip file you should see the following file and folder structure:
 
   ```
-  uswds-0.13.2/
+  uswds-0.13.3/
   ├── js/
   │   ├── uswds.min.js.map
   │   ├── uswds.min.js
@@ -78,7 +76,7 @@ There are a few different ways to use the Standards within your project. Which o
   ```
   example-project/
   ├── assets/
-  │   ├── uswds-0.13.2/
+  │   ├── uswds-0.13.3/
   │   ├── stylesheets/
   │   ├── images/
   │   └── javascript/
@@ -98,11 +96,11 @@ There are a few different ways to use the Standards within your project. Which o
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My Example Project</title>
-    <link rel="stylesheet" href="assets/uswds-0.13.2/css/uswds.min.css">
+    <link rel="stylesheet" href="assets/uswds-0.13.3/css/uswds.min.css">
   </head>
   <body>
 
-    <script src="assets/uswds-0.13.2/js/uswds.min.js"></script>
+    <script src="assets/uswds-0.13.3/js/uswds.min.js"></script>
   </body>
   </html>
   ```

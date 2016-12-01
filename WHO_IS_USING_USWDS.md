@@ -1,0 +1,107 @@
+# Website and applications that use the Standards
+
+Below are a list of website and applications currently using the Draft U.S. Web Design Standards. If your project is currently using the Standards and you do not see it on this list, please feel free to submit a pull request or email the core team at uswebdesignstandards@gsa.gov.
+
+- [18F dashboard](http://federalist.18f.gov.s3-website-us-east-1.amazonaws.com/site/18f/discover-our-work/)
+- [18F Micropurchasing](https://micropurchase.18f.gov/)
+- [18F](https://18f.gsa.gov) 
+- [Adobe Experience Manager](https://github.com/Adobe-Marketing-Cloud/adobe-digital-design-templates-for-government)
+- [Agile 6](http://agile6.com/)
+- [Apps.gov](https://apps.gov/)
+- [ATF eRegs](https://atf-eregs.18f.gov/)
+- BENEFEDS (FEDVIP)
+- Benefits research
+- Beta USDS website
+- [Broadcasting Board of Governors](https://www.bbg.gov/ )
+- Bug bounty
+- [City of Lexington, KY](https://www.lexingtonky.gov/)
+- [Climate Labs](https://federalist.18f.gov/preview/18f/climate-labs/microsite/)
+- [cloud.gov](https://cloud.gov/)
+- [Compliance viewer](https://compliance-viewer.18f.gov/)
+- Customs and Border Protection
+- [code.gov](https://code.gov/)
+- [Data Act Pilot](https://github.com/18F/data-act-pilot)
+- [Department of Defense](http://www.dodig.mil/)
+- [Department of Homeland Security](https://www.dhs.gov/)
+- Department of Justice background check system
+- Department of Labor
+- [Digital Acquisition Accelerator](https://pages.18f.gov/digitalaccelerator/)
+- [Digital Analytics Dashboard](https://analytics.usa.gov)
+- [Digital Aquisitions Pilot Guide](https://github.com/presidential-innovation-fellows/dap-guide)
+- Digital Contracting Cookbook
+- [EPA e-manifest form](https://e-manifest.18f.gov/)
+- [EPA eRegs Notice & Comment](https://epa-notice.usa.gov/)
+- EPA Clean Water Jurisdictional Determinations
+- [eCPIC Electronic Capital Planning and Investment Control System] (https://www.ecpic.gov/)
+- [Farm Service Agency](https://github.com/USDA-FSA/fsa-design-system)
+- [Federal Election Commission Legal Documents](https://beta.fec.gov/regulations/)
+- [Federal Election Commission](https://beta.fec.gov/)
+- [Federal Front Door](https://labs.usa.gov/)
+- Federal Highway Administration RDE Visualization Website
+- [Federalist](https://federalist.18f.gov/)
+- [FedRAMP Dashboard](http://fedramp.semanticbits.com/)
+- [FedRAMP Marketplace](https://marketplace.fedramp.gov/)
+- Field Operations Handbook
+- [Foster Youth Experience Map](https://github.com/presidential-innovation-fellows/fyem-jekyll)
+- [Fresh Direct](http://freshdirect.github.io/)
+- GI Bill Comparison Tool
+- [General Service Administration](https://gsa.gov)
+- [General Service Administrtion CTO website](https://github.com/GSA/cto-website)
+- [GovBuy Marketplace](https://buy.gds-gov.tech/)
+- [GSA Open IAE](http://gsa.github.io/openIAE/)
+- [Hack the Pay Gap](https://paygap.pif.gov/)
+- Internal Revenue Service
+- International Cooperative Administrative Support Services, Department of State
+- [itdashboard.gov](https://itdashboard.gov/)
+- [Login.gov](https://pages.18f.gov/identity-intro/)
+- [Mass.gov](http://www.mass.gov/)
+- Microviz
+- [MIDAAS Commerce Data Service](https://midaas.commerce.gov/)
+- [Milwaukee Police Scanner](https://mke-police.herokuapp.com/)
+- [NASA Web Style Guide](https://app.frontify.com/d/NZPXDvjOcz5x/nasa-web-style-guide)
+- [National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov/labs/journals/)
+- [National Institute of Health](https://www.nih.gov/)
+- [National Week of Making](https://weekofmaking.pif.gov/)
+- [Navy 6th Fleet](http://www.c6f.navy.mil/)
+- NTIS DEA
+- [NYC School Finder](http://schoolfinder.nyc.gov/)
+- [Office of the Historian](https://history.state.gov/)
+- [OGP Payroll Reporting](https://pages.18f.gov/ogp-payroll/)
+- OMB egov
+- [One page open source](https://pages.18f.gov/onepage-opensource/)
+- [Open FDA](https://open.fda.gov/)
+- [Opportunity Project](http://opportunity.census.gov/)
+- OSBU Forecast
+- pally-rails
+- Playbook in action
+- [RAILS: Sacramento's Startup Program](https://pages.18f.gov/digitalaccelerator/)
+- SAM Web Design Standards
+- [SBA Certify](https://certify.sba.gov/)
+- [Social and Behavioral Sciences](https://sbst.gov/)
+- [TechFAR Hub](https://techfarhub.cio.gov/)
+- [Template Tool](http://alexose.github.io/experiments/correspondence/)
+- Tennesse State Department of Conservation and Recreation 
+- The Federal Reserve Board of Governors
+- TSA
+- [U.S. Interagency Council on Homelessness](https://www.usich.gov/)
+- [US Courts](http://www.uscourts.gov/)
+- [US Data Federation](http://federation.data.gov/)
+- [US Digital Service Playbook](https://playbook.cio.gov)
+- [USA.gov](https://usa.gov)
+- [USAID](https://www.usaid.gov/)
+- [USAJOBS.gov Design System](http://usajobs.github.io/design-system/)
+- [USAspending.gov](https://www.usaspending.gov/Pages/Default.aspx)
+- United States Citizenship and Immigration Services
+- [USDA Economic Research Service](http://www.ers.usda.gov/)
+- [USDA New Farmers](https://newfarmers.usda.gov/)
+- [USDS documentation website template](https://github.com/usds/uswds-docs-template)
+- [USGS Earthquake Hazards Program](http://earthquake.usgs.gov/theme/)
+- [USWDS Drupal theme](http://uswds.civicactions.net/)
+- VA Appeals Case Flow
+- [Vets.gov](https://vets.gov)
+- [Virtual Student Foreign Service](http://vsfs.state.gov/)
+- [vote.gov](https://vote.gov/)
+- [vote.org](https://vote.org/)
+- [We the People - Whitehouse Petitions](https://petitions.whitehouse.gov/)
+- Wisconsin State Department project
+- [worker.gov](http://worker.gov/)

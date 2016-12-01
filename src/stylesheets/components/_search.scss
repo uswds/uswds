@@ -93,5 +93,11 @@ $usa-btn-big-width:     11.6rem;
         width: $width;
       }
     }
+    @media screen and (max-width: ($nav-width - 1px)) {
+      &.usa-sr-only {
+        left: auto;
+        position: relative;
+      }
+    }
   }
 }
