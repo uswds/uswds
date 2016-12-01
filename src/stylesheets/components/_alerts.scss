@@ -29,6 +29,10 @@
   @include media($medium-screen) {
     padding-left: 5rem;
   }
+
+  p:first-child {
+    margin-top: 0.8rem;
+  }
 }
 
 .usa-alert-heading {
