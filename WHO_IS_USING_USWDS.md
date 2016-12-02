@@ -49,6 +49,7 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - [General Service Administrtion CTO website](https://github.com/GSA/cto-website)
 - [GovBuy Marketplace](https://buy.gds-gov.tech/)
 - [GSA Open IAE](http://gsa.github.io/openIAE/)
+- [GSA Presents: Grace Hopper Day Hackathon!](http://open.gsa.gov/grace-hopper-hackathon/)
 - [Hack the Pay Gap](https://paygap.pif.gov/)
 - Internal Revenue Service
 - International Cooperative Administrative Support Services, Department of State
