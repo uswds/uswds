@@ -23,11 +23,11 @@
 
 .usa-alert-body {
   display: table-cell;
-  padding-left: 3.5rem;
+//  padding-left: 3.5rem;
   vertical-align: top;
 
   @include media($medium-screen) {
-    padding-left: 5rem;
+//    padding-left: 5rem;
   }
 
   p:first-child {
@@ -51,27 +51,43 @@
 }
 
 .usa-alert-success {
+  @include display-icon(alerts/success, before, 5rem, 0, no-hover);
   background-color: $color-green-lightest;
-  background-image: url('#{$image-path}/alerts/success.png');
-  background-image: url('#{$image-path}/alerts/success.svg');
+
+  &::before {
+    background-position-x: -1rem;
+    float: left;
+  }
 }
 
 .usa-alert-warning {
+  @include display-icon(alerts/warning, before, 5rem, 0, no-hover);
   background-color: $color-gold-lightest;
-  background-image: url('#{$image-path}/alerts/warning.png');
-  background-image: url('#{$image-path}/alerts/warning.svg');
+
+  &::before {
+    background-position-x: -0.6rem;
+    float: left;
+  }
 }
 
 .usa-alert-error {
+  @include display-icon(alerts/error, before, 5rem, 0, no-hover);
   background-color: $color-secondary-lightest;
-  background-image: url('#{$image-path}/alerts/error.png');
-  background-image: url('#{$image-path}/alerts/error.svg');
+
+  &::before {
+    background-position-x: -1rem;
+    float: left;
+  }
 }
 
 .usa-alert-info {
+  @include display-icon(alerts/info, before, 5rem, 0, no-hover);
   background-color: $color-primary-alt-lightest;
-  background-image: url('#{$image-path}/alerts/info.png');
-  background-image: url('#{$image-path}/alerts/info.svg');
+
+  &::before {
+    background-position-x: -1rem;
+    float: left;
+  }
 }
 
 .usa-alert-no_icon {
