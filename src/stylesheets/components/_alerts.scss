@@ -1,3 +1,15 @@
+// Alert variables ---------- //
+$usa-custom-alerts:() !default;
+
+$usa-alerts: ( 
+  success: $color-green-lightest,
+  warning: $color-gold-lightest,
+  error: $color-secondary-lightest,
+  info: $color-primary-alt-lightest
+);
+
+$alerts: map-merge($usa-alerts, $usa-custom-alerts);
+
 .usa-alert {
   background-color: $color-gray-lightest;
   background-position: 1rem 2rem;
@@ -50,28 +62,12 @@
   margin-top: 0;
 }
 
-.usa-alert-success {
-  background-color: $color-green-lightest;
-  background-image: url('#{$image-path}/alerts/success.png');
-  background-image: url('#{$image-path}/alerts/success.svg');
-}
-
-.usa-alert-warning {
-  background-color: $color-gold-lightest;
-  background-image: url('#{$image-path}/alerts/warning.png');
-  background-image: url('#{$image-path}/alerts/warning.svg');
-}
-
-.usa-alert-error {
-  background-color: $color-secondary-lightest;
-  background-image: url('#{$image-path}/alerts/error.png');
-  background-image: url('#{$image-path}/alerts/error.svg');
-}
-
-.usa-alert-info {
-  background-color: $color-primary-alt-lightest;
-  background-image: url('#{$image-path}/alerts/info.png');
-  background-image: url('#{$image-path}/alerts/info.svg');
+@each $name, $bgcolor in $alerts {
+  .usa-alert-#{$name} {
+    background-color: $bgcolor;
+    background-image: url('#{$image-path}/alerts/#{$name}.png');
+    background-image: url('#{$image-path}/alerts/#{$name}.svg');
+  }
 }
 
 .usa-alert-no_icon {
