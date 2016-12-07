@@ -42,7 +42,7 @@
     "prismjs": "^1.5.1"
   },
   "devDependencies": {
-    "@18f/stylelint-rules": "^1.0.1",
+    "@18f/stylelint-rules": "^1.2.0",
     "browserify": "^13.0.0",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
