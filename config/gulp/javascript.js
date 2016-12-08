@@ -58,7 +58,7 @@ gulp.task(task, [ 'eslint' ], function (done) {
         basename: dutil.pkg.name,
         suffix: '.min',
       }))
-    .pipe(sourcemaps.write('.', { addComment: true }))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist/js'));
 
   return merge(defaultStream, minifiedStream);
