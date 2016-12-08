@@ -191,8 +191,8 @@ $z-index-nav:     9000;
 
     button {
       &[aria-expanded=false],
-      &[aria-expanded=true] {
-        @include media($nav-width) {
+      &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
+        @include media($nav-width) { /* stylelint-disable-line selector-no-qualifying-type */
           background-position: right 1.5rem top 50%;
         }
       }

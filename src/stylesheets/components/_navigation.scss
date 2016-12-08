@@ -163,7 +163,7 @@
       }
     }
 
-    &[aria-expanded=false] {
+    &[aria-expanded=false] { /* stylelint-disable-line selector-no-qualifying-type */
       background-image: url('#{$image-path}/plus-alt.png');
       background-image: url('#{$image-path}/plus-alt.svg');
       background-repeat: no-repeat;
@@ -177,7 +177,7 @@
       }
     }
 
-    &[aria-expanded=true] {
+    &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
       background-image: url('#{$image-path}/minus-alt.png');
       background-image: url('#{$image-path}/minus-alt.svg');
       background-repeat: no-repeat;
@@ -308,7 +308,7 @@
     }
 
     &:hover,
-    &.usa-current {
+    &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
       @include media($nav-width) {
         padding-left: 1.8rem;
       }

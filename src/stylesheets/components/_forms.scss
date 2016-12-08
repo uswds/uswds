@@ -54,13 +54,13 @@ fieldset {
 }
 
 input {
-  &.usa-input-tiny {
+  &.usa-input-tiny { /* stylelint-disable-line selector-no-qualifying-type */
     @include media($medium-screen) {
       max-width: 6rem;
     }
   }
 
-  &.usa-input-medium {
+  &.usa-input-medium { /* stylelint-disable-line selector-no-qualifying-type */
     @include media($medium-screen) {
       max-width: 12rem;
     }
