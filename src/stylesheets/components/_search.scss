@@ -82,12 +82,12 @@ $usa-btn-big-width:     11.6rem;
     @include media($small-screen) {
       $width: $usa-btn-small-width;
 
-      [type="search"],
+      [type=search],
       .usa-search-input {
         width: calc(100% - #{$width});
       }
 
-      [type="submit"],
+      [type=submit],
       .usa-search-submit {
         @include search-icon;
         width: $width;
