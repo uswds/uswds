@@ -93,7 +93,10 @@ $usa-btn-big-width:     11.6rem;
         width: $width;
       }
     }
-    @media screen and (max-width: ($nav-width - 1px)) {
+
+    $lt-nav-width: $nav-width - 1px;
+
+    @media screen and (max-width: $lt-nav-width) {
       &.usa-sr-only {
         left: auto;
         position: relative;
