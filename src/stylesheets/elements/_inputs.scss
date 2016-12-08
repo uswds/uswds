@@ -17,6 +17,7 @@ $input-height-exact: (
 $input-height: floor($input-height-exact * 10) / 10;
 
 // Block form elements
+/* stylelint-disable selector-no-qualifying-type */
 input,
 textarea,
 select {
@@ -44,6 +45,7 @@ select {
     border: 3px solid $color-green-light;
   }
 }
+/* stylelint-enable */
 
 .usa-input-error {
   border-left: 4px solid $color-secondary-dark;

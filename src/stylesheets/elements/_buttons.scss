@@ -4,7 +4,7 @@ $button-stroke: inset 0 0 0 2px;
 
 // Buttons
 
-// scss-lint:disable PropertyCount
+/* stylelint-disable selector-no-qualifying-type */
 .usa-button,
 .usa-button-primary,
 .usa-button:visited,
@@ -150,7 +150,7 @@ button,
     padding: 1.5rem 3rem;
   }
 }
-// scss-lint:enable PropertyCount
+/* stylelint-disable */
 
 [type=submit]:disabled,
 .usa-button-disabled {
