@@ -10,10 +10,10 @@ $button-stroke: inset 0 0 0 2px;
 .usa-button:visited,
 .usa-button-primary:visited,
 button,
-[type="button"],
-[type="submit"],
-[type="reset"],
-[type="image"] {
+[type=button],
+[type=submit],
+[type=reset],
+[type=image] {
   @include font-smoothing;
   @include margin(0.5em 0.5em 0.5em null);
   appearance: none;
@@ -152,7 +152,7 @@ button,
 }
 // scss-lint:enable PropertyCount
 
-[type="submit"]:disabled,
+[type=submit]:disabled,
 .usa-button-disabled {
   background-color: $color-gray-lighter;
   color: $color-gray-dark;
