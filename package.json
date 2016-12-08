@@ -33,7 +33,7 @@
   "homepage": "https://github.com/18F/web-design-standards#readme",
   "dependencies": {
     "bourbon": "^4.2.6",
-    "bourbon-neat": "^1.7.3",
+    "bourbon-neat": "github:thoughtbot/neat#neat-1.8.0-node-sass",
     "classlist-polyfill": "^1.0.3",
     "cross-spawn": "^2.1.5",
     "jquery": "^2.2.0",
