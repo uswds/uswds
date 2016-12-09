@@ -37,8 +37,7 @@
     "classlist-polyfill": "^1.0.3",
     "cross-spawn": "^2.1.5",
     "jquery": "^2.2.0",
-    "normalize.css": "^3.0.3",
-    "prismjs": "^1.5.1"
+    "normalize.css": "^3.0.3"
   },
   "devDependencies": {
     "@18f/stylelint-rules": "^1.0.1",
