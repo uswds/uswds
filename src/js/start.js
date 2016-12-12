@@ -11,6 +11,5 @@ require('./initializers/banner');
 require('./initializers/footer');
 require('./initializers/forms');
 require('./initializers/navigation');
-require('./initializers/politespace');
 require('./initializers/search');
 require('./initializers/skip-nav');
