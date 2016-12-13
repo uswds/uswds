@@ -90,6 +90,11 @@ select {
   padding-top: 3px;
 }
 
+.usa-input-required:after {
+  color: $color-secondary-darkest;
+  content: ' (*Required)';
+}
+
 label {
   display: block;
   margin-top: 3rem;

@@ -57,9 +57,8 @@ function searchInit () {
   searchButton = select('.js-search-button')[ 0 ];
   searchButtonContainer = select('.js-search-button-container')[ 0 ];
 
-  closeSearch();
-
   if (searchButton && searchForm) {
+    closeSearch();
     activateDispatcher = dispatch(searchButton, clickEvent, searchButtonClickHandler);
   }
 }
