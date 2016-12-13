@@ -96,6 +96,7 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - United States Citizenship and Immigration Services
 - [USDA Economic Research Service](http://www.ers.usda.gov/)
 - [USDA New Farmers](https://newfarmers.usda.gov/)
+- [USDA School Meal Application](http://www.fns.usda.gov/school-meals/web-based-prototype/docs/index.html#/)
 - [USDS documentation website template](https://github.com/usds/uswds-docs-template)
 - [USGS Earthquake Hazards Program](http://earthquake.usgs.gov/theme/)
 - [USWDS Drupal theme](http://uswds.civicactions.net/)
