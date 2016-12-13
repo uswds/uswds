@@ -71,8 +71,8 @@ $z-index-nav:     9000;
   }
 }
 
-// scss-lint:disable PropertyCount
 .usa-menu-btn {
+  /* stylelint-disable declaration-block-no-ignored-properties */
   @include button-unstyled;
   background-color: $color-primary;
   color: $color-white;
@@ -85,6 +85,7 @@ $z-index-nav:     9000;
   text-decoration: none;
   text-transform: uppercase;
   width: 5.8rem;
+  /* stylelint-enable */
 
   @include media($nav-width) {
     display: none;
@@ -99,7 +100,6 @@ $z-index-nav:     9000;
     color: $color-white;
   }
 }
-// scss-lint:enable PropertyCount
 
 .usa-overlay {
   @include position(fixed, 0);
@@ -191,8 +191,8 @@ $z-index-nav:     9000;
 
     button {
       &[aria-expanded=false],
-      &[aria-expanded=true] {
-        @include media($nav-width) {
+      &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
+        @include media($nav-width) { /* stylelint-disable-line selector-no-qualifying-type */
           background-position: right 1.5rem top 50%;
         }
       }

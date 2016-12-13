@@ -17,6 +17,7 @@ $input-height-exact: (
 $input-height: floor($input-height-exact * 10) / 10;
 
 // Block form elements
+/* stylelint-disable selector-no-qualifying-type */
 input,
 textarea,
 select {
@@ -44,6 +45,7 @@ select {
     border: 3px solid $color-green-light;
   }
 }
+/* stylelint-enable */
 
 .usa-input-error {
   border-left: 4px solid $color-secondary-dark;
@@ -138,8 +140,8 @@ legend {
 
 // Custom checkboxes
 
-[type="checkbox"],
-[type="radio"] {
+[type=checkbox],
+[type=radio] {
   margin-left: -2rem;
   opacity: 0;
   position: absolute;
@@ -153,15 +155,15 @@ legend {
   }
 }
 
-[type="checkbox"] + label,
-[type="radio"] + label {
+[type=checkbox] + label,
+[type=radio] + label {
   cursor: pointer;
   font-weight: 400;
   margin-bottom: 0.5em;
 }
 
-[type="checkbox"] + label::before,
-[type="radio"] + label::before {
+[type=checkbox] + label::before,
+[type=radio] + label::before {
   background: $color-white;
   border-radius: $border-radius;
   box-shadow: 0 0 0 1px $color-gray-medium;
@@ -175,7 +177,7 @@ legend {
   width: 1.8rem;
 }
 
-[type="radio"] + label::before {
+[type=radio] + label::before {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-gray-medium;
   height: 1.6rem;
   line-height: 1.6rem;
@@ -183,37 +185,37 @@ legend {
   border-radius: 100%;
 }
 
-[type="checkbox"]:checked + label::before,
-[type="radio"]:checked + label::before {
+[type=checkbox]:checked + label::before,
+[type=radio]:checked + label::before {
   background-color: $color-primary;
   box-shadow: 0 0 0 1px $color-primary;
 }
 
-[type="radio"]:checked + label::before {
+[type=radio]:checked + label::before {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary;
 }
 
-[type="radio"]:focus + label::before {
+[type=radio]:focus + label::before {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary, 0 0 3px 4px $color-focus, 0 0 7px 4px $color-focus;
 }
 
-[type="checkbox"]:checked + label::before {
+[type=checkbox]:checked + label::before {
   background-image: url('#{$image-path}/correct8.png');
   background-image: url('#{$image-path}/correct8.svg');
   background-position: 50%;
   background-repeat: no-repeat;
 }
 
-[type="checkbox"]:focus + label::before {
+[type=checkbox]:focus + label::before {
   box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-primary;
 }
 
-[type="checkbox"]:disabled + label {
+[type=checkbox]:disabled + label {
   color: $color-gray;
 }
 
-[type="checkbox"]:disabled + label::before,
-[type="radio"]:disabled + label::before {
+[type=checkbox]:disabled + label::before,
+[type=radio]:disabled + label::before {
   background: $color-gray-lighter;
   box-shadow: 0 0 0 1px $color-gray-light;
   cursor: not-allowed;

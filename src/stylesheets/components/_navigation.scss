@@ -1,4 +1,3 @@
-
 // Header navigation ------------- //
 
 @mixin nav-border {
@@ -39,9 +38,11 @@
 
 .usa-nav {
   $sliding-panel-width: 26rem;
+
   @include position(fixed, 0 0 0 auto);
   @include size($sliding-panel-width 100%);
   @include transform(translateX($sliding-panel-width));
+
   background: $color-white;
   border-left: 1px solid $color-gray-light;
   border-right: 0;
@@ -54,6 +55,7 @@
   @include media($nav-width) {
     @include padding(5rem 0 0 null);
     @include transform(translateX(0));
+
     border-left: none;
     display: block;
     float: right;
@@ -163,7 +165,7 @@
       }
     }
 
-    &[aria-expanded=false] {
+    &[aria-expanded=false] { /* stylelint-disable-line selector-no-qualifying-type */
       background-image: url('#{$image-path}/plus-alt.png');
       background-image: url('#{$image-path}/plus-alt.svg');
       background-repeat: no-repeat;
@@ -177,7 +179,7 @@
       }
     }
 
-    &[aria-expanded=true] {
+    &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
       background-image: url('#{$image-path}/minus-alt.png');
       background-image: url('#{$image-path}/minus-alt.svg');
       background-repeat: no-repeat;
@@ -308,7 +310,7 @@
     }
 
     &:hover,
-    &.usa-current {
+    &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
       @include media($nav-width) {
         padding-left: 1.8rem;
       }

@@ -14,7 +14,7 @@ $usa-btn-big-width:     11.6rem;
   max-width: none;
   position: relative;
 
-  [type="search"],
+  [type=search],
   .usa-search-input {
     @include padding(0 null);
     -webkit-appearance: none;
@@ -33,7 +33,7 @@ $usa-btn-big-width:     11.6rem;
     }
   }
 
-  [type="submit"],
+  [type=submit],
   .usa-search-submit {
     @include search-icon;
     border-bottom-left-radius: 0;
@@ -62,14 +62,14 @@ $usa-btn-big-width:     11.6rem;
       $height: 4.4rem;
       $width: $usa-btn-big-width;
 
-      [type="search"],
+      [type=search],
       .usa-search-input {
         font-size: $base-font-size;
         height: $height;
         width: calc(100% - #{$width});
       }
 
-      [type="submit"],
+      [type=submit],
       .usa-search-submit {
         font-size: $h3-font-size;
         height: $height;
@@ -82,18 +82,21 @@ $usa-btn-big-width:     11.6rem;
     @include media($small-screen) {
       $width: $usa-btn-small-width;
 
-      [type="search"],
+      [type=search],
       .usa-search-input {
         width: calc(100% - #{$width});
       }
 
-      [type="submit"],
+      [type=submit],
       .usa-search-submit {
         @include search-icon;
         width: $width;
       }
     }
-    @media screen and (max-width: ($nav-width - 1px)) {
+
+    $lt-nav-width: $nav-width - 1px;
+
+    @media screen and (max-width: $lt-nav-width) {
       &.usa-sr-only {
         left: auto;
         position: relative;

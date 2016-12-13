@@ -102,11 +102,13 @@
     height: $size;
     width: $size;
 
+    /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
     @if $direction == 'after' {
       margin-left: $margin;
     } @else {
       margin-right: $margin;
     }
+    /* stylelint-enable */
   }
 
   @if $hover == 'hover' {
@@ -150,7 +152,7 @@
       z-index: 1;
     }
 
-    &.usa-current {
+    &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
       border-left: 4px solid $color-primary;
       color: $color-primary;
       font-weight: $font-bold;
@@ -158,7 +160,6 @@
     }
   }
 }
-
 
 @mixin usa-sidenav-sublist {
   @include unstyled-list();
@@ -175,7 +176,7 @@
     line-height: $heading-line-height;
 
     &:hover,
-    &.usa-current {
+    &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
       border: none;
       padding-left: 2.8rem;
     }
