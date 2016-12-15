@@ -18,4 +18,4 @@ deployment:
     commands:
       - npm run build:package # Build distributed package files
       - echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
-      - npm run publish
+      - npm run check-publish
