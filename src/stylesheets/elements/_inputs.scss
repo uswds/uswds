@@ -199,7 +199,8 @@ legend {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary, 0 0 3px 4px $color-focus, 0 0 7px 4px $color-focus;
 }
 
-[type=checkbox]:checked + label::before {
+[type=checkbox]:checked + label::before,
+[type=checkbox]:checked:disabled + label::before {
   background-image: url('#{$image-path}/correct8.png');
   background-image: url('#{$image-path}/correct8.svg');
   background-position: 50%;
