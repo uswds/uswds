@@ -13,5 +13,3 @@ dist/
 # Ignore gulp-generated vendor files
 #
 src/stylesheets/lib
-
-scss-lint.yml
