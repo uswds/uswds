@@ -11,14 +11,11 @@ test:
   post:
     - ls -agolf dist/ # Ensure that build:package worked
 
-dependencies:
-  pre:
-    - npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-
 deployment:
   npm:
     branch: master
     owner: 18F
     commands:
+      - npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
       - npm run build:package # Build distributed package files
       - npm run check-publish
