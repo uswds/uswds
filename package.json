@@ -36,6 +36,7 @@
     "bourbon-neat": "github:thoughtbot/neat#neat-1.8.0-node-sass",
     "classlist-polyfill": "^1.0.3",
     "cross-spawn": "^2.1.5",
+    "lodash.debounce": "^4.0.7",
     "normalize.css": "^3.0.3"
   },
   "devDependencies": {
@@ -59,7 +60,6 @@
     "jquery": "^2.2.0",
     "jsdom": "^9.0.0",
     "jsdom-global": "^2.1.0",
-    "lodash.debounce": "^4.0.7",
     "merge-stream": "^1.0.0",
     "mocha": "^2.4.5",
     "node-notifier": "^4.6.0",
