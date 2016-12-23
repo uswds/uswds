@@ -7,6 +7,15 @@ test:
     - gulp -v
   override:
     - npm test # Run the package and docs test suite
-    - npm run build:package # Run the release process
+    - npm run build
   post:
     - ls -agolf dist/ # Ensure that build:package worked
+
+deployment:
+  npm:
+    branch: master
+    owner: 18F
+    commands:
+      - npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+      - npm run build:package # Build distributed package files
+      - npm run check-publish
