@@ -66,6 +66,7 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - [National Institute of Health](https://www.nih.gov/)
 - [National Week of Making](https://weekofmaking.pif.gov/)
 - [Navy 6th Fleet](http://www.c6f.navy.mil/)
+- [NIH US National Library of Medicine](https://support.nlm.nih.gov)
 - NTIS DEA
 - [NYC School Finder](http://schoolfinder.nyc.gov/)
 - [Office of the Historian](https://history.state.gov/)
@@ -86,7 +87,7 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - Tennesse State Department of Conservation and Recreation 
 - The Federal Reserve Board of Governors
 - TSA
-- [U.S. Interagency Council on Homelessness](https://www.usich.gov/)
+- [US Interagency Council on Homelessness](https://www.usich.gov/)
 - [US Courts](http://www.uscourts.gov/)
 - [US Data Federation](http://federation.data.gov/)
 - [US Digital Service Playbook](https://playbook.cio.gov)
