@@ -66,7 +66,7 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - [National Institute of Health](https://www.nih.gov/)
 - [National Week of Making](https://weekofmaking.pif.gov/)
 - [Navy 6th Fleet](http://www.c6f.navy.mil/)
-- [NIH US National Library of Medicine](https://support.nlm.nih.gov)
+- [US National Library of Medicine](https://support.nlm.nih.gov)
 - NTIS DEA
 - [NYC School Finder](http://schoolfinder.nyc.gov/)
 - [Office of the Historian](https://history.state.gov/)
