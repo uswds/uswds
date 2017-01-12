@@ -152,7 +152,7 @@ button,
 }
 /* stylelint-disable */
 
-[type=submit]:disabled,
+.usa-button:disabled,
 .usa-button-disabled {
   background-color: $color-gray-lighter;
   color: $color-gray-dark;
