@@ -5,8 +5,8 @@ form {
     border-bottom: 0;
   }
 
-  [type="submit"],
-  [type="submit"] {
+  [type=submit],
+  [type=submit] {
     display: block;
     margin-bottom: 1.5em;
     margin-top: 2.5rem;
@@ -18,8 +18,8 @@ form {
     }
   }
 
-  [name="password"],
-  [name="confirmPassword"] {
+  [name=password],
+  [name=confirmPassword] {
     margin-bottom: 1.1rem;
   }
 }
@@ -54,13 +54,13 @@ fieldset {
 }
 
 input {
-  &.usa-input-tiny {
+  &.usa-input-tiny { /* stylelint-disable-line selector-no-qualifying-type */
     @include media($medium-screen) {
       max-width: 6rem;
     }
   }
 
-  &.usa-input-medium {
+  &.usa-input-medium { /* stylelint-disable-line selector-no-qualifying-type */
     @include media($medium-screen) {
       max-width: 12rem;
     }
@@ -125,8 +125,6 @@ input {
 }
 
 .usa-additional_text {
-  float: right;
-  font-style: italic;
   font-weight: normal;
 }
 

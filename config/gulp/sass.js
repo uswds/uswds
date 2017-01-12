@@ -50,11 +50,7 @@ gulp.task('copy-vendor-sass', function (done) {
   return stream;
 });
 
-/**
- * XXX the 'stylelint' prerequisite is commented out here because
- * there are currently a TON of linting errors in our SCSS files.
- */
-gulp.task(task, [ /* 'stylelint' */ ], function (done) {
+gulp.task(task, [ 'stylelint' ], function (done) {
 
   dutil.logMessage(task, 'Compiling Sass');
 

@@ -139,12 +139,14 @@
 
   @include media($small-screen) {
     @include padding(0 null null 0);
+    /* stylelint-disable declaration-block-no-ignored-properties */
     display: inline;
     height: initial;
     margin-left: 3px;
     position: relative;
     vertical-align: middle;
     width: initial;
+    /* stylelint-enable */
   }
 
   &:hover {
