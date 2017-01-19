@@ -50,7 +50,7 @@ gulp.task('copy-vendor-sass', function (done) {
   return stream;
 });
 
-gulp.task(task, [ /* 'stylelint' */ ], function (done) {
+gulp.task(task, [ 'stylelint' ], function (done) {
 
   dutil.logMessage(task, 'Compiling Sass');
 
