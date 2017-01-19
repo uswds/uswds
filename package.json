@@ -62,7 +62,6 @@
     "jquery": "^2.2.0",
     "jsdom": "^9.0.0",
     "jsdom-global": "^2.1.0",
-    "merge-stream": "^1.0.0",
     "mocha": "^2.4.5",
     "node-notifier": "^4.6.0",
     "node-sass": "^3.4.2",
