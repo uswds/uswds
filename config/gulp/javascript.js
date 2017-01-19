@@ -6,7 +6,6 @@ var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
-var merge = require('merge-stream');
 var rename = require('gulp-rename');
 var eslint = require('gulp-eslint');
 var task = 'javascript';
@@ -37,30 +36,22 @@ gulp.task(task, [ 'eslint' ], function (done) {
     debug: true,
   });
 
-  defaultStream = defaultStream.bundle()
+  var stream = defaultStream.bundle()
     .pipe(source('components.js'))
     .pipe(buffer())
     .pipe(rename({ basename: dutil.pkg.name }))
     .pipe(gulp.dest('dist/js'));
 
-  var minifiedStream = browserify({
-    entries: 'src/js/start.js',
-    debug: true,
-  });
-
-  minifiedStream = minifiedStream.bundle()
-    .pipe(source('components.js'))
-    .pipe(buffer())
+  stream
     .pipe(sourcemaps.init({ loadMaps: true }))
-      .pipe(uglify())
-      .on('error', gutil.log)
-      .pipe(rename({
-        basename: dutil.pkg.name,
-        suffix: '.min',
-      }))
+    .pipe(uglify())
+    .on('error', gutil.log)
+    .pipe(rename({
+      suffix: '.min',
+    }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist/js'));
 
-  return merge(defaultStream, minifiedStream);
+  return stream;
 
 });

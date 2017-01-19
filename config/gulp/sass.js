@@ -1,11 +1,11 @@
 var gulp = require('gulp');
 var dutil = require('./doc-util');
 var sass = require('gulp-sass');
+var cssnano = require('gulp-cssnano');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var linter = require('@18f/stylelint-rules');
-var merge = require('merge-stream');
 var pkg = require('../../package.json');
 var filter = require('gulp-filter');
 var replace = require('gulp-replace');
@@ -54,50 +54,45 @@ gulp.task(task, [ 'stylelint' ], function (done) {
 
   dutil.logMessage(task, 'Compiling Sass');
 
-  var entryFile = 'src/stylesheets/uswds.scss';
-
-  var replaceVersion = replace(
-    /\buswds @version\b/g,
-    'uswds v' + pkg.version
-  );
-
-  var defaultStream = gulp.src(entryFile)
+  var stream = gulp.src('src/stylesheets/uswds.scss')
+    // 1. do the version replacement
+    .pipe(replace(
+      /\buswds @version\b/g,
+      'uswds v' + pkg.version
+    ))
+    // 2. convert SCSS to CSS
     .pipe(
       sass({ outputStyle: 'expanded' })
         .on('error', sass.logError)
     )
+    // 3. run it through autoprefixer
     .pipe(
       autoprefixer({
         browsers: supportedBrowsers,
         cascade: false,
       })
     )
-    .pipe(rename({ basename: dutil.pkg.name }))
-    .pipe(replaceVersion)
+    // 4. write dist/css/uswds.css
     .pipe(gulp.dest('dist/css'));
 
-  var minifiedStream = gulp.src(entryFile)
+  // we can reuse this stream for minification!
+  stream
+    // 1. initialize sourcemaps
     .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(
-      sass({ outputStyle: 'compressed' })
-        .on('error', sass.logError)
-    )
-    .pipe(
-      autoprefixer({
-        browsers: supportedBrowsers,
-        cascade: false,
-      })
-    )
+    // 2. minify with cssnano
+    .pipe(cssnano({
+      safe: true,
+      // XXX see https://github.com/ben-eb/cssnano/issues/340
+      mergeRules: false,
+    }))
+    // 3. rename to uswds.min.css
     .pipe(rename({
-      basename: dutil.pkg.name,
       suffix: '.min',
     }))
-    .pipe(sourcemaps.write('.', { addComment: false }))
-    .pipe(replaceVersion)
+    // 4. write dist/css/uswds.min.css.map
+    .pipe(sourcemaps.write('.'))
+    // 5. write dist/css/uswds.min.css
     .pipe(gulp.dest('dist/css'));
 
-  var streams = merge(defaultStream, minifiedStream);
-
-  return streams;
-
+  return stream;
 });
