@@ -12,7 +12,7 @@ var distPath = path.resolve(
 );
 
 var build = function (done) {
-  child.exec('npm run build', {}, done);
+  child.exec('npm run build', {}, function() { done(); });
 };
 
 before(function (done) {
