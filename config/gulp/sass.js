@@ -6,7 +6,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var linter = require('@18f/stylelint-rules');
-var merge = require('merge-stream');
 var pkg = require('../../package.json');
 var filter = require('gulp-filter');
 var replace = require('gulp-replace');
