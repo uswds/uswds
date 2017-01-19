@@ -6,7 +6,6 @@ var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
-var merge = require('merge-stream');
 var rename = require('gulp-rename');
 var eslint = require('gulp-eslint');
 var task = 'javascript';
