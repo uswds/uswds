@@ -1,6 +1,5 @@
 var should = require('should');
 var dispatch = require('../../../src/js/utils/dispatch');
-var sinon = require('sinon');
 
 describe('dispatch', function () {
 
