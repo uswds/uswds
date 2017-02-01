@@ -19,6 +19,21 @@ gulp.task('clean-dist', function (done) {
 
 });
 
+gulp.task('docs', function (done) {
+   
+  dutil.logMessage('docs', 'Copying documentation dist dir');
+
+  var stream = gulp.src([
+    'README.md',
+    'LICENSE.md',
+    'CONTRIBUTING.md'
+    ])
+    .pipe(gulp.dest('dist'));
+
+  return stream;
+
+});
+
 gulp.task('build', function (done) {
 
   dutil.logIntroduction();
@@ -29,6 +44,7 @@ gulp.task('build', function (done) {
 
   runSequence(
     'clean-dist',
+    'docs',
     [
       'sass',
       'javascript',
