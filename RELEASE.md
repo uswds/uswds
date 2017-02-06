@@ -140,6 +140,13 @@ example, any of the following should trigger a major version increment:
        minus the GitHub release notes.
 
 
+## Questions?
+If you need help or have any questions, please reach out to us:
+
+* File an [issue on GitHub](https://github.com/18F/web-design-standards/issues/new).
+* Email us at [uswebdesignstandards@gsa.gov](mailto:uswebdesignstandards@gsa.gov).
+* [Sign up](https://chat.18f.gov/) for our public [Slack] channel.
+
 
 [draft release]: https://github.com/18F/web-design-standards/releases/new
 [git tag]: https://git-scm.com/book/en/v2/Git-Basics-Tagging
@@ -150,3 +157,4 @@ example, any of the following should trigger a major version increment:
 [semver]: http://semver.org/
 [uswds on npm]: https://npmjs.com/package/uswds
 [what is npm]: https://docs.npmjs.com/getting-started/what-is-npm
+[Slack]: https://slack.com/
