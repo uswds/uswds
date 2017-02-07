@@ -10,6 +10,7 @@
     "build:package": "gulp copy-vendor-sass && gulp release",
     "build": "gulp build",
     "test": "gulp eslint test",
+    "cover": "istanbul cover --config istanbul.yml gulp test",
     "preversion": "npm test",
     "version": "npm run prepublish",
     "watch": "watch 'npm run build' ./src"
@@ -43,6 +44,7 @@
   "devDependencies": {
     "@18f/stylelint-rules": "^1.2.0",
     "browserify": "^13.0.0",
+    "codecov.io": "^0.1.6",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
@@ -59,6 +61,7 @@
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
     "gulp-zip": "^3.1.0",
+    "istanbul": "^0.4.5",
     "jquery": "^2.2.0",
     "jsdom": "^9.0.0",
     "jsdom-global": "^2.1.0",
