@@ -1,18 +1,22 @@
 engines:
   csslint:
     enabled: false
+
   eslint:
     enabled: false
+
   duplication:
     enabled: true
     config:
       languages:
         - javascript
+
   nodesecurity:
-    enabled: true
+    enabled: false
 
   golint:
     enabled: false
+
   rubocop:
     enabled: false
 
