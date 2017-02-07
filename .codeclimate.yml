@@ -5,3 +5,4 @@ ratings:
 exclude_paths:
   - spec/**/*
   - dist/**/*.js
+  - src/js/vendor/**/*.js
