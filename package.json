@@ -10,7 +10,7 @@
     "build:package": "gulp copy-vendor-sass && gulp release",
     "build": "gulp build",
     "test": "gulp eslint test",
-    "cover": "istanbul cover --config istanbul.yml gulp test",
+    "cover": "istanbul cover --config config/istanbul.yml gulp cover",
     "preversion": "npm test",
     "version": "npm run prepublish",
     "watch": "watch 'npm run build' ./src"
