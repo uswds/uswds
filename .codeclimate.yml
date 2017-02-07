@@ -1,0 +1,7 @@
+ratings:
+  paths:
+    - src/js/**/*.js
+
+exclude_paths:
+  - spec/**/*
+  - dist/**/*.js
