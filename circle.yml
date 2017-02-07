@@ -5,6 +5,7 @@ machine:
 test:
   pre:
     - gulp -v
+    - npm install -g codeclimate-test-reporter
   override:
     # Run the package and docs test suite
     - npm test
@@ -15,7 +16,7 @@ test:
   post:
     # Ensure that build:package worked
     - ls -agolf dist/
-    - cat coverage/coverage.json | ./node_modules/.bin/codecov
+    - codeclimate-test-reporter < coverage/lcov.info
 
 deployment:
   npm:
