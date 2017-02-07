@@ -1,6 +1,3 @@
 instrumentation:
-  root: .
-  excludes:
-    - gulpfile.js
-    - config/gulp/*.js
-    - spec/sass/*.js
+  root: src/js
+  excludes: []
