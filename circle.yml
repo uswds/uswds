@@ -6,10 +6,16 @@ test:
   pre:
     - gulp -v
   override:
-    - npm test # Run the package and docs test suite
+    # Run the package and docs test suite
+    - npm test
+    # Generate code coverage report
+    - npm run cover
+    # Build the release files
     - npm run build
   post:
-    - ls -agolf dist/ # Ensure that build:package worked
+    # Ensure that build:package worked
+    - ls -agolf dist/
+    - cat coverage/coverage.json | ./node_modules/.bin/codecov
 
 deployment:
   npm:
