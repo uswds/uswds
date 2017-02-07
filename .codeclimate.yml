@@ -25,6 +25,7 @@ ratings:
     - src/js/**/*.js
 
 exclude_paths:
-  - spec/**/*
+  - config/**/*.js
   - dist/**/*.js
+  - spec/**/*
   - src/js/vendor/**/*.js
