@@ -11,7 +11,7 @@ If you have any questions or want to read more, check out the [18F Open Source P
 ## Guidelines
 
 ### Contributor Guidelines for Design
-We have provided some guidelines for folks that would like to submit new components to the Draft Web Design Standards and the lifecycle those new components will go through. For more detail, please visit the [guidelines on our wiki](https://github.com/18F/web-design-standards/wiki/Component-Maturity-Scale).
+We have provided some guidelines for folks that would like to submit new components to the U.S. Web Design Standards and the lifecycle those new components will go through. For more detail, please visit the [guidelines on our wiki](https://github.com/18F/web-design-standards/wiki/Component-Maturity-Scale).
 
 ### Submitting an issue
 
@@ -34,7 +34,7 @@ Have questions or need help with setup? Open an issue here [https://github.com/1
 
 ### Running locally
 
-The Draft U.S. Web Design Standards `uswds` package (the ZIP download and the files needed to use the Standards on your project) is built using gulp automation. To use gulp, first make sure you've installed it on your machine globally.
+The U.S. Web Design Standards `uswds` package (the ZIP download and the files needed to use the Standards on your project) is built using gulp automation. To use gulp, first make sure you've installed it on your machine globally.
 
 ```sh
 npm install --global gulp-cli

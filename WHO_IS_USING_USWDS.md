@@ -1,10 +1,10 @@
 # Website and applications that use the Standards
 
-Below are a list of website and applications currently using the Draft U.S. Web Design Standards. If your project is currently using the Standards and you do not see it on this list, please feel free to submit a pull request or email the core team at uswebdesignstandards@gsa.gov.
+Below are a list of website and applications currently using the U.S. Web Design Standards. If your project is currently using the Standards and you do not see it on this list, please feel free to submit a pull request or email the core team at uswebdesignstandards@gsa.gov.
 
 - [18F dashboard](http://federalist.18f.gov.s3-website-us-east-1.amazonaws.com/site/18f/discover-our-work/)
 - [18F Micropurchasing](https://micropurchase.18f.gov/)
-- [18F](https://18f.gsa.gov) 
+- [18F](https://18f.gsa.gov)
 - [Adobe Experience Manager](https://github.com/Adobe-Marketing-Cloud/adobe-digital-design-templates-for-government)
 - [Agile 6](http://agile6.com/)
 - [Apps.gov](https://apps.gov/)
@@ -85,7 +85,7 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - [Social and Behavioral Sciences](https://sbst.gov/)
 - [TechFAR Hub](https://techfarhub.cio.gov/)
 - [Template Tool](http://alexose.github.io/experiments/correspondence/)
-- Tennesse State Department of Conservation and Recreation 
+- Tennesse State Department of Conservation and Recreation
 - The Federal Reserve Board of Governors
 - TSA
 - [US Interagency Council on Homelessness](https://www.usich.gov/)
