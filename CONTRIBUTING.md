@@ -11,7 +11,7 @@ If you have any questions or want to read more, check out the [18F Open Source P
 ## Guidelines
 
 ### Contributor Guidelines for Design
-We have provided some guidelines for folks that would like to submit new components to the Draft Web Design Standards and the lifecycle those new components will go through. For more detail, please visit the [guidelines on our wiki](https://github.com/18F/web-design-standards/wiki/Component-Maturity-Scale).
+We have provided some guidelines for folks that would like to submit new components to the Draft Web Design Standards and the lifecycle those new components will go through. For more detail, please visit the [guidelines on our wiki](https://github.com/18F/web-design-standards/wiki/Contribution-Guidelines:-Design).
 
 ### Submitting an issue
 
