@@ -152,3 +152,48 @@
 .usa-end-row {
   @include omega();
 }
+
+// Grid Offsets
+.usa-offset-one-twelfth {
+  @include shift(1 of 12);
+}
+
+.usa-offset-one-sixth {
+  @include shift(2 of 12);
+}
+
+.usa-offset-one-fourth {
+  @include shift(3 of 12);
+}
+
+.usa-offset-one-third {
+  @include shift(4 of 12);
+}
+
+.usa-offset-five-twelfths {
+  @include shift(5 of 12);
+}
+
+.usa-offset-one-half {
+  @include shift(6 of 12);
+}
+
+.usa-offset-seven-twelfths {
+  @include shift(7 of 12);
+}
+
+.usa-offset-two-thirds {
+  @include shift(8 of 12);
+}
+
+.usa-offset-three-fourths {
+  @include shift(9 of 12);
+}
+
+.usa-offset-five-sixths {
+  @include shift(10 of 12);
+}
+
+.usa-offset-eleven-twelfths {
+  @include shift(11 of 12);
+}
