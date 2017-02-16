@@ -1,10 +1,10 @@
-# Welcome!
+## Welcome!
 
 We’re so glad you’re thinking about contributing to an 18F open source project! If you’re unsure about anything, just ask — or submit your issue or pull request anyway. The worst that can happen is we’ll politely ask you to change something. We appreciate all friendly contributions.
 
 One of our goals is to ensure a welcoming environment for all contibutors to our projects. Our staff follows the [18F Code of Conduct](https://github.com/18F/code-of-conduct/blob/master/code-of-conduct.md), and all contributors should do the same.
 
-We encourage you to read this project’s CONTRIBUTING policy (you are here), its [LICENSE](LICENSE.md), [README](README.md) and its [Workflow](https://github.com/18F/web-design-standards/wiki/Workflow) process.
+We encourage you to read this project’s CONTRIBUTING policy (you are here), its [LICENSE](https://github.com/18F/web-design-standards/blob/staging/LICENSE.md), [README](https://github.com/18F/web-design-standards/blob/staging/README.md) and its [Workflow](https://github.com/18F/web-design-standards/wiki/Workflow) process.
 
 If you have any questions or want to read more, check out the [18F Open Source Policy GitHub repository]( https://github.com/18f/open-source-policy), or just [shoot us an email](mailto:18f@gsa.gov).
 
@@ -91,11 +91,11 @@ The branches `18f-pages` and `18f-pages-staging` _used_ to be the primary releas
 
 ### A few parts of this project are not in the public domain
 
-For complete attribution and licensing information for parts of the project that are not in the public domain, see [LICENSE.md](LICENSE.md).
+For complete attribution and licensing information for parts of the project that are not in the public domain, see [LICENSE.md](https://github.com/18F/web-design-standards/blob/staging/LICENSE.md).
 
 ### The rest of this project is in the public domain
 
-The rest of this project is in the worldwide [public domain](LICENSE.md).
+The rest of this project is in the worldwide [public domain](https://github.com/18F/web-design-standards/blob/staging/LICENSE.md).
 
 This project is in the public domain within the United States, and
 copyright and related rights in the work worldwide are waived through
