@@ -10,6 +10,7 @@
     "build:package": "gulp copy-vendor-sass && gulp release",
     "build": "gulp build",
     "test": "gulp eslint test",
+    "cover": "istanbul cover --config config/istanbul.yml gulp cover",
     "preversion": "npm test",
     "version": "npm run prepublish",
     "watch": "watch 'npm run build' ./src"
@@ -34,7 +35,7 @@
   "homepage": "https://github.com/18F/web-design-standards#readme",
   "dependencies": {
     "bourbon": "^4.2.6",
-    "bourbon-neat": "github:thoughtbot/neat#neat-1.8.0-node-sass",
+    "bourbon-neat": "https://github.com/thoughtbot/neat/archive/neat-1.8.0-node-sass.tar.gz",
     "classlist-polyfill": "^1.0.3",
     "cross-spawn": "^2.1.5",
     "lodash.debounce": "^4.0.7",
@@ -59,6 +60,7 @@
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
     "gulp-zip": "^3.1.0",
+    "istanbul": "^0.4.5",
     "jquery": "^2.2.0",
     "jsdom": "^9.0.0",
     "jsdom-global": "^2.1.0",
