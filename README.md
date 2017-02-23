@@ -38,7 +38,7 @@ We’re glad you’d like to use the Standards — here’s how you can get star
 * Designers: [Check out our Getting Started for Designers information](https://standards.usa.gov/getting-started/designers/).
     * [Design files of all the assets included in the Standards are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
 * Developers: [Follow the instructions in this README to get started.](#using-the-standards)
-    * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v0.14.0/uswds-0.14.0.zip).
+    * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v1.0.0/uswds-1.0.0.zip).
 
 ## Using the Standards
 
@@ -53,12 +53,12 @@ There are a few different ways to use the Standards within your project. Which o
 
 ### Download
 
-1. Download the [Standards zip file](https://github.com/18F/web-design-standards/releases/download/v0.14.0/uswds-0.14.0.zip) and open that file.
+1. Download the [Standards zip file](https://github.com/18F/web-design-standards/releases/download/v1.0.0/uswds-1.0.0.zip) and open that file.
 
   After extracting the zip file you should see the following file and folder structure:
 
   ```
-  uswds-0.14.0/
+  uswds-1.0.0/
   ├── js/
   │   ├── uswds.min.js.map
   │   ├── uswds.min.js
@@ -76,7 +76,7 @@ There are a few different ways to use the Standards within your project. Which o
   ```
   example-project/
   ├── assets/
-  │   ├── uswds-0.14.0/
+  │   ├── uswds-1.0.0/
   │   ├── stylesheets/
   │   ├── images/
   │   └── javascript/
@@ -96,18 +96,16 @@ There are a few different ways to use the Standards within your project. Which o
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My Example Project</title>
-    <link rel="stylesheet" href="assets/uswds-0.14.0/css/uswds.min.css">
+    <link rel="stylesheet" href="assets/uswds-1.0.0/css/uswds.min.css">
   </head>
   <body>
 
-    <script src="assets/uswds-0.14.0/js/uswds.min.js"></script>
+    <script src="assets/uswds-1.0.0/js/uswds.min.js"></script>
   </body>
   </html>
   ```
 
 We offer both files, the CSS and the JavaScript, in two versions — a minified version, and an un-minified one. (In the examples above, we are using the minified files.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. And the un-minified files are better if you are in a development environment or would like to debug the CSS or JavaScript assets in the browser.
-
-**NOTE:** This version of the Standards includes jQuery version `2.2.0` bundled within the JavaScript file. Please make sure that you’re not including any other version of jQuery on your page.
 
 And that’s it — you should now be able to copy our code samples into our `index.html` and start using the Standards.
 
