@@ -6,6 +6,9 @@
 node_modules/
 npm-debug.log*
 
+# code coverage
+coverage/
+
 # README: Ignore the dist directories
 #
 dist/

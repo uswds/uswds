@@ -1,10 +1,10 @@
 # Website and applications that use the Standards
 
-Below are a list of website and applications currently using the Draft U.S. Web Design Standards. If your project is currently using the Standards and you do not see it on this list, please feel free to submit a pull request or email the core team at uswebdesignstandards@gsa.gov.
+Below are a list of website and applications currently using the U.S. Web Design Standards. If your project is currently using the Standards and you do not see it on this list, please feel free to submit a pull request or email the core team at uswebdesignstandards@gsa.gov.
 
 - [18F dashboard](http://federalist.18f.gov.s3-website-us-east-1.amazonaws.com/site/18f/discover-our-work/)
 - [18F Micropurchasing](https://micropurchase.18f.gov/)
-- [18F](https://18f.gsa.gov) 
+- [18F](https://18f.gsa.gov)
 - [Adobe Experience Manager](https://github.com/Adobe-Marketing-Cloud/adobe-digital-design-templates-for-government)
 - [Agile 6](http://agile6.com/)
 - [Apps.gov](https://apps.gov/)
@@ -14,6 +14,7 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - Beta USDS website
 - [Broadcasting Board of Governors](https://www.bbg.gov/ )
 - Bug bounty
+- [City of Austin Innovation Fellows Program](https://cityofaustin.github.io/innovation-fellows/)
 - [City of Lexington, KY](https://www.lexingtonky.gov/)
 - [Climate Labs](https://federalist.18f.gov/preview/18f/climate-labs/microsite/)
 - [cloud.gov](https://cloud.gov/)
@@ -60,11 +61,13 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - Microviz
 - [MIDAAS Commerce Data Service](https://midaas.commerce.gov/)
 - [Milwaukee Police Scanner](https://mke-police.herokuapp.com/)
+- [National Archives and Records Administration] (archives.gov)
 - [NASA Web Style Guide](https://app.frontify.com/d/NZPXDvjOcz5x/nasa-web-style-guide)
 - [National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov/labs/journals/)
 - [National Institute of Health](https://www.nih.gov/)
 - [National Week of Making](https://weekofmaking.pif.gov/)
 - [Navy 6th Fleet](http://www.c6f.navy.mil/)
+- [US National Library of Medicine](https://support.nlm.nih.gov)
 - NTIS DEA
 - [NYC School Finder](http://schoolfinder.nyc.gov/)
 - [Office of the Historian](https://history.state.gov/)
@@ -82,10 +85,10 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - [Social and Behavioral Sciences](https://sbst.gov/)
 - [TechFAR Hub](https://techfarhub.cio.gov/)
 - [Template Tool](http://alexose.github.io/experiments/correspondence/)
-- Tennesse State Department of Conservation and Recreation 
+- Tennesse State Department of Conservation and Recreation
 - The Federal Reserve Board of Governors
 - TSA
-- [U.S. Interagency Council on Homelessness](https://www.usich.gov/)
+- [US Interagency Council on Homelessness](https://www.usich.gov/)
 - [US Courts](http://www.uscourts.gov/)
 - [US Data Federation](http://federation.data.gov/)
 - [US Digital Service Playbook](https://playbook.cio.gov)
@@ -96,6 +99,7 @@ Below are a list of website and applications currently using the Draft U.S. Web 
 - United States Citizenship and Immigration Services
 - [USDA Economic Research Service](http://www.ers.usda.gov/)
 - [USDA New Farmers](https://newfarmers.usda.gov/)
+- [USDA School Meal Application](http://www.fns.usda.gov/school-meals/web-based-prototype/docs/index.html#/)
 - [USDS documentation website template](https://github.com/usds/uswds-docs-template)
 - [USGS Earthquake Hazards Program](http://earthquake.usgs.gov/theme/)
 - [USWDS Drupal theme](http://uswds.civicactions.net/)

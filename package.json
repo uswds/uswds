@@ -1,14 +1,16 @@
 {
   "name": "uswds",
-  "version": "0.14.0",
+  "version": "1.0.0-pre",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "main": "src/js/start.js",
   "scripts": {
+    "check-publish": "publish",
     "prepublish": "gulp copy-vendor-sass && gulp build",
     "prestart": "gulp copy-vendor-sass",
     "build:package": "gulp copy-vendor-sass && gulp release",
     "build": "gulp build",
     "test": "gulp eslint test",
+    "cover": "istanbul cover --config config/istanbul.yml gulp cover",
     "preversion": "npm test",
     "version": "npm run prepublish",
     "watch": "watch 'npm run build' ./src"
@@ -33,9 +35,10 @@
   "homepage": "https://github.com/18F/web-design-standards#readme",
   "dependencies": {
     "bourbon": "^4.2.6",
-    "bourbon-neat": "github:thoughtbot/neat#neat-1.8.0-node-sass",
+    "bourbon-neat": "https://github.com/thoughtbot/neat/archive/neat-1.8.0-node-sass.tar.gz",
     "classlist-polyfill": "^1.0.3",
     "cross-spawn": "^2.1.5",
+    "lodash.debounce": "^4.0.7",
     "normalize.css": "^3.0.3"
   },
   "devDependencies": {
@@ -45,6 +48,7 @@
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean": "^0.3.1",
+    "gulp-cssnano": "^2.1.2",
     "gulp-eslint": "^1.1.1",
     "gulp-filter": "^3.0.1",
     "gulp-mocha": "^2.2.0",
@@ -56,17 +60,15 @@
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
     "gulp-zip": "^3.1.0",
+    "istanbul": "^0.4.5",
     "jquery": "^2.2.0",
     "jsdom": "^9.0.0",
     "jsdom-global": "^2.1.0",
-    "lodash.debounce": "^4.0.7",
-    "merge-stream": "^1.0.0",
     "mocha": "^2.4.5",
     "node-notifier": "^4.6.0",
     "node-sass": "^3.4.2",
     "run-sequence": "^1.1.5",
     "should": "^8.3.1",
-    "sinon": "^1.17.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watch": "^0.17.1"

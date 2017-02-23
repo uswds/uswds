@@ -1,0 +1,31 @@
+engines:
+  csslint:
+    enabled: false
+
+  eslint:
+    enabled: false
+
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - javascript
+
+  nodesecurity:
+    enabled: false
+
+  golint:
+    enabled: false
+
+  rubocop:
+    enabled: false
+
+ratings:
+  paths:
+    - src/js/**/*.js
+
+exclude_paths:
+  - config/**/*.js
+  - dist/**/*.js
+  - spec/**/*
+  - src/js/vendor/**/*.js
