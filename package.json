@@ -1,10 +1,10 @@
 {
   "name": "uswds",
-  "version": "0.14.0",
+  "version": "1.0.0",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "main": "src/js/start.js",
   "scripts": {
-    "check-publish": "publish",
+    "check-publish": "npm publish",
     "prepublish": "gulp copy-vendor-sass && gulp build",
     "prestart": "gulp copy-vendor-sass",
     "build:package": "gulp copy-vendor-sass && gulp release",
