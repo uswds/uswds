@@ -13,7 +13,8 @@
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
     "preversion": "npm test",
     "version": "npm run prepublish",
-    "watch": "watch 'npm run build' ./src"
+    "watch": "watch 'npm run build' ./src",
+    "federalist": "npm run build"
   },
   "repository": {
     "type": "git",
