@@ -5,7 +5,7 @@
   "main": "src/js/start.js",
   "scripts": {
     "check-publish": "npm publish",
-    "prepublish": "gulp gulp build",
+    "prepublish": "gulp build",
     "build:package": "gulp release",
     "build": "gulp build",
     "test": "gulp eslint stylelint test",
