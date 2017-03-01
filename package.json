@@ -5,16 +5,15 @@
   "main": "src/js/start.js",
   "scripts": {
     "check-publish": "npm publish",
-    "prepublish": "gulp copy-vendor-sass && gulp build",
-    "prestart": "gulp copy-vendor-sass",
-    "build:package": "gulp copy-vendor-sass && gulp release",
+    "prepublish": "gulp gulp build",
+    "build:package": "gulp release",
     "build": "gulp build",
-    "test": "gulp eslint test",
+    "test": "gulp eslint stylelint test",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
     "preversion": "npm test",
     "version": "npm run prepublish",
     "watch": "watch 'npm run build' ./src",
-    "federalist": "npm run build"
+    "federalist": "gulp build"
   },
   "repository": {
     "type": "git",
