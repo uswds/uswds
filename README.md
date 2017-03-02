@@ -155,6 +155,7 @@ node_modules/uswds/
 Since you are already using `npm`, the U.S. Web Design Standards team recommends leveraging the ability to write custom scripts. Here are some links to how we do this with our docs website using `npm` + [`gulp`](http://gulpjs.com/):
 
 [Link to `npm` scripts example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/staging/package.json#L4)
+
 [Link to gulpfile.js example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/staging/gulpfile.js)
 
 #### Sass
