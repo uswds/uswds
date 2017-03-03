@@ -22,7 +22,7 @@ var build = function (done) {
   });
 };
 
-var pages = ['docs', 'landing'];
+var pages = [ 'docs', 'landing' ];
 
 var fileContains = function (filename, str) {
   return new Promise(function (resolve, reject) {
@@ -72,7 +72,7 @@ describe('HTML output', function () {
 
   pages.forEach(function (page) {
 
-    describe(page + ' page', function() {
+    describe(page + ' page', function () {
       var filename = 'page-' + page + '.html';
       var distFilename = path.join(distPath, filename);
       var localFilename = path.join(localPath, filename);
