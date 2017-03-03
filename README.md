@@ -17,6 +17,7 @@ This repository is for the Standards themselves. 18F maintains [another reposito
     * [Importing assets](#importing-assets)
     * [Sass](#sass)
     * [JavaScript](#javascript)
+    * [Templates](#templates)
   * [Use another framework or package manager](#use-another-framework-or-package-manager)
 * [Need installation help?](#need-installation-help)
 * [Contributing to the code base](#contributing-to-the-codebase)
@@ -183,6 +184,10 @@ You can now use your copied version of `_variables.scss` to override any styles 
 #### JavaScript
 `require('uswds')` will load all of the U.S. Web Design Standards’ JavaScript onto the page. Add this line to whatever initializer you use to load JavaScript into your application.
 
+#### Templates
+Templates are a way to include customizable HTML for your project. You can either use the pre-compiled version of the templates (`src/templates`) or the compiled version (`dist/html`). Both are part of the Standards `npm` package and what you use depends on whether or not your project uses dynamic templating (e.g. Jinja, Nunjucks). To see an example of how to compile these files, check out our [html gulp task](https://github.com/18F/web-design-standards/blob/develop/config/gulp/html.js).
+
+You can find our basic HTML files by [downloading the latest package](https://github.com/18F/web-design-standards/releases/download/v1.0.0/uswds-1.0.0.zip) and looking inside of the `html` folder.
 
 ### Use another framework or package manager
 
