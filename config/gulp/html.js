@@ -5,7 +5,7 @@ var pkg = require('../../package.json');
 
 gulp.task('html', function (done) {
   return gulp.src([
-      'src/templates/*.html'
+      'src/templates/**/*.html'
     ])
     .pipe(nunjucks.compile({
       lang: 'en-US',
