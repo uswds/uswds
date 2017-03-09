@@ -1,3 +1,41 @@
+// Heading mixins
+@mixin title {
+  font-size: $title-font-size;
+  font-weight: $font-bold;
+}
+
+@mixin h1 {
+  font-size: $h1-font-size;
+  font-weight: $font-bold;
+}
+
+@mixin h2 {
+  font-size: $h2-font-size;
+  font-weight: $font-bold;
+}
+
+@mixin h3 {
+  font-size: $h3-font-size;
+  font-weight: $font-bold;
+}
+
+@mixin h4 {
+  font-size: $h4-font-size;
+  font-weight: $font-bold;
+}
+
+@mixin h5 {
+  font-size: $h5-font-size;
+  font-weight: $font-bold;
+}
+
+@mixin h6 {
+  font-family: $font-sans;
+  font-size: $h6-font-size;
+  font-weight: $font-normal;
+  text-transform: uppercase;
+}
+
 // Mobile-first media query helper
 @mixin media($bp) {
   @media screen and (min-width: #{$bp}) {
