@@ -5,7 +5,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [18F dashboard](http://federalist.18f.gov.s3-website-us-east-1.amazonaws.com/site/18f/discover-our-work/)
 - [18F Micropurchasing](https://micropurchase.18f.gov/)
 - [18F](https://18f.gsa.gov)
-- [Access NYC] (https://access.nyc.gov/)
+- [Access NYC](https://access.nyc.gov/)
 - [Adobe Experience Manager](https://github.com/Adobe-Marketing-Cloud/adobe-digital-design-templates-for-government)
 - [Agile 6](http://agile6.com/)
 - [Apps.gov](https://apps.gov/)
@@ -98,7 +98,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [USAJOBS.gov Design System](http://usajobs.github.io/design-system/)
 - [USAspending.gov](https://www.usaspending.gov/Pages/Default.aspx)
 - United States Citizenship and Immigration Services
-- [USDA.gov] (https://www.usda.gov/media/blog/2017/03/06/complete-redesign-you-mind)
+- [USDA.gov](https://www.usda.gov/media/blog/2017/03/06/complete-redesign-you-mind)
 - [USDA Economic Research Service](http://www.ers.usda.gov/)
 - [USDA New Farmers](https://newfarmers.usda.gov/)
 - [USDA School Meal Application](http://www.fns.usda.gov/school-meals/web-based-prototype/docs/index.html#/)
