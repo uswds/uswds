@@ -16,6 +16,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - Bug bounty
 - [City of Austin Innovation Fellows Program](https://cityofaustin.github.io/innovation-fellows/)
 - [City of Lexington, KY](https://www.lexingtonky.gov/)
+- [City of New York: ACCESS NYC](https://access.nyc.gov/)
 - [Climate Labs](https://federalist.18f.gov/preview/18f/climate-labs/microsite/)
 - [cloud.gov](https://cloud.gov/)
 - [Compliance viewer](https://compliance-viewer.18f.gov/)
