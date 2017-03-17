@@ -1,8 +1,9 @@
 /*! uswds @version */
 
+// As the notes below indicate, doing a 'standard' 'bourbon install' and 'neat install' well put the actual SCSS in it's own subdirectory.
 // Vendor -------------- //
-@import 'lib/bourbon';
-@import 'lib/neat';
+@import 'lib/bourbon'; // Most likely this would say: 'bourbon/bourbon'
+@import 'lib/neat'; // Most likely, this would be: 'neat/neat'
 @import 'lib/normalize';
 
 // Core -------------- //
