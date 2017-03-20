@@ -100,6 +100,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [USAID](https://www.usaid.gov/)
 - [USAJOBS.gov Design System](http://usajobs.github.io/design-system/)
 - [USAspending.gov](https://www.usaspending.gov/Pages/Default.aspx)
+- [USDA.gov](https://www.usda.gov/media/blog/2017/03/06/complete-redesign-you-mind)
 - [United States Citizenship and Immigration Services](https://www.uscis.gov/)
 - [USDA Economic Research Service](http://www.ers.usda.gov/)
 - [USDA New Farmers](https://newfarmers.usda.gov/)
