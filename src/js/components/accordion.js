@@ -24,13 +24,21 @@ function showPanelListener (el, ev) {
   return false;
 }
 
-function getTargetOf (button) {
-  var id = button.getAttribute('aria-controls');
+/**
+ * @name getTargetOf
+ * @desc Get the target of an element, according to the id listed in its
+ * `aria-controls` attribute.
+ * @param {HTMLElement} source the source element
+ * @return {Element} the target element
+ * @throws {Error} an error is thrown if no such target exists
+ */
+function getTargetOf (source) {
+  var id = source.getAttribute('aria-controls');
   var target = document.getElementById(id);
   if (target) {
     return target;
   } else {
-    throw new Error('No accordion button target with id "' + id + '" exists');
+    throw new Error('No accordion target with id "' + id + '" exists');
   }
 }
 
