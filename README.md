@@ -1,6 +1,6 @@
 # U.S. Web Design Standards
 
-[![CircleCI Build Status](https://circleci.com/gh/18F/web-design-standards/tree/staging.svg?style=shield)](https://circleci.com/gh/18F/web-design-standards/tree/staging)
+[![CircleCI Build Status](https://circleci.com/gh/18F/web-design-standards/tree/develop.svg?style=shield)](https://circleci.com/gh/18F/web-design-standards/tree/develop)
 
 The [U.S. Web Design Standards](https://standards.usa.gov) include a library of open source UI components and a visual style guide for U.S. federal government websites.
 
@@ -158,9 +158,9 @@ node_modules/uswds/
 
 Since you are already using `npm`, the U.S. Web Design Standards team recommends leveraging the ability to write custom scripts. Here are some links to how we do this with our docs website using `npm` + [`gulp`](http://gulpjs.com/):
 
-[Link to `npm` scripts example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/staging/package.json#L4)
+[Link to `npm` scripts example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/develop/package.json#L4)
 
-[Link to gulpfile.js example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/staging/gulpfile.js)
+[Link to gulpfile.js example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/develop/gulpfile.js)
 
 #### Sass
 
