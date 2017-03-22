@@ -88,12 +88,12 @@ Accordion.prototype.$ = function (selector) {
 
 /**
  * @param {HTMLElement} button
- * @return {Accordion}
+ * @param {Boolean} expanded
  */
-Accordion.prototype.hide = function (button) {
+Accordion.prototype.toggle = function (button, expanded) {
   var target = getTargetOf(button);
-  button.setAttribute('aria-expanded', false);
-  target.setAttribute('aria-hidden', true);
+  button.setAttribute('aria-expanded', expanded);
+  target.setAttribute('aria-hidden', !expanded);
   return this;
 };
 
@@ -101,11 +101,16 @@ Accordion.prototype.hide = function (button) {
  * @param {HTMLElement} button
  * @return {Accordion}
  */
+Accordion.prototype.hide = function (button) {
+  return this.toggle(button, false);
+};
+
+/**
+ * @param {HTMLElement} button
+ * @return {Accordion}
+ */
 Accordion.prototype.show = function (button) {
-  var target = getTargetOf(button);
-  button.setAttribute('aria-expanded', true);
-  target.setAttribute('aria-hidden', false);
-  return this;
+  return this.toggle(button, true);
 };
 
 /**
