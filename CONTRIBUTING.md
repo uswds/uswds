@@ -79,6 +79,17 @@ The purpose of our coding styleguides are to create consistent coding practices 
 
 This project follows the 18F Front End Guide [CSS](https://pages.18f.gov/frontend/#css) and [JavaScript](https://pages.18f.gov/frontend/#javascript). Please use this guide for your reference.
 
+### Code coverage
+
+We use [code coverage](https://en.wikipedia.org/wiki/Code_coverage) tools to understand how much of our JavaScript is tested by our [unit test suite](spec/unit). Code coverage is one way (among many) of measuring code _quality_ more generally. Here's how it works for contributions:
+
+1. Each pull request creates a new coverage report on [Code Climate](https://codeclimate.com/).
+1. Code Climate then posts a status message back to GitHub that lists the coverage percentage on that branch, and the difference between that number and the one last reported on our default branch.
+
+For JavaScript contributions, we will review the code coverage percentage and change to ensure that the quality of our code is not dramatically affected.
+
+High code coverage numbers are generally good, and we would prefer that our coverage increases over time. We will not categorically reject contributions that reduce code coverage, but we may ask contributors to refactor their code, add new unit tests, or modify existing tests to avoid significant reductions in coverage.
+
 ## Our use of branches
 
 See the [release documentation](RELEASE.md#release-process) for more information on our git/GitHub release workflow.
