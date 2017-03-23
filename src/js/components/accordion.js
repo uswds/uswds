@@ -1,13 +1,8 @@
 'use strict';
 var select = require('../utils/select');
 
-var SELECTOR_BUTTON = 'ul > li > button, .usa-accordion-button';
-var SELECTOR_BUTTON_EXPANDED = SELECTOR_BUTTON
-  .split(', ')
-  .map(function (selector) {
-    return selector + '[aria-expanded=true]';
-  })
-  .join(', ');
+var SELECTOR_BUTTON = 'button.usa-accordion-button';
+var SELECTOR_BUTTON_EXPANDED = SELECTOR_BUTTON + '[aria-expanded=true]';
 
 /**
  * @name showPanelListener
