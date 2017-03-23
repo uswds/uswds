@@ -2,9 +2,9 @@
 
 Below are a list of website and applications currently using the U.S. Web Design Standards. If your project is currently using the Standards and you do not see it on this list, please feel free to submit a pull request or email the core team at uswebdesignstandards@gsa.gov.
 
-- [18F dashboard](http://federalist.18f.gov.s3-website-us-east-1.amazonaws.com/site/18f/discover-our-work/)
 - [18F Micropurchasing](https://micropurchase.18f.gov/)
 - [18F](https://18f.gsa.gov)
+- [Access NYC](https://access.nyc.gov/)
 - [Adobe Experience Manager](https://github.com/Adobe-Marketing-Cloud/adobe-digital-design-templates-for-government)
 - [Agile 6](http://agile6.com/)
 - [Apps.gov](https://apps.gov/)
@@ -14,6 +14,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - Beta USDS website
 - [Broadcasting Board of Governors](https://www.bbg.gov/ )
 - Bug bounty
+- [California Child Welfare Digital Services](https://cwds.ca.gov/)
 - [City of Austin Innovation Fellows Program](https://cityofaustin.github.io/innovation-fellows/)
 - [City of Lexington, KY](https://www.lexingtonky.gov/)
 - [City of New York: ACCESS NYC](https://access.nyc.gov/)
@@ -23,6 +24,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - Customs and Border Protection
 - [code.gov](https://code.gov/)
 - [Data Act Pilot](https://github.com/18F/data-act-pilot)
+- [Department of Agriculture](https://www.usda.gov/)
 - [Department of Defense](http://www.dodig.mil/)
 - [Department of Homeland Security](https://www.dhs.gov/)
 - Department of Justice background check system
@@ -30,12 +32,12 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [Digital Acquisition Accelerator](https://pages.18f.gov/digitalaccelerator/)
 - [Digital Analytics Dashboard](https://analytics.usa.gov)
 - [Digital Aquisitions Pilot Guide](https://github.com/presidential-innovation-fellows/dap-guide)
-- Digital Contracting Cookbook
+- [Digital Contracting Cookbook](https://pages.18f.gov/contracting-cookbook/)
 - [EPA.gov](https://www.epa.gov/home/updates-epagovs-look)
 - [EPA e-manifest form](https://e-manifest.18f.gov/)
 - [EPA eRegs Notice & Comment](https://epa-notice.usa.gov/)
-- EPA Clean Water Jurisdictional Determinations
-- [eCPIC Electronic Capital Planning and Investment Control System] (https://www.ecpic.gov/)
+- [EPA Clean Water Jurisdictional Determinations](https://watersgeo.epa.gov/cwa/CWA-JDs/)
+- [eCPIC Electronic Capital Planning and Investment Control System](https://www.ecpic.gov/)
 - [Farm Service Agency](https://github.com/USDA-FSA/fsa-design-system)
 - [Federal Election Commission Legal Documents](https://beta.fec.gov/regulations/)
 - [Federal Election Commission](https://beta.fec.gov/)
@@ -47,7 +49,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - Field Operations Handbook
 - [Foster Youth Experience Map](https://github.com/presidential-innovation-fellows/fyem-jekyll)
 - [Fresh Direct](http://freshdirect.github.io/)
-- GI Bill Comparison Tool
+- [GI Bill Comparison Tool](https://www.vets.gov/gi-bill-comparison-tool)
 - [General Service Administration](https://gsa.gov)
 - [General Service Administrtion CTO website](https://github.com/GSA/cto-website)
 - [GovBuy Marketplace](https://buy.gds-gov.tech/)
@@ -62,7 +64,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - Microviz
 - [MIDAAS Commerce Data Service](https://midaas.commerce.gov/)
 - [Milwaukee Police Scanner](https://mke-police.herokuapp.com/)
-- [National Archives and Records Administration] (archives.gov)
+- [National Archives and Records Administration](archives.gov)
 - [NASA Web Style Guide](https://app.frontify.com/d/NZPXDvjOcz5x/nasa-web-style-guide)
 - [National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov/labs/journals/)
 - [National Institute of Health](https://www.nih.gov/)
@@ -81,14 +83,14 @@ Below are a list of website and applications currently using the U.S. Web Design
 - pally-rails
 - Playbook in action
 - [RAILS: Sacramento's Startup Program](https://pages.18f.gov/digitalaccelerator/)
-- SAM Web Design Standards
+- [SAM Web Design Standards](https://gsa.github.io/sam-web-design-standards/)
 - [SBA Certify](https://certify.sba.gov/)
 - [Social and Behavioral Sciences](https://sbst.gov/)
 - [TechFAR Hub](https://techfarhub.cio.gov/)
 - [Template Tool](http://alexose.github.io/experiments/correspondence/)
-- Tennesse State Department of Conservation and Recreation
+- Tennessee State Department of Conservation and Recreation
 - The Federal Reserve Board of Governors
-- TSA
+- [TSA](https://www.tsa.gov/)
 - [US Interagency Council on Homelessness](https://www.usich.gov/)
 - [US Courts](http://www.uscourts.gov/)
 - [US Data Federation](http://federation.data.gov/)
@@ -97,7 +99,8 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [USAID](https://www.usaid.gov/)
 - [USAJOBS.gov Design System](http://usajobs.github.io/design-system/)
 - [USAspending.gov](https://www.usaspending.gov/Pages/Default.aspx)
-- United States Citizenship and Immigration Services
+- [USDA.gov](https://www.usda.gov/media/blog/2017/03/06/complete-redesign-you-mind)
+- [United States Citizenship and Immigration Services](https://www.uscis.gov/)
 - [USDA Economic Research Service](http://www.ers.usda.gov/)
 - [USDA New Farmers](https://newfarmers.usda.gov/)
 - [USDA School Meal Application](http://www.fns.usda.gov/school-meals/web-based-prototype/docs/index.html#/)
