@@ -46,6 +46,15 @@ module.exports = {
         },
       ],
     },
+    secondary: {
+      search: {
+        // truthy
+      },
+      links: [
+        fakeLink('Secondary priority link'),
+        fakeLink('Easy to comprehend'),
+      ],
+    },
   },
   footer: {
   },
