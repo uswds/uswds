@@ -35,9 +35,9 @@ module.exports = {
           text: 'Simple terms',
           id: 'nav-section-two',
           links: [
-            fakeLink('Page one'),
-            fakeLink('Page two'),
-            fakeLink('Page three'),
+            fakeLink('Page four'),
+            fakeLink('Page five'),
+            fakeLink('Page six'),
           ],
         },
         {
