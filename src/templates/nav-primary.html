@@ -8,7 +8,7 @@
     <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="{{ link.id }}">
       <span>{{ link.text }}</span>
     </button>
-    <ul id="{{ link.id }}" class="usa-nav-submenu">
+    <ul id="{{ link.id }}" class="usa-nav-submenu{% if nav_mega %} usa-megamenu usa-grid-full{% endif %}">
       {% for child in link.links %}
       <li>
         <a href="{{ child.href }}">{{ child.text }}</a>
