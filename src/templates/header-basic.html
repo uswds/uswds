@@ -1,10 +1,11 @@
 <header class="usa-header usa-header-basic" role="banner">
   <div class="usa-nav-container">
     {% include 'masthead.html' %}
-    {% if navigation.primary %}
+
+    <nav role="navigation" class="usa-nav">
       {% set nav = navigation.primary %}
       {% include 'nav-primary.html' %}
-    {% endif %}
+    </nav>
   </div>
 </header>
 <div class="usa-overlay"></div>

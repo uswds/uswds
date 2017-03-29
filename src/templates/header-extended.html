@@ -1,9 +1,14 @@
 <header class="usa-header usa-header-extended" role="banner">
   {% include 'masthead.html' %}
-  {% if navigation.primary %}
-    {% set nav = navigation.primary %}
-    {% set nav_extended = true %}
-    {% include 'nav-primary.html' %}
-  {% endif %}
+
+  <nav role="navigation" class="usa-nav">
+    <div class="usa-nav-inner">
+      {% set nav = navigation.primary %}
+      {% include 'nav-primary.html' %}
+
+      {% set nav = navigation.secondary %}
+      {% include 'nav-secondary.html' %}
+    </div>
+  </nav>
 </header>
 <div class="usa-overlay"></div>
