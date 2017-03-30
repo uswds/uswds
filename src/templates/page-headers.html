@@ -17,6 +17,7 @@
     {% for type in ['basic', 'basic-mega', 'extended', 'extended-mega'] %}
       <section id="{{ type }}">
       {% set header = {title: 'Header: ' + type} %}
+      {% set search = type.indexOf('basic') === 0 %}
       {% include 'header-' + type + '.html' %}
       </section>
     {% endfor %}
