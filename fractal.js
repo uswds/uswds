@@ -5,7 +5,10 @@ const fractal = require('@frctl/fractal').create();
 const dir = __dirname;
 
 const context = {
-  title: 'U.S. Web Design Standards'
+  title: 'U.S. Web Design Standards',
+  uswds: {
+    path: '/dist',
+  },
 };
 
 fractal.set('project.title', context.title);
@@ -31,9 +34,8 @@ const docs = fractal.docs;
 docs.set('path', 'docs');
 
 const web = fractal.web;
-// mount /dist at /assets
 web.set('static.path', 'dist');
-web.set('static.mount', 'assets');
+web.set('static.mount', 'dist');
 // output files to /build
 web.set('builder.dest', 'build');
 
