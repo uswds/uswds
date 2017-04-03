@@ -2,10 +2,10 @@
 <html lang="en-US">
   <head>
     <title>{{ _self.title }}</title>
-    <link rel="stylesheet" href="/dist/css/uswds.min.css">
+    <link rel="stylesheet" href="{{ uswds.path }}/css/uswds.min.css">
   </head>
   <body>
     {{ yield }}
-    <script src="/dist/js/uswds.min.js"></script>
+    <script src="{{ uswds.path }}/js/uswds.min.js"></script>
   </body>
 </html>

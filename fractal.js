@@ -7,7 +7,7 @@ const dir = __dirname;
 const context = {
   title: 'U.S. Web Design Standards',
   uswds: {
-    path: '/dist',
+    path: '../../dist',
   },
 };
 
