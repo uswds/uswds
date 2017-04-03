@@ -1,5 +1,6 @@
 label: Headers
 
+# default template ("context") data
 context:
   header:
     title: U.S. Department of Web Design
@@ -24,7 +25,9 @@ context:
 variants:
   - name: basic
     label: Basic header
+    context: {}
 
   - name: default
     label: Demo
+    context: {}
 
