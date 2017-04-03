@@ -13,19 +13,25 @@ fractal.set('project.title', context.title);
 // use Nunjucks as the templating engine
 fractal.components.engine(require('@frctl/nunjucks')({
   filters: {},
-  paths: [dir]
+  paths: [
+    // e.g. {% include 'meta.html' %}
+    path.join(dir, 'src/templates'),
+    // e.g. {% include 'nav/nav--primary.njk' %}
+    path.join(dir, 'src/components'),
+  ]
 }));
 
 fractal.components.set('ext', '.njk');
-fractal.components.set('path', path.join(dir, 'components'));
+fractal.components.set('path', 'src/components');
 fractal.components.set('default.preview', '@uswds');
 fractal.components.set('default.context', context);
 
-fractal.docs.set('path', path.join(dir, 'docs'));
+fractal.docs.set('path', 'docs');
 
 // mount /dist at /assets
-fractal.web.set('static.path', path.join(dir, 'dist'));
+fractal.web.set('static.path', 'dist');
 fractal.web.set('static.mount', 'assets');
-fractal.web.set('builder.dest', path.join(dir, 'build'));
+// output files to /build
+fractal.web.set('builder.dest', 'build');
 
 module.exports = fractal;
