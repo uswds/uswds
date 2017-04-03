@@ -3,49 +3,65 @@ label: Headers
 # default template ("context") data
 context:
   header:
-    title: U.S. Department of Web Design
-    primary:
-      search: true
-      links:
-        - text: Section one
-          id: section-one
-          links:
-            - text: Sub-link one
-              href: '#'
-            - text: Sub-link two
-              href: '#'
-            - text: Sub-link three
-              href: '#'
-        - text: Simple terms
-          id: section-two
-          links:
-            - text: Sub-link four
-              href: '#'
-            - text: Sub-link five
-              href: '#'
-            - text: Sub-link six
-              href: '#'
-        - text: Link one
+    title: Federal Agency Name
 
 variants:
   - name: default
     label: Demo
-    context: {}
 
   - name: basic
     label: Basic header
-    context: {}
+    context:
+      header:
+        primary:
+          search: true
+          links:
+            - text: Section one
+              id: nav-section-one-basic
+              links: &subnav_links
+                - text: Page title one
+                  href: 'javascript:void(0)'
+                - text: Page title two
+                  href: 'javascript:void(0)'
+                - text: Page title three
+                  href: 'javascript:void(0)'
+            - text: Simple terms
+              id: nav-section-two-basic
+              links: *subnav_links
+            - text: Distinct from each other
+              href: 'javascript:void(0)'
 
   - name: basic-mega
     label: Basic with mega-menu
-    context: {}
+    context:
+      header:
+        primary:
+          search: true
+          links:
+            - text: Section one
+              id: nav-section-one-basic-mega
+              links: *subnav_links
+            - text: Simple terms
+              id: nav-section-two-basic-mega
+              links: *subnav_links
+            - text: Distinct from each other
+              href: 'javascript:void(0)'
 
   - name: extended
     label: Extended header
     context:
-      header: &extended_data
+      header:
         primary:
           search: false
+          links:
+            - text: Section one
+              id: nav-section-one-extended
+              links: *subnav_links
+            - text: Simple terms
+              id: nav-section-two-extended
+              links: *subnav_links
+            - text: Distinct from each other
+              href: 'javascript:void(0)'
         secondary:
           search: true
           links:
@@ -57,5 +73,22 @@ variants:
   - name: extended-mega
     label: Extended with mega-menu
     context:
-      header: *extended_data
-
+      header:
+        primary:
+          search: false
+          links:
+            - text: Section one
+              id: nav-section-one-extended-mega
+              links: *subnav_links
+            - text: Simple terms
+              id: nav-section-two-extended-mega
+              links: *subnav_links
+            - text: Distinct from each other
+              href: 'javascript:void(0)'
+        secondary:
+          search: true
+          links:
+            - text: Secondary priority link
+              href: '#'
+            - text: Easy to comprehend
+              href: '#'
