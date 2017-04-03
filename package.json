@@ -50,6 +50,7 @@
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean": "^0.3.1",
+    "gulp-cli": "^1.2.2",
     "gulp-cssnano": "^2.1.2",
     "gulp-eslint": "^1.1.1",
     "gulp-filter": "^3.0.1",
