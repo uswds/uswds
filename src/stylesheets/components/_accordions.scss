@@ -67,7 +67,7 @@ $accordion-border: 3px solid $color-gray-lightest;
 
 @mixin accordion-nested-list {
   > ul li ul {
-    list-style: disc ;
+    list-style: disc;
     > li > ul {
       list-style: circle;
       > li > ul {
