@@ -66,12 +66,21 @@ $accordion-border: 3px solid $color-gray-lightest;
 }
 
 @mixin accordion-nested-list {
-  list-style-type: disc;
+  > ul li ul {
+    list-style: disc ;
+    > li > ul {
+      list-style: circle;
+      > li > ul {
+        list-style: square;
+      }
+    }
+  }
 }
 
 .usa-accordion,
 .usa-accordion-bordered {
   @include accordion-list-styles;
+  @include accordion-nested-list;
 
   + .usa-accordion,
   + .usa-accordion-bordered {
@@ -100,10 +109,6 @@ $accordion-border: 3px solid $color-gray-lightest;
 
   > li {
     @include accordion-list-item-styles;
-  }
-
-  > ul ul {
-    @include accordion-nested-list;
   }
 
 }
