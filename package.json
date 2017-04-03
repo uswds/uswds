@@ -4,16 +4,22 @@
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "main": "src/js/start.js",
   "scripts": {
-    "check-publish": "npm publish",
-    "prepublish": "gulp build",
-    "build:package": "gulp release",
     "build": "gulp build",
-    "test": "gulp eslint stylelint test",
+    "build:package": "gulp release",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
+    "css": "gulp sass",
+    "federalist": "gulp build",
+    "html": "gulp html",
+    "js": "gulp javascript",
+    "postinstall": "gulp copy-vendor-sass",
+    "prepublish": "gulp build",
     "preversion": "npm test",
+    "test": "gulp eslint stylelint test",
     "version": "npm run prepublish",
-    "watch": "watch 'npm run build' ./src",
-    "federalist": "gulp build"
+    "watch": "nswatch"
+  },
+  "watch": {
+    "./src/stylesheets": "css"
   },
   "repository": {
     "type": "git",
@@ -69,10 +75,10 @@
     "mocha": "^2.4.5",
     "node-notifier": "^4.6.0",
     "node-sass": "^3.4.2",
+    "nswatch": "^0.2.0",
     "run-sequence": "^1.1.5",
     "should": "^8.3.1",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "watch": "^0.17.1"
+    "vinyl-source-stream": "^1.1.0"
   }
 }
