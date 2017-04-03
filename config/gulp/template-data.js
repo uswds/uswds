@@ -7,45 +7,32 @@ var fakeLink = function (text) {
   };
 };
 
-module.exports = {
-  package: require('../../package.json'),
-  lang: 'en-US',
-  uswds: {
-    path: '..',
-  },
-  meta: {
-    title: 'Page title | Department of Web Standards',
-  },
-  header: {
-    title: 'Department of Web Standards',
+var header =  {
+  title: 'Department of Web Standards',
+  primary: {
+    links: [
+      {
+        text: 'Section one',
+        id: 'nav-section-one',
+        links: [
+          fakeLink('Page one'),
+          fakeLink('Page two'),
+          fakeLink('Page three'),
+        ],
+      },
+      {
+        text: 'Simple terms',
+        id: 'nav-section-two',
+        links: [
+          fakeLink('Page four'),
+          fakeLink('Page five'),
+          fakeLink('Page six'),
+        ],
+      },
+      fakeLink('Distinct from one another'),
+    ],
   },
   navigation: {
-    primary: {
-      links: [
-        {
-          text: 'Section one',
-          id: 'nav-section-one',
-          links: [
-            fakeLink('Page one'),
-            fakeLink('Page two'),
-            fakeLink('Page three'),
-          ],
-        },
-        {
-          text: 'Simple terms',
-          id: 'nav-section-two',
-          links: [
-            fakeLink('Page four'),
-            fakeLink('Page five'),
-            fakeLink('Page six'),
-          ],
-        },
-        {
-          text: 'Distinct from one another',
-          href: 'javascript:void(0)',
-        },
-      ],
-    },
     secondary: {
       search: {
         // truthy
@@ -56,6 +43,18 @@ module.exports = {
       ],
     },
   },
+};
+
+module.exports = {
+  package: require('../../package.json'),
+  lang: 'en-US',
+  uswds: {
+    path: '..',
+  },
+  meta: {
+    title: 'Page title | Department of Web Standards',
+  },
+  header: header,
   footer: {
   },
 };
