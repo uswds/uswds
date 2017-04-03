@@ -1,0 +1,30 @@
+label: Headers
+
+context:
+  header:
+    title: U.S. Department of Web Design
+    primary:
+      search: true
+      links:
+        - text: Section one
+          id: section-one
+          links:
+            - text: Sub-link one
+            - text: Sub-link two
+            - text: Sub-link three
+        - text: Section two
+          id: section-two
+          links:
+            - text: Sub-link four
+            - text: Sub-link five
+            - text: Sub-link six
+        - text: Link one
+          href: 'javascript:void(0)'
+
+variants:
+  - name: basic
+    label: Basic header
+
+  - name: default
+    label: Demo
+
