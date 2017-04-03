@@ -12,7 +12,7 @@
   @include media($nav-width) {
     border-bottom: none;
     display: inline-block;
-    height: 10.3rem;
+    height: 9.2rem; // XXX magic number
   }
 }
 
@@ -70,7 +70,7 @@
   }
 
   nav {
-    margin-top: 6rem;
+    margin-top: 6rem; // XXX magic number
     min-height: 100%;
 
     @include media($nav-width) {
@@ -91,7 +91,7 @@
 
   .usa-search {
     @include media($nav-width) {
-      margin-left: 1.5rem;
+      margin-left: 1.5rem; // XXX magic number
     }
   }
 }
@@ -117,7 +117,7 @@
 
     @include media($nav-width) {
       display: inline-block;
-      margin-left: -4px;
+      // margin-left: -4px;
     }
 
     > a {
@@ -211,7 +211,7 @@
   @include media($nav-width) {
     position: absolute;
     right: $site-margins;
-    top: -5.7rem;
+    top: -5.7rem; // XXX magic number
   }
 
   .usa-search {
@@ -359,7 +359,7 @@
 
 .usa-megamenu {
   @include media($nav-width) {
-    @include padding(3.15rem null);
+    @include padding(3.15rem null); // XXX magic number
     left: -1.8rem;
     width: 100%;
   }
@@ -382,6 +382,7 @@
 .usa-header-basic-megamenu {
   .usa-nav {
     @include media($nav-width) {
+      padding-left: 0;
       padding-top: 0;
       width: 100%;
     }
@@ -401,7 +402,7 @@
   .usa-nav-submenu {
     .usa-grid-full {
       @include media($nav-width) {
-        margin-left: -1.8rem;
+        margin-left: -1.8rem; // XXX magic number
       }
     }
   }
