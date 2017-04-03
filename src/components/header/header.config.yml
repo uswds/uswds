@@ -43,7 +43,7 @@ variants:
   - name: extended
     label: Extended header
     context:
-      header:
+      header: &extended_data
         primary:
           search: false
         secondary:
@@ -57,14 +57,5 @@ variants:
   - name: extended-mega
     label: Extended with mega-menu
     context:
-      header:
-        primary:
-          search: false
-        secondary:
-          search: true
-          links:
-            - text: Secondary priority link
-              href: '#'
-            - text: Easy to comprehend
-              href: '#'
+      header: *extended_data
 
