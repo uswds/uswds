@@ -1,3 +1,4 @@
+'use strict';
 var gulp = require('gulp');
 var nj = require('nunjucks');
 var nunjucks = require('gulp-nunjucks');
@@ -6,6 +7,9 @@ var path = require('path');
 var pkg = require('../../package.json');
 
 gulp.task('html', function (done) {
+
+  var data = require('./template-data');
+
   var paths = [
     'src/templates',
     'src/components',
@@ -16,15 +20,9 @@ gulp.task('html', function (done) {
   };
 
   return gulp.src([
-      'src/templates/**/*.html'
+      'src/templates/**/page-*.html'
     ])
-    .pipe(nunjucks.compile({
-      lang: 'en-US',
-      'package': pkg,
-      uswds: {
-        path: '..',
-      },
-    }, options))
+    .pipe(nunjucks.compile(data, options))
     .pipe(beautify({
       indent_char: ' ',
       indent_size: 2,
