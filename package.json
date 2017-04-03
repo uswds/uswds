@@ -8,7 +8,7 @@
     "build:package": "gulp release",
     "check-publish": "npm publish",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
-    "federalist": "fractal build",
+    "federalist": "gulp build && fractal build",
     "prepublish": "gulp build",
     "preversion": "npm test",
     "start": "fractal start --sync",
