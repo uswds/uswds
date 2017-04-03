@@ -11,23 +11,60 @@ context:
           id: section-one
           links:
             - text: Sub-link one
+              href: '#'
             - text: Sub-link two
+              href: '#'
             - text: Sub-link three
-        - text: Section two
+              href: '#'
+        - text: Simple terms
           id: section-two
           links:
             - text: Sub-link four
+              href: '#'
             - text: Sub-link five
+              href: '#'
             - text: Sub-link six
+              href: '#'
         - text: Link one
-          href: 'javascript:void(0)'
 
 variants:
+  - name: default
+    label: Demo
+    context: {}
+
   - name: basic
     label: Basic header
     context: {}
 
-  - name: default
-    label: Demo
+  - name: basic-mega
+    label: Basic with mega-menu
     context: {}
+
+  - name: extended
+    label: Extended header
+    context:
+      header:
+        primary:
+          search: false
+        secondary:
+          search: true
+          links:
+            - text: Secondary priority link
+              href: '#'
+            - text: Easy to comprehend
+              href: '#'
+
+  - name: extended-mega
+    label: Extended with mega-menu
+    context:
+      header:
+        primary:
+          search: false
+        secondary:
+          search: true
+          links:
+            - text: Secondary priority link
+              href: '#'
+            - text: Easy to comprehend
+              href: '#'
 
