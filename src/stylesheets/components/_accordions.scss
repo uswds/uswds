@@ -81,6 +81,7 @@ $accordion-border: 3px solid $color-gray-lightest;
     // TODO deprecated ruleset based on old accordion.
     > li {
       @include accordion-list-item-styles;
+
     }
 
     // TODO deprecated ruleset based on old accordion.
@@ -96,6 +97,10 @@ $accordion-border: 3px solid $color-gray-lightest;
 
   > li {
     @include accordion-list-item-styles;
+  }
+
+  > ul li ul {
+    list-style-type: disc;
   }
 
 }
