@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="{{ lang }}">
+  {% include 'id.html' %}
+  <head>
+    {% include 'meta.html' %}
+    {% include 'styles.html' %}
+    <style>
+      section {
+        border-top: 1px dotted;
+        margin-bottom: 20rem;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'banner.html' %}
+
+    {% for type in ['basic', 'basic-mega', 'extended', 'extended-mega'] %}
+      <section id="{{ type }}">
+      {% set header = {title: 'Header: ' + type} %}
+      {% set search = type.indexOf('basic') === 0 %}
+      {% include 'header-' + type + '.html' %}
+      </section>
+    {% endfor %}
+
+    {% include 'scripts.html' %}
+  </body>
+</html>
