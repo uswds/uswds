@@ -10,8 +10,14 @@ const context = {
 
 fractal.set('project.title', context.title);
 
+const components = fractal.components;
+components.set('ext', '.njk');
+components.set('path', 'src/components');
+components.set('default.preview', '@uswds');
+components.set('default.context', context);
+
 // use Nunjucks as the templating engine
-fractal.components.engine(require('@frctl/nunjucks')({
+components.engine(require('@frctl/nunjucks')({
   filters: {},
   paths: [
     // e.g. {% include 'meta.html' %}
@@ -21,17 +27,14 @@ fractal.components.engine(require('@frctl/nunjucks')({
   ]
 }));
 
-fractal.components.set('ext', '.njk');
-fractal.components.set('path', 'src/components');
-fractal.components.set('default.preview', '@uswds');
-fractal.components.set('default.context', context);
+const docs = fractal.docs;
+docs.set('path', 'docs');
 
-fractal.docs.set('path', 'docs');
-
+const web = fractal.web;
 // mount /dist at /assets
-fractal.web.set('static.path', 'dist');
-fractal.web.set('static.mount', 'assets');
+web.set('static.path', 'dist');
+web.set('static.mount', 'assets');
 // output files to /build
-fractal.web.set('builder.dest', 'build');
+web.set('builder.dest', 'build');
 
 module.exports = fractal;
