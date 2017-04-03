@@ -85,7 +85,6 @@ $accordion-border: 3px solid $color-gray-lightest;
     // TODO deprecated ruleset based on old accordion.
     > li {
       @include accordion-list-item-styles;
-
     }
 
     // TODO deprecated ruleset based on old accordion.
