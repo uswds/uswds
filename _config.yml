@@ -1,0 +1,2 @@
+# when publishing on Federalist, build only the files in ./dist
+source: dist
