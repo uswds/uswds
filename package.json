@@ -4,16 +4,16 @@
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "main": "src/js/start.js",
   "scripts": {
-    "check-publish": "npm publish",
-    "prepublish": "gulp build",
-    "build:package": "gulp release",
     "build": "gulp build",
-    "test": "gulp eslint stylelint test",
+    "build:package": "gulp release",
+    "check-publish": "npm publish",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
+    "federalist": "fractal build",
+    "prepublish": "gulp build",
     "preversion": "npm test",
-    "version": "npm run prepublish",
-    "watch": "watch 'npm run build' ./src",
-    "federalist": "gulp build"
+    "start": "fractal start --sync",
+    "test": "gulp eslint stylelint test",
+    "version": "npm run prepublish"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,8 @@
   },
   "homepage": "https://github.com/18F/web-design-standards#readme",
   "dependencies": {
+    "@frctl/fractal": "^1.1.3",
+    "@frctl/nunjucks": "^1.0.3",
     "bourbon": "^4.2.6",
     "bourbon-neat": "https://github.com/thoughtbot/neat/archive/neat-1.8.0-node-sass.tar.gz",
     "classlist-polyfill": "^1.0.3",
