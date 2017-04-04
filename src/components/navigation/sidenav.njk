@@ -4,7 +4,9 @@
 {% for list in lists %}
   <div class="usa-width-one-fourth">
     <h6 class="usa-heading-alt">{{ list.title }}</h6>
-    {{ nav_list(list.links, 'usa-sidenav-list', 'usa-sidenav-sub_list') }}
+    <ul class="usa-sidenav-list">
+      {{ nav_list(list.links, 'usa-sidenav-sub_list') }}
+    </ul>
   </div>
 {% endfor %}
 </section>
