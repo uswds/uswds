@@ -1,5 +1,6 @@
 label: Footer
 order: 24
+status: wip
 
 variants:
   - name: default
