@@ -1,0 +1,8 @@
+label: Footer
+order: 24
+
+variants:
+  - name: default
+    label: Medium
+
+context: {}
