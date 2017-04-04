@@ -1,16 +1,16 @@
 label: Headers
-order: 140
-status: wip
+order: 14
+status: ready
 
 # default template ("context") data
 context:
   header:
-    title: Federal Agency Name
+    title: Department of Web Design
 
 variants:
   - name: default
-    label: Demo
-    status: wip
+    label: Compare
+    status: null
 
   - name: basic
     label: Basic header
