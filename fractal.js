@@ -21,7 +21,9 @@ components.set('default.context', context);
 
 // use Nunjucks as the templating engine
 components.engine(require('@frctl/nunjucks')({
-  filters: {},
+  filters: {
+    jsonify: d => JSON.stringify(d, null, '  '),
+  },
   paths: [
     // e.g. {% include 'meta.html' %}
     path.join(dir, 'src/templates'),
