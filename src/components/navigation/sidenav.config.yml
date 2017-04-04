@@ -1,4 +1,6 @@
 label: Side navigation
+order: 10
+status: ready
 
 context:
   lists:

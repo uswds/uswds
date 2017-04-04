@@ -1,8 +1,6 @@
 label: Landing
 handle: layout--landing
 
-preview: null
-
 context:
   tagline:
     title: A tagline highlights your approach

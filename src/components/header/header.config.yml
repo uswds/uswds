@@ -1,4 +1,6 @@
 label: Headers
+order: 140
+status: wip
 
 # default template ("context") data
 context:
@@ -8,6 +10,7 @@ context:
 variants:
   - name: default
     label: Demo
+    status: wip
 
   - name: basic
     label: Basic header

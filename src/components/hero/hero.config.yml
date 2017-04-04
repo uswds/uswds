@@ -1,4 +1,6 @@
-title: Hero unit
+label: Hero
+order: 210
+status: ready
 
 context:
   hero:

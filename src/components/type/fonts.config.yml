@@ -1,3 +1,7 @@
+label: Fonts
+order: 10
+status: ready
+
 context:
   typefaces:
     - id: sans
