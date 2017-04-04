@@ -34,6 +34,25 @@ const docs = fractal.docs;
 docs.set('path', 'docs');
 
 const web = fractal.web;
+
+const theme = require('@frctl/mandelbrot')({
+  lang: 'en-US',
+  skin: 'white',
+  // display context data in YAML
+  format: 'yaml',
+  // which panels to show
+  panels: [
+    'notes',
+    'view',
+    'context',
+    'resources',
+    'info',
+    // 'html',
+  ],
+});
+
+web.theme(theme);
+
 web.set('static.path', 'dist');
 web.set('static.mount', 'dist');
 // output files to /build
