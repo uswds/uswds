@@ -1,0 +1,14 @@
+{% macro nav_list(links, klass='', subclass='') %}
+  <ul{% if klass %} class="{{ klass }}"{% endif %}>
+  {% for item in links %}
+    <li>
+      <a href="{{ item.href }}"{% if item.current %} class="usa-current"{% endif %}>
+        {{ item.text }}
+      </a>
+      {% if item.links %}
+        {{ nav_list(item.links, subclass, subclass) }}
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+{% endmacro %}

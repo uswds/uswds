@@ -1,0 +1,18 @@
+{% from 'navigation/_list.njk' import nav_list %}
+
+<section class="usa-grid-full">
+{% for list in lists %}
+  <div class="usa-width-one-fourth">
+    <h6 class="usa-heading-alt">{{ list.title }}</h6>
+    {{ nav_list(list.links, 'usa-sidenav-list', 'usa-sidenav-sub_list') }}
+  </div>
+{% endfor %}
+</section>
+
+<style scoped>
+  .usa-heading-alt {
+    border-bottom: 1px solid;
+    padding-top: 1em;
+    text-align: right;
+  }
+</style>
