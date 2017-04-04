@@ -1,28 +1,28 @@
-<div class="usa-grid">
-  <h1 id="typography">Fonts</h1>
+{% for face in typefaces %}
+<section id="{{ face.id }}" class="usa-grid">
+  <h4 class="usa-heading-alt">{{ face.name }} (<tt>.usa-{{ face.id }}</tt>)</h4>
 
-  {% for face in typefaces %}
-  <section id="{{ face.id }}">
-    <h4 class="usa-heading-alt">{{ face.name }} (<tt>.usa-{{ face.id }}</tt>)</h4>
+  <div class="usa-grid-full">
+    <div class="usa-width-one-half">
+      {{ face.description }}
+    </div>
 
-    <div class="usa-grid-full">
-      <div class="usa-width-one-half">
-        {{ face.description }}
-      </div>
-
-      <div class="usa-{{ face.id }} typography-{{ face.id }}-intro usa-width-one-half usa-end-row">
-        <span class="text-huge">Aa</span>
-        <div>
-          <p class="text-tiny">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
-          <p class="text-tiny">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
-          <p class="text-tiny">0 1 2 3 4 5 6 7 8 9</p>
-        </div>
+    <div class="usa-{{ face.id }} typography-{{ face.id }}-intro usa-width-one-half usa-end-row">
+      <span class="text-huge">Aa</span>
+      <div>
+        <p class="text-tiny">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+        <p class="text-tiny">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+        <p class="text-tiny">0 1 2 3 4 5 6 7 8 9</p>
       </div>
     </div>
-  </section>
-  {% endfor %}
+  </div>
+</section>
+{% endfor %}
 
-  <style scoped>
+<style scoped>
+  body {
+    padding: 2em 0;
+  }
 
   .text-tiny {
     margin: 5px initial 0;
@@ -49,6 +49,4 @@
   .typography-serif-intro .text-tiny {
     font-size: 13px;
   }
-
-  </style>
-</div>
+</style>
