@@ -16,7 +16,7 @@
       {% endfor %}
     </ul>
     {% else %}
-    <a class="usa-nav-link" href="{{ link.href }}">
+    <a class="usa-nav-link{% if link.current %} usa-current{% endif %}" href="{{ link.href }}">
       <span>{{ link.text }}</span>
     </a>
     {% endif %}
