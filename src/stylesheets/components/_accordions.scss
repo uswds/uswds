@@ -65,9 +65,22 @@ $accordion-border: 3px solid $color-gray-lightest;
   background-size: 1.3rem;
 }
 
+@mixin accordion-nested-list {
+  > ul li ul {
+    list-style: disc;
+    > li > ul {
+      list-style: circle;
+      > li > ul {
+        list-style: square;
+      }
+    }
+  }
+}
+
 .usa-accordion,
 .usa-accordion-bordered {
   @include accordion-list-styles;
+  @include accordion-nested-list;
 
   + .usa-accordion,
   + .usa-accordion-bordered {
