@@ -13,7 +13,7 @@
     "preversion": "npm test",
     "version": "npm run prepublish",
     "watch": "watch 'npm run build' ./src",
-    "federalist": "npm i --dev && gulp build"
+    "federalist": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -59,18 +59,20 @@
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
     "gulp-zip": "^3.1.0",
-    "istanbul": "^0.4.5",
     "jquery": "^2.2.0",
-    "jsdom": "^9.0.0",
-    "jsdom-global": "^2.1.0",
-    "mocha": "^2.4.5",
     "node-notifier": "^4.6.0",
     "node-sass": "^3.4.2",
     "normalize.css": "^3.0.3",
     "run-sequence": "^1.1.5",
     "should": "^8.3.1",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "jsdom": "^9.0.0",
+    "jsdom-global": "^2.1.0",
+    "mocha": "^2.4.5",
     "watch": "^0.17.1"
   }
 }
