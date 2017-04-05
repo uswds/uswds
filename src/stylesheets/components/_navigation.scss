@@ -208,6 +208,7 @@
     a.usa-current {
       // undo the sidenav style
       border-left: 0;
+      padding-left: 1rem;
 
       span {
         @include nav-border;
@@ -284,6 +285,14 @@
       @include media($nav-width) {
         display: none;
       }
+    }
+  }
+
+  @include media($nav-width) {
+    a.usa-current {
+      // undo the sidenav style
+      border-left: 0;
+      padding-left: 0;
     }
   }
 }
