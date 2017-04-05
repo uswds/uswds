@@ -203,6 +203,17 @@
       }
     }
   }
+
+  @include media($nav-width) {
+    a.usa-current {
+      // undo the sidenav style
+      border-left: 0;
+
+      span {
+        @include nav-border;
+      }
+    }
+  }
 }
 
 // Secondary navigation ----------- //
