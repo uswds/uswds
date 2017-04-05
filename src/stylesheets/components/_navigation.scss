@@ -205,7 +205,7 @@
   }
 
   @include media($nav-width) {
-    a.usa-current {
+    a.usa-current { // stylelint-disable-line selector-no-qualifying-type
       // undo the sidenav style
       border-left: 0;
       padding-left: 1rem;
@@ -289,7 +289,7 @@
   }
 
   @include media($nav-width) {
-    a.usa-current {
+    a.usa-current { // stylelint-disable-line selector-no-qualifying-type
       // undo the sidenav style
       border-left: 0;
       padding-left: 0;
