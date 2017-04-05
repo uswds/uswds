@@ -1,9 +1,10 @@
 'use strict';
 
-var fakeLink = function (text) {
+var fakeLink = function (text, current) {
   return {
     text: text,
     href: 'javascript:void(0)',
+    current: current || false
   };
 };
 
@@ -40,10 +41,7 @@ module.exports = {
             fakeLink('Page six'),
           ],
         },
-        {
-          text: 'Distinct from one another',
-          href: 'javascript:void(0)',
-        },
+        fakeLink('Distinct from one another', true),
       ],
     },
     secondary: {
@@ -52,7 +50,7 @@ module.exports = {
       },
       links: [
         fakeLink('Secondary priority link'),
-        fakeLink('Easy to comprehend'),
+        fakeLink('Easy to comprehend', true),
       ],
     },
   },
