@@ -13,7 +13,7 @@
     "preversion": "npm test",
     "version": "npm run prepublish",
     "watch": "watch 'npm run build' ./src",
-    "federalist": "gulp build"
+    "federalist": "npm i --dev && gulp build"
   },
   "repository": {
     "type": "git",
