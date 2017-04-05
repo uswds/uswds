@@ -34,16 +34,13 @@
   },
   "homepage": "https://github.com/18F/web-design-standards#readme",
   "dependencies": {
+    "@18f/stylelint-rules": "^1.2.0",
+    "lodash.debounce": "^4.0.7",
     "bourbon": "^4.2.6",
     "bourbon-neat": "https://github.com/thoughtbot/neat/archive/neat-1.8.0-node-sass.tar.gz",
+    "browserify": "^13.0.0",
     "classlist-polyfill": "^1.0.3",
     "cross-spawn": "^2.1.5",
-    "lodash.debounce": "^4.0.7",
-    "normalize.css": "^3.0.3"
-  },
-  "devDependencies": {
-    "@18f/stylelint-rules": "^1.2.0",
-    "browserify": "^13.0.0",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
@@ -69,6 +66,7 @@
     "mocha": "^2.4.5",
     "node-notifier": "^4.6.0",
     "node-sass": "^3.4.2",
+    "normalize.css": "^3.0.3",
     "run-sequence": "^1.1.5",
     "should": "^8.3.1",
     "vinyl-buffer": "^1.0.0",
