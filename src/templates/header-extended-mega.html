@@ -1,0 +1,15 @@
+<header class="usa-header usa-header-extended" role="banner">
+  {% include 'masthead.html' %}
+
+  <nav role="navigation" class="usa-nav">
+    <div class="usa-nav-inner">
+      {% set nav = navigation.primary %}
+      {% set nav_mega = true %}
+      {% include 'nav-primary.html' %}
+
+      {% set nav = navigation.secondary %}
+      {% include 'nav-secondary.html' %}
+    </div>
+  </nav>
+</header>
+<div class="usa-overlay"></div>

@@ -40,7 +40,6 @@
   $sliding-panel-width: 26rem;
 
   @include position(fixed, 0 0 0 auto);
-  @include size($sliding-panel-width 100%);
   @include transform(translateX($sliding-panel-width));
 
   background: $color-white;
@@ -50,6 +49,7 @@
   flex-direction: column;
   overflow-y: auto;
   padding: 2rem;
+  width: $sliding-panel-width;
   z-index: $z-index-nav;
 
   @include media($nav-width) {

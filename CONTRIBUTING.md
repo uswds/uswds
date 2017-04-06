@@ -4,7 +4,7 @@ We’re so glad you’re thinking about contributing to an 18F open source proje
 
 One of our goals is to ensure a welcoming environment for all contibutors to our projects. Our staff follows the [18F Code of Conduct](https://github.com/18F/code-of-conduct/blob/master/code-of-conduct.md), and all contributors should do the same.
 
-We encourage you to read this project’s CONTRIBUTING policy (you are here), its [LICENSE](https://github.com/18F/web-design-standards/blob/staging/LICENSE.md), [README](https://github.com/18F/web-design-standards/blob/staging/README.md) and its [Workflow](https://github.com/18F/web-design-standards/wiki/Workflow) process.
+We encourage you to read this project’s CONTRIBUTING policy (you are here), its [LICENSE](https://github.com/18F/web-design-standards/blob/develop/LICENSE.md), [README](https://github.com/18F/web-design-standards/blob/develop/README.md) and its [Workflow](https://github.com/18F/web-design-standards/wiki/Workflow) process.
 
 If you have any questions or want to read more, check out the [18F Open Source Policy GitHub repository]( https://github.com/18f/open-source-policy), or just [shoot us an email](mailto:18f@gsa.gov).
 
@@ -24,11 +24,11 @@ Here are a few guidelines to follow when submitting a pull request:
 1. Create a GitHub account or sign in to your existing account.
 1. Fork this repo into your GitHub account (or just clone it if you’re an 18F team member). Read more about forking a repo here on GitHub:
 [https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/)
-1. Create a branch from `staging` that lightly defines what you’re working on (for example, add-styles).
+1. Create a branch from `develop` that lightly defines what you’re working on (for example, add-styles).
 1. Ensure that your contribution works via `npm`, if applicable. See below under
    _Install the package locally via `npm-link`_.
 1. Once you’re ready to submit a pull request, fill out the PULL REQUEST template provided.
-1. Submit your pull request against the `staging` branch.
+1. Submit your pull request against the `develop` branch.
 
 Have questions or need help with setup? Open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
 
@@ -79,23 +79,30 @@ The purpose of our coding styleguides are to create consistent coding practices 
 
 This project follows the 18F Front End Guide [CSS](https://pages.18f.gov/frontend/#css) and [JavaScript](https://pages.18f.gov/frontend/#javascript). Please use this guide for your reference.
 
+### Code coverage
+
+We use [code coverage](https://en.wikipedia.org/wiki/Code_coverage) tools to understand how much of our JavaScript is tested by our [unit test suite](spec/unit). Code coverage is one way (among many) of measuring code _quality_ more generally. Here's how it works for contributions:
+
+1. Each pull request creates a new coverage report on [Code Climate](https://codeclimate.com/).
+1. Code Climate then posts a status message back to GitHub that lists the coverage percentage on that branch, and the difference between that number and the one last reported on our default branch.
+
+For JavaScript contributions, we will review the code coverage percentage and change to ensure that the quality of our code is not dramatically affected.
+
+High code coverage numbers are generally good, and we would prefer that our coverage increases over time. We will not categorically reject contributions that reduce code coverage, but we may ask contributors to refactor their code, add new unit tests, or modify existing tests to avoid significant reductions in coverage.
+
 ## Our use of branches
 
-The `staging` branch is the bleeding edge of development. When cutting a new [release](https://github.com/18F/web-design-standards/releases), we update the versioning on our files by branching off of the `staging` branch and submitting a pull request into our `release` branch. This helps to make `staging` a place that can always receive contributions, no matter where we are in the release process. New commits to `staging` are automatically deployed to [our staging site](https://standards-staging.usa.gov/).
-
-The `master` branch always holds the latest production-ready release. When cutting a [release](https://github.com/18F/web-design-standards/releases), we create a release branch from `staging` named for the new version: for example, `v0.9.x`. Once we’ve completed QA on that branch, we tag the release and merge it into the `master` branch.
-
-The branches `18f-pages` and `18f-pages-staging` _used_ to be the primary release and development branches, back when the site was hosted on `pages.18f.gov`. Those branches still auto deploy to 18F Pages, but will now only contain minimal redirects to the new site.
+See the [release documentation](RELEASE.md#release-process) for more information on our git/GitHub release workflow.
 
 ## Licenses and attribution
 
 ### A few parts of this project are not in the public domain
 
-For complete attribution and licensing information for parts of the project that are not in the public domain, see [LICENSE.md](https://github.com/18F/web-design-standards/blob/staging/LICENSE.md).
+For complete attribution and licensing information for parts of the project that are not in the public domain, see [LICENSE.md](https://github.com/18F/web-design-standards/blob/develop/LICENSE.md).
 
 ### The rest of this project is in the public domain
 
-The rest of this project is in the worldwide [public domain](https://github.com/18F/web-design-standards/blob/staging/LICENSE.md).
+The rest of this project is in the worldwide [public domain](https://github.com/18F/web-design-standards/blob/develop/LICENSE.md).
 
 This project is in the public domain within the United States, and
 copyright and related rights in the work worldwide are waived through

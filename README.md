@@ -1,6 +1,6 @@
 # U.S. Web Design Standards
 
-[![CircleCI Build Status](https://circleci.com/gh/18F/web-design-standards/tree/staging.svg?style=shield)](https://circleci.com/gh/18F/web-design-standards/tree/staging)
+[![CircleCI Build Status](https://circleci.com/gh/18F/web-design-standards/tree/develop.svg?style=shield)](https://circleci.com/gh/18F/web-design-standards/tree/develop) [![Test Coverage](https://codeclimate.com/github/18F/web-design-standards/badges/coverage.svg)](https://codeclimate.com/github/18F/web-design-standards/coverage)
 
 The [U.S. Web Design Standards](https://standards.usa.gov) include a library of open source UI components and a visual style guide for U.S. federal government websites.
 
@@ -17,6 +17,7 @@ This repository is for the Standards themselves. 18F maintains [another reposito
     * [Importing assets](#importing-assets)
     * [Sass](#sass)
     * [JavaScript](#javascript)
+    * [Templates](#templates)
   * [Use another framework or package manager](#use-another-framework-or-package-manager)
 * [Need installation help?](#need-installation-help)
 * [Contributing to the code base](#contributing-to-the-codebase)
@@ -59,16 +60,17 @@ There are a few different ways to use the Standards within your project. Which o
 
   ```
   uswds-1.0.0/
-  ├── js/
-  │   ├── uswds.min.js.map
-  │   ├── uswds.min.js
-  │   └── uswds.js
   ├── css/
   │   ├── uswds.min.css.map
   │   ├── uswds.min.css
   │   └── uswds.css
-  ├── img/
-  └── fonts/
+  ├── fonts/
+  ├── html/
+  └── js/
+      ├── uswds.min.js.map
+      ├── uswds.min.js
+      └── uswds.js
+
   ```
 
 2. Copy these files and folders into a relevant place in your project's code base. Here is an example structure for how this might look:
@@ -141,21 +143,24 @@ node_modules/uswds/
 ├── dist/
 │   ├── css/
 │   ├── fonts/
+│   ├── html/
 │   ├── img/
 │   ├── js/
 └── src/
     ├── fonts/
     ├── img/
     ├── js/
-    └── stylesheets/
+    ├── stylesheets/
+    └── templates/
 ```
 
 #### Importing assets
 
 Since you are already using `npm`, the U.S. Web Design Standards team recommends leveraging the ability to write custom scripts. Here are some links to how we do this with our docs website using `npm` + [`gulp`](http://gulpjs.com/):
 
-[Link to `npm` scripts example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/staging/package.json#L4)
-[Link to gulpfile.js example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/staging/gulpfile.js)
+[Link to `npm` scripts example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/develop/package.json#L4)
+
+[Link to gulpfile.js example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/develop/gulpfile.js)
 
 #### Sass
 
@@ -180,6 +185,10 @@ You can now use your copied version of `_variables.scss` to override any styles 
 #### JavaScript
 `require('uswds')` will load all of the U.S. Web Design Standards’ JavaScript onto the page. Add this line to whatever initializer you use to load JavaScript into your application.
 
+#### Templates
+Templates are a way to include customizable HTML for your project. You can either use the [Nunjucks](https://mozilla.github.io/nunjucks/) templates in `src/templates` or the raw HTML files in `dist/html`. Both are part of the Standards `npm` package, and what you use depends on whether or not your project uses dynamic templating (e.g. Jinja, Nunjucks). Check out our [html gulp task](https://github.com/18F/web-design-standards/blob/develop/config/gulp/html.js) to see how we compile these into static HTML.
+
+You can find our basic HTML files by [downloading the latest package](https://github.com/18F/web-design-standards/releases/download/v1.0.0/uswds-1.0.0.zip) and looking inside of the `html` folder.
 
 ### Use another framework or package manager
 
