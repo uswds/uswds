@@ -1,4 +1,17 @@
-{% from 'navigation/_list.njk' import nav_list %}
+{% macro nav_list(links, subclass) %}
+  {% for item in links %}
+  <li>
+    <a href="{{ item.href }}"{% if item.current %} class="usa-current"{% endif %}>
+      {{ item.text }}
+    </a>
+    {% if item.current and item.links %}
+    <ul class="{{ subclass }}">
+      {{ nav_list(item.links, subclass) }}
+    </ul>
+    {% endif %}
+  </li>
+  {% endfor %}
+{% endmacro %}
 
 <section class="usa-grid">
 {% for list in lists %}
@@ -10,11 +23,3 @@
   </div>
 {% endfor %}
 </section>
-
-<style scoped>
-  .usa-heading-alt {
-    border-bottom: 1px solid;
-    padding-top: 1em;
-    text-align: right;
-  }
-</style>
