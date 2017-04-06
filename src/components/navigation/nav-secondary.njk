@@ -1,8 +1,6 @@
 <div class="usa-nav-secondary">
   {% if nav.search %}
-    {% set search = nav.search %}
-    {% set search_js = true %}
-    {% include 'search.html' %}
+    {% render '@search--header', {search: nav.search, search_js: true} %}
   {% endif %}
   <ul class="usa-unstyled-list usa-nav-secondary-links">
     {% if nav.search %}

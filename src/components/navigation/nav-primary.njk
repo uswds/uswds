@@ -24,8 +24,5 @@
   {% endfor %}
 </ul>
 {% if nav.search %}
-  {% set search = nav.search %}
-{% endif %}
-{% if search %}
-  {% include 'search.html' %}
+  {% render '@search--header', {search: nav.search}, true %}
 {% endif %}

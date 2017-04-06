@@ -5,6 +5,7 @@ status: ready
 context:
   header:
     title: Department of Web Design
+    href: 'javascript:void(0)'
 
 variants:
   - name: default

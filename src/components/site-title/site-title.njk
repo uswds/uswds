@@ -2,7 +2,7 @@
   <button class="usa-menu-btn">Menu</button>
   <div class="usa-logo" id="logo">
     <em class="usa-logo-text">
-      <a href="#"
+      <a href="{{ header.link.href | default('/') }}"
         title="{{ header.link.title | default('Home') }}"
         aria-label="{{ header.link.label | default('Home') }}">
         {{ header.title | default(site.title) }}

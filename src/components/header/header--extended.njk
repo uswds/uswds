@@ -1,13 +1,9 @@
 <header class="usa-header usa-header-extended" role="banner">
-  {% include 'masthead.html' %}
-
+  {% render '@site-title', {header: header}, true %}
   <nav role="navigation" class="usa-nav">
     <div class="usa-nav-inner">
-      {% set nav = header.primary %}
-      {% include 'partials/nav-primary.html' %}
-
-      {% set nav = header.secondary %}
-      {% include 'partials/nav-secondary.html' %}
+      {% render '@nav-primary', {nav: header.primary}, true %}
+      {% render '@nav-secondary', {nav: header.secondary}, true %}
     </div>
   </nav>
 </header>

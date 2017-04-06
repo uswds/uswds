@@ -1,11 +1,8 @@
 <header class="usa-header usa-header-basic usa-header-basic-megamenu" role="banner">
   <div class="usa-nav-container">
-    {% include 'masthead.html' %}
-
+    {% render '@site-title', {header: header}, true %}
     <nav role="navigation" class="usa-nav">
-      {% set nav = header.primary %}
-      {% set nav_mega = true %}
-      {% include 'partials/nav-primary.html' %}
+      {% render '@nav-primary', {nav: header.primary, nav_mega: true}, true %}
     </nav>
   </div>
 </header>
