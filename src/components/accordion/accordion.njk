@@ -1,2 +1,14 @@
-{% from 'accordion/_macros.njk' import accordion %}
-{{ accordion(amendments) }}
+<ul class="usa-accordion{% if accordion.variant %}-{{ accordion.variant }}{% endif %}">
+  {% for item in accordion.items %}
+  <li>
+    <button class="usa-accordion-button"
+      aria-expanded="{{ item.expanded }}"
+      aria-controls="{{ item.id }}">
+      {{ item.title }}
+    </button>
+    <div id="{{ item.id }}" class="usa-accordion-content">
+      {{ item.content }}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
