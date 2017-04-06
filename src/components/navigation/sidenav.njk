@@ -13,13 +13,6 @@
   {% endfor %}
 {% endmacro %}
 
-<section class="usa-grid">
-{% for list in lists %}
-  <div class="usa-width-one-fourth">
-    <h6 class="usa-heading-alt">{{ list.title }}</h6>
-    <ul class="usa-sidenav-list">
-      {{ nav_list(list.links, 'usa-sidenav-sub_list') }}
-    </ul>
-  </div>
-{% endfor %}
-</section>
+<ul class="usa-sidenav-list">
+  {{ nav_list(sidenav.links, 'usa-sidenav-sub_list') }}
+</ul>
