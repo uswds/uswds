@@ -11,9 +11,9 @@
 }
 
 .embed-container {
-  $ratio_widescreen: 56.25%; // Assumes 16:9 aspect ratio for video content – the default on most services.
+  $ratio-widescreen: 56.25%; // Assumes 16:9 aspect ratio for video content – the default on most services.
   position: relative;
-  padding-bottom: $ratio_widescreen;
+  padding-bottom: $ratio-widescreen;
   height: 0;
   overflow: hidden;
   max-width: 100%;
