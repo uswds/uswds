@@ -6,6 +6,7 @@ const dir = __dirname;
 
 const context = {
   title: 'U.S. Web Design Standards',
+  'package': require('./package.json'),
   uswds: {
     path: '../../dist',
   },
