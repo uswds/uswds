@@ -1,12 +1,6 @@
 label: Headers
 status: ready
 
-# default template ("context") data
-context:
-  header:
-    title: Department of Web Design
-    href: 'javascript:void(0)'
-
 variants:
   - name: default
     label: Compare
