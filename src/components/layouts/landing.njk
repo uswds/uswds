@@ -1,10 +1,10 @@
 {% extends 'layouts/_base.njk' %}
 
-{% block body %}
-  <a class="usa-skipnav" href="#main-content">Skip to main content</a>
-
-  {% render '@banner' %}
+{% block header %}
   {% render '@header--extended' %}
+{% endblock %}
+
+{% block body %}
 
   <main id="main-content">
     {% render '@hero' %}
