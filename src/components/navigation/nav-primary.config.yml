@@ -1,0 +1,14 @@
+label: Primary (header)
+preview: '@uswds-header'
+
+context:
+  nav:
+    search: false
+    links:
+      - text: Link one
+      - text: Link two
+      - text: Section one
+        id: nav-section-one
+        links:
+          - text: Sub-link one
+          - text: Sub-link two

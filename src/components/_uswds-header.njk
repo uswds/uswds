@@ -1,0 +1,31 @@
+{% extends '_uswds.njk' %}
+{% block body %}
+<header class="usa-header usa-header-extended" role="banner">
+  {% render '@site-title' %}
+  <nav role="navigation" class="usa-nav">
+    <div class="header-mask"></div>
+    <div class="usa-nav-inner">
+      {{ yield }}
+    </div>
+  </nav>
+</header>
+<div class="usa-overlay"></div>
+
+<style scoped>
+  .header-mask {
+    background-color: rgba(0, 0, 0, .2);
+    position: fixed;
+    top: -1000px;
+    left: -1000px;
+    right: -1000px;
+    bottom: -1000px;
+    z-index: 999;
+  }
+
+  .usa-nav-inner,
+  .usa-nav-secondary {
+    background-color: white;
+    z-index: 1000;
+  }
+</style>
+{% endblock %}
