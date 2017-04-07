@@ -1,37 +1,47 @@
-var select = require('../utils/select');
-var dispatch = require('../utils/dispatch');
+'use strict';
+const behavior = require('../utils/behavior');
+const select = require('../utils/select');
 
-var clickEvent = ('ontouchstart' in document.documentElement ? 'touchstart' : 'click');
-var dispatchers = [];
+const PREFIX = 'usa';
+const CONTEXT = 'header';
+const NAV = `.${PREFIX}-nav`;
+const OPENERS = `.${PREFIX}-menu-btn`;
+const CLOSE_BUTTON = `.${PREFIX}-nav-close`;
+const OVERLAY = `.${PREFIX}-overlay`;
+const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
+const TOGGLES = [NAV, OVERLAY].join(', ');
 
-function handleNavElements (e) {
+const ACTIVE_CLASS = 'usa-mobile_nav-active';
+const VISIBLE_CLASS = 'is-visible';
 
-  var toggleElements = select('.usa-overlay, .usa-nav');
-  var navCloseElement = select('.usa-nav-close')[ 0 ];
-
-  toggleElements.forEach(function (element) {
-    element.classList.toggle('is-visible');
-  });
-
-  document.body.classList.toggle('usa-mobile_nav-active');
-  navCloseElement.focus();
-
-  return false;
-}
-
-function navInit () {
-  var navElements = select('.usa-menu-btn, .usa-overlay, .usa-nav-close');
-
-  dispatchers = navElements.map(function (element) {
-    return dispatch(element, clickEvent, handleNavElements);
-  });
-}
-
-function navOff () {
-  while (dispatchers.length) {
-    dispatchers.pop().off();
+const toggleNav = function(active) {
+  const body = document.body;
+  if (typeof active !== 'boolean') {
+    active = !body.classList.contains(ACTIVE_CLASS);
   }
-}
+  body.classList.toggle(ACTIVE_CLASS, active);
 
-module.exports = navInit;
-module.exports.off = navOff;
+  const context = this.closest(CONTEXT);
+  select(TOGGLES).forEach(el => {
+    el.classList.toggle(VISIBLE_CLASS);
+  });
+
+  if (active && context) {
+    const closeButton = context.querySelector(CLOSE_BUTTON);
+    if (closeButton) {
+      closeButton.focus();
+    }
+  }
+  return active;
+};
+
+const CLICK = ('ontouchstart' in document.documentElement)
+  ? 'touchstart'
+  : 'click';
+
+module.exports = behavior({
+  [CLICK]: {
+    [OPENERS]: toggleNav,
+    [CLOSERS]: toggleNav,
+  }
+});

@@ -1,30 +1,35 @@
-var assert = require('assert');
-var fs = require('fs');
-var path = require('path');
+'use strict';
+const assert = require('assert');
+const fs = require('fs');
+const path = require('path');
+const navigation = require('../../../src/js/components/navigation');
 
-var navigation = require('../../../src/js/components/navigation');
-var TEMPLATE = fs.readFileSync(path.join(__dirname, 'template.html'));
+const TEMPLATE = fs.readFileSync(path.join(__dirname, 'template.html'));
 
 describe('navigation toggle', function () {
-  var nav;
-  var overlay;
-  var closeButton;
-  var menuButton;
+  const body = document.body;
 
-  var isVisible = function (el) {
+  let nav;
+  let overlay;
+  let closeButton;
+  let menuButton;
+
+  const isVisible = (el) => {
     return el.classList.contains('is-visible');
   };
 
   beforeEach(function () {
-    document.body.innerHTML = TEMPLATE;
-    nav = document.querySelector('.usa-nav');
-    overlay = document.querySelector('.usa-overlay');
-    closeButton = document.querySelector('.usa-nav-close');
-    menuButton = document.querySelector('.usa-menu-btn');
-    navigation();
+    body.innerHTML = TEMPLATE;
+    navigation.on();
+    nav = body.querySelector('.usa-nav');
+    overlay = body.querySelector('.usa-overlay');
+    closeButton = body.querySelector('.usa-nav-close');
+    menuButton = body.querySelector('.usa-menu-btn');
   });
 
   afterEach(function () {
+    body.innerHTML = '';
+    body.className = '';
     navigation.off();
   });
 
@@ -62,7 +67,7 @@ describe('navigation toggle', function () {
 
       // next, re-enable the event listeners, click the button,
       // and confirm that the nav is visible again
-      navigation();
+      navigation.on();
       menuButton.click();
       assert.equal(isVisible(nav), true);
       assert.equal(isVisible(overlay), true);

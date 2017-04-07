@@ -1,4 +1,5 @@
-var whenDOMReady = require('../utils/when-dom-ready');
-var navInit = require('../components/navigation');
+'use strict';
+const whenDOMReady = require('../utils/when-dom-ready');
+const navigation = require('../components/navigation');
 
-whenDOMReady(navInit);
+whenDOMReady(navigation.on);
