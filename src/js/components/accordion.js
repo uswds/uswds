@@ -1,12 +1,14 @@
 'use strict';
 const behavior = require('../utils/behavior');
-const receptor = require('receptor');
 const select = require('../utils/select');
 const toggle = require('./toggle');
 
+// TODO: get PREFIX from a common require() that can override
+// in one place
 const PREFIX = 'usa';
+
 const ACCORDION = `.${PREFIX}-accordion`;
-const BUTTON = `.${PREFIX}-accordion-button`;
+const BUTTON = `.${PREFIX}-accordion-button[aria-controls]`;
 const EXPANDED = 'aria-expanded';
 const MULTISELECTABLE = 'aria-multiselectable';
 
@@ -26,6 +28,7 @@ const toggleButton = (button, expanded) => {
   }
 
   expanded = toggle(button, expanded);
+  // XXX multiselectable is opt-in, to preserve legacy behavior
   const multiselectable = accordion.getAttribute(MULTISELECTABLE) === 'true';
 
   if (multiselectable) {
@@ -55,7 +58,7 @@ const getAccordionButtons = accordion => {
 
 module.exports = behavior({
   'click': {
-    [ `${BUTTON}[aria-controls]` ]: function (event) {
+    [ BUTTON ]: function (event) {
       event.preventDefault();
       return toggleButton(this);
     },

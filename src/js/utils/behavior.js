@@ -7,7 +7,7 @@ const receptor = require('receptor');
  * @param {object?} props
  * @return {receptor.behavior}
  */
-module.exports = function behaviorFactory (events, props) {
+module.exports = (events, props) => {
   const target = document.body;
 
   const behavior = receptor.behavior(events, Object.assign({
