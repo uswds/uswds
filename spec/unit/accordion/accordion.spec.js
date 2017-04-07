@@ -1,24 +1,24 @@
-var fs = require('fs');
-var assert = require('assert');
-var template = fs.readFileSync(
-  __dirname + '/template.html'
-).toString();
-var accordion = require('../../../src/js/components/accordion');
+'use strict';
+const accordion = require('../../../src/js/components/accordion');
+const assert = require('assert');
+const fs = require('fs');
+
+const TEMPLATE = fs.readFileSync(__dirname + '/template.html');
 
 // `aria` prefixed attributes
-var EXPANDED = 'aria-expanded';
-var CONTROLS = 'aria-controls';
-var HIDDEN   = 'aria-hidden';
+const EXPANDED = 'aria-expanded';
+const CONTROLS = 'aria-controls';
+const HIDDEN   = 'aria-hidden';
 
 describe('accordion component', function () {
-  var root;
-  var button;
-  var content;
+  const body = document.body;
 
-  var body = document.body;
+  let root;
+  let button;
+  let content;
 
   beforeEach(function () {
-    body.innerHTML = template;
+    body.innerHTML = TEMPLATE;
     accordion.on(body);
 
     root = body.querySelector('.usa-accordion');
