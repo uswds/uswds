@@ -1,76 +1,73 @@
-var select = require('../utils/select');
-var dispatch = require('../utils/dispatch');
+'use strict';
+const behavior = require('../utils/behavior');
+const select = require('../utils/select');
+const receptor = require('receptor');
 
-var VISUALLY_HIDDEN = 'usa-sr-only';
+const PREFIX = 'usa';
+const BUTTON = '.js-search-button';
+const FORM = '.js-search-form';
+const INPUT = '[type=search]';
+const CONTEXT = 'header'; // XXX
+const VISUALLY_HIDDEN = `${PREFIX}-sr-only`;
 
-var clickEvent = ('ontouchstart' in document.documentElement)
+const CLICK = ('ontouchstart' in document.documentElement)
   ? 'touchstart'
   : 'click';
 
-var searchForm;
-var searchButton;
-var searchButtonContainer;
+let lastButton;
 
-var activateDispatcher;
-var deactivateDispatcher;
+const showSearch = function (event) {
+  toggleSearch(this, true);
+  lastButton = this;
+};
 
-function searchButtonClickHandler (event) {
-  if (searchForm.hidden) {
-    closeSearch();
-  } else {
-    openSearch();
-    deactivateDispatcher = dispatch(document.body, clickEvent, searchOpenClickHandler);
+const hideSearch = function (event) {
+  toggleSearch(this, false);
+  lastButton = undefined;
+};
+
+const toggleSearch = (button, active) => {
+  const form = getForm(button);
+  if (!form) {
+    throw new Error(`No ${FORM} found for search toggle in ${CONTEXT}!`);
   }
 
-  return false;
-}
+  button.hidden = active;
+  form.classList.toggle(VISUALLY_HIDDEN, !active);
 
-function searchOpenClickHandler (event) {
-  if (! searchFormContains(event.target)) {
-    closeSearch();
-    deactivateDispatcher.off();
-    deactivateDispatcher = undefined;
+  if (active) {
+    const input = form.querySelector(INPUT);
+    if (input) {
+      input.focus();
+    }
+    const listener = receptor.ignore(
+      form,
+      e => {
+        lastButton && hideSearch.call(lastButton);
+        document.body.removeEventListener(CLICK, listener);
+      }
+    );
+    document.body.addEventListener(CLICK, listener);
   }
-}
+};
 
-function openSearch () {
-  searchForm.classList.remove(VISUALLY_HIDDEN);
-  var input = searchForm.querySelector('[type=search]');
-  if (input) {
-    input.focus();
-  }
-  searchButton.hidden = true;
-}
+const getForm = button => {
+  const context = button.closest(CONTEXT);
+  return context ? context.querySelector(FORM) : undefined;
+};
 
-function closeSearch () {
-  searchForm.classList.add(VISUALLY_HIDDEN);
-  searchButton.hidden = false;
-}
-
-function searchFormContains (element) {
-  return (searchForm && searchForm.contains(element)) ||
-         (searchButtonContainer && searchButtonContainer.contains(element));
-}
-
-function searchInit () {
-  searchForm = select('.js-search-form')[ 0 ];
-  searchButton = select('.js-search-button')[ 0 ];
-  searchButtonContainer = select('.js-search-button-container')[ 0 ];
-
-  if (searchButton && searchForm) {
-    closeSearch();
-    activateDispatcher = dispatch(searchButton, clickEvent, searchButtonClickHandler);
-  }
-}
-
-function searchOff () {
-  if (activateDispatcher) {
-    activateDispatcher.off();
-  }
-  if (deactivateDispatcher) {
-    deactivateDispatcher.off();
-  }
-}
-
-module.exports = searchInit;
-module.exports.off = searchOff;
+module.exports = behavior({
+  [ CLICK ]: {
+    [ BUTTON ]: showSearch,
+  },
+}, {
+  init: (target) => {
+    select(BUTTON, target).forEach(button => {
+      toggleSearch(button, false);
+    });
+  },
+  teardown: (target) => {
+    // forget the last button clicked
+    lastButton = undefined;
+  },
+});

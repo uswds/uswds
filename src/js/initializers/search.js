@@ -1,4 +1,5 @@
-var whenDOMReady = require('../utils/when-dom-ready');
-var searchInit = require('../components/search');
+'use strict';
+const whenDOMReady = require('../utils/when-dom-ready');
+const search = require('../components/search');
 
-whenDOMReady(searchInit);
+whenDOMReady(search.on);
