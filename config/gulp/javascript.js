@@ -34,6 +34,9 @@ gulp.task(task, [ 'eslint' ], function (done) {
   var defaultStream = browserify({
     entries: 'src/js/start.js',
     debug: true,
+  })
+  .transform('babelify', {
+    presets: ['es2015']
   });
 
   var stream = defaultStream.bundle()

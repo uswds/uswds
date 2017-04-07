@@ -34,6 +34,8 @@
   },
   "homepage": "https://github.com/18F/web-design-standards#readme",
   "dependencies": {
+    "babel-preset-es2015": "^6.24.0",
+    "babelify": "^7.3.0",
     "bourbon": "^4.2.6",
     "bourbon-neat": "https://github.com/thoughtbot/neat/archive/neat-1.8.0-node-sass.tar.gz",
     "classlist-polyfill": "^1.0.3",
