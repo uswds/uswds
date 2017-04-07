@@ -10,10 +10,6 @@ const INPUT = '[type=search]';
 const CONTEXT = 'header'; // XXX
 const VISUALLY_HIDDEN = `${PREFIX}-sr-only`;
 
-const CLICK = ('ontouchstart' in document.documentElement)
-  ? 'touchstart'
-  : 'click';
-
 let lastButton;
 
 const showSearch = function (event) {
@@ -55,6 +51,10 @@ const getForm = button => {
   const context = button.closest(CONTEXT);
   return context ? context.querySelector(FORM) : undefined;
 };
+
+const CLICK = ('ontouchstart' in document.documentElement)
+  ? 'touchstart'
+  : 'click';
 
 module.exports = behavior({
   [ CLICK ]: {
