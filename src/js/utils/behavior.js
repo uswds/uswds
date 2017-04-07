@@ -2,7 +2,13 @@
 const receptor = require('receptor');
 const defaultTarget = document.body;
 
-module.exports = function (events, props) {
+/**
+ * @name behaviorFactory
+ * @param {object} events
+ * @param {object?} props
+ * @return {receptor.behavior}
+ */
+module.exports = function behaviorFactory(events, props) {
   const behavior = receptor.behavior(events, Object.assign({
     on: target => {
       if (typeof behavior.init === 'function') {
