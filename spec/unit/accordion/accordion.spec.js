@@ -19,7 +19,7 @@ describe('accordion component', function () {
 
   beforeEach(function () {
     body.innerHTML = TEMPLATE;
-    accordion.on(body);
+    accordion.on();
 
     root = body.querySelector('.usa-accordion');
     button = root.querySelector('.usa-accordion-button');
@@ -30,7 +30,7 @@ describe('accordion component', function () {
 
   afterEach(function () {
     body.innerHTML = '';
-    accordion.off(body);
+    accordion.off();
   });
 
   describe('DOM state', function () {
