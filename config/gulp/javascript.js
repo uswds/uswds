@@ -27,7 +27,7 @@ gulp.task('eslint', function (done) {
 
 });
 
-gulp.task(task, [ 'eslint' ], function (done) {
+gulp.task(task, function (done) {
 
   dutil.logMessage(task, 'Compiling JavaScript');
 
