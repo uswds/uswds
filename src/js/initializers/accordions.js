@@ -1,11 +1,5 @@
-var select = require('../utils/select');
-var whenDOMReady = require('../utils/when-dom-ready');
-var Accordion = require('../components/accordion');
+'use strict';
+const accordion = require('../components/accordion');
+const whenDOMReady = require('../utils/when-dom-ready');
 
-whenDOMReady(function initAccordions () {
-
-  var accordions = select('.usa-accordion, .usa-accordion-bordered');
-  accordions.forEach(function (el) {
-    new Accordion(el);
-  });
-});
+whenDOMReady(accordion.on);

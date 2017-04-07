@@ -1,81 +1,75 @@
-var should = require('should');
-var template = require('./template.js');
-var $ = require('jquery');
-var Accordion = require('../../../src/js/components/accordion.js');
+var fs = require('fs');
+var assert = require('assert');
+var template = fs.readFileSync(
+  __dirname + '/template.html'
+).toString();
+var accordion = require('../../../src/js/components/accordion');
 
 // `aria` prefixed attributes
 var EXPANDED = 'aria-expanded';
 var CONTROLS = 'aria-controls';
 var HIDDEN   = 'aria-hidden';
 
-describe('Accordion component', function () {
-  var $el;
-  var $button, button;
-  var $content;
-  var accordion;
+describe('accordion component', function () {
+  var root;
+  var button;
+  var content;
+
+  var body = document.body;
 
   beforeEach(function () {
-    var $component = $(template);
+    body.innerHTML = template;
+    accordion.on(body);
 
-    $('body').append($component);
-
-    accordion = new Accordion($component.get(0));
-
-    $el = $(accordion.root);
-    $button = $el.find('button');
-    button = $button.get(0);
-    $content = $el.find('#' + $button.attr(CONTROLS));
+    root = body.querySelector('.usa-accordion');
+    button = root.querySelector('.usa-accordion-button');
+    content = document.getElementById(
+      button.getAttribute(CONTROLS)
+    );
   });
 
   afterEach(function () {
-    document.body.textContent = '';
-  });
-
-  it('exposes its underlying html element', function () {
-    accordion.root.should.not.be.undefined();
+    body.innerHTML = '';
+    accordion.off(body);
   });
 
   describe('DOM state', function () {
     it('has an "aria-expanded" attribute', function () {
-      $button.attr(EXPANDED).should.not.be.undefined();
+      assert(button.getAttribute(EXPANDED));
     });
 
     it('has an "aria-controls" attribute', function () {
-      $button.attr(CONTROLS).should.not.be.undefined();
+      assert(button.getAttribute(CONTROLS));
     });
 
-    describe('when show is triggered', function () {
+    describe('accordion.show()', function () {
       beforeEach(function () {
+        accordion.hide(button);
         accordion.show(button);
       });
 
-      afterEach(function () {
-        accordion.hide(button);
+      it('toggles button aria-expanded="true"', function () {
+        assert.equal(button.getAttribute(EXPANDED), 'true');
       });
 
-      it('toggles "aria-expanded" to true', function () {
-        $button.attr(EXPANDED).should.equal('true');
-      });
-
-      it('toggles "aria-hidden" to false', function () {
-        $content.attr(HIDDEN).should.equal('false');
+      it('toggles content aria-hidden="false"', function () {
+        assert.equal(content.getAttribute(HIDDEN), 'false');
       });
     });
 
-    describe('when hide is triggered', function () {
+    describe('accordion.hide()', function () {
       beforeEach(function () {
         accordion.show(button);
         accordion.hide(button);
       });
 
-      it('toggles "aria-expanded" to false', function () {
-        $button.attr(EXPANDED).should.equal('false');
+      it('toggles button aria-expanded="false"', function () {
+        assert.equal(button.getAttribute(EXPANDED), 'false');
       });
 
-      it('toggles "aria-hidden" to true', function () {
-        $content.attr(HIDDEN).should.equal('true');
+      it('toggles content aria-hidden="true"', function () {
+        assert.equal(content.getAttribute(HIDDEN), 'true');
       });
     });
   });
 });
-
