@@ -1,21 +1,23 @@
-var select = require('../utils/select');
-var dispatch = require('../utils/dispatch');
+'use strict';
+const behavior = require('../utils/behavior');
+const toggle = require('./toggle');
 
-function bannerClickHandler (event) {
-  (event.preventDefault) ? event.preventDefault() : event.returnValue = false;
+const PREFIX = 'usa';
+const HEADER = `.${PREFIX}-banner-header`;
+const EXPANDED_CLASS = `${PREFIX}-banner-header-expanded`;
 
-  this.classList.toggle('usa-banner-header-expanded');
-}
+const toggleBanner = function (event) {
+  event.preventDefault();
+  this.closest(HEADER).classList.toggle(EXPANDED_CLASS);
+  return false;
+};
 
-function bannerInit () {
-  var banners = select('.usa-banner-header');
+const CLICK = ('ontouchstart' in document.documentElement)
+  ? 'touchstart'
+  : 'click';
 
-  banners.forEach(function (banner) {
-    var bannerClick = bannerClickHandler.bind(banner);
-    select('[aria-controls]', banner).forEach(function (button) {
-      dispatch(button, 'click', bannerClick);
-    });
-  });
-}
-
-module.exports = bannerInit;
+module.exports = behavior({
+  [ CLICK ]: {
+    [ `${HEADER} [aria-controls]` ]: toggleBanner,
+  },
+});

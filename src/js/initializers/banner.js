@@ -1,9 +1,5 @@
-var whenDOMReady = require('../utils/when-dom-ready');
-var bannerInit = require('../components/banner');
+'use strict';
+const whenDOMReady = require('../utils/when-dom-ready');
+const banner = require('../components/banner');
 
-whenDOMReady(function () {
-
-  bannerInit();
-
-});
-
+whenDOMReady(banner.on);
