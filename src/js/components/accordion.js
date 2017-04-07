@@ -47,7 +47,7 @@ const toggleButton = (button, expanded) => {
  * @return {array<HTMLButtonElement>}
  */
 const getAccordionButtons = accordion => {
-  return select(accordion, BUTTON)
+  return select(BUTTON, accordion)
     .filter(button => {
       return button.closest(ACCORDION) === accordion;
     });
