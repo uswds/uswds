@@ -9,12 +9,12 @@ const OPENERS = `.${PREFIX}-menu-btn`;
 const CLOSE_BUTTON = `.${PREFIX}-nav-close`;
 const OVERLAY = `.${PREFIX}-overlay`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
-const TOGGLES = [NAV, OVERLAY].join(', ');
+const TOGGLES = [ NAV, OVERLAY ].join(', ');
 
 const ACTIVE_CLASS = 'usa-mobile_nav-active';
 const VISIBLE_CLASS = 'is-visible';
 
-const toggleNav = function(active) {
+const toggleNav = function (active) {
   const body = document.body;
   if (typeof active !== 'boolean') {
     active = !body.classList.contains(ACTIVE_CLASS);
@@ -40,8 +40,8 @@ const CLICK = ('ontouchstart' in document.documentElement)
   : 'click';
 
 module.exports = behavior({
-  [CLICK]: {
-    [OPENERS]: toggleNav,
-    [CLOSERS]: toggleNav,
-  }
+  [ CLICK ]: {
+    [ OPENERS ]: toggleNav,
+    [ CLOSERS ]: toggleNav,
+  },
 });

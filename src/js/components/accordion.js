@@ -55,10 +55,10 @@ const getAccordionButtons = accordion => {
 
 module.exports = behavior({
   'click': {
-    [`${BUTTON}[aria-controls]`]: function(event) {
+    [ `${BUTTON}[aria-controls]` ]: function (event) {
       event.preventDefault();
       return toggleButton(this);
-    }
+    },
   },
 }, {
   init: root => {

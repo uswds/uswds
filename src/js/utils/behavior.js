@@ -8,7 +8,7 @@ const defaultTarget = document.body;
  * @param {object?} props
  * @return {receptor.behavior}
  */
-module.exports = function behaviorFactory(events, props) {
+module.exports = function behaviorFactory (events, props) {
   const behavior = receptor.behavior(events, Object.assign({
     on: target => {
       if (typeof behavior.init === 'function') {
