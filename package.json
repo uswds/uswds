@@ -39,7 +39,8 @@
     "classlist-polyfill": "^1.0.3",
     "cross-spawn": "^2.1.5",
     "lodash.debounce": "^4.0.7",
-    "normalize.css": "^3.0.3"
+    "normalize.css": "^3.0.3",
+    "receptor": "^0.5.1"
   },
   "devDependencies": {
     "@18f/stylelint-rules": "^1.2.0",
