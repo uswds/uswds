@@ -11,13 +11,18 @@ const defaultTarget = document.body;
 module.exports = function behaviorFactory (events, props) {
   const behavior = receptor.behavior(events, Object.assign({
     on: target => {
+      target = target || defaultTarget;
       if (typeof behavior.init === 'function') {
-        behavior.init(target || defaultTarget);
+        behavior.init(target);
       }
-      behavior.add(target || defaultTarget);
+      behavior.add(target);
     },
     off: target => {
-      behavior.remove(target || defaultTarget);
+      target = target || defaultTarget;
+      if (typeof behavior.teardown === 'function') {
+        behavior.teardown(target);
+      }
+      behavior.remove(target);
     },
   }, props));
   return behavior;
