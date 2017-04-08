@@ -8,7 +8,7 @@
 // own partials, then @import '{path/to/uswds/}core/variables'.
 
 // Typography
-// Removing the !default from $em-base so we are not inheriting that 
+// Removing the !default from $em-base so we are not inheriting that
 // value from Bourbon.
 $em-base:             10px;
 $base-font-size:      rem(17px) !default;
@@ -106,7 +106,7 @@ $image-path:  '../img' !default;
 $asset-pipeline:      false !default;
 
 // Magic Numbers
-$text-max-width:      53rem !default;
+$text-max-width:      66ch !default; // 66 characters comfortable reading length
 $lead-max-width:      77rem !default;
 $site-max-width:      1040px !default;
 $site-margins:        3rem !default;
