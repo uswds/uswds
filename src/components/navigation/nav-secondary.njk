@@ -10,7 +10,9 @@
     {% endif %}
     {% for link in nav.links %}
     <li>
-      <a href="{{ link.href }}">{{ link.text }}</a>
+      <a href="{{ link.href }}"{% if link.current %} class="usa-current"{% endif %}>
+        {{ link.text }}
+      </a>
     </li>
     {% endfor %}
   </ul>

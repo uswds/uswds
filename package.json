@@ -38,6 +38,7 @@
     "@frctl/nunjucks": "^1.0.3",
     "bourbon": "^4.2.6",
     "bourbon-neat": "https://github.com/thoughtbot/neat/archive/neat-1.8.0-node-sass.tar.gz",
+    "browserify": "^13.0.0",
     "classlist-polyfill": "^1.0.3",
     "cross-spawn": "^2.1.5",
     "lodash.debounce": "^4.0.7",
@@ -66,18 +67,20 @@
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
     "gulp-zip": "^3.1.0",
-    "istanbul": "^0.4.5",
     "jquery": "^2.2.0",
-    "jsdom": "^9.0.0",
-    "jsdom-global": "^2.1.0",
-    "mocha": "^2.4.5",
     "node-notifier": "^4.6.0",
     "node-sass": "^3.4.2",
     "nunjucks": "^3.0.0",
     "run-sequence": "^1.1.5",
     "should": "^8.3.1",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "jsdom": "^9.0.0",
+    "jsdom-global": "^2.1.0",
+    "mocha": "^2.4.5",
     "watch": "^0.17.1"
   }
 }
