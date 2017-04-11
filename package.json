@@ -72,10 +72,10 @@
   },
   "devDependencies": {
     "istanbul": "^0.4.5",
-    "mocha": "^2.4.5",
     "jquery": "^2.2.0",
     "jsdom": "^9.0.0",
     "jsdom-global": "^2.1.0",
+    "mocha": "^2.4.5",
     "watch": "^0.17.1"
   }
 }
