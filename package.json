@@ -35,7 +35,7 @@
   "homepage": "https://github.com/18F/web-design-standards#readme",
   "dependencies": {
     "@18f/stylelint-rules": "^1.2.0",
-    "@frctl/fractal": "^1.1.3",
+    "@frctl/fractal": "^1.1.4",
     "@frctl/mandelbrot": "^1.1.0",
     "@frctl/nunjucks": "^1.0.3",
     "bourbon": "^4.2.6",
