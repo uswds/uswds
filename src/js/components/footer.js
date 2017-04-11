@@ -1,5 +1,6 @@
-var select = require('../utils/select');
+var debounce = require('lodash.debounce');
 var dispatch = require('../utils/dispatch');
+var select = require('../utils/select');
 
 function getSiblings (el) {
   var n = el.parentNode.firstChild;
@@ -55,4 +56,6 @@ module.exports = function footerAccordion () {
       el.classList.remove('hidden');
     });
   }
+
+  dispatch(window, 'resize', debounce(footerAccordion, 180));
 };
