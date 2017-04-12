@@ -1,6 +1,6 @@
 'use strict';
 const fs = require('fs');
-const should = require('should');
+const assert = require('assert');
 const validator = require('../../../src/js/components/validator');
 
 const TEMPLATE = fs.readFileSync(__dirname + '/template.html').toString();
@@ -40,7 +40,7 @@ describe('validator component', function () {
       validated.value = 'GreatPassword1';
       keyup(validated);
       validators.forEach(checkbox => {
-        checkbox.classList.contains(CHECKED_CLASS).should.be.true();
+        assert.equal(checkbox.classList.contains(CHECKED_CLASS), true);
       });
     });
 
@@ -50,9 +50,9 @@ describe('validator component', function () {
       validators.forEach(checkbox => {
         const checked = checkbox.classList.contains(CHECKED_CLASS);
         if (checkbox.getAttribute('data-validator') === 'numerical') {
-          checked.should.be.false();
+          assert.equal(checked, false);
         } else {
-          checked.should.be.true();
+          assert.equal(checked, true);
         }
       });
     });
