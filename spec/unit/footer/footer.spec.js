@@ -26,7 +26,7 @@ const resizeTo = width => {
       window.innerWidth = width;
       window.dispatchEvent(new CustomEvent('resize'));
     }
-    setTimeout(resolve, DEBOUNCE_RATE + 1);
+    setTimeout(resolve, DEBOUNCE_RATE + 10);
   });
 };
 
