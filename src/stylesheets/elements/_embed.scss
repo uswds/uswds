@@ -1,4 +1,10 @@
-.embed-container {
+$ratio-widescreen: 56.25%;
+
+@mixin embed-container ($aspect) {
+  padding-bottom: $aspect;
+}
+
+.usa-embed-container {
   iframe,
   object,
   embed {
@@ -10,10 +16,9 @@
   }
 }
 
-.embed-container {
-  $ratio-widescreen: 56.25%; // Assumes 16:9 aspect ratio for video content – the default on most services.
+.usa-embed-container {
+  @include embed-container($ratio-widescreen);
   position: relative;
-  padding-bottom: $ratio-widescreen;
   height: 0;
   overflow: hidden;
   max-width: 100%;
