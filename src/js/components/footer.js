@@ -21,6 +21,7 @@ const showPanel = function () {
 
   const lists = list.closest(NAV)
     .querySelectorAll('ul');
+
   forEach(lists, el => {
     if (el !== list) {
       el.classList.add(HIDDEN);
