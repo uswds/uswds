@@ -12,12 +12,10 @@ const uswds = require('./config');
 const behaviors = [
   require('./components/accordion'),
   require('./components/banner'),
+  require('./components/footer'),
   require('./components/navigation'),
   require('./components/password'),
   require('./components/search'),
-
-  // XXX WIP
-  require('./components/footer'),
   require('./components/skipnav'),
 ];
 
