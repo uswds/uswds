@@ -9,6 +9,12 @@ const INPUT_SELECTOR = '.js-validate_password';
 const VALIDATORS = '[data-validator]';
 const CHECKED_CLASS = 'usa-checklist-checked';
 
+const keyup = el => {
+  el.dispatchEvent(
+    new KeyboardEvent('keyup', { bubbles: true })
+  );
+};
+
 describe('validator component', function () {
   const body = document.body;
   let validated;
@@ -30,17 +36,17 @@ describe('validator component', function () {
 
   describe('validation state', function () {
 
-    it(`adds .${CHECKED_CLASS} for all successful validations`, function () {
+    it('adds .' + CHECKED_CLASS + ' for all successful validations', function () {
       validated.value = 'GreatPassword1';
-      validated.dispatchEvent(new KeyboardEvent('keyup', {bubbles: true}));
+      keyup(validated);
       validators.forEach(checkbox => {
         checkbox.classList.contains(CHECKED_CLASS).should.be.true();
       });
     });
 
-    it(`removes .${CHECKED_CLASS} for failed validations`, function () {
+    it('removes .' + CHECKED_CLASS + ' for failed validations', function () {
       validated.value = 'GreatPassword';
-      validated.dispatchEvent(new KeyboardEvent('keyup', {bubbles: true}));
+      keyup(validated);
       validators.forEach(checkbox => {
         const checked = checkbox.classList.contains(CHECKED_CLASS);
         if (checkbox.getAttribute('data-validator') === 'numerical') {
