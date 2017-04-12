@@ -1,28 +1,27 @@
-var $ = require('jquery');
-var should = require('should');
-var ToggleFormInput = require('../../../src/js/components/toggle-form-input');
-var template = require('./template.js');
+'use strict';
+const fs = require('fs');
+const $ = require('jquery');
+const should = require('should');
+const toggleFormInput = require('../../../src/js/utils/toggle-form-input');
+const TEMPLATE = fs.readFileSync(__dirname + '/template.html').toString();
 
-var CONTROL_SELECTOR = '.usa-show_multipassword';
-var PASSWORD_SELECTOR = '#password';
-var CONFIRM_SELECTOR = '#confirmPassword';
-var SHOW_TEXT = 'Show my typing';
-var HIDE_TEXT = 'Hide my typing';
+const CONTROL_SELECTOR = '.usa-show_multipassword';
+const PASSWORD_SELECTOR = '#password';
+const CONFIRM_SELECTOR = '#confirmPassword';
+const HIDE_TEXT = 'Hide my typing';
+const SHOW_TEXT = 'Show my typing';
 
-describe('ToggleFormInput', function () {
-  var $maskControl;
-  var $password;
-  var $confirmPassword;
+describe('toggleFormInput', function () {
+  let maskControl;
+  let $password;
+  let $confirmPassword;
 
   beforeEach(function () {
-    var $component = $(template);
-    $('body').append($component);
+    const $body = $('body').html(TEMPLATE);
 
-    $maskControl = $component.find(CONTROL_SELECTOR);
-    $password = $component.find(PASSWORD_SELECTOR);
-    $confirmPassword = $component.find(CONFIRM_SELECTOR);
-
-    ToggleFormInput($maskControl.get(0), SHOW_TEXT, HIDE_TEXT);
+    maskControl = $body.find(CONTROL_SELECTOR).get(0);
+    $password = $body.find(PASSWORD_SELECTOR);
+    $confirmPassword = $body.find(CONFIRM_SELECTOR);
   });
 
   afterEach(function () {
@@ -31,31 +30,20 @@ describe('ToggleFormInput', function () {
 
   it('defaults to masked', function () {
     $password.attr('type').should.equal('password');
-    $maskControl.text().should.equal(SHOW_TEXT);
+    maskControl.textContent.should.equal(SHOW_TEXT);
   });
 
   it('switches type of inputs from password to text when true', function () {
-    click($maskControl);
+    toggleFormInput(maskControl);
     $password.attr('type').should.equal('text');
     $confirmPassword.attr('type').should.equal('text');
   });
 
   it('changes text of mask control element to match show/hide text', function () {
-    click($maskControl);
-    $maskControl.text().should.equal(HIDE_TEXT);
+    toggleFormInput(maskControl);
+    maskControl.textContent.should.equal(HIDE_TEXT);
 
-    click($maskControl);
-    $maskControl.text().should.equal(SHOW_TEXT);
+    toggleFormInput(maskControl);
+    maskControl.textContent.should.equal(SHOW_TEXT);
   });
 });
-
-/**
- * Fire an addEventListener()-added click event in jsdom
- * See http://stackoverflow.com/a/27557936/9070
- */
-function click (jqEl) {
-  var el = jqEl.get(0);
-  var evt = document.createEvent('HTMLEvents');
-  evt.initEvent('click', false, true);
-  el.dispatchEvent(evt);
-}
