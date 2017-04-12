@@ -2,7 +2,7 @@
 const Behavior = require('receptor/behavior');
 
 /**
- * @name behaviorFactory
+ * @name behavior
  * @param {object} events
  * @param {object?} props
  * @return {receptor.behavior}
