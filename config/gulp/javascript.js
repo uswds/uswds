@@ -36,7 +36,8 @@ gulp.task(task, function (done) {
     debug: true,
   })
   .transform('babelify', {
-    presets: ['es2015']
+    global: true,
+    presets: ['es2015'],
   });
 
   var stream = defaultStream.bundle()
