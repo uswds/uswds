@@ -31,9 +31,7 @@ const toggleButton = (button, expanded) => {
   // XXX multiselectable is opt-in, to preserve legacy behavior
   const multiselectable = accordion.getAttribute(MULTISELECTABLE) === 'true';
 
-  if (multiselectable) {
-    // do nothing
-  } else if (expanded) {
+  if (expanded && !multiselectable) {
     getAccordionButtons(accordion)
       .forEach(other => {
         if (other !== button) {
@@ -71,7 +69,9 @@ module.exports = behavior({
         toggleButton(button, expanded);
       });
   },
-  toggle: toggleButton,
+  ACCORDION,
   show: button => toggleButton(button, true),
   hide: button => toggleButton(button, false),
+  toggle: toggleButton,
+  getButtons: getAccordionButtons,
 });
