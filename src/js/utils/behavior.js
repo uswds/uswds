@@ -8,20 +8,24 @@ const Behavior = require('receptor/behavior');
  * @return {receptor.behavior}
  */
 module.exports = (events, props) => {
-  const target = document.body;
-
   const behavior = Behavior(events, Object.assign({
-    on: () => {
+    on: target => {
+      if (!target) {
+        target = document.body;
+      }
       if (typeof behavior.init === 'function') {
         behavior.init(target);
       }
-      behavior.add(target);
+      return behavior.add(target);
     },
-    off: () => {
+    off: target => {
+      if (!target) {
+        target = document.body;
+      }
       if (typeof behavior.teardown === 'function') {
         behavior.teardown(target);
       }
-      behavior.remove(target);
+      return behavior.remove(target);
     },
   }, props));
 
