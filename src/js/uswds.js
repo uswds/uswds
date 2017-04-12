@@ -9,19 +9,13 @@ require('./polyfills');
 
 const uswds = require('./config');
 
-const behaviors = [
-  require('./components/accordion'),
-  require('./components/banner'),
-  require('./components/footer'),
-  require('./components/navigation'),
-  require('./components/password'),
-  require('./components/search'),
-  require('./components/skipnav'),
-];
+const components = require('./components');
+uswds.components = components;
 
 whenDOMReady(() => {
   const target = document.body;
-  behaviors.forEach(behavior => {
+  Object.keys(components).forEach(name => {
+    const behavior = components[ name ];
     behavior.add(target);
   });
 });
