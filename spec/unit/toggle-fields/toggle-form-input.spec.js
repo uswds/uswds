@@ -1,7 +1,6 @@
 'use strict';
+const assert = require('assert');
 const fs = require('fs');
-const $ = require('jquery');
-const should = require('should');
 const toggleFormInput = require('../../../src/js/utils/toggle-form-input');
 
 const TEMPLATE = fs.readFileSync(__dirname + '/template.html').toString();
@@ -13,38 +12,39 @@ const HIDE_TEXT = 'Hide my typing';
 const SHOW_TEXT = 'Show my typing';
 
 describe('toggleFormInput', function () {
+  const body = document.body;
   let maskControl;
-  let $password;
-  let $confirmPassword;
+  let password;
+  let confirmPassword;
 
   beforeEach(function () {
-    const $body = $('body').html(TEMPLATE);
+    body.innerHTML = TEMPLATE;
 
-    maskControl = $body.find(CONTROL_SELECTOR).get(0);
-    $password = $body.find(PASSWORD_SELECTOR);
-    $confirmPassword = $body.find(CONFIRM_SELECTOR);
+    maskControl = body.querySelector(CONTROL_SELECTOR);
+    password = body.querySelector(PASSWORD_SELECTOR);
+    confirmPassword = body.querySelector(CONFIRM_SELECTOR);
   });
 
   afterEach(function () {
-    document.body.textContent = '';
+    body.textContent = '';
   });
 
   it('defaults to masked', function () {
-    $password.attr('type').should.equal('password');
-    maskControl.textContent.should.equal(SHOW_TEXT);
+    assert.equal(password.type, 'password');
+    assert.equal(maskControl.textContent, SHOW_TEXT);
   });
 
   it('switches type of inputs from password to text when true', function () {
     toggleFormInput(maskControl);
-    $password.attr('type').should.equal('text');
-    $confirmPassword.attr('type').should.equal('text');
+    assert.equal(password.type, 'text');
+    assert.equal(confirmPassword.type, 'text');
   });
 
   it('changes text of mask control element to match show/hide text', function () {
     toggleFormInput(maskControl);
-    maskControl.textContent.should.equal(HIDE_TEXT);
+    assert.equal(maskControl.textContent, HIDE_TEXT);
 
     toggleFormInput(maskControl);
-    maskControl.textContent.should.equal(SHOW_TEXT);
+    assert.equal(maskControl.textContent, SHOW_TEXT);
   });
 });

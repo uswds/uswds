@@ -1,5 +1,6 @@
 'use strict';
 const $ = require('jquery');
+const assert = require('assert');
 
 const toggleFieldMask = require('../../../src/js/utils/toggle-field-mask');
 
@@ -9,12 +10,12 @@ describe('toggleFieldMask()', function () {
 
   it('switches the type of an input from text to password when true', function () {
     toggleFieldMask($text.get(0), true);
-    $text.attr('type').should.equal('password');
+    assert.equal($text.attr('type'), 'password');
   });
 
   it('switches the type of an input from password to text when false', function () {
     toggleFieldMask($password.get(0), false);
-    $password.attr('type').should.equal('text');
+    assert.equal($password.attr('type'), 'text');
   });
 });
 
