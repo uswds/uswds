@@ -1,19 +1,19 @@
-var $ = require('jquery');
-var should = require('should');
+'use strict';
+const $ = require('jquery');
 
-var ToggleFieldMask = require('../../../src/js/components/toggle-field-mask');
+const toggleFieldMask = require('../../../src/js/utils/toggle-field-mask');
 
-var $text = $('<input type="text" autocapitalize="on" autocorrect="on">');
-var $password = $('<input type="password" autocapitalize="on" autocorrect="on">');
+describe('toggleFieldMask()', function () {
+  const $text = $('<input type="text" autocapitalize="on" autocorrect="on">');
+  const $password = $('<input type="password" autocapitalize="on" autocorrect="on">');
 
-describe('ToggleFieldMask', function () {
   it('switches the type of an input from text to password when true', function () {
-    ToggleFieldMask($text.get(), true);
+    toggleFieldMask($text.get(0), true);
     $text.attr('type').should.equal('password');
   });
 
   it('switches the type of an input from password to text when false', function () {
-    ToggleFieldMask($password.get(), false); 
+    toggleFieldMask($password.get(0), false);
     $password.attr('type').should.equal('text');
   });
 });

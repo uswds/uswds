@@ -3,6 +3,7 @@ const fs = require('fs');
 const $ = require('jquery');
 const should = require('should');
 const toggleFormInput = require('../../../src/js/utils/toggle-form-input');
+
 const TEMPLATE = fs.readFileSync(__dirname + '/template.html').toString();
 
 const CONTROL_SELECTOR = '.usa-show_multipassword';
