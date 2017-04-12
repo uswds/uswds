@@ -9,6 +9,7 @@
     "build:package": "gulp release",
     "build": "gulp build",
     "test": "gulp eslint stylelint test",
+    "mocha": "mocha --opts spec/mocha.opts spec/**/*.spec.js",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
     "preversion": "npm test",
     "version": "npm run prepublish",
