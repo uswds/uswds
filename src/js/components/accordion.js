@@ -5,7 +5,7 @@ const toggle = require('./toggle');
 
 // TODO: get PREFIX from a common require() that can override
 // in one place
-const PREFIX = 'usa';
+const PREFIX = require('../config').prefix;
 
 const ACCORDION = `.${PREFIX}-accordion`;
 const BUTTON = `.${PREFIX}-accordion-button[aria-controls]`;

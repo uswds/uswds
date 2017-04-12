@@ -3,7 +3,7 @@ const behavior = require('../utils/behavior');
 const select = require('../utils/select');
 const ignore = require('receptor/ignore');
 
-const PREFIX = 'usa';
+const PREFIX = require('../config').prefix;
 const BUTTON = '.js-search-button';
 const FORM = '.js-search-form';
 const INPUT = '[type=search]';

@@ -2,7 +2,7 @@
 const behavior = require('../utils/behavior');
 const toggle = require('./toggle');
 
-const PREFIX = 'usa';
+const PREFIX = require('../config').prefix;
 const HEADER = `.${PREFIX}-banner-header`;
 const EXPANDED_CLASS = `${PREFIX}-banner-header-expanded`;
 

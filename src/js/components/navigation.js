@@ -2,7 +2,7 @@
 const behavior = require('../utils/behavior');
 const select = require('../utils/select');
 
-const PREFIX = 'usa';
+const PREFIX = require('../config').prefix;
 const CONTEXT = 'header';
 const NAV = `.${PREFIX}-nav`;
 const OPENERS = `.${PREFIX}-menu-btn`;
