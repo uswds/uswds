@@ -1,5 +1,19 @@
 'use strict';
 const Behavior = require('receptor/behavior');
+const forEach = require('array-foreach');
+
+const sequence = () => {
+  return function (target) {
+    if (!target) {
+      target = document.body;
+    }
+    forEach(arguments, method => {
+      if (method in this) {
+        result = this[method].call(this, target);
+      }
+    });
+  };
+}
 
 /**
  * @name behavior
@@ -8,26 +22,8 @@ const Behavior = require('receptor/behavior');
  * @return {receptor.behavior}
  */
 module.exports = (events, props) => {
-  const behavior = Behavior(events, Object.assign({
-    on: target => {
-      if (!target) {
-        target = document.body;
-      }
-      if (typeof behavior.init === 'function') {
-        behavior.init(target);
-      }
-      return behavior.add(target);
-    },
-    off: target => {
-      if (!target) {
-        target = document.body;
-      }
-      if (typeof behavior.teardown === 'function') {
-        behavior.teardown(target);
-      }
-      return behavior.remove(target);
-    },
+  return Behavior(events, Object.assign({
+    on:   sequence('init', 'add'),
+    off:  sequence('teardown', 'remove'),
   }, props));
-
-  return behavior;
 };
