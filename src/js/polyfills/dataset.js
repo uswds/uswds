@@ -13,12 +13,16 @@ const DASH_PATTERN = /-([a-z])/g;
  */
 module.exports = el => {
   return el.dataset ||
-    filter(el.attributes, attr => attr.name.match(DATA_ATTR_PATTERN))
-      .reduce((data, attr) => {
-        const key = attr.name.substr(5)
-          .replace(DASH_PATTERN, (part, letter) => letter.toUpperCase());
-        data[key] = attr.value;
-        return data;
-      }, {});
+    filter(el.attributes, attr => {
+      return attr.name.match(DATA_ATTR_PATTERN);
+    })
+    .reduce((data, attr) => {
+      const key = attr.name.substr(5)
+        .replace(DASH_PATTERN, (part, letter) => {
+          return letter.toUpperCase();
+        });
+      data[ key ] = attr.value;
+      return data;
+    }, {});
 };
 

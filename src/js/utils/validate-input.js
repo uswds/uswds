@@ -5,8 +5,8 @@ const CHECKED = 'aria-checked';
 const CHECKED_CLASS = `${PREFIX}-checklist-checked`;
 const dataset = require('../polyfills/dataset');
 
-module.exports = function validate(el) {
-  const data = el.dataset || dataset(el);
+module.exports = function validate (el) {
+  const data = dataset(el);
   const id = data.validationElement;
   const checkList = document.getElementById(id);
   if (!checkList) {
@@ -15,7 +15,7 @@ module.exports = function validate(el) {
     );
   }
 
-  for (let key in data) {
+  for (const key in data) {
     if (key.startsWith('validate')) {
       const validatorName = key.substr('validate'.length).toLowerCase();
       const validatorPattern = new RegExp(data[ key ]);
