@@ -13,7 +13,12 @@ const behaviors = [
   require('./components/accordion'),
   require('./components/banner'),
   require('./components/navigation'),
+  require('./components/password'),
   require('./components/search'),
+
+  // XXX WIP
+  require('./components/footer'),
+  require('./components/skip-nav'),
 ];
 
 whenDOMReady(() => {
@@ -22,9 +27,5 @@ whenDOMReady(() => {
     behavior.add(target);
   });
 });
-
-require('./initializers/footer');
-require('./initializers/forms');
-require('./initializers/skip-nav');
 
 module.exports = uswds;

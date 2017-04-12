@@ -15,7 +15,7 @@ gulp.task(task, function (done) {
   dutil.logMessage(task, 'Compiling JavaScript');
 
   var defaultStream = browserify({
-    entries: 'src/js/start.js',
+    entries: 'src/js/uswds.js',
     debug: true,
   })
   .transform('babelify', {
