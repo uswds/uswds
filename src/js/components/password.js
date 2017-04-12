@@ -18,8 +18,4 @@ module.exports = behavior({
   'keyup': {
     '.js-validate_password': validate,
   },
-}, {
-  init: target => {
-    // ???
-  },
 });
