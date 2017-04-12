@@ -1,21 +1,26 @@
-var select = require('../utils/select');
-var dispatch = require('../utils/dispatch');
+'use strict';
+const behavior = require('../utils/behavior');
+const once = require('receptor/once');
 
-module.exports = function () {
+const PREFIX = require('../config').prefix;
 
-  // Fixing skip nav focus behavior in chrome
-  var elSkipnav = select('.skipnav')[ 0 ];
-  var elMainContent = select('#main-content')[ 0 ];
-
-  if (elSkipnav) {
-    dispatch(elSkipnav, 'click', function () {
-      elMainContent.setAttribute('tabindex', '0');
-    });
-  }
-
-  if (elMainContent) {
-    dispatch(elMainContent, 'blur', function () {
-      elMainContent.setAttribute('tabindex', '-1');
-    });
+const setTabindex = function (event) {
+  // NB: we know because of the selector we're delegating to below that the
+  // href already begins with '#'
+  const id = this.getAttribute('href').slice(1);
+  const target = document.getElementById(id);
+  if (target) {
+    target.setAttribute('tabindex', 0);
+    this.addEventListener('blur', once(event => {
+      target.setAttribute('tabindex', -1);
+    }));
+  } else {
+    // throw an error?
   }
 };
+
+module.exports = behavior({
+  'click': {
+    [ `.${PREFIX}-skipnav[href^="#"]` ]: setTabindex,
+  },
+});
