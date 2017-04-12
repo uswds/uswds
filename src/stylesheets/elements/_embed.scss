@@ -1,7 +1,7 @@
 $ratio-widescreen: 56.25%;
 
-@mixin embed-container ($aspect) {
-  padding-bottom: $aspect;
+@mixin embed-container ($aspect-ratio) {
+  padding-bottom: $aspect-ratio;
 }
 
 .usa-embed-container {
