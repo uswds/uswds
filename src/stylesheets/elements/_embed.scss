@@ -1,8 +1,8 @@
-$ratio-fullscreen: 75%;
-$ratio-widescreen: 56.25%;
+$aspect-height: 9;
+$aspect-width: 16;
 
-@mixin embed-container ($aspect-ratio) {
-  padding-bottom: $aspect-ratio;
+@mixin embed-container ($aspect-height, $aspect-width) {
+  padding-bottom: percentage($aspect-height/$aspect-width);
 }
 
 .usa-embed-container {
@@ -18,7 +18,7 @@ $ratio-widescreen: 56.25%;
 }
 
 .usa-embed-container {
-  @include embed-container($ratio-widescreen);
+  @include embed-container($aspect-height, $aspect-width);
   position: relative;
   height: 0;
   overflow: hidden;
