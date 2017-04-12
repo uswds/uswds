@@ -1,5 +1,5 @@
 'use strict';
-const receptor = require('receptor');
+const Behavior = require('receptor/behavior');
 
 /**
  * @name behaviorFactory
@@ -10,7 +10,7 @@ const receptor = require('receptor');
 module.exports = (events, props) => {
   const target = document.body;
 
-  const behavior = receptor.behavior(events, Object.assign({
+  const behavior = Behavior(events, Object.assign({
     on: () => {
       if (typeof behavior.init === 'function') {
         behavior.init(target);

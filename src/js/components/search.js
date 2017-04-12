@@ -1,7 +1,7 @@
 'use strict';
 const behavior = require('../utils/behavior');
 const select = require('../utils/select');
-const receptor = require('receptor');
+const ignore = require('receptor/ignore');
 
 const PREFIX = 'usa';
 const BUTTON = '.js-search-button';
@@ -36,7 +36,7 @@ const toggleSearch = (button, active) => {
     if (input) {
       input.focus();
     }
-    const listener = receptor.ignore(
+    const listener = ignore(
       form,
       e => {
         lastButton && hideSearch.call(lastButton);
