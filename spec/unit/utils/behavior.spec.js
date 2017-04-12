@@ -15,7 +15,7 @@ describe('behavior', function () {
     assert.equal(typeof behavior.off, 'function');
   });
 
-  describe('behavior.on()', function() {
+  describe('behavior.on()', function () {
 
     it('calls init()', function () {
       const behavior = Behavior({
@@ -49,7 +49,7 @@ describe('behavior', function () {
 
   });
 
-  describe('behavior.off()', function() {
+  describe('behavior.off()', function () {
 
     it('calls teardown()', function () {
       const behavior = Behavior({

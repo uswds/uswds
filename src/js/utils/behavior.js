@@ -9,11 +9,11 @@ const sequence = () => {
     }
     forEach(arguments, method => {
       if (method in this) {
-        result = this[method].call(this, target);
+        result = this[ method ].call(this, target);
       }
     });
   };
-}
+};
 
 /**
  * @name behavior
