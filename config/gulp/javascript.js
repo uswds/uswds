@@ -10,23 +10,6 @@ var rename = require('gulp-rename');
 var eslint = require('gulp-eslint');
 var task = 'javascript';
 
-gulp.task('eslint', function (done) {
-
-  if (!cFlags.test) {
-    dutil.logMessage('eslint', 'Skipping linting of JavaScript files.');
-    return done();
-  }
-
-  return gulp.src([
-      'src/js/**/*.js',
-      '!src/js/vendor/**/*.js',
-      'spec/**/*.js'
-    ])
-    .pipe(eslint())
-    .pipe(eslint.format());
-
-});
-
 gulp.task(task, function (done) {
 
   dutil.logMessage(task, 'Compiling JavaScript');
@@ -58,4 +41,18 @@ gulp.task(task, function (done) {
 
   return stream;
 
+});
+
+gulp.task('eslint', function (done) {
+  if (!cFlags.test) {
+    dutil.logMessage('eslint', 'Skipping linting of JavaScript files.');
+    return done();
+  }
+
+  return gulp.src([
+      'src/js/**/*.js',
+      'spec/**/*.js'
+    ])
+    .pipe(eslint())
+    .pipe(eslint.format());
 });
