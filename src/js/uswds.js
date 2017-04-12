@@ -18,7 +18,7 @@ const behaviors = [
 
   // XXX WIP
   require('./components/footer'),
-  require('./components/skip-nav'),
+  require('./components/skipnav'),
 ];
 
 whenDOMReady(() => {

@@ -11,7 +11,7 @@ const setTabindex = function (event) {
   const target = document.getElementById(id);
   if (target) {
     target.setAttribute('tabindex', 0);
-    this.addEventListener('blur', once(event => {
+    target.addEventListener('blur', once(event => {
       target.setAttribute('tabindex', -1);
     }));
   } else {
