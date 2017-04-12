@@ -1,4 +1,5 @@
 'use strict';
+const whenDOMReady = require('./utils/when-dom-ready');
 
 /**
  * The 'polyfills' define key ECMAScript 5 methods that may be missing from
@@ -6,10 +7,24 @@
  */
 require('./polyfills');
 
-require('./initializers/accordions');
-require('./initializers/banner');
+const uswds = require('./config');
+
+const behaviors = [
+  require('./components/accordion'),
+  require('./components/banner'),
+  require('./components/navigation'),
+  require('./components/search'),
+];
+
+whenDOMReady(() => {
+  const target = document.body;
+  behaviors.forEach(behavior => {
+    behavior.add(target);
+  });
+});
+
 require('./initializers/footer');
 require('./initializers/forms');
-require('./initializers/navigation');
-require('./initializers/search');
 require('./initializers/skip-nav');
+
+module.exports = uswds;
