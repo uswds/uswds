@@ -1,6 +1,6 @@
 'use strict';
 const behavior = require('../utils/behavior');
-const toggle = require('./toggle');
+const toggle = require('../utils/toggle');
 
 const PREFIX = require('../config').prefix;
 const HEADER = `.${PREFIX}-banner-header`;

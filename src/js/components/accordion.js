@@ -1,7 +1,7 @@
 'use strict';
 const behavior = require('../utils/behavior');
 const select = require('../utils/select');
-const toggle = require('./toggle');
+const toggle = require('../utils/toggle');
 
 // TODO: get PREFIX from a common require() that can override
 // in one place
