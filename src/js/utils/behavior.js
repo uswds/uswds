@@ -2,14 +2,15 @@
 const Behavior = require('receptor/behavior');
 const forEach = require('array-foreach');
 
-const sequence = () => {
+const sequence = function () {
+  const seq = [].slice.call(arguments);
   return function (target) {
     if (!target) {
       target = document.body;
     }
-    forEach(arguments, method => {
-      if (method in this) {
-        result = this[ method ].call(this, target);
+    seq.forEach(method => {
+      if (typeof this[ method ] === 'function') {
+        this[ method ].call(this, target);
       }
     });
   };
