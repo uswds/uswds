@@ -9,13 +9,17 @@
     "check-publish": "npm publish",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
     "federalist": "gulp build && fractal build",
+    "js": "gulp javascript",
     "mocha": "mocha --opts spec/mocha.opts spec/**/*.spec.js",
     "prepublish": "gulp build",
     "preversion": "npm test",
     "start": "fractal start --sync",
     "test": "gulp eslint stylelint test",
-    "test": "gulp eslint stylelint test",
-    "version": "npm run prepublish"
+    "version": "npm run prepublish",
+    "watch": "nswatch"
+  },
+  "watch": {
+    "src/js/**/*.js": "js"
   },
   "repository": {
     "type": "git",
@@ -46,7 +50,6 @@
     "babelify": "^7.3.0",
     "bourbon": "^4.2.6",
     "bourbon-neat": "https://github.com/thoughtbot/neat/archive/neat-1.8.0-node-sass.tar.gz",
-    "browserify": "^13.0.0",
     "browserify": "^13.0.0",
     "classlist-polyfill": "^1.0.3",
     "cross-spawn": "^2.1.5",
@@ -85,6 +88,6 @@
     "jsdom": "^9.0.0",
     "jsdom-global": "^2.1.0",
     "mocha": "^3.0.0",
-    "watch": "^0.17.1"
+    "nswatch": "^0.2.0"
   }
 }
