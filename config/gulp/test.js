@@ -1,9 +1,12 @@
 var gulp = require('gulp');
 var mocha = require('gulp-spawn-mocha');
+var istanbul = require('gulp-istanbul');
 var runSequence = require('run-sequence');
 
 var mochaOpts = {
-  opts: 'spec/mocha.opts',
+  require: [
+    'jsdom-global/register',
+  ],
 };
 
 gulp.task('test', function () {
@@ -13,7 +16,9 @@ gulp.task('test', function () {
 
 gulp.task('cover', function () {
   return gulp.src('spec/unit/**/*.spec.js')
-    .pipe(mocha(mochaOpts));
+    .pipe(mocha(Object.assign(mochaOpts, {
+      istanbul: true
+    })));
 });
 
 gulp.task('test:watch', function () {
