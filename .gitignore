@@ -1,18 +1,18 @@
 .DS_store
 .*.swp
 
-# Ignore Node specific files and directories
-#
+# ignore Node-specific files and directories
 node_modules/
 npm-debug.log*
 
 # code coverage
 coverage/
 
-# README: Ignore the dist directories
-#
+# ignore the generated dist directory
 dist/
 
-# Ignore gulp-generated vendor files
-#
+# ignore the Fractal build directgory
+build/
+
+# ignore gulp-generated vendor files
 src/stylesheets/lib

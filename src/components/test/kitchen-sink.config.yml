@@ -1,0 +1,36 @@
+label: Kitchen sink
+preview: null
+
+context:
+  page:
+    title: This is your page title
+    lead: The page heading communicates the main focus of the page. Make your page heading descriptive and keep it succinct.
+
+  before:
+    - component: hero
+      context: {}
+
+  sidenav:
+    links:
+      - text: Another page
+      - text: Current page
+        current: true
+        links:
+          - text: First section
+          - text: Second section
+            current: true
+            links:
+              - text: Grandchild link
+              - text: Another one
+          - text: Third section
+      - text: Yet another page
+
+  inner:
+    - title: Accordions
+      id: accordions
+      component: accordion
+
+  after:
+    - component: graphic-list
+      context:
+        graphics: []

@@ -1,0 +1,67 @@
+label: Side navigation
+status: ready
+
+context:
+  sidenav:
+    links: &default_links
+      - text: Parent link
+      - text: Current page
+        current: true
+        links:
+          - text: Child link
+          - text: Child link
+            current: true
+            links:
+              - text: Grandchild link
+              - text: Grandchild link
+              - text: Grandchild link
+                current: true
+              - text: Grandchild link
+          - text: Child link
+          - text: Child link
+          - text: Child link
+      - text: Another link
+
+variants:
+  - name: default
+
+  - name: compare
+    context:
+      sidenavs:
+        - title: 1 level
+          links:
+            - text: Current page
+              current: true
+            - text: Parent link
+            - text: Parent link
+
+        - title: 2 levels
+          links:
+            - text: Parent link
+            - text: Current page
+              current: true
+              links:
+                - text: Child link
+                - text: Child link
+                - text: Child link
+            - text: Another link
+
+        - title: 3 levels
+          links:
+            - text: Parent link
+            - text: Current page
+              current: true
+              links:
+                - text: Child link
+                - text: Child link
+                  current: true
+                  links:
+                    - text: Grandchild link
+                    - text: Grandchild link
+                    - text: Grandchild link
+                      current: true
+                    - text: Grandchild link
+                - text: Child link
+                - text: Child link
+                - text: Child link
+            - text: Another link

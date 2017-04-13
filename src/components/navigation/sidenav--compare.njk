@@ -1,0 +1,8 @@
+<section class="usa-grid">
+{% for nav in sidenavs %}
+  <div class="usa-width-one-third">
+    <h6 class="usa-heading-alt">{{ nav.title }}</h6>
+    {% render '@sidenav--default', {sidenav: nav} %}
+  </div>
+{% endfor %}
+</section>
