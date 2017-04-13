@@ -64,6 +64,7 @@
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.1.1",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-spawn-mocha": "^3.3.0",
     "gulp-stylelint": "^2.0.2",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
@@ -79,7 +80,6 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
-    "gulp-spawn-mocha": "^3.3.0",
     "istanbul": "^0.4.5",
     "jquery": "^2.2.0",
     "jsdom": "^9.0.0",
