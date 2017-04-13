@@ -8,7 +8,7 @@ const toggle = require('../utils/toggle');
 const PREFIX = require('../config').prefix;
 
 const ACCORDION = `.${PREFIX}-accordion`;
-const BUTTON = `.${PREFIX}-accordion-button[aria-controls]`;
+const BUTTON = `${ACCORDION} .${PREFIX}-accordion-button[aria-controls]`;
 const EXPANDED = 'aria-expanded';
 const MULTISELECTABLE = 'aria-multiselectable';
 
@@ -63,7 +63,7 @@ module.exports = behavior({
   },
 }, {
   init: root => {
-    select(`${ACCORDION} ${BUTTON}`, root)
+    select(BUTTON, root)
       .forEach(button => {
         const expanded = button.getAttribute(EXPANDED) === 'true';
         toggleButton(button, expanded);
