@@ -1,0 +1,17 @@
+<style scoped>
+  header {
+    margin-bottom: 14rem;
+  }
+
+  header ~ header {
+    border-top: 1px dotted black;
+  }
+</style>
+
+{% render '@header--basic', {header: ({title: 'Basic header'})}, true %}
+
+{% render '@header--basic-mega', {header: ({title: 'Basic with mega-menu'})}, true %}
+
+{% render '@header--extended', {header: ({title: 'Extended header'})}, true %}
+
+{% render '@header--extended-mega', {header: ({title: 'Extended header<br>with mega-menu'})}, true %}

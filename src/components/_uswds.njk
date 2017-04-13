@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>{{ _self.title }}</title>
+    <link rel="stylesheet" href="{{ uswds.path }}/css/uswds.min.css">
+  </head>
+  <body>
+    {% block body %}{{ yield }}{% endblock %}
+    <script src="{{ uswds.path }}/js/uswds.min.js"></script>
+  </body>
+</html>
