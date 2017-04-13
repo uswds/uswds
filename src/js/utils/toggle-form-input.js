@@ -5,9 +5,19 @@ const toggleFieldMask = require('./toggle-field-mask');
 
 const CONTROLS = 'aria-controls';
 const PRESSED = 'aria-pressed';
-
 const SHOW_ATTR = 'data-show-text';
 const HIDE_ATTR = 'data-hide-text';
+
+/**
+ * Replace the word "Show" (or "show") with "Hide" (or "hide") in a string.
+ * @param {string} showText
+ * @return {strong} hideText
+ */
+const getHideText = showText => {
+  return showText.replace(/\bShow\b/i, show => {
+    return ('S' === show[ 0 ] ? 'H' : 'h') + 'ide';
+  });
+};
 
 /**
  * Component that decorates an HTML element with the ability to toggle the
@@ -32,7 +42,10 @@ module.exports = el => {
     el.setAttribute(SHOW_ATTR, el.textContent);
   }
 
-  el.textContent = el.getAttribute(pressed ? SHOW_ATTR : HIDE_ATTR);
+  const showText = el.getAttribute(SHOW_ATTR);
+  const hideText = el.getAttribute(HIDE_ATTR) || getHideText(showText);
+
+  el.textContent = pressed ? showText : hideText;
   el.setAttribute(PRESSED, pressed);
   return pressed;
 };
