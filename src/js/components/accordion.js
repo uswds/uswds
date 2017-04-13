@@ -6,7 +6,7 @@ const toggle = require('../utils/toggle');
 const PREFIX = require('../config').prefix;
 
 // XXX match .usa-accordion and .usa-accordion-bordered
-const ACCORDION = `[class*="${PREFIX}-accordion"]`;
+const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion-bordered`;
 const BUTTON = `.${PREFIX}-accordion-button[aria-controls]`;
 const EXPANDED = 'aria-expanded';
 const MULTISELECTABLE = 'aria-multiselectable';
