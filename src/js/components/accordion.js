@@ -3,12 +3,11 @@ const behavior = require('../utils/behavior');
 const select = require('../utils/select');
 const toggle = require('../utils/toggle');
 
-// TODO: get PREFIX from a common require() that can override
-// in one place
 const PREFIX = require('../config').prefix;
 
-const ACCORDION = `.${PREFIX}-accordion`;
-const BUTTON = `${ACCORDION} .${PREFIX}-accordion-button[aria-controls]`;
+// XXX match .usa-accordion and .usa-accordion-bordered
+const ACCORDION = `[class*="${PREFIX}-accordion"]`;
+const BUTTON = `.${PREFIX}-accordion-button[aria-controls]`;
 const EXPANDED = 'aria-expanded';
 const MULTISELECTABLE = 'aria-multiselectable';
 
@@ -70,6 +69,7 @@ module.exports = behavior({
       });
   },
   ACCORDION,
+  BUTTON,
   show: button => toggleButton(button, true),
   hide: button => toggleButton(button, false),
   toggle: toggleButton,
