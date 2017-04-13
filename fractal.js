@@ -25,6 +25,9 @@ components.engine(require('@frctl/nunjucks')({
   filters: {
     jsonify: d => JSON.stringify(d, null, '  '),
   },
+  paths: [
+    'src/components',
+  ]
 }));
 
 const docs = fractal.docs;
