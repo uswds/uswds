@@ -1,12 +1,9 @@
 var gulp = require('gulp');
 var mocha = require('gulp-spawn-mocha');
-var istanbul = require('gulp-istanbul');
 var runSequence = require('run-sequence');
 
 var mochaOpts = {
-  require: [
-    'jsdom-global/register',
-  ],
+  opts: 'spec/mocha.opts',
 };
 
 gulp.task('test', function () {
