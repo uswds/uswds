@@ -25,12 +25,6 @@ components.engine(require('@frctl/nunjucks')({
   filters: {
     jsonify: d => JSON.stringify(d, null, '  '),
   },
-  paths: [
-    // e.g. {% include 'meta.html' %}
-    path.join(dir, 'src/templates'),
-    // e.g. {% include 'nav/nav--primary.njk' %}
-    path.join(dir, 'src/components'),
-  ]
 }));
 
 const docs = fractal.docs;
