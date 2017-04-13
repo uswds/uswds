@@ -2,7 +2,7 @@
   {% for item in accordion.items %}
   <li>
     <button class="usa-accordion-button"
-      aria-expanded="{{ item.expanded }}"
+      aria-expanded="{{ item.expanded | default('false') }}"
       aria-controls="{{ item.id }}">
       {{ item.title }}
     </button>
