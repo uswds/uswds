@@ -1,9 +1,5 @@
-<header class="usa-header usa-header-basic usa-header-basic-megamenu" role="banner">
-  <div class="usa-nav-container">
-    {% render '@site-title', {header: header}, true %}
-    <nav role="navigation" class="usa-nav">
-      {% render '@nav-primary', {nav: header.primary}, true %}
-    </nav>
-  </div>
-</header>
-<div class="usa-overlay"></div>
+{#
+  This template is exactly the same as the basic header;
+  the only difference is that it gets header.primary.mega == true
+#}
+{% render '@header--basic', {header: header}, true %}
