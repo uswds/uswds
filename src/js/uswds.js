@@ -16,7 +16,7 @@ whenDOMReady(() => {
   const target = document.body;
   Object.keys(components).forEach(name => {
     const behavior = components[ name ];
-    behavior.add(target);
+    behavior.on(target);
   });
 });
 
