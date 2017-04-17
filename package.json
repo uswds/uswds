@@ -54,6 +54,7 @@
     "classlist-polyfill": "^1.0.3",
     "cross-spawn": "^2.1.5",
     "del": "^2.2.0",
+    "domready": "^1.0.8",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean": "^0.3.1",

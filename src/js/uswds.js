@@ -1,5 +1,5 @@
 'use strict';
-const whenDOMReady = require('./utils/when-dom-ready');
+const domready = require('domready');
 
 /**
  * The 'polyfills' define key ECMAScript 5 methods that may be missing from
@@ -12,7 +12,7 @@ const uswds = require('./config');
 const components = require('./components');
 uswds.components = components;
 
-whenDOMReady(() => {
+domready(() => {
   const target = document.body;
   for (let name in components) {
     const behavior = components[ name ];
