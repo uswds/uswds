@@ -1,0 +1,8 @@
+# hide this for now
+hidden: true
+
+# default template ("context") data
+context:
+  header:
+    title: Department of Web Design
+    href: 'javascript:void(0)'

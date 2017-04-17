@@ -1,0 +1,28 @@
+<button class="usa-nav-close">
+  <img src="{{ uswds.path }}/img/close.svg" alt="close">
+</button>
+<ul class="usa-nav-primary usa-accordion">
+  {% for link in nav.links %}
+  <li>
+    {% if link.links %}
+    <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="{{ nav.id_prefix }}{{ link.id }}">
+      <span>{{ link.text }}</span>
+    </button>
+    <ul id="{{ nav.id_prefix }}{{ link.id }}" class="usa-nav-submenu{% if nav.mega %} usa-megamenu usa-grid-full{% endif %}">
+      {% for child in link.links %}
+      <li>
+        <a href="{{ child.href }}">{{ child.text }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <a class="usa-nav-link{% if link.current %} usa-current{% endif %}" href="{{ link.href }}">
+      <span>{{ link.text }}</span>
+    </a>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% if nav.search %}
+  {% render '@search--header', {search: nav.search}, true %}
+{% endif %}

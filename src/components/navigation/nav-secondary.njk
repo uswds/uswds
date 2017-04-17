@@ -1,0 +1,20 @@
+<div class="usa-nav-secondary">
+  {% if nav.search %}
+    {% render '@search--header', {search: nav.search, search_js: true} %}
+  {% endif %}
+  <ul class="usa-unstyled-list usa-nav-secondary-links">
+    {% if nav.search %}
+    <li class="js-search-button-container">
+      <button class="usa-header-search-button js-search-button">Search</button>
+    </li>
+    {% endif %}
+    {% for link in nav.links %}
+    <li>
+      <a href="{{ link.href }}"{% if link.current %} class="usa-current"{% endif %}>
+        {{ link.text }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
