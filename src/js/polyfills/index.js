@@ -1,4 +1,5 @@
 'use strict';
+require('classlist-polyfill');
 require('./element-hidden');
 
 if (!Array.prototype.forEach) {
