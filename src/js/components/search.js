@@ -1,7 +1,8 @@
 'use strict';
 const behavior = require('../utils/behavior');
-const select = require('../utils/select');
+const forEach = require('array-foreach');
 const ignore = require('receptor/ignore');
+const select = require('../utils/select');
 
 const PREFIX = require('../config').prefix;
 const BUTTON = '.js-search-button';
@@ -62,7 +63,7 @@ module.exports = behavior({
   },
 }, {
   init: (target) => {
-    select(BUTTON, target).forEach(button => {
+    forEach(select(BUTTON, target), button => {
       toggleSearch(button, false);
     });
   },

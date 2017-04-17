@@ -19,6 +19,8 @@ const showPanel = function () {
   const list = this.closest(LIST);
   list.classList.remove(HIDDEN);
 
+  // NB: this *should* always succeed because the button
+  // selector is scoped to ".{prefix}-footer-big nav"
   const lists = list.closest(NAV)
     .querySelectorAll('ul');
 
@@ -31,7 +33,7 @@ const showPanel = function () {
 
 const resize = debounce(() => {
   const hidden = window.innerWidth < HIDE_MAX_WIDTH;
-  select(LIST).forEach(list => {
+  forEach(select(LIST), list => {
     list.classList.toggle(HIDDEN, hidden);
   });
 }, DEBOUNCE_RATE);

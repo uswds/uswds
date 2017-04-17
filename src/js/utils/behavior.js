@@ -8,7 +8,7 @@ const sequence = function () {
     if (!target) {
       target = document.body;
     }
-    seq.forEach(method => {
+    forEach(seq, method => {
       if (typeof this[ method ] === 'function') {
         this[ method ].call(this, target);
       }

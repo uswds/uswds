@@ -14,10 +14,10 @@ uswds.components = components;
 
 whenDOMReady(() => {
   const target = document.body;
-  Object.keys(components).forEach(name => {
+  for (let name in components) {
     const behavior = components[ name ];
     behavior.on(target);
-  });
+  }
 });
 
 module.exports = uswds;

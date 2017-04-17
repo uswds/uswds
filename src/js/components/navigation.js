@@ -1,5 +1,6 @@
 'use strict';
 const behavior = require('../utils/behavior');
+const forEach = require('array-foreach');
 const select = require('../utils/select');
 
 const PREFIX = require('../config').prefix;
@@ -22,7 +23,7 @@ const toggleNav = function (active) {
   body.classList.toggle(ACTIVE_CLASS, active);
 
   const context = this.closest(CONTEXT);
-  select(TOGGLES).forEach(el => {
+  forEach(select(TOGGLES), el => {
     el.classList.toggle(VISIBLE_CLASS);
   });
 

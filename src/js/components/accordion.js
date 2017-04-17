@@ -1,5 +1,6 @@
 'use strict';
 const behavior = require('../utils/behavior');
+const forEach = require('array-foreach');
 const select = require('../utils/select');
 const toggle = require('../utils/toggle');
 
@@ -31,12 +32,11 @@ const toggleButton = (button, expanded) => {
   const multiselectable = accordion.getAttribute(MULTISELECTABLE) === 'true';
 
   if (expanded && !multiselectable) {
-    getAccordionButtons(accordion)
-      .forEach(other => {
-        if (other !== button) {
-          toggle(other, false);
-        }
-      });
+    forEach(getAccordionButtons(accordion), other => {
+      if (other !== button) {
+        toggle(other, false);
+      }
+    });
   }
 };
 
@@ -62,11 +62,10 @@ module.exports = behavior({
   },
 }, {
   init: root => {
-    select(BUTTON, root)
-      .forEach(button => {
-        const expanded = button.getAttribute(EXPANDED) === 'true';
-        toggleButton(button, expanded);
-      });
+    forEach(select(BUTTON, root), button => {
+      const expanded = button.getAttribute(EXPANDED) === 'true';
+      toggleButton(button, expanded);
+    });
   },
   ACCORDION,
   BUTTON,
