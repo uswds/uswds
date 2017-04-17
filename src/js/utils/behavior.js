@@ -1,6 +1,7 @@
 'use strict';
-const Behavior = require('receptor/behavior');
+const assign = require('object-assign');
 const forEach = require('array-foreach');
+const Behavior = require('receptor/behavior');
 
 const sequence = function () {
   const seq = [].slice.call(arguments);
@@ -23,7 +24,7 @@ const sequence = function () {
  * @return {receptor.behavior}
  */
 module.exports = (events, props) => {
-  return Behavior(events, Object.assign({
+  return Behavior(events, assign({
     on:   sequence('init', 'add'),
     off:  sequence('teardown', 'remove'),
   }, props));
