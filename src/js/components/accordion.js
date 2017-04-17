@@ -1,5 +1,6 @@
 'use strict';
 const behavior = require('../utils/behavior');
+const filter = require('array-filter');
 const forEach = require('array-foreach');
 const select = require('../utils/select');
 const toggle = require('../utils/toggle');
@@ -47,10 +48,9 @@ const toggleButton = (button, expanded) => {
  * @return {array<HTMLButtonElement>}
  */
 const getAccordionButtons = accordion => {
-  return select(BUTTON, accordion)
-    .filter(button => {
-      return button.closest(ACCORDION) === accordion;
-    });
+  return filter(select(BUTTON, accordion), button => {
+    return button.closest(ACCORDION) === accordion;
+  });
 };
 
 module.exports = behavior({
