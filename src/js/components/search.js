@@ -11,6 +11,10 @@ const INPUT = '[type=search]';
 const CONTEXT = 'header'; // XXX
 const VISUALLY_HIDDEN = `${PREFIX}-sr-only`;
 
+const CLICK = ('ontouchstart' in document.documentElement)
+  ? 'touchstart'
+  : 'click';
+
 let lastButton;
 
 const showSearch = function (event) {
@@ -37,13 +41,14 @@ const toggleSearch = (button, active) => {
     if (input) {
       input.focus();
     }
-    const listener = ignore(
-      form,
-      e => {
-        lastButton && hideSearch.call(lastButton);
-        document.body.removeEventListener(CLICK, listener);
+    // when the user clicks or touches _outside_ of the form
+    // w/ignore(): hide the search, then remove the listener
+    const listener = ignore(form, e => {
+      if (lastButton) {
+        hideSearch.call(lastButton);
       }
-    );
+      document.body.removeEventListener(CLICK, listener);
+    });
     document.body.addEventListener(CLICK, listener);
   }
 };
@@ -52,10 +57,6 @@ const getForm = button => {
   const context = button.closest(CONTEXT);
   return context ? context.querySelector(FORM) : undefined;
 };
-
-const CLICK = ('ontouchstart' in document.documentElement)
-  ? 'touchstart'
-  : 'click';
 
 module.exports = behavior({
   [ CLICK ]: {
