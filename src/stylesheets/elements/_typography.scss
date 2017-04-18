@@ -112,7 +112,8 @@ dfn {
 // Custom typography
 
 .usa-content {
-  p {
+  p,
+  > ul {
     max-width: $text-max-width;
   }
 }
