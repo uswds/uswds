@@ -4,16 +4,14 @@ const forEach = require('array-foreach');
 const ignore = require('receptor/ignore');
 const select = require('../utils/select');
 
+const CLICK = require('../events').CLICK;
 const PREFIX = require('../config').prefix;
+
 const BUTTON = '.js-search-button';
 const FORM = '.js-search-form';
 const INPUT = '[type=search]';
 const CONTEXT = 'header'; // XXX
 const VISUALLY_HIDDEN = `${PREFIX}-sr-only`;
-
-const CLICK = ('ontouchstart' in document.documentElement)
-  ? 'touchstart'
-  : 'click';
 
 let lastButton;
 
@@ -41,8 +39,8 @@ const toggleSearch = (button, active) => {
     if (input) {
       input.focus();
     }
-    // when the user clicks or touches _outside_ of the form
-    // w/ignore(): hide the search, then remove the listener
+    // when the user clicks _outside_ of the form w/ignore(): hide the
+    // search, then remove the listener
     const listener = ignore(form, e => {
       if (lastButton) {
         hideSearch.call(lastButton);

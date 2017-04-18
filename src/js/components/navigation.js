@@ -3,7 +3,9 @@ const behavior = require('../utils/behavior');
 const forEach = require('array-foreach');
 const select = require('../utils/select');
 
+const CLICK = require('../events').CLICK;
 const PREFIX = require('../config').prefix;
+
 const CONTEXT = 'header';
 const NAV = `.${PREFIX}-nav`;
 const OPENERS = `.${PREFIX}-menu-btn`;
@@ -35,10 +37,6 @@ const toggleNav = function (active) {
   }
   return active;
 };
-
-const CLICK = ('ontouchstart' in document.documentElement)
-  ? 'touchstart'
-  : 'click';
 
 module.exports = behavior({
   [ CLICK ]: {
