@@ -5,6 +5,7 @@ const forEach = require('array-foreach');
 const select = require('../utils/select');
 const toggle = require('../utils/toggle');
 
+const CLICK = require('../events').CLICK;
 const PREFIX = require('../config').prefix;
 
 // XXX match .usa-accordion and .usa-accordion-bordered
@@ -54,7 +55,7 @@ const getAccordionButtons = accordion => {
 };
 
 module.exports = behavior({
-  'click': {
+  [ CLICK ]: {
     [ BUTTON ]: function (event) {
       event.preventDefault();
       return toggleButton(this);

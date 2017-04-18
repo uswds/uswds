@@ -2,6 +2,7 @@
 const behavior = require('../utils/behavior');
 const once = require('receptor/once');
 
+const CLICK = require('../events').CLICK;
 const PREFIX = require('../config').prefix;
 
 const setTabindex = function (event) {
@@ -20,7 +21,7 @@ const setTabindex = function (event) {
 };
 
 module.exports = behavior({
-  'click': {
+  [ CLICK ]: {
     [ `.${PREFIX}-skipnav[href^="#"]` ]: setTabindex,
   },
 });

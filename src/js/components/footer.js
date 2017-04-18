@@ -5,7 +5,9 @@ const debounce = require('lodash.debounce');
 const forEach = require('array-foreach');
 const select = require('../utils/select');
 
+const CLICK = require('../events').CLICK;
 const PREFIX = require('../config').prefix;
+
 const HIDDEN = 'hidden';
 const SCOPE = `.${PREFIX}-footer-big`;
 const NAV = `${SCOPE} nav`;
@@ -39,7 +41,7 @@ const resize = debounce(() => {
 }, DEBOUNCE_RATE);
 
 module.exports = behavior({
-  'click': {
+  [ CLICK ]: {
     [ BUTTON ]: showPanel,
   },
 }, {
