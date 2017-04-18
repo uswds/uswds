@@ -54,6 +54,16 @@ describe('search toggle', function () {
     assert.equal(isVisuallyHidden(form), false, 'form is not hidden');
   });
 
+  it('hides the search form after clicking in the form', function () {
+    button.click();
+    form.click();
+    assert.equal(button.hidden, true, 'button is not hidden');
+    assert.equal(isVisuallyHidden(form), false, 'form is hidden');
+    body.click();
+    assert.equal(button.hidden, false, 'button is still visible');
+    assert.equal(isVisuallyHidden(form), true, 'form is not hidden');
+  });
+
   describe('off()', function () {
     it('removes click handlers', function () {
       search.off();
