@@ -1,5 +1,5 @@
 'use strict';
-const accordion = require('../../../src/js/components/accordion');
+const Accordion = require('../../../src/js/components/accordion');
 const assert = require('assert');
 const fs = require('fs');
 
@@ -9,20 +9,23 @@ const TEMPLATE = fs.readFileSync(__dirname + '/template.html');
 const EXPANDED = 'aria-expanded';
 const CONTROLS = 'aria-controls';
 const HIDDEN   = 'aria-hidden';
+const MULTISELECTABLE = 'aria-multiselectable';
 
 describe('accordion component', function () {
   const body = document.body;
 
   let root;
   let button;
+  let buttons;
   let content;
 
   beforeEach(function () {
     body.innerHTML = TEMPLATE;
-    accordion.on();
+    Accordion.on();
 
     root = body.querySelector('.usa-accordion');
-    button = root.querySelector('.usa-accordion-button');
+    buttons = root.querySelectorAll('.usa-accordion-button');
+    button = buttons[ 0 ];
     content = document.getElementById(
       button.getAttribute(CONTROLS)
     );
@@ -30,7 +33,7 @@ describe('accordion component', function () {
 
   afterEach(function () {
     body.innerHTML = '';
-    accordion.off();
+    Accordion.off();
   });
 
   describe('DOM state', function () {
@@ -44,8 +47,8 @@ describe('accordion component', function () {
 
     describe('accordion.show()', function () {
       beforeEach(function () {
-        accordion.hide(button);
-        accordion.show(button);
+        Accordion.hide(button);
+        Accordion.show(button);
       });
 
       it('toggles button aria-expanded="true"', function () {
@@ -59,8 +62,8 @@ describe('accordion component', function () {
 
     describe('accordion.hide()', function () {
       beforeEach(function () {
-        accordion.show(button);
-        accordion.hide(button);
+        Accordion.show(button);
+        Accordion.hide(button);
       });
 
       it('toggles button aria-expanded="false"', function () {
@@ -71,5 +74,41 @@ describe('accordion component', function () {
         assert.equal(content.getAttribute(HIDDEN), 'true');
       });
     });
+  });
+
+  describe('interaction', function () {
+
+    it('shows the second item when clicked', function () {
+      const second = buttons[ 1 ];
+      const target = document.getElementById(
+        second.getAttribute(CONTROLS)
+      );
+      second.click();
+      // first button and section should be collapsed
+      assert.equal(button.getAttribute(EXPANDED), 'false');
+      assert.equal(content.getAttribute(HIDDEN), 'true');
+      // second should be expanded
+      assert.equal(second.getAttribute(EXPANDED), 'true');
+      assert.equal(target.getAttribute(HIDDEN), 'false');
+    });
+
+    it('keeps multiple sections open with aria-multiselectable="true"', function () {
+      root.setAttribute(MULTISELECTABLE, true);
+
+      const second = buttons[ 1 ];
+      const target = document.getElementById(
+        second.getAttribute(CONTROLS)
+      );
+      second.click();
+      button.click();
+
+      assert.equal(button.getAttribute(EXPANDED), 'true');
+      assert.equal(content.getAttribute(HIDDEN), 'false');
+      // second should be expanded
+      assert.equal(second.getAttribute(EXPANDED), 'true');
+      assert.equal(target.getAttribute(HIDDEN), 'false');
+    });
+
+
   });
 });
