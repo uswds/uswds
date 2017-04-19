@@ -3,10 +3,8 @@
  * @param {Array.HTMLElement} fields - An array of INPUT elements
  * @param {Boolean} mask - Whether the mask should be applied, hiding the field value
  */
-module.exports = function (fields, mask) {
-  fields.forEach(function (field) {
-    field.setAttribute('autocapitalize', 'off');
-    field.setAttribute('autocorrect', 'off');
-    field.setAttribute('type', mask ? 'password' : 'text');
-  });
+module.exports = function (field, mask) {
+  field.setAttribute('autocapitalize', 'off');
+  field.setAttribute('autocorrect', 'off');
+  field.setAttribute('type', mask ? 'password' : 'text');
 };

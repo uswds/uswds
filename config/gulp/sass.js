@@ -15,13 +15,6 @@ var task = 'sass';
 
 var entryFileFilter = filter('uswds.scss', { restore: true });
 var normalizeCssFilter = filter('normalize.css', { restore: true });
-var supportedBrowsers = [
-  '> 1%',
-  'Last 2 versions',
-  'IE 11',
-  'IE 10',
-  'IE 9',
-];
 
 gulp.task('stylelint',
   linter('./src/stylesheets/{,core/,components/,elements/}*.scss',
@@ -68,7 +61,7 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
     // 3. run it through autoprefixer
     .pipe(
       autoprefixer({
-        browsers: supportedBrowsers,
+        browsers: require('./browsers'),
         cascade: false,
       })
     )

@@ -10,34 +10,21 @@ var rename = require('gulp-rename');
 var eslint = require('gulp-eslint');
 var task = 'javascript';
 
-gulp.task('eslint', function (done) {
-
-  if (!cFlags.test) {
-    dutil.logMessage('eslint', 'Skipping linting of JavaScript files.');
-    return done();
-  }
-
-  return gulp.src([
-      'src/js/**/*.js',
-      '!src/js/vendor/**/*.js',
-      'spec/**/*.js'
-    ])
-    .pipe(eslint())
-    .pipe(eslint.format());
-
-});
-
-gulp.task(task, [ 'eslint' ], function (done) {
+gulp.task(task, function (done) {
 
   dutil.logMessage(task, 'Compiling JavaScript');
 
   var defaultStream = browserify({
     entries: 'src/js/start.js',
     debug: true,
+  })
+  .transform('babelify', {
+    global: true,
+    presets: ['es2015'],
   });
 
   var stream = defaultStream.bundle()
-    .pipe(source('components.js'))
+    .pipe(source('uswds.js')) // XXX why is this necessary?
     .pipe(buffer())
     .pipe(rename({ basename: dutil.pkg.name }))
     .pipe(gulp.dest('dist/js'));
@@ -54,4 +41,18 @@ gulp.task(task, [ 'eslint' ], function (done) {
 
   return stream;
 
+});
+
+gulp.task('eslint', function (done) {
+  if (!cFlags.test) {
+    dutil.logMessage('eslint', 'Skipping linting of JavaScript files.');
+    return done();
+  }
+
+  return gulp.src([
+      'src/js/**/*.js',
+      'spec/**/*.js'
+    ])
+    .pipe(eslint())
+    .pipe(eslint.format());
 });
