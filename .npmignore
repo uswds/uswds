@@ -1,9 +1,10 @@
-# Ensure that src and dist are published   
-#   
-!dist/    
+# Ensure that src and dist are published
+!dist/
 !src/
 
+build/
 config/
+coverage/
 spec/
 .github/
 .editorconfig
