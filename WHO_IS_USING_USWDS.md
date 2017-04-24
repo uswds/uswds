@@ -51,7 +51,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [Fresh Direct](http://freshdirect.github.io/)
 - [GI Bill Comparison Tool](https://www.vets.gov/gi-bill-comparison-tool)
 - [General Service Administration](https://gsa.gov)
-- [General Service Administrtion CTO website](https://github.com/GSA/cto-website)
+- [General Service Administration CTO website](https://github.com/GSA/cto-website)
 - [GovBuy Marketplace](https://buy.gds-gov.tech/)
 - [GSA Open IAE](http://gsa.github.io/openIAE/)
 - [GSA Presents: Grace Hopper Day Hackathon!](http://open.gsa.gov/grace-hopper-hackathon/)
