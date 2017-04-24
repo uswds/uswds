@@ -66,7 +66,6 @@
     "gulp-cssnano": "^2.1.2",
     "gulp-eslint": "^1.1.1",
     "gulp-filter": "^3.0.1",
-    "gulp-mocha": "^2.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.1.1",
