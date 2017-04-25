@@ -5,6 +5,8 @@
   "main": "src/js/start.js",
   "scripts": {
     "build": "gulp build",
+    "build:css": "gulp sass",
+    "build:js": "gulp javascript",
     "build:package": "gulp release",
     "check-publish": "npm publish",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
@@ -13,7 +15,12 @@
     "preversion": "npm test",
     "start": "fractal start --sync",
     "test": "gulp eslint stylelint test",
+    "watch": "nswatch",
     "version": "npm run prepublish"
+  },
+  "watch": {
+    "src/stylesheets/{components,core,elements,}/*.scss": "build:css",
+    "src/js/**/*.js": "build:js"
   },
   "repository": {
     "type": "git",
@@ -64,6 +71,7 @@
     "node-notifier": "^4.6.0",
     "node-sass": "^3.4.2",
     "normalize.css": "^3.0.3",
+    "nswatch": "^0.2.0",
     "run-sequence": "^1.1.5",
     "should": "^8.3.1",
     "vinyl-buffer": "^1.0.0",

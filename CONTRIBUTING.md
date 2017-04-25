@@ -11,6 +11,7 @@ If you have any questions or want to read more, check out the [18F Open Source P
 ## Guidelines
 
 ### Contributor Guidelines for Design
+
 We have provided some guidelines for folks that would like to submit new components to the U.S. Web Design Standards and the lifecycle those new components will go through. For more detail, please visit the [guidelines on our wiki](https://github.com/18F/web-design-standards/wiki/Contribution-Guidelines:-Design).
 
 ### Submitting an issue
@@ -25,53 +26,74 @@ Here are a few guidelines to follow when submitting a pull request:
 1. Fork this repo into your GitHub account (or just clone it if you’re an 18F team member). Read more about forking a repo here on GitHub:
 [https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/)
 1. Create a branch from `develop` that lightly defines what you’re working on (for example, add-styles).
-1. Ensure that your contribution works via `npm`, if applicable. See below under
-   _Install the package locally via `npm-link`_.
+1. Ensure that your contribution works via `npm`, if applicable.
 1. Once you’re ready to submit a pull request, fill out the PULL REQUEST template provided.
 1. Submit your pull request against the `develop` branch.
 
-Have questions or need help with setup? Open an issue here [https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
+[Open an issue](https://github.com/18F/web-design-standards/issues/new) if you have questions or need help with setup.
 
 ### Running locally
 
-The U.S. Web Design Standards `uswds` package (the ZIP download and the files needed to use the Standards on your project) is built using gulp automation. To use gulp, first make sure you've installed it on your machine globally.
-
-```sh
-npm install --global gulp-cli
-```
-
-Then, to start, run the following command to install any new dependencies:
+The U.S. Web Design Standards `uswds` package (the zip download and the
+files needed to use the Standards on your project) is built primarily with
+two [Node.js] tools: [Fractal] and [Gulp]. Once you've cloned this
+repository, you'll need to install its dependencies:
 
 ```sh
 npm install
 ```
 
-The following examples detail a few `npm` commands that alias our gulp tasks and that are useful throughout local development:
+**ProTip**: You can also use [Yarn], which tends to install dependencies more quickly than npm.
+
+To start the [Fractal] live reload server, run:
 
 ```sh
-npm test
+npm start
 ```
 
-This command runs the gulp task for `eslint` and our test suite for the `uswds` package. It is an alias for `gulp eslint test`.
+Then, visit [localhost:3000](http://localhost:3000) in a web browser to
+peruse the component library. While the server is running, any changes that
+you make to the component templates or configurations will reload the page
+automatically.
 
-```sh
-npm run build
-```
-
-This command builds the `uswds` package. It is an alias for `gulp build`.
-
-```sh
-npm run build:package
-```
-
-This command builds the `uswds` package, which includes the zip files generated for release purposes. It is an alias for `gulp copy-vendor-sass && gulp release`.
-
+If you're working on the JavaScript or CSS, you can run the "watch" task in
+another shell to automatically rebuild the distribution files that Fractal
+references with:
 
 ```sh
 npm run watch
 ```
 
-This command watches for any changes that happen in the `src` directory and rebuilds the package if any changes are made.
+### Testing
+
+To run the component unit tests, run:
+
+```sh
+npm test
+```
+
+This will also run [eslint] and [stylelint] to ensure that the JavaScript
+and SCSS source files meet our coding standards. To lint without the unit
+tests, you'll need [Gulp][]. Install it globally (`npm install -g
+gulp-cli`), then run:
+
+```sh
+gulp eslint
+gulp stylelint
+```
+
+(Or, if you don't want to install Gulp globally, you can run `$(npm
+bin)/gulp` instead of `gulp`.)
+
+### Building
+
+To build the `uswds` package in preparation for releases, run:
+
+```sh
+npm run build:package
+# or
+gulp release
+```
 
 ## Coding guidelines
 
@@ -113,3 +135,11 @@ the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/pub
 All contributions to this project will be released under the CC0
 dedication. By submitting a pull request, you are agreeing to comply
 with this waiver of copyright interest.
+
+
+[Node.js]: https://nodejs.org
+[Fractal]: http://fractal.build
+[Gulp]: http://gulpjs.com/
+[Yarn]: https://yarnpkg.com/
+[eslint]: http://eslint.org/
+[stylelint]: https://stylelint.io/
