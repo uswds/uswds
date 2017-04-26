@@ -1,10 +1,11 @@
 # U.S. Web Design Standards
 
-[![CircleCI Build Status](https://circleci.com/gh/18F/web-design-standards/tree/staging.svg?style=shield)](https://circleci.com/gh/18F/web-design-standards/tree/staging)
+[![CircleCI Build Status](https://circleci.com/gh/18F/web-design-standards/tree/develop.svg?style=shield)](https://circleci.com/gh/18F/web-design-standards/tree/develop) [![Test Coverage](https://codeclimate.com/github/18F/web-design-standards/badges/coverage.svg)](https://codeclimate.com/github/18F/web-design-standards/coverage)
 
 The [U.S. Web Design Standards](https://standards.usa.gov) include a library of open source UI components and a visual style guide for U.S. federal government websites.
 
 This repository is for the Standards themselves. 18F maintains [another repository for the documentation and website](https://github.com/18F/web-design-standards-docs). To see the Standards and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
+
 
 ## Contents
 
@@ -18,6 +19,8 @@ This repository is for the Standards themselves. 18F maintains [another reposito
     * [Sass](#sass)
     * [JavaScript](#javascript)
   * [Use another framework or package manager](#use-another-framework-or-package-manager)
+* [Fractal](#fractal)
+  * [Template compatibility](#template-compatibility)
 * [Need installation help?](#need-installation-help)
 * [Contributing to the code base](#contributing-to-the-codebase)
 * [Reuse of open-source style guides](#reuse-of-open-source-style-guides)
@@ -27,18 +30,21 @@ This repository is for the Standards themselves. 18F maintains [another reposito
 
 The components and style guide of the U.S. Web Design Standards follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created and maintain the U.S. Web Design Standards for designers and developers. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/) and to view websites and applications check out our list [here](WHO_IS_USING_USWDS.md).
 
+
 ## Recent updates
 
 Information about the most recent release of the Standards can always be found in the [release history](https://github.com/18F/web-design-standards/releases). We include details about significant updates and any backwards incompatible changes along with a list of all changes.
+
 
 ## Getting started
 
 We’re glad you’d like to use the Standards — here’s how you can get started:
 
 * Designers: [Check out our Getting Started for Designers information](https://standards.usa.gov/getting-started/designers/).
-    * [Design files of all the assets included in the Standards are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
+  * [Design files of all the assets included in the Standards are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
 * Developers: [Follow the instructions in this README to get started.](#using-the-standards)
-    * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v1.0.0/uswds-1.0.0.zip).
+  * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v1.0.0/uswds-1.0.0.zip).
+
 
 ## Using the Standards
 
@@ -59,16 +65,17 @@ There are a few different ways to use the Standards within your project. Which o
 
   ```
   uswds-1.0.0/
-  ├── js/
-  │   ├── uswds.min.js.map
-  │   ├── uswds.min.js
-  │   └── uswds.js
   ├── css/
   │   ├── uswds.min.css.map
   │   ├── uswds.min.css
   │   └── uswds.css
-  ├── img/
-  └── fonts/
+  ├── fonts/
+  ├── html/
+  └── js/
+      ├── uswds.min.js.map
+      ├── uswds.min.js
+      └── uswds.js
+
   ```
 
 2. Copy these files and folders into a relevant place in your project's code base. Here is an example structure for how this might look:
@@ -141,21 +148,24 @@ node_modules/uswds/
 ├── dist/
 │   ├── css/
 │   ├── fonts/
+│   ├── html/
 │   ├── img/
 │   ├── js/
 └── src/
     ├── fonts/
     ├── img/
     ├── js/
-    └── stylesheets/
+    ├── stylesheets/
+    └── templates/
 ```
 
 #### Importing assets
 
 Since you are already using `npm`, the U.S. Web Design Standards team recommends leveraging the ability to write custom scripts. Here are some links to how we do this with our docs website using `npm` + [`gulp`](http://gulpjs.com/):
 
-[Link to `npm` scripts example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/staging/package.json#L4)
-[Link to gulpfile.js example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/staging/gulpfile.js)
+[Link to `npm` scripts example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/develop/package.json#L4)
+
+[Link to gulpfile.js example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/develop/gulpfile.js)
 
 #### Sass
 
@@ -180,12 +190,27 @@ You can now use your copied version of `_variables.scss` to override any styles 
 #### JavaScript
 `require('uswds')` will load all of the U.S. Web Design Standards’ JavaScript onto the page. Add this line to whatever initializer you use to load JavaScript into your application.
 
-
 ### Use another framework or package manager
 
 If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/18F/web-design-standards/issues/877).
 
 If you’re interested in maintaining a package that helps us distribute the U.S. Web Design Standards, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
+
+
+## Fractal
+
+We're using [Fractal](http://fractal.build) to generate an interactive component library for the Standards. You can run it locally after `npm install` with:
+
+```sh
+npm start
+```
+
+Then, visit [http://localhost:3000/](http://localhost:3000/) to see the Standards in action.
+
+### Template compatibility
+
+Many of our Fractal view templates are compatible with [Nunjucks](https://mozilla.github.io/nunjucks/) (for JavaScript/Node), [Jinja](http://jinja.pocoo.org/docs/2.9/) (Python), and [Twig](https://twig.sensiolabs.org/) (PHP) out of the box. Components that reference other components use a Fractal-specific `{% render %}` tag that will either need to be implemented in other environments or replaced with the appropriate `{% include %}` tags.
+
 
 ## Need installation help?
 
@@ -195,6 +220,7 @@ Do you have questions or need help with setup? Did you run into any weird errors
 
 You can also email us directly at uswebdesignstandards@gsa.gov.
 
+
 ## Contributing to the code base
 
 For complete instructions on how to contribute code, please read [CONTRIBUTING.md](CONTRIBUTING.md). These instructions also include guidance on how to set up your own copy of the Standards style guide website for development.
@@ -202,6 +228,7 @@ For complete instructions on how to contribute code, please read [CONTRIBUTING.m
 If you would like to learn more about our workflow process, check out the [Workflow](https://github.com/18F/web-design-standards/wiki/Workflow) and [Label Glossary](https://github.com/18F/web-design-standards/wiki/Label-glossary) pages on the wiki.
 
 If you have questions or concerns about our contributing workflow, please contact us by [filing a GitHub issue](https://github.com/18F/web-design-standards/issues) or [emailing our team](mailto:uswebdesignstandards@gsa.gov).
+
 
 ## Reuse of open-source style guides
 
@@ -214,11 +241,13 @@ Much of the guidance in the U.S. Web Design Standards leans on open source desig
 * Code for America’s Chime [Styleguide](https://github.com/chimecms/chime-starter)
 * Pivotal Labs [Component Library](http://styleguide.cfapps.io/)
 
+
 ## Licenses and attribution
 
 A few parts of this project are not in the public domain. Attribution and licensing information for those parts are described in detail in [LICENSE.md](LICENSE.md).
 
 The rest of this project is in the worldwide public domain, released under the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
+
 
 ## Contributing
 

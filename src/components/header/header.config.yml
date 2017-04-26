@@ -1,0 +1,45 @@
+label: Headers
+status: ready
+
+variants:
+  - name: default
+    label: Compare
+    status: null
+
+  - name: basic
+    label: Basic header
+    context:
+      header:
+        primary:
+          search: true
+          id_prefix: basic-
+
+  - name: basic-mega
+    label: Basic with mega-menu
+    context:
+      header:
+        primary:
+          search: true
+          id_prefix: basic-mega-
+          mega: true
+
+  - name: extended
+    label: Extended header
+    context:
+      header:
+        primary:
+          search: false
+          id_prefix: extended-
+        secondary:
+          search: true
+
+  - name: extended-mega
+    label: Extended with mega-menu
+    context:
+      header:
+        primary:
+          search: false
+          id_prefix: extended-mega-
+          mega: true
+        secondary:
+          search: true

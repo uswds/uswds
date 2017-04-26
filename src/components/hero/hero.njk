@@ -1,0 +1,20 @@
+<section class="usa-hero">
+  <div class="usa-grid">
+    <div class="usa-hero-callout usa-section-dark">
+      <h2>
+        {% if hero.callout %}
+          <span class="usa-hero-callout-alt">{{ hero.callout }}</span>
+        {% endif %}
+        {{ hero.title }}
+      </h2>
+
+      {% if hero.link %}
+      <a class="usa-hero-link" href="{{ hero.link.href }}">{{ hero.link.text }}</a>
+      {% endif %}
+
+      {% if hero.button %}
+      <a class="usa-button usa-button-big usa-button-secondary" href="{{ hero.button.href }}">{{ hero.button.text }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>

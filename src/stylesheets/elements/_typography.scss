@@ -76,45 +76,6 @@ h6 {
   margin-top: 1.5em;
 }
 
-// Create heading mixins
-
-@mixin title {
-  font-size: $title-font-size;
-  font-weight: $font-bold;
-}
-
-@mixin h1 {
-  font-size: $h1-font-size;
-  font-weight: $font-bold;
-}
-
-@mixin h2 {
-  font-size: $h2-font-size;
-  font-weight: $font-bold;
-}
-
-@mixin h3 {
-  font-size: $h3-font-size;
-  font-weight: $font-bold;
-}
-
-@mixin h4 {
-  font-size: $h4-font-size;
-  font-weight: $font-bold;
-}
-
-@mixin h5 {
-  font-size: $h5-font-size;
-  font-weight: $font-bold;
-}
-
-@mixin h6 {
-  font-family: $font-sans;
-  font-size: $h6-font-size;
-  font-weight: $font-normal;
-  text-transform: uppercase;
-}
-
 h1 {
   @include h1();
 }
@@ -248,7 +209,8 @@ dfn {
 // Removes top margin from first child and bottom margin from last child on
 // elements when they are within those layout elements.
 .usa-section,
-.usa-grid {
+.usa-grid,
+.usa-grid-full {
   > :first-child {
     margin-top: 0;
   }

@@ -30,7 +30,7 @@ gulp.task('stylelint',
   })
 );
 
-gulp.task('copy-vendor-sass', function (done) {
+gulp.task('copy-vendor-sass', function () {
 
   dutil.logMessage('copy-vendor-sass', 'Compiling vendor CSS');
 
@@ -50,7 +50,7 @@ gulp.task('copy-vendor-sass', function (done) {
   return stream;
 });
 
-gulp.task(task, [ 'stylelint' ], function (done) {
+gulp.task(task, [ 'copy-vendor-sass' ], function () {
 
   dutil.logMessage(task, 'Compiling Sass');
 

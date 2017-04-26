@@ -1,0 +1,3 @@
+# when publishing on Federalist, build only the files in ./build
+# (where Fractal puts everything)
+source: build

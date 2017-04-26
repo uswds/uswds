@@ -1,24 +1,23 @@
 // Bring in individual Gulp configurations
-//
-require( './config/gulp/flags' );
-require( './config/gulp/sass' );
-require( './config/gulp/javascript' );
-require( './config/gulp/images' );
-require( './config/gulp/fonts' );
-require( './config/gulp/build' );
-require( './config/gulp/release' );
-require( './config/gulp/test' );
+require('./config/gulp/flags');
+require('./config/gulp/sass');
+require('./config/gulp/javascript');
+require('./config/gulp/images');
+require('./config/gulp/fonts');
+require('./config/gulp/build');
+require('./config/gulp/release');
+require('./config/gulp/test');
 
-var gulp = require( 'gulp' );
-var dutil = require( './config/gulp/doc-util' );
+var gulp = require('gulp');
+var dutil = require('./config/gulp/doc-util');
 
-gulp.task( 'default', function ( done ) {
+gulp.task('default', function (done) {
 
   dutil.logIntroduction();
 
   dutil.logHelp(
     'gulp',
-    'This task will output the currently supported automation tasks. ( e.g. This help message. )'
+    'This task will output the currently supported automation tasks. (e.g. This help message.)'
   );
 
   dutil.logHelp(
@@ -73,4 +72,4 @@ gulp.task( 'default', function ( done ) {
 
   done();
 
-} );
+});
