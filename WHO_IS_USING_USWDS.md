@@ -108,7 +108,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [USGS Earthquake Hazards Program](http://earthquake.usgs.gov/theme/)
 - [USWDS Drupal theme](http://uswds.civicactions.net/)
 - VA Appeals Case Flow
-- [VA Office of Information Technology](https://www.oit.va.gov/) 
+- [VA Office of Information and Technology](https://www.oit.va.gov/)
 - [Vets.gov](https://vets.gov)
 - [Virtual Student Foreign Service](http://vsfs.state.gov/)
 - [vote.gov](https://vote.gov/)
