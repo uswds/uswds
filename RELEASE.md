@@ -125,14 +125,13 @@ example, any of the following should trigger a major version increment:
 
     1. Update the `uswds` Node dependency to the new version, e.g.:
 
-      ```sh
+      sh
       cd path/to/web-design-standards-docs
       export VERSION=1.0.0
       git fetch origin
       git checkout -b release-${VERSION} origin/develop
       npm install --save-dev uswds@${VERSION}
-      ```
-
+      
     1. Update the `version` [variable in
        _config.yml](https://github.com/18F/web-design-standards-docs/blob/master/_config.yml#L3).
 
