@@ -67,15 +67,16 @@ example, any of the following should trigger a major version increment:
 
     1. Branch off `develop`:
   
-      ```sh
-      git fetch origin
-      git checkout -b feature-foo origin/develop
-      ```
+        ```sh
+        git fetch origin
+        git checkout -b feature-foo origin/develop
+        ```
       
-    1. As a naming convention, your branch name can be anything except `master`,
-       `develop`, or with the `release-` or `hotfix-` prefix
+    1. Name your branch pretty much anything except `master`, `develop`, or
+       with the `release-` or `hotfix-` prefix. Suggested prefixes include
+       `refactor-`, `feature-`, `docs-`, and `patch-`.
 
-    1. Changes are merged back into the `develop` branch
+    1. File your pull request to merge into the `develop` branch.
   
 * When publishing a new release:
 
