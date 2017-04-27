@@ -1,4 +1,4 @@
-## Responsive Embed Container
+## Responsive embed container
 
 The `usa-embed-container` class can be applied to a `div` that contains an `<iframe>` to ensure the content inside the `<iframe>` is responsive.
 
