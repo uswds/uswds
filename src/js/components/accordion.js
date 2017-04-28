@@ -1,8 +1,8 @@
 'use strict';
+const assign = require('object-assign');
 const behavior = require('../utils/behavior');
 const filter = require('array-filter');
 const forEach = require('array-foreach');
-const select = require('../utils/select');
 const toggle = require('../utils/toggle');
 
 const CLICK = require('../events').CLICK;
@@ -43,18 +43,30 @@ const toggleButton = (button, expanded) => {
 };
 
 /**
+ * @param {HTMLButtonElement} button
+ * @return {boolean} true
+ */
+const showButton = button => toggleButton(button, true);
+
+/**
+ * @param {HTMLButtonElement} button
+ * @return {boolean} false
+ */
+const hideButton = button => toggleButton(button, false);
+
+/**
  * Get an Array of button elements belonging directly to the given
  * accordion element.
  * @param {HTMLElement} accordion
  * @return {array<HTMLButtonElement>}
  */
 const getAccordionButtons = accordion => {
-  return filter(select(BUTTON, accordion), button => {
+  return filter(accordion.querySelectorAll(BUTTON), button => {
     return button.closest(ACCORDION) === accordion;
   });
 };
 
-module.exports = behavior({
+const accordion = behavior({
   [ CLICK ]: {
     [ BUTTON ]: function (event) {
       event.preventDefault();
@@ -63,15 +75,32 @@ module.exports = behavior({
   },
 }, {
   init: root => {
-    forEach(select(BUTTON, root), button => {
+    forEach(root.querySelectorAll(BUTTON), button => {
       const expanded = button.getAttribute(EXPANDED) === 'true';
       toggleButton(button, expanded);
     });
   },
   ACCORDION,
   BUTTON,
-  show: button => toggleButton(button, true),
-  hide: button => toggleButton(button, false),
+  show: showButton,
+  hide: hideButton,
   toggle: toggleButton,
   getButtons: getAccordionButtons,
 });
+
+const Accordion = function (root) {
+  this.root = root;
+  accordion.on(this.root);
+};
+
+// copy all of the behavior methods and props to Accordion
+assign(Accordion, accordion);
+
+Accordion.prototype.show = showButton;
+Accordion.prototype.hide = hideButton;
+
+Accordion.prototype.remove = function () {
+  accordion.off(this.root);
+};
+
+module.exports = Accordion;
