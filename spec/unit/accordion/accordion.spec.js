@@ -11,7 +11,7 @@ const CONTROLS = 'aria-controls';
 const HIDDEN   = 'aria-hidden';
 const MULTISELECTABLE = 'aria-multiselectable';
 
-describe('accordion component', function () {
+describe('accordion behavior', function () {
   const body = document.body;
 
   let root;
