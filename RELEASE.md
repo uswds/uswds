@@ -201,4 +201,4 @@ If you need help or have any questions, please reach out to us:
 [uswds on npm]: https://npmjs.com/package/uswds
 [what is npm]: https://docs.npmjs.com/getting-started/what-is-npm
 [Slack]: https://slack.com/
-[release candidate]: https://en.wikipedia.org/wiki/Software_release_life_cycle#Release_candidate
+[release candidates]: https://en.wikipedia.org/wiki/Software_release_life_cycle#Release_candidate
