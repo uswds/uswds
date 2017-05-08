@@ -88,6 +88,12 @@ const accordion = behavior({
   getButtons: getAccordionButtons,
 });
 
+/**
+ * TODO: for 2.0, remove everything below this comment and export the
+ * behavior directly:
+ *
+ * module.exports = behavior({...});
+ */
 const Accordion = function (root) {
   this.root = root;
   accordion.on(this.root);
