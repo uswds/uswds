@@ -1,5 +1,4 @@
 'use strict';
-const assign = require('object-assign');
 const behavior = require('../utils/behavior');
 const forEach = require('array-foreach');
 const select = require('../utils/select');
@@ -51,6 +50,7 @@ const navigation = behavior({
  *
  * module.exports = behavior({...});
  */
+const assign = require('object-assign');
 module.exports = assign(
   el => navigation.on(el),
   navigation

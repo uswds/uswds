@@ -1,5 +1,4 @@
 'use strict';
-const assign = require('object-assign');
 const behavior = require('../utils/behavior');
 const filter = require('array-filter');
 const forEach = require('array-foreach');
@@ -100,6 +99,7 @@ const Accordion = function (root) {
 };
 
 // copy all of the behavior methods and props to Accordion
+const assign = require('object-assign');
 assign(Accordion, accordion);
 
 Accordion.prototype.show = showButton;
