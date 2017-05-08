@@ -1,16 +1,17 @@
 {
   "name": "uswds",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "src/js/start.js",
   "scripts": {
     "build": "gulp build",
+    "build:css": "gulp sass",
+    "build:js": "gulp javascript",
     "build:package": "gulp release",
     "check-publish": "npm publish",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
     "federalist": "gulp build && fractal build",
-    "js": "gulp javascript",
     "mocha": "mocha --opts spec/mocha.opts spec/**/*.spec.js",
     "prepublish": "gulp build",
     "preversion": "npm test",
@@ -20,7 +21,8 @@
     "watch": "nswatch"
   },
   "watch": {
-    "src/js/**/*.js": "js"
+    "src/stylesheets/{components,core,elements,}/*.scss": "build:css",
+    "src/js/**/*.js": "build:js"
   },
   "repository": {
     "type": "git",
@@ -78,6 +80,7 @@
     "node-notifier": "^4.6.0",
     "node-sass": "^3.4.2",
     "normalize.css": "^3.0.3",
+    "nswatch": "^0.2.0",
     "object-assign": "^4.1.1",
     "receptor": "^1.0.0",
     "resolve-id-refs": "^0.1.0",
