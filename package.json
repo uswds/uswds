@@ -12,7 +12,6 @@
     "check-publish": "npm publish",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
     "federalist": "gulp build && fractal build",
-    "js": "gulp javascript",
     "mocha": "mocha --opts spec/mocha.opts spec/**/*.spec.js",
     "prepublish": "gulp build",
     "preversion": "npm test",
