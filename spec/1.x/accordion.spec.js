@@ -12,7 +12,7 @@ const CONTROLS = 'aria-controls';
 const EXPANDED = 'aria-expanded';
 const HIDDEN = 'aria-hidden';
 
-describe('Accordion 1.x API', function () {
+describe('1.x accordion component', function () {
 
   let accordion;
   let button;
