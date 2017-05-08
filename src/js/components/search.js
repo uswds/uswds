@@ -56,7 +56,7 @@ const getForm = button => {
   return context ? context.querySelector(FORM) : undefined;
 };
 
-module.exports = behavior({
+const search = behavior({
   [ CLICK ]: {
     [ BUTTON ]: showSearch,
   },
@@ -71,3 +71,14 @@ module.exports = behavior({
     lastButton = undefined;
   },
 });
+
+/**
+ * TODO for 2.0, remove this statement and export `navigation` directly:
+ *
+ * module.exports = behavior({...});
+ */
+const assign = require('object-assign');
+module.exports = assign(
+  el => search.on(el),
+  search
+);
