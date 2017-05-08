@@ -1,4 +1,5 @@
 'use strict';
+const assign = require('object-assign');
 const behavior = require('../utils/behavior');
 const forEach = require('array-foreach');
 const select = require('../utils/select');
@@ -38,9 +39,19 @@ const toggleNav = function (active) {
   return active;
 };
 
-module.exports = behavior({
+const navigation = behavior({
   [ CLICK ]: {
     [ OPENERS ]: toggleNav,
     [ CLOSERS ]: toggleNav,
   },
 });
+
+/**
+ * TODO for 2.0, remove this statement and export `navigation` directly:
+ *
+ * module.exports = behavior({...});
+ */
+module.exports = assign(
+  el => navigation.on(el),
+  navigation
+);
