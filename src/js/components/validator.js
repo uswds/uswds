@@ -1,7 +1,7 @@
 'use strict';
 const behavior = require('../utils/behavior');
-const debounce = require('lodash.debounce');
 const validate = require('../utils/validate-input');
+const debounce = require('lodash.debounce');
 
 const change = function (event) {
   return validate(this);
