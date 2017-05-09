@@ -25,6 +25,13 @@ const hideSearch = function (event) {
   lastButton = undefined;
 };
 
+const getForm = button => {
+  const context = button.closest(CONTEXT);
+  return context
+    ? context.querySelector(FORM)
+    : document.querySelector(FORM);
+};
+
 const toggleSearch = (button, active) => {
   const form = getForm(button);
   if (!form) {
@@ -49,11 +56,6 @@ const toggleSearch = (button, active) => {
     });
     document.body.addEventListener(CLICK, listener);
   }
-};
-
-const getForm = button => {
-  const context = button.closest(CONTEXT);
-  return context ? context.querySelector(FORM) : undefined;
 };
 
 const search = behavior({
