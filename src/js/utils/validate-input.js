@@ -8,7 +8,10 @@ const CHECKED_CLASS = `${PREFIX}-checklist-checked`;
 module.exports = function validate (el) {
   const data = dataset(el);
   const id = data.validationElement;
-  const checkList = document.getElementById(id);
+  const checkList = id.charAt(0) === '#'
+    ? document.querySelector(id)
+    : document.getElementById(id);
+
   if (!checkList) {
     throw new Error(
       `No validation element found with id: "${id}"`
