@@ -42,5 +42,6 @@ for more information.
 [es2015]: https://babeljs.io/learn-es2015/
 [mapstraction]: https://github.com/jiborobot/mapstraction
 [npm]: https://docs.npmjs.com/getting-started/what-is-npm
+[source map]: https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/
 [uglifyjs]: https://github.com/mishoo/UglifyJS2
 [uglifyify]: https://github.com/hughsk/uglifyify
