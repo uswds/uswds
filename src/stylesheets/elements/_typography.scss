@@ -112,7 +112,9 @@ dfn {
 // Custom typography
 
 .usa-content {
-  p:not(.usa-font-lead) {
+  p:not(.usa-font-lead),
+  ol,
+  ul {
     max-width: $text-max-width;
   }
 }
