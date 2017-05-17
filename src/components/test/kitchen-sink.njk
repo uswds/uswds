@@ -16,6 +16,22 @@
 
       <p class="usa-font-lead">{{ page.lead }}</p>
 
+      <p class="usa-content">
+        {{ page.body }}
+        
+          <ul>
+          {% for list in page.lists %}
+            <li>{{ list }}</li>
+          {% endfor %}
+          </ul>
+
+          <ol>
+          {% for list in page.lists %}
+            <li>{{ list }}</li>
+          {% endfor %}
+        </ol>
+      </p>
+
       {% for spec in inner %}
       <section id="{{ spec.id }}">
         <h2>{{ spec.title }}</h2>
