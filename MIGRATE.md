@@ -62,7 +62,7 @@ configuration:
   
 
 [behavior]: https://github.com/shawnbot/receptor#behavior
-[Babel]: https://babel.io
+[Babel]: https://babeljs.io/
 [ES2015]: https://babeljs.io/learn-es2015/
 [event delegation]: https://davidwalsh.name/event-delegate
 [receptor]: https://github.com/shawnbot/receptor
