@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "scripts": {
+    "build:css": "node-sass --include-path node_modules/uswds/src/stylesheets src/css -o css",
+    "watch:css": "npm run build:css -- --watch"
+  },
+  "dependencies": {
+    "node-sass": "^4.5.2",
+    "uswds": "^1.1.0"
+  }
+}
