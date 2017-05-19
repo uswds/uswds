@@ -25,6 +25,13 @@ const hideSearch = function (event) {
   lastButton = undefined;
 };
 
+const getForm = button => {
+  const context = button.closest(CONTEXT);
+  return context
+    ? context.querySelector(FORM)
+    : document.querySelector(FORM);
+};
+
 const toggleSearch = (button, active) => {
   const form = getForm(button);
   if (!form) {
@@ -51,12 +58,7 @@ const toggleSearch = (button, active) => {
   }
 };
 
-const getForm = button => {
-  const context = button.closest(CONTEXT);
-  return context ? context.querySelector(FORM) : undefined;
-};
-
-module.exports = behavior({
+const search = behavior({
   [ CLICK ]: {
     [ BUTTON ]: showSearch,
   },
@@ -71,3 +73,14 @@ module.exports = behavior({
     lastButton = undefined;
   },
 });
+
+/**
+ * TODO for 2.0, remove this statement and export `navigation` directly:
+ *
+ * module.exports = behavior({...});
+ */
+const assign = require('object-assign');
+module.exports = assign(
+  el => search.on(el),
+  search
+);
