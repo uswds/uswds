@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "dependencies": {
+    "grunt": "~1.0.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-sass": "^1.2.1",
+    "load-grunt-tasks": "^3.5.2",
+    "uswds": "^1.1.0"
+  },
+  "scripts": {
+    "build:css": "grunt sass"
+  }
+}
