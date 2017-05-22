@@ -12,14 +12,14 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'css/style.css': 'src/css/style.scss'
+          'assets/css/style.css': 'src/css/style.scss'
         },
       },
     },
 
     watch: {
       sass: {
-        files: 'src/**/*.scss',
+        files: 'src/css/**/*.scss',
         tasks: ['sass'],
       },
     },
@@ -30,6 +30,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'sass',
-    'watch'
+    // 'watch'
   ]);
 };
