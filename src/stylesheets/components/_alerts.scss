@@ -25,6 +25,7 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
   ul {
     margin-bottom: 0;
     margin-top: 1em;
+    padding-left: 1em;
   }
 }
 
@@ -44,6 +45,10 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
   p:first-child {
     margin-top: 0.8rem;
+  }
+
+  p:last-child {
+    margin-bottom: 0.8rem;
   }
 }
 
@@ -72,4 +77,9 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
 .usa-alert-no_icon {
   background-image: none;
+}
+
+.usa-alert-paragraph {
+  width: $text-max-width;
+  padding: 1em 3em 1em 1em;
 }
