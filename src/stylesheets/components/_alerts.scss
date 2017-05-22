@@ -46,6 +46,10 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
   p:first-child {
     margin-top: 0.8rem;
   }
+
+  p:last-child {
+    margin-bottom: 0.8rem;
+  }
 }
 
 .usa-alert-heading {

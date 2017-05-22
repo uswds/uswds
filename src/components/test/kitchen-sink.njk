@@ -18,7 +18,7 @@
 
       <p class="usa-content">
         {{ page.body }}
-        
+
         <ul>
         {% for list in page.lists %}
           <li>{{ list }}</li>
@@ -38,7 +38,7 @@
         {% if spec.include %}
           {% include spec.include %}
         {% elseif spec.component %}
-          {% render '@' + spec.component, spec.context, true %}
+          {% render '@' + spec.component, spec.context, spec.merge %}
         {% else %}
           {{ spec.content }}
         {% endif %}
