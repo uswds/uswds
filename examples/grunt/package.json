@@ -9,5 +9,8 @@
   },
   "scripts": {
     "build:css": "grunt sass"
+  },
+  "devDependencies": {
+    "grunt-browserify": "^5.0.0"
   }
 }
