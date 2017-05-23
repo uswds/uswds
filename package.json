@@ -11,18 +11,20 @@
     "build:package": "gulp release",
     "check-publish": "npm publish",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
+    "cracks": "cracks --paths package.json,spec",
     "federalist": "gulp build && fractal build",
-    "js": "gulp javascript",
-    "mocha": "mocha --opts spec/mocha.opts spec/**/*.spec.js",
+    "mocha": "mocha --opts spec/mocha.opts",
     "prepublish": "gulp build",
     "preversion": "npm test",
+    "spec": "npm run mocha -- 'spec/**/*.spec.js'",
     "start": "fractal start --sync",
     "test": "gulp eslint stylelint test",
     "version": "npm run prepublish",
     "watch": "nswatch"
   },
   "watch": {
-    "src/js/**/*.js": "js"
+    "src/stylesheets/{components,core,elements,}/*.scss": "build:css",
+    "src/js/**/*.js": "build:js"
   },
   "watch": {
     "src/stylesheets/{components,core,elements,}/*.scss": "build:css",
@@ -59,6 +61,7 @@
     "bourbon-neat": "https://github.com/thoughtbot/neat/archive/neat-1.8.0-node-sass.tar.gz",
     "browserify": "^13.0.0",
     "classlist-polyfill": "^1.0.3",
+    "cracks": "^3.1.2",
     "cross-spawn": "^2.1.5",
     "del": "^2.2.0",
     "domready": "^1.0.8",
@@ -70,12 +73,10 @@
     "gulp-cssnano": "^2.1.2",
     "gulp-eslint": "^1.1.1",
     "gulp-filter": "^3.0.1",
-    "gulp-mocha": "^2.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.1.1",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-spawn-mocha": "^3.3.0",
     "gulp-stylelint": "^2.0.2",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
@@ -98,6 +99,7 @@
     "jsdom": "^9.0.0",
     "jsdom-global": "^2.1.0",
     "mocha": "^3.0.0",
-    "nswatch": "^0.2.0"
+    "nswatch": "^0.2.0",
+    "should": "^11.2.1"
   }
 }
