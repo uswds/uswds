@@ -6,7 +6,7 @@ const toggleFieldMask = require('../../../src/js/utils/toggle-field-mask');
 const create = (name, attrs) => {
   const el = document.createElement(name);
   for (const attr in attrs) {
-    el.setAttribute(attr, attrs[attr]);
+    el.setAttribute(attr, attrs[ attr ]);
   }
   return el;
 };
