@@ -29,3 +29,4 @@ to build CSS from the SCSS sources.
 
 [gulp]: http://gulpjs.com/
 [npm]: https://docs.npmjs.com/getting-started/what-is-npm
+[source map]: https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/

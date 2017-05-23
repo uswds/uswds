@@ -27,7 +27,8 @@ Sass into CSS, and bundle the JavaScript, respectively. There's also
 a `watch` task (`grunt watch`) and npm script (`npm run watch`) that
 will rebuild the CSS and JS whenever any of the source files change.
 
+[grunt-browserify]: https://github.com/jmreidy/grunt-browserify
+[grunt-sass]: https://github.com/sindresorhus/grunt-sass
 [grunt]: https://gruntjs.com/
 [npm]: https://docs.npmjs.com/getting-started/what-is-npm
-[grunt-sass]: https://github.com/sindresorhus/grunt-sass
-[grunt-browserify]: https://github.com/jmreidy/grunt-browserify
+[source map]: https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/
