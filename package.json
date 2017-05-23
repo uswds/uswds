@@ -2,6 +2,9 @@
   "name": "uswds",
   "version": "1.2.0",
   "description": "Open source UI components and visual style guide for U.S. government websites",
+  "engines": {
+    "node": ">= 4"
+  },
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "src/js/start.js",
   "scripts": {
