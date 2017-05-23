@@ -4,7 +4,10 @@
     "uswds": "^1.1.0"
   },
   "scripts": {
-    "build:css": "grunt sass"
+    "build": "grunt js sass",
+    "build:css": "grunt sass",
+    "build:js": "grunt js",
+    "watch": "grunt watch"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
