@@ -26,10 +26,6 @@
     "src/stylesheets/{components,core,elements,}/*.scss": "build:css",
     "src/js/**/*.js": "build:js"
   },
-  "watch": {
-    "src/stylesheets/{components,core,elements,}/*.scss": "build:css",
-    "src/js/**/*.js": "build:js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/18F/web-design-standards.git"
