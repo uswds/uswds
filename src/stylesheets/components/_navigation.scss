@@ -383,7 +383,10 @@
 .usa-megamenu {
   @include media($nav-width) {
     @include padding(3.15rem null); // XXX magic number
-    left: -1.8rem;
+    // XXX this is the difference between the 2rem padding-left
+    // of .usa-nav-inner and the $site-margins (3rem) padding-left
+    // of .usa-megamenu
+    left: -1rem;
     width: 100%;
   }
 
