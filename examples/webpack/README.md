@@ -1,7 +1,7 @@
 # Using the Standards with [webpack 2][webpack]
 
 This example illustrates how to bundle the Standards JavaScript with
-[webpack] and [npm].
+[webpack] version 2 and [npm].
 
 First, install the dependencies with [npm]:
 
@@ -17,9 +17,9 @@ npm run build:js
 ```
 
 Unlike [browserify](../browserify), webpack automatically converts [ES2015] to
-ES5 and resolves `import` and `export` statements. The `-p` ("production")
-and `--devtool sourcemap` options to the webpack CLI enable minification
-and [source map] generation, respectively.
+ES5 and resolves `import` and `export` statements. The `-p` ("production") and
+`--devtool sourcemap` options to the webpack CLI enable minification and
+[source map] generation, respectively.
 
 See the [browserify CLI docs](https://github.com/substack/node-browserify#usage)
 for more information.

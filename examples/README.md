@@ -1,10 +1,21 @@
 # Usage examples
 
-These example directories illustrate how to integrate the USWDS distributions with
-different tools, including:
+These directories illustrate how to use the Standards `uswds` [npm] package
+with different tools:
 
-* [Browserify](browserify/), a tool for bundling CommonJS modules into single,
-  browser-friendly scripts, with hundreds of community plugins.
-* [Webpack](webpack/), another bundling tool that supports ES2015 out of the box,
-  and requires little to no configuration.
-* [node-sass](node-sass/), the Node.js implementation of Sass.
+1. Compiling CSS with [node-sass](node-sass/)
+1. Bundling JavaScript with [browserify](browserify/) and [webpack](webpack/)
+1. Automating CSS and JS generation with the [Grunt](grunt/) and [Gulp](gulp/)
+   task runners
+
+For each of these examples, you'll need to first install [Node.js] version 4 or
+greater. Node comes with [npm], the Node Package Manager, a dependency manager
+that uses the `package.json` in each directory to:
+
+* determine what to download and install when you run `npm install`
+* run repeatable tasks, or [scripts]
+* publish your work to the npm registry
+
+[Node.js]: https://nodejs.org/en/about/
+[npm]: https://docs.npmjs.com/getting-started/what-is-npm
+[scripts]: https://docs.npmjs.com/misc/scripts
