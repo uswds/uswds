@@ -300,7 +300,7 @@
 // Navigation submenu (dropdown and mega menu) ----- //
 
 .usa-nav-submenu {
-  @include usa-sidenav-sublist;
+  // @include usa-sidenav-sublist;
 
   @include media($nav-width) {
     @include unstyled-list;
@@ -318,7 +318,7 @@
   a {
     @include media($nav-width) {
       color: $color-white;
-      padding-left: 1.8rem;
+      padding-left: 1.5rem; // XXX magic number
     }
 
     &:hover {
@@ -329,15 +329,18 @@
       }
     }
 
-    &:hover,
-    &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
-      @include media($nav-width) {
-        padding-left: 1.8rem;
-      }
-    }
+    // this used to be necessary to undo the `usa-sidenav-sublist`
+    // include, above
+    // &:hover,
+    // &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
+    //   @include media($nav-width) {
+    //     padding-left: 1.8rem;
+    //   }
+    // }
   }
 
   li {
+    font-size: $h5-font-size;
     margin-bottom: 0;
   }
 }
