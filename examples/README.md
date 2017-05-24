@@ -1,4 +1,4 @@
-# Example integrations
+# Usage examples
 
 These directories illustrate how to use the Standards `uswds` [npm] package
 with different tools:
