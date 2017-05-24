@@ -1,15 +1,23 @@
 'use strict';
+const domready = require('domready');
 
 /**
- * The 'polyfills' file defines key ECMAScript 5 methods that may be
- * missing from older browsers, so must be loaded first.
+ * The 'polyfills' define key ECMAScript 5 methods that may be missing from
+ * older browsers, so must be loaded first.
  */
-require('./initializers/polyfills');
+require('./polyfills');
 
-require('./initializers/accordions');
-require('./initializers/banner');
-require('./initializers/footer');
-require('./initializers/forms');
-require('./initializers/navigation');
-require('./initializers/search');
-require('./initializers/skip-nav');
+const uswds = require('./config');
+
+const components = require('./components');
+uswds.components = components;
+
+domready(() => {
+  const target = document.body;
+  for (let name in components) {
+    const behavior = components[ name ];
+    behavior.on(target);
+  }
+});
+
+module.exports = uswds;

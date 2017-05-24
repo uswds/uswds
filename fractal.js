@@ -1,18 +1,19 @@
 'use strict';
-
+const pkg = require('./package.json');
 const path = require('path');
 const fractal = require('@frctl/fractal').create();
-const dir = __dirname;
 
 const context = {
-  title: 'U.S. Web Design Standards',
-  'package': require('./package.json'),
+  'package': {
+    name: pkg.name,
+    version: pkg.version,
+  },
   uswds: {
     path: '../../dist',
   },
 };
 
-fractal.set('project.title', context.title);
+fractal.set('project.title', 'U.S. Web Design Standards');
 
 const components = fractal.components;
 components.set('ext', '.njk');
@@ -35,7 +36,7 @@ docs.set('path', 'docs');
 
 const web = fractal.web;
 
-const theme = require('@frctl/mandelbrot')({
+web.theme(require('@frctl/mandelbrot')({
   lang: 'en-US',
   skin: 'white',
   // display context data in YAML
@@ -49,9 +50,7 @@ const theme = require('@frctl/mandelbrot')({
     'resources',
     'info',
   ],
-});
-
-web.theme(theme);
+}));
 
 web.set('static.path', 'dist');
 web.set('static.mount', 'dist');

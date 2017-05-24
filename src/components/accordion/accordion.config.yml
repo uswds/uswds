@@ -4,10 +4,23 @@ status: ready
 variants:
   - name: default
     label: Borderless
+
   - name: bordered
+    notes: >
+      Add the `usa-accordion-bordered` class to your `.usa-accordion`
+      to enable the visual border.
     context:
       accordion:
         variant: bordered
+
+  - name: multiselectable
+    notes: >
+      You can allow multiple sections to remain open at the same time
+      by adding the `aria-multiselectable="true"` attribute to your
+      `.usa-accordion`.
+    context:
+      accordion:
+        multiselectable: true
 
 context:
   accordion:

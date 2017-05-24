@@ -1,76 +1,86 @@
-var select = require('../utils/select');
-var dispatch = require('../utils/dispatch');
+'use strict';
+const behavior = require('../utils/behavior');
+const forEach = require('array-foreach');
+const ignore = require('receptor/ignore');
+const select = require('../utils/select');
 
-var VISUALLY_HIDDEN = 'usa-sr-only';
+const CLICK = require('../events').CLICK;
+const PREFIX = require('../config').prefix;
 
-var clickEvent = ('ontouchstart' in document.documentElement)
-  ? 'touchstart'
-  : 'click';
+const BUTTON = '.js-search-button';
+const FORM = '.js-search-form';
+const INPUT = '[type=search]';
+const CONTEXT = 'header'; // XXX
+const VISUALLY_HIDDEN = `${PREFIX}-sr-only`;
 
-var searchForm;
-var searchButton;
-var searchButtonContainer;
+let lastButton;
 
-var activateDispatcher;
-var deactivateDispatcher;
+const showSearch = function (event) {
+  toggleSearch(this, true);
+  lastButton = this;
+};
 
-function searchButtonClickHandler (event) {
-  if (searchForm.hidden) {
-    closeSearch();
-  } else {
-    openSearch();
-    deactivateDispatcher = dispatch(document.body, clickEvent, searchOpenClickHandler);
+const hideSearch = function (event) {
+  toggleSearch(this, false);
+  lastButton = undefined;
+};
+
+const getForm = button => {
+  const context = button.closest(CONTEXT);
+  return context
+    ? context.querySelector(FORM)
+    : document.querySelector(FORM);
+};
+
+const toggleSearch = (button, active) => {
+  const form = getForm(button);
+  if (!form) {
+    throw new Error(`No ${FORM} found for search toggle in ${CONTEXT}!`);
   }
 
-  return false;
-}
+  button.hidden = active;
+  form.classList.toggle(VISUALLY_HIDDEN, !active);
 
-function searchOpenClickHandler (event) {
-  if (! searchFormContains(event.target)) {
-    closeSearch();
-    deactivateDispatcher.off();
-    deactivateDispatcher = undefined;
+  if (active) {
+    const input = form.querySelector(INPUT);
+    if (input) {
+      input.focus();
+    }
+    // when the user clicks _outside_ of the form w/ignore(): hide the
+    // search, then remove the listener
+    const listener = ignore(form, e => {
+      if (lastButton) {
+        hideSearch.call(lastButton);
+      }
+      document.body.removeEventListener(CLICK, listener);
+    });
+    document.body.addEventListener(CLICK, listener);
   }
-}
+};
 
-function openSearch () {
-  searchForm.classList.remove(VISUALLY_HIDDEN);
-  var input = searchForm.querySelector('[type=search]');
-  if (input) {
-    input.focus();
-  }
-  searchButton.hidden = true;
-}
+const search = behavior({
+  [ CLICK ]: {
+    [ BUTTON ]: showSearch,
+  },
+}, {
+  init: (target) => {
+    forEach(select(BUTTON, target), button => {
+      toggleSearch(button, false);
+    });
+  },
+  teardown: (target) => {
+    // forget the last button clicked
+    lastButton = undefined;
+  },
+});
 
-function closeSearch () {
-  searchForm.classList.add(VISUALLY_HIDDEN);
-  searchButton.hidden = false;
-}
-
-function searchFormContains (element) {
-  return (searchForm && searchForm.contains(element)) ||
-         (searchButtonContainer && searchButtonContainer.contains(element));
-}
-
-function searchInit () {
-  searchForm = select('.js-search-form')[ 0 ];
-  searchButton = select('.js-search-button')[ 0 ];
-  searchButtonContainer = select('.js-search-button-container')[ 0 ];
-
-  if (searchButton && searchForm) {
-    closeSearch();
-    activateDispatcher = dispatch(searchButton, clickEvent, searchButtonClickHandler);
-  }
-}
-
-function searchOff () {
-  if (activateDispatcher) {
-    activateDispatcher.off();
-  }
-  if (deactivateDispatcher) {
-    deactivateDispatcher.off();
-  }
-}
-
-module.exports = searchInit;
-module.exports.off = searchOff;
+/**
+ * TODO for 2.0, remove this statement and export `navigation` directly:
+ *
+ * module.exports = behavior({...});
+ */
+const assign = require('object-assign');
+module.exports = assign(
+  el => search.on(el),
+  search
+);

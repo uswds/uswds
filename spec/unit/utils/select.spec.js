@@ -1,37 +1,36 @@
-var should = require('should');
-var select = require('../../../src/js/utils/select');
-var jsdom = require('jsdom').jsdom;
+'use strict';
+const fs = require('fs');
+const assert = require('assert');
+const select = require('../../../src/js/utils/select');
+
+const TEMPLATE = fs.readFileSync(__dirname + '/select.template.html');
+
+const assertArrayWithLength = (array, length) => {
+  assert(Array.isArray(array), 'not an array: ' + (typeof array));
+  assert.equal(array.length, length);
+};
 
 describe('select', function () {
 
-  var oldDocument = global.document;
+  before(function () {
+    document.body.innerHTML = TEMPLATE;
+  });
 
   after(function () {
-    global.document = oldDocument;
-    global.window = document.defaultView;
+    document.body.innerHTML = '';
   });
 
   it('returns an empty array if given a non-string selector', function () {
-    select(undefined).should.be.Array().which.is.empty();
+    assertArrayWithLength(select(undefined), 0);
   });
 
   it('returns an Array of selected DOM elements', function () {
-
-    global.document = jsdom('<html><body><p id="id1" class="firstclass">first text</p><p id="id2"><div class="firstclass"></div><div class="secondclass"></div></p></body></html>');
-    global.window = document.defaultView;
-
-    select('#id1').should.be.Array().which.has.length(1);
-    select('.firstclass').should.be.Array().which.has.length(2);
-
+    assertArrayWithLength(select('#id1'), 1);
+    assertArrayWithLength(select('.firstclass'), 2);
   });
 
   it('returns an Array of selected DOM elements in a particular context', function () {
-
-    global.document = jsdom('<html><body><p id="id1" class="firstclass">first text</p><p id="id2"><div class="firstclass"></div><div class="secondclass"></div></p></body></html>');
-    global.window = document.defaultView;
-
-    select('.secondclass', select('.firstclass')).should.be.Array().which.has.length(1);
-
+    assertArrayWithLength(select('.secondclass', select('.firstclass')), 1);
   });
 
 });

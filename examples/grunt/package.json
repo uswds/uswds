@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "dependencies": {
+    "uswds": "^1.1.0"
+  },
+  "scripts": {
+    "build": "grunt js sass",
+    "build:css": "grunt sass",
+    "build:js": "grunt js",
+    "watch": "grunt watch"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0",
+    "grunt": "~1.0.1",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-sass": "^1.2.1",
+    "load-grunt-tasks": "^3.5.2"
+  }
+}

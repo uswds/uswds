@@ -1,122 +1,112 @@
 'use strict';
-var select = require('../utils/select');
+const behavior = require('../utils/behavior');
+const filter = require('array-filter');
+const forEach = require('array-foreach');
+const toggle = require('../utils/toggle');
 
-var SELECTOR_BUTTON = 'button.usa-accordion-button';
-var SELECTOR_BUTTON_EXPANDED = SELECTOR_BUTTON + '[aria-expanded=true]';
+const CLICK = require('../events').CLICK;
+const PREFIX = require('../config').prefix;
 
-/**
- * @name showPanelListener
- * @desc The event handler for clicking on a button in an accordion.
- * @param {HTMLElement} el - An HTML element most likely a <button>.
- * @param {Object} ev - A DOM event object.
- */
-function showPanelListener (el, ev) {
-  var expanded = el.getAttribute('aria-expanded') === 'true';
-  this.hideAll();
-  if (!expanded) {
-    this.show(el);
-  }
-  return false;
-}
+// XXX match .usa-accordion and .usa-accordion-bordered
+const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion-bordered`;
+const BUTTON = `.${PREFIX}-accordion-button[aria-controls]`;
+const EXPANDED = 'aria-expanded';
+const MULTISELECTABLE = 'aria-multiselectable';
 
 /**
- * @name getTargetOf
- * @desc Get the target of an element, according to the id listed in its
- * `aria-controls` attribute.
- * @param {HTMLElement} source the source element
- * @return {Element} the target element
- * @throws {Error} an error is thrown if no such target exists
- */
-function getTargetOf (source) {
-  var id = source.getAttribute('aria-controls');
-  var target = document.getElementById(id);
-  if (target) {
-    return target;
-  } else {
-    throw new Error('No accordion target with id "' + id + '" exists');
-  }
-}
-
-/**
- * @class Accordion
+ * Toggle a button's "pressed" state, optionally providing a target
+ * state.
  *
- * An accordion component.
- *
- * @param {HTMLElement} el An HTMLElement to turn into an accordion.
+ * @param {HTMLButtonElement} button
+ * @param {boolean?} expanded If no state is provided, the current
+ * state will be toggled (from false to true, and vice-versa).
+ * @return {boolean} the resulting state
  */
-function Accordion (el) {
-  var self = this;
-  this.root = el;
-
-  // delegate click events on each <button>
-  this.$(SELECTOR_BUTTON).forEach(function (button) {
-    if (button.attachEvent) {
-      button.attachEvent('onclick', showPanelListener.bind(self, button));
-    } else {
-      button.addEventListener('click', showPanelListener.bind(self, button));
-    }
-  });
-
-  // find the first expanded button
-  var expanded = this.select(SELECTOR_BUTTON_EXPANDED);
-  this.hideAll();
-  if (expanded !== undefined) {
-    this.show(expanded);
+const toggleButton = (button, expanded) => {
+  var accordion = button.closest(ACCORDION);
+  if (!accordion) {
+    throw new Error(`${BUTTON} is missing outer ${ACCORDION}`);
   }
-}
 
-/**
- * @param {String} selector
- * @return {Element}
- */
-Accordion.prototype.select = function (selector) {
-  return this.$(selector)[ 0 ];
+  expanded = toggle(button, expanded);
+  // XXX multiselectable is opt-in, to preserve legacy behavior
+  const multiselectable = accordion.getAttribute(MULTISELECTABLE) === 'true';
+
+  if (expanded && !multiselectable) {
+    forEach(getAccordionButtons(accordion), other => {
+      if (other !== button) {
+        toggle(other, false);
+      }
+    });
+  }
 };
 
 /**
- * @param {String} selector
- * @return {Array.HTMLElement}
+ * @param {HTMLButtonElement} button
+ * @return {boolean} true
  */
-Accordion.prototype.$ = function (selector) {
-  return select(selector, this.root);
-};
+const showButton = button => toggleButton(button, true);
 
 /**
- * @param {HTMLElement} button
- * @param {Boolean} expanded
+ * @param {HTMLButtonElement} button
+ * @return {boolean} false
  */
-Accordion.prototype.toggle = function (button, expanded) {
-  var target = getTargetOf(button);
-  button.setAttribute('aria-expanded', expanded);
-  target.setAttribute('aria-hidden', !expanded);
-  return this;
-};
+const hideButton = button => toggleButton(button, false);
 
 /**
- * @param {HTMLElement} button
- * @return {Accordion}
+ * Get an Array of button elements belonging directly to the given
+ * accordion element.
+ * @param {HTMLElement} accordion
+ * @return {array<HTMLButtonElement>}
  */
-Accordion.prototype.hide = function (button) {
-  return this.toggle(button, false);
-};
-
-/**
- * @param {HTMLElement} button
- * @return {Accordion}
- */
-Accordion.prototype.show = function (button) {
-  return this.toggle(button, true);
-};
-
-/**
- * @return {Accordion}
- */
-Accordion.prototype.hideAll = function () {
-  var self = this;
-  this.$(SELECTOR_BUTTON).forEach(function (button) {
-    self.hide(button);
+const getAccordionButtons = accordion => {
+  return filter(accordion.querySelectorAll(BUTTON), button => {
+    return button.closest(ACCORDION) === accordion;
   });
-  return this;
+};
+
+const accordion = behavior({
+  [ CLICK ]: {
+    [ BUTTON ]: function (event) {
+      event.preventDefault();
+      return toggleButton(this);
+    },
+  },
+}, {
+  init: root => {
+    forEach(root.querySelectorAll(BUTTON), button => {
+      const expanded = button.getAttribute(EXPANDED) === 'true';
+      toggleButton(button, expanded);
+    });
+  },
+  ACCORDION,
+  BUTTON,
+  show: showButton,
+  hide: hideButton,
+  toggle: toggleButton,
+  getButtons: getAccordionButtons,
+});
+
+/**
+ * TODO: for 2.0, remove everything below this comment and export the
+ * behavior directly:
+ *
+ * module.exports = behavior({...});
+ */
+const Accordion = function (root) {
+  this.root = root;
+  accordion.on(this.root);
+};
+
+// copy all of the behavior methods and props to Accordion
+const assign = require('object-assign');
+assign(Accordion, accordion);
+
+Accordion.prototype.show = showButton;
+Accordion.prototype.hide = hideButton;
+
+Accordion.prototype.remove = function () {
+  accordion.off(this.root);
 };
 
 module.exports = Accordion;
