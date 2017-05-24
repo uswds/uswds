@@ -10,7 +10,7 @@ test:
     # Run the package and docs test suite
     - npm test
     # Run semantic version checks against the previous release
-    - npm run cracks
+    # - npm run cracks
     # Generate code coverage report
     - npm run cover
     # Build the release files
