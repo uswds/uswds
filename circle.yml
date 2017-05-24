@@ -4,7 +4,6 @@ machine:
 
 test:
   pre:
-    - gulp -v
     - npm install -g codeclimate-test-reporter
   override:
     # Run the package and docs test suite
