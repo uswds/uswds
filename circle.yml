@@ -26,5 +26,6 @@ deployment:
     owner: 18F
     commands:
       - npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-      - npm run build:package # Build distributed package files
-      - npm run check-publish
+      # Build distributed package files
+      - npm run build:package
+      - npm publish
