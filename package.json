@@ -12,7 +12,6 @@
     "build:css": "gulp sass",
     "build:js": "gulp javascript",
     "build:package": "gulp release",
-    "check-publish": "npm publish",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
     "cracks": "cracks --paths package.json,spec",
     "federalist": "npm install --dev && gulp build && fractal build",
