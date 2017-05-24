@@ -1,3 +1,9 @@
+'use strict';
+
+const isElement = value => {
+  return value && typeof value === 'object' && value.nodeType === 1;
+};
+
 /**
  * @name select
  * @desc selects elements from the DOM by class selector or ID selector.
@@ -11,16 +17,10 @@ module.exports = function select (selector, context) {
     return [];
   }
 
-  if ((context === undefined) || !isElement(context)) {
+  if (context === undefined || !isElement(context)) {
     context = window.document;
   }
 
-  var selection = context.querySelectorAll(selector);
-
+  const selection = context.querySelectorAll(selector);
   return Array.prototype.slice.call(selection);
-
 };
-
-function isElement (value) {
-  return !!value && typeof value === 'object' && value.nodeType === 1;
-}

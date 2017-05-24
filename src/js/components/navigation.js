@@ -1,37 +1,57 @@
-var select = require('../utils/select');
-var dispatch = require('../utils/dispatch');
+'use strict';
+const behavior = require('../utils/behavior');
+const forEach = require('array-foreach');
+const select = require('../utils/select');
 
-var clickEvent = ('ontouchstart' in document.documentElement ? 'touchstart' : 'click');
-var dispatchers = [];
+const CLICK = require('../events').CLICK;
+const PREFIX = require('../config').prefix;
 
-function handleNavElements (e) {
+const CONTEXT = 'header';
+const NAV = `.${PREFIX}-nav`;
+const OPENERS = `.${PREFIX}-menu-btn`;
+const CLOSE_BUTTON = `.${PREFIX}-nav-close`;
+const OVERLAY = `.${PREFIX}-overlay`;
+const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
+const TOGGLES = [ NAV, OVERLAY ].join(', ');
 
-  var toggleElements = select('.usa-overlay, .usa-nav');
-  var navCloseElement = select('.usa-nav-close')[ 0 ];
+const ACTIVE_CLASS = 'usa-mobile_nav-active';
+const VISIBLE_CLASS = 'is-visible';
 
-  toggleElements.forEach(function (element) {
-    element.classList.toggle('is-visible');
-  });
-
-  document.body.classList.toggle('usa-mobile_nav-active');
-  navCloseElement.focus();
-
-  return false;
-}
-
-function navInit () {
-  var navElements = select('.usa-menu-btn, .usa-overlay, .usa-nav-close');
-
-  dispatchers = navElements.map(function (element) {
-    return dispatch(element, clickEvent, handleNavElements);
-  });
-}
-
-function navOff () {
-  while (dispatchers.length) {
-    dispatchers.pop().off();
+const toggleNav = function (active) {
+  const body = document.body;
+  if (typeof active !== 'boolean') {
+    active = !body.classList.contains(ACTIVE_CLASS);
   }
-}
+  body.classList.toggle(ACTIVE_CLASS, active);
 
-module.exports = navInit;
-module.exports.off = navOff;
+  const context = this.closest(CONTEXT);
+  forEach(select(TOGGLES), el => {
+    el.classList.toggle(VISIBLE_CLASS);
+  });
+
+  if (active && context) {
+    const closeButton = context.querySelector(CLOSE_BUTTON);
+    if (closeButton) {
+      closeButton.focus();
+    }
+  }
+  return active;
+};
+
+const navigation = behavior({
+  [ CLICK ]: {
+    [ OPENERS ]: toggleNav,
+    [ CLOSERS ]: toggleNav,
+  },
+});
+
+/**
+ * TODO for 2.0, remove this statement and export `navigation` directly:
+ *
+ * module.exports = behavior({...});
+ */
+const assign = require('object-assign');
+module.exports = assign(
+  el => navigation.on(el),
+  navigation
+);

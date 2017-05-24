@@ -1,0 +1,14 @@
+label: Hero
+status: ready
+
+context:
+  hero:
+    callout: 'Hero callout:'
+    title: Call attention to a current priority
+    link:
+      text: Link to more about that priority
+      href: 'javascript:void(0)'
+    button:
+      text: Learn about what we do
+      href: 'javascript:void(0)'
+

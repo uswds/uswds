@@ -1,6 +1,6 @@
 machine:
   node:
-    version: 5.1.0
+    version: 6
 
 test:
   pre:
@@ -9,6 +9,8 @@ test:
   override:
     # Run the package and docs test suite
     - npm test
+    # Run semantic version checks against the previous release
+    - npm run cracks
     # Generate code coverage report
     - npm run cover
     # Build the release files

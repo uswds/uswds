@@ -203,6 +203,18 @@
       }
     }
   }
+
+  @include media($nav-width) {
+    a.usa-current { // stylelint-disable-line selector-no-qualifying-type
+      // undo the sidenav style
+      border-left: 0;
+      padding-left: 1rem;
+
+      span {
+        @include nav-border;
+      }
+    }
+  }
 }
 
 // Secondary navigation ----------- //
@@ -273,6 +285,14 @@
       @include media($nav-width) {
         display: none;
       }
+    }
+  }
+
+  @include media($nav-width) {
+    a.usa-current { // stylelint-disable-line selector-no-qualifying-type
+      // undo the sidenav style
+      border-left: 0;
+      padding-left: 0;
     }
   }
 }

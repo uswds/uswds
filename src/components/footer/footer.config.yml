@@ -1,0 +1,8 @@
+label: Footer
+status: wip
+
+variants:
+  - name: default
+    label: Medium
+
+context: {}

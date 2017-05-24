@@ -1,0 +1,19 @@
+label: Primary (header)
+preview: '@uswds-header'
+
+context:
+  nav:
+    search: false
+    links:
+      - text: Section one
+        id: nav-section-one
+        links: &subnav_links
+          - text: Sub-link one
+          - text: Sub-link two
+      - text: Section two
+        id: nav-section-two
+        links: *subnav_links
+      - text: Link three
+        href: 'javascript:void(0)'
+      - text: Link four
+        href: 'javascript:void(0)'

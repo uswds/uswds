@@ -1,0 +1,9 @@
+<header class="usa-header usa-header-basic{% if header.primary.nav.mega %} usa-header-basic-megamenu{% endif %}" role="banner">
+  <div class="usa-nav-container">
+    {% render '@site-title', {header: header}, true %}
+    <nav role="navigation" class="usa-nav">
+      {% render '@nav-primary', {nav: header.primary}, true %}
+    </nav>
+  </div>
+</header>
+<div class="usa-overlay"></div>

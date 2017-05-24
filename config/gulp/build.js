@@ -46,7 +46,6 @@ gulp.task('build', function (done) {
     'clean-dist',
     'docs',
     [
-      'html',
       'sass',
       'javascript',
       'images',

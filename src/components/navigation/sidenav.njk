@@ -1,0 +1,18 @@
+{% macro nav_list(links, subclass) %}
+  {% for item in links %}
+  <li>
+    <a href="{{ item.href }}"{% if item.current %} class="usa-current"{% endif %}>
+      {{ item.text }}
+    </a>
+    {% if item.current and item.links %}
+    <ul class="{{ subclass }}">
+      {{ nav_list(item.links, subclass) }}
+    </ul>
+    {% endif %}
+  </li>
+  {% endfor %}
+{% endmacro %}
+
+<ul class="usa-sidenav-list">
+  {{ nav_list(sidenav.links, 'usa-sidenav-sub_list') }}
+</ul>

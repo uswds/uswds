@@ -1,81 +1,114 @@
-var should = require('should');
-var template = require('./template.js');
-var $ = require('jquery');
-var Accordion = require('../../../src/js/components/accordion.js');
+'use strict';
+const Accordion = require('../../../src/js/components/accordion');
+const assert = require('assert');
+const fs = require('fs');
+
+const TEMPLATE = fs.readFileSync(__dirname + '/template.html');
 
 // `aria` prefixed attributes
-var EXPANDED = 'aria-expanded';
-var CONTROLS = 'aria-controls';
-var HIDDEN   = 'aria-hidden';
+const EXPANDED = 'aria-expanded';
+const CONTROLS = 'aria-controls';
+const HIDDEN   = 'aria-hidden';
+const MULTISELECTABLE = 'aria-multiselectable';
 
-describe('Accordion component', function () {
-  var $el;
-  var $button, button;
-  var $content;
-  var accordion;
+describe('accordion behavior', function () {
+  const body = document.body;
+
+  let root;
+  let button;
+  let buttons;
+  let content;
 
   beforeEach(function () {
-    var $component = $(template);
+    body.innerHTML = TEMPLATE;
+    Accordion.on();
 
-    $('body').append($component);
-
-    accordion = new Accordion($component.get(0));
-
-    $el = $(accordion.root);
-    $button = $el.find('button');
-    button = $button.get(0);
-    $content = $el.find('#' + $button.attr(CONTROLS));
+    root = body.querySelector('.usa-accordion');
+    buttons = root.querySelectorAll('.usa-accordion-button');
+    button = buttons[ 0 ];
+    content = document.getElementById(
+      button.getAttribute(CONTROLS)
+    );
   });
 
   afterEach(function () {
-    document.body.textContent = '';
-  });
-
-  it('exposes its underlying html element', function () {
-    accordion.root.should.not.be.undefined();
+    body.innerHTML = '';
+    Accordion.off();
   });
 
   describe('DOM state', function () {
     it('has an "aria-expanded" attribute', function () {
-      $button.attr(EXPANDED).should.not.be.undefined();
+      assert(button.getAttribute(EXPANDED));
     });
 
     it('has an "aria-controls" attribute', function () {
-      $button.attr(CONTROLS).should.not.be.undefined();
+      assert(button.getAttribute(CONTROLS));
     });
 
-    describe('when show is triggered', function () {
+    describe('accordion.show()', function () {
       beforeEach(function () {
-        accordion.show(button);
+        Accordion.hide(button);
+        Accordion.show(button);
       });
 
-      afterEach(function () {
-        accordion.hide(button);
+      it('toggles button aria-expanded="true"', function () {
+        assert.equal(button.getAttribute(EXPANDED), 'true');
       });
 
-      it('toggles "aria-expanded" to true', function () {
-        $button.attr(EXPANDED).should.equal('true');
-      });
-
-      it('toggles "aria-hidden" to false', function () {
-        $content.attr(HIDDEN).should.equal('false');
+      it('toggles content aria-hidden="false"', function () {
+        assert.equal(content.getAttribute(HIDDEN), 'false');
       });
     });
 
-    describe('when hide is triggered', function () {
+    describe('accordion.hide()', function () {
       beforeEach(function () {
-        accordion.show(button);
-        accordion.hide(button);
+        Accordion.show(button);
+        Accordion.hide(button);
       });
 
-      it('toggles "aria-expanded" to false', function () {
-        $button.attr(EXPANDED).should.equal('false');
+      it('toggles button aria-expanded="false"', function () {
+        assert.equal(button.getAttribute(EXPANDED), 'false');
       });
 
-      it('toggles "aria-hidden" to true', function () {
-        $content.attr(HIDDEN).should.equal('true');
+      it('toggles content aria-hidden="true"', function () {
+        assert.equal(content.getAttribute(HIDDEN), 'true');
       });
     });
   });
-});
 
+  describe('interaction', function () {
+
+    it('shows the second item when clicked', function () {
+      const second = buttons[ 1 ];
+      const target = document.getElementById(
+        second.getAttribute(CONTROLS)
+      );
+      second.click();
+      // first button and section should be collapsed
+      assert.equal(button.getAttribute(EXPANDED), 'false');
+      assert.equal(content.getAttribute(HIDDEN), 'true');
+      // second should be expanded
+      assert.equal(second.getAttribute(EXPANDED), 'true');
+      assert.equal(target.getAttribute(HIDDEN), 'false');
+    });
+
+    it('keeps multiple sections open with aria-multiselectable="true"', function () {
+      root.setAttribute(MULTISELECTABLE, true);
+
+      const second = buttons[ 1 ];
+      const target = document.getElementById(
+        second.getAttribute(CONTROLS)
+      );
+      second.click();
+      button.click();
+
+      assert.equal(button.getAttribute(EXPANDED), 'true');
+      assert.equal(content.getAttribute(HIDDEN), 'false');
+      // second should be expanded
+      assert.equal(second.getAttribute(EXPANDED), 'true');
+      assert.equal(target.getAttribute(HIDDEN), 'false');
+    });
+
+
+  });
+});

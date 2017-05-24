@@ -1,58 +1,60 @@
-var select = require('../utils/select');
-var dispatch = require('../utils/dispatch');
+'use strict';
+const accordion = require('./accordion');
+const behavior = require('../utils/behavior');
+const debounce = require('lodash.debounce');
+const forEach = require('array-foreach');
+const select = require('../utils/select');
 
-function getSiblings (el) {
-  var n = el.parentNode.firstChild;
-  var matches = [];
+const CLICK = require('../events').CLICK;
+const PREFIX = require('../config').prefix;
 
-  while (n) {
-    if (n.nodeType == 1 && n != el) {
-      matches.push(n);
+const HIDDEN = 'hidden';
+const SCOPE = `.${PREFIX}-footer-big`;
+const NAV = `${SCOPE} nav`;
+const BUTTON = `${NAV} .${PREFIX}-footer-primary-link`;
+const LIST = `${NAV} ul`;
+
+const HIDE_MAX_WIDTH = 600;
+const DEBOUNCE_RATE = 180;
+
+const showPanel = function () {
+  const list = this.closest(LIST);
+  list.classList.remove(HIDDEN);
+
+  // NB: this *should* always succeed because the button
+  // selector is scoped to ".{prefix}-footer-big nav"
+  const lists = list.closest(NAV)
+    .querySelectorAll('ul');
+
+  forEach(lists, el => {
+    if (el !== list) {
+      el.classList.add(HIDDEN);
     }
-    n = n.nextSibling;
-  }
-
-  return matches;
-}
-
-var showPanelListener = function () {
-  var panelToShow = this.parentNode;
-  var otherPanels = getSiblings(panelToShow);
-  panelToShow.classList.remove('hidden');
-  otherPanels.forEach(function (el) {
-    el.classList.add('hidden');
   });
 };
 
-var events = [];
+const resize = debounce(() => {
+  const hidden = window.innerWidth < HIDE_MAX_WIDTH;
+  forEach(select(LIST), list => {
+    list.classList.toggle(HIDDEN, hidden);
+  });
+}, DEBOUNCE_RATE);
 
-module.exports = function footerAccordion () {
+module.exports = behavior({
+  [ CLICK ]: {
+    [ BUTTON ]: showPanel,
+  },
+}, {
+  // export for use elsewhere
+  HIDE_MAX_WIDTH,
+  DEBOUNCE_RATE,
 
-  var navList = select('.usa-footer-big nav ul');
-  var primaryLink = select('.usa-footer-big nav .usa-footer-primary-link');
+  init: target => {
+    resize();
+    window.addEventListener('resize', resize);
+  },
 
-  if (events.length) {
-    events.forEach(function (e) {
-      e.off();
-    });
-    events = [];
-  }
-
-  if (window.innerWidth < 600) {
-
-    navList.forEach(function (el) {
-      el.classList.add('hidden');
-    });
-
-    primaryLink.forEach(function (el) {
-      events.push(
-        dispatch(el, 'click', showPanelListener)
-      );
-    });
-
-  } else {
-    navList.forEach(function (el) {
-      el.classList.remove('hidden');
-    });
-  }
-};
+  teardown: target => {
+    window.removeEventListener('resize', resize);
+  },
+});
