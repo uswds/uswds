@@ -22,6 +22,15 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
     background-size: 5.2rem;
   }
 
+  a {
+    color: $color-primary-darker;
+
+    &:focus,
+    &:hover {
+      color: $color-primary-darkest;
+    }
+  }
+
   ul {
     margin-bottom: 0;
     margin-top: 1em;
