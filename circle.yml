@@ -25,6 +25,4 @@ deployment:
     owner: 18F
     commands:
       - npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
-      # change the npm dist-tag to "dev" if this isn't an X.Y.Z release
-      - jq .version package.json | egrep '^"\d(\.\d+)*"$' || npm config set tag dev
       - npm publish
