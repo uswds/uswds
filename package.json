@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "1.2.0",
+  "version": "1.2.0-rc1",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -11,14 +11,13 @@
     "build": "gulp build",
     "build:css": "gulp sass",
     "build:js": "gulp javascript",
-    "build:package": "gulp release",
-    "check-publish": "npm publish",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
     "cracks": "cracks --paths package.json,spec",
     "federalist": "npm install --dev && gulp build && fractal build",
     "mocha": "mocha --opts spec/mocha.opts",
-    "prepublish": "gulp build",
+    "prepublish": "gulp build release",
     "preversion": "npm test",
+    "release": "gulp release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
     "start": "fractal start --sync",
     "test": "gulp eslint stylelint test",

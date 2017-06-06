@@ -4,13 +4,12 @@ machine:
 
 test:
   pre:
-    - gulp -v
     - npm install -g codeclimate-test-reporter
   override:
     # Run the package and docs test suite
     - npm test
     # Run semantic version checks against the previous release
-    - npm run cracks
+    # - npm run cracks
     # Generate code coverage report
     - npm run cover
     # Build the release files
@@ -25,6 +24,7 @@ deployment:
     branch: master
     owner: 18F
     commands:
-      - npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-      - npm run build:package # Build distributed package files
-      - npm run check-publish
+      - npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
+      # change the npm dist-tag to "dev" if this isn't an X.Y.Z release
+      - jq .version package.json | egrep '^"\d(\.\d+)*"$' || npm config set tag dev
+      - npm publish
