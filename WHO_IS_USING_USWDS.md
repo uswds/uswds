@@ -9,6 +9,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [Agile 6](http://agile6.com/)
 - [Apps.gov](https://apps.gov/)
 - [ATF eRegs](https://atf-eregs.18f.gov/)
+- [Austin Police Dept Citizen Police Academy](http://apdcpa.org)
 - BENEFEDS (FEDVIP)
 - Benefits research
 - Beta USDS website
