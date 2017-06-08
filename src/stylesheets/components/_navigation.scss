@@ -208,7 +208,7 @@
     a.usa-current { // stylelint-disable-line selector-no-qualifying-type
       // undo the sidenav style
       border-left: 0;
-      padding-left: 1rem;
+      padding-left: 1.5rem;
 
       span {
         @include nav-border;
