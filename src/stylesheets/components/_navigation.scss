@@ -12,7 +12,7 @@
   @include media($nav-width) {
     border-bottom: none;
     display: inline-block;
-    height: 10.3rem;
+    height: 10.3rem; // XXX magic number
   }
 }
 
@@ -70,7 +70,7 @@
   }
 
   nav {
-    margin-top: 6rem;
+    margin-top: 6rem; // XXX magic number
     min-height: 100%;
 
     @include media($nav-width) {
@@ -91,7 +91,7 @@
 
   .usa-search {
     @include media($nav-width) {
-      margin-left: 1.5rem;
+      margin-left: 1.5rem; // XXX magic number
     }
   }
 }
@@ -117,7 +117,7 @@
 
     @include media($nav-width) {
       display: inline-block;
-      margin-left: -4px;
+      // margin-left: -4px;
     }
 
     > a {
@@ -223,7 +223,7 @@
   @include media($nav-width) {
     position: absolute;
     right: $site-margins;
-    top: -5.7rem;
+    top: -5.7rem; // XXX magic number
   }
 
   .usa-search {
@@ -300,7 +300,7 @@
 // Navigation submenu (dropdown and mega menu) ----- //
 
 .usa-nav-submenu {
-  @include usa-sidenav-sublist;
+  // @include usa-sidenav-sublist;
 
   @include media($nav-width) {
     @include unstyled-list;
@@ -318,7 +318,7 @@
   a {
     @include media($nav-width) {
       color: $color-white;
-      padding-left: 1.8rem;
+      padding-left: 1.5rem; // XXX magic number
     }
 
     &:hover {
@@ -329,15 +329,18 @@
       }
     }
 
-    &:hover,
-    &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
-      @include media($nav-width) {
-        padding-left: 1.8rem;
-      }
-    }
+    // this used to be necessary to undo the `usa-sidenav-sublist`
+    // include, above
+    // &:hover,
+    // &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
+    //   @include media($nav-width) {
+    //     padding-left: 1.8rem;
+    //   }
+    // }
   }
 
   li {
+    font-size: $h5-font-size;
     margin-bottom: 0;
   }
 }
@@ -379,8 +382,11 @@
 
 .usa-megamenu {
   @include media($nav-width) {
-    @include padding(3.15rem null);
-    left: -1.8rem;
+    @include padding(3.15rem null); // XXX magic number
+    // XXX this is the difference between the 2rem padding-left
+    // of .usa-nav-inner and the $site-margins (3rem) padding-left
+    // of .usa-megamenu
+    left: -1rem;
     width: 100%;
   }
 
@@ -402,6 +408,7 @@
 .usa-header-basic-megamenu {
   .usa-nav {
     @include media($nav-width) {
+      padding-left: 0;
       padding-top: 0;
       width: 100%;
     }
@@ -421,7 +428,7 @@
   .usa-nav-submenu {
     .usa-grid-full {
       @include media($nav-width) {
-        margin-left: -1.8rem;
+        margin-left: -1.8rem; // XXX magic number
       }
     }
   }
