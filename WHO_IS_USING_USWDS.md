@@ -99,7 +99,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [US Digital Service Playbook](https://playbook.cio.gov)
 - [USA.gov](https://usa.gov)
 - [USAID](https://www.usaid.gov/)
-- [USA Jobs Data Science Careers] (https://www.usajobs.gov/careerfields/data-science)
+- [USA Jobs Data Science Careers](https://www.usajobs.gov/careerfields/data-science)
 - [USAJOBS.gov Design System](http://usajobs.github.io/design-system/)
 - [USAspending.gov](https://www.usaspending.gov/Pages/Default.aspx)
 - [USDA.gov](https://www.usda.gov/media/blog/2017/03/06/complete-redesign-you-mind)
