@@ -40,8 +40,8 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [EPA Clean Water Jurisdictional Determinations](https://watersgeo.epa.gov/cwa/CWA-JDs/)
 - [eCPIC Electronic Capital Planning and Investment Control System](https://www.ecpic.gov/)
 - [Farm Service Agency](https://github.com/USDA-FSA/fsa-design-system)
-- [Federal Election Commission Legal Documents](https://beta.fec.gov/regulations/)
-- [Federal Election Commission](https://beta.fec.gov/)
+- [Federal Election Commission Legal Documents](https://fec.gov/regulations/)
+- [Federal Election Commission](https://fec.gov/)
 - [Federal Front Door](https://labs.usa.gov/)
 - Federal Highway Administration RDE Visualization Website
 - [Federalist](https://federalist.18f.gov/)
