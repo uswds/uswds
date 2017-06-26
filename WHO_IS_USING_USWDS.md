@@ -53,7 +53,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [GI Bill Comparison Tool](https://www.vets.gov/gi-bill-comparison-tool)
 - [General Services Administration](https://gsa.gov)
 - [General Services Administration CTO website](https://github.com/GSA/cto-website)
-- [General Services Administration Office of Evaluation Sciences website](https://https://oes.gsa.gov/)
+- [General Services Administration Office of Evaluation Sciences website](https://oes.gsa.gov/)
 - [GovBuy Marketplace](https://buy.gds-gov.tech/)
 - [GSA Open IAE](http://gsa.github.io/openIAE/)
 - [GSA Presents: Grace Hopper Day Hackathon!](http://open.gsa.gov/grace-hopper-hackathon/)
