@@ -76,6 +76,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - NTIS DEA
 - [NYC School Finder](http://schoolfinder.nyc.gov/)
 - [Office of the Historian](https://history.state.gov/)
+- [Office of the Clerk, U.S. House of Representatives] (https://clerkpreview.house.gov/)
 - [OGP Payroll Reporting](https://pages.18f.gov/ogp-payroll/)
 - OMB egov
 - [One page open source](https://pages.18f.gov/onepage-opensource/)
