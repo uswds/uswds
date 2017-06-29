@@ -142,9 +142,9 @@ legend {
 
 [type=checkbox],
 [type=radio] {
-  margin-left: -2rem;
-  opacity: 0;
-  position: absolute;
+  // The actual input element is only visible to screen readers, because
+  // all visual styling is done via the label.
+  @include sr-only();
 
   .lt-ie9 & {
     border: 0;
