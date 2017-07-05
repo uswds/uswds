@@ -893,9 +893,9 @@ boom@2.x.x:
   version "1.8.0"
   resolved "https://github.com/thoughtbot/neat/archive/neat-1.8.0-node-sass.tar.gz#cac50f0721b9caa6d184e05133c7c75283ff4446"
 
-bourbon@^4.2.6:
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/bourbon/-/bourbon-4.3.4.tgz#4da380029e92c0c8f9764c779451a134b11e7cc3"
+bourbon@4.2.7:
+  version "4.2.7"
+  resolved "https://registry.yarnpkg.com/bourbon/-/bourbon-4.2.7.tgz#48a805dff475fbf61e002a64e1e4db68d2f82fba"
 
 boxen@^0.6.0:
   version "0.6.0"
