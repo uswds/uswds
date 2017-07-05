@@ -2,7 +2,7 @@
 
 We’re so glad you’re thinking about contributing to an 18F open source project! If you’re unsure about anything, just ask — or submit your issue or pull request anyway. The worst that can happen is we’ll politely ask you to change something. We appreciate all friendly contributions.
 
-One of our goals is to ensure a welcoming environment for all contibutors to our projects. Our staff follows the [18F Code of Conduct](https://18f.gsa.gov/code-of-conduct/), and all contributors should do the same.
+One of our goals is to ensure a welcoming environment for all contributors to our projects. Our staff follows the [18F Code of Conduct](https://18f.gsa.gov/code-of-conduct/), and all contributors should do the same.
 
 We encourage you to read this project’s CONTRIBUTING policy (you are here), its [LICENSE](https://github.com/18F/web-design-standards/blob/develop/LICENSE.md), [README](https://github.com/18F/web-design-standards/blob/develop/README.md) and its [Workflow](https://github.com/18F/web-design-standards/wiki/Workflow) process.
 
