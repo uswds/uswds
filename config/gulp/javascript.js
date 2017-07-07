@@ -54,5 +54,6 @@ gulp.task('eslint', function (done) {
       'spec/**/*.js'
     ])
     .pipe(eslint())
-    .pipe(eslint.format());
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
