@@ -44,7 +44,7 @@ const navigation = behavior({
   [ CLICK ]: {
     [ OPENERS ]: toggleNav,
     [ CLOSERS ]: toggleNav,
-    [ NAV_LINKS ]: function() {
+    [ NAV_LINKS ]: function () {
       // A navigation link has been clicked! We want to collapse any
       // hierarchical navigation UI it's a part of, so that the user
       // can focus on whatever they've just selected.
