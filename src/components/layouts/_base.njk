@@ -19,7 +19,7 @@
     {% endblock %}
 
     {% block header -%}
-      {% render '@header--basic' %}
+      {% render '@header--basic', {header: header}, true %}
     {% endblock %}
 
     {% block body -%}
