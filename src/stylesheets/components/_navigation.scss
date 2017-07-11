@@ -103,6 +103,12 @@
     display: none;
   }
 }
+.usa-nav-desktop {
+  display: none;
+  @include media($nav-width) {
+    display: block;
+  }
+}
 
 // Primary navigation ------------- //
 
