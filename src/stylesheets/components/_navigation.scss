@@ -96,6 +96,14 @@
   }
 }
 
+// Mobile-only navigation --------- //
+
+.usa-nav-mobile {
+  @include media($nav-width) {
+    display: none;
+  }
+}
+
 // Primary navigation ------------- //
 
 .usa-nav-primary {
