@@ -51,6 +51,9 @@ gulp.task('build', function (done) {
       'images',
       'fonts',
     ],
+    // We need to copy the SASS to dist *after* the sass task, to ensure
+    // that vendor libraries have been copied to the SASS directory first.
+    'copy-dist-sass',
     done
   );
 
