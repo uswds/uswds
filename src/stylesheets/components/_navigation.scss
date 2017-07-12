@@ -144,7 +144,7 @@
     padding: 1.4rem 1.5rem 1rem 1.8rem;
 
     @include media($nav-width) {
-      @include padding(null 3rem 1.9rem 1.5rem);
+      @include padding(null 3rem 3rem 1.5rem);
       color: $color-gray;
       font-size: $h5-font-size;
       font-weight: $font-bold;
@@ -175,7 +175,7 @@
       @include media($nav-width) {
         background-image: url('#{$image-path}/angle-arrow-down.png');
         background-image: url('#{$image-path}/angle-arrow-down.svg');
-        background-position: right 1.5rem top 44%;
+        background-position: right 1.5rem top 36%;
       }
     }
 
@@ -191,7 +191,7 @@
         color: $color-white;
         background-image: url('#{$image-path}/angle-arrow-down-hover.png');
         background-image: url('#{$image-path}/angle-arrow-down-hover.svg');
-        background-position: right 1.5rem top 44%;
+        background-position: right 1.5rem top 36%;
 
         &:hover {
           background-color: $color-primary-darkest;
