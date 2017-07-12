@@ -3,6 +3,7 @@ const behavior = require('../utils/behavior');
 const filter = require('array-filter');
 const forEach = require('array-foreach');
 const toggle = require('../utils/toggle');
+const isElementInViewport = require('../utils/is-in-viewport');
 
 const CLICK = require('../events').CLICK;
 const PREFIX = require('../config').prefix;
@@ -69,7 +70,14 @@ const accordion = behavior({
   [ CLICK ]: {
     [ BUTTON ]: function (event) {
       event.preventDefault();
-      return toggleButton(this);
+      toggleButton(this);
+
+      if (this.getAttribute(EXPANDED) === 'true') {
+        // We were just expanded, but if another accordion was also just
+        // collapsed, we may no longer be in the viewport. This ensures
+        // that we are still visible, so the user isn't confused.
+        if (!isElementInViewport(this)) this.scrollIntoView();
+      }
     },
   },
 }, {
