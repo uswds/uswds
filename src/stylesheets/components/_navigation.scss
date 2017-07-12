@@ -139,6 +139,7 @@
 
   button {
     $button-vertical-offset: 36%;
+
     @include button-unstyled;
     @include font-smoothing;
     font-weight: $font-normal;
