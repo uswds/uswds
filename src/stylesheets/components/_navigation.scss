@@ -419,7 +419,7 @@
     flex-direction: column;
 
     @include media($nav-width) {
-      display: initial;
+      display: block;
       float: right;
       margin-top: -4.8rem;
     }
