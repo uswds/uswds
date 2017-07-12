@@ -138,6 +138,7 @@
   }
 
   button {
+    $button-vertical-offset: 36%;
     @include button-unstyled;
     @include font-smoothing;
     font-weight: $font-normal;
@@ -175,7 +176,7 @@
       @include media($nav-width) {
         background-image: url('#{$image-path}/angle-arrow-down.png');
         background-image: url('#{$image-path}/angle-arrow-down.svg');
-        background-position: right 1.5rem top 36%;
+        background-position: right 1.5rem top $button-vertical-offset;
       }
     }
 
@@ -191,7 +192,7 @@
         color: $color-white;
         background-image: url('#{$image-path}/angle-arrow-down-hover.png');
         background-image: url('#{$image-path}/angle-arrow-down-hover.svg');
-        background-position: right 1.5rem top 36%;
+        background-position: right 1.5rem top $button-vertical-offset;
 
         &:hover {
           background-color: $color-primary-darkest;
