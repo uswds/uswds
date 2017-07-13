@@ -51,6 +51,7 @@
   padding: 2rem;
   width: $sliding-panel-width;
   z-index: $z-index-nav;
+  visibility: hidden;
 
   @include media($nav-width) {
     @include padding(5rem 0 0 null);
@@ -62,11 +63,14 @@
     overflow-y: visible;
     position: relative;
     width: auto;
+    visibility: visible;
   }
 
   &.is-visible {
     @include transform(translateX(0));
-    @include transition(all 0.3s ease-in-out);
+    @include transition(transform 0.3s ease-in-out);
+
+    visibility: visible;
   }
 
   nav {
