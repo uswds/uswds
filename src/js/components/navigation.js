@@ -87,13 +87,13 @@ const navigation = behavior({
     },
   },
 }, {
-  init() {
+  init () {
     resize();
     window.addEventListener('resize', resize, false);
   },
-  teardown() {
+  teardown () {
     window.removeEventListener('resize', resize, false);
-  }
+  },
 });
 
 /**
