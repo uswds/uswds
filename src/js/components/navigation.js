@@ -44,6 +44,19 @@ const toggleNav = function (active) {
   return active;
 };
 
+const resize = () => {
+  const isActive = document.body.classList.contains(ACTIVE_CLASS);
+  const closer = document.body.querySelector(CLOSERS);
+
+  if (isActive && closer && closer.getBoundingClientRect().width === 0) {
+    // The mobile nav is active, but the close box isn't visible, which
+    // means the user's viewport has been resized so that it is no longer
+    // in mobile mode. Let's make the page state consistent by
+    // deactivating the mobile nav.
+    toggleNav.call(closer);
+  }
+};
+
 const navigation = behavior({
   [ CLICK ]: {
     [ OPENERS ]: toggleNav,
@@ -66,6 +79,14 @@ const navigation = behavior({
       }
     },
   },
+}, {
+  init() {
+    resize();
+    window.addEventListener('resize', resize, false);
+  },
+  teardown() {
+    window.removeEventListener('resize', resize, false);
+  }
 });
 
 /**
