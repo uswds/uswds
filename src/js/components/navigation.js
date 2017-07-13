@@ -35,9 +35,16 @@ const toggleNav = function (active) {
     const closeButton = context.querySelector(CLOSE_BUTTON);
     const menuButton = context.querySelector(OPENERS);
     if (active && closeButton) {
+      // The mobile nav was just activated, so focus on the close button,
+      // which is just before all the nav elements in the tab order.
       closeButton.focus();
     } else if (!active && document.activeElement === closeButton &&
                menuButton) {
+      // The mobile nav was just deactivated, and focus was on the close
+      // button, which is no longer visible. We don't want the focus to
+      // disappear into the void, so focus on the menu button if it's
+      // visible (this may have been what the user was just focused on,
+      // if they triggered the mobile nav by mistake).
       menuButton.focus();
     }
   }
