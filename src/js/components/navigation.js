@@ -31,10 +31,14 @@ const toggleNav = function (active) {
     el.classList.toggle(VISIBLE_CLASS);
   });
 
-  if (active && context) {
+  if (context) {
     const closeButton = context.querySelector(CLOSE_BUTTON);
-    if (closeButton) {
+    const menuButton = context.querySelector(OPENERS);
+    if (active && closeButton) {
       closeButton.focus();
+    } else if (!active && document.activeElement === closeButton &&
+               menuButton) {
+      menuButton.focus();
     }
   }
   return active;
