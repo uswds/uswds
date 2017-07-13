@@ -88,7 +88,6 @@ const navigation = behavior({
   },
 }, {
   init () {
-    resize();
     window.addEventListener('resize', resize, false);
   },
   teardown () {
