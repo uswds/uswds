@@ -69,11 +69,10 @@
   img {
     float: left;
     margin-right: 1rem;
-    margin-top: 1px;
+    padding-top: 0.5rem;
     width: 2.4rem;
 
     @include media($small-screen) {
-      margin-right: 0.7rem;
       width: 2rem;
     }
   }
