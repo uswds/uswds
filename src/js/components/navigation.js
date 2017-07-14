@@ -28,7 +28,7 @@ const toggleNav = function (active) {
 
   const context = this.closest(CONTEXT);
   forEach(select(TOGGLES), el => {
-    el.classList.toggle(VISIBLE_CLASS);
+    el.classList.toggle(VISIBLE_CLASS, active);
   });
 
   if (context) {
@@ -60,7 +60,7 @@ const resize = () => {
     // means the user's viewport has been resized so that it is no longer
     // in mobile mode. Let's make the page state consistent by
     // deactivating the mobile nav.
-    toggleNav.call(closer);
+    toggleNav.call(closer, false);
   }
 };
 
@@ -82,12 +82,13 @@ const navigation = behavior({
 
       // If the mobile navigation menu is active, we want to hide it.
       if (document.body.classList.contains(ACTIVE_CLASS)) {
-        toggleNav.call(this);
+        toggleNav.call(this, false);
       }
     },
   },
 }, {
   init () {
+    resize();
     window.addEventListener('resize', resize, false);
   },
   teardown () {
