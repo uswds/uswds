@@ -2,6 +2,7 @@
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
+const sinon = require('sinon');
 const navigation = require('../../../src/js/components/navigation');
 const accordion = require('../../../src/js/components/accordion');
 
@@ -64,6 +65,39 @@ describe('navigation toggle', function () {
     menuButton.click();
     navLink.click();
     assert.equal(isVisible(nav), false);
+  });
+
+  it('focuses the close button when the menu button is clicked', function () {
+    menuButton.click();
+    assert.equal(document.activeElement, closeButton);
+  });
+
+  it('focuses the menu button when the close button is clicked', function () {
+    menuButton.click();
+    closeButton.click();
+    assert.equal(document.activeElement, menuButton);
+  });
+
+  it('collapses nav if needed on window resize', function () {
+    menuButton.click();
+    sinon.stub(closeButton, 'getBoundingClientRect').returns({ width: 0 });
+    try {
+      window.dispatchEvent(new CustomEvent('resize'));
+    } finally {
+      closeButton.getBoundingClientRect.restore();
+    }
+    assert.equal(isVisible(nav), false);
+  });
+
+  it('does not collapse nav if not needed on window resize', function () {
+    menuButton.click();
+    sinon.stub(closeButton, 'getBoundingClientRect').returns({ width: 100 });
+    try {
+      window.dispatchEvent(new CustomEvent('resize'));
+    } finally {
+      closeButton.getBoundingClientRect.restore();
+    }
+    assert.equal(isVisible(nav), true);
   });
 
   it('does not show the nav when a nav link is clicked', function () {

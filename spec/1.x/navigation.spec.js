@@ -36,17 +36,6 @@ describe('1.x navigation component', function () {
     assert.equal(isVisible(overlay), true);
   });
 
-  it('focuses the close button when the menu button is clicked', function () {
-    menuButton.click();
-    assert.equal(document.activeElement, closeButton);
-  });
-
-  it('focuses the menu button when the close button is clicked', function () {
-    menuButton.click();
-    closeButton.click();
-    assert.equal(document.activeElement, menuButton);
-  });
-
   it('hides the nav when the close button is clicked', function () {
     menuButton.click();
     closeButton.click();
