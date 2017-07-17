@@ -38,7 +38,9 @@
 
 .usa-nav {
   $sliding-panel-width: 26rem;
+
   @include position(fixed, 0 0 0 auto);
+
   background: $color-white;
   border-left: 1px solid $color-gray-light;
   border-right: 0;
