@@ -40,7 +40,6 @@
   $sliding-panel-width: 26rem;
 
   @include position(fixed, 0 0 0 auto);
-  @include transform(translateX($sliding-panel-width));
 
   background: $color-white;
   border-left: 1px solid $color-gray-light;
@@ -49,24 +48,24 @@
   flex-direction: column;
   overflow-y: auto;
   padding: 2rem;
+  transform: translateX($sliding-panel-width);
   width: $sliding-panel-width;
   z-index: $z-index-nav;
 
   @include media($nav-width) {
     @include padding(5rem 0 0 null);
-    @include transform(translateX(0));
-
     border-left: none;
     display: block;
     float: right;
     overflow-y: visible;
     position: relative;
+    transform: translateX(0);
     width: auto;
   }
 
   &.is-visible {
-    @include transform(translateX(0));
-    @include transition(all 0.3s ease-in-out);
+    transform: translateX(0);
+    transition: all 0.3s ease-in-out;
   }
 
   nav {
