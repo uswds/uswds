@@ -8,4 +8,4 @@ module.exports = function isElementInViewport (el) {
     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
     rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
   );
-}
+};
