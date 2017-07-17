@@ -1,22 +1,13 @@
 'use strict';
 const assert = require('assert');
 const sass = require('node-sass');
-const path = require('path');
-
-const includePath = path.resolve(
-  path.join(
-    __dirname,
-    '../../src/stylesheets'
-  )
-);
+const sassIncludePaths = require('../../sass-include-paths');
 
 const render = function (data) {
   return new Promise((resolve, reject) => {
     sass.render({
       data: data,
-      includePaths: [
-        includePath,
-      ],
+      includePaths: sassIncludePaths.all,
     }, error => {
       error ? reject(error) : resolve();
     });
