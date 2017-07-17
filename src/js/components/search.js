@@ -54,7 +54,15 @@ const toggleSearch = (button, active) => {
       }
       document.body.removeEventListener(CLICK, listener);
     });
-    document.body.addEventListener(CLICK, listener);
+
+    // Normally we would just run this code without a timeout, but
+    // IE11 and Edge will actually call the listener *immediately* because
+    // they are currently handling this exact type of event, so we'll
+    // make sure the browser is done handling the current click event,
+    // if any, before we attach the listener.
+    setTimeout(() => {
+      document.body.addEventListener(CLICK, listener);
+    }, 0);
   }
 };
 

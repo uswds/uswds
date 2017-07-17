@@ -37,11 +37,14 @@ describe('search toggle', function () {
     assert.equal(isVisuallyHidden(form), false);
   });
 
-  it('hides the search form on second click', function () {
+  it('hides the search form on second click', function (done) {
     button.click();
-    document.body.click();
-    assert.equal(button.hidden, false);
-    assert.equal(isVisuallyHidden(form), true);
+    setTimeout(() => {
+      document.body.click();
+      assert.equal(button.hidden, false);
+      assert.equal(isVisuallyHidden(form), true);
+      done();
+    }, 0);
   });
 
   it('does not hide the search form when clicked directly', function () {
