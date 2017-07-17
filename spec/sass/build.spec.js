@@ -1,38 +1,19 @@
 'use strict';
 const assert = require('assert');
-const child = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const pkg = require('../../package.json');
-
-const distPath = path.resolve(
-  path.join(
-    __dirname,
-    '../../dist/css'
-  )
-);
-
-const build = function (done) {
-  return new Promise((resolve, reject) => {
-    child.spawn(
-        './node_modules/.bin/gulp',
-        [ 'sass' ],
-        { stdio: 'ignore' }
-      )
-      .on('error', reject)
-      .on('exit', code => resolve());
-  });
-};
+const { distCssPath, runGulp } = require('./util');
 
 before(function () {
   this.timeout(20000);
-  return build();
+  return runGulp('sass');
 });
 
 describe('build output', function () {
 
   it('generates CSS at dist/css/uswds.css', function () {
-    const distFilename = path.join(distPath, 'uswds.css');
+    const distFilename = path.join(distCssPath, 'uswds.css');
     assert.ok(
       fs.existsSync(distFilename),
       'the file does not exist: ' + distFilename
@@ -40,7 +21,7 @@ describe('build output', function () {
   });
 
   it('generates minified CSS at dist/css/uswds.min.css', function () {
-    const distFilename = path.join(distPath, 'uswds.min.css');
+    const distFilename = path.join(distCssPath, 'uswds.min.css');
     assert.ok(
       fs.existsSync(distFilename),
       'the file does not exist: ' + distFilename
@@ -71,12 +52,12 @@ describe('version output', function () {
   };
 
   it('includes the current version text in uswds.css', function () {
-    const distFilename = path.join(distPath, 'uswds.css');
+    const distFilename = path.join(distCssPath, 'uswds.css');
     return checkVersion(distFilename);
   });
 
   it('includes the current version text in uswds.min.css', function () {
-    const distFilename = path.join(distPath, 'uswds.min.css');
+    const distFilename = path.join(distCssPath, 'uswds.min.css');
     return checkVersion(distFilename);
   });
 
