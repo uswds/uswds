@@ -1,11 +1,14 @@
 // https://stackoverflow.com/a/7557433
-module.exports = function isElementInViewport (el) {
+function isElementInViewport (el, win=window,
+                              docEl=document.documentElement) {
   var rect = el.getBoundingClientRect();
 
   return (
     rect.top >= 0 &&
     rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+    rect.bottom <= (win.innerHeight || docEl.clientHeight) &&
+    rect.right <= (win.innerWidth || docEl.clientWidth)
   );
-};
+}
+
+module.exports = isElementInViewport;
