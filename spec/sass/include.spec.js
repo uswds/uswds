@@ -25,7 +25,8 @@ describe('include paths', function () {
 
 describe('standalone dist scss', function () {
 
-  before(() => {
+  before(function () {
+    this.timeout(20000);
     return runGulp('copy-dist-sass');
   });
 
