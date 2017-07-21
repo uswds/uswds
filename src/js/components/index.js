@@ -6,5 +6,6 @@ module.exports = {
   password:   require('./password'),
   search:     require('./search'),
   skipnav:    require('./skipnav'),
+  validator:  require('./validator'),
 };
 

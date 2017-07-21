@@ -1,3 +1,4 @@
+var child_process = require('child_process');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var dutil = require('./doc-util');
@@ -43,6 +44,24 @@ gulp.task(task, function (done) {
 
 });
 
+gulp.task('typecheck', function () {
+  return new Promise((resolve, reject) => {
+    child_process.spawn(
+      './node_modules/.bin/tsc',
+      { stdio: 'inherit' }
+    )
+    .on('error', reject)
+    .on('exit', code => {
+      if (code === 0) {
+        dutil.logMessage('typecheck', 'TypeScript likes our code!');
+        resolve();
+      } else {
+        reject(new Error('TypeScript failed, see output for details!'));
+      }
+     });
+  });
+});
+
 gulp.task('eslint', function (done) {
   if (!cFlags.test) {
     dutil.logMessage('eslint', 'Skipping linting of JavaScript files.');
@@ -54,5 +73,6 @@ gulp.task('eslint', function (done) {
       'spec/**/*.js'
     ])
     .pipe(eslint())
-    .pipe(eslint.format());
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });

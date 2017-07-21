@@ -191,7 +191,7 @@
     }
 
     &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
-      border-left: 4px solid $color-primary;
+      border-left: 0.4rem solid $color-primary;
       color: $color-primary;
       font-weight: $font-bold;
       padding-left: 1.4rem;

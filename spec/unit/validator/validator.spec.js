@@ -5,7 +5,7 @@ const validator = require('../../../src/js/components/validator');
 
 const TEMPLATE = fs.readFileSync(__dirname + '/template.html').toString();
 
-const INPUT_SELECTOR = '.js-validate_password';
+const INPUT_SELECTOR = '[data-validation-element]';
 const VALIDATORS = '[data-validator]';
 const CHECKED_CLASS = 'usa-checklist-checked';
 

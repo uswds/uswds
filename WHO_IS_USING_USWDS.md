@@ -9,6 +9,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [Agile 6](http://agile6.com/)
 - [Apps.gov](https://apps.gov/)
 - [ATF eRegs](https://atf-eregs.18f.gov/)
+- [Austin Police Dept Citizen Police Academy](http://apdcpa.org)
 - BENEFEDS (FEDVIP)
 - Benefits research
 - Beta USDS website
@@ -39,8 +40,8 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [EPA Clean Water Jurisdictional Determinations](https://watersgeo.epa.gov/cwa/CWA-JDs/)
 - [eCPIC Electronic Capital Planning and Investment Control System](https://www.ecpic.gov/)
 - [Farm Service Agency](https://github.com/USDA-FSA/fsa-design-system)
-- [Federal Election Commission Legal Documents](https://beta.fec.gov/regulations/)
-- [Federal Election Commission](https://beta.fec.gov/)
+- [Federal Election Commission Legal Documents](https://fec.gov/regulations/)
+- [Federal Election Commission](https://fec.gov/)
 - [Federal Front Door](https://labs.usa.gov/)
 - Federal Highway Administration RDE Visualization Website
 - [Federalist](https://federalist.18f.gov/)
@@ -50,8 +51,9 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [Foster Youth Experience Map](https://github.com/presidential-innovation-fellows/fyem-jekyll)
 - [Fresh Direct](http://freshdirect.github.io/)
 - [GI Bill Comparison Tool](https://www.vets.gov/gi-bill-comparison-tool)
-- [General Service Administration](https://gsa.gov)
-- [General Service Administration CTO website](https://github.com/GSA/cto-website)
+- [General Services Administration](https://gsa.gov)
+- [General Services Administration CTO website](https://github.com/GSA/cto-website)
+- [General Services Administration Office of Evaluation Sciences website](https://oes.gsa.gov/)
 - [GovBuy Marketplace](https://buy.gds-gov.tech/)
 - [GSA Open IAE](http://gsa.github.io/openIAE/)
 - [GSA Presents: Grace Hopper Day Hackathon!](http://open.gsa.gov/grace-hopper-hackathon/)
@@ -64,7 +66,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - Microviz
 - [MIDAAS Commerce Data Service](https://midaas.commerce.gov/)
 - [Milwaukee Police Scanner](https://mke-police.herokuapp.com/)
-- [National Archives and Records Administration](archives.gov)
+- [National Archives and Records Administration](https://archives.gov)
 - [NASA Web Style Guide](https://app.frontify.com/d/NZPXDvjOcz5x/nasa-web-style-guide)
 - [National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov/labs/journals/)
 - [National Institute of Health](https://www.nih.gov/)
@@ -76,6 +78,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [Office of the Historian](https://history.state.gov/)
 - [OGP Payroll Reporting](https://pages.18f.gov/ogp-payroll/)
 - OMB egov
+- [OMB Policy Library](https://omb-eregs-demo.app.cloud.gov/)
 - [One page open source](https://pages.18f.gov/onepage-opensource/)
 - [Open FDA](https://open.fda.gov/)
 - [Opportunity Project](http://opportunity.census.gov/)
@@ -97,7 +100,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [US Digital Service Playbook](https://playbook.cio.gov)
 - [USA.gov](https://usa.gov)
 - [USAID](https://www.usaid.gov/)
-- [USA Jobs Data Science Careers] (https://www.usajobs.gov/careerfields/data-science)
+- [USA Jobs Data Science Careers](https://www.usajobs.gov/careerfields/data-science)
 - [USAJOBS.gov Design System](http://usajobs.github.io/design-system/)
 - [USAspending.gov](https://www.usaspending.gov/Pages/Default.aspx)
 - [USDA.gov](https://www.usda.gov/media/blog/2017/03/06/complete-redesign-you-mind)

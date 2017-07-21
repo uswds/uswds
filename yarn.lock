@@ -93,6 +93,10 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
+"@types/node@^8.0.14":
+  version "8.0.14"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.14.tgz#4a19dc6bb61d16c01cbadc7b30ac23518fff176b"
+
 JSONStream@^0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-0.8.4.tgz#91657dfe6ff857483066132b4618b62e8f4887bd"
@@ -893,9 +897,9 @@ boom@2.x.x:
   version "1.8.0"
   resolved "https://github.com/thoughtbot/neat/archive/neat-1.8.0-node-sass.tar.gz#cac50f0721b9caa6d184e05133c7c75283ff4446"
 
-bourbon@^4.2.6:
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/bourbon/-/bourbon-4.3.4.tgz#4da380029e92c0c8f9764c779451a134b11e7cc3"
+bourbon@4.2.7:
+  version "4.2.7"
+  resolved "https://registry.yarnpkg.com/bourbon/-/bourbon-4.2.7.tgz#48a805dff475fbf61e002a64e1e4db68d2f82fba"
 
 boxen@^0.6.0:
   version "0.6.0"
@@ -6809,6 +6813,10 @@ type-is@~1.6.14:
 typedarray@~0.0.5:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
+
+typescript@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.4.1.tgz#c3ccb16ddaa0b2314de031e7e6fee89e5ba346bc"
 
 ua-parser-js@0.7.12:
   version "0.7.12"

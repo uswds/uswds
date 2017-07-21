@@ -1,7 +1,7 @@
 // scss-lint:disable QualifyingElement, PropertyCount
 
 $input-line-height: 1.3;
-$input-border-width: 1px;
+$input-border-width: 0.1rem; // Using rem instead of px so function uses same units
 $input-padding-vertical: 1rem;
 
 // input heights will vary by browser and type
@@ -9,7 +9,7 @@ $input-padding-vertical: 1rem;
 $input-height-exact: (
   ($base-font-size * $input-line-height) +
   ($input-padding-vertical * 2) +
-  (rem($input-border-width * 2))
+  ($input-border-width * 2)
 );
 
 // truncated to 1 decimal place
@@ -142,9 +142,9 @@ legend {
 
 [type=checkbox],
 [type=radio] {
-  margin-left: -2rem;
-  opacity: 0;
-  position: absolute;
+  // The actual input element is only visible to screen readers, because
+  // all visual styling is done via the label.
+  @include sr-only();
 
   .lt-ie9 & {
     border: 0;
