@@ -11,6 +11,7 @@ const TEMPLATE = fs.readFileSync(path.join(__dirname, 'template.html'));
 describe('navigation toggle', function () {
   const body = document.body;
 
+  let sandbox;
   let nav;
   let overlay;
   let closeButton;
@@ -32,6 +33,7 @@ describe('navigation toggle', function () {
     menuButton = body.querySelector('.usa-menu-btn');
     accordionButton = nav.querySelector('.usa-accordion-button');
     navLink = nav.querySelector('a');
+    sandbox = sinon.sandbox.create();
   });
 
   afterEach(function () {
@@ -39,6 +41,7 @@ describe('navigation toggle', function () {
     body.className = '';
     navigation.off();
     accordion.off();
+    sandbox.restore();
   });
 
   it('shows the nav when the menu button is clicked', function () {
@@ -80,23 +83,15 @@ describe('navigation toggle', function () {
 
   it('collapses nav if needed on window resize', function () {
     menuButton.click();
-    sinon.stub(closeButton, 'getBoundingClientRect').returns({ width: 0 });
-    try {
-      window.dispatchEvent(new CustomEvent('resize'));
-    } finally {
-      closeButton.getBoundingClientRect.restore();
-    }
+    sandbox.stub(closeButton, 'getBoundingClientRect').returns({ width: 0 });
+    window.dispatchEvent(new CustomEvent('resize'));
     assert.equal(isVisible(nav), false);
   });
 
   it('does not collapse nav if not needed on window resize', function () {
     menuButton.click();
-    sinon.stub(closeButton, 'getBoundingClientRect').returns({ width: 100 });
-    try {
-      window.dispatchEvent(new CustomEvent('resize'));
-    } finally {
-      closeButton.getBoundingClientRect.restore();
-    }
+    sandbox.stub(closeButton, 'getBoundingClientRect').returns({ width: 100 });
+    window.dispatchEvent(new CustomEvent('resize'));
     assert.equal(isVisible(nav), true);
   });
 
