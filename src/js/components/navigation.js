@@ -18,10 +18,12 @@ const TOGGLES = [ NAV, OVERLAY ].join(', ');
 const ACTIVE_CLASS = 'usa-mobile_nav-active';
 const VISIBLE_CLASS = 'is-visible';
 
+const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
+
 const toggleNav = function (active) {
   const body = document.body;
   if (typeof active !== 'boolean') {
-    active = !body.classList.contains(ACTIVE_CLASS);
+    active = !isActive();
   }
   body.classList.toggle(ACTIVE_CLASS, active);
 
@@ -50,10 +52,9 @@ const toggleNav = function (active) {
 };
 
 const resize = () => {
-  const isActive = document.body.classList.contains(ACTIVE_CLASS);
   const closer = document.body.querySelector(CLOSE_BUTTON);
 
-  if (isActive && closer && closer.getBoundingClientRect().width === 0) {
+  if (isActive() && closer && closer.getBoundingClientRect().width === 0) {
     // The mobile nav is active, but the close box isn't visible, which
     // means the user's viewport has been resized so that it is no longer
     // in mobile mode. Let's make the page state consistent by
@@ -79,7 +80,7 @@ const navigation = behavior({
       }
 
       // If the mobile navigation menu is active, we want to hide it.
-      if (document.body.classList.contains(ACTIVE_CLASS)) {
+      if (isActive()) {
         toggleNav.call(this, false);
       }
     },
