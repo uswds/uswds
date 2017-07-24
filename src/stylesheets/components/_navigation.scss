@@ -52,6 +52,11 @@
   width: $sliding-panel-width;
   z-index: $z-index-nav;
 
+  // Defaulting to hidden is very important for ensuring
+  // that the nav contents aren't in the tab order if
+  // the nav menu is off-screen.
+  visibility: hidden;
+
   @include media($nav-width) {
     @include padding(5rem 0 0 null);
     border-left: none;
@@ -61,11 +66,20 @@
     position: relative;
     transform: translateX(0);
     width: auto;
+    visibility: visible;
   }
 
   &.is-visible {
+    // It's very important that we scope the transition to
+    // only include 'transform' here; we used to transition
+    // on 'all', but this prevented the close button from
+    // being focused after activating the nav menu, as the
+    // button wasn't yet visible due to 'visibility'
+    // implicitly being part of the CSS transition.
     transform: translateX(0);
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+
+    visibility: visible;
   }
 
   nav {
