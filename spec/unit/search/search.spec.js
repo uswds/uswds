@@ -40,11 +40,14 @@ describe('search toggle', function () {
     assert.equal(isVisuallyHidden(form), false, 'form is not hidden');
   });
 
-  it('hides the search form on second click', function () {
+  it('hides the search form on second click', function (done) {
     button.click();
-    body.click();
-    assert.equal(button.hidden, false, 'button is hidden');
-    assert.equal(isVisuallyHidden(form), true, 'form is still visible');
+    setTimeout(() => {
+      body.click();
+      assert.equal(button.hidden, false, 'button is hidden');
+      assert.equal(isVisuallyHidden(form), true, 'form is still visible');
+      done();
+    }, 0);
   });
 
   it('does not hide the search form when clicked directly', function () {
@@ -54,14 +57,17 @@ describe('search toggle', function () {
     assert.equal(isVisuallyHidden(form), false, 'form is not hidden');
   });
 
-  it('hides the search form after clicking in the form', function () {
+  it('hides the search form after clicking in the form', function (done) {
     button.click();
     form.click();
     assert.equal(button.hidden, true, 'button is not hidden');
     assert.equal(isVisuallyHidden(form), false, 'form is hidden');
-    body.click();
-    assert.equal(button.hidden, false, 'button is still visible');
-    assert.equal(isVisuallyHidden(form), true, 'form is not hidden');
+    setTimeout(() => {
+      body.click();
+      assert.equal(button.hidden, false, 'button is still visible');
+      assert.equal(isVisuallyHidden(form), true, 'form is not hidden');
+      done();
+    }, 0);
   });
 
   describe('off()', function () {

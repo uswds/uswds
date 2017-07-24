@@ -193,7 +193,7 @@ $z-index-nav:     9000;
       &[aria-expanded=false],
       &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
         @include media($nav-width) { /* stylelint-disable-line selector-no-qualifying-type */
-          background-position: right 1.5rem top 50%;
+          background-position: right 1.5rem top 44%;
         }
       }
     }
