@@ -1,0 +1,34 @@
+label: Buttons
+status: ready
+
+variants:
+  - name: primary
+    context:
+      label: Primary buttons
+      classes: 'usa-button'
+
+  - name: primary-alt
+    context:
+      label: Primary alt buttons
+      classes: 'usa-button-primary-alt'
+
+  - name: secondary
+    context:
+      label: Secondary buttons
+      classes: 'usa-button-secondary'
+
+  - name: gray
+    context:
+      label: Gray buttons
+      classes: 'usa-button-gray'
+
+  - name: outline
+    context:
+      label: Outline buttons
+      classes: 'usa-button-outline'
+
+  - name: outline-inverse
+    context:
+      label: Outline inverse buttons
+      classes: 'usa-button-outline-inverse'
+
