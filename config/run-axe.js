@@ -145,7 +145,7 @@ Promise.all([
               console.log(chalk.green('OK'));
             } else {
               console.log(chalk.red(`Found ${viols.length} aXe violations.`));
-              console.log(viols);
+              console.log(JSON.stringify(viols, null, 2));
               console.log(chalk.cyan(
                 `\nTo debug these violations, install aXe at:\n\n` +
                 `  https://www.deque.com/products/axe/\n`
