@@ -1,7 +1,6 @@
 
-  <h6>{{ label }}</h6>
-  <div class="button_wrapper">
-    <button class="{{ classes }}">Default</button>
-    <button class="{{ classes }} usa-button-active">Active</button>
-    <button class="{{ classes }} usa-button-hover">Hover</button>
-  </div>
+<button class="{{ classes }}">Default</button>
+{% if (category != 'disabled') and (category != 'big') %}
+<button class="{{ classes }} usa-button-active">Active</button>
+<button class="{{ classes }} usa-button-hover">Hover</button>
+{% endif %}
