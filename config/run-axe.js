@@ -73,7 +73,7 @@ Promise.all([
   const chromeHost = chrome.host || 'localhost';
   const serverUrl = `http://${HOSTNAME}:${server.port}`;
 
-  console.log(`Static file server is listening at ${serverUrl}.`);
+  console.log(`Fractal server is listening at ${serverUrl}.`);
   console.log(`Chrome is debuggable on http://${chromeHost}:${chrome.port}.`);
   console.log(`Running aXe on:`);
 
