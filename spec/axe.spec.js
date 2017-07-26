@@ -16,9 +16,6 @@ const REMOTE_CHROME_URL = process.env[ 'REMOTE_CHROME_URL' ];
 const AXE_JS = fs.readFileSync(__dirname + '/../node_modules/axe-core/axe.js');
 const AXE_OPTIONS = JSON.stringify({
   rules: {
-    'document-title': { enabled: false },  // TODO: Remove eventually.
-    'html-has-lang': { enabled: false },   // TODO: Remove eventually.
-    'frame-title': { enabled: false },     // TODO: Remove eventually.
     // Not all our examples need "skip to main content" links, so
     // ignore that rule.
     'bypass': { enabled: false },
