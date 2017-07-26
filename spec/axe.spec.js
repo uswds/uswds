@@ -27,11 +27,17 @@ const SKIP_COMPONENTS = [
   'header',          // TODO: Resolve duplicate id errors and remove.
   'buttons',         // TODO: Resolve color contrast issues and remove.
 ];
+const DEVICE_METRICS = {
+  width: 412,
+  height: 732,
+  deviceScaleFactor: 1,
+  mobile: false,
+  fitWindow: false,
+};
 
 function launchChromeLocally (headless=true) {
   return chromeLauncher.launch({
     chromeFlags: [
-      '--window-size=412,732',
       '--disable-gpu',
       headless ? '--headless' : '',
     ],
@@ -52,11 +58,12 @@ function getRemoteChrome () {
 }
 
 function runAxe ({ cdp, url }) {
-  const { Page, Network, Runtime } = cdp;
+  const { Page, Network, Runtime, Emulation } = cdp;
 
   return Promise.all([
     Page.enable(),
     Network.enable(),
+    Emulation.setDeviceMetricsOverride(DEVICE_METRICS),
   ]).then(() => new Promise((resolve, reject) => {
     Network.responseReceived(({ response }) => {
       if (response.status < 400) return;
