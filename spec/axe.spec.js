@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const os = require('os');
+const assert = require('assert');
 const urlParse = require('url').parse;
 const chromeLauncher = require('chrome-launcher');
 const CDP = require('chrome-remote-interface');
@@ -57,13 +58,45 @@ function getRemoteChrome () {
   });
 }
 
-function runAxe ({ cdp, url }) {
-  const { Page, Network, Runtime, Emulation } = cdp;
+function loadAxe (cdp) {
+  return cdp.Runtime.evaluate({
+    expression: `${AXE_JS};`,
+  }).then(details => {
+    assert.deepEqual(details, { result: { type: 'undefined' } },
+                     'Evaluating aXe source code should succeed');
+  });
+}
+
+function runAxe (cdp) {
+  return cdp.Runtime.evaluate({
+    expression: `(${RUN_AXE_FUNC_JS})(${AXE_OPTIONS})`,
+    awaitPromise: true,
+  }).then(details => {
+    if (details.result.type !== 'string') {
+      return Promise.reject(new Error(
+        'Unexpected result from aXe JS evaluation: ' +
+        JSON.stringify(details.result, null, 2)
+      ));
+    }
+    const viols = JSON.parse(details.result.value);
+    if (viols.length > 0) {
+      return Promise.reject(new Error(
+        `Found ${viols.length} aXe violations: ` +
+        JSON.stringify(viols, null, 2) +
+        `\nTo debug these violations, install aXe at:\n\n` +
+        `  https://www.deque.com/products/axe/\n`
+      ));
+    }
+    return Promise.resolve();
+  });
+}
+
+function loadPage ({ cdp, url }) {
+  const { Page, Network } = cdp;
 
   return Promise.all([
     Page.enable(),
     Network.enable(),
-    Emulation.setDeviceMetricsOverride(DEVICE_METRICS),
   ]).then(() => new Promise((resolve, reject) => {
     Network.responseReceived(({ response }) => {
       if (response.status < 400) return;
@@ -76,27 +109,7 @@ function runAxe ({ cdp, url }) {
                        JSON.stringify(details, null, 2)));
     });
     Page.loadEventFired(() => {
-      Runtime.evaluate({
-        expression: `${AXE_JS};(${RUN_AXE_FUNC_JS})(${AXE_OPTIONS})`,
-        awaitPromise: true,
-      }).then(details => {
-        if (details.result.type !== 'string') {
-          return reject(new Error(
-            'Unexpected result from aXe JS evaluation: ' +
-            JSON.stringify(details.result, null, 2)
-          ));
-        }
-        const viols = JSON.parse(details.result.value);
-        if (viols.length > 0) {
-          return reject(new Error(
-            `Found ${viols.length} aXe violations: ` +
-            JSON.stringify(viols, null, 2) +
-            `\nTo debug these violations, install aXe at:\n\n` +
-            `  https://www.deque.com/products/axe/\n`
-          ));
-        }
-        resolve();
-      });
+      resolve();
     });
     Page.navigate({ url });
   }));
@@ -164,10 +177,13 @@ fractalLoad.then(() => {
 
         it('reports no aXe violations', function () {
           this.timeout(10000);
-          return runAxe({
-            url: `${serverUrl}/components/preview/${item.handle}`,
-            cdp,
-          });
+          return cdp.Emulation.setDeviceMetricsOverride(DEVICE_METRICS)
+            .then(() => loadPage({ 
+              url: `${serverUrl}/components/preview/${item.handle}`,
+              cdp,
+            }))
+            .then(() => loadAxe(cdp))
+            .then(() => runAxe(cdp));
         });
       });
     }
