@@ -93,6 +93,18 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
+"@types/core-js@^0.9.41":
+  version "0.9.42"
+  resolved "https://registry.yarnpkg.com/@types/core-js/-/core-js-0.9.42.tgz#dd6da92cd7d5ab5ca0b4477524537c3e633b6bce"
+
+"@types/mkdirp@^0.3.29":
+  version "0.3.29"
+  resolved "https://registry.yarnpkg.com/@types/mkdirp/-/mkdirp-0.3.29.tgz#7f2ad7ec55f914482fc9b1ec4bb1ae6028d46066"
+
+"@types/node@6.0.66":
+  version "6.0.66"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.66.tgz#5680b74a6135d33d4c00447e7c3dc691a4601625"
+
 "@types/node@^8.0.14":
   version "8.0.14"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.14.tgz#4a19dc6bb61d16c01cbadc7b30ac23518fff176b"
@@ -214,6 +226,12 @@ ansi-styles@^1.1.0:
 ansi-styles@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-2.2.1.tgz#b432dd3358b634cf75e1e4664368240533c1ddbe"
+
+ansi-styles@^3.1.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-3.2.0.tgz#c159b8d5be0f9e5a6f346dab94f16ce022161b88"
+  dependencies:
+    color-convert "^1.9.0"
 
 ansi-wrap@0.1.0:
   version "0.1.0"
@@ -401,6 +419,10 @@ aws-sign2@~0.6.0:
 aws4@^1.2.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
+
+axe-core@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-2.3.1.tgz#be87acabe8c2c6a979761ea7c2b423791fb32f3f"
 
 babel-code-frame@^6.22.0:
   version "6.22.0"
@@ -1274,6 +1296,14 @@ chalk@^0.5.0:
     strip-ansi "^0.3.0"
     supports-color "^0.2.0"
 
+chalk@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.0.1.tgz#dbec49436d2ae15f536114e76d14656cdbc0f44d"
+  dependencies:
+    ansi-styles "^3.1.0"
+    escape-string-regexp "^1.0.5"
+    supports-color "^4.0.0"
+
 chokidar@1.6.1, chokidar@^1.6.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-1.6.1.tgz#2f4447ab5e96e50fb3d789fd90d4c72e0e4c70c2"
@@ -1288,6 +1318,24 @@ chokidar@1.6.1, chokidar@^1.6.0:
     readdirp "^2.0.0"
   optionalDependencies:
     fsevents "^1.0.0"
+
+chrome-launcher@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/chrome-launcher/-/chrome-launcher-0.3.2.tgz#c3a89e40ed2462899bac809417c4d7c451d5de05"
+  dependencies:
+    "@types/core-js" "^0.9.41"
+    "@types/mkdirp" "^0.3.29"
+    "@types/node" "6.0.66"
+    lighthouse-logger "^1.0.0"
+    mkdirp "0.5.1"
+    rimraf "^2.6.1"
+
+chrome-remote-interface@^0.24.2:
+  version "0.24.2"
+  resolved "https://registry.yarnpkg.com/chrome-remote-interface/-/chrome-remote-interface-0.24.2.tgz#43a05440a1fa60b73769e72f3e7892ac11d66eba"
+  dependencies:
+    commander "2.1.x"
+    ws "2.0.x"
 
 cipher-base@^1.0.0, cipher-base@^1.0.1:
   version "1.0.3"
@@ -1402,7 +1450,7 @@ coffee-script@^1.12.4:
   version "1.12.5"
   resolved "https://registry.yarnpkg.com/coffee-script/-/coffee-script-1.12.5.tgz#809f4585419112bbfe46a073ad7543af18c27346"
 
-color-convert@^1.3.0:
+color-convert@^1.3.0, color-convert@^1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.0.tgz#1accf97dd739b983bf994d56fec8f95853641b7a"
   dependencies:
@@ -1482,6 +1530,10 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.5.tgz#938370a57b4a51dea2c77c15d5c5fdf895164009"
   dependencies:
     delayed-stream "~1.0.0"
+
+commander@2.1.x:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.1.0.tgz#d121bbae860d9992a3d517ba96f56588e47c6781"
 
 commander@2.9.0, commander@^2.2.0, commander@^2.9.0:
   version "2.9.0"
@@ -1863,6 +1915,12 @@ debug@2.6.3:
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.3.tgz#0f7eb8c30965ec08c72accfa0130c8b79984141d"
   dependencies:
     ms "0.7.2"
+
+debug@^2.6.8:
+  version "2.6.8"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.8.tgz#e731531ca2ede27d188222427da17821d68ff4fc"
+  dependencies:
+    ms "2.0.0"
 
 decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
   version "1.2.0"
@@ -3256,6 +3314,10 @@ has-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
 
+has-flag@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-2.0.0.tgz#e8207af1cc7b30d446cc70b734b5e8be18f88d51"
+
 has-gulplog@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/has-gulplog/-/has-gulplog-0.1.0.tgz#6414c82913697da51590397dafb12f22967811ce"
@@ -4017,6 +4079,12 @@ liftoff@^2.1.0, liftoff@^2.3.0:
     rechoir "^0.6.2"
     resolve "^1.1.7"
 
+lighthouse-logger@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/lighthouse-logger/-/lighthouse-logger-1.0.0.tgz#c6abdfbbbf0b4a541ab33864802cbad8944bcc8c"
+  dependencies:
+    debug "^2.6.8"
+
 limiter@^1.0.5:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/limiter/-/limiter-1.1.0.tgz#6e2bd12ca3fcdaa11f224e2e53c896df3f08d913"
@@ -4730,6 +4798,10 @@ ms@0.7.1:
 ms@0.7.2:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
+
+ms@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
 multimatch@^2.0.0, multimatch@^2.1.0:
   version "2.1.0"
@@ -6635,6 +6707,12 @@ supports-color@^3.1.0, supports-color@^3.2.3:
   dependencies:
     has-flag "^1.0.0"
 
+supports-color@^4.0.0:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-4.2.1.tgz#65a4bb2631e90e02420dba5554c375a4754bb836"
+  dependencies:
+    has-flag "^2.0.0"
+
 svg-tags@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/svg-tags/-/svg-tags-1.0.0.tgz#58f71cee3bd519b59d4b2a843b6c7de64ac04764"
@@ -6889,6 +6967,10 @@ uid-number@^0.0.6:
 ultron@1.0.x:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/ultron/-/ultron-1.0.2.tgz#ace116ab557cd197386a4e88f4685378c8b2e4fa"
+
+ultron@~1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ultron/-/ultron-1.1.0.tgz#b07a2e6a541a815fc6a34ccd4533baec307ca864"
 
 umd@^3.0.0:
   version "3.0.1"
@@ -7237,6 +7319,12 @@ ws@1.1.1:
   dependencies:
     options ">=0.0.5"
     ultron "1.0.x"
+
+ws@2.0.x:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-2.0.3.tgz#532fd499c3f7d7d720e543f1f807106cfc57d9cb"
+  dependencies:
+    ultron "~1.1.0"
 
 wtf-8@1.0.0:
   version "1.0.0"
