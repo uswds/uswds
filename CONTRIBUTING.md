@@ -85,6 +85,9 @@ gulp stylelint
 (Or, if you don't want to install Gulp globally, you can run `$(npm
 bin)/gulp` instead of `gulp`.)
 
+Note that running the tests also requires an installation of
+Chrome v59 or higher (v60 if you're on Windows).
+
 ### Building
 
 To build the `uswds` package in preparation for releases, run:
