@@ -20,7 +20,7 @@
     "release": "gulp release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
     "start": "fractal start --sync",
-    "test": "gulp eslint typecheck stylelint test && node config/run-axe.js",
+    "test": "gulp eslint typecheck stylelint test",
     "version": "npm run prepublish",
     "watch": "nswatch"
   },
