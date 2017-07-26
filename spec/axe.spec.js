@@ -51,6 +51,50 @@ function getRemoteChrome () {
   });
 }
 
+function runAxe ({ cdp, url }) {
+  const { Page, Network, Runtime } = cdp;
+
+  return Promise.all([
+    Page.enable(),
+    Network.enable(),
+  ]).then(() => new Promise((resolve, reject) => {
+    Network.responseReceived(({ response }) => {
+      if (response.status < 400) return;
+      reject(new Error(
+        `${response.url} returned HTTP ${response.status}!`
+      ));
+    });
+    Network.loadingFailed(details => {
+      reject(new Error('A network request failed to load: ' +
+                       JSON.stringify(details, null, 2)));
+    });
+    Page.loadEventFired(() => {
+      Runtime.evaluate({
+        expression: `${AXE_JS};(${RUN_AXE_FUNC_JS})(${AXE_OPTIONS})`,
+        awaitPromise: true,
+      }).then(details => {
+        if (details.result.type !== 'string') {
+          return reject(new Error(
+            'Unexpected result from aXe JS evaluation: ' +
+            JSON.stringify(details.result, null, 2)
+          ));
+        }
+        const viols = JSON.parse(details.result.value);
+        if (viols.length > 0) {
+          return reject(new Error(
+            `Found ${viols.length} aXe violations: ` +
+            JSON.stringify(viols, null, 2) +
+            `\nTo debug these violations, install aXe at:\n\n` +
+            `  https://www.deque.com/products/axe/\n`
+          ));
+        }
+        resolve();
+      });
+    });
+    Page.navigate({ url });
+  }));
+}
+
 // This function is only here so it can be easily .toString()'d
 // and run in the context of a web page by Chrome. It will not
 // be run in the node context.
@@ -111,50 +155,12 @@ fractalLoad.then(() => {
           return cdp.close();
         });
 
-        it('reports no aXe violations', () => {
-          const { Page, Network, Runtime } = cdp;
-
-          return Promise.all([
-            Page.enable(),
-            Network.enable(),
-          ]).then(() => new Promise((resolve, reject) => {
-            Network.responseReceived(({ response }) => {
-              if (response.status < 400) return;
-              reject(new Error(
-                `${response.url} returned HTTP ${response.status}!`
-              ));
-            });
-            Network.loadingFailed(details => {
-              reject(new Error('A network request failed to load: ' +
-                               JSON.stringify(details, null, 2)));
-            });
-            Page.loadEventFired(() => {
-              Runtime.evaluate({
-                expression: `${AXE_JS};(${RUN_AXE_FUNC_JS})(${AXE_OPTIONS})`,
-                awaitPromise: true,
-              }).then(details => {
-                if (details.result.type !== 'string') {
-                  return reject(new Error(
-                    'Unexpected result from aXe JS evaluation: ' +
-                    JSON.stringify(details.result, null, 2)
-                  ));
-                }
-                const viols = JSON.parse(details.result.value);
-                if (viols.length > 0) {
-                  return reject(new Error(
-                    `Found ${viols.length} aXe violations: ` +
-                    JSON.stringify(viols, null, 2) +
-                    `\nTo debug these violations, install aXe at:\n\n` +
-                    `  https://www.deque.com/products/axe/\n`
-                  ));
-                }
-                resolve();
-              });
-            });
-            Page.navigate({
-              url: `${serverUrl}/components/preview/${item.handle}`,
-            });
-          }));
+        it('reports no aXe violations', function () {
+          this.timeout(10000);
+          return runAxe({
+            url: `${serverUrl}/components/preview/${item.handle}`,
+            cdp,
+          });
         });
       });
     }
