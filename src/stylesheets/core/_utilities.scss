@@ -132,8 +132,8 @@
 
 @mixin display-icon($icon, $direction, $size, $margin, $hover) {
   &::#{$direction} {
-    background-image: url(#{$image-path}/#{$icon}.png);
-    background-image: url(#{$image-path}/#{$icon}.svg);
+    background-image: url('#{$image-path}/#{$icon}.png');
+    background-image: url('#{$image-path}/#{$icon}.svg');
     background-size: 100%;
     content: '';
     display: inline-block;
@@ -151,8 +151,8 @@
 
   @if $hover == 'hover' {
     &:hover::#{$direction} {
-      background-image: url(#{$image-path}/#{$icon}-hover.png);
-      background-image: url(#{$image-path}/#{$icon}-hover.svg);
+      background-image: url('#{$image-path}/#{$icon}-hover.png');
+      background-image: url('#{$image-path}/#{$icon}-hover.svg');
     }
   }
 }
