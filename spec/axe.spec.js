@@ -22,7 +22,6 @@ const AXE_OPTIONS = JSON.stringify({
   },
 });
 const SKIP_COMPONENTS = [
-  'header',          // TODO: Resolve duplicate id errors and remove.
   'buttons',         // TODO: Resolve color contrast issues and remove.
   'search',          // TODO: Resolve discernible text issues and remove.
 ];
