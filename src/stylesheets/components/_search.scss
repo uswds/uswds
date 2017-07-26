@@ -14,25 +14,6 @@ $usa-btn-big-width:     11.6rem;
   max-width: none;
   position: relative;
 
-  [type=search],
-  .usa-search-input {
-    @include padding(0 null);
-    -webkit-appearance: none;
-    border-bottom-right-radius: 0;
-    border-right: none;
-    border-top-right-radius: 0;
-    box-sizing: border-box;
-    float: left;
-    font-size: $small-font-size;
-    height: 3.3rem;
-    margin: 0;
-    width: calc(100% - #{$usa-btn-small-width});
-
-    @include media($small-screen) {
-      width: calc(100% - #{$usa-btn-medium-width});
-    }
-  }
-
   [type=submit],
   .usa-search-submit {
     @include search-icon;
@@ -94,6 +75,30 @@ $usa-btn-big-width:     11.6rem;
         position: relative;
       }
     }
+  }
+}
+
+// Extra specificity to override rules set in reset.css.
+input[type=search] {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+}
+
+[type=search],
+.usa-search-input {
+  @include padding(0 null);
+  border-bottom-right-radius: 0;
+  border-right: none;
+  border-top-right-radius: 0;
+  box-sizing: border-box;
+  float: left;
+  font-size: $small-font-size;
+  height: 3.3rem;
+  margin: 0;
+  width: calc(100% - #{$usa-btn-small-width});
+
+  @include media($small-screen) {
+    width: calc(100% - #{$usa-btn-medium-width});
   }
 }
 
