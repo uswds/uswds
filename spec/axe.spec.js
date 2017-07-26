@@ -185,7 +185,7 @@ fractalLoad.then(() => {
         before(`load component in chrome and inject aXe`, function () {
           const url = `${serverUrl}/components/preview/${item.handle}`;
 
-          this.timeout(10000);
+          this.timeout(20000);
           return loadPage({ url, cdp }).then(() => loadAxe(cdp));
         });
 
