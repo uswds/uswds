@@ -1,7 +1,7 @@
 <div role="search" class="usa-search usa-search-small">
   <form class="{% if search_js %} js-search-form{% endif %}">
-    <label class="usa-sr-only" for="search-field-small">Search small</label>
-    <input id="search-field-small" type="search" name="search">
+    <label class="usa-sr-only" for="{{ id_prefix }}search-field-small">Search small</label>
+    <input id="{{ id_prefix }}search-field-small" type="search" name="search">
     <button type="submit">
       <span class="usa-sr-only">Search</span>
     </button>
