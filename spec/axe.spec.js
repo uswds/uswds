@@ -28,8 +28,15 @@ const SKIP_COMPONENTS = [
   'header',          // TODO: Resolve duplicate id errors and remove.
   'buttons',         // TODO: Resolve color contrast issues and remove.
 ];
-const DEVICE_METRICS = {
+const SMALL_DESKTOP = {
   width: 412,
+  height: 732,
+  deviceScaleFactor: 1,
+  mobile: false,
+  fitWindow: false,
+};
+const LARGE_DESKTOP = {
+  width: 1280,
   height: 732,
   deviceScaleFactor: 1,
   mobile: false,
@@ -171,18 +178,24 @@ fractalLoad.then(() => {
           });
         });
 
+        before(`load component in chrome and inject aXe`, function () {
+          const url = `${serverUrl}/components/preview/${item.handle}`;
+
+          this.timeout(10000);
+          return loadPage({ url, cdp }).then(() => loadAxe(cdp));
+        });
+
         after('shutdown chrome debug protocol', () => {
           return cdp.close();
         });
 
-        it('reports no aXe violations', function () {
-          this.timeout(10000);
-          return cdp.Emulation.setDeviceMetricsOverride(DEVICE_METRICS)
-            .then(() => loadPage({ 
-              url: `${serverUrl}/components/preview/${item.handle}`,
-              cdp,
-            }))
-            .then(() => loadAxe(cdp))
+        it('reports no aXe violations on large desktops', () => {
+          return cdp.Emulation.setDeviceMetricsOverride(LARGE_DESKTOP)
+            .then(() => runAxe(cdp));
+        });
+
+        it('reports no aXe violations on small desktops', () => {
+          return cdp.Emulation.setDeviceMetricsOverride(SMALL_DESKTOP)
             .then(() => runAxe(cdp));
         });
       });
