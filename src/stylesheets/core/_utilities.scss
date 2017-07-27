@@ -56,7 +56,6 @@
 // conditions.
 @mixin not-sr-only() {
   position: static;
-  left: auto;
 }
 
 .usa-sr-only {
