@@ -20,6 +20,9 @@ const AXE_OPTIONS = JSON.stringify({
     // ignore that rule.
     'bypass': { enabled: false },
   },
+  exclude: [
+    [ 'iframe[src^="data:"]' ],
+  ],
 });
 const SKIP_COMPONENTS = [
   'buttons',         // TODO: Resolve color contrast issues and remove.
