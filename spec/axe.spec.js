@@ -22,7 +22,8 @@ const AXE_OPTIONS = JSON.stringify({
   },
 });
 const SKIP_COMPONENTS = [
-  'buttons',         // TODO: Resolve color contrast issues and remove.
+  // Any components that need to be temporarily skipped can be put
+  // here. They will be regarded as a "pending test" by Mocha.
 ];
 const SMALL_DESKTOP = {
   width: 412,
