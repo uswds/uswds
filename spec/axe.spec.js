@@ -23,7 +23,6 @@ const AXE_OPTIONS = JSON.stringify({
 });
 const SKIP_COMPONENTS = [
   'buttons',         // TODO: Resolve color contrast issues and remove.
-  'search',          // TODO: Resolve discernible text issues and remove.
 ];
 const SMALL_DESKTOP = {
   width: 412,
