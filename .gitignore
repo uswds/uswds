@@ -16,3 +16,6 @@ build/
 
 # ignore gulp-generated vendor files
 src/stylesheets/lib
+
+# ignore saved screenshots
+screenshots/

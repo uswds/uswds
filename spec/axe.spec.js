@@ -198,6 +198,51 @@ fractalLoad.then(() => {
           return cdp.Emulation.setDeviceMetricsOverride(SMALL_DESKTOP)
             .then(() => runAxe(cdp));
         });
+
+        if (process.env.ENABLE_SCREENSHOTS) {
+          const ROOT_DIR = `${__dirname}/..`;
+          const REL_DIR = `screenshots`;
+          const ABS_DIR = `${ROOT_DIR}/${REL_DIR}`;
+          const REL_PATH = `${REL_DIR}/${item.handle}.png`;
+          const ABS_PATH = `${ROOT_DIR}/${REL_PATH}`;
+          let doCompare = fs.existsSync(ABS_PATH);
+
+          it(doCompare ? 'is identical to previous screenshot'
+                       : 'saves screenshot for comparison later', () => {
+            const metrics = JSON.parse(JSON.stringify(SMALL_DESKTOP));
+            const { Page, Emulation } = cdp;
+
+            metrics.fitWindow = true;
+
+            return Emulation.setDeviceMetricsOverride(metrics)
+              .then(() => Page.getLayoutMetrics())
+              .then((result) => {
+                metrics.height = result.contentSize.height;
+                return Emulation.setDeviceMetricsOverride(metrics);
+              })
+              .then(() => Page.captureScreenshot({ format: 'png' }))
+              .then(result => {
+                const data = Buffer.from(result.data, 'base64');
+
+                if (doCompare) {
+                  const goldenData = fs.readFileSync(ABS_PATH);
+                  if (!goldenData.equals(data)) {
+                    return Promise.reject(new Error(
+                      `Screenshot of "${item.handle}" does not match ` +
+                      `${REL_PATH}! If ${REL_PATH} represents an old ` +
+                      `screenshot that is no longer valid, please delete it.`
+                    ));
+                  }
+                } else {
+                  if (!fs.existsSync(ABS_DIR)) {
+                    fs.mkdirSync(ABS_DIR);
+                  }
+
+                  fs.writeFileSync(ABS_PATH, data);
+                }
+              });
+          });
+        }
       });
     }
   });
