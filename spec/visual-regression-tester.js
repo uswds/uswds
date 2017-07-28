@@ -12,6 +12,8 @@ class VisualRegressionTester {
   constructor ({ handle, metrics }) {
     this.handle = handle;
     this.metrics = metrics;
+    this.failPath = path.join(SCREENSHOTS_DIR, `${handle}.fail.png`);
+    this.relFailPath = path.relative(ROOT_DIR, this.failPath);
     this.goldenPath = path.join(SCREENSHOTS_DIR, `${handle}.png`);
     this.relGoldenPath = path.relative(ROOT_DIR, this.goldenPath);
     [ 'screenshot',
@@ -42,21 +44,39 @@ class VisualRegressionTester {
   ensureMatchesGoldenFile (buf) {
     const goldenData = fs.readFileSync(this.goldenPath);
     if (!goldenData.equals(buf)) {
-      return Promise.reject(new Error(
-        `Screenshot of "${this.handle}" does not match ` +
-        `${this.relGoldenPath}! If this file represents an old ` +
-        `screenshot that is no longer valid, please delete it.`
-      ));
+      return this._save(this.failPath, buf)
+        .then(() => Promise.reject(new Error(
+          `Screenshot of "${this.handle}", saved to ${this.relFailPath}, ` +
+          `does not match golden screenshot at ${this.relGoldenPath}! ` +
+          `If the golden screenshot represents an old screenshot that ` +
+          `is no longer valid, please delete it.`
+        )));
+    }
+    return this._deleteIfExists(this.failPath);
+  }
+
+  saveToGoldenFile (buf) {
+    return this._save(this.goldenPath, buf)
+      .then(() => this._deleteIfExists(this.failPath));
+  }
+
+  _deleteIfExists (filepath) {
+    if (fs.existsSync()) {
+      fs.unlinkSync(filepath);
     }
     return Promise.resolve();
   }
 
-  saveToGoldenFile (buf) {
-    if (!fs.existsSync(SCREENSHOTS_DIR)) {
-      fs.mkdirSync(SCREENSHOTS_DIR);
+  _save (filepath, buf) {
+    const dirname = path.dirname(filepath);
+
+    // Obviously this only works for one directory level deep, but
+    // that should be good enough for our needs.
+    if (!fs.existsSync(dirname)) {
+      fs.mkdirSync(dirname);
     }
 
-    fs.writeFileSync(this.goldenPath, buf);
+    fs.writeFileSync(filepath, buf);
     return Promise.resolve();
   }
 }
