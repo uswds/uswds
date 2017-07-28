@@ -6,6 +6,23 @@
   border: 1px dotted gray;
   max-width: 100%;
 }
+
+summary {
+  display: block;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  content: '\25B6';
+  padding-right: 0.5em;
+}
+
+details[open] > summary::before {
+  content: '\25BC';
+}
 </style>
 <title>Visual regression screenshot viewer</title>
 
@@ -57,20 +74,28 @@
     <code data-var="handle"></code> does not match its golden
     counterpart.
   <p>
-  <p>
-    This is <code data-var="handle"></code>'s golden screenshot
-    (i.e., what it <em>should</em> look like):
-  </p>
-  <a href="" data-var-href="goldenName" class="screenshot">
-    <img src="" data-var-src="goldenName">
-  </a>
-  <p>
-    And this is <code data-var="handle"></code>'s latest screenshot
-    (i.e., what it looks like now):
-  </p>
-  <a href="" data-var-href="goldenName" class="screenshot">
-    <img src="" data-var-src="failName">
-  </a>
+  <details>
+    <summary>
+      This is <code data-var="handle"></code>'s golden screenshot
+      (i.e., what it <em>should</em> look like).
+    </summary>
+    <p>
+      <a href="" data-var-href="goldenName" class="screenshot">
+        <img src="" data-var-src="goldenName">
+      </a>
+    </p>
+  </details>
+  <details>
+    <summary>
+      This is <code data-var="handle"></code>'s latest screenshot
+      (i.e., what it looks like now).
+    </summary>
+    <p>
+      <a href="" data-var-href="goldenName" class="screenshot">
+        <img src="" data-var-src="failName">
+      </a>
+    </p>
+  </details>
 </template>
 
 <!-- Scripts -->
