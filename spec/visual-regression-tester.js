@@ -32,13 +32,24 @@ class VisualRegressionTester {
     const { Page, Emulation } = cdp;
     const metrics = clone(this.metrics);
 
-    metrics.fitWindow = true;
-
     return Emulation.setDeviceMetricsOverride(metrics)
       .then(() => Page.getLayoutMetrics())
       .then((result) => {
-        metrics.height = result.contentSize.height;
-        return Emulation.setDeviceMetricsOverride(metrics);
+        // This is weird, I'm not really sure what I'm doing, but after
+        // a bunch of experimentation, this seems to do what we want, i.e.
+        // capture a full-size screenshot of the entire page.
+        //
+        // At the time of this writing, though, Emulation.setVisibleSize()
+        // is documented as being both experimental *and* deprecated, so
+        // this code may not work for long. - AV 7/28/2017
+        return Emulation.setVisibleSize({
+          width: metrics.width,
+          height: result.contentSize.height,
+        }).then(() => {
+          metrics.height = result.contentSize.height;
+          metrics.dontSetVisibleSize = true;
+          return Emulation.setDeviceMetricsOverride(metrics);
+        });
       })
       .then(() => Page.captureScreenshot({ format: 'png' }))
       .then(result => Buffer.from(result.data, 'base64'));
