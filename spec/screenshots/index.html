@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+.screenshot img {
+  border: 1px dotted gray;
+  max-width: 100%;
+}
+</style>
+<title>Visual regression screenshot viewer</title>
+<h1>Visual regression screenshot viewer</h1>
+<template id="metadata-not-found">
+  <h2>Visual regression metadata not found!</h2>
+  <p>
+    I couldn't find the visual regression metadata file. For
+    instructions on how to use this tool, see the
+    <code>README.md</code> for this project.
+  </p>
+</template>
+<template id="no-failures">
+  <h2>No failures!</h2>
+  <p>
+    All <span data-var="count"></span> Fractal component(s) that were
+    screenshotted appear to match their golden counterparts.
+  </p>
+</template>
+<template id="failure">
+  <h2>"<code data-var="handle"></code>" failure</h2>
+  <p>
+    The latest screenshot for the Fractal component
+    <code data-var="handle"></code> does not match its golden
+    counterpart.
+  <p>
+  <p>
+    This is <code data-var="handle"></code>'s golden screenshot
+    (i.e., what it <em>should</em> look like):
+  </p>
+  <a href="" data-var-href="goldenName" class="screenshot">
+    <img src="" data-var-src="goldenName">
+  </a>
+  <p>
+    And this is <code data-var="handle"></code>'s latest screenshot
+    (i.e., what it looks like now):
+  </p>
+  <a href="" data-var-href="goldenName" class="screenshot">
+    <img src="" data-var-src="failName">
+  </a>
+</template>
+<script src="metadata.js"></script>
+<script src="main.js"></script>

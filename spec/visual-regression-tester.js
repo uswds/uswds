@@ -2,19 +2,26 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT_DIR = path.join(__dirname, '..');
-const SCREENSHOTS_DIR = path.join(ROOT_DIR, 'screenshots');
+const SCREENSHOTS_DIR = path.join(ROOT_DIR, 'spec', 'screenshots');
+const METADATA_PATH = path.join(SCREENSHOTS_DIR, 'metadata.js');
 
 const clone = obj => JSON.parse(JSON.stringify(obj));
 
 const autobind = self => name => { self[ name ] = self[ name ].bind(self); };
 
+const failName = handle => `${handle}.fail.png`;
+
+const goldenName = handle => `${handle}.png`;
+
+const screenshotsPath = filename => path.join(SCREENSHOTS_DIR, filename);
+
 class VisualRegressionTester {
   constructor ({ handle, metrics }) {
     this.handle = handle;
     this.metrics = metrics;
-    this.failPath = path.join(SCREENSHOTS_DIR, `${handle}.fail.png`);
+    this.failPath = screenshotsPath(failName(handle));
     this.relFailPath = path.relative(ROOT_DIR, this.failPath);
-    this.goldenPath = path.join(SCREENSHOTS_DIR, `${handle}.png`);
+    this.goldenPath = screenshotsPath(goldenName(handle));
     this.relGoldenPath = path.relative(ROOT_DIR, this.goldenPath);
     [ 'screenshot',
       'ensureMatchesGoldenFile',
@@ -44,12 +51,15 @@ class VisualRegressionTester {
   ensureMatchesGoldenFile (buf) {
     const goldenData = fs.readFileSync(this.goldenPath);
     if (!goldenData.equals(buf)) {
+      const indexHtml = path.join(path.relative(ROOT_DIR, SCREENSHOTS_DIR),
+                                  'index.html');
       return this._save(this.failPath, buf)
         .then(() => Promise.reject(new Error(
           `Screenshot of "${this.handle}", saved to ${this.relFailPath}, ` +
-          `does not match golden screenshot at ${this.relGoldenPath}! ` +
+          `does not match golden screenshot at ${this.relGoldenPath}!\n\n` +
           `If the golden screenshot represents an old screenshot that ` +
-          `is no longer valid, please delete it.`
+          `is no longer valid, please delete it.\n\n` +
+          `To learn more, open ${indexHtml} in a browser.`
         )));
     }
     return this._deleteIfExists(this.failPath);
@@ -61,24 +71,32 @@ class VisualRegressionTester {
   }
 
   _deleteIfExists (filepath) {
-    if (fs.existsSync()) {
+    if (fs.existsSync(filepath)) {
       fs.unlinkSync(filepath);
     }
     return Promise.resolve();
   }
 
   _save (filepath, buf) {
-    const dirname = path.dirname(filepath);
-
-    // Obviously this only works for one directory level deep, but
-    // that should be good enough for our needs.
-    if (!fs.existsSync(dirname)) {
-      fs.mkdirSync(dirname);
-    }
-
     fs.writeFileSync(filepath, buf);
     return Promise.resolve();
   }
 }
+
+VisualRegressionTester.writeMetadata = handles => {
+  const exists = filename => fs.existsSync(screenshotsPath(filename));
+  const metadata = handles
+    .filter(handle => exists(goldenName(handle)))
+    .map(handle => ({
+      handle,
+      failed: exists(failName(handle)),
+      goldenName: goldenName(handle),
+      failName: failName(handle),
+    }));
+  const js = `// This file is auto-generated, please do not edit it.\n\n` +
+             `window.metadata = ${JSON.stringify(metadata, null, 2)};\n`;
+  fs.writeFileSync(METADATA_PATH, js, 'utf-8');
+  return Promise.resolve();
+};
 
 module.exports = VisualRegressionTester;
