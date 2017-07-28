@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<link rel="stylesheet" href="../../dist/css/uswds.css">
 <style>
 .screenshot img {
   border: 1px dotted gray;
@@ -7,7 +8,31 @@
 }
 </style>
 <title>Visual regression screenshot viewer</title>
-<h1>Visual regression screenshot viewer</h1>
+
+<!-- Header -->
+
+<header class="usa-header usa-header-basic" role="banner">
+  <div class="usa-nav-container">
+    <div class="usa-navbar">
+      <div class="usa-logo" id="logo">
+        <em class="usa-logo-text">
+          <a href="#" title="Home" aria-label="Visual regression screenshot viewer">
+            <!-- Until https://github.com/18F/web-design-standards/issues/1729
+                 is fixed, we need to keep this title ridiculously terse. -->
+            Screenshot Viewer
+          </a>
+        </em>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main content -->
+
+<main class="usa-grid usa-section usa-content"></main>
+
+<!-- Templates -->
+
 <template id="metadata-not-found">
   <h2>Visual regression metadata not found!</h2>
   <p>
@@ -16,6 +41,7 @@
     <code>README.md</code> for this project.
   </p>
 </template>
+
 <template id="no-failures">
   <h2>No failures!</h2>
   <p>
@@ -23,8 +49,9 @@
     screenshotted appear to match their golden counterparts.
   </p>
 </template>
+
 <template id="failure">
-  <h2>"<code data-var="handle"></code>" failure</h2>
+  <h2><code data-var="handle"></code> failure</h2>
   <p>
     The latest screenshot for the Fractal component
     <code data-var="handle"></code> does not match its golden
@@ -45,5 +72,8 @@
     <img src="" data-var-src="failName">
   </a>
 </template>
+
+<!-- Scripts -->
+
 <script src="metadata.js"></script>
 <script src="main.js"></script>

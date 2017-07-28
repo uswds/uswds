@@ -22,23 +22,23 @@ function renderTemplate (id, context) {
 }
 
 window.onload = () => {
-  const { body } = document;
+  const main = document.querySelector('main');
 
   // Did we load the metadata?
   if (!window.metadata) {
-    return body.appendChild(renderTemplate('metadata-not-found'));
+    return main.appendChild(renderTemplate('metadata-not-found'));
   }
 
   // Were there any failures?
   const failures = window.metadata.filter(info => info.failed);
   if (failures.length === 0) {
-    return body.appendChild(renderTemplate('no-failures', {
+    return main.appendChild(renderTemplate('no-failures', {
       count: window.metadata.length,
     }));
   }
 
   // Show the failures.
   failures.forEach(info => {
-    body.appendChild(renderTemplate('failure', info));
+    main.appendChild(renderTemplate('failure', info));
   });
 };
