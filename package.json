@@ -102,6 +102,7 @@
     "node-sass": "^3.4.2",
     "normalize.css": "^3.0.3",
     "nswatch": "^0.2.0",
+    "resemblejs": "^2.2.4",
     "run-sequence": "^1.1.5",
     "should": "^11.2.1",
     "sinon": "^2.3.8",

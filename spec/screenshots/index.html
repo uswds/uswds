@@ -91,8 +91,18 @@ details[open] > summary::before {
       (i.e., what it looks like now).
     </summary>
     <p>
-      <a href="" data-var-href="goldenName" class="screenshot">
+      <a href="" data-var-href="failName" class="screenshot">
         <img src="" data-var-src="failName">
+      </a>
+    </p>
+  </details>
+  <details>
+    <summary>
+      This is a visual diff between the golden and latest screenshots.
+    </summary>
+    <p>
+      <a class="screenshot">
+        <img src="" data-var-src="diffUrl">
       </a>
     </p>
   </details>
@@ -100,5 +110,6 @@ details[open] > summary::before {
 
 <!-- Scripts -->
 
+<script src="../../node_modules/resemblejs/resemble.js"></script>
 <script src="metadata.js"></script>
 <script src="main.js"></script>

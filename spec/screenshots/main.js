@@ -1,3 +1,5 @@
+'use strict';
+
 const TEMPLATE_VAR_ATTRS = [
   'src',
   'href',
@@ -39,6 +41,17 @@ window.onload = () => {
 
   // Show the failures.
   failures.forEach(info => {
-    main.appendChild(renderTemplate('failure', info));
+    resemble(info.goldenName).compareTo(info.failName).onComplete(data => {
+      if (data.error) {
+        // TODO: Add error handling here. Odds are the user is viewing
+        // this page via a file: URL on a browser that has strict file
+        // permissions, e.g. Chrome.
+        console.log('resemble.js error:', data.error);
+        info.diffUrl = '';
+      } else {
+        info.diffUrl = data.getImageDataUrl();
+      }
+      main.appendChild(renderTemplate('failure', info));
+    });
   });
 };
