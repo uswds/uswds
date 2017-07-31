@@ -1,0 +1,57 @@
+label: Buttons
+status: ready
+
+variants:
+  - name: primary
+    context:
+      category: primary
+      label: Primary buttons
+      classes: 'usa-button'
+
+  - name: primary-alt
+    context:
+      category: primary
+      label: Primary alt buttons
+      classes: 'usa-button-primary-alt'
+
+  - name: secondary
+    context:
+      category: secondary
+      label: Secondary buttons
+      classes: 'usa-button-secondary'
+
+  - name: gray
+    context:
+      category: secondary
+      label: Gray buttons
+      classes: 'usa-button-gray'
+
+  - name: outline
+    context:
+      category: secondary
+      label: Outline buttons
+      classes: 'usa-button-outline'
+
+  - name: outline-inverse
+    context:
+      category: secondary
+      label: Outline inverse buttons
+      classes: 'usa-button-outline-inverse'
+
+  - name: focus
+    context:
+      category: focus
+      label: Button focus
+      classes: 'usa-button-focus'
+
+  - name: disabled
+    context:
+      category: 'disabled'
+      label: Disabled button
+      classes: 'usa-button-disabled'
+
+  - name: big
+    context:
+      category: 'big'
+      label: Big button
+      classes: 'usa-button-big'

@@ -3,11 +3,9 @@
 !src/
 
 build/
-config/
 coverage/
 spec/
 .github/
 .editorconfig
 .eslintrc.yml
-gulpfile.js
 circle.yml
