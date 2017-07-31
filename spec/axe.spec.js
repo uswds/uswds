@@ -10,6 +10,7 @@ const chalk = require('chalk');
 const fractal = require('../fractal');
 const server = fractal.web.server({ sync: false });
 const { fractalLoad } = require('./delayed-root-suite');
+const VisualRegressionTester = require('./visual-regression-tester');
 
 const HOSTNAME = os.hostname().toLowerCase();
 const REMOTE_CHROME_URL = process.env[ 'REMOTE_CHROME_URL' ];
@@ -134,6 +135,8 @@ const RUN_AXE_FUNC_JS = function runAxe (options) {
 let getChrome = REMOTE_CHROME_URL ? getRemoteChrome : launchChromeLocally;
 
 fractalLoad.then(() => {
+  const handles = Array.from(fractal.components.flatten().map(c => c.handle));
+
   describe('fractal component', () => {
     let chrome;
     let chromeHost;
@@ -159,11 +162,16 @@ fractalLoad.then(() => {
       return chrome.kill();
     });
 
-    for (let item of fractal.components.flatten()) {
+    if (process.env.ENABLE_SCREENSHOTS) {
+      after('create visual regression testing metadata',
+            () => VisualRegressionTester.writeMetadata(handles));
+    }
+
+    for (let handle of handles) {
       let cdp;
 
-      describe(`"${item.handle}"`, () => {
-        if (SKIP_COMPONENTS.includes(item.handle)) {
+      describe(`"${handle}"`, () => {
+        if (SKIP_COMPONENTS.includes(handle)) {
           it('skipping for now. TODO: fix this test!');
           return;
         }
@@ -179,7 +187,7 @@ fractalLoad.then(() => {
         });
 
         before(`load component in chrome and inject aXe`, function () {
-          const url = `${serverUrl}/components/preview/${item.handle}`;
+          const url = `${serverUrl}/components/preview/${handle}`;
 
           this.timeout(20000);
           return loadPage({ url, cdp }).then(() => loadAxe(cdp));
@@ -198,6 +206,22 @@ fractalLoad.then(() => {
           return cdp.Emulation.setDeviceMetricsOverride(SMALL_DESKTOP)
             .then(() => runAxe(cdp));
         });
+
+        if (process.env.ENABLE_SCREENSHOTS) {
+          const vrt = new VisualRegressionTester({
+            handle,
+            metrics: SMALL_DESKTOP,
+          });
+          if (vrt.doesGoldenFileExist()) {
+            it('matches golden screenshot', () => {
+              return vrt.screenshot(cdp).then(vrt.ensureMatchesGoldenFile);
+            });
+          } else {
+            it('is the new golden screenshot', () => {
+              return vrt.screenshot(cdp).then(vrt.saveToGoldenFile);
+            });
+          }
+        }
       });
     }
   });
