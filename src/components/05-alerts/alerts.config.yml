@@ -1,0 +1,41 @@
+label: Alerts
+status: ready
+
+variants:
+  - name: default
+    label: Info
+    context:
+      alert:
+        classes: "usa-alert-info"
+        title: Information Status
+
+  - name: info
+    label: Success
+    context:
+      alert:
+        classes: "usa-alert-success"
+        title: Success Status
+
+
+  - name: warning
+    label: Warning
+    context:
+      alert:
+        classes: "usa-alert-warning"
+        title: Warning Status
+
+  - name: error
+    label: Error
+    context:
+      alert:
+        classes: "usa-alert-error"
+        title: Error Status
+        role: "alert"
+
+  - name: paragraph
+    label: Paragraph
+    context:
+      alert:
+        classes: " usa-alert-info usa-alert-paragraph"
+        title: Information Status - Paragraph Width
+
