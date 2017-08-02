@@ -1,6 +1,8 @@
-<div class="usa-alert {{ alert.classes }}" {% if alert.role %} role="{{alert.role}}"{% endif %}>
+<div class="usa-alert {{ alert.classes }}" {% if alert.role %}role="{{alert.role}}"{% endif %}>
   <div class="usa-alert-body">
+    {% if alert.title %}
     <h3 class="usa-alert-heading">{{ alert.title }}</h3>
-    <p class="usa-alert-text">Lorem ipsum dolor sit amet, <a href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.</p>
+    {% endif %}
+    <p class="usa-alert-text">{{ alert.content }}</p>
   </div>
 </div>
