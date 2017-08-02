@@ -11,15 +11,29 @@ $usa-alerts: (
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
 .usa-alert {
+  $h-padding: $spacing-medium;
+  $bar-size: $spacing-small;
+  $left-padding: $h-padding + $bar-size;
   background-color: $color-gray-lightest;
-  background-position: 1rem 2rem;
+  background-position: $h-padding $h-padding;
   background-repeat: no-repeat;
   background-size: 4rem;
-  margin-top: 1.5em;
-  padding: 1em;
+  padding: $h-padding;
+  padding-left: $left-padding;
+  position: relative;
 
   @include media($medium-screen) {
-    background-size: 5.2rem;
+    background-size: 5.2rem; // TODO abrituary number based on svg size maybe?
+  }
+
+  &::before {
+    background-color: darken($color-gray-lightest, 40%);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: $bar-size;
   }
 
   a {
@@ -81,6 +95,10 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
     background-color: $bgcolor;
     background-image: url('#{$image-path}/alerts/#{$name}.png');
     background-image: url('#{$image-path}/alerts/#{$name}.svg');
+
+    &::before {
+      background-color: darken($bgcolor, 47%);
+    }
   }
 }
 
@@ -91,4 +109,10 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 .usa-alert-paragraph {
   width: $text-max-width;
   padding: 1em 3em 1em 1em;
+}
+
+
+// Deprecated
+.usa-alert {
+  margin-top: 1.5em; // TODO deprecate
 }
