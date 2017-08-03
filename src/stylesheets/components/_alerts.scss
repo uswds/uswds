@@ -10,16 +10,21 @@ $usa-alerts: (
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
+$h-padding: $spacing-medium;
+$bar-size: $spacing-small;
+$left-padding: $h-padding + $bar-size;
+$icon-size: 3rem;
+$icon-size-ratio: 1.3;
+
 .usa-alert {
-  $h-padding: $spacing-medium;
-  $bar-size: $spacing-small;
-  $left-padding: $h-padding + $bar-size;
   background-color: $color-gray-lightest;
   background-position: $h-padding $h-padding;
   background-repeat: no-repeat;
   background-size: 4rem;
-  padding: $h-padding;
+  padding-bottom: $h-padding * 0.7;
   padding-left: $left-padding;
+  padding-right: $h-padding;
+  padding-top: $h-padding;
   position: relative;
 
   @include media($medium-screen) {
@@ -47,47 +52,41 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
   ul {
     margin-bottom: 0;
-    margin-top: 1em;
-    padding-left: 1em;
+    margin-top: $spacing-small;
+    padding-left: $spacing-small;
   }
 }
 
+
 .usa-alert-icon {
   display: table-cell;
-  padding-right: 1rem;
+  padding-right: $spacing-small;
 }
 
 .usa-alert-body {
   display: table-cell;
-  padding-left: 3.5rem;
+  padding-left: ($icon-size + $h-padding) / $icon-size-ratio;
   vertical-align: top;
 
   @include media($medium-screen) {
-    padding-left: 5rem;
-  }
-
-  p:first-child {
-    margin-top: 0.8rem;
-  }
-
-  p:last-child {
-    margin-bottom: 0.8rem;
+    padding-left: $icon-size + $h-padding;
   }
 }
 
 .usa-alert-heading {
-  margin-bottom: .3rem;
   margin-top: 0;
-
-  @include media($medium-screen) {
-    margin-top: .3rem;
-  }
+  margin-bottom: 0;
 }
 
 .usa-alert-text {
   font-family: $font-sans;
   margin-bottom: 0;
   margin-top: 0;
+}
+
+.usa-alert-text:only-child {
+  margin-bottom: $spacing-small;
+  padding-top: $spacing-x-small;
 }
 
 @each $name, $bgcolor in $alerts {
@@ -108,7 +107,6 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
 .usa-alert-paragraph {
   width: $text-max-width;
-  padding: 1em 3em 1em 1em;
 }
 
 

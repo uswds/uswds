@@ -44,10 +44,16 @@ variants:
         title: Information Status - Paragraph Width
         content: "Multi line. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui atione voluptatem sequi nesciunt. Neque porro quisquam est, qui doloremipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
 
-  - name: slim
-    label: Slim
+  - name: no-header
+    label: No header
     context:
       alert:
         classes: " usa-alert-info"
         content: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 
+  - name: slim
+    label: Slim
+    context:
+      alert:
+        classes: "usa-alert-info usa-alert-slim"
+        content: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
