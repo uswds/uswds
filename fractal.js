@@ -25,6 +25,7 @@ components.set('default.context', context);
 components.engine(require('@frctl/nunjucks')({
   filters: {
     jsonify: d => JSON.stringify(d, null, '  '),
+    dataurl: (d, type) => `data:${type},${encodeURIComponent(d)}`,
   },
   paths: [
     'src/components',

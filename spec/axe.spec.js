@@ -15,6 +15,15 @@ const VisualRegressionTester = require('./visual-regression-tester');
 const HOSTNAME = os.hostname().toLowerCase();
 const REMOTE_CHROME_URL = process.env[ 'REMOTE_CHROME_URL' ];
 const AXE_JS = fs.readFileSync(__dirname + '/../node_modules/axe-core/axe.js');
+const AXE_CONTEXT = JSON.stringify({
+  exclude: [
+    // For some reason aXe takes a lot longer if it needs to dive into
+    // iframes with data: URIs. The content of these iframes is just for
+    // non-USWDS example content anyways, so just skip them to speed things
+    // up.
+    [ 'iframe[src^="data:"]' ],
+  ],
+});
 const AXE_OPTIONS = JSON.stringify({
   rules: {
     // Not all our examples need "skip to main content" links, so
@@ -74,7 +83,7 @@ function loadAxe (cdp) {
 
 function runAxe (cdp) {
   return cdp.Runtime.evaluate({
-    expression: `(${RUN_AXE_FUNC_JS})(${AXE_OPTIONS})`,
+    expression: `(${RUN_AXE_FUNC_JS})(${AXE_CONTEXT}, ${AXE_OPTIONS})`,
     awaitPromise: true,
   }).then(details => {
     if (details.result.type !== 'string') {
@@ -123,9 +132,9 @@ function loadPage ({ cdp, url }) {
 // This function is only here so it can be easily .toString()'d
 // and run in the context of a web page by Chrome. It will not
 // be run in the node context.
-const RUN_AXE_FUNC_JS = function runAxe (options) {
+const RUN_AXE_FUNC_JS = function runAxe (context, options) {
   return new Promise((resolve, reject) => {
-    window.axe.run(options, (err, results) => {
+    window.axe.run(context, options, (err, results) => {
       if (err) return reject(err);
       resolve(JSON.stringify(results.violations));
     });
