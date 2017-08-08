@@ -4,7 +4,6 @@ Below are a list of website and applications currently using the U.S. Web Design
 
 - [18F Micropurchasing](https://micropurchase.18f.gov/)
 - [18F](https://18f.gsa.gov)
-- [Access NYC](https://access.nyc.gov/)
 - [Adobe Experience Manager](https://github.com/Adobe-Marketing-Cloud/adobe-digital-design-templates-for-government)
 - [Agile 6](http://agile6.com/)
 - [Apps.gov](https://apps.gov/)
