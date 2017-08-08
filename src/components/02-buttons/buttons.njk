@@ -1,6 +1,8 @@
 
 <button class="{{ classes }}">Default</button>
 {% if (category != 'disabled') and (category != 'big') %}
-<button class="{{ classes }} usa-button-active">Active</button>
 <button class="{{ classes }} usa-button-hover">Hover</button>
+<button class="{{ classes }} usa-button-active">Active</button>
+<button class="{{ classes }} usa-button-focus">Focus</button>
+<button class="{{ classes }} usa-button-disabled">Disabled</button>
 {% endif %}

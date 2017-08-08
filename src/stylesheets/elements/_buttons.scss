@@ -19,7 +19,7 @@ button,
   appearance: none;
   background-color: $color-primary;
   border: 0;
-  border-radius: $border-radius;
+  border-radius: $button-border-radius;
   color: $color-white;
   cursor: pointer;
   display: inline-block;
@@ -72,34 +72,6 @@ button,
   }
 
   &.usa-button-secondary {
-    background-color: $color-secondary;
-
-    &:hover,
-    &.usa-button-hover {
-      background-color: $color-secondary-dark;
-    }
-
-    &:active,
-    &.usa-button-active {
-      background-color: $color-secondary-darkest;
-    }
-  }
-
-  &.usa-button-gray {
-    background-color: $color-gray;
-
-    &:hover,
-    &.usa-button-hover {
-      background-color: $color-gray-dark;
-    }
-
-    &:active,
-    &.usa-button-active {
-      background-color: $color-base;
-    }
-  }
-
-  &.usa-button-outline {
     background-color: $color-white;
     box-shadow: $button-stroke $color-primary;
     color: $color-primary;
@@ -122,7 +94,7 @@ button,
     }
   }
 
-  &.usa-button-outline-inverse {
+  &.usa-button-secondary-inverse {
     background: transparent;
     box-shadow: $button-stroke $color-white;
     color: $color-white;
@@ -145,6 +117,34 @@ button,
     }
   }
 
+  &.usa-button-gray {
+    background-color: $color-gray;
+
+    &:hover,
+    &.usa-button-hover {
+      background-color: $color-gray-dark;
+    }
+
+    &:active,
+    &.usa-button-active {
+      background-color: $color-base;
+    }
+  }
+
+  &.usa-button-red {
+    background-color: $color-secondary;
+
+    &:hover,
+    &.usa-button-hover {
+      background-color: $color-secondary-dark;
+    }
+
+    &:active,
+    &.usa-button-active {
+      background-color: $color-secondary-darkest;
+    }
+  }
+
   &.usa-button-big {
     font-size: 1.9rem;
     padding: 1.5rem 3rem;
@@ -155,7 +155,6 @@ button,
 .usa-button:disabled,
 .usa-button-disabled {
   background-color: $color-gray-lighter;
-  color: $color-gray-dark;
   pointer-events: none;
 
   &:hover,
@@ -166,7 +165,6 @@ button,
     background-color: $color-gray-lighter;
     border: 0;
     box-shadow: none;
-    color: $color-gray-dark;
   }
 }
 
