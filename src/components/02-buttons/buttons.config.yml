@@ -16,7 +16,7 @@ variants:
 
   - name: secondary-inverse
     context:
-      category: secondary
+      category: secondary-inverse
       label: Secondary inverse buttons
       classes: 'usa-button-secondary-inverse'
 
