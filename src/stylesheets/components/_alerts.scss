@@ -66,7 +66,7 @@ $icon-size: 3rem;
   padding-bottom: $spacing-small;
   padding-top: $spacing-small;
 
-  > .usa-alert-text:only-child {
+  .usa-alert-text:only-child {
     margin-bottom: $spacing-x-small;
     padding-top: $spacing-x-small;
   }
