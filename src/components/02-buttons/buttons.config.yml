@@ -8,12 +8,6 @@ variants:
       label: Primary buttons
       classes: 'usa-button'
 
-  - name: primary-alt
-    context:
-      category: primary
-      label: Primary alt buttons
-      classes: 'usa-button-primary-alt'
-
   - name: secondary
     context:
       category: secondary
@@ -26,15 +20,21 @@ variants:
       label: Secondary inverse buttons
       classes: 'usa-button-secondary-inverse'
 
+  - name: aqua
+    context:
+      category: alternate
+      label: Aqua buttons
+      classes: 'usa-button-primary-alt'
+
   - name: gray
     context:
-      category: secondary
+      category: alternate
       label: Gray buttons
       classes: 'usa-button-gray'
 
   - name: red
     context:
-      category: secondary
+      category: alternate
       label: Red buttons
       classes: 'usa-button-red'
 

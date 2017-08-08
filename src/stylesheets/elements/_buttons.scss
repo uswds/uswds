@@ -161,10 +161,46 @@ button,
   &.usa-button-hover,
   &:active,
   &.usa-button-active,
-  &:focus {
+  &:focus,
+  &.usa-button-focus {
     background-color: $color-gray-lighter;
     border: 0;
     box-shadow: none;
+  }
+}
+
+.usa-button-secondary:disabled,
+.usa-button-secondary-disabled {
+  background-color: $color-white;
+  box-shadow: $button-stroke $color-gray-lighter;
+  pointer-events: none;
+  color: $color-gray-lighter;
+
+  &:hover,
+  &.usa-button-hover,
+  &:active,
+  &.usa-button-active,
+  &:focus,
+  &.usa-button-focus {
+    background-color: $color-white;
+    border: 0;
+  }
+
+.usa-button-secondary-inverse:disabled,
+.usa-button-secondary-inverse-disabled {
+  background-color: transparent;
+  box-shadow: $button-stroke $color-gray-lighter;
+  pointer-events: none;
+  color: $color-gray-lighter;
+
+  &:hover,
+  &.usa-button-hover,
+  &:active,
+  &.usa-button-active,
+  &:focus,
+  &.usa-button-focus {
+    background-color: $color-white;
+    border: 0;
   }
 }
 
