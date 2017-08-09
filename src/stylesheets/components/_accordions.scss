@@ -4,6 +4,10 @@ $accordion-border: 3px solid $color-gray-lightest;
 
 // Accordion Styles
 
+$icon-size: $spacing-md-small;
+$h-padding: $spacing-medium;
+$v-padding: $spacing-md-small;
+
 @mixin accordion-list-styles {
   @include unstyled-list;
   color: $color-base;
@@ -35,7 +39,7 @@ $accordion-border: 3px solid $color-gray-lightest;
   font-family: $font-sans;
   font-weight: $font-bold;
   margin: 0;
-  padding: 1.5rem 5.5rem 1.5rem 3rem;
+  padding: $v-padding $h-padding * 2 + $icon-size $v-padding * 1.2 $h-padding;
   width: 100%;
 
   &:focus {
