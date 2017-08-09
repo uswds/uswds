@@ -1,5 +1,6 @@
 // Alert variables ---------- //
 $usa-custom-alerts: () !default;
+$usa-custom-alerts-bar: () !default;
 
 $usa-alerts: (
   success: $color-green-lightest,
@@ -8,18 +9,40 @@ $usa-alerts: (
   info: $color-primary-alt-lightest
 );
 
+$usa-alerts-bar: (
+  success: $color-green,
+  warning: $color-gold,
+  error: $color-secondary,
+  info: $color-primary-alt
+);
+
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
+$alerts-bar: map-merge($usa-alerts-bar, $usa-custom-alerts-bar);
+
+$h-padding: $spacing-medium;
+$bar-size: $spacing-small;
+$left-padding: $h-padding + $bar-size;
+$icon-size: 3rem;
 
 .usa-alert {
   background-color: $color-gray-lightest;
-  background-position: 1rem 2rem;
+  background-position: $h-padding $h-padding;
   background-repeat: no-repeat;
-  background-size: 4rem;
-  margin-top: 1.5em;
-  padding: 1em;
+  background-size: 5.2rem; // TODO abrituary number based on svg size maybe?
+  padding-bottom: $h-padding * 0.7;
+  padding-left: $left-padding;
+  padding-right: $h-padding;
+  padding-top: $h-padding;
+  position: relative;
 
-  @include media($medium-screen) {
-    background-size: 5.2rem;
+  &::before {
+    background-color: darken($color-gray-lightest, 40%);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: $bar-size;
   }
 
   a {
@@ -33,41 +56,36 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
   ul {
     margin-bottom: 0;
-    margin-top: 1em;
-    padding-left: 1em;
+    margin-top: $spacing-small;
+    padding-left: $spacing-small;
+  }
+}
+
+.usa-alert-slim {
+  background-position: $h-padding $spacing-small;
+  padding-bottom: $spacing-small;
+  padding-top: $spacing-small;
+
+  .usa-alert-text:only-child {
+    margin-bottom: $spacing-x-small;
+    padding-top: $spacing-x-small;
   }
 }
 
 .usa-alert-icon {
   display: table-cell;
-  padding-right: 1rem;
+  padding-right: $spacing-small;
 }
 
 .usa-alert-body {
   display: table-cell;
-  padding-left: 3.5rem;
+  padding-left: $icon-size + $h-padding;
   vertical-align: top;
-
-  @include media($medium-screen) {
-    padding-left: 5rem;
-  }
-
-  p:first-child {
-    margin-top: 0.8rem;
-  }
-
-  p:last-child {
-    margin-bottom: 0.8rem;
-  }
 }
 
 .usa-alert-heading {
-  margin-bottom: .3rem;
   margin-top: 0;
-
-  @include media($medium-screen) {
-    margin-top: .3rem;
-  }
+  margin-bottom: 0;
 }
 
 .usa-alert-text {
@@ -76,11 +94,20 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
   margin-top: 0;
 }
 
+.usa-alert-text:only-child {
+  margin-bottom: $spacing-small;
+  padding-top: $spacing-x-small;
+}
+
 @each $name, $bgcolor in $alerts {
   .usa-alert-#{$name} {
     background-color: $bgcolor;
     background-image: url('#{$image-path}/alerts/#{$name}.png');
     background-image: url('#{$image-path}/alerts/#{$name}.svg');
+
+    &::before {
+      background-color: map-get($alerts-bar, $name);
+    }
   }
 }
 
@@ -90,5 +117,9 @@ $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 
 .usa-alert-paragraph {
   width: $text-max-width;
-  padding: 1em 3em 1em 1em;
+}
+
+// Deprecated
+.usa-alert {
+  margin-top: 1.5em; // TODO deprecate
 }
