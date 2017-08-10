@@ -1,18 +1,11 @@
 'use strict';
 
-const os = require('os');
-const urlParse = require('url').parse;
-const chromeLauncher = require('chrome-launcher');
-const CDP = require('chrome-remote-interface');
-const chalk = require('chalk');
 const fractal = require('../fractal');
-const server = fractal.web.server({ sync: false });
 const { fractalLoad } = require('./delayed-root-suite');
 const VisualRegressionTester = require('./visual-regression-tester');
+const ChromeFractalTester = require('./chrome-fractal-tester');
 const axeTester = require('./axe-tester');
 
-const HOSTNAME = os.hostname().toLowerCase();
-const REMOTE_CHROME_URL = process.env[ 'REMOTE_CHROME_URL' ];
 const SKIP_COMPONENTS = [
   // Any components that need to be temporarily skipped can be put
   // here. They will be regarded as a "pending test" by Mocha.
@@ -50,81 +43,14 @@ DEVICES.forEach(d => {
   d.description = `${d.name} (${parts.join(' ')})`;
 });
 
-function launchChromeLocally (headless=true) {
-  return chromeLauncher.launch({
-    chromeFlags: [
-      '--disable-gpu',
-      headless ? '--headless' : '',
-    ],
-  });
-}
-
-function getRemoteChrome () {
-  const info = urlParse(REMOTE_CHROME_URL);
-  if (info.protocol !== 'http:')
-    throw new Error(`Unsupported protocol: ${info.protocol}`);
-  return new Promise(resolve => {
-    resolve({
-      host: info.hostname,
-      port: info.port,
-      kill () { return Promise.resolve(); },
-    });
-  });
-}
-
-function loadPage ({ cdp, url }) {
-  const { Page, Network } = cdp;
-
-  return Promise.all([
-    Page.enable(),
-    Network.enable(),
-  ]).then(() => new Promise((resolve, reject) => {
-    Network.responseReceived(({ response }) => {
-      if (response.status < 400) return;
-      reject(new Error(
-        `${response.url} returned HTTP ${response.status}!`
-      ));
-    });
-    Network.loadingFailed(details => {
-      reject(new Error('A network request failed to load: ' +
-                       JSON.stringify(details, null, 2)));
-    });
-    Page.loadEventFired(() => {
-      resolve();
-    });
-    Page.navigate({ url });
-  }));
-}
-
-let getChrome = REMOTE_CHROME_URL ? getRemoteChrome : launchChromeLocally;
-
 fractalLoad.then(() => {
   const handles = Array.from(fractal.components.flatten().map(c => c.handle));
+  const chromeFractalTester = new ChromeFractalTester();
 
   describe('fractal component', () => {
-    let chrome;
-    let chromeHost;
-    let serverUrl;
+    before('setup ChromeFractalTester', chromeFractalTester.setup);
 
-    // Note that we're not killing the server; this is because
-    // the remote chrome instance (if we're using one) may be
-    // keeping some network connections to the server alive, which
-    // makes it harder to kill, so it's easier to just let mocha
-    // terminate the process when it's done running tests.
-    before('start fractal server', () => server.start());
-
-    before('initialize chrome', done => {
-      getChrome().then(newChrome => {
-        chrome = newChrome;
-        chromeHost = chrome.host || 'localhost';
-        serverUrl = `http://${HOSTNAME}:${server.port}`;
-        done();
-      }).catch(done);
-    });
-
-    after('shutdown chrome', () => {
-      return chrome.kill();
-    });
+    after('teardown ChromeFractalTester', chromeFractalTester.teardown);
 
     if (process.env.ENABLE_SCREENSHOTS) {
       after('create visual regression testing metadata',
@@ -140,26 +66,19 @@ fractalLoad.then(() => {
           return;
         }
 
-        before('init chrome debug protocol', done => {
-          CDP({
-            host: chromeHost,
-            port: chrome.port,
-          }, client => {
-            cdp = client;
-            done();
-          });
+        before('init chrome devtools protocol', () => {
+          return chromeFractalTester.createChromeDevtoolsProtocol()
+            .then(client => { cdp = client; });
         });
 
-        before(`load component in chrome`, function () {
-          const url = `${serverUrl}/components/preview/${handle}`;
-
+        before(`load fractal component in chrome`, function () {
           this.timeout(20000);
-          return loadPage({ url, cdp });
+          return chromeFractalTester.loadFractalPreview(cdp, handle);
         });
 
         before('inject aXe', () => axeTester.load(cdp));
 
-        after('shutdown chrome debug protocol', () => cdp.close());
+        after('shutdown chrome devtools protocol', () => cdp.close());
 
         DEVICES.forEach(device => {
           describe(`on ${device.description}`, () => {
