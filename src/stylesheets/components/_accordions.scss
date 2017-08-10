@@ -128,7 +128,7 @@ $v-padding: $spacing-md-small;
 .usa-accordion-content {
   background-color: $color-white;
   overflow: auto;
-  padding: $spacing-large;
+  padding: $spacing-md-small $spacing-medium;
 
   > *:first-child {
     margin-top: 0;
