@@ -6,42 +6,41 @@ const VisualRegressionTester = require('./visual-regression-tester');
 const ChromeFractalTester = require('./chrome-fractal-tester');
 const axeTester = require('./axe-tester');
 
+class Device {
+  constructor (name, metrics) {
+    this.name = name;
+    this.metrics = Object.assign({
+      deviceScaleFactor: 1,
+      mobile: false,
+      fitWindow: false,
+    }, metrics);
+  }
+
+  get description () {
+    const m = this.metrics;
+    const parts = [ `${m.width}x${m.height}` ];
+
+    if (m.deviceScaleFactor !== 1) parts.push(`@ ${m.deviceScaleFactor}x`);
+    if (m.mobile) parts.push('mobile');
+
+    return `${this.name} (${parts.join(' ')})`;
+  }
+}
+
 const SKIP_COMPONENTS = [
   // Any components that need to be temporarily skipped can be put
   // here. They will be regarded as a "pending test" by Mocha.
 ];
 const DEVICES = [
-  {
-    name: 'small-desktop',
-    metrics: {
-      width: 412,
-      height: 732,
-      deviceScaleFactor: 1,
-      mobile: false,
-      fitWindow: false,
-    },
-  },
-  {
-    name: 'large-desktop',
-    metrics: {
-      width: 1280,
-      height: 732,
-      deviceScaleFactor: 1,
-      mobile: false,
-      fitWindow: false,
-    },
-  },
+  new Device('small-desktop', {
+    width: 412,
+    height: 732,
+  }),
+  new Device('large-desktop', {
+    width: 1280,
+    height: 732,
+  }),
 ];
-
-DEVICES.forEach(d => {
-  const m = d.metrics;
-  const parts = [ `${m.width}x${m.height}` ];
-
-  if (m.deviceScaleFactor !== 1) parts.push(`@ ${m.deviceScaleFactor}x`);
-  if (m.mobile) parts.push('mobile');
-
-  d.description = `${d.name} (${parts.join(' ')})`;
-});
 
 fractalLoad.then(() => {
   const handles = Array.from(fractal.components.flatten().map(c => c.handle));
