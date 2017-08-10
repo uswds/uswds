@@ -96,7 +96,8 @@ button,
     }
   }
 
-  &.usa-button-secondary-inverse {
+  &.usa-button-secondary-inverse,
+  &.usa-button-outline-inverse {    // Outline inverse to be deprecated in 2.0
     background: transparent;
     box-shadow: $button-stroke $color-white;
     color: $color-white;
@@ -175,7 +176,9 @@ button,
 .usa-button-secondary:disabled,
 .usa-button-secondary-disabled,
 .usa-button-secondary-inverse:disabled,
-.usa-button-secondary-inverse-disabled {
+.usa-button-secondary-inverse-disabled,
+.usa-button-outline-inverse:disabled,
+.usa-button-outline-inverse-disabled {   // Outline inverse to be deprecated in 2.0
   box-shadow: $button-stroke $color-gray-lighter;
   pointer-events: none;
   color: $color-gray-lighter;
