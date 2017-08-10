@@ -1,8 +1,6 @@
 'use strict';
 
-const fs = require('fs');
 const os = require('os');
-const assert = require('assert');
 const urlParse = require('url').parse;
 const chromeLauncher = require('chrome-launcher');
 const CDP = require('chrome-remote-interface');
@@ -11,26 +9,10 @@ const fractal = require('../fractal');
 const server = fractal.web.server({ sync: false });
 const { fractalLoad } = require('./delayed-root-suite');
 const VisualRegressionTester = require('./visual-regression-tester');
+const axeTester = require('./axe-tester');
 
 const HOSTNAME = os.hostname().toLowerCase();
 const REMOTE_CHROME_URL = process.env[ 'REMOTE_CHROME_URL' ];
-const AXE_JS = fs.readFileSync(__dirname + '/../node_modules/axe-core/axe.js');
-const AXE_CONTEXT = JSON.stringify({
-  exclude: [
-    // For some reason aXe takes a lot longer if it needs to dive into
-    // iframes with data: URIs. The content of these iframes is just for
-    // non-USWDS example content anyways, so just skip them to speed things
-    // up.
-    [ 'iframe[src^="data:"]' ],
-  ],
-});
-const AXE_OPTIONS = JSON.stringify({
-  rules: {
-    // Not all our examples need "skip to main content" links, so
-    // ignore that rule.
-    'bypass': { enabled: false },
-  },
-});
 const SKIP_COMPONENTS = [
   // Any components that need to be temporarily skipped can be put
   // here. They will be regarded as a "pending test" by Mocha.
@@ -72,39 +54,6 @@ function getRemoteChrome () {
   });
 }
 
-function loadAxe (cdp) {
-  return cdp.Runtime.evaluate({
-    expression: `${AXE_JS};`,
-  }).then(details => {
-    assert.deepEqual(details, { result: { type: 'undefined' } },
-                     'Evaluating aXe source code should succeed');
-  });
-}
-
-function runAxe (cdp) {
-  return cdp.Runtime.evaluate({
-    expression: `(${RUN_AXE_FUNC_JS})(${AXE_CONTEXT}, ${AXE_OPTIONS})`,
-    awaitPromise: true,
-  }).then(details => {
-    if (details.result.type !== 'string') {
-      return Promise.reject(new Error(
-        'Unexpected result from aXe JS evaluation: ' +
-        JSON.stringify(details.result, null, 2)
-      ));
-    }
-    const viols = JSON.parse(details.result.value);
-    if (viols.length > 0) {
-      return Promise.reject(new Error(
-        `Found ${viols.length} aXe violations: ` +
-        JSON.stringify(viols, null, 2) +
-        `\nTo debug these violations, install aXe at:\n\n` +
-        `  https://www.deque.com/products/axe/\n`
-      ));
-    }
-    return Promise.resolve();
-  });
-}
-
 function loadPage ({ cdp, url }) {
   const { Page, Network } = cdp;
 
@@ -128,18 +77,6 @@ function loadPage ({ cdp, url }) {
     Page.navigate({ url });
   }));
 }
-
-// This function is only here so it can be easily .toString()'d
-// and run in the context of a web page by Chrome. It will not
-// be run in the node context.
-const RUN_AXE_FUNC_JS = function runAxe (context, options) {
-  return new Promise((resolve, reject) => {
-    window.axe.run(context, options, (err, results) => {
-      if (err) return reject(err);
-      resolve(JSON.stringify(results.violations));
-    });
-  });
-}.toString();
 
 let getChrome = REMOTE_CHROME_URL ? getRemoteChrome : launchChromeLocally;
 
@@ -195,25 +132,25 @@ fractalLoad.then(() => {
           });
         });
 
-        before(`load component in chrome and inject aXe`, function () {
+        before(`load component in chrome`, function () {
           const url = `${serverUrl}/components/preview/${handle}`;
 
           this.timeout(20000);
-          return loadPage({ url, cdp }).then(() => loadAxe(cdp));
+          return loadPage({ url, cdp });
         });
 
-        after('shutdown chrome debug protocol', () => {
-          return cdp.close();
-        });
+        before('inject aXe', () => axeTester.load(cdp));
+
+        after('shutdown chrome debug protocol', () => cdp.close());
 
         it('has no aXe violations on large desktops', () => {
           return cdp.Emulation.setDeviceMetricsOverride(LARGE_DESKTOP)
-            .then(() => runAxe(cdp));
+            .then(() => axeTester.run(cdp));
         });
 
         it('has no aXe violations on small desktops', () => {
           return cdp.Emulation.setDeviceMetricsOverride(SMALL_DESKTOP)
-            .then(() => runAxe(cdp));
+            .then(() => axeTester.run(cdp));
         });
 
         if (process.env.ENABLE_SCREENSHOTS) {
