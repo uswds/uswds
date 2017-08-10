@@ -91,7 +91,8 @@ button,
 
     &:focus,
     &.usa-button-focus {
-      box-shadow: $button-stroke $color-primary-darkest, $focus-shadow;
+      border-radius: 3px;
+      box-shadow: 0 0 0 2px $color-white, 0 0 0 5px $color-focus, 0 0 0 2px $color-primary inset;
     }
   }
 
@@ -114,7 +115,8 @@ button,
 
     &:focus,
     &.usa-button-focus {
-      box-shadow: $button-stroke $color-gray-light, $focus-shadow;
+      border-radius: 3px;
+      box-shadow: 0 0 0 2px $color-shadow, 0 0 0 5px $color-focus, 0 0 0 2px $color-white inset;
     }
   }
 
@@ -189,8 +191,8 @@ button,
   }
 }
 
-.usa-button-secondary-inverse:disabled,
-.usa-button-secondary-inverse-disabled {
+.usa-button-secondar:disabled,
+.usa-button-secondary-disabled {
   background-color: $color-white;
 }
 
