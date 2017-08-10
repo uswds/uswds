@@ -39,7 +39,7 @@ $v-padding: $spacing-md-small;
   font-family: $font-sans;
   font-weight: $font-bold;
   margin: 0;
-  padding: $v-padding $h-padding * 2 + $icon-size $v-padding * 1.2 $h-padding;
+  padding: $v-padding ($h-padding * 2 + $icon-size) $v-padding $h-padding;
   width: 100%;
 
   &:focus {
