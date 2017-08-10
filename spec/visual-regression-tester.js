@@ -9,19 +9,19 @@ const clone = obj => JSON.parse(JSON.stringify(obj));
 
 const autobind = self => name => { self[ name ] = self[ name ].bind(self); };
 
-const failName = handle => `${handle}.fail.png`;
+const failName = (handle, device) => `${handle}_${device.name}.fail.png`;
 
-const goldenName = handle => `${handle}.png`;
+const goldenName = (handle, device) => `${handle}_${device.name}.png`;
 
 const screenshotsPath = filename => path.join(SCREENSHOTS_DIR, filename);
 
 class VisualRegressionTester {
-  constructor ({ handle, metrics }) {
+  constructor ({ handle, device }) {
     this.handle = handle;
-    this.metrics = metrics;
-    this.failPath = screenshotsPath(failName(handle));
+    this.device = device;
+    this.failPath = screenshotsPath(failName(handle, device));
     this.relFailPath = path.relative(ROOT_DIR, this.failPath);
-    this.goldenPath = screenshotsPath(goldenName(handle));
+    this.goldenPath = screenshotsPath(goldenName(handle, device));
     this.relGoldenPath = path.relative(ROOT_DIR, this.goldenPath);
     [ 'screenshot',
       'ensureMatchesGoldenFile',
@@ -30,7 +30,7 @@ class VisualRegressionTester {
 
   screenshot (cdp) {
     const { Page, Emulation } = cdp;
-    const metrics = clone(this.metrics);
+    const metrics = clone(this.device.metrics);
 
     return Emulation.setDeviceMetricsOverride(metrics)
       .then(() => Page.getLayoutMetrics())
@@ -94,16 +94,27 @@ class VisualRegressionTester {
   }
 }
 
-VisualRegressionTester.writeMetadata = handles => {
+VisualRegressionTester.writeMetadata = (handles, devices) => {
   const exists = filename => fs.existsSync(screenshotsPath(filename));
-  const metadata = handles
-    .filter(handle => exists(goldenName(handle)))
-    .map(handle => ({
-      handle,
-      failed: exists(failName(handle)),
-      goldenName: goldenName(handle),
-      failName: failName(handle),
-    }));
+  const metadata = [];
+
+  handles.forEach(handle => {
+    devices.forEach(device => {
+      const golden = goldenName(handle, device);
+      const fail = failName(handle, device);
+
+      if (!exists(golden)) return;
+
+      metadata.push({
+        handle,
+        device: device.description,
+        failed: exists(fail),
+        goldenName: golden,
+        failName: fail,
+      });
+    });
+  });
+
   const js = `// This file is auto-generated, please do not edit it.\n\n` +
              `window.metadata = ${JSON.stringify(metadata, null, 2)};\n`;
   fs.writeFileSync(METADATA_PATH, js, 'utf-8');

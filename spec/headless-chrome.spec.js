@@ -17,20 +17,38 @@ const SKIP_COMPONENTS = [
   // Any components that need to be temporarily skipped can be put
   // here. They will be regarded as a "pending test" by Mocha.
 ];
-const SMALL_DESKTOP = {
-  width: 412,
-  height: 732,
-  deviceScaleFactor: 1,
-  mobile: false,
-  fitWindow: false,
-};
-const LARGE_DESKTOP = {
-  width: 1280,
-  height: 732,
-  deviceScaleFactor: 1,
-  mobile: false,
-  fitWindow: false,
-};
+const DEVICES = [
+  {
+    name: 'small-desktop',
+    metrics: {
+      width: 412,
+      height: 732,
+      deviceScaleFactor: 1,
+      mobile: false,
+      fitWindow: false,
+    },
+  },
+  {
+    name: 'large-desktop',
+    metrics: {
+      width: 1280,
+      height: 732,
+      deviceScaleFactor: 1,
+      mobile: false,
+      fitWindow: false,
+    },
+  },
+];
+
+DEVICES.forEach(d => {
+  const m = d.metrics;
+  const parts = [ `${m.width}x${m.height}` ];
+
+  if (m.deviceScaleFactor !== 1) parts.push(`@ ${m.deviceScaleFactor}x`);
+  if (m.mobile) parts.push('mobile');
+
+  d.description = `${d.name} (${parts.join(' ')})`;
+});
 
 function launchChromeLocally (headless=true) {
   return chromeLauncher.launch({
@@ -110,7 +128,7 @@ fractalLoad.then(() => {
 
     if (process.env.ENABLE_SCREENSHOTS) {
       after('create visual regression testing metadata',
-            () => VisualRegressionTester.writeMetadata(handles));
+            () => VisualRegressionTester.writeMetadata(handles, DEVICES));
     }
 
     for (let handle of handles) {
@@ -143,31 +161,27 @@ fractalLoad.then(() => {
 
         after('shutdown chrome debug protocol', () => cdp.close());
 
-        it('has no aXe violations on large desktops', () => {
-          return cdp.Emulation.setDeviceMetricsOverride(LARGE_DESKTOP)
-            .then(() => axeTester.run(cdp));
-        });
+        DEVICES.forEach(device => {
+          describe(`on ${device.description}`, () => {
+            before('set device metrics', () => {
+              return cdp.Emulation.setDeviceMetricsOverride(device.metrics);
+            });
 
-        it('has no aXe violations on small desktops', () => {
-          return cdp.Emulation.setDeviceMetricsOverride(SMALL_DESKTOP)
-            .then(() => axeTester.run(cdp));
-        });
+            it('has no aXe violations', () => axeTester.run(cdp));
 
-        if (process.env.ENABLE_SCREENSHOTS) {
-          const vrt = new VisualRegressionTester({
-            handle,
-            metrics: SMALL_DESKTOP,
+            if (process.env.ENABLE_SCREENSHOTS) {
+              const vrt = new VisualRegressionTester({ handle, device });
+              if (vrt.doesGoldenFileExist()) {
+                it('matches golden screenshot',
+                   () => vrt.screenshot(cdp)
+                            .then(vrt.ensureMatchesGoldenFile));
+              } else {
+                it('is the new golden screenshot',
+                   () => vrt.screenshot(cdp).then(vrt.saveToGoldenFile));
+              }
+            }
           });
-          if (vrt.doesGoldenFileExist()) {
-            it('matches golden screenshot', () => {
-              return vrt.screenshot(cdp).then(vrt.ensureMatchesGoldenFile);
-            });
-          } else {
-            it('is the new golden screenshot', () => {
-              return vrt.screenshot(cdp).then(vrt.saveToGoldenFile);
-            });
-          }
-        }
+        });
       });
     }
   });
