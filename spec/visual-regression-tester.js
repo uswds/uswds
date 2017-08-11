@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT_DIR = path.join(__dirname, '..');
-const SCREENSHOTS_DIR = path.join(ROOT_DIR, 'spec', 'screenshots');
+const SPEC_DIR = path.join(ROOT_DIR, 'spec');
+const SCREENSHOTS_DIR = path.join(SPEC_DIR, 'screenshots');
 const METADATA_PATH = path.join(SCREENSHOTS_DIR, 'metadata.js');
 
 const clone = obj => JSON.parse(JSON.stringify(obj));
@@ -122,3 +123,28 @@ VisualRegressionTester.writeMetadata = (handles, devices) => {
 };
 
 module.exports = VisualRegressionTester;
+
+if (!module.parent) {
+  require('yargs')
+    .command([ 'test', '*' ], 'run visual regression tests', yargs => {
+      yargs.alias('g', 'grep')
+        .describe('g', 'only run tests matching a pattern')
+        .nargs('g', 1);
+    }, argv => {
+      const mocha = path.join(ROOT_DIR, 'node_modules', '.bin', 'mocha');
+      const mochaArgs = [
+        '--opts', path.join(SPEC_DIR, 'mocha.opts'),
+        path.join(SPEC_DIR, 'headless-chrome.spec.js'),
+      ];
+      if (argv.g) {
+        mochaArgs.push('-g', argv.g);
+      }
+      process.env.ENABLE_SCREENSHOTS = 'yup';
+      require('child_process').spawn(mocha, mochaArgs, {
+        cwd: ROOT_DIR,
+        stdio: 'inherit',
+      }).on('exit', code => { process.exit(code); });
+    })
+    .help()
+    .argv;
+}
