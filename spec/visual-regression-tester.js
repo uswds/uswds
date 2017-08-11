@@ -16,7 +16,7 @@ const goldenName = (handle, device) => `${handle}_${device.name}.png`;
 
 const screenshotsPath = filename => path.join(SCREENSHOTS_DIR, filename);
 
-const safeDeleteSync = f => { if (fs.existsSync(f)) { fs.unlinkSync(f) } };
+const safeDeleteSync = f => { if (fs.existsSync(f)) fs.unlinkSync(f); };
 
 class VisualRegressionTester {
   constructor ({ handle, device }) {
