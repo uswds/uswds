@@ -52,6 +52,10 @@ fractalLoad.then(() => {
     after('teardown ChromeFractalTester', chromeFractalTester.teardown);
 
     if (process.env.ENABLE_SCREENSHOTS) {
+      if (process.env.UPDATE_GOLDEN_SCREENSHOTS) {
+        VisualRegressionTester.cleanSync(handles, DEVICES);
+      }
+
       after('create visual regression testing metadata',
             () => VisualRegressionTester.writeMetadata(handles, DEVICES));
     }

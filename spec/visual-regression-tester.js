@@ -16,6 +16,8 @@ const goldenName = (handle, device) => `${handle}_${device.name}.png`;
 
 const screenshotsPath = filename => path.join(SCREENSHOTS_DIR, filename);
 
+const safeDeleteSync = f => { if (fs.existsSync(f)) { fs.unlinkSync(f) } };
+
 class VisualRegressionTester {
   constructor ({ handle, device }) {
     this.handle = handle;
@@ -70,7 +72,8 @@ class VisualRegressionTester {
           `Screenshot of "${this.handle}", saved to ${this.relFailPath}, ` +
           `does not match golden screenshot at ${this.relGoldenPath}!\n\n` +
           `If the golden screenshot represents an old screenshot that ` +
-          `is no longer valid, please delete it.\n\n` +
+          `is no longer valid, please run the visual regression tester ` +
+          `with the --updateGolden option.\n\n` +
           `To learn more, open ${indexHtml} in a browser.`
         )));
     }
@@ -83,9 +86,7 @@ class VisualRegressionTester {
   }
 
   _deleteIfExists (filepath) {
-    if (fs.existsSync(filepath)) {
-      fs.unlinkSync(filepath);
-    }
+    safeDeleteSync(filepath);
     return Promise.resolve();
   }
 
@@ -122,6 +123,19 @@ VisualRegressionTester.writeMetadata = (handles, devices) => {
   return Promise.resolve();
 };
 
+VisualRegressionTester.cleanSync = (handles, devices) => {
+  const files = [ METADATA_PATH ];
+
+  handles.forEach(handle => {
+    devices.forEach(device => {
+      files.push(screenshotsPath(goldenName(handle, device)),
+                 screenshotsPath(failName(handle, device)));
+    });
+  });
+
+  files.forEach(safeDeleteSync);
+};
+
 module.exports = VisualRegressionTester;
 
 if (!module.parent) {
@@ -130,16 +144,21 @@ if (!module.parent) {
       yargs.alias('g', 'grep')
         .describe('g', 'only run tests matching a pattern')
         .nargs('g', 1);
+      yargs.alias('u', 'updateGolden')
+        .describe('u', 'update golden screenshot');
     }, argv => {
       const mocha = path.join(ROOT_DIR, 'node_modules', '.bin', 'mocha');
       const mochaArgs = [
         '--opts', path.join(SPEC_DIR, 'mocha.opts'),
         path.join(SPEC_DIR, 'headless-chrome.spec.js'),
       ];
-      if (argv.g) {
-        mochaArgs.push('-g', argv.g);
+      if (argv.grep) {
+        mochaArgs.push('-g', argv.grep);
       }
       process.env.ENABLE_SCREENSHOTS = 'yup';
+      if (argv.updateGolden) {
+        process.env.UPDATE_GOLDEN_SCREENSHOTS = 'yup';
+      }
       require('child_process').spawn(mocha, mochaArgs, {
         cwd: ROOT_DIR,
         stdio: 'inherit',
