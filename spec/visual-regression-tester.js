@@ -164,6 +164,11 @@ if (!module.parent) {
         stdio: 'inherit',
       }).on('exit', code => { process.exit(code); });
     })
+    .command([ 'list' ], 'list tests', () => {}, argv => {
+      require('./chrome-fractal-tester').getHandles().then(handles => {
+        console.log(handles.join('\n'));
+      });
+    })
     .help()
     .argv;
 }

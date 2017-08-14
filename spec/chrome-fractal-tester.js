@@ -55,6 +55,10 @@ function loadPage ({ cdp, url }) {
   }));
 }
 
+function getHandles () {
+  return Array.from(fractal.components.flatten().map(c => c.handle));
+}
+
 const getChrome = REMOTE_CHROME_URL ? getRemoteChrome : launchChromeLocally;
 const server = fractal.web.server({ sync: false });
 const autobind = self => name => { self[ name ] = self[ name ].bind(self); };
@@ -64,7 +68,7 @@ class ChromeFractalTester {
     this.chrome = null;
     this.chromeHost = null;
     this.serverUrl = null;
-    this.handles = Array.from(fractal.components.flatten().map(c => c.handle));
+    this.handles = getHandles();
     [ 'setup',
       'createChromeDevtoolsProtocol',
       'loadFractalPreview',
@@ -102,5 +106,9 @@ class ChromeFractalTester {
     return this.chrome.kill();
   }
 }
+
+ChromeFractalTester.getHandles = () => {
+  return fractal.components.load().then(getHandles);
+};
 
 module.exports = ChromeFractalTester;
