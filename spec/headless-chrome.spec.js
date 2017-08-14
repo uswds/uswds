@@ -1,6 +1,5 @@
 'use strict';
 
-const fractal = require('../fractal');
 const { fractalLoad } = require('./delayed-root-suite');
 const VisualRegressionTester = require('./visual-regression-tester');
 const ChromeFractalTester = require('./chrome-fractal-tester');
@@ -43,8 +42,8 @@ const DEVICES = [
 ];
 
 fractalLoad.then(() => {
-  const handles = Array.from(fractal.components.flatten().map(c => c.handle));
   const chromeFractalTester = new ChromeFractalTester();
+  const { handles } = chromeFractalTester;
 
   describe('fractal component', () => {
     before('setup ChromeFractalTester', chromeFractalTester.setup);

@@ -64,6 +64,7 @@ class ChromeFractalTester {
     this.chrome = null;
     this.chromeHost = null;
     this.serverUrl = null;
+    this.handles = Array.from(fractal.components.flatten().map(c => c.handle));
     [ 'setup',
       'createChromeDevtoolsProtocol',
       'loadFractalPreview',
