@@ -22,12 +22,10 @@ function getRemoteChrome () {
   const info = urlParse(REMOTE_CHROME_URL);
   if (info.protocol !== 'http:')
     throw new Error(`Unsupported protocol: ${info.protocol}`);
-  return new Promise(resolve => {
-    resolve({
-      host: info.hostname,
-      port: info.port,
-      kill () { return Promise.resolve(); },
-    });
+  return Promise.resolve({
+    host: info.hostname,
+    port: info.port,
+    kill () { return Promise.resolve(); },
   });
 }
 
