@@ -47,7 +47,7 @@ button,
 
   &:focus,
   &.usa-button-focus {
-    box-shadow: $focus-shadow;
+    border: 2px solid $color-focus;
   }
 
   &:active,
@@ -118,7 +118,7 @@ button,
 
     &:focus,
     &.usa-button-focus {
-      box-shadow: $button-stroke $color-primary-darkest, $focus-shadow;
+      border: 2px solid $color-focus;
     }
   }
 
@@ -141,7 +141,7 @@ button,
 
     &:focus,
     &.usa-button-focus {
-      box-shadow: $button-stroke $color-gray-light, $focus-shadow;
+      border: 2px solid $color-focus;
     }
   }
 
