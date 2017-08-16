@@ -78,7 +78,7 @@ $color-cool-blue-light:      #4773aa !default; // lighten($color-cool-blue, 20%)
 $color-cool-blue-lighter:    #8ba6ca !default; // lighten($color-cool-blue, 60%)
 $color-cool-blue-lightest:   #dce4ef !default; // lighten($color-cool-blue, 90%)
 
-$color-focus:                #3e94cf !default;
+$color-focus:                $color-gold !default;
 $color-visited:              #4c2c92 !default;
 
 $color-shadow:               rgba(#000, 0.3) !default;
@@ -115,7 +115,7 @@ $article-max-width:   600px !default;
 $input-max-width:     46rem !default;
 $border-radius:       3px !default;
 $box-shadow:          0 0 2px $color-shadow !default;
-$focus-shadow:        0 0 3px $color-focus, 0 0 7px $color-focus !default;
+$focus-shadow:        0 0 0 3px $color-focus !default;
 $nav-width:           951px !default;
 
 // 44 x 44 pixels hit target following Apple iOS Human Interface
