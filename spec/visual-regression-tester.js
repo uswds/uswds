@@ -2,26 +2,29 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT_DIR = path.join(__dirname, '..');
-const SCREENSHOTS_DIR = path.join(ROOT_DIR, 'spec', 'screenshots');
+const SPEC_DIR = path.join(ROOT_DIR, 'spec');
+const SCREENSHOTS_DIR = path.join(SPEC_DIR, 'screenshots');
 const METADATA_PATH = path.join(SCREENSHOTS_DIR, 'metadata.js');
 
 const clone = obj => JSON.parse(JSON.stringify(obj));
 
 const autobind = self => name => { self[ name ] = self[ name ].bind(self); };
 
-const failName = handle => `${handle}.fail.png`;
+const failName = (handle, device) => `${handle}_${device.name}.fail.png`;
 
-const goldenName = handle => `${handle}.png`;
+const goldenName = (handle, device) => `${handle}_${device.name}.png`;
 
 const screenshotsPath = filename => path.join(SCREENSHOTS_DIR, filename);
 
+const safeDeleteSync = f => { if (fs.existsSync(f)) fs.unlinkSync(f); };
+
 class VisualRegressionTester {
-  constructor ({ handle, metrics }) {
+  constructor ({ handle, device }) {
     this.handle = handle;
-    this.metrics = metrics;
-    this.failPath = screenshotsPath(failName(handle));
+    this.device = device;
+    this.failPath = screenshotsPath(failName(handle, device));
     this.relFailPath = path.relative(ROOT_DIR, this.failPath);
-    this.goldenPath = screenshotsPath(goldenName(handle));
+    this.goldenPath = screenshotsPath(goldenName(handle, device));
     this.relGoldenPath = path.relative(ROOT_DIR, this.goldenPath);
     [ 'screenshot',
       'ensureMatchesGoldenFile',
@@ -30,7 +33,7 @@ class VisualRegressionTester {
 
   screenshot (cdp) {
     const { Page, Emulation } = cdp;
-    const metrics = clone(this.metrics);
+    const metrics = clone(this.device.metrics);
 
     return Emulation.setDeviceMetricsOverride(metrics)
       .then(() => Page.getLayoutMetrics())
@@ -69,7 +72,8 @@ class VisualRegressionTester {
           `Screenshot of "${this.handle}", saved to ${this.relFailPath}, ` +
           `does not match golden screenshot at ${this.relGoldenPath}!\n\n` +
           `If the golden screenshot represents an old screenshot that ` +
-          `is no longer valid, please delete it.\n\n` +
+          `is no longer valid, please run the visual regression tester ` +
+          `with the --updateGolden option.\n\n` +
           `To learn more, open ${indexHtml} in a browser.`
         )));
     }
@@ -82,9 +86,7 @@ class VisualRegressionTester {
   }
 
   _deleteIfExists (filepath) {
-    if (fs.existsSync(filepath)) {
-      fs.unlinkSync(filepath);
-    }
+    safeDeleteSync(filepath);
     return Promise.resolve();
   }
 
@@ -94,20 +96,79 @@ class VisualRegressionTester {
   }
 }
 
-VisualRegressionTester.writeMetadata = handles => {
+VisualRegressionTester.writeMetadata = (handles, devices) => {
   const exists = filename => fs.existsSync(screenshotsPath(filename));
-  const metadata = handles
-    .filter(handle => exists(goldenName(handle)))
-    .map(handle => ({
-      handle,
-      failed: exists(failName(handle)),
-      goldenName: goldenName(handle),
-      failName: failName(handle),
-    }));
+  const metadata = [];
+
+  handles.forEach(handle => {
+    devices.forEach(device => {
+      const golden = goldenName(handle, device);
+      const fail = failName(handle, device);
+
+      if (!exists(golden)) return;
+
+      metadata.push({
+        handle,
+        device: device.description,
+        failed: exists(fail),
+        goldenName: golden,
+        failName: fail,
+      });
+    });
+  });
+
   const js = `// This file is auto-generated, please do not edit it.\n\n` +
              `window.metadata = ${JSON.stringify(metadata, null, 2)};\n`;
   fs.writeFileSync(METADATA_PATH, js, 'utf-8');
   return Promise.resolve();
 };
 
+VisualRegressionTester.cleanSync = (handles, devices) => {
+  const files = [ METADATA_PATH ];
+
+  handles.forEach(handle => {
+    devices.forEach(device => {
+      files.push(screenshotsPath(goldenName(handle, device)),
+                 screenshotsPath(failName(handle, device)));
+    });
+  });
+
+  files.forEach(safeDeleteSync);
+};
+
 module.exports = VisualRegressionTester;
+
+if (!module.parent) {
+  require('yargs')
+    .command([ 'test', '*' ], 'run visual regression tests', yargs => {
+      yargs.alias('g', 'grep')
+        .describe('g', 'only run tests matching a pattern')
+        .nargs('g', 1);
+      yargs.alias('u', 'updateGolden')
+        .describe('u', 'update golden screenshot');
+    }, argv => {
+      const mocha = path.join(ROOT_DIR, 'node_modules', '.bin', 'mocha');
+      const mochaArgs = [
+        '--opts', path.join(SPEC_DIR, 'mocha.opts'),
+        path.join(SPEC_DIR, 'headless-chrome.spec.js'),
+      ];
+      if (argv.grep) {
+        mochaArgs.push('-g', argv.grep);
+      }
+      process.env.ENABLE_SCREENSHOTS = 'yup';
+      if (argv.updateGolden) {
+        process.env.UPDATE_GOLDEN_SCREENSHOTS = 'yup';
+      }
+      require('child_process').spawn(mocha, mochaArgs, {
+        cwd: ROOT_DIR,
+        stdio: 'inherit',
+      }).on('exit', code => { process.exit(code); });
+    })
+    .command([ 'list' ], 'list tests', () => {}, argv => {
+      require('./chrome-fractal-tester').getHandles().then(handles => {
+        console.log(handles.join('\n'));
+      });
+    })
+    .help()
+    .argv;
+}
