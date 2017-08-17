@@ -27,7 +27,6 @@ button,
   font-size: $base-font-size;
   font-weight: $font-bold;
   line-height: 1;
-  outline: none;
   padding: 1rem 2rem;
   text-align: center;
   text-decoration: none;
@@ -43,12 +42,6 @@ button,
     border-bottom: 0;
     color: $color-white;
     text-decoration: none;
-  }
-
-  &:focus,
-  &.usa-button-focus {
-    border-radius: 3px;
-    box-shadow: $focus-shadow;
   }
 
   &:active,
@@ -88,12 +81,6 @@ button,
       box-shadow: $button-stroke $color-primary-darkest;
       color: $color-primary-darkest;
     }
-
-    &:focus,
-    &.usa-button-focus {
-      border-radius: 3px;
-      box-shadow: 0 0 0 2px $color-white, 0 0 0 5px $color-focus, 0 0 0 2px $color-primary inset;
-    }
   }
 
   &.usa-button-secondary-inverse,
@@ -112,12 +99,6 @@ button,
     &.usa-button-active {
       box-shadow: $button-stroke $color-gray-light;
       color: $color-gray-lighter;
-    }
-
-    &:focus,
-    &.usa-button-focus {
-      border-radius: 3px;
-      box-shadow: 0 0 0 2px $color-shadow, 0 0 0 5px $color-focus, 0 0 0 2px $color-white inset;
     }
   }
 
@@ -204,7 +185,6 @@ button,
   border-radius: 0;
   font-weight: $font-normal;
   margin: 0;
-  outline: 0;
   padding: 0;
   text-align: left;
   -webkit-font-smoothing: auto;

@@ -166,11 +166,6 @@
       width: initial;
     }
 
-    &:focus,
-    &:active {
-      box-shadow: $focus-shadow;
-    }
-
     &:hover {
       background-color: $color-gray-lightest;
       color: $color-primary;

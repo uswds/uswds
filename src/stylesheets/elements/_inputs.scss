@@ -32,14 +32,8 @@ select {
   line-height: $input-line-height;
   margin: 0.2em 0;
   max-width: $input-max-width;
-  outline: none;
   padding: $input-padding-vertical 0.7em;
   width: 100%;
-
-  &:focus,
-  &.usa-input-focus {
-    box-shadow: $focus-shadow;
-  }
 
   &.usa-input-success {
     border: 3px solid $color-green-light;
@@ -195,20 +189,12 @@ legend {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary;
 }
 
-[type=radio]:focus + label::before {
-  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary, 0 0 3px 4px $color-focus, 0 0 7px 4px $color-focus;
-}
-
 [type=checkbox]:checked + label::before,
 [type=checkbox]:checked:disabled + label::before {
   background-image: url('#{$image-path}/correct8.png');
   background-image: url('#{$image-path}/correct8.svg');
   background-position: 50%;
   background-repeat: no-repeat;
-}
-
-[type=checkbox]:focus + label::before {
-  box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-primary;
 }
 
 [type=checkbox]:disabled + label {
@@ -229,11 +215,6 @@ legend {
   border: none;
   padding-left: 0;
   width: 100%;
-}
-
-[type=range]:focus {
-  box-shadow: none;
-  outline: none;
 }
 
 [type=range]::-webkit-slider-runnable-track {
@@ -299,18 +280,6 @@ legend {
   background: $color-gray-light;
   border: 1px solid $color-gray-medium;
   border-radius: 2rem;
-}
-
-[type=range]:focus::-webkit-slider-thumb {
-  border: 2px solid $color-focus;
-}
-
-[type=range]:focus::-moz-range-thumb {
-  border: 2px solid $color-focus;
-}
-
-[type=range]:focus::-ms-thumb {
-  border: 2px solid $color-focus;
 }
 
 // Memorable dates

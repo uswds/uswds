@@ -138,7 +138,8 @@ $label-border-radius:   2px !default;
 $border-radius:         3px !default;
 $button-border-radius:  5px !default;
 $box-shadow:            0 0 2px $color-shadow !default;
-$focus-shadow:          0 0 0 3px $color-focus, 0 0 0 2px $color-white inset !default;
+$focus-outline:         2px dotted $color-gray-light;
+$focus-spacing:         3px;
 $nav-width:             951px !default;
 
 // 44 x 44 pixels hit target following Apple iOS Human Interface
