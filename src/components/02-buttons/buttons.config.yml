@@ -8,47 +8,35 @@ variants:
       label: Primary buttons
       classes: 'usa-button'
 
-  - name: primary-alt
-    context:
-      category: primary
-      label: Primary alt buttons
-      classes: 'usa-button-primary-alt'
-
   - name: secondary
     context:
       category: secondary
       label: Secondary buttons
       classes: 'usa-button-secondary'
 
+  - name: secondary-inverse
+    context:
+      category: secondary-inverse
+      label: Secondary inverse buttons
+      classes: 'usa-button-secondary-inverse'
+
+  - name: aqua
+    context:
+      category: alternate
+      label: Aqua buttons
+      classes: 'usa-button-primary-alt'
+
   - name: gray
     context:
-      category: secondary
+      category: alternate
       label: Gray buttons
       classes: 'usa-button-gray'
 
-  - name: outline
+  - name: red
     context:
-      category: secondary
-      label: Outline buttons
-      classes: 'usa-button-outline'
-
-  - name: outline-inverse
-    context:
-      category: secondary
-      label: Outline inverse buttons
-      classes: 'usa-button-outline-inverse'
-
-  - name: focus
-    context:
-      category: focus
-      label: Button focus
-      classes: 'usa-button-focus'
-
-  - name: disabled
-    context:
-      category: 'disabled'
-      label: Disabled button
-      classes: 'usa-button-disabled'
+      category: alternate
+      label: Red buttons
+      classes: 'usa-button-red'
 
   - name: big
     context:
