@@ -146,7 +146,7 @@ button,
   &:active,
   &.usa-button-active,
   &:focus,
-  &.usa-button-focus {
+  &.usa-focus {
     background-color: $color-gray-lighter;
     border: 0;
     box-shadow: none;
@@ -165,7 +165,7 @@ button,
   &:active,
   &.usa-button-active,
   &:focus,
-  &.usa-button-focus {
+  &.usa-focus {
     background-color: $color-white;
     border: 0;
   }
