@@ -30,9 +30,9 @@
 }
 
 @mixin h6 {
-  font-family: $font-sans;
   font-size: $h6-font-size;
   font-weight: $font-normal;
+  line-height: $base-line-height;
   text-transform: uppercase;
 }
 

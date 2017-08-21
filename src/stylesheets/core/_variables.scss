@@ -20,7 +20,7 @@ $h2-font-size:        3rem !default;
 $h3-font-size:        2rem !default;
 $h4-font-size:        1.7rem !default;
 $h5-font-size:        1.5rem !default;
-$h6-font-size:        1.3rem !default;
+$h6-font-size:        1rem !default;
 $base-line-height:    1.5 !default;
 $heading-line-height: 1.3 !default;
 $lead-line-height:    1.7 !default;
@@ -28,6 +28,7 @@ $lead-line-height:    1.7 !default;
 $font-sans:           'Source Sans Pro', $helvetica !default;
 $font-serif:          'Merriweather', $georgia !default;
 
+// TODO these should be called font-weight-${}
 $font-normal:         400 !default;
 $font-bold:           700 !default;
 
