@@ -106,11 +106,15 @@ select {
   -webkit-appearance: none;
   appearance: none;
   background-color: $color-white;
-  background-image: url('#{$image-path}/arrow-down.png');
-  background-image: url('#{$image-path}/arrow-down.svg');
+  background-image: url('#{$image-path}/arrow-both.png');
+  background-image: url('#{$image-path}/arrow-both.svg');
   background-position: right 1.3rem center;
   background-repeat: no-repeat;
   background-size: 1.3rem;
+}
+
+option:first-child {
+  font-weight: $font-bold;
 }
 
 legend {
