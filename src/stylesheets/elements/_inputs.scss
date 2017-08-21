@@ -197,8 +197,18 @@ legend {
   background-repeat: no-repeat;
 }
 
+[type=radio]:focus + label::before {
+  outline: $focus-outline;
+  outline-offset: 5px
+}
+
 [type=checkbox]:disabled + label {
   color: $color-gray;
+}
+
+[type=checkbox]:focus + label::before {
+  outline: $focus-outline;
+  outline-offset: $focus-spacing;
 }
 
 [type=checkbox]:disabled + label::before,
