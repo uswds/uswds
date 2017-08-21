@@ -91,6 +91,12 @@ select {
   content: ' (*Required)';
 }
 
+.usa-input-optional:after {
+  color: $color-gray-medium;
+  content: ' - Optional';
+  font-style: italic;
+}
+
 label {
   display: block;
   margin-top: 3rem;
