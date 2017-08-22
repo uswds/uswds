@@ -157,30 +157,31 @@ legend {
 [type=radio] + label {
   cursor: pointer;
   font-weight: 400;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.65em;
 }
 
 [type=checkbox] + label::before,
 [type=radio] + label::before {
   background: $color-white;
-  border-radius: $border-radius;
+  border-radius: $checkbox-border-radius;
   box-shadow: 0 0 0 1px $color-gray-medium;
   content: '\a0';
   display: inline-block;
-  height: 1.8rem;
-  line-height: 1.8rem;
+  height: $spacing-medium;
+  line-height: $spacing-medium;
   margin-right: 0.6em;
   text-indent: 0.15em;
   vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
-  width: 1.8rem;
+  width: $spacing-medium;
 }
 
 [type=radio] + label::before {
-  box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-gray-medium;
-  height: 1.6rem;
-  line-height: 1.6rem;
-  width: 1.6rem;
   border-radius: 100%;
+  box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-gray-medium;
+  height: 1.4rem; // Size overrides to account for shape + checked styling
+  line-height: 1.4rem;
+  margin-right: 0.75em;
+  width: 1.4rem;
 }
 
 [type=checkbox]:checked + label::before,
@@ -207,7 +208,7 @@ legend {
 }
 
 [type=checkbox]:disabled + label {
-  color: $color-gray;
+  color: $color-gray-lighter;
 }
 
 [type=checkbox]:focus + label::before {
@@ -217,7 +218,7 @@ legend {
 
 [type=checkbox]:disabled + label::before,
 [type=radio]:disabled + label::before {
-  background: $color-gray-lighter;
+  background: $color-gray-lightest;
   box-shadow: 0 0 0 1px $color-gray-light;
   cursor: not-allowed;
 }
