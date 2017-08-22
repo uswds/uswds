@@ -203,7 +203,7 @@ legend {
 
 [type=radio]:focus + label::before {
   outline: $focus-outline;
-  outline-offset: 5px
+  outline-offset: 5px;
 }
 
 [type=checkbox]:disabled + label {
