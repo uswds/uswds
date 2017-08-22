@@ -6,7 +6,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "types": [
+      "node"
+    ]
   },
   "include": [
     "src/js/utils/select.js"
