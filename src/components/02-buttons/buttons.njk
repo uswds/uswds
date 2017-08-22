@@ -1,3 +1,8 @@
+
+{% if (classes == 'usa-button-secondary-inverse') %}
+  <div class="dark-bg">
+{%- endif %}
+
 <button class="{{ classes }}">Default</button>
 {% if (category != 'disabled') and (category != 'big') -%}
   <button class="{{ classes }} usa-button-hover">Hover</button>
@@ -13,9 +18,11 @@
 {%- endif %}
 
 {% if (classes == 'usa-button-secondary-inverse') %}
+</div>
+{%- endif %}
+
 <style scoped>
-  body {
+  .dark-bg {
     background-color: #212121;
   }
 </style>
-{% endif %}
