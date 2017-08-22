@@ -163,21 +163,21 @@ legend {
   box-shadow: 0 0 0 1px $color-gray-medium;
   content: '\a0';
   display: inline-block;
-  height: 2rem;
-  line-height: 2rem;
+  height: $spacing-medium;
+  line-height: $spacing-medium;
   margin-right: 0.6em;
   text-indent: 0.15em;
   vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
-  width: 2rem;
+  width: $spacing-medium;
 }
 
 [type=radio] + label::before {
   border-radius: 100%;
   box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-gray-medium;
-  height: 1.6rem;
-  line-height: 1.6rem;
+  height: 1.4rem; // Size overrides to account for shape + checked styling
+  line-height: 1.4rem;
   margin-right: 0.75em;
-  width: 1.6rem;
+  width: 1.4rem;
 }
 
 [type=checkbox]:checked + label::before,
