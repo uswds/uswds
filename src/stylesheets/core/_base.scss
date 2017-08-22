@@ -28,3 +28,9 @@ body {
 [hidden] {
   display: none !important; /* stylelint-disable-line declaration-no-important */
 }
+
+*:focus,
+.usa-focus {
+  outline: $focus-outline;
+  outline-offset: $focus-spacing;
+}

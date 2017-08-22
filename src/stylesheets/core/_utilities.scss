@@ -195,6 +195,7 @@
     }
 
     &:focus {
+      outline-offset: 0;
       position: relative;
       z-index: 1;
     }
@@ -232,6 +233,10 @@
   .usa-sidenav-sub_list {
     a {
       padding-left: 3.8rem;
+
+      &:focus {
+        outline-offset: 0;
+      }
 
       &:hover {
         padding-left: 3.8rem;

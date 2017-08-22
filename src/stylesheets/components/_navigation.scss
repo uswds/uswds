@@ -19,6 +19,10 @@
 .usa-nav-link {
   @include font-smoothing;
 
+  &:focus {
+    outline-offset: 0;
+  }
+
   &:hover {
     span {
       @include media($nav-width) {
@@ -80,6 +84,10 @@
     transition: transform 0.3s ease-in-out;
 
     visibility: visible;
+  }
+
+  a:focus {
+    outline-offset: 0;
   }
 
   nav {
@@ -164,11 +172,6 @@
       font-size: $h5-font-size;
       font-weight: $font-bold;
       width: initial;
-    }
-
-    &:focus,
-    &:active {
-      box-shadow: $focus-shadow;
     }
 
     &:hover {

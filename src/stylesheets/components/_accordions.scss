@@ -42,10 +42,6 @@ $v-padding: $spacing-md-small;
   padding: $v-padding ($h-padding * 2 + $icon-size) $v-padding $h-padding;
   width: 100%;
 
-  &:focus {
-    box-shadow: $focus-shadow;
-  }
-
   &:hover {
     background-color: $color-gray-lighter;
     color: $color-base;
