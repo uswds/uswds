@@ -23,6 +23,15 @@
     outline-offset: 0;
   }
 
+  &.usa-accordion-button {
+    @include media($nav-width) {
+      span {
+        margin-right: -2rem;
+        padding-right: 2rem;
+      }
+    }
+  }
+
   &:hover {
     span {
       @include media($nav-width) {
