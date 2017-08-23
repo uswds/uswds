@@ -8,8 +8,8 @@
     display: block;
     font-weight: $font-bold;
     margin-top: 0;
-    padding-bottom: 2rem;
-    padding-top: 2rem;
+    padding-bottom: $spacing-medium;
+    padding-top: $spacing-medium;
     text-decoration: none;
 
     @include media($medium-screen) {
@@ -23,12 +23,28 @@
 
   a {
     font-weight: normal;
+    text-decoration: none;
+  }
+}
+
+.usa-footer-contact_info {
+  display: inline-block;
+
+  a {
+    color: $color-base;
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
   }
 }
 
 .usa-footer-return-to-top {
-  padding-bottom: 2rem;
-  padding-top: 2rem;
+  color: $color-primary;
+  padding-bottom: $spacing-medium;
+  padding-top: $spacing-medium;
+  text-decoration: underline;
 }
 
 .usa-footer-primary-section {
@@ -110,12 +126,24 @@
     }
   }
 
+  .usa-footer-primary-link {
+    padding-bottom: $spacing-md-small;
+    padding-top: $spacing-md-small;
+  }
+
   .usa-footer-primary-section {
-    padding-bottom: 2rem;
+    > .usa-grid {
+      padding: 0;
+
+      @include media($medium-screen) {
+        padding-left: $spacing-md-small;
+        padding-right: $spacing-md-small;
+      }
+    }
 
     @include media($medium-screen) {
-      padding-bottom: 1rem;
-      padding-top: 1rem;
+      padding-bottom: 0;
+      padding-top: 0;
 
       .usa-grid-full {
         align-items: center;
@@ -131,7 +159,7 @@
     }
 
     @include media($medium-screen) {
-      @include padding (2rem null);
+      @include padding ($spacing-md-small null);
     }
 
     @include media($medium-screen) {
@@ -191,8 +219,8 @@ li.usa-footer-primary-content {
 
 .usa-footer-secondary_section {
   background-color: $color-gray-lighter;
-  padding-bottom: 3rem;
-  padding-top: 3rem;
+  padding-bottom: $spacing-medium;
+  padding-top: $spacing-medium;
 
   a {
     color: $color-base;
@@ -305,7 +333,7 @@ li.usa-footer-primary-content {
 
 .usa-footer-slim-logo-img {
   float: left;
-  max-width: 10rem;
+  max-width: 5rem;
 }
 
 .usa-footer-logo-heading {
@@ -321,13 +349,9 @@ li.usa-footer-primary-content {
 }
 
 .usa-footer-slim-logo-heading {
-  display: block;
-  padding-top: 1rem;
-
-  @include media($medium-screen) {
-    display: inline-block;
-    padding-left: 1em;
-  }
+  display: inline-block;
+  margin-top: $spacing-md-small;
+  padding-left: $spacing-md-small;
 }
 
 .usa-social_link {
