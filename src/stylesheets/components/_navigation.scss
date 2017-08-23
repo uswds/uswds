@@ -194,6 +194,11 @@
         background-image: url('#{$image-path}/angle-arrow-down.png');
         background-image: url('#{$image-path}/angle-arrow-down.svg');
         background-position: right 1.5rem top $button-vertical-offset;
+
+        &:hover {
+          background-image: url('#{$image-path}/angle-arrow-down-primary.png');
+          background-image: url('#{$image-path}/angle-arrow-down-primary.svg');
+        }
       }
     }
 
