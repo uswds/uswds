@@ -296,6 +296,7 @@
 
     &:hover {
       color: $color-primary;
+      text-decoration: underline;
     }
   }
 
@@ -304,8 +305,8 @@
     display: none;
 
     @include media($nav-width) {
-      background-image: url('#{$image-path}/search-alt.png');
-      background-image: url('#{$image-path}/search-alt.svg');
+      background-image: url('#{$image-path}/search-primary.png');
+      background-image: url('#{$image-path}/search-primary.svg');
       background-repeat: no-repeat;
       background-position: left center;
       background-size: 2.2rem;
