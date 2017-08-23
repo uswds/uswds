@@ -77,17 +77,51 @@
 }
 
 .usa-footer-medium {
-  .usa-footer-primary-section {
-    padding: 0;
+  .usa-footer-contact_info {
+    p {
+      margin: 0 $spacing-small 0 0;
+
+      @include media($medium-screen) {
+        margin: 0 0 0 $spacing-small;
+      }
+    }
+  }
+
+  .usa-footer-contact-heading {
+    margin-top: 0;
 
     @include media($medium-screen) {
-      padding-bottom: 1rem;
-      padding-top: 1rem;
+      margin-top: $spacing-x-small;
+      margin-bottom: $spacing-x-small;
+    }
+  }
+
+  .usa-footer-logo {
+    padding: $spacing-small 0;
+
+    @include media($medium-screen) {
+      padding: $spacing-medium 0;
+    }
+  }
+
+  .usa-footer-primary-link {
+    padding-bottom: $spacing-md-small;
+    padding-top: $spacing-md-small;
+  }
+
+  .usa-footer-primary-section {
+    > .usa-grid {
+      padding: 0;
+
+      @include media($medium-screen) {
+        padding-left: $spacing-large;
+        padding-right: $spacing-large;
+      }
     }
 
     .usa-footer-primary-content {
       @include media($large-screen) {
-        margin-right: 6%;
+        margin-right: 5%;
         width: inherit;
       }
 
@@ -328,7 +362,11 @@ li.usa-footer-primary-content {
 }
 
 .usa-footer-logo-img {
-  max-width: 14rem;
+  max-width: 8rem;
+
+  @include media($medium-screen) {
+    float: left;
+  }
 }
 
 .usa-footer-slim-logo-img {
@@ -337,7 +375,20 @@ li.usa-footer-primary-content {
 }
 
 .usa-footer-logo-heading {
-  margin-top: 2rem;
+  display: block;
+  margin-top: $spacing-small;
+
+  @include media($medium-screen) {
+    display: inline-block;
+    margin-top: $spacing-large;
+    padding-left: $spacing-md-small;
+  }
+}
+
+.usa-footer-slim-logo-heading {
+  display: inline-block;
+  margin-top: $spacing-md-small;
+  padding-left: $spacing-md-small;
 }
 
 .usa-footer-contact-heading {
@@ -346,12 +397,6 @@ li.usa-footer-primary-content {
   @include media($medium-screen) {
     margin-top: 1rem;
   }
-}
-
-.usa-footer-slim-logo-heading {
-  display: inline-block;
-  margin-top: $spacing-md-small;
-  padding-left: $spacing-md-small;
 }
 
 .usa-social_link {
@@ -372,8 +417,8 @@ li.usa-footer-primary-content {
   width: $hit-area;
 
   @include media($medium-screen) {
-    @include margin(0 0 0 1rem);
-    left: 1.2rem;
+    @include margin(0 0 0 $spacing-x-small);
+    left: $spacing-md-small;
   }
 
   span {
