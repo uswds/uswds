@@ -136,8 +136,8 @@
       padding: 0;
 
       @include media($medium-screen) {
-        padding-left: $spacing-md-small;
-        padding-right: $spacing-md-small;
+        padding-left: $spacing-large;
+        padding-right: $spacing-large;
       }
     }
 
