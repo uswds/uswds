@@ -109,8 +109,23 @@ example, any of the following should trigger a major version increment:
        See [the v1.0.0 pull request](https://github.com/18F/web-design-standards/pull/1726)
        for an example.
 
-    1. Tag the release on the `master` branch **or** create the tag when you
-       draft the release notes.
+    1. Once at least one team member has approved the pull request, merge
+       it into `master`. This will trigger a number of actions:
+
+       * CircleCI will publish the new release to npm.
+
+       * Federalist will deploy the new release's fractal site to
+         [components.standards.usa.gov].
+
+    1. Tag the release on the `master` branch and push it, e.g.:
+
+       ```sh
+       git tag -a v1.0.0 -m "Release 1.0.0"
+       git push origin v1.0.0
+       ```
+
+       Alternatively, you can create the tag when you draft the release notes
+       (see below).
 
     1. Merge the release commits back into `develop` from `master` with a [pull
        request].
@@ -118,7 +133,11 @@ example, any of the following should trigger a major version increment:
     1. Write the release notes on GitHub:
 
         1. [Draft the release][draft release] from the corresponding tag on the
-           `master` branch.
+           `master` branch. Set the title to e.g. "1.0.0".
+
+        1. Run `npm run prepublish` to build the assets zip file. It will
+           be created at e.g. `dist/uswds-1.0.0.zip`. Manually add this
+           file as a binary to the release.
 
         1. Have at least one team member review the release notes.
 
@@ -202,3 +221,4 @@ If you need help or have any questions, please reach out to us:
 [what is npm]: https://docs.npmjs.com/getting-started/what-is-npm
 [Slack]: https://slack.com/
 [release candidates]: https://en.wikipedia.org/wiki/Software_release_life_cycle#Release_candidate
+[components.standards.usa.gov]: https://components.standards.usa.gov/
