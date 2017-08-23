@@ -9,10 +9,14 @@
       <span>{{ link.text }}</span>
     </button>
     <ul id="{{ nav.id_prefix }}{{ link.id }}" class="usa-nav-submenu{% if nav.mega %} usa-megamenu usa-grid-full{% endif %}">
-      {% for child in link.links %}
-      <li>
-        <a href="{{ child.href }}">{{ child.text }}</a>
-      </li>
+      {% for group in link.links | batch(3) %}
+        <div class="usa-width-one-fourth">
+          {% for child in group %}
+            <li>
+              <a href="{{ child.href }}">{{ child.text }}</a>
+            </li>
+          {% endfor %}
+        </div>
       {% endfor %}
     </ul>
     {% else %}
