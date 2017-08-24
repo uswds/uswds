@@ -184,7 +184,6 @@
     }
 
     &:hover {
-      background-color: $color-gray-lightest;
       color: $color-primary;
 
       @include media($nav-width) {
@@ -374,7 +373,17 @@
 
   li {
     font-size: $h5-font-size;
+    list-style: none;
     margin-bottom: 0;
+  }
+
+  .usa-width-one-fourth {
+    margin-right: 0;
+    width: 100%;
+
+    @include media($nav-width) {
+      @include span-columns(3);
+    }
   }
 }
 
