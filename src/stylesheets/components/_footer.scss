@@ -227,9 +227,9 @@ li.usa-footer-primary-content {
 /* stylelint-enable */
 
 .usa-sign_up-block {
-  padding-bottom: 2rem;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding-bottom: 4.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   @include media($medium-screen) {
     float: right;
@@ -263,7 +263,8 @@ li.usa-footer-primary-content {
 
 .usa-footer-big-secondary-section {
   @include media($medium-screen) {
-    padding-top: 5rem;
+    padding-top: $spacing-large;
+    padding-bottom: $spacing-large;
   }
 }
 
@@ -280,10 +281,54 @@ li.usa-footer-primary-content {
 }
 
 .usa-footer-big {
+  .usa-footer-contact_info {
+    display: block;
+
+    p {
+      margin: 0 $spacing-small 0 0;
+
+      @include media($medium-screen) {
+        margin: $spacing-x-small 0 0 $spacing-small;
+      }
+    }
+  }
+
+  .usa-footer-contact-links {
+    @include media($medium-screen) {
+      padding-top: $spacing-large;
+    }
+  }
+
+  .usa-footer-logo {
+    padding: $spacing-small 0;
+
+    @include media($medium-screen) {
+      padding: $spacing-medium 0;
+    }
+  }
+
   .usa-footer-primary-section {
     @include media($medium-screen) {
       padding-bottom: 4rem;
       padding-top: 3rem;
+    }
+
+    > .usa-grid {
+      padding: 0;
+
+      @include media($medium-screen) {
+        padding-left: $spacing-large;
+        padding-right: $spacing-large;
+      }
+    }
+
+    .usa-footer-primary-content {
+      padding-left: 0;
+      padding-right: 0;
+
+      li {
+        margin-left: 0;
+      }
     }
   }
 
@@ -369,6 +414,10 @@ li.usa-footer-primary-content {
   }
 }
 
+.usa-footer-big-logo-img {
+  max-width: 10rem;
+}
+
 .usa-footer-slim-logo-img {
   float: left;
   max-width: 5rem;
@@ -382,6 +431,14 @@ li.usa-footer-primary-content {
     display: inline-block;
     margin-top: $spacing-large;
     padding-left: $spacing-md-small;
+  }
+}
+
+.usa-footer-big-logo-heading {
+  margin-top: $spacing-small;
+
+  @include media($medium-screen) {
+    margin-top: $spacing-medium;
   }
 }
 
