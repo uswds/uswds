@@ -140,7 +140,9 @@ module.exports = VisualRegressionTester;
 
 if (!module.parent) {
   require('yargs')
-    .command([ 'test', '*' ], 'run visual regression tests', yargs => {
+    .strict()
+    .demandCommand()
+    .command([ 'test' ], 'run visual regression tests', yargs => {
       yargs.alias('g', 'grep')
         .describe('g', 'only run tests matching a pattern')
         .nargs('g', 1);
