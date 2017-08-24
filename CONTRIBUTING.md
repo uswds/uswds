@@ -103,7 +103,7 @@ they're not version controlled.
 To generate the golden screenshots, run:
 
 ```
-node spec/visual-regression-tester.js --updateGolden
+node spec/visual-regression-tester.js test --updateGolden
 ```
 
 Then, make any CSS refactorings (or switch to a branch that has them).
@@ -111,7 +111,7 @@ Then, make any CSS refactorings (or switch to a branch that has them).
 To compare the current state of your CSS to the golden screenshots, run:
 
 ```
-node spec/visual-regression-tester.js
+node spec/visual-regression-tester.js test
 ```
 
 If the current screenshots don't match their golden counterparts, you will
