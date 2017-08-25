@@ -423,7 +423,7 @@
 
 .usa-megamenu {
   @include media($nav-width) {
-    @include padding(3.15rem null); // XXX magic number
+    @include padding(2.15rem null); // XXX magic number
     // XXX this is the difference between the 2rem padding-left
     // of .usa-nav-inner and the $site-margins (3rem) padding-left
     // of .usa-megamenu
