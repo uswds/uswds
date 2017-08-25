@@ -26,7 +26,7 @@
     @include media($nav-width) {
       span {
         margin-right: -2rem;
-        padding-right: 2rem;
+        padding-right: 1.5rem;
       }
     }
   }
@@ -200,7 +200,7 @@
       @include media($nav-width) {
         background-image: url('#{$image-path}/angle-arrow-down.png');
         background-image: url('#{$image-path}/angle-arrow-down.svg');
-        background-position: right 1.5rem top $button-vertical-offset;
+        background-position: right 1rem top $button-vertical-offset;
 
         &:hover {
           background-image: url('#{$image-path}/angle-arrow-down-primary.png');
@@ -221,7 +221,7 @@
         color: $color-white;
         background-image: url('#{$image-path}/angle-arrow-down-hover.png');
         background-image: url('#{$image-path}/angle-arrow-down-hover.svg');
-        background-position: right 1.5rem top $button-vertical-offset;
+        background-position: right 1rem top $button-vertical-offset;
 
         &:hover {
           background-color: $color-primary-darkest;
