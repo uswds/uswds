@@ -15,7 +15,7 @@ $z-index-nav:     9000;
   z-index: $z-index-header;
 
   @include media($nav-width) {
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid $color-gray-lighter;
   }
 
   a {
@@ -168,7 +168,7 @@ $z-index-nav:     9000;
 
   .usa-nav {
     @include media($nav-width) {
-      border-top: 1px solid $color-gray-light;
+      border-top: 1px solid $color-gray-lighter;
       float: none;
       padding: 0;
       width: 100%;
