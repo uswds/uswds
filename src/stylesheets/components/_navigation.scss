@@ -269,7 +269,7 @@
 
 .usa-nav-secondary-links {
   @include media($nav-width) {
-    float: left;
+    float: right;
   }
 
   li {
@@ -427,7 +427,6 @@
     // XXX this is the difference between the 2rem padding-left
     // of .usa-nav-inner and the $site-margins (3rem) padding-left
     // of .usa-megamenu
-    left: -1rem;
     width: 100%;
   }
 
