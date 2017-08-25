@@ -12,7 +12,6 @@
   @include media($nav-width) {
     border-bottom: none;
     display: inline-block;
-    height: 10.3rem; // XXX magic number
   }
 }
 

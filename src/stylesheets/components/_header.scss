@@ -121,7 +121,7 @@ $z-index-nav:     9000;
 .usa-header-basic {
   .usa-logo {
     @include media($nav-width) {
-      bottom: 1.9rem;
+      bottom: -4rem;
       position: absolute;
     }
   }
