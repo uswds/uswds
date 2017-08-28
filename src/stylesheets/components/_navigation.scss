@@ -71,6 +71,7 @@
 
   @include media($nav-width) {
     @include padding(5rem 0 0 null);
+    background: transparent;
     border-left: none;
     display: block;
     float: right;
