@@ -51,7 +51,7 @@
   background-color: $color-gray-lightest;
 
   .usa-footer-primary-content {
-    padding-left: 2.5rem;
+    padding-left: 1.5rem;
     padding-right: 2.5rem;
 
     @include media($medium-screen) {
@@ -210,14 +210,14 @@
 ul.usa-footer-primary-content,
 li.usa-footer-primary-content,
 li.usa-footer-primary-content {
-  border-top: 1px solid $color-base;
+  border-top: 1px solid $color-gray-light;
 
   @include media($medium-screen) {
     border: none;
   }
 
   &:last-child {
-    border-bottom: 1px solid $color-base;
+    border-bottom: 1px solid $color-gray-light;
 
     @include media($medium-screen) {
       border-bottom: none;
@@ -228,8 +228,8 @@ li.usa-footer-primary-content {
 
 .usa-sign_up-block {
   padding-bottom: 4.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 
   @include media($medium-screen) {
     float: right;
@@ -263,8 +263,8 @@ li.usa-footer-primary-content {
 
 .usa-footer-big-secondary-section {
   @include media($medium-screen) {
-    padding-top: $spacing-large;
-    padding-bottom: $spacing-large;
+    padding-top: $spacing-medium;
+    padding-bottom: $spacing-medium;
   }
 }
 
@@ -295,7 +295,7 @@ li.usa-footer-primary-content {
 
   .usa-footer-contact-links {
     @include media($medium-screen) {
-      padding-top: $spacing-large;
+      padding-top: $spacing-medium;
     }
   }
 
@@ -327,6 +327,14 @@ li.usa-footer-primary-content {
       padding-right: 0;
 
       li {
+        margin-left: $spacing-md-small;
+
+        @include media($medium-screen) {
+          margin-left: 0;
+        }
+      }
+
+      .usa-footer-primary-link {
         margin-left: 0;
       }
     }
@@ -340,7 +348,7 @@ li.usa-footer-primary-content {
     }
 
     &:last-child {
-      border-bottom: 1px solid $color-base;
+      border-bottom: 1px solid $color-gray-light;
 
       @include media($medium-screen) {
         border-bottom: none;
@@ -435,7 +443,7 @@ li.usa-footer-primary-content {
 }
 
 .usa-footer-big-logo-heading {
-  margin-top: $spacing-small;
+  margin-top: $spacing-md-small;
 
   @include media($medium-screen) {
     margin-top: $spacing-medium;
