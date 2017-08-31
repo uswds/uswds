@@ -335,6 +335,7 @@
 
 .usa-nav-submenu {
   // @include usa-sidenav-sublist;
+  padding-left: 1rem;
 
   @include media($nav-width) {
     @include unstyled-list;
