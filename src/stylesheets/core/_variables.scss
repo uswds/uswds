@@ -92,11 +92,11 @@ $color-primary-alt-darkest:  $color-aqua-darkest !default;
 $color-primary-alt-light:    $color-aqua-light !default;
 $color-primary-alt-lightest: $color-aqua-lightest !default;
 
-$color-secondary:            #e31c3d !default;
-$color-secondary-dark:       #cd2026 !default;
-$color-secondary-darkest:    #981b1e !default;
-$color-secondary-light:      #e59393 !default;
-$color-secondary-lightest:   #f9dede !default;
+$color-secondary:            $color-red !default;
+$color-secondary-dark:       $color-red-dark !default;
+$color-secondary-darkest:    $color-red-darkest !default;
+$color-secondary-light:      $color-red-light !default;
+$color-secondary-lightest:   $color-red-lightest !default;
 
 $color-base:                 $color-black-light !default;
 $color-focus:                $color-gray-light !default;
