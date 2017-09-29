@@ -4,6 +4,24 @@ $button-stroke: inset 0 0 0 2px;
 
 // Buttons
 
+// This mixin is only needed until we fully remove the
+// deprecated usa-button-disabled style.
+@mixin disabledesque {
+  background-color: $color-gray-lighter;
+  pointer-events: none;
+
+  &:hover,
+  &.usa-button-hover,
+  &:active,
+  &.usa-button-active,
+  &:focus,
+  &.usa-focus {
+    background-color: $color-gray-lighter;
+    border: 0;
+    box-shadow: none;
+  }
+}
+
 /* stylelint-disable selector-no-qualifying-type */
 .usa-button,
 .usa-button-primary,
@@ -134,25 +152,20 @@ button,
     font-size: 1.9rem;
     padding: 1.5rem 3rem;
   }
+
+  &:disabled {
+    @include disabledesque;
+  }
 }
 /* stylelint-disable */
 
-.usa-button:disabled {
-  background-color: $color-gray-lighter;
-  pointer-events: none;
-
-  &:hover,
-  &.usa-button-hover,
-  &:active,
-  &.usa-button-active,
-  &:focus,
-  &.usa-focus {
-    background-color: $color-gray-lighter;
-    border: 0;
-    box-shadow: none;
-  }
+.usa-button-disabled  // Deprecated
+{
+  @include disabledesque
 }
 
+.usa-button-secondary-disabled,          // Deprecated
+.usa-button-secondary-inverse-disabled,  // Deprecated
 .usa-button-secondary:disabled,
 .usa-button-secondary-inverse:disabled,
 .usa-button-outline-inverse:disabled {   // Outline inverse to be deprecated in 2.0
@@ -171,12 +184,16 @@ button,
   }
 }
 
+html .usa-button-secondary-disabled,          // Deprecated
 .usa-button-secondary:disabled {
   background-color: $color-white;
 }
 
+html .usa-button-secondary-inverse-disabled,  // Deprecated
 .usa-button-secondary-inverse:disabled {
   background-color: transparent;
+  color: $color-gray;
+  box-shadow: $button-stroke $color-gray;
 }
 
 @mixin button-unstyled {
