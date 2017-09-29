@@ -154,7 +154,7 @@ button,
   }
 
   &:disabled {
-    @include disabledesque
+    @include disabledesque;
   }
 }
 /* stylelint-disable */
