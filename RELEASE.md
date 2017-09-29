@@ -146,22 +146,32 @@ example, any of the following should trigger a major version increment:
 
     1. Update the docs site with the new version number and release notes:
 
-        1. Update the `uswds` Node dependency to the new version, e.g.:
+        1. Create a branch off `develop` in which you change the `uswds`
+           dependency in `package.json` to the new version from npm, e.g.:
 
             ```sh
             cd path/to/web-design-standards-docs
             export VERSION=1.0.0
             git fetch origin
             git checkout -b release-${VERSION} origin/develop
-            npm install --save-dev uswds@${VERSION}
+            npm install --save uswds@${VERSION}
             ```
-
-        1. Update the `version` [variable in
-           _config.yml](https://github.com/18F/web-design-standards-docs/blob/master/_config.yml#L3).
 
         1. Follow the above release process to merge the changes to `master` via a
            [pull request on the docs repo](https://github.com/18F/web-design-standards-docs/compare),
            minus the GitHub release notes.
+
+           In particular, you may want to check the following on the
+           Federalist branch build of your pull request:
+
+           * Ensure that the "Download code" ZIP file linked-to from the
+             "Download code and design files" page works (at the time of this
+             writing, it should point to the ZIP file you uploaded when
+             you released the new version on GitHub). Also make sure that
+             the correct version number is mentioned under the link.
+
+           * Ensure that the new release shows up under the "What's new"
+             section's "Release notes" tab.
 
 ### Pre-releases
 
