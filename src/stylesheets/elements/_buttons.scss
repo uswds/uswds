@@ -192,6 +192,8 @@ html .usa-button-secondary-disabled,          // Deprecated
 html .usa-button-secondary-inverse-disabled,  // Deprecated
 .usa-button-secondary-inverse:disabled {
   background-color: transparent;
+  color: $color-gray;
+  box-shadow: $button-stroke $color-gray;
 }
 
 @mixin button-unstyled {
