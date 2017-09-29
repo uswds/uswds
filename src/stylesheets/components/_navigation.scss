@@ -452,8 +452,6 @@
 .usa-header-basic-megamenu {
   .usa-nav {
     @include media($nav-width) {
-      padding-left: 0;
-      padding-top: 0;
       width: 100%;
     }
   }
