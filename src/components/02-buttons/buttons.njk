@@ -4,11 +4,18 @@
 {%- endif %}
 
 <button class="{{ classes }}">Default</button>
-{% if (category != 'big') -%}
+{% if (category != 'disabled') and (category != 'big') -%}
   <button class="{{ classes }} usa-button-hover">Hover</button>
   <button class="{{ classes }} usa-button-active">Active</button>
   <button class="{{ classes }} usa-focus">Focus</button>
   <button class="{{ classes }}" disabled>Disabled</button>
+  {% if (category == 'primary') -%}
+    <button class="usa-button-disabled" disabled>Disabled (deprecated)</button>
+  {%- elif (category == 'secondary') -%}
+    <button class="usa-button-secondary-disabled" disabled>Disabled (deprecated)</button>
+  {%- elif (category == 'secondary-inverse') -%}
+    <button class="usa-button-secondary-inverse-disabled" disabled>Disabled (deprecated)</button>
+  {%- endif %}
 {%- endif %}
 
 {% if (classes == 'usa-button-secondary-inverse') %}
