@@ -4,6 +4,10 @@ $accordion-border: 3px solid $color-gray-lightest;
 
 // Accordion Styles
 
+$icon-size: $spacing-md-small;
+$h-padding: $spacing-medium;
+$v-padding: $spacing-md-small;
+
 @mixin accordion-list-styles {
   @include unstyled-list;
   color: $color-base;
@@ -16,7 +20,7 @@ $accordion-border: 3px solid $color-gray-lightest;
   background-color: $color-gray-lightest;
   font-family: $font-sans;
   list-style: none;
-  margin-bottom: 6px;
+  margin-bottom: $spacing-x-small;
   width: 100%;
 }
 
@@ -26,21 +30,17 @@ $accordion-border: 3px solid $color-gray-lightest;
   background-color: $color-gray-lightest;
   background-image: url('#{$image-path}/minus.png');
   background-image: url('#{$image-path}/minus.svg');
-  background-position: right 3rem center;
+  background-position: right $h-padding center;
   background-repeat: no-repeat;
-  background-size: 13px;
+  background-size: $icon-size;
   color: $color-base;
   cursor: pointer;
   display: inline-block;
   font-family: $font-sans;
   font-weight: $font-bold;
   margin: 0;
-  padding: 1.5rem 5.5rem 1.5rem 3rem;
+  padding: $v-padding ($h-padding * 2 + $icon-size) $v-padding $h-padding;
   width: 100%;
-
-  &:focus {
-    box-shadow: $focus-shadow;
-  }
 
   &:hover {
     background-color: $color-gray-lighter;
@@ -62,7 +62,7 @@ $accordion-border: 3px solid $color-gray-lightest;
   background-image: url('#{$image-path}/plus.png');
   background-image: url('#{$image-path}/plus.svg');
   background-repeat: no-repeat;
-  background-size: 1.3rem;
+  background-size: $icon-size;
 }
 
 @mixin accordion-nested-list {
@@ -84,7 +84,7 @@ $accordion-border: 3px solid $color-gray-lightest;
 
   + .usa-accordion,
   + .usa-accordion-bordered {
-    margin-top: 1rem;
+    margin-top: $spacing-small;
   }
 
   // TODO deprecated ruleset based on old accordion.
@@ -124,7 +124,7 @@ $accordion-border: 3px solid $color-gray-lightest;
 .usa-accordion-content {
   background-color: $color-white;
   overflow: auto;
-  padding: 3rem;
+  padding: $spacing-md-small $spacing-medium;
 
   > *:first-child {
     margin-top: 0;

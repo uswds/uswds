@@ -25,11 +25,6 @@ a {
   &:visited {
     color: $color-visited;
   }
-
-  &:focus {
-    box-shadow: $focus-shadow;
-    outline: 0;
-  }
 }
 
 @mixin external-link($external-link, $external-link-hover) {
@@ -162,6 +157,7 @@ dfn {
 .usa-font-lead {
   font-family: $font-serif;
   font-size: $lead-font-size;
+  font-weight: $font-normal;
   line-height: $lead-line-height;
   max-width: $lead-max-width;
 }

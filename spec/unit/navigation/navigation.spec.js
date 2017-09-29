@@ -2,6 +2,7 @@
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
+const sinon = require('sinon');
 const navigation = require('../../../src/js/components/navigation');
 const accordion = require('../../../src/js/components/accordion');
 
@@ -10,6 +11,7 @@ const TEMPLATE = fs.readFileSync(path.join(__dirname, 'template.html'));
 describe('navigation toggle', function () {
   const body = document.body;
 
+  let sandbox;
   let nav;
   let overlay;
   let closeButton;
@@ -31,6 +33,7 @@ describe('navigation toggle', function () {
     menuButton = body.querySelector('.usa-menu-btn');
     accordionButton = nav.querySelector('.usa-accordion-button');
     navLink = nav.querySelector('a');
+    sandbox = sinon.sandbox.create();
   });
 
   afterEach(function () {
@@ -38,6 +41,7 @@ describe('navigation toggle', function () {
     body.className = '';
     navigation.off();
     accordion.off();
+    sandbox.restore();
   });
 
   it('shows the nav when the menu button is clicked', function () {
@@ -64,6 +68,31 @@ describe('navigation toggle', function () {
     menuButton.click();
     navLink.click();
     assert.equal(isVisible(nav), false);
+  });
+
+  it('focuses the close button when the menu button is clicked', function () {
+    menuButton.click();
+    assert.equal(document.activeElement, closeButton);
+  });
+
+  it('focuses the menu button when the close button is clicked', function () {
+    menuButton.click();
+    closeButton.click();
+    assert.equal(document.activeElement, menuButton);
+  });
+
+  it('collapses nav if needed on window resize', function () {
+    menuButton.click();
+    sandbox.stub(closeButton, 'getBoundingClientRect').returns({ width: 0 });
+    window.dispatchEvent(new CustomEvent('resize'));
+    assert.equal(isVisible(nav), false);
+  });
+
+  it('does not collapse nav if not needed on window resize', function () {
+    menuButton.click();
+    sandbox.stub(closeButton, 'getBoundingClientRect').returns({ width: 100 });
+    window.dispatchEvent(new CustomEvent('resize'));
+    assert.equal(isVisible(nav), true);
   });
 
   it('does not show the nav when a nav link is clicked', function () {

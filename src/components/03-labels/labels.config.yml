@@ -1,0 +1,16 @@
+label: Labels
+status: ready
+preview: '@uswds-framed'
+
+variants:
+  - name: default
+    label: Info
+    context:
+      label:
+        classes: ""
+
+  - name: big
+    label: Big
+    context:
+      label:
+        classes: "usa-label-big"

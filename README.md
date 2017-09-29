@@ -22,7 +22,7 @@ This repository is for the Standards themselves. 18F maintains [another reposito
 * [Fractal](#fractal)
   * [Template compatibility](#template-compatibility)
 * [Need installation help?](#need-installation-help)
-* [Contributing to the code base](#contributing-to-the-codebase)
+* [Contributing to the code base](#contributing-to-the-code-base)
 * [Reuse of open-source style guides](#reuse-of-open-source-style-guides)
 * [Licenses and attribution](#licenses-and-attribution)
 

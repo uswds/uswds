@@ -6,18 +6,30 @@
 }
 
 .usa-navbar {
-  border-bottom: 1px solid $color-gray-light;
+  border-bottom: 1px solid $color-gray-lighter;
   height: 4rem;
 
   @include media($nav-width) {
     border-bottom: none;
     display: inline-block;
-    height: 10.3rem; // XXX magic number
   }
 }
 
 .usa-nav-link {
   @include font-smoothing;
+
+  &:focus {
+    outline-offset: 0;
+  }
+
+  &.usa-accordion-button {
+    @include media($nav-width) {
+      span {
+        margin-right: -2rem;
+        padding-right: 2rem;
+      }
+    }
+  }
 
   &:hover {
     span {
@@ -42,7 +54,7 @@
   @include position(fixed, 0 0 0 auto);
 
   background: $color-white;
-  border-left: 1px solid $color-gray-light;
+  border-left: 1px solid $color-gray-lighter;
   border-right: 0;
   display: flex;
   flex-direction: column;
@@ -52,20 +64,40 @@
   width: $sliding-panel-width;
   z-index: $z-index-nav;
 
+  // Defaulting to hidden is very important for ensuring
+  // that the nav contents aren't in the tab order if
+  // the nav menu is off-screen.
+  visibility: hidden;
+
   @include media($nav-width) {
     @include padding(5rem 0 0 null);
+    background: transparent;
     border-left: none;
     display: block;
     float: right;
     overflow-y: visible;
+    padding-left: 0;
     position: relative;
     transform: translateX(0);
     width: auto;
+    visibility: visible;
   }
 
   &.is-visible {
+    // It's very important that we scope the transition to
+    // only include 'transform' here; we used to transition
+    // on 'all', but this prevented the close button from
+    // being focused after activating the nav menu, as the
+    // button wasn't yet visible due to 'visibility'
+    // implicitly being part of the CSS transition.
     transform: translateX(0);
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+
+    visibility: visible;
+  }
+
+  a:focus {
+    outline-offset: 0;
   }
 
   nav {
@@ -90,7 +122,7 @@
 
   .usa-search {
     @include media($nav-width) {
-      margin-left: 1.5rem; // XXX magic number
+      margin-left: 1.8rem; // XXX magic number
     }
   }
 }
@@ -145,20 +177,14 @@
     padding: 1.4rem 1.5rem 1rem 1.8rem;
 
     @include media($nav-width) {
-      @include padding(null 3rem 1.9rem 1.5rem);
+      @include padding(null 3.5rem 1.9rem 1.5rem);
       color: $color-gray;
       font-size: $h5-font-size;
       font-weight: $font-bold;
       width: initial;
     }
 
-    &:focus,
-    &:active {
-      box-shadow: $focus-shadow;
-    }
-
     &:hover {
-      background-color: $color-gray-lightest;
       color: $color-primary;
 
       @include media($nav-width) {
@@ -177,6 +203,11 @@
         background-image: url('#{$image-path}/angle-arrow-down.png');
         background-image: url('#{$image-path}/angle-arrow-down.svg');
         background-position: right 1.5rem top $button-vertical-offset;
+
+        &:hover {
+          background-image: url('#{$image-path}/angle-arrow-down-primary.png');
+          background-image: url('#{$image-path}/angle-arrow-down-primary.svg');
+        }
       }
     }
 
@@ -233,13 +264,14 @@
     @include media($nav-width) {
       @include margin(-0.2rem null 0 0);
       float: left;
+      width: 21.5rem;
     }
   }
 }
 
 .usa-nav-secondary-links {
   @include media($nav-width) {
-    float: left;
+    float: right;
   }
 
   li {
@@ -250,6 +282,7 @@
 
     &:not(:last-child)::after {
       @include media($nav-width) {
+        color: $color-gray-lighter;
         content: '|';
         padding-left: 1rem;
       }
@@ -265,6 +298,7 @@
 
     &:hover {
       color: $color-primary;
+      text-decoration: underline;
     }
   }
 
@@ -273,11 +307,10 @@
     display: none;
 
     @include media($nav-width) {
-      background-image: url('#{$image-path}/search-alt.png');
-      background-image: url('#{$image-path}/search-alt.svg');
+      background-image: url('#{$image-path}/search-primary.png');
+      background-image: url('#{$image-path}/search-primary.svg');
       background-repeat: no-repeat;
       background-position: left center;
-      background-size: 2.2rem;
       display: inline-block;
       padding-left: 2.3rem;
     }
@@ -302,6 +335,7 @@
 
 .usa-nav-submenu {
   // @include usa-sidenav-sublist;
+  padding-left: 1rem;
 
   @include media($nav-width) {
     @include unstyled-list;
@@ -342,7 +376,17 @@
 
   li {
     font-size: $h5-font-size;
+    list-style: none;
     margin-bottom: 0;
+  }
+
+  .usa-width-one-fourth {
+    margin-right: 0;
+    width: 100%;
+
+    @include media($nav-width) {
+      @include span-columns(3);
+    }
   }
 }
 
@@ -383,11 +427,10 @@
 
 .usa-megamenu {
   @include media($nav-width) {
-    @include padding(3.15rem null); // XXX magic number
+    @include padding(2.15rem null); // XXX magic number
     // XXX this is the difference between the 2rem padding-left
     // of .usa-nav-inner and the $site-margins (3rem) padding-left
     // of .usa-megamenu
-    left: -1rem;
     width: 100%;
   }
 

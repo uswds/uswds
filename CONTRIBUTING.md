@@ -85,6 +85,39 @@ gulp stylelint
 (Or, if you don't want to install Gulp globally, you can run `$(npm
 bin)/gulp` instead of `gulp`.)
 
+Note that running the tests also requires an installation of
+Chrome v59 or higher (v60 if you're on Windows).
+
+#### Visual regression testing
+
+The Standards come with optional tooling for detecting visual regressions,
+which can be especially useful if you're refactoring CSS.
+
+These tests work by comparing current screenshots of the Standards' Fractal
+components to "golden" screenshots that represent what the components are
+supposed to look like.
+
+Golden screenshots are stored on your local development system *only*;
+they're not version controlled.
+
+To generate the golden screenshots, run:
+
+```
+node spec/visual-regression-tester.js test --updateGolden
+```
+
+Then, make any CSS refactorings (or switch to a branch that has them).
+
+To compare the current state of your CSS to the golden screenshots, run:
+
+```
+node spec/visual-regression-tester.js test
+```
+
+If the current screenshots don't match their golden counterparts, you will
+be directed to an HTML file that visually shows the differences between
+any conflicting screenshots.
+
 ### Building
 
 To build the `uswds` package in preparation for releases, run:

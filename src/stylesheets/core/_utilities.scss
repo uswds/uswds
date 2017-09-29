@@ -30,9 +30,9 @@
 }
 
 @mixin h6 {
-  font-family: $font-sans;
   font-size: $h6-font-size;
   font-weight: $font-normal;
+  line-height: $base-line-height;
   text-transform: uppercase;
 }
 
@@ -47,6 +47,15 @@
 @mixin sr-only() {
   position: absolute;
   left: -999em;
+}
+
+// This "negates" the sr-only() helper; useful if
+// we want the default state of something to be
+// for screen readers only, but we want to force
+// it to show for sighted users under more specific
+// conditions.
+@mixin not-sr-only() {
+  position: static;
 }
 
 .usa-sr-only {
@@ -132,8 +141,8 @@
 
 @mixin display-icon($icon, $direction, $size, $margin, $hover) {
   &::#{$direction} {
-    background-image: url(#{$image-path}/#{$icon}.png);
-    background-image: url(#{$image-path}/#{$icon}.svg);
+    background-image: url('#{$image-path}/#{$icon}.png');
+    background-image: url('#{$image-path}/#{$icon}.svg');
     background-size: 100%;
     content: '';
     display: inline-block;
@@ -151,8 +160,8 @@
 
   @if $hover == 'hover' {
     &:hover::#{$direction} {
-      background-image: url(#{$image-path}/#{$icon}-hover.png);
-      background-image: url(#{$image-path}/#{$icon}-hover.svg);
+      background-image: url('#{$image-path}/#{$icon}-hover.png');
+      background-image: url('#{$image-path}/#{$icon}-hover.svg');
     }
   }
 }
@@ -180,12 +189,12 @@
     text-decoration: none;
 
     &:hover {
-      background-color: $color-gray-lightest;
       color: $color-primary;
       text-decoration: none;
     }
 
     &:focus {
+      outline-offset: 0;
       position: relative;
       z-index: 1;
     }
@@ -223,6 +232,10 @@
   .usa-sidenav-sub_list {
     a {
       padding-left: 3.8rem;
+
+      &:focus {
+        outline-offset: 0;
+      }
 
       &:hover {
         padding-left: 3.8rem;

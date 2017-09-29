@@ -1,0 +1,45 @@
+label: Buttons
+status: ready
+
+variants:
+  - name: primary
+    context:
+      category: primary
+      label: Primary buttons
+      classes: 'usa-button'
+
+  - name: secondary
+    context:
+      category: secondary
+      label: Secondary buttons
+      classes: 'usa-button-secondary'
+
+  - name: secondary-inverse
+    context:
+      category: secondary-inverse
+      label: Secondary inverse buttons
+      classes: 'usa-button-secondary-inverse'
+
+  - name: aqua
+    context:
+      category: alternate
+      label: Aqua buttons
+      classes: 'usa-button-primary-alt'
+
+  - name: gray
+    context:
+      category: alternate
+      label: Gray buttons
+      classes: 'usa-button-gray'
+
+  - name: red
+    context:
+      category: alternate
+      label: Red buttons
+      classes: 'usa-button-red'
+
+  - name: big
+    context:
+      category: 'big'
+      label: Big button
+      classes: 'usa-button-big'

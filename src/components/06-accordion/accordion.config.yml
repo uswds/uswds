@@ -1,5 +1,6 @@
 label: Accordion
 status: ready
+preview: '@uswds-framed'
 
 variants:
   - name: default
@@ -11,6 +12,7 @@ variants:
       to enable the visual border.
     context:
       accordion:
+        id_prefix: b-
         variant: bordered
 
   - name: multiselectable
@@ -20,6 +22,7 @@ variants:
       `.usa-accordion`.
     context:
       accordion:
+        id_prefix: m-
         multiselectable: true
 
 context:

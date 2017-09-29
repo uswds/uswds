@@ -50,10 +50,10 @@ $usa-btn-big-width:     11.6rem;
   }
 
   .usa-search-submit-text {
-    display: none;
+    @include sr-only();
 
     @include media($small-screen) {
-      display: block;
+      @include not-sr-only();
     }
   }
 

@@ -1,55 +1,29 @@
 
-  <h6>Primary Buttons</h6>
-  <div class="button_wrapper">
-    <button>Default</button>
-    <button class="usa-button-active">Active</button>
-    <button class="usa-button-hover">Hover</button>
-  </div>
-  <div class="button_wrapper">
-    <button class="usa-button-primary-alt">Default</button>
-    <button class="usa-button-primary-alt usa-button-active">Active</button>
-    <button class="usa-button-primary-alt usa-button-hover">Hover</button>
-  </div>
+{% if (classes == 'usa-button-secondary-inverse') %}
+  <div class="dark-bg">
+{%- endif %}
 
-  <h6>Secondary Buttons</h6>
-  <div class="button_wrapper">
-    <button class="usa-button-secondary">Default</button>
-    <button class="usa-button-secondary usa-button-active">Active</button>
-    <button class="usa-button-secondary usa-button-hover">Hover</button>
-  </div>
+<button class="{{ classes }}">Default</button>
+{% if (category != 'disabled') and (category != 'big') -%}
+  <button class="{{ classes }} usa-button-hover">Hover</button>
+  <button class="{{ classes }} usa-button-active">Active</button>
+  <button class="{{ classes }} usa-focus">Focus</button>
+  <button class="{{ classes }}" disabled>Disabled</button>
+  {% if (category == 'primary') -%}
+    <button class="usa-button-disabled" disabled>Disabled (deprecated)</button>
+  {%- elif (category == 'secondary') -%}
+    <button class="usa-button-secondary-disabled" disabled>Disabled (deprecated)</button>
+  {%- elif (category == 'secondary-inverse') -%}
+    <button class="usa-button-secondary-inverse-disabled" disabled>Disabled (deprecated)</button>
+  {%- endif %}
+{%- endif %}
 
-  <div class="button_wrapper">
-    <button class="usa-button-gray">Default</button>
-    <button class="usa-button-gray usa-button-active">Active</button>
-    <button class="usa-button-gray usa-button-hover">Hover</button>
-  </div>
+{% if (classes == 'usa-button-secondary-inverse') %}
+</div>
+{%- endif %}
 
-  <div class="button_wrapper">
-    <button class="usa-button-outline" type="button">Default</button>
-    <button class="usa-button-outline usa-button-active">Active</button>
-    <button class="usa-button-outline usa-button-hover">Hover</button>
-  </div>
-
-  <div class="button_wrapper button_wrapper-dark">
-    <button class="usa-button-outline-inverse" type="button">Default</button>
-    <button class="usa-button-outline-inverse usa-button-active">Active</button>
-    <button class="usa-button-outline-inverse usa-button-hover">Hover</button>
-  </div>
-
-  <h6>Button Focus</h6>
-  <div class="button_wrapper">
-    <button class="usa-button-focus">Default</button>
-    <button class="usa-button-primary-alt usa-button-focus">Default</button>
-    <button class="usa-button-secondary usa-button-focus">Default</button>
-  </div>
-
-  <h6>Disabled Button</h6>
-  <div class="button_wrapper">
-    <button class="usa-button-disabled" disabled>Default</button>
-  </div>
-
-  <h6>Big Button</h6>
-  <div class="button_wrapper">
-    <button class="usa-button-big" type="button">Default</button>
-  </div>
-
+<style scoped>
+  .dark-bg {
+    background-color: #212121;
+  }
+</style>

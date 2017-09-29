@@ -7,7 +7,6 @@ const accordion = require('./accordion');
 const CLICK = require('../events').CLICK;
 const PREFIX = require('../config').prefix;
 
-const CONTEXT = 'header';
 const NAV = `.${PREFIX}-nav`;
 const NAV_LINKS = `${NAV} a`;
 const OPENERS = `.${PREFIX}-menu-btn`;
@@ -19,25 +18,49 @@ const TOGGLES = [ NAV, OVERLAY ].join(', ');
 const ACTIVE_CLASS = 'usa-mobile_nav-active';
 const VISIBLE_CLASS = 'is-visible';
 
+const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
+
 const toggleNav = function (active) {
   const body = document.body;
   if (typeof active !== 'boolean') {
-    active = !body.classList.contains(ACTIVE_CLASS);
+    active = !isActive();
   }
   body.classList.toggle(ACTIVE_CLASS, active);
 
-  const context = this.closest(CONTEXT);
   forEach(select(TOGGLES), el => {
-    el.classList.toggle(VISIBLE_CLASS);
+    el.classList.toggle(VISIBLE_CLASS, active);
   });
 
-  if (active && context) {
-    const closeButton = context.querySelector(CLOSE_BUTTON);
-    if (closeButton) {
-      closeButton.focus();
-    }
+  const closeButton = body.querySelector(CLOSE_BUTTON);
+  const menuButton = body.querySelector(OPENERS);
+
+  if (active && closeButton) {
+    // The mobile nav was just activated, so focus on the close button,
+    // which is just before all the nav elements in the tab order.
+    closeButton.focus();
+  } else if (!active && document.activeElement === closeButton &&
+             menuButton) {
+    // The mobile nav was just deactivated, and focus was on the close
+    // button, which is no longer visible. We don't want the focus to
+    // disappear into the void, so focus on the menu button if it's
+    // visible (this may have been what the user was just focused on,
+    // if they triggered the mobile nav by mistake).
+    menuButton.focus();
   }
+
   return active;
+};
+
+const resize = () => {
+  const closer = document.body.querySelector(CLOSE_BUTTON);
+
+  if (isActive() && closer && closer.getBoundingClientRect().width === 0) {
+    // The mobile nav is active, but the close box isn't visible, which
+    // means the user's viewport has been resized so that it is no longer
+    // in mobile mode. Let's make the page state consistent by
+    // deactivating the mobile nav.
+    toggleNav.call(closer, false);
+  }
 };
 
 const navigation = behavior({
@@ -57,10 +80,18 @@ const navigation = behavior({
       }
 
       // If the mobile navigation menu is active, we want to hide it.
-      if (document.body.classList.contains(ACTIVE_CLASS)) {
-        toggleNav.call(this);
+      if (isActive()) {
+        toggleNav.call(this, false);
       }
     },
+  },
+}, {
+  init () {
+    resize();
+    window.addEventListener('resize', resize, false);
+  },
+  teardown () {
+    window.removeEventListener('resize', resize, false);
   },
 });
 
