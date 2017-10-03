@@ -450,12 +450,6 @@
 }
 
 .usa-header-basic-megamenu {
-  .usa-nav {
-    @include media($nav-width) {
-      width: 100%;
-    }
-  }
-
   .usa-nav-inner {
     display: flex;
     flex-direction: column;
