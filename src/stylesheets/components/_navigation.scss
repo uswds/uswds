@@ -25,10 +25,6 @@
   @include font-smoothing;
 
   &:hover {
-    @include media($nav-width) {
-      color: $color-base;
-    }
-
     span {
       @include media($nav-width) {
         @include nav-border;
@@ -154,13 +150,13 @@
     }
   }
 
-  // a {
-  //   &:hover {
-  //     @include media($nav-width) {
-  //       color: $color-base;
-  //     }
-  //   }
-  // }
+  a {
+    &:hover {
+      @include media($nav-width) {
+        color: $color-base;
+      }
+    }
+  }
 
   button {
     $button-vertical-offset: 44%;
