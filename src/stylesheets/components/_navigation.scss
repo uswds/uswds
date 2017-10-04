@@ -336,6 +336,8 @@
 .usa-nav-submenu {
   // @include usa-sidenav-sublist;
   padding-left: 1rem;
+  margin-bottom: 0;
+  margin-top: 0;
 
   @include media($nav-width) {
     @include unstyled-list;
@@ -450,14 +452,6 @@
 }
 
 .usa-header-basic-megamenu {
-  .usa-nav {
-    @include media($nav-width) {
-      padding-left: 0;
-      padding-top: 0;
-      width: 100%;
-    }
-  }
-
   .usa-nav-inner {
     display: flex;
     flex-direction: column;
