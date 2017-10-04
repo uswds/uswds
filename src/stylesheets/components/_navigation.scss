@@ -25,9 +25,22 @@
   @include font-smoothing;
 
   &:hover {
+    @include media($nav-width) {
+      color: $color-base;
+    }
+
     span {
       @include media($nav-width) {
         @include nav-border;
+      }
+    }
+  }
+
+  &.usa-accordion-button {
+    span {
+      @include media($nav-width) {
+        margin-right: 0;
+        padding-right: 1.5rem;
       }
     }
   }
@@ -84,7 +97,7 @@
 
   .usa-current {
     border-left: 4px solid $color-primary;
-    color: $color-primary;
+    color: $color-base;
     font-weight: $font-bold;
     padding-left: 1.4rem;
   }
@@ -141,6 +154,14 @@
     }
   }
 
+  // a {
+  //   &:hover {
+  //     @include media($nav-width) {
+  //       color: $color-base;
+  //     }
+  //   }
+  // }
+
   button {
     $button-vertical-offset: 44%;
 
@@ -150,7 +171,7 @@
     padding: 1.4rem 1.5rem 1rem 1.8rem;
 
     @include media($nav-width) {
-      @include padding(null 3rem 1.9rem 1.5rem);
+      @include padding(null 1.5rem 1.9rem 1.5rem);
       color: $color-gray;
       font-size: $h5-font-size;
       font-weight: $font-bold;
@@ -164,7 +185,7 @@
 
     &:hover {
       background-color: $color-gray-lightest;
-      color: $color-primary;
+      color: $color-base;
 
       @include media($nav-width) {
         background-color: transparent;
@@ -320,7 +341,7 @@
 // Navigation submenu (dropdown and mega menu) ----- //
 
 .usa-nav-submenu {
-  // @include usa-sidenav-sublist;
+  @include usa-sidenav-sublist;
 
   @include media($nav-width) {
     @include unstyled-list;
