@@ -371,6 +371,7 @@
       @include media($nav-width) {
         background-color: $color-primary-darkest;
         color: $color-white;
+        padding-left: 1.5rem;
         text-decoration: underline;
       }
     }
