@@ -332,6 +332,15 @@
       }
     }
   }
+  .usa-nav-primary {
+    button[aria-expanded=true] {
+      span {
+        @include media($nav-width) {
+          @include nav-border-thick;
+        }
+      }
+    }
+  }
 }
 
 // Navigation submenu (dropdown and mega menu) ----- //
