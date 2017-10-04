@@ -154,7 +154,7 @@
 
     &:focus,
     &:active {
-      box-shadow: $focus-shadow;
+      box-shadow: $focus-outline;
     }
 
     &:hover {
