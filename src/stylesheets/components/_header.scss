@@ -15,7 +15,7 @@ $z-index-nav:     9000;
   z-index: $z-index-header;
 
   @include media($nav-width) {
-    border-bottom: 1px solid $color-gray-lighter;
+    border-bottom: 1px solid $color-gray-light;
   }
 
   a {
@@ -28,8 +28,7 @@ $z-index-nav:     9000;
     @include media($nav-width) {
       float: right;
       margin-bottom: 0;
-      max-width: 23.5rem;
-      width: 21.5rem;
+      max-width: 21.5rem;
     }
   }
 }
@@ -121,7 +120,7 @@ $z-index-nav:     9000;
 .usa-header-basic {
   .usa-logo {
     @include media($nav-width) {
-      bottom: -4rem;
+      bottom: 1.9rem;
       position: absolute;
     }
   }
@@ -168,7 +167,7 @@ $z-index-nav:     9000;
 
   .usa-nav {
     @include media($nav-width) {
-      border-top: 1px solid $color-gray-lighter;
+      border-top: 1px solid $color-gray-light;
       float: none;
       padding: 0;
       width: 100%;

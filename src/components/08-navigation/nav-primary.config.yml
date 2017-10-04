@@ -8,34 +8,14 @@ context:
       - text: Section one
         id: nav-section-one
         links: &subnav_links
-          - text: Page title
+          - text: Sub-link one
             href: '#'
-          - text: Page title
-            href: '#'
-          - text: A very long page title that goes onto two lines
-            href: '#'
-          - text: Page title
-            href: '#'
-          - text: A very long page title that goes onto two lines
-            href: '#'
-          - text: Page title
-            href: '#'
-          - text: A very long page title that goes onto two lines
-            href: '#'
-          - text: A very long page title that goes onto two lines
-            href: '#'
-          - text: Page title
-            href: '#'
-          - text: Page title
-            href: '#'
-          - text: Page title
-            href: '#'
-          - text: Page title
+          - text: Sub-link two
             href: '#'
       - text: Section two
         id: nav-section-two
         links: *subnav_links
-      - text: A verbose section three
+      - text: Link three
         href: 'javascript:void(0)'
       - text: Link four
         href: 'javascript:void(0)'
