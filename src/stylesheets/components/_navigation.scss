@@ -1,6 +1,11 @@
 // Header navigation ------------- //
 
 @mixin nav-border {
+  border-bottom: 0.4rem solid $color-primary;
+  padding-bottom: 0.6rem;
+}
+
+@mixin nav-border-thick {
   border-bottom: 0.7rem solid $color-primary;
   padding-bottom: 1rem;
 }
@@ -294,6 +299,20 @@
       // undo the sidenav style
       border-left: 0;
       padding-left: 0;
+    }
+  }
+}
+
+// Extended header navigation ------- //
+
+.usa-header-extended {
+  .usa-nav-link {
+    &:hover {
+      span {
+        @include media($nav-width) {
+          @include nav-border-thick;
+        }
+      }
     }
   }
 }
