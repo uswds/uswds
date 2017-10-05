@@ -261,8 +261,8 @@
       }
 
       span {
-        color: $color-base;
         @include nav-border;
+        color: $color-base;
       }
     }
   }
@@ -282,7 +282,7 @@
   }
 
   .usa-nav-primary {
-    button[aria-expanded=true] {
+    button[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
       span {
         @include media($nav-width) {
           @include nav-border-thick;
