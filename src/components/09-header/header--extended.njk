@@ -3,7 +3,7 @@
   <nav role="navigation" class="usa-nav">
     <div class="usa-nav-inner">
       {% render '@nav-primary', {nav: header.primary}, true %}
-      {% render '@nav-secondary', {nav: header.secondary}, true %}
+      {% render '@nav-secondary', {nav: header.secondary, id_prefix: header.primary.id_prefix}, true %}
     </div>
   </nav>
 </header>

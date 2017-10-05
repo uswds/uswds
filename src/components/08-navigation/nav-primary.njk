@@ -38,5 +38,5 @@
   {% endfor %}
 </ul>
 {% if nav.search %}
-  {% render '@search--header', {search: nav.search}, true %}
+  {% render '@search--header', {search: nav.search, id_prefix: nav.id_prefix}, true %}
 {% endif %}
