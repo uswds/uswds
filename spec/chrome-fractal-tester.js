@@ -6,8 +6,9 @@ const chromeLauncher = require('chrome-launcher');
 const CDP = require('chrome-remote-interface');
 const fractal = require('../fractal');
 
-const HOSTNAME = os.hostname().toLowerCase();
 const REMOTE_CHROME_URL = process.env[ 'REMOTE_CHROME_URL' ];
+const HOSTNAME = REMOTE_CHROME_URL ? os.hostname().toLowerCase()
+                                   : 'localhost';
 
 function launchChromeLocally (headless=true) {
   return chromeLauncher.launch({
