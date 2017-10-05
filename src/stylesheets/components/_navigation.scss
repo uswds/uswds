@@ -17,7 +17,7 @@
   @include media($nav-width) {
     border-bottom: none;
     display: inline-block;
-    height: 10.3rem; // XXX magic number
+    height: 8.9rem; // XXX magic number
   }
 }
 
@@ -67,7 +67,7 @@
   z-index: $z-index-nav;
 
   @include media($nav-width) {
-    @include padding(5rem 0 0 null);
+    @include padding(4.7rem 0 0 null);
     border-left: none;
     display: block;
     float: right;
@@ -109,6 +109,7 @@
   .usa-search {
     @include media($nav-width) {
       margin-left: 1.5rem; // XXX magic number
+      top: 6px;
     }
   }
 }
@@ -139,11 +140,11 @@
 
     > a {
       @include media($nav-width) {
-        @include padding(1.3rem 1.5rem 1.7rem 1.5rem);
+        @include padding(1.5rem 1.5rem 2.2rem 1.5rem);
         color: $color-gray;
         font-size: $h5-font-size;
         font-weight: $font-bold;
-        line-height: 1.2;
+        line-height: 1;
       }
 
       &:hover {
@@ -155,6 +156,10 @@
   }
 
   a {
+    @include media($nav-width) {
+      @include padding(0.75rem null);
+    }
+
     &:hover {
       @include media($nav-width) {
         color: $color-base;
@@ -171,7 +176,7 @@
     padding: 1.4rem 1.5rem 1rem 1.8rem;
 
     @include media($nav-width) {
-      @include padding(null 1.5rem 1.9rem 1.5rem);
+      @include padding(null 1.5rem 2.2rem 1.5rem);
       color: $color-gray;
       font-size: $h5-font-size;
       font-weight: $font-bold;
@@ -366,10 +371,9 @@
 
   @include media($nav-width) {
     @include unstyled-list;
-    @include padding(1.15rem null);
+    @include padding(0.75rem null 0.9rem null);
     background-color: $color-primary-darkest;
-    min-width: 21.5rem;
-    width: auto;
+    width: 21.5rem;
     position: absolute;
   }
 
@@ -484,7 +488,7 @@
     @include media($nav-width) {
       display: block;
       float: right;
-      margin-top: -5.8rem;
+      margin-top: -4.7rem;
     }
   }
 

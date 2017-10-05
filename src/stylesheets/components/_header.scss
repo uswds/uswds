@@ -120,7 +120,7 @@ $z-index-nav:     9000;
 .usa-header-basic {
   .usa-logo {
     @include media($nav-width) {
-      bottom: 1.9rem;
+      bottom: 0.8rem;
       position: absolute;
     }
   }
@@ -201,7 +201,7 @@ $z-index-nav:     9000;
 
   .usa-nav-link {
     @include media($nav-width) {
-      padding-top: 1.9rem;
+      @include padding(1.9rem null);
     }
   }
 
