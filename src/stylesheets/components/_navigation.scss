@@ -93,9 +93,13 @@
 
   .usa-current {
     border-left: 4px solid $color-primary;
-    color: $color-base;
+    color: $color-primary;
     font-weight: $font-bold;
     padding-left: 1.4rem;
+
+    @include media($nav-width) {
+      color: $color-base;
+    }
   }
 
   .usa-button {
@@ -181,10 +185,10 @@
 
     &:hover {
       background-color: $color-gray-lightest;
-      color: $color-base;
 
       @include media($nav-width) {
         background-color: transparent;
+        color: $color-base;
       }
     }
 
@@ -222,19 +226,54 @@
 
         span {
           @include nav-border;
+          color: $color-white;
         }
       }
     }
   }
 
   @include media($nav-width) {
-    a.usa-current { // stylelint-disable-line selector-no-qualifying-type
+    a.usa-current,
+    .usa-current { // stylelint-disable-line selector-no-qualifying-type
       // undo the sidenav style
       border-left: 0;
       padding-left: 1.5rem;
 
       span {
+        color: $color-base;
         @include nav-border;
+      }
+    }
+  }
+}
+
+// Extended header navigation ------- //
+
+.usa-header-extended {
+  .usa-nav-link {
+    &:hover {
+      span {
+        @include media($nav-width) {
+          @include nav-border-thick;
+        }
+      }
+    }
+  }
+
+  .usa-nav-primary {
+    button[aria-expanded=true] {
+      span {
+        @include media($nav-width) {
+          @include nav-border-thick;
+        }
+      }
+    }
+
+    .usa-current {
+      @include media($nav-width) {
+        span {
+          @include nav-border-thick;
+        }
       }
     }
   }
@@ -316,29 +355,6 @@
       // undo the sidenav style
       border-left: 0;
       padding-left: 0;
-    }
-  }
-}
-
-// Extended header navigation ------- //
-
-.usa-header-extended {
-  .usa-nav-link {
-    &:hover {
-      span {
-        @include media($nav-width) {
-          @include nav-border-thick;
-        }
-      }
-    }
-  }
-  .usa-nav-primary {
-    button[aria-expanded=true] {
-      span {
-        @include media($nav-width) {
-          @include nav-border-thick;
-        }
-      }
     }
   }
 }
