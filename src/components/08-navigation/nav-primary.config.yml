@@ -14,6 +14,18 @@ context:
             href: '#'
           - text: Subsection title
             href: '#'
+          - text: Subsection title longer
+            href: '#'
+          - text: A very long page title that goes onto two lines
+            href: '#'
+          - text: Subsection title
+            href: '#'
+          - text: Subsection title
+            href: '#'
+          - text: Subsection title
+            href: '#'
+          - text: Subsection title
+            href: '#'
       - text: Simple terms
         id: nav-section-two
         links: *subnav_links
