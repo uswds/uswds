@@ -162,7 +162,7 @@
 
     &:hover {
       @include media($nav-width) {
-        color: $color-base;
+        // color: $color-base;
       }
     }
   }
@@ -196,7 +196,7 @@
 
       @include media($nav-width) {
         background-color: transparent;
-        color: $color-base;
+        // color: $color-base;
       }
     }
 
@@ -211,6 +211,13 @@
         background-image: url('#{$image-path}/angle-arrow-down.png');
         background-image: url('#{$image-path}/angle-arrow-down.svg');
         background-position: right 1.5rem top $button-vertical-offset;
+      }
+
+      &:hover {
+        @include media($nav-width) {
+          background-image: url('#{$image-path}/angle-arrow-down-primary.png');
+          background-image: url('#{$image-path}/angle-arrow-down-primary.svg');
+        }
       }
     }
 
@@ -246,6 +253,12 @@
       // undo the sidenav style
       border-left: 0;
       padding-left: 1.5rem;
+
+      &:hover {
+        span {
+          color: $color-primary;
+        }
+      }
 
       span {
         color: $color-base;
