@@ -19,7 +19,7 @@
         {%- endfor -%}
       {%- else -%}
         {%- for group in link.links | batch(3) -%}
-          <div class="usa-width-one-fourth">
+          <div class="usa-megamenu-col">
             {%- for child in group -%}
               <li>
                 <a href="{{ child.href }}">{{ child.text }}</a>
