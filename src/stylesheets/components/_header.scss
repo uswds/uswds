@@ -177,7 +177,7 @@ $z-index-nav:     9000;
   .usa-nav-inner {
     @include media($nav-width) {
       @include outer-container();
-      @include padding(null $site-margins null 2rem);
+      @include padding(null $site-margins null 1.5rem);
       margin-top: -1px;
       max-width: $site-max-width;
       position: relative;
