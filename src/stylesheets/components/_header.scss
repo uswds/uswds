@@ -15,7 +15,7 @@ $z-index-nav:     9000;
   z-index: $z-index-header;
 
   @include media($nav-width) {
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid $color-gray-lighter;
   }
 
   a {
@@ -120,7 +120,7 @@ $z-index-nav:     9000;
 .usa-header-basic {
   .usa-logo {
     @include media($nav-width) {
-      bottom: 0.8rem;
+      bottom: 0;
       position: absolute;
     }
   }
@@ -167,7 +167,7 @@ $z-index-nav:     9000;
 
   .usa-nav {
     @include media($nav-width) {
-      border-top: 1px solid $color-gray-light;
+      border-top: 1px solid $color-gray-lighter;
       float: none;
       padding: 0;
       width: 100%;
@@ -193,7 +193,7 @@ $z-index-nav:     9000;
       &[aria-expanded=false],
       &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
         @include media($nav-width) { /* stylelint-disable-line selector-no-qualifying-type */
-          background-position: right 1.5rem top 50%;
+          background-position: right 1.5rem top 53%;
         }
       }
     }
@@ -201,7 +201,7 @@ $z-index-nav:     9000;
 
   .usa-nav-link {
     @include media($nav-width) {
-      @include padding(1.9rem null);
+      @include padding(1.8rem null);
     }
   }
 

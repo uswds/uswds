@@ -7,7 +7,7 @@
 
 @mixin nav-border-thick {
   border-bottom: 0.7rem solid $color-primary;
-  padding-bottom: 1rem;
+  padding-bottom: 0.9rem;
 }
 
 .usa-navbar {
@@ -17,7 +17,7 @@
   @include media($nav-width) {
     border-bottom: none;
     display: inline-block;
-    height: 8.9rem; // XXX magic number
+    height: 7.8rem; // XXX magic number
   }
 }
 
@@ -67,7 +67,7 @@
   z-index: $z-index-nav;
 
   @include media($nav-width) {
-    @include padding(4.7rem 0 0 null);
+    @include padding(4.5rem 0 0 null);
     border-left: none;
     display: block;
     float: right;
@@ -109,7 +109,7 @@
   .usa-search {
     @include media($nav-width) {
       margin-left: 1.5rem; // XXX magic number
-      top: 6px;
+      top: 4px;
     }
   }
 }
@@ -140,7 +140,7 @@
 
     > a {
       @include media($nav-width) {
-        @include padding(1.5rem 1.5rem 2.2rem 1.5rem);
+        @include padding(1.3rem 1.5rem 2.2rem 1.5rem);
         color: $color-gray;
         font-size: $h5-font-size;
         font-weight: $font-bold;
@@ -168,7 +168,7 @@
   }
 
   button {
-    $button-vertical-offset: 44%;
+    $button-vertical-offset: 40%;
 
     @include button-unstyled;
     @include font-smoothing;
@@ -176,7 +176,7 @@
     padding: 1.4rem 1.5rem 1rem 1.8rem;
 
     @include media($nav-width) {
-      @include padding(null 1.5rem 2.2rem 1.5rem);
+      @include padding(1.3rem 1.5rem 2.2rem 1.5rem);
       color: $color-gray;
       font-size: $h5-font-size;
       font-weight: $font-bold;
@@ -297,8 +297,9 @@
     @include margin(3rem null);
 
     @include media($nav-width) {
-      @include margin(-0.2rem null 0 0);
+      @include margin(-0.9rem null 0 0);
       float: left;
+      right: -1.2rem;
     }
   }
 }
@@ -311,13 +312,14 @@
   li {
     @include media($nav-width) {
       display: inline;
-      padding-left: 1rem;
+      padding-left: 0.5rem;
     }
 
     &:not(:last-child)::after {
       @include media($nav-width) {
+        color: $color-gray-lighter;
         content: '|';
-        padding-left: 1rem;
+        padding-left: 0.5rem;
       }
     }
   }
@@ -489,7 +491,7 @@
     @include media($nav-width) {
       display: block;
       float: right;
-      margin-top: -4.7rem;
+      margin-top: -3.8rem;
     }
   }
 
