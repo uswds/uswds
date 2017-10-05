@@ -5,17 +5,17 @@ context:
   nav:
     search: false
     links:
-      - text: Section one
+      - text: Section title
         id: nav-section-one
         links: &subnav_links
-          - text: Sub-link one
+          - text: Subsection title
             href: '#'
-          - text: Sub-link two
+          - text: Subsection title
             href: '#'
-      - text: Section two
+          - text: Subsection title
+            href: '#'
+      - text: Simple terms
         id: nav-section-two
         links: *subnav_links
-      - text: Link three
-        href: 'javascript:void(0)'
-      - text: Link four
+      - text: Distinct from each other
         href: 'javascript:void(0)'
