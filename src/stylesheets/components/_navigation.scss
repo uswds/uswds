@@ -315,7 +315,6 @@
     @include media($nav-width) {
       @include margin(-0.9rem null 0 0);
       float: left;
-      right: -1.2rem;
     }
   }
 }
