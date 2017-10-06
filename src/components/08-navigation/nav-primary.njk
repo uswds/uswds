@@ -2,9 +2,9 @@
   <img src="{{ uswds.path }}/img/close.svg" alt="close">
 </button>
 <ul class="usa-nav-primary usa-accordion">
-  {% for link in nav.links %}
+  {%- for link in nav.links -%}
   <li>
-    {% if link.links %}
+    {%- if link.links -%}
     <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="{{ nav.id_prefix }}{{ link.id }}">
       <span>{{ link.text }}</span>
     </button>
@@ -29,14 +29,14 @@
         {%- endfor -%}
       {%- endif -%}
     </ul>
-    {% else %}
+    {%- else -%}
     <a class="usa-nav-link{% if link.current %} usa-current{% endif %}" href="{{ link.href }}">
       <span>{{ link.text }}</span>
     </a>
-    {% endif %}
+    {%- endif -%}
   </li>
-  {% endfor %}
+  {%- endfor -%}
 </ul>
-{% if nav.search %}
+{%- if nav.search -%}
   {% render '@search--header', {search: nav.search, id_prefix: nav.id_prefix}, true %}
-{% endif %}
+{%- endif -%}
