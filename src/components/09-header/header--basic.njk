@@ -1,8 +1,10 @@
-<header class="usa-header usa-header-basic{% if header.primary.nav.mega %} usa-header-basic-megamenu{% endif %}" role="banner">
+<header class="usa-header usa-header-basic{% if header.primary.mega %} usa-header-basic-megamenu{% endif %}" role="banner">
   <div class="usa-nav-container">
     {% render '@site-title', {header: header}, true %}
     <nav role="navigation" class="usa-nav">
+      {% if header.primary.mega %}<div class="usa-nav-inner">{% endif %}
       {% render '@nav-primary', {nav: header.primary}, true %}
+      {% if header.primary.mega %}</div>{% endif %}
     </nav>
   </div>
 </header>

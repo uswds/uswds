@@ -5,6 +5,5 @@ context:
   nav:
     search: true
     links:
-      - text: Link one
-      - text: Link two
-      - text: Link three
+      - text: Secondary priority link
+      - text: Easy to comprehend
