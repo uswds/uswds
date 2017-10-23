@@ -62,13 +62,16 @@ h1,
 h2,
 h3,
 h4,
-h5,
-h6 {
+h5 {
   clear: both;
   font-family: $font-serif;
   line-height: $heading-line-height;
   margin-bottom: .5em;
   margin-top: 1.5em;
+}
+
+h6 {
+  font-family: $font-sans;
 }
 
 h1 {
