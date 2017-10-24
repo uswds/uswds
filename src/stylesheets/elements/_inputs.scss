@@ -122,6 +122,11 @@ select {
   &::-ms-expand {
     display: none;
   }
+
+  // Show default webkit style on select element when autofilled to show icon
+  &:-webkit-autofill {
+    appearance: menulist;
+  }
 }
 
 option:first-child {
