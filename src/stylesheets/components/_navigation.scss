@@ -114,6 +114,20 @@
   }
 }
 
+// Mobile-only navigation --------- //
+
+.usa-nav-mobile {
+  @include media($nav-width) {
+    display: none;
+  }
+}
+.usa-nav-desktop {
+  display: none;
+  @include media($nav-width) {
+    display: block;
+  }
+}
+
 // Primary navigation ------------- //
 
 .usa-nav-primary {
