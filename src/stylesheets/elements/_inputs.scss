@@ -126,6 +126,7 @@ select {
   // Show default webkit style on select element when autofilled to show icon
   &:-webkit-autofill {
     appearance: menulist;
+  }
 
   // Remove dotted outline from select element on focus in Firefox
   &:-moz-focusring {
