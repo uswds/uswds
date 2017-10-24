@@ -2,38 +2,33 @@ table {
   border-spacing: 0;
   margin: 2em 0;
   min-width: 100%;
+}
 
-  thead {
-    th,
-    td {
-      background-color: $color-gray-lightest;
-    }
-  }
-
+thead {
   th {
-    text-align: left;
-  }
-
-  tbody {
-    th {
-      font-weight: $font-normal;
-    }
+    font-weight: $font-bold;
   }
 
   th,
   td {
-    background-color: $color-white;
-    border: 1px solid $color-gray;
-    padding: 1.5rem;
+    background-color: $color-gray-lightest;
   }
+}
+
+th {
+  text-align: left;
+}
+
+th,
+td {
+  background-color: $color-white;
+  border: 1px solid $color-gray;
+  font-weight: $font-normal;
+  padding: 1.5rem;
 }
 
 .usa-table-borderless {
   thead {
-    tr {
-      background-color: transparent;
-    }
-
     th {
       border-top: 0;
     }
