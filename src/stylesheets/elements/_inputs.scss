@@ -122,6 +122,12 @@ select {
   &::-ms-expand {
     display: none;
   }
+
+  // Remove dotted outline from select element on focus in Firefox
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 $color-black;
+  }
 }
 
 option:first-child {
