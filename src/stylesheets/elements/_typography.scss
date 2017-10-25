@@ -22,9 +22,20 @@ a {
     color: $color-primary-darker;
   }
 
+  &:focus {
+    outline: $focus-outline;
+    outline-offset: $focus-spacing;
+  }
+
   &:visited {
     color: $color-visited;
   }
+}
+
+*:focus,
+.usa-focus {
+  outline: $focus-outline;
+  outline-offset: $focus-spacing;
 }
 
 @mixin external-link($external-link, $external-link-hover) {
