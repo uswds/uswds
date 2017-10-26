@@ -22,6 +22,10 @@ a {
     color: $color-primary-darker;
   }
 
+  &:focus {
+    @include focus;
+  }
+
   &:visited {
     color: $color-visited;
   }
