@@ -23,8 +23,7 @@ a {
   }
 
   &:focus {
-    outline: $focus-outline;
-    outline-offset: $focus-spacing;
+    @include focus;
   }
 
   &:visited {
