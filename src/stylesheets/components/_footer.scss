@@ -341,7 +341,7 @@ li.usa-footer-primary-content {
   }
 
   ul {
-    padding-bottom: 2.5rem;
+    padding-bottom: 2.4rem;
 
     @include media($medium-screen) {
       padding-bottom: 0;
@@ -355,8 +355,10 @@ li.usa-footer-primary-content {
       }
     }
 
-    li {
-      line-height: 2em;
+    li:not(.usa-footer-primary-link) {
+      line-height: $heading-line-height;
+      padding-bottom: 0.35em;
+      padding-top: 0.35em;
     }
 
     .usa-footer-primary-link {
