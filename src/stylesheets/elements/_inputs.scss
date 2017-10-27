@@ -88,13 +88,12 @@ select {
 
 .usa-input-required:after {
   color: $color-secondary-darkest;
-  content: ' (*Required)';
+  content: ' (*required)';
 }
 
 .usa-input-optional:after {
   color: $color-gray-medium;
-  content: ' - optional';
-  font-style: italic;
+  content: ' (optional)';
 }
 
 label {
