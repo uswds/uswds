@@ -9,6 +9,7 @@
 
 .usa-layout-docs-sidenav {
   padding-top: 2.4rem;
+
   @include media($large-screen) {
     padding-top: 0;
   }
