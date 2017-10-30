@@ -1,40 +1,35 @@
 table {
   border-spacing: 0;
   margin: 2em 0;
-  min-width: 100%;
+}
 
-  thead {
-    th,
-    td {
-      background-color: $color-gray-lightest;
-    }
-  }
-
+thead {
   th {
-    text-align: left;
-  }
-
-  tbody {
-    th {
-      font-weight: $font-normal;
-    }
+    font-weight: $font-bold;
   }
 
   th,
   td {
-    background-color: $color-white;
-    border: 1px solid $color-gray;
-    padding: 1.5rem;
+    background-color: $color-gray-lightest;
   }
+}
+
+th {
+  text-align: left;
+}
+
+th,
+td {
+  background-color: $color-white;
+  border: 1px solid $color-gray;
+  font-weight: $font-normal;
+  padding: 1rem 1.5rem;
 }
 
 .usa-table-borderless {
   thead {
-    tr {
-      background-color: transparent;
-    }
-
     th {
+      background-color: transparent;
       border-top: 0;
     }
   }
@@ -44,4 +39,17 @@ table {
     border-left: 0;
     border-right: 0;
   }
+
+  th {
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+caption {
+  @include h5;
+  font-family: $font-serif;
+  margin-bottom: 1.2rem;
+  text-align: left;
 }

@@ -22,6 +22,10 @@ a {
     color: $color-primary-darker;
   }
 
+  &:focus {
+    @include focus;
+  }
+
   &:visited {
     color: $color-visited;
   }
@@ -62,13 +66,16 @@ h1,
 h2,
 h3,
 h4,
-h5,
-h6 {
+h5 {
   clear: both;
   font-family: $font-serif;
   line-height: $heading-line-height;
   margin-bottom: .5em;
   margin-top: 1.5em;
+}
+
+h6 {
+  font-family: $font-sans;
 }
 
 h1 {
@@ -107,7 +114,7 @@ dfn {
 // Custom typography
 
 .usa-content {
-  p:not(.usa-font-lead),
+  p,
   ul:not(.usa-accordion):not(.usa-accordion-bordered),
   ol:not(.usa-accordion):not(.usa-accordion-bordered) {
     max-width: $text-max-width;
