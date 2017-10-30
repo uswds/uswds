@@ -42,6 +42,8 @@ td {
 }
 
 caption {
+  @include h5;
+  font-family: $font-serif;
   margin-bottom: 0.5em;
   text-align: left;
 }
