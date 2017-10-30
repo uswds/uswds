@@ -180,7 +180,6 @@
 
   @include media($medium-screen) {
     @include margin(null 0);
-    max-width: none;
   }
 
   @include media($large-screen) {
@@ -220,11 +219,11 @@
     }
 
     &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
-      $current-border: 0.4rem;
-      border-left: $current-border solid $color-primary;
+      $current-link-border: 0.4rem;
+      border-left: $current-link-border solid $color-primary;
       color: $color-primary;
       font-weight: $font-bold;
-      padding-left: $site-margins-mobile - $current-border;
+      padding-left: $site-margins-mobile - $current-link-border;
     }
   }
 }
