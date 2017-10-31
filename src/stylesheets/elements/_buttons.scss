@@ -149,9 +149,9 @@ button,
   }
 
   &.usa-button-big {
-    border-radius: $button-border-radius * 2; //Double the radius for larger button
+    border-radius: 8rem; //Double the radius for larger button
     font-size: 2.4rem;
-    padding: 1.5rem 5rem;
+    padding: 1.5rem 3rem;
   }
 
   &:disabled {
