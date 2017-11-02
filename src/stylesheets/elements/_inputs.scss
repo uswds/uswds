@@ -88,13 +88,12 @@ select {
 
 .usa-input-required:after {
   color: $color-secondary-darkest;
-  content: ' (*Required)';
+  content: ' (*required)';
 }
 
 .usa-input-optional:after {
   color: $color-gray-medium;
-  content: ' - optional';
-  font-style: italic;
+  content: ' (optional)';
 }
 
 label {
@@ -116,7 +115,23 @@ select {
   background-image: url('#{$image-path}/arrow-both.svg');
   background-position: right 1.3rem center;
   background-repeat: no-repeat;
-  background-size: 1.3rem;
+  background-size: 1rem;
+  padding-right: 3rem;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  // Show default webkit style on select element when autofilled to show icon
+  &:-webkit-autofill {
+    appearance: menulist;
+  }
+
+  // Remove dotted outline from select element on focus in Firefox
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 $color-black;
+  }
 }
 
 option:first-child {

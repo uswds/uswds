@@ -36,6 +36,12 @@
   text-transform: uppercase;
 }
 
+// Focus state mixin
+@mixin focus {
+  outline: $focus-outline;
+  outline-offset: $focus-spacing;
+}
+
 // Mobile-first media query helper
 @mixin media($bp) {
   @media screen and (min-width: #{$bp}) {
