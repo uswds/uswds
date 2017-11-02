@@ -207,11 +207,10 @@
     }
 
     &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
-      $current-link-border: 0.4rem;
-      border-left: $current-link-border solid $color-primary;
+      border-left: $current-highlight-border-width solid $color-primary;
       color: $color-primary;
       font-weight: $font-bold;
-      padding-left: $site-margins-mobile - $current-link-border;
+      padding-left: $site-margins-mobile - $current-highlight-border-width;
     }
   }
 }

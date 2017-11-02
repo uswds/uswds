@@ -143,6 +143,8 @@ $box-shadow:              0 0 2px $color-shadow !default;
 $focus-outline:           2px dotted $color-gray-light;
 $focus-spacing:           3px;
 $nav-width:               951px !default;
+$current-highlight-border-width: 0.4rem !default; // must be in rem for math
+
 
 // 44 x 44 pixels hit target following Apple iOS Human Interface
 // Guidelines
