@@ -225,7 +225,7 @@ legend {
 
 [type=radio]:focus + label::before {
   outline: $focus-outline;
-  outline-offset: 5px;
+  outline-offset: $focus-spacing * 2; // Double the offset to account for circular shape
 }
 
 [type=checkbox]:disabled + label {
