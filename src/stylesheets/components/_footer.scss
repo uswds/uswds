@@ -21,8 +21,8 @@
     }
   }
 
-  a {
-    font-weight: normal;
+  .usa-footer-primary-link ~ li a,
+  .usa-footer-secondary-link {
     text-decoration: none;
   }
 }
