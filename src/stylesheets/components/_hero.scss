@@ -29,20 +29,9 @@
   > *:first-child {
     @include margin(0 null $spacing-medium null);
   }
-
-  .usa-button {
-    padding: 1.5rem 3rem;
-    margin-top: $spacing-medium;
-    width: 100%;
-  }
 }
 
 .usa-hero-callout-alt {
   color: $color-white;
   display: block;
-}
-
-.usa-hero-paragraph {
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
 }
