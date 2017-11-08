@@ -8,8 +8,8 @@
         {{ hero.title }}
       </h2>
 
-      {% if hero.link %}
-      <a class="usa-hero-link" href="{{ hero.link.href }}">{{ hero.link.text }}</a>
+      {% if hero.paragraph %}
+      <p class="usa-hero-paragraph">{{ hero.paragraph }}</p>
       {% endif %}
 
       {% if hero.button %}

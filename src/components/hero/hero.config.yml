@@ -5,10 +5,7 @@ context:
   hero:
     callout: 'Hero callout:'
     title: Call attention to a current priority
-    link:
-      text: Link to more about that priority
-      href: 'javascript:void(0)'
+    paragraph: Support the callout with some short explanatory text. You don't need more than a couple of sentences.
     button:
       text: Learn about what we do
       href: 'javascript:void(0)'
-
