@@ -447,6 +447,10 @@
   img {
     width: 1.3rem;
   }
+
+  + * {
+    clear: both;
+  }
 }
 
 .usa-mobile_nav-active {
