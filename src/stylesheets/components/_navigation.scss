@@ -310,7 +310,7 @@
   }
 
   .usa-search {
-    @include margin(1.5rem null);
+    @include margin(3rem null);
 
     @include media($nav-width) {
       @include margin(-0.9rem null 0 0);
