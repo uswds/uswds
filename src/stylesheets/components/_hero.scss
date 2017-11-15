@@ -27,13 +27,7 @@
   }
 
   > *:first-child {
-    @include margin(0 null $site-margins null);
-  }
-
-  .usa-button {
-    font-size: $small-font-size;
-    margin-top: 7rem;
-    width: 100%;
+    @include margin(0 null $spacing-medium null);
   }
 }
 
