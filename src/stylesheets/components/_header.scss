@@ -23,11 +23,8 @@ $z-index-nav:     9000;
   }
 
   .usa-search {
-    margin-bottom: 1.5rem;
-
     @include media($nav-width) {
       float: right;
-      margin-bottom: 0;
       max-width: 21.5rem;
     }
   }
