@@ -207,10 +207,10 @@
     }
 
     &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
-      border-left: $current-highlight-border-width solid $color-primary;
+      border-left: $sidenav-current-border-width solid $color-primary;
       color: $color-primary;
       font-weight: $font-bold;
-      padding-left: $site-margins-mobile - $current-highlight-border-width;
+      padding-left: $site-margins-mobile - $sidenav-current-border-width;
     }
   }
 }
