@@ -1,8 +1,31 @@
 
 .usa-sidenav-list {
   @include usa-sidenav-list;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+
+  @include media($large-screen) {
+    border-bottom: none;
+    border-top: none;
+  }
+
+  .usa-grid & {
+    @include margin(null (-$site-margins-mobile) null (-$site-margins-mobile));
+
+    @include media($medium-screen) {
+      @include margin(null 0);
+    }
+  }
 }
 
 .usa-sidenav-sub_list {
   @include usa-sidenav-sublist;
+}
+
+.usa-layout-docs-sidenav {
+  padding-top: 2.4rem;
+
+  @include media($large-screen) {
+    padding-top: 0;
+  }
 }
