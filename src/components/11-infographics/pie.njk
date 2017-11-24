@@ -1,4 +1,4 @@
-<table class="usa-chart usa-chart-pie applepie">
+<table class="usa-chart usa-chart-pie applepie" data-total="100%">
   <tr class="usa-chart-item">
     <td class="usa-chart-value">8%</td>
     <td class="usa-chart-label">Thing one</td>
@@ -26,6 +26,7 @@
 
     var chart = charts[i];
     var items = chart.querySelectorAll('.usa-chart-item');
+    var total = parseFloat(chart.dataset.total);
     var offset = 0;
 
     // Generate SVG dynamically
@@ -45,10 +46,12 @@
       const item = items[j];
       var value = parseFloat(item.querySelector('.usa-chart-value').innerHTML);
 
+      // generate arc
       const arc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      arc.style.strokeDasharray = (value * Math.PI / 2) + '%, 157.08%';
-      arc.style.strokeDashoffset = (offset * Math.PI / -2) + '%';
+      arc.style.strokeDasharray = ((value / total * 100) * Math.PI / 2) + '%, 157.08%';
+      arc.style.strokeDashoffset = ((offset / total * 100) * Math.PI / -2) + '%';
 
+      // Add hover events to labels+graphic
       arc.addEventListener('mouseenter',function(event){
         item.classList.add('hover');
       });
@@ -62,39 +65,10 @@
         arc.classList.remove('hover');
       });
 
+      // Add arc to graphic
       svg.appendChild(arc);
+      // Offset for next arc
       offset = offset + parseInt(value);
     }
-
-    var offset = 0;
   }
-  // for (var i = 0; i < charts.length; i++) {
-  //
-  //   var chart = charts[i];
-  //   var svg = chart.querySelector('svg');
-  //   var items = chart.querySelectorAll('li');
-  //   var offset = 0;
-  //
-  //   for (var i = 0; i < items.length; i++) {
-  //     const li = items[i];
-  //     var v = li.dataset.value;
-  //     const arc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-  //     arc.style.strokeDasharray = (v * Math.PI / 2) + '%, 157.08%';
-  //     arc.style.strokeDashoffset = (offset * Math.PI / -2) + '%';
-  //     arc.addEventListener('mouseenter',function(event){
-  //       li.classList.add('hover');
-  //     });
-  //     arc.addEventListener('mouseleave',function(event){
-  //       li.classList.remove('hover');
-  //     });
-  //     li.addEventListener('mouseenter',function(event){
-  //       arc.classList.add('hover');
-  //     });
-  //     li.addEventListener('mouseleave',function(event){
-  //       arc.classList.remove('hover');
-  //     });
-  //     svg.appendChild(arc);
-  //     offset = offset + parseInt(v);
-  //   }
-  // }
 </script>
