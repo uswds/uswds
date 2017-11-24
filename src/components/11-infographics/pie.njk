@@ -33,6 +33,7 @@
     var tr = document.createElement('tr');
     var td = document.createElement('td');
     td.setAttribute('rowspan', items.length+1);
+    td.classList.add('usa-chart-chartcell');
     var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('viewbox', '0 0 100 100');
     svg.classList.add('usa-chart-svg');
@@ -48,6 +49,9 @@
 
       // generate arc
       const arc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      arc.setAttribute('cx', '50%');
+      arc.setAttribute('cy', '50%');
+      arc.setAttribute('r', '25%');
       arc.style.strokeDasharray = ((value / total * 100) * Math.PI / 2) + '%, 157.08%';
       arc.style.strokeDashoffset = ((offset / total * 100) * Math.PI / -2) + '%';
 
