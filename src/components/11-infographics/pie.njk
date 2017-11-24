@@ -1,42 +1,100 @@
-<div class="usa-chart usa-chart-pie applepie">
-  <svg class="usa-chart-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg>
-  <ul class="usa-chart-items" data-max="percent">
-    <li data-value="8">Thing one</li>
-    <li data-value="12">Thing two</li>
-    <li data-value="26">Thing three</li>
-    <li data-value="54">Thing four</li>
-  </ul>
-</div>
+<table class="usa-chart usa-chart-pie applepie">
+  <tr class="usa-chart-item">
+    <td class="usa-chart-value">8%</td>
+    <td class="usa-chart-label">Thing one</td>
+  </tr>
+  <tr class="usa-chart-item">
+    <td class="usa-chart-value">12%</td>
+    <td class="usa-chart-label">Thing two</td>
+  </tr>
+  <tr class="usa-chart-item">
+    <td class="usa-chart-value">26%</td>
+    <td class="usa-chart-label">Thing three</td>
+  </tr>
+  <tr class="usa-chart-item">
+    <td class="usa-chart-value">54%</td>
+    <td class="usa-chart-label">Thing four</td>
+  </tr>
+</table>
 
 <script>
+  // Find all charts on the page
   var charts = document.querySelectorAll('.usa-chart-pie');
+
+  // Loop throuigh each chart to generate graphic
   for (var i = 0; i < charts.length; i++) {
 
     var chart = charts[i];
-    var svg = chart.querySelector('svg');
-    var items = chart.querySelectorAll('li');
+    var items = chart.querySelectorAll('.usa-chart-item');
     var offset = 0;
 
-    for (var i = 0; i < items.length; i++) {
-      const li = items[i];
-      var v = li.dataset.value;
+    // Generate SVG dynamically
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    td.setAttribute('rowspan', items.length+1);
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewbox', '0 0 100 100');
+    svg.classList.add('usa-chart-svg');
+    // Consolodate SVG wrapping for insertion
+    tr.appendChild(td).appendChild(svg);
+    // Insert SVG portion of table into DOM
+    var parent = items[0].parentNode; // query parent, likely tbody
+    parent.insertBefore(tr, items[0]) // insert graphic into parent
+
+    for (var j = 0; j < items.length; j++) {
+      const item = items[j];
+      var value = parseFloat(item.querySelector('.usa-chart-value').innerHTML);
+
       const arc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      arc.style.strokeDasharray = (v * Math.PI / 2) + '%, 157.08%';
+      arc.style.strokeDasharray = (value * Math.PI / 2) + '%, 157.08%';
       arc.style.strokeDashoffset = (offset * Math.PI / -2) + '%';
+
       arc.addEventListener('mouseenter',function(event){
-        li.classList.add('hover');
+        item.classList.add('hover');
       });
       arc.addEventListener('mouseleave',function(event){
-        li.classList.remove('hover');
+        item.classList.remove('hover');
       });
-      li.addEventListener('mouseenter',function(event){
+      item.addEventListener('mouseenter',function(event){
         arc.classList.add('hover');
       });
-      li.addEventListener('mouseleave',function(event){
+      item.addEventListener('mouseleave',function(event){
         arc.classList.remove('hover');
       });
+
       svg.appendChild(arc);
-      offset = offset + parseInt(v);
+      offset = offset + parseInt(value);
     }
+
+    var offset = 0;
   }
+  // for (var i = 0; i < charts.length; i++) {
+  //
+  //   var chart = charts[i];
+  //   var svg = chart.querySelector('svg');
+  //   var items = chart.querySelectorAll('li');
+  //   var offset = 0;
+  //
+  //   for (var i = 0; i < items.length; i++) {
+  //     const li = items[i];
+  //     var v = li.dataset.value;
+  //     const arc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  //     arc.style.strokeDasharray = (v * Math.PI / 2) + '%, 157.08%';
+  //     arc.style.strokeDashoffset = (offset * Math.PI / -2) + '%';
+  //     arc.addEventListener('mouseenter',function(event){
+  //       li.classList.add('hover');
+  //     });
+  //     arc.addEventListener('mouseleave',function(event){
+  //       li.classList.remove('hover');
+  //     });
+  //     li.addEventListener('mouseenter',function(event){
+  //       arc.classList.add('hover');
+  //     });
+  //     li.addEventListener('mouseleave',function(event){
+  //       arc.classList.remove('hover');
+  //     });
+  //     svg.appendChild(arc);
+  //     offset = offset + parseInt(v);
+  //   }
+  // }
 </script>

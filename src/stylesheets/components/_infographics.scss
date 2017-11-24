@@ -1,84 +1,61 @@
 $speed: .25s;
+$infographic-colors:
+  $color-blue
+  $color-aqua
+  $color-green
+  $color-purple
+  $color-cool-blue
+  $color-gold
+  $color-red;
+
 
 .usa-chart {
-  display: flex;
-  li {
-    list-style: none;
-    transform-origin: 0% 50%;
+  td {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  .usa-chart-value {
+    font-weight: 700;
+    border-bottom: 2px solid currentColor;
+  }
+  .usa-chart-label {
+    padding-left: .5em;
     position: relative;
-    &:hover:after,
-    &.hover:after {
-      width: 100%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom $speed ease;
+  }
+  @for $i from 1 through length($infographic-colors) {
+    circle:nth-child(#{length($infographic-colors)}n+#{$i}),
+    &-item:nth-child(#{length($infographic-colors)}n+#{$i + 1}) &-value {
+      color: nth($infographic-colors, $i);
     }
-    &:before {
-      color: $color-blue;
-      content: attr(data-value)'% ';
-      font-weight: 700;
-      border-bottom: 2px solid;
+    &-item:nth-child(#{length($infographic-colors)}n+#{$i + 1}):hover &-label,
+    &-item:nth-child(#{length($infographic-colors)}n+#{$i + 1}).hover &-label {
+      border-bottom-color: nth($infographic-colors, $i);
     }
-    &:after {
-      color: $color-blue;
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 2px;
-      background-color: currentColor;
-      transition: all $speed ease;
-      width: 0;
-    }
-  }
-
-  circle:nth-child(7n+2),
-      li:nth-child(7n+2):before,
-      li:nth-child(7n+2):after {
-    color: $color-aqua;
-  }
-  circle:nth-child(7n+3),
-      li:nth-child(7n+3):before,
-      li:nth-child(7n+3):after {
-    color: $color-green;
-  }
-  circle:nth-child(7n+4),
-      li:nth-child(7n+4):before,
-      li:nth-child(7n+4):after {
-    color: $color-purple;
-  }
-  circle:nth-child(7n+5),
-      li:nth-child(7n+5):before,
-      li:nth-child(7n+5):after {
-    color: $color-cool-blue;
-  }
-  circle:nth-child(7n+6),
-      li:nth-child(7n+6):before,
-      li:nth-child(7n+6):after {
-    color: $color-gold;
-  }
-  circle:nth-child(7n+7),
-      li:nth-child(7n+7):before,
-      li:nth-child(7n+7):after {
-    color: $color-red;
   }
 }
 .usa-chart-svg {
-  width: 50%;
+  width: 100%;
+  height: 100%;
   display: block;
   circle {
     color: $color-blue;
     stroke: currentColor;
-    stroke-width: 10%;
+    stroke-width: 8%;
     stroke-alignment: inside;
     stroke-dasharray: 0, (100% * 3.1416/2);
     stroke-dashoffset: 0;
     animation: $speed 'usa-pie-chart' 1 ease;
     fill: none;
-    cx: 50;
-    cy: 50;
-    r: 25;
+    cx: 50%;
+    cy: 50%;
+    r: 25%;
     transition: all $speed ease;
     &:hover,
     &.hover {
-      stroke-width: 15%;
+      stroke-width: 12%;
     }
   }
 }
