@@ -74,7 +74,7 @@ $infographic-colors:
 
 @keyframes 'usa-pie-chart' {
   0% {
-    stroke-dasharray: 0, (100% * 3.1416/2);
+    stroke-dasharray: 0, (100% * 3.1415926535897932384626433832795/2);
     stroke-dashoffset: 0;
   }
 }
