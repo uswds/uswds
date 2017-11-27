@@ -36,14 +36,16 @@ $infographic-colors:
     &-item:nth-child(#{length($infographic-colors)}n+#{$i}).hover &-label {
       border-bottom-color: nth($infographic-colors, $i);
     }
-    // Ensure last color doesn't clash
-    circle:nth-child(#{length($infographic-colors)}n+#{$i}):last-child,
-    &-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child &-value {
-      color: nth($infographic-colors, round(length($infographic-colors)/2));
-    }
-    &-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child:hover &-label,
-    &-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child.hover &-label {
-      border-bottom-color: nth($infographic-colors, round(length($infographic-colors)/2));
+    // Ensure last color doesn't clash with the first
+    @if ($i == 1) {
+      circle:nth-child(#{length($infographic-colors)}n+#{$i}):last-child,
+      &-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child &-value {
+        color: nth($infographic-colors, round(length($infographic-colors)/2));
+      }
+      &-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child:hover &-label,
+      &-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child.hover &-label {
+        border-bottom-color: nth($infographic-colors, round(length($infographic-colors)/2));
+      }
     }
   }
 }
@@ -56,11 +58,8 @@ $infographic-colors:
   flex: 2;
   max-width: 66.7%;
   circle {
-    color: $color-blue;
     stroke: currentColor;
     stroke-width: 8%;
-    stroke-dasharray: 0, (100% * 3.1415926535897932384626433832795/2);
-    stroke-dashoffset: 0;
     animation: $speed 'usa-pie-chart' 1 ease;
     fill: none;
     transition: all $speed ease;
@@ -70,7 +69,6 @@ $infographic-colors:
     }
   }
 }
-
 
 @keyframes 'usa-pie-chart' {
   0% {
