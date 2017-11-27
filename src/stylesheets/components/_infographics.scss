@@ -36,6 +36,15 @@ $infographic-colors:
     &-item:nth-child(#{length($infographic-colors)}n+#{$i}).hover &-label {
       border-bottom-color: nth($infographic-colors, $i);
     }
+    // Ensure last color doesn't clash
+    circle:nth-child(#{length($infographic-colors)}n+#{$i}):last-child,
+    &-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child &-value {
+      color: nth($infographic-colors, round(length($infographic-colors)/2));
+    }
+    &-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child:hover &-label,
+    &-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child.hover &-label {
+      border-bottom-color: nth($infographic-colors, round(length($infographic-colors)/2));
+    }
   }
 }
 .usa-chart-data,
