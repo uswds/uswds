@@ -28,7 +28,7 @@
 
     var chart = charts[i];
     var items = chart.querySelectorAll('.usa-chart-item');
-    var total = parseFloat(chart.querySelector('.usa-chart-data').dataset.total);
+    var total = parseFloat(chart.querySelector('.usa-chart-data').dataset.total.replace(/[^0-9\.]/g, ''));
     var offset = 0;
 
     // Generate SVG dynamically
@@ -40,7 +40,7 @@
 
     for (var j = 0; j < items.length; j++) {
       const item = items[j];
-      var value = parseFloat(item.querySelector('.usa-chart-value').innerHTML);
+      var value = parseFloat(item.querySelector('.usa-chart-value').innerHTML.replace(/[^0-9\.]/g, ''));
 
       // generate arc
       const arc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
