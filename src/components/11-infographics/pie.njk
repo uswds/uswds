@@ -1,21 +1,23 @@
-<table class="usa-chart usa-chart-pie applepie🇺🇸" data-total="100%">
-  <tr class="usa-chart-item">
-    <td class="usa-chart-value">8%</td>
-    <td class="usa-chart-label">Thing one</td>
-  </tr>
-  <tr class="usa-chart-item">
-    <td class="usa-chart-value">12%</td>
-    <td class="usa-chart-label">Thing two</td>
-  </tr>
-  <tr class="usa-chart-item">
-    <td class="usa-chart-value">26%</td>
-    <td class="usa-chart-label">Thing three</td>
-  </tr>
-  <tr class="usa-chart-item">
-    <td class="usa-chart-value">54%</td>
-    <td class="usa-chart-label">Thing four</td>
-  </tr>
-</table>
+<div class="usa-chart usa-chart-pie applepie🇺🇸">
+  <table class="usa-chart-data" data-total="100%">
+    <tr class="usa-chart-item">
+      <td class="usa-chart-value">8%</td>
+      <td class="usa-chart-label">Thing one</td>
+    </tr>
+    <tr class="usa-chart-item">
+      <td class="usa-chart-value">12%</td>
+      <td class="usa-chart-label">Thing two</td>
+    </tr>
+    <tr class="usa-chart-item">
+      <td class="usa-chart-value">26%</td>
+      <td class="usa-chart-label">Thing three</td>
+    </tr>
+    <tr class="usa-chart-item">
+      <td class="usa-chart-value">54%</td>
+      <td class="usa-chart-label">Thing four</td>
+    </tr>
+  </table>
+</div>
 
 <script>
   // Find all pie charts on the page
@@ -26,22 +28,15 @@
 
     var chart = charts[i];
     var items = chart.querySelectorAll('.usa-chart-item');
-    var total = parseFloat(chart.dataset.total);
+    var total = parseFloat(chart.querySelector('.usa-chart-data').dataset.total);
     var offset = 0;
 
     // Generate SVG dynamically
-    var tr = document.createElement('tr');
-    var td = document.createElement('td');
-    td.setAttribute('rowspan', items.length+1);
-    td.classList.add('usa-chart-chartcell');
     var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('viewbox', '0 0 100 100');
+    svg.setAttribute('viewBox', '0 0 100 75');
     svg.classList.add('usa-chart-svg');
-    // Consolodate SVG wrapping for insertion
-    tr.appendChild(td).appendChild(svg);
-    // Insert SVG portion of table into DOM
-    var parent = items[0].parentNode; // query parent, likely tbody
-    parent.insertBefore(tr, items[0]) // insert graphic into parent
+    // Insert SVG into DOM
+    chart.insertBefore(svg, chart.querySelector('table')) // insert graphic into parent
 
     for (var j = 0; j < items.length; j++) {
       const item = items[j];
@@ -52,7 +47,7 @@
       arc.setAttribute('cx', '50%');
       arc.setAttribute('cy', '50%');
       arc.setAttribute('r', '25%');
-      arc.style.strokeDasharray = ((value / total * 100) * Math.PI / 2) + '%, 157.08%';
+      arc.style.strokeDasharray = ((value / total * 100) * Math.PI / 2) + '%, 999%';
       arc.style.strokeDashoffset = ((offset / total * 100) * Math.PI / -2) + '%';
 
       // Add hover events to labels+graphic

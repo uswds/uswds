@@ -10,6 +10,8 @@ $infographic-colors:
 
 
 .usa-chart {
+  display: flex;
+  align-items: center;
   td {
     border: none;
     padding: 0;
@@ -27,22 +29,23 @@ $infographic-colors:
   }
   @for $i from 1 through length($infographic-colors) {
     circle:nth-child(#{length($infographic-colors)}n+#{$i}),
-    &-item:nth-child(#{length($infographic-colors)}n+#{$i + 1}) &-value {
+    &-item:nth-child(#{length($infographic-colors)}n+#{$i}) &-value {
       color: nth($infographic-colors, $i);
     }
-    &-item:nth-child(#{length($infographic-colors)}n+#{$i + 1}):hover &-label,
-    &-item:nth-child(#{length($infographic-colors)}n+#{$i + 1}).hover &-label {
+    &-item:nth-child(#{length($infographic-colors)}n+#{$i}):hover &-label,
+    &-item:nth-child(#{length($infographic-colors)}n+#{$i}).hover &-label {
       border-bottom-color: nth($infographic-colors, $i);
     }
   }
 }
-.usa-chart-chartcell {
+.usa-chart-data,
+.usa-chart-svg {
+  flex: 1;
+  margin: 0;
 }
 .usa-chart-svg {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  display: block;
+  flex: 2;
+  max-width: 66.7%;
   circle {
     color: $color-blue;
     stroke: currentColor;
