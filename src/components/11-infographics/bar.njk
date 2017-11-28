@@ -2,8 +2,9 @@
   <table class="usa-chart-data" data-min="0" data-max="60" data-increment="10">
     <tr class="usa-chart-head">
       <th class="usa-chart-label"></th>
-      <th class="usa-chart-value">8%</th>
+      <th class="usa-chart-value">axis 1</th>
     </tr>
+
     <tr class="usa-chart-item">
       <td class="usa-chart-label">Thing one</td>
       <td class="usa-chart-value">8%</td>
@@ -41,6 +42,12 @@
     // Prep svg for elements
     var bars = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 
+    var barGap = 12; // percent distributed across all gaps
+    var topOffset = 3; // percent
+    var leftOffset = 5; // percent
+    var barHeight = 80; // percent
+    var barWidth = 80; // percent
+
     // Draw bars onto graph
     for (var j = 0; j < items.length; j++) {
       const item = items[j];
@@ -50,11 +57,13 @@
 
       // Generate bar
       const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-      bar.classList.add('bar');
-      bar.setAttribute('width', (value - min) * (100/(max-min)) + '%');
-      console.log((value - min) * (100/(max-min)));
-      bar.setAttribute('height', 100 / items.length + '%');
-      bar.setAttribute('y', 100 / items.length * j + '%');
+      bar.classList.add('usa-chart-bars');
+      bar.setAttribute('width', 'calc(' + (value - min) * (barWidth/(max-min)) + '%)');
+      bar.setAttribute('height', (barHeight - barGap) / items.length + '%');
+      bar.setAttribute('x', leftOffset + '%');
+      var y = barHeight / items.length * j;
+      var yOffset = barGap / items.length * j / (items.length - 1)
+      bar.setAttribute('y', (topOffset + y + yOffset) + '%');
 
       // Add bar to chart
       bars.appendChild(bar);
@@ -62,6 +71,13 @@
 
     // Add bars to chart
     svg.appendChild(bars);
+
+    // graph axis'
+    const axis = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    axis.setAttribute('d', 'M ' + leftOffset + ' 0 V ' + ((barHeight + topOffset*2)/2) + ' H ' + (barWidth));
+    axis.classList.add('usa-chart-axis');
+    svg.appendChild(axis);
+    console.log(axis);
 
     // Remove table from DOM
     chart.querySelector('.usa-chart-data').remove();

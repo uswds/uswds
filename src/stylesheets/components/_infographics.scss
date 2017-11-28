@@ -10,20 +10,26 @@ $infographic-colors:
 
 // Global chart styles
 svg {
-  border: 1px solid red;
 }
 
 // Bar chart specific styles
 .usa-chart-bar {
-  rect.bar {
-    fill: red;
-    animation: $speed 'usa-chart-bar' 1 ease;
-    opacity: .2;
-    transition: all $speed ease;
-    &:hover {
-      opacity: .6;
+}
+rect.usa-chart-bars {
+  fill: red;
+  animation: $speed 'usa-chart-bar' 1 ease;
+  opacity: 1;
+  transition: all $speed ease;
+  @for $i from 1 through length($infographic-colors) {
+    &:nth-child(#{length($infographic-colors)}n+#{$i}) {
+      fill: nth($infographic-colors, $i);
     }
   }
+}
+path.usa-chart-axis {
+  stroke: #ccc;
+  stroke-width: .1;
+  fill: none;
 }
 
 // Pie chart specific styles
