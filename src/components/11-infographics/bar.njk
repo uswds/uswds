@@ -1,20 +1,24 @@
 <div class="usa-chart usa-chart-bar">
-  <table class="usa-chart-data" data-total="100%">
+  <table class="usa-chart-data" data-min="0" data-max="60" data-increment="10">
+    <tr class="usa-chart-head">
+      <th class="usa-chart-label"></th>
+      <th class="usa-chart-value">8%</th>
+    </tr>
     <tr class="usa-chart-item">
-      <td class="usa-chart-value">8%</td>
       <td class="usa-chart-label">Thing one</td>
+      <td class="usa-chart-value">8%</td>
     </tr>
     <tr class="usa-chart-item">
-      <td class="usa-chart-value">12%</td>
       <td class="usa-chart-label">Thing two</td>
+      <td class="usa-chart-value">12%</td>
     </tr>
     <tr class="usa-chart-item">
-      <td class="usa-chart-value">26%</td>
       <td class="usa-chart-label">Thing three</td>
+      <td class="usa-chart-value">26%</td>
     </tr>
     <tr class="usa-chart-item">
-      <td class="usa-chart-value">54%</td>
       <td class="usa-chart-label">Thing four</td>
+      <td class="usa-chart-value">54%</td>
     </tr>
   </table>
 </div>
@@ -22,4 +26,45 @@
 <script>
   // Find all bar charts on the page
   var charts = document.querySelectorAll('.usa-chart-bar');
+
+  for (var i = 0; i < charts.length; i++) {
+    var chart = charts[i];
+    var items = chart.querySelectorAll('.usa-chart-item');
+
+    // Generate SVG dynamically
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 100 50');
+    svg.classList.add('usa-chart-svg');
+    // Insert SVG into DOM
+    chart.appendChild(svg); // insert graphic into parent
+
+    // Prep svg for elements
+    var bars = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+
+    // Draw bars onto graph
+    for (var j = 0; j < items.length; j++) {
+      const item = items[j];
+      var value = parseFloat(item.querySelector('.usa-chart-value').innerHTML.replace(/[^0-9\.]/g, ''));
+      var min = parseFloat(chart.querySelector('.usa-chart-data').dataset.min.replace(/[^0-9\.]/g, ''));
+      var max = parseFloat(chart.querySelector('.usa-chart-data').dataset.max.replace(/[^0-9\.]/g, ''));
+
+      // Generate bar
+      const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      bar.classList.add('bar');
+      bar.setAttribute('width', (value - min) * (100/(max-min)) + '%');
+      console.log((value - min) * (100/(max-min)));
+      bar.setAttribute('height', 100 / items.length + '%');
+      bar.setAttribute('y', 100 / items.length * j + '%');
+
+      // Add bar to chart
+      bars.appendChild(bar);
+    }
+
+    // Add bars to chart
+    svg.appendChild(bars);
+
+    // Remove table from DOM
+    chart.querySelector('.usa-chart-data').remove();
+  }
+
 </script>

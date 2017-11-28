@@ -9,23 +9,19 @@ $infographic-colors:
   $color-red;
 
 // Global chart styles
-.usa-chart-data,
-.usa-chart-svg {
-  flex: 1;
-  margin: 0;
+svg {
+  border: 1px solid red;
 }
-.usa-chart-svg {
-  flex: 2;
-  max-width: 66.7%;
-  circle {
-    stroke: currentColor;
-    stroke-width: 8%;
-    animation: $speed 'usa-chart-pie' 1 ease;
-    fill: none;
+
+// Bar chart specific styles
+.usa-chart-bar {
+  rect.bar {
+    fill: red;
+    animation: $speed 'usa-chart-bar' 1 ease;
+    opacity: .2;
     transition: all $speed ease;
-    &:hover,
-    &.hover {
-      stroke-width: 12%;
+    &:hover {
+      opacity: .6;
     }
   }
 }
@@ -49,6 +45,26 @@ $infographic-colors:
     padding-right: .5em;
     position: relative;
     transition: border-bottom $speed ease;
+  }
+  .usa-chart-data,
+  .usa-chart-svg {
+    flex: 1;
+    margin: 0;
+  }
+  .usa-chart-svg {
+    flex: 2;
+    max-width: 66.7%;
+    circle {
+      stroke: currentColor;
+      stroke-width: 8%;
+      animation: $speed 'usa-chart-pie' 1 ease;
+      fill: none;
+      transition: all $speed ease;
+      &:hover,
+      &.hover {
+        stroke-width: 12%;
+      }
+    }
   }
   @for $i from 1 through length($infographic-colors) {
     circle:nth-child(#{length($infographic-colors)}n+#{$i}),
@@ -77,5 +93,11 @@ $infographic-colors:
   0% {
     stroke-dasharray: 0, (100% * 3.1415926535897932384626433832795/2);
     stroke-dashoffset: 0;
+  }
+}
+
+@keyframes 'usa-chart-bar' {
+  0% {
+    width: 0;
   }
 }
