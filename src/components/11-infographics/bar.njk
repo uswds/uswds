@@ -19,7 +19,7 @@
     </tr>
     <tr class="usa-chart-item">
       <td class="usa-chart-label">Thing four</td>
-      <td class="usa-chart-value">54%</td>
+      <td class="usa-chart-value">60%</td>
     </tr>
   </table>
 </div>
@@ -42,11 +42,11 @@
     // Prep svg for elements
     var bars = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 
-    var barGap = 12; // percent distributed across all gaps
-    var topOffset = 3; // percent
-    var leftOffset = 5; // percent
-    var barHeight = 80; // percent
-    var barWidth = 80; // percent
+    var barGap     = 10; // percent distributed across all gaps
+    var topOffset  = 3;  // percent
+    var leftOffset = 5;  // percent
+    var barHeight  = 80; // percent
+    var barWidth   = 90; // percent
 
     // Draw bars onto graph
     for (var j = 0; j < items.length; j++) {
@@ -58,12 +58,12 @@
       // Generate bar
       const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
       bar.classList.add('usa-chart-bars');
-      bar.setAttribute('width', 'calc(' + (value - min) * (barWidth/(max-min)) + '%)');
-      bar.setAttribute('height', (barHeight - barGap) / items.length + '%');
-      bar.setAttribute('x', leftOffset + '%');
-      var y = barHeight / items.length * j;
-      var yOffset = barGap / items.length * j / (items.length - 1)
-      bar.setAttribute('y', (topOffset + y + yOffset) + '%');
+      bar.setAttribute('width', (barWidth - barGap) / items.length + '%');
+      bar.setAttribute('height', 'calc(' + (value - min) * (barHeight/(max-min)) + '%)');
+      var x = barWidth / items.length * j;
+      var xOffset = barGap / items.length;
+      bar.setAttribute('x', (leftOffset + x + xOffset) + '%');
+      bar.setAttribute('y', (barHeight - (value - min) * (barHeight/(max-min)) + topOffset) + '%');
 
       // Add bar to chart
       bars.appendChild(bar);
@@ -74,10 +74,9 @@
 
     // graph axis'
     const axis = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    axis.setAttribute('d', 'M ' + leftOffset + ' 0 V ' + ((barHeight + topOffset*2)/2) + ' H ' + (barWidth));
+    axis.setAttribute('d', 'M ' + leftOffset + ' ' + (topOffset/2) + ' V ' + ((barHeight+topOffset)/2) + ' H ' + (barWidth + leftOffset));
     axis.classList.add('usa-chart-axis');
     svg.appendChild(axis);
-    console.log(axis);
 
     // Remove table from DOM
     chart.querySelector('.usa-chart-data').remove();

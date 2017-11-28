@@ -17,18 +17,19 @@ svg {
 }
 rect.usa-chart-bars {
   fill: red;
-  animation: $speed 'usa-chart-bar' 1 ease;
-  opacity: 1;
   transition: all $speed ease;
   @for $i from 1 through length($infographic-colors) {
     &:nth-child(#{length($infographic-colors)}n+#{$i}) {
       fill: nth($infographic-colors, $i);
     }
   }
+  &:hover {
+    opacity: .8;
+  }
 }
 path.usa-chart-axis {
-  stroke: #ccc;
-  stroke-width: .1;
+  stroke: #aaa;
+  stroke-width: .2;
   fill: none;
 }
 
@@ -99,11 +100,5 @@ path.usa-chart-axis {
   0% {
     stroke-dasharray: 0, (100% * 3.1415926535897932384626433832795/2);
     stroke-dashoffset: 0;
-  }
-}
-
-@keyframes 'usa-chart-bar' {
-  0% {
-    width: 0;
   }
 }
