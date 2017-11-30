@@ -14,15 +14,27 @@ svg {
 
 // Bar chart specific styles
 .usa-chart-bar {
+  .usa-chart-labelText,
+  .usa-chart-labelValue {
+    font-size: calc(3px - .1vw);
+    text-anchor: middle;
+  }
+  .usa-chart-labelValue-invert {
+    fill: #fff;
+  }
+  .usa-chart-gridLabel {
+    font-size: calc(3px - .1vw);
+    fill: #999;
+    text-anchor: end;
+  }
+  .usa-chart-gridLine {
+    stroke: #eee;
+    stroke-width: .2;
+  }
 }
 rect.usa-chart-bars {
-  fill: red;
+  fill: nth($infographic-colors, 1);
   transition: all $speed ease;
-  @for $i from 1 through length($infographic-colors) {
-    &:nth-child(#{length($infographic-colors)}n+#{$i}) {
-      fill: nth($infographic-colors, $i);
-    }
-  }
   &:hover {
     opacity: .8;
   }
