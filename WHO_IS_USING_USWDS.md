@@ -58,7 +58,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [General Services Administration CTO website](https://github.com/GSA/cto-website)
 - [General Services Administration Office of Evaluation Sciences website](https://oes.gsa.gov/)
 - [GovBuy Marketplace](https://buy.gds-gov.tech/)
-- [GovTalent.org] (http://www.govtalent.org/)
+- [GovTalent.org](http://www.govtalent.org/)
 - [GSA Open IAE](http://gsa.github.io/openIAE/)
 - [GSA Presents: Grace Hopper Day Hackathon!](http://open.gsa.gov/grace-hopper-hackathon/)
 - [Hack the Pay Gap](https://paygap.pif.gov/)
