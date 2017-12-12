@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Install codeclimate
-          command: npm install -g codeclimate-test-reporter
+          command: sudo npm install -g codeclimate-test-reporter
       - run:
           name: Install node dependencies
           command: npm install
