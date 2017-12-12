@@ -80,9 +80,7 @@ example, any of the following should trigger a major version increment:
 
 ### Publishing a new release
 
-> In these docs, `{{ version }}` should always be replaced with the semantic version number, i.e. `1.2.1`
-
-- - -
+⚠️ In these docs, `{{ version }}` should always be replaced with the semantic version number, i.e. `1.2.1` ⚠️
 
 #### Create the release branch
 
