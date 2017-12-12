@@ -66,151 +66,142 @@ example, any of the following should trigger a major version increment:
 * When introducing a change (feature, bug fix, etc.):
 
     1. Branch off `develop`:
-  
+
         ```sh
         git fetch origin
         git checkout -b feature-foo origin/develop
         ```
-      
+
     1. Name your branch pretty much anything except `master`, `develop`, or
        with the `release-` or `hotfix-` prefix. Suggested prefixes include
        `refactor-`, `feature-`, `docs-`, and `patch-`.
 
     1. File your pull request to merge into the `develop` branch.
-  
-* When publishing a new release:
 
-    1. Branch off `develop` and use the branch name format `release-{version}`,
-       e.g.
+### Publishing a new release
 
-        ```sh
-        git fetch origin
-        git checkout -b release-1.0.0 origin/develop
-        ```
+⚠️ In these docs, `{{ version }}` should always be replaced with the semantic version number, i.e. `1.2.1` ⚠️
 
-    1. Run [`npm version`][npm version] with `--no-tag` to increment the version
-       number semantically. (Versions are tagged on the `master` branch.)
-     
-        * For minor and major versions, publish a pre-release:
+#### Create the release branch
 
-            ```sh
-            npm version prerelease --no-tag
-            ```
+- [ ] Determine if the version is a **patch** (`#.#.#`), **minor** (`#.#.0`), or **major** (`#.0.0`) version
+- [ ] Branch off develop and use the branch name format `release-{{ version }}`.
+```
+git pull origin
+git checkout -b release-{{ version }} origin/develop
+```
+- [ ] **If there's been further work on `develop` since branching,** merge the most recent `develop` into the version branch.
 
-        * Otherwise, run either `npm version minor --no-tag` or `npm version major
-          --no-tag`
+- - -
 
-        * In either case, [`npm version`][npm version] will increment the version
-          number in `package.json` and commit the changes to git.
+#### Prerelease if necessary
+When releasing potentially disruptive changes, it's good practice to publish pre-releases of planned versions. These are sometimes also called release candidates. Here's how it works:
 
-    1. Open a [pull request] from your `release-` branch to merge into `master`.
-       List the key changes for a release in the pull request description. (The
-       diff will show you exactly what has changed since the previous release.)
-       See [the v1.0.0 pull request](https://github.com/18F/web-design-standards/pull/1726)
-       for an example.
+- [ ] Create a new branch from the release branch (`release-{{ version }}`) with `-pre` as an additional pre-release identifier, i.e. `release-{{ version }-pre`.
 
-    1. Once at least one team member has approved the pull request, merge
-       it into `master`. This will trigger a number of actions:
+Follow the release process for your pre-release branch, with the following modifications:
 
-       * CircleCI will publish the new release to npm.
+- [ ] Publish to `npm` with a `dist-tag`
+``
+npm version {{ version }}-pre
+npm publish --tag dev
+``
+- [ ] Mark the GitHub release as a "pre-release"
+- [ ] Be sure to note how long you intend on waiting for show-stopping bug reports before proceeding with the release.
+- [ ] Include instructions for installing the pre-release from `npm` with the `dist-tag`, e.g.:
+``
+npm install --save uswds@dev
+``
+- [ ] Directly notify users who may be impacted by the proposed changes, and encourage them to alert us of any new issues within the prescribed testing period.
 
-       * Federalist will deploy the new release's fractal site to
-         [components.standards.usa.gov].
+If you receive reports of any regressions (specifically, new issues introduced in the release), you can decide whether to address them in another pre-release or file them for the next official release. If you decide to move proceed with the release, it's good practice to alert users of the issue in your release notes, preferably with a :warning: emoji or similar.
 
-    1. Tag the release on the `master` branch and push it, e.g.:
+Otherwise, proceed with the next versioned release!
 
-       ```sh
-       git tag -a v1.0.0 -m "Release 1.0.0"
-       git push origin v1.0.0
-       ```
+- - -
 
-       Alternatively, you can create the tag when you draft the release notes
-       (see below).
+#### Version the release with `npm`
+`npm version` will increment the version number semantically in `package.json` and commit the changes to git. Versions will be tagged on the master branch.
+- [ ] **For prerelease releases:** Run `npm version prerelease --no-tag`.
+- [ ] **For patch releases:** Run `npm version patch --no-tag`.
+- [ ] **For minor releases:** Run `npm version minor --no-tag`.
+- [ ] **For major releases:** Run `npm version major --no-tag`.
 
-    1. Merge the release commits back into `develop` from `master` with a [pull
-       request].
+- - -
 
-    1. Write the release notes on GitHub:
+#### Merge the release into `master`
 
-        1. [Draft the release][draft release] from the corresponding tag on the
-           `master` branch. Set the title to e.g. "1.0.0".
+- [ ] Push the version branch up to Github
+- [ ] Open a pull request from your release branch into `master`.
+- [ ] List the key changes in the release in the pull request description. [See the v1.0.0 pull request](https://github.com/18F/web-design-standards/pull/1726) for an example.
+- [ ] Wait for all tests to complete successfully.
+- [ ] Have at least one team member to approved the pull request
+- [ ] Once the pull request is approved, merge it into `master`. This will trigger a two actions:
+- CircleCI will publish the new release to npm.
+- Federalist will deploy the new release's fractal site to `components.standards.usa.gov`.
 
-        1. Run `npm run prepublish` to build the assets zip file. It will
-           be created at e.g. `dist/uswds-1.0.0.zip`. Manually add this
-           file as a binary to the release.
+- - -
 
-        1. Have at least one team member review the release notes.
+#### Check that the release was successful
+- [ ] Check the [CircleCI process](https://circleci.com/gh/18f/web-design-standards)
+- [ ] Check [uswds on npm](https://www.npmjs.com/package/uswds)
+- [ ] Check [components.standards.usa.gov](https://components.standards.usa.gov)
 
-        1. Publish the [release](https://github.com/18F/web-design-standards/releases)
-           on GitHub.
+- - -
 
-    1. Update the docs site with the new version number and release notes:
+#### Create the binary, tag, and create the release in Github
 
-        1. Create a branch off `develop` in which you change the `uswds`
-           dependency in `package.json` to the new version from npm, e.g.:
+- [ ] Close all running USWDS processes in the terminal
+- [ ] In the `master` branch run `npm run prepublish` to build the assets zip file. It will be created at `dist/uswds-{{ version }}.zip`.
+- [ ] In [Github releases](https://github.com/18F/web-design-standards/releases) select `Draft a new release`
+- [ ] `tag`: `v{{ version }}`
+- [ ] `target`: `master`
+- [ ] Add release notes to the body
+- [ ] Have at least one team member review the release notes.
+- [ ] Attach the `zip` binary you just created
+- [ ] Select `Publish release`
 
-            ```sh
-            cd path/to/web-design-standards-docs
-            export VERSION=1.0.0
-            git fetch origin
-            git checkout -b release-${VERSION} origin/develop
-            npm install --save uswds@${VERSION}
-            ```
+- - -
 
-        1. Follow the above release process to merge the changes to `master` via a
-           [pull request on the docs repo](https://github.com/18F/web-design-standards-docs/compare),
-           minus the GitHub release notes.
+#### Update the docs repo with the new version number on a new branch
 
-           In particular, you may want to check the following on the
-           Federalist branch build of your pull request:
+- [ ] Open the`web-design-standards-docs` repo
+```
+cd path/to/web-design-standards-docs
+```
+- [ ] Create a branch off `master`
+```
+git fetch origin
+git checkout -b release-{{ version }} origin/develop
+```
+- [ ] Change the uswds dependency in `package.json` to the new version from `npm`
+```
+npm install --save uswds@{{ version }}
+```
+- [ ] Commit this change to the release branch
 
-           * Ensure that the "Download code" ZIP file linked-to from the
-             "Download code and design files" page works (at the time of this
-             writing, it should point to the ZIP file you uploaded when
-             you released the new version on GitHub). Also make sure that
-             the correct version number is mentioned under the link.
+- - -
 
-           * Ensure that the new release shows up under the "What's new"
-             section's "Release notes" tab.
+#### Merge docs changes into the docs repo's `master` branch
 
-### Pre-releases
+- [ ] Push the release branch to Github
+- [ ] Open a pull request from your release branch into `master`.
+- [ ] List the key changes in the release in the pull request description.
+- [ ] Have at least one team member to approved the pull request
+- [ ] Once the pull request is approved, merge it into `master`. This will trigger Federalist to rebuild and redeploy the production site.
 
-When releasing potentially disruptive changes, it's good practice to publish pre-releases of
-planned versions. These are sometimes also called [release candidates]. Here's how it works:
+- - -
 
-1. Create a new branch from the release branch (`release-X.Y.Z`) with an additional
-   [pre-release identifier](http://semver.org/#spec-item-9), such as `release-1.1.0-pre`,
-   `release-1.1.0-alpha`, `release-1.1.0-rc1`.
-   
-1. Follow the [release process](#git-workflow) for your pre-release branch, with the following
-   modifications:
-   
-   * Publish to npm with a [dist-tag](https://docs.npmjs.com/cli/dist-tag), e.g.
-   
-      ```sh
-      npm version 1.1.0-pre
-      npm publish --tag dev
-      ```
-      
-   * Mark the GitHub release as a "pre-release", and be sure to note how long you intend on
-     waiting for show-stopping bug reports before proceeding with the release.
-     
-   * Include instructions for installing the pre-release from npm with the dist-tag, e.g.:
-   
-      ```sh
-      npm install --save uswds@dev
-      ```
-      
-   * Directly notify users who may be impacted by the proposed changes, and encourage
-     them to alert us of any new issues within the prescribed testing period.
-     
-1. If you receive reports of any regressions (specifically, **new issues** introduced in
-   the release), you can decide whether to address them in another pre-release or file
-   them for the next official release. If you decide to move proceed with the release,
-   it's good practice to alert users of the issue in your release notes, preferably with
-   a `:warning:` emoji or similar.
-   
-1. Otherwise, proceed with the next versioned release!
+#### Check the Standards website to assure correctness
+- [ ] Check that the `Download code` ZIP file linked from the [Download code and design files](https://standards.usa.gov/getting-started/download/) page works (at the time of this writing, it should point to the ZIP file you uploaded when you released the new version on GitHub).
+- [ ] Check that the correct version number is mentioned under the link.
+- [ ] Check that the new release shows up on the [Release notes](https://standards.usa.gov/whats-new/releases/) page.
+
+- - -
+
+#### Publicize the release
+- [ ] Post a message in the `#uswds-public` Slack channel linking to the release.
+
 
 ## Questions?
 If you need help or have any questions, please reach out to us:
