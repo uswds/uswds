@@ -112,7 +112,7 @@ select {
   appearance: none;
   background-color: $color-white;
   background-image: url('#{$image-path}/arrow-both.png');
-  background-image: url('#{$image-path}/arrow-both.svg');
+  background-image: none, url('#{$image-path}/arrow-both.svg'), url('#{$image-path}/arrow-both.png');
   background-position: right 1.3rem center;
   background-repeat: no-repeat;
   background-size: 1rem;
