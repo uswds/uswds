@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:6
+      - image: circleci/node:6-browsers
     steps:
       - checkout
       - run:
@@ -29,7 +29,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/node:6
+      - image: circleci/node:6-browsers
     steps:
       - checkout
       - run:
@@ -37,7 +37,6 @@ jobs:
           command:
             - npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
             - npm publish
-
 
 workflows:
   version: 2
