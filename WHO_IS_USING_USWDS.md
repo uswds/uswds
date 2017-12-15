@@ -42,8 +42,8 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [eCPIC Electronic Capital Planning and Investment Control System](https://www.ecpic.gov/)
 - [FAR Data Collection Pilot](https://fardatacollection.sam.gov)
 - [Farm Service Agency](https://github.com/USDA-FSA/fsa-design-system)
-- [Federal Election Commission Legal Documents](https://fec.gov/regulations/)
-- [Federal Election Commission](https://fec.gov/)
+- [Federal Election Commission Legal Documents](https://fec.gov/regulations/) ## Site can't provide a secure connection
+- [Federal Election Commission](https://fec.gov/) ## Site can't provide a secure connection 
 - [Federal Front Door](https://labs.usa.gov/)
 - Federal Highway Administration RDE Visualization Website
 - [Federalist](https://federalist.18f.gov/)
@@ -60,7 +60,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [GovBuy Marketplace](https://buy.gds-gov.tech/)
 - [GovTalent.org](http://www.govtalent.org/)
 - [GSA Open IAE](http://gsa.github.io/openIAE/)
-- [GSA Presents: Grace Hopper Day Hackathon!](http://open.gsa.gov/grace-hopper-hackathon/)
+- [GSA Presents: Grace Hopper Day Hackathon!](http://open.gsa.gov/grace-hopper-hackathon/) ## 404 Not Found
 - [Hack the Pay Gap](https://paygap.pif.gov/)
 - Internal Revenue Service
 - International Cooperative Administrative Support Services, Department of State
@@ -72,20 +72,20 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [Milwaukee Police Scanner](https://mke-police.herokuapp.com/)
 - [National Archives and Records Administration](https://archives.gov)
 - [NASA Glenn Research Center](https://www1.grc.nasa.gov)
-- [NASA Web Style Guide](https://app.frontify.com/d/NZPXDvjOcz5x/nasa-web-style-guide)
+- [NASA Web Style Guide](https://bruffridge.github.io/web-design-standards-docs/) ## Changed Link 
 - [National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov/labs/journals/)
 - [National Institute of Health](https://www.nih.gov/)
-- [National Week of Making](https://weekofmaking.pif.gov/)
+- [National Week of Making](https://weekofmaking.pif.gov/) ## Site can't be reached 
 - [Navy 6th Fleet](http://www.c6f.navy.mil/)
 - [US National Library of Medicine](https://support.nlm.nih.gov)
 - [NSF SBIR](https://seedfund.nsf.gov/)
 - NTIS DEA
 - [NYC School Finder](http://schoolfinder.nyc.gov/)
 - [Office of the Historian](https://history.state.gov/)
-- [OGP Payroll Reporting](https://pages.18f.gov/ogp-payroll/)
+- [OGP Payroll Reporting](https://pages.18f.gov/ogp-payroll/) ## Page Not Found 
 - OMB egov
 - [OMB Policy Library](https://omb-eregs-demo.app.cloud.gov/)
-- [One page open source](https://pages.18f.gov/onepage-opensource/)
+- [One page open source](https://pages.18f.gov/onepage-opensource/) ## Page Not Found 
 - [Open FDA](https://open.fda.gov/)
 - [Opportunity Project](http://opportunity.census.gov/)
 - OSBU Forecast
@@ -114,10 +114,10 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [United States Citizenship and Immigration Services](https://www.uscis.gov/)
 - [USDA Economic Research Service](http://www.ers.usda.gov/)
 - [USDA New Farmers](https://newfarmers.usda.gov/)
-- [USDA School Meal Application](http://www.fns.usda.gov/school-meals/web-based-prototype/docs/index.html#/)
+- [USDA School Meal Application](http://www.fns.usda.gov/school-meals/web-based-prototype/docs/index.html#/) ## Page Not Found
 - [USDS documentation website template](https://github.com/usds/uswds-docs-template)
 - [USGS Earthquake Hazards Program](http://earthquake.usgs.gov/theme/)
-- [USWDS Drupal theme](http://uswds.civicactions.net/)
+- [USWDS Drupal theme](https://www.drupal.org/project/uswds) ## Changed Theme 
 - VA Appeals Case Flow
 - [VA Office of Information and Technology](https://www.oit.va.gov/)
 - [Vets.gov](https://vets.gov)
