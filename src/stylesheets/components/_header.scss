@@ -102,7 +102,7 @@ $z-index-nav:     9000;
   @include position(fixed, 0);
   background: $color-black;
   opacity: 0;
-  transition: all 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   visibility: hidden;
   z-index: $z-index-overlay;
 
