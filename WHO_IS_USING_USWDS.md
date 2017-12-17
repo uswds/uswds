@@ -57,7 +57,7 @@ Below are a list of website and applications currently using the U.S. Web Design
 - [Hack the Pay Gap](https://paygap.pif.gov/)
 - [Internal Revenue Service](https://www.irs.gov/)
 - [International Cooperative Administrative Support Services, Department of State](https://www.icass.gov/)
-- [itdashboard.gov](https://itdashboard.gov/)
+- [IT Dashboard](https://itdashboard.gov/)
 - [Login.gov](https://pages.18f.gov/identity-intro/)
 - [MIDAAS Commerce Data Service](https://midaas.commerce.gov/)
 - [Milwaukee Police Scanner](https://mke-police.herokuapp.com/)
