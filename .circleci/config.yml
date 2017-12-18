@@ -33,6 +33,12 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Build the Standards package
+          command: npm run build
+      - run: 
           name: Publish to NPM
           command: |
             npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
