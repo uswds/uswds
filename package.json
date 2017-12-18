@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -95,7 +95,7 @@
     "gulp-util": "^3.0.7",
     "gulp-zip": "^3.1.0",
     "istanbul": "^0.4.5",
-    "jquery": "^2.2.0",
+    "jquery": "^3.2.1",
     "jsdom": "^9.0.0",
     "jsdom-global": "^2.1.0",
     "mocha": "^3.0.0",

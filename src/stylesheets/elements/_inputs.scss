@@ -112,7 +112,9 @@ select {
   appearance: none;
   background-color: $color-white;
   background-image: url('#{$image-path}/arrow-both.png');
-  background-image: url('#{$image-path}/arrow-both.svg');
+  // Ensure browsers that don't support SVG in background-image (IE 11 and below) fall back to PNG. 
+  // See https://www.broken-links.com/2010/06/14/using-svg-in-backgrounds-with-png-fallback/
+  background-image: none, url('#{$image-path}/arrow-both.svg'), url('#{$image-path}/arrow-both.png');
   background-position: right 1.3rem center;
   background-repeat: no-repeat;
   background-size: 1rem;

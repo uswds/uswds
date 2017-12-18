@@ -145,6 +145,9 @@ For JavaScript contributions, we will review the code coverage percentage and ch
 
 High code coverage numbers are generally good, and we would prefer that our coverage increases over time. We will not categorically reject contributions that reduce code coverage, but we may ask contributors to refactor their code, add new unit tests, or modify existing tests to avoid significant reductions in coverage.
 
+## Browser support
+See [browser support](https://standards.usa.gov/getting-started/developers/#browser-support) in the “Getting started: Developers” guidelines.
+
 ## Our use of branches
 
 See the [release documentation](RELEASE.md#release-process) for more information on our git/GitHub release workflow.
