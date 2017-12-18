@@ -176,7 +176,7 @@ git checkout -b release-{{ version }} origin/develop
 ```
 - [ ] Change the uswds dependency in `package.json` to the new version from `npm`
 ```
-npm install --save uswds@{{ version }}
+npm install --save-exact uswds@{{ version }}
 ```
 - [ ] Commit this change to the release branch
 
