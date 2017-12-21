@@ -18,6 +18,8 @@ const AXE_OPTIONS = JSON.stringify({
     // Not all our examples need "skip to main content" links, so
     // ignore that rule.
     'bypass': { enabled: false },
+    // Nor do all our examples need main landmarks...
+    'landmark-one-main': { enabled: false },
   },
 });
 
