@@ -1,0 +1,10 @@
+// Unstyled list helper
+@mixin unstyled-list() {
+  @include margin(0 null);
+  list-style-type: none;
+  padding-left: 0;
+
+  > li {
+    margin-bottom: 0;
+  }
+}
