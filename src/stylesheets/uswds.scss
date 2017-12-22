@@ -6,11 +6,11 @@
 @import 'lib/normalize';
 
 // Core -------------- //
-@import 'core/variables';
-@import 'core/fonts';
-@import 'core/grid';
 
-// Mixins ------------- //
+// Settings (Variables)
+@import 'core/variables';
+
+// Tools (Mixins)
 @import 'core/mixins/content-size';
 @import 'core/mixins/focus';
 @import 'core/mixins/font-smoothing';
@@ -21,10 +21,13 @@
 @import 'core/mixins/typography';
 @import 'core/mixins/unstyled-list';
 
+// Generic
+@import 'core/fonts';
+@import 'core/grid';
 @import 'core/base';
 
 // Elements -------------- //
-// Styles basic HTML elements
+// Basic HTML elements
 @import 'elements/buttons';
 @import 'elements/embed';
 @import 'elements/figure';
