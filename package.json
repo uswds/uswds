@@ -13,7 +13,7 @@
     "build:js": "gulp javascript",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
     "cracks": "cracks --paths package.json,spec",
-    "federalist": "npm install --dev && gulp build && fractal build",
+    "federalist": "npm install --only=dev && gulp build && fractal build",
     "mocha": "mocha --opts spec/mocha.opts",
     "prepublish": "gulp build release",
     "preversion": "npm test",
