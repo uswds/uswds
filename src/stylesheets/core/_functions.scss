@@ -1,0 +1,6 @@
+// spacing()
+
+@function spacing($unit){
+  $gridToRem: #{($grid-base * $unit / $grid-type)}rem;
+  @return $gridToRem;
+}

@@ -7,7 +7,11 @@
 
 // Core -------------- //
 
+// Functions
+@import 'core/functions';
+
 // Settings (Variables)
+@import 'core/units';
 @import 'core/variables';
 
 // Tools (Mixins)
