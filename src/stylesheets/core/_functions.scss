@@ -1,6 +1,38 @@
+/// Remove the unit of a length
+/// @author Hugo Giraudel
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+// ------------------------------------------------------------
 // spacing()
+// expresses a spacing unit multiple in rem
 
 @function spacing($unit){
-  $gridToRem: #{($grid-base * $unit / $grid-type)}rem;
+  $gridToRem: strip-unit($grid-base) * $unit / strip-unit($font-size-base) * 1rem;
   @return $gridToRem;
+}
+
+// ------------------------------------------------------------
+// px()
+// converts a value in px to a value in rem
+
+@function pxConvert($pixels){
+  $pxToRem: strip-unit($pixels) / strip-unit($font-size-base) * 1rem;
+  @return $pxToRem;
+}
+
+// ------------------------------------------------------------
+// typeScale()
+// regularizes a specific face's optical size to a normal target
+
+@function typeScale($capHeight, $scale){
+  $thisScale: $base-capheight * strip-unit($scale) / $capHeight;
+  @return px($thisScale);
 }

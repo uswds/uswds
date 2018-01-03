@@ -1,0 +1,64 @@
+$namespace-utilities-settings: "usa-u";
+$color-values: (
+  id-1
+  id-1-xlight
+  id-1-light
+  id-1-dark
+  id-1-xdark
+  id-2
+  id-2-xlight
+  id-2-light
+  id-2-dark
+  id-2-xdark
+  id-3
+  id-4
+  id-5
+  ui-1
+  ui-2
+  ui-3
+  ui-4
+  ui-5
+  ui-6
+  text-1
+  text-2
+  text-3
+  text-4
+  text-inverse
+  field-1
+  field-2
+  field-3
+  field-4
+  highlight
+  error
+  error-xlight
+  error-light
+  error-dark
+  error-xdark
+  warn
+  warn-xlight
+  warn-light
+  warn-dark
+  warn-xdark
+  success
+  success-xlight
+  success-light
+  success-dark
+  success-xdark
+  ok
+  ok-xlight
+  ok-light
+  ok-dark
+  ok-xdark
+  disabled
+);
+
+@each $color-value in $color-values {
+    // color
+    .#{$namespace-utilities-settings}-#{$color-value } {
+        color: $color-value;
+    }
+    // background-color
+    .#{$namespace-utilities-settings}-bg-#{$color-value } {
+        color: $color-value;
+    }
+}
