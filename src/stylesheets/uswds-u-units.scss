@@ -1,0 +1,64 @@
+/*! uswds @version */
+
+// Vendor -------------- //
+@import 'lib/bourbon';
+@import 'lib/neat';
+@import 'lib/normalize';
+
+// Core -------------- //
+
+// Functions
+@import 'core/functions';
+
+// Settings (Variables)
+@import 'core/units';
+@import 'core/variables';
+
+// Tools (Mixins)
+@import 'core/mixins/content-size';
+@import 'core/mixins/focus';
+@import 'core/mixins/font-smoothing';
+@import 'core/mixins/icon';
+@import 'core/mixins/media-query';
+@import 'core/mixins/screen-reader';
+@import 'core/mixins/sidenav';
+@import 'core/mixins/typography';
+@import 'core/mixins/unstyled-list';
+
+// Generic
+@import 'core/fonts';
+@import 'core/grid';
+@import 'core/base';
+
+// Elements -------------- //
+// Basic HTML elements
+@import 'elements/buttons';
+@import 'elements/embed';
+@import 'elements/figure';
+@import 'elements/inputs';
+@import 'elements/labels';
+@import 'elements/list';
+@import 'elements/table';
+@import 'elements/typography';
+
+// Components -------------- //
+@import 'components/accordions';
+@import 'components/alerts';
+@import 'components/banner';
+@import 'components/footer';
+@import 'components/forms';
+@import 'components/graphic-list';
+@import 'components/header';
+@import 'components/hero';
+@import 'components/layout';
+@import 'components/media-block';
+@import 'components/navigation';
+@import 'components/search';
+@import 'components/section';
+@import 'components/sidenav';
+@import 'components/skipnav';
+
+// Utilities ------------ //
+@import 'utilities/color';
+@import 'utilities/space';
+@import 'utilities/typography';

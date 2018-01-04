@@ -56,7 +56,7 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
 
   dutil.logMessage(task, 'Compiling Sass');
 
-  var stream = gulp.src('src/stylesheets/uswds.scss')
+  var stream = gulp.src('src/stylesheets/*.scss')
     // 1. do the version replacement
     .pipe(replace(
       /\buswds @version\b/g,
