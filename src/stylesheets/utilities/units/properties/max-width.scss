@@ -1,0 +1,32 @@
+/*
+----------------------------------------
+Max Width
+----------------------------------------
+usage:
+  .maxw[value]
+----------------------------------------
+output:
+  max-width: value;
+----------------------------------------
+example:
+  .maxw-lg {
+    max-width: 1040px; }
+----------------------------------------
+*/
+
+$max-width: (
+  max-width: (
+    base: 'maxw',
+    modifiers: null,
+    values: map-collect(
+      map-get($global_values, percentage),
+      map-get($global_values, grid),
+      map-get($global_values, pixels),
+      map-get($global_values, breakpoints)
+    ),
+    property: 'max-width',
+    output: true,
+    responsive: true,
+    pseudoclasses: false,
+  )
+)

@@ -1,0 +1,33 @@
+/*
+----------------------------------------
+Outline Width
+----------------------------------------
+usage:
+  .outline-[modifier]
+----------------------------------------
+output:
+  outline: [modifier] solid;
+----------------------------------------
+example:
+  .outline-05 {
+    outline: 4px solid }
+----------------------------------------
+*/
+
+$outline-1-width: (
+  outline-1-width: (
+    base: ('outline', isReadable),
+    modifiers: null,
+    values: map-collect(
+      map-get($global_values, pixels),
+      map-get($global_values, gridShort),
+      map-get($global_values, zero-none)
+    ),
+    valuePrepend: null,
+    valueAppend: ' solid',
+    property: 'outline',
+    output: true,
+    responsive: true,
+    pseudoclasses: true,
+  )
+)

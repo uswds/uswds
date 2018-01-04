@@ -1,0 +1,33 @@
+/*
+----------------------------------------
+Display
+----------------------------------------
+usage:
+  .[value]
+----------------------------------------
+output:
+  display: [value]
+----------------------------------------
+example:
+  .hide {
+    display: none; }
+----------------------------------------
+*/
+
+$display: (
+  display: (
+    base: null,
+    modifiers: null,
+    values: (
+      block: ('block', isReadable),
+      flex: ('flex', isReadable),
+      hide: ('none', isReadable),
+      inline: ('inline', isReadable),
+      inline-block: ('inline-block', isReadable),
+    ),
+    property: 'display',
+    output: true,
+    responsive: true,
+    pseudoclasses: true,
+  )
+)

@@ -1,0 +1,33 @@
+/*
+----------------------------------------
+Height
+----------------------------------------
+usage:
+  .h[value]
+----------------------------------------
+output:
+  height: [value];
+----------------------------------------
+example:
+  .h33ct {
+    height: 33.33333333%; }
+----------------------------------------
+*/
+
+$height: (
+  height: (
+    base: 'h',
+    modifiers: null,
+    values: map-collect(
+      map-get($global_values, percentage),
+      map-get($global_values, grid),
+      map-get($global_values, em),
+      map-get($global_values, ch),
+      map-get($global_values, pixels)
+    ),
+    property: 'height',
+    output: true,
+    responsive: true,
+    pseudoclasses: false,
+  )
+)

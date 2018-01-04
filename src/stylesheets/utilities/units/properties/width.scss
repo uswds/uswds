@@ -1,0 +1,35 @@
+/*
+----------------------------------------
+Width
+----------------------------------------
+usage:
+  .w[value]
+----------------------------------------
+output:
+  width: value;
+----------------------------------------
+example:
+  .w75ct {
+    width: 75%; }
+----------------------------------------
+*/
+
+$width: (
+  width: (
+    base: 'w',
+    modifiers: null,
+    values: map-collect(
+      map-get($global_values, percentage),
+      map-get($global_values, grid),
+      map-get($global_values, pixels),
+      map-get($global_values, em),
+      map-get($global_values, ch),
+      map-get($global_values, breakpoints),
+      map-get($global_values, auto)
+    ),
+    property: 'width',
+    output: true,
+    responsive: true,
+    pseudoclasses: false,
+  )
+)

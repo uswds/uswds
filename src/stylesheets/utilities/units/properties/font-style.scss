@@ -1,0 +1,29 @@
+/*
+----------------------------------------
+Font Style
+----------------------------------------
+usage:
+  .italic
+----------------------------------------
+output:
+  font-style: italic;
+----------------------------------------
+example:
+  .italic {
+    font-style: italic; }
+----------------------------------------
+*/
+
+$font-style: (
+  font-style: (
+    base: null,
+    modifiers: null,
+    values: (
+      italic: ('italic', isReadable),
+    ),
+    property: 'font-style',
+    output: true,
+    responsive: false,
+    pseudoclasses: true,
+  )
+)

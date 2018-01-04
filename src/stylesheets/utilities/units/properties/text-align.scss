@@ -1,0 +1,32 @@
+/*
+----------------------------------------
+Text Align
+----------------------------------------
+usage:
+  .[value]
+----------------------------------------
+output:
+  align: [value];
+----------------------------------------
+example:
+  .left {
+    align: left; }
+----------------------------------------
+*/
+
+$text-align: (
+  text-align: (
+    base: null,
+    modifiers: null,
+    values: (
+      center: ('center', isReadable),
+      left: ('left', isReadable),
+      right: ('right', isReadable),
+      justify: ('justify', isReadable),
+    ),
+    property: 'text-align',
+    output: true,
+    responsive: true,
+    pseudoclasses: false,
+  )
+)

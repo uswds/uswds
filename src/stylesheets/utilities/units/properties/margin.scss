@@ -1,0 +1,49 @@
+/*
+----------------------------------------
+Margin
+----------------------------------------
+usage:
+  .m[modifier]*[-]*[value]
+----------------------------------------
+output:
+  margin: [value]
+----------------------------------------
+example:
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto; }
+
+  .m105 {
+    margin: .75rem; }
+----------------------------------------
+*/
+
+$margin: (
+  margin: (
+    base: m,
+    modifiers: (
+      t: '-top',
+      r: '-right',
+      b: '-bottom',
+      l: '-left',
+      y: ('-top', '-bottom'),
+      x: ('-left', '-right'),
+      noModifier: '',
+    ),
+    values: map-collect(
+      map-get($global_values, pixels),
+      map-get($global_values, negPixels),
+      map-get($global_values, grid),
+      map-get($global_values, negGrid),
+      map-get($global_values, zero-zero),
+      map-get($global_values, ch),
+      map-get($global_values, negCh),
+      map-get($global_values, em),
+      map-get($global_values, auto)
+    ),
+    property: 'margin',
+    output: true,
+    responsive: true,
+    pseudoclasses: false,
+  )
+)

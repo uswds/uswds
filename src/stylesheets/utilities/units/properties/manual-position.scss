@@ -1,0 +1,40 @@
+/*
+----------------------------------------
+Manual Positioning
+----------------------------------------
+usage:
+  .[modifier]-[value]
+----------------------------------------
+output:
+  [modifier]: [value];
+----------------------------------------
+example:
+  .bottom-n2px {
+    bottom: -2px; }
+----------------------------------------
+*/
+
+$manual-position: (
+  manual-position: (
+    base: null,
+    modifiers: (
+      top: ('top', isReadable),
+      bottom: ('bottom', isReadable),
+      left: ('left', isReadable),
+      right: ('right', isReadable),
+    ),
+    values:
+      map-collect(
+        map-get($global_values, pixels),
+        map-get($global_values, negPixels),
+        map-get($global_values, percentage),
+        map-get($global_values, grid),
+        map-get($global_values, zero-zero),
+        map-get($global_values, auto)
+    ),
+    property: '',
+    output: true,
+    responsive: true,
+    pseudoclasses: false,
+  )
+)

@@ -1,0 +1,30 @@
+/*
+----------------------------------------
+Flex direction
+----------------------------------------
+usage:
+  .f-[value]
+----------------------------------------
+output:
+  flex-direction: [value]
+----------------------------------------
+example:
+  .f-row {
+    flex-direction: row; }
+----------------------------------------
+*/
+
+$flex-direction: (
+  flex-direction: (
+    base: 'f',
+    modifiers: null,
+    values: (
+      row: ('row', isReadable),
+      column: ('column', isReadable),
+    ),
+    property: 'flex-direction',
+    output: true,
+    responsive: true,
+    pseudoclasses: false,
+  )
+)

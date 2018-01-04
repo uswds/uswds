@@ -1,0 +1,35 @@
+/*
+----------------------------------------
+Letterspacing
+----------------------------------------
+usage:
+  .ls[modifier]
+----------------------------------------
+output:
+  letter-spacing: [value];
+----------------------------------------
+example:
+  .ls2 {
+    letter-spacing: .1em; }
+----------------------------------------
+*/
+
+$letter-spacing: (
+  letter-spacing: (
+    base: 'ls',
+    modifiers: null,
+    values: (
+      auto: ('auto', isReadable),
+      n1: $lsn1,
+      n2: $lsn2,
+      n3: $lsn3,
+      1: $ls1,
+      2: $ls2,
+      3: $ls3,
+    ),
+    property: 'letter-spacing',
+    output: true,
+    responsive: true,
+    pseudoclasses: false,
+  )
+)

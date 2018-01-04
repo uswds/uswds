@@ -1,0 +1,38 @@
+/*
+----------------------------------------
+Font Family
+----------------------------------------
+usage:
+  .[value]
+----------------------------------------
+output:
+  font-family: [value]
+----------------------------------------
+example:
+  .sans {
+    font-family: '18Franklin-webfont',
+                system,
+                -apple-system,
+                BlinkMacSystemFont,
+                'Roboto',
+                'Helvetica Neue',
+                'Helvetica',
+                'Arial',
+                sans-serif; }
+----------------------------------------
+*/
+
+$font-family: (
+  font-family: (
+    base: null,
+    modifiers: null,
+    values: map-collect(
+      map-get($global_values, typefaces)
+    ),
+    property: 'font-family',
+    output: true,
+    responsive: false,
+    pseudoclasses: false,
+    placeholder: true,
+  )
+)

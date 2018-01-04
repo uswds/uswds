@@ -1,0 +1,32 @@
+/*
+----------------------------------------
+Min Height
+----------------------------------------
+usage:
+  .maxh[value]
+----------------------------------------
+output:
+  max-height: value;
+----------------------------------------
+example:
+  .maxh40 {
+    max-height: 320px; }
+----------------------------------------
+*/
+
+$max-height: (
+  max-height: (
+    base: 'maxh',
+    modifiers: null,
+    values: map-collect(
+      map-get($global_values, percentage),
+      map-get($global_values, grid),
+      map-get($global_values, pixels),
+      map-get($global_values, breakpoints)
+    ),
+    property: 'max-height',
+    output: true,
+    responsive: true,
+    pseudoclasses: false,
+  )
+)
