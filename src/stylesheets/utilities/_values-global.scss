@@ -53,7 +53,7 @@ $values-global: (
     'vi': ':visited',
   ),
   typefaces: (
-    'mono': ($font-mono, isReadable),
+    // 'mono': ($font-mono, isReadable),
     'sans': ($font-sans, isReadable),
     'serif': ($font-serif, isReadable),
   ),

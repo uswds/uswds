@@ -180,7 +180,7 @@
 // ------------------------------------------------------------
 
 @mixin render-pseudoclasses($selector, $property, $value, $val-props){
-  @each $pseudoKey, $pseudo-value in map-get($global-values, pseudoclasses){
+  @each $pseudoKey, $pseudo-value in map-get($values-global, pseudoclasses){
     .#{$pseudoKey}-#{$selector}#{$pseudo-value} {
       @each $this-property in $property {
         #{$this-property}: $value;
