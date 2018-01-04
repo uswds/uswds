@@ -180,7 +180,7 @@
 // ------------------------------------------------------------
 
 @mixin render-pseudoclasses($selector, $property, $value, $val-props){
-  @each $pseudoKey, $pseudo-value in map-get($global_values, pseudoclasses){
+  @each $pseudoKey, $pseudo-value in map-get($global-values, pseudoclasses){
     .#{$pseudoKey}-#{$selector}#{$pseudo-value} {
       @each $this-property in $property {
         #{$this-property}: $value;
@@ -200,8 +200,8 @@
 }
 
 @mixin render-media-queries($selector, $property, $value, $val-props){
-  @each $mediaKey, $mediaValue in map-get($global_values, breakpoints){
-    @media (min-width: #{nth($mediaValue, 1)}) {
+  @each $mediaKey, $media-value in map-get($values-global, breakpoints){
+    @media (min-width: #{nth($media-value, 1)}) {
       .#{$mediaKey}-#{$selector} {
         @if map-has-key($val-props, extend) {
           #{map-deep-get($val-props, extend, property)}: strunquote(map-deep-get($val-props, extend, value));

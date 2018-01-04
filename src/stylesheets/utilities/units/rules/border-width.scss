@@ -31,9 +31,9 @@ $border-width: (
     ),
     values:
       map-collect(
-        map-get($global_values, pixels),
-        map-get($global_values, gridShort),
-        map-get($global_values, zero-zero)
+        map-get($values-units, pixels),
+        map-get($values-units, grid-short),
+        map-get($values-global, zero-zero)
     ),
     property: 'border',
     output: true,

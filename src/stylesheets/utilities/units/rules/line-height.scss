@@ -1,35 +1,30 @@
 /*
 ----------------------------------------
-Flex size
+Line Height
 ----------------------------------------
 usage:
-  .[value]
+  .lh-[value]
 ----------------------------------------
 output:
-  flex: [value];
+  line-height: [value];
 ----------------------------------------
 example:
-  .f1 {
-    flex: 0 0 1; }
-
-  .fill {
-    flex: 1 0 0; }
-
-  .fit {
-    flex: none; }
+  .lh-single {
+    line-height: 1; }
 ----------------------------------------
 */
 
-$flex-size: (
-  flex-size: (
-    base: null,
+$line-height: (
+  line-height: (
+    base: 'lh',
     modifiers: null,
     values: map-collect(
-      map-get($global_values, flex)
+      map-get($values-global, line-heights)
     ),
-    property: 'flex',
+    property: 'line-height',
     output: true,
     responsive: true,
     pseudoclasses: false,
+    placeholder: true,
   )
-);
+)

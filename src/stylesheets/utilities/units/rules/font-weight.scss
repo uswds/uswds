@@ -1,29 +1,30 @@
 /*
 ----------------------------------------
-Font Style
+Font Weight
 ----------------------------------------
 usage:
-  .italic
+  .fw[value]
 ----------------------------------------
 output:
-  font-style: italic;
+  font-weight: [value];
 ----------------------------------------
 example:
-  .italic {
-    font-style: italic; }
+  .fw300 {
+    font-weight: 300; }
 ----------------------------------------
 */
 
-$font-style: (
-  font-style: (
-    base: null,
+$font-weight: (
+  font-weight: (
+    base: 'fw',
     modifiers: null,
-    values: (
-      italic: ('italic', isReadable),
+    values: map-collect(
+      map-get($values-units, font-weights)
     ),
-    property: 'font-style',
+    property: 'font-weight',
     output: true,
-    responsive: false,
+    responsive: true,
     pseudoclasses: true,
+    placeholder: true,
   )
 )

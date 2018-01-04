@@ -1,30 +1,30 @@
 /*
 ----------------------------------------
-Min Height
+Max Width
 ----------------------------------------
 usage:
-  .minh[value]
+  .maxw[value]
 ----------------------------------------
 output:
-  min-height: value;
+  max-width: value;
 ----------------------------------------
 example:
-  .minh40 {
-    min-height: 320px; }
+  .maxw-lg {
+    max-width: 1040px; }
 ----------------------------------------
 */
 
-$min-height: (
-  min-height: (
-    base: 'minh',
+$max-width: (
+  max-width: (
+    base: 'maxw',
     modifiers: null,
     values: map-collect(
-      map-get($global_values, percentage),
-      map-get($global_values, grid),
-      map-get($global_values, pixels),
-      map-get($global_values, breakpoints)
+      map-get($values-units, percentage),
+      map-get($values-units, grid),
+      map-get($values-units, pixels),
+      map-get($values-global, breakpoints)
     ),
-    property: 'min-height',
+    property: 'max-width',
     output: true,
     responsive: true,
     pseudoclasses: false,

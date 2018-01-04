@@ -29,7 +29,7 @@ $font-size: (
     base: null,
     modifiers: null,
     values: map-collect(
-      map-get($global_values, typeScale)
+      map-get($values-units, type-scale)
     ),
     property: 'font-size',
     output: true,

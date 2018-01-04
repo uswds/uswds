@@ -3,10 +3,9 @@ $values-global: (
     'auto': ('auto', isReadable),
   ),
   breakpoints: (
-    'sm': ($breakpoint-sm, isReadable),
-    'md': ($breakpoint-md, isReadable),
-    'lg': ($breakpoint-lg, isReadable),
-    'xl': ($breakpoint-xl, isReadable),
+    'sm': ($small-screen, isReadable),
+    'md': ($medium-screen, isReadable),
+    'lg': ($large-screen, isReadable),
   ),
   flex: (
     'f1': 1 0 0,
@@ -46,6 +45,7 @@ $values-global: (
     'body': ($u-lh-body, isReadable),
     'body-loose': ($u-lh-body-loose, isReadable),
     'body-tight': ($u-lh-body-tight, isReadable),
+  ),
   pseudoclasses: (
     'ac': ':active',
     'fo': ':focus',

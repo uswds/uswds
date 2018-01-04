@@ -25,12 +25,12 @@ $manual-position: (
     ),
     values:
       map-collect(
-        map-get($global_values, pixels),
-        map-get($global_values, negPixels),
-        map-get($global_values, percentage),
-        map-get($global_values, grid),
-        map-get($global_values, zero-zero),
-        map-get($global_values, auto)
+        map-get($values-units, pixels),
+        map-get($values-units, neg-pixels),
+        map-get($values-units, percentage),
+        map-get($values-units, grid),
+        map-get($values-global, zero-zero),
+        map-get($values-global, auto)
     ),
     property: '',
     output: true,

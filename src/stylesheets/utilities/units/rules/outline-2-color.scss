@@ -1,33 +1,31 @@
 /*
 ----------------------------------------
-Outline Width
+Outline Color
 ----------------------------------------
 usage:
   .outline-[modifier]
 ----------------------------------------
 output:
-  outline: [modifier] solid;
+  outline-color: [modifier];
 ----------------------------------------
 example:
-  .outline-05 {
-    outline: 4px solid }
+  .outline-yellow-50 {
+    outline-color: #91721f; }
 ----------------------------------------
 */
 
-$outline-1-width: (
-  outline-1-width: (
+$outline-2-color: (
+  outline-2-color: (
     base: ('outline', isReadable),
     modifiers: null,
     values: map-collect(
-      map-get($global_values, pixels),
-      map-get($global_values, gridShort),
-      map-get($global_values, zero-none)
+      map-get($values-units, colors)
     ),
     valuePrepend: null,
-    valueAppend: ' solid',
-    property: 'outline',
+    valueAppend: null,
+    property: 'outline-color',
     output: true,
-    responsive: true,
+    responsive: false,
     pseudoclasses: true,
   )
 )

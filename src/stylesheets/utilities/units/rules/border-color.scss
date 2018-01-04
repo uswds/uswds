@@ -31,7 +31,7 @@ $border-color: (
       noModifier: -color,
     ),
     values: map-collect(
-      map-get($global_values, colors)
+      map-get($values-units, colors)
     ),
     property: 'border',
     output: true,

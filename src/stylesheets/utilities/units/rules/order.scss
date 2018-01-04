@@ -1,33 +1,30 @@
 /*
 ----------------------------------------
-Letterspacing
+Order
 ----------------------------------------
 usage:
-  .ls[modifier]
+  .order-[value]
 ----------------------------------------
 output:
-  letter-spacing: [value];
+  order: [value]
 ----------------------------------------
 example:
-  .ls2 {
-    letter-spacing: .1em; }
+  .order-first {
+    order: -1; }
+
+  .order-2 {
+    order: 2; }
 ----------------------------------------
 */
 
-$letter-spacing: (
-  letter-spacing: (
-    base: 'ls',
+$order: (
+  order: (
+    base: ('order', isReadable),
     modifiers: null,
-    values: (
-      auto: ('auto', isReadable),
-      n1: $lsn1,
-      n2: $lsn2,
-      n3: $lsn3,
-      1: $ls1,
-      2: $ls2,
-      3: $ls3,
+    values: map-collect(
+      map-get($values-global, flex-orders)
     ),
-    property: 'letter-spacing',
+    property: 'order',
     output: true,
     responsive: true,
     pseudoclasses: false,

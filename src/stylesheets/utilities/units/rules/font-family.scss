@@ -10,7 +10,7 @@ output:
 ----------------------------------------
 example:
   .sans {
-    font-family: '18Franklin-webfont',
+    font-family: 'United Sans webfont',
                 system,
                 -apple-system,
                 BlinkMacSystemFont,
@@ -27,7 +27,7 @@ $font-family: (
     base: null,
     modifiers: null,
     values: map-collect(
-      map-get($global_values, typefaces)
+      map-get($values-global, typefaces)
     ),
     property: 'font-family',
     output: true,
