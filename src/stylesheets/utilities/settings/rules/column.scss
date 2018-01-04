@@ -1,0 +1,39 @@
+/*
+----------------------------------------
+Column
+----------------------------------------
+usage:
+  .col
+----------------------------------------
+output:
+  display: flex;
+  flex-direction: column;
+----------------------------------------
+example:
+  .col {
+    display: flex;
+    flex-direction: column; }
+----------------------------------------
+*/
+
+$col: (
+  col: (
+    base: null,
+    modifiers: null,
+    values: (
+      row: (
+        slug: 'col',
+        isReadable: true,
+        content: 'flex',
+        extend: (
+          property: 'flex-direction',
+          value: 'column',
+        ),
+      ),
+    ),
+    property: 'display',
+    output: false,
+    responsive: true,
+    pseudoclasses: false,
+  )
+);

@@ -82,90 +82,90 @@ $u-mono-capHeight:          $roboto-mono-capheight !default;
 // --------------------------------------------------
 // Type scale
 
-$type-scale-1:             12px;   // +1
-$type-scale-2:             13px;   // +1
-$type-scale-3:             14px;   // +1
-$type-scale-4:             15px;   // +1
-$type-scale-5:             16px;   // +1
-$type-scale-6:             17px;   // +1
-$type-scale-7:             18px;   // +2
-$type-scale-8:             20px;   // +2
-$type-scale-9:             22px;   // +2
-$type-scale-10:            24px;   // +4
-$type-scale-11:            28px;   // +4
-$type-scale-12:            32px;   // +4
-$type-scale-13:            36px;   // +4
-$type-scale-14:            40px;   // +8
-$type-scale-15:            48px;   // +8
-$type-scale-16:            56px;   // +8
-$type-scale-17:            64px;   // +16
-$type-scale-18:            80px;   // +40
-$type-scale-19:            120px;  // +20
-$type-scale-20:            140px;
+$u-type-scale-1:             12px;   // +1
+$u-type-scale-2:             13px;   // +1
+$u-type-scale-3:             14px;   // +1
+$u-type-scale-4:             15px;   // +1
+$u-type-scale-5:             16px;   // +1
+$u-type-scale-6:             17px;   // +1
+$u-type-scale-7:             18px;   // +2
+$u-type-scale-8:             20px;   // +2
+$u-type-scale-9:             22px;   // +2
+$u-type-scale-10:            24px;   // +4
+$u-type-scale-11:            28px;   // +4
+$u-type-scale-12:            32px;   // +4
+$u-type-scale-13:            36px;   // +4
+$u-type-scale-14:            40px;   // +8
+$u-type-scale-15:            48px;   // +8
+$u-type-scale-16:            56px;   // +8
+$u-type-scale-17:            64px;   // +16
+$u-type-scale-18:            80px;   // +40
+$u-type-scale-19:            120px;  // +20
+$u-type-scale-20:            140px;
 
 
-$u-mono-1:   type-scale($u-mono-capHeight, $type-scale-1);
-$u-mono-2:   type-scale($u-mono-capHeight, $type-scale-2);
-$u-mono-3:   type-scale($u-mono-capHeight, $type-scale-3);
-$u-mono-4:   type-scale($u-mono-capHeight, $type-scale-4);
-$u-mono-5:   type-scale($u-mono-capHeight, $type-scale-5);
-$u-mono-6:   type-scale($u-mono-capHeight, $type-scale-6);
-$u-mono-7:   type-scale($u-mono-capHeight, $type-scale-7);
-$u-mono-8:   type-scale($u-mono-capHeight, $type-scale-8);
-$u-mono-9:   type-scale($u-mono-capHeight, $type-scale-9);
-$u-mono-10:  type-scale($u-mono-capHeight, $type-scale-10);
-$u-mono-11:  type-scale($u-mono-capHeight, $type-scale-11);
-$u-mono-12:  type-scale($u-mono-capHeight, $type-scale-12);
-$u-mono-13:  type-scale($u-mono-capHeight, $type-scale-13);
-$u-mono-14:  type-scale($u-mono-capHeight, $type-scale-14);
-$u-mono-15:  type-scale($u-mono-capHeight, $type-scale-15);
-$u-mono-16:  type-scale($u-mono-capHeight, $type-scale-16);
-$u-mono-17:  type-scale($u-mono-capHeight, $type-scale-17);
-$u-mono-18:  type-scale($u-mono-capHeight, $type-scale-18);
-$u-mono-19:  type-scale($u-mono-capHeight, $type-scale-19);
-$u-mono-20:  type-scale($u-mono-capHeight, $type-scale-20);
+$u-mono-1:   type-scale($u-mono-capHeight, $u-type-scale-1);
+$u-mono-2:   type-scale($u-mono-capHeight, $u-type-scale-2);
+$u-mono-3:   type-scale($u-mono-capHeight, $u-type-scale-3);
+$u-mono-4:   type-scale($u-mono-capHeight, $u-type-scale-4);
+$u-mono-5:   type-scale($u-mono-capHeight, $u-type-scale-5);
+$u-mono-6:   type-scale($u-mono-capHeight, $u-type-scale-6);
+$u-mono-7:   type-scale($u-mono-capHeight, $u-type-scale-7);
+$u-mono-8:   type-scale($u-mono-capHeight, $u-type-scale-8);
+$u-mono-9:   type-scale($u-mono-capHeight, $u-type-scale-9);
+$u-mono-10:  type-scale($u-mono-capHeight, $u-type-scale-10);
+$u-mono-11:  type-scale($u-mono-capHeight, $u-type-scale-11);
+$u-mono-12:  type-scale($u-mono-capHeight, $u-type-scale-12);
+$u-mono-13:  type-scale($u-mono-capHeight, $u-type-scale-13);
+$u-mono-14:  type-scale($u-mono-capHeight, $u-type-scale-14);
+$u-mono-15:  type-scale($u-mono-capHeight, $u-type-scale-15);
+$u-mono-16:  type-scale($u-mono-capHeight, $u-type-scale-16);
+$u-mono-17:  type-scale($u-mono-capHeight, $u-type-scale-17);
+$u-mono-18:  type-scale($u-mono-capHeight, $u-type-scale-18);
+$u-mono-19:  type-scale($u-mono-capHeight, $u-type-scale-19);
+$u-mono-20:  type-scale($u-mono-capHeight, $u-type-scale-20);
 
-$u-sans-1:   type-scale($u-sans-capHeight, $type-scale-1);
-$u-sans-2:   type-scale($u-sans-capHeight, $type-scale-2);
-$u-sans-3:   type-scale($u-sans-capHeight, $type-scale-3);
-$u-sans-4:   type-scale($u-sans-capHeight, $type-scale-4);
-$u-sans-5:   type-scale($u-sans-capHeight, $type-scale-5);
-$u-sans-6:   type-scale($u-sans-capHeight, $type-scale-6);
-$u-sans-7:   type-scale($u-sans-capHeight, $type-scale-7);
-$u-sans-8:   type-scale($u-sans-capHeight, $type-scale-8);
-$u-sans-9:   type-scale($u-sans-capHeight, $type-scale-9);
-$u-sans-10:  type-scale($u-sans-capHeight, $type-scale-10);
-$u-sans-11:  type-scale($u-sans-capHeight, $type-scale-11);
-$u-sans-12:  type-scale($u-sans-capHeight, $type-scale-12);
-$u-sans-13:  type-scale($u-sans-capHeight, $type-scale-13);
-$u-sans-14:  type-scale($u-sans-capHeight, $type-scale-14);
-$u-sans-15:  type-scale($u-sans-capHeight, $type-scale-15);
-$u-sans-16:  type-scale($u-sans-capHeight, $type-scale-16);
-$u-sans-17:  type-scale($u-sans-capHeight, $type-scale-17);
-$u-sans-18:  type-scale($u-sans-capHeight, $type-scale-18);
-$u-sans-19:  type-scale($u-sans-capHeight, $type-scale-19);
-$u-sans-20:  type-scale($u-sans-capHeight, $type-scale-20);
+$u-sans-1:   type-scale($u-sans-capHeight, $u-type-scale-1);
+$u-sans-2:   type-scale($u-sans-capHeight, $u-type-scale-2);
+$u-sans-3:   type-scale($u-sans-capHeight, $u-type-scale-3);
+$u-sans-4:   type-scale($u-sans-capHeight, $u-type-scale-4);
+$u-sans-5:   type-scale($u-sans-capHeight, $u-type-scale-5);
+$u-sans-6:   type-scale($u-sans-capHeight, $u-type-scale-6);
+$u-sans-7:   type-scale($u-sans-capHeight, $u-type-scale-7);
+$u-sans-8:   type-scale($u-sans-capHeight, $u-type-scale-8);
+$u-sans-9:   type-scale($u-sans-capHeight, $u-type-scale-9);
+$u-sans-10:  type-scale($u-sans-capHeight, $u-type-scale-10);
+$u-sans-11:  type-scale($u-sans-capHeight, $u-type-scale-11);
+$u-sans-12:  type-scale($u-sans-capHeight, $u-type-scale-12);
+$u-sans-13:  type-scale($u-sans-capHeight, $u-type-scale-13);
+$u-sans-14:  type-scale($u-sans-capHeight, $u-type-scale-14);
+$u-sans-15:  type-scale($u-sans-capHeight, $u-type-scale-15);
+$u-sans-16:  type-scale($u-sans-capHeight, $u-type-scale-16);
+$u-sans-17:  type-scale($u-sans-capHeight, $u-type-scale-17);
+$u-sans-18:  type-scale($u-sans-capHeight, $u-type-scale-18);
+$u-sans-19:  type-scale($u-sans-capHeight, $u-type-scale-19);
+$u-sans-20:  type-scale($u-sans-capHeight, $u-type-scale-20);
 
-$u-serif-1:  type-scale($u-serif-capHeight, $type-scale-1);
-$u-serif-2:  type-scale($u-serif-capHeight, $type-scale-2);
-$u-serif-3:  type-scale($u-serif-capHeight, $type-scale-3);
-$u-serif-4:  type-scale($u-serif-capHeight, $type-scale-4);
-$u-serif-5:  type-scale($u-serif-capHeight, $type-scale-5);
-$u-serif-6:  type-scale($u-serif-capHeight, $type-scale-6);
-$u-serif-7:  type-scale($u-serif-capHeight, $type-scale-7);
-$u-serif-8:  type-scale($u-serif-capHeight, $type-scale-8);
-$u-serif-9:  type-scale($u-serif-capHeight, $type-scale-9);
-$u-serif-10: type-scale($u-serif-capHeight, $type-scale-10);
-$u-serif-11: type-scale($u-serif-capHeight, $type-scale-11);
-$u-serif-12: type-scale($u-serif-capHeight, $type-scale-12);
-$u-serif-13: type-scale($u-serif-capHeight, $type-scale-13);
-$u-serif-14: type-scale($u-serif-capHeight, $type-scale-14);
-$u-serif-15: type-scale($u-serif-capHeight, $type-scale-15);
-$u-serif-16: type-scale($u-serif-capHeight, $type-scale-16);
-$u-serif-17: type-scale($u-serif-capHeight, $type-scale-17);
-$u-serif-18: type-scale($u-serif-capHeight, $type-scale-18);
-$u-serif-19: type-scale($u-serif-capHeight, $type-scale-19);
-$u-serif-20: type-scale($u-serif-capHeight, $type-scale-20);
+$u-serif-1:  type-scale($u-serif-capHeight, $u-type-scale-1);
+$u-serif-2:  type-scale($u-serif-capHeight, $u-type-scale-2);
+$u-serif-3:  type-scale($u-serif-capHeight, $u-type-scale-3);
+$u-serif-4:  type-scale($u-serif-capHeight, $u-type-scale-4);
+$u-serif-5:  type-scale($u-serif-capHeight, $u-type-scale-5);
+$u-serif-6:  type-scale($u-serif-capHeight, $u-type-scale-6);
+$u-serif-7:  type-scale($u-serif-capHeight, $u-type-scale-7);
+$u-serif-8:  type-scale($u-serif-capHeight, $u-type-scale-8);
+$u-serif-9:  type-scale($u-serif-capHeight, $u-type-scale-9);
+$u-serif-10: type-scale($u-serif-capHeight, $u-type-scale-10);
+$u-serif-11: type-scale($u-serif-capHeight, $u-type-scale-11);
+$u-serif-12: type-scale($u-serif-capHeight, $u-type-scale-12);
+$u-serif-13: type-scale($u-serif-capHeight, $u-type-scale-13);
+$u-serif-14: type-scale($u-serif-capHeight, $u-type-scale-14);
+$u-serif-15: type-scale($u-serif-capHeight, $u-type-scale-15);
+$u-serif-16: type-scale($u-serif-capHeight, $u-type-scale-16);
+$u-serif-17: type-scale($u-serif-capHeight, $u-type-scale-17);
+$u-serif-18: type-scale($u-serif-capHeight, $u-type-scale-18);
+$u-serif-19: type-scale($u-serif-capHeight, $u-type-scale-19);
+$u-serif-20: type-scale($u-serif-capHeight, $u-type-scale-20);
 
 // -----------------------------------------------------
 

@@ -24,17 +24,13 @@ $border-radius: (
     values: (
       0: '0',
       pill: ('10em', isReadable),
-      rounded: ($border-radius, isReadable),
-      1px: 1px,
-      2px: 2px,
-      '05': $u-spacing-05,
-      '1': $u-spacing-1,
-      '105': $u-spacing-105,
-      '2': $u-spacing-2,
+      sm: ($s-radius-sm, isReadable),
+      md: ($s-radius-md, isReadable),
+      lg: ($s-radius-lg, isReadable),
     ),
     property: 'border-radius',
     output: true,
-    responsive: false,
+    responsive: true,
     pseudoclasses: false,
   )
 )

@@ -1,3 +1,4 @@
+$utility-type: "settings";
 $values-settings: (
   colors: (
     'transparent': ('transparent', isReadable),
@@ -74,102 +75,21 @@ $values-settings: (
     '3xl': $s-spacing-3xl,
   ),
   neg-spacing: (
-    'n3xs': -#{$spacing-3xs},
-    'n2xs': -#{$spacing-2xs},
-    'nxs': -#{$spacing-xs},
-    'nsm': -#{$spacing-sm},
-    'nmd': -#{$spacing-md},
-    'nlg': -#{$spacing-lg},
-    'nxl': -#{$spacing-xl},
-    'n2xl': -#{$spacing-2xl},
-    'n3xl': -#{$spacing-3xl},
+    'n3xs': -#{$s-spacing-3xs},
+    'n2xs': -#{$s-spacing-2xs},
+    'nxs': -#{$s-spacing-xs},
+    'nsm': -#{$s-spacing-sm},
+    'nmd': -#{$s-spacing-md},
+    'nlg': -#{$s-spacing-lg},
+    'nxl': -#{$s-spacing-xl},
+    'n2xl': -#{$s-spacing-2xl},
+    'n3xl': -#{$s-spacing-3xl},
   ),
-  typeScale: (
-    mono-3xs: (
-      slug: 'mono-3xs',
-      isReadable: true,
-      content: $s-mono-1,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-2xs: (
-      slug: 'mono-2xs',
-      isReadable: true,
-      content: $s-mono-2,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-xs: (
-      slug: 'mono-xs',
-      isReadable: true,
-      content: $s-mono-3,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-sm: (
-      slug: 'mono-sm',
-      isReadable: true,
-      content: $s-mono-4,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-md: (
-      slug: 'mono-md',
-      isReadable: true,
-      content: $s-mono-5,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-lg: (
-      slug: 'mono-lg',
-      isReadable: true,
-      content: $s-mono-6,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-xl: (
-      slug: 'mono-xl',
-      isReadable: true,
-      content: $s-mono-7,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-2xl: (
-      slug: 'mono-2xl',
-      isReadable: true,
-      content: $s-mono-8,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-3xl: (
-      slug: 'mono-3xl',
-      isReadable: true,
-      content: $s-mono-9,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
+  type-scale: (
     sans-3xs: (
       slug: 'sans-3xs',
       isReadable: true,
-      content: $s-sans-1,
+      content: type-scale($u-sans-capHeight, $s-font-size-3xs),
       extend: (
         property: 'font-family',
         value: $font-sans,
@@ -178,7 +98,7 @@ $values-settings: (
     sans-2xs: (
       slug: 'sans-2xs',
       isReadable: true,
-      content: $s-sans-2,
+      content: type-scale($u-sans-capHeight, $s-font-size-2xs),
       extend: (
         property: 'font-family',
         value: $font-sans,
@@ -187,7 +107,7 @@ $values-settings: (
     sans-xs: (
       slug: 'sans-xs',
       isReadable: true,
-      content: $s-sans-3,
+      content: type-scale($u-sans-capHeight, $s-font-size-xs),
       extend: (
         property: 'font-family',
         value: $font-sans,
@@ -196,7 +116,7 @@ $values-settings: (
     sans-sm: (
       slug: 'sans-sm',
       isReadable: true,
-      content: $s-sans-4,
+      content: type-scale($u-sans-capHeight, $s-font-size-sm),
       extend: (
         property: 'font-family',
         value: $font-sans,
@@ -205,7 +125,7 @@ $values-settings: (
     sans-md: (
       slug: 'sans-md',
       isReadable: true,
-      content: $s-sans-5,
+      content: type-scale($u-sans-capHeight, $s-font-size-md),
       extend: (
         property: 'font-family',
         value: $font-sans,
@@ -214,7 +134,7 @@ $values-settings: (
     sans-lg: (
       slug: 'sans-lg',
       isReadable: true,
-      content: $s-sans-6,
+      content: type-scale($u-sans-capHeight, $s-font-size-lg),
       extend: (
         property: 'font-family',
         value: $font-sans,
@@ -223,7 +143,7 @@ $values-settings: (
     sans-xl: (
       slug: 'sans-xl',
       isReadable: true,
-      content: $s-sans-7,
+      content: type-scale($u-sans-capHeight, $s-font-size-xl),
       extend: (
         property: 'font-family',
         value: $font-sans,
@@ -232,7 +152,7 @@ $values-settings: (
     sans-2xl: (
       slug: 'sans-2xl',
       isReadable: true,
-      content: $s-sans-8,
+      content: type-scale($u-sans-capHeight, $s-font-size-2xl),
       extend: (
         property: 'font-family',
         value: $font-sans,
@@ -241,7 +161,7 @@ $values-settings: (
     sans-3xl: (
       slug: 'sans-3xl',
       isReadable: true,
-      content: $s-sans-9,
+      content: type-scale($u-sans-capHeight, $s-font-size-3xl),
       extend: (
         property: 'font-family',
         value: $font-sans,
@@ -250,7 +170,7 @@ $values-settings: (
     serif-3xs: (
       slug: 'serif-3xs',
       isReadable: true,
-      content: $s-serif-1,
+      content: type-scale($u-serif-capHeight, $s-font-size-3xl),
       extend: (
         property: 'font-family',
         value: $font-serif,
@@ -259,7 +179,7 @@ $values-settings: (
     serif-2xs: (
       slug: 'serif-2xs',
       isReadable: true,
-      content: $s-serif-2,
+      content: type-scale($u-serif-capHeight, $s-font-size-2xs),
       extend: (
         property: 'font-family',
         value: $font-serif,
@@ -268,7 +188,7 @@ $values-settings: (
     serif-xs: (
       slug: 'serif-xs',
       isReadable: true,
-      content: $s-serif-3,
+      content: type-scale($u-serif-capHeight, $s-font-size-xs),
       extend: (
         property: 'font-family',
         value: $font-serif,
@@ -277,7 +197,7 @@ $values-settings: (
     serif-sm: (
       slug: 'serif-sm',
       isReadable: true,
-      content: $s-serif-4,
+      content: type-scale($u-serif-capHeight, $s-font-size-sm),
       extend: (
         property: 'font-family',
         value: $font-serif,
@@ -286,7 +206,7 @@ $values-settings: (
     serif-md: (
       slug: 'serif-md',
       isReadable: true,
-      content: $s-serif-5,
+      content: type-scale($u-serif-capHeight, $s-font-size-md),
       extend: (
         property: 'font-family',
         value: $font-serif,
@@ -295,7 +215,7 @@ $values-settings: (
     serif-lg: (
       slug: 'serif-lg',
       isReadable: true,
-      content: $s-serif-6,
+      content: type-scale($u-serif-capHeight, $s-font-size-lg),
       extend: (
         property: 'font-family',
         value: $font-serif,
@@ -304,7 +224,7 @@ $values-settings: (
     serif-xl: (
       slug: 'serif-xl',
       isReadable: true,
-      content: $s-serif-7,
+      content: type-scale($u-serif-capHeight, $s-font-size-xl),
       extend: (
         property: 'font-family',
         value: $font-serif,
@@ -313,7 +233,7 @@ $values-settings: (
     serif-2xl: (
       slug: 'serif-2xl',
       isReadable: true,
-      content: $s-serif-8,
+      content: type-scale($u-serif-capHeight, $s-font-size-2xl),
       extend: (
         property: 'font-family',
         value: $font-serif,
@@ -322,7 +242,7 @@ $values-settings: (
     serif-3xl: (
       slug: 'serif-3xl',
       isReadable: true,
-      content: $s-serif-9,
+      content: type-scale($u-serif-capHeight, $s-font-size-3xl),
       extend: (
         property: 'font-family',
         value: $font-serif,

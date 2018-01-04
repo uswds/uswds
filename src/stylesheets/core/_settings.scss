@@ -1,0 +1,143 @@
+// PROJECT SETTINGS
+
+// ---------------------------------------------
+// NAMESPACE
+
+$s-settings-utilities-namespace: "usa-u-" !default;
+
+// ---------------------------------------------
+// SPACING
+
+// values  - - - - - - - - - - - - - - - - - - -
+// $s-font-size-NN:       $u-spacing-NN;
+//                        1px
+//                        2px
+
+$s-spacing-3xs:           1px !default;
+$s-spacing-2xs:           2px !default;
+$s-spacing-xs:            $u-spacing-05 !default;
+$s-spacing-sm:            $u-spacing-1 !default;
+$s-spacing-md:            $u-spacing-2 !default;
+$s-spacing-lg:            $u-spacing-3 !default;
+$s-spacing-xl:            $u-spacing-4 !default;
+$s-spacing-2xl:           $u-spacing-5 !default;
+$s-spacing-3xl:           $u-spacing-9 !default;
+
+// ---------------------------------------------
+// TYPE SCALE
+
+// values  - - - - - - - - - - - - - - - - - - -
+// $s-font-size-NN:       $u-type-scale-NN;
+
+$s-font-size-3xs:         $u-type-scale-1 !default;
+$s-font-size-2xs:         $u-type-scale-3 !default;
+$s-font-size-xs:          $u-type-scale-5 !default;
+$s-font-size-sm:          $u-type-scale-6 !default;
+$s-font-size-md:          $u-type-scale-7 !default;
+$s-font-size-lg:          $u-type-scale-10 !default;
+$s-font-size-xl:          $u-type-scale-12 !default;
+$s-font-size-2xl:         $u-type-scale-14 !default;
+$s-font-size-3xl:         $u-type-scale-16 !default;
+
+// ---------------------------------------------
+// FONT WEIGHTS
+
+// values  - - - - - - - - - - - - - - - - - - -
+// $s-fw-NN:              100-900 (mults of 100);
+
+$s-fw-xlight:             200;
+$s-fw-light:              300;
+$s-fw-normal:             400;
+$s-fw-bold:               600;
+$s-fw-xbold:              700;
+
+// ---------------------------------------------
+// COLORS
+
+// values  - - - - - - - - - - - - - - - - - - -
+// $s-color-NN:           $u-color-NN;
+
+// Identity colors
+$s-color-id-1:            $u-color-terra-50v !default;
+$s-color-id-1-dark:       $u-color-terra-60 !default;
+$s-color-id-1-xdark:      $u-color-terra-70 !default;
+$s-color-id-1-light:      $u-color-terra-40 !default;
+$s-color-id-1-xlight:     $u-color-terra-20 !default;
+
+$s-color-id-2:            $u-color-coastal-50v !default;
+$s-color-id-2-dark:       $u-color-coastal-60v !default;
+$s-color-id-2-xdark:      $u-color-coastal-70 !default;
+$s-color-id-2-light:      $u-color-coastal-40 !default;
+$s-color-id-2-xlight:     $u-color-coastal-20 !default;
+
+$s-color-id-3:            $u-color-gray-warm-80 !default;
+$s-color-id-4:            $u-color-peach-40v !default;
+$s-color-id-5:            $u-color-citron-10v !default;
+
+// UI colors
+$s-color-ui-1:            $u-color-gray-90 !default;
+$s-color-ui-2:            $u-color-gray-70 !default;
+$s-color-ui-3:            $u-color-gray-50 !default;
+$s-color-ui-4:            $u-color-gray-50 !default;
+$s-color-ui-5:            $u-color-gray-warm-20 !default;
+$s-color-ui-6:            $u-color-blue-60v !default;
+
+// Text colors
+$s-color-text-1:          $u-color-gray-90 !default;
+$s-color-text-2:          $u-color-blue-60v !default;
+$s-color-text-3:          $u-color-gray-50 !default;
+$s-color-text-4:          $u-color-gray-50 !default;
+$s-color-text-inverse:    $u-color-white-0 !default;
+
+// Field colors
+$s-color-field-1:         $u-color-white-warm-1 !default;
+$s-color-field-2:         $u-color-white-warm-4 !default;
+$s-color-field-3:         $u-color-citron-1 !default;
+$s-color-field-4:         $u-color-gray-warm-90 !default;
+
+// Error colors
+$s-color-error:           $u-color-red-50v !default;
+$s-color-error-dark:      $u-color-red-60 !default;
+$s-color-error-xdark:     $u-color-red-70 !default;
+$s-color-error-light:     $u-color-red-40v !default;
+$s-color-error-xlight:    $u-color-red-30v !default;
+
+// Warning colors
+$s-color-warn:            $u-color-orange-30v !default;
+$s-color-warn-dark:       $u-color-orange-40 !default;
+$s-color-warn-xdark:      $u-color-orange-50 !default;
+$s-color-warn-light:      $u-color-orange-20v !default;
+$s-color-warn-xlight:     $u-color-orange-10v !default;
+
+// Success colors
+$s-color-success:         $u-color-green-40v !default;
+$s-color-success-dark:    $u-color-green-50 !default;
+$s-color-success-xdark:   $u-color-green-70 !default;
+$s-color-success-light:   $u-color-green-30v !default;
+$s-color-success-xlight:  $u-color-green-20v !default;
+
+// OK colors
+$s-color-ok:              $u-color-blue-50v !default;
+$s-color-ok-dark:         $u-color-blue-60v !default;
+$s-color-ok-xdark:        $u-color-blue-70 !default;
+$s-color-ok-light:        $u-color-blue-40v !default;
+$s-color-ok-xlight:       $u-color-blue-30 !default;
+
+// Disabled color
+$s-color-disabled:        $u-color-gray-30 !default;
+
+// Other colors
+$s-color-banner:          $u-color-gray-90 !default;
+$s-color-highlight:       $u-color-gold-20v !default;
+
+// ---------------------------------------------
+// BORDER RADIUS
+
+// values  - - - - - - - - - - - - - - - - - - -
+// $s-radius-NN:          $u-spacing-NN;
+//                        1px
+//                        2px
+
+$s-radius-sm:             1px !default;
+$s-radius-md:             $u-spacing-05 !default;
+$s-radius-lg:             $u-spacing-105 !default;

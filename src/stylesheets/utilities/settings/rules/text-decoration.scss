@@ -1,0 +1,31 @@
+/*
+----------------------------------------
+Text Decoration
+----------------------------------------
+usage:
+  .[value]
+----------------------------------------
+output:
+  text-decoration: [value]
+----------------------------------------
+example:
+  .underline {
+    text-decoration: underline; }
+----------------------------------------
+*/
+
+$text-decoration: (
+  text-decoration: (
+    base: null,
+    modifiers: null,
+    values: (
+      underline: ('underline', isReadable),
+      strike: ('strike', isReadable),
+      plain: ('none', isReadable),
+    ),
+    property: 'text-decoration',
+    output: true,
+    responsive: false,
+    pseudoclasses: false,
+  )
+)

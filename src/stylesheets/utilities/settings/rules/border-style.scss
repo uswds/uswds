@@ -1,0 +1,35 @@
+/*
+----------------------------------------
+Border Style
+----------------------------------------
+usage:
+  .b[modifier]*[-value]
+----------------------------------------
+output:
+  border[-modifier]-style: [value];
+----------------------------------------
+*/
+
+$border-style: (
+  border-style: (
+    base: 'b',
+    modifiers: (
+      t: '-top-style',
+      r: '-left-style',
+      b: '-bottom-style',
+      l: '-left-style',
+      y: ('-top-style', '-bottom-style'),
+      x: ('-left-style', '-right-style'),
+      noModifier: '-style',
+    ),
+    values: (
+      dashed: ('dashed', isReadable),
+      dotted: ('dotted', isReadable),
+      solid: ('solid', isReadable),
+    ),
+    property: 'border',
+    output: false,
+    responsive: true,
+    pseudoclasses: true,
+  )
+)

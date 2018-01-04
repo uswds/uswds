@@ -1,7 +1,7 @@
 // Collect all the individual utility maps
 // into a single map for looping.
 
-$utilities-units: map-collect(
+$utilities-package: map-collect(
   $background,
   $border-color,
   $border-radius,

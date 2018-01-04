@@ -1,0 +1,36 @@
+/*
+----------------------------------------
+Vertical Align
+----------------------------------------
+usage:
+  .va-[value]
+----------------------------------------
+output:
+  vertical-align: [value]
+----------------------------------------
+example:
+  .va-top {
+    vertical-align: top; }
+----------------------------------------
+*/
+
+$vertical-align: (
+  vertical-align: (
+    base: 'va',
+    modifiers: null,
+    values: (
+      baseline: ('baseline', isReadable),
+      bottom: ('bottom', isReadable),
+      middle: ('middle', isReadable),
+      sub: ('sub', isReadable),
+      super: ('super', isReadable),
+      text-bottom: ('text-bottom', isReadable),
+      text-top: ('text-top', isReadable),
+      top: ('top', isReadable),
+    ),
+    property: 'vertical-align',
+    output: false,
+    responsive: false,
+    pseudoclasses: false,
+  )
+)

@@ -1,0 +1,32 @@
+/*! uswds @version */
+
+// Vendor -------------- //
+@import 'lib/bourbon';
+@import 'lib/neat';
+
+// Functions
+@import 'core/functions';
+
+// Settings (Variables)
+@import 'core/units';
+@import 'core/variables';
+@import 'core/settings';
+
+// Utilities ------------ //
+// 1. Import the global utility values
+@import 'utilities/values-global';
+
+// 2. Import the unit utility values
+@import 'utilities/units/values';
+
+// 3. Import the settings utility values
+@import 'utilities/settings/values';
+
+// 3. Import the settings utility definitions
+@import 'utilities/settings/all';
+
+// 4. Package the utilities for build
+@import 'utilities/package';
+
+// 5. Build the utilities
+@include render-utilities-in($utilities-package);

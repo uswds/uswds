@@ -167,7 +167,11 @@
 // ------------------------------------------------------------
 
 @mixin render-utility($selector, $property, $value, $val-props) {
-  .#{$selector} {
+  $this-namespace: null;
+  @if $utility-type == settings {
+    $this-namespace: $s-settings-utilities-namespace;
+  }
+  .#{$this-namespace}#{$selector} {
     @if map-has-key($val-props, extend) {
       #{map-deep-get($val-props, extend, property)}: strunquote(map-deep-get($val-props, extend, value));
     }
@@ -180,8 +184,12 @@
 // ------------------------------------------------------------
 
 @mixin render-pseudoclasses($selector, $property, $value, $val-props){
-  @each $pseudoKey, $pseudo-value in map-get($values-global, pseudoclasses){
-    .#{$pseudoKey}-#{$selector}#{$pseudo-value} {
+  $this-namespace: null;
+  @if $utility-type == settings {
+    $this-namespace: $s-settings-utilities-namespace;
+  }
+  @each $pseudo-key, $pseudo-value in map-get($values-global, pseudoclasses){
+    .#{$this-namespace}#{$pseudo-key}-#{$selector}#{$pseudo-value} {
       @each $this-property in $property {
         #{$this-property}: $value;
       }
@@ -192,7 +200,11 @@
 // ------------------------------------------------------------
 
 @mixin render-placeholder($selector, $property, $value, $val-props){
-  .pl-#{$selector}::placeholder {
+  $this-namespace: null;
+  @if $utility-type == settings {
+    $this-namespace: $s-settings-utilities-namespace;
+  }
+  .#{$this-namespace}pl-#{$selector}::placeholder {
     @each $this-property in $property {
       #{$this-property}: $value;
     }
@@ -200,9 +212,13 @@
 }
 
 @mixin render-media-queries($selector, $property, $value, $val-props){
+  $this-namespace: null;
+  @if $utility-type == settings {
+    $this-namespace: $s-settings-utilities-namespace;
+  }
   @each $mediaKey, $media-value in map-get($values-global, breakpoints){
     @media (min-width: #{nth($media-value, 1)}) {
-      .#{$mediaKey}-#{$selector} {
+      .#{$this-namespace}#{$mediaKey}-#{$selector} {
         @if map-has-key($val-props, extend) {
           #{map-deep-get($val-props, extend, property)}: strunquote(map-deep-get($val-props, extend, value));
         }
