@@ -3,7 +3,7 @@
 // ---------------------------------------------
 // NAMESPACE
 
-$s-settings-utilities-namespace: "usa-u-" !default;
+$s-settings-utilities-namespace: 'usa-u-' !default;
 
 // ---------------------------------------------
 // SPACING
@@ -70,30 +70,30 @@ $s-color-id-2-xdark:      $u-color-coastal-70 !default;
 $s-color-id-2-light:      $u-color-coastal-40 !default;
 $s-color-id-2-xlight:     $u-color-coastal-20 !default;
 
-$s-color-id-3:            $u-color-gray-warm-80 !default;
+$s-color-id-3:            $u-color-black-warm-80 !default;
 $s-color-id-4:            $u-color-peach-40v !default;
 $s-color-id-5:            $u-color-citron-10v !default;
 
 // UI colors
-$s-color-ui-1:            $u-color-gray-90 !default;
-$s-color-ui-2:            $u-color-gray-70 !default;
-$s-color-ui-3:            $u-color-gray-50 !default;
-$s-color-ui-4:            $u-color-gray-50 !default;
-$s-color-ui-5:            $u-color-gray-warm-20 !default;
+$s-color-ui-1:            $u-color-black-90 !default;
+$s-color-ui-2:            $u-color-black-70 !default;
+$s-color-ui-3:            $u-color-black-50 !default;
+$s-color-ui-4:            $u-color-black-50 !default;
+$s-color-ui-5:            $u-color-black-warm-20 !default;
 $s-color-ui-6:            $u-color-blue-60v !default;
 
 // Text colors
-$s-color-text-1:          $u-color-gray-90 !default;
+$s-color-text-1:          $u-color-black-90 !default;
 $s-color-text-2:          $u-color-blue-60v !default;
-$s-color-text-3:          $u-color-gray-50 !default;
-$s-color-text-4:          $u-color-gray-50 !default;
+$s-color-text-3:          $u-color-black-50 !default;
+$s-color-text-4:          $u-color-black-50 !default;
 $s-color-text-inverse:    $u-color-white-0 !default;
 
 // Field colors
 $s-color-field-1:         $u-color-white-warm-1 !default;
 $s-color-field-2:         $u-color-white-warm-4 !default;
 $s-color-field-3:         $u-color-citron-1 !default;
-$s-color-field-4:         $u-color-gray-warm-90 !default;
+$s-color-field-4:         $u-color-black-warm-90 !default;
 
 // Error colors
 $s-color-error:           $u-color-red-50v !default;
@@ -124,10 +124,10 @@ $s-color-ok-light:        $u-color-blue-40v !default;
 $s-color-ok-xlight:       $u-color-blue-30 !default;
 
 // Disabled color
-$s-color-disabled:        $u-color-gray-30 !default;
+$s-color-disabled:        $u-color-black-30 !default;
 
 // Other colors
-$s-color-banner:          $u-color-gray-90 !default;
+$s-color-banner:          $u-color-black-90 !default;
 $s-color-highlight:       $u-color-gold-20v !default;
 
 // ---------------------------------------------
