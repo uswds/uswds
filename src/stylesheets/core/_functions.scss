@@ -59,6 +59,7 @@
   @return $collection;
 }
 
+/* stylelint-disable */
 // ------------------------------------------------------------
 // remove()
 
@@ -102,9 +103,7 @@
       slug: $key,
       content: $values,
     );
-  }
-
-  @else {
+  } @else {
     $values: remove($values, isReadable);
 
     @return (
@@ -125,9 +124,7 @@
     @return (
       slug: $values,
     );
-  }
-
-  @else {
+  } @else {
     $values: remove($values, isReadable);
 
     @return (
@@ -294,9 +291,7 @@
 
         // Otherwise, assign it null props.
 
-      }
-
-      @else {
+      } @else {
         $base-props: (
           slug: null,
         );
@@ -321,9 +316,7 @@
 
           // If it _isn't_ a MAP...
 
-        }
-
-        @else {
+        } @else {
 
           // ...use to-map() to convert the value keypair into a MAP:
           //    $val-props: (
@@ -381,9 +374,7 @@
           // If there is one, capture it as $our-modifiers.
 
           $our-modifiers: map-get($utility, modifiers);
-        }
-
-        @else {
+        } @else {
 
           // If there isn't one, build a dummy so we can keep
           // all our build in the same loop.
@@ -432,9 +423,7 @@
 
             // if the value is noValue ('')
 
-            }
-
-            @elseif map-get($val-props, slug) == '' {
+            } @elseif map-get($val-props, slug) == '' {
 
               // selector is a simple join
 
@@ -442,17 +431,13 @@
 
             // Otherwise, if base-props.isReadable, or val-props.isReadable
 
-            }
-
-            @elseif map-has-key($base-props, isReadable) or
+            } @elseif map-has-key($base-props, isReadable) or
               map-has-key($val-props, isReadable) {
 
               // selector is joined with a '-'
 
               $selector: $b + '-' + $v;
-            }
-
-            @else {
+            } @else {
 
               // otherwise, it gets a simple join.
 
@@ -471,11 +456,9 @@
             // OK, cool.
             // So what if there _is_ a modifier object?
 
-          }
+            // -------- if the modifier is NOT null ----------
 
-          // -------- if the modifier is NOT null ----------
-
-          @else {
+        } @else {
 
             // If there are modifiers, $property is a concat of $property-default
             // with _each_ of the values in $mod-props.content
@@ -496,9 +479,7 @@
               // If so, join with a '-' into selector $mv.
 
               $mv: map-get($mod-props, slug) + '-' + map-get($val-props, slug);
-            }
-
-            @else {
+            } @else {
 
               // If not, just join into selector $mv.
 
@@ -510,14 +491,10 @@
 
             @if $b == null {
               $selector: $mv;
-            }
-
-            @elseif map-get($base-props, isReadable) or
+            } @elseif map-get($base-props, isReadable) or
               map-get($mod-props, isReadable) {
               $selector: $b + '-' + $mv;
-            }
-
-            @else {
+            } @else {
               $selector: $b + $mv;
             }
           } // finished setting modifier vars
@@ -554,3 +531,4 @@
   } // end the utility loop
   // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
 }
+/* stylelint-enable */
