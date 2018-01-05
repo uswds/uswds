@@ -24,7 +24,7 @@ $font-weight: (
     property: 'font-weight',
     output: true,
     responsive: true,
-    pseudoclasses: true,
-    placeholder: true,
+    pseudoclasses: false,
+    placeholder: false,
   )
 )

@@ -10,6 +10,7 @@ var pkg = require('../../package.json');
 var filter = require('gulp-filter');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
+var combineMq = require('gulp-combine-mq');
 var del = require('del');
 var task = 'sass';
 
@@ -74,7 +75,13 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
         cascade: false,
       })
     )
-    // 4. write dist/css/uswds.css
+    // 4. Combine media queries
+    .pipe(
+      combineMq({
+        beautify: true,
+      })
+    )
+    // 5. write dist/css/uswds.css
     .pipe(gulp.dest('dist/css'));
 
   // we can reuse this stream for minification!

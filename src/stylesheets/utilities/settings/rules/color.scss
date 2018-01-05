@@ -18,12 +18,10 @@ $color: (
   color: (
     base: null,
     modifiers: null,
-    values: map-collect(
-      map-get($values-settings, colors)
-    ),
+    values: map-get($values-settings, colors),
     property: 'color',
     output: true,
-    responsive: true,
+    responsive: false,
     pseudoclasses: false,
     placeholder: false,
   )

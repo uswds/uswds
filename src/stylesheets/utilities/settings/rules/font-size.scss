@@ -34,7 +34,7 @@ $font-size: (
     property: 'font-size',
     output: true,
     responsive: true,
-    pseudoclasses: true,
-    placeholder: true,
+    pseudoclasses: false,
+    placeholder: false,
   )
 )
