@@ -68,9 +68,7 @@
   @for $i from 1 through length($list) {
     @if type-of(nth($list, $i)) == list and $recursive {
       $result: append($result, remove(nth($list, $i), $value, $recursive));
-    }
-
-    @else if nth($list, $i) != $value {
+    } @else if nth($list, $i) != $value {
       $result: append($result, nth($list, $i));
     }
   }
@@ -178,9 +176,9 @@
 // regularizes a specific face's optical size to a normal target
 
 @function type-scale($cap-height, $scale) {
-  $thisScale: $base-capheight * strip-unit($scale) / $cap-height;
+  $this-scale: $base-capheight * strip-unit($scale) / $cap-height;
 
-  @return px($thisScale);
+  @return px($this-scale);
 }
 
 // ------------------------------------------------------------
@@ -473,7 +471,7 @@
             // OK, cool.
             // So what if there _is_ a modifier object?
 
-            }
+          }
 
           // -------- if the modifier is NOT null ----------
 
