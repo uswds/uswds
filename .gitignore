@@ -11,7 +11,7 @@ coverage/
 # ignore the generated dist directory
 dist/
 
-# ignore the Fractal build directgory
+# ignore the Fractal build directory
 build/
 
 # ignore gulp-generated vendor files
@@ -20,3 +20,12 @@ src/stylesheets/lib
 # ignore saved screenshots
 spec/screenshots/*.png
 spec/screenshots/metadata.js
+
+# OS generated files
+ehthumbs.db 
+Thumbs.db 
+
+# IDE project setting files
+
+.idea/
+*.swp
