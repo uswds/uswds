@@ -59,7 +59,7 @@ There are a few different ways to use the Standards within your project. Which o
 
 ### Download
 
-1. Download the [Standards zip file](https://github.com/18F/web-design-standards/releases/download/v1.0.0/uswds-1.0.0.zip) and open that file.
+1. Download the [Standards zip file](https://github.com/18F/web-design-standards/releases/latest) from the latest release and open that file.
 
   After extracting the zip file you should see the following file and folder structure:
 
