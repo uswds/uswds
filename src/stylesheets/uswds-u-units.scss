@@ -22,8 +22,8 @@
 // 3. Import the unit utility definitions
 @import 'utilities/units/all';
 
-// 4. Import the unit utility packager
-@import 'utilities/units/package';
+// 4. Import the utility packager
+@import 'utilities/package';
 
 // 5. Build the utilities
-@include render-utilities-in($units-package);
+@include render-utilities-in($utilities-package);
