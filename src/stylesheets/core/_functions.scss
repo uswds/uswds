@@ -173,7 +173,7 @@
 // regularizes a specific face's optical size to a normal target
 
 @function type-scale($cap-height, $scale) {
-  $this-scale: $base-capheight * strip-unit($scale) / $cap-height;
+  $this-scale: $base-cap-height * strip-unit($scale) / $cap-height;
 
   @return px($this-scale);
 }
