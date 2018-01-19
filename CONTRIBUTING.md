@@ -35,7 +35,7 @@ Here are a few guidelines to follow when submitting a pull request:
 ### Running locally
 
 The U.S. Web Design System `uswds` package (the zip download and the
-files needed to use the Standards on your project) is built primarily with
+files needed to use the Design System on your project) is built primarily with
 two [Node.js] tools: [Fractal] and [Gulp]. Once you've cloned this
 repository, you'll need to install its dependencies:
 
@@ -90,10 +90,10 @@ Chrome v59 or higher (v60 if you're on Windows).
 
 #### Visual regression testing
 
-The Standards come with optional tooling for detecting visual regressions,
+The Design System comes with optional tooling for detecting visual regressions,
 which can be especially useful if you're refactoring CSS.
 
-These tests work by comparing current screenshots of the Standards' Fractal
+These tests work by comparing current screenshots of the Design System's Fractal
 components to "golden" screenshots that represent what the components are
 supposed to look like.
 

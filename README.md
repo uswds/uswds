@@ -2,9 +2,9 @@
 
 [![CircleCI Build Status](https://circleci.com/gh/18F/web-design-standards/tree/develop.svg?style=shield)](https://circleci.com/gh/18F/web-design-standards/tree/develop) [![Test Coverage](https://codeclimate.com/github/18F/web-design-standards/badges/coverage.svg)](https://codeclimate.com/github/18F/web-design-standards/coverage)
 
-The [U.S. Web Design System](https://standards.usa.gov) include a library of open source UI components and a visual style guide for U.S. federal government websites.
+The [U.S. Web Design System](https://standards.usa.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-This repository is for the Standards themselves. 18F maintains [another repository for the documentation and website](https://github.com/18F/web-design-standards-docs). To see the Standards and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
+This repository is for the Design System itself. 18F maintains [another repository for the documentation and website](https://github.com/18F/web-design-standards-docs). To see the Design System and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
 
 
 ## Contents
@@ -12,7 +12,7 @@ This repository is for the Standards themselves. 18F maintains [another reposito
 * [Background](#background)
 * [Recent updates](#recent-updates)
 * [Getting started](#getting-started)
-* [Using the Standards](#using-the-standards)
+* [Using the Design System](#using-the-design-system)
   * [Download](#download)
   * [Install using `npm`](#install-using-npm)
     * [Importing assets](#importing-assets)
@@ -28,32 +28,32 @@ This repository is for the Standards themselves. 18F maintains [another reposito
 
 ## Background
 
-The components and style guide of the U.S. Web Design System follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created and maintain the U.S. Web Design System for designers and developers. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/) and to view websites and applications check out our list [here](WHO_IS_USING_USWDS.md).
+The components and style guide of the U.S. Web Design System follows industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created and maintain the U.S. Web Design System for designers and developers. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/) and to view websites and applications check out our list [here](WHO_IS_USING_USWDS.md).
 
 
 ## Recent updates
 
-Information about the most recent release of the Standards can always be found in the [release history](https://github.com/18F/web-design-standards/releases). We include details about significant updates and any backwards incompatible changes along with a list of all changes.
+Information about the most recent release of the Design System can always be found in the [release history](https://github.com/18F/web-design-standards/releases). We include details about significant updates and any backwards incompatible changes along with a list of all changes.
 
 
 ## Getting started
 
-We’re glad you’d like to use the Standards — here’s how you can get started:
+We’re glad you’d like to use the Design System — here’s how you can get started:
 
 * Designers: [Check out our Getting Started for Designers information](https://standards.usa.gov/getting-started/designers/).
-  * [Design files of all the assets included in the Standards are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
+  * [Design files of all the assets included in the Design System are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
 * Developers: [Follow the instructions in this README to get started.](#using-the-standards)
   * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v1.0.0/uswds-1.0.0.zip).
 
 
-## Using the Standards
+## Using the Design System
 
-There are a few different ways to use the Standards within your project. Which one you choose depends on the needs of your project and how you are most comfortable working. Here are a few notes on what to consider when deciding which installation method to use:
+There are a few different ways to use the Design System within your project. Which one you choose depends on the needs of your project and how you are most comfortable working. Here are a few notes on what to consider when deciding which installation method to use:
 
-*Download the Standards if:*
+*Download the Design System if:*
 - You are not familiar with `npm` and package management.
 
-*Use the Standards `npm` package if:*
+*Use the Design System `npm` package if:*
 - You are familiar with using `npm` and package management.
 - You would like to leverage Standards [Sass](#sass) files.
 
@@ -92,7 +92,7 @@ There are a few different ways to use the Standards within your project. Which o
 
   You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project.
 
-3. To use the Standards on your project, you’ll need to reference the [CSS (*C*ascading *S*tyle *S*heets)](https://developer.mozilla.org/en-US/docs/Web/CSS) and JavaScript files in each HTML page or dynamic templates in your project.
+3. To use the Design System on your project, you’ll need to reference the [CSS (*C*ascading *S*tyle *S*heets)](https://developer.mozilla.org/en-US/docs/Web/CSS) and JavaScript files in each HTML page or dynamic templates in your project.
 
   Here is an example of how to reference these assets in your `index.html` file:
 
@@ -114,7 +114,7 @@ There are a few different ways to use the Standards within your project. Which o
 
 We offer both files, the CSS and the JavaScript, in two versions — a minified version, and an un-minified one. (In the examples above, we are using the minified files.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. And the un-minified files are better if you are in a development environment or would like to debug the CSS or JavaScript assets in the browser.
 
-And that’s it — you should now be able to copy our code samples into our `index.html` and start using the Standards.
+And that’s it — you should now be able to copy our code samples into our `index.html` and start using the Design System.
 
 ### Install using npm
 
@@ -169,7 +169,7 @@ Since you are already using `npm`, the U.S. Web Design System team recommends le
 
 #### Sass
 
-The Standards are easily customizable using the power of [Sass (Syntactically Awesome Style Sheets)](http://sass-lang.com/). The main Sass (SCSS) source file is located here:
+The Design System is easily customizable using the power of [Sass (Syntactically Awesome Style Sheets)](http://sass-lang.com/). The main Sass (SCSS) source file is located here:
 
 ```
 node_modules/uswds/src/stylesheets/uswds.scss
@@ -199,13 +199,13 @@ If you’re interested in maintaining a package that helps us distribute the U.S
 
 ## Fractal
 
-We're using [Fractal](http://fractal.build) to generate an interactive component library for the Standards. You can run it locally after `npm install` with:
+We're using [Fractal](http://fractal.build) to generate an interactive component library for the Design System. You can run it locally after `npm install` with:
 
 ```sh
 npm start
 ```
 
-Then, visit [http://localhost:3000/](http://localhost:3000/) to see the Standards in action.
+Then, visit [http://localhost:3000/](http://localhost:3000/) to see the Design System in action.
 
 _**Optional**: To re-build when code changes are made, run the following command from the project directory in a separate terminal window:_
 ```sh
@@ -228,7 +228,7 @@ You can also email us directly at uswebdesignstandards@gsa.gov.
 
 ## Contributing to the code base
 
-For complete instructions on how to contribute code, please read [CONTRIBUTING.md](CONTRIBUTING.md). These instructions also include guidance on how to set up your own copy of the Standards style guide website for development.
+For complete instructions on how to contribute code, please read [CONTRIBUTING.md](CONTRIBUTING.md). These instructions also include guidance on how to set up your own copy of the Design System style guide website for development.
 
 If you would like to learn more about our workflow process, check out the [Workflow](https://github.com/18F/web-design-standards/wiki/Workflow) and [Issue label Glossary](https://github.com/18F/web-design-standards/wiki/Issue-label-glossary) pages on the wiki.
 
