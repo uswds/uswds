@@ -2,9 +2,9 @@
 
 [![CircleCI Build Status](https://circleci.com/gh/18F/web-design-standards/tree/develop.svg?style=shield)](https://circleci.com/gh/18F/web-design-standards/tree/develop) [![Test Coverage](https://codeclimate.com/github/18F/web-design-standards/badges/coverage.svg)](https://codeclimate.com/github/18F/web-design-standards/coverage)
 
-The [U.S. Web Design System](https://standards.usa.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
+The [U.S. Web Design System](https://designsystem.digital.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-This repository is for the Design System itself. 18F maintains [another repository for the documentation and website](https://github.com/uswds/uswds-docs). To see the Design System and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
+This repository is for the Design System itself. 18F maintains [another repository for the documentation and website](https://github.com/uswds/uswds-docs). To see the Design System and documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
 
 
 ## Contents
@@ -40,7 +40,7 @@ Information about the most recent release of the Design System can always be fou
 
 We’re glad you’d like to use the Design System — here’s how you can get started:
 
-* Designers: [Check out our Getting Started for Designers information](https://standards.usa.gov/getting-started/designers/).
+* Designers: [Check out our Getting Started for Designers information](https://designsystem.digital.gov/getting-started/designers/).
   * [Design files of all the assets included in the Design System are available for download](https://github.com/uswds/uswds-assets/archive/master.zip).
 * Developers: [Follow the instructions in this README to get started.](#using-the-standards)
   * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/uswds/uswds/releases/download/v1.0.0/uswds-1.0.0.zip).
