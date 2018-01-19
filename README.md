@@ -1,8 +1,8 @@
-# U.S. Web Design Standards
+# U.S. Web Design System
 
 [![CircleCI Build Status](https://circleci.com/gh/18F/web-design-standards/tree/develop.svg?style=shield)](https://circleci.com/gh/18F/web-design-standards/tree/develop) [![Test Coverage](https://codeclimate.com/github/18F/web-design-standards/badges/coverage.svg)](https://codeclimate.com/github/18F/web-design-standards/coverage)
 
-The [U.S. Web Design Standards](https://standards.usa.gov) include a library of open source UI components and a visual style guide for U.S. federal government websites.
+The [U.S. Web Design System](https://standards.usa.gov) include a library of open source UI components and a visual style guide for U.S. federal government websites.
 
 This repository is for the Standards themselves. 18F maintains [another repository for the documentation and website](https://github.com/18F/web-design-standards-docs). To see the Standards and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
 
@@ -28,7 +28,7 @@ This repository is for the Standards themselves. 18F maintains [another reposito
 
 ## Background
 
-The components and style guide of the U.S. Web Design Standards follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created and maintain the U.S. Web Design Standards for designers and developers. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/) and to view websites and applications check out our list [here](WHO_IS_USING_USWDS.md).
+The components and style guide of the U.S. Web Design System follow industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created and maintain the U.S. Web Design System for designers and developers. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/) and to view websites and applications check out our list [here](WHO_IS_USING_USWDS.md).
 
 
 ## Recent updates
@@ -118,7 +118,7 @@ And that’s it — you should now be able to copy our code samples into our `in
 
 ### Install using npm
 
-`npm` is a package manager for Node based projects. The U.S. Web Design Standards maintains a [`uswds` package](https://www.npmjs.com/package/uswds) for you to utilize both the pre-compiled and compiled files on your project.
+`npm` is a package manager for Node based projects. The U.S. Web Design System maintains a [`uswds` package](https://www.npmjs.com/package/uswds) for you to utilize both the pre-compiled and compiled files on your project.
 
 1. Install `Node/npm`. Below is a link to find the install method that coincides with your operating system:
 
@@ -161,7 +161,7 @@ node_modules/uswds/
 
 #### Importing assets
 
-Since you are already using `npm`, the U.S. Web Design Standards team recommends leveraging the ability to write custom scripts. Here are some links to how we do this with our docs website using `npm` + [`gulp`](http://gulpjs.com/):
+Since you are already using `npm`, the U.S. Web Design System team recommends leveraging the ability to write custom scripts. Here are some links to how we do this with our docs website using `npm` + [`gulp`](http://gulpjs.com/):
 
 [Link to `npm` scripts example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/develop/package.json#L4)
 
@@ -188,13 +188,13 @@ Below is an example of how you might setup your main Sass file to achieve this:
 You can now use your copied version of `_variables.scss` to override any styles to create a more custom look and feel to your application.
 
 #### JavaScript
-`require('uswds')` will load all of the U.S. Web Design Standards’ JavaScript onto the page. Add this line to whatever initializer you use to load JavaScript into your application.
+`require('uswds')` will load all of the U.S. Web Design System’ JavaScript onto the page. Add this line to whatever initializer you use to load JavaScript into your application.
 
 ### Use another framework or package manager
 
 If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/18F/web-design-standards/issues/877).
 
-If you’re interested in maintaining a package that helps us distribute the U.S. Web Design Standards, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
+If you’re interested in maintaining a package that helps us distribute the U.S. Web Design System, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
 
 ## Fractal
@@ -237,7 +237,7 @@ If you have questions or concerns about our contributing workflow, please contac
 
 ## Reuse of open-source style guides
 
-Much of the guidance in the U.S. Web Design Standards leans on open source designs, code, and patterns from other civic and government organizations, including:
+Much of the guidance in the U.S. Web Design System leans on open source designs, code, and patterns from other civic and government organizations, including:
 
 * Consumer Financial Protection Bureau’s [Design Manual](https://cfpb.github.io/design-manual/)
 * U.S. Patent and Trademark Office’s [Design Patterns](http://uspto.github.io/designpatterns/)
