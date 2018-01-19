@@ -188,7 +188,7 @@ Below is an example of how you might setup your main Sass file to achieve this:
 You can now use your copied version of `_variables.scss` to override any styles to create a more custom look and feel to your application.
 
 #### JavaScript
-`require('uswds')` will load all of the U.S. Web Design System’ JavaScript onto the page. Add this line to whatever initializer you use to load JavaScript into your application.
+`require('uswds')` will load all of the U.S. Web Design System’s JavaScript onto the page. Add this line to whatever initializer you use to load JavaScript into your application.
 
 ### Use another framework or package manager
 
