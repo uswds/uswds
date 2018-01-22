@@ -30,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/18F/web-design-standards.git"
+    "url": "git+https://github.com/uswds/uswds.git"
   },
   "author": "18F",
   "contributors": [
@@ -44,9 +44,9 @@
   ],
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
-    "url": "https://github.com/18F/web-design-standards/issues"
+    "url": "https://github.com/uswds/uswds/issues"
   },
-  "homepage": "https://github.com/18F/web-design-standards#readme",
+  "homepage": "https://github.com/uswds/uswds#readme",
   "dependencies": {
     "@types/node": "^8.5.5",
     "array-filter": "^1.0.0",

@@ -4,7 +4,7 @@
 
 The [U.S. Web Design Standards](https://standards.usa.gov) include a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-This repository is for the Standards themselves. 18F maintains [another repository for the documentation and website](https://github.com/18F/web-design-standards-docs). To see the Standards and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
+This repository is for the Standards themselves. 18F maintains [another repository for the documentation and website](https://github.com/uswds/uswds-docs). To see the Standards and documentation on the web, visit [https://standards.usa.gov](https://standards.usa.gov).
 
 
 ## Contents
@@ -33,7 +33,7 @@ The components and style guide of the U.S. Web Design Standards follow industry-
 
 ## Recent updates
 
-Information about the most recent release of the Standards can always be found in the [release history](https://github.com/18F/web-design-standards/releases). We include details about significant updates and any backwards incompatible changes along with a list of all changes.
+Information about the most recent release of the Standards can always be found in the [release history](https://github.com/uswds/uswds/releases). We include details about significant updates and any backwards incompatible changes along with a list of all changes.
 
 
 ## Getting started
@@ -41,9 +41,9 @@ Information about the most recent release of the Standards can always be found i
 We’re glad you’d like to use the Standards — here’s how you can get started:
 
 * Designers: [Check out our Getting Started for Designers information](https://standards.usa.gov/getting-started/designers/).
-  * [Design files of all the assets included in the Standards are available for download](https://github.com/18F/web-design-standards-assets/archive/master.zip).
+  * [Design files of all the assets included in the Standards are available for download](https://github.com/uswds/uswds-assets/archive/master.zip).
 * Developers: [Follow the instructions in this README to get started.](#using-the-standards)
-  * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/18F/web-design-standards/releases/download/v1.0.0/uswds-1.0.0.zip).
+  * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/uswds/uswds/releases/download/v1.0.0/uswds-1.0.0.zip).
 
 
 ## Using the Standards
@@ -59,7 +59,7 @@ There are a few different ways to use the Standards within your project. Which o
 
 ### Download
 
-1. Download the [Standards zip file](https://github.com/18F/web-design-standards/releases/latest) from the latest release and open that file.
+1. Download the [Standards zip file](https://github.com/uswds/uswds/releases/latest) from the latest release and open that file.
 
   After extracting the zip file you should see the following file and folder structure:
 
@@ -163,9 +163,9 @@ node_modules/uswds/
 
 Since you are already using `npm`, the U.S. Web Design Standards team recommends leveraging the ability to write custom scripts. Here are some links to how we do this with our docs website using `npm` + [`gulp`](http://gulpjs.com/):
 
-[Link to `npm` scripts example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/develop/package.json#L4)
+[Link to `npm` scripts example in `web-design-standards-docs`](https://github.com/uswds/uswds-docs/blob/develop/package.json#L4)
 
-[Link to gulpfile.js example in `web-design-standards-docs`](https://github.com/18F/web-design-standards-docs/blob/develop/gulpfile.js)
+[Link to gulpfile.js example in `web-design-standards-docs`](https://github.com/uswds/uswds-docs/blob/develop/gulpfile.js)
 
 #### Sass
 
@@ -192,7 +192,7 @@ You can now use your copied version of `_variables.scss` to override any styles 
 
 ### Use another framework or package manager
 
-If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/18F/web-design-standards/issues/877).
+If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
 
 If you’re interested in maintaining a package that helps us distribute the U.S. Web Design Standards, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
@@ -221,7 +221,7 @@ Many of our Fractal view templates are compatible with [Nunjucks](https://mozill
 
 Do you have questions or need help with setup? Did you run into any weird errors while following these instructions? Feel free to open an issue here:
 
-[https://github.com/18F/web-design-standards/issues](https://github.com/18F/web-design-standards/issues).
+[https://github.com/uswds/uswds/issues](https://github.com/uswds/uswds/issues).
 
 You can also email us directly at uswebdesignstandards@gsa.gov.
 
@@ -230,9 +230,9 @@ You can also email us directly at uswebdesignstandards@gsa.gov.
 
 For complete instructions on how to contribute code, please read [CONTRIBUTING.md](CONTRIBUTING.md). These instructions also include guidance on how to set up your own copy of the Standards style guide website for development.
 
-If you would like to learn more about our workflow process, check out the [Workflow](https://github.com/18F/web-design-standards/wiki/Workflow) and [Issue label Glossary](https://github.com/18F/web-design-standards/wiki/Issue-label-glossary) pages on the wiki.
+If you would like to learn more about our workflow process, check out the [Workflow](https://github.com/uswds/uswds/wiki/Workflow) and [Issue label Glossary](https://github.com/uswds/uswds/wiki/Issue-label-glossary) pages on the wiki.
 
-If you have questions or concerns about our contributing workflow, please contact us by [filing a GitHub issue](https://github.com/18F/web-design-standards/issues) or [emailing our team](mailto:uswebdesignstandards@gsa.gov).
+If you have questions or concerns about our contributing workflow, please contact us by [filing a GitHub issue](https://github.com/uswds/uswds/issues) or [emailing our team](mailto:uswebdesignstandards@gsa.gov).
 
 
 ## Reuse of open-source style guides

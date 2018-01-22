@@ -4,7 +4,7 @@ We’re so glad you’re thinking about contributing to an 18F open source proje
 
 One of our goals is to ensure a welcoming environment for all contributors to our projects. Our staff follows the [18F Code of Conduct](https://18f.gsa.gov/code-of-conduct/), and all contributors should do the same.
 
-We encourage you to read this project’s CONTRIBUTING policy (you are here), its [LICENSE](https://github.com/18F/web-design-standards/blob/develop/LICENSE.md), [README](https://github.com/18F/web-design-standards/blob/develop/README.md) and its [Workflow](https://github.com/18F/web-design-standards/wiki/Workflow) process.
+We encourage you to read this project’s CONTRIBUTING policy (you are here), its [LICENSE](https://github.com/uswds/uswds/blob/develop/LICENSE.md), [README](https://github.com/uswds/uswds/blob/develop/README.md) and its [Workflow](https://github.com/uswds/uswds/wiki/Workflow) process.
 
 If you have any questions or want to read more, check out the [18F Open Source Policy GitHub repository]( https://github.com/18f/open-source-policy), or just [shoot us an email](mailto:18f@gsa.gov).
 
@@ -12,7 +12,7 @@ If you have any questions or want to read more, check out the [18F Open Source P
 
 ### Contributor Guidelines for Design
 
-We have provided some guidelines for folks that would like to submit new components to the U.S. Web Design Standards and the lifecycle those new components will go through. For more detail, please visit the [guidelines on our wiki](https://github.com/18F/web-design-standards/wiki/Contribution-Guidelines:-Design).
+We have provided some guidelines for folks that would like to submit new components to the U.S. Web Design Standards and the lifecycle those new components will go through. For more detail, please visit the [guidelines on our wiki](https://github.com/uswds/uswds/wiki/Contribution-Guidelines:-Design).
 
 ### Submitting an issue
 
@@ -30,7 +30,7 @@ Here are a few guidelines to follow when submitting a pull request:
 1. Once you’re ready to submit a pull request, fill out the PULL REQUEST template provided.
 1. Submit your pull request against the `develop` branch.
 
-[Open an issue](https://github.com/18F/web-design-standards/issues/new) if you have questions or need help with setup.
+[Open an issue](https://github.com/uswds/uswds/issues/new) if you have questions or need help with setup.
 
 ### Running locally
 
@@ -156,11 +156,11 @@ See the [release documentation](RELEASE.md#release-process) for more information
 
 ### A few parts of this project are not in the public domain
 
-For complete attribution and licensing information for parts of the project that are not in the public domain, see [LICENSE.md](https://github.com/18F/web-design-standards/blob/develop/LICENSE.md).
+For complete attribution and licensing information for parts of the project that are not in the public domain, see [LICENSE.md](https://github.com/uswds/uswds/blob/develop/LICENSE.md).
 
 ### The rest of this project is in the public domain
 
-The rest of this project is in the worldwide [public domain](https://github.com/18F/web-design-standards/blob/develop/LICENSE.md).
+The rest of this project is in the worldwide [public domain](https://github.com/uswds/uswds/blob/develop/LICENSE.md).
 
 This project is in the public domain within the United States, and
 copyright and related rights in the work worldwide are waived through
