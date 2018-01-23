@@ -165,9 +165,9 @@ Otherwise, proceed with the next versioned release!
 
 #### Update the docs repo with the new version number on a new branch
 
-- [ ] Open the`web-design-standards-docs` repo
+- [ ] Open the`uswds-site` repo
 ```
-cd path/to/web-design-standards-docs
+cd path/to/uswds-site
 ```
 - [ ] Create a branch off `master`
 ```
