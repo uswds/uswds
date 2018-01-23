@@ -4,7 +4,7 @@
 
 The [U.S. Web Design System](https://designsystem.digital.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-This repository is for the Design System itself. 18F maintains [another repository for the documentation and website](https://github.com/uswds/uswds-docs). To see the Design System and documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
+This repository is for the Standards themselves. 18F maintains [another repository for the documentation and website](https://github.com/uswds/uswds-site). To see the Standards and documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
 
 ## Contents
 
@@ -162,9 +162,9 @@ node_modules/uswds/
 
 Since you are already using `npm`, the U.S. Web Design System team recommends leveraging the ability to write custom scripts. Here are some links to how we do this with our docs website using `npm` + [`gulp`](http://gulpjs.com/):
 
-[Link to `npm` scripts example in `web-design-standards-docs`](https://github.com/uswds/uswds-docs/blob/develop/package.json#L4)
+[Link to `npm` scripts example in `uswds-site`](https://github.com/uswds/uswds-site/blob/develop/package.json#L4)
 
-[Link to gulpfile.js example in `web-design-standards-docs`](https://github.com/uswds/uswds-docs/blob/develop/gulpfile.js)
+[Link to gulpfile.js example in `uswds-site`](https://github.com/uswds/uswds-site/blob/develop/gulpfile.js)
 
 #### Sass
 
