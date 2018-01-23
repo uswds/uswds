@@ -1,11 +1,10 @@
 # U.S. Web Design System
 
-[![CircleCI Build Status](https://circleci.com/gh/18F/web-design-standards/tree/develop.svg?style=shield)](https://circleci.com/gh/18F/web-design-standards/tree/develop) [![Test Coverage](https://codeclimate.com/github/18F/web-design-standards/badges/coverage.svg)](https://codeclimate.com/github/18F/web-design-standards/coverage)
+[![CircleCI Build Status](https://circleci.com/gh/uswds/uswds/tree/develop.svg?style=shield)](https://circleci.com/gh/uswds/uswds/tree/develop) [![Test Coverage](https://api.codeclimate.com/v1/badges/c10cd4505d61d161cd3a/test_coverage)](https://codeclimate.com/github/uswds/uswds/test_coverage)
 
 The [U.S. Web Design System](https://designsystem.digital.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
 
 This repository is for the Design System itself. 18F maintains [another repository for the documentation and website](https://github.com/uswds/uswds-docs). To see the Design System and documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
-
 
 ## Contents
 
