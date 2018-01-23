@@ -138,7 +138,7 @@ Otherwise, proceed with the next versioned release!
 - [ ] Have at least one team member to approved the pull request
 - [ ] Once the pull request is approved, merge it into `master`. This will trigger a two actions:
 - CircleCI will publish the new release to npm.
-- Federalist will deploy the new release's fractal site to `components.standards.usa.gov`.
+- Federalist will deploy the new release's fractal site to [components.standards.usa.gov](https://components.standards.usa.gov).
 
 - - -
 
