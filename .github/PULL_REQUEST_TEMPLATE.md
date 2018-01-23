@@ -4,7 +4,7 @@ Use the title line as the title of your pull request, then delete these lines.
 
 ## Title line template: [Title]: Brief description
 
-Website: For pull requests that impact standards.usa.gov’s look, feel, or functionality, please open a pull request on the web-design-standards-docs repo (https://github.com/18F/web-design-standards-docs).
+Website: For pull requests that impact standards.usa.gov’s look, feel, or functionality, please open a pull request on the uswds-site repo (https://github.com/uswds/uswds-site).
 
 -->
 

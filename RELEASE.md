@@ -133,12 +133,12 @@ Otherwise, proceed with the next versioned release!
 
 - [ ] Push the version branch up to Github
 - [ ] Open a pull request from your release branch into `master`.
-- [ ] List the key changes in the release in the pull request description. [See the v1.0.0 pull request](https://github.com/18F/web-design-standards/pull/1726) for an example.
+- [ ] List the key changes in the release in the pull request description. [See the v1.0.0 pull request](https://github.com/uswds/uswds/pull/1726) for an example.
 - [ ] Wait for all tests to complete successfully.
 - [ ] Have at least one team member to approved the pull request
 - [ ] Once the pull request is approved, merge it into `master`. This will trigger a two actions:
-- CircleCI will publish the new release to npm.
-- Federalist will deploy the new release's fractal site to `components.standards.usa.gov`.
+- CircleCI will publish the new release to [npm](https://www.npmjs.com/package/uswds).
+- Federalist will deploy the new release's fractal site to [components.standards.usa.gov](https://components.standards.usa.gov).
 
 - - -
 
@@ -153,7 +153,7 @@ Otherwise, proceed with the next versioned release!
 
 - [ ] Close all running USWDS processes in the terminal
 - [ ] In the `master` branch run `npm run prepublish` to build the assets zip file. It will be created at `dist/uswds-{{ version }}.zip`.
-- [ ] In [Github releases](https://github.com/18F/web-design-standards/releases) select `Draft a new release`
+- [ ] In [Github releases](https://github.com/uswds/uswds/releases) select `Draft a new release`
 - [ ] `tag`: `v{{ version }}`
 - [ ] `target`: `master`
 - [ ] Add release notes to the body
@@ -165,9 +165,9 @@ Otherwise, proceed with the next versioned release!
 
 #### Update the docs repo with the new version number on a new branch
 
-- [ ] Open the`web-design-standards-docs` repo
+- [ ] Open the`uswds-site` repo
 ```
-cd path/to/web-design-standards-docs
+cd path/to/uswds-site
 ```
 - [ ] Create a branch off `master`
 ```
@@ -176,7 +176,7 @@ git checkout -b release-{{ version }} origin/develop
 ```
 - [ ] Change the uswds dependency in `package.json` to the new version from `npm`
 ```
-npm install --save uswds@{{ version }}
+npm install --save-exact uswds@{{ version }}
 ```
 - [ ] Commit this change to the release branch
 
@@ -206,17 +206,17 @@ npm install --save uswds@{{ version }}
 ## Questions?
 If you need help or have any questions, please reach out to us:
 
-* File an [issue on GitHub](https://github.com/18F/web-design-standards/issues/new).
+* File an [issue on GitHub](https://github.com/uswds/uswds/issues/new).
 * Email us at [uswebdesignstandards@gsa.gov](mailto:uswebdesignstandards@gsa.gov).
 * [Sign up](https://chat.18f.gov/) for our public [Slack] channel.
 
 
-[draft release]: https://github.com/18F/web-design-standards/releases/new
+[draft release]: https://github.com/uswds/uswds/releases/new
 [git tag]: https://git-scm.com/book/en/v2/Git-Basics-Tagging
-[new release]: https://github.com/18F/web-design-standards/releases/new
+[new release]: https://github.com/uswds/uswds/releases/new
 [npm version]: https://docs.npmjs.com/cli/version
-[pull request]: https://github.com/18F/web-design-standards/compare
-[releases]: https://github.com/18F/web-design-standards/releases
+[pull request]: https://github.com/uswds/uswds/compare
+[releases]: https://github.com/uswds/uswds/releases
 [semver]: http://semver.org/
 [uswds on npm]: https://npmjs.com/package/uswds
 [what is npm]: https://docs.npmjs.com/getting-started/what-is-npm

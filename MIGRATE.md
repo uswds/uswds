@@ -1,7 +1,7 @@
 # Migration guide
 
 ## v1.2.0
-[Version 1.2.0](https://github.com/18F/web-design-standards/releases/tag/v1.2.0)
+[Version 1.2.0](https://github.com/uswds/uswds/releases/tag/v1.2.0)
 includes a complete refactor of our JavaScript to modernize our code, and provides
 better compatibility with third-party frameworks, such as React and Angular. You
 can read more about the rationale and techniques in [this update][] **link needed**,
