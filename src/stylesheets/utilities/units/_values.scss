@@ -259,8 +259,6 @@ $values-units: (
     'red-70': ($u-color-red-70, isReadable),
     'red-80': ($u-color-red-80, isReadable),
     'red-90': ($u-color-red-90, isReadable),
-    'red-10v': ($u-color-red-10v, isReadable),
-    'red-20v': ($u-color-red-20v, isReadable),
     'red-30v': ($u-color-red-30v, isReadable),
     'red-40v': ($u-color-red-40v, isReadable),
     'red-50v': ($u-color-red-50v, isReadable),
@@ -452,7 +450,7 @@ $values-units: (
     '2px': 2px,
   ),
   type-scale: (
-/*    mono-1: (
+    mono-1: (
       slug: 'mono-1',
       isReadable: true,
       content: $u-mono-1,
@@ -632,7 +630,6 @@ $values-units: (
         value: $font-mono,
       ),
     ),
-    */
     sans-1: (
       slug: 'sans-1',
       isReadable: true,
