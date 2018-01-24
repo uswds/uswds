@@ -19,7 +19,7 @@ jobs:
           name: Run code coverage report
           command: npm run cover
       - run:
-          name: Build the Standards package
+          name: Build the USWDS package
           command: npm run build
       - run:
           name: Checking build
@@ -36,9 +36,9 @@ jobs:
           name: Install dependencies
           command: npm install
       - run:
-          name: Build the Standards package
+          name: Build the USWDS package
           command: npm run build
-      - run: 
+      - run:
           name: Publish to NPM
           command: |
             npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"

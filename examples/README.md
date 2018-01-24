@@ -1,6 +1,6 @@
 # Usage examples
 
-These directories illustrate how to use the Standards `uswds` [npm] package
+These directories illustrate how to use the Design System `uswds` [npm] package
 with different tools:
 
 1. Compiling CSS with [node-sass](node-sass/)

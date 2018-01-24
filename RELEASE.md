@@ -1,7 +1,7 @@
 # Releasing the Web Design Standards
 
 This is our official process for releasing new versions of the [U.S. Web Design
-Standards](https://standards.usa.gov).
+Standards](https://designsystem.digital.gov).
 
 
 ## Table of contents
@@ -51,7 +51,7 @@ example, any of the following should trigger a major version increment:
 * Changing the way in which elements with `.usa-` class names are structured in
   HTML
 * Changing the HTML "API" for any of our interactive components, such as the
-  [accordion](https://standards.usa.gov/accordions/)
+  [accordion](https://designsystem.digital.gov/accordions/)
 
 
 ## Release process
@@ -145,7 +145,7 @@ Otherwise, proceed with the next versioned release!
 #### Check that the release was successful
 - [ ] Check the [CircleCI process](https://circleci.com/gh/18f/web-design-standards)
 - [ ] Check [uswds on npm](https://www.npmjs.com/package/uswds)
-- [ ] Check [components.standards.usa.gov](https://components.standards.usa.gov)
+- [ ] Check [components.designsystem.digital.gov](https://components.designsystem.digital.gov)
 
 - - -
 
@@ -192,10 +192,10 @@ npm install --save-exact uswds@{{ version }}
 
 - - -
 
-#### Check the Standards website to assure correctness
-- [ ] Check that the `Download code` ZIP file linked from the [Download code and design files](https://standards.usa.gov/getting-started/download/) page works (at the time of this writing, it should point to the ZIP file you uploaded when you released the new version on GitHub).
+#### Check the USWDS website to assure correctness
+- [ ] Check that the `Download code` ZIP file linked from the [Download code and design files](https://designsystem.digital.gov/getting-started/download/) page works (at the time of this writing, it should point to the ZIP file you uploaded when you released the new version on GitHub).
 - [ ] Check that the correct version number is mentioned under the link.
-- [ ] Check that the new release shows up on the [Release notes](https://standards.usa.gov/whats-new/releases/) page.
+- [ ] Check that the new release shows up on the [Release notes](https://designsystem.digital.gov/whats-new/releases/) page.
 
 - - -
 
@@ -222,4 +222,4 @@ If you need help or have any questions, please reach out to us:
 [what is npm]: https://docs.npmjs.com/getting-started/what-is-npm
 [Slack]: https://slack.com/
 [release candidates]: https://en.wikipedia.org/wiki/Software_release_life_cycle#Release_candidate
-[components.standards.usa.gov]: https://components.standards.usa.gov/
+[components.designsystem.digital.gov]: https://components.designsystem.digital.gov/
