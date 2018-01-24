@@ -120,4 +120,5 @@ for (var i = 0; i < chartBar.length; i++) {
 
   // Remove table from DOM
   chart.querySelector('.usa-chart-data').remove();
+  chart.classList.add('rendered');
 }

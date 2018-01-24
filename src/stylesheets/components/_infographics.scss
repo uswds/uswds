@@ -8,12 +8,8 @@ $infographic-colors:
   $color-gold
   $color-red;
 
-// Global chart styles
-svg {
-}
-
 // Bar chart specific styles
-.usa-chart-bar {
+.usa-chart-bar.rendered {
   .usa-chart-labelText,
   .usa-chart-labelValue {
     font-size: calc(3px - .1vw);
@@ -46,7 +42,7 @@ path.usa-chart-axis {
 }
 
 // Pie chart specific styles
-.usa-chart-pie {
+.usa-chart-pie.rendered {
   display: flex;
   align-items: center;
   td {

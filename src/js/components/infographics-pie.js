@@ -54,4 +54,5 @@ for (var i = 0; i < chartPie.length; i++) {
     // Offset for next arc
     offset = offset + parseInt(value);
   }
+  chart.classList.add('rendered');
 }
