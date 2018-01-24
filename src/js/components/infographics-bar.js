@@ -26,13 +26,27 @@ for (var i = 0; i < chartBar.length; i++) {
   var barWidth   = 92; // percent
   var textBottom = 3;  // percent
 
+  // Default values
+  var min = 0;
+  var max = 100;
+  var increment = 20;
+
+  // Overrides from markup
+  if(chart.querySelector('.usa-chart-data').dataset.min) {
+    min = parseFloat(chart.querySelector('.usa-chart-data').dataset.min.replace(/[^0-9\.]/g, ''));
+  }
+  if(chart.querySelector('.usa-chart-data').dataset.max) {
+    max = parseFloat(chart.querySelector('.usa-chart-data').dataset.max.replace(/[^0-9\.]/g, ''));
+  }
+  if(chart.querySelector('.usa-chart-data').dataset.increment) {
+    increment = parseFloat(chart.querySelector('.usa-chart-data').dataset.increment.replace(/[^0-9\.]/g, ''));
+  }
+
   // Draw bars onto graph
   for (var j = 0; j < items.length; j++) {
     const item = items[j];
+
     var value = parseFloat(item.querySelector('.usa-chart-value').innerHTML.replace(/[^0-9\.]/g, ''));
-    var min = parseFloat(chart.querySelector('.usa-chart-data').dataset.min.replace(/[^0-9\.]/g, ''));
-    var max = parseFloat(chart.querySelector('.usa-chart-data').dataset.max.replace(/[^0-9\.]/g, ''));
-    var increment = parseFloat(chart.querySelector('.usa-chart-data').dataset.increment.replace(/[^0-9\.]/g, ''));
 
     // Generate bar
     const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
@@ -76,8 +90,6 @@ for (var i = 0; i < chartBar.length; i++) {
     line.classList.add('usa-chart-gridLine');
     label.classList.add('usa-chart-gridLabel');
 
-    // <line x1="20" y1="100" x2="100" y2="20" />
-
     line.setAttribute('x1',leftOffset);
     line.setAttribute('y1',offset + '%');
     line.setAttribute('x2',barWidth + leftOffset);
@@ -88,7 +100,10 @@ for (var i = 0; i < chartBar.length; i++) {
     label.setAttribute('y', offset + 1.7 + '%');
 
     i = i + increment;
-    grid.appendChild(line);
+    // grid is on by default unless it’s turned off
+    if(chart.querySelector('.usa-chart-data').dataset.grid != 'false') {
+      grid.appendChild(line);
+    }
     grid.appendChild(label);
   }
 
