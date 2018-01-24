@@ -4,7 +4,7 @@
 var chartBar = document.querySelectorAll('.usa-chart-bar');
 
 for (var i = 0; i < chartBar.length; i++) {
-  var chart = chartBar[i];
+  var chart = chartBar[ i ];
   var items = chart.querySelectorAll('.usa-chart-item');
 
   // Generate SVG dynamically
@@ -44,7 +44,7 @@ for (var i = 0; i < chartBar.length; i++) {
 
   // Draw bars onto graph
   for (var j = 0; j < items.length; j++) {
-    const item = items[j];
+    const item = items[ j ];
 
     var value = parseFloat(item.querySelector('.usa-chart-value').innerHTML.replace(/[^0-9\.]/g, ''));
 
@@ -82,24 +82,24 @@ for (var i = 0; i < chartBar.length; i++) {
     labels.appendChild(labelValue);
   }
 
-  for (var i = 0; i <= max; i) {
+  for (var k = 0; k <= max; k) {
     const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    const offset = barHeight - (i * 90/max) + topOffset;
+    const offset = barHeight - (k * 90/max) + topOffset;
 
     line.classList.add('usa-chart-gridLine');
     label.classList.add('usa-chart-gridLabel');
 
-    line.setAttribute('x1',leftOffset);
-    line.setAttribute('y1',offset + '%');
-    line.setAttribute('x2',barWidth + leftOffset);
-    line.setAttribute('y2',offset + '%');
+    line.setAttribute('x1', leftOffset);
+    line.setAttribute('y1', offset + '%');
+    line.setAttribute('x2', barWidth + leftOffset);
+    line.setAttribute('y2', offset + '%');
 
-    label.innerHTML = i;
+    label.innerHTML = k;
     label.setAttribute('x', leftOffset - 1 + '%');
     label.setAttribute('y', offset + 1.7 + '%');
 
-    i = i + increment;
+    k = k + increment;
     // grid is on by default unless it’s turned off
     if(chart.querySelector('.usa-chart-data').dataset.grid != 'false') {
       grid.appendChild(line);
