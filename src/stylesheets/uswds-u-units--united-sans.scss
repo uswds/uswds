@@ -1,12 +1,12 @@
 /*! uswds @version */
 
-// Overrides
-
-$u-sans-cap-height: 364px; // $united-sans-cap-height;
-
 // Vendor -------------- //
 @import 'lib/bourbon';
 @import 'lib/neat';
+
+// Overrides
+
+$u-sans-cap-height: 364px; // $united-sans-cap-height;
 
 // Functions
 @import 'core/functions';
