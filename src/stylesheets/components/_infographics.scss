@@ -9,29 +9,26 @@ $infographic-colors:
   $color-red;
 
 // Bar chart specific styles
-.usa-chart-bar.rendered {
 
-  .usa-chart-labelText,
-  .usa-chart-labelValue {
-    font-size: calc(3px - .1vw);
-    text-anchor: middle;
-  }
+.usa-chart-labelText,
+.usa-chart-labelValue {
+  font-size: calc(3px - .1vw);
+  text-anchor: middle;
+}
 
-  .usa-chart-labelValue-invert {
-    fill: #fff;
-  }
+.usa-chart-labelValue-invert {
+  fill: #fff;
+}
 
-  .usa-chart-gridLabel {
-    font-size: calc(3px - .1vw);
-    fill: #999;
-    text-anchor: end;
-  }
+.usa-chart-gridLabel {
+  font-size: calc(3px - .1vw);
+  fill: #999;
+  text-anchor: end;
+}
 
-  .usa-chart-gridLine {
-    stroke: #eee;
-    stroke-width: .2;
-  }
-
+.usa-chart-gridLine {
+  stroke: #eee;
+  stroke-width: .2;
 }
 
 .usa-chart-bars {
@@ -41,7 +38,6 @@ $infographic-colors:
   &:hover {
     opacity: .8;
   }
-
 }
 
 .usa-chart-axis {
@@ -65,10 +61,6 @@ $infographic-colors:
     border-bottom: 2px solid transparent;
   }
 
-  .usa-chart-value {
-    font-weight: 700;
-  }
-
   .usa-chart-label {
     padding-right: .5em;
     position: relative;
@@ -84,45 +76,50 @@ $infographic-colors:
   .usa-chart-svg {
     flex: 2;
     max-width: 66.7%;
+  }
+}
 
-    circle {
-      stroke: currentColor;
-      stroke-width: 8%;
-      animation: $speed 'usa-chart-pie' 1 ease;
-      fill: none;
-      transition: all $speed ease;
+.usa-chart-value {
+  font-weight: 700;
+}
 
-      &:hover,
-      &.hover {
-        stroke-width: 12%;
-      }
-    }
+.usa-chart-arc {
+  stroke: currentColor;
+  stroke-width: 8%;
+  animation: $speed 'usa-chart-pie' 1 ease;
+  fill: none;
+  transition: all $speed ease;
+
+  &:hover,
+  &.hover {
+    stroke-width: 12%;
+  }
+}
+
+// Loop through and write graph colors
+@for $i from 1 through length($infographic-colors) {
+
+  .usa-chart-arc:nth-child(#{length($infographic-colors)}n+#{$i}),
+  .usa-chart-item:nth-child(#{length($infographic-colors)}n+#{$i}) .usa-chart-value {
+    color: nth($infographic-colors, $i);
   }
 
-  @for $i from 1 through length($infographic-colors) {
+  .usa-chart-item:nth-child(#{length($infographic-colors)}n+#{$i}):hover,
+  .usa-chart-item:nth-child(#{length($infographic-colors)}n+#{$i}).hover {
+    border-bottom-color: nth($infographic-colors, $i);
+  }
 
-    circle:nth-child(#{length($infographic-colors)}n+#{$i}),
-    .usa-chart-item:nth-child(#{length($infographic-colors)}n+#{$i}) .usa-chart-value {
-      color: nth($infographic-colors, $i);
+  // Ensure last color doesn't clash with the first
+  @if ($i == 1) {
+
+    .usa-chart-arc:nth-child(#{length($infographic-colors)}n+#{$i}):last-child,
+    .usa-chart-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child .usa-chart-value {
+      color: nth($infographic-colors, round(length($infographic-colors)/2));
     }
 
-    .usa-chart-item:nth-child(#{length($infographic-colors)}n+#{$i}):hover,
-    .usa-chart-item:nth-child(#{length($infographic-colors)}n+#{$i}).hover {
-      border-bottom-color: nth($infographic-colors, $i);
-    }
-
-    // Ensure last color doesn't clash with the first
-    @if ($i == 1) {
-
-      circle:nth-child(#{length($infographic-colors)}n+#{$i}):last-child,
-      .usa-chart-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child .usa-chart-value {
-        color: nth($infographic-colors, round(length($infographic-colors)/2));
-      }
-
-      .usa-chart-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child:hover,
-      .usa-chart-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child.hover {
-        border-bottom-color: nth($infographic-colors, round(length($infographic-colors)/2));
-      }
+    .usa-chart-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child:hover,
+    .usa-chart-item:nth-child(#{length($infographic-colors)}n+#{$i}):last-child.hover {
+      border-bottom-color: nth($infographic-colors, round(length($infographic-colors)/2));
     }
   }
 }

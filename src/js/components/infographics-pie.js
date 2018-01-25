@@ -29,6 +29,7 @@ for (var i = 0; i < chartPie.length; i++) {
 
     // generate arc
     const arc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    arc.classList.add('usa-chart-arc');
     arc.setAttribute('cx', '50%');
     arc.setAttribute('cy', '50%');
     arc.setAttribute('r', '25%');
