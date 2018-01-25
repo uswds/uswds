@@ -3,6 +3,7 @@ module.exports = {
   banner:       require('./banner'),
   footer:       require('./footer'),
   infographics: require('./infographics-bar'),
+  infographics: require('./infographics-line'),
   infographics: require('./infographics-pie'),
   navigation:   require('./navigation'),
   password:     require('./password'),
