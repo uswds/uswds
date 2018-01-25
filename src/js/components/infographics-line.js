@@ -19,10 +19,11 @@ for (var i = 0; i < chartLine.length; i++) {
   var labels = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var grid = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 
+  var graphGap    = 10; // percent distributed across all gaps
   var topOffset   = 2;  // percent
-  var leftOffset  = 6;  // percent
-  var graphHeight  = 90; // percent
-  var graphWidth   = 92; // percent
+  var graphOffset = 6;  // percent
+  var graphHeight = 90; // percent
+  var graphWidth  = 92; // percent
   var textBottom  = 3;  // percent
 
   // Default values
@@ -61,7 +62,7 @@ for (var i = 0; i < chartLine.length; i++) {
     labelText.classList.add('usa-chart-labelText');
     labelValue.classList.add('usa-chart-labelValue');
     point.setAttribute('r', '1');
-    var x = ((leftOffset + (graphWidth / items.length * j)) + (graphWidth / items.length / 2));
+    var x = ((graphOffset + (graphWidth / items.length * j) + graphGap / items.length) + ((graphWidth - graphGap) / items.length / 2));
     var y = (graphHeight - (value - min) * (graphHeight/(max-min)) + topOffset);
     point.setAttribute('cx', x + '%');
     point.setAttribute('cy', y + '%');
@@ -98,13 +99,13 @@ for (var i = 0; i < chartLine.length; i++) {
     line.classList.add('usa-chart-gridLine');
     label.classList.add('usa-chart-gridLabel');
 
-    line.setAttribute('x1', leftOffset);
+    line.setAttribute('x1', graphOffset);
     line.setAttribute('y1', offset + '%');
-    line.setAttribute('x2', graphWidth + leftOffset);
+    line.setAttribute('x2', graphWidth + graphOffset);
     line.setAttribute('y2', offset + '%');
 
     label.innerHTML = k;
-    label.setAttribute('x', leftOffset - 1 + '%');
+    label.setAttribute('x', graphOffset - 1 + '%');
     label.setAttribute('y', offset + 1.7 + '%');
 
     k = k + increment;
@@ -125,7 +126,7 @@ for (var i = 0; i < chartLine.length; i++) {
 
   // graph axis'
   const axis = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  axis.setAttribute('d', 'M ' + leftOffset + ' ' + (topOffset/2) + ' V ' + ((graphHeight+topOffset)/2) + ' H ' + (graphWidth + leftOffset));
+  axis.setAttribute('d', 'M ' + graphOffset + ' ' + (topOffset/2) + ' V ' + ((graphHeight+topOffset)/2) + ' H ' + (graphWidth + graphOffset));
   axis.classList.add('usa-chart-axis');
   svg.appendChild(axis);
 
