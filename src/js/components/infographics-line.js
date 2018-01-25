@@ -19,11 +19,10 @@ for (var i = 0; i < chartLine.length; i++) {
   var labels = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var grid = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 
-  var lineGap     = 10; // percent distributed across all gaps
   var topOffset   = 2;  // percent
   var leftOffset  = 6;  // percent
-  var lineHeight  = 90; // percent
-  var lineWidth   = 92; // percent
+  var graphHeight  = 90; // percent
+  var graphWidth   = 92; // percent
   var textBottom  = 3;  // percent
 
   // Default values
@@ -62,8 +61,8 @@ for (var i = 0; i < chartLine.length; i++) {
     labelText.classList.add('usa-chart-labelText');
     labelValue.classList.add('usa-chart-labelValue');
     point.setAttribute('r', '1');
-    var x = ((leftOffset + (lineWidth / items.length * j) + lineGap / items.length) + ((lineWidth - lineGap) / items.length / 2));
-    var y = (lineHeight - (value - min) * (lineHeight/(max-min)) + topOffset);
+    var x = ((leftOffset + (graphWidth / items.length * j)) + (graphWidth / items.length / 2));
+    var y = (graphHeight - (value - min) * (graphHeight/(max-min)) + topOffset);
     point.setAttribute('cx', x + '%');
     point.setAttribute('cy', y + '%');
     if (j === 0) {
@@ -94,14 +93,14 @@ for (var i = 0; i < chartLine.length; i++) {
   for (var k = 0; k <= max; k) {
     const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    const offset = lineHeight - (k * 90/max) + topOffset;
+    const offset = graphHeight - (k * 90/max) + topOffset;
 
     line.classList.add('usa-chart-gridLine');
     label.classList.add('usa-chart-gridLabel');
 
     line.setAttribute('x1', leftOffset);
     line.setAttribute('y1', offset + '%');
-    line.setAttribute('x2', lineWidth + leftOffset);
+    line.setAttribute('x2', graphWidth + leftOffset);
     line.setAttribute('y2', offset + '%');
 
     label.innerHTML = k;
@@ -126,7 +125,7 @@ for (var i = 0; i < chartLine.length; i++) {
 
   // graph axis'
   const axis = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  axis.setAttribute('d', 'M ' + leftOffset + ' ' + (topOffset/2) + ' V ' + ((lineHeight+topOffset)/2) + ' H ' + (lineWidth + leftOffset));
+  axis.setAttribute('d', 'M ' + leftOffset + ' ' + (topOffset/2) + ' V ' + ((graphHeight+topOffset)/2) + ' H ' + (graphWidth + leftOffset));
   axis.classList.add('usa-chart-axis');
   svg.appendChild(axis);
 
