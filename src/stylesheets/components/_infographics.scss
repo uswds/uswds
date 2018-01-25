@@ -8,7 +8,7 @@ $infographic-colors:
   $color-gold
   $color-red;
 
-// Bar chart specific styles
+// Bar and line charts specific styles
 
 .usa-chart-labelText,
 .usa-chart-labelValue {
@@ -31,13 +31,15 @@ $infographic-colors:
   stroke-width: .2;
 }
 
-.usa-chart-bars {
+.usa-chart-bars,
+.usa-chart-point {
   fill: nth($infographic-colors, 1);
   transition: all $speed ease;
-
-  &:hover {
-    opacity: .8;
-  }
+}
+.usa-chart-path {
+  stroke-width: .5px;
+  stroke: nth($infographic-colors, 1);
+  fill: none;
 }
 
 .usa-chart-axis {
