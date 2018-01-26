@@ -1,10 +1,8 @@
 module.exports = {
   accordion:    require('./accordion'),
   banner:       require('./banner'),
+  infographics: require('./chart'),
   footer:       require('./footer'),
-  infographics: require('./infographics-bar'),
-  infographics: require('./infographics-line'),
-  infographics: require('./infographics-pie'),
   navigation:   require('./navigation'),
   password:     require('./password'),
   search:       require('./search'),
