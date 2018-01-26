@@ -16,7 +16,7 @@ $infographic-colors:
   text-anchor: middle;
 }
 
-.usa-chart-labelValue-invert {
+[data-chart-type='bar'].usa-chart-labelValue-invert {
   fill: #fff;
 }
 

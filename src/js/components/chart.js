@@ -1,11 +1,12 @@
 'use strict';
 
 // Find all line charts on the page
-var chartLine = document.querySelectorAll('.usa-chart-line');
+var chartLine = document.querySelectorAll('.usa-chart');
 
 for (var i = 0; i < chartLine.length; i++) {
   var chart = chartLine[ i ];
   var items = chart.querySelectorAll('.usa-chart-item');
+  var chartType = chart.dataset.chartType;
 
   // Generate SVG dynamically
   var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -31,6 +32,11 @@ for (var i = 0; i < chartLine.length; i++) {
   var max         = 100;
   var increment   = 20;
 
+  // Set default chart type
+  if (!chartType) {
+    chartType = 'bar';
+  }
+
   // Overrides from markup
   if(chart.querySelector('.usa-chart-data').dataset.min) {
     min = parseFloat(chart.querySelector('.usa-chart-data').dataset.min.replace(/[^0-9\.]/g, ''));
@@ -42,28 +48,23 @@ for (var i = 0; i < chartLine.length; i++) {
     increment = parseFloat(chart.querySelector('.usa-chart-data').dataset.increment.replace(/[^0-9\.]/g, ''));
   }
 
-  // Create line
+  // Create line for line graph
   const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   var pathD = '';
   path.classList.add('usa-chart-path');
 
-
-  // Draw line onto graph
+  // Draw data onto graph
   for (var j = 0; j < items.length; j++) {
     const item = items[ j ];
 
     var value = parseFloat(item.querySelector('.usa-chart-value').innerHTML.replace(/[^0-9\.]/g, ''));
+    var x = ((graphOffset + (graphWidth / items.length * j) + graphGap / items.length) + ((graphWidth - graphGap) / items.length / 2));
+    var y = (graphHeight - (value - min) * (graphHeight/(max-min)) + topOffset);
 
     // Generate line
     const point = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    const labelText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    const labelValue = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     point.classList.add('usa-chart-point');
-    labelText.classList.add('usa-chart-labelText');
-    labelValue.classList.add('usa-chart-labelValue');
     point.setAttribute('r', '1');
-    var x = ((graphOffset + (graphWidth / items.length * j) + graphGap / items.length) + ((graphWidth - graphGap) / items.length / 2));
-    var y = (graphHeight - (value - min) * (graphHeight/(max-min)) + topOffset);
     point.setAttribute('cx', x + '%');
     point.setAttribute('cy', y + '%');
     if (j === 0) {
@@ -72,21 +73,27 @@ for (var i = 0; i < chartLine.length; i++) {
       pathD = pathD + ' L' + x + ' ' + (y/2);
     }
 
+    const labelText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    const labelValue = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    labelText.classList.add('usa-chart-labelText');
+    labelValue.classList.add('usa-chart-labelValue');
     labelText.setAttribute('x', x + '%');
     labelText.setAttribute('y', 100 - textBottom + '%');
-
+    labelText.innerHTML = item.querySelector('.usa-chart-label').innerHTML;
+    labelValue.innerHTML = item.querySelector('.usa-chart-value').innerHTML;
     var labelValueY = y - 4;
     if(labelValueY < 10) {
       labelValueY = labelValueY + 12;
+      labelValue.classList.add('usa-chart-labelValue-invert');
     }
     labelValue.setAttribute('x', x + '%');
     labelValue.setAttribute('y', labelValueY + '%');
 
-    labelText.innerHTML = item.querySelector('.usa-chart-label').innerHTML;
-    labelValue.innerHTML = item.querySelector('.usa-chart-value').innerHTML;
-
     // Add line to chart
-    lines.appendChild(point);
+    if (chartType === 'line') {
+      lines.appendChild(point);
+    }
+
     labels.appendChild(labelText);
     labels.appendChild(labelValue);
   }
