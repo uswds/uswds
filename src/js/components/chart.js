@@ -63,14 +63,16 @@ for (var i = 0; i < chartLine.length; i++) {
 
     // Generate line
     const point = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    point.classList.add('usa-chart-point');
-    point.setAttribute('r', '1');
-    point.setAttribute('cx', x + '%');
-    point.setAttribute('cy', y + '%');
-    if (j === 0) {
-      pathD = 'M' + x + ' ' + (y/2);
-    } else {
-      pathD = pathD + ' L' + x + ' ' + (y/2);
+    if (chartType === 'line') {
+      point.classList.add('usa-chart-point');
+      point.setAttribute('r', '1');
+      point.setAttribute('cx', x + '%');
+      point.setAttribute('cy', y + '%');
+      if (j === 0) {
+        pathD = 'M' + x + ' ' + (y/2);
+      } else {
+        pathD = pathD + ' L' + x + ' ' + (y/2);
+      }
     }
 
     const labelText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
@@ -128,8 +130,10 @@ for (var i = 0; i < chartLine.length; i++) {
   svg.appendChild(lines);
   svg.appendChild(labels);
 
-  path.setAttribute('d', pathD);
-  svg.appendChild(path);
+  if (chartType === 'line') {
+    path.setAttribute('d', pathD);
+    svg.appendChild(path);
+  }
 
   // graph axis'
   const axis = document.createElementNS('http://www.w3.org/2000/svg', 'path');
