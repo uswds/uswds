@@ -30,20 +30,26 @@ $infographic-colors:
   stroke: #eee;
   stroke-width: .2;
 }
-
-.usa-chart-bars,
-.usa-chart-point {
-  fill: nth($infographic-colors, 1);
-  transition: all $speed ease;
+.usa-chart-bars {
+  fill: nth(currentColor, 1);
 }
 .usa-chart-path {
-  stroke-width: .5px;
-  stroke: nth($infographic-colors, 1);
+  stroke-width: .4px;
+  stroke: nth(currentColor, 1);
   fill: none;
+}
+.usa-chart-point {
+  fill: nth(currentColor, 1);
 }
 
 .usa-chart-axis {
   stroke: #aaa;
   stroke-width: .2;
   fill: none;
+}
+
+@for $i from 1 through length($infographic-colors) {
+  .usa-chart-datagroup:nth-child(#{$i}) {
+    color: nth($infographic-colors, $i);
+  }
 }

@@ -49,71 +49,100 @@ for (var i = 0; i < chartLine.length; i++) {
     increment = parseFloat(chart.querySelector('.usa-chart-data').dataset.increment.replace(/[^0-9\.]/g, ''));
   }
 
-  // Create line for line graph
-  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  var pathD = '';
-  path.classList.add('usa-chart-path');
-
-  // Draw data onto graph
-  for (var j = 0; j < items.length; j++) {
-    const item = items[ j ];
-
-    var value = parseFloat(item.querySelector('.usa-chart-value').innerHTML.replace(/[^0-9\.]/g, ''));
-    var x = ((graphOffset + (graphWidth / items.length * j) + graphGap / items.length) + ((graphWidth - graphGap) / items.length / 2));
-    var y = (graphHeight - (value - min) * (graphHeight/(max-min)) + topOffset);
-
-    // Draw bars
-    const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    bar.classList.add('usa-chart-bars');
-    bar.setAttribute('width', (graphWidth - graphGap) / items.length + '%');
-    bar.setAttribute('height', 'calc(' + (value - min) * (graphHeight/(max-min)) + '%)');
-    bar.setAttribute('x', (x - (graphWidth - graphGap) / items.length / 2) + '%');
-    bar.setAttribute('y', y + '%');
-
-    // Draw line
-    const point = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    if (chartType === 'line') {
-      point.classList.add('usa-chart-point');
-      point.setAttribute('r', '1');
-      point.setAttribute('cx', x + '%');
-      point.setAttribute('cy', y + '%');
-      if (j === 0) {
-        pathD = 'M' + x + ' ' + (y/2);
-      } else {
-        pathD = pathD + ' L' + x + ' ' + (y/2);
-      }
+  var datasets = [];
+  // Identify datasets
+  if (chart.querySelector('.usa-chart-dataset')) {
+    var d = chart.querySelectorAll('.usa-chart-dataset');
+    for (var i = 0; i < d.length; i++) {
+      datasets.push(d[i].innerHTML);
     }
-
-    // Draw labels
-    const labelText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    const labelValue = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    labelText.classList.add('usa-chart-labelText');
-    labelValue.classList.add('usa-chart-labelValue');
-    labelText.setAttribute('x', x + '%');
-    labelText.setAttribute('y', 100 - textBottom + '%');
-    labelText.innerHTML = item.querySelector('.usa-chart-label').innerHTML;
-    labelValue.innerHTML = item.querySelector('.usa-chart-value').innerHTML;
-    var labelValueY = y - 4;
-    if(labelValueY < 10) {
-      labelValueY = labelValueY + 12;
-      labelValue.classList.add('usa-chart-labelValue-invert');
-    }
-    labelValue.setAttribute('x', x + '%');
-    labelValue.setAttribute('y', labelValueY + '%');
-
-    // Add line to chart
-    if (chartType === 'line') {
-      lines.appendChild(point);
-    }
-
-    if (chartType === 'bar') {
-      bars.appendChild(bar);
-    }
-
-    labels.appendChild(labelText);
-    labels.appendChild(labelValue);
+  }
+  else {
+    datasets.push('');
   }
 
+  for (var d in datasets) {
+    // Create line for line graph
+    var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    var path  = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    var pathD = '';
+    path.classList.add('usa-chart-path');
+    group.classList.add('usa-chart-datagroup');
+
+    // Draw data onto graph
+    for (var j = 0; j < items.length; j++) {
+      const item = items[ j ];
+
+      var value = parseFloat(item.querySelectorAll('.usa-chart-value')[d].innerHTML.replace(/[^0-9\.]/g, ''));
+      var x = ((graphOffset + (graphWidth / items.length * j) + graphGap / items.length) + ((graphWidth - graphGap) / items.length / 2));
+      var y = (graphHeight - (value - min) * (graphHeight/(max-min)) + topOffset);
+      var width = (graphWidth - graphGap) / items.length / datasets.length; // bar width
+
+      // Draw bars
+      const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      if (chartType === 'bar') {
+        bar.classList.add('usa-chart-bars');
+        bar.setAttribute('width', width + '%');
+        bar.setAttribute('height', 'calc(' + (value - min) * (graphHeight/(max-min)) + '%)');
+        bar.setAttribute('x', (x - (graphWidth - graphGap) / items.length / 2) + (width * d) + '%');
+        bar.setAttribute('y', y + '%');
+      }
+
+      // Draw line
+      const point = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      if (chartType === 'line') {
+        point.classList.add('usa-chart-point');
+        point.setAttribute('r', '.6');
+        point.setAttribute('cx', x + '%');
+        point.setAttribute('cy', y + '%');
+        if (j === 0) {
+          pathD = 'M' + x + ' ' + (y/2);
+        } else {
+          pathD = pathD + ' L' + x + ' ' + (y/2);
+        }
+      }
+
+      // Draw labels
+      const labelText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      const labelValue = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      labelText.classList.add('usa-chart-labelText');
+      labelValue.classList.add('usa-chart-labelValue');
+      labelText.setAttribute('x', x + '%');
+      labelText.setAttribute('y', 100 - textBottom + '%');
+      labelText.innerHTML = item.querySelector('.usa-chart-label').innerHTML;
+      labelValue.innerHTML = item.querySelectorAll('.usa-chart-value')[d].innerHTML;
+      var labelValueY = y - 4;
+      if(labelValueY < 10) {
+        labelValueY = labelValueY + 12;
+        labelValue.classList.add('usa-chart-labelValue-invert');
+      }
+      if (chartType == 'bar' && datasets.length > 1) {
+        labelValue.setAttribute('x', x - width/2 + width*d + '%');
+      }
+      else {
+        labelValue.setAttribute('x', x + '%');
+      }
+      labelValue.setAttribute('y', labelValueY + '%');
+
+      // Add line to chart
+      if (chartType === 'line') {
+        group.appendChild(point);
+        path.setAttribute('d', pathD);
+        group.appendChild(path);
+        lines.appendChild(group);
+      }
+
+      if (chartType === 'bar') {
+        group.appendChild(bar);
+        bars.appendChild(group);
+      }
+
+      labels.appendChild(labelText);
+      labels.appendChild(labelValue);
+    }
+  }
+
+  // Draw grid
   for (var k = 0; k <= max; k) {
     const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -141,17 +170,16 @@ for (var i = 0; i < chartLine.length; i++) {
 
   // Add items to chart
   svg.appendChild(grid);
-  svg.appendChild(labels);
 
   if (chartType === 'line') {
-    path.setAttribute('d', pathD);
-    lines.appendChild(path);
     svg.appendChild(lines);
   }
 
   if (chartType === 'bar') {
     svg.appendChild(bars);
   }
+
+  svg.appendChild(labels);
 
   // graph axis'
   const axis = document.createElementNS('http://www.w3.org/2000/svg', 'path');
