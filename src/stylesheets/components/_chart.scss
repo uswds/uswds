@@ -12,7 +12,7 @@ $infographic-colors:
 
 .usa-chart-labelText,
 .usa-chart-labelValue {
-  font-size: calc(3px - .1vw);
+  font-size: calc(5px - .3vw);
   text-anchor: middle;
 }
 
@@ -21,8 +21,8 @@ $infographic-colors:
 }
 
 .usa-chart-gridLabel {
-  font-size: calc(3px - .1vw);
-  fill: #999;
+  font-size: calc(4px - .25vw);
+  fill: #555;
   text-anchor: end;
 }
 

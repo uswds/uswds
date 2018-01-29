@@ -21,11 +21,11 @@ for (var i = 0; i < chartLine.length; i++) {
   var grid = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 
   var graphGap    = 10; // percent distributed across all gaps
-  var topOffset   = 2;  // percent
+  var topOffset   = 3;  // percent
   var graphOffset = 6;  // percent
-  var graphHeight = 90; // percent
+  var graphHeight = 88; // percent
   var graphWidth  = 92; // percent
-  var textBottom  = 3;  // percent
+  var textBottom  = 2;  // percent
 
   // Default values
   var min         = 0;
@@ -101,7 +101,7 @@ for (var i = 0; i < chartLine.length; i++) {
   for (var k = 0; k <= max; k) {
     const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    const offset = graphHeight - (k * 90/max) + topOffset;
+    const offset = graphHeight - (k * graphHeight/max) + topOffset;
 
     line.classList.add('usa-chart-gridLine');
     label.classList.add('usa-chart-gridLabel');
