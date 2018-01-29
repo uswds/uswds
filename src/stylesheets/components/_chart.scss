@@ -1,0 +1,55 @@
+$speed: .25s;
+$infographic-colors:
+  $color-blue
+  $color-aqua
+  $color-green
+  $color-purple
+  $color-cool-blue
+  $color-gold
+  $color-red;
+
+// Chart styles
+
+.usa-chart-labelText,
+.usa-chart-labelValue {
+  font-size: calc(5px - .3vw);
+  text-anchor: middle;
+}
+
+[data-chart-type='bar'].usa-chart-labelValue-invert {
+  fill: #fff;
+}
+
+.usa-chart-gridLabel {
+  font-size: calc(4px - .25vw);
+  fill: #555;
+  text-anchor: end;
+}
+
+.usa-chart-gridLine {
+  stroke: #eee;
+  stroke-width: .2;
+}
+.usa-chart-bars {
+  fill: nth(currentColor, 1);
+}
+.usa-chart-path {
+  stroke-width: .4px;
+  stroke: nth(currentColor, 1);
+  fill: none;
+}
+.usa-chart-point {
+  fill: nth(currentColor, 1);
+}
+
+.usa-chart-axis {
+  stroke: #aaa;
+  stroke-width: .2;
+  fill: none;
+}
+
+@for $i from 1 through length($infographic-colors) {
+  .usa-chart-datagroup:nth-child(#{$i}) {
+    color: nth($infographic-colors, $i);
+  }
+}
