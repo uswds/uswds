@@ -1,20 +1,35 @@
-<div class="usa-chart" data-chart-type="bar">
-  <table class="usa-chart-data" data-min="0" data-max="100" data-increment="20" data-grid="true">
+<div class="usa-chart" data-chart-type="bar"> <!-- char-type: bar, line -->
+  <table class="usa-chart-data" data-min="0" data-max="100" data-increment="20" data-grid="true"> <!-- all values optional -->
+
+    <!--
+    label datasets with header row
+    unnessisary unless multiple values are assigned
+    -->
+    <tr>
+      <td></td>
+      <th class="usa-chart-dataset">set one</th>
+      <th class="usa-chart-dataset">set two</th>
+    </tr>
+
     <tr class="usa-chart-item">
       <td class="usa-chart-label">Thing one</td>
       <td class="usa-chart-value">8%</td>
+      <td class="usa-chart-value">28%</td>
     </tr>
     <tr class="usa-chart-item">
       <td class="usa-chart-label">Thing two</td>
       <td class="usa-chart-value">12%</td>
+      <td class="usa-chart-value">24%</td>
     </tr>
     <tr class="usa-chart-item">
       <td class="usa-chart-label">Thing three</td>
       <td class="usa-chart-value">26%</td>
+      <td class="usa-chart-value">40%</td>
     </tr>
     <tr class="usa-chart-item">
       <td class="usa-chart-label">Thing four</td>
       <td class="usa-chart-value">60%</td>
+      <td class="usa-chart-value">42%</td>
     </tr>
   </table>
 </div>
