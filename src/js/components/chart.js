@@ -16,9 +16,10 @@ for (var i = 0; i < chartLine.length; i++) {
   chart.appendChild(svg); // insert graphic into parent
 
   // Prep svg for elements
-  var lines = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var labels = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-  var grid = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  var grid   = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  var lines  = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  var bars   = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 
   var graphGap    = 10; // percent distributed across all gaps
   var topOffset   = 3;  // percent
@@ -61,7 +62,15 @@ for (var i = 0; i < chartLine.length; i++) {
     var x = ((graphOffset + (graphWidth / items.length * j) + graphGap / items.length) + ((graphWidth - graphGap) / items.length / 2));
     var y = (graphHeight - (value - min) * (graphHeight/(max-min)) + topOffset);
 
-    // Generate line
+    // Draw bars
+    const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    bar.classList.add('usa-chart-bars');
+    bar.setAttribute('width', (graphWidth - graphGap) / items.length + '%');
+    bar.setAttribute('height', 'calc(' + (value - min) * (graphHeight/(max-min)) + '%)');
+    bar.setAttribute('x', (x - (graphWidth - graphGap) / items.length / 2) + '%');
+    bar.setAttribute('y', y + '%');
+
+    // Draw line
     const point = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     if (chartType === 'line') {
       point.classList.add('usa-chart-point');
@@ -75,6 +84,7 @@ for (var i = 0; i < chartLine.length; i++) {
       }
     }
 
+    // Draw labels
     const labelText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     const labelValue = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     labelText.classList.add('usa-chart-labelText');
@@ -94,6 +104,10 @@ for (var i = 0; i < chartLine.length; i++) {
     // Add line to chart
     if (chartType === 'line') {
       lines.appendChild(point);
+    }
+
+    if (chartType === 'bar') {
+      bars.appendChild(bar);
     }
 
     labels.appendChild(labelText);
@@ -127,12 +141,16 @@ for (var i = 0; i < chartLine.length; i++) {
 
   // Add items to chart
   svg.appendChild(grid);
-  svg.appendChild(lines);
   svg.appendChild(labels);
 
   if (chartType === 'line') {
     path.setAttribute('d', pathD);
-    svg.appendChild(path);
+    lines.appendChild(path);
+    svg.appendChild(lines);
+  }
+
+  if (chartType === 'bar') {
+    svg.appendChild(bars);
   }
 
   // graph axis'
