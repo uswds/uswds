@@ -16,7 +16,7 @@ $infographic-colors:
   text-anchor: middle;
 }
 
-[data-chart-type='bar'].usa-chart-labelValue-invert {
+[data-chart-type='bar'] .usa-chart-labelValue-invert {
   fill: #fff;
 }
 
@@ -48,8 +48,27 @@ $infographic-colors:
   fill: none;
 }
 
+.usa-chart-keys {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.usa-chart-keys-key {
+  padding: .3em .5em .1em;
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background: currentColor;
+    margin: 0 .3em -.2em 0;
+  }
+}
+
 @for $i from 1 through length($infographic-colors) {
-  .usa-chart-datagroup:nth-child(#{$i}) {
+  .usa-chart-datagroup:nth-child(#{$i}),
+  .usa-chart-keys-key:nth-child(#{$i}):before {
     color: nth($infographic-colors, $i);
   }
 }

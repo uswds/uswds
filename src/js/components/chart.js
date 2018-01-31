@@ -12,16 +12,15 @@ for (var i = 0; i < chartLine.length; i++) {
   var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('viewBox', '0 0 100 50');
   svg.classList.add('usa-chart-svg');
-  // Insert SVG into DOM
-  chart.appendChild(svg); // insert graphic into parent
 
   // Prep svg for elements
   var labels = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var grid   = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var lines  = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var bars   = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  var keys   = document.createElement('div');
 
-  var graphGap    = 10; // percent distributed across all gaps
+  var graphGap    = 10; // percent
   var topOffset   = 3;  // percent
   var graphOffset = 6;  // percent
   var graphHeight = 88; // percent
@@ -68,6 +67,15 @@ for (var i = 0; i < chartLine.length; i++) {
     var pathD = '';
     path.classList.add('usa-chart-path');
     group.classList.add('usa-chart-datagroup');
+
+    // Draw key
+    if (datasets.length > 1) {
+      var key = document.createElement('span');
+      key.classList.add('usa-chart-keys-key');
+      key.innerHTML = datasets[d];
+
+      keys.appendChild(key);
+    }
 
     // Draw data onto graph
     for (var j = 0; j < items.length; j++) {
@@ -171,6 +179,11 @@ for (var i = 0; i < chartLine.length; i++) {
   // Add items to chart
   svg.appendChild(grid);
 
+  if (datasets.length > 1) {
+    keys.classList.add('usa-chart-keys');
+    chart.appendChild(keys);
+  }
+
   if (chartType === 'line') {
     svg.appendChild(lines);
   }
@@ -186,6 +199,9 @@ for (var i = 0; i < chartLine.length; i++) {
   axis.setAttribute('d', 'M ' + graphOffset + ' ' + (topOffset/2) + ' V ' + ((graphHeight+topOffset)/2) + ' H ' + (graphWidth + graphOffset));
   axis.classList.add('usa-chart-axis');
   svg.appendChild(axis);
+
+  // Insert SVG into DOM
+  chart.appendChild(svg); // insert graphic into parent
 
   // Remove table from DOM
   chart.querySelector('.usa-chart-data').remove();
