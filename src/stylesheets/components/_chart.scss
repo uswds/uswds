@@ -30,14 +30,17 @@ $infographic-colors:
   stroke: #eee;
   stroke-width: .2;
 }
+
 .usa-chart-bars {
   fill: nth(currentColor, 1);
 }
+
 .usa-chart-path {
   stroke-width: .4px;
   stroke: nth(currentColor, 1);
   fill: none;
 }
+
 .usa-chart-point {
   fill: nth(currentColor, 1);
 }
