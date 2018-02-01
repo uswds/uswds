@@ -11,9 +11,13 @@ $infographic-colors:
 // Chart styles
 
 .usa-chart-labelText,
-.usa-chart-labelValue {
-  font-size: calc(5px - .3vw);
+.usa-chart-labelValue,
+.usa-chart-gridLabel {
   text-anchor: middle;
+  font-size: calc(4.25px - .25vw);
+  @media (min-width: 1100px) {
+    font-size: 1.5px;
+  }
 }
 
 [data-chart-type='bar'] .usa-chart-labelValue-invert {
@@ -21,7 +25,6 @@ $infographic-colors:
 }
 
 .usa-chart-gridLabel {
-  font-size: calc(4px - .25vw);
   fill: #555;
   text-anchor: end;
 }
