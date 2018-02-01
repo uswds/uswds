@@ -69,6 +69,11 @@ $infographic-colors:
   }
 }
 
+.usa-chart-hidden {
+  font-size: 0;
+  color: rgba(#fff,0);
+}
+
 @for $i from 1 through length($infographic-colors) {
   .usa-chart-datagroup:nth-child(#{$i}),
   .usa-chart-keys-key:nth-child(#{$i}):before {

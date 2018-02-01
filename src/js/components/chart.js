@@ -19,6 +19,7 @@ for (var i = 0; i < chartLine.length; i++) {
   var lines  = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var bars   = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var keys   = document.createElement('div');
+  keys.setAttribute('aria-hidden', 'true'); // hide keys from screen readers
 
   var graphGap    = 10; // percent
   var topOffset   = 3;  // percent
@@ -61,10 +62,11 @@ for (var i = 0; i < chartLine.length; i++) {
   }
 
   for (var d in datasets) {
-    // Create line for line graph
+    // Create elements for graph
     var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     var path  = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     var pathD = '';
+    var labelSet = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     path.classList.add('usa-chart-path');
     group.classList.add('usa-chart-datagroup');
 
@@ -75,6 +77,11 @@ for (var i = 0; i < chartLine.length; i++) {
       key.innerHTML = datasets[d];
 
       keys.appendChild(key);
+
+      // Write text labels for accessability
+      labelSet.innerHTML = datasets[d] + ':';
+      labelSet.classList.add('usa-chart-hidden');
+      labels.appendChild(labelSet);
     }
 
     // Draw data onto graph
@@ -119,6 +126,9 @@ for (var i = 0; i < chartLine.length; i++) {
       labelText.setAttribute('y', 100 - textBottom + '%');
       labelText.innerHTML = item.querySelector('.usa-chart-label').innerHTML;
       labelValue.innerHTML = item.querySelectorAll('.usa-chart-value')[d].innerHTML;
+      if (d > 0) {
+        labelText.classList.add('usa-chart-hidden');
+      }
       var labelValueY = y - 4;
       if(labelValueY < 10) {
         labelValueY = labelValueY + 12;
@@ -132,7 +142,7 @@ for (var i = 0; i < chartLine.length; i++) {
       }
       labelValue.setAttribute('y', labelValueY + '%');
 
-      // Add line to chart
+      // Add lines to chart
       if (chartType === 'line') {
         group.appendChild(point);
         path.setAttribute('d', pathD);
@@ -140,6 +150,7 @@ for (var i = 0; i < chartLine.length; i++) {
         lines.appendChild(group);
       }
 
+      // Add bars to chart
       if (chartType === 'bar') {
         group.appendChild(bar);
         bars.appendChild(group);
@@ -174,6 +185,7 @@ for (var i = 0; i < chartLine.length; i++) {
       grid.appendChild(line);
     }
     grid.appendChild(label);
+    grid.setAttribute('aria-hidden', 'true'); // hide grid from screen readers
   }
 
   // Add items to chart
@@ -192,6 +204,7 @@ for (var i = 0; i < chartLine.length; i++) {
     svg.appendChild(bars);
   }
 
+  // add labels
   svg.appendChild(labels);
 
   // graph axis'
