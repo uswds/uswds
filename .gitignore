@@ -11,7 +11,7 @@ coverage/
 # ignore the generated dist directory
 dist/
 
-# ignore the Fractal build directgory
+# ignore the Fractal build directory
 build/
 
 # ignore gulp-generated vendor files

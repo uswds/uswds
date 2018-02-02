@@ -1,4 +1,4 @@
-# Using the Standards with [Gulp]
+# Using the Design System with [Gulp]
 
 This example illustrates how to build custom CSS and JS from the
 Standards JavaScript with [Gulp].
@@ -24,7 +24,7 @@ npm run build:css
 
 This example uses a slight variation of [this Gulp
 recipe](https://github.com/gulpjs/gulp/blob/master/docs/recipes/browserify-uglify-sourcemap.md)
-for the `js` task, and borrows from [the Standards' own `sass` task](../../config/gulp/sass.js)
+for the `js` task, and borrows from [the Design System's own `sass` task](../../config/gulp/sass.js)
 to build CSS from the SCSS sources.
 
 [gulp]: http://gulpjs.com/

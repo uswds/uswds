@@ -1,7 +1,7 @@
 # Migration guide
 
 ## v1.2.0
-[Version 1.2.0](https://github.com/18F/web-design-standards/releases/tag/v1.2.0)
+[Version 1.2.0](https://github.com/uswds/uswds/releases/tag/v1.2.0)
 includes a complete refactor of our JavaScript to modernize our code, and provides
 better compatibility with third-party frameworks, such as React and Angular. You
 can read more about the rationale and techniques in [this update][] **link needed**,
@@ -40,7 +40,7 @@ For backwards compatibility with v1.x, the following JavaScript submodule APIs h
 * The `dispatch` utility is no longer used internally, and will be removed in v2.0.0. Rather than create per-element dispatch objects, you can use [receptor][] (or our [behavior utility function](src/js/utils/behavior.js)) to create [reusable behaviors][behavior].
 
 ### ES2015
-The Standards JavaScript now relies on several features of [ES2015][] (AKA ES6),
+The Design System JavaScript now relies on several features of [ES2015][] (AKA ES6),
 the next version of JavaScript. Many ES2015 features aren't yet supported
 natively by some browsers, so if you're `require()`-ing the module or its submodules,
 you'll need to ensure that your bundling or compiling tool supports converting

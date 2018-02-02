@@ -1,6 +1,6 @@
-# Using the Standards with [webpack 2][webpack]
+# Using the Design System with [webpack 2][webpack]
 
-This example illustrates how to bundle the Standards JavaScript with
+This example illustrates how to bundle the USWDS JavaScript with
 [webpack] version 2 and [npm].
 
 First, install the dependencies with [npm]:
