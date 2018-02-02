@@ -27,6 +27,7 @@ $lead-line-height:    1.7 !default;
 
 $font-sans:           'Source Sans Pro', $helvetica !default;
 $font-serif:          'Merriweather', $georgia !default;
+$font-mono:           'Roboto Mono', $monospace !default;
 
 // TODO these should be called font-weight-${}
 $font-normal:         400 !default;
@@ -129,6 +130,7 @@ $asset-pipeline:      false !default;
 
 // Magic Numbers
 $text-max-width:                66ch !default; // 66 characters per line
+$text-narrow-width:             40ch !default;
 $lead-max-width:                77rem !default;
 $site-max-width:                1040px !default;
 $site-margins:                  3rem !default;

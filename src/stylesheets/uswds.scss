@@ -7,8 +7,13 @@
 
 // Core -------------- //
 
+// Functions
+@import 'core/functions';
+
 // Settings (Variables)
+@import 'core/units';
 @import 'core/variables';
+@import 'core/settings';
 
 // Tools (Mixins)
 @import 'core/mixins/content-size';
@@ -55,6 +60,6 @@
 @import 'components/skipnav';
 
 // Utilities ------------ //
-@import 'utilities/color';
-@import 'utilities/space';
-@import 'utilities/typography';
+// @import 'utilities/color';
+// @import 'utilities/space';
+// @import 'utilities/typography';

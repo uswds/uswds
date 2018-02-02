@@ -1,0 +1,36 @@
+/*
+----------------------------------------
+Border Radius
+----------------------------------------
+usage:
+  .br[-]*[value]
+----------------------------------------
+output:
+  border-radius: [value];
+----------------------------------------
+example:
+  .br0 {
+    border-radius: 0; }
+
+  .br-pill {
+    border-radius: 10em; }
+----------------------------------------
+*/
+
+$border-radius: (
+  border-radius: (
+    base: ('radius', isReadable),
+    modifiers: null,
+    values: (
+      0: '0',
+      pill: ('10em', isReadable),
+      sm: ($s-radius-sm, isReadable),
+      md: ($s-radius-md, isReadable),
+      lg: ($s-radius-lg, isReadable),
+    ),
+    property: 'border-radius',
+    output: true,
+    responsive: true,
+    pseudoclasses: false,
+  )
+)

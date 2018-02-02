@@ -1,0 +1,40 @@
+/*
+----------------------------------------
+Font Size
+----------------------------------------
+usage:
+  .[value]
+----------------------------------------
+output:
+  font-family: [value];
+  font-size: [value];
+----------------------------------------
+example:
+  .sans-5 {
+    font-face: '18Franklin-webfont',
+                system,
+                -apple-system,
+                BlinkMacSystemFont,
+                'Roboto',
+                'Helvetica Neue',
+                'Helvetica',
+                'Arial',
+                sans-serif;
+    font-size: 1rem; }
+----------------------------------------
+*/
+
+$font-size: (
+  font-size: (
+    base: null,
+    modifiers: null,
+    values: map-collect(
+      map-get($values-settings, type-scale)
+    ),
+    property: 'font-size',
+    output: true,
+    responsive: true,
+    pseudoclasses: false,
+    placeholder: false,
+  )
+)

@@ -1,0 +1,35 @@
+/*
+----------------------------------------
+Flex size
+----------------------------------------
+usage:
+  .[value]
+----------------------------------------
+output:
+  flex: [value];
+----------------------------------------
+example:
+  .f1 {
+    flex: 0 0 1; }
+
+  .fill {
+    flex: 1 0 0; }
+
+  .fit {
+    flex: none; }
+----------------------------------------
+*/
+
+$flex-size: (
+  flex-size: (
+    base: null,
+    modifiers: null,
+    values: map-collect(
+      map-get($values-global, flex)
+    ),
+    property: 'flex',
+    output: false,
+    responsive: true,
+    pseudoclasses: false,
+  )
+);

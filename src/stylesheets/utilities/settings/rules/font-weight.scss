@@ -1,0 +1,30 @@
+/*
+----------------------------------------
+Font Weight
+----------------------------------------
+usage:
+  .fw[value]
+----------------------------------------
+output:
+  font-weight: [value];
+----------------------------------------
+example:
+  .fw300 {
+    font-weight: 300; }
+----------------------------------------
+*/
+
+$font-weight: (
+  font-weight: (
+    base: 'fw',
+    modifiers: null,
+    values: map-collect(
+      map-get($values-settings, font-weights)
+    ),
+    property: 'font-weight',
+    output: true,
+    responsive: true,
+    pseudoclasses: false,
+    placeholder: false,
+  )
+)

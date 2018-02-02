@@ -1,0 +1,41 @@
+/*
+----------------------------------------
+Border Color
+----------------------------------------
+usage:
+  .b-[color]
+----------------------------------------
+output:
+  border[-modifier]*[-color]: [color];
+----------------------------------------
+example:
+  .b-red {
+    border-color: #be4900; }
+
+  .bx-red {
+    border-left-color: #be4900;
+    border-right-color: #be4900; }
+----------------------------------------
+*/
+
+$border-color: (
+  border-color: (
+    base: 'b',
+    modifiers: (
+      t: '-top-color',
+      r: '-left-color',
+      b: '-bottom-color',
+      l: '-left-color',
+      y: ('-top-color', '-bottom-color'),
+      x: ('-left-color', '-right-color'),
+      noModifier: -color,
+    ),
+    values: map-collect(
+      map-get($values-units, colors)
+    ),
+    property: 'border',
+    output: true,
+    responsive: true,
+    pseudoclasses: true,
+  )
+)

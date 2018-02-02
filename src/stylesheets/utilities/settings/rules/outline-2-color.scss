@@ -1,0 +1,31 @@
+/*
+----------------------------------------
+Outline Color
+----------------------------------------
+usage:
+  .outline-[modifier]
+----------------------------------------
+output:
+  outline-color: [modifier];
+----------------------------------------
+example:
+  .outline-yellow-50 {
+    outline-color: #91721f; }
+----------------------------------------
+*/
+
+$outline-2-color: (
+  outline-2-color: (
+    base: ('outline', isReadable),
+    modifiers: null,
+    values: map-collect(
+      map-get($values-units, colors)
+    ),
+    valuePrepend: null,
+    valueAppend: null,
+    property: 'outline-color',
+    output: false,
+    responsive: false,
+    pseudoclasses: true,
+  )
+)
