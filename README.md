@@ -4,7 +4,7 @@
 
 The [U.S. Web Design System](https://designsystem.digital.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-This repository is for the Standards themselves. 18F maintains [another repository for the documentation and website](https://github.com/uswds/uswds-site). To see the Standards and documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
+This repository is for the Design System itself. We maintain [another repository for the documentation and website](https://github.com/uswds/uswds-site). To see the Design System and documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
 
 ## Contents
 
@@ -41,7 +41,7 @@ We’re glad you’d like to use the Design System — here’s how you can get 
 
 * Designers: [Check out our Getting Started for Designers information](https://designsystem.digital.gov/getting-started/designers/).
   * [Design files of all the assets included in the Design System are available for download](https://github.com/uswds/uswds-assets/archive/master.zip).
-* Developers: [Follow the instructions in this README to get started.](#using-the-standards)
+* Developers: [Follow the instructions in this README to get started.](#using-the-design-system)
   * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/uswds/uswds/releases/download/v1.0.0/uswds-1.0.0.zip).
 
 
@@ -54,11 +54,11 @@ There are a few different ways to use the Design System within your project. Whi
 
 *Use the Design System `npm` package if:*
 - You are familiar with using `npm` and package management.
-- You would like to leverage Standards [Sass](#sass) files.
+- You would like to leverage USWDS [Sass](#sass) files.
 
 ### Download
 
-1. Download the [Standards zip file](https://github.com/uswds/uswds/releases/latest) from the latest release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/latest) from the latest release and open that file.
 
   After extracting the zip file you should see the following file and folder structure:
 
