@@ -15,6 +15,7 @@ const context = {
 
 fractal.set('project.title', 'U.S. Web Design System');
 
+/* Tell Fractal where components will live */
 const components = fractal.components;
 components.set('ext', '.njk');
 components.set('path', 'src/components');
@@ -33,7 +34,7 @@ components.engine(require('@frctl/nunjucks')({
 }));
 
 const docs = fractal.docs;
-docs.set('path', 'docs');
+docs.set('path', 'src/docs');
 
 const web = fractal.web;
 
