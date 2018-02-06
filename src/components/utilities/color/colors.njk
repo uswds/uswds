@@ -1,0 +1,7 @@
+{% for color in colors.color %}
+  <div class="float-left">
+    {% for value in colors.value %}
+    <div class="minw50ct p1 bg-{{color}}-{{value}} white">{{color}} {{value}}</div>
+    {% endfor %}
+  </div>
+{% endfor %}
