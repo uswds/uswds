@@ -180,7 +180,7 @@
 
 // ------------------------------------------------------------
 
-@mixin render-utility($selector, $property, $value, $val-props) {
+@mixin render-utility($utility, $selector, $property, $value, $val-props) {
   $this-namespace: null;
 
   @if $utility-type == settings {
@@ -193,6 +193,10 @@
 
     @each $this-property in $property {
       #{$this-property}: $value;
+    }
+
+    @if map-has-key($utility, extend) {
+      #{map-deep-get($utility, extend, property)}: strunquote(map-deep-get($utility, extend, value));
     }
   }
 }
@@ -230,7 +234,7 @@
   }
 }
 
-@mixin render-media-queries($selector, $property, $value, $val-props) {
+@mixin render-media-queries($utility, $selector, $property, $value, $val-props) {
   $this-namespace: null;
 
   @if $utility-type == settings {
@@ -246,6 +250,10 @@
 
         @each $this-property in $property {
           #{$this-property}: $value;
+        }
+        
+        @if map-has-key($utility, extend) {
+          #{map-deep-get($utility, extend, property)}: strunquote(map-deep-get($utility, extend, value));
         }
       }
     }
@@ -506,7 +514,7 @@
           // FINALLY, "BUILD THE RULE, MAX!"
           // https://www.youtube.com/watch?v=R3Igz5SfBCE
 
-          @include render-utility($selector, $property, $value, $val-props);
+          @include render-utility($utility, $selector, $property, $value, $val-props);
 
           // Add the pseudoclass variants, if applicable
 
@@ -523,7 +531,7 @@
           // And add the responsive prefixes, if applicable
 
           @if map-get($utility, responsive) {
-            @include render-media-queries($selector, $property, $value, $val-props);
+            @include render-media-queries($utility, $selector, $property, $value, $val-props);
           } // ･ﾟ✧
         } // end the modifier loop
       } // end the value loop
