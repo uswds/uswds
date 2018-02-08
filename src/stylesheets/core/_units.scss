@@ -197,6 +197,23 @@ $u-lh-body-tight:	 1.5;
 
 // See this palette at https://federalist-proxy.app.cloud.gov/site/18f/united/build/prototypes/colors.html
 
+// violet-warm
+$u-color-violet-warm-5 :  #fef7ff;
+$u-color-violet-warm-10:  #f5dcf7;
+$u-color-violet-warm-20:  #e0bae3;
+$u-color-violet-warm-30:  #d096d6;
+$u-color-violet-warm-40:  #bd73c7;
+$u-color-violet-warm-50:  #b24bbf;
+$u-color-violet-warm-60:  #854180;
+$u-color-violet-warm-70:  #573455;
+$u-color-violet-warm-80:  #332431;
+$u-color-violet-warm-90:  #211a21;
+$u-color-violet-warm-5v:  #fdedff;
+$u-color-violet-warm-10v: #f9c9ff;
+$u-color-violet-warm-20v: #f3a8ff;
+$u-color-violet-warm-30v: #ee82ff;
+$u-color-violet-warm-40v: #e05ef7;
+$u-color-violet-warm-50v: #c132d4;
 // violet
 $u-color-violet-5 :       #f5f3f8;
 $u-color-violet-10:       #dbd2ec;
@@ -481,23 +498,6 @@ $u-color-magenta-30v:     #ff80ae;
 $u-color-magenta-40v:     #fa3c91;
 $u-color-magenta-50v:     #e1277a;
 $u-color-magenta-60v:     #a91b61;
-// purple
-$u-color-purple-5 :       #f4e6f7;
-$u-color-purple-10:       #ead1ed;
-$u-color-purple-20:       #dcb2e0;
-$u-color-purple-30:       #cb91d1;
-$u-color-purple-40:       #be79c7;
-$u-color-purple-50:       #b14bbe;
-$u-color-purple-60:       #854180;
-$u-color-purple-70:       #61365f;
-$u-color-purple-80:       #452942;
-$u-color-purple-90:       #30212f;
-$u-color-purple-5v:       #fdedff;
-$u-color-purple-10v:      #f9c9ff;
-$u-color-purple-20v:      #f3a8ff;
-$u-color-purple-30v:      #ee82ff;
-$u-color-purple-40v:      #e05ef7;
-$u-color-purple-50v:      #c132d4;
 // black-cool
 $u-color-black-cool-5 :   #edeff0;
 $u-color-black-cool-10:   #d5d8db;
@@ -532,7 +532,7 @@ $u-color-black-warm-70:   #4f4f46;
 $u-color-black-warm-80:   #3d3d37;
 $u-color-black-warm-90:   #1c1c1b;
 // gray-trans
-$u-color-black-trans-1 :  rgba(0, 0, 0, 0.01);
+$u-color-black-trans-5 :  rgba(0, 0, 0, 0.01);
 $u-color-black-trans-10:  rgba(0, 0, 0, 0.1);
 $u-color-black-trans-20:  rgba(0, 0, 0, 0.2);
 $u-color-black-trans-30:  rgba(0, 0, 0, 0.3);
