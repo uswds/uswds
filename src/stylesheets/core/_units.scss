@@ -198,7 +198,7 @@ $u-lh-body-tight:	 1.5;
 // See this palette at https://federalist-proxy.app.cloud.gov/site/18f/united/build/prototypes/colors.html
 
 // violet
-$u-color-violet-1 :       #f5f3f8;
+$u-color-violet-5 :       #f5f3f8;
 $u-color-violet-10:       #dbd2ec;
 $u-color-violet-20:       #c8bae6;
 $u-color-violet-30:       #ae97db;
@@ -213,7 +213,7 @@ $u-color-violet-40v:      #b07bed;
 $u-color-violet-50v:      #9455dd;
 $u-color-violet-60v:      #7639b8;
 // indigo
-$u-color-indigo-1 :       #e9e9fa;
+$u-color-indigo-5 :       #e9e9fa;
 $u-color-indigo-10:       #dad5ef;
 $u-color-indigo-20:       #c1b5e6;
 $u-color-indigo-30:       #ac9ce2;
@@ -228,7 +228,7 @@ $u-color-indigo-40v:      #9980ff;
 $u-color-indigo-50v:      #7560eb;
 $u-color-indigo-60v:      #5740d1;
 // coastal
-$u-color-coastal-1 :      #ebebf7;
+$u-color-coastal-5 :      #ebebf7;
 $u-color-coastal-10:      #cfd0eb;
 $u-color-coastal-20:      #acade0;
 $u-color-coastal-30:      #989ad6;
@@ -243,7 +243,7 @@ $u-color-coastal-30v:     #8c8fe1;
 $u-color-coastal-50v:     #656bd7;
 $u-color-coastal-60v:     #353aa5;
 // marine
-$u-color-marine-1 :       #f5f6fc;
+$u-color-marine-5 :       #f5f6fc;
 $u-color-marine-10:       #d4dcee;
 $u-color-marine-20:       #b3c2e8;
 $u-color-marine-30:       #90a4e4;
@@ -255,7 +255,7 @@ $u-color-marine-80:       #28305c;
 $u-color-marine-90:       #212346;
 $u-color-marine-40v:      #6694ff;
 // blue
-$u-color-blue-1 :         #e3ebf5;
+$u-color-blue-5 :         #e3ebf5;
 $u-color-blue-10:         #cbdaee;
 $u-color-blue-20:         #adc0e9;
 $u-color-blue-30:         #81a5e5;
@@ -269,7 +269,7 @@ $u-color-blue-40v:        #5291ff;
 $u-color-blue-50v:        #2673df;
 $u-color-blue-60v:        #0052de;
 // sky
-$u-color-sky-1 :          #deedf7;
+$u-color-sky-5 :          #deedf7;
 $u-color-sky-10:          #c7dbed;
 $u-color-sky-20:          #9fc4e7;
 $u-color-sky-30:          #68abe0;
@@ -284,7 +284,7 @@ $u-color-sky-40v:         #009afa;
 $u-color-sky-50v:         #0078d4;
 $u-color-sky-60v:         #0059b3;
 // cyan
-$u-color-cyan-1 :         #d7eff4;
+$u-color-cyan-5 :         #d7eff4;
 $u-color-cyan-10:         #ade0ea;
 $u-color-cyan-20:         #83cad5;
 $u-color-cyan-30:         #35b0bf;
@@ -298,7 +298,7 @@ $u-color-cyan-10v:        #61e7ff;
 $u-color-cyan-20v:        #38d6f2;
 $u-color-cyan-30v:        #2db5d1;
 // teal
-$u-color-teal-1 :         #ebfcfa;
+$u-color-teal-5 :         #ebfcfa;
 $u-color-teal-10:         #9fe3dd;
 $u-color-teal-20:         #5fcfc5;
 $u-color-teal-30:         #35b0a6;
@@ -313,7 +313,7 @@ $u-color-teal-10v:        #7efce1;
 $u-color-teal-20v:        #02dbc2;
 $u-color-teal-30v:        #00baa4;
 // mint
-$u-color-mint-1 :         #cafcec;
+$u-color-mint-5 :         #cafcec;
 $u-color-mint-10:         #79f7cd;
 $u-color-mint-20:         #49e3b0;
 $u-color-mint-30:         #4ac79d;
@@ -323,13 +323,13 @@ $u-color-mint-60:         #266644;
 $u-color-mint-70:         #225237;
 $u-color-mint-80:         #1d3b29;
 $u-color-mint-90:         #1d3b29;
-$u-color-mint-1v:         #befde9;
+$u-color-mint-5v:         #befde9;
 $u-color-mint-10v:        #30f8b5;
 $u-color-mint-20v:        #06ec9f;
 $u-color-mint-30v:        #04c786;
 $u-color-mint-60v:        #16754f;
 // green
-$u-color-green-1 :        #d1f1cf;
+$u-color-green-5 :        #d1f1cf;
 $u-color-green-10:        #9fde9b;
 $u-color-green-20:        #74c76f;
 $u-color-green-30:        #3db83b;
@@ -339,13 +339,13 @@ $u-color-green-60:        #355b1b;
 $u-color-green-70:        #2b4a17;
 $u-color-green-80:        #233318;
 $u-color-green-90:        #192918;
-$u-color-green-1v:        #caf4c7;
+$u-color-green-5v:        #caf4c7;
 $u-color-green-10v:       #91e48b;
 $u-color-green-20v:       #61cf59;
 $u-color-green-30v:       #16c20a;
 $u-color-green-40v:       #0caf00;
 // lime
-$u-color-lime-1 :         #e3ebd5;
+$u-color-lime-5 :         #e3ebd5;
 $u-color-lime-10:         #ccdfa6;
 $u-color-lime-20:         #9dcb5e;
 $u-color-lime-30:         #87b050;
@@ -355,13 +355,13 @@ $u-color-lime-60:         #465f1b;
 $u-color-lime-70:         #394924;
 $u-color-lime-80:         #2a371a;
 $u-color-lime-90:         #212915;
-$u-color-lime-1v:         #d7f4bd;
+$u-color-lime-5v:         #d7f4bd;
 $u-color-lime-10v:        #b4e876;
 $u-color-lime-20v:        #93cc2e;
 $u-color-lime-30v:        #81b532;
 $u-color-lime-40v:        #73a22b;
 // citron
-$u-color-citron-1 :       #f2f6b9;
+$u-color-citron-5 :       #f2f6b9;
 $u-color-citron-10:       #e5f05a;
 $u-color-citron-20:       #ced74f;
 $u-color-citron-30:       #aab952;
@@ -371,13 +371,13 @@ $u-color-citron-60:       #575b3d;
 $u-color-citron-70:       #46482c;
 $u-color-citron-80:       #323422;
 $u-color-citron-90:       #28281e;
-$u-color-citron-1v:       #f3f8a7;
+$u-color-citron-5v:       #f3f8a7;
 $u-color-citron-10v:      #e6f50f;
 $u-color-citron-20v:      #cedc0a;
 $u-color-citron-30v:      #a9bd2d;
 $u-color-citron-40v:      #7f9e1d;
 // yellow
-$u-color-yellow-1 :       #f7e9bd;
+$u-color-yellow-5 :       #f7e9bd;
 $u-color-yellow-10:       #f4d350;
 $u-color-yellow-20:       #dabb4b;
 $u-color-yellow-30:       #bea145;
@@ -390,7 +390,7 @@ $u-color-yellow-90:       #33231b;
 $u-color-yellow-10v:      #fdd430;
 $u-color-yellow-20v:      #edc730;
 // gold
-$u-color-gold-1 :         #faf2e3;
+$u-color-gold-5 :         #faf2e3;
 $u-color-gold-10:         #e3ca9d;
 $u-color-gold-20:         #d1b488;
 $u-color-gold-30:         #c09b70;
@@ -406,7 +406,7 @@ $u-color-gold-30v:        #e39d14;
 $u-color-gold-40v:        #c4881d;
 $u-color-gold-50v:        #946f38;
 // orange
-$u-color-orange-1 :       #fbebdb;
+$u-color-orange-5 :       #fbebdb;
 $u-color-orange-10:       #f6d4af;
 $u-color-orange-20:       #eea869;
 $u-color-orange-30:       #e8883b;
@@ -416,12 +416,12 @@ $u-color-orange-60:       #774c29;
 $u-color-orange-70:       #5e3e26;
 $u-color-orange-80:       #432f20;
 $u-color-orange-90:       #30251e;
-$u-color-orange-1v:       #ffebd5;
+$u-color-orange-5v:       #ffebd5;
 $u-color-orange-10v:      #ffd3a2;
 $u-color-orange-20v:      #ffa64f;
 $u-color-orange-30v:      #e87e26;
 // peach
-$u-color-peach-1 :        #fae6db;
+$u-color-peach-5 :        #fae6db;
 $u-color-peach-10:        #fccbb6;
 $u-color-peach-20:        #fca681;
 $u-color-peach-30:        #fc8856;
@@ -435,7 +435,7 @@ $u-color-peach-20v:       #faad96;
 $u-color-peach-30v:       #fc835c;
 $u-color-peach-40v:       #ff5201;
 // terra
-$u-color-terra-1 :        #f3eae4;
+$u-color-terra-5 :        #f3eae4;
 $u-color-terra-10:        #e8cfbc;
 $u-color-terra-20:        #dca284;
 $u-color-terra-30:        #d2795b;
@@ -450,7 +450,7 @@ $u-color-terra-30v:       #e67549;
 $u-color-terra-40v:       #ee601d;
 $u-color-terra-50v:       #df4206;
 // red
-$u-color-red-1 :          #f4e7e7;
+$u-color-red-5 :          #f4e7e7;
 $u-color-red-10:          #f4d0cb;
 $u-color-red-20:          #eeada3;
 $u-color-red-30:          #e98678;
@@ -465,7 +465,7 @@ $u-color-red-40v:         #ff5c48;
 $u-color-red-50v:         #e92106;
 $u-color-red-60v:         #aa231f;
 // magenta
-$u-color-magenta-1 :      #f3e8eb;
+$u-color-magenta-5 :      #f3e8eb;
 $u-color-magenta-10:      #eed0da;
 $u-color-magenta-20:      #eaaec2;
 $u-color-magenta-30:      #e385a8;
@@ -482,7 +482,7 @@ $u-color-magenta-40v:     #fa3c91;
 $u-color-magenta-50v:     #e1277a;
 $u-color-magenta-60v:     #a91b61;
 // purple
-$u-color-purple-1 :       #f4e6f7;
+$u-color-purple-5 :       #f4e6f7;
 $u-color-purple-10:       #ead1ed;
 $u-color-purple-20:       #dcb2e0;
 $u-color-purple-30:       #cb91d1;
@@ -492,14 +492,14 @@ $u-color-purple-60:       #854180;
 $u-color-purple-70:       #61365f;
 $u-color-purple-80:       #452942;
 $u-color-purple-90:       #30212f;
-$u-color-purple-1v:       #fdedff;
+$u-color-purple-5v:       #fdedff;
 $u-color-purple-10v:      #f9c9ff;
 $u-color-purple-20v:      #f3a8ff;
 $u-color-purple-30v:      #ee82ff;
 $u-color-purple-40v:      #e05ef7;
 $u-color-purple-50v:      #c132d4;
 // black-cool
-$u-color-black-cool-1 :   #edeff0;
+$u-color-black-cool-5 :   #edeff0;
 $u-color-black-cool-10:   #d5d8db;
 $u-color-black-cool-20:   #b8bdc2;
 $u-color-black-cool-30:   #9da2a6;
@@ -510,7 +510,7 @@ $u-color-black-cool-70:   #424547;
 $u-color-black-cool-80:   #323537;
 $u-color-black-cool-90:   #252729;
 // black
-$u-color-black-1 :        #fafafa;
+$u-color-black-5 :        #fafafa;
 $u-color-black-10:        #e6e6e6;
 $u-color-black-20:        #c9c9c9;
 $u-color-black-30:        #adadad;
@@ -521,7 +521,7 @@ $u-color-black-70:        #454545;
 $u-color-black-80:        #2e2e2e;
 $u-color-black-90:        #171717;
 // black-warm
-$u-color-black-warm-1 :   #f5f5f1;
+$u-color-black-warm-5 :   #f5f5f1;
 $u-color-black-warm-10:   #e0e0da;
 $u-color-black-warm-20:   #d6d5cb;
 $u-color-black-warm-30:   #c2c1b4;
