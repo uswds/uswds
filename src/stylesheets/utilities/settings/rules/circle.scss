@@ -22,8 +22,7 @@ $circle: (
     base: ('circle', isReadable),
     modifiers: null,
     values: map-collect(
-      map-get($values-settings, spacing),
-      map-get($values-units, pixels)
+      map-get($values-settings, spacing)
     ),
     property: (height, width),
     extend: (
