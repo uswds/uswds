@@ -60,21 +60,22 @@ $s-fw-xbold:              700;
 // $s-color-NN:           $u-color-NN;
 
 // Identity colors
-$s-color-id-1:            $u-color-red-warm-50v !default;
-$s-color-id-1-dark:       $u-color-red-warm-60 !default;
-$s-color-id-1-xdark:      $u-color-red-warm-70 !default;
-$s-color-id-1-light:      $u-color-red-warm-40 !default;
-$s-color-id-1-xlight:     $u-color-red-warm-20 !default;
+$s-color-brand-1:         $u-color-red-warm-50v !default;
+$s-color-brand-1-dark:    $u-color-red-warm-60 !default;
+$s-color-brand-1-xdark:   $u-color-red-warm-70 !default;
+$s-color-brand-1-light:   $u-color-red-warm-40 !default;
+$s-color-brand-1-xlight:  $u-color-red-warm-20 !default;
 
-$s-color-id-2:            $u-color-indigo-50v !default;
-$s-color-id-2-dark:       $u-color-indigo-60v !default;
-$s-color-id-2-xdark:      $u-color-indigo-70 !default;
-$s-color-id-2-light:      $u-color-indigo-40 !default;
-$s-color-id-2-xlight:     $u-color-indigo-20 !default;
+$s-color-brand-2:         $u-color-indigo-50v !default;
+$s-color-brand-2-dark:    $u-color-indigo-60v !default;
+$s-color-brand-2-xdark:   $u-color-indigo-70 !default;
+$s-color-brand-2-light:   $u-color-indigo-40 !default;
+$s-color-brand-2-xlight:  $u-color-indigo-20 !default;
 
-$s-color-id-3:            $u-color-black-warm-80 !default;
-$s-color-id-4:            $u-color-orange-warm-40v !default;
-$s-color-id-5:            $u-color-green-warm-10v !default;
+// Accent colors
+$s-color-accent-1:        $u-color-black-warm-80 !default;
+$s-color-accent-2:        $u-color-orange-warm-40v !default;
+$s-color-accent-3:        $u-color-green-warm-10v !default;
 
 // UI colors
 $s-color-ui-1:            $u-color-black-90 !default;
