@@ -60,21 +60,22 @@ $s-fw-xbold:              700;
 // $s-color-NN:           $u-color-NN;
 
 // Identity colors
-$s-color-id-1:            $u-color-terra-50v !default;
-$s-color-id-1-dark:       $u-color-terra-60 !default;
-$s-color-id-1-xdark:      $u-color-terra-70 !default;
-$s-color-id-1-light:      $u-color-terra-40 !default;
-$s-color-id-1-xlight:     $u-color-terra-20 !default;
+$s-color-id-1:            $u-color-red-warm-50v !default;
+$s-color-id-1-dark:       $u-color-red-warm-60 !default;
+$s-color-id-1-xdark:      $u-color-red-warm-70 !default;
+$s-color-id-1-light:      $u-color-red-warm-40 !default;
+$s-color-id-1-xlight:     $u-color-red-warm-20 !default;
 
-$s-color-id-2:            $u-color-coastal-50v !default;
-$s-color-id-2-dark:       $u-color-coastal-60v !default;
-$s-color-id-2-xdark:      $u-color-coastal-70 !default;
-$s-color-id-2-light:      $u-color-coastal-40 !default;
-$s-color-id-2-xlight:     $u-color-coastal-20 !default;
+$s-color-id-2:            $u-color-indigo-50v !default;
+$s-color-id-2-dark:       $u-color-indigo-60v !default;
+$s-color-id-2-xdark:      $u-color-indigo-70 !default;
+$s-color-id-2-light:      $u-color-indigo-40 !default;
+$s-color-id-2-xlight:     $u-color-indigo-20 !default;
 
-$s-color-id-3:            $u-color-black-warm-80 !default;
-$s-color-id-4:            $u-color-peach-40v !default;
-$s-color-id-5:            $u-color-citron-10v !default;
+// Accent colors
+$s-color-accent-1:        $u-color-black-warm-80 !default;
+$s-color-accent-2:        $u-color-orange-warm-40v !default;
+$s-color-accent-3:        $u-color-green-warm-10v !default;
 
 // UI colors
 $s-color-ui-1:            $u-color-black-90 !default;
@@ -82,11 +83,11 @@ $s-color-ui-2:            $u-color-black-70 !default;
 $s-color-ui-3:            $u-color-black-50 !default;
 $s-color-ui-4:            $u-color-black-50 !default;
 $s-color-ui-5:            $u-color-black-warm-20 !default;
-$s-color-ui-6:            $u-color-blue-60v !default;
+$s-color-ui-6:            $u-color-blue-warm-60v !default;
 
 // Text colors
 $s-color-text-1:          $u-color-black-90 !default;
-$s-color-text-2:          $u-color-blue-60v !default;
+$s-color-text-2:          $u-color-blue-warm-60v !default;
 $s-color-text-3:          $u-color-black-50 !default;
 $s-color-text-4:          $u-color-black-50 !default;
 $s-color-text-inverse:    $u-color-white-0 !default;
@@ -94,7 +95,7 @@ $s-color-text-inverse:    $u-color-white-0 !default;
 // Field colors
 $s-color-field-1:         $u-color-white-warm-1 !default;
 $s-color-field-2:         $u-color-white-warm-4 !default;
-$s-color-field-3:         $u-color-citron-1 !default;
+$s-color-field-3:         $u-color-green-warm-5 !default;
 $s-color-field-4:         $u-color-black-warm-90 !default;
 
 // Error colors
@@ -109,21 +110,21 @@ $s-color-warn:            $u-color-orange-30v !default;
 $s-color-warn-dark:       $u-color-orange-40 !default;
 $s-color-warn-xdark:      $u-color-orange-50 !default;
 $s-color-warn-light:      $u-color-orange-20v !default;
-$s-color-warn-xlight:     $u-color-orange-10v !default;
+$s-color-warn-xlight:     $u-color-orange-10 !default;
 
 // Success colors
-$s-color-success:         $u-color-green-40v !default;
-$s-color-success-dark:    $u-color-green-50 !default;
-$s-color-success-xdark:   $u-color-green-70 !default;
-$s-color-success-light:   $u-color-green-30v !default;
-$s-color-success-xlight:  $u-color-green-20v !default;
+$s-color-success:         $u-color-green-cool-40v !default;
+$s-color-success-dark:    $u-color-green-cool-50 !default;
+$s-color-success-xdark:   $u-color-green-cool-70 !default;
+$s-color-success-light:   $u-color-green-cool-30v !default;
+$s-color-success-xlight:  $u-color-green-cool-20v !default;
 
 // OK colors
-$s-color-ok:              $u-color-blue-50v !default;
-$s-color-ok-dark:         $u-color-blue-60v !default;
-$s-color-ok-xdark:        $u-color-blue-70 !default;
-$s-color-ok-light:        $u-color-blue-40v !default;
-$s-color-ok-xlight:       $u-color-blue-30 !default;
+$s-color-ok:              $u-color-blue-warm-50v !default;
+$s-color-ok-dark:         $u-color-blue-warm-60v !default;
+$s-color-ok-xdark:        $u-color-blue-warm-70 !default;
+$s-color-ok-light:        $u-color-blue-warm-40v !default;
+$s-color-ok-xlight:       $u-color-blue-warm-30 !default;
 
 // Disabled color
 $s-color-disabled:        $u-color-black-30 !default;
