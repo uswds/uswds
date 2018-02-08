@@ -3,17 +3,17 @@
 Border Radius
 ----------------------------------------
 usage:
-  .br[-]*[value]
+  .radius-[value]
 ----------------------------------------
 output:
   border-radius: [value];
 ----------------------------------------
 example:
-  .br0 {
-    border-radius: 0; }
+  .radius-md {
+    border-radius: $s-spacing-md; }
 
-  .br-pill {
-    border-radius: 10em; }
+  .radius-pill {
+    border-radius: 9999em; }
 ----------------------------------------
 */
 
@@ -23,7 +23,8 @@ $border-radius: (
     modifiers: null,
     values: (
       0: '0',
-      pill: ('10em', isReadable),
+      pill: ('9999em', isReadable),
+      circle: ('50%', isReadable),
       sm: ($s-radius-sm, isReadable),
       md: ($s-radius-md, isReadable),
       lg: ($s-radius-lg, isReadable),
