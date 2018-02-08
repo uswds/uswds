@@ -23,7 +23,6 @@ $square: (
       sq: (height, width),
     ),
     values: map-collect(
-      map-get($values-units, percentage),
       map-get($values-units, grid),
       map-get($values-units, pixels)
     ),
