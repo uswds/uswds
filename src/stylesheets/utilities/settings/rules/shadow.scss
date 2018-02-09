@@ -3,20 +3,20 @@
 Display
 ----------------------------------------
 usage:
-  .elev-[value]
+  .shadow-[value]
 ----------------------------------------
 output:
   box-shadow: [value];
 ----------------------------------------
 example:
-  .elev-1 {
+  .shadow-1 {
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10); }
 ----------------------------------------
 */
 
-$elevation: (
-  elevation: (
-    base: ('elev', isReadable),
+$shadow: (
+  shadow: (
+    base: ('shadow', isReadable),
     modifiers: null,
     values: (
       0: 'none',
@@ -29,6 +29,6 @@ $elevation: (
     property: 'box-shadow',
     output: true,
     responsive: true,
-    pseudoclasses: true,
+    pseudoclasses: false,
   )
 )
