@@ -8,12 +8,12 @@
         {{ hero.title }}
       </h2>
 
-      {% if hero.link %}
-      <a class="usa-hero-link" href="{{ hero.link.href }}">{{ hero.link.text }}</a>
+      {% if hero.paragraph %}
+      <p>{{ hero.paragraph }}</p>
       {% endif %}
 
       {% if hero.button %}
-      <a class="usa-button usa-button-big" href="{{ hero.button.href }}">{{ hero.button.text }}</a>
+      <a class="usa-button" href="{{ hero.button.href }}">{{ hero.button.text }}</a>
       {% endif %}
     </div>
   </div>

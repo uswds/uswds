@@ -1,6 +1,6 @@
-# Using the Standards with [node-sass]
+# Using the Design System with [node-sass]
 
-This example illustrates how to install both the Standards and [node-sass]
+This example illustrates how to install both the USWDS and [node-sass]
 with [npm], and automate the compilation of CSS files from the source
 files.
 

@@ -88,13 +88,12 @@ select {
 
 .usa-input-required:after {
   color: $color-secondary-darkest;
-  content: ' (*Required)';
+  content: ' (*required)';
 }
 
 .usa-input-optional:after {
   color: $color-gray-medium;
-  content: ' - optional';
-  font-style: italic;
+  content: ' (optional)';
 }
 
 label {
@@ -113,7 +112,9 @@ select {
   appearance: none;
   background-color: $color-white;
   background-image: url('#{$image-path}/arrow-both.png');
-  background-image: url('#{$image-path}/arrow-both.svg');
+  // Ensure browsers that don't support SVG in background-image (IE 11 and below) fall back to PNG. 
+  // See https://www.broken-links.com/2010/06/14/using-svg-in-backgrounds-with-png-fallback/
+  background-image: none, url('#{$image-path}/arrow-both.svg'), url('#{$image-path}/arrow-both.png');
   background-position: right 1.3rem center;
   background-repeat: no-repeat;
   background-size: 1rem;
@@ -226,7 +227,7 @@ legend {
 
 [type=radio]:focus + label::before {
   outline: $focus-outline;
-  outline-offset: 5px;
+  outline-offset: $focus-spacing * 2; // Double the offset to account for circular shape
 }
 
 [type=checkbox]:disabled + label {

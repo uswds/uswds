@@ -2,6 +2,7 @@
 <html lang="en-US">
   <head>
     <title>{{ _self.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ uswds.path }}/css/uswds.min.css">
   </head>
   <body>
@@ -10,7 +11,7 @@
     <script>
     window.addEventListener('load', function() {
       document.body.addEventListener('submit', function(e) {
-        // https://github.com/18F/web-design-standards/issues/2101
+        // https://github.com/uswds/uswds/issues/2101
         e.preventDefault();
       }, true);
     }, false);

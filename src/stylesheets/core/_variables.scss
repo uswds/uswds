@@ -128,21 +128,22 @@ $image-path:  '../img' !default;
 $asset-pipeline:      false !default;
 
 // Magic Numbers
-$text-max-width:          66ch !default; // 66 characters per line
-$lead-max-width:          77rem !default;
-$site-max-width:          1040px !default;
-$site-margins:            3rem !default;
-$site-margins-mobile:     1.5rem !default;
-$article-max-width:       600px !default;
-$input-max-width:         46rem !default;
-$label-border-radius:     2px !default;
-$checkbox-border-radius:  2px !default;
-$border-radius:           3px !default;
-$button-border-radius:    5px !default;
-$box-shadow:              0 0 2px $color-shadow !default;
-$focus-outline:           2px dotted $color-gray-light;
-$focus-spacing:           3px;
-$nav-width:               951px !default;
+$text-max-width:                66ch !default; // 66 characters per line
+$lead-max-width:                77rem !default;
+$site-max-width:                1040px !default;
+$site-margins:                  3rem !default;
+$site-margins-mobile:           1.5rem !default;
+$article-max-width:             600px !default;
+$input-max-width:               46rem !default;
+$label-border-radius:           2px !default;
+$checkbox-border-radius:        2px !default;
+$border-radius:                 3px !default;
+$button-border-radius:          5px !default;
+$box-shadow:                    0 0 2px $color-shadow !default;
+$focus-outline:                 2px dotted $color-gray-light !default;
+$focus-spacing:                 3px !default;
+$nav-width:                     951px !default;
+$sidenav-current-border-width:  0.4rem !default; // must be in rem for math
 
 // 44 x 44 pixels hit target following Apple iOS Human Interface
 // Guidelines

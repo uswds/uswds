@@ -1,5 +1,6 @@
 label: Side navigation
 status: ready
+preview: '@uswds-content'
 
 context:
   sidenav:

@@ -118,6 +118,7 @@
 
 .usa-nav-primary {
   @include usa-sidenav-list;
+  margin-top: 1.5rem;
   order: 2;
 
   @include media($nav-width) {
@@ -303,14 +304,17 @@
 // Secondary navigation ----------- //
 
 .usa-nav-secondary {
+  margin-top: 1.5rem;
+
   @include media($nav-width) {
+    margin-top: 0;
     position: absolute;
     right: $site-margins;
     top: -5.7rem; // XXX magic number
   }
 
   .usa-search {
-    @include margin(3rem null);
+    @include margin(1.5rem null 0 null);
 
     @include media($nav-width) {
       @include margin(-0.9rem null 0 0);
@@ -320,8 +324,11 @@
 }
 
 .usa-nav-secondary-links {
+  margin-top: 2.4rem;
+
   @include media($nav-width) {
     float: left;
+    margin-top: 0;
   }
 
   li {
@@ -434,7 +441,7 @@
 
 .usa-nav-close {
   @include button-unstyled;
-  @include margin(-1.2rem -1.5rem 2.4rem auto);
+  @include margin(-1.2rem -1.5rem 1.5rem auto);
   float: right;
   height: $hit-area;
   text-align: center;
@@ -446,6 +453,10 @@
 
   img {
     width: 1.3rem;
+  }
+
+  + * {
+    clear: both;
   }
 }
 

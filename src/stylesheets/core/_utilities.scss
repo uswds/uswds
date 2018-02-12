@@ -191,7 +191,7 @@
     display: block;
     font-family: $font-sans;
     line-height: 1.3;
-    padding: 0.85rem 1rem 0.85rem 1.8rem;
+    padding: 0.85rem 1rem 0.85rem $site-margins-mobile;
     text-decoration: none;
 
     &:hover {
@@ -207,10 +207,10 @@
     }
 
     &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
-      border-left: 0.4rem solid $color-primary;
+      border-left: $sidenav-current-border-width solid $color-primary;
       color: $color-primary;
       font-weight: $font-bold;
-      padding-left: 1.4rem;
+      padding-left: $site-margins-mobile - $sidenav-current-border-width;
     }
   }
 }
