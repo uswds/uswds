@@ -225,38 +225,3 @@ dfn {
     }
   }
 }
-
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6 {
-//   + p {
-//     margin-top: 0;
-//   }
-// }
-
-// A grid following another grid has regular spacing
-// .usa-grid + .usa-grid,
-// .usa-grid-full + .usa-grid-full {
-//   // Using * to target all usa-width-* classes
-//   * {
-    // h1,
-    // h2,
-    // h3,
-    // h4,
-    // h5,
-    // h6 {
-//       &:first-child {
-//         margin-top: 1.5em;
-//       }
-//     }
-//   }
-
-//   p, ul, ol {
-//     &:first-child {
-//       margin-top: 1em;
-//     }
-//   }
-// }
