@@ -3,16 +3,16 @@
 Border Radius
 ----------------------------------------
 usage:
-  .br[-]*[value]
+  .radius-*[value]
 ----------------------------------------
 output:
   border-radius: [value];
 ----------------------------------------
 example:
-  .br0 {
+  .radius-0 {
     border-radius: 0; }
 
-  .br-pill {
+  .radius-pill {
     border-radius: 10em; }
 ----------------------------------------
 */
@@ -20,10 +20,17 @@ example:
 $border-radius: (
   border-radius: (
     base: ('radius', isReadable),
-    modifiers: null,
+    modifiers: (
+      t: ('border-top-left-radius', 'border-top-right-radius'),
+      r: ('border-top-right-radius', 'border-bottom-right-radius'),
+      b: ('border-bottom-left-radius', 'border-bottom-right-radius'),
+      l: ('border-top-left-radius', 'border-bottom-left-radius'),
+      noModifier: 'border-radius',
+    ),
     values: (
       0: '0',
-      pill: ('10em', isReadable),
+      pill: ('9999em', isReadable),
+      circle: ('50%', isReadable),
       rounded: ($border-radius, isReadable),
       1px: 1px,
       2px: 2px,
@@ -32,7 +39,7 @@ $border-radius: (
       '105': $u-spacing-105,
       '2': $u-spacing-2,
     ),
-    property: 'border-radius',
+    property: '',
     output: true,
     responsive: false,
     pseudoclasses: false,
