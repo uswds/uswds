@@ -213,13 +213,13 @@ dfn {
 
 .usa-grid:first-child {
   // Using [class^="usa-width-"] to target all classes that contain usa-width-*
-  [class*="usa-width-"]:first-child {
+  [class*='usa-width-']:first-child {
     > :first-child {
       margin-top: 0;
     }
   }
 
-  [class*="usa-width-"] {
+  [class*='usa-width-'] {
     @include media($medium-screen) {
       @include clip-margins;
     }
