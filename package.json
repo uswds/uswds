@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -30,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uswds/uswds.git"
+    "url": "https://github.com/uswds/uswds.git"
   },
   "author": "18F",
   "contributors": [

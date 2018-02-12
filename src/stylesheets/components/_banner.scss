@@ -141,11 +141,11 @@
     @include padding(0 null null 0);
     /* stylelint-disable declaration-block-no-ignored-properties */
     display: inline;
-    height: initial;
+    height: auto;
     margin-left: 3px;
     position: relative;
     vertical-align: middle;
-    width: initial;
+    width: auto;
     /* stylelint-enable */
   }
 

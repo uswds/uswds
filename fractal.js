@@ -13,7 +13,7 @@ const context = {
   },
 };
 
-fractal.set('project.title', 'U.S. Web Design Standards');
+fractal.set('project.title', 'U.S. Web Design System');
 
 const components = fractal.components;
 components.set('ext', '.njk');

@@ -1,6 +1,6 @@
-# Website and applications that use the Standards
+# Websites and applications that use the Design System
 
-Below are a list of website and applications currently using the U.S. Web Design Standards. If your project is currently using the Standards and you do not see it on this list, please feel free to submit a pull request or email the core team at uswebdesignstandards@gsa.gov.
+Below are a list of websites and applications currently using the U.S. Web Design System. If your project is currently using the Design System and you do not see it on this list, please feel free to submit a pull request or email the core team at uswebdesignstandards@gsa.gov.
 
 - [18F](https://18f.gsa.gov)
 - [18F Automated Testing Playbook](https://automated-testing-playbook.18f.gov/)

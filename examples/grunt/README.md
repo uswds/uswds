@@ -1,4 +1,4 @@
-# Using the Standards with [Grunt]
+# Using the Design System with [Grunt]
 
 This example illustrates how to build custom CSS and JS from the
 Standards JavaScript with [Grunt].
