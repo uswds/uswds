@@ -44,6 +44,7 @@ web.theme(require('@frctl/mandelbrot')({
   // display context data in YAML
   format: 'yaml',
   // which panels to show
+  nav: ["docs", "components"], // show docs above components in the sidebar
   panels: [
     'html',
     'notes',
