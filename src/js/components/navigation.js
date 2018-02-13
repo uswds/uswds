@@ -90,6 +90,9 @@ const toggleNav = function (active) {
     // visible (this may have been what the user was just focused on,
     // if they triggered the mobile nav by mistake).
     menuButton.focus();
+
+    // Remove the keydown event listener
+    nav.removeEventListener('keydown', trapTabKey);
   }
 
   return active;
