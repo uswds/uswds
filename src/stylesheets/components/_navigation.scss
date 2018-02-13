@@ -50,18 +50,18 @@
   }
 }
 
-@keyframes slide-left {
-  from {
-    transform: translateX(26rem);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
 .usa-nav {
   $sliding-panel-width: 26rem;
+
+  @keyframes slide-left {
+    from {
+      transform: translateX($sliding-panel-width);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
 
   @include position(fixed, 0 0 0 auto);
 
