@@ -9,7 +9,7 @@ const PREFIX = require('../config').prefix;
 
 const NAV = `.${PREFIX}-nav`;
 const NAV_LINKS = `${NAV} a`;
-const OPENERS = `.${PREFIX}-menu-btn`;
+const OPENERS = `.${PREFIX}-menu-btn`; // Will hold previously focused element
 const CLOSE_BUTTON = `.${PREFIX}-nav-close`;
 const OVERLAY = `.${PREFIX}-overlay`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
@@ -18,21 +18,20 @@ const TOGGLES = [ NAV, OVERLAY ].join(', ');
 const ACTIVE_CLASS = 'usa-mobile_nav-active';
 const VISIBLE_CLASS = 'is-visible';
 
-const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
+const isActive = () => document.classList.contains(ACTIVE_CLASS);
 
 const toggleNav = function (active) {
-  const body = document.body;
   if (typeof active !== 'boolean') {
     active = !isActive();
   }
-  body.classList.toggle(ACTIVE_CLASS, active);
+  document.classList.toggle(ACTIVE_CLASS, active);
 
   forEach(select(TOGGLES), el => {
     el.classList.toggle(VISIBLE_CLASS, active);
   });
 
-  const closeButton = body.querySelector(CLOSE_BUTTON);
-  const menuButton = body.querySelector(OPENERS);
+  const closeButton = document.querySelector(CLOSE_BUTTON);
+  const menuButton = document.querySelector(OPENERS);
 
   if (active && closeButton) {
     // The mobile nav was just activated, so focus on the close button,
@@ -52,7 +51,7 @@ const toggleNav = function (active) {
 };
 
 const resize = () => {
-  const closer = document.body.querySelector(CLOSE_BUTTON);
+  const closer = document.querySelector(CLOSE_BUTTON);
 
   if (isActive() && closer && closer.getBoundingClientRect().width === 0) {
     // The mobile nav is active, but the close box isn't visible, which
