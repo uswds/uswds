@@ -9,7 +9,7 @@ const PREFIX = require('../config').prefix;
 
 const NAV = `.${PREFIX}-nav`;
 const NAV_LINKS = `${NAV} a`;
-const OPENERS = `.${PREFIX}-menu-btn`; // Will hold previously focused element
+const OPENERS = `.${PREFIX}-menu-btn`; // Will hold previously focused
 const CLOSE_BUTTON = `.${PREFIX}-nav-close`;
 const OVERLAY = `.${PREFIX}-overlay`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
@@ -18,20 +18,65 @@ const TOGGLES = [ NAV, OVERLAY ].join(', ');
 const ACTIVE_CLASS = 'usa-mobile_nav-active';
 const VISIBLE_CLASS = 'is-visible';
 
-const isActive = () => document.classList.contains(ACTIVE_CLASS);
+const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
 const toggleNav = function (active) {
+
+  const body = document.body;
   if (typeof active !== 'boolean') {
     active = !isActive();
   }
-  document.classList.toggle(ACTIVE_CLASS, active);
+  body.classList.toggle(ACTIVE_CLASS, active);
 
   forEach(select(TOGGLES), el => {
     el.classList.toggle(VISIBLE_CLASS, active);
   });
 
-  const closeButton = document.querySelector(CLOSE_BUTTON);
-  const menuButton = document.querySelector(OPENERS);
+  var nav = document.querySelector(NAV);
+
+  // Listen for and trap the keyboard
+  nav.addEventListener('keydown', trapTabKey);
+
+  // Find all focusable children
+  var focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+  var focusableElements = nav.querySelectorAll(focusableElementsString);
+  // Convert NodeList to Array
+  focusableElements = Array.prototype.slice.call(focusableElements);
+
+  var firstTabStop = focusableElements[ 0 ];
+  var lastTabStop = focusableElements[ focusableElements.length - 1 ];
+
+  // Focus first child
+  firstTabStop.focus();
+
+  function trapTabKey (e) {
+    // Check for TAB key press
+    if (e.keyCode === 9) {
+
+      // SHIFT + TAB
+      if (e.shiftKey) {
+        if (document.activeElement === firstTabStop) {
+          e.preventDefault();
+          lastTabStop.focus();
+        }
+
+      // TAB
+      } else {
+        if (document.activeElement === lastTabStop) {
+          e.preventDefault();
+          firstTabStop.focus();
+        }
+      }
+    }
+
+    // ESCAPE
+    if (e.keyCode === 27) {
+      toggleNav.call(this, false);
+    }
+  }
+
+  const closeButton = body.querySelector(CLOSE_BUTTON);
+  const menuButton = body.querySelector(OPENERS);
 
   if (active && closeButton) {
     // The mobile nav was just activated, so focus on the close button,
@@ -51,7 +96,7 @@ const toggleNav = function (active) {
 };
 
 const resize = () => {
-  const closer = document.querySelector(CLOSE_BUTTON);
+  const closer = document.body.querySelector(CLOSE_BUTTON);
 
   if (isActive() && closer && closer.getBoundingClientRect().width === 0) {
     // The mobile nav is active, but the close box isn't visible, which
