@@ -25,9 +25,6 @@ const focusTrap = ((element) => {
   // Find all focusable children
   const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
   const focusableElements = trapContainer.querySelectorAll(focusableElementsString);
-  // // Convert NodeList to Array
-  // focusableElements = Array.prototype.slice.call(focusableElements);
-
   const firstTabStop = focusableElements[ 0 ];
   const lastTabStop = focusableElements[ focusableElements.length - 1 ];
 
