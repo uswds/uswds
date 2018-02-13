@@ -21,7 +21,6 @@ const VISIBLE_CLASS = 'is-visible';
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
 const toggleNav = function (active) {
-
   const body = document.body;
   if (typeof active !== 'boolean') {
     active = !isActive();
