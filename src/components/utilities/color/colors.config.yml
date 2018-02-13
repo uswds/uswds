@@ -1,0 +1,43 @@
+label: colors
+
+context:
+  colors:
+    color:
+      - violet
+      - coastal
+      - indigo
+      - marine
+      - blue
+      - sky
+      - cyan
+      - teal
+      - mint
+      - green
+      - lime
+      - citron
+      - yellow
+      - gold
+      - orange
+      - peach
+      - terra
+      - red
+      - magenta
+      - purple
+      - gray-cool
+      - gray
+      - gray-warm
+    value:
+      - 1
+      - 10
+      - 20
+      - 30
+      - 40
+      - 50
+      - 60
+      - 70
+      - 80
+      - 90
+      - 30v
+      - 40v
+      - 50v
+      - 60v
