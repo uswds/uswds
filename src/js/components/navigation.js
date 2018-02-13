@@ -9,7 +9,7 @@ const PREFIX = require('../config').prefix;
 
 const NAV = `.${PREFIX}-nav`;
 const NAV_LINKS = `${NAV} a`;
-const OPENERS = `.${PREFIX}-menu-btn`; // Will hold previously focused
+const OPENERS = `.${PREFIX}-menu-btn`;
 const CLOSE_BUTTON = `.${PREFIX}-nav-close`;
 const OVERLAY = `.${PREFIX}-overlay`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
