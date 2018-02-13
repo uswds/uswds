@@ -53,7 +53,7 @@
 .usa-nav {
   $sliding-panel-width: 26rem;
 
-  @keyframes slide-left {
+  @keyframes slidein-left {
     from {
       transform: translateX($sliding-panel-width);
     }
@@ -86,7 +86,7 @@
   }
 
   &.is-visible {
-    animation: slide-left 0.3s ease-in-out;
+    animation: slidein-left 0.3s ease-in-out;
     display: flex;
   }
 
