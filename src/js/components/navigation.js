@@ -20,33 +20,16 @@ const VISIBLE_CLASS = 'is-visible';
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
-const toggleNav = function (active) {
-  const body = document.body;
-  if (typeof active !== 'boolean') {
-    active = !isActive();
-  }
-  body.classList.toggle(ACTIVE_CLASS, active);
-
-  forEach(select(TOGGLES), el => {
-    el.classList.toggle(VISIBLE_CLASS, active);
-  });
-
-  var nav = document.querySelector(NAV);
-
-  // Listen for and trap the keyboard
-  nav.addEventListener('keydown', trapTabKey);
-
+const focusTrap = ((element) => {
+  const trapContainer = document.querySelector(element);
   // Find all focusable children
-  var focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
-  var focusableElements = nav.querySelectorAll(focusableElementsString);
-  // Convert NodeList to Array
-  focusableElements = Array.prototype.slice.call(focusableElements);
+  const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+  const focusableElements = trapContainer.querySelectorAll(focusableElementsString);
+  // // Convert NodeList to Array
+  // focusableElements = Array.prototype.slice.call(focusableElements);
 
-  var firstTabStop = focusableElements[ 0 ];
-  var lastTabStop = focusableElements[ focusableElements.length - 1 ];
-
-  // Focus first child
-  firstTabStop.focus();
+  const firstTabStop = focusableElements[ 0 ];
+  const lastTabStop = focusableElements[ focusableElements.length - 1 ];
 
   function trapTabKey (e) {
     // Check for TAB key press
@@ -74,6 +57,38 @@ const toggleNav = function (active) {
     }
   }
 
+  // Focus first child
+  firstTabStop.focus();
+
+  return {
+    enable() {
+      // Listen for and trap the keyboard
+      trapContainer.addEventListener('keydown', trapTabKey);
+    },
+
+    release() {
+      trapContainer.removeEventListener('keydown', trapTabKey);
+    }
+  }
+})(NAV);
+
+const toggleNav = function (active) {
+  const body = document.body;
+  if (typeof active !== 'boolean') {
+    active = !isActive();
+  }
+  body.classList.toggle(ACTIVE_CLASS, active);
+
+  forEach(select(TOGGLES), el => {
+    el.classList.toggle(VISIBLE_CLASS, active);
+  });
+
+  if (active) {
+    focusTrap.enable();
+  } else {
+    focusTrap.release();
+  }
+
   const closeButton = body.querySelector(CLOSE_BUTTON);
   const menuButton = body.querySelector(OPENERS);
 
@@ -89,9 +104,6 @@ const toggleNav = function (active) {
     // visible (this may have been what the user was just focused on,
     // if they triggered the mobile nav by mistake).
     menuButton.focus();
-
-    // Remove the keydown event listener
-    nav.removeEventListener('keydown', trapTabKey);
   }
 
   return active;
