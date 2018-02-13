@@ -20,7 +20,7 @@ const VISIBLE_CLASS = 'is-visible';
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
-const focusTrap = ((element) => {
+const _focusTrap = (element) => {
   const trapContainer = document.querySelector(element);
   // Find all focusable children
   const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
@@ -58,16 +58,18 @@ const focusTrap = ((element) => {
   firstTabStop.focus();
 
   return {
-    enable() {
+    enable () {
       // Listen for and trap the keyboard
       trapContainer.addEventListener('keydown', trapTabKey);
     },
 
-    release() {
+    release () {
       trapContainer.removeEventListener('keydown', trapTabKey);
-    }
-  }
-})(NAV);
+    },
+  };
+};
+
+let focusTrap;
 
 const toggleNav = function (active) {
   const body = document.body;
@@ -142,6 +144,7 @@ const navigation = behavior({
   },
 }, {
   init () {
+    focusTrap = _focusTrap(NAV);
     resize();
     window.addEventListener('resize', resize, false);
   },
