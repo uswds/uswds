@@ -81,7 +81,7 @@ $usa-btn-big-width:     11.6rem;
 // Extra specificity to override rules set in reset.css.
 input[type=search] { /* stylelint-disable-line selector-no-qualifying-type */
   box-sizing: border-box;
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 [type=search],
