@@ -1,6 +1,6 @@
-# Using the Standards with [browserify]
+# Using the Design System with [browserify]
 
-This example illustrates how to bundle the Standards JavaScript with
+This example illustrates how to bundle the Design System JavaScript with
 [browserify] and [npm].
 
 First, install the dependencies with [npm]:
@@ -19,7 +19,7 @@ npm run build:js
 This example uses the following browserify plugins and transforms:
 
 * The [babelify] transform uses [Babel] and the `babel` entry in `package.json`
-  to convert the Standards JS from [ES2015] to browser-friendly ES5. **This
+  to convert the Design System JS from [ES2015] to browser-friendly ES5. **This
   is required,** and it also allows you to write your own code in ES2015
   because the transform is applied globally (rather than to each module
   individually).
