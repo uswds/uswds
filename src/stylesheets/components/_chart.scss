@@ -1,0 +1,84 @@
+$infographic-colors:
+  $color-blue
+  $color-aqua
+  $color-green
+  $color-purple
+  $color-cool-blue
+  $color-gold
+  $color-red;
+
+// Chart styles
+
+.usa-chart-labelText,
+.usa-chart-labelValue,
+.usa-chart-gridLabel {
+  text-anchor: middle;
+  font-size: calc(4.25px - .25vw);
+  @media (min-width: 1100px) {
+    font-size: 1.5px;
+  }
+}
+
+[data-chart-type='bar'] .usa-chart-labelValue-invert {
+  fill: #fff;
+}
+
+.usa-chart-gridLabel {
+  fill: #555;
+  text-anchor: end;
+}
+
+.usa-chart-gridLine {
+  stroke: #eee;
+  stroke-width: .2;
+}
+
+.usa-chart-bars {
+  fill: nth(currentColor, 1);
+}
+
+.usa-chart-path {
+  stroke-width: .4px;
+  stroke: nth(currentColor, 1);
+  fill: none;
+}
+
+.usa-chart-point {
+  fill: nth(currentColor, 1);
+}
+
+.usa-chart-axis {
+  stroke: #aaa;
+  stroke-width: .2;
+  fill: none;
+}
+
+.usa-chart-keys {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.usa-chart-keys-key {
+  padding: .3em .5em .1em;
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background: currentColor;
+    margin: 0 .3em -.2em 0;
+  }
+}
+
+.usa-chart-hidden {
+  font-size: 0;
+  color: rgba(#fff,0);
+}
+
+@for $i from 1 through length($infographic-colors) {
+  .usa-chart-datagroup:nth-child(#{$i}),
+  .usa-chart-keys-key:nth-child(#{$i}):before {
+    color: nth($infographic-colors, $i);
+  }
+}
