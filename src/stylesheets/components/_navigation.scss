@@ -442,10 +442,15 @@
 .usa-nav-close {
   @include button-unstyled;
   @include margin(-1.2rem -1.5rem 1.5rem auto);
+  color: currentColor;
   float: right;
   height: $hit-area;
   text-align: center;
   width: $hit-area;
+
+  &:hover {
+    color: currentColor;
+  }
 
   @include media($nav-width) {
     display: none;
