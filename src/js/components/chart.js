@@ -49,19 +49,19 @@ for (var i = 0; i < chartLine.length; i++) {
     increment = parseFloat(chart.querySelector('.usa-chart-data').dataset.increment.replace(/[^0-9\.]/g, ''));
   }
 
-  var datasets = [];
+  var datasets = [ ];
   // Identify datasets
   if (chart.querySelector('.usa-chart-dataset')) {
     var d = chart.querySelectorAll('.usa-chart-dataset');
-    for (var i = 0; i < d.length; i++) {
-      datasets.push(d[i].innerHTML);
+    for (var l = 0; l < d.length; l++) {
+      datasets.push(d[ l ].innerHTML);
     }
   }
   else {
     datasets.push('');
   }
 
-  for (var d in datasets) {
+  for (var data in datasets) {
     // Create elements for graph
     var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     var path  = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -74,12 +74,12 @@ for (var i = 0; i < chartLine.length; i++) {
     if (datasets.length > 1) {
       var key = document.createElement('span');
       key.classList.add('usa-chart-keys-key');
-      key.innerHTML = datasets[d];
+      key.innerHTML = datasets[ data ];
 
       keys.appendChild(key);
 
       // Write text labels for accessability
-      labelSet.innerHTML = datasets[d] + ':';
+      labelSet.innerHTML = datasets[ data ] + ':';
       labelSet.classList.add('usa-chart-hidden');
       labels.appendChild(labelSet);
     }
@@ -88,7 +88,7 @@ for (var i = 0; i < chartLine.length; i++) {
     for (var j = 0; j < items.length; j++) {
       const item = items[ j ];
 
-      var value = parseFloat(item.querySelectorAll('.usa-chart-value')[d].innerHTML.replace(/[^0-9\.]/g, ''));
+      var value = parseFloat(item.querySelectorAll('.usa-chart-value')[ data ].innerHTML.replace(/[^0-9\.]/g, ''));
       var x = ((graphOffset + (graphWidth / items.length * j) + graphGap / items.length) + ((graphWidth - graphGap) / items.length / 2));
       var y = (graphHeight - (value - min) * (graphHeight/(max-min)) + topOffset);
       var width = (graphWidth - graphGap) / items.length / datasets.length; // bar width
@@ -99,7 +99,7 @@ for (var i = 0; i < chartLine.length; i++) {
         bar.classList.add('usa-chart-bars');
         bar.setAttribute('width', width + '%');
         bar.setAttribute('height', 'calc(' + (value - min) * (graphHeight/(max-min)) + '%)');
-        bar.setAttribute('x', (x - (graphWidth - graphGap) / items.length / 2) + (width * d) + '%');
+        bar.setAttribute('x', (x - (graphWidth - graphGap) / items.length / 2) + (width * data) + '%');
         bar.setAttribute('y', y + '%');
       }
 
@@ -125,7 +125,7 @@ for (var i = 0; i < chartLine.length; i++) {
       labelText.setAttribute('x', x + '%');
       labelText.setAttribute('y', 100 - textBottom + '%');
       labelText.innerHTML = item.querySelector('.usa-chart-label').innerHTML;
-      labelValue.innerHTML = item.querySelectorAll('.usa-chart-value')[d].innerHTML;
+      labelValue.innerHTML = item.querySelectorAll('.usa-chart-value')[ data ].innerHTML;
       if (d > 0) {
         labelText.classList.add('usa-chart-hidden');
       }
@@ -135,7 +135,7 @@ for (var i = 0; i < chartLine.length; i++) {
         labelValue.classList.add('usa-chart-labelValue-invert');
       }
       if (chartType == 'bar' && datasets.length > 1) {
-        labelValue.setAttribute('x', x - width/2 + width*d + '%');
+        labelValue.setAttribute('x', x - width/2 + width*data + '%');
       }
       else {
         labelValue.setAttribute('x', x + '%');
