@@ -8,9 +8,9 @@
       aria-controls="{{ accordion.id_prefix }}{{ item.id }}">
       {{ item.title }}
     </button>
-    <div id="{{ accordion.id_prefix }}{{ item.id }}" class="usa-accordion-content">
+    <section id="{{ accordion.id_prefix }}{{ item.id }}" class="usa-accordion-content">
       {{ item.content }}
-    </div>
+    </section>
   </li>
   {% endfor %}
 </ul>
