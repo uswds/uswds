@@ -77,9 +77,14 @@ $icon-size: 3rem;
   padding-right: $spacing-small;
 }
 
+[class*="usa-alert-"] {
+  .usa-alert-body {
+    padding-left: $icon-size + $h-padding;
+  }
+}
+
 .usa-alert-body {
   display: table-cell;
-  padding-left: $icon-size + $h-padding;
   vertical-align: top;
 }
 
