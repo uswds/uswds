@@ -77,12 +77,6 @@ $icon-size: 3rem;
   padding-right: $spacing-small;
 }
 
-[class*='usa-alert-'] {
-  .usa-alert-body {
-    padding-left: $icon-size + $h-padding;
-  }
-}
-
 .usa-alert-body {
   display: table-cell;
   vertical-align: top;
@@ -112,6 +106,10 @@ $icon-size: 3rem;
 
     &::before {
       background-color: map-get($alerts-bar, $name);
+    }
+
+    .usa-alert-body {
+      padding-left: $icon-size + $h-padding;
     }
   }
 }
