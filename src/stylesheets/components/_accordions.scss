@@ -38,7 +38,7 @@ $v-padding: $spacing-md-small;
   display: inline-block;
   font-family: $font-sans;
   font-weight: $font-bold;
-  margin: 0;
+  margin: 0 0 0.5rem 0;
   padding: $v-padding ($h-padding * 2 + $icon-size) $v-padding $h-padding;
   width: 100%;
 
@@ -124,7 +124,7 @@ $v-padding: $spacing-md-small;
 .usa-accordion-content {
   background-color: $color-white;
   overflow: auto;
-  padding: $spacing-md-small $spacing-medium;
+  padding: 1rem 2rem 1.5rem 2rem;
 
   > *:first-child {
     margin-top: 0;
