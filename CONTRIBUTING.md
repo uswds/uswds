@@ -123,9 +123,7 @@ any conflicting screenshots.
 To build the `uswds` package in preparation for releases, run:
 
 ```sh
-npm run build
-# or
-gulp release
+npm run prepublish
 ```
 
 ## Coding guidelines
