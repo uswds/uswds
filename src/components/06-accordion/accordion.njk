@@ -1,4 +1,4 @@
-<main class="usa-accordion{%
+<div class="usa-accordion{%
   if accordion.variant %}-{{ accordion.variant }}{% endif %}"{%
   if accordion.multiselectable == true %} aria-multiselectable="true"{% endif %}>
   {% for item in accordion.items %}
@@ -13,4 +13,4 @@
     {{ item.content }}
   </section>
   {% endfor %}
-</main>
+</div>
