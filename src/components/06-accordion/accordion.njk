@@ -3,6 +3,7 @@
   if accordion.multiselectable == true %} aria-multiselectable="true"{% endif %}>
   {% for item in accordion.items %}
   <section>
+    <!-- Use the accurate heading level to maintain the document outline -->
     <h2 class="usa-accordion-heading">
       <button class="usa-accordion-button"
         aria-expanded="{{ item.expanded | default('false') }}"
