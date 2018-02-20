@@ -70,6 +70,7 @@ gulp.task('eslint', function (done) {
 
   return gulp.src([
       'src/js/**/*.js',
+      '!src/js/**/_*.js',
       'spec/**/*.js'
     ])
     .pipe(eslint())
