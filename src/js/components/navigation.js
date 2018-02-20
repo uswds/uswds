@@ -20,8 +20,7 @@ const VISIBLE_CLASS = 'is-visible';
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
-const _focusTrap = (element) => {
-  const trapContainer = document.querySelector(element);
+const _focusTrap = (trapContainer) => {
   // Find all focusable children
   const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
   const focusableElements = trapContainer.querySelectorAll(focusableElementsString);
@@ -144,7 +143,12 @@ const navigation = behavior({
   },
 }, {
   init () {
-    focusTrap = _focusTrap(NAV);
+    const trapContainer = document.querySelector(NAV);
+
+    if (trapContainer) {
+      focusTrap = _focusTrap(trapContainer);
+    }
+
     resize();
     window.addEventListener('resize', resize, false);
   },
