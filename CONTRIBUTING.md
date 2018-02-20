@@ -98,7 +98,9 @@ components to "golden" screenshots that represent what the components are
 supposed to look like.
 
 Golden screenshots are stored on your local development system *only*;
-they're not version controlled.
+they're not version controlled. This means that after making changes to a branch, 
+you can switch to the branch you'd like to compare it to (e.g. the `develop` 
+branch) to generate your golden screenshots.
 
 To generate the golden screenshots, run:
 
