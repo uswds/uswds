@@ -121,11 +121,11 @@ $medium: new-breakpoint(min-width $medium-screen $grid-columns-medium) !default;
 $large: new-breakpoint(min-width $large-screen $grid-columns-large) !default;
 
 // Set the base path for assets (used for font and image paths below)
-$uswds-path: '../' !default;
+$asset-path: '../' !default;
 
 // Relative font and image file paths
-$font-path: '#{$uswds-path}fonts' !default;
-$image-path: '#{$uswds-path}img' !default;
+$font-path: '#{$asset-path}fonts' !default;
+$image-path: '#{$asset-path}img' !default;
 
 // Set $asset-pipeline to true if you're using the Rails Asset Pipeline
 $asset-pipeline:      false !default;
