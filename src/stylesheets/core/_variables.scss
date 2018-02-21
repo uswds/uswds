@@ -120,7 +120,7 @@ $small: new-breakpoint(min-width $small-screen $grid-columns-small) !default;
 $medium: new-breakpoint(min-width $medium-screen $grid-columns-medium) !default;
 $large: new-breakpoint(min-width $large-screen $grid-columns-large) !default;
 
-// Set the base path for assets (used for font and image paths)
+// Set the base path for assets (used for font and image paths below)
 $uswds-path: '../' !default;
 
 // Relative font and image file paths
