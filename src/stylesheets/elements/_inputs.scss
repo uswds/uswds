@@ -318,6 +318,12 @@ legend {
   border-radius: 2rem;
 }
 
+// File input type
+[type="file"] {
+  border: none;
+  padding-left: 0;
+}
+
 // Memorable dates
 
 .usa-date-of-birth {
