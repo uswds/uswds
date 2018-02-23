@@ -4,6 +4,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:6-browsers
+    parallelism: 4
     steps:
       - checkout
       - run:
