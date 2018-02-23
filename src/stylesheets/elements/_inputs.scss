@@ -86,14 +86,24 @@ select {
   padding-top: 3px;
 }
 
+// Deprecated
 .usa-input-required:after {
   color: $color-secondary-darkest;
   content: ' (*required)';
 }
 
+// Deprecated
 .usa-input-optional:after {
   color: $color-gray-medium;
   content: ' (optional)';
+}
+
+.usa-input-label-helper {
+  color: $color-gray-medium;
+}
+
+.usa-input-label-required {
+  color: $color-secondary-darkest;
 }
 
 label {
