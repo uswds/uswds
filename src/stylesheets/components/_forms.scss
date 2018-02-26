@@ -1,32 +1,44 @@
 $usa-form-width: 32rem;
 
-form {
-  a {
-    border-bottom: 0;
-  }
+[type=submit],
+[type=submit] {
+  display: block;
+  margin-bottom: 1.5em;
+  margin-top: 2.5rem;
 
-  [type=submit],
-  [type=submit] {
-    display: block;
-    margin-bottom: 1.5em;
-    margin-top: 2.5rem;
-
-    @include media($medium-screen) {
-      padding-left: 2.7em;
-      padding-right: 2.7em;
-      width: auto;
-    }
+  @include media($medium-screen) {
+    padding-left: 2.7em;
+    padding-right: 2.7em;
+    width: auto;
   }
+}
 
-  [name=password],
-  [name=confirmPassword] {
-    margin-bottom: 1.1rem;
-  }
+[name=password],
+[name=confirmPassword] {
+  margin-bottom: 1.1rem;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
 .usa-form {
   @include media($medium-screen) {
     max-width: $usa-form-width;
+  }
+}
+
+.usa-input-tiny {
+  @include media($medium-screen) {
+    max-width: 6rem;
+  }
+}
+
+.usa-input-medium {
+  @include media($medium-screen) {
+    max-width: 12rem;
   }
 }
 
@@ -41,29 +53,9 @@ form {
   }
 }
 
-fieldset {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
 .usa-form-large {
   @include media($medium-screen) {
     max-width: 46rem;
-  }
-}
-
-input {
-  &.usa-input-tiny { /* stylelint-disable-line selector-no-qualifying-type */
-    @include media($medium-screen) {
-      max-width: 6rem;
-    }
-  }
-
-  &.usa-input-medium { /* stylelint-disable-line selector-no-qualifying-type */
-    @include media($medium-screen) {
-      max-width: 12rem;
-    }
   }
 }
 
