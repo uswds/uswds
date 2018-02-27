@@ -19,6 +19,7 @@ for (var i = 0; i < chartLine.length; i++) {
   var lines  = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var bars   = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var keys   = document.createElement('div');
+  var cap   = document.createElement('figcaption');
   keys.setAttribute('aria-hidden', 'true'); // hide keys from screen readers
 
   var graphGap    = 10; // percent
@@ -191,11 +192,6 @@ for (var i = 0; i < chartLine.length; i++) {
   // Add items to chart
   svg.appendChild(grid);
 
-  if (datasets.length > 1) {
-    keys.classList.add('usa-chart-keys');
-    chart.appendChild(keys);
-  }
-
   if (chartType === 'line') {
     svg.appendChild(lines);
   }
@@ -215,6 +211,20 @@ for (var i = 0; i < chartLine.length; i++) {
 
   // Insert SVG into DOM
   chart.appendChild(svg); // insert graphic into parent
+
+  // Write keys
+  if (datasets.length > 1) {
+    keys.classList.add('usa-chart-keys');
+    chart.appendChild(keys);
+  }
+
+  // Write caption
+  var caption = chart.querySelector('caption');
+  if(caption) {
+    cap.innerHTML = caption.innerHTML;
+    cap.classList.add('usa-chart-caption');
+    chart.appendChild(cap);
+  }
 
   // Remove table from DOM
   chart.querySelector('.usa-chart-data').remove();

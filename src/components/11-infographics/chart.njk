@@ -1,4 +1,5 @@
-<div class="usa-chart" data-chart-type="bar"> <!-- char-type: bar, line -->
+<figure class="usa-chart" data-chart-type="bar"> <!-- char-type: bar, line -->
+  <h1>Test</h1>
   <table class="usa-chart-data" data-min="0" data-max="100" data-increment="20" data-grid="true"> <!-- all values optional -->
 
     <!--
@@ -7,29 +8,31 @@
     -->
     <tr>
       <td></td>
-      <th class="usa-chart-dataset">set one</th>
-      <th class="usa-chart-dataset">set two</th>
+      <th class="usa-chart-dataset" scope="col">set one</th>
+      <th class="usa-chart-dataset" scope="col">set two</th>
     </tr>
 
+
     <tr class="usa-chart-item">
-      <td class="usa-chart-label">Thing one</td>
+      <th scope="row" class="usa-chart-label">Thing one</th>
       <td class="usa-chart-value">8%</td>
       <td class="usa-chart-value">28%</td>
     </tr>
     <tr class="usa-chart-item">
-      <td class="usa-chart-label">Thing two</td>
+      <th scope="row" class="usa-chart-label">Thing two</th>
       <td class="usa-chart-value">12%</td>
       <td class="usa-chart-value">24%</td>
     </tr>
     <tr class="usa-chart-item">
-      <td class="usa-chart-label">Thing three</td>
+      <th class="usa-chart-label">Thing three</th>
       <td class="usa-chart-value">26%</td>
       <td class="usa-chart-value">40%</td>
     </tr>
     <tr class="usa-chart-item">
-      <td class="usa-chart-label">Thing four</td>
+      <th scope="row" class="usa-chart-label">Thing four</th>
       <td class="usa-chart-value">60%</td>
       <td class="usa-chart-value">42%</td>
     </tr>
+    <caption>A brief description of the table and its contents including data sources</caption>
   </table>
-</div>
+</figure>

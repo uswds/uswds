@@ -8,12 +8,15 @@ $infographic-colors:
   $color-red;
 
 // Chart styles
+.usa-chart {
+  margin: 0;
+}
 
 .usa-chart-labelText,
 .usa-chart-labelValue,
 .usa-chart-gridLabel {
   text-anchor: middle;
-  font-size: calc(4.25px - .25vw);
+  font-size: calc(4px - .25vw);
 
   @media (min-width: 1100px) {
     font-size: 1.5px;
@@ -58,6 +61,7 @@ $infographic-colors:
   display: flex;
   width: 100%;
   justify-content: center;
+  font-size: $small-font-size;
 }
 
 .usa-chart-keys-key {
@@ -71,6 +75,13 @@ $infographic-colors:
     background: currentColor;
     margin: 0 .3em -.2em 0;
   }
+}
+
+.usa-chart-caption {
+  text-align: center;
+  font-size: $small-font-size;
+  font-style: italic;
+  margin: .6em;
 }
 
 .usa-chart-hidden {
