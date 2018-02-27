@@ -18,6 +18,8 @@ for (var i = 0; i < chartLine.length; i++) {
   var grid   = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var lines  = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var bars   = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  var title  = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+  var voice  = '';
   var keys   = document.createElement('div');
   var cap   = document.createElement('figcaption');
   keys.setAttribute('aria-hidden', 'true'); // hide keys from screen readers
@@ -80,7 +82,7 @@ for (var i = 0; i < chartLine.length; i++) {
       keys.appendChild(key);
 
       // Write text labels for accessability
-      labelSet.innerHTML = datasets[ data ] + ':';
+      voice = voice + ' ' + datasets[ data ] + ' —';
       labelSet.classList.add('usa-chart-hidden');
       labels.appendChild(labelSet);
     }
@@ -127,6 +129,7 @@ for (var i = 0; i < chartLine.length; i++) {
       labelText.setAttribute('y', 100 - textBottom + '%');
       labelText.innerHTML = item.querySelector('.usa-chart-label').innerHTML;
       labelValue.innerHTML = item.querySelectorAll('.usa-chart-value')[ data ].innerHTML;
+      voice = voice + ' ' + item.querySelector('.usa-chart-label').innerHTML + ', ' + item.querySelectorAll('.usa-chart-value')[ data ].innerHTML + '.';
       if (d > 0) {
         labelText.classList.add('usa-chart-hidden');
       }
@@ -188,6 +191,10 @@ for (var i = 0; i < chartLine.length; i++) {
     grid.appendChild(label);
     grid.setAttribute('aria-hidden', 'true'); // hide grid from screen readers
   }
+
+  // add title
+  title.innerHTML = voice;
+  svg.appendChild(title);
 
   // Add items to chart
   svg.appendChild(grid);
