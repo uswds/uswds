@@ -69,7 +69,6 @@ for (var i = 0; i < chartLine.length; i++) {
     var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     var path  = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     var pathD = '';
-    var labelSet = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     path.classList.add('usa-chart-path');
     group.classList.add('usa-chart-datagroup');
 
@@ -83,8 +82,6 @@ for (var i = 0; i < chartLine.length; i++) {
 
       // Write text labels for accessability
       voice = voice + ' ' + datasets[ data ] + ' —';
-      labelSet.classList.add('usa-chart-hidden');
-      labels.appendChild(labelSet);
     }
 
     // Draw data onto graph
@@ -192,9 +189,13 @@ for (var i = 0; i < chartLine.length; i++) {
     grid.setAttribute('aria-hidden', 'true'); // hide grid from screen readers
   }
 
-  // add title
+  // add title and accessable text
   title.innerHTML = voice;
   svg.appendChild(title);
+  var a11yTxt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  a11yTxt.classList.add('usa-chart-hidden');
+  a11yTxt.innerHTML = voice;
+  svg.appendChild(a11yTxt);
 
   // Add items to chart
   svg.appendChild(grid);
