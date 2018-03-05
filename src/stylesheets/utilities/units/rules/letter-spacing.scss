@@ -19,7 +19,7 @@ $letter-spacing: (
     base: 'ls',
     modifiers: null,
     values: (
-      auto: ('auto', isReadable),
+      auto: 'auto',
       n1: $u-ls-n1,
       n2: $u-ls-n2,
       n3: $u-ls-n3,

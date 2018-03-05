@@ -19,15 +19,15 @@ example:
 
 $border-radius: (
   border-radius: (
-    base: ('radius', isReadable),
+    base: 'radius',
     modifiers: null,
     values: (
       0: '0',
-      pill: ('9999em', isReadable),
-      circle: ('50%', isReadable),
-      sm: ($s-radius-sm, isReadable),
-      md: ($s-radius-md, isReadable),
-      lg: ($s-radius-lg, isReadable),
+      pill: '9999em',
+      circle: '50%',
+      sm: $s-radius-sm,
+      md: $s-radius-md,
+      lg: $s-radius-lg,
     ),
     property: 'border-radius',
     output: true,

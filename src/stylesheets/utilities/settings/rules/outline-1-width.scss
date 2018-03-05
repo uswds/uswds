@@ -16,7 +16,7 @@ example:
 
 $outline-1-width: (
   outline-1-width: (
-    base: ('outline', isReadable),
+    base: 'outline',
     modifiers: null,
     values: map-collect(
       map-get($values-units, pixels),

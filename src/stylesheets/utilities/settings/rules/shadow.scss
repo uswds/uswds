@@ -16,7 +16,7 @@ example:
 
 $shadow: (
   shadow: (
-    base: ('shadow', isReadable),
+    base: 'shadow',
     modifiers: null,
     values: (
       0: 'none',

@@ -19,14 +19,14 @@ example:
 
 $clear: (
   clear: (
-    base: ('clear', isReadable),
+    base: 'clear',
     modifiers: null,
     values: (
       noValue: 'both',
-      both: ('both', isReadable),
-      left: ('left', isReadable),
-      none: ('none', isReadable),
-      right: ('right', isReadable),
+      both: 'both',
+      left: 'left',
+      none: 'none',
+      right: 'right',
     ),
     property: 'clear',
     output: true,

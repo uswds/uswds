@@ -19,7 +19,7 @@ example:
 
 $circle: (
   circle: (
-    base: ('circle', isReadable),
+    base: 'circle',
     modifiers: null,
     values: map-collect(
       map-get($values-settings, spacing)

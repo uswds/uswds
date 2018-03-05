@@ -23,9 +23,9 @@ $border-style: (
       noModifier: '-style',
     ),
     values: (
-      dashed: ('dashed', isReadable),
-      dotted: ('dotted', isReadable),
-      solid: ('solid', isReadable),
+      dashed: 'dashed',
+      dotted: 'dotted',
+      solid: 'solid',
     ),
     property: 'border',
     output: true,

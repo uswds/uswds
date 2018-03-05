@@ -19,8 +19,8 @@ $flex-wrap: (
     base: 'f',
     modifiers: null,
     values: (
-      'wrap': ('wrap', isReadable),
-      'nowrap': ('nowrap', isReadable),
+      'wrap': 'wrap',
+      'nowrap': 'nowrap',
     ),
     property: 'flex-wrap',
     output: true,

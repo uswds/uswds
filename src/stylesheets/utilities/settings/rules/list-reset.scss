@@ -18,7 +18,7 @@ example:
 
 $list-reset: (
   list-reset: (
-    base: ('list', isReadable),
+    base: 'list',
     modifiers: null,
     values: (
       reset: (

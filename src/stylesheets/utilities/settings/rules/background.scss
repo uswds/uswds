@@ -16,7 +16,7 @@ example:
 
 $background: (
   background: (
-    base: ('bg', isReadable),
+    base: 'bg',
     modifiers: null,
     values: map-get($values-settings, colors),
     property: 'background-color',

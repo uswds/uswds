@@ -19,7 +19,7 @@ example:
 
 $border-radius: (
   border-radius: (
-    base: ('radius', isReadable),
+    base: 'radius',
     modifiers: (
       t: ('border-top-left-radius', 'border-top-right-radius'),
       r: ('border-top-right-radius', 'border-bottom-right-radius'),
@@ -29,9 +29,9 @@ $border-radius: (
     ),
     values: (
       0: '0',
-      pill: ('9999em', isReadable),
-      circle: ('50%', isReadable),
-      rounded: ($border-radius, isReadable),
+      pill: '9999em',
+      circle: '50%',
+      rounded: $border-radius,
       1px: 1px,
       2px: 2px,
       '05': $u-spacing-05,

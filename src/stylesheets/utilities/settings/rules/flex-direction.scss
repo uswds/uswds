@@ -19,8 +19,8 @@ $flex-direction: (
     base: 'f',
     modifiers: null,
     values: (
-      row: ('row', isReadable),
-      column: ('column', isReadable),
+      row: 'row',
+      column: 'column',
     ),
     property: 'flex-direction',
     output: false,

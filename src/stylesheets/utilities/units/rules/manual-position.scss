@@ -18,10 +18,10 @@ $manual-position: (
   manual-position: (
     base: null,
     modifiers: (
-      top: ('top', isReadable),
-      bottom: ('bottom', isReadable),
-      left: ('left', isReadable),
-      right: ('right', isReadable),
+      top: 'top',
+      bottom: 'bottom',
+      left: 'left',
+      right: 'right',
     ),
     values:
       map-collect(

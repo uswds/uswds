@@ -19,9 +19,9 @@ $text-decoration: (
     base: null,
     modifiers: null,
     values: (
-      underline: ('underline', isReadable),
-      strike: ('strike', isReadable),
-      plain: ('none', isReadable),
+      underline: 'underline',
+      strike: 'strike',
+      plain: 'none',
     ),
     property: 'text-decoration',
     output: true,

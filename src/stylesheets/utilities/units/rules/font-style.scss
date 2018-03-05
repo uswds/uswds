@@ -21,8 +21,8 @@ $font-style: (
     base: null,
     modifiers: null,
     values: (
-      normal: ('normal', isReadable),
-      italic: ('italic', isReadable),
+      normal: 'normal',
+      italic: 'italic',
     ),
     property: 'font-style',
     output: true,

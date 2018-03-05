@@ -19,7 +19,7 @@ example:
 
 $order: (
   order: (
-    base: ('order', isReadable),
+    base: 'order',
     modifiers: null,
     values: map-collect(
       map-get($values-global, flex-orders)
