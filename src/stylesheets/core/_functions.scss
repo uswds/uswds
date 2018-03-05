@@ -101,6 +101,7 @@
   @if $l == 1 or nth($values, $l) != isReadable {
     @return (
       slug: $key,
+      isReadable: true,
       content: $values,
     );
   } @else {
@@ -123,6 +124,7 @@
   @if $l == 1 or nth($values, $l) != isReadable {
     @return (
       slug: $values,
+      isReadable: true,
     );
   } @else {
     $values: remove($values, isReadable);
@@ -203,7 +205,7 @@
 
 // ------------------------------------------------------------
 
-@mixin render-pseudoclasses($selector, $property, $value, $val-props) {
+@mixin render-pseudoclass($pseudoclass, $selector, $property, $value, $val-props) {
   $this-namespace: null;
 
   @if $utility-type == settings {
@@ -211,7 +213,7 @@
   }
 
   @each $pseudo-key, $pseudo-value in map-get($values-global, pseudoclasses) {
-    .#{$this-namespace}#{$pseudo-key}-#{$selector}#{$pseudo-value} {
+    .#{$this-namespace}#{$pseudoclass}\:#{$selector}:#{$pseudoclass} {
       @each $this-property in $property {
         #{$this-property}: $value;
       }
@@ -251,7 +253,7 @@
         @each $this-property in $property {
           #{$this-property}: $value;
         }
-        
+
         @if map-has-key($utility, extend) {
           #{map-deep-get($utility, extend, property)}: strunquote(map-deep-get($utility, extend, value));
         }
@@ -268,7 +270,7 @@
 
     // Only do this if the the untility is meant to output
 
-    @if map-get($utility, output) {
+    @if map-deep-get($utility, settings, output) {
       // set intital variants
       // $property-default is a single value for all these utilities
 
@@ -518,8 +520,8 @@
 
           // Add the pseudoclass variants, if applicable
 
-          @if map-get($utility, pseudoclasses) {
-            @include render-pseudoclasses($selector, $property, $value, $val-props);
+          @if map-deep-get($utility, settings, hover) {
+            @include render-pseudoclass(hover, $selector, $property, $value, $val-props);
           }
 
           // Add the placeholder variant, if applicable
@@ -530,7 +532,7 @@
 
           // And add the responsive prefixes, if applicable
 
-          @if map-get($utility, responsive) {
+          @if map-deep-get($utility, settings, responsive) {
             @include render-media-queries($utility, $selector, $property, $value, $val-props);
           } // ･ﾟ✧
         } // end the modifier loop

@@ -20,7 +20,8 @@ example:
 
 $border-color: (
   border-color: (
-    base: 'b',
+    property: 'border',
+    base: 'bor',
     modifiers: (
       t: '-top-color',
       r: '-left-color',
@@ -30,12 +31,8 @@ $border-color: (
       x: ('-left-color', '-right-color'),
       noModifier: -color,
     ),
-    values: map-collect(
-      map-get($values-units, colors)
-    ),
-    property: 'border',
-    output: true,
-    responsive: true,
+    values: $border-color-values,
+    settings: $border-color-settings,
     pseudoclasses: true,
   )
 )

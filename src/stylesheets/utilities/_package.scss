@@ -2,8 +2,8 @@
 // into a single map for looping.
 
 $utilities-package: map-collect(
-  $background,
-  $border-color,
+/*  $background, */
+  $border-color/*,
   $border-radius,
   $border-style,
   $border-width,
@@ -49,5 +49,5 @@ $utilities-package: map-collect(
   $vertical-align,
   $whitespace,
   $width,
-  $z-index
+  $z-index */
 );

@@ -1,0 +1,86 @@
+/*
+----------------------------------------
+Background Color
+----------------------------------------
+usage:
+  .bac-[key]
+----------------------------------------
+output:
+  background-color: [value];
+----------------------------------------
+example:
+  .bac-red-50v {
+    background-color: #be4900; }
+----------------------------------------
+*/
+
+$background-color-settings: (
+  output: false,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+) !default;
+
+$background-color-values: map-collect(
+  map-get($values-units, colors)
+) !default;
+
+/*
+----------------------------------------
+Border Color
+----------------------------------------
+usage:
+  .bor[-modifier]*-[key]
+----------------------------------------
+output:
+  border[-modifier]*-[key]: [value];
+----------------------------------------
+example:
+  .bor-red-50v {
+    border-color: #be4900; }
+
+  .bor-x-red-50v {
+    border-left-color: #be4900;
+    border-right-color: #be4900; }
+----------------------------------------
+*/
+
+$border-color-settings: (
+  output: true,
+  responsive: false,
+  active: true,
+  focus: false,
+  hover: true,
+  visited: false,
+) !default;
+
+$border-color-values: map-collect(
+  map-get($values-units, colors)
+) !default;
+
+/*
+----------------------------------------
+Border Style
+----------------------------------------
+usage:
+  .bor[-modifier]*-[key]
+----------------------------------------
+output:
+  border[-modifier]-style: [value];
+----------------------------------------
+*/
+
+$border-style-settings: (
+  output: false,
+  responsive: false,
+  active: false,
+  focus: false,
+  hover: false,
+) !default;
+
+$border-style-values: (
+  dashed: 'dashed',
+  dotted: 'dotted',
+  solid: 'solid',
+) !default;
