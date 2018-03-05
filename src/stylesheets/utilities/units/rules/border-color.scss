@@ -32,8 +32,8 @@ $border-color: (
       noModifier: -color,
     ),
     values: map-collect(
-      $border-color-values-maps,
-      $border-color-values-keypairs
+      $border-color-values-groups,
+      $border-color-values-singles
     ),
     settings: $border-color-settings,
   )

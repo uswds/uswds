@@ -2,7 +2,7 @@
 // into a single map for looping.
 
 $utilities-package: map-collect(
-/*  $background, */
+  $background-color,
   $border-color/*,
   $border-radius,
   $border-style,

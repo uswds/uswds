@@ -3,25 +3,26 @@
 Background Color
 ----------------------------------------
 usage:
-  .[color]
+  .bac-[key]
 ----------------------------------------
 output:
-  background-color: [color];
+  background-color: [value];
 ----------------------------------------
 example:
-  .red {
+  .bac-red-50v {
     background-color: #be4900; }
 ----------------------------------------
 */
 
-$background: (
-  background: (
-    base: 'bg',
+$background-color: (
+  background-color: (
+    base: 'bac',
     modifiers: null,
-    values: map-get($values-units, colors),
     property: 'background-color',
-    output: true,
-    responsive: true,
-    pseudoclasses: true,
+    values: map-collect(
+      $background-color-values-groups,
+      $background-color-values-singles
+    ),
+    settings: $background-color-settings,
   )
 )

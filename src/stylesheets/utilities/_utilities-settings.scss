@@ -15,15 +15,20 @@ example:
 */
 
 $background-color-settings: (
-  output: false,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
 ) !default;
 
-$background-color-values: map-collect(
-  map-get($values-units, colors)
+$background-color-values-groups: map-collect(
+  $color-red-basic
+) !default;
+
+$background-color-values-singles: (
+  /* key: value */
 ) !default;
 
 /*
@@ -47,19 +52,55 @@ example:
 */
 
 $border-color-settings: (
-  output: true,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
-  visited: false,
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
 ) !default;
 
-$border-color-values-maps: map-collect(
-  $color-red-complete
+$border-color-values-groups: map-collect(
+  /* $value-grouping */
 ) !default;
 
-$border-color-values-keypairs: (
+$border-color-values-singles: (
+  /* key: value */
+) !default;
+
+/*
+----------------------------------------
+Border Radius
+----------------------------------------
+usage:
+  .rad-[key]
+----------------------------------------
+output:
+  border-radius: [value];
+----------------------------------------
+example:
+  .rad-0 {
+    border-radius: 0; }
+
+  .rad-pill {
+    border-radius: 10em; }
+----------------------------------------
+*/
+
+$border-radius-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$border-radius-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$border-radius-values-singles: (
   /* key: value */
 ) !default;
 
@@ -76,15 +117,931 @@ output:
 */
 
 $border-style-settings: (
-  output: false,
-  responsive: false,
-  active: false,
-  focus: false,
-  hover: false,
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
 ) !default;
 
-$border-style-values: (
+$border-style-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$border-style-values-singles: (
+  /* key: value */
   dashed: 'dashed',
   dotted: 'dotted',
-  solid: 'solid',
+  solid: 'solid'
+) !default;
+
+/*
+----------------------------------------
+Border Width
+----------------------------------------
+usage:
+  .bor-[modifier]*-[key]
+----------------------------------------
+output:
+  border-[modifier]: [value];
+----------------------------------------
+example:
+  .bor-t-1px {
+    border-top: 1px; }
+
+  .bor-0 {
+    border: none; }
+----------------------------------------
+*/
+
+$border-width-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$border-width-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$border-width-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values-singles: (
+  /* key: value */
 ) !default;
