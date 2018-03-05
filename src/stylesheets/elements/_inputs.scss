@@ -86,14 +86,26 @@ select {
   padding-top: 3px;
 }
 
+// Deprecated: Some screen readers can't read CSS content.
+// Will be removed in 2.0.
 .usa-input-required:after {
   color: $color-secondary-darkest;
   content: ' (*required)';
 }
 
+// Deprecated: Some screen readers can't read CSS content.
+// Will be removed in 2.0.
 .usa-input-optional:after {
   color: $color-gray-medium;
   content: ' (optional)';
+}
+
+.usa-input-label-helper {
+  color: $color-gray-medium;
+}
+
+.usa-input-label-required {
+  color: $color-secondary-darkest;
 }
 
 label {
