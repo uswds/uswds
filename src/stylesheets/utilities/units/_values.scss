@@ -1,4 +1,46 @@
 $utility-type: "units";
+
+$color-red-light: (
+  'red-5': ($u-color-red-5, isReadable),
+  'red-10': ($u-color-red-10, isReadable),
+  'red-20': ($u-color-red-20, isReadable),
+  'red-30': ($u-color-red-30, isReadable),
+);
+
+$color-red-basic: (
+  'red-40': ($u-color-red-40, isReadable),
+  'red-50': ($u-color-red-50, isReadable),
+  'red-60': ($u-color-red-60, isReadable),
+  'red-70': ($u-color-red-70, isReadable),
+);
+
+$color-red-dark: (
+  'red-80': ($u-color-red-80, isReadable),
+  'red-90': ($u-color-red-90, isReadable),
+);
+
+$color-red-vivid: (
+  'red-10v': ($u-color-red-10v, isReadable),
+  'red-20v': ($u-color-red-20v, isReadable),
+  'red-30v': ($u-color-red-30v, isReadable),
+  'red-40v': ($u-color-red-40v, isReadable),
+  'red-50v': ($u-color-red-50v, isReadable),
+  'red-60v': ($u-color-red-60v, isReadable),
+  'red-70v': ($u-color-red-70v, isReadable),
+);
+
+$color-red-standard: map-collect(
+  $color-red-light,
+  $color-red-basic,
+  $color-red-dark
+);
+
+$color-red-complete: map-collect(
+  $color-red-standard,
+  $color-red-vivid
+);
+
+
 $values-units: (
   ch: (
     '05ch': '.5ch',

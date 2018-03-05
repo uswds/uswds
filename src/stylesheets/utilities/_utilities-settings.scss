@@ -49,14 +49,18 @@ example:
 $border-color-settings: (
   output: true,
   responsive: false,
-  active: true,
+  active: false,
   focus: false,
-  hover: true,
+  hover: false,
   visited: false,
 ) !default;
 
-$border-color-values: map-collect(
-  map-get($values-units, colors)
+$border-color-values-maps: map-collect(
+  $color-red-complete
+) !default;
+
+$border-color-values-keypairs: (
+  /* key: value */
 ) !default;
 
 /*

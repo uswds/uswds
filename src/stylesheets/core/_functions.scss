@@ -532,6 +532,18 @@
             @include render-pseudoclass(hover, $selector, $property, $value, $val-props);
           }
 
+          @if map-deep-get($utility, settings, active) {
+            @include render-pseudoclass(active, $selector, $property, $value, $val-props);
+          }
+
+          @if map-deep-get($utility, settings, visited) {
+            @include render-pseudoclass(visited, $selector, $property, $value, $val-props);
+          }
+
+          @if map-deep-get($utility, settings, focus) {
+            @include render-pseudoclass(focus, $selector, $property, $value, $val-props);
+          }
+
           // Add the placeholder variant, if applicable
 
           @if map-get($utility, placeholder) {

@@ -31,8 +31,10 @@ $border-color: (
       x: ('-left-color', '-right-color'),
       noModifier: -color,
     ),
-    values: $border-color-values,
+    values: map-collect(
+      $border-color-values-maps,
+      $border-color-values-keypairs
+    ),
     settings: $border-color-settings,
-    pseudoclasses: true,
   )
 )
