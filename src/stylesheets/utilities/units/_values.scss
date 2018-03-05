@@ -1,7 +1,7 @@
 $utility-type: "units";
 
 $color-red-light: (
-  'red-5': $u-color-red-5,
+  'red-5':  $u-color-red-5,
   'red-10': $u-color-red-10,
   'red-20': $u-color-red-20,
   'red-30': $u-color-red-30,
@@ -20,6 +20,7 @@ $color-red-dark: (
 );
 
 $color-red-vivid: (
+  'red-5v':  null,
   'red-10v': $u-color-red-10v,
   'red-20v': $u-color-red-20v,
   'red-30v': $u-color-red-30v,
@@ -27,6 +28,8 @@ $color-red-vivid: (
   'red-50v': $u-color-red-50v,
   'red-60v': $u-color-red-60v,
   'red-70v': $u-color-red-70v,
+  'red-80v': null,
+  'red-90v': null,
 );
 
 $color-red-standard: map-collect(
