@@ -193,6 +193,10 @@
       #{map-deep-get($val-props, extend, property)}: strunquote(map-deep-get($val-props, extend, value));
     }
 
+    @if map-has-key($val-props, extends) {
+      @extend %#{map-get($val-props, extends)};
+    }
+
     @each $this-property in $property {
       #{$this-property}: $value;
     }
