@@ -277,17 +277,6 @@ example:
 */
 
 $column-settings: (
-  output:       true,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -296,12 +285,44 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+/*
+----------------------------------------
+Display
+----------------------------------------
+usage:
+  .dis-[key]
+----------------------------------------
+output:
+  display: [value]
+----------------------------------------
+example:
+  .dis-hide {
+    display: none; }
+----------------------------------------
+*/
+
+$display-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$display-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$display-values-singles: (
   /* key: value */
+  block:        'block',
+  flex:         'flex',
+  none:         'none',
+  inline:       'inline',
+  inline-block: 'inline-block',
+  table:        'table',
+  table-cell:   'table-cell',
 ) !default;
 
 // - - - - - - - - - - - - - - - -

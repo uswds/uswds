@@ -3,31 +3,26 @@
 Display
 ----------------------------------------
 usage:
-  .[value]
+  .dis-[key]
 ----------------------------------------
 output:
   display: [value]
 ----------------------------------------
 example:
-  .hide {
+  .dis-hide {
     display: none; }
 ----------------------------------------
 */
 
 $display: (
   display: (
-    base: null,
+    base: 'dis',
     modifiers: null,
-    values: (
-      block: 'block',
-      flex: 'flex',
-      hide: 'none',
-      inline: 'inline',
-      inline-block: 'inline-block',
+    values: map-collect(
+      $display-values-groups,
+      $display-values-singles
     ),
+    settings: $display-settings,
     property: 'display',
-    output: true,
-    responsive: true,
-    pseudoclasses: true,
   )
 )
