@@ -3,20 +3,20 @@
 Color
 ----------------------------------------
 usage:
-  .col-[key]
+  .color-[key]
 ----------------------------------------
 output:
   color: [value];
 ----------------------------------------
 example:
-  .col-black-100 {
+  .color-black-100 {
     color: #000; }
 ----------------------------------------
 */
 
 $color: (
   color: (
-    base: 'col',
+    base: 'color',
     modifiers: null,
     values: map-collect(
       $color-values-groups,

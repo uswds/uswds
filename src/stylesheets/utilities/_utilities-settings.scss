@@ -266,13 +266,13 @@ $circle-values: (
 Color
 ----------------------------------------
 usage:
-  .col-[key]
+  .color-[key]
 ----------------------------------------
 output:
   color: [value];
 ----------------------------------------
 example:
-  .col-black-100 {
+  .color-black-100 {
     color: #000; }
 ----------------------------------------
 */
@@ -487,7 +487,7 @@ $flex-wrap-values: (
 // - - - - - - - - - - - - - - - -
 
 $float-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -506,10 +506,32 @@ $float-values: (
   right:        right,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Font Family
+----------------------------------------
+usage:
+  .font-[key]
+----------------------------------------
+output:
+  font-family: [value]
+----------------------------------------
+example:
+  .font-sans {
+    font-family: 'United Sans webfont',
+                system,
+                -apple-system,
+                BlinkMacSystemFont,
+                'Roboto',
+                'Helvetica Neue',
+                'Helvetica',
+                'Arial',
+                sans-serif; }
+----------------------------------------
+*/
 
-$NNN-settings: (
-  output:       false,
+$font-family-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -517,12 +539,16 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$font-family-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values: (
+$font-family-values: (
   /* key: value */
+  //cond:         null,
+  //mono:         $font-mono,
+  sans:         $font-sans,
+  serif:        $font-serif,
 ) !default;
 
 // - - - - - - - - - - - - - - - -
