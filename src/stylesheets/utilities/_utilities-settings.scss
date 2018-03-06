@@ -788,7 +788,7 @@ example:
 */
 
 $letter-spacing-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -830,10 +830,24 @@ $NNN-values: (
   /* key: value */
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Line Height
+----------------------------------------
+usage:
+  .line-[value]
+----------------------------------------
+output:
+  line-height: [value];
+----------------------------------------
+example:
+  .line-2 {
+    line-height: 1.15; }
+----------------------------------------
+*/
 
-$NNN-settings: (
-  output:       false,
+$line-height-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -841,12 +855,18 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$line-height-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values: (
+$line-height-values: (
   /* key: value */
+  1:            $u-lh-single,
+  2:            $u-lh-hed,
+  3:            $u-lh-cap,
+  4:            $u-lh-body-tight,
+  5:            $u-lh-body,
+  6:            $u-lh-body-loose,
 ) !default;
 
 // - - - - - - - - - - - - - - - -

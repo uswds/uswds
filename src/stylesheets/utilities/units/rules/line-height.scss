@@ -3,28 +3,26 @@
 Line Height
 ----------------------------------------
 usage:
-  .lh-[value]
+  .line-[value]
 ----------------------------------------
 output:
   line-height: [value];
 ----------------------------------------
 example:
-  .lh-single {
-    line-height: 1; }
+  .line-2 {
+    line-height: 1.15; }
 ----------------------------------------
 */
 
 $line-height: (
   line-height: (
-    base: 'lh',
+    base: 'line',
     modifiers: null,
     values: map-collect(
-      map-get($values-global, line-heights)
+      $line-height-group-values,
+      $line-height-values
     ),
+    settings: $line-height-settings,
     property: 'line-height',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
-    placeholder: true,
   )
 )
