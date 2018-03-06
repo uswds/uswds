@@ -1819,9 +1819,25 @@ $width-values: (
   lg:           $large-screen,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Z-INDEX
+----------------------------------------
+usage:
+  z-[key]
+----------------------------------------
+output:
+  z-index: [value];
+----------------------------------------
+example:
+  .z-100 {
+    z-index: 100; }
+  .z-top {
+    z-index: 9999; }
+----------------------------------------
+*/
 
-$NNN-settings: (
+$z-index-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -1830,14 +1846,22 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$z-index-group-values: map-collect(
   /*
   $group-of-values */
 ) !default;
 
-$NNN-values: (
+$z-index-values: (
   /*
   key:          'value' */
+  0:            '0',
+  100:          '100',
+  200:          '200',
+  300:          '300',
+  400:          '400',
+  500:          '500',
+  top:          '9999',
+  bottom:       '-9999',
 ) !default;
 
 // - - - - - - - - - - - - - - - -

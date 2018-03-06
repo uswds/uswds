@@ -1,15 +1,15 @@
 /*
 ----------------------------------------
-Whitespace
+Z-INDEX
 ----------------------------------------
 usage:
-  z-[value]
+  z-[key]
 ----------------------------------------
 output:
   z-index: [value];
 ----------------------------------------
 example:
-  .z100 {
+  .z-100 {
     z-index: 100; }
   .z-top {
     z-index: 9999; }
@@ -18,21 +18,13 @@ example:
 
 $z-index: (
   z-index: (
-    base: z,
+    base: 'z',
     modifiers: null,
-    values: (
-      0: 0,
-      100: 100,
-      200: 200,
-      300: 300,
-      400: 400,
-      500: 500,
-      top: 9999,
-      bottom: -9999,
+    values: map-collect(
+      $z-index-group-values,
+      $z-index-values
     ),
+    settings: $z-index-settings,
     property: 'z-index',
-    output: true,
-    responsive: true,
-    pseudoclasses: true,
   )
 )
