@@ -3,31 +3,26 @@
 Position
 ----------------------------------------
 usage:
-  .[value]
+  .position-[keye]
 ----------------------------------------
 output:
   position: [value];
 ----------------------------------------
 example:
-  .absolute {
+  .position-absolute {
     position: absolute; }
 ----------------------------------------
 */
 
 $position: (
   position: (
-    base: null,
+    base: 'position',
     modifiers: null,
-    values: (
-      absolute: 'absolute',
-      fixed: 'fixed',
-      relative: 'relative',
-      static: 'static',
-      sticky: 'sticky',
+    values: map-collect(
+      $position-group-values,
+      $position-values
     ),
+    settings: $position-settings,
     property: 'position',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 )

@@ -1331,9 +1331,23 @@ $padding-values: (
   0:            0,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Position
+----------------------------------------
+usage:
+  .position-[keye]
+----------------------------------------
+output:
+  position: [value];
+----------------------------------------
+example:
+  .position-absolute {
+    position: absolute; }
+----------------------------------------
+*/
 
-$NNN-settings: (
+$position-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -1342,31 +1356,44 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$position-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values: (
+$position-values: (
   /* key: value */
+  absolute:     absolute,
+  fixed:        fixed,
+  relative:     relative,
+  static:       static,
+  sticky:       sticky,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Row
+----------------------------------------
+usage:
+  .row
+----------------------------------------
+output:
+  display: flex;
+  flex-direction: row;
+----------------------------------------
+example:
+  .row {
+    display: flex;
+    flex-direction: row; }
+----------------------------------------
+*/
 
-$NNN-settings: (
-  output:       false,
+$row-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
   visited:      false,
-) !default;
-
-$NNN-group-values: map-collect(
-  /* $value-grouping */
-) !default;
-
-$NNN-values: (
-  /* key: value */
 ) !default;
 
 // - - - - - - - - - - - - - - - -

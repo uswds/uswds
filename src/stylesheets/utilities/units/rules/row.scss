@@ -31,9 +31,7 @@ $row: (
         ),
       ),
     ),
+    settings: $row-settings,
     property: 'display',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 );
