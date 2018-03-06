@@ -78,6 +78,13 @@ $group-units-em: (
   '10em':   '10em',
 );
 
+$group-units-grid-small: (
+  'g05':    $u-spacing-05,
+  'g1':     $u-spacing-1,
+  'g105':   $u-spacing-105,
+  'g2':     $u-spacing-2,
+);
+
 $group-units-grid-basic: (
   'g05':    $u-spacing-05,
   'g1':     $u-spacing-1,

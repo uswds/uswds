@@ -19,15 +19,12 @@ $outline-1-width: (
     base: 'outline',
     modifiers: null,
     values: map-collect(
-      map-get($values-units, pixels),
-      map-get($values-units, grid-short),
-      map-get($values-global, zero-none)
+      $outline-1-width-group-values,
+      $outline-1-width-values
     ),
+    settings: $outline-1-width-settings,
     valuePrepend: null,
     valueAppend: ' solid',
     property: 'outline',
-    output: true,
-    responsive: true,
-    pseudoclasses: true,
   )
 )

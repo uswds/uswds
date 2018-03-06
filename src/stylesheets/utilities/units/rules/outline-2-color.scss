@@ -3,10 +3,10 @@
 Outline Color
 ----------------------------------------
 usage:
-  .outline-[modifier]
+  .outline-[key]
 ----------------------------------------
 output:
-  outline-color: [modifier];
+  outline-color: [value];
 ----------------------------------------
 example:
   .outline-yellow-50 {
@@ -19,13 +19,12 @@ $outline-2-color: (
     base: 'outline',
     modifiers: null,
     values: map-collect(
-      map-get($values-units, colors)
+      $outline-2-color-group-values,
+      $outline-2-color-values
     ),
+    settings: $outline-2-color-settings,
     valuePrepend: null,
     valueAppend: null,
     property: 'outline-color',
-    output: true,
-    responsive: false,
-    pseudoclasses: true,
   )
 )

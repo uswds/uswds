@@ -1209,7 +1209,7 @@ $opacity-values: (
 // - - - - - - - - - - - - - - - -
 
 $order-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1239,9 +1239,23 @@ $order-values: (
   last:         99,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Outline Width
+----------------------------------------
+usage:
+  .outline-[modifier]
+----------------------------------------
+output:
+  outline: [modifier] solid;
+----------------------------------------
+example:
+  .outline-05 {
+    outline: 4px solid }
+----------------------------------------
+*/
 
-$NNN-settings: (
+$outline-1-width-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -1250,17 +1264,34 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$outline-1-width-group-values: map-collect(
   /* $value-grouping */
+  $group-units-px,
+  $group-units-grid-small
 ) !default;
 
-$NNN-values: (
+$outline-1-width-values: (
   /* key: value */
+  0:            none,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Outline Color
+----------------------------------------
+usage:
+  .outline-[key]
+----------------------------------------
+output:
+  outline-color: [value];
+----------------------------------------
+example:
+  .outline-yellow-50 {
+    outline-color: #91721f; }
+----------------------------------------
+*/
 
-$NNN-settings: (
+$outline-2-color-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -1269,11 +1300,12 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$outline-2-color-group-values: map-collect(
   /* $value-grouping */
+  $group-colors-red
 ) !default;
 
-$NNN-values: (
+$outline-2-color-values: (
   /* key: value */
 ) !default;
 
