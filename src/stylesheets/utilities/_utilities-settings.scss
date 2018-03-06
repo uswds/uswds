@@ -847,7 +847,7 @@ example:
 */
 
 $line-height-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -869,23 +869,31 @@ $line-height-values: (
   6:            $u-lh-body-loose,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+List Reset
+----------------------------------------
+usage:
+  .list-reset
+----------------------------------------
+output:
+  list-style: none;
+  padding-left: 0;
+----------------------------------------
+example:
+  .list-reset {
+    list-style: none;
+    padding-left: 0; }
+----------------------------------------
+*/
 
-$NNN-settings: (
-  output:       false,
+$list-reset-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
   visited:      false,
-) !default;
-
-$NNN-group-values: map-collect(
-  /* $value-grouping */
-) !default;
-
-$NNN-values: (
-  /* key: value */
 ) !default;
 
 // - - - - - - - - - - - - - - - -

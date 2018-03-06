@@ -31,9 +31,7 @@ $list-reset: (
         ),
       ),
     ),
+    settings: $list-reset-settings,
     property: 'list-style',
-    output: true,
-    responsive: false,
-    pseudoclasses: false,
   )
 );
