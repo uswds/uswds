@@ -1,35 +1,28 @@
 /*
 ----------------------------------------
-Letterspacing
+Letter-spacing
 ----------------------------------------
 usage:
-  .ls[modifier]
+  .letter-[key]
 ----------------------------------------
 output:
   letter-spacing: [value];
 ----------------------------------------
 example:
-  .ls2 {
+  .letter-2 {
     letter-spacing: .1em; }
 ----------------------------------------
 */
 
 $letter-spacing: (
   letter-spacing: (
-    base: 'ls',
+    base: 'letter',
     modifiers: null,
-    values: (
-      auto: 'auto',
-      n1: $u-ls-n1,
-      n2: $u-ls-n2,
-      n3: $u-ls-n3,
-      1: $u-ls-1,
-      2: $u-ls-2,
-      3: $u-ls-3,
+    values: map-collect(
+      $letter-spacing-group-values,
+      $letter-spacing-values
     ),
+    settings: $letter-spacing-settings,
     property: 'letter-spacing',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 )

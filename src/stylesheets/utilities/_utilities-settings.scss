@@ -738,19 +738,19 @@ $font-weight-values: (
 Height
 ----------------------------------------
 usage:
-  .hei-[value]
+  .height-[value]
 ----------------------------------------
 output:
   height: [value];
 ----------------------------------------
 example:
-  .hei-33ct {
+  .height-33ct {
     height: 33.33333333%; }
 ----------------------------------------
 */
 
 $height-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -771,10 +771,24 @@ $height-values: (
   /* key: value */
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Letter-spacing
+----------------------------------------
+usage:
+  .letter-[key]
+----------------------------------------
+output:
+  letter-spacing: [value];
+----------------------------------------
+example:
+  .letter-2 {
+    letter-spacing: .1em; }
+----------------------------------------
+*/
 
-$NNN-settings: (
-  output:       false,
+$letter-spacing-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -782,12 +796,19 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$letter-spacing-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values: (
+$letter-spacing-values: (
   /* key: value */
+  auto:       auto,
+  n1:         $u-ls-n1,
+  n2:         $u-ls-n2,
+  n3:         $u-ls-n3,
+  1:          $u-ls-1,
+  2:          $u-ls-2,
+  3:          $u-ls-3,
 ) !default;
 
 // - - - - - - - - - - - - - - - -
