@@ -206,7 +206,7 @@ example:
 */
 
 $circle-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -224,10 +224,24 @@ $circle-values-singles: (
   2px:          2px,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Color
+----------------------------------------
+usage:
+  .col-[key]
+----------------------------------------
+output:
+  color: [value];
+----------------------------------------
+example:
+  .col-black-100 {
+    color: #000; }
+----------------------------------------
+*/
 
-$NNN-settings: (
-  output:       false,
+$color-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -235,11 +249,12 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$color-values-groups: map-collect(
   /* $value-grouping */
+  $group-colors-red
 ) !default;
 
-$NNN-values-singles: (
+$color-values-singles: (
   /* key: value */
 ) !default;
 

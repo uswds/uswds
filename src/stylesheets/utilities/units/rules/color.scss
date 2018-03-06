@@ -3,28 +3,26 @@
 Color
 ----------------------------------------
 usage:
-  .[value]
+  .col-[key]
 ----------------------------------------
 output:
   color: [value];
 ----------------------------------------
 example:
-  .mediumgray-trans {
-    color: rgba(0, 0, 0, .4); }
+  .col-black-100 {
+    color: #000; }
 ----------------------------------------
 */
 
 $color: (
   color: (
-    base: null,
+    base: 'col',
     modifiers: null,
     values: map-collect(
-      map-get($values-units, colors)
+      $color-values-groups,
+      $color-values-singles
     ),
+    settings: $color-settings,
     property: 'color',
-    output: true,
-    responsive: true,
-    pseudoclasses: true,
-    placeholder: true,
   )
 )
