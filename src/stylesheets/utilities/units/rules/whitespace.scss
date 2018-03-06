@@ -3,31 +3,26 @@
 Whitespace
 ----------------------------------------
 usage:
-  ws-[value]
+  whi-[key]
 ----------------------------------------
 output:
   whitespace: [value];
 ----------------------------------------
 example:
-  .ws-prewrap {
+  .whi-pre-wrap {
     whitespace: pre-wrap; }
 ----------------------------------------
 */
 
 $whitespace: (
   whitespace: (
-    base: ws,
+    base: 'whi',
     modifiers: null,
-    values: (
-      normal: 'normal',
-      nowrap: 'nowrap',
-      pre: 'pre',
-      preline: 'pre-line',
-      prewrap: 'pre-wrap',
+    values: map-collect(
+      $whitespace-group-values,
+      $whitespace-values
     ),
+    settings: $whitespace-settings,
     property: 'white-space',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 )

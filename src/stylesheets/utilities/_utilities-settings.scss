@@ -1553,7 +1553,7 @@ $text-decoration-values: (
 // - - - - - - - - - - - - - - - -
 
 $text-transform-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1575,7 +1575,7 @@ $text-transform-values: (
 
 // - - - - - - - - - - - - - - - -
 
-$NNN-settings: (
+$vertical-align-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -1584,17 +1584,25 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$vertical-align-group-values: map-collect(
   /* $group-values */
 ) !default;
 
-$NNN-values: (
+$vertical-align-values: (
   /* key:       'value' */
+  baseline:     'baseline',
+  bottom:       'bottom',
+  middle:       'middle',
+  sub:          'sub',
+  super:        'super',
+  text-bottom:  'text-bottom',
+  text-top:     'text-top',
+  top:          'top',
 ) !default;
 
 // - - - - - - - - - - - - - - - -
 
-$NNN-settings: (
+$whitespace-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -1603,12 +1611,17 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$whitespace-group-values: map-collect(
   /* $group-values */
 ) !default;
 
-$NNN-values: (
+$whitespace-values: (
   /* key:       'value' */
+  normal:       'normal',
+  nowrap:       'nowrap',
+  pre:          'pre',
+  pre-line:     'pre-line',
+  pre-wrap:     'pre-wrap',
 ) !default;
 
 // - - - - - - - - - - - - - - - -

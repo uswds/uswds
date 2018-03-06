@@ -3,34 +3,26 @@
 Vertical Align
 ----------------------------------------
 usage:
-  .va-[value]
+  .ver-[value]
 ----------------------------------------
 output:
   vertical-align: [value]
 ----------------------------------------
 example:
-  .va-top {
+  .ver-top {
     vertical-align: top; }
 ----------------------------------------
 */
 
 $vertical-align: (
   vertical-align: (
-    base: 'va',
+    base: 'ver',
     modifiers: null,
-    values: (
-      baseline: 'baseline',
-      bottom: 'bottom',
-      middle: 'middle',
-      sub: 'sub',
-      super: 'super',
-      text-bottom: 'text-bottom',
-      text-top: 'text-top',
-      top: 'top',
+    values: map-collect(
+      $vertical-align-group-values,
+      $vertical-align-values
     ),
+    settings: $vertical-align-settings,
     property: 'vertical-align',
-    output: true,
-    responsive: false,
-    pseudoclasses: false,
   )
 )
