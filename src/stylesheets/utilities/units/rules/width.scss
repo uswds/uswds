@@ -3,33 +3,26 @@
 Width
 ----------------------------------------
 usage:
-  .w[value]
+  .width-[key]
 ----------------------------------------
 output:
-  width: value;
+  width: [value];
 ----------------------------------------
 example:
-  .w75ct {
+  .width-75ct {
     width: 75%; }
 ----------------------------------------
 */
 
 $width: (
   width: (
-    base: 'w',
+    base: 'width',
     modifiers: null,
     values: map-collect(
-      map-get($values-units, percentage),
-      map-get($values-units, grid),
-      map-get($values-units, pixels),
-      map-get($values-units, em),
-      map-get($values-units, ch),
-      map-get($values-global, breakpoints),
-      map-get($values-global, auto)
+      $width-group-values,
+      $width-values
     ),
+    settings: $width-settings,
     property: 'width',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 )

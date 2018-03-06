@@ -24,11 +24,13 @@ $align-items-settings: (
 ) !default;
 
 $align-items-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $align-items-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   start:        'flex-start',
   end:          'flex-end',
   center:       'center',
@@ -61,12 +63,14 @@ $background-color-settings: (
 ) !default;
 
 $background-color-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-colors-red-basic
 ) !default;
 
 $background-color-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
 ) !default;
 
 /*
@@ -99,12 +103,14 @@ $border-color-settings: (
 ) !default;
 
 $border-color-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-colors-red-basic
 ) !default;
 
 $border-color-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
 ) !default;
 
 /*
@@ -136,12 +142,14 @@ $border-radius-settings: (
 ) !default;
 
 $border-radius-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-units-px
 ) !default;
 
 $border-radius-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   0:            '0',
   pill:         '9999em',
   circle:       '50%',
@@ -174,11 +182,13 @@ $border-style-settings: (
 ) !default;
 
 $border-style-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $border-style-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   dashed:       'dashed',
   dotted:       'dotted',
   solid:        'solid',
@@ -213,13 +223,15 @@ $border-width-settings: (
 ) !default;
 
 $border-width-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-units-px,
   $group-units-grid-basic
 ) !default;
 
 $border-width-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   0:            '0',
 ) !default;
 
@@ -249,11 +261,13 @@ $box-shadow-settings: (
 ) !default;
 
 $box-shadow-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $box-shadow-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   s0: 'none',
   s1: '0 1px 2px 0 rgba(0,0,0,0.10)',
   s2: '0 4px 8px 0 rgba(0,0,0,0.10)',
@@ -291,12 +305,14 @@ $circle-settings: (
 ) !default;
 
 $circle-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-units-grid
 ) !default;
 
 $circle-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   2px:          '2px',
 ) !default;
 
@@ -326,12 +342,14 @@ $color-settings: (
 ) !default;
 
 $color-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-colors-red
 ) !default;
 
 $color-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
 ) !default;
 
 /*
@@ -387,11 +405,13 @@ $display-settings: (
 ) !default;
 
 $display-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $display-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   block:        'block',
   flex:         'flex',
   none:         'none',
@@ -427,11 +447,13 @@ $flex-direction-settings: (
 ) !default;
 
 $flex-direction-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $flex-direction-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   row:          'row',
   column:       'column',
 ) !default;
@@ -468,11 +490,13 @@ $flex-size-settings: (
 ) !default;
 
 $flex-size-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $flex-size-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   f1:           '1 0 0',
   f2:           '2 0 0',
   f3:           '3 0 0',
@@ -514,11 +538,13 @@ $flex-wrap-settings: (
 ) !default;
 
 $flex-wrap-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $flex-wrap-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   wrap:         'wrap',
   nowrap:       'nowrap',
 ) !default;
@@ -535,11 +561,13 @@ $float-settings: (
 ) !default;
 
 $float-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $float-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   left:         'left',
   none:         'none',
   right:        'right',
@@ -579,11 +607,13 @@ $font-family-settings: (
 ) !default;
 
 $font-family-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $font-family-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   //cond:         null,
   //mono:         $font-mono,
   sans:         $font-sans,
@@ -617,11 +647,13 @@ $font-feature-settings: (
 ) !default;
 
 $font-feature-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $font-feature-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   alt:          "'ss01' 1, 'kern' 1",
   tabular:      "'tnum' 1, 'kern' 1",
   default:      "'kern' 1",
@@ -664,7 +696,8 @@ $font-size-settings: (
 ) !default;
 
 $font-size-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-mono-12,
   $group-mono-13,
   $group-mono-14,
@@ -728,7 +761,8 @@ $font-size-group-values: map-collect(
 ) !default;
 
 $font-size-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
 ) !default;
 
 /*
@@ -759,11 +793,13 @@ $font-style-settings: (
 ) !default;
 
 $font-style-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $font-style-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   normal:       'normal',
   italic:       'italic',
 ) !default;
@@ -794,11 +830,13 @@ $font-weight-settings: (
 ) !default;
 
 $font-weight-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $font-weight-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   100:          '100',
   200:          '200',
   300:          '300',
@@ -836,7 +874,8 @@ $height-settings: (
 ) !default;
 
 $height-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-units-percentage,
   $group-units-grid,
   $group-units-em,
@@ -845,7 +884,8 @@ $height-group-values: map-collect(
 ) !default;
 
 $height-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
 ) !default;
 
 /*
@@ -874,11 +914,13 @@ $letter-spacing-settings: (
 ) !default;
 
 $letter-spacing-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $letter-spacing-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   auto:       'auto',
   n1:         $u-ls-n1,
   n2:         $u-ls-n2,
@@ -914,11 +956,13 @@ $line-height-settings: (
 ) !default;
 
 $line-height-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $line-height-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   1:            $u-lh-single,
   2:            $u-lh-hed,
   3:            $u-lh-cap,
@@ -983,7 +1027,8 @@ $manual-position-settings: (
 ) !default;
 
 $manual-position-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-units-px,
   $group-units-px-negative,
   $group-units-percentage,
@@ -991,7 +1036,8 @@ $manual-position-group-values: map-collect(
 ) !default;
 
 $manual-position-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   0:            '0',
   auto:         'auto',
 ) !default;
@@ -1026,7 +1072,8 @@ $margin-settings: (
 ) !default;
 
 $margin-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-units-px,
   $group-units-px-negative,
   $group-units-percentage,
@@ -1038,7 +1085,8 @@ $margin-group-values: map-collect(
 ) !default;
 
 $margin-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   0:            '0',
   auto:         'auto',
 ) !default;
@@ -1069,14 +1117,16 @@ $max-height-settings: (
 ) !default;
 
 $max-height-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-units-percentage,
   $group-units-grid,
   $group-units-px
 ) !default;
 
 $max-height-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
 ) !default;
 
 /*
@@ -1105,14 +1155,16 @@ $max-width-settings: (
 ) !default;
 
 $max-width-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-units-percentage,
   $group-units-grid,
   $group-units-px
 ) !default;
 
 $max-width-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   none:         'none',
   reading-sm:   $text-narrow-width,
   reading:      $text-max-width,
@@ -1147,14 +1199,16 @@ $min-height-settings: (
 ) !default;
 
 $min-height-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-units-percentage,
   $group-units-grid,
   $group-units-px
 ) !default;
 
 $min-height-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   sm:           $small-screen,
   md:           $medium-screen,
   lg:           $large-screen,
@@ -1187,14 +1241,16 @@ $min-width-settings: (
 ) !default;
 
 $min-width-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-units-percentage,
   $group-units-grid,
   $group-units-px
 ) !default;
 
 $min-width-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   sm:           $small-screen,
   md:           $medium-screen,
   lg:           $large-screen,
@@ -1227,11 +1283,13 @@ $opacity-settings: (
 ) !default;
 
 $opacity-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $opacity-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   0:           '0',
   10:          '0.1',
   20:          '0.2',
@@ -1257,11 +1315,13 @@ $order-settings: (
 ) !default;
 
 $order-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $order-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
 //  0:            0,
 //  1:            1,
 //  2:            2,
@@ -1304,13 +1364,15 @@ $outline-1-width-settings: (
 ) !default;
 
 $outline-1-width-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-units-px,
   $group-units-grid-small
 ) !default;
 
 $outline-1-width-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   0:            'none',
 ) !default;
 
@@ -1340,12 +1402,14 @@ $outline-2-color-settings: (
 ) !default;
 
 $outline-2-color-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-colors-red
 ) !default;
 
 $outline-2-color-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
 ) !default;
 
 // - - - - - - - - - - - - - - - -
@@ -1360,13 +1424,15 @@ $padding-settings: (
 ) !default;
 
 $padding-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-units-px,
   $group-units-grid
 ) !default;
 
 $padding-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   0:            '0',
 ) !default;
 
@@ -1396,11 +1462,13 @@ $position-settings: (
 ) !default;
 
 $position-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $position-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   absolute:     'absolute',
   fixed:        'fixed',
   relative:     'relative',
@@ -1447,11 +1515,13 @@ $NNN-settings: (
 ) !default;
 
 $NNN-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $NNN-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
 ) !default;
 
 /*
@@ -1482,12 +1552,14 @@ $square-settings: (
 ) !default;
 
 $square-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
   $group-units-grid
 ) !default;
 
 $square-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   2px:          '2px',
 ) !default;
 
@@ -1517,11 +1589,13 @@ $text-align-settings: (
 ) !default;
 
 $text-align-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $text-align-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   center:       'center',
   left:         'left',
   right:        'right',
@@ -1540,11 +1614,13 @@ $text-decoration-settings: (
 ) !default;
 
 $text-decoration-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $text-decoration-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   underline:    'underline',
   strike:       'strike',
   no-decoration:'none',
@@ -1562,11 +1638,13 @@ $text-transform-settings: (
 ) !default;
 
 $text-transform-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $text-transform-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   capitalize:   'capitalize',
   lowercase:    'lowercase',
   uppercase:     'uppercase',
@@ -1585,11 +1663,13 @@ $vertical-align-settings: (
 ) !default;
 
 $vertical-align-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $vertical-align-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   baseline:     'baseline',
   bottom:       'bottom',
   middle:       'middle',
@@ -1612,11 +1692,13 @@ $whitespace-settings: (
 ) !default;
 
 $whitespace-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $whitespace-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
   normal:       'normal',
   nowrap:       'nowrap',
   pre:          'pre',
@@ -1626,7 +1708,7 @@ $whitespace-values: (
 
 // - - - - - - - - - - - - - - - -
 
-$NNN-settings: (
+$width-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -1635,12 +1717,23 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
-  /* $group-values */
+$width-group-values: map-collect(
+  /*
+  $group-of-values */
+  $group-units-percentage,
+  $group-units-grid,
+  $group-units-px,
+  $group-units-em,
+  $group-units-ch
 ) !default;
 
-$NNN-values: (
-  /* key:       'value' */
+$width-values: (
+  /*
+  key:          'value' */
+  auto:         'auto',
+  sm:           $small-screen,
+  md:           $medium-screen,
+  lg:           $large-screen,
 ) !default;
 
 // - - - - - - - - - - - - - - - -
@@ -1655,11 +1748,13 @@ $NNN-settings: (
 ) !default;
 
 $NNN-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $NNN-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
 ) !default;
 
 // - - - - - - - - - - - - - - - -
@@ -1674,11 +1769,13 @@ $NNN-settings: (
 ) !default;
 
 $NNN-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $NNN-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
 ) !default;
 
 // - - - - - - - - - - - - - - - -
@@ -1693,11 +1790,13 @@ $NNN-settings: (
 ) !default;
 
 $NNN-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $NNN-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
 ) !default;
 
 // - - - - - - - - - - - - - - - -
@@ -1712,11 +1811,13 @@ $NNN-settings: (
 ) !default;
 
 $NNN-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $NNN-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
 ) !default;
 
 // - - - - - - - - - - - - - - - -
@@ -1731,9 +1832,11 @@ $NNN-settings: (
 ) !default;
 
 $NNN-group-values: map-collect(
-  /* $group-values */
+  /*
+  $group-of-values */
 ) !default;
 
 $NNN-values: (
-  /* key:       'value' */
+  /*
+  key:          'value' */
 ) !default;
