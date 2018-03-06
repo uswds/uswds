@@ -3,13 +3,13 @@
 Min Width
 ----------------------------------------
 usage:
-  .minw[value]
+  .minw-[key]
 ----------------------------------------
 output:
-  min-width: value;
+  min-width: [value];
 ----------------------------------------
 example:
-  .minw40 {
+  .minw-g40 {
     min-width: 320px; }
 ----------------------------------------
 */
@@ -19,14 +19,10 @@ $min-width: (
     base: 'minw',
     modifiers: null,
     values: map-collect(
-      map-get($values-units, percentage),
-      map-get($values-units, grid),
-      map-get($values-units, pixels),
-      map-get($values-global, breakpoints)
+      $min-width-group-values,
+      $min-width-values
     ),
+    settings: $min-width-settings,
     property: 'min-width',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 )

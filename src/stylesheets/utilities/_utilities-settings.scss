@@ -1103,10 +1103,24 @@ $min-height-values: (
   // xl:           $xlarge-screen,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Min Width
+----------------------------------------
+usage:
+  .minw-[key]
+----------------------------------------
+output:
+  min-width: [value];
+----------------------------------------
+example:
+  .minw-g40 {
+    min-width: 320px; }
+----------------------------------------
+*/
 
-$NNN-settings: (
-  output:       false,
+$min-width-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1114,12 +1128,19 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$min-width-group-values: map-collect(
   /* $value-grouping */
+  $group-units-percentage,
+  $group-units-grid,
+  $group-units-px
 ) !default;
 
-$NNN-values: (
+$min-width-values: (
   /* key: value */
+  sm:           $small-screen,
+  md:           $medium-screen,
+  lg:           $large-screen,
+  // xl:           $xlarge-screen,
 ) !default;
 
 // - - - - - - - - - - - - - - - -
