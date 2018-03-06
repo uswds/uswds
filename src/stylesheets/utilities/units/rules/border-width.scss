@@ -30,7 +30,7 @@ $border-width: (
       noModifier: '-width',
     ),
     values: map-collect(
-      $border-width-values-groups,
+      $border-width-group-values,
       $border-width-values
     ),
     settings: $border-width-settings,

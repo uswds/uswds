@@ -3,30 +3,28 @@
 Font Style
 ----------------------------------------
 usage:
-  .italic
+  .font-italic
 ----------------------------------------
 output:
   font-style: italic;
 ----------------------------------------
 example:
-  .italic {
+  .font-italic {
     font-style: italic; }
-  .normal {
+  .font-normal {
     font-style: normal; }
 ----------------------------------------
 */
 
 $font-style: (
   font-style: (
-    base: null,
+    base: 'font',
     modifiers: null,
-    values: (
-      normal: 'normal',
-      italic: 'italic',
+    values: map-collect(
+      $font-style-group-values,
+      $font-style-values
     ),
+    settings: $font-style-settings,
     property: 'font-style',
-    output: true,
-    responsive: false,
-    pseudoclasses: true,
   )
 )

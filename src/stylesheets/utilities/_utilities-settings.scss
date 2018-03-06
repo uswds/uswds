@@ -23,7 +23,7 @@ $align-items-settings: (
   visited:      false,
 ) !default;
 
-$align-items-values-groups: map-collect(
+$align-items-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -60,7 +60,7 @@ $background-color-settings: (
   visited:      false,
 ) !default;
 
-$background-color-values-groups: map-collect(
+$background-color-group-values: map-collect(
   /* $value-grouping */
   $group-colors-red-basic
 ) !default;
@@ -98,7 +98,7 @@ $border-color-settings: (
   visited:      false,
 ) !default;
 
-$border-color-values-groups: map-collect(
+$border-color-group-values: map-collect(
   /* $value-grouping */
   $group-colors-red-basic
 ) !default;
@@ -135,7 +135,7 @@ $border-radius-settings: (
   visited:      false,
 ) !default;
 
-$border-radius-values-groups: map-collect(
+$border-radius-group-values: map-collect(
   /* $value-grouping */
   $group-units-px
 ) !default;
@@ -173,7 +173,7 @@ $border-style-settings: (
   visited:      false,
 ) !default;
 
-$border-style-values-groups: map-collect(
+$border-style-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -212,7 +212,7 @@ $border-width-settings: (
   visited:      false,
 ) !default;
 
-$border-width-values-groups: map-collect(
+$border-width-group-values: map-collect(
   /* $value-grouping */
   $group-units-px,
   $group-units-grid-basic
@@ -251,7 +251,7 @@ $circle-settings: (
   visited:      false,
 ) !default;
 
-$circle-values-groups: map-collect(
+$circle-group-values: map-collect(
   /* $value-grouping */
   $group-units-grid
 ) !default;
@@ -286,7 +286,7 @@ $color-settings: (
   visited:      false,
 ) !default;
 
-$color-values-groups: map-collect(
+$color-group-values: map-collect(
   /* $value-grouping */
   $group-colors-red
 ) !default;
@@ -347,7 +347,7 @@ $display-settings: (
   visited:      false,
 ) !default;
 
-$display-values-groups: map-collect(
+$display-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -387,7 +387,7 @@ $flex-direction-settings: (
   visited:      false,
 ) !default;
 
-$flex-direction-values-groups: map-collect(
+$flex-direction-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -428,7 +428,7 @@ $flex-size-settings: (
   visited:      false,
 ) !default;
 
-$flex-size-values-groups: map-collect(
+$flex-size-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -474,7 +474,7 @@ $flex-wrap-settings: (
   visited:      false,
 ) !default;
 
-$flex-wrap-values-groups: map-collect(
+$flex-wrap-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -495,7 +495,7 @@ $float-settings: (
   visited:      false,
 ) !default;
 
-$float-values-groups: map-collect(
+$float-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -539,7 +539,7 @@ $font-family-settings: (
   visited:      false,
 ) !default;
 
-$font-family-values-groups: map-collect(
+$font-family-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -578,7 +578,7 @@ example:
 */
 
 $font-size-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -586,7 +586,7 @@ $font-size-settings: (
   visited:      false,
 ) !default;
 
-$font-size-values-groups: map-collect(
+$font-size-group-values: map-collect(
   /* $value-grouping */
   $group-mono-12,
   $group-mono-13,
@@ -654,6 +654,85 @@ $font-size-values: (
   /* key: value */
 ) !default;
 
+/*
+----------------------------------------
+Font Style
+----------------------------------------
+usage:
+  .font-[key]
+----------------------------------------
+output:
+  font-style: [value];
+----------------------------------------
+example:
+  .font-italic {
+    font-style: italic; }
+  .font-normal {
+    font-style: normal; }
+----------------------------------------
+*/
+
+$font-style-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$font-style-group-values: map-collect(
+  /* $value-grouping */
+) !default;
+
+$font-style-values: (
+  /* key: value */
+  normal:       normal,
+  italic:       italic,
+) !default;
+
+/*
+----------------------------------------
+Font Weight
+----------------------------------------
+usage:
+  .font-[key]
+----------------------------------------
+output:
+  font-weight: [value];
+----------------------------------------
+example:
+  .font-300 {
+    font-weight: 300; }
+----------------------------------------
+*/
+
+$font-weight-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$font-weight-group-values: map-collect(
+  /* $value-grouping */
+) !default;
+
+$font-weight-values: (
+  /* key: value */
+  100:          100,
+  200:          200,
+  300:          300,
+  400:          400,
+  500:          500,
+  600:          600,
+  700:          700,
+  800:          800,
+  900:          900,
+) !default;
+
 // - - - - - - - - - - - - - - - -
 
 $NNN-settings: (
@@ -665,7 +744,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -684,7 +763,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -703,7 +782,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -722,7 +801,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -741,7 +820,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -760,7 +839,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -779,7 +858,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -798,7 +877,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -817,7 +896,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -836,7 +915,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -855,7 +934,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -874,7 +953,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -893,7 +972,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -912,7 +991,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -931,7 +1010,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -950,7 +1029,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -969,7 +1048,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -988,7 +1067,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1007,7 +1086,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1026,7 +1105,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1045,7 +1124,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1064,7 +1143,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1083,7 +1162,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1102,7 +1181,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1121,7 +1200,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1140,7 +1219,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1159,7 +1238,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1178,7 +1257,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1197,7 +1276,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1216,7 +1295,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1235,7 +1314,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1254,7 +1333,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
@@ -1273,45 +1352,7 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
-  /* $value-grouping */
-) !default;
-
-$NNN-values: (
-  /* key: value */
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$NNN-values-groups: map-collect(
-  /* $value-grouping */
-) !default;
-
-$NNN-values: (
-  /* key: value */
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$NNN-values-groups: map-collect(
+$NNN-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 

@@ -23,7 +23,7 @@ $border-style: (
       noModifier: '-style',
     ),
     values: map-collect(
-      $border-style-values-groups,
+      $border-style-group-values,
       $border-style-values
     ),
     settings: $border-style-settings,

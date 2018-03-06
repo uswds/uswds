@@ -19,7 +19,7 @@ $align-items: (
     base: 'flex',
     modifiers: null,
     values: map-collect(
-      $align-items-values-groups,
+      $align-items-group-values,
       $align-items-values
     ),
     settings: $align-items-settings,

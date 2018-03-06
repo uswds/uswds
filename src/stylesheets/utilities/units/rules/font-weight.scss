@@ -3,28 +3,26 @@
 Font Weight
 ----------------------------------------
 usage:
-  .fw[value]
+  .font-[key]
 ----------------------------------------
 output:
   font-weight: [value];
 ----------------------------------------
 example:
-  .fw300 {
+  .font-300 {
     font-weight: 300; }
 ----------------------------------------
 */
 
 $font-weight: (
   font-weight: (
-    base: 'fw',
+    base: 'font',
     modifiers: null,
     values: map-collect(
-      map-get($values-units, font-weights)
+      $font-weight-group-values,
+      $font-weight-values
     ),
+    settings: $font-weight-settings,
     property: 'font-weight',
-    output: true,
-    responsive: true,
-    pseudoclasses: true,
-    placeholder: true,
   )
 )

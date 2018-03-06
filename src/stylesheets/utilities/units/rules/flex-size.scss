@@ -25,7 +25,7 @@ $flex-size: (
     base: 'flex',
     modifiers: null,
     values: map-collect(
-      $flex-size-values-groups,
+      $flex-size-group-values,
       $flex-size-values
     ),
     settings: $flex-size-settings,

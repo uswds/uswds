@@ -19,7 +19,7 @@ $float: (
     base: 'float',
     modifiers: null,
     values: map-collect(
-      $float-values-groups,
+      $float-group-values,
       $float-values
     ),
     settings: $float-settings,

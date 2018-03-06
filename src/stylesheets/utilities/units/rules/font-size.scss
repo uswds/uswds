@@ -29,7 +29,7 @@ $font-size: (
     base: 'font',
     modifiers: null,
     values: map-collect(
-      $font-size-values-groups,
+      $font-size-group-values,
       $font-size-values
     ),
     settings: $font-size-settings,

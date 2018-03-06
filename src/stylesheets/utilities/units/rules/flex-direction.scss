@@ -19,7 +19,7 @@ $flex-direction: (
     base: 'flex',
     modifiers: null,
     values: map-collect(
-      $flex-direction-values-groups,
+      $flex-direction-group-values,
       $flex-direction-values
     ),
     settings: $flex-direction-settings,

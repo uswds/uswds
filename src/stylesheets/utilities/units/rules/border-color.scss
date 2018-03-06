@@ -32,7 +32,7 @@ $border-color: (
       noModifier: -color,
     ),
     values: map-collect(
-      $border-color-values-groups,
+      $border-color-group-values,
       $border-color-values
     ),
     settings: $border-color-settings,
