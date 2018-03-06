@@ -888,17 +888,6 @@ example:
 */
 
 $list-reset-settings: (
-  output:       true,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -907,12 +896,46 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
-  /* $value-grouping */
+/*
+----------------------------------------
+Manual Positioning
+----------------------------------------
+usage:
+  .top-[key]
+  .bottom-[key]
+  .left-[key]
+  .right-[key]
+----------------------------------------
+output:
+  [option]: [value];
+----------------------------------------
+example:
+  .bottom-n2px {
+    bottom: -2px; }
+----------------------------------------
+*/
+
+$manual-position-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
 ) !default;
 
-$NNN-values: (
+$manual-position-group-values: map-collect(
+  /* $value-grouping */
+  $group-units-px,
+  $group-units-px-negative,
+  $group-units-percentage,
+  $group-units-grid
+) !default;
+
+$manual-position-values: (
   /* key: value */
+  0:            0,
+  auto:         auto,
 ) !default;
 
 // - - - - - - - - - - - - - - - -

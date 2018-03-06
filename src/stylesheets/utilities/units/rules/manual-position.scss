@@ -3,10 +3,13 @@
 Manual Positioning
 ----------------------------------------
 usage:
-  .[modifier]-[value]
+  .top-[key]
+  .bottom-[key]
+  .left-[key]
+  .right-[key]
 ----------------------------------------
 output:
-  [modifier]: [value];
+  [option]: [value];
 ----------------------------------------
 example:
   .bottom-n2px {
@@ -23,18 +26,11 @@ $manual-position: (
       left: 'left',
       right: 'right',
     ),
-    values:
-      map-collect(
-        map-get($values-units, pixels),
-        map-get($values-units, neg-pixels),
-        map-get($values-units, percentage),
-        map-get($values-units, grid),
-        map-get($values-global, zero-zero),
-        map-get($values-global, auto)
+    values: map-collect(
+      $manual-position-group-values,
+      $manual-position-values
     ),
+    settings: $manual-position-settings,
     property: '',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 )
