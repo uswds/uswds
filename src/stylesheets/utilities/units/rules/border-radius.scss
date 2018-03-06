@@ -3,16 +3,16 @@
 Border Radius
 ----------------------------------------
 usage:
-  .radius-*[value]
+  .rad-[key]
 ----------------------------------------
 output:
   border-radius: [value];
 ----------------------------------------
 example:
-  .radius-0 {
+  .rad-0 {
     border-radius: 0; }
 
-  .radius-pill {
+  .rad-pill {
     border-radius: 10em; }
 ----------------------------------------
 */
@@ -27,21 +27,11 @@ $border-radius: (
       l: ('border-top-left-radius', 'border-bottom-left-radius'),
       noModifier: 'border-radius',
     ),
-    values: (
-      0: '0',
-      pill: '9999em',
-      circle: '50%',
-      rounded: $border-radius,
-      1px: 1px,
-      2px: 2px,
-      '05': $u-spacing-05,
-      '1': $u-spacing-1,
-      '105': $u-spacing-105,
-      '2': $u-spacing-2,
-    ),
     property: '',
-    output: true,
-    responsive: false,
-    pseudoclasses: false,
+    values: map-collect(
+      $border-radius-values-groups,
+      $border-radius-values-singles
+    ),
+    settings: $border-radius-settings,
   )
 )

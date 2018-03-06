@@ -15,7 +15,7 @@ example:
 */
 
 $background-color-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -24,7 +24,8 @@ $background-color-settings: (
 ) !default;
 
 $background-color-values-groups: map-collect(
-  $color-red-basic
+  /* $value-grouping */
+  $group-colors-red-basic
 ) !default;
 
 $background-color-values-singles: (
@@ -62,6 +63,7 @@ $border-color-settings: (
 
 $border-color-values-groups: map-collect(
   /* $value-grouping */
+  $group-colors-red-basic
 ) !default;
 
 $border-color-values-singles: (
@@ -98,10 +100,19 @@ $border-radius-settings: (
 
 $border-radius-values-groups: map-collect(
   /* $value-grouping */
+  $group-units-px
 ) !default;
 
 $border-radius-values-singles: (
   /* key: value */
+  0:            '0',
+  pill:         '9999em',
+  circle:       '50%',
+  rounded:      $border-radius,
+  'g05':        $u-spacing-05,
+  'g1':         $u-spacing-1,
+  'g105':       $u-spacing-105,
+  'g2':         $u-spacing-2,
 ) !default;
 
 /*
@@ -131,9 +142,9 @@ $border-style-values-groups: map-collect(
 
 $border-style-values-singles: (
   /* key: value */
-  dashed: 'dashed',
-  dotted: 'dotted',
-  solid: 'solid'
+  dashed:       'dashed',
+  dotted:       'dotted',
+  solid:        'solid',
 ) !default;
 
 /*
@@ -156,7 +167,7 @@ example:
 */
 
 $border-width-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -166,10 +177,13 @@ $border-width-settings: (
 
 $border-width-values-groups: map-collect(
   /* $value-grouping */
+  $group-units-px,
+  $group-units-grid-basic
 ) !default;
 
 $border-width-values-singles: (
   /* key: value */
+  0:            0
 ) !default;
 
 // - - - - - - - - - - - - - - - -

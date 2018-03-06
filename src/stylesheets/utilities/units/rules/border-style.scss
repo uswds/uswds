@@ -3,7 +3,7 @@
 Border Style
 ----------------------------------------
 usage:
-  .b[modifier]*[-value]
+  .bor[-modifier]*-[key]
 ----------------------------------------
 output:
   border[-modifier]-style: [value];
@@ -12,7 +12,7 @@ output:
 
 $border-style: (
   border-style: (
-    base: 'b',
+    base: 'bor',
     modifiers: (
       t: '-top-style',
       r: '-left-style',
@@ -22,14 +22,11 @@ $border-style: (
       x: ('-left-style', '-right-style'),
       noModifier: '-style',
     ),
-    values: (
-      dashed: 'dashed',
-      dotted: 'dotted',
-      solid: 'solid',
+    values: map-collect(
+      $border-style-values-groups,
+      $border-style-values-singles
     ),
+    settings: $border-style-settings,
     property: 'border',
-    output: true,
-    responsive: true,
-    pseudoclasses: true,
   )
 )

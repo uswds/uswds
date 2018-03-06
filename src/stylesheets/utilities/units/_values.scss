@@ -1,25 +1,25 @@
 $utility-type: "units";
 
-$color-red-light: (
+$group-colors-red-light: (
   'red-5':  $u-color-red-5,
   'red-10': $u-color-red-10,
   'red-20': $u-color-red-20,
   'red-30': $u-color-red-30,
 );
 
-$color-red-basic: (
+$group-colors-red-basic: (
   'red-40': $u-color-red-40,
   'red-50': $u-color-red-50,
   'red-60': $u-color-red-60,
   'red-70': $u-color-red-70,
 );
 
-$color-red-dark: (
+$group-colors-red-dark: (
   'red-80': $u-color-red-80,
   'red-90': $u-color-red-90,
 );
 
-$color-red-vivid: (
+$group-colors-red-vivid: (
   'red-5v':  null,
   'red-10v': $u-color-red-10v,
   'red-20v': $u-color-red-20v,
@@ -32,17 +32,120 @@ $color-red-vivid: (
   'red-90v': null,
 );
 
-$color-red-standard: map-collect(
-  $color-red-light,
-  $color-red-basic,
-  $color-red-dark
+$group-colors-red-standard: map-collect(
+  $group-colors-red-light,
+  $group-colors-red-basic,
+  $group-colors-red-dark
 );
 
-$color-red-complete: map-collect(
-  $color-red-standard,
-  $color-red-vivid
+$group-colors-red-complete: map-collect(
+  $group-colors-red-standard,
+  $group-colors-red-vivid
 );
 
+
+$group-units-ch: (
+  '05ch':   '.5ch',
+  '1ch':    '1ch',
+  '105ch':  '1.5ch',
+  '2ch':    '2ch',
+  '3ch':    '3ch',
+  '4ch':    '4ch',
+  '5ch':    '5ch',
+);
+
+$group-units-em: (
+  '05em':   '.5em',
+  '1em':    '1em',
+  '105em':  '1.5em',
+  '2em':    '2em',
+  '3em':    '3em',
+  '4em':    '4em',
+  '5em':    '5em',
+  '6em':    '6em',
+  '7em':    '7em',
+  '8em':    '8em',
+  '9em':    '9em',
+  '10em':   '10em',
+);
+
+$group-units-grid-basic: (
+  'g05':    $u-spacing-05,
+  'g1':     $u-spacing-1,
+  'g105':   $u-spacing-105,
+  'g2':     $u-spacing-2,
+  '205':    $u-spacing-205,
+  'g3':     $u-spacing-3,
+  'g4':     $u-spacing-4,
+  'g5':     $u-spacing-5,
+);
+
+$group-units-grid-extended: (
+  'g6':     $u-spacing-6,
+  'g7':     $u-spacing-7,
+  'g8':     $u-spacing-8,
+  'g9':     $u-spacing-9,
+  'g10':    $u-spacing-10,
+  'g15':    $u-spacing-15,
+  'g20':    $u-spacing-20,
+  'g25':    $u-spacing-25,
+  'g30':    $u-spacing-30,
+  'g40':    $u-spacing-40,
+  'g50':    $u-spacing-50,
+);
+
+$group-units-grid-negative-basic: (
+  'ng05':   -#{$u-spacing-05},
+  'ng1':    -#{$u-spacing-1},
+  'ng105':  -#{$u-spacing-105},
+  'ng2':    -#{$u-spacing-2},
+  'ng205':  -#{$u-spacing-205},
+  'ng3':    -#{$u-spacing-3},
+  'ng4':    -#{$u-spacing-4},
+  'ng5':    -#{$u-spacing-5},
+);
+
+$group-units-grid-negative-extended: (
+  'ng6':    -#{$u-spacing-6},
+  'ng7':    -#{$u-spacing-7},
+  'ng8':    -#{$u-spacing-8},
+  'ng9':    -#{$u-spacing-9},
+  'ng10':   -#{$u-spacing-10},
+);
+
+$group-units-grid-complete: map-collect(
+  $group-units-grid-basic,
+  $group-units-grid-extended,
+  $group-units-grid-negative-basic,
+  $group-units-grid-negative-extended
+);
+
+$group-units-percentage:(
+  '10ct':   10%,
+  '20ct':   20%,
+  '25ct':   25%,
+  '30ct':   30%,
+  '33ct':   33.33333333%,
+  '40ct':   40%,
+  '50ct':   50%,
+  '60ct':   60%,
+  '66ct':   66.66666666%,
+  '70ct':   70%,
+  '75ct':   75%,
+  '80ct':   80%,
+  '90ct':   90%,
+  '100ct':  100%,
+);
+
+$group-units-px:(
+  '1px':    1px,
+  '2px':    2px,
+);
+
+$group-units-pixels-px:(
+  'n1px':   -1px,
+  'n2px':   -2px,
+);
 
 $values-units: (
   ch: (

@@ -3,10 +3,10 @@
 
 $utilities-package: map-collect(
   $background-color,
-  $border-color/*,
+  $border-color,
   $border-radius,
   $border-style,
-  $border-width,
+  $border-width/*,
   $circle,
   $clear,
   $clearfix,

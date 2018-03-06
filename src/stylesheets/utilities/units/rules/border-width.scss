@@ -3,23 +3,23 @@
 Border Width
 ----------------------------------------
 usage:
-  .b[modifier]*[-value]
+  .bor-[modifier]*-[key]
 ----------------------------------------
 output:
   border-[modifier]: [value];
 ----------------------------------------
 example:
-  .bt1px {
+  .bor-t-1px {
     border-top: 1px; }
 
-  .b0 {
+  .bor-0 {
     border: none; }
 ----------------------------------------
 */
 
 $border-width: (
   border: (
-    base: 'b',
+    base: 'bor',
     modifiers: (
       t: '-top-width',
       r: '-right-width',
@@ -29,15 +29,11 @@ $border-width: (
       x: ('-left-width', '-right-width'),
       noModifier: '-width',
     ),
-    values:
-      map-collect(
-        map-get($values-units, pixels),
-        map-get($values-units, grid-short),
-        map-get($values-global, zero-zero)
+    values: map-collect(
+      $border-width-values-groups,
+      $border-width-values-singles
     ),
+    settings: $border-width-settings,
     property: 'border',
-    output: true,
-    responsive: true,
-    pseudoclasses: true,
   )
 )
