@@ -531,7 +531,7 @@ example:
 */
 
 $font-family-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -551,10 +551,34 @@ $font-family-values: (
   serif:        $font-serif,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Font Size
+----------------------------------------
+usage:
+  .font-[key]-[key]
+----------------------------------------
+output:
+  font-family: [value];
+  font-size: [value];
+----------------------------------------
+example:
+  .font-sans-14 {
+    font-face: '18Franklin-webfont',
+                system,
+                -apple-system,
+                BlinkMacSystemFont,
+                'Roboto',
+                'Helvetica Neue',
+                'Helvetica',
+                'Arial',
+                sans-serif;
+    font-size: 1rem; }
+----------------------------------------
+*/
 
-$NNN-settings: (
-  output:       false,
+$font-size-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -562,11 +586,71 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$font-size-values-groups: map-collect(
   /* $value-grouping */
+  $group-mono-12,
+  $group-mono-13,
+  $group-mono-14,
+  $group-mono-15,
+  $group-mono-16,
+  $group-mono-17,
+  $group-mono-18,
+  $group-mono-20,
+  $group-mono-22,
+  $group-mono-24,
+  $group-mono-28,
+  $group-mono-32,
+  $group-mono-36,
+  $group-mono-40,
+  $group-mono-48,
+  $group-mono-56,
+  $group-mono-64,
+  $group-mono-80,
+  $group-mono-120,
+  $group-mono-140,
+  $group-sans-12,
+  $group-sans-13,
+  $group-sans-14,
+  $group-sans-15,
+  $group-sans-16,
+  $group-sans-17,
+  $group-sans-18,
+  $group-sans-20,
+  $group-sans-22,
+  $group-sans-24,
+  $group-sans-28,
+  $group-sans-32,
+  $group-sans-36,
+  $group-sans-40,
+  $group-sans-48,
+  $group-sans-56,
+  $group-sans-64,
+  $group-sans-80,
+  $group-sans-120,
+  $group-sans-140,
+  $group-serif-12,
+  $group-serif-13,
+  $group-serif-14,
+  $group-serif-15,
+  $group-serif-16,
+  $group-serif-17,
+  $group-serif-18,
+  $group-serif-20,
+  $group-serif-22,
+  $group-serif-24,
+  $group-serif-28,
+  $group-serif-32,
+  $group-serif-36,
+  $group-serif-40,
+  $group-serif-48,
+  $group-serif-56,
+  $group-serif-64,
+  $group-serif-80,
+  $group-serif-120,
+  $group-serif-140
 ) !default;
 
-$NNN-values: (
+$font-size-values: (
   /* key: value */
 ) !default;
 

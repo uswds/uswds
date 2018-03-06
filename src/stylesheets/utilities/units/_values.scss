@@ -43,7 +43,6 @@ $group-colors-red: map-collect(
   $group-colors-red-vivid
 );
 
-
 $group-units-ch: (
   '05ch':   '.5ch',
   '1ch':    '1ch',
@@ -148,6 +147,843 @@ $group-units-px:(
 $group-units-px-negative:(
   'n1px':   -1px,
   'n2px':   -2px,
+);
+
+$group-mono-12: (
+  mono-12: (
+    slug: 'mono-12',
+    isReadable: true,
+    content: $u-mono-12,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-13: (
+  mono-13: (
+    slug: 'mono-13',
+    isReadable: true,
+    content: $u-mono-13,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-14: (
+  mono-14: (
+    slug: 'mono-14',
+    isReadable: true,
+    content: $u-mono-14,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-15: (
+  mono-15: (
+    slug: 'mono-15',
+    isReadable: true,
+    content: $u-mono-15,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-16: (
+  mono-16: (
+    slug: 'mono-16',
+    isReadable: true,
+    content: $u-mono-16,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-17: (
+  mono-17: (
+    slug: 'mono-17',
+    isReadable: true,
+    content: $u-mono-17,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-18: (
+  mono-18: (
+    slug: 'mono-18',
+    isReadable: true,
+    content: $u-mono-18,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-20: (
+  mono-20: (
+    slug: 'mono-20',
+    isReadable: true,
+    content: $u-mono-20,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-22: (
+  mono-22: (
+    slug: 'mono-22',
+    isReadable: true,
+    content: $u-mono-22,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-24: (
+  mono-24: (
+    slug: 'mono-24',
+    isReadable: true,
+    content: $u-mono-24,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-28: (
+  mono-28: (
+    slug: 'mono-28',
+    isReadable: true,
+    content: $u-mono-28,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-32: (
+  mono-32: (
+    slug: 'mono-32',
+    isReadable: true,
+    content: $u-mono-32,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-36: (
+  mono-36: (
+    slug: 'mono-36',
+    isReadable: true,
+    content: $u-mono-36,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-40: (
+  mono-40: (
+    slug: 'mono-40',
+    isReadable: true,
+    content: $u-mono-40,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-48: (
+  mono-48: (
+    slug: 'mono-48',
+    isReadable: true,
+    content: $u-mono-48,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-56: (
+  mono-56: (
+    slug: 'mono-56',
+    isReadable: true,
+    content: $u-mono-56,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-64: (
+  mono-64: (
+    slug: 'mono-64',
+    isReadable: true,
+    content: $u-mono-64,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-80: (
+  mono-80: (
+    slug: 'mono-80',
+    isReadable: true,
+    content: $u-mono-80,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-120: (
+  mono-120: (
+    slug: 'mono-120',
+    isReadable: true,
+    content: $u-mono-120,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-140: (
+  mono-140: (
+    slug: 'mono-140',
+    isReadable: true,
+    content: $u-mono-140,
+    extend: (
+      property: 'font-family',
+      value: $font-mono,
+    ),
+  ),
+);
+
+$group-mono-small: map-collect(
+  $group-mono-12,
+  $group-mono-13,
+  $group-mono-14
+);
+
+$group-mono-medium: map-collect(
+  $group-mono-15,
+  $group-mono-16,
+  $group-mono-17,
+  $group-mono-18,
+  $group-mono-20
+);
+
+$group-mono-large: map-collect(
+  $group-mono-22,
+  $group-mono-24,
+  $group-mono-28,
+  $group-mono-32,
+  $group-mono-36,
+  $group-mono-40
+);
+
+$group-mono-xlarge: map-collect(
+  $group-mono-48,
+  $group-mono-56,
+  $group-mono-64,
+  $group-mono-80,
+  $group-mono-120,
+  $group-mono-140
+);
+
+$group-mono: map-collect(
+  $group-mono-small,
+  $group-mono-medium,
+  $group-mono-large,
+  $group-mono-xlarge
+);
+
+$group-sans-12: (
+  sans-12: (
+    slug: 'sans-12',
+    isReadable: true,
+    content: $u-sans-12,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-13: (
+  sans-13: (
+    slug: 'sans-13',
+    isReadable: true,
+    content: $u-sans-13,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-14: (
+  sans-14: (
+    slug: 'sans-14',
+    isReadable: true,
+    content: $u-sans-14,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-15: (
+  sans-15: (
+    slug: 'sans-15',
+    isReadable: true,
+    content: $u-sans-15,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-16: (
+  sans-16: (
+    slug: 'sans-16',
+    isReadable: true,
+    content: $u-sans-16,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-17: (
+  sans-17: (
+    slug: 'sans-17',
+    isReadable: true,
+    content: $u-sans-17,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-18: (
+  sans-18: (
+    slug: 'sans-18',
+    isReadable: true,
+    content: $u-sans-18,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-20: (
+  sans-20: (
+    slug: 'sans-20',
+    isReadable: true,
+    content: $u-sans-20,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-22: (
+  sans-22: (
+    slug: 'sans-22',
+    isReadable: true,
+    content: $u-sans-22,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-24: (
+  sans-24: (
+    slug: 'sans-24',
+    isReadable: true,
+    content: $u-sans-24,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-28: (
+  sans-28: (
+    slug: 'sans-28',
+    isReadable: true,
+    content: $u-sans-28,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-32: (
+  sans-32: (
+    slug: 'sans-32',
+    isReadable: true,
+    content: $u-sans-32,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-36: (
+  sans-36: (
+    slug: 'sans-36',
+    isReadable: true,
+    content: $u-sans-36,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-40: (
+  sans-40: (
+    slug: 'sans-40',
+    isReadable: true,
+    content: $u-sans-40,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-48: (
+  sans-48: (
+    slug: 'sans-48',
+    isReadable: true,
+    content: $u-sans-48,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-56: (
+  sans-56: (
+    slug: 'sans-56',
+    isReadable: true,
+    content: $u-sans-56,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-64: (
+  sans-64: (
+    slug: 'sans-64',
+    isReadable: true,
+    content: $u-sans-64,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-80: (
+  sans-80: (
+    slug: 'sans-80',
+    isReadable: true,
+    content: $u-sans-80,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-120: (
+  sans-120: (
+    slug: 'sans-120',
+    isReadable: true,
+    content: $u-sans-120,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-140: (
+  sans-140: (
+    slug: 'sans-140',
+    isReadable: true,
+    content: $u-sans-140,
+    extend: (
+      property: 'font-family',
+      value: $font-sans,
+    ),
+  ),
+);
+
+$group-sans-small: map-collect(
+  $group-sans-12,
+  $group-sans-13,
+  $group-sans-14
+);
+
+$group-sans-medium: map-collect(
+  $group-sans-15,
+  $group-sans-16,
+  $group-sans-17,
+  $group-sans-18,
+  $group-sans-20
+);
+
+$group-sans-large: map-collect(
+  $group-sans-22,
+  $group-sans-24,
+  $group-sans-28,
+  $group-sans-32,
+  $group-sans-36,
+  $group-sans-40
+);
+
+$group-sans-xlarge: map-collect(
+  $group-sans-48,
+  $group-sans-56,
+  $group-sans-64,
+  $group-sans-80,
+  $group-sans-120,
+  $group-sans-140
+);
+
+$group-sans: map-collect(
+  $group-sans-small,
+  $group-sans-medium,
+  $group-sans-large,
+  $group-sans-xlarge
+);
+
+$group-serif-12: (
+  serif-12: (
+    slug: 'serif-12',
+    isReadable: true,
+    content: $u-serif-12,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-13: (
+  serif-13: (
+    slug: 'serif-13',
+    isReadable: true,
+    content: $u-serif-13,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-14: (
+  serif-14: (
+    slug: 'serif-14',
+    isReadable: true,
+    content: $u-serif-14,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-15: (
+  serif-15: (
+    slug: 'serif-15',
+    isReadable: true,
+    content: $u-serif-15,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-16: (
+  serif-16: (
+    slug: 'serif-16',
+    isReadable: true,
+    content: $u-serif-16,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-17: (
+  serif-17: (
+    slug: 'serif-17',
+    isReadable: true,
+    content: $u-serif-17,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-18: (
+  serif-18: (
+    slug: 'serif-18',
+    isReadable: true,
+    content: $u-serif-18,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-20: (
+  serif-20: (
+    slug: 'serif-20',
+    isReadable: true,
+    content: $u-serif-20,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-22: (
+  serif-22: (
+    slug: 'serif-22',
+    isReadable: true,
+    content: $u-serif-22,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-24: (
+  serif-24: (
+    slug: 'serif-24',
+    isReadable: true,
+    content: $u-serif-24,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-28: (
+  serif-28: (
+    slug: 'serif-28',
+    isReadable: true,
+    content: $u-serif-28,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-32: (
+  serif-32: (
+    slug: 'serif-32',
+    isReadable: true,
+    content: $u-serif-32,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-36: (
+  serif-36: (
+    slug: 'serif-36',
+    isReadable: true,
+    content: $u-serif-36,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-40: (
+  serif-40: (
+    slug: 'serif-40',
+    isReadable: true,
+    content: $u-serif-40,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-48: (
+  serif-48: (
+    slug: 'serif-48',
+    isReadable: true,
+    content: $u-serif-48,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-56: (
+  serif-56: (
+    slug: 'serif-56',
+    isReadable: true,
+    content: $u-serif-56,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-64: (
+  serif-64: (
+    slug: 'serif-64',
+    isReadable: true,
+    content: $u-serif-64,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-80: (
+  serif-80: (
+    slug: 'serif-80',
+    isReadable: true,
+    content: $u-serif-80,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-120: (
+  serif-120: (
+    slug: 'serif-120',
+    isReadable: true,
+    content: $u-serif-120,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-140: (
+  serif-140: (
+    slug: 'serif-140',
+    isReadable: true,
+    content: $u-serif-140,
+    extend: (
+      property: 'font-family',
+      value: $font-serif,
+    ),
+  ),
+);
+
+$group-serif-small: map-collect(
+  $group-serif-12,
+  $group-serif-13,
+  $group-serif-14
+);
+
+$group-serif-medium: map-collect(
+  $group-serif-15,
+  $group-serif-16,
+  $group-serif-17,
+  $group-serif-18,
+  $group-serif-20
+);
+
+$group-serif-large: map-collect(
+  $group-serif-22,
+  $group-serif-24,
+  $group-serif-28,
+  $group-serif-32,
+  $group-serif-36,
+  $group-serif-40
+);
+
+$group-serif-xlarge: map-collect(
+  $group-serif-48,
+  $group-serif-56,
+  $group-serif-64,
+  $group-serif-80,
+  $group-serif-120,
+  $group-serif-140
+);
+
+$group-serif: map-collect(
+  $group-serif-small,
+  $group-serif-medium,
+  $group-serif-large,
+  $group-serif-xlarge
 );
 
 $values-units: (
@@ -617,105 +1453,6 @@ $values-units: (
     '2px': 2px,
   ),
   type-scale: (
-    mono-1: (
-      slug: 'mono-1',
-      isReadable: true,
-      content: $u-mono-1,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-2: (
-      slug: 'mono-2',
-      isReadable: true,
-      content: $u-mono-2,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-3: (
-      slug: 'mono-3',
-      isReadable: true,
-      content: $u-mono-3,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-4: (
-      slug: 'mono-4',
-      isReadable: true,
-      content: $u-mono-4,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-5: (
-      slug: 'mono-5',
-      isReadable: true,
-      content: $u-mono-5,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-6: (
-      slug: 'mono-6',
-      isReadable: true,
-      content: $u-mono-6,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-7: (
-      slug: 'mono-7',
-      isReadable: true,
-      content: $u-mono-7,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-8: (
-      slug: 'mono-8',
-      isReadable: true,
-      content: $u-mono-8,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-9: (
-      slug: 'mono-9',
-      isReadable: true,
-      content: $u-mono-9,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-10: (
-      slug: 'mono-10',
-      isReadable: true,
-      content: $u-mono-10,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
-    mono-11: (
-      slug: 'mono-11',
-      isReadable: true,
-      content: $u-mono-11,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
     mono-12: (
       slug: 'mono-12',
       isReadable: true,
@@ -779,15 +1516,6 @@ $values-units: (
         value: $font-mono,
       ),
     ),
-    mono-19: (
-      slug: 'mono-19',
-      isReadable: true,
-      content: $u-mono-19,
-      extend: (
-        property: 'font-family',
-        value: $font-mono,
-      ),
-    ),
     mono-20: (
       slug: 'mono-20',
       isReadable: true,
@@ -797,103 +1525,112 @@ $values-units: (
         value: $font-mono,
       ),
     ),
-    sans-1: (
-      slug: 'sans-1',
+    mono-22: (
+      slug: 'mono-22',
       isReadable: true,
-      content: $u-sans-1,
+      content: $u-mono-22,
       extend: (
         property: 'font-family',
-        value: $font-sans,
+        value: $font-mono,
       ),
     ),
-    sans-2: (
-      slug: 'sans-2',
+    mono-24: (
+      slug: 'mono-24',
       isReadable: true,
-      content: $u-sans-2,
+      content: $u-mono-24,
       extend: (
         property: 'font-family',
-        value: $font-sans,
+        value: $font-mono,
       ),
     ),
-    sans-3: (
-      slug: 'sans-3',
+    mono-28: (
+      slug: 'mono-28',
       isReadable: true,
-      content: $u-sans-3,
+      content: $u-mono-28,
       extend: (
         property: 'font-family',
-        value: $font-sans,
+        value: $font-mono,
       ),
     ),
-    sans-4: (
-      slug: 'sans-4',
+    mono-32: (
+      slug: 'mono-32',
       isReadable: true,
-      content: $u-sans-4,
+      content: $u-mono-32,
       extend: (
         property: 'font-family',
-        value: $font-sans,
+        value: $font-mono,
       ),
     ),
-    sans-5: (
-      slug: 'sans-5',
+    mono-36: (
+      slug: 'mono-36',
       isReadable: true,
-      content: $u-sans-5,
+      content: $u-mono-36,
       extend: (
         property: 'font-family',
-        value: $font-sans,
+        value: $font-mono,
       ),
     ),
-    sans-6: (
-      slug: 'sans-6',
+    mono-40: (
+      slug: 'mono-40',
       isReadable: true,
-      content: $u-sans-6,
+      content: $u-mono-40,
       extend: (
         property: 'font-family',
-        value: $font-sans,
+        value: $font-mono,
       ),
     ),
-    sans-7: (
-      slug: 'sans-7',
+    mono-48: (
+      slug: 'mono-48',
       isReadable: true,
-      content: $u-sans-7,
+      content: $u-mono-48,
       extend: (
         property: 'font-family',
-        value: $font-sans,
+        value: $font-mono,
       ),
     ),
-    sans-8: (
-      slug: 'sans-8',
+    mono-56: (
+      slug: 'mono-56',
       isReadable: true,
-      content: $u-sans-8,
+      content: $u-mono-56,
       extend: (
         property: 'font-family',
-        value: $font-sans,
+        value: $font-mono,
       ),
     ),
-    sans-9: (
-      slug: 'sans-9',
+    mono-64: (
+      slug: 'mono-64',
       isReadable: true,
-      content: $u-sans-9,
+      content: $u-mono-64,
       extend: (
         property: 'font-family',
-        value: $font-sans,
+        value: $font-mono,
       ),
     ),
-    sans-10: (
-      slug: 'sans-10',
+    mono-80: (
+      slug: 'mono-80',
       isReadable: true,
-      content: $u-sans-10,
+      content: $u-mono-80,
       extend: (
         property: 'font-family',
-        value: $font-sans,
+        value: $font-mono,
       ),
     ),
-    sans-11: (
-      slug: 'sans-11',
+    mono-120: (
+      slug: 'mono-120',
       isReadable: true,
-      content: $u-sans-11,
+      content: $u-mono-120,
       extend: (
         property: 'font-family',
-        value: $font-sans,
+        value: $font-mono,
+      ),
+    ),
+    mono-140: (
+      slug: 'mono-140',
+      isReadable: true,
+      content: $u-mono-140,
+      extend: (
+        property: 'font-family',
+        value: $font-mono,
       ),
     ),
     sans-12: (
@@ -959,15 +1696,6 @@ $values-units: (
         value: $font-sans,
       ),
     ),
-    sans-19: (
-      slug: 'sans-19',
-      isReadable: true,
-      content: $u-sans-19,
-      extend: (
-        property: 'font-family',
-        value: $font-sans,
-      ),
-    ),
     sans-20: (
       slug: 'sans-20',
       isReadable: true,
@@ -977,103 +1705,112 @@ $values-units: (
         value: $font-sans,
       ),
     ),
-    serif-1: (
-      slug: 'serif-1',
+    sans-22: (
+      slug: 'sans-22',
       isReadable: true,
-      content: $u-serif-1,
+      content: $u-sans-22,
       extend: (
         property: 'font-family',
-        value: $font-serif,
+        value: $font-sans,
       ),
     ),
-    serif-2: (
-      slug: 'serif-2',
+    sans-24: (
+      slug: 'sans-24',
       isReadable: true,
-      content: $u-serif-2,
+      content: $u-sans-24,
       extend: (
         property: 'font-family',
-        value: $font-serif,
+        value: $font-sans,
       ),
     ),
-    serif-3: (
-      slug: 'serif-3',
+    sans-28: (
+      slug: 'sans-28',
       isReadable: true,
-      content: $u-serif-3,
+      content: $u-sans-28,
       extend: (
         property: 'font-family',
-        value: $font-serif,
+        value: $font-sans,
       ),
     ),
-    serif-4: (
-      slug: 'serif-4',
+    sans-32: (
+      slug: 'sans-32',
       isReadable: true,
-      content: $u-serif-4,
+      content: $u-sans-32,
       extend: (
         property: 'font-family',
-        value: $font-serif,
+        value: $font-sans,
       ),
     ),
-    serif-5: (
-      slug: 'serif-5',
+    sans-36: (
+      slug: 'sans-36',
       isReadable: true,
-      content: $u-serif-5,
+      content: $u-sans-36,
       extend: (
         property: 'font-family',
-        value: $font-serif,
+        value: $font-sans,
       ),
     ),
-    serif-6: (
-      slug: 'serif-6',
+    sans-40: (
+      slug: 'sans-40',
       isReadable: true,
-      content: $u-serif-6,
+      content: $u-sans-40,
       extend: (
         property: 'font-family',
-        value: $font-serif,
+        value: $font-sans,
       ),
     ),
-    serif-7: (
-      slug: 'serif-7',
+    sans-48: (
+      slug: 'sans-48',
       isReadable: true,
-      content: $u-serif-7,
+      content: $u-sans-48,
       extend: (
         property: 'font-family',
-        value: $font-serif,
+        value: $font-sans,
       ),
     ),
-    serif-8: (
-      slug: 'serif-8',
+    sans-56: (
+      slug: 'sans-56',
       isReadable: true,
-      content: $u-serif-8,
+      content: $u-sans-56,
       extend: (
         property: 'font-family',
-        value: $font-serif,
+        value: $font-sans,
       ),
     ),
-    serif-9: (
-      slug: 'serif-9',
+    sans-64: (
+      slug: 'sans-64',
       isReadable: true,
-      content: $u-serif-9,
+      content: $u-sans-64,
       extend: (
         property: 'font-family',
-        value: $font-serif,
+        value: $font-sans,
       ),
     ),
-    serif-10: (
-      slug: 'serif-10',
+    sans-80: (
+      slug: 'sans-80',
       isReadable: true,
-      content: $u-serif-10,
+      content: $u-sans-80,
       extend: (
         property: 'font-family',
-        value: $font-serif,
+        value: $font-sans,
       ),
     ),
-    serif-11: (
-      slug: 'serif-11',
+    sans-120: (
+      slug: 'sans-120',
       isReadable: true,
-      content: $u-serif-11,
+      content: $u-sans-120,
       extend: (
         property: 'font-family',
-        value: $font-serif,
+        value: $font-sans,
+      ),
+    ),
+    sans-140: (
+      slug: 'sans-140',
+      isReadable: true,
+      content: $u-sans-140,
+      extend: (
+        property: 'font-family',
+        value: $font-sans,
       ),
     ),
     serif-12: (
@@ -1139,19 +1876,118 @@ $values-units: (
         value: $font-serif,
       ),
     ),
-    serif-19: (
-      slug: 'serif-19',
+    serif-20: (
+      slug: 'serif-20',
       isReadable: true,
-      content: $u-serif-19,
+      content: $u-serif-20,
       extend: (
         property: 'font-family',
         value: $font-serif,
       ),
     ),
-    serif-20: (
-      slug: 'serif-20',
+    serif-22: (
+      slug: 'serif-22',
       isReadable: true,
-      content: $u-serif-20,
+      content: $u-serif-22,
+      extend: (
+        property: 'font-family',
+        value: $font-serif,
+      ),
+    ),
+    serif-24: (
+      slug: 'serif-24',
+      isReadable: true,
+      content: $u-serif-24,
+      extend: (
+        property: 'font-family',
+        value: $font-serif,
+      ),
+    ),
+    serif-28: (
+      slug: 'serif-28',
+      isReadable: true,
+      content: $u-serif-28,
+      extend: (
+        property: 'font-family',
+        value: $font-serif,
+      ),
+    ),
+    serif-32: (
+      slug: 'serif-32',
+      isReadable: true,
+      content: $u-serif-32,
+      extend: (
+        property: 'font-family',
+        value: $font-serif,
+      ),
+    ),
+    serif-36: (
+      slug: 'serif-36',
+      isReadable: true,
+      content: $u-serif-36,
+      extend: (
+        property: 'font-family',
+        value: $font-serif,
+      ),
+    ),
+    serif-40: (
+      slug: 'serif-40',
+      isReadable: true,
+      content: $u-serif-40,
+      extend: (
+        property: 'font-family',
+        value: $font-serif,
+      ),
+    ),
+    serif-48: (
+      slug: 'serif-48',
+      isReadable: true,
+      content: $u-serif-48,
+      extend: (
+        property: 'font-family',
+        value: $font-serif,
+      ),
+    ),
+    serif-56: (
+      slug: 'serif-56',
+      isReadable: true,
+      content: $u-serif-56,
+      extend: (
+        property: 'font-family',
+        value: $font-serif,
+      ),
+    ),
+    serif-64: (
+      slug: 'serif-64',
+      isReadable: true,
+      content: $u-serif-64,
+      extend: (
+        property: 'font-family',
+        value: $font-serif,
+      ),
+    ),
+    serif-80: (
+      slug: 'serif-80',
+      isReadable: true,
+      content: $u-serif-80,
+      extend: (
+        property: 'font-family',
+        value: $font-serif,
+      ),
+    ),
+    serif-120: (
+      slug: 'serif-120',
+      isReadable: true,
+      content: $u-serif-120,
+      extend: (
+        property: 'font-family',
+        value: $font-serif,
+      ),
+    ),
+    serif-140: (
+      slug: 'serif-140',
+      isReadable: true,
+      content: $u-serif-140,
       extend: (
         property: 'font-family',
         value: $font-serif,

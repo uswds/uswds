@@ -3,14 +3,14 @@
 Font Size
 ----------------------------------------
 usage:
-  .[value]
+  .font-[key]-[key]
 ----------------------------------------
 output:
   font-family: [value];
   font-size: [value];
 ----------------------------------------
 example:
-  .sans-5 {
+  .font-sans-14 {
     font-face: '18Franklin-webfont',
                 system,
                 -apple-system,
@@ -26,15 +26,13 @@ example:
 
 $font-size: (
   font-size: (
-    base: null,
+    base: 'font',
     modifiers: null,
     values: map-collect(
-      map-get($values-units, type-scale)
+      $font-size-values-groups,
+      $font-size-values
     ),
+    settings: $font-size-settings,
     property: 'font-size',
-    output: true,
-    responsive: true,
-    pseudoclasses: true,
-    placeholder: true,
   )
 )
