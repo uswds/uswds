@@ -167,7 +167,7 @@ example:
 */
 
 $border-width-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -186,10 +186,27 @@ $border-width-values-singles: (
   0:            0
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Circle
+----------------------------------------
+usage:
+  .circle-[key]
+----------------------------------------
+output:
+  height: [value];
+  width: [value];
+  border-radius: 50%;
+----------------------------------------
+example:
+  .circle-6 {
+    height: 3rem;
+    width: 3rem; }
+----------------------------------------
+*/
 
-$NNN-settings: (
-  output:       false,
+$circle-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -197,12 +214,14 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$circle-values-groups: map-collect(
   /* $value-grouping */
+  $group-units-grid
 ) !default;
 
-$NNN-values-singles: (
+$circle-values-singles: (
   /* key: value */
+  2px:          2px,
 ) !default;
 
 // - - - - - - - - - - - - - - - -

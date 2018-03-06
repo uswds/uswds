@@ -38,7 +38,7 @@ $group-colors-red-standard: map-collect(
   $group-colors-red-dark
 );
 
-$group-colors-red-complete: map-collect(
+$group-colors-red: map-collect(
   $group-colors-red-standard,
   $group-colors-red-vivid
 );
@@ -113,9 +113,12 @@ $group-units-grid-negative-extended: (
   'ng10':   -#{$u-spacing-10},
 );
 
-$group-units-grid-complete: map-collect(
+$group-units-grid: map-collect(
   $group-units-grid-basic,
-  $group-units-grid-extended,
+  $group-units-grid-extended
+);
+
+$group-units-grid-negative: map-collect(
   $group-units-grid-negative-basic,
   $group-units-grid-negative-extended
 );
@@ -142,7 +145,7 @@ $group-units-px:(
   '2px':    2px,
 );
 
-$group-units-pixels-px:(
+$group-units-px-negative:(
   'n1px':   -1px,
   'n2px':   -2px,
 );

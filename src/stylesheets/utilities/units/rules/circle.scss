@@ -3,7 +3,7 @@
 Circle
 ----------------------------------------
 usage:
-  .circle-[value]
+  .circle-[key]
 ----------------------------------------
 output:
   height: [value];
@@ -22,16 +22,14 @@ $circle: (
     base: 'circle',
     modifiers: null,
     values: map-collect(
-      map-get($values-units, grid),
-      map-get($values-units, pixels)
+      $circle-values-groups,
+      $circle-values-singles
     ),
+    settings: $circle-settings,
     property: (height, width),
     extend: (
       property: 'border-radius',
       value: '50%',
     ),
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 )
