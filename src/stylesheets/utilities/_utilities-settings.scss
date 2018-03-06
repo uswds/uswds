@@ -1038,7 +1038,7 @@ example:
 */
 
 $max-width-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1063,9 +1063,23 @@ $max-width-values: (
   lg:           $large-screen,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Min Height
+----------------------------------------
+usage:
+  .minh-[key]
+----------------------------------------
+output:
+  min-height: [value];
+----------------------------------------
+example:
+  .minh-g40 {
+    min-height: 320px; }
+----------------------------------------
+*/
 
-$NNN-settings: (
+$min-height-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -1074,12 +1088,19 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$min-height-group-values: map-collect(
   /* $value-grouping */
+  $group-units-percentage,
+  $group-units-grid,
+  $group-units-px
 ) !default;
 
-$NNN-values: (
+$min-height-values: (
   /* key: value */
+  sm:           $small-screen,
+  md:           $medium-screen,
+  lg:           $large-screen,
+  // xl:           $xlarge-screen,
 ) !default;
 
 // - - - - - - - - - - - - - - - -
