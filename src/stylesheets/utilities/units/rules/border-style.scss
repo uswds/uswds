@@ -24,7 +24,7 @@ $border-style: (
     ),
     values: map-collect(
       $border-style-values-groups,
-      $border-style-values-singles
+      $border-style-values
     ),
     settings: $border-style-settings,
     property: 'border',

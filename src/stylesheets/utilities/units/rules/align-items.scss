@@ -1,9 +1,9 @@
 /*
 ----------------------------------------
-Flex Align
+Align items
 ----------------------------------------
 usage:
-  .flex-[value]
+  .flex-[key]
 ----------------------------------------
 output:
   align-items: [value];
@@ -14,15 +14,15 @@ example:
 ----------------------------------------
 */
 
-$flex-align: (
-  flex-align: (
+$align-items: (
+  align-items: (
     base: 'flex',
     modifiers: null,
     values: map-collect(
-      $flex-align-values-groups,
-      $flex-align-values-singles
+      $align-items-values-groups,
+      $align-items-values
     ),
-    settings: $flex-align-settings,
+    settings: $align-items-settings,
     property: 'align-items',
   )
 );

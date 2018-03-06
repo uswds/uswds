@@ -20,7 +20,7 @@ $color: (
     modifiers: null,
     values: map-collect(
       $color-values-groups,
-      $color-values-singles
+      $color-values
     ),
     settings: $color-settings,
     property: 'color',

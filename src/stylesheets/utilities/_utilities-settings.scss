@@ -1,5 +1,42 @@
 /*
 ----------------------------------------
+Align Items
+----------------------------------------
+usage:
+  .ali-[key]
+----------------------------------------
+output:
+  align-items: [value];
+----------------------------------------
+example:
+  .ali-start {
+    align-items: flex-start; }
+----------------------------------------
+*/
+
+$align-items-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$align-items-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$align-items-values: (
+  /* key: value */
+  start:      flex-start,
+  end:        flex-end,
+  center:     center,
+  stretch:    stretch,
+) !default;
+
+/*
+----------------------------------------
 Background Color
 ----------------------------------------
 usage:
@@ -28,7 +65,7 @@ $background-color-values-groups: map-collect(
   $group-colors-red-basic
 ) !default;
 
-$background-color-values-singles: (
+$background-color-values: (
   /* key: value */
 ) !default;
 
@@ -66,7 +103,7 @@ $border-color-values-groups: map-collect(
   $group-colors-red-basic
 ) !default;
 
-$border-color-values-singles: (
+$border-color-values: (
   /* key: value */
 ) !default;
 
@@ -103,7 +140,7 @@ $border-radius-values-groups: map-collect(
   $group-units-px
 ) !default;
 
-$border-radius-values-singles: (
+$border-radius-values: (
   /* key: value */
   0:            0,
   pill:         9999em,
@@ -140,7 +177,7 @@ $border-style-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$border-style-values-singles: (
+$border-style-values: (
   /* key: value */
   dashed:       dashed,
   dotted:       dotted,
@@ -181,7 +218,7 @@ $border-width-values-groups: map-collect(
   $group-units-grid-basic
 ) !default;
 
-$border-width-values-singles: (
+$border-width-values: (
   /* key: value */
   0:            0
 ) !default;
@@ -219,7 +256,7 @@ $circle-values-groups: map-collect(
   $group-units-grid
 ) !default;
 
-$circle-values-singles: (
+$circle-values: (
   /* key: value */
   2px:          2px,
 ) !default;
@@ -254,7 +291,7 @@ $color-values-groups: map-collect(
   $group-colors-red
 ) !default;
 
-$color-values-singles: (
+$color-values: (
   /* key: value */
 ) !default;
 
@@ -314,7 +351,7 @@ $display-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$display-values-singles: (
+$display-values: (
   /* key: value */
   block:        block,
   flex:         flex,
@@ -327,21 +364,129 @@ $display-values-singles: (
 
 /*
 ----------------------------------------
-Flex Align
+Flex Direction
 ----------------------------------------
 usage:
   .flex-[key]
 ----------------------------------------
 output:
-  align-items: [value];
+  flex-direction: [value]
 ----------------------------------------
 example:
-  .flex-start {
-    align-items: flex-start; }
+  .flex-row {
+    flex-direction: row; }
 ----------------------------------------
 */
 
-$flex-align-settings: (
+$flex-direction-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$flex-direction-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$flex-direction-values: (
+  /* key: value */
+  row:          row,
+  column:       column,
+) !default;
+
+/*
+----------------------------------------
+Flex size
+----------------------------------------
+usage:
+  .flex-[key]
+----------------------------------------
+output:
+  flex: [value];
+----------------------------------------
+example:
+  .flex-f1 {
+    flex: 0 0 1; }
+
+  .flex-fill {
+    flex: 1 0 0; }
+
+  .flex-fit {
+    flex: none; }
+----------------------------------------
+*/
+
+$flex-size-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$flex-size-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$flex-size-values: (
+  /* key: value */
+  f1:           '1 0 0',
+  f2:           '2 0 0',
+  f3:           '3 0 0',
+  f4:           '4 0 0',
+  f5:           '5 0 0',
+  f6:           '6 0 0',
+  f7:           '7 0 0',
+  f8:           '8 0 0',
+  f9:           '9 0 0',
+  f10:          '10 0 0',
+  f11:          '11 0 0',
+  fill:         '1 0 0',
+  fit:          0,
+) !default;
+
+/*
+----------------------------------------
+Flex Wrap
+----------------------------------------
+usage:
+  .flex-[key]
+----------------------------------------
+output:
+  flex-wrap: [value];
+----------------------------------------
+example:
+  .flex-wrap {
+    flex-wrap: wrap; }
+----------------------------------------
+*/
+
+$flex-wrap-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$flex-wrap-values-groups: map-collect(
+  /* $value-grouping */
+) !default;
+
+$flex-wrap-values: (
+  /* key: value */
+  wrap:         wrap,
+  nowrap:       nowrap,
+) !default;
+
+// - - - - - - - - - - - - - - - -
+
+$float-settings: (
   output:       true,
   responsive:   false,
   active:       false,
@@ -350,16 +495,15 @@ $flex-align-settings: (
   visited:      false,
 ) !default;
 
-$flex-align-values-groups: map-collect(
+$float-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$flex-align-values-singles: (
+$float-values: (
   /* key: value */
-  start:      flex-start,
-  end:        flex-end,
-  center:     center,
-  stretch:    stretch,
+  left:         left,
+  none:         none,
+  right:        right,
 ) !default;
 
 // - - - - - - - - - - - - - - - -
@@ -377,26 +521,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
-  /* key: value */
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$NNN-values-groups: map-collect(
-  /* $value-grouping */
-) !default;
-
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -415,7 +540,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -434,7 +559,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -453,7 +578,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -472,7 +597,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -491,7 +616,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -510,7 +635,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -529,7 +654,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -548,7 +673,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -567,7 +692,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -586,7 +711,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -605,7 +730,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -624,7 +749,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -643,7 +768,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -662,7 +787,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -681,7 +806,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -700,7 +825,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -719,7 +844,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -738,7 +863,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -757,7 +882,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -776,7 +901,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -795,7 +920,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -814,7 +939,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -833,7 +958,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -852,7 +977,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -871,7 +996,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -890,7 +1015,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -909,7 +1034,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -928,7 +1053,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -947,7 +1072,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -966,7 +1091,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -985,7 +1110,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -1004,7 +1129,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -1023,7 +1148,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -1042,7 +1167,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -1061,7 +1186,7 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;
 
@@ -1080,63 +1205,6 @@ $NNN-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
-  /* key: value */
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$NNN-values-groups: map-collect(
-  /* $value-grouping */
-) !default;
-
-$NNN-values-singles: (
-  /* key: value */
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$NNN-values-groups: map-collect(
-  /* $value-grouping */
-) !default;
-
-$NNN-values-singles: (
-  /* key: value */
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$NNN-values-groups: map-collect(
-  /* $value-grouping */
-) !default;
-
-$NNN-values-singles: (
+$NNN-values: (
   /* key: value */
 ) !default;

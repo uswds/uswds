@@ -3,33 +3,32 @@
 Flex size
 ----------------------------------------
 usage:
-  .[value]
+  .flex-[key]
 ----------------------------------------
 output:
   flex: [value];
 ----------------------------------------
 example:
-  .f1 {
+  .flex-f1 {
     flex: 0 0 1; }
 
-  .fill {
+  .flex-fill {
     flex: 1 0 0; }
 
-  .fit {
+  .flex-fit {
     flex: none; }
 ----------------------------------------
 */
 
 $flex-size: (
   flex-size: (
-    base: null,
+    base: 'flex',
     modifiers: null,
     values: map-collect(
-      map-get($values-global, flex)
+      $flex-size-values-groups,
+      $flex-size-values
     ),
+    settings: $flex-size-settings,
     property: 'flex',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 );

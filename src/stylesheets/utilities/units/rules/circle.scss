@@ -23,7 +23,7 @@ $circle: (
     modifiers: null,
     values: map-collect(
       $circle-values-groups,
-      $circle-values-singles
+      $circle-values
     ),
     settings: $circle-settings,
     property: (height, width),

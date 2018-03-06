@@ -21,7 +21,7 @@ $background-color: (
     property: 'background-color',
     values: map-collect(
       $background-color-values-groups,
-      $background-color-values-singles
+      $background-color-values
     ),
     settings: $background-color-settings,
   )

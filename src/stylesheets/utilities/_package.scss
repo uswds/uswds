@@ -2,6 +2,7 @@
 // into a single map for looping.
 
 $utilities-package: map-collect(
+  $align-items,
   $background-color,
   $border-color,
   $border-radius,
@@ -11,11 +12,10 @@ $utilities-package: map-collect(
   $color,
   $column,
   $display,
-  $flex-align/*,
   $flex-direction,
-  $flex-wrap,
   $flex-size,
-  $float,
+  $flex-wrap,
+  $float/*,
   $font-family,
   $font-size,
   $font-style,

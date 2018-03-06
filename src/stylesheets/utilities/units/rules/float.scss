@@ -18,14 +18,11 @@ $float: (
   float: (
     base: 'float',
     modifiers: null,
-    values: (
-      left: 'left',
-      none: 'none',
-      right: 'right',
+    values: map-collect(
+      $float-values-groups,
+      $float-values
     ),
+    settings: $float-settings,
     property: 'float',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 )

@@ -30,7 +30,7 @@ $border-radius: (
     property: '',
     values: map-collect(
       $border-radius-values-groups,
-      $border-radius-values-singles
+      $border-radius-values
     ),
     settings: $border-radius-settings,
   )

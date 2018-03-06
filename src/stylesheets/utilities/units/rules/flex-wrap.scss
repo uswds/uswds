@@ -3,28 +3,26 @@
 Flex Wrap
 ----------------------------------------
 usage:
-  .f-[value]
+  .flex-[key]
 ----------------------------------------
 output:
   flex-wrap: [value];
 ----------------------------------------
 example:
-  .f-wrap {
+  .flex-wrap {
     flex-wrap: wrap; }
 ----------------------------------------
 */
 
 $flex-wrap: (
   flex-wrap: (
-    base: 'f',
+    base: 'flex',
     modifiers: null,
-    values: (
-      'wrap': 'wrap',
-      'nowrap': 'nowrap',
+    values: map-collect(
+      $flex-wrap-values-groups,
+      $flex-wrap-values
     ),
+    settings: $flex-wrap-settings,
     property: 'flex-wrap',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 );

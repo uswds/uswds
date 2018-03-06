@@ -31,7 +31,7 @@ $border-width: (
     ),
     values: map-collect(
       $border-width-values-groups,
-      $border-width-values-singles
+      $border-width-values
     ),
     settings: $border-width-settings,
     property: 'border',
