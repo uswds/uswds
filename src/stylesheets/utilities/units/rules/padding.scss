@@ -3,23 +3,23 @@
 Padding
 ----------------------------------------
 usage:
-  .p[modifier]*[-]*[value]
+  .padding-[modifier]*[-]*[value]
 ----------------------------------------
 output:
   padding: [value]
 ----------------------------------------
 example:
-  .p0 {
+  .padding-0 {
     padding: none; }
 
-  .pb1px {
+  .padding-b-1px {
     padding-bottom: 1px; }
 ----------------------------------------
 */
 
 $padding: (
   padding: (
-    base: p,
+    base: 'padding',
     modifiers: (
       t: '-top',
       r: '-right',
@@ -30,13 +30,10 @@ $padding: (
       noModifier: '',
     ),
     values: map-collect(
-      map-get($values-units, pixels),
-      map-get($values-units, grid),
-      map-get($values-global, zero-zero)
+      $padding-group-values,
+      $padding-values
     ),
+    settings: $padding-settings,
     property: 'padding',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 )

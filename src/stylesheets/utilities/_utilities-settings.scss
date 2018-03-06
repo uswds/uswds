@@ -1311,7 +1311,7 @@ $outline-2-color-values: (
 
 // - - - - - - - - - - - - - - - -
 
-$NNN-settings: (
+$padding-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -1320,12 +1320,15 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$padding-group-values: map-collect(
   /* $value-grouping */
+  $group-units-px,
+  $group-units-grid
 ) !default;
 
-$NNN-values: (
+$padding-values: (
   /* key: value */
+  0:            0,
 ) !default;
 
 // - - - - - - - - - - - - - - - -
