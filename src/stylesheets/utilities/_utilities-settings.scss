@@ -1388,17 +1388,6 @@ example:
 */
 
 $row-settings: (
-  output:       true,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -1407,12 +1396,43 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+/*
+----------------------------------------
+Box Shadow
+----------------------------------------
+usage:
+  .box-[value]
+----------------------------------------
+output:
+  box-shadow: [value];
+----------------------------------------
+example:
+  .box-1 {
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10); }
+----------------------------------------
+*/
+
+$box-shadow-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$box-shadow-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values: (
+$box-shadow-values: (
   /* key: value */
+  s0: 'none',
+  s1: '0 1px 2px 0 rgba(0,0,0,0.10)',
+  s2: '0 4px 8px 0 rgba(0,0,0,0.10)',
+  s3: '0 6px 12px 0 rgba(0,0,0,0.10)',
+  s4: '0 8px 16px 0 rgba(0,0,0,0.10)',
+  s5: '0 12px 24px 0 rgba(0,0,0,0.10)',
 ) !default;
 
 // - - - - - - - - - - - - - - - -
