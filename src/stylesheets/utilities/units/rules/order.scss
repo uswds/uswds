@@ -3,7 +3,7 @@
 Order
 ----------------------------------------
 usage:
-  .order-[value]
+  .order-[key]
 ----------------------------------------
 output:
   order: [value]
@@ -22,11 +22,10 @@ $order: (
     base: 'order',
     modifiers: null,
     values: map-collect(
-      map-get($values-global, flex-orders)
+      $order-group-values,
+      $order-values
     ),
+    settings: $order-settings,
     property: 'order',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 )

@@ -849,25 +849,6 @@ $letter-spacing-values: (
   3:          $u-ls-3,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$NNN-group-values: map-collect(
-  /* $value-grouping */
-) !default;
-
-$NNN-values: (
-  /* key: value */
-) !default;
-
 /*
 ----------------------------------------
 Line Height
@@ -1227,8 +1208,8 @@ $opacity-values: (
 
 // - - - - - - - - - - - - - - - -
 
-$NNN-settings: (
-  output:       false,
+$order-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1236,12 +1217,26 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$order-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values: (
+$order-values: (
   /* key: value */
+//  0:            0,
+//  1:            1,
+//  2:            2,
+//  3:            3,
+//  4:            4,
+//  5:            5,
+//  6:            6,
+//  7:            7,
+//  8:            8,
+//  9:            9,
+//  10:           10,
+//  11:           11,
+  first:        -1,
+  last:         99,
 ) !default;
 
 // - - - - - - - - - - - - - - - -
