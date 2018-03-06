@@ -3,10 +3,10 @@
 Max Width
 ----------------------------------------
 usage:
-  .maxw[value]
+  .maxw-[key]
 ----------------------------------------
 output:
-  max-width: value;
+  max-width: [value];
 ----------------------------------------
 example:
   .maxw-lg {
@@ -19,17 +19,10 @@ $max-width: (
     base: 'maxw',
     modifiers: null,
     values: map-collect(
-      map-get($values-units, percentage),
-      map-get($values-units, grid),
-      map-get($values-units, pixels),
-      /*narrow: $text-narrow-width,
-      max: 'none',
-      reading: $text-max-width,*/
-      map-get($values-global, breakpoints)
+      $max-width-group-values,
+      $max-width-values
     ),
+    settings: $max-width-settings,
     property: 'max-width',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 )

@@ -959,7 +959,7 @@ example:
 */
 
 $margin-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -985,9 +985,23 @@ $margin-values: (
   auto:         auto,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Max Height
+----------------------------------------
+usage:
+  .maxh-[key]
+----------------------------------------
+output:
+  max-height: [value];
+----------------------------------------
+example:
+  .maxh-g40 {
+    max-height: 320px; }
+----------------------------------------
+*/
 
-$NNN-settings: (
+$max-height-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -996,18 +1010,35 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$max-height-group-values: map-collect(
   /* $value-grouping */
+  $group-units-percentage,
+  $group-units-grid,
+  $group-units-px
 ) !default;
 
-$NNN-values: (
+$max-height-values: (
   /* key: value */
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Max Width
+----------------------------------------
+usage:
+  .maxw-[key]
+----------------------------------------
+output:
+  max-width: [value];
+----------------------------------------
+example:
+  .maxw-lg {
+    max-width: 1040px; }
+----------------------------------------
+*/
 
-$NNN-settings: (
-  output:       false,
+$max-width-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1015,12 +1046,21 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$max-width-group-values: map-collect(
   /* $value-grouping */
+  $group-units-percentage,
+  $group-units-grid,
+  $group-units-px
 ) !default;
 
-$NNN-values: (
+$max-width-values: (
   /* key: value */
+  none:         none,
+  reading-sm:   $text-narrow-width,
+  reading:      $text-max-width,
+  sm:           $small-screen,
+  md:           $medium-screen,
+  lg:           $large-screen,
 ) !default;
 
 // - - - - - - - - - - - - - - - -

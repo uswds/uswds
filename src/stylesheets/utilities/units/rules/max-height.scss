@@ -1,15 +1,15 @@
 /*
 ----------------------------------------
-Min Height
+Max Height
 ----------------------------------------
 usage:
-  .maxh[value]
+  .maxh-[key]
 ----------------------------------------
 output:
-  max-height: value;
+  max-height: [value];
 ----------------------------------------
 example:
-  .maxh40 {
+  .maxh-g40 {
     max-height: 320px; }
 ----------------------------------------
 */
@@ -19,13 +19,10 @@ $max-height: (
     base: 'maxh',
     modifiers: null,
     values: map-collect(
-      map-get($values-units, percentage),
-      map-get($values-units, grid),
-      map-get($values-units, pixels)
+      $max-height-group-values,
+      $max-height-values
     ),
+    settings: $max-height-settings,
     property: 'max-height',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 )
