@@ -3,14 +3,14 @@
 Square
 ----------------------------------------
 usage:
-  .sq[value]
+  .square-[key]
 ----------------------------------------
 output:
   height: [value];
   width: [value];
 ----------------------------------------
 example:
-  .sq6 {
+  .square-g6 {
     height: 3rem;
     width: 3rem; }
 ----------------------------------------
@@ -20,16 +20,13 @@ $square: (
   square: (
     base: null,
     modifiers: (
-      sq: (height, width),
+      square: (height, width),
     ),
     values: map-collect(
-      map-get($values-units, percentage),
-      map-get($values-units, grid),
-      map-get($values-units, pixels)
+      $square-group-values,
+      $square-values
     ),
+    settings: $square-settings,
     property: '',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 )

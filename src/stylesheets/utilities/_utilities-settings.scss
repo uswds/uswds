@@ -225,6 +225,45 @@ $border-width-values: (
 
 /*
 ----------------------------------------
+Box Shadow
+----------------------------------------
+usage:
+  .box-[value]
+----------------------------------------
+output:
+  box-shadow: [value];
+----------------------------------------
+example:
+  .box-1 {
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10); }
+----------------------------------------
+*/
+
+$box-shadow-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$box-shadow-group-values: map-collect(
+  /* $value-grouping */
+) !default;
+
+$box-shadow-values: (
+  /* key: value */
+  s0: 'none',
+  s1: '0 1px 2px 0 rgba(0,0,0,0.10)',
+  s2: '0 4px 8px 0 rgba(0,0,0,0.10)',
+  s3: '0 6px 12px 0 rgba(0,0,0,0.10)',
+  s4: '0 8px 16px 0 rgba(0,0,0,0.10)',
+  s5: '0 12px 24px 0 rgba(0,0,0,0.10)',
+) !default;
+
+/*
+----------------------------------------
 Circle
 ----------------------------------------
 usage:
@@ -1396,48 +1435,44 @@ $row-settings: (
   visited:      false,
 ) !default;
 
+// - - - - - - - - - - - - - - - -
+
+$NNN-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$NNN-group-values: map-collect(
+  /* $value-grouping */
+) !default;
+
+$NNN-values: (
+  /* key: value */
+) !default;
+
 /*
 ----------------------------------------
-Box Shadow
+Square
 ----------------------------------------
 usage:
-  .box-[value]
+  .square-[key]
 ----------------------------------------
 output:
-  box-shadow: [value];
+  height: [value];
+  width: [value];
 ----------------------------------------
 example:
-  .box-1 {
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10); }
+  .square-g6 {
+    height: 3rem;
+    width: 3rem; }
 ----------------------------------------
 */
 
-$box-shadow-settings: (
-  output:       true,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$box-shadow-group-values: map-collect(
-  /* $value-grouping */
-) !default;
-
-$box-shadow-values: (
-  /* key: value */
-  s0: 'none',
-  s1: '0 1px 2px 0 rgba(0,0,0,0.10)',
-  s2: '0 4px 8px 0 rgba(0,0,0,0.10)',
-  s3: '0 6px 12px 0 rgba(0,0,0,0.10)',
-  s4: '0 8px 16px 0 rgba(0,0,0,0.10)',
-  s5: '0 12px 24px 0 rgba(0,0,0,0.10)',
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
+$square-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -1446,31 +1481,14 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$square-group-values: map-collect(
   /* $value-grouping */
+  $group-units-grid
 ) !default;
 
-$NNN-values: (
+$square-values: (
   /* key: value */
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$NNN-group-values: map-collect(
-  /* $value-grouping */
-) !default;
-
-$NNN-values: (
-  /* key: value */
+  2px:          2px,
 ) !default;
 
 // - - - - - - - - - - - - - - - -
