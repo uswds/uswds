@@ -3,31 +3,26 @@
 Height
 ----------------------------------------
 usage:
-  .h[value]
+  .hei-[value]
 ----------------------------------------
 output:
   height: [value];
 ----------------------------------------
 example:
-  .h33ct {
+  .hei-33ct {
     height: 33.33333333%; }
 ----------------------------------------
 */
 
 $height: (
   height: (
-    base: 'h',
+    base: 'height',
     modifiers: null,
     values: map-collect(
-      map-get($values-units, percentage),
-      map-get($values-units, grid),
-      map-get($values-units, em),
-      map-get($values-units, ch),
-      map-get($values-units, pixels)
+      $height-group-values,
+      $height-values
     ),
+    settings: $height-settings,
     property: 'height',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 )

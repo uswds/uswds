@@ -708,7 +708,7 @@ example:
 */
 
 $font-weight-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -733,10 +733,24 @@ $font-weight-values: (
   900:          900,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Height
+----------------------------------------
+usage:
+  .hei-[value]
+----------------------------------------
+output:
+  height: [value];
+----------------------------------------
+example:
+  .hei-33ct {
+    height: 33.33333333%; }
+----------------------------------------
+*/
 
-$NNN-settings: (
-  output:       false,
+$height-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -744,11 +758,16 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$height-group-values: map-collect(
   /* $value-grouping */
+  $group-units-percentage,
+  $group-units-grid,
+  $group-units-em,
+  $group-units-ch,
+  $group-units-px
 ) !default;
 
-$NNN-values: (
+$height-values: (
   /* key: value */
 ) !default;
 

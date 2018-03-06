@@ -16,7 +16,7 @@ example:
 
 $display: (
   display: (
-    base: 'dis',
+    base: 'display',
     modifiers: null,
     values: map-collect(
       $display-group-values,
