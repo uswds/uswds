@@ -241,7 +241,7 @@ example:
 */
 
 $color-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -258,23 +258,31 @@ $color-values-singles: (
   /* key: value */
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Column
+----------------------------------------
+usage:
+  .column
+----------------------------------------
+output:
+  display: flex;
+  flex-direction: column;
+----------------------------------------
+example:
+  .column {
+    display: flex;
+    flex-direction: column; }
+----------------------------------------
+*/
 
-$NNN-settings: (
-  output:       false,
+$column-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
   visited:      false,
-) !default;
-
-$NNN-values-groups: map-collect(
-  /* $value-grouping */
-) !default;
-
-$NNN-values-singles: (
-  /* key: value */
 ) !default;
 
 // - - - - - - - - - - - - - - - -

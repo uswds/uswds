@@ -3,26 +3,26 @@
 Column
 ----------------------------------------
 usage:
-  .col
+  .column
 ----------------------------------------
 output:
   display: flex;
   flex-direction: column;
 ----------------------------------------
 example:
-  .col {
+  .column {
     display: flex;
     flex-direction: column; }
 ----------------------------------------
 */
 
-$col: (
-  col: (
+$column: (
+  column: (
     base: null,
     modifiers: null,
     values: (
       row: (
-        slug: 'col',
+        slug: 'column',
         isReadable: true,
         content: 'flex',
         extend: (
@@ -32,8 +32,6 @@ $col: (
       ),
     ),
     property: 'display',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
+    settings: $column-settings,
   )
 );
