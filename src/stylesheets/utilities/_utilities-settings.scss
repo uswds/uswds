@@ -1303,7 +1303,24 @@ $opacity-values: (
   100:         '1',
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Order
+----------------------------------------
+usage:
+  .order-[key]
+----------------------------------------
+output:
+  order: [value]
+----------------------------------------
+example:
+  .order-first {
+    order: -1; }
+
+  .order-2 {
+    order: 2; }
+----------------------------------------
+*/
 
 $order-settings: (
   output:       false,
@@ -1412,7 +1429,24 @@ $outline-2-color-values: (
   key:          'value' */
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Padding
+----------------------------------------
+usage:
+  .pad-[modifier]*-[value]
+----------------------------------------
+output:
+  padding: [value]
+----------------------------------------
+example:
+  .pad-0 {
+    padding: none; }
+
+  .pad-b-1px {
+    padding-bottom: 1px; }
+----------------------------------------
+*/
 
 $padding-settings: (
   output:       false,
@@ -1503,27 +1537,6 @@ $row-settings: (
   visited:      false,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$NNN-group-values: map-collect(
-  /*
-  $group-of-values */
-) !default;
-
-$NNN-values: (
-  /*
-  key:          'value' */
-) !default;
-
 /*
 ----------------------------------------
 Square
@@ -1602,7 +1615,21 @@ $text-align-values: (
   justify:      'justify',
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Text Decoration
+----------------------------------------
+usage:
+  .text-[key]
+----------------------------------------
+output:
+  text-decoration: [value]
+----------------------------------------
+example:
+  .text-underline {
+    text-decoration: underline; }
+----------------------------------------
+*/
 
 $text-decoration-settings: (
   output:       false,
@@ -1626,7 +1653,21 @@ $text-decoration-values: (
   no-decoration:'none',
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Text Transform
+----------------------------------------
+usage:
+  .text-[value]
+----------------------------------------
+output:
+  text-transform: value;
+----------------------------------------
+example:
+  .text-uppercase {
+    text-transform: uppercase; }
+----------------------------------------
+*/
 
 $text-transform-settings: (
   output:       false,
@@ -1651,7 +1692,21 @@ $text-transform-values: (
   no-transform: 'none',
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Vertical Align
+----------------------------------------
+usage:
+  .ver-[value]
+----------------------------------------
+output:
+  vertical-align: [value]
+----------------------------------------
+example:
+  .ver-top {
+    vertical-align: top; }
+----------------------------------------
+*/
 
 $vertical-align-settings: (
   output:       false,
@@ -1680,7 +1735,21 @@ $vertical-align-values: (
   top:          'top',
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Whitespace
+----------------------------------------
+usage:
+  whi-[key]
+----------------------------------------
+output:
+  whitespace: [value];
+----------------------------------------
+example:
+  .whi-pre-wrap {
+    whitespace: pre-wrap; }
+----------------------------------------
+*/
 
 $whitespace-settings: (
   output:       false,
@@ -1706,7 +1775,21 @@ $whitespace-values: (
   pre-wrap:     'pre-wrap',
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Width
+----------------------------------------
+usage:
+  .width-[key]
+----------------------------------------
+output:
+  width: [value];
+----------------------------------------
+example:
+  .width-75ct {
+    width: 75%; }
+----------------------------------------
+*/
 
 $width-settings: (
   output:       false,
