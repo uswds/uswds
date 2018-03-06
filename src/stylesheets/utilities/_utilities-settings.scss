@@ -105,14 +105,14 @@ $border-radius-values-groups: map-collect(
 
 $border-radius-values-singles: (
   /* key: value */
-  0:            '0',
-  pill:         '9999em',
-  circle:       '50%',
+  0:            0,
+  pill:         9999em,
+  circle:       50%,
   rounded:      $border-radius,
-  'g05':        $u-spacing-05,
-  'g1':         $u-spacing-1,
-  'g105':       $u-spacing-105,
-  'g2':         $u-spacing-2,
+  g05:          $u-spacing-05,
+  g1:           $u-spacing-1,
+  g105:         $u-spacing-105,
+  g2:           $u-spacing-2,
 ) !default;
 
 /*
@@ -142,9 +142,9 @@ $border-style-values-groups: map-collect(
 
 $border-style-values-singles: (
   /* key: value */
-  dashed:       'dashed',
-  dotted:       'dotted',
-  solid:        'solid',
+  dashed:       dashed,
+  dotted:       dotted,
+  solid:        solid,
 ) !default;
 
 /*
@@ -302,7 +302,7 @@ example:
 */
 
 $display-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -316,19 +316,33 @@ $display-values-groups: map-collect(
 
 $display-values-singles: (
   /* key: value */
-  block:        'block',
-  flex:         'flex',
-  none:         'none',
-  inline:       'inline',
-  inline-block: 'inline-block',
-  table:        'table',
-  table-cell:   'table-cell',
+  block:        block,
+  flex:         flex,
+  none:         none,
+  inline:       inline,
+  inline-block: inline-block,
+  table:        table,
+  table-cell:   table-cell,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Flex Align
+----------------------------------------
+usage:
+  .flex-[key]
+----------------------------------------
+output:
+  align-items: [value];
+----------------------------------------
+example:
+  .flex-start {
+    align-items: flex-start; }
+----------------------------------------
+*/
 
-$NNN-settings: (
-  output:       false,
+$flex-align-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -336,12 +350,16 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-values-groups: map-collect(
+$flex-align-values-groups: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values-singles: (
+$flex-align-values-singles: (
   /* key: value */
+  start:      flex-start,
+  end:        flex-end,
+  center:     center,
+  stretch:    stretch,
 ) !default;
 
 // - - - - - - - - - - - - - - - -

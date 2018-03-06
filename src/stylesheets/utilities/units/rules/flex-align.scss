@@ -3,30 +3,26 @@
 Flex Align
 ----------------------------------------
 usage:
-  .f-[value]
+  .flex-[value]
 ----------------------------------------
 output:
   align-items: [value];
 ----------------------------------------
 example:
-  .f-start {
+  .flex-start {
     align-items: flex-start; }
 ----------------------------------------
 */
 
 $flex-align: (
   flex-align: (
-    base: 'f',
+    base: 'flex',
     modifiers: null,
-    values: (
-      'start': 'flex-start',
-      'end': 'flex-end',
-      'center': 'center',
-      'stretch': 'stretch',
+    values: map-collect(
+      $flex-align-values-groups,
+      $flex-align-values-singles
     ),
+    settings: $flex-align-settings,
     property: 'align-items',
-    output: true,
-    responsive: true,
-    pseudoclasses: false,
   )
 );
