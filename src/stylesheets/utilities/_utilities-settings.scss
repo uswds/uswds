@@ -1120,7 +1120,7 @@ example:
 */
 
 $min-width-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1143,10 +1143,24 @@ $min-width-values: (
   // xl:           $xlarge-screen,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Opacity
+----------------------------------------
+usage:
+  .opacity-[key]
+----------------------------------------
+output:
+  opacity: [value];
+----------------------------------------
+example:
+  .opacity-0 {
+    opacity: 0; }
+----------------------------------------
+*/
 
-$NNN-settings: (
-  output:       false,
+$opacity-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1154,12 +1168,23 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$opacity-group-values: map-collect(
   /* $value-grouping */
 ) !default;
 
-$NNN-values: (
+$opacity-values: (
   /* key: value */
+  0:           0,
+  10:          0.1,
+  20:          0.2,
+  30:          0.3,
+  40:          0.4,
+  50:          0.5,
+  60:          0.6,
+  70:          0.7,
+  80:          0.8,
+  90:          0.9,
+  100:         1,
 ) !default;
 
 // - - - - - - - - - - - - - - - -
