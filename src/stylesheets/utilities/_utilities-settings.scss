@@ -553,6 +553,44 @@ $font-family-values: (
 
 /*
 ----------------------------------------
+Font Feature Settings
+----------------------------------------
+usage:
+  .feat-[key]
+----------------------------------------
+output:
+  font-feature-settings: [value];
+----------------------------------------
+example:
+  .feat-alt {
+    font-feature-settings:
+      'ss01' 1, 'kern' 1; }
+----------------------------------------
+*/
+
+$font-feature-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$font-feature-group-values: map-collect(
+  /* $value-grouping */
+) !default;
+
+$font-feature-values: (
+  /* key: value */
+  alt: ('ss01' 1, 'kern' 1, isReadable),
+  tabular: ('tnum' 1, 'kern' 1, isReadable),
+  default: 'kern' 1,
+  // none: none,
+) !default;
+
+/*
+----------------------------------------
 Font Size
 ----------------------------------------
 usage:
@@ -1160,7 +1198,7 @@ example:
 */
 
 $opacity-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1185,25 +1223,6 @@ $opacity-values: (
   80:          0.8,
   90:          0.9,
   100:         1,
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$NNN-group-values: map-collect(
-  /* $value-grouping */
-) !default;
-
-$NNN-values: (
-  /* key: value */
 ) !default;
 
 // - - - - - - - - - - - - - - - -
