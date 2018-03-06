@@ -1,12 +1,15 @@
-// ------------------------------------------------------------
-// map-deep-get()
+/*
+----------------------------------------
+map-deep-get()
+----------------------------------------
+@author Hugo Giraudel
+@access public
+@param {Map} $map - Map
+@param {Arglist} $keys - Key chain
+@return {*} - Desired value
+----------------------------------------
+*/
 
-/// Map deep get
-/// @author Hugo Giraudel
-/// @access public
-/// @param {Map} $map - Map
-/// @param {Arglist} $keys - Key chain
-/// @return {*} - Desired value
 @function map-deep-get($map, $keys...) {
   @each $key in $keys {
     $map: map-get($map, $key);
@@ -15,13 +18,17 @@
   @return $map;
 }
 
-// ------------------------------------------------------------
-// strip-unit()
+/*
+----------------------------------------
+strip-unit()
+----------------------------------------
+Remove the unit of a length
+@author Hugo Giraudel
+@param {Number} $number - Number to remove unit from
+@return {Number} - Unitless number
+----------------------------------------
+*/
 
-/// Remove the unit of a length
-/// @author Hugo Giraudel
-/// @param {Number} $number - Number to remove unit from
-/// @return {Number} - Unitless number
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
     @return $number / ($number * 0 + 1);
@@ -30,8 +37,13 @@
   @return $number;
 }
 
-// ------------------------------------------------------------
-// multi-cat()
+/*
+----------------------------------------
+multi-cat()
+----------------------------------------
+Concatenate two lists
+----------------------------------------
+*/
 
 @function multi-cat($list1, $list2) {
   $this-list: ();
@@ -46,8 +58,15 @@
   @return $this-list;
 }
 
-// ------------------------------------------------------------
-// map-collect()
+/*
+----------------------------------------
+map-collect()
+----------------------------------------
+Collect multiple maps into a single
+large map
+source: https://gist.github.com/bigglesrocks/d75091700f8f2be5abfe
+----------------------------------------
+*/
 
 @function map-collect($maps...) {
   $collection: ();
@@ -60,8 +79,13 @@
 }
 
 /* stylelint-disable */
-// ------------------------------------------------------------
-// remove()
+/*
+----------------------------------------
+remove()
+----------------------------------------
+Remove a value from a list
+----------------------------------------
+*/
 
 @function remove($list, $value, $recursive: false) {
   $result: ();
@@ -77,8 +101,13 @@
   @return $result;
 }
 
-// ------------------------------------------------------------
-// strunquote()
+/*
+----------------------------------------
+strunquote()
+----------------------------------------
+Unquote a string
+----------------------------------------
+*/
 
 @function strunquote($value) {
   @if type-of($value) == 'string' {
@@ -88,8 +117,17 @@
   @return $value;
 }
 
-// ------------------------------------------------------------
-// to-map()
+/*
+----------------------------------------
+to-map()
+----------------------------------------
+Convert a single value to a USWDS
+value map.
+
+Candidate for deprecation if we remove
+isReadable
+----------------------------------------
+*/
 
 @function to-map($key, $values) {
   $l: length($values);
@@ -115,8 +153,17 @@
   }
 }
 
-// ------------------------------------------------------------
-// base-to-map()
+/*
+----------------------------------------
+base-to-map()
+----------------------------------------
+Convert a single base to a USWDS
+value map.
+
+Candidate for deprecation if we remove
+isReadable
+----------------------------------------
+*/
 
 @function base-to-map($values) {
   $l: length($values);
@@ -136,23 +183,14 @@
   }
 }
 
-// ------------------------------------------------------------
-// utilities-map()
-
-@function utilities-map($import) {
-  $s: ();
-
-  @each $utility in $import {
-    $this-utility: '$' + $utility;
-    $s: join($s, $this-utility);
-  }
-
-  @return $s;
-}
-
-// ------------------------------------------------------------
-// spacing()
-// expresses a spacing unit multiple in rem
+/*
+----------------------------------------
+spacing()
+----------------------------------------
+Converts a spacing unit multiple into
+the desired final units (currently rem)
+----------------------------------------
+*/
 
 @function spacing($unit) {
   $grid-to-rem: strip-unit($grid-base) * $unit / strip-unit($font-size-base) * 1rem;
@@ -160,9 +198,13 @@
   @return $grid-to-rem;
 }
 
-// ------------------------------------------------------------
-// px()
-// converts a value in px to a value in rem
+/*
+----------------------------------------
+px()
+----------------------------------------
+Converts a value in px to a value in rem
+----------------------------------------
+*/
 
 @function px($pixels) {
   $px-to-rem: strip-unit($pixels) / strip-unit($font-size-base) * 1rem;
@@ -170,9 +212,14 @@
   @return $px-to-rem;
 }
 
-// ------------------------------------------------------------
-// type-scale()
-// regularizes a specific face's optical size to a normal target
+/*
+----------------------------------------
+type-scale()
+----------------------------------------
+Normalizes a specific face's optical size
+to a set target
+----------------------------------------
+*/
 
 @function type-scale($cap-height, $scale) {
   $this-scale: $base-cap-height * strip-unit($scale) / $cap-height;
@@ -180,15 +227,18 @@
   @return px($this-scale);
 }
 
-// ------------------------------------------------------------
+/*
+----------------------------------------
+@render-utility
+----------------------------------------
+Build a utility from values calculated
+in the @render-utilities-in loop
+----------------------------------------
+*/
 
 @mixin render-utility($utility, $selector, $property, $value, $val-props) {
-  $this-namespace: null;
 
-  @if $utility-type == settings {
-    $this-namespace: $s-settings-utilities-namespace;
-  }
-  .#{$this-namespace}#{$selector} {
+  .#{$utilities-namespace-prefix}#{$selector} {
     @if map-has-key($val-props, extend) {
       #{map-deep-get($val-props, extend, property)}: strunquote(map-deep-get($val-props, extend, value));
     }
@@ -207,17 +257,20 @@
   }
 }
 
-// ------------------------------------------------------------
+/*
+----------------------------------------
+@render-pseudoclass
+----------------------------------------
+Build a pseucoclass utiliy from values
+calculated in the @render-utilities-in
+loop
+----------------------------------------
+*/
 
 @mixin render-pseudoclass($pseudoclass, $selector, $property, $value, $val-props) {
-  $this-namespace: null;
-
-  @if $utility-type == settings {
-    $this-namespace: $s-settings-utilities-namespace;
-  }
 
   @each $pseudo-key, $pseudo-value in map-get($values-global, pseudoclasses) {
-    .#{$this-namespace}#{$pseudoclass}\:#{$selector}:#{$pseudoclass} {
+    .#{$utilities-namespace-prefix}#{$pseudoclass}\:#{$selector}:#{$pseudoclass} {
       @each $this-property in $property {
         #{$this-property}: $value;
       }
@@ -225,7 +278,18 @@
   }
 }
 
-// ------------------------------------------------------------
+/*
+----------------------------------------
+@render-placeholder
+----------------------------------------
+Build a placeholder utility from values
+calculated in the @render-utilities-in
+loop
+
+Could be deprecated if we never choose
+to style placeholder text
+----------------------------------------
+*/
 
 @mixin render-placeholder($selector, $property, $value, $val-props) {
   $this-namespace: null;
@@ -239,6 +303,19 @@
     }
   }
 }
+
+/*
+----------------------------------------
+@render-media-queries
+----------------------------------------
+Build @media media queries from values
+calculated in the @render-utilities-in
+loop
+
+Could be deprecated if we never choose
+to style placeholder text
+----------------------------------------
+*/
 
 @mixin render-media-queries($utility, $selector, $property, $value, $val-props) {
   $this-namespace: null;
@@ -265,6 +342,17 @@
     }
   }
 }
+
+/*
+----------------------------------------
+@render-utilities-in
+----------------------------------------
+The master loop that sets the building
+blocks of utilities from the values
+in individual rule settings and loops
+through all possible variants
+----------------------------------------
+*/
 
 @mixin render-utilities-in($utilities) {
 
