@@ -23,7 +23,7 @@ example:
 */
 
 $align-items-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -62,18 +62,18 @@ example:
 */
 
 $background-color-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
+  output:       true,
+  responsive:   true,
+  active:       true,
   focus:        false,
-  hover:        false,
+  hover:        true,
   visited:      false,
 ) !default;
 
 $background-color-group-values: map-collect(
   /*
   $group-of-values */
-  $group-colors-red-basic
+  $group-palettes-uswds-classic
 ) !default;
 
 $background-color-values: (

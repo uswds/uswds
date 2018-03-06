@@ -267,13 +267,14 @@ loop
 ----------------------------------------
 */
 
-@mixin render-pseudoclass($pseudoclass, $selector, $property, $value, $val-props) {
-
-  @each $pseudo-key, $pseudo-value in map-get($values-global, pseudoclasses) {
-    .#{$utilities-namespace-prefix}#{$pseudoclass}\:#{$selector}:#{$pseudoclass} {
-      @each $this-property in $property {
-        #{$this-property}: $value;
-      }
+@mixin render-pseudoclass($pseudoclass, $selector, $property, $value, $val-props, $mq) {
+  $this-mq: null;
+  @if $mq {
+    $this-mq: '#{$mq}\:';
+  }
+  .#{$utilities-namespace-prefix}#{$this-mq}#{$pseudoclass}\:#{$selector}:#{$pseudoclass} {
+    @each $this-property in $property {
+      #{$this-property}: $value;
     }
   }
 }
@@ -311,32 +312,34 @@ to style placeholder text
 Build @media media queries from values
 calculated in the @render-utilities-in
 loop
-
-Could be deprecated if we never choose
-to style placeholder text
 ----------------------------------------
 */
 
 @mixin render-media-queries($utility, $selector, $property, $value, $val-props) {
-  $this-namespace: null;
 
-  @if $utility-type == settings {
-    $this-namespace: $s-settings-utilities-namespace;
-  }
+  @each $media-key, $media-value in $group-breakpoints {
+    $mq: $media-key;
 
-  @each $mediaKey, $media-value in map-get($values-global, breakpoints) {
-    @media (min-width: #{nth($media-value, 1)}) {
-      .#{$this-namespace}#{$mediaKey}-#{$selector} {
-        @if map-has-key($val-props, extend) {
-          #{map-deep-get($val-props, extend, property)}: strunquote(map-deep-get($val-props, extend, value));
-        }
+    @if $media-value {
+      @media (min-width: #{$media-value}) {
+        #{$utilities-namespace-prefix}#{$media-key}\:#{$selector} {
+          @if map-has-key($val-props, extend) {
+            #{map-deep-get($val-props, extend, property)}: strunquote(map-deep-get($val-props, extend, value));
+          }
 
-        @each $this-property in $property {
-          #{$this-property}: $value;
-        }
+          @each $this-property in $property {
+            #{$this-property}: $value;
+          }
 
-        @if map-has-key($utility, extend) {
-          #{map-deep-get($utility, extend, property)}: strunquote(map-deep-get($utility, extend, value));
+          @if map-has-key($utility, extend) {
+            #{map-deep-get($utility, extend, property)}: strunquote(map-deep-get($utility, extend, value));
+          }
+          @if map-deep-get($utility, settings, hover) {
+            @include render-pseudoclass(hover, $selector, $property, $value, $val-props, $mq);
+          }
+          @if map-deep-get($utility, settings, visited) {
+            @include render-pseudoclass(visited, $selector, $property, $value, $val-props, $mq);
+          }
         }
       }
     }
@@ -360,7 +363,7 @@ through all possible variants
 
   @each $utility-name, $utility in $utilities {
 
-    // Only do this if the the untility is meant to output
+    // Only do this if the the utility is meant to output
 
     @if map-deep-get($utility, settings, output) {
       // set intital variants
@@ -377,6 +380,7 @@ through all possible variants
       $v: null;
       $mv: null;
       $val-props: ();
+      $mq: null;
 
       //    If there's a base, use base-to-map() to convert it into a MAP:
       //    $base-props: (
@@ -624,19 +628,19 @@ through all possible variants
             // Add the pseudoclass variants, if applicable
 
             @if map-deep-get($utility, settings, hover) {
-              @include render-pseudoclass(hover, $selector, $property, $value, $val-props);
+              @include render-pseudoclass(hover, $selector, $property, $value, $val-props, $mq);
             }
 
             @if map-deep-get($utility, settings, active) {
-              @include render-pseudoclass(active, $selector, $property, $value, $val-props);
+              @include render-pseudoclass(active, $selector, $property, $value, $val-props, $mq);
             }
 
             @if map-deep-get($utility, settings, visited) {
-              @include render-pseudoclass(visited, $selector, $property, $value, $val-props);
+              @include render-pseudoclass(visited, $selector, $property, $value, $val-props, $mq);
             }
 
             @if map-deep-get($utility, settings, focus) {
-              @include render-pseudoclass(focus, $selector, $property, $value, $val-props);
+              @include render-pseudoclass(focus, $selector, $property, $value, $val-props, $mq);
             }
 
             // Add the placeholder variant, if applicable
