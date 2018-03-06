@@ -3,29 +3,26 @@
 Text Decoration
 ----------------------------------------
 usage:
-  .[value]
+  .text-[key]
 ----------------------------------------
 output:
   text-decoration: [value]
 ----------------------------------------
 example:
-  .underline {
+  .text-underline {
     text-decoration: underline; }
 ----------------------------------------
 */
 
 $text-decoration: (
   text-decoration: (
-    base: null,
+    base: 'text',
     modifiers: null,
-    values: (
-      underline: 'underline',
-      strike: 'strike',
-      plain: 'none',
+    values: map-collect(
+      $text-decoration-group-values,
+      $text-decoration-values
     ),
+    settings: $text-decoration-settings,
     property: 'text-decoration',
-    output: true,
-    responsive: false,
-    pseudoclasses: true,
   )
 )

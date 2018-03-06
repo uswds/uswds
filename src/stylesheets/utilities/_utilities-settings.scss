@@ -1530,7 +1530,7 @@ $text-align-values: (
 
 // - - - - - - - - - - - - - - - -
 
-$NNN-settings: (
+$text-decoration-settings: (
   output:       false,
   responsive:   false,
   active:       false,
@@ -1539,18 +1539,21 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$text-decoration-group-values: map-collect(
   /* $group-values */
 ) !default;
 
-$NNN-values: (
+$text-decoration-values: (
   /* key:       'value' */
+  underline:    'underline',
+  strike:       'strike',
+  no-decoration:'none',
 ) !default;
 
 // - - - - - - - - - - - - - - - -
 
-$NNN-settings: (
-  output:       false,
+$text-transform-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1558,12 +1561,16 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$text-transform-group-values: map-collect(
   /* $group-values */
 ) !default;
 
-$NNN-values: (
+$text-transform-values: (
   /* key:       'value' */
+  capitalize:   'capitalize',
+  lowercase:    'lowercase',
+  uppercase:     'uppercase',
+  no-transform: 'none',
 ) !default;
 
 // - - - - - - - - - - - - - - - -
