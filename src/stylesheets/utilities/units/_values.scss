@@ -53,6 +53,16 @@ $group-units-ch: (
   '5ch':    '5ch',
 );
 
+$group-units-ch-negative: (
+  'n05ch':   '-.5ch',
+  'n1ch':    '-1ch',
+  'n105ch':  '-1.5ch',
+  'n2ch':    '-2ch',
+  'n3ch':    '-3ch',
+  'n4ch':    '-4ch',
+  'n5ch':    '-5ch',
+);
+
 $group-units-em: (
   '05em':   '.5em',
   '1em':    '1em',

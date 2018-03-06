@@ -916,7 +916,7 @@ example:
 */
 
 $manual-position-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -938,10 +938,28 @@ $manual-position-values: (
   auto:         auto,
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+Margin
+----------------------------------------
+usage:
+  .margin-[modifier]*-[key]
+----------------------------------------
+output:
+  margin: [value]
+----------------------------------------
+example:
+  .margin-x-auto {
+    margin-left: auto;
+    margin-right: auto; }
 
-$NNN-settings: (
-  output:       false,
+  .margin-105 {
+    margin: .75rem; }
+----------------------------------------
+*/
+
+$margin-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -949,12 +967,22 @@ $NNN-settings: (
   visited:      false,
 ) !default;
 
-$NNN-group-values: map-collect(
+$margin-group-values: map-collect(
   /* $value-grouping */
+  $group-units-px,
+  $group-units-px-negative,
+  $group-units-percentage,
+  $group-units-grid,
+  $group-units-grid-negative,
+  $group-units-ch,
+  $group-units-ch-negative,
+  $group-units-em
 ) !default;
 
-$NNN-values: (
+$margin-values: (
   /* key: value */
+  0:            0,
+  auto:         auto,
 ) !default;
 
 // - - - - - - - - - - - - - - - -
