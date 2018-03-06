@@ -1,22 +1,22 @@
 /*
 ----------------------------------------
-Letter-spacing
+LETter-spacing
 ----------------------------------------
 usage:
-  .letter-[key]
+  .let-[key]
 ----------------------------------------
 output:
   letter-spacing: [value];
 ----------------------------------------
 example:
-  .letter-2 {
+  .let-2 {
     letter-spacing: .1em; }
 ----------------------------------------
 */
 
 $letter-spacing: (
   letter-spacing: (
-    base: 'letter',
+    base: 'let',
     modifiers: null,
     values: map-collect(
       $letter-spacing-group-values,

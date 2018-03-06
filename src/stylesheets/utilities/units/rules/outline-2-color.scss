@@ -3,20 +3,20 @@
 Outline Color
 ----------------------------------------
 usage:
-  .outline-[key]
+  .out-[key]
 ----------------------------------------
 output:
   outline-color: [value];
 ----------------------------------------
 example:
-  .outline-yellow-50 {
+  .out-yellow-50 {
     outline-color: #91721f; }
 ----------------------------------------
 */
 
 $outline-2-color: (
   outline-2-color: (
-    base: 'outline',
+    base: 'out',
     modifiers: null,
     values: map-collect(
       $outline-2-color-group-values,

@@ -1,21 +1,21 @@
 /*
 ----------------------------------------
-Align Items
+ALIGN-items
 ----------------------------------------
 usage:
-  .ali-[key]
+  .align-[key]
 ----------------------------------------
 output:
   align-items: [value];
 ----------------------------------------
 example:
-  .ali-start {
+  .align-flex-start {
     align-items: flex-start; }
 ----------------------------------------
 */
 
 $align-items-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -31,15 +31,15 @@ $align-items-group-values: map-collect(
 $align-items-values: (
   /*
   key:          'value' */
-  start:        'flex-start',
-  end:          'flex-end',
+  flex-start:   'flex-start',
+  flex-end:     'flex-end',
   center:       'center',
   stretch:      'stretch',
 ) !default;
 
 /*
 ----------------------------------------
-Background Color
+BACground-color
 ----------------------------------------
 usage:
   .bac-[key]
@@ -75,7 +75,50 @@ $background-color-values: (
 
 /*
 ----------------------------------------
-Border Color
+BORder
+(sets width and style: solid)
+----------------------------------------
+usage:
+  .bor-[modifier]*-[key]
+----------------------------------------
+output:
+  border-[modifier]: [value];
+----------------------------------------
+example:
+  .bor-t-1px {
+    border-top: 1px solid;
+    }
+
+  .bor-0 {
+    border: none; }
+----------------------------------------
+*/
+
+$border-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$border-group-values: map-collect(
+  /*
+  $group-of-values */
+  $group-units-px,
+  $group-units-grid-basic
+) !default;
+
+$border-values: (
+  /*
+  key:          'value' */
+  0:            '0',
+) !default;
+
+/*
+----------------------------------------
+BORder-color
 ----------------------------------------
 usage:
   .bor[-modifier]*-[key]
@@ -115,7 +158,7 @@ $border-color-values: (
 
 /*
 ----------------------------------------
-Border Radius
+border-RADius
 ----------------------------------------
 usage:
   .rad-[key]
@@ -162,7 +205,7 @@ $border-radius-values: (
 
 /*
 ----------------------------------------
-Border Style
+BORder-style
 ----------------------------------------
 usage:
   .bor[-modifier]*-[key]
@@ -196,48 +239,7 @@ $border-style-values: (
 
 /*
 ----------------------------------------
-Border Width
-----------------------------------------
-usage:
-  .bor-[modifier]*-[key]
-----------------------------------------
-output:
-  border-[modifier]: [value];
-----------------------------------------
-example:
-  .bor-t-1px {
-    border-top: 1px; }
-
-  .bor-0 {
-    border: none; }
-----------------------------------------
-*/
-
-$border-width-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$border-width-group-values: map-collect(
-  /*
-  $group-of-values */
-  $group-units-px,
-  $group-units-grid-basic
-) !default;
-
-$border-width-values: (
-  /*
-  key:          'value' */
-  0:            '0',
-) !default;
-
-/*
-----------------------------------------
-Box Shadow
+BOX-shadow
 ----------------------------------------
 usage:
   .box-[value]
@@ -278,7 +280,7 @@ $box-shadow-values: (
 
 /*
 ----------------------------------------
-Circle
+CIRCLE
 ----------------------------------------
 usage:
   .circle-[key]
@@ -318,7 +320,7 @@ $circle-values: (
 
 /*
 ----------------------------------------
-Color
+COLOR
 ----------------------------------------
 usage:
   .color-[key]
@@ -354,7 +356,7 @@ $color-values: (
 
 /*
 ----------------------------------------
-Column
+COLUMN
 ----------------------------------------
 usage:
   .column
@@ -381,7 +383,7 @@ $column-settings: (
 
 /*
 ----------------------------------------
-Display
+DISplay
 ----------------------------------------
 usage:
   .dis-[key]
@@ -423,7 +425,61 @@ $display-values: (
 
 /*
 ----------------------------------------
-Flex Direction
+FLEX
+----------------------------------------
+usage:
+  .flex-[key]
+----------------------------------------
+output:
+  flex: [value];
+----------------------------------------
+example:
+  .flex-1 {
+    flex: 0 0 1; }
+
+  .flex-fill {
+    flex: 1 0 0; }
+
+  .flex-fit {
+    flex: none; }
+----------------------------------------
+*/
+
+$flex-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$flex-group-values: map-collect(
+  /*
+  $group-of-values */
+) !default;
+
+$flex-values: (
+  /*
+  key:          'value' */
+  1:            '1 0 0',
+  2:            '2 0 0',
+  3:            '3 0 0',
+  4:            '4 0 0',
+  5:            '5 0 0',
+  6:            '6 0 0',
+  7:            '7 0 0',
+  8:            '8 0 0',
+  9:            '9 0 0',
+  10:           '10 0 0',
+  11:           '11 0 0',
+  fill:         '1 0 0',
+  fit:          '0',
+) !default;
+
+/*
+----------------------------------------
+FLEX-direction
 ----------------------------------------
 usage:
   .flex-[key]
@@ -460,61 +516,7 @@ $flex-direction-values: (
 
 /*
 ----------------------------------------
-Flex size
-----------------------------------------
-usage:
-  .flex-[key]
-----------------------------------------
-output:
-  flex: [value];
-----------------------------------------
-example:
-  .flex-f1 {
-    flex: 0 0 1; }
-
-  .flex-fill {
-    flex: 1 0 0; }
-
-  .flex-fit {
-    flex: none; }
-----------------------------------------
-*/
-
-$flex-size-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$flex-size-group-values: map-collect(
-  /*
-  $group-of-values */
-) !default;
-
-$flex-size-values: (
-  /*
-  key:          'value' */
-  f1:           '1 0 0',
-  f2:           '2 0 0',
-  f3:           '3 0 0',
-  f4:           '4 0 0',
-  f5:           '5 0 0',
-  f6:           '6 0 0',
-  f7:           '7 0 0',
-  f8:           '8 0 0',
-  f9:           '9 0 0',
-  f10:          '10 0 0',
-  f11:          '11 0 0',
-  fill:         '1 0 0',
-  fit:          '0',
-) !default;
-
-/*
-----------------------------------------
-Flex Wrap
+FLEX-wrap
 ----------------------------------------
 usage:
   .flex-[key]
@@ -549,7 +551,21 @@ $flex-wrap-values: (
   nowrap:       'nowrap',
 ) !default;
 
-// - - - - - - - - - - - - - - - -
+/*
+----------------------------------------
+FLOAT
+----------------------------------------
+usage:
+  .float-[value]
+----------------------------------------
+output:
+  float: [value];
+----------------------------------------
+example:
+  .float-left {
+    float: left; }
+----------------------------------------
+*/
 
 $float-settings: (
   output:       false,
@@ -575,7 +591,7 @@ $float-values: (
 
 /*
 ----------------------------------------
-Font Family
+FONT-family
 ----------------------------------------
 usage:
   .font-[key]
@@ -622,7 +638,7 @@ $font-family-values: (
 
 /*
 ----------------------------------------
-Font Feature Settings
+FONT-feature-settings
 ----------------------------------------
 usage:
   .feat-[key]
@@ -662,7 +678,7 @@ $font-feature-values: (
 
 /*
 ----------------------------------------
-Font Size
+FONT-size
 ----------------------------------------
 usage:
   .font-[key]-[key]
@@ -767,7 +783,7 @@ $font-size-values: (
 
 /*
 ----------------------------------------
-Font Style
+FONT-style
 ----------------------------------------
 usage:
   .font-[key]
@@ -806,7 +822,7 @@ $font-style-values: (
 
 /*
 ----------------------------------------
-Font Weight
+FONT-weight
 ----------------------------------------
 usage:
   .font-[key]
@@ -850,16 +866,16 @@ $font-weight-values: (
 
 /*
 ----------------------------------------
-Height
+HEIght
 ----------------------------------------
 usage:
-  .height-[value]
+  .hei-[value]
 ----------------------------------------
 output:
   height: [value];
 ----------------------------------------
 example:
-  .height-33ct {
+  .hei-33ct {
     height: 33.33333333%; }
 ----------------------------------------
 */
@@ -890,16 +906,16 @@ $height-values: (
 
 /*
 ----------------------------------------
-Letter-spacing
+LETter-spacing
 ----------------------------------------
 usage:
-  .letter-[key]
+  .let-[key]
 ----------------------------------------
 output:
   letter-spacing: [value];
 ----------------------------------------
 example:
-  .letter-2 {
+  .let-2 {
     letter-spacing: .1em; }
 ----------------------------------------
 */
@@ -932,7 +948,7 @@ $letter-spacing-values: (
 
 /*
 ----------------------------------------
-Line Height
+LINE-height
 ----------------------------------------
 usage:
   .line-[value]
@@ -973,7 +989,7 @@ $line-height-values: (
 
 /*
 ----------------------------------------
-List Reset
+LIST RESET
 ----------------------------------------
 usage:
   .list-reset
@@ -1000,11 +1016,15 @@ $list-reset-settings: (
 
 /*
 ----------------------------------------
-Manual Positioning
+[manual positioning]
+TOP
+BOTtom
+LEFT
+RIGHT
 ----------------------------------------
 usage:
   .top-[key]
-  .bottom-[key]
+  .bot-[key]
   .left-[key]
   .right-[key]
 ----------------------------------------
@@ -1044,20 +1064,20 @@ $manual-position-values: (
 
 /*
 ----------------------------------------
-Margin
+MARgin
 ----------------------------------------
 usage:
-  .margin-[modifier]*-[key]
+  .mar-[modifier]*-[key]
 ----------------------------------------
 output:
   margin: [value]
 ----------------------------------------
 example:
-  .margin-x-auto {
+  .mar-x-auto {
     margin-left: auto;
     margin-right: auto; }
 
-  .margin-105 {
+  .mar-g105 {
     margin: .75rem; }
 ----------------------------------------
 */
@@ -1093,7 +1113,7 @@ $margin-values: (
 
 /*
 ----------------------------------------
-Max Height
+MAX-Height
 ----------------------------------------
 usage:
   .maxh-[key]
@@ -1131,7 +1151,7 @@ $max-height-values: (
 
 /*
 ----------------------------------------
-Max Width
+MAX-Width
 ----------------------------------------
 usage:
   .maxw-[key]
@@ -1175,7 +1195,7 @@ $max-width-values: (
 
 /*
 ----------------------------------------
-Min Height
+MIN-Height
 ----------------------------------------
 usage:
   .minh-[key]
@@ -1212,12 +1232,12 @@ $min-height-values: (
   sm:           $small-screen,
   md:           $medium-screen,
   lg:           $large-screen,
-  // xl:           $xlarge-screen,
+  //xl:           $xlarge-screen,
 ) !default;
 
 /*
 ----------------------------------------
-Min Width
+MIN-Width
 ----------------------------------------
 usage:
   .minw-[key]
@@ -1259,16 +1279,16 @@ $min-width-values: (
 
 /*
 ----------------------------------------
-Opacity
+OPAcity
 ----------------------------------------
 usage:
-  .opacity-[key]
+  .opa-[key]
 ----------------------------------------
 output:
   opacity: [value];
 ----------------------------------------
 example:
-  .opacity-0 {
+  .opa-0 {
     opacity: 0; }
 ----------------------------------------
 */
@@ -1305,7 +1325,7 @@ $opacity-values: (
 
 /*
 ----------------------------------------
-Order
+ORDER
 ----------------------------------------
 usage:
   .order-[key]
@@ -1357,16 +1377,16 @@ $order-values: (
 
 /*
 ----------------------------------------
-Outline Width
+OUTline-width
 ----------------------------------------
 usage:
-  .outline-[modifier]
+  .out-[modifier]
 ----------------------------------------
 output:
   outline: [modifier] solid;
 ----------------------------------------
 example:
-  .outline-05 {
+  .out-g05 {
     outline: 4px solid }
 ----------------------------------------
 */
@@ -1395,16 +1415,16 @@ $outline-1-width-values: (
 
 /*
 ----------------------------------------
-Outline Color
+OUTline-color
 ----------------------------------------
 usage:
-  .outline-[key]
+  .out-[key]
 ----------------------------------------
 output:
   outline-color: [value];
 ----------------------------------------
 example:
-  .outline-yellow-50 {
+  .out-yellow-50 {
     outline-color: #91721f; }
 ----------------------------------------
 */
@@ -1431,7 +1451,7 @@ $outline-2-color-values: (
 
 /*
 ----------------------------------------
-Padding
+PADding
 ----------------------------------------
 usage:
   .pad-[modifier]*-[value]
@@ -1472,16 +1492,16 @@ $padding-values: (
 
 /*
 ----------------------------------------
-Position
+POSition
 ----------------------------------------
 usage:
-  .position-[keye]
+  .pos-[keye]
 ----------------------------------------
 output:
   position: [value];
 ----------------------------------------
 example:
-  .position-absolute {
+  .pos-absolute {
     position: absolute; }
 ----------------------------------------
 */
@@ -1512,7 +1532,7 @@ $position-values: (
 
 /*
 ----------------------------------------
-Row
+ROW
 ----------------------------------------
 usage:
   .row
@@ -1539,7 +1559,7 @@ $row-settings: (
 
 /*
 ----------------------------------------
-Square
+SQUARE
 ----------------------------------------
 usage:
   .square-[key]
@@ -1578,7 +1598,7 @@ $square-values: (
 
 /*
 ----------------------------------------
-Text Align
+TEXT-align
 ----------------------------------------
 usage:
   .text-[key]
@@ -1617,7 +1637,7 @@ $text-align-values: (
 
 /*
 ----------------------------------------
-Text Decoration
+TEXT-decoration
 ----------------------------------------
 usage:
   .text-[key]
@@ -1655,7 +1675,7 @@ $text-decoration-values: (
 
 /*
 ----------------------------------------
-Text Transform
+TEXT-transform
 ----------------------------------------
 usage:
   .text-[value]
@@ -1694,7 +1714,7 @@ $text-transform-values: (
 
 /*
 ----------------------------------------
-Vertical Align
+VERtical-align
 ----------------------------------------
 usage:
   .ver-[value]
@@ -1737,7 +1757,7 @@ $vertical-align-values: (
 
 /*
 ----------------------------------------
-Whitespace
+WHItespace
 ----------------------------------------
 usage:
   whi-[key]
@@ -1777,7 +1797,7 @@ $whitespace-values: (
 
 /*
 ----------------------------------------
-Width
+WIDTH
 ----------------------------------------
 usage:
   .width-[key]
@@ -1821,7 +1841,7 @@ $width-values: (
 
 /*
 ----------------------------------------
-Z-INDEX
+Z-index
 ----------------------------------------
 usage:
   z-[key]
@@ -1862,88 +1882,4 @@ $z-index-values: (
   500:          '500',
   top:          '9999',
   bottom:       '-9999',
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$NNN-group-values: map-collect(
-  /*
-  $group-of-values */
-) !default;
-
-$NNN-values: (
-  /*
-  key:          'value' */
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$NNN-group-values: map-collect(
-  /*
-  $group-of-values */
-) !default;
-
-$NNN-values: (
-  /*
-  key:          'value' */
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$NNN-group-values: map-collect(
-  /*
-  $group-of-values */
-) !default;
-
-$NNN-values: (
-  /*
-  key:          'value' */
-) !default;
-
-// - - - - - - - - - - - - - - - -
-
-$NNN-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$NNN-group-values: map-collect(
-  /*
-  $group-of-values */
-) !default;
-
-$NNN-values: (
-  /*
-  key:          'value' */
 ) !default;

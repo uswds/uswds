@@ -1,26 +1,26 @@
 /*
 ----------------------------------------
-Margin
+MARgin
 ----------------------------------------
 usage:
-  .margin-[modifier]*-[key]
+  .mar-[modifier]*-[key]
 ----------------------------------------
 output:
   margin: [value]
 ----------------------------------------
 example:
-  .margin-x-auto {
+  .mar-x-auto {
     margin-left: auto;
     margin-right: auto; }
 
-  .margin-105 {
+  .mar-g105 {
     margin: .75rem; }
 ----------------------------------------
 */
 
 $margin: (
   margin: (
-    base: 'margin',
+    base: 'mar',
     modifiers: (
       t: '-top',
       r: '-right',

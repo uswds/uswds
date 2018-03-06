@@ -17,23 +17,24 @@ example:
 ----------------------------------------
 */
 
-$border-width: (
+$border: (
   border: (
-    base: 'border',
+    base: 'bor',
     modifiers: (
-      t: '-top-width',
-      r: '-right-width',
-      b: '-bottom-width',
-      l: '-left-width',
-      y: ('-top-width', '-bottom-width'),
-      x: ('-left-width', '-right-width'),
-      noModifier: '-width',
+      t: '-top',
+      r: '-right',
+      b: '-bottom',
+      l: '-left',
+      y: ('-top', '-bottom'),
+      x: ('-left', '-right'),
+      noModifier: '',
     ),
     values: map-collect(
-      $border-width-group-values,
-      $border-width-values
+      $border-group-values,
+      $border-values
     ),
-    settings: $border-width-settings,
+    valueAppend: ' solid',
+    settings: $border-settings,
     property: 'border',
   )
 )

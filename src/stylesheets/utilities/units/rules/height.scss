@@ -1,6 +1,6 @@
 /*
 ----------------------------------------
-Height
+HEIght
 ----------------------------------------
 usage:
   .hei-[value]
@@ -16,7 +16,7 @@ example:
 
 $height: (
   height: (
-    base: 'height',
+    base: 'hei',
     modifiers: null,
     values: map-collect(
       $height-group-values,

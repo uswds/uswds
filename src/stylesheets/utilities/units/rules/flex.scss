@@ -1,6 +1,6 @@
 /*
 ----------------------------------------
-Flex size
+FLEX
 ----------------------------------------
 usage:
   .flex-[key]
@@ -20,15 +20,15 @@ example:
 ----------------------------------------
 */
 
-$flex-size: (
-  flex-size: (
+$flex: (
+  flex: (
     base: 'flex',
     modifiers: null,
     values: map-collect(
-      $flex-size-group-values,
-      $flex-size-values
+      $flex-group-values,
+      $flex-values
     ),
-    settings: $flex-size-settings,
+    settings: $flex-settings,
     property: 'flex',
   )
 );

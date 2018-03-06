@@ -1,22 +1,22 @@
 /*
 ----------------------------------------
-Opacity
+OPAcity
 ----------------------------------------
 usage:
-  .opacity-[key]
+  .opa-[key]
 ----------------------------------------
 output:
   opacity: [value];
 ----------------------------------------
 example:
-  .opacity-0 {
+  .opa-0 {
     opacity: 0; }
 ----------------------------------------
 */
 
 $opacity: (
   opacity: (
-    base: ('op'),
+    base: ('opa'),
     modifiers: null,
     values: map-collect(
       $opacity-group-values,
