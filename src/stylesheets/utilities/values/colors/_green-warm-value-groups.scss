@@ -1,0 +1,42 @@
+$group-colors-green-warm-light: (
+  'green-warm-5':  $green-warm-5,
+  'green-warm-10': $green-warm-10,
+  'green-warm-20': $green-warm-20,
+  'green-warm-30': $green-warm-30,
+);
+
+$group-colors-green-warm-basic: (
+  'green-warm-40': $green-warm-40,
+  'green-warm-50': $green-warm-50,
+  'green-warm-60': $green-warm-60,
+  'green-warm-70': $green-warm-70,
+);
+
+$group-colors-green-warm-dark: (
+  'green-warm-80': $green-warm-80,
+  'green-warm-90': $green-warm-90,
+);
+
+$group-colors-green-warm-vivid: (
+  'green-warm-5v':  $green-warm-5v,
+  'green-warm-10v': $green-warm-10v,
+  'green-warm-20v': $green-warm-20v,
+  'green-warm-30v': $green-warm-30v,
+  'green-warm-40v': $green-warm-40v,
+  'green-warm-50v': $green-warm-50v,
+  'green-warm-60v': $green-warm-60v,
+  'green-warm-70v': $green-warm-70v,
+  'green-warm-80v': $green-warm-80v,
+  'green-warm-90v': $green-warm-90v,
+);
+
+$group-colors-green-warm-standard: map-collect(
+  $group-colors-green-warm-light,
+  $group-colors-green-warm-basic,
+  $group-colors-green-warm-dark
+);
+
+$group-colors-green-warm: map-collect(
+  $group-colors-green-warm-standard,
+  $group-colors-green-warm-vivid
+);

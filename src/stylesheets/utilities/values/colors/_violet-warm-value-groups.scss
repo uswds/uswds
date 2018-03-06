@@ -1,0 +1,42 @@
+$group-colors-violet-warm-light: (
+  'violet-warm-5':  $violet-warm-5,
+  'violet-warm-10': $violet-warm-10,
+  'violet-warm-20': $violet-warm-20,
+  'violet-warm-30': $violet-warm-30,
+);
+
+$group-colors-violet-warm-basic: (
+  'violet-warm-40': $violet-warm-40,
+  'violet-warm-50': $violet-warm-50,
+  'violet-warm-60': $violet-warm-60,
+  'violet-warm-70': $violet-warm-70,
+);
+
+$group-colors-violet-warm-dark: (
+  'violet-warm-80': $violet-warm-80,
+  'violet-warm-90': $violet-warm-90,
+);
+
+$group-colors-violet-warm-vivid: (
+  'violet-warm-5v':  $violet-warm-5v,
+  'violet-warm-10v': $violet-warm-10v,
+  'violet-warm-20v': $violet-warm-20v,
+  'violet-warm-30v': $violet-warm-30v,
+  'violet-warm-40v': $violet-warm-40v,
+  'violet-warm-50v': $violet-warm-50v,
+  'violet-warm-60v': $violet-warm-60v,
+  'violet-warm-70v': $violet-warm-70v,
+  'violet-warm-80v': $violet-warm-80v,
+  'violet-warm-90v': $violet-warm-90v,
+);
+
+$group-colors-violet-warm-standard: map-collect(
+  $group-colors-violet-warm-light,
+  $group-colors-violet-warm-basic,
+  $group-colors-violet-warm-dark
+);
+
+$group-colors-violet-warm: map-collect(
+  $group-colors-violet-warm-standard,
+  $group-colors-violet-warm-vivid
+);

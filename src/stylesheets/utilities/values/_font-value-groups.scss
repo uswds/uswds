@@ -1,0 +1,668 @@
+$group-font-weight: (
+  100: 100,
+  200: 200,
+  300: 300,
+  400: 400,
+  500: 500,
+  600: 600,
+  700: 700,
+  800: 800,
+  900: 900,
+);
+
+$group-mono-12: (
+  mono-12: (
+    slug: 'mono-12',
+    isReadable: true,
+    content: $u-mono-12,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-13: (
+  mono-13: (
+    slug: 'mono-13',
+    isReadable: true,
+    content: $u-mono-13,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-14: (
+  mono-14: (
+    slug: 'mono-14',
+    isReadable: true,
+    content: $u-mono-14,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-15: (
+  mono-15: (
+    slug: 'mono-15',
+    isReadable: true,
+    content: $u-mono-15,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-16: (
+  mono-16: (
+    slug: 'mono-16',
+    isReadable: true,
+    content: $u-mono-16,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-17: (
+  mono-17: (
+    slug: 'mono-17',
+    isReadable: true,
+    content: $u-mono-17,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-18: (
+  mono-18: (
+    slug: 'mono-18',
+    isReadable: true,
+    content: $u-mono-18,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-20: (
+  mono-20: (
+    slug: 'mono-20',
+    isReadable: true,
+    content: $u-mono-20,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-22: (
+  mono-22: (
+    slug: 'mono-22',
+    isReadable: true,
+    content: $u-mono-22,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-24: (
+  mono-24: (
+    slug: 'mono-24',
+    isReadable: true,
+    content: $u-mono-24,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-28: (
+  mono-28: (
+    slug: 'mono-28',
+    isReadable: true,
+    content: $u-mono-28,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-32: (
+  mono-32: (
+    slug: 'mono-32',
+    isReadable: true,
+    content: $u-mono-32,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-36: (
+  mono-36: (
+    slug: 'mono-36',
+    isReadable: true,
+    content: $u-mono-36,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-40: (
+  mono-40: (
+    slug: 'mono-40',
+    isReadable: true,
+    content: $u-mono-40,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-48: (
+  mono-48: (
+    slug: 'mono-48',
+    isReadable: true,
+    content: $u-mono-48,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-56: (
+  mono-56: (
+    slug: 'mono-56',
+    isReadable: true,
+    content: $u-mono-56,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-64: (
+  mono-64: (
+    slug: 'mono-64',
+    isReadable: true,
+    content: $u-mono-64,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-80: (
+  mono-80: (
+    slug: 'mono-80',
+    isReadable: true,
+    content: $u-mono-80,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-120: (
+  mono-120: (
+    slug: 'mono-120',
+    isReadable: true,
+    content: $u-mono-120,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-140: (
+  mono-140: (
+    slug: 'mono-140',
+    isReadable: true,
+    content: $u-mono-140,
+    extends: font-mono,
+  ),
+);
+
+$group-mono-small: map-collect(
+  $group-mono-12,
+  $group-mono-13,
+  $group-mono-14
+);
+
+$group-mono-medium: map-collect(
+  $group-mono-15,
+  $group-mono-16,
+  $group-mono-17,
+  $group-mono-18,
+  $group-mono-20
+);
+
+$group-mono-large: map-collect(
+  $group-mono-22,
+  $group-mono-24,
+  $group-mono-28,
+  $group-mono-32,
+  $group-mono-36,
+  $group-mono-40
+);
+
+$group-mono-xlarge: map-collect(
+  $group-mono-48,
+  $group-mono-56,
+  $group-mono-64,
+  $group-mono-80,
+  $group-mono-120,
+  $group-mono-140
+);
+
+$group-mono: map-collect(
+  $group-mono-small,
+  $group-mono-medium,
+  $group-mono-large,
+  $group-mono-xlarge
+);
+
+$group-sans-12: (
+  sans-12: (
+    slug: 'sans-12',
+    isReadable: true,
+    content: $u-sans-12,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-13: (
+  sans-13: (
+    slug: 'sans-13',
+    isReadable: true,
+    content: $u-sans-13,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-14: (
+  sans-14: (
+    slug: 'sans-14',
+    isReadable: true,
+    content: $u-sans-14,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-15: (
+  sans-15: (
+    slug: 'sans-15',
+    isReadable: true,
+    content: $u-sans-15,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-16: (
+  sans-16: (
+    slug: 'sans-16',
+    isReadable: true,
+    content: $u-sans-16,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-17: (
+  sans-17: (
+    slug: 'sans-17',
+    isReadable: true,
+    content: $u-sans-17,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-18: (
+  sans-18: (
+    slug: 'sans-18',
+    isReadable: true,
+    content: $u-sans-18,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-20: (
+  sans-20: (
+    slug: 'sans-20',
+    isReadable: true,
+    content: $u-sans-20,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-22: (
+  sans-22: (
+    slug: 'sans-22',
+    isReadable: true,
+    content: $u-sans-22,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-24: (
+  sans-24: (
+    slug: 'sans-24',
+    isReadable: true,
+    content: $u-sans-24,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-28: (
+  sans-28: (
+    slug: 'sans-28',
+    isReadable: true,
+    content: $u-sans-28,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-32: (
+  sans-32: (
+    slug: 'sans-32',
+    isReadable: true,
+    content: $u-sans-32,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-36: (
+  sans-36: (
+    slug: 'sans-36',
+    isReadable: true,
+    content: $u-sans-36,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-40: (
+  sans-40: (
+    slug: 'sans-40',
+    isReadable: true,
+    content: $u-sans-40,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-48: (
+  sans-48: (
+    slug: 'sans-48',
+    isReadable: true,
+    content: $u-sans-48,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-56: (
+  sans-56: (
+    slug: 'sans-56',
+    isReadable: true,
+    content: $u-sans-56,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-64: (
+  sans-64: (
+    slug: 'sans-64',
+    isReadable: true,
+    content: $u-sans-64,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-80: (
+  sans-80: (
+    slug: 'sans-80',
+    isReadable: true,
+    content: $u-sans-80,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-120: (
+  sans-120: (
+    slug: 'sans-120',
+    isReadable: true,
+    content: $u-sans-120,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-140: (
+  sans-140: (
+    slug: 'sans-140',
+    isReadable: true,
+    content: $u-sans-140,
+    extends: font-sans,
+  ),
+);
+
+$group-sans-small: map-collect(
+  $group-sans-12,
+  $group-sans-13,
+  $group-sans-14
+);
+
+$group-sans-medium: map-collect(
+  $group-sans-15,
+  $group-sans-16,
+  $group-sans-17,
+  $group-sans-18,
+  $group-sans-20
+);
+
+$group-sans-large: map-collect(
+  $group-sans-22,
+  $group-sans-24,
+  $group-sans-28,
+  $group-sans-32,
+  $group-sans-36,
+  $group-sans-40
+);
+
+$group-sans-xlarge: map-collect(
+  $group-sans-48,
+  $group-sans-56,
+  $group-sans-64,
+  $group-sans-80,
+  $group-sans-120,
+  $group-sans-140
+);
+
+$group-sans: map-collect(
+  $group-sans-small,
+  $group-sans-medium,
+  $group-sans-large,
+  $group-sans-xlarge
+);
+
+$group-serif-12: (
+  serif-12: (
+    slug: 'serif-12',
+    isReadable: true,
+    content: $u-serif-12,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-13: (
+  serif-13: (
+    slug: 'serif-13',
+    isReadable: true,
+    content: $u-serif-13,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-14: (
+  serif-14: (
+    slug: 'serif-14',
+    isReadable: true,
+    content: $u-serif-14,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-15: (
+  serif-15: (
+    slug: 'serif-15',
+    isReadable: true,
+    content: $u-serif-15,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-16: (
+  serif-16: (
+    slug: 'serif-16',
+    isReadable: true,
+    content: $u-serif-16,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-17: (
+  serif-17: (
+    slug: 'serif-17',
+    isReadable: true,
+    content: $u-serif-17,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-18: (
+  serif-18: (
+    slug: 'serif-18',
+    isReadable: true,
+    content: $u-serif-18,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-20: (
+  serif-20: (
+    slug: 'serif-20',
+    isReadable: true,
+    content: $u-serif-20,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-22: (
+  serif-22: (
+    slug: 'serif-22',
+    isReadable: true,
+    content: $u-serif-22,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-24: (
+  serif-24: (
+    slug: 'serif-24',
+    isReadable: true,
+    content: $u-serif-24,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-28: (
+  serif-28: (
+    slug: 'serif-28',
+    isReadable: true,
+    content: $u-serif-28,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-32: (
+  serif-32: (
+    slug: 'serif-32',
+    isReadable: true,
+    content: $u-serif-32,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-36: (
+  serif-36: (
+    slug: 'serif-36',
+    isReadable: true,
+    content: $u-serif-36,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-40: (
+  serif-40: (
+    slug: 'serif-40',
+    isReadable: true,
+    content: $u-serif-40,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-48: (
+  serif-48: (
+    slug: 'serif-48',
+    isReadable: true,
+    content: $u-serif-48,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-56: (
+  serif-56: (
+    slug: 'serif-56',
+    isReadable: true,
+    content: $u-serif-56,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-64: (
+  serif-64: (
+    slug: 'serif-64',
+    isReadable: true,
+    content: $u-serif-64,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-80: (
+  serif-80: (
+    slug: 'serif-80',
+    isReadable: true,
+    content: $u-serif-80,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-120: (
+  serif-120: (
+    slug: 'serif-120',
+    isReadable: true,
+    content: $u-serif-120,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-140: (
+  serif-140: (
+    slug: 'serif-140',
+    isReadable: true,
+    content: $u-serif-140,
+    extends: font-serif,
+  ),
+);
+
+$group-serif-small: map-collect(
+  $group-serif-12,
+  $group-serif-13,
+  $group-serif-14
+);
+
+$group-serif-medium: map-collect(
+  $group-serif-15,
+  $group-serif-16,
+  $group-serif-17,
+  $group-serif-18,
+  $group-serif-20
+);
+
+$group-serif-large: map-collect(
+  $group-serif-22,
+  $group-serif-24,
+  $group-serif-28,
+  $group-serif-32,
+  $group-serif-36,
+  $group-serif-40
+);
+
+$group-serif-xlarge: map-collect(
+  $group-serif-48,
+  $group-serif-56,
+  $group-serif-64,
+  $group-serif-80,
+  $group-serif-120,
+  $group-serif-140
+);
+
+$group-serif: map-collect(
+  $group-serif-small,
+  $group-serif-medium,
+  $group-serif-large,
+  $group-serif-xlarge
+);

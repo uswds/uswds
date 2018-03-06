@@ -1,0 +1,42 @@
+$group-colors-yellow-light: (
+  'yellow-5':  $yellow-5,
+  'yellow-10': $yellow-10,
+  'yellow-20': $yellow-20,
+  'yellow-30': $yellow-30,
+);
+
+$group-colors-yellow-basic: (
+  'yellow-40': $yellow-40,
+  'yellow-50': $yellow-50,
+  'yellow-60': $yellow-60,
+  'yellow-70': $yellow-70,
+);
+
+$group-colors-yellow-dark: (
+  'yellow-80': $yellow-80,
+  'yellow-90': $yellow-90,
+);
+
+$group-colors-yellow-vivid: (
+  'yellow-5v':  $yellow-5v,
+  'yellow-10v': $yellow-10v,
+  'yellow-20v': $yellow-20v,
+  'yellow-30v': $yellow-30v,
+  'yellow-40v': $yellow-40v,
+  'yellow-50v': $yellow-50v,
+  'yellow-60v': $yellow-60v,
+  'yellow-70v': $yellow-70v,
+  'yellow-80v': $yellow-80v,
+  'yellow-90v': $yellow-90v,
+);
+
+$group-colors-yellow-standard: map-collect(
+  $group-colors-yellow-light,
+  $group-colors-yellow-basic,
+  $group-colors-yellow-dark
+);
+
+$group-colors-yellow: map-collect(
+  $group-colors-yellow-standard,
+  $group-colors-yellow-vivid
+);

@@ -1,0 +1,24 @@
+$group-colors-black-warm-light: (
+  'black-warm-5':  $black-warm-5,
+  'black-warm-10': $black-warm-10,
+  'black-warm-20': $black-warm-20,
+  'black-warm-30': $black-warm-30,
+);
+
+$group-colors-black-warm-basic: (
+  'black-warm-40': $black-warm-40,
+  'black-warm-50': $black-warm-50,
+  'black-warm-60': $black-warm-60,
+  'black-warm-70': $black-warm-70,
+);
+
+$group-colors-black-warm-dark: (
+  'black-warm-80': $black-warm-80,
+  'black-warm-90': $black-warm-90,
+);
+
+$group-colors-black-warm: map-collect(
+  $group-colors-black-warm-light,
+  $group-colors-black-warm-basic,
+  $group-colors-black-warm-dark
+);
