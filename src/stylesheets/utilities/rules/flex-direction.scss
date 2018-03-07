@@ -19,8 +19,8 @@ $flex-direction: (
     base: 'flex',
     modifiers: null,
     values: map-collect(
-      $flex-direction-presets,
-      $flex-direction-values
+      $flex-direction-preset-values,
+      $flex-direction-manual-values
     ),
     settings: $flex-direction-settings,
     property: 'flex-direction',

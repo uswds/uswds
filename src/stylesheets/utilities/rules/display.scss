@@ -19,8 +19,8 @@ $display: (
     base: 'dis',
     modifiers: null,
     values: map-collect(
-      $display-presets,
-      $display-values
+      $display-preset-values,
+      $display-manual-values
     ),
     settings: $display-settings,
     property: 'display',

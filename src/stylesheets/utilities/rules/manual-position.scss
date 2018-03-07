@@ -31,8 +31,8 @@ $manual-position: (
       right: 'right',
     ),
     values: map-collect(
-      $manual-position-presets,
-      $manual-position-values
+      $manual-position-preset-values,
+      $manual-position-manual-values
     ),
     settings: $manual-position-settings,
     property: '',

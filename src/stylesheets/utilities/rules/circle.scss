@@ -22,8 +22,8 @@ $circle: (
     base: 'circle',
     modifiers: null,
     values: map-collect(
-      $circle-presets,
-      $circle-values
+      $circle-preset-values,
+      $circle-manual-values
     ),
     settings: $circle-settings,
     property: (height, width),

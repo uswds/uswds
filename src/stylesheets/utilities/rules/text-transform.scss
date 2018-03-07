@@ -19,8 +19,8 @@ $text-transform: (
     base: 'text',
     modifiers: null,
     values: map-collect(
-      $text-transform-presets,
-      $text-transform-values
+      $text-transform-preset-values,
+      $text-transform-manual-values
     ),
     settings: $text-transform-settings,
     property: 'text-transform',

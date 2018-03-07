@@ -19,8 +19,8 @@ $float: (
     base: 'float',
     modifiers: null,
     values: map-collect(
-      $float-presets,
-      $float-values
+      $float-preset-values,
+      $float-manual-values
     ),
     settings: $float-settings,
     property: 'float',

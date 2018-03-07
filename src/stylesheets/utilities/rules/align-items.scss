@@ -19,8 +19,8 @@ $align-items: (
     base: 'align',
     modifiers: null,
     values: map-collect(
-      $align-items-presets,
-      $align-items-values
+      $align-items-preset-values,
+      $align-items-manual-values
     ),
     settings: $align-items-settings,
     property: 'align-items',

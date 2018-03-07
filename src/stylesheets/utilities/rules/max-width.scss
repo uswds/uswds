@@ -19,8 +19,8 @@ $max-width: (
     base: 'maxw',
     modifiers: null,
     values: map-collect(
-      $max-width-presets,
-      $max-width-values
+      $max-width-preset-values,
+      $max-width-manual-values
     ),
     settings: $max-width-settings,
     property: 'max-width',
