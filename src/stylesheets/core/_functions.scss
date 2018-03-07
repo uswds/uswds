@@ -412,22 +412,26 @@ through all possible variants
 
       @each $val-key, $val-value in map-get($utility, values) {
 
-        // If $val-value == null, or if $val-value is a map and
+        // If $val-value == false, or if $val-value is a map and
         // the content key or the dependency key has a null value
         // skip building this rule
         // altogether
 
         @if type-of($val-value) == 'map' {
-          @if map-get($val-value, content) == null {
-            $val-value: null;
+          @if map-get($val-value, content) == false {
+            $val-value: false;
           }
           @elseif map-has-key($val-value, dependency) {
-            @if map-get($val-value, dependency) == null {
-              $val-value: null;
+            @if map-get($val-value, dependency) == false {
+              $val-value: false;
             }
           }
         }
-        @if $val-value != null {
+        @if $val-value != false {
+
+          @if $val-value == null {
+            $val-value: $val-key;
+          }
 
           // If $val-value is already a MAP...
 

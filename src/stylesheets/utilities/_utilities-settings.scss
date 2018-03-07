@@ -68,7 +68,7 @@ example:
 */
 
 $background-color-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -210,7 +210,7 @@ example:
 */
 
 $border-radius-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -301,7 +301,7 @@ example:
 */
 
 $box-shadow-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -351,7 +351,7 @@ example:
 */
 
 $circle-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -402,7 +402,7 @@ example:
 */
 
 $color-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -473,7 +473,7 @@ example:
 */
 
 $display-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -671,7 +671,7 @@ example:
 */
 
 $float-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -724,7 +724,7 @@ example:
 */
 
 $font-family-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -824,7 +824,7 @@ example:
 */
 
 $font-size-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -928,7 +928,7 @@ example:
 */
 
 $font-style-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -972,7 +972,7 @@ example:
 */
 
 $font-weight-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1072,7 +1072,7 @@ example:
 */
 
 $letter-spacing-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1121,7 +1121,7 @@ example:
 */
 
 $line-height-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1171,7 +1171,7 @@ example:
 */
 
 $list-reset-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1287,7 +1287,7 @@ $margin-manual-values: (
   ------------------------
   [unused value pairs here]
   ------------------------  */
-  0:            '0',
+  0,
   auto:         'auto',
   1px:          '1px',
   2px:          '2px',
@@ -1707,7 +1707,7 @@ example:
 */
 
 $padding-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1872,7 +1872,7 @@ example:
 */
 
 $text-align-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1918,7 +1918,7 @@ example:
 */
 
 $text-decoration-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1963,7 +1963,7 @@ example:
 */
 
 $text-transform-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
