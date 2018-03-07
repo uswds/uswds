@@ -301,7 +301,7 @@ example:
 */
 
 $box-shadow-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -922,13 +922,13 @@ output:
 example:
   .font-italic {
     font-style: italic; }
-  .font-normal {
+  .font-roman {
     font-style: normal; }
 ----------------------------------------
 */
 
 $font-style-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -972,7 +972,7 @@ example:
 */
 
 $font-weight-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1004,6 +1004,8 @@ $font-weight-values: (
   700:          '700',
   800:          '800',
   900:          '900',
+  bold:         '700',
+  unbold:       '400',
 ) !default;
 
 /*
@@ -1070,7 +1072,7 @@ example:
 */
 
 $letter-spacing-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1119,7 +1121,7 @@ example:
 */
 
 $line-height-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1142,12 +1144,12 @@ $line-height-values: (
   ------------------------
   [common value pairs here]
   ------------------------  */
-  1:            $u-lh-single,
-  2:            $u-lh-hed,
-  3:            $u-lh-cap,
-  4:            $u-lh-body-tight,
-  5:            $u-lh-body,
-  6:            $u-lh-body-loose,
+  single:        $u-lh-single,
+  heading:       $u-lh-heading,
+  heading-loose: $u-lh-heading-loose,
+  body-tight:    $u-lh-body-tight,
+  body:          $u-lh-body,
+  body-loose:    $u-lh-body-loose,
 ) !default;
 
 /*
@@ -1169,7 +1171,7 @@ example:
 */
 
 $list-reset-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1253,7 +1255,7 @@ example:
 */
 
 $margin-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1266,8 +1268,6 @@ $margin-group-values: map-collect(
   $example-group-1,
   $example-group-2 [no final comma]
   ------------------------
-  [common groups here]
-  ------------------------ */
   $group-units-px,
   $group-units-px-negative,
   $group-units-percentage,
@@ -1276,6 +1276,9 @@ $margin-group-values: map-collect(
   $group-units-ch,
   $group-units-ch-negative,
   $group-units-em
+  ------------------------ */
+  $group-spacing-tshirt,
+  $group-spacing-negative-tshirt
 ) !default;
 
 $margin-values: (
@@ -1286,6 +1289,8 @@ $margin-values: (
   ------------------------  */
   0:            '0',
   auto:         'auto',
+  1px:          '1px',
+  2px:          '2px',
 ) !default;
 
 /*
@@ -1702,7 +1707,7 @@ example:
 */
 
 $padding-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1715,10 +1720,10 @@ $padding-group-values: map-collect(
   $example-group-1,
   $example-group-2 [no final comma]
   ------------------------
-  [common groups here]
-  ------------------------ */
   $group-units-px,
   $group-units-grid
+  ------------------------ */
+  $group-spacing-tshirt
 ) !default;
 
 $padding-values: (
@@ -1867,7 +1872,7 @@ example:
 */
 
 $text-align-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1913,7 +1918,7 @@ example:
 */
 
 $text-decoration-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1936,9 +1941,9 @@ $text-decoration-values: (
   ------------------------
   [common value pairs here]
   ------------------------  */
-  underline:    'underline',
-  strike:       'strike',
-  no-decoration:'none',
+  underline:        'underline',
+  strike:           'strike',
+  decoration-none:  'none',
 ) !default;
 
 /*
@@ -1958,7 +1963,7 @@ example:
 */
 
 $text-transform-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1981,10 +1986,10 @@ $text-transform-values: (
   ------------------------
   [common value pairs here]
   ------------------------  */
-  capitalize:   'capitalize',
-  lowercase:    'lowercase',
-  uppercase:     'uppercase',
-  no-transform: 'none',
+  capitalize:     'capitalize',
+  lowercase:      'lowercase',
+  uppercase:      'uppercase',
+  transform-none: 'none',
 ) !default;
 
 /*

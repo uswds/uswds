@@ -13,17 +13,25 @@ $group-font-families: (
   serif:   #{$font-serif},
 );
 
-$group-font-sizes: (
-  3xs:      $s-font-size-3xs,
-  2xs:      $s-font-size-2xs,
-  xs:       $s-font-size-xs,
-  sm:       $s-font-size-sm,
-  md:       $s-font-size-md,
-  lg:       $s-font-size-lg,
-  xl:       $s-font-size-xl,
-  2xl:      $s-font-size-2xl,
-  3xl:      $s-font-size-3xl,
+$group-spacing-tshirt: (
+  3xs:      $s-spacing-3xs,
+  2xs:      $s-spacing-2xs,
+  xs:       $s-spacing-xs,
+  sm:       $s-spacing-sm,
+  md:       $s-spacing-md,
+  lg:       $s-spacing-lg,
+  xl:       $s-spacing-xl,
+  2xl:      $s-spacing-2xl,
+  3xl:      $s-spacing-3xl,
 );
+
+$group-spacing-negative-tshirt: (
+  nxs:       -#{$s-spacing-xs},
+  nsm:       -#{$s-spacing-sm},
+  nmd:       -#{$s-spacing-md},
+);
+
+
 
 $group-mono-3xs: (
   mono-3xs: (
