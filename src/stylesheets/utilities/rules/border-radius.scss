@@ -29,8 +29,8 @@ $border-radius: (
     ),
     property: '',
     values: map-collect(
-      $border-radius-preset-values,
-      $border-radius-manual-values
+      $border-radius-presets,
+      $border-radius-values
     ),
     settings: $border-radius-settings,
   )

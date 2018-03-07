@@ -29,8 +29,8 @@ $font-size: (
     base: 'font',
     modifiers: null,
     values: map-collect(
-      $font-size-preset-values,
-      $font-size-manual-values
+      $font-size-presets,
+      $font-size-values
     ),
     settings: $font-size-settings,
     property: 'font-size',

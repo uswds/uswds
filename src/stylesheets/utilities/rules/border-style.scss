@@ -23,8 +23,8 @@ $border-style: (
       noModifier: '-style',
     ),
     values: map-collect(
-      $border-style-preset-values,
-      $border-style-manual-values
+      $border-style-presets,
+      $border-style-values
     ),
     settings: $border-style-settings,
     property: 'border',

@@ -25,8 +25,8 @@ $flex: (
     base: 'flex',
     modifiers: null,
     values: map-collect(
-      $flex-preset-values,
-      $flex-manual-values
+      $flex-presets,
+      $flex-values
     ),
     settings: $flex-settings,
     property: 'flex',

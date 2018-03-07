@@ -19,8 +19,8 @@ $width: (
     base: 'width',
     modifiers: null,
     values: map-collect(
-      $width-preset-values,
-      $width-manual-values
+      $width-presets,
+      $width-values
     ),
     settings: $width-settings,
     property: 'width',

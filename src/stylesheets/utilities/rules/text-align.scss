@@ -19,8 +19,8 @@ $text-align: (
     base: 'text',
     modifiers: null,
     values: map-collect(
-      $text-align-preset-values,
-      $text-align-manual-values
+      $text-align-presets,
+      $text-align-values
     ),
     settings: $text-align-settings,
     property: 'text-align',

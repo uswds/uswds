@@ -19,8 +19,8 @@ $font-weight: (
     base: 'font',
     modifiers: null,
     values: map-collect(
-      $font-weight-preset-values,
-      $font-weight-manual-values
+      $font-weight-presets,
+      $font-weight-values
     ),
     settings: $font-weight-settings,
     property: 'font-weight',

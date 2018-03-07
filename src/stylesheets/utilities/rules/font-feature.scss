@@ -20,8 +20,8 @@ $font-feature: (
     base: 'feat',
     modifiers: null,
     values: map-collect(
-      $font-feature-preset-values,
-      $font-feature-manual-values
+      $font-feature-presets,
+      $font-feature-values
     ),
     settings: $font-feature-settings,
     property: 'font-feature-settings',

@@ -19,8 +19,8 @@ $whitespace: (
     base: 'whi',
     modifiers: null,
     values: map-collect(
-      $whitespace-preset-values,
-      $whitespace-manual-values
+      $whitespace-presets,
+      $whitespace-values
     ),
     settings: $whitespace-settings,
     property: 'white-space',

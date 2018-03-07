@@ -19,8 +19,8 @@ $min-width: (
     base: 'minw',
     modifiers: null,
     values: map-collect(
-      $min-width-preset-values,
-      $min-width-manual-values
+      $min-width-presets,
+      $min-width-values
     ),
     settings: $min-width-settings,
     property: 'min-width',

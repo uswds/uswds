@@ -23,8 +23,8 @@ $square: (
       square: (height, width),
     ),
     values: map-collect(
-      $square-preset-values,
-      $square-manual-values
+      $square-presets,
+      $square-values
     ),
     settings: $square-settings,
     property: '',

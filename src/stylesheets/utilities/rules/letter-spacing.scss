@@ -19,8 +19,8 @@ $letter-spacing: (
     base: 'let',
     modifiers: null,
     values: map-collect(
-      $letter-spacing-preset-values,
-      $letter-spacing-manual-values
+      $letter-spacing-presets,
+      $letter-spacing-values
     ),
     settings: $letter-spacing-settings,
     property: 'letter-spacing',

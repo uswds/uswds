@@ -19,8 +19,8 @@ $height: (
     base: 'hei',
     modifiers: null,
     values: map-collect(
-      $height-preset-values,
-      $height-manual-values
+      $height-presets,
+      $height-values
     ),
     settings: $height-settings,
     property: 'height',

@@ -19,8 +19,8 @@ $outline-1-width: (
     base: 'out',
     modifiers: null,
     values: map-collect(
-      $outline-1-width-preset-values,
-      $outline-1-width-manual-values
+      $outline-1-width-presets,
+      $outline-1-width-values
     ),
     settings: $outline-1-width-settings,
     valuePrepend: null,

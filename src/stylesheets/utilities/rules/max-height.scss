@@ -19,8 +19,8 @@ $max-height: (
     base: 'maxh',
     modifiers: null,
     values: map-collect(
-      $max-height-preset-values,
-      $max-height-manual-values
+      $max-height-presets,
+      $max-height-values
     ),
     settings: $max-height-settings,
     property: 'max-height',

@@ -30,8 +30,8 @@ $border: (
       noModifier: '',
     ),
     values: map-collect(
-      $border-preset-values,
-      $border-manual-values
+      $border-presets,
+      $border-values
     ),
     valueAppend: ' solid',
     settings: $border-settings,
