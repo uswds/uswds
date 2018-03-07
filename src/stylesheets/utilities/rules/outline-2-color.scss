@@ -19,8 +19,8 @@ $outline-2-color: (
     base: 'out',
     modifiers: null,
     values: map-collect(
-      $outline-2-color-presets,
-      $outline-2-color-values
+      $outline-2-color-preset-values,
+      $outline-2-color-manual-values
     ),
     settings: $outline-2-color-settings,
     valuePrepend: null,

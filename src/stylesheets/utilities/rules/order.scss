@@ -22,8 +22,8 @@ $order: (
     base: 'order',
     modifiers: null,
     values: map-collect(
-      $order-presets,
-      $order-values
+      $order-preset-values,
+      $order-manual-values
     ),
     settings: $order-settings,
     property: 'order',

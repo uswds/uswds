@@ -20,8 +20,8 @@ $background-color: (
     modifiers: null,
     property: 'background-color',
     values: map-collect(
-      $background-color-presets,
-      $background-color-values
+      $background-color-preset-values,
+      $background-color-manual-values
     ),
     settings: $background-color-settings,
   )

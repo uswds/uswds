@@ -31,8 +31,8 @@ $margin: (
       noModifier: '',
     ),
     values: map-collect(
-      $margin-presets,
-      $margin-values
+      $margin-preset-values,
+      $margin-manual-values
     ),
     settings: $margin-settings,
     property: 'margin',

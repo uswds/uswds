@@ -21,8 +21,8 @@ $z-index: (
     base: 'z',
     modifiers: null,
     values: map-collect(
-      $z-index-presets,
-      $z-index-values
+      $z-index-preset-values,
+      $z-index-manual-values
     ),
     settings: $z-index-settings,
     property: 'z-index',

@@ -31,16 +31,16 @@ $align-items-settings: (
   visited:      false,
 ) !default;
 
-$align-items-presets: map-collect(
+$align-items-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$align-items-values: (
+$align-items-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
@@ -76,22 +76,22 @@ $background-color-settings: (
   visited:      false,
 ) !default;
 
-$background-color-presets: map-collect(
+$background-color-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
   $preset-palette-reserved,
   $preset-palette-uswds-classic
 ) !default;
 
-$background-color-values: (
+$background-color-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
 ) !default;
 
@@ -125,17 +125,17 @@ $border-settings: (
   visited:      false,
 ) !default;
 
-$border-presets: map-collect(
+$border-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
   $preset-units-px,
   $preset-units-grid-basic
   ------------------------ */
 ) !default;
 
-$border-values: (
+$border-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
@@ -172,21 +172,21 @@ $border-color-settings: (
   visited:      false,
 ) !default;
 
-$border-color-presets: map-collect(
+$border-color-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
   $preset-palette-uswds-classic,
   $preset-palette-reserved
   ------------------------ */
 ) !default;
 
-$border-color-values: (
+$border-color-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
 ) !default;
 
@@ -218,16 +218,16 @@ $border-radius-settings: (
   visited:      false,
 ) !default;
 
-$border-radius-presets: map-collect(
+$border-radius-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
   $preset-units-px
   ------------------------ */
 ) !default;
 
-$border-radius-values: (
+$border-radius-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
@@ -265,16 +265,16 @@ $border-style-settings: (
   visited:      false,
 ) !default;
 
-$border-style-presets: map-collect(
+$border-style-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$border-style-values: (
+$border-style-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
@@ -309,16 +309,16 @@ $box-shadow-settings: (
   visited:      false,
 ) !default;
 
-$box-shadow-presets: map-collect(
+$box-shadow-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$box-shadow-values: (
+$box-shadow-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
@@ -359,16 +359,16 @@ $circle-settings: (
   visited:      false,
 ) !default;
 
-$circle-presets: map-collect(
+$circle-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
   $preset-units-grid
   ------------------------ */
 ) !default;
 
-$circle-values: (
+$circle-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
@@ -410,22 +410,22 @@ $color-settings: (
   visited:      false,
 ) !default;
 
-$color-presets: map-collect(
+$color-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
   $preset-palette-uswds-classic,
   $preset-palette-reserved
 ) !default;
 
-$color-values: (
+$color-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
 ) !default;
 
@@ -481,20 +481,20 @@ $display-settings: (
   visited:      false,
 ) !default;
 
-$display-presets: map-collect(
+$display-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$display-values: (
+$display-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   block:        'block',
   flex:         'flex',
@@ -536,20 +536,20 @@ $flex-settings: (
   visited:      false,
 ) !default;
 
-$flex-presets: map-collect(
+$flex-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$flex-values: (
+$flex-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   1:            '1 0 0',
   2:            '2 0 0',
@@ -591,20 +591,20 @@ $flex-direction-settings: (
   visited:      false,
 ) !default;
 
-$flex-direction-presets: map-collect(
+$flex-direction-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$flex-direction-values: (
+$flex-direction-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   row:          'row',
   column:       'column',
@@ -635,20 +635,20 @@ $flex-wrap-settings: (
   visited:      false,
 ) !default;
 
-$flex-wrap-presets: map-collect(
+$flex-wrap-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$flex-wrap-values: (
+$flex-wrap-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   wrap:         'wrap',
   nowrap:       'nowrap',
@@ -679,20 +679,20 @@ $float-settings: (
   visited:      false,
 ) !default;
 
-$float-presets: map-collect(
+$float-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$float-values: (
+$float-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   left:         'left',
   none:         'none',
@@ -732,21 +732,21 @@ $font-family-settings: (
   visited:      false,
 ) !default;
 
-$font-family-presets: map-collect(
+$font-family-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
   $preset-font-families
 ) !default;
 
-$font-family-values: (
+$font-family-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
 ) !default;
 
@@ -776,20 +776,20 @@ $font-feature-settings: (
   visited:      false,
 ) !default;
 
-$font-feature-presets: map-collect(
+$font-feature-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$font-feature-values: (
+$font-feature-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   alt:          "'ss01' 1, 'kern' 1",
   tabular:      "'tnum' 1, 'kern' 1",
@@ -832,10 +832,10 @@ $font-size-settings: (
   visited:      false,
 ) !default;
 
-$font-size-presets: map-collect(
+$font-size-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
   $preset-mono-12,
   $preset-mono-13,
@@ -901,11 +901,11 @@ $font-size-presets: map-collect(
   $preset-font-size-tshirt
 ) !default;
 
-$font-size-values: (
+$font-size-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
 ) !default;
 
@@ -936,20 +936,20 @@ $font-style-settings: (
   visited:      false,
 ) !default;
 
-$font-style-presets: map-collect(
+$font-style-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$font-style-values: (
+$font-style-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   normal:       'normal',
   italic:       'italic',
@@ -980,20 +980,20 @@ $font-weight-settings: (
   visited:      false,
 ) !default;
 
-$font-weight-presets: map-collect(
+$font-weight-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$font-weight-values: (
+$font-weight-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   100:          '100',
   200:          '200',
@@ -1033,12 +1033,12 @@ $height-settings: (
   visited:      false,
 ) !default;
 
-$height-presets: map-collect(
+$height-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
   $preset-units-percentage,
   $preset-units-grid,
@@ -1047,11 +1047,11 @@ $height-presets: map-collect(
   $preset-units-px
 ) !default;
 
-$height-values: (
+$height-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
 ) !default;
 
@@ -1080,20 +1080,20 @@ $letter-spacing-settings: (
   visited:      false,
 ) !default;
 
-$letter-spacing-presets: map-collect(
+$letter-spacing-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$letter-spacing-values: (
+$letter-spacing-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   auto:       'auto',
   n1:         $u-ls-n1,
@@ -1129,20 +1129,20 @@ $line-height-settings: (
   visited:      false,
 ) !default;
 
-$line-height-presets: map-collect(
+$line-height-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$line-height-values: (
+$line-height-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   single:        $u-lh-single,
   heading:       $u-lh-heading,
@@ -1211,12 +1211,12 @@ $manual-position-settings: (
   visited:      false,
 ) !default;
 
-$manual-position-presets: map-collect(
+$manual-position-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
   $preset-units-px,
   $preset-units-px-negative,
@@ -1224,11 +1224,11 @@ $manual-position-presets: map-collect(
   $preset-units-grid
 ) !default;
 
-$manual-position-values: (
+$manual-position-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   0:            '0',
   auto:         'auto',
@@ -1263,10 +1263,10 @@ $margin-settings: (
   visited:      false,
 ) !default;
 
-$margin-presets: map-collect(
+$margin-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
   $preset-units-px,
   $preset-units-px-negative,
@@ -1281,11 +1281,11 @@ $margin-presets: map-collect(
   $preset-spacing-negative-tshirt
 ) !default;
 
-$margin-values: (
+$margin-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   0:            '0',
   auto:         'auto',
@@ -1318,23 +1318,23 @@ $max-height-settings: (
   visited:      false,
 ) !default;
 
-$max-height-presets: map-collect(
+$max-height-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
   $preset-units-percentage,
   $preset-units-grid,
   $preset-units-px
 ) !default;
 
-$max-height-values: (
+$max-height-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
 ) !default;
 
@@ -1363,23 +1363,23 @@ $max-width-settings: (
   visited:      false,
 ) !default;
 
-$max-width-presets: map-collect(
+$max-width-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
   $preset-units-percentage,
   $preset-units-grid,
   $preset-units-px
 ) !default;
 
-$max-width-values: (
+$max-width-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   none:         'none',
   reading-sm:   $text-narrow-width,
@@ -1414,23 +1414,23 @@ $min-height-settings: (
   visited:      false,
 ) !default;
 
-$min-height-presets: map-collect(
+$min-height-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
   $preset-units-percentage,
   $preset-units-grid,
   $preset-units-px
 ) !default;
 
-$min-height-values: (
+$min-height-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   sm:           $small-screen,
   md:           $medium-screen,
@@ -1463,23 +1463,23 @@ $min-width-settings: (
   visited:      false,
 ) !default;
 
-$min-width-presets: map-collect(
+$min-width-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
   $preset-units-percentage,
   $preset-units-grid,
   $preset-units-px
 ) !default;
 
-$min-width-values: (
+$min-width-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   sm:           $small-screen,
   md:           $medium-screen,
@@ -1512,20 +1512,20 @@ $opacity-settings: (
   visited:      false,
 ) !default;
 
-$opacity-presets: map-collect(
+$opacity-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$opacity-values: (
+$opacity-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   0:           '0',
   10:          '0.1',
@@ -1568,20 +1568,20 @@ $order-settings: (
   visited:      false,
 ) !default;
 
-$order-presets: map-collect(
+$order-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$order-values: (
+$order-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
 //  0:            0,
 //  1:            1,
@@ -1624,22 +1624,22 @@ $outline-1-width-settings: (
   visited:      false,
 ) !default;
 
-$outline-1-width-presets: map-collect(
+$outline-1-width-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
   $preset-units-px,
   $preset-units-grid-small
 ) !default;
 
-$outline-1-width-values: (
+$outline-1-width-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   0:            'none',
 ) !default;
@@ -1669,21 +1669,21 @@ $outline-2-color-settings: (
   visited:      false,
 ) !default;
 
-$outline-2-color-presets: map-collect(
+$outline-2-color-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
   $preset-colors-red
 ) !default;
 
-$outline-2-color-values: (
+$outline-2-color-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
 ) !default;
 
@@ -1715,10 +1715,10 @@ $padding-settings: (
   visited:      false,
 ) !default;
 
-$padding-presets: map-collect(
+$padding-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
   $preset-units-px,
   $preset-units-grid
@@ -1726,11 +1726,11 @@ $padding-presets: map-collect(
   $preset-spacing-tshirt
 ) !default;
 
-$padding-values: (
+$padding-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   0:            '0',
 ) !default;
@@ -1760,20 +1760,20 @@ $position-settings: (
   visited:      false,
 ) !default;
 
-$position-presets: map-collect(
+$position-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$position-values: (
+$position-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   absolute:     'absolute',
   fixed:        'fixed',
@@ -1836,21 +1836,21 @@ $square-settings: (
   visited:      false,
 ) !default;
 
-$square-presets: map-collect(
+$square-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
   $preset-units-grid
 ) !default;
 
-$square-values: (
+$square-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   2px:          '2px',
 ) !default;
@@ -1880,20 +1880,20 @@ $text-align-settings: (
   visited:      false,
 ) !default;
 
-$text-align-presets: map-collect(
+$text-align-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$text-align-values: (
+$text-align-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   center:       'center',
   left:         'left',
@@ -1926,20 +1926,20 @@ $text-decoration-settings: (
   visited:      false,
 ) !default;
 
-$text-decoration-presets: map-collect(
+$text-decoration-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$text-decoration-values: (
+$text-decoration-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   underline:        'underline',
   strike:           'strike',
@@ -1971,20 +1971,20 @@ $text-transform-settings: (
   visited:      false,
 ) !default;
 
-$text-transform-presets: map-collect(
+$text-transform-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$text-transform-values: (
+$text-transform-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   capitalize:     'capitalize',
   lowercase:      'lowercase',
@@ -2017,20 +2017,20 @@ $vertical-align-settings: (
   visited:      false,
 ) !default;
 
-$vertical-align-presets: map-collect(
+$vertical-align-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$vertical-align-values: (
+$vertical-align-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   baseline:     'baseline',
   bottom:       'bottom',
@@ -2067,20 +2067,20 @@ $whitespace-settings: (
   visited:      false,
 ) !default;
 
-$whitespace-presets: map-collect(
+$whitespace-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$whitespace-values: (
+$whitespace-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   normal:       'normal',
   nowrap:       'nowrap',
@@ -2114,12 +2114,12 @@ $width-settings: (
   visited:      false,
 ) !default;
 
-$width-presets: map-collect(
+$width-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
   $preset-units-percentage,
   $preset-units-grid,
@@ -2128,11 +2128,11 @@ $width-presets: map-collect(
   $preset-units-ch
 ) !default;
 
-$width-values: (
+$width-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   auto:         'auto',
   sm:           $small-screen,
@@ -2167,20 +2167,20 @@ $z-index-settings: (
   visited:      false,
 ) !default;
 
-$z-index-presets: map-collect(
+$z-index-preset-values: map-collect(
   /*
   $example-preset-1,
-  $example-preset-2 [no final comma]
+  $example-preset-2 [no trailing comma]
   ------------------------
-  [common presets here]
+  [unused presets here]
   ------------------------ */
 ) !default;
 
-$z-index-values: (
+$z-index-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ------------------------
-  [common value pairs here]
+  [unused value pairs here]
   ------------------------  */
   0:            '0',
   100:          '100',

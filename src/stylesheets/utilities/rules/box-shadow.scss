@@ -19,8 +19,8 @@ $box-shadow: (
     base: 'box',
     modifiers: null,
     values: map-collect(
-      $box-shadow-presets,
-      $box-shadow-values
+      $box-shadow-preset-values,
+      $box-shadow-manual-values
     ),
     settings: $box-shadow-settings,
     property: 'box-shadow',
