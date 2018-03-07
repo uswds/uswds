@@ -1,0 +1,42 @@
+$preset-colors-indigo-light: (
+  'indigo-5':  $indigo-5,
+  'indigo-10': $indigo-10,
+  'indigo-20': $indigo-20,
+  'indigo-30': $indigo-30,
+);
+
+$preset-colors-indigo-basic: (
+  'indigo-40': $indigo-40,
+  'indigo-50': $indigo-50,
+  'indigo-60': $indigo-60,
+  'indigo-70': $indigo-70,
+);
+
+$preset-colors-indigo-dark: (
+  'indigo-80': $indigo-80,
+  'indigo-90': $indigo-90,
+);
+
+$preset-colors-indigo-vivid: (
+  'indigo-5v':  $indigo-5v,
+  'indigo-10v': $indigo-10v,
+  'indigo-20v': $indigo-20v,
+  'indigo-30v': $indigo-30v,
+  'indigo-40v': $indigo-40v,
+  'indigo-50v': $indigo-50v,
+  'indigo-60v': $indigo-60v,
+  'indigo-70v': $indigo-70v,
+  'indigo-80v': $indigo-80v,
+  'indigo-90v': $indigo-90v,
+);
+
+$preset-colors-indigo-standard: map-collect(
+  $preset-colors-indigo-light,
+  $preset-colors-indigo-basic,
+  $preset-colors-indigo-dark
+);
+
+$preset-colors-indigo: map-collect(
+  $preset-colors-indigo-standard,
+  $preset-colors-indigo-vivid
+);

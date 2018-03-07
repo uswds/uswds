@@ -19,7 +19,7 @@ $position: (
     base: 'pos',
     modifiers: null,
     values: map-collect(
-      $position-group-values,
+      $position-presets,
       $position-values
     ),
     settings: $position-settings,

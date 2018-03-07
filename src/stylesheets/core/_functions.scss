@@ -317,7 +317,7 @@ loop
 
 @mixin render-media-queries($utility, $selector, $property, $value, $val-props) {
 
-  @each $media-key, $media-value in $group-breakpoints {
+  @each $media-key, $media-value in $preset-breakpoints {
     $mq: $media-key;
 
     @if $media-value {

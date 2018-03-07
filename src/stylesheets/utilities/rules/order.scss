@@ -22,7 +22,7 @@ $order: (
     base: 'order',
     modifiers: null,
     values: map-collect(
-      $order-group-values,
+      $order-presets,
       $order-values
     ),
     settings: $order-settings,

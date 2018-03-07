@@ -19,7 +19,7 @@ $text-decoration: (
     base: 'text',
     modifiers: null,
     values: map-collect(
-      $text-decoration-group-values,
+      $text-decoration-presets,
       $text-decoration-values
     ),
     settings: $text-decoration-settings,

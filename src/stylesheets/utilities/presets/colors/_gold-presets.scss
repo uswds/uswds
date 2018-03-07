@@ -1,0 +1,42 @@
+$preset-colors-gold-light: (
+  'gold-5':  $gold-5,
+  'gold-10': $gold-10,
+  'gold-20': $gold-20,
+  'gold-30': $gold-30,
+);
+
+$preset-colors-gold-basic: (
+  'gold-40': $gold-40,
+  'gold-50': $gold-50,
+  'gold-60': $gold-60,
+  'gold-70': $gold-70,
+);
+
+$preset-colors-gold-dark: (
+  'gold-80': $gold-80,
+  'gold-90': $gold-90,
+);
+
+$preset-colors-gold-vivid: (
+  'gold-5v':  $gold-5v,
+  'gold-10v': $gold-10v,
+  'gold-20v': $gold-20v,
+  'gold-30v': $gold-30v,
+  'gold-40v': $gold-40v,
+  'gold-50v': $gold-50v,
+  'gold-60v': $gold-60v,
+  'gold-70v': $gold-70v,
+  'gold-80v': $gold-80v,
+  'gold-90v': $gold-90v,
+);
+
+$preset-colors-gold-standard: map-collect(
+  $preset-colors-gold-light,
+  $preset-colors-gold-basic,
+  $preset-colors-gold-dark
+);
+
+$preset-colors-gold: map-collect(
+  $preset-colors-gold-standard,
+  $preset-colors-gold-vivid
+);

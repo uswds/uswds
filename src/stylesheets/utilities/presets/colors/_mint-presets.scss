@@ -1,0 +1,42 @@
+$preset-colors-mint-light: (
+  'mint-5':  $mint-5,
+  'mint-10': $mint-10,
+  'mint-20': $mint-20,
+  'mint-30': $mint-30,
+);
+
+$preset-colors-mint-basic: (
+  'mint-40': $mint-40,
+  'mint-50': $mint-50,
+  'mint-60': $mint-60,
+  'mint-70': $mint-70,
+);
+
+$preset-colors-mint-dark: (
+  'mint-80': $mint-80,
+  'mint-90': $mint-90,
+);
+
+$preset-colors-mint-vivid: (
+  'mint-5v':  $mint-5v,
+  'mint-10v': $mint-10v,
+  'mint-20v': $mint-20v,
+  'mint-30v': $mint-30v,
+  'mint-40v': $mint-40v,
+  'mint-50v': $mint-50v,
+  'mint-60v': $mint-60v,
+  'mint-70v': $mint-70v,
+  'mint-80v': $mint-80v,
+  'mint-90v': $mint-90v,
+);
+
+$preset-colors-mint-standard: map-collect(
+  $preset-colors-mint-light,
+  $preset-colors-mint-basic,
+  $preset-colors-mint-dark
+);
+
+$preset-colors-mint: map-collect(
+  $preset-colors-mint-standard,
+  $preset-colors-mint-vivid
+);

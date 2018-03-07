@@ -30,7 +30,7 @@ $border: (
       noModifier: '',
     ),
     values: map-collect(
-      $border-group-values,
+      $border-presets,
       $border-values
     ),
     valueAppend: ' solid',

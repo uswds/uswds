@@ -20,7 +20,7 @@ $font-feature: (
     base: 'feat',
     modifiers: null,
     values: map-collect(
-      $font-feature-group-values,
+      $font-feature-presets,
       $font-feature-values
     ),
     settings: $font-feature-settings,

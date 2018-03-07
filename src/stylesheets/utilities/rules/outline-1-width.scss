@@ -19,7 +19,7 @@ $outline-1-width: (
     base: 'out',
     modifiers: null,
     values: map-collect(
-      $outline-1-width-group-values,
+      $outline-1-width-presets,
       $outline-1-width-values
     ),
     settings: $outline-1-width-settings,

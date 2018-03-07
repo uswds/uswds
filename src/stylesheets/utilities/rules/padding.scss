@@ -30,7 +30,7 @@ $padding: (
       noModifier: '',
     ),
     values: map-collect(
-      $padding-group-values,
+      $padding-presets,
       $padding-values
     ),
     settings: $padding-settings,

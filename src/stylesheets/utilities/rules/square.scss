@@ -23,7 +23,7 @@ $square: (
       square: (height, width),
     ),
     values: map-collect(
-      $square-group-values,
+      $square-presets,
       $square-values
     ),
     settings: $square-settings,

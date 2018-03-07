@@ -31,7 +31,7 @@ $margin: (
       noModifier: '',
     ),
     values: map-collect(
-      $margin-group-values,
+      $margin-presets,
       $margin-values
     ),
     settings: $margin-settings,

@@ -25,7 +25,7 @@ $flex: (
     base: 'flex',
     modifiers: null,
     values: map-collect(
-      $flex-group-values,
+      $flex-presets,
       $flex-values
     ),
     settings: $flex-settings,

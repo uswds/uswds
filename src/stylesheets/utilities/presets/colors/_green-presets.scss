@@ -1,0 +1,42 @@
+$preset-colors-green-light: (
+  'green-5':  $green-5,
+  'green-10': $green-10,
+  'green-20': $green-20,
+  'green-30': $green-30,
+);
+
+$preset-colors-green-basic: (
+  'green-40': $green-40,
+  'green-50': $green-50,
+  'green-60': $green-60,
+  'green-70': $green-70,
+);
+
+$preset-colors-green-dark: (
+  'green-80': $green-80,
+  'green-90': $green-90,
+);
+
+$preset-colors-green-vivid: (
+  'green-5v':  $green-5v,
+  'green-10v': $green-10v,
+  'green-20v': $green-20v,
+  'green-30v': $green-30v,
+  'green-40v': $green-40v,
+  'green-50v': $green-50v,
+  'green-60v': $green-60v,
+  'green-70v': $green-70v,
+  'green-80v': $green-80v,
+  'green-90v': $green-90v,
+);
+
+$preset-colors-green-standard: map-collect(
+  $preset-colors-green-light,
+  $preset-colors-green-basic,
+  $preset-colors-green-dark
+);
+
+$preset-colors-green: map-collect(
+  $preset-colors-green-standard,
+  $preset-colors-green-vivid
+);

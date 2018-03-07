@@ -21,7 +21,7 @@ $z-index: (
     base: 'z',
     modifiers: null,
     values: map-collect(
-      $z-index-group-values,
+      $z-index-presets,
       $z-index-values
     ),
     settings: $z-index-settings,

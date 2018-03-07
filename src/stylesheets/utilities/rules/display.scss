@@ -19,7 +19,7 @@ $display: (
     base: 'dis',
     modifiers: null,
     values: map-collect(
-      $display-group-values,
+      $display-presets,
       $display-values
     ),
     settings: $display-settings,

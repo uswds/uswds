@@ -27,7 +27,7 @@ $font-family: (
     base: 'font',
     modifiers: null,
     values: map-collect(
-      $font-family-group-values,
+      $font-family-presets,
       $font-family-values
     ),
     settings: $font-family-settings,

@@ -1,0 +1,42 @@
+$preset-colors-violet-light: (
+  'violet-5':  $violet-5,
+  'violet-10': $violet-10,
+  'violet-20': $violet-20,
+  'violet-30': $violet-30,
+);
+
+$preset-colors-violet-basic: (
+  'violet-40': $violet-40,
+  'violet-50': $violet-50,
+  'violet-60': $violet-60,
+  'violet-70': $violet-70,
+);
+
+$preset-colors-violet-dark: (
+  'violet-80': $violet-80,
+  'violet-90': $violet-90,
+);
+
+$preset-colors-violet-vivid: (
+  'violet-5v':  $violet-5v,
+  'violet-10v': $violet-10v,
+  'violet-20v': $violet-20v,
+  'violet-30v': $violet-30v,
+  'violet-40v': $violet-40v,
+  'violet-50v': $violet-50v,
+  'violet-60v': $violet-60v,
+  'violet-70v': $violet-70v,
+  'violet-80v': $violet-80v,
+  'violet-90v': $violet-90v,
+);
+
+$preset-colors-violet-standard: map-collect(
+  $preset-colors-violet-light,
+  $preset-colors-violet-basic,
+  $preset-colors-violet-dark
+);
+
+$preset-colors-violet: map-collect(
+  $preset-colors-violet-standard,
+  $preset-colors-violet-vivid
+);

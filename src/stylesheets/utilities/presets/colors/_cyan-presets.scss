@@ -1,0 +1,42 @@
+$preset-colors-cyan-light: (
+  'cyan-5':  $cyan-5,
+  'cyan-10': $cyan-10,
+  'cyan-20': $cyan-20,
+  'cyan-30': $cyan-30,
+);
+
+$preset-colors-cyan-basic: (
+  'cyan-40': $cyan-40,
+  'cyan-50': $cyan-50,
+  'cyan-60': $cyan-60,
+  'cyan-70': $cyan-70,
+);
+
+$preset-colors-cyan-dark: (
+  'cyan-80': $cyan-80,
+  'cyan-90': $cyan-90,
+);
+
+$preset-colors-cyan-vivid: (
+  'cyan-5v':  $cyan-5v,
+  'cyan-10v': $cyan-10v,
+  'cyan-20v': $cyan-20v,
+  'cyan-30v': $cyan-30v,
+  'cyan-40v': $cyan-40v,
+  'cyan-50v': $cyan-50v,
+  'cyan-60v': $cyan-60v,
+  'cyan-70v': $cyan-70v,
+  'cyan-80v': $cyan-80v,
+  'cyan-90v': $cyan-90v,
+);
+
+$preset-colors-cyan-standard: map-collect(
+  $preset-colors-cyan-light,
+  $preset-colors-cyan-basic,
+  $preset-colors-cyan-dark
+);
+
+$preset-colors-cyan: map-collect(
+  $preset-colors-cyan-standard,
+  $preset-colors-cyan-vivid
+);

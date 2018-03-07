@@ -19,7 +19,7 @@ $min-height: (
     base: 'minh',
     modifiers: null,
     values: map-collect(
-      $min-height-group-values,
+      $min-height-presets,
       $min-height-values
     ),
     settings: $min-height-settings,

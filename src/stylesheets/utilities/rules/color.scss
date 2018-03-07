@@ -19,7 +19,7 @@ $color: (
     base: 'color',
     modifiers: null,
     values: map-collect(
-      $color-group-values,
+      $color-presets,
       $color-values
     ),
     settings: $color-settings,

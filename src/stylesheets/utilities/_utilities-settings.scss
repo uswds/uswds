@@ -31,12 +31,12 @@ $align-items-settings: (
   visited:      false,
 ) !default;
 
-$align-items-group-values: map-collect(
+$align-items-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -76,15 +76,15 @@ $background-color-settings: (
   visited:      false,
 ) !default;
 
-$background-color-group-values: map-collect(
+$background-color-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
-  $group-palette-reserved,
-  $group-palette-uswds-classic
+  $preset-palette-reserved,
+  $preset-palette-uswds-classic
 ) !default;
 
 $background-color-values: (
@@ -125,13 +125,13 @@ $border-settings: (
   visited:      false,
 ) !default;
 
-$border-group-values: map-collect(
+$border-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  $group-units-px,
-  $group-units-grid-basic
+  $preset-units-px,
+  $preset-units-grid-basic
   ------------------------ */
 ) !default;
 
@@ -172,13 +172,13 @@ $border-color-settings: (
   visited:      false,
 ) !default;
 
-$border-color-group-values: map-collect(
+$border-color-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  $group-palette-uswds-classic,
-  $group-palette-reserved
+  $preset-palette-uswds-classic,
+  $preset-palette-reserved
   ------------------------ */
 ) !default;
 
@@ -218,12 +218,12 @@ $border-radius-settings: (
   visited:      false,
 ) !default;
 
-$border-radius-group-values: map-collect(
+$border-radius-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  $group-units-px
+  $preset-units-px
   ------------------------ */
 ) !default;
 
@@ -265,12 +265,12 @@ $border-style-settings: (
   visited:      false,
 ) !default;
 
-$border-style-group-values: map-collect(
+$border-style-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -309,12 +309,12 @@ $box-shadow-settings: (
   visited:      false,
 ) !default;
 
-$box-shadow-group-values: map-collect(
+$box-shadow-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -359,12 +359,12 @@ $circle-settings: (
   visited:      false,
 ) !default;
 
-$circle-group-values: map-collect(
+$circle-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  $group-units-grid
+  $preset-units-grid
   ------------------------ */
 ) !default;
 
@@ -410,15 +410,15 @@ $color-settings: (
   visited:      false,
 ) !default;
 
-$color-group-values: map-collect(
+$color-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
-  $group-palette-uswds-classic,
-  $group-palette-reserved
+  $preset-palette-uswds-classic,
+  $preset-palette-reserved
 ) !default;
 
 $color-values: (
@@ -481,12 +481,12 @@ $display-settings: (
   visited:      false,
 ) !default;
 
-$display-group-values: map-collect(
+$display-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -536,12 +536,12 @@ $flex-settings: (
   visited:      false,
 ) !default;
 
-$flex-group-values: map-collect(
+$flex-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -591,12 +591,12 @@ $flex-direction-settings: (
   visited:      false,
 ) !default;
 
-$flex-direction-group-values: map-collect(
+$flex-direction-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -635,12 +635,12 @@ $flex-wrap-settings: (
   visited:      false,
 ) !default;
 
-$flex-wrap-group-values: map-collect(
+$flex-wrap-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -679,12 +679,12 @@ $float-settings: (
   visited:      false,
 ) !default;
 
-$float-group-values: map-collect(
+$float-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -732,14 +732,14 @@ $font-family-settings: (
   visited:      false,
 ) !default;
 
-$font-family-group-values: map-collect(
+$font-family-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
-  $group-font-families
+  $preset-font-families
 ) !default;
 
 $font-family-values: (
@@ -776,12 +776,12 @@ $font-feature-settings: (
   visited:      false,
 ) !default;
 
-$font-feature-group-values: map-collect(
+$font-feature-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -832,73 +832,73 @@ $font-size-settings: (
   visited:      false,
 ) !default;
 
-$font-size-group-values: map-collect(
+$font-size-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  $group-mono-12,
-  $group-mono-13,
-  $group-mono-14,
-  $group-mono-15,
-  $group-mono-16,
-  $group-mono-17,
-  $group-mono-18,
-  $group-mono-20,
-  $group-mono-22,
-  $group-mono-24,
-  $group-mono-28,
-  $group-mono-32,
-  $group-mono-36,
-  $group-mono-40,
-  $group-mono-48,
-  $group-mono-56,
-  $group-mono-64,
-  $group-mono-80,
-  $group-mono-120,
-  $group-mono-140,
-  $group-sans-12,
-  $group-sans-13,
-  $group-sans-14,
-  $group-sans-15,
-  $group-sans-16,
-  $group-sans-17,
-  $group-sans-18,
-  $group-sans-20,
-  $group-sans-22,
-  $group-sans-24,
-  $group-sans-28,
-  $group-sans-32,
-  $group-sans-36,
-  $group-sans-40,
-  $group-sans-48,
-  $group-sans-56,
-  $group-sans-64,
-  $group-sans-80,
-  $group-sans-120,
-  $group-sans-140,
-  $group-serif-12,
-  $group-serif-13,
-  $group-serif-14,
-  $group-serif-15,
-  $group-serif-16,
-  $group-serif-17,
-  $group-serif-18,
-  $group-serif-20,
-  $group-serif-22,
-  $group-serif-24,
-  $group-serif-28,
-  $group-serif-32,
-  $group-serif-36,
-  $group-serif-40,
-  $group-serif-48,
-  $group-serif-56,
-  $group-serif-64,
-  $group-serif-80,
-  $group-serif-120,
-  $group-serif-140
+  $preset-mono-12,
+  $preset-mono-13,
+  $preset-mono-14,
+  $preset-mono-15,
+  $preset-mono-16,
+  $preset-mono-17,
+  $preset-mono-18,
+  $preset-mono-20,
+  $preset-mono-22,
+  $preset-mono-24,
+  $preset-mono-28,
+  $preset-mono-32,
+  $preset-mono-36,
+  $preset-mono-40,
+  $preset-mono-48,
+  $preset-mono-56,
+  $preset-mono-64,
+  $preset-mono-80,
+  $preset-mono-120,
+  $preset-mono-140,
+  $preset-sans-12,
+  $preset-sans-13,
+  $preset-sans-14,
+  $preset-sans-15,
+  $preset-sans-16,
+  $preset-sans-17,
+  $preset-sans-18,
+  $preset-sans-20,
+  $preset-sans-22,
+  $preset-sans-24,
+  $preset-sans-28,
+  $preset-sans-32,
+  $preset-sans-36,
+  $preset-sans-40,
+  $preset-sans-48,
+  $preset-sans-56,
+  $preset-sans-64,
+  $preset-sans-80,
+  $preset-sans-120,
+  $preset-sans-140,
+  $preset-serif-12,
+  $preset-serif-13,
+  $preset-serif-14,
+  $preset-serif-15,
+  $preset-serif-16,
+  $preset-serif-17,
+  $preset-serif-18,
+  $preset-serif-20,
+  $preset-serif-22,
+  $preset-serif-24,
+  $preset-serif-28,
+  $preset-serif-32,
+  $preset-serif-36,
+  $preset-serif-40,
+  $preset-serif-48,
+  $preset-serif-56,
+  $preset-serif-64,
+  $preset-serif-80,
+  $preset-serif-120,
+  $preset-serif-140
   ------------------------ */
-  $group-font-size-tshirt
+  $preset-font-size-tshirt
 ) !default;
 
 $font-size-values: (
@@ -936,12 +936,12 @@ $font-style-settings: (
   visited:      false,
 ) !default;
 
-$font-style-group-values: map-collect(
+$font-style-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -980,12 +980,12 @@ $font-weight-settings: (
   visited:      false,
 ) !default;
 
-$font-weight-group-values: map-collect(
+$font-weight-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -1033,18 +1033,18 @@ $height-settings: (
   visited:      false,
 ) !default;
 
-$height-group-values: map-collect(
+$height-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
-  $group-units-percentage,
-  $group-units-grid,
-  $group-units-em,
-  $group-units-ch,
-  $group-units-px
+  $preset-units-percentage,
+  $preset-units-grid,
+  $preset-units-em,
+  $preset-units-ch,
+  $preset-units-px
 ) !default;
 
 $height-values: (
@@ -1080,12 +1080,12 @@ $letter-spacing-settings: (
   visited:      false,
 ) !default;
 
-$letter-spacing-group-values: map-collect(
+$letter-spacing-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -1129,12 +1129,12 @@ $line-height-settings: (
   visited:      false,
 ) !default;
 
-$line-height-group-values: map-collect(
+$line-height-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -1211,17 +1211,17 @@ $manual-position-settings: (
   visited:      false,
 ) !default;
 
-$manual-position-group-values: map-collect(
+$manual-position-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
-  $group-units-px,
-  $group-units-px-negative,
-  $group-units-percentage,
-  $group-units-grid
+  $preset-units-px,
+  $preset-units-px-negative,
+  $preset-units-percentage,
+  $preset-units-grid
 ) !default;
 
 $manual-position-values: (
@@ -1263,22 +1263,22 @@ $margin-settings: (
   visited:      false,
 ) !default;
 
-$margin-group-values: map-collect(
+$margin-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  $group-units-px,
-  $group-units-px-negative,
-  $group-units-percentage,
-  $group-units-grid,
-  $group-units-grid-negative,
-  $group-units-ch,
-  $group-units-ch-negative,
-  $group-units-em
+  $preset-units-px,
+  $preset-units-px-negative,
+  $preset-units-percentage,
+  $preset-units-grid,
+  $preset-units-grid-negative,
+  $preset-units-ch,
+  $preset-units-ch-negative,
+  $preset-units-em
   ------------------------ */
-  $group-spacing-tshirt,
-  $group-spacing-negative-tshirt
+  $preset-spacing-tshirt,
+  $preset-spacing-negative-tshirt
 ) !default;
 
 $margin-values: (
@@ -1318,16 +1318,16 @@ $max-height-settings: (
   visited:      false,
 ) !default;
 
-$max-height-group-values: map-collect(
+$max-height-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
-  $group-units-percentage,
-  $group-units-grid,
-  $group-units-px
+  $preset-units-percentage,
+  $preset-units-grid,
+  $preset-units-px
 ) !default;
 
 $max-height-values: (
@@ -1363,16 +1363,16 @@ $max-width-settings: (
   visited:      false,
 ) !default;
 
-$max-width-group-values: map-collect(
+$max-width-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
-  $group-units-percentage,
-  $group-units-grid,
-  $group-units-px
+  $preset-units-percentage,
+  $preset-units-grid,
+  $preset-units-px
 ) !default;
 
 $max-width-values: (
@@ -1414,16 +1414,16 @@ $min-height-settings: (
   visited:      false,
 ) !default;
 
-$min-height-group-values: map-collect(
+$min-height-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
-  $group-units-percentage,
-  $group-units-grid,
-  $group-units-px
+  $preset-units-percentage,
+  $preset-units-grid,
+  $preset-units-px
 ) !default;
 
 $min-height-values: (
@@ -1463,16 +1463,16 @@ $min-width-settings: (
   visited:      false,
 ) !default;
 
-$min-width-group-values: map-collect(
+$min-width-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
-  $group-units-percentage,
-  $group-units-grid,
-  $group-units-px
+  $preset-units-percentage,
+  $preset-units-grid,
+  $preset-units-px
 ) !default;
 
 $min-width-values: (
@@ -1512,12 +1512,12 @@ $opacity-settings: (
   visited:      false,
 ) !default;
 
-$opacity-group-values: map-collect(
+$opacity-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -1568,12 +1568,12 @@ $order-settings: (
   visited:      false,
 ) !default;
 
-$order-group-values: map-collect(
+$order-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -1624,15 +1624,15 @@ $outline-1-width-settings: (
   visited:      false,
 ) !default;
 
-$outline-1-width-group-values: map-collect(
+$outline-1-width-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
-  $group-units-px,
-  $group-units-grid-small
+  $preset-units-px,
+  $preset-units-grid-small
 ) !default;
 
 $outline-1-width-values: (
@@ -1669,14 +1669,14 @@ $outline-2-color-settings: (
   visited:      false,
 ) !default;
 
-$outline-2-color-group-values: map-collect(
+$outline-2-color-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
-  $group-colors-red
+  $preset-colors-red
 ) !default;
 
 $outline-2-color-values: (
@@ -1715,15 +1715,15 @@ $padding-settings: (
   visited:      false,
 ) !default;
 
-$padding-group-values: map-collect(
+$padding-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  $group-units-px,
-  $group-units-grid
+  $preset-units-px,
+  $preset-units-grid
   ------------------------ */
-  $group-spacing-tshirt
+  $preset-spacing-tshirt
 ) !default;
 
 $padding-values: (
@@ -1760,12 +1760,12 @@ $position-settings: (
   visited:      false,
 ) !default;
 
-$position-group-values: map-collect(
+$position-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -1836,14 +1836,14 @@ $square-settings: (
   visited:      false,
 ) !default;
 
-$square-group-values: map-collect(
+$square-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
-  $group-units-grid
+  $preset-units-grid
 ) !default;
 
 $square-values: (
@@ -1880,12 +1880,12 @@ $text-align-settings: (
   visited:      false,
 ) !default;
 
-$text-align-group-values: map-collect(
+$text-align-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -1926,12 +1926,12 @@ $text-decoration-settings: (
   visited:      false,
 ) !default;
 
-$text-decoration-group-values: map-collect(
+$text-decoration-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -1971,12 +1971,12 @@ $text-transform-settings: (
   visited:      false,
 ) !default;
 
-$text-transform-group-values: map-collect(
+$text-transform-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -2017,12 +2017,12 @@ $vertical-align-settings: (
   visited:      false,
 ) !default;
 
-$vertical-align-group-values: map-collect(
+$vertical-align-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -2067,12 +2067,12 @@ $whitespace-settings: (
   visited:      false,
 ) !default;
 
-$whitespace-group-values: map-collect(
+$whitespace-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 
@@ -2114,18 +2114,18 @@ $width-settings: (
   visited:      false,
 ) !default;
 
-$width-group-values: map-collect(
+$width-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
-  $group-units-percentage,
-  $group-units-grid,
-  $group-units-px,
-  $group-units-em,
-  $group-units-ch
+  $preset-units-percentage,
+  $preset-units-grid,
+  $preset-units-px,
+  $preset-units-em,
+  $preset-units-ch
 ) !default;
 
 $width-values: (
@@ -2167,12 +2167,12 @@ $z-index-settings: (
   visited:      false,
 ) !default;
 
-$z-index-group-values: map-collect(
+$z-index-presets: map-collect(
   /*
-  $example-group-1,
-  $example-group-2 [no final comma]
+  $example-preset-1,
+  $example-preset-2 [no final comma]
   ------------------------
-  [common groups here]
+  [common presets here]
   ------------------------ */
 ) !default;
 

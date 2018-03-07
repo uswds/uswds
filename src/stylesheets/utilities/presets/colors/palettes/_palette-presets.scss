@@ -1,0 +1,51 @@
+$preset-palette-reserved: (
+  transparent:    transparent,
+  black:          $black-100,
+  white:          $white-0,
+  banner:         $black-cool-90,
+  highlight:      $gold-30v,
+);
+
+$preset-palette-grayscale: map-collect(
+  $preset-colors-black,
+  $preset-colors-white
+);
+
+$preset-palette-uswds-classic: (
+  primary:                  $blue-60v,
+  primary-darker:           $blue-warm-70v,
+  primary-darkest:          $blue-warm-80v,
+  base:                     $black-90,
+  primary-alt:              $cyan-30v,
+  primary-alt-darkest:      $blue-60,
+  primary-alt-dark:         $cyan-40v,
+  primary-alt-light:        $cyan-20,
+  primary-alt-lightest:     $cyan-5,
+  color-secondary:          $red-50,
+  color-secondary-darkest:  $red-70v,
+  color-secondary-dark:     $red-60v,
+  color-secondary-light:    $red-30,
+  color-secondary-lightest: $red-10,
+  gold:                     $gold-20v,
+  gold-light:               $gold-10v,
+  gold-lighter:             $yellow-10,
+  gold-lightest:            $gold-5,
+  green:                    $green-cool-50,
+  green-light:              $green-cool-40,
+  green-lighter:            $green-cool-20,
+  green-lightest:           $green-cool-5,
+  blue:                     $blue-70,
+  blue-light:               $blue-warm-50,
+  blue-lighter:             $blue-warm-30,
+  blue-lightest:            $blue-warm-10,
+  gray:                     $black-cool-60,
+  gray-dark:                $black-cool-80,
+  gray-light:               $black-30,
+  gray-lighter:             $black-cool-10,
+  gray-lightest:            $black-cool-5,
+  gray-warm-dark:           $black-warm-70,
+  gray-warm-light:          $black-warm-10,
+  gray-cool-light:          $blue-warm-5,
+  focus:                    $black-30,
+  visited:                  $violet-70v,
+);

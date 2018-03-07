@@ -21,7 +21,7 @@ $font-style: (
     base: 'font',
     modifiers: null,
     values: map-collect(
-      $font-style-group-values,
+      $font-style-presets,
       $font-style-values
     ),
     settings: $font-style-settings,
