@@ -33,16 +33,22 @@ $align-items-settings: (
 
 $align-items-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $align-items-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
   flex-start:   'flex-start',
   flex-end:     'flex-end',
   center:       'center',
   stretch:      'stretch',
+  ------------------------  */
 ) !default;
 
 /*
@@ -63,22 +69,30 @@ example:
 
 $background-color-settings: (
   output:       true,
-  responsive:   true,
-  active:       true,
+  responsive:   false,
+  active:       false,
   focus:        false,
-  hover:        true,
+  hover:        false,
   visited:      false,
 ) !default;
 
 $background-color-group-values: map-collect(
   /*
-  $group-of-values */
-  $group-palettes-uswds-classic
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
+  $group-palette-reserved,
+  $group-palette-uswds-classic
 ) !default;
 
 $background-color-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
 ) !default;
 
 /*
@@ -113,15 +127,20 @@ $border-settings: (
 
 $border-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
   $group-units-px,
   $group-units-grid-basic
+  ------------------------ */
 ) !default;
 
 $border-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
   0:            '0',
+  ------------------------  */
 ) !default;
 
 /*
@@ -155,13 +174,20 @@ $border-color-settings: (
 
 $border-color-group-values: map-collect(
   /*
-  $group-of-values */
-  $group-colors-red-basic
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  $group-palette-uswds-classic,
+  $group-palette-reserved
+  ------------------------ */
 ) !default;
 
 $border-color-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
 ) !default;
 
 /*
@@ -184,7 +210,7 @@ example:
 */
 
 $border-radius-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -194,21 +220,28 @@ $border-radius-settings: (
 
 $border-radius-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
   $group-units-px
+  ------------------------ */
 ) !default;
 
 $border-radius-values: (
   /*
-  key:          'value' */
-  0:            '0',
-  pill:         '9999em',
-  circle:       '50%',
-  rounded:      $border-radius,
+  key:          'value', [trailing comma ok]
+  ------------------------
   g05:          $u-spacing-05,
   g1:           $u-spacing-1,
   g105:         $u-spacing-105,
   g2:           $u-spacing-2,
+  ------------------------  */
+  0:            '0',
+  pill:         '9999em',
+  circle:       '50%',
+  sm:           $s-radius-sm,
+  md:           $s-radius-md,
+  lg:           $s-radius-lg,
 ) !default;
 
 /*
@@ -234,15 +267,21 @@ $border-style-settings: (
 
 $border-style-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $border-style-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
   dashed:       'dashed',
   dotted:       'dotted',
   solid:        'solid',
+  ------------------------  */
 ) !default;
 
 /*
@@ -272,18 +311,24 @@ $box-shadow-settings: (
 
 $box-shadow-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $box-shadow-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
   s0: 'none',
   s1: '0 1px 2px 0 rgba(0,0,0,0.10)',
   s2: '0 4px 8px 0 rgba(0,0,0,0.10)',
   s3: '0 6px 12px 0 rgba(0,0,0,0.10)',
   s4: '0 8px 16px 0 rgba(0,0,0,0.10)',
   s5: '0 12px 24px 0 rgba(0,0,0,0.10)',
+  ------------------------  */
 ) !default;
 
 /*
@@ -306,7 +351,7 @@ example:
 */
 
 $circle-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -316,14 +361,28 @@ $circle-settings: (
 
 $circle-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
   $group-units-grid
+  ------------------------ */
 ) !default;
 
 $circle-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
   2px:          '2px',
+  ------------------------  */
+  3xs:          $s-spacing-3xs,
+  2xs:          $s-spacing-2xs,
+  xs:           $s-spacing-xs,
+  sm:           $s-spacing-sm,
+  md:           $s-spacing-md,
+  lg:           $s-spacing-lg,
+  xl:           $s-spacing-xl,
+  2xl:          $s-spacing-2xl,
+  3xl:          $s-spacing-3xl,
 ) !default;
 
 /*
@@ -343,7 +402,7 @@ example:
 */
 
 $color-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -353,13 +412,21 @@ $color-settings: (
 
 $color-group-values: map-collect(
   /*
-  $group-of-values */
-  $group-colors-red
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
+  $group-palette-uswds-classic,
+  $group-palette-reserved
 ) !default;
 
 $color-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
 ) !default;
 
 /*
@@ -406,7 +473,7 @@ example:
 */
 
 $display-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -416,12 +483,19 @@ $display-settings: (
 
 $display-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $display-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   block:        'block',
   flex:         'flex',
   none:         'none',
@@ -464,12 +538,19 @@ $flex-settings: (
 
 $flex-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $flex-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   1:            '1 0 0',
   2:            '2 0 0',
   3:            '3 0 0',
@@ -512,12 +593,19 @@ $flex-direction-settings: (
 
 $flex-direction-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $flex-direction-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   row:          'row',
   column:       'column',
 ) !default;
@@ -549,12 +637,19 @@ $flex-wrap-settings: (
 
 $flex-wrap-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $flex-wrap-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   wrap:         'wrap',
   nowrap:       'nowrap',
 ) !default;
@@ -576,7 +671,7 @@ example:
 */
 
 $float-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -586,12 +681,19 @@ $float-settings: (
 
 $float-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $float-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   left:         'left',
   none:         'none',
   right:        'right',
@@ -622,7 +724,7 @@ example:
 */
 
 $font-family-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -632,16 +734,20 @@ $font-family-settings: (
 
 $font-family-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
+  $group-font-families
 ) !default;
 
 $font-family-values: (
   /*
-  key:          'value' */
-  //cond:         null,
-  //mono:         $font-mono,
-  sans:         $font-sans,
-  serif:        $font-serif,
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
 ) !default;
 
 /*
@@ -672,12 +778,19 @@ $font-feature-settings: (
 
 $font-feature-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $font-feature-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   alt:          "'ss01' 1, 'kern' 1",
   tabular:      "'tnum' 1, 'kern' 1",
   default:      "'kern' 1",
@@ -711,7 +824,7 @@ example:
 */
 
 $font-size-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -721,7 +834,9 @@ $font-size-settings: (
 
 $font-size-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
   $group-mono-12,
   $group-mono-13,
   $group-mono-14,
@@ -782,11 +897,16 @@ $font-size-group-values: map-collect(
   $group-serif-80,
   $group-serif-120,
   $group-serif-140
+  ------------------------ */
+  $group-font-size-tshirt
 ) !default;
 
 $font-size-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
 ) !default;
 
 /*
@@ -818,12 +938,19 @@ $font-style-settings: (
 
 $font-style-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $font-style-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   normal:       'normal',
   italic:       'italic',
 ) !default;
@@ -855,12 +982,19 @@ $font-weight-settings: (
 
 $font-weight-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $font-weight-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   100:          '100',
   200:          '200',
   300:          '300',
@@ -899,7 +1033,11 @@ $height-settings: (
 
 $height-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
   $group-units-percentage,
   $group-units-grid,
   $group-units-em,
@@ -909,7 +1047,10 @@ $height-group-values: map-collect(
 
 $height-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
 ) !default;
 
 /*
@@ -939,12 +1080,19 @@ $letter-spacing-settings: (
 
 $letter-spacing-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $letter-spacing-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   auto:       'auto',
   n1:         $u-ls-n1,
   n2:         $u-ls-n2,
@@ -981,12 +1129,19 @@ $line-height-settings: (
 
 $line-height-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $line-height-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   1:            $u-lh-single,
   2:            $u-lh-hed,
   3:            $u-lh-cap,
@@ -1056,7 +1211,11 @@ $manual-position-settings: (
 
 $manual-position-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
   $group-units-px,
   $group-units-px-negative,
   $group-units-percentage,
@@ -1065,7 +1224,10 @@ $manual-position-group-values: map-collect(
 
 $manual-position-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   0:            '0',
   auto:         'auto',
 ) !default;
@@ -1101,7 +1263,11 @@ $margin-settings: (
 
 $margin-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
   $group-units-px,
   $group-units-px-negative,
   $group-units-percentage,
@@ -1114,7 +1280,10 @@ $margin-group-values: map-collect(
 
 $margin-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   0:            '0',
   auto:         'auto',
 ) !default;
@@ -1146,7 +1315,11 @@ $max-height-settings: (
 
 $max-height-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
   $group-units-percentage,
   $group-units-grid,
   $group-units-px
@@ -1154,7 +1327,10 @@ $max-height-group-values: map-collect(
 
 $max-height-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
 ) !default;
 
 /*
@@ -1184,7 +1360,11 @@ $max-width-settings: (
 
 $max-width-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
   $group-units-percentage,
   $group-units-grid,
   $group-units-px
@@ -1192,7 +1372,10 @@ $max-width-group-values: map-collect(
 
 $max-width-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   none:         'none',
   reading-sm:   $text-narrow-width,
   reading:      $text-max-width,
@@ -1228,7 +1411,11 @@ $min-height-settings: (
 
 $min-height-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
   $group-units-percentage,
   $group-units-grid,
   $group-units-px
@@ -1236,7 +1423,10 @@ $min-height-group-values: map-collect(
 
 $min-height-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   sm:           $small-screen,
   md:           $medium-screen,
   lg:           $large-screen,
@@ -1270,7 +1460,11 @@ $min-width-settings: (
 
 $min-width-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
   $group-units-percentage,
   $group-units-grid,
   $group-units-px
@@ -1278,7 +1472,10 @@ $min-width-group-values: map-collect(
 
 $min-width-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   sm:           $small-screen,
   md:           $medium-screen,
   lg:           $large-screen,
@@ -1312,12 +1509,19 @@ $opacity-settings: (
 
 $opacity-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $opacity-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   0:           '0',
   10:          '0.1',
   20:          '0.2',
@@ -1361,12 +1565,19 @@ $order-settings: (
 
 $order-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $order-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
 //  0:            0,
 //  1:            1,
 //  2:            2,
@@ -1410,14 +1621,21 @@ $outline-1-width-settings: (
 
 $outline-1-width-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
   $group-units-px,
   $group-units-grid-small
 ) !default;
 
 $outline-1-width-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   0:            'none',
 ) !default;
 
@@ -1448,13 +1666,20 @@ $outline-2-color-settings: (
 
 $outline-2-color-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
   $group-colors-red
 ) !default;
 
 $outline-2-color-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
 ) !default;
 
 /*
@@ -1487,14 +1712,21 @@ $padding-settings: (
 
 $padding-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
   $group-units-px,
   $group-units-grid
 ) !default;
 
 $padding-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   0:            '0',
 ) !default;
 
@@ -1525,12 +1757,19 @@ $position-settings: (
 
 $position-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $position-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   absolute:     'absolute',
   fixed:        'fixed',
   relative:     'relative',
@@ -1594,13 +1833,20 @@ $square-settings: (
 
 $square-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
   $group-units-grid
 ) !default;
 
 $square-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   2px:          '2px',
 ) !default;
 
@@ -1631,12 +1877,19 @@ $text-align-settings: (
 
 $text-align-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $text-align-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   center:       'center',
   left:         'left',
   right:        'right',
@@ -1670,12 +1923,19 @@ $text-decoration-settings: (
 
 $text-decoration-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $text-decoration-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   underline:    'underline',
   strike:       'strike',
   no-decoration:'none',
@@ -1708,12 +1968,19 @@ $text-transform-settings: (
 
 $text-transform-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $text-transform-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   capitalize:   'capitalize',
   lowercase:    'lowercase',
   uppercase:     'uppercase',
@@ -1747,12 +2014,19 @@ $vertical-align-settings: (
 
 $vertical-align-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $vertical-align-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   baseline:     'baseline',
   bottom:       'bottom',
   middle:       'middle',
@@ -1790,12 +2064,19 @@ $whitespace-settings: (
 
 $whitespace-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $whitespace-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   normal:       'normal',
   nowrap:       'nowrap',
   pre:          'pre',
@@ -1830,7 +2111,11 @@ $width-settings: (
 
 $width-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
   $group-units-percentage,
   $group-units-grid,
   $group-units-px,
@@ -1840,7 +2125,10 @@ $width-group-values: map-collect(
 
 $width-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   auto:         'auto',
   sm:           $small-screen,
   md:           $medium-screen,
@@ -1876,12 +2164,19 @@ $z-index-settings: (
 
 $z-index-group-values: map-collect(
   /*
-  $group-of-values */
+  $example-group-1,
+  $example-group-2 [no final comma]
+  ------------------------
+  [common groups here]
+  ------------------------ */
 ) !default;
 
 $z-index-values: (
   /*
-  key:          'value' */
+  key:          'value', [trailing comma ok]
+  ------------------------
+  [common value pairs here]
+  ------------------------  */
   0:            '0',
   100:          '100',
   200:          '200',

@@ -24,7 +24,7 @@ $s-spacing-3xl:           $u-spacing-9 !default;
 // values  - - - - - - - - - - - - - - - - - - -
 // $s-font-size-NN:       $u-type-scale-NN;
 
-$s-font-size-3xs:         $u-type-scale-12 !default;
+$s-font-size-3xs:         null !default;
 $s-font-size-2xs:         $u-type-scale-14 !default;
 $s-font-size-xs:          $u-type-scale-16 !default;
 $s-font-size-sm:          $u-type-scale-17 !default;
@@ -134,6 +134,6 @@ $s-color-highlight:       $gold-20v !default;
 //                        1px
 //                        2px
 
-$s-radius-sm:             1px !default;
+$s-radius-sm:             2px !default;
 $s-radius-md:             $u-spacing-05 !default;
-$s-radius-lg:             $u-spacing-105 !default;
+$s-radius-lg:             null !default;

@@ -24,7 +24,7 @@ example:
 
 $font-family: (
   font-family: (
-    base: null,
+    base: 'font',
     modifiers: null,
     values: map-collect(
       $font-family-group-values,

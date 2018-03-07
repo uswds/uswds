@@ -28,6 +28,7 @@ $lead-line-height:    1.7 !default;
 $font-sans:           'Source Sans Pro', $helvetica !default;
 $font-serif:          'Merriweather', $georgia !default;
 $font-mono:           'Roboto Mono', $monospace !default;
+$font-cond:           null !default;
 
 %font-sans { font-family: $font-sans; }
 %font-serif { font-family: $font-serif; }
@@ -111,6 +112,7 @@ $color-shadow:               rgba(#000, 0.3) !default;
 $color-transparent:          rgba(#000, 0) !default;
 
 // Mobile First Breakpoints
+$xsmall-screen: null !default;
 $small-screen:  481px !default;
 $medium-screen: 600px !default;
 $large-screen:  1201px !default;

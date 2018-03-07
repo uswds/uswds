@@ -1,9 +1,17 @@
-$group-palettes-grayscale: map-collect(
+$group-palette-reserved: (
+  transparent:    transparent,
+  black:          $black-100,
+  white:          $white-0,
+  banner:         $black-cool-90,
+  highlight:      $gold-30v,
+);
+
+$group-palette-grayscale: map-collect(
   $group-colors-black,
   $group-colors-white
 );
 
-$group-palettes-uswds-classic: (
+$group-palette-uswds-classic: (
   primary:                  $blue-60v,
   primary-darker:           $blue-warm-70v,
   primary-darkest:          $blue-warm-80v,
@@ -38,7 +46,6 @@ $group-palettes-uswds-classic: (
   gray-warm-dark:           $black-warm-70,
   gray-warm-light:          $black-warm-10,
   gray-cool-light:          $blue-warm-5,
-  white:                    $white-0,
   focus:                    $black-30,
   visited:                  $violet-70v,
 );
