@@ -1,10 +1,11 @@
 'use strict';
 
-// Find all line charts on the page
-var chartLine = document.querySelectorAll('.usa-chart');
+// Find all charts on the page
+var charts = document.querySelectorAll('.usa-chart');
 
-for (var i = 0; i < chartLine.length; i++) {
-  var chart = chartLine[ i ];
+for (var i = 0; i < charts.length; i++) {
+  var chart = charts[ i ];
+  const table = chart.querySelector('.usa-chart-data');
   var items = chart.querySelectorAll('.usa-chart-item');
   var chartType = chart.dataset.chartType;
 
@@ -18,8 +19,9 @@ for (var i = 0; i < chartLine.length; i++) {
   var grid   = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var lines  = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var bars   = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  var title  = document.createElementNS('http://www.w3.org/2000/svg', 'title');
   var keys   = document.createElement('div');
-  keys.setAttribute('aria-hidden', 'true'); // hide keys from screen readers
+  var cap   = document.createElement('figcaption');
 
   var graphGap    = 10; // percent
   var topOffset   = 3;  // percent
@@ -66,7 +68,6 @@ for (var i = 0; i < chartLine.length; i++) {
     var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     var path  = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     var pathD = '';
-    var labelSet = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     path.classList.add('usa-chart-path');
     group.classList.add('usa-chart-datagroup');
 
@@ -78,10 +79,6 @@ for (var i = 0; i < chartLine.length; i++) {
 
       keys.appendChild(key);
 
-      // Write text labels for accessability
-      labelSet.innerHTML = datasets[ data ] + ':';
-      labelSet.classList.add('usa-chart-hidden');
-      labels.appendChild(labelSet);
     }
 
     // Draw data onto graph
@@ -185,16 +182,10 @@ for (var i = 0; i < chartLine.length; i++) {
       grid.appendChild(line);
     }
     grid.appendChild(label);
-    grid.setAttribute('aria-hidden', 'true'); // hide grid from screen readers
   }
 
   // Add items to chart
   svg.appendChild(grid);
-
-  if (datasets.length > 1) {
-    keys.classList.add('usa-chart-keys');
-    chart.appendChild(keys);
-  }
 
   if (chartType === 'line') {
     svg.appendChild(lines);
@@ -214,9 +205,24 @@ for (var i = 0; i < chartLine.length; i++) {
   svg.appendChild(axis);
 
   // Insert SVG into DOM
+  svg.setAttribute('aria-hidden', 'true'); // hide keys from screen readers
   chart.appendChild(svg); // insert graphic into parent
 
+  // Write keys
+  if (datasets.length > 1) {
+    keys.classList.add('usa-chart-keys');
+    chart.appendChild(keys);
+  }
+
+  // Write caption
+  var caption = chart.querySelector('caption');
+  if(caption) {
+    cap.innerHTML = caption.innerHTML;
+    cap.classList.add('usa-chart-caption');
+    chart.appendChild(cap);
+  }
+
   // Remove table from DOM
-  chart.querySelector('.usa-chart-data').remove();
+  // chart.querySelector('.usa-chart-data').remove();
   chart.classList.add('rendered');
 }
