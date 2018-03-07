@@ -1,10 +1,11 @@
 'use strict';
 
-// Find all line charts on the page
-var chartLine = document.querySelectorAll('.usa-chart');
+// Find all charts on the page
+var charts = document.querySelectorAll('.usa-chart');
 
-for (var i = 0; i < chartLine.length; i++) {
-  var chart = chartLine[ i ];
+for (var i = 0; i < charts.length; i++) {
+  var chart = charts[ i ];
+  const table = chart.querySelector('.usa-chart-data');
   var items = chart.querySelectorAll('.usa-chart-item');
   var chartType = chart.dataset.chartType;
 
@@ -19,10 +20,8 @@ for (var i = 0; i < chartLine.length; i++) {
   var lines  = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var bars   = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   var title  = document.createElementNS('http://www.w3.org/2000/svg', 'title');
-  var voice  = '';
   var keys   = document.createElement('div');
   var cap   = document.createElement('figcaption');
-  keys.setAttribute('aria-hidden', 'true'); // hide keys from screen readers
 
   var graphGap    = 10; // percent
   var topOffset   = 3;  // percent
@@ -80,8 +79,6 @@ for (var i = 0; i < chartLine.length; i++) {
 
       keys.appendChild(key);
 
-      // Write text labels for accessability
-      voice = voice + ' ' + datasets[ data ] + ' —';
     }
 
     // Draw data onto graph
@@ -126,7 +123,6 @@ for (var i = 0; i < chartLine.length; i++) {
       labelText.setAttribute('y', 100 - textBottom + '%');
       labelText.innerHTML = item.querySelector('.usa-chart-label').innerHTML;
       labelValue.innerHTML = item.querySelectorAll('.usa-chart-value')[ data ].innerHTML;
-      voice = voice + ' ' + item.querySelector('.usa-chart-label').innerHTML + ', ' + item.querySelectorAll('.usa-chart-value')[ data ].innerHTML + '.';
       if (d > 0) {
         labelText.classList.add('usa-chart-hidden');
       }
@@ -186,16 +182,7 @@ for (var i = 0; i < chartLine.length; i++) {
       grid.appendChild(line);
     }
     grid.appendChild(label);
-    grid.setAttribute('aria-hidden', 'true'); // hide grid from screen readers
   }
-
-  // add title and accessable text
-  title.innerHTML = voice;
-  svg.appendChild(title);
-  var a11yTxt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-  a11yTxt.classList.add('usa-chart-hidden');
-  a11yTxt.innerHTML = voice;
-  svg.appendChild(a11yTxt);
 
   // Add items to chart
   svg.appendChild(grid);
@@ -218,6 +205,7 @@ for (var i = 0; i < chartLine.length; i++) {
   svg.appendChild(axis);
 
   // Insert SVG into DOM
+  svg.setAttribute('aria-hidden', 'true'); // hide keys from screen readers
   chart.appendChild(svg); // insert graphic into parent
 
   // Write keys
@@ -235,6 +223,6 @@ for (var i = 0; i < chartLine.length; i++) {
   }
 
   // Remove table from DOM
-  chart.querySelector('.usa-chart-data').remove();
+  // chart.querySelector('.usa-chart-data').remove();
   chart.classList.add('rendered');
 }

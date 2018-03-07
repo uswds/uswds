@@ -10,12 +10,17 @@ $infographic-colors:
 // Chart styles
 .usa-chart {
   margin: 0;
+  &.rendered .usa-chart-data {
+    opacity: 0;
+    position: absolute;
+  }
 }
 
 .usa-chart-labelText,
 .usa-chart-labelValue,
 .usa-chart-gridLabel {
   text-anchor: middle;
+  font-size: 12px;
   font-size: calc(4px - .25vw);
 
   @media (min-width: 1100px) {
