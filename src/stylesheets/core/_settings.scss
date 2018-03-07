@@ -8,8 +8,8 @@
 //                        1px
 //                        2px
 
-$s-spacing-3xs:           false !default;
-$s-spacing-2xs:           false !default;
+$s-spacing-3xs:           null !default;
+$s-spacing-2xs:           null !default;
 $s-spacing-xs:            $u-spacing-05 !default;
 $s-spacing-sm:            $u-spacing-1 !default;
 $s-spacing-md:            $u-spacing-2 !default;
@@ -136,4 +136,4 @@ $s-color-highlight:       $gold-20v !default;
 
 $s-radius-sm:             2px !default;
 $s-radius-md:             $u-spacing-05 !default;
-$s-radius-lg:             false !default;
+$s-radius-lg:             null !default;
