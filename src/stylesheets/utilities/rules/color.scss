@@ -3,20 +3,20 @@
 COLOR
 ----------------------------------------
 usage:
-  .color-[key]
+  .c-[key]
 ----------------------------------------
 output:
   color: [value];
 ----------------------------------------
 example:
-  .color-black-100 {
+  .c-black-100 {
     color: #000; }
 ----------------------------------------
 */
 
 $color: (
   color: (
-    base: 'color',
+    base: 'c',
     modifiers: null,
     values: map-collect(
       $color-preset-values,

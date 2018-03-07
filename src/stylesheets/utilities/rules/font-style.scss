@@ -1,24 +1,24 @@
 /*
-----------------------------------------
-Font Style
+========================================
+font-style
 ----------------------------------------
 usage:
-  .font-italic
+  .fs-italic
 ----------------------------------------
 output:
   font-style: italic;
 ----------------------------------------
 example:
-  .font-italic {
+  .fs-italic {
     font-style: italic; }
-  .font-normal {
+  .fs-normal {
     font-style: normal; }
 ----------------------------------------
 */
 
 $font-style: (
   font-style: (
-    base: 'font',
+    base: 'fs',
     modifiers: null,
     values: map-collect(
       $font-style-preset-values,

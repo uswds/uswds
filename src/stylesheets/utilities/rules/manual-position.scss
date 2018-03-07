@@ -1,22 +1,24 @@
 /*
+========================================
+MANUAL POSITION
 ----------------------------------------
-[manual positioning]
-TOP
-BOTtom
-LEFT
-RIGHT
+properties:
+  top
+  bottom
+  left
+  right
 ----------------------------------------
 usage:
-  .top-[key]
-  .bot-[key]
-  .left-[key]
-  .right-[key]
+  .t-[key]
+  .b-[key]
+  .l-[key]
+  .r-[key]
 ----------------------------------------
 output:
   [option]: [value];
 ----------------------------------------
 example:
-  .bottom-n2px {
+  .b-n2px {
     bottom: -2px; }
 ----------------------------------------
 */
@@ -25,10 +27,10 @@ $manual-position: (
   manual-position: (
     base: null,
     modifiers: (
-      top: 'top',
-      bot: 'bottom',
-      left: 'left',
-      right: 'right',
+      top: 't',
+      bot: 't',
+      left: 'l',
+      right: 'r',
     ),
     values: map-collect(
       $manual-position-preset-values,

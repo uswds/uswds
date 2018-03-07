@@ -1,22 +1,22 @@
 /*
 ----------------------------------------
-ALIGN-items
+ALIGN-ITEMS
 ----------------------------------------
 usage:
-  .align-[key]
+  .ai-[key]
 ----------------------------------------
 output:
   align-items: [value];
 ----------------------------------------
 example:
-  .align-flex-start {
+  .ai-flex-start {
     align-items: flex-start; }
 ----------------------------------------
 */
 
 $align-items: (
   align-items: (
-    base: 'align',
+    base: 'ai',
     modifiers: null,
     values: map-collect(
       $align-items-preset-values,

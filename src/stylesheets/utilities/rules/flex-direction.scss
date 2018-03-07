@@ -1,22 +1,22 @@
 /*
 ----------------------------------------
-Flex Direction
+FLEX DIRECTION
 ----------------------------------------
 usage:
-  .flex-[value]
+  .fd-[value]
 ----------------------------------------
 output:
   flex-direction: [value]
 ----------------------------------------
 example:
-  .flex-row {
+  .fd-row {
     flex-direction: row; }
 ----------------------------------------
 */
 
 $flex-direction: (
   flex-direction: (
-    base: 'flex',
+    base: 'fd',
     modifiers: null,
     values: map-collect(
       $flex-direction-preset-values,

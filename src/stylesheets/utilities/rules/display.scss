@@ -1,22 +1,22 @@
 /*
 ----------------------------------------
-Display
+DISPLAY
 ----------------------------------------
 usage:
-  .dis-[key]
+  .d-[key]
 ----------------------------------------
 output:
   display: [value]
 ----------------------------------------
 example:
-  .dis-hide {
+  .d-none {
     display: none; }
 ----------------------------------------
 */
 
 $display: (
   display: (
-    base: 'dis',
+    base: 'd',
     modifiers: null,
     values: map-collect(
       $display-preset-values,

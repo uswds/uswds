@@ -1,16 +1,18 @@
 /*
 ----------------------------------------
-Border Width
+BORDER WIDTH
+Also applies `solid`
+Needs to come before other border utils
 ----------------------------------------
 usage:
-  .bor-[modifier]*-[key]
+  .bw-[modifier]*-[key]
 ----------------------------------------
 output:
   border-[modifier]: [value];
 ----------------------------------------
 example:
   .bor-t-1px {
-    border-top: 1px; }
+    border-top: 1px solid; }
 
   .bor-0 {
     border: none; }
@@ -19,7 +21,7 @@ example:
 
 $border: (
   border: (
-    base: 'bor',
+    base: 'b',
     modifiers: (
       t: '-top',
       r: '-right',

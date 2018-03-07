@@ -1,22 +1,22 @@
 /*
-----------------------------------------
-Vertical Align
+========================================
+vertical-align
 ----------------------------------------
 usage:
-  .ver-[value]
+  .va-[value]
 ----------------------------------------
 output:
   vertical-align: [value]
 ----------------------------------------
 example:
-  .ver-top {
+  .va-top {
     vertical-align: top; }
 ----------------------------------------
 */
 
 $vertical-align: (
   vertical-align: (
-    base: 'ver',
+    base: 'va',
     modifiers: null,
     values: map-collect(
       $vertical-align-preset-values,

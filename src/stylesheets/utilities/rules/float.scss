@@ -3,20 +3,20 @@
 FLOAT
 ----------------------------------------
 usage:
-  .float-[value]
+  .f-[value]
 ----------------------------------------
 output:
   float: [value];
 ----------------------------------------
 example:
-  .float-left {
+  .f-left {
     float: left; }
 ----------------------------------------
 */
 
 $float: (
   float: (
-    base: 'float',
+    base: 'f',
     modifiers: null,
     values: map-collect(
       $float-preset-values,

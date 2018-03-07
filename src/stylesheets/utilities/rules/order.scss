@@ -1,25 +1,25 @@
 /*
-----------------------------------------
-Order
+========================================
+order
 ----------------------------------------
 usage:
-  .order-[key]
+  .o-[key]
 ----------------------------------------
 output:
   order: [value]
 ----------------------------------------
 example:
-  .order-first {
+  .o-first {
     order: -1; }
 
-  .order-2 {
+  .o-2 {
     order: 2; }
 ----------------------------------------
 */
 
 $order: (
   order: (
-    base: 'order',
+    base: 'o',
     modifiers: null,
     values: map-collect(
       $order-preset-values,

@@ -1,22 +1,22 @@
 /*
 ----------------------------------------
-Background Color
+BACKGROUND-COLOR
 ----------------------------------------
 usage:
-  .bac-[key]
+  .bg-[key]
 ----------------------------------------
 output:
   background-color: [value];
 ----------------------------------------
 example:
-  .bac-red-50v {
+  .bg-red-50v {
     background-color: #be4900; }
 ----------------------------------------
 */
 
 $background-color: (
   background-color: (
-    base: 'bac',
+    base: 'bg',
     modifiers: null,
     property: 'background-color',
     values: map-collect(

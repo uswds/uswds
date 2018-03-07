@@ -1,22 +1,22 @@
 /*
-----------------------------------------
-Font Weight
+========================================
+font-weight
 ----------------------------------------
 usage:
-  .font-[key]
+  .fw-[key]
 ----------------------------------------
 output:
   font-weight: [value];
 ----------------------------------------
 example:
-  .font-300 {
+  .fw-300 {
     font-weight: 300; }
 ----------------------------------------
 */
 
 $font-weight: (
   font-weight: (
-    base: 'font',
+    base: 'fw',
     modifiers: null,
     values: map-collect(
       $font-weight-preset-values,

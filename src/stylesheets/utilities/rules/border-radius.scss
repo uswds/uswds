@@ -1,25 +1,25 @@
 /*
-----------------------------------------
-Border Radius
+========================================
+border-radius
 ----------------------------------------
 usage:
-  .rad-[key]
+  .br-[key]
 ----------------------------------------
 output:
   border-radius: [value];
 ----------------------------------------
 example:
-  .rad-0 {
+  .br-0 {
     border-radius: 0; }
 
-  .rad-pill {
+  .br-pill {
     border-radius: 10em; }
 ----------------------------------------
 */
 
 $border-radius: (
   border-radius: (
-    base: 'rad',
+    base: 'br',
     modifiers: (
       t: ('border-top-left-radius', 'border-top-right-radius'),
       r: ('border-top-right-radius', 'border-bottom-right-radius'),

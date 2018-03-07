@@ -1,22 +1,22 @@
 /*
-----------------------------------------
-Whitespace
+========================================
+whitespace
 ----------------------------------------
 usage:
-  whi-[key]
+  w-[key]
 ----------------------------------------
 output:
   whitespace: [value];
 ----------------------------------------
 example:
-  .whi-pre-wrap {
+  .w-pre-wrap {
     whitespace: pre-wrap; }
 ----------------------------------------
 */
 
 $whitespace: (
   whitespace: (
-    base: 'whi',
+    base: 'w',
     modifiers: null,
     values: map-collect(
       $whitespace-preset-values,

@@ -1,22 +1,22 @@
 /*
-----------------------------------------
-Position
+========================================
+position
 ----------------------------------------
 usage:
-  .pos-[keye]
+  .p-[keye]
 ----------------------------------------
 output:
   position: [value];
 ----------------------------------------
 example:
-  .pos-absolute {
+  .p-absolute {
     position: absolute; }
 ----------------------------------------
 */
 
 $position: (
   position: (
-    base: 'pos',
+    base: 'p',
     modifiers: null,
     values: map-collect(
       $position-preset-values,

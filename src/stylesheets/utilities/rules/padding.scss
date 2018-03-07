@@ -1,25 +1,25 @@
 /*
-----------------------------------------
-Padding
+========================================
+padding
 ----------------------------------------
 usage:
-  .pad-[modifier]*-[value]
+  .p-[modifier]*-[value]
 ----------------------------------------
 output:
   padding: [value]
 ----------------------------------------
 example:
-  .pad-0 {
+  .p-0 {
     padding: none; }
 
-  .pad-b-1px {
+  .p-b-1px {
     padding-bottom: 1px; }
 ----------------------------------------
 */
 
 $padding: (
   padding: (
-    base: 'pad',
+    base: 'p',
     modifiers: (
       t: '-top',
       r: '-right',

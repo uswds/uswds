@@ -3,26 +3,26 @@
 FLEX
 ----------------------------------------
 usage:
-  .flex-[key]
+  .f-[key]
 ----------------------------------------
 output:
   flex: [value];
 ----------------------------------------
 example:
-  .flex-f1 {
-    flex: 0 0 1; }
-
-  .flex-fill {
+  .f-1 {
     flex: 1 0 0; }
 
-  .flex-fit {
+  .f-fill {
+    flex: 1 0 0; }
+
+  .f-fit {
     flex: none; }
 ----------------------------------------
 */
 
 $flex: (
   flex: (
-    base: 'flex',
+    base: 'f',
     modifiers: null,
     values: map-collect(
       $flex-preset-values,

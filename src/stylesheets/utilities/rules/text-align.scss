@@ -1,22 +1,22 @@
 /*
-----------------------------------------
-Text Align
+========================================
+text-align
 ----------------------------------------
 usage:
-  .text-[key]
+  .ta-[key]
 ----------------------------------------
 output:
   align: [value];
 ----------------------------------------
 example:
-  .text-left {
+  .ta-left {
     align: left; }
 ----------------------------------------
 */
 
 $text-align: (
   text-align: (
-    base: 'text',
+    base: 'ta',
     modifiers: null,
     values: map-collect(
       $text-align-preset-values,

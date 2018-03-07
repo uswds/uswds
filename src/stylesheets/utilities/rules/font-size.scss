@@ -1,16 +1,16 @@
 /*
-----------------------------------------
-Font Size
+========================================
+font-size
 ----------------------------------------
 usage:
-  .font-[key]-[key]
+  .fs-[key]-[key]
 ----------------------------------------
 output:
   font-family: [value];
   font-size: [value];
 ----------------------------------------
 example:
-  .font-sans-14 {
+  .fs-sans-14 {
     font-face: '18Franklin-webfont',
                 system,
                 -apple-system,
@@ -26,7 +26,7 @@ example:
 
 $font-size: (
   font-size: (
-    base: 'font',
+    base: 'fs',
     modifiers: null,
     values: map-collect(
       $font-size-preset-values,

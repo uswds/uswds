@@ -1,22 +1,22 @@
 /*
-----------------------------------------
-Line Height
+========================================
+line-height
 ----------------------------------------
 usage:
-  .line-[value]
+  .lh-[value]
 ----------------------------------------
 output:
   line-height: [value];
 ----------------------------------------
 example:
-  .line-2 {
+  .lh-1 {
     line-height: 1.15; }
 ----------------------------------------
 */
 
 $line-height: (
   line-height: (
-    base: 'line',
+    base: 'lh',
     modifiers: null,
     values: map-collect(
       $line-height-preset-values,
