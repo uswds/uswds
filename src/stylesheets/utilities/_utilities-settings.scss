@@ -87,7 +87,7 @@ $background-color-preset-values: map-collect(
   [store unused presets here]
   ------------------------- */
   $preset-palette-reserved,
-  $preset-palette-uswds-classic
+  $preset-palette-project-settings
 ) !default;
 
 $background-color-manual-values: (
@@ -135,7 +135,8 @@ $border-preset-values: map-collect(
   $example-preset-2 [no trailing comma]
   ----------------------------
   $preset-units-px,
-  $preset-units-grid-basic
+  $preset-units-grid-small,
+  $preset-units-grid-large
   ------------------------- */
 ) !default;
 
@@ -181,7 +182,7 @@ $border-color-preset-values: map-collect(
   $example-preset-1,
   $example-preset-2 [no trailing comma]
   ----------------------------
-  $preset-palette-uswds-classic,
+  $preset-palette-project-settings,
   $preset-palette-reserved
   ------------------------- */
 ) !default;
@@ -425,7 +426,7 @@ $color-preset-values: map-collect(
   ----------------------------
   [store unused presets here]
   ------------------------- */
-  $preset-palette-uswds-classic,
+  $preset-palette-project-settings,
   $preset-palette-reserved
 ) !default;
 
@@ -705,6 +706,120 @@ $float-manual-values: (
   left:         'left',
   none:         'none',
   right:        'right',
+) !default;
+
+/*
+========================================
+font
+----------------------------------------
+sets font-size and font-family
+----------------------------------------
+usage:
+  .font-[key]-[key]
+----------------------------------------
+output:
+  font-family: [value];
+  font-size: [value];
+----------------------------------------
+example:
+  .font-sans-14 {
+    font-face: '18Franklin-webfont',
+                system,
+                -apple-system,
+                BlinkMacSystemFont,
+                'Roboto',
+                'Helvetica Neue',
+                'Helvetica',
+                'Arial',
+                sans-serif;
+    font-size: 1rem; }
+----------------------------------------
+*/
+
+$font-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false,
+) !default;
+
+$font-preset-values: map-collect(
+  /*
+  $example-preset-1,
+  $example-preset-2 [no trailing comma]
+  ----------------------------
+  $preset-mono-12,
+  $preset-mono-13,
+  $preset-mono-14,
+  $preset-mono-15,
+  $preset-mono-16,
+  $preset-mono-17,
+  $preset-mono-18,
+  $preset-mono-20,
+  $preset-mono-22,
+  $preset-mono-24,
+  $preset-mono-28,
+  $preset-mono-32,
+  $preset-mono-36,
+  $preset-mono-40,
+  $preset-mono-48,
+  $preset-mono-56,
+  $preset-mono-64,
+  $preset-mono-80,
+  $preset-mono-120,
+  $preset-mono-140,
+  $preset-sans-12,
+  $preset-sans-13,
+  $preset-sans-14,
+  $preset-sans-15,
+  $preset-sans-16,
+  $preset-sans-17,
+  $preset-sans-18,
+  $preset-sans-20,
+  $preset-sans-22,
+  $preset-sans-24,
+  $preset-sans-28,
+  $preset-sans-32,
+  $preset-sans-36,
+  $preset-sans-40,
+  $preset-sans-48,
+  $preset-sans-56,
+  $preset-sans-64,
+  $preset-sans-80,
+  $preset-sans-120,
+  $preset-sans-140,
+  $preset-serif-12,
+  $preset-serif-13,
+  $preset-serif-14,
+  $preset-serif-15,
+  $preset-serif-16,
+  $preset-serif-17,
+  $preset-serif-18,
+  $preset-serif-20,
+  $preset-serif-22,
+  $preset-serif-24,
+  $preset-serif-28,
+  $preset-serif-32,
+  $preset-serif-36,
+  $preset-serif-40,
+  $preset-serif-48,
+  $preset-serif-56,
+  $preset-serif-64,
+  $preset-serif-80,
+  $preset-serif-120,
+  $preset-serif-140
+  ------------------------- */
+  $preset-font-size-tshirt
+) !default;
+
+$font-manual-values: (
+  /*
+  key:          'value', [trailing comma ok]
+  ----------------------------
+  [store unused value pairs here]
+  ------------------------- */
 ) !default;
 
 /*

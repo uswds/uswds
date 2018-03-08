@@ -39,53 +39,56 @@ $font-normal:         400 !default;
 $font-bold:           700 !default;
 
 // Color
-$color-blue:                 #0071bc !default;
-$color-blue-darker:          #205493 !default;
-$color-blue-darkest:         #112e51 !default;
+$color-blue:                 $blue-70 !default;
+$color-blue-darker:          $blue-warm-70v !default;
+$color-blue-darkest:         $blue-warm-80v !default;
+$color-blue-light:           $blue-warm-50 !default;
+$color-blue-lighter:         $blue-warm-30 !default;
+$color-blue-lightest:        $blue-warm-10 !default;
 
-$color-aqua:                 #02bfe7 !default;
-$color-aqua-dark:            #00a6d2 !default;
-$color-aqua-darkest:         #046b99 !default;
-$color-aqua-light:           #9bdaf1 !default;
-$color-aqua-lightest:        #e1f3f8 !default;
+$color-aqua:                 $cyan-30v !default;
+$color-aqua-dark:            $cyan-40v !default;
+$color-aqua-darkest:         $blue-60 !default;
+$color-aqua-light:           $cyan-20 !default;
+$color-aqua-lightest:        $cyan-5 !default;
 
-$color-red:                  #e31c3d !default;
-$color-red-dark:             #cd2026 !default;
-$color-red-darkest:          #981b1e !default;
-$color-red-light:            #e59393 !default;
-$color-red-lightest:         #f9dede !default;
+$color-red:                  $red-50 !default;
+$color-red-dark:             $red-60v !default;
+$color-red-darkest:          $red-70v !default;
+$color-red-light:            $red-30 !default;
+$color-red-lightest:         $red-10 !default;
 
-$color-white:                #ffffff !default;
-$color-black:                #000000 !default;
-$color-black-light:          #212121 !default;
+$color-white:                $white-0 !default;
+$color-black:                $black-100 !default;
+$color-black-light:          $black-90 !default;
 
-$color-gray-dark:            #323a45 !default;
-$color-gray:                 #5b616b !default;
+$color-gray-dark:            $black-cool-80 !default;
+$color-gray:                 $black-cool-60 !default;
 $color-gray-medium:          #757575 !default;
-$color-gray-light:           #aeb0b5 !default;
-$color-gray-lighter:         #d6d7d9 !default;
-$color-gray-lightest:        #f1f1f1 !default;
+$color-gray-light:           $black-30 !default;
+$color-gray-lighter:         $black-cool-10 !default;
+$color-gray-lightest:        $black-cool-5 !default;
 
-$color-gray-warm-dark:       #494440 !default;
-$color-gray-warm-light:      #e4e2e0 !default;
-$color-gray-cool-light:      #dce4ef !default;
+$color-gray-warm-dark:       $black-warm-70 !default;
+$color-gray-warm-light:      $black-warm-10 !default;
+$color-gray-cool-light:      $blue-warm-5 !default;
 
-$color-gold:                 #fdb81e !default;
-$color-gold-light:           #f9c642 !default;
-$color-gold-lighter:         #fad980 !default;
-$color-gold-lightest:        #fff1d2 !default;
+$color-gold:                 $gold-20v !default;
+$color-gold-light:           $gold-10v !default;
+$color-gold-lighter:         $yellow-10 !default;
+$color-gold-lightest:        $gold-5 !default;
 
-$color-green:                #2e8540 !default;
-$color-green-light:          #4aa564 !default;
-$color-green-lighter:        #94bfa2 !default;
-$color-green-lightest:       #e7f4e4 !default;
+$color-green:                $green-cool-50 !default;
+$color-green-light:          $green-cool-40 !default;
+$color-green-lighter:        $green-cool-20 !default;
+$color-green-lightest:       $green-cool-5 !default;
 
 $color-cool-blue:            #205493 !default;
 $color-cool-blue-light:      #4773aa !default;
 $color-cool-blue-lighter:    #8ba6ca !default;
 $color-cool-blue-lightest:   #dce4ef !default;
 
-$color-purple:               #4c2c92 !default;
+$color-purple:               $violet-70v !default;
 
 // Functional colors
 $color-primary:              $color-blue !default;
@@ -108,7 +111,7 @@ $color-base:                 $color-black-light !default;
 $color-focus:                $color-gray-light !default;
 $color-visited:              $color-purple !default;
 
-$color-shadow:               rgba(#000, 0.3) !default;
+$color-shadow:               $black-transparent-30 !default;
 $color-transparent:          rgba(#000, 0) !default;
 
 // Mobile First Breakpoints
