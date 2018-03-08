@@ -807,17 +807,19 @@ $font-feature-manual-values: (
 
 /*
 ========================================
-font-size
+font
+----------------------------------------
+sets font-size and font-family
 ----------------------------------------
 usage:
-  .font-size-[key]-[key]
+  .font-[key]-[key]
 ----------------------------------------
 output:
   font-family: [value];
   font-size: [value];
 ----------------------------------------
 example:
-  .font-size-sans-14 {
+  .font-sans-14 {
     font-face: '18Franklin-webfont',
                 system,
                 -apple-system,
@@ -831,7 +833,7 @@ example:
 ----------------------------------------
 */
 
-$font-size-settings: (
+$font-settings: (
   output:       true,
   responsive:   false,
   active:       false,
@@ -840,7 +842,7 @@ $font-size-settings: (
   visited:      false,
 ) !default;
 
-$font-size-preset-values: map-collect(
+$font-preset-values: map-collect(
   /*
   $example-preset-1,
   $example-preset-2 [no trailing comma]
@@ -909,7 +911,7 @@ $font-size-preset-values: map-collect(
   $preset-font-size-tshirt
 ) !default;
 
-$font-size-manual-values: (
+$font-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ----------------------------
