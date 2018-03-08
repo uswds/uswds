@@ -5,7 +5,7 @@ $preset-colors-black-warm-light: (
   'black-warm-30': $black-warm-30,
 );
 
-$preset-colors-black-warm-basic: (
+$preset-colors-black-warm-medium: (
   'black-warm-40': $black-warm-40,
   'black-warm-50': $black-warm-50,
   'black-warm-60': $black-warm-60,
@@ -19,6 +19,6 @@ $preset-colors-black-warm-dark: (
 
 $preset-colors-black-warm: map-collect(
   $preset-colors-black-warm-light,
-  $preset-colors-black-warm-basic,
+  $preset-colors-black-warm-medium,
   $preset-colors-black-warm-dark
 );

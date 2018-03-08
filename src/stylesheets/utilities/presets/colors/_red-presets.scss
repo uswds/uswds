@@ -5,7 +5,7 @@ $preset-colors-red-light: (
   'red-30': $red-30,
 );
 
-$preset-colors-red-basic: (
+$preset-colors-red-medium: (
   'red-40': $red-40,
   'red-50': $red-50,
   'red-60': $red-60,
@@ -32,7 +32,7 @@ $preset-colors-red-vivid: (
 
 $preset-colors-red-standard: map-collect(
   $preset-colors-red-light,
-  $preset-colors-red-basic,
+  $preset-colors-red-medium,
   $preset-colors-red-dark
 );
 

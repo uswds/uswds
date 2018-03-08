@@ -5,7 +5,7 @@ $preset-colors-gold-light: (
   'gold-30': $gold-30,
 );
 
-$preset-colors-gold-basic: (
+$preset-colors-gold-medium: (
   'gold-40': $gold-40,
   'gold-50': $gold-50,
   'gold-60': $gold-60,
@@ -32,7 +32,7 @@ $preset-colors-gold-vivid: (
 
 $preset-colors-gold-standard: map-collect(
   $preset-colors-gold-light,
-  $preset-colors-gold-basic,
+  $preset-colors-gold-medium,
   $preset-colors-gold-dark
 );
 

@@ -5,7 +5,7 @@ $preset-colors-cyan-light: (
   'cyan-30': $cyan-30,
 );
 
-$preset-colors-cyan-basic: (
+$preset-colors-cyan-medium: (
   'cyan-40': $cyan-40,
   'cyan-50': $cyan-50,
   'cyan-60': $cyan-60,
@@ -32,7 +32,7 @@ $preset-colors-cyan-vivid: (
 
 $preset-colors-cyan-standard: map-collect(
   $preset-colors-cyan-light,
-  $preset-colors-cyan-basic,
+  $preset-colors-cyan-medium,
   $preset-colors-cyan-dark
 );
 

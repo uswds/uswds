@@ -5,7 +5,7 @@ $preset-colors-violet-light: (
   'violet-30': $violet-30,
 );
 
-$preset-colors-violet-basic: (
+$preset-colors-violet-medium: (
   'violet-40': $violet-40,
   'violet-50': $violet-50,
   'violet-60': $violet-60,
@@ -32,7 +32,7 @@ $preset-colors-violet-vivid: (
 
 $preset-colors-violet-standard: map-collect(
   $preset-colors-violet-light,
-  $preset-colors-violet-basic,
+  $preset-colors-violet-medium,
   $preset-colors-violet-dark
 );
 

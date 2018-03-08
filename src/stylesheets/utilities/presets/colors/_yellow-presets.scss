@@ -5,7 +5,7 @@ $preset-colors-yellow-light: (
   'yellow-30': $yellow-30,
 );
 
-$preset-colors-yellow-basic: (
+$preset-colors-yellow-medium: (
   'yellow-40': $yellow-40,
   'yellow-50': $yellow-50,
   'yellow-60': $yellow-60,
@@ -32,7 +32,7 @@ $preset-colors-yellow-vivid: (
 
 $preset-colors-yellow-standard: map-collect(
   $preset-colors-yellow-light,
-  $preset-colors-yellow-basic,
+  $preset-colors-yellow-medium,
   $preset-colors-yellow-dark
 );
 

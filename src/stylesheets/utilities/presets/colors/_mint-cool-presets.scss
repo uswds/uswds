@@ -5,7 +5,7 @@ $preset-colors-mint-cool-light: (
   'mint-cool-30': $mint-cool-30,
 );
 
-$preset-colors-mint-cool-basic: (
+$preset-colors-mint-cool-medium: (
   'mint-cool-40': $mint-cool-40,
   'mint-cool-50': $mint-cool-50,
   'mint-cool-60': $mint-cool-60,
@@ -32,7 +32,7 @@ $preset-colors-mint-cool-vivid: (
 
 $preset-colors-mint-cool-standard: map-collect(
   $preset-colors-mint-cool-light,
-  $preset-colors-mint-cool-basic,
+  $preset-colors-mint-cool-medium,
   $preset-colors-mint-cool-dark
 );
 

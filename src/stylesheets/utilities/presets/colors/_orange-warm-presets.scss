@@ -5,7 +5,7 @@ $preset-colors-orange-warm-light: (
   'orange-warm-30': $orange-warm-30,
 );
 
-$preset-colors-orange-warm-basic: (
+$preset-colors-orange-warm-medium: (
   'orange-warm-40': $orange-warm-40,
   'orange-warm-50': $orange-warm-50,
   'orange-warm-60': $orange-warm-60,
@@ -32,7 +32,7 @@ $preset-colors-orange-warm-vivid: (
 
 $preset-colors-orange-warm-standard: map-collect(
   $preset-colors-orange-warm-light,
-  $preset-colors-orange-warm-basic,
+  $preset-colors-orange-warm-medium,
   $preset-colors-orange-warm-dark
 );
 

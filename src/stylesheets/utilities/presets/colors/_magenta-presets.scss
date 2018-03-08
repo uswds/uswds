@@ -5,7 +5,7 @@ $preset-colors-magenta-light: (
   'magenta-30': $magenta-30,
 );
 
-$preset-colors-magenta-basic: (
+$preset-colors-magenta-medium: (
   'magenta-40': $magenta-40,
   'magenta-50': $magenta-50,
   'magenta-60': $magenta-60,
@@ -32,7 +32,7 @@ $preset-colors-magenta-vivid: (
 
 $preset-colors-magenta-standard: map-collect(
   $preset-colors-magenta-light,
-  $preset-colors-magenta-basic,
+  $preset-colors-magenta-medium,
   $preset-colors-magenta-dark
 );
 

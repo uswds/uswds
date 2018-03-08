@@ -5,7 +5,7 @@ $preset-colors-blue-light: (
   'blue-30': $blue-30,
 );
 
-$preset-colors-blue-basic: (
+$preset-colors-blue-medium: (
   'blue-40': $blue-40,
   'blue-50': $blue-50,
   'blue-60': $blue-60,
@@ -32,7 +32,7 @@ $preset-colors-blue-vivid: (
 
 $preset-colors-blue-standard: map-collect(
   $preset-colors-blue-light,
-  $preset-colors-blue-basic,
+  $preset-colors-blue-medium,
   $preset-colors-blue-dark
 );
 

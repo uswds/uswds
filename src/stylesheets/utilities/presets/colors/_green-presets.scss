@@ -5,7 +5,7 @@ $preset-colors-green-light: (
   'green-30': $green-30,
 );
 
-$preset-colors-green-basic: (
+$preset-colors-green-medium: (
   'green-40': $green-40,
   'green-50': $green-50,
   'green-60': $green-60,
@@ -32,7 +32,7 @@ $preset-colors-green-vivid: (
 
 $preset-colors-green-standard: map-collect(
   $preset-colors-green-light,
-  $preset-colors-green-basic,
+  $preset-colors-green-medium,
   $preset-colors-green-dark
 );
 

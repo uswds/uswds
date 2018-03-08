@@ -5,7 +5,7 @@ $preset-colors-indigo-light: (
   'indigo-30': $indigo-30,
 );
 
-$preset-colors-indigo-basic: (
+$preset-colors-indigo-medium: (
   'indigo-40': $indigo-40,
   'indigo-50': $indigo-50,
   'indigo-60': $indigo-60,
@@ -32,7 +32,7 @@ $preset-colors-indigo-vivid: (
 
 $preset-colors-indigo-standard: map-collect(
   $preset-colors-indigo-light,
-  $preset-colors-indigo-basic,
+  $preset-colors-indigo-medium,
   $preset-colors-indigo-dark
 );
 
