@@ -811,7 +811,7 @@ $font-preset-values: map-collect(
   $preset-serif-120,
   $preset-serif-140
   ------------------------- */
-  $preset-font-size-tshirt
+  $preset-font-tshirt
 ) !default;
 
 $font-manual-values: (
@@ -1023,7 +1023,7 @@ $font-preset-values: map-collect(
   $preset-serif-120,
   $preset-serif-140
   ------------------------- */
-  $preset-font-size-tshirt
+  $preset-font-tshirt
 ) !default;
 
 $font-manual-values: (
@@ -1405,7 +1405,7 @@ $margin-preset-values: map-collect(
   $preset-units-em
   ------------------------- */
   $preset-spacing-tshirt,
-  $preset-spacing-negative-tshirt
+  $preset-spacing-tshirt-negative
 ) !default;
 
 $margin-manual-values: (

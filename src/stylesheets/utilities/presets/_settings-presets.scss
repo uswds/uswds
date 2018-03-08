@@ -25,7 +25,7 @@ $preset-spacing-tshirt: (
   3xl:      $s-spacing-3xl,
 );
 
-$preset-spacing-negative-tshirt: (
+$preset-spacing-tshirt-negative: (
   nxs:       -#{$s-spacing-xs},
   nsm:       -#{$s-spacing-sm},
   nmd:       -#{$s-spacing-md},
@@ -339,7 +339,7 @@ $preset-serif-tshirt: map-collect(
   $preset-serif-3xl
 );
 
-$preset-font-size-tshirt: map-collect(
+$preset-font-tshirt: map-collect(
   $preset-mono-tshirt,
   $preset-sans-tshirt,
   $preset-serif-tshirt
