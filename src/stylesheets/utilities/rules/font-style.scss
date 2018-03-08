@@ -3,22 +3,22 @@
 font-style
 ----------------------------------------
 usage:
-  .fs-italic
+  .font-style-italic
 ----------------------------------------
 output:
   font-style: italic;
 ----------------------------------------
 example:
-  .fs-italic {
+  .font-style-italic {
     font-style: italic; }
-  .fs-normal {
+  .font-style-normal {
     font-style: normal; }
 ----------------------------------------
 */
 
 $font-style: (
   font-style: (
-    base: 'fs',
+    base: 'font-style',
     modifiers: null,
     values: map-collect(
       $font-style-preset-values,

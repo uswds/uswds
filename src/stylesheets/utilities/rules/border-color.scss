@@ -1,18 +1,18 @@
 /*
-----------------------------------------
-BORDER COLOR
+========================================
+background-color
 ----------------------------------------
 usage:
-  .bc-[color]
+  .border-color-[color]
 ----------------------------------------
 output:
   border[-modifier]*[-color]: [color];
 ----------------------------------------
 example:
-  .bc-red {
+  .border-color-red {
     border-color: #be4900; }
 
-  .bc-x-red {
+  .border-color-x-red {
     border-left-color: #be4900;
     border-right-color: #be4900; }
 ----------------------------------------
@@ -21,7 +21,7 @@ example:
 $border-color: (
   border-color: (
     property: 'border',
-    base: 'bc',
+    base: 'border-color',
     modifiers: (
       t: '-top-color',
       r: '-left-color',

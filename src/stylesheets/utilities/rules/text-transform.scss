@@ -3,20 +3,20 @@
 text-transform
 ----------------------------------------
 usage:
-  .tt-[value]
+  .text-transform-[value]
 ----------------------------------------
 output:
   text-transform: value;
 ----------------------------------------
 example:
-  .tt-uppercase {
+  .text-transform-uppercase {
     text-transform: uppercase; }
 ----------------------------------------
 */
 
 $text-transform: (
   text-transform: (
-    base: 'tt',
+    base: 'text-transform',
     modifiers: null,
     values: map-collect(
       $text-transform-preset-values,

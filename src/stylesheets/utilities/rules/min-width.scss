@@ -3,20 +3,20 @@
 min-width
 ----------------------------------------
 usage:
-  .minw-[key]
+  .min-width-[key]
 ----------------------------------------
 output:
   min-width: [value];
 ----------------------------------------
 example:
-  .minw-g40 {
+  .min-width-g40 {
     min-width: 320px; }
 ----------------------------------------
 */
 
 $min-width: (
   min-width: (
-    base: 'minw',
+    base: 'min-width',
     modifiers: null,
     values: map-collect(
       $min-width-preset-values,

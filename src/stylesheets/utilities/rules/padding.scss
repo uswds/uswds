@@ -3,23 +3,23 @@
 padding
 ----------------------------------------
 usage:
-  .p-[modifier]*-[value]
+  .padding-[modifier]*-[value]
 ----------------------------------------
 output:
   padding: [value]
 ----------------------------------------
 example:
-  .p-0 {
+  .padding-0 {
     padding: none; }
 
-  .p-b-1px {
+  .padding-b-1px {
     padding-bottom: 1px; }
 ----------------------------------------
 */
 
 $padding: (
   padding: (
-    base: 'p',
+    base: 'padding',
     modifiers: (
       t: '-top',
       r: '-right',

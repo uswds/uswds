@@ -3,20 +3,20 @@
 max-height
 ----------------------------------------
 usage:
-  .maxh-[key]
+  .max-height-[key]
 ----------------------------------------
 output:
   max-height: [value];
 ----------------------------------------
 example:
-  .maxh-g40 {
+  .max-height-g40 {
     max-height: 320px; }
 ----------------------------------------
 */
 
 $max-height: (
   max-height: (
-    base: 'maxh',
+    base: 'max-height',
     modifiers: null,
     values: map-collect(
       $max-height-preset-values,

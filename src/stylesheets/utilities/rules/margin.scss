@@ -3,24 +3,24 @@
 margin
 ----------------------------------------
 usage:
-  .m-[modifier]*-[key]
+  .margin-[modifier]*-[key]
 ----------------------------------------
 output:
   margin: [value]
 ----------------------------------------
 example:
-  .m-x-auto {
+  .margin-x-auto {
     margin-left: auto;
     margin-right: auto; }
 
-  .m-g105 {
+  .margin-g105 {
     margin: .75rem; }
 ----------------------------------------
 */
 
 $margin: (
   margin: (
-    base: 'm',
+    base: 'margin',
     modifiers: (
       t: '-top',
       r: '-right',

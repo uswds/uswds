@@ -1,22 +1,22 @@
 /*
 ========================================
-HEIght
+height
 ----------------------------------------
 usage:
-  .h-[value]
+  .height-[value]
 ----------------------------------------
 output:
   height: [value];
 ----------------------------------------
 example:
-  .h-33ct {
+  .height-33ct {
     height: 33.33333333%; }
 ----------------------------------------
 */
 
 $height: (
   height: (
-    base: 'h',
+    base: 'height',
     modifiers: null,
     values: map-collect(
       $height-preset-values,

@@ -11,13 +11,13 @@ $utilities-namespace-prefix: 'usa-u-';
 align-items
 ----------------------------------------
 usage:
-  .ai-[key]
+  .align-items-[key]
 ----------------------------------------
 output:
   align-items: [value];
 ----------------------------------------
 example:
-  .ai-flex-start {
+  .align-items-flex-start {
     align-items: flex-start; }
 ----------------------------------------
 */
@@ -53,17 +53,20 @@ $align-items-manual-values: (
 
 /*
 ========================================
-background-color
+border-radius
 ----------------------------------------
 usage:
-  .bg-[key]
+  .border-radius-[key]
 ----------------------------------------
 output:
-  background-color: [value];
+  border-radius: [value];
 ----------------------------------------
 example:
-  .bg-red-50v {
-    background-color: #be4900; }
+  .border-radius-0 {
+    border-radius: 0; }
+
+  .border-radius-pill {
+    border-radius: 10em; }
 ----------------------------------------
 */
 
@@ -103,16 +106,16 @@ Also applies `solid`
 Needs to come before other border utils
 ----------------------------------------
 usage:
-  .bw-[modifier]*-[key]
+  .border-width-[modifier]*-[key]
 ----------------------------------------
 output:
   border-[modifier]: [value];
 ----------------------------------------
 example:
-  .bor-t-1px {
+  .border-width-t-1px {
     border-top: 1px solid; }
 
-  .bor-0 {
+  .border-width-0 {
     border: none; }
 ----------------------------------------
 */
@@ -149,16 +152,16 @@ $border-manual-values: (
 border-color
 ----------------------------------------
 usage:
-  .bc-[color]
+  .border-color-[color]
 ----------------------------------------
 output:
   border[-modifier]*[-color]: [color];
 ----------------------------------------
 example:
-  .bc-red {
+  .border-color-red {
     border-color: #be4900; }
 
-  .bc-x-red {
+  .border-color-x-red {
     border-left-color: #be4900;
     border-right-color: #be4900; }
 ----------------------------------------
@@ -196,16 +199,16 @@ $border-color-manual-values: (
 border-radius
 ----------------------------------------
 usage:
-  .br-[key]
+  .border-radius-[key]
 ----------------------------------------
 output:
   border-radius: [value];
 ----------------------------------------
 example:
-  .br-0 {
+  .border-radius-0 {
     border-radius: 0; }
 
-  .br-pill {
+  .border-radius-pill {
     border-radius: 10em; }
 ----------------------------------------
 */
@@ -250,13 +253,13 @@ $border-radius-manual-values: (
 border-style
 ----------------------------------------
 usage:
-  .bs[-modifier]*-[key]
+  .border-style[-modifier]*-[key]
 ----------------------------------------
 output:
   border[-modifier]-style: [value];
 ----------------------------------------
 example:
-  .bs-dotted {
+  .border-style-dotted {
     border-style: dotted; }
 ----------------------------------------
 */
@@ -294,13 +297,13 @@ $border-style-manual-values: (
 box-shadow
 ----------------------------------------
 usage:
-  .bs-[value]
+  .box-shadow-[value]
 ----------------------------------------
 output:
   box-shadow: [value];
 ----------------------------------------
 example:
-  .bs-elev-1 {
+  .box-shadow-1 {
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10); }
 ----------------------------------------
 */
@@ -328,17 +331,17 @@ $box-shadow-manual-values: (
   key:          'value', [trailing comma ok]
   ----------------------------
   none:   'none',
-  elev-1: '0 1px 2px 0 rgba(0,0,0,0.10)',
-  elev-2: '0 4px 8px 0 rgba(0,0,0,0.10)',
-  elev-3: '0 6px 12px 0 rgba(0,0,0,0.10)',
-  elev-4: '0 8px 16px 0 rgba(0,0,0,0.10)',
-  elev-5: '0 12px 24px 0 rgba(0,0,0,0.10)',
+  1: '0 1px 2px 0 rgba(0,0,0,0.10)',
+  2: '0 4px 8px 0 rgba(0,0,0,0.10)',
+  3: '0 6px 12px 0 rgba(0,0,0,0.10)',
+  4: '0 8px 16px 0 rgba(0,0,0,0.10)',
+  5: '0 12px 24px 0 rgba(0,0,0,0.10)',
   ------------------------- */
 ) !default;
 
 /*
 ========================================
-CIRCLE
+circle
 ----------------------------------------
 usage:
   .circle-[key]
@@ -395,13 +398,13 @@ $circle-manual-values: (
 color
 ----------------------------------------
 usage:
-  .c-[key]
+  .color-[key]
 ----------------------------------------
 output:
   color: [value];
 ----------------------------------------
 example:
-  .c-black-100 {
+  .color-black-100 {
     color: #000; }
 ----------------------------------------
 */
@@ -436,7 +439,7 @@ $color-manual-values: (
 
 /*
 ========================================
-COLUMN
+column
 ----------------------------------------
 usage:
   .column
@@ -466,13 +469,13 @@ $column-settings: (
 display
 ----------------------------------------
 usage:
-  .d-[key]
+  .display-[key]
 ----------------------------------------
 output:
   display: [value]
 ----------------------------------------
 example:
-  .d-none {
+  .display-none {
     display: none; }
 ----------------------------------------
 */
@@ -515,19 +518,19 @@ $display-manual-values: (
 flex
 ----------------------------------------
 usage:
-  .f-[key]
+  .flex-[key]
 ----------------------------------------
 output:
   flex: [value];
 ----------------------------------------
 example:
-  .f-1 {
+  .flex-1 {
     flex: 1 0 0; }
 
-  .f-fill {
+  .flex-fill {
     flex: 1 0 0; }
 
-  .f-fit {
+  .flex-fit {
     flex: none; }
 ----------------------------------------
 */
@@ -576,13 +579,13 @@ $flex-manual-values: (
 flex-direction
 ----------------------------------------
 usage:
-  .fd-[value]
+  .flex-direction-[value]
 ----------------------------------------
 output:
   flex-direction: [value]
 ----------------------------------------
 example:
-  .fd-row {
+  .flex-direction-row {
     flex-direction: row; }
 ----------------------------------------
 */
@@ -620,13 +623,13 @@ $flex-direction-manual-values: (
 flex-wrap
 ----------------------------------------
 usage:
-  .fw-[key]
+  .flex-wrap-[key]
 ----------------------------------------
 output:
   flex-wrap: [value];
 ----------------------------------------
 example:
-  .fw-wrap {
+  .flex-wrap-wrap {
     flex-wrap: wrap; }
 ----------------------------------------
 */
@@ -709,13 +712,13 @@ $float-manual-values: (
 font-family
 ----------------------------------------
 usage:
-  .ff-[key]
+  .font-family-[key]
 ----------------------------------------
 output:
   font-family: [value]
 ----------------------------------------
 example:
-  .ff-sans {
+  .font-family-sans {
     font-family: 'United Sans webfont',
                 system,
                 -apple-system,
@@ -760,13 +763,13 @@ $font-family-manual-values: (
 font-feature-settings
 ----------------------------------------
 usage:
-  .ffs-[key]
+  .font-feature-[key]
 ----------------------------------------
 output:
   font-feature-settings: [value];
 ----------------------------------------
 example:
-  .ffs-alt {
+  .font-feature-alt {
     font-feature-settings:
       'ss01' 1, 'kern' 1; }
 ----------------------------------------
@@ -807,14 +810,14 @@ $font-feature-manual-values: (
 font-size
 ----------------------------------------
 usage:
-  .fs-[key]-[key]
+  .font-size-[key]-[key]
 ----------------------------------------
 output:
   font-family: [value];
   font-size: [value];
 ----------------------------------------
 example:
-  .fs-sans-14 {
+  .font-size-sans-14 {
     font-face: '18Franklin-webfont',
                 system,
                 -apple-system,
@@ -919,15 +922,15 @@ $font-size-manual-values: (
 font-style
 ----------------------------------------
 usage:
-  .fs-italic
+  .font-style-italic
 ----------------------------------------
 output:
   font-style: italic;
 ----------------------------------------
 example:
-  .fs-italic {
+  .font-style-italic {
     font-style: italic; }
-  .fs-normal {
+  .font-style-normal {
     font-style: normal; }
 ----------------------------------------
 */
@@ -965,13 +968,13 @@ $font-style-manual-values: (
 font-weight
 ----------------------------------------
 usage:
-  .fw-[key]
+  .font-weight-[key]
 ----------------------------------------
 output:
   font-weight: [value];
 ----------------------------------------
 example:
-  .fw-300 {
+  .font-weight-300 {
     font-weight: 300; }
 ----------------------------------------
 */
@@ -1015,16 +1018,16 @@ $font-weight-manual-values: (
 
 /*
 ========================================
-HEIght
+height
 ----------------------------------------
 usage:
-  .h-[value]
+  .height-[value]
 ----------------------------------------
 output:
   height: [value];
 ----------------------------------------
 example:
-  .h-33ct {
+  .height-33ct {
     height: 33.33333333%; }
 ----------------------------------------
 */
@@ -1065,13 +1068,13 @@ $height-manual-values: (
 letter-spacing
 ----------------------------------------
 usage:
-  .ls-[key]
+  .letter-spacing-[key]
 ----------------------------------------
 output:
   letter-spacing: [value];
 ----------------------------------------
 example:
-  .ls-2 {
+  .letter-spacing-2 {
     letter-spacing: .1em; }
 ----------------------------------------
 */
@@ -1114,13 +1117,13 @@ $letter-spacing-manual-values: (
 line-height
 ----------------------------------------
 usage:
-  .lh-[value]
+  .line-height-[value]
 ----------------------------------------
 output:
   line-height: [value];
 ----------------------------------------
 example:
-  .lh-1 {
+  .line-height-1 {
     line-height: 1.15; }
 ----------------------------------------
 */
@@ -1195,16 +1198,16 @@ properties:
   right
 ----------------------------------------
 usage:
-  .t-[key]
-  .b-[key]
-  .l-[key]
-  .r-[key]
+  .top-[key]
+  .bottom-[key]
+  .left-[key]
+  .right-[key]
 ----------------------------------------
 output:
   [option]: [value];
 ----------------------------------------
 example:
-  .b-n2px {
+  .bottom-n2px {
     bottom: -2px; }
 ----------------------------------------
 */
@@ -1246,17 +1249,17 @@ $manual-position-manual-values: (
 margin
 ----------------------------------------
 usage:
-  .m-[modifier]*-[key]
+  .margin-[modifier]*-[key]
 ----------------------------------------
 output:
   margin: [value]
 ----------------------------------------
 example:
-  .m-x-auto {
+  .margin-x-auto {
     margin-left: auto;
     margin-right: auto; }
 
-  .m-g105 {
+  .margin-g105 {
     margin: .75rem; }
 ----------------------------------------
 */
@@ -1305,13 +1308,13 @@ $margin-manual-values: (
 max-height
 ----------------------------------------
 usage:
-  .maxh-[key]
+  .max-height-[key]
 ----------------------------------------
 output:
   max-height: [value];
 ----------------------------------------
 example:
-  .maxh-g40 {
+  .max-height-g40 {
     max-height: 320px; }
 ----------------------------------------
 */
@@ -1350,13 +1353,13 @@ $max-height-manual-values: (
 max-width
 ----------------------------------------
 usage:
-  .maxw-[key]
+  .max-width-[key]
 ----------------------------------------
 output:
   max-width: [value];
 ----------------------------------------
 example:
-  .maxw-lg {
+  .max-width-lg {
     max-width: 1040px; }
 ----------------------------------------
 */
@@ -1401,13 +1404,13 @@ $max-width-manual-values: (
 min-height
 ----------------------------------------
 usage:
-  .minh-[key]
+  .min-height-[key]
 ----------------------------------------
 output:
   min-height: [value];
 ----------------------------------------
 example:
-  .minh-g40 {
+  .min-height-g40 {
     min-height: 320px; }
 ----------------------------------------
 */
@@ -1450,13 +1453,13 @@ $min-height-manual-values: (
 min-width
 ----------------------------------------
 usage:
-  .minw-[key]
+  .min-width-[key]
 ----------------------------------------
 output:
   min-width: [value];
 ----------------------------------------
 example:
-  .minw-g40 {
+  .min-width-g40 {
     min-width: 320px; }
 ----------------------------------------
 */
@@ -1499,13 +1502,13 @@ $min-width-manual-values: (
 opacity
 ----------------------------------------
 usage:
-  .o-[key]
+  .opacity-[key]
 ----------------------------------------
 output:
   opacity: [value];
 ----------------------------------------
 example:
-  .o-0 {
+  .opacity-0 {
     opacity: 0; }
 ----------------------------------------
 */
@@ -1534,17 +1537,17 @@ $opacity-manual-values: (
   ----------------------------
   [store unused value pairs here]
   ------------------------- */
-  0ct:          '0',
-  10ct:         '0.1',
-  20ct:         '0.2',
-  30ct:         '0.3',
-  40ct:         '0.4',
-  50ct:         '0.5',
-  60ct:         '0.6',
-  70ct:         '0.7',
-  80ct:         '0.8',
-  90ct:         '0.9',
-  100ct:        '1',
+  0:            '0',
+  10:           '0.1',
+  20:           '0.2',
+  30:           '0.3',
+  40:           '0.4',
+  50:           '0.5',
+  60:           '0.6',
+  70:           '0.7',
+  80:           '0.8',
+  90:           '0.9',
+  100:          '1',
 ) !default;
 
 /*
@@ -1552,16 +1555,16 @@ $opacity-manual-values: (
 order
 ----------------------------------------
 usage:
-  .o-[key]
+  .order-[key]
 ----------------------------------------
 output:
   order: [value]
 ----------------------------------------
 example:
-  .o-first {
+  .order-first {
     order: -1; }
 
-  .o-2 {
+  .order-2 {
     order: 2; }
 ----------------------------------------
 */
@@ -1588,36 +1591,37 @@ $order-manual-values: (
   /*
   key:          'value', [trailing comma ok]
   ----------------------------
-  [store unused value pairs here]
+  0:            0,
+  1:            1,
+  2:            2,
+  3:            3,
+  4:            4,
+  5:            5,
+  6:            6,
+  7:            7,
+  8:            8,
+  9:            9,
+  10:           10,
+  11:           11,
   ------------------------- */
-//  0:            0,
-//  1:            1,
-//  2:            2,
-//  3:            3,
-//  4:            4,
-//  5:            5,
-//  6:            6,
-//  7:            7,
-//  8:            8,
-//  9:            9,
-//  10:           10,
-//  11:           11,
   first:        '-1',
   last:         '99',
 ) !default;
 
 /*
 ========================================
-outline-width
+outline
+----------------------------------------
+sets width and style:solid
 ----------------------------------------
 usage:
-  .ow-[modifier]
+  .outline-[modifier]
 ----------------------------------------
 output:
   outline: [modifier] solid;
 ----------------------------------------
 example:
-  .ow-g05 {
+  .outline-g05 {
     outline: 4px solid }
 ----------------------------------------
 */
@@ -1656,13 +1660,13 @@ $outline-1-width-manual-values: (
 outline-color
 ----------------------------------------
 usage:
-  .oc-[key]
+  .outline-color-[key]
 ----------------------------------------
 output:
   outline-color: [value];
 ----------------------------------------
 example:
-  .oc-yellow-50 {
+  .outline-color-yellow-50 {
     outline-color: #91721f; }
 ----------------------------------------
 */
@@ -1699,16 +1703,16 @@ $outline-2-color-manual-values: (
 padding
 ----------------------------------------
 usage:
-  .p-[modifier]*-[value]
+  .padding-[modifier]*-[value]
 ----------------------------------------
 output:
   padding: [value]
 ----------------------------------------
 example:
-  .p-0 {
+  .padding-0 {
     padding: none; }
 
-  .p-b-1px {
+  .padding-b-1px {
     padding-bottom: 1px; }
 ----------------------------------------
 */
@@ -1747,13 +1751,13 @@ $padding-manual-values: (
 position
 ----------------------------------------
 usage:
-  .p-[key]
+  .position-[keye]
 ----------------------------------------
 output:
   position: [value];
 ----------------------------------------
 example:
-  .p-absolute {
+  .position-absolute {
     position: absolute; }
 ----------------------------------------
 */
@@ -1867,13 +1871,13 @@ $square-manual-values: (
 text-align
 ----------------------------------------
 usage:
-  .ta-[key]
+  .text-align-[key]
 ----------------------------------------
 output:
   align: [value];
 ----------------------------------------
 example:
-  .ta-left {
+  .text-align-left {
     align: left; }
 ----------------------------------------
 */
@@ -1913,13 +1917,13 @@ $text-align-manual-values: (
 text-decoration
 ----------------------------------------
 usage:
-  .td-[key]
+  .text-decoration-[key]
 ----------------------------------------
 output:
   text-decoration: [value]
 ----------------------------------------
 example:
-  .td-underline {
+  .text-decoration-underline {
     text-decoration: underline; }
 ----------------------------------------
 */
@@ -1958,13 +1962,13 @@ $text-decoration-manual-values: (
 text-transform
 ----------------------------------------
 usage:
-  .tt-[value]
+  .text-transform-[value]
 ----------------------------------------
 output:
   text-transform: value;
 ----------------------------------------
 example:
-  .tt-uppercase {
+  .text-transform-uppercase {
     text-transform: uppercase; }
 ----------------------------------------
 */
@@ -2004,13 +2008,13 @@ $text-transform-manual-values: (
 vertical-align
 ----------------------------------------
 usage:
-  .va-[value]
+  .vertical-align-[value]
 ----------------------------------------
 output:
   vertical-align: [value]
 ----------------------------------------
 example:
-  .va-top {
+  .vertical-align-top {
     vertical-align: top; }
 ----------------------------------------
 */
@@ -2054,13 +2058,13 @@ $vertical-align-manual-values: (
 whitespace
 ----------------------------------------
 usage:
-  w-[key]
+  whitespace-[key]
 ----------------------------------------
 output:
   whitespace: [value];
 ----------------------------------------
 example:
-  .w-pre-wrap {
+  .whitespace-pre-wrap {
     whitespace: pre-wrap; }
 ----------------------------------------
 */
@@ -2101,13 +2105,13 @@ $whitespace-manual-values: (
 width
 ----------------------------------------
 usage:
-  .w-[key]
+  .width-[key]
 ----------------------------------------
 output:
   width: [value];
 ----------------------------------------
 example:
-  .w-75ct {
+  .width-75ct {
     width: 75%; }
 ----------------------------------------
 */
@@ -2152,15 +2156,15 @@ $width-manual-values: (
 z-index
 ----------------------------------------
 usage:
-  z-[key]
+  z-index-[key]
 ----------------------------------------
 output:
   z-index: [value];
 ----------------------------------------
 example:
-  .z-100 {
+  .z-index-100 {
     z-index: 100; }
-  .z-top {
+  .z-index-top {
     z-index: 9999; }
 ----------------------------------------
 */

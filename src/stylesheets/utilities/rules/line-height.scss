@@ -3,20 +3,20 @@
 line-height
 ----------------------------------------
 usage:
-  .lh-[value]
+  .line-height-[value]
 ----------------------------------------
 output:
   line-height: [value];
 ----------------------------------------
 example:
-  .lh-1 {
+  .line-height-1 {
     line-height: 1.15; }
 ----------------------------------------
 */
 
 $line-height: (
   line-height: (
-    base: 'lh',
+    base: 'line-height',
     modifiers: null,
     values: map-collect(
       $line-height-preset-values,

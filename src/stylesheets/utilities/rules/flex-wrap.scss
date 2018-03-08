@@ -1,22 +1,22 @@
 /*
-----------------------------------------
-FLEX WRAP
+========================================
+flex-wrap
 ----------------------------------------
 usage:
-  .fw-[key]
+  .flex-wrap-[key]
 ----------------------------------------
 output:
   flex-wrap: [value];
 ----------------------------------------
 example:
-  .fw-wrap {
+  .flex-wrap-wrap {
     flex-wrap: wrap; }
 ----------------------------------------
 */
 
 $flex-wrap: (
   flex-wrap: (
-    base: 'fw',
+    base: 'flex-wrap',
     modifiers: null,
     values: map-collect(
       $flex-wrap-preset-values,

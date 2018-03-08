@@ -9,16 +9,16 @@ properties:
   right
 ----------------------------------------
 usage:
-  .t-[key]
-  .b-[key]
-  .l-[key]
-  .r-[key]
+  .top-[key]
+  .bottom-[key]
+  .left-[key]
+  .right-[key]
 ----------------------------------------
 output:
   [option]: [value];
 ----------------------------------------
 example:
-  .b-n2px {
+  .bottom-n2px {
     bottom: -2px; }
 ----------------------------------------
 */
@@ -27,10 +27,10 @@ $manual-position: (
   manual-position: (
     base: null,
     modifiers: (
-      top: 't',
-      bot: 't',
-      left: 'l',
-      right: 'r',
+      top: 'top',
+      bot: 'bottom',
+      left: 'left',
+      right: 'right',
     ),
     values: map-collect(
       $manual-position-preset-values,

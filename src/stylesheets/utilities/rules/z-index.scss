@@ -3,22 +3,22 @@
 z-index
 ----------------------------------------
 usage:
-  z-[key]
+  z-index-[key]
 ----------------------------------------
 output:
   z-index: [value];
 ----------------------------------------
 example:
-  .z-100 {
+  .z-index-100 {
     z-index: 100; }
-  .z-top {
+  .z-index-top {
     z-index: 9999; }
 ----------------------------------------
 */
 
 $z-index: (
   z-index: (
-    base: 'z',
+    base: 'z-index',
     modifiers: null,
     values: map-collect(
       $z-index-preset-values,

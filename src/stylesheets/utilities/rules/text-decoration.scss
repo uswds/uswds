@@ -3,20 +3,20 @@
 text-decoration
 ----------------------------------------
 usage:
-  .td-[key]
+  .text-decoration-[key]
 ----------------------------------------
 output:
   text-decoration: [value]
 ----------------------------------------
 example:
-  .td-underline {
+  .text-decoration-underline {
     text-decoration: underline; }
 ----------------------------------------
 */
 
 $text-decoration: (
   text-decoration: (
-    base: 'td',
+    base: 'text-decoration',
     modifiers: null,
     values: map-collect(
       $text-decoration-preset-values,

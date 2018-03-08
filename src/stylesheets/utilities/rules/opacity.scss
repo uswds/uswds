@@ -3,20 +3,20 @@
 opacity
 ----------------------------------------
 usage:
-  .o-[key]
+  .opacity-[key]
 ----------------------------------------
 output:
   opacity: [value];
 ----------------------------------------
 example:
-  .o-0ct {
+  .opacity-0 {
     opacity: 0; }
 ----------------------------------------
 */
 
 $opacity: (
   opacity: (
-    base: ('o'),
+    base: ('opacity'),
     modifiers: null,
     values: map-collect(
       $opacity-preset-values,

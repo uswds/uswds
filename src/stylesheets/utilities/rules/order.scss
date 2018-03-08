@@ -3,23 +3,23 @@
 order
 ----------------------------------------
 usage:
-  .o-[key]
+  .order-[key]
 ----------------------------------------
 output:
   order: [value]
 ----------------------------------------
 example:
-  .o-first {
+  .order-first {
     order: -1; }
 
-  .o-2 {
+  .order-2 {
     order: 2; }
 ----------------------------------------
 */
 
 $order: (
   order: (
-    base: 'o',
+    base: 'order',
     modifiers: null,
     values: map-collect(
       $order-preset-values,

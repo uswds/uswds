@@ -1,22 +1,24 @@
 /*
 ========================================
-outline-width
+outline
+----------------------------------------
+sets width and style:solid
 ----------------------------------------
 usage:
-  .ow-[modifier]
+  .outline-[modifier]
 ----------------------------------------
 output:
   outline: [modifier] solid;
 ----------------------------------------
 example:
-  .ow-g05 {
+  .outline-g05 {
     outline: 4px solid }
 ----------------------------------------
 */
 
-$outline-1-width: (
-  outline-1-width: (
-    base: 'ow',
+$outline: (
+  outline: (
+    base: 'outline',
     modifiers: null,
     values: map-collect(
       $outline-1-width-preset-values,

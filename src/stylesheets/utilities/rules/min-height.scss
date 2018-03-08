@@ -3,20 +3,20 @@
 min-height
 ----------------------------------------
 usage:
-  .minh-[key]
+  .min-height-[key]
 ----------------------------------------
 output:
   min-height: [value];
 ----------------------------------------
 example:
-  .minh-g40 {
+  .min-height-g40 {
     min-height: 320px; }
 ----------------------------------------
 */
 
 $min-height: (
   min-height: (
-    base: 'minh',
+    base: 'min-height',
     modifiers: null,
     values: map-collect(
       $min-height-preset-values,

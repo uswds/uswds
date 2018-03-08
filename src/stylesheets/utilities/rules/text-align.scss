@@ -3,20 +3,20 @@
 text-align
 ----------------------------------------
 usage:
-  .ta-[key]
+  .text-align-[key]
 ----------------------------------------
 output:
   align: [value];
 ----------------------------------------
 example:
-  .ta-left {
+  .text-align-left {
     align: left; }
 ----------------------------------------
 */
 
 $text-align: (
   text-align: (
-    base: 'ta',
+    base: 'text-align',
     modifiers: null,
     values: map-collect(
       $text-align-preset-values,

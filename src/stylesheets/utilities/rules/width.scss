@@ -3,20 +3,20 @@
 width
 ----------------------------------------
 usage:
-  .w-[key]
+  .width-[key]
 ----------------------------------------
 output:
   width: [value];
 ----------------------------------------
 example:
-  .w-75ct {
+  .width-75ct {
     width: 75%; }
 ----------------------------------------
 */
 
 $width: (
   width: (
-    base: 'w',
+    base: 'width',
     modifiers: null,
     values: map-collect(
       $width-preset-values,

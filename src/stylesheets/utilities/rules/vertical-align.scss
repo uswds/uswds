@@ -3,20 +3,20 @@
 vertical-align
 ----------------------------------------
 usage:
-  .va-[value]
+  .vertical-align-[value]
 ----------------------------------------
 output:
   vertical-align: [value]
 ----------------------------------------
 example:
-  .va-top {
+  .vertical-align-top {
     vertical-align: top; }
 ----------------------------------------
 */
 
 $vertical-align: (
   vertical-align: (
-    base: 'va',
+    base: 'vertical-align',
     modifiers: null,
     values: map-collect(
       $vertical-align-preset-values,

@@ -1,15 +1,15 @@
 /*
-----------------------------------------
+========================================
 font-feature-settings
 ----------------------------------------
 usage:
-  .ffs-[key]
+  .font-feature-[key]
 ----------------------------------------
 output:
   font-feature-settings: [value];
 ----------------------------------------
 example:
-  .ffs-alt {
+  .font-feature-alt {
     font-feature-settings:
       'ss01' 1, 'kern' 1; }
 ----------------------------------------
@@ -17,7 +17,7 @@ example:
 
 $font-feature: (
   font-feature: (
-    base: 'ffs',
+    base: 'font-feature',
     modifiers: null,
     values: map-collect(
       $font-feature-preset-values,

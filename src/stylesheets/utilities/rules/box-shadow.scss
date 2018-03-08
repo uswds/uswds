@@ -1,22 +1,22 @@
 /*
-----------------------------------------
-BOX SHADOW
+========================================
+box-shadow
 ----------------------------------------
 usage:
-  .bs-[value]
+  .box-shadow-[value]
 ----------------------------------------
 output:
   box-shadow: [value];
 ----------------------------------------
 example:
-  .bs-elev-1 {
+  .box-shadow-1 {
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10); }
 ----------------------------------------
 */
 
 $box-shadow: (
   box-shadow: (
-    base: 'bs',
+    base: 'box-shadow',
     modifiers: null,
     values: map-collect(
       $box-shadow-preset-values,

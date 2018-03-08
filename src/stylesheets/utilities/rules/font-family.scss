@@ -1,15 +1,15 @@
 /*
-----------------------------------------
-FONT FAMILY
+========================================
+font-family
 ----------------------------------------
 usage:
-  .ff-[key]
+  .font-family-[key]
 ----------------------------------------
 output:
   font-family: [value]
 ----------------------------------------
 example:
-  .ff-sans {
+  .font-family-sans {
     font-family: 'United Sans webfont',
                 system,
                 -apple-system,
@@ -24,7 +24,7 @@ example:
 
 $font-family: (
   font-family: (
-    base: 'ff',
+    base: 'font-family',
     modifiers: null,
     values: map-collect(
       $font-family-preset-values,

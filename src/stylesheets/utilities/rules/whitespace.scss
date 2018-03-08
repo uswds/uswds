@@ -3,20 +3,20 @@
 whitespace
 ----------------------------------------
 usage:
-  w-[key]
+  whitespace-[key]
 ----------------------------------------
 output:
   whitespace: [value];
 ----------------------------------------
 example:
-  .w-pre-wrap {
+  .whitespace-pre-wrap {
     whitespace: pre-wrap; }
 ----------------------------------------
 */
 
 $whitespace: (
   whitespace: (
-    base: 'w',
+    base: 'whitespace',
     modifiers: null,
     values: map-collect(
       $whitespace-preset-values,

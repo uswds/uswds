@@ -1,22 +1,22 @@
 /*
-----------------------------------------
-BORDER STYLE
+========================================
+border-style
 ----------------------------------------
 usage:
-  .bs[-modifier]*-[key]
+  .border-style[-modifier]*-[key]
 ----------------------------------------
 output:
   border[-modifier]-style: [value];
 ----------------------------------------
 example:
-  .bs-dotted {
+  .border-style-dotted {
     border-style: dotted; }
 ----------------------------------------
 */
 
 $border-style: (
   border-style: (
-    base: 'bs',
+    base: 'border-style',
     modifiers: (
       t: '-top-style',
       r: '-left-style',

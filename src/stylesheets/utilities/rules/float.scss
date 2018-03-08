@@ -1,22 +1,22 @@
 /*
-----------------------------------------
-FLOAT
+========================================
+float
 ----------------------------------------
 usage:
-  .f-[value]
+  .float-[value]
 ----------------------------------------
 output:
   float: [value];
 ----------------------------------------
 example:
-  .f-left {
+  .float-left {
     float: left; }
 ----------------------------------------
 */
 
 $float: (
   float: (
-    base: 'f',
+    base: 'float',
     modifiers: null,
     values: map-collect(
       $float-preset-values,

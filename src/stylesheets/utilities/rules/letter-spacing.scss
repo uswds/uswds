@@ -3,7 +3,7 @@
 letter-spacing
 ----------------------------------------
 usage:
-  .ls-[key]
+  .letter-spacing-[key]
 ----------------------------------------
 output:
   letter-spacing: [value];
@@ -16,7 +16,7 @@ example:
 
 $letter-spacing: (
   letter-spacing: (
-    base: 'ls',
+    base: 'letter-spacing',
     modifiers: null,
     values: map-collect(
       $letter-spacing-preset-values,

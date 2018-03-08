@@ -1,22 +1,22 @@
 /*
 ========================================
-Max Width
+max-width
 ----------------------------------------
 usage:
-  .maxw-[key]
+  .max-width-[key]
 ----------------------------------------
 output:
   max-width: [value];
 ----------------------------------------
 example:
-  .maxw-lg {
+  .max-width-lg {
     max-width: 1040px; }
 ----------------------------------------
 */
 
 $max-width: (
   max-width: (
-    base: 'maxw',
+    base: 'max-width',
     modifiers: null,
     values: map-collect(
       $max-width-preset-values,

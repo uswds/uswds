@@ -3,23 +3,23 @@
 border-radius
 ----------------------------------------
 usage:
-  .br-[key]
+  .border-radius-[key]
 ----------------------------------------
 output:
   border-radius: [value];
 ----------------------------------------
 example:
-  .br-0 {
+  .border-radius-0 {
     border-radius: 0; }
 
-  .br-pill {
+  .border-radius-pill {
     border-radius: 10em; }
 ----------------------------------------
 */
 
 $border-radius: (
   border-radius: (
-    base: 'br',
+    base: 'border-radius',
     modifiers: (
       t: ('border-top-left-radius', 'border-top-right-radius'),
       r: ('border-top-right-radius', 'border-bottom-right-radius'),
