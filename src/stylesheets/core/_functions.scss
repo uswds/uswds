@@ -322,7 +322,7 @@ loop
 
     @if $media-value {
       @media (min-width: #{$media-value}) {
-        #{$utilities-namespace-prefix}#{$media-key}\:#{$selector} {
+        .#{$utilities-namespace-prefix}#{$media-key}\:#{$selector} {
           @if map-has-key($val-props, extend) {
             #{map-deep-get($val-props, extend, property)}: strunquote(map-deep-get($val-props, extend, value));
           }
