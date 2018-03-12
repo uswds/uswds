@@ -83,16 +83,25 @@ describe('big footer accordion', function () {
     assertHidden(lists[ 0 ], false);
   });
 
-  it('closes other panels', function () {
-    buttons[ 0 ].click();
-    assertHidden(lists[ 0 ], false);
-    assertHidden(lists[ 1 ], true);
-    assertHidden(lists[ 2 ], true);
+  it('closes other panels on small screens', function () {
+    return resizeTo(400)
+      .then(() => {
+        buttons[ 0 ].click();
+        assertHidden(lists[ 0 ], false);
+        assertHidden(lists[ 1 ], true);
+        assertHidden(lists[ 2 ], true);
 
-    buttons[ 1 ].click();
-    assertHidden(lists[ 0 ], true);
-    assertHidden(lists[ 1 ], false);
-    assertHidden(lists[ 2 ], true);
+        buttons[ 1 ].click();
+        assertHidden(lists[ 0 ], true);
+        assertHidden(lists[ 1 ], false);
+        assertHidden(lists[ 2 ], true);
+      });
   });
 
+  it('does not close other panels on larger screens', function () {
+    buttons[ 0 ].click();
+    assertHidden(lists[ 0 ], false);
+    assertHidden(lists[ 1 ], false);
+    assertHidden(lists[ 2 ], false);
+  });
 });
