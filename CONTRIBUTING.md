@@ -156,7 +156,7 @@ See the [release documentation](docs/RELEASE.md#release-process) for more inform
 
 ### A few parts of this project are not in the public domain
 
-For complete attribution and licensing information for parts of the project that are not in the public domain, see LICENSE.md.
+For complete attribution and licensing information for parts of the project that are not in the public domain, see the [LICENSE](LICENSE.md).
 
 ### The rest of this project is in the public domain
 
