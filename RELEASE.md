@@ -195,7 +195,7 @@ npm install --save-exact uswds@{{ version }}
 - - -
 
 #### Check the USWDS website to assure correctness
-- [ ] Check that the `Download code` ZIP file linked from the [Download code and design files](https://designsystem.digital.gov/getting-started/download/) page works (at the time of this writing, it should point to the ZIP file you uploaded when you released the new version on GitHub).
+- [ ] Check that the `Download code` ZIP file linked from the [Download code and design files](https://designsystem.digital.gov/getting-started/download/) page works (it should point to the ZIP file you uploaded when you released the new version on GitHub).
 - [ ] Check that the correct version number is mentioned under the link.
 - [ ] Check that the new release shows up on the [Release notes](https://designsystem.digital.gov/whats-new/releases/) page.
 
