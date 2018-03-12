@@ -150,7 +150,7 @@ See [browser support](https://designsystem.digital.gov/getting-started/developer
 
 ## Our use of branches
 
-See the [release documentation](docs/RELEASE.md#release-process) for more information on our git/GitHub release workflow.
+See the [release documentation](https://github.com/uswds/uswds/wiki/Release-process) for more information on our git/GitHub release workflow.
 
 ## Licenses and attribution
 
