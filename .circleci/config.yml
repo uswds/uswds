@@ -19,9 +19,6 @@ jobs:
           name: Run code coverage report
           command: npm run cover
       - run:
-          name: Build the USWDS package
-          command: npm run build
-      - run:
           name: Checking build
           command: |
             ls -agolf dist/
