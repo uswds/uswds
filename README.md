@@ -42,7 +42,7 @@ We’re glad you’d like to use the Design System — here’s how you can get 
 * Designers: [Check out our Getting Started for Designers information](https://designsystem.digital.gov/getting-started/designers/).
   * [Design files of all the assets included in the Design System are available for download](https://github.com/uswds/uswds-assets/archive/master.zip).
 * Developers: [Follow the instructions in this README to get started.](#using-the-design-system)
-  * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/uswds/uswds/releases/download/v1.0.0/uswds-1.0.0.zip).
+  * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/uswds/uswds/releases/latest).
 
 
 ## Using the Design System
