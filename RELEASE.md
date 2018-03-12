@@ -3,6 +3,8 @@
 This is our official process for releasing new versions of the [U.S. Web Design
 Standards](https://designsystem.digital.gov).
 
+**Note: Running these steps while in a Google Hangout can degrade performance enough to cause test failure. If you find tests timing out, try to shut down any concurrent intensive processes.**
+
 
 ## Table of contents
 1. [Principles](#principles)
@@ -135,7 +137,7 @@ Otherwise, proceed with the next versioned release!
 - [ ] Open a pull request from your release branch into `master`.
 - [ ] List the key changes in the release in the pull request description. [See the v1.0.0 pull request](https://github.com/uswds/uswds/pull/1726) for an example.
 - [ ] Wait for all tests to complete successfully.
-- [ ] Have at least one team member to approved the pull request
+- [ ] Have at least one team member approve the pull request
 - [ ] Once the pull request is approved, merge it into `master`. This will trigger a two actions:
 - CircleCI will publish the new release to [npm](https://www.npmjs.com/package/uswds).
 - Federalist will deploy the new release's fractal site to [components.standards.usa.gov](https://components.standards.usa.gov).
