@@ -174,7 +174,7 @@ cd path/to/uswds-site
 - [ ] Create a branch off `master`
 ```
 git fetch origin
-git checkout -b release-{{ version }} origin/develop
+git checkout -b use-{{ version }} origin/master
 ```
 - [ ] Change the uswds dependency in `package.json` to the new version from `npm`
 ```
@@ -203,6 +203,7 @@ npm install --save-exact uswds@{{ version }}
 
 #### Publicize the release
 - [ ] Post a message in the `#uswds-public` Slack channel linking to the release.
+- [ ] Tweet about it?
 
 
 ## Questions?
