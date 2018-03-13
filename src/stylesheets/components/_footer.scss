@@ -18,6 +18,10 @@
 
     &:hover {
       text-decoration: underline;
+
+      @include media($medium-screen) {
+        text-decoration: none;
+      }
     }
   }
 
