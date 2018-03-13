@@ -79,8 +79,21 @@ describe('big footer accordion', function () {
   });
 
   it('opens panel when clicked', function () {
-    buttons[ 0 ].click();
-    assertHidden(lists[ 0 ], false);
+    return resizeTo(400)
+      .then(() => {
+        buttons[ 0 ].click();
+        assertHidden(lists[ 0 ], false);
+      });
+  });
+
+  it('closes panel on subsequent click', function () {
+    return resizeTo(400)
+      .then(() => {
+        buttons[ 0 ].click();
+        assertHidden(lists[ 0 ], false);
+        buttons[ 0 ].click();
+        assertHidden(lists[ 0 ], true);
+      });
   });
 
   it('closes other panels on small screens', function () {
