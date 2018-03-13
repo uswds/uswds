@@ -86,6 +86,11 @@ describe('big footer accordion', function () {
       });
   });
 
+  it('does not open panels when clicked on larger screens', function () {
+    buttons[ 0 ].click();
+    assertHidden(lists[ 0 ], false);
+  });
+
   it('closes panel on subsequent click', function () {
     return resizeTo(400)
       .then(() => {
