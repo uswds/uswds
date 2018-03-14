@@ -3,10 +3,10 @@
 USWDS 2.0 Variables
 Use for computed variables not meant
 to be set by system users.
-
+----------------------------------------
 Master system palette variables are set
 in core/_units
-
+----------------------------------------
 Anything meant to be set directly should
 go in:
 
@@ -35,19 +35,19 @@ $font-stack-mono:   false;
 $font-stack-cond:   false;
 
 @if $i-font-sans {
-  $font-stack-sans:   map-get($i-font-sans, name), map-get($i-font-sans, stack);
-};
+  $font-stack-sans: map-get($i-font-sans, name), map-get($i-font-sans, stack);
+}
 
 @if $i-font-serif {
-  $font-stack-serif:  map-get($i-font-serif, name), map-get($i-font-serif, stack);
+  $font-stack-serif: map-get($i-font-serif, name), map-get($i-font-serif, stack);
 }
 
 @if $i-font-mono {
-  $font-stack-mono:  map-get($i-font-mono, name), map-get($i-font-mono, stack);
+  $font-stack-mono: map-get($i-font-mono, name), map-get($i-font-mono, stack);
 }
 
 @if $i-font-cond {
-  $font-stack-cond:  map-get($i-font-cond, name), map-get($i-font-cond, stack);
+  $font-stack-cond: map-get($i-font-cond, name), map-get($i-font-cond, stack);
 }
 
 // for backward compatibility
@@ -61,32 +61,30 @@ $font-cond:   $font-stack-cond;
 ----------------------------------------
 Set basic font rules for the font
 utilities to reference.
-
-****************************************
+----------------------------------------
 TODO: Do these need to integrate the
 namespace var set in utlities-settings?
 ----------------------------------------
 */
 
 @if $i-font-mono {
-  *[class*="font-mono"], .font-family-mono { font-family: $font-stack-mono; }
+  *[class*='font-mono'], .font-family-mono { font-family: $font-stack-mono; }
 }
 @if $i-font-sans {
-  *[class*="font-sans"], .font-family-sans { font-family: $font-stack-sans; }
+  *[class*='font-sans'], .font-family-sans { font-family: $font-stack-sans; }
 }
 @if $i-font-serif {
-  *[class*="font-serif"], .font-family-serif { font-family: $font-stack-serif; }
+  *[class*='font-serif'], .font-family-serif { font-family: $font-stack-serif; }
 }
 @if $i-font-cond {
-  *[class*="font-cond"], .font-family-cond { font-family: $font-stack-cond; }
+  *[class*='font-cond'], .font-family-cond { font-family: $font-stack-cond; }
 }
 
 /*
 ----------------------------------------
 Collect the project font weights in a
 list for referencing in utilities.
-
-****************************************
+----------------------------------------
 TODO: Still needed?
 ----------------------------------------
 */
@@ -99,27 +97,37 @@ $font-weights: (
   $s-fw-xbold
 );
 
-
 /*
 ========================================
 Old USWDS Variables
 Many of these will be deprecated
 or converted into settings
 ----------------------------------------
+These variables drive almost every
+aspect of the U.S. Web Design system.
+Every variable is declared as !default
+so that it can be overridden by a
+previous import.
+
+XXX Do not modify this file!
+
+If you want to override a variable, set
+that variable in one of your own partials,
+then
+@import '{path/to/uswds/}core/variables'.
+----------------------------------------
 */
 
-// These variables drive almost every aspect of the U.S. Web Design
-// system. Every variable is declared as !default so that it can be
-// overridden by a previous import.
-//
-// XXX Do not modify this file!
-//
-// If you want to override a variable, set that variable in one of your
-// own partials, then @import '{path/to/uswds/}core/variables'.
+/*
+----------------------------------------
+Typography
+----------------------------------------
+TODO: Rethink naming and consolidate in
+settings
+----------------------------------------
+*/
 
-// Typography
-// Removing the !default from $em-base so we are not inheriting that
-// value from Bourbon.
+// Removing the !default from $em-base so we are not inheriting that value from Bourbon.
 $em-base:             10px;
 $base-font-size:      1.7rem !default;
 $small-font-size:     1.4rem !default;
@@ -135,20 +143,28 @@ $base-line-height:    1.5 !default;
 $heading-line-height: 1.3 !default;
 $lead-line-height:    1.7 !default;
 
-
-// -----------------------------------------------------
-
-// TYPE SCALE
-
-
-// no explicit support for condensed faces yet, but:
-// $cond-cap-height:       $some-face-cap-height !default;
+/*
+----------------------------------------
+Font weights
+----------------------------------------
+TODO: Consolidate in settings
+----------------------------------------
+*/
 
 // TODO these should be called font-weight-${}
 $font-normal:         400 !default;
 $font-bold:           700 !default;
 
-// Color
+/*
+----------------------------------------
+Colors
+----------------------------------------
+TODO:
+1. These should be set in settings
+2. Probably need different naming rubric
+----------------------------------------
+*/
+
 $color-blue:                 $blue-70 !default;
 $color-blue-darker:          $blue-warm-70v !default;
 $color-blue-darkest:         $blue-warm-80v !default;
@@ -224,31 +240,78 @@ $color-visited:              $color-purple !default;
 $color-shadow:               $black-transparent-30 !default;
 $color-transparent:          rgba(#000, 0) !default;
 
-// Mobile First Breakpoints
+/*
+----------------------------------------
+Mobile First Breakpoints
+----------------------------------------
+TODO: deprecate in favor of the values
+in settings
+----------------------------------------
+*/
+
 $xsmall-screen: null !default;
 $small-screen:  481px !default;
 $medium-screen: 600px !default;
 $large-screen:  1201px !default;
 $xlarge-screen: null !default;
 
-// Grid column counts by screen size
+/*
+----------------------------------------
+Grid column counts by screen size
+----------------------------------------
+TODO: Lots of grid work to come
+----------------------------------------
+*/
+
 $grid-columns-small: 1 !default;
 $grid-columns-medium: 6 !default;
 $grid-columns-large: 12 !default;
 
-// @media single-keyword helpers
+/*
+----------------------------------------
+@media single-keyword helpers
+----------------------------------------
+TODO: Need to rethink these
+----------------------------------------
+*/
+
 $small: new-breakpoint(min-width $small-screen $grid-columns-small) !default;
 $medium: new-breakpoint(min-width $medium-screen $grid-columns-medium) !default;
 $large: new-breakpoint(min-width $large-screen $grid-columns-large) !default;
 
-// Relative font and image file paths
+/*
+----------------------------------------
+@Relative font and image file paths
+----------------------------------------
+TODO: This should be deprecated in favor
+of the values in settings
+----------------------------------------
+*/
+
 $font-path:   '../fonts' !default;
 $image-path:  '../img' !default;
 
-// Set $asset-pipeline to true if you're using the Rails Asset Pipeline
+/*
+----------------------------------------
+Set $asset-pipeline to true if you're
+using the Rails Asset Pipeline
+----------------------------------------
+TODO: This should be set in settings
+----------------------------------------
+*/
+
 $asset-pipeline:      false !default;
 
-// Magic Numbers
+/*
+----------------------------------------
+Magic numbers
+----------------------------------------
+TODO: Evaluate which of these should be
+set in settings and which are static or
+calculated variables
+----------------------------------------
+*/
+
 $text-max-width:                66ch !default; // 66 characters per line
 $text-narrow-width:             40ch !default;
 $text-wide-width:               72ch !default;
@@ -268,8 +331,7 @@ $focus-spacing:                 3px !default;
 $nav-width:                     951px !default;
 $sidenav-current-border-width:  0.4rem !default; // must be in rem for math
 
-// 44 x 44 pixels hit target following Apple iOS Human Interface
-// Guidelines
+// 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines
 $hit-area: 4.4rem !default;
 
 $spacing-x-small: 0.5rem;

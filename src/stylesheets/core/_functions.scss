@@ -717,13 +717,13 @@ through all possible variants
   } // end the utility loop
   // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
 }
-/* stylelint-enable */
 
 @mixin render-font-face($this-font-face) {
   $these-weights: $font-weights;
   @if $s-output-all-weights {
     $these-weights: (100,200,300,400,500,600,700,800,900);
   }
+
   @if $this-font-face {
     $this-font-system: map-get($this-font-face, system-font);
 
@@ -737,13 +737,13 @@ through all possible variants
         @each $weight, $filename in $roman {
           @each $outputweight in $these-weights {
             @if $outputweight == $weight and $filename {
-                @include font-face(
-                  '#{$font-name}',
-                  '#{$s-font-path}/#{$dir}/#{$filename}',
-                  #{$weight},
-                  normal,
-                  $file-formats: eot woff2 woff ttf
-                );
+              @include font-face(
+                '#{$font-name}',
+                '#{$s-font-path}/#{$dir}/#{$filename}',
+                #{$weight},
+                normal,
+                $file-formats: eot woff2 woff ttf
+              );
             }
           }
         }
@@ -753,13 +753,13 @@ through all possible variants
         @each $weight, $filename in $italic {
           @each $outputweight in $these-weights {
             @if $outputweight == $weight and $filename {
-                @include font-face(
-                  '#{$font-name}',
-                  '#{$s-font-path}/#{$dir}/#{$filename}',
-                  #{$weight},
-                  italic,
-                  $file-formats: eot woff2 woff ttf
-                );
+              @include font-face(
+                '#{$font-name}',
+                '#{$s-font-path}/#{$dir}/#{$filename}',
+                #{$weight},
+                italic,
+                $file-formats: eot woff2 woff ttf
+              );
             }
           }
         }

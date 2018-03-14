@@ -36,7 +36,7 @@ $font-new : (
   dir: "united-sans", // relative to settings.$s-font-path
   stack: $font-stack-system,
   system-font: false,
-  500px-cap-height: "364px", // height of a 500px `N` in Sketch
+  cap-height: "364px", // height of a 500px `N` in Sketch
   variable-font: false,
   roman: (
     100: "Filename-without-extension", // or false

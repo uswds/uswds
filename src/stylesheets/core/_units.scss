@@ -1,31 +1,43 @@
-// UNIT VARIABLES
-//
-// *******************************************
-// ** Do not modify the values in this file **
-// *******************************************
-
+/*
+========================================
+core/units
+----------------------------------------
+The master palettes of
+- colors
+- whitespace
+- typescale
+----------------------------------------
+This file is not meant to be modified
+by USWDS project teams. Change your
+project values in
+project/uswds-project-settings
+----------------------------------------
+*/
 
 // 500px 'N' height measured in Sketch
-$base-cap-height:        362px;
+$base-cap-height:         362px;
 
-$mono-cap-height: false;
-$sans-cap-height: false;
-$serif-cap-height: false;
+$mono-cap-height:         false;
+$sans-cap-height:         false;
+$serif-cap-height:        false;
 
 @if $i-font-mono {
-  $mono-cap-height:        map-get($i-font-mono, 500px-cap-height);
+  $mono-cap-height: map-get($i-font-mono, cap-height);
 }
+
 @if $i-font-sans {
-  $sans-cap-height:        map-get($i-font-sans, 500px-cap-height);
+  $sans-cap-height: map-get($i-font-sans, cap-height);
 }
+
 @if $i-font-serif {
-  $serif-cap-height:       map-get($i-font-serif, 500px-cap-height);
+  $serif-cap-height: map-get($i-font-serif, cap-height);
 }
 
-
-// -----------------------------------------------------
-
-// SPACING GRID
+/*
+----------------------------------------
+Spacing grid
+----------------------------------------
+*/
 
 $u-spacing-05:             spacing(.5);    // 4px
 $u-spacing-1:              spacing(1);     // 8px
@@ -47,8 +59,11 @@ $u-spacing-30:             spacing(30);    // 240px
 $u-spacing-40:             spacing(40);    // 320px
 $u-spacing-50:             spacing(50);    // 400px
 
-// negative values necessary for margin utilities,
-// among others
+/*
+----------------------------------------
+Negative spacing grid
+----------------------------------------
+*/
 
 $u-spacing-n05:            spacing(-0.5);   // -4px
 $u-spacing-n1:             spacing(-1);     // -8px
@@ -59,8 +74,11 @@ $u-spacing-n3:             spacing(-3);     // -24px
 $u-spacing-n4:             spacing(-4);     // -32px
 $u-spacing-n5:             spacing(-5);     // -40px
 
-// --------------------------------------------------
-// Type scale
+/*
+----------------------------------------
+Type scale
+----------------------------------------
+*/
 
 $u-type-scale-f1:             12px;   // +1
 $u-type-scale-f2:             13px;   // +1
@@ -146,37 +164,41 @@ $u-serif-f18: type-scale($serif-cap-height, $u-type-scale-f18);
 $u-serif-f19: type-scale($serif-cap-height, $u-type-scale-f19);
 $u-serif-f20: type-scale($serif-cap-height, $u-type-scale-f20);
 
-// -----------------------------------------------------
+/*
+----------------------------------------
+Letterspacing
+----------------------------------------
+*/
 
-// LETTER-SPACING
+$u-ls-n3:	                 -.03em;
+$u-ls-n2:	                 -.02em;
+$u-ls-n1:	                 -.01em;
+$u-ls-1:	                 .05em;
+$u-ls-2:	                 .1em;
+$u-ls-3:	                 .15em;
 
-$u-ls-n3:	         -.03em;
-$u-ls-n2:	         -.02em;
-$u-ls-n1:	         -.01em;
-$u-ls-1:	         .05em;
-$u-ls-2:	         .1em;
-$u-ls-3:	         .15em;
+/*
+----------------------------------------
+Line height
+----------------------------------------
+*/
 
-// -----------------------------------------------------
+$u-lh-single:	              1;
+$u-lh-heading:	            1.1;
+$u-lh-heading-loose:	      1.35;
+$u-lh-body:	                1.62;
+$u-lh-body-loose:	          1.75;
+$u-lh-body-tight:	          1.5;
 
-// LINE HEIGHT
-
-$u-lh-single:	     1;
-$u-lh-heading:	       1.1;
-$u-lh-heading-loose:	       1.35;
-$u-lh-body:	       1.62;
-$u-lh-body-loose:	 1.75;
-$u-lh-body-tight:	 1.5;
-
-// -----------------------------------------------------
-
-// COLORS
-
-/* NOTE: It would be great to get these to load from a common
- * location like tokens stored as YAML.
- */
-
-// See this palette at https://federalist-proxy.app.cloud.gov/site/18f/united/build/prototypes/colors.html
+/*
+----------------------------------------
+Colors
+----------------------------------------
+TODO: It would be great to get these to
+load from a common location like tokens
+stored as YAML.
+----------------------------------------
+*/
 
 // violet-warm
 $violet-warm-5 :  #fef7ff;
