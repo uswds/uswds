@@ -26,8 +26,9 @@ $list-reset: (
         isReadable: true,
         content: 'none',
         extend: (
-          property: 'padding-left',
-          value: 0,
+          'margin-bottom': '0',
+          'margin-top': '0',
+          'padding-left': '0',
         ),
       ),
     ),

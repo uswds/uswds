@@ -232,7 +232,7 @@ Converts a value in px to a value in em
     @return $px-to-base-em;
   }
   @else {
-    @return false;    
+    @return false;
   }
 }
 /*
@@ -267,7 +267,9 @@ in the @render-utilities-in loop
 
   .#{$utilities-namespace-prefix}#{$selector} {
     @if map-has-key($val-props, extend) {
-      #{map-deep-get($val-props, extend, property)}: strunquote(map-deep-get($val-props, extend, value))#{$important};
+      @each $ext-prop, $ext-value in map-get($val-props, extend) {
+        #{strunquote($ext-prop)}: strunquote($ext-value)#{$important};
+      }
     }
 
     @if map-has-key($val-props, extends) {
@@ -279,7 +281,9 @@ in the @render-utilities-in loop
     }
 
     @if map-has-key($utility, extend) {
-      #{map-deep-get($utility, extend, property)}: strunquote(map-deep-get($utility, extend, value))#{$important};
+      @each $ext-prop, $ext-value in map-get($utility, extend) {
+        #{strunquote($ext-prop)}: strunquote($ext-value)#{$important};
+      }
     }
   }
 }
@@ -351,7 +355,9 @@ loop
       @media (min-width: #{$media-value}) {
         .#{$utilities-namespace-prefix}#{$media-key}\:#{$selector} {
           @if map-has-key($val-props, extend) {
-            #{map-deep-get($val-props, extend, property)}: strunquote(map-deep-get($val-props, extend, value))#{$important};
+            @each $ext-prop, $ext-value in map-get($val-props, extend) {
+              #{strunquote($ext-prop)}: strunquote($ext-value)#{$important};
+            }
           }
 
           @each $this-property in $property {
@@ -359,7 +365,9 @@ loop
           }
 
           @if map-has-key($utility, extend) {
-            #{map-deep-get($utility, extend, property)}: strunquote(map-deep-get($utility, extend, value))#{$important};
+            @each $ext-prop, $ext-value in map-get($utility, extend) {
+              #{strunquote($ext-prop)}: strunquote($ext-value)#{$important};
+            }
           }
           @if map-deep-get($utility, settings, hover) {
             @include render-pseudoclass(hover, $selector, $property, $value, $val-props, $mq, $important);
@@ -580,11 +588,11 @@ through all possible variants
 
               // if the value is noValue ('')
 
-              } @elseif map-get($val-props, slug) == '' {
+            } @elseif map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
 
-                // selector is a simple join
+                // selector is the base only
 
-                $selector: $b + $v;
+                $selector: $b;
 
               // Otherwise, if base-props.isReadable, or val-props.isReadable
 

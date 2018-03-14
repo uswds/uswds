@@ -28,8 +28,7 @@ $circle: (
     settings: $circle-settings,
     property: (height, width),
     extend: (
-      property: 'border-radius',
-      value: '50%',
+      'border-radius': '50%',
     ),
   )
 )

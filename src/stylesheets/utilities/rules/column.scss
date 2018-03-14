@@ -26,8 +26,7 @@ $column: (
         isReadable: true,
         content: 'flex',
         extend: (
-          property: 'flex-direction',
-          value: 'column',
+          'flex-direction': 'column',
         ),
       ),
     ),

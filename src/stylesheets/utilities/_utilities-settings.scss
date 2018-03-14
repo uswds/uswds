@@ -26,6 +26,7 @@ $output-utilities: (
   border-style:     false,
   box-shadow:       true,
   circle:           true,
+  clearfix:         true,
   color:            true,
   column:           false,
   display:          true,
@@ -281,6 +282,20 @@ $circle-preset-values: map-collect(
 $circle-manual-values: (
   /*
   */
+) !default;
+
+/*
+========================================
+.clearfix
+----------------------------------------
+*/
+
+$clearfix-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
 ) !default;
 
 /*
