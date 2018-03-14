@@ -178,7 +178,7 @@ Global variables are defined in the `node_modules/uswds/src/stylesheets/core/_va
 
 Below is an example of how you might setup your main Sass file to achieve this:
 
-```
+```scss
 @import 'variables.scss' # Custom Sass variables file
 @import 'node_modules/uswds/src/stylesheets/uswds.scss';
 
