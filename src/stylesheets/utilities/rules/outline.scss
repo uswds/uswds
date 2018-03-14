@@ -21,10 +21,10 @@ $outline: (
     base: 'outline',
     modifiers: null,
     values: map-collect(
-      $outline-1-width-preset-values,
-      $outline-1-width-manual-values
+      $outline-preset-values,
+      $outline-manual-values
     ),
-    settings: $outline-1-width-settings,
+    settings: $outline-settings,
     valuePrepend: null,
     valueAppend: ' solid',
     property: 'outline',

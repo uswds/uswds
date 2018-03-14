@@ -1,0 +1,54 @@
+$preset-colors-red-warm-light: (
+  'red-warm-5':  $red-warm-5,
+  'red-warm-10': $red-warm-10,
+  'red-warm-20': $red-warm-20,
+  'red-warm-30': $red-warm-30,
+);
+
+$preset-colors-red-warm-medium: (
+  'red-warm-40': $red-warm-40,
+  'red-warm-50': $red-warm-50,
+  'red-warm-60': $red-warm-60,
+);
+
+$preset-colors-red-warm-dark: (
+  'red-warm-70': $red-warm-70,
+  'red-warm-80': $red-warm-80,
+  'red-warm-90': $red-warm-90,
+);
+
+$preset-colors-red-warm-light-vivid: (
+  'red-warm-5v':  $red-warm-5v,
+  'red-warm-10v': $red-warm-10v,
+  'red-warm-20v': $red-warm-20v,
+  'red-warm-30v': $red-warm-30v,
+);
+
+$preset-colors-red-warm-medium-vivid: (
+  'red-warm-40v': $red-warm-40v,
+  'red-warm-50v': $red-warm-50v,
+  'red-warm-60v': $red-warm-60v,
+);
+
+$preset-colors-red-warm-dark-vivid: (
+  'red-warm-70v': $red-warm-70v,
+  'red-warm-80v': $red-warm-80v,
+  'red-warm-90v': $red-warm-90v,
+);
+
+$preset-colors-red-warm-standard: map-collect(
+  $preset-colors-red-warm-light,
+  $preset-colors-red-warm-medium,
+  $preset-colors-red-warm-dark
+);
+
+$preset-colors-red-warm-vivid: map-collect(
+  $preset-colors-red-warm-light-vivid,
+  $preset-colors-red-warm-medium-vivid,
+  $preset-colors-red-warm-dark-vivid
+);
+
+$preset-colors-red-warm: map-collect(
+  $preset-colors-red-warm-standard,
+  $preset-colors-red-warm-vivid
+);

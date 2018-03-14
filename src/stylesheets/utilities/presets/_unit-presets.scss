@@ -1,3 +1,11 @@
+$preset-units-breakpoints: (
+  xs:   px($s-xsmall-screen),
+  sm:   px($s-small-screen),
+  md:   px($s-medium-screen),
+  lg:   px($s-large-screen),
+  xl:   px($s-xlarge-screen),
+);
+
 $preset-units-ch: (
   '05ch':   '.5ch',
   '1ch':    '1ch',

@@ -1,6 +1,6 @@
 $preset-colors-all: map-collect(
   $preset-colors-black-cool,
-  $preset-colors-black-op,
+  $preset-colors-black-transparent,
   $preset-colors-black,
   $preset-colors-black-warm,
   $preset-colors-blue,
@@ -20,10 +20,11 @@ $preset-colors-all: map-collect(
   $preset-colors-orange,
   $preset-colors-orange-warm,
   $preset-colors-red,
+  $preset-colors-red-warm,
   $preset-colors-violet,
   $preset-colors-violet-warm,
   $preset-colors-white-cool,
-  $preset-colors-white-op,
+  $preset-colors-white-transparent,
   $preset-colors-white-warm,
   $preset-colors-yellow
 );

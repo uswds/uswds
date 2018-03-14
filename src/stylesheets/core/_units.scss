@@ -4,27 +4,28 @@
 // ** Do not modify the values in this file **
 // *******************************************
 
+
+// 500px 'N' height measured in Sketch
+$base-cap-height:        362px;
+
+$mono-cap-height: false;
+$sans-cap-height: false;
+$serif-cap-height: false;
+
+@if $i-font-mono {
+  $mono-cap-height:        map-get($i-font-mono, 500px-cap-height);
+}
+@if $i-font-sans {
+  $sans-cap-height:        map-get($i-font-sans, 500px-cap-height);
+}
+@if $i-font-serif {
+  $serif-cap-height:       map-get($i-font-serif, 500px-cap-height);
+}
+
+
 // -----------------------------------------------------
 
 // SPACING GRID
-
-/* NOTE: if we want the grid base and/or the type base
- * to be user-modifiable, we need to come up with a way
- * to allow the value to be set _before_ the units are
- * loaded.
- */
-
-// spacing is calculated on multiples of a
-// base grid (unitless, but assumed px)
-
-$grid-base:           8px !default; // unitless, but px
-
-// establishes the base type size (16px) for
-// rem calculations
-$font-size-base:      10px !default; // unitless, but px
-
-// calculates multiples of the base grid in units of rem
-// spacing($gridMultiple)
 
 $u-spacing-05:             spacing(.5);    // 4px
 $u-spacing-1:              spacing(1);     // 8px
@@ -58,112 +59,92 @@ $u-spacing-n3:             spacing(-3);     // -24px
 $u-spacing-n4:             spacing(-4);     // -32px
 $u-spacing-n5:             spacing(-5);     // -40px
 
-// -----------------------------------------------------
-
-// TYPE SCALE
-
-// 500px 'N' height measured in Sketch
-
-$base-cap-height:          364px;
-$united-sans-cap-height:   364px;
-$georgia-cap-height:       346px;
-$merriweather-cap-height:  372px;
-$roboto-mono-cap-height:   380px;
-$source-sans-cap-height:   326px;
-
-$u-sans-cap-height:          $source-sans-cap-height !default;
-$u-serif-cap-height:         $georgia-cap-height !default;
-$u-mono-cap-height:          $roboto-mono-cap-height !default;
-
-// no explicit support for condensed faces yet, but:
-// $cond-cap-height:       $some-face-cap-height !default;
-
 // --------------------------------------------------
 // Type scale
 
-$u-type-scale-12:             12px;   // +1
-$u-type-scale-13:             13px;   // +1
-$u-type-scale-14:             14px;   // +1
-$u-type-scale-15:             15px;   // +1
-$u-type-scale-16:             16px;   // +1
-$u-type-scale-17:             17px;   // +1
-$u-type-scale-18:             18px;   // +2
-$u-type-scale-20:             20px;   // +2
-$u-type-scale-22:             22px;   // +2
-$u-type-scale-24:             24px;   // +4
-$u-type-scale-28:             28px;   // +4
-$u-type-scale-32:             32px;   // +4
-$u-type-scale-36:             36px;   // +4
-$u-type-scale-40:             40px;   // +8
-$u-type-scale-48:             48px;   // +8
-$u-type-scale-56:             56px;   // +8
-$u-type-scale-64:             64px;   // +16
-$u-type-scale-80:             80px;   // +40
-$u-type-scale-120:            120px;  // +20
-$u-type-scale-140:            140px;
+$u-type-scale-f1:             12px;   // +1
+$u-type-scale-f2:             13px;   // +1
+$u-type-scale-f3:             14px;   // +1
+$u-type-scale-f4:             15px;   // +1
+$u-type-scale-f5:             16px;   // +1
+$u-type-scale-f6:             17px;   // +1
+$u-type-scale-f7:             18px;   // +2
+$u-type-scale-f8:             20px;   // +2
+$u-type-scale-f9:             22px;   // +2
+$u-type-scale-f10:             24px;   // +4
+$u-type-scale-f11:             28px;   // +4
+$u-type-scale-f12:             32px;   // +4
+$u-type-scale-f13:             36px;   // +4
+$u-type-scale-f14:             40px;   // +8
+$u-type-scale-f15:             48px;   // +8
+$u-type-scale-f16:             56px;   // +8
+$u-type-scale-f17:             64px;   // +16
+$u-type-scale-f18:             80px;   // +40
+$u-type-scale-f19:            120px;  // +20
+$u-type-scale-f20:            140px;
 
-$u-mono-12:   type-scale($u-mono-cap-height, $u-type-scale-12);
-$u-mono-13:   type-scale($u-mono-cap-height, $u-type-scale-13);
-$u-mono-14:   type-scale($u-mono-cap-height, $u-type-scale-14);
-$u-mono-15:   type-scale($u-mono-cap-height, $u-type-scale-15);
-$u-mono-16:   type-scale($u-mono-cap-height, $u-type-scale-16);
-$u-mono-17:   type-scale($u-mono-cap-height, $u-type-scale-17);
-$u-mono-18:   type-scale($u-mono-cap-height, $u-type-scale-18);
-$u-mono-20:   type-scale($u-mono-cap-height, $u-type-scale-20);
-$u-mono-22:   type-scale($u-mono-cap-height, $u-type-scale-22);
-$u-mono-24:  type-scale($u-mono-cap-height, $u-type-scale-24);
-$u-mono-28:  type-scale($u-mono-cap-height, $u-type-scale-28);
-$u-mono-32:  type-scale($u-mono-cap-height, $u-type-scale-32);
-$u-mono-36:  type-scale($u-mono-cap-height, $u-type-scale-36);
-$u-mono-40:  type-scale($u-mono-cap-height, $u-type-scale-40);
-$u-mono-48:  type-scale($u-mono-cap-height, $u-type-scale-48);
-$u-mono-56:  type-scale($u-mono-cap-height, $u-type-scale-56);
-$u-mono-64:  type-scale($u-mono-cap-height, $u-type-scale-64);
-$u-mono-80:  type-scale($u-mono-cap-height, $u-type-scale-80);
-$u-mono-120:  type-scale($u-mono-cap-height, $u-type-scale-120);
-$u-mono-140:  type-scale($u-mono-cap-height, $u-type-scale-140);
+$u-mono-f1:   type-scale($mono-cap-height, $u-type-scale-f1);
+$u-mono-f2:   type-scale($mono-cap-height, $u-type-scale-f2);
+$u-mono-f3:   type-scale($mono-cap-height, $u-type-scale-f3);
+$u-mono-f4:   type-scale($mono-cap-height, $u-type-scale-f4);
+$u-mono-f5:   type-scale($mono-cap-height, $u-type-scale-f5);
+$u-mono-f6:   type-scale($mono-cap-height, $u-type-scale-f6);
+$u-mono-f7:   type-scale($mono-cap-height, $u-type-scale-f7);
+$u-mono-f8:   type-scale($mono-cap-height, $u-type-scale-f8);
+$u-mono-f9:   type-scale($mono-cap-height, $u-type-scale-f9);
+$u-mono-f10:  type-scale($mono-cap-height, $u-type-scale-f10);
+$u-mono-f11:  type-scale($mono-cap-height, $u-type-scale-f11);
+$u-mono-f12:  type-scale($mono-cap-height, $u-type-scale-f12);
+$u-mono-f13:  type-scale($mono-cap-height, $u-type-scale-f13);
+$u-mono-f14:  type-scale($mono-cap-height, $u-type-scale-f14);
+$u-mono-f15:  type-scale($mono-cap-height, $u-type-scale-f15);
+$u-mono-f16:  type-scale($mono-cap-height, $u-type-scale-f16);
+$u-mono-f17:  type-scale($mono-cap-height, $u-type-scale-f17);
+$u-mono-f18:  type-scale($mono-cap-height, $u-type-scale-f18);
+$u-mono-f19:  type-scale($mono-cap-height, $u-type-scale-f19);
+$u-mono-f20:  type-scale($mono-cap-height, $u-type-scale-f20);
 
-$u-sans-12:   type-scale($u-sans-cap-height, $u-type-scale-12);
-$u-sans-13:   type-scale($u-sans-cap-height, $u-type-scale-13);
-$u-sans-14:   type-scale($u-sans-cap-height, $u-type-scale-14);
-$u-sans-15:   type-scale($u-sans-cap-height, $u-type-scale-15);
-$u-sans-16:   type-scale($u-sans-cap-height, $u-type-scale-16);
-$u-sans-17:   type-scale($u-sans-cap-height, $u-type-scale-17);
-$u-sans-18:   type-scale($u-sans-cap-height, $u-type-scale-18);
-$u-sans-20:   type-scale($u-sans-cap-height, $u-type-scale-20);
-$u-sans-22:   type-scale($u-sans-cap-height, $u-type-scale-22);
-$u-sans-24:  type-scale($u-sans-cap-height, $u-type-scale-24);
-$u-sans-28:  type-scale($u-sans-cap-height, $u-type-scale-28);
-$u-sans-32:  type-scale($u-sans-cap-height, $u-type-scale-32);
-$u-sans-36:  type-scale($u-sans-cap-height, $u-type-scale-36);
-$u-sans-40:  type-scale($u-sans-cap-height, $u-type-scale-40);
-$u-sans-48:  type-scale($u-sans-cap-height, $u-type-scale-48);
-$u-sans-56:  type-scale($u-sans-cap-height, $u-type-scale-56);
-$u-sans-64:  type-scale($u-sans-cap-height, $u-type-scale-64);
-$u-sans-80:  type-scale($u-sans-cap-height, $u-type-scale-80);
-$u-sans-120:  type-scale($u-sans-cap-height, $u-type-scale-120);
-$u-sans-140:  type-scale($u-sans-cap-height, $u-type-scale-140);
+$u-sans-f1:   type-scale($sans-cap-height, $u-type-scale-f1);
+$u-sans-f2:   type-scale($sans-cap-height, $u-type-scale-f2);
+$u-sans-f3:   type-scale($sans-cap-height, $u-type-scale-f3);
+$u-sans-f4:   type-scale($sans-cap-height, $u-type-scale-f4);
+$u-sans-f5:   type-scale($sans-cap-height, $u-type-scale-f5);
+$u-sans-f6:   type-scale($sans-cap-height, $u-type-scale-f6);
+$u-sans-f7:   type-scale($sans-cap-height, $u-type-scale-f7);
+$u-sans-f8:   type-scale($sans-cap-height, $u-type-scale-f8);
+$u-sans-f9:   type-scale($sans-cap-height, $u-type-scale-f9);
+$u-sans-f10:  type-scale($sans-cap-height, $u-type-scale-f10);
+$u-sans-f11:  type-scale($sans-cap-height, $u-type-scale-f11);
+$u-sans-f12:  type-scale($sans-cap-height, $u-type-scale-f12);
+$u-sans-f13:  type-scale($sans-cap-height, $u-type-scale-f13);
+$u-sans-f14:  type-scale($sans-cap-height, $u-type-scale-f14);
+$u-sans-f15:  type-scale($sans-cap-height, $u-type-scale-f15);
+$u-sans-f16:  type-scale($sans-cap-height, $u-type-scale-f16);
+$u-sans-f17:  type-scale($sans-cap-height, $u-type-scale-f17);
+$u-sans-f18:  type-scale($sans-cap-height, $u-type-scale-f18);
+$u-sans-f19:  type-scale($sans-cap-height, $u-type-scale-f19);
+$u-sans-f20:  type-scale($sans-cap-height, $u-type-scale-f20);
 
-$u-serif-12:  type-scale($u-serif-cap-height, $u-type-scale-12);
-$u-serif-13:  type-scale($u-serif-cap-height, $u-type-scale-13);
-$u-serif-14:  type-scale($u-serif-cap-height, $u-type-scale-14);
-$u-serif-15:  type-scale($u-serif-cap-height, $u-type-scale-15);
-$u-serif-16:  type-scale($u-serif-cap-height, $u-type-scale-16);
-$u-serif-17:  type-scale($u-serif-cap-height, $u-type-scale-17);
-$u-serif-18:  type-scale($u-serif-cap-height, $u-type-scale-18);
-$u-serif-20:  type-scale($u-serif-cap-height, $u-type-scale-20);
-$u-serif-22:  type-scale($u-serif-cap-height, $u-type-scale-22);
-$u-serif-24: type-scale($u-serif-cap-height, $u-type-scale-24);
-$u-serif-28: type-scale($u-serif-cap-height, $u-type-scale-28);
-$u-serif-32: type-scale($u-serif-cap-height, $u-type-scale-32);
-$u-serif-36: type-scale($u-serif-cap-height, $u-type-scale-36);
-$u-serif-40: type-scale($u-serif-cap-height, $u-type-scale-40);
-$u-serif-48: type-scale($u-serif-cap-height, $u-type-scale-48);
-$u-serif-56: type-scale($u-serif-cap-height, $u-type-scale-56);
-$u-serif-64: type-scale($u-serif-cap-height, $u-type-scale-64);
-$u-serif-80: type-scale($u-serif-cap-height, $u-type-scale-80);
-$u-serif-120: type-scale($u-serif-cap-height, $u-type-scale-120);
-$u-serif-140: type-scale($u-serif-cap-height, $u-type-scale-140);
+$u-serif-f1:  type-scale($serif-cap-height, $u-type-scale-f1);
+$u-serif-f2:  type-scale($serif-cap-height, $u-type-scale-f2);
+$u-serif-f3:  type-scale($serif-cap-height, $u-type-scale-f3);
+$u-serif-f4:  type-scale($serif-cap-height, $u-type-scale-f4);
+$u-serif-f5:  type-scale($serif-cap-height, $u-type-scale-f5);
+$u-serif-f6:  type-scale($serif-cap-height, $u-type-scale-f6);
+$u-serif-f7:  type-scale($serif-cap-height, $u-type-scale-f7);
+$u-serif-f8:  type-scale($serif-cap-height, $u-type-scale-f8);
+$u-serif-f9:  type-scale($serif-cap-height, $u-type-scale-f9);
+$u-serif-f10: type-scale($serif-cap-height, $u-type-scale-f10);
+$u-serif-f11: type-scale($serif-cap-height, $u-type-scale-f11);
+$u-serif-f12: type-scale($serif-cap-height, $u-type-scale-f12);
+$u-serif-f13: type-scale($serif-cap-height, $u-type-scale-f13);
+$u-serif-f14: type-scale($serif-cap-height, $u-type-scale-f14);
+$u-serif-f15: type-scale($serif-cap-height, $u-type-scale-f15);
+$u-serif-f16: type-scale($serif-cap-height, $u-type-scale-f16);
+$u-serif-f17: type-scale($serif-cap-height, $u-type-scale-f17);
+$u-serif-f18: type-scale($serif-cap-height, $u-type-scale-f18);
+$u-serif-f19: type-scale($serif-cap-height, $u-type-scale-f19);
+$u-serif-f20: type-scale($serif-cap-height, $u-type-scale-f20);
 
 // -----------------------------------------------------
 
@@ -214,10 +195,10 @@ $violet-warm-20v: #f3a8ff;
 $violet-warm-30v: #ee82ff;
 $violet-warm-40v: #e05ef7;
 $violet-warm-50v: #c132d4;
-$violet-warm-60v: null;
-$violet-warm-70v: null;
-$violet-warm-80v: null;
-$violet-warm-90v: null;
+$violet-warm-60v: false;
+$violet-warm-70v: false;
+$violet-warm-80v: false;
+$violet-warm-90v: false;
 
 // violet
 $violet-5 :       #f7f5fa;
@@ -230,16 +211,16 @@ $violet-60:       #644f8f;
 $violet-70:       #493a66;
 $violet-80:       #2d273b;
 $violet-90:       #1e1b24;
-$violet-5v:       null;
-$violet-10v:      null;
-$violet-20v:      null;
+$violet-5v:       false;
+$violet-10v:      false;
+$violet-20v:      false;
 $violet-30v:      #be95e9;
 $violet-40v:      #b07bed;
 $violet-50v:      #9455dd;
 $violet-60v:      #7639b8;
 $violet-70v:      #552996;
-$violet-80v:      null;
-$violet-90v:      null;
+$violet-80v:      false;
+$violet-90v:      false;
 
 // indigo-warm
 $indigo-warm-5 :  #f9f7ff;
@@ -252,16 +233,16 @@ $indigo-warm-60:  #5e519e;
 $indigo-warm-70:  #433a7a;
 $indigo-warm-80:  #29263b;
 $indigo-warm-90:  #1d1b24;
-$indigo-warm-5v:  null;
-$indigo-warm-10v: null;
-$indigo-warm-20v: null;
+$indigo-warm-5v:  false;
+$indigo-warm-10v: false;
+$indigo-warm-20v: false;
 $indigo-warm-30v: #b59eff;
 $indigo-warm-40v: #9980ff;
 $indigo-warm-50v: #7560eb;
 $indigo-warm-60v: #5740d1;
-$indigo-warm-70v: null;
-$indigo-warm-80v: null;
-$indigo-warm-90v: null;
+$indigo-warm-70v: false;
+$indigo-warm-80v: false;
+$indigo-warm-90v: false;
 
 // indigo
 $indigo-5 :       #fafaff;
@@ -274,16 +255,16 @@ $indigo-60:       #5055b5;
 $indigo-70:       #3b3e75;
 $indigo-80:       #28293d;
 $indigo-90:       #1b1c26;
-$indigo-5v:       null;
-$indigo-10v:      null;
+$indigo-5v:       false;
+$indigo-10v:      false;
 $indigo-20v:      #acaeec;
 $indigo-30v:      #8c8fe1;
-$indigo-40v:      null;
+$indigo-40v:      false;
 $indigo-50v:      #656bd7;
 $indigo-60v:      #353aa5;
-$indigo-70v:      null;
-$indigo-80v:      null;
-$indigo-90v:      null;
+$indigo-70v:      false;
+$indigo-80v:      false;
+$indigo-90v:      false;
 
 // indigo-cool
 $indigo-cool-5 :  #f5f6fc;
@@ -296,16 +277,16 @@ $indigo-cool-60:  #425bad;
 $indigo-cool-70:  #364173;
 $indigo-cool-80:  #23273d;
 $indigo-cool-90:  #1b1c2b;
-$indigo-cool-5v:  null;
-$indigo-cool-10v: null;
-$indigo-cool-20v: null;
-$indigo-cool-30v: null;
+$indigo-cool-5v:  false;
+$indigo-cool-10v: false;
+$indigo-cool-20v: false;
+$indigo-cool-30v: false;
 $indigo-cool-40v: #6694ff;
-$indigo-cool-50v: null;
+$indigo-cool-50v: false;
 $indigo-cool-60v: #4150f2;
-$indigo-cool-70v: null;
-$indigo-cool-80v: null;
-$indigo-cool-90v: null;
+$indigo-cool-70v: false;
+$indigo-cool-80v: false;
+$indigo-cool-90v: false;
 
 // blue-warm
 $blue-warm-5 :    #f0f5fc;
@@ -318,8 +299,8 @@ $blue-warm-60:    #37629e;
 $blue-warm-70:    #31486b;
 $blue-warm-80:    #232d3d;
 $blue-warm-90:    #161b24;
-$blue-warm-5v:    null;
-$blue-warm-10v:   null;
+$blue-warm-5v:    false;
+$blue-warm-10v:   false;
 $blue-warm-20v:   #b8cbf2;
 $blue-warm-30v:   #81aefc;
 $blue-warm-40v:   #5e99ff;
@@ -327,7 +308,7 @@ $blue-warm-50v:   #2673df;
 $blue-warm-60v:   #0052de;
 $blue-warm-70v:   #1e4f94;
 $blue-warm-80v:   #112a4d;
-$blue-warm-90v:   null;
+$blue-warm-90v:   false;
 
 // blue
 $blue-5 :         #f5fbff;
@@ -340,16 +321,16 @@ $blue-60:         #2f6794;
 $blue-70:         #294c69;
 $blue-80:         #1e2f3d;
 $blue-90:         #161e24;
-$blue-5v:         null;
-$blue-10v:        null;
-$blue-20v:        null;
+$blue-5v:         false;
+$blue-10v:        false;
+$blue-20v:        false;
 $blue-30v:        #57b3ff;
 $blue-40v:        #009afa;
 $blue-50v:        #007ade;
 $blue-60v:        #0069b4;
 $blue-70v:        #0c4d82;
 $blue-80v:        #11304f;
-$blue-90v:        null;
+$blue-90v:        false;
 
 // cyan
 $cyan-5 :         #e8f7fa;
@@ -362,16 +343,16 @@ $cyan-60:         #2f707a;
 $cyan-70:         #2d4b4f;
 $cyan-80:         #203133;
 $cyan-90:         #151e1f;
-$cyan-5v:         null;
+$cyan-5v:         false;
 $cyan-10v:        #a8f2ff;
 $cyan-20v:        #55e1fa;
 $cyan-30v:        #02c2e8;
 $cyan-40v:        #00abd1;
-$cyan-50v:        null;
-$cyan-60v:        null;
-$cyan-70v:        null;
-$cyan-80v:        null;
-$cyan-90v:        null;
+$cyan-50v:        false;
+$cyan-60v:        false;
+$cyan-70v:        false;
+$cyan-80v:        false;
+$cyan-90v:        false;
 
 // mint-cool
 $mint-cool-5 :    #f2fffe;
@@ -389,11 +370,11 @@ $mint-cool-10v:   #7efce1;
 $mint-cool-20v:   #02dbc2;
 $mint-cool-30v:   #00baa4;
 $mint-cool-40v:   #00b5a9;
-$mint-cool-50v:   null;
-$mint-cool-60v:   null;
-$mint-cool-70v:   null;
-$mint-cool-80v:   null;
-$mint-cool-90v:   null;
+$mint-cool-50v:   false;
+$mint-cool-60v:   false;
+$mint-cool-70v:   false;
+$mint-cool-80v:   false;
+$mint-cool-90v:   false;
 
 // mint
 $mint-5 :         #cafcec;
@@ -407,16 +388,16 @@ $mint-70:         #225237;
 $mint-80:         #1d3b29;
 $mint-90:         #1d3b29;
 $mint-5v:         #befde9;
-$mint-5v:         null;
+$mint-5v:         false;
 $mint-10v:        #30f8b5;
 $mint-20v:        #06ec9f;
 $mint-30v:        #04c786;
-$mint-40v:        null;
-$mint-50v:        null;
+$mint-40v:        false;
+$mint-50v:        false;
 $mint-60v:        #16754f;
-$mint-70v:        null;
-$mint-80v:        null;
-$mint-90v:        null;
+$mint-70v:        false;
+$mint-80v:        false;
+$mint-90v:        false;
 
 // green-cool
 $green-cool-5 :   #e8fae6;
@@ -435,10 +416,10 @@ $green-cool-20v:  #61cf59;
 $green-cool-30v:  #16c20a;
 $green-cool-40v:  #0caf00;
 $green-cool-50v:  #178800;
-$green-cool-60v:  null;
-$green-cool-70v:  null;
-$green-cool-80v:  null;
-$green-cool-90v:  null;
+$green-cool-60v:  false;
+$green-cool-70v:  false;
+$green-cool-80v:  false;
+$green-cool-90v:  false;
 
 // green
 $green-5 :        #f7fcf0;
@@ -457,10 +438,10 @@ $green-20v:       #93cc2e;
 $green-30v:       #81b532;
 $green-40v:       #73a22b;
 $green-50v:       #538200;
-$green-60v:       null;
-$green-70v:       null;
-$green-80v:       null;
-$green-90v:       null;
+$green-60v:       false;
+$green-70v:       false;
+$green-80v:       false;
+$green-90v:       false;
 
 // green-warm
 $green-warm-5 :   #f9faed;
@@ -479,10 +460,10 @@ $green-warm-20v:  #cedc0a;
 $green-warm-30v:  #a9bd2d;
 $green-warm-40v:  #7f9e1d;
 $green-warm-50v:  #6b7e00;
-$green-warm-60v:  null;
-$green-warm-70v:  null;
-$green-warm-80v:  null;
-$green-warm-90v:  null;
+$green-warm-60v:  false;
+$green-warm-70v:  false;
+$green-warm-80v:  false;
+$green-warm-90v:  false;
 
 // yellow
 $yellow-5 :       #faf7ed;
@@ -495,16 +476,16 @@ $yellow-60:       #6b5a39;
 $yellow-70:       #4d402f;
 $yellow-80:       #302a24;
 $yellow-90:       #1f1b18;
-$yellow-5v:       null;
+$yellow-5v:       false;
 $yellow-10v:      #fdd430;
 $yellow-20v:      #edc730;
-$yellow-30v:      null;
-$yellow-40v:      null;
-$yellow-50v:      null;
-$yellow-60v:      null;
-$yellow-70v:      null;
-$yellow-80v:      null;
-$yellow-90v:      null;
+$yellow-30v:      false;
+$yellow-40v:      false;
+$yellow-50v:      false;
+$yellow-60v:      false;
+$yellow-70v:      false;
+$yellow-80v:      false;
+$yellow-90v:      false;
 
 // gold
 $gold-5 :         #faf5eb;
@@ -523,10 +504,10 @@ $gold-20v:        #faaf00;
 $gold-30v:        #e6a100;
 $gold-40v:        #c98a0c;
 $gold-50v:        #946f38;
-$gold-60v:        null;
-$gold-70v:        null;
-$gold-80v:        null;
-$gold-90v:        null;
+$gold-60v:        false;
+$gold-70v:        false;
+$gold-80v:        false;
+$gold-90v:        false;
 
 // orange
 $orange-5 :       #fffbf7;
@@ -540,15 +521,15 @@ $orange-70:       #4f3f33;
 $orange-80:       #302a24;
 $orange-90:       #211b18;
 $orange-5v:       #ffebd5;
-$orange-10v:      null;
+$orange-10v:      false;
 $orange-20v:      #ffba75;
 $orange-30v:      #ff9742;
 $orange-40v:      #ff7b0f;
 $orange-50v:      #c25700;
-$orange-60v:      null;
-$orange-70v:      null;
-$orange-80v:      null;
-$orange-90v:      null;
+$orange-60v:      false;
+$orange-70v:      false;
+$orange-80v:      false;
+$orange-90v:      false;
 
 // orange-warm
 $orange-warm-5 :  #fcf6f2;
@@ -561,16 +542,16 @@ $orange-warm-60:  #944835;
 $orange-warm-70:  #61382f;
 $orange-warm-80:  #3b2723;
 $orange-warm-90:  #211a19;
-$orange-warm-5v:  null;
-$orange-warm-10v: null;
+$orange-warm-5v:  false;
+$orange-warm-10v: false;
 $orange-warm-20v: #faad96;
 $orange-warm-30v: #fc835c;
 $orange-warm-40v: #ff5201;
 $orange-warm-50v: #d24200;
-$orange-warm-60v: null;
-$orange-warm-70v: null;
-$orange-warm-80v: null;
-$orange-warm-90v: null;
+$orange-warm-60v: false;
+$orange-warm-70v: false;
+$orange-warm-80v: false;
+$orange-warm-90v: false;
 
 // red-warm
 $red-warm-5 :     #faf7f5;
@@ -583,16 +564,16 @@ $red-warm-60:     #805039;
 $red-warm-70:     #4f3f33;
 $red-warm-80:     #302a26;
 $red-warm-90:     #1f1c18;
-$red-warm-5v:     null;
-$red-warm-10v:    null;
+$red-warm-5v:     false;
+$red-warm-10v:    false;
 $red-warm-20v:    #eaa076;
 $red-warm-30v:    #e67549;
 $red-warm-40v:    #ee601d;
 $red-warm-50v:    #df4206;
-$red-warm-60v:    null;
-$red-warm-70v:    null;
-$red-warm-80v:    null;
-$red-warm-90v:    null;
+$red-warm-60v:    false;
+$red-warm-70v:    false;
+$red-warm-80v:    false;
+$red-warm-90v:    false;
 
 // red
 $red-5 :          #fcf5f5;
@@ -605,7 +586,7 @@ $red-60:          #ab3a3a;
 $red-70:          #6e312f;
 $red-80:          #3b2523;
 $red-90:          #211b1b;
-$red-5v:          null;
+$red-5v:          false;
 $red-10v:         #fccec7;
 $red-20v:         #fda99c;
 $red-30v:         #ff806c;
@@ -614,7 +595,7 @@ $red-50v:         #e92106;
 $red-60v:         #c31f0a;
 $red-70v:         #9c1503;
 $red-80v:         #631212;
-$red-90v:         null;
+$red-90v:         false;
 
 // magenta
 $magenta-5 :      #faf5f6;
@@ -627,16 +608,16 @@ $magenta-60:      #8a4365;
 $magenta-70:      #613046;
 $magenta-80:      #3b212c;
 $magenta-90:      #211b1d;
-$magenta-5v:      null;
+$magenta-5v:      false;
 $magenta-10v:     #ffd1e2;
 $magenta-20v:     #ffadca;
 $magenta-30v:     #ff80ae;
 $magenta-40v:     #fa3c91;
 $magenta-50v:     #e1277a;
 $magenta-60v:     #a91b61;
-$magenta-70v:     null;
-$magenta-80v:     null;
-$magenta-90v:     null;
+$magenta-70v:     false;
+$magenta-80v:     false;
+$magenta-90v:     false;
 
 // black-cool
 $black-cool-5 :   #edeff0;
@@ -674,7 +655,7 @@ $black-warm-70:   #42423c;
 $black-warm-80:   #2b2b27;
 $black-warm-90:   #1c1c1b;
 
-// black-op
+// black-transparent
 $black-transparent-5 :     rgba(0, 0, 0, 0.01);
 $black-transparent-10:     rgba(0, 0, 0, 0.1);
 $black-transparent-20:     rgba(0, 0, 0, 0.2);
@@ -686,7 +667,7 @@ $black-transparent-70:     rgba(0, 0, 0, 0.7);
 $black-transparent-80:     rgba(0, 0, 0, 0.8);
 $black-transparent-90:     rgba(0, 0, 0, 0.9);
 
-// white-op
+// white-transparent
 $white-transparent-5 :     rgba(255, 255, 255, 0.01);
 $white-transparent-10:     rgba(255, 255, 255, 0.1);
 $white-transparent-20:     rgba(255, 255, 255, 0.2);

@@ -4,8 +4,8 @@ USWDS UTILITIES SETTINGS
 ----------------------------------------
 */
 
-$utilities-namespace-prefix:  'usa-u-' !default;
-$utilities-use-important:     false !default;
+$utilities-namespace-prefix:  'usa-u-';
+$utilities-use-important:     false;
 
 $output-breakpoints: (
   xs: false,
@@ -13,9 +13,9 @@ $output-breakpoints: (
   md: true,
   lg: true,
   xl: false
-) !default;
+);
 
-$output-all-utilities:  false !default;
+$output-all-utilities:  false;
 
 $output-utilities: (
   align-items:      false,
@@ -63,7 +63,7 @@ $output-utilities: (
   whitespace:       false,
   width:            false,
   z-index:          false
-) !default;
+);
 
 /*
 ========================================
@@ -77,12 +77,12 @@ $align-items-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $align-items-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $align-items-manual-values: (
   /*
@@ -91,7 +91,7 @@ $align-items-manual-values: (
   flex-end:     'flex-end',
   center:       'center',
   stretch:      'stretch'
-) !default;
+);
 
 /*
 ========================================
@@ -105,19 +105,19 @@ $background-color-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $background-color-preset-values: map-collect(
   /*
   */
   $preset-palette-reserved,
   $preset-palette-project-settings
-) !default;
+);
 
 $background-color-manual-values: (
   /*
   */
-) !default;
+);
 
 /*
 ========================================
@@ -131,20 +131,20 @@ $border-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $border-preset-values: map-collect(
   /*
   */
   $preset-units-px,
   $preset-units-grid-small
-) !default;
+);
 
 $border-manual-values: (
   /*
   */
   0:            '0'
-) !default;
+);
 
 /*
 ========================================
@@ -158,19 +158,19 @@ $border-color-settings: (
   focus:        false,
   hover:        true,
   visited:      false
-) !default;
+);
 
 $border-color-preset-values: map-collect(
   /*
   */
   $preset-palette-reserved,
   $preset-palette-project-settings
-) !default;
+);
 
 $border-color-manual-values: (
   /*
   */
-) !default;
+);
 
 /*
 ========================================
@@ -184,14 +184,14 @@ $border-radius-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $border-radius-preset-values: map-collect(
   /*
   $preset-units-grid-small
   */
   $preset-spacing-tshirt-small
-) !default;
+);
 
 $border-radius-manual-values: (
   /*
@@ -199,7 +199,7 @@ $border-radius-manual-values: (
   0:            '0',
   pill:         '9999em',
   circle:       '50%'
-) !default;
+);
 
 /*
 ========================================
@@ -213,12 +213,12 @@ $border-style-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $border-style-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $border-style-manual-values: (
   /*
@@ -226,7 +226,7 @@ $border-style-manual-values: (
   dashed:       'dashed',
   dotted:       'dotted',
   solid:        'solid'
-) !default;
+);
 
 /*
 ========================================
@@ -240,12 +240,12 @@ $box-shadow-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $box-shadow-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $box-shadow-manual-values: (
   /*
@@ -256,7 +256,7 @@ $box-shadow-manual-values: (
   3: '0 6px 12px 0 rgba(0,0,0,0.10)',
   4: '0 8px 16px 0 rgba(0,0,0,0.10)',
   5: '0 12px 24px 0 rgba(0,0,0,0.10)'
-) !default;
+);
 
 /*
 ========================================
@@ -270,18 +270,18 @@ $circle-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $circle-preset-values: map-collect(
   /*
   */
   $preset-spacing-tshirt
-) !default;
+);
 
 $circle-manual-values: (
   /*
   */
-) !default;
+);
 
 /*
 ========================================
@@ -295,19 +295,19 @@ $color-settings: (
   focus:        false,
   hover:        true,
   visited:      false
-) !default;
+);
 
 $color-preset-values: map-collect(
   /*
   */
   $preset-palette-project-settings,
   $preset-palette-reserved
-) !default;
+);
 
 $color-manual-values: (
   /*
   */
-) !default;
+);
 
 /*
 ========================================
@@ -321,7 +321,7 @@ $column-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 /*
 ========================================
@@ -335,12 +335,12 @@ $display-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $display-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $display-manual-values: (
   /*
@@ -352,7 +352,7 @@ $display-manual-values: (
   inline-block: 'inline-block',
   table:        'table',
   table-cell:   'table-cell'
-) !default;
+);
 
 /*
 ========================================
@@ -366,12 +366,12 @@ $flex-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $flex-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $flex-manual-values: (
   /*
@@ -389,7 +389,7 @@ $flex-manual-values: (
   11:           '11 0 0',
   fill:         '1 0 0',
   fit:          '0'
-) !default;
+);
 
 /*
 ========================================
@@ -403,16 +403,16 @@ $flex-direction-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
-$flex-direction-preset-values: map-collect() !default;
+$flex-direction-preset-values: map-collect();
 
 $flex-direction-manual-values: (
   /*
   */
   row:          'row',
   column:       'column'
-) !default;
+);
 
 /*
 ========================================
@@ -426,14 +426,14 @@ $flex-wrap-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
-$flex-wrap-preset-values: map-collect() !default;
+$flex-wrap-preset-values: map-collect();
 
 $flex-wrap-manual-values: (
   wrap:         'wrap',
   nowrap:       'nowrap'
-) !default;
+);
 
 /*
 ========================================
@@ -447,9 +447,9 @@ $float-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
-$float-preset-values: map-collect() !default;
+$float-preset-values: map-collect();
 
 $float-manual-values: (
   /*
@@ -457,7 +457,7 @@ $float-manual-values: (
   left:         'left',
   none:         'none',
   right:        'right'
-) !default;
+);
 
 /*
 ========================================
@@ -471,18 +471,18 @@ $font-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $font-preset-values: map-collect(
   /*
   */
   $preset-font-tshirt
-) !default;
+);
 
 $font-manual-values: (
   /*
   */
-) !default;
+);
 
 /*
 ========================================
@@ -496,18 +496,18 @@ $font-family-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $font-family-preset-values: map-collect(
   /*
   */
   $preset-font-families
-) !default;
+);
 
 $font-family-manual-values: (
   /*
   */
-) !default;
+);
 
 /*
 ========================================
@@ -521,12 +521,12 @@ $font-feature-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $font-feature-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $font-feature-manual-values: (
   /*
@@ -534,7 +534,7 @@ $font-feature-manual-values: (
   alt:          "'ss01' 1, 'kern' 1",
   tabular:      "'tnum' 1, 'kern' 1",
   default:      "'kern' 1",
-) !default;
+);
 
 /*
 ========================================
@@ -548,14 +548,14 @@ $font-style-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
-$font-style-preset-values: map-collect() !default;
+$font-style-preset-values: map-collect();
 
 $font-style-manual-values: (
   normal:       'normal',
   italic:       'italic'
-) !default;
+);
 
 /*
 ========================================
@@ -569,12 +569,12 @@ $font-weight-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $font-weight-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $font-weight-manual-values: (
   /*
@@ -591,7 +591,7 @@ $font-weight-manual-values: (
   bold:         'bold',
   normal:       'normal',
   light:        'light'
-) !default;
+);
 
 /*
 ========================================
@@ -605,7 +605,7 @@ $height-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $height-preset-values: map-collect(
   /*
@@ -615,12 +615,12 @@ $height-preset-values: map-collect(
   */
   $preset-units-percentage,
   $preset-spacing-tshirt
-) !default;
+);
 
 $height-manual-values: (
   /*
   */
-) !default;
+);
 
 /*
 ========================================
@@ -634,12 +634,12 @@ $letter-spacing-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $letter-spacing-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $letter-spacing-manual-values: (
   /*
@@ -651,7 +651,7 @@ $letter-spacing-manual-values: (
   1:            $u-ls-1,
   2:            $u-ls-2,
   3:            $u-ls-3
-) !default;
+);
 
 /*
 ========================================
@@ -665,12 +665,12 @@ $line-height-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $line-height-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $line-height-manual-values: (
   /*
@@ -681,7 +681,7 @@ $line-height-manual-values: (
   body-tight:    $u-lh-body-tight,
   body:          $u-lh-body,
   body-loose:    $u-lh-body-loose
-) !default;
+);
 
 /*
 ========================================
@@ -695,7 +695,7 @@ $list-reset-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 /*
 ========================================
@@ -715,7 +715,7 @@ $manual-position-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $manual-position-preset-values: map-collect(
   /*
@@ -724,14 +724,14 @@ $manual-position-preset-values: map-collect(
   $preset-units-px-negative,
   $preset-spacing-tshirt-small,
   $preset-spacing-tshirt-small-negative
-) !default;
+);
 
 $manual-position-manual-values: (
   /*
   */
   0:            '0',
   auto:         'auto'
-) !default;
+);
 
 /*
 ========================================
@@ -745,7 +745,7 @@ $margin-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $margin-preset-values: map-collect(
   /*
@@ -762,14 +762,14 @@ $margin-preset-values: map-collect(
   $preset-units-px-negative,
   $preset-spacing-tshirt,
   $preset-spacing-tshirt-small-negative
-) !default;
+);
 
 $margin-manual-values: (
   /*
   */
   0:            '0',
   auto:         'auto',
-) !default;
+);
 
 /*
 ========================================
@@ -783,7 +783,7 @@ $max-height-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $max-height-preset-values: map-collect(
   /*
@@ -791,12 +791,12 @@ $max-height-preset-values: map-collect(
   $preset-units-grid,
   $preset-units-px
   */
-) !default;
+);
 
 $max-height-manual-values: (
   /*
   */
-) !default;
+);
 
 /*
 ========================================
@@ -810,14 +810,14 @@ $max-width-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $max-width-preset-values: map-collect(
   /*
   $preset-units-percentage,
   $preset-units-breakpoints
   */
-) !default;
+);
 
 $max-width-manual-values: (
   /*
@@ -825,7 +825,7 @@ $max-width-manual-values: (
   none:         'none',
   reading-sm:   $text-narrow-width,
   reading:      $text-max-width
-) !default;
+);
 
 /*
 ========================================
@@ -839,7 +839,7 @@ $min-height-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $min-height-preset-values: map-collect(
   /*
@@ -847,13 +847,13 @@ $min-height-preset-values: map-collect(
   $preset-units-grid-small
   $preset-units-grid-medium
   */
-) !default;
+);
 
 $min-height-manual-values: (
   /*
   */
   100ct:        100%
-) !default;
+);
 
 /*
 ========================================
@@ -867,7 +867,7 @@ $min-width-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $min-width-preset-values: map-collect(
   /*
@@ -875,12 +875,12 @@ $min-width-preset-values: map-collect(
   $preset-units-breakpoints,
   $preset-units-grid-large,
   $preset-units-grid-xlarge
-) !default;
+);
 
 $min-width-manual-values: (
   /*
   */
-) !default;
+);
 
 /*
 ========================================
@@ -894,12 +894,12 @@ $opacity-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $opacity-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $opacity-manual-values: (
   /*
@@ -915,7 +915,7 @@ $opacity-manual-values: (
   09:           '0.9',
   1:            '1',
   */
-) !default;
+);
 
 /*
 ========================================
@@ -929,12 +929,12 @@ $order-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $order-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $order-manual-values: (
   /*
@@ -953,7 +953,7 @@ $order-manual-values: (
   */
   first:        '-1',
   last:         '99'
-) !default;
+);
 
 /*
 ========================================
@@ -967,20 +967,20 @@ $outline-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $outline-preset-values: map-collect(
   /*
   */
   $preset-units-px,
   $preset-units-grid-small
-) !default;
+);
 
 $outline-manual-values: (
   /*
   */
   0:            'none'
-) !default;
+);
 
 /*
 ========================================
@@ -994,18 +994,18 @@ $outline-color-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $outline-color-preset-values: map-collect(
   /*
   */
   $preset-palette-project-settings
-) !default;
+);
 
 $outline-color-manual-values: (
   /*
   */
-) !default;
+);
 
 /*
 ========================================
@@ -1019,20 +1019,20 @@ $padding-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $padding-preset-values: map-collect(
   /*
   $preset-units-px,
   */
   $preset-spacing-tshirt
-) !default;
+);
 
 $padding-manual-values: (
   /*
   */
   0:            '0'
-) !default;
+);
 
 /*
 ========================================
@@ -1046,12 +1046,12 @@ $position-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $position-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $position-manual-values: (
   /*
@@ -1061,7 +1061,7 @@ $position-manual-values: (
   relative:     'relative',
   static:       'static',
   sticky:       'sticky'
-) !default;
+);
 
 /*
 ========================================
@@ -1075,7 +1075,7 @@ $row-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 /*
 ========================================
@@ -1089,19 +1089,19 @@ $square-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $square-preset-values: map-collect(
   /*
   */
   $preset-spacing-tshirt
-) !default;
+);
 
 $square-manual-values: (
   /*
   */
   2px:          '2px'
-) !default;
+);
 
 /*
 ========================================
@@ -1115,12 +1115,12 @@ $text-align-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $text-align-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $text-align-manual-values: (
   /*
@@ -1129,7 +1129,7 @@ $text-align-manual-values: (
   left:         'left',
   justify:      'justify',
   right:        'right',
-) !default;
+);
 
 /*
 ========================================
@@ -1143,12 +1143,12 @@ $text-decoration-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $text-decoration-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $text-decoration-manual-values: (
   /*
@@ -1156,7 +1156,7 @@ $text-decoration-manual-values: (
   strike:           'strike',
   underline:        'underline',
   none:             'none'
-) !default;
+);
 
 /*
 ========================================
@@ -1170,12 +1170,12 @@ $text-transform-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $text-transform-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $text-transform-manual-values: (
   /*
@@ -1184,7 +1184,7 @@ $text-transform-manual-values: (
   lowercase:      'lowercase',
   uppercase:      'uppercase',
   none:           'none'
-) !default;
+);
 
 /*
 ========================================
@@ -1198,12 +1198,12 @@ $vertical-align-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $vertical-align-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $vertical-align-manual-values: (
   /*
@@ -1216,7 +1216,7 @@ $vertical-align-manual-values: (
   text-bottom:  'text-bottom',
   text-top:     'text-top',
   top:          'top',
-) !default;
+);
 
 /*
 ========================================
@@ -1230,12 +1230,12 @@ $whitespace-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $whitespace-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $whitespace-manual-values: (
   /*
@@ -1245,7 +1245,7 @@ $whitespace-manual-values: (
   pre-wrap:     'pre-wrap',
   normal:       'normal',
   nowrap:       'nowrap'
-) !default;
+);
 
 /*
 ========================================
@@ -1259,7 +1259,7 @@ $width-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $width-preset-values: map-collect(
   /*
@@ -1270,14 +1270,14 @@ $width-preset-values: map-collect(
   */
   $preset-units-percentage,
   $preset-units-breakpoints
-) !default;
+);
 
 $width-manual-values: (
   /*
   100ct:        '100%'
   */
   auto:         'auto',
-) !default;
+);
 
 /*
 ========================================
@@ -1291,12 +1291,12 @@ $z-index-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-) !default;
+);
 
 $z-index-preset-values: map-collect(
   /*
   */
-) !default;
+);
 
 $z-index-manual-values: (
   /*
@@ -1309,4 +1309,4 @@ $z-index-manual-values: (
   */
   top:          '9999',
   bottom:       '-9999'
-) !default;
+);

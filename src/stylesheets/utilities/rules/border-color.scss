@@ -21,15 +21,15 @@ example:
 $border-color: (
   border-color: (
     property: 'border',
-    base: 'border-color',
+    base: 'border',
     modifiers: (
-      t: '-top-color',
-      r: '-left-color',
-      b: '-bottom-color',
-      l: '-left-color',
-      y: ('-top-color', '-bottom-color'),
-      x: ('-left-color', '-right-color'),
-      noModifier: -color,
+      'top-color': '-top-color',
+      'right-color': '-left-color',
+      'bottom-color': '-bottom-color',
+      'left-color': '-left-color',
+      'y-color': ('-top-color', '-bottom-color'),
+      'x-color': ('-left-color', '-right-color'),
+      color: '-color',
     ),
     values: map-collect(
       $border-color-preset-values,

@@ -10,216 +10,196 @@ $preset-font-weight: (
   900: 900,
 );
 
-$preset-mono-12: (
-  mono-12: (
-    slug: 'mono-12',
+$preset-mono-f1: (
+  mono-f1: (
+    slug: 'mono-f1',
     isReadable: true,
-    content: $u-mono-12,
-    extends: font-mono,
+    content: $u-mono-f1,
   ),
 );
 
-$preset-mono-13: (
-  mono-13: (
-    slug: 'mono-13',
+$preset-mono-f2: (
+  mono-f2: (
+    slug: 'mono-f2',
     isReadable: true,
-    content: $u-mono-13,
-    extends: font-mono,
+    content: $u-mono-f2,
   ),
 );
 
-$preset-mono-14: (
-  mono-14: (
-    slug: 'mono-14',
+$preset-mono-f3: (
+  mono-f3: (
+    slug: 'mono-f3',
     isReadable: true,
-    content: $u-mono-14,
-    extends: font-mono,
+    content: $u-mono-f3,
   ),
 );
 
-$preset-mono-15: (
-  mono-15: (
-    slug: 'mono-15',
+$preset-mono-f4: (
+  mono-f4: (
+    slug: 'mono-f4',
     isReadable: true,
-    content: $u-mono-15,
-    extends: font-mono,
+    content: $u-mono-f4,
   ),
 );
 
-$preset-mono-16: (
-  mono-16: (
-    slug: 'mono-16',
+$preset-mono-f5: (
+  mono-f5: (
+    slug: 'mono-f5',
     isReadable: true,
-    content: $u-mono-16,
-    extends: font-mono,
+    content: $u-mono-f5,
   ),
 );
 
-$preset-mono-17: (
-  mono-17: (
-    slug: 'mono-17',
+$preset-mono-f6: (
+  mono-f6: (
+    slug: 'mono-f6',
     isReadable: true,
-    content: $u-mono-17,
-    extends: font-mono,
+    content: $u-mono-f6,
   ),
 );
 
-$preset-mono-18: (
-  mono-18: (
-    slug: 'mono-18',
+$preset-mono-f7: (
+  mono-f7: (
+    slug: 'mono-f7',
     isReadable: true,
-    content: $u-mono-18,
-    extends: font-mono,
+    content: $u-mono-f7,
   ),
 );
 
-$preset-mono-20: (
-  mono-20: (
-    slug: 'mono-20',
+$preset-mono-f8: (
+  mono-f8: (
+    slug: 'mono-f8',
     isReadable: true,
-    content: $u-mono-20,
-    extends: font-mono,
+    content: $u-mono-f8,
   ),
 );
 
-$preset-mono-22: (
-  mono-22: (
-    slug: 'mono-22',
+$preset-mono-f9: (
+  mono-f9: (
+    slug: 'mono-f9',
     isReadable: true,
-    content: $u-mono-22,
-    extends: font-mono,
+    content: $u-mono-f9,
   ),
 );
 
-$preset-mono-24: (
-  mono-24: (
-    slug: 'mono-24',
+$preset-mono-f10: (
+  mono-f10: (
+    slug: 'mono-f10',
     isReadable: true,
-    content: $u-mono-24,
-    extends: font-mono,
+    content: $u-mono-f10,
   ),
 );
 
-$preset-mono-28: (
-  mono-28: (
-    slug: 'mono-28',
+$preset-mono-f11: (
+  mono-f11: (
+    slug: 'mono-f11',
     isReadable: true,
-    content: $u-mono-28,
-    extends: font-mono,
+    content: $u-mono-f11,
   ),
 );
 
-$preset-mono-32: (
-  mono-32: (
-    slug: 'mono-32',
+$preset-mono-f12: (
+  mono-f12: (
+    slug: 'mono-f12',
     isReadable: true,
-    content: $u-mono-32,
-    extends: font-mono,
+    content: $u-mono-f12,
   ),
 );
 
-$preset-mono-36: (
-  mono-36: (
-    slug: 'mono-36',
+$preset-mono-f13: (
+  mono-f13: (
+    slug: 'mono-f13',
     isReadable: true,
-    content: $u-mono-36,
-    extends: font-mono,
+    content: $u-mono-f13,
   ),
 );
 
-$preset-mono-40: (
-  mono-40: (
-    slug: 'mono-40',
+$preset-mono-f14: (
+  mono-f14: (
+    slug: 'mono-f14',
     isReadable: true,
-    content: $u-mono-40,
-    extends: font-mono,
+    content: $u-mono-f14,
   ),
 );
 
-$preset-mono-48: (
-  mono-48: (
-    slug: 'mono-48',
+$preset-mono-f15: (
+  mono-f15: (
+    slug: 'mono-f15',
     isReadable: true,
-    content: $u-mono-48,
-    extends: font-mono,
+    content: $u-mono-f15,
   ),
 );
 
-$preset-mono-56: (
-  mono-56: (
-    slug: 'mono-56',
+$preset-mono-f16: (
+  mono-f16: (
+    slug: 'mono-f16',
     isReadable: true,
-    content: $u-mono-56,
-    extends: font-mono,
+    content: $u-mono-f16,
   ),
 );
 
-$preset-mono-64: (
-  mono-64: (
-    slug: 'mono-64',
+$preset-mono-f17: (
+  mono-f17: (
+    slug: 'mono-f17',
     isReadable: true,
-    content: $u-mono-64,
-    extends: font-mono,
+    content: $u-mono-f17,
   ),
 );
 
-$preset-mono-80: (
-  mono-80: (
-    slug: 'mono-80',
+$preset-mono-f18: (
+  mono-f18: (
+    slug: 'mono-f18',
     isReadable: true,
-    content: $u-mono-80,
-    extends: font-mono,
+    content: $u-mono-f18,
   ),
 );
 
-$preset-mono-120: (
-  mono-120: (
-    slug: 'mono-120',
+$preset-mono-f19: (
+  mono-f19: (
+    slug: 'mono-f19',
     isReadable: true,
-    content: $u-mono-120,
-    extends: font-mono,
+    content: $u-mono-f19,
   ),
 );
 
-$preset-mono-140: (
-  mono-140: (
-    slug: 'mono-140',
+$preset-mono-f20: (
+  mono-f20: (
+    slug: 'mono-f20',
     isReadable: true,
-    content: $u-mono-140,
-    extends: font-mono,
+    content: $u-mono-f20,
   ),
 );
 
 $preset-mono-small: map-collect(
-  $preset-mono-12,
-  $preset-mono-13,
-  $preset-mono-14
+  $preset-mono-f1,
+  $preset-mono-f2,
+  $preset-mono-f3
 );
 
 $preset-mono-medium: map-collect(
-  $preset-mono-15,
-  $preset-mono-16,
-  $preset-mono-17,
-  $preset-mono-18,
-  $preset-mono-20
+  $preset-mono-f4,
+  $preset-mono-f5,
+  $preset-mono-f6,
+  $preset-mono-f7,
+  $preset-mono-f8
 );
 
 $preset-mono-large: map-collect(
-  $preset-mono-22,
-  $preset-mono-24,
-  $preset-mono-28,
-  $preset-mono-32,
-  $preset-mono-36,
-  $preset-mono-40
+  $preset-mono-f9,
+  $preset-mono-f10,
+  $preset-mono-f11,
+  $preset-mono-f12,
+  $preset-mono-f13,
+  $preset-mono-f14
 );
 
 $preset-mono-xlarge: map-collect(
-  $preset-mono-48,
-  $preset-mono-56,
-  $preset-mono-64,
-  $preset-mono-80,
-  $preset-mono-120,
-  $preset-mono-140
+  $preset-mono-f15,
+  $preset-mono-f16,
+  $preset-mono-f17,
+  $preset-mono-f18,
+  $preset-mono-f19,
+  $preset-mono-f20
 );
 
 $preset-mono: map-collect(
@@ -229,216 +209,196 @@ $preset-mono: map-collect(
   $preset-mono-xlarge
 );
 
-$preset-sans-12: (
-  sans-12: (
-    slug: 'sans-12',
+$preset-sans-f1: (
+  sans-f1: (
+    slug: 'sans-f1',
     isReadable: true,
-    content: $u-sans-12,
-    extends: font-sans,
+    content: $u-sans-f1,
   ),
 );
 
-$preset-sans-13: (
-  sans-13: (
-    slug: 'sans-13',
+$preset-sans-f2: (
+  sans-f2: (
+    slug: 'sans-f2',
     isReadable: true,
-    content: $u-sans-13,
-    extends: font-sans,
+    content: $u-sans-f2,
   ),
 );
 
-$preset-sans-14: (
-  sans-14: (
-    slug: 'sans-14',
+$preset-sans-f3: (
+  sans-f3: (
+    slug: 'sans-f3',
     isReadable: true,
-    content: $u-sans-14,
-    extends: font-sans,
+    content: $u-sans-f3,
   ),
 );
 
-$preset-sans-15: (
-  sans-15: (
-    slug: 'sans-15',
+$preset-sans-f4: (
+  sans-f4: (
+    slug: 'sans-f4',
     isReadable: true,
-    content: $u-sans-15,
-    extends: font-sans,
+    content: $u-sans-f4,
   ),
 );
 
-$preset-sans-16: (
-  sans-16: (
-    slug: 'sans-16',
+$preset-sans-f5: (
+  sans-f5: (
+    slug: 'sans-f5',
     isReadable: true,
-    content: $u-sans-16,
-    extends: font-sans,
+    content: $u-sans-f5,
   ),
 );
 
-$preset-sans-17: (
-  sans-17: (
-    slug: 'sans-17',
+$preset-sans-f6: (
+  sans-f6: (
+    slug: 'sans-f6',
     isReadable: true,
-    content: $u-sans-17,
-    extends: font-sans,
+    content: $u-sans-f6,
   ),
 );
 
-$preset-sans-18: (
-  sans-18: (
-    slug: 'sans-18',
+$preset-sans-f7: (
+  sans-f7: (
+    slug: 'sans-f7',
     isReadable: true,
-    content: $u-sans-18,
-    extends: font-sans,
+    content: $u-sans-f7,
   ),
 );
 
-$preset-sans-20: (
-  sans-20: (
-    slug: 'sans-20',
+$preset-sans-f8: (
+  sans-f8: (
+    slug: 'sans-f8',
     isReadable: true,
-    content: $u-sans-20,
-    extends: font-sans,
+    content: $u-sans-f8,
   ),
 );
 
-$preset-sans-22: (
-  sans-22: (
-    slug: 'sans-22',
+$preset-sans-f9: (
+  sans-f9: (
+    slug: 'sans-f9',
     isReadable: true,
-    content: $u-sans-22,
-    extends: font-sans,
+    content: $u-sans-f9,
   ),
 );
 
-$preset-sans-24: (
-  sans-24: (
-    slug: 'sans-24',
+$preset-sans-f10: (
+  sans-f10: (
+    slug: 'sans-f10',
     isReadable: true,
-    content: $u-sans-24,
-    extends: font-sans,
+    content: $u-sans-f10,
   ),
 );
 
-$preset-sans-28: (
-  sans-28: (
-    slug: 'sans-28',
+$preset-sans-f11: (
+  sans-f11: (
+    slug: 'sans-f11',
     isReadable: true,
-    content: $u-sans-28,
-    extends: font-sans,
+    content: $u-sans-f11,
   ),
 );
 
-$preset-sans-32: (
-  sans-32: (
-    slug: 'sans-32',
+$preset-sans-f12: (
+  sans-f12: (
+    slug: 'sans-f12',
     isReadable: true,
-    content: $u-sans-32,
-    extends: font-sans,
+    content: $u-sans-f12,
   ),
 );
 
-$preset-sans-36: (
-  sans-36: (
-    slug: 'sans-36',
+$preset-sans-f13: (
+  sans-f13: (
+    slug: 'sans-f13',
     isReadable: true,
-    content: $u-sans-36,
-    extends: font-sans,
+    content: $u-sans-f13,
   ),
 );
 
-$preset-sans-40: (
-  sans-40: (
-    slug: 'sans-40',
+$preset-sans-f14: (
+  sans-f14: (
+    slug: 'sans-f14',
     isReadable: true,
-    content: $u-sans-40,
-    extends: font-sans,
+    content: $u-sans-f14,
   ),
 );
 
-$preset-sans-48: (
-  sans-48: (
-    slug: 'sans-48',
+$preset-sans-f15: (
+  sans-f15: (
+    slug: 'sans-f15',
     isReadable: true,
-    content: $u-sans-48,
-    extends: font-sans,
+    content: $u-sans-f15,
   ),
 );
 
-$preset-sans-56: (
-  sans-56: (
-    slug: 'sans-56',
+$preset-sans-f16: (
+  sans-f16: (
+    slug: 'sans-f16',
     isReadable: true,
-    content: $u-sans-56,
-    extends: font-sans,
+    content: $u-sans-f16,
   ),
 );
 
-$preset-sans-64: (
-  sans-64: (
-    slug: 'sans-64',
+$preset-sans-f17: (
+  sans-f17: (
+    slug: 'sans-f17',
     isReadable: true,
-    content: $u-sans-64,
-    extends: font-sans,
+    content: $u-sans-f17,
   ),
 );
 
-$preset-sans-80: (
-  sans-80: (
-    slug: 'sans-80',
+$preset-sans-f18: (
+  sans-f18: (
+    slug: 'sans-f18',
     isReadable: true,
-    content: $u-sans-80,
-    extends: font-sans,
+    content: $u-sans-f18,
   ),
 );
 
-$preset-sans-120: (
-  sans-120: (
-    slug: 'sans-120',
+$preset-sans-f19: (
+  sans-f19: (
+    slug: 'sans-f19',
     isReadable: true,
-    content: $u-sans-120,
-    extends: font-sans,
+    content: $u-sans-f19,
   ),
 );
 
-$preset-sans-140: (
-  sans-140: (
-    slug: 'sans-140',
+$preset-sans-f20: (
+  sans-f20: (
+    slug: 'sans-f20',
     isReadable: true,
-    content: $u-sans-140,
-    extends: font-sans,
+    content: $u-sans-f20,
   ),
 );
 
 $preset-sans-small: map-collect(
-  $preset-sans-12,
-  $preset-sans-13,
-  $preset-sans-14
+  $preset-sans-f1,
+  $preset-sans-f2,
+  $preset-sans-f3
 );
 
 $preset-sans-medium: map-collect(
-  $preset-sans-15,
-  $preset-sans-16,
-  $preset-sans-17,
-  $preset-sans-18,
-  $preset-sans-20
+  $preset-sans-f4,
+  $preset-sans-f5,
+  $preset-sans-f6,
+  $preset-sans-f7,
+  $preset-sans-f8
 );
 
 $preset-sans-large: map-collect(
-  $preset-sans-22,
-  $preset-sans-24,
-  $preset-sans-28,
-  $preset-sans-32,
-  $preset-sans-36,
-  $preset-sans-40
+  $preset-sans-f9,
+  $preset-sans-f10,
+  $preset-sans-f11,
+  $preset-sans-f12,
+  $preset-sans-f13,
+  $preset-sans-f14
 );
 
 $preset-sans-xlarge: map-collect(
-  $preset-sans-48,
-  $preset-sans-56,
-  $preset-sans-64,
-  $preset-sans-80,
-  $preset-sans-120,
-  $preset-sans-140
+  $preset-sans-f15,
+  $preset-sans-f16,
+  $preset-sans-f17,
+  $preset-sans-f18,
+  $preset-sans-f19,
+  $preset-sans-f20
 );
 
 $preset-sans: map-collect(
@@ -448,216 +408,196 @@ $preset-sans: map-collect(
   $preset-sans-xlarge
 );
 
-$preset-serif-12: (
-  serif-12: (
-    slug: 'serif-12',
+$preset-serif-f1: (
+  serif-f1: (
+    slug: 'serif-f1',
     isReadable: true,
-    content: $u-serif-12,
-    extends: font-serif,
+    content: $u-serif-f1,
   ),
 );
 
-$preset-serif-13: (
-  serif-13: (
-    slug: 'serif-13',
+$preset-serif-f2: (
+  serif-f2: (
+    slug: 'serif-f2',
     isReadable: true,
-    content: $u-serif-13,
-    extends: font-serif,
+    content: $u-serif-f2,
   ),
 );
 
-$preset-serif-14: (
-  serif-14: (
-    slug: 'serif-14',
+$preset-serif-f3: (
+  serif-f3: (
+    slug: 'serif-f3',
     isReadable: true,
-    content: $u-serif-14,
-    extends: font-serif,
+    content: $u-serif-f3,
   ),
 );
 
-$preset-serif-15: (
-  serif-15: (
-    slug: 'serif-15',
+$preset-serif-f4: (
+  serif-f4: (
+    slug: 'serif-f4',
     isReadable: true,
-    content: $u-serif-15,
-    extends: font-serif,
+    content: $u-serif-f4,
   ),
 );
 
-$preset-serif-16: (
-  serif-16: (
-    slug: 'serif-16',
+$preset-serif-f5: (
+  serif-f5: (
+    slug: 'serif-f5',
     isReadable: true,
-    content: $u-serif-16,
-    extends: font-serif,
+    content: $u-serif-f5,
   ),
 );
 
-$preset-serif-17: (
-  serif-17: (
-    slug: 'serif-17',
+$preset-serif-f6: (
+  serif-f6: (
+    slug: 'serif-f6',
     isReadable: true,
-    content: $u-serif-17,
-    extends: font-serif,
+    content: $u-serif-f6,
   ),
 );
 
-$preset-serif-18: (
-  serif-18: (
-    slug: 'serif-18',
+$preset-serif-f7: (
+  serif-f7: (
+    slug: 'serif-f7',
     isReadable: true,
-    content: $u-serif-18,
-    extends: font-serif,
+    content: $u-serif-f7,
   ),
 );
 
-$preset-serif-20: (
-  serif-20: (
-    slug: 'serif-20',
+$preset-serif-f8: (
+  serif-f8: (
+    slug: 'serif-f8',
     isReadable: true,
-    content: $u-serif-20,
-    extends: font-serif,
+    content: $u-serif-f8,
   ),
 );
 
-$preset-serif-22: (
-  serif-22: (
-    slug: 'serif-22',
+$preset-serif-f9: (
+  serif-f9: (
+    slug: 'serif-f9',
     isReadable: true,
-    content: $u-serif-22,
-    extends: font-serif,
+    content: $u-serif-f9,
   ),
 );
 
-$preset-serif-24: (
-  serif-24: (
-    slug: 'serif-24',
+$preset-serif-f10: (
+  serif-f10: (
+    slug: 'serif-f10',
     isReadable: true,
-    content: $u-serif-24,
-    extends: font-serif,
+    content: $u-serif-f10,
   ),
 );
 
-$preset-serif-28: (
-  serif-28: (
-    slug: 'serif-28',
+$preset-serif-f11: (
+  serif-f11: (
+    slug: 'serif-f11',
     isReadable: true,
-    content: $u-serif-28,
-    extends: font-serif,
+    content: $u-serif-f11,
   ),
 );
 
-$preset-serif-32: (
-  serif-32: (
-    slug: 'serif-32',
+$preset-serif-f12: (
+  serif-f12: (
+    slug: 'serif-f12',
     isReadable: true,
-    content: $u-serif-32,
-    extends: font-serif,
+    content: $u-serif-f12,
   ),
 );
 
-$preset-serif-36: (
-  serif-36: (
-    slug: 'serif-36',
+$preset-serif-f13: (
+  serif-f13: (
+    slug: 'serif-f13',
     isReadable: true,
-    content: $u-serif-36,
-    extends: font-serif,
+    content: $u-serif-f13,
   ),
 );
 
-$preset-serif-40: (
-  serif-40: (
-    slug: 'serif-40',
+$preset-serif-f14: (
+  serif-f14: (
+    slug: 'serif-f14',
     isReadable: true,
-    content: $u-serif-40,
-    extends: font-serif,
+    content: $u-serif-f14,
   ),
 );
 
-$preset-serif-48: (
-  serif-48: (
-    slug: 'serif-48',
+$preset-serif-f15: (
+  serif-f15: (
+    slug: 'serif-f15',
     isReadable: true,
-    content: $u-serif-48,
-    extends: font-serif,
+    content: $u-serif-f15,
   ),
 );
 
-$preset-serif-56: (
-  serif-56: (
-    slug: 'serif-56',
+$preset-serif-f16: (
+  serif-f16: (
+    slug: 'serif-f16',
     isReadable: true,
-    content: $u-serif-56,
-    extends: font-serif,
+    content: $u-serif-f16,
   ),
 );
 
-$preset-serif-64: (
-  serif-64: (
-    slug: 'serif-64',
+$preset-serif-f17: (
+  serif-f17: (
+    slug: 'serif-f17',
     isReadable: true,
-    content: $u-serif-64,
-    extends: font-serif,
+    content: $u-serif-f17,
   ),
 );
 
-$preset-serif-80: (
-  serif-80: (
-    slug: 'serif-80',
+$preset-serif-f18: (
+  serif-f18: (
+    slug: 'serif-f18',
     isReadable: true,
-    content: $u-serif-80,
-    extends: font-serif,
+    content: $u-serif-f18,
   ),
 );
 
-$preset-serif-120: (
-  serif-120: (
-    slug: 'serif-120',
+$preset-serif-f19: (
+  serif-f19: (
+    slug: 'serif-f19',
     isReadable: true,
-    content: $u-serif-120,
-    extends: font-serif,
+    content: $u-serif-f19,
   ),
 );
 
-$preset-serif-140: (
-  serif-140: (
-    slug: 'serif-140',
+$preset-serif-f20: (
+  serif-f20: (
+    slug: 'serif-f20',
     isReadable: true,
-    content: $u-serif-140,
-    extends: font-serif,
+    content: $u-serif-f20,
   ),
 );
 
 $preset-serif-small: map-collect(
-  $preset-serif-12,
-  $preset-serif-13,
-  $preset-serif-14
+  $preset-serif-f1,
+  $preset-serif-f2,
+  $preset-serif-f3
 );
 
 $preset-serif-medium: map-collect(
-  $preset-serif-15,
-  $preset-serif-16,
-  $preset-serif-17,
-  $preset-serif-18,
-  $preset-serif-20
+  $preset-serif-f4,
+  $preset-serif-f5,
+  $preset-serif-f6,
+  $preset-serif-f7,
+  $preset-serif-f8
 );
 
 $preset-serif-large: map-collect(
-  $preset-serif-22,
-  $preset-serif-24,
-  $preset-serif-28,
-  $preset-serif-32,
-  $preset-serif-36,
-  $preset-serif-40
+  $preset-serif-f9,
+  $preset-serif-f10,
+  $preset-serif-f11,
+  $preset-serif-f12,
+  $preset-serif-f13,
+  $preset-serif-f14
 );
 
 $preset-serif-xlarge: map-collect(
-  $preset-serif-48,
-  $preset-serif-56,
-  $preset-serif-64,
-  $preset-serif-80,
-  $preset-serif-120,
-  $preset-serif-140
+  $preset-serif-f15,
+  $preset-serif-f16,
+  $preset-serif-f17,
+  $preset-serif-f18,
+  $preset-serif-f10,
+  $preset-serif-f20
 );
 
 $preset-serif: map-collect(

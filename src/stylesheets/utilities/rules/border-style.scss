@@ -16,15 +16,15 @@ example:
 
 $border-style: (
   border-style: (
-    base: 'border-style',
+    base: 'border',
     modifiers: (
-      t: '-top-style',
-      r: '-left-style',
-      b: '-bottom-style',
-      l: '-left-style',
-      y: ('-top-style', '-bottom-style'),
-      x: ('-left-style', '-right-style'),
-      noModifier: '-style',
+      'top-style': '-top-style',
+      'right-style': '-left-style',
+      'bottom-style': '-bottom-style',
+      'left-style': '-left-style',
+      'y-style': ('-top-style', '-bottom-style'),
+      'x-style': ('-left-style', '-right-style'),
+      'style': '-style',
     ),
     values: map-collect(
       $border-style-preset-values,

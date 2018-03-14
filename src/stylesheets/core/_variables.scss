@@ -1,3 +1,113 @@
+/*
+========================================
+USWDS 2.0 Variables
+Use for computed variables not meant
+to be set by system users.
+
+Master system palette variables are set
+in core/_units
+
+Anything meant to be set directly should
+go in:
+
+core/_settings
+(for default settings)
+
+and its pair:
+
+project/_uswds-project-settings
+(for project overrides)
+----------------------------------------
+*/
+
+/*
+----------------------------------------
+Compute the project font stack based on
+the project fonts and the font
+definition values set in
+core/_font-definitions
+----------------------------------------
+*/
+
+$font-stack-sans:   false;
+$font-stack-serif:  false;
+$font-stack-mono:   false;
+$font-stack-cond:   false;
+
+@if $i-font-sans {
+  $font-stack-sans:   map-get($i-font-sans, name), map-get($i-font-sans, stack);
+};
+
+@if $i-font-serif {
+  $font-stack-serif:  map-get($i-font-serif, name), map-get($i-font-serif, stack);
+}
+
+@if $i-font-mono {
+  $font-stack-mono:  map-get($i-font-mono, name), map-get($i-font-mono, stack);
+}
+
+@if $i-font-cond {
+  $font-stack-cond:  map-get($i-font-cond, name), map-get($i-font-cond, stack);
+}
+
+// for backward compatibility
+// TODO: deprecate
+$font-sans:   $font-stack-sans;
+$font-serif:  $font-stack-serif;
+$font-mono:   $font-stack-mono;
+$font-cond:   $font-stack-cond;
+
+/*
+----------------------------------------
+Set basic font rules for the font
+utilities to reference.
+
+****************************************
+TODO: Do these need to integrate the
+namespace var set in utlities-settings?
+----------------------------------------
+*/
+
+@if $i-font-mono {
+  *[class*="font-mono"], .font-family-mono { font-family: $font-stack-mono; }
+}
+@if $i-font-sans {
+  *[class*="font-sans"], .font-family-sans { font-family: $font-stack-sans; }
+}
+@if $i-font-serif {
+  *[class*="font-serif"], .font-family-serif { font-family: $font-stack-serif; }
+}
+@if $i-font-cond {
+  *[class*="font-cond"], .font-family-cond { font-family: $font-stack-cond; }
+}
+
+/*
+----------------------------------------
+Collect the project font weights in a
+list for referencing in utilities.
+
+****************************************
+TODO: Still needed?
+----------------------------------------
+*/
+
+$font-weights: (
+  $s-fw-xlight,
+  $s-fw-light,
+  $s-fw-normal,
+  $s-fw-bold,
+  $s-fw-xbold
+);
+
+
+/*
+========================================
+Old USWDS Variables
+Many of these will be deprecated
+or converted into settings
+----------------------------------------
+*/
+
 // These variables drive almost every aspect of the U.S. Web Design
 // system. Every variable is declared as !default so that it can be
 // overridden by a previous import.
@@ -25,14 +135,14 @@ $base-line-height:    1.5 !default;
 $heading-line-height: 1.3 !default;
 $lead-line-height:    1.7 !default;
 
-$font-sans:           'Source Sans Pro', $helvetica !default;
-$font-serif:          'Merriweather', $georgia !default;
-$font-mono:           'Roboto Mono', $monospace !default;
-$font-cond:           null !default;
 
-%font-sans { font-family: $font-sans; }
-%font-serif { font-family: $font-serif; }
-%font-mono { font-family: $font-mono; }
+// -----------------------------------------------------
+
+// TYPE SCALE
+
+
+// no explicit support for condensed faces yet, but:
+// $cond-cap-height:       $some-face-cap-height !default;
 
 // TODO these should be called font-weight-${}
 $font-normal:         400 !default;

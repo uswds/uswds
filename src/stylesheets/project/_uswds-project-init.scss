@@ -1,0 +1,88 @@
+/*
+========================================
+core/init
+----------------------------------------
+Project initialization settings.
+These need to load before anything else.
+----------------------------------------
+*/
+
+/*
+----------------------------------------
+Set the base grid multiplier for
+all grid calculations.
+Can be modified, but we recommend
+leaving as is.
+----------------------------------------
+*/
+
+$i-grid-base: 8px;
+
+/*
+----------------------------------------
+Sets the font size of the html root
+for rem calculations
+----------------------------------------
+*/
+
+$i-font-size-base: 16px;
+
+/*
+----------------------------------------
+Custom font definitions
+----------------------------------------
+$font-new : (
+  name: "Font Display Name",
+  dir: "united-sans", // relative to settings.$s-font-path
+  stack: $font-stack-system,
+  system-font: false,
+  500px-cap-height: "364px", // height of a 500px `N` in Sketch
+  variable-font: false,
+  roman: (
+    100: "Filename-without-extension", // or false
+    200: "Filename-without-extension", // or false
+    300: "Filename-without-extension", // or false
+    400: "Filename-without-extension", // or false
+    500: "Filename-without-extension", // or false
+    600: "Filename-without-extension", // or false
+    700: "Filename-without-extension", // or false
+    800: "Filename-without-extension", // or false
+    900: "Filename-without-extension", // or false
+  ),
+  italic: (
+    100: "Filename-without-extension", // or false
+    200: "Filename-without-extension", // or false
+    300: "Filename-without-extension", // or false
+    400: "Filename-without-extension", // or false
+    500: "Filename-without-extension", // or false
+    600: "Filename-without-extension", // or false
+    700: "Filename-without-extension", // or false
+    800: "Filename-without-extension", // or false
+    900: "Filename-without-extension", // or false
+  ),
+);
+----------------------------------------
+*/
+
+/*
+----------------------------------------
+Set the sans, serif, and mono faces for
+your project
+----------------------------------------
+currently available:
+
+$font-system
+$font-united-sans
+$font-source-sans-pro
+$font-helvetica
+$font-georgia
+$font-merriweather
+$font-roboto-mono
+----------------------------------------
+*/
+//
+
+$i-font-sans:   $font-source-sans-pro;
+$i-font-serif:  $font-merriweather;
+$i-font-mono:   $font-roboto-mono;
+$i-font-cond:   null;

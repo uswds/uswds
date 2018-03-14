@@ -22,12 +22,12 @@ example:
 
 $border: (
   border: (
-    base: 'border-width',
+    base: 'border',
     modifiers: (
-      t: '-top',
-      r: '-right',
-      b: '-bottom',
-      l: '-left',
+      'top': '-top',
+      'right': '-right',
+      'bottom': '-bottom',
+      'left': '-left',
       y: ('-top', '-bottom'),
       x: ('-left', '-right'),
       noModifier: '',

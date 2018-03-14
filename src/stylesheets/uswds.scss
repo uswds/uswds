@@ -1,21 +1,20 @@
-/*! uswds @version */
+/*
+========================================
+uswds
+----------------------------------------
+Output USWDS components and styles
+----------------------------------------
+*/
 
-// Vendor -------------- //
-@import 'lib/bourbon';
-@import 'lib/neat';
-@import 'lib/normalize';
+// -------------------------------------
+// Load all the vendor, settings, and
+// variables for a USWDS project
 
-// Core -------------- //
+@import 'required';
 
-// Functions
-@import 'core/functions';
+// -------------------------------------
+// Load mixins
 
-// Settings (Variables)
-@import 'core/units';
-@import 'core/variables';
-@import 'core/settings';
-
-// Tools (Mixins)
 @import 'core/mixins/content-size';
 @import 'core/mixins/focus';
 @import 'core/mixins/font-smoothing';
@@ -26,13 +25,15 @@
 @import 'core/mixins/typography';
 @import 'core/mixins/unstyled-list';
 
-// Generic
-@import 'core/fonts';
+// -------------------------------------
+// Load core
+
 @import 'core/grid';
 @import 'core/base';
 
-// Elements -------------- //
-// Basic HTML elements
+// -------------------------------------
+// Load elements
+
 @import 'elements/buttons';
 @import 'elements/embed';
 @import 'elements/figure';
@@ -42,7 +43,9 @@
 @import 'elements/table';
 @import 'elements/typography';
 
-// Components -------------- //
+// -------------------------------------
+// Load components
+
 @import 'components/accordions';
 @import 'components/alerts';
 @import 'components/banner';
@@ -58,8 +61,3 @@
 @import 'components/section';
 @import 'components/sidenav';
 @import 'components/skipnav';
-
-// Utilities ------------ //
-// @import 'utilities/color';
-// @import 'utilities/space';
-// @import 'utilities/typography';

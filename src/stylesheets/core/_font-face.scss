@@ -1,0 +1,23 @@
+/* stylelint-disable */
+
+$font-weights: (
+  $s-fw-xlight,
+  $s-fw-light,
+  $s-fw-normal,
+  $s-fw-bold,
+  $s-fw-xbold
+);
+
+
+@if $i-font-mono {
+  @include render-font-face($i-font-mono);
+}
+@if $i-font-sans {
+  @include render-font-face($i-font-sans);  
+}
+@if $i-font-serif {
+  @include render-font-face($i-font-serif);
+}
+// @include render-font-face($s-font-cond);
+
+/* stylelint-enable */

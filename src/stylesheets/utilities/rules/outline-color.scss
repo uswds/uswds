@@ -19,10 +19,10 @@ $outline-color: (
     base: 'outline-color',
     modifiers: null,
     values: map-collect(
-      $outline-2-color-preset-values,
-      $outline-2-color-manual-values
+      $outline-color-preset-values,
+      $outline-color-manual-values
     ),
-    settings: $outline-2-color-settings,
+    settings: $outline-color-settings,
     valuePrepend: null,
     valueAppend: null,
     property: 'outline-color',

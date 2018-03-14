@@ -1,0 +1,170 @@
+// PROJECT SETTINGS
+
+// ---------------------------------------------
+// BREAKPOINTS
+
+// These will be converted to em values based on the
+// value of $i-font-size-base
+
+$s-xsmall-screen:   false;  //400px
+$s-small-screen:    481px;  //600px
+$s-medium-screen:   600px;  //800px
+$s-large-screen:    1201px; //1000px
+$s-xlarge-screen:   false;  //1200px
+
+// ---------------------------------------------
+// FONTS
+
+// Relative font and image file paths
+
+$s-font-path:   '../fonts';
+$s-image-path:  '../img';
+
+// Set hed, body, and alt from
+// $i-font-sans
+// $i-font-serif
+// $i-font-mono
+
+$s-font-hed:    $i-font-sans;
+$s-font-body:   $i-font-serif;
+$s-font-alt:    $i-font-sans;
+
+// ---------------------------------------------
+// SPACING
+
+// values  - - - - - - - - - - - - - - - - - - -
+// $s-font-size-NN:       $u-spacing-NN;
+//                        1px
+//                        2px
+
+$s-spacing-3xs:           false;
+$s-spacing-2xs:           false;
+$s-spacing-xs:            $u-spacing-05;
+$s-spacing-sm:            $u-spacing-1;
+$s-spacing-md:            $u-spacing-2;
+$s-spacing-lg:            $u-spacing-3;
+$s-spacing-xl:            $u-spacing-4;
+$s-spacing-2xl:           $u-spacing-5;
+$s-spacing-3xl:           $u-spacing-9;
+
+// ---------------------------------------------
+// TYPE SCALE
+
+// values  - - - - - - - - - - - - - - - - - - -
+// $s-font-size-NN:       $u-type-scale-NN;
+
+$s-font-size-3xs:         $u-type-scale-f1;
+$s-font-size-2xs:         $u-type-scale-f3;
+$s-font-size-xs:          $u-type-scale-f5;
+$s-font-size-sm:          $u-type-scale-f6;
+$s-font-size-md:          $u-type-scale-f7;
+$s-font-size-lg:          $u-type-scale-f10;
+$s-font-size-xl:          $u-type-scale-f12;
+$s-font-size-2xl:         $u-type-scale-f14;
+$s-font-size-3xl:         $u-type-scale-f16;
+
+// ---------------------------------------------
+// FONT WEIGHTS
+
+// values  - - - - - - - - - - - - - - - - - - -
+// $s-fw-NN:              100-900 (mults of 100);
+
+$s-output-all-weights:    false;
+
+$s-fw-xlight:             200;
+$s-fw-light:              300;
+$s-fw-normal:             400;
+$s-fw-bold:               600;
+$s-fw-xbold:              700;
+
+// ---------------------------------------------
+// COLORS
+
+// values  - - - - - - - - - - - - - - - - - - -
+// $s-color-NN:           $NN;
+
+// Identity colors
+$s-color-id-1:            $red-warm-50v;
+$s-color-id-1-dark:       $red-warm-60;
+$s-color-id-1-xdark:      $red-warm-70;
+$s-color-id-1-light:      $red-warm-40;
+$s-color-id-1-xlight:     $red-warm-20;
+
+$s-color-id-2:            $indigo-50v;
+$s-color-id-2-dark:       $indigo-60v;
+$s-color-id-2-xdark:      $indigo-70;
+$s-color-id-2-light:      $indigo-40;
+$s-color-id-2-xlight:     $indigo-20;
+
+// Accent colors
+$s-color-accent-1:        $black-warm-80;
+$s-color-accent-2:        $orange-warm-40v;
+$s-color-accent-3:        $green-warm-10v;
+
+// UI colors
+$s-color-ui-1:            $black-90;
+$s-color-ui-2:            $black-70;
+$s-color-ui-3:            $black-50;
+$s-color-ui-4:            $black-50;
+$s-color-ui-5:            $black-warm-20;
+$s-color-ui-6:            $blue-warm-60v;
+
+// Text colors
+$s-color-text-1:          $black-90;
+$s-color-text-2:          $blue-warm-60v;
+$s-color-text-3:          $black-50;
+$s-color-text-4:          $black-50;
+$s-color-text-inverse:    $white-0;
+
+// Field colors
+$s-color-field-1:         $white-warm-1;
+$s-color-field-2:         $white-warm-4;
+$s-color-field-3:         $green-warm-5;
+$s-color-field-4:         $black-warm-90;
+
+// Error colors
+$s-color-error:           $red-50v;
+$s-color-error-dark:      $red-60;
+$s-color-error-xdark:     $red-70;
+$s-color-error-light:     $red-40v;
+$s-color-error-xlight:    $red-30v;
+
+// Warning colors
+$s-color-warn:            $orange-30v;
+$s-color-warn-dark:       $orange-40;
+$s-color-warn-xdark:      $orange-50;
+$s-color-warn-light:      $orange-20v;
+$s-color-warn-xlight:     $orange-10;
+
+// Success colors
+$s-color-success:         $green-cool-40v;
+$s-color-success-dark:    $green-cool-50;
+$s-color-success-xdark:   $green-cool-70;
+$s-color-success-light:   $green-cool-30v;
+$s-color-success-xlight:  $green-cool-20v;
+
+// OK colors
+$s-color-ok:              $blue-warm-50v;
+$s-color-ok-dark:         $blue-warm-60v;
+$s-color-ok-xdark:        $blue-warm-70;
+$s-color-ok-light:        $blue-warm-40v;
+$s-color-ok-xlight:       $blue-warm-30;
+
+// Disabled color
+$s-color-disabled:        $black-30;
+
+// Other colors
+$s-color-banner:          $black-90;
+$s-color-highlight:       $gold-20v;
+
+// ---------------------------------------------
+// BORDER RADIUS
+
+// values  - - - - - - - - - - - - - - - - - - -
+// $s-radius-NN:          $u-spacing-NN;
+//                        1px
+//                        2px
+
+$s-radius-sm:             2px;
+$s-radius-md:             $u-spacing-05;
+$s-radius-lg:             false;

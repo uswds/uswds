@@ -65,7 +65,14 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
     ))
     // 2. convert SCSS to CSS
     .pipe(
-      sass({ outputStyle: 'expanded' })
+      sass({
+        outputStyle: 'expanded',
+        includePaths: [
+          './path/to/project/overrides',
+          './src/stylesheets/project',
+          './src/stylesheets',
+        ],
+      })
         .on('error', sass.logError)
     )
     // 3. run it through autoprefixer
