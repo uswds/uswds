@@ -7,6 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var linter = require('@18f/stylelint-rules');
 var pkg = require('../../package.json');
+var path = require('path');
 var filter = require('gulp-filter');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
@@ -68,9 +69,9 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
       sass({
         outputStyle: 'expanded',
         includePaths: [
-          './path/to/project/overrides',
-          './src/stylesheets/project',
-          './src/stylesheets',
+          'path/to/project/overrides',
+          'src/stylesheets/project',
+          'src/stylesheets',
         ],
       })
         .on('error', sass.logError)
