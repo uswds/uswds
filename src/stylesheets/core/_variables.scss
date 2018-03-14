@@ -70,12 +70,15 @@ namespace var set in utlities-settings?
 @if $i-font-mono {
   *[class*='font-mono'], .font-family-mono { font-family: $font-stack-mono; }
 }
+
 @if $i-font-sans {
   *[class*='font-sans'], .font-family-sans { font-family: $font-stack-sans; }
 }
+
 @if $i-font-serif {
   *[class*='font-serif'], .font-family-serif { font-family: $font-stack-serif; }
 }
+
 @if $i-font-cond {
   *[class*='font-cond'], .font-family-cond { font-family: $font-stack-cond; }
 }
