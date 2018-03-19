@@ -197,14 +197,6 @@ $u-lh-body-tight:	 1.5;
 
 // See this palette at https://federalist-proxy.app.cloud.gov/site/18f/united/build/prototypes/colors.html
 
-@function color($hue, $value){
-  @if unit($value) == '' {
-    @return map-get($hue, $value);
-  } @else {
-    @return map-deep-get($hue, vivid, strip-unit($value));
-  }
-}
-
 // violet-warm
 $violet-warm: (
   5:   #fef7ff,
