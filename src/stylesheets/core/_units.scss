@@ -198,6 +198,28 @@ $u-lh-body-tight:	 1.5;
 // See this palette at https://federalist-proxy.app.cloud.gov/site/18f/united/build/prototypes/colors.html
 
 // violet-warm
+$violet-warm: (
+  5 :  #fef7ff,
+  10:  #f5dcf7,
+  20:  #e0bae3,
+  30:  #d096d6,
+  40:  #bd73c7,
+  50:  #b24bbf,
+  60:  #854180,
+  70:  #573455,
+  80:  #332431,
+  90:  #211a21,
+  5v:  #fdedff,
+  10v: #f9c9ff,
+  20v: #f3a8ff,
+  30v: #ee82ff,
+  40v: #e05ef7,
+  50v: #c132d4,
+  60v: null,
+  70v: null,
+  80v: null,
+  90v: null,
+);
 $violet-warm-5 :  #fef7ff;
 $violet-warm-10:  #f5dcf7;
 $violet-warm-20:  #e0bae3;
@@ -220,6 +242,28 @@ $violet-warm-80v: null;
 $violet-warm-90v: null;
 
 // violet
+$violet: (
+  5 :       #f7f5fa,
+  10:       #ebe3fa,
+  20:       #cec1e8,
+  30:       #b7a1e3,
+  40:       #9c82d1,
+  50:       #8369b5,
+  60:       #644f8f,
+  70:       #493a66,
+  80:       #2d273b,
+  90:       #1e1b24,
+  5v:       null,
+  10v:      null,
+  20v:      null,
+  30v:      #be95e9,
+  40v:      #b07bed,
+  50v:      #9455dd,
+  60v:      #7639b8,
+  70v:      #552996,
+  80v:      null,
+  90v:      null,
+);
 $violet-5 :       #f7f5fa;
 $violet-10:       #ebe3fa;
 $violet-20:       #cec1e8;
@@ -242,6 +286,28 @@ $violet-80v:      null;
 $violet-90v:      null;
 
 // indigo-warm
+$indigo-warm:(
+  5 :  #f9f7ff,
+  10:  #e5e1fa,
+  20:  #c9c2f2,
+  30:  #b1a7eb,
+  40:  #968ade,
+  50:  #7766d3,
+  60:  #5e519e,
+  70:  #433a7a,
+  80:  #29263b,
+  90:  #1d1b24,
+  5v:  null,
+  10v: null,
+  20v: null,
+  30v: #b59eff,
+  40v: #9980ff,
+  50v: #7560eb,
+  60v: #5740d1,
+  70v: null,
+  80v: null,
+  90v: null,
+);
 $indigo-warm-5 :  #f9f7ff;
 $indigo-warm-10:  #e5e1fa;
 $indigo-warm-20:  #c9c2f2;
@@ -264,6 +330,28 @@ $indigo-warm-80v: null;
 $indigo-warm-90v: null;
 
 // indigo
+$indigo:(
+  5 :       #fafaff,
+  10:       #e4e3fa,
+  20:       #c2c3f2,
+  30:       #a4a7eb,
+  40:       #8889db,
+  50:       #686dca,
+  60:       #5055b5,
+  70:       #3b3e75,
+  80:       #28293d,
+  90:       #1b1c26,
+  5v:       null,
+  10v:      null,
+  20v:      #acaeec,
+  30v:      #8c8fe1,
+  40v:      null,
+  50v:      #656bd7,
+  60v:      #353aa5,
+  70v:      null,
+  80v:      null,
+  90v:      null,
+);
 $indigo-5 :       #fafaff;
 $indigo-10:       #e4e3fa;
 $indigo-20:       #c2c3f2;
@@ -286,6 +374,28 @@ $indigo-80v:      null;
 $indigo-90v:      null;
 
 // indigo-cool
+$indigo-cool: (
+  5 :  #f5f6fc,
+  10:  #e1e6fa,
+  20:  #bac7f5,
+  30:  #97acf0,
+  40:  #6d91ed,
+  50:  #4a70d9,
+  60:  #425bad,
+  70:  #364173,
+  80:  #23273d,
+  90:  #1b1c2b,
+  5v:  null,
+  10v: null,
+  20v: null,
+  30v: null,
+  40v: #6694ff,
+  50v: null,
+  60v: #4150f2,
+  70v: null,
+  80v: null,
+  90v: null,
+);
 $indigo-cool-5 :  #f5f6fc;
 $indigo-cool-10:  #e1e6fa;
 $indigo-cool-20:  #bac7f5;
@@ -308,6 +418,28 @@ $indigo-cool-80v: null;
 $indigo-cool-90v: null;
 
 // blue-warm
+$blue-warm: (
+  5 :    #f0f5fc,
+  10:    #dfe7f5,
+  20:    #bccae6,
+  30:    #91add9,
+  40:    #7397d1,
+  50:    #3d75c2,
+  60:    #37629e,
+  70:    #31486b,
+  80:    #232d3d,
+  90:    #161b24,
+  5v:    null,
+  10v:   null,
+  20v:   #b8cbf2,
+  30v:   #81aefc,
+  40v:   #5e99ff,
+  50v:   #2673df,
+  60v:   #0052de,
+  70v:   #1e4f94,
+  80v:   #112a4d,
+  90v:   null,
+);
 $blue-warm-5 :    #f0f5fc;
 $blue-warm-10:    #dfe7f5;
 $blue-warm-20:    #bccae6;
@@ -330,6 +462,28 @@ $blue-warm-80v:   #112a4d;
 $blue-warm-90v:   null;
 
 // blue
+$blue: (
+  5 :         #f5fbff,
+  10:         #dae9f7,
+  20:         #add1f0,
+  30:         #79bcf2,
+  40:         #56a4e3,
+  50:         #317cb9,
+  60:         #2f6794,
+  70:         #294c69,
+  80:         #1e2f3d,
+  90:         #161e24,
+  5v:         null,
+  10v:        null,
+  20v:        null,
+  30v:        #57b3ff,
+  40v:        #009afa,
+  50v:        #007ade,
+  60v:        #0069b4,
+  70v:        #0c4d82,
+  80v:        #11304f,
+  90v:        null,
+);
 $blue-5 :         #f5fbff;
 $blue-10:         #dae9f7;
 $blue-20:         #add1f0;
@@ -352,6 +506,28 @@ $blue-80v:        #11304f;
 $blue-90v:        null;
 
 // cyan
+$cyan: (
+  5 :         #e8f7fa,
+  10:         #d0f1f7,
+  20:         #9ddceb,
+  30:         #6ecbdb,
+  40:         #4bacbd,
+  50:         #167f91,
+  60:         #2f707a,
+  70:         #2d4b4f,
+  80:         #203133,
+  90:         #151e1f,
+  5v:         null,
+  10v:        #a8f2ff,
+  20v:        #55e1fa,
+  30v:        #02c2e8,
+  40v:        #00abd1,
+  50v:        null,
+  60v:        null,
+  70v:        null,
+  80v:        null,
+  90v:        null,
+);
 $cyan-5 :         #e8f7fa;
 $cyan-10:         #d0f1f7;
 $cyan-20:         #9ddceb;
@@ -374,6 +550,28 @@ $cyan-80v:        null;
 $cyan-90v:        null;
 
 // mint-cool
+$mint-cool: (
+  5 :    #f2fffe,
+  10:    #c7f2ef,
+  20:    #a2ded9,
+  30:    #77c7c0,
+  40:    #57ada8,
+  50:    #21827f,
+  60:    #3b6b69,
+  70:    #2b4d47,
+  80:    #1f3030,
+  90:    #151f1f,
+  5v:    #dbfff8,
+  10v:   #7efce1,
+  20v:   #02dbc2,
+  30v:   #00baa4,
+  40v:   #00b5a9,
+  50v:   null,
+  60v:   null,
+  70v:   null,
+  80v:   null,
+  90v:   null,
+);
 $mint-cool-5 :    #f2fffe;
 $mint-cool-10:    #c7f2ef;
 $mint-cool-20:    #a2ded9;
@@ -396,6 +594,29 @@ $mint-cool-80v:   null;
 $mint-cool-90v:   null;
 
 // mint
+$mint: (
+  5 :         #cafcec,
+  10:         #79f7cd,
+  20:         #49e3b0,
+  30:         #4ac79d,
+  40:         #36a882,
+  50:         #1e8461,
+  60:         #266644,
+  70:         #225237,
+  80:         #1d3b29,
+  90:         #1d3b29,
+  5v:         #befde9,
+  5v:         null,
+  10v:        #30f8b5,
+  20v:        #06ec9f,
+  30v:        #04c786,
+  40v:        null,
+  50v:        null,
+  60v:        #16754f,
+  70v:        null,
+  80v:        null,
+  90v:        null,
+);
 $mint-5 :         #cafcec;
 $mint-10:         #79f7cd;
 $mint-20:         #49e3b0;
@@ -419,6 +640,28 @@ $mint-80v:        null;
 $mint-90v:        null;
 
 // green-cool
+$green-cool: (
+  5 :   #e8fae6,
+  10:   #d0f7cd,
+  20:   #a4e3a1,
+  30:   #80cc7e,
+  40:   #5db85c,
+  50:   #3d841f,
+  60:   #4d6e37,
+  70:   #384d2a,
+  80:   #272e22,
+  90:   #1a1f1a,
+  5v:   #caf4c7,
+  10v:  #91e48b,
+  20v:  #61cf59,
+  30v:  #16c20a,
+  40v:  #0caf00,
+  50v:  #178800,
+  60v:  null,
+  70v:  null,
+  80v:  null,
+  90v:  null,
+);
 $green-cool-5 :   #e8fae6;
 $green-cool-10:   #d0f7cd;
 $green-cool-20:   #a4e3a1;
@@ -441,6 +684,28 @@ $green-cool-80v:  null;
 $green-cool-90v:  null;
 
 // green
+$green: (
+  $green-5 :        #f7fcf0,
+  $green-10:        #e0ebce,
+  $green-20:        #bcd696,
+  $green-30:        #a2bf77,
+  $green-40:        #83a352,
+  $green-50:        #607f35,
+  $green-60:        #526b27,
+  $green-70:        #3c4a29,
+  $green-80:        #293021,
+  $green-90:        #1a1c18,
+  $green-5v:        #d7f4bd,
+  $green-10v:       #b4e876,
+  $green-20v:       #93cc2e,
+  $green-30v:       #81b532,
+  $green-40v:       #73a22b,
+  $green-50v:       #538200,
+  $green-60v:       null,
+  $green-70v:       null,
+  $green-80v:       null,
+  $green-90v:       null,
+);
 $green-5 :        #f7fcf0;
 $green-10:        #e0ebce;
 $green-20:        #bcd696;
@@ -463,6 +728,28 @@ $green-80v:       null;
 $green-90v:       null;
 
 // green-warm
+$green-warm: (
+  5 :   #f9faed,
+  10:   #eaedb9,
+  20:   #ced47f,
+  30:   #aebd5b,
+  40:   #93a150,
+  50:   #717d41,
+  60:   #5e633a,
+  70:   #43452d,
+  80:   #2c2e20,
+  90:   #1c1c16,
+  5v:   #f3f8a7,
+  10v:  #e6f50f,
+  20v:  #cedc0a,
+  30v:  #a9bd2d,
+  40v:  #7f9e1d,
+  50v:  #6b7e00,
+  60v:  null,
+  70v:  null,
+  80v:  null,
+  90v:  null,
+);
 $green-warm-5 :   #f9faed;
 $green-warm-10:   #eaedb9;
 $green-warm-20:   #ced47f;
@@ -485,6 +772,28 @@ $green-warm-80v:  null;
 $green-warm-90v:  null;
 
 // yellow
+$yellow: (
+  5 :       #faf7ed,
+  10:       #f7e8b0,
+  20:       #f0d04f,
+  30:       #cfb04a,
+  40:       #ab9149,
+  50:       #8a7237,
+  60:       #6b5a39,
+  70:       #4d402f,
+  80:       #302a24,
+  90:       #1f1b18,
+  5v:       null,
+  10v:      #fdd430,
+  20v:      #edc730,
+  30v:      null,
+  40v:      null,
+  50v:      null,
+  60v:      null,
+  70v:      null,
+  80v:      null,
+  90v:      null,
+);
 $yellow-5 :       #faf7ed;
 $yellow-10:       #f7e8b0;
 $yellow-20:       #f0d04f;
@@ -507,6 +816,28 @@ $yellow-80v:      null;
 $yellow-90v:      null;
 
 // gold
+$gold: (
+  5 :         #faf5eb,
+  10:         #f2e6ce,
+  20:         #dec699,
+  30:         #c7a97b,
+  40:         #ad8b65,
+  50:         #8d6f4e,
+  60:         #6b5947,
+  70:         #4a4034,
+  80:         #302b24,
+  90:         #1f1c19,
+  5v:         #faf2d9,
+  10v:        #ffcb52,
+  20v:        #faaf00,
+  30v:        #e6a100,
+  40v:        #c98a0c,
+  50v:        #946f38,
+  60v:        null,
+  70v:        null,
+  80v:        null,
+  90v:        null,
+);
 $gold-5 :         #faf5eb;
 $gold-10:         #f2e6ce;
 $gold-20:         #dec699;
@@ -529,6 +860,28 @@ $gold-80v:        null;
 $gold-90v:        null;
 
 // orange
+$orange: (
+  $orange-5 :       #fffbf7,
+  $orange-10:       #fce2c5,
+  $orange-20:       #fabd87,
+  $orange-30:       #ed9c5a,
+  $orange-40:       #eb8028,
+  $orange-50:       #a56931,
+  $orange-60:       #73563e,
+  $orange-70:       #4f3f33,
+  $orange-80:       #302a24,
+  $orange-90:       #211b18,
+  $orange-5v:       #ffebd5,
+  $orange-10v:      null,
+  $orange-20v:      #ffba75,
+  $orange-30v:      #ff9742,
+  $orange-40v:      #ff7b0f,
+  $orange-50v:      #c25700,
+  $orange-60v:      null,
+  $orange-70v:      null,
+  $orange-80v:      null,
+  $orange-90v:      null,
+);
 $orange-5 :       #fffbf7;
 $orange-10:       #fce2c5;
 $orange-20:       #fabd87;
@@ -551,6 +904,28 @@ $orange-80v:      null;
 $orange-90v:      null;
 
 // orange-warm
+$orange-warm: (
+  5 :  #fcf6f2,
+  10:  #f7e1d5,
+  20:  #f7b99e,
+  30:  #f5976e,
+  40:  #e87543,
+  50:  #be5727,
+  60:  #944835,
+  70:  #61382f,
+  80:  #3b2723,
+  90:  #211a19,
+  5v:  null,
+  10v: null,
+  20v: #faad96,
+  30v: #fc835c,
+  40v: #ff5201,
+  50v: #d24200,
+  60v: null,
+  70v: null,
+  80v: null,
+  90v: null,
+);
 $orange-warm-5 :  #fcf6f2;
 $orange-warm-10:  #f7e1d5;
 $orange-warm-20:  #f7b99e;
@@ -573,6 +948,28 @@ $orange-warm-80v: null;
 $orange-warm-90v: null;
 
 // red-warm
+$red-warm: (
+  5 :     #faf7f5,
+  10:     #f2ded5,
+  20:     #ebbda2,
+  30:     #db9e7f,
+  40:     #d67c58,
+  50:     #c7532c,
+  60:     #805039,
+  70:     #4f3f33,
+  80:     #302a26,
+  90:     #1f1c18,
+  5v:     null,
+  10v:    null,
+  20v:    #eaa076,
+  30v:    #e67549,
+  40v:    #ee601d,
+  50v:    #df4206,
+  60v:    null,
+  70v:    null,
+  80v:    null,
+  90v:    null,
+);
 $red-warm-5 :     #faf7f5;
 $red-warm-10:     #f2ded5;
 $red-warm-20:     #ebbda2;
@@ -595,6 +992,28 @@ $red-warm-80v:    null;
 $red-warm-90v:    null;
 
 // red
+$red: (
+  5 :          #fcf5f5,
+  10:          #f7ddda,
+  20:          #f7b7ad,
+  30:          #f28f88,
+  40:          #ed6b61,
+  50:          #d83731,
+  60:          #ab3a3a,
+  70:          #6e312f,
+  80:          #3b2523,
+  90:          #211b1b,
+  5v:          null,
+  10v:         #fccec7,
+  20v:         #fda99c,
+  30v:         #ff806c,
+  40v:         #ff5c48,
+  50v:         #e92106,
+  60v:         #c31f0a,
+  70v:         #9c1503,
+  80v:         #631212,
+  90v:         null,
+);
 $red-5 :          #fcf5f5;
 $red-10:          #f7ddda;
 $red-20:          #f7b7ad;
@@ -617,6 +1036,28 @@ $red-80v:         #631212;
 $red-90v:         null;
 
 // magenta
+$magenta: (
+  5 :      #faf5f6,
+  10:      #f5dce4,
+  20:      #f0b9cb,
+  30:      #e68eae,
+  40:      #e0699f,
+  50:      #c84180,
+  60:      #8a4365,
+  70:      #613046,
+  80:      #3b212c,
+  90:      #211b1d,
+  5v:      null,
+  10v:     #ffd1e2,
+  20v:     #ffadca,
+  30v:     #ff80ae,
+  40v:     #fa3c91,
+  50v:     #e1277a,
+  60v:     #a91b61,
+  70v:     null,
+  80v:     null,
+  90v:     null,
+);
 $magenta-5 :      #faf5f6;
 $magenta-10:      #f5dce4;
 $magenta-20:      #f0b9cb;
@@ -639,6 +1080,18 @@ $magenta-80v:     null;
 $magenta-90v:     null;
 
 // black-cool
+$black-cool: (
+  5 :   #edeff0,
+  10:   #d5d8db,
+  20:   #b8bdc2,
+  30:   #9da2a6,
+  40:   #8c9196,
+  50:   #6f7478,
+  60:   #595d63,
+  70:   #404347,
+  80:   #292a2b,
+  90:   #1c1d1f,
+)
 $black-cool-5 :   #edeff0;
 $black-cool-10:   #d5d8db;
 $black-cool-20:   #b8bdc2;
@@ -651,6 +1104,19 @@ $black-cool-80:   #292a2b;
 $black-cool-90:   #1c1d1f;
 
 // black
+$black: (
+  5 :        #fafafa,
+  10:        #e6e6e6,
+  20:        #c9c9c9,
+  30:        #adadad,
+  40:        #919191,
+  50:        #757575,
+  60:        #5c5c5c,
+  70:        #454545,
+  80:        #2e2e2e,
+  90:        #171717,
+  100:       #000000,
+)
 $black-5 :        #fafafa;
 $black-10:        #e6e6e6;
 $black-20:        #c9c9c9;
@@ -663,6 +1129,18 @@ $black-80:        #2e2e2e;
 $black-90:        #171717;
 
 // black-warm
+$black-warm: (
+  5 :   #f5f5f1,
+  10:   #e0e0da,
+  20:   #d6d5cb,
+  30:   #c2c1b4,
+  40:   #969689,
+  50:   #707064,
+  60:   #5e5e53,
+  70:   #42423c,
+  80:   #2b2b27,
+  90:   #1c1c1b,
+);
 $black-warm-5 :   #f5f5f1;
 $black-warm-10:   #e0e0da;
 $black-warm-20:   #d6d5cb;
@@ -675,6 +1153,18 @@ $black-warm-80:   #2b2b27;
 $black-warm-90:   #1c1c1b;
 
 // black-op
+$black-transparent: (
+  5 :     rgba(0, 0, 0, 0.01),
+  10:     rgba(0, 0, 0, 0.1),
+  20:     rgba(0, 0, 0, 0.2),
+  30:     rgba(0, 0, 0, 0.3),
+  40:     rgba(0, 0, 0, 0.4),
+  50:     rgba(0, 0, 0, 0.5),
+  60:     rgba(0, 0, 0, 0.6),
+  70:     rgba(0, 0, 0, 0.7),
+  80:     rgba(0, 0, 0, 0.8),
+  90:     rgba(0, 0, 0, 0.9),
+);
 $black-transparent-5 :     rgba(0, 0, 0, 0.01);
 $black-transparent-10:     rgba(0, 0, 0, 0.1);
 $black-transparent-20:     rgba(0, 0, 0, 0.2);
@@ -687,6 +1177,18 @@ $black-transparent-80:     rgba(0, 0, 0, 0.8);
 $black-transparent-90:     rgba(0, 0, 0, 0.9);
 
 // white-op
+$white-transparent: (
+  5 :     rgba(255, 255, 255, 0.01),
+  10:     rgba(255, 255, 255, 0.1),
+  20:     rgba(255, 255, 255, 0.2),
+  30:     rgba(255, 255, 255, 0.3),
+  40:     rgba(255, 255, 255, 0.4),
+  50:     rgba(255, 255, 255, 0.5),
+  60:     rgba(255, 255, 255, 0.6),
+  70:     rgba(255, 255, 255, 0.7),
+  80:     rgba(255, 255, 255, 0.8),
+  90:     rgba(255, 255, 255, 0.9),
+);
 $white-transparent-5 :     rgba(255, 255, 255, 0.01);
 $white-transparent-10:     rgba(255, 255, 255, 0.1);
 $white-transparent-20:     rgba(255, 255, 255, 0.2);
@@ -699,12 +1201,25 @@ $white-transparent-80:     rgba(255, 255, 255, 0.8);
 $white-transparent-90:     rgba(255, 255, 255, 0.9);
 
 // white-cool
+$white-cool: (
+  1:    #fafbfc,
+  2:    #f7f9fa,
+  3:    #f5f6f7,
+  4:    #f0f2f5,
+)
 $white-cool-1:    #fafbfc;
 $white-cool-2:    #f7f9fa;
 $white-cool-3:    #f5f6f7;
 $white-cool-4:    #f0f2f5;
 
 // white
+$white: (
+  0:         #ffffff,
+  1:         #fcfcfc,
+  2:         #f9f9f9,
+  3:         #f6f6f6,
+  4:         #f3f3f3,
+);
 $white-0:         #ffffff;
 $white-1:         #fcfcfc;
 $white-2:         #f9f9f9;
@@ -712,10 +1227,13 @@ $white-3:         #f6f6f6;
 $white-4:         #f3f3f3;
 
 // white-warm
+$white-warm: (
+  1:    #fdfdfc,
+  2:    #fafaf8,
+  3:    #f7f7f3,
+  4:    #f5f5f0,
+);
 $white-warm-1:    #fdfdfc;
 $white-warm-2:    #fafaf8;
 $white-warm-3:    #f7f7f3;
 $white-warm-4:    #f5f5f0;
-
-// black
-$black-100:       #000000;
