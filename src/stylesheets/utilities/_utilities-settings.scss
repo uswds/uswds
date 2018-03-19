@@ -59,6 +59,7 @@ $output-utilities: (
   square:           false,
   text-align:       true,
   text-decoration:  true,
+  text-decoration-color:  false,
   text-transform:   true,
   vertical-align:   false,
   whitespace:       false,
@@ -838,7 +839,8 @@ $max-width-manual-values: (
   /*
   */
   none:         'none',
-  reading-sm:   $text-narrow-width,
+  reading-xs:   $text-narrow-width,
+  reading-sm:   $text-width-sm,
   reading:      $text-max-width,
   reading-lg:   $text-wide-width
 ) !default;
@@ -1176,6 +1178,32 @@ $text-decoration-manual-values: (
 
 /*
 ========================================
+.text-decoration-color
+----------------------------------------
+*/
+
+$text-decoration-color-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$text-decoration-color-preset-values: map-collect(
+  /*
+  $preset-palette-grayscale
+  */
+  $preset-palette-project-settings,
+  $preset-palette-reserved
+) !default;
+
+$text-decoration-color-manual-values: (
+  /*
+  */
+) !default;
+
+/*
 .text-transform
 ----------------------------------------
 */
