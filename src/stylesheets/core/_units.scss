@@ -197,6 +197,7 @@ $u-lh-body-tight:	 1.5;
 
 // See this palette at https://federalist-proxy.app.cloud.gov/site/18f/united/build/prototypes/colors.html
 
+/* stylelint-disable unit-no-unknown */
 // violet-warm
 $violet-warm: (
   5:   #fef7ff,
@@ -210,16 +211,16 @@ $violet-warm: (
   80:  #332431,
   90:  #211a21,
   vivid: (
-    5:  #fdedff,
-    10: #f9c9ff,
-    20: #f3a8ff,
-    30: #ee82ff,
-    40: #e05ef7,
-    50: #c132d4,
-    60: false,
-    70: false,
-    80: false,
-    90: false,
+    5v:  #fdedff,
+    10v: #f9c9ff,
+    20v: #f3a8ff,
+    30v: #ee82ff,
+    40v: #e05ef7,
+    50v: #c132d4,
+    60v: false,
+    70v: false,
+    80v: false,
+    90v: false,
   ),
 );
 $violet-warm-5 :  color($violet-warm, 5);
@@ -1166,7 +1167,7 @@ $black-60:  color($black, 60);
 $black-70:  color($black, 70);
 $black-80:  color($black, 80);
 $black-90:  color($black, 90);
-$black-100: color($black,100);
+$black-100: color($black, 100);
 
 // black-warm
 $black-warm: (
@@ -1277,3 +1278,4 @@ $white-warm-1: color($white-warm, 1);
 $white-warm-2: color($white-warm, 2);
 $white-warm-3: color($white-warm, 3);
 $white-warm-4: color($white-warm, 4);
+/* stylelint-enable */
