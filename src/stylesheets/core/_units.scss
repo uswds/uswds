@@ -1131,7 +1131,7 @@ $black-cool: (
   80:   #292a2b,
   90:   #1c1d1f,
 );
-$black-cool-5:  red;
+$black-cool-5:  color($black-cool, 5);
 $black-cool-10: color($black-cool, 10);
 $black-cool-20: color($black-cool, 20);
 $black-cool-30: color($black-cool, 30);
