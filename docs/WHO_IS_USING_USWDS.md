@@ -72,7 +72,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [GSA Recruiter](https://github.com/GSA/recruiter)
 - [HealthCare.gov](https://www.healthcare.gov/)
 - [Hack the Pay Gap](https://paygap.pif.gov/)
-- [Healthcare.gov Tax Tool](healthcare.gov/tax-tool/)
+- [Healthcare.gov Tax Tool](https://www.healthcare.gov/tax-tool/)
 - [The HTTPS-Only Standard](https://https.cio.gov/)
 - [Innovation.gov](https://innovation.gov/)
 - [Internal Revenue Service](https://www.irs.gov/)
