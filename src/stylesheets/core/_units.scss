@@ -498,26 +498,26 @@ $blue: (
     90:        null,
   ),
 );
-$blue-5:    color-test($blue, 5);
-$blue-10:   color-test($blue, 10);
-$blue-20:   color-test($blue, 20);
-$blue-30:   color-test($blue, 30);
-$blue-40:   color-test($blue, 40);
-$blue-50:   color-test($blue, 50);
-$blue-60:   color-test($blue, 60);
-$blue-70:   color-test($blue, 70);
-$blue-80:   color-test($blue, 80);
-$blue-90:   color-test($blue, 90);
-$blue-5v:   color-test($blue, 5, vivid);
-$blue-10v:  color-test($blue, 10, vivid);
-$blue-20v:  color-test($blue, 20, vivid);
-$blue-30v:  color-test($blue, 30, vivid);
-$blue-40v:  color-test($blue, 40, vivid);
-$blue-50v:  color-test($blue, 50, vivid);
-$blue-60v:  color-test($blue, 60, vivid);
-$blue-70v:  color-test($blue, 70, vivid);
-$blue-80v:  color-test($blue, 80, vivid);
-$blue-90v:  color-test($blue, 90, vivid);
+$blue-5:    color($blue, 5);
+$blue-10:   color($blue, 10);
+$blue-20:   color($blue, 20);
+$blue-30:   color($blue, 30);
+$blue-40:   color($blue, 40);
+$blue-50:   color($blue, 50);
+$blue-60:   color($blue, 60);
+$blue-70:   color($blue, 70);
+$blue-80:   color($blue, 80);
+$blue-90:   color($blue, 90);
+$blue-5v:   color($blue, 5, vivid);
+$blue-10v:  color($blue, 10, vivid);
+$blue-20v:  color($blue, 20, vivid);
+$blue-30v:  color($blue, 30, vivid);
+$blue-40v:  color($blue, 40, vivid);
+$blue-50v:  color($blue, 50, vivid);
+$blue-60v:  color($blue, 60, vivid);
+$blue-70v:  color($blue, 70, vivid);
+$blue-80v:  color($blue, 80, vivid);
+$blue-90v:  color($blue, 90, vivid);
 
 // cyan
 $cyan: (
