@@ -36,9 +36,8 @@
 }
 
 .usa-banner-inner {
-  @include outer-container();
+  @include outer-container($site-max-width);
   @include padding(null $site-margins-mobile);
-  max-width: $site-max-width;
 
   @include media($nav-width) {
     @include padding(null $site-margins);
