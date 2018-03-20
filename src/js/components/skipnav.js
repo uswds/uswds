@@ -14,10 +14,9 @@ const setTabindex = function (event) {
   const target = document.getElementById((id === '#') ? MAINCONTENT : id.slice(1));
 
   if (target) {
-    event.preventDefault();
-    window.location.hash = target.id;
-
+    target.style.outline = '0';
     target.setAttribute('tabindex', 0);
+    target.focus();
     target.addEventListener('blur', once(event => {
       target.setAttribute('tabindex', -1);
     }));
