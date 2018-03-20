@@ -8,12 +8,14 @@ const TEMPLATE = fs.readFileSync(__dirname + '/template.html').toString();
 describe('skip nav link', function () {
   const body = document.body;
 
-  let link;
+  let skipLink;
+  let topLink;
   let main;
 
   beforeEach(function () {
     body.innerHTML = TEMPLATE;
-    link = body.querySelector('.usa-skipnav');
+    skipLink = body.querySelector('.usa-skipnav');
+    topLink = body.querySelector('.usa-footer-return-to-top a');
     main = body.querySelector('main');
     skipnav.on(body);
   });
@@ -23,13 +25,13 @@ describe('skip nav link', function () {
     skipnav.off(body);
   });
 
-  it('sets tabindex="0" when clicked', function () {
-    link.click();
+  it('skipnav link sets tabindex="0" when clicked', function () {
+    skipLink.click();
     assert.equal(main.getAttribute('tabindex'), '0');
   });
 
-  it('sets tabindex="-1" when blurred', function () {
-    link.click();
+  it('skipnav link sets tabindex="-1" when blurred', function () {
+    skipLink.click();
     assert.equal(main.getAttribute('tabindex'), '0');
 
     main.focus(); // XXX jsdom doesn't do this for us
@@ -37,4 +39,8 @@ describe('skip nav link', function () {
     assert.equal(main.getAttribute('tabindex'), '-1');
   });
 
+  it('return to top link sets tabindex="0" when clicked', function () {
+    topLink.click();
+    assert.equal(main.getAttribute('tabindex'), '0');
+  });
 });
