@@ -72,12 +72,6 @@ $v-padding: $spacing-md-small;
   > :last-child {
     margin-bottom: 0;
   }
-
-  &:not([aria-hidden]) {
-    @include sr-only();
-  }
-
-  @include accessibly-hidden();
 }
 
 .usa-accordion-button {
