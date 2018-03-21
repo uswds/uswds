@@ -41,7 +41,7 @@ describe('banner', function () {
     button.click();
     assert.equal(header.classList.contains(EXPANDED_CLASS), true);
     assert.equal(button.getAttribute(EXPANDED), 'true');
-    assert(content.hasAttribute(HIDDEN) != 'false');
+    assert(content.hasAttribute(HIDDEN) !== true);
   });
 
   it('closes when you click the button again', function () {

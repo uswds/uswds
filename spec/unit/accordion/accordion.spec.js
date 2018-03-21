@@ -56,7 +56,7 @@ describe('accordion behavior', function () {
       });
 
       it('toggles content "hidden" off', function () {
-        assert(content.hasAttribute(HIDDEN) != 'true');
+        assert(content.hasAttribute(HIDDEN) !== true);
       });
     });
 
@@ -89,7 +89,7 @@ describe('accordion behavior', function () {
       assert(content.hasAttribute(HIDDEN));
       // second should be expanded
       assert.equal(second.getAttribute(EXPANDED), 'true');
-      assert(target.getAttribute(HIDDEN) != 'true');
+      assert(target.getAttribute(HIDDEN) !== true);
     });
 
     it('keeps multiple sections open with aria-multiselectable="true"', function () {
@@ -103,10 +103,10 @@ describe('accordion behavior', function () {
       button.click();
 
       assert.equal(button.getAttribute(EXPANDED), 'true');
-      assert(content.hasAttribute(HIDDEN) != 'true');
+      assert(content.hasAttribute(HIDDEN) !== true);
       // second should be expanded
       assert.equal(second.getAttribute(EXPANDED), 'true');
-      assert(content.hasAttribute(HIDDEN) != 'true');
+      assert(content.hasAttribute(HIDDEN) !== true);
     });
 
 

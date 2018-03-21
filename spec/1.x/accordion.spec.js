@@ -58,7 +58,7 @@ describe('1.x accordion component', function () {
     });
 
     it('toggles "hidden" off', function () {
-      assert(content.hasAttribute(HIDDEN) != 'true');
+      assert(content.hasAttribute(HIDDEN) !== true);
     });
   });
 
@@ -91,7 +91,7 @@ describe('1.x accordion component', function () {
   it('can show buttons', function () {
     accordion.show(button);
     assert.equal(button.getAttribute(EXPANDED), 'true');
-    assert(content.getAttribute(HIDDEN) != 'true');
+    assert(content.getAttribute(HIDDEN) !== true);
   });
 
   it('can hide buttons', function () {
