@@ -18,19 +18,21 @@ const HIDE_MAX_WIDTH = 600;
 const DEBOUNCE_RATE = 180;
 
 const showPanel = function () {
-  const list = this.closest(LIST);
-  list.classList.remove(HIDDEN);
+  if (window.innerWidth < HIDE_MAX_WIDTH) {
+    const list = this.closest(LIST);
+    list.classList.toggle(HIDDEN);
 
-  // NB: this *should* always succeed because the button
-  // selector is scoped to ".{prefix}-footer-big nav"
-  const lists = list.closest(NAV)
-    .querySelectorAll('ul');
+    // NB: this *should* always succeed because the button
+    // selector is scoped to ".{prefix}-footer-big nav"
+    const lists = list.closest(NAV)
+      .querySelectorAll('ul');
 
-  forEach(lists, el => {
-    if (el !== list) {
-      el.classList.add(HIDDEN);
-    }
-  });
+    forEach(lists, el => {
+      if (el !== list) {
+        el.classList.add(HIDDEN);
+      }
+    });
+  }
 };
 
 const resize = debounce(() => {

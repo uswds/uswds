@@ -1,0 +1,12 @@
+/// When set to true, it sets the box-sizing property of all elements to `border-box`. Set with a `!global` flag.
+///
+/// @type Bool
+///
+/// @example css - CSS Output
+///   html {
+///     box-sizing: border-box; }
+///
+///   *, *::after, *::before {
+///     box-sizing: inherit;
+///   }
+$border-box-sizing: false;
