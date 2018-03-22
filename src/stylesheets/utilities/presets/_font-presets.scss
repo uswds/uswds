@@ -193,7 +193,7 @@ $preset-mono-large: map-collect(
   $preset-mono-14
 );
 
-$preset-mono-largerarge: map-collect(
+$preset-mono-larger: map-collect(
   $preset-mono-15,
   $preset-mono-16,
   $preset-mono-17,
@@ -206,7 +206,7 @@ $preset-mono: map-collect(
   $preset-mono-small,
   $preset-mono-medium,
   $preset-mono-large,
-  $preset-mono-largerarge
+  $preset-mono-larger
 );
 
 $preset-sans-1: (
@@ -392,7 +392,7 @@ $preset-sans-large: map-collect(
   $preset-sans-14
 );
 
-$preset-sans-largerarge: map-collect(
+$preset-sans-larger: map-collect(
   $preset-sans-15,
   $preset-sans-16,
   $preset-sans-17,
@@ -405,7 +405,7 @@ $preset-sans: map-collect(
   $preset-sans-small,
   $preset-sans-medium,
   $preset-sans-large,
-  $preset-sans-largerarge
+  $preset-sans-larger
 );
 
 $preset-serif-1: (
@@ -591,7 +591,7 @@ $preset-serif-large: map-collect(
   $preset-serif-14
 );
 
-$preset-serif-largerarge: map-collect(
+$preset-serif-larger: map-collect(
   $preset-serif-15,
   $preset-serif-16,
   $preset-serif-17,
@@ -604,5 +604,5 @@ $preset-serif: map-collect(
   $preset-serif-small,
   $preset-serif-medium,
   $preset-serif-large,
-  $preset-serif-largerarge
+  $preset-serif-larger
 );
