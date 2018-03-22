@@ -100,6 +100,44 @@ $font-weights: (
   $s-fw-xbold
 );
 
+$project-colors : (
+  neutral: (
+    lighter: system-color($neutral-lighter),
+    light:   system-color($neutral-light),
+    base:    system-color($neutral-base),
+    dark:    system-color($neutral-dark),
+    darker:  system-color($neutral-darker),
+  ),
+  primary: (
+    lighter: system-color($primary-lighter),
+    light:   system-color($primary-light),
+    base:    system-color($primary-base),
+    vivid:   system-color($primary-vivid),
+    dark:    system-color($primary-dark),
+    darker:  system-color($primary-darker),
+  ),
+  secondary: (
+    light:   system-color($secondary-light),
+    base:    system-color($secondary-base),
+    vivid:   system-color($secondary-vivid),
+    dark:    system-color($secondary-dark),
+  ),
+  accent-warm: (
+    light:   system-color($accent-warm-lighter),
+    base:    system-color($accent-warm-base),
+  ),
+  accent-cool: (
+    light:   system-color($accent-cool-lighter),
+    base:    system-color($accent-cool-base),
+  ),
+  inverse: (
+    base:   system-color($inverse-base),
+    dark:   system-color($inverse-dark),
+  )
+);
+
+.foo { color: map-deep-get($project-colors, neutral, base); }
+
 /*
 ========================================
 Old USWDS Variables

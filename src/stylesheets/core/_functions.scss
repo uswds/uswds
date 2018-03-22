@@ -256,6 +256,51 @@ to a set target
 
 /*
 ----------------------------------------
+system-color()
+----------------------------------------
+Derive a system color from its
+family, value, and vivid
+----------------------------------------
+*/
+
+@function system-color($props...){
+  @if length($props) == 0 {
+    @return false;
+  } @elseif type-of(nth($props,1)) == 'list' {
+    $props: nth($props,1);
+    @if length($props) == 2 {
+      @return map-deep-get(
+        $system-colors,
+        nth($props, 1),
+        nth($props, 2)
+      );
+    } @elseif length($props) == 3 {
+      @return map-deep-get(
+        $system-colors,
+        nth($props, 1),
+        nth($props, 3),
+        nth($props, 2)
+      );
+    }
+  } @elseif nth($props, 1) == false {
+    @return false;
+  } @elseif length($props) == 2 {
+    @return map-deep-get(
+      $system-colors,
+      nth($props, 1),
+      nth($props, 2)
+    );
+  } @else {
+    @return map-deep-get(
+      $system-colors,
+      nth($props, 1),
+      nth($props, 3),
+      nth($props, 2)
+    );
+  }
+}
+/*
+----------------------------------------
 @render-utility
 ----------------------------------------
 Build a utility from values calculated
