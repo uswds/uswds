@@ -3,15 +3,21 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:6-browsers
+      - image: circleci/node:8.10-browsers
     steps:
       - checkout
       - run:
           name: Install codeclimate
           command: sudo npm install -g codeclimate-test-reporter
-      - run:
-          name: Install node dependencies
-          command: npm install
+      - restore_cache:
+          keys:
+          - v1-uswds-dependencies-{{ checksum "package-lock.json" }}
+          - v1-uswds-dependencies-
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-uswds-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Run test
           command: npm test
@@ -26,15 +32,17 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/node:6-browsers
+      - image: circleci/node:8.10-browsers
     steps:
       - checkout
-      - run:
-          name: Install dependencies
-          command: npm install
+      - restore_cache:
+          keys:
+          - v1-uswds-dependencies-{{ checksum "package-lock.json" }}
+          - v1-uswds-dependencies-
+      - run: npm install --ignore-scripts
       - run:
           name: Build the USWDS package
-          command: npm run build
+          command: npm run release
       - run:
           name: Publish to NPM
           command: |
