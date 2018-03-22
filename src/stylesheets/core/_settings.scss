@@ -157,42 +157,40 @@ $s-color-disabled:        $black-30 !default;
 $s-color-banner:          $black-90 !default;
 $s-color-highlight:       $gold-20v !default;
 
-
 /*
 ----------------------------------------
 New project palette colors
 ----------------------------------------
 */
 
-$neutral-lighter:     black, 5;
-$neutral-light:       black, 50;
-$neutral-base:        black, 80;
-$neutral-dark:        black, 90;
-$neutral-darker:      false;
+$neutral-lighter:     black, 5 !default;
+$neutral-light:       black, 50 !default;
+$neutral-base:        black, 80 !default;
+$neutral-dark:        black, 90 !default;
+$neutral-darker:      false !default;
 
-$primary-lighter:     red, 50, vivid;
-$primary-light:       red, 50, vivid;
-$primary-base:        red, 50, vivid;
-$primary-vivid:       red, 50, vivid;
-$primary-dark:        red, 50, vivid;
-$primary-darker:      red, 50, vivid;
+$primary-lighter:     red, 50, vivid !default;
+$primary-light:       red, 50, vivid !default;
+$primary-base:        red, 50, vivid !default;
+$primary-vivid:       red, 50, vivid !default;
+$primary-dark:        red, 50, vivid !default;
+$primary-darker:      red, 50, vivid !default;
 
-$secondary-lighter:   red, 50, vivid;
-$secondary-light:     red, 50, vivid;
-$secondary-base:      red, 50, vivid;
-$secondary-vivid:     red, 50, vivid;
-$secondary-dark:      red, 50, vivid;
-$secondary-darker:    red, 50, vivid;
+$secondary-lighter:   red, 50, vivid !default;
+$secondary-light:     red, 50, vivid !default;
+$secondary-base:      red, 50, vivid !default;
+$secondary-vivid:     red, 50, vivid !default;
+$secondary-dark:      red, 50, vivid !default;
+$secondary-darker:    red, 50, vivid !default;
 
-$accent-warm-lighter: red, 50, vivid;
-$accent-warm-base:    red, 50, vivid;
+$accent-warm-lighter: red, 50, vivid !default;
+$accent-warm-base:    red, 50, vivid !default;
 
-$accent-cool-lighter: red, 50, vivid;
-$accent-cool-base:    red, 50, vivid;
+$accent-cool-lighter: red, 50, vivid !default;
+$accent-cool-base:    red, 50, vivid !default;
 
-$inverse-base:        red, 50, vivid;
-$inverse-dark:        red, 50, vivid;
-
+$inverse-base:        red, 50, vivid !default;
+$inverse-dark:        red, 50, vivid !default;
 
 // ---------------------------------------------
 // BORDER RADIUS

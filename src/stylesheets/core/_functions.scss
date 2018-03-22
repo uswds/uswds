@@ -259,7 +259,8 @@ to a set target
 system-color()
 ----------------------------------------
 Derive a system color from its
-family, value, and vivid
+family, value, and vivid or a passed
+variable that is, itself, a list
 ----------------------------------------
 */
 
@@ -299,6 +300,37 @@ family, value, and vivid
     );
   }
 }
+
+/*
+----------------------------------------
+color()
+----------------------------------------
+Derive a color from the map of all
+colors: project and system
+----------------------------------------
+*/
+
+@function color($props...){
+  @if length($props) == 0 {
+    @return false;
+  } @elseif nth($props, 1) == false {
+    @return false;
+  } @elseif length($props) == 2 {
+    @return map-deep-get(
+      $all-colors,
+      nth($props, 1),
+      nth($props, 2)
+    );
+  } @else {
+    @return map-deep-get(
+      $all-colors,
+      nth($props, 1),
+      nth($props, 3),
+      nth($props, 2)
+    );
+  }
+}
+
 /*
 ----------------------------------------
 @render-utility

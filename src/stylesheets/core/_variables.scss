@@ -136,7 +136,10 @@ $project-colors : (
   )
 );
 
-.foo { color: map-deep-get($project-colors, neutral, base); }
+$all-colors: map-collect(
+  $system-colors,
+  $project-colors
+);
 
 /*
 ========================================
