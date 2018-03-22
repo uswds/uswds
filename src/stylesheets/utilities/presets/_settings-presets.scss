@@ -1,4 +1,4 @@
-$preset-breakpoints: (
+$preset-breakpoints-em: (
   xs:   px-to-base-em($s-xsmall-screen),
   sm:   px-to-base-em($s-small-screen),
   md:   px-to-base-em($s-medium-screen),
@@ -13,52 +13,58 @@ $preset-font-families: (
   serif:   #{$font-stack-serif},
 );
 
-$preset-spacing-tshirt: (
-  3xs:      $s-spacing-3xs,
-  2xs:      $s-spacing-2xs,
-  xs:       $s-spacing-xs,
-  sm:       $s-spacing-sm,
-  md:       $s-spacing-md,
-  lg:       $s-spacing-lg,
-  xl:       $s-spacing-xl,
-  2xl:      $s-spacing-2xl,
-  3xl:      $s-spacing-3xl,
+$preset-spacing-tshirt-all: (
+  pixel:        1px,
+  eighth:       2px,
+  quarter:      $spacing-05,
+  half:         $spacing-1,
+  half-plus:    $spacing-105,
+  base:         $spacing-2,
+  base-plus:    $spacing-3,
+  double:       $spacing-4,
+  double-plus:  $spacing-5,
+  triple:       $spacing-6,
+  triple-plus:  $spacing-7,
+  quad:         $spacing-8,
+  quad-plus:    $spacing-9,
 );
 
 $preset-spacing-tshirt-small: (
-  3xs:      $s-spacing-3xs,
-  2xs:      $s-spacing-2xs,
-  xs:       $s-spacing-xs,
-  sm:       $s-spacing-sm,
+  pixel:        1px,
+  eighth:       2px,
+  quarter:      $spacing-05,
 );
 
 $preset-spacing-tshirt-medium: (
-  sm:       $s-spacing-sm,
-  md:       $s-spacing-md,
-  lg:       $s-spacing-lg,
+  half:         $spacing-1,
+  half-plus:    $spacing-105,
+  base:         $spacing-2,
 );
 
 $preset-spacing-tshirt-large: (
-  lg:       $s-spacing-lg,
-  xl:       $s-spacing-xl,
-  2xl:      $s-spacing-2xl,
-  3xl:      $s-spacing-3xl,
+  base-plus:    $spacing-3,
+  double:       $spacing-4,
+  double-plus:  $spacing-5,
+  triple:       $spacing-6,
+);
+
+$preset-spacing-tshirt-xlarge: (
+  triple-plus:  $spacing-7,
+  quad:         $spacing-8,
+  quad-plus:    $spacing-9,
 );
 
 $preset-spacing-tshirt-small-negative: (
-  n3xs:      -#{$s-spacing-3xs},
-  n2xs:      -#{$s-spacing-2xs},
-  nxs:       -#{$s-spacing-xs},
-  nsm:       -#{$s-spacing-sm},
+  n-pixel:        -1px,
+  n-eighth:       -2px,
+  n-quarter:      -#{$spacing-05},
 );
 
 $preset-spacing-tshirt-medium-negative: (
-  nsm:       -#{$s-spacing-sm},
-  nmd:       -#{$s-spacing-md},
-  nlg:       -#{$s-spacing-lg},
+  n-half:         -#{$spacing-1},
+  n-half-plus:    -#{$spacing-105},
+  n-base:         -#{$spacing-2},
 );
-
-
 
 $preset-mono-3xs: (
   mono-3xs: (

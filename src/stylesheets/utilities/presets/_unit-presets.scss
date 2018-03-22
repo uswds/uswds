@@ -1,4 +1,4 @@
-$preset-units-breakpoints: (
+$preset-breakpoints-rem: (
   xs:   px($s-xsmall-screen),
   sm:   px($s-small-screen),
   md:   px($s-medium-screen),
@@ -6,7 +6,7 @@ $preset-units-breakpoints: (
   xl:   px($s-xlarge-screen),
 );
 
-$preset-units-ch: (
+$preset-ch: (
   '05ch':   '.5ch',
   '1ch':    '1ch',
   '105ch':  '1.5ch',
@@ -16,7 +16,7 @@ $preset-units-ch: (
   '5ch':    '5ch',
 );
 
-$preset-units-ch-negative: (
+$preset-ch-negative: (
   'n05ch':   '-.5ch',
   'n1ch':    '-1ch',
   'n105ch':  '-1.5ch',
@@ -26,7 +26,7 @@ $preset-units-ch-negative: (
   'n5ch':    '-5ch',
 );
 
-$preset-units-em: (
+$preset-em: (
   '05em':   '.5em',
   '1em':    '1em',
   '105em':  '1.5em',
@@ -41,73 +41,73 @@ $preset-units-em: (
   '10em':   '10em',
 );
 
-$preset-units-grid-small: (
-  'g05':    $u-spacing-05,
-  'g1':     $u-spacing-1,
-  'g105':   $u-spacing-105,
-  'g2':     $u-spacing-2,
+$preset-grid-small: (
+  'g05':    $spacing-05,
+  'g1':     $spacing-1,
+  'g105':   $spacing-105,
+  'g2':     $spacing-2,
 );
 
-$preset-units-grid-medium: (
-  'g205':   $u-spacing-205,
-  'g3':     $u-spacing-3,
-  'g4':     $u-spacing-4,
-  'g5':     $u-spacing-5,
+$preset-grid-medium: (
+  'g205':   $spacing-205,
+  'g3':     $spacing-3,
+  'g4':     $spacing-4,
+  'g5':     $spacing-5,
 );
 
-$preset-units-grid-large: (
-  'g6':     $u-spacing-6,
-  'g7':     $u-spacing-7,
-  'g8':     $u-spacing-8,
-  'g9':     $u-spacing-9,
-  'g10':    $u-spacing-10,
+$preset-grid-large: (
+  'g6':     $spacing-6,
+  'g7':     $spacing-7,
+  'g8':     $spacing-8,
+  'g9':     $spacing-9,
+  'g10':    $spacing-10,
 );
 
-$preset-units-grid-xlarge: (
-  'g15':    $u-spacing-15,
-  'g20':    $u-spacing-20,
-  'g25':    $u-spacing-25,
-  'g30':    $u-spacing-30,
-  'g40':    $u-spacing-40,
-  'g50':    $u-spacing-50,
+$preset-grid-xlarge: (
+  'g15':    $spacing-15,
+  'g20':    $spacing-20,
+  'g25':    $spacing-25,
+  'g30':    $spacing-30,
+  'g40':    $spacing-40,
+  'g50':    $spacing-50,
 );
 
-$preset-units-grid-small-negative: (
-  'ng05':   -#{$u-spacing-05},
-  'ng1':    -#{$u-spacing-1},
-  'ng105':  -#{$u-spacing-105},
-  'ng2':    -#{$u-spacing-2},
+$preset-grid-small-negative: (
+  'ng05':   -#{$spacing-05},
+  'ng1':    -#{$spacing-1},
+  'ng105':  -#{$spacing-105},
+  'ng2':    -#{$spacing-2},
 );
 
-$preset-units-grid-medium-negative: (
-  'ng205':  -#{$u-spacing-205},
-  'ng3':    -#{$u-spacing-3},
-  'ng4':    -#{$u-spacing-4},
-  'ng5':    -#{$u-spacing-5},
+$preset-grid-medium-negative: (
+  'ng205':  -#{$spacing-205},
+  'ng3':    -#{$spacing-3},
+  'ng4':    -#{$spacing-4},
+  'ng5':    -#{$spacing-5},
 );
 
-$preset-units-grid-large-negative: (
-  'ng6':    -#{$u-spacing-6},
-  'ng7':    -#{$u-spacing-7},
-  'ng8':    -#{$u-spacing-8},
-  'ng9':    -#{$u-spacing-9},
-  'ng10':   -#{$u-spacing-10},
+$preset-grid-large-negative: (
+  'ng6':    -#{$spacing-6},
+  'ng7':    -#{$spacing-7},
+  'ng8':    -#{$spacing-8},
+  'ng9':    -#{$spacing-9},
+  'ng10':   -#{$spacing-10},
 );
 
-$preset-units-grid: map-collect(
-  $preset-units-grid-small,
-  $preset-units-grid-medium,
-  $preset-units-grid-large,
-  $preset-units-grid-xlarge
+$preset-grid: map-collect(
+  $preset-grid-small,
+  $preset-grid-medium,
+  $preset-grid-large,
+  $preset-grid-xlarge
 );
 
-$preset-units-grid-negative: map-collect(
-  $preset-units-grid-small-negative,
-  $preset-units-grid-medium-negative,
-  $preset-units-grid-large-negative
+$preset-grid-negative: map-collect(
+  $preset-grid-small-negative,
+  $preset-grid-medium-negative,
+  $preset-grid-large-negative
 );
 
-$preset-units-percentage:(
+$preset-percentage:(
   '10ct':   10%,
   '20ct':   20%,
   '25ct':   25%,
@@ -124,12 +124,12 @@ $preset-units-percentage:(
   '100ct':  100%,
 );
 
-$preset-units-px:(
+$preset-px:(
   '1px':    1px,
   '2px':    2px,
 );
 
-$preset-units-px-negative:(
+$preset-px-negative:(
   'n1px':   -1px,
   'n2px':   -2px,
 );

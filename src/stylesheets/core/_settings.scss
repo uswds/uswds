@@ -33,35 +33,35 @@ $s-font-alt:    $i-font-sans !default;
 // SPACING
 
 // values  - - - - - - - - - - - - - - - - - - -
-// $s-font-size-NN:       $u-spacing-NN;
+// $s-font-size-NN:       $spacing-NN;
 //                        1px
 //                        2px
 
-$s-spacing-3xs:           false !default;
-$s-spacing-2xs:           false !default;
-$s-spacing-xs:            $u-spacing-05 !default;
-$s-spacing-sm:            $u-spacing-1 !default;
-$s-spacing-md:            $u-spacing-2 !default;
-$s-spacing-lg:            $u-spacing-3 !default;
-$s-spacing-xl:            $u-spacing-4 !default;
-$s-spacing-2xl:           $u-spacing-5 !default;
-$s-spacing-3xl:           $u-spacing-9 !default;
+$spacing-3xs:           false !default;
+$spacing-2xs:           false !default;
+$spacing-xs:            $spacing-05 !default;
+$spacing-sm:            $spacing-1 !default;
+$spacing-md:            $spacing-2 !default;
+$spacing-lg:            $spacing-3 !default;
+$spacing-xl:            $spacing-4 !default;
+$spacing-2xl:           $spacing-5 !default;
+$spacing-3xl:           $spacing-9 !default;
 
 // ---------------------------------------------
 // TYPE SCALE
 
 // values  - - - - - - - - - - - - - - - - - - -
-// $s-font-size-NN:       $u-type-scale-NN;
+// $s-font-size-NN:       $type-scale-NN;
 
-$s-font-size-3xs:         $u-type-scale-f1 !default;
-$s-font-size-2xs:         $u-type-scale-f3 !default;
-$s-font-size-xs:          $u-type-scale-f5 !default;
-$s-font-size-sm:          $u-type-scale-f6 !default;
-$s-font-size-md:          $u-type-scale-f7 !default;
-$s-font-size-lg:          $u-type-scale-f10 !default;
-$s-font-size-xl:          $u-type-scale-f12 !default;
-$s-font-size-2xl:         $u-type-scale-f14 !default;
-$s-font-size-3xl:         $u-type-scale-f16 !default;
+$s-font-size-3xs:         $type-scale-1 !default;
+$s-font-size-2xs:         $type-scale-3 !default;
+$s-font-size-xs:          $type-scale-5 !default;
+$s-font-size-sm:          $type-scale-6 !default;
+$s-font-size-md:          $type-scale-7 !default;
+$s-font-size-lg:          $type-scale-10 !default;
+$s-font-size-xl:          $type-scale-12 !default;
+$s-font-size-2xl:         $type-scale-14 !default;
+$s-font-size-3xl:         $type-scale-16 !default;
 
 // ---------------------------------------------
 // FONT WEIGHTS
@@ -161,10 +161,10 @@ $s-color-highlight:       $gold-20v !default;
 // BORDER RADIUS
 
 // values  - - - - - - - - - - - - - - - - - - -
-// $s-radius-NN:          $u-spacing-NN;
+// $s-radius-NN:          $spacing-NN;
 //                        1px
 //                        2px
 
 $s-radius-sm:             2px !default;
-$s-radius-md:             $u-spacing-05 !default;
+$s-radius-md:             $spacing-05 !default;
 $s-radius-lg:             false !default;

@@ -138,8 +138,8 @@ $border-settings: (
 $border-preset-values: map-collect(
   /*
   */
-  $preset-units-px,
-  $preset-units-grid-small
+  $preset-px,
+  $preset-grid-small
 ) !default;
 
 $border-manual-values: (
@@ -190,7 +190,7 @@ $border-radius-settings: (
 
 $border-radius-preset-values: map-collect(
   /*
-  $preset-units-grid-small
+  $preset-grid-small
   */
   $preset-spacing-tshirt-small
 ) !default;
@@ -277,7 +277,7 @@ $circle-settings: (
 $circle-preset-values: map-collect(
   /*
   */
-  $preset-spacing-tshirt
+  $preset-spacing-tshirt-all
 ) !default;
 
 $circle-manual-values: (
@@ -625,12 +625,12 @@ $height-settings: (
 
 $height-preset-values: map-collect(
   /*
-  $preset-units-em,
-  $preset-units-ch,
-  $preset-units-px
+  $preset-em,
+  $preset-ch,
+  $preset-px
   */
-  $preset-units-percentage,
-  $preset-spacing-tshirt
+  $preset-percentage,
+  $preset-spacing-tshirt-all
 ) !default;
 
 $height-manual-values: (
@@ -736,8 +736,8 @@ $manual-position-settings: (
 $manual-position-preset-values: map-collect(
   /*
   */
-  $preset-units-px,
-  $preset-units-px-negative,
+  $preset-px,
+  $preset-px-negative,
   $preset-spacing-tshirt-small,
   $preset-spacing-tshirt-small-negative
 ) !default;
@@ -765,18 +765,18 @@ $margin-settings: (
 
 $margin-preset-values: map-collect(
   /*
-  $preset-units-px,
-  $preset-units-px-negative,
-  $preset-units-percentage,
-  $preset-units-grid,
-  $preset-units-grid-negative,
-  $preset-units-ch,
-  $preset-units-ch-negative,
-  $preset-units-em
+  $preset-px,
+  $preset-px-negative,
+  $preset-percentage,
+  $preset-grid,
+  $preset-grid-negative,
+  $preset-ch,
+  $preset-ch-negative,
+  $preset-em
   */
-  $preset-units-px,
-  $preset-units-px-negative,
-  $preset-spacing-tshirt,
+  $preset-px,
+  $preset-px-negative,
+  $preset-spacing-tshirt-all,
   $preset-spacing-tshirt-small-negative
 ) !default;
 
@@ -803,9 +803,9 @@ $max-height-settings: (
 
 $max-height-preset-values: map-collect(
   /*
-  $preset-units-percentage,
-  $preset-units-grid,
-  $preset-units-px
+  $preset-percentage,
+  $preset-grid,
+  $preset-px
   */
 ) !default;
 
@@ -830,8 +830,8 @@ $max-width-settings: (
 
 $max-width-preset-values: map-collect(
   /*
-  $preset-units-percentage,
-  $preset-units-breakpoints
+  $preset-percentage,
+  $preset-breakpoints-rem
   */
 ) !default;
 
@@ -861,9 +861,9 @@ $min-height-settings: (
 
 $min-height-preset-values: map-collect(
   /*
-  $preset-units-percentage,
-  $preset-units-grid-small
-  $preset-units-grid-medium
+  $preset-percentage,
+  $preset-grid-small
+  $preset-grid-medium
   */
 ) !default;
 
@@ -890,9 +890,9 @@ $min-width-settings: (
 $min-width-preset-values: map-collect(
   /*
   */
-  $preset-units-breakpoints,
-  $preset-units-grid-large,
-  $preset-units-grid-xlarge
+  $preset-breakpoints-rem,
+  $preset-grid-large,
+  $preset-grid-xlarge
 ) !default;
 
 $min-width-manual-values: (
@@ -990,8 +990,8 @@ $outline-settings: (
 $outline-preset-values: map-collect(
   /*
   */
-  $preset-units-px,
-  $preset-units-grid-small
+  $preset-px,
+  $preset-grid-small
 ) !default;
 
 $outline-manual-values: (
@@ -1041,9 +1041,9 @@ $padding-settings: (
 
 $padding-preset-values: map-collect(
   /*
-  $preset-units-px,
+  $preset-px,
   */
-  $preset-spacing-tshirt
+  $preset-spacing-tshirt-all
 ) !default;
 
 $padding-manual-values: (
@@ -1112,7 +1112,7 @@ $square-settings: (
 $square-preset-values: map-collect(
   /*
   */
-  $preset-spacing-tshirt
+  $preset-spacing-tshirt-all
 ) !default;
 
 $square-manual-values: (
@@ -1307,13 +1307,13 @@ $width-settings: (
 
 $width-preset-values: map-collect(
   /*
-  $preset-units-grid,
-  $preset-units-px,
-  $preset-units-em,
-  $preset-units-ch
+  $preset-grid,
+  $preset-px,
+  $preset-em,
+  $preset-ch
   */
-  $preset-units-percentage,
-  $preset-units-breakpoints
+  $preset-percentage,
+  $preset-breakpoints-rem
 ) !default;
 
 $width-manual-values: (
