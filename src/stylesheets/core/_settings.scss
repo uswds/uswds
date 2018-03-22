@@ -17,7 +17,7 @@ $s-xlarge-screen:   false !default; //1200px
 
 // Relative font and image file paths
 
-$s-font-path:   '../fonts' !default;
+$font-path:   '../fonts' !default;
 $s-image-path:  '../img' !default;
 
 // Set hed, body, and alt from
@@ -25,15 +25,15 @@ $s-image-path:  '../img' !default;
 // $i-font-serif
 // $i-font-mono
 
-$s-font-hed:    $i-font-sans !default;
-$s-font-body:   $i-font-serif !default;
-$s-font-alt:    $i-font-sans !default;
+$font-hed:    $i-font-sans !default;
+$font-body:   $i-font-serif !default;
+$font-alt:    $i-font-sans !default;
 
 // ---------------------------------------------
 // SPACING
 
 // values  - - - - - - - - - - - - - - - - - - -
-// $s-font-size-NN:       $spacing-NN;
+// $font-size-NN:       $spacing-NN;
 //                        1px
 //                        2px
 
@@ -51,17 +51,17 @@ $spacing-3xl:           $spacing-9 !default;
 // TYPE SCALE
 
 // values  - - - - - - - - - - - - - - - - - - -
-// $s-font-size-NN:       $type-scale-NN;
+// $font-size-NN:       $type-scale-NN;
 
-$s-font-size-3xs:         $type-scale-1 !default;
-$s-font-size-2xs:         $type-scale-3 !default;
-$s-font-size-xs:          $type-scale-5 !default;
-$s-font-size-sm:          $type-scale-6 !default;
-$s-font-size-md:          $type-scale-7 !default;
-$s-font-size-lg:          $type-scale-10 !default;
-$s-font-size-xl:          $type-scale-12 !default;
-$s-font-size-2xl:         $type-scale-14 !default;
-$s-font-size-3xl:         $type-scale-16 !default;
+$font-size-micro:         $type-scale-1 !default;
+$font-size-smallest:         $type-scale-3 !default;
+$font-size-smaller:          $type-scale-5 !default;
+$font-size-small:          $type-scale-6 !default;
+$font-size-base:          $type-scale-7 !default;
+$font-size-large:          $type-scale-10 !default;
+$font-size-larger:          $type-scale-12 !default;
+$font-size-largest:         $type-scale-14 !default;
+$font-size-mega:         $type-scale-16 !default;
 
 // ---------------------------------------------
 // FONT WEIGHTS

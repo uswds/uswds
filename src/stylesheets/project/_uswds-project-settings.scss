@@ -17,7 +17,7 @@ $s-xlarge-screen:   false;  //1200px
 
 // Relative font and image file paths
 
-$s-font-path:   '../fonts';
+$font-path:   '../fonts';
 $s-image-path:  '../img';
 
 // Set hed, body, and alt from
@@ -25,15 +25,15 @@ $s-image-path:  '../img';
 // $i-font-serif
 // $i-font-mono
 
-$s-font-hed:    $i-font-sans;
-$s-font-body:   $i-font-serif;
-$s-font-alt:    $i-font-sans;
+$font-hed:    $i-font-sans;
+$font-body:   $i-font-serif;
+$font-alt:    $i-font-sans;
 
 // ---------------------------------------------
 // SPACING
 
 // values  - - - - - - - - - - - - - - - - - - -
-// $s-font-size-NN:       $spacing-NN;
+// $font-size-NN:       $spacing-NN;
 //                        1px
 //                        2px
 
@@ -51,17 +51,17 @@ $spacing-3xl:           $spacing-9;
 // TYPE SCALE
 
 // values  - - - - - - - - - - - - - - - - - - -
-// $s-font-size-NN:       $type-scale-NN;
+// $font-size-NN:       $type-scale-NN;
 
-$s-font-size-3xs:         $type-scale-1;
-$s-font-size-2xs:         $type-scale-3;
-$s-font-size-xs:          $type-scale-5;
-$s-font-size-sm:          $type-scale-6;
-$s-font-size-md:          $type-scale-7;
-$s-font-size-lg:          $type-scale-10;
-$s-font-size-xl:          $type-scale-12;
-$s-font-size-2xl:         $type-scale-14;
-$s-font-size-3xl:         $type-scale-16;
+$font-size-micro:         $type-scale-1;
+$font-size-smallest:         $type-scale-3;
+$font-size-smaller:          $type-scale-5;
+$font-size-small:          $type-scale-6;
+$font-size-base:          $type-scale-7;
+$font-size-large:          $type-scale-10;
+$font-size-larger:          $type-scale-12;
+$font-size-largest:         $type-scale-14;
+$font-size-mega:         $type-scale-16;
 
 // ---------------------------------------------
 // FONT WEIGHTS

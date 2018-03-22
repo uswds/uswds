@@ -33,7 +33,7 @@ Custom font definitions
 ----------------------------------------
 $font-new : (
   name: "Font Display Name",
-  dir: "united-sans", // relative to settings.$s-font-path
+  dir: "united-sans", // relative to settings.$font-path
   stack: $font-stack-system,
   system-font: false,
   cap-height: "364px", // height of a 500px `N` in Sketch

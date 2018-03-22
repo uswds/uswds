@@ -66,283 +66,283 @@ $preset-spacing-tshirt-medium-negative: (
   n-base:         -#{$spacing-2},
 );
 
-$preset-mono-3xs: (
-  mono-3xs: (
-    slug: 'mono-3xs',
+$preset-mono-micro: (
+  mono-micro: (
+    slug: 'mono-micro',
     isReadable: true,
-    content: $s-font-size-3xs,
+    content: $font-size-micro,
     dependency: $i-font-mono,
   ),
 );
 
-$preset-mono-2xs: (
-  mono-2xs: (
-    slug: 'mono-2xs',
+$preset-mono-smallest: (
+  mono-smallest: (
+    slug: 'mono-smallest',
     isReadable: true,
-    content: $s-font-size-2xs,
+    content: $font-size-smallest,
     dependency: $i-font-mono,
   ),
 );
 
-$preset-mono-xs: (
-  mono-xs: (
-    slug: 'mono-xs',
+$preset-mono-smaller: (
+  mono-smaller: (
+    slug: 'mono-smaller',
     isReadable: true,
-    content: $s-font-size-xs,
+    content: $font-size-smaller,
     dependency: $i-font-mono,
   ),
 );
 
-$preset-mono-sm: (
-  mono-sm: (
-    slug: 'mono-sm',
+$preset-mono-small: (
+  mono-small: (
+    slug: 'mono-small',
     isReadable: true,
-    content: $s-font-size-sm,
+    content: $font-size-small,
     dependency: $i-font-mono,
   ),
 );
 
-$preset-mono-md: (
-  mono-md: (
-    slug: 'mono-md',
+$preset-mono-base: (
+  mono-base: (
+    slug: 'mono-base',
     isReadable: true,
-    content: $s-font-size-md,
+    content: $font-size-base,
     dependency: $i-font-mono,
   ),
 );
 
-$preset-mono-lg: (
-  mono-lg: (
-    slug: 'mono-lg',
+$preset-mono-large: (
+  mono-large: (
+    slug: 'mono-large',
     isReadable: true,
-    content: $s-font-size-lg,
+    content: $font-size-large,
     dependency: $i-font-mono,
   ),
 );
 
-$preset-mono-xl: (
-  mono-xl: (
-    slug: 'mono-xl',
+$preset-mono-larger: (
+  mono-larger: (
+    slug: 'mono-larger',
     isReadable: true,
-    content: $s-font-size-xl,
+    content: $font-size-larger,
     dependency: $i-font-mono,
   ),
 );
 
-$preset-mono-2xl: (
-  mono-2xl: (
-    slug: 'mono-2xl',
+$preset-mono-largest: (
+  mono-largest: (
+    slug: 'mono-largest',
     isReadable: true,
-    content: $s-font-size-2xl,
+    content: $font-size-largest,
     dependency: $i-font-mono,
   ),
 );
 
-$preset-mono-3xl: (
-  mono-2xl: (
-    slug: 'mono-3xl',
+$preset-mono-mega: (
+  mono-largest: (
+    slug: 'mono-mega',
     isReadable: true,
-    content: $s-font-size-3xl,
+    content: $font-size-mega,
     dependency: $i-font-mono,
   ),
 );
 
 $preset-mono-tshirt: map-collect(
-  $preset-mono-3xs,
-  $preset-mono-2xs,
-  $preset-mono-xs,
-  $preset-mono-sm,
-  $preset-mono-md,
-  $preset-mono-lg,
-  $preset-mono-xl,
-  $preset-mono-2xl,
-  $preset-mono-3xl
+  $preset-mono-micro,
+  $preset-mono-smallest,
+  $preset-mono-smaller,
+  $preset-mono-small,
+  $preset-mono-base,
+  $preset-mono-large,
+  $preset-mono-larger,
+  $preset-mono-largest,
+  $preset-mono-mega
 );
 
-$preset-sans-3xs: (
-  sans-3xs: (
-    slug: 'sans-3xs',
+$preset-sans-micro: (
+  sans-micro: (
+    slug: 'sans-micro',
     isReadable: true,
-    content: $s-font-size-3xs,
+    content: $font-size-micro,
     dependency: $i-font-sans,
   ),
 );
 
-$preset-sans-2xs: (
-  sans-2xs: (
-    slug: 'sans-2xs',
+$preset-sans-smallest: (
+  sans-smallest: (
+    slug: 'sans-smallest',
     isReadable: true,
-    content: $s-font-size-2xs,
+    content: $font-size-smallest,
     dependency: $i-font-sans,
   ),
 );
 
-$preset-sans-xs: (
-  sans-xs: (
-    slug: 'sans-xs',
+$preset-sans-smaller: (
+  sans-smaller: (
+    slug: 'sans-smaller',
     isReadable: true,
-    content: $s-font-size-xs,
+    content: $font-size-smaller,
     dependency: $i-font-sans,
   ),
 );
 
-$preset-sans-sm: (
-  sans-sm: (
-    slug: 'sans-sm',
+$preset-sans-small: (
+  sans-small: (
+    slug: 'sans-small',
     isReadable: true,
-    content: $s-font-size-sm,
+    content: $font-size-small,
     dependency: $i-font-sans,
   ),
 );
 
-$preset-sans-md: (
-  sans-md: (
-    slug: 'sans-md',
+$preset-sans-base: (
+  sans-base: (
+    slug: 'sans-base',
     isReadable: true,
-    content: $s-font-size-md,
+    content: $font-size-base,
     dependency: $i-font-sans,
   ),
 );
 
-$preset-sans-lg: (
-  sans-lg: (
-    slug: 'sans-lg',
+$preset-sans-large: (
+  sans-large: (
+    slug: 'sans-large',
     isReadable: true,
-    content: $s-font-size-lg,
+    content: $font-size-large,
     dependency: $i-font-sans,
   ),
 );
 
-$preset-sans-xl: (
-  sans-xl: (
-    slug: 'sans-xl',
+$preset-sans-larger: (
+  sans-larger: (
+    slug: 'sans-larger',
     isReadable: true,
-    content: $s-font-size-xl,
+    content: $font-size-larger,
     dependency: $i-font-sans,
   ),
 );
 
-$preset-sans-2xl: (
-  sans-2xl: (
-    slug: 'sans-2xl',
+$preset-sans-largest: (
+  sans-largest: (
+    slug: 'sans-largest',
     isReadable: true,
-    content: $s-font-size-2xl,
+    content: $font-size-largest,
     dependency: $i-font-sans,
   ),
 );
 
-$preset-sans-3xl: (
-  sans-2xl: (
-    slug: 'sans-3xl',
+$preset-sans-mega: (
+  sans-largest: (
+    slug: 'sans-mega',
     isReadable: true,
-    content: $s-font-size-3xl,
+    content: $font-size-mega,
     dependency: $i-font-sans,
   ),
 );
 
 $preset-sans-tshirt: map-collect(
-  $preset-sans-3xs,
-  $preset-sans-2xs,
-  $preset-sans-xs,
-  $preset-sans-sm,
-  $preset-sans-md,
-  $preset-sans-lg,
-  $preset-sans-xl,
-  $preset-sans-2xl,
-  $preset-sans-3xl
+  $preset-sans-micro,
+  $preset-sans-smallest,
+  $preset-sans-smaller,
+  $preset-sans-small,
+  $preset-sans-base,
+  $preset-sans-large,
+  $preset-sans-larger,
+  $preset-sans-largest,
+  $preset-sans-mega
 );
 
-$preset-serif-3xs: (
-  serif-3xs: (
-    slug: 'serif-3xs',
+$preset-serif-micro: (
+  serif-micro: (
+    slug: 'serif-micro',
     isReadable: true,
-    content: $s-font-size-3xs,
+    content: $font-size-micro,
     dependency: $i-font-serif,
   ),
 );
 
-$preset-serif-2xs: (
-  serif-2xs: (
-    slug: 'serif-2xs',
+$preset-serif-smallest: (
+  serif-smallest: (
+    slug: 'serif-smallest',
     isReadable: true,
-    content: $s-font-size-2xs,
+    content: $font-size-smallest,
     dependency: $i-font-serif,
   ),
 );
 
-$preset-serif-xs: (
-  serif-xs: (
-    slug: 'serif-xs',
+$preset-serif-smaller: (
+  serif-smaller: (
+    slug: 'serif-smaller',
     isReadable: true,
-    content: $s-font-size-xs,
+    content: $font-size-smaller,
     dependency: $i-font-serif,
   ),
 );
 
-$preset-serif-sm: (
-  serif-sm: (
-    slug: 'serif-sm',
+$preset-serif-small: (
+  serif-small: (
+    slug: 'serif-small',
     isReadable: true,
-    content: $s-font-size-sm,
+    content: $font-size-small,
     dependency: $i-font-serif,
   ),
 );
 
-$preset-serif-md: (
-  serif-md: (
-    slug: 'serif-md',
+$preset-serif-base: (
+  serif-base: (
+    slug: 'serif-base',
     isReadable: true,
-    content: $s-font-size-md,
+    content: $font-size-base,
     dependency: $i-font-serif,
   ),
 );
 
-$preset-serif-lg: (
-  serif-lg: (
-    slug: 'serif-lg',
+$preset-serif-large: (
+  serif-large: (
+    slug: 'serif-large',
     isReadable: true,
-    content: $s-font-size-lg,
+    content: $font-size-large,
     dependency: $i-font-serif,
   ),
 );
 
-$preset-serif-xl: (
-  serif-xl: (
-    slug: 'serif-xl',
+$preset-serif-larger: (
+  serif-larger: (
+    slug: 'serif-larger',
     isReadable: true,
-    content: $s-font-size-xl,
+    content: $font-size-larger,
     dependency: $i-font-serif,
   ),
 );
 
-$preset-serif-2xl: (
-  serif-2xl: (
-    slug: 'serif-2xl',
+$preset-serif-largest: (
+  serif-largest: (
+    slug: 'serif-largest',
     isReadable: true,
-    content: $s-font-size-2xl,
+    content: $font-size-largest,
     dependency: $i-font-serif,
   ),
 );
 
-$preset-serif-3xl: (
-  serif-2xl: (
-    slug: 'serif-3xl',
+$preset-serif-mega: (
+  serif-largest: (
+    slug: 'serif-mega',
     isReadable: true,
-    content: $s-font-size-3xl,
+    content: $font-size-mega,
     dependency: $i-font-serif,
   ),
 );
 
 $preset-serif-tshirt: map-collect(
-  $preset-serif-3xs,
-  $preset-serif-2xs,
-  $preset-serif-xs,
-  $preset-serif-sm,
-  $preset-serif-md,
-  $preset-serif-lg,
-  $preset-serif-xl,
-  $preset-serif-2xl,
-  $preset-serif-3xl
+  $preset-serif-micro,
+  $preset-serif-smallest,
+  $preset-serif-smaller,
+  $preset-serif-small,
+  $preset-serif-base,
+  $preset-serif-large,
+  $preset-serif-larger,
+  $preset-serif-largest,
+  $preset-serif-mega
 );
 
 $preset-font-tshirt: map-collect(

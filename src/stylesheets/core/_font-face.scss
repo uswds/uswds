@@ -18,6 +18,6 @@ $font-weights: (
 @if $i-font-serif {
   @include render-font-face($i-font-serif);
 }
-// @include render-font-face($s-font-cond);
+// @include render-font-face($font-cond);
 
 /* stylelint-enable */
