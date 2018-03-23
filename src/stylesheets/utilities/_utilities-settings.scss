@@ -112,8 +112,9 @@ $background-color-settings: (
 $background-color-plugins: map-collect(
   /*
   */
-  $plugin-palette-reserved,
-  $plugin-palette-project-settings
+  $plugin-palette-required,
+  $plugin-palette-project-settings,
+  $plugin-palette-grayscale
 ) !default;
 
 $background-color-manual-values: (
@@ -165,7 +166,7 @@ $border-color-settings: (
 $border-color-plugins: map-collect(
   /*
   */
-  $plugin-palette-reserved,
+  $plugin-palette-required,
   $plugin-palette-project-settings
 ) !default;
 
@@ -317,7 +318,7 @@ $color-plugins: map-collect(
   /*
   */
   $plugin-palette-project-settings,
-  $plugin-palette-reserved
+  $plugin-palette-required
 ) !default;
 
 $color-manual-values: (
@@ -1195,7 +1196,7 @@ $text-decoration-color-plugins: map-collect(
   $plugin-palette-grayscale
   */
   $plugin-palette-project-settings,
-  $plugin-palette-reserved
+  $plugin-palette-required
 ) !default;
 
 $text-decoration-color-manual-values: (
