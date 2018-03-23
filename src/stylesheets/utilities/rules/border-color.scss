@@ -32,6 +32,7 @@ $border-color: (
       color: '-color',
     ),
     values: map-collect(
+      $plugin-palette-required,
       $border-color-plugins,
       $border-color-manual-values
     ),

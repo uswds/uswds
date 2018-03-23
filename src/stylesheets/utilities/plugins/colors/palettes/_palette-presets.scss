@@ -1,9 +1,7 @@
-$plugin-palette-reserved: (
+$plugin-palette-required: (
   transparent:    transparent,
   black:          $black-100,
   white:          $white-0,
-  banner:         $black-cool-90,
-  highlight:      $gold-30v,
 );
 
 $plugin-palette-grayscale: map-collect(

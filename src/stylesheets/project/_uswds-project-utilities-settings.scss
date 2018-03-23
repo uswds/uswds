@@ -111,7 +111,7 @@ $background-color-settings: (
 $background-color-plugins: map-collect(
   /*
   */
-  $plugin-palette-reserved,
+  $plugin-palette-required,
   $plugin-palette-project-settings
 );
 
@@ -164,7 +164,7 @@ $border-color-settings: (
 $border-color-plugins: map-collect(
   /*
   */
-  $plugin-palette-reserved,
+  $plugin-palette-required,
   $plugin-palette-project-settings
 );
 
@@ -302,7 +302,7 @@ $color-plugins: map-collect(
   /*
   */
   $plugin-palette-project-settings,
-  $plugin-palette-reserved
+  $plugin-palette-required
 );
 
 $color-manual-values: (
