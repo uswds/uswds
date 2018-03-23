@@ -169,12 +169,12 @@ $neutral-base:        black, 80 !default;
 $neutral-dark:        black, 90 !default;
 $neutral-darker:      false !default;
 
-$primary-lighter:     red, 50, vivid !default;
-$primary-light:       red, 50, vivid !default;
-$primary-base:        red, 50, vivid !default;
+$primary-lighter:     red, 10 !default;
+$primary-light:       red, 30, vivid !default;
+$primary-base:        red, 50 !default;
 $primary-vivid:       red, 50, vivid !default;
-$primary-dark:        red, 50, vivid !default;
-$primary-darker:      red, 50, vivid !default;
+$primary-dark:        red, 70, vivid !default;
+$primary-darker:      false !default;
 
 $secondary-lighter:   red, 50, vivid !default;
 $secondary-light:     red, 50, vivid !default;
