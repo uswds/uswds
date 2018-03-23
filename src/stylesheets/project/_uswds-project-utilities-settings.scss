@@ -112,7 +112,7 @@ $background-color-plugins: map-collect(
   /*
   */
   $plugin-palette-required,
-  $plugin-palette-project-settings
+  $plugin-project-palette-settings
 );
 
 $background-color-manual-values: (
@@ -138,7 +138,7 @@ $border-plugins: map-collect(
   /*
   */
   $plugin-spacing-px,
-  $plugin-spacing-system-small
+  $plugin-system-spacing-small
 );
 
 $border-manual-values: (
@@ -165,7 +165,7 @@ $border-color-plugins: map-collect(
   /*
   */
   $plugin-palette-required,
-  $plugin-palette-project-settings
+  $plugin-project-palette-settings
 );
 
 $border-color-manual-values: (
@@ -189,9 +189,9 @@ $border-radius-settings: (
 
 $border-radius-plugins: map-collect(
   /*
-  $plugin-spacing-system-small
+  $plugin-system-spacing-small
   */
-  $plugin-spacing-project-small
+  $plugin-project-spacing-small
 );
 
 $border-radius-manual-values: (
@@ -276,7 +276,7 @@ $circle-settings: (
 $circle-plugins: map-collect(
   /*
   */
-  $plugin-spacing-project-all
+  $plugin-project-spacing-all
 );
 
 $circle-manual-values: (
@@ -301,7 +301,7 @@ $color-settings: (
 $color-plugins: map-collect(
   /*
   */
-  $plugin-palette-project-settings,
+  $plugin-project-palette-settings,
   $plugin-palette-required
 );
 
@@ -477,7 +477,7 @@ $font-settings: (
 $font-plugins: map-collect(
   /*
   */
-  $plugin-font-project
+  $plugin-project-fonts-all
 );
 
 $font-manual-values: (
@@ -502,7 +502,7 @@ $font-family-settings: (
 $font-family-plugins: map-collect(
   /*
   */
-  $plugin-font-families
+  $plugin-system-font-families
 );
 
 $font-family-manual-values: (
@@ -615,7 +615,7 @@ $height-plugins: map-collect(
   $plugin-spacing-px
   */
   $plugin-spacing-percentage,
-  $plugin-spacing-project-all
+  $plugin-project-spacing-all
 );
 
 $height-manual-values: (
@@ -723,8 +723,8 @@ $manual-position-plugins: map-collect(
   */
   $plugin-spacing-px,
   $plugin-spacing-px-negative,
-  $plugin-spacing-project-small,
-  $plugin-spacing-project-small-negative
+  $plugin-project-spacing-small,
+  $plugin-project-spacing-small-negative
 );
 
 $manual-position-manual-values: (
@@ -753,16 +753,16 @@ $margin-plugins: map-collect(
   $plugin-spacing-px,
   $plugin-spacing-px-negative,
   $plugin-spacing-percentage,
-  $plugin-spacing-system,
-  $plugin-spacing-system-negative,
+  $plugin-system-spacing-all,
+  $plugin-system-spacing-negative,
   $plugin-spacing-ch,
   $plugin-spacing-ch-negative,
   $plugin-spacing-em
   */
   $plugin-spacing-px,
   $plugin-spacing-px-negative,
-  $plugin-spacing-project-all,
-  $plugin-spacing-project-small-negative
+  $plugin-project-spacing-all,
+  $plugin-project-spacing-small-negative
 );
 
 $margin-manual-values: (
@@ -789,7 +789,7 @@ $max-height-settings: (
 $max-height-plugins: map-collect(
   /*
   $plugin-spacing-percentage,
-  $plugin-spacing-system,
+  $plugin-system-spacing-all,
   $plugin-spacing-px
   */
 );
@@ -846,8 +846,8 @@ $min-height-settings: (
 $min-height-plugins: map-collect(
   /*
   $plugin-spacing-percentage,
-  $plugin-spacing-system-small
-  $plugin-spacing-system-medium
+  $plugin-system-spacing-small
+  $plugin-system-spacing-medium
   */
 );
 
@@ -875,8 +875,8 @@ $min-width-plugins: map-collect(
   /*
   */
   $plugin-spacing-breakpoints-rem,
-  $plugin-spacing-system-large,
-  $plugin-spacing-system-xlarge
+  $plugin-system-spacing-large,
+  $plugin-system-spacing-xlarge
 );
 
 $min-width-manual-values: (
@@ -975,7 +975,7 @@ $outline-plugins: map-collect(
   /*
   */
   $plugin-spacing-px,
-  $plugin-spacing-system-small
+  $plugin-system-spacing-small
 );
 
 $outline-manual-values: (
@@ -1001,7 +1001,7 @@ $outline-color-settings: (
 $outline-color-plugins: map-collect(
   /*
   */
-  $plugin-palette-project-settings
+  $plugin-project-palette-settings
 );
 
 $outline-color-manual-values: (
@@ -1027,7 +1027,7 @@ $padding-plugins: map-collect(
   /*
   $plugin-spacing-px,
   */
-  $plugin-spacing-project-all
+  $plugin-project-spacing-all
 );
 
 $padding-manual-values: (
@@ -1096,7 +1096,7 @@ $square-settings: (
 $square-plugins: map-collect(
   /*
   */
-  $plugin-spacing-project-all
+  $plugin-project-spacing-all
 );
 
 $square-manual-values: (
@@ -1265,7 +1265,7 @@ $width-settings: (
 
 $width-plugins: map-collect(
   /*
-  $plugin-spacing-system,
+  $plugin-system-spacing-all,
   $plugin-spacing-px,
   $plugin-spacing-em,
   $plugin-spacing-ch

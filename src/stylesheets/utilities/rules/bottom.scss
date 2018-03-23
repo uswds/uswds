@@ -1,28 +1,30 @@
 /*
 ========================================
-flex-wrap
+.bottom
+----------------------------------------
+property: bottom
 ----------------------------------------
 usage:
-  .flex-wrap-[key]
+  .bottom-[key]
 ----------------------------------------
 output:
-  flex-wrap: [value];
+  bottom: [value];
 ----------------------------------------
 example:
-  .flex-wrap {
-    flex-wrap: wrap; }
+  .bottom-n2px {
+    bottom: -2px; }
 ----------------------------------------
 */
 
-$flex-wrap: (
-  flex-wrap: (
-    base: 'flex',
+$bottom: (
+  bottom: (
+    base: 'bottom',
     modifiers: null,
     values: map-collect(
-      $flex-wrap-plugins,
-      $flex-wrap-manual-values
+      $bottom-plugins,
+      $bottom-manual-values
     ),
-    settings: $flex-wrap-settings,
-    property: 'flex-wrap',
+    settings: $bottom-settings,
+    property: 'bottom',
   )
-);
+)

@@ -1,4 +1,4 @@
-$plugin-font-families: (
+$plugin-system-font-families: (
   cond:    #{$font-stack-cond},
   mono:    #{$font-stack-mono},
   sans:    #{$font-stack-sans},
@@ -11,7 +11,7 @@ $plugin-project-border-radius: (
   large:        16px, // TODO: reference project setting
 );
 
-$plugin-spacing-project-all: (
+$plugin-project-spacing-all: (
   pixel:        1px,
   eighth:       2px,
   quarter:      $spacing-05,
@@ -27,44 +27,44 @@ $plugin-spacing-project-all: (
   quad-plus:    $spacing-9,
 );
 
-$plugin-spacing-project-small: (
+$plugin-project-spacing-small: (
   pixel:        1px,
   eighth:       2px,
   quarter:      $spacing-05,
 );
 
-$plugin-spacing-project-medium: (
+$plugin-project-spacing-medium: (
   half:         $spacing-1,
   half-plus:    $spacing-105,
   base:         $spacing-2,
 );
 
-$plugin-spacing-project-large: (
+$plugin-project-spacing-large: (
   base-plus:    $spacing-3,
   double:       $spacing-4,
   double-plus:  $spacing-5,
   triple:       $spacing-6,
 );
 
-$plugin-spacing-project-xlarge: (
+$plugin-project-spacing-xlarge: (
   triple-plus:  $spacing-7,
   quad:         $spacing-8,
   quad-plus:    $spacing-9,
 );
 
-$plugin-spacing-project-small-negative: (
+$plugin-project-spacing-small-negative: (
   n-pixel:        -1px,
   n-eighth:       -2px,
   n-quarter:      -#{$spacing-05},
 );
 
-$plugin-spacing-project-medium-negative: (
+$plugin-project-spacing-medium-negative: (
   n-half:         -#{$spacing-1},
   n-half-plus:    -#{$spacing-105},
   n-base:         -#{$spacing-2},
 );
 
-$plugin-mono-micro: (
+$plugin-project-mono-micro: (
   mono-micro: (
     slug: 'mono-micro',
     isReadable: true,
@@ -73,7 +73,7 @@ $plugin-mono-micro: (
   ),
 );
 
-$plugin-mono-smallest: (
+$plugin-project-mono-smallest: (
   mono-smallest: (
     slug: 'mono-smallest',
     isReadable: true,
@@ -82,7 +82,7 @@ $plugin-mono-smallest: (
   ),
 );
 
-$plugin-mono-smaller: (
+$plugin-project-mono-smaller: (
   mono-smaller: (
     slug: 'mono-smaller',
     isReadable: true,
@@ -91,7 +91,7 @@ $plugin-mono-smaller: (
   ),
 );
 
-$plugin-mono-small: (
+$plugin-project-mono-small: (
   mono-small: (
     slug: 'mono-small',
     isReadable: true,
@@ -100,7 +100,7 @@ $plugin-mono-small: (
   ),
 );
 
-$plugin-mono-base: (
+$plugin-project-mono-base: (
   mono-base: (
     slug: 'mono-base',
     isReadable: true,
@@ -109,7 +109,7 @@ $plugin-mono-base: (
   ),
 );
 
-$plugin-mono-large: (
+$plugin-project-mono-large: (
   mono-large: (
     slug: 'mono-large',
     isReadable: true,
@@ -118,7 +118,7 @@ $plugin-mono-large: (
   ),
 );
 
-$plugin-mono-larger: (
+$plugin-project-mono-larger: (
   mono-larger: (
     slug: 'mono-larger',
     isReadable: true,
@@ -127,7 +127,7 @@ $plugin-mono-larger: (
   ),
 );
 
-$plugin-mono-largest: (
+$plugin-project-mono-largest: (
   mono-largest: (
     slug: 'mono-largest',
     isReadable: true,
@@ -136,7 +136,7 @@ $plugin-mono-largest: (
   ),
 );
 
-$plugin-mono-mega: (
+$plugin-project-mono-mega: (
   mono-largest: (
     slug: 'mono-mega',
     isReadable: true,
@@ -145,19 +145,19 @@ $plugin-mono-mega: (
   ),
 );
 
-$plugin-mono-project: map-collect(
-  $plugin-mono-micro,
-  $plugin-mono-smallest,
-  $plugin-mono-smaller,
-  $plugin-mono-small,
-  $plugin-mono-base,
-  $plugin-mono-large,
-  $plugin-mono-larger,
-  $plugin-mono-largest,
-  $plugin-mono-mega
+$plugin-project-mono-all: map-collect(
+  $plugin-project-mono-micro,
+  $plugin-project-mono-smallest,
+  $plugin-project-mono-smaller,
+  $plugin-project-mono-small,
+  $plugin-project-mono-base,
+  $plugin-project-mono-large,
+  $plugin-project-mono-larger,
+  $plugin-project-mono-largest,
+  $plugin-project-mono-mega
 );
 
-$plugin-sans-micro: (
+$plugin-project-sans-micro: (
   sans-micro: (
     slug: 'sans-micro',
     isReadable: true,
@@ -166,7 +166,7 @@ $plugin-sans-micro: (
   ),
 );
 
-$plugin-sans-smallest: (
+$plugin-project-sans-smallest: (
   sans-smallest: (
     slug: 'sans-smallest',
     isReadable: true,
@@ -175,7 +175,7 @@ $plugin-sans-smallest: (
   ),
 );
 
-$plugin-sans-smaller: (
+$plugin-project-sans-smaller: (
   sans-smaller: (
     slug: 'sans-smaller',
     isReadable: true,
@@ -184,7 +184,7 @@ $plugin-sans-smaller: (
   ),
 );
 
-$plugin-sans-small: (
+$plugin-project-sans-small: (
   sans-small: (
     slug: 'sans-small',
     isReadable: true,
@@ -193,7 +193,7 @@ $plugin-sans-small: (
   ),
 );
 
-$plugin-sans-base: (
+$plugin-project-sans-base: (
   sans-base: (
     slug: 'sans-base',
     isReadable: true,
@@ -202,7 +202,7 @@ $plugin-sans-base: (
   ),
 );
 
-$plugin-sans-large: (
+$plugin-project-sans-large: (
   sans-large: (
     slug: 'sans-large',
     isReadable: true,
@@ -211,7 +211,7 @@ $plugin-sans-large: (
   ),
 );
 
-$plugin-sans-larger: (
+$plugin-project-sans-larger: (
   sans-larger: (
     slug: 'sans-larger',
     isReadable: true,
@@ -220,7 +220,7 @@ $plugin-sans-larger: (
   ),
 );
 
-$plugin-sans-largest: (
+$plugin-project-sans-largest: (
   sans-largest: (
     slug: 'sans-largest',
     isReadable: true,
@@ -229,7 +229,7 @@ $plugin-sans-largest: (
   ),
 );
 
-$plugin-sans-mega: (
+$plugin-project-sans-mega: (
   sans-largest: (
     slug: 'sans-mega',
     isReadable: true,
@@ -238,19 +238,19 @@ $plugin-sans-mega: (
   ),
 );
 
-$plugin-sans-project: map-collect(
-  $plugin-sans-micro,
-  $plugin-sans-smallest,
-  $plugin-sans-smaller,
-  $plugin-sans-small,
-  $plugin-sans-base,
-  $plugin-sans-large,
-  $plugin-sans-larger,
-  $plugin-sans-largest,
-  $plugin-sans-mega
+$plugin-project-sans-all: map-collect(
+  $plugin-project-sans-micro,
+  $plugin-project-sans-smallest,
+  $plugin-project-sans-smaller,
+  $plugin-project-sans-small,
+  $plugin-project-sans-base,
+  $plugin-project-sans-large,
+  $plugin-project-sans-larger,
+  $plugin-project-sans-largest,
+  $plugin-project-sans-mega
 );
 
-$plugin-serif-micro: (
+$plugin-project-serif-micro: (
   serif-micro: (
     slug: 'serif-micro',
     isReadable: true,
@@ -259,7 +259,7 @@ $plugin-serif-micro: (
   ),
 );
 
-$plugin-serif-smallest: (
+$plugin-project-serif-smallest: (
   serif-smallest: (
     slug: 'serif-smallest',
     isReadable: true,
@@ -268,7 +268,7 @@ $plugin-serif-smallest: (
   ),
 );
 
-$plugin-serif-smaller: (
+$plugin-project-serif-smaller: (
   serif-smaller: (
     slug: 'serif-smaller',
     isReadable: true,
@@ -277,7 +277,7 @@ $plugin-serif-smaller: (
   ),
 );
 
-$plugin-serif-small: (
+$plugin-project-serif-small: (
   serif-small: (
     slug: 'serif-small',
     isReadable: true,
@@ -286,7 +286,7 @@ $plugin-serif-small: (
   ),
 );
 
-$plugin-serif-base: (
+$plugin-project-serif-base: (
   serif-base: (
     slug: 'serif-base',
     isReadable: true,
@@ -295,7 +295,7 @@ $plugin-serif-base: (
   ),
 );
 
-$plugin-serif-large: (
+$plugin-project-serif-large: (
   serif-large: (
     slug: 'serif-large',
     isReadable: true,
@@ -304,7 +304,7 @@ $plugin-serif-large: (
   ),
 );
 
-$plugin-serif-larger: (
+$plugin-project-serif-larger: (
   serif-larger: (
     slug: 'serif-larger',
     isReadable: true,
@@ -313,7 +313,7 @@ $plugin-serif-larger: (
   ),
 );
 
-$plugin-serif-largest: (
+$plugin-project-serif-largest: (
   serif-largest: (
     slug: 'serif-largest',
     isReadable: true,
@@ -322,7 +322,7 @@ $plugin-serif-largest: (
   ),
 );
 
-$plugin-serif-mega: (
+$plugin-project-serif-mega: (
   serif-largest: (
     slug: 'serif-mega',
     isReadable: true,
@@ -331,20 +331,20 @@ $plugin-serif-mega: (
   ),
 );
 
-$plugin-serif-project: map-collect(
-  $plugin-serif-micro,
-  $plugin-serif-smallest,
-  $plugin-serif-smaller,
-  $plugin-serif-small,
-  $plugin-serif-base,
-  $plugin-serif-large,
-  $plugin-serif-larger,
-  $plugin-serif-largest,
-  $plugin-serif-mega
+$plugin-project-serif-all: map-collect(
+  $plugin-project-serif-micro,
+  $plugin-project-serif-smallest,
+  $plugin-project-serif-smaller,
+  $plugin-project-serif-small,
+  $plugin-project-serif-base,
+  $plugin-project-serif-large,
+  $plugin-project-serif-larger,
+  $plugin-project-serif-largest,
+  $plugin-project-serif-mega
 );
 
-$plugin-font-project: map-collect(
-  $plugin-mono-project,
-  $plugin-sans-project,
-  $plugin-serif-project
+$plugin-project-fonts-all: map-collect(
+  $plugin-project-mono-all,
+  $plugin-project-sans-all,
+  $plugin-project-serif-all
 );

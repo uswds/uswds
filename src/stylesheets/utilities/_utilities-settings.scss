@@ -15,7 +15,7 @@ $output-breakpoints: (
   xl: false
 ) !default;
 
-$output-all-utilities:  false !default;
+$output-all-utilities:  true !default;
 
 $output-utilities: (
   align-items:      false,
@@ -25,6 +25,7 @@ $output-utilities: (
   border-radius:    true,
   border-style:     false,
   border-width:     false,
+  bottom:           false,
   box-shadow:       true,
   circle:           true,
   clearfix:         true,
@@ -41,6 +42,7 @@ $output-utilities: (
   font-style:       true,
   font-weight:      true,
   height:           false,
+  left:              false,
   letter-spacing:   true,
   line-height:      true,
   list-reset:       true,
@@ -56,12 +58,14 @@ $output-utilities: (
   outline-color:    false,
   padding:          true,
   position:         false,
+  right:            false,
   row:              false,
   square:           false,
   text-align:       true,
   text-decoration:  true,
   text-decoration-color:  false,
   text-transform:   true,
+  top:              false,
   vertical-align:   false,
   whitespace:       false,
   width:            false,
@@ -123,7 +127,7 @@ $background-color-plugins: map-collect(
   $plugin-[color]-vivid
   $plugin-palette-status
   */
-  $plugin-palette-project-settings,
+  $plugin-project-palette-settings,
   $plugin-palette-grayscale
 ) !default;
 
@@ -149,11 +153,11 @@ $border-settings: (
 $border-plugins: map-collect(
   /*
   $plugin-spacing-px
-  $plugin-spacing-system-small
-  $plugin-spacing-system-medium
+  $plugin-system-spacing-small
+  $plugin-system-spacing-medium
   */
-  $plugin-spacing-project-small,
-  $plugin-spacing-project-medium
+  $plugin-project-spacing-small,
+  $plugin-project-spacing-medium
 ) !default;
 
 $border-manual-values: (
@@ -189,7 +193,7 @@ $border-color-plugins: map-collect(
   $plugin-[color]-vivid
   $plugin-palette-status
   */
-  $plugin-palette-project-settings,
+  $plugin-project-palette-settings,
   $plugin-palette-grayscale
 ) !default;
 
@@ -214,8 +218,8 @@ $border-radius-settings: (
 
 $border-radius-plugins: map-collect(
   /*
-  $plugin-spacing-system-small
-  $plugin-spacing-system-medium
+  $plugin-system-spacing-small
+  $plugin-system-spacing-medium
   */
   $plugin-project-border-radius
 ) !default;
@@ -270,17 +274,58 @@ $border-width-settings: (
 
 $border-width-plugins: map-collect(
   /*
-  $plugin-spacing-system-small
-  $plugin-spacing-system-medium
+  $plugin-system-spacing-small
+  $plugin-system-spacing-medium
   */
-  $plugin-spacing-project-small,
-  $plugin-spacing-project-medium
+  $plugin-project-spacing-small,
+  $plugin-project-spacing-medium
 ) !default;
 
 $border-width-manual-values: (
   /*
   */
   0:       0,
+) !default;
+
+/*
+========================================
+.bottom
+----------------------------------------
+*/
+
+$bottom-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$bottom-plugins: map-collect(
+  /*
+  $plugin-system-spacing-small
+  $plugin-system-spacing-medium
+  $plugin-system-spacing-large
+  $plugin-system-spacing-xlarge
+  $plugin-system-spacing-all
+  $plugin-system-spacing-small-negative
+  $plugin-system-spacing-medium-negative
+  $plugin-system-spacing-negative
+  $plugin-spacing-percentage
+  $plugin-spacing-px
+  $plugin-spacing-px-negative
+  */
+  $plugin-project-spacing-small,
+  $plugin-project-spacing-medium,
+  $plugin-project-spacing-small-negative,
+  $plugin-project-spacing-medium-negative
+) !default;
+
+$bottom-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
 ) !default;
 
 /*
@@ -305,12 +350,11 @@ $box-shadow-plugins: map-collect(
 $box-shadow-manual-values: (
   /*
   */
-  none:   'none',
-  1: '0 1px 2px 0 rgba(0,0,0,0.10)',
-  2: '0 4px 8px 0 rgba(0,0,0,0.10)',
-  3: '0 6px 12px 0 rgba(0,0,0,0.10)',
-  4: '0 8px 16px 0 rgba(0,0,0,0.10)',
-  5: '0 12px 24px 0 rgba(0,0,0,0.10)'
+  none:     'none',
+  low:      '0 1px 2px 0 rgba(0,0,0,0.10)',
+  high:     '0 4px 8px 0 rgba(0,0,0,0.10)',
+  higher:   '0 6px 12px 0 rgba(0,0,0,0.10)',
+  highest:  '0 8px 16px 0 rgba(0,0,0,0.10)',
 ) !default;
 
 /*
@@ -329,8 +373,16 @@ $circle-settings: (
 
 $circle-plugins: map-collect(
   /*
+  $plugin-project-spacing-small
+  $plugin-project-spacing-medium
+  $plugin-project-spacing-large
+  $plugin-system-spacing-all
+  $plugin-system-spacing-small
+  $plugin-system-spacing-medium
+  $plugin-system-spacing-large
+  $plugin-system-spacing-xlarge
   */
-  $plugin-spacing-project-all
+  $plugin-project-spacing-all
 ) !default;
 
 $circle-manual-values: (
@@ -362,34 +414,30 @@ $color-settings: (
   responsive:   false,
   active:       false,
   focus:        false,
-  hover:        true,
+  hover:        false,
   visited:      false
 ) !default;
 
 $color-plugins: map-collect(
   /*
+  $plugin-[color]
+  $plugin-[color]-light
+  $plugin-[color]-medium
+  $plugin-[color]-dark
+  $plugin-[color]-light-vivid
+  $plugin-[color]-medium-vivid
+  $plugin-[color]-dark-vivid
+  $plugin-[color]-standard
+  $plugin-[color]-vivid
+  $plugin-palette-status
   */
-  $plugin-palette-project-settings,
-  $plugin-palette-required
+  $plugin-project-palette-settings,
+  $plugin-palette-grayscale
 ) !default;
 
 $color-manual-values: (
   /*
   */
-) !default;
-
-/*
-========================================
-.column
-----------------------------------------
-*/
-
-$column-settings: (
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false
 ) !default;
 
 /*
@@ -545,7 +593,7 @@ $font-settings: (
 $font-plugins: map-collect(
   /*
   */
-  $plugin-font-project
+  $plugin-project-fonts-all
 ) !default;
 
 $font-manual-values: (
@@ -570,7 +618,7 @@ $font-family-settings: (
 $font-family-plugins: map-collect(
   /*
   */
-  $plugin-font-families
+  $plugin-system-font-families
 ) !default;
 
 $font-family-manual-values: (
@@ -683,12 +731,53 @@ $height-plugins: map-collect(
   $plugin-spacing-px
   */
   $plugin-spacing-percentage,
-  $plugin-spacing-project-all
+  $plugin-project-spacing-all
 ) !default;
 
 $height-manual-values: (
   /*
   */
+) !default;
+
+/*
+========================================
+.left
+----------------------------------------
+*/
+
+$left-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$left-plugins: map-collect(
+  /*
+  $plugin-system-spacing-small
+  $plugin-system-spacing-medium
+  $plugin-system-spacing-large
+  $plugin-system-spacing-xlarge
+  $plugin-system-spacing-all
+  $plugin-system-spacing-small-negative
+  $plugin-system-spacing-medium-negative
+  $plugin-system-spacing-negative
+  $plugin-spacing-percentage
+  $plugin-spacing-px
+  $plugin-spacing-px-negative
+  */
+  $plugin-project-spacing-small,
+  $plugin-project-spacing-medium,
+  $plugin-project-spacing-small-negative,
+  $plugin-project-spacing-medium-negative
+) !default;
+
+$left-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
 ) !default;
 
 /*
@@ -768,42 +857,6 @@ $list-reset-settings: (
 
 /*
 ========================================
-.MANUAL POSITION
-----------------------------------------
-properties:
-  top
-  bottom
-  left
-  right
-----------------------------------------
-*/
-
-$manual-position-settings: (
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false
-) !default;
-
-$manual-position-plugins: map-collect(
-  /*
-  */
-  $plugin-spacing-px,
-  $plugin-spacing-px-negative,
-  $plugin-spacing-project-small,
-  $plugin-spacing-project-small-negative
-) !default;
-
-$manual-position-manual-values: (
-  /*
-  */
-  0:            '0',
-  auto:         'auto'
-) !default;
-
-/*
-========================================
 .margin
 ----------------------------------------
 */
@@ -821,16 +874,16 @@ $margin-plugins: map-collect(
   $plugin-spacing-px,
   $plugin-spacing-px-negative,
   $plugin-spacing-percentage,
-  $plugin-spacing-system,
-  $plugin-spacing-system-negative,
+  $plugin-system-spacing-all,
+  $plugin-system-spacing-negative,
   $plugin-spacing-ch,
   $plugin-spacing-ch-negative,
   $plugin-spacing-em
   */
   $plugin-spacing-px,
   $plugin-spacing-px-negative,
-  $plugin-spacing-project-all,
-  $plugin-spacing-project-small-negative
+  $plugin-project-spacing-all,
+  $plugin-project-spacing-small-negative
 ) !default;
 
 $margin-manual-values: (
@@ -857,7 +910,7 @@ $max-height-settings: (
 $max-height-plugins: map-collect(
   /*
   $plugin-spacing-percentage,
-  $plugin-spacing-system,
+  $plugin-system-spacing-all,
   $plugin-spacing-px
   */
 ) !default;
@@ -915,8 +968,8 @@ $min-height-settings: (
 $min-height-plugins: map-collect(
   /*
   $plugin-spacing-percentage,
-  $plugin-spacing-system-small
-  $plugin-spacing-system-medium
+  $plugin-system-spacing-small
+  $plugin-system-spacing-medium
   */
 ) !default;
 
@@ -944,8 +997,8 @@ $min-width-plugins: map-collect(
   /*
   */
   $plugin-spacing-breakpoints-rem,
-  $plugin-spacing-system-large,
-  $plugin-spacing-system-xlarge
+  $plugin-system-spacing-large,
+  $plugin-system-spacing-xlarge
 ) !default;
 
 $min-width-manual-values: (
@@ -1044,7 +1097,7 @@ $outline-plugins: map-collect(
   /*
   */
   $plugin-spacing-px,
-  $plugin-spacing-system-small
+  $plugin-system-spacing-small
 ) !default;
 
 $outline-manual-values: (
@@ -1070,7 +1123,7 @@ $outline-color-settings: (
 $outline-color-plugins: map-collect(
   /*
   */
-  $plugin-palette-project-settings
+  $plugin-project-palette-settings
 ) !default;
 
 $outline-color-manual-values: (
@@ -1096,7 +1149,7 @@ $padding-plugins: map-collect(
   /*
   $plugin-spacing-px,
   */
-  $plugin-spacing-project-all
+  $plugin-project-spacing-all
 ) !default;
 
 $padding-manual-values: (
@@ -1136,16 +1189,43 @@ $position-manual-values: (
 
 /*
 ========================================
-.row
+.right
 ----------------------------------------
 */
 
-$row-settings: (
+$right-settings: (
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
   visited:      false
+) !default;
+
+$right-plugins: map-collect(
+  /*
+  $plugin-system-spacing-small
+  $plugin-system-spacing-medium
+  $plugin-system-spacing-large
+  $plugin-system-spacing-xlarge
+  $plugin-system-spacing-all
+  $plugin-system-spacing-small-negative
+  $plugin-system-spacing-medium-negative
+  $plugin-system-spacing-negative
+  $plugin-spacing-percentage
+  $plugin-spacing-px
+  $plugin-spacing-px-negative
+  */
+  $plugin-project-spacing-small,
+  $plugin-project-spacing-medium,
+  $plugin-project-spacing-small-negative,
+  $plugin-project-spacing-medium-negative
+) !default;
+
+$right-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
 ) !default;
 
 /*
@@ -1165,7 +1245,7 @@ $square-settings: (
 $square-plugins: map-collect(
   /*
   */
-  $plugin-spacing-project-all
+  $plugin-project-spacing-all
 ) !default;
 
 $square-manual-values: (
@@ -1247,7 +1327,7 @@ $text-decoration-color-plugins: map-collect(
   /*
   $plugin-palette-grayscale
   */
-  $plugin-palette-project-settings,
+  $plugin-project-palette-settings,
   $plugin-palette-required
 ) !default;
 
@@ -1281,6 +1361,47 @@ $text-transform-manual-values: (
   lowercase:      'lowercase',
   uppercase:      'uppercase',
   none:           'none'
+) !default;
+
+/*
+========================================
+.top
+----------------------------------------
+*/
+
+$top-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$top-plugins: map-collect(
+  /*
+  $plugin-system-spacing-small
+  $plugin-system-spacing-medium
+  $plugin-system-spacing-large
+  $plugin-system-spacing-xlarge
+  $plugin-system-spacing-all
+  $plugin-system-spacing-small-negative
+  $plugin-system-spacing-medium-negative
+  $plugin-system-spacing-negative
+  $plugin-spacing-percentage
+  $plugin-spacing-px
+  $plugin-spacing-px-negative
+  */
+  $plugin-project-spacing-small,
+  $plugin-project-spacing-medium,
+  $plugin-project-spacing-small-negative,
+  $plugin-project-spacing-medium-negative
+) !default;
+
+$top-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
 ) !default;
 
 /*
@@ -1360,7 +1481,7 @@ $width-settings: (
 
 $width-plugins: map-collect(
   /*
-  $plugin-spacing-system,
+  $plugin-system-spacing-all,
   $plugin-spacing-px,
   $plugin-spacing-em,
   $plugin-spacing-ch

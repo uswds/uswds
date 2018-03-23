@@ -41,21 +41,21 @@ $plugin-spacing-em: (
   '10em':   '10em',
 );
 
-$plugin-spacing-system-small: (
+$plugin-system-spacing-small: (
   's05':    $spacing-05,
   's1':     $spacing-1,
   's105':   $spacing-105,
   's2':     $spacing-2,
 );
 
-$plugin-spacing-system-medium: (
+$plugin-system-spacing-medium: (
   's205':   $spacing-205,
   's3':     $spacing-3,
   's4':     $spacing-4,
   's5':     $spacing-5,
 );
 
-$plugin-spacing-system-large: (
+$plugin-system-spacing-large: (
   's6':     $spacing-6,
   's7':     $spacing-7,
   's8':     $spacing-8,
@@ -63,7 +63,7 @@ $plugin-spacing-system-large: (
   's10':    $spacing-10,
 );
 
-$plugin-spacing-system-xlarge: (
+$plugin-system-spacing-xlarge: (
   's15':    $spacing-15,
   's20':    $spacing-20,
   's25':    $spacing-25,
@@ -72,21 +72,21 @@ $plugin-spacing-system-xlarge: (
   's50':    $spacing-50,
 );
 
-$plugin-spacing-system-small-negative: (
+$plugin-system-spacing-small-negative: (
   'n-s05':   -#{$spacing-05},
   'n-s1':    -#{$spacing-1},
   'n-s105':  -#{$spacing-105},
   'n-s2':    -#{$spacing-2},
 );
 
-$plugin-spacing-system-medium-negative: (
+$plugin-system-spacing-medium-negative: (
   'n-s205':  -#{$spacing-205},
   'n-s3':    -#{$spacing-3},
   'n-s4':    -#{$spacing-4},
   'n-s5':    -#{$spacing-5},
 );
 
-$plugin-spacing-system-large-negative: (
+$plugin-system-spacing-large-negative: (
   'n-s6':    -#{$spacing-6},
   'n-s7':    -#{$spacing-7},
   'n-s8':    -#{$spacing-8},
@@ -94,17 +94,17 @@ $plugin-spacing-system-large-negative: (
   'n-s10':   -#{$spacing-10},
 );
 
-$plugin-spacing-system: map-collect(
-  $plugin-spacing-system-small,
-  $plugin-spacing-system-medium,
-  $plugin-spacing-system-large,
-  $plugin-spacing-system-xlarge
+$plugin-system-spacing-all: map-collect(
+  $plugin-system-spacing-small,
+  $plugin-system-spacing-medium,
+  $plugin-system-spacing-large,
+  $plugin-system-spacing-xlarge
 );
 
-$plugin-spacing-system-negative: map-collect(
-  $plugin-spacing-system-small-negative,
-  $plugin-spacing-system-medium-negative,
-  $plugin-spacing-system-large-negative
+$plugin-system-spacing-negative: map-collect(
+  $plugin-system-spacing-small-negative,
+  $plugin-system-spacing-medium-negative,
+  $plugin-system-spacing-large-negative
 );
 
 $plugin-spacing-percentage:(

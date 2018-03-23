@@ -68,11 +68,6 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
     .pipe(
       sass({
         outputStyle: 'expanded',
-        includePaths: [
-          'path/to/project/overrides',
-          'src/stylesheets/project',
-          'src/stylesheets',
-        ],
       })
         .on('error', sass.logError)
     )

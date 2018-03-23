@@ -10,7 +10,7 @@ $plugin-font-weight: (
   900: 900,
 );
 
-$plugin-mono-1: (
+$plugin-system-mono-1: (
   mono-1: (
     slug: 'mono-1',
     isReadable: true,
@@ -18,7 +18,7 @@ $plugin-mono-1: (
   ),
 );
 
-$plugin-mono-2: (
+$plugin-system-mono-2: (
   mono-2: (
     slug: 'mono-2',
     isReadable: true,
@@ -26,7 +26,7 @@ $plugin-mono-2: (
   ),
 );
 
-$plugin-mono-3: (
+$plugin-system-mono-3: (
   mono-3: (
     slug: 'mono-3',
     isReadable: true,
@@ -34,7 +34,7 @@ $plugin-mono-3: (
   ),
 );
 
-$plugin-mono-4: (
+$plugin-system-mono-4: (
   mono-4: (
     slug: 'mono-4',
     isReadable: true,
@@ -42,7 +42,7 @@ $plugin-mono-4: (
   ),
 );
 
-$plugin-mono-5: (
+$plugin-system-mono-5: (
   mono-5: (
     slug: 'mono-5',
     isReadable: true,
@@ -50,7 +50,7 @@ $plugin-mono-5: (
   ),
 );
 
-$plugin-mono-6: (
+$plugin-system-mono-6: (
   mono-6: (
     slug: 'mono-6',
     isReadable: true,
@@ -58,7 +58,7 @@ $plugin-mono-6: (
   ),
 );
 
-$plugin-mono-7: (
+$plugin-system-mono-7: (
   mono-7: (
     slug: 'mono-7',
     isReadable: true,
@@ -66,7 +66,7 @@ $plugin-mono-7: (
   ),
 );
 
-$plugin-mono-8: (
+$plugin-system-mono-8: (
   mono-8: (
     slug: 'mono-8',
     isReadable: true,
@@ -74,7 +74,7 @@ $plugin-mono-8: (
   ),
 );
 
-$plugin-mono-9: (
+$plugin-system-mono-9: (
   mono-9: (
     slug: 'mono-9',
     isReadable: true,
@@ -82,7 +82,7 @@ $plugin-mono-9: (
   ),
 );
 
-$plugin-mono-10: (
+$plugin-system-mono-10: (
   mono-10: (
     slug: 'mono-10',
     isReadable: true,
@@ -90,7 +90,7 @@ $plugin-mono-10: (
   ),
 );
 
-$plugin-mono-11: (
+$plugin-system-mono-11: (
   mono-11: (
     slug: 'mono-11',
     isReadable: true,
@@ -98,7 +98,7 @@ $plugin-mono-11: (
   ),
 );
 
-$plugin-mono-12: (
+$plugin-system-mono-12: (
   mono-12: (
     slug: 'mono-12',
     isReadable: true,
@@ -106,7 +106,7 @@ $plugin-mono-12: (
   ),
 );
 
-$plugin-mono-13: (
+$plugin-system-mono-13: (
   mono-13: (
     slug: 'mono-13',
     isReadable: true,
@@ -114,7 +114,7 @@ $plugin-mono-13: (
   ),
 );
 
-$plugin-mono-14: (
+$plugin-system-mono-14: (
   mono-14: (
     slug: 'mono-14',
     isReadable: true,
@@ -122,7 +122,7 @@ $plugin-mono-14: (
   ),
 );
 
-$plugin-mono-15: (
+$plugin-system-mono-15: (
   mono-15: (
     slug: 'mono-15',
     isReadable: true,
@@ -130,7 +130,7 @@ $plugin-mono-15: (
   ),
 );
 
-$plugin-mono-16: (
+$plugin-system-mono-16: (
   mono-16: (
     slug: 'mono-16',
     isReadable: true,
@@ -138,7 +138,7 @@ $plugin-mono-16: (
   ),
 );
 
-$plugin-mono-17: (
+$plugin-system-mono-17: (
   mono-17: (
     slug: 'mono-17',
     isReadable: true,
@@ -146,7 +146,7 @@ $plugin-mono-17: (
   ),
 );
 
-$plugin-mono-18: (
+$plugin-system-mono-18: (
   mono-18: (
     slug: 'mono-18',
     isReadable: true,
@@ -154,7 +154,7 @@ $plugin-mono-18: (
   ),
 );
 
-$plugin-mono-19: (
+$plugin-system-mono-19: (
   mono-19: (
     slug: 'mono-19',
     isReadable: true,
@@ -162,7 +162,7 @@ $plugin-mono-19: (
   ),
 );
 
-$plugin-mono-20: (
+$plugin-system-mono-20: (
   mono-20: (
     slug: 'mono-20',
     isReadable: true,
@@ -170,46 +170,46 @@ $plugin-mono-20: (
   ),
 );
 
-$plugin-mono-small: map-collect(
-  $plugin-mono-1,
-  $plugin-mono-2,
-  $plugin-mono-3
+$plugin-system-mono-small: map-collect(
+  $plugin-system-mono-1,
+  $plugin-system-mono-2,
+  $plugin-system-mono-3
 );
 
-$plugin-mono-medium: map-collect(
-  $plugin-mono-4,
-  $plugin-mono-5,
-  $plugin-mono-6,
-  $plugin-mono-7,
-  $plugin-mono-8
+$plugin-system-mono-medium: map-collect(
+  $plugin-system-mono-4,
+  $plugin-system-mono-5,
+  $plugin-system-mono-6,
+  $plugin-system-mono-7,
+  $plugin-system-mono-8
 );
 
-$plugin-mono-large: map-collect(
-  $plugin-mono-9,
-  $plugin-mono-10,
-  $plugin-mono-11,
-  $plugin-mono-12,
-  $plugin-mono-13,
-  $plugin-mono-14
+$plugin-system-mono-large: map-collect(
+  $plugin-system-mono-9,
+  $plugin-system-mono-10,
+  $plugin-system-mono-11,
+  $plugin-system-mono-12,
+  $plugin-system-mono-13,
+  $plugin-system-mono-14
 );
 
-$plugin-mono-larger: map-collect(
-  $plugin-mono-15,
-  $plugin-mono-16,
-  $plugin-mono-17,
-  $plugin-mono-18,
-  $plugin-mono-19,
-  $plugin-mono-20
+$plugin-system-mono-xlarge: map-collect(
+  $plugin-system-mono-15,
+  $plugin-system-mono-16,
+  $plugin-system-mono-17,
+  $plugin-system-mono-18,
+  $plugin-system-mono-19,
+  $plugin-system-mono-20
 );
 
-$plugin-mono: map-collect(
-  $plugin-mono-small,
-  $plugin-mono-medium,
-  $plugin-mono-large,
-  $plugin-mono-larger
+$plugin-system-mono-all: map-collect(
+  $plugin-system-mono-small,
+  $plugin-system-mono-medium,
+  $plugin-system-mono-large,
+  $plugin-system-mono-xlarge
 );
 
-$plugin-sans-1: (
+$plugin-system-sans-1: (
   sans-1: (
     slug: 'sans-1',
     isReadable: true,
@@ -217,7 +217,7 @@ $plugin-sans-1: (
   ),
 );
 
-$plugin-sans-2: (
+$plugin-system-sans-2: (
   sans-2: (
     slug: 'sans-2',
     isReadable: true,
@@ -225,7 +225,7 @@ $plugin-sans-2: (
   ),
 );
 
-$plugin-sans-3: (
+$plugin-system-sans-3: (
   sans-3: (
     slug: 'sans-3',
     isReadable: true,
@@ -233,7 +233,7 @@ $plugin-sans-3: (
   ),
 );
 
-$plugin-sans-4: (
+$plugin-system-sans-4: (
   sans-4: (
     slug: 'sans-4',
     isReadable: true,
@@ -241,7 +241,7 @@ $plugin-sans-4: (
   ),
 );
 
-$plugin-sans-5: (
+$plugin-system-sans-5: (
   sans-5: (
     slug: 'sans-5',
     isReadable: true,
@@ -249,7 +249,7 @@ $plugin-sans-5: (
   ),
 );
 
-$plugin-sans-6: (
+$plugin-system-sans-6: (
   sans-6: (
     slug: 'sans-6',
     isReadable: true,
@@ -257,7 +257,7 @@ $plugin-sans-6: (
   ),
 );
 
-$plugin-sans-7: (
+$plugin-system-sans-7: (
   sans-7: (
     slug: 'sans-7',
     isReadable: true,
@@ -265,7 +265,7 @@ $plugin-sans-7: (
   ),
 );
 
-$plugin-sans-8: (
+$plugin-system-sans-8: (
   sans-8: (
     slug: 'sans-8',
     isReadable: true,
@@ -273,7 +273,7 @@ $plugin-sans-8: (
   ),
 );
 
-$plugin-sans-9: (
+$plugin-system-sans-9: (
   sans-9: (
     slug: 'sans-9',
     isReadable: true,
@@ -281,7 +281,7 @@ $plugin-sans-9: (
   ),
 );
 
-$plugin-sans-10: (
+$plugin-system-sans-10: (
   sans-10: (
     slug: 'sans-10',
     isReadable: true,
@@ -289,7 +289,7 @@ $plugin-sans-10: (
   ),
 );
 
-$plugin-sans-11: (
+$plugin-system-sans-11: (
   sans-11: (
     slug: 'sans-11',
     isReadable: true,
@@ -297,7 +297,7 @@ $plugin-sans-11: (
   ),
 );
 
-$plugin-sans-12: (
+$plugin-system-sans-12: (
   sans-12: (
     slug: 'sans-12',
     isReadable: true,
@@ -305,7 +305,7 @@ $plugin-sans-12: (
   ),
 );
 
-$plugin-sans-13: (
+$plugin-system-sans-13: (
   sans-13: (
     slug: 'sans-13',
     isReadable: true,
@@ -313,7 +313,7 @@ $plugin-sans-13: (
   ),
 );
 
-$plugin-sans-14: (
+$plugin-system-sans-14: (
   sans-14: (
     slug: 'sans-14',
     isReadable: true,
@@ -321,7 +321,7 @@ $plugin-sans-14: (
   ),
 );
 
-$plugin-sans-15: (
+$plugin-system-sans-15: (
   sans-15: (
     slug: 'sans-15',
     isReadable: true,
@@ -329,7 +329,7 @@ $plugin-sans-15: (
   ),
 );
 
-$plugin-sans-16: (
+$plugin-system-sans-16: (
   sans-16: (
     slug: 'sans-16',
     isReadable: true,
@@ -337,7 +337,7 @@ $plugin-sans-16: (
   ),
 );
 
-$plugin-sans-17: (
+$plugin-system-sans-17: (
   sans-17: (
     slug: 'sans-17',
     isReadable: true,
@@ -345,7 +345,7 @@ $plugin-sans-17: (
   ),
 );
 
-$plugin-sans-18: (
+$plugin-system-sans-18: (
   sans-18: (
     slug: 'sans-18',
     isReadable: true,
@@ -353,7 +353,7 @@ $plugin-sans-18: (
   ),
 );
 
-$plugin-sans-19: (
+$plugin-system-sans-19: (
   sans-19: (
     slug: 'sans-19',
     isReadable: true,
@@ -361,7 +361,7 @@ $plugin-sans-19: (
   ),
 );
 
-$plugin-sans-20: (
+$plugin-system-sans-20: (
   sans-20: (
     slug: 'sans-20',
     isReadable: true,
@@ -369,46 +369,46 @@ $plugin-sans-20: (
   ),
 );
 
-$plugin-sans-small: map-collect(
-  $plugin-sans-1,
-  $plugin-sans-2,
-  $plugin-sans-3
+$plugin-system-sans-small: map-collect(
+  $plugin-system-sans-1,
+  $plugin-system-sans-2,
+  $plugin-system-sans-3
 );
 
-$plugin-sans-medium: map-collect(
-  $plugin-sans-4,
-  $plugin-sans-5,
-  $plugin-sans-6,
-  $plugin-sans-7,
-  $plugin-sans-8
+$plugin-system-sans-medium: map-collect(
+  $plugin-system-sans-4,
+  $plugin-system-sans-5,
+  $plugin-system-sans-6,
+  $plugin-system-sans-7,
+  $plugin-system-sans-8
 );
 
-$plugin-sans-large: map-collect(
-  $plugin-sans-9,
-  $plugin-sans-10,
-  $plugin-sans-11,
-  $plugin-sans-12,
-  $plugin-sans-13,
-  $plugin-sans-14
+$plugin-system-sans-large: map-collect(
+  $plugin-system-sans-9,
+  $plugin-system-sans-10,
+  $plugin-system-sans-11,
+  $plugin-system-sans-12,
+  $plugin-system-sans-13,
+  $plugin-system-sans-14
 );
 
-$plugin-sans-larger: map-collect(
-  $plugin-sans-15,
-  $plugin-sans-16,
-  $plugin-sans-17,
-  $plugin-sans-18,
-  $plugin-sans-19,
-  $plugin-sans-20
+$plugin-system-sans-xlarge: map-collect(
+  $plugin-system-sans-15,
+  $plugin-system-sans-16,
+  $plugin-system-sans-17,
+  $plugin-system-sans-18,
+  $plugin-system-sans-19,
+  $plugin-system-sans-20
 );
 
-$plugin-sans: map-collect(
-  $plugin-sans-small,
-  $plugin-sans-medium,
-  $plugin-sans-large,
-  $plugin-sans-larger
+$plugin-system-sans-all: map-collect(
+  $plugin-system-sans-small,
+  $plugin-system-sans-medium,
+  $plugin-system-sans-large,
+  $plugin-system-sans-xlarge
 );
 
-$plugin-serif-1: (
+$plugin-system-serif-1: (
   serif-1: (
     slug: 'serif-1',
     isReadable: true,
@@ -416,7 +416,7 @@ $plugin-serif-1: (
   ),
 );
 
-$plugin-serif-2: (
+$plugin-system-serif-2: (
   serif-2: (
     slug: 'serif-2',
     isReadable: true,
@@ -424,7 +424,7 @@ $plugin-serif-2: (
   ),
 );
 
-$plugin-serif-3: (
+$plugin-system-serif-3: (
   serif-3: (
     slug: 'serif-3',
     isReadable: true,
@@ -432,7 +432,7 @@ $plugin-serif-3: (
   ),
 );
 
-$plugin-serif-4: (
+$plugin-system-serif-4: (
   serif-4: (
     slug: 'serif-4',
     isReadable: true,
@@ -440,7 +440,7 @@ $plugin-serif-4: (
   ),
 );
 
-$plugin-serif-5: (
+$plugin-system-serif-5: (
   serif-5: (
     slug: 'serif-5',
     isReadable: true,
@@ -448,7 +448,7 @@ $plugin-serif-5: (
   ),
 );
 
-$plugin-serif-6: (
+$plugin-system-serif-6: (
   serif-6: (
     slug: 'serif-6',
     isReadable: true,
@@ -456,7 +456,7 @@ $plugin-serif-6: (
   ),
 );
 
-$plugin-serif-7: (
+$plugin-system-serif-7: (
   serif-7: (
     slug: 'serif-7',
     isReadable: true,
@@ -464,7 +464,7 @@ $plugin-serif-7: (
   ),
 );
 
-$plugin-serif-8: (
+$plugin-system-serif-8: (
   serif-8: (
     slug: 'serif-8',
     isReadable: true,
@@ -472,7 +472,7 @@ $plugin-serif-8: (
   ),
 );
 
-$plugin-serif-9: (
+$plugin-system-serif-9: (
   serif-9: (
     slug: 'serif-9',
     isReadable: true,
@@ -480,7 +480,7 @@ $plugin-serif-9: (
   ),
 );
 
-$plugin-serif-10: (
+$plugin-system-serif-10: (
   serif-10: (
     slug: 'serif-10',
     isReadable: true,
@@ -488,7 +488,7 @@ $plugin-serif-10: (
   ),
 );
 
-$plugin-serif-11: (
+$plugin-system-serif-11: (
   serif-11: (
     slug: 'serif-11',
     isReadable: true,
@@ -496,7 +496,7 @@ $plugin-serif-11: (
   ),
 );
 
-$plugin-serif-12: (
+$plugin-system-serif-12: (
   serif-12: (
     slug: 'serif-12',
     isReadable: true,
@@ -504,7 +504,7 @@ $plugin-serif-12: (
   ),
 );
 
-$plugin-serif-13: (
+$plugin-system-serif-13: (
   serif-13: (
     slug: 'serif-13',
     isReadable: true,
@@ -512,7 +512,7 @@ $plugin-serif-13: (
   ),
 );
 
-$plugin-serif-14: (
+$plugin-system-serif-14: (
   serif-14: (
     slug: 'serif-14',
     isReadable: true,
@@ -520,7 +520,7 @@ $plugin-serif-14: (
   ),
 );
 
-$plugin-serif-15: (
+$plugin-system-serif-15: (
   serif-15: (
     slug: 'serif-15',
     isReadable: true,
@@ -528,7 +528,7 @@ $plugin-serif-15: (
   ),
 );
 
-$plugin-serif-16: (
+$plugin-system-serif-16: (
   serif-16: (
     slug: 'serif-16',
     isReadable: true,
@@ -536,7 +536,7 @@ $plugin-serif-16: (
   ),
 );
 
-$plugin-serif-17: (
+$plugin-system-serif-17: (
   serif-17: (
     slug: 'serif-17',
     isReadable: true,
@@ -544,7 +544,7 @@ $plugin-serif-17: (
   ),
 );
 
-$plugin-serif-18: (
+$plugin-system-serif-18: (
   serif-18: (
     slug: 'serif-18',
     isReadable: true,
@@ -552,7 +552,7 @@ $plugin-serif-18: (
   ),
 );
 
-$plugin-serif-19: (
+$plugin-system-serif-19: (
   serif-19: (
     slug: 'serif-19',
     isReadable: true,
@@ -560,7 +560,7 @@ $plugin-serif-19: (
   ),
 );
 
-$plugin-serif-20: (
+$plugin-system-serif-20: (
   serif-20: (
     slug: 'serif-20',
     isReadable: true,
@@ -568,41 +568,47 @@ $plugin-serif-20: (
   ),
 );
 
-$plugin-serif-small: map-collect(
-  $plugin-serif-1,
-  $plugin-serif-2,
-  $plugin-serif-3
+$plugin-system-serif-small: map-collect(
+  $plugin-system-serif-1,
+  $plugin-system-serif-2,
+  $plugin-system-serif-3
 );
 
-$plugin-serif-medium: map-collect(
-  $plugin-serif-4,
-  $plugin-serif-5,
-  $plugin-serif-6,
-  $plugin-serif-7,
-  $plugin-serif-8
+$plugin-system-serif-medium: map-collect(
+  $plugin-system-serif-4,
+  $plugin-system-serif-5,
+  $plugin-system-serif-6,
+  $plugin-system-serif-7,
+  $plugin-system-serif-8
 );
 
-$plugin-serif-large: map-collect(
-  $plugin-serif-9,
-  $plugin-serif-10,
-  $plugin-serif-11,
-  $plugin-serif-12,
-  $plugin-serif-13,
-  $plugin-serif-14
+$plugin-system-serif-large: map-collect(
+  $plugin-system-serif-9,
+  $plugin-system-serif-10,
+  $plugin-system-serif-11,
+  $plugin-system-serif-12,
+  $plugin-system-serif-13,
+  $plugin-system-serif-14
 );
 
-$plugin-serif-larger: map-collect(
-  $plugin-serif-15,
-  $plugin-serif-16,
-  $plugin-serif-17,
-  $plugin-serif-18,
-  $plugin-serif-10,
-  $plugin-serif-20
+$plugin-system-serif-xlarge: map-collect(
+  $plugin-system-serif-15,
+  $plugin-system-serif-16,
+  $plugin-system-serif-17,
+  $plugin-system-serif-18,
+  $plugin-system-serif-10,
+  $plugin-system-serif-20
 );
 
-$plugin-serif: map-collect(
-  $plugin-serif-small,
-  $plugin-serif-medium,
-  $plugin-serif-large,
-  $plugin-serif-larger
+$plugin-system-serif-all: map-collect(
+  $plugin-system-serif-small,
+  $plugin-system-serif-medium,
+  $plugin-system-serif-large,
+  $plugin-system-serif-xlarge
+);
+
+$plugin-system-fonts-all: map-collect(
+  $plugin-system-mono-all,
+  $plugin-system-sans-all,
+  $plugin-system-serif-all
 );
