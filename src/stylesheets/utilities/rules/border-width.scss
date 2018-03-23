@@ -1,8 +1,7 @@
 /*
 ========================================
-border
+border-width
 ----------------------------------------
-Also applies `solid`
 Needs to come before other border utils
 ----------------------------------------
 usage:
@@ -12,32 +11,28 @@ output:
   border-[modifier]: [value];
 ----------------------------------------
 example:
-  .border-width-t-1px {
-    border-top: 1px solid; }
-
-  .border-width-0 {
-    border: none; }
+  .border-top-width-1px {
+    border-top-width: 1px; }
 ----------------------------------------
 */
 
-$border: (
-  border: (
+$border-width: (
+  border-width: (
     base: 'border',
     modifiers: (
-      'top': '-top',
-      'right': '-right',
-      'bottom': '-bottom',
-      'left': '-left',
-      y: ('-top', '-bottom'),
-      x: ('-left', '-right'),
-      noModifier: '',
+      'top-width': '-top-width',
+      'right-width': '-right-width',
+      'bottom-width': '-bottom-width',
+      'left-width': '-left-width',
+      'y-width': ('-top-width', '-bottom-width'),
+      'x-width': ('-left-width', '-right-width'),
+      '-width': '-width',
     ),
     values: map-collect(
-      $border-plugins,
-      $border-manual-values
+      $border-width-plugins,
+      $border-width-manual-values
     ),
-    valueAppend: ' solid',
-    settings: $border-settings,
+    settings: $border-width-settings,
     property: 'border',
   )
 )

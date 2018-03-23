@@ -24,6 +24,7 @@ $output-utilities: (
   border-color:     false,
   border-radius:    true,
   border-style:     false,
+  border-width:     false,
   box-shadow:       true,
   circle:           true,
   clearfix:         true,
@@ -251,6 +252,35 @@ $border-style-manual-values: (
   dashed:       'dashed',
   dotted:       'dotted',
   solid:        'solid'
+) !default;
+
+/*
+========================================
+.border-width
+----------------------------------------
+*/
+
+$border-width-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$border-width-plugins: map-collect(
+  /*
+  $plugin-spacing-system-small
+  $plugin-spacing-system-medium
+  */
+  $plugin-spacing-project-small,
+  $plugin-spacing-project-medium
+) !default;
+
+$border-width-manual-values: (
+  /*
+  */
+  0:       0,
 ) !default;
 
 /*
