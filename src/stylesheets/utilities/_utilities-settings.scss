@@ -111,6 +111,16 @@ $background-color-settings: (
 
 $background-color-plugins: map-collect(
   /*
+  $plugin-[color]
+  $plugin-[color]-light
+  $plugin-[color]-medium
+  $plugin-[color]-dark
+  $plugin-[color]-light-vivid
+  $plugin-[color]-medium-vivid
+  $plugin-[color]-dark-vivid
+  $plugin-[color]-standard
+  $plugin-[color]-vivid
+  $plugin-palette-status
   */
   $plugin-palette-project-settings,
   $plugin-palette-grayscale
@@ -137,9 +147,12 @@ $border-settings: (
 
 $border-plugins: map-collect(
   /*
-  */
-  $plugin-spacing-system-small,
+  $plugin-spacing-px
+  $plugin-spacing-system-small
   $plugin-spacing-system-medium
+  */
+  $plugin-spacing-project-small,
+  $plugin-spacing-project-medium
 ) !default;
 
 $border-manual-values: (
@@ -164,6 +177,16 @@ $border-color-settings: (
 
 $border-color-plugins: map-collect(
   /*
+  $plugin-[color]
+  $plugin-[color]-light
+  $plugin-[color]-medium
+  $plugin-[color]-dark
+  $plugin-[color]-light-vivid
+  $plugin-[color]-medium-vivid
+  $plugin-[color]-dark-vivid
+  $plugin-[color]-standard
+  $plugin-[color]-vivid
+  $plugin-palette-status
   */
   $plugin-palette-project-settings,
   $plugin-palette-grayscale
@@ -191,8 +214,9 @@ $border-radius-settings: (
 $border-radius-plugins: map-collect(
   /*
   $plugin-spacing-system-small
+  $plugin-spacing-system-medium
   */
-  $plugin-spacing-project-small
+  $plugin-project-border-radius
 ) !default;
 
 $border-radius-manual-values: (
@@ -200,7 +224,6 @@ $border-radius-manual-values: (
   */
   0:            '0',
   pill:         '9999em',
-  circle:       '50%'
 ) !default;
 
 /*

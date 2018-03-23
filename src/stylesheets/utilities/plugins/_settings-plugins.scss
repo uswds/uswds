@@ -5,6 +5,12 @@ $plugin-font-families: (
   serif:   #{$font-stack-serif},
 );
 
+$plugin-project-border-radius: (
+  small:        2px,  // TODO: reference project setting
+  base:         4px,  // TODO: reference project setting
+  large:        16px, // TODO: reference project setting
+);
+
 $plugin-spacing-project-all: (
   pixel:        1px,
   eighth:       2px,
