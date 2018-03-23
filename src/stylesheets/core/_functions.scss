@@ -425,7 +425,7 @@ loop
 
 @mixin render-media-queries($utility, $selector, $property, $value, $val-props, $important) {
 
-  @each $media-key, $media-value in $plugin-breakpoints-em {
+  @each $media-key, $media-value in $spacing-breakpoints-em {
     $mq: $media-key;
 
     @if map-get($output-breakpoints, $media-key) {

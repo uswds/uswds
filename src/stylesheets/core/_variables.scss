@@ -142,6 +142,20 @@ $all-colors: map-collect(
 );
 
 /*
+----------------------------------------
+Breakpoints as em
+----------------------------------------
+*/
+
+$spacing-breakpoints-em: (
+  xs:   px-to-base-em($s-xsmall-screen),
+  sm:   px-to-base-em($s-small-screen),
+  md:   px-to-base-em($s-medium-screen),
+  lg:   px-to-base-em($s-large-screen),
+  xl:   px-to-base-em($s-xlarge-screen),
+);
+
+/*
 ========================================
 Old USWDS Variables
 Many of these will be deprecated

@@ -1,4 +1,4 @@
-$plugin-breakpoints-rem: (
+$plugin-spacing-breakpoints-rem: (
   xs:   px($s-xsmall-screen),
   sm:   px($s-small-screen),
   md:   px($s-medium-screen),
@@ -6,7 +6,7 @@ $plugin-breakpoints-rem: (
   xl:   px($s-xlarge-screen),
 );
 
-$plugin-ch: (
+$plugin-spacing-ch: (
   '05ch':   '.5ch',
   '1ch':    '1ch',
   '105ch':  '1.5ch',
@@ -16,17 +16,17 @@ $plugin-ch: (
   '5ch':    '5ch',
 );
 
-$plugin-ch-negative: (
-  'n05ch':   '-.5ch',
-  'n1ch':    '-1ch',
-  'n105ch':  '-1.5ch',
-  'n2ch':    '-2ch',
-  'n3ch':    '-3ch',
-  'n4ch':    '-4ch',
-  'n5ch':    '-5ch',
+$plugin-spacing-ch-negative: (
+  'n-05ch':   '-.5ch',
+  'n-1ch':    '-1ch',
+  'n-105ch':  '-1.5ch',
+  'n-2ch':    '-2ch',
+  'n-3ch':    '-3ch',
+  'n-4ch':    '-4ch',
+  'n-5ch':    '-5ch',
 );
 
-$plugin-em: (
+$plugin-spacing-em: (
   '05em':   '.5em',
   '1em':    '1em',
   '105em':  '1.5em',
@@ -41,73 +41,73 @@ $plugin-em: (
   '10em':   '10em',
 );
 
-$plugin-grid-small: (
-  'g05':    $spacing-05,
-  'g1':     $spacing-1,
-  'g105':   $spacing-105,
-  'g2':     $spacing-2,
+$plugin-spacing-system-small: (
+  's05':    $spacing-05,
+  's1':     $spacing-1,
+  's105':   $spacing-105,
+  's2':     $spacing-2,
 );
 
-$plugin-grid-medium: (
-  'g205':   $spacing-205,
-  'g3':     $spacing-3,
-  'g4':     $spacing-4,
-  'g5':     $spacing-5,
+$plugin-spacing-system-medium: (
+  's205':   $spacing-205,
+  's3':     $spacing-3,
+  's4':     $spacing-4,
+  's5':     $spacing-5,
 );
 
-$plugin-grid-large: (
-  'g6':     $spacing-6,
-  'g7':     $spacing-7,
-  'g8':     $spacing-8,
-  'g9':     $spacing-9,
-  'g10':    $spacing-10,
+$plugin-spacing-system-large: (
+  's6':     $spacing-6,
+  's7':     $spacing-7,
+  's8':     $spacing-8,
+  's9':     $spacing-9,
+  's10':    $spacing-10,
 );
 
-$plugin-grid-xlarge: (
-  'g15':    $spacing-15,
-  'g20':    $spacing-20,
-  'g25':    $spacing-25,
-  'g30':    $spacing-30,
-  'g40':    $spacing-40,
-  'g50':    $spacing-50,
+$plugin-spacing-system-xlarge: (
+  's15':    $spacing-15,
+  's20':    $spacing-20,
+  's25':    $spacing-25,
+  's30':    $spacing-30,
+  's40':    $spacing-40,
+  's50':    $spacing-50,
 );
 
-$plugin-grid-small-negative: (
-  'ng05':   -#{$spacing-05},
-  'ng1':    -#{$spacing-1},
-  'ng105':  -#{$spacing-105},
-  'ng2':    -#{$spacing-2},
+$plugin-spacing-system-small-negative: (
+  'n-s05':   -#{$spacing-05},
+  'n-s1':    -#{$spacing-1},
+  'n-s105':  -#{$spacing-105},
+  'n-s2':    -#{$spacing-2},
 );
 
-$plugin-grid-medium-negative: (
-  'ng205':  -#{$spacing-205},
-  'ng3':    -#{$spacing-3},
-  'ng4':    -#{$spacing-4},
-  'ng5':    -#{$spacing-5},
+$plugin-spacing-system-medium-negative: (
+  'n-s205':  -#{$spacing-205},
+  'n-s3':    -#{$spacing-3},
+  'n-s4':    -#{$spacing-4},
+  'n-s5':    -#{$spacing-5},
 );
 
-$plugin-grid-large-negative: (
-  'ng6':    -#{$spacing-6},
-  'ng7':    -#{$spacing-7},
-  'ng8':    -#{$spacing-8},
-  'ng9':    -#{$spacing-9},
-  'ng10':   -#{$spacing-10},
+$plugin-spacing-system-large-negative: (
+  'n-s6':    -#{$spacing-6},
+  'n-s7':    -#{$spacing-7},
+  'n-s8':    -#{$spacing-8},
+  'n-s9':    -#{$spacing-9},
+  'n-s10':   -#{$spacing-10},
 );
 
-$plugin-grid: map-collect(
-  $plugin-grid-small,
-  $plugin-grid-medium,
-  $plugin-grid-large,
-  $plugin-grid-xlarge
+$plugin-spacing-system: map-collect(
+  $plugin-spacing-system-small,
+  $plugin-spacing-system-medium,
+  $plugin-spacing-system-large,
+  $plugin-spacing-system-xlarge
 );
 
-$plugin-grid-negative: map-collect(
-  $plugin-grid-small-negative,
-  $plugin-grid-medium-negative,
-  $plugin-grid-large-negative
+$plugin-spacing-system-negative: map-collect(
+  $plugin-spacing-system-small-negative,
+  $plugin-spacing-system-medium-negative,
+  $plugin-spacing-system-large-negative
 );
 
-$plugin-percentage:(
+$plugin-spacing-percentage:(
   '10ct':   10%,
   '20ct':   20%,
   '25ct':   25%,
@@ -124,12 +124,12 @@ $plugin-percentage:(
   '100ct':  100%,
 );
 
-$plugin-px:(
+$plugin-spacing-px:(
   '1px':    1px,
   '2px':    2px,
 );
 
-$plugin-px-negative:(
-  'n1px':   -1px,
-  'n2px':   -2px,
+$plugin-spacing-px-negative:(
+  'n-1px':   -1px,
+  'n-2px':   -2px,
 );

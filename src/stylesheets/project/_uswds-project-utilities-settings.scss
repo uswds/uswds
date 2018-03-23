@@ -137,8 +137,8 @@ $border-settings: (
 $border-plugins: map-collect(
   /*
   */
-  $plugin-px,
-  $plugin-grid-small
+  $plugin-spacing-px,
+  $plugin-spacing-system-small
 );
 
 $border-manual-values: (
@@ -189,9 +189,9 @@ $border-radius-settings: (
 
 $border-radius-plugins: map-collect(
   /*
-  $plugin-grid-small
+  $plugin-spacing-system-small
   */
-  $plugin-spacing-tshirt-small
+  $plugin-spacing-project-small
 );
 
 $border-radius-manual-values: (
@@ -276,7 +276,7 @@ $circle-settings: (
 $circle-plugins: map-collect(
   /*
   */
-  $plugin-spacing-tshirt-all
+  $plugin-spacing-project-all
 );
 
 $circle-manual-values: (
@@ -477,7 +477,7 @@ $font-settings: (
 $font-plugins: map-collect(
   /*
   */
-  $plugin-font-tshirt
+  $plugin-font-project
 );
 
 $font-manual-values: (
@@ -610,12 +610,12 @@ $height-settings: (
 
 $height-plugins: map-collect(
   /*
-  $plugin-em,
-  $plugin-ch,
-  $plugin-px
+  $plugin-spacing-em,
+  $plugin-spacing-ch,
+  $plugin-spacing-px
   */
-  $plugin-percentage,
-  $plugin-spacing-tshirt-all
+  $plugin-spacing-percentage,
+  $plugin-spacing-project-all
 );
 
 $height-manual-values: (
@@ -721,10 +721,10 @@ $manual-position-settings: (
 $manual-position-plugins: map-collect(
   /*
   */
-  $plugin-px,
-  $plugin-px-negative,
-  $plugin-spacing-tshirt-small,
-  $plugin-spacing-tshirt-small-negative
+  $plugin-spacing-px,
+  $plugin-spacing-px-negative,
+  $plugin-spacing-project-small,
+  $plugin-spacing-project-small-negative
 );
 
 $manual-position-manual-values: (
@@ -750,19 +750,19 @@ $margin-settings: (
 
 $margin-plugins: map-collect(
   /*
-  $plugin-px,
-  $plugin-px-negative,
-  $plugin-percentage,
-  $plugin-grid,
-  $plugin-grid-negative,
-  $plugin-ch,
-  $plugin-ch-negative,
-  $plugin-em
+  $plugin-spacing-px,
+  $plugin-spacing-px-negative,
+  $plugin-spacing-percentage,
+  $plugin-spacing-system,
+  $plugin-spacing-system-negative,
+  $plugin-spacing-ch,
+  $plugin-spacing-ch-negative,
+  $plugin-spacing-em
   */
-  $plugin-px,
-  $plugin-px-negative,
-  $plugin-spacing-tshirt-all,
-  $plugin-spacing-tshirt-small-negative
+  $plugin-spacing-px,
+  $plugin-spacing-px-negative,
+  $plugin-spacing-project-all,
+  $plugin-spacing-project-small-negative
 );
 
 $margin-manual-values: (
@@ -788,9 +788,9 @@ $max-height-settings: (
 
 $max-height-plugins: map-collect(
   /*
-  $plugin-percentage,
-  $plugin-grid,
-  $plugin-px
+  $plugin-spacing-percentage,
+  $plugin-spacing-system,
+  $plugin-spacing-px
   */
 );
 
@@ -815,8 +815,8 @@ $max-width-settings: (
 
 $max-width-plugins: map-collect(
   /*
-  $plugin-percentage,
-  $plugin-breakpoints-rem
+  $plugin-spacing-percentage,
+  $plugin-spacing-breakpoints-rem
   */
 );
 
@@ -845,9 +845,9 @@ $min-height-settings: (
 
 $min-height-plugins: map-collect(
   /*
-  $plugin-percentage,
-  $plugin-grid-small
-  $plugin-grid-medium
+  $plugin-spacing-percentage,
+  $plugin-spacing-system-small
+  $plugin-spacing-system-medium
   */
 );
 
@@ -874,9 +874,9 @@ $min-width-settings: (
 $min-width-plugins: map-collect(
   /*
   */
-  $plugin-breakpoints-rem,
-  $plugin-grid-large,
-  $plugin-grid-xlarge
+  $plugin-spacing-breakpoints-rem,
+  $plugin-spacing-system-large,
+  $plugin-spacing-system-xlarge
 );
 
 $min-width-manual-values: (
@@ -974,8 +974,8 @@ $outline-settings: (
 $outline-plugins: map-collect(
   /*
   */
-  $plugin-px,
-  $plugin-grid-small
+  $plugin-spacing-px,
+  $plugin-spacing-system-small
 );
 
 $outline-manual-values: (
@@ -1025,9 +1025,9 @@ $padding-settings: (
 
 $padding-plugins: map-collect(
   /*
-  $plugin-px,
+  $plugin-spacing-px,
   */
-  $plugin-spacing-tshirt-all
+  $plugin-spacing-project-all
 );
 
 $padding-manual-values: (
@@ -1096,7 +1096,7 @@ $square-settings: (
 $square-plugins: map-collect(
   /*
   */
-  $plugin-spacing-tshirt-all
+  $plugin-spacing-project-all
 );
 
 $square-manual-values: (
@@ -1265,13 +1265,13 @@ $width-settings: (
 
 $width-plugins: map-collect(
   /*
-  $plugin-grid,
-  $plugin-px,
-  $plugin-em,
-  $plugin-ch
+  $plugin-spacing-system,
+  $plugin-spacing-px,
+  $plugin-spacing-em,
+  $plugin-spacing-ch
   */
-  $plugin-percentage,
-  $plugin-breakpoints-rem
+  $plugin-spacing-percentage,
+  $plugin-spacing-breakpoints-rem
 );
 
 $width-manual-values: (

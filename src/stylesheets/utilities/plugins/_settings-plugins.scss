@@ -1,11 +1,3 @@
-$plugin-breakpoints-em: (
-  xs:   px-to-base-em($s-xsmall-screen),
-  sm:   px-to-base-em($s-small-screen),
-  md:   px-to-base-em($s-medium-screen),
-  lg:   px-to-base-em($s-large-screen),
-  xl:   px-to-base-em($s-xlarge-screen),
-);
-
 $plugin-font-families: (
   cond:    #{$font-stack-cond},
   mono:    #{$font-stack-mono},
@@ -13,7 +5,7 @@ $plugin-font-families: (
   serif:   #{$font-stack-serif},
 );
 
-$plugin-spacing-tshirt-all: (
+$plugin-spacing-project-all: (
   pixel:        1px,
   eighth:       2px,
   quarter:      $spacing-05,
@@ -29,38 +21,38 @@ $plugin-spacing-tshirt-all: (
   quad-plus:    $spacing-9,
 );
 
-$plugin-spacing-tshirt-small: (
+$plugin-spacing-project-small: (
   pixel:        1px,
   eighth:       2px,
   quarter:      $spacing-05,
 );
 
-$plugin-spacing-tshirt-medium: (
+$plugin-spacing-project-medium: (
   half:         $spacing-1,
   half-plus:    $spacing-105,
   base:         $spacing-2,
 );
 
-$plugin-spacing-tshirt-large: (
+$plugin-spacing-project-large: (
   base-plus:    $spacing-3,
   double:       $spacing-4,
   double-plus:  $spacing-5,
   triple:       $spacing-6,
 );
 
-$plugin-spacing-tshirt-xlarge: (
+$plugin-spacing-project-xlarge: (
   triple-plus:  $spacing-7,
   quad:         $spacing-8,
   quad-plus:    $spacing-9,
 );
 
-$plugin-spacing-tshirt-small-negative: (
+$plugin-spacing-project-small-negative: (
   n-pixel:        -1px,
   n-eighth:       -2px,
   n-quarter:      -#{$spacing-05},
 );
 
-$plugin-spacing-tshirt-medium-negative: (
+$plugin-spacing-project-medium-negative: (
   n-half:         -#{$spacing-1},
   n-half-plus:    -#{$spacing-105},
   n-base:         -#{$spacing-2},
@@ -147,7 +139,7 @@ $plugin-mono-mega: (
   ),
 );
 
-$plugin-mono-tshirt: map-collect(
+$plugin-mono-project: map-collect(
   $plugin-mono-micro,
   $plugin-mono-smallest,
   $plugin-mono-smaller,
@@ -240,7 +232,7 @@ $plugin-sans-mega: (
   ),
 );
 
-$plugin-sans-tshirt: map-collect(
+$plugin-sans-project: map-collect(
   $plugin-sans-micro,
   $plugin-sans-smallest,
   $plugin-sans-smaller,
@@ -333,7 +325,7 @@ $plugin-serif-mega: (
   ),
 );
 
-$plugin-serif-tshirt: map-collect(
+$plugin-serif-project: map-collect(
   $plugin-serif-micro,
   $plugin-serif-smallest,
   $plugin-serif-smaller,
@@ -345,8 +337,8 @@ $plugin-serif-tshirt: map-collect(
   $plugin-serif-mega
 );
 
-$plugin-font-tshirt: map-collect(
-  $plugin-mono-tshirt,
-  $plugin-sans-tshirt,
-  $plugin-serif-tshirt
+$plugin-font-project: map-collect(
+  $plugin-mono-project,
+  $plugin-sans-project,
+  $plugin-serif-project
 );
