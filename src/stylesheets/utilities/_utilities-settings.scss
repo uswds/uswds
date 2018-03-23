@@ -112,7 +112,6 @@ $background-color-settings: (
 $background-color-plugins: map-collect(
   /*
   */
-  $plugin-palette-required,
   $plugin-palette-project-settings,
   $plugin-palette-grayscale
 ) !default;
@@ -139,8 +138,8 @@ $border-settings: (
 $border-plugins: map-collect(
   /*
   */
-  $plugin-spacing-px,
-  $plugin-spacing-system-small
+  $plugin-spacing-system-small,
+  $plugin-spacing-system-medium
 ) !default;
 
 $border-manual-values: (
@@ -166,8 +165,8 @@ $border-color-settings: (
 $border-color-plugins: map-collect(
   /*
   */
-  $plugin-palette-required,
-  $plugin-palette-project-settings
+  $plugin-palette-project-settings,
+  $plugin-palette-grayscale
 ) !default;
 
 $border-color-manual-values: (
