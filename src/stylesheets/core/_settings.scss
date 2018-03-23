@@ -163,34 +163,38 @@ New project palette colors
 ----------------------------------------
 */
 
-$neutral-lighter:     black, 5 !default;
-$neutral-light:       black, 50 !default;
-$neutral-base:        black, 80 !default;
-$neutral-dark:        black, 90 !default;
+$color-neutral:       black !default;
+$neutral-lighter:     $color-neutral, 5 !default;
+$neutral-light:       $color-neutral, 50 !default;
+$neutral-base:        $color-neutral, 80 !default;
+$neutral-dark:        $color-neutral, 90 !default;
 $neutral-darker:      false !default;
 
-$primary-lighter:     red, 10 !default;
-$primary-light:       red, 30, vivid !default;
-$primary-base:        red, 50 !default;
-$primary-vivid:       red, 50, vivid !default;
-$primary-dark:        red, 70, vivid !default;
+$color-primary:       red !default;
+$primary-lighter:     $color-primary, 10 !default;
+$primary-light:       $color-primary, 30 !default;
+$primary-base:        $color-primary, 50 !default;
+$primary-vivid:       $color-primary, 50, vivid !default;
+$primary-dark:        $color-primary, 70 !default;
 $primary-darker:      false !default;
 
-$secondary-lighter:   red, 50, vivid !default;
-$secondary-light:     red, 50, vivid !default;
-$secondary-base:      red, 50, vivid !default;
-$secondary-vivid:     red, 50, vivid !default;
-$secondary-dark:      red, 50, vivid !default;
-$secondary-darker:    red, 50, vivid !default;
+$color-secondary:     blue !default;
+$secondary-light:     $color-secondary, 50 !default;
+$secondary-base:      $color-secondary, 60 !default;
+$secondary-vivid:     $color-secondary, 50, vivid !default;
+$secondary-dark:      $color-secondary, 80 !default;
 
-$accent-warm-lighter: red, 50, vivid !default;
-$accent-warm-base:    red, 50, vivid !default;
+$color-accent-warm:   orange !default;
+$accent-warm-lighter: $color-accent-warm, 50, vivid !default;
+$accent-warm-base:    $color-accent-warm, 50, vivid !default;
 
-$accent-cool-lighter: red, 50, vivid !default;
-$accent-cool-base:    red, 50, vivid !default;
+$color-accent-cool:   cyan !default;
+$accent-cool-lighter: $color-accent-cool, 50, vivid !default;
+$accent-cool-base:    $color-accent-cool, 50, vivid !default;
 
-$inverse-base:        red, 50, vivid !default;
-$inverse-dark:        red, 50, vivid !default;
+$color-inverse:       white !default;
+$inverse-base:        $color-inverse, 0 !default;
+$inverse-dark:        black, 10 !default;
 
 // ---------------------------------------------
 // BORDER RADIUS
