@@ -592,6 +592,15 @@ $font-settings: (
 
 $font-plugins: map-collect(
   /*
+  $plugin-project-mono-all
+  $plugin-project-sans-all
+  $plugin-project-serif-all
+  $plugin-system-fonts-all
+  $plugin-system-[family]-small
+  $plugin-system-[family]-medium
+  $plugin-system-[family]-large
+  $plugin-system-[family]-xlarge
+  $plugin-system-[family]-all
   */
   $plugin-project-fonts-all
 ) !default;
@@ -690,24 +699,14 @@ $font-weight-settings: (
 
 $font-weight-plugins: map-collect(
   /*
+  $plugin-system-font-weights-all
   */
+  $plugin-project-font-weights-all
 ) !default;
 
 $font-weight-manual-values: (
   /*
   */
-  100:          '100',
-  200:          '200',
-  300:          '300',
-  400:          '400',
-  500:          '500',
-  600:          '600',
-  700:          '700',
-  800:          '800',
-  900:          '900',
-  bold:         'bold',
-  normal:       'normal',
-  light:        'light'
 ) !default;
 
 /*
@@ -726,17 +725,25 @@ $height-settings: (
 
 $height-plugins: map-collect(
   /*
-  $plugin-spacing-em,
-  $plugin-spacing-ch,
-  $plugin-spacing-px
+  $plugin-project-spacing-small
+  $plugin-project-spacing-medium
+  $plugin-project-spacing-large
+  $plugin-project-spacing-xlarge
+  $plugin-system-spacing-all
+  $plugin-system-spacing-small
+  $plugin-system-spacing-medium
+  $plugin-system-spacing-large
+  $plugin-system-spacing-xlarge
   */
-  $plugin-spacing-percentage,
   $plugin-project-spacing-all
 ) !default;
 
 $height-manual-values: (
   /*
   */
+  0:      0,
+  auto:   auto,
+  100vh:  100vh
 ) !default;
 
 /*

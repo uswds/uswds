@@ -143,6 +143,63 @@ $all-colors: map-collect(
 
 /*
 ----------------------------------------
+Build the project type scale map
+----------------------------------------
+*/
+
+$project-type-scale: (
+  micro: system-type-scale($type-scale-micro),
+  smallest: system-type-scale($type-scale-smallest),
+  smaller: system-type-scale($type-scale-smaller),
+  small: system-type-scale($type-scale-small),
+  base: system-type-scale($type-scale-base),
+  large: system-type-scale($type-scale-large),
+  larger: system-type-scale($type-scale-larger),
+  largest: system-type-scale($type-scale-largest),
+  mega: system-type-scale($type-scale-mega),
+);
+
+$all-type-scale: map-collect(
+  $system-type-scale,
+  $project-type-scale
+);
+
+
+@function simple-font($size){
+  @return map-get($all-type-scale, $size);
+}
+
+@function cap-height($size){
+  @return map-get($all-type-scale, $size);
+}
+
+// 1. set the fonts in settings
+$theme-font-mono:   'roboto-mono';
+$theme-font-sans:   'united-sans';
+$theme-font-serif:  false;
+
+// TODO: font definitions packaged in a map
+
+// 2. get cap-height from theme font definition
+/*
+$cap-heights:(
+  mono:   cap-height($theme-font-mono),
+  sans:   cap-height($theme-font-sans),
+  serif:  cap-height($theme-font-serif),
+)
+*/
+
+// 3. get cap-height from theme font definition
+/*
+  font($family, $size){
+    $this-cap: map-get($cap-heights, $family);
+    @return type-scale($this-cap, $size);
+}
+
+*/
+
+/*
+----------------------------------------
 Breakpoints as em
 ----------------------------------------
 */

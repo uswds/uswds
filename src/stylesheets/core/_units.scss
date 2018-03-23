@@ -101,6 +101,29 @@ $type-scale-18:             80px;   // +40
 $type-scale-19:            120px;  // +20
 $type-scale-20:            140px;
 
+$system-type-scale: (
+  s1:   12px;
+  s2:   13px;
+  s3:   14px;
+  s4:   15px;
+  s5:   16px; 
+  s6:   17px;
+  s7:   18px;
+  s8:   20px;
+  s9:   22px;
+  s10:  24px;
+  s11:  28px;
+  s12:  32px;
+  s13:  36px;
+  s14:  40px;
+  s15:  48px;
+  s16:  56px;
+  s17:  64px;
+  s18:  80px;
+  s19:  120px;
+  s20:  140px;
+);
+
 $u-mono-1:   type-scale($mono-cap-height, $type-scale-1);
 $u-mono-2:   type-scale($mono-cap-height, $type-scale-2);
 $u-mono-3:   type-scale($mono-cap-height, $type-scale-3);

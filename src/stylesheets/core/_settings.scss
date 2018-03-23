@@ -63,6 +63,23 @@ $font-size-larger:          $type-scale-12 !default;
 $font-size-largest:         $type-scale-14 !default;
 $font-size-mega:         $type-scale-16 !default;
 
+/*
+----------------------------------------
+New type scale
+----------------------------------------
+*/
+
+$type-scale-micro:         s1 !default;
+$type-scale-smallest:      s3 !default;
+$type-scale-smaller:       s5 !default;
+$type-scale-small:         s6 !default;
+$type-scale-base:          s7 !default;
+$type-scale-large:         s10 !default;
+$type-scale-larger:        s12 !default;
+$type-scale-largest:       s14 !default;
+$type-scale-mega:          s16 !default;
+
+
 // ---------------------------------------------
 // FONT WEIGHTS
 

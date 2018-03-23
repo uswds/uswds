@@ -5,6 +5,17 @@ $plugin-system-font-families: (
   serif:   #{$font-stack-serif},
 );
 
+$plugin-project-font-weights-all: (
+  thin:     100,
+  light:    300,
+  normal:   400,
+  medium:   500,
+  semibold: 600,
+  bold:     700,
+  black:    900,
+);
+
+
 $plugin-project-border-radius: (
   small:        2px,  // TODO: reference project setting
   base:         4px,  // TODO: reference project setting
