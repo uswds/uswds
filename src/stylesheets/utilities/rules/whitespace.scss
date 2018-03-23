@@ -19,7 +19,7 @@ $whitespace: (
     base: 'whitespace',
     modifiers: null,
     values: map-collect(
-      $whitespace-preset-values,
+      $whitespace-plugins,
       $whitespace-manual-values
     ),
     settings: $whitespace-settings,

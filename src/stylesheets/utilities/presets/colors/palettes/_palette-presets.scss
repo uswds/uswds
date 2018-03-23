@@ -1,4 +1,4 @@
-$preset-palette-reserved: (
+$plugin-palette-reserved: (
   transparent:    transparent,
   black:          $black-100,
   white:          $white-0,
@@ -6,12 +6,12 @@ $preset-palette-reserved: (
   highlight:      $gold-30v,
 );
 
-$preset-palette-grayscale: map-collect(
-  $preset-colors-black,
-  $preset-colors-white
+$plugin-palette-grayscale: map-collect(
+  $plugin-colors-black,
+  $plugin-colors-white
 );
 
-$preset-palette-project-settings: (
+$plugin-palette-project-settings: (
   primary:                  $color-primary,
   primary-darker:           $color-primary-darker,
   primary-darkest:          $color-primary-darkest,

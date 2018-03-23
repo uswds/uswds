@@ -1,4 +1,4 @@
-$preset-breakpoints-rem: (
+$plugin-breakpoints-rem: (
   xs:   px($s-xsmall-screen),
   sm:   px($s-small-screen),
   md:   px($s-medium-screen),
@@ -6,7 +6,7 @@ $preset-breakpoints-rem: (
   xl:   px($s-xlarge-screen),
 );
 
-$preset-ch: (
+$plugin-ch: (
   '05ch':   '.5ch',
   '1ch':    '1ch',
   '105ch':  '1.5ch',
@@ -16,7 +16,7 @@ $preset-ch: (
   '5ch':    '5ch',
 );
 
-$preset-ch-negative: (
+$plugin-ch-negative: (
   'n05ch':   '-.5ch',
   'n1ch':    '-1ch',
   'n105ch':  '-1.5ch',
@@ -26,7 +26,7 @@ $preset-ch-negative: (
   'n5ch':    '-5ch',
 );
 
-$preset-em: (
+$plugin-em: (
   '05em':   '.5em',
   '1em':    '1em',
   '105em':  '1.5em',
@@ -41,21 +41,21 @@ $preset-em: (
   '10em':   '10em',
 );
 
-$preset-grid-small: (
+$plugin-grid-small: (
   'g05':    $spacing-05,
   'g1':     $spacing-1,
   'g105':   $spacing-105,
   'g2':     $spacing-2,
 );
 
-$preset-grid-medium: (
+$plugin-grid-medium: (
   'g205':   $spacing-205,
   'g3':     $spacing-3,
   'g4':     $spacing-4,
   'g5':     $spacing-5,
 );
 
-$preset-grid-large: (
+$plugin-grid-large: (
   'g6':     $spacing-6,
   'g7':     $spacing-7,
   'g8':     $spacing-8,
@@ -63,7 +63,7 @@ $preset-grid-large: (
   'g10':    $spacing-10,
 );
 
-$preset-grid-xlarge: (
+$plugin-grid-xlarge: (
   'g15':    $spacing-15,
   'g20':    $spacing-20,
   'g25':    $spacing-25,
@@ -72,21 +72,21 @@ $preset-grid-xlarge: (
   'g50':    $spacing-50,
 );
 
-$preset-grid-small-negative: (
+$plugin-grid-small-negative: (
   'ng05':   -#{$spacing-05},
   'ng1':    -#{$spacing-1},
   'ng105':  -#{$spacing-105},
   'ng2':    -#{$spacing-2},
 );
 
-$preset-grid-medium-negative: (
+$plugin-grid-medium-negative: (
   'ng205':  -#{$spacing-205},
   'ng3':    -#{$spacing-3},
   'ng4':    -#{$spacing-4},
   'ng5':    -#{$spacing-5},
 );
 
-$preset-grid-large-negative: (
+$plugin-grid-large-negative: (
   'ng6':    -#{$spacing-6},
   'ng7':    -#{$spacing-7},
   'ng8':    -#{$spacing-8},
@@ -94,20 +94,20 @@ $preset-grid-large-negative: (
   'ng10':   -#{$spacing-10},
 );
 
-$preset-grid: map-collect(
-  $preset-grid-small,
-  $preset-grid-medium,
-  $preset-grid-large,
-  $preset-grid-xlarge
+$plugin-grid: map-collect(
+  $plugin-grid-small,
+  $plugin-grid-medium,
+  $plugin-grid-large,
+  $plugin-grid-xlarge
 );
 
-$preset-grid-negative: map-collect(
-  $preset-grid-small-negative,
-  $preset-grid-medium-negative,
-  $preset-grid-large-negative
+$plugin-grid-negative: map-collect(
+  $plugin-grid-small-negative,
+  $plugin-grid-medium-negative,
+  $plugin-grid-large-negative
 );
 
-$preset-percentage:(
+$plugin-percentage:(
   '10ct':   10%,
   '20ct':   20%,
   '25ct':   25%,
@@ -124,12 +124,12 @@ $preset-percentage:(
   '100ct':  100%,
 );
 
-$preset-px:(
+$plugin-px:(
   '1px':    1px,
   '2px':    2px,
 );
 
-$preset-px-negative:(
+$plugin-px-negative:(
   'n1px':   -1px,
   'n2px':   -2px,
 );

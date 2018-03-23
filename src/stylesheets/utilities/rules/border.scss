@@ -33,7 +33,7 @@ $border: (
       noModifier: '',
     ),
     values: map-collect(
-      $border-preset-values,
+      $border-plugins,
       $border-manual-values
     ),
     valueAppend: ' solid',

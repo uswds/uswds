@@ -80,7 +80,7 @@ $align-items-settings: (
   visited:      false
 );
 
-$align-items-preset-values: map-collect(
+$align-items-plugins: map-collect(
   /*
   */
 );
@@ -108,11 +108,11 @@ $background-color-settings: (
   visited:      false
 );
 
-$background-color-preset-values: map-collect(
+$background-color-plugins: map-collect(
   /*
   */
-  $preset-palette-reserved,
-  $preset-palette-project-settings
+  $plugin-palette-reserved,
+  $plugin-palette-project-settings
 );
 
 $background-color-manual-values: (
@@ -134,11 +134,11 @@ $border-settings: (
   visited:      false
 );
 
-$border-preset-values: map-collect(
+$border-plugins: map-collect(
   /*
   */
-  $preset-px,
-  $preset-grid-small
+  $plugin-px,
+  $plugin-grid-small
 );
 
 $border-manual-values: (
@@ -161,11 +161,11 @@ $border-color-settings: (
   visited:      false
 );
 
-$border-color-preset-values: map-collect(
+$border-color-plugins: map-collect(
   /*
   */
-  $preset-palette-reserved,
-  $preset-palette-project-settings
+  $plugin-palette-reserved,
+  $plugin-palette-project-settings
 );
 
 $border-color-manual-values: (
@@ -187,11 +187,11 @@ $border-radius-settings: (
   visited:      false
 );
 
-$border-radius-preset-values: map-collect(
+$border-radius-plugins: map-collect(
   /*
-  $preset-grid-small
+  $plugin-grid-small
   */
-  $preset-spacing-tshirt-small
+  $plugin-spacing-tshirt-small
 );
 
 $border-radius-manual-values: (
@@ -216,7 +216,7 @@ $border-style-settings: (
   visited:      false
 );
 
-$border-style-preset-values: map-collect(
+$border-style-plugins: map-collect(
   /*
   */
 );
@@ -243,7 +243,7 @@ $box-shadow-settings: (
   visited:      false
 );
 
-$box-shadow-preset-values: map-collect(
+$box-shadow-plugins: map-collect(
   /*
   */
 );
@@ -273,10 +273,10 @@ $circle-settings: (
   visited:      false
 );
 
-$circle-preset-values: map-collect(
+$circle-plugins: map-collect(
   /*
   */
-  $preset-spacing-tshirt-all
+  $plugin-spacing-tshirt-all
 );
 
 $circle-manual-values: (
@@ -298,11 +298,11 @@ $color-settings: (
   visited:      false
 );
 
-$color-preset-values: map-collect(
+$color-plugins: map-collect(
   /*
   */
-  $preset-palette-project-settings,
-  $preset-palette-reserved
+  $plugin-palette-project-settings,
+  $plugin-palette-reserved
 );
 
 $color-manual-values: (
@@ -338,7 +338,7 @@ $display-settings: (
   visited:      false
 );
 
-$display-preset-values: map-collect(
+$display-plugins: map-collect(
   /*
   */
 );
@@ -369,7 +369,7 @@ $flex-settings: (
   visited:      false
 );
 
-$flex-preset-values: map-collect(
+$flex-plugins: map-collect(
   /*
   */
 );
@@ -406,7 +406,7 @@ $flex-direction-settings: (
   visited:      false
 );
 
-$flex-direction-preset-values: map-collect();
+$flex-direction-plugins: map-collect();
 
 $flex-direction-manual-values: (
   /*
@@ -429,7 +429,7 @@ $flex-wrap-settings: (
   visited:      false
 );
 
-$flex-wrap-preset-values: map-collect();
+$flex-wrap-plugins: map-collect();
 
 $flex-wrap-manual-values: (
   wrap:         'wrap',
@@ -450,7 +450,7 @@ $float-settings: (
   visited:      false
 );
 
-$float-preset-values: map-collect();
+$float-plugins: map-collect();
 
 $float-manual-values: (
   /*
@@ -474,10 +474,10 @@ $font-settings: (
   visited:      false
 );
 
-$font-preset-values: map-collect(
+$font-plugins: map-collect(
   /*
   */
-  $preset-font-tshirt
+  $plugin-font-tshirt
 );
 
 $font-manual-values: (
@@ -499,10 +499,10 @@ $font-family-settings: (
   visited:      false
 );
 
-$font-family-preset-values: map-collect(
+$font-family-plugins: map-collect(
   /*
   */
-  $preset-font-families
+  $plugin-font-families
 );
 
 $font-family-manual-values: (
@@ -524,7 +524,7 @@ $font-feature-settings: (
   visited:      false
 );
 
-$font-feature-preset-values: map-collect(
+$font-feature-plugins: map-collect(
   /*
   */
 );
@@ -551,7 +551,7 @@ $font-style-settings: (
   visited:      false
 );
 
-$font-style-preset-values: map-collect();
+$font-style-plugins: map-collect();
 
 $font-style-manual-values: (
   normal:       'normal',
@@ -572,7 +572,7 @@ $font-weight-settings: (
   visited:      false
 );
 
-$font-weight-preset-values: map-collect(
+$font-weight-plugins: map-collect(
   /*
   */
 );
@@ -608,14 +608,14 @@ $height-settings: (
   visited:      false
 );
 
-$height-preset-values: map-collect(
+$height-plugins: map-collect(
   /*
-  $preset-em,
-  $preset-ch,
-  $preset-px
+  $plugin-em,
+  $plugin-ch,
+  $plugin-px
   */
-  $preset-percentage,
-  $preset-spacing-tshirt-all
+  $plugin-percentage,
+  $plugin-spacing-tshirt-all
 );
 
 $height-manual-values: (
@@ -637,7 +637,7 @@ $letter-spacing-settings: (
   visited:      false
 );
 
-$letter-spacing-preset-values: map-collect(
+$letter-spacing-plugins: map-collect(
   /*
   */
 );
@@ -668,7 +668,7 @@ $line-height-settings: (
   visited:      false
 );
 
-$line-height-preset-values: map-collect(
+$line-height-plugins: map-collect(
   /*
   */
 );
@@ -718,13 +718,13 @@ $manual-position-settings: (
   visited:      false
 );
 
-$manual-position-preset-values: map-collect(
+$manual-position-plugins: map-collect(
   /*
   */
-  $preset-px,
-  $preset-px-negative,
-  $preset-spacing-tshirt-small,
-  $preset-spacing-tshirt-small-negative
+  $plugin-px,
+  $plugin-px-negative,
+  $plugin-spacing-tshirt-small,
+  $plugin-spacing-tshirt-small-negative
 );
 
 $manual-position-manual-values: (
@@ -748,21 +748,21 @@ $margin-settings: (
   visited:      false
 );
 
-$margin-preset-values: map-collect(
+$margin-plugins: map-collect(
   /*
-  $preset-px,
-  $preset-px-negative,
-  $preset-percentage,
-  $preset-grid,
-  $preset-grid-negative,
-  $preset-ch,
-  $preset-ch-negative,
-  $preset-em
+  $plugin-px,
+  $plugin-px-negative,
+  $plugin-percentage,
+  $plugin-grid,
+  $plugin-grid-negative,
+  $plugin-ch,
+  $plugin-ch-negative,
+  $plugin-em
   */
-  $preset-px,
-  $preset-px-negative,
-  $preset-spacing-tshirt-all,
-  $preset-spacing-tshirt-small-negative
+  $plugin-px,
+  $plugin-px-negative,
+  $plugin-spacing-tshirt-all,
+  $plugin-spacing-tshirt-small-negative
 );
 
 $margin-manual-values: (
@@ -786,11 +786,11 @@ $max-height-settings: (
   visited:      false
 );
 
-$max-height-preset-values: map-collect(
+$max-height-plugins: map-collect(
   /*
-  $preset-percentage,
-  $preset-grid,
-  $preset-px
+  $plugin-percentage,
+  $plugin-grid,
+  $plugin-px
   */
 );
 
@@ -813,10 +813,10 @@ $max-width-settings: (
   visited:      false
 );
 
-$max-width-preset-values: map-collect(
+$max-width-plugins: map-collect(
   /*
-  $preset-percentage,
-  $preset-breakpoints-rem
+  $plugin-percentage,
+  $plugin-breakpoints-rem
   */
 );
 
@@ -843,11 +843,11 @@ $min-height-settings: (
   visited:      false
 );
 
-$min-height-preset-values: map-collect(
+$min-height-plugins: map-collect(
   /*
-  $preset-percentage,
-  $preset-grid-small
-  $preset-grid-medium
+  $plugin-percentage,
+  $plugin-grid-small
+  $plugin-grid-medium
   */
 );
 
@@ -871,12 +871,12 @@ $min-width-settings: (
   visited:      false
 );
 
-$min-width-preset-values: map-collect(
+$min-width-plugins: map-collect(
   /*
   */
-  $preset-breakpoints-rem,
-  $preset-grid-large,
-  $preset-grid-xlarge
+  $plugin-breakpoints-rem,
+  $plugin-grid-large,
+  $plugin-grid-xlarge
 );
 
 $min-width-manual-values: (
@@ -898,7 +898,7 @@ $opacity-settings: (
   visited:      false
 );
 
-$opacity-preset-values: map-collect(
+$opacity-plugins: map-collect(
   /*
   */
 );
@@ -933,7 +933,7 @@ $order-settings: (
   visited:      false
 );
 
-$order-preset-values: map-collect(
+$order-plugins: map-collect(
   /*
   */
 );
@@ -971,11 +971,11 @@ $outline-settings: (
   visited:      false
 );
 
-$outline-preset-values: map-collect(
+$outline-plugins: map-collect(
   /*
   */
-  $preset-px,
-  $preset-grid-small
+  $plugin-px,
+  $plugin-grid-small
 );
 
 $outline-manual-values: (
@@ -998,10 +998,10 @@ $outline-color-settings: (
   visited:      false
 );
 
-$outline-color-preset-values: map-collect(
+$outline-color-plugins: map-collect(
   /*
   */
-  $preset-palette-project-settings
+  $plugin-palette-project-settings
 );
 
 $outline-color-manual-values: (
@@ -1023,11 +1023,11 @@ $padding-settings: (
   visited:      false
 );
 
-$padding-preset-values: map-collect(
+$padding-plugins: map-collect(
   /*
-  $preset-px,
+  $plugin-px,
   */
-  $preset-spacing-tshirt-all
+  $plugin-spacing-tshirt-all
 );
 
 $padding-manual-values: (
@@ -1050,7 +1050,7 @@ $position-settings: (
   visited:      false
 );
 
-$position-preset-values: map-collect(
+$position-plugins: map-collect(
   /*
   */
 );
@@ -1093,10 +1093,10 @@ $square-settings: (
   visited:      false
 );
 
-$square-preset-values: map-collect(
+$square-plugins: map-collect(
   /*
   */
-  $preset-spacing-tshirt-all
+  $plugin-spacing-tshirt-all
 );
 
 $square-manual-values: (
@@ -1119,7 +1119,7 @@ $text-align-settings: (
   visited:      false
 );
 
-$text-align-preset-values: map-collect(
+$text-align-plugins: map-collect(
   /*
   */
 );
@@ -1147,7 +1147,7 @@ $text-decoration-settings: (
   visited:      false
 );
 
-$text-decoration-preset-values: map-collect(
+$text-decoration-plugins: map-collect(
   /*
   */
 );
@@ -1174,7 +1174,7 @@ $text-transform-settings: (
   visited:      false
 );
 
-$text-transform-preset-values: map-collect(
+$text-transform-plugins: map-collect(
   /*
   */
 );
@@ -1202,7 +1202,7 @@ $vertical-align-settings: (
   visited:      false
 );
 
-$vertical-align-preset-values: map-collect(
+$vertical-align-plugins: map-collect(
   /*
   */
 );
@@ -1234,7 +1234,7 @@ $whitespace-settings: (
   visited:      false
 );
 
-$whitespace-preset-values: map-collect(
+$whitespace-plugins: map-collect(
   /*
   */
 );
@@ -1263,15 +1263,15 @@ $width-settings: (
   visited:      false
 );
 
-$width-preset-values: map-collect(
+$width-plugins: map-collect(
   /*
-  $preset-grid,
-  $preset-px,
-  $preset-em,
-  $preset-ch
+  $plugin-grid,
+  $plugin-px,
+  $plugin-em,
+  $plugin-ch
   */
-  $preset-percentage,
-  $preset-breakpoints-rem
+  $plugin-percentage,
+  $plugin-breakpoints-rem
 );
 
 $width-manual-values: (
@@ -1295,7 +1295,7 @@ $z-index-settings: (
   visited:      false
 );
 
-$z-index-preset-values: map-collect(
+$z-index-plugins: map-collect(
   /*
   */
 );

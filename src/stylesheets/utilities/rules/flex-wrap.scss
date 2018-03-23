@@ -19,7 +19,7 @@ $flex-wrap: (
     base: 'flex-wrap',
     modifiers: null,
     values: map-collect(
-      $flex-wrap-preset-values,
+      $flex-wrap-plugins,
       $flex-wrap-manual-values
     ),
     settings: $flex-wrap-settings,

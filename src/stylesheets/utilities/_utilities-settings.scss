@@ -81,7 +81,7 @@ $align-items-settings: (
   visited:      false
 ) !default;
 
-$align-items-preset-values: map-collect(
+$align-items-plugins: map-collect(
   /*
   */
 ) !default;
@@ -109,11 +109,11 @@ $background-color-settings: (
   visited:      false
 ) !default;
 
-$background-color-preset-values: map-collect(
+$background-color-plugins: map-collect(
   /*
   */
-  $preset-palette-reserved,
-  $preset-palette-project-settings
+  $plugin-palette-reserved,
+  $plugin-palette-project-settings
 ) !default;
 
 $background-color-manual-values: (
@@ -135,11 +135,11 @@ $border-settings: (
   visited:      false
 ) !default;
 
-$border-preset-values: map-collect(
+$border-plugins: map-collect(
   /*
   */
-  $preset-px,
-  $preset-grid-small
+  $plugin-px,
+  $plugin-grid-small
 ) !default;
 
 $border-manual-values: (
@@ -162,11 +162,11 @@ $border-color-settings: (
   visited:      false
 ) !default;
 
-$border-color-preset-values: map-collect(
+$border-color-plugins: map-collect(
   /*
   */
-  $preset-palette-reserved,
-  $preset-palette-project-settings
+  $plugin-palette-reserved,
+  $plugin-palette-project-settings
 ) !default;
 
 $border-color-manual-values: (
@@ -188,11 +188,11 @@ $border-radius-settings: (
   visited:      false
 ) !default;
 
-$border-radius-preset-values: map-collect(
+$border-radius-plugins: map-collect(
   /*
-  $preset-grid-small
+  $plugin-grid-small
   */
-  $preset-spacing-tshirt-small
+  $plugin-spacing-tshirt-small
 ) !default;
 
 $border-radius-manual-values: (
@@ -217,7 +217,7 @@ $border-style-settings: (
   visited:      false
 ) !default;
 
-$border-style-preset-values: map-collect(
+$border-style-plugins: map-collect(
   /*
   */
 ) !default;
@@ -244,7 +244,7 @@ $box-shadow-settings: (
   visited:      false
 ) !default;
 
-$box-shadow-preset-values: map-collect(
+$box-shadow-plugins: map-collect(
   /*
   */
 ) !default;
@@ -274,10 +274,10 @@ $circle-settings: (
   visited:      false
 ) !default;
 
-$circle-preset-values: map-collect(
+$circle-plugins: map-collect(
   /*
   */
-  $preset-spacing-tshirt-all
+  $plugin-spacing-tshirt-all
 ) !default;
 
 $circle-manual-values: (
@@ -313,11 +313,11 @@ $color-settings: (
   visited:      false
 ) !default;
 
-$color-preset-values: map-collect(
+$color-plugins: map-collect(
   /*
   */
-  $preset-palette-project-settings,
-  $preset-palette-reserved
+  $plugin-palette-project-settings,
+  $plugin-palette-reserved
 ) !default;
 
 $color-manual-values: (
@@ -353,7 +353,7 @@ $display-settings: (
   visited:      false
 ) !default;
 
-$display-preset-values: map-collect(
+$display-plugins: map-collect(
   /*
   */
 ) !default;
@@ -384,7 +384,7 @@ $flex-settings: (
   visited:      false
 ) !default;
 
-$flex-preset-values: map-collect(
+$flex-plugins: map-collect(
   /*
   */
 ) !default;
@@ -421,7 +421,7 @@ $flex-direction-settings: (
   visited:      false
 ) !default;
 
-$flex-direction-preset-values: map-collect() !default;
+$flex-direction-plugins: map-collect() !default;
 
 $flex-direction-manual-values: (
   /*
@@ -444,7 +444,7 @@ $flex-wrap-settings: (
   visited:      false
 ) !default;
 
-$flex-wrap-preset-values: map-collect() !default;
+$flex-wrap-plugins: map-collect() !default;
 
 $flex-wrap-manual-values: (
   wrap:         'wrap',
@@ -465,7 +465,7 @@ $float-settings: (
   visited:      false
 ) !default;
 
-$float-preset-values: map-collect() !default;
+$float-plugins: map-collect() !default;
 
 $float-manual-values: (
   /*
@@ -489,10 +489,10 @@ $font-settings: (
   visited:      false
 ) !default;
 
-$font-preset-values: map-collect(
+$font-plugins: map-collect(
   /*
   */
-  $preset-font-tshirt
+  $plugin-font-tshirt
 ) !default;
 
 $font-manual-values: (
@@ -514,10 +514,10 @@ $font-family-settings: (
   visited:      false
 ) !default;
 
-$font-family-preset-values: map-collect(
+$font-family-plugins: map-collect(
   /*
   */
-  $preset-font-families
+  $plugin-font-families
 ) !default;
 
 $font-family-manual-values: (
@@ -539,7 +539,7 @@ $font-feature-settings: (
   visited:      false
 ) !default;
 
-$font-feature-preset-values: map-collect(
+$font-feature-plugins: map-collect(
   /*
   */
 ) !default;
@@ -566,7 +566,7 @@ $font-style-settings: (
   visited:      false
 ) !default;
 
-$font-style-preset-values: map-collect() !default;
+$font-style-plugins: map-collect() !default;
 
 $font-style-manual-values: (
   normal:       'normal',
@@ -587,7 +587,7 @@ $font-weight-settings: (
   visited:      false
 ) !default;
 
-$font-weight-preset-values: map-collect(
+$font-weight-plugins: map-collect(
   /*
   */
 ) !default;
@@ -623,14 +623,14 @@ $height-settings: (
   visited:      false
 ) !default;
 
-$height-preset-values: map-collect(
+$height-plugins: map-collect(
   /*
-  $preset-em,
-  $preset-ch,
-  $preset-px
+  $plugin-em,
+  $plugin-ch,
+  $plugin-px
   */
-  $preset-percentage,
-  $preset-spacing-tshirt-all
+  $plugin-percentage,
+  $plugin-spacing-tshirt-all
 ) !default;
 
 $height-manual-values: (
@@ -652,7 +652,7 @@ $letter-spacing-settings: (
   visited:      false
 ) !default;
 
-$letter-spacing-preset-values: map-collect(
+$letter-spacing-plugins: map-collect(
   /*
   */
 ) !default;
@@ -683,7 +683,7 @@ $line-height-settings: (
   visited:      false
 ) !default;
 
-$line-height-preset-values: map-collect(
+$line-height-plugins: map-collect(
   /*
   */
 ) !default;
@@ -733,13 +733,13 @@ $manual-position-settings: (
   visited:      false
 ) !default;
 
-$manual-position-preset-values: map-collect(
+$manual-position-plugins: map-collect(
   /*
   */
-  $preset-px,
-  $preset-px-negative,
-  $preset-spacing-tshirt-small,
-  $preset-spacing-tshirt-small-negative
+  $plugin-px,
+  $plugin-px-negative,
+  $plugin-spacing-tshirt-small,
+  $plugin-spacing-tshirt-small-negative
 ) !default;
 
 $manual-position-manual-values: (
@@ -763,21 +763,21 @@ $margin-settings: (
   visited:      false
 ) !default;
 
-$margin-preset-values: map-collect(
+$margin-plugins: map-collect(
   /*
-  $preset-px,
-  $preset-px-negative,
-  $preset-percentage,
-  $preset-grid,
-  $preset-grid-negative,
-  $preset-ch,
-  $preset-ch-negative,
-  $preset-em
+  $plugin-px,
+  $plugin-px-negative,
+  $plugin-percentage,
+  $plugin-grid,
+  $plugin-grid-negative,
+  $plugin-ch,
+  $plugin-ch-negative,
+  $plugin-em
   */
-  $preset-px,
-  $preset-px-negative,
-  $preset-spacing-tshirt-all,
-  $preset-spacing-tshirt-small-negative
+  $plugin-px,
+  $plugin-px-negative,
+  $plugin-spacing-tshirt-all,
+  $plugin-spacing-tshirt-small-negative
 ) !default;
 
 $margin-manual-values: (
@@ -801,11 +801,11 @@ $max-height-settings: (
   visited:      false
 ) !default;
 
-$max-height-preset-values: map-collect(
+$max-height-plugins: map-collect(
   /*
-  $preset-percentage,
-  $preset-grid,
-  $preset-px
+  $plugin-percentage,
+  $plugin-grid,
+  $plugin-px
   */
 ) !default;
 
@@ -828,10 +828,10 @@ $max-width-settings: (
   visited:      false
 ) !default;
 
-$max-width-preset-values: map-collect(
+$max-width-plugins: map-collect(
   /*
-  $preset-percentage,
-  $preset-breakpoints-rem
+  $plugin-percentage,
+  $plugin-breakpoints-rem
   */
 ) !default;
 
@@ -859,11 +859,11 @@ $min-height-settings: (
   visited:      false
 ) !default;
 
-$min-height-preset-values: map-collect(
+$min-height-plugins: map-collect(
   /*
-  $preset-percentage,
-  $preset-grid-small
-  $preset-grid-medium
+  $plugin-percentage,
+  $plugin-grid-small
+  $plugin-grid-medium
   */
 ) !default;
 
@@ -887,12 +887,12 @@ $min-width-settings: (
   visited:      false
 ) !default;
 
-$min-width-preset-values: map-collect(
+$min-width-plugins: map-collect(
   /*
   */
-  $preset-breakpoints-rem,
-  $preset-grid-large,
-  $preset-grid-xlarge
+  $plugin-breakpoints-rem,
+  $plugin-grid-large,
+  $plugin-grid-xlarge
 ) !default;
 
 $min-width-manual-values: (
@@ -914,7 +914,7 @@ $opacity-settings: (
   visited:      false
 ) !default;
 
-$opacity-preset-values: map-collect(
+$opacity-plugins: map-collect(
   /*
   */
 ) !default;
@@ -949,7 +949,7 @@ $order-settings: (
   visited:      false
 ) !default;
 
-$order-preset-values: map-collect(
+$order-plugins: map-collect(
   /*
   */
 ) !default;
@@ -987,11 +987,11 @@ $outline-settings: (
   visited:      false
 ) !default;
 
-$outline-preset-values: map-collect(
+$outline-plugins: map-collect(
   /*
   */
-  $preset-px,
-  $preset-grid-small
+  $plugin-px,
+  $plugin-grid-small
 ) !default;
 
 $outline-manual-values: (
@@ -1014,10 +1014,10 @@ $outline-color-settings: (
   visited:      false
 ) !default;
 
-$outline-color-preset-values: map-collect(
+$outline-color-plugins: map-collect(
   /*
   */
-  $preset-palette-project-settings
+  $plugin-palette-project-settings
 ) !default;
 
 $outline-color-manual-values: (
@@ -1039,11 +1039,11 @@ $padding-settings: (
   visited:      false
 ) !default;
 
-$padding-preset-values: map-collect(
+$padding-plugins: map-collect(
   /*
-  $preset-px,
+  $plugin-px,
   */
-  $preset-spacing-tshirt-all
+  $plugin-spacing-tshirt-all
 ) !default;
 
 $padding-manual-values: (
@@ -1066,7 +1066,7 @@ $position-settings: (
   visited:      false
 ) !default;
 
-$position-preset-values: map-collect(
+$position-plugins: map-collect(
   /*
   */
 ) !default;
@@ -1109,10 +1109,10 @@ $square-settings: (
   visited:      false
 ) !default;
 
-$square-preset-values: map-collect(
+$square-plugins: map-collect(
   /*
   */
-  $preset-spacing-tshirt-all
+  $plugin-spacing-tshirt-all
 ) !default;
 
 $square-manual-values: (
@@ -1135,7 +1135,7 @@ $text-align-settings: (
   visited:      false
 ) !default;
 
-$text-align-preset-values: map-collect(
+$text-align-plugins: map-collect(
   /*
   */
 ) !default;
@@ -1163,7 +1163,7 @@ $text-decoration-settings: (
   visited:      false
 ) !default;
 
-$text-decoration-preset-values: map-collect(
+$text-decoration-plugins: map-collect(
   /*
   */
 ) !default;
@@ -1190,12 +1190,12 @@ $text-decoration-color-settings: (
   visited:      false
 ) !default;
 
-$text-decoration-color-preset-values: map-collect(
+$text-decoration-color-plugins: map-collect(
   /*
-  $preset-palette-grayscale
+  $plugin-palette-grayscale
   */
-  $preset-palette-project-settings,
-  $preset-palette-reserved
+  $plugin-palette-project-settings,
+  $plugin-palette-reserved
 ) !default;
 
 $text-decoration-color-manual-values: (
@@ -1216,7 +1216,7 @@ $text-transform-settings: (
   visited:      false
 ) !default;
 
-$text-transform-preset-values: map-collect(
+$text-transform-plugins: map-collect(
   /*
   */
 ) !default;
@@ -1244,7 +1244,7 @@ $vertical-align-settings: (
   visited:      false
 ) !default;
 
-$vertical-align-preset-values: map-collect(
+$vertical-align-plugins: map-collect(
   /*
   */
 ) !default;
@@ -1276,7 +1276,7 @@ $whitespace-settings: (
   visited:      false
 ) !default;
 
-$whitespace-preset-values: map-collect(
+$whitespace-plugins: map-collect(
   /*
   */
 ) !default;
@@ -1305,15 +1305,15 @@ $width-settings: (
   visited:      false
 ) !default;
 
-$width-preset-values: map-collect(
+$width-plugins: map-collect(
   /*
-  $preset-grid,
-  $preset-px,
-  $preset-em,
-  $preset-ch
+  $plugin-grid,
+  $plugin-px,
+  $plugin-em,
+  $plugin-ch
   */
-  $preset-percentage,
-  $preset-breakpoints-rem
+  $plugin-percentage,
+  $plugin-breakpoints-rem
 ) !default;
 
 $width-manual-values: (
@@ -1337,7 +1337,7 @@ $z-index-settings: (
   visited:      false
 ) !default;
 
-$z-index-preset-values: map-collect(
+$z-index-plugins: map-collect(
   /*
   */
 ) !default;

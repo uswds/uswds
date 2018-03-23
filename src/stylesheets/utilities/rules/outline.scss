@@ -21,7 +21,7 @@ $outline: (
     base: 'outline',
     modifiers: null,
     values: map-collect(
-      $outline-preset-values,
+      $outline-plugins,
       $outline-manual-values
     ),
     settings: $outline-settings,

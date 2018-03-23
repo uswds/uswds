@@ -27,7 +27,7 @@ $border-style: (
       'style': '-style',
     ),
     values: map-collect(
-      $border-style-preset-values,
+      $border-style-plugins,
       $border-style-manual-values
     ),
     settings: $border-style-settings,
