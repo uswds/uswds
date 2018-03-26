@@ -223,7 +223,7 @@ State colors
 */
 
 // Error colors
-$theme-color-error:            'red' !default;
+$theme-color-error:            red !default;
 $theme-color-error-lighter:    $theme-color-error, 30, vivid !default;
 $theme-color-error-light:      $theme-color-error, 40, vivid !default;
 $theme-color-error-base:       $theme-color-error, 50, vivid !default;
@@ -231,7 +231,7 @@ $theme-color-error-dark:       $theme-color-error, 60 !default;
 $theme-color-error-darker:     $theme-color-error, 70 !default;
 
 // Warning colors
-$theme-color-warn:             'orange' !default;
+$theme-color-warn:             orange !default;
 $theme-color-warn-lighter:     $theme-color-warn, 10 !default;
 $theme-color-warn-light:       $theme-color-warn, 20, vivid !default;
 $theme-color-warn-base:        $theme-color-warn, 30, vivid !default;
@@ -239,7 +239,7 @@ $theme-color-warn-dark:        $theme-color-warn, 40 !default;
 $theme-color-warn-darker:      $theme-color-warn, 50 !default;
 
 // Success colors
-$theme-color-success:          'green-cool' !default;
+$theme-color-success:          green-cool !default;
 $theme-color-success-lighter:  $theme-color-success, 20, vivid !default;
 $theme-color-success-light:    $theme-color-success, 30, vivid !default;
 $theme-color-success-base:     $theme-color-success, 40, vivid !default;
@@ -247,7 +247,7 @@ $theme-color-success-dark:     $theme-color-success, 50 !default;
 $theme-color-success-darker:   $theme-color-success, 70 !default;
 
 // Disabled color
-$theme-color-disabled:         'black' !default;
+$theme-color-disabled:         black !default;
 $theme-color-disabled-base:    $theme-color-disabled, 30 !default;
 
 /*

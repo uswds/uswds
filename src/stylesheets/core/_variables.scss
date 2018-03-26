@@ -132,7 +132,7 @@ $project-font-weights: (
   $theme-fw-xbold
 );
 
-$project-colors : (
+$project-colors: (
   neutral: (
     lighter: system-color($theme-color-neutral-lighter),
     light:   system-color($theme-color-neutral-light),
@@ -168,9 +168,37 @@ $project-colors : (
   )
 );
 
+$project-state-colors: (
+  error: (
+    lighter: system-color($theme-color-error-lighter),
+    light:   system-color($theme-color-error-light),
+    base:    system-color($theme-color-error-base),
+    dark:    system-color($theme-color-error-dark),
+    darker:  system-color($theme-color-error-darker),
+  ),
+  warn: (
+    lighter: system-color($theme-color-warn-lighter),
+    light:   system-color($theme-color-warn-light),
+    base:    system-color($theme-color-warn-base),
+    dark:    system-color($theme-color-warn-dark),
+    darker:  system-color($theme-color-warn-darker),
+  ),
+  success: (
+    lighter: system-color($theme-color-success-lighter),
+    light:   system-color($theme-color-success-light),
+    base:    system-color($theme-color-success-base),
+    dark:    system-color($theme-color-success-dark),
+    darker:  system-color($theme-color-success-darker),
+  ),
+  disabled: (
+    base:    system-color($theme-color-disabled-base),
+  ),
+);
+
 $all-colors: map-collect(
   $uswds-colors,
-  $project-colors
+  $project-colors,
+  $project-state-colors
 );
 
 /*
