@@ -174,9 +174,20 @@ $uswds-type-scale: (
 
 /*
 ----------------------------------------
-Letterspacing
+Letter-spacing
 ----------------------------------------
 */
+
+$uswds-letter-spacing:(
+  auto:	                    auto,
+  smallest:	                -.03em,
+  smaller:	                -.02em,
+  small:	                  -.01em,
+  base:	                    auto,
+  large:	                  .05em,
+  larger:	                  .1em,
+  largest:	                .15em,
+);
 
 $u-ls-n3:	                 -.03em;
 $u-ls-n2:	                 -.02em;

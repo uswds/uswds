@@ -346,6 +346,24 @@ line heights
 
 /*
 ----------------------------------------
+letter-spacing()
+----------------------------------------
+Get a letter-spacing value from the
+system letter-spacing
+----------------------------------------
+*/
+
+@function letter-spacing($value) {
+  @if map-has-key($uswds-letter-spacing, $value) {
+    @return map-get($uswds-letter-spacing, $value);
+  }
+  @else {
+    @error "#{$value} is not a valid letter-spacing value.";
+  }
+};
+
+/*
+----------------------------------------
 system-color()
 ----------------------------------------
 Derive a system color from its

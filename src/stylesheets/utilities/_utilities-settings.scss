@@ -804,18 +804,12 @@ $letter-spacing-settings: (
 $letter-spacing-plugins: map-collect(
   /*
   */
+  $plugin-system-letter-spacing
 ) !default;
 
 $letter-spacing-manual-values: (
   /*
   */
-  auto:         'auto',
-  n1:           $u-ls-n1,
-  n2:           $u-ls-n2,
-  n3:           $u-ls-n3,
-  1:            $u-ls-1,
-  2:            $u-ls-2,
-  3:            $u-ls-3
 ) !default;
 
 /*
@@ -835,17 +829,12 @@ $line-height-settings: (
 $line-height-plugins: map-collect(
   /*
   */
+  $plugin-system-line-heights
 ) !default;
 
 $line-height-manual-values: (
   /*
   */
-  single:        $u-lh-single,
-  heading:       $u-lh-heading,
-  heading-loose: $u-lh-heading-loose,
-  body-tight:    $u-lh-body-tight,
-  body:          $u-lh-body,
-  body-loose:    $u-lh-body-loose
 ) !default;
 
 /*
