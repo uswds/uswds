@@ -166,20 +166,24 @@ $theme-type-scale-larger:        s12 !default;
 $theme-type-scale-largest:       s14 !default;
 $theme-type-scale-mega:          s16 !default;
 
+/*
+----------------------------------------
+Font weights
+----------------------------------------
+Assign weights 100-900
+Or use `false` for unneeded weights.
+----------------------------------------
+*/
 
-// ---------------------------------------------
-// FONT WEIGHTS
+$theme-output-all-weights:        false !default;
 
-// values  - - - - - - - - - - - - - - - - - - -
-// $theme-fw-NN:              100-900 (mults of 100);
-
-$theme-output-all-weights:    false !default;
-
-$theme-fw-xlight:             200 !default;
-$theme-fw-light:              300 !default;
-$theme-fw-normal:             400 !default;
-$theme-fw-bold:               600 !default;
-$theme-fw-xbold:              700 !default;
+$theme-font-weight-thin:          false !default;
+$theme-font-weight-light:         300 !default;
+$theme-font-weight-normal:        400 !default;
+$theme-font-weight-medium:        false !default;
+$theme-font-weight-semibold:      false !default;
+$theme-font-weight-bold:          700 !default;
+$theme-font-weight-black:         false !default;
 
 /*
 ----------------------------------------

@@ -7,16 +7,7 @@ $plugin-system-font-families: (
 
 $plugin-system-line-heights: $uswds-line-height;
 $plugin-system-letter-spacing: $uswds-letter-spacing;
-
-$plugin-project-font-weights-all: (
-  thin:     100,
-  light:    300,
-  normal:   400,
-  medium:   500,
-  semibold: 600,
-  bold:     700,
-  black:    900,
-);
+$plugin-project-font-weights-all: $project-font-weights;
 
 $plugin-project-border-radius: (
   small:    spacing($theme-border-radius-small),

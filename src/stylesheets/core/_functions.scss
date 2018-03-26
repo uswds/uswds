@@ -347,6 +347,24 @@ line heights
 
 /*
 ----------------------------------------
+border-radius()
+----------------------------------------
+Get a border-radius from the system
+border-radii
+----------------------------------------
+*/
+
+@function border-radius($value) {
+  @if map-has-key($all-border-radius, $value) {
+    @return map-get($all-border-radius, $value);
+  }
+  @else {
+    @error "#{$value} is not a valid border radius value.";
+  }
+};
+
+/*
+----------------------------------------
 letter-spacing()
 ----------------------------------------
 Get a letter-spacing value from the
@@ -927,7 +945,17 @@ through all possible variants
 @mixin render-font-face($this-font-face) {
   $these-weights: $project-font-weights;
   @if $theme-output-all-weights {
-    $these-weights: (100,200,300,400,500,600,700,800,900);
+    $these-weights: (
+      100: 100,
+      200: 200,
+      200: 300,
+      300: 400,
+      400: 500,
+      500: 600,
+      700: 700,
+      800: 800,
+      900: 900
+    );
   }
 
   @if $this-font-face {
@@ -942,7 +970,7 @@ through all possible variants
 
       @if $roman {
         @each $weight, $filename in $roman {
-          @each $outputweight in $these-weights {
+          @each $key, $outputweight in $these-weights {
             @if $outputweight == $weight and $filename {
               @include font-face(
                 '#{$font-name}',

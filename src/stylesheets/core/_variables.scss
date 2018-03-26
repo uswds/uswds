@@ -115,30 +115,36 @@ namespace var set in utilities-settings?
   *[class*='font-cond'], .font-family-cond { font-family: $font-stack-cond; }
 }
 
-/*
-----------------------------------------
-Collect the project font weights in a
-list for referencing in utilities.
-----------------------------------------
-TODO: Still needed?
-----------------------------------------
-*/
-
 $project-font-weights: (
-  $theme-fw-xlight,
-  $theme-fw-light,
-  $theme-fw-normal,
-  $theme-fw-bold,
-  $theme-fw-xbold
+  thin:       $theme-font-weight-thin,
+  light:      $theme-font-weight-light,
+  normal:     $theme-font-weight-normal,
+  medium:     $theme-font-weight-medium,
+  semibold:   $theme-font-weight-semibold,
+  bold:       $theme-font-weight-bold,
+  black:      $theme-font-weight-black,
+);
+
+$project-border-radius: (
+  small:      spacing($theme-border-radius-small),
+  base:       spacing($theme-border-radius-base),
+  large:      spacing($theme-border-radius-large),
+);
+
+$all-border-radius: map-collect(
+  $project-border-radius,
+  $uswds-spacing-small,
+  $uswds-spacing-medium,
+  $uswds-spacing-named
 );
 
 $project-colors: (
   neutral: (
-    lighter: system-color($theme-color-neutral-lighter),
-    light:   system-color($theme-color-neutral-light),
-    base:    system-color($theme-color-neutral-base),
-    dark:    system-color($theme-color-neutral-dark),
-    darker:  system-color($theme-color-neutral-darker),
+    lighter:  system-color($theme-color-neutral-lighter),
+    light:    system-color($theme-color-neutral-light),
+    base:     system-color($theme-color-neutral-base),
+    dark:     system-color($theme-color-neutral-dark),
+    darker:   system-color($theme-color-neutral-darker),
   ),
   primary: (
     lighter: system-color($theme-color-primary-lighter),

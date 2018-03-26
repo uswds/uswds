@@ -1,14 +1,5 @@
 /* stylelint-disable */
 
-$project-font-weights: (
-  $theme-fw-xlight,
-  $theme-fw-light,
-  $theme-fw-normal,
-  $theme-fw-bold,
-  $theme-fw-xbold
-);
-
-
 @if $theme-font-mono {
   @include render-font-face($theme-font-mono);
 }
