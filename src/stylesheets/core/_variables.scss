@@ -95,7 +95,7 @@ Set basic font rules for the font
 utilities to reference.
 ----------------------------------------
 TODO: Do these need to integrate the
-namespace var set in utlities-settings?
+namespace var set in utilities-settings?
 ----------------------------------------
 */
 
@@ -134,37 +134,37 @@ $project-font-weights: (
 
 $project-colors : (
   neutral: (
-    lighter: system-color($neutral-lighter),
-    light:   system-color($neutral-light),
-    base:    system-color($neutral-base),
-    dark:    system-color($neutral-dark),
-    darker:  system-color($neutral-darker),
+    lighter: system-color($theme-color-neutral-lighter),
+    light:   system-color($theme-color-neutral-light),
+    base:    system-color($theme-color-neutral-base),
+    dark:    system-color($theme-color-neutral-dark),
+    darker:  system-color($theme-color-neutral-darker),
   ),
   primary: (
-    lighter: system-color($primary-lighter),
-    light:   system-color($primary-light),
-    base:    system-color($primary-base),
-    vivid:   system-color($primary-vivid),
-    dark:    system-color($primary-dark),
-    darker:  system-color($primary-darker),
+    lighter: system-color($theme-color-primary-lighter),
+    light:   system-color($theme-color-primary-light),
+    base:    system-color($theme-color-primary-base),
+    vivid:   system-color($theme-color-primary-vivid),
+    dark:    system-color($theme-color-primary-dark),
+    darker:  system-color($theme-color-primary-darker),
   ),
   secondary: (
-    light:   system-color($secondary-light),
-    base:    system-color($secondary-base),
-    vivid:   system-color($secondary-vivid),
-    dark:    system-color($secondary-dark),
+    light:   system-color($theme-color-secondary-light),
+    base:    system-color($theme-color-secondary-base),
+    vivid:   system-color($theme-color-secondary-vivid),
+    dark:    system-color($theme-color-secondary-dark),
   ),
   accent-warm: (
-    light:   system-color($accent-warm-lighter),
-    base:    system-color($accent-warm-base),
+    light:   system-color($theme-color-accent-warm-lighter),
+    base:    system-color($theme-color-accent-warm-base),
   ),
   accent-cool: (
-    light:   system-color($accent-cool-lighter),
-    base:    system-color($accent-cool-base),
+    light:   system-color($theme-color-accent-cool-lighter),
+    base:    system-color($theme-color-accent-cool-base),
   ),
   inverse: (
-    base:   system-color($inverse-base),
-    dark:   system-color($inverse-dark),
+    base:   system-color($theme-color-inverse-base),
+    dark:   system-color($theme-color-inverse-dark),
   )
 );
 
@@ -178,15 +178,6 @@ $all-colors: map-collect(
 Build the project type scale map
 ----------------------------------------
 */
-
-@function system-type-scale($scale){
-  @if $scale and map-has-key($uswds-type-scale, $scale){
-    @return map-get($uswds-type-scale, $scale);
-  }
-  @else {
-    @return false;
-  }
-};
 
 $project-type-scale: (
   micro: system-type-scale($theme-type-scale-micro),
@@ -206,6 +197,7 @@ $all-type-scale: map-collect(
 );
 
 $project-cap-heights:(
+  base:     $uswds-base-cap-height,
   mono:     cap-height($theme-font-mono),
   sans:     cap-height($theme-font-sans),
   serif:    cap-height($theme-font-serif),
@@ -221,7 +213,7 @@ Breakpoints as em
 ----------------------------------------
 */
 
-$spacing-breakpoints-em: (
+$project-breakpoints-em: (
   xs:   px-to-base-em($theme-xsmall-screen),
   sm:   px-to-base-em($theme-small-screen),
   md:   px-to-base-em($theme-medium-screen),

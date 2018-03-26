@@ -138,8 +138,3 @@ $uswds-font-definitions: (
     ),
   ),
 );
-
-$all-font-definitions: map-merge(
-  $uswds-font-definitions,
-  $theme-font-definitions
-);

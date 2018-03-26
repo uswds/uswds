@@ -14,24 +14,13 @@ project/uswds-project-settings
 ----------------------------------------
 */
 
-// 500px 'N' height measured in Sketch
-$base-cap-height:         362px;
+/*
+----------------------------------------
+Spacing grid multiplier
+----------------------------------------
+*/
 
-$mono-cap-height:         false;
-$sans-cap-height:         false;
-$serif-cap-height:        false;
-
-@if $theme-font-mono {
-  $mono-cap-height: cap-height($theme-font-mono);
-}
-
-@if $theme-font-sans {
-  $sans-cap-height: cap-height($theme-font-sans);
-}
-
-@if $theme-font-serif {
-  $serif-cap-height: cap-height($theme-font-serif);
-}
+$uswds-spacing-grid-base: 8px;
 
 /*
 ----------------------------------------
@@ -149,6 +138,11 @@ Type scale
 ----------------------------------------
 */
 
+$all-font-definitions: map-merge(
+  $uswds-font-definitions,
+  $theme-font-definitions
+);
+
 $uswds-type-scale: (
   s1:   12px,
   s2:   13px,
@@ -189,13 +183,6 @@ $uswds-letter-spacing:(
   largest:	                .15em,
 );
 
-$u-ls-n3:	                 -.03em;
-$u-ls-n2:	                 -.02em;
-$u-ls-n1:	                 -.01em;
-$u-ls-1:	                 .05em;
-$u-ls-2:	                 .1em;
-$u-ls-3:	                 .15em;
-
 /*
 ----------------------------------------
 Line height
@@ -211,12 +198,18 @@ $uswds-line-height:(
   larger:	                  1.75,
 );
 
-$u-lh-single:	              1;
-$u-lh-heading:	            1.1;
-$u-lh-heading-loose:	      1.35;
-$u-lh-body:	                1.62;
-$u-lh-body-loose:	          1.75;
-$u-lh-body-tight:	          1.5;
+/*
+----------------------------------------
+Base cap height
+----------------------------------------
+500px 'N' height measured in Sketch.
+Used for normalizing font sizes.
+Current normalized to Apple system
+fonts.
+----------------------------------------
+*/
+
+$uswds-base-cap-height: 362px;
 
 /*
 ----------------------------------------

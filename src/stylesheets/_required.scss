@@ -8,15 +8,15 @@ USWDS project.
 */
 
 // -------------------------------------
+// Settings
+
+@import 'core/settings';
+
+// -------------------------------------
 // Vendor
 
 @import 'lib/bourbon';
 @import 'lib/neat';
-
-// -------------------------------------
-// Initialization values
-
-@import 'core/init';
 
 // -------------------------------------
 // Font definitions
@@ -32,11 +32,6 @@ USWDS project.
 // The master palette of style units
 
 @import 'core/units';
-
-// -------------------------------------
-// Settings
-
-@import 'core/settings';
 
 // -------------------------------------
 // Calculated and internal variables
