@@ -4,36 +4,36 @@
 // BREAKPOINTS
 
 // These will be converted to em values based on the
-// value of $i-font-size-base
+// value of $theme-base-font-size
 
-$s-xsmall-screen:   false;  //400px
-$s-small-screen:    481px;  //600px
-$s-medium-screen:   600px;  //800px
-$s-large-screen:    1201px; //1000px
-$s-xlarge-screen:   false;  //1200px
+$theme-xsmall-screen:   false;  //400px
+$theme-small-screen:    481px;  //600px
+$theme-medium-screen:   600px;  //800px
+$theme-large-screen:    1201px; //1000px
+$theme-xlarge-screen:   false;  //1200px
 
 // ---------------------------------------------
 // FONTS
 
 // Relative font and image file paths
 
-$font-path:   '../fonts';
-$s-image-path:  '../img';
+$theme-font-path:   '../fonts';
+$theme-image-path:  '../img';
 
 // Set hed, body, and alt from
-// $i-font-sans
-// $i-font-serif
-// $i-font-mono
+// $theme-font-sans
+// $theme-font-serif
+// $theme-font-mono
 
-$font-hed:    $i-font-sans;
-$font-body:   $i-font-serif;
-$font-alt:    $i-font-sans;
+$theme-font-heading:    $theme-font-sans;
+$theme-font-body:   $theme-font-serif;
+$theme-font-alt:    $theme-font-sans;
 
 // ---------------------------------------------
 // SPACING
 
 // values  - - - - - - - - - - - - - - - - - - -
-// $font-size-NN:       $spacing-NN;
+// $theme-font-size-NN:       $spacing-NN;
 //                        1px
 //                        2px
 
@@ -51,120 +51,120 @@ $spacing-3xl:           $spacing-9;
 // TYPE SCALE
 
 // values  - - - - - - - - - - - - - - - - - - -
-// $font-size-NN:       $type-scale-NN;
+// $theme-font-size-NN:       $type-scale-NN;
 
-$font-size-micro:         $type-scale-1;
-$font-size-smallest:         $type-scale-3;
-$font-size-smaller:          $type-scale-5;
-$font-size-small:          $type-scale-6;
-$font-size-base:          $type-scale-7;
-$font-size-large:          $type-scale-10;
-$font-size-larger:          $type-scale-12;
-$font-size-largest:         $type-scale-14;
-$font-size-mega:         $type-scale-16;
+$theme-font-size-micro:         $type-scale-1;
+$theme-font-size-smallest:         $type-scale-3;
+$theme-font-size-smaller:          $type-scale-5;
+$theme-font-size-small:          $type-scale-6;
+$theme-font-size-base:          $type-scale-7;
+$theme-font-size-large:          $type-scale-10;
+$theme-font-size-larger:          $type-scale-12;
+$theme-font-size-largest:         $type-scale-14;
+$theme-font-size-mega:         $type-scale-16;
 
 // ---------------------------------------------
 // FONT WEIGHTS
 
 // values  - - - - - - - - - - - - - - - - - - -
-// $s-fw-NN:              100-900 (mults of 100);
+// $theme-fw-NN:              100-900 (mults of 100);
 
-$s-output-all-weights:    false;
+$theme-output-all-weights:    false;
 
-$s-fw-xlight:             200;
-$s-fw-light:              300;
-$s-fw-normal:             400;
-$s-fw-bold:               600;
-$s-fw-xbold:              700;
+$theme-fw-xlight:             200;
+$theme-fw-light:              300;
+$theme-fw-normal:             400;
+$theme-fw-bold:               600;
+$theme-fw-xbold:              700;
 
 // ---------------------------------------------
 // COLORS
 
 // values  - - - - - - - - - - - - - - - - - - -
-// $s-color-NN:           $NN;
+// $theme-color-NN:           $NN;
 
 // Identity colors
-$s-color-id-1:            $red-warm-50v;
-$s-color-id-1-dark:       $red-warm-60;
-$s-color-id-1-xdark:      $red-warm-70;
-$s-color-id-1-light:      $red-warm-40;
-$s-color-id-1-xlight:     $red-warm-20;
+$theme-color-id-1:            $red-warm-50v;
+$theme-color-id-1-dark:       $red-warm-60;
+$theme-color-id-1-xdark:      $red-warm-70;
+$theme-color-id-1-light:      $red-warm-40;
+$theme-color-id-1-xlight:     $red-warm-20;
 
-$s-color-id-2:            $indigo-50v;
-$s-color-id-2-dark:       $indigo-60v;
-$s-color-id-2-xdark:      $indigo-70;
-$s-color-id-2-light:      $indigo-40;
-$s-color-id-2-xlight:     $indigo-20;
+$theme-color-id-2:            $indigo-50v;
+$theme-color-id-2-dark:       $indigo-60v;
+$theme-color-id-2-xdark:      $indigo-70;
+$theme-color-id-2-light:      $indigo-40;
+$theme-color-id-2-xlight:     $indigo-20;
 
 // Accent colors
-$s-color-accent-1:        $black-warm-80;
-$s-color-accent-2:        $orange-warm-40v;
-$s-color-accent-3:        $green-warm-10v;
+$theme-color-accent-1:        $black-warm-80;
+$theme-color-accent-2:        $orange-warm-40v;
+$theme-color-accent-3:        $green-warm-10v;
 
 // UI colors
-$s-color-ui-1:            $black-90;
-$s-color-ui-2:            $black-70;
-$s-color-ui-3:            $black-50;
-$s-color-ui-4:            $black-50;
-$s-color-ui-5:            $black-warm-20;
-$s-color-ui-6:            $blue-warm-60v;
+$theme-color-ui-1:            $black-90;
+$theme-color-ui-2:            $black-70;
+$theme-color-ui-3:            $black-50;
+$theme-color-ui-4:            $black-50;
+$theme-color-ui-5:            $black-warm-20;
+$theme-color-ui-6:            $blue-warm-60v;
 
 // Text colors
-$s-color-text-1:          $black-90;
-$s-color-text-2:          $blue-warm-60v;
-$s-color-text-3:          $black-50;
-$s-color-text-4:          $black-50;
-$s-color-text-inverse:    $white-0;
+$theme-color-text-1:          $black-90;
+$theme-color-text-2:          $blue-warm-60v;
+$theme-color-text-3:          $black-50;
+$theme-color-text-4:          $black-50;
+$theme-color-text-inverse:    $white-0;
 
 // Field colors
-$s-color-field-1:         $white-warm-1;
-$s-color-field-2:         $white-warm-4;
-$s-color-field-3:         $green-warm-5;
-$s-color-field-4:         $black-warm-90;
+$theme-color-field-1:         $white-warm-1;
+$theme-color-field-2:         $white-warm-4;
+$theme-color-field-3:         $green-warm-5;
+$theme-color-field-4:         $black-warm-90;
 
 // Error colors
-$s-color-error:           $red-50v;
-$s-color-error-dark:      $red-60;
-$s-color-error-xdark:     $red-70;
-$s-color-error-light:     $red-40v;
-$s-color-error-xlight:    $red-30v;
+$theme-color-error:           $red-50v;
+$theme-color-error-dark:      $red-60;
+$theme-color-error-xdark:     $red-70;
+$theme-color-error-light:     $red-40v;
+$theme-color-error-xlight:    $red-30v;
 
 // Warning colors
-$s-color-warn:            $orange-30v;
-$s-color-warn-dark:       $orange-40;
-$s-color-warn-xdark:      $orange-50;
-$s-color-warn-light:      $orange-20v;
-$s-color-warn-xlight:     $orange-10;
+$theme-color-warn:            $orange-30v;
+$theme-color-warn-dark:       $orange-40;
+$theme-color-warn-xdark:      $orange-50;
+$theme-color-warn-light:      $orange-20v;
+$theme-color-warn-xlight:     $orange-10;
 
 // Success colors
-$s-color-success:         $green-cool-40v;
-$s-color-success-dark:    $green-cool-50;
-$s-color-success-xdark:   $green-cool-70;
-$s-color-success-light:   $green-cool-30v;
-$s-color-success-xlight:  $green-cool-20v;
+$theme-color-success:         $green-cool-40v;
+$theme-color-success-dark:    $green-cool-50;
+$theme-color-success-xdark:   $green-cool-70;
+$theme-color-success-light:   $green-cool-30v;
+$theme-color-success-xlight:  $green-cool-20v;
 
 // OK colors
-$s-color-ok:              $blue-warm-50v;
-$s-color-ok-dark:         $blue-warm-60v;
-$s-color-ok-xdark:        $blue-warm-70;
-$s-color-ok-light:        $blue-warm-40v;
-$s-color-ok-xlight:       $blue-warm-30;
+$theme-color-ok:              $blue-warm-50v;
+$theme-color-ok-dark:         $blue-warm-60v;
+$theme-color-ok-xdark:        $blue-warm-70;
+$theme-color-ok-light:        $blue-warm-40v;
+$theme-color-ok-xlight:       $blue-warm-30;
 
 // Disabled color
-$s-color-disabled:        $black-30;
+$theme-color-disabled:        $black-30;
 
 // Other colors
-$s-color-banner:          $black-90;
-$s-color-highlight:       $gold-20v;
+$theme-color-banner:          $black-90;
+$theme-color-highlight:       $gold-20v;
 
 // ---------------------------------------------
 // BORDER RADIUS
 
 // values  - - - - - - - - - - - - - - - - - - -
-// $s-radius-NN:          $spacing-NN;
+// $theme-radius-NN:          $spacing-NN;
 //                        1px
 //                        2px
 
-$s-radius-sm:             2px;
-$s-radius-md:             $spacing-05;
-$s-radius-lg:             false;
+$theme-radius-sm:             2px;
+$theme-radius-md:             $spacing-05;
+$theme-radius-lg:             false;

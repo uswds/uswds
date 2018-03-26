@@ -4,64 +4,31 @@
 // BREAKPOINTS
 
 // These will be converted to em values based on the
-// value of $i-font-size-base
+// value of $theme-base-font-size
 
-$s-xsmall-screen:   false !default; //400px
-$s-small-screen:    481px !default; //600px
-$s-medium-screen:   600px !default; //800px
-$s-large-screen:    1201px !default; //1000px
-$s-xlarge-screen:   false !default; //1200px
+$theme-xsmall-screen:   false !default; //400px
+$theme-small-screen:    481px !default; //600px
+$theme-medium-screen:   600px !default; //800px
+$theme-large-screen:    1201px !default; //1000px
+$theme-xlarge-screen:   false !default; //1200px
 
 // ---------------------------------------------
 // FONTS
 
 // Relative font and image file paths
 
-$font-path:   '../fonts' !default;
-$s-image-path:  '../img' !default;
+$theme-font-path:   '../fonts' !default;
+$theme-image-path:  '../img' !default;
 
 // Set hed, body, and alt from
-// $i-font-sans
-// $i-font-serif
-// $i-font-mono
+// $theme-font-sans
+// $theme-font-serif
+// $theme-font-mono
 
-$font-hed:    $i-font-sans !default;
-$font-body:   $i-font-serif !default;
-$font-alt:    $i-font-sans !default;
-
-// ---------------------------------------------
-// SPACING
-
-// values  - - - - - - - - - - - - - - - - - - -
-// $font-size-NN:       $spacing-NN;
-//                        1px
-//                        2px
-
-$spacing-3xs:           false !default;
-$spacing-2xs:           false !default;
-$spacing-xs:            $spacing-05 !default;
-$spacing-sm:            $spacing-1 !default;
-$spacing-md:            $spacing-2 !default;
-$spacing-lg:            $spacing-3 !default;
-$spacing-xl:            $spacing-4 !default;
-$spacing-2xl:           $spacing-5 !default;
-$spacing-3xl:           $spacing-9 !default;
-
-// ---------------------------------------------
-// TYPE SCALE
-
-// values  - - - - - - - - - - - - - - - - - - -
-// $font-size-NN:       $type-scale-NN;
-
-$font-size-micro:         $type-scale-1 !default;
-$font-size-smallest:         $type-scale-3 !default;
-$font-size-smaller:          $type-scale-5 !default;
-$font-size-small:          $type-scale-6 !default;
-$font-size-base:          $type-scale-7 !default;
-$font-size-large:          $type-scale-10 !default;
-$font-size-larger:          $type-scale-12 !default;
-$font-size-largest:         $type-scale-14 !default;
-$font-size-mega:         $type-scale-16 !default;
+$theme-font-heading:  $theme-font-sans !default;
+$theme-font-body:     $theme-font-serif !default;
+$theme-font-code:     $theme-font-mono !default;
+$theme-font-alt:      false !default;
 
 /*
 ----------------------------------------
@@ -69,110 +36,110 @@ New type scale
 ----------------------------------------
 */
 
-$type-scale-micro:         s1 !default;
-$type-scale-smallest:      s3 !default;
-$type-scale-smaller:       s5 !default;
-$type-scale-small:         s6 !default;
-$type-scale-base:          s7 !default;
-$type-scale-large:         s10 !default;
-$type-scale-larger:        s12 !default;
-$type-scale-largest:       s14 !default;
-$type-scale-mega:          s16 !default;
+$theme-type-scale-micro:         s1 !default;
+$theme-type-scale-smallest:      s3 !default;
+$theme-type-scale-smaller:       s5 !default;
+$theme-type-scale-small:         s6 !default;
+$theme-type-scale-base:          s7 !default;
+$theme-type-scale-large:         s10 !default;
+$theme-type-scale-larger:        s12 !default;
+$theme-type-scale-largest:       s14 !default;
+$theme-type-scale-mega:          s16 !default;
 
 
 // ---------------------------------------------
 // FONT WEIGHTS
 
 // values  - - - - - - - - - - - - - - - - - - -
-// $s-fw-NN:              100-900 (mults of 100);
+// $theme-fw-NN:              100-900 (mults of 100);
 
-$s-output-all-weights:    false !default;
+$theme-output-all-weights:    false !default;
 
-$s-fw-xlight:             200 !default;
-$s-fw-light:              300 !default;
-$s-fw-normal:             400 !default;
-$s-fw-bold:               600 !default;
-$s-fw-xbold:              700 !default;
+$theme-fw-xlight:             200 !default;
+$theme-fw-light:              300 !default;
+$theme-fw-normal:             400 !default;
+$theme-fw-bold:               600 !default;
+$theme-fw-xbold:              700 !default;
 
 // ---------------------------------------------
 // COLORS
 
 // values  - - - - - - - - - - - - - - - - - - -
-// $s-color-NN:           $NN;
+// $theme-color-NN:           $NN;
 
 // Identity colors
-$s-color-id-1:            $red-warm-50v !default;
-$s-color-id-1-dark:       $red-warm-60 !default;
-$s-color-id-1-xdark:      $red-warm-70 !default;
-$s-color-id-1-light:      $red-warm-40 !default;
-$s-color-id-1-xlight:     $red-warm-20 !default;
+$theme-color-id-1:            $red-warm-50v !default;
+$theme-color-id-1-dark:       $red-warm-60 !default;
+$theme-color-id-1-xdark:      $red-warm-70 !default;
+$theme-color-id-1-light:      $red-warm-40 !default;
+$theme-color-id-1-xlight:     $red-warm-20 !default;
 
-$s-color-id-2:            $indigo-50v !default;
-$s-color-id-2-dark:       $indigo-60v !default;
-$s-color-id-2-xdark:      $indigo-70 !default;
-$s-color-id-2-light:      $indigo-40 !default;
-$s-color-id-2-xlight:     $indigo-20 !default;
+$theme-color-id-2:            $indigo-50v !default;
+$theme-color-id-2-dark:       $indigo-60v !default;
+$theme-color-id-2-xdark:      $indigo-70 !default;
+$theme-color-id-2-light:      $indigo-40 !default;
+$theme-color-id-2-xlight:     $indigo-20 !default;
 
 // Accent colors
-$s-color-accent-1:        $black-warm-80 !default;
-$s-color-accent-2:        $orange-warm-40v !default;
-$s-color-accent-3:        $green-warm-10v !default;
+$theme-color-accent-1:        $black-warm-80 !default;
+$theme-color-accent-2:        $orange-warm-40v !default;
+$theme-color-accent-3:        $green-warm-10v !default;
 
 // UI colors
-$s-color-ui-1:            $black-90 !default;
-$s-color-ui-2:            $black-70 !default;
-$s-color-ui-3:            $black-50 !default;
-$s-color-ui-4:            $black-50 !default;
-$s-color-ui-5:            $black-warm-20 !default;
-$s-color-ui-6:            $blue-warm-60v !default;
+$theme-color-ui-1:            $black-90 !default;
+$theme-color-ui-2:            $black-70 !default;
+$theme-color-ui-3:            $black-50 !default;
+$theme-color-ui-4:            $black-50 !default;
+$theme-color-ui-5:            $black-warm-20 !default;
+$theme-color-ui-6:            $blue-warm-60v !default;
 
 // Text colors
-$s-color-text-1:          $black-90 !default;
-$s-color-text-2:          $blue-warm-60v !default;
-$s-color-text-3:          $black-50 !default;
-$s-color-text-4:          $black-50 !default;
-$s-color-text-inverse:    $white-0 !default;
+$theme-color-text-1:          $black-90 !default;
+$theme-color-text-2:          $blue-warm-60v !default;
+$theme-color-text-3:          $black-50 !default;
+$theme-color-text-4:          $black-50 !default;
+$theme-color-text-inverse:    $white-0 !default;
 
 // Field colors
-$s-color-field-1:         $white-warm-1 !default;
-$s-color-field-2:         $white-warm-4 !default;
-$s-color-field-3:         $green-warm-5 !default;
-$s-color-field-4:         $black-warm-90 !default;
+$theme-color-field-1:         $white-warm-1 !default;
+$theme-color-field-2:         $white-warm-4 !default;
+$theme-color-field-3:         $green-warm-5 !default;
+$theme-color-field-4:         $black-warm-90 !default;
 
 // Error colors
-$s-color-error:           $red-50v !default;
-$s-color-error-dark:      $red-60 !default;
-$s-color-error-xdark:     $red-70 !default;
-$s-color-error-light:     $red-40v !default;
-$s-color-error-xlight:    $red-30v !default;
+$theme-color-error:           $red-50v !default;
+$theme-color-error-dark:      $red-60 !default;
+$theme-color-error-xdark:     $red-70 !default;
+$theme-color-error-light:     $red-40v !default;
+$theme-color-error-xlight:    $red-30v !default;
 
 // Warning colors
-$s-color-warn:            $orange-30v !default;
-$s-color-warn-dark:       $orange-40 !default;
-$s-color-warn-xdark:      $orange-50 !default;
-$s-color-warn-light:      $orange-20v !default;
-$s-color-warn-xlight:     $orange-10 !default;
+$theme-color-warn:            $orange-30v !default;
+$theme-color-warn-dark:       $orange-40 !default;
+$theme-color-warn-xdark:      $orange-50 !default;
+$theme-color-warn-light:      $orange-20v !default;
+$theme-color-warn-xlight:     $orange-10 !default;
 
 // Success colors
-$s-color-success:         $green-cool-40v !default;
-$s-color-success-dark:    $green-cool-50 !default;
-$s-color-success-xdark:   $green-cool-70 !default;
-$s-color-success-light:   $green-cool-30v !default;
-$s-color-success-xlight:  $green-cool-20v !default;
+$theme-color-success:         $green-cool-40v !default;
+$theme-color-success-dark:    $green-cool-50 !default;
+$theme-color-success-xdark:   $green-cool-70 !default;
+$theme-color-success-light:   $green-cool-30v !default;
+$theme-color-success-xlight:  $green-cool-20v !default;
 
 // OK colors
-$s-color-ok:              $blue-warm-50v !default;
-$s-color-ok-dark:         $blue-warm-60v !default;
-$s-color-ok-xdark:        $blue-warm-70 !default;
-$s-color-ok-light:        $blue-warm-40v !default;
-$s-color-ok-xlight:       $blue-warm-30 !default;
+$theme-color-ok:              $blue-warm-50v !default;
+$theme-color-ok-dark:         $blue-warm-60v !default;
+$theme-color-ok-xdark:        $blue-warm-70 !default;
+$theme-color-ok-light:        $blue-warm-40v !default;
+$theme-color-ok-xlight:       $blue-warm-30 !default;
 
 // Disabled color
-$s-color-disabled:        $black-30 !default;
+$theme-color-disabled:        $black-30 !default;
 
 // Other colors
-$s-color-banner:          $black-90 !default;
-$s-color-highlight:       $gold-20v !default;
+$theme-color-banner:          $black-90 !default;
+$theme-color-highlight:       $gold-20v !default;
 
 /*
 ----------------------------------------
@@ -213,14 +180,25 @@ $color-inverse:       white !default;
 $inverse-base:        $color-inverse, 0 !default;
 $inverse-dark:        black, 10 !default;
 
-// ---------------------------------------------
-// BORDER RADIUS
+/*
+----------------------------------------
+Border radius
+----------------------------------------
+eighth          2px
+quarter         4px
+half            8px
+half-plus       12px
+base            16px
+base-plus       24px
+double          32px
+double-plus     40px
+triple          48px
+triple-plus     56px
+quad            64px
+quad-plus       72px
+----------------------------------------
+*/
 
-// values  - - - - - - - - - - - - - - - - - - -
-// $s-radius-NN:          $spacing-NN;
-//                        1px
-//                        2px
-
-$s-radius-sm:             2px !default;
-$s-radius-md:             $spacing-05 !default;
-$s-radius-lg:             false !default;
+$theme-border-radius-small:       eighth !default;
+$theme-border-radius-base:        quarter !default;
+$theme-border-radius-large:       false !default;

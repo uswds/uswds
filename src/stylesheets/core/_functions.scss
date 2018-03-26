@@ -185,15 +185,15 @@ isReadable
 
 /*
 ----------------------------------------
-spacing()
+grid-units()
 ----------------------------------------
 Converts a spacing unit multiple into
 the desired final units (currently rem)
 ----------------------------------------
 */
 
-@function spacing($unit) {
-  $grid-to-rem: strip-unit($i-grid-base) * $unit / strip-unit($i-font-size-base) * 1rem;
+@function grid-units($unit) {
+  $grid-to-rem: strip-unit($i-grid-base) * $unit / strip-unit($theme-base-font-size) * 1rem;
 
   @return $grid-to-rem;
 }
@@ -208,7 +208,7 @@ Converts a value in px to a value in rem
 
 @function px($pixels) {
   @if $pixels {
-    $px-to-rem: strip-unit($pixels) / strip-unit($i-font-size-base) * 1rem;
+    $px-to-rem: strip-unit($pixels) / strip-unit($theme-base-font-size) * 1rem;
 
     @return $px-to-rem;
   }
@@ -227,7 +227,7 @@ Converts a value in px to a value in em
 
 @function px-to-base-em($pixels) {
   @if $pixels {
-    $px-to-base-em: strip-unit($pixels) / strip-unit($i-font-size-base) * 1em;
+    $px-to-base-em: strip-unit($pixels) / strip-unit($theme-base-font-size) * 1em;
 
     @return $px-to-base-em;
   }
@@ -235,6 +235,27 @@ Converts a value in px to a value in em
     @return false;
   }
 }
+
+/*
+----------------------------------------
+cap-height()
+----------------------------------------
+Get the cap height of a defined font
+----------------------------------------
+*/
+
+@function cap-height($font){
+  @if $font == false {
+    @return false;
+  } @else {
+    @return map-deep-get(
+      $all-font-definitions,
+      $font,
+      'cap-height'
+    );
+  }
+};
+
 /*
 ----------------------------------------
 type-scale()
@@ -252,7 +273,76 @@ to a set target
   } @else {
     @return false;
   }
-}
+};
+
+/*
+----------------------------------------
+font()
+----------------------------------------
+Get a normalized font-size in rem from
+a family and a type size in either
+system scale or project scale
+----------------------------------------
+*/
+
+@function font($family, $scale){
+  @if not map-get($project-cap-heights, $family) {
+    @error "#{$family} is not a valid font family.";
+  }
+  @elseif not map-get($all-type-scale, $scale) {
+    @error "#{$scale} is not a valid font scale.";
+  }
+  @else {
+    $this-cap: map-get($project-cap-heights, $family);
+    $this-scale: map-get($all-type-scale, $scale);
+    @if $this-scale and $this-cap {
+      @return type-scale($this-cap, $this-scale);
+    }
+    @else {
+      @warn "You're referencing a false font scale value.";
+      @return false;
+    }
+  }
+};
+
+/*
+----------------------------------------
+spacing()
+----------------------------------------
+Converts a spacing unit multiple into
+the desired final units (currently rem)
+----------------------------------------
+*/
+
+@function spacing($value) {
+  @if map-has-key($uswds-spacing, $value) {
+    @return map-get($uswds-spacing, $value);
+  }
+  @elseif $value == false {
+    @return false;
+  }
+  @else {
+    @error "#{$value} is not a valid spacing value.";
+  }
+};
+
+/*
+----------------------------------------
+line-height()
+----------------------------------------
+Get a line height from the system
+line heights
+----------------------------------------
+*/
+
+@function line-height($value) {
+  @if map-has-key($uswds-line-height, $value) {
+    @return map-get($uswds-line-height, $value);
+  }
+  @else {
+    @error "#{$value} is not a valid line height.";
+  }
+};
 
 /*
 ----------------------------------------
@@ -271,13 +361,13 @@ variable that is, itself, a list
     $props: nth($props,1);
     @if length($props) == 2 {
       @return map-deep-get(
-        $system-colors,
+        $uswds-colors,
         nth($props, 1),
         nth($props, 2)
       );
     } @elseif length($props) == 3 {
       @return map-deep-get(
-        $system-colors,
+        $uswds-colors,
         nth($props, 1),
         nth($props, 3),
         nth($props, 2)
@@ -287,13 +377,13 @@ variable that is, itself, a list
     @return false;
   } @elseif length($props) == 2 {
     @return map-deep-get(
-      $system-colors,
+      $uswds-colors,
       nth($props, 1),
       nth($props, 2)
     );
   } @else {
     @return map-deep-get(
-      $system-colors,
+      $uswds-colors,
       nth($props, 1),
       nth($props, 3),
       nth($props, 2)
@@ -404,7 +494,7 @@ to style placeholder text
   $this-namespace: null;
 
   @if $utility-type == settings {
-    $this-namespace: $s-settings-utilities-namespace;
+    $this-namespace: $theme-settings-utilities-namespace;
   }
   .#{$this-namespace}pl-#{$selector}::placeholder {
     @each $this-property in $property {
@@ -796,19 +886,20 @@ through all possible variants
 }
 
 @mixin render-font-face($this-font-face) {
-  $these-weights: $font-weights;
-  @if $s-output-all-weights {
+  $these-weights: $project-font-weights;
+  @if $theme-output-all-weights {
     $these-weights: (100,200,300,400,500,600,700,800,900);
   }
 
   @if $this-font-face {
-    $this-font-system: map-get($this-font-face, system-font);
+    $this-font: map-get($all-font-definitions, $this-font-face);
+    $this-font-system: map-get($all-font-definitions, system-font);
 
     @if $this-font-system == false {
-      $font-name: map-get($this-font-face, name);
-      $roman: map-get($this-font-face, roman);
-      $italic: map-get($this-font-face, italic);
-      $dir: map-get($this-font-face, dir);
+      $font-name: map-get($this-font, name);
+      $roman: map-get($this-font, roman);
+      $italic: map-get($this-font, italic);
+      $dir: map-get($this-font, dir);
 
       @if $roman {
         @each $weight, $filename in $roman {
@@ -816,7 +907,7 @@ through all possible variants
             @if $outputweight == $weight and $filename {
               @include font-face(
                 '#{$font-name}',
-                '#{$font-path}/#{$dir}/#{$filename}',
+                '#{$theme-font-path}/#{$dir}/#{$filename}',
                 #{$weight},
                 normal,
                 $file-formats: eot woff2 woff ttf
@@ -832,7 +923,7 @@ through all possible variants
             @if $outputweight == $weight and $filename {
               @include font-face(
                 '#{$font-name}',
-                '#{$font-path}/#{$dir}/#{$filename}',
+                '#{$theme-font-path}/#{$dir}/#{$filename}',
                 #{$weight},
                 italic,
                 $file-formats: eot woff2 woff ttf

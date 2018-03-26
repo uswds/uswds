@@ -1,22 +1,22 @@
 /* stylelint-disable */
 
-$font-weights: (
-  $s-fw-xlight,
-  $s-fw-light,
-  $s-fw-normal,
-  $s-fw-bold,
-  $s-fw-xbold
+$project-font-weights: (
+  $theme-fw-xlight,
+  $theme-fw-light,
+  $theme-fw-normal,
+  $theme-fw-bold,
+  $theme-fw-xbold
 );
 
 
-@if $i-font-mono {
-  @include render-font-face($i-font-mono);
+@if $theme-font-mono {
+  @include render-font-face($theme-font-mono);
 }
-@if $i-font-sans {
-  @include render-font-face($i-font-sans);  
+@if $theme-font-sans {
+  @include render-font-face($theme-font-sans);  
 }
-@if $i-font-serif {
-  @include render-font-face($i-font-serif);
+@if $theme-font-serif {
+  @include render-font-face($theme-font-serif);
 }
 // @include render-font-face($font-cond);
 

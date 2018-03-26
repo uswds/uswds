@@ -5,6 +5,8 @@ $plugin-system-font-families: (
   serif:   #{$font-stack-serif},
 );
 
+$plugin-system-line-heights: $uswds-line-height;
+
 $plugin-project-font-weights-all: (
   thin:     100,
   light:    300,
@@ -15,72 +17,26 @@ $plugin-project-font-weights-all: (
   black:    900,
 );
 
-
 $plugin-project-border-radius: (
-  small:        2px,  // TODO: reference project setting
-  base:         4px,  // TODO: reference project setting
-  large:        16px, // TODO: reference project setting
+  small:    spacing($theme-border-radius-small),
+  base:     spacing($theme-border-radius-base),
+  large:    spacing($theme-border-radius-large),
 );
 
-$plugin-project-spacing-all: (
-  pixel:        1px,
-  eighth:       2px,
-  quarter:      $spacing-05,
-  half:         $spacing-1,
-  half-plus:    $spacing-105,
-  base:         $spacing-2,
-  base-plus:    $spacing-3,
-  double:       $spacing-4,
-  double-plus:  $spacing-5,
-  triple:       $spacing-6,
-  triple-plus:  $spacing-7,
-  quad:         $spacing-8,
-  quad-plus:    $spacing-9,
-);
-
-$plugin-project-spacing-small: (
-  pixel:        1px,
-  eighth:       2px,
-  quarter:      $spacing-05,
-);
-
-$plugin-project-spacing-medium: (
-  half:         $spacing-1,
-  half-plus:    $spacing-105,
-  base:         $spacing-2,
-);
-
-$plugin-project-spacing-large: (
-  base-plus:    $spacing-3,
-  double:       $spacing-4,
-  double-plus:  $spacing-5,
-  triple:       $spacing-6,
-);
-
-$plugin-project-spacing-xlarge: (
-  triple-plus:  $spacing-7,
-  quad:         $spacing-8,
-  quad-plus:    $spacing-9,
-);
-
-$plugin-project-spacing-small-negative: (
-  n-pixel:        -1px,
-  n-eighth:       -2px,
-  n-quarter:      -#{$spacing-05},
-);
-
-$plugin-project-spacing-medium-negative: (
-  n-half:         -#{$spacing-1},
-  n-half-plus:    -#{$spacing-105},
-  n-base:         -#{$spacing-2},
-);
+$plugin-project-spacing-all:              $uswds-spacing-named;
+$plugin-project-spacing-small:            $uswds-spacing-named-small;
+$plugin-project-spacing-medium:           $uswds-spacing-named-medium;
+$plugin-project-spacing-large:            $uswds-spacing-named-large;
+$plugin-project-spacing-xlarge:           $uswds-spacing-named-xlarge;
+$plugin-project-spacing-small-negative:   $uswds-spacing-named-small-negative;
+$plugin-project-spacing-medium-negative:  $uswds-spacing-named-medium-negative;
 
 $plugin-project-mono-micro: (
   mono-micro: (
     slug: 'mono-micro',
     isReadable: true,
-    content: $font-size-micro,
-    dependency: $i-font-mono,
+    content: font(mono, micro),
+    dependency: $theme-font-mono,
   ),
 );
 
@@ -88,8 +44,8 @@ $plugin-project-mono-smallest: (
   mono-smallest: (
     slug: 'mono-smallest',
     isReadable: true,
-    content: $font-size-smallest,
-    dependency: $i-font-mono,
+    content: font(mono, smallest),
+    dependency: $theme-font-mono,
   ),
 );
 
@@ -97,8 +53,8 @@ $plugin-project-mono-smaller: (
   mono-smaller: (
     slug: 'mono-smaller',
     isReadable: true,
-    content: $font-size-smaller,
-    dependency: $i-font-mono,
+    content: font(mono, smaller),
+    dependency: $theme-font-mono,
   ),
 );
 
@@ -106,8 +62,8 @@ $plugin-project-mono-small: (
   mono-small: (
     slug: 'mono-small',
     isReadable: true,
-    content: $font-size-small,
-    dependency: $i-font-mono,
+    content: font(mono, small),
+    dependency: $theme-font-mono,
   ),
 );
 
@@ -115,8 +71,8 @@ $plugin-project-mono-base: (
   mono-base: (
     slug: 'mono-base',
     isReadable: true,
-    content: $font-size-base,
-    dependency: $i-font-mono,
+    content: font(mono, base),
+    dependency: $theme-font-mono,
   ),
 );
 
@@ -124,8 +80,8 @@ $plugin-project-mono-large: (
   mono-large: (
     slug: 'mono-large',
     isReadable: true,
-    content: $font-size-large,
-    dependency: $i-font-mono,
+    content: font(mono, large),
+    dependency: $theme-font-mono,
   ),
 );
 
@@ -133,8 +89,8 @@ $plugin-project-mono-larger: (
   mono-larger: (
     slug: 'mono-larger',
     isReadable: true,
-    content: $font-size-larger,
-    dependency: $i-font-mono,
+    content: font(mono, larger),
+    dependency: $theme-font-mono,
   ),
 );
 
@@ -142,8 +98,8 @@ $plugin-project-mono-largest: (
   mono-largest: (
     slug: 'mono-largest',
     isReadable: true,
-    content: $font-size-largest,
-    dependency: $i-font-mono,
+    content: font(mono, largest),
+    dependency: $theme-font-mono,
   ),
 );
 
@@ -151,8 +107,8 @@ $plugin-project-mono-mega: (
   mono-largest: (
     slug: 'mono-mega',
     isReadable: true,
-    content: $font-size-mega,
-    dependency: $i-font-mono,
+    content: font(mono, mega),
+    dependency: $theme-font-mono,
   ),
 );
 
@@ -172,8 +128,8 @@ $plugin-project-sans-micro: (
   sans-micro: (
     slug: 'sans-micro',
     isReadable: true,
-    content: $font-size-micro,
-    dependency: $i-font-sans,
+    content: font(sans, micro),
+    dependency: $theme-font-sans,
   ),
 );
 
@@ -181,8 +137,8 @@ $plugin-project-sans-smallest: (
   sans-smallest: (
     slug: 'sans-smallest',
     isReadable: true,
-    content: $font-size-smallest,
-    dependency: $i-font-sans,
+    content: font(sans, smallest),
+    dependency: $theme-font-sans,
   ),
 );
 
@@ -190,8 +146,8 @@ $plugin-project-sans-smaller: (
   sans-smaller: (
     slug: 'sans-smaller',
     isReadable: true,
-    content: $font-size-smaller,
-    dependency: $i-font-sans,
+    content: font(sans, smaller),
+    dependency: $theme-font-sans,
   ),
 );
 
@@ -199,8 +155,8 @@ $plugin-project-sans-small: (
   sans-small: (
     slug: 'sans-small',
     isReadable: true,
-    content: $font-size-small,
-    dependency: $i-font-sans,
+    content: font(sans, small),
+    dependency: $theme-font-sans,
   ),
 );
 
@@ -208,8 +164,8 @@ $plugin-project-sans-base: (
   sans-base: (
     slug: 'sans-base',
     isReadable: true,
-    content: $font-size-base,
-    dependency: $i-font-sans,
+    content: font(sans, base),
+    dependency: $theme-font-sans,
   ),
 );
 
@@ -217,8 +173,8 @@ $plugin-project-sans-large: (
   sans-large: (
     slug: 'sans-large',
     isReadable: true,
-    content: $font-size-large,
-    dependency: $i-font-sans,
+    content: font(sans, large),
+    dependency: $theme-font-sans,
   ),
 );
 
@@ -226,8 +182,8 @@ $plugin-project-sans-larger: (
   sans-larger: (
     slug: 'sans-larger',
     isReadable: true,
-    content: $font-size-larger,
-    dependency: $i-font-sans,
+    content: font(sans, larger),
+    dependency: $theme-font-sans,
   ),
 );
 
@@ -235,8 +191,8 @@ $plugin-project-sans-largest: (
   sans-largest: (
     slug: 'sans-largest',
     isReadable: true,
-    content: $font-size-largest,
-    dependency: $i-font-sans,
+    content: font(sans, largest),
+    dependency: $theme-font-sans,
   ),
 );
 
@@ -244,8 +200,8 @@ $plugin-project-sans-mega: (
   sans-largest: (
     slug: 'sans-mega',
     isReadable: true,
-    content: $font-size-mega,
-    dependency: $i-font-sans,
+    content: font(sans, mega),
+    dependency: $theme-font-sans,
   ),
 );
 
@@ -265,8 +221,8 @@ $plugin-project-serif-micro: (
   serif-micro: (
     slug: 'serif-micro',
     isReadable: true,
-    content: $font-size-micro,
-    dependency: $i-font-serif,
+    content: font(serif, micro),
+    dependency: $theme-font-serif,
   ),
 );
 
@@ -274,8 +230,8 @@ $plugin-project-serif-smallest: (
   serif-smallest: (
     slug: 'serif-smallest',
     isReadable: true,
-    content: $font-size-smallest,
-    dependency: $i-font-serif,
+    content: font(serif, smallest),
+    dependency: $theme-font-serif,
   ),
 );
 
@@ -283,8 +239,8 @@ $plugin-project-serif-smaller: (
   serif-smaller: (
     slug: 'serif-smaller',
     isReadable: true,
-    content: $font-size-smaller,
-    dependency: $i-font-serif,
+    content: font(serif, smaller),
+    dependency: $theme-font-serif,
   ),
 );
 
@@ -292,8 +248,8 @@ $plugin-project-serif-small: (
   serif-small: (
     slug: 'serif-small',
     isReadable: true,
-    content: $font-size-small,
-    dependency: $i-font-serif,
+    content: font(serif, small),
+    dependency: $theme-font-serif,
   ),
 );
 
@@ -301,8 +257,8 @@ $plugin-project-serif-base: (
   serif-base: (
     slug: 'serif-base',
     isReadable: true,
-    content: $font-size-base,
-    dependency: $i-font-serif,
+    content: font(serif, base),
+    dependency: $theme-font-serif,
   ),
 );
 
@@ -310,8 +266,8 @@ $plugin-project-serif-large: (
   serif-large: (
     slug: 'serif-large',
     isReadable: true,
-    content: $font-size-large,
-    dependency: $i-font-serif,
+    content: font(serif, large),
+    dependency: $theme-font-serif,
   ),
 );
 
@@ -319,8 +275,8 @@ $plugin-project-serif-larger: (
   serif-larger: (
     slug: 'serif-larger',
     isReadable: true,
-    content: $font-size-larger,
-    dependency: $i-font-serif,
+    content: font(serif, larger),
+    dependency: $theme-font-serif,
   ),
 );
 
@@ -328,8 +284,8 @@ $plugin-project-serif-largest: (
   serif-largest: (
     slug: 'serif-largest',
     isReadable: true,
-    content: $font-size-largest,
-    dependency: $i-font-serif,
+    content: font(serif, largest),
+    dependency: $theme-font-serif,
   ),
 );
 
@@ -337,8 +293,8 @@ $plugin-project-serif-mega: (
   serif-largest: (
     slug: 'serif-mega',
     isReadable: true,
-    content: $font-size-mega,
-    dependency: $i-font-serif,
+    content: font(serif, mega),
+    dependency: $theme-font-serif,
   ),
 );
 

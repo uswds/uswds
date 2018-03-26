@@ -34,20 +34,52 @@ $font-stack-serif:  false;
 $font-stack-mono:   false;
 $font-stack-cond:   false;
 
-@if $i-font-sans {
-  $font-stack-sans: map-get($i-font-sans, name), map-get($i-font-sans, stack);
+@if $theme-font-sans {
+  $font-stack-sans: map-deep-get(
+    $all-font-definitions,
+    $theme-font-sans,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-sans,
+    'stack'
+  );
 }
 
-@if $i-font-serif {
-  $font-stack-serif: map-get($i-font-serif, name), map-get($i-font-serif, stack);
+@if $theme-font-serif {
+  $font-stack-serif: map-deep-get(
+    $all-font-definitions,
+    $theme-font-serif,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-serif,
+    'stack'
+  );
 }
 
-@if $i-font-mono {
-  $font-stack-mono: map-get($i-font-mono, name), map-get($i-font-mono, stack);
+@if $theme-font-mono {
+  $font-stack-mono: map-deep-get(
+    $all-font-definitions,
+    $theme-font-mono,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-mono,
+    'stack'
+  );
 }
 
-@if $i-font-cond {
-  $font-stack-cond: map-get($i-font-cond, name), map-get($i-font-cond, stack);
+@if $theme-font-cond {
+  $font-stack-cond: map-deep-get(
+    $all-font-definitions,
+    $theme-font-cond,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-cond,
+    'stack'
+  );
 }
 
 // for backward compatibility
@@ -67,19 +99,19 @@ namespace var set in utlities-settings?
 ----------------------------------------
 */
 
-@if $i-font-mono {
+@if $theme-font-mono {
   *[class*='font-mono'], .font-family-mono { font-family: $font-stack-mono; }
 }
 
-@if $i-font-sans {
+@if $theme-font-sans {
   *[class*='font-sans'], .font-family-sans { font-family: $font-stack-sans; }
 }
 
-@if $i-font-serif {
+@if $theme-font-serif {
   *[class*='font-serif'], .font-family-serif { font-family: $font-stack-serif; }
 }
 
-@if $i-font-cond {
+@if $theme-font-cond {
   *[class*='font-cond'], .font-family-cond { font-family: $font-stack-cond; }
 }
 
@@ -92,12 +124,12 @@ TODO: Still needed?
 ----------------------------------------
 */
 
-$font-weights: (
-  $s-fw-xlight,
-  $s-fw-light,
-  $s-fw-normal,
-  $s-fw-bold,
-  $s-fw-xbold
+$project-font-weights: (
+  $theme-fw-xlight,
+  $theme-fw-light,
+  $theme-fw-normal,
+  $theme-fw-bold,
+  $theme-fw-xbold
 );
 
 $project-colors : (
@@ -137,7 +169,7 @@ $project-colors : (
 );
 
 $all-colors: map-collect(
-  $system-colors,
+  $uswds-colors,
   $project-colors
 );
 
@@ -147,56 +179,41 @@ Build the project type scale map
 ----------------------------------------
 */
 
+@function system-type-scale($scale){
+  @if $scale and map-has-key($uswds-type-scale, $scale){
+    @return map-get($uswds-type-scale, $scale);
+  }
+  @else {
+    @return false;
+  }
+};
+
 $project-type-scale: (
-  micro: system-type-scale($type-scale-micro),
-  smallest: system-type-scale($type-scale-smallest),
-  smaller: system-type-scale($type-scale-smaller),
-  small: system-type-scale($type-scale-small),
-  base: system-type-scale($type-scale-base),
-  large: system-type-scale($type-scale-large),
-  larger: system-type-scale($type-scale-larger),
-  largest: system-type-scale($type-scale-largest),
-  mega: system-type-scale($type-scale-mega),
+  micro: system-type-scale($theme-type-scale-micro),
+  smallest: system-type-scale($theme-type-scale-smallest),
+  smaller: system-type-scale($theme-type-scale-smaller),
+  small: system-type-scale($theme-type-scale-small),
+  base: system-type-scale($theme-type-scale-base),
+  large: system-type-scale($theme-type-scale-large),
+  larger: system-type-scale($theme-type-scale-larger),
+  largest: system-type-scale($theme-type-scale-largest),
+  mega: system-type-scale($theme-type-scale-mega),
 );
 
 $all-type-scale: map-collect(
-  $system-type-scale,
+  $uswds-type-scale,
   $project-type-scale
 );
 
-
-@function simple-font($size){
-  @return map-get($all-type-scale, $size);
-}
-
-@function cap-height($size){
-  @return map-get($all-type-scale, $size);
-}
-
-// 1. set the fonts in settings
-$theme-font-mono:   'roboto-mono';
-$theme-font-sans:   'united-sans';
-$theme-font-serif:  false;
-
-// TODO: font definitions packaged in a map
-
-// 2. get cap-height from theme font definition
-/*
-$cap-heights:(
-  mono:   cap-height($theme-font-mono),
-  sans:   cap-height($theme-font-sans),
-  serif:  cap-height($theme-font-serif),
-)
-*/
-
-// 3. get cap-height from theme font definition
-/*
-  font($family, $size){
-    $this-cap: map-get($cap-heights, $family);
-    @return type-scale($this-cap, $size);
-}
-
-*/
+$project-cap-heights:(
+  mono:     cap-height($theme-font-mono),
+  sans:     cap-height($theme-font-sans),
+  serif:    cap-height($theme-font-serif),
+  heading:  cap-height($theme-font-heading),
+  body:     cap-height($theme-font-body),
+  code:     cap-height($theme-font-code),
+  alt:      cap-height($theme-font-alt),
+);
 
 /*
 ----------------------------------------
@@ -205,11 +222,11 @@ Breakpoints as em
 */
 
 $spacing-breakpoints-em: (
-  xs:   px-to-base-em($s-xsmall-screen),
-  sm:   px-to-base-em($s-small-screen),
-  md:   px-to-base-em($s-medium-screen),
-  lg:   px-to-base-em($s-large-screen),
-  xl:   px-to-base-em($s-xlarge-screen),
+  xs:   px-to-base-em($theme-xsmall-screen),
+  sm:   px-to-base-em($theme-small-screen),
+  md:   px-to-base-em($theme-medium-screen),
+  lg:   px-to-base-em($theme-large-screen),
+  xl:   px-to-base-em($theme-xlarge-screen),
 );
 
 /*
@@ -403,7 +420,7 @@ of the values in settings
 ----------------------------------------
 */
 
-$font-path:   '../fonts' !default;
+$theme-font-path:   '../fonts' !default;
 $image-path:  '../img' !default;
 
 /*

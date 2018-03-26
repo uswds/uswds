@@ -21,16 +21,16 @@ $mono-cap-height:         false;
 $sans-cap-height:         false;
 $serif-cap-height:        false;
 
-@if $i-font-mono {
-  $mono-cap-height: map-get($i-font-mono, cap-height);
+@if $theme-font-mono {
+  $mono-cap-height: cap-height($theme-font-mono);
 }
 
-@if $i-font-sans {
-  $sans-cap-height: map-get($i-font-sans, cap-height);
+@if $theme-font-sans {
+  $sans-cap-height: cap-height($theme-font-sans);
 }
 
-@if $i-font-serif {
-  $serif-cap-height: map-get($i-font-serif, cap-height);
+@if $theme-font-serif {
+  $serif-cap-height: cap-height($theme-font-serif);
 }
 
 /*
@@ -39,40 +39,109 @@ Spacing grid
 ----------------------------------------
 */
 
-$spacing-05:             spacing(.5);    // 4px
-$spacing-1:              spacing(1);     // 8px
-$spacing-105:            spacing(1.5);   // 12px
-$spacing-2:              spacing(2);     // 16px
-$spacing-205:            spacing(2.5);   // 20px
-$spacing-3:              spacing(3);     // 24px
-$spacing-4:              spacing(4);     // 32px
-$spacing-5:              spacing(5);     // 40px
-$spacing-6:              spacing(6);     // 48px
-$spacing-7:              spacing(7);     // 56px
-$spacing-8:              spacing(8);     // 64px
-$spacing-9:              spacing(9);     // 72px
-$spacing-10:             spacing(10);    // 80px
-$spacing-15:             spacing(15);    // 80px
-$spacing-20:             spacing(20);    // 160px
-$spacing-25:             spacing(25);    // 200px
-$spacing-30:             spacing(30);    // 240px
-$spacing-40:             spacing(40);    // 320px
-$spacing-50:             spacing(50);    // 400px
+$uswds-spacing-small: (
+  '05':             grid-units(.5),
+  '1':              grid-units(1),
+  '105':            grid-units(1.5),
+  '2':              grid-units(2),
+);
 
-/*
-----------------------------------------
-Negative spacing grid
-----------------------------------------
-*/
+$uswds-spacing-medium: (
+  '205':            grid-units(2.5),
+  '3':              grid-units(3),
+  '4':              grid-units(4),
+  '5':              grid-units(5),
+);
 
-$spacing-n05:            spacing(-0.5);   // -4px
-$spacing-n1:             spacing(-1);     // -8px
-$spacing-n105:           spacing(-1.5);   // -12px
-$spacing-n2:             spacing(-2);     // -16px
-$spacing-n205:           spacing(-2.5);   // -20px
-$spacing-n3:             spacing(-3);     // -24px
-$spacing-n4:             spacing(-4);     // -32px
-$spacing-n5:             spacing(-5);     // -40px
+$uswds-spacing-large: (
+  '6':              grid-units(6),
+  '7':              grid-units(7),
+  '8':              grid-units(8),
+  '9':              grid-units(9),
+  '10':             grid-units(10),
+);
+
+$uswds-spacing-xlarge: (
+  '15':             grid-units(15),
+  '20':             grid-units(20),
+  '25':             grid-units(25),
+  '30':             grid-units(30),
+  '40':             grid-units(40),
+  '50':             grid-units(50),
+);
+
+$uswds-spacing-small-negative: (
+  'n-05':           grid-units(-0.5),
+  'n-1':            grid-units(-1),
+  'n-105':          grid-units(-1.5),
+  'n-2':            grid-units(-2),
+);
+
+$uswds-spacing-medium-negative: (
+  'n-205':          grid-units(-2.5),
+  'n-3':            grid-units(-3),
+  'n-4':            grid-units(-4),
+  'n-5':            grid-units(-5),
+);
+
+$uswds-spacing-named-small: (
+  'pixel':          1px,
+  'eighth':         2px,
+  'quarter':        grid-units(.5),
+);
+
+$uswds-spacing-named-medium: (
+  'half':           grid-units(1),
+  'half-plus':      grid-units(1.5),
+  'base':           grid-units(2),
+);
+
+$uswds-spacing-named-large: (
+  'base-plus':      grid-units(3),
+  'double':         grid-units(4),
+  'double-plus':    grid-units(5),
+  'triple':         grid-units(6),
+);
+
+$uswds-spacing-named-xlarge: (
+  'triple-plus':    grid-units(7),
+  'quad':           grid-units(8),
+  'quad-plus':      grid-units(9),
+);
+
+$uswds-spacing-named-small-negative: (
+  'n-pixel':          -1px,
+  'n-eighth':         -2px,
+  'n-quarter':        grid-units(-.5),
+);
+
+$uswds-spacing-named-medium-negative: (
+  'n-half':           grid-units(-1),
+  'n-half-plus':      grid-units(-1.5),
+  'n-base':           grid-units(-2),
+);
+
+$uswds-spacing-named: map-collect(
+  $uswds-spacing-named-small,
+  $uswds-spacing-named-medium,
+  $uswds-spacing-named-large,
+  $uswds-spacing-named-xlarge
+);
+
+$uswds-spacing: map-collect(
+  $uswds-spacing-small,
+  $uswds-spacing-medium,
+  $uswds-spacing-large,
+  $uswds-spacing-xlarge,
+  $uswds-spacing-small-negative,
+  $uswds-spacing-medium-negative,
+  $uswds-spacing-named-small,
+  $uswds-spacing-named-medium,
+  $uswds-spacing-named-large,
+  $uswds-spacing-named-xlarge,
+  $uswds-spacing-named-small-negative,
+  $uswds-spacing-named-medium-negative
+);
 
 /*
 ----------------------------------------
@@ -80,112 +149,28 @@ Type scale
 ----------------------------------------
 */
 
-$type-scale-1:             12px;   // +1
-$type-scale-2:             13px;   // +1
-$type-scale-3:             14px;   // +1
-$type-scale-4:             15px;   // +1
-$type-scale-5:             16px;   // +1
-$type-scale-6:             17px;   // +1
-$type-scale-7:             18px;   // +2
-$type-scale-8:             20px;   // +2
-$type-scale-9:             22px;   // +2
-$type-scale-10:             24px;   // +4
-$type-scale-11:             28px;   // +4
-$type-scale-12:             32px;   // +4
-$type-scale-13:             36px;   // +4
-$type-scale-14:             40px;   // +8
-$type-scale-15:             48px;   // +8
-$type-scale-16:             56px;   // +8
-$type-scale-17:             64px;   // +16
-$type-scale-18:             80px;   // +40
-$type-scale-19:            120px;  // +20
-$type-scale-20:            140px;
-
-$system-type-scale: (
-  s1:   12px;
-  s2:   13px;
-  s3:   14px;
-  s4:   15px;
-  s5:   16px; 
-  s6:   17px;
-  s7:   18px;
-  s8:   20px;
-  s9:   22px;
-  s10:  24px;
-  s11:  28px;
-  s12:  32px;
-  s13:  36px;
-  s14:  40px;
-  s15:  48px;
-  s16:  56px;
-  s17:  64px;
-  s18:  80px;
-  s19:  120px;
-  s20:  140px;
+$uswds-type-scale: (
+  s1:   12px,
+  s2:   13px,
+  s3:   14px,
+  s4:   15px,
+  s5:   16px,
+  s6:   17px,
+  s7:   18px,
+  s8:   20px,
+  s9:   22px,
+  s10:  24px,
+  s11:  28px,
+  s12:  32px,
+  s13:  36px,
+  s14:  40px,
+  s15:  48px,
+  s16:  56px,
+  s17:  64px,
+  s18:  80px,
+  s19:  120px,
+  s20:  140px,
 );
-
-$u-mono-1:   type-scale($mono-cap-height, $type-scale-1);
-$u-mono-2:   type-scale($mono-cap-height, $type-scale-2);
-$u-mono-3:   type-scale($mono-cap-height, $type-scale-3);
-$u-mono-4:   type-scale($mono-cap-height, $type-scale-4);
-$u-mono-5:   type-scale($mono-cap-height, $type-scale-5);
-$u-mono-6:   type-scale($mono-cap-height, $type-scale-6);
-$u-mono-7:   type-scale($mono-cap-height, $type-scale-7);
-$u-mono-8:   type-scale($mono-cap-height, $type-scale-8);
-$u-mono-9:   type-scale($mono-cap-height, $type-scale-9);
-$u-mono-10:  type-scale($mono-cap-height, $type-scale-10);
-$u-mono-11:  type-scale($mono-cap-height, $type-scale-11);
-$u-mono-12:  type-scale($mono-cap-height, $type-scale-12);
-$u-mono-13:  type-scale($mono-cap-height, $type-scale-13);
-$u-mono-14:  type-scale($mono-cap-height, $type-scale-14);
-$u-mono-15:  type-scale($mono-cap-height, $type-scale-15);
-$u-mono-16:  type-scale($mono-cap-height, $type-scale-16);
-$u-mono-17:  type-scale($mono-cap-height, $type-scale-17);
-$u-mono-18:  type-scale($mono-cap-height, $type-scale-18);
-$u-mono-19:  type-scale($mono-cap-height, $type-scale-19);
-$u-mono-20:  type-scale($mono-cap-height, $type-scale-20);
-
-$u-sans-1:   type-scale($sans-cap-height, $type-scale-1);
-$u-sans-2:   type-scale($sans-cap-height, $type-scale-2);
-$u-sans-3:   type-scale($sans-cap-height, $type-scale-3);
-$u-sans-4:   type-scale($sans-cap-height, $type-scale-4);
-$u-sans-5:   type-scale($sans-cap-height, $type-scale-5);
-$u-sans-6:   type-scale($sans-cap-height, $type-scale-6);
-$u-sans-7:   type-scale($sans-cap-height, $type-scale-7);
-$u-sans-8:   type-scale($sans-cap-height, $type-scale-8);
-$u-sans-9:   type-scale($sans-cap-height, $type-scale-9);
-$u-sans-10:  type-scale($sans-cap-height, $type-scale-10);
-$u-sans-11:  type-scale($sans-cap-height, $type-scale-11);
-$u-sans-12:  type-scale($sans-cap-height, $type-scale-12);
-$u-sans-13:  type-scale($sans-cap-height, $type-scale-13);
-$u-sans-14:  type-scale($sans-cap-height, $type-scale-14);
-$u-sans-15:  type-scale($sans-cap-height, $type-scale-15);
-$u-sans-16:  type-scale($sans-cap-height, $type-scale-16);
-$u-sans-17:  type-scale($sans-cap-height, $type-scale-17);
-$u-sans-18:  type-scale($sans-cap-height, $type-scale-18);
-$u-sans-19:  type-scale($sans-cap-height, $type-scale-19);
-$u-sans-20:  type-scale($sans-cap-height, $type-scale-20);
-
-$u-serif-1:  type-scale($serif-cap-height, $type-scale-1);
-$u-serif-2:  type-scale($serif-cap-height, $type-scale-2);
-$u-serif-3:  type-scale($serif-cap-height, $type-scale-3);
-$u-serif-4:  type-scale($serif-cap-height, $type-scale-4);
-$u-serif-5:  type-scale($serif-cap-height, $type-scale-5);
-$u-serif-6:  type-scale($serif-cap-height, $type-scale-6);
-$u-serif-7:  type-scale($serif-cap-height, $type-scale-7);
-$u-serif-8:  type-scale($serif-cap-height, $type-scale-8);
-$u-serif-9:  type-scale($serif-cap-height, $type-scale-9);
-$u-serif-10: type-scale($serif-cap-height, $type-scale-10);
-$u-serif-11: type-scale($serif-cap-height, $type-scale-11);
-$u-serif-12: type-scale($serif-cap-height, $type-scale-12);
-$u-serif-13: type-scale($serif-cap-height, $type-scale-13);
-$u-serif-14: type-scale($serif-cap-height, $type-scale-14);
-$u-serif-15: type-scale($serif-cap-height, $type-scale-15);
-$u-serif-16: type-scale($serif-cap-height, $type-scale-16);
-$u-serif-17: type-scale($serif-cap-height, $type-scale-17);
-$u-serif-18: type-scale($serif-cap-height, $type-scale-18);
-$u-serif-19: type-scale($serif-cap-height, $type-scale-19);
-$u-serif-20: type-scale($serif-cap-height, $type-scale-20);
 
 /*
 ----------------------------------------
@@ -206,6 +191,15 @@ Line height
 ----------------------------------------
 */
 
+$uswds-line-height:(
+  smallest:	                1,
+  smaller:	                1.1,
+  small:	                  1.35,
+  base:	                    1.5,
+  large:	                  1.62,
+  larger:	                  1.75,
+);
+
 $u-lh-single:	              1;
 $u-lh-heading:	            1.1;
 $u-lh-heading-loose:	      1.35;
@@ -223,7 +217,7 @@ stored as YAML.
 ----------------------------------------
 */
 
-$system-colors: (
+$uswds-colors: (
   red: (
     5 :          #fcf5f5,
     10:          #f7ddda,

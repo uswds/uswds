@@ -14,7 +14,7 @@ $plugin-system-mono-1: (
   mono-1: (
     slug: 'mono-1',
     isReadable: true,
-    content: $u-mono-1,
+    content: font(mono, s1),
   ),
 );
 
@@ -22,7 +22,7 @@ $plugin-system-mono-2: (
   mono-2: (
     slug: 'mono-2',
     isReadable: true,
-    content: $u-mono-2,
+    content: font(mono, s2),
   ),
 );
 
@@ -30,7 +30,7 @@ $plugin-system-mono-3: (
   mono-3: (
     slug: 'mono-3',
     isReadable: true,
-    content: $u-mono-3,
+    content: font(mono, s3),
   ),
 );
 
@@ -38,7 +38,7 @@ $plugin-system-mono-4: (
   mono-4: (
     slug: 'mono-4',
     isReadable: true,
-    content: $u-mono-4,
+    content: font(mono, s4),
   ),
 );
 
@@ -46,7 +46,7 @@ $plugin-system-mono-5: (
   mono-5: (
     slug: 'mono-5',
     isReadable: true,
-    content: $u-mono-5,
+    content: font(mono, s5),
   ),
 );
 
@@ -54,7 +54,7 @@ $plugin-system-mono-6: (
   mono-6: (
     slug: 'mono-6',
     isReadable: true,
-    content: $u-mono-6,
+    content: font(mono, s6),
   ),
 );
 
@@ -62,7 +62,7 @@ $plugin-system-mono-7: (
   mono-7: (
     slug: 'mono-7',
     isReadable: true,
-    content: $u-mono-7,
+    content: font(mono, s7),
   ),
 );
 
@@ -70,7 +70,7 @@ $plugin-system-mono-8: (
   mono-8: (
     slug: 'mono-8',
     isReadable: true,
-    content: $u-mono-8,
+    content: font(mono, s8),
   ),
 );
 
@@ -78,7 +78,7 @@ $plugin-system-mono-9: (
   mono-9: (
     slug: 'mono-9',
     isReadable: true,
-    content: $u-mono-9,
+    content: font(mono, s9),
   ),
 );
 
@@ -86,7 +86,7 @@ $plugin-system-mono-10: (
   mono-10: (
     slug: 'mono-10',
     isReadable: true,
-    content: $u-mono-10,
+    content: font(mono, s10),
   ),
 );
 
@@ -94,7 +94,7 @@ $plugin-system-mono-11: (
   mono-11: (
     slug: 'mono-11',
     isReadable: true,
-    content: $u-mono-11,
+    content: font(mono, s11),
   ),
 );
 
@@ -102,7 +102,7 @@ $plugin-system-mono-12: (
   mono-12: (
     slug: 'mono-12',
     isReadable: true,
-    content: $u-mono-12,
+    content: font(mono, s12),
   ),
 );
 
@@ -110,7 +110,7 @@ $plugin-system-mono-13: (
   mono-13: (
     slug: 'mono-13',
     isReadable: true,
-    content: $u-mono-13,
+    content: font(mono, s13),
   ),
 );
 
@@ -118,7 +118,7 @@ $plugin-system-mono-14: (
   mono-14: (
     slug: 'mono-14',
     isReadable: true,
-    content: $u-mono-14,
+    content: font(mono, s14),
   ),
 );
 
@@ -126,7 +126,7 @@ $plugin-system-mono-15: (
   mono-15: (
     slug: 'mono-15',
     isReadable: true,
-    content: $u-mono-15,
+    content: font(mono, s15),
   ),
 );
 
@@ -134,7 +134,7 @@ $plugin-system-mono-16: (
   mono-16: (
     slug: 'mono-16',
     isReadable: true,
-    content: $u-mono-16,
+    content: font(mono, s16),
   ),
 );
 
@@ -142,7 +142,7 @@ $plugin-system-mono-17: (
   mono-17: (
     slug: 'mono-17',
     isReadable: true,
-    content: $u-mono-17,
+    content: font(mono, s17),
   ),
 );
 
@@ -150,7 +150,7 @@ $plugin-system-mono-18: (
   mono-18: (
     slug: 'mono-18',
     isReadable: true,
-    content: $u-mono-18,
+    content: font(mono, s18),
   ),
 );
 
@@ -158,7 +158,7 @@ $plugin-system-mono-19: (
   mono-19: (
     slug: 'mono-19',
     isReadable: true,
-    content: $u-mono-19,
+    content: font(mono, s19),
   ),
 );
 
@@ -166,7 +166,7 @@ $plugin-system-mono-20: (
   mono-20: (
     slug: 'mono-20',
     isReadable: true,
-    content: $u-mono-20,
+    content: font(mono, s20),
   ),
 );
 
@@ -213,7 +213,7 @@ $plugin-system-sans-1: (
   sans-1: (
     slug: 'sans-1',
     isReadable: true,
-    content: $u-sans-1,
+    content: font(sans, s1),
   ),
 );
 
@@ -221,7 +221,7 @@ $plugin-system-sans-2: (
   sans-2: (
     slug: 'sans-2',
     isReadable: true,
-    content: $u-sans-2,
+    content: font(sans, s2),
   ),
 );
 
@@ -229,7 +229,7 @@ $plugin-system-sans-3: (
   sans-3: (
     slug: 'sans-3',
     isReadable: true,
-    content: $u-sans-3,
+    content: font(sans, s3),
   ),
 );
 
@@ -237,7 +237,7 @@ $plugin-system-sans-4: (
   sans-4: (
     slug: 'sans-4',
     isReadable: true,
-    content: $u-sans-4,
+    content: font(sans, s4),
   ),
 );
 
@@ -245,7 +245,7 @@ $plugin-system-sans-5: (
   sans-5: (
     slug: 'sans-5',
     isReadable: true,
-    content: $u-sans-5,
+    content: font(sans, s5),
   ),
 );
 
@@ -253,7 +253,7 @@ $plugin-system-sans-6: (
   sans-6: (
     slug: 'sans-6',
     isReadable: true,
-    content: $u-sans-6,
+    content: font(sans, s6),
   ),
 );
 
@@ -261,7 +261,7 @@ $plugin-system-sans-7: (
   sans-7: (
     slug: 'sans-7',
     isReadable: true,
-    content: $u-sans-7,
+    content: font(sans, s7),
   ),
 );
 
@@ -269,7 +269,7 @@ $plugin-system-sans-8: (
   sans-8: (
     slug: 'sans-8',
     isReadable: true,
-    content: $u-sans-8,
+    content: font(sans, s8),
   ),
 );
 
@@ -277,7 +277,7 @@ $plugin-system-sans-9: (
   sans-9: (
     slug: 'sans-9',
     isReadable: true,
-    content: $u-sans-9,
+    content: font(sans, s9),
   ),
 );
 
@@ -285,7 +285,7 @@ $plugin-system-sans-10: (
   sans-10: (
     slug: 'sans-10',
     isReadable: true,
-    content: $u-sans-10,
+    content: font(sans, s10),
   ),
 );
 
@@ -293,7 +293,7 @@ $plugin-system-sans-11: (
   sans-11: (
     slug: 'sans-11',
     isReadable: true,
-    content: $u-sans-11,
+    content: font(sans, s11),
   ),
 );
 
@@ -301,7 +301,7 @@ $plugin-system-sans-12: (
   sans-12: (
     slug: 'sans-12',
     isReadable: true,
-    content: $u-sans-12,
+    content: font(sans, s12),
   ),
 );
 
@@ -309,7 +309,7 @@ $plugin-system-sans-13: (
   sans-13: (
     slug: 'sans-13',
     isReadable: true,
-    content: $u-sans-13,
+    content: font(sans, s13),
   ),
 );
 
@@ -317,7 +317,7 @@ $plugin-system-sans-14: (
   sans-14: (
     slug: 'sans-14',
     isReadable: true,
-    content: $u-sans-14,
+    content: font(sans, s14),
   ),
 );
 
@@ -325,7 +325,7 @@ $plugin-system-sans-15: (
   sans-15: (
     slug: 'sans-15',
     isReadable: true,
-    content: $u-sans-15,
+    content: font(sans, s15),
   ),
 );
 
@@ -333,7 +333,7 @@ $plugin-system-sans-16: (
   sans-16: (
     slug: 'sans-16',
     isReadable: true,
-    content: $u-sans-16,
+    content: font(sans, s16),
   ),
 );
 
@@ -341,7 +341,7 @@ $plugin-system-sans-17: (
   sans-17: (
     slug: 'sans-17',
     isReadable: true,
-    content: $u-sans-17,
+    content: font(sans, s17),
   ),
 );
 
@@ -349,7 +349,7 @@ $plugin-system-sans-18: (
   sans-18: (
     slug: 'sans-18',
     isReadable: true,
-    content: $u-sans-18,
+    content: font(sans, s18),
   ),
 );
 
@@ -357,7 +357,7 @@ $plugin-system-sans-19: (
   sans-19: (
     slug: 'sans-19',
     isReadable: true,
-    content: $u-sans-19,
+    content: font(sans, s19),
   ),
 );
 
@@ -365,7 +365,7 @@ $plugin-system-sans-20: (
   sans-20: (
     slug: 'sans-20',
     isReadable: true,
-    content: $u-sans-20,
+    content: font(sans, s20),
   ),
 );
 
@@ -412,7 +412,7 @@ $plugin-system-serif-1: (
   serif-1: (
     slug: 'serif-1',
     isReadable: true,
-    content: $u-serif-1,
+    content: font(serif, s1),
   ),
 );
 
@@ -420,7 +420,7 @@ $plugin-system-serif-2: (
   serif-2: (
     slug: 'serif-2',
     isReadable: true,
-    content: $u-serif-2,
+    content: font(serif, s2),
   ),
 );
 
@@ -428,7 +428,7 @@ $plugin-system-serif-3: (
   serif-3: (
     slug: 'serif-3',
     isReadable: true,
-    content: $u-serif-3,
+    content: font(serif, s3),
   ),
 );
 
@@ -436,7 +436,7 @@ $plugin-system-serif-4: (
   serif-4: (
     slug: 'serif-4',
     isReadable: true,
-    content: $u-serif-4,
+    content: font(serif, s4),
   ),
 );
 
@@ -444,7 +444,7 @@ $plugin-system-serif-5: (
   serif-5: (
     slug: 'serif-5',
     isReadable: true,
-    content: $u-serif-5,
+    content: font(serif, s5),
   ),
 );
 
@@ -452,7 +452,7 @@ $plugin-system-serif-6: (
   serif-6: (
     slug: 'serif-6',
     isReadable: true,
-    content: $u-serif-6,
+    content: font(serif, s6),
   ),
 );
 
@@ -460,7 +460,7 @@ $plugin-system-serif-7: (
   serif-7: (
     slug: 'serif-7',
     isReadable: true,
-    content: $u-serif-7,
+    content: font(serif, s7),
   ),
 );
 
@@ -468,7 +468,7 @@ $plugin-system-serif-8: (
   serif-8: (
     slug: 'serif-8',
     isReadable: true,
-    content: $u-serif-8,
+    content: font(serif, s8),
   ),
 );
 
@@ -476,7 +476,7 @@ $plugin-system-serif-9: (
   serif-9: (
     slug: 'serif-9',
     isReadable: true,
-    content: $u-serif-9,
+    content: font(serif, s9),
   ),
 );
 
@@ -484,7 +484,7 @@ $plugin-system-serif-10: (
   serif-10: (
     slug: 'serif-10',
     isReadable: true,
-    content: $u-serif-10,
+    content: font(serif, s10),
   ),
 );
 
@@ -492,7 +492,7 @@ $plugin-system-serif-11: (
   serif-11: (
     slug: 'serif-11',
     isReadable: true,
-    content: $u-serif-11,
+    content: font(serif, s11),
   ),
 );
 
@@ -500,7 +500,7 @@ $plugin-system-serif-12: (
   serif-12: (
     slug: 'serif-12',
     isReadable: true,
-    content: $u-serif-12,
+    content: font(serif, s12),
   ),
 );
 
@@ -508,7 +508,7 @@ $plugin-system-serif-13: (
   serif-13: (
     slug: 'serif-13',
     isReadable: true,
-    content: $u-serif-13,
+    content: font(serif, s13),
   ),
 );
 
@@ -516,7 +516,7 @@ $plugin-system-serif-14: (
   serif-14: (
     slug: 'serif-14',
     isReadable: true,
-    content: $u-serif-14,
+    content: font(serif, s14),
   ),
 );
 
@@ -524,7 +524,7 @@ $plugin-system-serif-15: (
   serif-15: (
     slug: 'serif-15',
     isReadable: true,
-    content: $u-serif-15,
+    content: font(serif, s15),
   ),
 );
 
@@ -532,7 +532,7 @@ $plugin-system-serif-16: (
   serif-16: (
     slug: 'serif-16',
     isReadable: true,
-    content: $u-serif-16,
+    content: font(serif, s16),
   ),
 );
 
@@ -540,7 +540,7 @@ $plugin-system-serif-17: (
   serif-17: (
     slug: 'serif-17',
     isReadable: true,
-    content: $u-serif-17,
+    content: font(serif, s17),
   ),
 );
 
@@ -548,7 +548,7 @@ $plugin-system-serif-18: (
   serif-18: (
     slug: 'serif-18',
     isReadable: true,
-    content: $u-serif-18,
+    content: font(serif, s18),
   ),
 );
 
@@ -556,7 +556,7 @@ $plugin-system-serif-19: (
   serif-19: (
     slug: 'serif-19',
     isReadable: true,
-    content: $u-serif-19,
+    content: font(serif, s19),
   ),
 );
 
@@ -564,7 +564,7 @@ $plugin-system-serif-20: (
   serif-20: (
     slug: 'serif-20',
     isReadable: true,
-    content: $u-serif-20,
+    content: font(serif, s20),
   ),
 );
 

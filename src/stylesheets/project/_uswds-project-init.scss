@@ -25,7 +25,7 @@ for rem calculations
 ----------------------------------------
 */
 
-$i-font-size-base: 16px;
+$theme-base-font-size: 16px;
 
 /*
 ----------------------------------------
@@ -33,7 +33,7 @@ Custom font definitions
 ----------------------------------------
 $font-new : (
   name: "Font Display Name",
-  dir: "united-sans", // relative to settings.$font-path
+  dir: "united-sans", // relative to settings.$theme-font-path
   stack: $font-stack-system,
   system-font: false,
   cap-height: "364px", // height of a 500px `N` in Sketch
@@ -82,7 +82,7 @@ $font-roboto-mono
 */
 //
 
-$i-font-sans:   $font-source-sans-pro;
-$i-font-serif:  $font-merriweather;
-$i-font-mono:   $font-roboto-mono;
-$i-font-cond:   null;
+$theme-font-sans:   $font-source-sans-pro;
+$theme-font-serif:  $font-merriweather;
+$theme-font-mono:   $font-roboto-mono;
+$theme-font-cond:   null;
