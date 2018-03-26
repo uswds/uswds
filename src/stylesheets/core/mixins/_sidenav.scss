@@ -22,7 +22,7 @@
 
     &:hover {
       background-color: $color-gray-lightest;
-      color: $theme-color-primary;
+      color: $color-primary;
       text-decoration: none;
     }
 
@@ -33,8 +33,8 @@
     }
 
     &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
-      border-left: $sidenav-current-border-width solid $theme-color-primary;
-      color: $theme-color-primary;
+      border-left: $sidenav-current-border-width solid $color-primary;
+      color: $color-primary;
       font-weight: $font-bold;
       padding-left: $site-margins-mobile - $sidenav-current-border-width;
     }
@@ -76,4 +76,3 @@
     }
   }
 }
-

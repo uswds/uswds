@@ -932,7 +932,7 @@ through all possible variants
 
   @if $this-font-face {
     $this-font: map-get($all-font-definitions, $this-font-face);
-    $this-font-system: map-get($all-font-definitions, system-font);
+    $this-font-system: map-get($this-font, system-font);
 
     @if $this-font-system == false {
       $font-name: map-get($this-font, name);
