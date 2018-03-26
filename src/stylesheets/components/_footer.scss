@@ -17,7 +17,13 @@
     }
 
     &:hover {
+      cursor: pointer;
       text-decoration: underline;
+
+      @include media($medium-screen) {
+        cursor: auto;
+        text-decoration: none;
+      }
     }
   }
 

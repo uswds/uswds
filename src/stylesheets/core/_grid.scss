@@ -1,8 +1,7 @@
 // Grid container
 .usa-grid,
 .usa-grid-full {
-  @include outer-container();
-  max-width: $site-max-width;
+  @include outer-container($site-max-width);
 }
 
 .usa-grid {

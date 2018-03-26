@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -15,13 +15,13 @@
     "cracks": "cracks --paths package.json,spec",
     "federalist": "npm install --only=dev && gulp build && fractal build",
     "mocha": "mocha --opts spec/mocha.opts",
-    "prepublish": "gulp build release",
+    "prepare": "gulp build",
     "preversion": "npm test",
-    "release": "gulp release",
+    "release": "gulp build release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
     "start": "fractal start --sync",
     "test": "gulp eslint typecheck stylelint test",
-    "version": "npm run prepublish",
+    "version": "gulp build release",
     "watch": "nswatch"
   },
   "watch": {
@@ -87,7 +87,7 @@
     "gulp-filter": "^3.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
-    "gulp-sass": "^2.1.1",
+    "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-spawn-mocha": "^3.3.1",
     "gulp-stylelint": "^2.0.2",
@@ -100,7 +100,7 @@
     "jsdom-global": "^2.1.0",
     "mocha": "^3.5.3",
     "node-notifier": "^4.6.0",
-    "node-sass": "^3.4.2",
+    "node-sass": "^4.7.2",
     "normalize.css": "^3.0.3",
     "nswatch": "^0.2.0",
     "resemblejs": "^2.2.4",

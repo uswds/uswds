@@ -4,7 +4,7 @@ We’re so glad you’re thinking about contributing to an 18F open source proje
 
 One of our goals is to ensure a welcoming environment for all contributors to our projects. Our staff follows the [18F Code of Conduct](https://18f.gsa.gov/code-of-conduct/), and all contributors should do the same.
 
-We encourage you to read this project’s CONTRIBUTING policy (you are here), its [LICENSE](https://github.com/uswds/uswds/blob/develop/LICENSE.md), [README](https://github.com/uswds/uswds/blob/develop/README.md) and its [Workflow](https://github.com/uswds/uswds/wiki/Workflow) process.
+We encourage you to read this project’s CONTRIBUTING policy (you are here), its [LICENSE](LICENSE.md), [README](README.md) and its [Workflow](https://github.com/uswds/uswds/wiki/Workflow) process.
 
 If you have any questions or want to read more, check out the [18F Open Source Policy GitHub repository]( https://github.com/18f/open-source-policy), or just [shoot us an email](mailto:18f@gsa.gov).
 
@@ -98,8 +98,8 @@ components to "golden" screenshots that represent what the components are
 supposed to look like.
 
 Golden screenshots are stored on your local development system *only*;
-they're not version controlled. This means that after making changes to a branch, 
-you can switch to the branch you'd like to compare it to (e.g. the `develop` 
+they're not version controlled. This means that after making changes to a branch,
+you can switch to the branch you'd like to compare it to (e.g. the `develop`
 branch) to generate your golden screenshots.
 
 To generate the golden screenshots, run:
@@ -125,7 +125,7 @@ any conflicting screenshots.
 To build the `uswds` package in preparation for releases, run:
 
 ```sh
-npm run prepublish
+npm run release
 ```
 
 ## Coding guidelines
@@ -150,13 +150,13 @@ See [browser support](https://designsystem.digital.gov/getting-started/developer
 
 ## Our use of branches
 
-See the [release documentation](RELEASE.md#release-process) for more information on our git/GitHub release workflow.
+See the [release documentation](https://github.com/uswds/uswds/wiki/Release-process) for more information on our git/GitHub release workflow.
 
 ## Licenses and attribution
 
 ### A few parts of this project are not in the public domain
 
-For complete attribution and licensing information for parts of the project that are not in the public domain, see [LICENSE.md](https://github.com/uswds/uswds/blob/develop/LICENSE.md).
+For complete attribution and licensing information for parts of the project that are not in the public domain, see the [LICENSE](LICENSE.md).
 
 ### The rest of this project is in the public domain
 
@@ -171,7 +171,6 @@ the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/pub
 All contributions to this project will be released under the CC0
 dedication. By submitting a pull request, you are agreeing to comply
 with this waiver of copyright interest.
-
 
 [Node.js]: https://nodejs.org
 [Fractal]: http://fractal.build

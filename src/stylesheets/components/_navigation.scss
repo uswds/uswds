@@ -44,9 +44,8 @@
 
 .usa-nav-container {
   @include media($nav-width) {
-    @include outer-container();
+    @include outer-container($site-max-width);
     @include padding(null $site-margins);
-    max-width: $site-max-width;
   }
 }
 
