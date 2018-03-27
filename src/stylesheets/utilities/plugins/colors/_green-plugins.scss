@@ -54,13 +54,13 @@ $plugin-color-green-all: map-collect(
 );
 
 $plugin-color-green: (
-  'plugins/colors/green-light': $plugin-color-green-light,
-  'plugins/colors/green-medium': $plugin-color-green-medium,
-  'plugins/colors/green-dark': $plugin-color-green-dark,
-  'plugins/colors/green-light-vivid': $plugin-color-green-light-vivid,
-  'plugins/colors/green-medium-vivid': $plugin-color-green-medium-vivid,
-  'plugins/colors/green-dark-vivid': $plugin-color-green-dark-vivid,
-  'plugins/colors/green-standard': $plugin-color-green-standard,
-  'plugins/colors/green-vivid': $plugin-color-green-vivid,
-  'plugins/colors/green-all': $plugin-color-green-all,
+  'plugin-color-green-light': $plugin-color-green-light,
+  'plugin-color-green-medium': $plugin-color-green-medium,
+  'plugin-color-green-dark': $plugin-color-green-dark,
+  'plugin-color-green-light-vivid': $plugin-color-green-light-vivid,
+  'plugin-color-green-medium-vivid': $plugin-color-green-medium-vivid,
+  'plugin-color-green-dark-vivid': $plugin-color-green-dark-vivid,
+  'plugin-color-green-standard': $plugin-color-green-standard,
+  'plugin-color-green-vivid': $plugin-color-green-vivid,
+  'plugin-color-green-all': $plugin-color-green-all,
 );

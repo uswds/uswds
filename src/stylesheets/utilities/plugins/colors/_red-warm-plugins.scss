@@ -54,13 +54,13 @@ $plugin-color-red-warm-all: map-collect(
 );
 
 $plugin-color-red-warm: (
-  'plugins/colors/red-warm-light': $plugin-color-red-warm-light,
-  'plugins/colors/red-warm-medium': $plugin-color-red-warm-medium,
-  'plugins/colors/red-warm-dark': $plugin-color-red-warm-dark,
-  'plugins/colors/red-warm-light-vivid': $plugin-color-red-warm-light-vivid,
-  'plugins/colors/red-warm-medium-vivid': $plugin-color-red-warm-medium-vivid,
-  'plugins/colors/red-warm-dark-vivid': $plugin-color-red-warm-dark-vivid,
-  'plugins/colors/red-warm-standard': $plugin-color-red-warm-standard,
-  'plugins/colors/red-warm-vivid': $plugin-color-red-warm-vivid,
-  'plugins/colors/red-warm-all': $plugin-color-red-warm-all,
+  'plugin-color-red-warm-light': $plugin-color-red-warm-light,
+  'plugin-color-red-warm-medium': $plugin-color-red-warm-medium,
+  'plugin-color-red-warm-dark': $plugin-color-red-warm-dark,
+  'plugin-color-red-warm-light-vivid': $plugin-color-red-warm-light-vivid,
+  'plugin-color-red-warm-medium-vivid': $plugin-color-red-warm-medium-vivid,
+  'plugin-color-red-warm-dark-vivid': $plugin-color-red-warm-dark-vivid,
+  'plugin-color-red-warm-standard': $plugin-color-red-warm-standard,
+  'plugin-color-red-warm-vivid': $plugin-color-red-warm-vivid,
+  'plugin-color-red-warm-all': $plugin-color-red-warm-all,
 );

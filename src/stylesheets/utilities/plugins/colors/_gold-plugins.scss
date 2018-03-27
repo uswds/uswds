@@ -54,13 +54,13 @@ $plugin-color-gold-all: map-collect(
 );
 
 $plugin-color-gold: (
-  'plugins/colors/gold-light': $plugin-color-gold-light,
-  'plugins/colors/gold-medium': $plugin-color-gold-medium,
-  'plugins/colors/gold-dark': $plugin-color-gold-dark,
-  'plugins/colors/gold-light-vivid': $plugin-color-gold-light-vivid,
-  'plugins/colors/gold-medium-vivid': $plugin-color-gold-medium-vivid,
-  'plugins/colors/gold-dark-vivid': $plugin-color-gold-dark-vivid,
-  'plugins/colors/gold-standard': $plugin-color-gold-standard,
-  'plugins/colors/gold-vivid': $plugin-color-gold-vivid,
-  'plugins/colors/gold-all': $plugin-color-gold-all,
+  'plugin-color-gold-light': $plugin-color-gold-light,
+  'plugin-color-gold-medium': $plugin-color-gold-medium,
+  'plugin-color-gold-dark': $plugin-color-gold-dark,
+  'plugin-color-gold-light-vivid': $plugin-color-gold-light-vivid,
+  'plugin-color-gold-medium-vivid': $plugin-color-gold-medium-vivid,
+  'plugin-color-gold-dark-vivid': $plugin-color-gold-dark-vivid,
+  'plugin-color-gold-standard': $plugin-color-gold-standard,
+  'plugin-color-gold-vivid': $plugin-color-gold-vivid,
+  'plugin-color-gold-all': $plugin-color-gold-all,
 );

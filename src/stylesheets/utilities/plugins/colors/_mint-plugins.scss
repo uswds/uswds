@@ -54,13 +54,13 @@ $plugin-color-mint-all: map-collect(
 );
 
 $plugin-color-mint: (
-  'plugins/colors/mint-light': $plugin-color-mint-light,
-  'plugins/colors/mint-medium': $plugin-color-mint-medium,
-  'plugins/colors/mint-dark': $plugin-color-mint-dark,
-  'plugins/colors/mint-light-vivid': $plugin-color-mint-light-vivid,
-  'plugins/colors/mint-medium-vivid': $plugin-color-mint-medium-vivid,
-  'plugins/colors/mint-dark-vivid': $plugin-color-mint-dark-vivid,
-  'plugins/colors/mint-standard': $plugin-color-mint-standard,
-  'plugins/colors/mint-vivid': $plugin-color-mint-vivid,
-  'plugins/colors/mint-all': $plugin-color-mint-all,
+  'plugin-color-mint-light': $plugin-color-mint-light,
+  'plugin-color-mint-medium': $plugin-color-mint-medium,
+  'plugin-color-mint-dark': $plugin-color-mint-dark,
+  'plugin-color-mint-light-vivid': $plugin-color-mint-light-vivid,
+  'plugin-color-mint-medium-vivid': $plugin-color-mint-medium-vivid,
+  'plugin-color-mint-dark-vivid': $plugin-color-mint-dark-vivid,
+  'plugin-color-mint-standard': $plugin-color-mint-standard,
+  'plugin-color-mint-vivid': $plugin-color-mint-vivid,
+  'plugin-color-mint-all': $plugin-color-mint-all,
 );

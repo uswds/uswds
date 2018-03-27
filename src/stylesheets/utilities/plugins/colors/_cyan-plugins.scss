@@ -54,13 +54,13 @@ $plugin-color-cyan-all: map-collect(
 );
 
 $plugin-color-cyan: (
-  'plugins/colors/cyan-light': $plugin-color-cyan-light,
-  'plugins/colors/cyan-medium': $plugin-color-cyan-medium,
-  'plugins/colors/cyan-dark': $plugin-color-cyan-dark,
-  'plugins/colors/cyan-light-vivid': $plugin-color-cyan-light-vivid,
-  'plugins/colors/cyan-medium-vivid': $plugin-color-cyan-medium-vivid,
-  'plugins/colors/cyan-dark-vivid': $plugin-color-cyan-dark-vivid,
-  'plugins/colors/cyan-standard': $plugin-color-cyan-standard,
-  'plugins/colors/cyan-vivid': $plugin-color-cyan-vivid,
-  'plugins/colors/cyan-all': $plugin-color-cyan-all,
+  'plugin-color-cyan-light': $plugin-color-cyan-light,
+  'plugin-color-cyan-medium': $plugin-color-cyan-medium,
+  'plugin-color-cyan-dark': $plugin-color-cyan-dark,
+  'plugin-color-cyan-light-vivid': $plugin-color-cyan-light-vivid,
+  'plugin-color-cyan-medium-vivid': $plugin-color-cyan-medium-vivid,
+  'plugin-color-cyan-dark-vivid': $plugin-color-cyan-dark-vivid,
+  'plugin-color-cyan-standard': $plugin-color-cyan-standard,
+  'plugin-color-cyan-vivid': $plugin-color-cyan-vivid,
+  'plugin-color-cyan-all': $plugin-color-cyan-all,
 );

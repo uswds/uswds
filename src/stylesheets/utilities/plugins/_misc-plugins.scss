@@ -1,7 +1,7 @@
 $plugin-misc:(
-  'plugins/misc/line-heights': $uswds-line-height,
-  'plugins/misc/letter-spacing': $uswds-letter-spacing,
-  'plugins/misc/border-radius': (
+  'plugin-misc-line-heights': $uswds-line-height,
+  'plugin-misc-letter-spacing': $uswds-letter-spacing,
+  'plugin-misc-border-radius': (
     small:    spacing($theme-border-radius-small),
     base:     spacing($theme-border-radius-base),
     large:    spacing($theme-border-radius-large),

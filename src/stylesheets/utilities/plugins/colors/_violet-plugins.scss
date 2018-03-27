@@ -54,13 +54,13 @@ $plugin-color-violet-all: map-collect(
 );
 
 $plugin-color-violet: (
-  'plugins/colors/violet-light': $plugin-color-violet-light,
-  'plugins/colors/violet-medium': $plugin-color-violet-medium,
-  'plugins/colors/violet-dark': $plugin-color-violet-dark,
-  'plugins/colors/violet-light-vivid': $plugin-color-violet-light-vivid,
-  'plugins/colors/violet-medium-vivid': $plugin-color-violet-medium-vivid,
-  'plugins/colors/violet-dark-vivid': $plugin-color-violet-dark-vivid,
-  'plugins/colors/violet-standard': $plugin-color-violet-standard,
-  'plugins/colors/violet-vivid': $plugin-color-violet-vivid,
-  'plugins/colors/violet-all': $plugin-color-violet-all,
+  'plugin-color-violet-light': $plugin-color-violet-light,
+  'plugin-color-violet-medium': $plugin-color-violet-medium,
+  'plugin-color-violet-dark': $plugin-color-violet-dark,
+  'plugin-color-violet-light-vivid': $plugin-color-violet-light-vivid,
+  'plugin-color-violet-medium-vivid': $plugin-color-violet-medium-vivid,
+  'plugin-color-violet-dark-vivid': $plugin-color-violet-dark-vivid,
+  'plugin-color-violet-standard': $plugin-color-violet-standard,
+  'plugin-color-violet-vivid': $plugin-color-violet-vivid,
+  'plugin-color-violet-all': $plugin-color-violet-all,
 );
