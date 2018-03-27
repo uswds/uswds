@@ -69,11 +69,12 @@ There are a few different ways to use the Design System within your project. Whi
   │   ├── uswds.min.css
   │   └── uswds.css
   ├── fonts/
-  ├── html/
-  └── js/
-      ├── uswds.min.js.map
-      ├── uswds.min.js
-      └── uswds.js
+  ├── img/
+  ├── js/
+  │   ├── uswds.min.js.map
+  │   ├── uswds.min.js
+  │   └── uswds.js
+  └── scss/
 
   ```
 
@@ -113,7 +114,7 @@ There are a few different ways to use the Design System within your project. Whi
 
 We offer both files, the CSS and the JavaScript, in two versions — a minified version, and an un-minified one. (In the examples above, we are using the minified files.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. And the un-minified files are better if you are in a development environment or would like to debug the CSS or JavaScript assets in the browser.
 
-And that’s it — you should now be able to copy our code samples into our `index.html` and start using the Design System.
+And that’s it — you should now be able to copy our code samples into your `index.html` and start using the Design System.
 
 ### Install using npm
 
