@@ -54,13 +54,13 @@ $plugin-color-green-cool-all: map-collect(
 );
 
 $plugin-color-green-cool: (
-  'plugin-color-green-cool-light': $plugin-color-green-cool-light,
-  'plugin-color-green-cool-medium': $plugin-color-green-cool-medium,
-  'plugin-color-green-cool-dark': $plugin-color-green-cool-dark,
-  'plugin-color-green-cool-light-vivid': $plugin-color-green-cool-light-vivid,
-  'plugin-color-green-cool-medium-vivid': $plugin-color-green-cool-medium-vivid,
-  'plugin-color-green-cool-dark-vivid': $plugin-color-green-cool-dark-vivid,
-  'plugin-color-green-cool-standard': $plugin-color-green-cool-standard,
-  'plugin-color-green-cool-vivid': $plugin-color-green-cool-vivid,
-  'plugin-color-green-cool-all': $plugin-color-green-cool-all,
+  'plugins/colors/green-cool-light': $plugin-color-green-cool-light,
+  'plugins/colors/green-cool-medium': $plugin-color-green-cool-medium,
+  'plugins/colors/green-cool-dark': $plugin-color-green-cool-dark,
+  'plugins/colors/green-cool-light-vivid': $plugin-color-green-cool-light-vivid,
+  'plugins/colors/green-cool-medium-vivid': $plugin-color-green-cool-medium-vivid,
+  'plugins/colors/green-cool-dark-vivid': $plugin-color-green-cool-dark-vivid,
+  'plugins/colors/green-cool-standard': $plugin-color-green-cool-standard,
+  'plugins/colors/green-cool-vivid': $plugin-color-green-cool-vivid,
+  'plugins/colors/green-cool-all': $plugin-color-green-cool-all,
 );

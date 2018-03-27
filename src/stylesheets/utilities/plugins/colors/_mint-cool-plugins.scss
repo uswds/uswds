@@ -54,13 +54,13 @@ $plugin-color-mint-cool-all: map-collect(
 );
 
 $plugin-color-mint-cool: (
-  'plugin-color-mint-cool-light': $plugin-color-mint-cool-light,
-  'plugin-color-mint-cool-medium': $plugin-color-mint-cool-medium,
-  'plugin-color-mint-cool-dark': $plugin-color-mint-cool-dark,
-  'plugin-color-mint-cool-light-vivid': $plugin-color-mint-cool-light-vivid,
-  'plugin-color-mint-cool-medium-vivid': $plugin-color-mint-cool-medium-vivid,
-  'plugin-color-mint-cool-dark-vivid': $plugin-color-mint-cool-dark-vivid,
-  'plugin-color-mint-cool-standard': $plugin-color-mint-cool-standard,
-  'plugin-color-mint-cool-vivid': $plugin-color-mint-cool-vivid,
-  'plugin-color-mint-cool-all': $plugin-color-mint-cool-all,
+  'plugins/colors/mint-cool-light': $plugin-color-mint-cool-light,
+  'plugins/colors/mint-cool-medium': $plugin-color-mint-cool-medium,
+  'plugins/colors/mint-cool-dark': $plugin-color-mint-cool-dark,
+  'plugins/colors/mint-cool-light-vivid': $plugin-color-mint-cool-light-vivid,
+  'plugins/colors/mint-cool-medium-vivid': $plugin-color-mint-cool-medium-vivid,
+  'plugins/colors/mint-cool-dark-vivid': $plugin-color-mint-cool-dark-vivid,
+  'plugins/colors/mint-cool-standard': $plugin-color-mint-cool-standard,
+  'plugins/colors/mint-cool-vivid': $plugin-color-mint-cool-vivid,
+  'plugins/colors/mint-cool-all': $plugin-color-mint-cool-all,
 );

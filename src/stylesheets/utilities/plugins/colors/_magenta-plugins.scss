@@ -54,13 +54,13 @@ $plugin-color-magenta-all: map-collect(
 );
 
 $plugin-color-magenta: (
-  'plugin-color-magenta-light': $plugin-color-magenta-light,
-  'plugin-color-magenta-medium': $plugin-color-magenta-medium,
-  'plugin-color-magenta-dark': $plugin-color-magenta-dark,
-  'plugin-color-magenta-light-vivid': $plugin-color-magenta-light-vivid,
-  'plugin-color-magenta-medium-vivid': $plugin-color-magenta-medium-vivid,
-  'plugin-color-magenta-dark-vivid': $plugin-color-magenta-dark-vivid,
-  'plugin-color-magenta-standard': $plugin-color-magenta-standard,
-  'plugin-color-magenta-vivid': $plugin-color-magenta-vivid,
-  'plugin-color-magenta-all': $plugin-color-magenta-all,
+  'plugins/colors/magenta-light': $plugin-color-magenta-light,
+  'plugins/colors/magenta-medium': $plugin-color-magenta-medium,
+  'plugins/colors/magenta-dark': $plugin-color-magenta-dark,
+  'plugins/colors/magenta-light-vivid': $plugin-color-magenta-light-vivid,
+  'plugins/colors/magenta-medium-vivid': $plugin-color-magenta-medium-vivid,
+  'plugins/colors/magenta-dark-vivid': $plugin-color-magenta-dark-vivid,
+  'plugins/colors/magenta-standard': $plugin-color-magenta-standard,
+  'plugins/colors/magenta-vivid': $plugin-color-magenta-vivid,
+  'plugins/colors/magenta-all': $plugin-color-magenta-all,
 );

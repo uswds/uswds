@@ -54,13 +54,13 @@ $plugin-color-red-all: map-collect(
 );
 
 $plugin-color-red: (
-  'plugin-color-red-light': $plugin-color-red-light,
-  'plugin-color-red-medium': $plugin-color-red-medium,
-  'plugin-color-red-dark': $plugin-color-red-dark,
-  'plugin-color-red-light-vivid': $plugin-color-red-light-vivid,
-  'plugin-color-red-medium-vivid': $plugin-color-red-medium-vivid,
-  'plugin-color-red-dark-vivid': $plugin-color-red-dark-vivid,
-  'plugin-color-red-standard': $plugin-color-red-standard,
-  'plugin-color-red-vivid': $plugin-color-red-vivid,
-  'plugin-color-red-all': $plugin-color-red-all,
+  'plugins/colors/red-light': $plugin-color-red-light,
+  'plugins/colors/red-medium': $plugin-color-red-medium,
+  'plugins/colors/red-dark': $plugin-color-red-dark,
+  'plugins/colors/red-light-vivid': $plugin-color-red-light-vivid,
+  'plugins/colors/red-medium-vivid': $plugin-color-red-medium-vivid,
+  'plugins/colors/red-dark-vivid': $plugin-color-red-dark-vivid,
+  'plugins/colors/red-standard': $plugin-color-red-standard,
+  'plugins/colors/red-vivid': $plugin-color-red-vivid,
+  'plugins/colors/red-all': $plugin-color-red-all,
 );

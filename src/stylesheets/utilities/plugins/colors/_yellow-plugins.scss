@@ -54,13 +54,13 @@ $plugin-color-yellow-all: map-collect(
 );
 
 $plugin-color-yellow: (
-  'plugin-color-yellow-light': $plugin-color-yellow-light,
-  'plugin-color-yellow-medium': $plugin-color-yellow-medium,
-  'plugin-color-yellow-dark': $plugin-color-yellow-dark,
-  'plugin-color-yellow-light-vivid': $plugin-color-yellow-light-vivid,
-  'plugin-color-yellow-medium-vivid': $plugin-color-yellow-medium-vivid,
-  'plugin-color-yellow-dark-vivid': $plugin-color-yellow-dark-vivid,
-  'plugin-color-yellow-standard': $plugin-color-yellow-standard,
-  'plugin-color-yellow-vivid': $plugin-color-yellow-vivid,
-  'plugin-color-yellow-all': $plugin-color-yellow-all,
+  'plugins/colors/yellow-light': $plugin-color-yellow-light,
+  'plugins/colors/yellow-medium': $plugin-color-yellow-medium,
+  'plugins/colors/yellow-dark': $plugin-color-yellow-dark,
+  'plugins/colors/yellow-light-vivid': $plugin-color-yellow-light-vivid,
+  'plugins/colors/yellow-medium-vivid': $plugin-color-yellow-medium-vivid,
+  'plugins/colors/yellow-dark-vivid': $plugin-color-yellow-dark-vivid,
+  'plugins/colors/yellow-standard': $plugin-color-yellow-standard,
+  'plugins/colors/yellow-vivid': $plugin-color-yellow-vivid,
+  'plugins/colors/yellow-all': $plugin-color-yellow-all,
 );

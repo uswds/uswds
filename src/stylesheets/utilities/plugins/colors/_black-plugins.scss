@@ -24,8 +24,8 @@ $plugin-color-black-all: map-collect(
 );
 
 $plugin-color-black: (
-  'plugin-color-black-light': $plugin-color-black-light,
-  'plugin-color-black-medium': $plugin-color-black-medium,
-  'plugin-color-black-dark': $plugin-color-black-dark,
-  'plugin-color-black-all': $plugin-color-black-all,
+  'plugins/colors/black-light': $plugin-color-black-light,
+  'plugins/colors/black-medium': $plugin-color-black-medium,
+  'plugins/colors/black-dark': $plugin-color-black-dark,
+  'plugins/colors/black-all': $plugin-color-black-all,
 );

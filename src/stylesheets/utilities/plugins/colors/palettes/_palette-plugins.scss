@@ -49,7 +49,7 @@ $plugin-color-palette-theme: (
 );
 
 $plugin-palettes: (
-  'plugin-color-palette-theme': $plugin-color-palette-theme,
-  'plugin-color-palette-grayscale': $plugin-palette-grayscale,
-  'plugin-color-palette-required': $plugin-color-palette-required,
+  'plugins/colors/palettes/theme': $plugin-color-palette-theme,
+  'plugins/colors/palettes/grayscale': $plugin-palette-grayscale,
+  'plugins/colors/palettes/required': $plugin-color-palette-required,
 );

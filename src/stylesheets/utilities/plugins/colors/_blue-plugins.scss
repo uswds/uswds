@@ -54,13 +54,13 @@ $plugin-color-blue-all: map-collect(
 );
 
 $plugin-color-blue: (
-  'plugin-color-blue-light': $plugin-color-blue-light,
-  'plugin-color-blue-medium': $plugin-color-blue-medium,
-  'plugin-color-blue-dark': $plugin-color-blue-dark,
-  'plugin-color-blue-light-vivid': $plugin-color-blue-light-vivid,
-  'plugin-color-blue-medium-vivid': $plugin-color-blue-medium-vivid,
-  'plugin-color-blue-dark-vivid': $plugin-color-blue-dark-vivid,
-  'plugin-color-blue-standard': $plugin-color-blue-standard,
-  'plugin-color-blue-vivid': $plugin-color-blue-vivid,
-  'plugin-color-blue-all': $plugin-color-blue-all,
+  'plugins/colors/blue-light': $plugin-color-blue-light,
+  'plugins/colors/blue-medium': $plugin-color-blue-medium,
+  'plugins/colors/blue-dark': $plugin-color-blue-dark,
+  'plugins/colors/blue-light-vivid': $plugin-color-blue-light-vivid,
+  'plugins/colors/blue-medium-vivid': $plugin-color-blue-medium-vivid,
+  'plugins/colors/blue-dark-vivid': $plugin-color-blue-dark-vivid,
+  'plugins/colors/blue-standard': $plugin-color-blue-standard,
+  'plugins/colors/blue-vivid': $plugin-color-blue-vivid,
+  'plugins/colors/blue-all': $plugin-color-blue-all,
 );

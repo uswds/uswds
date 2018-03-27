@@ -54,13 +54,13 @@ $plugin-color-indigo-all: map-collect(
 );
 
 $plugin-color-indigo: (
-  'plugin-color-indigo-light': $plugin-color-indigo-light,
-  'plugin-color-indigo-medium': $plugin-color-indigo-medium,
-  'plugin-color-indigo-dark': $plugin-color-indigo-dark,
-  'plugin-color-indigo-light-vivid': $plugin-color-indigo-light-vivid,
-  'plugin-color-indigo-medium-vivid': $plugin-color-indigo-medium-vivid,
-  'plugin-color-indigo-dark-vivid': $plugin-color-indigo-dark-vivid,
-  'plugin-color-indigo-standard': $plugin-color-indigo-standard,
-  'plugin-color-indigo-vivid': $plugin-color-indigo-vivid,
-  'plugin-color-indigo-all': $plugin-color-indigo-all,
+  'plugins/colors/indigo-light': $plugin-color-indigo-light,
+  'plugins/colors/indigo-medium': $plugin-color-indigo-medium,
+  'plugins/colors/indigo-dark': $plugin-color-indigo-dark,
+  'plugins/colors/indigo-light-vivid': $plugin-color-indigo-light-vivid,
+  'plugins/colors/indigo-medium-vivid': $plugin-color-indigo-medium-vivid,
+  'plugins/colors/indigo-dark-vivid': $plugin-color-indigo-dark-vivid,
+  'plugins/colors/indigo-standard': $plugin-color-indigo-standard,
+  'plugins/colors/indigo-vivid': $plugin-color-indigo-vivid,
+  'plugins/colors/indigo-all': $plugin-color-indigo-all,
 );

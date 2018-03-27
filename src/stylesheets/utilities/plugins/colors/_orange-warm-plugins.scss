@@ -54,13 +54,13 @@ $plugin-color-orange-warm-all: map-collect(
 );
 
 $plugin-color-orange-warm: (
-  'plugin-color-orange-warm-light': $plugin-color-orange-warm-light,
-  'plugin-color-orange-warm-medium': $plugin-color-orange-warm-medium,
-  'plugin-color-orange-warm-dark': $plugin-color-orange-warm-dark,
-  'plugin-color-orange-warm-light-vivid': $plugin-color-orange-warm-light-vivid,
-  'plugin-color-orange-warm-medium-vivid': $plugin-color-orange-warm-medium-vivid,
-  'plugin-color-orange-warm-dark-vivid': $plugin-color-orange-warm-dark-vivid,
-  'plugin-color-orange-warm-standard': $plugin-color-orange-warm-standard,
-  'plugin-color-orange-warm-vivid': $plugin-color-orange-warm-vivid,
-  'plugin-color-orange-warm-all': $plugin-color-orange-warm-all,
+  'plugins/colors/orange-warm-light': $plugin-color-orange-warm-light,
+  'plugins/colors/orange-warm-medium': $plugin-color-orange-warm-medium,
+  'plugins/colors/orange-warm-dark': $plugin-color-orange-warm-dark,
+  'plugins/colors/orange-warm-light-vivid': $plugin-color-orange-warm-light-vivid,
+  'plugins/colors/orange-warm-medium-vivid': $plugin-color-orange-warm-medium-vivid,
+  'plugins/colors/orange-warm-dark-vivid': $plugin-color-orange-warm-dark-vivid,
+  'plugins/colors/orange-warm-standard': $plugin-color-orange-warm-standard,
+  'plugins/colors/orange-warm-vivid': $plugin-color-orange-warm-vivid,
+  'plugins/colors/orange-warm-all': $plugin-color-orange-warm-all,
 );
