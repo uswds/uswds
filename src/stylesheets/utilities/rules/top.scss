@@ -21,7 +21,7 @@ $top: (
     base: 'top',
     modifiers: null,
     values: map-collect(
-      $top-plugins,
+      get-plugins($top-plugins),
       $top-manual-values
     ),
     settings: $top-settings,

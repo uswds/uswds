@@ -29,7 +29,7 @@ $border-radius: (
     ),
     property: '',
     values: map-collect(
-      $border-radius-plugins,
+      get-plugins($border-radius-plugins),
       $border-radius-manual-values
     ),
     settings: $border-radius-settings,

@@ -19,7 +19,7 @@ $border-style: (
     base: 'border-style',
     modifiers: null,
     values: map-collect(
-      $border-style-plugins,
+      get-plugins($border-style-plugins),
       $border-style-manual-values
     ),
     settings: $border-style-settings,

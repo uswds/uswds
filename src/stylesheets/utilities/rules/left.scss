@@ -21,7 +21,7 @@ $left: (
     base: 'left',
     modifiers: null,
     values: map-collect(
-      $left-plugins,
+      get-plugins($left-plugins),
       $left-manual-values
     ),
     settings: $left-settings,

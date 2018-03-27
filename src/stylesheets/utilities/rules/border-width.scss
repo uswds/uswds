@@ -29,7 +29,7 @@ $border-width: (
       '-width': '-width',
     ),
     values: map-collect(
-      $border-width-plugins,
+      get-plugins($border-width-plugins),
       $border-width-manual-values
     ),
     settings: $border-width-settings,

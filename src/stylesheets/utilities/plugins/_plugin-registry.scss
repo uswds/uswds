@@ -9,7 +9,6 @@ $plugin-registry:(
       uswds: $plugin-font-mono-uswds,
       theme: $plugin-font-mono-theme,
     ),
-    misc: $plugin-font,
     sans:(
       uswds: $plugin-font-sans-uswds,
       theme: $plugin-font-sans-theme,
@@ -18,10 +17,12 @@ $plugin-registry:(
       uswds: $plugin-font-serif-uswds,
       theme: $plugin-font-serif-theme,
     ),
-    theme: $plugin-font-theme-all,
-    uswds: $plugin-font-uswds-all,
+    misc: map-collect(
+      $plugin-font,
+      $plugin-font-uswds-all,
+      $plugin-font-theme-all
+    ),
   ),
-  misc: $plugin-misc,
   color:(
     palettes: $plugin-palettes,
     black-cool: $plugin-color-black-cool,
@@ -52,5 +53,7 @@ $plugin-registry:(
     white-transparent: $plugin-color-white-transparent,
     white: $plugin-color-white,
     yellow: $plugin-color-yellow,
+    misc: $plugin-color-all,
   ),
+  misc: $plugin-misc,
 );

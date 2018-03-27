@@ -86,7 +86,7 @@ $align-items-settings: (
   visited:      false
 ) !default;
 
-$align-items-plugins: map-collect(
+$align-items-plugins: (
   /*
   */
 ) !default;
@@ -150,14 +150,14 @@ $border-settings: (
   visited:      false
 ) !default;
 
-$border-plugins: map-collect(
+$border-plugins: (
   /*
-  $plugin-spacing-units-px
-  $plugin-spacing-uswds-small
-  $plugin-spacing-uswds-medium
+  'plugin-spacing-units-px'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
   */
-  $plugin-spacing-uswds-named-small,
-  $plugin-spacing-uswds-named-medium
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium'
 ) !default;
 
 $border-manual-values: (
@@ -180,21 +180,21 @@ $border-color-settings: (
   visited:      false
 ) !default;
 
-$border-color-plugins: map-collect(
+$border-color-plugins: (
   /*
-  $plugin-[color]
-  $plugin-[color]-light
-  $plugin-[color]-medium
-  $plugin-[color]-dark
-  $plugin-[color]-light-vivid
-  $plugin-[color]-medium-vivid
-  $plugin-[color]-dark-vivid
-  $plugin-[color]-standard
-  $plugin-[color]-vivid
-  $plugin-palette-status
+  'plugin-[color]'
+  'plugin-[color]-light'
+  'plugin-[color]-medium'
+  'plugin-[color]-dark'
+  'plugin-[color]-light-vivid'
+  'plugin-[color]-medium-vivid'
+  'plugin-[color]-dark-vivid'
+  'plugin-[color]-standard'
+  'plugin-[color]-vivid'
+  'plugin-palette-status'
   */
-  $plugin-project-palette-settings,
-  $plugin-palette-grayscale
+  'plugin-project-palette-settings',
+  'plugin-palette-grayscale'
 ) !default;
 
 $border-color-manual-values: (
@@ -216,12 +216,12 @@ $border-radius-settings: (
   visited:      false
 ) !default;
 
-$border-radius-plugins: map-collect(
+$border-radius-plugins: (
   /*
-  $plugin-spacing-uswds-small
-  $plugin-spacing-uswds-medium
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
   */
-  $plugin-misc-border-radius
+  'plugin-misc-border-radius'
 ) !default;
 
 $border-radius-manual-values: (
@@ -245,7 +245,7 @@ $border-style-settings: (
   visited:      false
 ) !default;
 
-$border-style-plugins: map-collect(
+$border-style-plugins: (
   /*
   */
 ) !default;
@@ -272,13 +272,13 @@ $border-width-settings: (
   visited:      false
 ) !default;
 
-$border-width-plugins: map-collect(
+$border-width-plugins: (
   /*
-  $plugin-spacing-uswds-small
-  $plugin-spacing-uswds-medium
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
   */
-  $plugin-spacing-uswds-named-small,
-  $plugin-spacing-uswds-named-medium
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium'
 ) !default;
 
 $border-width-manual-values: (
@@ -301,24 +301,24 @@ $bottom-settings: (
   visited:      false
 ) !default;
 
-$bottom-plugins: map-collect(
+$bottom-plugins: (
   /*
-  $plugin-spacing-uswds-small
-  $plugin-spacing-uswds-medium
-  $plugin-spacing-uswds-large
-  $plugin-spacing-uswds-xlarge
-  $plugin-spacing-uswds-all
-  $plugin-spacing-uswds-small-negative
-  $plugin-spacing-uswds-medium-negative
-  $plugin-spacing-uswds-negative
-  $plugin-spacing-units-percentage
-  $plugin-spacing-units-px
-  $plugin-spacing-units-px-negative
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
   */
-  $plugin-spacing-uswds-named-small,
-  $plugin-spacing-uswds-named-medium,
-  $plugin-spacing-uswds-named-small-negative,
-  $plugin-spacing-uswds-named-medium-negative
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-small-negative',
+  'plugin-spacing-uswds-named-medium-negative'
 ) !default;
 
 $bottom-manual-values: (
@@ -342,7 +342,7 @@ $box-shadow-settings: (
   visited:      false
 ) !default;
 
-$box-shadow-plugins: map-collect(
+$box-shadow-plugins: (
   /*
   */
 ) !default;
@@ -371,18 +371,18 @@ $circle-settings: (
   visited:      false
 ) !default;
 
-$circle-plugins: map-collect(
+$circle-plugins: (
   /*
-  $plugin-spacing-uswds-named-small
-  $plugin-spacing-uswds-named-medium
-  $plugin-spacing-uswds-named-large
-  $plugin-spacing-uswds-all
-  $plugin-spacing-uswds-small
-  $plugin-spacing-uswds-medium
-  $plugin-spacing-uswds-large
-  $plugin-spacing-uswds-xlarge
+  'plugin-spacing-uswds-named-small'
+  'plugin-spacing-uswds-named-medium'
+  'plugin-spacing-uswds-named-large'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
   */
-  $plugin-spacing-uswds-named-all
+  'plugin-spacing-uswds-named-all'
 ) !default;
 
 $circle-manual-values: (
@@ -418,21 +418,21 @@ $color-settings: (
   visited:      false
 ) !default;
 
-$color-plugins: map-collect(
+$color-plugins: (
   /*
-  $plugin-[color]
-  $plugin-[color]-light
-  $plugin-[color]-medium
-  $plugin-[color]-dark
-  $plugin-[color]-light-vivid
-  $plugin-[color]-medium-vivid
-  $plugin-[color]-dark-vivid
-  $plugin-[color]-standard
-  $plugin-[color]-vivid
-  $plugin-palette-status
+  'plugin-[color]'
+  'plugin-[color]-light'
+  'plugin-[color]-medium'
+  'plugin-[color]-dark'
+  'plugin-[color]-light-vivid'
+  'plugin-[color]-medium-vivid'
+  'plugin-[color]-dark-vivid'
+  'plugin-[color]-standard'
+  'plugin-[color]-vivid'
+  'plugin-palette-status'
   */
-  $plugin-project-palette-settings,
-  $plugin-palette-grayscale
+  'plugin-project-palette-settings',
+  'plugin-palette-grayscale'
 ) !default;
 
 $color-manual-values: (
@@ -454,7 +454,7 @@ $display-settings: (
   visited:      false
 ) !default;
 
-$display-plugins: map-collect(
+$display-plugins: (
   /*
   */
 ) !default;
@@ -485,7 +485,7 @@ $flex-settings: (
   visited:      false
 ) !default;
 
-$flex-plugins: map-collect(
+$flex-plugins: (
   /*
   */
 ) !default;
@@ -522,7 +522,7 @@ $flex-direction-settings: (
   visited:      false
 ) !default;
 
-$flex-direction-plugins: map-collect() !default;
+$flex-direction-plugins: () !default;
 
 $flex-direction-manual-values: (
   /*
@@ -545,7 +545,7 @@ $flex-wrap-settings: (
   visited:      false
 ) !default;
 
-$flex-wrap-plugins: map-collect() !default;
+$flex-wrap-plugins: () !default;
 
 $flex-wrap-manual-values: (
   wrap:         'wrap',
@@ -566,7 +566,7 @@ $float-settings: (
   visited:      false
 ) !default;
 
-$float-plugins: map-collect() !default;
+$float-plugins: () !default;
 
 $float-manual-values: (
   /*
@@ -590,19 +590,19 @@ $font-settings: (
   visited:      false
 ) !default;
 
-$font-plugins: map-collect(
+$font-plugins: (
   /*
-  $plugin-font-mono-theme-all
-  $plugin-font-sans-theme-all
-  $plugin-font-serif-theme-all
-  $plugin-font-uswds-all
-  $plugin-system-[family]-small
-  $plugin-system-[family]-medium
-  $plugin-system-[family]-large
-  $plugin-system-[family]-xlarge
-  $plugin-system-[family]-all
+  'plugin-font-mono-theme-all'
+  'plugin-font-sans-theme-all'
+  'plugin-font-serif-theme-all'
+  'plugin-font-uswds-all'
+  'plugin-system-[family]-small'
+  'plugin-system-[family]-medium'
+  'plugin-system-[family]-large'
+  'plugin-system-[family]-xlarge'
+  'plugin-system-[family]-all'
   */
-  $plugin-font-theme-all
+  'plugin-font-theme-all'
 ) !default;
 
 $font-manual-values: (
@@ -624,10 +624,10 @@ $font-family-settings: (
   visited:      false
 ) !default;
 
-$font-family-plugins: map-collect(
+$font-family-plugins: (
   /*
   */
-  $plugin-font-stack-roles
+  'plugin-font-stack-roles'
 ) !default;
 
 $font-family-manual-values: (
@@ -649,7 +649,7 @@ $font-feature-settings: (
   visited:      false
 ) !default;
 
-$font-feature-plugins: map-collect(
+$font-feature-plugins: (
   /*
   */
 ) !default;
@@ -676,7 +676,7 @@ $font-style-settings: (
   visited:      false
 ) !default;
 
-$font-style-plugins: map-collect() !default;
+$font-style-plugins: () !default;
 
 $font-style-manual-values: (
   normal:       'normal',
@@ -697,11 +697,11 @@ $font-weight-settings: (
   visited:      false
 ) !default;
 
-$font-weight-plugins: map-collect(
+$font-weight-plugins: (
   /*
-  $plugin-font-weights-numeric
+  'plugin-font-weights-numeric'
   */
-  $plugin-font-weights-theme
+  'plugin-font-weights-theme'
 ) !default;
 
 $font-weight-manual-values: (
@@ -723,19 +723,19 @@ $height-settings: (
   visited:      false
 ) !default;
 
-$height-plugins: map-collect(
+$height-plugins: (
   /*
-  $plugin-spacing-uswds-named-small
-  $plugin-spacing-uswds-named-medium
-  $plugin-spacing-uswds-named-large
-  $plugin-spacing-uswds-named-xlarge
-  $plugin-spacing-uswds-all
-  $plugin-spacing-uswds-small
-  $plugin-spacing-uswds-medium
-  $plugin-spacing-uswds-large
-  $plugin-spacing-uswds-xlarge
+  'plugin-spacing-uswds-named-small'
+  'plugin-spacing-uswds-named-medium'
+  'plugin-spacing-uswds-named-large'
+  'plugin-spacing-uswds-named-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
   */
-  $plugin-spacing-uswds-named-all
+  'plugin-spacing-uswds-named-all'
 ) !default;
 
 $height-manual-values: (
@@ -760,24 +760,24 @@ $left-settings: (
   visited:      false
 ) !default;
 
-$left-plugins: map-collect(
+$left-plugins: (
   /*
-  $plugin-spacing-uswds-small
-  $plugin-spacing-uswds-medium
-  $plugin-spacing-uswds-large
-  $plugin-spacing-uswds-xlarge
-  $plugin-spacing-uswds-all
-  $plugin-spacing-uswds-small-negative
-  $plugin-spacing-uswds-medium-negative
-  $plugin-spacing-uswds-negative
-  $plugin-spacing-units-percentage
-  $plugin-spacing-units-px
-  $plugin-spacing-units-px-negative
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
   */
-  $plugin-spacing-uswds-named-small,
-  $plugin-spacing-uswds-named-medium,
-  $plugin-spacing-uswds-named-small-negative,
-  $plugin-spacing-uswds-named-medium-negative
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-small-negative',
+  'plugin-spacing-uswds-named-medium-negative'
 ) !default;
 
 $left-manual-values: (
@@ -801,10 +801,10 @@ $letter-spacing-settings: (
   visited:      false
 ) !default;
 
-$letter-spacing-plugins: map-collect(
+$letter-spacing-plugins: (
   /*
   */
-  $plugin-misc-letter-spacing
+  'plugin-misc-letter-spacing'
 ) !default;
 
 $letter-spacing-manual-values: (
@@ -826,10 +826,10 @@ $line-height-settings: (
   visited:      false
 ) !default;
 
-$line-height-plugins: map-collect(
+$line-height-plugins: (
   /*
   */
-  $plugin-misc-line-heights
+  'plugin-misc-line-heights'
 ) !default;
 
 $line-height-manual-values: (
@@ -865,21 +865,21 @@ $margin-settings: (
   visited:      false
 ) !default;
 
-$margin-plugins: map-collect(
+$margin-plugins: (
   /*
-  $plugin-spacing-units-px,
-  $plugin-spacing-units-px-negative,
-  $plugin-spacing-units-percentage,
-  $plugin-spacing-uswds-all,
-  $plugin-spacing-uswds-negative,
-  $plugin-spacing-units-ch,
-  $plugin-spacing-units-ch-negative,
-  $plugin-spacing-units-em
+  'plugin-spacing-units-px',
+  'plugin-spacing-units-px-negative',
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-uswds-negative',
+  'plugin-spacing-units-ch',
+  'plugin-spacing-units-ch-negative',
+  'plugin-spacing-units-em'
   */
-  $plugin-spacing-units-px,
-  $plugin-spacing-units-px-negative,
-  $plugin-spacing-uswds-named-all,
-  $plugin-spacing-uswds-named-small-negative
+  'plugin-spacing-units-px',
+  'plugin-spacing-units-px-negative',
+  'plugin-spacing-uswds-named-all',
+  'plugin-spacing-uswds-named-small-negative'
 ) !default;
 
 $margin-manual-values: (
@@ -903,11 +903,11 @@ $max-height-settings: (
   visited:      false
 ) !default;
 
-$max-height-plugins: map-collect(
+$max-height-plugins: (
   /*
-  $plugin-spacing-units-percentage,
-  $plugin-spacing-uswds-all,
-  $plugin-spacing-units-px
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-units-px'
   */
 ) !default;
 
@@ -930,10 +930,10 @@ $max-width-settings: (
   visited:      false
 ) !default;
 
-$max-width-plugins: map-collect(
+$max-width-plugins: (
   /*
-  $plugin-spacing-units-percentage,
-  $plugin-spacing-uswds-named-breakpoints-rem
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-named-breakpoints-rem'
   */
 ) !default;
 
@@ -961,11 +961,11 @@ $min-height-settings: (
   visited:      false
 ) !default;
 
-$min-height-plugins: map-collect(
+$min-height-plugins: (
   /*
-  $plugin-spacing-units-percentage,
-  $plugin-spacing-uswds-small
-  $plugin-spacing-uswds-medium
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
   */
 ) !default;
 
@@ -989,12 +989,12 @@ $min-width-settings: (
   visited:      false
 ) !default;
 
-$min-width-plugins: map-collect(
+$min-width-plugins: (
   /*
   */
-  $plugin-spacing-uswds-named-breakpoints-rem,
-  $plugin-spacing-uswds-large,
-  $plugin-spacing-uswds-xlarge
+  'plugin-spacing-uswds-named-breakpoints-rem',
+  'plugin-spacing-uswds-large',
+  'plugin-spacing-uswds-xlarge'
 ) !default;
 
 $min-width-manual-values: (
@@ -1016,7 +1016,7 @@ $opacity-settings: (
   visited:      false
 ) !default;
 
-$opacity-plugins: map-collect(
+$opacity-plugins: (
   /*
   */
 ) !default;
@@ -1051,7 +1051,7 @@ $order-settings: (
   visited:      false
 ) !default;
 
-$order-plugins: map-collect(
+$order-plugins: (
   /*
   */
 ) !default;
@@ -1089,11 +1089,11 @@ $outline-settings: (
   visited:      false
 ) !default;
 
-$outline-plugins: map-collect(
+$outline-plugins: (
   /*
   */
-  $plugin-spacing-units-px,
-  $plugin-spacing-uswds-small
+  'plugin-spacing-units-px',
+  'plugin-spacing-uswds-small'
 ) !default;
 
 $outline-manual-values: (
@@ -1116,10 +1116,10 @@ $outline-color-settings: (
   visited:      false
 ) !default;
 
-$outline-color-plugins: map-collect(
+$outline-color-plugins: (
   /*
   */
-  $plugin-project-palette-settings
+  'plugin-project-palette-settings'
 ) !default;
 
 $outline-color-manual-values: (
@@ -1141,11 +1141,11 @@ $padding-settings: (
   visited:      false
 ) !default;
 
-$padding-plugins: map-collect(
+$padding-plugins: (
   /*
-  $plugin-spacing-units-px,
+  'plugin-spacing-units-px',
   */
-  $plugin-spacing-uswds-named-all
+  'plugin-spacing-uswds-named-all'
 ) !default;
 
 $padding-manual-values: (
@@ -1168,7 +1168,7 @@ $position-settings: (
   visited:      false
 ) !default;
 
-$position-plugins: map-collect(
+$position-plugins: (
   /*
   */
 ) !default;
@@ -1197,24 +1197,24 @@ $right-settings: (
   visited:      false
 ) !default;
 
-$right-plugins: map-collect(
+$right-plugins: (
   /*
-  $plugin-spacing-uswds-small
-  $plugin-spacing-uswds-medium
-  $plugin-spacing-uswds-large
-  $plugin-spacing-uswds-xlarge
-  $plugin-spacing-uswds-all
-  $plugin-spacing-uswds-small-negative
-  $plugin-spacing-uswds-medium-negative
-  $plugin-spacing-uswds-negative
-  $plugin-spacing-units-percentage
-  $plugin-spacing-units-px
-  $plugin-spacing-units-px-negative
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
   */
-  $plugin-spacing-uswds-named-small,
-  $plugin-spacing-uswds-named-medium,
-  $plugin-spacing-uswds-named-small-negative,
-  $plugin-spacing-uswds-named-medium-negative
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-small-negative',
+  'plugin-spacing-uswds-named-medium-negative'
 ) !default;
 
 $right-manual-values: (
@@ -1238,10 +1238,10 @@ $square-settings: (
   visited:      false
 ) !default;
 
-$square-plugins: map-collect(
+$square-plugins: (
   /*
   */
-  $plugin-spacing-uswds-named-all
+  'plugin-spacing-uswds-named-all'
 ) !default;
 
 $square-manual-values: (
@@ -1264,7 +1264,7 @@ $text-align-settings: (
   visited:      false
 ) !default;
 
-$text-align-plugins: map-collect(
+$text-align-plugins: (
   /*
   */
 ) !default;
@@ -1292,7 +1292,7 @@ $text-decoration-settings: (
   visited:      false
 ) !default;
 
-$text-decoration-plugins: map-collect(
+$text-decoration-plugins: (
   /*
   */
 ) !default;
@@ -1319,12 +1319,12 @@ $text-decoration-color-settings: (
   visited:      false
 ) !default;
 
-$text-decoration-color-plugins: map-collect(
+$text-decoration-color-plugins: (
   /*
-  $plugin-palette-grayscale
+  'plugin-palette-grayscale'
   */
-  $plugin-project-palette-settings,
-  $plugin-palette-required
+  'plugin-project-palette-settings',
+  'plugin-palette-required'
 ) !default;
 
 $text-decoration-color-manual-values: (
@@ -1345,7 +1345,7 @@ $text-transform-settings: (
   visited:      false
 ) !default;
 
-$text-transform-plugins: map-collect(
+$text-transform-plugins: (
   /*
   */
 ) !default;
@@ -1373,24 +1373,24 @@ $top-settings: (
   visited:      false
 ) !default;
 
-$top-plugins: map-collect(
+$top-plugins: (
   /*
-  $plugin-spacing-uswds-small
-  $plugin-spacing-uswds-medium
-  $plugin-spacing-uswds-large
-  $plugin-spacing-uswds-xlarge
-  $plugin-spacing-uswds-all
-  $plugin-spacing-uswds-small-negative
-  $plugin-spacing-uswds-medium-negative
-  $plugin-spacing-uswds-negative
-  $plugin-spacing-units-percentage
-  $plugin-spacing-units-px
-  $plugin-spacing-units-px-negative
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
   */
-  $plugin-spacing-uswds-named-small,
-  $plugin-spacing-uswds-named-medium,
-  $plugin-spacing-uswds-named-small-negative,
-  $plugin-spacing-uswds-named-medium-negative
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-small-negative',
+  'plugin-spacing-uswds-named-medium-negative'
 ) !default;
 
 $top-manual-values: (
@@ -1414,7 +1414,7 @@ $vertical-align-settings: (
   visited:      false
 ) !default;
 
-$vertical-align-plugins: map-collect(
+$vertical-align-plugins: (
   /*
   */
 ) !default;
@@ -1446,7 +1446,7 @@ $whitespace-settings: (
   visited:      false
 ) !default;
 
-$whitespace-plugins: map-collect(
+$whitespace-plugins: (
   /*
   */
 ) !default;
@@ -1475,15 +1475,15 @@ $width-settings: (
   visited:      false
 ) !default;
 
-$width-plugins: map-collect(
+$width-plugins: (
   /*
-  $plugin-spacing-uswds-all,
-  $plugin-spacing-units-px,
-  $plugin-spacing-units-em,
-  $plugin-spacing-units-ch
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-units-px',
+  'plugin-spacing-units-em',
+  'plugin-spacing-units-ch'
   */
-  $plugin-spacing-units-percentage,
-  $plugin-spacing-uswds-named-breakpoints-rem
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-named-breakpoints-rem'
 ) !default;
 
 $width-manual-values: (
@@ -1507,7 +1507,7 @@ $z-index-settings: (
   visited:      false
 ) !default;
 
-$z-index-plugins: map-collect(
+$z-index-plugins: (
   /*
   */
 ) !default;

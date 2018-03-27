@@ -21,7 +21,7 @@ $bottom: (
     base: 'bottom',
     modifiers: null,
     values: map-collect(
-      $bottom-plugins,
+      get-plugins($bottom-plugins),
       $bottom-manual-values
     ),
     settings: $bottom-settings,

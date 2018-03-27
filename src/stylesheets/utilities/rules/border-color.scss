@@ -21,7 +21,7 @@ $border-color: (
     modifiers: null,
     values: map-collect(
       $plugin-palette-required,
-      $border-color-plugins,
+      get-plugins($border-color-plugins),
       $border-color-manual-values
     ),
     settings: $border-color-settings,

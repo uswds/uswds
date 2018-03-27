@@ -31,7 +31,7 @@ $font: (
     base: 'font',
     modifiers: null,
     values: map-collect(
-      $font-plugins,
+      get-plugins($font-plugins),
       $font-manual-values
     ),
     settings: $font-settings,

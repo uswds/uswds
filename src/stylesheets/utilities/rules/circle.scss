@@ -22,7 +22,7 @@ $circle: (
     base: 'circle',
     modifiers: null,
     values: map-collect(
-      $circle-plugins,
+      get-plugins($circle-plugins),
       $circle-manual-values
     ),
     settings: $circle-settings,

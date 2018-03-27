@@ -21,7 +21,7 @@ $right: (
     base: 'right',
     modifiers: null,
     values: map-collect(
-      $right-plugins,
+      get-plugins($right-plugins),
       $right-manual-values
     ),
     settings: $right-settings,
