@@ -114,7 +114,7 @@ $background-color-settings: (
   visited:      false
 ) !default;
 
-$background-color-plugins: map-collect(
+$background-color-plugins: (
   /*
   $plugin-[color]
   $plugin-[color]-light
@@ -127,8 +127,8 @@ $background-color-plugins: map-collect(
   $plugin-[color]-vivid
   $plugin-palette-status
   */
-  $plugin-project-palette-settings,
-  $plugin-palette-grayscale
+  'plugin-project-palette-settings',
+  'plugin-palette-grayscale'
 ) !default;
 
 $background-color-manual-values: (

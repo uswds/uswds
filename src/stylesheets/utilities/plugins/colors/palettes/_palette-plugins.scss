@@ -47,3 +47,9 @@ $plugin-project-palette-settings: (
   focus:                    $color-focus,
   visited:                  $color-visited,
 );
+
+$plugins-palettes: (
+  'plugin-project-palette-settings': $plugin-project-palette-settings,
+  'plugin-palette-grayscale': $plugin-palette-grayscale,
+  'required': $plugin-palette-required,
+);
