@@ -116,19 +116,19 @@ $background-color-settings: (
 
 $background-color-plugins: (
   /*
-  'plugin-[color]'
-  'plugin-[color]-light'
-  'plugin-[color]-medium'
-  'plugin-[color]-dark'
-  'plugin-[color]-light-vivid'
-  'plugin-[color]-medium-vivid'
-  'plugin-[color]-dark-vivid'
-  'plugin-[color]-standard'
-  'plugin-[color]-vivid'
-  'plugin-palette-status'
+  'plugin-color-[color]'
+  'plugin-color-[color]-light'
+  'plugin-color-[color]-medium'
+  'plugin-color-[color]-dark'
+  'plugin-color-[color]-light-vivid'
+  'plugin-color-[color]-medium-vivid'
+  'plugin-color-[color]-dark-vivid'
+  'plugin-color-[color]-standard'
+  'plugin-color-[color]-vivid'
+  'plugin-color-palette-status'
   */
-  'plugin-palette-theme-settings',
-  'plugin-palette-grayscale',
+  'plugin-color-palette-theme',
+  'plugin-color-palette-grayscale',
 ) !default;
 
 $background-color-manual-values: (
@@ -193,8 +193,8 @@ $border-color-plugins: (
   'plugin-[color]-vivid'
   'plugin-palette-status'
   */
-  'plugin-project-palette-settings',
-  'plugin-palette-grayscale'
+  'plugin-color-palette-theme',
+  'plugin-color-palette-grayscale'
 ) !default;
 
 $border-color-manual-values: (
@@ -431,8 +431,8 @@ $color-plugins: (
   'plugin-[color]-vivid'
   'plugin-palette-status'
   */
-  'plugin-project-palette-settings',
-  'plugin-palette-grayscale'
+  'plugin-color-palette-theme',
+  'plugin-color-palette-grayscale'
 ) !default;
 
 $color-manual-values: (
@@ -933,7 +933,7 @@ $max-width-settings: (
 $max-width-plugins: (
   /*
   'plugin-spacing-units-percentage',
-  'plugin-spacing-uswds-named-breakpoints-rem'
+  'plugin-spacing-theme-breakpoints-rem'
   */
 ) !default;
 
@@ -992,7 +992,7 @@ $min-width-settings: (
 $min-width-plugins: (
   /*
   */
-  'plugin-spacing-uswds-named-breakpoints-rem',
+  'plugin-spacing-theme-breakpoints-rem',
   'plugin-spacing-uswds-large',
   'plugin-spacing-uswds-xlarge'
 ) !default;
@@ -1119,7 +1119,7 @@ $outline-color-settings: (
 $outline-color-plugins: (
   /*
   */
-  'plugin-project-palette-settings'
+  'plugin-color-palette-theme'
 ) !default;
 
 $outline-color-manual-values: (
@@ -1321,10 +1321,10 @@ $text-decoration-color-settings: (
 
 $text-decoration-color-plugins: (
   /*
-  'plugin-palette-grayscale'
+  'plugin-color-palette-grayscale'
   */
-  'plugin-project-palette-settings',
-  'plugin-palette-required'
+  'plugin-color-palette-theme',
+  'plugin-color-palette-required'
 ) !default;
 
 $text-decoration-color-manual-values: (
@@ -1483,7 +1483,7 @@ $width-plugins: (
   'plugin-spacing-units-ch'
   */
   'plugin-spacing-units-percentage',
-  'plugin-spacing-uswds-named-breakpoints-rem'
+  'plugin-spacing-theme-breakpoints-rem'
 ) !default;
 
 $width-manual-values: (

@@ -489,23 +489,31 @@ from a list of plugin keys.
 
 @function get-plugins($list){
   $our-plugins:();
+  $registry:();
+
   @if type-of($list) == 'map' {
     @error "Use a list of strings as plugin values.";
   }
   @each $plugin in $list {
+    @debug "Plugin: #{$plugin}";
     // find the plugin in the registry
-    @if str-index($plugin, spacing){
+    @if str-index($plugin, 'plugin-spacing'){
+      @debug "Registry is in /plugin/spacing";
       @if str-index($plugin, theme){
+        @debug "Registry is /plugin/spacing/theme";
         $registry: map-deep-get($plugin-registry, spacing, theme);
       }
       @elseif str-index($plugin, uswds){
+        @debug "Registry is /plugin/spacing/uswds";
         $registry: map-deep-get($plugin-registry, spacing, uswds);
       }
       @else {
+        @debug "Registry is /plugin/spacing/units";
         $registry: map-deep-get($plugin-registry, spacing, units);
       }
     }
-    @elseif str-index($plugin, font){
+    @elseif str-index($plugin, 'plugin-font'){
+      @debug "Registry is in /plugin/font";
       @if str-index($plugin, mono){
         @if str-index($plugin, theme){
           $registry: map-deep-get($plugin-registry, font, mono, theme);
@@ -534,92 +542,93 @@ from a list of plugin keys.
         $registry: map-deep-get($plugin-registry, font, misc);
       }
     }
-    @elseif str-index($plugin, color){
-      @if str-index($plugin, palettes) {
+    @elseif str-index($plugin, 'plugin-color'){
+      @if str-index($plugin, 'palette') {
+        @debug "Looking in /plugin/color/palette";
         $registry: map-deep-get($plugin-registry, color, palettes);
       }
-      @elseif str-index($plugin, black-cool) {
+      @elseif str-index($plugin, 'black-cool') {
         $registry: map-deep-get($plugin-registry, color, black-cool);
       }
-      @elseif str-index($plugin, black-transparent) {
+      @elseif str-index($plugin, 'black-transparent') {
         $registry: map-deep-get($plugin-registry, color, black-transparent);
       }
-      @elseif str-index($plugin, black-warm) {
+      @elseif str-index($plugin, 'black-warm') {
         $registry: map-deep-get($plugin-registry, color, black-warm);
       }
-      @elseif str-index($plugin, black) {
+      @elseif str-index($plugin, 'black') {
         $registry: map-deep-get($plugin-registry, color, black);
       }
-      @elseif str-index($plugin, blue-warm) {
+      @elseif str-index($plugin, 'blue-warm') {
         $registry: map-deep-get($plugin-registry, color, blue-warm);
       }
-      @elseif str-index($plugin, blue) {
+      @elseif str-index($plugin, 'blue') {
         $registry: map-deep-get($plugin-registry, color, blue);
       }
-      @elseif str-index($plugin, cyan) {
+      @elseif str-index($plugin, 'cyan') {
         $registry: map-deep-get($plugin-registry, color, cyan);
       }
-      @elseif str-index($plugin, gold) {
+      @elseif str-index($plugin, 'gold') {
         $registry: map-deep-get($plugin-registry, color, gold);
       }
-      @elseif str-index($plugin, green-cool) {
+      @elseif str-index($plugin, 'green-cool') {
         $registry: map-deep-get($plugin-registry, color, green-cool);
       }
-      @elseif str-index($plugin, green-warm) {
+      @elseif str-index($plugin, 'green-warm') {
         $registry: map-deep-get($plugin-registry, color, green-warm);
       }
-      @elseif str-index($plugin, green) {
+      @elseif str-index($plugin, 'green') {
         $registry: map-deep-get($plugin-registry, color, green);
       }
-      @elseif str-index($plugin, indigo-cool) {
+      @elseif str-index($plugin, 'indigo-cool') {
         $registry: map-deep-get($plugin-registry, color, indigo-cool);
       }
-      @elseif str-index($plugin, indigo-warm) {
+      @elseif str-index($plugin, 'indigo-warm') {
         $registry: map-deep-get($plugin-registry, color, indigo-warm);
       }
-      @elseif str-index($plugin, indigo) {
+      @elseif str-index($plugin, 'indigo') {
         $registry: map-deep-get($plugin-registry, color, indigo);
       }
-      @elseif str-index($plugin, magenta) {
+      @elseif str-index($plugin, 'magenta') {
         $registry: map-deep-get($plugin-registry, color, magenta);
       }
-      @elseif str-index($plugin, mint-cool) {
+      @elseif str-index($plugin, 'mint-cool') {
         $registry: map-deep-get($plugin-registry, color, mint-cool);
       }
-      @elseif str-index($plugin, mint) {
+      @elseif str-index($plugin, 'mint') {
         $registry: map-deep-get($plugin-registry, color, mint);
       }
-      @elseif str-index($plugin, orange-warm) {
+      @elseif str-index($plugin, 'orange-warm') {
         $registry: map-deep-get($plugin-registry, color, orange-warm);
       }
-      @elseif str-index($plugin, orange) {
+      @elseif str-index($plugin, 'orange') {
         $registry: map-deep-get($plugin-registry, color, orange);
       }
-      @elseif str-index($plugin, red-warm) {
+      @elseif str-index($plugin, 'red-warm') {
         $registry: map-deep-get($plugin-registry, color, red-warm);
       }
-      @elseif str-index($plugin, red) {
+      @elseif str-index($plugin, 'red') {
         $registry: map-deep-get($plugin-registry, color, red);
       }
-      @elseif str-index($plugin, violet-cool) {
+      @elseif str-index($plugin, 'violet-cool') {
         $registry: map-deep-get($plugin-registry, color, violet-cool);
       }
-      @elseif str-index($plugin, violet-warm) {
+      @elseif str-index($plugin, 'violet-warm') {
         $registry: map-deep-get($plugin-registry, color, violet-warm);
       }
-      @elseif str-index($plugin, white-cool) {
+      @elseif str-index($plugin, 'white-cool') {
         $registry: map-deep-get($plugin-registry, color, white-cool);
       }
-      @elseif str-index($plugin, white-warm) {
+      @elseif str-index($plugin, 'white-warm') {
         $registry: map-deep-get($plugin-registry, color, white-warm);
       }
-      @elseif str-index($plugin, white-transparent) {
+      @elseif str-index($plugin, 'white-transparent') {
         $registry: map-deep-get($plugin-registry, color, white-transparent);
       }
-      @elseif str-index($plugin, white) {
+      @elseif str-index($plugin, 'white') {
         $registry: map-deep-get($plugin-registry, color, white);
       }
-      @elseif str-index($plugin, yellow) {
+      @elseif str-index($plugin, 'yellow') {
         $registry: map-deep-get($plugin-registry, color, yellow);
       }
       @else {
@@ -628,18 +637,21 @@ from a list of plugin keys.
     }
     @else {
       $registry: map-get($plugin-registry, misc);
+      @debug "Looking /plugin/misc";
     }
     // now the registry is set
     @if not map-has-key($registry, #{$plugin}){
       @error "#{$plugin} isn't in the registry.";
     }
     @else {
+      @debug "Plugin found.";
       $our-plugins: map-merge(
         $our-plugins,
         map-get($registry, #{$plugin})
       );
     }
   } // end plugin list loop
+  @debug "Compiled plugin keypairs: #{$our-plugins}";
   @return $our-plugins;
 };
 

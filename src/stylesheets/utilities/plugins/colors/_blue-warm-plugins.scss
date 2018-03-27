@@ -53,15 +53,14 @@ $plugin-color-blue-warm-all: map-collect(
   $plugin-color-blue-warm-vivid
 );
 
-$plugin-color-NNNN: (
-  'plugin-color-NNNN-light': $plugin-color-NNNN-light,
-  'plugin-color-NNNN-medium': $plugin-color-NNNN-medium,
-  'plugin-color-NNNN-dark': $plugin-color-NNNN-dark,
-  'plugin-color-NNNN-light-vivid': $plugin-color-NNNN-light-vivid,
-  'plugin-color-NNNN-medium-vivid': $plugin-color-NNNN-medium-vivid,
-  'plugin-color-NNNN-dark-vivid': $plugin-color-NNNN-dark-vivid,
-  'plugin-color-NNNN-standard': $plugin-color-NNNN-standard,
-  'plugin-color-NNNN-vivid': $plugin-color-NNNN-vivid,
-  'plugin-color-NNNN-standard': $plugin-color-NNNN-standard,
-  'plugin-color-NNNN-all': $plugin-color-NNNN-all,
+$plugin-color-blue-warm: (
+  'plugin-color-blue-warm-light': $plugin-color-blue-warm-light,
+  'plugin-color-blue-warm-medium': $plugin-color-blue-warm-medium,
+  'plugin-color-blue-warm-dark': $plugin-color-blue-warm-dark,
+  'plugin-color-blue-warm-light-vivid': $plugin-color-blue-warm-light-vivid,
+  'plugin-color-blue-warm-medium-vivid': $plugin-color-blue-warm-medium-vivid,
+  'plugin-color-blue-warm-dark-vivid': $plugin-color-blue-warm-dark-vivid,
+  'plugin-color-blue-warm-standard': $plugin-color-blue-warm-standard,
+  'plugin-color-blue-warm-vivid': $plugin-color-blue-warm-vivid,
+  'plugin-color-blue-warm-all': $plugin-color-blue-warm-all,
 );

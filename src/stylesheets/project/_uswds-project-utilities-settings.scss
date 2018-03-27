@@ -111,8 +111,8 @@ $background-color-settings: (
 $background-color-plugins: map-collect(
   /*
   */
-  $plugin-palette-required,
-  $plugin-project-palette-settings
+  $plugin-color-palette-required,
+  $plugin-color-palette-theme
 );
 
 $background-color-manual-values: (
@@ -164,8 +164,8 @@ $border-color-settings: (
 $border-color-plugins: map-collect(
   /*
   */
-  $plugin-palette-required,
-  $plugin-project-palette-settings
+  $plugin-color-palette-required,
+  $plugin-color-palette-theme
 );
 
 $border-color-manual-values: (
@@ -301,8 +301,8 @@ $color-settings: (
 $color-plugins: map-collect(
   /*
   */
-  $plugin-project-palette-settings,
-  $plugin-palette-required
+  $plugin-color-palette-theme,
+  $plugin-color-palette-required
 );
 
 $color-manual-values: (
@@ -816,7 +816,7 @@ $max-width-settings: (
 $max-width-plugins: map-collect(
   /*
   $plugin-spacing-units-percentage,
-  $plugin-spacing-uswds-named-breakpoints-rem
+  $plugin-spacing-theme-breakpoints-rem
   */
 );
 
@@ -874,7 +874,7 @@ $min-width-settings: (
 $min-width-plugins: map-collect(
   /*
   */
-  $plugin-spacing-uswds-named-breakpoints-rem,
+  $plugin-spacing-theme-breakpoints-rem,
   $plugin-spacing-uswds-large,
   $plugin-spacing-uswds-xlarge
 );
@@ -1001,7 +1001,7 @@ $outline-color-settings: (
 $outline-color-plugins: map-collect(
   /*
   */
-  $plugin-project-palette-settings
+  $plugin-color-palette-theme
 );
 
 $outline-color-manual-values: (
@@ -1271,7 +1271,7 @@ $width-plugins: map-collect(
   $plugin-spacing-units-ch
   */
   $plugin-spacing-units-percentage,
-  $plugin-spacing-uswds-named-breakpoints-rem
+  $plugin-spacing-theme-breakpoints-rem
 );
 
 $width-manual-values: (
