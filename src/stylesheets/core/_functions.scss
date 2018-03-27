@@ -383,6 +383,24 @@ system letter-spacing
 
 /*
 ----------------------------------------
+z-index()
+----------------------------------------
+Get a z-index value from the
+system z-index
+----------------------------------------
+*/
+
+@function z-index($value) {
+  @if map-has-key($uswds-z-index, $value) {
+    @return map-get($uswds-z-index, $value);
+  }
+  @else {
+    @error "#{$value} is not a valid z-index value.";
+  }
+};
+
+/*
+----------------------------------------
 system-type-scale()
 ----------------------------------------
 Get a value from the system type scale

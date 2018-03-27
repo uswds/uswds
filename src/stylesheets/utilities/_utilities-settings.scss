@@ -1482,6 +1482,7 @@ $width-plugins: (
   'plugin-spacing-units-em',
   'plugin-spacing-units-ch'
   */
+  'plugin-spacing-uswds-named-all',
   'plugin-spacing-units-percentage',
   'plugin-spacing-theme-breakpoints-rem'
 ) !default;
@@ -1510,17 +1511,11 @@ $z-index-settings: (
 $z-index-plugins: (
   /*
   */
+  'plugin-misc-z-index'
 ) !default;
 
 $z-index-manual-values: (
   /*
-  0:            '0',
-  100:          '100',
-  200:          '200',
-  300:          '300',
-  400:          '400',
-  500:          '500',
   */
-  top:          '9999',
-  bottom:       '-9999'
+  auto:         'auto',
 ) !default;
