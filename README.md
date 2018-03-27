@@ -91,7 +91,7 @@ There are a few different ways to use the Design System within your project. Whi
 
   You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project.
 
-3. To use the Design System on your project, you’ll need to reference the [CSS (*C*ascading *S*tyle *S*heets)](https://developer.mozilla.org/en-US/docs/Web/CSS) and JavaScript files in each HTML page or dynamic templates in your project.
+3. To use the Design System on your project, you’ll need to reference the [CSS (*C*ascading *S*tyle *S*heets)](https://developer.mozilla.org/en-US/docs/Web/CSS) and JavaScript files in each HTML page or dynamic templates in your project. (We also provide Sass (SCSS) files in the zip file which you can compile to CSS. See [Sass](#sass).)
 
   Here is an example of how to reference these assets in your `index.html` file:
 
