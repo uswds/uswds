@@ -1,24 +1,25 @@
-$plugin-colors-black-light: (
+$plugin-color-black-light: (
   'black-5':  $black-5,
   'black-10': $black-10,
   'black-20': $black-20,
   'black-30': $black-30,
 );
 
-$plugin-colors-black-medium: (
+$plugin-color-black-medium: (
   'black-40': $black-40,
   'black-50': $black-50,
   'black-60': $black-60,
 );
 
-$plugin-colors-black-dark: (
+$plugin-color-black-dark-all: (
   'black-70': $black-70,
   'black-80': $black-80,
   'black-90': $black-90,
 );
 
-$plugin-colors-black: map-collect(
-  $plugin-colors-black-light,
-  $plugin-colors-black-medium,
-  $plugin-colors-black-dark
+$plugin-color-black: (
+  'plugin-color-black-light': $plugin-color-black-light,
+  'plugin-color-black-medium': $plugin-color-black-medium,
+  'plugin-color-black-dark': $plugin-color-black-dark,
+  'plugin-color-black-all': $plugin-color-black-dark-all,
 );

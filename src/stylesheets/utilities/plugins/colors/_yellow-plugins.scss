@@ -1,54 +1,67 @@
-$plugin-colors-yellow-light: (
+$plugin-color-yellow-light: (
   'yellow-5':  $yellow-5,
   'yellow-10': $yellow-10,
   'yellow-20': $yellow-20,
   'yellow-30': $yellow-30,
 );
 
-$plugin-colors-yellow-medium: (
+$plugin-color-yellow-medium: (
   'yellow-40': $yellow-40,
   'yellow-50': $yellow-50,
   'yellow-60': $yellow-60,
 );
 
-$plugin-colors-yellow-dark: (
+$plugin-color-yellow-dark: (
   'yellow-70': $yellow-70,
   'yellow-80': $yellow-80,
   'yellow-90': $yellow-90,
 );
 
-$plugin-colors-yellow-light-vivid: (
+$plugin-color-yellow-light-vivid: (
   'yellow-5v':  $yellow-5v,
   'yellow-10v': $yellow-10v,
   'yellow-20v': $yellow-20v,
   'yellow-30v': $yellow-30v,
 );
 
-$plugin-colors-yellow-medium-vivid: (
+$plugin-color-yellow-medium-vivid: (
   'yellow-40v': $yellow-40v,
   'yellow-50v': $yellow-50v,
   'yellow-60v': $yellow-60v,
 );
 
-$plugin-colors-yellow-dark-vivid: (
+$plugin-color-yellow-dark-vivid: (
   'yellow-70v': $yellow-70v,
   'yellow-80v': $yellow-80v,
   'yellow-90v': $yellow-90v,
 );
 
-$plugin-colors-yellow-standard: map-collect(
-  $plugin-colors-yellow-light,
-  $plugin-colors-yellow-medium,
-  $plugin-colors-yellow-dark
+$plugin-color-yellow-standard: map-collect(
+  $plugin-color-yellow-light,
+  $plugin-color-yellow-medium,
+  $plugin-color-yellow-dark
 );
 
-$plugin-colors-yellow-vivid: map-collect(
-  $plugin-colors-yellow-light-vivid,
-  $plugin-colors-yellow-medium-vivid,
-  $plugin-colors-yellow-dark-vivid
+$plugin-color-yellow-vivid: map-collect(
+  $plugin-color-yellow-light-vivid,
+  $plugin-color-yellow-medium-vivid,
+  $plugin-color-yellow-dark-vivid
 );
 
-$plugin-colors-yellow: map-collect(
-  $plugin-colors-yellow-standard,
-  $plugin-colors-yellow-vivid
+$plugin-color-yellow-all: map-collect(
+  $plugin-color-yellow-standard,
+  $plugin-color-yellow-vivid
+);
+
+$plugin-color-yellow: (
+  'plugin-color-yellow-light': $plugin-color-yellow-light,
+  'plugin-color-yellow-medium': $plugin-color-yellow-medium,
+  'plugin-color-yellow-dark': $plugin-color-yellow-dark,
+  'plugin-color-yellow-light-vivid': $plugin-color-yellow-light-vivid,
+  'plugin-color-yellow-medium-vivid': $plugin-color-yellow-medium-vivid,
+  'plugin-color-yellow-dark-vivid': $plugin-color-yellow-dark-vivid,
+  'plugin-color-yellow-standard': $plugin-color-yellow-standard,
+  'plugin-color-yellow-vivid': $plugin-color-yellow-vivid,
+  'plugin-color-yellow-standard': $plugin-color-yellow-standard,
+  'plugin-color-yellow-all': $plugin-color-yellow-all,
 );

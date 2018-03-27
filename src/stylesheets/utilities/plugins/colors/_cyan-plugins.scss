@@ -1,54 +1,67 @@
-$plugin-colors-cyan-light: (
+$plugin-color-cyan-light: (
   'cyan-5':  $cyan-5,
   'cyan-10': $cyan-10,
   'cyan-20': $cyan-20,
   'cyan-30': $cyan-30,
 );
 
-$plugin-colors-cyan-medium: (
+$plugin-color-cyan-medium: (
   'cyan-40': $cyan-40,
   'cyan-50': $cyan-50,
   'cyan-60': $cyan-60,
 );
 
-$plugin-colors-cyan-dark: (
+$plugin-color-cyan-dark: (
   'cyan-70': $cyan-70,
   'cyan-80': $cyan-80,
   'cyan-90': $cyan-90,
 );
 
-$plugin-colors-cyan-light-vivid: (
+$plugin-color-cyan-light-vivid: (
   'cyan-5v':  $cyan-5v,
   'cyan-10v': $cyan-10v,
   'cyan-20v': $cyan-20v,
   'cyan-30v': $cyan-30v,
 );
 
-$plugin-colors-cyan-medium-vivid: (
+$plugin-color-cyan-medium-vivid: (
   'cyan-40v': $cyan-40v,
   'cyan-50v': $cyan-50v,
   'cyan-60v': $cyan-60v,
 );
 
-$plugin-colors-cyan-dark-vivid: (
+$plugin-color-cyan-dark-vivid: (
   'cyan-70v': $cyan-70v,
   'cyan-80v': $cyan-80v,
   'cyan-90v': $cyan-90v,
 );
 
-$plugin-colors-cyan-standard: map-collect(
-  $plugin-colors-cyan-light,
-  $plugin-colors-cyan-medium,
-  $plugin-colors-cyan-dark
+$plugin-color-cyan-standard: map-collect(
+  $plugin-color-cyan-light,
+  $plugin-color-cyan-medium,
+  $plugin-color-cyan-dark
 );
 
-$plugin-colors-cyan-vivid: map-collect(
-  $plugin-colors-cyan-light-vivid,
-  $plugin-colors-cyan-medium-vivid,
-  $plugin-colors-cyan-dark-vivid
+$plugin-color-cyan-vivid: map-collect(
+  $plugin-color-cyan-light-vivid,
+  $plugin-color-cyan-medium-vivid,
+  $plugin-color-cyan-dark-vivid
 );
 
-$plugin-colors-cyan: map-collect(
-  $plugin-colors-cyan-standard,
-  $plugin-colors-cyan-vivid
+$plugin-color-cyan-all: map-collect(
+  $plugin-color-cyan-standard,
+  $plugin-color-cyan-vivid
+);
+
+$plugin-color-cyan: (
+  'plugin-color-cyan-light': $plugin-color-cyan-light,
+  'plugin-color-cyan-medium': $plugin-color-cyan-medium,
+  'plugin-color-cyan-dark': $plugin-color-cyan-dark,
+  'plugin-color-cyan-light-vivid': $plugin-color-cyan-light-vivid,
+  'plugin-color-cyan-medium-vivid': $plugin-color-cyan-medium-vivid,
+  'plugin-color-cyan-dark-vivid': $plugin-color-cyan-dark-vivid,
+  'plugin-color-cyan-standard': $plugin-color-cyan-standard,
+  'plugin-color-cyan-vivid': $plugin-color-cyan-vivid,
+  'plugin-color-cyan-standard': $plugin-color-cyan-standard,
+  'plugin-color-cyan-all': $plugin-color-cyan-all,
 );

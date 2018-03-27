@@ -5,8 +5,8 @@ $plugin-palette-required: (
 );
 
 $plugin-palette-grayscale: map-collect(
-  $plugin-colors-black,
-  $plugin-colors-white
+  $plugin-color-black,
+  $plugin-color-white
 );
 
 $plugin-project-palette-settings: (
@@ -48,8 +48,8 @@ $plugin-project-palette-settings: (
   visited:                  $color-visited,
 );
 
-$plugins-palettes: (
-  'plugin-project-palette-settings': $plugin-project-palette-settings,
+$plugin-palettes: (
+  'plugin-palette-theme-settings': $plugin-project-palette-settings,
   'plugin-palette-grayscale': $plugin-palette-grayscale,
   'required': $plugin-palette-required,
 );

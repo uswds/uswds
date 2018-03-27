@@ -14,22 +14,6 @@ example:
 ----------------------------------------
 */
 
-@function get-plugins($list){
-  $our-plugins:();
-  @each $plugin in $list {
-    @if not map-has-key($plugins-palettes, #{$plugin}){
-      @error "#{$plugin} is not a valid plugin.";
-    }
-    @else {
-      $our-plugins: map-merge(
-        $our-plugins,
-        map-get($plugins-palettes, #{$plugin})
-      );
-    }
-  }
-  @return $our-plugins;
-};
-
 $background-color: (
   background-color: (
     base: 'background-color',

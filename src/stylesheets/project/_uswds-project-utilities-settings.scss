@@ -137,8 +137,8 @@ $border-settings: (
 $border-plugins: map-collect(
   /*
   */
-  $plugin-spacing-px,
-  $plugin-system-spacing-small
+  $plugin-spacing-units-px,
+  $plugin-spacing-uswds-small
 );
 
 $border-manual-values: (
@@ -189,9 +189,9 @@ $border-radius-settings: (
 
 $border-radius-plugins: map-collect(
   /*
-  $plugin-system-spacing-small
+  $plugin-spacing-uswds-small
   */
-  $plugin-project-spacing-small
+  $plugin-spacing-uswds-named-small
 );
 
 $border-radius-manual-values: (
@@ -276,7 +276,7 @@ $circle-settings: (
 $circle-plugins: map-collect(
   /*
   */
-  $plugin-project-spacing-all
+  $plugin-spacing-uswds-named-all
 );
 
 $circle-manual-values: (
@@ -477,7 +477,7 @@ $font-settings: (
 $font-plugins: map-collect(
   /*
   */
-  $plugin-project-fonts-all
+  $plugin-font-theme-all
 );
 
 $font-manual-values: (
@@ -502,7 +502,7 @@ $font-family-settings: (
 $font-family-plugins: map-collect(
   /*
   */
-  $plugin-system-font-families
+  $plugin-font-stack-roles
 );
 
 $font-family-manual-values: (
@@ -610,12 +610,12 @@ $height-settings: (
 
 $height-plugins: map-collect(
   /*
-  $plugin-spacing-em,
-  $plugin-spacing-ch,
-  $plugin-spacing-px
+  $plugin-spacing-units-em,
+  $plugin-spacing-units-ch,
+  $plugin-spacing-units-px
   */
-  $plugin-spacing-percentage,
-  $plugin-project-spacing-all
+  $plugin-spacing-units-percentage,
+  $plugin-spacing-uswds-named-all
 );
 
 $height-manual-values: (
@@ -721,10 +721,10 @@ $manual-position-settings: (
 $manual-position-plugins: map-collect(
   /*
   */
-  $plugin-spacing-px,
-  $plugin-spacing-px-negative,
-  $plugin-project-spacing-small,
-  $plugin-project-spacing-small-negative
+  $plugin-spacing-units-px,
+  $plugin-spacing-units-px-negative,
+  $plugin-spacing-uswds-named-small,
+  $plugin-spacing-uswds-named-small-negative
 );
 
 $manual-position-manual-values: (
@@ -750,19 +750,19 @@ $margin-settings: (
 
 $margin-plugins: map-collect(
   /*
-  $plugin-spacing-px,
-  $plugin-spacing-px-negative,
-  $plugin-spacing-percentage,
-  $plugin-system-spacing-all,
-  $plugin-system-spacing-negative,
-  $plugin-spacing-ch,
-  $plugin-spacing-ch-negative,
-  $plugin-spacing-em
+  $plugin-spacing-units-px,
+  $plugin-spacing-units-px-negative,
+  $plugin-spacing-units-percentage,
+  $plugin-spacing-uswds-all,
+  $plugin-spacing-uswds-negative,
+  $plugin-spacing-units-ch,
+  $plugin-spacing-units-ch-negative,
+  $plugin-spacing-units-em
   */
-  $plugin-spacing-px,
-  $plugin-spacing-px-negative,
-  $plugin-project-spacing-all,
-  $plugin-project-spacing-small-negative
+  $plugin-spacing-units-px,
+  $plugin-spacing-units-px-negative,
+  $plugin-spacing-uswds-named-all,
+  $plugin-spacing-uswds-named-small-negative
 );
 
 $margin-manual-values: (
@@ -788,9 +788,9 @@ $max-height-settings: (
 
 $max-height-plugins: map-collect(
   /*
-  $plugin-spacing-percentage,
-  $plugin-system-spacing-all,
-  $plugin-spacing-px
+  $plugin-spacing-units-percentage,
+  $plugin-spacing-uswds-all,
+  $plugin-spacing-units-px
   */
 );
 
@@ -815,8 +815,8 @@ $max-width-settings: (
 
 $max-width-plugins: map-collect(
   /*
-  $plugin-spacing-percentage,
-  $plugin-spacing-breakpoints-rem
+  $plugin-spacing-units-percentage,
+  $plugin-spacing-uswds-named-breakpoints-rem
   */
 );
 
@@ -845,9 +845,9 @@ $min-height-settings: (
 
 $min-height-plugins: map-collect(
   /*
-  $plugin-spacing-percentage,
-  $plugin-system-spacing-small
-  $plugin-system-spacing-medium
+  $plugin-spacing-units-percentage,
+  $plugin-spacing-uswds-small
+  $plugin-spacing-uswds-medium
   */
 );
 
@@ -874,9 +874,9 @@ $min-width-settings: (
 $min-width-plugins: map-collect(
   /*
   */
-  $plugin-spacing-breakpoints-rem,
-  $plugin-system-spacing-large,
-  $plugin-system-spacing-xlarge
+  $plugin-spacing-uswds-named-breakpoints-rem,
+  $plugin-spacing-uswds-large,
+  $plugin-spacing-uswds-xlarge
 );
 
 $min-width-manual-values: (
@@ -974,8 +974,8 @@ $outline-settings: (
 $outline-plugins: map-collect(
   /*
   */
-  $plugin-spacing-px,
-  $plugin-system-spacing-small
+  $plugin-spacing-units-px,
+  $plugin-spacing-uswds-small
 );
 
 $outline-manual-values: (
@@ -1025,9 +1025,9 @@ $padding-settings: (
 
 $padding-plugins: map-collect(
   /*
-  $plugin-spacing-px,
+  $plugin-spacing-units-px,
   */
-  $plugin-project-spacing-all
+  $plugin-spacing-uswds-named-all
 );
 
 $padding-manual-values: (
@@ -1096,7 +1096,7 @@ $square-settings: (
 $square-plugins: map-collect(
   /*
   */
-  $plugin-project-spacing-all
+  $plugin-spacing-uswds-named-all
 );
 
 $square-manual-values: (
@@ -1265,13 +1265,13 @@ $width-settings: (
 
 $width-plugins: map-collect(
   /*
-  $plugin-system-spacing-all,
-  $plugin-spacing-px,
-  $plugin-spacing-em,
-  $plugin-spacing-ch
+  $plugin-spacing-uswds-all,
+  $plugin-spacing-units-px,
+  $plugin-spacing-units-em,
+  $plugin-spacing-units-ch
   */
-  $plugin-spacing-percentage,
-  $plugin-spacing-breakpoints-rem
+  $plugin-spacing-units-percentage,
+  $plugin-spacing-uswds-named-breakpoints-rem
 );
 
 $width-manual-values: (

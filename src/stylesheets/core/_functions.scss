@@ -480,6 +480,31 @@ colors: project and system
 
 /*
 ----------------------------------------
+get-plugins()
+----------------------------------------
+Build a single map of plugin values
+from a list of plugin keys.
+----------------------------------------
+*/
+
+@function get-plugins($list){
+  $our-plugins:();
+  @each $plugin in $list {
+    @if not map-has-key($plugins-palettes, #{$plugin}){
+      @error "#{$plugin} is not a valid plugin.";
+    }
+    @else {
+      $our-plugins: map-merge(
+        $our-plugins,
+        map-get($plugins-palettes, #{$plugin})
+      );
+    }
+  }
+  @return $our-plugins;
+};
+
+/*
+----------------------------------------
 @render-utility
 ----------------------------------------
 Build a utility from values calculated

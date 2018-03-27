@@ -116,19 +116,19 @@ $background-color-settings: (
 
 $background-color-plugins: (
   /*
-  $plugin-[color]
-  $plugin-[color]-light
-  $plugin-[color]-medium
-  $plugin-[color]-dark
-  $plugin-[color]-light-vivid
-  $plugin-[color]-medium-vivid
-  $plugin-[color]-dark-vivid
-  $plugin-[color]-standard
-  $plugin-[color]-vivid
-  $plugin-palette-status
+  'plugin-[color]'
+  'plugin-[color]-light'
+  'plugin-[color]-medium'
+  'plugin-[color]-dark'
+  'plugin-[color]-light-vivid'
+  'plugin-[color]-medium-vivid'
+  'plugin-[color]-dark-vivid'
+  'plugin-[color]-standard'
+  'plugin-[color]-vivid'
+  'plugin-palette-status'
   */
-  'plugin-project-palette-settings',
-  'plugin-palette-grayscale'
+  'plugin-palette-theme-settings',
+  'plugin-palette-grayscale',
 ) !default;
 
 $background-color-manual-values: (
@@ -152,12 +152,12 @@ $border-settings: (
 
 $border-plugins: map-collect(
   /*
-  $plugin-spacing-px
-  $plugin-system-spacing-small
-  $plugin-system-spacing-medium
+  $plugin-spacing-units-px
+  $plugin-spacing-uswds-small
+  $plugin-spacing-uswds-medium
   */
-  $plugin-project-spacing-small,
-  $plugin-project-spacing-medium
+  $plugin-spacing-uswds-named-small,
+  $plugin-spacing-uswds-named-medium
 ) !default;
 
 $border-manual-values: (
@@ -218,10 +218,10 @@ $border-radius-settings: (
 
 $border-radius-plugins: map-collect(
   /*
-  $plugin-system-spacing-small
-  $plugin-system-spacing-medium
+  $plugin-spacing-uswds-small
+  $plugin-spacing-uswds-medium
   */
-  $plugin-project-border-radius
+  $plugin-misc-border-radius
 ) !default;
 
 $border-radius-manual-values: (
@@ -274,11 +274,11 @@ $border-width-settings: (
 
 $border-width-plugins: map-collect(
   /*
-  $plugin-system-spacing-small
-  $plugin-system-spacing-medium
+  $plugin-spacing-uswds-small
+  $plugin-spacing-uswds-medium
   */
-  $plugin-project-spacing-small,
-  $plugin-project-spacing-medium
+  $plugin-spacing-uswds-named-small,
+  $plugin-spacing-uswds-named-medium
 ) !default;
 
 $border-width-manual-values: (
@@ -303,22 +303,22 @@ $bottom-settings: (
 
 $bottom-plugins: map-collect(
   /*
-  $plugin-system-spacing-small
-  $plugin-system-spacing-medium
-  $plugin-system-spacing-large
-  $plugin-system-spacing-xlarge
-  $plugin-system-spacing-all
-  $plugin-system-spacing-small-negative
-  $plugin-system-spacing-medium-negative
-  $plugin-system-spacing-negative
-  $plugin-spacing-percentage
-  $plugin-spacing-px
-  $plugin-spacing-px-negative
+  $plugin-spacing-uswds-small
+  $plugin-spacing-uswds-medium
+  $plugin-spacing-uswds-large
+  $plugin-spacing-uswds-xlarge
+  $plugin-spacing-uswds-all
+  $plugin-spacing-uswds-small-negative
+  $plugin-spacing-uswds-medium-negative
+  $plugin-spacing-uswds-negative
+  $plugin-spacing-units-percentage
+  $plugin-spacing-units-px
+  $plugin-spacing-units-px-negative
   */
-  $plugin-project-spacing-small,
-  $plugin-project-spacing-medium,
-  $plugin-project-spacing-small-negative,
-  $plugin-project-spacing-medium-negative
+  $plugin-spacing-uswds-named-small,
+  $plugin-spacing-uswds-named-medium,
+  $plugin-spacing-uswds-named-small-negative,
+  $plugin-spacing-uswds-named-medium-negative
 ) !default;
 
 $bottom-manual-values: (
@@ -373,16 +373,16 @@ $circle-settings: (
 
 $circle-plugins: map-collect(
   /*
-  $plugin-project-spacing-small
-  $plugin-project-spacing-medium
-  $plugin-project-spacing-large
-  $plugin-system-spacing-all
-  $plugin-system-spacing-small
-  $plugin-system-spacing-medium
-  $plugin-system-spacing-large
-  $plugin-system-spacing-xlarge
+  $plugin-spacing-uswds-named-small
+  $plugin-spacing-uswds-named-medium
+  $plugin-spacing-uswds-named-large
+  $plugin-spacing-uswds-all
+  $plugin-spacing-uswds-small
+  $plugin-spacing-uswds-medium
+  $plugin-spacing-uswds-large
+  $plugin-spacing-uswds-xlarge
   */
-  $plugin-project-spacing-all
+  $plugin-spacing-uswds-named-all
 ) !default;
 
 $circle-manual-values: (
@@ -592,17 +592,17 @@ $font-settings: (
 
 $font-plugins: map-collect(
   /*
-  $plugin-project-mono-all
-  $plugin-project-sans-all
-  $plugin-project-serif-all
-  $plugin-system-fonts-all
+  $plugin-font-mono-theme-all
+  $plugin-font-sans-theme-all
+  $plugin-font-serif-theme-all
+  $plugin-font-uswds-all
   $plugin-system-[family]-small
   $plugin-system-[family]-medium
   $plugin-system-[family]-large
   $plugin-system-[family]-xlarge
   $plugin-system-[family]-all
   */
-  $plugin-project-fonts-all
+  $plugin-font-theme-all
 ) !default;
 
 $font-manual-values: (
@@ -627,7 +627,7 @@ $font-family-settings: (
 $font-family-plugins: map-collect(
   /*
   */
-  $plugin-system-font-families
+  $plugin-font-stack-roles
 ) !default;
 
 $font-family-manual-values: (
@@ -699,9 +699,9 @@ $font-weight-settings: (
 
 $font-weight-plugins: map-collect(
   /*
-  $plugin-system-font-weights-all
+  $plugin-font-weights-numeric
   */
-  $plugin-project-font-weights-all
+  $plugin-font-weights-theme
 ) !default;
 
 $font-weight-manual-values: (
@@ -725,17 +725,17 @@ $height-settings: (
 
 $height-plugins: map-collect(
   /*
-  $plugin-project-spacing-small
-  $plugin-project-spacing-medium
-  $plugin-project-spacing-large
-  $plugin-project-spacing-xlarge
-  $plugin-system-spacing-all
-  $plugin-system-spacing-small
-  $plugin-system-spacing-medium
-  $plugin-system-spacing-large
-  $plugin-system-spacing-xlarge
+  $plugin-spacing-uswds-named-small
+  $plugin-spacing-uswds-named-medium
+  $plugin-spacing-uswds-named-large
+  $plugin-spacing-uswds-named-xlarge
+  $plugin-spacing-uswds-all
+  $plugin-spacing-uswds-small
+  $plugin-spacing-uswds-medium
+  $plugin-spacing-uswds-large
+  $plugin-spacing-uswds-xlarge
   */
-  $plugin-project-spacing-all
+  $plugin-spacing-uswds-named-all
 ) !default;
 
 $height-manual-values: (
@@ -762,22 +762,22 @@ $left-settings: (
 
 $left-plugins: map-collect(
   /*
-  $plugin-system-spacing-small
-  $plugin-system-spacing-medium
-  $plugin-system-spacing-large
-  $plugin-system-spacing-xlarge
-  $plugin-system-spacing-all
-  $plugin-system-spacing-small-negative
-  $plugin-system-spacing-medium-negative
-  $plugin-system-spacing-negative
-  $plugin-spacing-percentage
-  $plugin-spacing-px
-  $plugin-spacing-px-negative
+  $plugin-spacing-uswds-small
+  $plugin-spacing-uswds-medium
+  $plugin-spacing-uswds-large
+  $plugin-spacing-uswds-xlarge
+  $plugin-spacing-uswds-all
+  $plugin-spacing-uswds-small-negative
+  $plugin-spacing-uswds-medium-negative
+  $plugin-spacing-uswds-negative
+  $plugin-spacing-units-percentage
+  $plugin-spacing-units-px
+  $plugin-spacing-units-px-negative
   */
-  $plugin-project-spacing-small,
-  $plugin-project-spacing-medium,
-  $plugin-project-spacing-small-negative,
-  $plugin-project-spacing-medium-negative
+  $plugin-spacing-uswds-named-small,
+  $plugin-spacing-uswds-named-medium,
+  $plugin-spacing-uswds-named-small-negative,
+  $plugin-spacing-uswds-named-medium-negative
 ) !default;
 
 $left-manual-values: (
@@ -804,7 +804,7 @@ $letter-spacing-settings: (
 $letter-spacing-plugins: map-collect(
   /*
   */
-  $plugin-system-letter-spacing
+  $plugin-misc-letter-spacing
 ) !default;
 
 $letter-spacing-manual-values: (
@@ -829,7 +829,7 @@ $line-height-settings: (
 $line-height-plugins: map-collect(
   /*
   */
-  $plugin-system-line-heights
+  $plugin-misc-line-heights
 ) !default;
 
 $line-height-manual-values: (
@@ -867,19 +867,19 @@ $margin-settings: (
 
 $margin-plugins: map-collect(
   /*
-  $plugin-spacing-px,
-  $plugin-spacing-px-negative,
-  $plugin-spacing-percentage,
-  $plugin-system-spacing-all,
-  $plugin-system-spacing-negative,
-  $plugin-spacing-ch,
-  $plugin-spacing-ch-negative,
-  $plugin-spacing-em
+  $plugin-spacing-units-px,
+  $plugin-spacing-units-px-negative,
+  $plugin-spacing-units-percentage,
+  $plugin-spacing-uswds-all,
+  $plugin-spacing-uswds-negative,
+  $plugin-spacing-units-ch,
+  $plugin-spacing-units-ch-negative,
+  $plugin-spacing-units-em
   */
-  $plugin-spacing-px,
-  $plugin-spacing-px-negative,
-  $plugin-project-spacing-all,
-  $plugin-project-spacing-small-negative
+  $plugin-spacing-units-px,
+  $plugin-spacing-units-px-negative,
+  $plugin-spacing-uswds-named-all,
+  $plugin-spacing-uswds-named-small-negative
 ) !default;
 
 $margin-manual-values: (
@@ -905,9 +905,9 @@ $max-height-settings: (
 
 $max-height-plugins: map-collect(
   /*
-  $plugin-spacing-percentage,
-  $plugin-system-spacing-all,
-  $plugin-spacing-px
+  $plugin-spacing-units-percentage,
+  $plugin-spacing-uswds-all,
+  $plugin-spacing-units-px
   */
 ) !default;
 
@@ -932,8 +932,8 @@ $max-width-settings: (
 
 $max-width-plugins: map-collect(
   /*
-  $plugin-spacing-percentage,
-  $plugin-spacing-breakpoints-rem
+  $plugin-spacing-units-percentage,
+  $plugin-spacing-uswds-named-breakpoints-rem
   */
 ) !default;
 
@@ -963,9 +963,9 @@ $min-height-settings: (
 
 $min-height-plugins: map-collect(
   /*
-  $plugin-spacing-percentage,
-  $plugin-system-spacing-small
-  $plugin-system-spacing-medium
+  $plugin-spacing-units-percentage,
+  $plugin-spacing-uswds-small
+  $plugin-spacing-uswds-medium
   */
 ) !default;
 
@@ -992,9 +992,9 @@ $min-width-settings: (
 $min-width-plugins: map-collect(
   /*
   */
-  $plugin-spacing-breakpoints-rem,
-  $plugin-system-spacing-large,
-  $plugin-system-spacing-xlarge
+  $plugin-spacing-uswds-named-breakpoints-rem,
+  $plugin-spacing-uswds-large,
+  $plugin-spacing-uswds-xlarge
 ) !default;
 
 $min-width-manual-values: (
@@ -1092,8 +1092,8 @@ $outline-settings: (
 $outline-plugins: map-collect(
   /*
   */
-  $plugin-spacing-px,
-  $plugin-system-spacing-small
+  $plugin-spacing-units-px,
+  $plugin-spacing-uswds-small
 ) !default;
 
 $outline-manual-values: (
@@ -1143,9 +1143,9 @@ $padding-settings: (
 
 $padding-plugins: map-collect(
   /*
-  $plugin-spacing-px,
+  $plugin-spacing-units-px,
   */
-  $plugin-project-spacing-all
+  $plugin-spacing-uswds-named-all
 ) !default;
 
 $padding-manual-values: (
@@ -1199,22 +1199,22 @@ $right-settings: (
 
 $right-plugins: map-collect(
   /*
-  $plugin-system-spacing-small
-  $plugin-system-spacing-medium
-  $plugin-system-spacing-large
-  $plugin-system-spacing-xlarge
-  $plugin-system-spacing-all
-  $plugin-system-spacing-small-negative
-  $plugin-system-spacing-medium-negative
-  $plugin-system-spacing-negative
-  $plugin-spacing-percentage
-  $plugin-spacing-px
-  $plugin-spacing-px-negative
+  $plugin-spacing-uswds-small
+  $plugin-spacing-uswds-medium
+  $plugin-spacing-uswds-large
+  $plugin-spacing-uswds-xlarge
+  $plugin-spacing-uswds-all
+  $plugin-spacing-uswds-small-negative
+  $plugin-spacing-uswds-medium-negative
+  $plugin-spacing-uswds-negative
+  $plugin-spacing-units-percentage
+  $plugin-spacing-units-px
+  $plugin-spacing-units-px-negative
   */
-  $plugin-project-spacing-small,
-  $plugin-project-spacing-medium,
-  $plugin-project-spacing-small-negative,
-  $plugin-project-spacing-medium-negative
+  $plugin-spacing-uswds-named-small,
+  $plugin-spacing-uswds-named-medium,
+  $plugin-spacing-uswds-named-small-negative,
+  $plugin-spacing-uswds-named-medium-negative
 ) !default;
 
 $right-manual-values: (
@@ -1241,7 +1241,7 @@ $square-settings: (
 $square-plugins: map-collect(
   /*
   */
-  $plugin-project-spacing-all
+  $plugin-spacing-uswds-named-all
 ) !default;
 
 $square-manual-values: (
@@ -1375,22 +1375,22 @@ $top-settings: (
 
 $top-plugins: map-collect(
   /*
-  $plugin-system-spacing-small
-  $plugin-system-spacing-medium
-  $plugin-system-spacing-large
-  $plugin-system-spacing-xlarge
-  $plugin-system-spacing-all
-  $plugin-system-spacing-small-negative
-  $plugin-system-spacing-medium-negative
-  $plugin-system-spacing-negative
-  $plugin-spacing-percentage
-  $plugin-spacing-px
-  $plugin-spacing-px-negative
+  $plugin-spacing-uswds-small
+  $plugin-spacing-uswds-medium
+  $plugin-spacing-uswds-large
+  $plugin-spacing-uswds-xlarge
+  $plugin-spacing-uswds-all
+  $plugin-spacing-uswds-small-negative
+  $plugin-spacing-uswds-medium-negative
+  $plugin-spacing-uswds-negative
+  $plugin-spacing-units-percentage
+  $plugin-spacing-units-px
+  $plugin-spacing-units-px-negative
   */
-  $plugin-project-spacing-small,
-  $plugin-project-spacing-medium,
-  $plugin-project-spacing-small-negative,
-  $plugin-project-spacing-medium-negative
+  $plugin-spacing-uswds-named-small,
+  $plugin-spacing-uswds-named-medium,
+  $plugin-spacing-uswds-named-small-negative,
+  $plugin-spacing-uswds-named-medium-negative
 ) !default;
 
 $top-manual-values: (
@@ -1477,13 +1477,13 @@ $width-settings: (
 
 $width-plugins: map-collect(
   /*
-  $plugin-system-spacing-all,
-  $plugin-spacing-px,
-  $plugin-spacing-em,
-  $plugin-spacing-ch
+  $plugin-spacing-uswds-all,
+  $plugin-spacing-units-px,
+  $plugin-spacing-units-em,
+  $plugin-spacing-units-ch
   */
-  $plugin-spacing-percentage,
-  $plugin-spacing-breakpoints-rem
+  $plugin-spacing-units-percentage,
+  $plugin-spacing-uswds-named-breakpoints-rem
 ) !default;
 
 $width-manual-values: (
