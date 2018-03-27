@@ -54,7 +54,6 @@ There are a few different ways to use the Design System within your project. Whi
 
 *Use the Design System `npm` package if:*
 - You are familiar with using `npm` and package management.
-- You would like to leverage USWDS [Sass](#sass) files.
 
 ### Download
 
