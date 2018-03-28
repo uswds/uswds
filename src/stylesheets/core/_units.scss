@@ -174,13 +174,13 @@ Letter-spacing
 
 $uswds-letter-spacing:(
   auto:	                    auto,
-  smallest:	                -.03em,
-  smaller:	                -.02em,
-  small:	                  -.01em,
+  tightest:	                -.03em,
+  tighter:	                -.02em,
+  tight:	                  -.01em,
   base:	                    auto,
-  large:	                  .05em,
-  larger:	                  .1em,
-  largest:	                .15em,
+  loose:	                  .05em,
+  looser:	                  .1em,
+  loosest:	                .15em,
 );
 
 /*
