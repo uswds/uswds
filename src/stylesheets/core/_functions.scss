@@ -316,8 +316,8 @@ the desired final units (currently rem)
 */
 
 @function spacing($value) {
-  @if map-has-key($project-spacing-all, $value) {
-    @return map-get($project-spacing-all, $value);
+  @if map-has-key($project-spacing-all, quote($value)) {
+    @return map-get($project-spacing-all, quote($value));
   }
   @elseif $value == false {
     @return false;

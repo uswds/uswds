@@ -14,3 +14,11 @@ Output all USWDS
 @import 'uswds-fonts';
 @import 'uswds-components';
 @import 'uswds-utilities';
+
+
+.foo {
+  @include border(base);
+  @include padding-x(half);
+  padding-top: spacing(eighth);
+  @include circle(base);
+}

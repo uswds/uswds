@@ -1,0 +1,52 @@
+// Outputs a solid border of $value width
+@mixin border-n($side, $value...) {
+  $our-value: null;
+  @if length(nth($value, 1)) == 0 {
+    $our-value: pixel;
+  }
+  @else {
+    $our-value: nth($value, 1);
+  }
+  @if $side == n {
+    border: spacing($our-value) solid;
+  }
+  @elseif $side == x {
+    border-left: spacing($our-value) solid;
+    border-right: spacing($our-value) solid;
+  }
+  @elseif $side == y {
+    border-bottom: spacing($our-value) solid;
+    border-top: spacing($our-value) solid;
+  }
+  @else {
+    border-#{$side}: spacing($our-value) solid;
+  }
+}
+
+@mixin border($value...) {
+  @include border-n(n, $value);
+}
+
+@mixin border-x($value...) {
+  @include border-n(x, $value);
+}
+
+@mixin border-y($value...) {
+  @include border-n(y, $value);
+}
+
+@mixin border-top($value...) {
+  @include border-n(top, $value);
+}
+
+@mixin border-right($value...) {
+  @include border-n(right, $value);
+}
+
+@mixin border-bottom($value...) {
+  @include border-n(bottom, $value);
+}
+
+@mixin border-left($value...) {
+  @include border-n(left, $value);
+}

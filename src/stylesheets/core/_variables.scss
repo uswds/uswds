@@ -27,19 +27,19 @@ Breakpoints
 */
 
 $project-breakpoints-em: (
-  xs:   px-to-base-em($theme-xsmall-screen),
-  sm:   px-to-base-em($theme-small-screen),
-  md:   px-to-base-em($theme-medium-screen),
-  lg:   px-to-base-em($theme-large-screen),
-  xl:   px-to-base-em($theme-xlarge-screen),
+  'xs':   px-to-base-em($theme-xsmall-screen),
+  'sm':   px-to-base-em($theme-small-screen),
+  'md':   px-to-base-em($theme-medium-screen),
+  'lg':   px-to-base-em($theme-large-screen),
+  'xl':   px-to-base-em($theme-xlarge-screen),
 );
 
 $project-breakpoints-rem: (
-  xs:   px($theme-xsmall-screen),
-  sm:   px($theme-small-screen),
-  md:   px($theme-medium-screen),
-  lg:   px($theme-large-screen),
-  xl:   px($theme-xlarge-screen),
+  'xs':   px($theme-xsmall-screen),
+  'sm':   px($theme-small-screen),
+  'md':   px($theme-medium-screen),
+  'lg':   px($theme-large-screen),
+  'xl':   px($theme-xlarge-screen),
 );
 
 /*
@@ -52,8 +52,8 @@ by spacing()
 */
 
 $project-special-values:(
-  0:      0,
-  auto:   'auto',
+  '0':      0,
+  'auto':   'auto',
 );
 
 $project-spacing-all: map-collect(
@@ -286,9 +286,11 @@ Border-radius
 */
 
 $project-border-radius: (
+  0:          0,
   small:      spacing($theme-border-radius-small),
   base:       spacing($theme-border-radius-base),
   large:      spacing($theme-border-radius-large),
+  pill:       9999em,
 );
 
 $all-border-radius: map-collect(
