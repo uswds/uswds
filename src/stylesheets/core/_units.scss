@@ -272,6 +272,18 @@ $uswds-order:(
 
 /*
 ----------------------------------------
+Font feature settings
+----------------------------------------
+*/
+
+$uswds-font-feature-settings:(
+  alt:          "'ss01' 1, 'kern' 1",
+  tabular:      "'tnum' 1, 'kern' 1",
+  default:      "'kern' 1",
+);
+
+/*
+----------------------------------------
 Base cap height
 ----------------------------------------
 500px 'N' height measured in Sketch.

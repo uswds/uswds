@@ -288,10 +288,10 @@ system scale or project scale
 
 @function font($family, $scale){
   @if not map-get($project-cap-heights, $family) {
-    @error "#{$family} is not a valid font family.";
+    @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
   @elseif not map-get($all-type-scale, $scale) {
-    @error "#{$scale} is not a valid font scale.";
+    @error "#{$scale} is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
   }
   @else {
     $this-cap: map-get($project-cap-heights, $family);
@@ -326,7 +326,7 @@ the desired final units (currently rem)
     @return false;
   }
   @else {
-    @error "#{$value} is not a valid spacing value.";
+    @error "#{$value} is not a valid spacing value. Valid values: #{map-keys($project-spacing-all)}";
   }
 };
 
@@ -346,7 +346,7 @@ Gets a valid USWDS reading line length
     @return false;
   }
   @else {
-    @error "#{$value} is not a valid measure value.";
+    @error "#{$value} is not a valid measure value. Valid values: #{map-keys($uswds-measure)}";
   }
 };
 
@@ -366,7 +366,24 @@ Gets a valid USWDS font-weight
     @return map-get($project-font-weights, $value);
   }
   @else {
-    @error "#{$value} is not a valid font-weight value.";
+    @error "#{$value} is not a valid font-weight value. Valid values: #{map-keys($project-font-weights)}";
+  }
+};
+
+/*
+----------------------------------------
+feature()
+----------------------------------------
+Gets a valid USWDS font feature setting
+----------------------------------------
+*/
+
+@function feature($value) {
+  @if map-has-key($uswds-font-feature-settings, $value) {
+    @return map-get($uswds-font-feature-settings, $value);
+  }
+  @else {
+    @error "`#{$value}` is not a valid font feature setting. Valid values: #{map-keys($uswds-font-feature-settings)}";
   }
 };
 
@@ -384,7 +401,7 @@ line heights
     @return map-get($uswds-line-height, $value);
   }
   @else {
-    @error "#{$value} is not a valid line height.";
+    @error "#{$value} is not a valid line height. Valid values: #{map-keys($uswds-line-height)}";
   }
 };
 
@@ -402,7 +419,7 @@ opacities
     @return map-get($uswds-opacity, $value);
   }
   @else {
-    @error "#{$value} is not a valid opacity.";
+    @error "#{$value} is not a valid opacity. Valid values: #{map-keys($uswds-opacity)}";
   }
 };
 
@@ -420,7 +437,7 @@ border-radii
     @return map-get($all-border-radius, $value);
   }
   @else {
-    @error "#{$value} is not a valid border radius value.";
+    @error "#{$value} is not a valid border radius value. Valid values: #{map-keys($all-border-radius)}";
   }
 };
 
@@ -438,7 +455,7 @@ system letter-spacing
     @return map-get($uswds-letter-spacing, $value);
   }
   @else {
-    @error "#{$value} is not a valid letter-spacing value.";
+    @error "#{$value} is not a valid letter-spacing value. Valid values: #{map-keys($uswds-letter-spacing)}";
   }
 };
 
@@ -456,7 +473,7 @@ system z-index
     @return map-get($uswds-z-index, $value);
   }
   @else {
-    @error "#{$value} is not a valid z-index value.";
+    @error "#{$value} is not a valid z-index value. Valid values: #{map-keys($uswds-z-index)}";
   }
 };
 
@@ -474,7 +491,7 @@ system orders
     @return map-get($uswds-order, $value);
   }
   @else {
-    @error "#{$value} is not a valid z-index value.";
+    @error "#{$value} is not a valid order value. Valid values: #{map-keys($uswds-order)}";
   }
 };
 
@@ -494,7 +511,7 @@ Get a value from the system type scale
     @return false;
   }
   @elseif not map-has-key($uswds-type-scale, $scale) {
-    @error "#{$scale} is not a valid type scale value.";
+    @error "#{$scale} is not a valid type scale value. Valid values: #{map-keys($uswds-type-scale)}";
   }
 };
 
