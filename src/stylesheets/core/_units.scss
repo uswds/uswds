@@ -233,12 +233,41 @@ Z-index
 */
 
 $uswds-z-index:(
+  auto:                    auto,
   lowest:	                 -300,
   lower:	                 -200,
   low:	                   -100,
+  base:                    auto,
   high:	                   100,
   higher:	                 200,
   highest:	               300,
+);
+
+/*
+----------------------------------------
+Opacity
+----------------------------------------
+*/
+
+$uswds-opacity:(
+  transparent:	             0,
+  lightest:	                 .01,
+  lighter:	                 .1,
+  light:	                   .25,
+  dark:	                     .5,
+  darker:	                   .75,
+  darkest:	                 .9,
+);
+
+/*
+----------------------------------------
+Order
+----------------------------------------
+*/
+
+$uswds-order:(
+  first:	               -1,
+  last:	                 999,
 );
 
 /*

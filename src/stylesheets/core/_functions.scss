@@ -367,6 +367,24 @@ line heights
 
 /*
 ----------------------------------------
+opacity()
+----------------------------------------
+Get an opacity from the system
+opacities
+----------------------------------------
+*/
+
+@function opacity($value) {
+  @if map-has-key($uswds-opacity, $value) {
+    @return map-get($uswds-opacity, $value);
+  }
+  @else {
+    @error "#{$value} is not a valid opacity.";
+  }
+};
+
+/*
+----------------------------------------
 border-radius()
 ----------------------------------------
 Get a border-radius from the system
@@ -413,6 +431,24 @@ system z-index
 @function z-index($value) {
   @if map-has-key($uswds-z-index, $value) {
     @return map-get($uswds-z-index, $value);
+  }
+  @else {
+    @error "#{$value} is not a valid z-index value.";
+  }
+};
+
+/*
+----------------------------------------
+order()
+----------------------------------------
+Get an order value from the
+system orders
+----------------------------------------
+*/
+
+@function order($value) {
+  @if map-has-key($uswds-order, $value) {
+    @return map-get($uswds-order, $value);
   }
   @else {
     @error "#{$value} is not a valid z-index value.";
