@@ -27,19 +27,19 @@ Breakpoints
 */
 
 $project-breakpoints-em: (
-  'xs':   get-breakpoint(xs),
-  'sm':   get-breakpoint(sm),
-  'md':   get-breakpoint(md),
-  'lg':   get-breakpoint(lg),
-  'xl':   get-breakpoint(xl),
+  'xs':   px-to-base-em(map-get($theme-breakpoints, xs)),
+  'sm':   px-to-base-em(map-get($theme-breakpoints, sm)),
+  'md':   px-to-base-em(map-get($theme-breakpoints, md)),
+  'lg':   px-to-base-em(map-get($theme-breakpoints, lg)),
+  'xl':   px-to-base-em(map-get($theme-breakpoints, xl)),
 );
 
 $project-breakpoints-rem: (
-  'xs':   px(map-deep-get($theme-breakpoints, xs, width)),
-  'sm':   px(map-deep-get($theme-breakpoints, sm, width)),
-  'md':   px(map-deep-get($theme-breakpoints, md, width)),
-  'lg':   px(map-deep-get($theme-breakpoints, lg, width)),
-  'xl':   px(map-deep-get($theme-breakpoints, xl, width)),
+  'xs':   px(map-get($theme-breakpoints, xs)),
+  'sm':   px(map-get($theme-breakpoints, sm)),
+  'md':   px(map-get($theme-breakpoints, md)),
+  'lg':   px(map-get($theme-breakpoints, lg)),
+  'xl':   px(map-get($theme-breakpoints, xl)),
 );
 
 /*

@@ -562,24 +562,6 @@ colors: project and system
 
 /*
 ----------------------------------------
-get-breakpoint()
-----------------------------------------
-Get a breakpoint from theme settings to
-return it to the breakpoint media map
-----------------------------------------
-*/
-
-@function get-breakpoint($breakpoint){
-  @if not map-deep-get($theme-breakpoints, $breakpoint, output){
-    @return false;
-  }
-  @else {
-    @return px-to-base-em(map-deep-get($theme-breakpoints, $breakpoint, width));
-  }
-}
-
-/*
-----------------------------------------
 get-plugins()
 ----------------------------------------
 Build a single map of plugin values

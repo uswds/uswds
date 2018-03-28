@@ -30,27 +30,12 @@ use that breakpoint.
 */
 
 $theme-breakpoints:(
-  xs:(
-    width: 400px,
-    output: false,
-  ),
-  sm:(
-    width: 481px, // 600px
-    output: true,
-  ),
-  md:(
-    width: 600px, // 800px
-    output: true,
-  ),
-  lg:(
-    width: 1201px, // 1000px
-    output: true,
-  ),
-  xl:(
-    width: 1200px, // 1200px
-    output: false,
-  ),
-);
+  xs: 400px,
+  sm: 481px, // 600px
+  md: 600px, // 800px
+  lg: 1201px, // 1000px
+  xl: 1200px, // 1200px
+ );
 
 /*
 ----------------------------------------

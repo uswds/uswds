@@ -16,6 +16,5 @@ Output all USWDS
 @import 'uswds-utilities';
 
 .foo {
-  @include margin-x(auto);
-  @include margin-x(n-base);
+  line-height: line-height(base);
 }
