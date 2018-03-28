@@ -84,6 +84,10 @@ $plugin-spacing-uswds:(
   'plugin-spacing-uswds-named-xlarge':          $uswds-spacing-named-xlarge,
   'plugin-spacing-uswds-named-small-negative':  $uswds-spacing-named-small-negative,
   'plugin-spacing-uswds-named-medium-negative':  $uswds-spacing-named-medium-negative,
+  'plugin-spacing-uswds-named-negative-all': map-collect(
+    $uswds-spacing-named-small-negative,
+    $uswds-spacing-named-medium-negative
+  ),
 );
 
 $plugin-spacing-theme:(

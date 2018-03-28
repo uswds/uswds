@@ -874,10 +874,8 @@ $margin-plugins: (
   'plugin-spacing-units-ch-negative',
   'plugin-spacing-units-em'
   */
-  'plugin-spacing-units-px',
-  'plugin-spacing-units-px-negative',
   'plugin-spacing-uswds-named-all',
-  'plugin-spacing-uswds-named-small-negative'
+  'plugin-spacing-uswds-named-negative-all'
 ) !default;
 
 $margin-manual-values: (
@@ -907,11 +905,14 @@ $max-height-plugins: (
   'plugin-spacing-uswds-all',
   'plugin-spacing-units-px'
   */
+  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-theme-breakpoints-rem'
 ) !default;
 
 $max-height-manual-values: (
   /*
   */
+  none:         'none',
 ) !default;
 
 /*
@@ -962,12 +963,15 @@ $min-height-plugins: (
   'plugin-spacing-uswds-small'
   'plugin-spacing-uswds-medium'
   */
+  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-theme-breakpoints-rem'
 ) !default;
 
 $min-height-manual-values: (
   /*
   */
-  100ct:        100%
+  '100ct':      100%,
+  '100vh':      100vh,
 ) !default;
 
 /*

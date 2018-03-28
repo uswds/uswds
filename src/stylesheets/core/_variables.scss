@@ -26,15 +26,6 @@ Breakpoints
 ----------------------------------------
 */
 
-@function get-breakpoint($breakpoint){
-  @if not map-deep-get($theme-breakpoints, $breakpoint, output){
-    @return false;
-  }
-  @else {
-    @return px-to-base-em(map-deep-get($theme-breakpoints, $breakpoint, width));
-  }
-}
-
 $project-breakpoints-em: (
   'xs':   get-breakpoint(xs),
   'sm':   get-breakpoint(sm),
@@ -62,7 +53,7 @@ by spacing()
 
 $project-special-values:(
   '0':      0,
-  'auto':   'auto',
+  'auto':   auto,
 );
 
 $project-spacing-all: map-collect(
