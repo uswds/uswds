@@ -986,10 +986,14 @@ $min-width-settings: (
 
 $min-width-plugins: (
   /*
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-units-px-negative',
+  'plugin-spacing-units-em',
+  'plugin-spacing-units-ch'
+  'plugin-spacing-units-percentage'
   */
-  'plugin-spacing-theme-breakpoints-rem',
-  'plugin-spacing-uswds-large',
-  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-theme-breakpoints-rem'
 ) !default;
 
 $min-width-manual-values: (

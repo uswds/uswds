@@ -29,11 +29,28 @@ use that breakpoint.
 ----------------------------------------
 */
 
-$theme-xsmall-screen:   false !default; //400px
-$theme-small-screen:    481px !default; //600px
-$theme-medium-screen:   600px !default; //800px
-$theme-large-screen:    1201px !default; //1000px
-$theme-xlarge-screen:   false !default; //1200px
+$theme-breakpoints:(
+  xs:(
+    width: 400px,
+    output: false,
+  ),
+  sm:(
+    width: 481px, // 600px
+    output: true,
+  ),
+  md:(
+    width: 600px, // 800px
+    output: true,
+  ),
+  lg:(
+    width: 1201px, // 1000px
+    output: true,
+  ),
+  xl:(
+    width: 1200px, // 1200px
+    output: false,
+  ),
+);
 
 /*
 ----------------------------------------

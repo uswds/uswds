@@ -26,6 +26,7 @@
   },
   "watch": {
     "src/stylesheets/{components,core,elements,utilities,}/*.scss": "build:css",
+    "src/stylesheets/uswds.scss": "build:css",
     "src/js/**/*.js": "build:js"
   },
   "repository": {

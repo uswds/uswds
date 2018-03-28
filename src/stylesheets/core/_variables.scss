@@ -26,20 +26,29 @@ Breakpoints
 ----------------------------------------
 */
 
+@function get-breakpoint($breakpoint){
+  @if not map-deep-get($theme-breakpoints, $breakpoint, output){
+    @return false;
+  }
+  @else {
+    @return px-to-base-em(map-deep-get($theme-breakpoints, $breakpoint, width));
+  }
+}
+
 $project-breakpoints-em: (
-  'xs':   px-to-base-em($theme-xsmall-screen),
-  'sm':   px-to-base-em($theme-small-screen),
-  'md':   px-to-base-em($theme-medium-screen),
-  'lg':   px-to-base-em($theme-large-screen),
-  'xl':   px-to-base-em($theme-xlarge-screen),
+  'xs':   get-breakpoint(xs),
+  'sm':   get-breakpoint(sm),
+  'md':   get-breakpoint(md),
+  'lg':   get-breakpoint(lg),
+  'xl':   get-breakpoint(xl),
 );
 
 $project-breakpoints-rem: (
-  'xs':   px($theme-xsmall-screen),
-  'sm':   px($theme-small-screen),
-  'md':   px($theme-medium-screen),
-  'lg':   px($theme-large-screen),
-  'xl':   px($theme-xlarge-screen),
+  'xs':   px(map-deep-get($theme-breakpoints, xs, width)),
+  'sm':   px(map-deep-get($theme-breakpoints, sm, width)),
+  'md':   px(map-deep-get($theme-breakpoints, md, width)),
+  'lg':   px(map-deep-get($theme-breakpoints, lg, width)),
+  'xl':   px(map-deep-get($theme-breakpoints, xl, width)),
 );
 
 /*

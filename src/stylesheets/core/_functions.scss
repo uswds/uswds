@@ -317,6 +317,9 @@ the desired final units (currently rem)
 
 @function spacing($value) {
   @if map-has-key($project-spacing-all, quote($value)) {
+    @if map-get($project-spacing-all, quote($value)) == false {
+      @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
+    }
     @return map-get($project-spacing-all, quote($value));
   }
   @elseif $value == false {
@@ -574,184 +577,143 @@ from a list of plugin keys.
     @error "Use a list of strings as plugin values.";
   }
   @each $plugin in $list {
-    @debug "Plugin: #{$plugin}";
+    //@debug "Using utility plugin: `#{$plugin}`";
     // find the plugin in the registry
     @if str-index($plugin, 'plugin-spacing'){
       @if str-index($plugin, theme){
-        @debug "Registry: /plugin/spacing/theme";
         $registry: map-deep-get($plugin-registry, spacing, theme);
       }
       @elseif str-index($plugin, uswds){
-        @debug "Registry: /plugin/spacing/uswds";
         $registry: map-deep-get($plugin-registry, spacing, uswds);
       }
       @else {
-        @debug "Registry: /plugin/spacing/units";
         $registry: map-deep-get($plugin-registry, spacing, units);
       }
     }
     @elseif str-index($plugin, 'plugin-font'){
       @if str-index($plugin, mono){
         @if str-index($plugin, theme){
-          @debug "Registry: /plugin/font/mono/theme";
           $registry: map-deep-get($plugin-registry, font, mono, theme);
         }
         @else {
-          @debug "Registry: /plugin/font/mono/uswds";
           $registry: map-deep-get($plugin-registry, font, mono, uswds);
         }
       }
       @elseif str-index($plugin, sans){
         @if str-index($plugin, theme){
-          @debug "Registry: /plugin/font/sans/theme";
           $registry: map-deep-get($plugin-registry, font, sans, theme);
         }
         @else {
-          @debug "Registry: /plugin/font/sans/uswds";
           $registry: map-deep-get($plugin-registry, font, sans, uswds);
         }
       }
       @elseif str-index($plugin, serif){
         @if str-index($plugin, theme){
-          @debug "Registry: /plugin/font/serif/theme";
           $registry: map-deep-get($plugin-registry, font, serif, theme);
         }
         @else {
-          @debug "Registry: /plugin/font/serif/uswds";
           $registry: map-deep-get($plugin-registry, font, serif, uswds);
         }
       }
       @else {
-        @debug "Registry: /plugin/font/misc";
         $registry: map-deep-get($plugin-registry, font, misc);
       }
     }
     // yes, this is inefficient
     @elseif str-index($plugin, 'plugin-color'){
       @if str-index($plugin, 'palette') {
-        @debug "Registry: /plugin/color/palette";
         $registry: map-deep-get($plugin-registry, color, palettes);
       }
       @elseif str-index($plugin, 'black-cool') {
-        @debug "Registry: /plugin/color/black-cool";
         $registry: map-deep-get($plugin-registry, color, black-cool);
       }
       @elseif str-index($plugin, 'black-transparent') {
-        @debug "Registry: /plugin/color/black-transparent";
         $registry: map-deep-get($plugin-registry, color, black-transparent);
       }
       @elseif str-index($plugin, 'black-warm') {
-        @debug "Registry: /plugin/color/black-warm";
         $registry: map-deep-get($plugin-registry, color, black-warm);
       }
       @elseif str-index($plugin, 'black') {
-        @debug "Registry: /plugin/color/black";
         $registry: map-deep-get($plugin-registry, color, black);
       }
       @elseif str-index($plugin, 'blue-warm') {
-        @debug "Registry: /plugin/color/blue-warm";
         $registry: map-deep-get($plugin-registry, color, blue-warm);
       }
       @elseif str-index($plugin, 'blue') {
-        @debug "Registry: /plugin/color/blue";
         $registry: map-deep-get($plugin-registry, color, blue);
       }
       @elseif str-index($plugin, 'cyan') {
-        @debug "Registry: /plugin/color/cyan";
         $registry: map-deep-get($plugin-registry, color, cyan);
       }
       @elseif str-index($plugin, 'gold') {
-        @debug "Registry: /plugin/color/gold";
         $registry: map-deep-get($plugin-registry, color, gold);
       }
       @elseif str-index($plugin, 'green-cool') {
-        @debug "Registry: /plugin/color/green-cool";
         $registry: map-deep-get($plugin-registry, color, green-cool);
       }
       @elseif str-index($plugin, 'green-warm') {
-        @debug "Registry: /plugin/color/green-warm";
         $registry: map-deep-get($plugin-registry, color, green-warm);
       }
       @elseif str-index($plugin, 'green') {
-        @debug "Registry: /plugin/color/green";
         $registry: map-deep-get($plugin-registry, color, green);
       }
       @elseif str-index($plugin, 'indigo-cool') {
-        @debug "Registry: /plugin/color/indigo-cool";
         $registry: map-deep-get($plugin-registry, color, indigo-cool);
       }
       @elseif str-index($plugin, 'indigo-warm') {
-        @debug "Registry: /plugin/color/indigo-warm";
         $registry: map-deep-get($plugin-registry, color, indigo-warm);
       }
       @elseif str-index($plugin, 'indigo') {
-        @debug "Registry: /plugin/color/indigo";
         $registry: map-deep-get($plugin-registry, color, indigo);
       }
       @elseif str-index($plugin, 'magenta') {
-        @debug "Registry: /plugin/color/magenta";
         $registry: map-deep-get($plugin-registry, color, magenta);
       }
       @elseif str-index($plugin, 'mint-cool') {
-        @debug "Registry: /plugin/color/mint-cool";
         $registry: map-deep-get($plugin-registry, color, mint-cool);
       }
       @elseif str-index($plugin, 'mint') {
-        @debug "Registry: /plugin/color/mint";
         $registry: map-deep-get($plugin-registry, color, mint);
       }
       @elseif str-index($plugin, 'orange-warm') {
-        @debug "Registry: /plugin/color/orange-warm";
         $registry: map-deep-get($plugin-registry, color, orange-warm);
       }
       @elseif str-index($plugin, 'orange') {
-        @debug "Registry: /plugin/color/orange";
         $registry: map-deep-get($plugin-registry, color, orange);
       }
       @elseif str-index($plugin, 'red-warm') {
-        @debug "Registry: /plugin/color/red-warm";
         $registry: map-deep-get($plugin-registry, color, red-warm);
       }
       @elseif str-index($plugin, 'red') {
-        @debug "Registry: /plugin/color/red";
         $registry: map-deep-get($plugin-registry, color, red);
       }
       @elseif str-index($plugin, 'violet-cool') {
-        @debug "Registry: /plugin/color/violet-cool";
         $registry: map-deep-get($plugin-registry, color, violet-cool);
       }
       @elseif str-index($plugin, 'violet-warm') {
-        @debug "Registry: /plugin/color/violet-warm";
         $registry: map-deep-get($plugin-registry, color, violet-warm);
       }
       @elseif str-index($plugin, 'white-cool') {
-        @debug "Registry: /plugin/color/white-cool";
         $registry: map-deep-get($plugin-registry, color, white-cool);
       }
       @elseif str-index($plugin, 'white-warm') {
-        @debug "Registry: /plugin/color/white-warm";
         $registry: map-deep-get($plugin-registry, color, white-warm);
       }
       @elseif str-index($plugin, 'white-transparent') {
-        @debug "Registry: /plugin/color/white-transparent";
         $registry: map-deep-get($plugin-registry, color, white-transparent);
       }
       @elseif str-index($plugin, 'white') {
-        @debug "Registry: /plugin/color/white";
        $registry: map-deep-get($plugin-registry, color, white);
       }
       @elseif str-index($plugin, 'yellow') {
-        @debug "Registry: /plugin/color/yellow";
        $registry: map-deep-get($plugin-registry, color, yellow);
       }
       @else {
-        @debug "Registry: /plugin/color/misc";
        $registry: map-deep-get($plugin-registry, color, misc);
       }
     }
     @else {
       $registry: map-get($plugin-registry, misc);
-      @debug "Registry: /plugin/misc";
     }
     // now the registry is set
     @if not map-has-key($registry, #{$plugin}){
@@ -764,7 +726,6 @@ from a list of plugin keys.
       );
     }
   } // end plugin list loop
-  @debug "Compiled plugin keypairs: #{$our-plugins}";
   @return $our-plugins;
 };
 

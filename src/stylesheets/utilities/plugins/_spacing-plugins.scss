@@ -87,11 +87,5 @@ $plugin-spacing-uswds:(
 );
 
 $plugin-spacing-theme:(
-  'plugin-spacing-theme-breakpoints-rem': (
-    xs:   px($theme-xsmall-screen),
-    sm:   px($theme-small-screen),
-    md:   px($theme-medium-screen),
-    lg:   px($theme-large-screen),
-    xl:   px($theme-xlarge-screen),
-  ),
+  'plugin-spacing-theme-breakpoints-rem': $project-breakpoints-rem,
 );
