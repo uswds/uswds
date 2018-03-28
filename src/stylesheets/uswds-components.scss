@@ -17,15 +17,7 @@ Output USWDS components and styles
 // -------------------------------------
 // Load mixins
 
-@import 'core/mixins/content-size';
-@import 'core/mixins/focus';
-@import 'core/mixins/font-smoothing';
-@import 'core/mixins/icon';
-@import 'core/mixins/media-query';
-@import 'core/mixins/screen-reader';
-@import 'core/mixins/sidenav';
-@import 'core/mixins/typography';
-@import 'core/mixins/unstyled-list';
+@import 'core/mixins/all';
 
 // -------------------------------------
 // Load core
