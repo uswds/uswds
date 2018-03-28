@@ -19,7 +19,7 @@ $plugin-font:(
   ),
 );
 
-$plugin-font-mono-theme-micro: (
+$plugin-font-theme-mono-micro: (
   mono-micro: (
     slug: 'mono-micro',
     isReadable: true,
@@ -28,7 +28,7 @@ $plugin-font-mono-theme-micro: (
   ),
 );
 
-$plugin-font-mono-theme-smallest: (
+$plugin-font-theme-mono-smallest: (
   mono-smallest: (
     slug: 'mono-smallest',
     isReadable: true,
@@ -37,7 +37,7 @@ $plugin-font-mono-theme-smallest: (
   ),
 );
 
-$plugin-font-mono-theme-smaller: (
+$plugin-font-theme-mono-smaller: (
   mono-smaller: (
     slug: 'mono-smaller',
     isReadable: true,
@@ -46,7 +46,7 @@ $plugin-font-mono-theme-smaller: (
   ),
 );
 
-$plugin-font-mono-theme-small: (
+$plugin-font-theme-mono-small: (
   mono-small: (
     slug: 'mono-small',
     isReadable: true,
@@ -55,7 +55,7 @@ $plugin-font-mono-theme-small: (
   ),
 );
 
-$plugin-font-mono-theme-base: (
+$plugin-font-theme-mono-base: (
   mono-base: (
     slug: 'mono-base',
     isReadable: true,
@@ -64,7 +64,7 @@ $plugin-font-mono-theme-base: (
   ),
 );
 
-$plugin-font-mono-theme-large: (
+$plugin-font-theme-mono-large: (
   mono-large: (
     slug: 'mono-large',
     isReadable: true,
@@ -73,7 +73,7 @@ $plugin-font-mono-theme-large: (
   ),
 );
 
-$plugin-font-mono-theme-larger: (
+$plugin-font-theme-mono-larger: (
   mono-larger: (
     slug: 'mono-larger',
     isReadable: true,
@@ -82,7 +82,7 @@ $plugin-font-mono-theme-larger: (
   ),
 );
 
-$plugin-font-mono-theme-largest: (
+$plugin-font-theme-mono-largest: (
   mono-largest: (
     slug: 'mono-largest',
     isReadable: true,
@@ -91,7 +91,7 @@ $plugin-font-mono-theme-largest: (
   ),
 );
 
-$plugin-font-mono-theme-mega: (
+$plugin-font-theme-mono-mega: (
   mono-largest: (
     slug: 'mono-mega',
     isReadable: true,
@@ -100,32 +100,32 @@ $plugin-font-mono-theme-mega: (
   ),
 );
 
-$plugin-font-mono-theme-all: map-collect(
-  $plugin-font-mono-theme-micro,
-  $plugin-font-mono-theme-smallest,
-  $plugin-font-mono-theme-smaller,
-  $plugin-font-mono-theme-small,
-  $plugin-font-mono-theme-base,
-  $plugin-font-mono-theme-large,
-  $plugin-font-mono-theme-larger,
-  $plugin-font-mono-theme-largest,
-  $plugin-font-mono-theme-mega
+$plugin-font-theme-mono-all: map-collect(
+  $plugin-font-theme-mono-micro,
+  $plugin-font-theme-mono-smallest,
+  $plugin-font-theme-mono-smaller,
+  $plugin-font-theme-mono-small,
+  $plugin-font-theme-mono-base,
+  $plugin-font-theme-mono-large,
+  $plugin-font-theme-mono-larger,
+  $plugin-font-theme-mono-largest,
+  $plugin-font-theme-mono-mega
 );
 
-$plugin-font-mono-theme:(
-  'plugin-font-mono-theme-micro': $plugin-font-mono-theme-micro,
-  'plugin-font-mono-theme-smallest': $plugin-font-mono-theme-smallest,
-  'plugin-font-mono-theme-smaller': $plugin-font-mono-theme-smaller,
-  'plugin-font-mono-theme-small': $plugin-font-mono-theme-small,
-  'plugin-font-mono-theme-base': $plugin-font-mono-theme-base,
-  'plugin-font-mono-theme-large': $plugin-font-mono-theme-large,
-  'plugin-font-mono-theme-larger': $plugin-font-mono-theme-larger,
-  'plugin-font-mono-theme-largest': $plugin-font-mono-theme-largest,
-  'plugin-font-mono-theme-mega': $plugin-font-mono-theme-mega,
-  'plugin-font-mono-theme-all': $plugin-font-mono-theme-all,
+$plugin-font-theme-mono:(
+  'plugin-font-theme-mono-micro': $plugin-font-theme-mono-micro,
+  'plugin-font-theme-mono-smallest': $plugin-font-theme-mono-smallest,
+  'plugin-font-theme-mono-smaller': $plugin-font-theme-mono-smaller,
+  'plugin-font-theme-mono-small': $plugin-font-theme-mono-small,
+  'plugin-font-theme-mono-base': $plugin-font-theme-mono-base,
+  'plugin-font-theme-mono-large': $plugin-font-theme-mono-large,
+  'plugin-font-theme-mono-larger': $plugin-font-theme-mono-larger,
+  'plugin-font-theme-mono-largest': $plugin-font-theme-mono-largest,
+  'plugin-font-theme-mono-mega': $plugin-font-theme-mono-mega,
+  'plugin-font-theme-mono-all': $plugin-font-theme-mono-all,
 );
 
-$plugin-font-sans-theme-micro: (
+$plugin-font-theme-sans-micro: (
   sans-micro: (
     slug: 'sans-micro',
     isReadable: true,
@@ -134,7 +134,7 @@ $plugin-font-sans-theme-micro: (
   ),
 );
 
-$plugin-font-sans-theme-smallest: (
+$plugin-font-theme-sans-smallest: (
   sans-smallest: (
     slug: 'sans-smallest',
     isReadable: true,
@@ -143,7 +143,7 @@ $plugin-font-sans-theme-smallest: (
   ),
 );
 
-$plugin-font-sans-theme-smaller: (
+$plugin-font-theme-sans-smaller: (
   sans-smaller: (
     slug: 'sans-smaller',
     isReadable: true,
@@ -152,7 +152,7 @@ $plugin-font-sans-theme-smaller: (
   ),
 );
 
-$plugin-font-sans-theme-small: (
+$plugin-font-theme-sans-small: (
   sans-small: (
     slug: 'sans-small',
     isReadable: true,
@@ -161,7 +161,7 @@ $plugin-font-sans-theme-small: (
   ),
 );
 
-$plugin-font-sans-theme-base: (
+$plugin-font-theme-sans-base: (
   sans-base: (
     slug: 'sans-base',
     isReadable: true,
@@ -170,7 +170,7 @@ $plugin-font-sans-theme-base: (
   ),
 );
 
-$plugin-font-sans-theme-large: (
+$plugin-font-theme-sans-large: (
   sans-large: (
     slug: 'sans-large',
     isReadable: true,
@@ -179,7 +179,7 @@ $plugin-font-sans-theme-large: (
   ),
 );
 
-$plugin-font-sans-theme-larger: (
+$plugin-font-theme-sans-larger: (
   sans-larger: (
     slug: 'sans-larger',
     isReadable: true,
@@ -188,7 +188,7 @@ $plugin-font-sans-theme-larger: (
   ),
 );
 
-$plugin-font-sans-theme-largest: (
+$plugin-font-theme-sans-largest: (
   sans-largest: (
     slug: 'sans-largest',
     isReadable: true,
@@ -197,7 +197,7 @@ $plugin-font-sans-theme-largest: (
   ),
 );
 
-$plugin-font-sans-theme-mega: (
+$plugin-font-theme-sans-mega: (
   sans-largest: (
     slug: 'sans-mega',
     isReadable: true,
@@ -206,32 +206,32 @@ $plugin-font-sans-theme-mega: (
   ),
 );
 
-$plugin-font-sans-theme-all: map-collect(
-  $plugin-font-sans-theme-micro,
-  $plugin-font-sans-theme-smallest,
-  $plugin-font-sans-theme-smaller,
-  $plugin-font-sans-theme-small,
-  $plugin-font-sans-theme-base,
-  $plugin-font-sans-theme-large,
-  $plugin-font-sans-theme-larger,
-  $plugin-font-sans-theme-largest,
-  $plugin-font-sans-theme-mega
+$plugin-font-theme-sans-all: map-collect(
+  $plugin-font-theme-sans-micro,
+  $plugin-font-theme-sans-smallest,
+  $plugin-font-theme-sans-smaller,
+  $plugin-font-theme-sans-small,
+  $plugin-font-theme-sans-base,
+  $plugin-font-theme-sans-large,
+  $plugin-font-theme-sans-larger,
+  $plugin-font-theme-sans-largest,
+  $plugin-font-theme-sans-mega
 );
 
-$plugin-font-sans-theme:(
-  'plugin-font-sans-theme-micro': $plugin-font-sans-theme-micro,
-  'plugin-font-sans-theme-smallest': $plugin-font-sans-theme-smallest,
-  'plugin-font-sans-theme-smaller': $plugin-font-sans-theme-smaller,
-  'plugin-font-sans-theme-small': $plugin-font-sans-theme-small,
-  'plugin-font-sans-theme-base': $plugin-font-sans-theme-base,
-  'plugin-font-sans-theme-large': $plugin-font-sans-theme-large,
-  'plugin-font-sans-theme-larger': $plugin-font-sans-theme-larger,
-  'plugin-font-sans-theme-largest': $plugin-font-sans-theme-largest,
-  'plugin-font-sans-theme-mega': $plugin-font-sans-theme-mega,
-  'plugin-font-sans-theme-all': $plugin-font-sans-theme-all,
+$plugin-font-theme-sans:(
+  'plugin-font-theme-sans-micro': $plugin-font-theme-sans-micro,
+  'plugin-font-theme-sans-smallest': $plugin-font-theme-sans-smallest,
+  'plugin-font-theme-sans-smaller': $plugin-font-theme-sans-smaller,
+  'plugin-font-theme-sans-small': $plugin-font-theme-sans-small,
+  'plugin-font-theme-sans-base': $plugin-font-theme-sans-base,
+  'plugin-font-theme-sans-large': $plugin-font-theme-sans-large,
+  'plugin-font-theme-sans-larger': $plugin-font-theme-sans-larger,
+  'plugin-font-theme-sans-largest': $plugin-font-theme-sans-largest,
+  'plugin-font-theme-sans-mega': $plugin-font-theme-sans-mega,
+  'plugin-font-theme-sans-all': $plugin-font-theme-sans-all,
 );
 
-$plugin-font-serif-theme-micro: (
+$plugin-font-theme-serif-micro: (
   serif-micro: (
     slug: 'serif-micro',
     isReadable: true,
@@ -240,7 +240,7 @@ $plugin-font-serif-theme-micro: (
   ),
 );
 
-$plugin-font-serif-theme-smallest: (
+$plugin-font-theme-serif-smallest: (
   serif-smallest: (
     slug: 'serif-smallest',
     isReadable: true,
@@ -249,7 +249,7 @@ $plugin-font-serif-theme-smallest: (
   ),
 );
 
-$plugin-font-serif-theme-smaller: (
+$plugin-font-theme-serif-smaller: (
   serif-smaller: (
     slug: 'serif-smaller',
     isReadable: true,
@@ -258,7 +258,7 @@ $plugin-font-serif-theme-smaller: (
   ),
 );
 
-$plugin-font-serif-theme-small: (
+$plugin-font-theme-serif-small: (
   serif-small: (
     slug: 'serif-small',
     isReadable: true,
@@ -267,7 +267,7 @@ $plugin-font-serif-theme-small: (
   ),
 );
 
-$plugin-font-serif-theme-base: (
+$plugin-font-theme-serif-base: (
   serif-base: (
     slug: 'serif-base',
     isReadable: true,
@@ -276,7 +276,7 @@ $plugin-font-serif-theme-base: (
   ),
 );
 
-$plugin-font-serif-theme-large: (
+$plugin-font-theme-serif-large: (
   serif-large: (
     slug: 'serif-large',
     isReadable: true,
@@ -285,7 +285,7 @@ $plugin-font-serif-theme-large: (
   ),
 );
 
-$plugin-font-serif-theme-larger: (
+$plugin-font-theme-serif-larger: (
   serif-larger: (
     slug: 'serif-larger',
     isReadable: true,
@@ -294,7 +294,7 @@ $plugin-font-serif-theme-larger: (
   ),
 );
 
-$plugin-font-serif-theme-largest: (
+$plugin-font-theme-serif-largest: (
   serif-largest: (
     slug: 'serif-largest',
     isReadable: true,
@@ -303,7 +303,7 @@ $plugin-font-serif-theme-largest: (
   ),
 );
 
-$plugin-font-serif-theme-mega: (
+$plugin-font-theme-serif-mega: (
   serif-largest: (
     slug: 'serif-mega',
     isReadable: true,
@@ -312,36 +312,36 @@ $plugin-font-serif-theme-mega: (
   ),
 );
 
-$plugin-font-serif-theme-all: map-collect(
-  $plugin-font-serif-theme-micro,
-  $plugin-font-serif-theme-smallest,
-  $plugin-font-serif-theme-smaller,
-  $plugin-font-serif-theme-small,
-  $plugin-font-serif-theme-base,
-  $plugin-font-serif-theme-large,
-  $plugin-font-serif-theme-larger,
-  $plugin-font-serif-theme-largest,
-  $plugin-font-serif-theme-mega
+$plugin-font-theme-serif-all: map-collect(
+  $plugin-font-theme-serif-micro,
+  $plugin-font-theme-serif-smallest,
+  $plugin-font-theme-serif-smaller,
+  $plugin-font-theme-serif-small,
+  $plugin-font-theme-serif-base,
+  $plugin-font-theme-serif-large,
+  $plugin-font-theme-serif-larger,
+  $plugin-font-theme-serif-largest,
+  $plugin-font-theme-serif-mega
 );
 
-$plugin-font-serif-theme:(
-  'plugin-font-serif-theme-micro': $plugin-font-serif-theme-micro,
-  'plugin-font-serif-theme-smallest': $plugin-font-serif-theme-smallest,
-  'plugin-font-serif-theme-smaller': $plugin-font-serif-theme-smaller,
-  'plugin-font-serif-theme-small': $plugin-font-serif-theme-small,
-  'plugin-font-serif-theme-base': $plugin-font-serif-theme-base,
-  'plugin-font-serif-theme-large': $plugin-font-serif-theme-large,
-  'plugin-font-serif-theme-larger': $plugin-font-serif-theme-larger,
-  'plugin-font-serif-theme-largest': $plugin-font-serif-theme-largest,
-  'plugin-font-serif-theme-mega': $plugin-font-serif-theme-mega,
-  'plugin-font-serif-theme-all': $plugin-font-serif-theme-all,
+$plugin-font-theme-serif:(
+  'plugin-font-theme-serif-micro': $plugin-font-theme-serif-micro,
+  'plugin-font-theme-serif-smallest': $plugin-font-theme-serif-smallest,
+  'plugin-font-theme-serif-smaller': $plugin-font-theme-serif-smaller,
+  'plugin-font-theme-serif-small': $plugin-font-theme-serif-small,
+  'plugin-font-theme-serif-base': $plugin-font-theme-serif-base,
+  'plugin-font-theme-serif-large': $plugin-font-theme-serif-large,
+  'plugin-font-theme-serif-larger': $plugin-font-theme-serif-larger,
+  'plugin-font-theme-serif-largest': $plugin-font-theme-serif-largest,
+  'plugin-font-theme-serif-mega': $plugin-font-theme-serif-mega,
+  'plugin-font-theme-serif-all': $plugin-font-theme-serif-all,
 );
 
 $plugin-font-theme-all:(
   'plugin-font-theme-all': map-collect(
-    $plugin-font-mono-theme-all,
-    $plugin-font-sans-theme-all,
-    $plugin-font-serif-theme-all
+    $plugin-font-theme-mono-all,
+    $plugin-font-theme-sans-all,
+    $plugin-font-theme-serif-all
   ),
 );
 

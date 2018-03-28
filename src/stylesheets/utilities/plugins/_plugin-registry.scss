@@ -7,15 +7,15 @@ $plugin-registry:(
   font:(
     mono:(
       uswds: $plugin-font-mono-uswds,
-      theme: $plugin-font-mono-theme,
+      theme: $plugin-font-theme-mono,
     ),
     sans:(
       uswds: $plugin-font-sans-uswds,
-      theme: $plugin-font-sans-theme,
+      theme: $plugin-font-theme-sans,
     ),
     serif:(
       uswds: $plugin-font-serif-uswds,
-      theme: $plugin-font-serif-theme,
+      theme: $plugin-font-theme-serif,
     ),
     misc: map-collect(
       $plugin-font,
