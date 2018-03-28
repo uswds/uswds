@@ -22,6 +22,44 @@ project/_uswds-project-settings
 
 /*
 ----------------------------------------
+Breakpoints
+----------------------------------------
+*/
+
+$project-breakpoints-em: (
+  xs:   px-to-base-em($theme-xsmall-screen),
+  sm:   px-to-base-em($theme-small-screen),
+  md:   px-to-base-em($theme-medium-screen),
+  lg:   px-to-base-em($theme-large-screen),
+  xl:   px-to-base-em($theme-xlarge-screen),
+);
+
+$project-breakpoints-rem: (
+  xs:   px($theme-xsmall-screen),
+  sm:   px($theme-small-screen),
+  md:   px($theme-medium-screen),
+  lg:   px($theme-large-screen),
+  xl:   px($theme-xlarge-screen),
+);
+
+/*
+----------------------------------------
+Spacing
+----------------------------------------
+All spacing values that can be called
+by spacing()
+----------------------------------------
+*/
+
+$project-spacing-all: map-collect(
+  $uswds-spacing,
+  $project-breakpoints-rem
+);
+
+/*
+----------------------------------------
+Font stack
+----------------------------------------
 Compute the project font stack based on
 the project fonts and the font
 definition values set in
@@ -123,19 +161,6 @@ $project-font-weights: (
   semibold:   $theme-font-weight-semibold,
   bold:       $theme-font-weight-bold,
   black:      $theme-font-weight-black,
-);
-
-$project-border-radius: (
-  small:      spacing($theme-border-radius-small),
-  base:       spacing($theme-border-radius-base),
-  large:      spacing($theme-border-radius-large),
-);
-
-$all-border-radius: map-collect(
-  $project-border-radius,
-  $uswds-spacing-small,
-  $uswds-spacing-medium,
-  $uswds-spacing-named
 );
 
 $project-colors: (
@@ -243,16 +268,21 @@ $project-cap-heights:(
 
 /*
 ----------------------------------------
-Breakpoints as em
+Border-radius
 ----------------------------------------
 */
 
-$project-breakpoints-em: (
-  xs:   px-to-base-em($theme-xsmall-screen),
-  sm:   px-to-base-em($theme-small-screen),
-  md:   px-to-base-em($theme-medium-screen),
-  lg:   px-to-base-em($theme-large-screen),
-  xl:   px-to-base-em($theme-xlarge-screen),
+$project-border-radius: (
+  small:      spacing($theme-border-radius-small),
+  base:       spacing($theme-border-radius-base),
+  large:      spacing($theme-border-radius-large),
+);
+
+$all-border-radius: map-collect(
+  $project-border-radius,
+  $uswds-spacing-small,
+  $uswds-spacing-medium,
+  $uswds-spacing-named
 );
 
 /*

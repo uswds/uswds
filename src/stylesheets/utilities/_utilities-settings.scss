@@ -935,16 +935,13 @@ $max-width-plugins: (
   'plugin-spacing-units-percentage',
   'plugin-spacing-theme-breakpoints-rem'
   */
+  'plugin-misc-measure'
 ) !default;
 
 $max-width-manual-values: (
   /*
   */
   none:         'none',
-  reading-xs:   $text-narrow-width,
-  reading-sm:   $text-width-sm,
-  reading:      $text-max-width,
-  reading-lg:   $text-wide-width
 ) !default;
 
 /*
@@ -1481,9 +1478,9 @@ $width-plugins: (
   'plugin-spacing-units-px',
   'plugin-spacing-units-em',
   'plugin-spacing-units-ch'
+  'plugin-spacing-units-percentage'
   */
   'plugin-spacing-uswds-named-all',
-  'plugin-spacing-units-percentage',
   'plugin-spacing-theme-breakpoints-rem'
 ) !default;
 

@@ -316,14 +316,34 @@ the desired final units (currently rem)
 */
 
 @function spacing($value) {
-  @if map-has-key($uswds-spacing, $value) {
-    @return map-get($uswds-spacing, $value);
+  @if map-has-key($project-spacing-all, $value) {
+    @return map-get($project-spacing-all, $value);
   }
   @elseif $value == false {
     @return false;
   }
   @else {
     @error "#{$value} is not a valid spacing value.";
+  }
+};
+
+/*
+----------------------------------------
+measure()
+----------------------------------------
+Gets a valid USWDS reading line length
+----------------------------------------
+*/
+
+@function measure($value) {
+  @if map-has-key($uswds-measure, $value) {
+    @return map-get($uswds-measure, $value);
+  }
+  @elseif $value == false {
+    @return false;
+  }
+  @else {
+    @error "#{$value} is not a valid measure value.";
   }
 };
 

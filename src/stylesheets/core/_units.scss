@@ -200,6 +200,34 @@ $uswds-line-height:(
 
 /*
 ----------------------------------------
+Measure
+----------------------------------------
+*/
+
+$uswds-measure-smaller:	    40ch;
+$uswds-measure-small:	      60ch;
+$uswds-measure-base:	      66ch;
+$uswds-measure-large:	      72ch;
+$uswds-measure-larger:	    77ch;
+
+$uswds-max-width-measure: (
+  measure-smaller:	        $uswds-measure-smaller,
+  measure-small:	          $uswds-measure-small,
+  measure-base:	            $uswds-measure-base,
+  measure-large:	          $uswds-measure-large,
+  measure-larger:	          $uswds-measure-larger,
+);
+
+$uswds-measure: (
+  smaller:	                $uswds-measure-smaller,
+  small:	                  $uswds-measure-small,
+  base:	                    $uswds-measure-base,
+  large:	                  $uswds-measure-large,
+  larger:	                  $uswds-measure-larger,
+);
+
+/*
+----------------------------------------
 Z-index
 ----------------------------------------
 */

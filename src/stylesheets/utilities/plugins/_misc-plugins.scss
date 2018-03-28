@@ -2,6 +2,7 @@ $plugin-misc:(
   'plugin-misc-line-heights':   $uswds-line-height,
   'plugin-misc-letter-spacing': $uswds-letter-spacing,
   'plugin-misc-z-index':        $uswds-z-index,
+  'plugin-misc-measure': $uswds-max-width-measure,
   'plugin-misc-border-radius': (
     small:    spacing($theme-border-radius-small),
     base:     spacing($theme-border-radius-base),
