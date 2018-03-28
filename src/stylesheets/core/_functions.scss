@@ -352,6 +352,26 @@ Gets a valid USWDS reading line length
 
 /*
 ----------------------------------------
+font-weight()
+----------------------------------------
+Gets a valid USWDS font-weight
+----------------------------------------
+*/
+
+@function font-weight($value) {
+  @if map-has-key($project-font-weights, $value) {
+    @if map-get($project-font-weights, $value) == false {
+      @error "Font weight `#{$value}` is disabled in your project's theme settings. Set its value to `true` to use this weight.";
+    }
+    @return map-get($project-font-weights, $value);
+  }
+  @else {
+    @error "#{$value} is not a valid font-weight value.";
+  }
+};
+
+/*
+----------------------------------------
 line-height()
 ----------------------------------------
 Get a line height from the system
