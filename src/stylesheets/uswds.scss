@@ -16,5 +16,5 @@ Output all USWDS
 @import 'uswds-utilities';
 
 .foo {
-  font-weight: z-index(foo);
+  font-feature-settings: feature(alt);
 }

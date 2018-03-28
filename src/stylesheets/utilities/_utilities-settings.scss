@@ -650,14 +650,12 @@ $font-feature-settings: (
 $font-feature-plugins: (
   /*
   */
+  'plugin-misc-font-feature-settings'
 ) !default;
 
 $font-feature-manual-values: (
   /*
   */
-  alt:          "'ss01' 1, 'kern' 1",
-  tabular:      "'tnum' 1, 'kern' 1",
-  default:      "'kern' 1",
 ) !default;
 
 /*

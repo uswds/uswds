@@ -10,5 +10,5 @@ $plugin-misc:(
     base:     spacing($theme-border-radius-base),
     large:    spacing($theme-border-radius-large),
   ),
-  'plugin-font-feature-settings': $uswds-font-feature-settings,
+  'plugin-misc-font-feature-settings': $uswds-font-feature-settings,
 );

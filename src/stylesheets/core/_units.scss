@@ -277,9 +277,9 @@ Font feature settings
 */
 
 $uswds-font-feature-settings:(
-  alt:          "'ss01' 1, 'kern' 1",
-  tabular:      "'tnum' 1, 'kern' 1",
-  default:      "'kern' 1",
+  alt:          unquote('"ss01" 1, "kern" 1'),
+  tabular:      unquote('"tnum" 1, "kern" 1'),
+  default:      unquote('"kern" 1'),
 );
 
 /*
