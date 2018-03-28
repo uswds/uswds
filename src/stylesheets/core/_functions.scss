@@ -500,6 +500,11 @@ colors: project and system
     @return false;
   } @elseif nth($props, 1) == false {
     @return false;
+  } @elseif length($props) == 1 {
+    @return map-get(
+      $project-reserved-colors,
+      nth($props, 1)
+    );
   } @elseif length($props) == 2 {
     @return map-deep-get(
       $all-colors,
