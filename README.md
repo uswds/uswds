@@ -181,7 +181,6 @@ Below is an example of how you might setup your main Sass file to achieve this:
 ```scss
 @import 'variables.scss'; # Custom Sass variables file
 @import 'node_modules/uswds/src/stylesheets/uswds.scss';
-
 ```
 
 You can now use your copied version of `_variables.scss` to override any styles to create a more custom look and feel to your application.
