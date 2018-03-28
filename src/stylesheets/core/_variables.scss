@@ -51,9 +51,15 @@ by spacing()
 ----------------------------------------
 */
 
+$project-special-values:(
+  0:      0;
+  auto:   'auto',
+);
+
 $project-spacing-all: map-collect(
   $uswds-spacing,
-  $project-breakpoints-rem
+  $project-breakpoints-rem,
+  $project-special-values
 );
 
 /*
