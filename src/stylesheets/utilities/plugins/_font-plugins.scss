@@ -1,3 +1,13 @@
+/*
+========================================
+FONT PLUGINS
+----------------------------------------
+These plugins collect packaged
+font-related values for inclusion in
+utilities
+----------------------------------------
+*/
+
 $plugin-font:(
   'plugin-font-stack-roles': (
     cond:    #{$font-stack-cond},

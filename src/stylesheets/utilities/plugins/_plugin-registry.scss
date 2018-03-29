@@ -1,3 +1,16 @@
+/*
+========================================
+PLUGIN REGISTRY
+----------------------------------------
+This map collects and organizes the
+available utility plugins to allow
+get-plugin() to find the proper plugin
+without traversing an entire map
+with each call
+----------------------------------------
+*/
+
+
 $plugin-registry:(
   spacing:(
     units: $plugin-spacing-units,
