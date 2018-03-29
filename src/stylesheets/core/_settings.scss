@@ -13,7 +13,7 @@ for rem calculations
 ----------------------------------------
 */
 
-$theme-root-font-size: 16px;
+$theme-root-font-size: 16px !default;
 
 /*
 ----------------------------------------
@@ -35,7 +35,7 @@ $theme-breakpoints:(
   md: 600px, // 800px
   lg: 1201px, // 1000px
   xl: 1200px, // 1200px
- );
+ ) !default;
 
 /*
 ----------------------------------------

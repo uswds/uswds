@@ -15,7 +15,7 @@ $output-breakpoints: (
   xl: false
 );
 
-$output-all-utilities:  false;
+$output-all-utilities:  true;
 
 $output-utilities: (
   align-items:      false,
@@ -24,6 +24,8 @@ $output-utilities: (
   border-color:     false,
   border-radius:    true,
   border-style:     false,
+  border-width:     false,
+  bottom:           false,
   box-shadow:       true,
   circle:           true,
   clearfix:         true,
@@ -40,6 +42,7 @@ $output-utilities: (
   font-style:       true,
   font-weight:      true,
   height:           false,
+  left:              false,
   letter-spacing:   true,
   line-height:      true,
   list-reset:       true,
@@ -55,11 +58,14 @@ $output-utilities: (
   outline-color:    false,
   padding:          true,
   position:         false,
+  right:            false,
   row:              false,
   square:           false,
   text-align:       true,
   text-decoration:  true,
+  text-decoration-color:  false,
   text-transform:   true,
+  top:              false,
   vertical-align:   false,
   whitespace:       false,
   width:            false,
@@ -80,7 +86,7 @@ $align-items-settings: (
   visited:      false
 );
 
-$align-items-plugins: map-collect(
+$align-items-plugins: (
   /*
   */
 );
@@ -108,11 +114,21 @@ $background-color-settings: (
   visited:      false
 );
 
-$background-color-plugins: map-collect(
+$background-color-plugins: (
   /*
+  'plugin-color-[color]'
+  'plugin-color-[color]-light'
+  'plugin-color-[color]-medium'
+  'plugin-color-[color]-dark'
+  'plugin-color-[color]-light-vivid'
+  'plugin-color-[color]-medium-vivid'
+  'plugin-color-[color]-dark-vivid'
+  'plugin-color-[color]-standard'
+  'plugin-color-[color]-vivid'
+  'plugin-color-palette-status'
   */
-  $plugin-color-palette-required,
-  $plugin-color-palette-theme
+  'plugin-color-palette-theme',
+  'plugin-color-palette-grayscale',
 );
 
 $background-color-manual-values: (
@@ -134,11 +150,14 @@ $border-settings: (
   visited:      false
 );
 
-$border-plugins: map-collect(
+$border-plugins: (
   /*
+  'plugin-spacing-units-px'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
   */
-  $plugin-spacing-units-px,
-  $plugin-spacing-uswds-small
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium'
 );
 
 $border-manual-values: (
@@ -161,11 +180,21 @@ $border-color-settings: (
   visited:      false
 );
 
-$border-color-plugins: map-collect(
+$border-color-plugins: (
   /*
+  'plugin-color-[color]'
+  'plugin-color-[color]-light'
+  'plugin-color-[color]-medium'
+  'plugin-color-[color]-dark'
+  'plugin-color-[color]-light-vivid'
+  'plugin-color-[color]-medium-vivid'
+  'plugin-color-[color]-dark-vivid'
+  'plugin-color-[color]-standard'
+  'plugin-color-[color]-vivid'
+  'plugin-color-palette-status'
   */
-  $plugin-color-palette-required,
-  $plugin-color-palette-theme
+  'plugin-color-palette-theme',
+  'plugin-color-palette-grayscale'
 );
 
 $border-color-manual-values: (
@@ -187,19 +216,17 @@ $border-radius-settings: (
   visited:      false
 );
 
-$border-radius-plugins: map-collect(
+$border-radius-plugins: (
   /*
-  $plugin-spacing-uswds-small
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
   */
-  $plugin-spacing-uswds-named-small
+  'plugin-misc-border-radius'
 );
 
 $border-radius-manual-values: (
   /*
   */
-  0:            '0',
-  pill:         '9999em',
-  circle:       '50%'
 );
 
 /*
@@ -216,7 +243,7 @@ $border-style-settings: (
   visited:      false
 );
 
-$border-style-plugins: map-collect(
+$border-style-plugins: (
   /*
   */
 );
@@ -227,6 +254,76 @@ $border-style-manual-values: (
   dashed:       'dashed',
   dotted:       'dotted',
   solid:        'solid'
+);
+
+/*
+========================================
+.border-width
+----------------------------------------
+*/
+
+$border-width-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$border-width-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium'
+);
+
+$border-width-manual-values: (
+  /*
+  */
+  0:       0,
+);
+
+/*
+========================================
+.bottom
+----------------------------------------
+*/
+
+$bottom-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$bottom-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-small-negative',
+  'plugin-spacing-uswds-named-medium-negative'
+);
+
+$bottom-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
 );
 
 /*
@@ -243,7 +340,7 @@ $box-shadow-settings: (
   visited:      false
 );
 
-$box-shadow-plugins: map-collect(
+$box-shadow-plugins: (
   /*
   */
 );
@@ -251,12 +348,11 @@ $box-shadow-plugins: map-collect(
 $box-shadow-manual-values: (
   /*
   */
-  none:   'none',
-  1: '0 1px 2px 0 rgba(0,0,0,0.10)',
-  2: '0 4px 8px 0 rgba(0,0,0,0.10)',
-  3: '0 6px 12px 0 rgba(0,0,0,0.10)',
-  4: '0 8px 16px 0 rgba(0,0,0,0.10)',
-  5: '0 12px 24px 0 rgba(0,0,0,0.10)'
+  none:     'none',
+  low:      '0 1px 2px 0 rgba(0,0,0,0.10)',
+  high:     '0 4px 8px 0 rgba(0,0,0,0.10)',
+  higher:   '0 6px 12px 0 rgba(0,0,0,0.10)',
+  highest:  '0 8px 16px 0 rgba(0,0,0,0.10)',
 );
 
 /*
@@ -273,15 +369,37 @@ $circle-settings: (
   visited:      false
 );
 
-$circle-plugins: map-collect(
+$circle-plugins: (
   /*
+  'plugin-spacing-uswds-named-small'
+  'plugin-spacing-uswds-named-medium'
+  'plugin-spacing-uswds-named-large'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
   */
-  $plugin-spacing-uswds-named-all
+  'plugin-spacing-uswds-named-all'
 );
 
 $circle-manual-values: (
   /*
   */
+);
+
+/*
+========================================
+.clearfix
+----------------------------------------
+*/
+
+$clearfix-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
 );
 
 /*
@@ -294,34 +412,30 @@ $color-settings: (
   responsive:   false,
   active:       false,
   focus:        false,
-  hover:        true,
+  hover:        false,
   visited:      false
 );
 
-$color-plugins: map-collect(
+$color-plugins: (
   /*
+  'plugin-[color]'
+  'plugin-[color]-light'
+  'plugin-[color]-medium'
+  'plugin-[color]-dark'
+  'plugin-[color]-light-vivid'
+  'plugin-[color]-medium-vivid'
+  'plugin-[color]-dark-vivid'
+  'plugin-[color]-standard'
+  'plugin-[color]-vivid'
+  'plugin-palette-status'
   */
-  $plugin-color-palette-theme,
-  $plugin-color-palette-required
+  'plugin-color-palette-theme',
+  'plugin-color-palette-grayscale'
 );
 
 $color-manual-values: (
   /*
   */
-);
-
-/*
-========================================
-.column
-----------------------------------------
-*/
-
-$column-settings: (
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false
 );
 
 /*
@@ -338,7 +452,7 @@ $display-settings: (
   visited:      false
 );
 
-$display-plugins: map-collect(
+$display-plugins: (
   /*
   */
 );
@@ -369,27 +483,15 @@ $flex-settings: (
   visited:      false
 );
 
-$flex-plugins: map-collect(
+$flex-plugins: (
   /*
   */
+  'plugin-misc-flex'
 );
 
 $flex-manual-values: (
   /*
   */
-  1:            '1 0 0',
-  2:            '2 0 0',
-  3:            '3 0 0',
-  4:            '4 0 0',
-  5:            '5 0 0',
-  6:            '6 0 0',
-  7:            '7 0 0',
-  8:            '8 0 0',
-  9:            '9 0 0',
-  10:           '10 0 0',
-  11:           '11 0 0',
-  fill:         '1 0 0',
-  fit:          '0'
 );
 
 /*
@@ -406,7 +508,7 @@ $flex-direction-settings: (
   visited:      false
 );
 
-$flex-direction-plugins: map-collect();
+$flex-direction-plugins: ();
 
 $flex-direction-manual-values: (
   /*
@@ -429,7 +531,7 @@ $flex-wrap-settings: (
   visited:      false
 );
 
-$flex-wrap-plugins: map-collect();
+$flex-wrap-plugins: ();
 
 $flex-wrap-manual-values: (
   wrap:         'wrap',
@@ -450,7 +552,7 @@ $float-settings: (
   visited:      false
 );
 
-$float-plugins: map-collect();
+$float-plugins: ();
 
 $float-manual-values: (
   /*
@@ -474,10 +576,20 @@ $font-settings: (
   visited:      false
 );
 
-$font-plugins: map-collect(
+$font-plugins: (
   /*
+  'plugin-font-theme-mono-all'
+  'plugin-font-theme-sans-all'
+  'plugin-font-theme-serif-all'
+  'plugin-font-uswds-all'
+  'plugin-system-[family]-small'
+  'plugin-system-[family]-medium'
+  'plugin-system-[family]-large'
+  'plugin-system-[family]-xlarge'
+  'plugin-system-[family]-all'
   */
-  $plugin-font-theme-all
+  'plugin-font-theme-all',
+  'plugin-font-theme-roles-all'
 );
 
 $font-manual-values: (
@@ -499,10 +611,10 @@ $font-family-settings: (
   visited:      false
 );
 
-$font-family-plugins: map-collect(
+$font-family-plugins: (
   /*
   */
-  $plugin-font-stack-roles
+  'plugin-font-stack-roles'
 );
 
 $font-family-manual-values: (
@@ -524,17 +636,15 @@ $font-feature-settings: (
   visited:      false
 );
 
-$font-feature-plugins: map-collect(
+$font-feature-plugins: (
   /*
   */
+  'plugin-misc-font-feature-settings'
 );
 
 $font-feature-manual-values: (
   /*
   */
-  alt:          "'ss01' 1, 'kern' 1",
-  tabular:      "'tnum' 1, 'kern' 1",
-  default:      "'kern' 1",
 );
 
 /*
@@ -551,7 +661,7 @@ $font-style-settings: (
   visited:      false
 );
 
-$font-style-plugins: map-collect();
+$font-style-plugins: ();
 
 $font-style-manual-values: (
   normal:       'normal',
@@ -572,26 +682,16 @@ $font-weight-settings: (
   visited:      false
 );
 
-$font-weight-plugins: map-collect(
+$font-weight-plugins: (
   /*
+  'plugin-font-weights-numeric'
   */
+  'plugin-font-weights-theme'
 );
 
 $font-weight-manual-values: (
   /*
   */
-  100:          '100',
-  200:          '200',
-  300:          '300',
-  400:          '400',
-  500:          '500',
-  600:          '600',
-  700:          '700',
-  800:          '800',
-  900:          '900',
-  bold:         'bold',
-  normal:       'normal',
-  light:        'light'
 );
 
 /*
@@ -608,19 +708,67 @@ $height-settings: (
   visited:      false
 );
 
-$height-plugins: map-collect(
+$height-plugins: (
   /*
-  $plugin-spacing-units-em,
-  $plugin-spacing-units-ch,
-  $plugin-spacing-units-px
+  'plugin-spacing-uswds-named-small'
+  'plugin-spacing-uswds-named-medium'
+  'plugin-spacing-uswds-named-large'
+  'plugin-spacing-uswds-named-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
   */
-  $plugin-spacing-units-percentage,
-  $plugin-spacing-uswds-named-all
+  'plugin-spacing-uswds-named-all'
 );
 
 $height-manual-values: (
   /*
   */
+  0:      0,
+  auto:   auto,
+  100vh:  100vh
+);
+
+/*
+========================================
+.left
+----------------------------------------
+*/
+
+$left-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$left-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-negative-all',
+);
+
+$left-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
 );
 
 /*
@@ -637,21 +785,15 @@ $letter-spacing-settings: (
   visited:      false
 );
 
-$letter-spacing-plugins: map-collect(
+$letter-spacing-plugins: (
   /*
   */
+  'plugin-misc-letter-spacing'
 );
 
 $letter-spacing-manual-values: (
   /*
   */
-  auto:         'auto',
-  n1:           $u-ls-n1,
-  n2:           $u-ls-n2,
-  n3:           $u-ls-n3,
-  1:            $u-ls-1,
-  2:            $u-ls-2,
-  3:            $u-ls-3
 );
 
 /*
@@ -668,20 +810,15 @@ $line-height-settings: (
   visited:      false
 );
 
-$line-height-plugins: map-collect(
+$line-height-plugins: (
   /*
   */
+  'plugin-misc-line-heights'
 );
 
 $line-height-manual-values: (
   /*
   */
-  single:        $u-lh-single,
-  heading:       $u-lh-heading,
-  heading-loose: $u-lh-heading-loose,
-  body-tight:    $u-lh-body-tight,
-  body:          $u-lh-body,
-  body-loose:    $u-lh-body-loose
 );
 
 /*
@@ -700,42 +837,6 @@ $list-reset-settings: (
 
 /*
 ========================================
-.MANUAL POSITION
-----------------------------------------
-properties:
-  top
-  bottom
-  left
-  right
-----------------------------------------
-*/
-
-$manual-position-settings: (
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false
-);
-
-$manual-position-plugins: map-collect(
-  /*
-  */
-  $plugin-spacing-units-px,
-  $plugin-spacing-units-px-negative,
-  $plugin-spacing-uswds-named-small,
-  $plugin-spacing-uswds-named-small-negative
-);
-
-$manual-position-manual-values: (
-  /*
-  */
-  0:            '0',
-  auto:         'auto'
-);
-
-/*
-========================================
 .margin
 ----------------------------------------
 */
@@ -748,21 +849,19 @@ $margin-settings: (
   visited:      false
 );
 
-$margin-plugins: map-collect(
+$margin-plugins: (
   /*
-  $plugin-spacing-units-px,
-  $plugin-spacing-units-px-negative,
-  $plugin-spacing-units-percentage,
-  $plugin-spacing-uswds-all,
-  $plugin-spacing-uswds-negative,
-  $plugin-spacing-units-ch,
-  $plugin-spacing-units-ch-negative,
-  $plugin-spacing-units-em
+  'plugin-spacing-units-px',
+  'plugin-spacing-units-px-negative',
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-uswds-negative',
+  'plugin-spacing-units-ch',
+  'plugin-spacing-units-ch-negative',
+  'plugin-spacing-units-em'
   */
-  $plugin-spacing-units-px,
-  $plugin-spacing-units-px-negative,
-  $plugin-spacing-uswds-named-all,
-  $plugin-spacing-uswds-named-small-negative
+  'plugin-spacing-uswds-named-all',
+  'plugin-spacing-uswds-named-negative-all'
 );
 
 $margin-manual-values: (
@@ -786,17 +885,20 @@ $max-height-settings: (
   visited:      false
 );
 
-$max-height-plugins: map-collect(
+$max-height-plugins: (
   /*
-  $plugin-spacing-units-percentage,
-  $plugin-spacing-uswds-all,
-  $plugin-spacing-units-px
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-units-px'
   */
+  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-theme-breakpoints-rem'
 );
 
 $max-height-manual-values: (
   /*
   */
+  none:         'none',
 );
 
 /*
@@ -813,20 +915,18 @@ $max-width-settings: (
   visited:      false
 );
 
-$max-width-plugins: map-collect(
+$max-width-plugins: (
   /*
-  $plugin-spacing-units-percentage,
-  $plugin-spacing-theme-breakpoints-rem
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-theme-breakpoints-rem'
   */
+  'plugin-misc-measure'
 );
 
 $max-width-manual-values: (
   /*
   */
   none:         'none',
-  reading-sm:   $text-narrow-width,
-  reading:      $text-max-width,
-  reading-lg:   $text-wide-width
 );
 
 /*
@@ -843,18 +943,21 @@ $min-height-settings: (
   visited:      false
 );
 
-$min-height-plugins: map-collect(
+$min-height-plugins: (
   /*
-  $plugin-spacing-units-percentage,
-  $plugin-spacing-uswds-small
-  $plugin-spacing-uswds-medium
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
   */
+  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-theme-breakpoints-rem'
 );
 
 $min-height-manual-values: (
   /*
   */
-  100ct:        100%
+  '100ct':      100%,
+  '100vh':      100vh,
 );
 
 /*
@@ -871,12 +974,16 @@ $min-width-settings: (
   visited:      false
 );
 
-$min-width-plugins: map-collect(
+$min-width-plugins: (
   /*
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-units-px-negative',
+  'plugin-spacing-units-em',
+  'plugin-spacing-units-ch'
+  'plugin-spacing-units-percentage'
   */
-  $plugin-spacing-theme-breakpoints-rem,
-  $plugin-spacing-uswds-large,
-  $plugin-spacing-uswds-xlarge
+  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-theme-breakpoints-rem'
 );
 
 $min-width-manual-values: (
@@ -898,24 +1005,25 @@ $opacity-settings: (
   visited:      false
 );
 
-$opacity-plugins: map-collect(
+$opacity-plugins: (
   /*
   */
+  'plugin-misc-opacity'
 );
 
 $opacity-manual-values: (
   /*
-  0:            '0',
-  01:           '0.1',
-  02:           '0.2',
-  03:           '0.3',
-  04:           '0.4',
-  05:           '0.5',
-  06:           '0.6',
-  07:           '0.7',
-  08:           '0.8',
-  09:           '0.9',
-  1:            '1',
+  '0':            '0',
+  '01':           '0.1',
+  '02':           '0.2',
+  '03':           '0.3',
+  '04':           '0.4',
+  '05':           '0.5',
+  '06':           '0.6',
+  '07':           '0.7',
+  '08':           '0.8',
+  '09':           '0.9',
+  '1':            '1',
   */
 );
 
@@ -933,9 +1041,10 @@ $order-settings: (
   visited:      false
 );
 
-$order-plugins: map-collect(
+$order-plugins: (
   /*
   */
+  'plugin-misc-order'
 );
 
 $order-manual-values: (
@@ -971,11 +1080,11 @@ $outline-settings: (
   visited:      false
 );
 
-$outline-plugins: map-collect(
+$outline-plugins: (
   /*
   */
-  $plugin-spacing-units-px,
-  $plugin-spacing-uswds-small
+  'plugin-spacing-units-px',
+  'plugin-spacing-uswds-small'
 );
 
 $outline-manual-values: (
@@ -998,10 +1107,10 @@ $outline-color-settings: (
   visited:      false
 );
 
-$outline-color-plugins: map-collect(
+$outline-color-plugins: (
   /*
   */
-  $plugin-color-palette-theme
+  'plugin-color-palette-theme'
 );
 
 $outline-color-manual-values: (
@@ -1023,11 +1132,11 @@ $padding-settings: (
   visited:      false
 );
 
-$padding-plugins: map-collect(
+$padding-plugins: (
   /*
-  $plugin-spacing-units-px,
+  'plugin-spacing-units-px',
   */
-  $plugin-spacing-uswds-named-all
+  'plugin-spacing-uswds-named-all'
 );
 
 $padding-manual-values: (
@@ -1050,7 +1159,7 @@ $position-settings: (
   visited:      false
 );
 
-$position-plugins: map-collect(
+$position-plugins: (
   /*
   */
 );
@@ -1067,16 +1176,43 @@ $position-manual-values: (
 
 /*
 ========================================
-.row
+.right
 ----------------------------------------
 */
 
-$row-settings: (
+$right-settings: (
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
   visited:      false
+);
+
+$right-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-small-negative',
+  'plugin-spacing-uswds-named-medium-negative'
+);
+
+$right-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
 );
 
 /*
@@ -1093,10 +1229,10 @@ $square-settings: (
   visited:      false
 );
 
-$square-plugins: map-collect(
+$square-plugins: (
   /*
   */
-  $plugin-spacing-uswds-named-all
+  'plugin-spacing-uswds-named-all'
 );
 
 $square-manual-values: (
@@ -1119,7 +1255,7 @@ $text-align-settings: (
   visited:      false
 );
 
-$text-align-plugins: map-collect(
+$text-align-plugins: (
   /*
   */
 );
@@ -1147,7 +1283,7 @@ $text-decoration-settings: (
   visited:      false
 );
 
-$text-decoration-plugins: map-collect(
+$text-decoration-plugins: (
   /*
   */
 );
@@ -1162,6 +1298,32 @@ $text-decoration-manual-values: (
 
 /*
 ========================================
+.text-decoration-color
+----------------------------------------
+*/
+
+$text-decoration-color-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$text-decoration-color-plugins: (
+  /*
+  'plugin-color-palette-grayscale'
+  */
+  'plugin-color-palette-theme',
+  'plugin-color-palette-required'
+);
+
+$text-decoration-color-manual-values: (
+  /*
+  */
+);
+
+/*
 .text-transform
 ----------------------------------------
 */
@@ -1174,7 +1336,7 @@ $text-transform-settings: (
   visited:      false
 );
 
-$text-transform-plugins: map-collect(
+$text-transform-plugins: (
   /*
   */
 );
@@ -1186,6 +1348,47 @@ $text-transform-manual-values: (
   lowercase:      'lowercase',
   uppercase:      'uppercase',
   none:           'none'
+);
+
+/*
+========================================
+.top
+----------------------------------------
+*/
+
+$top-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$top-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-small-negative',
+  'plugin-spacing-uswds-named-medium-negative'
+);
+
+$top-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
 );
 
 /*
@@ -1202,7 +1405,7 @@ $vertical-align-settings: (
   visited:      false
 );
 
-$vertical-align-plugins: map-collect(
+$vertical-align-plugins: (
   /*
   */
 );
@@ -1222,7 +1425,7 @@ $vertical-align-manual-values: (
 
 /*
 ========================================
-.whitespace
+.white-space
 ----------------------------------------
 */
 
@@ -1234,7 +1437,7 @@ $whitespace-settings: (
   visited:      false
 );
 
-$whitespace-plugins: map-collect(
+$whitespace-plugins: (
   /*
   */
 );
@@ -1263,15 +1466,16 @@ $width-settings: (
   visited:      false
 );
 
-$width-plugins: map-collect(
+$width-plugins: (
   /*
-  $plugin-spacing-uswds-all,
-  $plugin-spacing-units-px,
-  $plugin-spacing-units-em,
-  $plugin-spacing-units-ch
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-units-px',
+  'plugin-spacing-units-em',
+  'plugin-spacing-units-ch'
+  'plugin-spacing-units-percentage'
   */
-  $plugin-spacing-units-percentage,
-  $plugin-spacing-theme-breakpoints-rem
+  'plugin-spacing-uswds-named-all',
+  'plugin-spacing-theme-breakpoints-rem'
 );
 
 $width-manual-values: (
@@ -1295,20 +1499,14 @@ $z-index-settings: (
   visited:      false
 );
 
-$z-index-plugins: map-collect(
+$z-index-plugins: (
   /*
   */
+  'plugin-misc-z-index'
 );
 
 $z-index-manual-values: (
   /*
-  0:            '0',
-  100:          '100',
-  200:          '200',
-  300:          '300',
-  400:          '400',
-  500:          '500',
   */
-  top:          '9999',
-  bottom:       '-9999'
+  auto:         'auto',
 );

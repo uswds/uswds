@@ -1,3 +1,14 @@
+/*
+========================================
+Functions
+----------------------------------------
+*/
+
+/*
+========================================
+General-purpose functions
+----------------------------------------
+*/
 
 /*
 ----------------------------------------
@@ -311,6 +322,168 @@ withholds certain errors.
 
 /*
 ----------------------------------------
+system-color()
+----------------------------------------
+Derive a system color from its
+family, value, and vivid or a passed
+variable that is, itself, a list
+----------------------------------------
+*/
+
+@function system-color($props...){
+  @if length($props) == 0 {
+    @return false;
+  } @elseif type-of(nth($props,1)) == 'list' {
+    $props: nth($props,1);
+    @if length($props) == 2 {
+      @return map-deep-get(
+        $uswds-colors,
+        nth($props, 1),
+        nth($props, 2)
+      );
+    } @elseif length($props) == 3 {
+      @return map-deep-get(
+        $uswds-colors,
+        nth($props, 1),
+        nth($props, 3),
+        nth($props, 2)
+      );
+    }
+  } @elseif nth($props, 1) == false {
+    @return false;
+  } @elseif length($props) == 2 {
+    @return map-deep-get(
+      $uswds-colors,
+      nth($props, 1),
+      nth($props, 2)
+    );
+  } @else {
+    @return map-deep-get(
+      $uswds-colors,
+      nth($props, 1),
+      nth($props, 3),
+      nth($props, 2)
+    );
+  }
+};
+
+/*
+----------------------------------------
+system-type-scale()
+----------------------------------------
+Get a value from the system type scale
+----------------------------------------
+*/
+
+@function system-type-scale($scale){
+  @if $scale and map-has-key($uswds-type-scale, $scale){
+    @return map-get($uswds-type-scale, $scale);
+  }
+  @elseif $scale == false {
+    @return false;
+  }
+  @elseif not map-has-key($uswds-type-scale, $scale) {
+    @error "`#{$scale}` is not a valid type scale value. Valid values: #{map-keys($uswds-type-scale)}";
+  }
+};
+
+/*
+========================================
+Utility functions
+----------------------------------------
+TODO: convert/translate these to mixins?
+----------------------------------------
+*/
+
+/*
+----------------------------------------
+border-radius()
+----------------------------------------
+Get a border-radius from the system
+border-radii
+----------------------------------------
+*/
+
+@function border-radius($value) {
+  @if map-has-key($all-border-radius, $value) {
+    @return map-get($all-border-radius, $value);
+  }
+  @else {
+    @error "`#{$value}` is not a valid border radius value. Valid values: #{map-keys($all-border-radius)}";
+  }
+};
+
+/*
+----------------------------------------
+color()
+----------------------------------------
+Derive a color from the map of all
+colors: project and system
+----------------------------------------
+*/
+
+@function color($props...){
+  @if length($props) == 0 {
+    @return false;
+  } @elseif nth($props, 1) == false {
+    @return false;
+  } @elseif length($props) == 1 {
+    @return map-get(
+      $project-reserved-colors,
+      nth($props, 1)
+    );
+  } @elseif length($props) == 2 {
+    @return map-deep-get(
+      $all-colors,
+      nth($props, 1),
+      nth($props, 2)
+    );
+  } @else {
+    @return map-deep-get(
+      $all-colors,
+      nth($props, 1),
+      nth($props, 3),
+      nth($props, 2)
+    );
+  }
+};
+
+/*
+----------------------------------------
+feature()
+----------------------------------------
+Gets a valid USWDS font feature setting
+----------------------------------------
+*/
+
+@function feature($value) {
+  @if map-has-key($uswds-font-feature-settings, $value) {
+    @return map-get($uswds-font-feature-settings, $value);
+  }
+  @else {
+    @error "`#{$value}` is not a valid font feature setting. Valid values: #{map-keys($uswds-font-feature-settings)}";
+  }
+};
+
+/*
+----------------------------------------
+flex()
+----------------------------------------
+Gets a valid USWDS flex value
+----------------------------------------
+*/
+
+@function flex($value) {
+  @if map-has-key($uswds-flex, $value) {
+    @return map-get($uswds-flex, $value);
+  }
+  @else {
+    @error "`#{$value}` is not a valid flex value. Valid values: #{map-keys($uswds-flex)}";
+  }
+};
+
+/*
+----------------------------------------
 font()
 ----------------------------------------
 Get a normalized font-size in rem from
@@ -359,42 +532,57 @@ system scale or project scale
 
 /*
 ----------------------------------------
-spacing()
+font-weight()
 ----------------------------------------
-Converts a spacing unit multiple into
-the desired final units (currently rem)
+Gets a valid USWDS font-weight
 ----------------------------------------
 */
 
-@function spacing($value) {
-  @if map-has-key($project-spacing-all, quote($value)) {
-    @if map-get($project-spacing-all, quote($value)) == false {
-      @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
+@function font-weight($value) {
+  @if map-has-key($project-font-weights, $value) {
+    @if map-get($project-font-weights, $value) == false {
+      @error "Font weight `#{$value}` is disabled in your project's theme settings. Set its value to `true` to use this weight.";
     }
-    @return map-get($project-spacing-all, quote($value));
-  }
-  @elseif $value == false {
-    @return false;
+    @return map-get($project-font-weights, $value);
   }
   @else {
-    @error "`#{$value}` is not a valid spacing value. Valid values: #{map-keys($project-spacing-all)}";
+    @error "`#{$value}` is not a valid font-weight value. Valid values: #{map-keys($project-font-weights)}";
   }
 };
 
 /*
 ----------------------------------------
-flex()
+letter-spacing()
 ----------------------------------------
-Gets a valid USWDS flex value
+Get a letter-spacing value from the
+system letter-spacing
 ----------------------------------------
 */
 
-@function flex($value) {
-  @if map-has-key($uswds-flex, $value) {
-    @return map-get($uswds-flex, $value);
+@function letter-spacing($value) {
+  @if map-has-key($uswds-letter-spacing, $value) {
+    @return map-get($uswds-letter-spacing, $value);
   }
   @else {
-    @error "`#{$value}` is not a valid flex value. Valid values: #{map-keys($uswds-flex)}";
+    @error "`#{$value}` is not a valid letter-spacing value. Valid values: #{map-keys($uswds-letter-spacing)}";
+  }
+};
+
+/*
+----------------------------------------
+line-height()
+----------------------------------------
+Get a line height from the system
+line heights
+----------------------------------------
+*/
+
+@function line-height($value) {
+  @if map-has-key($uswds-line-height, $value) {
+    @return map-get($uswds-line-height, $value);
+  }
+  @else {
+    @error "`#{$value}` is not a valid line height. Valid values: #{map-keys($uswds-line-height)}";
   }
 };
 
@@ -420,61 +608,6 @@ Gets a valid USWDS reading line length
 
 /*
 ----------------------------------------
-font-weight()
-----------------------------------------
-Gets a valid USWDS font-weight
-----------------------------------------
-*/
-
-@function font-weight($value) {
-  @if map-has-key($project-font-weights, $value) {
-    @if map-get($project-font-weights, $value) == false {
-      @error "Font weight `#{$value}` is disabled in your project's theme settings. Set its value to `true` to use this weight.";
-    }
-    @return map-get($project-font-weights, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid font-weight value. Valid values: #{map-keys($project-font-weights)}";
-  }
-};
-
-/*
-----------------------------------------
-feature()
-----------------------------------------
-Gets a valid USWDS font feature setting
-----------------------------------------
-*/
-
-@function feature($value) {
-  @if map-has-key($uswds-font-feature-settings, $value) {
-    @return map-get($uswds-font-feature-settings, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid font feature setting. Valid values: #{map-keys($uswds-font-feature-settings)}";
-  }
-};
-
-/*
-----------------------------------------
-line-height()
-----------------------------------------
-Get a line height from the system
-line heights
-----------------------------------------
-*/
-
-@function line-height($value) {
-  @if map-has-key($uswds-line-height, $value) {
-    @return map-get($uswds-line-height, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid line height. Valid values: #{map-keys($uswds-line-height)}";
-  }
-};
-
-/*
-----------------------------------------
 opacity()
 ----------------------------------------
 Get an opacity from the system
@@ -488,60 +621,6 @@ opacities
   }
   @else {
     @error "`#{$value}` is not a valid opacity. Valid values: #{map-keys($uswds-opacity)}";
-  }
-};
-
-/*
-----------------------------------------
-border-radius()
-----------------------------------------
-Get a border-radius from the system
-border-radii
-----------------------------------------
-*/
-
-@function border-radius($value) {
-  @if map-has-key($all-border-radius, $value) {
-    @return map-get($all-border-radius, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid border radius value. Valid values: #{map-keys($all-border-radius)}";
-  }
-};
-
-/*
-----------------------------------------
-letter-spacing()
-----------------------------------------
-Get a letter-spacing value from the
-system letter-spacing
-----------------------------------------
-*/
-
-@function letter-spacing($value) {
-  @if map-has-key($uswds-letter-spacing, $value) {
-    @return map-get($uswds-letter-spacing, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid letter-spacing value. Valid values: #{map-keys($uswds-letter-spacing)}";
-  }
-};
-
-/*
-----------------------------------------
-z-index()
-----------------------------------------
-Get a z-index value from the
-system z-index
-----------------------------------------
-*/
-
-@function z-index($value) {
-  @if map-has-key($uswds-z-index, $value) {
-    @return map-get($uswds-z-index, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid z-index value. Valid values: #{map-keys($uswds-z-index)}";
   }
 };
 
@@ -565,105 +644,45 @@ system orders
 
 /*
 ----------------------------------------
-system-type-scale()
+spacing()
 ----------------------------------------
-Get a value from the system type scale
+Converts a spacing unit multiple into
+the desired final units (currently rem)
 ----------------------------------------
 */
 
-@function system-type-scale($scale){
-  @if $scale and map-has-key($uswds-type-scale, $scale){
-    @return map-get($uswds-type-scale, $scale);
+@function spacing($value) {
+  @if map-has-key($project-spacing-all, quote($value)) {
+    @if map-get($project-spacing-all, quote($value)) == false {
+      @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
+    }
+    @return map-get($project-spacing-all, quote($value));
   }
-  @elseif $scale == false {
+  @elseif $value == false {
     @return false;
   }
-  @elseif not map-has-key($uswds-type-scale, $scale) {
-    @error "`#{$scale}` is not a valid type scale value. Valid values: #{map-keys($uswds-type-scale)}";
+  @else {
+    @error "`#{$value}` is not a valid spacing value. Valid values: #{map-keys($project-spacing-all)}";
   }
 };
 
 /*
 ----------------------------------------
-system-color()
+z-index()
 ----------------------------------------
-Derive a system color from its
-family, value, and vivid or a passed
-variable that is, itself, a list
-----------------------------------------
-*/
-
-@function system-color($props...){
-  @if length($props) == 0 {
-    @return false;
-  } @elseif type-of(nth($props,1)) == 'list' {
-    $props: nth($props,1);
-    @if length($props) == 2 {
-      @return map-deep-get(
-        $uswds-colors,
-        nth($props, 1),
-        nth($props, 2)
-      );
-    } @elseif length($props) == 3 {
-      @return map-deep-get(
-        $uswds-colors,
-        nth($props, 1),
-        nth($props, 3),
-        nth($props, 2)
-      );
-    }
-  } @elseif nth($props, 1) == false {
-    @return false;
-  } @elseif length($props) == 2 {
-    @return map-deep-get(
-      $uswds-colors,
-      nth($props, 1),
-      nth($props, 2)
-    );
-  } @else {
-    @return map-deep-get(
-      $uswds-colors,
-      nth($props, 1),
-      nth($props, 3),
-      nth($props, 2)
-    );
-  }
-}
-
-/*
-----------------------------------------
-color()
-----------------------------------------
-Derive a color from the map of all
-colors: project and system
+Get a z-index value from the
+system z-index
 ----------------------------------------
 */
 
-@function color($props...){
-  @if length($props) == 0 {
-    @return false;
-  } @elseif nth($props, 1) == false {
-    @return false;
-  } @elseif length($props) == 1 {
-    @return map-get(
-      $project-reserved-colors,
-      nth($props, 1)
-    );
-  } @elseif length($props) == 2 {
-    @return map-deep-get(
-      $all-colors,
-      nth($props, 1),
-      nth($props, 2)
-    );
-  } @else {
-    @return map-deep-get(
-      $all-colors,
-      nth($props, 1),
-      nth($props, 3),
-      nth($props, 2)
-    );
+@function z-index($value) {
+  @if map-has-key($uswds-z-index, $value) {
+    @return map-get($uswds-z-index, $value);
   }
-}
+  @else {
+    @error "`#{$value}` is not a valid z-index value. Valid values: #{map-keys($uswds-z-index)}";
+  }
+};
 
 /*
 ----------------------------------------
@@ -671,6 +690,9 @@ get-plugins()
 ----------------------------------------
 Build a single map of plugin values
 from a list of plugin keys.
+----------------------------------------
+TODO: Somewhat crude now. Could be more
+elegant
 ----------------------------------------
 */
 
