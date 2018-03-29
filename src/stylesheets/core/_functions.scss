@@ -388,6 +388,26 @@ Get a value from the system type scale
 };
 
 /*
+----------------------------------------
+simple-color()
+----------------------------------------
+Derive a color from its $family and
+value
+----------------------------------------
+ex:
+background-color: simple-color($red-warm, 50v);
+----------------------------------------
+*/
+
+@function simple-color($hue, $value, $variant...){
+  @if length($variant) == 0 {
+    @return map-get($hue, $value);
+  } @else {
+    @return map-deep-get($hue, nth($variant, 1), $value);
+  }
+}
+
+/*
 ========================================
 Utility functions
 ----------------------------------------
