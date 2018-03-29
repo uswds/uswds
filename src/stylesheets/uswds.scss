@@ -16,6 +16,7 @@ Output all USWDS
 @import 'uswds-utilities';
 
 .foo {
-  @include font(sans);
-  @include font(sans, micro);
+  @include font(body);
+  @include font(body, micro);
+  flex: flex(fill);
 }

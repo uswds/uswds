@@ -311,6 +311,54 @@ withholds certain errors.
 
 /*
 ----------------------------------------
+font()
+----------------------------------------
+Get a normalized font-size in rem from
+a family and a type size in either
+system scale or project scale
+----------------------------------------
+*/
+
+@mixin font($props...){
+  @if length($props) == 0 or length($props) > 2 {
+    @error "`font()` needs a valid face, and an optional size. If it only includes the face, it will output the font stack for that face (font-family). If it inlcludes the size, it will output the normalized font size (font-size).";
+  }
+  @elseif length($props) == 1 {
+    $our-family: nth($props, 1);
+    @if not map-has-key($project-font-stacks, $our-family){
+      @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-font-stacks)}";
+    }
+    @elseif not map-get($project-font-stacks, $our-family) {
+      @error "Font family `#{$our-family}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
+    }
+    @else {
+      font-family: map-get($project-font-stacks, $our-family);
+    }
+  }
+  @else {
+    $our-family: nth($props, 1);
+    $our-scale: nth($props, 2);
+    @if not map-has-key($project-cap-heights, $our-family) {
+      @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
+    }
+    @elseif not map-get($all-type-scale, $our-scale) {
+      @error "`#{$our-scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
+    }
+    @else {
+      $this-cap: map-get($project-cap-heights, $our-family);
+      $this-scale: map-get($all-type-scale, $our-scale);
+      @if $this-scale and $this-cap {
+        font-size: type-scale($this-cap, $this-scale);
+      }
+      @else {
+        @error "The scale `#{$our-scale}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
+      }
+    }
+  }
+};
+
+/*
+----------------------------------------
 spacing()
 ----------------------------------------
 Converts a spacing unit multiple into
@@ -330,6 +378,23 @@ the desired final units (currently rem)
   }
   @else {
     @error "`#{$value}` is not a valid spacing value. Valid values: #{map-keys($project-spacing-all)}";
+  }
+};
+
+/*
+----------------------------------------
+flex()
+----------------------------------------
+Gets a valid USWDS flex value
+----------------------------------------
+*/
+
+@function flex($value) {
+  @if map-has-key($uswds-flex, $value) {
+    @return map-get($uswds-flex, $value);
+  }
+  @else {
+    @error "`#{$value}` is not a valid flex value. Valid values: #{map-keys($uswds-flex)}";
   }
 };
 
