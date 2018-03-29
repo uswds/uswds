@@ -1,0 +1,10 @@
+// Outputs border-width of $value width
+@mixin border-x-width($value) {
+  border-left-width: spacing($value);
+  border-right-width: spacing($value);
+}
+
+@mixin border-y-width($value) {
+  border-bottom-width: spacing($value);
+  border-top-width: spacing($value);
+}
