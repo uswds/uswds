@@ -28,6 +28,7 @@
 @import 'components/accordions';
 @import 'components/alerts';
 @import 'components/banner';
+@import 'components/chart';
 @import 'components/footer';
 @import 'components/forms';
 @import 'components/graphic-list';
@@ -40,3 +41,9 @@
 @import 'components/section';
 @import 'components/sidenav';
 @import 'components/skipnav';
+
+// Experimental ----------- //
+//
+// Uncomment this to use experimental components
+
+// @import '_experimental/test';
