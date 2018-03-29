@@ -19,7 +19,7 @@ $letter-spacing: (
     base: 'letter-spacing',
     modifiers: null,
     values: map-collect(
-      $letter-spacing-preset-values,
+      get-plugins($letter-spacing-plugins),
       $letter-spacing-manual-values
     ),
     settings: $letter-spacing-settings,

@@ -12,7 +12,7 @@ output:
   font-size: [value];
 ----------------------------------------
 example:
-  .font-sans-14 {
+  .font-sans-s3 {
     font-face: '18Franklin-webfont',
                 system,
                 -apple-system,
@@ -31,7 +31,7 @@ $font: (
     base: 'font',
     modifiers: null,
     values: map-collect(
-      $font-preset-values,
+      get-plugins($font-plugins),
       $font-manual-values
     ),
     settings: $font-settings,

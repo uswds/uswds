@@ -19,7 +19,7 @@ $float: (
     base: 'float',
     modifiers: null,
     values: map-collect(
-      $float-preset-values,
+      get-plugins($float-plugins),
       $float-manual-values
     ),
     settings: $float-settings,

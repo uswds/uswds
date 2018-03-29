@@ -1,0 +1,66 @@
+$plugin-color-red-light: (
+  'red-5':  $red-5,
+  'red-10': $red-10,
+  'red-20': $red-20,
+  'red-30': $red-30,
+);
+
+$plugin-color-red-medium: (
+  'red-40': $red-40,
+  'red-50': $red-50,
+  'red-60': $red-60,
+);
+
+$plugin-color-red-dark: (
+  'red-70': $red-70,
+  'red-80': $red-80,
+  'red-90': $red-90,
+);
+
+$plugin-color-red-light-vivid: (
+  'red-5v':  $red-5v,
+  'red-10v': $red-10v,
+  'red-20v': $red-20v,
+  'red-30v': $red-30v,
+);
+
+$plugin-color-red-medium-vivid: (
+  'red-40v': $red-40v,
+  'red-50v': $red-50v,
+  'red-60v': $red-60v,
+);
+
+$plugin-color-red-dark-vivid: (
+  'red-70v': $red-70v,
+  'red-80v': $red-80v,
+  'red-90v': $red-90v,
+);
+
+$plugin-color-red-standard: map-collect(
+  $plugin-color-red-light,
+  $plugin-color-red-medium,
+  $plugin-color-red-dark
+);
+
+$plugin-color-red-vivid: map-collect(
+  $plugin-color-red-light-vivid,
+  $plugin-color-red-medium-vivid,
+  $plugin-color-red-dark-vivid
+);
+
+$plugin-color-red-all: map-collect(
+  $plugin-color-red-standard,
+  $plugin-color-red-vivid
+);
+
+$plugin-color-red: (
+  'plugin-color-red-light': $plugin-color-red-light,
+  'plugin-color-red-medium': $plugin-color-red-medium,
+  'plugin-color-red-dark': $plugin-color-red-dark,
+  'plugin-color-red-light-vivid': $plugin-color-red-light-vivid,
+  'plugin-color-red-medium-vivid': $plugin-color-red-medium-vivid,
+  'plugin-color-red-dark-vivid': $plugin-color-red-dark-vivid,
+  'plugin-color-red-standard': $plugin-color-red-standard,
+  'plugin-color-red-vivid': $plugin-color-red-vivid,
+  'plugin-color-red-all': $plugin-color-red-all,
+);

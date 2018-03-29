@@ -1,0 +1,31 @@
+$plugin-color-black-cool-light: (
+  'black-cool-5':  $black-cool-5,
+  'black-cool-10': $black-cool-10,
+  'black-cool-20': $black-cool-20,
+  'black-cool-30': $black-cool-30,
+);
+
+$plugin-color-black-cool-medium: (
+  'black-cool-40': $black-cool-40,
+  'black-cool-50': $black-cool-50,
+  'black-cool-60': $black-cool-60,
+);
+
+$plugin-color-black-cool-dark: (
+  'black-cool-70': $black-cool-70,
+  'black-cool-80': $black-cool-80,
+  'black-cool-90': $black-cool-90,
+);
+
+$plugin-color-black-cool-all: map-collect(
+  $plugin-color-black-cool-light,
+  $plugin-color-black-cool-medium,
+  $plugin-color-black-cool-dark
+);
+
+$plugin-color-black-cool: (
+  'plugin-color-black-cool-light': $plugin-color-black-cool-light,
+  'plugin-color-black-cool-medium': $plugin-color-black-cool-medium,
+  'plugin-color-black-cool-dark': $plugin-color-black-cool-dark,
+  'plugin-color-black-cool-all': $plugin-color-black-cool-all,
+);

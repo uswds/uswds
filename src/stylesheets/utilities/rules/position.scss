@@ -19,7 +19,7 @@ $position: (
     base: 'position',
     modifiers: null,
     values: map-collect(
-      $position-preset-values,
+      get-plugins($position-plugins),
       $position-manual-values
     ),
     settings: $position-settings,

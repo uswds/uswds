@@ -19,7 +19,7 @@ $max-height: (
     base: 'max-height',
     modifiers: null,
     values: map-collect(
-      $max-height-preset-values,
+      get-plugins($max-height-plugins),
       $max-height-manual-values
     ),
     settings: $max-height-settings,

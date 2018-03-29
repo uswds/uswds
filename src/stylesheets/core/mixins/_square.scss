@@ -1,0 +1,5 @@
+// Outputs a square
+@mixin square($value) {
+  height: spacing($value);
+  width: spacing($value);
+}

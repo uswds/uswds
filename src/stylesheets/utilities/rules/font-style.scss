@@ -21,7 +21,7 @@ $font-style: (
     base: 'font-style',
     modifiers: null,
     values: map-collect(
-      $font-style-preset-values,
+      get-plugins($font-style-plugins),
       $font-style-manual-values
     ),
     settings: $font-style-settings,

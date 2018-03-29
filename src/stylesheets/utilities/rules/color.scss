@@ -19,7 +19,8 @@ $color: (
     base: 'color',
     modifiers: null,
     values: map-collect(
-      $color-preset-values,
+      $plugin-color-palette-required,
+      get-plugins($color-plugins),
       $color-manual-values
     ),
     settings: $color-settings,

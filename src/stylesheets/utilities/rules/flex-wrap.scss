@@ -9,17 +9,17 @@ output:
   flex-wrap: [value];
 ----------------------------------------
 example:
-  .flex-wrap-wrap {
+  .flex-wrap {
     flex-wrap: wrap; }
 ----------------------------------------
 */
 
 $flex-wrap: (
   flex-wrap: (
-    base: 'flex-wrap',
+    base: 'flex',
     modifiers: null,
     values: map-collect(
-      $flex-wrap-preset-values,
+      get-plugins($flex-wrap-plugins),
       $flex-wrap-manual-values
     ),
     settings: $flex-wrap-settings,

@@ -1,34 +1,36 @@
 /*! uswds @version */
 
-// Vendor -------------- //
-@import 'lib/bourbon';
-@import 'lib/neat';
+/*
+========================================
+uswds-utilities
+----------------------------------------
+Output utility classes for a USWDS
+project
+----------------------------------------
+*/
 
-// Overrides
+// -------------------------------------
+// Load all the vendor, settings, and
+// variables for a USWDS project
 
-// Functions
-@import 'core/functions';
+@import 'required';
 
-// Settings (Variables)
-@import 'core/units';
-@import 'core/variables';
-@import 'core/settings';
+// -------------------------------------
+// Import the utility plugins
 
-// Utilities ------------ //
+@import 'utilities/plugins/all';
 
-// Import the utility presets
-@import 'utilities/presets/all';
+// -------------------------------------
+// Import the utility rules
 
-// Import the utility settings
-@import 'utilities/utilities-settings';
-
-// 3. Import the utility rules
 @import 'utilities/rules/all';
 
-// 4. Import the utility packager
+// -------------------------------------
+// Import the utility packager
+
 @import 'utilities/rules/package';
 
-// 5. Build the utilities
-@include render-utilities-in($utilities-package);
+// -------------------------------------
+// Build the utilities
 
-//
+@include render-utilities-in($utilities-package);

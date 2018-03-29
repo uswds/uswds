@@ -1,0 +1,4 @@
+// Outputs a solid outline of $value width
+@mixin outline($value) {
+  outline: spacing($value) solid;
+}

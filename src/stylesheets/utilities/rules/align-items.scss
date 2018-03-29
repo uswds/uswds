@@ -19,7 +19,7 @@ $align-items: (
     base: 'align-items',
     modifiers: null,
     values: map-collect(
-      $align-items-preset-values,
+      get-plugins($align-items-plugins),
       $align-items-manual-values
     ),
     settings: $align-items-settings,

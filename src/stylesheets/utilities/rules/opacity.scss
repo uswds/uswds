@@ -19,7 +19,7 @@ $opacity: (
     base: ('opacity'),
     modifiers: null,
     values: map-collect(
-      $opacity-preset-values,
+      get-plugins($opacity-plugins),
       $opacity-manual-values
     ),
     settings: $opacity-settings,

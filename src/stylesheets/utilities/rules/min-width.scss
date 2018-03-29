@@ -19,7 +19,7 @@ $min-width: (
     base: 'min-width',
     modifiers: null,
     values: map-collect(
-      $min-width-preset-values,
+      get-plugins($min-width-plugins),
       $min-width-manual-values
     ),
     settings: $min-width-settings,

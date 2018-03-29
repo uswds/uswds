@@ -1,0 +1,66 @@
+$plugin-color-orange-warm-light: (
+  'orange-warm-5':  $orange-warm-5,
+  'orange-warm-10': $orange-warm-10,
+  'orange-warm-20': $orange-warm-20,
+  'orange-warm-30': $orange-warm-30,
+);
+
+$plugin-color-orange-warm-medium: (
+  'orange-warm-40': $orange-warm-40,
+  'orange-warm-50': $orange-warm-50,
+  'orange-warm-60': $orange-warm-60,
+);
+
+$plugin-color-orange-warm-dark: (
+  'orange-warm-70': $orange-warm-70,
+  'orange-warm-80': $orange-warm-80,
+  'orange-warm-90': $orange-warm-90,
+);
+
+$plugin-color-orange-warm-light-vivid: (
+  'orange-warm-5v':  $orange-warm-5v,
+  'orange-warm-10v': $orange-warm-10v,
+  'orange-warm-20v': $orange-warm-20v,
+  'orange-warm-30v': $orange-warm-30v,
+);
+
+$plugin-color-orange-warm-medium-vivid: (
+  'orange-warm-40v': $orange-warm-40v,
+  'orange-warm-50v': $orange-warm-50v,
+  'orange-warm-60v': $orange-warm-60v,
+);
+
+$plugin-color-orange-warm-dark-vivid: (
+  'orange-warm-70v': $orange-warm-70v,
+  'orange-warm-80v': $orange-warm-80v,
+  'orange-warm-90v': $orange-warm-90v,
+);
+
+$plugin-color-orange-warm-standard: map-collect(
+  $plugin-color-orange-warm-light,
+  $plugin-color-orange-warm-medium,
+  $plugin-color-orange-warm-dark
+);
+
+$plugin-color-orange-warm-vivid: map-collect(
+  $plugin-color-orange-warm-light-vivid,
+  $plugin-color-orange-warm-medium-vivid,
+  $plugin-color-orange-warm-dark-vivid
+);
+
+$plugin-color-orange-warm-all: map-collect(
+  $plugin-color-orange-warm-standard,
+  $plugin-color-orange-warm-vivid
+);
+
+$plugin-color-orange-warm: (
+  'plugin-color-orange-warm-light': $plugin-color-orange-warm-light,
+  'plugin-color-orange-warm-medium': $plugin-color-orange-warm-medium,
+  'plugin-color-orange-warm-dark': $plugin-color-orange-warm-dark,
+  'plugin-color-orange-warm-light-vivid': $plugin-color-orange-warm-light-vivid,
+  'plugin-color-orange-warm-medium-vivid': $plugin-color-orange-warm-medium-vivid,
+  'plugin-color-orange-warm-dark-vivid': $plugin-color-orange-warm-dark-vivid,
+  'plugin-color-orange-warm-standard': $plugin-color-orange-warm-standard,
+  'plugin-color-orange-warm-vivid': $plugin-color-orange-warm-vivid,
+  'plugin-color-orange-warm-all': $plugin-color-orange-warm-all,
+);

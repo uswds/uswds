@@ -19,7 +19,7 @@ $vertical-align: (
     base: 'vertical-align',
     modifiers: null,
     values: map-collect(
-      $vertical-align-preset-values,
+      get-plugins($vertical-align-plugins),
       $vertical-align-manual-values
     ),
     settings: $vertical-align-settings,

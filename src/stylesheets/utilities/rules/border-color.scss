@@ -11,28 +11,17 @@ output:
 example:
   .border-color-red {
     border-color: #be4900; }
-
-  .border-color-x-red {
-    border-left-color: #be4900;
-    border-right-color: #be4900; }
 ----------------------------------------
 */
 
 $border-color: (
   border-color: (
-    property: 'border',
+    property: 'border-color',
     base: 'border-color',
-    modifiers: (
-      t: '-top-color',
-      r: '-left-color',
-      b: '-bottom-color',
-      l: '-left-color',
-      y: ('-top-color', '-bottom-color'),
-      x: ('-left-color', '-right-color'),
-      noModifier: -color,
-    ),
+    modifiers: null,
     values: map-collect(
-      $border-color-preset-values,
+      $plugin-color-palette-required,
+      get-plugins($border-color-plugins),
       $border-color-manual-values
     ),
     settings: $border-color-settings,

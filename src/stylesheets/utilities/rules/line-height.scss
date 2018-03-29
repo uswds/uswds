@@ -9,7 +9,7 @@ output:
   line-height: [value];
 ----------------------------------------
 example:
-  .line-height-1 {
+  .line-height-heading {
     line-height: 1.15; }
 ----------------------------------------
 */
@@ -19,7 +19,7 @@ $line-height: (
     base: 'line-height',
     modifiers: null,
     values: map-collect(
-      $line-height-preset-values,
+      get-plugins($line-height-plugins),
       $line-height-manual-values
     ),
     settings: $line-height-settings,

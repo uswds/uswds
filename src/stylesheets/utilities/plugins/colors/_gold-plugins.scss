@@ -1,0 +1,66 @@
+$plugin-color-gold-light: (
+  'gold-5':  $gold-5,
+  'gold-10': $gold-10,
+  'gold-20': $gold-20,
+  'gold-30': $gold-30,
+);
+
+$plugin-color-gold-medium: (
+  'gold-40': $gold-40,
+  'gold-50': $gold-50,
+  'gold-60': $gold-60,
+);
+
+$plugin-color-gold-dark: (
+  'gold-70': $gold-70,
+  'gold-80': $gold-80,
+  'gold-90': $gold-90,
+);
+
+$plugin-color-gold-light-vivid: (
+  'gold-5v':  $gold-5v,
+  'gold-10v': $gold-10v,
+  'gold-20v': $gold-20v,
+  'gold-30v': $gold-30v,
+);
+
+$plugin-color-gold-medium-vivid: (
+  'gold-40v': $gold-40v,
+  'gold-50v': $gold-50v,
+  'gold-60v': $gold-60v,
+);
+
+$plugin-color-gold-dark-vivid: (
+  'gold-70v': $gold-70v,
+  'gold-80v': $gold-80v,
+  'gold-90v': $gold-90v,
+);
+
+$plugin-color-gold-standard: map-collect(
+  $plugin-color-gold-light,
+  $plugin-color-gold-medium,
+  $plugin-color-gold-dark
+);
+
+$plugin-color-gold-vivid: map-collect(
+  $plugin-color-gold-light-vivid,
+  $plugin-color-gold-medium-vivid,
+  $plugin-color-gold-dark-vivid
+);
+
+$plugin-color-gold-all: map-collect(
+  $plugin-color-gold-standard,
+  $plugin-color-gold-vivid
+);
+
+$plugin-color-gold: (
+  'plugin-color-gold-light': $plugin-color-gold-light,
+  'plugin-color-gold-medium': $plugin-color-gold-medium,
+  'plugin-color-gold-dark': $plugin-color-gold-dark,
+  'plugin-color-gold-light-vivid': $plugin-color-gold-light-vivid,
+  'plugin-color-gold-medium-vivid': $plugin-color-gold-medium-vivid,
+  'plugin-color-gold-dark-vivid': $plugin-color-gold-dark-vivid,
+  'plugin-color-gold-standard': $plugin-color-gold-standard,
+  'plugin-color-gold-vivid': $plugin-color-gold-vivid,
+  'plugin-color-gold-all': $plugin-color-gold-all,
+);

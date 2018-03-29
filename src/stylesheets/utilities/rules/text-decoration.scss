@@ -19,7 +19,7 @@ $text-decoration: (
     base: 'text-decoration',
     modifiers: null,
     values: map-collect(
-      $text-decoration-preset-values,
+      get-plugins($text-decoration-plugins),
       $text-decoration-manual-values
     ),
     settings: $text-decoration-settings,

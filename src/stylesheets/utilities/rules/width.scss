@@ -19,7 +19,7 @@ $width: (
     base: 'width',
     modifiers: null,
     values: map-collect(
-      $width-preset-values,
+      get-plugins($width-plugins),
       $width-manual-values
     ),
     settings: $width-settings,

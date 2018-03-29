@@ -21,7 +21,7 @@ $z-index: (
     base: 'z-index',
     modifiers: null,
     values: map-collect(
-      $z-index-preset-values,
+      get-plugins($z-index-plugins),
       $z-index-manual-values
     ),
     settings: $z-index-settings,

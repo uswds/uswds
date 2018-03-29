@@ -1,0 +1,1512 @@
+/*
+========================================
+USWDS UTILITIES SETTINGS
+----------------------------------------
+*/
+
+$utilities-namespace-prefix:  'u-';
+$utilities-use-important:     false;
+
+$output-breakpoints: (
+  xs: false,
+  sm: true,
+  md: true,
+  lg: true,
+  xl: false
+);
+
+$output-all-utilities:  true;
+
+$output-utilities: (
+  align-items:      false,
+  background-color: true,
+  border:           false,
+  border-color:     false,
+  border-radius:    true,
+  border-style:     false,
+  border-width:     false,
+  bottom:           false,
+  box-shadow:       true,
+  circle:           true,
+  clearfix:         true,
+  color:            true,
+  column:           false,
+  display:          true,
+  flex:             false,
+  flex-direction:   false,
+  flex-wrap:        false,
+  float:            true,
+  font:             true,
+  font-family:      true,
+  font-feature:     false,
+  font-style:       true,
+  font-weight:      true,
+  height:           false,
+  left:              false,
+  letter-spacing:   true,
+  line-height:      true,
+  list-reset:       true,
+  manual-position:  false,
+  margin:           true,
+  max-height:       false,
+  max-width:        false,
+  min-height:       false,
+  min-width:        false,
+  opacity:          false,
+  order:            false,
+  outline-width:    false,
+  outline-color:    false,
+  padding:          true,
+  position:         false,
+  right:            false,
+  row:              false,
+  square:           false,
+  text-align:       true,
+  text-decoration:  true,
+  text-decoration-color:  false,
+  text-transform:   true,
+  top:              false,
+  vertical-align:   false,
+  whitespace:       false,
+  width:            false,
+  z-index:          false
+);
+
+/*
+========================================
+.align-items
+----------------------------------------
+*/
+
+$align-items-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$align-items-plugins: (
+  /*
+  */
+);
+
+$align-items-manual-values: (
+  /*
+  */
+  flex-start:   'flex-start',
+  flex-end:     'flex-end',
+  center:       'center',
+  stretch:      'stretch'
+);
+
+/*
+========================================
+.background-color
+----------------------------------------
+*/
+
+$background-color-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$background-color-plugins: (
+  /*
+  'plugin-color-[color]'
+  'plugin-color-[color]-light'
+  'plugin-color-[color]-medium'
+  'plugin-color-[color]-dark'
+  'plugin-color-[color]-light-vivid'
+  'plugin-color-[color]-medium-vivid'
+  'plugin-color-[color]-dark-vivid'
+  'plugin-color-[color]-standard'
+  'plugin-color-[color]-vivid'
+  'plugin-color-palette-status'
+  */
+  'plugin-color-palette-theme',
+  'plugin-color-palette-grayscale',
+);
+
+$background-color-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.border (width and solid)
+----------------------------------------
+*/
+
+$border-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$border-plugins: (
+  /*
+  'plugin-spacing-units-px'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium'
+);
+
+$border-manual-values: (
+  /*
+  */
+  0:            '0'
+);
+
+/*
+========================================
+.border-color
+----------------------------------------
+*/
+
+$border-color-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        true,
+  visited:      false
+);
+
+$border-color-plugins: (
+  /*
+  'plugin-color-[color]'
+  'plugin-color-[color]-light'
+  'plugin-color-[color]-medium'
+  'plugin-color-[color]-dark'
+  'plugin-color-[color]-light-vivid'
+  'plugin-color-[color]-medium-vivid'
+  'plugin-color-[color]-dark-vivid'
+  'plugin-color-[color]-standard'
+  'plugin-color-[color]-vivid'
+  'plugin-color-palette-status'
+  */
+  'plugin-color-palette-theme',
+  'plugin-color-palette-grayscale'
+);
+
+$border-color-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.border-radius
+----------------------------------------
+*/
+
+$border-radius-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$border-radius-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-misc-border-radius'
+);
+
+$border-radius-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.border-style
+----------------------------------------
+*/
+
+$border-style-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$border-style-plugins: (
+  /*
+  */
+);
+
+$border-style-manual-values: (
+  /*
+  */
+  dashed:       'dashed',
+  dotted:       'dotted',
+  solid:        'solid'
+);
+
+/*
+========================================
+.border-width
+----------------------------------------
+*/
+
+$border-width-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$border-width-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium'
+);
+
+$border-width-manual-values: (
+  /*
+  */
+  0:       0,
+);
+
+/*
+========================================
+.bottom
+----------------------------------------
+*/
+
+$bottom-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$bottom-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-small-negative',
+  'plugin-spacing-uswds-named-medium-negative'
+);
+
+$bottom-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
+);
+
+/*
+========================================
+.box-shadow
+----------------------------------------
+*/
+
+$box-shadow-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$box-shadow-plugins: (
+  /*
+  */
+);
+
+$box-shadow-manual-values: (
+  /*
+  */
+  none:     'none',
+  low:      '0 1px 2px 0 rgba(0,0,0,0.10)',
+  high:     '0 4px 8px 0 rgba(0,0,0,0.10)',
+  higher:   '0 6px 12px 0 rgba(0,0,0,0.10)',
+  highest:  '0 8px 16px 0 rgba(0,0,0,0.10)',
+);
+
+/*
+========================================
+.circle
+----------------------------------------
+*/
+
+$circle-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$circle-plugins: (
+  /*
+  'plugin-spacing-uswds-named-small'
+  'plugin-spacing-uswds-named-medium'
+  'plugin-spacing-uswds-named-large'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  */
+  'plugin-spacing-uswds-named-all'
+);
+
+$circle-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.clearfix
+----------------------------------------
+*/
+
+$clearfix-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+/*
+========================================
+.color
+----------------------------------------
+*/
+
+$color-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$color-plugins: (
+  /*
+  'plugin-[color]'
+  'plugin-[color]-light'
+  'plugin-[color]-medium'
+  'plugin-[color]-dark'
+  'plugin-[color]-light-vivid'
+  'plugin-[color]-medium-vivid'
+  'plugin-[color]-dark-vivid'
+  'plugin-[color]-standard'
+  'plugin-[color]-vivid'
+  'plugin-palette-status'
+  */
+  'plugin-color-palette-theme',
+  'plugin-color-palette-grayscale'
+);
+
+$color-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.display
+----------------------------------------
+*/
+
+$display-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$display-plugins: (
+  /*
+  */
+);
+
+$display-manual-values: (
+  /*
+  */
+  block:        'block',
+  flex:         'flex',
+  none:         'none',
+  inline:       'inline',
+  inline-block: 'inline-block',
+  table:        'table',
+  table-cell:   'table-cell'
+);
+
+/*
+========================================
+.flex
+----------------------------------------
+*/
+
+$flex-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$flex-plugins: (
+  /*
+  */
+  'plugin-misc-flex'
+);
+
+$flex-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.flex-direction
+----------------------------------------
+*/
+
+$flex-direction-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$flex-direction-plugins: ();
+
+$flex-direction-manual-values: (
+  /*
+  */
+  row:          'row',
+  column:       'column'
+);
+
+/*
+========================================
+.flex-wrap
+----------------------------------------
+*/
+
+$flex-wrap-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$flex-wrap-plugins: ();
+
+$flex-wrap-manual-values: (
+  wrap:         'wrap',
+  nowrap:       'nowrap'
+);
+
+/*
+========================================
+.float
+----------------------------------------
+*/
+
+$float-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$float-plugins: ();
+
+$float-manual-values: (
+  /*
+  */
+  left:         'left',
+  none:         'none',
+  right:        'right'
+);
+
+/*
+========================================
+.font
+----------------------------------------
+*/
+
+$font-settings: (
+  responsive:   true,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$font-plugins: (
+  /*
+  'plugin-font-theme-mono-all'
+  'plugin-font-theme-sans-all'
+  'plugin-font-theme-serif-all'
+  'plugin-font-uswds-all'
+  'plugin-system-[family]-small'
+  'plugin-system-[family]-medium'
+  'plugin-system-[family]-large'
+  'plugin-system-[family]-xlarge'
+  'plugin-system-[family]-all'
+  */
+  'plugin-font-theme-all',
+  'plugin-font-theme-roles-all'
+);
+
+$font-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.font-family
+----------------------------------------
+*/
+
+$font-family-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$font-family-plugins: (
+  /*
+  */
+  'plugin-font-stack-roles'
+);
+
+$font-family-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.font-feature-settings
+----------------------------------------
+*/
+
+$font-feature-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$font-feature-plugins: (
+  /*
+  */
+  'plugin-misc-font-feature-settings'
+);
+
+$font-feature-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.font-style
+----------------------------------------
+*/
+
+$font-style-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$font-style-plugins: ();
+
+$font-style-manual-values: (
+  normal:       'normal',
+  italic:       'italic'
+);
+
+/*
+========================================
+.font-weight
+----------------------------------------
+*/
+
+$font-weight-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$font-weight-plugins: (
+  /*
+  'plugin-font-weights-numeric'
+  */
+  'plugin-font-weights-theme'
+);
+
+$font-weight-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.height
+----------------------------------------
+*/
+
+$height-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$height-plugins: (
+  /*
+  'plugin-spacing-uswds-named-small'
+  'plugin-spacing-uswds-named-medium'
+  'plugin-spacing-uswds-named-large'
+  'plugin-spacing-uswds-named-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  */
+  'plugin-spacing-uswds-named-all'
+);
+
+$height-manual-values: (
+  /*
+  */
+  0:      0,
+  auto:   auto,
+  100vh:  100vh
+);
+
+/*
+========================================
+.left
+----------------------------------------
+*/
+
+$left-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$left-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-negative-all',
+);
+
+$left-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
+);
+
+/*
+========================================
+.letter-spacing
+----------------------------------------
+*/
+
+$letter-spacing-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$letter-spacing-plugins: (
+  /*
+  */
+  'plugin-misc-letter-spacing'
+);
+
+$letter-spacing-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.line-height
+----------------------------------------
+*/
+
+$line-height-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$line-height-plugins: (
+  /*
+  */
+  'plugin-misc-line-heights'
+);
+
+$line-height-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.list-reset
+----------------------------------------
+*/
+
+$list-reset-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+/*
+========================================
+.margin
+----------------------------------------
+*/
+
+$margin-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$margin-plugins: (
+  /*
+  'plugin-spacing-units-px',
+  'plugin-spacing-units-px-negative',
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-uswds-negative',
+  'plugin-spacing-units-ch',
+  'plugin-spacing-units-ch-negative',
+  'plugin-spacing-units-em'
+  */
+  'plugin-spacing-uswds-named-all',
+  'plugin-spacing-uswds-named-negative-all'
+);
+
+$margin-manual-values: (
+  /*
+  */
+  0:            '0',
+  auto:         'auto',
+);
+
+/*
+========================================
+.max-height
+----------------------------------------
+*/
+
+$max-height-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$max-height-plugins: (
+  /*
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-units-px'
+  */
+  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-theme-breakpoints-rem'
+);
+
+$max-height-manual-values: (
+  /*
+  */
+  none:         'none',
+);
+
+/*
+========================================
+.max-width
+----------------------------------------
+*/
+
+$max-width-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$max-width-plugins: (
+  /*
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-theme-breakpoints-rem'
+  */
+  'plugin-misc-measure'
+);
+
+$max-width-manual-values: (
+  /*
+  */
+  none:         'none',
+);
+
+/*
+========================================
+.min-height
+----------------------------------------
+*/
+
+$min-height-settings: (
+  responsive:   true,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$min-height-plugins: (
+  /*
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-theme-breakpoints-rem'
+);
+
+$min-height-manual-values: (
+  /*
+  */
+  '100ct':      100%,
+  '100vh':      100vh,
+);
+
+/*
+========================================
+.min-width
+----------------------------------------
+*/
+
+$min-width-settings: (
+  responsive:   true,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$min-width-plugins: (
+  /*
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-units-px-negative',
+  'plugin-spacing-units-em',
+  'plugin-spacing-units-ch'
+  'plugin-spacing-units-percentage'
+  */
+  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-theme-breakpoints-rem'
+);
+
+$min-width-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.opacity
+----------------------------------------
+*/
+
+$opacity-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$opacity-plugins: (
+  /*
+  */
+  'plugin-misc-opacity'
+);
+
+$opacity-manual-values: (
+  /*
+  '0':            '0',
+  '01':           '0.1',
+  '02':           '0.2',
+  '03':           '0.3',
+  '04':           '0.4',
+  '05':           '0.5',
+  '06':           '0.6',
+  '07':           '0.7',
+  '08':           '0.8',
+  '09':           '0.9',
+  '1':            '1',
+  */
+);
+
+/*
+========================================
+.order
+----------------------------------------
+*/
+
+$order-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$order-plugins: (
+  /*
+  */
+  'plugin-misc-order'
+);
+
+$order-manual-values: (
+  /*
+  0:            0,
+  1:            1,
+  2:            2,
+  3:            3,
+  4:            4,
+  5:            5,
+  6:            6,
+  7:            7,
+  8:            8,
+  9:            9,
+  10:           10,
+  11:           11,
+  */
+  first:        '-1',
+  last:         '99'
+);
+
+/*
+========================================
+.outline
+----------------------------------------
+*/
+
+$outline-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$outline-plugins: (
+  /*
+  */
+  'plugin-spacing-units-px',
+  'plugin-spacing-uswds-small'
+);
+
+$outline-manual-values: (
+  /*
+  */
+  0:            'none'
+);
+
+/*
+========================================
+.outline-color
+----------------------------------------
+*/
+
+$outline-color-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$outline-color-plugins: (
+  /*
+  */
+  'plugin-color-palette-theme'
+);
+
+$outline-color-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.padding
+----------------------------------------
+*/
+
+$padding-settings: (
+  responsive:   true,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$padding-plugins: (
+  /*
+  'plugin-spacing-units-px',
+  */
+  'plugin-spacing-uswds-named-all'
+);
+
+$padding-manual-values: (
+  /*
+  */
+  0:            '0'
+);
+
+/*
+========================================
+.position
+----------------------------------------
+*/
+
+$position-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$position-plugins: (
+  /*
+  */
+);
+
+$position-manual-values: (
+  /*
+  */
+  absolute:     'absolute',
+  fixed:        'fixed',
+  relative:     'relative',
+  static:       'static',
+  sticky:       'sticky'
+);
+
+/*
+========================================
+.right
+----------------------------------------
+*/
+
+$right-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$right-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-small-negative',
+  'plugin-spacing-uswds-named-medium-negative'
+);
+
+$right-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
+);
+
+/*
+========================================
+.square
+----------------------------------------
+*/
+
+$square-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$square-plugins: (
+  /*
+  */
+  'plugin-spacing-uswds-named-all'
+);
+
+$square-manual-values: (
+  /*
+  */
+  2px:          '2px'
+);
+
+/*
+========================================
+.text-align
+----------------------------------------
+*/
+
+$text-align-settings: (
+  responsive:   true,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$text-align-plugins: (
+  /*
+  */
+);
+
+$text-align-manual-values: (
+  /*
+  */
+  center:       'center',
+  left:         'left',
+  justify:      'justify',
+  right:        'right',
+);
+
+/*
+========================================
+.text-decoration
+----------------------------------------
+*/
+
+$text-decoration-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$text-decoration-plugins: (
+  /*
+  */
+);
+
+$text-decoration-manual-values: (
+  /*
+  */
+  strike:           'strike',
+  underline:        'underline',
+  none:             'none'
+);
+
+/*
+========================================
+.text-decoration-color
+----------------------------------------
+*/
+
+$text-decoration-color-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$text-decoration-color-plugins: (
+  /*
+  'plugin-color-palette-grayscale'
+  */
+  'plugin-color-palette-theme',
+  'plugin-color-palette-required'
+);
+
+$text-decoration-color-manual-values: (
+  /*
+  */
+);
+
+/*
+.text-transform
+----------------------------------------
+*/
+
+$text-transform-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$text-transform-plugins: (
+  /*
+  */
+);
+
+$text-transform-manual-values: (
+  /*
+  */
+  capitalize:     'capitalize',
+  lowercase:      'lowercase',
+  uppercase:      'uppercase',
+  none:           'none'
+);
+
+/*
+========================================
+.top
+----------------------------------------
+*/
+
+$top-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$top-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-small-negative',
+  'plugin-spacing-uswds-named-medium-negative'
+);
+
+$top-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
+);
+
+/*
+========================================
+.vertical-align
+----------------------------------------
+*/
+
+$vertical-align-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$vertical-align-plugins: (
+  /*
+  */
+);
+
+$vertical-align-manual-values: (
+  /*
+  */
+  baseline:     'baseline',
+  bottom:       'bottom',
+  middle:       'middle',
+  sub:          'sub',
+  super:        'super',
+  text-bottom:  'text-bottom',
+  text-top:     'text-top',
+  top:          'top',
+);
+
+/*
+========================================
+.white-space
+----------------------------------------
+*/
+
+$whitespace-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$whitespace-plugins: (
+  /*
+  */
+);
+
+$whitespace-manual-values: (
+  /*
+  */
+  pre:          'pre',
+  pre-line:     'pre-line',
+  pre-wrap:     'pre-wrap',
+  normal:       'normal',
+  nowrap:       'nowrap'
+);
+
+/*
+========================================
+.width
+----------------------------------------
+*/
+
+$width-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$width-plugins: (
+  /*
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-units-px',
+  'plugin-spacing-units-em',
+  'plugin-spacing-units-ch'
+  'plugin-spacing-units-percentage'
+  */
+  'plugin-spacing-uswds-named-all',
+  'plugin-spacing-theme-breakpoints-rem'
+);
+
+$width-manual-values: (
+  /*
+  100ct:        '100%'
+  */
+  auto:         'auto',
+);
+
+/*
+========================================
+.z-index
+----------------------------------------
+*/
+
+$z-index-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$z-index-plugins: (
+  /*
+  */
+  'plugin-misc-z-index'
+);
+
+$z-index-manual-values: (
+  /*
+  */
+  auto:         'auto',
+);

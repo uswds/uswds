@@ -1,0 +1,105 @@
+/*
+========================================
+MISC PLUGINS
+----------------------------------------
+These plugins collect packaged
+spacing-related values for inclusion
+in utilities
+----------------------------------------
+*/
+
+$plugin-spacing-units:(
+  'plugin-spacing-units-ch': (
+    '05ch':   '.5ch',
+    '1ch':    '1ch',
+    '105ch':  '1.5ch',
+    '2ch':    '2ch',
+    '3ch':    '3ch',
+    '4ch':    '4ch',
+    '5ch':    '5ch',
+  ),
+  'plugin-spacing-units-ch-negative': (
+    'n-05ch':   '-.5ch',
+    'n-1ch':    '-1ch',
+    'n-105ch':  '-1.5ch',
+    'n-2ch':    '-2ch',
+    'n-3ch':    '-3ch',
+    'n-4ch':    '-4ch',
+    'n-5ch':    '-5ch',
+  ),
+  'plugin-spacing-units-em': (
+    '05em':   '.5em',
+    '1em':    '1em',
+    '105em':  '1.5em',
+    '2em':    '2em',
+    '3em':    '3em',
+    '4em':    '4em',
+    '5em':    '5em',
+    '6em':    '6em',
+    '7em':    '7em',
+    '8em':    '8em',
+    '9em':    '9em',
+    '10em':   '10em',
+  ),
+  'plugin-spacing-units-percentage':(
+    '10ct':   10%,
+    '20ct':   20%,
+    '25ct':   25%,
+    '30ct':   30%,
+    '33ct':   33.33333333%,
+    '40ct':   40%,
+    '50ct':   50%,
+    '60ct':   60%,
+    '66ct':   66.66666666%,
+    '70ct':   70%,
+    '75ct':   75%,
+    '80ct':   80%,
+    '90ct':   90%,
+    '100ct':  100%,
+  ),
+  'plugin-spacing-units-px':(
+    '1px':    1px,
+    '2px':    2px,
+  ),
+  'plugin-spacing-units-px-negative':(
+    'n-1px':   -1px,
+    'n-2px':   -2px,
+  ),
+  'plugin-spacing-units-zero':(
+    '0':   0,
+  ),
+);
+
+$plugin-spacing-uswds:(
+  'plugin-spacing-uswds-small':           $uswds-spacing-small,
+  'plugin-spacing-uswds-medium':          $uswds-spacing-medium,
+  'plugin-spacing-uswds-large':           $uswds-spacing-large,
+  'plugin-spacing-uswds-xlarge':          $uswds-spacing-xlarge,
+  'plugin-spacing-uswds-small-negative':  $uswds-spacing-small-negative,
+  'plugin-spacing-uswds-medium-negative': $uswds-spacing-medium-negative,
+  'plugin-spacing-uswds-all': map-collect(
+    $uswds-spacing-small,
+    $uswds-spacing-medium,
+    $uswds-spacing-large,
+    $uswds-spacing-xlarge
+  ),
+  'plugin-spacing-uswds-negative': map-collect(
+    $uswds-spacing-small-negative,
+    $uswds-spacing-medium-negative
+  ),
+  'plugin-spacing-uswds-named-all':             $uswds-spacing-named,
+  'plugin-spacing-uswds-named-small':           $uswds-spacing-named-small,
+  'plugin-spacing-uswds-named-medium':          $uswds-spacing-named-medium,
+  'plugin-spacing-uswds-named-large':           $uswds-spacing-named-large,
+  'plugin-spacing-uswds-named-xlarge':          $uswds-spacing-named-xlarge,
+  'plugin-spacing-uswds-named-small-negative':  $uswds-spacing-named-small-negative,
+  'plugin-spacing-uswds-named-medium-negative':  $uswds-spacing-named-medium-negative,
+  'plugin-spacing-uswds-named-negative-all': map-collect(
+    $uswds-spacing-named-small-negative,
+    $uswds-spacing-named-medium-negative
+  ),
+);
+
+$plugin-spacing-theme:(
+  'plugin-spacing-theme-breakpoints-rem': $project-breakpoints-rem,
+);

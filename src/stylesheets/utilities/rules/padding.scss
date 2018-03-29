@@ -12,7 +12,7 @@ example:
   .padding-0 {
     padding: none; }
 
-  .padding-b-1px {
+  .padding-bottom-1px {
     padding-bottom: 1px; }
 ----------------------------------------
 */
@@ -21,16 +21,16 @@ $padding: (
   padding: (
     base: 'padding',
     modifiers: (
-      t: '-top',
-      r: '-right',
-      b: '-bottom',
-      l: '-left',
+      'top': '-top',
+      'right': '-right',
+      'bottom': '-bottom',
+      'left': '-left',
       y: ('-top', '-bottom'),
       x: ('-left', '-right'),
       noModifier: '',
     ),
     values: map-collect(
-      $padding-preset-values,
+      get-plugins($padding-plugins),
       $padding-manual-values
     ),
     settings: $padding-settings,

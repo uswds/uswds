@@ -4,1596 +4,1051 @@ USWDS UTILITIES SETTINGS
 ----------------------------------------
 */
 
-$utilities-namespace-prefix: 'usa-u-';
+$utilities-namespace-prefix:  'u-' !default;
+$utilities-use-important:     false !default;
+
+$output-breakpoints: (
+  xs: false,
+  sm: true,
+  md: true,
+  lg: true,
+  xl: false
+) !default;
+
+$output-all-utilities:  true !default;
+
+$output-utilities: (
+  align-items:      false,
+  background-color: true,
+  border:           false,
+  border-color:     false,
+  border-radius:    true,
+  border-style:     false,
+  border-width:     false,
+  bottom:           false,
+  box-shadow:       true,
+  circle:           true,
+  clearfix:         true,
+  color:            true,
+  column:           false,
+  display:          true,
+  flex:             false,
+  flex-direction:   false,
+  flex-wrap:        false,
+  float:            true,
+  font:             true,
+  font-family:      true,
+  font-feature:     false,
+  font-style:       true,
+  font-weight:      true,
+  height:           false,
+  left:              false,
+  letter-spacing:   true,
+  line-height:      true,
+  list-reset:       true,
+  manual-position:  false,
+  margin:           true,
+  max-height:       false,
+  max-width:        false,
+  min-height:       false,
+  min-width:        false,
+  opacity:          false,
+  order:            false,
+  outline-width:    false,
+  outline-color:    false,
+  padding:          true,
+  position:         false,
+  right:            false,
+  row:              false,
+  square:           false,
+  text-align:       true,
+  text-decoration:  true,
+  text-decoration-color:  false,
+  text-transform:   true,
+  top:              false,
+  vertical-align:   false,
+  whitespace:       false,
+  width:            false,
+  z-index:          false
+) !default;
 
 /*
 ========================================
-align-items
-----------------------------------------
-usage:
-  .align-items-[key]
-----------------------------------------
-output:
-  align-items: [value];
-----------------------------------------
-example:
-  .align-items-flex-start {
-    align-items: flex-start; }
+.align-items
 ----------------------------------------
 */
 
 $align-items-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$align-items-preset-values: map-collect(
+$align-items-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
 ) !default;
 
 $align-items-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
+  */
   flex-start:   'flex-start',
   flex-end:     'flex-end',
   center:       'center',
-  stretch:      'stretch',
-  ------------------------- */
+  stretch:      'stretch'
 ) !default;
 
 /*
 ========================================
-border-radius
-----------------------------------------
-usage:
-  .border-radius-[key]
-----------------------------------------
-output:
-  border-radius: [value];
-----------------------------------------
-example:
-  .border-radius-0 {
-    border-radius: 0; }
-
-  .border-radius-pill {
-    border-radius: 10em; }
+.background-color
 ----------------------------------------
 */
 
 $background-color-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$background-color-preset-values: map-collect(
+$background-color-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-  $preset-palette-reserved,
-  $preset-palette-project-settings
+  'plugin-color-[color]'
+  'plugin-color-[color]-light'
+  'plugin-color-[color]-medium'
+  'plugin-color-[color]-dark'
+  'plugin-color-[color]-light-vivid'
+  'plugin-color-[color]-medium-vivid'
+  'plugin-color-[color]-dark-vivid'
+  'plugin-color-[color]-standard'
+  'plugin-color-[color]-vivid'
+  'plugin-color-palette-status'
+  */
+  'plugin-color-palette-theme',
+  'plugin-color-palette-grayscale',
 ) !default;
 
 $background-color-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
 ) !default;
 
 /*
 ========================================
-border-width
-----------------------------------------
-Also applies `solid`
-Needs to come before other border utils
-----------------------------------------
-usage:
-  .border-width-[modifier]*-[key]
-----------------------------------------
-output:
-  border-[modifier]: [value];
-----------------------------------------
-example:
-  .border-width-t-1px {
-    border-top: 1px solid; }
-
-  .border-width-0 {
-    border: none; }
+.border (width and solid)
 ----------------------------------------
 */
 
 $border-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$border-preset-values: map-collect(
+$border-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  $preset-units-px,
-  $preset-units-grid-small,
-  $preset-units-grid-large
-  ------------------------- */
+  'plugin-spacing-units-px'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium'
 ) !default;
 
 $border-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  0:            '0',
-  ------------------------- */
+  */
+  0:            '0'
 ) !default;
 
 /*
 ========================================
-border-color
-----------------------------------------
-usage:
-  .border-color-[color]
-----------------------------------------
-output:
-  border[-modifier]*[-color]: [color];
-----------------------------------------
-example:
-  .border-color-red {
-    border-color: #be4900; }
-
-  .border-color-x-red {
-    border-left-color: #be4900;
-    border-right-color: #be4900; }
+.border-color
 ----------------------------------------
 */
 
 $border-color-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
-  hover:        false,
-  visited:      false,
+  hover:        true,
+  visited:      false
 ) !default;
 
-$border-color-preset-values: map-collect(
+$border-color-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  $preset-palette-project-settings,
-  $preset-palette-reserved
-  ------------------------- */
+  'plugin-color-[color]'
+  'plugin-color-[color]-light'
+  'plugin-color-[color]-medium'
+  'plugin-color-[color]-dark'
+  'plugin-color-[color]-light-vivid'
+  'plugin-color-[color]-medium-vivid'
+  'plugin-color-[color]-dark-vivid'
+  'plugin-color-[color]-standard'
+  'plugin-color-[color]-vivid'
+  'plugin-color-palette-status'
+  */
+  'plugin-color-palette-theme',
+  'plugin-color-palette-grayscale'
 ) !default;
 
 $border-color-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
 ) !default;
 
 /*
 ========================================
-border-radius
-----------------------------------------
-usage:
-  .border-radius-[key]
-----------------------------------------
-output:
-  border-radius: [value];
-----------------------------------------
-example:
-  .border-radius-0 {
-    border-radius: 0; }
-
-  .border-radius-pill {
-    border-radius: 10em; }
+.border-radius
 ----------------------------------------
 */
 
 $border-radius-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$border-radius-preset-values: map-collect(
+$border-radius-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  $preset-units-px
-  ------------------------- */
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-misc-border-radius'
 ) !default;
 
 $border-radius-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  g05:          $u-spacing-05,
-  g1:           $u-spacing-1,
-  g105:         $u-spacing-105,
-  g2:           $u-spacing-2,
-  ------------------------- */
-  0:            '0',
-  pill:         '9999em',
-  circle:       '50%',
-  sm:           $s-radius-sm,
-  md:           $s-radius-md,
-  lg:           $s-radius-lg,
+  */
 ) !default;
 
 /*
 ========================================
-border-style
-----------------------------------------
-usage:
-  .border-style[-modifier]*-[key]
-----------------------------------------
-output:
-  border[-modifier]-style: [value];
-----------------------------------------
-example:
-  .border-style-dotted {
-    border-style: dotted; }
+.border-style
 ----------------------------------------
 */
 
 $border-style-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$border-style-preset-values: map-collect(
+$border-style-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
 ) !default;
 
 $border-style-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
+  */
   dashed:       'dashed',
   dotted:       'dotted',
-  solid:        'solid',
-  ------------------------- */
+  solid:        'solid'
 ) !default;
 
 /*
 ========================================
-box-shadow
+.border-width
 ----------------------------------------
-usage:
-  .box-shadow-[value]
+*/
+
+$border-width-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$border-width-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium'
+) !default;
+
+$border-width-manual-values: (
+  /*
+  */
+  0:       0,
+) !default;
+
+/*
+========================================
+.bottom
 ----------------------------------------
-output:
-  box-shadow: [value];
-----------------------------------------
-example:
-  .box-shadow-1 {
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10); }
+*/
+
+$bottom-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$bottom-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-small-negative',
+  'plugin-spacing-uswds-named-medium-negative'
+) !default;
+
+$bottom-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
+) !default;
+
+/*
+========================================
+.box-shadow
 ----------------------------------------
 */
 
 $box-shadow-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$box-shadow-preset-values: map-collect(
+$box-shadow-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
 ) !default;
 
 $box-shadow-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  none:   'none',
-  1: '0 1px 2px 0 rgba(0,0,0,0.10)',
-  2: '0 4px 8px 0 rgba(0,0,0,0.10)',
-  3: '0 6px 12px 0 rgba(0,0,0,0.10)',
-  4: '0 8px 16px 0 rgba(0,0,0,0.10)',
-  5: '0 12px 24px 0 rgba(0,0,0,0.10)',
-  ------------------------- */
+  */
+  none:     'none',
+  low:      '0 1px 2px 0 rgba(0,0,0,0.10)',
+  high:     '0 4px 8px 0 rgba(0,0,0,0.10)',
+  higher:   '0 6px 12px 0 rgba(0,0,0,0.10)',
+  highest:  '0 8px 16px 0 rgba(0,0,0,0.10)',
 ) !default;
 
 /*
 ========================================
-circle
-----------------------------------------
-usage:
-  .circle-[key]
-----------------------------------------
-output:
-  height: [value];
-  width: [value];
-  border-radius: 50%;
-----------------------------------------
-example:
-  .circle-6 {
-    height: 3rem;
-    width: 3rem; }
+.circle
 ----------------------------------------
 */
 
 $circle-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$circle-preset-values: map-collect(
+$circle-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  $preset-units-grid
-  ------------------------- */
+  'plugin-spacing-uswds-named-small'
+  'plugin-spacing-uswds-named-medium'
+  'plugin-spacing-uswds-named-large'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  */
+  'plugin-spacing-uswds-named-all'
 ) !default;
 
 $circle-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  2px:          '2px',
-  ------------------------- */
-  3xs:          $s-spacing-3xs,
-  2xs:          $s-spacing-2xs,
-  xs:           $s-spacing-xs,
-  sm:           $s-spacing-sm,
-  md:           $s-spacing-md,
-  lg:           $s-spacing-lg,
-  xl:           $s-spacing-xl,
-  2xl:          $s-spacing-2xl,
-  3xl:          $s-spacing-3xl,
+  */
 ) !default;
 
 /*
 ========================================
-color
+.clearfix
 ----------------------------------------
-usage:
-  .color-[key]
-----------------------------------------
-output:
-  color: [value];
-----------------------------------------
-example:
-  .color-black-100 {
-    color: #000; }
+*/
+
+$clearfix-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+/*
+========================================
+.color
 ----------------------------------------
 */
 
 $color-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$color-preset-values: map-collect(
+$color-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-  $preset-palette-project-settings,
-  $preset-palette-reserved
+  'plugin-[color]'
+  'plugin-[color]-light'
+  'plugin-[color]-medium'
+  'plugin-[color]-dark'
+  'plugin-[color]-light-vivid'
+  'plugin-[color]-medium-vivid'
+  'plugin-[color]-dark-vivid'
+  'plugin-[color]-standard'
+  'plugin-[color]-vivid'
+  'plugin-palette-status'
+  */
+  'plugin-color-palette-theme',
+  'plugin-color-palette-grayscale'
 ) !default;
 
 $color-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
 ) !default;
 
 /*
 ========================================
-column
-----------------------------------------
-usage:
-  .column
-----------------------------------------
-output:
-  display: flex;
-  flex-direction: column;
-----------------------------------------
-example:
-  .column {
-    display: flex;
-    flex-direction: column; }
-----------------------------------------
-*/
-
-$column-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-/*
-========================================
-display
-----------------------------------------
-usage:
-  .display-[key]
-----------------------------------------
-output:
-  display: [value]
-----------------------------------------
-example:
-  .display-none {
-    display: none; }
+.display
 ----------------------------------------
 */
 
 $display-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$display-preset-values: map-collect(
+$display-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
 ) !default;
 
 $display-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
   block:        'block',
   flex:         'flex',
   none:         'none',
   inline:       'inline',
   inline-block: 'inline-block',
   table:        'table',
-  table-cell:   'table-cell',
+  table-cell:   'table-cell'
 ) !default;
 
 /*
 ========================================
-flex
-----------------------------------------
-usage:
-  .flex-[key]
-----------------------------------------
-output:
-  flex: [value];
-----------------------------------------
-example:
-  .flex-1 {
-    flex: 1 0 0; }
-
-  .flex-fill {
-    flex: 1 0 0; }
-
-  .flex-fit {
-    flex: none; }
+.flex
 ----------------------------------------
 */
 
 $flex-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$flex-preset-values: map-collect(
+$flex-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
+  'plugin-misc-flex'
 ) !default;
 
 $flex-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  1:            '1 0 0',
-  2:            '2 0 0',
-  3:            '3 0 0',
-  4:            '4 0 0',
-  5:            '5 0 0',
-  6:            '6 0 0',
-  7:            '7 0 0',
-  8:            '8 0 0',
-  9:            '9 0 0',
-  10:           '10 0 0',
-  11:           '11 0 0',
-  fill:         '1 0 0',
-  fit:          '0',
+  */
 ) !default;
 
 /*
 ========================================
-flex-direction
-----------------------------------------
-usage:
-  .flex-direction-[value]
-----------------------------------------
-output:
-  flex-direction: [value]
-----------------------------------------
-example:
-  .flex-direction-row {
-    flex-direction: row; }
+.flex-direction
 ----------------------------------------
 */
 
 $flex-direction-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$flex-direction-preset-values: map-collect(
-  /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-) !default;
+$flex-direction-plugins: () !default;
 
 $flex-direction-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
   row:          'row',
-  column:       'column',
+  column:       'column'
 ) !default;
 
 /*
 ========================================
-flex-wrap
-----------------------------------------
-usage:
-  .flex-wrap-[key]
-----------------------------------------
-output:
-  flex-wrap: [value];
-----------------------------------------
-example:
-  .flex-wrap-wrap {
-    flex-wrap: wrap; }
+.flex-wrap
 ----------------------------------------
 */
 
 $flex-wrap-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$flex-wrap-preset-values: map-collect(
-  /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-) !default;
+$flex-wrap-plugins: () !default;
 
 $flex-wrap-manual-values: (
-  /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
   wrap:         'wrap',
-  nowrap:       'nowrap',
+  nowrap:       'nowrap'
 ) !default;
 
 /*
 ========================================
-float
-----------------------------------------
-usage:
-  .float-[value]
-----------------------------------------
-output:
-  float: [value];
-----------------------------------------
-example:
-  .float-left {
-    float: left; }
+.float
 ----------------------------------------
 */
 
 $float-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$float-preset-values: map-collect(
-  /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-) !default;
+$float-plugins: () !default;
 
 $float-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
   left:         'left',
   none:         'none',
-  right:        'right',
+  right:        'right'
 ) !default;
 
 /*
 ========================================
-font
-----------------------------------------
-sets font-size and font-family
-----------------------------------------
-usage:
-  .font-[key]-[key]
-----------------------------------------
-output:
-  font-family: [value];
-  font-size: [value];
-----------------------------------------
-example:
-  .font-sans-14 {
-    font-face: '18Franklin-webfont',
-                system,
-                -apple-system,
-                BlinkMacSystemFont,
-                'Roboto',
-                'Helvetica Neue',
-                'Helvetica',
-                'Arial',
-                sans-serif;
-    font-size: 1rem; }
+.font
 ----------------------------------------
 */
 
 $font-settings: (
-  output:       true,
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$font-preset-values: map-collect(
+$font-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  $preset-mono-12,
-  $preset-mono-13,
-  $preset-mono-14,
-  $preset-mono-15,
-  $preset-mono-16,
-  $preset-mono-17,
-  $preset-mono-18,
-  $preset-mono-20,
-  $preset-mono-22,
-  $preset-mono-24,
-  $preset-mono-28,
-  $preset-mono-32,
-  $preset-mono-36,
-  $preset-mono-40,
-  $preset-mono-48,
-  $preset-mono-56,
-  $preset-mono-64,
-  $preset-mono-80,
-  $preset-mono-120,
-  $preset-mono-140,
-  $preset-sans-12,
-  $preset-sans-13,
-  $preset-sans-14,
-  $preset-sans-15,
-  $preset-sans-16,
-  $preset-sans-17,
-  $preset-sans-18,
-  $preset-sans-20,
-  $preset-sans-22,
-  $preset-sans-24,
-  $preset-sans-28,
-  $preset-sans-32,
-  $preset-sans-36,
-  $preset-sans-40,
-  $preset-sans-48,
-  $preset-sans-56,
-  $preset-sans-64,
-  $preset-sans-80,
-  $preset-sans-120,
-  $preset-sans-140,
-  $preset-serif-12,
-  $preset-serif-13,
-  $preset-serif-14,
-  $preset-serif-15,
-  $preset-serif-16,
-  $preset-serif-17,
-  $preset-serif-18,
-  $preset-serif-20,
-  $preset-serif-22,
-  $preset-serif-24,
-  $preset-serif-28,
-  $preset-serif-32,
-  $preset-serif-36,
-  $preset-serif-40,
-  $preset-serif-48,
-  $preset-serif-56,
-  $preset-serif-64,
-  $preset-serif-80,
-  $preset-serif-120,
-  $preset-serif-140
-  ------------------------- */
-  $preset-font-tshirt
+  'plugin-font-theme-mono-all'
+  'plugin-font-theme-sans-all'
+  'plugin-font-theme-serif-all'
+  'plugin-font-uswds-all'
+  'plugin-system-[family]-small'
+  'plugin-system-[family]-medium'
+  'plugin-system-[family]-large'
+  'plugin-system-[family]-xlarge'
+  'plugin-system-[family]-all'
+  */
+  'plugin-font-theme-all',
+  'plugin-font-theme-roles-all'
 ) !default;
 
 $font-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
 ) !default;
 
 /*
 ========================================
-font-family
-----------------------------------------
-usage:
-  .font-family-[key]
-----------------------------------------
-output:
-  font-family: [value]
-----------------------------------------
-example:
-  .font-family-sans {
-    font-family: 'United Sans webfont',
-                system,
-                -apple-system,
-                BlinkMacSystemFont,
-                'Roboto',
-                'Helvetica Neue',
-                'Helvetica',
-                'Arial',
-                sans-serif; }
+.font-family
 ----------------------------------------
 */
 
 $font-family-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$font-family-preset-values: map-collect(
+$font-family-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-  $preset-font-families
+  */
+  'plugin-font-stack-roles'
 ) !default;
 
 $font-family-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
 ) !default;
 
 /*
 ========================================
-font-feature-settings
-----------------------------------------
-usage:
-  .font-feature-[key]
-----------------------------------------
-output:
-  font-feature-settings: [value];
-----------------------------------------
-example:
-  .font-feature-alt {
-    font-feature-settings:
-      'ss01' 1, 'kern' 1; }
+.font-feature-settings
 ----------------------------------------
 */
 
 $font-feature-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$font-feature-preset-values: map-collect(
+$font-feature-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
+  'plugin-misc-font-feature-settings'
 ) !default;
 
 $font-feature-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  alt:          "'ss01' 1, 'kern' 1",
-  tabular:      "'tnum' 1, 'kern' 1",
-  default:      "'kern' 1",
-  // none: none,
+  */
 ) !default;
 
 /*
 ========================================
-font-style
-----------------------------------------
-usage:
-  .font-style-italic
-----------------------------------------
-output:
-  font-style: italic;
-----------------------------------------
-example:
-  .font-style-italic {
-    font-style: italic; }
-  .font-style-normal {
-    font-style: normal; }
+.font-style
 ----------------------------------------
 */
 
 $font-style-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$font-style-preset-values: map-collect(
-  /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-) !default;
+$font-style-plugins: () !default;
 
 $font-style-manual-values: (
-  /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
   normal:       'normal',
-  italic:       'italic',
+  italic:       'italic'
 ) !default;
 
 /*
 ========================================
-font-weight
-----------------------------------------
-usage:
-  .font-weight-[key]
-----------------------------------------
-output:
-  font-weight: [value];
-----------------------------------------
-example:
-  .font-weight-300 {
-    font-weight: 300; }
+.font-weight
 ----------------------------------------
 */
 
 $font-weight-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$font-weight-preset-values: map-collect(
+$font-weight-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  'plugin-font-weights-numeric'
+  */
+  'plugin-font-weights-theme'
 ) !default;
 
 $font-weight-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  100:          '100',
-  200:          '200',
-  300:          '300',
-  400:          '400',
-  500:          '500',
-  600:          '600',
-  700:          '700',
-  800:          '800',
-  900:          '900',
-  bold:         '700',
-  unbold:       '400',
+  */
 ) !default;
 
 /*
 ========================================
-height
-----------------------------------------
-usage:
-  .height-[value]
-----------------------------------------
-output:
-  height: [value];
-----------------------------------------
-example:
-  .height-33ct {
-    height: 33.33333333%; }
+.height
 ----------------------------------------
 */
 
 $height-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$height-preset-values: map-collect(
+$height-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-  $preset-units-percentage,
-  $preset-units-grid,
-  $preset-units-em,
-  $preset-units-ch,
-  $preset-units-px
+  'plugin-spacing-uswds-named-small'
+  'plugin-spacing-uswds-named-medium'
+  'plugin-spacing-uswds-named-large'
+  'plugin-spacing-uswds-named-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  */
+  'plugin-spacing-uswds-named-all'
 ) !default;
 
 $height-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
+  0:      0,
+  auto:   auto,
+  100vh:  100vh
 ) !default;
 
 /*
 ========================================
-letter-spacing
+.left
 ----------------------------------------
-usage:
-  .letter-spacing-[key]
-----------------------------------------
-output:
-  letter-spacing: [value];
-----------------------------------------
-example:
-  .letter-spacing-2 {
-    letter-spacing: .1em; }
+*/
+
+$left-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$left-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-negative-all',
+) !default;
+
+$left-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
+) !default;
+
+/*
+========================================
+.letter-spacing
 ----------------------------------------
 */
 
 $letter-spacing-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$letter-spacing-preset-values: map-collect(
+$letter-spacing-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
+  'plugin-misc-letter-spacing'
 ) !default;
 
 $letter-spacing-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  auto:         'auto',
-  n1:           $u-ls-n1,
-  n2:           $u-ls-n2,
-  n3:           $u-ls-n3,
-  1:            $u-ls-1,
-  2:            $u-ls-2,
-  3:            $u-ls-3,
+  */
 ) !default;
 
 /*
 ========================================
-line-height
-----------------------------------------
-usage:
-  .line-height-[value]
-----------------------------------------
-output:
-  line-height: [value];
-----------------------------------------
-example:
-  .line-height-1 {
-    line-height: 1.15; }
+.line-height
 ----------------------------------------
 */
 
 $line-height-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$line-height-preset-values: map-collect(
+$line-height-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
+  'plugin-misc-line-heights'
 ) !default;
 
 $line-height-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  0:        $u-lh-single,
-  1:       $u-lh-heading,
-  2: $u-lh-heading-loose,
-  3:    $u-lh-body-tight,
-  4:          $u-lh-body,
-  5:    $u-lh-body-loose,
+  */
 ) !default;
 
 /*
 ========================================
-LIST RESET
-----------------------------------------
-usage:
-  .list-reset
-----------------------------------------
-output:
-  list-style: none;
-  padding-left: 0;
-----------------------------------------
-example:
-  .list-reset {
-    list-style: none;
-    padding-left: 0; }
+.list-reset
 ----------------------------------------
 */
 
 $list-reset-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
 /*
 ========================================
-MANUAL POSITION
-----------------------------------------
-properties:
-  top
-  bottom
-  left
-  right
-----------------------------------------
-usage:
-  .top-[key]
-  .bottom-[key]
-  .left-[key]
-  .right-[key]
-----------------------------------------
-output:
-  [option]: [value];
-----------------------------------------
-example:
-  .bottom-n2px {
-    bottom: -2px; }
-----------------------------------------
-*/
-
-$manual-position-settings: (
-  output:       false,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false,
-) !default;
-
-$manual-position-preset-values: map-collect(
-  /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-  $preset-units-px,
-  $preset-units-px-negative,
-  $preset-units-percentage,
-  $preset-units-grid
-) !default;
-
-$manual-position-manual-values: (
-  /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  0:            '0',
-  auto:         'auto',
-) !default;
-
-/*
-========================================
-margin
-----------------------------------------
-usage:
-  .margin-[modifier]*-[key]
-----------------------------------------
-output:
-  margin: [value]
-----------------------------------------
-example:
-  .margin-x-auto {
-    margin-left: auto;
-    margin-right: auto; }
-
-  .margin-g105 {
-    margin: .75rem; }
+.margin
 ----------------------------------------
 */
 
 $margin-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$margin-preset-values: map-collect(
+$margin-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  $preset-units-px,
-  $preset-units-px-negative,
-  $preset-units-percentage,
-  $preset-units-grid,
-  $preset-units-grid-negative,
-  $preset-units-ch,
-  $preset-units-ch-negative,
-  $preset-units-em
-  ------------------------- */
-  $preset-spacing-tshirt,
-  $preset-spacing-tshirt-negative
+  'plugin-spacing-units-px',
+  'plugin-spacing-units-px-negative',
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-uswds-negative',
+  'plugin-spacing-units-ch',
+  'plugin-spacing-units-ch-negative',
+  'plugin-spacing-units-em'
+  */
+  'plugin-spacing-uswds-named-all',
+  'plugin-spacing-uswds-named-negative-all'
 ) !default;
 
 $margin-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
   0:            '0',
   auto:         'auto',
-  1px:          '1px',
-  2px:          '2px',
 ) !default;
 
 /*
 ========================================
-max-height
-----------------------------------------
-usage:
-  .max-height-[key]
-----------------------------------------
-output:
-  max-height: [value];
-----------------------------------------
-example:
-  .max-height-g40 {
-    max-height: 320px; }
+.max-height
 ----------------------------------------
 */
 
 $max-height-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$max-height-preset-values: map-collect(
+$max-height-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-  $preset-units-percentage,
-  $preset-units-grid,
-  $preset-units-px
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-units-px'
+  */
+  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-theme-breakpoints-rem'
 ) !default;
 
 $max-height-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
+  none:         'none',
 ) !default;
 
 /*
 ========================================
-max-width
-----------------------------------------
-usage:
-  .max-width-[key]
-----------------------------------------
-output:
-  max-width: [value];
-----------------------------------------
-example:
-  .max-width-lg {
-    max-width: 1040px; }
+.max-width
 ----------------------------------------
 */
 
 $max-width-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$max-width-preset-values: map-collect(
+$max-width-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-  $preset-units-percentage,
-  $preset-units-grid,
-  $preset-units-px
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-theme-breakpoints-rem'
+  */
+  'plugin-misc-measure'
 ) !default;
 
 $max-width-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
   none:         'none',
-  reading-sm:   $text-narrow-width,
-  reading:      $text-max-width,
-  sm:           $small-screen,
-  md:           $medium-screen,
-  lg:           $large-screen,
 ) !default;
 
 /*
 ========================================
-min-height
-----------------------------------------
-usage:
-  .min-height-[key]
-----------------------------------------
-output:
-  min-height: [value];
-----------------------------------------
-example:
-  .min-height-g40 {
-    min-height: 320px; }
+.min-height
 ----------------------------------------
 */
 
 $min-height-settings: (
-  output:       false,
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$min-height-preset-values: map-collect(
+$min-height-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-  $preset-units-percentage,
-  $preset-units-grid,
-  $preset-units-px
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-theme-breakpoints-rem'
 ) !default;
 
 $min-height-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  sm:           $small-screen,
-  md:           $medium-screen,
-  lg:           $large-screen,
-  //xl:           $xlarge-screen,
+  */
+  '100ct':      100%,
+  '100vh':      100vh,
 ) !default;
 
 /*
 ========================================
-min-width
-----------------------------------------
-usage:
-  .min-width-[key]
-----------------------------------------
-output:
-  min-width: [value];
-----------------------------------------
-example:
-  .min-width-g40 {
-    min-width: 320px; }
+.min-width
 ----------------------------------------
 */
 
 $min-width-settings: (
-  output:       false,
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$min-width-preset-values: map-collect(
+$min-width-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-  $preset-units-percentage,
-  $preset-units-grid,
-  $preset-units-px
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-units-px-negative',
+  'plugin-spacing-units-em',
+  'plugin-spacing-units-ch'
+  'plugin-spacing-units-percentage'
+  */
+  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-theme-breakpoints-rem'
 ) !default;
 
 $min-width-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  sm:           $small-screen,
-  md:           $medium-screen,
-  lg:           $large-screen,
-  // xl:           $xlarge-screen,
+  */
 ) !default;
 
 /*
 ========================================
-opacity
-----------------------------------------
-usage:
-  .opacity-[key]
-----------------------------------------
-output:
-  opacity: [value];
-----------------------------------------
-example:
-  .opacity-0 {
-    opacity: 0; }
+.opacity
 ----------------------------------------
 */
 
 $opacity-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$opacity-preset-values: map-collect(
+$opacity-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
+  'plugin-misc-opacity'
 ) !default;
 
 $opacity-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  0:            '0',
-  10:           '0.1',
-  20:           '0.2',
-  30:           '0.3',
-  40:           '0.4',
-  50:           '0.5',
-  60:           '0.6',
-  70:           '0.7',
-  80:           '0.8',
-  90:           '0.9',
-  100:          '1',
+  '0':            '0',
+  '01':           '0.1',
+  '02':           '0.2',
+  '03':           '0.3',
+  '04':           '0.4',
+  '05':           '0.5',
+  '06':           '0.6',
+  '07':           '0.7',
+  '08':           '0.8',
+  '09':           '0.9',
+  '1':            '1',
+  */
 ) !default;
 
 /*
 ========================================
-order
-----------------------------------------
-usage:
-  .order-[key]
-----------------------------------------
-output:
-  order: [value]
-----------------------------------------
-example:
-  .order-first {
-    order: -1; }
-
-  .order-2 {
-    order: 2; }
+.order
 ----------------------------------------
 */
 
 $order-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$order-preset-values: map-collect(
+$order-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
+  'plugin-misc-order'
 ) !default;
 
 $order-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
   0:            0,
   1:            1,
   2:            2,
@@ -1606,446 +1061,358 @@ $order-manual-values: (
   9:            9,
   10:           10,
   11:           11,
-  ------------------------- */
+  */
   first:        '-1',
-  last:         '99',
+  last:         '99'
 ) !default;
 
 /*
 ========================================
-outline
-----------------------------------------
-sets width and style:solid
-----------------------------------------
-usage:
-  .outline-[modifier]
-----------------------------------------
-output:
-  outline: [modifier] solid;
-----------------------------------------
-example:
-  .outline-g05 {
-    outline: 4px solid }
+.outline
 ----------------------------------------
 */
 
-$outline-1-width-settings: (
-  output:       false,
+$outline-settings: (
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$outline-1-width-preset-values: map-collect(
+$outline-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-  $preset-units-px,
-  $preset-units-grid-small
+  */
+  'plugin-spacing-units-px',
+  'plugin-spacing-uswds-small'
 ) !default;
 
-$outline-1-width-manual-values: (
+$outline-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  0:            'none',
+  */
+  0:            'none'
 ) !default;
 
 /*
 ========================================
-outline-color
-----------------------------------------
-usage:
-  .outline-color-[key]
-----------------------------------------
-output:
-  outline-color: [value];
-----------------------------------------
-example:
-  .outline-color-yellow-50 {
-    outline-color: #91721f; }
+.outline-color
 ----------------------------------------
 */
 
-$outline-2-color-settings: (
-  output:       false,
+$outline-color-settings: (
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$outline-2-color-preset-values: map-collect(
+$outline-color-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-  $preset-colors-red
+  */
+  'plugin-color-palette-theme'
 ) !default;
 
-$outline-2-color-manual-values: (
+$outline-color-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
 ) !default;
 
 /*
 ========================================
-padding
-----------------------------------------
-usage:
-  .padding-[modifier]*-[value]
-----------------------------------------
-output:
-  padding: [value]
-----------------------------------------
-example:
-  .padding-0 {
-    padding: none; }
-
-  .padding-b-1px {
-    padding-bottom: 1px; }
+.padding
 ----------------------------------------
 */
 
 $padding-settings: (
-  output:       true,
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$padding-preset-values: map-collect(
+$padding-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  $preset-units-px,
-  $preset-units-grid
-  ------------------------- */
-  $preset-spacing-tshirt
+  'plugin-spacing-units-px',
+  */
+  'plugin-spacing-uswds-named-all'
 ) !default;
 
 $padding-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  0:            '0',
+  */
+  0:            '0'
 ) !default;
 
 /*
 ========================================
-position
-----------------------------------------
-usage:
-  .position-[keye]
-----------------------------------------
-output:
-  position: [value];
-----------------------------------------
-example:
-  .position-absolute {
-    position: absolute; }
+.position
 ----------------------------------------
 */
 
 $position-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$position-preset-values: map-collect(
+$position-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
 ) !default;
 
 $position-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
   absolute:     'absolute',
   fixed:        'fixed',
   relative:     'relative',
   static:       'static',
-  sticky:       'sticky',
+  sticky:       'sticky'
 ) !default;
 
 /*
 ========================================
-ROW
-----------------------------------------
-usage:
-  .row
-----------------------------------------
-output:
-  display: flex;
-  flex-direction: row;
-----------------------------------------
-example:
-  .row {
-    display: flex;
-    flex-direction: row; }
+.right
 ----------------------------------------
 */
 
-$row-settings: (
-  output:       false,
+$right-settings: (
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
+) !default;
+
+$right-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-small-negative',
+  'plugin-spacing-uswds-named-medium-negative'
+) !default;
+
+$right-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
 ) !default;
 
 /*
 ========================================
-SQUARE
-----------------------------------------
-usage:
-  .square-[key]
-----------------------------------------
-output:
-  height: [value];
-  width: [value];
-----------------------------------------
-example:
-  .square-g6 {
-    height: 3rem;
-    width: 3rem; }
+.square
 ----------------------------------------
 */
 
 $square-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$square-preset-values: map-collect(
+$square-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-  $preset-units-grid
+  */
+  'plugin-spacing-uswds-named-all'
 ) !default;
 
 $square-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  2px:          '2px',
+  */
+  2px:          '2px'
 ) !default;
 
 /*
 ========================================
-text-align
-----------------------------------------
-usage:
-  .text-align-[key]
-----------------------------------------
-output:
-  align: [value];
-----------------------------------------
-example:
-  .text-align-left {
-    align: left; }
+.text-align
 ----------------------------------------
 */
 
 $text-align-settings: (
-  output:       true,
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$text-align-preset-values: map-collect(
+$text-align-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
 ) !default;
 
 $text-align-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
   center:       'center',
   left:         'left',
-  right:        'right',
   justify:      'justify',
+  right:        'right',
 ) !default;
 
 /*
 ========================================
-text-decoration
-----------------------------------------
-usage:
-  .text-decoration-[key]
-----------------------------------------
-output:
-  text-decoration: [value]
-----------------------------------------
-example:
-  .text-decoration-underline {
-    text-decoration: underline; }
+.text-decoration
 ----------------------------------------
 */
 
 $text-decoration-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$text-decoration-preset-values: map-collect(
+$text-decoration-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
 ) !default;
 
 $text-decoration-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  underline:        'underline',
+  */
   strike:           'strike',
-  none:             'none',
+  underline:        'underline',
+  none:             'none'
 ) !default;
 
 /*
 ========================================
-text-transform
+.text-decoration-color
 ----------------------------------------
-usage:
-  .text-transform-[value]
-----------------------------------------
-output:
-  text-transform: value;
-----------------------------------------
-example:
-  .text-transform-uppercase {
-    text-transform: uppercase; }
+*/
+
+$text-decoration-color-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$text-decoration-color-plugins: (
+  /*
+  'plugin-color-palette-grayscale'
+  */
+  'plugin-color-palette-theme',
+  'plugin-color-palette-required'
+) !default;
+
+$text-decoration-color-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+.text-transform
 ----------------------------------------
 */
 
 $text-transform-settings: (
-  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$text-transform-preset-values: map-collect(
+$text-transform-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
 ) !default;
 
 $text-transform-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
   capitalize:     'capitalize',
   lowercase:      'lowercase',
   uppercase:      'uppercase',
-  transform-none: 'none',
+  none:           'none'
 ) !default;
 
 /*
 ========================================
-vertical-align
-----------------------------------------
-usage:
-  .vertical-align-[value]
-----------------------------------------
-output:
-  vertical-align: [value]
-----------------------------------------
-example:
-  .vertical-align-top {
-    vertical-align: top; }
+.top
 ----------------------------------------
 */
 
-$vertical-align-settings: (
-  output:       false,
+$top-settings: (
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$vertical-align-preset-values: map-collect(
+$top-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-units-px'
+  'plugin-spacing-units-px-negative'
+  */
+  'plugin-spacing-uswds-named-small',
+  'plugin-spacing-uswds-named-medium',
+  'plugin-spacing-uswds-named-small-negative',
+  'plugin-spacing-uswds-named-medium-negative'
+) !default;
+
+$top-manual-values: (
+  /*
+  */
+  0:        0,
+  auto:     'auto',
+) !default;
+
+/*
+========================================
+.vertical-align
+----------------------------------------
+*/
+
+$vertical-align-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$vertical-align-plugins: (
+  /*
+  */
 ) !default;
 
 $vertical-align-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  */
   baseline:     'baseline',
   bottom:       'bottom',
   middle:       'middle',
@@ -2058,150 +1425,88 @@ $vertical-align-manual-values: (
 
 /*
 ========================================
-whitespace
-----------------------------------------
-usage:
-  whitespace-[key]
-----------------------------------------
-output:
-  whitespace: [value];
-----------------------------------------
-example:
-  .whitespace-pre-wrap {
-    whitespace: pre-wrap; }
+.white-space
 ----------------------------------------
 */
 
 $whitespace-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$whitespace-preset-values: map-collect(
+$whitespace-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
 ) !default;
 
 $whitespace-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  normal:       'normal',
-  nowrap:       'nowrap',
+  */
   pre:          'pre',
   pre-line:     'pre-line',
   pre-wrap:     'pre-wrap',
+  normal:       'normal',
+  nowrap:       'nowrap'
 ) !default;
 
 /*
 ========================================
-width
-----------------------------------------
-usage:
-  .width-[key]
-----------------------------------------
-output:
-  width: [value];
-----------------------------------------
-example:
-  .width-75ct {
-    width: 75%; }
+.width
 ----------------------------------------
 */
 
 $width-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$width-preset-values: map-collect(
+$width-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
-  $preset-units-percentage,
-  $preset-units-grid,
-  $preset-units-px,
-  $preset-units-em,
-  $preset-units-ch
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-units-px',
+  'plugin-spacing-units-em',
+  'plugin-spacing-units-ch'
+  'plugin-spacing-units-percentage'
+  */
+  'plugin-spacing-uswds-named-all',
+  'plugin-spacing-theme-breakpoints-rem'
 ) !default;
 
 $width-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
+  100ct:        '100%'
+  */
   auto:         'auto',
-  sm:           $small-screen,
-  md:           $medium-screen,
-  lg:           $large-screen,
 ) !default;
 
 /*
 ========================================
-z-index
-----------------------------------------
-usage:
-  z-index-[key]
-----------------------------------------
-output:
-  z-index: [value];
-----------------------------------------
-example:
-  .z-index-100 {
-    z-index: 100; }
-  .z-index-top {
-    z-index: 9999; }
+.z-index
 ----------------------------------------
 */
 
 $z-index-settings: (
-  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false,
+  visited:      false
 ) !default;
 
-$z-index-preset-values: map-collect(
+$z-index-plugins: (
   /*
-  $example-preset-1,
-  $example-preset-2 [no trailing comma]
-  ----------------------------
-  [store unused presets here]
-  ------------------------- */
+  */
+  'plugin-misc-z-index'
 ) !default;
 
 $z-index-manual-values: (
   /*
-  key:          'value', [trailing comma ok]
-  ----------------------------
-  [store unused value pairs here]
-  ------------------------- */
-  0:            '0',
-  100:          '100',
-  200:          '200',
-  300:          '300',
-  400:          '400',
-  500:          '500',
-  top:          '9999',
-  bottom:       '-9999',
+  */
+  auto:         'auto',
 ) !default;

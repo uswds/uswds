@@ -19,7 +19,7 @@ $height: (
     base: 'height',
     modifiers: null,
     values: map-collect(
-      $height-preset-values,
+      get-plugins($height-plugins),
       $height-manual-values
     ),
     settings: $height-settings,

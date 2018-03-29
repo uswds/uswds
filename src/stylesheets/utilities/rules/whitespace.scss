@@ -1,25 +1,25 @@
 /*
 ========================================
-whitespace
+white-space
 ----------------------------------------
 usage:
-  whitespace-[key]
+  white-space-[key]
 ----------------------------------------
 output:
-  whitespace: [value];
+  white-space: [value];
 ----------------------------------------
 example:
-  .whitespace-pre-wrap {
-    whitespace: pre-wrap; }
+  .white-space-pre-wrap {
+    white-space: pre-wrap; }
 ----------------------------------------
 */
 
 $whitespace: (
   whitespace: (
-    base: 'whitespace',
+    base: 'white-space',
     modifiers: null,
     values: map-collect(
-      $whitespace-preset-values,
+      get-plugins($whitespace-plugins),
       $whitespace-manual-values
     ),
     settings: $whitespace-settings,

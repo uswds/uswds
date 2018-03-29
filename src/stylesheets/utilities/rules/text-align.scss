@@ -19,7 +19,7 @@ $text-align: (
     base: 'text-align',
     modifiers: null,
     values: map-collect(
-      $text-align-preset-values,
+      get-plugins($text-align-plugins),
       $text-align-manual-values
     ),
     settings: $text-align-settings,

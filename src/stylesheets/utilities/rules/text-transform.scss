@@ -19,7 +19,7 @@ $text-transform: (
     base: 'text-transform',
     modifiers: null,
     values: map-collect(
-      $text-transform-preset-values,
+      get-plugins($text-transform-plugins),
       $text-transform-manual-values
     ),
     settings: $text-transform-settings,

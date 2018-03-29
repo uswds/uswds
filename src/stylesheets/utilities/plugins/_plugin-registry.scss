@@ -1,0 +1,73 @@
+/*
+========================================
+PLUGIN REGISTRY
+----------------------------------------
+This map collects and organizes the
+available utility plugins to allow
+get-plugin() to find the proper plugin
+without traversing an entire map
+with each call
+----------------------------------------
+*/
+
+
+$plugin-registry:(
+  spacing:(
+    units: $plugin-spacing-units,
+    uswds: $plugin-spacing-uswds,
+    theme: $plugin-spacing-theme,
+  ),
+  font:(
+    mono:(
+      uswds: $plugin-font-mono-uswds,
+      theme: $plugin-font-theme-mono,
+    ),
+    sans:(
+      uswds: $plugin-font-sans-uswds,
+      theme: $plugin-font-theme-sans,
+    ),
+    serif:(
+      uswds: $plugin-font-serif-uswds,
+      theme: $plugin-font-theme-serif,
+    ),
+    misc: map-collect(
+      $plugin-font,
+      $plugin-font-uswds-all,
+      $plugin-font-theme-all,
+      $plugin-font-theme-roles-all
+    ),
+  ),
+  color:(
+    palettes: $plugin-palettes,
+    black-cool: $plugin-color-black-cool,
+    black-transparent: $plugin-color-black-transparent,
+    black-warm: $plugin-color-black-warm,
+    black: $plugin-color-black,
+    blue-warm: $plugin-color-blue-warm,
+    blue: $plugin-color-blue,
+    cyan: $plugin-color-cyan,
+    gold: $plugin-color-gold,
+    green-cool: $plugin-color-green-cool,
+    green-warm: $plugin-color-green-warm,
+    green: $plugin-color-green,
+    indigo-cool: $plugin-color-indigo-cool,
+    indigo-warm: $plugin-color-indigo-warm,
+    indigo: $plugin-color-indigo,
+    magenta: $plugin-color-magenta,
+    mint-cool: $plugin-color-mint-cool,
+    mint: $plugin-color-mint,
+    orange-warm: $plugin-color-orange-warm,
+    orange: $plugin-color-orange,
+    red-warm: $plugin-color-red-warm,
+    red: $plugin-color-red,
+    violet-warm: $plugin-color-violet-warm,
+    violet: $plugin-color-violet,
+    white-cool: $plugin-color-white-cool,
+    white-warm: $plugin-color-white-warm,
+    white-transparent: $plugin-color-white-transparent,
+    white: $plugin-color-white,
+    yellow: $plugin-color-yellow,
+    misc: $plugin-color-all,
+  ),
+  misc: $plugin-misc,
+);
