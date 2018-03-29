@@ -73,10 +73,15 @@ core/_font-definitions
 ----------------------------------------
 */
 
-$font-stack-sans:   false;
-$font-stack-serif:  false;
-$font-stack-mono:   false;
-$font-stack-cond:   false;
+$font-stack-sans:     false;
+$font-stack-serif:    false;
+$font-stack-mono:     false;
+$font-stack-cond:     false;
+
+$font-stack-heading:  false;
+$font-stack-body:     false;
+$font-stack-code:     false;
+$font-stack-alt:      false;
 
 @if $theme-font-sans {
   $font-stack-sans: map-deep-get(
@@ -126,6 +131,65 @@ $font-stack-cond:   false;
   );
 }
 
+@if $theme-font-heading {
+  $font-stack-heading: map-deep-get(
+    $all-font-definitions,
+    $theme-font-heading,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-heading,
+    'stack'
+  );
+}
+
+@if $theme-font-body {
+  $font-stack-body: map-deep-get(
+    $all-font-definitions,
+    $theme-font-body,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-body,
+    'stack'
+  );
+}
+
+@if $theme-font-code {
+  $font-stack-code: map-deep-get(
+    $all-font-definitions,
+    $theme-font-code,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-code,
+    'stack'
+  );
+}
+
+@if $theme-font-alt {
+  $font-stack-alt: map-deep-get(
+    $all-font-definitions,
+    $theme-font-alt,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-alt,
+    'stack'
+  );
+}
+
+$project-font-stacks:(
+  mono:     $font-stack-mono,
+  sans:     $font-stack-sans,
+  serif:    $font-stack-serif,
+  cond:     $font-stack-cond,
+  heading:  $font-stack-heading,
+  body:     $font-stack-body,
+  code:     $font-stack-code,
+  alt:      $font-stack-alt,
+);
+
 // for backward compatibility
 // TODO: deprecate
 $font-sans:   $font-stack-sans;
@@ -157,6 +221,22 @@ namespace var set in utilities-settings?
 
 @if $theme-font-cond {
   *[class*='font-cond'], .font-family-cond { font-family: $font-stack-cond; }
+}
+
+@if $theme-font-heading {
+  *[class*='font-heading'], .font-family-heading { font-family: $font-stack-heading; }
+}
+
+@if $theme-font-body {
+  *[class*='font-body'], .font-family-body { font-family: $font-stack-body; }
+}
+
+@if $theme-font-code {
+  *[class*='font-code'], .font-family-code { font-family: $font-stack-code; }
+}
+
+@if $theme-font-alt {
+  *[class*='font-alt'], .font-family-alt { font-family: $font-stack-alt; }
 }
 
 $project-font-weights: (

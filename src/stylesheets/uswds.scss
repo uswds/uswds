@@ -16,5 +16,6 @@ Output all USWDS
 @import 'uswds-utilities';
 
 .foo {
-  font-feature-settings: feature(alt);
+  @include font(sans);
+  @include font(sans, micro);
 }

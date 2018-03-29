@@ -278,16 +278,20 @@ to a set target
 
 /*
 ----------------------------------------
-font()
+utility-font()
 ----------------------------------------
 Get a normalized font-size in rem from
 a family and a type size in either
 system scale or project scale
 ----------------------------------------
+Not the public-facing function.
+Used for building the utilities and
+withholds certain errors.
+----------------------------------------
 */
 
-@function font($family, $scale){
-  @if not map-get($project-cap-heights, $family) {
+@function utility-font($family, $scale){
+  @if not map-has-key($project-cap-heights, $family) {
     @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
   @elseif not map-get($all-type-scale, $scale) {
@@ -300,7 +304,6 @@ system scale or project scale
       @return type-scale($this-cap, $this-scale);
     }
     @else {
-      @warn "You're referencing a false font scale value.";
       @return false;
     }
   }

@@ -23,7 +23,7 @@ $plugin-font-theme-mono-micro: (
   mono-micro: (
     slug: 'mono-micro',
     isReadable: true,
-    content: font(mono, micro),
+    content: utility-font(mono, micro),
     dependency: $theme-font-mono,
   ),
 );
@@ -32,7 +32,7 @@ $plugin-font-theme-mono-smallest: (
   mono-smallest: (
     slug: 'mono-smallest',
     isReadable: true,
-    content: font(mono, smallest),
+    content: utility-font(mono, smallest),
     dependency: $theme-font-mono,
   ),
 );
@@ -41,7 +41,7 @@ $plugin-font-theme-mono-smaller: (
   mono-smaller: (
     slug: 'mono-smaller',
     isReadable: true,
-    content: font(mono, smaller),
+    content: utility-font(mono, smaller),
     dependency: $theme-font-mono,
   ),
 );
@@ -50,7 +50,7 @@ $plugin-font-theme-mono-small: (
   mono-small: (
     slug: 'mono-small',
     isReadable: true,
-    content: font(mono, small),
+    content: utility-font(mono, small),
     dependency: $theme-font-mono,
   ),
 );
@@ -59,7 +59,7 @@ $plugin-font-theme-mono-base: (
   mono-base: (
     slug: 'mono-base',
     isReadable: true,
-    content: font(mono, base),
+    content: utility-font(mono, base),
     dependency: $theme-font-mono,
   ),
 );
@@ -68,7 +68,7 @@ $plugin-font-theme-mono-large: (
   mono-large: (
     slug: 'mono-large',
     isReadable: true,
-    content: font(mono, large),
+    content: utility-font(mono, large),
     dependency: $theme-font-mono,
   ),
 );
@@ -77,7 +77,7 @@ $plugin-font-theme-mono-larger: (
   mono-larger: (
     slug: 'mono-larger',
     isReadable: true,
-    content: font(mono, larger),
+    content: utility-font(mono, larger),
     dependency: $theme-font-mono,
   ),
 );
@@ -86,7 +86,7 @@ $plugin-font-theme-mono-largest: (
   mono-largest: (
     slug: 'mono-largest',
     isReadable: true,
-    content: font(mono, largest),
+    content: utility-font(mono, largest),
     dependency: $theme-font-mono,
   ),
 );
@@ -95,7 +95,7 @@ $plugin-font-theme-mono-mega: (
   mono-largest: (
     slug: 'mono-mega',
     isReadable: true,
-    content: font(mono, mega),
+    content: utility-font(mono, mega),
     dependency: $theme-font-mono,
   ),
 );
@@ -129,7 +129,7 @@ $plugin-font-theme-sans-micro: (
   sans-micro: (
     slug: 'sans-micro',
     isReadable: true,
-    content: font(sans, micro),
+    content: utility-font(sans, micro),
     dependency: $theme-font-sans,
   ),
 );
@@ -138,7 +138,7 @@ $plugin-font-theme-sans-smallest: (
   sans-smallest: (
     slug: 'sans-smallest',
     isReadable: true,
-    content: font(sans, smallest),
+    content: utility-font(sans, smallest),
     dependency: $theme-font-sans,
   ),
 );
@@ -147,7 +147,7 @@ $plugin-font-theme-sans-smaller: (
   sans-smaller: (
     slug: 'sans-smaller',
     isReadable: true,
-    content: font(sans, smaller),
+    content: utility-font(sans, smaller),
     dependency: $theme-font-sans,
   ),
 );
@@ -156,7 +156,7 @@ $plugin-font-theme-sans-small: (
   sans-small: (
     slug: 'sans-small',
     isReadable: true,
-    content: font(sans, small),
+    content: utility-font(sans, small),
     dependency: $theme-font-sans,
   ),
 );
@@ -165,7 +165,7 @@ $plugin-font-theme-sans-base: (
   sans-base: (
     slug: 'sans-base',
     isReadable: true,
-    content: font(sans, base),
+    content: utility-font(sans, base),
     dependency: $theme-font-sans,
   ),
 );
@@ -174,7 +174,7 @@ $plugin-font-theme-sans-large: (
   sans-large: (
     slug: 'sans-large',
     isReadable: true,
-    content: font(sans, large),
+    content: utility-font(sans, large),
     dependency: $theme-font-sans,
   ),
 );
@@ -183,7 +183,7 @@ $plugin-font-theme-sans-larger: (
   sans-larger: (
     slug: 'sans-larger',
     isReadable: true,
-    content: font(sans, larger),
+    content: utility-font(sans, larger),
     dependency: $theme-font-sans,
   ),
 );
@@ -192,7 +192,7 @@ $plugin-font-theme-sans-largest: (
   sans-largest: (
     slug: 'sans-largest',
     isReadable: true,
-    content: font(sans, largest),
+    content: utility-font(sans, largest),
     dependency: $theme-font-sans,
   ),
 );
@@ -201,7 +201,7 @@ $plugin-font-theme-sans-mega: (
   sans-largest: (
     slug: 'sans-mega',
     isReadable: true,
-    content: font(sans, mega),
+    content: utility-font(sans, mega),
     dependency: $theme-font-sans,
   ),
 );
@@ -235,7 +235,7 @@ $plugin-font-theme-serif-micro: (
   serif-micro: (
     slug: 'serif-micro',
     isReadable: true,
-    content: font(serif, micro),
+    content: utility-font(serif, micro),
     dependency: $theme-font-serif,
   ),
 );
@@ -244,7 +244,7 @@ $plugin-font-theme-serif-smallest: (
   serif-smallest: (
     slug: 'serif-smallest',
     isReadable: true,
-    content: font(serif, smallest),
+    content: utility-font(serif, smallest),
     dependency: $theme-font-serif,
   ),
 );
@@ -253,7 +253,7 @@ $plugin-font-theme-serif-smaller: (
   serif-smaller: (
     slug: 'serif-smaller',
     isReadable: true,
-    content: font(serif, smaller),
+    content: utility-font(serif, smaller),
     dependency: $theme-font-serif,
   ),
 );
@@ -262,7 +262,7 @@ $plugin-font-theme-serif-small: (
   serif-small: (
     slug: 'serif-small',
     isReadable: true,
-    content: font(serif, small),
+    content: utility-font(serif, small),
     dependency: $theme-font-serif,
   ),
 );
@@ -271,7 +271,7 @@ $plugin-font-theme-serif-base: (
   serif-base: (
     slug: 'serif-base',
     isReadable: true,
-    content: font(serif, base),
+    content: utility-font(serif, base),
     dependency: $theme-font-serif,
   ),
 );
@@ -280,7 +280,7 @@ $plugin-font-theme-serif-large: (
   serif-large: (
     slug: 'serif-large',
     isReadable: true,
-    content: font(serif, large),
+    content: utility-font(serif, large),
     dependency: $theme-font-serif,
   ),
 );
@@ -289,7 +289,7 @@ $plugin-font-theme-serif-larger: (
   serif-larger: (
     slug: 'serif-larger',
     isReadable: true,
-    content: font(serif, larger),
+    content: utility-font(serif, larger),
     dependency: $theme-font-serif,
   ),
 );
@@ -298,7 +298,7 @@ $plugin-font-theme-serif-largest: (
   serif-largest: (
     slug: 'serif-largest',
     isReadable: true,
-    content: font(serif, largest),
+    content: utility-font(serif, largest),
     dependency: $theme-font-serif,
   ),
 );
@@ -307,7 +307,7 @@ $plugin-font-theme-serif-mega: (
   serif-largest: (
     slug: 'serif-mega',
     isReadable: true,
-    content: font(serif, mega),
+    content: utility-font(serif, mega),
     dependency: $theme-font-serif,
   ),
 );
@@ -345,12 +345,456 @@ $plugin-font-theme-all:(
   ),
 );
 
+/*
+----------------------------------------
+role-based theme sizes
+----------------------------------------
+*/
+
+$plugin-font-theme-code-micro: (
+  code-micro: (
+    slug: 'code-micro',
+    isReadable: true,
+    content: utility-font(code, micro),
+    dependency: $theme-font-code,
+  ),
+);
+
+$plugin-font-theme-code-smallest: (
+  code-smallest: (
+    slug: 'code-smallest',
+    isReadable: true,
+    content: utility-font(code, smallest),
+    dependency: $theme-font-code,
+  ),
+);
+
+$plugin-font-theme-code-smaller: (
+  code-smaller: (
+    slug: 'code-smaller',
+    isReadable: true,
+    content: utility-font(code, smaller),
+    dependency: $theme-font-code,
+  ),
+);
+
+$plugin-font-theme-code-small: (
+  code-small: (
+    slug: 'code-small',
+    isReadable: true,
+    content: utility-font(code, small),
+    dependency: $theme-font-code,
+  ),
+);
+
+$plugin-font-theme-code-base: (
+  code-base: (
+    slug: 'code-base',
+    isReadable: true,
+    content: utility-font(code, base),
+    dependency: $theme-font-code,
+  ),
+);
+
+$plugin-font-theme-code-large: (
+  code-large: (
+    slug: 'code-large',
+    isReadable: true,
+    content: utility-font(code, large),
+    dependency: $theme-font-code,
+  ),
+);
+
+$plugin-font-theme-code-larger: (
+  code-larger: (
+    slug: 'code-larger',
+    isReadable: true,
+    content: utility-font(code, larger),
+    dependency: $theme-font-code,
+  ),
+);
+
+$plugin-font-theme-code-largest: (
+  code-largest: (
+    slug: 'code-largest',
+    isReadable: true,
+    content: utility-font(code, largest),
+    dependency: $theme-font-code,
+  ),
+);
+
+$plugin-font-theme-code-mega: (
+  code-largest: (
+    slug: 'code-mega',
+    isReadable: true,
+    content: utility-font(code, mega),
+    dependency: $theme-font-code,
+  ),
+);
+
+$plugin-font-theme-code-all: map-collect(
+  $plugin-font-theme-code-micro,
+  $plugin-font-theme-code-smallest,
+  $plugin-font-theme-code-smaller,
+  $plugin-font-theme-code-small,
+  $plugin-font-theme-code-base,
+  $plugin-font-theme-code-large,
+  $plugin-font-theme-code-larger,
+  $plugin-font-theme-code-largest,
+  $plugin-font-theme-code-mega
+);
+
+$plugin-font-theme-code:(
+  'plugin-font-theme-code-micro': $plugin-font-theme-code-micro,
+  'plugin-font-theme-code-smallest': $plugin-font-theme-code-smallest,
+  'plugin-font-theme-code-smaller': $plugin-font-theme-code-smaller,
+  'plugin-font-theme-code-small': $plugin-font-theme-code-small,
+  'plugin-font-theme-code-base': $plugin-font-theme-code-base,
+  'plugin-font-theme-code-large': $plugin-font-theme-code-large,
+  'plugin-font-theme-code-larger': $plugin-font-theme-code-larger,
+  'plugin-font-theme-code-largest': $plugin-font-theme-code-largest,
+  'plugin-font-theme-code-mega': $plugin-font-theme-code-mega,
+  'plugin-font-theme-code-all': $plugin-font-theme-code-all,
+);
+
+$plugin-font-theme-heading-micro: (
+  heading-micro: (
+    slug: 'heading-micro',
+    isReadable: true,
+    content: utility-font(heading, micro),
+    dependency: $theme-font-heading,
+  ),
+);
+
+$plugin-font-theme-heading-smallest: (
+  heading-smallest: (
+    slug: 'heading-smallest',
+    isReadable: true,
+    content: utility-font(heading, smallest),
+    dependency: $theme-font-heading,
+  ),
+);
+
+$plugin-font-theme-heading-smaller: (
+  heading-smaller: (
+    slug: 'heading-smaller',
+    isReadable: true,
+    content: utility-font(heading, smaller),
+    dependency: $theme-font-heading,
+  ),
+);
+
+$plugin-font-theme-heading-small: (
+  heading-small: (
+    slug: 'heading-small',
+    isReadable: true,
+    content: utility-font(heading, small),
+    dependency: $theme-font-heading,
+  ),
+);
+
+$plugin-font-theme-heading-base: (
+  heading-base: (
+    slug: 'heading-base',
+    isReadable: true,
+    content: utility-font(heading, base),
+    dependency: $theme-font-heading,
+  ),
+);
+
+$plugin-font-theme-heading-large: (
+  heading-large: (
+    slug: 'heading-large',
+    isReadable: true,
+    content: utility-font(heading, large),
+    dependency: $theme-font-heading,
+  ),
+);
+
+$plugin-font-theme-heading-larger: (
+  heading-larger: (
+    slug: 'heading-larger',
+    isReadable: true,
+    content: utility-font(heading, larger),
+    dependency: $theme-font-heading,
+  ),
+);
+
+$plugin-font-theme-heading-largest: (
+  heading-largest: (
+    slug: 'heading-largest',
+    isReadable: true,
+    content: utility-font(heading, largest),
+    dependency: $theme-font-heading,
+  ),
+);
+
+$plugin-font-theme-heading-mega: (
+  heading-largest: (
+    slug: 'heading-mega',
+    isReadable: true,
+    content: utility-font(heading, mega),
+    dependency: $theme-font-heading,
+  ),
+);
+
+$plugin-font-theme-heading-all: map-collect(
+  $plugin-font-theme-heading-micro,
+  $plugin-font-theme-heading-smallest,
+  $plugin-font-theme-heading-smaller,
+  $plugin-font-theme-heading-small,
+  $plugin-font-theme-heading-base,
+  $plugin-font-theme-heading-large,
+  $plugin-font-theme-heading-larger,
+  $plugin-font-theme-heading-largest,
+  $plugin-font-theme-heading-mega
+);
+
+$plugin-font-theme-heading:(
+  'plugin-font-theme-heading-micro': $plugin-font-theme-heading-micro,
+  'plugin-font-theme-heading-smallest': $plugin-font-theme-heading-smallest,
+  'plugin-font-theme-heading-smaller': $plugin-font-theme-heading-smaller,
+  'plugin-font-theme-heading-small': $plugin-font-theme-heading-small,
+  'plugin-font-theme-heading-base': $plugin-font-theme-heading-base,
+  'plugin-font-theme-heading-large': $plugin-font-theme-heading-large,
+  'plugin-font-theme-heading-larger': $plugin-font-theme-heading-larger,
+  'plugin-font-theme-heading-largest': $plugin-font-theme-heading-largest,
+  'plugin-font-theme-heading-mega': $plugin-font-theme-heading-mega,
+  'plugin-font-theme-heading-all': $plugin-font-theme-heading-all,
+);
+
+$plugin-font-theme-body-micro: (
+  body-micro: (
+    slug: 'body-micro',
+    isReadable: true,
+    content: utility-font(body, micro),
+    dependency: $theme-font-body,
+  ),
+);
+
+$plugin-font-theme-body-smallest: (
+  body-smallest: (
+    slug: 'body-smallest',
+    isReadable: true,
+    content: utility-font(body, smallest),
+    dependency: $theme-font-body,
+  ),
+);
+
+$plugin-font-theme-body-smaller: (
+  body-smaller: (
+    slug: 'body-smaller',
+    isReadable: true,
+    content: utility-font(body, smaller),
+    dependency: $theme-font-body,
+  ),
+);
+
+$plugin-font-theme-body-small: (
+  body-small: (
+    slug: 'body-small',
+    isReadable: true,
+    content: utility-font(body, small),
+    dependency: $theme-font-body,
+  ),
+);
+
+$plugin-font-theme-body-base: (
+  body-base: (
+    slug: 'body-base',
+    isReadable: true,
+    content: utility-font(body, base),
+    dependency: $theme-font-body,
+  ),
+);
+
+$plugin-font-theme-body-large: (
+  body-large: (
+    slug: 'body-large',
+    isReadable: true,
+    content: utility-font(body, large),
+    dependency: $theme-font-body,
+  ),
+);
+
+$plugin-font-theme-body-larger: (
+  body-larger: (
+    slug: 'body-larger',
+    isReadable: true,
+    content: utility-font(body, larger),
+    dependency: $theme-font-body,
+  ),
+);
+
+$plugin-font-theme-body-largest: (
+  body-largest: (
+    slug: 'body-largest',
+    isReadable: true,
+    content: utility-font(body, largest),
+    dependency: $theme-font-body,
+  ),
+);
+
+$plugin-font-theme-body-mega: (
+  body-largest: (
+    slug: 'body-mega',
+    isReadable: true,
+    content: utility-font(body, mega),
+    dependency: $theme-font-body,
+  ),
+);
+
+$plugin-font-theme-body-all: map-collect(
+  $plugin-font-theme-body-micro,
+  $plugin-font-theme-body-smallest,
+  $plugin-font-theme-body-smaller,
+  $plugin-font-theme-body-small,
+  $plugin-font-theme-body-base,
+  $plugin-font-theme-body-large,
+  $plugin-font-theme-body-larger,
+  $plugin-font-theme-body-largest,
+  $plugin-font-theme-body-mega
+);
+
+$plugin-font-theme-body:(
+  'plugin-font-theme-body-micro': $plugin-font-theme-body-micro,
+  'plugin-font-theme-body-smallest': $plugin-font-theme-body-smallest,
+  'plugin-font-theme-body-smaller': $plugin-font-theme-body-smaller,
+  'plugin-font-theme-body-small': $plugin-font-theme-body-small,
+  'plugin-font-theme-body-base': $plugin-font-theme-body-base,
+  'plugin-font-theme-body-large': $plugin-font-theme-body-large,
+  'plugin-font-theme-body-larger': $plugin-font-theme-body-larger,
+  'plugin-font-theme-body-largest': $plugin-font-theme-body-largest,
+  'plugin-font-theme-body-mega': $plugin-font-theme-body-mega,
+  'plugin-font-theme-body-all': $plugin-font-theme-body-all,
+);
+
+$plugin-font-theme-alt-micro: (
+  alt-micro: (
+    slug: 'alt-micro',
+    isReadable: true,
+    content: utility-font(alt, micro),
+    dependency: $theme-font-alt,
+  ),
+);
+
+$plugin-font-theme-alt-smallest: (
+  alt-smallest: (
+    slug: 'alt-smallest',
+    isReadable: true,
+    content: utility-font(alt, smallest),
+    dependency: $theme-font-alt,
+  ),
+);
+
+$plugin-font-theme-alt-smaller: (
+  alt-smaller: (
+    slug: 'alt-smaller',
+    isReadable: true,
+    content: utility-font(alt, smaller),
+    dependency: $theme-font-alt,
+  ),
+);
+
+$plugin-font-theme-alt-small: (
+  alt-small: (
+    slug: 'alt-small',
+    isReadable: true,
+    content: utility-font(alt, small),
+    dependency: $theme-font-alt,
+  ),
+);
+
+$plugin-font-theme-alt-base: (
+  alt-base: (
+    slug: 'alt-base',
+    isReadable: true,
+    content: utility-font(alt, base),
+    dependency: $theme-font-alt,
+  ),
+);
+
+$plugin-font-theme-alt-large: (
+  alt-large: (
+    slug: 'alt-large',
+    isReadable: true,
+    content: utility-font(alt, large),
+    dependency: $theme-font-alt,
+  ),
+);
+
+$plugin-font-theme-alt-larger: (
+  alt-larger: (
+    slug: 'alt-larger',
+    isReadable: true,
+    content: utility-font(alt, larger),
+    dependency: $theme-font-alt,
+  ),
+);
+
+$plugin-font-theme-alt-largest: (
+  alt-largest: (
+    slug: 'alt-largest',
+    isReadable: true,
+    content: utility-font(alt, largest),
+    dependency: $theme-font-alt,
+  ),
+);
+
+$plugin-font-theme-alt-mega: (
+  alt-largest: (
+    slug: 'alt-mega',
+    isReadable: true,
+    content: utility-font(alt, mega),
+    dependency: $theme-font-alt,
+  ),
+);
+
+$plugin-font-theme-alt-all: map-collect(
+  $plugin-font-theme-alt-micro,
+  $plugin-font-theme-alt-smallest,
+  $plugin-font-theme-alt-smaller,
+  $plugin-font-theme-alt-small,
+  $plugin-font-theme-alt-base,
+  $plugin-font-theme-alt-large,
+  $plugin-font-theme-alt-larger,
+  $plugin-font-theme-alt-largest,
+  $plugin-font-theme-alt-mega
+);
+
+$plugin-font-theme-alt:(
+  'plugin-font-theme-alt-micro': $plugin-font-theme-alt-micro,
+  'plugin-font-theme-alt-smallest': $plugin-font-theme-alt-smallest,
+  'plugin-font-theme-alt-smaller': $plugin-font-theme-alt-smaller,
+  'plugin-font-theme-alt-small': $plugin-font-theme-alt-small,
+  'plugin-font-theme-alt-base': $plugin-font-theme-alt-base,
+  'plugin-font-theme-alt-large': $plugin-font-theme-alt-large,
+  'plugin-font-theme-alt-larger': $plugin-font-theme-alt-larger,
+  'plugin-font-theme-alt-largest': $plugin-font-theme-alt-largest,
+  'plugin-font-theme-alt-mega': $plugin-font-theme-alt-mega,
+  'plugin-font-theme-alt-all': $plugin-font-theme-alt-all,
+);
+
+$plugin-font-theme-roles-all:(
+  'plugin-font-theme-roles-all': map-collect(
+    $plugin-font-theme-code-all,
+    $plugin-font-theme-heading-all,
+    $plugin-font-theme-body-all,
+    $plugin-font-theme-alt-all
+  ),
+);
+
+/*
+----------------------------------------
+uswds font sizes
+----------------------------------------
+*/
 
 $plugin-font-mono-uswds-s1: (
   mono-s1: (
     slug: 'mono-s1',
     isReadable: true,
-    content: font(mono, s1),
+    content: utility-font(mono, s1),
   ),
 );
 
@@ -358,7 +802,7 @@ $plugin-font-mono-uswds-s2: (
   mono-s2: (
     slug: 'mono-s2',
     isReadable: true,
-    content: font(mono, s2),
+    content: utility-font(mono, s2),
   ),
 );
 
@@ -366,7 +810,7 @@ $plugin-font-mono-uswds-s3: (
   mono-s3: (
     slug: 'mono-s3',
     isReadable: true,
-    content: font(mono, s3),
+    content: utility-font(mono, s3),
   ),
 );
 
@@ -374,7 +818,7 @@ $plugin-font-mono-uswds-s4: (
   mono-s4: (
     slug: 'mono-s4',
     isReadable: true,
-    content: font(mono, s4),
+    content: utility-font(mono, s4),
   ),
 );
 
@@ -382,7 +826,7 @@ $plugin-font-mono-uswds-s5: (
   mono-s5: (
     slug: 'mono-s5',
     isReadable: true,
-    content: font(mono, s5),
+    content: utility-font(mono, s5),
   ),
 );
 
@@ -390,7 +834,7 @@ $plugin-font-mono-uswds-s6: (
   mono-s6: (
     slug: 'mono-s6',
     isReadable: true,
-    content: font(mono, s6),
+    content: utility-font(mono, s6),
   ),
 );
 
@@ -398,7 +842,7 @@ $plugin-font-mono-uswds-s7: (
   mono-s7: (
     slug: 'mono-s7',
     isReadable: true,
-    content: font(mono, s7),
+    content: utility-font(mono, s7),
   ),
 );
 
@@ -406,7 +850,7 @@ $plugin-font-mono-uswds-s8: (
   mono-s8: (
     slug: 'mono-s8',
     isReadable: true,
-    content: font(mono, s8),
+    content: utility-font(mono, s8),
   ),
 );
 
@@ -414,7 +858,7 @@ $plugin-font-mono-uswds-s9: (
   mono-s9: (
     slug: 'mono-s9',
     isReadable: true,
-    content: font(mono, s9),
+    content: utility-font(mono, s9),
   ),
 );
 
@@ -422,7 +866,7 @@ $plugin-font-mono-uswds-s10: (
   mono-s10: (
     slug: 'mono-s10',
     isReadable: true,
-    content: font(mono, s10),
+    content: utility-font(mono, s10),
   ),
 );
 
@@ -430,7 +874,7 @@ $plugin-font-mono-uswds-s11: (
   mono-s11: (
     slug: 'mono-s11',
     isReadable: true,
-    content: font(mono, s11),
+    content: utility-font(mono, s11),
   ),
 );
 
@@ -438,7 +882,7 @@ $plugin-font-mono-uswds-s12: (
   mono-s12: (
     slug: 'mono-s12',
     isReadable: true,
-    content: font(mono, s12),
+    content: utility-font(mono, s12),
   ),
 );
 
@@ -446,7 +890,7 @@ $plugin-font-mono-uswds-s13: (
   mono-s13: (
     slug: 'mono-s13',
     isReadable: true,
-    content: font(mono, s13),
+    content: utility-font(mono, s13),
   ),
 );
 
@@ -454,7 +898,7 @@ $plugin-font-mono-uswds-s14: (
   mono-s14: (
     slug: 'mono-s14',
     isReadable: true,
-    content: font(mono, s14),
+    content: utility-font(mono, s14),
   ),
 );
 
@@ -462,7 +906,7 @@ $plugin-font-mono-uswds-s15: (
   mono-s15: (
     slug: 'mono-s15',
     isReadable: true,
-    content: font(mono, s15),
+    content: utility-font(mono, s15),
   ),
 );
 
@@ -470,7 +914,7 @@ $plugin-font-mono-uswds-s16: (
   mono-s16: (
     slug: 'mono-s16',
     isReadable: true,
-    content: font(mono, s16),
+    content: utility-font(mono, s16),
   ),
 );
 
@@ -478,7 +922,7 @@ $plugin-font-mono-uswds-s17: (
   mono-s17: (
     slug: 'mono-s17',
     isReadable: true,
-    content: font(mono, s17),
+    content: utility-font(mono, s17),
   ),
 );
 
@@ -486,7 +930,7 @@ $plugin-font-mono-uswds-s18: (
   mono-s18: (
     slug: 'mono-s18',
     isReadable: true,
-    content: font(mono, s18),
+    content: utility-font(mono, s18),
   ),
 );
 
@@ -494,7 +938,7 @@ $plugin-font-mono-uswds-s19: (
   mono-s19: (
     slug: 'mono-s19',
     isReadable: true,
-    content: font(mono, s19),
+    content: utility-font(mono, s19),
   ),
 );
 
@@ -502,7 +946,7 @@ $plugin-font-mono-uswds-s20: (
   mono-s20: (
     slug: 'mono-s20',
     isReadable: true,
-    content: font(mono, s20),
+    content: utility-font(mono, s20),
   ),
 );
 
@@ -549,7 +993,7 @@ $plugin-font-sans-uswds-s1: (
   sans-s1: (
     slug: 'sans-s1',
     isReadable: true,
-    content: font(sans, s1),
+    content: utility-font(sans, s1),
   ),
 );
 
@@ -557,7 +1001,7 @@ $plugin-font-sans-uswds-s2: (
   sans-s2: (
     slug: 'sans-s2',
     isReadable: true,
-    content: font(sans, s2),
+    content: utility-font(sans, s2),
   ),
 );
 
@@ -565,7 +1009,7 @@ $plugin-font-sans-uswds-s3: (
   sans-s3: (
     slug: 'sans-s3',
     isReadable: true,
-    content: font(sans, s3),
+    content: utility-font(sans, s3),
   ),
 );
 
@@ -573,7 +1017,7 @@ $plugin-font-sans-uswds-s4: (
   sans-s4: (
     slug: 'sans-s4',
     isReadable: true,
-    content: font(sans, s4),
+    content: utility-font(sans, s4),
   ),
 );
 
@@ -581,7 +1025,7 @@ $plugin-font-sans-uswds-s5: (
   sans-s5: (
     slug: 'sans-s5',
     isReadable: true,
-    content: font(sans, s5),
+    content: utility-font(sans, s5),
   ),
 );
 
@@ -589,7 +1033,7 @@ $plugin-font-sans-uswds-s6: (
   sans-s6: (
     slug: 'sans-s6',
     isReadable: true,
-    content: font(sans, s6),
+    content: utility-font(sans, s6),
   ),
 );
 
@@ -597,7 +1041,7 @@ $plugin-font-sans-uswds-s7: (
   sans-s7: (
     slug: 'sans-s7',
     isReadable: true,
-    content: font(sans, s7),
+    content: utility-font(sans, s7),
   ),
 );
 
@@ -605,7 +1049,7 @@ $plugin-font-sans-uswds-s8: (
   sans-s8: (
     slug: 'sans-s8',
     isReadable: true,
-    content: font(sans, s8),
+    content: utility-font(sans, s8),
   ),
 );
 
@@ -613,7 +1057,7 @@ $plugin-font-sans-uswds-s9: (
   sans-s9: (
     slug: 'sans-s9',
     isReadable: true,
-    content: font(sans, s9),
+    content: utility-font(sans, s9),
   ),
 );
 
@@ -621,7 +1065,7 @@ $plugin-font-sans-uswds-s10: (
   sans-s10: (
     slug: 'sans-s10',
     isReadable: true,
-    content: font(sans, s10),
+    content: utility-font(sans, s10),
   ),
 );
 
@@ -629,7 +1073,7 @@ $plugin-font-sans-uswds-s11: (
   sans-s11: (
     slug: 'sans-s11',
     isReadable: true,
-    content: font(sans, s11),
+    content: utility-font(sans, s11),
   ),
 );
 
@@ -637,7 +1081,7 @@ $plugin-font-sans-uswds-s12: (
   sans-s12: (
     slug: 'sans-s12',
     isReadable: true,
-    content: font(sans, s12),
+    content: utility-font(sans, s12),
   ),
 );
 
@@ -645,7 +1089,7 @@ $plugin-font-sans-uswds-s13: (
   sans-s13: (
     slug: 'sans-s13',
     isReadable: true,
-    content: font(sans, s13),
+    content: utility-font(sans, s13),
   ),
 );
 
@@ -653,7 +1097,7 @@ $plugin-font-sans-uswds-s14: (
   sans-s14: (
     slug: 'sans-s14',
     isReadable: true,
-    content: font(sans, s14),
+    content: utility-font(sans, s14),
   ),
 );
 
@@ -661,7 +1105,7 @@ $plugin-font-sans-uswds-s15: (
   sans-s15: (
     slug: 'sans-s15',
     isReadable: true,
-    content: font(sans, s15),
+    content: utility-font(sans, s15),
   ),
 );
 
@@ -669,7 +1113,7 @@ $plugin-font-sans-uswds-s16: (
   sans-s16: (
     slug: 'sans-s16',
     isReadable: true,
-    content: font(sans, s16),
+    content: utility-font(sans, s16),
   ),
 );
 
@@ -677,7 +1121,7 @@ $plugin-font-sans-uswds-s17: (
   sans-s17: (
     slug: 'sans-s17',
     isReadable: true,
-    content: font(sans, s17),
+    content: utility-font(sans, s17),
   ),
 );
 
@@ -685,7 +1129,7 @@ $plugin-font-sans-uswds-s18: (
   sans-s18: (
     slug: 'sans-s18',
     isReadable: true,
-    content: font(sans, s18),
+    content: utility-font(sans, s18),
   ),
 );
 
@@ -693,7 +1137,7 @@ $plugin-font-sans-uswds-s19: (
   sans-s19: (
     slug: 'sans-s19',
     isReadable: true,
-    content: font(sans, s19),
+    content: utility-font(sans, s19),
   ),
 );
 
@@ -701,7 +1145,7 @@ $plugin-font-sans-uswds-s20: (
   sans-s20: (
     slug: 'sans-s20',
     isReadable: true,
-    content: font(sans, s20),
+    content: utility-font(sans, s20),
   ),
 );
 
@@ -748,7 +1192,7 @@ $plugin-font-serif-uswds-s1: (
   serif-s1: (
     slug: 'serif-s1',
     isReadable: true,
-    content: font(serif, s1),
+    content: utility-font(serif, s1),
   ),
 );
 
@@ -756,7 +1200,7 @@ $plugin-font-serif-uswds-s2: (
   serif-s2: (
     slug: 'serif-s2',
     isReadable: true,
-    content: font(serif, s2),
+    content: utility-font(serif, s2),
   ),
 );
 
@@ -764,7 +1208,7 @@ $plugin-font-serif-uswds-s3: (
   serif-s3: (
     slug: 'serif-s3',
     isReadable: true,
-    content: font(serif, s3),
+    content: utility-font(serif, s3),
   ),
 );
 
@@ -772,7 +1216,7 @@ $plugin-font-serif-uswds-s4: (
   serif-s4: (
     slug: 'serif-s4',
     isReadable: true,
-    content: font(serif, s4),
+    content: utility-font(serif, s4),
   ),
 );
 
@@ -780,7 +1224,7 @@ $plugin-font-serif-uswds-s5: (
   serif-s5: (
     slug: 'serif-s5',
     isReadable: true,
-    content: font(serif, s5),
+    content: utility-font(serif, s5),
   ),
 );
 
@@ -788,7 +1232,7 @@ $plugin-font-serif-uswds-s6: (
   serif-s6: (
     slug: 'serif-s6',
     isReadable: true,
-    content: font(serif, s6),
+    content: utility-font(serif, s6),
   ),
 );
 
@@ -796,7 +1240,7 @@ $plugin-font-serif-uswds-s7: (
   serif-s7: (
     slug: 'serif-s7',
     isReadable: true,
-    content: font(serif, s7),
+    content: utility-font(serif, s7),
   ),
 );
 
@@ -804,7 +1248,7 @@ $plugin-font-serif-uswds-s8: (
   serif-s8: (
     slug: 'serif-s8',
     isReadable: true,
-    content: font(serif, s8),
+    content: utility-font(serif, s8),
   ),
 );
 
@@ -812,7 +1256,7 @@ $plugin-font-serif-uswds-s9: (
   serif-s9: (
     slug: 'serif-s9',
     isReadable: true,
-    content: font(serif, s9),
+    content: utility-font(serif, s9),
   ),
 );
 
@@ -820,7 +1264,7 @@ $plugin-font-serif-uswds-s10: (
   serif-s10: (
     slug: 'serif-s10',
     isReadable: true,
-    content: font(serif, s10),
+    content: utility-font(serif, s10),
   ),
 );
 
@@ -828,7 +1272,7 @@ $plugin-font-serif-uswds-s11: (
   serif-s11: (
     slug: 'serif-s11',
     isReadable: true,
-    content: font(serif, s11),
+    content: utility-font(serif, s11),
   ),
 );
 
@@ -836,7 +1280,7 @@ $plugin-font-serif-uswds-s12: (
   serif-s12: (
     slug: 'serif-s12',
     isReadable: true,
-    content: font(serif, s12),
+    content: utility-font(serif, s12),
   ),
 );
 
@@ -844,7 +1288,7 @@ $plugin-font-serif-uswds-s13: (
   serif-s13: (
     slug: 'serif-s13',
     isReadable: true,
-    content: font(serif, s13),
+    content: utility-font(serif, s13),
   ),
 );
 
@@ -852,7 +1296,7 @@ $plugin-font-serif-uswds-s14: (
   serif-s14: (
     slug: 'serif-s14',
     isReadable: true,
-    content: font(serif, s14),
+    content: utility-font(serif, s14),
   ),
 );
 
@@ -860,7 +1304,7 @@ $plugin-font-serif-uswds-s15: (
   serif-s15: (
     slug: 'serif-s15',
     isReadable: true,
-    content: font(serif, s15),
+    content: utility-font(serif, s15),
   ),
 );
 
@@ -868,7 +1312,7 @@ $plugin-font-serif-uswds-s16: (
   serif-s16: (
     slug: 'serif-s16',
     isReadable: true,
-    content: font(serif, s16),
+    content: utility-font(serif, s16),
   ),
 );
 
@@ -876,7 +1320,7 @@ $plugin-font-serif-uswds-s17: (
   serif-s17: (
     slug: 'serif-s17',
     isReadable: true,
-    content: font(serif, s17),
+    content: utility-font(serif, s17),
   ),
 );
 
@@ -884,7 +1328,7 @@ $plugin-font-serif-uswds-s18: (
   serif-s18: (
     slug: 'serif-s18',
     isReadable: true,
-    content: font(serif, s18),
+    content: utility-font(serif, s18),
   ),
 );
 
@@ -892,7 +1336,7 @@ $plugin-font-serif-uswds-s19: (
   serif-s19: (
     slug: 'serif-s19',
     isReadable: true,
-    content: font(serif, s19),
+    content: utility-font(serif, s19),
   ),
 );
 
@@ -900,7 +1344,7 @@ $plugin-font-serif-uswds-s20: (
   serif-s20: (
     slug: 'serif-s20',
     isReadable: true,
-    content: font(serif, s20),
+    content: utility-font(serif, s20),
   ),
 );
 

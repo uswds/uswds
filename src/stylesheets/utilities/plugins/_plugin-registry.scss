@@ -20,7 +20,8 @@ $plugin-registry:(
     misc: map-collect(
       $plugin-font,
       $plugin-font-uswds-all,
-      $plugin-font-theme-all
+      $plugin-font-theme-all,
+      $plugin-font-theme-roles-all
     ),
   ),
   color:(

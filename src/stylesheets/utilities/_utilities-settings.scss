@@ -600,7 +600,8 @@ $font-plugins: (
   'plugin-system-[family]-xlarge'
   'plugin-system-[family]-all'
   */
-  'plugin-font-theme-all'
+  'plugin-font-theme-all',
+  'plugin-font-theme-roles-all'
 ) !default;
 
 $font-manual-values: (
