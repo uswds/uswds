@@ -1,146 +1,284 @@
-// PROJECT SETTINGS
+/*
+========================================
+PROJECT THEME SETTINGS
+----------------------------------------
+*/
 
-// ---------------------------------------------
-// NAMESPACE
+/*
+----------------------------------------
+Root font size
+----------------------------------------
+Sets the font size of the html root
+for rem calculations
+----------------------------------------
+*/
 
-$s-settings-utilities-namespace: 'usa-u-' !default;
-$s-units-utilities-namespace: null !default;
-$s-components-namespace: 'usa-' !default;
+$theme-root-font-size: 16px !default;
 
-// ---------------------------------------------
-// SPACING
+/*
+----------------------------------------
+Breakpoints
+----------------------------------------
+Use pixel units.
+These will be automatically converted to
+em values based on the value of
+$theme-root-font-size.
 
-// values  - - - - - - - - - - - - - - - - - - -
-// $s-font-size-NN:       $u-spacing-NN;
-//                        1px
-//                        2px
+Use `false` if your project will not
+use that breakpoint.
+----------------------------------------
+*/
 
-$s-spacing-3xs:           1px !default;
-$s-spacing-2xs:           2px !default;
-$s-spacing-xs:            $u-spacing-05 !default;
-$s-spacing-sm:            $u-spacing-1 !default;
-$s-spacing-md:            $u-spacing-2 !default;
-$s-spacing-lg:            $u-spacing-3 !default;
-$s-spacing-xl:            $u-spacing-4 !default;
-$s-spacing-2xl:           $u-spacing-5 !default;
-$s-spacing-3xl:           $u-spacing-9 !default;
+$theme-breakpoints:(
+  xs: 400px,
+  sm: 481px, // 600px
+  md: 600px, // 800px
+  lg: 1201px, // 1000px
+  xl: 1200px, // 1200px
+ ) !default;
 
-// ---------------------------------------------
-// TYPE SCALE
+/*
+----------------------------------------
+Paths
+----------------------------------------
+Relative font and image file paths
+----------------------------------------
+*/
 
-// values  - - - - - - - - - - - - - - - - - - -
-// $s-font-size-NN:       $u-type-scale-NN;
+$theme-font-path:   '../fonts' !default;
+$theme-image-path:  '../img' !default;
 
-$s-font-size-3xs:         $u-type-scale-1 !default;
-$s-font-size-2xs:         $u-type-scale-3 !default;
-$s-font-size-xs:          $u-type-scale-5 !default;
-$s-font-size-sm:          $u-type-scale-6 !default;
-$s-font-size-md:          $u-type-scale-7 !default;
-$s-font-size-lg:          $u-type-scale-10 !default;
-$s-font-size-xl:          $u-type-scale-12 !default;
-$s-font-size-2xl:         $u-type-scale-14 !default;
-$s-font-size-3xl:         $u-type-scale-16 !default;
+/*
+----------------------------------------
+Custom font definitions
+----------------------------------------
+Add a new custom font definition if
+your project uses a typeface we've
+not already defined.
+----------------------------------------
+The following faces already are
+defined in the system:
 
-// ---------------------------------------------
-// FONT WEIGHTS
+'system'
+'united-sans'
+'source-sans-pro'
+'helvetica'
+'georgia'
+'merriweather'
+'roboto-mono'
+----------------------------------------
+*/
 
-// values  - - - - - - - - - - - - - - - - - - -
-// $s-fw-NN:              100-900 (mults of 100);
+$theme-font-definitions: (
+  /*
+  font-new: (
+    name: "Font Display Name",
+    dir: "filder-name", // relative to settings.$theme-font-path
+    stack: $font-stack-system,
+    system-font: false,
+    cap-height: "364px", // height of a 500px `N` in Sketch
+    variable-font: false,
+    roman: (
+      100: "Filename-without-extension", // or false
+      200: "Filename-without-extension", // or false
+      300: "Filename-without-extension", // or false
+      400: "Filename-without-extension", // or false
+      500: "Filename-without-extension", // or false
+      600: "Filename-without-extension", // or false
+      700: "Filename-without-extension", // or false
+      800: "Filename-without-extension", // or false
+      900: "Filename-without-extension", // or false
+    ),
+    italic: (
+      100: "Filename-without-extension", // or false
+      200: "Filename-without-extension", // or false
+      300: "Filename-without-extension", // or false
+      400: "Filename-without-extension", // or false
+      500: "Filename-without-extension", // or false
+      600: "Filename-without-extension", // or false
+      700: "Filename-without-extension", // or false
+      800: "Filename-without-extension", // or false
+      900: "Filename-without-extension", // or false
+    ),
+  ),
+  */
+);
 
-$s-fw-xlight:             200;
-$s-fw-light:              300;
-$s-fw-normal:             400;
-$s-fw-bold:               600;
-$s-fw-xbold:              700;
+/*
+----------------------------------------
+Fonts in use
+----------------------------------------
+Set the sans, serif, and mono faces for
+your project
+----------------------------------------
+currently available:
 
-// ---------------------------------------------
-// COLORS
+'system'
+'united-sans'
+'source-sans-pro'
+'helvetica'
+'georgia'
+'merriweather'
+'roboto-mono'
+----------------------------------------
+*/
 
-// values  - - - - - - - - - - - - - - - - - - -
-// $s-color-NN:           $u-color-NN;
+$theme-font-mono:   'roboto-mono' !default;
+$theme-font-sans:   'source-sans-pro' !default;
+$theme-font-serif:  'merriweather' !default;
+$theme-font-cond:   false !default;
 
-// Identity colors
-$s-color-id-1:            $u-color-red-warm-50v !default;
-$s-color-id-1-dark:       $u-color-red-warm-60 !default;
-$s-color-id-1-xdark:      $u-color-red-warm-70 !default;
-$s-color-id-1-light:      $u-color-red-warm-40 !default;
-$s-color-id-1-xlight:     $u-color-red-warm-20 !default;
+/*
+----------------------------------------
+Fonts by type
+----------------------------------------
+Set the heading, body, code, and alt
+faces for your project from
 
-$s-color-id-2:            $u-color-indigo-50v !default;
-$s-color-id-2-dark:       $u-color-indigo-60v !default;
-$s-color-id-2-xdark:      $u-color-indigo-70 !default;
-$s-color-id-2-light:      $u-color-indigo-40 !default;
-$s-color-id-2-xlight:     $u-color-indigo-20 !default;
+$theme-font-sans
+$theme-font-serif
+$theme-font-mono
+$theme-font-cond
+----------------------------------------
+*/
 
-// Accent colors
-$s-color-accent-1:        $u-color-black-warm-80 !default;
-$s-color-accent-2:        $u-color-orange-warm-40v !default;
-$s-color-accent-3:        $u-color-green-warm-10v !default;
+$theme-font-heading:  $theme-font-sans !default;
+$theme-font-body:     $theme-font-serif !default;
+$theme-font-code:     $theme-font-mono !default;
+$theme-font-alt:      false !default;
 
-// UI colors
-$s-color-ui-1:            $u-color-black-90 !default;
-$s-color-ui-2:            $u-color-black-70 !default;
-$s-color-ui-3:            $u-color-black-50 !default;
-$s-color-ui-4:            $u-color-black-50 !default;
-$s-color-ui-5:            $u-color-black-warm-20 !default;
-$s-color-ui-6:            $u-color-blue-warm-60v !default;
+/*
+----------------------------------------
+Type scale
+----------------------------------------
+Define your project's type scale using
+values from the USWDS system type scale
 
-// Text colors
-$s-color-text-1:          $u-color-black-90 !default;
-$s-color-text-2:          $u-color-blue-warm-60v !default;
-$s-color-text-3:          $u-color-black-50 !default;
-$s-color-text-4:          $u-color-black-50 !default;
-$s-color-text-inverse:    $u-color-white-0 !default;
+s1-s20
+----------------------------------------
+*/
 
-// Field colors
-$s-color-field-1:         $u-color-white-warm-1 !default;
-$s-color-field-2:         $u-color-white-warm-4 !default;
-$s-color-field-3:         $u-color-green-warm-5 !default;
-$s-color-field-4:         $u-color-black-warm-90 !default;
+$theme-type-scale-micro:         s1 !default;
+$theme-type-scale-smallest:      s3 !default;
+$theme-type-scale-smaller:       s5 !default;
+$theme-type-scale-small:         s6 !default;
+$theme-type-scale-base:          s7 !default;
+$theme-type-scale-large:         s10 !default;
+$theme-type-scale-larger:        s12 !default;
+$theme-type-scale-largest:       s14 !default;
+$theme-type-scale-mega:          s16 !default;
+
+/*
+----------------------------------------
+Font weights
+----------------------------------------
+Assign weights 100-900
+Or use `false` for unneeded weights.
+----------------------------------------
+*/
+
+$theme-output-all-weights:        false !default;
+
+$theme-font-weight-thin:          false !default;
+$theme-font-weight-light:         300 !default;
+$theme-font-weight-normal:        400 !default;
+$theme-font-weight-medium:        false !default;
+$theme-font-weight-semibold:      false !default;
+$theme-font-weight-bold:          700 !default;
+$theme-font-weight-black:         false !default;
+
+/*
+----------------------------------------
+Palette colors
+----------------------------------------
+*/
+
+$theme-color-neutral:             black !default;
+$theme-color-neutral-lighter:     $theme-color-neutral, 5 !default;
+$theme-color-neutral-light:       $theme-color-neutral, 50 !default;
+$theme-color-neutral-base:        $theme-color-neutral, 80 !default;
+$theme-color-neutral-dark:        $theme-color-neutral, 90 !default;
+$theme-color-neutral-darker:      false !default;
+
+$theme-color-primary:             red !default;
+$theme-color-primary-lighter:     $theme-color-primary, 10 !default;
+$theme-color-primary-light:       $theme-color-primary, 30 !default;
+$theme-color-primary-base:        $theme-color-primary, 50 !default;
+$theme-color-primary-vivid:       $theme-color-primary, 50, vivid !default;
+$theme-color-primary-dark:        $theme-color-primary, 70 !default;
+$theme-color-primary-darker:      false !default;
+
+$theme-color-secondary:           blue !default;
+$theme-color-secondary-light:     $theme-color-secondary, 50 !default;
+$theme-color-secondary-base:      $theme-color-secondary, 60 !default;
+$theme-color-secondary-vivid:     $theme-color-secondary, 50, vivid !default;
+$theme-color-secondary-dark:      $theme-color-secondary, 80 !default;
+
+$theme-color-accent-warm:         orange !default;
+$theme-color-accent-warm-lighter: $theme-color-accent-warm, 50, vivid !default;
+$theme-color-accent-warm-base:    $theme-color-accent-warm, 50, vivid !default;
+
+$theme-color-accent-cool:         cyan !default;
+$theme-color-accent-cool-lighter: $theme-color-accent-cool, 50, vivid !default;
+$theme-color-accent-cool-base:    $theme-color-accent-cool, 50, vivid !default;
+
+$theme-color-inverse:             white !default;
+$theme-color-inverse-base:        $theme-color-inverse, 0 !default;
+$theme-color-inverse-dark:        black, 10 !default;
+
+/*
+----------------------------------------
+State colors
+----------------------------------------
+*/
 
 // Error colors
-$s-color-error:           $u-color-red-50v !default;
-$s-color-error-dark:      $u-color-red-60 !default;
-$s-color-error-xdark:     $u-color-red-70 !default;
-$s-color-error-light:     $u-color-red-40v !default;
-$s-color-error-xlight:    $u-color-red-30v !default;
+$theme-color-error:            red !default;
+$theme-color-error-lighter:    $theme-color-error, 30, vivid !default;
+$theme-color-error-light:      $theme-color-error, 40, vivid !default;
+$theme-color-error-base:       $theme-color-error, 50, vivid !default;
+$theme-color-error-dark:       $theme-color-error, 60 !default;
+$theme-color-error-darker:     $theme-color-error, 70 !default;
 
 // Warning colors
-$s-color-warn:            $u-color-orange-30v !default;
-$s-color-warn-dark:       $u-color-orange-40 !default;
-$s-color-warn-xdark:      $u-color-orange-50 !default;
-$s-color-warn-light:      $u-color-orange-20v !default;
-$s-color-warn-xlight:     $u-color-orange-10 !default;
+$theme-color-warn:             orange !default;
+$theme-color-warn-lighter:     $theme-color-warn, 10 !default;
+$theme-color-warn-light:       $theme-color-warn, 20, vivid !default;
+$theme-color-warn-base:        $theme-color-warn, 30, vivid !default;
+$theme-color-warn-dark:        $theme-color-warn, 40 !default;
+$theme-color-warn-darker:      $theme-color-warn, 50 !default;
 
 // Success colors
-$s-color-success:         $u-color-green-cool-40v !default;
-$s-color-success-dark:    $u-color-green-cool-50 !default;
-$s-color-success-xdark:   $u-color-green-cool-70 !default;
-$s-color-success-light:   $u-color-green-cool-30v !default;
-$s-color-success-xlight:  $u-color-green-cool-20v !default;
-
-// OK colors
-$s-color-ok:              $u-color-blue-warm-50v !default;
-$s-color-ok-dark:         $u-color-blue-warm-60v !default;
-$s-color-ok-xdark:        $u-color-blue-warm-70 !default;
-$s-color-ok-light:        $u-color-blue-warm-40v !default;
-$s-color-ok-xlight:       $u-color-blue-warm-30 !default;
+$theme-color-success:          green-cool !default;
+$theme-color-success-lighter:  $theme-color-success, 20, vivid !default;
+$theme-color-success-light:    $theme-color-success, 30, vivid !default;
+$theme-color-success-base:     $theme-color-success, 40, vivid !default;
+$theme-color-success-dark:     $theme-color-success, 50 !default;
+$theme-color-success-darker:   $theme-color-success, 70 !default;
 
 // Disabled color
-$s-color-disabled:        $u-color-black-30 !default;
+$theme-color-disabled:         black !default;
+$theme-color-disabled-base:    $theme-color-disabled, 30 !default;
 
-// Other colors
-$s-color-banner:          $u-color-black-90 !default;
-$s-color-highlight:       $u-color-gold-20v !default;
+/*
+----------------------------------------
+Border radius
+----------------------------------------
+eighth          2px
+quarter         4px
+half            8px
+half-plus       12px
+base            16px
+base-plus       24px
+double          32px
+double-plus     40px
+triple          48px
+triple-plus     56px
+quad            64px
+quad-plus       72px
+----------------------------------------
+*/
 
-// ---------------------------------------------
-// BORDER RADIUS
-
-// values  - - - - - - - - - - - - - - - - - - -
-// $s-radius-NN:          $u-spacing-NN;
-//                        1px
-//                        2px
-
-$s-radius-sm:             1px !default;
-$s-radius-md:             $u-spacing-05 !default;
-$s-radius-lg:             $u-spacing-105 !default;
+$theme-border-radius-small:       eighth !default;
+$theme-border-radius-base:        quarter !default;
+$theme-border-radius-large:       false !default;

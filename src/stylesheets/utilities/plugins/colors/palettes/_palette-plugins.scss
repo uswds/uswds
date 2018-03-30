@@ -1,0 +1,102 @@
+$plugin-color-palette-required: (
+  transparent:    transparent,
+  black:          $black-100,
+  white:          $white-0,
+);
+
+$plugin-palette-grayscale: map-collect(
+  $plugin-color-black-all,
+  $plugin-color-white-all
+);
+
+/* this is the old theme
+$plugin-color-palette-theme: (
+  primary:                  $color-primary,
+  primary-darker:           $color-primary-darker,
+  primary-darkest:          $color-primary-darkest,
+  base:                     $color-base,
+  primary-alt:              $color-primary-alt,
+  primary-alt-darkest:      $color-primary-alt-darkest,
+  primary-alt-dark:         $color-primary-alt-dark,
+  primary-alt-light:        $color-primary-alt-light,
+  primary-alt-lightest:     $color-primary-alt-lightest,
+  secondary:                $color-secondary,
+  secondary-darkest:        $color-secondary-darkest,
+  secondary-dark:           $color-secondary-dark,
+  secondary-light:          $color-secondary-light,
+  secondary-lightest:       $color-secondary-lightest,
+  gold:                     $color-gold,
+  gold-light:               $color-gold-light,
+  gold-lighter:             $color-gold-lighter,
+  gold-lightest:            $color-gold-lightest,
+  green:                    $color-green,
+  green-light:              $color-green-light,
+  green-lighter:            $color-green-lighter,
+  green-lightest:           $color-green-lightest,
+  blue:                     $color-blue,
+  blue-light:               $color-blue-light,
+  blue-lighter:             $color-blue-lighter,
+  blue-lightest:            $color-blue-lightest,
+  gray:                     $color-gray,
+  gray-dark:                $color-gray-dark,
+  gray-light:               $color-gray-light,
+  gray-lighter:             $color-gray-lighter,
+  gray-lightest:            $color-gray-lightest,
+  gray-warm-dark:           $color-gray-warm-dark,
+  gray-warm-light:          $color-gray-warm-light,
+  gray-cool-light:          $color-gray-cool-light,
+  focus:                    $color-focus,
+  visited:                  $color-visited,
+);
+*/
+
+$plugin-color-palette-theme: (
+  neutral-lighter:    system-color($theme-color-neutral-lighter),
+  neutral-light:      system-color($theme-color-neutral-light),
+  neutral-base:       system-color($theme-color-neutral-base),
+  neutral-dark:       system-color($theme-color-neutral-dark),
+  neutral-darker:     system-color($theme-color-neutral-darker),
+  primary-lighter:    system-color($theme-color-primary-lighter),
+  primary-light:      system-color($theme-color-primary-light),
+  primary-base:       system-color($theme-color-primary-base),
+  primary-vivid:      system-color($theme-color-primary-vivid),
+  primary-dark:       system-color($theme-color-primary-dark),
+  primary-darker:     system-color($theme-color-primary-darker),
+  secondary-light:    system-color($theme-color-secondary-light),
+  secondary-base:     system-color($theme-color-secondary-base),
+  secondary-vivid:    system-color($theme-color-secondary-vivid),
+  secondary-dark:     system-color($theme-color-secondary-dark),
+  accent-warm-light:  system-color($theme-color-accent-warm-lighter),
+  accent-warm-base:   system-color($theme-color-accent-warm-base),
+  accent-cool-light:  system-color($theme-color-accent-cool-lighter),
+  accent-cool-base:   system-color($theme-color-accent-cool-base),
+  inverse-base:       system-color($theme-color-inverse-base),
+  inverse-dark:       system-color($theme-color-inverse-dark),
+);
+
+$plugin-color-palette-state: (
+  error-lighter:      system-color($theme-color-error-lighter),
+  error-light:        system-color($theme-color-error-light),
+  error-base:         system-color($theme-color-error-base),
+  error-dark:         system-color($theme-color-error-dark),
+  error-darker:       system-color($theme-color-error-darker),
+  warn-lighter:       system-color($theme-color-warn-lighter),
+  warn-light:         system-color($theme-color-warn-light),
+  warn-base:          system-color($theme-color-warn-base),
+  warn-dark:          system-color($theme-color-warn-dark),
+  warn-darker:        system-color($theme-color-warn-darker),
+  success-lighter:    system-color($theme-color-success-lighter),
+  success-light:      system-color($theme-color-success-light),
+  success-base:       system-color($theme-color-success-base),
+  success-dark:       system-color($theme-color-success-dark),
+  success-darker:     system-color($theme-color-success-darker),
+  disabled:           system-color($theme-color-disabled-base),
+);
+
+
+$plugin-palettes: (
+  'plugin-color-palette-theme':     $plugin-color-palette-theme,
+  'plugin-color-palette-grayscale': $plugin-palette-grayscale,
+  'plugin-color-palette-required':  $plugin-color-palette-required,
+  'plugin-color-palette-state':     $plugin-color-palette-state,
+);

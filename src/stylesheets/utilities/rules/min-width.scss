@@ -1,0 +1,28 @@
+/*
+========================================
+min-width
+----------------------------------------
+usage:
+  .min-width-[key]
+----------------------------------------
+output:
+  min-width: [value];
+----------------------------------------
+example:
+  .min-width-g40 {
+    min-width: 320px; }
+----------------------------------------
+*/
+
+$min-width: (
+  min-width: (
+    base: 'min-width',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($min-width-plugins),
+      $min-width-manual-values
+    ),
+    settings: $min-width-settings,
+    property: 'min-width',
+  )
+)

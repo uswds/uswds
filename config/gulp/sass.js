@@ -7,6 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var linter = require('@18f/stylelint-rules');
 var pkg = require('../../package.json');
+var path = require('path');
 var filter = require('gulp-filter');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
@@ -65,7 +66,9 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
     ))
     // 2. convert SCSS to CSS
     .pipe(
-      sass({ outputStyle: 'expanded' })
+      sass({
+        outputStyle: 'expanded',
+      })
         .on('error', sass.logError)
     )
     // 3. run it through autoprefixer

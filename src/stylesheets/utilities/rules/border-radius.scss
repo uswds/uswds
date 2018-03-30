@@ -1,0 +1,37 @@
+/*
+========================================
+border-radius
+----------------------------------------
+usage:
+  .border-radius-[key]
+----------------------------------------
+output:
+  border-radius: [value];
+----------------------------------------
+example:
+  .border-radius-0 {
+    border-radius: 0; }
+
+  .border-radius-pill {
+    border-radius: 10em; }
+----------------------------------------
+*/
+
+$border-radius: (
+  border-radius: (
+    base: 'border',
+    modifiers: (
+      'top-radius': ('border-top-left-radius', 'border-top-right-radius'),
+      'right-radius': ('border-top-right-radius', 'border-bottom-right-radius'),
+      'bottom-radius': ('border-bottom-left-radius', 'border-bottom-right-radius'),
+      'left-radius': ('border-top-left-radius', 'border-bottom-left-radius'),
+      'radius': 'border-radius',
+    ),
+    property: '',
+    values: map-collect(
+      get-plugins($border-radius-plugins),
+      $border-radius-manual-values
+    ),
+    settings: $border-radius-settings,
+  )
+)

@@ -1,0 +1,11 @@
+// Adds padding either l/r(x) or t/b(y)
+
+@mixin margin-x($value) {
+  margin-left: spacing($value);
+  margin-right: spacing($value);
+}
+
+@mixin margin-y($value) {
+  margin-bottom: spacing($value);
+  margin-top: spacing($value);
+}

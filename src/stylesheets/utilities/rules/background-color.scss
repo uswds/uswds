@@ -1,0 +1,29 @@
+/*
+========================================
+background-color
+----------------------------------------
+usage:
+  .background-color-[key]
+----------------------------------------
+output:
+  background-color: [value];
+----------------------------------------
+example:
+  .background-color-red-50v {
+    background-color: #be4900; }
+----------------------------------------
+*/
+
+$background-color: (
+  background-color: (
+    base: 'background-color',
+    modifiers: null,
+    property: 'background-color',
+    values: map-collect(
+      get-plugins($background-color-plugins),
+      get-plugins('plugin-color-palette-required'),
+      $background-color-manual-values
+    ),
+    settings: $background-color-settings,
+  )
+)

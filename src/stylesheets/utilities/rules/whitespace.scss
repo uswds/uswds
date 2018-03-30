@@ -1,0 +1,28 @@
+/*
+========================================
+white-space
+----------------------------------------
+usage:
+  white-space-[key]
+----------------------------------------
+output:
+  white-space: [value];
+----------------------------------------
+example:
+  .white-space-pre-wrap {
+    white-space: pre-wrap; }
+----------------------------------------
+*/
+
+$whitespace: (
+  whitespace: (
+    base: 'white-space',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($whitespace-plugins),
+      $whitespace-manual-values
+    ),
+    settings: $whitespace-settings,
+    property: 'white-space',
+  )
+)

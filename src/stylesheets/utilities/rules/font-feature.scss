@@ -1,0 +1,29 @@
+/*
+========================================
+font-feature-settings
+----------------------------------------
+usage:
+  .font-feature-[key]
+----------------------------------------
+output:
+  font-feature-settings: [value];
+----------------------------------------
+example:
+  .font-feature-alt {
+    font-feature-settings:
+      'ss01' 1, 'kern' 1; }
+----------------------------------------
+*/
+
+$font-feature: (
+  font-feature: (
+    base: 'font-feature',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($font-feature-plugins),
+      $font-feature-manual-values
+    ),
+    settings: $font-feature-settings,
+    property: 'font-feature-settings',
+  )
+)

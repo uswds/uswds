@@ -1,0 +1,28 @@
+/*
+========================================
+max-width
+----------------------------------------
+usage:
+  .max-width-[key]
+----------------------------------------
+output:
+  max-width: [value];
+----------------------------------------
+example:
+  .max-width-lg {
+    max-width: 1040px; }
+----------------------------------------
+*/
+
+$max-width: (
+  max-width: (
+    base: 'max-width',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($max-width-plugins),
+      $max-width-manual-values
+    ),
+    settings: $max-width-settings,
+    property: 'max-width',
+  )
+)

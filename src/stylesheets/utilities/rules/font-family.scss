@@ -1,0 +1,36 @@
+/*
+========================================
+font-family
+----------------------------------------
+usage:
+  .font-family-[key]
+----------------------------------------
+output:
+  font-family: [value]
+----------------------------------------
+example:
+  .font-family-sans {
+    font-family: 'United Sans webfont',
+                system,
+                -apple-system,
+                BlinkMacSystemFont,
+                'Roboto',
+                'Helvetica Neue',
+                'Helvetica',
+                'Arial',
+                sans-serif; }
+----------------------------------------
+*/
+
+$font-family: (
+  font-family: (
+    base: 'font-family',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($font-family-plugins),
+      $font-family-manual-values
+    ),
+    settings: $font-family-settings,
+    property: 'font-family',
+  )
+)

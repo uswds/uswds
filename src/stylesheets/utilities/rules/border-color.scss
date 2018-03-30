@@ -1,0 +1,29 @@
+/*
+========================================
+background-color
+----------------------------------------
+usage:
+  .border-color-[color]
+----------------------------------------
+output:
+  border[-modifier]*[-color]: [color];
+----------------------------------------
+example:
+  .border-color-red {
+    border-color: #be4900; }
+----------------------------------------
+*/
+
+$border-color: (
+  border-color: (
+    property: 'border-color',
+    base: 'border-color',
+    modifiers: null,
+    values: map-collect(
+      $plugin-color-palette-required,
+      get-plugins($border-color-plugins),
+      $border-color-manual-values
+    ),
+    settings: $border-color-settings,
+  )
+)
