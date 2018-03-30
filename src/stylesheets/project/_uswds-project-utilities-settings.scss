@@ -15,7 +15,7 @@ $output-breakpoints: (
   xl: false
 );
 
-$output-all-utilities:  true;
+$output-all-utilities:  false;
 
 $output-utilities: (
   align-items:      false,
@@ -30,7 +30,6 @@ $output-utilities: (
   circle:           true,
   clearfix:         true,
   color:            true,
-  column:           false,
   display:          true,
   flex:             false,
   flex-direction:   false,
@@ -46,7 +45,6 @@ $output-utilities: (
   letter-spacing:   true,
   line-height:      true,
   list-reset:       true,
-  manual-position:  false,
   margin:           true,
   max-height:       false,
   max-width:        false,
@@ -59,7 +57,6 @@ $output-utilities: (
   padding:          true,
   position:         false,
   right:            false,
-  row:              false,
   square:           false,
   text-align:       true,
   text-decoration:  true,
@@ -569,7 +566,7 @@ $float-manual-values: (
 */
 
 $font-settings: (
-  responsive:   true,
+  responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
@@ -936,7 +933,7 @@ $max-width-manual-values: (
 */
 
 $min-height-settings: (
-  responsive:   true,
+  responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
@@ -967,7 +964,7 @@ $min-height-manual-values: (
 */
 
 $min-width-settings: (
-  responsive:   true,
+  responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
@@ -1125,7 +1122,7 @@ $outline-color-manual-values: (
 */
 
 $padding-settings: (
-  responsive:   true,
+  responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
@@ -1238,7 +1235,6 @@ $square-plugins: (
 $square-manual-values: (
   /*
   */
-  2px:          '2px'
 );
 
 /*
@@ -1248,7 +1244,7 @@ $square-manual-values: (
 */
 
 $text-align-settings: (
-  responsive:   true,
+  responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
@@ -1324,6 +1320,7 @@ $text-decoration-color-manual-values: (
 );
 
 /*
+========================================
 .text-transform
 ----------------------------------------
 */

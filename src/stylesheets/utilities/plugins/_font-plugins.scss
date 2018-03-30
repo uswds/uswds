@@ -10,6 +10,12 @@ utilities
 
 $plugin-font:(
   'plugin-font-stack-roles': (
+    heading:  #{$font-stack-heading},
+    body:     #{$font-stack-body},
+    code:     #{$font-stack-code},
+    alt:      #{$font-stack-alt},
+  ),
+  'plugin-font-stack-types': (
     cond:    #{$font-stack-cond},
     mono:    #{$font-stack-mono},
     sans:    #{$font-stack-sans},
