@@ -154,19 +154,19 @@ Type scale
 Define your project's type scale using
 values from the USWDS system type scale
 
-s1-s20
+f1-f20
 ----------------------------------------
 */
 
-$theme-type-scale-micro:         s1;
-$theme-type-scale-smallest:      s3;
-$theme-type-scale-smaller:       s5;
-$theme-type-scale-small:         s6;
-$theme-type-scale-base:          s7;
-$theme-type-scale-large:         s10;
-$theme-type-scale-larger:        s12;
-$theme-type-scale-largest:       s14;
-$theme-type-scale-mega:          s16;
+$theme-type-scale-micro:         f1;
+$theme-type-scale-smallest:      f3;
+$theme-type-scale-smaller:       f5;
+$theme-type-scale-small:         f6;
+$theme-type-scale-base:          f7;
+$theme-type-scale-large:         f10;
+$theme-type-scale-larger:        f12;
+$theme-type-scale-largest:       f14;
+$theme-type-scale-mega:          f16;
 
 /*
 ----------------------------------------
