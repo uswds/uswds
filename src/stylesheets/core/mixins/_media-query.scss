@@ -1,5 +1,11 @@
 // Mobile-first media query helper
-@mixin media($bp) {
+
+// DON'T USE THIS FOR NOW.
+// We use media() from Neat instead
+@mixin at-media($bp) {
+  @if map-has-key($theme-breakpoints, $bp){
+    $bp: map-get($theme-breakpoints, $bp);
+  }
   @media screen and (min-width: #{$bp}) {
     @content;
   }
