@@ -1,11 +1,47 @@
-// Adds padding either l/r(x) or t/b(y)
+// Adds margin either l/r(x) or t/b(y)
 
+@mixin margin-n($side, $value) {
+  @if $side == all {
+    margin: spacing($value);
+  }
+  @elseif $side == x {
+    margin-left: spacing($value);
+    margin-right: spacing($value);
+  }
+  @elseif $side == y {
+    margin-bottom: spacing($value);
+    margin-top: spacing($value);
+  }
+  @else {
+    margin-#{$side}: spacing($value);
+  }
+}
+// disabled until integrated with Bourbon
+/*
+@mixin margin($value) {
+  @include margin-n(all, $value);
+}
+*/
 @mixin margin-x($value) {
-  margin-left: spacing($value);
-  margin-right: spacing($value);
+  @include margin-n(x, $value);
 }
 
 @mixin margin-y($value) {
-  margin-bottom: spacing($value);
-  margin-top: spacing($value);
+  @include margin-n(y, $value);
+}
+
+@mixin margin-top($value) {
+  @include margin-n(top, $value);
+}
+
+@mixin margin-right($value) {
+  @include margin-n(right, $value);
+}
+
+@mixin margin-bottom($value) {
+  @include margin-n(bottom, $value);
+}
+
+@mixin margin-left($value) {
+  @include margin-n(left, $value);
 }

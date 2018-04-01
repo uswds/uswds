@@ -681,6 +681,10 @@ the desired final units (currently rem)
   @elseif $value == false {
     @return false;
   }
+  @elseif not unitless($value) {
+    @warn "`#{$value}` is not a standard USWDS unit. This is OK, but consider using a standard spacing unit instead.";
+    @return $value;
+  }
   @else {
     @error "`#{$value}` is not a valid spacing value. Valid values: #{map-keys($project-spacing-all)}";
   }

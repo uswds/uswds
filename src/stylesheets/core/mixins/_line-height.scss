@@ -1,0 +1,5 @@
+// Outputs line-height
+
+@mixin line-height($value) {
+  line-height: line-height($value);
+}
