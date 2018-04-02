@@ -17,7 +17,13 @@
     }
 
     &:hover {
+      cursor: pointer;
       text-decoration: underline;
+
+      @include media($medium-screen) {
+        cursor: auto;
+        text-decoration: none;
+      }
     }
   }
 
@@ -41,10 +47,8 @@
 }
 
 .usa-footer-return-to-top {
-  color: $color-primary;
   padding-bottom: $spacing-medium;
   padding-top: $spacing-medium;
-  text-decoration: underline;
 }
 
 .usa-footer-primary-section {

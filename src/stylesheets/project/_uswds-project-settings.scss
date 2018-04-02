@@ -45,7 +45,7 @@ Relative font and image file paths
 ----------------------------------------
 */
 
-$theme-font-path:   '../fonts';
+$font-path:   '../fonts';
 $theme-image-path:  '../img';
 
 /*
@@ -73,7 +73,7 @@ $theme-font-definitions: (
   /*
   font-new: (
     name: "Font Display Name",
-    dir: "filder-name", // relative to settings.$theme-font-path
+    dir: "filder-name", // relative to settings.$font-path
     stack: $font-stack-system,
     system-font: false,
     cap-height: "364px", // height of a 500px `N` in Sketch

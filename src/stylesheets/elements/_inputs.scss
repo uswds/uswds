@@ -86,14 +86,26 @@ select {
   padding-top: 3px;
 }
 
+// Deprecated: Some screen readers can't read CSS content.
+// Will be removed in 2.0.
 .usa-input-required:after {
   color: $color-secondary-darkest;
   content: ' (*required)';
 }
 
+// Deprecated: Some screen readers can't read CSS content.
+// Will be removed in 2.0.
 .usa-input-optional:after {
   color: $color-gray-medium;
   content: ' (optional)';
+}
+
+.usa-input-label-helper {
+  color: $color-gray-medium;
+}
+
+.usa-input-label-required {
+  color: $color-secondary-darkest;
 }
 
 label {
@@ -107,12 +119,10 @@ textarea {
 }
 
 select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
   appearance: none;
   background-color: $color-white;
   background-image: url('#{$image-path}/arrow-both.png');
-  // Ensure browsers that don't support SVG in background-image (IE 11 and below) fall back to PNG. 
+  // Ensure browsers that don't support SVG in background-image (IE 11 and below) fall back to PNG.
   // See https://www.broken-links.com/2010/06/14/using-svg-in-backgrounds-with-png-fallback/
   background-image: none, url('#{$image-path}/arrow-both.svg'), url('#{$image-path}/arrow-both.png');
   background-position: right 1.3rem center;
@@ -249,7 +259,7 @@ legend {
 // Range inputs
 
 [type=range] {
-  -webkit-appearance: none;
+  appearance: none;
   border: none;
   padding-left: 0;
   width: 100%;
@@ -320,6 +330,12 @@ legend {
   border-radius: 2rem;
 }
 
+// File input type
+[type='file'] {
+  border: none;
+  padding-left: 0;
+}
+
 // Memorable dates
 
 .usa-date-of-birth {
@@ -329,7 +345,6 @@ legend {
 
   [type=number]::-webkit-inner-spin-button,
   [type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
     appearance: none;
     margin: 0;
   }

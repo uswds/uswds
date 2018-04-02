@@ -79,7 +79,6 @@ $icon-size: 3rem;
 
 .usa-alert-body {
   display: table-cell;
-  padding-left: $icon-size + $h-padding;
   vertical-align: top;
 }
 
@@ -107,6 +106,10 @@ $icon-size: 3rem;
 
     &::before {
       background-color: map-get($alerts-bar, $name);
+    }
+
+    .usa-alert-body {
+      padding-left: $icon-size + $h-padding;
     }
   }
 }

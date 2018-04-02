@@ -45,7 +45,9 @@ fractalLoad.then(() => {
   const chromeFractalTester = new ChromeFractalTester();
   const { handles } = chromeFractalTester;
 
-  describe('fractal component', () => {
+  describe('fractal component', function () {
+    this.timeout(20000);
+
     before('setup ChromeFractalTester', chromeFractalTester.setup);
 
     after('teardown ChromeFractalTester', chromeFractalTester.teardown);

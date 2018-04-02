@@ -4,7 +4,7 @@
 
 The [U.S. Web Design System](https://designsystem.digital.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-This repository is for the Standards themselves. 18F maintains [another repository for the documentation and website](https://github.com/uswds/uswds-site). To see the Standards and documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
+This repository is for the Design System itself. We maintain [another repository for the documentation and website](https://github.com/uswds/uswds-site). To see the Design System and documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
 
 ## Contents
 
@@ -27,7 +27,7 @@ This repository is for the Standards themselves. 18F maintains [another reposito
 
 ## Background
 
-The components and style guide of the U.S. Web Design System follows industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created and maintain the U.S. Web Design System for designers and developers. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/) and to view websites and applications check out our list [here](WHO_IS_USING_USWDS.md).
+The components and style guide of the U.S. Web Design System follows industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created the U.S. Web Design System for designers and developers. The U.S. Web Design System is a project of GSA’s [Technology Transformation Service](https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services), maintained by the Office of Products and Programs. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/) and to view websites and applications check out our list [here](WHO_IS_USING_USWDS.md).
 
 
 ## Recent updates
@@ -41,8 +41,8 @@ We’re glad you’d like to use the Design System — here’s how you can get 
 
 * Designers: [Check out our Getting Started for Designers information](https://designsystem.digital.gov/getting-started/designers/).
   * [Design files of all the assets included in the Design System are available for download](https://github.com/uswds/uswds-assets/archive/master.zip).
-* Developers: [Follow the instructions in this README to get started.](#using-the-standards)
-  * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/uswds/uswds/releases/download/v1.0.0/uswds-1.0.0.zip).
+* Developers: [Follow the instructions in this README to get started.](#using-the-design-system)
+  * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/uswds/uswds/releases/latest).
 
 
 ## Using the Design System
@@ -54,11 +54,10 @@ There are a few different ways to use the Design System within your project. Whi
 
 *Use the Design System `npm` package if:*
 - You are familiar with using `npm` and package management.
-- You would like to leverage Standards [Sass](#sass) files.
 
 ### Download
 
-1. Download the [Standards zip file](https://github.com/uswds/uswds/releases/latest) from the latest release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/latest) from the latest release and open that file.
 
   After extracting the zip file you should see the following file and folder structure:
 
@@ -69,11 +68,12 @@ There are a few different ways to use the Design System within your project. Whi
   │   ├── uswds.min.css
   │   └── uswds.css
   ├── fonts/
-  ├── html/
-  └── js/
-      ├── uswds.min.js.map
-      ├── uswds.min.js
-      └── uswds.js
+  ├── img/
+  ├── js/
+  │   ├── uswds.min.js.map
+  │   ├── uswds.min.js
+  │   └── uswds.js
+  └── scss/
 
   ```
 
@@ -91,7 +91,7 @@ There are a few different ways to use the Design System within your project. Whi
 
   You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project.
 
-3. To use the Design System on your project, you’ll need to reference the [CSS (*C*ascading *S*tyle *S*heets)](https://developer.mozilla.org/en-US/docs/Web/CSS) and JavaScript files in each HTML page or dynamic templates in your project.
+3. To use the Design System on your project, you’ll need to reference the [CSS (*C*ascading *S*tyle *S*heets)](https://developer.mozilla.org/en-US/docs/Web/CSS) and JavaScript files in each HTML page or dynamic templates in your project. (We also provide Sass (SCSS) files in the zip file which you can compile to CSS. See [Sass](#sass).)
 
   Here is an example of how to reference these assets in your `index.html` file:
 
@@ -113,7 +113,7 @@ There are a few different ways to use the Design System within your project. Whi
 
 We offer both files, the CSS and the JavaScript, in two versions — a minified version, and an un-minified one. (In the examples above, we are using the minified files.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. And the un-minified files are better if you are in a development environment or would like to debug the CSS or JavaScript assets in the browser.
 
-And that’s it — you should now be able to copy our code samples into our `index.html` and start using the Design System.
+And that’s it — you should now be able to copy our code samples into your `index.html` and start using the Design System.
 
 ### Install using npm
 
@@ -178,10 +178,9 @@ Global variables are defined in the `node_modules/uswds/src/stylesheets/core/_va
 
 Below is an example of how you might setup your main Sass file to achieve this:
 
-```
-@import 'variables.scss' # Custom Sass variables file
+```scss
+@import 'variables.scss'; # Custom Sass variables file
 @import 'node_modules/uswds/src/stylesheets/uswds.scss';
-
 ```
 
 You can now use your copied version of `_variables.scss` to override any styles to create a more custom look and feel to your application.

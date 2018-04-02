@@ -44,25 +44,32 @@
 
 .usa-nav-container {
   @include media($nav-width) {
-    @include outer-container();
+    @include outer-container($site-max-width);
     @include padding(null $site-margins);
-    max-width: $site-max-width;
   }
 }
 
 .usa-nav {
   $sliding-panel-width: 26rem;
 
-  @include position(fixed, 0 0 0 auto);
+  @keyframes slidein-left {
+    from {
+      transform: translateX($sliding-panel-width);
+    }
 
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @include position(fixed, 0 0 0 auto);
   background: $color-white;
   border-left: 1px solid $color-gray-light;
   border-right: 0;
-  display: flex;
+  display: none;
   flex-direction: column;
   overflow-y: auto;
   padding: 2rem;
-  transform: translateX($sliding-panel-width);
   width: $sliding-panel-width;
   z-index: $z-index-nav;
 
@@ -78,8 +85,8 @@
   }
 
   &.is-visible {
-    transform: translateX(0);
-    transition: all 0.3s ease-in-out;
+    animation: slidein-left 0.3s ease-in-out;
+    display: flex;
   }
 
   nav {
@@ -442,10 +449,15 @@
 .usa-nav-close {
   @include button-unstyled;
   @include margin(-1.2rem -1.5rem 1.5rem auto);
+  color: currentColor;
   float: right;
   height: $hit-area;
   text-align: center;
   width: $hit-area;
+
+  &:hover {
+    color: currentColor;
+  }
 
   @include media($nav-width) {
     display: none;

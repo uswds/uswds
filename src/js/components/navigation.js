@@ -20,6 +20,56 @@ const VISIBLE_CLASS = 'is-visible';
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
+const _focusTrap = (trapContainer) => {
+  // Find all focusable children
+  const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+  const focusableElements = trapContainer.querySelectorAll(focusableElementsString);
+  const firstTabStop = focusableElements[ 0 ];
+  const lastTabStop = focusableElements[ focusableElements.length - 1 ];
+
+  function trapTabKey (e) {
+    // Check for TAB key press
+    if (e.keyCode === 9) {
+
+      // SHIFT + TAB
+      if (e.shiftKey) {
+        if (document.activeElement === firstTabStop) {
+          e.preventDefault();
+          lastTabStop.focus();
+        }
+
+      // TAB
+      } else {
+        if (document.activeElement === lastTabStop) {
+          e.preventDefault();
+          firstTabStop.focus();
+        }
+      }
+    }
+
+    // ESCAPE
+    if (e.keyCode === 27) {
+      toggleNav.call(this, false);
+    }
+  }
+
+  // Focus first child
+  firstTabStop.focus();
+
+  return {
+    enable () {
+      // Listen for and trap the keyboard
+      trapContainer.addEventListener('keydown', trapTabKey);
+    },
+
+    release () {
+      trapContainer.removeEventListener('keydown', trapTabKey);
+    },
+  };
+};
+
+let focusTrap;
+
 const toggleNav = function (active) {
   const body = document.body;
   if (typeof active !== 'boolean') {
@@ -30,6 +80,12 @@ const toggleNav = function (active) {
   forEach(select(TOGGLES), el => {
     el.classList.toggle(VISIBLE_CLASS, active);
   });
+
+  if (active) {
+    focusTrap.enable();
+  } else {
+    focusTrap.release();
+  }
 
   const closeButton = body.querySelector(CLOSE_BUTTON);
   const menuButton = body.querySelector(OPENERS);
@@ -87,6 +143,12 @@ const navigation = behavior({
   },
 }, {
   init () {
+    const trapContainer = document.querySelector(NAV);
+
+    if (trapContainer) {
+      focusTrap = _focusTrap(trapContainer);
+    }
+
     resize();
     window.addEventListener('resize', resize, false);
   },

@@ -1376,7 +1376,7 @@ through all possible variants
             @if $outputweight == $weight and $filename {
               @include font-face(
                 '#{$font-name}',
-                '#{$theme-font-path}/#{$dir}/#{$filename}',
+                '#{$font-path}/#{$dir}/#{$filename}',
                 #{$weight},
                 normal,
                 $file-formats: eot woff2 woff ttf
@@ -1392,7 +1392,7 @@ through all possible variants
             @if $outputweight == $weight and $filename {
               @include font-face(
                 '#{$font-name}',
-                '#{$theme-font-path}/#{$dir}/#{$filename}',
+                '#{$font-path}/#{$dir}/#{$filename}',
                 #{$weight},
                 italic,
                 $file-formats: eot woff2 woff ttf
