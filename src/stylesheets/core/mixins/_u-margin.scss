@@ -1,6 +1,6 @@
 // Adds margin either l/r(x) or t/b(y)
 
-@mixin margin-n($side, $value) {
+@mixin u-margin-n($side, $value) {
   @if $side == all {
     margin: spacing($value);
   }
@@ -16,32 +16,31 @@
     margin-#{$side}: spacing($value);
   }
 }
-// disabled until integrated with Bourbon
-/*
-@mixin margin($value) {
-  @include margin-n(all, $value);
-}
-*/
-@mixin margin-x($value) {
-  @include margin-n(x, $value);
+
+@mixin u-margin($value) {
+  @include u-margin-n(all, $value);
 }
 
-@mixin margin-y($value) {
-  @include margin-n(y, $value);
+@mixin u-margin-x($value) {
+  @include u-margin-n(x, $value);
 }
 
-@mixin margin-top($value) {
-  @include margin-n(top, $value);
+@mixin u-margin-y($value) {
+  @include u-margin-n(y, $value);
 }
 
-@mixin margin-right($value) {
-  @include margin-n(right, $value);
+@mixin u-margin-top($value) {
+  @include u-margin-n(top, $value);
 }
 
-@mixin margin-bottom($value) {
-  @include margin-n(bottom, $value);
+@mixin u-margin-right($value) {
+  @include u-margin-n(right, $value);
 }
 
-@mixin margin-left($value) {
-  @include margin-n(left, $value);
+@mixin u-margin-bottom($value) {
+  @include u-margin-n(bottom, $value);
+}
+
+@mixin u-margin-left($value) {
+  @include u-margin-n(left, $value);
 }

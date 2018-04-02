@@ -8,7 +8,7 @@ system scale or project scale
 ----------------------------------------
 */
 
-@mixin font($props...){
+@mixin u-font($props...){
   @if length($props) == 0 or length($props) > 2 {
     @error "`font()` needs a valid face, and an optional size. If it only includes the face, it will output the font stack for that face (font-family). If it inlcludes the size, it will output the normalized font size (font-size).";
   }

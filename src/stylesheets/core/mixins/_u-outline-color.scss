@@ -1,5 +1,5 @@
 // Outputs line-height
 
-@mixin outline-color($value...) {
+@mixin u-outline-color($value...) {
   outline-color: color($value...);
 }

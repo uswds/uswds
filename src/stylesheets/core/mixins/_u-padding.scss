@@ -1,6 +1,6 @@
 // Adds padding either l/r(x) or t/b(y)
 
-@mixin padding-n($side, $value) {
+@mixin u-padding-n($side, $value) {
   @if $side == all {
     padding: spacing($value);
   }
@@ -17,33 +17,30 @@
   }
 }
 
-// disabled until integrated with Bourbon
-/*
-@mixin padding($value) {
-  @include padding-n(all, $value);
-}
-*/
-
-@mixin padding-x($value) {
-  @include padding-n(x, $value);
+@mixin u-padding($value) {
+  @include u-padding-n(all, $value);
 }
 
-@mixin padding-y($value) {
-  @include padding-n(y, $value);
+@mixin u-padding-x($value) {
+  @include u-padding-n(x, $value);
 }
 
-@mixin padding-top($value) {
-  @include padding-n(top, $value);
+@mixin u-padding-y($value) {
+  @include u-padding-n(y, $value);
 }
 
-@mixin padding-right($value) {
-  @include padding-n(right, $value);
+@mixin u-padding-top($value) {
+  @include u-padding-n(top, $value);
 }
 
-@mixin padding-bottom($value) {
-  @include padding-n(bottom, $value);
+@mixin u-padding-right($value) {
+  @include u-padding-n(right, $value);
 }
 
-@mixin padding-left($value) {
-  @include padding-n(left, $value);
+@mixin u-padding-bottom($value) {
+  @include u-padding-n(bottom, $value);
+}
+
+@mixin u-padding-left($value) {
+  @include u-padding-n(left, $value);
 }

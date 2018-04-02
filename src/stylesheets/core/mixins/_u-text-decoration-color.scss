@@ -1,5 +1,5 @@
 // Outputs line-height
 
-@mixin text-decoration-color($value...) {
+@mixin u-text-decoration-color($value...) {
   text-decoration-color: color($value...);
 }
