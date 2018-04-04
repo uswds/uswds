@@ -388,7 +388,7 @@ $uswds-properties: (
       $uswds-spacing-named-small-negative,
       $uswds-spacing-named-medium-negative,
       map-get($partial-values, zero-zero),
-      map-get($partial-values, auto),
+      map-get($partial-values, auto)
     ),
     extended: map-collect(
       $uswds-spacing-small,
@@ -438,7 +438,7 @@ $uswds-properties: (
       $uswds-spacing-named-small-negative,
       $uswds-spacing-named-medium-negative,
       map-get($partial-values, zero-zero),
-      map-get($partial-values, auto),
+      map-get($partial-values, auto)
     ),
     extended: map-collect(
       $uswds-spacing-small,
@@ -475,7 +475,7 @@ $uswds-properties: (
       $uswds-spacing-named,
       $project-breakpoints-rem,
       map-get($partial-values, zero-zero),
-      map-get($partial-values, auto),
+      map-get($partial-values, auto)
     ),
     extended: map-collect(
       $uswds-spacing-numeric
