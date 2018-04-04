@@ -50,7 +50,7 @@ $uswds-properties: (
     ),
     extended: map-collect(
       $uswds-spacing-small,
-      $uswds-spacing-medium,
+      $uswds-spacing-medium
     ),
   ),
   border-color: (
