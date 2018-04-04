@@ -11,6 +11,7 @@ var path = require('path');
 var filter = require('gulp-filter');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
+var stripCssComments = require('gulp-strip-css-comments');
 var combineMq = require('gulp-combine-mq');
 var del = require('del');
 var task = 'sass';
@@ -71,20 +72,22 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
       })
         .on('error', sass.logError)
     )
-    // 3. run it through autoprefixer
+    // 3. Remove all but important comments
+    .pipe(stripCssComments())
+    // 4. run it through autoprefixer
     .pipe(
       autoprefixer({
         browsers: require('./browsers'),
         cascade: false,
       })
     )
-    // 4. Combine media queries
+    // 5. Combine media queries
     .pipe(
       combineMq({
         beautify: true,
       })
     )
-    // 5. write dist/css/uswds.css
+    // 6. write dist/css/uswds.css
     .pipe(gulp.dest('dist/css'));
 
   // we can reuse this stream for minification!
