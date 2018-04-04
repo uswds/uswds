@@ -16,6 +16,11 @@ Output USWDS components and styles
 @import 'lib/normalize';
 
 // -------------------------------------
+// Load mixins
+
+@import 'core/mixins/all';
+
+// -------------------------------------
 // Load core
 
 @import 'core/grid';

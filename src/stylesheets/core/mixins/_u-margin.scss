@@ -2,18 +2,18 @@
 
 @mixin u-margin-n($side, $value) {
   @if $side == all {
-    margin: spacing($value);
+    margin: get-uswds-value(margin, $value);
   }
   @elseif $side == x {
-    margin-left: spacing($value);
-    margin-right: spacing($value);
+    margin-left: get-uswds-value(margin, $value);
+    margin-right: get-uswds-value(margin, $value);
   }
   @elseif $side == y {
-    margin-bottom: spacing($value);
-    margin-top: spacing($value);
+    margin-bottom: get-uswds-value(margin, $value);
+    margin-top: get-uswds-value(margin, $value);
   }
   @else {
-    margin-#{$side}: spacing($value);
+    margin-#{$side}: get-uswds-value(margin, $value);
   }
 }
 

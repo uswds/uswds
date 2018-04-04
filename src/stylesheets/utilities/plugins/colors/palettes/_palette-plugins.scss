@@ -1,13 +1,3 @@
-$plugin-color-palette-required: (
-  transparent:    transparent,
-  black:          $black-100,
-  white:          $white-0,
-);
-
-$plugin-palette-grayscale: map-collect(
-  $plugin-color-black-all,
-  $plugin-color-white-all
-);
 
 /* this is the old theme
 $plugin-color-palette-theme: (
@@ -50,53 +40,14 @@ $plugin-color-palette-theme: (
 );
 */
 
-$plugin-color-palette-theme: (
-  neutral-lighter:    system-color($theme-color-neutral-lighter),
-  neutral-light:      system-color($theme-color-neutral-light),
-  neutral-base:       system-color($theme-color-neutral-base),
-  neutral-dark:       system-color($theme-color-neutral-dark),
-  neutral-darker:     system-color($theme-color-neutral-darker),
-  primary-lighter:    system-color($theme-color-primary-lighter),
-  primary-light:      system-color($theme-color-primary-light),
-  primary-base:       system-color($theme-color-primary-base),
-  primary-vivid:      system-color($theme-color-primary-vivid),
-  primary-dark:       system-color($theme-color-primary-dark),
-  primary-darker:     system-color($theme-color-primary-darker),
-  secondary-light:    system-color($theme-color-secondary-light),
-  secondary-base:     system-color($theme-color-secondary-base),
-  secondary-vivid:    system-color($theme-color-secondary-vivid),
-  secondary-dark:     system-color($theme-color-secondary-dark),
-  accent-warm-light:  system-color($theme-color-accent-warm-lighter),
-  accent-warm-base:   system-color($theme-color-accent-warm-base),
-  accent-cool-light:  system-color($theme-color-accent-cool-lighter),
-  accent-cool-base:   system-color($theme-color-accent-cool-base),
-  inverse-base:       system-color($theme-color-inverse-base),
-  inverse-dark:       system-color($theme-color-inverse-dark),
-);
-
-$plugin-color-palette-state: (
-  error-lighter:      system-color($theme-color-error-lighter),
-  error-light:        system-color($theme-color-error-light),
-  error-base:         system-color($theme-color-error-base),
-  error-dark:         system-color($theme-color-error-dark),
-  error-darker:       system-color($theme-color-error-darker),
-  warn-lighter:       system-color($theme-color-warn-lighter),
-  warn-light:         system-color($theme-color-warn-light),
-  warn-base:          system-color($theme-color-warn-base),
-  warn-dark:          system-color($theme-color-warn-dark),
-  warn-darker:        system-color($theme-color-warn-darker),
-  success-lighter:    system-color($theme-color-success-lighter),
-  success-light:      system-color($theme-color-success-light),
-  success-base:       system-color($theme-color-success-base),
-  success-dark:       system-color($theme-color-success-dark),
-  success-darker:     system-color($theme-color-success-darker),
-  disabled:           system-color($theme-color-disabled-base),
-);
-
-
 $plugin-palettes: (
-  'plugin-color-palette-theme':     $plugin-color-palette-theme,
-  'plugin-color-palette-grayscale': $plugin-palette-grayscale,
-  'plugin-color-palette-required':  $plugin-color-palette-required,
-  'plugin-color-palette-state':     $plugin-color-palette-state,
+  'plugin-color-palette-theme':     $color-palette-theme,
+  'plugin-color-palette-grayscale': map-collect(
+    $plugin-color-black-all,
+    $plugin-color-white-all,
+    $plugin-color-black-transparent-all,
+    $plugin-color-white-transparent-all
+  ),
+  'plugin-color-palette-required':  $required-colors,
+  'plugin-color-palette-state':     $color-palette-state,
 );

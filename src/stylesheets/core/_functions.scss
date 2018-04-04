@@ -417,6 +417,38 @@ TODO: convert/translate these to mixins?
 
 /*
 ----------------------------------------
+get-uswds-value()
+----------------------------------------
+Finds and outputs a value from the
+USWDS standard values.
+
+Used to build other standard utility
+functions and mixins.
+----------------------------------------
+*/
+
+@function get-uswds-value($property, $value){
+  $quoted-value: quote($value);
+  $our-values: map-deep-get($uswds-properties, $property, allowed);
+  $our-values-extended: map-deep-get($uswds-properties, $property, extended);
+  @if map-has-key($our-values, $quoted-value) {
+    @return map-get($our-values, $quoted-value);
+  }
+  @if map-has-key($our-values-extended, $quoted-value) {
+    @warn "`#{$value}` is not an extended USWDS `#{$property}` unit. This is OK, but only components built with allowed values can be accepted back into the system. Accepted values: #{map-keys($our-values)}";
+    @return map-get($our-values-extended, $quoted-value);
+  }
+  @elseif type-of($value) == 'number' and not unitless($value) {
+    @warn "`#{$value}` is not a standard USWDS `#{$property}` unit. This is OK, but only components built with allowed values can be accepted back into the system. Accepted values: #{map-keys($our-values)}";
+    @return $value;
+  }
+  @else {
+    @error "`#{$value}` is not a valid `#{$property}` value. Accepted values: #{map-keys($our-values)}";
+  }
+};
+
+/*
+----------------------------------------
 border-radius()
 ----------------------------------------
 Get a border-radius from the system
@@ -477,12 +509,7 @@ Gets a valid USWDS font feature setting
 */
 
 @function feature($value) {
-  @if map-has-key($uswds-font-feature-settings, $value) {
-    @return map-get($uswds-font-feature-settings, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid font feature setting. Valid values: #{map-keys($uswds-font-feature-settings)}";
-  }
+  @return get-uswds-value(feature, $value);
 };
 
 /*
@@ -494,12 +521,7 @@ Gets a valid USWDS flex value
 */
 
 @function flex($value) {
-  @if map-has-key($uswds-flex, $value) {
-    @return map-get($uswds-flex, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid flex value. Valid values: #{map-keys($uswds-flex)}";
-  }
+  @return get-uswds-value(flex, $value);
 };
 
 /*
@@ -580,12 +602,7 @@ system letter-spacing
 */
 
 @function letter-spacing($value) {
-  @if map-has-key($uswds-letter-spacing, $value) {
-    @return map-get($uswds-letter-spacing, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid letter-spacing value. Valid values: #{map-keys($uswds-letter-spacing)}";
-  }
+  @return get-uswds-value(letter-spacing, $value);
 };
 
 /*
@@ -598,12 +615,7 @@ line heights
 */
 
 @function line-height($value) {
-  @if map-has-key($uswds-line-height, $value) {
-    @return map-get($uswds-line-height, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid line height. Valid values: #{map-keys($uswds-line-height)}";
-  }
+  @return get-uswds-value(line-height, $value);
 };
 
 /*
@@ -615,15 +627,7 @@ Gets a valid USWDS reading line length
 */
 
 @function measure($value) {
-  @if map-has-key($uswds-measure, $value) {
-    @return map-get($uswds-measure, $value);
-  }
-  @elseif $value == false {
-    @return false;
-  }
-  @else {
-    @error "`#{$value}` is not a valid measure value. Valid values: #{map-keys($uswds-measure)}";
-  }
+  @return get-uswds-value(measure, $value);
 };
 
 /*
@@ -636,12 +640,7 @@ opacities
 */
 
 @function opacity($value) {
-  @if map-has-key($uswds-opacity, $value) {
-    @return map-get($uswds-opacity, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid opacity. Valid values: #{map-keys($uswds-opacity)}";
-  }
+  @return get-uswds-value(opacity, $value);
 };
 
 /*
@@ -654,12 +653,7 @@ system orders
 */
 
 @function order($value) {
-  @if map-has-key($uswds-order, $value) {
-    @return map-get($uswds-order, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid order value. Valid values: #{map-keys($uswds-order)}";
-  }
+  @return get-uswds-value(order, $value);
 };
 
 /*
@@ -700,12 +694,7 @@ system z-index
 */
 
 @function z-index($value) {
-  @if map-has-key($uswds-z-index, $value) {
-    @return map-get($uswds-z-index, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid z-index value. Valid values: #{map-keys($uswds-z-index)}";
-  }
+  @return get-uswds-value(z-index, $value);
 };
 
 /*
@@ -1376,7 +1365,7 @@ through all possible variants
             @if $outputweight == $weight and $filename {
               @include font-face(
                 '#{$font-name}',
-                '#{$font-path}/#{$dir}/#{$filename}',
+                '#{$theme-font-path}/#{$dir}/#{$filename}',
                 #{$weight},
                 normal,
                 $file-formats: eot woff2 woff ttf
@@ -1392,7 +1381,7 @@ through all possible variants
             @if $outputweight == $weight and $filename {
               @include font-face(
                 '#{$font-name}',
-                '#{$font-path}/#{$dir}/#{$filename}',
+                '#{$theme-font-path}/#{$dir}/#{$filename}',
                 #{$weight},
                 italic,
                 $file-formats: eot woff2 woff ttf

@@ -17,6 +17,18 @@ $theme-root-font-size: 16px !default;
 
 /*
 ----------------------------------------
+Border box sizing
+----------------------------------------
+When set to true, it sets the box-sizing
+property of all elements to
+`border-box`.
+----------------------------------------
+*/
+
+$border-box-sizing: true;
+
+/*
+----------------------------------------
 Breakpoints
 ----------------------------------------
 Use pixel units.
@@ -45,7 +57,7 @@ Relative font and image file paths
 ----------------------------------------
 */
 
-$font-path:   '../fonts' !default;
+$theme-font-path:   '../fonts' !default;
 $theme-image-path:  '../img' !default;
 
 /*
@@ -73,7 +85,7 @@ $theme-font-definitions: (
   /*
   font-new: (
     name: "Font Display Name",
-    dir: "filder-name", // relative to settings.$font-path
+    dir: "filder-name", // relative to settings.$theme-font-path
     stack: $font-stack-system,
     system-font: false,
     cap-height: "364px", // height of a 500px `N` in Sketch
@@ -154,7 +166,7 @@ Type scale
 Define your project's type scale using
 values from the USWDS system type scale
 
-f1-f20
+s1-s20
 ----------------------------------------
 */
 

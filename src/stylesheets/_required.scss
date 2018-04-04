@@ -16,7 +16,6 @@ USWDS project.
 // -------------------------------------
 // Vendor
 
-@import 'core/variables-vendor';
 @import 'lib/bourbon';
 @import 'lib/neat';
 
@@ -39,6 +38,11 @@ USWDS project.
 // Calculated and internal variables
 
 @import 'core/variables';
+
+// -------------------------------------
+// All property values available to mixins
+
+@import 'core/properties';
 
 // -------------------------------------
 // Load mixins

@@ -20,7 +20,7 @@ $border-color: (
     base: 'border-color',
     modifiers: null,
     values: map-collect(
-      $plugin-color-palette-required,
+      $required-colors,
       get-plugins($border-color-plugins),
       $border-color-manual-values
     ),

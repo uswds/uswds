@@ -15,7 +15,7 @@ $output-breakpoints: (
   xl: false
 ) !default;
 
-$output-all-utilities:  false !default;
+$output-all-utilities:  true !default;
 
 $output-utilities: (
   align-items:      false,
@@ -30,6 +30,7 @@ $output-utilities: (
   circle:           true,
   clearfix:         true,
   color:            true,
+  column:           false,
   display:          true,
   flex:             false,
   flex-direction:   false,
@@ -45,6 +46,7 @@ $output-utilities: (
   letter-spacing:   true,
   line-height:      true,
   list-reset:       true,
+  manual-position:  false,
   margin:           true,
   max-height:       false,
   max-width:        false,
@@ -57,6 +59,7 @@ $output-utilities: (
   padding:          true,
   position:         false,
   right:            false,
+  row:              false,
   square:           false,
   text-align:       true,
   text-decoration:  true,
@@ -566,7 +569,7 @@ $float-manual-values: (
 */
 
 $font-settings: (
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
@@ -933,7 +936,7 @@ $max-width-manual-values: (
 */
 
 $min-height-settings: (
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
@@ -964,7 +967,7 @@ $min-height-manual-values: (
 */
 
 $min-width-settings: (
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
@@ -1122,7 +1125,7 @@ $outline-color-manual-values: (
 */
 
 $padding-settings: (
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
@@ -1235,6 +1238,7 @@ $square-plugins: (
 $square-manual-values: (
   /*
   */
+  2px:          '2px'
 ) !default;
 
 /*
@@ -1244,7 +1248,7 @@ $square-manual-values: (
 */
 
 $text-align-settings: (
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
@@ -1317,11 +1321,9 @@ $text-decoration-color-plugins: (
 $text-decoration-color-manual-values: (
   /*
   */
-  'auto':       auto,
 ) !default;
 
 /*
-========================================
 .text-transform
 ----------------------------------------
 */
