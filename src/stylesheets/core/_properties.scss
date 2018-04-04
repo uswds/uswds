@@ -7,7 +7,7 @@ USWDS Properties
 $allowed-colors: map-collect(
   $color-palette-theme,
   $color-palette-state,
-  $required-colors,
+  $required-colors
 );
 
 $partial-values: (
