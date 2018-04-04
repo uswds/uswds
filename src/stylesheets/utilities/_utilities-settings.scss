@@ -15,7 +15,7 @@ $output-breakpoints: (
   xl: false
 ) !default;
 
-$output-all-utilities:  true !default;
+$output-all-utilities:  false !default;
 
 $output-utilities: (
   align-items:      false,
@@ -42,7 +42,7 @@ $output-utilities: (
   font-style:       true,
   font-weight:      true,
   height:           false,
-  left:              false,
+  left:             false,
   letter-spacing:   true,
   line-height:      true,
   list-reset:       true,
