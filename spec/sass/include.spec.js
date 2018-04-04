@@ -30,8 +30,4 @@ describe('standalone dist scss', function () {
     return render('@import "uswds";', [ distScssPath ]);
   });
 
-  it('can be loaded with @import "all"', function () {
-    return render('@import "all";', [ distScssPath ]);
-  });
-
 });
