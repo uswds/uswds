@@ -1,0 +1,32 @@
+/*
+========================================
+overflow
+----------------------------------------
+usage:
+  .overflow-[modifier]
+----------------------------------------
+output:
+  overflow[-modifier]: [value] solid;
+----------------------------------------
+example:
+  .overflow-y-hidden {
+    overflow-y: hidden; }
+----------------------------------------
+*/
+
+$overflow: (
+  overflow: (
+    base: 'overflow',
+    modifiers: (
+      'y': '-y',
+      'x': '-y',
+      noModifier: '',
+    ),
+    values: map-collect(
+      get-plugins($overflow-plugins),
+      $overflow-manual-values
+    ),
+    settings: $overflow-settings,
+    property: 'overflow',
+  )
+)

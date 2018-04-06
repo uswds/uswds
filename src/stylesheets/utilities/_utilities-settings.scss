@@ -56,6 +56,7 @@ $output-utilities: (
   order:            false,
   outline-width:    false,
   outline-color:    false,
+  overflow:         false,
   padding:          true,
   position:         false,
   right:            false,
@@ -1116,6 +1117,34 @@ $outline-color-plugins: (
 $outline-color-manual-values: (
   /*
   */
+) !default;
+
+/*
+========================================
+.overflow
+----------------------------------------
+*/
+
+$overflow-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$overflow-plugins: (
+  /*
+  */
+) !default;
+
+$overflow-manual-values: (
+  /*
+  */
+  'hidden':            hidden,
+  'scroll':            scroll,
+  'auto':              auto,
+  'visiable':          visible,
 ) !default;
 
 /*

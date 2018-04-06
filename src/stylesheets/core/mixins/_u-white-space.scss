@@ -1,0 +1,5 @@
+// Outputs white-space
+
+@mixin u-white-space($value) {
+  white-space: get-uswds-value(white-space, $value);
+}

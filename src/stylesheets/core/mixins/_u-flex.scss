@@ -1,0 +1,5 @@
+// Outputs flex
+
+@mixin u-flex($value) {
+  flex: get-uswds-value(flex, $value);
+}

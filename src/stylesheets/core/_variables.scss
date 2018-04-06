@@ -313,9 +313,9 @@ $project-state-colors: (
 );
 
 $project-reserved-colors:(
-  'black':        'black',
-  'white':        'white',
-  'transparent':  'transparent',
+  'black':        black,
+  'white':        white,
+  'transparent':  transparent,
   'highlight':    system-color(gold, 20, vivid),
 );
 
