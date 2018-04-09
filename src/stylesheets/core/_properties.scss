@@ -194,6 +194,28 @@ $uswds-properties: (
     ),
     extended: (),
   ),
+  font-weight: (
+    standard: (
+      'thin': $theme-font-weight-thin,
+      'light': $theme-font-weight-light,
+      'normal': $theme-font-weight-normal,
+      'medium': $theme-font-weight-medium,
+      'semibold': $theme-font-weight-semibold,
+      'bold': $theme-font-weight-bold,
+      'black': $theme-font-weight-black,
+    ),
+    extended: (
+      '100': 100,
+      '200': 200,
+      '300': 300,
+      '400': 400,
+      '500': 500,
+      '600': 600,
+      '700': 700,
+      '800': 800,
+      '900': 900,
+    ),
+  ),
   height: (
     standard: map-collect(
       map-get($uswds-spacing, smaller),

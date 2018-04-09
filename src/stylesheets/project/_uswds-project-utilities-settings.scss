@@ -181,7 +181,7 @@ $border-radius-plugins: (
   'plugin-spacing-uswds-small'
   'plugin-spacing-uswds-medium'
   */
-  'plugin-misc-border-radius'
+  'plugin-standard-border-radius'
 );
 
 $border-radius-manual-values: (
@@ -307,7 +307,7 @@ $box-shadow-settings: (
 $box-shadow-plugins: (
   /*
   */
-  'plugin-misc-box-shadow'
+  'plugin-standard-box-shadow'
 );
 
 $box-shadow-manual-values: (
@@ -453,7 +453,7 @@ $flex-settings: (
 $flex-plugins: (
   /*
   */
-  'plugin-misc-flex'
+  'plugin-standard-flex'
 );
 
 $flex-manual-values: (
@@ -612,7 +612,7 @@ $font-feature-settings: (
 $font-feature-plugins: (
   /*
   */
-  'plugin-misc-font-feature-settings'
+  'plugin-standard-font-feature-settings'
 );
 
 $font-feature-manual-values: (
@@ -770,7 +770,7 @@ $letter-spacing-settings: (
 $letter-spacing-plugins: (
   /*
   */
-  'plugin-misc-letter-spacing'
+  'plugin-standard-letter-spacing'
 );
 
 $letter-spacing-manual-values: (
@@ -796,7 +796,7 @@ $line-height-settings: (
 $line-height-plugins: (
   /*
   */
-  'plugin-misc-line-heights'
+  'plugin-standard-line-height'
 );
 
 $line-height-manual-values: (
@@ -912,7 +912,7 @@ $max-width-plugins: (
   'plugin-spacing-units-percentage',
   'plugin-spacing-uswds-breakpoints'
   */
-  'plugin-misc-measure'
+  'plugin-standard-measure'
 );
 
 $max-width-manual-values: (
@@ -1007,7 +1007,7 @@ $opacity-settings: (
 $opacity-plugins: (
   /*
   */
-  'plugin-misc-opacity'
+  'plugin-standard-opacity'
 );
 
 $opacity-manual-values: (
@@ -1044,7 +1044,7 @@ $order-settings: (
 $order-plugins: (
   /*
   */
-  'plugin-misc-order'
+  'plugin-standard-order'
 );
 
 $order-manual-values: (
@@ -1549,7 +1549,7 @@ $z-index-settings: (
 $z-index-plugins: (
   /*
   */
-  'plugin-misc-z-index'
+  'plugin-standard-z-index'
 );
 
 $z-index-manual-values: (

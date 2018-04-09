@@ -412,6 +412,19 @@ TODO: convert/translate these to mixins?
 
 /*
 ----------------------------------------
+get-standard-values()
+----------------------------------------
+Gets a map of USWDS standard values
+for a property
+----------------------------------------
+*/
+
+@function get-standard-values($property){
+ @return map-deep-get($uswds-properties, $property, standard);
+}
+
+/*
+----------------------------------------
 get-uswds-value()
 ----------------------------------------
 Finds and outputs a value from the
@@ -441,6 +454,8 @@ functions and mixins.
     @warn "`#{$value}` is not a valid `#{$property}` value. You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
   }
 };
+
+
 
 /*
 ----------------------------------------
@@ -864,7 +879,7 @@ elegant
       }
     }
     @else {
-      $registry: map-get($plugin-registry, misc);
+      $registry: map-get($plugin-registry, standard);
     }
     // now the registry is set
     @if not map-has-key($registry, #{$plugin}){
