@@ -917,6 +917,32 @@ $max-width-manual-values: (
 
 /*
 ========================================
+.measure
+----------------------------------------
+*/
+
+$measure-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$measure-plugins: (
+  /*
+  */
+  'plugin-standard-measure'
+);
+
+$measure-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
 .min-height
 ----------------------------------------
 */
