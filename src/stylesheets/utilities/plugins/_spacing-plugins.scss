@@ -25,11 +25,11 @@ $plugin-spacing-uswds:(
   ),
   'plugin-spacing-uswds-negative': map-collect(
     map-get($uswds-spacing, smaller-negative),
-    map-get($uswds-spacing, small-negative),
+    map-get($uswds-spacing, small-negative)
   ),
   'plugin-spacing-uswds-breakpoints': map-collect(
     map-get($uswds-spacing, large),
-    map-get($uswds-spacing, larger),
+    map-get($uswds-spacing, larger)
   ),
 );
 
