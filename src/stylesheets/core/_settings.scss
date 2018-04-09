@@ -25,29 +25,7 @@ property of all elements to
 ----------------------------------------
 */
 
-$border-box-sizing: true;
-
-/*
-----------------------------------------
-Breakpoints
-----------------------------------------
-Use pixel units.
-These will be automatically converted to
-em values based on the value of
-$theme-root-font-size.
-
-Use `false` if your project will not
-use that breakpoint.
-----------------------------------------
-*/
-
-$theme-breakpoints:(
-  xs: 400px,
-  sm: 481px, // 600px
-  md: 600px, // 800px
-  lg: 1201px, // 1000px
-  xl: 1200px, // 1200px
- ) !default;
+$border-box-sizing: false;
 
 /*
 ----------------------------------------

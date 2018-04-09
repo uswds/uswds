@@ -22,28 +22,6 @@ project/_uswds-project-settings
 
 /*
 ----------------------------------------
-Breakpoints
-----------------------------------------
-*/
-
-$project-breakpoints-em: (
-  'xs':   px-to-base-em(map-get($theme-breakpoints, xs)),
-  'sm':   px-to-base-em(map-get($theme-breakpoints, sm)),
-  'md':   px-to-base-em(map-get($theme-breakpoints, md)),
-  'lg':   px-to-base-em(map-get($theme-breakpoints, lg)),
-  'xl':   px-to-base-em(map-get($theme-breakpoints, xl)),
-);
-
-$project-breakpoints-rem: (
-  'xs':   px(map-get($theme-breakpoints, xs)),
-  'sm':   px(map-get($theme-breakpoints, sm)),
-  'md':   px(map-get($theme-breakpoints, md)),
-  'lg':   px(map-get($theme-breakpoints, lg)),
-  'xl':   px(map-get($theme-breakpoints, xl)),
-);
-
-/*
-----------------------------------------
 Spacing
 ----------------------------------------
 All spacing values that can be called
@@ -51,15 +29,15 @@ by spacing()
 ----------------------------------------
 */
 
-$project-special-values:(
-  '0':      0,
-  'auto':   auto,
-);
-
-$project-spacing-all: map-collect(
-  $uswds-spacing,
-  $project-breakpoints-rem,
-  $project-special-values
+$project-spacing-standard: map-collect(
+  map-get($uswds-spacing, smaller),
+  map-get($uswds-spacing, small),
+  map-get($uswds-spacing, smaller-negative),
+  map-get($uswds-spacing, small-negative),
+  map-get($uswds-spacing, medium),
+  map-get($uswds-spacing, large),
+  map-get($uswds-spacing, larger),
+  map-get($uswds-spacing, special),
 );
 
 /*
@@ -375,9 +353,8 @@ $project-border-radius: (
 
 $all-border-radius: map-collect(
   $project-border-radius,
-  $uswds-spacing-small,
-  $uswds-spacing-medium,
-  $uswds-spacing-named
+  map-get($uswds-spacing, smaller),
+  map-get($uswds-spacing, small),
 );
 
 /*

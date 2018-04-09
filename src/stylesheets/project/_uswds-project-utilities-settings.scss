@@ -2,24 +2,23 @@
 ========================================
 USWDS UTILITIES SETTINGS
 ----------------------------------------
-!! Copy this file to your project's
-   sass root. Don't edit the version
-   in node_modules.
-----------------------------------------
 */
 
 $utilities-namespace-prefix:  'u-';
 $utilities-use-important:     false;
 
 $output-breakpoints: (
-  xs: false,
-  sm: true,
-  md: true,
-  lg: true,
-  xl: false
+  'compact':         false,   // 240px
+  'mobile':          false,   // 320px
+  'mobile-plus':     false,    // 480px
+  'tablet':          true,    // 640px
+  'tablet-plus':     true,    // 800px
+  'desktop':         true,    // 1040px
+  'desktop-plus':    false,   // 1200px
+  'wide':            false,   // 1400px
 );
 
-$output-all-utilities:  false;
+$output-all-utilities:  true;
 
 $output-utilities: (
   align-items:      false,
@@ -34,6 +33,7 @@ $output-utilities: (
   circle:           true,
   clearfix:         true,
   color:            true,
+  column:           false,
   display:          true,
   flex:             false,
   flex-direction:   false,
@@ -45,10 +45,11 @@ $output-utilities: (
   font-style:       true,
   font-weight:      true,
   height:           false,
-  left:              false,
+  left:             false,
   letter-spacing:   true,
   line-height:      true,
   list-reset:       true,
+  manual-position:  false,
   margin:           true,
   max-height:       false,
   max-width:        false,
@@ -58,9 +59,11 @@ $output-utilities: (
   order:            false,
   outline-width:    false,
   outline-color:    false,
+  overflow:         false,
   padding:          true,
   position:         false,
   right:            false,
+  row:              false,
   square:           false,
   text-align:       true,
   text-decoration:  true,
@@ -153,12 +156,12 @@ $border-settings: (
 
 $border-plugins: (
   /*
-  'plugin-spacing-units-px'
+  'plugin-spacing-uswds-smaller'
   'plugin-spacing-uswds-small'
   'plugin-spacing-uswds-medium'
   */
-  'plugin-spacing-uswds-named-small',
-  'plugin-spacing-uswds-named-medium'
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-small'
 );
 
 $border-manual-values: (
@@ -219,6 +222,7 @@ $border-radius-settings: (
 
 $border-radius-plugins: (
   /*
+  'plugin-spacing-uswds-smaller'
   'plugin-spacing-uswds-small'
   'plugin-spacing-uswds-medium'
   */
@@ -276,8 +280,8 @@ $border-width-plugins: (
   'plugin-spacing-uswds-small'
   'plugin-spacing-uswds-medium'
   */
-  'plugin-spacing-uswds-named-small',
-  'plugin-spacing-uswds-named-medium'
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-small'
 );
 
 $border-width-manual-values: (
@@ -307,17 +311,17 @@ $bottom-plugins: (
   'plugin-spacing-uswds-large'
   'plugin-spacing-uswds-xlarge'
   'plugin-spacing-uswds-all'
-  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-smaller-negative'
   'plugin-spacing-uswds-medium-negative'
   'plugin-spacing-uswds-negative'
   'plugin-spacing-units-percentage'
-  'plugin-spacing-units-px'
-  'plugin-spacing-units-px-negative'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
   */
-  'plugin-spacing-uswds-named-small',
-  'plugin-spacing-uswds-named-medium',
-  'plugin-spacing-uswds-named-small-negative',
-  'plugin-spacing-uswds-named-medium-negative'
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-small',
+  'plugin-spacing-uswds-smaller-negative',
+  'plugin-spacing-uswds-small-negative'
 );
 
 $bottom-manual-values: (
@@ -372,16 +376,19 @@ $circle-settings: (
 
 $circle-plugins: (
   /*
-  'plugin-spacing-uswds-named-small'
-  'plugin-spacing-uswds-named-medium'
-  'plugin-spacing-uswds-named-large'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
   'plugin-spacing-uswds-all'
   'plugin-spacing-uswds-small'
   'plugin-spacing-uswds-medium'
   'plugin-spacing-uswds-large'
   'plugin-spacing-uswds-xlarge'
   */
-  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-small',
+  'plugin-spacing-uswds-medium',
+  'plugin-spacing-uswds-large',
 );
 
 $circle-manual-values: (
@@ -570,7 +577,7 @@ $float-manual-values: (
 */
 
 $font-settings: (
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
@@ -711,17 +718,20 @@ $height-settings: (
 
 $height-plugins: (
   /*
-  'plugin-spacing-uswds-named-small'
-  'plugin-spacing-uswds-named-medium'
-  'plugin-spacing-uswds-named-large'
-  'plugin-spacing-uswds-named-xlarge'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
   'plugin-spacing-uswds-all'
   'plugin-spacing-uswds-small'
   'plugin-spacing-uswds-medium'
   'plugin-spacing-uswds-large'
   'plugin-spacing-uswds-xlarge'
   */
-  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-small',
+  'plugin-spacing-uswds-medium',
+  'plugin-spacing-uswds-large',
 );
 
 $height-manual-values: (
@@ -753,16 +763,17 @@ $left-plugins: (
   'plugin-spacing-uswds-large'
   'plugin-spacing-uswds-xlarge'
   'plugin-spacing-uswds-all'
-  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-smaller-negative'
   'plugin-spacing-uswds-medium-negative'
   'plugin-spacing-uswds-negative'
   'plugin-spacing-units-percentage'
-  'plugin-spacing-units-px'
-  'plugin-spacing-units-px-negative'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
   */
-  'plugin-spacing-uswds-named-small',
-  'plugin-spacing-uswds-named-medium',
-  'plugin-spacing-uswds-named-negative-all',
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-small',
+  'plugin-spacing-uswds-smaller-negative',
+  'plugin-spacing-uswds-small-negative',
 );
 
 $left-manual-values: (
@@ -852,8 +863,8 @@ $margin-settings: (
 
 $margin-plugins: (
   /*
-  'plugin-spacing-units-px',
-  'plugin-spacing-units-px-negative',
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-smaller-negative',
   'plugin-spacing-units-percentage',
   'plugin-spacing-uswds-all',
   'plugin-spacing-uswds-negative',
@@ -861,8 +872,11 @@ $margin-plugins: (
   'plugin-spacing-units-ch-negative',
   'plugin-spacing-units-em'
   */
-  'plugin-spacing-uswds-named-all',
-  'plugin-spacing-uswds-named-negative-all'
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-small',
+  'plugin-spacing-uswds-medium',
+  'plugin-spacing-uswds-smaller-negative',
+  'plugin-spacing-uswds-small-negative',
 );
 
 $margin-manual-values: (
@@ -890,10 +904,12 @@ $max-height-plugins: (
   /*
   'plugin-spacing-units-percentage',
   'plugin-spacing-uswds-all',
-  'plugin-spacing-units-px'
+  'plugin-spacing-uswds-smaller'
   */
-  'plugin-spacing-uswds-named-all'
-  'plugin-spacing-theme-breakpoints-rem'
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-small',
+  'plugin-spacing-uswds-medium',
+  'plugin-spacing-uswds-large',
 );
 
 $max-height-manual-values: (
@@ -919,7 +935,7 @@ $max-width-settings: (
 $max-width-plugins: (
   /*
   'plugin-spacing-units-percentage',
-  'plugin-spacing-theme-breakpoints-rem'
+  'plugin-spacing-uswds-breakpoints'
   */
   'plugin-misc-measure'
 );
@@ -937,7 +953,7 @@ $max-width-manual-values: (
 */
 
 $min-height-settings: (
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
@@ -950,8 +966,10 @@ $min-height-plugins: (
   'plugin-spacing-uswds-small'
   'plugin-spacing-uswds-medium'
   */
-  'plugin-spacing-uswds-named-all'
-  'plugin-spacing-theme-breakpoints-rem'
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-small',
+  'plugin-spacing-uswds-medium',
+  'plugin-spacing-uswds-large',
 );
 
 $min-height-manual-values: (
@@ -968,7 +986,7 @@ $min-height-manual-values: (
 */
 
 $min-width-settings: (
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
@@ -978,13 +996,15 @@ $min-width-settings: (
 $min-width-plugins: (
   /*
   'plugin-spacing-uswds-all',
-  'plugin-spacing-units-px-negative',
+  'plugin-spacing-uswds-smaller-negative',
   'plugin-spacing-units-em',
   'plugin-spacing-units-ch'
   'plugin-spacing-units-percentage'
   */
-  'plugin-spacing-uswds-named-all'
-  'plugin-spacing-theme-breakpoints-rem'
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-small',
+  'plugin-spacing-uswds-medium',
+  'plugin-spacing-uswds-large',
 );
 
 $min-width-manual-values: (
@@ -1084,7 +1104,7 @@ $outline-settings: (
 $outline-plugins: (
   /*
   */
-  'plugin-spacing-units-px',
+  'plugin-spacing-uswds-smaller',
   'plugin-spacing-uswds-small'
 );
 
@@ -1121,12 +1141,40 @@ $outline-color-manual-values: (
 
 /*
 ========================================
+.overflow
+----------------------------------------
+*/
+
+$overflow-settings: (
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$overflow-plugins: (
+  /*
+  */
+);
+
+$overflow-manual-values: (
+  /*
+  */
+  'hidden':            hidden,
+  'scroll':            scroll,
+  'auto':              auto,
+  'visiable':          visible,
+);
+
+/*
+========================================
 .padding
 ----------------------------------------
 */
 
 $padding-settings: (
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
@@ -1135,9 +1183,11 @@ $padding-settings: (
 
 $padding-plugins: (
   /*
-  'plugin-spacing-units-px',
+  'plugin-spacing-uswds-smaller',
   */
-  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-small',
+  'plugin-spacing-uswds-medium',
 );
 
 $padding-manual-values: (
@@ -1196,17 +1246,17 @@ $right-plugins: (
   'plugin-spacing-uswds-large'
   'plugin-spacing-uswds-xlarge'
   'plugin-spacing-uswds-all'
-  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-smaller-negative'
   'plugin-spacing-uswds-medium-negative'
   'plugin-spacing-uswds-negative'
   'plugin-spacing-units-percentage'
-  'plugin-spacing-units-px'
-  'plugin-spacing-units-px-negative'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
   */
-  'plugin-spacing-uswds-named-small',
-  'plugin-spacing-uswds-named-medium',
-  'plugin-spacing-uswds-named-small-negative',
-  'plugin-spacing-uswds-named-medium-negative'
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-small',
+  'plugin-spacing-uswds-smaller-negative',
+  'plugin-spacing-uswds-small-negative'
 );
 
 $right-manual-values: (
@@ -1233,12 +1283,13 @@ $square-settings: (
 $square-plugins: (
   /*
   */
-  'plugin-spacing-uswds-named-all'
+  'plugin-spacing-uswds-all'
 );
 
 $square-manual-values: (
   /*
   */
+  2px:          '2px'
 );
 
 /*
@@ -1248,7 +1299,7 @@ $square-manual-values: (
 */
 
 $text-align-settings: (
-  responsive:   false,
+  responsive:   true,
   active:       false,
   focus:        false,
   hover:        false,
@@ -1324,7 +1375,6 @@ $text-decoration-color-manual-values: (
 );
 
 /*
-========================================
 .text-transform
 ----------------------------------------
 */
@@ -1372,17 +1422,17 @@ $top-plugins: (
   'plugin-spacing-uswds-large'
   'plugin-spacing-uswds-xlarge'
   'plugin-spacing-uswds-all'
-  'plugin-spacing-uswds-small-negative'
+  'plugin-spacing-uswds-smaller-negative'
   'plugin-spacing-uswds-medium-negative'
   'plugin-spacing-uswds-negative'
   'plugin-spacing-units-percentage'
-  'plugin-spacing-units-px'
-  'plugin-spacing-units-px-negative'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
   */
-  'plugin-spacing-uswds-named-small',
-  'plugin-spacing-uswds-named-medium',
-  'plugin-spacing-uswds-named-small-negative',
-  'plugin-spacing-uswds-named-medium-negative'
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-small',
+  'plugin-spacing-uswds-smaller-negative',
+  'plugin-spacing-uswds-small-negative'
 );
 
 $top-manual-values: (
@@ -1470,13 +1520,15 @@ $width-settings: (
 $width-plugins: (
   /*
   'plugin-spacing-uswds-all',
-  'plugin-spacing-units-px',
+  'plugin-spacing-uswds-smaller',
   'plugin-spacing-units-em',
   'plugin-spacing-units-ch'
   'plugin-spacing-units-percentage'
   */
-  'plugin-spacing-uswds-named-all',
-  'plugin-spacing-theme-breakpoints-rem'
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-small',
+  'plugin-spacing-uswds-medium',
+  'plugin-spacing-uswds-large',
 );
 
 $width-manual-values: (

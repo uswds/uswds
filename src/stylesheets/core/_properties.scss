@@ -4,30 +4,30 @@ USWDS Properties
 ----------------------------------------
 */
 
-$allowed-colors: map-collect(
+$standard-colors: map-collect(
   $color-palette-theme,
   $color-palette-state,
   $required-colors
 );
 
 $partial-values: (
-  zero-zero:(
+  zero-zero: (
     '0': 0,
   ),
-  none:(
+  none: (
     'none': none,
   ),
-  auto:(
+  auto: (
     'auto': auto,
   ),
-  full-percent:(
+  full-percent: (
     '100ct': 100%,
   ),
-  full-viewport-height:(
+  full-viewport-height: (
     '100vh': 100vh,
     'viewport': 100vh,
   ),
-  full-viewport-width:(
+  full-viewport-width: (
     '100vw': 100vw,
     'viewport': 100vw,
   ),
@@ -35,7 +35,7 @@ $partial-values: (
 
 $uswds-properties: (
   align-items: (
-    allowed: (
+    standard: (
       'flex-start': flex-start,
       'flex-end':   flex-end,
       'center':     center,
@@ -44,87 +44,87 @@ $uswds-properties: (
     extended: (),
   ),
   background-color: (
-    allowed: $allowed-colors,
+    standard: $standard-colors,
     extended: $uswds-colors,
   ),
   border: (
-    allowed: map-collect(
-      $uswds-spacing-named-small,
-      $uswds-spacing-named-medium,
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
       map-get($partial-values, zero-zero)
     ),
-    extended: map-collect(
-      $uswds-spacing-small,
-      $uswds-spacing-medium
-    ),
+    extended: (),
   ),
   border-color: (
-    allowed: $allowed-colors,
+    standard: $standard-colors,
     extended: $uswds-colors,
   ),
   border-radius: (
-    allowed: $project-border-radius,
+    standard: $project-border-radius,
     extended: map-collect(
-      $uswds-spacing-small,
-      $uswds-spacing-medium,
-      $uswds-spacing-named
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small)
     ),
   ),
   border-style: (
-    allowed:(
+    standard: (
       'dashed': dashed,
       'dotted': dotted,
       'solid':  solid,
     ),
-    extended:(),
+    extended: (),
   ),
   border-width: (
-    allowed: map-collect(
-      $uswds-spacing-named-small,
-      $uswds-spacing-named-medium,
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
       map-get($partial-values, zero-zero)
     ),
-    extended: map-collect(
-      $uswds-spacing-small,
-      $uswds-spacing-medium
-    ),
+    extended: (),
   ),
   bottom: (
-    allowed: map-collect(
-      $uswds-spacing-named-small,
-      $uswds-spacing-named-medium,
-      $uswds-spacing-named-small-negative,
-      $uswds-spacing-named-medium-negative,
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, smaller-negative),
+      map-get($uswds-spacing, small-negative),
       map-get($partial-values, zero-zero),
       map-get($partial-values, auto)
     ),
-    extended: map-collect(
-      $uswds-spacing-small,
-      $uswds-spacing-medium,
-      $uswds-spacing-small-negative,
-      $uswds-spacing-medium-negative
-    ),
+    extended: (),
   ),
   box-shadow: (
-    allowed:(
+    standard: (
       'none':    none,
       'low':     0 1px 2px 0 rgba(0, 0, 0, 0.1),
       'high':    0 4px 8px 0 rgba(0, 0, 0, 0.1),
       'higher':  0 6px 12px 0 rgba(0, 0, 0, 0.1),
       'highest': 0 8px 16px 0 rgba(0, 0, 0, 0.1),
     ),
-    extended:(),
+    extended: (),
+  ),
+  breakpoints: (
+    standard: map-collect(
+      map-get($uswds-spacing, large),
+      map-get($uswds-spacing, larger)
+    ),
+    extended: (),
   ),
   circle: (
-    allowed: $uswds-spacing-named,
-    extended: $uswds-spacing-numeric,
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, large)
+    ),
+    extended: (),
   ),
   color: (
-    allowed: $allowed-colors,
+    standard: $standard-colors,
     extended: $uswds-colors,
   ),
   display: (
-    allowed:(
+    standard: (
       'block':        block,
       'flex':         flex,
       'none':         none,
@@ -133,10 +133,10 @@ $uswds-properties: (
       'table':        table,
       'table-cell':   table-cell,
     ),
-    extended:(),
+    extended: (),
   ),
-  flex:(
-    allowed:(
+  flex: (
+    standard: (
       '1':    1 0 0,
       '2':    2 0 0,
       '3':    3 0 0,
@@ -151,86 +151,81 @@ $uswds-properties: (
       'fill': 1 0 0,
       'fit':  0,
     ),
-    extended:(),
+    extended: (),
   ),
   flex-direction: (
-    allowed:(
+    standard: (
       'row':    row,
       'column': column,
     ),
-    extended:(),
+    extended: (),
   ),
   flex-wrap: (
-    allowed:(
+    standard: (
       'wrap':   wrap,
       'nowrap': nowrap,
     ),
-    extended:(),
+    extended: (),
   ),
   float: (
-    allowed:(
+    standard: (
       'left':  left,
       'none':  none,
       'right': right,
     ),
-    extended:(),
+    extended: (),
   ),
   font-family: (
-    allowed: $project-font-stacks,
-    extended:(),
+    standard: $project-font-stacks,
+    extended: (),
   ),
-  font-feature-settings:(
-    allowed:(
+  font-feature-settings: (
+    standard: (
       'alt': unquote('"ss01" 1, "kern" 1'),
       'tabular': unquote('"tnum" 1, "kern" 1'),
       'default': unquote('"kern" 1'),
     ),
-    extended:(),
+    extended: (),
   ),
   font-style: (
-    allowed:(
+    standard: (
       'normal': normal,
       'italic': italic,
     ),
-    extended:(),
+    extended: (),
   ),
   height: (
-    allowed: map-collect(
-      $uswds-spacing-named,
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
       map-get($partial-values, zero-zero),
       map-get($partial-values, auto),
       map-get($partial-values, full-percent),
       map-get($partial-values, full-viewport-height)
     ),
-    extended: map-collect(
-      $uswds-spacing-numeric
-    ),
+    extended: (),
   ),
   justify-content: (
-    allowed:(
+    standard: (
       'flex-start': flex-start,
       'flex-end': flex-end,
     ),
-    extended:(),
+    extended: (),
   ),
   left: (
-    allowed: map-collect(
-      $uswds-spacing-named-small,
-      $uswds-spacing-named-medium,
-      $uswds-spacing-named-small-negative,
-      $uswds-spacing-named-medium-negative,
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, smaller-negative),
+      map-get($uswds-spacing, small-negative),
       map-get($partial-values, zero-zero),
       map-get($partial-values, auto)
     ),
-    extended: map-collect(
-      $uswds-spacing-small,
-      $uswds-spacing-medium,
-      $uswds-spacing-small-negative,
-      $uswds-spacing-medium-negative
-    ),
+    extended: (),
   ),
   letter-spacing: (
-    allowed:(
+    standard: (
       'auto':	     auto,
       'tightest':	 -.03em,
       'tighter':	 -.02em,
@@ -240,10 +235,10 @@ $uswds-properties: (
       'looser':	   .1em,
       'loosest':	 .15em,
     ),
-    extended:(),
+    extended: (),
   ),
-  line-height:(
-    allowed:(
+  line-height: (
+    standard: (
       'smallest':	1,
       'smaller':	1.1,
       'small':	  1.35,
@@ -251,31 +246,39 @@ $uswds-properties: (
       'large':	  1.62,
       'larger':	  1.75,
     ),
-    extended:(),
+    extended: (),
   ),
   margin: (
-    allowed: map-collect(
-      $uswds-spacing-named-all,
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, smaller-negative),
+      map-get($uswds-spacing, small-negative),
+      map-get($uswds-spacing, medium),
       map-get($uswds-spacing-em, small),
       map-get($partial-values, zero-zero),
       map-get($partial-values, auto)
     ),
-    extended: $uswds-spacing-numeric-all,
+    extended: (),
   ),
   max-height: (
-    allowed: map-collect(
-      $uswds-spacing-named,
-      $project-breakpoints-rem,
+    standard: map-collect(
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, large),
       map-get($partial-values, zero-zero),
       map-get($partial-values, none),
       map-get($partial-values, full-percent),
       map-get($partial-values, full-viewport-height)
     ),
-    extended: $uswds-spacing-numeric-all,
+    extended: (),
   ),
   max-width: (
-    allowed: map-collect(
-      $uswds-spacing-named,
+    standard: map-collect(
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, large),
+      map-get($uswds-spacing, larger),
       (
         'measure-smaller': $uswds-measure-smaller,
         'measure-small':	 $uswds-measure-small,
@@ -285,10 +288,10 @@ $uswds-properties: (
         none:              none,
       )
     ),
-    extended:(),
+    extended: (),
   ),
   measure: (
-    allowed:(
+    standard: (
       'smaller':	$uswds-measure-smaller,
       'small':	  $uswds-measure-small,
       'base':	    $uswds-measure-base,
@@ -296,32 +299,31 @@ $uswds-properties: (
       'larger':	  $uswds-measure-larger,
       'none':     none,
     ),
-    extended:(),
+    extended: (),
   ),
   min-height: (
-    allowed: map-collect(
-      $uswds-spacing-named,
+    standard: map-collect(
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
       map-get($partial-values, zero-zero),
       map-get($partial-values, none),
       map-get($partial-values, full-percent),
       map-get($partial-values, full-viewport-height)
     ),
-    extended: map-collect(
-      $uswds-spacing-numeric
-    ),
+    extended: (),
   ),
   min-width: (
-    allowed: map-collect(
-      $uswds-spacing-named,
-      $project-breakpoints-rem,
+    standard: map-collect(
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, large),
+      map-get($uswds-spacing, larger),
       map-get($partial-values, none)
     ),
-    extended: map-collect(
-      $uswds-spacing-numeric
-    ),
+    extended: (),
   ),
-  opacity:(
-    allowed:(
+  opacity: (
+    standard: (
       'transparent':	0,
       'lightest':	    .01,
       'lighter':	    .1,
@@ -330,7 +332,7 @@ $uswds-properties: (
       'darker':	      .75,
       'darkest':	    .9,
     ),
-    extended:(
+    extended: (
       '0':  0,
       '01': 0.1,
       '02': 0.2,
@@ -344,8 +346,8 @@ $uswds-properties: (
       '1':  1,
     ),
   ),
-  order:(
-    allowed:(
+  order: (
+    standard: (
       'first':	-1,
       'last':	  999,
       '0':      0,
@@ -361,22 +363,22 @@ $uswds-properties: (
       '10':     10,
       '11':     11,
     ),
-    extended:(),
+    extended: (),
   ),
   outline: (
-    allowed: map-collect(
-      $uswds-spacing-named-small,
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
       map-get($partial-values, zero-zero),
       map-get($partial-values, none)
     ),
     extended: (),
   ),
   outline-color: (
-    allowed: $allowed-colors,
+    standard: $standard-colors,
     extended: $uswds-colors,
   ),
   overflow: (
-    allowed: (
+    standard: (
       'hidden':  hidden,
       'scroll':  scroll,
       'auto':    auto,
@@ -385,91 +387,88 @@ $uswds-properties: (
     extended: (),
   ),
   padding: (
-    allowed: map-collect(
-      $uswds-spacing-named,
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
       map-get($uswds-spacing-em, small),
       map-get($partial-values, zero-zero)
     ),
-    extended: $uswds-spacing-numeric,
+    extended: (),
   ),
   position: (
-    allowed:(
+    standard: (
       'absolute': absolute,
       'fixed':    fixed,
       'relative': relative,
       'static':   static,
       'sticky':   sticky,
     ),
-    extended:(),
+    extended: (),
   ),
   right: (
-    allowed: map-collect(
-      $uswds-spacing-named-small,
-      $uswds-spacing-named-medium,
-      $uswds-spacing-named-small-negative,
-      $uswds-spacing-named-medium-negative,
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, smaller-negative),
+      map-get($uswds-spacing, small-negative),
       map-get($partial-values, zero-zero),
       map-get($partial-values, auto)
     ),
-    extended: map-collect(
-      $uswds-spacing-small,
-      $uswds-spacing-medium,
-      $uswds-spacing-small-negative,
-      $uswds-spacing-medium-negative
-    ),
+    extended: (),
   ),
   square: (
-    allowed: $uswds-spacing-named,
-    extended: $uswds-spacing-numeric,
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, large)
+    ),
+    extended: (),
   ),
   text-align: (
-    allowed:(
+    standard: (
       'center':  center,
       'left':    left,
       'justify': justify,
       'right':   right,
     ),
-    extended:(),
+    extended: (),
   ),
   text-decoration: (
-    allowed:(
+    standard: (
       'strike':    strike,
       'underline': underline,
-      'none':      none
+      'none':      none,
     ),
-    extended:(),
+    extended: (),
   ),
   text-decoration-color: (
-    allowed: $allowed-colors,
+    standard: $standard-colors,
     extended: $uswds-colors,
   ),
   text-transform: (
-    allowed:(
+    standard: (
       'capitalize': capitalize,
       'lowercase':  lowercase,
       'uppercase':  uppercase,
       'none':       none,
     ),
-    extended:(),
+    extended: (),
   ),
   top: (
-    allowed: map-collect(
-      $uswds-spacing-named-small,
-      $uswds-spacing-named-medium,
-      $uswds-spacing-named-small-negative,
-      $uswds-spacing-named-medium-negative,
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, smaller-negative),
+      map-get($uswds-spacing, small-negative),
       map-get($partial-values, zero-zero),
       map-get($partial-values, auto)
     ),
-    extended: map-collect(
-      $uswds-spacing-small,
-      $uswds-spacing-medium,
-      $uswds-spacing-small-negative,
-      $uswds-spacing-medium-negative
-    ),
+    extended: (),
   ),
   vertical-align: (
-    allowed:(
+    standard: (
       'baseline':    baseline,
       'bottom':      bottom,
       'middle':      middle,
@@ -479,31 +478,32 @@ $uswds-properties: (
       'text-top':    text-top,
       'top':         top,
     ),
-    extended:(),
+    extended: (),
   ),
   white-space: (
-    allowed:(
+    standard: (
       'pre':      pre,
       'pre-line': pre-line,
       'pre-wrap': pre-wrap,
       'normal':   normal,
-      'nowrap':   nowrap
+      'nowrap':   nowrap,
     ),
-    extended:(),
+    extended: (),
   ),
   width: (
-    allowed: map-collect(
-      $uswds-spacing-named,
-      $project-breakpoints-rem,
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, large),
+      map-get($uswds-spacing, larger),
       map-get($partial-values, zero-zero),
       map-get($partial-values, auto)
     ),
-    extended: map-collect(
-      $uswds-spacing-numeric
-    ),
+    extended: (),
   ),
-  z-index:(
-    allowed:(
+  z-index: (
+    standard: (
       'auto':    auto,
       'lowest':	 -300,
       'lower':	 -200,
@@ -513,6 +513,6 @@ $uswds-properties: (
       'higher':	 200,
       'highest': 300,
     ),
-    extended:(),
+    extended: (),
   ),
 );

@@ -1,15 +1,13 @@
 // Mobile-first media query helper
 @mixin at-media($bp) {
   $orig-bp: $bp;
-  @if map-has-key($project-breakpoints-em, $bp){
-    $orig-bp: $bp;
-    $bp: map-get($project-breakpoints-em, $bp);
+  $quoted-bp: quote($bp);
+  $our-breakpoints: map-deep-get($uswds-properties, breakpoints, standard);
+  @if map-has-key($our-breakpoints, $quoted-bp){
+    $bp: grid-to-base-em(map-get($our-breakpoints, $quoted-bp));
   }
   @else {
-    @warn "`#{$bp}` is not a valid USWDS project breakpoint.";
-  }
-  @if not $bp {
-    @warn "`#{$orig-bp}` is set as `false` in your project settings.";
+    @warn "`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map-keys($our-breakpoints)}";
   }
   @media screen and (min-width: #{$bp}) {
     @content;

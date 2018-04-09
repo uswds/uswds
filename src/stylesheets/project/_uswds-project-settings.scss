@@ -21,25 +21,15 @@ $theme-root-font-size: 16px;
 
 /*
 ----------------------------------------
-Breakpoints
+Border box sizing
 ----------------------------------------
-Use pixel units.
-These will be automatically converted to
-em values based on the value of
-$theme-root-font-size.
-
-Use `false` if your project will not
-use that breakpoint.
+When set to true, it sets the box-sizing
+property of all elements to
+`border-box`.
 ----------------------------------------
 */
 
-$theme-breakpoints:(
-  xs: 400px,
-  sm: 481px, // 600px
-  md: 600px, // 800px
-  lg: 1201px, // 1000px
-  xl: 1200px, // 1200px
- );
+$border-box-sizing: true;
 
 /*
 ----------------------------------------
