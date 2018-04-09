@@ -21,11 +21,11 @@ $output-breakpoints: (
 $output-all-utilities:  false;
 
 // By default, the following plugins
-// apply to each utility that accepts
+// will be added to
+// each utility that accepts
 // color values
 $project-color-plugins: (
-  'plugin-color-palette-theme',
-  'plugin-color-palette-grayscale',
+  'plugin-color-palette-grayscale'
 );
 
 /*
@@ -46,15 +46,12 @@ $align-items-settings: (
 $align-items-plugins: (
   /*
   */
+  'plugin-standard-align-items'
 );
 
 $align-items-manual-values: (
   /*
   */
-  flex-start:   'flex-start',
-  flex-end:     'flex-end',
-  center:       'center',
-  stretch:      'stretch'
 );
 
 /*
@@ -85,6 +82,7 @@ $background-color-plugins: (
   'plugin-color-[color]-vivid'
   'plugin-color-palette-status'
   */
+  'plugin-standard-background-color',
   $project-color-plugins
 );
 
@@ -114,14 +112,12 @@ $border-plugins: (
   'plugin-spacing-uswds-small'
   'plugin-spacing-uswds-medium'
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small'
+  'plugin-standard-border',
 );
 
 $border-manual-values: (
   /*
   */
-  0:            '0'
 );
 
 /*
@@ -152,6 +148,7 @@ $border-color-plugins: (
   'plugin-color-[color]-vivid'
   'plugin-color-palette-status'
   */
+  'plugin-standard-border-color',
   $project-color-plugins
 );
 
@@ -207,14 +204,12 @@ $border-style-settings: (
 $border-style-plugins: (
   /*
   */
+  'plugin-standard-border-style'
 );
 
 $border-style-manual-values: (
   /*
   */
-  dashed:       'dashed',
-  dotted:       'dotted',
-  solid:        'solid'
 );
 
 /*
@@ -237,14 +232,12 @@ $border-width-plugins: (
   'plugin-spacing-uswds-small'
   'plugin-spacing-uswds-medium'
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small'
+  'plugin-standard-border-width',
 );
 
 $border-width-manual-values: (
   /*
   */
-  0:       0,
 );
 
 /*
@@ -276,17 +269,12 @@ $bottom-plugins: (
   'plugin-spacing-uswds-smaller'
   'plugin-spacing-uswds-smaller-negative'
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small',
-  'plugin-spacing-uswds-smaller-negative',
-  'plugin-spacing-uswds-small-negative'
+  'plugin-standard-bottom',
 );
 
 $bottom-manual-values: (
   /*
   */
-  0:        0,
-  auto:     'auto',
 );
 
 /*
@@ -341,10 +329,7 @@ $circle-plugins: (
   'plugin-spacing-uswds-large'
   'plugin-spacing-uswds-xlarge'
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small',
-  'plugin-spacing-uswds-medium',
-  'plugin-spacing-uswds-large',
+  'plugin-standard-circle',
 );
 
 $circle-manual-values: (
@@ -395,6 +380,7 @@ $color-plugins: (
   'plugin-[color]-vivid'
   'plugin-palette-status'
   */
+  'plugin-standard-color',
   $project-color-plugins
 );
 
@@ -421,18 +407,12 @@ $display-settings: (
 $display-plugins: (
   /*
   */
+  'plugin-standard-display'
 );
 
 $display-manual-values: (
   /*
   */
-  block:        'block',
-  flex:         'flex',
-  none:         'none',
-  inline:       'inline',
-  inline-block: 'inline-block',
-  table:        'table',
-  table-cell:   'table-cell'
 );
 
 /*
@@ -476,13 +456,13 @@ $flex-direction-settings: (
   visited:      false
 );
 
-$flex-direction-plugins: ();
+$flex-direction-plugins: (
+  'plugin-standard-flex-direction'
+);
 
 $flex-direction-manual-values: (
   /*
   */
-  row:          'row',
-  column:       'column'
 );
 
 /*
@@ -500,11 +480,11 @@ $flex-wrap-settings: (
   visited:      false
 );
 
-$flex-wrap-plugins: ();
+$flex-wrap-plugins: (
+  'plugin-standard-flex-wrap'
+);
 
 $flex-wrap-manual-values: (
-  wrap:         'wrap',
-  nowrap:       'nowrap'
 );
 
 /*
@@ -522,14 +502,13 @@ $float-settings: (
   visited:      false
 );
 
-$float-plugins: ();
+$float-plugins: (
+  'plugin-standard-float'
+);
 
 $float-manual-values: (
   /*
   */
-  left:         'left',
-  none:         'none',
-  right:        'right'
 );
 
 /*
@@ -586,7 +565,7 @@ $font-family-settings: (
 $font-family-plugins: (
   /*
   */
-  'plugin-font-stack-roles'
+  'plugin-standard-font-family'
 );
 
 $font-family-manual-values: (
@@ -635,11 +614,11 @@ $font-style-settings: (
   visited:      false
 );
 
-$font-style-plugins: ();
+$font-style-plugins: (
+  'plugin-standard-font-style'
+);
 
 $font-style-manual-values: (
-  normal:       'normal',
-  italic:       'italic'
 );
 
 /*
@@ -661,7 +640,7 @@ $font-weight-plugins: (
   /*
   'plugin-font-weights-numeric'
   */
-  'plugin-font-weights-theme'
+  'plugin-standard-font-weight'
 );
 
 $font-weight-manual-values: (
@@ -696,18 +675,49 @@ $height-plugins: (
   'plugin-spacing-uswds-large'
   'plugin-spacing-uswds-xlarge'
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small',
-  'plugin-spacing-uswds-medium',
-  'plugin-spacing-uswds-large',
+  'plugin-standard-height'
 );
 
 $height-manual-values: (
   /*
   */
-  0:      0,
-  auto:   auto,
-  100vh:  100vh
+);
+
+/*
+========================================
+.justify-content
+----------------------------------------
+*/
+
+$justify-content-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$justify-content-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-smaller-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
+  */
+  'plugin-standard-justify-content'
+);
+
+$justify-content-manual-values: (
+  /*
+  */
 );
 
 /*
@@ -739,17 +749,12 @@ $left-plugins: (
   'plugin-spacing-uswds-smaller'
   'plugin-spacing-uswds-smaller-negative'
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small',
-  'plugin-spacing-uswds-smaller-negative',
-  'plugin-spacing-uswds-small-negative',
+  'plugin-standard-left'
 );
 
 $left-manual-values: (
   /*
   */
-  0:        0,
-  auto:     'auto',
 );
 
 /*
@@ -845,18 +850,12 @@ $margin-plugins: (
   'plugin-spacing-units-ch-negative',
   'plugin-spacing-units-em'
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small',
-  'plugin-spacing-uswds-medium',
-  'plugin-spacing-uswds-smaller-negative',
-  'plugin-spacing-uswds-small-negative',
+  'plugin-standard-margin'
 );
 
 $margin-manual-values: (
   /*
   */
-  0:            '0',
-  auto:         'auto',
 );
 
 /*
@@ -880,16 +879,12 @@ $max-height-plugins: (
   'plugin-spacing-uswds-all',
   'plugin-spacing-uswds-smaller'
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small',
-  'plugin-spacing-uswds-medium',
-  'plugin-spacing-uswds-large',
+  'plugin-standard-max-height'
 );
 
 $max-height-manual-values: (
   /*
   */
-  none:         'none',
 );
 
 /*
@@ -912,13 +907,12 @@ $max-width-plugins: (
   'plugin-spacing-units-percentage',
   'plugin-spacing-uswds-breakpoints'
   */
-  'plugin-standard-measure'
+  'plugin-standard-max-width'
 );
 
 $max-width-manual-values: (
   /*
   */
-  none:         'none',
 );
 
 /*
@@ -942,17 +936,12 @@ $min-height-plugins: (
   'plugin-spacing-uswds-small'
   'plugin-spacing-uswds-medium'
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small',
-  'plugin-spacing-uswds-medium',
-  'plugin-spacing-uswds-large',
+  'plugin-standard-min-height'
 );
 
 $min-height-manual-values: (
   /*
   */
-  '100ct':      100%,
-  '100vh':      100vh,
 );
 
 /*
@@ -978,10 +967,7 @@ $min-width-plugins: (
   'plugin-spacing-units-ch'
   'plugin-spacing-units-percentage'
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small',
-  'plugin-spacing-uswds-medium',
-  'plugin-spacing-uswds-large',
+  'plugin-standard-min-width'
 );
 
 $min-width-manual-values: (
@@ -1084,14 +1070,12 @@ $outline-settings: (
 $outline-plugins: (
   /*
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small'
+  'plugin-standard-outline'
 );
 
 $outline-manual-values: (
   /*
   */
-  0:            'none'
 );
 
 /*
@@ -1112,6 +1096,7 @@ $outline-color-settings: (
 $outline-color-plugins: (
   /*
   */
+  'plugin-standard-outline-color',
   $project-color-plugins
 );
 
@@ -1138,15 +1123,12 @@ $overflow-settings: (
 $overflow-plugins: (
   /*
   */
+  'plugin-standard-overflow'
 );
 
 $overflow-manual-values: (
   /*
   */
-  'hidden':            hidden,
-  'scroll':            scroll,
-  'auto':              auto,
-  'visiable':          visible,
 );
 
 /*
@@ -1168,15 +1150,12 @@ $padding-plugins: (
   /*
   'plugin-spacing-uswds-smaller',
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small',
-  'plugin-spacing-uswds-medium',
+  'plugin-standard-padding'
 );
 
 $padding-manual-values: (
   /*
   */
-  0:            '0'
 );
 
 /*
@@ -1197,16 +1176,12 @@ $position-settings: (
 $position-plugins: (
   /*
   */
+  'plugin-standard-position'
 );
 
 $position-manual-values: (
   /*
   */
-  absolute:     'absolute',
-  fixed:        'fixed',
-  relative:     'relative',
-  static:       'static',
-  sticky:       'sticky'
 );
 
 /*
@@ -1238,17 +1213,12 @@ $right-plugins: (
   'plugin-spacing-uswds-smaller'
   'plugin-spacing-uswds-smaller-negative'
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small',
-  'plugin-spacing-uswds-smaller-negative',
-  'plugin-spacing-uswds-small-negative'
+  'plugin-standard-right'
 );
 
 $right-manual-values: (
   /*
   */
-  0:        0,
-  auto:     'auto',
 );
 
 /*
@@ -1269,13 +1239,12 @@ $square-settings: (
 $square-plugins: (
   /*
   */
-  'plugin-spacing-uswds-all'
+  'plugin-standard-square'
 );
 
 $square-manual-values: (
   /*
   */
-  2px:          '2px'
 );
 
 /*
@@ -1296,15 +1265,12 @@ $text-align-settings: (
 $text-align-plugins: (
   /*
   */
+  'plugin-standard-text-align'
 );
 
 $text-align-manual-values: (
   /*
   */
-  center:       'center',
-  left:         'left',
-  justify:      'justify',
-  right:        'right',
 );
 
 /*
@@ -1325,14 +1291,12 @@ $text-decoration-settings: (
 $text-decoration-plugins: (
   /*
   */
+  'plugin-standard-text-decoration'
 );
 
 $text-decoration-manual-values: (
   /*
   */
-  strike:           'strike',
-  underline:        'underline',
-  none:             'none'
 );
 
 /*
@@ -1354,6 +1318,7 @@ $text-decoration-color-plugins: (
   /*
   'plugin-color-palette-grayscale'
   */
+  'plugin-standard-text-decoration-color',
   $project-color-plugins
 );
 
@@ -1379,15 +1344,12 @@ $text-transform-settings: (
 $text-transform-plugins: (
   /*
   */
+  'plugin-standard-text-transform'
 );
 
 $text-transform-manual-values: (
   /*
   */
-  capitalize:     'capitalize',
-  lowercase:      'lowercase',
-  uppercase:      'uppercase',
-  none:           'none'
 );
 
 /*
@@ -1419,17 +1381,12 @@ $top-plugins: (
   'plugin-spacing-uswds-smaller'
   'plugin-spacing-uswds-smaller-negative'
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small',
-  'plugin-spacing-uswds-smaller-negative',
-  'plugin-spacing-uswds-small-negative'
+  'plugin-standard-top'
 );
 
 $top-manual-values: (
   /*
   */
-  0:        0,
-  auto:     'auto',
 );
 
 /*
@@ -1450,19 +1407,12 @@ $vertical-align-settings: (
 $vertical-align-plugins: (
   /*
   */
+  'plugin-standard-vertical-align'
 );
 
 $vertical-align-manual-values: (
   /*
   */
-  baseline:     'baseline',
-  bottom:       'bottom',
-  middle:       'middle',
-  sub:          'sub',
-  super:        'super',
-  text-bottom:  'text-bottom',
-  text-top:     'text-top',
-  top:          'top',
 );
 
 /*
@@ -1483,16 +1433,12 @@ $whitespace-settings: (
 $whitespace-plugins: (
   /*
   */
+  'plugin-standard-white-space'
 );
 
 $whitespace-manual-values: (
   /*
   */
-  pre:          'pre',
-  pre-line:     'pre-line',
-  pre-wrap:     'pre-wrap',
-  normal:       'normal',
-  nowrap:       'nowrap'
 );
 
 /*
@@ -1518,17 +1464,13 @@ $width-plugins: (
   'plugin-spacing-units-ch'
   'plugin-spacing-units-percentage'
   */
-  'plugin-spacing-uswds-smaller',
-  'plugin-spacing-uswds-small',
-  'plugin-spacing-uswds-medium',
-  'plugin-spacing-uswds-large',
+  'plugin-standard-width'
 );
 
 $width-manual-values: (
   /*
   100ct:        '100%'
   */
-  auto:         'auto',
 );
 
 /*
@@ -1555,5 +1497,4 @@ $z-index-plugins: (
 $z-index-manual-values: (
   /*
   */
-  auto:         'auto',
 );
