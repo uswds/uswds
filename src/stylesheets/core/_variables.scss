@@ -354,7 +354,7 @@ $project-border-radius: (
 $all-border-radius: map-collect(
   $project-border-radius,
   map-get($uswds-spacing, smaller),
-  map-get($uswds-spacing, small),
+  map-get($uswds-spacing, small)
 );
 
 /*
