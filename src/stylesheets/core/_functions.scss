@@ -1033,7 +1033,7 @@ through all possible variants
 
     // Only do this if the the utility is meant to output
 
-    @if map-get($output-utilities, $utility-name) or
+    @if map-deep-get($utility, settings, output) or
       $output-all-utilities {
 
       // set intital variants

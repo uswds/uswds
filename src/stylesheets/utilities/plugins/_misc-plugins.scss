@@ -22,4 +22,5 @@ $plugin-misc:(
   ),
   'plugin-misc-font-feature-settings': map-deep-get($uswds-properties, line-height, standard),
   'plugin-misc-flex': map-deep-get($uswds-properties, flex, standard),
+  'plugin-misc-box-shadow': map-deep-get($uswds-properties, box-shadow, standard),
 );

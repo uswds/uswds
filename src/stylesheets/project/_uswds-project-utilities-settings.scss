@@ -10,70 +10,22 @@ $utilities-use-important:     false;
 $output-breakpoints: (
   'compact':         false,   // 240px
   'mobile':          false,   // 320px
-  'mobile-plus':     false,    // 480px
+  'mobile-plus':     true,    // 480px
   'tablet':          true,    // 640px
-  'tablet-plus':     true,    // 800px
+  'tablet-plus':     false,   // 800px
   'desktop':         true,    // 1040px
   'desktop-plus':    false,   // 1200px
   'wide':            false,   // 1400px
 );
 
-$output-all-utilities:  true;
+$output-all-utilities:  false;
 
-$output-utilities: (
-  align-items:      false,
-  background-color: true,
-  border:           false,
-  border-color:     false,
-  border-radius:    true,
-  border-style:     false,
-  border-width:     false,
-  bottom:           false,
-  box-shadow:       true,
-  circle:           true,
-  clearfix:         true,
-  color:            true,
-  column:           false,
-  display:          true,
-  flex:             false,
-  flex-direction:   false,
-  flex-wrap:        false,
-  float:            true,
-  font:             true,
-  font-family:      true,
-  font-feature:     false,
-  font-style:       true,
-  font-weight:      true,
-  height:           false,
-  left:             false,
-  letter-spacing:   true,
-  line-height:      true,
-  list-reset:       true,
-  manual-position:  false,
-  margin:           true,
-  max-height:       false,
-  max-width:        false,
-  min-height:       false,
-  min-width:        false,
-  opacity:          false,
-  order:            false,
-  outline-width:    false,
-  outline-color:    false,
-  overflow:         false,
-  padding:          true,
-  position:         false,
-  right:            false,
-  row:              false,
-  square:           false,
-  text-align:       true,
-  text-decoration:  true,
-  text-decoration-color:  false,
-  text-transform:   true,
-  top:              false,
-  vertical-align:   false,
-  whitespace:       false,
-  width:            false,
-  z-index:          false
+// By default, the following plugins
+// apply to each utility that accepts
+// color values
+$project-color-plugins: (
+  'plugin-color-palette-theme',
+  'plugin-color-palette-grayscale',
 );
 
 /*
@@ -83,6 +35,7 @@ $output-utilities: (
 */
 
 $align-items-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -111,6 +64,7 @@ $align-items-manual-values: (
 */
 
 $background-color-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -131,8 +85,7 @@ $background-color-plugins: (
   'plugin-color-[color]-vivid'
   'plugin-color-palette-status'
   */
-  'plugin-color-palette-theme',
-  'plugin-color-palette-grayscale',
+  $project-color-plugins
 );
 
 $background-color-manual-values: (
@@ -147,6 +100,7 @@ $background-color-manual-values: (
 */
 
 $border-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -177,10 +131,11 @@ $border-manual-values: (
 */
 
 $border-color-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
-  hover:        true,
+  hover:        false,
   visited:      false
 );
 
@@ -197,8 +152,7 @@ $border-color-plugins: (
   'plugin-color-[color]-vivid'
   'plugin-color-palette-status'
   */
-  'plugin-color-palette-theme',
-  'plugin-color-palette-grayscale'
+  $project-color-plugins
 );
 
 $border-color-manual-values: (
@@ -213,6 +167,7 @@ $border-color-manual-values: (
 */
 
 $border-radius-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -241,6 +196,7 @@ $border-radius-manual-values: (
 */
 
 $border-style-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -268,6 +224,7 @@ $border-style-manual-values: (
 */
 
 $border-width-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -297,6 +254,7 @@ $border-width-manual-values: (
 */
 
 $bottom-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -338,6 +296,7 @@ $bottom-manual-values: (
 */
 
 $box-shadow-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -348,16 +307,12 @@ $box-shadow-settings: (
 $box-shadow-plugins: (
   /*
   */
+  'plugin-misc-box-shadow'
 );
 
 $box-shadow-manual-values: (
   /*
   */
-  none:     'none',
-  low:      '0 1px 2px 0 rgba(0,0,0,0.10)',
-  high:     '0 4px 8px 0 rgba(0,0,0,0.10)',
-  higher:   '0 6px 12px 0 rgba(0,0,0,0.10)',
-  highest:  '0 8px 16px 0 rgba(0,0,0,0.10)',
 );
 
 /*
@@ -367,6 +322,7 @@ $box-shadow-manual-values: (
 */
 
 $circle-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -403,6 +359,7 @@ $circle-manual-values: (
 */
 
 $clearfix-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -417,6 +374,7 @@ $clearfix-settings: (
 */
 
 $color-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -437,8 +395,7 @@ $color-plugins: (
   'plugin-[color]-vivid'
   'plugin-palette-status'
   */
-  'plugin-color-palette-theme',
-  'plugin-color-palette-grayscale'
+  $project-color-plugins
 );
 
 $color-manual-values: (
@@ -453,6 +410,7 @@ $color-manual-values: (
 */
 
 $display-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -484,6 +442,7 @@ $display-manual-values: (
 */
 
 $flex-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -509,6 +468,7 @@ $flex-manual-values: (
 */
 
 $flex-direction-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -532,6 +492,7 @@ $flex-direction-manual-values: (
 */
 
 $flex-wrap-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -553,6 +514,7 @@ $flex-wrap-manual-values: (
 */
 
 $float-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -577,6 +539,7 @@ $float-manual-values: (
 */
 
 $font-settings: (
+  output:       true,
   responsive:   true,
   active:       false,
   focus:        false,
@@ -612,6 +575,7 @@ $font-manual-values: (
 */
 
 $font-family-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -637,6 +601,7 @@ $font-family-manual-values: (
 */
 
 $font-feature-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -662,6 +627,7 @@ $font-feature-manual-values: (
 */
 
 $font-style-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -683,6 +649,7 @@ $font-style-manual-values: (
 */
 
 $font-weight-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -709,6 +676,7 @@ $font-weight-manual-values: (
 */
 
 $height-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -749,6 +717,7 @@ $height-manual-values: (
 */
 
 $left-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -790,6 +759,7 @@ $left-manual-values: (
 */
 
 $letter-spacing-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -815,6 +785,7 @@ $letter-spacing-manual-values: (
 */
 
 $line-height-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -840,6 +811,7 @@ $line-height-manual-values: (
 */
 
 $list-reset-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -854,6 +826,7 @@ $list-reset-settings: (
 */
 
 $margin-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -893,6 +866,7 @@ $margin-manual-values: (
 */
 
 $max-height-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -925,6 +899,7 @@ $max-height-manual-values: (
 */
 
 $max-width-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -953,7 +928,8 @@ $max-width-manual-values: (
 */
 
 $min-height-settings: (
-  responsive:   true,
+  output:       false,
+  responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
@@ -986,7 +962,8 @@ $min-height-manual-values: (
 */
 
 $min-width-settings: (
-  responsive:   true,
+  output:       false,
+  responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
@@ -1019,6 +996,7 @@ $min-width-manual-values: (
 */
 
 $opacity-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1055,6 +1033,7 @@ $opacity-manual-values: (
 */
 
 $order-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1094,6 +1073,7 @@ $order-manual-values: (
 */
 
 $outline-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1121,6 +1101,7 @@ $outline-manual-values: (
 */
 
 $outline-color-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1131,7 +1112,7 @@ $outline-color-settings: (
 $outline-color-plugins: (
   /*
   */
-  'plugin-color-palette-theme'
+  $project-color-plugins
 );
 
 $outline-color-manual-values: (
@@ -1146,6 +1127,7 @@ $outline-color-manual-values: (
 */
 
 $overflow-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1174,6 +1156,7 @@ $overflow-manual-values: (
 */
 
 $padding-settings: (
+  output:       true,
   responsive:   true,
   active:       false,
   focus:        false,
@@ -1203,6 +1186,7 @@ $padding-manual-values: (
 */
 
 $position-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1232,6 +1216,7 @@ $position-manual-values: (
 */
 
 $right-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1273,6 +1258,7 @@ $right-manual-values: (
 */
 
 $square-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1299,6 +1285,7 @@ $square-manual-values: (
 */
 
 $text-align-settings: (
+  output:       true,
   responsive:   true,
   active:       false,
   focus:        false,
@@ -1327,6 +1314,7 @@ $text-align-manual-values: (
 */
 
 $text-decoration-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1354,6 +1342,7 @@ $text-decoration-manual-values: (
 */
 
 $text-decoration-color-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1365,8 +1354,7 @@ $text-decoration-color-plugins: (
   /*
   'plugin-color-palette-grayscale'
   */
-  'plugin-color-palette-theme',
-  'plugin-color-palette-required'
+  $project-color-plugins
 );
 
 $text-decoration-color-manual-values: (
@@ -1380,6 +1368,7 @@ $text-decoration-color-manual-values: (
 */
 
 $text-transform-settings: (
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1408,6 +1397,7 @@ $text-transform-manual-values: (
 */
 
 $top-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1449,6 +1439,7 @@ $top-manual-values: (
 */
 
 $vertical-align-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1481,6 +1472,7 @@ $vertical-align-manual-values: (
 */
 
 $whitespace-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1510,6 +1502,7 @@ $whitespace-manual-values: (
 */
 
 $width-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1545,6 +1538,7 @@ $width-manual-values: (
 */
 
 $z-index-settings: (
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
