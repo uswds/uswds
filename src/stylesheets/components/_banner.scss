@@ -76,6 +76,10 @@
       width: 2rem;
     }
   }
+
+  &:not(.usa-banner-header-expanded) + .usa-banner-content {
+    display: none;
+  }
 }
 
 .usa-banner-header-expanded {
