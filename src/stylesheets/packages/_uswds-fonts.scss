@@ -1,0 +1,27 @@
+/*! uswds @version */
+
+/*
+========================================
+uswds-fonts
+----------------------------------------
+Output the @font-face rules for a
+USWDS project
+----------------------------------------
+*/
+
+// Settings
+@import '../core/settings';
+@import '../utilities/utilities-settings';
+
+// Tools
+@import '../lib/bourbon';
+@import '../lib/neat';
+@import '../core/font-definitions';
+@import '../core/functions';
+@import '../core/system-tokens';
+@import '../core/variables';
+@import '../core/properties';
+@import '../core/mixins/all';
+
+// Generic
+@import '../core/font-face';

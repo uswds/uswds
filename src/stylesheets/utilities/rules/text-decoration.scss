@@ -1,0 +1,28 @@
+/*
+========================================
+text-decoration
+----------------------------------------
+usage:
+  .text-decoration-[key]
+----------------------------------------
+output:
+  text-decoration: [value]
+----------------------------------------
+example:
+  .text-decoration-underline {
+    text-decoration: underline; }
+----------------------------------------
+*/
+
+$text-decoration: (
+  text-decoration: (
+    base: 'text-decoration',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($text-decoration-plugins),
+      $text-decoration-manual-values
+    ),
+    settings: $text-decoration-settings,
+    property: 'text-decoration',
+  )
+)

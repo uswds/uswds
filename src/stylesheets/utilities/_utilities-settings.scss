@@ -1,0 +1,1530 @@
+/*
+========================================
+USWDS UTILITIES SETTINGS
+----------------------------------------
+*/
+
+$utilities-namespace-prefix:  'u-' !default;
+$utilities-use-important:     false !default;
+
+$output-breakpoints: (
+  'compact':         false,   // 240px
+  'mobile':          false,   // 320px
+  'mobile-plus':     true,    // 480px
+  'tablet':          true,    // 640px
+  'tablet-plus':     false,   // 800px
+  'desktop':         true,    // 1040px
+  'desktop-plus':    false,   // 1200px
+  'wide':            false,   // 1400px
+) !default;
+
+$output-all-utilities:  false !default;
+
+/*
+----------------------------------------
+global colors
+----------------------------------------
+The following plugins will be added to
+- background-color
+- border-color
+- color
+- text-decoration-color
+----------------------------------------
+*/
+
+$global-color-plugins: (
+  'plugin-color-palette-grayscale',
+  'plugin-color-palette-basic'
+) !default;
+
+/*
+========================================
+.align-items
+----------------------------------------
+*/
+
+$align-items-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$align-items-plugins: (
+  /*
+  */
+  'plugin-standard-align-items'
+) !default;
+
+$align-items-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.background-color
+----------------------------------------
+*/
+
+$background-color-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$background-color-plugins: (
+  /*
+  'plugin-color-[color]'
+  'plugin-color-[color]-light'
+  'plugin-color-[color]-medium'
+  'plugin-color-[color]-dark'
+  'plugin-color-[color]-light-vivid'
+  'plugin-color-[color]-medium-vivid'
+  'plugin-color-[color]-dark-vivid'
+  'plugin-color-[color]-standard'
+  'plugin-color-[color]-vivid'
+  'plugin-color-palette-status'
+  */
+  'plugin-standard-background-color',
+) !default;
+
+$background-color-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.border (width and solid)
+----------------------------------------
+*/
+
+$border-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$border-plugins: (
+  /*
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-standard-border',
+) !default;
+
+$border-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.border-color
+----------------------------------------
+*/
+
+$border-color-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$border-color-plugins: (
+  /*
+  'plugin-color-[color]'
+  'plugin-color-[color]-light'
+  'plugin-color-[color]-medium'
+  'plugin-color-[color]-dark'
+  'plugin-color-[color]-light-vivid'
+  'plugin-color-[color]-medium-vivid'
+  'plugin-color-[color]-dark-vivid'
+  'plugin-color-[color]-standard'
+  'plugin-color-[color]-vivid'
+  'plugin-color-palette-status'
+  */
+  'plugin-standard-border-color'
+) !default;
+
+$border-color-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.border-radius
+----------------------------------------
+*/
+
+$border-radius-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$border-radius-plugins: (
+  /*
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-standard-border-radius'
+) !default;
+
+$border-radius-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.border-style
+----------------------------------------
+*/
+
+$border-style-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$border-style-plugins: (
+  /*
+  */
+  'plugin-standard-border-style'
+) !default;
+
+$border-style-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.border-width
+----------------------------------------
+*/
+
+$border-width-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$border-width-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-standard-border-width',
+) !default;
+
+$border-width-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.bottom
+----------------------------------------
+*/
+
+$bottom-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$bottom-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-smaller-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
+  */
+  'plugin-standard-bottom',
+) !default;
+
+$bottom-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.box-shadow
+----------------------------------------
+*/
+
+$box-shadow-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$box-shadow-plugins: (
+  /*
+  */
+  'plugin-standard-box-shadow'
+) !default;
+
+$box-shadow-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.circle
+----------------------------------------
+*/
+
+$circle-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$circle-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  */
+  'plugin-standard-circle',
+) !default;
+
+$circle-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.clearfix
+----------------------------------------
+*/
+
+$clearfix-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+/*
+========================================
+.color
+----------------------------------------
+*/
+
+$color-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$color-plugins: (
+  /*
+  'plugin-[color]'
+  'plugin-[color]-light'
+  'plugin-[color]-medium'
+  'plugin-[color]-dark'
+  'plugin-[color]-light-vivid'
+  'plugin-[color]-medium-vivid'
+  'plugin-[color]-dark-vivid'
+  'plugin-[color]-standard'
+  'plugin-[color]-vivid'
+  'plugin-palette-status'
+  */
+  'plugin-standard-color'
+) !default;
+
+$color-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.display
+----------------------------------------
+*/
+
+$display-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$display-plugins: (
+  /*
+  */
+  'plugin-standard-display'
+) !default;
+
+$display-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.flex
+----------------------------------------
+*/
+
+$flex-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$flex-plugins: (
+  /*
+  */
+  'plugin-standard-flex'
+) !default;
+
+$flex-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.flex-direction
+----------------------------------------
+*/
+
+$flex-direction-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$flex-direction-plugins: (
+  'plugin-standard-flex-direction'
+) !default;
+
+$flex-direction-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.flex-wrap
+----------------------------------------
+*/
+
+$flex-wrap-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$flex-wrap-plugins: (
+  'plugin-standard-flex-wrap'
+) !default;
+
+$flex-wrap-manual-values: (
+) !default;
+
+/*
+========================================
+.float
+----------------------------------------
+*/
+
+$float-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$float-plugins: (
+  'plugin-standard-float'
+) !default;
+
+$float-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.font
+----------------------------------------
+*/
+
+$font-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$font-plugins: (
+  /*
+  'plugin-font-theme-mono-all'
+  'plugin-font-theme-sans-all'
+  'plugin-font-theme-serif-all'
+  'plugin-font-uswds-all'
+  'plugin-system-[family]-small'
+  'plugin-system-[family]-medium'
+  'plugin-system-[family]-large'
+  'plugin-system-[family]-xlarge'
+  'plugin-system-[family]-all'
+  */
+  'plugin-font-theme-all',
+  'plugin-font-theme-roles-all'
+) !default;
+
+$font-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.font-family
+----------------------------------------
+*/
+
+$font-family-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$font-family-plugins: (
+  /*
+  */
+  'plugin-standard-font-family'
+) !default;
+
+$font-family-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.font-feature-settings
+----------------------------------------
+*/
+
+$font-feature-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$font-feature-plugins: (
+  /*
+  */
+  'plugin-standard-font-feature-settings'
+) !default;
+
+$font-feature-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.font-style
+----------------------------------------
+*/
+
+$font-style-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$font-style-plugins: (
+  'plugin-standard-font-style'
+) !default;
+
+$font-style-manual-values: (
+) !default;
+
+/*
+========================================
+.font-weight
+----------------------------------------
+*/
+
+$font-weight-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$font-weight-plugins: (
+  /*
+  'plugin-font-weights-numeric'
+  */
+  'plugin-standard-font-weight'
+) !default;
+
+$font-weight-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.height
+----------------------------------------
+*/
+
+$height-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$height-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  */
+  'plugin-standard-height'
+) !default;
+
+$height-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.justify-content
+----------------------------------------
+*/
+
+$justify-content-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$justify-content-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-smaller-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
+  */
+  'plugin-standard-justify-content'
+) !default;
+
+$justify-content-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.left
+----------------------------------------
+*/
+
+$left-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$left-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-smaller-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
+  */
+  'plugin-standard-left'
+) !default;
+
+$left-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.letter-spacing
+----------------------------------------
+*/
+
+$letter-spacing-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$letter-spacing-plugins: (
+  /*
+  */
+  'plugin-standard-letter-spacing'
+) !default;
+
+$letter-spacing-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.line-height
+----------------------------------------
+*/
+
+$line-height-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$line-height-plugins: (
+  /*
+  */
+  'plugin-standard-line-height'
+) !default;
+
+$line-height-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.list-reset
+----------------------------------------
+*/
+
+$list-reset-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+/*
+========================================
+.margin
+----------------------------------------
+*/
+
+$margin-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$margin-plugins: (
+  /*
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-smaller-negative',
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-uswds-negative',
+  'plugin-spacing-units-ch',
+  'plugin-spacing-units-ch-negative',
+  'plugin-spacing-units-em'
+  */
+  'plugin-standard-margin'
+) !default;
+
+$margin-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.max-height
+----------------------------------------
+*/
+
+$max-height-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$max-height-plugins: (
+  /*
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-uswds-smaller'
+  */
+  'plugin-standard-max-height'
+) !default;
+
+$max-height-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.max-width
+----------------------------------------
+*/
+
+$max-width-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$max-width-plugins: (
+  /*
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-breakpoints'
+  */
+  'plugin-standard-max-width'
+) !default;
+
+$max-width-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.measure
+----------------------------------------
+*/
+
+$measure-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$measure-plugins: (
+  /*
+  */
+  'plugin-standard-measure'
+) !default;
+
+$measure-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.min-height
+----------------------------------------
+*/
+
+$min-height-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$min-height-plugins: (
+  /*
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-standard-min-height'
+) !default;
+
+$min-height-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.min-width
+----------------------------------------
+*/
+
+$min-width-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$min-width-plugins: (
+  /*
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-uswds-smaller-negative',
+  'plugin-spacing-units-em',
+  'plugin-spacing-units-ch'
+  'plugin-spacing-units-percentage'
+  */
+  'plugin-standard-min-width'
+) !default;
+
+$min-width-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.opacity
+----------------------------------------
+*/
+
+$opacity-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$opacity-plugins: (
+  /*
+  */
+  'plugin-standard-opacity'
+) !default;
+
+$opacity-manual-values: (
+  /*
+  '0':            '0',
+  '01':           '0.1',
+  '02':           '0.2',
+  '03':           '0.3',
+  '04':           '0.4',
+  '05':           '0.5',
+  '06':           '0.6',
+  '07':           '0.7',
+  '08':           '0.8',
+  '09':           '0.9',
+  '1':            '1',
+  */
+) !default;
+
+/*
+========================================
+.order
+----------------------------------------
+*/
+
+$order-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$order-plugins: (
+  /*
+  */
+  'plugin-standard-order'
+) !default;
+
+$order-manual-values: (
+  /*
+  0:            0,
+  1:            1,
+  2:            2,
+  3:            3,
+  4:            4,
+  5:            5,
+  6:            6,
+  7:            7,
+  8:            8,
+  9:            9,
+  10:           10,
+  11:           11,
+  */
+  first:        '-1',
+  last:         '99'
+) !default;
+
+/*
+========================================
+.outline
+----------------------------------------
+*/
+
+$outline-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$outline-plugins: (
+  /*
+  */
+  'plugin-standard-outline'
+) !default;
+
+$outline-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.outline-color
+----------------------------------------
+*/
+
+$outline-color-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$outline-color-plugins: (
+  /*
+  */
+  'plugin-standard-outline-color'
+) !default;
+
+$outline-color-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.overflow
+----------------------------------------
+*/
+
+$overflow-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$overflow-plugins: (
+  /*
+  */
+  'plugin-standard-overflow'
+) !default;
+
+$overflow-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.padding
+----------------------------------------
+*/
+
+$padding-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$padding-plugins: (
+  /*
+  'plugin-spacing-uswds-smaller',
+  */
+  'plugin-standard-padding'
+) !default;
+
+$padding-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.position
+----------------------------------------
+*/
+
+$position-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$position-plugins: (
+  /*
+  */
+  'plugin-standard-position'
+) !default;
+
+$position-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.right
+----------------------------------------
+*/
+
+$right-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$right-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-smaller-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
+  */
+  'plugin-standard-right'
+) !default;
+
+$right-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.square
+----------------------------------------
+*/
+
+$square-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$square-plugins: (
+  /*
+  */
+  'plugin-standard-square'
+) !default;
+
+$square-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.text-align
+----------------------------------------
+*/
+
+$text-align-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$text-align-plugins: (
+  /*
+  */
+  'plugin-standard-text-align'
+) !default;
+
+$text-align-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.text-decoration
+----------------------------------------
+*/
+
+$text-decoration-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$text-decoration-plugins: (
+  /*
+  */
+  'plugin-standard-text-decoration'
+) !default;
+
+$text-decoration-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.text-decoration-color
+----------------------------------------
+*/
+
+$text-decoration-color-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$text-decoration-color-plugins: (
+  /*
+  'plugin-color-palette-grayscale'
+  */
+  'plugin-standard-text-decoration-color'
+) !default;
+
+$text-decoration-color-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+.text-transform
+----------------------------------------
+*/
+
+$text-transform-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$text-transform-plugins: (
+  /*
+  */
+  'plugin-standard-text-transform'
+) !default;
+
+$text-transform-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.top
+----------------------------------------
+*/
+
+$top-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$top-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-smaller-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
+  */
+  'plugin-standard-top'
+) !default;
+
+$top-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.vertical-align
+----------------------------------------
+*/
+
+$vertical-align-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$vertical-align-plugins: (
+  /*
+  */
+  'plugin-standard-vertical-align'
+) !default;
+
+$vertical-align-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.white-space
+----------------------------------------
+*/
+
+$whitespace-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$whitespace-plugins: (
+  /*
+  */
+  'plugin-standard-white-space'
+) !default;
+
+$whitespace-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
+.width
+----------------------------------------
+*/
+
+$width-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$width-plugins: (
+  /*
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-units-em',
+  'plugin-spacing-units-ch'
+  'plugin-spacing-units-percentage'
+  */
+  'plugin-standard-width'
+) !default;
+
+$width-manual-values: (
+  /*
+  100ct:        '100%'
+  */
+) !default;
+
+/*
+========================================
+.z-index
+----------------------------------------
+*/
+
+$z-index-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$z-index-plugins: (
+  /*
+  */
+  'plugin-standard-z-index'
+) !default;
+
+$z-index-manual-values: (
+  /*
+  */
+) !default;

@@ -1,20 +1,37 @@
 /*! uswds @version */
 
-// Vendor -------------- //
-@import 'core/variables-vendor';
+/*
+========================================
+uswds
+----------------------------------------
+Output all USWDS
+- fonts
+- components
+- utilities
+----------------------------------------
+*/
+
+// Settings
+@import 'core/settings';
+@import 'utilities/utilities-settings';
+
+// Tools
 @import 'lib/bourbon';
 @import 'lib/neat';
-@import 'lib/normalize';
-
-// Core -------------- //
+@import 'core/font-definitions';
+@import 'core/functions';
+@import 'core/system-tokens';
 @import 'core/variables';
-@import 'core/fonts';
+@import 'core/properties';
+@import 'core/mixins/all';
+
+// Generic
+@import 'core/font-face';
+@import 'lib/normalize';
 @import 'core/grid';
-@import 'core/utilities';
 @import 'core/base';
 
-// Elements -------------- //
-// Styles basic HTML elements
+// Elements
 @import 'elements/buttons';
 @import 'elements/embed';
 @import 'elements/figure';
@@ -24,7 +41,7 @@
 @import 'elements/table';
 @import 'elements/typography';
 
-// Components -------------- //
+// Components
 @import 'components/accordions';
 @import 'components/alerts';
 @import 'components/banner';
@@ -40,3 +57,9 @@
 @import 'components/section';
 @import 'components/sidenav';
 @import 'components/skipnav';
+
+// Utilities
+@import 'utilities/plugins/all';
+@import 'utilities/rules/all';
+@import 'utilities/rules/package';
+@include render-utilities-in($utilities-package);

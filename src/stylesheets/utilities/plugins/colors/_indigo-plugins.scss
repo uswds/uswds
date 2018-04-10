@@ -1,0 +1,66 @@
+$plugin-color-indigo-light: (
+  'indigo-5':  $indigo-5,
+  'indigo-10': $indigo-10,
+  'indigo-20': $indigo-20,
+  'indigo-30': $indigo-30,
+);
+
+$plugin-color-indigo-medium: (
+  'indigo-40': $indigo-40,
+  'indigo-50': $indigo-50,
+  'indigo-60': $indigo-60,
+);
+
+$plugin-color-indigo-dark: (
+  'indigo-70': $indigo-70,
+  'indigo-80': $indigo-80,
+  'indigo-90': $indigo-90,
+);
+
+$plugin-color-indigo-light-vivid: (
+  'indigo-5v':  $indigo-5v,
+  'indigo-10v': $indigo-10v,
+  'indigo-20v': $indigo-20v,
+  'indigo-30v': $indigo-30v,
+);
+
+$plugin-color-indigo-medium-vivid: (
+  'indigo-40v': $indigo-40v,
+  'indigo-50v': $indigo-50v,
+  'indigo-60v': $indigo-60v,
+);
+
+$plugin-color-indigo-dark-vivid: (
+  'indigo-70v': $indigo-70v,
+  'indigo-80v': $indigo-80v,
+  'indigo-90v': $indigo-90v,
+);
+
+$plugin-color-indigo-standard: map-collect(
+  $plugin-color-indigo-light,
+  $plugin-color-indigo-medium,
+  $plugin-color-indigo-dark
+);
+
+$plugin-color-indigo-vivid: map-collect(
+  $plugin-color-indigo-light-vivid,
+  $plugin-color-indigo-medium-vivid,
+  $plugin-color-indigo-dark-vivid
+);
+
+$plugin-color-indigo-all: map-collect(
+  $plugin-color-indigo-standard,
+  $plugin-color-indigo-vivid
+);
+
+$plugin-color-indigo: (
+  'plugin-color-indigo-light': $plugin-color-indigo-light,
+  'plugin-color-indigo-medium': $plugin-color-indigo-medium,
+  'plugin-color-indigo-dark': $plugin-color-indigo-dark,
+  'plugin-color-indigo-light-vivid': $plugin-color-indigo-light-vivid,
+  'plugin-color-indigo-medium-vivid': $plugin-color-indigo-medium-vivid,
+  'plugin-color-indigo-dark-vivid': $plugin-color-indigo-dark-vivid,
+  'plugin-color-indigo-standard': $plugin-color-indigo-standard,
+  'plugin-color-indigo-vivid': $plugin-color-indigo-vivid,
+  'plugin-color-indigo-all': $plugin-color-indigo-all,
+);

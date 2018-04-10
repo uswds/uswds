@@ -1,0 +1,40 @@
+/*
+========================================
+font
+----------------------------------------
+sets font-size and font-family
+----------------------------------------
+usage:
+  .font-[key]-[key]
+----------------------------------------
+output:
+  font-family: [value];
+  font-size: [value];
+----------------------------------------
+example:
+  .font-sans-s3 {
+    font-face: '18Franklin-webfont',
+                system,
+                -apple-system,
+                BlinkMacSystemFont,
+                'Roboto',
+                'Helvetica Neue',
+                'Helvetica',
+                'Arial',
+                sans-serif;
+    font-size: 1rem; }
+----------------------------------------
+*/
+
+$font: (
+  font: (
+    base: 'font',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($font-plugins),
+      $font-manual-values
+    ),
+    settings: $font-settings,
+    property: 'font-size',
+  )
+)

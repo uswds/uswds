@@ -1,0 +1,46 @@
+// Adds margin either l/r(x) or t/b(y)
+
+@mixin u-margin-n($side, $value) {
+  @if $side == all {
+    margin: get-uswds-value(margin, $value);
+  }
+  @elseif $side == x {
+    margin-left: get-uswds-value(margin, $value);
+    margin-right: get-uswds-value(margin, $value);
+  }
+  @elseif $side == y {
+    margin-bottom: get-uswds-value(margin, $value);
+    margin-top: get-uswds-value(margin, $value);
+  }
+  @else {
+    margin-#{$side}: get-uswds-value(margin, $value);
+  }
+}
+
+@mixin u-margin($value) {
+  @include u-margin-n(all, $value);
+}
+
+@mixin u-margin-x($value) {
+  @include u-margin-n(x, $value);
+}
+
+@mixin u-margin-y($value) {
+  @include u-margin-n(y, $value);
+}
+
+@mixin u-margin-top($value) {
+  @include u-margin-n(top, $value);
+}
+
+@mixin u-margin-right($value) {
+  @include u-margin-n(right, $value);
+}
+
+@mixin u-margin-bottom($value) {
+  @include u-margin-n(bottom, $value);
+}
+
+@mixin u-margin-left($value) {
+  @include u-margin-n(left, $value);
+}

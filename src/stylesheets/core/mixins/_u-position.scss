@@ -1,0 +1,5 @@
+// Outputs position property
+
+@mixin u-position($value) {
+  position: get-uswds-value(position, $value);
+}

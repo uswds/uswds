@@ -1,0 +1,66 @@
+$plugin-color-green-light: (
+  'green-5':  $green-5,
+  'green-10': $green-10,
+  'green-20': $green-20,
+  'green-30': $green-30,
+);
+
+$plugin-color-green-medium: (
+  'green-40': $green-40,
+  'green-50': $green-50,
+  'green-60': $green-60,
+);
+
+$plugin-color-green-dark: (
+  'green-70': $green-70,
+  'green-80': $green-80,
+  'green-90': $green-90,
+);
+
+$plugin-color-green-light-vivid: (
+  'green-5v':  $green-5v,
+  'green-10v': $green-10v,
+  'green-20v': $green-20v,
+  'green-30v': $green-30v,
+);
+
+$plugin-color-green-medium-vivid: (
+  'green-40v': $green-40v,
+  'green-50v': $green-50v,
+  'green-60v': $green-60v,
+);
+
+$plugin-color-green-dark-vivid: (
+  'green-70v': $green-70v,
+  'green-80v': $green-80v,
+  'green-90v': $green-90v,
+);
+
+$plugin-color-green-standard: map-collect(
+  $plugin-color-green-light,
+  $plugin-color-green-medium,
+  $plugin-color-green-dark
+);
+
+$plugin-color-green-vivid: map-collect(
+  $plugin-color-green-light-vivid,
+  $plugin-color-green-medium-vivid,
+  $plugin-color-green-dark-vivid
+);
+
+$plugin-color-green-all: map-collect(
+  $plugin-color-green-standard,
+  $plugin-color-green-vivid
+);
+
+$plugin-color-green: (
+  'plugin-color-green-light': $plugin-color-green-light,
+  'plugin-color-green-medium': $plugin-color-green-medium,
+  'plugin-color-green-dark': $plugin-color-green-dark,
+  'plugin-color-green-light-vivid': $plugin-color-green-light-vivid,
+  'plugin-color-green-medium-vivid': $plugin-color-green-medium-vivid,
+  'plugin-color-green-dark-vivid': $plugin-color-green-dark-vivid,
+  'plugin-color-green-standard': $plugin-color-green-standard,
+  'plugin-color-green-vivid': $plugin-color-green-vivid,
+  'plugin-color-green-all': $plugin-color-green-all,
+);

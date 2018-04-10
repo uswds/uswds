@@ -1,0 +1,39 @@
+/*
+========================================
+padding
+----------------------------------------
+usage:
+  .padding-[modifier]*-[value]
+----------------------------------------
+output:
+  padding: [value]
+----------------------------------------
+example:
+  .padding-0 {
+    padding: none; }
+
+  .padding-bottom-1px {
+    padding-bottom: 1px; }
+----------------------------------------
+*/
+
+$padding: (
+  padding: (
+    base: 'padding',
+    modifiers: (
+      'top': '-top',
+      'right': '-right',
+      'bottom': '-bottom',
+      'left': '-left',
+      y: ('-top', '-bottom'),
+      x: ('-left', '-right'),
+      noModifier: '',
+    ),
+    values: map-collect(
+      get-plugins($padding-plugins),
+      $padding-manual-values
+    ),
+    settings: $padding-settings,
+    property: 'padding',
+  )
+)

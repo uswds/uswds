@@ -1,0 +1,28 @@
+/*
+========================================
+text-align
+----------------------------------------
+usage:
+  .text-align-[key]
+----------------------------------------
+output:
+  align: [value];
+----------------------------------------
+example:
+  .text-align-left {
+    align: left; }
+----------------------------------------
+*/
+
+$text-align: (
+  text-align: (
+    base: 'text-align',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($text-align-plugins),
+      $text-align-manual-values
+    ),
+    settings: $text-align-settings,
+    property: 'text-align',
+  )
+)

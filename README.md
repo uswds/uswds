@@ -54,7 +54,6 @@ There are a few different ways to use the Design System within your project. Whi
 
 *Use the Design System `npm` package if:*
 - You are familiar with using `npm` and package management.
-- You would like to leverage USWDS [Sass](#sass) files.
 
 ### Download
 
@@ -69,11 +68,12 @@ There are a few different ways to use the Design System within your project. Whi
   │   ├── uswds.min.css
   │   └── uswds.css
   ├── fonts/
-  ├── html/
-  └── js/
-      ├── uswds.min.js.map
-      ├── uswds.min.js
-      └── uswds.js
+  ├── img/
+  ├── js/
+  │   ├── uswds.min.js.map
+  │   ├── uswds.min.js
+  │   └── uswds.js
+  └── scss/
 
   ```
 
@@ -91,7 +91,7 @@ There are a few different ways to use the Design System within your project. Whi
 
   You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project.
 
-3. To use the Design System on your project, you’ll need to reference the [CSS (*C*ascading *S*tyle *S*heets)](https://developer.mozilla.org/en-US/docs/Web/CSS) and JavaScript files in each HTML page or dynamic templates in your project.
+3. To use the Design System on your project, you’ll need to reference the [CSS (*C*ascading *S*tyle *S*heets)](https://developer.mozilla.org/en-US/docs/Web/CSS) and JavaScript files in each HTML page or dynamic templates in your project. (We also provide Sass (SCSS) files in the zip file which you can compile to CSS. See [Sass](#sass).)
 
   Here is an example of how to reference these assets in your `index.html` file:
 
@@ -113,7 +113,7 @@ There are a few different ways to use the Design System within your project. Whi
 
 We offer both files, the CSS and the JavaScript, in two versions — a minified version, and an un-minified one. (In the examples above, we are using the minified files.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. And the un-minified files are better if you are in a development environment or would like to debug the CSS or JavaScript assets in the browser.
 
-And that’s it — you should now be able to copy our code samples into our `index.html` and start using the Design System.
+And that’s it — you should now be able to copy our code samples into your `index.html` and start using the Design System.
 
 ### Install using npm
 
@@ -181,7 +181,6 @@ Below is an example of how you might setup your main Sass file to achieve this:
 ```scss
 @import 'variables.scss'; # Custom Sass variables file
 @import 'node_modules/uswds/src/stylesheets/uswds.scss';
-
 ```
 
 You can now use your copied version of `_variables.scss` to override any styles to create a more custom look and feel to your application.

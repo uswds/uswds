@@ -1,0 +1,5 @@
+// Outputs max-width
+
+@mixin u-max-width($value) {
+  max-width: get-uswds-value(max-width, $value);
+}

@@ -1,0 +1,38 @@
+/*
+========================================
+border-width
+----------------------------------------
+Needs to come before other border utils
+----------------------------------------
+usage:
+  .border-width-[modifier]*-[key]
+----------------------------------------
+output:
+  border-[modifier]: [value];
+----------------------------------------
+example:
+  .border-top-width-1px {
+    border-top-width: 1px; }
+----------------------------------------
+*/
+
+$border-width: (
+  border-width: (
+    base: 'border',
+    modifiers: (
+      'top-width': '-top-width',
+      'right-width': '-right-width',
+      'bottom-width': '-bottom-width',
+      'left-width': '-left-width',
+      'y-width': ('-top-width', '-bottom-width'),
+      'x-width': ('-left-width', '-right-width'),
+      '-width': '-width',
+    ),
+    values: map-collect(
+      get-plugins($border-width-plugins),
+      $border-width-manual-values
+    ),
+    settings: $border-width-settings,
+    property: 'border',
+  )
+)

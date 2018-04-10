@@ -1,0 +1,66 @@
+$plugin-color-orange-light: (
+  'orange-5':  $orange-5,
+  'orange-10': $orange-10,
+  'orange-20': $orange-20,
+  'orange-30': $orange-30,
+);
+
+$plugin-color-orange-medium: (
+  'orange-40': $orange-40,
+  'orange-50': $orange-50,
+  'orange-60': $orange-60,
+);
+
+$plugin-color-orange-dark: (
+  'orange-70': $orange-70,
+  'orange-80': $orange-80,
+  'orange-90': $orange-90,
+);
+
+$plugin-color-orange-light-vivid: (
+  'orange-5v':  $orange-5v,
+  'orange-10v': $orange-10v,
+  'orange-20v': $orange-20v,
+  'orange-30v': $orange-30v,
+);
+
+$plugin-color-orange-medium-vivid: (
+  'orange-40v': $orange-40v,
+  'orange-50v': $orange-50v,
+  'orange-60v': $orange-60v,
+);
+
+$plugin-color-orange-dark-vivid: (
+  'orange-70v': $orange-70v,
+  'orange-80v': $orange-80v,
+  'orange-90v': $orange-90v,
+);
+
+$plugin-color-orange-standard: map-collect(
+  $plugin-color-orange-light,
+  $plugin-color-orange-medium,
+  $plugin-color-orange-dark
+);
+
+$plugin-color-orange-vivid: map-collect(
+  $plugin-color-orange-light-vivid,
+  $plugin-color-orange-medium-vivid,
+  $plugin-color-orange-dark-vivid
+);
+
+$plugin-color-orange-all: map-collect(
+  $plugin-color-orange-standard,
+  $plugin-color-orange-vivid
+);
+
+$plugin-color-orange: (
+  'plugin-color-orange-light': $plugin-color-orange-light,
+  'plugin-color-orange-medium': $plugin-color-orange-medium,
+  'plugin-color-orange-dark': $plugin-color-orange-dark,
+  'plugin-color-orange-light-vivid': $plugin-color-orange-light-vivid,
+  'plugin-color-orange-medium-vivid': $plugin-color-orange-medium-vivid,
+  'plugin-color-orange-dark-vivid': $plugin-color-orange-dark-vivid,
+  'plugin-color-orange-standard': $plugin-color-orange-standard,
+  'plugin-color-orange-vivid': $plugin-color-orange-vivid,
+  'plugin-color-orange-all': $plugin-color-orange-all,
+);

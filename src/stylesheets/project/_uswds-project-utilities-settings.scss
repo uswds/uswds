@@ -1,0 +1,1526 @@
+/*
+========================================
+USWDS UTILITIES SETTINGS
+----------------------------------------
+*/
+
+$utilities-namespace-prefix:  'u-';
+$utilities-use-important:     false;
+
+$output-breakpoints: (
+  'compact':         false,   // 240px
+  'mobile':          false,   // 320px
+  'mobile-plus':     true,    // 480px
+  'tablet':          true,    // 640px
+  'tablet-plus':     false,   // 800px
+  'desktop':         true,    // 1040px
+  'desktop-plus':    false,   // 1200px
+  'wide':            false,   // 1400px
+);
+
+$output-all-utilities:  false;
+
+// By default, the following plugins
+// will be added to
+// each utility that accepts
+// color values
+$global-color-plugins: (
+  'plugin-color-palette-grayscale'
+);
+
+/*
+========================================
+.align-items
+----------------------------------------
+*/
+
+$align-items-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$align-items-plugins: (
+  /*
+  */
+  'plugin-standard-align-items'
+);
+
+$align-items-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.background-color
+----------------------------------------
+*/
+
+$background-color-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$background-color-plugins: (
+  /*
+  'plugin-color-[color]'
+  'plugin-color-[color]-light'
+  'plugin-color-[color]-medium'
+  'plugin-color-[color]-dark'
+  'plugin-color-[color]-light-vivid'
+  'plugin-color-[color]-medium-vivid'
+  'plugin-color-[color]-dark-vivid'
+  'plugin-color-[color]-standard'
+  'plugin-color-[color]-vivid'
+  'plugin-color-palette-status'
+  */
+  'plugin-standard-background-color',
+  $global-color-plugins
+);
+
+$background-color-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.border (width and solid)
+----------------------------------------
+*/
+
+$border-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$border-plugins: (
+  /*
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-standard-border',
+);
+
+$border-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.border-color
+----------------------------------------
+*/
+
+$border-color-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$border-color-plugins: (
+  /*
+  'plugin-color-[color]'
+  'plugin-color-[color]-light'
+  'plugin-color-[color]-medium'
+  'plugin-color-[color]-dark'
+  'plugin-color-[color]-light-vivid'
+  'plugin-color-[color]-medium-vivid'
+  'plugin-color-[color]-dark-vivid'
+  'plugin-color-[color]-standard'
+  'plugin-color-[color]-vivid'
+  'plugin-color-palette-status'
+  */
+  'plugin-standard-border-color',
+  $global-color-plugins
+);
+
+$border-color-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.border-radius
+----------------------------------------
+*/
+
+$border-radius-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$border-radius-plugins: (
+  /*
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-standard-border-radius'
+);
+
+$border-radius-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.border-style
+----------------------------------------
+*/
+
+$border-style-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$border-style-plugins: (
+  /*
+  */
+  'plugin-standard-border-style'
+);
+
+$border-style-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.border-width
+----------------------------------------
+*/
+
+$border-width-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$border-width-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-standard-border-width',
+);
+
+$border-width-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.bottom
+----------------------------------------
+*/
+
+$bottom-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$bottom-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-smaller-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
+  */
+  'plugin-standard-bottom',
+);
+
+$bottom-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.box-shadow
+----------------------------------------
+*/
+
+$box-shadow-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$box-shadow-plugins: (
+  /*
+  */
+  'plugin-standard-box-shadow'
+);
+
+$box-shadow-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.circle
+----------------------------------------
+*/
+
+$circle-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$circle-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  */
+  'plugin-standard-circle',
+);
+
+$circle-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.clearfix
+----------------------------------------
+*/
+
+$clearfix-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+/*
+========================================
+.color
+----------------------------------------
+*/
+
+$color-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$color-plugins: (
+  /*
+  'plugin-[color]'
+  'plugin-[color]-light'
+  'plugin-[color]-medium'
+  'plugin-[color]-dark'
+  'plugin-[color]-light-vivid'
+  'plugin-[color]-medium-vivid'
+  'plugin-[color]-dark-vivid'
+  'plugin-[color]-standard'
+  'plugin-[color]-vivid'
+  'plugin-palette-status'
+  */
+  'plugin-standard-color',
+  $global-color-plugins
+);
+
+$color-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.display
+----------------------------------------
+*/
+
+$display-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$display-plugins: (
+  /*
+  */
+  'plugin-standard-display'
+);
+
+$display-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.flex
+----------------------------------------
+*/
+
+$flex-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$flex-plugins: (
+  /*
+  */
+  'plugin-standard-flex'
+);
+
+$flex-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.flex-direction
+----------------------------------------
+*/
+
+$flex-direction-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$flex-direction-plugins: (
+  'plugin-standard-flex-direction'
+);
+
+$flex-direction-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.flex-wrap
+----------------------------------------
+*/
+
+$flex-wrap-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$flex-wrap-plugins: (
+  'plugin-standard-flex-wrap'
+);
+
+$flex-wrap-manual-values: (
+);
+
+/*
+========================================
+.float
+----------------------------------------
+*/
+
+$float-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$float-plugins: (
+  'plugin-standard-float'
+);
+
+$float-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.font
+----------------------------------------
+*/
+
+$font-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$font-plugins: (
+  /*
+  'plugin-font-theme-mono-all'
+  'plugin-font-theme-sans-all'
+  'plugin-font-theme-serif-all'
+  'plugin-font-uswds-all'
+  'plugin-system-[family]-small'
+  'plugin-system-[family]-medium'
+  'plugin-system-[family]-large'
+  'plugin-system-[family]-xlarge'
+  'plugin-system-[family]-all'
+  */
+  'plugin-font-theme-all',
+  'plugin-font-theme-roles-all'
+);
+
+$font-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.font-family
+----------------------------------------
+*/
+
+$font-family-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$font-family-plugins: (
+  /*
+  */
+  'plugin-standard-font-family'
+);
+
+$font-family-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.font-feature-settings
+----------------------------------------
+*/
+
+$font-feature-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$font-feature-plugins: (
+  /*
+  */
+  'plugin-standard-font-feature-settings'
+);
+
+$font-feature-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.font-style
+----------------------------------------
+*/
+
+$font-style-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$font-style-plugins: (
+  'plugin-standard-font-style'
+);
+
+$font-style-manual-values: (
+);
+
+/*
+========================================
+.font-weight
+----------------------------------------
+*/
+
+$font-weight-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$font-weight-plugins: (
+  /*
+  'plugin-font-weights-numeric'
+  */
+  'plugin-standard-font-weight'
+);
+
+$font-weight-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.height
+----------------------------------------
+*/
+
+$height-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$height-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  */
+  'plugin-standard-height'
+);
+
+$height-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.justify-content
+----------------------------------------
+*/
+
+$justify-content-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$justify-content-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-smaller-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
+  */
+  'plugin-standard-justify-content'
+);
+
+$justify-content-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.left
+----------------------------------------
+*/
+
+$left-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$left-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-smaller-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
+  */
+  'plugin-standard-left'
+);
+
+$left-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.letter-spacing
+----------------------------------------
+*/
+
+$letter-spacing-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$letter-spacing-plugins: (
+  /*
+  */
+  'plugin-standard-letter-spacing'
+);
+
+$letter-spacing-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.line-height
+----------------------------------------
+*/
+
+$line-height-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$line-height-plugins: (
+  /*
+  */
+  'plugin-standard-line-height'
+);
+
+$line-height-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.list-reset
+----------------------------------------
+*/
+
+$list-reset-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+/*
+========================================
+.margin
+----------------------------------------
+*/
+
+$margin-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$margin-plugins: (
+  /*
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-uswds-smaller-negative',
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-uswds-negative',
+  'plugin-spacing-units-ch',
+  'plugin-spacing-units-ch-negative',
+  'plugin-spacing-units-em'
+  */
+  'plugin-standard-margin'
+);
+
+$margin-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.max-height
+----------------------------------------
+*/
+
+$max-height-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$max-height-plugins: (
+  /*
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-uswds-smaller'
+  */
+  'plugin-standard-max-height'
+);
+
+$max-height-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.max-width
+----------------------------------------
+*/
+
+$max-width-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$max-width-plugins: (
+  /*
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-breakpoints'
+  */
+  'plugin-standard-max-width'
+);
+
+$max-width-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.measure
+----------------------------------------
+*/
+
+$measure-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$measure-plugins: (
+  /*
+  */
+  'plugin-standard-measure'
+);
+
+$measure-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.min-height
+----------------------------------------
+*/
+
+$min-height-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$min-height-plugins: (
+  /*
+  'plugin-spacing-units-percentage',
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  */
+  'plugin-standard-min-height'
+);
+
+$min-height-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.min-width
+----------------------------------------
+*/
+
+$min-width-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$min-width-plugins: (
+  /*
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-uswds-smaller-negative',
+  'plugin-spacing-units-em',
+  'plugin-spacing-units-ch'
+  'plugin-spacing-units-percentage'
+  */
+  'plugin-standard-min-width'
+);
+
+$min-width-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.opacity
+----------------------------------------
+*/
+
+$opacity-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$opacity-plugins: (
+  /*
+  */
+  'plugin-standard-opacity'
+);
+
+$opacity-manual-values: (
+  /*
+  '0':            '0',
+  '01':           '0.1',
+  '02':           '0.2',
+  '03':           '0.3',
+  '04':           '0.4',
+  '05':           '0.5',
+  '06':           '0.6',
+  '07':           '0.7',
+  '08':           '0.8',
+  '09':           '0.9',
+  '1':            '1',
+  */
+);
+
+/*
+========================================
+.order
+----------------------------------------
+*/
+
+$order-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$order-plugins: (
+  /*
+  */
+  'plugin-standard-order'
+);
+
+$order-manual-values: (
+  /*
+  0:            0,
+  1:            1,
+  2:            2,
+  3:            3,
+  4:            4,
+  5:            5,
+  6:            6,
+  7:            7,
+  8:            8,
+  9:            9,
+  10:           10,
+  11:           11,
+  */
+  first:        '-1',
+  last:         '99'
+);
+
+/*
+========================================
+.outline
+----------------------------------------
+*/
+
+$outline-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$outline-plugins: (
+  /*
+  */
+  'plugin-standard-outline'
+);
+
+$outline-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.outline-color
+----------------------------------------
+*/
+
+$outline-color-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$outline-color-plugins: (
+  /*
+  */
+  'plugin-standard-outline-color',
+  $global-color-plugins
+);
+
+$outline-color-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.overflow
+----------------------------------------
+*/
+
+$overflow-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$overflow-plugins: (
+  /*
+  */
+  'plugin-standard-overflow'
+);
+
+$overflow-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.padding
+----------------------------------------
+*/
+
+$padding-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$padding-plugins: (
+  /*
+  'plugin-spacing-uswds-smaller',
+  */
+  'plugin-standard-padding'
+);
+
+$padding-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.position
+----------------------------------------
+*/
+
+$position-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$position-plugins: (
+  /*
+  */
+  'plugin-standard-position'
+);
+
+$position-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.right
+----------------------------------------
+*/
+
+$right-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$right-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-smaller-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
+  */
+  'plugin-standard-right'
+);
+
+$right-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.square
+----------------------------------------
+*/
+
+$square-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$square-plugins: (
+  /*
+  */
+  'plugin-standard-square'
+);
+
+$square-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.text-align
+----------------------------------------
+*/
+
+$text-align-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$text-align-plugins: (
+  /*
+  */
+  'plugin-standard-text-align'
+);
+
+$text-align-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.text-decoration
+----------------------------------------
+*/
+
+$text-decoration-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$text-decoration-plugins: (
+  /*
+  */
+  'plugin-standard-text-decoration'
+);
+
+$text-decoration-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.text-decoration-color
+----------------------------------------
+*/
+
+$text-decoration-color-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$text-decoration-color-plugins: (
+  /*
+  'plugin-color-palette-grayscale'
+  */
+  'plugin-standard-text-decoration-color',
+  $global-color-plugins
+);
+
+$text-decoration-color-manual-values: (
+  /*
+  */
+);
+
+/*
+.text-transform
+----------------------------------------
+*/
+
+$text-transform-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$text-transform-plugins: (
+  /*
+  */
+  'plugin-standard-text-transform'
+);
+
+$text-transform-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.top
+----------------------------------------
+*/
+
+$top-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$top-plugins: (
+  /*
+  'plugin-spacing-uswds-small'
+  'plugin-spacing-uswds-medium'
+  'plugin-spacing-uswds-large'
+  'plugin-spacing-uswds-xlarge'
+  'plugin-spacing-uswds-all'
+  'plugin-spacing-uswds-smaller-negative'
+  'plugin-spacing-uswds-medium-negative'
+  'plugin-spacing-uswds-negative'
+  'plugin-spacing-units-percentage'
+  'plugin-spacing-uswds-smaller'
+  'plugin-spacing-uswds-smaller-negative'
+  */
+  'plugin-standard-top'
+);
+
+$top-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.vertical-align
+----------------------------------------
+*/
+
+$vertical-align-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$vertical-align-plugins: (
+  /*
+  */
+  'plugin-standard-vertical-align'
+);
+
+$vertical-align-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.white-space
+----------------------------------------
+*/
+
+$whitespace-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$whitespace-plugins: (
+  /*
+  */
+  'plugin-standard-white-space'
+);
+
+$whitespace-manual-values: (
+  /*
+  */
+);
+
+/*
+========================================
+.width
+----------------------------------------
+*/
+
+$width-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$width-plugins: (
+  /*
+  'plugin-spacing-uswds-all',
+  'plugin-spacing-uswds-smaller',
+  'plugin-spacing-units-em',
+  'plugin-spacing-units-ch'
+  'plugin-spacing-units-percentage'
+  */
+  'plugin-standard-width'
+);
+
+$width-manual-values: (
+  /*
+  100ct:        '100%'
+  */
+);
+
+/*
+========================================
+.z-index
+----------------------------------------
+*/
+
+$z-index-settings: (
+  output:       false,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$z-index-plugins: (
+  /*
+  */
+  'plugin-standard-z-index'
+);
+
+$z-index-manual-values: (
+  /*
+  */
+);

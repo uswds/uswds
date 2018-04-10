@@ -1,0 +1,16 @@
+/* stylelint-disable */
+
+@if $theme-font-mono {
+  @include render-font-face($theme-font-mono);
+}
+@if $theme-font-sans {
+  @include render-font-face($theme-font-sans);
+}
+@if $theme-font-serif {
+  @include render-font-face($theme-font-serif);
+}
+@if $theme-font-cond {
+  @include render-font-face($theme-font-cond);
+}
+
+/* stylelint-enable */
