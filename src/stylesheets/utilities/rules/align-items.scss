@@ -1,0 +1,28 @@
+/*
+========================================
+align-items
+----------------------------------------
+usage:
+  .align-items-[key]
+----------------------------------------
+output:
+  align-items: [value];
+----------------------------------------
+example:
+  .align-items-flex-start {
+    align-items: flex-start; }
+----------------------------------------
+*/
+
+$align-items: (
+  align-items: (
+    base: 'align-items',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($align-items-plugins),
+      $align-items-manual-values
+    ),
+    settings: $align-items-settings,
+    property: 'align-items',
+  )
+);

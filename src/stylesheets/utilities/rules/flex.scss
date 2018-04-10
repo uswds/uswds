@@ -1,0 +1,34 @@
+/*
+========================================
+flex
+----------------------------------------
+usage:
+  .flex-[key]
+----------------------------------------
+output:
+  flex: [value];
+----------------------------------------
+example:
+  .flex-1 {
+    flex: 1 0 0; }
+
+  .flex-fill {
+    flex: 1 0 0; }
+
+  .flex-fit {
+    flex: none; }
+----------------------------------------
+*/
+
+$flex: (
+  flex: (
+    base: 'flex',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($flex-plugins),
+      $flex-manual-values
+    ),
+    settings: $flex-settings,
+    property: 'flex',
+  )
+);

@@ -1,0 +1,30 @@
+/*
+========================================
+.measure
+----------------------------------------
+property: max-width
+----------------------------------------
+usage:
+  .measure-[key]
+----------------------------------------
+output:
+  max-width: [value];
+----------------------------------------
+example:
+  .measure-base {
+    max-width: 66ch; }
+----------------------------------------
+*/
+
+$measure: (
+  measure: (
+    base: 'measure',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($measure-plugins),
+      $measure-manual-values
+    ),
+    settings: $measure-settings,
+    property: 'max-width',
+  )
+)

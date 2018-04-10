@@ -1,0 +1,31 @@
+$plugin-color-black-warm-light: (
+  'black-warm-5':  $black-warm-5,
+  'black-warm-10': $black-warm-10,
+  'black-warm-20': $black-warm-20,
+  'black-warm-30': $black-warm-30,
+);
+
+$plugin-color-black-warm-medium: (
+  'black-warm-40': $black-warm-40,
+  'black-warm-50': $black-warm-50,
+  'black-warm-60': $black-warm-60,
+);
+
+$plugin-color-black-warm-dark: (
+  'black-warm-70': $black-warm-70,
+  'black-warm-80': $black-warm-80,
+  'black-warm-90': $black-warm-90,
+);
+
+$plugin-color-black-warm-all: map-collect(
+  $plugin-color-black-warm-light,
+  $plugin-color-black-warm-medium,
+  $plugin-color-black-warm-dark
+);
+
+$plugin-color-black-warm: (
+  'plugin-color-black-warm-light': $plugin-color-black-warm-light,
+  'plugin-color-black-warm-medium': $plugin-color-black-warm-medium,
+  'plugin-color-black-warm-dark': $plugin-color-black-warm-dark,
+  'plugin-color-black-warm-all': $plugin-color-black-warm-all,
+);

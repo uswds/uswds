@@ -1,0 +1,5 @@
+// Outputs line-height
+
+@mixin u-line-height($value) {
+  line-height: get-uswds-value(line-height, $value);
+}

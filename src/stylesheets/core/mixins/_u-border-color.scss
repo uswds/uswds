@@ -1,0 +1,5 @@
+// Outputs line-height
+
+@mixin u-border-color($value...) {
+  border-color: color($value...);
+}

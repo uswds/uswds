@@ -1,0 +1,5 @@
+// Outputs line-height
+
+@mixin u-font-weight($value) {
+  font-weight: font-weight($value);
+}

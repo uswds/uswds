@@ -7,9 +7,12 @@ var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var linter = require('@18f/stylelint-rules');
 var pkg = require('../../package.json');
+var path = require('path');
 var filter = require('gulp-filter');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
+var stripCssComments = require('gulp-strip-css-comments');
+var combineMq = require('gulp-combine-mq');
 var del = require('del');
 var task = 'sass';
 
@@ -56,7 +59,7 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
 
   dutil.logMessage(task, 'Compiling Sass');
 
-  var stream = gulp.src('src/stylesheets/uswds.scss')
+  var stream = gulp.src('src/stylesheets/*.scss')
     // 1. do the version replacement
     .pipe(replace(
       /\buswds @version\b/g,
@@ -64,17 +67,27 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
     ))
     // 2. convert SCSS to CSS
     .pipe(
-      sass({ outputStyle: 'expanded' })
+      sass({
+        outputStyle: 'expanded',
+      })
         .on('error', sass.logError)
     )
-    // 3. run it through autoprefixer
+    // 3. Remove all but important comments
+    .pipe(stripCssComments())
+    // 4. run it through autoprefixer
     .pipe(
       autoprefixer({
         browsers: require('./browsers'),
         cascade: false,
       })
     )
-    // 4. write dist/css/uswds.css
+    // 5. Combine media queries
+    .pipe(
+      combineMq({
+        beautify: true,
+      })
+    )
+    // 6. write dist/css/uswds.css
     .pipe(gulp.dest('dist/css'));
 
   // we can reuse this stream for minification!

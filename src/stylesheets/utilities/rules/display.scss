@@ -1,0 +1,28 @@
+/*
+========================================
+display
+----------------------------------------
+usage:
+  .display-[key]
+----------------------------------------
+output:
+  display: [value]
+----------------------------------------
+example:
+  .display-none {
+    display: none; }
+----------------------------------------
+*/
+
+$display: (
+  display: (
+    base: 'display',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($display-plugins),
+      $display-manual-values
+    ),
+    settings: $display-settings,
+    property: 'display',
+  )
+)

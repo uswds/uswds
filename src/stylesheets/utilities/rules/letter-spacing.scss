@@ -1,0 +1,28 @@
+/*
+========================================
+letter-spacing
+----------------------------------------
+usage:
+  .letter-spacing-[key]
+----------------------------------------
+output:
+  letter-spacing: [value];
+----------------------------------------
+example:
+  .ls-track-2 {
+    letter-spacing: .1em; }
+----------------------------------------
+*/
+
+$letter-spacing: (
+  letter-spacing: (
+    base: 'letter-spacing',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($letter-spacing-plugins),
+      $letter-spacing-manual-values
+    ),
+    settings: $letter-spacing-settings,
+    property: 'letter-spacing',
+  )
+)

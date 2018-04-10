@@ -1,0 +1,30 @@
+/*
+========================================
+font-style
+----------------------------------------
+usage:
+  .font-style-italic
+----------------------------------------
+output:
+  font-style: italic;
+----------------------------------------
+example:
+  .font-style-italic {
+    font-style: italic; }
+  .font-style-normal {
+    font-style: normal; }
+----------------------------------------
+*/
+
+$font-style: (
+  font-style: (
+    base: 'font-style',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($font-style-plugins),
+      $font-style-manual-values
+    ),
+    settings: $font-style-settings,
+    property: 'font-style',
+  )
+)

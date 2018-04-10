@@ -25,7 +25,7 @@
     "watch": "nswatch"
   },
   "watch": {
-    "src/stylesheets/{components,core,elements,}/*.scss": "build:css",
+    "src/stylesheets/{components,core,elements,utilities,}/*.scss": "build:css",
     "src/js/**/*.js": "build:js"
   },
   "repository": {
@@ -82,6 +82,7 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean": "^0.3.1",
     "gulp-cli": "^1.4.0",
+    "gulp-combine-mq": "^0.4.0",
     "gulp-cssnano": "^2.1.2",
     "gulp-eslint": "^1.1.1",
     "gulp-filter": "^3.0.1",
@@ -90,6 +91,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-spawn-mocha": "^3.3.1",
+    "gulp-strip-css-comments": "^2.0.0",
     "gulp-stylelint": "^2.0.2",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",

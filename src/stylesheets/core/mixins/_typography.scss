@@ -1,0 +1,37 @@
+// Heading mixins
+@mixin title {
+  font-size: $title-font-size;
+  font-weight: $font-bold;
+}
+
+@mixin h1 {
+  font-size: $h1-font-size;
+  font-weight: $font-bold;
+}
+
+@mixin h2 {
+  font-size: $h2-font-size;
+  font-weight: $font-bold;
+}
+
+@mixin h3 {
+  font-size: $h3-font-size;
+  font-weight: $font-bold;
+}
+
+@mixin h4 {
+  font-size: $h4-font-size;
+  font-weight: $font-bold;
+}
+
+@mixin h5 {
+  font-size: $h5-font-size;
+  font-weight: $font-bold;
+}
+
+@mixin h6 {
+  font-size: $h6-font-size;
+  font-weight: $font-normal;
+  line-height: $base-line-height;
+  text-transform: uppercase;
+}

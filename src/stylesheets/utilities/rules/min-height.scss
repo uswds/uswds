@@ -1,0 +1,28 @@
+/*
+========================================
+min-height
+----------------------------------------
+usage:
+  .min-height-[key]
+----------------------------------------
+output:
+  min-height: [value];
+----------------------------------------
+example:
+  .min-height-g40 {
+    min-height: 320px; }
+----------------------------------------
+*/
+
+$min-height: (
+  min-height: (
+    base: 'min-height',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($min-height-plugins),
+      $min-height-manual-values
+    ),
+    settings: $min-height-settings,
+    property: 'min-height',
+  )
+)

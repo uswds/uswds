@@ -1,0 +1,66 @@
+$plugin-color-violet-warm-light: (
+  'violet-warm-5':  $violet-warm-5,
+  'violet-warm-10': $violet-warm-10,
+  'violet-warm-20': $violet-warm-20,
+  'violet-warm-30': $violet-warm-30,
+);
+
+$plugin-color-violet-warm-medium: (
+  'violet-warm-40': $violet-warm-40,
+  'violet-warm-50': $violet-warm-50,
+  'violet-warm-60': $violet-warm-60,
+);
+
+$plugin-color-violet-warm-dark: (
+  'violet-warm-70': $violet-warm-70,
+  'violet-warm-80': $violet-warm-80,
+  'violet-warm-90': $violet-warm-90,
+);
+
+$plugin-color-violet-warm-light-vivid: (
+  'violet-warm-5v':  $violet-warm-5v,
+  'violet-warm-10v': $violet-warm-10v,
+  'violet-warm-20v': $violet-warm-20v,
+  'violet-warm-30v': $violet-warm-30v,
+);
+
+$plugin-color-violet-warm-medium-vivid: (
+  'violet-warm-40v': $violet-warm-40v,
+  'violet-warm-50v': $violet-warm-50v,
+  'violet-warm-60v': $violet-warm-60v,
+);
+
+$plugin-color-violet-warm-dark-vivid: (
+  'violet-warm-70v': $violet-warm-70v,
+  'violet-warm-80v': $violet-warm-80v,
+  'violet-warm-90v': $violet-warm-90v,
+);
+
+$plugin-color-violet-warm-standard: map-collect(
+  $plugin-color-violet-warm-light,
+  $plugin-color-violet-warm-medium,
+  $plugin-color-violet-warm-dark
+);
+
+$plugin-color-violet-warm-vivid: map-collect(
+  $plugin-color-violet-warm-light-vivid,
+  $plugin-color-violet-warm-medium-vivid,
+  $plugin-color-violet-warm-dark-vivid
+);
+
+$plugin-color-violet-warm-all: map-collect(
+  $plugin-color-violet-warm-standard,
+  $plugin-color-violet-warm-vivid
+);
+
+$plugin-color-violet-warm: (
+  'plugin-color-violet-warm-light': $plugin-color-violet-warm-light,
+  'plugin-color-violet-warm-medium': $plugin-color-violet-warm-medium,
+  'plugin-color-violet-warm-dark': $plugin-color-violet-warm-dark,
+  'plugin-color-violet-warm-light-vivid': $plugin-color-violet-warm-light-vivid,
+  'plugin-color-violet-warm-medium-vivid': $plugin-color-violet-warm-medium-vivid,
+  'plugin-color-violet-warm-dark-vivid': $plugin-color-violet-warm-dark-vivid,
+  'plugin-color-violet-warm-standard': $plugin-color-violet-warm-standard,
+  'plugin-color-violet-warm-vivid': $plugin-color-violet-warm-vivid,
+  'plugin-color-violet-warm-all': $plugin-color-violet-warm-all,
+);

@@ -1,0 +1,32 @@
+/*
+========================================
+SQUARE
+----------------------------------------
+usage:
+  .square-[key]
+----------------------------------------
+output:
+  height: [value];
+  width: [value];
+----------------------------------------
+example:
+  .square-g6 {
+    height: 3rem;
+    width: 3rem; }
+----------------------------------------
+*/
+
+$square: (
+  square: (
+    base: null,
+    modifiers: (
+      square: (height, width),
+    ),
+    values: map-collect(
+      get-plugins($square-plugins),
+      $square-manual-values
+    ),
+    settings: $square-settings,
+    property: '',
+  )
+)

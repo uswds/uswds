@@ -1,0 +1,26 @@
+@mixin display-icon($icon, $direction, $size, $margin, $hover) {
+  &::#{$direction} {
+    background-image: url('#{$image-path}/#{$icon}.png');
+    background-image: url('#{$image-path}/#{$icon}.svg');
+    background-size: 100%;
+    content: '';
+    display: inline-block;
+    height: $size;
+    width: $size;
+
+    /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
+    @if $direction == 'after' {
+      margin-left: $margin;
+    } @else {
+      margin-right: $margin;
+    }
+    /* stylelint-enable */
+  }
+
+  @if $hover == 'hover' {
+    &:hover::#{$direction} {
+      background-image: url('#{$image-path}/#{$icon}-hover.png');
+      background-image: url('#{$image-path}/#{$icon}-hover.svg');
+    }
+  }
+}

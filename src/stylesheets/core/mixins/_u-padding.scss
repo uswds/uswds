@@ -1,0 +1,46 @@
+// Adds padding either l/r(x) or t/b(y)
+
+@mixin u-padding-n($side, $value) {
+  @if $side == all {
+    padding: spacing($value);
+  }
+  @elseif $side == x {
+    padding-left: spacing($value);
+    padding-right: spacing($value);
+  }
+  @elseif $side == y {
+    padding-bottom: spacing($value);
+    padding-top: spacing($value);
+  }
+  @else {
+    padding-#{$side}: spacing($value);
+  }
+}
+
+@mixin u-padding($value) {
+  @include u-padding-n(all, $value);
+}
+
+@mixin u-padding-x($value) {
+  @include u-padding-n(x, $value);
+}
+
+@mixin u-padding-y($value) {
+  @include u-padding-n(y, $value);
+}
+
+@mixin u-padding-top($value) {
+  @include u-padding-n(top, $value);
+}
+
+@mixin u-padding-right($value) {
+  @include u-padding-n(right, $value);
+}
+
+@mixin u-padding-bottom($value) {
+  @include u-padding-n(bottom, $value);
+}
+
+@mixin u-padding-left($value) {
+  @include u-padding-n(left, $value);
+}

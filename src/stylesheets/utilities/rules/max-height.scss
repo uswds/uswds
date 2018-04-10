@@ -1,0 +1,28 @@
+/*
+========================================
+max-height
+----------------------------------------
+usage:
+  .max-height-[key]
+----------------------------------------
+output:
+  max-height: [value];
+----------------------------------------
+example:
+  .max-height-g40 {
+    max-height: 320px; }
+----------------------------------------
+*/
+
+$max-height: (
+  max-height: (
+    base: 'max-height',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($max-height-plugins),
+      $max-height-manual-values
+    ),
+    settings: $max-height-settings,
+    property: 'max-height',
+  )
+)
