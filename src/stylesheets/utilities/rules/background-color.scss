@@ -22,7 +22,8 @@ $background-color: (
     values: map-collect(
       get-plugins($background-color-plugins),
       get-plugins('plugin-color-palette-required'),
-      $background-color-manual-values
+      get-plugins($global-color-plugins),
+      $background-color-manual-values,
     ),
     settings: $background-color-settings,
   )

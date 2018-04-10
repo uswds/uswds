@@ -24,7 +24,7 @@ $output-all-utilities:  false;
 // will be added to
 // each utility that accepts
 // color values
-$project-color-plugins: (
+$global-color-plugins: (
   'plugin-color-palette-grayscale'
 );
 
@@ -83,7 +83,7 @@ $background-color-plugins: (
   'plugin-color-palette-status'
   */
   'plugin-standard-background-color',
-  $project-color-plugins
+  $global-color-plugins
 );
 
 $background-color-manual-values: (
@@ -149,7 +149,7 @@ $border-color-plugins: (
   'plugin-color-palette-status'
   */
   'plugin-standard-border-color',
-  $project-color-plugins
+  $global-color-plugins
 );
 
 $border-color-manual-values: (
@@ -381,7 +381,7 @@ $color-plugins: (
   'plugin-palette-status'
   */
   'plugin-standard-color',
-  $project-color-plugins
+  $global-color-plugins
 );
 
 $color-manual-values: (
@@ -1123,7 +1123,7 @@ $outline-color-plugins: (
   /*
   */
   'plugin-standard-outline-color',
-  $project-color-plugins
+  $global-color-plugins
 );
 
 $outline-color-manual-values: (
@@ -1345,7 +1345,7 @@ $text-decoration-color-plugins: (
   'plugin-color-palette-grayscale'
   */
   'plugin-standard-text-decoration-color',
-  $project-color-plugins
+  $global-color-plugins
 );
 
 $text-decoration-color-manual-values: (

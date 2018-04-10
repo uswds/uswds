@@ -20,6 +20,7 @@ $text-decoration-color: (
     modifiers: null,
     values: map-collect(
       get-plugins($text-decoration-color-plugins),
+      get-plugins($global-color-plugins),
       $text-decoration-color-manual-values
     ),
     settings: $text-decoration-color-settings,

@@ -317,7 +317,7 @@ withholds certain errors.
 
 /*
 ----------------------------------------
-system-color()
+get-uswds-color()
 ----------------------------------------
 Derive a system color from its
 family, value, and vivid or a passed
@@ -325,7 +325,7 @@ variable that is, itself, a list
 ----------------------------------------
 */
 
-@function system-color($props...){
+@function get-uswds-color($props...){
   @if length($props) == 0 {
     @return false;
   } @elseif type-of(nth($props,1)) == 'list' {

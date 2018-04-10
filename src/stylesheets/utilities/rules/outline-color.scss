@@ -20,6 +20,7 @@ $outline-color: (
     modifiers: null,
     values: map-collect(
       get-plugins($outline-color-plugins),
+      /*get-plugins($global-color-plugins),*/
       $outline-color-manual-values
     ),
     settings: $outline-color-settings,

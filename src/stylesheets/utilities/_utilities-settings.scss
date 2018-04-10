@@ -20,12 +20,21 @@ $output-breakpoints: (
 
 $output-all-utilities:  false !default;
 
-// By default, the following plugins
-// will be added to
-// each utility that accepts
-// color values
-$project-color-plugins: (
-  'plugin-color-palette-grayscale'
+/*
+----------------------------------------
+global colors
+----------------------------------------
+The following plugins will be added to
+- background-color
+- border-color
+- color
+- text-decoration-color
+----------------------------------------
+*/
+
+$global-color-plugins: (
+  'plugin-color-palette-grayscale',
+  'plugin-color-palette-basic'
 ) !default;
 
 /*
@@ -83,7 +92,6 @@ $background-color-plugins: (
   'plugin-color-palette-status'
   */
   'plugin-standard-background-color',
-  $project-color-plugins
 ) !default;
 
 $background-color-manual-values: (
@@ -148,8 +156,7 @@ $border-color-plugins: (
   'plugin-color-[color]-vivid'
   'plugin-color-palette-status'
   */
-  'plugin-standard-border-color',
-  $project-color-plugins
+  'plugin-standard-border-color'
 ) !default;
 
 $border-color-manual-values: (
@@ -380,8 +387,7 @@ $color-plugins: (
   'plugin-[color]-vivid'
   'plugin-palette-status'
   */
-  'plugin-standard-color',
-  $project-color-plugins
+  'plugin-standard-color'
 ) !default;
 
 $color-manual-values: (
@@ -1122,8 +1128,7 @@ $outline-color-settings: (
 $outline-color-plugins: (
   /*
   */
-  'plugin-standard-outline-color',
-  $project-color-plugins
+  'plugin-standard-outline-color'
 ) !default;
 
 $outline-color-manual-values: (
@@ -1344,8 +1349,7 @@ $text-decoration-color-plugins: (
   /*
   'plugin-color-palette-grayscale'
   */
-  'plugin-standard-text-decoration-color',
-  $project-color-plugins
+  'plugin-standard-text-decoration-color'
 ) !default;
 
 $text-decoration-color-manual-values: (

@@ -21,6 +21,7 @@ $color: (
     values: map-collect(
       $required-colors,
       get-plugins($color-plugins),
+      get-plugins($global-color-plugins),
       $color-manual-values
     ),
     settings: $color-settings,

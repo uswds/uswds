@@ -22,6 +22,7 @@ $border-color: (
     values: map-collect(
       $required-colors,
       get-plugins($border-color-plugins),
+      get-plugins($global-color-plugins),
       $border-color-manual-values
     ),
     settings: $border-color-settings,
