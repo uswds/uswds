@@ -942,9 +942,9 @@ loop
 @mixin render-pseudoclass($pseudoclass, $selector, $property, $value, $val-props, $mq, $important) {
   $this-mq: null;
   @if $mq {
-    $this-mq: '#{$mq}\:';
+    $this-mq: '#{$mq}\\:';
   }
-  .#{$utilities-namespace-prefix}#{$this-mq}#{$pseudoclass}\:#{$selector}:#{$pseudoclass} {
+  .#{$this-mq}#{$pseudoclass}\:#{$utilities-namespace-prefix}#{$selector}:#{$pseudoclass} {
     @each $this-property in $property {
       #{$this-property}: $value#{$important};
     }
@@ -996,7 +996,7 @@ loop
 
     @if map-get($output-breakpoints, $media-key) {
       @media (min-width: #{$media-value-em}) {
-        .#{$utilities-namespace-prefix}#{$mq}\:#{$selector} {
+        .#{$mq}\:#{$utilities-namespace-prefix}#{$selector} {
           @if map-has-key($val-props, extend) {
             @each $ext-prop, $ext-value in map-get($val-props, extend) {
               #{strunquote($ext-prop)}: strunquote($ext-value)#{$important};

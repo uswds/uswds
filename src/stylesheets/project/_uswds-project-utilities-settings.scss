@@ -519,7 +519,7 @@ $float-manual-values: (
 
 $font-settings: (
   output:       true,
-  responsive:   true,
+  responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
@@ -1165,7 +1165,7 @@ $overflow-manual-values: (
 
 $padding-settings: (
   output:       true,
-  responsive:   true,
+  responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
@@ -1281,7 +1281,7 @@ $square-manual-values: (
 
 $text-align-settings: (
   output:       true,
-  responsive:   true,
+  responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
