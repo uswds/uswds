@@ -116,7 +116,7 @@
 
 // basic offsets
 @each $width-key, $width-value in $uswds-layout-grid-widths {
-  .l-offset-#{$width-key} {
+  .g-offset-#{$width-key} {
     @include u-margin-left(override, $width-value);
   }
 }
@@ -126,7 +126,7 @@
   @if map-get($theme-output-breakpoints, $mq-key) {
     @each $width-key, $width-value in $uswds-layout-grid-widths {
       @include at-media($mq-key) {
-        .#{$mq-key}\:l-offset-#{$width-key} {
+        .#{$mq-key}\:g-offset-#{$width-key} {
           @include u-margin-left(override, $width-value);
         }
       }
