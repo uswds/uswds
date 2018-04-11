@@ -29,7 +29,7 @@ property of all elements to
 ----------------------------------------
 */
 
-$border-box-sizing: true;
+$border-box-sizing: false;
 
 /*
 ----------------------------------------
@@ -41,6 +41,27 @@ Relative font and image file paths
 
 $theme-font-path:   '../fonts';
 $theme-image-path:  '../img';
+
+/*
+----------------------------------------
+Output breakpoints
+----------------------------------------
+Which breakpoints does your project
+need? Select as `true` any breakpoint
+used by utilities or layout grid
+----------------------------------------
+*/
+
+$theme-output-breakpoints: (
+  'compact':         false,   // 240px
+  'mobile':          false,   // 320px
+  'mobile-plus':     true,    // 480px
+  'tablet':          true,    // 640px
+  'tablet-plus':     false,   // 800px
+  'desktop':         true,    // 1040px
+  'desktop-plus':    false,   // 1200px
+  'wide':            false,   // 1400px
+);
 
 /*
 ----------------------------------------
@@ -276,3 +297,20 @@ quad-plus       72px
 $theme-border-radius-small:       eighth;
 $theme-border-radius-base:        quarter;
 $theme-border-radius-large:       false;
+
+/*
+----------------------------------------
+Column gap
+----------------------------------------
+eighth          2px
+quarter         4px
+half            8px
+base            16px
+base-plus       24px
+double          32px
+triple          48px
+----------------------------------------
+*/
+
+$theme-column-gap: 'base';
+$theme-column-gap-large: 'base-plus';
