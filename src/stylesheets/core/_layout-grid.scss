@@ -6,7 +6,15 @@
   @include u-margin-x(auto);
 }
 
-// responsive containers
+// container with custom widths
+@each $width-key, $width-value in $uswds-breakpoints {
+  .l-container-#{$width-key} {
+    @include u-max-width($width-key);
+    @include u-margin-x(auto);
+  }
+}
+
+// responsive containers...
 @each $mq-key, $mq-value in $uswds-breakpoints {
   @if map-get($theme-output-breakpoints, $mq-key) {
     @include at-media($mq-key){
@@ -14,6 +22,8 @@
         @include u-max-width(desktop);
         @include u-margin-x(auto);
       }
+
+// ...with custom widths
       @each $width-key, $width-value in $uswds-breakpoints {
         .#{$mq-key}\:l-container-#{$width-key} {
           @include u-max-width($width-key);
@@ -68,13 +78,20 @@
   }
 }
 
-// basic columns
+// basic columns...
 .l-col {
   @include u-flex(fill);
 }
 
 .l-col-auto {
   @include u-flex(auto);
+}
+
+// ...with widths
+@each $width-key, $width-value in $uswds-layout-grid-widths {
+  .l-col-#{$width-key} {
+    @include u-width(override, $width-value);
+  }
 }
 
 // responsive columns
