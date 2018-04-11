@@ -40,6 +40,27 @@ $theme-image-path:  '../img' !default;
 
 /*
 ----------------------------------------
+Output breakpoints
+----------------------------------------
+Which breakpoints does your project
+need? Select as `true` any breakpoint
+used by utilities or layout grid
+----------------------------------------
+*/
+
+$theme-output-breakpoints: (
+  'compact':         false,   // 240px
+  'mobile':          false,   // 320px
+  'mobile-plus':     true,    // 480px
+  'tablet':          true,    // 640px
+  'tablet-plus':     false,   // 800px
+  'desktop':         true,    // 1040px
+  'desktop-plus':    false,   // 1200px
+  'wide':            false,   // 1400px
+) !default;
+
+/*
+----------------------------------------
 Custom font definitions
 ----------------------------------------
 Add a new custom font definition if
@@ -272,3 +293,20 @@ quad-plus       72px
 $theme-border-radius-small:       eighth !default;
 $theme-border-radius-base:        quarter !default;
 $theme-border-radius-large:       false !default;
+
+/*
+----------------------------------------
+Column gap
+----------------------------------------
+eighth          2px
+quarter         4px
+half            8px
+base            16px
+base-plus       24px
+double          32px
+triple          48px
+----------------------------------------
+*/
+
+$theme-column-gap: 'base' !default;
+$theme-column-gap-large: 'base-plus' !default;

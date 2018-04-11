@@ -1,0 +1,119 @@
+/* stylelint-disable */
+
+// basic container
+.l-container {
+  @include u-max-width(desktop);
+  @include u-margin-x(auto);
+}
+
+// responsive containers
+@each $mq-key, $mq-value in $uswds-breakpoints {
+  @if map-get($theme-output-breakpoints, $mq-key) {
+    @include at-media($mq-key){
+      .#{$mq-key}\:l-container {
+        @include u-max-width(desktop);
+        @include u-margin-x(auto);
+      }
+      @each $width-key, $width-value in $uswds-breakpoints {
+        .#{$mq-key}\:l-container-#{$width-key} {
+          @include u-max-width($width-key);
+          @include u-margin-x(auto);
+        }
+      }
+    }
+  }
+}
+
+// basic row...
+.l-row {
+  @include u-display(flex);
+  @include u-flex(wrap);
+
+// ...that includes column gaps
+  &.l-gap {
+    @include u-margin-x(n-#{calc-gap-offset($theme-column-gap)});
+    > [class*='l-col'] {
+      @include u-padding-x(calc-gap-offset($theme-column-gap));
+    }
+  }
+  @if $theme-column-gap-large {
+    &.l-gap-large {
+      @include u-margin-x(n-#{calc-gap-offset($theme-column-gap-large)});
+      > [class*='l-col'] {
+        @include u-padding-x(calc-gap-offset($theme-column-gap-large));
+      }
+    }
+  }
+
+// responsive column gaps
+  @each $mq-key, $mq-value in $uswds-breakpoints {
+    @if map-get($theme-output-breakpoints, $mq-key) {
+      @include at-media($mq-key){
+        &.#{$mq-key}\:l-gap {
+          @include u-margin-x(n-#{calc-gap-offset($theme-column-gap)});
+          > [class*='l-col'] {
+            @include u-padding-x(calc-gap-offset($theme-column-gap));
+          }
+        }
+        @if $theme-column-gap-large {
+          &.#{$mq-key}\:l-gap-large {
+            @include u-margin-x(n-#{calc-gap-offset($theme-column-gap-large)});
+            > [class*='l-col'] {
+              @include u-padding-x(calc-gap-offset($theme-column-gap-large));
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// basic columns
+.l-col {
+  @include u-flex(fill);
+}
+
+.l-col-auto {
+  @include u-flex(auto);
+}
+
+// responsive columns
+@each $mq-key, $mq-value in $uswds-breakpoints {
+  @if map-get($theme-output-breakpoints, $mq-key) {
+    @include at-media($mq-key){
+      .#{$mq-key}\:l-col {
+        @include u-flex(fill);
+      }
+      .#{$mq-key}\:l-col-auto {
+        @include u-flex(auto);
+      }
+
+      @each $width-key, $width-value in $uswds-layout-grid-widths {
+        .#{$mq-key}\:l-col-#{$width-key} {
+          @include u-width(override, $width-value);
+        }
+      }
+    }
+  }
+}
+
+// basic offsets
+@each $width-key, $width-value in $uswds-layout-grid-widths {
+  .l-offset-#{$width-key} {
+    @include u-margin-left(override, $width-value);
+  }
+}
+
+// responsive offsets
+@each $mq-key, $mq-value in $uswds-breakpoints {
+  @if map-get($theme-output-breakpoints, $mq-key) {
+    @each $width-key, $width-value in $uswds-layout-grid-widths {
+      @include at-media($mq-key) {
+        .#{$mq-key}\:l-offset-#{$width-key} {
+          @include u-margin-left(override, $width-value);
+        }
+      }
+    }
+  }
+}
+/* stylelint-enable */

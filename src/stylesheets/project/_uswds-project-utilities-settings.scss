@@ -7,7 +7,7 @@ USWDS UTILITIES SETTINGS
 $utilities-namespace-prefix:  'u-';
 $utilities-use-important:     false;
 
-$output-breakpoints: (
+$theme-output-breakpoints: (
   'compact':         false,   // 240px
   'mobile':          false,   // 320px
   'mobile-plus':     true,    // 480px

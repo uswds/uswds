@@ -40,6 +40,34 @@ $project-spacing-standard: map-collect(
   map-get($uswds-spacing, special)
 );
 
+$spacing-calculator: (
+  1:              'pixel',
+  2:              'eighth',
+  4:              'quarter',
+  8:              'half',
+  12:             'half-plus',
+  16:             'base',
+  24:             'base-plus',
+  32:             'double',
+  40:             'double-plus',
+  48:             'triple',
+  56:             'triple-plus',
+  64:             'quad',
+  72:             'quad-plus',
+  'pixel':        1,
+  'eighth':       2,
+  'quarter':      4,
+  'half':         8,
+  'half-plus':    12,
+  'base':         16,
+  'base-plus':    24,
+  'double':       32,
+  'double-plus':  40,
+  'triple':       48,
+  'quad':         64,
+  'quad-plus':    72,
+);
+
 /*
 ----------------------------------------
 Font stack
@@ -186,35 +214,35 @@ namespace var set in utilities-settings?
 */
 
 @if $theme-font-mono {
-  *[class*='font-mono'], .font-family-mono { font-family: $font-stack-mono; }
+  [class*='#{$utilities-namespace-prefix}font-mono'], .font-family-mono { font-family: $font-stack-mono; }
 }
 
 @if $theme-font-sans {
-  *[class*='font-sans'], .font-family-sans { font-family: $font-stack-sans; }
+  [class*='#{$utilities-namespace-prefix}font-sans'], .font-family-sans { font-family: $font-stack-sans; }
 }
 
 @if $theme-font-serif {
-  *[class*='font-serif'], .font-family-serif { font-family: $font-stack-serif; }
+  [class*='#{$utilities-namespace-prefix}font-serif'], .font-family-serif { font-family: $font-stack-serif; }
 }
 
 @if $theme-font-cond {
-  *[class*='font-cond'], .font-family-cond { font-family: $font-stack-cond; }
+  [class*='#{$utilities-namespace-prefix}font-cond'], .font-family-cond { font-family: $font-stack-cond; }
 }
 
 @if $theme-font-heading {
-  *[class*='font-heading'], .font-family-heading { font-family: $font-stack-heading; }
+  [class*='#{$utilities-namespace-prefix}font-heading'], .font-family-heading { font-family: $font-stack-heading; }
 }
 
 @if $theme-font-body {
-  *[class*='font-body'], .font-family-body { font-family: $font-stack-body; }
+  [class*='#{$utilities-namespace-prefix}font-body'], .font-family-body { font-family: $font-stack-body; }
 }
 
 @if $theme-font-code {
-  *[class*='font-code'], .font-family-code { font-family: $font-stack-code; }
+  [class*='#{$utilities-namespace-prefix}font-code'], .font-family-code { font-family: $font-stack-code; }
 }
 
 @if $theme-font-alt {
-  *[class*='font-alt'], .font-family-alt { font-family: $font-stack-alt; }
+  [class*='#{$utilities-namespace-prefix}font-alt'], .font-family-alt { font-family: $font-stack-alt; }
 }
 
 $project-font-weights: (
