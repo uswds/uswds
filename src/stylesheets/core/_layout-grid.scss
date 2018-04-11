@@ -68,7 +68,7 @@ $grid-namespace-prefix: 'g-';
           }
         }
         @if $theme-column-gap-large {
-          &.#{$mq-key}\:g-gap-large {
+          &.#{$mq-key}\:#{$grid-namespace-prefix}gap-large {
             @include u-margin-x(n-#{calc-gap-offset($theme-column-gap-large)});
             > [class*='#{$grid-namespace-prefix}col'] {
               @include u-padding-x(calc-gap-offset($theme-column-gap-large));
@@ -118,7 +118,7 @@ $grid-namespace-prefix: 'g-';
 
 // basic offsets
 @each $width-key, $width-value in $uswds-layout-grid-widths {
-  .g-offset-#{$width-key} {
+  .#{$grid-namespace-prefix}offset-#{$width-key} {
     @include u-margin-left(override, $width-value);
   }
 }
@@ -128,7 +128,7 @@ $grid-namespace-prefix: 'g-';
   @if map-get($theme-output-breakpoints, $mq-key) {
     @each $width-key, $width-value in $uswds-layout-grid-widths {
       @include at-media($mq-key) {
-        .#{$mq-key}\:g-offset-#{$width-key} {
+        .#{$mq-key}\:#{$grid-namespace-prefix}offset-#{$width-key} {
           @include u-margin-left(override, $width-value);
         }
       }
