@@ -1,14 +1,14 @@
 /* stylelint-disable */
 
 // basic container
-.l-container {
+.g-container {
   @include u-max-width(desktop);
   @include u-margin-x(auto);
 }
 
 // container with custom widths
 @each $width-key, $width-value in $uswds-breakpoints {
-  .l-container-#{$width-key} {
+  .g-container-#{$width-key} {
     @include u-max-width($width-key);
     @include u-margin-x(auto);
   }
@@ -18,14 +18,14 @@
 @each $mq-key, $mq-value in $uswds-breakpoints {
   @if map-get($theme-output-breakpoints, $mq-key) {
     @include at-media($mq-key){
-      .#{$mq-key}\:l-container {
+      .#{$mq-key}\:g-container {
         @include u-max-width(desktop);
         @include u-margin-x(auto);
       }
 
 // ...with custom widths
       @each $width-key, $width-value in $uswds-breakpoints {
-        .#{$mq-key}\:l-container-#{$width-key} {
+        .#{$mq-key}\:g-container-#{$width-key} {
           @include u-max-width($width-key);
           @include u-margin-x(auto);
         }
@@ -35,21 +35,21 @@
 }
 
 // basic row...
-.l-row {
+.g-row {
   @include u-display(flex);
   @include u-flex(wrap);
 
 // ...that includes column gaps
-  &.l-gap {
+  &.g-gap {
     @include u-margin-x(n-#{calc-gap-offset($theme-column-gap)});
-    > [class*='l-col'] {
+    > [class*='g-col'] {
       @include u-padding-x(calc-gap-offset($theme-column-gap));
     }
   }
   @if $theme-column-gap-large {
-    &.l-gap-large {
+    &.g-gap-large {
       @include u-margin-x(n-#{calc-gap-offset($theme-column-gap-large)});
-      > [class*='l-col'] {
+      > [class*='g-col'] {
         @include u-padding-x(calc-gap-offset($theme-column-gap-large));
       }
     }
@@ -59,16 +59,16 @@
   @each $mq-key, $mq-value in $uswds-breakpoints {
     @if map-get($theme-output-breakpoints, $mq-key) {
       @include at-media($mq-key){
-        &.#{$mq-key}\:l-gap {
+        &.#{$mq-key}\:g-gap {
           @include u-margin-x(n-#{calc-gap-offset($theme-column-gap)});
-          > [class*='l-col'] {
+          > [class*='g-col'] {
             @include u-padding-x(calc-gap-offset($theme-column-gap));
           }
         }
         @if $theme-column-gap-large {
-          &.#{$mq-key}\:l-gap-large {
+          &.#{$mq-key}\:g-gap-large {
             @include u-margin-x(n-#{calc-gap-offset($theme-column-gap-large)});
-            > [class*='l-col'] {
+            > [class*='g-col'] {
               @include u-padding-x(calc-gap-offset($theme-column-gap-large));
             }
           }
@@ -79,17 +79,17 @@
 }
 
 // basic columns...
-.l-col {
+.g-col {
   @include u-flex(fill);
 }
 
-.l-col-auto {
+.g-col-auto {
   @include u-flex(auto);
 }
 
 // ...with widths
 @each $width-key, $width-value in $uswds-layout-grid-widths {
-  .l-col-#{$width-key} {
+  .g-col-#{$width-key} {
     @include u-width(override, $width-value);
   }
 }
@@ -98,15 +98,15 @@
 @each $mq-key, $mq-value in $uswds-breakpoints {
   @if map-get($theme-output-breakpoints, $mq-key) {
     @include at-media($mq-key){
-      .#{$mq-key}\:l-col {
+      .#{$mq-key}\:g-col {
         @include u-flex(fill);
       }
-      .#{$mq-key}\:l-col-auto {
+      .#{$mq-key}\:g-col-auto {
         @include u-flex(auto);
       }
 
       @each $width-key, $width-value in $uswds-layout-grid-widths {
-        .#{$mq-key}\:l-col-#{$width-key} {
+        .#{$mq-key}\:g-col-#{$width-key} {
           @include u-width(override, $width-value);
         }
       }
