@@ -1,8 +1,7 @@
 $usa-form-width: 32rem;
 
-[name=password],
-[name=confirmPassword] {
-  margin-bottom: 1rem;
+[type=submit] {
+  margin-top: 2rem;
 }
 
 fieldset {
