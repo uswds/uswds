@@ -185,6 +185,8 @@ Below is an example of how you might setup your main Sass file to achieve this:
 
 You can now use your copied version of `_variables.scss` to override any styles to create a more custom look and feel to your application.
 
+The Design System uses [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets (`css/uswds.min.css` and `css/uswds.css`) however prefixes will not be applied when using the Sass source files directly. If your project requires the use of Sass and vendor prefixes we recommend incorportaing a plugin such as [Autoprefixer](https://github.com/postcss/autoprefixer) into your build process.
+
 #### JavaScript
 `require('uswds')` will load all of the U.S. Web Design System’s JavaScript onto the page. Add this line to whatever initializer you use to load JavaScript into your application.
 
