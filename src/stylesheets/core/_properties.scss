@@ -305,6 +305,7 @@ $uswds-properties: (
         'measure-base':	   $uswds-measure-base,
         'measure-large':	 $uswds-measure-large,
         'measure-larger':	 $uswds-measure-larger,
+        'full':            100%,
         none:              none,
       )
     ),
@@ -517,6 +518,7 @@ $uswds-properties: (
       map-get($uswds-spacing, large),
       map-get($uswds-spacing, larger),
       map-get($partial-values, zero-zero),
+      map-get($partial-values, full-percent),
       map-get($partial-values, auto)
     ),
     extended: (),

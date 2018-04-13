@@ -82,11 +82,15 @@ $grid-namespace-prefix: 'g-';
 
 // basic columns...
 .#{$grid-namespace-prefix}col {
-  @include u-flex(fill);
+  @include u-width(full);
 }
 
 .#{$grid-namespace-prefix}col-auto {
   @include u-flex(auto);
+}
+
+.#{$grid-namespace-prefix}col-fill {
+  @include u-flex(fill);
 }
 
 // ...with widths
@@ -101,6 +105,9 @@ $grid-namespace-prefix: 'g-';
   @if map-get($theme-output-breakpoints, $mq-key) {
     @include at-media($mq-key){
       .#{$mq-key}\:#{$grid-namespace-prefix}col {
+        @include u-width(full);
+      }
+      .#{$mq-key}\:#{$grid-namespace-prefix}col-fill {
         @include u-flex(fill);
       }
       .#{$mq-key}\:#{$grid-namespace-prefix}col-auto {
