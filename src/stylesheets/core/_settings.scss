@@ -226,12 +226,12 @@ $theme-color-secondary-vivid:     $theme-color-secondary, 50, vivid !default;
 $theme-color-secondary-dark:      $theme-color-secondary, 80 !default;
 
 $theme-color-accent-warm:         orange !default;
-$theme-color-accent-warm-lighter: $theme-color-accent-warm, 50, vivid !default;
-$theme-color-accent-warm-base:    $theme-color-accent-warm, 50, vivid !default;
+$theme-color-accent-warm-base:    $theme-color-accent-warm, 30, vivid !default;
+$theme-color-accent-warm-dark:    $theme-color-accent-warm, 60, vivid !default;
 
 $theme-color-accent-cool:         cyan !default;
-$theme-color-accent-cool-lighter: $theme-color-accent-cool, 50, vivid !default;
-$theme-color-accent-cool-base:    $theme-color-accent-cool, 50, vivid !default;
+$theme-color-accent-cool-base:    $theme-color-accent-cool, 30, vivid !default;
+$theme-color-accent-cool-dark:    $theme-color-accent-cool, 60, vivid !default;
 
 $theme-color-inverse:             white !default;
 $theme-color-inverse-base:        $theme-color-inverse, 0 !default;
@@ -308,5 +308,6 @@ triple          48px
 ----------------------------------------
 */
 
-$theme-column-gap: 'base' !default;
+$theme-column-gap-small: 'eighth' !default;
+$theme-column-gap:       'base' !default;
 $theme-column-gap-large: 'base-plus' !default;

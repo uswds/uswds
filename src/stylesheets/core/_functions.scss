@@ -1240,7 +1240,7 @@ through all possible variants
 
             // -------- if the modifier is null ----------
 
-            @if map-get($mod-props, content) == null {
+            @if map-get($mod-props, content) == null or map-get($mod-props, content) == 'noModifier' or map-get($mod-props, content) == '' {
 
               // If mod-props.values is null, there's no modifier property
               // and we can set our rule's $property now
@@ -1306,23 +1306,25 @@ through all possible variants
               $property: multi-cat($property-default, map-get($mod-props, content));
 
               // Now we go through to finish setting the $selector.
-              // Check to see if the modifier is '' (noModifier)
+              // If not, check to see if either mod.isReadable or
+              // val.isReadable
 
-              @if map-get($mod-props, slug) == '' {
-
-                // If so, modifier-value == value
-
-                $mv: $v;
-
-                // If not, check to see if either mod.isReadable or
-                // val.isReadable
-
-              } @elseif map-has-key($mod-props, isReadable) or
+              @if map-has-key($mod-props, isReadable) or
                 map-has-key($val-props, isReadable) {
 
-                // If so, join with a '-' into selector $mv.
+                  // If valProps is `noValue`....
 
-                $mv: map-get($mod-props, slug) + '-' + map-get($val-props, slug);
+                  @if map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
+
+                    // ...$mv is just the modifier
+
+                    $mv: map-get($mod-props, slug);
+                  } @else {
+
+                    // Otherwise, join with a '-' into selector $mv.
+
+                    $mv: map-get($mod-props, slug) + '-' + map-get($val-props, slug);
+                  }
               } @else {
 
                 // If not, just join into selector $mv.

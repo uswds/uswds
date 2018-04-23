@@ -278,12 +278,12 @@ $project-colors: (
     dark:    get-uswds-color($theme-color-secondary-dark),
   ),
   accent-warm: (
-    light:   get-uswds-color($theme-color-accent-warm-lighter),
     base:    get-uswds-color($theme-color-accent-warm-base),
+    dark:    get-uswds-color($theme-color-accent-warm-dark),
   ),
   accent-cool: (
-    light:   get-uswds-color($theme-color-accent-cool-lighter),
     base:    get-uswds-color($theme-color-accent-cool-base),
+    dark:    get-uswds-color($theme-color-accent-cool-dark),
   ),
   inverse: (
     base:   get-uswds-color($theme-color-inverse-base),

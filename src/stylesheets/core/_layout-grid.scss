@@ -48,11 +48,14 @@ $grid-namespace-prefix: 'g-';
       @include u-padding-x(calc-gap-offset($theme-column-gap));
     }
   }
-  @if $theme-column-gap-large {
-    &.#{$grid-namespace-prefix}gap-large {
-      @include u-margin-x(n-#{calc-gap-offset($theme-column-gap-large)});
-      > [class*='#{$grid-namespace-prefix}col'] {
-        @include u-padding-x(calc-gap-offset($theme-column-gap-large));
+  @each $gap-key, $gap-val in map-deep-get($uswds-properties, gap, standard){
+    @if $gap-key {
+      $gap-key: unquote($gap-key);
+      &.#{$grid-namespace-prefix}gap-#{$gap-key} {
+        @include u-margin-x(n-#{calc-gap-offset($gap-val)});
+        > [class*='#{$grid-namespace-prefix}col'] {
+          @include u-padding-x(calc-gap-offset($gap-val));
+        }
       }
     }
   }
@@ -65,6 +68,14 @@ $grid-namespace-prefix: 'g-';
           @include u-margin-x(n-#{calc-gap-offset($theme-column-gap)});
           > [class*='#{$grid-namespace-prefix}col'] {
             @include u-padding-x(calc-gap-offset($theme-column-gap));
+          }
+        }
+        @if $theme-column-gap-small {
+          &.#{$mq-key}\:#{$grid-namespace-prefix}gap-small {
+            @include u-margin-x(n-#{calc-gap-offset($theme-column-gap-small)});
+            > [class*='#{$grid-namespace-prefix}col'] {
+              @include u-padding-x(calc-gap-offset($theme-column-gap-small));
+            }
           }
         }
         @if $theme-column-gap-large {

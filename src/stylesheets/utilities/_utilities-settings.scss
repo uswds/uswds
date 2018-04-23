@@ -1347,6 +1347,33 @@ $text-decoration-color-manual-values: (
 ) !default;
 
 /*
+========================================
+.text-indent
+----------------------------------------
+*/
+
+$text-indent-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$text-indent-plugins: (
+  /*
+  */
+  'plugin-standard-text-indent'
+) !default;
+
+$text-indent-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
 .text-transform
 ----------------------------------------
 */

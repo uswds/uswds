@@ -1,0 +1,28 @@
+/*
+========================================
+text-indent
+----------------------------------------
+usage:
+  .text-indent-[key]
+----------------------------------------
+output:
+  align: [value];
+----------------------------------------
+example:
+  .text-indent-0 {
+    text-ident: 0; }
+----------------------------------------
+*/
+
+$text-indent: (
+  text-indent: (
+    base: 'text-indent',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($text-indent-plugins),
+      $text-indent-manual-values
+    ),
+    settings: $text-indent-settings,
+    property: 'text-indent',
+  )
+)

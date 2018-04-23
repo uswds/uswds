@@ -77,6 +77,15 @@ $uswds-spacing:(
   ),
 );
 
+$uswds-column-gaps: (
+  'eighth':     'eighth',
+  'quarter':    'quarter',
+  'half':       'half',
+  'base-plus':  'base-plus',
+  'double':     'double',
+  'triple':     'triple',
+);
+
 /*
 ----------------------------------------
 Breakpoints
