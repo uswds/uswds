@@ -51,4 +51,8 @@ $plugin-palettes: (
   'plugin-color-palette-required':  $required-colors,
   'plugin-color-palette-state':     $color-palette-state,
   'plugin-color-palette-basic': $uswds-colors-basic,
+  'plugin-color-palette-sketching': map-collect(
+    $uswds-colors-sketching,
+    $uswds-colors-basic
+  )
 );

@@ -49,14 +49,15 @@ used by utilities or layout grid
 */
 
 $theme-output-breakpoints: (
-  'compact':         false,   // 240px
+  'card':            false,   // 160px
+  'card-plus':       false,   // 240px
   'mobile':          false,   // 320px
   'mobile-plus':     true,    // 480px
   'tablet':          true,    // 640px
   'tablet-plus':     false,   // 800px
   'desktop':         true,    // 1040px
   'desktop-plus':    false,   // 1200px
-  'wide':            false,   // 1400px
+  'widescreen':      false,   // 1400px
 ) !default;
 
 /*
@@ -290,24 +291,24 @@ quad-plus       72px
 ----------------------------------------
 */
 
-$theme-border-radius-small:       eighth !default;
-$theme-border-radius-base:        quarter !default;
+$theme-border-radius-small:       2px !default;
+$theme-border-radius-base:        s05 !default;
 $theme-border-radius-large:       false !default;
 
 /*
 ----------------------------------------
 Column gap
 ----------------------------------------
-eighth          2px
-quarter         4px
-half            8px
-base            16px
-base-plus       24px
-double          32px
-triple          48px
+2px         2px
+05          4px
+1           8px
+2           16px
+3           24px
+4           32px
+5           48px
 ----------------------------------------
 */
 
-$theme-column-gap-small: 'eighth' !default;
-$theme-column-gap:       'base' !default;
-$theme-column-gap-large: 'base-plus' !default;
+$theme-column-gap-small: 2px !default;
+$theme-column-gap:       s2 !default;
+$theme-column-gap-large: s3 !default;

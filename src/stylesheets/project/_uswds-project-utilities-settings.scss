@@ -2,10 +2,6 @@
 ========================================
 USWDS UTILITIES SETTINGS
 ----------------------------------------
-!! Copy this file to your project's
-   sass root. Don't edit the version
-   in node_modules.
-----------------------------------------
 */
 
 $utilities-namespace-prefix:  'u-';
@@ -13,21 +9,12 @@ $utilities-use-important:     false;
 
 $output-all-utilities:  false;
 
-/*
-----------------------------------------
-global colors
-----------------------------------------
-The following plugins will be added to
-- background-color
-- border-color
-- color
-- text-decoration-color
-----------------------------------------
-*/
-
+// By default, the following plugins
+// will be added to
+// each utility that accepts
+// color values
 $global-color-plugins: (
-  'plugin-color-palette-grayscale',
-  'plugin-color-palette-basic'
+  'plugin-color-palette-grayscale'
 );
 
 /*
@@ -85,6 +72,7 @@ $background-color-plugins: (
   'plugin-color-palette-status'
   */
   'plugin-standard-background-color',
+  $global-color-plugins
 );
 
 $background-color-manual-values: (
@@ -149,7 +137,8 @@ $border-color-plugins: (
   'plugin-color-[color]-vivid'
   'plugin-color-palette-status'
   */
-  'plugin-standard-border-color'
+  'plugin-standard-border-color',
+  $global-color-plugins
 );
 
 $border-color-manual-values: (
@@ -380,7 +369,8 @@ $color-plugins: (
   'plugin-[color]-vivid'
   'plugin-palette-status'
   */
-  'plugin-standard-color'
+  'plugin-standard-color',
+  $global-color-plugins
 );
 
 $color-manual-values: (
@@ -1121,7 +1111,8 @@ $outline-color-settings: (
 $outline-color-plugins: (
   /*
   */
-  'plugin-standard-outline-color'
+  'plugin-standard-outline-color',
+  $global-color-plugins
 );
 
 $outline-color-manual-values: (
@@ -1342,7 +1333,8 @@ $text-decoration-color-plugins: (
   /*
   'plugin-color-palette-grayscale'
   */
-  'plugin-standard-text-decoration-color'
+  'plugin-standard-text-decoration-color',
+  $global-color-plugins
 );
 
 $text-decoration-color-manual-values: (
@@ -1357,7 +1349,7 @@ $text-decoration-color-manual-values: (
 */
 
 $text-indent-settings: (
-  output:       true,
+  output:       false,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1371,12 +1363,13 @@ $text-indent-plugins: (
   'plugin-standard-text-indent'
 );
 
-$text-decoration-indent-values: (
+$text-indent-manual-values: (
   /*
   */
 );
 
 /*
+========================================
 .text-transform
 ----------------------------------------
 */

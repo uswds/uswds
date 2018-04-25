@@ -423,7 +423,7 @@ grid.
 
 @function calc-gap-offset($gap-size) {
   @if map-has-key($spacing-calculator, quote($gap-size)) {
-    $numeric-eq: map-get($spacing-calculator, $gap-size);
+    $numeric-eq: map-get($spacing-calculator, quote($gap-size));
     @if map-has-key($spacing-calculator, ($numeric-eq / 2)){
       @return map-get($spacing-calculator, ($numeric-eq / 2));
     }
@@ -527,8 +527,28 @@ colors: project and system
         quote(nth($props, 1))
       );
     }
+    @if map-has-key(
+      $uswds-colors-basic,
+      quote(nth($props, 1))
+    ){
+      @warn "`#{nth($props, 1)}` is a basic color. This is OK for sketching and prototyping, but use a true color in production code.";
+      @return map-get(
+        $uswds-colors-basic,
+        quote(nth($props, 1))
+      );
+    }
+    @if map-has-key(
+      $uswds-colors-sketching,
+      quote(nth($props, 1))
+    ){
+      @warn "`color-#{nth($props, 1)}` is a sketching color. This is OK but consider replacing it with a true color value in production code.";
+      @return map-get(
+        $uswds-colors-sketching,
+        quote(nth($props, 1))
+      );
+    }
     @else {
-      @error "#{$props} is not a reserved value. Valid values: #{map-keys($project-reserved-colors)}";
+      @error "#{nth($props, 1)} is not a USWDS color. Reserved values: #{map-keys($project-reserved-colors)}. Sketching values: #{map-keys($uswds-sketching-colors)}. Basic values: #{map-keys($uswds-basic-colors)}.";
     }
   } @elseif length($props) == 2 {
     @return map-deep-get(
@@ -720,18 +740,21 @@ the desired final units (currently rem)
 */
 
 @function spacing($value) {
-  @if $value == false {
-    @return false;
-  }
-  @elseif map-has-key($project-spacing-standard, quote($value)) {
+  @if map-has-key($project-spacing-standard, quote($value)) {
+    @if map-get($project-spacing-standard, quote($value)) == false {
+      @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
+    }
     @return map-get($project-spacing-standard, quote($value));
   }
-  @elseif not unitless($value) {
+  @elseif $value == false {
+    @return false;
+  }
+  @elseif type-of($value) == 'number' and not unitless($value) {
     @warn "`#{$value}` is not a standard USWDS unit. This is OK, but consider using a standard spacing unit instead.";
     @return $value;
   }
   @else {
-    @error "`#{$value}` is not a valid spacing value. Valid values: #{map-keys($project-spacing-standard)}";
+    @error "`#{$value}` is not a valid spacing unit. Valid spacing unit values: #{map-keys($project-spacing-standard)}";
   }
 };
 
