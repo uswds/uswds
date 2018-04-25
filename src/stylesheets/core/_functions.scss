@@ -412,6 +412,32 @@ TODO: convert/translate these to mixins?
 
 /*
 ----------------------------------------
+calc-gap-offset()
+----------------------------------------
+Calculate a valid uswds unit that is
+half the width of a given unit, for
+calculating gap offset in the layout
+grid.
+----------------------------------------
+*/
+
+@function calc-gap-offset($gap-size) {
+  @if map-has-key($spacing-calculator, quote($gap-size)) {
+    $numeric-eq: map-get($spacing-calculator, $gap-size);
+    @if map-has-key($spacing-calculator, ($numeric-eq / 2)){
+      @return map-get($spacing-calculator, ($numeric-eq / 2));
+    }
+    @else {
+      @error "`#{$gap-size}` is not a valid USWDS gap size. Column gaps need to have a standard size half their width.";
+    }
+  }
+  @else {
+    @error "`#{$gap-size}` is not a valid USWDS gap size.";
+  }
+}
+
+/*
+----------------------------------------
 get-standard-values()
 ----------------------------------------
 Gets a map of USWDS standard values
@@ -435,8 +461,12 @@ functions and mixins.
 ----------------------------------------
 */
 
-@function get-uswds-value($property, $value){
-  $quoted-value: quote($value);
+@function get-uswds-value($property, $value...){
+  @if type-of($value) == 'arglist' and nth($value, 1) == override {
+    @return nth($value, 2);
+  }
+  $value: nth($value, 1);
+  $quoted-value: quote(nth($value, 1));
   $our-standard-values: map-deep-get($uswds-properties, $property, standard);
   $our-extended-values: map-deep-get($uswds-properties, $property, extended);
   @if map-has-key($our-standard-values, $quoted-value) {
@@ -454,8 +484,6 @@ functions and mixins.
     @warn "`#{$value}` is not a valid `#{$property}` value. You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
   }
 };
-
-
 
 /*
 ----------------------------------------
@@ -991,7 +1019,7 @@ loop
     $mq: unquote($media-key);
     $media-value-em: grid-to-base-em($media-value);
 
-    @if map-get($output-breakpoints, $media-key) {
+    @if map-get($theme-output-breakpoints, $media-key) {
       @media (min-width: #{$media-value-em}) {
         .#{$mq}\:#{$utilities-namespace-prefix}#{$selector} {
           @if map-has-key($val-props, extend) {
@@ -1209,7 +1237,7 @@ through all possible variants
 
             // -------- if the modifier is null ----------
 
-            @if map-get($mod-props, content) == null {
+            @if map-get($mod-props, content) == null or map-get($mod-props, content) == 'noModifier' or map-get($mod-props, content) == '' {
 
               // If mod-props.values is null, there's no modifier property
               // and we can set our rule's $property now
@@ -1275,23 +1303,25 @@ through all possible variants
               $property: multi-cat($property-default, map-get($mod-props, content));
 
               // Now we go through to finish setting the $selector.
-              // Check to see if the modifier is '' (noModifier)
+              // If not, check to see if either mod.isReadable or
+              // val.isReadable
 
-              @if map-get($mod-props, slug) == '' {
-
-                // If so, modifier-value == value
-
-                $mv: $v;
-
-                // If not, check to see if either mod.isReadable or
-                // val.isReadable
-
-              } @elseif map-has-key($mod-props, isReadable) or
+              @if map-has-key($mod-props, isReadable) or
                 map-has-key($val-props, isReadable) {
 
-                // If so, join with a '-' into selector $mv.
+                  // If valProps is `noValue`....
 
-                $mv: map-get($mod-props, slug) + '-' + map-get($val-props, slug);
+                  @if map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
+
+                    // ...$mv is just the modifier
+
+                    $mv: map-get($mod-props, slug);
+                  } @else {
+
+                    // Otherwise, join with a '-' into selector $mv.
+
+                    $mv: map-get($mod-props, slug) + '-' + map-get($val-props, slug);
+                  }
               } @else {
 
                 // If not, just join into selector $mv.

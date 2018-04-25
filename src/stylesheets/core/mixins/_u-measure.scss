@@ -1,5 +1,5 @@
 // Outputs measure max-width
 
-@mixin u-measure($value) {
-  max-width: get-uswds-value(measure, $value);
+@mixin u-measure($value...) {
+  max-width: get-uswds-value(measure, $value...);
 }

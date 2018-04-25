@@ -26,7 +26,7 @@ $border-width: (
       'left-width': '-left-width',
       'y-width': ('-top-width', '-bottom-width'),
       'x-width': ('-left-width', '-right-width'),
-      '-width': '-width',
+      'width': '-width',
     ),
     values: map-collect(
       get-plugins($border-width-plugins),

@@ -1,34 +1,28 @@
 /*
 ========================================
-flex
+text-indent
 ----------------------------------------
 usage:
-  .flex-[key]
+  .text-indent-[key]
 ----------------------------------------
 output:
-  flex: [value];
+  align: [value];
 ----------------------------------------
 example:
-  .flex-1 {
-    flex: 1 0 0; }
-
-  .flex-fill {
-    flex: 1 0 0; }
-
-  .flex-auto {
-    flex: none; }
+  .text-indent-0 {
+    text-ident: 0; }
 ----------------------------------------
 */
 
-$flex: (
-  flex: (
-    base: 'flex',
+$text-indent: (
+  text-indent: (
+    base: 'text-indent',
     modifiers: null,
     values: map-collect(
-      get-plugins($flex-plugins),
-      $flex-manual-values
+      get-plugins($text-indent-plugins),
+      $text-indent-manual-values
     ),
-    settings: $flex-settings,
-    property: 'flex',
+    settings: $text-indent-settings,
+    property: 'text-indent',
   )
-);
+)

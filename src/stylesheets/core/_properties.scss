@@ -110,6 +110,9 @@ $uswds-properties: (
   ),
   circle: (
     standard: map-collect(
+      (
+       'foo': foo,
+      ),
       map-get($uswds-spacing, smaller),
       map-get($uswds-spacing, small),
       map-get($uswds-spacing, medium),
@@ -146,8 +149,9 @@ $uswds-properties: (
       '9':    9 0 0,
       '10':   10 0 0,
       '11':   11 0 0,
+      '12':   12 0 0,
       'fill': 1 0 0,
-      'fit':  0 0 auto,
+      'auto': 0 0 auto,
     ),
     extended: (),
   ),
@@ -213,6 +217,16 @@ $uswds-properties: (
       '800': 800,
       '900': 900,
     ),
+  ),
+  gap: (
+    standard: map-collect(
+      $uswds-column-gaps,
+      (
+        'small': $theme-column-gap-small,
+        'large': $theme-column-gap-large,
+      )
+    ),
+    extended: (),
   ),
   height: (
     standard: map-collect(
@@ -304,6 +318,7 @@ $uswds-properties: (
         'measure-base':	   $uswds-measure-base,
         'measure-large':	 $uswds-measure-large,
         'measure-larger':	 $uswds-measure-larger,
+        'full':            100%,
         none:              none,
       )
     ),
@@ -324,6 +339,7 @@ $uswds-properties: (
     standard: map-collect(
       map-get($uswds-spacing, small),
       map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, large),
       map-get($partial-values, zero-zero),
       map-get($partial-values, none),
       map-get($partial-values, full-percent),
@@ -465,6 +481,16 @@ $uswds-properties: (
     standard: $standard-colors,
     extended: $uswds-colors,
   ),
+  text-indent: (
+    standard: map-collect(
+      map-get($partial-values, zero-zero),
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, smaller-negative),
+      map-get($uswds-spacing, small-negative)
+    ),
+    extended: (),
+  ),
   text-transform: (
     standard: (
       'capitalize': capitalize,
@@ -516,6 +542,7 @@ $uswds-properties: (
       map-get($uswds-spacing, large),
       map-get($uswds-spacing, larger),
       map-get($partial-values, zero-zero),
+      map-get($partial-values, full-percent),
       map-get($partial-values, auto)
     ),
     extended: (),

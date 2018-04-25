@@ -40,6 +40,27 @@ $theme-image-path:  '../img' !default;
 
 /*
 ----------------------------------------
+Output breakpoints
+----------------------------------------
+Which breakpoints does your project
+need? Select as `true` any breakpoint
+used by utilities or layout grid
+----------------------------------------
+*/
+
+$theme-output-breakpoints: (
+  'compact':         false,   // 240px
+  'mobile':          false,   // 320px
+  'mobile-plus':     true,    // 480px
+  'tablet':          true,    // 640px
+  'tablet-plus':     false,   // 800px
+  'desktop':         true,    // 1040px
+  'desktop-plus':    false,   // 1200px
+  'wide':            false,   // 1400px
+) !default;
+
+/*
+----------------------------------------
 Custom font definitions
 ----------------------------------------
 Add a new custom font definition if
@@ -144,7 +165,7 @@ Type scale
 Define your project's type scale using
 values from the USWDS system type scale
 
-s1-s20
+f1-f20
 ----------------------------------------
 */
 
@@ -205,12 +226,12 @@ $theme-color-secondary-vivid:     $theme-color-secondary, 50, vivid !default;
 $theme-color-secondary-dark:      $theme-color-secondary, 80 !default;
 
 $theme-color-accent-warm:         orange !default;
-$theme-color-accent-warm-lighter: $theme-color-accent-warm, 50, vivid !default;
-$theme-color-accent-warm-base:    $theme-color-accent-warm, 50, vivid !default;
+$theme-color-accent-warm-base:    $theme-color-accent-warm, 30, vivid !default;
+$theme-color-accent-warm-dark:    $theme-color-accent-warm, 60, vivid !default;
 
 $theme-color-accent-cool:         cyan !default;
-$theme-color-accent-cool-lighter: $theme-color-accent-cool, 50, vivid !default;
-$theme-color-accent-cool-base:    $theme-color-accent-cool, 50, vivid !default;
+$theme-color-accent-cool-base:    $theme-color-accent-cool, 30, vivid !default;
+$theme-color-accent-cool-dark:    $theme-color-accent-cool, 60, vivid !default;
 
 $theme-color-inverse:             white !default;
 $theme-color-inverse-base:        $theme-color-inverse, 0 !default;
@@ -272,3 +293,21 @@ quad-plus       72px
 $theme-border-radius-small:       eighth !default;
 $theme-border-radius-base:        quarter !default;
 $theme-border-radius-large:       false !default;
+
+/*
+----------------------------------------
+Column gap
+----------------------------------------
+eighth          2px
+quarter         4px
+half            8px
+base            16px
+base-plus       24px
+double          32px
+triple          48px
+----------------------------------------
+*/
+
+$theme-column-gap-small: 'eighth' !default;
+$theme-column-gap:       'base' !default;
+$theme-column-gap-large: 'base-plus' !default;

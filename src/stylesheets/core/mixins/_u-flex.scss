@@ -1,5 +1,10 @@
 // Outputs flex
 
 @mixin u-flex($value) {
-  flex: get-uswds-value(flex, $value);
+  @if map-has-key(map-deep-get($uswds-properties, flex-wrap, standard), quote($value)) {
+    flex-wrap: get-uswds-value(flex-wrap, $value);
+  }
+  @else {
+    flex: get-uswds-value(flex, $value);
+  }
 }

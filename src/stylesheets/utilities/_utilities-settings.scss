@@ -7,17 +7,6 @@ USWDS UTILITIES SETTINGS
 $utilities-namespace-prefix:  'u-' !default;
 $utilities-use-important:     false !default;
 
-$output-breakpoints: (
-  'compact':         false,   // 240px
-  'mobile':          false,   // 320px
-  'mobile-plus':     true,    // 480px
-  'tablet':          true,    // 640px
-  'tablet-plus':     false,   // 800px
-  'desktop':         true,    // 1040px
-  'desktop-plus':    false,   // 1200px
-  'wide':            false,   // 1400px
-) !default;
-
 $output-all-utilities:  false !default;
 
 /*
@@ -200,7 +189,7 @@ $border-radius-manual-values: (
 */
 
 $border-style-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1358,6 +1347,33 @@ $text-decoration-color-manual-values: (
 ) !default;
 
 /*
+========================================
+.text-indent
+----------------------------------------
+*/
+
+$text-indent-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$text-indent-plugins: (
+  /*
+  */
+  'plugin-standard-text-indent'
+) !default;
+
+$text-indent-manual-values: (
+  /*
+  */
+) !default;
+
+/*
+========================================
 .text-transform
 ----------------------------------------
 */
