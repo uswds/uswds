@@ -2,7 +2,7 @@
 @mixin u-border-n($side, $value...) {
   $our-value: null;
   @if length(nth($value, 1)) == 0 {
-    $our-value: pixel;
+    $our-value: 1px;
   }
   @else {
     $our-value: nth($value, 1);

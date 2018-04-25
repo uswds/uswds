@@ -10,6 +10,12 @@ $standard-colors: map-collect(
   $required-colors
 );
 
+$extended-colors: map-collect(
+  $uswds-colors,
+  $uswds-colors-sketching,
+  $uswds-colors-basic
+);
+
 $partial-values: (
   zero-zero: (
     '0': 0,
@@ -43,7 +49,7 @@ $uswds-properties: (
   ),
   background-color: (
     standard: $standard-colors,
-    extended: $uswds-colors,
+    extended: $extended-colors,
   ),
   border: (
     standard: map-collect(
@@ -55,7 +61,7 @@ $uswds-properties: (
   ),
   border-color: (
     standard: $standard-colors,
-    extended: $uswds-colors,
+    extended: $extended-colors,
   ),
   border-radius: (
     standard: $project-border-radius,
@@ -122,7 +128,7 @@ $uswds-properties: (
   ),
   color: (
     standard: $standard-colors,
-    extended: $uswds-colors,
+    extended: $extended-colors,
   ),
   display: (
     standard: (
@@ -409,7 +415,7 @@ $uswds-properties: (
   ),
   outline-color: (
     standard: $standard-colors,
-    extended: $uswds-colors,
+    extended: $extended-colors,
   ),
   overflow: (
     standard: (
@@ -479,7 +485,7 @@ $uswds-properties: (
   ),
   text-decoration-color: (
     standard: $standard-colors,
-    extended: $uswds-colors,
+    extended: $extended-colors,
   ),
   text-indent: (
     standard: map-collect(
@@ -487,7 +493,9 @@ $uswds-properties: (
       map-get($uswds-spacing, smaller),
       map-get($uswds-spacing, small),
       map-get($uswds-spacing, smaller-negative),
-      map-get($uswds-spacing, small-negative)
+      map-get($uswds-spacing, small-negative),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, medium-negative)
     ),
     extended: (),
   ),

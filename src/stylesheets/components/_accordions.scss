@@ -8,6 +8,22 @@ $icon-size: $spacing-md-small;
 $h-padding: $spacing-medium;
 $v-padding: $spacing-md-small;
 
+@mixin accordion-list-styles {
+  @include unstyled-list;
+  color: $color-base;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+@mixin accordion-list-item-styles {
+  background-color: $color-gray-lightest;
+  font-family: $font-sans;
+  list-style: none;
+  margin-bottom: $spacing-x-small;
+  width: 100%;
+}
+
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
@@ -22,12 +38,22 @@ $v-padding: $spacing-md-small;
   display: inline-block;
   font-family: $font-sans;
   font-weight: $font-bold;
+  margin: 0;
   padding: $v-padding ($h-padding * 2 + $icon-size) $v-padding $h-padding;
   width: 100%;
 
   &:hover {
     background-color: $color-gray-lighter;
     color: $color-base;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
   }
 }
 // scss-lint:enable PropertyCount
@@ -39,12 +65,52 @@ $v-padding: $spacing-md-small;
   background-size: $icon-size;
 }
 
+@mixin accordion-nested-list {
+  > ul li ul {
+    list-style: disc;
+    > li > ul {
+      list-style: circle;
+      > li > ul {
+        list-style: square;
+      }
+    }
+  }
+}
+
 .usa-accordion,
 .usa-accordion-bordered {
+  @include accordion-list-styles;
+  @include accordion-nested-list;
+
   + .usa-accordion,
   + .usa-accordion-bordered {
     margin-top: $spacing-small;
   }
+
+  // TODO deprecated ruleset based on old accordion.
+  > ul {
+    @include accordion-list-styles;
+
+    // TODO deprecated ruleset based on old accordion.
+    > li {
+      @include accordion-list-item-styles;
+    }
+
+    // TODO deprecated ruleset based on old accordion.
+    button {
+      @include accordion-button-styles;
+    }
+
+    // TODO deprecated ruleset based on old accordion.
+    [aria-expanded=false] {
+      @include accordion-button-unopened-styles;
+    }
+  }
+
+  > li {
+    @include accordion-list-item-styles;
+  }
+
 }
 
 .usa-accordion-bordered {
@@ -52,26 +118,27 @@ $v-padding: $spacing-md-small;
     border-bottom: $accordion-border;
     border-left: $accordion-border;
     border-right: $accordion-border;
-    margin-bottom: 0.5rem;
   }
-}
-
-.usa-accordion-heading {
-  @include margin(0 null 0.5rem null);
 }
 
 .usa-accordion-content {
   background-color: $color-white;
   overflow: auto;
-  padding: 1rem 2rem 1.5rem 2rem;
+  padding: $spacing-md-small $spacing-medium;
 
-  > :first-child {
+  > *:first-child {
     margin-top: 0;
   }
 
-  > :last-child {
+  > *:last-child {
     margin-bottom: 0;
   }
+
+  &:not([aria-hidden]) {
+    @include sr-only();
+  }
+
+  @include accessibly-hidden();
 }
 
 .usa-accordion-button {

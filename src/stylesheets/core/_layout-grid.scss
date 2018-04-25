@@ -43,7 +43,7 @@ $grid-namespace-prefix: 'g-';
 
 // ...that includes column gaps
   &.#{$grid-namespace-prefix}gap {
-    @include u-margin-x(n-#{calc-gap-offset($theme-column-gap)});
+    @include u-margin-x(#{$neg-prefix}-#{calc-gap-offset($theme-column-gap)});
     > [class*='#{$grid-namespace-prefix}col'] {
       @include u-padding-x(calc-gap-offset($theme-column-gap));
     }
@@ -52,7 +52,7 @@ $grid-namespace-prefix: 'g-';
     @if $gap-key {
       $gap-key: unquote($gap-key);
       &.#{$grid-namespace-prefix}gap-#{$gap-key} {
-        @include u-margin-x(n-#{calc-gap-offset($gap-val)});
+        @include u-margin-x(#{$neg-prefix}-#{calc-gap-offset($gap-val)});
         > [class*='#{$grid-namespace-prefix}col'] {
           @include u-padding-x(calc-gap-offset($gap-val));
         }
@@ -65,14 +65,14 @@ $grid-namespace-prefix: 'g-';
     @if map-get($theme-output-breakpoints, $mq-key) {
       @include at-media($mq-key){
         &.#{$mq-key}\:#{$grid-namespace-prefix}gap {
-          @include u-margin-x(n-#{calc-gap-offset($theme-column-gap)});
+          @include u-margin-x(#{$neg-prefix}-#{calc-gap-offset($theme-column-gap)});
           > [class*='#{$grid-namespace-prefix}col'] {
             @include u-padding-x(calc-gap-offset($theme-column-gap));
           }
         }
         @if $theme-column-gap-small {
           &.#{$mq-key}\:#{$grid-namespace-prefix}gap-small {
-            @include u-margin-x(n-#{calc-gap-offset($theme-column-gap-small)});
+            @include u-margin-x(#{$neg-prefix}-#{calc-gap-offset($theme-column-gap-small)});
             > [class*='#{$grid-namespace-prefix}col'] {
               @include u-padding-x(calc-gap-offset($theme-column-gap-small));
             }
@@ -80,7 +80,7 @@ $grid-namespace-prefix: 'g-';
         }
         @if $theme-column-gap-large {
           &.#{$mq-key}\:#{$grid-namespace-prefix}gap-large {
-            @include u-margin-x(n-#{calc-gap-offset($theme-column-gap-large)});
+            @include u-margin-x(#{$neg-prefix}-#{calc-gap-offset($theme-column-gap-large)});
             > [class*='#{$grid-namespace-prefix}col'] {
               @include u-padding-x(calc-gap-offset($theme-column-gap-large));
             }
@@ -98,10 +98,12 @@ $grid-namespace-prefix: 'g-';
 
 .#{$grid-namespace-prefix}col-auto {
   @include u-flex(auto);
+  @include u-width(auto);
 }
 
 .#{$grid-namespace-prefix}col-fill {
   @include u-flex(fill);
+  @include u-width(auto);
 }
 
 // ...with widths
@@ -120,9 +122,11 @@ $grid-namespace-prefix: 'g-';
       }
       .#{$mq-key}\:#{$grid-namespace-prefix}col-fill {
         @include u-flex(fill);
+        @include u-width(auto);
       }
       .#{$mq-key}\:#{$grid-namespace-prefix}col-auto {
         @include u-flex(auto);
+        @include u-width(auto);
       }
 
       @each $width-key, $width-value in $uswds-layout-grid-widths {
