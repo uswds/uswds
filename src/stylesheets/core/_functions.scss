@@ -950,6 +950,12 @@ elegant
 Build a utility from values calculated
 in the @render-utilities-in loop
 ----------------------------------------
+TODO: Determine the proper use of
+unquote() in the following. Changed to
+account for a "interpolation near
+operators will be simplified in a
+future version of Sass" warning.
+----------------------------------------
 */
 
 @mixin render-utility($utility, $selector, $property, $value, $val-props, $important) {
@@ -957,7 +963,7 @@ in the @render-utilities-in loop
   .#{$utilities-namespace-prefix}#{$selector} {
     @if map-has-key($val-props, extend) {
       @each $ext-prop, $ext-value in map-get($val-props, extend) {
-        #{strunquote($ext-prop)}: strunquote($ext-value)#{$important};
+        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
       }
     }
 
@@ -966,12 +972,12 @@ in the @render-utilities-in loop
     }
 
     @each $this-property in $property {
-      #{$this-property}: $value#{$important};
+      #{$this-property}: unquote("#{$value}#{$important}");
     }
 
     @if map-has-key($utility, extend) {
       @each $ext-prop, $ext-value in map-get($utility, extend) {
-        #{strunquote($ext-prop)}: strunquote($ext-value)#{$important};
+        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
       }
     }
   }
@@ -994,7 +1000,7 @@ loop
   }
   .#{$this-mq}#{$pseudoclass}\:#{$utilities-namespace-prefix}#{$selector}:#{$pseudoclass} {
     @each $this-property in $property {
-      #{$this-property}: $value#{$important};
+      #{$this-property}: unquote("#{$value}#{$important}");
     }
   }
 }
@@ -1020,7 +1026,7 @@ to style placeholder text
   }
   .#{$this-namespace}pl-#{$selector}::placeholder {
     @each $this-property in $property {
-      #{$this-property}: $value#{$important};
+      #{$this-property}: unquote("#{$value}#{$important}");
     }
   }
 }
@@ -1047,17 +1053,17 @@ loop
         .#{$mq}\:#{$utilities-namespace-prefix}#{$selector} {
           @if map-has-key($val-props, extend) {
             @each $ext-prop, $ext-value in map-get($val-props, extend) {
-              #{strunquote($ext-prop)}: strunquote($ext-value)#{$important};
+              #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
             }
           }
 
           @each $this-property in $property {
-            #{$this-property}: $value#{$important};
+            #{$this-property}: unquote("#{$value}#{$important}");
           }
 
           @if map-has-key($utility, extend) {
             @each $ext-prop, $ext-value in map-get($utility, extend) {
-              #{strunquote($ext-prop)}: strunquote($ext-value)#{$important};
+              #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
             }
           }
           @if map-deep-get($utility, settings, hover) {
