@@ -35,37 +35,38 @@ $uswds-spacing:(
     '2px':                    2px,
   ),
   small: (
-    's05':                     grid-units(.5),  // 4px
-    's1':                      grid-units(1),   // 8px
-    's105':                    grid-units(1.5), // 12px
-    's2':                      grid-units(2),   // 16px
-    's3':                      grid-units(3),   // 24px
+    'p5':                     grid-units(.5),  // 4px
+    '1':                      grid-units(1),   // 8px
+    '1p5':                    grid-units(1.5), // 12px
+    '2':                      grid-units(2),   // 16px
+    '3':                      grid-units(3),   // 24px
   ),
   smaller-negative: (
     '#{$neg-prefix}-1px':     -1px,
     '#{$neg-prefix}-2px':     -2px,
   ),
   small-negative: (
-    '#{$neg-prefix}-s05':      grid-units(-.5),  // 4px
-    '#{$neg-prefix}-s1':       grid-units(-1),   // 8px
-    '#{$neg-prefix}-s105':     grid-units(-1.5), // 12px
-    '#{$neg-prefix}-s2':       grid-units(-2),   // 16px
-    '#{$neg-prefix}-s3':       grid-units(-3),   // 24px
+    '#{$neg-prefix}-p5':      grid-units(-.5),  // -4px
+    '#{$neg-prefix}-1':       grid-units(-1),   // -8px
+    '#{$neg-prefix}-1p5':     grid-units(-1.5), // -12px
+    '#{$neg-prefix}-2':       grid-units(-2),   // -16px
+    '#{$neg-prefix}-3':       grid-units(-3),   // -24px
   ),
   medium: (
-    's4':                      grid-units(4),   // 32px
-    's5':                      grid-units(5),   // 40px
-    's6':                      grid-units(6),   // 48px
-    's7':                      grid-units(7),   // 56px
-    's8':                      grid-units(8),   // 64px
-    's9':                      grid-units(9),   // 72px
+    '4':                      grid-units(4),   // 32px
+    '5':                      grid-units(5),   // 40px
+    '6':                      grid-units(6),   // 48px
+    '7':                      grid-units(7),   // 56px
+    '8':                      grid-units(8),   // 64px
+    '9':                      grid-units(9),   // 72px
   ),
   medium-negative: (
-    '#{$neg-prefix}-s4':       grid-units(-4),  // 4px
-    '#{$neg-prefix}-s5':       grid-units(-5),  // 8px
-    '#{$neg-prefix}-s6':       grid-units(-6),  // 12px
-    '#{$neg-prefix}-s7':       grid-units(-7),  // 16px
-    '#{$neg-prefix}-s8':       grid-units(-8),  // 24px
+    '#{$neg-prefix}-4':       grid-units(-4),  // -4px
+    '#{$neg-prefix}-5':       grid-units(-5),  // -8px
+    '#{$neg-prefix}-6':       grid-units(-6),  // -12px
+    '#{$neg-prefix}-7':       grid-units(-7),  // -16px
+    '#{$neg-prefix}-8':       grid-units(-8),  // -24px
+    '#{$neg-prefix}-9':       grid-units(-9),  // -32px
   ),
   large: (
     'card':                   grid-units(20),  // 160px
@@ -88,11 +89,11 @@ $uswds-spacing:(
 
 $uswds-column-gaps: (
   '2px':    '2px',
-  's05':     's05',
-  's1':      's1',
-  's3':      's3',
-  's4':      's4',
-  's6':      's6',
+  'p5':     'p5',
+  '1':      '1',
+  '3':      '3',
+  '4':      '4',
+  '6':      '6',
 );
 
 /*
@@ -114,9 +115,9 @@ Units
 
 $uswds-spacing-em: (
  small: (
-   '05em':   .5em,
+   'p5em':   .5em,
    '1em':    1em,
-   '105em':  1.5em,
+   '1p5em':  1.5em,
    '2em':    2em,
  ),
 );

@@ -280,9 +280,9 @@ $theme-color-disabled-base:    $theme-color-disabled, 30;
 Border radius
 ----------------------------------------
 2px       2px
-s05       4px
+sp5       4px
 s1        8px
-s105      12px
+s1p5      12px
 s2        16px
 s3        24px
 s4        32px
@@ -295,7 +295,7 @@ s9        72px
 */
 
 $theme-border-radius-small:       2px;
-$theme-border-radius-base:        s05;
+$theme-border-radius-base:        sp5;
 $theme-border-radius-large:       false;
 
 /*
@@ -303,7 +303,7 @@ $theme-border-radius-large:       false;
 Column gap
 ----------------------------------------
 2px         2px
-s05         4px
+sp5         4px
 s1          8px
 s2          16px
 s3          24px
