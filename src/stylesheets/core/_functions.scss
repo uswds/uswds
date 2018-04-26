@@ -297,15 +297,16 @@ withholds certain errors.
 */
 
 @function utility-font($family, $scale){
+  $quote: quote($scale);
   @if not map-has-key($project-cap-heights, $family) {
     @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
-  @elseif not map-get($all-type-scale, $scale) {
+  @elseif not map-get($all-type-scale, $quote) {
     @error "`#{$scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
   }
   @else {
     $this-cap: map-get($project-cap-heights, $family);
-    $this-scale: map-get($all-type-scale, $scale);
+    $this-scale: map-get($all-type-scale, $quote);
     @if $this-scale and $this-cap {
       @return type-scale($this-cap, $this-scale);
     }
@@ -371,13 +372,14 @@ Get a value from the system type scale
 */
 
 @function system-type-scale($scale){
-  @if $scale and map-has-key($uswds-type-scale, $scale){
-    @return map-get($uswds-type-scale, $scale);
+  $quote: quote($scale);
+  @if $scale and map-has-key($uswds-type-scale, $quote){
+    @return map-get($uswds-type-scale, $quote);
   }
   @elseif $scale == false {
     @return false;
   }
-  @elseif not map-has-key($uswds-type-scale, $scale) {
+  @else {
     @error "`#{$scale}` is not a valid type scale value. Valid values: #{map-keys($uswds-type-scale)}";
   }
 };
