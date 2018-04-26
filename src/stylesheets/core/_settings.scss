@@ -276,23 +276,23 @@ $theme-color-disabled-base:    $theme-color-disabled, 30 !default;
 ----------------------------------------
 Border radius
 ----------------------------------------
-eighth          2px
-quarter         4px
-half            8px
-half-plus       12px
-base            16px
-base-plus       24px
-double          32px
-double-plus     40px
-triple          48px
-triple-plus     56px
-quad            64px
-quad-plus       72px
+2px     2px
+p5      4px
+1       8px
+1p5     12px
+2       16px
+3       24px
+4       32px
+5       40px
+6       48px
+7       56px
+8       64px
+9       72px
 ----------------------------------------
 */
 
 $theme-border-radius-small:       2px !default;
-$theme-border-radius-base:        s05 !default;
+$theme-border-radius-base:        p5 !default;
 $theme-border-radius-large:       false !default;
 
 /*
@@ -300,7 +300,7 @@ $theme-border-radius-large:       false !default;
 Column gap
 ----------------------------------------
 2px         2px
-05          4px
+p5          4px
 1           8px
 2           16px
 3           24px
@@ -310,5 +310,5 @@ Column gap
 */
 
 $theme-column-gap-small: 2px !default;
-$theme-column-gap:       s2 !default;
-$theme-column-gap-large: s3 !default;
+$theme-column-gap:       2 !default;
+$theme-column-gap-large: 3 !default;
