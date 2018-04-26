@@ -26,7 +26,7 @@ system scale or project scale
   }
   @else {
     $our-family: nth($props, 1);
-    $our-scale: nth($props, 2);
+    $our-scale: quote(nth($props, 2));
     @if not map-has-key($project-cap-heights, $our-family) {
       @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
     }
