@@ -63,7 +63,7 @@ $background-color-settings: (
   responsive:   false,
   active:       false,
   focus:        false,
-  hover:        false,
+  hover:        true,
   visited:      false
 ) !default;
 
@@ -128,7 +128,7 @@ $border-color-settings: (
   responsive:   false,
   active:       false,
   focus:        false,
-  hover:        false,
+  hover:        true,
   visited:      false
 ) !default;
 
@@ -359,7 +359,7 @@ $color-settings: (
   responsive:   false,
   active:       false,
   focus:        false,
-  hover:        false,
+  hover:        true,
   visited:      false
 ) !default;
 
