@@ -281,37 +281,37 @@ Border radius
 ----------------------------------------
 2px       2px
 sp5       4px
-s1        8px
-s1p5      12px
-s2        16px
-s3        24px
-s4        32px
-s5        40px
-s6        48px
-s7        56px
-s8        64px
-s9        72px
+1        8px
+1p5      12px
+2        16px
+3        24px
+4        32px
+5        40px
+6        48px
+7        56px
+8        64px
+9        72px
 ----------------------------------------
 */
 
 $theme-border-radius-small:       2px;
-$theme-border-radius-base:        sp5;
-$theme-border-radius-large:       false;
+$theme-border-radius-base:        p5;
+$theme-border-radius-large:       1;
 
 /*
 ----------------------------------------
 Column gap
 ----------------------------------------
 2px         2px
-sp5         4px
-s1          8px
-s2          16px
-s3          24px
-s4          32px
-s5          48px
+p5         4px
+1          8px
+2          16px
+3          24px
+4          32px
+5          48px
 ----------------------------------------
 */
 
 $theme-column-gap-small: 2px;
-$theme-column-gap: s2;
-$theme-column-gap-large: s2;
+$theme-column-gap: 2;
+$theme-column-gap-large: 2;
