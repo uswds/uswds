@@ -424,11 +424,16 @@ grid.
 */
 
 @function calc-gap-offset($gap-size) {
-  $quote: quote(inspect($gap-size));
+  $quote: $gap-size;
+  @if type-of($gap-size) == "number" {
+    $quote: quote(inspect($gap-size));
+  }
+  @else {
+    $quote: quote($gap-size);
+  }
   @if map-has-key($spacing-to-value, $quote) {
     $numeric-eq: map-get($spacing-to-value, $quote);
     $numeric-eq-half: quote(inspect($numeric-eq / 2));
-    @warn "#{$numeric-eq-half}: #{type-of($numeric-eq-half)}: #{map-get($spacing-to-token, $numeric-eq-half)}";
     @if map-has-key($spacing-to-token, $numeric-eq-half){
       @return map-get($spacing-to-token, $numeric-eq-half);
     }
