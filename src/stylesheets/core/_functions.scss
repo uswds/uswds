@@ -742,11 +742,12 @@ the desired final units (currently rem)
 */
 
 @function spacing($value) {
-  @if map-has-key($project-spacing-standard, quote($value)) {
-    @if map-get($project-spacing-standard, quote($value)) == false {
+  $quote: quote(inspect($value));
+  @if map-has-key($project-spacing-standard, $quote) {
+    @if map-get($project-spacing-standard, $quote) == false {
       @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
     }
-    @return map-get($project-spacing-standard, quote($value));
+    @return map-get($project-spacing-standard, $quote);
   }
   @elseif $value == false {
     @return false;
