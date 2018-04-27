@@ -750,7 +750,13 @@ the desired final units (currently rem)
 */
 
 @function spacing($value) {
-  $quote: quote(inspect($value));
+  $quote: $value;
+  @if type-of($value) == 'number' {
+    $quote: inspect($value);
+  }
+  @elseif type-of($value) == 'string' {
+    $quote: quote($value);
+  }
   @if map-has-key($project-spacing-standard, $quote) {
     @if map-get($project-spacing-standard, $quote) == false {
       @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
