@@ -424,10 +424,13 @@ grid.
 */
 
 @function calc-gap-offset($gap-size) {
-  @if map-has-key($spacing-calculator, quote($gap-size)) {
-    $numeric-eq: map-get($spacing-calculator, quote($gap-size));
-    @if map-has-key($spacing-calculator, ($numeric-eq / 2)){
-      @return map-get($spacing-calculator, ($numeric-eq / 2));
+  $quote: quote(inspect($gap-size));
+  @if map-has-key($spacing-to-value, $quote) {
+    $numeric-eq: map-get($spacing-to-value, $quote);
+    $numeric-eq-half: quote(inspect($numeric-eq / 2));
+    @warn "#{$numeric-eq-half}: #{type-of($numeric-eq-half)}: #{map-get($spacing-to-token, $numeric-eq-half)}";
+    @if map-has-key($spacing-to-token, $numeric-eq-half){
+      @return map-get($spacing-to-token, $numeric-eq-half);
     }
     @else {
       @error "`#{$gap-size}` is not a valid USWDS gap size. Column gaps need to have a standard size half their width.";
