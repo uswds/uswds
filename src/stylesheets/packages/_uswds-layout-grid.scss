@@ -14,7 +14,9 @@ USWDS project
 @import '../utilities/utilities-settings';
 
 // Tools
+@import '../lib/bourbon';
 @import '../core/functions';
+@import '../core/font-definitions';
 @import '../core/system-tokens';
 @import '../core/variables';
 @import '../core/properties';
