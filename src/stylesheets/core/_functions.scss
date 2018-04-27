@@ -372,9 +372,9 @@ Get a value from the system type scale
 */
 
 @function system-type-scale($scale){
-  $quote: quote($scale);
-  @if $scale and map-has-key($uswds-type-scale, $quote){
-    @return map-get($uswds-type-scale, $quote);
+  $scale: quote(inspect($scale));
+  @if $scale and map-has-key($uswds-type-scale, $scale){
+    @return map-get($uswds-type-scale, $scale);
   }
   @elseif $scale == false {
     @return false;
