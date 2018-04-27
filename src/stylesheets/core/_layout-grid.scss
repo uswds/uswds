@@ -43,7 +43,7 @@ $grid-namespace-prefix: 'g-';
 
 // ...that includes column gaps
   &.#{$grid-namespace-prefix}gap {
-    @include u-margin-x(#{$neg-prefix}-#{calc-gap-offset($theme-column-gap)});
+    @include u-margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap)}"));
     > [class*='#{$grid-namespace-prefix}col'] {
       @include u-padding-x(calc-gap-offset($theme-column-gap));
     }
@@ -65,7 +65,7 @@ $grid-namespace-prefix: 'g-';
     @if map-get($theme-output-breakpoints, $mq-key) {
       @include at-media($mq-key){
         &.#{$mq-key}\:#{$grid-namespace-prefix}gap {
-          @include u-margin-x(#{$neg-prefix}-#{calc-gap-offset($theme-column-gap)});
+          @include u-margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap)}"));
           > [class*='#{$grid-namespace-prefix}col'] {
             @include u-padding-x(calc-gap-offset($theme-column-gap));
           }

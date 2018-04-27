@@ -297,7 +297,7 @@ withholds certain errors.
 */
 
 @function utility-font($family, $scale){
-  $quote: quote($scale);
+  $quote: inspect($scale);
   @if not map-has-key($project-cap-heights, $family) {
     @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
@@ -372,9 +372,9 @@ Get a value from the system type scale
 */
 
 @function system-type-scale($scale){
-  $quote: quote($scale);
-  @if $scale and map-has-key($uswds-type-scale, $quote){
-    @return map-get($uswds-type-scale, $quote);
+  $scale: quote(inspect($scale));
+  @if $scale and map-has-key($uswds-type-scale, $scale){
+    @return map-get($uswds-type-scale, $scale);
   }
   @elseif $scale == false {
     @return false;
@@ -424,10 +424,18 @@ grid.
 */
 
 @function calc-gap-offset($gap-size) {
-  @if map-has-key($spacing-calculator, quote($gap-size)) {
-    $numeric-eq: map-get($spacing-calculator, quote($gap-size));
-    @if map-has-key($spacing-calculator, ($numeric-eq / 2)){
-      @return map-get($spacing-calculator, ($numeric-eq / 2));
+  $quote: $gap-size;
+  @if type-of($gap-size) == "number" {
+    $quote: quote(inspect($gap-size));
+  }
+  @else {
+    $quote: quote($gap-size);
+  }
+  @if map-has-key($spacing-to-value, $quote) {
+    $numeric-eq: map-get($spacing-to-value, $quote);
+    $numeric-eq-half: quote(inspect($numeric-eq / 2));
+    @if map-has-key($spacing-to-token, $numeric-eq-half){
+      @return map-get($spacing-to-token, $numeric-eq-half);
     }
     @else {
       @error "`#{$gap-size}` is not a valid USWDS gap size. Column gaps need to have a standard size half their width.";
@@ -742,11 +750,12 @@ the desired final units (currently rem)
 */
 
 @function spacing($value) {
-  @if map-has-key($project-spacing-standard, quote($value)) {
-    @if map-get($project-spacing-standard, quote($value)) == false {
+  $quote: quote(inspect($value));
+  @if map-has-key($project-spacing-standard, $quote) {
+    @if map-get($project-spacing-standard, $quote) == false {
       @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
     }
-    @return map-get($project-spacing-standard, quote($value));
+    @return map-get($project-spacing-standard, $quote);
   }
   @elseif $value == false {
     @return false;
