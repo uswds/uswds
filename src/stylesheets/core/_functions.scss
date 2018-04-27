@@ -297,7 +297,7 @@ withholds certain errors.
 */
 
 @function utility-font($family, $scale){
-  $quote: quote($scale);
+  $quote: inspect($scale);
   @if not map-has-key($project-cap-heights, $family) {
     @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
