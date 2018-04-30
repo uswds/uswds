@@ -3,13 +3,13 @@
 background-color
 ----------------------------------------
 usage:
-  .border-color-[color]
+  .border-[color]
 ----------------------------------------
 output:
-  border[-modifier]*[-color]: [color];
+  border[-color]: [color];
 ----------------------------------------
 example:
-  .border-color-red {
+  .border-red {
     border-color: #be4900; }
 ----------------------------------------
 */
@@ -17,7 +17,7 @@ example:
 $border-color: (
   border-color: (
     property: 'border-color',
-    base: 'border-color',
+    base: 'border',
     modifiers: null,
     values: map-collect(
       $uswds-colors-required,

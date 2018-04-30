@@ -3,20 +3,20 @@
 border-style
 ----------------------------------------
 usage:
-  .border-style[-modifier]*-[key]
+  .border[-modifier]*-[key]
 ----------------------------------------
 output:
-  border[-modifier]-style: [value];
+  border-style: [value];
 ----------------------------------------
 example:
-  .border-style-dotted {
+  .border-dotted {
     border-style: dotted; }
 ----------------------------------------
 */
 
 $border-style: (
   border-style: (
-    base: 'border-style',
+    base: 'border',
     modifiers: null,
     values: map-collect(
       get-plugins($border-style-plugins),
