@@ -24,13 +24,13 @@ $border: (
   border: (
     base: 'border',
     modifiers: (
+      noModifier: '',
       't': '-top',
       'r': '-right',
       'b': '-bottom',
       'l': '-left',
       'y': ('-top', '-bottom'),
       'x': ('-left', '-right'),
-      noModifier: '',
     ),
     values: map-collect(
       get-plugins($border-plugins),
