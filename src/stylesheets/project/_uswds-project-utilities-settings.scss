@@ -14,7 +14,8 @@ $output-all-utilities:  false;
 // each utility that accepts
 // color values
 $global-color-plugins: (
-  'plugin-color-palette-grayscale'
+  'plugin-color-black-all',
+  'plugin-color-palette-basic'
 );
 
 /*

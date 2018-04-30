@@ -754,6 +754,10 @@ $uswds-magenta: (
 
 $uswds-black-cool: (
   black-cool: (
+    1:    #fafbfc,
+    2:    #f7f9fa,
+    3:    #f5f6f7,
+    4:    #f0f2f5,
     5 :   #edeff0,
     10:   #d5d8db,
     20:   #b8bdc2,
@@ -769,6 +773,10 @@ $uswds-black-cool: (
 
 $uswds-black: (
   black: (
+    1:         #fcfcfc,
+    2:         #f9f9f9,
+    3:         #f6f6f6,
+    4:         #f3f3f3,
     5 :        #fafafa,
     10:        #e6e6e6,
     20:        #c9c9c9,
@@ -785,6 +793,10 @@ $uswds-black: (
 
 $uswds-black-warm: (
   black-warm: (
+    1:    #fdfdfc,
+    2:    #fafaf8,
+    3:    #f7f7f3,
+    4:    #f5f5f0,
     5 :   #f5f5f1,
     10:   #e0e0da,
     20:   #d6d5cb,
@@ -828,31 +840,10 @@ $uswds-white-transparent: (
   ),
 );
 
-$uswds-white-cool: (
-  white-cool: (
-    1:    #fafbfc,
-    2:    #f7f9fa,
-    3:    #f5f6f7,
-    4:    #f0f2f5,
-  ),
-);
-$uswds-white: (
-  white: (
-    0:         #ffffff,
-    1:         #fcfcfc,
-    2:         #f9f9f9,
-    3:         #f6f6f6,
-    4:         #f3f3f3,
-  ),
-);
-
-$uswds-white-warm: (
-  white-warm: (
-    1:    #fdfdfc,
-    2:    #fafaf8,
-    3:    #f7f7f3,
-    4:    #f5f5f0,
-  ),
+$uswds-colors-required: (
+  'transparent':    transparent,
+  'black':          black,
+  'white':          white,
 );
 
 $uswds-colors: map-collect(
@@ -881,36 +872,21 @@ $uswds-colors: map-collect(
   $uswds-black-warm,
   $uswds-black-transparent,
   $uswds-white-transparent,
-  $uswds-white-cool,
-  $uswds-white,
-  $uswds-white-warm
+  $uswds-colors-required
 );
 
 $uswds-colors-basic: (
   'red': get-uswds-color(red, 50, vivid),
-  'red-warm': get-uswds-color(red-warm, 50, vivid),
-  'orange-warm': get-uswds-color(orange-warm, 40, vivid),
   'orange': get-uswds-color(orange, 40, vivid),
   'gold': get-uswds-color(gold, 20, vivid),
   'yellow': get-uswds-color(yellow, 10, vivid),
-  'green-warm': get-uswds-color(green-warm, 40, vivid),
   'green': get-uswds-color(green, 50, vivid),
-  'green-cool': get-uswds-color(green-cool, 50, vivid),
   'mint': get-uswds-color(mint, 30, vivid),
-  'mint-cool': get-uswds-color(mint-cool, 30, vivid),
   'cyan': get-uswds-color(cyan, 40, vivid),
   'blue': get-uswds-color(blue, 50, vivid),
-  'blue-warm': get-uswds-color(blue-warm, 50, vivid),
-  'indigo-cool': get-uswds-color(indigo-cool, 50),
   'indigo': get-uswds-color(indigo, 50),
-  'indigo-warm': get-uswds-color(indigo-warm, 50),
   'violet': get-uswds-color(violet, 50),
-  'violet-warm': get-uswds-color(violet-warm, 50),
   'magenta': get-uswds-color(magenta, 50, vivid),
-  'black-cool': get-uswds-color(black-cool, 90),
-  'black-warm': get-uswds-color(black-warm, 90),
-  'white-cool': get-uswds-color(white-cool, 1),
-  'white-warm': get-uswds-color(white-warm, 1),
 );
 
 //red
@@ -1376,6 +1352,10 @@ $magenta-90v: get-uswds-color(magenta, 90, vivid);
 
 // black-cool
 $black-cool: map-get($uswds-colors, black-cool);
+$black-cool-1:  get-uswds-color(black-cool, 1);
+$black-cool-2:  get-uswds-color(black-cool, 2);
+$black-cool-3:  get-uswds-color(black-cool, 3);
+$black-cool-4:  get-uswds-color(black-cool, 4);
 $black-cool-5:  get-uswds-color(black-cool, 5);
 $black-cool-10: get-uswds-color(black-cool, 10);
 $black-cool-20: get-uswds-color(black-cool, 20);
@@ -1389,6 +1369,10 @@ $black-cool-90: get-uswds-color(black-cool, 90);
 
 // black
 $black: map-get($uswds-colors, black);
+$black-1:   get-uswds-color(black, 1);
+$black-2:   get-uswds-color(black, 2);
+$black-3:   get-uswds-color(black, 3);
+$black-4:   get-uswds-color(black, 4);
 $black-5:   get-uswds-color(black, 5);
 $black-10:  get-uswds-color(black, 10);
 $black-20:  get-uswds-color(black, 20);
@@ -1403,6 +1387,10 @@ $black-100: get-uswds-color(black, 100);
 
 // black-warm
 $black-warm: map-get($uswds-colors, black-warm);
+$black-warm-1:  get-uswds-color(black-warm, 1);
+$black-warm-2:  get-uswds-color(black-warm, 2);
+$black-warm-3:  get-uswds-color(black-warm, 3);
+$black-warm-4:  get-uswds-color(black-warm, 4);
 $black-warm-5:  get-uswds-color(black-warm, 5);
 $black-warm-10: get-uswds-color(black-warm, 10);
 $black-warm-20: get-uswds-color(black-warm, 20);
@@ -1439,50 +1427,3 @@ $white-transparent-60:  get-uswds-color(white-transparent, 60);
 $white-transparent-70:  get-uswds-color(white-transparent, 70);
 $white-transparent-80:  get-uswds-color(white-transparent, 80);
 $white-transparent-90:  get-uswds-color(white-transparent, 90);
-
-// white-cool
-$white-cool: map-get($uswds-colors, white-cool);
-$white-cool-1: get-uswds-color(white-cool, 1);
-$white-cool-2: get-uswds-color(white-cool, 2);
-$white-cool-3: get-uswds-color(white-cool, 3);
-$white-cool-4: get-uswds-color(white-cool, 4);
-
-// white
-$white: map-get($uswds-colors, white);
-$white-0: get-uswds-color(white, 0);
-$white-1: get-uswds-color(white, 1);
-$white-2: get-uswds-color(white, 2);
-$white-3: get-uswds-color(white, 3);
-$white-4: get-uswds-color(white, 4);
-
-// white-warm
-$white-warm: map-get($uswds-colors, white-warm);
-$white-warm-1: get-uswds-color(white-warm, 1);
-$white-warm-2: get-uswds-color(white-warm, 2);
-$white-warm-3: get-uswds-color(white-warm, 3);
-$white-warm-4: get-uswds-color(white-warm, 4);
-
-$required-colors: (
-  'transparent':    transparent,
-  'black':          $black-100,
-  'white':          $white-0,
-);
-
-$uswds-colors-sketching: (
-  '0':    get-uswds-color(white, 0),
-  '1':    get-uswds-color(white, 1),
-  '2':    get-uswds-color(white, 2),
-  '3':    get-uswds-color(white, 3),
-  '4':    get-uswds-color(white, 4),
-  '5':    get-uswds-color(black, 5),
-  '10':   get-uswds-color(black, 10),
-  '20':   get-uswds-color(black, 20),
-  '30':   get-uswds-color(black, 30),
-  '40':   get-uswds-color(black, 40),
-  '50':   get-uswds-color(black, 50),
-  '60':   get-uswds-color(black, 60),
-  '70':   get-uswds-color(black, 70),
-  '80':   get-uswds-color(black, 80),
-  '90':   get-uswds-color(black, 90),
-  '100':  get-uswds-color(black, 100),
-);

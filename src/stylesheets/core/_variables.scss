@@ -439,10 +439,7 @@ $color-palette-state: (
   'disabled':           get-uswds-color($theme-color-disabled-base),
 );
 
-$color-palette-grayscale: map-collect(
-  $uswds-black,
-  $uswds-white
-);
+$color-palette-grayscale: $uswds-black;
 
 /*
 ========================================
@@ -531,8 +528,8 @@ $color-red-darkest:          $red-70v !default;
 $color-red-light:            $red-30 !default;
 $color-red-lightest:         $red-10 !default;
 
-$color-white:                $white-0 !default;
-$color-black:                $black-100 !default;
+$color-white:                white !default;
+$color-black:                black !default;
 $color-black-light:          $black-90 !default;
 
 $color-gray-dark:            $black-cool-80 !default;
