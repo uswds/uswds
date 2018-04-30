@@ -44,7 +44,7 @@ $project-spacing-standard: map-collect(
 $spacing-to-token: (
   '1':              '1px',
   '2':              '2px',
-  '4':              'p5',
+  '4':              '0p5',
   '8':              '1',
   '12':             '1p5',
   '16':             '2',
@@ -60,7 +60,7 @@ $spacing-to-token: (
 $spacing-to-value: (
   '1px':          1,
   '2px':          2,
-  'p5':           4,
+  '0p5':          4,
   '1':            8,
   '1p5':          12,
   '2':            16,
