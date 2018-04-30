@@ -378,9 +378,9 @@ Border-radius
 
 $project-border-radius: (
   '0':          0,
-  'small':      spacing($theme-border-radius-small),
-  'base':       spacing($theme-border-radius-base),
-  'large':      spacing($theme-border-radius-large),
+  'sm':         spacing($theme-border-radius-sm),
+  'md':         spacing($theme-border-radius-md),
+  'lg':         spacing($theme-border-radius-lg),
   'pill':       9999em,
 );
 
