@@ -6,16 +6,16 @@ Also applies `solid`
 Needs to come before other border utils
 ----------------------------------------
 usage:
-  .border-width-[modifier]*-[key]
+  .border-[modifier]*-[key]
 ----------------------------------------
 output:
   border-[modifier]: [value];
 ----------------------------------------
 example:
-  .border-width-t-1px {
+  .border-t-1px {
     border-top: 1px solid; }
 
-  .border-width-0 {
+  .border-0 {
     border: none; }
 ----------------------------------------
 */
@@ -24,12 +24,12 @@ $border: (
   border: (
     base: 'border',
     modifiers: (
-      'top': '-top',
-      'right': '-right',
-      'bottom': '-bottom',
-      'left': '-left',
-      y: ('-top', '-bottom'),
-      x: ('-left', '-right'),
+      't': '-top',
+      'r': '-right',
+      'b': '-bottom',
+      'l': '-left',
+      'y': ('-top', '-bottom'),
+      'x': ('-left', '-right'),
       noModifier: '',
     ),
     values: map-collect(
