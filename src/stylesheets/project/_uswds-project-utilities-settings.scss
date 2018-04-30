@@ -4,15 +4,23 @@ USWDS UTILITIES SETTINGS
 ----------------------------------------
 */
 
-$utilities-namespace-prefix:  'u-';
+$utilities-namespace-prefix:  '';
 $utilities-use-important:     false;
 
 $output-all-utilities:  false;
 
-// By default, the following plugins
-// will be added to
-// each utility that accepts
-// color values
+/*
+----------------------------------------
+global colors
+----------------------------------------
+The following plugins will be added to
+- background-color
+- border-color
+- color
+- text-decoration-color
+----------------------------------------
+*/
+
 $global-color-plugins: (
   'plugin-color-black-all',
   'plugin-color-palette-basic'
@@ -73,7 +81,6 @@ $background-color-plugins: (
   'plugin-color-palette-status'
   */
   'plugin-standard-background-color',
-  $global-color-plugins
 );
 
 $background-color-manual-values: (
@@ -138,8 +145,7 @@ $border-color-plugins: (
   'plugin-color-[color]-vivid'
   'plugin-color-palette-status'
   */
-  'plugin-standard-border-color',
-  $global-color-plugins
+  'plugin-standard-border-color'
 );
 
 $border-color-manual-values: (
@@ -370,8 +376,7 @@ $color-plugins: (
   'plugin-[color]-vivid'
   'plugin-palette-status'
   */
-  'plugin-standard-color',
-  $global-color-plugins
+  'plugin-standard-color'
 );
 
 $color-manual-values: (
@@ -848,6 +853,20 @@ $margin-manual-values: (
   */
 );
 
+$margin-vertical-plugins: (
+  'plugin-standard-margin-vertical'
+);
+
+$margin-vertical-manual-values: (
+);
+
+$margin-horizontal-plugins: (
+  'plugin-standard-margin-horizontal'
+);
+
+$margin-horizontal-manual-values: (
+);
+
 /*
 ========================================
 .max-height
@@ -1112,8 +1131,7 @@ $outline-color-settings: (
 $outline-color-plugins: (
   /*
   */
-  'plugin-standard-outline-color',
-  $global-color-plugins
+  'plugin-standard-outline-color'
 );
 
 $outline-color-manual-values: (
@@ -1334,8 +1352,7 @@ $text-decoration-color-plugins: (
   /*
   'plugin-color-palette-grayscale'
   */
-  'plugin-standard-text-decoration-color',
-  $global-color-plugins
+  'plugin-standard-text-decoration-color'
 );
 
 $text-decoration-color-manual-values: (
