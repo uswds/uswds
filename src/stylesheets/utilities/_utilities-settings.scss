@@ -853,6 +853,20 @@ $margin-manual-values: (
   */
 ) !default;
 
+$margin-vertical-plugins: (
+  'plugin-standard-margin-vertical'
+) !default;
+
+$margin-vertical-manual-values: (
+) !default;
+
+$margin-horizontal-plugins: (
+  'plugin-standard-margin-horizontal'
+) !default;
+
+$margin-horizontal-manual-values: (
+) !default;
+
 /*
 ========================================
 .max-height

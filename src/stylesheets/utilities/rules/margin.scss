@@ -22,12 +22,36 @@ $margin: (
   margin: (
     base: 'margin',
     modifiers: (
-      'top': '-top',
-      'right': '-right',
-      'bottom': '-bottom',
-      'left': '-left',
-      y: ('-top', '-bottom'),
-      x: ('-left', '-right'),
+      noModifier: '',
+    ),
+    values: map-collect(
+      get-plugins($margin-plugins),
+      $margin-manual-values
+    ),
+    settings: $margin-settings,
+    property: 'margin',
+  ),
+  margin-vertical: (
+    base: 'margin',
+    modifiers: (
+      't': '-top',
+      'b': '-bottom',
+      'y': ('-top', '-bottom'),
+      noModifier: '',
+    ),
+    values: map-collect(
+      get-plugins($margin-plugins),
+      $margin-manual-values
+    ),
+    settings: $margin-settings,
+    property: 'margin',
+  ),
+  margin-horizontal: (
+    base: 'margin',
+    modifiers: (
+      'r': '-right',
+      'l': '-left',
+      'x': ('-left', '-right'),
       noModifier: '',
     ),
     values: map-collect(

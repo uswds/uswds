@@ -34,6 +34,8 @@ $plugin-standard:(
   'plugin-standard-letter-spacing': get-standard-values(letter-spacing),
   'plugin-standard-line-height': get-standard-values(line-height),
   'plugin-standard-margin': get-standard-values(margin),
+  'plugin-standard-margin-horizontal': get-standard-values(margin-horizontal),
+  'plugin-standard-margin-vertical': get-standard-values(margin-vertical),
   'plugin-standard-max-height': get-standard-values(max-height),
   'plugin-standard-max-width': get-standard-values(max-width),
   'plugin-standard-measure': get-standard-values(measure),
