@@ -231,9 +231,9 @@ namespace var set in utilities-settings?
 ----------------------------------------
 */
 
-
 @if $theme-font-mono {
   $namespace-prefix: null;
+
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
@@ -242,6 +242,7 @@ namespace var set in utilities-settings?
 
 @if $theme-font-sans {
   $namespace-prefix: null;
+
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
@@ -250,6 +251,7 @@ namespace var set in utilities-settings?
 
 @if $theme-font-serif {
   $namespace-prefix: null;
+
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
@@ -258,6 +260,7 @@ namespace var set in utilities-settings?
 
 @if $theme-font-cond {
   $namespace-prefix: null;
+
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
@@ -266,6 +269,7 @@ namespace var set in utilities-settings?
 
 @if $theme-font-heading {
   $namespace-prefix: null;
+
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
@@ -274,6 +278,7 @@ namespace var set in utilities-settings?
 
 @if $theme-font-body {
   $namespace-prefix: null;
+
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
@@ -282,6 +287,7 @@ namespace var set in utilities-settings?
 
 @if $theme-font-code {
   $namespace-prefix: null;
+
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
@@ -290,6 +296,7 @@ namespace var set in utilities-settings?
 
 @if $theme-font-alt {
   $namespace-prefix: null;
+
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
