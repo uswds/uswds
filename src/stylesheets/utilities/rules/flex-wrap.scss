@@ -24,5 +24,6 @@ $flex-wrap: (
     ),
     settings: $flex-wrap-settings,
     property: 'flex-wrap',
+    type: 'utility',
   )
 );

@@ -4,10 +4,10 @@ USWDS UTILITIES SETTINGS
 ----------------------------------------
 */
 
-$utilities-namespace-prefix:  '' !default;
+$utilities-use-namespace:     true  !default;
 $utilities-use-important:     false !default;
 
-$output-all-utilities:  false !default;
+$output-all-utilities:        false !default;
 
 /*
 ----------------------------------------

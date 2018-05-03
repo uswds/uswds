@@ -30,5 +30,6 @@ $clearfix: (
     ),
     settings: $clearfix-settings,
     property: 'clear',
+    type: 'object',
   )
 );
