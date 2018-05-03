@@ -16,7 +16,7 @@ example:
 
 $flex-direction: (
   flex-direction: (
-    base: 'flex-direction',
+    base: 'flex',
     modifiers: null,
     values: map-collect(
       get-plugins($flex-direction-plugins),
@@ -24,5 +24,6 @@ $flex-direction: (
     ),
     settings: $flex-direction-settings,
     property: 'flex-direction',
+    type: 'utility',
   )
 )

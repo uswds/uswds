@@ -3,28 +3,29 @@
 color
 ----------------------------------------
 usage:
-  .color-[key]
+  .[key]
 ----------------------------------------
 output:
   color: [value];
 ----------------------------------------
 example:
-  .color-black-100 {
+  .black-100 {
     color: #000; }
 ----------------------------------------
 */
 
 $color: (
   color: (
-    base: 'color',
+    base: null,
     modifiers: null,
     values: map-collect(
-      $required-colors,
+      $uswds-colors-required,
       get-plugins($color-plugins),
       get-plugins($global-color-plugins),
       $color-manual-values
     ),
     settings: $color-settings,
     property: 'color',
+    type: 'utility',
   )
 )

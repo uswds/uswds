@@ -34,5 +34,6 @@ $list-reset: (
     ),
     settings: $list-reset-settings,
     property: 'list-style',
+    type: 'object',
   )
 );

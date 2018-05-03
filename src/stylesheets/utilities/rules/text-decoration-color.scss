@@ -16,7 +16,7 @@ example:
 
 $text-decoration-color: (
   text-decoration-color: (
-    base: 'text-decoration-color',
+    base: 'underline-color',
     modifiers: null,
     values: map-collect(
       get-plugins($text-decoration-color-plugins),
@@ -25,5 +25,6 @@ $text-decoration-color: (
     ),
     settings: $text-decoration-color-settings,
     property: 'text-decoration-color',
+    type: 'utility',
   )
 )

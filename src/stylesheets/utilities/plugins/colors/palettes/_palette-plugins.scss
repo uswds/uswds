@@ -42,17 +42,8 @@ $plugin-color-palette-theme: (
 
 $plugin-palettes: (
   'plugin-color-palette-theme':     $color-palette-theme,
-  'plugin-color-palette-grayscale': map-collect(
-    $plugin-color-black-all,
-    $plugin-color-white-all,
-    $plugin-color-black-transparent-all,
-    $plugin-color-white-transparent-all
-  ),
-  'plugin-color-palette-required':  $required-colors,
+  'plugin-color-palette-grayscale': $plugin-color-black-all,
+  'plugin-color-palette-required':  $uswds-colors-required,
   'plugin-color-palette-state':     $color-palette-state,
-  'plugin-color-palette-basic': $uswds-colors-basic,
-  'plugin-color-palette-sketching': map-collect(
-    $uswds-colors-sketching,
-    $uswds-colors-basic
-  )
+  'plugin-color-palette-basic':     $uswds-colors-basic,
 );

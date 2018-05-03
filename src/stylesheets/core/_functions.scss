@@ -318,6 +318,31 @@ withholds certain errors.
 
 /*
 ----------------------------------------
+lh()
+----------------------------------------
+Get a normalized line-height from
+a family and a line-height scale unit
+----------------------------------------
+*/
+
+@function lh($family, $scale){
+  $scale: inspect($scale);
+  @if not map-has-key($project-cap-heights, $family) {
+    @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
+  }
+  @elseif not map-get($uswds-line-height, $scale) {
+    @error "`#{$scale}` is not a valid line-height scale. Valid values: #{map-keys($all-type-scale)}";
+  }
+  @else {
+    $this-cap: map-get($project-cap-heights, $family);
+    $this-line-height: map-get($uswds-line-height, $scale);
+    $normalized-line-height: ($this-cap / $uswds-base-cap-height) * $this-line-height;
+    @return $normalized-line-height;
+  }
+};
+
+/*
+----------------------------------------
 get-uswds-color()
 ----------------------------------------
 Derive a system color from its
@@ -329,7 +354,8 @@ variable that is, itself, a list
 @function get-uswds-color($props...){
   @if length($props) == 0 {
     @return false;
-  } @elseif type-of(nth($props,1)) == 'list' {
+  }
+  @elseif type-of(nth($props,1)) == 'list' {
     $props: nth($props,1);
     @if length($props) == 2 {
       @return map-deep-get(
@@ -345,15 +371,21 @@ variable that is, itself, a list
         nth($props, 2)
       );
     }
-  } @elseif nth($props, 1) == false {
+  }
+  @elseif nth($props, 1) == false {
     @return false;
-  } @elseif length($props) == 2 {
+  }
+  @elseif length($props) == 1 {
+    @return map-get($uswds-colors, $props);
+  }
+  @elseif length($props) == 2 {
     @return map-deep-get(
       $uswds-colors,
       nth($props, 1),
       nth($props, 2)
     );
-  } @else {
+  }
+  @else {
     @return map-deep-get(
       $uswds-colors,
       nth($props, 1),
@@ -976,8 +1008,12 @@ future version of Sass" warning.
 */
 
 @mixin render-utility($utility, $selector, $property, $value, $val-props, $important) {
+  $namespace-prefix: null;
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
+  }
 
-  .#{$utilities-namespace-prefix}#{$selector} {
+  .#{$namespace-prefix}#{$selector} {
     @if map-has-key($val-props, extend) {
       @each $ext-prop, $ext-value in map-get($val-props, extend) {
         #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
@@ -1010,12 +1046,17 @@ loop
 ----------------------------------------
 */
 
-@mixin render-pseudoclass($pseudoclass, $selector, $property, $value, $val-props, $mq, $important) {
+@mixin render-pseudoclass($utility, $pseudoclass, $selector, $property, $value, $val-props, $mq, $important) {
   $this-mq: null;
+  $namespace-prefix: null;
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
+  }
+
   @if $mq {
     $this-mq: '#{$mq}\\:';
   }
-  .#{$this-mq}#{$pseudoclass}\:#{$utilities-namespace-prefix}#{$selector}:#{$pseudoclass} {
+  .#{$this-mq}#{$pseudoclass}\:#{$namespace-prefix}#{$selector}:#{$pseudoclass} {
     @each $this-property in $property {
       #{$this-property}: unquote("#{$value}#{$important}");
     }
@@ -1060,6 +1101,10 @@ loop
 
 @mixin render-media-queries($utility, $selector, $property, $value, $val-props, $important) {
   $our-breakpoints: map-deep-get($uswds-properties, breakpoints, standard);
+  $namespace-prefix: null;
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
+  }
 
   @each $media-key, $media-value in $our-breakpoints {
     $mq: unquote($media-key);
@@ -1067,7 +1112,7 @@ loop
 
     @if map-get($theme-output-breakpoints, $media-key) {
       @media (min-width: #{$media-value-em}) {
-        .#{$mq}\:#{$utilities-namespace-prefix}#{$selector} {
+        .#{$mq}\:#{$namespace-prefix}#{$selector} {
           @if map-has-key($val-props, extend) {
             @each $ext-prop, $ext-value in map-get($val-props, extend) {
               #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
@@ -1084,10 +1129,10 @@ loop
             }
           }
           @if map-deep-get($utility, settings, hover) {
-            @include render-pseudoclass(hover, $selector, $property, $value, $val-props, $mq, $important);
+            @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq, $important);
           }
           @if map-deep-get($utility, settings, visited) {
-            @include render-pseudoclass(visited, $selector, $property, $value, $val-props, $mq, $important);
+            @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq, $important);
           }
         }
       }
@@ -1281,18 +1326,48 @@ through all possible variants
 
             $mod-props: to-map($mod-key, $mod-val);
 
-            // -------- if the modifier is null ----------
+            // --- if the modifier content is null -----
 
-            @if map-get($mod-props, content) == null or map-get($mod-props, content) == 'noModifier' or map-get($mod-props, content) == '' {
+            @if map-get($mod-props, content) == null or map-get($mod-props, content) == '' {
 
-              // If mod-props.values is null, there's no modifier property
-              // and we can set our rule's $property now
+              // If mod-props.content is null,
+              // we can set our rule's $property now
               // since $property is simply $property-default.
 
               $property: $property-default;
 
-              // We can also build the $selector if mod-props.slug is null!
-              // First, we can test to see if selector $b is null
+            }
+
+              // '-' “oh hey.”
+
+              //                     '-' “hey.”
+
+              // '-' “hey.”
+
+              // OK, cool.
+              // So what if there _is_ a modifier object?
+
+              // -- if the modifier content is NOT null --
+
+            @else {
+
+              // If there are modifiers, $property is a concat of $property-default
+              // with _each_ of the values in $mod-props.content
+              // There's a function for this... multi-cat()!!
+              // (=^･ｪ･^=))ﾉ彡☆
+              // (^._.^)ﾉ☆( _ _).oO
+              // (=චᆽච=)
+
+              $property: multi-cat($property-default, map-get($mod-props, content));
+            }
+
+            // Now we go through to set the $selector.
+
+            // If mod-props.slug is noModifier...
+
+            @if map-get($mod-props, slug) == '' or map-get($mod-props, slug) == slug {
+
+              // First, we can test to see if the base $b is null
 
               @if $b == null {
 
@@ -1302,7 +1377,7 @@ through all possible variants
 
               // if the value is noValue ('')
 
-            } @elseif map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
+              } @elseif map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
 
                 // selector is the base only
 
@@ -1325,49 +1400,28 @@ through all possible variants
                 // Nice! We just took care of the non-modifier cases!
 
               }
+            }
 
-              // '-' “oh hey.”
-
-              //                     '-' “hey.”
-
-              // '-' “hey.”
-
-              // OK, cool.
-              // So what if there _is_ a modifier object?
-
-              // -------- if the modifier is NOT null ----------
-
-          } @else {
-
-              // If there are modifiers, $property is a concat of $property-default
-              // with _each_ of the values in $mod-props.content
-              // There's a function for this... multi-cat()!!
-              // (=^･ｪ･^=))ﾉ彡☆
-              // (^._.^)ﾉ☆( _ _).oO
-              // (=චᆽච=)
-
-              $property: multi-cat($property-default, map-get($mod-props, content));
-
-              // Now we go through to finish setting the $selector.
-              // If not, check to see if either mod.isReadable or
-              // val.isReadable
+            // Otherwise, check to see if either mod.isReadable or
+            // val.isReadable
+            @else {
 
               @if map-has-key($mod-props, isReadable) or
                 map-has-key($val-props, isReadable) {
 
                   // If valProps is `noValue`....
 
-                  @if map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
+                @if map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
 
-                    // ...$mv is just the modifier
+                  // ...$mv is just the modifier
 
-                    $mv: map-get($mod-props, slug);
-                  } @else {
+                  $mv: map-get($mod-props, slug);
+                } @else {
 
-                    // Otherwise, join with a '-' into selector $mv.
+                  // Otherwise, join with a '-' into selector $mv.
 
-                    $mv: map-get($mod-props, slug) + '-' + map-get($val-props, slug);
-                  }
+                  $mv: map-get($mod-props, slug) + '-' + map-get($val-props, slug);
+                }
               } @else {
 
                 // If not, just join into selector $mv.
@@ -1386,7 +1440,9 @@ through all possible variants
               } @else {
                 $selector: $b + $mv;
               }
-            } // finished setting modifier vars
+            }
+
+            // finished setting modifier vars
 
             // Hey. Did we just finish $selector?
             // And do we also have $property and $value?
@@ -1400,19 +1456,19 @@ through all possible variants
             // Add the pseudoclass variants, if applicable
 
             @if map-deep-get($utility, settings, hover) {
-              @include render-pseudoclass(hover, $selector, $property, $value, $val-props, $mq, $important);
+              @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq, $important);
             }
 
             @if map-deep-get($utility, settings, active) {
-              @include render-pseudoclass(active, $selector, $property, $value, $val-props, $mq, $important);
+              @include render-pseudoclass($utility, active, $selector, $property, $value, $val-props, $mq, $important);
             }
 
             @if map-deep-get($utility, settings, visited) {
-              @include render-pseudoclass(visited, $selector, $property, $value, $val-props, $mq, $important);
+              @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq, $important);
             }
 
             @if map-deep-get($utility, settings, focus) {
-              @include render-pseudoclass(focus, $selector, $property, $value, $val-props, $mq, $important);
+              @include render-pseudoclass($utility, focus, $selector, $property, $value, $val-props, $mq, $important);
             }
 
             // Add the placeholder variant, if applicable

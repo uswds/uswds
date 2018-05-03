@@ -22,6 +22,19 @@ project/_uswds-project-settings
 
 /*
 ----------------------------------------
+Namespace
+----------------------------------------
+*/
+
+$uswds-namespace: (
+  'object':     'o-',
+  'grid':       'g-',
+  'component':  'usa-',
+  'utility':    'u-',
+);
+
+/*
+----------------------------------------
 Spacing
 ----------------------------------------
 All spacing values that can be called
@@ -44,9 +57,9 @@ $project-spacing-standard: map-collect(
 $spacing-to-token: (
   '1':              '1px',
   '2':              '2px',
-  '4':              'p5',
+  '4':              '05',
   '8':              '1',
-  '12':             '1p5',
+  '12':             '105',
   '16':             '2',
   '24':             '3',
   '32':             '4',
@@ -60,17 +73,17 @@ $spacing-to-token: (
 $spacing-to-value: (
   '1px':          1,
   '2px':          2,
-  'p5':           4,
-  '1':            8,
-  '1p5':          12,
-  '2':            16,
-  '3':            24,
-  '4':            32,
-  '5':            40,
-  '6':            48,
-  '7':            56,
-  '8':            64,
-  '9':            72,
+  '05':          4,
+  '1':           8,
+  '105':         12,
+  '2':           16,
+  '3':           24,
+  '4':           32,
+  '5':           40,
+  '6':           48,
+  '7':           56,
+  '8':           64,
+  '9':           72,
 );
 
 /*
@@ -219,35 +232,75 @@ namespace var set in utilities-settings?
 */
 
 @if $theme-font-mono {
-  [class*='#{$utilities-namespace-prefix}font-mono'], .font-family-mono { font-family: $font-stack-mono; }
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-mono'], .font-family-mono { font-family: $font-stack-mono; }
 }
 
 @if $theme-font-sans {
-  [class*='#{$utilities-namespace-prefix}font-sans'], .font-family-sans { font-family: $font-stack-sans; }
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-sans'], .font-family-sans { font-family: $font-stack-sans; }
 }
 
 @if $theme-font-serif {
-  [class*='#{$utilities-namespace-prefix}font-serif'], .font-family-serif { font-family: $font-stack-serif; }
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-serif'], .font-family-serif { font-family: $font-stack-serif; }
 }
 
 @if $theme-font-cond {
-  [class*='#{$utilities-namespace-prefix}font-cond'], .font-family-cond { font-family: $font-stack-cond; }
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-cond'], .font-family-cond { font-family: $font-stack-cond; }
 }
 
 @if $theme-font-heading {
-  [class*='#{$utilities-namespace-prefix}font-heading'], .font-family-heading { font-family: $font-stack-heading; }
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-heading'], .font-family-heading { font-family: $font-stack-heading; }
 }
 
 @if $theme-font-body {
-  [class*='#{$utilities-namespace-prefix}font-body'], .font-family-body { font-family: $font-stack-body; }
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-body'], .font-family-body { font-family: $font-stack-body; }
 }
 
 @if $theme-font-code {
-  [class*='#{$utilities-namespace-prefix}font-code'], .font-family-code { font-family: $font-stack-code; }
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-code'], .font-family-code { font-family: $font-stack-code; }
 }
 
 @if $theme-font-alt {
-  [class*='#{$utilities-namespace-prefix}font-alt'], .font-family-alt { font-family: $font-stack-alt; }
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-alt'], .font-family-alt { font-family: $font-stack-alt; }
 }
 
 $project-font-weights: (
@@ -343,15 +396,15 @@ Build the project type scale map
 */
 
 $project-type-scale: (
-  'micro': system-type-scale($theme-type-scale-micro),
-  'smallest': system-type-scale($theme-type-scale-smallest),
-  'smaller': system-type-scale($theme-type-scale-smaller),
-  'small': system-type-scale($theme-type-scale-small),
-  'base': system-type-scale($theme-type-scale-base),
-  'large': system-type-scale($theme-type-scale-large),
-  'larger': system-type-scale($theme-type-scale-larger),
-  'largest': system-type-scale($theme-type-scale-largest),
-  'mega': system-type-scale($theme-type-scale-mega),
+  '3xs': system-type-scale($theme-type-scale-micro),
+  '2xs': system-type-scale($theme-type-scale-smallest),
+  'xs': system-type-scale($theme-type-scale-smaller),
+  'sm': system-type-scale($theme-type-scale-small),
+  'md': system-type-scale($theme-type-scale-base),
+  'lg': system-type-scale($theme-type-scale-large),
+  'xl': system-type-scale($theme-type-scale-larger),
+  '2xl': system-type-scale($theme-type-scale-largest),
+  '3xl': system-type-scale($theme-type-scale-mega),
 );
 
 $all-type-scale: map-collect(
@@ -378,9 +431,9 @@ Border-radius
 
 $project-border-radius: (
   '0':          0,
-  'small':      spacing($theme-border-radius-small),
-  'base':       spacing($theme-border-radius-base),
-  'large':      spacing($theme-border-radius-large),
+  'sm':         spacing($theme-border-radius-sm),
+  'md':         spacing($theme-border-radius-md),
+  'lg':         spacing($theme-border-radius-lg),
   'pill':       9999em,
 );
 
@@ -399,50 +452,45 @@ Color palettes
 $color-palette-theme: (
   'neutral-lighter':    get-uswds-color($theme-color-neutral-lighter),
   'neutral-light':      get-uswds-color($theme-color-neutral-light),
-  'neutral-base':       get-uswds-color($theme-color-neutral-base),
+  'neutral':            get-uswds-color($theme-color-neutral-base),
   'neutral-dark':       get-uswds-color($theme-color-neutral-dark),
   'neutral-darker':     get-uswds-color($theme-color-neutral-darker),
   'primary-lighter':    get-uswds-color($theme-color-primary-lighter),
   'primary-light':      get-uswds-color($theme-color-primary-light),
-  'primary-base':       get-uswds-color($theme-color-primary-base),
+  'primary':            get-uswds-color($theme-color-primary-base),
   'primary-vivid':      get-uswds-color($theme-color-primary-vivid),
   'primary-dark':       get-uswds-color($theme-color-primary-dark),
   'primary-darker':     get-uswds-color($theme-color-primary-darker),
   'secondary-light':    get-uswds-color($theme-color-secondary-light),
-  'secondary-base':     get-uswds-color($theme-color-secondary-base),
+  'secondary':          get-uswds-color($theme-color-secondary-base),
   'secondary-vivid':    get-uswds-color($theme-color-secondary-vivid),
   'secondary-dark':     get-uswds-color($theme-color-secondary-dark),
-  'accent-warm-dark':  get-uswds-color($theme-color-accent-warm-dark),
-  'accent-warm-base':   get-uswds-color($theme-color-accent-warm-base),
-  'accent-cool-dark':  get-uswds-color($theme-color-accent-cool-dark),
-  'accent-cool-base':   get-uswds-color($theme-color-accent-cool-base),
-  'inverse-base':       get-uswds-color($theme-color-inverse-base),
-  'inverse-dark':       get-uswds-color($theme-color-inverse-dark),
+  'accent-warm-dark':   get-uswds-color($theme-color-accent-warm-dark),
+  'accent-warm':        get-uswds-color($theme-color-accent-warm-base),
+  'accent-cool-dark':   get-uswds-color($theme-color-accent-cool-dark),
+  'accent-cool':        get-uswds-color($theme-color-accent-cool-base),
 );
 
 $color-palette-state: (
   'error-lighter':      get-uswds-color($theme-color-error-lighter),
   'error-light':        get-uswds-color($theme-color-error-light),
-  'error-base':         get-uswds-color($theme-color-error-base),
+  'error':              get-uswds-color($theme-color-error-base),
   'error-dark':         get-uswds-color($theme-color-error-dark),
   'error-darker':       get-uswds-color($theme-color-error-darker),
   'warn-lighter':       get-uswds-color($theme-color-warn-lighter),
   'warn-light':         get-uswds-color($theme-color-warn-light),
-  'warn-base':          get-uswds-color($theme-color-warn-base),
+  'warn':               get-uswds-color($theme-color-warn-base),
   'warn-dark':          get-uswds-color($theme-color-warn-dark),
   'warn-darker':        get-uswds-color($theme-color-warn-darker),
   'success-lighter':    get-uswds-color($theme-color-success-lighter),
   'success-light':      get-uswds-color($theme-color-success-light),
-  'success-base':       get-uswds-color($theme-color-success-base),
+  'success':            get-uswds-color($theme-color-success-base),
   'success-dark':       get-uswds-color($theme-color-success-dark),
   'success-darker':     get-uswds-color($theme-color-success-darker),
   'disabled':           get-uswds-color($theme-color-disabled-base),
 );
 
-$color-palette-grayscale: map-collect(
-  $uswds-black,
-  $uswds-white
-);
+$color-palette-grayscale: $uswds-black;
 
 /*
 ========================================
@@ -531,8 +579,8 @@ $color-red-darkest:          $red-70v !default;
 $color-red-light:            $red-30 !default;
 $color-red-lightest:         $red-10 !default;
 
-$color-white:                $white-0 !default;
-$color-black:                $black-100 !default;
+$color-white:                white !default;
+$color-black:                black !default;
 $color-black-light:          $black-90 !default;
 
 $color-gray-dark:            $black-cool-80 !default;

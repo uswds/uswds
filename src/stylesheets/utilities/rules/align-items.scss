@@ -3,20 +3,20 @@
 align-items
 ----------------------------------------
 usage:
-  .align-items-[key]
+  .flex-align-[key]
 ----------------------------------------
 output:
   align-items: [value];
 ----------------------------------------
 example:
-  .align-items-flex-start {
+  .flex-align-start {
     align-items: flex-start; }
 ----------------------------------------
 */
 
 $align-items: (
   align-items: (
-    base: 'align-items',
+    base: 'flex-align',
     modifiers: null,
     values: map-collect(
       get-plugins($align-items-plugins),
@@ -24,5 +24,6 @@ $align-items: (
     ),
     settings: $align-items-settings,
     property: 'align-items',
+    type: 'utility',
   )
 );

@@ -5,15 +5,24 @@
     margin: get-uswds-value(margin, $value...);
   }
   @elseif $side == x {
-    margin-left: get-uswds-value(margin, $value...);
-    margin-right: get-uswds-value(margin, $value...);
+    margin-left: get-uswds-value(margin-horizontal, $value...);
+    margin-right: get-uswds-value(margin-horizontal, $value...);
   }
   @elseif $side == y {
-    margin-bottom: get-uswds-value(margin, $value...);
-    margin-top: get-uswds-value(margin, $value...);
+    margin-bottom: get-uswds-value(margin-vertical, $value...);
+    margin-top: get-uswds-value(margin-vertical, $value...);
   }
-  @else {
-    margin-#{$side}: get-uswds-value(margin, $value...);
+  @elseif $side == t {
+    margin-top: get-uswds-value(margin-vertical, $value...);
+  }
+  @elseif $side == r {
+    margin-right: get-uswds-value(margin-horizontal, $value...);
+  }
+  @elseif $side == b {
+    margin-bottom: get-uswds-value(margin-vertical, $value...);
+  }
+  @elseif $side == l {
+    margin-left: get-uswds-value(margin-horizontal, $value...);
   }
 }
 
@@ -29,18 +38,18 @@
   @include u-margin-n(y, $value...);
 }
 
-@mixin u-margin-top($value...) {
-  @include u-margin-n(top, $value...);
+@mixin u-margin-t($value...) {
+  @include u-margin-n(t, $value...);
 }
 
 @mixin u-margin-right($value...) {
-  @include u-margin-n(right, $value...);
+  @include u-margin-n(r, $value...);
 }
 
 @mixin u-margin-bottom($value...) {
-  @include u-margin-n(bottom, $value...);
+  @include u-margin-n(b, $value...);
 }
 
 @mixin u-margin-left($value...) {
-  @include u-margin-n(left, $value...);
+  @include u-margin-n(l, $value...);
 }
