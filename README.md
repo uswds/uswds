@@ -67,57 +67,57 @@ There are a few different ways to use the Design System within your project. Whi
 
 1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/latest) from the latest release and open that file.
 
-  After extracting the zip file you should see the following file and folder structure:
+    After extracting the zip file you should see the following file and folder structure:
 
-  ```
-  uswds-1.0.0/
-  ├── css/
-  │   ├── uswds.min.css.map
-  │   ├── uswds.min.css
-  │   └── uswds.css
-  ├── fonts/
-  ├── img/
-  ├── js/
-  │   ├── uswds.min.js.map
-  │   ├── uswds.min.js
-  │   └── uswds.js
-  └── scss/
+    ```
+    uswds-1.0.0/
+    ├── css/
+    │   ├── uswds.min.css.map
+    │   ├── uswds.min.css
+    │   └── uswds.css
+    ├── fonts/
+    ├── img/
+    ├── js/
+    │   ├── uswds.min.js.map
+    │   ├── uswds.min.js
+    │   └── uswds.js
+    └── scss/
 
-  ```
+    ```
 
 2. Copy these files and folders into a relevant place in your project's code base. Here is an example structure for how this might look:
 
-  ```
-  example-project/
-  ├── assets/
-  │   ├── uswds-1.0.0/
-  │   ├── stylesheets/
-  │   ├── images/
-  │   └── javascript/
-  └── index.html
-  ```
+    ```
+    example-project/
+    ├── assets/
+    │   ├── uswds-1.0.0/
+    │   ├── stylesheets/
+    │   ├── images/
+    │   └── javascript/
+    └── index.html
+    ```
 
-  You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project.
+    You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project.
 
 3. To use the Design System on your project, you’ll need to reference the [CSS (*C*ascading *S*tyle *S*heets)](https://developer.mozilla.org/en-US/docs/Web/CSS) and JavaScript files in each HTML page or dynamic templates in your project. (We also provide Sass (SCSS) files in the zip file which you can compile to CSS. See [Sass](#sass).)
 
-  Here is an example of how to reference these assets in your `index.html` file:
+    Here is an example of how to reference these assets in your `index.html` file:
 
-  ```html
-  <!DOCTYPE html>
-  <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My Example Project</title>
-    <link rel="stylesheet" href="assets/uswds-1.0.0/css/uswds.min.css">
-  </head>
-  <body>
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>My Example Project</title>
+      <link rel="stylesheet" href="assets/uswds-1.0.0/css/uswds.min.css">
+    </head>
+    <body>
 
-    <script src="assets/uswds-1.0.0/js/uswds.min.js"></script>
-  </body>
-  </html>
-  ```
+      <script src="assets/uswds-1.0.0/js/uswds.min.js"></script>
+    </body>
+    </html>
+    ```
 
 We offer both files, the CSS and the JavaScript, in two versions — a minified version, and an un-minified one. (In the examples above, we are using the minified files.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. And the un-minified files are better if you are in a development environment or would like to debug the CSS or JavaScript assets in the browser.
 
@@ -129,24 +129,24 @@ And that’s it — you should now be able to copy our code samples into your `i
 
 1. Install `Node/npm`. Below is a link to find the install method that coincides with your operating system:
 
-  - Node v4.2.3+, [Installation guides](https://nodejs.org/en/download/)
+    - Node v4.2.3+, [Installation guides](https://nodejs.org/en/download/)
 
-  **Note for Windows users:** If you are using Windows and are unfamiliar with `Node` or `npm`, we recommend following [Team Treehouse's tutorial](http://blog.teamtreehouse.com/install-node-js-npm-windows) for more information.
+    **Note for Windows users:** If you are using Windows and are unfamiliar with `Node` or `npm`, we recommend following [Team Treehouse's tutorial](http://blog.teamtreehouse.com/install-node-js-npm-windows) for more information.
 
 2. Make sure you have installed it correctly:
 
-  ```shell
-  npm -v
-  3.10.8 # This line may vary depending on what version of Node you've installed.
-  ```
+    ```shell
+    npm -v
+    3.10.8 # This line may vary depending on what version of Node you've installed.
+    ```
 
 3. Create a `package.json` file. You can do this manually, but an easier method is to use the `npm init` command. This command will prompt you with a few questions to create your `package.json` file.
 
 4. Add `uswds` to your project’s `package.json`:
 
-  ```shell
-  npm install --save uswds
-  ```
+    ```shell
+    npm install --save uswds
+    ```
 
 The `uswds` module is now installed as a dependency. You can use the un-compiled files found in the `src/` or the compiled files in the `dist/` directory.
 
