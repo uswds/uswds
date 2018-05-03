@@ -1,0 +1,47 @@
+/*
+========================================
+border
+----------------------------------------
+Also applies `solid`
+Needs to come before other border utils
+----------------------------------------
+usage:
+  .border-[modifier]*-[key]
+----------------------------------------
+output:
+  border-[modifier]: [value];
+----------------------------------------
+example:
+  .border-t-1px {
+    border-top: 1px solid; }
+
+  .border-0 {
+    border: none; }
+----------------------------------------
+*/
+
+$border: (
+  border: (
+    base: 'border',
+    modifiers: (
+      noModifier: '',
+      'y': ('-top', '-bottom'),
+      'x': ('-left', '-right'),
+      't': '-top',
+      'r': '-right',
+      'b': '-bottom',
+      'l': '-left',
+    ),
+    values: map-collect(
+      get-plugins($border-plugins),
+      $border-manual-values,
+      (
+        noValue: 1px,
+      )
+    ),
+    valueAppend: ' solid',
+    settings: $border-settings,
+    property: 'border',
+    type: 'utility',
+  )
+)

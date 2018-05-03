@@ -1,0 +1,29 @@
+/*
+========================================
+font-weight
+----------------------------------------
+usage:
+  .font-weight-[key]
+----------------------------------------
+output:
+  font-weight: [value];
+----------------------------------------
+example:
+  .font-weight-300 {
+    font-weight: 300; }
+----------------------------------------
+*/
+
+$font-weight: (
+  font-weight: (
+    base: null,
+    modifiers: null,
+    values: map-collect(
+      get-plugins($font-weight-plugins),
+      $font-weight-manual-values
+    ),
+    settings: $font-weight-settings,
+    property: 'font-weight',
+    type: 'utility',
+  )
+)

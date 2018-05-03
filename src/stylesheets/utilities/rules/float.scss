@@ -1,0 +1,29 @@
+/*
+========================================
+float
+----------------------------------------
+usage:
+  .float-[value]
+----------------------------------------
+output:
+  float: [value];
+----------------------------------------
+example:
+  .float-left {
+    float: left; }
+----------------------------------------
+*/
+
+$float: (
+  float: (
+    base: 'float',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($float-plugins),
+      $float-manual-values
+    ),
+    settings: $float-settings,
+    property: 'float',
+    type: 'utility',
+  )
+)

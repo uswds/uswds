@@ -1,0 +1,29 @@
+/*
+========================================
+line-height
+----------------------------------------
+usage:
+  .line-height-[value]
+----------------------------------------
+output:
+  line-height: [value];
+----------------------------------------
+example:
+  .line-height-heading {
+    line-height: 1.15; }
+----------------------------------------
+*/
+
+$line-height: (
+  line-height: (
+    base: 'lh',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($line-height-plugins),
+      $line-height-manual-values
+    ),
+    settings: $line-height-settings,
+    property: 'line-height',
+    type: 'utility',
+  )
+)

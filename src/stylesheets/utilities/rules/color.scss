@@ -1,0 +1,31 @@
+/*
+========================================
+color
+----------------------------------------
+usage:
+  .[key]
+----------------------------------------
+output:
+  color: [value];
+----------------------------------------
+example:
+  .black-100 {
+    color: #000; }
+----------------------------------------
+*/
+
+$color: (
+  color: (
+    base: null,
+    modifiers: null,
+    values: map-collect(
+      $uswds-colors-required,
+      get-plugins($color-plugins),
+      get-plugins($global-color-plugins),
+      $color-manual-values
+    ),
+    settings: $color-settings,
+    property: 'color',
+    type: 'utility',
+  )
+)

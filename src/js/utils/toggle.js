@@ -1,7 +1,7 @@
 'use strict';
 const EXPANDED = 'aria-expanded';
 const CONTROLS = 'aria-controls';
-const HIDDEN = 'aria-hidden';
+const HIDDEN = 'hidden';
 
 module.exports = (button, expanded) => {
 
@@ -18,6 +18,6 @@ module.exports = (button, expanded) => {
     );
   }
 
-  controls.setAttribute(HIDDEN, !expanded);
+  expanded ? controls.removeAttribute(HIDDEN, '') : controls.setAttribute(HIDDEN, '');
   return expanded;
 };

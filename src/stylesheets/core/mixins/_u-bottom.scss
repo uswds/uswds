@@ -1,0 +1,5 @@
+// Outputs bottom
+
+@mixin u-bottom($value) {
+  bottom: get-uswds-value(bottom, $value);
+}

@@ -1,0 +1,5 @@
+// Outputs line-height
+
+@mixin u-overflow($value...) {
+  overflow: get-uswds-value(overflow, $value...);
+}

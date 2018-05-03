@@ -1,0 +1,5 @@
+// Outputs display
+
+@mixin u-display($value) {
+  display: get-uswds-value(display, $value);
+}

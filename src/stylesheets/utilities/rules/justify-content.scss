@@ -1,0 +1,31 @@
+/*
+========================================
+.justify-content
+----------------------------------------
+property: justify-content
+----------------------------------------
+usage:
+  .flex-justify-[key]
+----------------------------------------
+output:
+  justify-content: [value];
+----------------------------------------
+example:
+  .flex-justify-start {
+    justify-content: flex-start; }
+----------------------------------------
+*/
+
+$justify-content: (
+  justify-content: (
+    base: 'flex-justify',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($justify-content-plugins),
+      $justify-content-manual-values
+    ),
+    settings: $justify-content-settings,
+    property: 'justify-content',
+    type: 'utility',
+  )
+)

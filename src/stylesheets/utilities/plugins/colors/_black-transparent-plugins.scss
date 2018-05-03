@@ -1,0 +1,26 @@
+$plugin-color-black-transparent-all: (
+  'black-transparent-5':  $black-transparent-5,
+  'black-transparent-10': $black-transparent-10,
+  'black-transparent-20': $black-transparent-20,
+  'black-transparent-30': $black-transparent-30,
+  'black-transparent-40': $black-transparent-40,
+  'black-transparent-50': $black-transparent-50,
+  'black-transparent-60': $black-transparent-60,
+  'black-transparent-70': $black-transparent-70,
+  'black-transparent-80': $black-transparent-80,
+  'black-transparent-90': $black-transparent-90,
+);
+$plugin-color-black-transparent: (
+  'plugin-color-black-transparent-all': (
+    'black-transparent-5':  $black-transparent-5,
+    'black-transparent-10': $black-transparent-10,
+    'black-transparent-20': $black-transparent-20,
+    'black-transparent-30': $black-transparent-30,
+    'black-transparent-40': $black-transparent-40,
+    'black-transparent-50': $black-transparent-50,
+    'black-transparent-60': $black-transparent-60,
+    'black-transparent-70': $black-transparent-70,
+    'black-transparent-80': $black-transparent-80,
+    'black-transparent-90': $black-transparent-90,
+  )
+);

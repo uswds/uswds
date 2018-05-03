@@ -1,0 +1,316 @@
+/*
+========================================
+PROJECT THEME SETTINGS
+----------------------------------------
+*/
+
+@function units($u) { @return $u; }
+
+/*
+----------------------------------------
+Root font size
+----------------------------------------
+Sets the font size of the html root
+for rem calculations
+----------------------------------------
+*/
+
+$theme-root-font-size: 10px !default;
+
+/*
+----------------------------------------
+Border box sizing
+----------------------------------------
+When set to true, it sets the box-sizing
+property of all elements to
+`border-box`.
+----------------------------------------
+*/
+
+$border-box-sizing: false !default;
+
+/*
+----------------------------------------
+Paths
+----------------------------------------
+Relative font and image file paths
+----------------------------------------
+*/
+
+$theme-font-path:   '../fonts' !default;
+$theme-image-path:  '../img' !default;
+
+/*
+----------------------------------------
+Output breakpoints
+----------------------------------------
+Which breakpoints does your project
+need? Select as `true` any breakpoint
+used by utilities or layout grid
+----------------------------------------
+*/
+
+$theme-output-breakpoints: (
+  'card':            false,   // 160px
+  'card-plus':       false,   // 240px
+  'mobile':          false,   // 320px
+  'mobile-plus':     true,    // 480px
+  'tablet':          true,    // 640px
+  'tablet-plus':     false,   // 800px
+  'desktop':         true,    // 1040px
+  'desktop-plus':    false,   // 1200px
+  'widescreen':      false,   // 1400px
+) !default;
+
+/*
+----------------------------------------
+Custom font definitions
+----------------------------------------
+Add a new custom font definition if
+your project uses a typeface we've
+not already defined.
+----------------------------------------
+The following faces already are
+defined in the system:
+
+'system'
+'united-sans'
+'source-sans-pro'
+'helvetica'
+'georgia'
+'merriweather'
+'roboto-mono'
+----------------------------------------
+*/
+
+$theme-font-definitions: (
+  /*
+  font-new: (
+    name: "Font Display Name",
+    dir: "folder-name", // relative to settings.$theme-font-path
+    stack: $font-stack-system,
+    system-font: false,
+    cap-height: "364px", // height of a 500px `N` in Sketch
+    variable-font: false,
+    roman: (
+      100: "Filename-without-extension", // or false
+      200: "Filename-without-extension", // or false
+      300: "Filename-without-extension", // or false
+      400: "Filename-without-extension", // or false
+      500: "Filename-without-extension", // or false
+      600: "Filename-without-extension", // or false
+      700: "Filename-without-extension", // or false
+      800: "Filename-without-extension", // or false
+      900: "Filename-without-extension", // or false
+    ),
+    italic: (
+      100: "Filename-without-extension", // or false
+      200: "Filename-without-extension", // or false
+      300: "Filename-without-extension", // or false
+      400: "Filename-without-extension", // or false
+      500: "Filename-without-extension", // or false
+      600: "Filename-without-extension", // or false
+      700: "Filename-without-extension", // or false
+      800: "Filename-without-extension", // or false
+      900: "Filename-without-extension", // or false
+    ),
+  ),
+  */
+);
+
+/*
+----------------------------------------
+Fonts in use
+----------------------------------------
+Set the sans, serif, and mono faces for
+your project
+----------------------------------------
+currently available:
+
+'system'
+'united-sans'
+'source-sans-pro'
+'helvetica'
+'georgia'
+'merriweather'
+'roboto-mono'
+----------------------------------------
+*/
+
+$theme-font-mono:   'roboto-mono' !default;
+$theme-font-sans:   'source-sans-pro' !default;
+$theme-font-serif:  'merriweather' !default;
+$theme-font-cond:   false !default;
+
+/*
+----------------------------------------
+Fonts by type
+----------------------------------------
+Set the heading, body, code, and alt
+faces for your project from
+
+$theme-font-sans
+$theme-font-serif
+$theme-font-mono
+$theme-font-cond
+----------------------------------------
+*/
+
+$theme-font-heading:  $theme-font-sans !default;
+$theme-font-body:     $theme-font-serif !default;
+$theme-font-code:     $theme-font-mono !default;
+$theme-font-alt:      false !default;
+
+/*
+----------------------------------------
+Type scale
+----------------------------------------
+Define your project's type scale using
+values from the USWDS system type scale
+
+1-20
+----------------------------------------
+*/
+
+$theme-type-scale-micro:         1 !default;
+$theme-type-scale-smallest:      3 !default;
+$theme-type-scale-smaller:       5 !default;
+$theme-type-scale-small:         6 !default;
+$theme-type-scale-base:          7 !default;
+$theme-type-scale-large:         10 !default;
+$theme-type-scale-larger:        12 !default;
+$theme-type-scale-largest:       14 !default;
+$theme-type-scale-mega:          16 !default;
+
+/*
+----------------------------------------
+Font weights
+----------------------------------------
+Assign weights 100-900
+Or use `false` for unneeded weights.
+----------------------------------------
+*/
+
+$theme-output-all-weights:        false !default;
+
+$theme-font-weight-thin:          false !default;
+$theme-font-weight-light:         300 !default;
+$theme-font-weight-normal:        400 !default;
+$theme-font-weight-medium:        false !default;
+$theme-font-weight-semibold:      false !default;
+$theme-font-weight-bold:          700 !default;
+$theme-font-weight-black:         false !default;
+
+/*
+----------------------------------------
+Palette colors
+----------------------------------------
+*/
+
+$theme-color-neutral:             black !default;
+$theme-color-neutral-lighter:     $theme-color-neutral, 5 !default;
+$theme-color-neutral-light:       $theme-color-neutral, 50 !default;
+$theme-color-neutral-base:        $theme-color-neutral, 80 !default;
+$theme-color-neutral-dark:        $theme-color-neutral, 90 !default;
+$theme-color-neutral-darker:      false !default;
+
+$theme-color-primary:             red !default;
+$theme-color-primary-lighter:     $theme-color-primary, 10 !default;
+$theme-color-primary-light:       $theme-color-primary, 30 !default;
+$theme-color-primary-base:        $theme-color-primary, 50 !default;
+$theme-color-primary-vivid:       $theme-color-primary, 50, vivid !default;
+$theme-color-primary-dark:        $theme-color-primary, 70 !default;
+$theme-color-primary-darker:      false !default;
+
+$theme-color-secondary:           blue !default;
+$theme-color-secondary-light:     $theme-color-secondary, 50 !default;
+$theme-color-secondary-base:      $theme-color-secondary, 60 !default;
+$theme-color-secondary-vivid:     $theme-color-secondary, 50, vivid !default;
+$theme-color-secondary-dark:      $theme-color-secondary, 80 !default;
+
+$theme-color-accent-warm:         orange !default;
+$theme-color-accent-warm-base:    $theme-color-accent-warm, 30, vivid !default;
+$theme-color-accent-warm-dark:    $theme-color-accent-warm, 60, vivid !default;
+
+$theme-color-accent-cool:         cyan !default;
+$theme-color-accent-cool-base:    $theme-color-accent-cool, 30, vivid !default;
+$theme-color-accent-cool-dark:    $theme-color-accent-cool, 60, vivid !default;
+
+$theme-color-inverse:             white !default;
+$theme-color-inverse-base:        $theme-color-inverse !default;
+$theme-color-inverse-dark:        black, 10 !default;
+
+/*
+----------------------------------------
+State colors
+----------------------------------------
+*/
+
+// Error colors
+$theme-color-error:            red !default;
+$theme-color-error-lighter:    $theme-color-error, 30, vivid !default;
+$theme-color-error-light:      $theme-color-error, 40, vivid !default;
+$theme-color-error-base:       $theme-color-error, 50, vivid !default;
+$theme-color-error-dark:       $theme-color-error, 60 !default;
+$theme-color-error-darker:     $theme-color-error, 70 !default;
+
+// Warning colors
+$theme-color-warn:             orange !default;
+$theme-color-warn-lighter:     $theme-color-warn, 10 !default;
+$theme-color-warn-light:       $theme-color-warn, 20, vivid !default;
+$theme-color-warn-base:        $theme-color-warn, 30, vivid !default;
+$theme-color-warn-dark:        $theme-color-warn, 40 !default;
+$theme-color-warn-darker:      $theme-color-warn, 50 !default;
+
+// Success colors
+$theme-color-success:          green-cool !default;
+$theme-color-success-lighter:  $theme-color-success, 20, vivid !default;
+$theme-color-success-light:    $theme-color-success, 30, vivid !default;
+$theme-color-success-base:     $theme-color-success, 40, vivid !default;
+$theme-color-success-dark:     $theme-color-success, 50 !default;
+$theme-color-success-darker:   $theme-color-success, 70 !default;
+
+// Disabled color
+$theme-color-disabled:         black !default;
+$theme-color-disabled-base:    $theme-color-disabled, 30 !default;
+
+/*
+----------------------------------------
+Border radius
+----------------------------------------
+2px            2px
+units('05')    4px
+units(1)       8px
+units('105')   12px
+units(2)       16px
+units(3)       24px
+units(4)       32px
+units(5)       40px
+units(6)       48px
+units(7)       56px
+units(8)       64px
+units(9)       72px
+----------------------------------------
+*/
+
+$theme-border-radius-sm:       2px !default;
+$theme-border-radius-md:       units('05') !default;
+$theme-border-radius-lg:       units(1) !default;
+
+/*
+----------------------------------------
+Column gap
+----------------------------------------
+2px         2px
+units('05')   4px
+units(1)    8px
+units(2)    16px
+units(3)    24px
+units(4)    32px
+units(5)    48px
+----------------------------------------
+*/
+
+$theme-column-gap-small: 2px !default;
+$theme-column-gap:       units('05') !default;
+$theme-column-gap-large: units(3) !default;

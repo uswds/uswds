@@ -1,0 +1,610 @@
+/*
+----------------------------------------
+USWDS Properties
+----------------------------------------
+*/
+
+$standard-colors: map-collect(
+  $color-palette-theme,
+  $color-palette-state,
+  $uswds-colors-required
+);
+
+$extended-colors: map-collect(
+  $uswds-colors,
+  $uswds-colors-basic
+);
+
+$partial-values: (
+  zero-zero: (
+    '0': 0,
+  ),
+  none: (
+    'none': none,
+  ),
+  auto: (
+    'auto': auto,
+  ),
+  full-percent: (
+    'full': 100%,
+  ),
+  full-viewport-height: (
+    'viewport': 100vh,
+  ),
+  full-viewport-width: (
+    'viewport': 100vw,
+  ),
+);
+
+$uswds-properties: (
+  align-items: (
+    standard: (
+      'start':    start,
+      'end':      end,
+      'center':   center,
+      'stretch':  stretch,
+    ),
+    extended: (),
+  ),
+  background-color: (
+    standard: $standard-colors,
+    extended: $extended-colors,
+  ),
+  border: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($partial-values, zero-zero)
+    ),
+    extended: (),
+  ),
+  border-color: (
+    standard: $standard-colors,
+    extended: $extended-colors,
+  ),
+  border-radius: (
+    standard: $project-border-radius,
+    extended: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small)
+    ),
+  ),
+  border-style: (
+    standard: (
+      'dashed': dashed,
+      'dotted': dotted,
+      'solid':  solid,
+    ),
+    extended: (),
+  ),
+  border-width: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($partial-values, zero-zero)
+    ),
+    extended: (),
+  ),
+  bottom: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, smaller-negative),
+      map-get($uswds-spacing, small-negative),
+      map-get($partial-values, zero-zero),
+      map-get($partial-values, auto)
+    ),
+    extended: (),
+  ),
+  box-shadow: (
+    standard: (
+      'none':   none,
+      '1':     '0 1px 2px 0 rgba(0, 0, 0, 0.1)',
+      '2':     '0 4px 8px 0 rgba(0, 0, 0, 0.1)',
+      '3':     '0 6px 12px 0 rgba(0, 0, 0, 0.1)',
+      '4':     '0 8px 16px 0 rgba(0, 0, 0, 0.1)',
+      '5':     '0 10px 20px 0 rgba(0, 0, 0, 0.1)',
+    ),
+    extended: (),
+  ),
+  breakpoints: (
+    standard: map-collect(
+      map-get($uswds-spacing, large),
+      map-get($uswds-spacing, larger)
+    ),
+    extended: (),
+  ),
+  circle: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, large)
+    ),
+    extended: (),
+  ),
+  color: (
+    standard: $standard-colors,
+    extended: $extended-colors,
+  ),
+  display: (
+    standard: (
+      'block':        block,
+      'flex':         flex,
+      'none':         none,
+      'inline':       inline,
+      'inline-block': inline-block,
+      'table':        table,
+      'table-cell':   table-cell,
+    ),
+    extended: (),
+  ),
+  flex: (
+    standard: (
+      '1':    1 0 0,
+      '2':    2 0 0,
+      '3':    3 0 0,
+      '4':    4 0 0,
+      '5':    5 0 0,
+      '6':    6 0 0,
+      '7':    7 0 0,
+      '8':    8 0 0,
+      '9':    9 0 0,
+      '10':   10 0 0,
+      '11':   11 0 0,
+      '12':   12 0 0,
+      'fill': 1 0 0,
+      'auto': 0 0 auto,
+    ),
+    extended: (),
+  ),
+  flex-direction: (
+    standard: (
+      'row':    row,
+      'column': column,
+    ),
+    extended: (),
+  ),
+  flex-wrap: (
+    standard: (
+      'wrap':   wrap,
+      'nowrap': nowrap,
+    ),
+    extended: (),
+  ),
+  float: (
+    standard: (
+      'left':  left,
+      'none':  none,
+      'right': right,
+    ),
+    extended: (),
+  ),
+  font-family: (
+    standard: $project-font-stacks,
+    extended: (),
+  ),
+  font-feature-settings: (
+    standard: (
+      'alt': unquote('"ss01" 1, "kern" 1'),
+      'tabular': unquote('"tnum" 1, "kern" 1'),
+      'default': unquote('"kern" 1'),
+    ),
+    extended: (),
+  ),
+  font-style: (
+    standard: (
+      'normal': normal,
+      'italic': italic,
+      'no-italic': normal,
+    ),
+    extended: (),
+  ),
+  font-weight: (
+    standard: (
+      'thin': $theme-font-weight-thin,
+      'light': $theme-font-weight-light,
+      'normal': normal,
+      'medium': $theme-font-weight-medium,
+      'semibold': $theme-font-weight-semibold,
+      'bold': bold,
+      'black': $theme-font-weight-black,
+    ),
+    extended: (
+      '100': 100,
+      '200': 200,
+      '300': 300,
+      '400': 400,
+      '500': 500,
+      '600': 600,
+      '700': 700,
+      '800': 800,
+      '900': 900,
+    ),
+  ),
+  gap: (
+    standard: map-collect(
+      $uswds-column-gaps,
+      (
+        'small': $theme-column-gap-small,
+        'large': $theme-column-gap-large,
+      )
+    ),
+    extended: (),
+  ),
+  height: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($partial-values, zero-zero),
+      map-get($partial-values, auto),
+      map-get($partial-values, full-percent),
+      map-get($partial-values, full-viewport-height)
+    ),
+    extended: (),
+  ),
+  justify-content: (
+    standard: (
+      'center': center,
+      'start': flex-start,
+      'end': flex-end,
+    ),
+    extended: (),
+  ),
+  left: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, smaller-negative),
+      map-get($uswds-spacing, small-negative),
+      map-get($partial-values, zero-zero),
+      map-get($partial-values, auto)
+    ),
+    extended: (),
+  ),
+  letter-spacing: (
+    standard: (
+      'auto':	  auto,
+      'neg-3':	  -.03em,
+      'neg-2':	    -.02em,
+      'neg-1':	    -.01em,
+      '1':	    .05em,
+      '2':	    .1em,
+      '3':	  .15em,
+    ),
+    extended: (),
+  ),
+  line-height: (
+    standard: (
+      'sans-1':	   lh(sans, 1),
+      'sans-2':	   lh(sans, 2),
+      'sans-3':	   lh(sans, 3),
+      'sans-4':	   lh(sans, 4),
+      'sans-5':	   lh(sans, 5),
+      'sans-6':	   lh(sans, 6),
+      'serif-1':	 lh(serif, 1),
+      'serif-2':	 lh(serif, 2),
+      'serif-3':	 lh(serif, 3),
+      'serif-4':	 lh(serif, 4),
+      'serif-5':	 lh(serif, 5),
+      'serif-6':	 lh(serif, 6),
+      'mono-1':	   lh(mono, 1),
+      'mono-2':	   lh(mono, 2),
+      'mono-3':	   lh(mono, 3),
+      'mono-4':	   lh(mono, 4),
+      'mono-5':	   lh(mono, 5),
+      'mono-6':	   lh(mono, 6),
+    ),
+    extended: (
+      '1':	       1,
+      '2':	       1.1,
+      '3':	       1.35,
+      '4':	       1.5,
+      '5':	       1.62,
+      '6':	       1.75,
+    ),
+  ),
+  margin: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing-em, small),
+      map-get($partial-values, zero-zero)
+    ),
+    extended: (),
+  ),
+  margin-horizontal: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, smaller-negative),
+      map-get($uswds-spacing, small-negative),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing-em, small),
+      map-get($partial-values, zero-zero),
+      map-get($partial-values, auto)
+    ),
+    extended: (),
+  ),
+  margin-vertical: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, smaller-negative),
+      map-get($uswds-spacing, small-negative),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing-em, small),
+      map-get($partial-values, zero-zero)
+    ),
+    extended: (),
+  ),
+  max-height: (
+    standard: map-collect(
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, large),
+      map-get($partial-values, none),
+      map-get($partial-values, full-viewport-height)
+    ),
+    extended: (),
+  ),
+  max-width: (
+    standard: map-collect(
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, large),
+      map-get($uswds-spacing, larger),
+      (
+        'measure-1': $uswds-measure-smaller,
+        'measure-2':	 $uswds-measure-small,
+        'measure-3':	   $uswds-measure-base,
+        'measure-4':	 $uswds-measure-large,
+        'measure-5':	 $uswds-measure-larger,
+        'full':            100%,
+        none:              none,
+      )
+    ),
+    extended: (),
+  ),
+  measure: (
+    standard: (
+      '1':	    $uswds-measure-smaller,
+      '2':	    $uswds-measure-small,
+      '3':	    $uswds-measure-base,
+      '4':	    $uswds-measure-large,
+      '5':	    $uswds-measure-larger,
+      'none':   none,
+    ),
+    extended: (),
+  ),
+  min-height: (
+    standard: map-collect(
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, large),
+      map-get($partial-values, zero-zero),
+      map-get($partial-values, none),
+      map-get($partial-values, full-percent),
+      map-get($partial-values, full-viewport-height)
+    ),
+    extended: (),
+  ),
+  min-width: (
+    standard: map-collect(
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($partial-values, none)
+    ),
+    extended: (),
+  ),
+  opacity: (
+    standard: (
+      'transparent':	0,
+      'lightest':	    .01,
+      'lighter':	    .1,
+      'light':	      .25,
+      'dark':	        .5,
+      'darker':	      .75,
+      'darkest':	    .9,
+      'full':	        1,
+    ),
+    extended: (
+      '0':  0,
+      '01': 0.1,
+      '02': 0.2,
+      '03': 0.3,
+      '04': 0.4,
+      '05': 0.5,
+      '06': 0.6,
+      '07': 0.7,
+      '08': 0.8,
+      '09': 0.9,
+      '1':  1,
+    ),
+  ),
+  order: (
+    standard: (
+      'first':	-1,
+      'last':	  999,
+      '0':      0,
+      '1':      1,
+      '2':      2,
+      '3':      3,
+      '4':      4,
+      '5':      5,
+      '6':      6,
+      '7':      7,
+      '8':      8,
+      '9':      9,
+      '10':     10,
+      '11':     11,
+    ),
+    extended: (),
+  ),
+  outline: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($partial-values, zero-zero),
+      map-get($partial-values, none)
+    ),
+    extended: (),
+  ),
+  outline-color: (
+    standard: map-collect(
+      $uswds-colors-required
+    ),
+    extended: $extended-colors,
+  ),
+  overflow: (
+    standard: (
+      'hidden':  hidden,
+      'scroll':  scroll,
+      'auto':    auto,
+      'visible': visible,
+    ),
+    extended: (),
+  ),
+  padding: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing-em, small),
+      map-get($partial-values, zero-zero)
+    ),
+    extended: (),
+  ),
+  position: (
+    standard: (
+      'absolute': absolute,
+      'fixed':    fixed,
+      'relative': relative,
+      'static':   static,
+      'sticky':   sticky,
+    ),
+    extended: (),
+  ),
+  right: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, smaller-negative),
+      map-get($uswds-spacing, small-negative),
+      map-get($partial-values, zero-zero),
+      map-get($partial-values, auto)
+    ),
+    extended: (),
+  ),
+  square: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, large)
+    ),
+    extended: (),
+  ),
+  text-align: (
+    standard: (
+      'center':  center,
+      'left':    left,
+      'justify': justify,
+      'right':   right,
+    ),
+    extended: (),
+  ),
+  text-decoration: (
+    standard: (
+      'strike':       strike,
+      'underline':    underline,
+      'no-underline': none,
+      'no-strike':    none,
+    ),
+    extended: (),
+  ),
+  text-decoration-color: (
+    standard: $standard-colors,
+    extended: $extended-colors,
+  ),
+  text-indent: (
+    standard: map-collect(
+      map-get($partial-values, zero-zero),
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, smaller-negative),
+      map-get($uswds-spacing, small-negative),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, medium-negative)
+    ),
+    extended: (),
+  ),
+  text-transform: (
+    standard: (
+      'uppercase':    uppercase,
+      'no-uppercase': none,
+    ),
+    extended: (),
+  ),
+  top: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, smaller-negative),
+      map-get($uswds-spacing, small-negative),
+      map-get($partial-values, zero-zero),
+      map-get($partial-values, auto)
+    ),
+    extended: (),
+  ),
+  vertical-align: (
+    standard: (
+      'baseline':    baseline,
+      'bottom':      bottom,
+      'middle':      middle,
+      'sub':         sub,
+      'super':       super,
+      'text-bottom': text-bottom,
+      'text-top':    text-top,
+      'top':         top,
+    ),
+    extended: (),
+  ),
+  white-space: (
+    standard: (
+      'pre':      pre,
+      'pre-line': pre-line,
+      'pre-wrap': pre-wrap,
+      'normal':   normal,
+      'nowrap':   nowrap,
+    ),
+    extended: (),
+  ),
+  width: (
+    standard: map-collect(
+      map-get($uswds-spacing, smaller),
+      map-get($uswds-spacing, small),
+      map-get($uswds-spacing, medium),
+      map-get($uswds-spacing, large),
+      map-get($uswds-spacing, larger),
+      map-get($partial-values, zero-zero),
+      map-get($partial-values, full-percent),
+      map-get($partial-values, auto)
+    ),
+    extended: (),
+  ),
+  z-index: (
+    standard: (
+      'auto':    auto,
+      'neg-3':	 -300,
+      'neg-2':	 -200,
+      'neg-1':	 -100,
+      '0':       auto,
+      '1':	     100,
+      '2':	     200,
+      '3':       300,
+    ),
+    extended: (),
+  ),
+);

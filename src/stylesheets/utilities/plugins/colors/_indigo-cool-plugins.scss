@@ -1,0 +1,66 @@
+$plugin-color-indigo-cool-light: (
+  'indigo-cool-5':  $indigo-cool-5,
+  'indigo-cool-10': $indigo-cool-10,
+  'indigo-cool-20': $indigo-cool-20,
+  'indigo-cool-30': $indigo-cool-30,
+);
+
+$plugin-color-indigo-cool-medium: (
+  'indigo-cool-40': $indigo-cool-40,
+  'indigo-cool-50': $indigo-cool-50,
+  'indigo-cool-60': $indigo-cool-60,
+);
+
+$plugin-color-indigo-cool-dark: (
+  'indigo-cool-70': $indigo-cool-70,
+  'indigo-cool-80': $indigo-cool-80,
+  'indigo-cool-90': $indigo-cool-90,
+);
+
+$plugin-color-indigo-cool-light-vivid: (
+  'indigo-cool-5v':  $indigo-cool-5v,
+  'indigo-cool-10v': $indigo-cool-10v,
+  'indigo-cool-20v': $indigo-cool-20v,
+  'indigo-cool-30v': $indigo-cool-30v,
+);
+
+$plugin-color-indigo-cool-medium-vivid: (
+  'indigo-cool-40v': $indigo-cool-40v,
+  'indigo-cool-50v': $indigo-cool-50v,
+  'indigo-cool-60v': $indigo-cool-60v,
+);
+
+$plugin-color-indigo-cool-dark-vivid: (
+  'indigo-cool-70v': $indigo-cool-70v,
+  'indigo-cool-80v': $indigo-cool-80v,
+  'indigo-cool-90v': $indigo-cool-90v,
+);
+
+$plugin-color-indigo-cool-standard: map-collect(
+  $plugin-color-indigo-cool-light,
+  $plugin-color-indigo-cool-medium,
+  $plugin-color-indigo-cool-dark
+);
+
+$plugin-color-indigo-cool-vivid: map-collect(
+  $plugin-color-indigo-cool-light-vivid,
+  $plugin-color-indigo-cool-medium-vivid,
+  $plugin-color-indigo-cool-dark-vivid
+);
+
+$plugin-color-indigo-cool-all: map-collect(
+  $plugin-color-indigo-cool-standard,
+  $plugin-color-indigo-cool-vivid
+);
+
+$plugin-color-indigo-cool: (
+  'plugin-color-indigo-cool-light': $plugin-color-indigo-cool-light,
+  'plugin-color-indigo-cool-medium': $plugin-color-indigo-cool-medium,
+  'plugin-color-indigo-cool-dark': $plugin-color-indigo-cool-dark,
+  'plugin-color-indigo-cool-light-vivid': $plugin-color-indigo-cool-light-vivid,
+  'plugin-color-indigo-cool-medium-vivid': $plugin-color-indigo-cool-medium-vivid,
+  'plugin-color-indigo-cool-dark-vivid': $plugin-color-indigo-cool-dark-vivid,
+  'plugin-color-indigo-cool-standard': $plugin-color-indigo-cool-standard,
+  'plugin-color-indigo-cool-vivid': $plugin-color-indigo-cool-vivid,
+  'plugin-color-indigo-cool-all': $plugin-color-indigo-cool-all,
+);

@@ -7,7 +7,7 @@ const fs = require('fs');
 const TEMPLATE = fs.readFileSync(__dirname + '/template.html');
 const EXPANDED = 'aria-expanded';
 const EXPANDED_CLASS = 'usa-banner-header-expanded';
-const HIDDEN = 'aria-hidden';
+const HIDDEN = 'hidden';
 
 describe('banner', function () {
   const body = document.body;
@@ -34,14 +34,14 @@ describe('banner', function () {
   it('initializes closed', function () {
     assert.equal(header.classList.contains(EXPANDED_CLASS), false);
     assert.equal(button.getAttribute(EXPANDED), 'false');
-    assert.equal(content.getAttribute(HIDDEN), 'true');
+    assert(content.hasAttribute(HIDDEN));
   });
 
   it('opens when you click the button', function () {
     button.click();
     assert.equal(header.classList.contains(EXPANDED_CLASS), true);
     assert.equal(button.getAttribute(EXPANDED), 'true');
-    assert.equal(content.getAttribute(HIDDEN), 'false');
+    assert(content.hasAttribute(HIDDEN) !== true);
   });
 
   it('closes when you click the button again', function () {
@@ -49,7 +49,7 @@ describe('banner', function () {
     button.click();
     assert.equal(header.classList.contains(EXPANDED_CLASS), false);
     assert.equal(button.getAttribute(EXPANDED), 'false');
-    assert.equal(content.getAttribute(HIDDEN), 'true');
+    assert(content.hasAttribute(HIDDEN));
   });
 
 });

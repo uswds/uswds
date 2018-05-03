@@ -1,0 +1,29 @@
+/*
+========================================
+text-transform
+----------------------------------------
+usage:
+  .[value]
+----------------------------------------
+output:
+  text-transform: value;
+----------------------------------------
+example:
+  .uppercase {
+    text-transform: uppercase; }
+----------------------------------------
+*/
+
+$text-transform: (
+  text-transform: (
+    base: null,
+    modifiers: null,
+    values: map-collect(
+      get-plugins($text-transform-plugins),
+      $text-transform-manual-values
+    ),
+    settings: $text-transform-settings,
+    property: 'text-transform',
+    type: 'utility',
+  )
+)

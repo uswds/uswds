@@ -1,0 +1,1553 @@
+/*
+========================================
+Functions
+----------------------------------------
+*/
+
+/*
+========================================
+General-purpose functions
+----------------------------------------
+*/
+
+/*
+----------------------------------------
+map-deep-get()
+----------------------------------------
+@author Hugo Giraudel
+@access public
+@param {Map} $map - Map
+@param {Arglist} $keys - Key chain
+@return {*} - Desired value
+----------------------------------------
+*/
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+/*
+----------------------------------------
+strip-unit()
+----------------------------------------
+Remove the unit of a length
+@author Hugo Giraudel
+@param {Number} $number - Number to remove unit from
+@return {Number} - Unitless number
+----------------------------------------
+*/
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+/*
+----------------------------------------
+multi-cat()
+----------------------------------------
+Concatenate two lists
+----------------------------------------
+*/
+
+@function multi-cat($list1, $list2) {
+  $this-list: ();
+
+  @each $e in $list1 {
+    @each $ee in $list2 {
+      $this-block: $e + $ee;
+      $this-list: join($this-list, $this-block);
+    }
+  }
+
+  @return $this-list;
+}
+
+/*
+----------------------------------------
+map-collect()
+----------------------------------------
+Collect multiple maps into a single
+large map
+source: https://gist.github.com/bigglesrocks/d75091700f8f2be5abfe
+----------------------------------------
+*/
+
+@function map-collect($maps...) {
+  $collection: ();
+
+  @each $map in $maps {
+    $collection: map-merge($collection, $map);
+  }
+
+  @return $collection;
+}
+
+/* stylelint-disable */
+/*
+----------------------------------------
+remove()
+----------------------------------------
+Remove a value from a list
+----------------------------------------
+*/
+
+@function remove($list, $value, $recursive: false) {
+  $result: ();
+
+  @for $i from 1 through length($list) {
+    @if type-of(nth($list, $i)) == list and $recursive {
+      $result: append($result, remove(nth($list, $i), $value, $recursive));
+    } @else if nth($list, $i) != $value {
+      $result: append($result, nth($list, $i));
+    }
+  }
+
+  @return $result;
+}
+
+/*
+----------------------------------------
+strunquote()
+----------------------------------------
+Unquote a string
+----------------------------------------
+*/
+
+@function strunquote($value) {
+  @if type-of($value) == 'string' {
+    $value: unquote($value);
+  }
+
+  @return $value;
+}
+
+/*
+----------------------------------------
+to-map()
+----------------------------------------
+Convert a single value to a USWDS
+value map.
+
+Candidate for deprecation if we remove
+isReadable
+----------------------------------------
+*/
+
+@function to-map($key, $values) {
+  $l: length($values);
+
+  @if $key == 'noModifier' or $key == 'noValue' {
+    $key: '';
+  }
+
+  @if $l == 1 or nth($values, $l) != isReadable {
+    @return (
+      slug: $key,
+      isReadable: true,
+      content: $values,
+    );
+  } @else {
+    $values: remove($values, isReadable);
+
+    @return (
+      slug: $key,
+      isReadable: true,
+      content: $values,
+    );
+  }
+}
+
+/*
+----------------------------------------
+base-to-map()
+----------------------------------------
+Convert a single base to a USWDS
+value map.
+
+Candidate for deprecation if we remove
+isReadable
+----------------------------------------
+*/
+
+@function base-to-map($values) {
+  $l: length($values);
+
+  @if $l == 1 or nth($values, $l) != isReadable {
+    @return (
+      slug: $values,
+      isReadable: true,
+    );
+  } @else {
+    $values: remove($values, isReadable);
+
+    @return (
+      slug: unquote(nth($values, 1)),
+      isReadable: true,
+    );
+  }
+}
+
+/*
+----------------------------------------
+grid-units()
+----------------------------------------
+Converts a spacing unit multiple into
+the desired final units (currently rem)
+----------------------------------------
+*/
+
+@function grid-units($unit) {
+  $grid-to-rem: strip-unit($uswds-spacing-grid-base) * $unit / strip-unit($theme-root-font-size) * 1rem;
+
+  @return $grid-to-rem;
+}
+
+/*
+----------------------------------------
+px()
+----------------------------------------
+Converts a value in px to a value in rem
+----------------------------------------
+*/
+
+@function px($pixels) {
+  @if $pixels {
+    $px-to-rem: strip-unit($pixels) / strip-unit($theme-root-font-size) * 1rem;
+
+    @return $px-to-rem;
+  }
+  @else {
+    @return false;
+  }
+}
+
+/*
+----------------------------------------
+grid-to-base-em()
+----------------------------------------
+Converts a value in px to a value in em
+----------------------------------------
+*/
+
+@function grid-to-base-em($grid-in-rem) {
+  $grid-to-base-em: strip-unit($grid-in-rem) * 1em;
+
+  @return $grid-to-base-em;
+}
+
+/*
+----------------------------------------
+cap-height()
+----------------------------------------
+Get the cap height of a defined font
+----------------------------------------
+*/
+
+@function cap-height($font){
+  @if $font == false {
+    @return false;
+  } @else {
+    @return map-deep-get(
+      $all-font-definitions,
+      $font,
+      'cap-height'
+    );
+  }
+};
+
+/*
+----------------------------------------
+type-scale()
+----------------------------------------
+Normalizes a specific face's optical size
+to a set target
+----------------------------------------
+*/
+
+@function type-scale($cap-height, $scale) {
+  @if $cap-height {
+    $this-scale: $uswds-base-cap-height * strip-unit($scale) / $cap-height;
+
+    @return px($this-scale);
+  } @else {
+    @return false;
+  }
+};
+
+/*
+----------------------------------------
+utility-font()
+----------------------------------------
+Get a normalized font-size in rem from
+a family and a type size in either
+system scale or project scale
+----------------------------------------
+Not the public-facing function.
+Used for building the utilities and
+withholds certain errors.
+----------------------------------------
+*/
+
+@function utility-font($family, $scale){
+  $quote: inspect($scale);
+  @if not map-has-key($project-cap-heights, $family) {
+    @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
+  }
+  @elseif not map-get($all-type-scale, $quote) {
+    @error "`#{$scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
+  }
+  @else {
+    $this-cap: map-get($project-cap-heights, $family);
+    $this-scale: map-get($all-type-scale, $quote);
+    @if $this-scale and $this-cap {
+      @return type-scale($this-cap, $this-scale);
+    }
+    @else {
+      @return false;
+    }
+  }
+};
+
+/*
+----------------------------------------
+lh()
+----------------------------------------
+Get a normalized line-height from
+a family and a line-height scale unit
+----------------------------------------
+*/
+
+@function lh($family, $scale){
+  $scale: inspect($scale);
+  @if not map-has-key($project-cap-heights, $family) {
+    @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
+  }
+  @elseif not map-get($uswds-line-height, $scale) {
+    @error "`#{$scale}` is not a valid line-height scale. Valid values: #{map-keys($all-type-scale)}";
+  }
+  @else {
+    $this-cap: map-get($project-cap-heights, $family);
+    $this-line-height: map-get($uswds-line-height, $scale);
+    $normalized-line-height: ($this-cap / $uswds-base-cap-height) * $this-line-height;
+    @return $normalized-line-height;
+  }
+};
+
+/*
+----------------------------------------
+get-uswds-color()
+----------------------------------------
+Derive a system color from its
+family, value, and vivid or a passed
+variable that is, itself, a list
+----------------------------------------
+*/
+
+@function get-uswds-color($props...){
+  @if length($props) == 0 {
+    @return false;
+  }
+  @elseif type-of(nth($props,1)) == 'list' {
+    $props: nth($props,1);
+    @if length($props) == 2 {
+      @return map-deep-get(
+        $uswds-colors,
+        nth($props, 1),
+        nth($props, 2)
+      );
+    } @elseif length($props) == 3 {
+      @return map-deep-get(
+        $uswds-colors,
+        nth($props, 1),
+        nth($props, 3),
+        nth($props, 2)
+      );
+    }
+  }
+  @elseif nth($props, 1) == false {
+    @return false;
+  }
+  @elseif length($props) == 1 {
+    @return map-get($uswds-colors, $props);
+  }
+  @elseif length($props) == 2 {
+    @return map-deep-get(
+      $uswds-colors,
+      nth($props, 1),
+      nth($props, 2)
+    );
+  }
+  @else {
+    @return map-deep-get(
+      $uswds-colors,
+      nth($props, 1),
+      nth($props, 3),
+      nth($props, 2)
+    );
+  }
+};
+
+/*
+----------------------------------------
+system-type-scale()
+----------------------------------------
+Get a value from the system type scale
+----------------------------------------
+*/
+
+@function system-type-scale($scale){
+  $scale: quote(inspect($scale));
+  @if $scale and map-has-key($uswds-type-scale, $scale){
+    @return map-get($uswds-type-scale, $scale);
+  }
+  @elseif $scale == false {
+    @return false;
+  }
+  @else {
+    @error "`#{$scale}` is not a valid type scale value. Valid values: #{map-keys($uswds-type-scale)}";
+  }
+};
+
+/*
+----------------------------------------
+simple-color()
+----------------------------------------
+Derive a color from its $family and
+value
+----------------------------------------
+ex:
+background-color: simple-color($red-warm, 50v);
+----------------------------------------
+*/
+
+@function simple-color($hue, $value, $variant...){
+  @if length($variant) == 0 {
+    @return map-get($hue, $value);
+  } @else {
+    @return map-deep-get($hue, nth($variant, 1), $value);
+  }
+};
+
+/*
+========================================
+Utility functions
+----------------------------------------
+TODO: convert/translate these to mixins?
+----------------------------------------
+*/
+
+/*
+----------------------------------------
+calc-gap-offset()
+----------------------------------------
+Calculate a valid uswds unit that is
+half the width of a given unit, for
+calculating gap offset in the layout
+grid.
+----------------------------------------
+*/
+
+@function calc-gap-offset($gap-size) {
+  $quote: $gap-size;
+  @if type-of($gap-size) == "number" {
+    $quote: quote(inspect($gap-size));
+  }
+  @else {
+    $quote: quote($gap-size);
+  }
+  @if map-has-key($spacing-to-value, $quote) {
+    $numeric-eq: map-get($spacing-to-value, $quote);
+    $numeric-eq-half: quote(inspect($numeric-eq / 2));
+    @if map-has-key($spacing-to-token, $numeric-eq-half){
+      @return map-get($spacing-to-token, $numeric-eq-half);
+    }
+    @else {
+      @error "`#{$gap-size}` is not a valid USWDS gap size. Column gaps need to have a standard size half their width.";
+    }
+  }
+  @else {
+    @error "`#{$gap-size}` is not a valid USWDS gap size.";
+  }
+}
+
+/*
+----------------------------------------
+get-standard-values()
+----------------------------------------
+Gets a map of USWDS standard values
+for a property
+----------------------------------------
+*/
+
+@function get-standard-values($property){
+ @return map-deep-get($uswds-properties, $property, standard);
+}
+
+/*
+----------------------------------------
+get-uswds-value()
+----------------------------------------
+Finds and outputs a value from the
+USWDS standard values.
+
+Used to build other standard utility
+functions and mixins.
+----------------------------------------
+*/
+
+@function get-uswds-value($property, $value...){
+  @if type-of($value) == 'arglist' and nth($value, 1) == override {
+    @return nth($value, 2);
+  }
+  $value: nth($value, 1);
+  $quoted-value: quote(nth($value, 1));
+  $our-standard-values: map-deep-get($uswds-properties, $property, standard);
+  $our-extended-values: map-deep-get($uswds-properties, $property, extended);
+  @if map-has-key($our-standard-values, $quoted-value) {
+    @return map-get($our-standard-values, $quoted-value);
+  }
+  @if map-has-key($our-extended-values, $quoted-value) {
+    @warn "`#{$value}` is an extended USWDS `#{$property}` unit. This is OK, but only components built with standard values can be accepted back into the system. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
+    @return map-get($our-extended-values, $quoted-value);
+  }
+  @elseif type-of($value) == 'number' and not unitless($value) {
+    @warn "`#{$value}` is not a USWDS `#{$property}` unit. This is OK, but only components built with standard values can be accepted back into the system. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
+    @return $value;
+  }
+  @else {
+    @warn "`#{$value}` is not a valid `#{$property}` value. You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
+  }
+};
+
+/*
+----------------------------------------
+border-radius()
+----------------------------------------
+Get a border-radius from the system
+border-radii
+----------------------------------------
+*/
+
+@function border-radius($value) {
+  @if map-has-key($all-border-radius, $value) {
+    @return map-get($all-border-radius, $value);
+  }
+  @else {
+    @error "`#{$value}` is not a valid border radius value. Valid values: #{map-keys($all-border-radius)}";
+  }
+};
+
+/*
+----------------------------------------
+color()
+----------------------------------------
+Derive a color from the map of all
+colors: project and system
+----------------------------------------
+*/
+
+@function color($props...){
+  @if length($props) == 0 {
+    @return false;
+  } @elseif nth($props, 1) == false {
+    @return false;
+  } @elseif length($props) == 1 {
+    @if map-has-key(
+      $project-reserved-colors,
+      quote(nth($props, 1))
+    ){
+      @return map-get(
+        $project-reserved-colors,
+        quote(nth($props, 1))
+      );
+    }
+    @if map-has-key(
+      $uswds-colors-basic,
+      quote(nth($props, 1))
+    ){
+      @warn "`#{nth($props, 1)}` is a basic color. This is OK for sketching and prototyping, but use a true color in production code.";
+      @return map-get(
+        $uswds-colors-basic,
+        quote(nth($props, 1))
+      );
+    }
+    @if map-has-key(
+      $uswds-colors-sketching,
+      quote(nth($props, 1))
+    ){
+      @warn "`color-#{nth($props, 1)}` is a sketching color. This is OK but consider replacing it with a true color value in production code.";
+      @return map-get(
+        $uswds-colors-sketching,
+        quote(nth($props, 1))
+      );
+    }
+    @else {
+      @error "#{nth($props, 1)} is not a USWDS color. Reserved values: #{map-keys($project-reserved-colors)}. Sketching values: #{map-keys($uswds-sketching-colors)}. Basic values: #{map-keys($uswds-basic-colors)}.";
+    }
+  } @elseif length($props) == 2 {
+    @return map-deep-get(
+      $all-colors,
+      nth($props, 1),
+      nth($props, 2)
+    );
+  } @else {
+    @if map-deep-get(
+      $all-colors,
+      nth($props, 1),
+      nth($props, 3),
+      nth($props, 2)
+    ) == false {
+      @error "`#{nth($props, 1)}` does not have a vivid variant for `#{nth($props, 2)}`.";
+    }
+    @return map-deep-get(
+      $all-colors,
+      nth($props, 1),
+      nth($props, 3),
+      nth($props, 2)
+    );
+  }
+};
+
+/*
+----------------------------------------
+feature()
+----------------------------------------
+Gets a valid USWDS font feature setting
+----------------------------------------
+*/
+
+@function feature($value) {
+  @return get-uswds-value(feature, $value);
+};
+
+/*
+----------------------------------------
+flex()
+----------------------------------------
+Gets a valid USWDS flex value
+----------------------------------------
+*/
+
+@function flex($value) {
+  @return get-uswds-value(flex, $value);
+};
+
+/*
+----------------------------------------
+font()
+----------------------------------------
+Get a normalized font-size in rem from
+a family and a type size in either
+system scale or project scale
+----------------------------------------
+*/
+
+@mixin font($props...){
+  @if length($props) == 0 or length($props) > 2 {
+    @error "`font()` needs a valid face, and an optional size. If it only includes the face, it will output the font stack for that face (font-family). If it inlcludes the size, it will output the normalized font size (font-size).";
+  }
+  @elseif length($props) == 1 {
+    $our-family: nth($props, 1);
+    @if not map-has-key($project-font-stacks, $our-family){
+      @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-font-stacks)}";
+    }
+    @elseif not map-get($project-font-stacks, $our-family) {
+      @error "Font family `#{$our-family}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
+    }
+    @else {
+      font-family: map-get($project-font-stacks, $our-family);
+    }
+  }
+  @else {
+    $our-family: nth($props, 1);
+    $our-scale: nth($props, 2);
+    @if not map-has-key($project-cap-heights, $our-family) {
+      @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
+    }
+    @elseif not map-get($all-type-scale, $our-scale) {
+      @error "`#{$our-scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
+    }
+    @else {
+      $this-cap: map-get($project-cap-heights, $our-family);
+      $this-scale: map-get($all-type-scale, $our-scale);
+      @if $this-scale and $this-cap {
+        font-size: type-scale($this-cap, $this-scale);
+      }
+      @else {
+        @error "The scale `#{$our-scale}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
+      }
+    }
+  }
+};
+
+/*
+----------------------------------------
+font-weight()
+----------------------------------------
+Gets a valid USWDS font-weight
+----------------------------------------
+*/
+
+@function font-weight($value) {
+  @if map-has-key($project-font-weights, $value) {
+    @if map-get($project-font-weights, $value) == false {
+      @error "Font weight `#{$value}` is disabled in your project's theme settings. Set its value to `true` to use this weight.";
+    }
+    @return map-get($project-font-weights, $value);
+  }
+  @else {
+    @error "`#{$value}` is not a valid font-weight value. Valid values: #{map-keys($project-font-weights)}";
+  }
+};
+
+/*
+----------------------------------------
+letter-spacing()
+----------------------------------------
+Get a letter-spacing value from the
+system letter-spacing
+----------------------------------------
+*/
+
+@function letter-spacing($value) {
+  @return get-uswds-value(letter-spacing, $value);
+};
+
+/*
+----------------------------------------
+line-height()
+----------------------------------------
+Get a line height from the system
+line heights
+----------------------------------------
+*/
+
+@function line-height($value) {
+  @return get-uswds-value(line-height, $value);
+};
+
+/*
+----------------------------------------
+measure()
+----------------------------------------
+Gets a valid USWDS reading line length
+----------------------------------------
+*/
+
+@function measure($value) {
+  @return get-uswds-value(measure, $value);
+};
+
+/*
+----------------------------------------
+opacity()
+----------------------------------------
+Get an opacity from the system
+opacities
+----------------------------------------
+*/
+
+@function opacity($value) {
+  @return get-uswds-value(opacity, $value);
+};
+
+/*
+----------------------------------------
+order()
+----------------------------------------
+Get an order value from the
+system orders
+----------------------------------------
+*/
+
+@function order($value) {
+  @return get-uswds-value(order, $value);
+};
+
+/*
+----------------------------------------
+spacing()
+----------------------------------------
+Converts a spacing unit multiple into
+the desired final units (currently rem)
+----------------------------------------
+*/
+
+@function spacing($value) {
+  $quote: $value;
+  @if type-of($value) == 'number' {
+    $quote: inspect($value);
+  }
+  @elseif type-of($value) == 'string' {
+    $quote: quote($value);
+  }
+  @if map-has-key($project-spacing-standard, $quote) {
+    @if map-get($project-spacing-standard, $quote) == false {
+      @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
+    }
+    @return map-get($project-spacing-standard, $quote);
+  }
+  @elseif $value == false {
+    @return false;
+  }
+  @elseif type-of($value) == 'number' and not unitless($value) {
+    @warn "`#{$value}` is not a standard USWDS unit. This is OK, but consider using a standard spacing unit instead.";
+    @return $value;
+  }
+  @else {
+    @error "`#{$value}` is not a valid spacing unit. Valid spacing unit values: #{map-keys($project-spacing-standard)}";
+  }
+};
+
+/*
+----------------------------------------
+z-index()
+----------------------------------------
+Get a z-index value from the
+system z-index
+----------------------------------------
+*/
+
+@function z-index($value) {
+  @return get-uswds-value(z-index, $value);
+};
+
+/*
+----------------------------------------
+get-plugins()
+----------------------------------------
+Build a single map of plugin values
+from a list of plugin keys.
+----------------------------------------
+TODO: Somewhat crude now. Could be more
+elegant
+----------------------------------------
+*/
+
+@function get-plugins($list){
+  $our-plugins:();
+  $registry:();
+
+  @if type-of($list) == 'map' {
+    @error "Use a list of strings as plugin values.";
+  }
+  @each $plugin in $list {
+    //@debug "Using utility plugin: `#{$plugin}`";
+    // find the plugin in the registry
+    @if str-index($plugin, 'plugin-spacing'){
+      @if str-index($plugin, theme){
+        $registry: map-deep-get($plugin-registry, spacing, theme);
+      }
+      @elseif str-index($plugin, uswds){
+        $registry: map-deep-get($plugin-registry, spacing, uswds);
+      }
+      @else {
+        $registry: map-deep-get($plugin-registry, spacing, units);
+      }
+    }
+    @elseif str-index($plugin, 'plugin-font'){
+      @if str-index($plugin, mono){
+        @if str-index($plugin, theme){
+          $registry: map-deep-get($plugin-registry, font, mono, theme);
+        }
+        @else {
+          $registry: map-deep-get($plugin-registry, font, mono, uswds);
+        }
+      }
+      @elseif str-index($plugin, sans){
+        @if str-index($plugin, theme){
+          $registry: map-deep-get($plugin-registry, font, sans, theme);
+        }
+        @else {
+          $registry: map-deep-get($plugin-registry, font, sans, uswds);
+        }
+      }
+      @elseif str-index($plugin, serif){
+        @if str-index($plugin, theme){
+          $registry: map-deep-get($plugin-registry, font, serif, theme);
+        }
+        @else {
+          $registry: map-deep-get($plugin-registry, font, serif, uswds);
+        }
+      }
+      @else {
+        $registry: map-deep-get($plugin-registry, font, misc);
+      }
+    }
+    // yes, this is inefficient
+    @elseif str-index($plugin, 'plugin-color'){
+      @if str-index($plugin, 'palette') {
+        $registry: map-deep-get($plugin-registry, color, palettes);
+      }
+      @elseif str-index($plugin, 'black-cool') {
+        $registry: map-deep-get($plugin-registry, color, black-cool);
+      }
+      @elseif str-index($plugin, 'black-transparent') {
+        $registry: map-deep-get($plugin-registry, color, black-transparent);
+      }
+      @elseif str-index($plugin, 'black-warm') {
+        $registry: map-deep-get($plugin-registry, color, black-warm);
+      }
+      @elseif str-index($plugin, 'black') {
+        $registry: map-deep-get($plugin-registry, color, black);
+      }
+      @elseif str-index($plugin, 'blue-warm') {
+        $registry: map-deep-get($plugin-registry, color, blue-warm);
+      }
+      @elseif str-index($plugin, 'blue') {
+        $registry: map-deep-get($plugin-registry, color, blue);
+      }
+      @elseif str-index($plugin, 'cyan') {
+        $registry: map-deep-get($plugin-registry, color, cyan);
+      }
+      @elseif str-index($plugin, 'gold') {
+        $registry: map-deep-get($plugin-registry, color, gold);
+      }
+      @elseif str-index($plugin, 'green-cool') {
+        $registry: map-deep-get($plugin-registry, color, green-cool);
+      }
+      @elseif str-index($plugin, 'green-warm') {
+        $registry: map-deep-get($plugin-registry, color, green-warm);
+      }
+      @elseif str-index($plugin, 'green') {
+        $registry: map-deep-get($plugin-registry, color, green);
+      }
+      @elseif str-index($plugin, 'indigo-cool') {
+        $registry: map-deep-get($plugin-registry, color, indigo-cool);
+      }
+      @elseif str-index($plugin, 'indigo-warm') {
+        $registry: map-deep-get($plugin-registry, color, indigo-warm);
+      }
+      @elseif str-index($plugin, 'indigo') {
+        $registry: map-deep-get($plugin-registry, color, indigo);
+      }
+      @elseif str-index($plugin, 'magenta') {
+        $registry: map-deep-get($plugin-registry, color, magenta);
+      }
+      @elseif str-index($plugin, 'mint-cool') {
+        $registry: map-deep-get($plugin-registry, color, mint-cool);
+      }
+      @elseif str-index($plugin, 'mint') {
+        $registry: map-deep-get($plugin-registry, color, mint);
+      }
+      @elseif str-index($plugin, 'orange-warm') {
+        $registry: map-deep-get($plugin-registry, color, orange-warm);
+      }
+      @elseif str-index($plugin, 'orange') {
+        $registry: map-deep-get($plugin-registry, color, orange);
+      }
+      @elseif str-index($plugin, 'red-warm') {
+        $registry: map-deep-get($plugin-registry, color, red-warm);
+      }
+      @elseif str-index($plugin, 'red') {
+        $registry: map-deep-get($plugin-registry, color, red);
+      }
+      @elseif str-index($plugin, 'violet-cool') {
+        $registry: map-deep-get($plugin-registry, color, violet-cool);
+      }
+      @elseif str-index($plugin, 'violet-warm') {
+        $registry: map-deep-get($plugin-registry, color, violet-warm);
+      }
+      @elseif str-index($plugin, 'white-cool') {
+        $registry: map-deep-get($plugin-registry, color, white-cool);
+      }
+      @elseif str-index($plugin, 'white-warm') {
+        $registry: map-deep-get($plugin-registry, color, white-warm);
+      }
+      @elseif str-index($plugin, 'white-transparent') {
+        $registry: map-deep-get($plugin-registry, color, white-transparent);
+      }
+      @elseif str-index($plugin, 'white') {
+       $registry: map-deep-get($plugin-registry, color, white);
+      }
+      @elseif str-index($plugin, 'yellow') {
+       $registry: map-deep-get($plugin-registry, color, yellow);
+      }
+      @else {
+       $registry: map-deep-get($plugin-registry, color, misc);
+      }
+    }
+    @else {
+      $registry: map-get($plugin-registry, standard);
+    }
+    // now the registry is set
+    @if not map-has-key($registry, #{$plugin}){
+      @error "#{$plugin} isn't in the registry.";
+    }
+    @else {
+      $our-plugins: map-merge(
+        $our-plugins,
+        map-get($registry, #{$plugin})
+      );
+    }
+  } // end plugin list loop
+  @return $our-plugins;
+};
+
+/*
+----------------------------------------
+@render-utility
+----------------------------------------
+Build a utility from values calculated
+in the @render-utilities-in loop
+----------------------------------------
+TODO: Determine the proper use of
+unquote() in the following. Changed to
+account for a "interpolation near
+operators will be simplified in a
+future version of Sass" warning.
+----------------------------------------
+*/
+
+@mixin render-utility($utility, $selector, $property, $value, $val-props, $important) {
+  $namespace-prefix: null;
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
+  }
+
+  .#{$namespace-prefix}#{$selector} {
+    @if map-has-key($val-props, extend) {
+      @each $ext-prop, $ext-value in map-get($val-props, extend) {
+        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
+      }
+    }
+
+    @if map-has-key($val-props, extends) {
+      @extend %#{map-get($val-props, extends)};
+    }
+
+    @each $this-property in $property {
+      #{$this-property}: unquote("#{$value}#{$important}");
+    }
+
+    @if map-has-key($utility, extend) {
+      @each $ext-prop, $ext-value in map-get($utility, extend) {
+        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
+      }
+    }
+  }
+}
+
+/*
+----------------------------------------
+@render-pseudoclass
+----------------------------------------
+Build a pseucoclass utiliy from values
+calculated in the @render-utilities-in
+loop
+----------------------------------------
+*/
+
+@mixin render-pseudoclass($utility, $pseudoclass, $selector, $property, $value, $val-props, $mq, $important) {
+  $this-mq: null;
+  $namespace-prefix: null;
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
+  }
+
+  @if $mq {
+    $this-mq: '#{$mq}\\:';
+  }
+  .#{$this-mq}#{$pseudoclass}\:#{$namespace-prefix}#{$selector}:#{$pseudoclass} {
+    @each $this-property in $property {
+      #{$this-property}: unquote("#{$value}#{$important}");
+    }
+  }
+}
+
+/*
+----------------------------------------
+@render-placeholder
+----------------------------------------
+Build a placeholder utility from values
+calculated in the @render-utilities-in
+loop
+
+Could be deprecated if we never choose
+to style placeholder text
+----------------------------------------
+*/
+
+@mixin render-placeholder($selector, $property, $value, $val-props, $important) {
+  $this-namespace: null;
+
+  @if $utility-type == settings {
+    $this-namespace: $theme-settings-utilities-namespace;
+  }
+  .#{$this-namespace}pl-#{$selector}::placeholder {
+    @each $this-property in $property {
+      #{$this-property}: unquote("#{$value}#{$important}");
+    }
+  }
+}
+
+/*
+----------------------------------------
+@render-media-queries
+----------------------------------------
+Build @media media queries from values
+calculated in the @render-utilities-in
+loop
+----------------------------------------
+*/
+
+@mixin render-media-queries($utility, $selector, $property, $value, $val-props, $important) {
+  $our-breakpoints: map-deep-get($uswds-properties, breakpoints, standard);
+  $namespace-prefix: null;
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
+  }
+
+  @each $media-key, $media-value in $our-breakpoints {
+    $mq: unquote($media-key);
+    $media-value-em: grid-to-base-em($media-value);
+
+    @if map-get($theme-output-breakpoints, $media-key) {
+      @media (min-width: #{$media-value-em}) {
+        .#{$mq}\:#{$namespace-prefix}#{$selector} {
+          @if map-has-key($val-props, extend) {
+            @each $ext-prop, $ext-value in map-get($val-props, extend) {
+              #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
+            }
+          }
+
+          @each $this-property in $property {
+            #{$this-property}: unquote("#{$value}#{$important}");
+          }
+
+          @if map-has-key($utility, extend) {
+            @each $ext-prop, $ext-value in map-get($utility, extend) {
+              #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
+            }
+          }
+          @if map-deep-get($utility, settings, hover) {
+            @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq, $important);
+          }
+          @if map-deep-get($utility, settings, visited) {
+            @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq, $important);
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+----------------------------------------
+@render-utilities-in
+----------------------------------------
+The master loop that sets the building
+blocks of utilities from the values
+in individual rule settings and loops
+through all possible variants
+----------------------------------------
+*/
+
+@mixin render-utilities-in($utilities) {
+
+  $important: null;
+  @if $utilities-use-important {
+    $important: ' !important';
+  }
+
+  // loop through the $utilities
+
+  @each $utility-name, $utility in $utilities {
+
+    // Only do this if the the utility is meant to output
+
+    @if map-deep-get($utility, settings, output) or
+      $output-all-utilities {
+
+      // set intital variants
+      // $property-default is a single value for all these utilities
+
+      $base-props: null;
+      $modifier: null;
+      $selector: null;
+      $property-default: map-get($utility, property);
+      $property: null;
+      $value: null;
+      $our-modifiers: ();
+      $b: null;
+      $v: null;
+      $mv: null;
+      $val-props: ();
+      $mq: null;
+
+      //    If there's a base, use base-to-map() to convert it into a MAP:
+      //    $base-props: (
+      //      slug: STRING,
+      //      isReadable: BOOL,
+      //    )
+
+      @if map-get($utility, base) != null {
+        $base-props: base-to-map(map-get($utility, base));
+
+        // And set $b (used in the selector constructor, below) to base-props.slug.
+
+        $b: map-get($base-props, slug);
+
+        // Otherwise, assign it null props.
+
+      } @else {
+        $base-props: (
+          slug: null,
+        );
+      }
+
+      // Each utility rule takes a value, so let's start here and begin building.
+      // Values are held in a MAP, where each individual value has the keypair
+      // KEY   :  VALUE
+      // [slug]:  [value], [isReadable]*
+
+      // -------- For each value in utility.values ----------
+
+      @each $val-key, $val-value in map-get($utility, values) {
+
+        // If $val-value == null, or if $val-value is a map and
+        // the content key or the dependency key has a null value
+        // skip building this rule
+        // altogether
+
+        @if type-of($val-value) == 'map' {
+          @if map-get($val-value, content) == false {
+            $val-value: false;
+          }
+          @elseif map-has-key($val-value, dependency) {
+            @if map-get($val-value, dependency) == false {
+              $val-value: false;
+            }
+          }
+        }
+        @if $val-value {
+
+          // If $val-value is already a MAP...
+
+          @if type-of($val-value) == 'map' {
+
+            // set $val-props = $val-value
+
+            $val-props: $val-value;
+
+            // If it _isn't_ a MAP...
+
+          } @else {
+
+            // ...use to-map() to convert the value keypair into a MAP:
+            //    $val-props: (
+            //      slug: STRING,
+            //      [isReadable: BOOL,]*
+            //      content: LIST,
+            //      [extends: STRING,]*
+            //    )
+
+            // We'll keep the $val-props MAP around,
+            // as we'll need it to build both the rule's value and its selector.
+
+            $val-props: to-map($val-key, $val-value);
+          }
+
+          // In fact, let's set our rule's value now.
+
+          $value: strunquote(nth(map-get($val-props, content), 1));
+
+          // Add any appended values...
+
+          @if map-get($utility, valueAppend) {
+            $value: $value + map-get($utility, valueAppend);
+          }
+
+          // ...or prepended values.
+
+          @if map-get($utility, valuePrepend) {
+            $value: map-get($utility, valuePrepend) + $value;
+          }
+
+          // Then unquote the string.
+
+          $value: strunquote($value);
+
+          // And we'll set the $v as val-props.slug for use in
+          // constructing the selector.
+
+          $v: map-get($val-props, slug);
+
+          // -------- Start of Modifiers ----------
+
+          // Now we'll check for modifiers and loop through them
+          // to get the props we need to build our rule.
+
+          // Modifiers are held in a MAP,
+          // where each individual modifer has the keypair
+          // KEY   :  VALUE
+          // [slug]:  [value], [isReadable]*
+
+          // So, check for modifiers.
+
+          @if map-get($utility, modifiers) != null {
+
+            // If there is one, capture it as $our-modifiers.
+
+            $our-modifiers: map-get($utility, modifiers);
+          } @else {
+
+            // If there isn't one, build a dummy so we can keep
+            // all our build in the same loop.
+
+            $our-modifiers: (
+              slug: null,
+            );
+          }
+
+          // OK! C'mon, let's loop!
+          // https://www.youtube.com/watch?v=X9i2i07wPUw
+
+          // -------- For each modifier in $our-modifiers ----------
+
+          @each $mod-key, $mod-val in $our-modifiers {
+
+            // Use to-map() to convert the modifier keypair into a MAP:
+            //    $mod-props: (
+            //      slug: STRING,
+            //      isReadable: BOOL,
+            //      content: LIST,
+            //    )
+
+            // Just as we did before with the value keypair.
+
+            $mod-props: to-map($mod-key, $mod-val);
+
+            // --- if the modifier content is null -----
+
+            @if map-get($mod-props, content) == null or map-get($mod-props, content) == '' {
+
+              // If mod-props.content is null,
+              // we can set our rule's $property now
+              // since $property is simply $property-default.
+
+              $property: $property-default;
+
+            }
+
+              // '-' “oh hey.”
+
+              //                     '-' “hey.”
+
+              // '-' “hey.”
+
+              // OK, cool.
+              // So what if there _is_ a modifier object?
+
+              // -- if the modifier content is NOT null --
+
+            @else {
+
+              // If there are modifiers, $property is a concat of $property-default
+              // with _each_ of the values in $mod-props.content
+              // There's a function for this... multi-cat()!!
+              // (=^･ｪ･^=))ﾉ彡☆
+              // (^._.^)ﾉ☆( _ _).oO
+              // (=චᆽච=)
+
+              $property: multi-cat($property-default, map-get($mod-props, content));
+            }
+
+            // Now we go through to set the $selector.
+
+            // If mod-props.slug is noModifier...
+
+            @if map-get($mod-props, slug) == '' or map-get($mod-props, slug) == slug {
+
+              // First, we can test to see if the base $b is null
+
+              @if $b == null {
+
+                // If it _is_ null, the rule's selector is $v.
+
+                $selector: $v;
+
+              // if the value is noValue ('')
+
+              } @elseif map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
+
+                // selector is the base only
+
+                $selector: $b;
+
+              // Otherwise, if base-props.isReadable, or val-props.isReadable
+
+              } @elseif map-has-key($base-props, isReadable) or
+                map-has-key($val-props, isReadable) {
+
+                // selector is joined with a '-'
+
+                $selector: $b + '-' + $v;
+              } @else {
+
+                // otherwise, it gets a simple join.
+
+                $selector: $b + $v;
+
+                // Nice! We just took care of the non-modifier cases!
+
+              }
+            }
+
+            // Otherwise, check to see if either mod.isReadable or
+            // val.isReadable
+            @else {
+
+              @if map-has-key($mod-props, isReadable) or
+                map-has-key($val-props, isReadable) {
+
+                  // If valProps is `noValue`....
+
+                @if map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
+
+                  // ...$mv is just the modifier
+
+                  $mv: map-get($mod-props, slug);
+                } @else {
+
+                  // Otherwise, join with a '-' into selector $mv.
+
+                  $mv: map-get($mod-props, slug) + '-' + map-get($val-props, slug);
+                }
+              } @else {
+
+                // If not, just join into selector $mv.
+
+                $mv: map-get($mod-props, slug) + map-get($val-props, slug);
+              }
+
+              // Once we have $mv, test for $b
+              // and build the selector as before.
+
+              @if $b == null {
+                $selector: $mv;
+              } @elseif map-get($base-props, isReadable) or
+                map-get($mod-props, isReadable) {
+                $selector: $b + '-' + $mv;
+              } @else {
+                $selector: $b + $mv;
+              }
+            }
+
+            // finished setting modifier vars
+
+            // Hey. Did we just finish $selector?
+            // And do we also have $property and $value?
+            // We do?!?!?! We do!
+
+            // FINALLY, "BUILD THE RULE, MAX!"
+            // https://www.youtube.com/watch?v=R3Igz5SfBCE
+
+            @include render-utility($utility, $selector, $property, $value, $val-props, $important);
+
+            // Add the pseudoclass variants, if applicable
+
+            @if map-deep-get($utility, settings, hover) {
+              @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq, $important);
+            }
+
+            @if map-deep-get($utility, settings, active) {
+              @include render-pseudoclass($utility, active, $selector, $property, $value, $val-props, $mq, $important);
+            }
+
+            @if map-deep-get($utility, settings, visited) {
+              @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq, $important);
+            }
+
+            @if map-deep-get($utility, settings, focus) {
+              @include render-pseudoclass($utility, focus, $selector, $property, $value, $val-props, $mq, $important);
+            }
+
+            // Add the placeholder variant, if applicable
+
+            @if map-get($utility, placeholder) {
+              @include render-placeholder($selector, $property, $value, $val-props);
+            }
+
+            // And add the responsive prefixes, if applicable
+
+            @if map-deep-get($utility, settings, responsive) {
+              @include render-media-queries($utility, $selector, $property, $value, $val-props, $important);
+            } // ･ﾟ✧
+          } // end the modifier loop
+        } // end the null value conditional
+      } // end the value loop
+    } // end the output conditional
+  } // end the utility loop
+  // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
+}
+
+@mixin render-font-face($this-font-face) {
+  $these-weights: $project-font-weights;
+  @if $theme-output-all-weights {
+    $these-weights: (
+      100: 100,
+      200: 200,
+      300: 300,
+      400: 400,
+      500: 500,
+      600: 600,
+      700: 700,
+      800: 800,
+      900: 900
+    );
+  }
+
+  @if $this-font-face {
+    $this-font: map-get($all-font-definitions, $this-font-face);
+    $this-font-system: map-get($this-font, system-font);
+
+    @if $this-font-system == false {
+      $font-name: map-get($this-font, name);
+      $roman: map-get($this-font, roman);
+      $italic: map-get($this-font, italic);
+      $dir: map-get($this-font, dir);
+
+      @if $roman {
+        @each $weight, $filename in $roman {
+          @each $key, $outputweight in $these-weights {
+            @if $outputweight == $weight and $filename {
+              @include font-face(
+                '#{$font-name}',
+                '#{$theme-font-path}/#{$dir}/#{$filename}',
+                #{$weight},
+                normal,
+                $file-formats: eot woff2 woff ttf
+              );
+            }
+          }
+        }
+      }
+
+      @if $italic {
+        @each $weight, $filename in $italic {
+          @each $outputweight in $these-weights {
+            @if $outputweight == $weight and $filename {
+              @include font-face(
+                '#{$font-name}',
+                '#{$theme-font-path}/#{$dir}/#{$filename}',
+                #{$weight},
+                italic,
+                $file-formats: eot woff2 woff ttf
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* stylelint-enable */

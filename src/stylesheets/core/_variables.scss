@@ -1,15 +1,528 @@
-// These variables drive almost every aspect of the U.S. Web Design
-// system. Every variable is declared as !default so that it can be
-// overridden by a previous import.
-//
-// XXX Do not modify this file!
-//
-// If you want to override a variable, set that variable in one of your
-// own partials, then @import '{path/to/uswds/}core/variables'.
+/*
+========================================
+USWDS 2.0 Variables
+Use for computed variables not meant
+to be set by system users.
+----------------------------------------
+Master system palette variables are set
+in core/_units
+----------------------------------------
+Anything meant to be set directly should
+go in:
 
-// Typography
-// Removing the !default from $em-base so we are not inheriting that
-// value from Bourbon.
+core/_settings
+(for default settings)
+
+and its pair:
+©
+project/_uswds-project-settings
+(for project overrides)
+----------------------------------------
+*/
+
+/*
+----------------------------------------
+Namespace
+----------------------------------------
+*/
+
+$uswds-namespace: (
+  'object':     'o-',
+  'grid':       'g-',
+  'component':  'usa-',
+  'utility':    'u-',
+);
+
+/*
+----------------------------------------
+Spacing
+----------------------------------------
+All spacing values that can be called
+by spacing()
+----------------------------------------
+*/
+
+$project-spacing-standard: map-collect(
+  map-get($uswds-spacing, smaller),
+  map-get($uswds-spacing, small),
+  map-get($uswds-spacing, smaller-negative),
+  map-get($uswds-spacing, small-negative),
+  map-get($uswds-spacing, medium),
+  map-get($uswds-spacing, medium-negative),
+  map-get($uswds-spacing, large),
+  map-get($uswds-spacing, larger),
+  map-get($uswds-spacing, special)
+);
+
+$spacing-to-token: (
+  '1':              '1px',
+  '2':              '2px',
+  '4':              '05',
+  '8':              '1',
+  '12':             '105',
+  '16':             '2',
+  '24':             '3',
+  '32':             '4',
+  '40':             '5',
+  '48':             '6',
+  '56':             '7',
+  '64':             '8',
+  '72':             '9',
+);
+
+$spacing-to-value: (
+  '1px':          1,
+  '2px':          2,
+  '05':          4,
+  '1':           8,
+  '105':         12,
+  '2':           16,
+  '3':           24,
+  '4':           32,
+  '5':           40,
+  '6':           48,
+  '7':           56,
+  '8':           64,
+  '9':           72,
+);
+
+/*
+----------------------------------------
+Font stack
+----------------------------------------
+Compute the project font stack based on
+the project fonts and the font
+definition values set in
+core/_font-definitions
+----------------------------------------
+*/
+
+$font-stack-sans:     false;
+$font-stack-serif:    false;
+$font-stack-mono:     false;
+$font-stack-cond:     false;
+
+$font-stack-heading:  false;
+$font-stack-body:     false;
+$font-stack-code:     false;
+$font-stack-alt:      false;
+
+@if $theme-font-sans {
+  $font-stack-sans: map-deep-get(
+    $all-font-definitions,
+    $theme-font-sans,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-sans,
+    'stack'
+  );
+}
+
+@if $theme-font-serif {
+  $font-stack-serif: map-deep-get(
+    $all-font-definitions,
+    $theme-font-serif,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-serif,
+    'stack'
+  );
+}
+
+@if $theme-font-mono {
+  $font-stack-mono: map-deep-get(
+    $all-font-definitions,
+    $theme-font-mono,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-mono,
+    'stack'
+  );
+}
+
+@if $theme-font-cond {
+  $font-stack-cond: map-deep-get(
+    $all-font-definitions,
+    $theme-font-cond,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-cond,
+    'stack'
+  );
+}
+
+@if $theme-font-heading {
+  $font-stack-heading: map-deep-get(
+    $all-font-definitions,
+    $theme-font-heading,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-heading,
+    'stack'
+  );
+}
+
+@if $theme-font-body {
+  $font-stack-body: map-deep-get(
+    $all-font-definitions,
+    $theme-font-body,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-body,
+    'stack'
+  );
+}
+
+@if $theme-font-code {
+  $font-stack-code: map-deep-get(
+    $all-font-definitions,
+    $theme-font-code,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-code,
+    'stack'
+  );
+}
+
+@if $theme-font-alt {
+  $font-stack-alt: map-deep-get(
+    $all-font-definitions,
+    $theme-font-alt,
+    'name'
+    ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-alt,
+    'stack'
+  );
+}
+
+$project-font-stacks:(
+  'mono':     $font-stack-mono,
+  'sans':     $font-stack-sans,
+  'serif':    $font-stack-serif,
+  'cond':     $font-stack-cond,
+  'heading':  $font-stack-heading,
+  'body':     $font-stack-body,
+  'code':     $font-stack-code,
+  'alt':      $font-stack-alt,
+);
+
+// for backward compatibility
+// TODO: deprecate
+$font-sans:   $font-stack-sans;
+$font-serif:  $font-stack-serif;
+$font-mono:   $font-stack-mono;
+$font-cond:   $font-stack-cond;
+
+/*
+----------------------------------------
+Set basic font rules for the font
+utilities to reference.
+----------------------------------------
+TODO: Do these need to integrate the
+namespace var set in utilities-settings?
+----------------------------------------
+*/
+
+@if $theme-font-mono {
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-mono'], .font-family-mono { font-family: $font-stack-mono; }
+}
+
+@if $theme-font-sans {
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-sans'], .font-family-sans { font-family: $font-stack-sans; }
+}
+
+@if $theme-font-serif {
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-serif'], .font-family-serif { font-family: $font-stack-serif; }
+}
+
+@if $theme-font-cond {
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-cond'], .font-family-cond { font-family: $font-stack-cond; }
+}
+
+@if $theme-font-heading {
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-heading'], .font-family-heading { font-family: $font-stack-heading; }
+}
+
+@if $theme-font-body {
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-body'], .font-family-body { font-family: $font-stack-body; }
+}
+
+@if $theme-font-code {
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-code'], .font-family-code { font-family: $font-stack-code; }
+}
+
+@if $theme-font-alt {
+  $namespace-prefix: null;
+
+  @if $utilities-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, 'utility');
+  }
+  [class*='#{$namespace-prefix}font-alt'], .font-family-alt { font-family: $font-stack-alt; }
+}
+
+$project-font-weights: (
+  'thin':       $theme-font-weight-thin,
+  'light':      $theme-font-weight-light,
+  'normal':     $theme-font-weight-normal,
+  'medium':     $theme-font-weight-medium,
+  'semibold':   $theme-font-weight-semibold,
+  'bold':       $theme-font-weight-bold,
+  'black':      $theme-font-weight-black,
+);
+
+$project-colors: (
+  neutral: (
+    lighter:  get-uswds-color($theme-color-neutral-lighter),
+    light:    get-uswds-color($theme-color-neutral-light),
+    base:     get-uswds-color($theme-color-neutral-base),
+    dark:     get-uswds-color($theme-color-neutral-dark),
+    darker:   get-uswds-color($theme-color-neutral-darker),
+  ),
+  primary: (
+    lighter: get-uswds-color($theme-color-primary-lighter),
+    light:   get-uswds-color($theme-color-primary-light),
+    base:    get-uswds-color($theme-color-primary-base),
+    vivid:   get-uswds-color($theme-color-primary-vivid),
+    dark:    get-uswds-color($theme-color-primary-dark),
+    darker:  get-uswds-color($theme-color-primary-darker),
+  ),
+  secondary: (
+    light:   get-uswds-color($theme-color-secondary-light),
+    base:    get-uswds-color($theme-color-secondary-base),
+    vivid:   get-uswds-color($theme-color-secondary-vivid),
+    dark:    get-uswds-color($theme-color-secondary-dark),
+  ),
+  accent-warm: (
+    base:    get-uswds-color($theme-color-accent-warm-base),
+    dark:    get-uswds-color($theme-color-accent-warm-dark),
+  ),
+  accent-cool: (
+    base:    get-uswds-color($theme-color-accent-cool-base),
+    dark:    get-uswds-color($theme-color-accent-cool-dark),
+  ),
+  inverse: (
+    base:   get-uswds-color($theme-color-inverse-base),
+    dark:   get-uswds-color($theme-color-inverse-dark),
+  )
+);
+
+$project-state-colors: (
+  error: (
+    lighter: get-uswds-color($theme-color-error-lighter),
+    light:   get-uswds-color($theme-color-error-light),
+    base:    get-uswds-color($theme-color-error-base),
+    dark:    get-uswds-color($theme-color-error-dark),
+    darker:  get-uswds-color($theme-color-error-darker),
+  ),
+  warn: (
+    lighter: get-uswds-color($theme-color-warn-lighter),
+    light:   get-uswds-color($theme-color-warn-light),
+    base:    get-uswds-color($theme-color-warn-base),
+    dark:    get-uswds-color($theme-color-warn-dark),
+    darker:  get-uswds-color($theme-color-warn-darker),
+  ),
+  success: (
+    lighter: get-uswds-color($theme-color-success-lighter),
+    light:   get-uswds-color($theme-color-success-light),
+    base:    get-uswds-color($theme-color-success-base),
+    dark:    get-uswds-color($theme-color-success-dark),
+    darker:  get-uswds-color($theme-color-success-darker),
+  ),
+  disabled: (
+    base:    get-uswds-color($theme-color-disabled-base),
+  ),
+);
+
+$project-reserved-colors:(
+  'black':        black,
+  'white':        white,
+  'transparent':  transparent,
+  'highlight':    get-uswds-color(gold, 20, vivid),
+);
+
+$all-colors: map-collect(
+  $uswds-colors,
+  $project-colors,
+  $project-state-colors
+);
+
+/*
+----------------------------------------
+Build the project type scale map
+----------------------------------------
+*/
+
+$project-type-scale: (
+  '3xs': system-type-scale($theme-type-scale-micro),
+  '2xs': system-type-scale($theme-type-scale-smallest),
+  'xs': system-type-scale($theme-type-scale-smaller),
+  'sm': system-type-scale($theme-type-scale-small),
+  'md': system-type-scale($theme-type-scale-base),
+  'lg': system-type-scale($theme-type-scale-large),
+  'xl': system-type-scale($theme-type-scale-larger),
+  '2xl': system-type-scale($theme-type-scale-largest),
+  '3xl': system-type-scale($theme-type-scale-mega),
+);
+
+$all-type-scale: map-collect(
+  $uswds-type-scale,
+  $project-type-scale
+);
+
+$project-cap-heights:(
+  'base':     $uswds-base-cap-height,
+  'mono':     cap-height($theme-font-mono),
+  'sans':     cap-height($theme-font-sans),
+  'serif':    cap-height($theme-font-serif),
+  'heading':  cap-height($theme-font-heading),
+  'body':     cap-height($theme-font-body),
+  'code':     cap-height($theme-font-code),
+  'alt':      cap-height($theme-font-alt),
+);
+
+/*
+----------------------------------------
+Border-radius
+----------------------------------------
+*/
+
+$project-border-radius: (
+  '0':          0,
+  'sm':         spacing($theme-border-radius-sm),
+  'md':         spacing($theme-border-radius-md),
+  'lg':         spacing($theme-border-radius-lg),
+  'pill':       9999em,
+);
+
+$all-border-radius: map-collect(
+  $project-border-radius,
+  map-get($uswds-spacing, smaller),
+  map-get($uswds-spacing, small)
+);
+
+/*
+----------------------------------------
+Color palettes
+----------------------------------------
+*/
+
+$color-palette-theme: (
+  'neutral-lighter':    get-uswds-color($theme-color-neutral-lighter),
+  'neutral-light':      get-uswds-color($theme-color-neutral-light),
+  'neutral':            get-uswds-color($theme-color-neutral-base),
+  'neutral-dark':       get-uswds-color($theme-color-neutral-dark),
+  'neutral-darker':     get-uswds-color($theme-color-neutral-darker),
+  'primary-lighter':    get-uswds-color($theme-color-primary-lighter),
+  'primary-light':      get-uswds-color($theme-color-primary-light),
+  'primary':            get-uswds-color($theme-color-primary-base),
+  'primary-vivid':      get-uswds-color($theme-color-primary-vivid),
+  'primary-dark':       get-uswds-color($theme-color-primary-dark),
+  'primary-darker':     get-uswds-color($theme-color-primary-darker),
+  'secondary-light':    get-uswds-color($theme-color-secondary-light),
+  'secondary':          get-uswds-color($theme-color-secondary-base),
+  'secondary-vivid':    get-uswds-color($theme-color-secondary-vivid),
+  'secondary-dark':     get-uswds-color($theme-color-secondary-dark),
+  'accent-warm-dark':   get-uswds-color($theme-color-accent-warm-dark),
+  'accent-warm':        get-uswds-color($theme-color-accent-warm-base),
+  'accent-cool-dark':   get-uswds-color($theme-color-accent-cool-dark),
+  'accent-cool':        get-uswds-color($theme-color-accent-cool-base),
+);
+
+$color-palette-state: (
+  'error-lighter':      get-uswds-color($theme-color-error-lighter),
+  'error-light':        get-uswds-color($theme-color-error-light),
+  'error':              get-uswds-color($theme-color-error-base),
+  'error-dark':         get-uswds-color($theme-color-error-dark),
+  'error-darker':       get-uswds-color($theme-color-error-darker),
+  'warn-lighter':       get-uswds-color($theme-color-warn-lighter),
+  'warn-light':         get-uswds-color($theme-color-warn-light),
+  'warn':               get-uswds-color($theme-color-warn-base),
+  'warn-dark':          get-uswds-color($theme-color-warn-dark),
+  'warn-darker':        get-uswds-color($theme-color-warn-darker),
+  'success-lighter':    get-uswds-color($theme-color-success-lighter),
+  'success-light':      get-uswds-color($theme-color-success-light),
+  'success':            get-uswds-color($theme-color-success-base),
+  'success-dark':       get-uswds-color($theme-color-success-dark),
+  'success-darker':     get-uswds-color($theme-color-success-darker),
+  'disabled':           get-uswds-color($theme-color-disabled-base),
+);
+
+$color-palette-grayscale: $uswds-black;
+
+/*
+========================================
+Old USWDS Variables
+Many of these will be deprecated
+or converted into settings
+----------------------------------------
+These variables drive almost every
+aspect of the U.S. Web Design system.
+Every variable is declared as !default
+so that it can be overridden by a
+previous import.
+
+XXX Do not modify this file!
+
+If you want to override a variable, set
+that variable in one of your own partials,
+then
+@import '{path/to/uswds/}core/variables'.
+----------------------------------------
+*/
+
+/*
+----------------------------------------
+Typography
+----------------------------------------
+TODO: Rethink naming and consolidate in
+settings
+----------------------------------------
+*/
+
+// Removing the !default from $em-base so we are not inheriting that value from Bourbon.
 $em-base:             10px;
 $base-font-size:      1.7rem !default;
 $small-font-size:     1.4rem !default;
@@ -25,61 +538,78 @@ $base-line-height:    1.5 !default;
 $heading-line-height: 1.3 !default;
 $lead-line-height:    1.7 !default;
 
-$font-sans:           'Source Sans Pro', $helvetica !default;
-$font-serif:          'Merriweather', $georgia !default;
+/*
+----------------------------------------
+Font weights
+----------------------------------------
+TODO: Consolidate in settings
+----------------------------------------
+*/
 
 // TODO these should be called font-weight-${}
 $font-normal:         400 !default;
 $font-bold:           700 !default;
 
-// Color
-$color-blue:                 #0071bc !default;
-$color-blue-darker:          #205493 !default;
-$color-blue-darkest:         #112e51 !default;
+/*
+----------------------------------------
+Colors
+----------------------------------------
+TODO:
+1. These should be set in settings
+2. Probably need different naming rubric
+----------------------------------------
+*/
 
-$color-aqua:                 #02bfe7 !default;
-$color-aqua-dark:            #00a6d2 !default;
-$color-aqua-darkest:         #046b99 !default;
-$color-aqua-light:           #9bdaf1 !default;
-$color-aqua-lightest:        #e1f3f8 !default;
+$color-blue:                 $blue-60v !default;
+$color-blue-darker:          $blue-warm-70v !default;
+$color-blue-darkest:         $blue-warm-80v !default;
+$color-blue-light:           $blue-warm-50 !default;
+$color-blue-lighter:         $blue-warm-30 !default;
+$color-blue-lightest:        $blue-warm-10 !default;
 
-$color-red:                  #e31c3d !default;
-$color-red-dark:             #cd2026 !default;
-$color-red-darkest:          #981b1e !default;
-$color-red-light:            #e59393 !default;
-$color-red-lightest:         #f9dede !default;
+$color-aqua:                 $cyan-30v !default;
+$color-aqua-dark:            $cyan-40v !default;
+$color-aqua-darkest:         $blue-60 !default;
+$color-aqua-light:           $cyan-20 !default;
+$color-aqua-lightest:        $cyan-5 !default;
 
-$color-white:                #ffffff !default;
-$color-black:                #000000 !default;
-$color-black-light:          #212121 !default;
+$color-red:                  $red-50 !default;
+$color-red-dark:             $red-60v !default;
+$color-red-darkest:          $red-70v !default;
+$color-red-light:            $red-30 !default;
+$color-red-lightest:         $red-10 !default;
 
-$color-gray-dark:            #323a45 !default;
-$color-gray:                 #5b616b !default;
+$color-white:                white !default;
+$color-black:                black !default;
+$color-black-light:          $black-90 !default;
+
+$color-gray-dark:            $black-cool-80 !default;
+$color-gray:                 $black-cool-60 !default;
 $color-gray-medium:          #757575 !default;
-$color-gray-light:           #aeb0b5 !default;
-$color-gray-lighter:         #d6d7d9 !default;
-$color-gray-lightest:        #f1f1f1 !default;
+$color-gray-light:           $black-30 !default;
+$color-gray-lighter:         $black-cool-10 !default;
+$color-gray-lightest:        $black-cool-5 !default;
 
-$color-gray-warm-dark:       #494440 !default;
-$color-gray-warm-light:      #e4e2e0 !default;
-$color-gray-cool-light:      #dce4ef !default;
+$color-gray-warm-dark:       $black-warm-70 !default;
+$color-gray-warm-light:      $black-warm-10 !default;
+$color-gray-cool-light:      $blue-warm-5 !default;
 
-$color-gold:                 #fdb81e !default;
-$color-gold-light:           #f9c642 !default;
-$color-gold-lighter:         #fad980 !default;
-$color-gold-lightest:        #fff1d2 !default;
+$color-gold:                 $gold-20v !default;
+$color-gold-light:           $gold-10v !default;
+$color-gold-lighter:         $yellow-10 !default;
+$color-gold-lightest:        $gold-5v !default;
 
-$color-green:                #2e8540 !default;
-$color-green-light:          #4aa564 !default;
-$color-green-lighter:        #94bfa2 !default;
-$color-green-lightest:       #e7f4e4 !default;
+$color-green:                $green-cool-50 !default;
+$color-green-light:          $green-cool-40 !default;
+$color-green-lighter:        $green-cool-20 !default;
+$color-green-lightest:       $green-cool-5 !default;
 
 $color-cool-blue:            #205493 !default;
 $color-cool-blue-light:      #4773aa !default;
 $color-cool-blue-lighter:    #8ba6ca !default;
 $color-cool-blue-lightest:   #dce4ef !default;
 
-$color-purple:               #4c2c92 !default;
+$color-purple:               $violet-70v !default;
 
 // Functional colors
 $color-primary:              $color-blue !default;
@@ -102,36 +632,86 @@ $color-base:                 $color-black-light !default;
 $color-focus:                $color-gray-light !default;
 $color-visited:              $color-purple !default;
 
-$color-shadow:               rgba(#000, 0.3) !default;
+$color-shadow:               $black-transparent-30 !default;
 $color-transparent:          rgba(#000, 0) !default;
 
-// Mobile First Breakpoints
+/*
+----------------------------------------
+Mobile First Breakpoints
+----------------------------------------
+TODO: deprecate in favor of the values
+in settings
+----------------------------------------
+*/
+
+$xsmall-screen: null !default;
 $small-screen:  481px !default;
 $medium-screen: 600px !default;
 $large-screen:  1201px !default;
+$xlarge-screen: null !default;
 
-// Grid column counts by screen size
+/*
+----------------------------------------
+Grid column counts by screen size
+----------------------------------------
+TODO: Lots of grid work to come
+----------------------------------------
+*/
+
 $grid-columns-small: 1 !default;
 $grid-columns-medium: 6 !default;
 $grid-columns-large: 12 !default;
 
-// @media single-keyword helpers
+/*
+----------------------------------------
+@media single-keyword helpers
+----------------------------------------
+TODO: Need to rethink these
+----------------------------------------
+*/
+
 $small: new-breakpoint(min-width $small-screen $grid-columns-small) !default;
 $medium: new-breakpoint(min-width $medium-screen $grid-columns-medium) !default;
 $large: new-breakpoint(min-width $large-screen $grid-columns-large) !default;
 
-// Set the base path for assets (used for font and image paths below)
-$asset-path: '../' !default;
+/*
+----------------------------------------
+@Relative font and image file paths
+----------------------------------------
+TODO: This should be deprecated in favor
+of the values in settings
+----------------------------------------
+*/
 
-// Relative font and image file paths
-$font-path: '#{$asset-path}fonts' !default;
-$image-path: '#{$asset-path}img' !default;
+$theme-font-path:   '../fonts' !default;
+$image-path:  '../img' !default;
 
-// Set $asset-pipeline to true if you're using the Rails Asset Pipeline
+/*
+----------------------------------------
+Set $asset-pipeline to true if you're
+using the Rails Asset Pipeline
+----------------------------------------
+TODO: This should be set in settings
+----------------------------------------
+*/
+
 $asset-pipeline:      false !default;
 
-// Magic Numbers
+/*
+----------------------------------------
+Magic numbers
+----------------------------------------
+TODO: Evaluate which of these should be
+set in settings and which are static or
+calculated variables
+----------------------------------------
+*/
+
+$text-width-sm: 60ch;
+
 $text-max-width:                66ch !default; // 66 characters per line
+$text-narrow-width:             40ch !default;
+$text-wide-width:               72ch !default;
 $lead-max-width:                77rem !default;
 $site-max-width:                1040px !default;
 $site-margins:                  3rem !default;
@@ -148,8 +728,7 @@ $focus-spacing:                 3px !default;
 $nav-width:                     951px !default;
 $sidenav-current-border-width:  0.4rem !default; // must be in rem for math
 
-// 44 x 44 pixels hit target following Apple iOS Human Interface
-// Guidelines
+// 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines
 $hit-area: 4.4rem !default;
 
 $spacing-x-small: 0.5rem;
