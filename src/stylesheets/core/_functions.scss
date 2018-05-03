@@ -318,6 +318,31 @@ withholds certain errors.
 
 /*
 ----------------------------------------
+lh()
+----------------------------------------
+Get a normalized line-height from
+a family and a line-height scale unit
+----------------------------------------
+*/
+
+@function lh($family, $scale){
+  $scale: inspect($scale);
+  @if not map-has-key($project-cap-heights, $family) {
+    @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
+  }
+  @elseif not map-get($uswds-line-height, $scale) {
+    @error "`#{$scale}` is not a valid line-height scale. Valid values: #{map-keys($all-type-scale)}";
+  }
+  @else {
+    $this-cap: map-get($project-cap-heights, $family);
+    $this-line-height: map-get($uswds-line-height, $scale);
+    $normalized-line-height: ($this-cap / $uswds-base-cap-height) * $this-line-height;
+    @return $normalized-line-height;
+  }
+};
+
+/*
+----------------------------------------
 get-uswds-color()
 ----------------------------------------
 Derive a system color from its
