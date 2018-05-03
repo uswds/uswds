@@ -4,10 +4,10 @@ USWDS UTILITIES SETTINGS
 ----------------------------------------
 */
 
-$utilities-namespace-prefix:  '';
+$utilities-use-namespace:     true ;
 $utilities-use-important:     false;
 
-$output-all-utilities:  false;
+$output-all-utilities:        false;
 
 /*
 ----------------------------------------
@@ -22,6 +22,7 @@ The following plugins will be added to
 */
 
 $global-color-plugins: (
+  'plugin-color-palette-theme',
   'plugin-color-black-all',
   'plugin-color-palette-basic'
 );
@@ -79,8 +80,8 @@ $background-color-plugins: (
   'plugin-color-[color]-standard'
   'plugin-color-[color]-vivid'
   'plugin-color-palette-status'
-  */
   'plugin-standard-background-color',
+  */
 );
 
 $background-color-manual-values: (
@@ -144,8 +145,8 @@ $border-color-plugins: (
   'plugin-color-[color]-standard'
   'plugin-color-[color]-vivid'
   'plugin-color-palette-status'
-  */
   'plugin-standard-border-color'
+  */
 );
 
 $border-color-manual-values: (
@@ -375,8 +376,8 @@ $color-plugins: (
   'plugin-[color]-standard'
   'plugin-[color]-vivid'
   'plugin-palette-status'
-  */
   'plugin-standard-color'
+  */
 );
 
 $color-manual-values: (
@@ -931,7 +932,7 @@ $max-width-manual-values: (
 */
 
 $measure-settings: (
-  output:       false,
+  output:       true,
   responsive:   false,
   active:       false,
   focus:        false,
@@ -1351,8 +1352,8 @@ $text-decoration-color-settings: (
 $text-decoration-color-plugins: (
   /*
   'plugin-color-palette-grayscale'
-  */
   'plugin-standard-text-decoration-color'
+  */
 );
 
 $text-decoration-color-manual-values: (
