@@ -16,7 +16,7 @@ example:
 
 $min-height: (
   min-height: (
-    base: 'min-height',
+    base: 'minh',
     modifiers: null,
     values: map-collect(
       get-plugins($min-height-plugins),

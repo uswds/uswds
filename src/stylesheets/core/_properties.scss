@@ -39,10 +39,10 @@ $partial-values: (
 $uswds-properties: (
   align-items: (
     standard: (
-      'flex-start': flex-start,
-      'flex-end':   flex-end,
-      'center':     center,
-      'stretch':    stretch,
+      'start':    start,
+      'end':      end,
+      'center':   center,
+      'stretch':  stretch,
     ),
     extended: (),
   ),
@@ -98,11 +98,12 @@ $uswds-properties: (
   ),
   box-shadow: (
     standard: (
-      'none':    none,
-      'low':     0 1px 2px 0 rgba(0, 0, 0, 0.1),
-      'high':    0 4px 8px 0 rgba(0, 0, 0, 0.1),
-      'higher':  0 6px 12px 0 rgba(0, 0, 0, 0.1),
-      'highest': 0 8px 16px 0 rgba(0, 0, 0, 0.1),
+      'none':   none,
+      'xs':     0 1px 2px 0 rgba(0, 0, 0, 0.1),
+      'sm':     0 4px 8px 0 rgba(0, 0, 0, 0.1),
+      'md':     0 6px 12px 0 rgba(0, 0, 0, 0.1),
+      'lg':     0 8px 16px 0 rgba(0, 0, 0, 0.1),
+      'xl':     0 10px 20px 0 rgba(0, 0, 0, 0.1),
     ),
     extended: (),
   ),
@@ -198,6 +199,7 @@ $uswds-properties: (
     standard: (
       'normal': normal,
       'italic': italic,
+      'no-italic': normal,
     ),
     extended: (),
   ),
@@ -205,10 +207,10 @@ $uswds-properties: (
     standard: (
       'thin': $theme-font-weight-thin,
       'light': $theme-font-weight-light,
-      'normal': $theme-font-weight-normal,
+      'normal': normal,
       'medium': $theme-font-weight-medium,
       'semibold': $theme-font-weight-semibold,
-      'bold': $theme-font-weight-bold,
+      'bold': bold,
       'black': $theme-font-weight-black,
     ),
     extended: (
@@ -248,8 +250,8 @@ $uswds-properties: (
   justify-content: (
     standard: (
       'center': center,
-      'flex-start': flex-start,
-      'flex-end': flex-end,
+      'start': flex-start,
+      'end': flex-end,
     ),
     extended: (),
   ),
@@ -266,25 +268,25 @@ $uswds-properties: (
   ),
   letter-spacing: (
     standard: (
-      'auto':	     auto,
-      'tightest':	 -.03em,
-      'tighter':	 -.02em,
-      'tight':	   -.01em,
-      'base':	     auto,
-      'loose':	   .05em,
-      'looser':	   .1em,
-      'loosest':	 .15em,
+      'auto':	  auto,
+      '2xs':	  -.03em,
+      'xs':	    -.02em,
+      'sm':	    -.01em,
+      'md':	    auto,
+      'lg':	    .05em,
+      'xl':	    .1em,
+      '2xl':	  .15em,
     ),
     extended: (),
   ),
   line-height: (
     standard: (
-      'smallest':	1,
-      'smaller':	1.1,
-      'small':	  1.35,
-      'base':	    1.5,
-      'large':	  1.62,
-      'larger':	  1.75,
+      '2xs':	1,
+      'xs':	  1.1,
+      'sm':	  1.35,
+      'md':	  1.5,
+      'lg':	  1.62,
+      'xl':	  1.75,
     ),
     extended: (),
   ),
@@ -353,12 +355,12 @@ $uswds-properties: (
   ),
   measure: (
     standard: (
-      'smaller':	$uswds-measure-smaller,
-      'small':	  $uswds-measure-small,
-      'base':	    $uswds-measure-base,
-      'large':	  $uswds-measure-large,
-      'larger':	  $uswds-measure-larger,
-      'none':     none,
+      'xs':	    $uswds-measure-smaller,
+      'sm':	    $uswds-measure-small,
+      'md':	    $uswds-measure-base,
+      'lg':	    $uswds-measure-large,
+      'xl':	    $uswds-measure-larger,
+      'none':   none,
     ),
     extended: (),
   ),
@@ -435,7 +437,9 @@ $uswds-properties: (
     extended: (),
   ),
   outline-color: (
-    standard: $standard-colors,
+    standard: map-collect(
+      $uswds-colors-required
+    ),
     extended: $extended-colors,
   ),
   overflow: (
@@ -498,9 +502,10 @@ $uswds-properties: (
   ),
   text-decoration: (
     standard: (
-      'strike':    strike,
-      'underline': underline,
-      'none':      none,
+      'strike':       strike,
+      'underline':    underline,
+      'no-underline': none,
+      'no-strike':    none,
     ),
     extended: (),
   ),
@@ -522,10 +527,8 @@ $uswds-properties: (
   ),
   text-transform: (
     standard: (
-      'capitalize': capitalize,
-      'lowercase':  lowercase,
-      'uppercase':  uppercase,
-      'none':       none,
+      'uppercase':    uppercase,
+      'no-uppercase': none,
     ),
     extended: (),
   ),
@@ -579,13 +582,13 @@ $uswds-properties: (
   z-index: (
     standard: (
       'auto':    auto,
-      'lowest':	 -300,
-      'lower':	 -200,
-      'low':	   -100,
-      'base':    auto,
-      'high':	   100,
-      'higher':	 200,
-      'highest': 300,
+      'neg-3':	 -300,
+      'neg-2':	 -200,
+      'neg-1':	 -100,
+      '0':       auto,
+      '1':	     100,
+      '2':	     200,
+      '3':       300,
     ),
     extended: (),
   ),

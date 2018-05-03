@@ -3,20 +3,20 @@
 text-decoration
 ----------------------------------------
 usage:
-  .text-decoration-[key]
+  .[key]
 ----------------------------------------
 output:
   text-decoration: [value]
 ----------------------------------------
 example:
-  .text-decoration-underline {
-    text-decoration: underline; }
+  .no-underline {
+    text-decoration: none; }
 ----------------------------------------
 */
 
 $text-decoration: (
   text-decoration: (
-    base: 'text-decoration',
+    base: null,
     modifiers: null,
     values: map-collect(
       get-plugins($text-decoration-plugins),

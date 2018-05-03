@@ -18,9 +18,9 @@ $overflow: (
   overflow: (
     base: 'overflow',
     modifiers: (
+      noModifier: '',
       'y': '-y',
       'x': '-y',
-      noModifier: '',
     ),
     values: map-collect(
       get-plugins($overflow-plugins),

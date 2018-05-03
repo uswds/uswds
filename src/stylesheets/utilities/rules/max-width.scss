@@ -16,7 +16,7 @@ example:
 
 $max-width: (
   max-width: (
-    base: 'max-width',
+    base: 'maxw',
     modifiers: null,
     values: map-collect(
       get-plugins($max-width-plugins),

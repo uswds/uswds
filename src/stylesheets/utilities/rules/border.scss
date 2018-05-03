@@ -25,12 +25,12 @@ $border: (
     base: 'border',
     modifiers: (
       noModifier: '',
+      'y': ('-top', '-bottom'),
+      'x': ('-left', '-right'),
       't': '-top',
       'r': '-right',
       'b': '-bottom',
       'l': '-left',
-      'y': ('-top', '-bottom'),
-      'x': ('-left', '-right'),
     ),
     values: map-collect(
       get-plugins($border-plugins),

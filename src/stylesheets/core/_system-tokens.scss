@@ -844,6 +844,7 @@ $uswds-colors-required: (
   'transparent':    transparent,
   'black':          black,
   'white':          white,
+  'outline':        map-deep-get($uswds-gold, gold, vivid, 30),
 );
 
 $uswds-colors: map-collect(

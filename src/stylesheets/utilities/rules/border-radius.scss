@@ -21,7 +21,7 @@ $border-radius: (
   border-radius: (
     base: 'radius',
     modifiers: (
-      noModifier: 'border-radius',
+      '': 'border-radius',
       't': ('border-top-left-radius', 'border-top-right-radius'),
       'r': ('border-top-right-radius', 'border-bottom-right-radius'),
       'b': ('border-bottom-left-radius', 'border-bottom-right-radius'),

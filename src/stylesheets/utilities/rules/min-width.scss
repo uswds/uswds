@@ -16,7 +16,7 @@ example:
 
 $min-width: (
   min-width: (
-    base: 'min-width',
+    base: 'minw',
     modifiers: null,
     values: map-collect(
       get-plugins($min-width-plugins),

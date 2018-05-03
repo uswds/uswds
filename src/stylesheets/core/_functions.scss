@@ -1288,18 +1288,48 @@ through all possible variants
 
             $mod-props: to-map($mod-key, $mod-val);
 
-            // -------- if the modifier is null ----------
+            // --- if the modifier content is null -----
 
-            @if map-get($mod-props, content) == null or map-get($mod-props, content) == 'noModifier' or map-get($mod-props, content) == '' {
+            @if map-get($mod-props, content) == null or map-get($mod-props, content) == '' {
 
-              // If mod-props.values is null, there's no modifier property
-              // and we can set our rule's $property now
+              // If mod-props.content is null,
+              // we can set our rule's $property now
               // since $property is simply $property-default.
 
               $property: $property-default;
 
-              // We can also build the $selector if mod-props.slug is null!
-              // First, we can test to see if selector $b is null
+            }
+
+              // '-' “oh hey.”
+
+              //                     '-' “hey.”
+
+              // '-' “hey.”
+
+              // OK, cool.
+              // So what if there _is_ a modifier object?
+
+              // -- if the modifier content is NOT null --
+
+            @else {
+
+              // If there are modifiers, $property is a concat of $property-default
+              // with _each_ of the values in $mod-props.content
+              // There's a function for this... multi-cat()!!
+              // (=^･ｪ･^=))ﾉ彡☆
+              // (^._.^)ﾉ☆( _ _).oO
+              // (=චᆽච=)
+
+              $property: multi-cat($property-default, map-get($mod-props, content));
+            }
+
+            // Now we go through to set the $selector.
+
+            // If mod-props.slug is noModifier...
+
+            @if map-get($mod-props, slug) == '' or map-get($mod-props, slug) == slug {
+
+              // First, we can test to see if the base $b is null
 
               @if $b == null {
 
@@ -1309,7 +1339,7 @@ through all possible variants
 
               // if the value is noValue ('')
 
-            } @elseif map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
+              } @elseif map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
 
                 // selector is the base only
 
@@ -1332,49 +1362,28 @@ through all possible variants
                 // Nice! We just took care of the non-modifier cases!
 
               }
+            }
 
-              // '-' “oh hey.”
-
-              //                     '-' “hey.”
-
-              // '-' “hey.”
-
-              // OK, cool.
-              // So what if there _is_ a modifier object?
-
-              // -------- if the modifier is NOT null ----------
-
-          } @else {
-
-              // If there are modifiers, $property is a concat of $property-default
-              // with _each_ of the values in $mod-props.content
-              // There's a function for this... multi-cat()!!
-              // (=^･ｪ･^=))ﾉ彡☆
-              // (^._.^)ﾉ☆( _ _).oO
-              // (=චᆽච=)
-
-              $property: multi-cat($property-default, map-get($mod-props, content));
-
-              // Now we go through to finish setting the $selector.
-              // If not, check to see if either mod.isReadable or
-              // val.isReadable
+            // Otherwise, check to see if either mod.isReadable or
+            // val.isReadable
+            @else {
 
               @if map-has-key($mod-props, isReadable) or
                 map-has-key($val-props, isReadable) {
 
                   // If valProps is `noValue`....
 
-                  @if map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
+                @if map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
 
-                    // ...$mv is just the modifier
+                  // ...$mv is just the modifier
 
-                    $mv: map-get($mod-props, slug);
-                  } @else {
+                  $mv: map-get($mod-props, slug);
+                } @else {
 
-                    // Otherwise, join with a '-' into selector $mv.
+                  // Otherwise, join with a '-' into selector $mv.
 
-                    $mv: map-get($mod-props, slug) + '-' + map-get($val-props, slug);
-                  }
+                  $mv: map-get($mod-props, slug) + '-' + map-get($val-props, slug);
+                }
               } @else {
 
                 // If not, just join into selector $mv.
@@ -1393,7 +1402,9 @@ through all possible variants
               } @else {
                 $selector: $b + $mv;
               }
-            } // finished setting modifier vars
+            }
+
+            // finished setting modifier vars
 
             // Hey. Did we just finish $selector?
             // And do we also have $property and $value?

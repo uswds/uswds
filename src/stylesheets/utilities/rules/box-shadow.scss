@@ -16,7 +16,7 @@ example:
 
 $box-shadow: (
   box-shadow: (
-    base: 'box-shadow',
+    base: 'shadow',
     modifiers: null,
     values: map-collect(
       get-plugins($box-shadow-plugins),

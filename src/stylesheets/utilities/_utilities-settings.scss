@@ -22,6 +22,7 @@ The following plugins will be added to
 */
 
 $global-color-plugins: (
+  'plugin-color-palette-theme',
   'plugin-color-black-all',
   'plugin-color-palette-basic'
 ) !default;
@@ -79,8 +80,8 @@ $background-color-plugins: (
   'plugin-color-[color]-standard'
   'plugin-color-[color]-vivid'
   'plugin-color-palette-status'
-  */
   'plugin-standard-background-color',
+  */
 ) !default;
 
 $background-color-manual-values: (
@@ -144,8 +145,8 @@ $border-color-plugins: (
   'plugin-color-[color]-standard'
   'plugin-color-[color]-vivid'
   'plugin-color-palette-status'
-  */
   'plugin-standard-border-color'
+  */
 ) !default;
 
 $border-color-manual-values: (
@@ -375,8 +376,8 @@ $color-plugins: (
   'plugin-[color]-standard'
   'plugin-[color]-vivid'
   'plugin-palette-status'
-  */
   'plugin-standard-color'
+  */
 ) !default;
 
 $color-manual-values: (
@@ -1351,8 +1352,8 @@ $text-decoration-color-settings: (
 $text-decoration-color-plugins: (
   /*
   'plugin-color-palette-grayscale'
-  */
   'plugin-standard-text-decoration-color'
+  */
 ) !default;
 
 $text-decoration-color-manual-values: (

@@ -16,7 +16,7 @@ example:
 
 $max-height: (
   max-height: (
-    base: 'max-height',
+    base: 'maxh',
     modifiers: null,
     values: map-collect(
       get-plugins($max-height-plugins),
