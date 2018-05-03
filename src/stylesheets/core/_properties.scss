@@ -116,9 +116,6 @@ $uswds-properties: (
   ),
   circle: (
     standard: map-collect(
-      (
-       'foo': foo,
-      ),
       map-get($uswds-spacing, smaller),
       map-get($uswds-spacing, small),
       map-get($uswds-spacing, medium),
