@@ -1,3 +1,10 @@
+$plugin-color-black-lighter: (
+  'black-1':  $black-1,
+  'black-2':  $black-2,
+  'black-3':  $black-3,
+  'black-4':  $black-4,
+);
+
 $plugin-color-black-light: (
   'black-5':  $black-5,
   'black-10': $black-10,
@@ -18,12 +25,14 @@ $plugin-color-black-dark: (
 );
 
 $plugin-color-black-all: map-collect(
+  $plugin-color-black-lighter,
   $plugin-color-black-light,
   $plugin-color-black-medium,
   $plugin-color-black-dark
 );
 
 $plugin-color-black: (
+  'plugin-color-black-lighter': $plugin-color-black-lighter,
   'plugin-color-black-light': $plugin-color-black-light,
   'plugin-color-black-medium': $plugin-color-black-medium,
   'plugin-color-black-dark': $plugin-color-black-dark,

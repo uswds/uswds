@@ -30,6 +30,7 @@ $margin: (
     ),
     settings: $margin-settings,
     property: 'margin',
+    type: 'utility',
   ),
   margin-vertical: (
     base: 'margin',
@@ -44,6 +45,7 @@ $margin: (
     ),
     settings: $margin-settings,
     property: 'margin',
+    type: 'utility',
   ),
   margin-horizontal: (
     base: 'margin',

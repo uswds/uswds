@@ -1,3 +1,10 @@
+$plugin-color-black-warm-lighter: (
+  'black-warm-1':  $black-warm-1,
+  'black-warm-2':  $black-warm-2,
+  'black-warm-3':  $black-warm-3,
+  'black-warm-4':  $black-warm-4,
+);
+
 $plugin-color-black-warm-light: (
   'black-warm-5':  $black-warm-5,
   'black-warm-10': $black-warm-10,
@@ -18,12 +25,14 @@ $plugin-color-black-warm-dark: (
 );
 
 $plugin-color-black-warm-all: map-collect(
+  $plugin-color-black-warm-lighter,
   $plugin-color-black-warm-light,
   $plugin-color-black-warm-medium,
   $plugin-color-black-warm-dark
 );
 
 $plugin-color-black-warm: (
+  'plugin-color-black-warm-lighter': $plugin-color-black-warm-lighter,
   'plugin-color-black-warm-light': $plugin-color-black-warm-light,
   'plugin-color-black-warm-medium': $plugin-color-black-warm-medium,
   'plugin-color-black-warm-dark': $plugin-color-black-warm-dark,
