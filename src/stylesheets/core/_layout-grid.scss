@@ -2,7 +2,7 @@
 
 $grid-namespace-prefix: null;
 @if $uswds-use-namespace {
-  $grid-namespace-prefix: map-get($uswds-namespace, 'grid');  
+  $grid-namespace-prefix: map-get($uswds-namespace, 'grid');
 }
 
 // basic container
@@ -96,7 +96,8 @@ $grid-namespace-prefix: null;
 
 // basic columns...
 .#{$grid-namespace-prefix}col {
-  @include u-width(full);
+  @include u-flex(fill);
+  @include u-width(auto);
 }
 
 .#{$grid-namespace-prefix}col-auto {
