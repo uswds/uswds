@@ -1009,7 +1009,7 @@ future version of Sass" warning.
 
 @mixin render-utility($utility, $selector, $property, $value, $val-props, $important) {
   $namespace-prefix: null;
-  @if $utilities-use-namespace {
+  @if $uswds-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
   }
 
@@ -1049,7 +1049,7 @@ loop
 @mixin render-pseudoclass($utility, $pseudoclass, $selector, $property, $value, $val-props, $mq, $important) {
   $this-mq: null;
   $namespace-prefix: null;
-  @if $utilities-use-namespace {
+  @if $uswds-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
   }
 
@@ -1102,7 +1102,7 @@ loop
 @mixin render-media-queries($utility, $selector, $property, $value, $val-props, $important) {
   $our-breakpoints: map-deep-get($uswds-properties, breakpoints, standard);
   $namespace-prefix: null;
-  @if $utilities-use-namespace {
+  @if $uswds-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
   }
 

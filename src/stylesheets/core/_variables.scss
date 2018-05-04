@@ -26,6 +26,8 @@ Namespace
 ----------------------------------------
 */
 
+$uswds-use-namespace: false;
+
 $uswds-namespace: (
   'object':     'o-',
   'grid':       'g-',
@@ -234,7 +236,7 @@ namespace var set in utilities-settings?
 @if $theme-font-mono {
   $namespace-prefix: null;
 
-  @if $utilities-use-namespace {
+  @if $uswds-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
   [class*='#{$namespace-prefix}mono'], .font-family-mono { font-family: $font-stack-mono; }
@@ -243,7 +245,7 @@ namespace var set in utilities-settings?
 @if $theme-font-sans {
   $namespace-prefix: null;
 
-  @if $utilities-use-namespace {
+  @if $uswds-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
   [class*='#{$namespace-prefix}sans'], .font-family-sans { font-family: $font-stack-sans; }
@@ -252,7 +254,7 @@ namespace var set in utilities-settings?
 @if $theme-font-serif {
   $namespace-prefix: null;
 
-  @if $utilities-use-namespace {
+  @if $uswds-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
   [class*='#{$namespace-prefix}serif'], .font-family-serif { font-family: $font-stack-serif; }
@@ -261,7 +263,7 @@ namespace var set in utilities-settings?
 @if $theme-font-cond {
   $namespace-prefix: null;
 
-  @if $utilities-use-namespace {
+  @if $uswds-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
   [class*='#{$namespace-prefix}cond'], .font-family-cond { font-family: $font-stack-cond; }
@@ -270,7 +272,7 @@ namespace var set in utilities-settings?
 @if $theme-font-heading {
   $namespace-prefix: null;
 
-  @if $utilities-use-namespace {
+  @if $uswds-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
   [class*='#{$namespace-prefix}heading'], .font-family-heading { font-family: $font-stack-heading; }
@@ -279,7 +281,7 @@ namespace var set in utilities-settings?
 @if $theme-font-body {
   $namespace-prefix: null;
 
-  @if $utilities-use-namespace {
+  @if $uswds-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
   [class*='#{$namespace-prefix}body'], .font-family-body { font-family: $font-stack-body; }
@@ -288,7 +290,7 @@ namespace var set in utilities-settings?
 @if $theme-font-code {
   $namespace-prefix: null;
 
-  @if $utilities-use-namespace {
+  @if $uswds-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
   [class*='#{$namespace-prefix}code'], .font-family-code { font-family: $font-stack-code; }
@@ -297,7 +299,7 @@ namespace var set in utilities-settings?
 @if $theme-font-alt {
   $namespace-prefix: null;
 
-  @if $utilities-use-namespace {
+  @if $uswds-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
   [class*='#{$namespace-prefix}alt'], .font-family-alt { font-family: $font-stack-alt; }

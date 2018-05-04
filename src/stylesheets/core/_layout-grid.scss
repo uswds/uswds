@@ -1,6 +1,9 @@
 /* stylelint-disable */
 
-$grid-namespace-prefix: 'g-';
+$grid-namespace-prefix: null;
+@if $uswds-use-namespace {
+  $grid-namespace-prefix: map-get($uswds-namespace, 'grid');  
+}
 
 // basic container
 .#{$grid-namespace-prefix}container {
