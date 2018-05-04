@@ -237,7 +237,7 @@ namespace var set in utilities-settings?
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
-  [class*='#{$namespace-prefix}font-mono'], .font-family-mono { font-family: $font-stack-mono; }
+  [class*='#{$namespace-prefix}mono'], .font-family-mono { font-family: $font-stack-mono; }
 }
 
 @if $theme-font-sans {
@@ -246,7 +246,7 @@ namespace var set in utilities-settings?
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
-  [class*='#{$namespace-prefix}font-sans'], .font-family-sans { font-family: $font-stack-sans; }
+  [class*='#{$namespace-prefix}sans'], .font-family-sans { font-family: $font-stack-sans; }
 }
 
 @if $theme-font-serif {
@@ -255,7 +255,7 @@ namespace var set in utilities-settings?
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
-  [class*='#{$namespace-prefix}font-serif'], .font-family-serif { font-family: $font-stack-serif; }
+  [class*='#{$namespace-prefix}serif'], .font-family-serif { font-family: $font-stack-serif; }
 }
 
 @if $theme-font-cond {
@@ -264,7 +264,7 @@ namespace var set in utilities-settings?
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
-  [class*='#{$namespace-prefix}font-cond'], .font-family-cond { font-family: $font-stack-cond; }
+  [class*='#{$namespace-prefix}cond'], .font-family-cond { font-family: $font-stack-cond; }
 }
 
 @if $theme-font-heading {
@@ -273,7 +273,7 @@ namespace var set in utilities-settings?
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
-  [class*='#{$namespace-prefix}font-heading'], .font-family-heading { font-family: $font-stack-heading; }
+  [class*='#{$namespace-prefix}heading'], .font-family-heading { font-family: $font-stack-heading; }
 }
 
 @if $theme-font-body {
@@ -282,7 +282,7 @@ namespace var set in utilities-settings?
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
-  [class*='#{$namespace-prefix}font-body'], .font-family-body { font-family: $font-stack-body; }
+  [class*='#{$namespace-prefix}body'], .font-family-body { font-family: $font-stack-body; }
 }
 
 @if $theme-font-code {
@@ -291,7 +291,7 @@ namespace var set in utilities-settings?
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
-  [class*='#{$namespace-prefix}font-code'], .font-family-code { font-family: $font-stack-code; }
+  [class*='#{$namespace-prefix}code'], .font-family-code { font-family: $font-stack-code; }
 }
 
 @if $theme-font-alt {
@@ -300,7 +300,7 @@ namespace var set in utilities-settings?
   @if $utilities-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, 'utility');
   }
-  [class*='#{$namespace-prefix}font-alt'], .font-family-alt { font-family: $font-stack-alt; }
+  [class*='#{$namespace-prefix}alt'], .font-family-alt { font-family: $font-stack-alt; }
 }
 
 $project-font-weights: (

@@ -336,7 +336,7 @@ a family and a line-height scale unit
   @else {
     $this-cap: map-get($project-cap-heights, $family);
     $this-line-height: map-get($uswds-line-height, $scale);
-    $normalized-line-height: ($this-cap / $uswds-base-cap-height) * $this-line-height;
+    $normalized-line-height:  $this-line-height / ($uswds-base-cap-height / $this-cap);
     @return $normalized-line-height;
   }
 };
