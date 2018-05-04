@@ -7,6 +7,8 @@
   },
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "src/js/start.js",
+  "style": "dist/css/uswds.min.css",
+  "sass": "src/stylesheets/uswds.scss",
   "scripts": {
     "build": "gulp build",
     "build:css": "gulp sass",
