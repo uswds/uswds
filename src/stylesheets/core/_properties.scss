@@ -226,8 +226,8 @@ $uswds-properties: (
     standard: map-collect(
       $uswds-column-gaps,
       (
-        'small': $theme-column-gap-small,
-        'large': $theme-column-gap-large,
+        'sm': $theme-column-gap-small,
+        'lg': $theme-column-gap-large,
       )
     ),
     extended: (),
