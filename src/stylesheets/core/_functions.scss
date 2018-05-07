@@ -601,18 +601,8 @@ colors: project and system
         smart-quote(nth($props, 1))
       );
     }
-    @if map-has-key(
-      $uswds-colors-sketching,
-      smart-quote(nth($props, 1))
-    ){
-      @warn "`color-#{nth($props, 1)}` is a sketching color. This is OK but consider replacing it with a true color value in production code.";
-      @return map-get(
-        $uswds-colors-sketching,
-        smart-quote(nth($props, 1))
-      );
-    }
     @else {
-      @error "#{nth($props, 1)} is not a USWDS color. Reserved values: #{map-keys($project-reserved-colors)}. Sketching values: #{map-keys($uswds-sketching-colors)}. Basic values: #{map-keys($uswds-basic-colors)}.";
+      @error "#{nth($props, 1)} is not a USWDS color. Reserved values: #{map-keys($project-reserved-colors)}. Sketching values:  #{map-keys($uswds-basic-colors)}.";
     }
   } @elseif length($props) == 2 {
     @return map-deep-get(
