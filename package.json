@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
