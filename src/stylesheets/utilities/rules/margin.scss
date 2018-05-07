@@ -36,8 +36,8 @@ $margin: (
     base: 'margin',
     modifiers: (
       'y': ('-top', '-bottom'),
-      't': '-top',
-      'b': '-bottom',
+      'top': '-top',
+      'bottom': '-bottom',
     ),
     values: map-collect(
       get-plugins($margin-plugins),
@@ -51,8 +51,8 @@ $margin: (
     base: 'margin',
     modifiers: (
       'x': ('-left', '-right'),
-      'r': '-right',
-      'l': '-left',
+      'right': '-right',
+      'left': '-left',
     ),
     values: map-collect(
       get-plugins($margin-plugins),
