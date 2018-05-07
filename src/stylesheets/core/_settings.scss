@@ -208,6 +208,7 @@ Palette colors
 */
 
 $theme-color-neutral:             black !default;
+$theme-color-neutral-lightest:    white !default;
 $theme-color-neutral-lighter:     $theme-color-neutral, 5 !default;
 $theme-color-neutral-light:       $theme-color-neutral, 50 !default;
 $theme-color-neutral-base:        $theme-color-neutral, 80 !default;

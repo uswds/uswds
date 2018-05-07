@@ -93,6 +93,28 @@ source: https://gist.github.com/bigglesrocks/d75091700f8f2be5abfe
 /* stylelint-disable */
 /*
 ----------------------------------------
+smart-quote()
+----------------------------------------
+Quotes strings
+Inspects numbers
+Leaves bools as is
+----------------------------------------
+*/
+
+@function smart-quote($value) {
+  @if type-of($value) == 'number' {
+    @return inspect($value);
+  }
+  @elseif type-of($value) == 'string' {
+    @return quote($value);
+  }
+  @else {
+    @return $value;
+  }
+};
+
+/*
+----------------------------------------
 remove()
 ----------------------------------------
 Remove a value from a list
@@ -297,7 +319,7 @@ withholds certain errors.
 */
 
 @function utility-font($family, $scale){
-  $quote: inspect($scale);
+  $quote: smart-quote($scale);
   @if not map-has-key($project-cap-heights, $family) {
     @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
@@ -326,7 +348,7 @@ a family and a line-height scale unit
 */
 
 @function lh($family, $scale){
-  $scale: inspect($scale);
+  $scale: smart-quote($scale);
   @if not map-has-key($project-cap-heights, $family) {
     @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
@@ -404,7 +426,7 @@ Get a value from the system type scale
 */
 
 @function system-type-scale($scale){
-  $scale: quote(inspect($scale));
+  $scale: smart-quote($scale);
   @if $scale and map-has-key($uswds-type-scale, $scale){
     @return map-get($uswds-type-scale, $scale);
   }
@@ -458,14 +480,14 @@ grid.
 @function calc-gap-offset($gap-size) {
   $quote: $gap-size;
   @if type-of($gap-size) == "number" {
-    $quote: quote(inspect($gap-size));
+    $quote: smart-quote($gap-size);
   }
   @else {
     $quote: quote($gap-size);
   }
   @if map-has-key($spacing-to-value, $quote) {
     $numeric-eq: map-get($spacing-to-value, $quote);
-    $numeric-eq-half: quote(inspect($numeric-eq / 2));
+    $numeric-eq-half: smart-quote($numeric-eq / 2);
     @if map-has-key($spacing-to-token, $numeric-eq-half){
       @return map-get($spacing-to-token, $numeric-eq-half);
     }
@@ -508,7 +530,7 @@ functions and mixins.
     @return nth($value, 2);
   }
   $value: nth($value, 1);
-  $quoted-value: quote(nth($value, 1));
+  $quoted-value: smart-quote(nth($value, 1));
   $our-standard-values: map-deep-get($uswds-properties, $property, standard);
   $our-extended-values: map-deep-get($uswds-properties, $property, extended);
   @if map-has-key($our-standard-values, $quoted-value) {
@@ -523,7 +545,7 @@ functions and mixins.
     @return $value;
   }
   @else {
-    @warn "`#{$value}` is not a valid `#{$property}` value. You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
+    @error "`#{$value}` is not a valid `#{$property}` value. You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
   }
 };
 
@@ -562,35 +584,25 @@ colors: project and system
   } @elseif length($props) == 1 {
     @if map-has-key(
       $project-reserved-colors,
-      quote(nth($props, 1))
+      smart-quote(nth($props, 1))
     ){
       @return map-get(
         $project-reserved-colors,
-        quote(nth($props, 1))
+        smart-quote(nth($props, 1))
       );
     }
     @if map-has-key(
       $uswds-colors-basic,
-      quote(nth($props, 1))
+      smart-quote(nth($props, 1))
     ){
       @warn "`#{nth($props, 1)}` is a basic color. This is OK for sketching and prototyping, but use a true color in production code.";
       @return map-get(
         $uswds-colors-basic,
-        quote(nth($props, 1))
-      );
-    }
-    @if map-has-key(
-      $uswds-colors-sketching,
-      quote(nth($props, 1))
-    ){
-      @warn "`color-#{nth($props, 1)}` is a sketching color. This is OK but consider replacing it with a true color value in production code.";
-      @return map-get(
-        $uswds-colors-sketching,
-        quote(nth($props, 1))
+        smart-quote(nth($props, 1))
       );
     }
     @else {
-      @error "#{nth($props, 1)} is not a USWDS color. Reserved values: #{map-keys($project-reserved-colors)}. Sketching values: #{map-keys($uswds-sketching-colors)}. Basic values: #{map-keys($uswds-basic-colors)}.";
+      @error "#{nth($props, 1)} is not a USWDS color. Reserved values: #{map-keys($project-reserved-colors)}. Sketching values:  #{map-keys($uswds-colors-basic)}.";
     }
   } @elseif length($props) == 2 {
     @return map-deep-get(
@@ -784,7 +796,7 @@ the desired final units (currently rem)
 @function spacing($value) {
   $quote: $value;
   @if type-of($value) == 'number' {
-    $quote: inspect($value);
+    $quote: smart-quote($value);
   }
   @elseif type-of($value) == 'string' {
     $quote: quote($value);
@@ -994,50 +1006,6 @@ elegant
 
 /*
 ----------------------------------------
-@render-utility
-----------------------------------------
-Build a utility from values calculated
-in the @render-utilities-in loop
-----------------------------------------
-TODO: Determine the proper use of
-unquote() in the following. Changed to
-account for a "interpolation near
-operators will be simplified in a
-future version of Sass" warning.
-----------------------------------------
-*/
-
-@mixin render-utility($utility, $selector, $property, $value, $val-props, $important) {
-  $namespace-prefix: null;
-  @if $uswds-use-namespace {
-    $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
-  }
-
-  .#{$namespace-prefix}#{$selector} {
-    @if map-has-key($val-props, extend) {
-      @each $ext-prop, $ext-value in map-get($val-props, extend) {
-        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-      }
-    }
-
-    @if map-has-key($val-props, extends) {
-      @extend %#{map-get($val-props, extends)};
-    }
-
-    @each $this-property in $property {
-      #{$this-property}: unquote("#{$value}#{$important}");
-    }
-
-    @if map-has-key($utility, extend) {
-      @each $ext-prop, $ext-value in map-get($utility, extend) {
-        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-      }
-    }
-  }
-}
-
-/*
-----------------------------------------
 @render-pseudoclass
 ----------------------------------------
 Build a pseucoclass utiliy from values
@@ -1046,7 +1014,11 @@ loop
 ----------------------------------------
 */
 
-@mixin render-pseudoclass($utility, $pseudoclass, $selector, $property, $value, $val-props, $mq, $important) {
+@mixin render-pseudoclass($utility, $pseudoclass, $selector, $property, $value, $val-props, $mq) {
+  $important: null;
+  @if $utilities-use-important {
+    $important: ' !important';
+  }
   $this-mq: null;
   $namespace-prefix: null;
   @if $uswds-use-namespace {
@@ -1099,9 +1071,14 @@ loop
 ----------------------------------------
 */
 
-@mixin render-media-queries($utility, $selector, $property, $value, $val-props, $important) {
+@mixin render-media-queries($utility, $selector, $property, $value, $val-props) {
+  $important: null;
+  @if $utilities-use-important {
+    $important: ' !important';
+  }
   $our-breakpoints: map-deep-get($uswds-properties, breakpoints, standard);
   $namespace-prefix: null;
+  $mq: null;
   @if $uswds-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
   }
@@ -1142,6 +1119,86 @@ loop
 
 /*
 ----------------------------------------
+@render-utility
+----------------------------------------
+Build a utility from values calculated
+in the @render-utilities-in loop
+----------------------------------------
+TODO: Determine the proper use of
+unquote() in the following. Changed to
+account for a "interpolation near
+operators will be simplified in a
+future version of Sass" warning.
+----------------------------------------
+*/
+
+@mixin render-utility($utility, $selector, $property, $value, $val-props) {
+
+  $important: null;
+  @if $utilities-use-important {
+    $important: ' !important';
+  }
+  $mq: null;
+
+  $namespace-prefix: null;
+  @if $uswds-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
+  }
+
+  .#{$namespace-prefix}#{$selector} {
+    @if map-has-key($val-props, extend) {
+      @each $ext-prop, $ext-value in map-get($val-props, extend) {
+        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
+      }
+    }
+
+    @if map-has-key($val-props, extends) {
+      @extend %#{map-get($val-props, extends)};
+    }
+
+    @each $this-property in $property {
+      #{$this-property}: unquote("#{$value}#{$important}");
+    }
+
+    @if map-has-key($utility, extend) {
+      @each $ext-prop, $ext-value in map-get($utility, extend) {
+        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
+      }
+    }
+    // Add the pseudoclass variants, if applicable
+
+    @if map-deep-get($utility, settings, hover) {
+      @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq);
+    }
+
+    @if map-deep-get($utility, settings, active) {
+      @include render-pseudoclass($utility, active, $selector, $property, $value, $val-props, $mq);
+    }
+
+    @if map-deep-get($utility, settings, visited) {
+      @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq);
+    }
+
+    @if map-deep-get($utility, settings, focus) {
+      @include render-pseudoclass($utility, focus, $selector, $property, $value, $val-props, $mq);
+    }
+
+    // Add the placeholder variant, if applicable
+
+    @if map-get($utility, placeholder) {
+      @include render-placeholder($selector, $property, $value, $val-props);
+    }
+
+    // And add the responsive prefixes, if applicable
+
+    @if map-deep-get($utility, settings, responsive) {
+      @include render-media-queries($utility, $selector, $property, $value, $val-props);
+    }
+  }
+}
+
+/*
+----------------------------------------
 @render-utilities-in
 ----------------------------------------
 The master loop that sets the building
@@ -1152,11 +1209,6 @@ through all possible variants
 */
 
 @mixin render-utilities-in($utilities) {
-
-  $important: null;
-  @if $utilities-use-important {
-    $important: ' !important';
-  }
 
   // loop through the $utilities
 
@@ -1451,37 +1503,8 @@ through all possible variants
             // FINALLY, "BUILD THE RULE, MAX!"
             // https://www.youtube.com/watch?v=R3Igz5SfBCE
 
-            @include render-utility($utility, $selector, $property, $value, $val-props, $important);
+            @include render-utility($utility, $selector, $property, $value, $val-props);
 
-            // Add the pseudoclass variants, if applicable
-
-            @if map-deep-get($utility, settings, hover) {
-              @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq, $important);
-            }
-
-            @if map-deep-get($utility, settings, active) {
-              @include render-pseudoclass($utility, active, $selector, $property, $value, $val-props, $mq, $important);
-            }
-
-            @if map-deep-get($utility, settings, visited) {
-              @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq, $important);
-            }
-
-            @if map-deep-get($utility, settings, focus) {
-              @include render-pseudoclass($utility, focus, $selector, $property, $value, $val-props, $mq, $important);
-            }
-
-            // Add the placeholder variant, if applicable
-
-            @if map-get($utility, placeholder) {
-              @include render-placeholder($selector, $property, $value, $val-props);
-            }
-
-            // And add the responsive prefixes, if applicable
-
-            @if map-deep-get($utility, settings, responsive) {
-              @include render-media-queries($utility, $selector, $property, $value, $val-props, $important);
-            } // ･ﾟ✧
           } // end the modifier loop
         } // end the null value conditional
       } // end the value loop
