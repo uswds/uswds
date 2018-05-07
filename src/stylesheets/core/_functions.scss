@@ -1006,50 +1006,6 @@ elegant
 
 /*
 ----------------------------------------
-@render-utility
-----------------------------------------
-Build a utility from values calculated
-in the @render-utilities-in loop
-----------------------------------------
-TODO: Determine the proper use of
-unquote() in the following. Changed to
-account for a "interpolation near
-operators will be simplified in a
-future version of Sass" warning.
-----------------------------------------
-*/
-
-@mixin render-utility($utility, $selector, $property, $value, $val-props, $important) {
-  $namespace-prefix: null;
-  @if $uswds-use-namespace {
-    $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
-  }
-
-  .#{$namespace-prefix}#{$selector} {
-    @if map-has-key($val-props, extend) {
-      @each $ext-prop, $ext-value in map-get($val-props, extend) {
-        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-      }
-    }
-
-    @if map-has-key($val-props, extends) {
-      @extend %#{map-get($val-props, extends)};
-    }
-
-    @each $this-property in $property {
-      #{$this-property}: unquote("#{$value}#{$important}");
-    }
-
-    @if map-has-key($utility, extend) {
-      @each $ext-prop, $ext-value in map-get($utility, extend) {
-        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-      }
-    }
-  }
-}
-
-/*
-----------------------------------------
 @render-pseudoclass
 ----------------------------------------
 Build a pseucoclass utiliy from values
@@ -1058,7 +1014,11 @@ loop
 ----------------------------------------
 */
 
-@mixin render-pseudoclass($utility, $pseudoclass, $selector, $property, $value, $val-props, $mq, $important) {
+@mixin render-pseudoclass($utility, $pseudoclass, $selector, $property, $value, $val-props, $mq) {
+  $important: null;
+  @if $utilities-use-important {
+    $important: ' !important';
+  }
   $this-mq: null;
   $namespace-prefix: null;
   @if $uswds-use-namespace {
@@ -1111,9 +1071,14 @@ loop
 ----------------------------------------
 */
 
-@mixin render-media-queries($utility, $selector, $property, $value, $val-props, $important) {
+@mixin render-media-queries($utility, $selector, $property, $value, $val-props) {
+  $important: null;
+  @if $utilities-use-important {
+    $important: ' !important';
+  }
   $our-breakpoints: map-deep-get($uswds-properties, breakpoints, standard);
   $namespace-prefix: null;
+  $mq: null;
   @if $uswds-use-namespace {
     $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
   }
@@ -1154,6 +1119,86 @@ loop
 
 /*
 ----------------------------------------
+@render-utility
+----------------------------------------
+Build a utility from values calculated
+in the @render-utilities-in loop
+----------------------------------------
+TODO: Determine the proper use of
+unquote() in the following. Changed to
+account for a "interpolation near
+operators will be simplified in a
+future version of Sass" warning.
+----------------------------------------
+*/
+
+@mixin render-utility($utility, $selector, $property, $value, $val-props) {
+
+  $important: null;
+  @if $utilities-use-important {
+    $important: ' !important';
+  }
+  $mq: null;
+
+  $namespace-prefix: null;
+  @if $uswds-use-namespace {
+    $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
+  }
+
+  .#{$namespace-prefix}#{$selector} {
+    @if map-has-key($val-props, extend) {
+      @each $ext-prop, $ext-value in map-get($val-props, extend) {
+        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
+      }
+    }
+
+    @if map-has-key($val-props, extends) {
+      @extend %#{map-get($val-props, extends)};
+    }
+
+    @each $this-property in $property {
+      #{$this-property}: unquote("#{$value}#{$important}");
+    }
+
+    @if map-has-key($utility, extend) {
+      @each $ext-prop, $ext-value in map-get($utility, extend) {
+        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
+      }
+    }
+    // Add the pseudoclass variants, if applicable
+
+    @if map-deep-get($utility, settings, hover) {
+      @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq);
+    }
+
+    @if map-deep-get($utility, settings, active) {
+      @include render-pseudoclass($utility, active, $selector, $property, $value, $val-props, $mq);
+    }
+
+    @if map-deep-get($utility, settings, visited) {
+      @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq);
+    }
+
+    @if map-deep-get($utility, settings, focus) {
+      @include render-pseudoclass($utility, focus, $selector, $property, $value, $val-props, $mq);
+    }
+
+    // Add the placeholder variant, if applicable
+
+    @if map-get($utility, placeholder) {
+      @include render-placeholder($selector, $property, $value, $val-props);
+    }
+
+    // And add the responsive prefixes, if applicable
+
+    @if map-deep-get($utility, settings, responsive) {
+      @include render-media-queries($utility, $selector, $property, $value, $val-props);
+    }
+  }
+}
+
+/*
+----------------------------------------
 @render-utilities-in
 ----------------------------------------
 The master loop that sets the building
@@ -1164,11 +1209,6 @@ through all possible variants
 */
 
 @mixin render-utilities-in($utilities) {
-
-  $important: null;
-  @if $utilities-use-important {
-    $important: ' !important';
-  }
 
   // loop through the $utilities
 
@@ -1463,37 +1503,8 @@ through all possible variants
             // FINALLY, "BUILD THE RULE, MAX!"
             // https://www.youtube.com/watch?v=R3Igz5SfBCE
 
-            @include render-utility($utility, $selector, $property, $value, $val-props, $important);
+            @include render-utility($utility, $selector, $property, $value, $val-props);
 
-            // Add the pseudoclass variants, if applicable
-
-            @if map-deep-get($utility, settings, hover) {
-              @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq, $important);
-            }
-
-            @if map-deep-get($utility, settings, active) {
-              @include render-pseudoclass($utility, active, $selector, $property, $value, $val-props, $mq, $important);
-            }
-
-            @if map-deep-get($utility, settings, visited) {
-              @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq, $important);
-            }
-
-            @if map-deep-get($utility, settings, focus) {
-              @include render-pseudoclass($utility, focus, $selector, $property, $value, $val-props, $mq, $important);
-            }
-
-            // Add the placeholder variant, if applicable
-
-            @if map-get($utility, placeholder) {
-              @include render-placeholder($selector, $property, $value, $val-props);
-            }
-
-            // And add the responsive prefixes, if applicable
-
-            @if map-deep-get($utility, settings, responsive) {
-              @include render-media-queries($utility, $selector, $property, $value, $val-props, $important);
-            } // ･ﾟ✧
           } // end the modifier loop
         } // end the null value conditional
       } // end the value loop
