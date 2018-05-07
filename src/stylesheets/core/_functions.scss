@@ -1165,35 +1165,36 @@ future version of Sass" warning.
         #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
       }
     }
-    // Add the pseudoclass variants, if applicable
+  }
 
-    @if map-deep-get($utility, settings, hover) {
-      @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq);
-    }
+  // Add the pseudoclass variants, if applicable
 
-    @if map-deep-get($utility, settings, active) {
-      @include render-pseudoclass($utility, active, $selector, $property, $value, $val-props, $mq);
-    }
+  @if map-deep-get($utility, settings, hover) {
+    @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq);
+  }
 
-    @if map-deep-get($utility, settings, visited) {
-      @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq);
-    }
+  @if map-deep-get($utility, settings, active) {
+    @include render-pseudoclass($utility, active, $selector, $property, $value, $val-props, $mq);
+  }
 
-    @if map-deep-get($utility, settings, focus) {
-      @include render-pseudoclass($utility, focus, $selector, $property, $value, $val-props, $mq);
-    }
+  @if map-deep-get($utility, settings, visited) {
+    @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq);
+  }
 
-    // Add the placeholder variant, if applicable
+  @if map-deep-get($utility, settings, focus) {
+    @include render-pseudoclass($utility, focus, $selector, $property, $value, $val-props, $mq);
+  }
 
-    @if map-get($utility, placeholder) {
-      @include render-placeholder($selector, $property, $value, $val-props);
-    }
+  // Add the placeholder variant, if applicable
 
-    // And add the responsive prefixes, if applicable
+  @if map-get($utility, placeholder) {
+    @include render-placeholder($selector, $property, $value, $val-props);
+  }
 
-    @if map-deep-get($utility, settings, responsive) {
-      @include render-media-queries($utility, $selector, $property, $value, $val-props);
-    }
+  // And add the responsive prefixes, if applicable
+
+  @if map-deep-get($utility, settings, responsive) {
+    @include render-media-queries($utility, $selector, $property, $value, $val-props);
   }
 }
 
