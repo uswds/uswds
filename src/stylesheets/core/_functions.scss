@@ -602,7 +602,7 @@ colors: project and system
       );
     }
     @else {
-      @error "#{nth($props, 1)} is not a USWDS color. Reserved values: #{map-keys($project-reserved-colors)}. Sketching values:  #{map-keys($uswds-basic-colors)}.";
+      @error "#{nth($props, 1)} is not a USWDS color. Reserved values: #{map-keys($project-reserved-colors)}. Sketching values:  #{map-keys($uswds-colors-basic)}.";
     }
   } @elseif length($props) == 2 {
     @return map-deep-get(
