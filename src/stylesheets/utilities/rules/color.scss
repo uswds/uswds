@@ -3,20 +3,20 @@
 color
 ----------------------------------------
 usage:
-  .[key]
+  .color-[key]
 ----------------------------------------
 output:
   color: [value];
 ----------------------------------------
 example:
-  .black-100 {
+  .color-black-100 {
     color: #000; }
 ----------------------------------------
 */
 
 $color: (
   color: (
-    base: null,
+    base: 'color',
     modifiers: null,
     values: map-collect(
       $uswds-colors-required,
