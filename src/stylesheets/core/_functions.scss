@@ -93,6 +93,28 @@ source: https://gist.github.com/bigglesrocks/d75091700f8f2be5abfe
 /* stylelint-disable */
 /*
 ----------------------------------------
+smart-quote()
+----------------------------------------
+Quotes strings
+Inspects numbers
+Leaves bools as is
+----------------------------------------
+*/
+
+@function smart-quote($value) {
+  @if type-of($value) == 'number' {
+    @return inspect($value);
+  }
+  @elseif type-of($value) == 'string' {
+    @return quote($value);
+  }
+  @else {
+    @return $value;
+  }
+};
+
+/*
+----------------------------------------
 remove()
 ----------------------------------------
 Remove a value from a list
@@ -297,7 +319,7 @@ withholds certain errors.
 */
 
 @function utility-font($family, $scale){
-  $quote: inspect($scale);
+  $quote: smart-quote($scale);
   @if not map-has-key($project-cap-heights, $family) {
     @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
@@ -326,7 +348,7 @@ a family and a line-height scale unit
 */
 
 @function lh($family, $scale){
-  $scale: inspect($scale);
+  $scale: smart-quote($scale);
   @if not map-has-key($project-cap-heights, $family) {
     @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
@@ -404,7 +426,7 @@ Get a value from the system type scale
 */
 
 @function system-type-scale($scale){
-  $scale: quote(inspect($scale));
+  $scale: smart-quote($scale);
   @if $scale and map-has-key($uswds-type-scale, $scale){
     @return map-get($uswds-type-scale, $scale);
   }
@@ -458,14 +480,14 @@ grid.
 @function calc-gap-offset($gap-size) {
   $quote: $gap-size;
   @if type-of($gap-size) == "number" {
-    $quote: quote(inspect($gap-size));
+    $quote: smart-quote($gap-size);
   }
   @else {
     $quote: quote($gap-size);
   }
   @if map-has-key($spacing-to-value, $quote) {
     $numeric-eq: map-get($spacing-to-value, $quote);
-    $numeric-eq-half: quote(inspect($numeric-eq / 2));
+    $numeric-eq-half: smart-quote($numeric-eq / 2);
     @if map-has-key($spacing-to-token, $numeric-eq-half){
       @return map-get($spacing-to-token, $numeric-eq-half);
     }
@@ -508,7 +530,7 @@ functions and mixins.
     @return nth($value, 2);
   }
   $value: nth($value, 1);
-  $quoted-value: quote(nth($value, 1));
+  $quoted-value: smart-quote(nth($value, 1));
   $our-standard-values: map-deep-get($uswds-properties, $property, standard);
   $our-extended-values: map-deep-get($uswds-properties, $property, extended);
   @if map-has-key($our-standard-values, $quoted-value) {
@@ -562,31 +584,31 @@ colors: project and system
   } @elseif length($props) == 1 {
     @if map-has-key(
       $project-reserved-colors,
-      quote(nth($props, 1))
+      smart-quote(nth($props, 1))
     ){
       @return map-get(
         $project-reserved-colors,
-        quote(nth($props, 1))
+        smart-quote(nth($props, 1))
       );
     }
     @if map-has-key(
       $uswds-colors-basic,
-      quote(nth($props, 1))
+      smart-quote(nth($props, 1))
     ){
       @warn "`#{nth($props, 1)}` is a basic color. This is OK for sketching and prototyping, but use a true color in production code.";
       @return map-get(
         $uswds-colors-basic,
-        quote(nth($props, 1))
+        smart-quote(nth($props, 1))
       );
     }
     @if map-has-key(
       $uswds-colors-sketching,
-      quote(nth($props, 1))
+      smart-quote(nth($props, 1))
     ){
       @warn "`color-#{nth($props, 1)}` is a sketching color. This is OK but consider replacing it with a true color value in production code.";
       @return map-get(
         $uswds-colors-sketching,
-        quote(nth($props, 1))
+        smart-quote(nth($props, 1))
       );
     }
     @else {
@@ -784,7 +806,7 @@ the desired final units (currently rem)
 @function spacing($value) {
   $quote: $value;
   @if type-of($value) == 'number' {
-    $quote: inspect($value);
+    $quote: smart-quote($value);
   }
   @elseif type-of($value) == 'string' {
     $quote: quote($value);
