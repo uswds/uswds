@@ -16,10 +16,10 @@ $plugin-font:(
     alt:      #{$font-stack-alt},
   ),
   'plugin-font-stack-types': (
-    cond:    #{$font-stack-cond},
-    mono:    #{$font-stack-mono},
-    sans:    #{$font-stack-sans},
-    serif:   #{$font-stack-serif},
+    cond:    unquote("#{$font-stack-cond}"),
+    mono:    unquote("#{$font-stack-mono}"),
+    sans:    unquote("#{$font-stack-sans}"),
+    serif:   unquote("#{$font-stack-serif}"),
   ),
   'plugin-font-weights-theme': $project-font-weights,
   'plugin-font-weights-numeric': (

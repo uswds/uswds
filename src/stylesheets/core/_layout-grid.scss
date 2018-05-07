@@ -55,7 +55,7 @@ $grid-namespace-prefix: null;
     @if $gap-key {
       $gap-key: unquote($gap-key);
       &.#{$grid-namespace-prefix}gap-#{$gap-key} {
-        @include u-margin-x(#{$neg-prefix}-#{calc-gap-offset($gap-val)});
+        @include u-margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($gap-val)}"));
         > [class*='#{$grid-namespace-prefix}col'] {
           @include u-padding-x(calc-gap-offset($gap-val));
         }
@@ -75,7 +75,7 @@ $grid-namespace-prefix: null;
         }
         @if $theme-column-gap-small {
           &.#{$mq-key}\:#{$grid-namespace-prefix}gap-sm {
-            @include u-margin-x(#{$neg-prefix}-#{calc-gap-offset($theme-column-gap-small)});
+            @include u-margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap-small)}"));
             > [class*='#{$grid-namespace-prefix}col'] {
               @include u-padding-x(calc-gap-offset($theme-column-gap-small));
             }
@@ -83,7 +83,7 @@ $grid-namespace-prefix: null;
         }
         @if $theme-column-gap-large {
           &.#{$mq-key}\:#{$grid-namespace-prefix}gap-lg {
-            @include u-margin-x(#{$neg-prefix}-#{calc-gap-offset($theme-column-gap-large)});
+            @include u-margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap-large)}"));
             > [class*='#{$grid-namespace-prefix}col'] {
               @include u-padding-x(calc-gap-offset($theme-column-gap-large));
             }
