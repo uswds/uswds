@@ -317,6 +317,7 @@ $project-font-weights: (
 
 $project-colors: (
   neutral: (
+    lightest: get-uswds-color($theme-color-neutral-lightest),
     lighter:  get-uswds-color($theme-color-neutral-lighter),
     light:    get-uswds-color($theme-color-neutral-light),
     base:     get-uswds-color($theme-color-neutral-base),
@@ -344,10 +345,6 @@ $project-colors: (
   accent-cool: (
     base:    get-uswds-color($theme-color-accent-cool-base),
     dark:    get-uswds-color($theme-color-accent-cool-dark),
-  ),
-  inverse: (
-    base:   get-uswds-color($theme-color-inverse-base),
-    dark:   get-uswds-color($theme-color-inverse-dark),
   )
 );
 
