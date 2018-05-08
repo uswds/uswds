@@ -28,7 +28,7 @@ $border-width: (
     ),
     values: map-collect(
       get-plugins($border-width-plugins),
-      $border-width-manual-values,
+      $border-width-manual-values
     ),
     settings: $border-width-settings,
     property: 'border',
