@@ -1,15 +1,12 @@
 /*
 ========================================
-border
-----------------------------------------
-Also applies `solid`
-Needs to come before other border utils
+border-width
 ----------------------------------------
 usage:
-  .border-[modifier]*-[key]
+  .border-[modifier]*-width-[key]
 ----------------------------------------
 output:
-  border-[modifier]: [value];
+  border-[modifier]-width: [value];
 ----------------------------------------
 example:
   .border-top-width-1px {
