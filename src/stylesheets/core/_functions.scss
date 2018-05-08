@@ -219,6 +219,25 @@ isReadable
 
 /*
 ----------------------------------------
+ns()
+----------------------------------------
+Add a namesspace of $type if that
+namespace is set to output
+----------------------------------------
+*/
+
+@function ns($type) {
+  $type: smart-quote($type);
+  @if map-deep-get($uswds-namespace, $type, output) {
+    @return map-deep-get($uswds-namespace, $type, namespace);
+  }
+  @else {
+    @return '';
+  }
+}
+
+/*
+----------------------------------------
 grid-units()
 ----------------------------------------
 Converts a spacing unit multiple into
@@ -1020,15 +1039,12 @@ loop
     $important: ' !important';
   }
   $this-mq: null;
-  $namespace-prefix: null;
-  @if $uswds-use-namespace {
-    $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
-  }
+  $this-type: map-get($utility, type);
 
   @if $mq {
     $this-mq: '#{$mq}\\:';
   }
-  .#{$this-mq}#{$pseudoclass}\:#{$namespace-prefix}#{$selector}:#{$pseudoclass} {
+  .#{$this-mq}#{$pseudoclass}\:#{ns($this-type)}#{$selector}:#{$pseudoclass} {
     @each $this-property in $property {
       #{$this-property}: unquote("#{$value}#{$important}");
     }
@@ -1077,11 +1093,8 @@ loop
     $important: ' !important';
   }
   $our-breakpoints: map-deep-get($uswds-properties, breakpoints, standard);
-  $namespace-prefix: null;
   $mq: null;
-  @if $uswds-use-namespace {
-    $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
-  }
+  $this-type: map-get($utility, type);
 
   @each $media-key, $media-value in $our-breakpoints {
     $mq: unquote($media-key);
@@ -1089,7 +1102,7 @@ loop
 
     @if map-get($theme-output-breakpoints, $media-key) {
       @media (min-width: #{$media-value-em}) {
-        .#{$mq}\:#{$namespace-prefix}#{$selector} {
+        .#{$mq}\:#{ns($this-type)}#{$selector} {
           @if map-has-key($val-props, extend) {
             @each $ext-prop, $ext-value in map-get($val-props, extend) {
               #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
@@ -1139,13 +1152,9 @@ future version of Sass" warning.
     $important: ' !important';
   }
   $mq: null;
+  $this-type: map-get($utility, type);
 
-  $namespace-prefix: null;
-  @if $uswds-use-namespace {
-    $namespace-prefix: map-get($uswds-namespace, map-get($utility, type));
-  }
-
-  .#{$namespace-prefix}#{$selector} {
+  .#{ns($this-type)}#{$selector} {
     @if map-has-key($val-props, extend) {
       @each $ext-prop, $ext-value in map-get($val-props, extend) {
         #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
