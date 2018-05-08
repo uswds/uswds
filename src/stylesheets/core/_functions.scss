@@ -1106,10 +1106,10 @@ loop
             }
           }
           @if map-deep-get($utility, settings, hover) {
-            @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq, $important);
+            @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq);
           }
           @if map-deep-get($utility, settings, visited) {
-            @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq, $important);
+            @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq);
           }
         }
       }
