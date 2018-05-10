@@ -10,52 +10,26 @@ function drawFlag () {
   // American Flag in ASCII
   //
   gutil.log(
-    chalk.blue('xxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
-    chalk.red('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+    chalk.white('* * * * * ==============================')
   );
   gutil.log(
-    chalk.blue('xxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
-    chalk.white('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+    chalk.white('* * * * * ==============================')
   );
   gutil.log(
-    chalk.blue('xxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
-    chalk.red('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+    chalk.white('* * * * * ==============================')
   );
   gutil.log(
-    chalk.blue('xxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
-    chalk.white('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+    chalk.white('* * * * * ==============================')
   );
   gutil.log(
-    chalk.blue('xxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
-    chalk.red('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+    chalk.white('========================================')
   );
   gutil.log(
-    chalk.blue('xxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
-    chalk.white('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+    chalk.white('========================================')
   );
   gutil.log(
-    chalk.blue('xxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
-    chalk.red('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+    chalk.white('========================================')
   );
-  gutil.log(
-    chalk.white('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
-  );
-  gutil.log(
-    chalk.red('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
-  );
-  gutil.log(
-    chalk.white('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
-  );
-  gutil.log(
-    chalk.red('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
-  );
-  gutil.log(
-    chalk.white('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
-  );
-  gutil.log(
-    chalk.red('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
-  );
-
 }
 
 function notify (title, message, wait) {
