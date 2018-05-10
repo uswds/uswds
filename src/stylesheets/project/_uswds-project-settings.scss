@@ -1,5 +1,12 @@
 /*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
 ========================================
+========================================
+========================================
+----------------------------------------
 PROJECT THEME SETTINGS
 ----------------------------------------
 !! Copy this file to your project's
@@ -7,6 +14,8 @@ PROJECT THEME SETTINGS
    in node_modules.
 ----------------------------------------
 */
+
+@function units($u) { @return $u; }
 
 /*
 ----------------------------------------
@@ -64,8 +73,8 @@ Relative font and image file paths
 ----------------------------------------
 */
 
-$theme-font-path:   '../fonts';
-$theme-image-path:  '../img';
+$theme-font-path:   '../fonts/uswds';
+$theme-image-path:  '../img/uswds';
 
 /*
 ----------------------------------------
@@ -78,14 +87,15 @@ used by utilities or layout grid
 */
 
 $theme-output-breakpoints: (
-  'compact':         false,   // 240px
+  'card':            false,   // 160px
+  'card-plus':       false,   // 240px
   'mobile':          false,   // 320px
   'mobile-plus':     true,    // 480px
   'tablet':          true,    // 640px
   'tablet-plus':     false,   // 800px
   'desktop':         true,    // 1040px
   'desktop-plus':    false,   // 1200px
-  'wide':            false,   // 1400px
+  'widescreen':      false,   // 1400px
 );
 
 /*
@@ -234,13 +244,14 @@ Palette colors
 */
 
 $theme-color-neutral:             black;
+$theme-color-neutral-lightest:    white;
 $theme-color-neutral-lighter:     $theme-color-neutral, 5;
 $theme-color-neutral-light:       $theme-color-neutral, 50;
 $theme-color-neutral-base:        $theme-color-neutral, 80;
 $theme-color-neutral-dark:        $theme-color-neutral, 90;
 $theme-color-neutral-darker:      false;
 
-$theme-color-primary:             red;
+$theme-color-primary:             blue;
 $theme-color-primary-lighter:     $theme-color-primary, 10;
 $theme-color-primary-light:       $theme-color-primary, 30;
 $theme-color-primary-base:        $theme-color-primary, 50;
@@ -248,22 +259,22 @@ $theme-color-primary-vivid:       $theme-color-primary, 50, vivid;
 $theme-color-primary-dark:        $theme-color-primary, 70;
 $theme-color-primary-darker:      false;
 
-$theme-color-secondary:           blue;
+$theme-color-secondary:           red;
 $theme-color-secondary-light:     $theme-color-secondary, 50;
 $theme-color-secondary-base:      $theme-color-secondary, 60;
 $theme-color-secondary-vivid:     $theme-color-secondary, 50, vivid;
 $theme-color-secondary-dark:      $theme-color-secondary, 80;
 
 $theme-color-accent-warm:         orange;
-$theme-color-accent-warm-base:    $theme-color-accent-warm, 50, vivid;
-$theme-color-accent-warm-dark:    $theme-color-accent-warm, 50, vivid;
+$theme-color-accent-warm-base:    $theme-color-accent-warm, 30, vivid;
+$theme-color-accent-warm-dark:    $theme-color-accent-warm, 60, vivid;
 
 $theme-color-accent-cool:         cyan;
-$theme-color-accent-cool-base:    $theme-color-accent-cool, 50, vivid;
-$theme-color-accent-cool-dark:    $theme-color-accent-cool, 50, vivid;
+$theme-color-accent-cool-base:    $theme-color-accent-cool, 30, vivid;
+$theme-color-accent-cool-dark:    $theme-color-accent-cool, 60, vivid;
 
 $theme-color-inverse:             white;
-$theme-color-inverse-base:        $theme-color-inverse, 0;
+$theme-color-inverse-base:        $theme-color-inverse;
 $theme-color-inverse-dark:        black, 10;
 
 /*
@@ -304,39 +315,39 @@ $theme-color-disabled-base:    $theme-color-disabled, 30;
 ----------------------------------------
 Border radius
 ----------------------------------------
-2px      2px
-0-plus   4px
-1        8px
-1-plus   12px
-2        16px
-3        24px
-4        32px
-5        40px
-6        48px
-7        56px
-8        64px
-9        72px
+2px            2px
+units('05')    4px
+units(1)       8px
+units('105')   12px
+units(2)       16px
+units(3)       24px
+units(4)       32px
+units(5)       40px
+units(6)       48px
+units(7)       56px
+units(8)       64px
+units(9)       72px
 ----------------------------------------
 */
 
 $theme-border-radius-sm:       2px;
-$theme-border-radius-md:       0-plus;
-$theme-border-radius-lg:       1;
+$theme-border-radius-md:       units('05');
+$theme-border-radius-lg:       units(1);
 
 /*
 ----------------------------------------
 Column gap
 ----------------------------------------
-2px        2px
-0-plus     4px
-1          8px
-2          16px
-3          24px
-4          32px
-5          48px
+2px         2px
+units('05')   4px
+units(1)    8px
+units(2)    16px
+units(3)    24px
+units(4)    32px
+units(5)    48px
 ----------------------------------------
 */
 
 $theme-column-gap-small: 2px;
-$theme-column-gap: 2;
-$theme-column-gap-large: 2;
+$theme-column-gap:       units(2);
+$theme-column-gap-large: units(3);
