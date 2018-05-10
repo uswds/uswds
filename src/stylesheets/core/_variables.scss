@@ -620,18 +620,6 @@ $large: new-breakpoint(min-width $large-screen $grid-columns-large) !default;
 
 /*
 ----------------------------------------
-@Relative font and image file paths
-----------------------------------------
-TODO: This should be deprecated in favor
-of the values in settings
-----------------------------------------
-*/
-
-$theme-font-path:   '../fonts' !default;
-$image-path:  '../img' !default;
-
-/*
-----------------------------------------
 Set $asset-pipeline to true if you're
 using the Rails Asset Pipeline
 ----------------------------------------
