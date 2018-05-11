@@ -30,15 +30,15 @@ $uswds-namespace: (
   ),
   'grid': (
     namespace:  'g-',
-    output:     true,
+    output:     false,
   ),
   'object': (
     namespace:  'o-',
-    output:     true,
+    output:     false,
   ),
   'utility': (
     namespace:  'u-',
-    output:     true,
+    output:     false,
   ),
 );
 
