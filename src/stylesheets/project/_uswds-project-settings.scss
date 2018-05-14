@@ -30,15 +30,15 @@ $uswds-namespace: (
   ),
   'grid': (
     namespace:  'g-',
-    output:     true,
+    output:     false,
   ),
   'object': (
     namespace:  'o-',
-    output:     true,
+    output:     false,
   ),
   'utility': (
     namespace:  'u-',
-    output:     true,
+    output:     false,
   ),
 );
 
@@ -243,13 +243,13 @@ Palette colors
 ----------------------------------------
 */
 
-$theme-color-neutral:             black;
-$theme-color-neutral-lightest:    white;
-$theme-color-neutral-lighter:     $theme-color-neutral, 5;
-$theme-color-neutral-light:       $theme-color-neutral, 50;
-$theme-color-neutral-base:        $theme-color-neutral, 80;
-$theme-color-neutral-dark:        $theme-color-neutral, 90;
-$theme-color-neutral-darker:      false;
+$theme-color-base:             black;
+$theme-color-base-lightest:    white;
+$theme-color-base-lighter:     $theme-color-base, 5;
+$theme-color-base-light:       $theme-color-base, 50;
+$theme-color-base-base:        $theme-color-base, 80;
+$theme-color-base-dark:        $theme-color-base, 90;
+$theme-color-base-darker:      false;
 
 $theme-color-primary:             blue;
 $theme-color-primary-lighter:     $theme-color-primary, 10;

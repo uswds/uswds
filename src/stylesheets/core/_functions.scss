@@ -105,7 +105,7 @@ Leaves bools as is
   @if type-of($value) == 'number' {
     @return inspect($value);
   }
-  @elseif type-of($value) == 'string' {
+  @elseif type-of($value) == 'string' or type-of($value) == 'color'{
     @return quote($value);
   }
   @else {
@@ -417,7 +417,8 @@ variable that is, itself, a list
     @return false;
   }
   @elseif length($props) == 1 {
-    @return map-get($uswds-colors, $props);
+    $props: smart-quote(nth($props, 1));
+    @return map-get($uswds-colors, smart-quote(nth($props, 1)));
   }
   @elseif length($props) == 2 {
     @return map-deep-get(

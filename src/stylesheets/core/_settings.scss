@@ -19,15 +19,15 @@ $uswds-namespace: (
   ),
   'grid': (
     namespace:  'g-',
-    output:     true,
+    output:     false,
   ),
   'object': (
     namespace:  'o-',
-    output:     true,
+    output:     false,
   ),
   'utility': (
     namespace:  'u-',
-    output:     true,
+    output:     false,
   ),
 ) !default;
 
@@ -76,15 +76,15 @@ used by utilities or layout grid
 */
 
 $theme-output-breakpoints: (
-  'card':            false,   // 160px
-  'card-plus':       false,   // 240px
-  'mobile':          false,   // 320px
-  'mobile-plus':     true,    // 480px
-  'tablet':          true,    // 640px
-  'tablet-plus':     false,   // 800px
-  'desktop':         true,    // 1040px
-  'desktop-plus':    false,   // 1200px
-  'widescreen':      false,   // 1400px
+  'card':             false,   // 160px
+  'card-lg':          false,   // 240px
+  'mobile':           false,   // 320px
+  'mobile-lg':        true,    // 480px
+  'tablet':           true,    // 640px
+  'tablet-lg':        false,   // 800px
+  'desktop':          true,    // 1040px
+  'desktop-lg':       false,   // 1200px
+  'widescreen':       false,   // 1400px
 ) !default;
 
 /*
@@ -232,13 +232,13 @@ Palette colors
 ----------------------------------------
 */
 
-$theme-color-neutral:             black !default;
-$theme-color-neutral-lightest:    white !default;
-$theme-color-neutral-lighter:     $theme-color-neutral, 5 !default;
-$theme-color-neutral-light:       $theme-color-neutral, 50 !default;
-$theme-color-neutral-base:        $theme-color-neutral, 80 !default;
-$theme-color-neutral-dark:        $theme-color-neutral, 90 !default;
-$theme-color-neutral-darker:      false !default;
+$theme-color-gray:                black !default;
+$theme-color-gray-lightest:       white !default;
+$theme-color-gray-lighter:        $theme-color-gray, 5 !default;
+$theme-color-gray-light:          $theme-color-gray, 50 !default;
+$theme-color-gray-base:           $theme-color-gray, 80 !default;
+$theme-color-gray-dark:           $theme-color-gray, 90 !default;
+$theme-color-gray-darker:         false !default;
 
 $theme-color-primary:             blue !default;
 $theme-color-primary-lighter:     $theme-color-primary, 10 !default;
