@@ -261,13 +261,13 @@ $project-font-weights: (
 );
 
 $project-colors: (
-  neutral: (
-    lightest: get-uswds-color($theme-color-neutral-lightest),
-    lighter:  get-uswds-color($theme-color-neutral-lighter),
-    light:    get-uswds-color($theme-color-neutral-light),
-    base:     get-uswds-color($theme-color-neutral-base),
-    dark:     get-uswds-color($theme-color-neutral-dark),
-    darker:   get-uswds-color($theme-color-neutral-darker),
+  gray: (
+    lightest: get-uswds-color($theme-color-gray-lightest),
+    lighter:  get-uswds-color($theme-color-gray-lighter),
+    light:    get-uswds-color($theme-color-gray-light),
+    base:     get-uswds-color($theme-color-gray-base),
+    dark:     get-uswds-color($theme-color-gray-dark),
+    darker:   get-uswds-color($theme-color-gray-darker),
   ),
   primary: (
     lighter: get-uswds-color($theme-color-primary-lighter),
@@ -394,11 +394,12 @@ Color palettes
 */
 
 $color-palette-theme: (
-  'neutral-lighter':    get-uswds-color($theme-color-neutral-lighter),
-  'neutral-light':      get-uswds-color($theme-color-neutral-light),
-  'neutral':            get-uswds-color($theme-color-neutral-base),
-  'neutral-dark':       get-uswds-color($theme-color-neutral-dark),
-  'neutral-darker':     get-uswds-color($theme-color-neutral-darker),
+  'gray-lightest':      get-uswds-color($theme-color-gray-lightest),
+  'gray-lighter':       get-uswds-color($theme-color-gray-lighter),
+  'gray-light':         get-uswds-color($theme-color-gray-light),
+  'gray':               get-uswds-color($theme-color-gray-base),
+  'gray-dark':          get-uswds-color($theme-color-gray-dark),
+  'gray-darker':        get-uswds-color($theme-color-gray-darker),
   'primary-lighter':    get-uswds-color($theme-color-primary-lighter),
   'primary-light':      get-uswds-color($theme-color-primary-light),
   'primary':            get-uswds-color($theme-color-primary-base),
