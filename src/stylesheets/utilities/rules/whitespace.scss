@@ -16,7 +16,7 @@ example:
 
 $whitespace: (
   whitespace: (
-    base: 'white-space',
+    base: 'whitespace',
     modifiers: null,
     values: map-collect(
       get-plugins($whitespace-plugins),
