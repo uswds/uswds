@@ -320,13 +320,6 @@ $project-state-colors: (
   ),
 );
 
-$project-reserved-colors:(
-  'black':        black,
-  'white':        white,
-  'transparent':  transparent,
-  'highlight':    get-uswds-color(gold, 20, vivid),
-);
-
 $all-project-colors: map-collect(
   $project-colors,
   $project-state-colors

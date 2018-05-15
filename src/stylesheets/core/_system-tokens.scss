@@ -883,14 +883,14 @@ $uswds-colors: map-collect(
   $uswds-white-transparent
 );
 
-$uswds-colors-required: (
+$uswds-required-colors: (
   'transparent':    transparent,
   'black':          black,
   'white':          white,
-  'outline':        get-uswds-color(gold, 30, vivid),
+  'highlight':      get-uswds-color(gold, 30, vivid),
 );
 
-$uswds-colors-basic: (
+$uswds-basic-colors: (
   'red': get-uswds-color(red, 50, vivid),
   'orange': get-uswds-color(orange, 40, vivid),
   'gold': get-uswds-color(gold, 20, vivid),

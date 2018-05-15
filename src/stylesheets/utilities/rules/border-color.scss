@@ -20,7 +20,7 @@ $border-color: (
     base: 'border',
     modifiers: null,
     values: map-collect(
-      $uswds-colors-required,
+      $uswds-required-colors,
       get-plugins($border-color-plugins),
       get-plugins($global-color-plugins),
       $border-color-manual-values

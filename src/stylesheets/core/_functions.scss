@@ -418,7 +418,7 @@ variable that is, itself, a list
   }
   @elseif length($props) == 1 {
     $props: smart-quote(nth($props, 1));
-    @return map-get($uswds-colors-required, $props);
+    @return map-get($uswds-required-colors, $props);
   }
   @elseif length($props) == 2 {
     @return map-deep-get(
@@ -582,29 +582,22 @@ colors: project and system
   } @elseif nth($props, 1) == false {
     @return false;
   } @elseif length($props) == 1 {
-    @if map-has-key(
-      $all-project-colors,
-      nth($props, 1)
-    ){
+    $props: smart-quote(nth($props, 1));
+    @if map-has-key($all-project-colors, $props){
       @return map-deep-get(
         $all-project-colors,
-        nth($props, 1), 'base'
+        $props,
+        'base'
       );
     }
-    @elseif map-has-key(
-      $uswds-colors-required,
-      smart-quote(nth($props, 1))
-    ){
-      @return map-get(
-        $uswds-colors-required,
-        smart-quote(nth($props, 1))
-      );
+    @elseif map-has-key($uswds-required-colors, $props){
+      @return map-get($uswds-required-colors, $props);
     }
     @else {
-      @error "#{nth($props, 1)} is not a USWDS color. Reserved values: #{map-keys($project-reserved-colors)}. Project theme values:  #{map-keys($all-project-colors)}. System colors — #{map-keys($uswds-colors)} — need a grade of 5, 10, 20, 30, 40, 50, 60, 70, 80, or 90.";
+      @error "#{nth($props, 1)} is not a USWDS color. Reserved values: #{map-keys($uswds-required-colors)}. Project theme values:  #{map-keys($all-project-colors)}. System colors — #{map-keys($uswds-colors)} — need a grade of 5, 10, 20, 30, 40, 50, 60, 70, 80, or 90.";
     }
   } @elseif length($props) == 2 {
-    @if type-of(nth($props, 1)) == 'number' {
+    @if type-of(nth($props, 2)) == 'number' {
       @return map-deep-get(
         $uswds-colors,
         smart-quote(nth($props, 1)),
