@@ -127,6 +127,17 @@ $uswds-properties: (
     standard: $standard-colors,
     extended: $extended-colors,
   ),
+  cursor: (
+    standard: (
+      'auto':         auto,
+      'default':      default,
+      'pointer':      pointer,
+      'wait':         wait,
+      'move':         move,
+      'not-allowed':  not-allowed,
+    ),
+    extended: (),
+  ),
   display: (
     standard: (
       'block':        block,

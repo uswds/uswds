@@ -1,0 +1,29 @@
+/*
+========================================
+color
+----------------------------------------
+usage:
+  .cursor-[key]
+----------------------------------------
+output:
+  cursor: [value];
+----------------------------------------
+example:
+  .cursor-pointer {
+    cursor: pointer; }
+----------------------------------------
+*/
+
+$cursor: (
+  cursor: (
+    base: 'cursor',
+    modifiers: null,
+    values: map-collect(
+      get-plugins($cursor-plugins),
+      $cursor-manual-values
+    ),
+    settings: $cursor-settings,
+    property: 'cursor',
+    type: 'utility',
+  )
+)

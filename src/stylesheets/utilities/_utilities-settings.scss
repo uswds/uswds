@@ -146,6 +146,15 @@ $color-settings: (
   visited:      false
 ) !default;
 
+$cursor-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
 $display-settings: (
   output:       true,
   responsive:   true,
@@ -581,6 +590,11 @@ $circle-manual-values: () !default;
 
 $color-plugins: () !default;
 $color-manual-values: () !default;
+
+// .cursor
+
+$cursor-plugins: ( 'plugin-standard-cursor' ) !default;
+$cursor-manual-values: () !default;
 
 // .display
 
