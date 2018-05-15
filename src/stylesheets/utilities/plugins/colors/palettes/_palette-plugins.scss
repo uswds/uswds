@@ -45,7 +45,7 @@ $color-palette-grayscale: $uswds-gray;
 $plugin-palettes: (
   'plugin-color-palette-theme':     $color-palette-theme,
   'plugin-color-palette-grayscale': $plugin-color-gray-all,
-  'plugin-color-palette-required':  $uswds-colors-required,
+  'plugin-color-palette-required':  $uswds-required-colors,
   'plugin-color-palette-state':     $color-palette-state,
-  'plugin-color-palette-basic':     $uswds-colors-basic,
+  'plugin-color-palette-basic':     $uswds-basic-colors,
 );
