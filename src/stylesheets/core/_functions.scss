@@ -401,14 +401,14 @@ variable that is, itself, a list
     @if length($props) == 2 {
       @return map-deep-get(
         $uswds-colors,
-        nth($props, 1),
+        smart-quote(nth($props, 1)),
         nth($props, 2)
       );
     } @elseif length($props) == 3 {
       @return map-deep-get(
         $uswds-colors,
-        nth($props, 1),
-        nth($props, 3),
+        smart-quote(nth($props, 1)),
+        smart-quote(nth($props, 3)),
         nth($props, 2)
       );
     }
@@ -418,20 +418,20 @@ variable that is, itself, a list
   }
   @elseif length($props) == 1 {
     $props: smart-quote(nth($props, 1));
-    @return map-get($uswds-colors, smart-quote(nth($props, 1)));
+    @return map-get($uswds-colors-required, $props);
   }
   @elseif length($props) == 2 {
     @return map-deep-get(
       $uswds-colors,
-      nth($props, 1),
+      smart-quote(nth($props, 1)),
       nth($props, 2)
     );
   }
   @else {
     @return map-deep-get(
       $uswds-colors,
-      nth($props, 1),
-      nth($props, 3),
+      smart-quote(nth($props, 1)),
+      smart-quote(nth($props, 3)),
       nth($props, 2)
     );
   }
@@ -455,26 +455,6 @@ Get a value from the system type scale
   }
   @else {
     @error "`#{$scale}` is not a valid type scale value. Valid values: #{map-keys($uswds-type-scale)}";
-  }
-};
-
-/*
-----------------------------------------
-simple-color()
-----------------------------------------
-Derive a color from its $family and
-value
-----------------------------------------
-ex:
-background-color: simple-color($red-warm, 50v);
-----------------------------------------
-*/
-
-@function simple-color($hue, $value, $variant...){
-  @if length($variant) == 0 {
-    @return map-get($hue, $value);
-  } @else {
-    @return map-deep-get($hue, nth($variant, 1), $value);
   }
 };
 
@@ -603,46 +583,54 @@ colors: project and system
     @return false;
   } @elseif length($props) == 1 {
     @if map-has-key(
-      $project-reserved-colors,
-      smart-quote(nth($props, 1))
+      $all-project-colors,
+      nth($props, 1)
     ){
-      @return map-get(
-        $project-reserved-colors,
-        smart-quote(nth($props, 1))
+      @return map-deep-get(
+        $all-project-colors,
+        nth($props, 1), 'base'
       );
     }
-    @if map-has-key(
-      $uswds-colors-basic,
+    @elseif map-has-key(
+      $uswds-colors-required,
       smart-quote(nth($props, 1))
     ){
-      @warn "`#{nth($props, 1)}` is a basic color. This is OK for sketching and prototyping, but use a true color in production code.";
       @return map-get(
-        $uswds-colors-basic,
+        $uswds-colors-required,
         smart-quote(nth($props, 1))
       );
     }
     @else {
-      @error "#{nth($props, 1)} is not a USWDS color. Reserved values: #{map-keys($project-reserved-colors)}. Sketching values:  #{map-keys($uswds-colors-basic)}.";
+      @error "#{nth($props, 1)} is not a USWDS color. Reserved values: #{map-keys($project-reserved-colors)}. Project theme values:  #{map-keys($all-project-colors)}. System colors — #{map-keys($uswds-colors)} — need a grade of 5, 10, 20, 30, 40, 50, 60, 70, 80, or 90.";
     }
   } @elseif length($props) == 2 {
-    @return map-deep-get(
-      $all-colors,
-      nth($props, 1),
-      nth($props, 2)
-    );
+    @if type-of(nth($props, 1)) == 'number' {
+      @return map-deep-get(
+        $uswds-colors,
+        smart-quote(nth($props, 1)),
+        nth($props, 2)
+      );
+    }
+    @else {
+      @return map-deep-get(
+        $all-project-colors,
+        smart-quote(nth($props, 1)),
+        smart-quote(nth($props, 2))
+      );
+    }
   } @else {
     @if map-deep-get(
-      $all-colors,
-      nth($props, 1),
-      nth($props, 3),
+      $uswds-colors,
+      smart-quote(nth($props, 1)),
+      smart-quote(nth($props, 3)),
       nth($props, 2)
     ) == false {
       @error "`#{nth($props, 1)}` does not have a vivid variant for `#{nth($props, 2)}`.";
     }
     @return map-deep-get(
-      $all-colors,
-      nth($props, 1),
-      nth($props, 3),
+      $uswds-colors,
+      smart-quote(nth($props, 1)),
+      smart-quote(nth($props, 3)),
       nth($props, 2)
     );
   }

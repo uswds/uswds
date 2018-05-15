@@ -228,7 +228,7 @@ stored as YAML.
 */
 
 $uswds-red: (
-  red: (
+  'red': (
     5 :          #fcf5f5,
     10:          #f7ddda,
     20:          #f7b7ad,
@@ -239,7 +239,7 @@ $uswds-red: (
     70:          #6e312f,
     80:          #3b2523,
     90:          #211b1b,
-    vivid: (
+    'vivid': (
       5:          false,
       10:         #fccec7,
       20:         #fda99c,
@@ -255,7 +255,7 @@ $uswds-red: (
 );
 
 $uswds-red-warm: (
-  red-warm: (
+  'red-warm': (
     5 :     #faf7f5,
     10:     #f2ded5,
     20:     #ebbda2,
@@ -266,7 +266,7 @@ $uswds-red-warm: (
     70:     #4f3f33,
     80:     #302a26,
     90:     #1f1c18,
-    vivid: (
+    'vivid': (
       5:     false,
       10:    false,
       20:    #eaa076,
@@ -282,7 +282,7 @@ $uswds-red-warm: (
 );
 
 $uswds-orange-warm: (
-  orange-warm: (
+  'orange-warm': (
     5 :  #fcf6f2,
     10:  #f7e1d5,
     20:  #f7b99e,
@@ -293,7 +293,7 @@ $uswds-orange-warm: (
     70:  #61382f,
     80:  #3b2723,
     90:  #211a19,
-    vivid: (
+    'vivid': (
       5:  false,
       10: false,
       20: #faad96,
@@ -309,7 +309,7 @@ $uswds-orange-warm: (
 );
 
 $uswds-orange: (
-  orange: (
+  'orange': (
     5 :       #fffbf7,
     10:       #fce2c5,
     20:       #fabd87,
@@ -320,7 +320,7 @@ $uswds-orange: (
     70:       #4f3f33,
     80:       #302a24,
     90:       #211b18,
-    vivid: (
+    'vivid': (
       5:       #ffebd5,
       10:      false,
       20:      #ffba75,
@@ -336,7 +336,7 @@ $uswds-orange: (
 );
 
 $uswds-gold: (
-  gold: (
+  'gold': (
     5 :         #faf5eb,
     10:         #f2e6ce,
     20:         #dec699,
@@ -347,7 +347,7 @@ $uswds-gold: (
     70:         #4a4034,
     80:         #302b24,
     90:         #1f1c19,
-    vivid: (
+    'vivid': (
       5:         #fff4d4,
       10:        #ffcb52,
       20:        #faaf00,
@@ -363,7 +363,7 @@ $uswds-gold: (
 );
 
 $uswds-yellow: (
-  yellow: (
+  'yellow': (
     5 :       #faf7ed,
     10:       #f7e8b0,
     20:       #f0d04f,
@@ -374,7 +374,7 @@ $uswds-yellow: (
     70:       #4d402f,
     80:       #302a24,
     90:       #1f1b18,
-    vivid: (
+    'vivid': (
       5:       false,
       10:      #fdd430,
       20:      #edc730,
@@ -390,7 +390,7 @@ $uswds-yellow: (
 );
 
 $uswds-green-warm: (
-  green-warm: (
+  'green-warm': (
     5 :   #f9faed,
     10:   #eaedb9,
     20:   #ced47f,
@@ -401,7 +401,7 @@ $uswds-green-warm: (
     70:   #43452d,
     80:   #2c2e20,
     90:   #1c1c16,
-    vivid: (
+    'vivid': (
       5:   #f3f8a7,
       10:  #e6f50f,
       20:  #cedc0a,
@@ -417,7 +417,7 @@ $uswds-green-warm: (
 );
 
 $uswds-green: (
-  green: (
+  'green': (
     5 :        #f7fcf0,
     10:        #e0ebce,
     20:        #bcd696,
@@ -428,7 +428,7 @@ $uswds-green: (
     70:        #3c4a29,
     80:        #293021,
     90:        #1a1c18,
-    vivid: (
+    'vivid': (
       5:        #d7f4bd,
       10:       #b4e876,
       20:       #93cc2e,
@@ -444,7 +444,7 @@ $uswds-green: (
 );
 
 $uswds-green-cool: (
-  green-cool: (
+  'green-cool': (
     5 :   #e8fae6,
     10:   #d0f7cd,
     20:   #a4e3a1,
@@ -455,7 +455,7 @@ $uswds-green-cool: (
     70:   #384d2a,
     80:   #272e22,
     90:   #1a1f1a,
-    vivid: (
+    'vivid': (
       5:   #caf4c7,
       10:  #91e48b,
       20:  #61cf59,
@@ -471,7 +471,7 @@ $uswds-green-cool: (
 );
 
 $uswds-mint: (
-  mint: (
+  'mint': (
     5 :         #cafcec,
     10:         #79f7cd,
     20:         #49e3b0,
@@ -482,7 +482,7 @@ $uswds-mint: (
     70:         #225237,
     80:         #1d3b29,
     90:         #1d3b29,
-    vivid: (
+    'vivid': (
       5:         #befde9,
       10:        #30f8b5,
       20:        #06ec9f,
@@ -498,7 +498,7 @@ $uswds-mint: (
 );
 
 $uswds-mint-cool: (
-  mint-cool: (
+  'mint-cool': (
     5 :    #f2fffe,
     10:    #c7f2ef,
     20:    #a2ded9,
@@ -509,7 +509,7 @@ $uswds-mint-cool: (
     70:    #2b4d47,
     80:    #1f3030,
     90:    #151f1f,
-    vivid: (
+    'vivid': (
       5:    #dbfff8,
       10:   #7efce1,
       20:   #02dbc2,
@@ -525,7 +525,7 @@ $uswds-mint-cool: (
 );
 
 $uswds-cyan: (
-  cyan: (
+  'cyan': (
     5 :         #e8f7fa,
     10:         #d0f1f7,
     20:         #9ddceb,
@@ -536,7 +536,7 @@ $uswds-cyan: (
     70:         #2d4b4f,
     80:         #203133,
     90:         #151e1f,
-    vivid: (
+    'vivid': (
       5:         false,
       10:        #a8f2ff,
       20:        #55e1fa,
@@ -552,7 +552,7 @@ $uswds-cyan: (
 );
 
 $uswds-blue: (
-  blue: (
+  'blue': (
     5 :         #f5fbff,
     10:         #dae9f7,
     20:         #add1f0,
@@ -563,7 +563,7 @@ $uswds-blue: (
     70:         #294c69,
     80:         #1e2f3d,
     90:         #161e24,
-    vivid: (
+    'vivid': (
       5:         false,
       10:        false,
       20:        false,
@@ -579,7 +579,7 @@ $uswds-blue: (
 );
 
 $uswds-blue-warm: (
-  blue-warm: (
+  'blue-warm': (
     5 :    #f0f5fc,
     10:    #dfe7f5,
     20:    #bccae6,
@@ -590,7 +590,7 @@ $uswds-blue-warm: (
     70:    #31486b,
     80:    #232d3d,
     90:    #161b24,
-    vivid: (
+    'vivid': (
       5:    false,
       10:   false,
       20:   #b8cbf2,
@@ -606,7 +606,7 @@ $uswds-blue-warm: (
 );
 
 $uswds-indigo-cool: (
-  indigo-cool: (
+  'indigo-cool': (
     5 :  #f5f6fc,
     10:  #e1e6fa,
     20:  #bac7f5,
@@ -617,7 +617,7 @@ $uswds-indigo-cool: (
     70:  #364173,
     80:  #23273d,
     90:  #1b1c2b,
-    vivid: (
+    'vivid': (
       5:  false,
       10: false,
       20: false,
@@ -633,7 +633,7 @@ $uswds-indigo-cool: (
 );
 
 $uswds-indigo: (
-  indigo:(
+  'indigo':(
     5 :       #fafaff,
     10:       #e4e3fa,
     20:       #c2c3f2,
@@ -644,7 +644,7 @@ $uswds-indigo: (
     70:       #3b3e75,
     80:       #28293d,
     90:       #1b1c26,
-    vivid: (
+    'vivid': (
       5:       false,
       10:      false,
       20:      #acaeec,
@@ -660,7 +660,7 @@ $uswds-indigo: (
 );
 
 $uswds-indigo-warm: (
-  indigo-warm:(
+  'indigo-warm':(
     5 :  #f9f7ff,
     10:  #e5e1fa,
     20:  #c9c2f2,
@@ -671,7 +671,7 @@ $uswds-indigo-warm: (
     70:  #433a7a,
     80:  #29263b,
     90:  #1d1b24,
-    vivid: (
+    'vivid': (
       5:  false,
       10: false,
       20: false,
@@ -687,7 +687,7 @@ $uswds-indigo-warm: (
 );
 
 $uswds-violet: (
-  violet: (
+  'violet': (
     5 :       #f7f5fa,
     10:       #ebe3fa,
     20:       #cec1e8,
@@ -698,7 +698,7 @@ $uswds-violet: (
     70:       #493a66,
     80:       #2d273b,
     90:       #1e1b24,
-    vivid: (
+    'vivid': (
       5:       false,
       10:      false,
       20:      false,
@@ -714,7 +714,7 @@ $uswds-violet: (
 );
 
 $uswds-violet-warm: (
-  violet-warm: (
+  'violet-warm': (
     5:   #fef7ff,
     10:  #f5dcf7,
     20:  #e0bae3,
@@ -725,7 +725,7 @@ $uswds-violet-warm: (
     70:  #573455,
     80:  #332431,
     90:  #211a21,
-    vivid: (
+    'vivid': (
       5:  #fdedff,
       10: #f9c9ff,
       20: #f3a8ff,
@@ -741,7 +741,7 @@ $uswds-violet-warm: (
 );
 
 $uswds-magenta: (
-  magenta: (
+  'magenta': (
     5 :      #faf5f6,
     10:      #f5dce4,
     20:      #f0b9cb,
@@ -752,7 +752,7 @@ $uswds-magenta: (
     70:      #613046,
     80:      #3b212c,
     90:      #211b1d,
-    vivid: (
+    'vivid': (
       5:      false,
       10:     #ffd1e2,
       20:     #ffadca,
@@ -768,7 +768,7 @@ $uswds-magenta: (
 );
 
 $uswds-gray-cool: (
-  gray-cool: (
+  'gray-cool': (
     1:    #fafbfc,
     2:    #f7f9fa,
     3:    #f5f6f7,
@@ -787,7 +787,7 @@ $uswds-gray-cool: (
 );
 
 $uswds-gray: (
-  gray: (
+  'gray': (
     1:         #fcfcfc,
     2:         #f9f9f9,
     3:         #f6f6f6,
@@ -807,7 +807,7 @@ $uswds-gray: (
 );
 
 $uswds-gray-warm: (
-  gray-warm: (
+  'gray-warm': (
     1:    #fdfdfc,
     2:    #fafaf8,
     3:    #f7f7f3,
@@ -826,7 +826,7 @@ $uswds-gray-warm: (
 );
 
 $uswds-black-transparent: (
-  black-transparent: (
+  'black-transparent': (
     5 :     rgba(0, 0, 0, 0.01),
     10:     rgba(0, 0, 0, 0.1),
     20:     rgba(0, 0, 0, 0.2),
@@ -841,7 +841,7 @@ $uswds-black-transparent: (
 );
 
 $uswds-white-transparent: (
-  white-transparent: (
+  'white-transparent': (
     5 :     rgba(255, 255, 255, 0.01),
     10:     rgba(255, 255, 255, 0.1),
     20:     rgba(255, 255, 255, 0.2),
@@ -853,13 +853,6 @@ $uswds-white-transparent: (
     80:     rgba(255, 255, 255, 0.8),
     90:     rgba(255, 255, 255, 0.9),
   ),
-);
-
-$uswds-colors-required: (
-  'transparent':    transparent,
-  'black':          black,
-  'white':          white,
-  'outline':        map-deep-get($uswds-gold, gold, vivid, 30),
 );
 
 $uswds-colors: map-collect(
@@ -887,8 +880,14 @@ $uswds-colors: map-collect(
   $uswds-gray,
   $uswds-gray-warm,
   $uswds-black-transparent,
-  $uswds-white-transparent,
-  $uswds-colors-required
+  $uswds-white-transparent
+);
+
+$uswds-colors-required: (
+  'transparent':    transparent,
+  'black':          black,
+  'white':          white,
+  'outline':        get-uswds-color(gold, 30, vivid),
 );
 
 $uswds-colors-basic: (
