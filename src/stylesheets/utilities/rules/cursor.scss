@@ -1,29 +1,29 @@
 /*
 ========================================
-white-space
+color
 ----------------------------------------
 usage:
-  white-space-[key]
+  .cursor-[key]
 ----------------------------------------
 output:
-  white-space: [value];
+  cursor: [value];
 ----------------------------------------
 example:
-  .white-space-pre-wrap {
-    white-space: pre-wrap; }
+  .cursor-pointer {
+    cursor: pointer; }
 ----------------------------------------
 */
 
-$whitespace: (
-  whitespace: (
-    base: 'whitespace',
+$cursor: (
+  cursor: (
+    base: 'cursor',
     modifiers: null,
     values: map-collect(
-      get-plugins($whitespace-plugins),
-      $whitespace-manual-values
+      get-plugins($cursor-plugins),
+      $cursor-manual-values
     ),
-    settings: $whitespace-settings,
-    property: 'white-space',
+    settings: $cursor-settings,
+    property: 'cursor',
     type: 'utility',
   )
 )

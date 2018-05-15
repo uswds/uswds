@@ -261,62 +261,62 @@ $project-font-weights: (
 );
 
 $project-colors: (
-  gray: (
-    lightest: get-uswds-color($theme-color-gray-lightest),
-    lighter:  get-uswds-color($theme-color-gray-lighter),
-    light:    get-uswds-color($theme-color-gray-light),
-    base:     get-uswds-color($theme-color-gray-base),
-    dark:     get-uswds-color($theme-color-gray-dark),
-    darker:   get-uswds-color($theme-color-gray-darker),
+  'gray': (
+    'lightest': get-uswds-color($theme-color-gray-lightest),
+    'lighter':  get-uswds-color($theme-color-gray-lighter),
+    'light':    get-uswds-color($theme-color-gray-light),
+    'base':     get-uswds-color($theme-color-gray-base),
+    'dark':     get-uswds-color($theme-color-gray-dark),
+    'darker':   get-uswds-color($theme-color-gray-darker),
   ),
-  primary: (
-    lighter: get-uswds-color($theme-color-primary-lighter),
-    light:   get-uswds-color($theme-color-primary-light),
-    base:    get-uswds-color($theme-color-primary-base),
-    vivid:   get-uswds-color($theme-color-primary-vivid),
-    dark:    get-uswds-color($theme-color-primary-dark),
-    darker:  get-uswds-color($theme-color-primary-darker),
+  'primary': (
+    'lighter': get-uswds-color($theme-color-primary-lighter),
+    'light':   get-uswds-color($theme-color-primary-light),
+    'base':    get-uswds-color($theme-color-primary-base),
+    'vivid':   get-uswds-color($theme-color-primary-vivid),
+    'dark':    get-uswds-color($theme-color-primary-dark),
+    'darker':  get-uswds-color($theme-color-primary-darker),
   ),
-  secondary: (
-    light:   get-uswds-color($theme-color-secondary-light),
-    base:    get-uswds-color($theme-color-secondary-base),
-    vivid:   get-uswds-color($theme-color-secondary-vivid),
-    dark:    get-uswds-color($theme-color-secondary-dark),
+  'secondary': (
+    'light':   get-uswds-color($theme-color-secondary-light),
+    'base':    get-uswds-color($theme-color-secondary-base),
+    'vivid':   get-uswds-color($theme-color-secondary-vivid),
+    'dark':    get-uswds-color($theme-color-secondary-dark),
   ),
-  accent-warm: (
-    base:    get-uswds-color($theme-color-accent-warm-base),
-    dark:    get-uswds-color($theme-color-accent-warm-dark),
+  'accent-warm': (
+    'base':    get-uswds-color($theme-color-accent-warm-base),
+    'dark':    get-uswds-color($theme-color-accent-warm-dark),
   ),
-  accent-cool: (
-    base:    get-uswds-color($theme-color-accent-cool-base),
-    dark:    get-uswds-color($theme-color-accent-cool-dark),
+  'accent-cool': (
+    'base':    get-uswds-color($theme-color-accent-cool-base),
+    'dark':    get-uswds-color($theme-color-accent-cool-dark),
   )
 );
 
 $project-state-colors: (
-  error: (
-    lighter: get-uswds-color($theme-color-error-lighter),
-    light:   get-uswds-color($theme-color-error-light),
-    base:    get-uswds-color($theme-color-error-base),
-    dark:    get-uswds-color($theme-color-error-dark),
-    darker:  get-uswds-color($theme-color-error-darker),
+  'error': (
+    'lighter': get-uswds-color($theme-color-error-lighter),
+    'light':   get-uswds-color($theme-color-error-light),
+    'base':    get-uswds-color($theme-color-error-base),
+    'dark':    get-uswds-color($theme-color-error-dark),
+    'darker':  get-uswds-color($theme-color-error-darker),
   ),
-  warn: (
-    lighter: get-uswds-color($theme-color-warn-lighter),
-    light:   get-uswds-color($theme-color-warn-light),
-    base:    get-uswds-color($theme-color-warn-base),
-    dark:    get-uswds-color($theme-color-warn-dark),
-    darker:  get-uswds-color($theme-color-warn-darker),
+  'warn': (
+    'lighter': get-uswds-color($theme-color-warn-lighter),
+    'light':   get-uswds-color($theme-color-warn-light),
+    'base':    get-uswds-color($theme-color-warn-base),
+    'dark':    get-uswds-color($theme-color-warn-dark),
+    'darker':  get-uswds-color($theme-color-warn-darker),
   ),
-  success: (
-    lighter: get-uswds-color($theme-color-success-lighter),
-    light:   get-uswds-color($theme-color-success-light),
-    base:    get-uswds-color($theme-color-success-base),
-    dark:    get-uswds-color($theme-color-success-dark),
-    darker:  get-uswds-color($theme-color-success-darker),
+  'success': (
+    'lighter': get-uswds-color($theme-color-success-lighter),
+    'light':   get-uswds-color($theme-color-success-light),
+    'base':    get-uswds-color($theme-color-success-base),
+    'dark':    get-uswds-color($theme-color-success-dark),
+    'darker':  get-uswds-color($theme-color-success-darker),
   ),
-  disabled: (
-    base:    get-uswds-color($theme-color-disabled-base),
+  'disabled': (
+    'base':    get-uswds-color($theme-color-disabled-base),
   ),
 );
 
@@ -327,8 +327,7 @@ $project-reserved-colors:(
   'highlight':    get-uswds-color(gold, 20, vivid),
 );
 
-$all-colors: map-collect(
-  $uswds-colors,
+$all-project-colors: map-collect(
   $project-colors,
   $project-state-colors
 );
@@ -435,7 +434,7 @@ $color-palette-state: (
   'disabled':           get-uswds-color($theme-color-disabled-base),
 );
 
-$color-palette-grayscale: $uswds-black;
+$color-palette-grayscale: $uswds-gray;
 
 /*
 ========================================
@@ -526,17 +525,17 @@ $color-red-lightest:         $red-10 !default;
 
 $color-white:                white !default;
 $color-black:                black !default;
-$color-black-light:          $black-90 !default;
+$color-black-light:          $gray-90 !default;
 
-$color-gray-dark:            $black-cool-80 !default;
-$color-gray:                 $black-cool-60 !default;
+$color-gray-dark:            $gray-cool-80 !default;
+$color-gray:                 $gray-cool-60 !default;
 $color-gray-medium:          #757575 !default;
-$color-gray-light:           $black-30 !default;
-$color-gray-lighter:         $black-cool-10 !default;
-$color-gray-lightest:        $black-cool-5 !default;
+$color-gray-light:           $gray-30 !default;
+$color-gray-lighter:         $gray-cool-10 !default;
+$color-gray-lightest:        $gray-cool-5 !default;
 
-$color-gray-warm-dark:       $black-warm-70 !default;
-$color-gray-warm-light:      $black-warm-10 !default;
+$color-gray-warm-dark:       $gray-warm-70 !default;
+$color-gray-warm-light:      $gray-warm-10 !default;
 $color-gray-cool-light:      $blue-warm-5 !default;
 
 $color-gold:                 $gold-20v !default;

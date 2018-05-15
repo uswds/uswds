@@ -3,20 +3,20 @@
 position
 ----------------------------------------
 usage:
-  .position-[keye]
+  .[key]
 ----------------------------------------
 output:
   position: [value];
 ----------------------------------------
 example:
-  .position-absolute {
+  .absolute {
     position: absolute; }
 ----------------------------------------
 */
 
 $position: (
   position: (
-    base: 'position',
+    base: null,
     modifiers: null,
     values: map-collect(
       get-plugins($position-plugins),
