@@ -435,7 +435,7 @@ $color-palette-state: (
   'disabled':           get-uswds-color($theme-color-disabled-base),
 );
 
-$color-palette-grayscale: $uswds-black;
+$color-palette-grayscale: $uswds-gray;
 
 /*
 ========================================
@@ -526,17 +526,17 @@ $color-red-lightest:         $red-10 !default;
 
 $color-white:                white !default;
 $color-black:                black !default;
-$color-black-light:          $black-90 !default;
+$color-black-light:          $gray-90 !default;
 
-$color-gray-dark:            $black-cool-80 !default;
-$color-gray:                 $black-cool-60 !default;
+$color-gray-dark:            $gray-cool-80 !default;
+$color-gray:                 $gray-cool-60 !default;
 $color-gray-medium:          #757575 !default;
-$color-gray-light:           $black-30 !default;
-$color-gray-lighter:         $black-cool-10 !default;
-$color-gray-lightest:        $black-cool-5 !default;
+$color-gray-light:           $gray-30 !default;
+$color-gray-lighter:         $gray-cool-10 !default;
+$color-gray-lightest:        $gray-cool-5 !default;
 
-$color-gray-warm-dark:       $black-warm-70 !default;
-$color-gray-warm-light:      $black-warm-10 !default;
+$color-gray-warm-dark:       $gray-warm-70 !default;
+$color-gray-warm-light:      $gray-warm-10 !default;
 $color-gray-cool-light:      $blue-warm-5 !default;
 
 $color-gold:                 $gold-20v !default;

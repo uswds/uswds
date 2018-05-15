@@ -232,7 +232,7 @@ Palette colors
 ----------------------------------------
 */
 
-$theme-color-gray:                black !default;
+$theme-color-gray:                gray !default;
 $theme-color-gray-lightest:       white !default;
 $theme-color-gray-lighter:        $theme-color-gray, 5 !default;
 $theme-color-gray-light:          $theme-color-gray, 50 !default;
@@ -297,7 +297,7 @@ $theme-color-success-dark:     $theme-color-success, 50 !default;
 $theme-color-success-darker:   $theme-color-success, 70 !default;
 
 // Disabled color
-$theme-color-disabled:         black !default;
+$theme-color-disabled:         gray !default;
 $theme-color-disabled-base:    $theme-color-disabled, 30 !default;
 
 /*

@@ -919,17 +919,17 @@ elegant
       @if str-index($plugin, 'palette') {
         $registry: map-deep-get($plugin-registry, color, palettes);
       }
-      @elseif str-index($plugin, 'black-cool') {
-        $registry: map-deep-get($plugin-registry, color, black-cool);
+      @elseif str-index($plugin, 'gray-cool') {
+        $registry: map-deep-get($plugin-registry, color, gray-cool);
       }
       @elseif str-index($plugin, 'black-transparent') {
         $registry: map-deep-get($plugin-registry, color, black-transparent);
       }
-      @elseif str-index($plugin, 'black-warm') {
-        $registry: map-deep-get($plugin-registry, color, black-warm);
+      @elseif str-index($plugin, 'gray-warm') {
+        $registry: map-deep-get($plugin-registry, color, gray-warm);
       }
-      @elseif str-index($plugin, 'black') {
-        $registry: map-deep-get($plugin-registry, color, black);
+      @elseif str-index($plugin, 'gray') {
+        $registry: map-deep-get($plugin-registry, color, gray);
       }
       @elseif str-index($plugin, 'blue-warm') {
         $registry: map-deep-get($plugin-registry, color, blue-warm);
