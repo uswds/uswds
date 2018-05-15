@@ -598,13 +598,12 @@ $uswds-properties: (
   z-index: (
     standard: (
       'auto':    auto,
-      'neg-3':	 -300,
-      'neg-2':	 -200,
-      'neg-1':	 -100,
-      '0':       auto,
+      '0':       0,
       '1':	     100,
       '2':	     200,
       '3':       300,
+      '4':	     400,
+      '5':	     500,
     ),
     extended: (),
   ),
