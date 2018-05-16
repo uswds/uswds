@@ -16,7 +16,7 @@ example:
 
 $font-weight: (
   font-weight: (
-    base: 'font',
+    base: 'fw',
     modifiers: null,
     values: map-collect(
       get-plugins($font-weight-plugins),

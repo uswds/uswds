@@ -657,18 +657,18 @@ Gets a valid USWDS flex value
 ----------------------------------------
 font()
 ----------------------------------------
-Get a normalized font-size in rem from
-a family and a type size in either
-system scale or project scale
+Gets
+- 'family'
+- 'size'
+- 'weight'
+based on on props passed
 ----------------------------------------
 */
 
-@mixin font($props...){
-  @if length($props) == 0 or length($props) > 2 {
-    @error "`font()` needs a valid face, and an optional size. If it only includes the face, it will output the font stack for that face (font-family). If it inlcludes the size, it will output the normalized font size (font-size).";
-  }
-  @elseif length($props) == 1 {
-    $our-family: nth($props, 1);
+@function font($props...){
+  $type: smart-quote(nth($props, 1));
+  @if $type == 'family' {
+    $our-family: smart-quote(nth($props, 2));
     @if not map-has-key($project-font-stacks, $our-family){
       @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-font-stacks)}";
     }
@@ -676,12 +676,15 @@ system scale or project scale
       @error "Font family `#{$our-family}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
     }
     @else {
-      font-family: map-get($project-font-stacks, $our-family);
+      @return map-get($project-font-stacks, $our-family);
     }
   }
-  @else {
-    $our-family: nth($props, 1);
-    $our-scale: nth($props, 2);
+  @elseif $type == 'size' {
+    @if length($props) != 3 {
+      @error "Font size requires a valid FAMILY and SIZE in the form `font('family', 'FAMILY', 'SIZE')`";
+    }
+    $our-family: smart-quote(nth($props, 2));
+    $our-scale: smart-quote(inspect(nth($props, 3)));
     @if not map-has-key($project-cap-heights, $our-family) {
       @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
     }
@@ -692,13 +695,47 @@ system scale or project scale
       $this-cap: map-get($project-cap-heights, $our-family);
       $this-scale: map-get($all-type-scale, $our-scale);
       @if $this-scale and $this-cap {
-        font-size: type-scale($this-cap, $this-scale);
+        @return type-scale($this-cap, $this-scale);
       }
       @else {
         @error "The scale `#{$our-scale}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
       }
     }
   }
+  @elseif $type == 'weight' {
+    $weight: smart-quote(nth($props, 2));
+    $standard-weights: map-deep-get($uswds-properties, font-weight, standard);
+    $extended-weights: map-deep-get($uswds-properties, font-weight, extended);
+    @if type-of($weight) == 'number' {
+      @return $weight;
+    }
+    @elseif map-has-key($standard-weights, $weight) {
+      @return map-get($standard-weights, $weight);
+    }
+    @elseif map-has-key($extended-weights, $weight) {
+      @warn "`#{$weight}` is a USWDS extended weight. This is OK, but consider using a standard project weight for production code. Standard weights: #{map-keys($standard-weights)}";
+      @return map-get($extended-weights, $weight);
+    }
+    @else {
+      @error "`#{$number}` is not a valid font weight.";
+    }
+  }
+  @else {
+    @error "`#{$type}` is not a valid type for the font() function. Valid types: 'family', 'size', 'weight'";
+  }
+};
+
+/*
+----------------------------------------
+fw()
+----------------------------------------
+Get a font-weight value from the
+system font-weight
+----------------------------------------
+*/
+
+@function fw($value) {
+  @return get-uswds-value(font-weight, $value);
 };
 
 /*
@@ -818,6 +855,19 @@ the desired final units (currently rem)
   @else {
     @error "`#{$value}` is not a valid spacing unit. Valid spacing unit values: #{map-keys($project-spacing-standard)}";
   }
+};
+
+/*
+----------------------------------------
+radius()
+----------------------------------------
+Get a border-radius value from the
+system letter-spacing
+----------------------------------------
+*/
+
+@function radius($value) {
+  @return get-uswds-value(border-radius, $value);
 };
 
 /*
