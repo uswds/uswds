@@ -1,5 +1,5 @@
 // Outputs line-height
 
-@mixin u-line-height($family, $scale) {
+@mixin u-lh($family, $scale) {
   line-height: lh($family, $scale);
 }

@@ -39,6 +39,7 @@ $uswds-spacing:(
     '1':                     grid-units(1),   // 8px
     '105':                   grid-units(1.5), // 12px
     '2':                     grid-units(2),   // 16px
+    '205':                   grid-units(2.5), // 20px
     '3':                     grid-units(3),   // 24px
   ),
   smaller-negative: (
@@ -50,6 +51,7 @@ $uswds-spacing:(
     '#{$neg-prefix}-1':      grid-units(-1),   // -8px
     '#{$neg-prefix}-105':    grid-units(-1.5), // -12px
     '#{$neg-prefix}-2':      grid-units(-2),   // -16px
+    '#{$neg-prefix}-205':    grid-units(-2.5), // -20px
     '#{$neg-prefix}-3':      grid-units(-3),   // -24px
   ),
   medium: (
