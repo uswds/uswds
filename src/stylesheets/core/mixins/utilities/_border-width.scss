@@ -1,0 +1,14 @@
+// Outputs border-width of $value width
+@mixin border-width($value) {
+  border-width: get-uswds-value(border-width, $value);
+}
+
+@mixin border-x-width($value) {
+  border-left-width: get-uswds-value(border-width, $value);
+  border-right-width: get-uswds-value(border-width, $value);
+}
+
+@mixin border-y-width($value) {
+  border-bottom-width: get-uswds-value(border-width, $value);
+  border-top-width: get-uswds-value(border-width, $value);
+}

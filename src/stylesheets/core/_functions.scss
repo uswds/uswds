@@ -228,8 +228,8 @@ namespace is set to output
 
 @function ns($type) {
   $type: smart-quote($type);
-  @if map-deep-get($uswds-namespace, $type, output) {
-    @return map-deep-get($uswds-namespace, $type, namespace);
+  @if map-deep-get($theme-namespace, $type, output) {
+    @return map-deep-get($theme-namespace, $type, namespace);
   }
   @else {
     @return '';

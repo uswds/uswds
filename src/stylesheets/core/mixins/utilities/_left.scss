@@ -1,0 +1,5 @@
+// Outputs right
+
+@mixin left($value...) {
+  left: get-uswds-value(left, $value...);
+}

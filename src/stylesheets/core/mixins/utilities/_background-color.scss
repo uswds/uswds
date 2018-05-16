@@ -1,0 +1,5 @@
+// Outputs background-color
+
+@mixin bg($value...) {
+  background-color: color($value...);
+}
