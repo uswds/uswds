@@ -8,7 +8,7 @@ const TEMPLATE = fs.readFileSync(__dirname + '/template.html');
 // `aria` prefixed attributes
 const EXPANDED = 'aria-expanded';
 const CONTROLS = 'aria-controls';
-const HIDDEN   = 'hidden';
+const HIDDEN   = 'aria-hidden';
 const MULTISELECTABLE = 'aria-multiselectable';
 
 describe('accordion behavior', function () {
@@ -55,8 +55,8 @@ describe('accordion behavior', function () {
         assert.equal(button.getAttribute(EXPANDED), 'true');
       });
 
-      it('toggles content "hidden" off', function () {
-        assert(content.hasAttribute(HIDDEN) !== true);
+      it('toggles content aria-hidden="false"', function () {
+        assert.equal(content.getAttribute(HIDDEN), 'false');
       });
     });
 
@@ -70,8 +70,8 @@ describe('accordion behavior', function () {
         assert.equal(button.getAttribute(EXPANDED), 'false');
       });
 
-      it('toggles content "hidden" on', function () {
-        assert(content.hasAttribute(HIDDEN));
+      it('toggles content aria-hidden="true"', function () {
+        assert.equal(content.getAttribute(HIDDEN), 'true');
       });
     });
   });
@@ -86,10 +86,10 @@ describe('accordion behavior', function () {
       second.click();
       // first button and section should be collapsed
       assert.equal(button.getAttribute(EXPANDED), 'false');
-      assert(content.hasAttribute(HIDDEN));
+      assert.equal(content.getAttribute(HIDDEN), 'true');
       // second should be expanded
       assert.equal(second.getAttribute(EXPANDED), 'true');
-      assert(target.getAttribute(HIDDEN) !== true);
+      assert.equal(target.getAttribute(HIDDEN), 'false');
     });
 
     it('keeps multiple sections open with aria-multiselectable="true"', function () {
@@ -103,10 +103,10 @@ describe('accordion behavior', function () {
       button.click();
 
       assert.equal(button.getAttribute(EXPANDED), 'true');
-      assert(content.hasAttribute(HIDDEN) !== true);
+      assert.equal(content.getAttribute(HIDDEN), 'false');
       // second should be expanded
       assert.equal(second.getAttribute(EXPANDED), 'true');
-      assert(content.hasAttribute(HIDDEN) !== true);
+      assert.equal(target.getAttribute(HIDDEN), 'false');
     });
 
 
