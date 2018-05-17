@@ -533,7 +533,13 @@ functions and mixins.
   $our-standard-values: map-deep-get($uswds-properties, $property, standard);
   $our-extended-values: map-deep-get($uswds-properties, $property, extended);
   @if map-has-key($our-standard-values, $quoted-value) {
-    @return map-get($our-standard-values, $quoted-value);
+    @if map-get($our-standard-values, $quoted-value) {
+      @return map-get($our-standard-values, $quoted-value);
+    }
+    @else {
+      @warn "`#{$value}` is set as a `false` value for the #{$property} property in your project settings and will not output properly. Set the value of `#{$value}` in project settings.";
+      @return map-get($our-standard-values, $quoted-value);
+    }
   }
   @if map-has-key($our-extended-values, $quoted-value) {
     @warn "`#{$value}` is an extended USWDS `#{$property}` unit. This is OK, but only components built with standard values can be accepted back into the system. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
