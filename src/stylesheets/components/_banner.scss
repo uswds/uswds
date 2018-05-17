@@ -1,163 +1,158 @@
-.usa-banner {
-  background-color: $color-gray-lightest;
-  padding-bottom: 0.7rem;
+$theme-banner-font: sans;
 
-  @include media($small-screen) {
-    font-size: $h6-font-size;
-    padding-bottom: 0;
+.#{ns('component')}banner {
+  @include bg('gray', 'lighter');
+  @include padding-bottom(1);
+  @include at-media('mobile-lg') {
+    @include padding-bottom(0);
+    @include size($theme-banner-font, '3xs')
   }
 }
 
-.usa-banner-content {
+.#{ns('component')}banner-content {
+  @include bg('transparent');
   @include padding-bottom('05');
-  @include padding-x($site-margins-mobile);
-  background-color: transparent;
-  font-size: $h5-font-size;
-  padding-top: 2rem;
-  width: 100%;
-
-  @include media($medium-screen) {
-    padding-bottom: 2.3rem;
-    padding-top: 4rem;
+  @include padding-top(2px);
+  @include padding-x($theme-site-margins-mobile);
+  @include size($theme-banner-font, 4);
+  @include width('full');
+  @include at-media('tablet') {
+    @include padding-bottom(3);
+    @include padding-top(5);
   }
 
-  @include media($nav-width) {
-    @include padding-x($site-margins);
+  @include at-media('desktop') {
+    @include padding-x($theme-site-margins);
   }
 
   p {
     &:first-child {
-      margin-top: 1rem;
-
-      @include media($medium-screen) {
-        margin-top: 0;
+      @include margin-top(105);
+      @include at-media('tablet') {
+        @include margin-top(0);
       }
     }
   }
 }
 
-.usa-banner-inner {
+.#{ns('component')}banner-inner {
+  // TODO: outer-container; grid mixins
   @include outer-container($site-max-width);
-  @include padding-x($site-margins-mobile);
+  @include padding-x($theme-site-margins-mobile);
 
-  @include media($nav-width) {
-    @include padding-x($site-margins);
+  @include at-media('desktop') {
+    @include padding-x($theme-site-margins);
   }
 }
 
-.usa-banner-header {
+.#{ns('component')}banner-header {
   @include padding-y(0.55rem);
-  font-size: 1.2rem;
-  font-weight: $font-normal;
+  @include size($theme-banner-font, 1);
+  @include text('normal');
 
-  @include media($small-screen) {
+  @include at-media('mobile-lg') {
     @include padding-y(0);
   }
 
   p {
     @include margin-y(0);
-    display: inline;
-    overflow: hidden;
-    vertical-align: middle;
+    @include display('inline');
+    @include overflow('hidden');
+    @include vertical-align('middle');
 
-    @include media($small-screen) {
+    @include at-media('mobile-lg') {
       @include margin-y(2px);
-      display: inline-block;
+      @include display('inline-block');
     }
   }
 
   img {
-    float: left;
-    margin-right: 1rem;
-    margin-top: 1px;
-    width: 2.4rem;
-
-    @include media($small-screen) {
-      margin-right: 0.7rem;
-      width: 2rem;
+    @include float('left');
+    @include margin-right(105);
+    @include margin-top(105);
+    @include width(3);
+    @include at-media('mobile-lg') {
+      @include margin-right(1);
+      @include width(205);
     }
   }
 }
 
-.usa-banner-header-expanded {
-  align-items: center;
-  border-bottom: 1px solid $color-gray-light;
-  display: flex;
-  font-size: $h5-font-size;
-  min-height: 5.6rem;
-  padding-right: 3rem;
+.#{ns('component')}banner-header-expanded {
+  @include border-bottom(1px);
+  @include border-color('gray', 'light');
+  @include display('flex');
+  @include flex('align-center');
+  @include minh(7);
+  @include padding-right(4);
+  @include size($theme-banner-font, 4);
 
-  @include media($small-screen) {
-    border-bottom: none;
-    display: block;
-    font-size: 1.2rem;
-    font-weight: $font-normal;
-    min-height: 0;
-    padding-right: 0;
+  @include at-media('mobile-lg') {
+    @include border-bottom(0);
+    @include display('block');
+    @include minh(0);
+    @include padding-right(0);
+    @include size($theme-banner-font, 1);
+    @include text('normal');
   }
 
   > .usa-banner-inner {
-    margin-left: 0;
-
-    @include media($small-screen) {
-      margin-left: auto;
+    @include margin-left(0);
+    @include at-media('mobile-lg') {
+      @include margin-left('auto');
     }
   }
 
   img {
-    margin-right: 2.4rem;
-
-    @include media($small-screen) {
-      margin-right: 0.7rem;
+    @include margin-right(3);
+    @include at-media('mobile-lg') {
+      @include margin-right(1);
     }
   }
 
   p {
-    line-height: $heading-line-height;
-    vertical-align: top;
-
-    @include media($small-screen) {
-      line-height: $base-line-height;
-      vertical-align: middle;
+    @include line-height($theme-banner-font, 2);
+    @include vertical-align('top');
+    @include at-media('mobile-lg') {
+      @include line-height($theme-banner-font, 4);
+      @include vertical-align('middle');
     }
   }
 }
 
-.usa-banner-button {
+.#{ns('component')}banner-button {
   @include button-unstyled;
-  @include padding-top(1.3rem);
-  @include padding-left(4.8rem);
+  @include color('primary');
+  @include display('block');
+  @include height(6);
+  @include left(0);
+  @include padding-top('05');
+  @include padding-left(6);
+  @include position('absolute');
+  @include size($theme-banner-font, 1);
+  @include top(0);
+  @include text('underline');
+  @include width('full');
   background-position-x: right;
-  color: $color-primary;
-  display: block;
-  font-size: 1.2rem;
-  height: 4.3rem;
-  left: 0;
-  position: absolute;
-  text-decoration: underline;
-  top: 0;
-  width: 100%;
 
-  @include media($small-screen) {
+  @include at-media('mobile-lg') {
+    @include display('inline');
+    @include height('auto');
+    @include margin-left('05');
     @include padding-top(0);
     @include padding-left(0);
-    /* stylelint-disable declaration-block-no-ignored-properties */
-    display: inline;
-    height: auto;
-    margin-left: 3px;
-    position: relative;
-    vertical-align: middle;
-    width: auto;
-    /* stylelint-enable */
+    @include position('relative');
+    @include vertical-align('middle');
+    @include width('auto');
   }
 
   &:hover {
-    color: $color-primary-darker;
-    text-decoration: underline;
+    @include color('primary', 'darker');
+    @include text('underline');
   }
 
   &[aria-expanded=false] {
-    @include display-icon(angle-arrow-down-primary, after, 1rem, 0, hover);
+    @include display-icon(angle-arrow-down-primary, after, spacing(105), 0, hover);
     background-image: none;
 
     &::after {
@@ -168,13 +163,13 @@
   &[aria-expanded=true] {
     @include display-icon(close, after, 1.3rem, 0, no-hover);
     background-image: none;
-    height: 5.6rem;
+    @include height(7);
 
-    @include media($small-screen) {
+    @include at-media('mobile-lg') {
       @include display-icon(angle-arrow-up-primary, after, 1rem, 0, hover);
       height: initial;
-      padding: 0;
-      position: relative;
+      @include padding(0);
+      @include position('relative');
 
       &::after {
         background-position-y: 1px;
@@ -182,25 +177,23 @@
     }
 
     &::after {
-      position: absolute;
-      right: 1.5rem;
-      top: 2.15rem;
-
-      @include media($small-screen) {
-        position: static;
+      @include position('absolute');
+      @include right(2);
+      @include top(205);
+      @include at-media('mobile-lg') {
+        @include position('static');
       }
     }
 
-    .usa-banner-button-text {
-      display: none;
-
-      @include media($small-screen) {
-        display: inline;
+    .#{ns('component')}banner-button-text {
+      @include display('none');
+      @include at-media('mobile-lg') {
+        @include display('inline');
       }
     }
   }
 }
 
-.usa-banner-icon {
-  width: 3.8rem;
+.#{ns('component')}banner-icon {
+  @include width(5);
 }
