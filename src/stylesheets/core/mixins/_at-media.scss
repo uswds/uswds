@@ -4,7 +4,9 @@
   $quoted-bp: quote($bp);
   $our-breakpoints: map-deep-get($uswds-properties, breakpoints, standard);
   @if map-has-key($our-breakpoints, $quoted-bp){
-    $bp: grid-to-base-em(map-get($our-breakpoints, $quoted-bp));
+    // for some reason em isn't working??
+    // $bp: grid-to-base-em(map-get($our-breakpoints, $quoted-bp));
+    $bp: rem-to-px(map-get($our-breakpoints, $quoted-bp));
   }
   @else {
     @warn "`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map-keys($our-breakpoints)}";

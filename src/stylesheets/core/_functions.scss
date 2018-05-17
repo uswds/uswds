@@ -277,6 +277,19 @@ Converts a value in px to a value in rem
 
 /*
 ----------------------------------------
+rem-to-px()
+----------------------------------------
+Converts a value in rem to a value in px
+----------------------------------------
+*/
+
+@function rem-to-px($value) {
+  $rem-to-px: strip-unit($value) * $theme-root-font-size;
+  @return $rem-to-px;
+}
+
+/*
+----------------------------------------
 grid-to-base-em()
 ----------------------------------------
 Converts a value in px to a value in em
