@@ -1,0 +1,46 @@
+// Adds padding either l/r(x) or t/b(y)
+
+@mixin padding-n($side, $value...) {
+  @if $side == all {
+    padding: spacing($value...);
+  }
+  @elseif $side == x {
+    padding-left: spacing($value...);
+    padding-right: spacing($value...);
+  }
+  @elseif $side == y {
+    padding-bottom: spacing($value...);
+    padding-top: spacing($value...);
+  }
+  @else {
+    padding-#{$side}: spacing($value...);
+  }
+}
+
+@mixin padding($value...) {
+  @include padding-n(all, $value...);
+}
+
+@mixin padding-x($value...) {
+  @include padding-n(x, $value...);
+}
+
+@mixin padding-y($value...) {
+  @include padding-n(y, $value...);
+}
+
+@mixin padding-top($value...) {
+  @include padding-n(top, $value...);
+}
+
+@mixin padding-right($value...) {
+  @include padding-n(right, $value...);
+}
+
+@mixin padding-bottom($value...) {
+  @include padding-n(bottom, $value...);
+}
+
+@mixin padding-left($value...) {
+  @include padding-n(left, $value...);
+}

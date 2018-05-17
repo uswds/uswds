@@ -4,15 +4,15 @@ $namespace-grid: ns('grid');
 
 // basic container
 .#{$namespace-grid}container {
-  @include u-max-width(desktop);
-  @include u-margin-x(auto);
+  @include maxw(desktop);
+  @include margin-x(auto);
 }
 
 // container with custom widths
 @each $width-key, $width-value in $uswds-breakpoints {
   .#{$namespace-grid}container-#{$width-key} {
-    @include u-max-width($width-key);
-    @include u-margin-x(auto);
+    @include maxw($width-key);
+    @include margin-x(auto);
   }
 }
 
@@ -21,15 +21,15 @@ $namespace-grid: ns('grid');
   @if map-get($theme-output-breakpoints, $mq-key) {
     @include at-media($mq-key){
       .#{$mq-key}\:#{$namespace-grid}container {
-        @include u-max-width(desktop);
-        @include u-margin-x(auto);
+        @include maxw(desktop);
+        @include margin-x(auto);
       }
 
 // ...with custom widths
       @each $width-key, $width-value in $uswds-breakpoints {
         .#{$mq-key}\:#{$namespace-grid}container-#{$width-key} {
-          @include u-max-width($width-key);
-          @include u-margin-x(auto);
+          @include maxw($width-key);
+          @include margin-x(auto);
         }
       }
     }
@@ -38,23 +38,22 @@ $namespace-grid: ns('grid');
 
 // basic row...
 .#{$namespace-grid}row {
-  @include u-display(flex);
-  @include u-flex(wrap);
+  @include display(flex);
+  @include flex(wrap);
 
 // ...that includes column gaps
   &.#{$namespace-grid}gap {
-    @include u-margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap)}"));
+    @include margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap)}"));
     > [class*='#{$namespace-grid}col'] {
-      @include u-padding-x(calc-gap-offset($theme-column-gap));
+      @include padding-x(calc-gap-offset($theme-column-gap));
     }
   }
   @each $gap-key, $gap-val in map-deep-get($uswds-properties, gap, standard){
     @if $gap-key {
-      $gap-key: unquote($gap-key);
       &.#{$namespace-grid}gap-#{$gap-key} {
-        @include u-margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($gap-val)}"));
+        @include margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($gap-val)}"));
         > [class*='#{$namespace-grid}col'] {
-          @include u-padding-x(calc-gap-offset($gap-val));
+          @include padding-x(calc-gap-offset($gap-val));
         }
       }
     }
@@ -65,24 +64,24 @@ $namespace-grid: ns('grid');
     @if map-get($theme-output-breakpoints, $mq-key) {
       @include at-media($mq-key){
         &.#{$mq-key}\:#{$namespace-grid}gap {
-          @include u-margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap)}"));
+          @include margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap)}"));
           > [class*='#{$namespace-grid}col'] {
-            @include u-padding-x(calc-gap-offset($theme-column-gap));
+            @include padding-x(calc-gap-offset($theme-column-gap));
           }
         }
         @if $theme-column-gap-small {
           &.#{$mq-key}\:#{$namespace-grid}gap-sm {
-            @include u-margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap-small)}"));
+            @include margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap-small)}"));
             > [class*='#{$namespace-grid}col'] {
-              @include u-padding-x(calc-gap-offset($theme-column-gap-small));
+              @include padding-x(calc-gap-offset($theme-column-gap-small));
             }
           }
         }
         @if $theme-column-gap-large {
           &.#{$mq-key}\:#{$namespace-grid}gap-lg {
-            @include u-margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap-large)}"));
+            @include margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap-large)}"));
             > [class*='#{$namespace-grid}col'] {
-              @include u-padding-x(calc-gap-offset($theme-column-gap-large));
+              @include padding-x(calc-gap-offset($theme-column-gap-large));
             }
           }
         }
@@ -93,24 +92,24 @@ $namespace-grid: ns('grid');
 
 // basic columns...
 .#{$namespace-grid}col {
-  @include u-flex(fill);
-  @include u-width(auto);
+  @include flex(fill);
+  @include width(auto);
 }
 
 .#{$namespace-grid}col-auto {
-  @include u-flex(auto);
-  @include u-width(auto);
+  @include flex(auto);
+  @include width(auto);
 }
 
 .#{$namespace-grid}col-fill {
-  @include u-flex(fill);
-  @include u-width(auto);
+  @include flex(fill);
+  @include width(auto);
 }
 
 // ...with widths
 @each $width-key, $width-value in $uswds-layout-grid-widths {
   .#{$namespace-grid}col-#{$width-key} {
-    @include u-width(override, $width-value);
+    @include width(override, $width-value);
   }
 }
 
@@ -119,20 +118,20 @@ $namespace-grid: ns('grid');
   @if map-get($theme-output-breakpoints, $mq-key) {
     @include at-media($mq-key){
       .#{$mq-key}\:#{$namespace-grid}col {
-        @include u-width(full);
+        @include width(full);
       }
       .#{$mq-key}\:#{$namespace-grid}col-fill {
-        @include u-flex(fill);
-        @include u-width(auto);
+        @include flex(fill);
+        @include width(auto);
       }
       .#{$mq-key}\:#{$namespace-grid}col-auto {
-        @include u-flex(auto);
-        @include u-width(auto);
+        @include flex(auto);
+        @include width(auto);
       }
 
       @each $width-key, $width-value in $uswds-layout-grid-widths {
         .#{$mq-key}\:#{$namespace-grid}col-#{$width-key} {
-          @include u-width(override, $width-value);
+          @include width(override, $width-value);
         }
       }
     }
@@ -142,7 +141,7 @@ $namespace-grid: ns('grid');
 // basic offsets
 @each $width-key, $width-value in $uswds-layout-grid-widths {
   .#{$namespace-grid}offset-#{$width-key} {
-    @include u-margin-left(override, $width-value);
+    @include margin-left(override, $width-value);
   }
 }
 
@@ -152,7 +151,7 @@ $namespace-grid: ns('grid');
     @each $width-key, $width-value in $uswds-layout-grid-widths {
       @include at-media($mq-key) {
         .#{$mq-key}\:#{$namespace-grid}offset-#{$width-key} {
-          @include u-margin-left(override, $width-value);
+          @include margin-left(override, $width-value);
         }
       }
     }

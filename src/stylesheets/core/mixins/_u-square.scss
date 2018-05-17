@@ -1,5 +1,0 @@
-// Outputs a square
-@mixin u-square($value...) {
-  @include u-height($value...);
-  @include u-width($value...);
-}

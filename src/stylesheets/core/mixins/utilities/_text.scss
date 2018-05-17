@@ -1,0 +1,48 @@
+// Outputs properties based on contents of text()
+
+$text-utililies: (
+  font-style: map-collect(
+    map-deep-get($uswds-properties, font-style, standard),
+    map-deep-get($uswds-properties, font-style, extended)
+  ),
+  font-weight: map-collect(
+    map-deep-get($uswds-properties, font-weight, standard),
+    map-deep-get($uswds-properties, font-weight, extended)
+  ),
+  letter-spacing: map-collect(
+    map-deep-get($uswds-properties, letter-spacing, standard),
+    map-deep-get($uswds-properties, letter-spacing, extended)
+  ),
+  text-align: map-collect(
+    map-deep-get($uswds-properties, text-align, standard),
+    map-deep-get($uswds-properties, text-align, extended)
+  ),
+  text-decoration: map-collect(
+    map-deep-get($uswds-properties, text-decoration, standard),
+    map-deep-get($uswds-properties, text-decoration, extended)
+  ),
+  text-transform: map-collect(
+    map-deep-get($uswds-properties, text-transform, standard),
+    map-deep-get($uswds-properties, text-transform, extended)
+  ),
+  white-space: map-collect(
+    map-deep-get($uswds-properties, white-space, standard),
+    map-deep-get($uswds-properties, white-space, extended)
+  ),
+);
+
+@mixin text($value...) {
+  @each $this-value in $value {
+    $match: false;
+    $this-value: smart-quote($this-value);
+    @each $property, $map in $text-utililies {
+      @if not $match and map-has-key($map, $this-value){
+        #{$property}: get-uswds-value($property, $this-value...);
+        $match: true;
+      }
+    }
+    @if not $match {
+      @error "`#{$this-value}` is not a valid `text` value.";
+    }
+  }
+}

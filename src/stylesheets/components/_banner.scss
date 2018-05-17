@@ -9,7 +9,8 @@
 }
 
 .usa-banner-content {
-  @include padding(null $site-margins-mobile 3px $site-margins-mobile);
+  @include padding-bottom('05');
+  @include padding-x($site-margins-mobile);
   background-color: transparent;
   font-size: $h5-font-size;
   padding-top: 2rem;
@@ -21,7 +22,7 @@
   }
 
   @include media($nav-width) {
-    @include padding(null $site-margins);
+    @include padding-x($site-margins);
   }
 
   p {
@@ -37,30 +38,30 @@
 
 .usa-banner-inner {
   @include outer-container($site-max-width);
-  @include padding(null $site-margins-mobile);
+  @include padding-x($site-margins-mobile);
 
   @include media($nav-width) {
-    @include padding(null $site-margins);
+    @include padding-x($site-margins);
   }
 }
 
 .usa-banner-header {
-  @include padding(0.55rem null);
+  @include padding-y(0.55rem);
   font-size: 1.2rem;
   font-weight: $font-normal;
 
   @include media($small-screen) {
-    @include padding(0 null);
+    @include padding-y(0);
   }
 
   p {
-    @include margin(0 null);
+    @include margin-y(0);
     display: inline;
     overflow: hidden;
     vertical-align: middle;
 
     @include media($small-screen) {
-      @include margin(2px null);
+      @include margin-y(2px);
       display: inline-block;
     }
   }
@@ -124,7 +125,8 @@
 
 .usa-banner-button {
   @include button-unstyled;
-  @include padding(1.3rem null null 4.8rem);
+  @include padding-top(1.3rem);
+  @include padding-left(4.8rem);
   background-position-x: right;
   color: $color-primary;
   display: block;
@@ -137,7 +139,8 @@
   width: 100%;
 
   @include media($small-screen) {
-    @include padding(0 null null 0);
+    @include padding-top(0);
+    @include padding-left(0);
     /* stylelint-disable declaration-block-no-ignored-properties */
     display: inline;
     height: auto;

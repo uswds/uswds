@@ -1,5 +1,0 @@
-// Outputs justify-content
-
-@mixin u-justify-content($value...) {
-  justify-content: get-uswds-value(justify-content, $value...);
-}

@@ -22,6 +22,16 @@ project/_uswds-project-settings
 
 /*
 ----------------------------------------
+Namespace
+----------------------------------------
+*/
+
+$ns-component: ns('component');
+$ns-utility: ns('utility');
+$ns-grid: ns('grid');
+
+/*
+----------------------------------------
 Spacing
 ----------------------------------------
 All spacing values that can be called
@@ -42,35 +52,35 @@ $project-spacing-standard: map-collect(
 );
 
 $spacing-to-token: (
-  '1':              '1px',
-  '2':              '2px',
-  '4':              '05',
-  '8':              '1',
-  '12':             '105',
-  '16':             '2',
-  '24':             '3',
-  '32':             '4',
-  '40':             '5',
-  '48':             '6',
-  '56':             '7',
-  '64':             '8',
-  '72':             '9',
+  1:           1px,
+  2:           2px,
+  4:           '05',
+  8:           1,
+  12:          105,
+  16:          2,
+  24:          3,
+  32:          4,
+  40:          5,
+  48:          6,
+  56:          7,
+  64:          8,
+  72:          9,
 );
 
 $spacing-to-value: (
-  '1px':          1,
-  '2px':          2,
-  '05':          4,
-  '1':           8,
-  '105':         12,
-  '2':           16,
-  '3':           24,
-  '4':           32,
-  '5':           40,
-  '6':           48,
-  '7':           56,
-  '8':           64,
-  '9':           72,
+  1px:         1,
+  2px:         2,
+  '05':        4,
+  1:           8,
+  105:         12,
+  2:           16,
+  3:           24,
+  4:           32,
+  5:           40,
+  6:           48,
+  7:           56,
+  8:           64,
+  9:           72,
 );
 
 /*
@@ -366,7 +376,7 @@ Border-radius
 */
 
 $project-border-radius: (
-  '0':          0,
+  0:          0,
   'sm':         spacing($theme-border-radius-sm),
   'md':         spacing($theme-border-radius-md),
   'lg':         spacing($theme-border-radius-lg),

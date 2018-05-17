@@ -1,9 +1,0 @@
-// Outputs line-height
-
-@mixin u-font-weight($value...) {
-  font-weight: get-uswds-value(font-weight, $value...);
-}
-
-@mixin u-fw($value...) {
-  font-weight: get-uswds-value(font-weight, $value...);
-}

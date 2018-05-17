@@ -86,7 +86,7 @@ input[type=search] { /* stylelint-disable-line selector-no-qualifying-type */
 
 [type=search],
 .usa-search-input {
-  @include padding(0 null);
+  @include padding-y(0);
   border-bottom-right-radius: 0;
   border-right: none;
   border-top-right-radius: 0;

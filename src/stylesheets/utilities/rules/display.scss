@@ -3,20 +3,20 @@
 display
 ----------------------------------------
 usage:
-  .[key]
+  .display-[key]
 ----------------------------------------
 output:
   display: [value]
 ----------------------------------------
 example:
-  .hidden {
+  .display-none {
     display: none; }
 ----------------------------------------
 */
 
 $display: (
   display: (
-    base: null,
+    base: 'display',
     modifiers: null,
     values: map-collect(
       get-plugins($display-plugins),

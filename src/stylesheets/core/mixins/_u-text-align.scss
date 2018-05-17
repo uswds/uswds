@@ -1,5 +1,0 @@
-// Outputs text-align property
-
-@mixin u-text-align($value...) {
-  text-align: get-uswds-value(text-align, $value...);
-}

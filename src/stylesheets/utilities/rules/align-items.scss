@@ -16,7 +16,7 @@ example:
 
 $align-items: (
   align-items: (
-    base: 'flex-align',
+    base: 'flex',
     modifiers: null,
     values: map-collect(
       get-plugins($align-items-plugins),

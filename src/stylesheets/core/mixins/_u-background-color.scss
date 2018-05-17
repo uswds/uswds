@@ -1,5 +1,0 @@
-// Outputs background-color
-
-@mixin u-bg($value...) {
-  background-color: color($value...);
-}
