@@ -11,14 +11,13 @@ $theme-banner-font: sans;
 
 .#{ns('component')}banner-content {
   @include bg('transparent');
-  @include padding-bottom('05');
+  @include padding-bottom(105);
   @include padding-top(2px);
   @include padding-x($theme-site-margins-mobile);
   @include size($theme-banner-font, 4);
   @include width('full');
   @include at-media('tablet') {
-    @include padding-bottom(3);
-    @include padding-top(5);
+    @include padding-y(3);
   }
 
   @include at-media('desktop') {
@@ -27,26 +26,31 @@ $theme-banner-font: sans;
 
   p {
     &:first-child {
-      @include margin-top(105);
-      @include at-media('tablet') {
-        @include margin-top(0);
-      }
+      @include margin(0);
     }
+  }
+}
+
+.#{ns('component')}banner-guidance-gov,
+.#{ns('component')}banner-guidance-ssl {
+  @include padding-top(2);
+  @include at-media('tablet'){
+    @include padding-top(0);
   }
 }
 
 .#{ns('component')}banner-inner {
   // TODO: outer-container; grid mixins
   @include outer-container($site-max-width);
-  @include padding-x($theme-site-margins-mobile);
-
+  @include padding-left($theme-site-margins-mobile);
+  @include padding-right(0);
   @include at-media('desktop') {
     @include padding-x($theme-site-margins);
   }
 }
 
 .#{ns('component')}banner-header {
-  @include padding-y(0.55rem);
+  @include padding-y(1);
   @include size($theme-banner-font, 1);
   @include text('normal');
 
@@ -57,6 +61,7 @@ $theme-banner-font: sans;
   p {
     @include margin-y(0);
     @include display('inline');
+    @include line-height($theme-banner-font, 1);
     @include overflow('hidden');
     @include vertical-align('middle');
 
@@ -68,11 +73,12 @@ $theme-banner-font: sans;
 
   img {
     @include float('left');
-    @include margin-right(105);
-    @include margin-top(105);
-    @include width(3);
+    @include margin-right(1);
+    @include padding-top('05');
+    @include width(2);
     @include at-media('mobile-lg') {
       @include margin-right(1);
+      @include padding-top(0);
       @include width(205);
     }
   }
@@ -127,7 +133,7 @@ $theme-banner-font: sans;
   @include height(6);
   @include left(0);
   @include padding-top('05');
-  @include padding-left(6);
+  @include padding-left(5);
   @include position('absolute');
   @include size($theme-banner-font, 1);
   @include top(0);
@@ -152,7 +158,7 @@ $theme-banner-font: sans;
   }
 
   &[aria-expanded=false] {
-    @include display-icon(angle-arrow-down-primary, after, spacing(105), 0, hover);
+    @include display-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
     background-image: none;
 
     &::after {
@@ -161,12 +167,12 @@ $theme-banner-font: sans;
   }
 
   &[aria-expanded=true] {
-    @include display-icon(close, after, 1.3rem, 0, no-hover);
+    @include display-icon(close, after, spacing(105), 0, no-hover);
     background-image: none;
     @include height(7);
 
     @include at-media('mobile-lg') {
-      @include display-icon(angle-arrow-up-primary, after, 1rem, 0, hover);
+      @include display-icon(angle-arrow-up-primary, after, spacing(1), 0, hover);
       height: initial;
       @include padding(0);
       @include position('relative');
