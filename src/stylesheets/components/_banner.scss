@@ -2,7 +2,6 @@ $theme-banner-font: sans;
 
 .#{ns('component')}banner {
   @include bg('gray', 'lighter');
-  @include padding-bottom(1);
   @include at-media('mobile-lg') {
     @include padding-bottom(0);
     @include size($theme-banner-font, '3xs')
@@ -41,9 +40,11 @@ $theme-banner-font: sans;
 
 .#{ns('component')}banner-inner {
   // TODO: outer-container; grid mixins
+  @include flex('align-start');
   @include outer-container($site-max-width);
   @include padding-left($theme-site-margins-mobile);
   @include padding-right(0);
+  @include padding-x(1);
   @include at-media('desktop') {
     @include padding-x($theme-site-margins);
   }
@@ -53,28 +54,35 @@ $theme-banner-font: sans;
   @include padding-y(1);
   @include size($theme-banner-font, 1);
   @include text('normal');
-
   @include at-media('mobile-lg') {
     @include padding-y(0);
   }
 
-  p {
+  &-text{
+    @include line-height($theme-banner-font, 2);
     @include margin-y(0);
-    @include display('inline');
-    @include line-height($theme-banner-font, 1);
-    @include overflow('hidden');
-    @include vertical-align('middle');
+    @include size($theme-banner-font, '3xs');
+  }
 
-    @include at-media('mobile-lg') {
-      @include margin-y(2px);
-      @include display('inline-block');
+  &-action{
+    @include display-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
+    @include line-height($theme-banner-font, 2)
+    @include margin-bottom(0);
+    @include margin-top(2px);
+    @include color('primary');
+
+    .#{ns('component')}banner-header-expanded & {
+      @include display-icon(close, after, spacing(105), 0, no-hover);
+    }
+
+    &:after {
+      @include margin-left('05');
     }
   }
 
-  img {
+  &-flag{
     @include float('left');
     @include margin-right(1);
-    @include padding-top('05');
     @include width(2);
     @include at-media('mobile-lg') {
       @include margin-right(1);
@@ -158,7 +166,6 @@ $theme-banner-font: sans;
   }
 
   &[aria-expanded=false] {
-    @include display-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
     background-image: none;
 
     &::after {
@@ -167,7 +174,6 @@ $theme-banner-font: sans;
   }
 
   &[aria-expanded=true] {
-    @include display-icon(close, after, spacing(105), 0, no-hover);
     background-image: none;
     @include height(7);
 
