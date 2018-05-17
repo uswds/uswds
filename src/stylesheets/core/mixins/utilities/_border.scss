@@ -1,7 +1,8 @@
 // Outputs a solid border of $value width
 @mixin border-n($side, $value...) {
+  $value: nth($value, 1);
   $our-value: null;
-  @if length(nth($value, 1)) == 0 {
+  @if length($value) == 0 {
     $our-value: 1px;
   }
   @else {
