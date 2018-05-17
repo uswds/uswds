@@ -38,8 +38,3 @@ $flex-utililies: (
     }
   }
 }
-
-.foo {
-  @include display('flex');
-  @include u-flex('auto', 'row', 'justify-center', align-center);
-}
