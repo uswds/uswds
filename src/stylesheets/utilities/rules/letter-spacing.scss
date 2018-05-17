@@ -3,20 +3,20 @@
 letter-spacing
 ----------------------------------------
 usage:
-  .ls-[key]
+  .text-ls-[key]
 ----------------------------------------
 output:
   letter-spacing: [value];
 ----------------------------------------
 example:
-  .ls-2 {
+  .text-ls-2 {
     letter-spacing: .1em; }
 ----------------------------------------
 */
 
 $letter-spacing: (
   letter-spacing: (
-    base: null,
+    base: 'text',
     modifiers: null,
     values: map-collect(
       get-plugins($letter-spacing-plugins),

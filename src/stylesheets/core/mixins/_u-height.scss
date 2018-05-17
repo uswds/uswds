@@ -1,5 +1,0 @@
-// Outputs height
-
-@mixin u-height($value...) {
-  height: get-uswds-value(height, $value...);
-}

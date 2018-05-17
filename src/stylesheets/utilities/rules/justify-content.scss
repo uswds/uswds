@@ -18,7 +18,7 @@ example:
 
 $justify-content: (
   justify-content: (
-    base: 'flex-justify',
+    base: 'flex',
     modifiers: null,
     values: map-collect(
       get-plugins($justify-content-plugins),

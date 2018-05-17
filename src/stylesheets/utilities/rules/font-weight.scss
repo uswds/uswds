@@ -3,20 +3,20 @@
 font-weight
 ----------------------------------------
 usage:
-  .font-[key]
+  .text-[key]
 ----------------------------------------
 output:
   font-weight: [value];
 ----------------------------------------
 example:
-  .font-300 {
+  .text-300 {
     font-weight: 300; }
 ----------------------------------------
 */
 
 $font-weight: (
   font-weight: (
-    base: 'fw',
+    base: 'text',
     modifiers: null,
     values: map-collect(
       get-plugins($font-weight-plugins),

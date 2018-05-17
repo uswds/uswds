@@ -3,13 +3,13 @@
 font-family
 ----------------------------------------
 usage:
-  .[key]
+  .family-[key]
 ----------------------------------------
 output:
   font-family: [value]
 ----------------------------------------
 example:
-  .sans {
+  .family-sans {
     font-family: 'United Sans webfont',
                 system,
                 -apple-system,
@@ -24,7 +24,7 @@ example:
 
 $font-family: (
   font-family: (
-    base: null,
+    base: 'family',
     modifiers: null,
     values: map-collect(
       get-plugins($font-family-plugins),

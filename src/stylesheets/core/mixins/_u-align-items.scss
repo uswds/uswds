@@ -1,5 +1,0 @@
-// Outputs align-items
-
-@mixin u-align-items($value) {
-  align-items: get-uswds-value(align-items, $value);
-}

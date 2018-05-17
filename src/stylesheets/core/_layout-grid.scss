@@ -50,7 +50,6 @@ $namespace-grid: ns('grid');
   }
   @each $gap-key, $gap-val in map-deep-get($uswds-properties, gap, standard){
     @if $gap-key {
-      $gap-key: unquote($gap-key);
       &.#{$namespace-grid}gap-#{$gap-key} {
         @include margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($gap-val)}"));
         > [class*='#{$namespace-grid}col'] {

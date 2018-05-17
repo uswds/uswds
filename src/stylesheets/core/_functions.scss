@@ -102,11 +102,16 @@ Leaves bools as is
 */
 
 @function smart-quote($value) {
-  @if type-of($value) == 'number' {
-    @return inspect($value);
-  }
-  @elseif type-of($value) == 'string' or type-of($value) == 'color'{
+  @if type-of($value) == 'string' or type-of($value) == 'color'{
     @return quote($value);
+  }
+  @if type-of($value) == 'number' {
+    @if unit($value) == 'xl' or unit($value) == 'xs' {
+      @return inspect($value);
+    }
+    @else {
+      @return $value;
+    }
   }
   @else {
     @return $value;
@@ -478,15 +483,9 @@ grid.
 */
 
 @function calc-gap-offset($gap-size) {
-  $quote: $gap-size;
-  @if type-of($gap-size) == "number" {
-    $quote: smart-quote($gap-size);
-  }
-  @else {
-    $quote: quote($gap-size);
-  }
-  @if map-has-key($spacing-to-value, $quote) {
-    $numeric-eq: map-get($spacing-to-value, $quote);
+  $gap-size: smart-quote($gap-size);
+  @if map-has-key($spacing-to-value, $gap-size) {
+    $numeric-eq: map-get($spacing-to-value, $gap-size);
     $numeric-eq-half: smart-quote($numeric-eq / 2);
     @if map-has-key($spacing-to-token, $numeric-eq-half){
       @return map-get($spacing-to-token, $numeric-eq-half);
@@ -832,18 +831,12 @@ the desired final units (currently rem)
 */
 
 @function spacing($value) {
-  $quote: $value;
-  @if type-of($value) == 'number' {
-    $quote: smart-quote($value);
-  }
-  @elseif type-of($value) == 'string' {
-    $quote: quote($value);
-  }
-  @if map-has-key($project-spacing-standard, $quote) {
-    @if map-get($project-spacing-standard, $quote) == false {
+  $value: smart-quote($value);
+  @if map-has-key($project-spacing-standard, $value) {
+    @if map-get($project-spacing-standard, $value) == false {
       @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
     }
-    @return map-get($project-spacing-standard, $quote);
+    @return map-get($project-spacing-standard, $value);
   }
   @elseif $value == false {
     @return false;
