@@ -683,7 +683,7 @@ based on on props passed
       @error "Font size requires a valid FAMILY and SIZE in the form `font('family', 'FAMILY', 'SIZE')`";
     }
     $our-family: smart-quote(nth($props, 2));
-    $our-scale: smart-quote(inspect(nth($props, 3)));
+    $our-scale: smart-quote(smart-quote(nth($props, 3)));
     @if not map-has-key($project-cap-heights, $our-family) {
       @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
     }
