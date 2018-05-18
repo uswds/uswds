@@ -126,7 +126,6 @@ $theme-banner-font: sans;
     @include at-media('tablet') {
       @include margin-right(1);
       @include padding-top(0);
-      @include width(205);
     }
 
     .#{ns('component')}banner-header-expanded & {
