@@ -175,6 +175,7 @@ $theme-banner-font: sans;
     @include padding-top(0);
     @include padding-left(0);
     @include position('relative');
+    @include text(underline);
     @include vertical-align('middle');
     @include width(auto);
     @include display-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
