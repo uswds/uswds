@@ -26,10 +26,8 @@ $theme-banner-font: sans;
       @include padding-x($theme-site-margins);
     }
 
-    p {
-      &:first-child {
-        @include margin(0);
-      }
+    p:first-child {
+      @include margin(0);
     }
   }
 }
@@ -101,7 +99,7 @@ $theme-banner-font: sans;
   }
 
   &-action{
-    @include display-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
+    @include add-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
     @include line-height($theme-banner-font, 2);
     @include margin-bottom(0);
     @include margin-top(2px);
@@ -160,24 +158,24 @@ $theme-banner-font: sans;
   @include button-unstyled;
   @include bottom(0);
   @include color('primary');
-  @include display('block');
+  @include display(block);
   @include left(0);
-  @include position('absolute');
+  @include position(absolute);
   @include size($theme-banner-font, 1);
   @include top(0);
   @include width('full');
   @include at-media('tablet') {
-    @include display('inline');
-    @include height('auto');
+    @include add-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
+    @include display(inline);
+    @include height(auto);
     @include line-height($theme-banner-font, 2);
     @include margin-left(1);
     @include padding-top(0);
     @include padding-left(0);
-    @include position('relative');
+    @include position(relative);
     @include text(underline);
-    @include vertical-align('middle');
+    @include vertical-align(middle);
     @include width(auto);
-    @include display-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
 
     &::after {
       @include margin-left('05');
@@ -194,10 +192,10 @@ $theme-banner-font: sans;
   }
 
   &[aria-expanded=true] {
-    @include display-icon(close, after, spacing(105), 0, no-hover);
+    @include add-icon(close, after, spacing(105), 0, no-hover);
     background-image: none;
     @include at-media('tablet') {
-      @include display-icon(angle-arrow-up-primary, after, spacing(1), 0, hover);
+      @include add-icon(angle-arrow-up-primary, after, spacing(1), 0, hover);
       @include height(auto);
       @include padding(0);
       @include position(relative);
@@ -210,7 +208,7 @@ $theme-banner-font: sans;
       @include position(absolute);
       @include right(2);
       @include top(105);
-      @include at-media(tablet) {
+      @include at-media('tablet') {
         @include position(static);
       }
     }
@@ -220,9 +218,9 @@ $theme-banner-font: sans;
 .#{ns('component')}banner-button-text {
   @include add-sr-only;
   @include display(none);
-  @include at-media(tablet) {
+  @include at-media('tablet') {
     @include add-no-sr-only;
-    @include display(inline);
+    @include display('inline');
   }
 }
 
