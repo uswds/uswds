@@ -1,31 +1,35 @@
 $theme-banner-font: sans;
 
-.#{ns('component')}banner {
-  @include bg('gray', 'lighter');
-  @include at-media('mobile-lg') {
-    @include padding-bottom(0);
-    @include size($theme-banner-font, '3xs')
+.#{ns('component')}{
+  &banner {
+    @include bg('gray', 'lighter');
+    @include at-media('tablet') {
+      @include padding-bottom(0);
+      @include size($theme-banner-font, '3xs')
+    }
   }
 }
 
-.#{ns('component')}banner-content {
-  @include bg('transparent');
-  @include padding-bottom(105);
-  @include padding-top(2px);
-  @include padding-x(1);
-  @include size($theme-banner-font, 3);
-  @include width('full');
-  @include at-media('tablet') {
-    @include padding-y(3);
-  }
+.#{ns('component')}{
+  &banner-content {
+    @include bg('transparent');
+    @include padding-bottom(105);
+    @include padding-top(2px);
+    @include padding-x(1);
+    @include size($theme-banner-font, 3);
+    @include width('full');
+    @include at-media('tablet') {
+      @include padding-y(3);
+    }
 
-  @include at-media('desktop') {
-    @include padding-x($theme-site-margins);
-  }
+    @include at-media('desktop') {
+      @include padding-x($theme-site-margins);
+    }
 
-  p {
-    &:first-child {
-      @include margin(0);
+    p {
+      &:first-child {
+        @include margin(0);
+      }
     }
   }
 }
@@ -51,6 +55,9 @@ $theme-banner-font: sans;
   @include padding-left($theme-site-margins-mobile);
   @include padding-right(0);
   @include padding-x(1);
+  @include at-media('tablet') {
+    @include flex('align-center');
+  }
   @include at-media('desktop') {
     @include padding-x($theme-site-margins);
   }
@@ -61,8 +68,8 @@ $theme-banner-font: sans;
   @include position('relative');
   @include size($theme-banner-font, 1);
   @include text('normal');
-  @include at-media('mobile-lg') {
-    @include padding-y(0);
+  @include at-media('tablet') {
+    @include padding-y('05');
   }
 
   &-close-text{
@@ -75,6 +82,9 @@ $theme-banner-font: sans;
 
     .#{ns('component')}banner-header-expanded & {
       @include display('block');
+      @include at-media('tablet'){
+        @include display('none');
+      }
     }
   }
 
@@ -82,9 +92,11 @@ $theme-banner-font: sans;
     @include line-height($theme-banner-font, 2);
     @include margin-y(0);
     @include size($theme-banner-font, '3xs');
-
     .#{ns('component')}banner-header-expanded & {
       @include display('none');
+      @include at-media('tablet'){
+        @include display('block');
+      }
     }
   }
 
@@ -94,6 +106,9 @@ $theme-banner-font: sans;
     @include margin-bottom(0);
     @include margin-top(2px);
     @include color('primary');
+    @include at-media('tablet') {
+      @include display('none');
+    }
 
     .#{ns('component')}banner-header-expanded & {
       @include display('none');
@@ -108,7 +123,7 @@ $theme-banner-font: sans;
     @include float('left');
     @include margin-right(1);
     @include width(2);
-    @include at-media('mobile-lg') {
+    @include at-media('tablet') {
       @include margin-right(1);
       @include padding-top(0);
       @include width(205);
@@ -116,13 +131,16 @@ $theme-banner-font: sans;
 
     .#{ns('component')}banner-header-expanded & {
       @include display('none');
+      @include at-media('tablet'){
+        @include display('block');
+      }
     }
   }
 }
 
 .#{ns('component')}banner-header-expanded {
   @include minh(4);
-  @include at-media('mobile-lg') {
+  @include at-media('tablet') {
     @include border-bottom(0);
     @include display('block');
     @include minh(0);
@@ -133,24 +151,8 @@ $theme-banner-font: sans;
 
   > .usa-banner-inner {
     @include margin-left(0);
-    @include at-media('mobile-lg') {
+    @include at-media('tablet') {
       @include margin-left('auto');
-    }
-  }
-
-  img {
-    @include margin-right(3);
-    @include at-media('mobile-lg') {
-      @include margin-right(1);
-    }
-  }
-
-  p {
-    @include line-height($theme-banner-font, 2);
-    @include vertical-align('top');
-    @include at-media('mobile-lg') {
-      @include line-height($theme-banner-font, 4);
-      @include vertical-align('middle');
     }
   }
 }
@@ -165,20 +167,25 @@ $theme-banner-font: sans;
   @include size($theme-banner-font, 1);
   @include top(0);
   @include width('full');
-  @include at-media('mobile-lg') {
+  @include at-media('tablet') {
     @include display('inline');
     @include height('auto');
-    @include margin-left('05');
+    @include margin-left(1);
     @include padding-top(0);
     @include padding-left(0);
     @include position('relative');
     @include vertical-align('middle');
     @include width('auto');
-  }
+    @include display-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
 
-  &:hover {
-    @include color('primary', 'darker');
-    @include text('underline');
+    &::after {
+      @include margin-left('05');
+    }
+
+    &:hover {
+      @include color('primary', 'darker');
+      @include text('underline');
+    }
   }
 
   &[aria-expanded=false] {
@@ -195,7 +202,7 @@ $theme-banner-font: sans;
       @include position('relative');
 
       &::after {
-        background-position-y: 1px;
+        @include margin-left('05');
       }
     }
 
@@ -207,13 +214,15 @@ $theme-banner-font: sans;
         @include position('static');
       }
     }
+  }
+}
 
-    .#{ns('component')}banner-button-text {
-      @include display('none');
-      @include at-media('tablet') {
-        @include display('inline');
-      }
-    }
+.#{ns('component')}banner-button-text {
+  @include add-sr-only;
+  @include display('none');
+  @include at-media('tablet') {
+    @include add-no-sr-only;
+    @include display('inline');
   }
 }
 
