@@ -12,8 +12,8 @@ $theme-banner-font: sans;
   @include bg('transparent');
   @include padding-bottom(105);
   @include padding-top(2px);
-  @include padding-x($theme-site-margins-mobile);
-  @include size($theme-banner-font, 4);
+  @include padding-x(1);
+  @include size($theme-banner-font, 3);
   @include width('full');
   @include at-media('tablet') {
     @include padding-y(3);
@@ -30,7 +30,13 @@ $theme-banner-font: sans;
   }
 }
 
-.#{ns('component')}banner-guidance-gov,
+.#{ns('component')}banner-guidance-gov {
+  @include padding-top(2);
+  @include at-media('tablet'){
+    @include padding-top(0);
+  }
+}
+
 .#{ns('component')}banner-guidance-ssl {
   @include padding-top(2);
   @include at-media('tablet'){
@@ -52,6 +58,7 @@ $theme-banner-font: sans;
 
 .#{ns('component')}banner-header {
   @include padding-y(1);
+  @include position('relative');
   @include size($theme-banner-font, 1);
   @include text('normal');
   @include at-media('mobile-lg') {
@@ -62,6 +69,10 @@ $theme-banner-font: sans;
     @include line-height($theme-banner-font, 2);
     @include margin-y(0);
     @include size($theme-banner-font, '3xs');
+
+    .#{ns('component')}banner-header-expanded & {
+      @include display('none');
+    }
   }
 
   &-action{
@@ -72,7 +83,7 @@ $theme-banner-font: sans;
     @include color('primary');
 
     .#{ns('component')}banner-header-expanded & {
-      @include display-icon(close, after, spacing(105), 0, no-hover);
+      @include display('none');
     }
 
     &:after {
@@ -90,17 +101,13 @@ $theme-banner-font: sans;
       @include width(205);
     }
   }
+
+  .#{ns('component')}banner-header-expanded & {
+    @include display('none');
+  }
 }
 
 .#{ns('component')}banner-header-expanded {
-  @include border-bottom(1px);
-  @include border-color('gray', 'light');
-  @include display('flex');
-  @include flex('align-center');
-  @include minh(7);
-  @include padding-right(4);
-  @include size($theme-banner-font, 4);
-
   @include at-media('mobile-lg') {
     @include border-bottom(0);
     @include display('block');
@@ -136,19 +143,14 @@ $theme-banner-font: sans;
 
 .#{ns('component')}banner-button {
   @include button-unstyled;
+  @include bottom(0);
   @include color('primary');
   @include display('block');
-  @include height(6);
   @include left(0);
-  @include padding-top('05');
-  @include padding-left(5);
   @include position('absolute');
   @include size($theme-banner-font, 1);
   @include top(0);
-  @include text('underline');
   @include width('full');
-  background-position-x: right;
-
   @include at-media('mobile-lg') {
     @include display('inline');
     @include height('auto');
@@ -167,17 +169,12 @@ $theme-banner-font: sans;
 
   &[aria-expanded=false] {
     background-image: none;
-
-    &::after {
-      background-position-y: 1px;
-    }
   }
 
   &[aria-expanded=true] {
+    @include display-icon(close, after, spacing(105), 0, no-hover);
     background-image: none;
-    @include height(7);
-
-    @include at-media('mobile-lg') {
+    @include at-media('tablet') {
       @include display-icon(angle-arrow-up-primary, after, spacing(1), 0, hover);
       height: initial;
       @include padding(0);
@@ -191,15 +188,15 @@ $theme-banner-font: sans;
     &::after {
       @include position('absolute');
       @include right(2);
-      @include top(205);
-      @include at-media('mobile-lg') {
+      @include top(105);
+      @include at-media('tablet') {
         @include position('static');
       }
     }
 
     .#{ns('component')}banner-button-text {
       @include display('none');
-      @include at-media('mobile-lg') {
+      @include at-media('tablet') {
         @include display('inline');
       }
     }
