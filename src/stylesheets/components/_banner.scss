@@ -102,7 +102,7 @@ $theme-banner-font: sans;
 
   &-action{
     @include display-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
-    @include line-height($theme-banner-font, 2)
+    @include line-height($theme-banner-font, 2);
     @include margin-bottom(0);
     @include margin-top(2px);
     @include color('primary');
@@ -149,7 +149,7 @@ $theme-banner-font: sans;
     @include text('normal');
   }
 
-  > .usa-banner-inner {
+  > .#{ns('component')}banner-inner {
     @include margin-left(0);
     @include at-media('tablet') {
       @include margin-left('auto');
@@ -170,12 +170,13 @@ $theme-banner-font: sans;
   @include at-media('tablet') {
     @include display('inline');
     @include height('auto');
+    @include line-height($theme-banner-font, 2);
     @include margin-left(1);
     @include padding-top(0);
     @include padding-left(0);
     @include position('relative');
     @include vertical-align('middle');
-    @include width('auto');
+    @include width(auto);
     @include display-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
 
     &::after {
@@ -183,8 +184,8 @@ $theme-banner-font: sans;
     }
 
     &:hover {
-      @include color('primary', 'darker');
-      @include text('underline');
+      @include color(primary, darker);
+      @include text(underline);
     }
   }
 
@@ -197,21 +198,20 @@ $theme-banner-font: sans;
     background-image: none;
     @include at-media('tablet') {
       @include display-icon(angle-arrow-up-primary, after, spacing(1), 0, hover);
-      height: initial;
+      @include height(auto);
       @include padding(0);
-      @include position('relative');
-
+      @include position(relative);
       &::after {
         @include margin-left('05');
       }
     }
 
     &::after {
-      @include position('absolute');
+      @include position(absolute);
       @include right(2);
       @include top(105);
-      @include at-media('tablet') {
-        @include position('static');
+      @include at-media(tablet) {
+        @include position(static);
       }
     }
   }
@@ -219,10 +219,10 @@ $theme-banner-font: sans;
 
 .#{ns('component')}banner-button-text {
   @include add-sr-only;
-  @include display('none');
-  @include at-media('tablet') {
+  @include display(none);
+  @include at-media(tablet) {
     @include add-no-sr-only;
-    @include display('inline');
+    @include display(inline);
   }
 }
 
