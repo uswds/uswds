@@ -65,6 +65,19 @@ $theme-banner-font: sans;
     @include padding-y(0);
   }
 
+  &-close-text{
+    @include color('gray', 'dark')
+    @include display('none');
+    @include line-height($theme-banner-font, 2);
+    @include margin-y(0);
+    @include padding-top('05');
+    @include size($theme-banner-font, '3xs');
+
+    .#{ns('component')}banner-header-expanded & {
+      @include display('block');
+    }
+  }
+
   &-text{
     @include line-height($theme-banner-font, 2);
     @include margin-y(0);
@@ -100,14 +113,15 @@ $theme-banner-font: sans;
       @include padding-top(0);
       @include width(205);
     }
-  }
 
-  .#{ns('component')}banner-header-expanded & {
-    @include display('none');
+    .#{ns('component')}banner-header-expanded & {
+      @include display('none');
+    }
   }
 }
 
 .#{ns('component')}banner-header-expanded {
+  @include minh(4);
   @include at-media('mobile-lg') {
     @include border-bottom(0);
     @include display('block');
