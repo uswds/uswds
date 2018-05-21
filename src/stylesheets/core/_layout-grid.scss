@@ -110,6 +110,7 @@ $namespace-grid: ns('grid');
 @each $width-key, $width-value in $uswds-layout-grid-widths {
   .#{$namespace-grid}col-#{$width-key} {
     @include width(override, $width-value);
+    @include flex(auto);
   }
 }
 
@@ -132,6 +133,7 @@ $namespace-grid: ns('grid');
       @each $width-key, $width-value in $uswds-layout-grid-widths {
         .#{$mq-key}\:#{$namespace-grid}col-#{$width-key} {
           @include width(override, $width-value);
+          @include flex(auto);
         }
       }
     }
