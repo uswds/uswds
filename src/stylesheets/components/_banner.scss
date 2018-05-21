@@ -238,7 +238,6 @@ $theme-banner-font: sans;
 
 .#{ns('component')}banner-button-text {
   @include add-sr-only;
-  @include display(none);
 
   @include at-media('tablet') {
     @include add-no-sr-only;
