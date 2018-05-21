@@ -4,15 +4,13 @@ $namespace-grid: ns('grid');
 
 // basic container
 .#{$namespace-grid}container {
-  @include maxw(desktop);
-  @include margin-x(auto);
+  @include grid-container;
 }
 
 // container with custom widths
 @each $width-key, $width-value in $uswds-breakpoints {
   .#{$namespace-grid}container-#{$width-key} {
-    @include maxw($width-key);
-    @include margin-x(auto);
+    @include grid-container($width-key);
   }
 }
 
@@ -21,15 +19,13 @@ $namespace-grid: ns('grid');
   @if map-get($theme-output-breakpoints, $mq-key) {
     @include at-media($mq-key){
       .#{$mq-key}\:#{$namespace-grid}container {
-        @include maxw(desktop);
-        @include margin-x(auto);
+        @include grid-container;
       }
 
 // ...with custom widths
       @each $width-key, $width-value in $uswds-breakpoints {
         .#{$mq-key}\:#{$namespace-grid}container-#{$width-key} {
-          @include maxw($width-key);
-          @include margin-x(auto);
+          @include grid-container($width-key);
         }
       }
     }
@@ -38,23 +34,16 @@ $namespace-grid: ns('grid');
 
 // basic row...
 .#{$namespace-grid}row {
-  @include display(flex);
-  @include flex(wrap);
+  @include grid-row;
 
 // ...that includes column gaps
   &.#{$namespace-grid}gap {
-    @include margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap)}"));
-    > [class*='#{$namespace-grid}col'] {
-      @include padding-x(calc-gap-offset($theme-column-gap));
-    }
+    @include grid-gap;
   }
   @each $gap-key, $gap-val in map-deep-get($uswds-properties, gap, standard){
     @if $gap-key {
       &.#{$namespace-grid}gap-#{$gap-key} {
-        @include margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($gap-val)}"));
-        > [class*='#{$namespace-grid}col'] {
-          @include padding-x(calc-gap-offset($gap-val));
-        }
+        @include grid-gap($gap-key);
       }
     }
   }
@@ -64,25 +53,16 @@ $namespace-grid: ns('grid');
     @if map-get($theme-output-breakpoints, $mq-key) {
       @include at-media($mq-key){
         &.#{$mq-key}\:#{$namespace-grid}gap {
-          @include margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap)}"));
-          > [class*='#{$namespace-grid}col'] {
-            @include padding-x(calc-gap-offset($theme-column-gap));
-          }
+          @include grid-gap;
         }
         @if $theme-column-gap-small {
           &.#{$mq-key}\:#{$namespace-grid}gap-sm {
-            @include margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap-small)}"));
-            > [class*='#{$namespace-grid}col'] {
-              @include padding-x(calc-gap-offset($theme-column-gap-small));
-            }
+            @include grid-gap('sm');
           }
         }
         @if $theme-column-gap-large {
           &.#{$mq-key}\:#{$namespace-grid}gap-lg {
-            @include margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($theme-column-gap-large)}"));
-            > [class*='#{$namespace-grid}col'] {
-              @include padding-x(calc-gap-offset($theme-column-gap-large));
-            }
+            @include grid-gap('lg');
           }
         }
       }
@@ -92,25 +72,21 @@ $namespace-grid: ns('grid');
 
 // basic columns...
 .#{$namespace-grid}col {
-  @include flex(fill);
-  @include width(auto);
+  @include grid-col;
 }
 
 .#{$namespace-grid}col-auto {
-  @include flex(auto);
-  @include width(auto);
+  @include grid-col('auto');
 }
 
 .#{$namespace-grid}col-fill {
-  @include flex(fill);
-  @include width(auto);
+  @include grid-col('fill');
 }
 
 // ...with widths
 @each $width-key, $width-value in $uswds-layout-grid-widths {
   .#{$namespace-grid}col-#{$width-key} {
-    @include width(override, $width-value);
-    @include flex(auto);
+    @include grid-col($width-key);
   }
 }
 
@@ -119,21 +95,18 @@ $namespace-grid: ns('grid');
   @if map-get($theme-output-breakpoints, $mq-key) {
     @include at-media($mq-key){
       .#{$mq-key}\:#{$namespace-grid}col {
-        @include width(full);
+        @include grid-col;
       }
       .#{$mq-key}\:#{$namespace-grid}col-fill {
-        @include flex(fill);
-        @include width(auto);
+        @include grid-col('fill');
       }
       .#{$mq-key}\:#{$namespace-grid}col-auto {
-        @include flex(auto);
-        @include width(auto);
+        @include grid-col('auto');
       }
 
       @each $width-key, $width-value in $uswds-layout-grid-widths {
         .#{$mq-key}\:#{$namespace-grid}col-#{$width-key} {
-          @include width(override, $width-value);
-          @include flex(auto);
+          @include grid-col($width-key);
         }
       }
     }
@@ -143,7 +116,7 @@ $namespace-grid: ns('grid');
 // basic offsets
 @each $width-key, $width-value in $uswds-layout-grid-widths {
   .#{$namespace-grid}offset-#{$width-key} {
-    @include margin-left(override, $width-value);
+    @include grid-offset($width-key);
   }
 }
 
@@ -153,7 +126,7 @@ $namespace-grid: ns('grid');
     @each $width-key, $width-value in $uswds-layout-grid-widths {
       @include at-media($mq-key) {
         .#{$mq-key}\:#{$namespace-grid}offset-#{$width-key} {
-          @include margin-left(override, $width-value);
+          @include grid-offset($width-key);
         }
       }
     }

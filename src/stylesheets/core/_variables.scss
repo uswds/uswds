@@ -52,6 +52,7 @@ $project-spacing-standard: map-collect(
 );
 
 $spacing-to-token: (
+  0:           0,
   1:           1px,
   2:           2px,
   4:           '05',
@@ -68,7 +69,7 @@ $spacing-to-token: (
 );
 
 $spacing-to-value: (
-  1px:         1,
+  0:           0,
   2px:         2,
   '05':        4,
   1:           8,
@@ -387,6 +388,18 @@ $all-border-radius: map-collect(
   $project-border-radius,
   map-get($uswds-spacing, smaller),
   map-get($uswds-spacing, small)
+);
+
+/*
+----------------------------------------
+Column gaps
+----------------------------------------
+*/
+
+$project-column-gaps: (
+  'sm': $theme-column-gap-small,
+  'md': $theme-column-gap,
+  'lg': $theme-column-gap-large,
 );
 
 /*
