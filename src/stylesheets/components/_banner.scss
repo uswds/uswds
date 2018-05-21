@@ -14,6 +14,7 @@ $theme-banner-font: sans;
 .#{ns('component')} {
   &banner-content {
     @include bg('transparent');
+    @include outer-container($site-max-width);
     @include padding-bottom(105);
     @include padding-top(2px);
     @include padding-x(1);
@@ -51,7 +52,7 @@ $theme-banner-font: sans;
 }
 
 .#{ns('component')}banner-inner {
-  // TODO: outer-container; grid mixins
+  @include grid-row;
   @include flex('align-start');
   @include outer-container($site-max-width);
   @include padding-left($theme-site-margins-mobile);
