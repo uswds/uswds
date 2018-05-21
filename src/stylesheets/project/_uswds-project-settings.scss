@@ -73,8 +73,8 @@ Relative font and image file paths
 ----------------------------------------
 */
 
-$theme-font-path:   '../fonts/uswds';
-$theme-image-path:  '../img/uswds';
+$theme-font-path:   '../fonts';
+$theme-image-path:  '../img';
 
 /*
 ----------------------------------------
@@ -87,15 +87,15 @@ used by utilities or layout grid
 */
 
 $theme-output-breakpoints: (
-  'card':            false,   // 160px
-  'card-plus':       false,   // 240px
-  'mobile':          false,   // 320px
-  'mobile-plus':     true,    // 480px
-  'tablet':          true,    // 640px
-  'tablet-plus':     false,   // 800px
-  'desktop':         true,    // 1040px
-  'desktop-plus':    false,   // 1200px
-  'widescreen':      false,   // 1400px
+  'card':             false,   // 160px
+  'card-lg':          false,   // 240px
+  'mobile':           false,   // 320px
+  'mobile-lg':        true,    // 480px
+  'tablet':           true,    // 640px
+  'tablet-lg':        false,   // 800px
+  'desktop':          true,    // 1040px
+  'desktop-lg':       false,   // 1200px
+  'widescreen':       false,   // 1400px
 );
 
 /*
@@ -243,39 +243,35 @@ Palette colors
 ----------------------------------------
 */
 
-$theme-color-base:             black;
-$theme-color-base-lightest:    white;
-$theme-color-base-lighter:     $theme-color-base, 5;
-$theme-color-base-light:       $theme-color-base, 50;
-$theme-color-base-base:        $theme-color-base, 80;
-$theme-color-base-dark:        $theme-color-base, 90;
-$theme-color-base-darker:      false;
+$theme-color-gray-family:         gray;
+$theme-color-gray-lightest:       white;
+$theme-color-gray-lighter:        $theme-color-gray-family, 5;
+$theme-color-gray-light:          $theme-color-gray-family, 50;
+$theme-color-gray-base:           $theme-color-gray-family, 80;
+$theme-color-gray-dark:           $theme-color-gray-family, 90;
+$theme-color-gray-darker:         false;
 
-$theme-color-primary:             blue;
-$theme-color-primary-lighter:     $theme-color-primary, 10;
-$theme-color-primary-light:       $theme-color-primary, 30;
-$theme-color-primary-base:        $theme-color-primary, 50;
-$theme-color-primary-vivid:       $theme-color-primary, 50, vivid;
-$theme-color-primary-dark:        $theme-color-primary, 70;
+$theme-color-primary-family:      blue;
+$theme-color-primary-lighter:     $theme-color-primary-family, 10;
+$theme-color-primary-light:       $theme-color-primary-family, 30;
+$theme-color-primary-base:        $theme-color-primary-family, 50;
+$theme-color-primary-vivid:       $theme-color-primary-family, 50, vivid;
+$theme-color-primary-dark:        $theme-color-primary-family, 70;
 $theme-color-primary-darker:      false;
 
-$theme-color-secondary:           red;
-$theme-color-secondary-light:     $theme-color-secondary, 50;
-$theme-color-secondary-base:      $theme-color-secondary, 60;
-$theme-color-secondary-vivid:     $theme-color-secondary, 50, vivid;
-$theme-color-secondary-dark:      $theme-color-secondary, 80;
+$theme-color-secondary-family:    red;
+$theme-color-secondary-light:     $theme-color-secondary-family, 50;
+$theme-color-secondary-base:      $theme-color-secondary-family, 60;
+$theme-color-secondary-vivid:     $theme-color-secondary-family, 50, vivid;
+$theme-color-secondary-dark:      $theme-color-secondary-family, 80;
 
-$theme-color-accent-warm:         orange;
-$theme-color-accent-warm-base:    $theme-color-accent-warm, 30, vivid;
-$theme-color-accent-warm-dark:    $theme-color-accent-warm, 60, vivid;
+$theme-color-accent-warm-family:  orange;
+$theme-color-accent-warm-base:    $theme-color-accent-warm-family, 30, vivid;
+$theme-color-accent-warm-dark:    $theme-color-accent-warm-family, 60, vivid;
 
-$theme-color-accent-cool:         cyan;
-$theme-color-accent-cool-base:    $theme-color-accent-cool, 30, vivid;
-$theme-color-accent-cool-dark:    $theme-color-accent-cool, 60, vivid;
-
-$theme-color-inverse:             white;
-$theme-color-inverse-base:        $theme-color-inverse;
-$theme-color-inverse-dark:        black, 10;
+$theme-color-accent-cool-family:  cyan;
+$theme-color-accent-cool-base:    $theme-color-accent-cool-family, 30, vivid;
+$theme-color-accent-cool-dark:    $theme-color-accent-cool-family, 60, vivid;
 
 /*
 ----------------------------------------
@@ -284,32 +280,32 @@ State colors
 */
 
 // Error colors
-$theme-color-error:            red;
-$theme-color-error-lighter:    $theme-color-error, 30, vivid;
-$theme-color-error-light:      $theme-color-error, 40, vivid;
-$theme-color-error-base:       $theme-color-error, 50, vivid;
-$theme-color-error-dark:       $theme-color-error, 60;
-$theme-color-error-darker:     $theme-color-error, 70;
+$theme-color-error-family:     red;
+$theme-color-error-lighter:    $theme-color-error-family, 30, vivid;
+$theme-color-error-light:      $theme-color-error-family, 40, vivid;
+$theme-color-error-base:       $theme-color-error-family, 50, vivid;
+$theme-color-error-dark:       $theme-color-error-family, 60;
+$theme-color-error-darker:     $theme-color-error-family, 70;
 
 // Warning colors
-$theme-color-warn:             orange;
-$theme-color-warn-lighter:     $theme-color-warn, 10;
-$theme-color-warn-light:       $theme-color-warn, 20, vivid;
-$theme-color-warn-base:        $theme-color-warn, 30, vivid;
-$theme-color-warn-dark:        $theme-color-warn, 40;
-$theme-color-warn-darker:      $theme-color-warn, 50;
+$theme-color-warn-family:      orange;
+$theme-color-warn-lighter:     $theme-color-warn-family, 10;
+$theme-color-warn-light:       $theme-color-warn-family, 20, vivid;
+$theme-color-warn-base:        $theme-color-warn-family, 30, vivid;
+$theme-color-warn-dark:        $theme-color-warn-family, 40;
+$theme-color-warn-darker:      $theme-color-warn-family, 50;
 
 // Success colors
-$theme-color-success:          green-cool;
-$theme-color-success-lighter:  $theme-color-success, 20, vivid;
-$theme-color-success-light:    $theme-color-success, 30, vivid;
-$theme-color-success-base:     $theme-color-success, 40, vivid;
-$theme-color-success-dark:     $theme-color-success, 50;
-$theme-color-success-darker:   $theme-color-success, 70;
+$theme-color-success-family:   green-cool;
+$theme-color-success-lighter:  $theme-color-success-family, 20, vivid;
+$theme-color-success-light:    $theme-color-success-family, 30, vivid;
+$theme-color-success-base:     $theme-color-success-family, 40, vivid;
+$theme-color-success-dark:     $theme-color-success-family, 50;
+$theme-color-success-darker:   $theme-color-success-family, 70;
 
 // Disabled color
-$theme-color-disabled:         black;
-$theme-color-disabled-base:    $theme-color-disabled, 30;
+$theme-color-disabled-family:  gray;
+$theme-color-disabled-base:    $theme-color-disabled-family, 30;
 
 /*
 ----------------------------------------

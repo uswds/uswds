@@ -10,7 +10,7 @@ const TEMPLATE = fs.readFileSync(
 
 const CONTROLS = 'aria-controls';
 const EXPANDED = 'aria-expanded';
-const HIDDEN = 'hidden';
+const HIDDEN = 'aria-hidden';
 
 describe('1.x accordion component', function () {
 
@@ -57,8 +57,8 @@ describe('1.x accordion component', function () {
       assert.equal(button.getAttribute(EXPANDED), 'true');
     });
 
-    it('toggles "hidden" off', function () {
-      assert(content.hasAttribute(HIDDEN) !== true);
+    it('toggles "aria-hidden" to false', function () {
+      assert.equal(content.getAttribute(HIDDEN), 'false');
     });
   });
 
@@ -72,8 +72,8 @@ describe('1.x accordion component', function () {
       assert.equal(button.getAttribute(EXPANDED), 'false');
     });
 
-    it('toggles "hidden" on', function () {
-      assert(content.hasAttribute(HIDDEN));
+    it('toggles "aria-hidden" to true', function () {
+      assert.equal(content.getAttribute(HIDDEN), 'true');
     });
   });
 
@@ -84,20 +84,20 @@ describe('1.x accordion component', function () {
       const content = document.getElementById(
         button.getAttribute(CONTROLS)
       );
-      assert(content.hasAttribute(HIDDEN));
+      assert.equal(content.getAttribute(HIDDEN), 'true');
     });
   });
 
   it('can show buttons', function () {
     accordion.show(button);
     assert.equal(button.getAttribute(EXPANDED), 'true');
-    assert(content.getAttribute(HIDDEN) !== true);
+    assert.equal(content.getAttribute(HIDDEN), 'false');
   });
 
   it('can hide buttons', function () {
     accordion.hide(button);
     assert.equal(button.getAttribute(EXPANDED), 'false');
-    assert(content.hasAttribute(HIDDEN));
+    assert.equal(content.getAttribute(HIDDEN), 'true');
   });
 
 });

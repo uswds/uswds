@@ -22,7 +22,7 @@ describe('include paths', function () {
 describe('standalone dist scss', function () {
 
   before(function () {
-    this.timeout(20000);
+    this.timeout(40000);
     return runGulp('copy-dist-sass');
   });
 

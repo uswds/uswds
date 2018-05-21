@@ -29,7 +29,7 @@ The following plugins will be added to
 $global-color-plugins: (
   'plugin-color-palette-theme',
   'plugin-color-palette-basic',
-  'plugin-color-black-all'
+  'plugin-color-gray-all'
 );
 
 /*
@@ -143,6 +143,15 @@ $color-settings: (
   active:       false,
   focus:        false,
   hover:        true,
+  visited:      false
+);
+
+$cursor-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
   visited:      false
 );
 
@@ -581,6 +590,11 @@ $circle-manual-values: ();
 
 $color-plugins: ();
 $color-manual-values: ();
+
+// .cursor
+
+$cursor-plugins: ( 'plugin-standard-cursor' );
+$cursor-manual-values: ();
 
 // .display
 

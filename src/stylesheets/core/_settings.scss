@@ -18,11 +18,11 @@ $theme-namespace: (
     output:     true,
   ),
   'grid': (
-    namespace:  'g-',
+    namespace:  'grid-',
     output:     false,
   ),
   'object': (
-    namespace:  'o-',
+    namespace:  'add-',
     output:     false,
   ),
   'utility': (
@@ -243,10 +243,10 @@ $theme-color-gray-darker:         false !default;
 $theme-color-primary-family:      blue !default;
 $theme-color-primary-lighter:     $theme-color-primary-family, 10 !default;
 $theme-color-primary-light:       $theme-color-primary-family, 30 !default;
-$theme-color-primary-base:        $theme-color-primary-family, 50 !default;
-$theme-color-primary-vivid:       $theme-color-primary-family, 50, vivid !default;
-$theme-color-primary-dark:        $theme-color-primary-family, 70 !default;
-$theme-color-primary-darker:      false !default;
+$theme-color-primary-base:        $theme-color-primary-family, 60, vivid !default;
+$theme-color-primary-vivid:       'blue-warm', 60, vivid !default;
+$theme-color-primary-dark:        'blue-warm', 70, vivid !default;
+$theme-color-primary-darker:      'blue-warm', 80, vivid !default;
 
 $theme-color-secondary-family:    red !default;
 $theme-color-secondary-light:     $theme-color-secondary-family, 50 !default;

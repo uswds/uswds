@@ -806,6 +806,14 @@ uswds font sizes
 ----------------------------------------
 */
 
+$plugin-font-mono-uswds-micro: (
+  mono-micro: (
+    slug: 'mono-micro',
+    isReadable: true,
+    content: utility-font(mono, 'micro'),
+  ),
+);
+
 $plugin-font-mono-uswds-1: (
   mono-1: (
     slug: 'mono-1',
@@ -967,6 +975,7 @@ $plugin-font-mono-uswds-20: (
 );
 
 $plugin-font-mono-uswds-sm: map-collect(
+  $plugin-font-mono-uswds-micro,
   $plugin-font-mono-uswds-1,
   $plugin-font-mono-uswds-2,
   $plugin-font-mono-uswds-3
@@ -1003,6 +1012,14 @@ $plugin-font-mono-uswds-all: map-collect(
   $plugin-font-mono-uswds-medium,
   $plugin-font-mono-uswds-lg,
   $plugin-font-mono-uswds-xlarge
+);
+
+$plugin-font-sans-uswds-micro: (
+  sans-micro: (
+    slug: 'sans-micro',
+    isReadable: true,
+    content: utility-font(sans, 'micro'),
+  ),
 );
 
 $plugin-font-sans-uswds-1: (
@@ -1166,6 +1183,7 @@ $plugin-font-sans-uswds-20: (
 );
 
 $plugin-font-sans-uswds-sm: map-collect(
+  $plugin-font-sans-uswds-micro,
   $plugin-font-sans-uswds-1,
   $plugin-font-sans-uswds-2,
   $plugin-font-sans-uswds-3
@@ -1202,6 +1220,14 @@ $plugin-font-sans-uswds-all: map-collect(
   $plugin-font-sans-uswds-medium,
   $plugin-font-sans-uswds-lg,
   $plugin-font-sans-uswds-xlarge
+);
+
+$plugin-font-serif-uswds-micro: (
+  serif-micro: (
+    slug: 'serif-micro',
+    isReadable: true,
+    content: utility-font(serif, 'micro'),
+  ),
 );
 
 $plugin-font-serif-uswds-1: (
@@ -1365,6 +1391,7 @@ $plugin-font-serif-uswds-20: (
 );
 
 $plugin-font-serif-uswds-sm: map-collect(
+  $plugin-font-serif-uswds-micro,
   $plugin-font-serif-uswds-1,
   $plugin-font-serif-uswds-2,
   $plugin-font-serif-uswds-3
@@ -1404,6 +1431,7 @@ $plugin-font-serif-uswds-all: map-collect(
 );
 
 $plugin-font-mono-uswds:(
+  'plugin-font-mono-uswds-micro':  $plugin-font-mono-uswds-micro,
   'plugin-font-mono-uswds-1':      $plugin-font-mono-uswds-1,
   'plugin-font-mono-uswds-2':      $plugin-font-mono-uswds-2,
   'plugin-font-mono-uswds-3':      $plugin-font-mono-uswds-3,
@@ -1424,14 +1452,15 @@ $plugin-font-mono-uswds:(
   'plugin-font-mono-uswds-18':     $plugin-font-mono-uswds-18,
   'plugin-font-mono-uswds-19':     $plugin-font-mono-uswds-19,
   'plugin-font-mono-uswds-20':     $plugin-font-mono-uswds-20,
-  'plugin-font-mono-uswds-sm':   $plugin-font-mono-uswds-sm,
-  'plugin-font-mono-uswds-medium':  $plugin-font-mono-uswds-medium,
-  'plugin-font-mono-uswds-lg':   $plugin-font-mono-uswds-lg,
-  'plugin-font-mono-uswds-xlarge':  $plugin-font-mono-uswds-xlarge,
-  'plugin-font-mono-uswds-all':     $plugin-font-mono-uswds-all,
+  'plugin-font-mono-uswds-sm':     $plugin-font-mono-uswds-sm,
+  'plugin-font-mono-uswds-medium': $plugin-font-mono-uswds-medium,
+  'plugin-font-mono-uswds-lg':     $plugin-font-mono-uswds-lg,
+  'plugin-font-mono-uswds-xlarge': $plugin-font-mono-uswds-xlarge,
+  'plugin-font-mono-uswds-all':    $plugin-font-mono-uswds-all,
 );
 
 $plugin-font-sans-uswds:(
+  'plugin-font-sans-uswds-micro':  $plugin-font-sans-uswds-micro,
   'plugin-font-sans-uswds-1':      $plugin-font-sans-uswds-1,
   'plugin-font-sans-uswds-2':      $plugin-font-sans-uswds-2,
   'plugin-font-sans-uswds-3':      $plugin-font-sans-uswds-3,
@@ -1452,14 +1481,15 @@ $plugin-font-sans-uswds:(
   'plugin-font-sans-uswds-18':     $plugin-font-sans-uswds-18,
   'plugin-font-sans-uswds-19':     $plugin-font-sans-uswds-19,
   'plugin-font-sans-uswds-20':     $plugin-font-sans-uswds-20,
-  'plugin-font-sans-uswds-sm':   $plugin-font-sans-uswds-sm,
-  'plugin-font-sans-uswds-medium':  $plugin-font-sans-uswds-medium,
-  'plugin-font-sans-uswds-lg':   $plugin-font-sans-uswds-lg,
-  'plugin-font-sans-uswds-xlarge':  $plugin-font-sans-uswds-xlarge,
-  'plugin-font-sans-uswds-all':     $plugin-font-sans-uswds-all,
+  'plugin-font-sans-uswds-sm':     $plugin-font-sans-uswds-sm,
+  'plugin-font-sans-uswds-medium': $plugin-font-sans-uswds-medium,
+  'plugin-font-sans-uswds-lg':     $plugin-font-sans-uswds-lg,
+  'plugin-font-sans-uswds-xlarge': $plugin-font-sans-uswds-xlarge,
+  'plugin-font-sans-uswds-all':    $plugin-font-sans-uswds-all,
 );
 
 $plugin-font-serif-uswds:(
+  'plugin-font-serif-uswds-micro':  $plugin-font-serif-uswds-micro,
   'plugin-font-serif-uswds-1':      $plugin-font-serif-uswds-1,
   'plugin-font-serif-uswds-2':      $plugin-font-serif-uswds-2,
   'plugin-font-serif-uswds-3':      $plugin-font-serif-uswds-3,
@@ -1480,11 +1510,11 @@ $plugin-font-serif-uswds:(
   'plugin-font-serif-uswds-18':     $plugin-font-serif-uswds-18,
   'plugin-font-serif-uswds-19':     $plugin-font-serif-uswds-19,
   'plugin-font-serif-uswds-20':     $plugin-font-serif-uswds-20,
-  'plugin-font-serif-uswds-sm':   $plugin-font-serif-uswds-sm,
-  'plugin-font-serif-uswds-medium':  $plugin-font-serif-uswds-medium,
-  'plugin-font-serif-uswds-lg':   $plugin-font-serif-uswds-lg,
-  'plugin-font-serif-uswds-xlarge':  $plugin-font-serif-uswds-xlarge,
-  'plugin-font-serif-uswds-all':     $plugin-font-serif-uswds-all,
+  'plugin-font-serif-uswds-sm':     $plugin-font-serif-uswds-sm,
+  'plugin-font-serif-uswds-medium': $plugin-font-serif-uswds-medium,
+  'plugin-font-serif-uswds-lg':     $plugin-font-serif-uswds-lg,
+  'plugin-font-serif-uswds-xlarge': $plugin-font-serif-uswds-xlarge,
+  'plugin-font-serif-uswds-all':    $plugin-font-serif-uswds-all,
 );
 
 $plugin-font-uswds-all: (
