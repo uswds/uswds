@@ -1,16 +1,17 @@
 $theme-banner-font: sans;
 
-.#{ns('component')}{
+.#{ns('component')} {
   &banner {
     @include bg('gray', 'lighter');
+
     @include at-media('tablet') {
       @include padding-bottom(0);
-      @include size($theme-banner-font, '3xs')
+      @include size($theme-banner-font, '3xs');
     }
   }
 }
 
-.#{ns('component')}{
+.#{ns('component')} {
   &banner-content {
     @include bg('transparent');
     @include padding-bottom(105);
@@ -18,6 +19,7 @@ $theme-banner-font: sans;
     @include padding-x(1);
     @include size($theme-banner-font, 3);
     @include width('full');
+
     @include at-media('tablet') {
       @include padding-y(3);
     }
@@ -34,14 +36,16 @@ $theme-banner-font: sans;
 
 .#{ns('component')}banner-guidance-gov {
   @include padding-top(2);
-  @include at-media('tablet'){
+
+  @include at-media('tablet') {
     @include padding-top(0);
   }
 }
 
 .#{ns('component')}banner-guidance-ssl {
   @include padding-top(2);
-  @include at-media('tablet'){
+
+  @include at-media('tablet') {
     @include padding-top(0);
   }
 }
@@ -53,9 +57,11 @@ $theme-banner-font: sans;
   @include padding-left($theme-site-margins-mobile);
   @include padding-right(0);
   @include padding-x(1);
+
   @include at-media('tablet') {
     @include flex('align-center');
   }
+
   @include at-media('desktop') {
     @include padding-x($theme-site-margins);
   }
@@ -66,12 +72,13 @@ $theme-banner-font: sans;
   @include position('relative');
   @include size($theme-banner-font, 1);
   @include text('normal');
+
   @include at-media('tablet') {
     @include padding-y('05');
   }
 
-  &-close-text{
-    @include color('gray', 'dark')
+  &-close-text {
+    @include color('gray', 'dark');
     @include display('none');
     @include line-height($theme-banner-font, 2);
     @include margin-y(0);
@@ -80,30 +87,33 @@ $theme-banner-font: sans;
 
     .#{ns('component')}banner-header-expanded & {
       @include display('block');
-      @include at-media('tablet'){
+
+      @include at-media('tablet') {
         @include display('none');
       }
     }
   }
 
-  &-text{
+  &-text {
     @include line-height($theme-banner-font, 2);
     @include margin-y(0);
     @include size($theme-banner-font, '3xs');
     .#{ns('component')}banner-header-expanded & {
       @include display('none');
-      @include at-media('tablet'){
+
+      @include at-media('tablet') {
         @include display('block');
       }
     }
   }
 
-  &-action{
+  &-action {
     @include add-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
     @include line-height($theme-banner-font, 2);
     @include margin-bottom(0);
     @include margin-top(2px);
     @include color('primary');
+
     @include at-media('tablet') {
       @include display('none');
     }
@@ -117,10 +127,11 @@ $theme-banner-font: sans;
     }
   }
 
-  &-flag{
+  &-flag {
     @include float('left');
     @include margin-right(1);
     @include width(2);
+
     @include at-media('tablet') {
       @include margin-right(1);
       @include padding-top(0);
@@ -128,7 +139,8 @@ $theme-banner-font: sans;
 
     .#{ns('component')}banner-header-expanded & {
       @include display('none');
-      @include at-media('tablet'){
+
+      @include at-media('tablet') {
         @include display('block');
       }
     }
@@ -137,6 +149,7 @@ $theme-banner-font: sans;
 
 .#{ns('component')}banner-header-expanded {
   @include minh(4);
+
   @include at-media('tablet') {
     @include border-bottom(0);
     @include display('block');
@@ -148,6 +161,7 @@ $theme-banner-font: sans;
 
   > .#{ns('component')}banner-inner {
     @include margin-left(0);
+
     @include at-media('tablet') {
       @include margin-left('auto');
     }
@@ -164,6 +178,7 @@ $theme-banner-font: sans;
   @include size($theme-banner-font, 1);
   @include top(0);
   @include width('full');
+
   @include at-media('tablet') {
     @include add-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
     @include display(inline);
@@ -187,6 +202,8 @@ $theme-banner-font: sans;
     }
   }
 
+  /* stylelint-disable selector-no-qualifying-type */
+
   &[aria-expanded=false] {
     background-image: none;
   }
@@ -194,6 +211,7 @@ $theme-banner-font: sans;
   &[aria-expanded=true] {
     @include add-icon(close, after, spacing(105), 0, no-hover);
     background-image: none;
+
     @include at-media('tablet') {
       @include add-icon(angle-arrow-up-primary, after, spacing(1), 0, hover);
       @include height(auto);
@@ -204,10 +222,13 @@ $theme-banner-font: sans;
       }
     }
 
+    /* stylelint-enable */
+
     &::after {
       @include position(absolute);
       @include right(2);
       @include top(105);
+
       @include at-media('tablet') {
         @include position(static);
       }
@@ -218,6 +239,7 @@ $theme-banner-font: sans;
 .#{ns('component')}banner-button-text {
   @include add-sr-only;
   @include display(none);
+
   @include at-media('tablet') {
     @include add-no-sr-only;
     @include display('inline');
