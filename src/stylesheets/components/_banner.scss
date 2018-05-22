@@ -2,7 +2,7 @@ $theme-banner-font: sans;
 
 .#{ns('component')} {
   &banner {
-    @include bg('gray', 'lighter');
+    @include bg('base', 'lighter');
 
     @include at-media('tablet') {
       @include padding-bottom(0);
@@ -79,7 +79,7 @@ $theme-banner-font: sans;
   }
 
   &-close-text {
-    @include color('gray', 'dark');
+    @include color('base', 'dark');
     @include display('none');
     @include line-height($theme-banner-font, 2);
     @include margin-y(0);

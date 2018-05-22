@@ -850,22 +850,27 @@ the desired final units (currently rem)
 */
 
 @function spacing($value) {
-  $value: smart-quote($value);
-  @if map-has-key($project-spacing-standard, $value) {
-    @if map-get($project-spacing-standard, $value) == false {
-      @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
-    }
-    @return map-get($project-spacing-standard, $value);
-  }
-  @elseif $value == false {
-    @return false;
-  }
-  @elseif type-of($value) == 'number' and not unitless($value) {
-    @warn "`#{$value}` is not a standard USWDS unit. This is OK, but consider using a standard spacing unit instead.";
-    @return $value;
+  @if type-of($value) == 'number' and unitless($value) {
+    @return grid-units($value);
   }
   @else {
-    @error "`#{$value}` is not a valid spacing unit. Valid spacing unit values: #{map-keys($project-spacing-standard)}";
+    $value: smart-quote($value);
+    @if map-has-key($project-spacing-standard, $value) {
+      @if map-get($project-spacing-standard, $value) == false {
+        @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
+      }
+      @return map-get($project-spacing-standard, $value);
+    }
+    @elseif $value == false {
+      @return false;
+    }
+    @elseif type-of($value) == 'number' and not unitless($value) {
+      @warn "`#{$value}` is not a standard USWDS unit. This is OK, but consider using a standard spacing unit instead.";
+      @return $value;
+    }
+    @else {
+      @error "`#{$value}` is not a valid spacing unit. Valid spacing unit values: #{map-keys($project-spacing-standard)}";
+    }
   }
 };
 
