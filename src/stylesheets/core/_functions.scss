@@ -527,6 +527,27 @@ for a property
 
 /*
 ----------------------------------------
+number-to-value()
+----------------------------------------
+Converts an integer or numeric value
+into a system value
+
+Ex: 0.5   --> '05'
+    -1px  --> 'neg-1px'
+----------------------------------------
+*/
+
+@function number-to-value($integer) {
+  @if map-has-key($integer-to-value, $integer) {
+    @return map-get($integer-to-value, $integer);
+  }
+  @else {
+    @return false;
+  }
+}
+
+/*
+----------------------------------------
 get-uswds-value()
 ----------------------------------------
 Finds and outputs a value from the
@@ -542,7 +563,11 @@ functions and mixins.
     @return nth($value, 2);
   }
   $value: nth($value, 1);
+  $converted: number-to-value($value);
   $quoted-value: smart-quote(nth($value, 1));
+  @if $converted {
+    $quoted-value: smart-quote($converted);
+  }
   $our-standard-values: map-deep-get($uswds-properties, $property, standard);
   $our-extended-values: map-deep-get($uswds-properties, $property, extended);
   @if map-has-key($our-standard-values, $quoted-value) {
@@ -554,7 +579,7 @@ functions and mixins.
       @return map-get($our-standard-values, $quoted-value);
     }
   }
-  @if map-has-key($our-extended-values, $quoted-value) {
+  @elseif map-has-key($our-extended-values, $quoted-value) {
     @warn "`#{$value}` is an extended USWDS `#{$property}` unit. This is OK, but only components built with standard values can be accepted back into the system. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
     @return map-get($our-extended-values, $quoted-value);
   }
