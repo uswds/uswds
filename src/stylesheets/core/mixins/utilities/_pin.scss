@@ -1,0 +1,42 @@
+
+@mixin add-pin($props) {
+  $props: smart-quote($props);
+  @if $props == 'top' {
+    @include position('fixed');
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+  @elseif $props == 'bottom' {
+    @include position('fixed');
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  @elseif $props == 'left' {
+    @include position('fixed');
+    bottom: 0;
+    left: 0;
+    top: 0;
+  }
+  @elseif $props == 'right' {
+    @include position('fixed');
+    bottom: 0;
+    right: 0;
+    top: 0;
+  }
+  @elseif $props == 'all' {
+    @include position('fixed');
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+  @elseif $props == 'none' {
+    @include position('static');
+    bottom: auto;
+    left: auto;
+    right: auto;
+    top: auto;
+  }
+}
