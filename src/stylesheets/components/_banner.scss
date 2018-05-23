@@ -79,12 +79,12 @@ $theme-banner-font: sans;
   }
 
   &-close-text {
-    @include color($base-dark);
     @include display('none');
     @include line-height($theme-banner-font, 2);
     @include margin-y(0);
     @include padding-top(.5);
     @include size($theme-banner-font, 1);
+    @include text($base-dark);
 
     .#{ns('component')}banner-header-expanded & {
       @include display(block);
@@ -113,7 +113,7 @@ $theme-banner-font: sans;
     @include line-height($theme-banner-font, 2);
     @include margin-bottom(0);
     @include margin-top(2px);
-    @include color($primary);
+    @include text($primary);
 
     @include at-media('tablet') {
       @include display('none');
@@ -171,9 +171,9 @@ $theme-banner-font: sans;
 .#{ns('component')}banner-button {
   @include add-pin('left');
   @include button-unstyled;
-  @include color($primary);
   @include display(block);
   @include size($theme-banner-font, 1);
+  @include text($primary);
   @include width('full');
 
   @include at-media('tablet') {
@@ -195,8 +195,7 @@ $theme-banner-font: sans;
     }
 
     &:hover {
-      @include color($primary-darker);
-      @include text(underline);
+      @include text($primary-darker, underline);
     }
   }
 
