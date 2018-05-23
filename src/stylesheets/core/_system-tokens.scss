@@ -74,11 +74,13 @@ $uswds-spacing:(
     'card':                   grid-units(20),  // 160px
     'card-lg':                grid-units(30),  // 240px
     'mobile':                 grid-units(40),  // 320px
+  ),
+  larger: (
     'mobile-lg':              grid-units(60),  // 480px
     'tablet':                 grid-units(80),  // 640px
     'tablet-lg':              grid-units(110), // 880px
   ),
-  larger: (
+  largest: (
     'desktop':                grid-units(128), // 1024px
     'desktop-lg':             grid-units(150), // 1200px
     'widescreen':             grid-units(175), // 1400px
@@ -106,7 +108,8 @@ Breakpoints
 
 $uswds-breakpoints: map-collect(
   map-get($uswds-spacing, large),
-  map-get($uswds-spacing, larger)
+  map-get($uswds-spacing, larger),
+  map-get($uswds-spacing, largest)
 );
 
 /*
