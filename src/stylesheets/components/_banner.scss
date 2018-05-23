@@ -2,7 +2,7 @@ $theme-banner-font: sans;
 
 .#{ns('component')} {
   &banner {
-    @include bg('gray', 'lighter');
+    @include bg('base', 'lighter');
 
     @include at-media('tablet') {
       @include padding-bottom(0);
@@ -15,7 +15,7 @@ $theme-banner-font: sans;
   &banner-content {
     @include bg('transparent');
     @include outer-container($site-max-width);
-    @include padding-bottom(105);
+    @include padding-bottom(1.5);
     @include padding-top(2px);
     @include padding-x(1);
     @include size($theme-banner-font, 3);
@@ -79,7 +79,7 @@ $theme-banner-font: sans;
   }
 
   &-close-text {
-    @include color('gray', 'dark');
+    @include color('base', 'dark');
     @include display('none');
     @include line-height($theme-banner-font, 2);
     @include margin-y(0);
@@ -210,7 +210,7 @@ $theme-banner-font: sans;
   }
 
   &[aria-expanded=true] {
-    @include add-icon(close, after, spacing(105), 0, no-hover);
+    @include add-icon(close, after, spacing(1.5), 0, no-hover);
     background-image: none;
 
     @include at-media('tablet') {
@@ -228,7 +228,7 @@ $theme-banner-font: sans;
     &::after {
       @include position(absolute);
       @include right(2);
-      @include top(105);
+      @include top(1.5);
 
       @include at-media('tablet') {
         @include position(static);

@@ -14,6 +14,7 @@ const includePath = path.resolve(
 describe('include paths', function () {
 
   it('can be loaded with @import "uswds"', function () {
+    this.timeout(20000);
     return render('@import "uswds";', [ includePath ]);
   });
 
@@ -22,11 +23,12 @@ describe('include paths', function () {
 describe('standalone dist scss', function () {
 
   before(function () {
-    this.timeout(40000);
+    this.timeout(10000);
     return runGulp('copy-dist-sass');
   });
 
   it('can be loaded with @import "uswds"', function () {
+    this.timeout(10000);
     return render('@import "uswds";', [ distScssPath ]);
   });
 

@@ -527,6 +527,27 @@ for a property
 
 /*
 ----------------------------------------
+number-to-value()
+----------------------------------------
+Converts an integer or numeric value
+into a system value
+
+Ex: 0.5   --> '05'
+    -1px  --> 'neg-1px'
+----------------------------------------
+*/
+
+@function number-to-value($integer) {
+  @if map-has-key($integer-to-value, $integer) {
+    @return map-get($integer-to-value, $integer);
+  }
+  @else {
+    @return false;
+  }
+}
+
+/*
+----------------------------------------
 get-uswds-value()
 ----------------------------------------
 Finds and outputs a value from the
@@ -542,7 +563,11 @@ functions and mixins.
     @return nth($value, 2);
   }
   $value: nth($value, 1);
+  $converted: number-to-value($value);
   $quoted-value: smart-quote(nth($value, 1));
+  @if $converted {
+    $quoted-value: smart-quote($converted);
+  }
   $our-standard-values: map-deep-get($uswds-properties, $property, standard);
   $our-extended-values: map-deep-get($uswds-properties, $property, extended);
   @if map-has-key($our-standard-values, $quoted-value) {
@@ -554,7 +579,7 @@ functions and mixins.
       @return map-get($our-standard-values, $quoted-value);
     }
   }
-  @if map-has-key($our-extended-values, $quoted-value) {
+  @elseif map-has-key($our-extended-values, $quoted-value) {
     @warn "`#{$value}` is an extended USWDS `#{$property}` unit. This is OK, but only components built with standard values can be accepted back into the system. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
     @return map-get($our-extended-values, $quoted-value);
   }
@@ -850,22 +875,27 @@ the desired final units (currently rem)
 */
 
 @function spacing($value) {
-  $value: smart-quote($value);
-  @if map-has-key($project-spacing-standard, $value) {
-    @if map-get($project-spacing-standard, $value) == false {
-      @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
-    }
-    @return map-get($project-spacing-standard, $value);
-  }
-  @elseif $value == false {
-    @return false;
-  }
-  @elseif type-of($value) == 'number' and not unitless($value) {
-    @warn "`#{$value}` is not a standard USWDS unit. This is OK, but consider using a standard spacing unit instead.";
-    @return $value;
+  @if type-of($value) == 'number' and unitless($value) {
+    @return grid-units($value);
   }
   @else {
-    @error "`#{$value}` is not a valid spacing unit. Valid spacing unit values: #{map-keys($project-spacing-standard)}";
+    $value: smart-quote($value);
+    @if map-has-key($project-spacing-standard, $value) {
+      @if map-get($project-spacing-standard, $value) == false {
+        @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
+      }
+      @return map-get($project-spacing-standard, $value);
+    }
+    @elseif $value == false {
+      @return false;
+    }
+    @elseif type-of($value) == 'number' and not unitless($value) {
+      @warn "`#{$value}` is not a standard USWDS unit. This is OK, but consider using a standard spacing unit instead.";
+      @return $value;
+    }
+    @else {
+      @error "`#{$value}` is not a valid spacing unit. Valid spacing unit values: #{map-keys($project-spacing-standard)}";
+    }
   }
 };
 
