@@ -2,7 +2,7 @@ $theme-banner-font: sans;
 
 .#{ns('component')} {
   &banner {
-    @include bg('base', 'lighter');
+    @include bg-color('base', 'lighter');
 
     @include at-media('tablet') {
       @include padding-bottom(0);
@@ -13,8 +13,8 @@ $theme-banner-font: sans;
 
 .#{ns('component')} {
   &banner-content {
-    @include bg('transparent');
-    @include outer-container($site-max-width);
+    @include bg-color('transparent');
+    @include grid-container($site-max-width);
     @include padding-bottom(1.5);
     @include padding-top(2px);
     @include padding-x(1);
@@ -52,9 +52,9 @@ $theme-banner-font: sans;
 }
 
 .#{ns('component')}banner-inner {
-  @include grid-row;
   @include flex('align-start');
-  @include outer-container($site-max-width);
+  @include grid-row;
+  @include grid-container($site-max-width);
   @include padding-left($theme-site-margins-mobile);
   @include padding-right(0);
   @include padding-x(1);
@@ -84,7 +84,7 @@ $theme-banner-font: sans;
     @include line-height($theme-banner-font, 2);
     @include margin-y(0);
     @include padding-top('05');
-    @include size($theme-banner-font, '3xs');
+    @include size($theme-banner-font, 1);
 
     .#{ns('component')}banner-header-expanded & {
       @include display('block');
@@ -98,7 +98,7 @@ $theme-banner-font: sans;
   &-text {
     @include line-height($theme-banner-font, 2);
     @include margin-y(0);
-    @include size($theme-banner-font, '3xs');
+    @include size($theme-banner-font, 1);
     .#{ns('component')}banner-header-expanded & {
       @include display('none');
 
@@ -170,17 +170,15 @@ $theme-banner-font: sans;
 }
 
 .#{ns('component')}banner-button {
+  @include add-pin('left');
   @include button-unstyled;
-  @include bottom(0);
   @include color('primary');
   @include display(block);
-  @include left(0);
-  @include position(absolute);
   @include size($theme-banner-font, 1);
-  @include top(0);
   @include width('full');
 
   @include at-media('tablet') {
+    @include add-pin('none');
     @include add-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
     @include display(inline);
     @include height(auto);
