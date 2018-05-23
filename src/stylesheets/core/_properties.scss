@@ -111,7 +111,8 @@ $uswds-properties: (
   breakpoints: (
     standard: map-collect(
       map-get($uswds-spacing, large),
-      map-get($uswds-spacing, larger)
+      map-get($uswds-spacing, larger),
+      map-get($uswds-spacing, largest)
     ),
     extended: (),
   ),
@@ -359,6 +360,7 @@ $uswds-properties: (
       map-get($uswds-spacing, small),
       map-get($uswds-spacing, medium),
       map-get($uswds-spacing, large),
+      map-get($uswds-spacing, larger),
       map-get($partial-values, none),
       map-get($partial-values, full-viewport-height)
     ),
@@ -370,12 +372,8 @@ $uswds-properties: (
       map-get($uswds-spacing, medium),
       map-get($uswds-spacing, large),
       map-get($uswds-spacing, larger),
+      map-get($uswds-spacing, largest),
       (
-        'measure-1': $uswds-measure-smaller,
-        'measure-2':	 $uswds-measure-small,
-        'measure-3':	   $uswds-measure-base,
-        'measure-4':	 $uswds-measure-large,
-        'measure-5':	 $uswds-measure-larger,
         'full':            100%,
         none:              none,
       )
@@ -398,6 +396,7 @@ $uswds-properties: (
       map-get($uswds-spacing, small),
       map-get($uswds-spacing, medium),
       map-get($uswds-spacing, large),
+      map-get($uswds-spacing, larger),
       map-get($partial-values, zero-zero),
       map-get($partial-values, none),
       map-get($partial-values, full-percent),
@@ -415,7 +414,8 @@ $uswds-properties: (
   ),
   opacity: (
     standard: (
-      'transparent':	0,
+      0:	            0,
+      1:	            1,
       'lightest':	    .01,
       'lighter':	    .1,
       'light':	      .25,
@@ -602,6 +602,7 @@ $uswds-properties: (
       map-get($uswds-spacing, medium),
       map-get($uswds-spacing, large),
       map-get($uswds-spacing, larger),
+      map-get($uswds-spacing, largest),
       map-get($partial-values, zero-zero),
       map-get($partial-values, full-percent),
       map-get($partial-values, auto)

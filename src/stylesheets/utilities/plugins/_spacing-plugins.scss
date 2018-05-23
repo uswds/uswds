@@ -14,6 +14,7 @@ $plugin-spacing-uswds:(
   'plugin-spacing-uswds-medium':  map-get($uswds-spacing, medium),
   'plugin-spacing-uswds-large':   map-get($uswds-spacing, large),
   'plugin-spacing-uswds-larger':  map-get($uswds-spacing, larger),
+  'plugin-spacing-uswds-largest': map-get($uswds-spacing, largest),
   'plugin-spacing-uswds-smaller-negative': map-get($uswds-spacing, smaller-negative),
   'plugin-spacing-uswds-small-negative': map-get($uswds-spacing, small-negative),
   'plugin-spacing-uswds-all': map-collect(
@@ -21,7 +22,8 @@ $plugin-spacing-uswds:(
     map-get($uswds-spacing, small),
     map-get($uswds-spacing, medium),
     map-get($uswds-spacing, large),
-    map-get($uswds-spacing, larger)
+    map-get($uswds-spacing, larger),
+    map-get($uswds-spacing, largest)
   ),
   'plugin-spacing-uswds-negative': map-collect(
     map-get($uswds-spacing, smaller-negative),
