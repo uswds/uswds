@@ -1,5 +1,5 @@
 // Outputs color
 
 @mixin color($value...) {
-  color: color($value...);
+  color: check-color($value);
 }

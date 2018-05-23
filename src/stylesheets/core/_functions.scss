@@ -612,6 +612,31 @@ border-radii
 
 /*
 ----------------------------------------
+check-color()
+----------------------------------------
+Check to see if the value of a variable
+is false. Warn if it is.
+----------------------------------------
+*/
+
+@function check-color($value) {
+  @if $value {
+    @if type-of($value) == 'string' {
+      @return unquote($value);
+    }
+    @else {
+      @return $value;      
+    }
+  }
+  @else {
+    @warn "You're using a value that's either set to false in your settings or is a vivid variant that does not exist.";
+    @return "pink";
+  }
+}
+
+
+/*
+----------------------------------------
 color()
 ----------------------------------------
 Derive a color from the map of all

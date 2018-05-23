@@ -1,5 +1,5 @@
 // Outputs background-color
 
-@mixin bg-color($value...) {
-  background-color: color($value...);
+@mixin bg($value) {
+  background-color: check-color($value);
 }
