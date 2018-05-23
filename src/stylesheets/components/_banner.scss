@@ -152,7 +152,7 @@ $theme-banner-font: sans;
   @include minh(4);
 
   @include at-media('tablet') {
-    @include border-bottom(0);
+    @include border-bottom(1px, $red-50v);
     @include display('block');
     @include minh(0);
     @include padding-right(0);
