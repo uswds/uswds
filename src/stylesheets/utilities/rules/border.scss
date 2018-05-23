@@ -34,10 +34,7 @@ $border: (
     ),
     values: map-collect(
       get-plugins($border-plugins),
-      $border-manual-values,
-      (
-        noValue: 1px,
-      )
+      $border-manual-values
     ),
     valueAppend: ' solid',
     settings: $border-settings,
