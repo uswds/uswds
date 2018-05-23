@@ -1,4 +1,4 @@
-/*
+;;/*
 ========================================
 USWDS 2.0 Variables
 Use for computed variables not meant
@@ -437,17 +437,58 @@ $project-column-gaps: (
 
 /*
 ----------------------------------------
-Color palettes
+Colors and palettes
 ----------------------------------------
 */
 
+$base-lightest:         get-uswds-color($theme-color-base-lightest);
+$base-lighter:          get-uswds-color($theme-color-base-lighter);
+$base-light:            get-uswds-color($theme-color-base-light);
+$base:                  get-uswds-color($theme-color-base);
+$base-dark:             get-uswds-color($theme-color-base-dark);
+$base-darker:           get-uswds-color($theme-color-base-darker);
+$base-darkest:          get-uswds-color($theme-color-base-darkest);
+$text:                  get-uswds-color($theme-color-text);
+$primary-lighter:       get-uswds-color($theme-color-primary-lighter);
+$primary-light:         get-uswds-color($theme-color-primary-light);
+$primary:               get-uswds-color($theme-color-primary);
+$primary-vivid:         get-uswds-color($theme-color-primary-vivid);
+$primary-dark:          get-uswds-color($theme-color-primary-dark);
+$primary-darker:        get-uswds-color($theme-color-primary-darker);
+$secondary-light:       get-uswds-color($theme-color-secondary-light);
+$secondary:             get-uswds-color($theme-color-secondary);
+$secondary-vivid:       get-uswds-color($theme-color-secondary-vivid);
+$secondary-dark:        get-uswds-color($theme-color-secondary-dark);
+$accent-warm-dark:      get-uswds-color($theme-color-accent-warm-dark);
+$accent-warm:           get-uswds-color($theme-color-accent-warm);
+$accent-cool-dark:      get-uswds-color($theme-color-accent-cool-dark);
+$accent-cool:           get-uswds-color($theme-color-accent-cool);
+$error-lighter:         get-uswds-color($theme-color-error-lighter);
+$error-light:           get-uswds-color($theme-color-error-light);
+$error:                 get-uswds-color($theme-color-error);
+$error-dark:            get-uswds-color($theme-color-error-dark);
+$error-darker:          get-uswds-color($theme-color-error-darker);
+$warn-lighter:          get-uswds-color($theme-color-warn-lighter);
+$warn-light:            get-uswds-color($theme-color-warn-light);
+$warn:                  get-uswds-color($theme-color-warn);
+$warn-dark:             get-uswds-color($theme-color-warn-dark);
+$warn-darker:           get-uswds-color($theme-color-warn-darker);
+$success-lighter:       get-uswds-color($theme-color-success-lighter);
+$success-light:         get-uswds-color($theme-color-success-light);
+$success:               get-uswds-color($theme-color-success);
+$success-dark:          get-uswds-color($theme-color-success-dark);
+$success-darker:        get-uswds-color($theme-color-success-darker);
+$disabled:              get-uswds-color($theme-color-disabled);
+
 $color-palette-theme: (
-  'gray-lightest':      get-uswds-color($theme-color-base-lightest),
-  'gray-lighter':       get-uswds-color($theme-color-base-lighter),
-  'gray-light':         get-uswds-color($theme-color-base-light),
-  'gray':               get-uswds-color($theme-color-base),
-  'gray-dark':          get-uswds-color($theme-color-base-dark),
-  'gray-darker':        get-uswds-color($theme-color-base-darker),
+  'base-lightest':      get-uswds-color($theme-color-base-lightest),
+  'base-lighter':       get-uswds-color($theme-color-base-lighter),
+  'base-light':         get-uswds-color($theme-color-base-light),
+  'base':               get-uswds-color($theme-color-base),
+  'base-dark':          get-uswds-color($theme-color-base-dark),
+  'base-darker':        get-uswds-color($theme-color-base-darker),
+  'base-darkest':       get-uswds-color($theme-color-base-darkest),
+  'text':               get-uswds-color($theme-color-text),
   'primary-lighter':    get-uswds-color($theme-color-primary-lighter),
   'primary-light':      get-uswds-color($theme-color-primary-light),
   'primary':            get-uswds-color($theme-color-primary),
