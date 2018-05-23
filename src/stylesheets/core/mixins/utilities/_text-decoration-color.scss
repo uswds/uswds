@@ -1,5 +1,5 @@
 // Outputs line-height
 
-@mixin underline($value...) {
-  text-decoration-color: color($value...);
+@mixin underline($value) {
+  text-decoration-color: check-color($value);
 }
