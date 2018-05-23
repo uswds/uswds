@@ -537,9 +537,9 @@ Ex: 0.5   --> '05'
 ----------------------------------------
 */
 
-@function number-to-value($integer) {
-  @if map-has-key($integer-to-value, $integer) {
-    @return map-get($integer-to-value, $integer);
+@function number-to-value($number) {
+  @if map-has-key($number-to-value, $number) {
+    @return map-get($number-to-value, $number);
   }
   @else {
     @return false;
@@ -609,6 +609,31 @@ border-radii
     @error "`#{$value}` is not a valid border radius value. Valid values: #{map-keys($all-border-radius)}";
   }
 };
+
+/*
+----------------------------------------
+check-color()
+----------------------------------------
+Check to see if the value of a variable
+is false. Warn if it is.
+----------------------------------------
+*/
+
+@function check-color($value) {
+  @if $value {
+    @if type-of($value) == 'string' {
+      @return unquote($value);
+    }
+    @else {
+      @return $value;      
+    }
+  }
+  @else {
+    @warn "You're using a value that's either set to false in your settings or is a vivid variant that does not exist.";
+    @return "pink";
+  }
+}
+
 
 /*
 ----------------------------------------

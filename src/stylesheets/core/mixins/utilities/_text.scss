@@ -34,11 +34,17 @@ $text-utililies: (
 @mixin text($value...) {
   @each $this-value in $value {
     $match: false;
-    $this-value: smart-quote($this-value);
-    @each $property, $map in $text-utililies {
-      @if not $match and map-has-key($map, $this-value){
-        #{$property}: get-uswds-value($property, $this-value...);
-        $match: true;
+    @if type-of($this-value) == 'color' {
+      $match: true;
+      color: $this-value;
+    }
+    @else {
+      $this-value: smart-quote($this-value);
+      @each $property, $map in $text-utililies {
+        @if not $match and map-has-key($map, $this-value){
+          #{$property}: get-uswds-value($property, $this-value...);
+          $match: true;
+        }
       }
     }
     @if not $match {

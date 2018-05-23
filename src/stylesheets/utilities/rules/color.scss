@@ -16,7 +16,7 @@ example:
 
 $color: (
   color: (
-    base: 'color',
+    base: 'text',
     modifiers: null,
     values: map-collect(
       $uswds-required-colors,

@@ -16,7 +16,7 @@ example:
 
 $outline-color: (
   outline-color: (
-    base: 'outline-color',
+    base: 'outline',
     modifiers: null,
     values: map-collect(
       get-plugins($outline-color-plugins),
