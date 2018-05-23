@@ -1,4 +1,29 @@
 // Outputs a solid outline of $value... width
 @mixin outline($value...) {
-  outline: spacing($value...) solid;
+  @each $this-value in $value {
+    $match: false;
+    @if $value == false {
+      @error "You've added an outline color that does not exist or is set to false.";
+    }
+    @elseif type-of($this-value) == 'color' {
+      $match: true;
+      outline-color: $this-value;
+    }
+    @elseif type-of($this-value) == 'number' {
+      $converted-value: number-to-value($this-value);
+      $widths: map-deep-get($uswds-properties, outline, standard);
+      @if map-has-key($widths, $converted-value) {
+        $match: true;
+        $final-value: map-get($widths, $converted-value);
+        outline-width: $final-value;
+        outline-style: solid;
+      }
+      @else {
+        @error "#{$this-value} is not a valid outline width. Accepted values: #{map-keys($widths)}";
+      }
+    }
+    @if not $match {
+      @error "`#{$this-value}` is not a valid outline value.";
+    }
+  }
 }

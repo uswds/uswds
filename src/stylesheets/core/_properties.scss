@@ -462,7 +462,8 @@ $uswds-properties: (
     standard: map-collect(
       map-get($uswds-spacing, smaller),
       map-get($partial-values, zero-zero),
-      map-get($partial-values, none)
+      map-get($partial-values, none),
+      ('05': grid-units(0.5))
     ),
     extended: (),
   ),
