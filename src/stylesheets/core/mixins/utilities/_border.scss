@@ -1,0 +1,135 @@
+$border-utilities: (
+  width: map-collect(
+    map-deep-get($uswds-properties, border-width, standard),
+    map-deep-get($uswds-properties, border-width, extended)
+  ),
+  style: map-collect(
+    map-deep-get($uswds-properties, border-style, standard),
+    map-deep-get($uswds-properties, border-style, extended)
+  ),
+);
+
+@mixin border-n($side, $value...) {
+  @each $this-value in $value {
+    $match: false;
+    $has-style: false;
+    @if $value == false {
+      @error "You've added a border color that does not exist or is set to false.";
+    }
+    @elseif type-of($this-value) == 'color' {
+      $match: true;
+      @if $side == n {
+        border-color: $this-value;
+      }
+      @elseif $side == x {
+        border-left-color: $this-value;
+        border-right-color: $this-value;
+      }
+      @elseif $side == y {
+        border-bottom-color: $this-value;
+        border-top-color: $this-value;
+      }
+      @else {
+        border-#{$side}-color: $this-value;
+      }
+    }
+    @elseif type-of($this-value) == 'number' {
+      $converted-value: number-to-value($this-value);
+      $widths: map-get($border-utilities, width);
+      @if map-has-key($widths, $converted-value) {
+        $match: true;
+        $final-value: map-get($widths, $converted-value);
+        @if $side == n {
+          border-width: $final-value;
+        }
+        @elseif $side == x {
+          border-left-width: $final-value;
+          border-right-width: $final-value;
+        }
+        @elseif $side == y {
+          border-bottom-width: $final-value;
+          border-top-width: $final-value;
+        }
+        @else {
+          border-#{$side}-width: $final-value;
+        }
+      }
+      @else {
+        @error "#{$this-value} is not a valid border width. Accepted values: #{map-keys($widths)}";
+      }
+    }
+    @else {
+      $converted-value: smart-quote($this-value);
+      $styles: map-get($border-utilities, style);
+      @if map-has-key($styles, $converted-value) {
+        $match: true;
+        $has-style: true;
+        $final-value: map-get($styles, $converted-value);
+        @if $side == n {
+          border-style: $final-value;
+        }
+        @elseif $side == x {
+          border-left-style: $final-value;
+          border-right-style: $final-value;
+        }
+        @elseif $side == y {
+          border-bottom-style: $final-value;
+          border-top-style: $final-value;
+        }
+        @else {
+          border-#{$side}-style: $final-value;
+        }
+      }
+      @else {
+        @error "#{$this-value} is not a valid border style.";
+      }
+    }
+    @if not $match {
+      @error "`#{$this-value}` is not a valid `border` value.";
+    }
+    @if not $has-style {
+      @if $side == n {
+        border-style: solid;
+      }
+      @elseif $side == x {
+        border-left-style: solid;
+        border-right-style: solid;
+      }
+      @elseif $side == y {
+        border-bottom-style: solid;
+        border-top-style: solid;
+      }
+      @else {
+        border-#{$side}-style: solid;
+      }
+    }
+  }
+}
+
+@mixin border($value...) {
+  @include border-n(n, $value...);
+}
+
+@mixin border-x($value...) {
+  @include border-n(x, $value...);
+}
+
+@mixin border-y($value...) {
+  @include border-n(y, $value...);
+}
+
+@mixin border-top($value...) {
+  @include border-n(top, $value...);
+}
+
+@mixin border-right($value...) {
+  @include border-n(right, $value...);
+}
+
+@mixin border-bottom($value...) {
+  @include border-n(bottom, $value...);
+}
+
+@mixin border-left($value...) {
+  @include border-n(left, $value...);
+}

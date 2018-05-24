@@ -16,15 +16,16 @@ example:
 
 $color: (
   color: (
-    base: 'color',
+    base: 'text',
     modifiers: null,
     values: map-collect(
-      $required-colors,
+      $uswds-required-colors,
       get-plugins($color-plugins),
       get-plugins($global-color-plugins),
       $color-manual-values
     ),
     settings: $color-settings,
     property: 'color',
+    type: 'utility',
   )
 )

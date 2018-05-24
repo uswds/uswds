@@ -1,8 +1,8 @@
 .usa-section {
-  @include padding($site-margins null);
+  @include padding-y($site-margins);
 
   @include media($medium-screen) {
-    @include padding(6rem null);
+    @include padding-y(6rem);
   }
 }
 

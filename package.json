@@ -1,12 +1,14 @@
 {
   "name": "uswds",
-  "version": "1.6.1",
+  "version": "1.6.3",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
   },
   "main": "dist/js/uswds.min.js",
   "jsnext:main": "src/js/start.js",
+  "style": "dist/css/uswds.min.css",
+  "sass": "src/stylesheets/uswds.scss",
   "scripts": {
     "build": "gulp build",
     "build:css": "gulp sass",

@@ -3,7 +3,7 @@
 position
 ----------------------------------------
 usage:
-  .position-[keye]
+  .position-[key]
 ----------------------------------------
 output:
   position: [value];
@@ -24,5 +24,6 @@ $position: (
     ),
     settings: $position-settings,
     property: 'position',
+    type: 'utility',
   )
 )

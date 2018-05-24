@@ -2,8 +2,8 @@
 // ==========================
 
 .usa-hero {
-  @include padding($site-margins null);
-  background-image: url('#{$image-path}/hero.png');
+  @include padding-y($site-margins);
+  background-image: url('#{$theme-image-path}/hero.png');
   background-position: center;
   background-size: cover;
 

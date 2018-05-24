@@ -14,11 +14,21 @@ core/_settings
 (for default settings)
 
 and its pair:
-
+©
 project/_uswds-project-settings
 (for project overrides)
 ----------------------------------------
 */
+
+/*
+----------------------------------------
+Namespace
+----------------------------------------
+*/
+
+$ns-component: ns('component');
+$ns-utility: ns('utility');
+$ns-grid: ns('grid');
 
 /*
 ----------------------------------------
@@ -35,9 +45,76 @@ $project-spacing-standard: map-collect(
   map-get($uswds-spacing, smaller-negative),
   map-get($uswds-spacing, small-negative),
   map-get($uswds-spacing, medium),
+  map-get($uswds-spacing, medium-negative),
   map-get($uswds-spacing, large),
   map-get($uswds-spacing, larger),
+  map-get($uswds-spacing, largest),
   map-get($uswds-spacing, special)
+);
+
+$spacing-to-token: (
+  0:           0,
+  1:           1px,
+  2:           2px,
+  4:           '05',
+  8:           1,
+  12:          '105',
+  16:          2,
+  24:          3,
+  32:          4,
+  40:          5,
+  48:          6,
+  56:          7,
+  64:          8,
+  72:          9,
+);
+
+$spacing-to-value: (
+  0:           0,
+  2px:         2,
+  '05':        4,
+  1:           8,
+  '105':         12,
+  2:           16,
+  3:           24,
+  4:           32,
+  5:           40,
+  6:           48,
+  7:           56,
+  8:           64,
+  9:           72,
+);
+
+$number-to-value: (
+  1px:        1px,
+  2px:        2px,
+  0:          0,
+  1:          1,
+  2:          2,
+  3:          3,
+  4:          4,
+  5:          5,
+  6:          6,
+  7:          7,
+  8:          8,
+  9:          9,
+  0.5:        '05',
+  1.5:        '105',
+  2.5:        '205',
+  -1px:       'neg-1px',
+  -2px:       'neg-2px',
+  -0.5:       'neg-05',
+  -1:         'neg-1',
+  -1.5:       'neg-105',
+  -2:         'neg-2',
+  -2.5:       'neg-205',
+  -3:         'neg-3',
+  -4:         'neg-4',
+  -5:         'neg-5',
+  -6:         'neg-6',
+  -7:         'neg-7',
+  -8:         'neg-8',
+  -9:         'neg-9',
 );
 
 /*
@@ -186,35 +263,35 @@ namespace var set in utilities-settings?
 */
 
 @if $theme-font-mono {
-  *[class*='font-mono'], .font-family-mono { font-family: $font-stack-mono; }
+  [class*='#{ns('utility')}size-mono'], .family-mono { font-family: $font-stack-mono; }
 }
 
 @if $theme-font-sans {
-  *[class*='font-sans'], .font-family-sans { font-family: $font-stack-sans; }
+  [class*='#{ns('utility')}size-sans'], .family-sans { font-family: $font-stack-sans; }
 }
 
 @if $theme-font-serif {
-  *[class*='font-serif'], .font-family-serif { font-family: $font-stack-serif; }
+  [class*='#{ns('utility')}size-serif'], .family-serif { font-family: $font-stack-serif; }
 }
 
 @if $theme-font-cond {
-  *[class*='font-cond'], .font-family-cond { font-family: $font-stack-cond; }
+  [class*='#{ns('utility')}size-cond'], .family-cond { font-family: $font-stack-cond; }
 }
 
 @if $theme-font-heading {
-  *[class*='font-heading'], .font-family-heading { font-family: $font-stack-heading; }
+  [class*='#{ns('utility')}size-heading'], .family-heading { font-family: $font-stack-heading; }
 }
 
 @if $theme-font-body {
-  *[class*='font-body'], .font-family-body { font-family: $font-stack-body; }
+  [class*='#{ns('utility')}size-body'], .family-body { font-family: $font-stack-body; }
 }
 
 @if $theme-font-code {
-  *[class*='font-code'], .font-family-code { font-family: $font-stack-code; }
+  [class*='#{ns('utility')}size-code'], .family-code { font-family: $font-stack-code; }
 }
 
 @if $theme-font-alt {
-  *[class*='font-alt'], .font-family-alt { font-family: $font-stack-alt; }
+  [class*='#{ns('utility')}size-alt'], .family-alt { font-family: $font-stack-alt; }
 }
 
 $project-font-weights: (
@@ -224,81 +301,71 @@ $project-font-weights: (
   'medium':     $theme-font-weight-medium,
   'semibold':   $theme-font-weight-semibold,
   'bold':       $theme-font-weight-bold,
-  'black':      $theme-font-weight-black,
+  'heavy':      $theme-font-weight-heavy,
 );
 
 $project-colors: (
-  neutral: (
-    lighter:  get-uswds-color($theme-color-neutral-lighter),
-    light:    get-uswds-color($theme-color-neutral-light),
-    base:     get-uswds-color($theme-color-neutral-base),
-    dark:     get-uswds-color($theme-color-neutral-dark),
-    darker:   get-uswds-color($theme-color-neutral-darker),
+  'base': (
+    'lightest': get-uswds-color($theme-color-base-lightest),
+    'lighter':  get-uswds-color($theme-color-base-lighter),
+    'light':    get-uswds-color($theme-color-base-light),
+    'default':  get-uswds-color($theme-color-base),
+    'dark':     get-uswds-color($theme-color-base-dark),
+    'darker':   get-uswds-color($theme-color-base-darker),
+    'darkest':  get-uswds-color($theme-color-base-darkest),
   ),
-  primary: (
-    lighter: get-uswds-color($theme-color-primary-lighter),
-    light:   get-uswds-color($theme-color-primary-light),
-    base:    get-uswds-color($theme-color-primary-base),
-    vivid:   get-uswds-color($theme-color-primary-vivid),
-    dark:    get-uswds-color($theme-color-primary-dark),
-    darker:  get-uswds-color($theme-color-primary-darker),
+  'primary': (
+    'lighter': get-uswds-color($theme-color-primary-lighter),
+    'light':   get-uswds-color($theme-color-primary-light),
+    'default': get-uswds-color($theme-color-primary),
+    'vivid':   get-uswds-color($theme-color-primary-vivid),
+    'dark':    get-uswds-color($theme-color-primary-dark),
+    'darker':  get-uswds-color($theme-color-primary-darker),
   ),
-  secondary: (
-    light:   get-uswds-color($theme-color-secondary-light),
-    base:    get-uswds-color($theme-color-secondary-base),
-    vivid:   get-uswds-color($theme-color-secondary-vivid),
-    dark:    get-uswds-color($theme-color-secondary-dark),
+  'secondary': (
+    'light':   get-uswds-color($theme-color-secondary-light),
+    'default': get-uswds-color($theme-color-secondary),
+    'vivid':   get-uswds-color($theme-color-secondary-vivid),
+    'dark':    get-uswds-color($theme-color-secondary-dark),
   ),
-  accent-warm: (
-    light:   get-uswds-color($theme-color-accent-warm-lighter),
-    base:    get-uswds-color($theme-color-accent-warm-base),
+  'accent-warm': (
+    'default': get-uswds-color($theme-color-accent-warm),
+    'dark':    get-uswds-color($theme-color-accent-warm-dark),
   ),
-  accent-cool: (
-    light:   get-uswds-color($theme-color-accent-cool-lighter),
-    base:    get-uswds-color($theme-color-accent-cool-base),
-  ),
-  inverse: (
-    base:   get-uswds-color($theme-color-inverse-base),
-    dark:   get-uswds-color($theme-color-inverse-dark),
+  'accent-cool': (
+    'default': get-uswds-color($theme-color-accent-cool),
+    'dark':    get-uswds-color($theme-color-accent-cool-dark),
   )
 );
 
 $project-state-colors: (
-  error: (
-    lighter: get-uswds-color($theme-color-error-lighter),
-    light:   get-uswds-color($theme-color-error-light),
-    base:    get-uswds-color($theme-color-error-base),
-    dark:    get-uswds-color($theme-color-error-dark),
-    darker:  get-uswds-color($theme-color-error-darker),
+  'error': (
+    'lighter': get-uswds-color($theme-color-error-lighter),
+    'light':   get-uswds-color($theme-color-error-light),
+    'default': get-uswds-color($theme-color-error),
+    'dark':    get-uswds-color($theme-color-error-dark),
+    'darker':  get-uswds-color($theme-color-error-darker),
   ),
-  warn: (
-    lighter: get-uswds-color($theme-color-warn-lighter),
-    light:   get-uswds-color($theme-color-warn-light),
-    base:    get-uswds-color($theme-color-warn-base),
-    dark:    get-uswds-color($theme-color-warn-dark),
-    darker:  get-uswds-color($theme-color-warn-darker),
+  'warn': (
+    'lighter': get-uswds-color($theme-color-warn-lighter),
+    'light':   get-uswds-color($theme-color-warn-light),
+    'default': get-uswds-color($theme-color-warn),
+    'dark':    get-uswds-color($theme-color-warn-dark),
+    'darker':  get-uswds-color($theme-color-warn-darker),
   ),
-  success: (
-    lighter: get-uswds-color($theme-color-success-lighter),
-    light:   get-uswds-color($theme-color-success-light),
-    base:    get-uswds-color($theme-color-success-base),
-    dark:    get-uswds-color($theme-color-success-dark),
-    darker:  get-uswds-color($theme-color-success-darker),
+  'success': (
+    'lighter': get-uswds-color($theme-color-success-lighter),
+    'light':   get-uswds-color($theme-color-success-light),
+    'default': get-uswds-color($theme-color-success),
+    'dark':    get-uswds-color($theme-color-success-dark),
+    'darker':  get-uswds-color($theme-color-success-darker),
   ),
-  disabled: (
-    base:    get-uswds-color($theme-color-disabled-base),
+  'disabled': (
+    'default': get-uswds-color($theme-color-disabled),
   ),
 );
 
-$project-reserved-colors:(
-  'black':        black,
-  'white':        white,
-  'transparent':  transparent,
-  'highlight':    get-uswds-color(gold, 20, vivid),
-);
-
-$all-colors: map-collect(
-  $uswds-colors,
+$all-project-colors: map-collect(
   $project-colors,
   $project-state-colors
 );
@@ -310,15 +377,15 @@ Build the project type scale map
 */
 
 $project-type-scale: (
-  'micro': system-type-scale($theme-type-scale-micro),
-  'smallest': system-type-scale($theme-type-scale-smallest),
-  'smaller': system-type-scale($theme-type-scale-smaller),
-  'small': system-type-scale($theme-type-scale-small),
-  'base': system-type-scale($theme-type-scale-base),
-  'large': system-type-scale($theme-type-scale-large),
-  'larger': system-type-scale($theme-type-scale-larger),
-  'largest': system-type-scale($theme-type-scale-largest),
-  'mega': system-type-scale($theme-type-scale-mega),
+  '3xs': system-type-scale($theme-type-scale-micro),
+  '2xs': system-type-scale($theme-type-scale-smallest),
+  'xs': system-type-scale($theme-type-scale-smaller),
+  'sm': system-type-scale($theme-type-scale-small),
+  'md': system-type-scale($theme-type-scale-base),
+  'lg': system-type-scale($theme-type-scale-large),
+  'xl': system-type-scale($theme-type-scale-larger),
+  '2xl': system-type-scale($theme-type-scale-largest),
+  '3xl': system-type-scale($theme-type-scale-mega),
 );
 
 $all-type-scale: map-collect(
@@ -344,10 +411,10 @@ Border-radius
 */
 
 $project-border-radius: (
-  '0':          0,
-  'small':      spacing($theme-border-radius-small),
-  'base':       spacing($theme-border-radius-base),
-  'large':      spacing($theme-border-radius-large),
+  0:          0,
+  'sm':         spacing($theme-border-radius-sm),
+  'md':         spacing($theme-border-radius-md),
+  'lg':         spacing($theme-border-radius-lg),
   'pill':       9999em,
 );
 
@@ -359,57 +426,107 @@ $all-border-radius: map-collect(
 
 /*
 ----------------------------------------
-Color palettes
+Column gaps
 ----------------------------------------
 */
 
+$project-column-gaps: (
+  'sm': $theme-column-gap-small,
+  'md': $theme-column-gap,
+  'lg': $theme-column-gap-large,
+);
+
+/*
+----------------------------------------
+Colors and palettes
+----------------------------------------
+*/
+
+$highlight:             get-uswds-color('highlight');
+$base-lightest:         get-uswds-color($theme-color-base-lightest);
+$base-lighter:          get-uswds-color($theme-color-base-lighter);
+$base-light:            get-uswds-color($theme-color-base-light);
+$base:                  get-uswds-color($theme-color-base);
+$base-dark:             get-uswds-color($theme-color-base-dark);
+$base-darker:           get-uswds-color($theme-color-base-darker);
+$base-darkest:          get-uswds-color($theme-color-base-darkest);
+$text:                  get-uswds-color($theme-color-text);
+$primary-lighter:       get-uswds-color($theme-color-primary-lighter);
+$primary-light:         get-uswds-color($theme-color-primary-light);
+$primary:               get-uswds-color($theme-color-primary);
+$primary-vivid:         get-uswds-color($theme-color-primary-vivid);
+$primary-dark:          get-uswds-color($theme-color-primary-dark);
+$primary-darker:        get-uswds-color($theme-color-primary-darker);
+$secondary-light:       get-uswds-color($theme-color-secondary-light);
+$secondary:             get-uswds-color($theme-color-secondary);
+$secondary-vivid:       get-uswds-color($theme-color-secondary-vivid);
+$secondary-dark:        get-uswds-color($theme-color-secondary-dark);
+$accent-warm-dark:      get-uswds-color($theme-color-accent-warm-dark);
+$accent-warm:           get-uswds-color($theme-color-accent-warm);
+$accent-cool-dark:      get-uswds-color($theme-color-accent-cool-dark);
+$accent-cool:           get-uswds-color($theme-color-accent-cool);
+$error-lighter:         get-uswds-color($theme-color-error-lighter);
+$error-light:           get-uswds-color($theme-color-error-light);
+$error:                 get-uswds-color($theme-color-error);
+$error-dark:            get-uswds-color($theme-color-error-dark);
+$error-darker:          get-uswds-color($theme-color-error-darker);
+$warn-lighter:          get-uswds-color($theme-color-warn-lighter);
+$warn-light:            get-uswds-color($theme-color-warn-light);
+$warn:                  get-uswds-color($theme-color-warn);
+$warn-dark:             get-uswds-color($theme-color-warn-dark);
+$warn-darker:           get-uswds-color($theme-color-warn-darker);
+$success-lighter:       get-uswds-color($theme-color-success-lighter);
+$success-light:         get-uswds-color($theme-color-success-light);
+$success:               get-uswds-color($theme-color-success);
+$success-dark:          get-uswds-color($theme-color-success-dark);
+$success-darker:        get-uswds-color($theme-color-success-darker);
+$disabled:              get-uswds-color($theme-color-disabled);
+
 $color-palette-theme: (
-  'neutral-lighter':    get-uswds-color($theme-color-neutral-lighter),
-  'neutral-light':      get-uswds-color($theme-color-neutral-light),
-  'neutral-base':       get-uswds-color($theme-color-neutral-base),
-  'neutral-dark':       get-uswds-color($theme-color-neutral-dark),
-  'neutral-darker':     get-uswds-color($theme-color-neutral-darker),
+  'base-lightest':      get-uswds-color($theme-color-base-lightest),
+  'base-lighter':       get-uswds-color($theme-color-base-lighter),
+  'base-light':         get-uswds-color($theme-color-base-light),
+  'base':               get-uswds-color($theme-color-base),
+  'base-dark':          get-uswds-color($theme-color-base-dark),
+  'base-darker':        get-uswds-color($theme-color-base-darker),
+  'base-darkest':       get-uswds-color($theme-color-base-darkest),
+  'text':               get-uswds-color($theme-color-text),
   'primary-lighter':    get-uswds-color($theme-color-primary-lighter),
   'primary-light':      get-uswds-color($theme-color-primary-light),
-  'primary-base':       get-uswds-color($theme-color-primary-base),
+  'primary':            get-uswds-color($theme-color-primary),
   'primary-vivid':      get-uswds-color($theme-color-primary-vivid),
   'primary-dark':       get-uswds-color($theme-color-primary-dark),
   'primary-darker':     get-uswds-color($theme-color-primary-darker),
   'secondary-light':    get-uswds-color($theme-color-secondary-light),
-  'secondary-base':     get-uswds-color($theme-color-secondary-base),
+  'secondary':          get-uswds-color($theme-color-secondary),
   'secondary-vivid':    get-uswds-color($theme-color-secondary-vivid),
   'secondary-dark':     get-uswds-color($theme-color-secondary-dark),
-  'accent-warm-light':  get-uswds-color($theme-color-accent-warm-lighter),
-  'accent-warm-base':   get-uswds-color($theme-color-accent-warm-base),
-  'accent-cool-light':  get-uswds-color($theme-color-accent-cool-lighter),
-  'accent-cool-base':   get-uswds-color($theme-color-accent-cool-base),
-  'inverse-base':       get-uswds-color($theme-color-inverse-base),
-  'inverse-dark':       get-uswds-color($theme-color-inverse-dark),
+  'accent-warm-dark':   get-uswds-color($theme-color-accent-warm-dark),
+  'accent-warm':        get-uswds-color($theme-color-accent-warm),
+  'accent-cool-dark':   get-uswds-color($theme-color-accent-cool-dark),
+  'accent-cool':        get-uswds-color($theme-color-accent-cool),
 );
 
 $color-palette-state: (
   'error-lighter':      get-uswds-color($theme-color-error-lighter),
   'error-light':        get-uswds-color($theme-color-error-light),
-  'error-base':         get-uswds-color($theme-color-error-base),
+  'error':              get-uswds-color($theme-color-error),
   'error-dark':         get-uswds-color($theme-color-error-dark),
   'error-darker':       get-uswds-color($theme-color-error-darker),
   'warn-lighter':       get-uswds-color($theme-color-warn-lighter),
   'warn-light':         get-uswds-color($theme-color-warn-light),
-  'warn-base':          get-uswds-color($theme-color-warn-base),
+  'warn':               get-uswds-color($theme-color-warn),
   'warn-dark':          get-uswds-color($theme-color-warn-dark),
   'warn-darker':        get-uswds-color($theme-color-warn-darker),
   'success-lighter':    get-uswds-color($theme-color-success-lighter),
   'success-light':      get-uswds-color($theme-color-success-light),
-  'success-base':       get-uswds-color($theme-color-success-base),
+  'success':            get-uswds-color($theme-color-success),
   'success-dark':       get-uswds-color($theme-color-success-dark),
   'success-darker':     get-uswds-color($theme-color-success-darker),
-  'disabled':           get-uswds-color($theme-color-disabled-base),
+  'disabled':           get-uswds-color($theme-color-disabled),
 );
 
-$color-palette-grayscale: map-collect(
-  $uswds-black,
-  $uswds-white
-);
+$color-palette-grayscale: $uswds-gray;
 
 /*
 ========================================
@@ -498,19 +615,19 @@ $color-red-darkest:          $red-70v !default;
 $color-red-light:            $red-30 !default;
 $color-red-lightest:         $red-10 !default;
 
-$color-white:                $white-0 !default;
-$color-black:                $black-100 !default;
-$color-black-light:          $black-90 !default;
+$color-white:                white !default;
+$color-black:                black !default;
+$color-black-light:          $gray-90 !default;
 
-$color-gray-dark:            $black-cool-80 !default;
-$color-gray:                 $black-cool-60 !default;
+$color-gray-dark:            $gray-cool-80 !default;
+$color-gray:                 $gray-cool-60 !default;
 $color-gray-medium:          #757575 !default;
-$color-gray-light:           $black-30 !default;
-$color-gray-lighter:         $black-cool-10 !default;
-$color-gray-lightest:        $black-cool-5 !default;
+$color-gray-light:           $gray-30 !default;
+$color-gray-lighter:         $gray-cool-10 !default;
+$color-gray-lightest:        $gray-cool-5 !default;
 
-$color-gray-warm-dark:       $black-warm-70 !default;
-$color-gray-warm-light:      $black-warm-10 !default;
+$color-gray-warm-dark:       $gray-warm-70 !default;
+$color-gray-warm-light:      $gray-warm-10 !default;
 $color-gray-cool-light:      $blue-warm-5 !default;
 
 $color-gold:                 $gold-20v !default;
@@ -595,18 +712,6 @@ $large: new-breakpoint(min-width $large-screen $grid-columns-large) !default;
 
 /*
 ----------------------------------------
-@Relative font and image file paths
-----------------------------------------
-TODO: This should be deprecated in favor
-of the values in settings
-----------------------------------------
-*/
-
-$theme-font-path:   '../fonts' !default;
-$image-path:  '../img' !default;
-
-/*
-----------------------------------------
 Set $asset-pipeline to true if you're
 using the Rails Asset Pipeline
 ----------------------------------------
@@ -625,6 +730,9 @@ set in settings and which are static or
 calculated variables
 ----------------------------------------
 */
+
+$theme-site-margins:                  4 !default;
+$theme-site-margins-mobile:           2 !default;
 
 $text-width-sm: 60ch;
 

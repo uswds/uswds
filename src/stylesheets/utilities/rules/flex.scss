@@ -15,7 +15,7 @@ example:
   .flex-fill {
     flex: 1 0 0; }
 
-  .flex-fit {
+  .flex-auto {
     flex: none; }
 ----------------------------------------
 */
@@ -30,5 +30,6 @@ $flex: (
     ),
     settings: $flex-settings,
     property: 'flex',
+    type: 'utility',
   )
 );

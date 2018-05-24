@@ -1,0 +1,40 @@
+$plugin-color-gray-cool-lighter: (
+  'gray-cool-1':  $gray-cool-1,
+  'gray-cool-2':  $gray-cool-2,
+  'gray-cool-3':  $gray-cool-3,
+  'gray-cool-4':  $gray-cool-4,
+);
+
+$plugin-color-gray-cool-light: (
+  'gray-cool-5':  $gray-cool-5,
+  'gray-cool-10': $gray-cool-10,
+  'gray-cool-20': $gray-cool-20,
+  'gray-cool-30': $gray-cool-30,
+);
+
+$plugin-color-gray-cool-medium: (
+  'gray-cool-40': $gray-cool-40,
+  'gray-cool-50': $gray-cool-50,
+  'gray-cool-60': $gray-cool-60,
+);
+
+$plugin-color-gray-cool-dark: (
+  'gray-cool-70': $gray-cool-70,
+  'gray-cool-80': $gray-cool-80,
+  'gray-cool-90': $gray-cool-90,
+);
+
+$plugin-color-gray-cool-all: map-collect(
+  $plugin-color-gray-cool-lighter,
+  $plugin-color-gray-cool-light,
+  $plugin-color-gray-cool-medium,
+  $plugin-color-gray-cool-dark
+);
+
+$plugin-color-gray-cool: (
+  'plugin-color-gray-cool-lighter': $plugin-color-gray-cool-lighter,
+  'plugin-color-gray-cool-light': $plugin-color-gray-cool-light,
+  'plugin-color-gray-cool-medium': $plugin-color-gray-cool-medium,
+  'plugin-color-gray-cool-dark': $plugin-color-gray-cool-dark,
+  'plugin-color-gray-cool-all': $plugin-color-gray-cool-all,
+);

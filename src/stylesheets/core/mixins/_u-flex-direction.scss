@@ -1,5 +1,0 @@
-// Outputs flex-direction
-
-@mixin u-flex-direction($value) {
-  flex-direction: get-uswds-value(flex-direction, $value);
-}

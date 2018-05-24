@@ -3,20 +3,20 @@
 max-width
 ----------------------------------------
 usage:
-  .max-width-[key]
+  .maxw-[key]
 ----------------------------------------
 output:
   max-width: [value];
 ----------------------------------------
 example:
-  .max-width-lg {
-    max-width: 1040px; }
+  .maxw-desktop {
+    max-width: 960px; }
 ----------------------------------------
 */
 
 $max-width: (
   max-width: (
-    base: 'max-width',
+    base: 'maxw',
     modifiers: null,
     values: map-collect(
       get-plugins($max-width-plugins),
@@ -24,5 +24,6 @@ $max-width: (
     ),
     settings: $max-width-settings,
     property: 'max-width',
+    type: 'utility',
   )
 )

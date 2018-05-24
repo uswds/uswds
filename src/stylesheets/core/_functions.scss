@@ -93,6 +93,33 @@ source: https://gist.github.com/bigglesrocks/d75091700f8f2be5abfe
 /* stylelint-disable */
 /*
 ----------------------------------------
+smart-quote()
+----------------------------------------
+Quotes strings
+Inspects numbers
+Leaves bools as is
+----------------------------------------
+*/
+
+@function smart-quote($value) {
+  @if type-of($value) == 'string' or type-of($value) == 'color'{
+    @return quote($value);
+  }
+  @if type-of($value) == 'number' {
+    @if unit($value) == 'xl' or unit($value) == 'xs' {
+      @return inspect($value);
+    }
+    @else {
+      @return $value;
+    }
+  }
+  @else {
+    @return $value;
+  }
+};
+
+/*
+----------------------------------------
 remove()
 ----------------------------------------
 Remove a value from a list
@@ -197,6 +224,25 @@ isReadable
 
 /*
 ----------------------------------------
+ns()
+----------------------------------------
+Add a namesspace of $type if that
+namespace is set to output
+----------------------------------------
+*/
+
+@function ns($type) {
+  $type: smart-quote($type);
+  @if map-deep-get($theme-namespace, $type, output) {
+    @return map-deep-get($theme-namespace, $type, namespace);
+  }
+  @else {
+    @return '';
+  }
+}
+
+/*
+----------------------------------------
 grid-units()
 ----------------------------------------
 Converts a spacing unit multiple into
@@ -227,6 +273,19 @@ Converts a value in px to a value in rem
   @else {
     @return false;
   }
+}
+
+/*
+----------------------------------------
+rem-to-px()
+----------------------------------------
+Converts a value in rem to a value in px
+----------------------------------------
+*/
+
+@function rem-to-px($value) {
+  $rem-to-px: strip-unit($value) * $theme-root-font-size;
+  @return $rem-to-px;
 }
 
 /*
@@ -297,21 +356,47 @@ withholds certain errors.
 */
 
 @function utility-font($family, $scale){
+  $quote: smart-quote($scale);
   @if not map-has-key($project-cap-heights, $family) {
     @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
-  @elseif not map-get($all-type-scale, $scale) {
+  @elseif not map-get($all-type-scale, $quote) {
     @error "`#{$scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
   }
   @else {
     $this-cap: map-get($project-cap-heights, $family);
-    $this-scale: map-get($all-type-scale, $scale);
+    $this-scale: map-get($all-type-scale, $quote);
     @if $this-scale and $this-cap {
       @return type-scale($this-cap, $this-scale);
     }
     @else {
       @return false;
     }
+  }
+};
+
+/*
+----------------------------------------
+lh()
+----------------------------------------
+Get a normalized line-height from
+a family and a line-height scale unit
+----------------------------------------
+*/
+
+@function lh($family, $scale){
+  $scale: smart-quote($scale);
+  @if not map-has-key($project-cap-heights, $family) {
+    @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
+  }
+  @elseif not map-get($uswds-line-height, $scale) {
+    @error "`#{$scale}` is not a valid line-height scale. Valid values: #{map-keys($all-type-scale)}";
+  }
+  @else {
+    $this-cap: map-get($project-cap-heights, $family);
+    $this-line-height: map-get($uswds-line-height, $scale);
+    $normalized-line-height:  $this-line-height / ($uswds-base-cap-height / $this-cap);
+    @return $normalized-line-height;
   }
 };
 
@@ -328,35 +413,43 @@ variable that is, itself, a list
 @function get-uswds-color($props...){
   @if length($props) == 0 {
     @return false;
-  } @elseif type-of(nth($props,1)) == 'list' {
+  }
+  @elseif type-of(nth($props,1)) == 'list' {
     $props: nth($props,1);
     @if length($props) == 2 {
       @return map-deep-get(
         $uswds-colors,
-        nth($props, 1),
+        smart-quote(nth($props, 1)),
         nth($props, 2)
       );
     } @elseif length($props) == 3 {
       @return map-deep-get(
         $uswds-colors,
-        nth($props, 1),
-        nth($props, 3),
+        smart-quote(nth($props, 1)),
+        smart-quote(nth($props, 3)),
         nth($props, 2)
       );
     }
-  } @elseif nth($props, 1) == false {
+  }
+  @elseif nth($props, 1) == false {
     @return false;
-  } @elseif length($props) == 2 {
+  }
+  @elseif length($props) == 1 {
+    $props: smart-quote(nth($props, 1));
+    @return map-get($uswds-required-colors, $props);
+  }
+  @elseif length($props) == 2 {
     @return map-deep-get(
       $uswds-colors,
-      nth($props, 1),
+      smart-quote(nth($props, 1)),
       nth($props, 2)
     );
-  } @else {
+  }
+  @else {
     @return map-deep-get(
       $uswds-colors,
-      nth($props, 1),
-      nth($props, 3),
+      smart-quote(nth($props, 1)),
+      smart-quote(nth($props, 3)),
       nth($props, 2)
     );
   }
@@ -371,34 +464,15 @@ Get a value from the system type scale
 */
 
 @function system-type-scale($scale){
+  $scale: smart-quote($scale);
   @if $scale and map-has-key($uswds-type-scale, $scale){
     @return map-get($uswds-type-scale, $scale);
   }
   @elseif $scale == false {
     @return false;
   }
-  @elseif not map-has-key($uswds-type-scale, $scale) {
+  @else {
     @error "`#{$scale}` is not a valid type scale value. Valid values: #{map-keys($uswds-type-scale)}";
-  }
-};
-
-/*
-----------------------------------------
-simple-color()
-----------------------------------------
-Derive a color from its $family and
-value
-----------------------------------------
-ex:
-background-color: simple-color($red-warm, 50v);
-----------------------------------------
-*/
-
-@function simple-color($hue, $value, $variant...){
-  @if length($variant) == 0 {
-    @return map-get($hue, $value);
-  } @else {
-    @return map-deep-get($hue, nth($variant, 1), $value);
   }
 };
 
@@ -409,6 +483,34 @@ Utility functions
 TODO: convert/translate these to mixins?
 ----------------------------------------
 */
+
+/*
+----------------------------------------
+calc-gap-offset()
+----------------------------------------
+Calculate a valid uswds unit that is
+half the width of a given unit, for
+calculating gap offset in the layout
+grid.
+----------------------------------------
+*/
+
+@function calc-gap-offset($gap-size) {
+  $gap-size: smart-quote($gap-size);
+  @if map-has-key($spacing-to-value, $gap-size) {
+    $numeric-eq: map-get($spacing-to-value, $gap-size);
+    $numeric-eq-half: smart-quote($numeric-eq / 2);
+    @if map-has-key($spacing-to-token, $numeric-eq-half){
+      @return map-get($spacing-to-token, $numeric-eq-half);
+    }
+    @else {
+      @error "`#{$gap-size}` is not a valid USWDS gap size. Column gaps need to have a standard size half their width.";
+    }
+  }
+  @else {
+    @error "`#{$gap-size}` is not a valid USWDS gap size.";
+  }
+}
 
 /*
 ----------------------------------------
@@ -425,6 +527,27 @@ for a property
 
 /*
 ----------------------------------------
+number-to-value()
+----------------------------------------
+Converts an integer or numeric value
+into a system value
+
+Ex: 0.5   --> '05'
+    -1px  --> 'neg-1px'
+----------------------------------------
+*/
+
+@function number-to-value($number) {
+  @if map-has-key($number-to-value, $number) {
+    @return map-get($number-to-value, $number);
+  }
+  @else {
+    @return false;
+  }
+}
+
+/*
+----------------------------------------
 get-uswds-value()
 ----------------------------------------
 Finds and outputs a value from the
@@ -435,14 +558,28 @@ functions and mixins.
 ----------------------------------------
 */
 
-@function get-uswds-value($property, $value){
-  $quoted-value: quote($value);
+@function get-uswds-value($property, $value...){
+  @if type-of($value) == 'arglist' and nth($value, 1) == override {
+    @return nth($value, 2);
+  }
+  $value: nth($value, 1);
+  $converted: number-to-value($value);
+  $quoted-value: smart-quote(nth($value, 1));
+  @if $converted {
+    $quoted-value: smart-quote($converted);
+  }
   $our-standard-values: map-deep-get($uswds-properties, $property, standard);
   $our-extended-values: map-deep-get($uswds-properties, $property, extended);
   @if map-has-key($our-standard-values, $quoted-value) {
-    @return map-get($our-standard-values, $quoted-value);
+    @if map-get($our-standard-values, $quoted-value) {
+      @return map-get($our-standard-values, $quoted-value);
+    }
+    @else {
+      @warn "`#{$value}` is set as a `false` value for the #{$property} property in your project settings and will not output properly. Set the value of `#{$value}` in project settings.";
+      @return map-get($our-standard-values, $quoted-value);
+    }
   }
-  @if map-has-key($our-extended-values, $quoted-value) {
+  @elseif map-has-key($our-extended-values, $quoted-value) {
     @warn "`#{$value}` is an extended USWDS `#{$property}` unit. This is OK, but only components built with standard values can be accepted back into the system. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
     @return map-get($our-extended-values, $quoted-value);
   }
@@ -451,11 +588,9 @@ functions and mixins.
     @return $value;
   }
   @else {
-    @warn "`#{$value}` is not a valid `#{$property}` value. You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
+    @error "`#{$value}` is not a valid `#{$property}` value. You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
   }
 };
-
-
 
 /*
 ----------------------------------------
@@ -477,6 +612,31 @@ border-radii
 
 /*
 ----------------------------------------
+check-color()
+----------------------------------------
+Check to see if the value of a variable
+is false. Warn if it is.
+----------------------------------------
+*/
+
+@function check-color($value) {
+  @if $value {
+    @if type-of($value) == 'string' {
+      @return unquote($value);
+    }
+    @else {
+      @return $value;      
+    }
+  }
+  @else {
+    @warn "You're using a value that's either set to false in your settings or is a vivid variant that does not exist.";
+    @return "pink";
+  }
+}
+
+
+/*
+----------------------------------------
 color()
 ----------------------------------------
 Derive a color from the map of all
@@ -490,37 +650,48 @@ colors: project and system
   } @elseif nth($props, 1) == false {
     @return false;
   } @elseif length($props) == 1 {
-    @if map-has-key(
-      $project-reserved-colors,
-      quote(nth($props, 1))
-    ){
-      @return map-get(
-        $project-reserved-colors,
-        quote(nth($props, 1))
+    $props: smart-quote(nth($props, 1));
+    @if map-has-key($all-project-colors, $props){
+      @return map-deep-get(
+        $all-project-colors,
+        $props,
+        'base'
+      );
+    }
+    @elseif map-has-key($uswds-required-colors, $props){
+      @return map-get($uswds-required-colors, $props);
+    }
+    @else {
+      @error "#{nth($props, 1)} is not a USWDS color. Reserved values: #{map-keys($uswds-required-colors)}. Project theme values:  #{map-keys($all-project-colors)}. System colors — #{map-keys($uswds-colors)} — need a grade of 5, 10, 20, 30, 40, 50, 60, 70, 80, or 90.";
+    }
+  } @elseif length($props) == 2 {
+    @if type-of(nth($props, 2)) == 'number' {
+      @return map-deep-get(
+        $uswds-colors,
+        smart-quote(nth($props, 1)),
+        nth($props, 2)
       );
     }
     @else {
-      @error "#{$props} is not a reserved value. Valid values: #{map-keys($project-reserved-colors)}";
+      @return map-deep-get(
+        $all-project-colors,
+        smart-quote(nth($props, 1)),
+        smart-quote(nth($props, 2))
+      );
     }
-  } @elseif length($props) == 2 {
-    @return map-deep-get(
-      $all-colors,
-      nth($props, 1),
-      nth($props, 2)
-    );
   } @else {
     @if map-deep-get(
-      $all-colors,
-      nth($props, 1),
-      nth($props, 3),
+      $uswds-colors,
+      smart-quote(nth($props, 1)),
+      smart-quote(nth($props, 3)),
       nth($props, 2)
     ) == false {
       @error "`#{nth($props, 1)}` does not have a vivid variant for `#{nth($props, 2)}`.";
     }
     @return map-deep-get(
-      $all-colors,
-      nth($props, 1),
-      nth($props, 3),
+      $uswds-colors,
+      smart-quote(nth($props, 1)),
+      smart-quote(nth($props, 3)),
       nth($props, 2)
     );
   }
@@ -554,18 +725,18 @@ Gets a valid USWDS flex value
 ----------------------------------------
 font()
 ----------------------------------------
-Get a normalized font-size in rem from
-a family and a type size in either
-system scale or project scale
+Gets
+- 'family'
+- 'size'
+- 'weight'
+based on on props passed
 ----------------------------------------
 */
 
-@mixin font($props...){
-  @if length($props) == 0 or length($props) > 2 {
-    @error "`font()` needs a valid face, and an optional size. If it only includes the face, it will output the font stack for that face (font-family). If it inlcludes the size, it will output the normalized font size (font-size).";
-  }
-  @elseif length($props) == 1 {
-    $our-family: nth($props, 1);
+@function font($props...){
+  $type: smart-quote(nth($props, 1));
+  @if $type == 'family' {
+    $our-family: smart-quote(nth($props, 2));
     @if not map-has-key($project-font-stacks, $our-family){
       @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-font-stacks)}";
     }
@@ -573,12 +744,15 @@ system scale or project scale
       @error "Font family `#{$our-family}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
     }
     @else {
-      font-family: map-get($project-font-stacks, $our-family);
+      @return map-get($project-font-stacks, $our-family);
     }
   }
-  @else {
-    $our-family: nth($props, 1);
-    $our-scale: nth($props, 2);
+  @elseif $type == 'size' {
+    @if length($props) != 3 {
+      @error "Font size requires a valid FAMILY and SIZE in the form `font('family', 'FAMILY', 'SIZE')`";
+    }
+    $our-family: smart-quote(nth($props, 2));
+    $our-scale: smart-quote(smart-quote(nth($props, 3)));
     @if not map-has-key($project-cap-heights, $our-family) {
       @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
     }
@@ -589,13 +763,47 @@ system scale or project scale
       $this-cap: map-get($project-cap-heights, $our-family);
       $this-scale: map-get($all-type-scale, $our-scale);
       @if $this-scale and $this-cap {
-        font-size: type-scale($this-cap, $this-scale);
+        @return type-scale($this-cap, $this-scale);
       }
       @else {
         @error "The scale `#{$our-scale}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
       }
     }
   }
+  @elseif $type == 'weight' {
+    $weight: smart-quote(nth($props, 2));
+    $standard-weights: map-deep-get($uswds-properties, font-weight, standard);
+    $extended-weights: map-deep-get($uswds-properties, font-weight, extended);
+    @if type-of($weight) == 'number' {
+      @return $weight;
+    }
+    @elseif map-has-key($standard-weights, $weight) {
+      @return map-get($standard-weights, $weight);
+    }
+    @elseif map-has-key($extended-weights, $weight) {
+      @warn "`#{$weight}` is a USWDS extended weight. This is OK, but consider using a standard project weight for production code. Standard weights: #{map-keys($standard-weights)}";
+      @return map-get($extended-weights, $weight);
+    }
+    @else {
+      @error "`#{$number}` is not a valid font weight.";
+    }
+  }
+  @else {
+    @error "`#{$type}` is not a valid type for the font() function. Valid types: 'family', 'size', 'weight'";
+  }
+};
+
+/*
+----------------------------------------
+fw()
+----------------------------------------
+Get a font-weight value from the
+system font-weight
+----------------------------------------
+*/
+
+@function fw($value) {
+  @return get-uswds-value(font-weight, $value);
 };
 
 /*
@@ -692,19 +900,41 @@ the desired final units (currently rem)
 */
 
 @function spacing($value) {
-  @if $value == false {
-    @return false;
-  }
-  @elseif map-has-key($project-spacing-standard, quote($value)) {
-    @return map-get($project-spacing-standard, quote($value));
-  }
-  @elseif not unitless($value) {
-    @warn "`#{$value}` is not a standard USWDS unit. This is OK, but consider using a standard spacing unit instead.";
-    @return $value;
+  @if type-of($value) == 'number' and unitless($value) {
+    @return grid-units($value);
   }
   @else {
-    @error "`#{$value}` is not a valid spacing value. Valid values: #{map-keys($project-spacing-standard)}";
+    $value: smart-quote($value);
+    @if map-has-key($project-spacing-standard, $value) {
+      @if map-get($project-spacing-standard, $value) == false {
+        @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
+      }
+      @return map-get($project-spacing-standard, $value);
+    }
+    @elseif $value == false {
+      @return false;
+    }
+    @elseif type-of($value) == 'number' and not unitless($value) {
+      @warn "`#{$value}` is not a standard USWDS unit. This is OK, but consider using a standard spacing unit instead.";
+      @return $value;
+    }
+    @else {
+      @error "`#{$value}` is not a valid spacing unit. Valid spacing unit values: #{map-keys($project-spacing-standard)}";
+    }
   }
+};
+
+/*
+----------------------------------------
+radius()
+----------------------------------------
+Get a border-radius value from the
+system letter-spacing
+----------------------------------------
+*/
+
+@function radius($value) {
+  @return get-uswds-value(border-radius, $value);
 };
 
 /*
@@ -787,17 +1017,17 @@ elegant
       @if str-index($plugin, 'palette') {
         $registry: map-deep-get($plugin-registry, color, palettes);
       }
-      @elseif str-index($plugin, 'black-cool') {
-        $registry: map-deep-get($plugin-registry, color, black-cool);
+      @elseif str-index($plugin, 'gray-cool') {
+        $registry: map-deep-get($plugin-registry, color, gray-cool);
       }
       @elseif str-index($plugin, 'black-transparent') {
         $registry: map-deep-get($plugin-registry, color, black-transparent);
       }
-      @elseif str-index($plugin, 'black-warm') {
-        $registry: map-deep-get($plugin-registry, color, black-warm);
+      @elseif str-index($plugin, 'gray-warm') {
+        $registry: map-deep-get($plugin-registry, color, gray-warm);
       }
-      @elseif str-index($plugin, 'black') {
-        $registry: map-deep-get($plugin-registry, color, black);
+      @elseif str-index($plugin, 'gray') {
+        $registry: map-deep-get($plugin-registry, color, gray);
       }
       @elseif str-index($plugin, 'blue-warm') {
         $registry: map-deep-get($plugin-registry, color, blue-warm);
@@ -894,46 +1124,6 @@ elegant
 
 /*
 ----------------------------------------
-@render-utility
-----------------------------------------
-Build a utility from values calculated
-in the @render-utilities-in loop
-----------------------------------------
-TODO: Determine the proper use of
-unquote() in the following. Changed to
-account for a "interpolation near
-operators will be simplified in a
-future version of Sass" warning.
-----------------------------------------
-*/
-
-@mixin render-utility($utility, $selector, $property, $value, $val-props, $important) {
-
-  .#{$utilities-namespace-prefix}#{$selector} {
-    @if map-has-key($val-props, extend) {
-      @each $ext-prop, $ext-value in map-get($val-props, extend) {
-        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-      }
-    }
-
-    @if map-has-key($val-props, extends) {
-      @extend %#{map-get($val-props, extends)};
-    }
-
-    @each $this-property in $property {
-      #{$this-property}: unquote("#{$value}#{$important}");
-    }
-
-    @if map-has-key($utility, extend) {
-      @each $ext-prop, $ext-value in map-get($utility, extend) {
-        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-      }
-    }
-  }
-}
-
-/*
-----------------------------------------
 @render-pseudoclass
 ----------------------------------------
 Build a pseucoclass utiliy from values
@@ -942,12 +1132,18 @@ loop
 ----------------------------------------
 */
 
-@mixin render-pseudoclass($pseudoclass, $selector, $property, $value, $val-props, $mq, $important) {
+@mixin render-pseudoclass($utility, $pseudoclass, $selector, $property, $value, $val-props, $mq) {
+  $important: null;
+  @if $utilities-use-important {
+    $important: ' !important';
+  }
   $this-mq: null;
+  $this-type: map-get($utility, type);
+
   @if $mq {
     $this-mq: '#{$mq}\\:';
   }
-  .#{$this-mq}#{$pseudoclass}\:#{$utilities-namespace-prefix}#{$selector}:#{$pseudoclass} {
+  .#{$this-mq}#{$pseudoclass}\:#{ns($this-type)}#{$selector}:#{$pseudoclass} {
     @each $this-property in $property {
       #{$this-property}: unquote("#{$value}#{$important}");
     }
@@ -990,16 +1186,22 @@ loop
 ----------------------------------------
 */
 
-@mixin render-media-queries($utility, $selector, $property, $value, $val-props, $important) {
+@mixin render-media-queries($utility, $selector, $property, $value, $val-props) {
+  $important: null;
+  @if $utilities-use-important {
+    $important: ' !important';
+  }
   $our-breakpoints: map-deep-get($uswds-properties, breakpoints, standard);
+  $mq: null;
+  $this-type: map-get($utility, type);
 
   @each $media-key, $media-value in $our-breakpoints {
     $mq: unquote($media-key);
     $media-value-em: grid-to-base-em($media-value);
 
-    @if map-get($output-breakpoints, $media-key) {
+    @if map-get($theme-output-breakpoints, $media-key) {
       @media (min-width: #{$media-value-em}) {
-        .#{$mq}\:#{$utilities-namespace-prefix}#{$selector} {
+        .#{$mq}\:#{ns($this-type)}#{$selector} {
           @if map-has-key($val-props, extend) {
             @each $ext-prop, $ext-value in map-get($val-props, extend) {
               #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
@@ -1016,14 +1218,91 @@ loop
             }
           }
           @if map-deep-get($utility, settings, hover) {
-            @include render-pseudoclass(hover, $selector, $property, $value, $val-props, $mq, $important);
+            @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq);
           }
           @if map-deep-get($utility, settings, visited) {
-            @include render-pseudoclass(visited, $selector, $property, $value, $val-props, $mq, $important);
+            @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq);
           }
         }
       }
     }
+  }
+}
+
+/*
+----------------------------------------
+@render-utility
+----------------------------------------
+Build a utility from values calculated
+in the @render-utilities-in loop
+----------------------------------------
+TODO: Determine the proper use of
+unquote() in the following. Changed to
+account for a "interpolation near
+operators will be simplified in a
+future version of Sass" warning.
+----------------------------------------
+*/
+
+@mixin render-utility($utility, $selector, $property, $value, $val-props) {
+
+  $important: null;
+  @if $utilities-use-important {
+    $important: ' !important';
+  }
+  $mq: null;
+  $this-type: map-get($utility, type);
+
+  .#{ns($this-type)}#{$selector} {
+    @if map-has-key($val-props, extend) {
+      @each $ext-prop, $ext-value in map-get($val-props, extend) {
+        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
+      }
+    }
+
+    @if map-has-key($val-props, extends) {
+      @extend %#{map-get($val-props, extends)};
+    }
+
+    @each $this-property in $property {
+      #{$this-property}: unquote("#{$value}#{$important}");
+    }
+
+    @if map-has-key($utility, extend) {
+      @each $ext-prop, $ext-value in map-get($utility, extend) {
+        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
+      }
+    }
+  }
+
+  // Add the pseudoclass variants, if applicable
+
+  @if map-deep-get($utility, settings, hover) {
+    @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq);
+  }
+
+  @if map-deep-get($utility, settings, active) {
+    @include render-pseudoclass($utility, active, $selector, $property, $value, $val-props, $mq);
+  }
+
+  @if map-deep-get($utility, settings, visited) {
+    @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq);
+  }
+
+  @if map-deep-get($utility, settings, focus) {
+    @include render-pseudoclass($utility, focus, $selector, $property, $value, $val-props, $mq);
+  }
+
+  // Add the placeholder variant, if applicable
+
+  @if map-get($utility, placeholder) {
+    @include render-placeholder($selector, $property, $value, $val-props);
+  }
+
+  // And add the responsive prefixes, if applicable
+
+  @if map-deep-get($utility, settings, responsive) {
+    @include render-media-queries($utility, $selector, $property, $value, $val-props);
   }
 }
 
@@ -1039,11 +1318,6 @@ through all possible variants
 */
 
 @mixin render-utilities-in($utilities) {
-
-  $important: null;
-  @if $utilities-use-important {
-    $important: ' !important';
-  }
 
   // loop through the $utilities
 
@@ -1213,18 +1487,48 @@ through all possible variants
 
             $mod-props: to-map($mod-key, $mod-val);
 
-            // -------- if the modifier is null ----------
+            // --- if the modifier content is null -----
 
-            @if map-get($mod-props, content) == null {
+            @if map-get($mod-props, content) == null or map-get($mod-props, content) == '' {
 
-              // If mod-props.values is null, there's no modifier property
-              // and we can set our rule's $property now
+              // If mod-props.content is null,
+              // we can set our rule's $property now
               // since $property is simply $property-default.
 
               $property: $property-default;
 
-              // We can also build the $selector if mod-props.slug is null!
-              // First, we can test to see if selector $b is null
+            }
+
+              // '-' “oh hey.”
+
+              //                     '-' “hey.”
+
+              // '-' “hey.”
+
+              // OK, cool.
+              // So what if there _is_ a modifier object?
+
+              // -- if the modifier content is NOT null --
+
+            @else {
+
+              // If there are modifiers, $property is a concat of $property-default
+              // with _each_ of the values in $mod-props.content
+              // There's a function for this... multi-cat()!!
+              // (=^･ｪ･^=))ﾉ彡☆
+              // (^._.^)ﾉ☆( _ _).oO
+              // (=චᆽච=)
+
+              $property: multi-cat($property-default, map-get($mod-props, content));
+            }
+
+            // Now we go through to set the $selector.
+
+            // If mod-props.slug is noModifier...
+
+            @if map-get($mod-props, slug) == '' or map-get($mod-props, slug) == slug {
+
+              // First, we can test to see if the base $b is null
 
               @if $b == null {
 
@@ -1234,7 +1538,7 @@ through all possible variants
 
               // if the value is noValue ('')
 
-            } @elseif map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
+              } @elseif map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
 
                 // selector is the base only
 
@@ -1257,47 +1561,28 @@ through all possible variants
                 // Nice! We just took care of the non-modifier cases!
 
               }
+            }
 
-              // '-' “oh hey.”
+            // Otherwise, check to see if either mod.isReadable or
+            // val.isReadable
+            @else {
 
-              //                     '-' “hey.”
-
-              // '-' “hey.”
-
-              // OK, cool.
-              // So what if there _is_ a modifier object?
-
-              // -------- if the modifier is NOT null ----------
-
-          } @else {
-
-              // If there are modifiers, $property is a concat of $property-default
-              // with _each_ of the values in $mod-props.content
-              // There's a function for this... multi-cat()!!
-              // (=^･ｪ･^=))ﾉ彡☆
-              // (^._.^)ﾉ☆( _ _).oO
-              // (=චᆽච=)
-
-              $property: multi-cat($property-default, map-get($mod-props, content));
-
-              // Now we go through to finish setting the $selector.
-              // Check to see if the modifier is '' (noModifier)
-
-              @if map-get($mod-props, slug) == '' {
-
-                // If so, modifier-value == value
-
-                $mv: $v;
-
-                // If not, check to see if either mod.isReadable or
-                // val.isReadable
-
-              } @elseif map-has-key($mod-props, isReadable) or
+              @if map-has-key($mod-props, isReadable) or
                 map-has-key($val-props, isReadable) {
 
-                // If so, join with a '-' into selector $mv.
+                  // If valProps is `noValue`....
 
-                $mv: map-get($mod-props, slug) + '-' + map-get($val-props, slug);
+                @if map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
+
+                  // ...$mv is just the modifier
+
+                  $mv: map-get($mod-props, slug);
+                } @else {
+
+                  // Otherwise, join with a '-' into selector $mv.
+
+                  $mv: map-get($mod-props, slug) + '-' + map-get($val-props, slug);
+                }
               } @else {
 
                 // If not, just join into selector $mv.
@@ -1316,7 +1601,9 @@ through all possible variants
               } @else {
                 $selector: $b + $mv;
               }
-            } // finished setting modifier vars
+            }
+
+            // finished setting modifier vars
 
             // Hey. Did we just finish $selector?
             // And do we also have $property and $value?
@@ -1325,37 +1612,8 @@ through all possible variants
             // FINALLY, "BUILD THE RULE, MAX!"
             // https://www.youtube.com/watch?v=R3Igz5SfBCE
 
-            @include render-utility($utility, $selector, $property, $value, $val-props, $important);
+            @include render-utility($utility, $selector, $property, $value, $val-props);
 
-            // Add the pseudoclass variants, if applicable
-
-            @if map-deep-get($utility, settings, hover) {
-              @include render-pseudoclass(hover, $selector, $property, $value, $val-props, $mq, $important);
-            }
-
-            @if map-deep-get($utility, settings, active) {
-              @include render-pseudoclass(active, $selector, $property, $value, $val-props, $mq, $important);
-            }
-
-            @if map-deep-get($utility, settings, visited) {
-              @include render-pseudoclass(visited, $selector, $property, $value, $val-props, $mq, $important);
-            }
-
-            @if map-deep-get($utility, settings, focus) {
-              @include render-pseudoclass(focus, $selector, $property, $value, $val-props, $mq, $important);
-            }
-
-            // Add the placeholder variant, if applicable
-
-            @if map-get($utility, placeholder) {
-              @include render-placeholder($selector, $property, $value, $val-props);
-            }
-
-            // And add the responsive prefixes, if applicable
-
-            @if map-deep-get($utility, settings, responsive) {
-              @include render-media-queries($utility, $selector, $property, $value, $val-props, $important);
-            } // ･ﾟ✧
           } // end the modifier loop
         } // end the null value conditional
       } // end the value loop

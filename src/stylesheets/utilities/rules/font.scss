@@ -5,14 +5,14 @@ font
 sets font-size and font-family
 ----------------------------------------
 usage:
-  .font-[key]-[key]
+  .size-[key]-[key]
 ----------------------------------------
 output:
   font-family: [value];
   font-size: [value];
 ----------------------------------------
 example:
-  .font-sans-s3 {
+  .size-sans-s3 {
     font-face: '18Franklin-webfont',
                 system,
                 -apple-system,
@@ -28,7 +28,7 @@ example:
 
 $font: (
   font: (
-    base: 'font',
+    base: 'size',
     modifiers: null,
     values: map-collect(
       get-plugins($font-plugins),
@@ -36,5 +36,6 @@ $font: (
     ),
     settings: $font-settings,
     property: 'font-size',
+    type: 'utility',
   )
 )

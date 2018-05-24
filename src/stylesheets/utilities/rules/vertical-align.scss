@@ -16,7 +16,7 @@ example:
 
 $vertical-align: (
   vertical-align: (
-    base: 'vertical-align',
+    base: 'text',
     modifiers: null,
     values: map-collect(
       get-plugins($vertical-align-plugins),
@@ -24,5 +24,6 @@ $vertical-align: (
     ),
     settings: $vertical-align-settings,
     property: 'vertical-align',
+    type: 'utility',
   )
 )

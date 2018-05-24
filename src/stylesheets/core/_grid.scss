@@ -5,10 +5,10 @@
 }
 
 .usa-grid {
-  @include padding(null $site-margins-mobile);
+  @include padding-x($site-margins-mobile);
 
   @include media($medium-screen) {
-    @include padding(null $site-margins);
+    @include padding-x($site-margins);
   }
 }
 

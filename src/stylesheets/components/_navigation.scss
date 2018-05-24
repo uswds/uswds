@@ -45,7 +45,7 @@
 .usa-nav-container {
   @include media($nav-width) {
     @include outer-container($site-max-width);
-    @include padding(null $site-margins);
+    @include padding-x($site-margins);
   }
 }
 
@@ -62,7 +62,7 @@
     }
   }
 
-  @include position(fixed, 0 0 0 auto);
+  @include add-pin('right');
   background: $color-white;
   border-left: 1px solid $color-gray-light;
   border-right: 0;
@@ -74,7 +74,9 @@
   z-index: $z-index-nav;
 
   @include media($nav-width) {
-    @include padding(4.5rem 0 0 null);
+    @include padding-top(4.5rem);
+    @include padding-bottom(0);
+    @include padding-right(0);
     border-left: none;
     display: block;
     float: right;
@@ -148,7 +150,9 @@
 
     > a {
       @include media($nav-width) {
-        @include padding(1.3rem 1.5rem 2.2rem 1.5rem);
+        @include padding-bottom(2.2rem);
+        @include padding-top(1.3rem);
+        @include padding-x(1.5rem);
         color: $color-gray;
         font-size: $h5-font-size;
         font-weight: $font-bold;
@@ -165,7 +169,7 @@
 
   a {
     @include media($nav-width) {
-      @include padding(0.75rem null);
+      @include padding-y(0.75rem);
     }
 
     &:hover {
@@ -185,7 +189,9 @@
     padding: 0.85rem 1.5rem 0.85rem 1.8rem;
 
     @include media($nav-width) {
-      @include padding(1.3rem 1.5rem 2.2rem 1.5rem);
+      @include padding-bottom(2.2rem);
+      @include padding-top(1.3rem);
+      @include padding-x(1.5rem);
       color: $color-gray;
       font-size: $h5-font-size;
       font-weight: $font-bold;
@@ -209,29 +215,29 @@
     }
 
     &[aria-expanded=false] { /* stylelint-disable-line selector-no-qualifying-type */
-      background-image: url('#{$image-path}/plus-alt.png');
-      background-image: url('#{$image-path}/plus-alt.svg');
+      background-image: url('#{$theme-image-path}/plus-alt.png');
+      background-image: url('#{$theme-image-path}/plus-alt.svg');
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: 1rem;
 
       @include media($nav-width) {
-        background-image: url('#{$image-path}/angle-arrow-down.png');
-        background-image: url('#{$image-path}/angle-arrow-down.svg');
+        background-image: url('#{$theme-image-path}/angle-arrow-down.png');
+        background-image: url('#{$theme-image-path}/angle-arrow-down.svg');
         background-position: right 1.5rem top $button-vertical-offset;
       }
 
       &:hover {
         @include media($nav-width) {
-          background-image: url('#{$image-path}/angle-arrow-down-primary.png');
-          background-image: url('#{$image-path}/angle-arrow-down-primary.svg');
+          background-image: url('#{$theme-image-path}/angle-arrow-down-primary.png');
+          background-image: url('#{$theme-image-path}/angle-arrow-down-primary.svg');
         }
       }
     }
 
     &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
-      background-image: url('#{$image-path}/minus-alt.png');
-      background-image: url('#{$image-path}/minus-alt.svg');
+      background-image: url('#{$theme-image-path}/minus-alt.png');
+      background-image: url('#{$theme-image-path}/minus-alt.svg');
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: 1rem;
@@ -239,8 +245,8 @@
       @include media($nav-width) {
         background-color: $color-primary-darkest;
         color: $color-white;
-        background-image: url('#{$image-path}/angle-arrow-down-hover.png');
-        background-image: url('#{$image-path}/angle-arrow-down-hover.svg');
+        background-image: url('#{$theme-image-path}/angle-arrow-down-hover.png');
+        background-image: url('#{$theme-image-path}/angle-arrow-down-hover.svg');
         background-position: right 1.5rem top $button-vertical-offset;
 
         &:hover {
@@ -321,10 +327,13 @@
   }
 
   .usa-search {
-    @include margin(1.5rem null 0 null);
+    @include margin-top(1.5rem);
+    @include margin-bottom(0);
 
     @include media($nav-width) {
-      @include margin(-0.9rem null 0 0);
+      @include margin-bottom(0);
+      @include margin-left(0);
+      @include margin-top(-0.9rem);
       float: left;
     }
   }
@@ -371,8 +380,8 @@
     display: none;
 
     @include media($nav-width) {
-      background-image: url('#{$image-path}/search-alt.png');
-      background-image: url('#{$image-path}/search-alt.svg');
+      background-image: url('#{$theme-image-path}/search-alt.png');
+      background-image: url('#{$theme-image-path}/search-alt.svg');
       background-repeat: no-repeat;
       background-position: left center;
       background-size: 2.2rem;
@@ -403,7 +412,8 @@
 
   @include media($nav-width) {
     @include unstyled-list;
-    @include padding(0.75rem null 0.9rem null);
+    @include padding-top(0.75rem);
+    @include padding-bottom(0.9rem);
     background-color: $color-primary-darkest;
     width: 21.5rem;
     position: absolute;
@@ -448,7 +458,10 @@
 
 .usa-nav-close {
   @include button-unstyled;
-  @include margin(-1.2rem -1.5rem 1.5rem auto);
+  @include margin-bottom(1.5rem);
+  @include margin-left(auto);
+  @include margin-right(-1.5rem);
+  @include margin-top(-1.2rem);
   color: currentColor;
   float: right;
   height: $hit-area;
@@ -490,7 +503,7 @@
 
 .usa-megamenu {
   @include media($nav-width) {
-    @include padding(3.15rem null); // XXX magic number
+    @include padding-y(3.15rem); // XXX magic number
     // XXX this is the difference between the 2rem padding-left
     // of .usa-nav-inner and the $site-margins (3rem) padding-left
     // of .usa-megamenu

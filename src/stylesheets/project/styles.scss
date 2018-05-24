@@ -1,0 +1,32 @@
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+*/
+
+// -------------------------------------
+// import project settings
+
+@import 'uswds-project-settings';
+@import 'uswds-project-utilities-settings';
+
+// -------------------------------------
+// import specific USWDS modules...
+
+// @import 'uswds-fonts';
+// @import 'uswds-utilities';
+// @import 'uswds-layout-grid';
+
+// -------------------------------------
+// ...or import all USWDS modules
+
+@import 'uswds';
+
+// -------------------------------------
+// import project custom styles
+
+@import 'project-custom';

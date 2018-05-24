@@ -3,20 +3,20 @@
 text-align
 ----------------------------------------
 usage:
-  .text-align-[key]
+  .text-[key]
 ----------------------------------------
 output:
   align: [value];
 ----------------------------------------
 example:
-  .text-align-left {
+  .text-left {
     align: left; }
 ----------------------------------------
 */
 
 $text-align: (
   text-align: (
-    base: 'text-align',
+    base: 'text',
     modifiers: null,
     values: map-collect(
       get-plugins($text-align-plugins),
@@ -24,5 +24,6 @@ $text-align: (
     ),
     settings: $text-align-settings,
     property: 'text-align',
+    type: 'utility',
   )
 )

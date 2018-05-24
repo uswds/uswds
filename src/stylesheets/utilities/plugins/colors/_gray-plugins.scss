@@ -1,0 +1,40 @@
+$plugin-color-gray-lighter: (
+  'gray-1':  $gray-1,
+  'gray-2':  $gray-2,
+  'gray-3':  $gray-3,
+  'gray-4':  $gray-4,
+);
+
+$plugin-color-gray-light: (
+  'gray-5':  $gray-5,
+  'gray-10': $gray-10,
+  'gray-20': $gray-20,
+  'gray-30': $gray-30,
+);
+
+$plugin-color-gray-medium: (
+  'gray-40': $gray-40,
+  'gray-50': $gray-50,
+  'gray-60': $gray-60,
+);
+
+$plugin-color-gray-dark: (
+  'gray-70': $gray-70,
+  'gray-80': $gray-80,
+  'gray-90': $gray-90,
+);
+
+$plugin-color-gray-all: map-collect(
+  $plugin-color-gray-lighter,
+  $plugin-color-gray-light,
+  $plugin-color-gray-medium,
+  $plugin-color-gray-dark
+);
+
+$plugin-color-gray: (
+  'plugin-color-gray-lighter': $plugin-color-gray-lighter,
+  'plugin-color-gray-light': $plugin-color-gray-light,
+  'plugin-color-gray-medium': $plugin-color-gray-medium,
+  'plugin-color-gray-dark': $plugin-color-gray-dark,
+  'plugin-color-gray-all': $plugin-color-gray-all,
+);

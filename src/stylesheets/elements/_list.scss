@@ -1,6 +1,6 @@
 ul,
 ol {
-  @include margin(1em null);
+  @include margin-y(1em);
   padding-left: 1.94em; // Approximately 15px left padding at default font size
 }
 
@@ -10,19 +10,6 @@ li {
 
   &:last-child {
     margin-bottom: 0;
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  + ul,
-  + ol {
-    margin-top: 0;
   }
 }
 

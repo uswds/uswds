@@ -1,207 +1,247 @@
-.usa-banner {
-  background-color: $color-gray-lightest;
-  padding-bottom: 0.7rem;
+$theme-banner-font: sans;
 
-  @include media($small-screen) {
-    font-size: $h6-font-size;
-    padding-bottom: 0;
+.#{ns('component')} {
+  &banner {
+    @include bg($base-lighter);
+
+    @include at-media('tablet') {
+      @include padding-bottom(0);
+      @include size($theme-banner-font, '3xs');
+    }
   }
 }
 
-.usa-banner-content {
-  @include padding(null $site-margins-mobile 3px $site-margins-mobile);
-  background-color: transparent;
-  font-size: $h5-font-size;
-  padding-top: 2rem;
-  width: 100%;
+.#{ns('component')} {
+  &banner-content {
+    @include bg('transparent');
+    @include grid-container($site-max-width);
+    @include padding-bottom(1.5);
+    @include padding-top(2px);
+    @include padding-x(1);
+    @include size($theme-banner-font, 3);
+    @include width('full');
 
-  @include media($medium-screen) {
-    padding-bottom: 2.3rem;
-    padding-top: 4rem;
+    @include at-media('tablet') {
+      @include padding-y(3);
+    }
+
+    @include at-media('desktop') {
+      @include padding-x($theme-site-margins);
+    }
+
+    p:first-child {
+      @include margin(0);
+    }
+  }
+}
+
+.#{ns('component')}banner-guidance-gov {
+  @include padding-top(2);
+
+  @include at-media('tablet') {
+    @include padding-top(0);
+  }
+}
+
+.#{ns('component')}banner-guidance-ssl {
+  @include padding-top(2);
+
+  @include at-media('tablet') {
+    @include padding-top(0);
+  }
+}
+
+.#{ns('component')}banner-inner {
+  @include flex('align-start');
+  @include grid-row;
+  @include grid-container($site-max-width);
+  @include padding-left($theme-site-margins-mobile);
+  @include padding-right(0);
+  @include padding-x(1);
+
+  @include at-media('tablet') {
+    @include flex('align-center');
   }
 
-  @include media($nav-width) {
-    @include padding(null $site-margins);
+  @include at-media('desktop') {
+    @include padding-x($theme-site-margins);
+  }
+}
+
+.#{ns('component')}banner-header {
+  @include padding-y(1);
+  @include position(relative);
+  @include size($theme-banner-font, 1);
+  @include text('normal');
+
+  @include at-media('tablet') {
+    @include padding-y(.5);
   }
 
-  p {
-    &:first-child {
-      margin-top: 1rem;
+  &-close-text {
+    @include display('none');
+    @include line-height($theme-banner-font, 2);
+    @include margin-y(0);
+    @include padding-top(.5);
+    @include size($theme-banner-font, 1);
+    @include text($base-dark);
 
-      @include media($medium-screen) {
-        margin-top: 0;
+    .#{ns('component')}banner-header-expanded & {
+      @include display(block);
+
+      @include at-media('tablet') {
+        @include display(none);
+      }
+    }
+  }
+
+  &-text {
+    @include line-height($theme-banner-font, 2);
+    @include margin-y(0);
+    @include size($theme-banner-font, 1);
+    .#{ns('component')}banner-header-expanded & {
+      @include display('none');
+
+      @include at-media('tablet') {
+        @include display('block');
+      }
+    }
+  }
+
+  &-action {
+    @include add-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
+    @include line-height($theme-banner-font, 2);
+    @include margin-bottom(0);
+    @include margin-top(2px);
+    @include text($primary);
+
+    @include at-media('tablet') {
+      @include display('none');
+    }
+
+    .#{ns('component')}banner-header-expanded & {
+      @include display('none');
+    }
+
+    &:after {
+      @include margin-left(.5);
+    }
+  }
+
+  &-flag {
+    @include float('left');
+    @include margin-right(1);
+    @include width(2);
+
+    @include at-media('tablet') {
+      @include margin-right(1);
+      @include padding-top(0);
+    }
+
+    .#{ns('component')}banner-header-expanded & {
+      @include display('none');
+
+      @include at-media('tablet') {
+        @include display('block');
       }
     }
   }
 }
 
-.usa-banner-inner {
-  @include outer-container($site-max-width);
-  @include padding(null $site-margins-mobile);
+.#{ns('component')}banner-header-expanded {
+  @include minh(4);
 
-  @include media($nav-width) {
-    @include padding(null $site-margins);
-  }
-}
-
-.usa-banner-header {
-  @include padding(0.55rem null);
-  font-size: 1.2rem;
-  font-weight: $font-normal;
-
-  @include media($small-screen) {
-    @include padding(0 null);
+  @include at-media('tablet') {
+    @include display('block');
+    @include minh(0);
+    @include padding-right(0);
+    @include size($theme-banner-font, 1);
+    @include text('normal');
   }
 
-  p {
-    @include margin(0 null);
-    display: inline;
-    overflow: hidden;
-    vertical-align: middle;
+  > .#{ns('component')}banner-inner {
+    @include margin-left(0);
 
-    @include media($small-screen) {
-      @include margin(2px null);
-      display: inline-block;
-    }
-  }
-
-  img {
-    float: left;
-    margin-right: 1rem;
-    margin-top: 1px;
-    width: 2.4rem;
-
-    @include media($small-screen) {
-      margin-right: 0.7rem;
-      width: 2rem;
-    }
-  }
-
-  &:not(.usa-banner-header-expanded) + .usa-banner-content {
-    display: none;
-  }
-}
-
-.usa-banner-header-expanded {
-  align-items: center;
-  border-bottom: 1px solid $color-gray-light;
-  display: flex;
-  font-size: $h5-font-size;
-  min-height: 5.6rem;
-  padding-right: 3rem;
-
-  @include media($small-screen) {
-    border-bottom: none;
-    display: block;
-    font-size: 1.2rem;
-    font-weight: $font-normal;
-    min-height: 0;
-    padding-right: 0;
-  }
-
-  > .usa-banner-inner {
-    margin-left: 0;
-
-    @include media($small-screen) {
-      margin-left: auto;
-    }
-  }
-
-  img {
-    margin-right: 2.4rem;
-
-    @include media($small-screen) {
-      margin-right: 0.7rem;
-    }
-  }
-
-  p {
-    line-height: $heading-line-height;
-    vertical-align: top;
-
-    @include media($small-screen) {
-      line-height: $base-line-height;
-      vertical-align: middle;
+    @include at-media('tablet') {
+      @include margin-left('auto');
     }
   }
 }
 
-.usa-banner-button {
+.#{ns('component')}banner-button {
+  @include add-pin('left');
   @include button-unstyled;
-  @include padding(1.3rem null null 4.8rem);
-  background-position-x: right;
-  color: $color-primary;
-  display: block;
-  font-size: 1.2rem;
-  height: 4.3rem;
-  left: 0;
-  position: absolute;
-  text-decoration: underline;
-  top: 0;
-  width: 100%;
+  @include display(block);
+  @include size($theme-banner-font, 1);
+  @include text($primary);
+  @include width('full');
 
-  @include media($small-screen) {
-    @include padding(0 null null 0);
-    /* stylelint-disable declaration-block-no-ignored-properties */
-    display: inline;
-    height: auto;
-    margin-left: 3px;
-    position: relative;
-    vertical-align: middle;
-    width: auto;
-    /* stylelint-enable */
-  }
-
-  &:hover {
-    color: $color-primary-darker;
-    text-decoration: underline;
-  }
-
-  &[aria-expanded=false] {
-    @include display-icon(angle-arrow-down-primary, after, 1rem, 0, hover);
-    background-image: none;
+  @include at-media('tablet') {
+    @include add-pin('none');
+    @include add-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
+    @include display(inline);
+    @include height(auto);
+    @include line-height($theme-banner-font, 2);
+    @include margin-left(1);
+    @include padding-top(0);
+    @include padding-left(0);
+    @include position(relative);
+    @include text(underline);
+    @include vertical-align(middle);
+    @include width(auto);
 
     &::after {
-      background-position-y: 1px;
+      @include margin-left(.5);
     }
+
+    &:hover {
+      @include text($primary-darker, underline);
+    }
+  }
+
+  /* stylelint-disable selector-no-qualifying-type */
+
+  &[aria-expanded=false] {
+    background-image: none;
   }
 
   &[aria-expanded=true] {
-    @include display-icon(close, after, 1.3rem, 0, no-hover);
+    @include add-icon(close, after, spacing(1.5), 0, no-hover);
     background-image: none;
-    height: 5.6rem;
 
-    @include media($small-screen) {
-      @include display-icon(angle-arrow-up-primary, after, 1rem, 0, hover);
-      height: initial;
-      padding: 0;
-      position: relative;
-
+    @include at-media('tablet') {
+      @include add-icon(angle-arrow-up-primary, after, spacing(1), 0, hover);
+      @include height(auto);
+      @include padding(0);
+      @include position(relative);
       &::after {
-        background-position-y: 1px;
+        @include margin-left(.5);
       }
     }
+
+    /* stylelint-enable */
 
     &::after {
-      position: absolute;
-      right: 1.5rem;
-      top: 2.15rem;
+      @include position(absolute);
+      @include right(2);
+      @include top(1.5);
 
-      @include media($small-screen) {
-        position: static;
-      }
-    }
-
-    .usa-banner-button-text {
-      display: none;
-
-      @include media($small-screen) {
-        display: inline;
+      @include at-media('tablet') {
+        @include position(static);
       }
     }
   }
 }
 
-.usa-banner-icon {
-  width: 3.8rem;
+.#{ns('component')}banner-button-text {
+  @include add-sr-only;
+
+  @include at-media('tablet') {
+    @include add-no-sr-only;
+    @include display('inline');
+  }
+}
+
+.#{ns('component')}banner-icon {
+  @include width(5);
 }

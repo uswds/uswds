@@ -3,21 +3,21 @@
 font-feature-settings
 ----------------------------------------
 usage:
-  .font-feature-[key]
+  .text-[key]
 ----------------------------------------
 output:
   font-feature-settings: [value];
 ----------------------------------------
 example:
-  .font-feature-alt {
+  .text-tabular {
     font-feature-settings:
-      'ss01' 1, 'kern' 1; }
+      'tnum' 1, 'kern' 1; }
 ----------------------------------------
 */
 
 $font-feature: (
   font-feature: (
-    base: 'font-feature',
+    base: 'text',
     modifiers: null,
     values: map-collect(
       get-plugins($font-feature-plugins),
@@ -25,5 +25,6 @@ $font-feature: (
     ),
     settings: $font-feature-settings,
     property: 'font-feature-settings',
+    type: 'utility',
   )
 )

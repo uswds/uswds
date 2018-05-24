@@ -3,20 +3,20 @@
 max-height
 ----------------------------------------
 usage:
-  .max-height-[key]
+  .maxh[key]
 ----------------------------------------
 output:
   max-height: [value];
 ----------------------------------------
 example:
-  .max-height-g40 {
-    max-height: 320px; }
+  .maxh-viewport {
+    max-height: 100vh; }
 ----------------------------------------
 */
 
 $max-height: (
   max-height: (
-    base: 'max-height',
+    base: 'maxh',
     modifiers: null,
     values: map-collect(
       get-plugins($max-height-plugins),
@@ -24,5 +24,6 @@ $max-height: (
     ),
     settings: $max-height-settings,
     property: 'max-height',
+    type: 'utility',
   )
 )

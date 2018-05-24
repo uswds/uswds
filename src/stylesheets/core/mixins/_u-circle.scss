@@ -1,6 +1,0 @@
-// Outputs a square
-@mixin u-circle($value) {
-  border-radius: 50%;
-  height: spacing($value);
-  width: spacing($value);
-}

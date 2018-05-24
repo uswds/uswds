@@ -2,13 +2,11 @@
 ========================================
 border-width
 ----------------------------------------
-Needs to come before other border utils
-----------------------------------------
 usage:
-  .border-width-[modifier]*-[key]
+  .border-[modifier]*-width-[key]
 ----------------------------------------
 output:
-  border-[modifier]: [value];
+  border-[modifier]-width: [value];
 ----------------------------------------
 example:
   .border-top-width-1px {
@@ -20,13 +18,13 @@ $border-width: (
   border-width: (
     base: 'border',
     modifiers: (
+      'width': '-width',
+      'y-width': ('-top-width', '-bottom-width'),
+      'x-width': ('-left-width', '-right-width'),
       'top-width': '-top-width',
       'right-width': '-right-width',
       'bottom-width': '-bottom-width',
       'left-width': '-left-width',
-      'y-width': ('-top-width', '-bottom-width'),
-      'x-width': ('-left-width', '-right-width'),
-      '-width': '-width',
     ),
     values: map-collect(
       get-plugins($border-width-plugins),
@@ -34,5 +32,6 @@ $border-width: (
     ),
     settings: $border-width-settings,
     property: 'border',
+    type: 'utility',
   )
 )

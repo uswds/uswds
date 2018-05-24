@@ -1,9 +1,9 @@
 $plugin-color-all: (
   'plugin-color-all': map-collect(
-    $plugin-color-black-cool-all,
     $plugin-color-black-transparent-all,
-    $plugin-color-black-all,
-    $plugin-color-black-warm-all,
+    $plugin-color-gray-cool-all,
+    $plugin-color-gray-all,
+    $plugin-color-gray-warm-all,
     $plugin-color-blue-all,
     $plugin-color-blue-warm-all,
     $plugin-color-cyan-all,
@@ -24,9 +24,7 @@ $plugin-color-all: (
     $plugin-color-red-warm-all,
     $plugin-color-violet-all,
     $plugin-color-violet-warm-all,
-    $plugin-color-white-cool-all,
     $plugin-color-white-transparent-all,
-    $plugin-color-white-warm-all,
     $plugin-color-yellow-all
   ),
 );

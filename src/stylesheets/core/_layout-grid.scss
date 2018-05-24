@@ -1,0 +1,135 @@
+/* stylelint-disable */
+
+$namespace-grid: ns('grid');
+
+// basic container
+.#{$namespace-grid}container {
+  @include grid-container;
+}
+
+// container with custom widths
+@each $width-key, $width-value in $uswds-breakpoints {
+  .#{$namespace-grid}container-#{$width-key} {
+    @include grid-container($width-key);
+  }
+}
+
+// responsive containers...
+@each $mq-key, $mq-value in $uswds-breakpoints {
+  @if map-get($theme-output-breakpoints, $mq-key) {
+    @include at-media($mq-key){
+      .#{$mq-key}\:#{$namespace-grid}container {
+        @include grid-container;
+      }
+
+// ...with custom widths
+      @each $width-key, $width-value in $uswds-breakpoints {
+        .#{$mq-key}\:#{$namespace-grid}container-#{$width-key} {
+          @include grid-container($width-key);
+        }
+      }
+    }
+  }
+}
+
+// basic row...
+.#{$namespace-grid}row {
+  @include grid-row;
+
+// ...that includes column gaps
+  &.#{$namespace-grid}gap {
+    @include grid-gap;
+  }
+  @each $gap-key, $gap-val in map-deep-get($uswds-properties, gap, standard){
+    @if $gap-key {
+      &.#{$namespace-grid}gap-#{$gap-key} {
+        @include grid-gap($gap-key);
+      }
+    }
+  }
+
+// responsive column gaps
+  @each $mq-key, $mq-value in $uswds-breakpoints {
+    @if map-get($theme-output-breakpoints, $mq-key) {
+      @include at-media($mq-key){
+        &.#{$mq-key}\:#{$namespace-grid}gap {
+          @include grid-gap;
+        }
+        @if $theme-column-gap-small {
+          &.#{$mq-key}\:#{$namespace-grid}gap-sm {
+            @include grid-gap('sm');
+          }
+        }
+        @if $theme-column-gap-large {
+          &.#{$mq-key}\:#{$namespace-grid}gap-lg {
+            @include grid-gap('lg');
+          }
+        }
+      }
+    }
+  }
+}
+
+// basic columns...
+.#{$namespace-grid}col {
+  @include grid-col;
+}
+
+.#{$namespace-grid}col-auto {
+  @include grid-col('auto');
+}
+
+.#{$namespace-grid}col-fill {
+  @include grid-col('fill');
+}
+
+// ...with widths
+@each $width-key, $width-value in $uswds-layout-grid-widths {
+  .#{$namespace-grid}col-#{$width-key} {
+    @include grid-col($width-key);
+  }
+}
+
+// responsive columns
+@each $mq-key, $mq-value in $uswds-breakpoints {
+  @if map-get($theme-output-breakpoints, $mq-key) {
+    @include at-media($mq-key){
+      .#{$mq-key}\:#{$namespace-grid}col {
+        @include grid-col;
+      }
+      .#{$mq-key}\:#{$namespace-grid}col-fill {
+        @include grid-col('fill');
+      }
+      .#{$mq-key}\:#{$namespace-grid}col-auto {
+        @include grid-col('auto');
+      }
+
+      @each $width-key, $width-value in $uswds-layout-grid-widths {
+        .#{$mq-key}\:#{$namespace-grid}col-#{$width-key} {
+          @include grid-col($width-key);
+        }
+      }
+    }
+  }
+}
+
+// basic offsets
+@each $width-key, $width-value in $uswds-layout-grid-widths {
+  .#{$namespace-grid}offset-#{$width-key} {
+    @include grid-offset($width-key);
+  }
+}
+
+// responsive offsets
+@each $mq-key, $mq-value in $uswds-breakpoints {
+  @if map-get($theme-output-breakpoints, $mq-key) {
+    @each $width-key, $width-value in $uswds-layout-grid-widths {
+      @include at-media($mq-key) {
+        .#{$mq-key}\:#{$namespace-grid}offset-#{$width-key} {
+          @include grid-offset($width-key);
+        }
+      }
+    }
+  }
+}
+/* stylelint-enable */

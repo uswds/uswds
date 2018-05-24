@@ -1,0 +1,5 @@
+// Outputs text-align property
+
+@mixin text-decoration($value...) {
+  text-decoration: get-uswds-value(text-decoration, $value...);
+}

@@ -99,7 +99,7 @@ $z-index-nav:     9000;
 }
 
 .usa-overlay {
-  @include position(fixed, 0);
+  @include add-pin('all');
   background: $color-black;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
@@ -141,7 +141,7 @@ $z-index-nav:     9000;
 
   .usa-logo {
     @include media($nav-width) {
-      @include margin(3rem null);
+      @include margin-y(3rem);
     }
   }
 
@@ -155,7 +155,7 @@ $z-index-nav:     9000;
   .usa-navbar {
     @include media($nav-width) {
       @include outer-container($site-max-width);
-      @include padding(null $site-margins);
+      @include padding-x($site-margins);
       display: block;
       height: auto;
     }
@@ -173,7 +173,8 @@ $z-index-nav:     9000;
   .usa-nav-inner {
     @include media($nav-width) {
       @include outer-container($site-max-width);
-      @include padding(null $site-margins null 1.5rem);
+      @include padding-right($site-margins);
+      @include padding-left(1.5rem);
       margin-top: -1px;
       position: relative;
     }
@@ -196,7 +197,7 @@ $z-index-nav:     9000;
 
   .usa-nav-link {
     @include media($nav-width) {
-      @include padding(1.8rem null);
+      @include padding-y(1.8rem);
     }
   }
 

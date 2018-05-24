@@ -19,13 +19,13 @@ example:
 
 $border-radius: (
   border-radius: (
-    base: 'border',
+    base: 'radius',
     modifiers: (
-      'top-radius': ('border-top-left-radius', 'border-top-right-radius'),
-      'right-radius': ('border-top-right-radius', 'border-bottom-right-radius'),
-      'bottom-radius': ('border-bottom-left-radius', 'border-bottom-right-radius'),
-      'left-radius': ('border-top-left-radius', 'border-bottom-left-radius'),
-      'radius': 'border-radius',
+      noModifier: 'border-radius',
+      'top': ('border-top-left-radius', 'border-top-right-radius'),
+      'right': ('border-top-right-radius', 'border-bottom-right-radius'),
+      'bottom': ('border-bottom-left-radius', 'border-bottom-right-radius'),
+      'left': ('border-top-left-radius', 'border-bottom-left-radius'),
     ),
     property: '',
     values: map-collect(
@@ -33,5 +33,6 @@ $border-radius: (
       $border-radius-manual-values
     ),
     settings: $border-radius-settings,
+    type: 'utility',
   )
 )

@@ -197,7 +197,7 @@
     }
 
     @include media($medium-screen) {
-      @include padding ($spacing-md-small null);
+      @include padding-y($spacing-md-small);
     }
 
     @include media($medium-screen) {
@@ -366,8 +366,8 @@ li.usa-footer-primary-content {
     }
 
     .usa-footer-primary-link {
-      background-image: url('#{$image-path}/arrow-down.png');
-      background-image: url('#{$image-path}/arrow-down.svg');
+      background-image: url('#{$theme-image-path}/arrow-down.png');
+      background-image: url('#{$theme-image-path}/arrow-down.svg');
       background-position: 1.5rem center;
       background-repeat: no-repeat;
       background-size: 1.3rem;
@@ -394,8 +394,8 @@ li.usa-footer-primary-content {
       }
 
       .usa-footer-primary-link { /* stylelint-disable-line selector-no-qualifying-type */
-        background-image: url('#{$image-path}/arrow-right.png');
-        background-image: url('#{$image-path}/arrow-right.svg');
+        background-image: url('#{$theme-image-path}/arrow-right.png');
+        background-image: url('#{$theme-image-path}/arrow-right.svg');
         cursor: pointer;
         display: block;
 
@@ -476,7 +476,10 @@ li.usa-footer-primary-content {
   // Apple iOS Human Interface Guidelines.
   $hit-area: 4.4rem;
 
-  @include margin(2.5rem 1rem 1.5rem 0);
+  @include margin-bottom(1.5rem);
+  @include margin-left(0);
+  @include margin-right(1rem);
+  @include margin-top(2.5rem);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: auto $background-height;
@@ -488,7 +491,9 @@ li.usa-footer-primary-content {
   width: $hit-area;
 
   @include media($medium-screen) {
-    @include margin(0 0 0 $spacing-x-small);
+    @include margin-left($spacing-x-small);
+    @include margin-top(0);
+    @include margin-y(0);
     left: $spacing-md-small;
   }
 
@@ -499,24 +504,24 @@ li.usa-footer-primary-content {
 
 .usa-link-facebook {
   @extend .usa-social_link;
-  background-image: url('#{$image-path}/social-icons/png/facebook25.png');
-  background-image: url('#{$image-path}/social-icons/svg/facebook25.svg');
+  background-image: url('#{$theme-image-path}/social-icons/png/facebook25.png');
+  background-image: url('#{$theme-image-path}/social-icons/svg/facebook25.svg');
 }
 
 .usa-link-twitter {
   @extend .usa-social_link;
-  background-image: url('#{$image-path}/social-icons/png/twitter16.png');
-  background-image: url('#{$image-path}/social-icons/svg/twitter16.svg');
+  background-image: url('#{$theme-image-path}/social-icons/png/twitter16.png');
+  background-image: url('#{$theme-image-path}/social-icons/svg/twitter16.svg');
 }
 
 .usa-link-youtube {
   @extend .usa-social_link;
-  background-image: url('#{$image-path}/social-icons/png/youtube15.png');
-  background-image: url('#{$image-path}/social-icons/svg/youtube15.svg');
+  background-image: url('#{$theme-image-path}/social-icons/png/youtube15.png');
+  background-image: url('#{$theme-image-path}/social-icons/svg/youtube15.svg');
 }
 
 .usa-link-rss {
   @extend .usa-social_link;
-  background-image: url('#{$image-path}/social-icons/png/rss25.png');
-  background-image: url('#{$image-path}/social-icons/svg/rss25.svg');
+  background-image: url('#{$theme-image-path}/social-icons/png/rss25.png');
+  background-image: url('#{$theme-image-path}/social-icons/svg/rss25.svg');
 }

@@ -14,6 +14,7 @@ $plugin-spacing-uswds:(
   'plugin-spacing-uswds-medium':  map-get($uswds-spacing, medium),
   'plugin-spacing-uswds-large':   map-get($uswds-spacing, large),
   'plugin-spacing-uswds-larger':  map-get($uswds-spacing, larger),
+  'plugin-spacing-uswds-largest': map-get($uswds-spacing, largest),
   'plugin-spacing-uswds-smaller-negative': map-get($uswds-spacing, smaller-negative),
   'plugin-spacing-uswds-small-negative': map-get($uswds-spacing, small-negative),
   'plugin-spacing-uswds-all': map-collect(
@@ -21,7 +22,8 @@ $plugin-spacing-uswds:(
     map-get($uswds-spacing, small),
     map-get($uswds-spacing, medium),
     map-get($uswds-spacing, large),
-    map-get($uswds-spacing, larger)
+    map-get($uswds-spacing, larger),
+    map-get($uswds-spacing, largest)
   ),
   'plugin-spacing-uswds-negative': map-collect(
     map-get($uswds-spacing, smaller-negative),
@@ -44,13 +46,13 @@ $plugin-spacing-units:(
     '5ch':    '5ch',
   ),
   'plugin-spacing-units-ch-negative': (
-    'n-05ch':   '-.5ch',
-    'n-1ch':    '-1ch',
-    'n-105ch':  '-1.5ch',
-    'n-2ch':    '-2ch',
-    'n-3ch':    '-3ch',
-    'n-4ch':    '-4ch',
-    'n-5ch':    '-5ch',
+    '#{$neg-prefix}-05ch':   '-.5ch',
+    '#{$neg-prefix}-1ch':    '-1ch',
+    '#{$neg-prefix}-105ch':  '-1.5ch',
+    '#{$neg-prefix}-2ch':    '-2ch',
+    '#{$neg-prefix}-3ch':    '-3ch',
+    '#{$neg-prefix}-4ch':    '-4ch',
+    '#{$neg-prefix}-5ch':    '-5ch',
   ),
   'plugin-spacing-units-em': (
     '05em':   '.5em',

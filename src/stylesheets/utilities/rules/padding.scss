@@ -21,13 +21,13 @@ $padding: (
   padding: (
     base: 'padding',
     modifiers: (
+      noModifier: '',
+      'y': ('-top', '-bottom'),
+      'x': ('-left', '-right'),
       'top': '-top',
       'right': '-right',
       'bottom': '-bottom',
       'left': '-left',
-      y: ('-top', '-bottom'),
-      x: ('-left', '-right'),
-      noModifier: '',
     ),
     values: map-collect(
       get-plugins($padding-plugins),
@@ -35,5 +35,6 @@ $padding: (
     ),
     settings: $padding-settings,
     property: 'padding',
+    type: 'utility',
   )
 )

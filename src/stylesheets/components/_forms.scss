@@ -1,21 +1,9 @@
 $usa-form-width: 32rem;
 
-[type=submit],
 [type=submit] {
-  display: block;
-  margin-bottom: 1.5em;
-  margin-top: 2.5rem;
-
   @include media($medium-screen) {
-    padding-left: 2.7em;
-    padding-right: 2.7em;
-    width: auto;
+    margin-top: calc(3rem - .2em); // Label margin minus input bottom margin
   }
-}
-
-[name=password],
-[name=confirmPassword] {
-  margin-bottom: 1.1rem;
 }
 
 fieldset {
@@ -147,8 +135,8 @@ fieldset {
 
 .usa-checklist-checked {
   &::before {
-    background-image: url('#{$image-path}/correct9.png');
-    background-image: url('#{$image-path}/correct9.svg');
+    background-image: url('#{$theme-image-path}/correct9.png');
+    background-image: url('#{$theme-image-path}/correct9.svg');
     background-position: 100%;
     background-repeat: no-repeat;
     background-size: 100%;

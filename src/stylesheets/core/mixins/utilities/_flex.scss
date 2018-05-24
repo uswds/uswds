@@ -1,0 +1,40 @@
+// Outputs flex
+
+$flex-utililies: (
+  align-items: map-collect(
+    map-deep-get($uswds-properties, align-items, standard),
+    map-deep-get($uswds-properties, align-items, extended)
+  ),
+  flex: map-collect(
+    map-deep-get($uswds-properties, flex, standard),
+    map-deep-get($uswds-properties, flex, extended)
+  ),
+  flex-direction: map-collect(
+    map-deep-get($uswds-properties, flex-direction, standard),
+    map-deep-get($uswds-properties, flex-direction, extended)
+  ),
+  flex-wrap: map-collect(
+    map-deep-get($uswds-properties, flex-wrap, standard),
+    map-deep-get($uswds-properties, flex-wrap, extended)
+  ),
+  justify-content: map-collect(
+    map-deep-get($uswds-properties, justify-content, standard),
+    map-deep-get($uswds-properties, justify-content, extended)
+  ),
+);
+
+@mixin flex($value...) {
+  @each $this-value in $value {
+    $match: false;
+    $this-value: smart-quote($this-value);
+    @each $property, $map in $flex-utililies {
+      @if not $match and map-has-key($map, $this-value){
+        #{$property}: get-uswds-value($property, $this-value...);
+        $match: true;
+      }
+    }
+    @if not $match {
+      @error "`#{$this-value}` is not a valid `flex` value.";
+    }
+  }
+}

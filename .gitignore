@@ -4,6 +4,7 @@
 # ignore Node-specific files and directories
 node_modules/
 npm-debug.log*
+.gz
 
 # code coverage
 coverage/
