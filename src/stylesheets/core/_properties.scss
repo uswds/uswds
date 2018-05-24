@@ -208,7 +208,6 @@ $uswds-properties: (
   ),
   font-style: (
     standard: (
-      'normal': normal,
       'italic': italic,
       'no-italic': normal,
     ),
@@ -280,7 +279,7 @@ $uswds-properties: (
   ),
   letter-spacing: (
     standard: (
-      'ls-auto':	  auto,
+      'ls-auto':	  initial,
       'ls-neg-3':	  -.03em,
       'ls-neg-2':	  -.02em,
       'ls-neg-1':	  -.01em,
@@ -532,7 +531,7 @@ $uswds-properties: (
   ),
   text-decoration: (
     standard: (
-      'strike':       strike,
+      'strike':       line-through,
       'underline':    underline,
       'no-underline': none,
       'no-strike':    none,
