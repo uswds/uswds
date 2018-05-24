@@ -12,7 +12,6 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [18F Modular Contracting](https://modularcontracting.18f.gov/)
 - [18F Testing Cookbook](https://testing-cookbook.18f.gov/)
 - [Adobe Digital Design Templates for Government (Adobe Experience Manager)](https://github.com/Adobe-Marketing-Cloud/adobe-digital-design-templates-for-government)
-- [Agile Six](http://agile6.com/)
 - [Agile Solicitation Builder](https://github.com/18F/agile-solicitation-builder)
 - [Alaska Public Land Information Centers](https://www.alaskacenters.gov/)
 - [America’s Seed Fund - National Science Foundation](https://seedfund.nsf.gov/)
