@@ -16,7 +16,7 @@ example:
 ----------------------------------------
 */
 
-$u-list-reset: (
+$add-list-reset: (
   list-reset: (
     base: 'list',
     modifiers: null,
@@ -32,7 +32,7 @@ $u-list-reset: (
         ),
       ),
     ),
-    settings: $list-reset-settings,
+    settings: $add-list-reset-settings,
     property: 'list-style',
     type: 'object',
   )

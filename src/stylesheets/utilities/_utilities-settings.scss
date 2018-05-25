@@ -47,6 +47,24 @@ $add-aspect-settings: (
   visited:      false
 ) !default;
 
+$add-list-reset-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
+$add-pin-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
 $align-items-settings: (
   output:       true,
   responsive:   false,
@@ -290,15 +308,6 @@ $line-height-settings: (
   visited:      false
 ) !default;
 
-$list-reset-settings: (
-  output:       true,
-  responsive:   false,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false
-) !default;
-
 $margin-settings: (
   output:       true,
   responsive:   true,
@@ -401,15 +410,6 @@ $overflow-settings: (
 $padding-settings: (
   output:       true,
   responsive:   true,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false
-) !default;
-
-$pin-settings: (
-  output:       true,
-  responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,

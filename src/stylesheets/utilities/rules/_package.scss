@@ -3,6 +3,7 @@
 
 $utilities-package: map-collect(
   $add-aspect,
+  $add-list-reset,
   $add-pin,
   $u-align-items,
   $u-background-color,
@@ -31,7 +32,6 @@ $utilities-package: map-collect(
   $u-left,
   $u-letter-spacing,
   $u-line-height,
-  $u-list-reset,
   $u-margin,
   $u-max-height,
   $u-max-width,
