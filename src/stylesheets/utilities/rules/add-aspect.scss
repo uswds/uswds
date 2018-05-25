@@ -26,8 +26,9 @@ $add-aspect: (
         isReadable: true,
         content: relative,
         extend: (
-          'padding': 0 0 177.77778%,
           'box-sizing': border-box,
+          'height': auto,
+          'padding': 0 0 177.77778%,
         ),
       ),
       1x1: (
@@ -35,8 +36,9 @@ $add-aspect: (
         isReadable: true,
         content: relative,
         extend: (
-          'padding': 0 0 100%,
           'box-sizing': border-box,
+          'height': auto,
+          'padding': 0 0 100%,
         ),
       ),
       4x3: (
@@ -44,8 +46,9 @@ $add-aspect: (
         isReadable: true,
         content: relative,
         extend: (
-          'padding': 0 0 75%,
           'box-sizing': border-box,
+          'height': auto,
+          'padding': 0 0 75%,
         ),
       ),
       16x9: (
@@ -53,8 +56,9 @@ $add-aspect: (
         isReadable: true,
         content: relative,
         extend: (
-          'padding': 0 0 56.25%,
           'box-sizing': border-box,
+          'height': auto,
+          'padding': 0 0 56.25%,
         ),
       ),
       2x1: (
@@ -62,8 +66,9 @@ $add-aspect: (
         isReadable: true,
         content: relative,
         extend: (
-          'padding': 0 0 50%,
           'box-sizing': border-box,
+          'height': auto,
+          'padding': 0 0 50%,
         ),
       ),
     ),
