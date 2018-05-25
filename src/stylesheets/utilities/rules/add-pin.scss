@@ -84,7 +84,7 @@ $add-pin: (
         ),
       ),
     ),
-    settings: $pin-settings,
+    settings: $add-pin-settings,
     property: 'position',
     type: 'object',
   )

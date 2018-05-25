@@ -29,7 +29,7 @@ The following plugins will be added to
 $global-color-plugins: (
   'plugin-color-palette-theme',
   'plugin-color-palette-basic',
-  'plugin-color-gray-all'
+  'plugin-color-palette-grayscale'
 );
 
 /*
@@ -37,6 +37,33 @@ $global-color-plugins: (
 Settings
 ----------------------------------------
 */
+
+$add-aspect-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$add-list-reset-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
+
+$add-pin-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+);
 
 $align-items-settings: (
   output:       true,
@@ -89,15 +116,6 @@ $border-style-settings: (
   active:       false,
   focus:        false,
   hover:        false,
-  visited:      false
-);
-
-$border-width-settings: (
-  output:       true,
-  responsive:   true,
-  active:       false,
-  focus:        false,
-  hover:        true,
   visited:      false
 );
 
@@ -284,15 +302,6 @@ $letter-spacing-settings: (
 $line-height-settings: (
   output:       true,
   responsive:   true,
-  active:       false,
-  focus:        false,
-  hover:        false,
-  visited:      false
-);
-
-$list-reset-settings: (
-  output:       true,
-  responsive:   false,
   active:       false,
   focus:        false,
   hover:        false,
@@ -530,6 +539,11 @@ Values
 ----------------------------------------
 */
 
+// .add-aspect
+
+$add-aspect-plugins: ();
+$add-aspect-manual-values: ();
+
 // .align-items
 
 $align-items-plugins: ( 'plugin-standard-align-items' );
@@ -559,11 +573,6 @@ $border-radius-manual-values: ();
 
 $border-style-plugins: ( 'plugin-standard-border-style' );
 $border-style-manual-values: ();
-
-// .border-width
-
-$border-width-plugins: ( 'plugin-standard-border-width' );
-$border-width-manual-values: ();
 
 // .bottom
 
