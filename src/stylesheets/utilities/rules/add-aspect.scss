@@ -24,9 +24,8 @@ $add-aspect: (
       9x16: (
         slug: '9x16',
         isReadable: true,
-        content: 100%,
+        content: 0,
         extend: (
-          'padding-top': 0,
           'padding-left': 0,
           'padding-right': 0,
           'padding-bottom': 177.77778%,
@@ -35,9 +34,8 @@ $add-aspect: (
       1x1: (
         slug: '1x1',
         isReadable: true,
-        content: 100%,
+        content: 0,
         extend: (
-          'padding-top': 0,
           'padding-left': 0,
           'padding-right': 0,
           'padding-bottom': 100%,
@@ -46,9 +44,8 @@ $add-aspect: (
       4x3: (
         slug: '4x3',
         isReadable: true,
-        content: 100%,
+        content: 0,
         extend: (
-          'padding-top': 0,
           'padding-left': 0,
           'padding-right': 0,
           'padding-bottom': 75%,
@@ -57,9 +54,8 @@ $add-aspect: (
       16x9: (
         slug: '16x9',
         isReadable: true,
-        content: 100%,
+        content: 0,
         extend: (
-          'padding-top': 0,
           'padding-left': 0,
           'padding-right': 0,
           'padding-bottom': 56.25%,
@@ -68,9 +64,8 @@ $add-aspect: (
       2x1: (
         slug: '2x1',
         isReadable: true,
-        content: 100%,
+        content: 0,
         extend: (
-          'padding-top': 0,
           'padding-left': 0,
           'padding-right': 0,
           'padding-bottom': 50%,
@@ -78,7 +73,7 @@ $add-aspect: (
       ),
     ),
     settings: $add-aspect-settings,
-    property: 'width',
+    property: 'padding-top',
     type: 'object',
   )
 );
