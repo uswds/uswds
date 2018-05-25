@@ -28,11 +28,11 @@ $theme-namespace: (
   ),
   'grid': (
     namespace:  'grid-',
-    output:     false,
+    output:     true,
   ),
   'object': (
     namespace:  'add-',
-    output:     false,
+    output:     true,
   ),
   'utility': (
     namespace:  'u-',
