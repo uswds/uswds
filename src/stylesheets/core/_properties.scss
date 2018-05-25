@@ -262,7 +262,7 @@ $uswds-properties: (
       'justify-center': center,
       'justify-start':  flex-start,
       'justify-end':    flex-end,
-      'justify':        between,
+      'justify':        space-between,
     ),
     extended: (),
   ),
@@ -539,7 +539,10 @@ $uswds-properties: (
     extended: (),
   ),
   text-decoration-color: (
-    standard: $standard-colors,
+    standard: map-collect:(
+      $standard-colors,
+      map-get($partial-values, auto)
+    )
     extended: $extended-colors,
   ),
   text-indent: (
