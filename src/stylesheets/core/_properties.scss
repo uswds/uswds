@@ -539,10 +539,10 @@ $uswds-properties: (
     extended: (),
   ),
   text-decoration-color: (
-    standard: map-collect:(
+    standard: map-collect(
       $standard-colors,
       map-get($partial-values, auto)
-    )
+    ),
     extended: $extended-colors,
   ),
   text-indent: (
