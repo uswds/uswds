@@ -23,7 +23,7 @@ $flex-utililies: (
   ),
 );
 
-@mixin flex($value...) {
+@mixin u-flex($value...) {
   @each $this-value in $value {
     $match: false;
     $this-value: smart-quote($this-value);

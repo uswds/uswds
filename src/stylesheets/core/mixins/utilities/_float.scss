@@ -1,5 +1,5 @@
 // Outputs line-height
 
-@mixin float($value...) {
+@mixin u-float($value...) {
   float: get-uswds-value(float, $value...);
 }

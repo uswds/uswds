@@ -1,5 +1,5 @@
 // Outputs vertical-align property
 
-@mixin vertical-align($value...) {
+@mixin u-vertical-align($value...) {
   vertical-align: get-uswds-value(vertical-align, $value...);
 }

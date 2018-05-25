@@ -1,5 +1,5 @@
 // Outputs line-height
 
-@mixin weight($value...) {
+@mixin u-weight($value...) {
   font-weight: get-uswds-value(font-weight, $value...);
 }

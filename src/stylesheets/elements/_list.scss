@@ -1,6 +1,6 @@
 ul,
 ol {
-  @include margin-y(1em);
+  @include u-margin-y(1em);
   padding-left: 1.94em; // Approximately 15px left padding at default font size
 }
 

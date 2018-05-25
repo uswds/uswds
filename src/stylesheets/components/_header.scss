@@ -141,7 +141,7 @@ $z-index-nav:     9000;
 
   .usa-logo {
     @include media($nav-width) {
-      @include margin-y(3rem);
+      @include u-margin-y(3rem);
     }
   }
 
@@ -155,7 +155,7 @@ $z-index-nav:     9000;
   .usa-navbar {
     @include media($nav-width) {
       @include outer-container($site-max-width);
-      @include padding-x($site-margins);
+      @include u-padding-x($site-margins);
       display: block;
       height: auto;
     }
@@ -173,8 +173,8 @@ $z-index-nav:     9000;
   .usa-nav-inner {
     @include media($nav-width) {
       @include outer-container($site-max-width);
-      @include padding-right($site-margins);
-      @include padding-left(1.5rem);
+      @include u-padding-right($site-margins);
+      @include u-padding-left(1.5rem);
       margin-top: -1px;
       position: relative;
     }
@@ -197,7 +197,7 @@ $z-index-nav:     9000;
 
   .usa-nav-link {
     @include media($nav-width) {
-      @include padding-y(1.8rem);
+      @include u-padding-y(1.8rem);
     }
   }
 
