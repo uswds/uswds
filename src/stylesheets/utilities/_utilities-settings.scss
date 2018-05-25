@@ -38,6 +38,15 @@ Settings
 ----------------------------------------
 */
 
+$add-aspect-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
 $align-items-settings: (
   output:       true,
   responsive:   false,
@@ -529,6 +538,11 @@ $z-index-settings: (
 Values
 ----------------------------------------
 */
+
+// .add-aspect
+
+$add-aspect-plugins: () !default;
+$add-aspect-manual-values: () !default;
 
 // .align-items
 

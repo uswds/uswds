@@ -2,6 +2,8 @@
 // into a single map for looping.
 
 $utilities-package: map-collect(
+  $add-aspect,
+  $add-pin,
   $u-align-items,
   $u-background-color,
   $u-border,
@@ -43,7 +45,6 @@ $utilities-package: map-collect(
   $u-overflow,
   $u-padding,
   $u-position,
-  $add-pin,
   $u-right,
   $u-square,
   $u-text-align,
