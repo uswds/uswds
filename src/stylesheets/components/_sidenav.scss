@@ -10,10 +10,10 @@
   }
 
   .usa-grid & {
-    @include margin-x(-$site-margins-mobile);
+    @include u-margin-x(-$site-margins-mobile);
 
     @include media($medium-screen) {
-      @include margin-x(0);
+      @include u-margin-x(0);
     }
   }
 }

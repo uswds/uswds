@@ -1,5 +1,5 @@
 // Outputs a solid outline of $value... width
-@mixin outline($value...) {
+@mixin u-outline($value...) {
   @each $this-value in $value {
     $match: false;
     @if $value == false {

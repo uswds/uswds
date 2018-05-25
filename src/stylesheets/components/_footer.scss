@@ -197,7 +197,7 @@
     }
 
     @include media($medium-screen) {
-      @include padding-y($spacing-md-small);
+      @include u-padding-y($spacing-md-small);
     }
 
     @include media($medium-screen) {
@@ -476,10 +476,10 @@ li.usa-footer-primary-content {
   // Apple iOS Human Interface Guidelines.
   $hit-area: 4.4rem;
 
-  @include margin-bottom(1.5rem);
-  @include margin-left(0);
-  @include margin-right(1rem);
-  @include margin-top(2.5rem);
+  @include u-margin-bottom(1.5rem);
+  @include u-margin-left(0);
+  @include u-margin-right(1rem);
+  @include u-margin-top(2.5rem);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: auto $background-height;
@@ -491,9 +491,9 @@ li.usa-footer-primary-content {
   width: $hit-area;
 
   @include media($medium-screen) {
-    @include margin-left($spacing-x-small);
-    @include margin-top(0);
-    @include margin-y(0);
+    @include u-margin-left($spacing-x-small);
+    @include u-margin-top(0);
+    @include u-margin-y(0);
     left: $spacing-md-small;
   }
 

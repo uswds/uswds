@@ -1,0 +1,66 @@
+/*! uswds @version */
+
+/*
+========================================
+uswds
+----------------------------------------
+Output all USWDS
+- fonts
+- components
+- utilities
+----------------------------------------
+*/
+
+// Settings
+@import 'core/settings';
+@import 'utilities/utilities-settings';
+
+// Tools
+@import 'lib/bourbon';
+@import 'lib/neat';
+@import 'core/font-definitions';
+@import 'core/functions';
+@import 'core/system-tokens';
+@import 'core/variables';
+@import 'core/properties';
+@import 'core/mixins/all';
+
+// Generic
+@import 'core/font-face';
+@import 'lib/normalize';
+@import 'core/grid';
+@import 'core/base';
+
+// Elements
+@import 'elements/buttons';
+@import 'elements/embed';
+@import 'elements/figure';
+@import 'elements/inputs';
+@import 'elements/labels';
+@import 'elements/list';
+@import 'elements/table';
+@import 'elements/typography';
+
+// Components
+@import 'components/accordions';
+@import 'components/alerts';
+@import 'components/banner';
+@import 'components/footer';
+@import 'components/forms';
+@import 'components/graphic-list';
+@import 'components/header';
+@import 'components/hero';
+@import 'components/layout';
+@import 'components/media-block';
+@import 'components/navigation';
+@import 'components/search';
+@import 'components/section';
+@import 'components/sidenav';
+@import 'components/skipnav';
+
+// Utilities
+@import 'utilities/plugins/all';
+@import 'utilities/rules/all';
+@import 'utilities/rules/package';
+@include render-utilities-in($utilities-package);
+@import 'core/layout-grid';

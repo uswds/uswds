@@ -1,5 +1,5 @@
 // Outputs min-width
 
-@mixin minw($value...) {
+@mixin u-minw($value...) {
   min-width: get-uswds-value(min-width, $value...);
 }

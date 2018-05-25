@@ -1,5 +1,5 @@
 // Outputs width
 
-@mixin width($value...) {
+@mixin u-width($value...) {
   width: get-uswds-value(width, $value...);
 }

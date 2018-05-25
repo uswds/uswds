@@ -26,30 +26,30 @@
   }
 }
 
-@mixin margin($value...) {
+@mixin u-margin($value...) {
   @include margin-n(all, $value...);
 }
 
-@mixin margin-x($value...) {
+@mixin u-margin-x($value...) {
   @include margin-n(x, $value...);
 }
 
-@mixin margin-y($value...) {
+@mixin u-margin-y($value...) {
   @include margin-n(y, $value...);
 }
 
-@mixin margin-top($value...) {
+@mixin u-margin-top($value...) {
   @include margin-n(t, $value...);
 }
 
-@mixin margin-right($value...) {
+@mixin u-margin-right($value...) {
   @include margin-n(r, $value...);
 }
 
-@mixin margin-bottom($value...) {
+@mixin u-margin-bottom($value...) {
   @include margin-n(b, $value...);
 }
 
-@mixin margin-left($value...) {
+@mixin u-margin-left($value...) {
   @include margin-n(l, $value...);
 }

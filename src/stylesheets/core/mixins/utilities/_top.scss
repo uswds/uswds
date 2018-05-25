@@ -1,5 +1,5 @@
 // Outputs top
 
-@mixin top($value...) {
+@mixin u-top($value...) {
   top: get-uswds-value(top, $value...);
 }

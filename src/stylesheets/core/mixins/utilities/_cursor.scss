@@ -1,5 +1,5 @@
 // Outputs cursor
 
-@mixin cursor($value) {
+@mixin u-cursor($value) {
   bottom: get-uswds-value(cursor, $value);
 }
