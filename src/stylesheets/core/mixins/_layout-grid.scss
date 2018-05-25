@@ -1,17 +1,17 @@
 @mixin grid-container($props...) {
-  @include margin-x(auto);
+  @include u-margin-x(auto);
   @if length($props) == 0 {
-    @include maxw(desktop);
+    @include u-maxw(desktop);
   }
   @else {
     $props: smart-quote(nth($props, 1));
-    @include maxw($props);
+    @include u-maxw($props);
   }
 }
 
 @mixin grid-row($props...) {
-  @include display(flex);
-  @include flex(wrap);
+  @include u-display(flex);
+  @include u-flex(wrap);
 }
 
 @mixin grid-gap($props...) {
@@ -22,45 +22,45 @@
     $props: smart-quote(nth($props, 1));
   }
   @if $props == 0 {
-    @include margin-x(0);
+    @include u-margin-x(0);
 
     > * {
-      @include padding-y(0);
+      @include u-padding-y(0);
     }
   }
   @else {
     @if map-has-key($project-column-gaps, $props) {
       $props: map-get($project-column-gaps, $props);
     }
-    @include margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($props)}"));
+    @include u-margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($props)}"));
     > * {
-      @include padding-x(calc-gap-offset($props));
+      @include u-padding-x(calc-gap-offset($props));
     }
   }
 }
 
 @mixin grid-col($props...) {
   @if length($props) == 0 {
-    @include flex(fill);
-    @include width(auto);
+    @include u-flex(fill);
+    @include u-width(auto);
   }
   @else {
     $props: smart-quote(nth($props, 1));
     @if $props == 'auto' {
-      @include flex(auto);
-      @include width(auto);
+      @include u-flex(auto);
+      @include u-width(auto);
     }
     @elseif $props == 'fill' {
-      @include flex(fill);
-      @include width(auto);
+      @include u-flex(fill);
+      @include u-width(auto);
     }
     @elseif not map-has-key($uswds-layout-grid-widths, $props) {
       @error "#{$props} is not a valid layout grid width. Valid width are #{map-keys($uswds-layout-grid-widths)}";
     }
     @else {
       $width: map-get($uswds-layout-grid-widths, $props);
-      @include width(override, $width);
-      @include flex(auto);
+      @include u-width(override, $width);
+      @include u-flex(auto);
     }
   }
 }
@@ -72,6 +72,6 @@
   }
   @else {
     $width: map-get($uswds-layout-grid-widths, $props);
-    @include margin-left(override, $width);
+    @include u-margin-left(override, $width);
   }
 }

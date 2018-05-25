@@ -31,7 +31,7 @@ $text-utililies: (
   ),
 );
 
-@mixin text($value...) {
+@mixin u-text($value...) {
   @each $this-value in $value {
     $match: false;
     @if type-of($this-value) == 'color' {

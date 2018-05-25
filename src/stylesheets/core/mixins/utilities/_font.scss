@@ -6,7 +6,7 @@ Get a font-family stack
 ----------------------------------------
 */
 
-@mixin family($family) {
+@mixin u-family($family) {
   $our-family: smart-quote($family);
   @if not map-has-key($project-font-stacks, $our-family){
     @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-font-stacks)}";
@@ -29,7 +29,7 @@ system scale or project scale
 ----------------------------------------
 */
 
-@mixin size($family, $scale) {
+@mixin u-size($family, $scale) {
   $our-family: smart-quote($family);
   $our-scale: smart-quote($scale);
   @if not map-has-key($project-cap-heights, $our-family) {

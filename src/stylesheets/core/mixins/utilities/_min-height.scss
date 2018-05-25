@@ -1,5 +1,5 @@
 // Outputs min-height
 
-@mixin minh($value...) {
+@mixin u-minh($value...) {
   min-height: get-uswds-value(min-height, $value...);
 }
