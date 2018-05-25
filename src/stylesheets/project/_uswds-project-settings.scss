@@ -28,11 +28,11 @@ $theme-namespace: (
   ),
   'grid': (
     namespace:  'grid-',
-    output:     false,
+    output:     true,
   ),
   'object': (
     namespace:  'add-',
-    output:     false,
+    output:     true,
   ),
   'utility': (
     namespace:  'u-',
@@ -233,7 +233,7 @@ $theme-font-weight-normal:        400;
 $theme-font-weight-medium:        false;
 $theme-font-weight-semibold:      false;
 $theme-font-weight-bold:          700;
-$theme-font-weight-black:         false;
+$theme-font-weight-heavy:         false;
 
 /*
 ----------------------------------------
