@@ -323,10 +323,12 @@ $project-colors: (
     'darker':  get-uswds-color($theme-color-primary-darker),
   ),
   'secondary': (
+    'lighter':  get-uswds-color($theme-color-secondary-lighter),
     'light':   get-uswds-color($theme-color-secondary-light),
     'default': get-uswds-color($theme-color-secondary),
     'vivid':   get-uswds-color($theme-color-secondary-vivid),
     'dark':    get-uswds-color($theme-color-secondary-dark),
+    'darker':  get-uswds-color($theme-color-secondary-darker),
   ),
   'accent-warm': (
     'default': get-uswds-color($theme-color-accent-warm),

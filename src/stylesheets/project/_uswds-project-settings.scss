@@ -233,7 +233,7 @@ $theme-font-weight-normal:        400;
 $theme-font-weight-medium:        false;
 $theme-font-weight-semibold:      false;
 $theme-font-weight-bold:          700;
-$theme-font-weight-black:         false;
+$theme-font-weight-heavy:         false;
 
 /*
 ----------------------------------------
@@ -260,10 +260,12 @@ $theme-color-primary-dark:        'blue-warm', 70, vivid;
 $theme-color-primary-darker:      'blue-warm', 80, vivid;
 
 $theme-color-secondary-family:    'red';
+$theme-color-secondary-lighter:   false;
 $theme-color-secondary-light:     $theme-color-secondary-family, 50;
 $theme-color-secondary:           $theme-color-secondary-family, 60;
 $theme-color-secondary-vivid:     $theme-color-secondary-family, 50, vivid;
 $theme-color-secondary-dark:      $theme-color-secondary-family, 80;
+$theme-color-secondary-darker:    false;
 
 $theme-color-accent-warm-family:  'orange';
 $theme-color-accent-warm:         $theme-color-accent-warm-family, 30, vivid;
