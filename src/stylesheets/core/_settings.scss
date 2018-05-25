@@ -256,10 +256,12 @@ $theme-color-primary-dark:        'blue-warm', 70, vivid !default;
 $theme-color-primary-darker:      'blue-warm', 80, vivid !default;
 
 $theme-color-secondary-family:    'red' !default;
+$theme-color-secondary-lighter:   false !default;
 $theme-color-secondary-light:     $theme-color-secondary-family, 50 !default;
 $theme-color-secondary:           $theme-color-secondary-family, 60 !default;
 $theme-color-secondary-vivid:     $theme-color-secondary-family, 50, vivid !default;
 $theme-color-secondary-dark:      $theme-color-secondary-family, 80 !default;
+$theme-color-secondary-darker:    false !default;
 
 $theme-color-accent-warm-family:  'orange' !default;
 $theme-color-accent-warm:         $theme-color-accent-warm-family, 30, vivid !default;

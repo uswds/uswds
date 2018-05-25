@@ -42,11 +42,18 @@ $color-palette-state: (
   'disabled':           get-uswds-color($theme-color-disabled),
 );
 
-$color-palette-grayscale: $uswds-gray;
+$color-palette-grayscale: (
+  'gray-5':    get-uswds-color('gray', 5),
+  'gray-10':   get-uswds-color('gray', 10),
+  'gray-30':   get-uswds-color('gray', 30),
+  'gray-50':   get-uswds-color('gray', 50),
+  'gray-70':   get-uswds-color('gray', 70),
+  'gray-90':   get-uswds-color('gray', 90),
+);
 
 $plugin-palettes: (
   'plugin-color-palette-theme':     $color-palette-theme,
-  'plugin-color-palette-grayscale': $plugin-color-gray-all,
+  'plugin-color-palette-grayscale': $color-palette-grayscale,
   'plugin-color-palette-required':  $uswds-required-colors,
   'plugin-color-palette-state':     $color-palette-state,
   'plugin-color-palette-basic':     $uswds-basic-colors,
