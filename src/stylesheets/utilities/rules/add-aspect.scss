@@ -1,0 +1,84 @@
+/*
+========================================
+ASPECT
+----------------------------------------
+usage:
+  .aspect-[value]
+----------------------------------------
+output:
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 100%;
+----------------------------------------
+example:
+  .aspect-16x9
+----------------------------------------
+*/
+
+$aspect: (
+  aspect: (
+    base: 'aspect',
+    modifiers: null,
+    values: (
+      1x1: (
+        slug: '1x1',
+        isReadable: true,
+        content: 100%,
+        extend: (
+          'padding-top': 0,
+          'padding-left': 0,
+          'padding-right': 0,
+          'padding-bottom': 100%,
+        ),
+      ),
+      3x4: (
+        slug: '4x3',
+        isReadable: true,
+        content: 100%,
+        extend: (
+          'padding-top': 0,
+          'padding-left': 0,
+          'padding-right': 0,
+          'padding-bottom': 75%,
+        ),
+      ),
+      2x1: (
+        slug: '4x3',
+        isReadable: true,
+        content: 100%,
+        extend: (
+          'padding-top': 0,
+          'padding-left': 0,
+          'padding-right': 0,
+          'padding-bottom': 50%,
+        ),
+      ),
+      16x9: (
+        slug: '16x9',
+        isReadable: true,
+        content: 100%,
+        extend: (
+          'padding-top': 0,
+          'padding-left': 0,
+          'padding-right': 0,
+          'padding-bottom': 56.25%,
+        ),
+      ),
+      9x16: (
+        slug: '9x16',
+        isReadable: true,
+        content: 100%,
+        extend: (
+          'padding-top': 0,
+          'padding-left': 0,
+          'padding-right': 0,
+          'padding-bottom': 177.77778%,
+        ),
+      ),
+    ),
+    settings: $aspect-settings,
+    property: 'width',
+    type: 'object',
+  )
+);

@@ -2,6 +2,7 @@
 // into a single map for looping.
 
 $utilities-package: map-collect(
+  $add-aspect,
   $align-items,
   $background-color,
   $border,
