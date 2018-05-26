@@ -63,6 +63,7 @@
   }
 
   @include add-pin('right');
+  position: fixed;
   background: $color-white;
   border-left: 1px solid $color-gray-light;
   border-right: 0;
