@@ -2,38 +2,38 @@
 @mixin add-pin($props) {
   $props: smart-quote($props);
   @if $props == 'top' {
-    @include position('fixed');
+    @include position('absolute');
     left: 0;
     right: 0;
     top: 0;
   }
   @elseif $props == 'bottom' {
-    @include position('fixed');
+    @include u-position('absolute');
     bottom: 0;
     left: 0;
     right: 0;
   }
   @elseif $props == 'left' {
-    @include position('fixed');
+    @include u-position('absolute');
     bottom: 0;
     left: 0;
     top: 0;
   }
   @elseif $props == 'right' {
-    @include position('fixed');
+    @include u-position('absolute');
     bottom: 0;
     right: 0;
     top: 0;
   }
   @elseif $props == 'all' {
-    @include position('fixed');
+    @include u-position('absolute');
     bottom: 0;
     left: 0;
     right: 0;
     top: 0;
   }
   @elseif $props == 'none' {
-    @include position('static');
+    @include u-position('static');
     bottom: auto;
     left: auto;
     right: auto;
