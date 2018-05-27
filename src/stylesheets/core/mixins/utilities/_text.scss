@@ -25,6 +25,10 @@ $text-utililies: (
     map-deep-get($uswds-properties, text-transform, standard),
     map-deep-get($uswds-properties, text-transform, extended)
   ),
+  vertical-align: map-collect(
+    map-deep-get($uswds-properties, vertical-align, standard),
+    map-deep-get($uswds-properties, vertical-align, extended)
+  ),
   white-space: map-collect(
     map-deep-get($uswds-properties, white-space, standard),
     map-deep-get($uswds-properties, white-space, extended)

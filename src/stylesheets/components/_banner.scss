@@ -6,7 +6,7 @@ $theme-banner-font: sans;
 
     @include at-media('tablet') {
       @include u-padding-bottom(0);
-      @include u-size($theme-banner-font, '3xs');
+      @include u-size($theme-banner-font, 3xs);
     }
   }
 }
@@ -14,12 +14,12 @@ $theme-banner-font: sans;
 .#{ns('component')} {
   &banner-content {
     @include grid-container($site-max-width);
-    @include u-bg('transparent');
+    @include u-bg(transparent);
     @include u-padding-bottom(1.5);
     @include u-padding-top(2px);
     @include u-padding-x(1);
     @include u-size($theme-banner-font, 3);
-    @include u-width('full');
+    @include u-width(full);
 
     @include at-media('tablet') {
       @include u-padding-y(3);
@@ -54,13 +54,13 @@ $theme-banner-font: sans;
 .#{ns('component')}banner-inner {
   @include grid-container($site-max-width);
   @include grid-row;
-  @include u-flex('align-start');
+  @include u-flex(align-start);
   @include u-padding-left($theme-site-margins-mobile);
   @include u-padding-right(0);
   @include u-padding-x(1);
 
   @include at-media('tablet') {
-    @include u-flex('align-center');
+    @include u-flex(align-center);
   }
 
   @include at-media('desktop') {
@@ -72,14 +72,14 @@ $theme-banner-font: sans;
   @include u-padding-y(1);
   @include u-position(relative);
   @include u-size($theme-banner-font, 1);
-  @include u-text('normal');
+  @include u-text(normal);
 
   @include at-media('tablet') {
     @include u-padding-y(.5);
   }
 
   &-close-text {
-    @include u-display('none');
+    @include u-display(none);
     @include u-line-height($theme-banner-font, 2);
     @include u-margin-y(0);
     @include u-padding-top(.5);
@@ -103,7 +103,7 @@ $theme-banner-font: sans;
       @include u-display('none');
 
       @include at-media('tablet') {
-        @include u-display('block');
+        @include u-display(block);
       }
     }
   }
@@ -116,11 +116,11 @@ $theme-banner-font: sans;
     @include u-text($primary);
 
     @include at-media('tablet') {
-      @include u-display('none');
+      @include u-display(none);
     }
 
     .#{ns('component')}banner-header-expanded & {
-      @include u-display('none');
+      @include u-display(none);
     }
 
     &:after {
@@ -142,7 +142,7 @@ $theme-banner-font: sans;
       @include u-display('none');
 
       @include at-media('tablet') {
-        @include u-display('block');
+        @include u-display(block);
       }
     }
   }
@@ -152,32 +152,32 @@ $theme-banner-font: sans;
   @include u-minh(4);
 
   @include at-media('tablet') {
-    @include u-display('block');
+    @include u-display(block);
     @include u-minh(0);
     @include u-padding-right(0);
     @include u-size($theme-banner-font, 1);
-    @include u-text('normal');
+    @include u-text(normal);
   }
 
   > .#{ns('component')}banner-inner {
     @include u-margin-left(0);
 
     @include at-media('tablet') {
-      @include u-margin-left('auto');
+      @include u-margin-left(auto);
     }
   }
 }
 
 .#{ns('component')}banner-button {
-  @include add-pin('left');
+  @include add-pin(left);
   @include button-unstyled;
   @include u-display(block);
   @include u-size($theme-banner-font, 1);
   @include u-text($primary);
-  @include u-width('full');
+  @include u-width(full);
 
   @include at-media('tablet') {
-    @include add-pin('none');
+    @include add-pin(none);
     @include add-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
     @include u-display(inline);
     @include u-height(auto);
@@ -186,8 +186,7 @@ $theme-banner-font: sans;
     @include u-padding-top(0);
     @include u-padding-left(0);
     @include u-position(relative);
-    @include u-text(underline);
-    @include u-vertical-align(middle);
+    @include u-text(underline, middle);
     @include u-width(auto);
 
     &::after {
@@ -238,7 +237,7 @@ $theme-banner-font: sans;
 
   @include at-media('tablet') {
     @include add-no-sr-only;
-    @include u-display('inline');
+    @include u-display(inline);
   }
 }
 
