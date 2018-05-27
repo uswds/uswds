@@ -172,21 +172,20 @@ $theme-banner-font: sans;
   @include add-pin(left);
   @include button-unstyled;
   @include u-display(block);
+  @include u-height(auto);
+  @include u-line-height($theme-banner-font, 2);
+  @include u-padding-top(0);
+  @include u-padding-left(0);
   @include u-size($theme-banner-font, 1);
-  @include u-text($primary);
+  @include u-text($primary, underline, baseline);
   @include u-width(full);
 
   @include at-media('tablet') {
     @include add-pin(none);
     @include add-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
     @include u-display(inline);
-    @include u-height(auto);
-    @include u-line-height($theme-banner-font, 2);
     @include u-margin-left(1);
-    @include u-padding-top(0);
-    @include u-padding-left(0);
     @include u-position(relative);
-    @include u-text(underline, middle);
     @include u-width(auto);
 
     &::after {
