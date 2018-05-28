@@ -15,6 +15,7 @@ $theme-banner-font: sans;
   &banner-content {
     @include grid-container($site-max-width);
     @include u-bg(transparent);
+    @include u-overflow(hidden);
     @include u-padding-bottom(1.5);
     @include u-padding-top(2px);
     @include u-padding-x(1);
