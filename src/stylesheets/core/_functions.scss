@@ -625,7 +625,7 @@ is false. Warn if it is.
       @return unquote($value);
     }
     @else {
-      @return $value;      
+      @return $value;
     }
   }
   @else {
@@ -1197,10 +1197,12 @@ loop
 
   @each $media-key, $media-value in $our-breakpoints {
     $mq: unquote($media-key);
-    $media-value-em: grid-to-base-em($media-value);
+    // TODO: not working properly
+    // $media-value-em: grid-to-base-em($media-value);
+    $media-value-px: rem-to-px($media-value);
 
     @if map-get($theme-output-breakpoints, $media-key) {
-      @media (min-width: #{$media-value-em}) {
+      @media (min-width: #{$media-value-px}) {
         .#{$mq}\:#{ns($this-type)}#{$selector} {
           @if map-has-key($val-props, extend) {
             @each $ext-prop, $ext-value in map-get($val-props, extend) {
