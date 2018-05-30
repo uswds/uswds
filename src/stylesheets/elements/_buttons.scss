@@ -33,7 +33,7 @@ button,
 [type=reset],
 [type=image] {
   @include font-smoothing;
-  @include u-margin(.5);
+  @include margin(0.5em 0.5em 0.5em null);
   appearance: none;
   background-color: $color-primary;
   border: 0;
