@@ -238,7 +238,7 @@ Palette colors
 */
 
 $theme-color-base-family:         'gray' !default;
-$theme-color-base-lightest:       $theme-color-base-family, 1 !default;
+$theme-color-base-lightest:       $theme-color-base-family, 2 !default;
 $theme-color-base-lighter:        $theme-color-base-family, 5 !default;
 $theme-color-base-light:          $theme-color-base-family, 10 !default;
 $theme-color-base:                $theme-color-base-family, 30 !default;
@@ -257,19 +257,19 @@ $theme-color-primary-darker:      'blue-warm', 80, vivid !default;
 
 $theme-color-secondary-family:    'red' !default;
 $theme-color-secondary-lighter:   false !default;
-$theme-color-secondary-light:     $theme-color-secondary-family, 50 !default;
+$theme-color-secondary-light:     $theme-color-secondary-family, 30 !default;
 $theme-color-secondary:           $theme-color-secondary-family, 60 !default;
 $theme-color-secondary-vivid:     $theme-color-secondary-family, 50, vivid !default;
-$theme-color-secondary-dark:      $theme-color-secondary-family, 80 !default;
+$theme-color-secondary-dark:      $theme-color-secondary-family, 70, vivid !default;
 $theme-color-secondary-darker:    false !default;
 
 $theme-color-accent-warm-family:  'orange' !default;
 $theme-color-accent-warm:         $theme-color-accent-warm-family, 30, vivid !default;
-$theme-color-accent-warm-dark:    $theme-color-accent-warm-family, 60, vivid !default;
+$theme-color-accent-warm-dark:    $theme-color-accent-warm-family, 50, vivid !default;
 
 $theme-color-accent-cool-family:  'cyan' !default;
 $theme-color-accent-cool:         $theme-color-accent-cool-family, 30, vivid !default;
-$theme-color-accent-cool-dark:    $theme-color-accent-cool-family, 60, vivid !default;
+$theme-color-accent-cool-dark:    $theme-color-accent-cool-family, 40, vivid !default;
 
 /*
 ----------------------------------------
