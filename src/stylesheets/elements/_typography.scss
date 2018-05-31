@@ -66,16 +66,13 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   clear: both;
   font-family: $font-serif;
   line-height: $heading-line-height;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   margin-top: 1.5em;
-}
-
-h6 {
-  font-family: $font-sans;
 }
 
 h1 {
@@ -100,6 +97,7 @@ h5 {
 
 h6 {
   @include h6();
+  font-family: $font-sans;
 }
 
 // Remove user agent styles
