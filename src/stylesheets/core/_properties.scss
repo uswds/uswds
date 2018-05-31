@@ -414,17 +414,6 @@ $uswds-properties: (
   ),
   opacity: (
     standard: (
-      0:	            0,
-      1:	            1,
-      'lightest':	    .01,
-      'lighter':	    .1,
-      'light':	      .25,
-      'dark':	        .5,
-      'darker':	      .75,
-      'darkest':	    .9,
-      'full':	        1,
-    ),
-    extended: (
       '0':  0,
       '01': 0.1,
       '02': 0.2,
@@ -437,6 +426,7 @@ $uswds-properties: (
       '09': 0.9,
       '1':  1,
     ),
+    extended: (),
   ),
   order: (
     standard: (
@@ -549,9 +539,7 @@ $uswds-properties: (
   text-indent: (
     standard: map-collect(
       map-get($partial-values, zero-zero),
-      map-get($uswds-spacing, smaller),
       map-get($uswds-spacing, small),
-      map-get($uswds-spacing, smaller-negative),
       map-get($uswds-spacing, small-negative),
       map-get($uswds-spacing, medium),
       map-get($uswds-spacing, medium-negative)
