@@ -414,29 +414,19 @@ $uswds-properties: (
   ),
   opacity: (
     standard: (
-      0:	            0,
-      1:	            1,
-      'lightest':	    .01,
-      'lighter':	    .1,
-      'light':	      .25,
-      'dark':	        .5,
-      'darker':	      .75,
-      'darkest':	    .9,
-      'full':	        1,
+      0:  0,
+      10: 0.1,
+      20: 0.2,
+      30: 0.3,
+      40: 0.4,
+      50: 0.5,
+      60: 0.6,
+      70: 0.7,
+      80: 0.8,
+      90: 0.9,
+      100:  1,
     ),
-    extended: (
-      '0':  0,
-      '01': 0.1,
-      '02': 0.2,
-      '03': 0.3,
-      '04': 0.4,
-      '05': 0.5,
-      '06': 0.6,
-      '07': 0.7,
-      '08': 0.8,
-      '09': 0.9,
-      '1':  1,
-    ),
+    extended: (),
   ),
   order: (
     standard: (
@@ -549,9 +539,7 @@ $uswds-properties: (
   text-indent: (
     standard: map-collect(
       map-get($partial-values, zero-zero),
-      map-get($uswds-spacing, smaller),
       map-get($uswds-spacing, small),
-      map-get($uswds-spacing, smaller-negative),
       map-get($uswds-spacing, small-negative),
       map-get($uswds-spacing, medium),
       map-get($uswds-spacing, medium-negative)
