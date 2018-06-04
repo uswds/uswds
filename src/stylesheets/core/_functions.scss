@@ -96,7 +96,7 @@ source: https://gist.github.com/bigglesrocks/d75091700f8f2be5abfe
 smart-quote()
 ----------------------------------------
 Quotes strings
-Inspects numbers
+Inspects `px`, `xs`, and `xl` numbers
 Leaves bools as is
 ----------------------------------------
 */
@@ -106,7 +106,10 @@ Leaves bools as is
     @return quote($value);
   }
   @if type-of($value) == 'number' {
-    @if unit($value) == 'xl' or unit($value) == 'xs' {
+    @if unit($value) == 'px' {
+      @return inspect($value);
+    }
+    @elseif unit($value) == 'xl' or unit($value) == 'xs' {
       @return inspect($value);
     }
     @else {
