@@ -119,6 +119,15 @@ $border-style-settings: (
   visited:      false
 ) !default;
 
+$border-width-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        false,
+  visited:      false
+) !default;
+
 $bottom-settings: (
   output:       true,
   responsive:   false,
@@ -573,6 +582,11 @@ $border-radius-manual-values: () !default;
 
 $border-style-plugins: ( 'plugin-standard-border-style' ) !default;
 $border-style-manual-values: () !default;
+
+// .border-width
+
+$border-width-plugins: ( 'plugin-standard-border-width' ) !default;
+$border-width-manual-values: () !default;
 
 // .bottom
 
