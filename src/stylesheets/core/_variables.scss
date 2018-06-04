@@ -263,35 +263,35 @@ namespace var set in utilities-settings?
 */
 
 @if $theme-font-mono {
-  [class*='#{ns('utility')}size-mono'], .family-mono { font-family: $font-stack-mono; }
+  [class*='#{ns('utility')}font-mono'], .family-mono { font-family: $font-stack-mono; }
 }
 
 @if $theme-font-sans {
-  [class*='#{ns('utility')}size-sans'], .family-sans { font-family: $font-stack-sans; }
+  [class*='#{ns('utility')}font-sans'], .family-sans { font-family: $font-stack-sans; }
 }
 
 @if $theme-font-serif {
-  [class*='#{ns('utility')}size-serif'], .family-serif { font-family: $font-stack-serif; }
+  [class*='#{ns('utility')}font-serif'], .family-serif { font-family: $font-stack-serif; }
 }
 
 @if $theme-font-cond {
-  [class*='#{ns('utility')}size-cond'], .family-cond { font-family: $font-stack-cond; }
+  [class*='#{ns('utility')}font-cond'], .family-cond { font-family: $font-stack-cond; }
 }
 
 @if $theme-font-heading {
-  [class*='#{ns('utility')}size-heading'], .family-heading { font-family: $font-stack-heading; }
+  [class*='#{ns('utility')}font-heading'], .family-heading { font-family: $font-stack-heading; }
 }
 
 @if $theme-font-body {
-  [class*='#{ns('utility')}size-body'], .family-body { font-family: $font-stack-body; }
+  [class*='#{ns('utility')}font-body'], .family-body { font-family: $font-stack-body; }
 }
 
 @if $theme-font-code {
-  [class*='#{ns('utility')}size-code'], .family-code { font-family: $font-stack-code; }
+  [class*='#{ns('utility')}font-code'], .family-code { font-family: $font-stack-code; }
 }
 
 @if $theme-font-alt {
-  [class*='#{ns('utility')}size-alt'], .family-alt { font-family: $font-stack-alt; }
+  [class*='#{ns('utility')}font-alt'], .family-alt { font-family: $font-stack-alt; }
 }
 
 $project-font-weights: (
