@@ -13,7 +13,8 @@ output:
 ----------------------------------------
 example:
   .border-t-1px {
-    border-top: 1px solid; }
+    border-top-width: 1px;
+    border-style: solid; }
 
   .border-0 {
     border: none; }
@@ -24,7 +25,7 @@ $u-border: (
   border: (
     base: 'border',
     modifiers: (
-      noModifier: '',
+      noModifier: '-width',
       'y': ('-top-width', '-bottom-width'),
       'x': ('-left-width', '-right-width'),
       'top': '-top-width',
