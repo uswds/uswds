@@ -25,18 +25,20 @@ $u-border: (
     base: 'border',
     modifiers: (
       noModifier: '',
-      'y': ('-top', '-bottom'),
-      'x': ('-left', '-right'),
-      'top': '-top',
-      'right': '-right',
-      'bottom': '-bottom',
-      'left': '-left',
+      'y': ('-top-width', '-bottom-width'),
+      'x': ('-left-width', '-right-width'),
+      'top': '-top-width',
+      'right': '-right-width',
+      'bottom': '-bottom-width',
+      'left': '-left-width',
     ),
     values: map-collect(
       get-plugins($border-plugins),
       $border-manual-values
     ),
-    valueAppend: ' solid',
+    extend: (
+      'border-style': 'solid',
+    ),
     settings: $border-settings,
     property: 'border',
     type: 'utility',
