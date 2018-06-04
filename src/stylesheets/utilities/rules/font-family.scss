@@ -24,7 +24,7 @@ example:
 
 $u-font-family: (
   font-family: (
-    base: 'family',
+    base: 'font-family',
     modifiers: null,
     values: map-collect(
       get-plugins($font-family-plugins),
