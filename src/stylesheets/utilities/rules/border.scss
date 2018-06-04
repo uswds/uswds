@@ -13,8 +13,7 @@ output:
 ----------------------------------------
 example:
   .border-t-1px {
-    border-top-width: 1px;
-    border-style: solid; }
+    border-top: 1px solid; }
 
   .border-0 {
     border: none; }
@@ -25,21 +24,19 @@ $u-border: (
   border: (
     base: 'border',
     modifiers: (
-      noModifier: '-width',
-      'y': ('-top-width', '-bottom-width'),
-      'x': ('-left-width', '-right-width'),
-      'top': '-top-width',
-      'right': '-right-width',
-      'bottom': '-bottom-width',
-      'left': '-left-width',
+      noModifier: '',
+      'y': ('-top', '-bottom'),
+      'x': ('-left', '-right'),
+      'top': '-top',
+      'right': '-right',
+      'bottom': '-bottom',
+      'left': '-left',
     ),
     values: map-collect(
       get-plugins($border-plugins),
       $border-manual-values
     ),
-    extend: (
-      'border-style': 'solid',
-    ),
+    valueAppend: ' solid',
     settings: $border-settings,
     property: 'border',
     type: 'utility',
