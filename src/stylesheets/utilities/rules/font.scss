@@ -28,7 +28,7 @@ example:
 
 $u-font: (
   font: (
-    base: 'size',
+    base: 'font',
     modifiers: null,
     values: map-collect(
       get-plugins($font-plugins),
