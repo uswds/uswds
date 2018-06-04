@@ -106,10 +106,7 @@ Leaves bools as is
     @return quote($value);
   }
   @if type-of($value) == 'number' {
-    @if unit($value) == 'px' and ($value == 1 or $value == 2) {
-      @return inspect($value);
-    }
-    @elseif unit($value) == 'xl' or unit($value) == 'xs' {
+    @if index(('px', 'xl', 'xs'), unit($value)) {
       @return inspect($value);
     }
     @else {
