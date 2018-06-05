@@ -452,7 +452,7 @@ $base:                  get-uswds-color($theme-color-base);
 $base-dark:             get-uswds-color($theme-color-base-dark);
 $base-darker:           get-uswds-color($theme-color-base-darker);
 $base-darkest:          get-uswds-color($theme-color-base-darkest);
-$text:                  get-uswds-color($theme-color-text);
+$ink:                   $base-darkest;
 $primary-lighter:       get-uswds-color($theme-color-primary-lighter);
 $primary-light:         get-uswds-color($theme-color-primary-light);
 $primary:               get-uswds-color($theme-color-primary);
