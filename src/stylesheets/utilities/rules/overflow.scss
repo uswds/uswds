@@ -20,7 +20,7 @@ $u-overflow: (
     modifiers: (
       noModifier: '',
       'y': '-y',
-      'x': '-y',
+      'x': '-x',
     ),
     values: map-collect(
       get-plugins($overflow-plugins),
