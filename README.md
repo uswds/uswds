@@ -337,7 +337,7 @@ Do you have questions or need help with setup? Did you run into any weird errors
 
 [https://github.com/uswds/uswds/issues](https://github.com/uswds/uswds/issues).
 
-You can also email us directly at uswebdesignstandards@gsa.gov.
+You can also email us directly at uswds@gsa.gov.
 
 
 ## Contributing to the code base
@@ -370,4 +370,4 @@ The rest of this project is in the worldwide public domain, released under the [
 
 ## Contributing
 
-All contributions to this project will be released under the CC0 dedication alongside the public domain portions of this project. For more information, see [CONTRIBUTING.md](CONTRIBUTING.md).
+All contributions to this project will be released under the CC0 dedication alongside the public domain portions of this project. For more information, see [CONTRIBUTING.md](CONTRIBUTING.md). 
