@@ -76,7 +76,7 @@
     "bourbon-neat": "https://github.com/thoughtbot/neat/archive/neat-1.8.0-node-sass.tar.gz",
     "chalk": "^2.0.1",
     "chrome-launcher": "^0.3.2",
-    "chrome-remote-interface": "^0.24.2",
+    "chrome-remote-interface": "^0.25.6",
     "cracks": "^3.1.2",
     "cross-spawn": "^2.1.5",
     "del": "^2.2.0",

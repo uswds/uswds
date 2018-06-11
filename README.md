@@ -337,7 +337,7 @@ Do you have questions or need help with setup? Did you run into any weird errors
 
 [https://github.com/uswds/uswds/issues](https://github.com/uswds/uswds/issues).
 
-You can also email us directly at uswebdesignstandards@gsa.gov.
+You can also email us directly at uswds@gsa.gov.
 
 
 ## Contributing to the code base
