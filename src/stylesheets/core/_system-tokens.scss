@@ -71,6 +71,8 @@ $uswds-spacing:(
     '#{$neg-prefix}-9':       grid-units(-9),  // -32px
   ),
   large: (
+    10:                       grid-units(10),  // 80px
+    15:                       grid-units(15),  // 120px
     'card':                   grid-units(20),  // 160px
     'card-lg':                grid-units(30),  // 240px
     'mobile':                 grid-units(40),  // 320px
