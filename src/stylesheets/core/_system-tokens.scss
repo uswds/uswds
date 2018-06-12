@@ -61,18 +61,20 @@ $uswds-spacing:(
     7:                        grid-units(7),   // 56px
     8:                        grid-units(8),   // 64px
     9:                        grid-units(9),   // 72px
-  ),
-  medium-negative: (
-    '#{$neg-prefix}-4':       grid-units(-4),  // -4px
-    '#{$neg-prefix}-5':       grid-units(-5),  // -8px
-    '#{$neg-prefix}-6':       grid-units(-6),  // -12px
-    '#{$neg-prefix}-7':       grid-units(-7),  // -16px
-    '#{$neg-prefix}-8':       grid-units(-8),  // -24px
-    '#{$neg-prefix}-9':       grid-units(-9),  // -32px
-  ),
-  large: (
     10:                       grid-units(10),  // 80px
     15:                       grid-units(15),  // 120px
+  ),
+  medium-negative: (
+    '#{$neg-prefix}-4':       grid-units(-4),  // -32px
+    '#{$neg-prefix}-5':       grid-units(-5),  // -40px
+    '#{$neg-prefix}-6':       grid-units(-6),  // -48px
+    '#{$neg-prefix}-7':       grid-units(-7),  // -56px
+    '#{$neg-prefix}-8':       grid-units(-8),  // -64px
+    '#{$neg-prefix}-9':       grid-units(-9),  // -72px
+    '#{$neg-prefix}-10':      grid-units(-10), // -80px
+    '#{$neg-prefix}-15':      grid-units(-15), // -120px
+  ),
+  large: (
     'card':                   grid-units(20),  // 160px
     'card-lg':                grid-units(30),  // 240px
     'mobile':                 grid-units(40),  // 320px
