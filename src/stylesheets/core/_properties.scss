@@ -54,7 +54,10 @@ $uswds-properties: (
     standard: map-collect(
       map-get($uswds-spacing, smaller),
       map-get($uswds-spacing, small),
-      map-get($partial-values, zero-zero)
+      map-get($partial-values, zero-zero),
+      (
+        noValue: 1px,
+      )
     ),
     extended: (),
   ),
