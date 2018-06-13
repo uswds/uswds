@@ -29,8 +29,8 @@ class Device {
 const SKIP_COMPONENTS = [
   // Any components that need to be temporarily skipped can be put
   // here. They will be regarded as a "pending test" by Mocha.
-    'layout--docs-inner',
-    'layout--landing-inner',
+  'layout--docs-inner',
+  'layout--landing-inner',
 ];
 const DEVICES = [
   new Device('small-desktop', {
