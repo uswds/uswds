@@ -39,8 +39,8 @@ $partial-values: (
 $uswds-properties: (
   align-items: (
     standard: (
-      'align-start':    start,
-      'align-end':      end,
+      'align-start':    flex-start,
+      'align-end':      flex-end,
       'align-center':   center,
       'align-stretch':  stretch,
     ),
