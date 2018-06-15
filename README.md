@@ -170,7 +170,7 @@ node_modules/uswds/
 
 Since you are already using `npm`, the U.S. Web Design System team recommends leveraging the ability to write custom scripts. Here are some links to how we do this with our docs website using `npm` + [`gulp`](http://gulpjs.com/):
 
-[Link to `npm` scripts example in `uswds-site`](https://github.com/uswds/uswds-site/blob/master/package.json#L4)
+[Link to `npm` scripts example in `uswds-site`](https://github.com/uswds/uswds-site/blob/master/package.json#L28)
 
 [Link to gulpfile.js example in `uswds-site`](https://github.com/uswds/uswds-site/blob/master/gulpfile.js)
 
