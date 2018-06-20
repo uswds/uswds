@@ -4,7 +4,7 @@
     <a href="{{ item.href }}"{% if item.current %} class="usa-current"{% endif %}>
       {{ item.text }}
     </a>
-    {% if item.current and item.links %}
+    {% if item.links %}
     <ul class="{{ subclass }}">
       {{ nav_list(item.links, subclass) }}
     </ul>
