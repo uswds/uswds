@@ -170,9 +170,9 @@ node_modules/uswds/
 
 Since you are already using `npm`, the U.S. Web Design System team recommends leveraging the ability to write custom scripts. Here are some links to how we do this with our docs website using `npm` + [`gulp`](http://gulpjs.com/):
 
-[Link to `npm` scripts example in `uswds-site`](https://github.com/uswds/uswds-site/blob/develop/package.json#L4)
+[Link to `npm` scripts example in `uswds-site`](https://github.com/uswds/uswds-site/blob/master/package.json#L28)
 
-[Link to gulpfile.js example in `uswds-site`](https://github.com/uswds/uswds-site/blob/develop/gulpfile.js)
+[Link to gulpfile.js example in `uswds-site`](https://github.com/uswds/uswds-site/blob/master/gulpfile.js)
 
 #### Sass
 
@@ -337,7 +337,7 @@ Do you have questions or need help with setup? Did you run into any weird errors
 
 [https://github.com/uswds/uswds/issues](https://github.com/uswds/uswds/issues).
 
-You can also email us directly at uswebdesignstandards@gsa.gov.
+You can also email us directly at uswds@gsa.gov.
 
 
 ## Contributing to the code base
