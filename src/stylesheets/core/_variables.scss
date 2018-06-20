@@ -262,36 +262,41 @@ namespace var set in utilities-settings?
 ----------------------------------------
 */
 
+$if-important: '';
+@if $utilities-use-important {
+  $if-important: ' !important'
+}
+
 @if $theme-font-mono {
-  [class*='#{ns('utility')}font-mono'], .family-mono { font-family: $font-stack-mono; }
+  [class*='#{ns('utility')}font-mono'], .family-mono { font-family: $font-stack-mono#{$if-important}; }
 }
 
 @if $theme-font-sans {
-  [class*='#{ns('utility')}font-sans'], .family-sans { font-family: $font-stack-sans; }
+  [class*='#{ns('utility')}font-sans'], .family-sans { font-family: $font-stack-sans#{$if-important}; }
 }
 
 @if $theme-font-serif {
-  [class*='#{ns('utility')}font-serif'], .family-serif { font-family: $font-stack-serif; }
+  [class*='#{ns('utility')}font-serif'], .family-serif { font-family: $font-stack-serif#{$if-important}; }
 }
 
 @if $theme-font-cond {
-  [class*='#{ns('utility')}font-cond'], .family-cond { font-family: $font-stack-cond; }
+  [class*='#{ns('utility')}font-cond'], .family-cond { font-family: $font-stack-cond#{$if-important}; }
 }
 
 @if $theme-font-heading {
-  [class*='#{ns('utility')}font-heading'], .family-heading { font-family: $font-stack-heading; }
+  [class*='#{ns('utility')}font-heading'], .family-heading { font-family: $font-stack-heading#{$if-important}; }
 }
 
 @if $theme-font-body {
-  [class*='#{ns('utility')}font-body'], .family-body { font-family: $font-stack-body; }
+  [class*='#{ns('utility')}font-body'], .family-body { font-family: $font-stack-body#{$if-important}; }
 }
 
 @if $theme-font-code {
-  [class*='#{ns('utility')}font-code'], .family-code { font-family: $font-stack-code; }
+  [class*='#{ns('utility')}font-code'], .family-code { font-family: $font-stack-code#{$if-important}; }
 }
 
 @if $theme-font-alt {
-  [class*='#{ns('utility')}font-alt'], .family-alt { font-family: $font-stack-alt; }
+  [class*='#{ns('utility')}font-alt'], .family-alt { font-family: $font-stack-alt#{$if-important}; }
 }
 
 $project-font-weights: (
