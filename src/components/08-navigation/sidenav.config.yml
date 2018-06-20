@@ -21,7 +21,7 @@ context:
           - text: Child link
           - text: Child link
           - text: Child link
-      - text: Another link
+      - text: Parent link
 
 variants:
   - name: default
@@ -29,14 +29,14 @@ variants:
   - name: compare
     context:
       sidenavs:
-        - title: 1 level
+        - title: Single level
           links:
             - text: Current page
               current: true
             - text: Parent link
             - text: Parent link
 
-        - title: 2 levels
+        - title: Two levels
           links:
             - text: Parent link
             - text: Current page
@@ -45,24 +45,25 @@ variants:
                 - text: Child link
                 - text: Child link
                 - text: Child link
-            - text: Another link
-
-        - title: 3 levels
-          links:
-            - text: Parent link
-            - text: Current page
-              current: true
-              links:
                 - text: Child link
                 - text: Child link
                   current: true
+            - text: Parent link
+
+        - title: Three levels
+          links:
+            - text: Parent link
+            - text: Current page
+              current: true
+              links:
+                - text: Child link
+                - text: Child link
                   links:
                     - text: Grandchild link
                     - text: Grandchild link
                     - text: Grandchild link
                       current: true
-                    - text: Grandchild link
                 - text: Child link
                 - text: Child link
                 - text: Child link
-            - text: Another link
+            - text: Parent link

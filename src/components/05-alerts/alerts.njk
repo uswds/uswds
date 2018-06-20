@@ -1,8 +1,8 @@
 <div class="usa-alert {{ alert.classes }}" {% if alert.role %}role="{{alert.role}}"{% endif %}>
   <div class="usa-alert-body">
-    {%- if alert.title -%}
+    {%- if alert.title %}
     <h3 class="usa-alert-heading">{{ alert.title }}</h3>
-    {%- endif -%}
+    {%- endif %}
     <p class="usa-alert-text">{{ alert.content }}</p>
   </div>
 </div>

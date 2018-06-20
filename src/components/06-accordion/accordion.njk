@@ -1,7 +1,7 @@
 <ul class="usa-accordion{%
   if accordion.variant %}-{{ accordion.variant }}{% endif %}"{%
   if accordion.multiselectable == true %} aria-multiselectable="true"{% endif %}>
-  {% for item in accordion.items %}
+  {% for item in accordion.items -%}
   <li>
     <button class="usa-accordion-button"
       aria-expanded="{{ item.expanded | default('false') }}"
@@ -11,6 +11,5 @@
     <div id="{{ accordion.id_prefix }}{{ item.id }}" class="usa-accordion-content">
       {{ item.content }}
     </div>
-  </li>
-  {% endfor %}
+  </li>{% endfor %}
 </ul>
