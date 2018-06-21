@@ -263,8 +263,9 @@ namespace var set in utilities-settings?
 */
 
 $if-important: '';
+
 @if $utilities-use-important {
-  $if-important: ' !important'
+  $if-important: ' !important';
 }
 
 @if $theme-font-mono {
