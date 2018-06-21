@@ -392,6 +392,9 @@ a family and a line-height scale unit
   @elseif not map-get($uswds-line-height, $scale) {
     @error "`#{$scale}` is not a valid line-height scale. Valid values: #{map-keys($all-type-scale)}";
   }
+  @elseif map-get($project-cap-heights, $family) == false {
+    @return false;
+  }
   @else {
     $this-cap: map-get($project-cap-heights, $family);
     $this-line-height: map-get($uswds-line-height, $scale);
