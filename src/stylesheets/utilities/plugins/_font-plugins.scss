@@ -108,7 +108,7 @@ $plugin-font-theme-mono-2xl: (
 );
 
 $plugin-font-theme-mono-3xl: (
-  mono-2xl: (
+  mono-3xl: (
     slug: 'mono-3xl',
     isReadable: true,
     content: utility-font(mono, 3xl),
@@ -214,7 +214,7 @@ $plugin-font-theme-sans-2xl: (
 );
 
 $plugin-font-theme-sans-3xl: (
-  sans-2xl: (
+  sans-3xl: (
     slug: 'sans-3xl',
     isReadable: true,
     content: utility-font(sans, 3xl),
@@ -320,7 +320,7 @@ $plugin-font-theme-serif-2xl: (
 );
 
 $plugin-font-theme-serif-3xl: (
-  serif-2xl: (
+  serif-3xl: (
     slug: 'serif-3xl',
     isReadable: true,
     content: utility-font(serif, 3xl),
@@ -440,7 +440,7 @@ $plugin-font-theme-code-2xl: (
 );
 
 $plugin-font-theme-code-3xl: (
-  code-2xl: (
+  code-3xl: (
     slug: 'code-3xl',
     isReadable: true,
     content: utility-font(code, 3xl),
@@ -546,7 +546,7 @@ $plugin-font-theme-heading-2xl: (
 );
 
 $plugin-font-theme-heading-3xl: (
-  heading-2xl: (
+  heading-3xl: (
     slug: 'heading-3xl',
     isReadable: true,
     content: utility-font(heading, 3xl),
@@ -652,7 +652,7 @@ $plugin-font-theme-body-2xl: (
 );
 
 $plugin-font-theme-body-3xl: (
-  body-2xl: (
+  body-3xl: (
     slug: 'body-3xl',
     isReadable: true,
     content: utility-font(body, 3xl),
@@ -758,7 +758,7 @@ $plugin-font-theme-alt-2xl: (
 );
 
 $plugin-font-theme-alt-3xl: (
-  alt-2xl: (
+  alt-3xl: (
     slug: 'alt-3xl',
     isReadable: true,
     content: utility-font(alt, 3xl),
