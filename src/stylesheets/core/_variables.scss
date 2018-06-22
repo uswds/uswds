@@ -138,6 +138,16 @@ $font-stack-body:     false;
 $font-stack-code:     false;
 $font-stack-alt:      false;
 
+$quoted-font-stack-sans:     false;
+$quoted-font-stack-serif:    false;
+$quoted-font-stack-mono:     false;
+$quoted-font-stack-cond:     false;
+
+$quoted-font-stack-heading:  false;
+$quoted-font-stack-body:     false;
+$quoted-font-stack-code:     false;
+$quoted-font-stack-alt:      false;
+
 @if $theme-font-sans {
   $font-stack-sans: map-deep-get(
     $all-font-definitions,
