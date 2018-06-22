@@ -148,7 +148,7 @@ $font-stack-alt:      false;
     $theme-font-sans,
     'stack'
   );
-  $font-stack-sans: $font-stack-sans + unquote("");
+  $font-stack-sans: $font-stack-sans + unquote('');
 }
 
 @if $theme-font-serif {
@@ -161,7 +161,7 @@ $font-stack-alt:      false;
     $theme-font-serif,
     'stack'
   );
-  $font-stack-serif: $font-stack-serif + unquote("");
+  $font-stack-serif: $font-stack-serif + unquote('');
 }
 
 @if $theme-font-mono {
@@ -174,7 +174,7 @@ $font-stack-alt:      false;
     $theme-font-mono,
     'stack'
   );
-  $font-stack-mono: $font-stack-mono + unquote("");
+  $font-stack-mono: $font-stack-mono + unquote('');
 }
 
 @if $theme-font-cond {
@@ -187,7 +187,7 @@ $font-stack-alt:      false;
     $theme-font-cond,
     'stack'
   );
-  $font-stack-cond: $font-stack-cond + unquote("");
+  $font-stack-cond: $font-stack-cond + unquote('');
 }
 
 @if $theme-font-heading {
@@ -200,7 +200,7 @@ $font-stack-alt:      false;
     $theme-font-heading,
     'stack'
   );
-  $font-stack-heading: $font-stack-heading + unquote("");
+  $font-stack-heading: $font-stack-heading + unquote('');
 }
 
 @if $theme-font-body {
@@ -213,7 +213,7 @@ $font-stack-alt:      false;
     $theme-font-body,
     'stack'
   );
-  $font-stack-body: $font-stack-body + unquote("");
+  $font-stack-body: $font-stack-body + unquote('');
 }
 
 @if $theme-font-code {
@@ -226,7 +226,7 @@ $font-stack-alt:      false;
     $theme-font-code,
     'stack'
   );
-  $font-stack-code: $font-stack-code + unquote("");
+  $font-stack-code: $font-stack-code + unquote('');
 }
 
 @if $theme-font-alt {
@@ -239,7 +239,7 @@ $font-stack-alt:      false;
     $theme-font-alt,
     'stack'
   );
-  $font-stack-alt: $font-stack-alt + unquote("");
+  $font-stack-alt: $font-stack-alt + unquote('');
 }
 
 $project-font-stacks:(
