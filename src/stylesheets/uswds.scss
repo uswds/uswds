@@ -66,4 +66,18 @@ Output all USWDS
 @import 'core/layout-grid';
 
 
-.foo { @include grid-container(desktop, !important); }
+.foo {
+  @include grid-container(desktop, !important);
+  @include u-bg($red-50v, !important);
+  @include u-border-color($red-50v, !important);
+  @include u-radius(2, !important);
+  @include u-border-width(2, !important);
+  @include u-border-x-width(2, !important);
+  @include u-border-y-width(2, !important);
+  @include u-border(2px, $red-50v, !important);
+  @include u-border-bottom(2px, dotted, $red-50v, !important);
+  @include u-border-x(1px, dashed, transparent, !important);
+  @include u-bottom(2, !important);
+  @include u-circle(4, !important);
+  @include u-color($red-20, !important);
+}

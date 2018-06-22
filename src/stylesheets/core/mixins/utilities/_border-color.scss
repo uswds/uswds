@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  border-color: color($value...)#{$important};
+  border-color: check-color($value)#{$important};
 }

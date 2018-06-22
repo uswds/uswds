@@ -10,27 +10,32 @@ $border-utilities: (
 );
 
 @mixin border-n($side, $value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, '!important');
+    $important: ' !important';
+  }
+  $has-style: false;
   @each $this-value in $value {
     $match: false;
-    $has-style: false;
     @if $value == false {
       @error "You've added a border color that does not exist or is set to false.";
     }
     @elseif type-of($this-value) == 'color' {
       $match: true;
       @if $side == n {
-        border-color: $this-value;
+        border-color: $this-value#{$important};
       }
       @elseif $side == x {
-        border-left-color: $this-value;
-        border-right-color: $this-value;
+        border-left-color: $this-value#{$important};
+        border-right-color: $this-value#{$important};
       }
       @elseif $side == y {
-        border-bottom-color: $this-value;
-        border-top-color: $this-value;
+        border-bottom-color: $this-value#{$important};
+        border-top-color: $this-value#{$important};
       }
       @else {
-        border-#{$side}-color: $this-value;
+        border-#{$side}-color: $this-value#{$important};
       }
     }
     @elseif type-of($this-value) == 'number' {
@@ -40,18 +45,18 @@ $border-utilities: (
         $match: true;
         $final-value: map-get($widths, $converted-value);
         @if $side == n {
-          border-width: $final-value;
+          border-width: $final-value#{$important};
         }
         @elseif $side == x {
-          border-left-width: $final-value;
-          border-right-width: $final-value;
+          border-left-width: $final-value#{$important};
+          border-right-width: $final-value#{$important};
         }
         @elseif $side == y {
-          border-bottom-width: $final-value;
-          border-top-width: $final-value;
+          border-bottom-width: $final-value#{$important};
+          border-top-width: $final-value#{$important};
         }
         @else {
-          border-#{$side}-width: $final-value;
+          border-#{$side}-width: $final-value#{$important};
         }
       }
       @else {
@@ -66,18 +71,18 @@ $border-utilities: (
         $has-style: true;
         $final-value: map-get($styles, $converted-value);
         @if $side == n {
-          border-style: $final-value;
+          border-style: $final-value#{$important};
         }
         @elseif $side == x {
-          border-left-style: $final-value;
-          border-right-style: $final-value;
+          border-left-style: $final-value#{$important};
+          border-right-style: $final-value#{$important};
         }
         @elseif $side == y {
-          border-bottom-style: $final-value;
-          border-top-style: $final-value;
+          border-bottom-style: $final-value#{$important};
+          border-top-style: $final-value#{$important};
         }
         @else {
-          border-#{$side}-style: $final-value;
+          border-#{$side}-style: $final-value#{$important};
         }
       }
       @else {
@@ -87,21 +92,21 @@ $border-utilities: (
     @if not $match {
       @error "`#{$this-value}` is not a valid `border` value.";
     }
-    @if not $has-style {
-      @if $side == n {
-        border-style: solid;
-      }
-      @elseif $side == x {
-        border-left-style: solid;
-        border-right-style: solid;
-      }
-      @elseif $side == y {
-        border-bottom-style: solid;
-        border-top-style: solid;
-      }
-      @else {
-        border-#{$side}-style: solid;
-      }
+  }
+  @if not $has-style {
+    @if $side == n {
+      border-style: solid#{$important};
+    }
+    @elseif $side == x {
+      border-left-style: solid#{$important};
+      border-right-style: solid#{$important};
+    }
+    @elseif $side == y {
+      border-bottom-style: solid#{$important};
+      border-top-style: solid#{$important};
+    }
+    @else {
+      border-#{$side}-style: solid#{$important};
     }
   }
 }

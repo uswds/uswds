@@ -251,7 +251,7 @@ being passed in a mixin's props
 */
 
 @function has-important($props) {
-  @if type-of($props) == 'arglist' {
+  @if type-of(nth($props, 1)) == 'list' {
     $props: nth($props, 1);
   }
   $length: length($props);
@@ -282,7 +282,7 @@ Append `!important` to a list
     $last: nth($source, $length);
   }
   @if $last == '!important' {
-    @return append($destination, '!important');
+    @return append($destination, !important, comma);
   }
   @else {
     @return $destination;
@@ -951,6 +951,9 @@ the desired final units (currently rem)
 */
 
 @function spacing($value) {
+  @if type-of($value) == 'list' and length($value) == 1 {
+    $value: nth($value, 1);
+  }
   @if type-of($value) == 'number' and unitless($value) {
     @return grid-units($value);
   }

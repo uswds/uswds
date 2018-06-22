@@ -1,5 +1,5 @@
 // Outputs a square
-@mixin u-circle($value) {
+@mixin u-circle($value...) {
   $important: null;
   @if has-important($value) {
     $value: remove($value, '!important');

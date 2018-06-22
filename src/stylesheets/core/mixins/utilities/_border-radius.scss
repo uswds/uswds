@@ -1,6 +1,6 @@
 // Outputs line-height
 
-@mixin u-radius($value) {
+@mixin u-radius($value...) {
   $important: null;
   @if has-important($value) {
     $value: remove($value, '!important');
