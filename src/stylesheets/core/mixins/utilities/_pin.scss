@@ -1,6 +1,5 @@
 
 @mixin add-pin($props) {
-  $props: smart-quote($props);
   @if $props == 'top' {
     @include position('absolute');
     left: 0;

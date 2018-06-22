@@ -1,5 +1,10 @@
 // Outputs background-color
 
 @mixin u-bg($value) {
-  background-color: check-color($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, '!important');
+    $important: ' !important';
+  }
+  background-color: check-color($value)#{$important};
 }

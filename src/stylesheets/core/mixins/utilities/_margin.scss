@@ -2,27 +2,62 @@
 
 @mixin margin-n($side, $value...) {
   @if $side == all {
-    margin: get-uswds-value(margin, $value...);
+    $important: null;
+    @if has-important($value) {
+      $value: remove($value, '!important');
+      $important: ' !important';
+    }
+    margin: get-uswds-value(margin, $value...)#{$important};
   }
   @elseif $side == x {
-    margin-left: get-uswds-value(margin-horizontal, $value...);
-    margin-right: get-uswds-value(margin-horizontal, $value...);
+    $important: null;
+    @if has-important($value) {
+      $value: remove($value, '!important');
+      $important: ' !important';
+    }
+    margin-left: get-uswds-value(margin-horizontal, $value...)#{$important};
+    margin-right: get-uswds-value(margin-horizontal, $value...)#{$important};
   }
   @elseif $side == y {
-    margin-bottom: get-uswds-value(margin-vertical, $value...);
-    margin-top: get-uswds-value(margin-vertical, $value...);
+    $important: null;
+    @if has-important($value) {
+      $value: remove($value, '!important');
+      $important: ' !important';
+    }
+    margin-bottom: get-uswds-value(margin-vertical, $value...)#{$important};
+    margin-top: get-uswds-value(margin-vertical, $value...)#{$important};
   }
   @elseif $side == t {
-    margin-top: get-uswds-value(margin-vertical, $value...);
+    $important: null;
+    @if has-important($value) {
+      $value: remove($value, '!important');
+      $important: ' !important';
+    }
+    margin-top: get-uswds-value(margin-vertical, $value...)#{$important};
   }
   @elseif $side == r {
-    margin-right: get-uswds-value(margin-horizontal, $value...);
+    $important: null;
+    @if has-important($value) {
+      $value: remove($value, '!important');
+      $important: ' !important';
+    }
+    margin-right: get-uswds-value(margin-horizontal, $value...)#{$important};
   }
   @elseif $side == b {
-    margin-bottom: get-uswds-value(margin-vertical, $value...);
+    $important: null;
+    @if has-important($value) {
+      $value: remove($value, '!important');
+      $important: ' !important';
+    }
+    margin-bottom: get-uswds-value(margin-vertical, $value...)#{$important};
   }
   @elseif $side == l {
-    margin-left: get-uswds-value(margin-horizontal, $value...);
+    $important: null;
+    @if has-important($value) {
+      $value: remove($value, '!important');
+      $important: ' !important';
+    }
+    margin-left: get-uswds-value(margin-horizontal, $value...)#{$important};
   }
 }
 

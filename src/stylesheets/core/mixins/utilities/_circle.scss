@@ -1,6 +1,11 @@
 // Outputs a square
 @mixin u-circle($value) {
-  border-radius: 50%;
-  height: spacing($value);
-  width: spacing($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, '!important');
+    $important: ' !important';
+  }
+  border-radius: 50%#{$important};
+  height: spacing($value)#{$important};
+  width: spacing($value)#{$important};
 }

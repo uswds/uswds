@@ -243,6 +243,54 @@ namespace is set to output
 
 /*
 ----------------------------------------
+has-important()
+----------------------------------------
+Check to see if `!important` is
+being passed in a mixin's props
+----------------------------------------
+*/
+
+@function has-important($props) {
+  @if type-of($props) == 'arglist' {
+    $props: nth($props, 1);
+  }
+  $length: length($props);
+  $last: null;
+  @if $length != 0 {
+    $last: nth($props, $length);
+  }
+  @if $last == '!important' {
+    @return true;
+  }
+  @else {
+    @return false;
+  }
+}
+
+/*
+----------------------------------------
+append-important()
+----------------------------------------
+Append `!important` to a list
+----------------------------------------
+*/
+
+@function append-important($source, $destination) {
+  $length: length($source);
+  $last: null;
+  @if $length != 0 {
+    $last: nth($source, $length);
+  }
+  @if $last == '!important' {
+    @return append($destination, '!important');
+  }
+  @else {
+    @return $destination;
+  }
+}
+
+/*
+----------------------------------------
 grid-units()
 ----------------------------------------
 Converts a spacing unit multiple into

@@ -1,5 +1,10 @@
 // Outputs line-height
 
 @mixin u-radius($value) {
-  border-radius: get-uswds-value(border-radius, $value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, '!important');
+    $important: ' !important';
+  }
+  border-radius: get-uswds-value(border-radius, $value)#{$important};
 }

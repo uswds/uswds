@@ -1,5 +1,10 @@
 // Outputs line-height
 
 @mixin u-line-height($family, $scale) {
-  line-height: lh($family, $scale);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, '!important');
+    $important: ' !important';
+  }
+  line-height: lh($family, $scale)#{$important};
 }

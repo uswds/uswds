@@ -1,20 +1,14 @@
-@function use-important($props...) {
-  $this-length: length($props);
-  $this-last: null;
-  @if $this-length != 0 {
-    $this-last: nth($props, $this-length);
-  }
-  @return $this-last;
-}
 
 @mixin grid-container($props...) {
-  @include u-margin-x(auto);
+  $margin-x: append-important($props, 'auto');
+  @include u-margin-x($margin-x);
   @if length($props) == 0 {
     @include u-maxw(desktop);
   }
   @else {
-    $props: smart-quote(nth($props, 1));
-    @include u-maxw($props);
+    $output: smart-quote(nth($props, 1));
+    $output: append-important($props, $output);
+    @include u-maxw($output);
   }
 }
 
