@@ -148,6 +148,7 @@ $font-stack-alt:      false;
     $theme-font-sans,
     'stack'
   );
+  $font-stack-sans: quote($font-stack-sans);
 }
 
 @if $theme-font-serif {
@@ -160,6 +161,7 @@ $font-stack-alt:      false;
     $theme-font-serif,
     'stack'
   );
+  $font-stack-serif: quote($font-stack-serif);
 }
 
 @if $theme-font-mono {
@@ -172,6 +174,7 @@ $font-stack-alt:      false;
     $theme-font-mono,
     'stack'
   );
+  $font-stack-mono: quote($font-stack-mono);
 }
 
 @if $theme-font-cond {
@@ -184,6 +187,7 @@ $font-stack-alt:      false;
     $theme-font-cond,
     'stack'
   );
+  $font-stack-cond: quote($font-stack-cond);
 }
 
 @if $theme-font-heading {
@@ -196,6 +200,7 @@ $font-stack-alt:      false;
     $theme-font-heading,
     'stack'
   );
+  $font-stack-heading: quote($font-stack-heading);
 }
 
 @if $theme-font-body {
@@ -208,6 +213,7 @@ $font-stack-alt:      false;
     $theme-font-body,
     'stack'
   );
+  $font-stack-body: quote($font-stack-body);
 }
 
 @if $theme-font-code {
@@ -220,6 +226,7 @@ $font-stack-alt:      false;
     $theme-font-code,
     'stack'
   );
+  $font-stack-code: quote($font-stack-code);
 }
 
 @if $theme-font-alt {
@@ -232,17 +239,18 @@ $font-stack-alt:      false;
     $theme-font-alt,
     'stack'
   );
+  $font-stack-alt: quote($font-stack-alt);
 }
 
 $project-font-stacks:(
-  'mono':     $font-stack-mono,
-  'sans':     $font-stack-sans,
-  'serif':    $font-stack-serif,
-  'cond':     $font-stack-cond,
-  'heading':  $font-stack-heading,
-  'body':     $font-stack-body,
-  'code':     $font-stack-code,
-  'alt':      $font-stack-alt,
+  'mono':     unquote($font-stack-mono),
+  'sans':     unquote($font-stack-sans),
+  'serif':    unquote($font-stack-serif),
+  'cond':     unquote($font-stack-cond),
+  'heading':  unquote($font-stack-heading),
+  'body':     unquote($font-stack-body),
+  'code':     unquote($font-stack-code),
+  'alt':      unquote($font-stack-alt),
 );
 
 // for backward compatibility
@@ -269,35 +277,35 @@ $if-important: '';
 }
 
 @if $theme-font-mono {
-  [class*='#{ns('utility')}font-mono'], .family-mono { font-family: $font-stack-mono#{$if-important}; }
+  [class*='#{ns('utility')}font-mono-'] { font-family: unquote($font-stack-mono)#{$if-important}; }
 }
 
 @if $theme-font-sans {
-  [class*='#{ns('utility')}font-sans'], .family-sans { font-family: $font-stack-sans#{$if-important}; }
+  [class*='#{ns('utility')}font-sans-'] { font-family: unquote($font-stack-sans)#{$if-important}; }
 }
 
 @if $theme-font-serif {
-  [class*='#{ns('utility')}font-serif'], .family-serif { font-family: $font-stack-serif#{$if-important}; }
+  [class*='#{ns('utility')}font-serif-'] { font-family: unquote($font-stack-serif)#{$if-important}; }
 }
 
 @if $theme-font-cond {
-  [class*='#{ns('utility')}font-cond'], .family-cond { font-family: $font-stack-cond#{$if-important}; }
+  [class*='#{ns('utility')}font-cond-'] { font-family: unquote($font-stack-cond)#{$if-important}; }
 }
 
 @if $theme-font-heading {
-  [class*='#{ns('utility')}font-heading'], .family-heading { font-family: $font-stack-heading#{$if-important}; }
+  [class*='#{ns('utility')}font-heading-'] { font-family: unquote($font-stack-heading)#{$if-important}; }
 }
 
 @if $theme-font-body {
-  [class*='#{ns('utility')}font-body'], .family-body { font-family: $font-stack-body#{$if-important}; }
+  [class*='#{ns('utility')}font-body-'] { font-family: unquote($font-stack-body)#{$if-important}; }
 }
 
 @if $theme-font-code {
-  [class*='#{ns('utility')}font-code'], .family-code { font-family: $font-stack-code#{$if-important}; }
+  [class*='#{ns('utility')}font-code-'] { font-family: unquote($font-stack-code)#{$if-important}; }
 }
 
 @if $theme-font-alt {
-  [class*='#{ns('utility')}font-alt'], .family-alt { font-family: $font-stack-alt#{$if-important}; }
+  [class*='#{ns('utility')}font-alt-'] { font-family: unquote($font-stack-alt)#{$if-important}; }
 }
 
 $project-font-weights: (

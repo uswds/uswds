@@ -190,10 +190,10 @@ $theme-font-cond
 ----------------------------------------
 */
 
-$theme-font-heading:  $theme-font-sans;
+$theme-font-heading:  $theme-font-serif;
 $theme-font-body:     $theme-font-serif;
 $theme-font-code:     $theme-font-mono;
-$theme-font-alt:      false;
+$theme-font-alt:      $theme-font-sans;
 
 /*
 ----------------------------------------
