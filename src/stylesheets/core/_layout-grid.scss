@@ -1,21 +1,24 @@
 /* stylelint-disable */
 
 $namespace-grid: ns('grid');
-$if-important: '';
+$is-important: false;
+$grid-global: '';
 
-@if $utilities-use-important {
-  $if-important: 'important';
+@if $is-important {
+  $grid-global: '!important';
 }
 
 // basic container
 .#{$namespace-grid}container {
-  @include grid-container;
+  $props: append-important($grid-global, desktop);
+  @include grid-container($props);
 }
 
 // container with custom widths
 @each $width-key, $width-value in $uswds-breakpoints {
   .#{$namespace-grid}container-#{$width-key} {
-    @include grid-container($width-key);
+    $props: append-important($grid-global, $width-key);
+    @include grid-container($props);
   }
 }
 
@@ -24,13 +27,15 @@ $if-important: '';
   @if map-get($theme-output-breakpoints, $mq-key) {
     @include at-media($mq-key){
       .#{$mq-key}\:#{$namespace-grid}container {
-        @include grid-container;
+        $props: append-important($grid-global, desktop);
+        @include grid-container($props);
       }
 
 // ...with custom widths
       @each $width-key, $width-value in $uswds-breakpoints {
         .#{$mq-key}\:#{$namespace-grid}container-#{$width-key} {
-          @include grid-container($width-key);
+          $props: append-important($grid-global, $width-key);
+          @include grid-container($props);
         }
       }
     }

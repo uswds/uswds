@@ -1,14 +1,15 @@
 
 @mixin grid-container($props...) {
-  $margin-x: append-important($props, auto);
-  @include u-margin-x($margin-x);
   @if length($props) == 0 {
+    @include u-margin-x(auto);
     @include u-maxw(desktop);
   }
   @else {
-    $output: nth($props, 1);
-    $output: append-important($props, $output);
-    @include u-maxw($output);
+    $props: nth($props, 1);
+    $margin-x: append-important($props, auto);
+    @debug #{$props};
+    @include u-margin-x($margin-x);
+    @include u-maxw($props);
   }
 }
 
