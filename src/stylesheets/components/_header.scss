@@ -99,7 +99,7 @@ $z-index-nav:     9000;
 }
 
 .usa-overlay {
-  @include add-pin('all');
+  @include u-pin('all');
   position: fixed;
   background: $color-black;
   opacity: 0;

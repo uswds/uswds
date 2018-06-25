@@ -1,41 +1,51 @@
 
-@mixin add-pin($props) {
-  @if $props == 'top' {
-    @include position('absolute');
-    left: 0;
-    right: 0;
-    top: 0;
+@mixin u-pin($value...) {
+  $important: null;
+  $position-absolute: append-important($value, absolute);
+  $position-static: append-important($value, static);
+  @if has-important($value) {
+    $value: remove($value, '!important');
+    $important: ' !important';
   }
-  @elseif $props == 'bottom' {
-    @include u-position('absolute');
-    bottom: 0;
-    left: 0;
-    right: 0;
+  $value: nth($value, 1);
+  @if $value == 'top' {
+    @include u-position($position-absolute);
+    top: 0#{$important};
   }
-  @elseif $props == 'left' {
-    @include u-position('absolute');
-    bottom: 0;
-    left: 0;
-    top: 0;
+  @elseif $value == 'bottom' {
+    @include u-position($position-absolute);
+    bottom: 0#{$important};
   }
-  @elseif $props == 'right' {
-    @include u-position('absolute');
-    bottom: 0;
-    right: 0;
-    top: 0;
+  @elseif $value == 'left' {
+    @include u-position($position-absolute);
+    left: 0#{$important};
   }
-  @elseif $props == 'all' {
-    @include u-position('absolute');
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
+  @elseif $value == 'x' {
+    @include u-position($position-absolute);
+    left: 0#{$important};
+    right: 0#{$important};
   }
-  @elseif $props == 'none' {
-    @include u-position('static');
-    bottom: auto;
-    left: auto;
-    right: auto;
-    top: auto;
+  @elseif $value == 'y' {
+    @include u-position($position-absolute);
+    bottom: 0#{$important};
+    top: 0#{$important};
+  }
+  @elseif $value == 'right' {
+    @include u-position($position-absolute);
+    right: 0#{$important};
+  }
+  @elseif $value == 'all' {
+    @include u-position($position-absolute);
+    bottom: 0#{$important};
+    left: 0#{$important};
+    right: 0#{$important};
+    top: 0#{$important};
+  }
+  @elseif $value == 'none' {
+    @include u-position($position-static);
+    bottom: auto#{$important};
+    left: auto#{$important};
+    right: auto#{$important};
+    top: auto#{$important};
   }
 }

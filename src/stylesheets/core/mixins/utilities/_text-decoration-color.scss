@@ -1,6 +1,6 @@
 // Outputs line-height
 
-@mixin u-underline($value) {
+@mixin u-text-decoration-color($value...) {
   $important: null;
   @if has-important($value) {
     $value: remove($value, '!important');

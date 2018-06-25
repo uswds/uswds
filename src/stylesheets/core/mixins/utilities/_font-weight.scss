@@ -1,6 +1,6 @@
 // Outputs line-height
 
-@mixin u-weight($value...) {
+@mixin u-font-weight($value...) {
   $important: null;
   @if has-important($value) {
     $value: remove($value, '!important');

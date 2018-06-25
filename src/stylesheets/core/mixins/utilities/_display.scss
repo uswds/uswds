@@ -1,6 +1,6 @@
 // Outputs display
 
-@mixin u-display($value) {
+@mixin u-display($value...) {
   $important: null;
   @if has-important($value) {
     $value: remove($value, '!important');

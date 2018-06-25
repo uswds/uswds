@@ -1,5 +1,10 @@
 // Outputs a solid outline of $value... width
 @mixin u-outline($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, '!important');
+    $important: ' !important';
+  }
   @each $this-value in $value {
     $match: false;
     @if $value == false {
@@ -7,7 +12,7 @@
     }
     @elseif type-of($this-value) == 'color' {
       $match: true;
-      outline-color: $this-value;
+      outline-color: $this-value#{$important};
     }
     @elseif type-of($this-value) == 'number' {
       $converted-value: number-to-value($this-value);
@@ -15,8 +20,8 @@
       @if map-has-key($widths, $converted-value) {
         $match: true;
         $final-value: map-get($widths, $converted-value);
-        outline-width: $final-value;
-        outline-style: solid;
+        outline-width: $final-value#{$important};
+        outline-style: solid#{$important};
       }
       @else {
         @error "#{$this-value} is not a valid outline width. Accepted values: #{map-keys($widths)}";
