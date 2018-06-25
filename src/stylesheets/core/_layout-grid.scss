@@ -76,6 +76,12 @@ $if-important: '';
 }
 
 // basic columns...
+[class*='#{$namespace-grid}col'] {
+  @include u-minh(1px);
+  @include u-position(relative);
+  @include u-width(full);
+}
+
 .#{$namespace-grid}col {
   @include grid-col;
 }
