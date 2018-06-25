@@ -7,7 +7,6 @@
   @else {
     $props: nth($props, 1);
     $margin-x: append-important($props, auto);
-    @debug #{$props};
     @include u-margin-x($margin-x);
     @include u-maxw($props);
   }
