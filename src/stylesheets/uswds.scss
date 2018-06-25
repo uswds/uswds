@@ -65,8 +65,11 @@ Output all USWDS
 @include render-utilities-in($utilities-package);
 @import 'core/layout-grid';
 
-
 .foo {
+  @include u-flex(1, align-start, column, justify, no-wrap, !important);
+}
+
+.bar {
   @include grid-container(desktop, !important);
   @include u-bg($red-50v, !important);
   @include u-border-color($red-50v, !important);
