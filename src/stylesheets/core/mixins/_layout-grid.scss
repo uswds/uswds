@@ -13,8 +13,10 @@
 }
 
 @mixin grid-row($props...) {
-  @include u-display(flex);
-  @include u-flex(wrap);
+  $display: append-important($grid-global, flex);
+  $flex: append-important($grid-global, wrap);
+  @include u-display($display);
+  @include u-flex($flex);
 }
 
 @mixin grid-gap($props...) {

@@ -44,7 +44,7 @@ $grid-global: '';
 
 // basic row...
 .#{$namespace-grid}row {
-  @include grid-row;
+  @include grid-row();
 
 // ...that includes column gaps
   &.#{$namespace-grid}gap {

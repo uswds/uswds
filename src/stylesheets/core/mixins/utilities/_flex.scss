@@ -24,6 +24,7 @@ $flex-utililies: (
 );
 
 @mixin u-flex($value...) {
+  $value: expand-variable-contents($value);
   $important: null;
   @if has-important($value) {
     $value: remove($value, '!important');

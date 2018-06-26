@@ -243,6 +243,22 @@ namespace is set to output
 
 /*
 ----------------------------------------
+expand-variable-contents()
+----------------------------------------
+Extract a variable list value from
+an arglist
+----------------------------------------
+*/
+
+@function expand-variable-contents($value){
+  @if length($value) != 0 and type-of(nth($value, 1)) == 'list' {
+    $value: nth($value, 1);
+  }
+  @return $value;
+}
+
+/*
+----------------------------------------
 has-important()
 ----------------------------------------
 Check to see if `!important` is
