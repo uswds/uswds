@@ -2,6 +2,7 @@
 
 Below are a list of websites and applications currently using the U.S. Web Design System. If your project is currently using the Design System and you do not see it on this list, please feel free to submit a pull request or email the core team at uswebdesignstandards@gsa.gov.
 
+- [10x](https://10x.gsa.gov/)
 - [18F](https://18f.gsa.gov)
 - [18F Automated Testing Playbook](https://automated-testing-playbook.18f.gov/)
 - [18F Brand](https://brand.18f.gov/)
@@ -28,6 +29,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [Customs and Border Protection](https://www.cbp.gov/)
 - [cyber.dhs.gov](https://cyber.dhs.gov/)
 - [Data Federation (Data.gov)](https://federation.data.gov/)
+- [Defense Digital Service](https://www.dds.mil/)
 - [Department of Commerce](https://commerce.gov/)
 - [Department of Homeland Security](https://www.dhs.gov/)
 - [Digital Acquisition Accelerator](https://pages.18f.gov/digitalaccelerator/)
@@ -43,6 +45,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [EPA e-manifest form](https://github.com/18F/e-manifest)
 - [EPA eRegs Notice & Comment](https://epa-notice.usa.gov/)
 - [FAR Data Collection Pilot](https://fardatacollection.sam.gov)
+- [Federal Data Strategy](https://strategy.data.gov/)
 - [Federal Election Commission](https://www.fec.gov/)
 - [Federal Election Commission Legal Documents](https://www.fec.gov/regulations/)
 - [Federal Front Door](https://labs.usa.gov/)
@@ -91,6 +94,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [The Opportunity Project](http://opportunity.census.gov/)
 - [Pathogen Detection - NCBI](https://www.ncbi.nlm.nih.gov/pathogens/)
 - [Performance.gov](https://www.performance.gov/)
+- [PIV Usage Guidelines](https://piv.idmanagement.gov/)
 - [Plainlanguage.gov](https://plainlanguage.gov/)
 - [The Privacy and Civil Liberties Oversight Board](https://www.pclob.gov/)
 - [PubMed Journals - National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov/labs/journals/)
@@ -100,6 +104,8 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [Search.gov](https://search.gov/)
 - [Social and Behavioral Sciences](https://sbst.gov/)
 - [StopBullying.gov](https://www.stopbullying.gov/)
+- [Supreme Court of the United States](https://www.supremecourt.gov/)
+- [Technology Modernization Fund](https://tmf.cio.gov/)
 - [TechFAR Hub](https://techfarhub.cio.gov/)
 - [Template Tool](http://alexose.github.io/experiments/correspondence/)
 - [Transportation Security Administration (TSA)](https://www.tsa.gov/)
