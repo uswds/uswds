@@ -10,11 +10,8 @@
     @if type-of($this-value) == 'color' {
       text-decoration-color: $this-value#{$important};
     }
-    @elseif {
-      text-decoration: get-uswds-value(text-decoration, $value...)#{$important};
-    }
     @else {
-      @error "`#{$this-value}` is not a valid `text` value.";
+      text-decoration: get-uswds-value(text-decoration, $value...)#{$important};
     }
   }
 }
