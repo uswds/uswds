@@ -266,6 +266,9 @@ of lists.
         $output: append($output, $i, comma);
       }
     }
+    @if length($output) == 1 {
+      $output: nth($output, 1);
+    }
   }
   @else {
     $output: $value;
