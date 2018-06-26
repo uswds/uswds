@@ -1,10 +1,9 @@
 /* stylelint-disable */
 
 $namespace-grid: ns('grid');
-$is-important: true;
 $grid-global: '';
 
-@if $is-important {
+@if $utilities-use-important {
   $grid-global: '!important';
 }
 
@@ -44,16 +43,18 @@ $grid-global: '';
 
 // basic row...
 .#{$namespace-grid}row {
-  @include grid-row();
+  @include grid-row;
 
 // ...that includes column gaps
   &.#{$namespace-grid}gap {
-    @include grid-gap;
+    $props: append-important($grid-global, md);
+    @include grid-gap($props);
   }
   @each $gap-key, $gap-val in map-deep-get($uswds-properties, gap, standard){
     @if $gap-key {
       &.#{$namespace-grid}gap-#{$gap-key} {
-        @include grid-gap($gap-key);
+        $props: append-important($grid-global, $gap-key);
+        @include grid-gap($props);
       }
     }
   }
@@ -88,21 +89,25 @@ $grid-global: '';
 }
 
 .#{$namespace-grid}col {
-  @include grid-col;
+  $props: append-important($grid-global, fill);
+  @include grid-col($props);
 }
 
 .#{$namespace-grid}col-auto {
-  @include grid-col('auto');
+  $props: append-important($grid-global, auto);
+  @include grid-col($props);
 }
 
 .#{$namespace-grid}col-fill {
-  @include grid-col('fill');
+  $props: append-important($grid-global, fill);
+  @include grid-col($props);
 }
 
 // ...with widths
 @each $width-key, $width-value in $uswds-layout-grid-widths {
   .#{$namespace-grid}col-#{$width-key} {
-    @include grid-col($width-key);
+    $props: append-important($grid-global, $width-key);
+    @include grid-col($props);
   }
 }
 
@@ -111,18 +116,22 @@ $grid-global: '';
   @if map-get($theme-output-breakpoints, $mq-key) {
     @include at-media($mq-key){
       .#{$mq-key}\:#{$namespace-grid}col {
-        @include grid-col;
+        $props: append-important($grid-global, fill);
+        @include grid-col($props);
       }
       .#{$mq-key}\:#{$namespace-grid}col-fill {
-        @include grid-col('fill');
+        $props: append-important($grid-global, fill);
+        @include grid-col($props);
       }
       .#{$mq-key}\:#{$namespace-grid}col-auto {
-        @include grid-col('auto');
+        $props: append-important($grid-global, auto);
+        @include grid-col($props);
       }
 
       @each $width-key, $width-value in $uswds-layout-grid-widths {
         .#{$mq-key}\:#{$namespace-grid}col-#{$width-key} {
-          @include grid-col($width-key);
+          $props: append-important($grid-global, $width-key);
+          @include grid-col($props);
         }
       }
     }
@@ -132,7 +141,8 @@ $grid-global: '';
 // basic offsets
 @each $width-key, $width-value in $uswds-layout-grid-widths {
   .#{$namespace-grid}offset-#{$width-key} {
-    @include grid-offset($width-key);
+    $props: append-important($grid-global, $width-key);
+    @include grid-offset($props);
   }
 }
 
@@ -142,7 +152,8 @@ $grid-global: '';
     @each $width-key, $width-value in $uswds-layout-grid-widths {
       @include at-media($mq-key) {
         .#{$mq-key}\:#{$namespace-grid}offset-#{$width-key} {
-          @include grid-offset($width-key);
+          $props: append-important($grid-global, $width-key);
+          @include grid-offset($props);
         }
       }
     }

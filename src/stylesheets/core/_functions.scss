@@ -251,10 +251,23 @@ an arglist
 */
 
 @function expand-variable-contents($value){
-  @if length($value) != 0 and type-of(nth($value, 1)) == 'list' {
-    $value: nth($value, 1);
+  $output: ();
+  @if length($value) != 0 {
+    @each $i in $value {
+      @if type-of($i) == 'list' {
+        @each $ii in $i {
+          $output: append($output, $ii, comma);
+        }
+      }
+      @else {
+        $output: append($output, $i, comma);
+      }
+    }
   }
-  @return $value;
+  @else {
+    $output: $value;
+  }
+  @return $output;
 }
 
 /*

@@ -427,6 +427,7 @@ $uswds-properties: (
   ),
   min-height: (
     standard: map-collect(
+      map-get($uswds-spacing, smaller),
       map-get($uswds-spacing, small),
       map-get($uswds-spacing, medium),
       map-get($uswds-spacing, large),
