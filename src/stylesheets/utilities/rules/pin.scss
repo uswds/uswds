@@ -16,7 +16,7 @@ example:
 ----------------------------------------
 */
 
-$add-pin: (
+$u-pin: (
   pin: (
     base: 'pin',
     modifiers: null,
@@ -32,14 +32,30 @@ $add-pin: (
           'top': '0',
         ),
       ),
+      x: (
+        slug: 'x',
+        isReadable: true,
+        content: 'absolute',
+        extend: (
+          'left': '0',
+          'right': '0',
+        ),
+      ),
+      y: (
+        slug: 'y',
+        isReadable: true,
+        content: 'absolute',
+        extend: (
+          'bottom': '0',
+          'top': '0',
+        ),
+      ),
       bottom: (
         slug: 'bottom',
         isReadable: true,
         content: 'absolute',
         extend: (
           'bottom': '0',
-          'left': '0',
-          'right': '0',
         ),
       ),
       left: (
@@ -48,8 +64,6 @@ $add-pin: (
         content: 'absolute',
         extend: (
           'left': '0',
-          'top': '0',
-          'bottom': '0',
         ),
       ),
       right: (
@@ -57,9 +71,7 @@ $add-pin: (
         isReadable: true,
         content: 'absolute',
         extend: (
-          'bottom': '0',
           'right': '0',
-          'top': '0',
         ),
       ),
       top: (
@@ -67,8 +79,6 @@ $add-pin: (
         isReadable: true,
         content: 'absolute',
         extend: (
-          'left': '0',
-          'right': '0',
           'top': '0',
         ),
       ),
@@ -84,8 +94,8 @@ $add-pin: (
         ),
       ),
     ),
-    settings: $add-pin-settings,
+    settings: $pin-settings,
     property: 'position',
-    type: 'object',
+    type: 'utility',
   )
 );

@@ -1,5 +1,17 @@
-// Outputs text-align property
+// Outputs text-decoration and color properties
 
 @mixin u-text-decoration($value...) {
-  text-decoration: get-uswds-value(text-decoration, $value...);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, '!important');
+    $important: ' !important';
+  }
+  @each $this-value in $value {
+    @if type-of($this-value) == 'color' {
+      text-decoration-color: $this-value#{$important};
+    }
+    @else {
+      text-decoration: get-uswds-value(text-decoration, $value...)#{$important};
+    }
+  }
 }

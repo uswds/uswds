@@ -148,6 +148,7 @@ $font-stack-alt:      false;
     $theme-font-sans,
     'stack'
   );
+  $font-stack-sans: $font-stack-sans + unquote('');
 }
 
 @if $theme-font-serif {
@@ -160,6 +161,7 @@ $font-stack-alt:      false;
     $theme-font-serif,
     'stack'
   );
+  $font-stack-serif: $font-stack-serif + unquote('');
 }
 
 @if $theme-font-mono {
@@ -172,6 +174,7 @@ $font-stack-alt:      false;
     $theme-font-mono,
     'stack'
   );
+  $font-stack-mono: $font-stack-mono + unquote('');
 }
 
 @if $theme-font-cond {
@@ -184,6 +187,7 @@ $font-stack-alt:      false;
     $theme-font-cond,
     'stack'
   );
+  $font-stack-cond: $font-stack-cond + unquote('');
 }
 
 @if $theme-font-heading {
@@ -196,6 +200,7 @@ $font-stack-alt:      false;
     $theme-font-heading,
     'stack'
   );
+  $font-stack-heading: $font-stack-heading + unquote('');
 }
 
 @if $theme-font-body {
@@ -208,6 +213,7 @@ $font-stack-alt:      false;
     $theme-font-body,
     'stack'
   );
+  $font-stack-body: $font-stack-body + unquote('');
 }
 
 @if $theme-font-code {
@@ -220,6 +226,7 @@ $font-stack-alt:      false;
     $theme-font-code,
     'stack'
   );
+  $font-stack-code: $font-stack-code + unquote('');
 }
 
 @if $theme-font-alt {
@@ -232,6 +239,7 @@ $font-stack-alt:      false;
     $theme-font-alt,
     'stack'
   );
+  $font-stack-alt: $font-stack-alt + unquote('');
 }
 
 $project-font-stacks:(
@@ -262,36 +270,42 @@ namespace var set in utilities-settings?
 ----------------------------------------
 */
 
+$if-important: '';
+
+@if $utilities-use-important {
+  $if-important: ' !important';
+}
+
 @if $theme-font-mono {
-  [class*='#{ns('utility')}font-mono'], .family-mono { font-family: $font-stack-mono; }
+  [class*='#{ns('utility')}font-mono-'] { font-family: $font-stack-mono#{$if-important}; }
 }
 
 @if $theme-font-sans {
-  [class*='#{ns('utility')}font-sans'], .family-sans { font-family: $font-stack-sans; }
+  [class*='#{ns('utility')}font-sans-'] { font-family: $font-stack-sans#{$if-important}; }
 }
 
 @if $theme-font-serif {
-  [class*='#{ns('utility')}font-serif'], .family-serif { font-family: $font-stack-serif; }
+  [class*='#{ns('utility')}font-serif-'] { font-family: $font-stack-serif#{$if-important}; }
 }
 
 @if $theme-font-cond {
-  [class*='#{ns('utility')}font-cond'], .family-cond { font-family: $font-stack-cond; }
+  [class*='#{ns('utility')}font-cond-'] { font-family: $font-stack-cond#{$if-important}; }
 }
 
 @if $theme-font-heading {
-  [class*='#{ns('utility')}font-heading'], .family-heading { font-family: $font-stack-heading; }
+  [class*='#{ns('utility')}font-heading-'] { font-family: $font-stack-heading#{$if-important}; }
 }
 
 @if $theme-font-body {
-  [class*='#{ns('utility')}font-body'], .family-body { font-family: $font-stack-body; }
+  [class*='#{ns('utility')}font-body-'] { font-family: $font-stack-body#{$if-important}; }
 }
 
 @if $theme-font-code {
-  [class*='#{ns('utility')}font-code'], .family-code { font-family: $font-stack-code; }
+  [class*='#{ns('utility')}font-code-'] { font-family: $font-stack-code#{$if-important}; }
 }
 
 @if $theme-font-alt {
-  [class*='#{ns('utility')}font-alt'], .family-alt { font-family: $font-stack-alt; }
+  [class*='#{ns('utility')}font-alt-'] { font-family: $font-stack-alt#{$if-important}; }
 }
 
 $project-font-weights: (
@@ -400,6 +414,7 @@ $project-cap-heights:(
   'mono':     cap-height($theme-font-mono),
   'sans':     cap-height($theme-font-sans),
   'serif':    cap-height($theme-font-serif),
+  'cond':     cap-height($theme-font-cond),
   'heading':  cap-height($theme-font-heading),
   'body':     cap-height($theme-font-body),
   'code':     cap-height($theme-font-code),

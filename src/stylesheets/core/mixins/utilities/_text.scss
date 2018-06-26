@@ -36,17 +36,22 @@ $text-utililies: (
 );
 
 @mixin u-text($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, '!important');
+    $important: ' !important';
+  }
   @each $this-value in $value {
     $match: false;
     @if type-of($this-value) == 'color' {
       $match: true;
-      color: $this-value;
+      color: $this-value#{$important};
     }
     @else {
       $this-value: smart-quote($this-value);
       @each $property, $map in $text-utililies {
         @if not $match and map-has-key($map, $this-value){
-          #{$property}: get-uswds-value($property, $this-value...);
+          #{$property}: get-uswds-value($property, $this-value...)#{$important};
           $match: true;
         }
       }

@@ -1,5 +1,10 @@
 // Outputs line-height
 
-@mixin u-outline-color($value) {
-  outline-color: check-color($value);
+@mixin u-outline-color($value...) {
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, '!important');
+    $important: ' !important';
+  }
+  outline-color: check-color($value)#{$important};
 }

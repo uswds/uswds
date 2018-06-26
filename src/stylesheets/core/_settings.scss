@@ -186,10 +186,10 @@ $theme-font-cond
 ----------------------------------------
 */
 
-$theme-font-heading:  $theme-font-sans !default;
+$theme-font-heading:  $theme-font-serif !default;
 $theme-font-body:     $theme-font-serif !default;
 $theme-font-code:     $theme-font-mono !default;
-$theme-font-alt:      false !default;
+$theme-font-alt:      $theme-font-sans !default;
 
 /*
 ----------------------------------------

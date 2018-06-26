@@ -4,6 +4,12 @@
 
 $font-stack-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
+$font-stack-georgia: 'Georgia', 'Cambria', 'Times New Roman', 'Times', serif;
+
+$font-stack-helvetica: 'Helvetica Neue', 'Helvetica', 'Roboto', 'Arial', sans-serif;
+
+$font-stack-monospace: 'Bitstream Vera Sans Mono', 'Consolas', 'Courier', monospace;
+
 $uswds-font-definitions: (
   system: (
     name: null,
@@ -13,20 +19,20 @@ $uswds-font-definitions: (
   ),
   georgia: (
     name: 'Georgia',
-    stack: $georgia,
+    stack: $font-stack-georgia,
     system-font: true,
     cap-height: 346px,
   ),
   helvetica: (
     name: 'Helvetica',
-    stack: $helvetica,
+    stack: $font-stack-helvetica,
     system-font: true,
     cap-height: 357px,
   ),
   merriweather: (
     name: 'Merriweather Web',
     dir: 'merriweather',
-    stack: $georgia,
+    stack: $font-stack-georgia,
     system-font: false,
     cap-height: 385px,
     variable-font: false,
@@ -56,7 +62,7 @@ $uswds-font-definitions: (
   roboto-mono: (
     name: 'Roboto Mono Web',
     dir: 'roboto-mono',
-    stack: $monospace,
+    stack: $font-stack-monospace,
     system-font: false,
     cap-height: 380px,
     variable-font: false,
@@ -86,7 +92,7 @@ $uswds-font-definitions: (
   source-sans-pro: (
     name: 'Source Sans Pro Web',
     dir: 'source-sans-pro',
-    stack: $helvetica,
+    stack: $font-stack-helvetica,
     system-font: false,
     cap-height: 340px,
     variable-font: false,

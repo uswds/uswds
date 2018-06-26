@@ -62,7 +62,8 @@
     }
   }
 
-  @include add-pin('right');
+  @include u-pin(right);
+  @include u-pin(y);
   position: fixed;
   background: $color-white;
   border-left: 1px solid $color-gray-light;

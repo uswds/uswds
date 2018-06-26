@@ -1,5 +1,11 @@
 // Outputs align-items
 
-@mixin u-align-items($value) {
-  align-items: get-uswds-value(align-items, $value);
+@mixin u-align-items($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, '!important');
+    $important: ' !important';
+  }
+  align-items: get-uswds-value(align-items, $value)#{$important};
 }

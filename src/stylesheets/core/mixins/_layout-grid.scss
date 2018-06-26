@@ -1,77 +1,91 @@
+
 @mixin grid-container($props...) {
-  @include u-margin-x(auto);
   @if length($props) == 0 {
+    @include u-margin-x(auto);
     @include u-maxw(desktop);
   }
   @else {
-    $props: smart-quote(nth($props, 1));
+    $props: nth($props, 1);
+    $margin-x: append-important($props, auto);
+    @include u-margin-x($margin-x);
     @include u-maxw($props);
   }
 }
 
 @mixin grid-row($props...) {
-  @include u-display(flex);
-  @include u-flex(wrap);
+  $display: append-important($grid-global, flex);
+  $flex: append-important($grid-global, wrap);
+  @include u-display($display);
+  @include u-flex($flex);
 }
 
 @mixin grid-gap($props...) {
+  $props: unpack($props);
+  $gap: null;
   @if length($props) == 0 {
-    $props: $theme-column-gap;
+    $gap: $theme-column-gap;
   }
   @else {
-    $props: smart-quote(nth($props, 1));
+    $gap: smart-quote(nth($props, 1));
   }
-  @if $props == 0 {
-    @include u-margin-x(0);
+  @if $gap == 0 {
+    @include u-margin-x(append-important($props, 0));
 
     > * {
-      @include u-padding-y(0);
+      @include u-padding-y(append-important($props, 0));
     }
   }
   @else {
-    @if map-has-key($project-column-gaps, $props) {
-      $props: map-get($project-column-gaps, $props);
+    @if map-has-key($project-column-gaps, $gap) {
+      $gap: map-get($project-column-gaps, $gap);
     }
-    @include u-margin-x(unquote("#{$neg-prefix}-#{calc-gap-offset($props)}"));
+    @include u-margin-x(append-important($props, unquote("#{$neg-prefix}-#{calc-gap-offset($gap)}")));
     > * {
-      @include u-padding-x(calc-gap-offset($props));
+      @include u-padding-x(append-important($props, calc-gap-offset($gap)));
     }
   }
 }
 
 @mixin grid-col($props...) {
+  $props: unpack($props);
   @if length($props) == 0 {
     @include u-flex(fill);
     @include u-width(auto);
   }
   @else {
-    $props: smart-quote(nth($props, 1));
-    @if $props == 'auto' {
-      @include u-flex(auto);
-      @include u-width(auto);
+    $col: smart-quote(nth($props, 1));
+    @if $col == 'auto' {
+      $flex: append-important($props, auto);
+      $width: append-important($props, auto);
+      @include u-flex($flex);
+      @include u-width($width);
     }
-    @elseif $props == 'fill' {
-      @include u-flex(fill);
-      @include u-width(auto);
+    @elseif $col == 'fill' {
+      $flex: append-important($props, fill);
+      $width: append-important($props, auto);
+      @include u-flex($flex);
+      @include u-width($width);
     }
-    @elseif not map-has-key($uswds-layout-grid-widths, $props) {
-      @error "#{$props} is not a valid layout grid width. Valid width are #{map-keys($uswds-layout-grid-widths)}";
+    @elseif not map-has-key($uswds-layout-grid-widths, $col) {
+      @error "#{$col} is not a valid layout grid width. Valid width are #{map-keys($uswds-layout-grid-widths)}";
     }
     @else {
-      $width: map-get($uswds-layout-grid-widths, $props);
+      $flex: append-important($props, auto);
+      $width: append-important($props, map-get($uswds-layout-grid-widths, $col));
+      @include u-flex($flex);
       @include u-width(override, $width);
-      @include u-flex(auto);
     }
   }
 }
 
-@mixin grid-offset($props) {
-  $props: smart-quote($props);
-  @if not map-has-key($uswds-layout-grid-widths, $props) {
-    @error "#{$props} is not a valid layout grid width. Valid width are #{map-keys($uswds-layout-grid-widths)}";
+@mixin grid-offset($props...) {
+  $props: unpack($props);
+  $offset: smart-quote(nth($props, 1));
+  @if not map-has-key($uswds-layout-grid-widths, $offset) {
+    @error "#{$offset} is not a valid layout grid width. Valid width are #{map-keys($uswds-layout-grid-widths)}";
   }
   @else {
-    $width: map-get($uswds-layout-grid-widths, $props);
+    $width: append-important($props, map-get($uswds-layout-grid-widths, $offset));
     @include u-margin-left(override, $width);
   }
 }

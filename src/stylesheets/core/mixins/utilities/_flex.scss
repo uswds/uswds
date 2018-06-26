@@ -24,12 +24,17 @@ $flex-utililies: (
 );
 
 @mixin u-flex($value...) {
+  $value: unpack($value);
+  $important: null;
+  @if has-important($value) {
+    $value: remove($value, '!important');
+    $important: ' !important';
+  }
   @each $this-value in $value {
     $match: false;
-    $this-value: smart-quote($this-value);
     @each $property, $map in $flex-utililies {
       @if not $match and map-has-key($map, $this-value){
-        #{$property}: get-uswds-value($property, $this-value...);
+        #{$property}: get-uswds-value($property, $this-value...)#{$important};
         $match: true;
       }
     }
