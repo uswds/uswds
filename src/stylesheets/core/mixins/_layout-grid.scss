@@ -20,7 +20,7 @@
 }
 
 @mixin grid-gap($props...) {
-  $props: expand-variable-contents($props);
+  $props: unpack($props);
   $gap: null;
   @if length($props) == 0 {
     $gap: $theme-column-gap;
@@ -47,7 +47,7 @@
 }
 
 @mixin grid-col($props...) {
-  $props: expand-variable-contents($props);
+  $props: unpack($props);
   @if length($props) == 0 {
     @include u-flex(fill);
     @include u-width(auto);
@@ -79,7 +79,7 @@
 }
 
 @mixin grid-offset($props...) {
-  $props: expand-variable-contents($props);
+  $props: unpack($props);
   $offset: smart-quote(nth($props, 1));
   @if not map-has-key($uswds-layout-grid-widths, $offset) {
     @error "#{$offset} is not a valid layout grid width. Valid width are #{map-keys($uswds-layout-grid-widths)}";

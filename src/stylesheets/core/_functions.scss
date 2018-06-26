@@ -243,14 +243,17 @@ namespace is set to output
 
 /*
 ----------------------------------------
-expand-variable-contents()
+unpack()
 ----------------------------------------
-Extract a variable list value from
-an arglist
+Create lists of single items from lists
+of lists.
+----------------------------------------
+(1, (2.1, 2.2), 3) -->
+(1, 2.1, 2.2, 3)
 ----------------------------------------
 */
 
-@function expand-variable-contents($value){
+@function unpack($value){
   $output: ();
   @if length($value) != 0 {
     @each $i in $value {

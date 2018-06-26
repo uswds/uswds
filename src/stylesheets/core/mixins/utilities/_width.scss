@@ -1,7 +1,7 @@
 // Outputs width
 
 @mixin u-width($value...) {
-  $value: expand-variable-contents($value);
+  $value: unpack($value);
   $important: null;
   @if has-important($value) {
     $value: remove($value, '!important');
