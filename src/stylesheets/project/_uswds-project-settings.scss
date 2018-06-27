@@ -263,30 +263,30 @@ $theme-color-primary-darkest:      false;
 
 $theme-color-secondary-family:     'red';
 $theme-color-secondary-lightest:   false;
-$theme-color-secondary-lighter:    false;
+$theme-color-secondary-lighter:    $theme-color-secondary-family, 10;
 $theme-color-secondary-light:      $theme-color-secondary-family, 30;
-$theme-color-secondary:            $theme-color-secondary-family, 60;
+$theme-color-secondary:            $theme-color-secondary-family, 50;
 $theme-color-secondary-vivid:      $theme-color-secondary-family, 50, vivid;
-$theme-color-secondary-dark:       $theme-color-secondary-family, 70, vivid;
-$theme-color-secondary-darker:     false;
+$theme-color-secondary-dark:       $theme-color-secondary-family, 60, vivid;
+$theme-color-secondary-darker:     $theme-color-secondary-family, 70, vivid;
 $theme-color-secondary-darkest:    false;
 
 $theme-color-accent-warm-family:   'orange';
 $theme-color-accent-warm-lightest: false;
-$theme-color-accent-warm-lighter:  false;
-$theme-color-accent-warm-light:    false;
+$theme-color-accent-warm-lighter:  $theme-color-accent-warm-family, 10, vivid;
+$theme-color-accent-warm-light:    $theme-color-accent-warm-family, 20, vivid;
 $theme-color-accent-warm:          $theme-color-accent-warm-family, 30, vivid;
 $theme-color-accent-warm-dark:     $theme-color-accent-warm-family, 50, vivid;
-$theme-color-accent-warm-darker:   false;
+$theme-color-accent-warm-darker:   $theme-color-accent-warm-family, 60, vivid;
 $theme-color-accent-warm-darkest:  false;
 
 $theme-color-accent-cool-family:   'cyan';
 $theme-color-accent-cool-lightest: false;
-$theme-color-accent-cool-lighter:  false;
-$theme-color-accent-cool-light:    false;
+$theme-color-accent-cool-lighter:  $theme-color-accent-cool-family, 5;
+$theme-color-accent-cool-light:    $theme-color-accent-cool-family, 20;
 $theme-color-accent-cool:          $theme-color-accent-cool-family, 30, vivid;
 $theme-color-accent-cool-dark:     $theme-color-accent-cool-family, 40, vivid;
-$theme-color-accent-cool-darker:   false;
+$theme-color-accent-cool-darker:   blue, 60;
 $theme-color-accent-cool-darkest:  false;
 
 /*

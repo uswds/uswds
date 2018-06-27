@@ -259,30 +259,30 @@ $theme-color-primary-darkest:      false !default;
 
 $theme-color-secondary-family:     'red' !default;
 $theme-color-secondary-lightest:   false !default;
-$theme-color-secondary-lighter:    false !default;
+$theme-color-secondary-lighter:    $theme-color-secondary-family, 10 !default;
 $theme-color-secondary-light:      $theme-color-secondary-family, 30 !default;
-$theme-color-secondary:            $theme-color-secondary-family, 60 !default;
+$theme-color-secondary:            $theme-color-secondary-family, 50 !default;
 $theme-color-secondary-vivid:      $theme-color-secondary-family, 50, vivid !default;
-$theme-color-secondary-dark:       $theme-color-secondary-family, 70, vivid !default;
-$theme-color-secondary-darker:     false !default;
+$theme-color-secondary-dark:       $theme-color-secondary-family, 60, vivid !default;
+$theme-color-secondary-darker:     $theme-color-secondary-family, 70, vivid !default;
 $theme-color-secondary-darkest:    false !default;
 
 $theme-color-accent-warm-family:   'orange' !default;
 $theme-color-accent-warm-lightest: false !default;
-$theme-color-accent-warm-lighter:  false !default;
-$theme-color-accent-warm-light:    false !default;
+$theme-color-accent-warm-lighter:  $theme-color-accent-warm-family, 10, vivid !default;
+$theme-color-accent-warm-light:    $theme-color-accent-warm-family, 20, vivid !default;
 $theme-color-accent-warm:          $theme-color-accent-warm-family, 30, vivid !default;
 $theme-color-accent-warm-dark:     $theme-color-accent-warm-family, 50, vivid !default;
-$theme-color-accent-warm-darker:   false !default;
+$theme-color-accent-warm-darker:   $theme-color-accent-warm-family, 60, vivid !default;
 $theme-color-accent-warm-darkest:  false !default;
 
 $theme-color-accent-cool-family:   'cyan' !default;
 $theme-color-accent-cool-lightest: false !default;
-$theme-color-accent-cool-lighter:  false !default;
-$theme-color-accent-cool-light:    false !default;
+$theme-color-accent-cool-lighter:  $theme-color-accent-cool-family, 5 !default;
+$theme-color-accent-cool-light:    $theme-color-accent-cool-family, 20 !default;
 $theme-color-accent-cool:          $theme-color-accent-cool-family, 30, vivid !default;
 $theme-color-accent-cool-dark:     $theme-color-accent-cool-family, 40, vivid !default;
-$theme-color-accent-cool-darker:   false !default;
+$theme-color-accent-cool-darker:   blue, 60 !default;
 $theme-color-accent-cool-darkest:  false !default;
 
 /*
