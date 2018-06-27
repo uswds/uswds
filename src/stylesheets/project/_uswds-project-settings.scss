@@ -273,11 +273,11 @@ $theme-color-secondary-darkest:    false;
 
 $theme-color-accent-warm-family:   'orange';
 $theme-color-accent-warm-lightest: false;
-$theme-color-accent-warm-lighter:  $theme-color-accent-warm-family, 10, vivid;
+$theme-color-accent-warm-lighter:  $theme-color-accent-warm-family, 10;
 $theme-color-accent-warm-light:    $theme-color-accent-warm-family, 20, vivid;
 $theme-color-accent-warm:          $theme-color-accent-warm-family, 30, vivid;
 $theme-color-accent-warm-dark:     $theme-color-accent-warm-family, 50, vivid;
-$theme-color-accent-warm-darker:   $theme-color-accent-warm-family, 60, vivid;
+$theme-color-accent-warm-darker:   $theme-color-accent-warm-family, 60;
 $theme-color-accent-warm-darkest:  false;
 
 $theme-color-accent-cool-family:   'cyan';

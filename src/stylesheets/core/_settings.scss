@@ -269,11 +269,11 @@ $theme-color-secondary-darkest:    false !default;
 
 $theme-color-accent-warm-family:   'orange' !default;
 $theme-color-accent-warm-lightest: false !default;
-$theme-color-accent-warm-lighter:  $theme-color-accent-warm-family, 10, vivid !default;
+$theme-color-accent-warm-lighter:  $theme-color-accent-warm-family, 10 !default;
 $theme-color-accent-warm-light:    $theme-color-accent-warm-family, 20, vivid !default;
 $theme-color-accent-warm:          $theme-color-accent-warm-family, 30, vivid !default;
 $theme-color-accent-warm-dark:     $theme-color-accent-warm-family, 50, vivid !default;
-$theme-color-accent-warm-darker:   $theme-color-accent-warm-family, 60, vivid !default;
+$theme-color-accent-warm-darker:   $theme-color-accent-warm-family, 60 !default;
 $theme-color-accent-warm-darkest:  false !default;
 
 $theme-color-accent-cool-family:   'cyan' !default;
