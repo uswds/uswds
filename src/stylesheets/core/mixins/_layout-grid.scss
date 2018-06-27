@@ -84,7 +84,11 @@
 @mixin grid-offset($props...) {
   $props: unpack($props);
   $offset: smart-quote(nth($props, 1));
-  @if not map-has-key($uswds-layout-grid-widths, $offset) {
+  @if $offset == 'none' {
+    $width: append-important($props, 0);
+    @include u-margin-left(override, $width);
+  }
+  @elseif not map-has-key($uswds-layout-grid-widths, $offset) {
     @error "#{$offset} is not a valid layout grid width. Valid width are #{map-keys($uswds-layout-grid-widths)}";
   }
   @else {

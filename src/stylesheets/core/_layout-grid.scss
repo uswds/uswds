@@ -145,6 +145,10 @@ $grid-global: '';
     @include grid-offset($props);
   }
 }
+.#{$namespace-grid}offset-none {
+  $props: append-important($grid-global, none);
+  @include grid-offset($props);
+}
 
 // responsive offsets
 @each $mq-key, $mq-value in $uswds-breakpoints {
