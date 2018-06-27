@@ -9,7 +9,7 @@ $grid-global: '';
 
 // basic container
 .#{$namespace-grid}container {
-  $props: append-important($grid-global, desktop);
+  $props: append-important($grid-global, $theme-grid-container-max-width);
   @include grid-container($props);
 }
 

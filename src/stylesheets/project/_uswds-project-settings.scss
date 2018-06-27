@@ -364,3 +364,19 @@ Column gap
 $theme-column-gap-small: 2px;
 $theme-column-gap:       2;
 $theme-column-gap-large: 3;
+
+/*
+----------------------------------------
+Grid container max-width
+----------------------------------------
+mobile
+mobile-lg
+tablet
+tablet-lg
+desktop
+desktop-lg
+widescreen
+----------------------------------------
+*/
+
+$theme-grid-container-max-width: desktop;

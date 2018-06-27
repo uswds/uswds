@@ -2,7 +2,7 @@
 @mixin grid-container($props...) {
   @if length($props) == 0 {
     @include u-margin-x(auto);
-    @include u-maxw(desktop);
+    @include u-maxw($theme-grid-container-max-width);
   }
   @else {
     $props: nth($props, 1);
@@ -39,8 +39,11 @@
     @if map-has-key($project-column-gaps, $gap) {
       $gap: map-get($project-column-gaps, $gap);
     }
+    @elseif map-has-key($uswds-column-gaps, $gap) {
+      $gap: map-get($uswds-column-gaps, $gap);
+    }
     @include u-margin-x(append-important($props, unquote("#{$neg-prefix}-#{calc-gap-offset($gap)}")));
-    > * {
+    > [class*='grid-col'] {
       @include u-padding-x(append-important($props, calc-gap-offset($gap)));
     }
   }
