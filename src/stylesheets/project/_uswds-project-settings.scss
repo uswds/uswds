@@ -241,39 +241,53 @@ Palette colors
 ----------------------------------------
 */
 
-$theme-color-base-family:         'gray';
-$theme-color-base-lightest:       $theme-color-base-family, 2;
-$theme-color-base-lighter:        $theme-color-base-family, 5;
-$theme-color-base-light:          $theme-color-base-family, 10;
-$theme-color-base:                $theme-color-base-family, 30;
-$theme-color-base-dark:           $theme-color-base-family, 50;
-$theme-color-base-darker:         $theme-color-base-family, 70;
-$theme-color-base-darkest:        $theme-color-base-family, 90;
-$theme-color-text:                $theme-color-base-darkest;
+$theme-color-base-family:          'gray';
+$theme-color-base-lightest:        $theme-color-base-family, 2;
+$theme-color-base-lighter:         $theme-color-base-family, 5;
+$theme-color-base-light:           $theme-color-base-family, 10;
+$theme-color-base:                 $theme-color-base-family, 30;
+$theme-color-base-dark:            $theme-color-base-family, 50;
+$theme-color-base-darker:          $theme-color-base-family, 70;
+$theme-color-base-darkest:         $theme-color-base-family, 90;
+$theme-color-text:                 $theme-color-base-darkest;
 
-$theme-color-primary-family:      'blue';
-$theme-color-primary-lighter:     $theme-color-primary-family, 10;
-$theme-color-primary-light:       $theme-color-primary-family, 30;
-$theme-color-primary:             $theme-color-primary-family, 60, vivid;
-$theme-color-primary-vivid:       'blue-warm', 60, vivid;
-$theme-color-primary-dark:        'blue-warm', 70, vivid;
-$theme-color-primary-darker:      'blue-warm', 80, vivid;
+$theme-color-primary-family:       'blue';
+$theme-color-primary-lightest:     false;
+$theme-color-primary-lighter:      $theme-color-primary-family, 10;
+$theme-color-primary-light:        $theme-color-primary-family, 30;
+$theme-color-primary:              $theme-color-primary-family, 60, vivid;
+$theme-color-primary-vivid:        'blue-warm', 60, vivid;
+$theme-color-primary-dark:         'blue-warm', 70, vivid;
+$theme-color-primary-darker:       'blue-warm', 80, vivid;
+$theme-color-primary-darkest:      false;
 
-$theme-color-secondary-family:    'red';
-$theme-color-secondary-lighter:   false;
-$theme-color-secondary-light:     $theme-color-secondary-family, 30;
-$theme-color-secondary:           $theme-color-secondary-family, 60;
-$theme-color-secondary-vivid:     $theme-color-secondary-family, 50, vivid;
-$theme-color-secondary-dark:      $theme-color-secondary-family, 70, vivid;
-$theme-color-secondary-darker:    false;
+$theme-color-secondary-family:     'red';
+$theme-color-secondary-lightest:   false;
+$theme-color-secondary-lighter:    false;
+$theme-color-secondary-light:      $theme-color-secondary-family, 30;
+$theme-color-secondary:            $theme-color-secondary-family, 60;
+$theme-color-secondary-vivid:      $theme-color-secondary-family, 50, vivid;
+$theme-color-secondary-dark:       $theme-color-secondary-family, 70, vivid;
+$theme-color-secondary-darker:     false;
+$theme-color-secondary-darkest:    false;
 
-$theme-color-accent-warm-family:  'orange';
-$theme-color-accent-warm:         $theme-color-accent-warm-family, 30, vivid;
-$theme-color-accent-warm-dark:    $theme-color-accent-warm-family, 50, vivid;
+$theme-color-accent-warm-family:   'orange';
+$theme-color-accent-warm-lightest: false;
+$theme-color-accent-warm-lighter:  false;
+$theme-color-accent-warm-light:    false;
+$theme-color-accent-warm:          $theme-color-accent-warm-family, 30, vivid;
+$theme-color-accent-warm-dark:     $theme-color-accent-warm-family, 50, vivid;
+$theme-color-accent-warm-darker:   false;
+$theme-color-accent-warm-darkest:  false;
 
-$theme-color-accent-cool-family:  'cyan';
-$theme-color-accent-cool:         $theme-color-accent-cool-family, 30, vivid;
-$theme-color-accent-cool-dark:    $theme-color-accent-cool-family, 40, vivid;
+$theme-color-accent-cool-family:   'cyan';
+$theme-color-accent-cool-lightest: false;
+$theme-color-accent-cool-lighter:  false;
+$theme-color-accent-cool-light:    false;
+$theme-color-accent-cool:          $theme-color-accent-cool-family, 30, vivid;
+$theme-color-accent-cool-dark:     $theme-color-accent-cool-family, 40, vivid;
+$theme-color-accent-cool-darker:   false;
+$theme-color-accent-cool-darkest:  false;
 
 /*
 ----------------------------------------
