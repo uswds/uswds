@@ -28,7 +28,6 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [Compliance Viewer](https://compliance-viewer.18f.gov/)
 - [Customs and Border Protection](https://www.cbp.gov/)
 - [cyber.dhs.gov](https://cyber.dhs.gov/)
-- [Data Federation (Data.gov)](https://federation.data.gov/)
 - [Defense Digital Service](https://www.dds.mil/)
 - [Department of Commerce](https://commerce.gov/)
 - [Department of Homeland Security](https://www.dhs.gov/)
