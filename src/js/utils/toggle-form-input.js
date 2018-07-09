@@ -1,4 +1,4 @@
-'use strict';
+
 const forEach = require('array-foreach');
 const resolveIdRefs = require('resolve-id-refs');
 const select = require('./select');
@@ -14,11 +14,7 @@ const HIDE_ATTR = 'data-hide-text';
  * @param {string} showText
  * @return {strong} hideText
  */
-const getHideText = showText => {
-  return showText.replace(/\bShow\b/i, show => {
-    return ('S' === show[ 0 ] ? 'H' : 'h') + 'ide';
-  });
-};
+const getHideText = showText => showText.replace(/\bShow\b/i, show => `${show[ 0 ] === 'S' ? 'H' : 'h'}ide`);
 
 /**
  * Component that decorates an HTML element with the ability to toggle the
@@ -29,7 +25,7 @@ const getHideText = showText => {
  * @param  {HTMLElement} el    Parent element containing the fields to be masked
  * @return {boolean}
  */
-module.exports = el => {
+module.exports = (el) => {
   // this is the *target* state:
   // * if the element has the attr and it's !== "true", pressed is true
   // * otherwise, pressed is false
@@ -46,7 +42,7 @@ module.exports = el => {
   const showText = el.getAttribute(SHOW_ATTR);
   const hideText = el.getAttribute(HIDE_ATTR) || getHideText(showText);
 
-  el.textContent = pressed ? showText : hideText;
+  el.textContent = pressed ? showText : hideText; // eslint-disable-line no-param-reassign
   el.setAttribute(PRESSED, pressed);
   return pressed;
 };

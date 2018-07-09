@@ -2,7 +2,7 @@ module.exports = (element, eventTypeString, listener, options) => {
   const eventTypes = eventTypeString.split(/\s+/);
 
   const add = () => {
-    eventTypes.forEach(type => {
+    eventTypes.forEach((type) => {
       element.addEventListener(type, listener, options);
     });
   };
@@ -15,7 +15,7 @@ module.exports = (element, eventTypeString, listener, options) => {
   };
 
   const remove = () => {
-    eventTypes.forEach(type => {
+    eventTypes.forEach((type) => {
       element.removeEventListener(type, listener, options);
     });
   };
@@ -24,7 +24,7 @@ module.exports = (element, eventTypeString, listener, options) => {
 
   return {
     on: add,
-    trigger: trigger,
+    trigger,
     off: remove,
   };
 };

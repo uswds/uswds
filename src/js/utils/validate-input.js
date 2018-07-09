@@ -1,7 +1,8 @@
-'use strict';
+
 const dataset = require('elem-dataset');
 
 const PREFIX = require('../config').prefix;
+
 const CHECKED = 'aria-checked';
 const CHECKED_CLASS = `${PREFIX}-checklist-checked`;
 
@@ -18,10 +19,10 @@ module.exports = function validate (el) {
     );
   }
 
-  for (const key in data) {
+  Object.entries(data).forEach(([ key, value ]) => {
     if (key.startsWith('validate')) {
       const validatorName = key.substr('validate'.length).toLowerCase();
-      const validatorPattern = new RegExp(data[ key ]);
+      const validatorPattern = new RegExp(value);
       const validatorSelector = `[data-validator="${validatorName}"]`;
       const validatorCheckbox = checkList.querySelector(validatorSelector);
       if (!validatorCheckbox) {
@@ -34,5 +35,5 @@ module.exports = function validate (el) {
       validatorCheckbox.classList.toggle(CHECKED_CLASS, checked);
       validatorCheckbox.setAttribute(CHECKED, checked);
     }
-  }
+  });
 };

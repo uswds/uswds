@@ -1,4 +1,4 @@
-'use strict';
+
 const domready = require('domready');
 
 /**
@@ -10,14 +10,13 @@ require('./polyfills');
 const uswds = require('./config');
 
 const components = require('./components');
+
 uswds.components = components;
 
 domready(() => {
   const target = document.body;
-  for (let name in components) {
-    const behavior = components[ name ];
-    behavior.on(target);
-  }
+
+  Object.values(components).forEach(behavior => behavior.on(target));
 });
 
 module.exports = uswds;

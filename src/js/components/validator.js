@@ -1,11 +1,10 @@
-'use strict';
+
+const assign = require('object-assign');
+const debounce = require('lodash.debounce');
 const behavior = require('../utils/behavior');
 const validate = require('../utils/validate-input');
-const debounce = require('lodash.debounce');
 
-const change = function (event) {
-  return validate(this);
-};
+const change = () => validate(this);
 
 const validator = behavior({
   'keyup change': {
@@ -18,7 +17,7 @@ const validator = behavior({
  *
  * module.exports = behavior({...});
  */
-const assign = require('object-assign');
+
 module.exports = assign(
   el => validator.on(el),
   validator

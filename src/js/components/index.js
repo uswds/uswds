@@ -1,11 +1,19 @@
-module.exports = {
-  accordion:  require('./accordion'),
-  banner:     require('./banner'),
-  footer:     require('./footer'),
-  navigation: require('./navigation'),
-  password:   require('./password'),
-  search:     require('./search'),
-  skipnav:    require('./skipnav'),
-  validator:  require('./validator'),
-};
+const accordion = require('./accordion');
+const banner = require('./banner');
+const footer = require('./footer');
+const navigation = require('./navigation');
+const password = require('./password');
+const search = require('./search');
+const skipnav = require('./skipnav');
+const validator = require('./validator');
 
+module.exports = {
+  accordion,
+  banner,
+  footer,
+  navigation,
+  password,
+  search,
+  skipnav,
+  validator,
+};
