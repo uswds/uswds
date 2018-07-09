@@ -29,9 +29,9 @@ jobs:
           command: |
             ls -agolf dist/
             codeclimate-test-reporter < coverage/lcov.info
-    branches:
-      ignore:
-        - /pull\/.*/
+          branches:
+            ignore:
+              - /pull\/.*/
 
   deploy:
     docker:
