@@ -1,3 +1,4 @@
+'use strict';
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
@@ -11,90 +12,92 @@ const CONTROLS = 'aria-controls';
 const EXPANDED = 'aria-expanded';
 const HIDDEN = 'aria-hidden';
 
-describe('1.x accordion component', () => {
+describe.only('1.x accordion component', function () {
+
   let accordion;
   let button;
   let content;
 
-  beforeEach(() => {
+  beforeEach(function () {
     const el = document.createElement('div');
     document.body.innerHTML = TEMPLATE;
     const root = document.querySelector('.usa-accordion');
-    accordion = Accordion.init(root);
+    accordion = new Accordion(root);
     button = root.querySelector('button');
     content = document.getElementById(button.getAttribute(CONTROLS));
   });
 
-  afterEach(() => {
+  afterEach(function () {
     accordion.remove();
     accordion = undefined;
   });
 
-  it('has a root', () => {
+  it('has a root', function () {
     assert(accordion.root);
   });
 
-  it('has an "aria-expanded" attribute', () => {
+  it('has an "aria-expanded" attribute', function () {
     assert(button.hasAttribute(EXPANDED));
   });
 
-  it('has an "aria-controls" attribute', () => {
+  it('has an "aria-controls" attribute', function () {
     assert(button.hasAttribute(CONTROLS));
   });
 
-  describe('when show is triggered', () => {
-    beforeEach(() => {
+  describe('when show is triggered', function () {
+    beforeEach(function () {
       accordion.show(button);
     });
 
-    afterEach(() => {
+    afterEach(function () {
       accordion.hide(button);
     });
 
-    it('toggles "aria-expanded" to true', () => {
+    it('toggles "aria-expanded" to true', function () {
       assert.equal(button.getAttribute(EXPANDED), 'true');
     });
 
-    it('toggles "aria-hidden" to false', () => {
+    it('toggles "aria-hidden" to false', function () {
       assert.equal(content.getAttribute(HIDDEN), 'false');
     });
   });
 
-  describe('when hide is triggered', () => {
-    beforeEach(() => {
+  describe('when hide is triggered', function () {
+    beforeEach(function () {
       accordion.show(button);
       accordion.hide(button);
     });
 
-    it('toggles "aria-expanded" to false', () => {
+    it('toggles "aria-expanded" to false', function () {
       assert.equal(button.getAttribute(EXPANDED), 'false');
     });
 
-    it('toggles "aria-hidden" to true', () => {
+    it('toggles "aria-hidden" to true', function () {
       assert.equal(content.getAttribute(HIDDEN), 'true');
     });
   });
 
-  it('sets up the DOM correctly', () => {
+  it('sets up the DOM correctly', function () {
     const buttons = Array.from(document.querySelectorAll('button'));
-    buttons.forEach((buttonEl) => {
-      assert.equal(buttonEl.getAttribute(EXPANDED), 'false');
-      const buttonContent = document.getElementById(
-        buttonEl.getAttribute(CONTROLS)
+    buttons.forEach(button => {
+      assert.equal(button.getAttribute(EXPANDED), 'false');
+      const content = document.getElementById(
+        button.getAttribute(CONTROLS)
       );
-      assert.equal(buttonContent.getAttribute(HIDDEN), 'true');
+      assert.equal(content.getAttribute(HIDDEN), 'true');
     });
   });
 
-  it('can show buttons', () => {
+  it('can show buttons', function () {
     accordion.show(button);
     assert.equal(button.getAttribute(EXPANDED), 'true');
     assert.equal(content.getAttribute(HIDDEN), 'false');
   });
 
-  it('can hide buttons', () => {
+  it('can hide buttons', function () {
     accordion.hide(button);
     assert.equal(button.getAttribute(EXPANDED), 'false');
     assert.equal(content.getAttribute(HIDDEN), 'true');
   });
+
 });

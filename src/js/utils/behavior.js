@@ -1,4 +1,3 @@
-
 const assign = require('object-assign');
 const forEach = require('array-foreach');
 const Behavior = require('receptor/behavior');
