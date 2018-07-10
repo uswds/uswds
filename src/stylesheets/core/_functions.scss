@@ -467,13 +467,18 @@ a family and a line-height scale unit
 ----------------------------------------
 */
 
-@function lh($family, $scale){
-  $scale: smart-quote($scale);
+@function lh($props...){
+  $props: unpack($props);
+  @if length($props) != 2 {
+    @error "lh() needs both a valid face and line height unit in the format `lh(FACE, HEIGHT)`.";
+  }
+  $family: smart-quote(nth($props, 1));
+  $scale: smart-quote(nth($props, 2));
   @if not map-has-key($project-cap-heights, $family) {
     @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
   @elseif not map-get($uswds-line-height, $scale) {
-    @error "`#{$scale}` is not a valid line-height scale. Valid values: #{map-keys($all-type-scale)}";
+    @error "`#{$scale}` is not a valid line-height unit. Valid values: #{map-keys($uswds-line-height)}";
   }
   @elseif map-get($project-cap-heights, $family) == false {
     @return false;
@@ -731,6 +736,7 @@ colors: project and system
 */
 
 @function color($props...){
+  $props: unpack($props);
   @if length($props) == 0 {
     @return false;
   } @elseif nth($props, 1) == false {
@@ -809,73 +815,35 @@ Gets a valid USWDS flex value
 
 /*
 ----------------------------------------
-font()
+scale()
 ----------------------------------------
-Gets
-- 'family'
-- 'size'
-- 'weight'
-based on on props passed
+Get a normalized typescale from a family
+and scale
 ----------------------------------------
 */
 
-@function font($props...){
-  $type: smart-quote(nth($props, 1));
-  @if $type == 'family' {
-    $our-family: smart-quote(nth($props, 2));
-    @if not map-has-key($project-font-stacks, $our-family){
-      @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-font-stacks)}";
-    }
-    @elseif not map-get($project-font-stacks, $our-family) {
-      @error "Font family `#{$our-family}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
-    }
-    @else {
-      @return map-get($project-font-stacks, $our-family);
-    }
+@function scale($props...){
+  $props: unpack($props);
+  @if length($props) != 2 {
+    @error "Font size requires a valid FAMILY and SIZE in the form `font('FAMILY', 'SIZE')`";
   }
-  @elseif $type == 'size' {
-    @if length($props) != 3 {
-      @error "Font size requires a valid FAMILY and SIZE in the form `font('family', 'FAMILY', 'SIZE')`";
-    }
-    $our-family: smart-quote(nth($props, 2));
-    $our-scale: smart-quote(smart-quote(nth($props, 3)));
-    @if not map-has-key($project-cap-heights, $our-family) {
-      @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
-    }
-    @elseif not map-get($all-type-scale, $our-scale) {
-      @error "`#{$our-scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
-    }
-    @else {
-      $this-cap: map-get($project-cap-heights, $our-family);
-      $this-scale: map-get($all-type-scale, $our-scale);
-      @if $this-scale and $this-cap {
-        @return type-scale($this-cap, $this-scale);
-      }
-      @else {
-        @error "The scale `#{$our-scale}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
-      }
-    }
+  $our-family: smart-quote(nth($props, 1));
+  $our-scale: smart-quote(nth($props, 2));
+  @if not map-has-key($project-cap-heights, $our-family) {
+    @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
-  @elseif $type == 'weight' {
-    $weight: smart-quote(nth($props, 2));
-    $standard-weights: map-deep-get($uswds-properties, font-weight, standard);
-    $extended-weights: map-deep-get($uswds-properties, font-weight, extended);
-    @if type-of($weight) == 'number' {
-      @return $weight;
-    }
-    @elseif map-has-key($standard-weights, $weight) {
-      @return map-get($standard-weights, $weight);
-    }
-    @elseif map-has-key($extended-weights, $weight) {
-      @warn "`#{$weight}` is a USWDS extended weight. This is OK, but consider using a standard project weight for production code. Standard weights: #{map-keys($standard-weights)}";
-      @return map-get($extended-weights, $weight);
-    }
-    @else {
-      @error "`#{$number}` is not a valid font weight.";
-    }
+  @elseif not map-get($all-type-scale, $our-scale) {
+    @error "`#{$our-scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
   }
   @else {
-    @error "`#{$type}` is not a valid type for the font() function. Valid types: 'family', 'size', 'weight'";
+    $this-cap: map-get($project-cap-heights, $our-family);
+    $this-scale: map-get($all-type-scale, $our-scale);
+    @if $this-scale and $this-cap {
+      @return type-scale($this-cap, $this-scale);
+    }
+    @else {
+      @error "The scale `#{$our-scale}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
+    }
   }
 };
 
@@ -978,14 +946,14 @@ system orders
 
 /*
 ----------------------------------------
-spacing()
+units()
 ----------------------------------------
 Converts a spacing unit multiple into
 the desired final units (currently rem)
 ----------------------------------------
 */
 
-@function spacing($value) {
+@function units($value) {
   @if type-of($value) == 'list' and length($value) == 1 {
     $value: nth($value, 1);
   }

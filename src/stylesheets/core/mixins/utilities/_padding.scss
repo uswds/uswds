@@ -8,18 +8,18 @@
     $important: ' !important';
   }
   @if $side == all {
-    padding: spacing($value...)#{$important};
+    padding: units($value...)#{$important};
   }
   @elseif $side == x {
-    padding-left: spacing($value...)#{$important};
-    padding-right: spacing($value...)#{$important};
+    padding-left: units($value...)#{$important};
+    padding-right: units($value...)#{$important};
   }
   @elseif $side == y {
-    padding-bottom: spacing($value...)#{$important};
-    padding-top: spacing($value...)#{$important};
+    padding-bottom: units($value...)#{$important};
+    padding-top: units($value...)#{$important};
   }
   @else {
-    padding-#{$side}: spacing($value...)#{$important};
+    padding-#{$side}: units($value...)#{$important};
   }
 }
 

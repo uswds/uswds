@@ -35,7 +35,7 @@ $ns-grid: ns('grid');
 Spacing
 ----------------------------------------
 All spacing values that can be called
-by spacing()
+by units()
 ----------------------------------------
 */
 
@@ -429,9 +429,9 @@ Border-radius
 
 $project-border-radius: (
   0:          0,
-  'sm':         spacing($theme-border-radius-sm),
-  'md':         spacing($theme-border-radius-md),
-  'lg':         spacing($theme-border-radius-lg),
+  'sm':         units($theme-border-radius-sm),
+  'md':         units($theme-border-radius-md),
+  'lg':         units($theme-border-radius-lg),
   'pill':       9999em,
 );
 
