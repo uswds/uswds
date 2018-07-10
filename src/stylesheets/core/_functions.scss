@@ -828,7 +828,7 @@ and scale
     @error "Font size requires a valid FAMILY and SIZE in the form `font('FAMILY', 'SIZE')`";
   }
   $our-family: smart-quote(nth($props, 1));
-  $our-scale: smart-quote(smart-quote(nth($props, 2)));
+  $our-scale: smart-quote(nth($props, 2));
   @if not map-has-key($project-cap-heights, $our-family) {
     @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
