@@ -13,6 +13,7 @@ rules:
   quotes: [ 2, single ]
   linebreak-style: [ 2, unix ]
   semi: [ 2, always ]
+  strict: [ 0, never ]
   comma-dangle: [ 1, always-multiline ]
   no-undef: [ 0 ]
   space-before-function-paren: [ 2, always ]

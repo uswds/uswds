@@ -1,23 +1,21 @@
-var assert = require('assert');
-var fs = require('fs');
-var path = require('path');
+const assert = require('assert');
+const fs = require('fs');
+const path = require('path');
+const navigation = require('../../src/js/components/navigation');
 
-var navigation = require('../../src/js/components/navigation');
-var TEMPLATE = fs.readFileSync(
+const TEMPLATE = fs.readFileSync(
   path.join(__dirname, '../unit/navigation/template.html')
 );
 
-describe('1.x navigation component', function () {
-  var nav;
-  var overlay;
-  var closeButton;
-  var menuButton;
+describe('1.x navigation component', () => {
+  let nav;
+  let overlay;
+  let closeButton;
+  let menuButton;
 
-  var isVisible = function (el) {
-    return el.classList.contains('is-visible');
-  };
+  const isVisible = el => el.classList.contains('is-visible');
 
-  beforeEach(function () {
+  beforeEach(() => {
     document.body.innerHTML = TEMPLATE;
     nav = document.querySelector('.usa-nav');
     overlay = document.querySelector('.usa-overlay');
@@ -26,32 +24,32 @@ describe('1.x navigation component', function () {
     navigation();
   });
 
-  afterEach(function () {
+  afterEach(() => {
     navigation.off();
   });
 
-  it('shows the nav when the menu button is clicked', function () {
+  it('shows the nav when the menu button is clicked', () => {
     menuButton.click();
     assert.equal(isVisible(nav), true);
     assert.equal(isVisible(overlay), true);
   });
 
-  it('hides the nav when the close button is clicked', function () {
+  it('hides the nav when the close button is clicked', () => {
     menuButton.click();
     closeButton.click();
     assert.equal(isVisible(nav), false);
     assert.equal(isVisible(overlay), false);
   });
 
-  it('hides the nav when the overlay is clicked', function () {
+  it('hides the nav when the overlay is clicked', () => {
     menuButton.click();
     overlay.click();
     assert.equal(isVisible(nav), false);
     assert.equal(isVisible(overlay), false);
   });
 
-  describe('off()', function () {
-    it('removes event listeners', function () {
+  describe('off()', () => {
+    it('removes event listeners', () => {
       assert.equal(isVisible(nav), false);
       assert.equal(isVisible(overlay), false);
 
@@ -77,5 +75,4 @@ describe('1.x navigation component', function () {
       assert.equal(isVisible(overlay), true);
     });
   });
-
 });
