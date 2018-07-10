@@ -20,7 +20,7 @@ describe('1.x accordion component', () => {
     const el = document.createElement('div');
     document.body.innerHTML = TEMPLATE;
     const root = document.querySelector('.usa-accordion');
-    accordion = new Accordion(root);
+    accordion = Accordion.init(root);
     button = root.querySelector('button');
     content = document.getElementById(button.getAttribute(CONTROLS));
   });

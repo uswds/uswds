@@ -1,25 +1,27 @@
-'use strict';
-
 const TEMPLATE_VAR_ATTRS = [
   'src',
   'href',
 ];
 
-function renderTemplate (id, context) {
-  context = context || {};
+function renderTemplate (id, context = {}) {
   const template = document.getElementById(id);
   const { content } = template;
   const $ = selector => content.querySelectorAll(selector);
-  Object.keys(context).forEach(name => {
-    $(`[data-var="${name}"]`).forEach(el => {
-      el.textContent = context[ name ];
+
+  Object.keys(context).forEach((name) => {
+    /* eslint-disable */
+    $(`[data-var="${name}"]`).forEach((el) => {
+      el.textContent = context[ name ]
     });
-    TEMPLATE_VAR_ATTRS.forEach(attr => {
-      $(`[data-var-${attr}="${name}"]`).forEach(el => {
-        el.setAttribute(attr, context[ name ]);
-      });
-    });
+    
+
+    TEMPLATE_VAR_ATTRS.forEach(attr =>
+      $(`[data-var-${attr}="${name}"]`).forEach(el =>
+        el.setAttribute(attr, context[ name ])
+      )
+    );
   });
+  
   return document.importNode(content, true);
 }
 
@@ -28,7 +30,7 @@ window.onload = () => {
 
   // Did we load the metadata?
   if (!window.metadata) {
-    return main.appendChild(renderTemplate('metadata-not-found'));
+     return main.appendChild(renderTemplate('metadata-not-found'));
   }
 
   // Were there any failures?
@@ -40,8 +42,8 @@ window.onload = () => {
   }
 
   // Show the failures.
-  failures.forEach(info => {
-    resemble(info.goldenName).compareTo(info.failName).onComplete(data => {
+  failures.forEach((info) => {
+    resemble(info.goldenName).compareTo(info.failName).onComplete((data) => {
       if (data.error) {
         // TODO: Add error handling here. Odds are the user is viewing
         // this page via a file: URL on a browser that has strict file
@@ -55,3 +57,4 @@ window.onload = () => {
     });
   });
 };
+/* eslint-enable */

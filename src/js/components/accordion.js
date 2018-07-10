@@ -95,24 +95,4 @@ const accordion = behavior({
   getButtons: getAccordionButtons,
 });
 
-/**
- * TODO: for 2.0, remove everything below this comment and export the
- * behavior directly:
- *
- * module.exports = behavior({...});
- */
-const Accordion = (root) => {
-  this.root = root;
-  accordion.on(this.root);
-};
-
-assign(Accordion, accordion);
-
-Accordion.prototype.show = showButton;
-Accordion.prototype.hide = hideButton;
-
-Accordion.prototype.remove = () => {
-  accordion.off(this.root);
-};
-
-module.exports = Accordion;
+module.exports = accordion;
