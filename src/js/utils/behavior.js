@@ -2,7 +2,14 @@ const assign = require('object-assign');
 const forEach = require('array-foreach');
 const Behavior = require('receptor/behavior');
 
-const sequence = (...seq) => (target = document.body) => {
+/**
+ * @name sequence
+ * @param {...Function} seq an array of functions
+ * @return { closure } callHooks
+ */
+ // We use a named function here because we want it to inherit its lexical scope
+ // from the behavior props object, not from the module
+const sequence = (...seq) => function callHooks (target = document.body) {
   forEach(seq, (method) => {
     if (typeof this[ method ] === 'function') {
       this[ method ].call(this, target);

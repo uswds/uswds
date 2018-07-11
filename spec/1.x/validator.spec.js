@@ -7,6 +7,7 @@ const validator = require('../../src/js/components/validator.js');
 const template = fs.readFileSync(
   path.join(__dirname, '../unit/validator/template.html')
 ).toString();
+
 const keyup = (jqEl) => {
   const el = jqEl.get(0);
   const evt = document.createEvent('HTMLEvents');
@@ -38,8 +39,8 @@ describe('validator component', () => {
   it('updates fields in validation list with correct class on keyup', () => {
     $validatedField.val('GreatPassword1');
     keyup($validatedField);
-    $validatorCheckboxes.children().each(() => {
-      $(this).hasClass('usa-checklist-checked').should.be.true();
+    Array.from($validatorCheckboxes.get(0).children).forEach((node) => {
+      node.classList.contains('usa-checklist-checked').should.be.true();
     });
   });
 });

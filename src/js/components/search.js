@@ -6,7 +6,7 @@ const behavior = require('../utils/behavior');
 const select = require('../utils/select');
 
 const { CLICK } = require('../events');
-const { PREFIX } = require('../config');
+const { prefix: PREFIX } = require('../config');
 
 const BUTTON = '.js-search-button';
 const FORM = '.js-search-form';
@@ -58,15 +58,15 @@ const toggleSearch = (button, active) => {
   }
 };
 
-const showSearch = (event) => {
+function showSearch (event) {
   toggleSearch(this, true);
   lastButton = this;
-};
+}
 
-const hideSearch = (event) => {
+function hideSearch (event) {
   toggleSearch(this, false);
   lastButton = undefined;
-};
+}
 
 const search = behavior({
   [ CLICK ]: {

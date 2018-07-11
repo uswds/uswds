@@ -1,7 +1,7 @@
 
 const dataset = require('elem-dataset');
 
-const PREFIX = require('../config').prefix;
+const { prefix: PREFIX } = require('../config');
 
 const CHECKED = 'aria-checked';
 const CHECKED_CLASS = `${PREFIX}-checklist-checked`;

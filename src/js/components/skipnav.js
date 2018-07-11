@@ -3,12 +3,12 @@ const once = require('receptor/once');
 const behavior = require('../utils/behavior');
 
 const { CLICK } = require('../events');
-const { PREFIX } = require('../config');
+const { prefix: PREFIX } = require('../config');
 
 const LINK = `.${PREFIX}-skipnav[href^="#"], .${PREFIX}-footer-return-to-top [href^="#"]`;
 const MAINCONTENT = 'main-content';
 
-const setTabindex = (event) => {
+function setTabindex (event) {
   // NB: we know because of the selector we're delegating to below that the
   // href already begins with '#'
   const id = this.getAttribute('href');
@@ -24,7 +24,7 @@ const setTabindex = (event) => {
   } else {
     // throw an error?
   }
-};
+}
 
 module.exports = behavior({
   [ CLICK ]: {

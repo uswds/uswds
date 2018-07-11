@@ -1,4 +1,3 @@
-
 const assign = require('object-assign');
 const forEach = require('array-foreach');
 const behavior = require('../utils/behavior');
@@ -6,7 +5,7 @@ const select = require('../utils/select');
 const accordion = require('./accordion');
 
 const { CLICK } = require('../events');
-const { PREFIX } = require('../config');
+const { prefix: PREFIX } = require('../config');
 
 const NAV = `.${PREFIX}-nav`;
 const NAV_LINKS = `${NAV} a`;
@@ -21,35 +20,33 @@ const VISIBLE_CLASS = 'is-visible';
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
-let trap;
+let focusTrap;
 
-const toggleNav = (active) => {
+const toggleNav = function (active) {
   const { body } = document;
   let safeActive = active;
 
   if (typeof safeActive !== 'boolean') {
     safeActive = !isActive();
   }
-
   body.classList.toggle(ACTIVE_CLASS, safeActive);
 
   forEach(select(TOGGLES), el => el.classList.toggle(VISIBLE_CLASS, safeActive));
 
   if (safeActive) {
-    trap.enable();
+    focusTrap.enable();
   } else {
-    trap.release();
+    focusTrap.release();
   }
 
   const closeButton = body.querySelector(CLOSE_BUTTON);
   const menuButton = body.querySelector(OPENERS);
 
-  if (active && closeButton) {
+  if (safeActive && closeButton) {
     // The mobile nav was just activated, so focus on the close button,
     // which is just before all the nav elements in the tab order.
     closeButton.focus();
-  } else if (!active && document.activeElement === closeButton
-             && menuButton) {
+  } else if (!safeActive && document.activeElement === closeButton && menuButton) {
     // The mobile nav was just deactivated, and focus was on the close
     // button, which is no longer visible. We don't want the focus to
     // disappear into the void, so focus on the menu button if it's
@@ -58,10 +55,10 @@ const toggleNav = (active) => {
     menuButton.focus();
   }
 
-  return active;
+  return safeActive;
 };
 
-const focusTrap = (trapContainer) => {
+const focusTrapWrapper = (trapContainer) => {
   // Find all focusable children
   const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
   const focusableElements = trapContainer.querySelectorAll(focusableElementsString);
@@ -145,7 +142,7 @@ const navigation = behavior({
     const trapContainer = document.querySelector(NAV);
 
     if (trapContainer) {
-      trap = focusTrap(trapContainer);
+      focusTrap = focusTrapWrapper(trapContainer);
     }
 
     resize();
@@ -161,7 +158,6 @@ const navigation = behavior({
  *
  * module.exports = behavior({...});
  */
-
 module.exports = assign(
   el => navigation.on(el),
   navigation

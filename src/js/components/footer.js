@@ -6,7 +6,7 @@ const behavior = require('../utils/behavior');
 const select = require('../utils/select');
 
 const { CLICK } = require('../events');
-const { PREFIX } = require('../config');
+const { prefix: PREFIX } = require('../config');
 
 const HIDDEN = 'hidden';
 const SCOPE = `.${PREFIX}-footer-big`;
@@ -17,7 +17,7 @@ const LIST = `${NAV} ul`;
 const HIDE_MAX_WIDTH = 600;
 const DEBOUNCE_RATE = 180;
 
-const showPanel = () => {
+function showPanel () {
   if (window.innerWidth < HIDE_MAX_WIDTH) {
     const list = this.closest(LIST);
     list.classList.toggle(HIDDEN);
@@ -33,7 +33,7 @@ const showPanel = () => {
       }
     });
   }
-};
+}
 
 const resize = debounce(() => {
   const hidden = window.innerWidth < HIDE_MAX_WIDTH;

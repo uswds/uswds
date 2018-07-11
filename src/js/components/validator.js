@@ -4,7 +4,9 @@ const debounce = require('lodash.debounce');
 const behavior = require('../utils/behavior');
 const validate = require('../utils/validate-input');
 
-const change = () => validate(this);
+function change () {
+  validate(this);
+}
 
 const validator = behavior({
   'keyup change': {

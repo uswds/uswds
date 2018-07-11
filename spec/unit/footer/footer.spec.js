@@ -1,4 +1,3 @@
-'use strict';
 const assert = require('assert');
 const fs = require('fs');
 const behavior = require('../../../src/js/components/footer');

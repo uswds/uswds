@@ -22,8 +22,9 @@ describe('include paths', () => {
 
 describe('standalone dist scss', () => {
   before(() => {
-    this.timeout(20000);
-    runGulp('copy-dist-sass');
+    setTimeout(() => {
+      runGulp('copy-dist-sass');
+    }, 20000);
   });
 
   it('can be loaded with @import "uswds"', () => {
