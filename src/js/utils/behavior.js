@@ -1,20 +1,20 @@
-'use strict';
 const assign = require('object-assign');
 const forEach = require('array-foreach');
 const Behavior = require('receptor/behavior');
 
-const sequence = function () {
-  const seq = [].slice.call(arguments);
-  return function (target) {
-    if (!target) {
-      target = document.body;
+/**
+ * @name sequence
+ * @param {...Function} seq an array of functions
+ * @return { closure } callHooks
+ */
+// We use a named function here because we want it to inherit its lexical scope
+// from the behavior props object, not from the module
+const sequence = (...seq) => function callHooks(target = document.body) {
+  forEach(seq, (method) => {
+    if (typeof this[method] === 'function') {
+      this[method].call(this, target);
     }
-    forEach(seq, method => {
-      if (typeof this[ method ] === 'function') {
-        this[ method ].call(this, target);
-      }
-    });
-  };
+  });
 };
 
 /**
@@ -23,9 +23,7 @@ const sequence = function () {
  * @param {object?} props
  * @return {receptor.behavior}
  */
-module.exports = (events, props) => {
-  return Behavior(events, assign({
-    on:   sequence('init', 'add'),
-    off:  sequence('teardown', 'remove'),
-  }, props));
-};
+module.exports = (events, props) => Behavior(events, assign({
+  on: sequence('init', 'add'),
+  off: sequence('teardown', 'remove'),
+}, props));

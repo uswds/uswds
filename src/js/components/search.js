@@ -1,11 +1,12 @@
-'use strict';
-const behavior = require('../utils/behavior');
+
+const assign = require('object-assign');
 const forEach = require('array-foreach');
 const ignore = require('receptor/ignore');
+const behavior = require('../utils/behavior');
 const select = require('../utils/select');
 
-const CLICK = require('../events').CLICK;
-const PREFIX = require('../config').prefix;
+const { CLICK } = require('../events');
+const { prefix: PREFIX } = require('../config');
 
 const BUTTON = '.js-search-button';
 const FORM = '.js-search-form';
@@ -15,17 +16,7 @@ const VISUALLY_HIDDEN = `${PREFIX}-sr-only`;
 
 let lastButton;
 
-const showSearch = function (event) {
-  toggleSearch(this, true);
-  lastButton = this;
-};
-
-const hideSearch = function (event) {
-  toggleSearch(this, false);
-  lastButton = undefined;
-};
-
-const getForm = button => {
+const getForm = (button) => {
   const context = button.closest(CONTEXT);
   return context
     ? context.querySelector(FORM)
@@ -38,7 +29,7 @@ const toggleSearch = (button, active) => {
     throw new Error(`No ${FORM} found for search toggle in ${CONTEXT}!`);
   }
 
-  button.hidden = active;
+  button.hidden = active; // eslint-disable-line no-param-reassign
   form.classList.toggle(VISUALLY_HIDDEN, !active);
 
   if (active) {
@@ -48,10 +39,11 @@ const toggleSearch = (button, active) => {
     }
     // when the user clicks _outside_ of the form w/ignore(): hide the
     // search, then remove the listener
-    const listener = ignore(form, e => {
+    const listener = ignore(form, () => {
       if (lastButton) {
-        hideSearch.call(lastButton);
+        hideSearch.call(lastButton); // eslint-disable-line no-use-before-define
       }
+
       document.body.removeEventListener(CLICK, listener);
     });
 
@@ -66,17 +58,27 @@ const toggleSearch = (button, active) => {
   }
 };
 
+function showSearch() {
+  toggleSearch(this, true);
+  lastButton = this;
+}
+
+function hideSearch() {
+  toggleSearch(this, false);
+  lastButton = undefined;
+}
+
 const search = behavior({
-  [ CLICK ]: {
-    [ BUTTON ]: showSearch,
+  [CLICK]: {
+    [BUTTON]: showSearch,
   },
 }, {
-  init: (target) => {
-    forEach(select(BUTTON, target), button => {
+  init(target) {
+    forEach(select(BUTTON, target), (button) => {
       toggleSearch(button, false);
     });
   },
-  teardown: (target) => {
+  teardown() {
     // forget the last button clicked
     lastButton = undefined;
   },
@@ -87,8 +89,8 @@ const search = behavior({
  *
  * module.exports = behavior({...});
  */
-const assign = require('object-assign');
+
 module.exports = assign(
   el => search.on(el),
-  search
+  search,
 );

@@ -1,23 +1,28 @@
-var $ = require('jquery');
-var should = require('should');
-var fs = require('fs');
-var path = require('path');
+const $ = require('jquery');
+const fs = require('fs');
+const path = require('path');
+const validator = require('../../src/js/components/validator.js');
 
-var template = fs.readFileSync(
-  path.join(__dirname, '../unit/validator/template.html')
+const template = fs.readFileSync(
+  path.join(__dirname, '../unit/validator/template.html'),
 ).toString();
 
-var validator = require('../../src/js/components/validator.js');
+const keyup = (jqEl) => {
+  const el = jqEl.get(0);
+  const evt = document.createEvent('HTMLEvents');
+  evt.initEvent('keyup', false, true);
+  el.dispatchEvent(evt);
+};
 
-var INPUT_SELECTOR = '[aria-describedby="validation_list"]';
-var CHECKBOX_SELECTOR = '#validation_list';
+const INPUT_SELECTOR = '[aria-describedby="validation_list"]';
+const CHECKBOX_SELECTOR = '#validation_list';
 
-describe('validator component', function () {
-  var $validatedField;
-  var $validatorCheckboxes;
+describe('validator component', () => {
+  let $validatedField;
+  let $validatorCheckboxes;
 
-  beforeEach(function () {
-    var $component = $(template);
+  beforeEach(() => {
+    const $component = $(template);
     $('body').append($component);
 
     $validatedField = $component.find(INPUT_SELECTOR);
@@ -26,23 +31,15 @@ describe('validator component', function () {
     validator($validatedField.get(0));
   });
 
-  afterEach(function () {
+  afterEach(() => {
     document.body.textContent = '';
   });
 
-  it('updates fields in validation list with correct class on keyup', function () {
+  it('updates fields in validation list with correct class on keyup', () => {
     $validatedField.val('GreatPassword1');
-    keyup($validatedField); 
-    $validatorCheckboxes.children().each(function () {
-      $(this).hasClass('usa-checklist-checked').should.be.true();
-    }); 
+    keyup($validatedField);
+    Array.from($validatorCheckboxes.get(0).children).forEach((node) => {
+      node.classList.contains('usa-checklist-checked').should.be.true();
+    });
   });
 });
-
-function keyup (jqEl) {
-  var el = jqEl.get(0);
-  var evt = document.createEvent('HTMLEvents');
-  evt.initEvent('keyup', false, true);
-  el.dispatchEvent(evt);
-}
-
