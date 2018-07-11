@@ -1,11 +1,10 @@
 const $ = require('jquery');
-const should = require('should');
 const fs = require('fs');
 const path = require('path');
 const ToggleFormInput = require('../../src/js/components/toggle-form-input');
 
 const template = fs.readFileSync(
-  path.join(__dirname, '../unit/toggle-fields/template.html')
+  path.join(__dirname, '../unit/toggle-fields/template.html'),
 ).toString();
 
 /**

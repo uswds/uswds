@@ -68,8 +68,8 @@ const showButton = button => toggleButton(button, true);
 const hideButton = button => toggleButton(button, false);
 
 const accordion = behavior({
-  [ CLICK ]: {
-    [ BUTTON ] (event) {
+  [CLICK]: {
+    [BUTTON](event) {
       event.preventDefault();
       toggleButton(this);
 
@@ -82,7 +82,7 @@ const accordion = behavior({
     },
   },
 }, {
-  init  (root) {
+  init(root) {
     forEach(root.querySelectorAll(BUTTON), (button) => {
       const expanded = button.getAttribute(EXPANDED) === 'true';
       toggleButton(button, expanded);

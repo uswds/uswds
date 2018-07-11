@@ -4,10 +4,10 @@ const HIDDEN = 'hidden';
 
 if (!(HIDDEN in elproto)) {
   Object.defineProperty(elproto, HIDDEN, {
-    get () {
+    get() {
       return this.hasAttribute(HIDDEN);
     },
-    set (value) {
+    set(value) {
       if (value) {
         this.setAttribute(HIDDEN, '');
       } else {

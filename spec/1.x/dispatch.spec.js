@@ -1,13 +1,13 @@
-const should = require('should');
+require('should');
 const dispatch = require('../../src/js/utils/dispatch');
 
-function click (el) {
+function click(el) {
   const evt = document.createEvent('HTMLEvents');
   evt.initEvent('click', false, true);
   el.dispatchEvent(evt);
 }
 
-function touchstart (el) {
+function touchstart(el) {
   const evt = document.createEvent('HTMLEvents');
   evt.initEvent('touchstart', false, true);
   el.dispatchEvent(evt);
@@ -15,7 +15,6 @@ function touchstart (el) {
 
 describe('1.x dispatch', () => {
   let flag = false;
-  const oldDocument = global.document;
   const element = document.body;
   const listener = () => {
     flag = true;

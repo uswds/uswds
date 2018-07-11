@@ -4,7 +4,7 @@ const path = require('path');
 const navigation = require('../../src/js/components/navigation');
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, '../unit/navigation/template.html')
+  path.join(__dirname, '../unit/navigation/template.html'),
 );
 
 describe('1.x navigation component', () => {

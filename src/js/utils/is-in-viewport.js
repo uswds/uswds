@@ -1,5 +1,5 @@
 // https://stackoverflow.com/a/7557433
-function isElementInViewport (el, win = window,
+function isElementInViewport(el, win = window,
   docEl = document.documentElement) {
   const rect = el.getBoundingClientRect();
 

@@ -13,7 +13,7 @@ describe('build output', () => {
     const distFilename = path.join(distCssPath, 'uswds.css');
     assert.ok(
       fs.existsSync(distFilename),
-      `the file does not exist:  ${distFilename}`
+      `the file does not exist:  ${distFilename}`,
     );
   });
 
@@ -21,7 +21,7 @@ describe('build output', () => {
     const distFilename = path.join(distCssPath, 'uswds.min.css');
     assert.ok(
       fs.existsSync(distFilename),
-      `the file does not exist:  ${distFilename}`
+      `the file does not exist:  ${distFilename}`,
     );
   });
 });

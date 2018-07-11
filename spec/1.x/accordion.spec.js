@@ -4,7 +4,7 @@ const path = require('path');
 const Accordion = require('../../src/js/components/accordion');
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, '../unit/accordion/template.html')
+  path.join(__dirname, '../unit/accordion/template.html'),
 ).toString();
 
 const CONTROLS = 'aria-controls';
@@ -77,9 +77,9 @@ describe('1.x accordion component', () => {
   it('sets up the DOM correctly', () => {
     const buttons = Array.from(document.querySelectorAll('button'));
     buttons.forEach((buttonEl) => {
-      assert.equal(buttoEl.getAttribute(EXPANDED), 'false');
+      assert.equal(buttonEl.getAttribute(EXPANDED), 'false');
       const contentEl = document.getElementById(
-        button.getAttribute(CONTROLS)
+        button.getAttribute(CONTROLS),
       );
       assert.equal(contentEl.getAttribute(HIDDEN), 'true');
     });

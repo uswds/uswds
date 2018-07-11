@@ -1,22 +1,21 @@
-const assert = require('assert');
-const sass = require('node-sass');
+require('node-sass');
 const path = require('path');
 const { runGulp, distScssPath, render } = require('./util');
 
 const includePath = path.resolve(
   path.join(
     __dirname,
-    '../../src/stylesheets'
-  )
+    '../../src/stylesheets',
+  ),
 );
 
 describe('include paths', () => {
   it('can be loaded with @import "uswds"', () => {
-    render('@import "uswds";', [ includePath ]);
+    render('@import "uswds";', [includePath]);
   });
 
   it('can be loaded with @import "all"', () => {
-    render('@import "all";', [ includePath ]);
+    render('@import "all";', [includePath]);
   });
 });
 
@@ -28,10 +27,10 @@ describe('standalone dist scss', () => {
   });
 
   it('can be loaded with @import "uswds"', () => {
-    render('@import "uswds";', [ distScssPath ]);
+    render('@import "uswds";', [distScssPath]);
   });
 
   it('can be loaded with @import "all"', () => {
-    render('@import "all";', [ distScssPath ]);
+    render('@import "all";', [distScssPath]);
   });
 });

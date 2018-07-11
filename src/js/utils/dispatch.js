@@ -8,7 +8,7 @@ module.exports = (element, eventTypeString, listener, options) => {
   };
 
   const trigger = () => {
-    const type = eventTypes[ 0 ];
+    const type = eventTypes[0];
     const event = document.createEvent('HTMLEvents');
     event.initEvent(type, false, true);
     element.dispatchEvent(event);

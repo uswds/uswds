@@ -3,7 +3,7 @@ const TEMPLATE_VAR_ATTRS = [
   'href',
 ];
 
-function renderTemplate (id, context = {}) {
+function renderTemplate(id, context = {}) {
   const template = document.getElementById(id);
   const { content } = template;
   const $ = selector => content.querySelectorAll(selector);

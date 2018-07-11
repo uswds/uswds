@@ -58,27 +58,27 @@ const toggleSearch = (button, active) => {
   }
 };
 
-function showSearch (event) {
+function showSearch() {
   toggleSearch(this, true);
   lastButton = this;
 }
 
-function hideSearch (event) {
+function hideSearch() {
   toggleSearch(this, false);
   lastButton = undefined;
 }
 
 const search = behavior({
-  [ CLICK ]: {
-    [ BUTTON ]: showSearch,
+  [CLICK]: {
+    [BUTTON]: showSearch,
   },
 }, {
-  init: (target) => {
+  init(target) {
     forEach(select(BUTTON, target), (button) => {
       toggleSearch(button, false);
     });
   },
-  teardown: (target) => {
+  teardown() {
     // forget the last button clicked
     lastButton = undefined;
   },
@@ -92,5 +92,5 @@ const search = behavior({
 
 module.exports = assign(
   el => search.on(el),
-  search
+  search,
 );

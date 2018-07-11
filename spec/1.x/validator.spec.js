@@ -1,11 +1,10 @@
 const $ = require('jquery');
-const should = require('should');
 const fs = require('fs');
 const path = require('path');
 const validator = require('../../src/js/components/validator.js');
 
 const template = fs.readFileSync(
-  path.join(__dirname, '../unit/validator/template.html')
+  path.join(__dirname, '../unit/validator/template.html'),
 ).toString();
 
 const keyup = (jqEl) => {

@@ -1,5 +1,4 @@
 const $ = require('jquery');
-const should = require('should');
 const ToggleFieldMask = require('../../src/js/components/toggle-field-mask');
 
 const $text = $('<input type="text" autocapitalize="on" autocorrect="on">');

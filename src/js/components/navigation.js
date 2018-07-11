@@ -13,7 +13,7 @@ const OPENERS = `.${PREFIX}-menu-btn`;
 const CLOSE_BUTTON = `.${PREFIX}-nav-close`;
 const OVERLAY = `.${PREFIX}-overlay`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
-const TOGGLES = [ NAV, OVERLAY ].join(', ');
+const TOGGLES = [NAV, OVERLAY].join(', ');
 
 const ACTIVE_CLASS = 'usa-mobile_nav-active';
 const VISIBLE_CLASS = 'is-visible';
@@ -62,10 +62,10 @@ const focusTrapWrapper = (trapContainer) => {
   // Find all focusable children
   const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
   const focusableElements = trapContainer.querySelectorAll(focusableElementsString);
-  const firstTabStop = focusableElements[ 0 ];
-  const lastTabStop = focusableElements[ focusableElements.length - 1 ];
+  const firstTabStop = focusableElements[0];
+  const lastTabStop = focusableElements[focusableElements.length - 1];
 
-  function trapTabKey (e) {
+  function trapTabKey(e) {
     // Check for TAB key press
     if (e.keyCode === 9) {
       // SHIFT + TAB
@@ -92,12 +92,12 @@ const focusTrapWrapper = (trapContainer) => {
   firstTabStop.focus();
 
   return {
-    enable () {
+    enable() {
       // Listen for and trap the keyboard
       trapContainer.addEventListener('keydown', trapTabKey);
     },
 
-    release () {
+    release() {
       trapContainer.removeEventListener('keydown', trapTabKey);
     },
   };
@@ -116,10 +116,10 @@ const resize = () => {
 };
 
 const navigation = behavior({
-  [ CLICK ]: {
-    [ OPENERS ]: toggleNav,
-    [ CLOSERS ]: toggleNav,
-    [ NAV_LINKS ] () {
+  [CLICK]: {
+    [OPENERS]: toggleNav,
+    [CLOSERS]: toggleNav,
+    [NAV_LINKS]() {
       // A navigation link has been clicked! We want to collapse any
       // hierarchical navigation UI it's a part of, so that the user
       // can focus on whatever they've just selected.
@@ -138,7 +138,7 @@ const navigation = behavior({
     },
   },
 }, {
-  init () {
+  init() {
     const trapContainer = document.querySelector(NAV);
 
     if (trapContainer) {
@@ -148,7 +148,7 @@ const navigation = behavior({
     resize();
     window.addEventListener('resize', resize, false);
   },
-  teardown () {
+  teardown() {
     window.removeEventListener('resize', resize, false);
   },
 });
@@ -160,5 +160,5 @@ const navigation = behavior({
  */
 module.exports = assign(
   el => navigation.on(el),
-  navigation
+  navigation,
 );

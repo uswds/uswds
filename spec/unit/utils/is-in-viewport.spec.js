@@ -1,4 +1,3 @@
-'use strict';
 const assert = require('assert');
 const isInViewport = require('../../../src/js/utils/is-in-viewport');
 
@@ -10,7 +9,7 @@ function fakeEl (rect) {
   };
 }
 
-describe('isInViewport', function () {
+describe('isInViewport', () => {
   it('works when window.innerHeight/innerWidth is set', () => {
     const el = fakeEl({ top: 5, left: 5, bottom: 6, right: 6 });
 

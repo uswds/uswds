@@ -4,7 +4,7 @@ const path = require('path');
 const search = require('../../src/js/components/search');
 
 const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, '../unit/search/template.html')
+  path.join(__dirname, '../unit/search/template.html'),
 );
 
 const isVisuallyHidden = el => el.classList.contains('usa-sr-only');

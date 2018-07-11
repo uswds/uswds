@@ -15,7 +15,7 @@ module.exports = (button, expanded) => {
   const controls = document.getElementById(id);
   if (!controls) {
     throw new Error(
-      `No toggle target found with id: "${id}"`
+      `No toggle target found with id: "${id}"`,
     );
   }
 

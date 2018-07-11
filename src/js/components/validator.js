@@ -1,10 +1,8 @@
-
 const assign = require('object-assign');
-const debounce = require('lodash.debounce');
 const behavior = require('../utils/behavior');
 const validate = require('../utils/validate-input');
 
-function change () {
+function change() {
   validate(this);
 }
 
@@ -22,5 +20,5 @@ const validator = behavior({
 
 module.exports = assign(
   el => validator.on(el),
-  validator
+  validator,
 );

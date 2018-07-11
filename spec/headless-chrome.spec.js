@@ -41,8 +41,7 @@ const DEVICES = [
   }),
 ];
 
-fractalLoad.then(() => {
-  return;
+fractalLoad.then(function runFractalTester() {
   const chromeFractalTester = new ChromeFractalTester();
   const { handles } = chromeFractalTester;
 
@@ -62,7 +61,7 @@ fractalLoad.then(() => {
             () => VisualRegressionTester.writeMetadata(handles, DEVICES));
     }
 
-    for (let handle of handles) {
+    handles.forEach((handle) => {
       let cdp;
 
       describe(`"${handle}"`, () => {
@@ -107,6 +106,6 @@ fractalLoad.then(() => {
           });
         });
       });
-    }
+    }); 
   });
 });

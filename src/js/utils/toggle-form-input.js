@@ -1,7 +1,5 @@
-
 const forEach = require('array-foreach');
 const resolveIdRefs = require('resolve-id-refs');
-const select = require('./select');
 const toggleFieldMask = require('./toggle-field-mask');
 
 const CONTROLS = 'aria-controls';
@@ -14,7 +12,7 @@ const HIDE_ATTR = 'data-hide-text';
  * @param {string} showText
  * @return {strong} hideText
  */
-const getHideText = showText => showText.replace(/\bShow\b/i, show => `${show[ 0 ] === 'S' ? 'H' : 'h'}ide`);
+const getHideText = showText => showText.replace(/\bShow\b/i, show => `${show[0] === 'S' ? 'H' : 'h'}ide`);
 
 /**
  * Component that decorates an HTML element with the ability to toggle the

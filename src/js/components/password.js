@@ -7,13 +7,13 @@ const { prefix: PREFIX } = require('../config');
 
 const LINK = `.${PREFIX}-show_password, .${PREFIX}-show_multipassword`;
 
-function toggle (event) {
+function toggle(event) {
   event.preventDefault();
   toggleFormInput(this);
 }
 
 module.exports = behavior({
-  [ CLICK ]: {
-    [ LINK ]: toggle,
+  [CLICK]: {
+    [LINK]: toggle,
   },
 });

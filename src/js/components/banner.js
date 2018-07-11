@@ -1,6 +1,4 @@
-
 const behavior = require('../utils/behavior');
-const toggle = require('../utils/toggle');
 
 const { CLICK } = require('../events');
 const { prefix: PREFIX } = require('../config');
@@ -8,7 +6,7 @@ const { prefix: PREFIX } = require('../config');
 const HEADER = `.${PREFIX}-banner-header`;
 const EXPANDED_CLASS = `${PREFIX}-banner-header-expanded`;
 
-const toggleBanner = function toggleEl (event) {
+const toggleBanner = function toggleEl(event) {
   event.preventDefault();
   this.closest(HEADER).classList.toggle(EXPANDED_CLASS);
 
@@ -16,7 +14,7 @@ const toggleBanner = function toggleEl (event) {
 };
 
 module.exports = behavior({
-  [ CLICK ]: {
-    [ `${HEADER} [aria-controls]` ]: toggleBanner,
+  [CLICK]: {
+    [`${HEADER} [aria-controls]`]: toggleBanner,
   },
 });

@@ -8,7 +8,7 @@ const { prefix: PREFIX } = require('../config');
 const LINK = `.${PREFIX}-skipnav[href^="#"], .${PREFIX}-footer-return-to-top [href^="#"]`;
 const MAINCONTENT = 'main-content';
 
-function setTabindex (event) {
+function setTabindex() {
   // NB: we know because of the selector we're delegating to below that the
   // href already begins with '#'
   const id = this.getAttribute('href');
@@ -27,7 +27,7 @@ function setTabindex (event) {
 }
 
 module.exports = behavior({
-  [ CLICK ]: {
-    [ LINK ]: setTabindex,
+  [CLICK]: {
+    [LINK]: setTabindex,
   },
 });
