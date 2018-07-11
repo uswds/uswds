@@ -1,5 +1,5 @@
 label: Footer
-status: wip
+status: ready
 
 variants:
   - name: default
