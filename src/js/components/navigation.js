@@ -19,6 +19,8 @@ const TOGGLES = [NAV, OVERLAY].join(', ');
 const ACTIVE_CLASS = 'usa-mobile_nav-active';
 const VISIBLE_CLASS = 'is-visible';
 
+let navigation;
+
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
 const toggleNav = function (active) {
@@ -71,7 +73,7 @@ const resize = () => {
 
 const onMenuClose = () => navigation.toggleNav.call(navigation, false);
 
-const navigation = behavior({
+navigation = behavior({
   [CLICK]: {
     [OPENERS]: toggleNav,
     [CLOSERS]: toggleNav,
@@ -100,7 +102,7 @@ const navigation = behavior({
 
     if (trapContainer) {
       navigation.focusTrap = FocusTrap(trapContainer, {
-        'Escape': onMenuClose,
+        Escape: onMenuClose,
       });
     }
 

@@ -27,21 +27,22 @@ module.exports = (context, additionalKeyBindings = {}) => {
     }
   }
 
-  //  TODO: loop over additional keybindings and pass an array
-  // of functions, if necessary, to the map keys.
+  //  TODO: In the future, loop over additional keybindings and pass an array
+  // of functions, if necessary, to the map keys. Then people implementing
+  // the focus trap could pass callbacks to fire when tabbing
   const keyMappings = keymap(assign({
-    'Tab': tabAhead,
+    Tab: tabAhead,
     'Shift+Tab': tabBack,
   }, additionalKeyBindings));
 
-  return behavior({}, {
+  const focusTrap = behavior({
+    keydown: keyMappings,
+  }, {
     init() {
-      context.addEventListener('keydown', keyMappings);
       // TODO: is this desireable behavior?
       firstTabStop.focus();
     },
-    teardown() {
-      context.removeEventListener('keydown', keyMappings);
-    },
   });
+
+  return focusTrap;
 };
