@@ -2,6 +2,7 @@ const assign = require('object-assign');
 const forEach = require('array-foreach');
 const behavior = require('../utils/behavior');
 const select = require('../utils/select');
+const FocusTrap = require('../utils/focus-trap');
 const accordion = require('./accordion');
 
 const { CLICK } = require('../events');
@@ -20,8 +21,6 @@ const VISIBLE_CLASS = 'is-visible';
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
-let focusTrap;
-
 const toggleNav = function (active) {
   const { body } = document;
   let safeActive = active;
@@ -34,9 +33,9 @@ const toggleNav = function (active) {
   forEach(select(TOGGLES), el => el.classList.toggle(VISIBLE_CLASS, safeActive));
 
   if (safeActive) {
-    focusTrap.enable();
+    navigation.focusTrap.on();
   } else {
-    focusTrap.release();
+    navigation.focusTrap.off();
   }
 
   const closeButton = body.querySelector(CLOSE_BUTTON);
@@ -58,51 +57,6 @@ const toggleNav = function (active) {
   return safeActive;
 };
 
-const focusTrapWrapper = (trapContainer) => {
-  // Find all focusable children
-  const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
-  const focusableElements = trapContainer.querySelectorAll(focusableElementsString);
-  const firstTabStop = focusableElements[0];
-  const lastTabStop = focusableElements[focusableElements.length - 1];
-
-  function trapTabKey(e) {
-    // Check for TAB key press
-    if (e.keyCode === 9) {
-      // SHIFT + TAB
-      if (e.shiftKey) {
-        if (document.activeElement === firstTabStop) {
-          e.preventDefault();
-          lastTabStop.focus();
-        }
-
-      // TAB
-      } else if (document.activeElement === lastTabStop) {
-        e.preventDefault();
-        firstTabStop.focus();
-      }
-    }
-
-    // ESCAPE
-    if (e.keyCode === 27) {
-      toggleNav.call(this, false);
-    }
-  }
-
-  // Focus first child
-  firstTabStop.focus();
-
-  return {
-    enable() {
-      // Listen for and trap the keyboard
-      trapContainer.addEventListener('keydown', trapTabKey);
-    },
-
-    release() {
-      trapContainer.removeEventListener('keydown', trapTabKey);
-    },
-  };
-};
-
 const resize = () => {
   const closer = document.body.querySelector(CLOSE_BUTTON);
 
@@ -111,9 +65,11 @@ const resize = () => {
     // means the user's viewport has been resized so that it is no longer
     // in mobile mode. Let's make the page state consistent by
     // deactivating the mobile nav.
-    toggleNav.call(closer, false);
+    navigation.toggleNav.call(closer, false);
   }
 };
+
+const onMenuClose = () => navigation.toggleNav.call(navigation, false);
 
 const navigation = behavior({
   [CLICK]: {
@@ -127,13 +83,14 @@ const navigation = behavior({
       // Some navigation links are inside accordions; when they're
       // clicked, we want to collapse those accordions.
       const acc = this.closest(accordion.ACCORDION);
+
       if (acc) {
         accordion.getButtons(acc).forEach(btn => accordion.hide(btn));
       }
 
       // If the mobile navigation menu is active, we want to hide it.
       if (isActive()) {
-        toggleNav.call(this, false);
+        navigation.toggleNav.call(navigation, false);
       }
     },
   },
@@ -142,7 +99,9 @@ const navigation = behavior({
     const trapContainer = document.querySelector(NAV);
 
     if (trapContainer) {
-      focusTrap = focusTrapWrapper(trapContainer);
+      navigation.focusTrap = FocusTrap(trapContainer, {
+        'Escape': onMenuClose,
+      });
     }
 
     resize();
@@ -151,6 +110,8 @@ const navigation = behavior({
   teardown() {
     window.removeEventListener('resize', resize, false);
   },
+  focusTrap: null,
+  toggleNav,
 });
 
 /**

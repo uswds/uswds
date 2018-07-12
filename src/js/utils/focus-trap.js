@@ -15,7 +15,7 @@ module.exports = (context, additionalKeyBindings = {}) => {
   // or when tabbing backwards from the first focusable element
   function tabAhead(event) {
     if (activeElement() === lastTabStop) {
-      event.preventDefault;
+      event.preventDefault();
       firstTabStop.focus();
     }
   }
@@ -29,14 +29,16 @@ module.exports = (context, additionalKeyBindings = {}) => {
 
   //  TODO: loop over additional keybindings and pass an array
   // of functions, if necessary, to the map keys.
-  const keyMappings = assign({
+  const keyMappings = keymap(assign({
     'Tab': tabAhead,
     'Shift+Tab': tabBack,
-  }, additionalKeyBindings);
+  }, additionalKeyBindings));
 
-  return behavior({
+  return behavior({}, {
     init() {
       context.addEventListener('keydown', keyMappings);
+      // TODO: is this desireable behavior?
+      firstTabStop.focus();
     },
     teardown() {
       context.removeEventListener('keydown', keyMappings);
