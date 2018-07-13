@@ -79,6 +79,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [Innovation.gov](https://innovation.gov/)
 - [Internal Revenue Service](https://www.irs.gov/)
 - [IT Dashboard](https://itdashboard.gov/)
+- [Legislative Branch Innovation Hub](https://usgpo.github.io/innovation/)
 - [Login.gov](https://pages.18f.gov/identity-intro/)
 - [Medical Expenditure Panel Survey (MEPS) summary tables](https://meps.ahrq.gov/mepstrends/home/index.html)
 - [Method Cards - 18F](https://methods.18f.gov/)
