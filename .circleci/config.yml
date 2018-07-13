@@ -6,7 +6,7 @@ references:
       - image: circleci/node:8.10-browsers
   
   restore_deps: &restore_deps
-    - restore_cache:
+    restore_cache:
       keys:
         - v1-uswds-dependencies-{{ checksum "package-lock.json" }}
         - v1-uswds-dependencies-
