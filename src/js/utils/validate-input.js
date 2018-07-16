@@ -14,9 +14,7 @@ module.exports = function validate(el) {
     : document.getElementById(id);
 
   if (!checkList) {
-    throw new Error(
-      `No validation element found with id: "${id}"`,
-    );
+    throw new Error(`No validation element found with id: "${id}"`);
   }
 
   Object.entries(data).forEach(([key, value]) => {
@@ -25,10 +23,9 @@ module.exports = function validate(el) {
       const validatorPattern = new RegExp(value);
       const validatorSelector = `[data-validator="${validatorName}"]`;
       const validatorCheckbox = checkList.querySelector(validatorSelector);
+
       if (!validatorCheckbox) {
-        throw new Error(
-          `No validator checkbox found for: "${validatorName}"`,
-        );
+        throw new Error(`No validator checkbox found for: "${validatorName}"`);
       }
 
       const checked = validatorPattern.test(el.value);

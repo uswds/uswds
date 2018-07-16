@@ -14,9 +14,7 @@ module.exports = (button, expanded) => {
   const id = button.getAttribute(CONTROLS);
   const controls = document.getElementById(id);
   if (!controls) {
-    throw new Error(
-      `No toggle target found with id: "${id}"`,
-    );
+    throw new Error(`No toggle target found with id: "${id}"`);
   }
 
   controls.setAttribute(HIDDEN, !safeExpanded);

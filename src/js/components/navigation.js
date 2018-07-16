@@ -25,20 +25,13 @@ const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
 const toggleNav = function (active) {
   const { body } = document;
-  let safeActive = active;
+  const safeActive = typeof active === 'boolean' ? active : !isActive();
 
-  if (typeof safeActive !== 'boolean') {
-    safeActive = !isActive();
-  }
   body.classList.toggle(ACTIVE_CLASS, safeActive);
 
   forEach(select(TOGGLES), el => el.classList.toggle(VISIBLE_CLASS, safeActive));
 
-  if (safeActive) {
-    navigation.focusTrap.on();
-  } else {
-    navigation.focusTrap.off();
-  }
+  navigation.focusTrap.update(safeActive);
 
   const closeButton = body.querySelector(CLOSE_BUTTON);
   const menuButton = body.querySelector(OPENERS);
