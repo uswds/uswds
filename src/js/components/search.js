@@ -25,6 +25,7 @@ const getForm = (button) => {
 
 const toggleSearch = (button, active) => {
   const form = getForm(button);
+
   if (!form) {
     throw new Error(`No ${FORM} found for search toggle in ${CONTEXT}!`);
   }
@@ -32,30 +33,33 @@ const toggleSearch = (button, active) => {
   button.hidden = active; // eslint-disable-line no-param-reassign
   form.classList.toggle(VISUALLY_HIDDEN, !active);
 
-  if (active) {
-    const input = form.querySelector(INPUT);
-    if (input) {
-      input.focus();
-    }
-    // when the user clicks _outside_ of the form w/ignore(): hide the
-    // search, then remove the listener
-    const listener = ignore(form, () => {
-      if (lastButton) {
-        hideSearch.call(lastButton); // eslint-disable-line no-use-before-define
-      }
-
-      document.body.removeEventListener(CLICK, listener);
-    });
-
-    // Normally we would just run this code without a timeout, but
-    // IE11 and Edge will actually call the listener *immediately* because
-    // they are currently handling this exact type of event, so we'll
-    // make sure the browser is done handling the current click event,
-    // if any, before we attach the listener.
-    setTimeout(() => {
-      document.body.addEventListener(CLICK, listener);
-    }, 0);
+  if (!active) {
+    return;
   }
+
+  const input = form.querySelector(INPUT);
+
+  if (input) {
+    input.focus();
+  }
+  // when the user clicks _outside_ of the form w/ignore(): hide the
+  // search, then remove the listener
+  const listener = ignore(form, () => {
+    if (lastButton) {
+      hideSearch.call(lastButton); // eslint-disable-line no-use-before-define
+    }
+
+    document.body.removeEventListener(CLICK, listener);
+  });
+
+  // Normally we would just run this code without a timeout, but
+  // IE11 and Edge will actually call the listener *immediately* because
+  // they are currently handling this exact type of event, so we'll
+  // make sure the browser is done handling the current click event,
+  // if any, before we attach the listener.
+  setTimeout(() => {
+    document.body.addEventListener(CLICK, listener);
+  }, 0);
 };
 
 function showSearch() {
