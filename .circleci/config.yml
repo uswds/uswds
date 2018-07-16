@@ -83,4 +83,4 @@ workflows:
             - build
           filters:
             branches:
-              only: /^.+-alpha(\.[0-9]{1})?/
+              only: release-2.0
