@@ -93,7 +93,7 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
   // we can reuse this stream for minification!
   stream
     // 1. initialize sourcemaps
-    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(sourcemaps.init())
     // 2. minify with cssnano
     .pipe(cssnano({
       safe: true,
