@@ -207,6 +207,7 @@ legend {
   box-shadow: 0 0 0 1px $color-gray-medium;
   height: $spacing-medium;
   line-height: $spacing-medium;
+  margin-left: 1px;
   margin-right: 0.6em;
   width: $spacing-medium;
 }
@@ -216,6 +217,7 @@ legend {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-gray-medium;
   height: 1.4rem; // Size overrides to account for shape + checked styling
   line-height: 1.4rem;
+  margin-left: 3px;
   margin-right: 0.75em;
   width: 1.4rem;
 }
