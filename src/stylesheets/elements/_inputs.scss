@@ -196,15 +196,18 @@ legend {
 [type=checkbox] + label::before,
 [type=radio] + label::before {
   background: $color-white;
-  border-radius: $checkbox-border-radius;
-  box-shadow: 0 0 0 1px $color-gray-medium;
   content: '\a0';
   display: inline-block;
+  text-indent: 0.15em;
+  vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
+}
+
+[type=checkbox] + label::before {
+  border-radius: $checkbox-border-radius;
+  box-shadow: 0 0 0 1px $color-gray-medium;
   height: $spacing-medium;
   line-height: $spacing-medium;
   margin-right: 0.6em;
-  text-indent: 0.15em;
-  vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
   width: $spacing-medium;
 }
 
