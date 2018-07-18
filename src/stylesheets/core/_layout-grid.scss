@@ -52,7 +52,7 @@ $grid-global: '';
   }
   @each $gap-key, $gap-val in map-deep-get($uswds-properties, gap, standard){
     @if $gap-key {
-      &.#{$namespace-grid}gap-#{$gap-key} {
+      &.#{$namespace-grid}gap-#{$gap-val} {
         $props: append-important($grid-global, $gap-key);
         @include grid-gap($props);
       }
