@@ -24,19 +24,19 @@ $uswds-global-styles: 'scoped'; // Sets the default typography base styles to fa
   // More styles go here
 }
 
+/* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
 @mixin uswds-global-styles($uswds-global-styles) {
-
   @if $uswds-global-styles == 'scoped' {
-    // Opening .usa-content tag
     .usa-prose {
       @include uswds-element-styles;
-    } // Closing .usa-content tag
+    }
   } @else if $uswds-global-styles == 'global' {
     @include uswds-element-styles;
   } @else {
     // Default nothing if it’s neither
   }
 }
+/* stylelint-enable */
 
 @include uswds-global-styles($uswds-global-styles);
 
