@@ -40,7 +40,6 @@ $uswds-global-styles: 'scoped'; // Sets the default typography base styles to fa
 
 @include uswds-global($uswds-global-styles);
 
-
 a {
   color: $color-primary;
   text-decoration: underline;
