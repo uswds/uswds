@@ -16,7 +16,7 @@ body {
 // Options are global, scoped, or atomic
 $uswds-global-styles: 'scoped'; // Sets the default typography base styles to false, will be wrapped in usa-content
 
-@mixin uswds-global-styles {
+@mixin uswds-element-styles {
   p {
     @extend %uswds-p;
   }
@@ -24,21 +24,21 @@ $uswds-global-styles: 'scoped'; // Sets the default typography base styles to fa
   // More styles go here
 }
 
-@mixin uswds-global($uswds-global-styles) {
+@mixin uswds-global-styles($uswds-global-styles) {
 
   @if $uswds-global-styles == 'scoped' {
     // Opening .usa-content tag
     .usa-prose {
-      @include uswds-global-styles;
+      @include uswds-element-styles;
     } // Closing .usa-content tag
   } @else if $uswds-global-styles == 'global' {
-    @include uswds-global-styles;
+    @include uswds-element-styles;
   } @else {
     // Default nothing if it’s neither
   }
 }
 
-@include uswds-global($uswds-global-styles);
+@include uswds-global-styles($uswds-global-styles);
 
 a {
   color: $color-primary;
