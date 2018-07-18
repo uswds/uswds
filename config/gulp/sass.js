@@ -1,8 +1,10 @@
 var gulp = require('gulp');
 var dutil = require('./doc-util');
 var sass = require('gulp-sass');
-var cssnano = require('gulp-cssnano');
-var autoprefixer = require('gulp-autoprefixer');
+var postcss = require('gulp-postcss');
+var cssnano = require('cssnano');
+var packCSS = require('css-mqpacker');
+var autoprefixer = require('autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var linter = require('@18f/stylelint-rules');
@@ -12,7 +14,6 @@ var filter = require('gulp-filter');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
 var stripCssComments = require('gulp-strip-css-comments');
-var combineMq = require('gulp-combine-mq');
 var del = require('del');
 var task = 'sass';
 
@@ -56,57 +57,32 @@ gulp.task('copy-dist-sass', function () {
 });
 
 gulp.task(task, [ 'copy-vendor-sass' ], function () {
-
   dutil.logMessage(task, 'Compiling Sass');
+  var plugins = [
+    autoprefixer({ browsers: ['> 3%', 'Last 2 versions'], cascade: false, }),
+    packCSS({ sort: true }),
+    cssnano()
+  ];
 
   var stream = gulp.src('src/stylesheets/*.scss')
-    // 1. do the version replacement
-    .pipe(replace(
-      /\buswds @version\b/g,
-      'uswds v' + pkg.version
-    ))
-    // 2. convert SCSS to CSS
+    .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(
       sass({
         outputStyle: 'expanded',
       })
         .on('error', sass.logError)
     )
-    // 3. Remove all but important comments
     .pipe(stripCssComments())
-    // 4. run it through autoprefixer
-    .pipe(
-      autoprefixer({
-        browsers: require('./browsers'),
-        cascade: false,
-      })
-    )
-    // 5. Combine media queries
-    .pipe(
-      combineMq({
-        beautify: true,
-      })
-    )
-    // 6. write dist/css/uswds.css
-    .pipe(gulp.dest('dist/css'));
-
-  // we can reuse this stream for minification!
-  stream
-    // 1. initialize sourcemaps
-    .pipe(sourcemaps.init())
-    // 2. minify with cssnano
-    .pipe(cssnano({
-      safe: true,
-      // XXX see https://github.com/ben-eb/cssnano/issues/340
-      mergeRules: false,
-    }))
-    // 3. rename to uswds.min.css
+    .pipe(postcss(plugins))
+    .pipe(sourcemaps.write('.'))
+    .pipe(replace(
+      /\buswds @version\b/g,
+      'uswds v' + pkg.version
+    ))
+    .pipe(gulp.dest('dist/css'))
     .pipe(rename({
       suffix: '.min',
     }))
-    // 4. write dist/css/uswds.min.css.map
-    .pipe(sourcemaps.write('.'))
-    // 5. write dist/css/uswds.min.css
     .pipe(gulp.dest('dist/css'));
 
   return stream;
