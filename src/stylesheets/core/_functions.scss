@@ -590,7 +590,7 @@ grid.
   $gap-size: smart-quote($gap-size);
   @if map-has-key($spacing-to-value, $gap-size) {
     $numeric-eq: map-get($spacing-to-value, $gap-size);
-    $numeric-eq-half: smart-quote($numeric-eq / 2);
+    $numeric-eq-half: inspect($numeric-eq / 2);
     @if map-has-key($spacing-to-token, $numeric-eq-half){
       @return map-get($spacing-to-token, $numeric-eq-half);
     }
