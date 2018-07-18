@@ -19,7 +19,6 @@ $uswds-global-styles: 'scoped'; // Sets the default typography base styles to fa
 @mixin uswds-global-styles {
   p {
     @extend %uswds-p;
-    color: pink;
   }
 
   // More styles go here
