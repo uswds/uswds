@@ -65,6 +65,7 @@ jobs:
           name: Publish to NPM
           command: |
             npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
+            npm version prerelease
             npm publish . --tag alpha
 
 workflows:
