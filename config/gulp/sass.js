@@ -16,6 +16,7 @@ var runSequence = require('run-sequence');
 var stripCssComments = require('gulp-strip-css-comments');
 var del = require('del');
 var task = 'sass';
+var autoprefixerOptions = require('./browsers');
 
 var entryFileFilter = filter('uswds.scss', { restore: true });
 var normalizeCssFilter = filter('normalize.css', { restore: true });
@@ -59,7 +60,7 @@ gulp.task('copy-dist-sass', function () {
 gulp.task(task, [ 'copy-vendor-sass' ], function () {
   dutil.logMessage(task, 'Compiling Sass');
   var plugins = [
-    autoprefixer({ browsers: ['> 3%', 'Last 2 versions'], cascade: false, }),
+    autoprefixer(autoprefixerOptions),
     packCSS({ sort: true }),
     cssnano()
   ];
@@ -74,7 +75,6 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
     )
     .pipe(stripCssComments())
     .pipe(postcss(plugins))
-    .pipe(sourcemaps.write('.'))
     .pipe(replace(
       /\buswds @version\b/g,
       'uswds v' + pkg.version
@@ -83,6 +83,7 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
     .pipe(rename({
       suffix: '.min',
     }))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist/css'));
 
   return stream;
