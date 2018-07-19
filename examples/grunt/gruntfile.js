@@ -1,40 +1,44 @@
+const browserifyConfig = {
+  dist: {
+    src: 'src/js/main.js',
+    dest: './assets/js/main.js',
+    options: {
+      browserifyOptions: {
+        debug: true,
+        transform: [
+          [
+            'babelify',
+            {
+              presets: ['es2015'],
+            },
+          ]
+        ],
+      },
+    },
+  },
+};
+
+const sassConfig = {
+  dist: {
+    src: 'src/css/style.scss',
+    dest: './assets/css/style.css',
+    options: {
+      style: 'nested',
+      includePaths: [
+        'node_modules/uswds/src/stylesheets',
+      ],
+    },
+  },
+};
+
 module.exports = function(grunt) {
   grunt.initConfig({
 
     pkg: grunt.file.readJSON('package.json'),
 
-    browserify: {
-      dist: {
-        src: 'src/js/main.js',
-        dest: './assets/js/main.js',
-        options: {
-          browserifyOptions: {
-            debug: true,
-            transform: [
-              [
-                'babelify',
-                {
-                  presets: ['es2015'],
-                },
-              ]
-            ],
-          },
-        },
-      },
-    },
+    browserify: browserifyConfig,
 
-    sass: {
-      dist: {
-        src: 'src/css/style.scss',
-        dest: './assets/css/style.css',
-        options: {
-          style: 'nested',
-          includePaths: [
-            'node_modules/uswds/src/stylesheets',
-          ],
-        },
-      },
-    },
+    sass: sassConfig,
 
     watch: {
       js: {

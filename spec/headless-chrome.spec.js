@@ -1,5 +1,3 @@
-'use strict';
-
 const { fractalLoad } = require('./delayed-root-suite');
 const VisualRegressionTester = require('./visual-regression-tester');
 const ChromeFractalTester = require('./chrome-fractal-tester');
@@ -43,7 +41,7 @@ const DEVICES = [
   }),
 ];
 
-fractalLoad.then(() => {
+fractalLoad.then(function runFractalTester() {
   const chromeFractalTester = new ChromeFractalTester();
   const { handles } = chromeFractalTester;
 
@@ -63,7 +61,7 @@ fractalLoad.then(() => {
             () => VisualRegressionTester.writeMetadata(handles, DEVICES));
     }
 
-    for (let handle of handles) {
+    handles.forEach((handle) => {
       let cdp;
 
       describe(`"${handle}"`, () => {
@@ -108,6 +106,6 @@ fractalLoad.then(() => {
           });
         });
       });
-    }
+    }); 
   });
 });

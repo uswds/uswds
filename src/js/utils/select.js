@@ -1,4 +1,4 @@
-'use strict';
+
 
 /**
  * @name isElement
@@ -6,9 +6,7 @@
  * @param {any} value
  * @return {boolean}
  */
-const isElement = value => {
-  return value && typeof value === 'object' && value.nodeType === 1;
-};
+const isElement = value => value && typeof value === 'object' && value.nodeType === 1;
 
 /**
  * @name select
@@ -18,14 +16,13 @@ const isElement = value => {
  *   in. If not provided, it defaults to the document.
  * @return {HTMLElement[]} - An array of DOM nodes or an empty array.
  */
-module.exports = function select (selector, context) {
-
+module.exports = (selector, context) => {
   if (typeof selector !== 'string') {
     return [];
   }
 
   if (!context || !isElement(context)) {
-    context = window.document;
+    context = window.document; // eslint-disable-line no-param-reassign
   }
 
   const selection = context.querySelectorAll(selector);
