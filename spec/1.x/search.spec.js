@@ -7,7 +7,7 @@ const TEMPLATE = fs.readFileSync(
   path.join(__dirname, '../unit/search/template.html'),
 );
 
-const isVisuallyHidden = el => el.classList.contains('usa-sr-only');
+const isVisuallyHidden = el => el.hidden;
 
 describe('search toggle', () => {
   let button;

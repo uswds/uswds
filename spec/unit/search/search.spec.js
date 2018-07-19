@@ -4,9 +4,8 @@ const path = require('path');
 const search = require('../../../src/js/components/search');
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, 'template.html'));
-const VISUALLY_HIDDEN = 'usa-sr-only';
 
-const isVisuallyHidden = el => el.classList.contains(VISUALLY_HIDDEN);
+const isVisuallyHidden = el => el.hidden;
 
 describe('search toggle', () => {
   const { body } = document;
