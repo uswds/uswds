@@ -343,19 +343,26 @@ legend {
 
 // Memorable dates
 
-.usa-date-of-birth {
+.usa-date-of-birth { /* stylelint-disable-line */
   label {
     margin-top: 0;
   }
 
-  [type=number]::-webkit-inner-spin-button,
-  [type=number]::-webkit-outer-spin-button {
-    appearance: none;
-    margin: 0;
-  }
-
   [type=number] {
     -moz-appearance: textfield;
+
+    &::-webkit-inner-spin-button {
+      appearance: none;
+    }
+
+    &::-webkit-contacts-auto-fill-button {
+      visibility: hidden;
+      display: none !important; /* stylelint-disable-line declaration-no-important */
+      pointer-events: none;
+      height: 0;
+      width: 0;
+      margin: 0;
+    }
   }
 }
 
