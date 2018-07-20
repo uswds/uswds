@@ -160,6 +160,12 @@ button,
 }
 /* stylelint-disable */
 
+.usa-button {
+  &:focus {
+    outline-offset: units(0.5);
+  }
+}
+
 .usa-button-disabled  // Deprecated
 {
   @include disabledesque
