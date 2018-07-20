@@ -162,7 +162,7 @@ button,
 
 .usa-button {
   &:focus {
-    outline-offset: 4px;
+    outline-offset: units(0.5);
   }
 }
 
