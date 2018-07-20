@@ -343,7 +343,7 @@ legend {
 
 // Memorable dates
 
-.usa-date-of-birth {
+.usa-date-of-birth { /* stylelint-disable-line */
   label {
     margin-top: 0;
   }
@@ -357,7 +357,7 @@ legend {
 
     &::-webkit-contacts-auto-fill-button {
       visibility: hidden;
-      display: none !important;
+      display: none !important; /* stylelint-disable-line declaration-no-important */
       pointer-events: none;
       height: 0;
       width: 0;
