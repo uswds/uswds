@@ -351,9 +351,17 @@ legend {
   [type=number] {
     -moz-appearance: textfield;
 
-    &::-webkit-inner-spin-button,
-    &::-webkit-contacts-auto-fill-button {
+    &::-webkit-inner-spin-button {
       appearance: none;
+    }
+
+    &::-webkit-contacts-auto-fill-button {
+      visibility: hidden;
+      display: none !important;
+      pointer-events: none;
+      height: 0;
+      width: 0;
+      margin: 0;
     }
   }
 }
