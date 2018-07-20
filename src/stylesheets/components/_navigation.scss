@@ -322,8 +322,8 @@
   margin-top: 1.5rem;
 
   @include media($nav-width) {
-    bottom: 66px; // XXX magic number, 16px from bottom
-    margin-top: 16px;
+    bottom: calc(5rem + 16px); // XXX magic number, 16px from bottom
+    margin-top: units(1);
     min-width: 381px; // XXX magic number, to keep search filled when list disappears
     position: absolute;
     right: $site-margins;
@@ -346,7 +346,7 @@
   margin-top: 2.4rem;
 
   @include media($nav-width) {
-    margin-bottom: 4px;
+    margin-bottom: units(0.5);
     margin-top: 0;
   }
 
