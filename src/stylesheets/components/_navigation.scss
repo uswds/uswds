@@ -325,7 +325,7 @@
     bottom: calc(5rem + 16px); // XXX magic number, 16px from bottom
     font-size: $small-font-size;
     margin-top: units(1);
-    min-width: 30em; // max-width of 30 letters
+    min-width: 27em; // max-width of 27 letters
     position: absolute;
     right: $site-margins;
   }
