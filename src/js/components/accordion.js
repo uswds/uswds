@@ -4,12 +4,14 @@ const forEach = require('array-foreach');
 const behavior = require('../utils/behavior');
 const toggle = require('../utils/toggle');
 const isElementInViewport = require('../utils/is-in-viewport');
+const select = require('../utils/select')
 const { CLICK } = require('../events');
 const { prefix: PREFIX } = require('../config');
 
 // XXX match .usa-accordion and .usa-accordion-bordered
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion-bordered`;
 const BUTTON = `.${PREFIX}-accordion-button[aria-controls]`;
+const CONTENT = `.${PREFIX}-accordion-content`;
 const EXPANDED = 'aria-expanded';
 const MULTISELECTABLE = 'aria-multiselectable';
 
@@ -24,6 +26,8 @@ const getAccordionButtons = (accordion) => {
 
   return filter(buttons, button => button.closest(ACCORDION) === accordion);
 };
+
+const getAccordionContents = accordion => select(CONTENT, accordion);
 
 /**
  * Toggle a button's "pressed" state, optionally providing a target
@@ -83,9 +87,56 @@ const accordion = behavior({
   },
 }, {
   init(root) {
+    /**
+     * get all accordions here with selector of accordion
+     * register all with hash change object
+     *  - hash change object should have a Set, so functions can only be 
+     *    registered once + shared ?
+     * 
+     */
+    const accordions = select(ACCORDION, root);
+
     forEach(root.querySelectorAll(BUTTON), (button) => {
       const expanded = button.getAttribute(EXPANDED) === 'true';
       toggleButton(button, expanded);
+    });
+
+    const getHash = function(root) {
+      let hash;
+      
+      try {
+        const url = new URL(window.location);
+        hash = url.hash;
+      } catch(error) {
+        hash = location.hash ? location.hash : null;
+      } 
+
+      return hash.replace('#', '');
+    };
+
+    const hash = getHash(window);
+
+    window.addEventListener('hashchange', function handleHashChange(event) {
+      const nextHash = getHash(window);
+
+      if (!nextHash) {
+        return;
+      }
+      
+      accordions.forEach((accordion) => {
+        const buttons = getAccordionButtons(accordion);
+
+        for (var i = 0; i < buttons.length; i++) {
+          const button = buttons[i];
+          
+          if (button.getAttribute('aria-controls') === nextHash) {
+            button.click();
+            break;
+          }
+          
+          window.location.hash = '';
+        }
+      });
     });
   },
   ACCORDION,
