@@ -6,13 +6,11 @@ const behavior = require('../utils/behavior');
 const select = require('../utils/select');
 
 const { CLICK } = require('../events');
-const { prefix: PREFIX } = require('../config');
 
 const BUTTON = '.js-search-button';
 const FORM = '.js-search-form';
 const INPUT = '[type=search]';
 const CONTEXT = 'header'; // XXX
-const VISUALLY_HIDDEN = `${PREFIX}-sr-only`;
 
 let lastButton;
 
@@ -30,8 +28,10 @@ const toggleSearch = (button, active) => {
     throw new Error(`No ${FORM} found for search toggle in ${CONTEXT}!`);
   }
 
-  button.hidden = active; // eslint-disable-line no-param-reassign
-  form.classList.toggle(VISUALLY_HIDDEN, !active);
+  /* eslint-disable no-param-reassign */
+  button.hidden = active;
+  form.hidden = !active;
+  /* eslint-enable*/
 
   if (!active) {
     return;
