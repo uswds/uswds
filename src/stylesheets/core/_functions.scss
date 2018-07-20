@@ -326,6 +326,27 @@ Append `!important` to a list
 
 /*
 ----------------------------------------
+root-to-px()
+----------------------------------------
+Outputs the size as the original px
+or 16px if the root is set to 100%
+----------------------------------------
+*/
+
+@function root-to-px($size) {
+  @if $size == 100% {
+    @return 16px;
+  }
+  @elseif unit($size) == 'px' {
+    @return $size;
+  }
+  @else {
+    @error "``$theme-root-font-size` needs to be in px or 100%.";
+  }
+}
+
+/*
+----------------------------------------
 grid-units()
 ----------------------------------------
 Converts a spacing unit multiple into
@@ -334,7 +355,7 @@ the desired final units (currently rem)
 */
 
 @function grid-units($unit) {
-  $grid-to-rem: strip-unit($uswds-spacing-grid-base) * $unit / strip-unit($theme-root-font-size) * 1rem;
+  $grid-to-rem: strip-unit($uswds-spacing-grid-base) * $unit / strip-unit(root-to-px($theme-root-font-size)) * 1rem;
 
   @return $grid-to-rem;
 }
@@ -349,7 +370,7 @@ Converts a value in px to a value in rem
 
 @function px($pixels) {
   @if $pixels {
-    $px-to-rem: strip-unit($pixels) / strip-unit($theme-root-font-size) * 1rem;
+    $px-to-rem: strip-unit($pixels) / strip-unit(root-to-px($theme-root-font-size)) * 1rem;
 
     @return $px-to-rem;
   }
@@ -367,7 +388,7 @@ Converts a value in rem to a value in px
 */
 
 @function rem-to-px($value) {
-  $rem-to-px: strip-unit($value) * $theme-root-font-size;
+  $rem-to-px: strip-unit($value) * root-to-px($theme-root-font-size);
   @return $rem-to-px;
 }
 
