@@ -31,7 +31,8 @@ $plugin-spacing-uswds:(
   ),
   'plugin-spacing-uswds-breakpoints': map-collect(
     map-get($uswds-spacing, large),
-    map-get($uswds-spacing, larger)
+    map-get($uswds-spacing, larger),
+    map-get($uswds-spacing, largest)
   ),
 );
 
