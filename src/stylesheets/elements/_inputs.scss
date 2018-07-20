@@ -348,14 +348,14 @@ legend {
     margin-top: 0;
   }
 
-  [type=number]::-webkit-inner-spin-button,
-  [type=number]::-webkit-outer-spin-button {
-    appearance: none;
-    margin: 0;
-  }
-
   [type=number] {
     -moz-appearance: textfield;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      appearance: none;
+      margin: 0;
+    }
   }
 }
 
