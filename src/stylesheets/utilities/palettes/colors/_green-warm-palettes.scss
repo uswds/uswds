@@ -1,66 +1,66 @@
-$palette-color-green-warm-light: (
+$palette-green-warm-light: (
   'green-warm-5':  $green-warm-5,
   'green-warm-10': $green-warm-10,
   'green-warm-20': $green-warm-20,
   'green-warm-30': $green-warm-30,
 );
 
-$palette-color-green-warm-medium: (
+$palette-green-warm-medium: (
   'green-warm-40': $green-warm-40,
   'green-warm-50': $green-warm-50,
   'green-warm-60': $green-warm-60,
 );
 
-$palette-color-green-warm-dark: (
+$palette-green-warm-dark: (
   'green-warm-70': $green-warm-70,
   'green-warm-80': $green-warm-80,
   'green-warm-90': $green-warm-90,
 );
 
-$palette-color-green-warm-light-vivid: (
+$palette-green-warm-light-vivid: (
   'green-warm-5v':  $green-warm-5v,
   'green-warm-10v': $green-warm-10v,
   'green-warm-20v': $green-warm-20v,
   'green-warm-30v': $green-warm-30v,
 );
 
-$palette-color-green-warm-medium-vivid: (
+$palette-green-warm-medium-vivid: (
   'green-warm-40v': $green-warm-40v,
   'green-warm-50v': $green-warm-50v,
   'green-warm-60v': $green-warm-60v,
 );
 
-$palette-color-green-warm-dark-vivid: (
+$palette-green-warm-dark-vivid: (
   'green-warm-70v': $green-warm-70v,
   'green-warm-80v': $green-warm-80v,
   'green-warm-90v': $green-warm-90v,
 );
 
-$palette-color-green-warm-standard: map-collect(
-  $palette-color-green-warm-light,
-  $palette-color-green-warm-medium,
-  $palette-color-green-warm-dark
+$palette-green-warm-standard: map-collect(
+  $palette-green-warm-light,
+  $palette-green-warm-medium,
+  $palette-green-warm-dark
 );
 
-$palette-color-green-warm-vivid: map-collect(
-  $palette-color-green-warm-light-vivid,
-  $palette-color-green-warm-medium-vivid,
-  $palette-color-green-warm-dark-vivid
+$palette-green-warm-vivid: map-collect(
+  $palette-green-warm-light-vivid,
+  $palette-green-warm-medium-vivid,
+  $palette-green-warm-dark-vivid
 );
 
-$palette-color-green-warm-all: map-collect(
-  $palette-color-green-warm-standard,
-  $palette-color-green-warm-vivid
+$palette-green-warm-all: map-collect(
+  $palette-green-warm-standard,
+  $palette-green-warm-vivid
 );
 
-$palette-color-green-warm: (
-  'palette-color-green-warm-light': $palette-color-green-warm-light,
-  'palette-color-green-warm-medium': $palette-color-green-warm-medium,
-  'palette-color-green-warm-dark': $palette-color-green-warm-dark,
-  'palette-color-green-warm-light-vivid': $palette-color-green-warm-light-vivid,
-  'palette-color-green-warm-medium-vivid': $palette-color-green-warm-medium-vivid,
-  'palette-color-green-warm-dark-vivid': $palette-color-green-warm-dark-vivid,
-  'palette-color-green-warm-standard': $palette-color-green-warm-standard,
-  'palette-color-green-warm-vivid': $palette-color-green-warm-vivid,
-  'palette-color-green-warm-all': $palette-color-green-warm-all,
+$palette-green-warm: (
+  'palette-green-warm-light': $palette-green-warm-light,
+  'palette-green-warm-medium': $palette-green-warm-medium,
+  'palette-green-warm-dark': $palette-green-warm-dark,
+  'palette-green-warm-light-vivid': $palette-green-warm-light-vivid,
+  'palette-green-warm-medium-vivid': $palette-green-warm-medium-vivid,
+  'palette-green-warm-dark-vivid': $palette-green-warm-dark-vivid,
+  'palette-green-warm-standard': $palette-green-warm-standard,
+  'palette-green-warm-vivid': $palette-green-warm-vivid,
+  'palette-green-warm-all': $palette-green-warm-all,
 );

@@ -1,4 +1,4 @@
-$palette-color-white-transparent-all: (
+$palette-white-transparent-all: (
   'white-transparent-5':  $white-transparent-5,
   'white-transparent-10': $white-transparent-10,
   'white-transparent-20': $white-transparent-20,
@@ -11,8 +11,8 @@ $palette-color-white-transparent-all: (
   'white-transparent-90': $white-transparent-90,
 );
 
-$palette-color-white-transparent: (
-  'palette-color-white-transparent-all': (
+$palette-white-transparent: (
+  'palette-white-transparent-all': (
     'white-transparent-5':  $white-transparent-5,
     'white-transparent-10': $white-transparent-10,
     'white-transparent-20': $white-transparent-20,

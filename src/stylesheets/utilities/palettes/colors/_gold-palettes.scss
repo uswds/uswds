@@ -1,66 +1,66 @@
-$palette-color-gold-light: (
+$palette-gold-light: (
   'gold-5':  $gold-5,
   'gold-10': $gold-10,
   'gold-20': $gold-20,
   'gold-30': $gold-30,
 );
 
-$palette-color-gold-medium: (
+$palette-gold-medium: (
   'gold-40': $gold-40,
   'gold-50': $gold-50,
   'gold-60': $gold-60,
 );
 
-$palette-color-gold-dark: (
+$palette-gold-dark: (
   'gold-70': $gold-70,
   'gold-80': $gold-80,
   'gold-90': $gold-90,
 );
 
-$palette-color-gold-light-vivid: (
+$palette-gold-light-vivid: (
   'gold-5v':  $gold-5v,
   'gold-10v': $gold-10v,
   'gold-20v': $gold-20v,
   'gold-30v': $gold-30v,
 );
 
-$palette-color-gold-medium-vivid: (
+$palette-gold-medium-vivid: (
   'gold-40v': $gold-40v,
   'gold-50v': $gold-50v,
   'gold-60v': $gold-60v,
 );
 
-$palette-color-gold-dark-vivid: (
+$palette-gold-dark-vivid: (
   'gold-70v': $gold-70v,
   'gold-80v': $gold-80v,
   'gold-90v': $gold-90v,
 );
 
-$palette-color-gold-standard: map-collect(
-  $palette-color-gold-light,
-  $palette-color-gold-medium,
-  $palette-color-gold-dark
+$palette-gold-standard: map-collect(
+  $palette-gold-light,
+  $palette-gold-medium,
+  $palette-gold-dark
 );
 
-$palette-color-gold-vivid: map-collect(
-  $palette-color-gold-light-vivid,
-  $palette-color-gold-medium-vivid,
-  $palette-color-gold-dark-vivid
+$palette-gold-vivid: map-collect(
+  $palette-gold-light-vivid,
+  $palette-gold-medium-vivid,
+  $palette-gold-dark-vivid
 );
 
-$palette-color-gold-all: map-collect(
-  $palette-color-gold-standard,
-  $palette-color-gold-vivid
+$palette-gold-all: map-collect(
+  $palette-gold-standard,
+  $palette-gold-vivid
 );
 
-$palette-color-gold: (
-  'palette-color-gold-light': $palette-color-gold-light,
-  'palette-color-gold-medium': $palette-color-gold-medium,
-  'palette-color-gold-dark': $palette-color-gold-dark,
-  'palette-color-gold-light-vivid': $palette-color-gold-light-vivid,
-  'palette-color-gold-medium-vivid': $palette-color-gold-medium-vivid,
-  'palette-color-gold-dark-vivid': $palette-color-gold-dark-vivid,
-  'palette-color-gold-standard': $palette-color-gold-standard,
-  'palette-color-gold-vivid': $palette-color-gold-vivid,
-  'palette-color-gold-all': $palette-color-gold-all,
+$palette-gold: (
+  'palette-gold-light': $palette-gold-light,
+  'palette-gold-medium': $palette-gold-medium,
+  'palette-gold-dark': $palette-gold-dark,
+  'palette-gold-light-vivid': $palette-gold-light-vivid,
+  'palette-gold-medium-vivid': $palette-gold-medium-vivid,
+  'palette-gold-dark-vivid': $palette-gold-dark-vivid,
+  'palette-gold-standard': $palette-gold-standard,
+  'palette-gold-vivid': $palette-gold-vivid,
+  'palette-gold-all': $palette-gold-all,
 );

@@ -1,66 +1,66 @@
-$palette-color-cyan-light: (
+$palette-cyan-light: (
   'cyan-5':  $cyan-5,
   'cyan-10': $cyan-10,
   'cyan-20': $cyan-20,
   'cyan-30': $cyan-30,
 );
 
-$palette-color-cyan-medium: (
+$palette-cyan-medium: (
   'cyan-40': $cyan-40,
   'cyan-50': $cyan-50,
   'cyan-60': $cyan-60,
 );
 
-$palette-color-cyan-dark: (
+$palette-cyan-dark: (
   'cyan-70': $cyan-70,
   'cyan-80': $cyan-80,
   'cyan-90': $cyan-90,
 );
 
-$palette-color-cyan-light-vivid: (
+$palette-cyan-light-vivid: (
   'cyan-5v':  $cyan-5v,
   'cyan-10v': $cyan-10v,
   'cyan-20v': $cyan-20v,
   'cyan-30v': $cyan-30v,
 );
 
-$palette-color-cyan-medium-vivid: (
+$palette-cyan-medium-vivid: (
   'cyan-40v': $cyan-40v,
   'cyan-50v': $cyan-50v,
   'cyan-60v': $cyan-60v,
 );
 
-$palette-color-cyan-dark-vivid: (
+$palette-cyan-dark-vivid: (
   'cyan-70v': $cyan-70v,
   'cyan-80v': $cyan-80v,
   'cyan-90v': $cyan-90v,
 );
 
-$palette-color-cyan-standard: map-collect(
-  $palette-color-cyan-light,
-  $palette-color-cyan-medium,
-  $palette-color-cyan-dark
+$palette-cyan-standard: map-collect(
+  $palette-cyan-light,
+  $palette-cyan-medium,
+  $palette-cyan-dark
 );
 
-$palette-color-cyan-vivid: map-collect(
-  $palette-color-cyan-light-vivid,
-  $palette-color-cyan-medium-vivid,
-  $palette-color-cyan-dark-vivid
+$palette-cyan-vivid: map-collect(
+  $palette-cyan-light-vivid,
+  $palette-cyan-medium-vivid,
+  $palette-cyan-dark-vivid
 );
 
-$palette-color-cyan-all: map-collect(
-  $palette-color-cyan-standard,
-  $palette-color-cyan-vivid
+$palette-cyan-all: map-collect(
+  $palette-cyan-standard,
+  $palette-cyan-vivid
 );
 
-$palette-color-cyan: (
-  'palette-color-cyan-light': $palette-color-cyan-light,
-  'palette-color-cyan-medium': $palette-color-cyan-medium,
-  'palette-color-cyan-dark': $palette-color-cyan-dark,
-  'palette-color-cyan-light-vivid': $palette-color-cyan-light-vivid,
-  'palette-color-cyan-medium-vivid': $palette-color-cyan-medium-vivid,
-  'palette-color-cyan-dark-vivid': $palette-color-cyan-dark-vivid,
-  'palette-color-cyan-standard': $palette-color-cyan-standard,
-  'palette-color-cyan-vivid': $palette-color-cyan-vivid,
-  'palette-color-cyan-all': $palette-color-cyan-all,
+$palette-cyan: (
+  'palette-cyan-light': $palette-cyan-light,
+  'palette-cyan-medium': $palette-cyan-medium,
+  'palette-cyan-dark': $palette-cyan-dark,
+  'palette-cyan-light-vivid': $palette-cyan-light-vivid,
+  'palette-cyan-medium-vivid': $palette-cyan-medium-vivid,
+  'palette-cyan-dark-vivid': $palette-cyan-dark-vivid,
+  'palette-cyan-standard': $palette-cyan-standard,
+  'palette-cyan-vivid': $palette-cyan-vivid,
+  'palette-cyan-all': $palette-cyan-all,
 );

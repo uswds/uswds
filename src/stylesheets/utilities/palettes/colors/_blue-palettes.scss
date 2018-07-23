@@ -1,66 +1,66 @@
-$palette-color-blue-light: (
+$palette-blue-light: (
   'blue-5':  $blue-5,
   'blue-10': $blue-10,
   'blue-20': $blue-20,
   'blue-30': $blue-30,
 );
 
-$palette-color-blue-medium: (
+$palette-blue-medium: (
   'blue-40': $blue-40,
   'blue-50': $blue-50,
   'blue-60': $blue-60,
 );
 
-$palette-color-blue-dark: (
+$palette-blue-dark: (
   'blue-70': $blue-70,
   'blue-80': $blue-80,
   'blue-90': $blue-90,
 );
 
-$palette-color-blue-light-vivid: (
+$palette-blue-light-vivid: (
   'blue-5v':  $blue-5v,
   'blue-10v': $blue-10v,
   'blue-20v': $blue-20v,
   'blue-30v': $blue-30v,
 );
 
-$palette-color-blue-medium-vivid: (
+$palette-blue-medium-vivid: (
   'blue-40v': $blue-40v,
   'blue-50v': $blue-50v,
   'blue-60v': $blue-60v,
 );
 
-$palette-color-blue-dark-vivid: (
+$palette-blue-dark-vivid: (
   'blue-70v': $blue-70v,
   'blue-80v': $blue-80v,
   'blue-90v': $blue-90v,
 );
 
-$palette-color-blue-standard: map-collect(
-  $palette-color-blue-light,
-  $palette-color-blue-medium,
-  $palette-color-blue-dark
+$palette-blue-standard: map-collect(
+  $palette-blue-light,
+  $palette-blue-medium,
+  $palette-blue-dark
 );
 
-$palette-color-blue-vivid: map-collect(
-  $palette-color-blue-light-vivid,
-  $palette-color-blue-medium-vivid,
-  $palette-color-blue-dark-vivid
+$palette-blue-vivid: map-collect(
+  $palette-blue-light-vivid,
+  $palette-blue-medium-vivid,
+  $palette-blue-dark-vivid
 );
 
-$palette-color-blue-all: map-collect(
-  $palette-color-blue-standard,
-  $palette-color-blue-vivid
+$palette-blue-all: map-collect(
+  $palette-blue-standard,
+  $palette-blue-vivid
 );
 
-$palette-color-blue: (
-  'palette-color-blue-light': $palette-color-blue-light,
-  'palette-color-blue-medium': $palette-color-blue-medium,
-  'palette-color-blue-dark': $palette-color-blue-dark,
-  'palette-color-blue-light-vivid': $palette-color-blue-light-vivid,
-  'palette-color-blue-medium-vivid': $palette-color-blue-medium-vivid,
-  'palette-color-blue-dark-vivid': $palette-color-blue-dark-vivid,
-  'palette-color-blue-standard': $palette-color-blue-standard,
-  'palette-color-blue-vivid': $palette-color-blue-vivid,
-  'palette-color-blue-all': $palette-color-blue-all,
+$palette-blue: (
+  'palette-blue-light': $palette-blue-light,
+  'palette-blue-medium': $palette-blue-medium,
+  'palette-blue-dark': $palette-blue-dark,
+  'palette-blue-light-vivid': $palette-blue-light-vivid,
+  'palette-blue-medium-vivid': $palette-blue-medium-vivid,
+  'palette-blue-dark-vivid': $palette-blue-dark-vivid,
+  'palette-blue-standard': $palette-blue-standard,
+  'palette-blue-vivid': $palette-blue-vivid,
+  'palette-blue-all': $palette-blue-all,
 );

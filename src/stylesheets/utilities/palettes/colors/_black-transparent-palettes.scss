@@ -1,4 +1,4 @@
-$palette-color-black-transparent-all: (
+$palette-black-transparent-all: (
   'black-transparent-5':  $black-transparent-5,
   'black-transparent-10': $black-transparent-10,
   'black-transparent-20': $black-transparent-20,
@@ -10,8 +10,8 @@ $palette-color-black-transparent-all: (
   'black-transparent-80': $black-transparent-80,
   'black-transparent-90': $black-transparent-90,
 );
-$palette-color-black-transparent: (
-  'palette-color-black-transparent-all': (
+$palette-black-transparent: (
+  'palette-black-transparent-all': (
     'black-transparent-5':  $black-transparent-5,
     'black-transparent-10': $black-transparent-10,
     'black-transparent-20': $black-transparent-20,

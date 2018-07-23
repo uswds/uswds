@@ -1,66 +1,66 @@
-$palette-color-orange-warm-light: (
+$palette-orange-warm-light: (
   'orange-warm-5':  $orange-warm-5,
   'orange-warm-10': $orange-warm-10,
   'orange-warm-20': $orange-warm-20,
   'orange-warm-30': $orange-warm-30,
 );
 
-$palette-color-orange-warm-medium: (
+$palette-orange-warm-medium: (
   'orange-warm-40': $orange-warm-40,
   'orange-warm-50': $orange-warm-50,
   'orange-warm-60': $orange-warm-60,
 );
 
-$palette-color-orange-warm-dark: (
+$palette-orange-warm-dark: (
   'orange-warm-70': $orange-warm-70,
   'orange-warm-80': $orange-warm-80,
   'orange-warm-90': $orange-warm-90,
 );
 
-$palette-color-orange-warm-light-vivid: (
+$palette-orange-warm-light-vivid: (
   'orange-warm-5v':  $orange-warm-5v,
   'orange-warm-10v': $orange-warm-10v,
   'orange-warm-20v': $orange-warm-20v,
   'orange-warm-30v': $orange-warm-30v,
 );
 
-$palette-color-orange-warm-medium-vivid: (
+$palette-orange-warm-medium-vivid: (
   'orange-warm-40v': $orange-warm-40v,
   'orange-warm-50v': $orange-warm-50v,
   'orange-warm-60v': $orange-warm-60v,
 );
 
-$palette-color-orange-warm-dark-vivid: (
+$palette-orange-warm-dark-vivid: (
   'orange-warm-70v': $orange-warm-70v,
   'orange-warm-80v': $orange-warm-80v,
   'orange-warm-90v': $orange-warm-90v,
 );
 
-$palette-color-orange-warm-standard: map-collect(
-  $palette-color-orange-warm-light,
-  $palette-color-orange-warm-medium,
-  $palette-color-orange-warm-dark
+$palette-orange-warm-standard: map-collect(
+  $palette-orange-warm-light,
+  $palette-orange-warm-medium,
+  $palette-orange-warm-dark
 );
 
-$palette-color-orange-warm-vivid: map-collect(
-  $palette-color-orange-warm-light-vivid,
-  $palette-color-orange-warm-medium-vivid,
-  $palette-color-orange-warm-dark-vivid
+$palette-orange-warm-vivid: map-collect(
+  $palette-orange-warm-light-vivid,
+  $palette-orange-warm-medium-vivid,
+  $palette-orange-warm-dark-vivid
 );
 
-$palette-color-orange-warm-all: map-collect(
-  $palette-color-orange-warm-standard,
-  $palette-color-orange-warm-vivid
+$palette-orange-warm-all: map-collect(
+  $palette-orange-warm-standard,
+  $palette-orange-warm-vivid
 );
 
-$palette-color-orange-warm: (
-  'palette-color-orange-warm-light': $palette-color-orange-warm-light,
-  'palette-color-orange-warm-medium': $palette-color-orange-warm-medium,
-  'palette-color-orange-warm-dark': $palette-color-orange-warm-dark,
-  'palette-color-orange-warm-light-vivid': $palette-color-orange-warm-light-vivid,
-  'palette-color-orange-warm-medium-vivid': $palette-color-orange-warm-medium-vivid,
-  'palette-color-orange-warm-dark-vivid': $palette-color-orange-warm-dark-vivid,
-  'palette-color-orange-warm-standard': $palette-color-orange-warm-standard,
-  'palette-color-orange-warm-vivid': $palette-color-orange-warm-vivid,
-  'palette-color-orange-warm-all': $palette-color-orange-warm-all,
+$palette-orange-warm: (
+  'palette-orange-warm-light': $palette-orange-warm-light,
+  'palette-orange-warm-medium': $palette-orange-warm-medium,
+  'palette-orange-warm-dark': $palette-orange-warm-dark,
+  'palette-orange-warm-light-vivid': $palette-orange-warm-light-vivid,
+  'palette-orange-warm-medium-vivid': $palette-orange-warm-medium-vivid,
+  'palette-orange-warm-dark-vivid': $palette-orange-warm-dark-vivid,
+  'palette-orange-warm-standard': $palette-orange-warm-standard,
+  'palette-orange-warm-vivid': $palette-orange-warm-vivid,
+  'palette-orange-warm-all': $palette-orange-warm-all,
 );
