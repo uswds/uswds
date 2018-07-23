@@ -18,15 +18,15 @@ $palette-registry:(
   ),
   font:(
     mono:(
-      uswds: $palette-font-mono-uswds,
+      uswds: $palette-font-uswds-mono,
       theme: $palette-font-theme-mono,
     ),
     sans:(
-      uswds: $palette-font-sans-uswds,
+      uswds: $palette-font-uswds-sans,
       theme: $palette-font-theme-sans,
     ),
     serif:(
-      uswds: $palette-font-serif-uswds,
+      uswds: $palette-font-uswds-serif,
       theme: $palette-font-theme-serif,
     ),
     misc: map-collect(
