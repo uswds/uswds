@@ -1,18 +1,18 @@
-'use strict';
 const assert = require('assert');
 const fs = require('fs');
+const path = require('path');
 const skipnav = require('../../../src/js/components/skipnav');
 
-const TEMPLATE = fs.readFileSync(__dirname + '/template.html').toString();
+const TEMPLATE = fs.readFileSync(path.join(__dirname, '/template.html'));
 
-describe('skip nav link', function () {
-  const body = document.body;
+describe('skip nav link', () => {
+  const { body } = document;
 
   let skipLink;
   let topLink;
   let main;
 
-  beforeEach(function () {
+  beforeEach(() => {
     body.innerHTML = TEMPLATE;
     skipLink = body.querySelector('.usa-skipnav');
     topLink = body.querySelector('.usa-footer-return-to-top a');
@@ -20,17 +20,17 @@ describe('skip nav link', function () {
     skipnav.on(body);
   });
 
-  afterEach(function () {
+  afterEach(() => {
     body.innerHTML = '';
     skipnav.off(body);
   });
 
-  it('skipnav link sets tabindex="0" when clicked', function () {
+  it('skipnav link sets tabindex="0" when clicked', () => {
     skipLink.click();
     assert.equal(main.getAttribute('tabindex'), '0');
   });
 
-  it('skipnav link sets tabindex="-1" when blurred', function () {
+  it('skipnav link sets tabindex="-1" when blurred', () => {
     skipLink.click();
     assert.equal(main.getAttribute('tabindex'), '0');
 
@@ -39,7 +39,7 @@ describe('skip nav link', function () {
     assert.equal(main.getAttribute('tabindex'), '-1');
   });
 
-  it('return to top link sets tabindex="0" when clicked', function () {
+  it('return to top link sets tabindex="0" when clicked', () => {
     topLink.click();
     assert.equal(main.getAttribute('tabindex'), '0');
   });

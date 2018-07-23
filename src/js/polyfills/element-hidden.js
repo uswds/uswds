@@ -1,13 +1,13 @@
-'use strict';
+
 const elproto = window.HTMLElement.prototype;
 const HIDDEN = 'hidden';
 
 if (!(HIDDEN in elproto)) {
   Object.defineProperty(elproto, HIDDEN, {
-    get: function () {
+    get() {
       return this.hasAttribute(HIDDEN);
     },
-    set: function (value) {
+    set(value) {
       if (value) {
         this.setAttribute(HIDDEN, '');
       } else {
