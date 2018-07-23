@@ -1,0 +1,40 @@
+$palette-color-gray-warm-lighter: (
+  'gray-warm-1':  $gray-warm-1,
+  'gray-warm-2':  $gray-warm-2,
+  'gray-warm-3':  $gray-warm-3,
+  'gray-warm-4':  $gray-warm-4,
+);
+
+$palette-color-gray-warm-light: (
+  'gray-warm-5':  $gray-warm-5,
+  'gray-warm-10': $gray-warm-10,
+  'gray-warm-20': $gray-warm-20,
+  'gray-warm-30': $gray-warm-30,
+);
+
+$palette-color-gray-warm-medium: (
+  'gray-warm-40': $gray-warm-40,
+  'gray-warm-50': $gray-warm-50,
+  'gray-warm-60': $gray-warm-60,
+);
+
+$palette-color-gray-warm-dark: (
+  'gray-warm-70': $gray-warm-70,
+  'gray-warm-80': $gray-warm-80,
+  'gray-warm-90': $gray-warm-90,
+);
+
+$palette-color-gray-warm-all: map-collect(
+  $palette-color-gray-warm-lighter,
+  $palette-color-gray-warm-light,
+  $palette-color-gray-warm-medium,
+  $palette-color-gray-warm-dark
+);
+
+$palette-color-gray-warm: (
+  'palette-color-gray-warm-lighter': $palette-color-gray-warm-lighter,
+  'palette-color-gray-warm-light': $palette-color-gray-warm-light,
+  'palette-color-gray-warm-medium': $palette-color-gray-warm-medium,
+  'palette-color-gray-warm-dark': $palette-color-gray-warm-dark,
+  'palette-color-gray-warm-all': $palette-color-gray-warm-all,
+);

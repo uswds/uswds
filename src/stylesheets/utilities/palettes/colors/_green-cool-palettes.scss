@@ -1,0 +1,66 @@
+$palette-color-green-cool-light: (
+  'green-cool-5':  $green-cool-5,
+  'green-cool-10': $green-cool-10,
+  'green-cool-20': $green-cool-20,
+  'green-cool-30': $green-cool-30,
+);
+
+$palette-color-green-cool-medium: (
+  'green-cool-40': $green-cool-40,
+  'green-cool-50': $green-cool-50,
+  'green-cool-60': $green-cool-60,
+);
+
+$palette-color-green-cool-dark: (
+  'green-cool-70': $green-cool-70,
+  'green-cool-80': $green-cool-80,
+  'green-cool-90': $green-cool-90,
+);
+
+$palette-color-green-cool-light-vivid: (
+  'green-cool-5v':  $green-cool-5v,
+  'green-cool-10v': $green-cool-10v,
+  'green-cool-20v': $green-cool-20v,
+  'green-cool-30v': $green-cool-30v,
+);
+
+$palette-color-green-cool-medium-vivid: (
+  'green-cool-40v': $green-cool-40v,
+  'green-cool-50v': $green-cool-50v,
+  'green-cool-60v': $green-cool-60v,
+);
+
+$palette-color-green-cool-dark-vivid: (
+  'green-cool-70v': $green-cool-70v,
+  'green-cool-80v': $green-cool-80v,
+  'green-cool-90v': $green-cool-90v,
+);
+
+$palette-color-green-cool-standard: map-collect(
+  $palette-color-green-cool-light,
+  $palette-color-green-cool-medium,
+  $palette-color-green-cool-dark
+);
+
+$palette-color-green-cool-vivid: map-collect(
+  $palette-color-green-cool-light-vivid,
+  $palette-color-green-cool-medium-vivid,
+  $palette-color-green-cool-dark-vivid
+);
+
+$palette-color-green-cool-all: map-collect(
+  $palette-color-green-cool-standard,
+  $palette-color-green-cool-vivid
+);
+
+$palette-color-green-cool: (
+  'palette-color-green-cool-light': $palette-color-green-cool-light,
+  'palette-color-green-cool-medium': $palette-color-green-cool-medium,
+  'palette-color-green-cool-dark': $palette-color-green-cool-dark,
+  'palette-color-green-cool-light-vivid': $palette-color-green-cool-light-vivid,
+  'palette-color-green-cool-medium-vivid': $palette-color-green-cool-medium-vivid,
+  'palette-color-green-cool-dark-vivid': $palette-color-green-cool-dark-vivid,
+  'palette-color-green-cool-standard': $palette-color-green-cool-standard,
+  'palette-color-green-cool-vivid': $palette-color-green-cool-vivid,
+  'palette-color-green-cool-all': $palette-color-green-cool-all,
+);

@@ -19,7 +19,7 @@ $u-min-height: (
     base: 'minh',
     modifiers: null,
     values: map-collect(
-      get-plugins($min-height-plugins),
+      get-palettes($min-height-palettes),
       $min-height-manual-values
     ),
     settings: $min-height-settings,

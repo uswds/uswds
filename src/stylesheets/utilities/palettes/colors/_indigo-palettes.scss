@@ -1,0 +1,66 @@
+$palette-color-indigo-light: (
+  'indigo-5':  $indigo-5,
+  'indigo-10': $indigo-10,
+  'indigo-20': $indigo-20,
+  'indigo-30': $indigo-30,
+);
+
+$palette-color-indigo-medium: (
+  'indigo-40': $indigo-40,
+  'indigo-50': $indigo-50,
+  'indigo-60': $indigo-60,
+);
+
+$palette-color-indigo-dark: (
+  'indigo-70': $indigo-70,
+  'indigo-80': $indigo-80,
+  'indigo-90': $indigo-90,
+);
+
+$palette-color-indigo-light-vivid: (
+  'indigo-5v':  $indigo-5v,
+  'indigo-10v': $indigo-10v,
+  'indigo-20v': $indigo-20v,
+  'indigo-30v': $indigo-30v,
+);
+
+$palette-color-indigo-medium-vivid: (
+  'indigo-40v': $indigo-40v,
+  'indigo-50v': $indigo-50v,
+  'indigo-60v': $indigo-60v,
+);
+
+$palette-color-indigo-dark-vivid: (
+  'indigo-70v': $indigo-70v,
+  'indigo-80v': $indigo-80v,
+  'indigo-90v': $indigo-90v,
+);
+
+$palette-color-indigo-standard: map-collect(
+  $palette-color-indigo-light,
+  $palette-color-indigo-medium,
+  $palette-color-indigo-dark
+);
+
+$palette-color-indigo-vivid: map-collect(
+  $palette-color-indigo-light-vivid,
+  $palette-color-indigo-medium-vivid,
+  $palette-color-indigo-dark-vivid
+);
+
+$palette-color-indigo-all: map-collect(
+  $palette-color-indigo-standard,
+  $palette-color-indigo-vivid
+);
+
+$palette-color-indigo: (
+  'palette-color-indigo-light': $palette-color-indigo-light,
+  'palette-color-indigo-medium': $palette-color-indigo-medium,
+  'palette-color-indigo-dark': $palette-color-indigo-dark,
+  'palette-color-indigo-light-vivid': $palette-color-indigo-light-vivid,
+  'palette-color-indigo-medium-vivid': $palette-color-indigo-medium-vivid,
+  'palette-color-indigo-dark-vivid': $palette-color-indigo-dark-vivid,
+  'palette-color-indigo-standard': $palette-color-indigo-standard,
+  'palette-color-indigo-vivid': $palette-color-indigo-vivid,
+  'palette-color-indigo-all': $palette-color-indigo-all,
+);

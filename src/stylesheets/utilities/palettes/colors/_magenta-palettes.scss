@@ -1,0 +1,66 @@
+$palette-color-magenta-light: (
+  'magenta-5':  $magenta-5,
+  'magenta-10': $magenta-10,
+  'magenta-20': $magenta-20,
+  'magenta-30': $magenta-30,
+);
+
+$palette-color-magenta-medium: (
+  'magenta-40': $magenta-40,
+  'magenta-50': $magenta-50,
+  'magenta-60': $magenta-60,
+);
+
+$palette-color-magenta-dark: (
+  'magenta-70': $magenta-70,
+  'magenta-80': $magenta-80,
+  'magenta-90': $magenta-90,
+);
+
+$palette-color-magenta-light-vivid: (
+  'magenta-5v':  $magenta-5v,
+  'magenta-10v': $magenta-10v,
+  'magenta-20v': $magenta-20v,
+  'magenta-30v': $magenta-30v,
+);
+
+$palette-color-magenta-medium-vivid: (
+  'magenta-40v': $magenta-40v,
+  'magenta-50v': $magenta-50v,
+  'magenta-60v': $magenta-60v,
+);
+
+$palette-color-magenta-dark-vivid: (
+  'magenta-70v': $magenta-70v,
+  'magenta-80v': $magenta-80v,
+  'magenta-90v': $magenta-90v,
+);
+
+$palette-color-magenta-standard: map-collect(
+  $palette-color-magenta-light,
+  $palette-color-magenta-medium,
+  $palette-color-magenta-dark
+);
+
+$palette-color-magenta-vivid: map-collect(
+  $palette-color-magenta-light-vivid,
+  $palette-color-magenta-medium-vivid,
+  $palette-color-magenta-dark-vivid
+);
+
+$palette-color-magenta-all: map-collect(
+  $palette-color-magenta-standard,
+  $palette-color-magenta-vivid
+);
+
+$palette-color-magenta: (
+  'palette-color-magenta-light': $palette-color-magenta-light,
+  'palette-color-magenta-medium': $palette-color-magenta-medium,
+  'palette-color-magenta-dark': $palette-color-magenta-dark,
+  'palette-color-magenta-light-vivid': $palette-color-magenta-light-vivid,
+  'palette-color-magenta-medium-vivid': $palette-color-magenta-medium-vivid,
+  'palette-color-magenta-dark-vivid': $palette-color-magenta-dark-vivid,
+  'palette-color-magenta-standard': $palette-color-magenta-standard,
+  'palette-color-magenta-vivid': $palette-color-magenta-vivid,
+  'palette-color-magenta-all': $palette-color-magenta-all,
+);

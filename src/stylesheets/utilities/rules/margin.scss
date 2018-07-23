@@ -25,7 +25,7 @@ $u-margin: (
       noModifier: '',
     ),
     values: map-collect(
-      get-plugins($margin-plugins),
+      get-palettes($margin-palettes),
       $margin-manual-values
     ),
     settings: $margin-settings,
@@ -40,7 +40,7 @@ $u-margin: (
       'bottom': '-bottom',
     ),
     values: map-collect(
-      get-plugins($margin-vertical-plugins),
+      get-palettes($margin-vertical-palettes),
       $margin-manual-values
     ),
     settings: $margin-settings,
@@ -55,7 +55,7 @@ $u-margin: (
       'left': '-left',
     ),
     values: map-collect(
-      get-plugins($margin-horizontal-plugins),
+      get-palettes($margin-horizontal-palettes),
       $margin-manual-values
     ),
     settings: $margin-settings,

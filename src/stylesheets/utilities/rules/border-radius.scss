@@ -29,7 +29,7 @@ $u-border-radius: (
     ),
     property: '',
     values: map-collect(
-      get-plugins($border-radius-plugins),
+      get-palettes($border-radius-palettes),
       $border-radius-manual-values
     ),
     settings: $border-radius-settings,

@@ -1,0 +1,66 @@
+$palette-color-indigo-cool-light: (
+  'indigo-cool-5':  $indigo-cool-5,
+  'indigo-cool-10': $indigo-cool-10,
+  'indigo-cool-20': $indigo-cool-20,
+  'indigo-cool-30': $indigo-cool-30,
+);
+
+$palette-color-indigo-cool-medium: (
+  'indigo-cool-40': $indigo-cool-40,
+  'indigo-cool-50': $indigo-cool-50,
+  'indigo-cool-60': $indigo-cool-60,
+);
+
+$palette-color-indigo-cool-dark: (
+  'indigo-cool-70': $indigo-cool-70,
+  'indigo-cool-80': $indigo-cool-80,
+  'indigo-cool-90': $indigo-cool-90,
+);
+
+$palette-color-indigo-cool-light-vivid: (
+  'indigo-cool-5v':  $indigo-cool-5v,
+  'indigo-cool-10v': $indigo-cool-10v,
+  'indigo-cool-20v': $indigo-cool-20v,
+  'indigo-cool-30v': $indigo-cool-30v,
+);
+
+$palette-color-indigo-cool-medium-vivid: (
+  'indigo-cool-40v': $indigo-cool-40v,
+  'indigo-cool-50v': $indigo-cool-50v,
+  'indigo-cool-60v': $indigo-cool-60v,
+);
+
+$palette-color-indigo-cool-dark-vivid: (
+  'indigo-cool-70v': $indigo-cool-70v,
+  'indigo-cool-80v': $indigo-cool-80v,
+  'indigo-cool-90v': $indigo-cool-90v,
+);
+
+$palette-color-indigo-cool-standard: map-collect(
+  $palette-color-indigo-cool-light,
+  $palette-color-indigo-cool-medium,
+  $palette-color-indigo-cool-dark
+);
+
+$palette-color-indigo-cool-vivid: map-collect(
+  $palette-color-indigo-cool-light-vivid,
+  $palette-color-indigo-cool-medium-vivid,
+  $palette-color-indigo-cool-dark-vivid
+);
+
+$palette-color-indigo-cool-all: map-collect(
+  $palette-color-indigo-cool-standard,
+  $palette-color-indigo-cool-vivid
+);
+
+$palette-color-indigo-cool: (
+  'palette-color-indigo-cool-light': $palette-color-indigo-cool-light,
+  'palette-color-indigo-cool-medium': $palette-color-indigo-cool-medium,
+  'palette-color-indigo-cool-dark': $palette-color-indigo-cool-dark,
+  'palette-color-indigo-cool-light-vivid': $palette-color-indigo-cool-light-vivid,
+  'palette-color-indigo-cool-medium-vivid': $palette-color-indigo-cool-medium-vivid,
+  'palette-color-indigo-cool-dark-vivid': $palette-color-indigo-cool-dark-vivid,
+  'palette-color-indigo-cool-standard': $palette-color-indigo-cool-standard,
+  'palette-color-indigo-cool-vivid': $palette-color-indigo-cool-vivid,
+  'palette-color-indigo-cool-all': $palette-color-indigo-cool-all,
+);

@@ -19,7 +19,7 @@ $u-float: (
     base: 'float',
     modifiers: null,
     values: map-collect(
-      get-plugins($float-plugins),
+      get-palettes($float-palettes),
       $float-manual-values
     ),
     settings: $float-settings,

@@ -20,9 +20,9 @@ $u-background-color: (
     modifiers: null,
     property: 'background-color',
     values: map-collect(
-      get-plugins($background-color-plugins),
-      get-plugins('plugin-color-palette-required'),
-      get-plugins($global-color-plugins),
+      get-palettes($background-color-palettes),
+      get-palettes('palette-color-palette-required'),
+      get-palettes($global-color-palettes),
       $background-color-manual-values
     ),
     settings: $background-color-settings,

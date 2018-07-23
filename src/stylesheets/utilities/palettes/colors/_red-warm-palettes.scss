@@ -1,0 +1,66 @@
+$palette-color-red-warm-light: (
+  'red-warm-5':  $red-warm-5,
+  'red-warm-10': $red-warm-10,
+  'red-warm-20': $red-warm-20,
+  'red-warm-30': $red-warm-30,
+);
+
+$palette-color-red-warm-medium: (
+  'red-warm-40': $red-warm-40,
+  'red-warm-50': $red-warm-50,
+  'red-warm-60': $red-warm-60,
+);
+
+$palette-color-red-warm-dark: (
+  'red-warm-70': $red-warm-70,
+  'red-warm-80': $red-warm-80,
+  'red-warm-90': $red-warm-90,
+);
+
+$palette-color-red-warm-light-vivid: (
+  'red-warm-5v':  $red-warm-5v,
+  'red-warm-10v': $red-warm-10v,
+  'red-warm-20v': $red-warm-20v,
+  'red-warm-30v': $red-warm-30v,
+);
+
+$palette-color-red-warm-medium-vivid: (
+  'red-warm-40v': $red-warm-40v,
+  'red-warm-50v': $red-warm-50v,
+  'red-warm-60v': $red-warm-60v,
+);
+
+$palette-color-red-warm-dark-vivid: (
+  'red-warm-70v': $red-warm-70v,
+  'red-warm-80v': $red-warm-80v,
+  'red-warm-90v': $red-warm-90v,
+);
+
+$palette-color-red-warm-standard: map-collect(
+  $palette-color-red-warm-light,
+  $palette-color-red-warm-medium,
+  $palette-color-red-warm-dark
+);
+
+$palette-color-red-warm-vivid: map-collect(
+  $palette-color-red-warm-light-vivid,
+  $palette-color-red-warm-medium-vivid,
+  $palette-color-red-warm-dark-vivid
+);
+
+$palette-color-red-warm-all: map-collect(
+  $palette-color-red-warm-standard,
+  $palette-color-red-warm-vivid
+);
+
+$palette-color-red-warm: (
+  'palette-color-red-warm-light': $palette-color-red-warm-light,
+  'palette-color-red-warm-medium': $palette-color-red-warm-medium,
+  'palette-color-red-warm-dark': $palette-color-red-warm-dark,
+  'palette-color-red-warm-light-vivid': $palette-color-red-warm-light-vivid,
+  'palette-color-red-warm-medium-vivid': $palette-color-red-warm-medium-vivid,
+  'palette-color-red-warm-dark-vivid': $palette-color-red-warm-dark-vivid,
+  'palette-color-red-warm-standard': $palette-color-red-warm-standard,
+  'palette-color-red-warm-vivid': $palette-color-red-warm-vivid,
+  'palette-color-red-warm-all': $palette-color-red-warm-all,
+);

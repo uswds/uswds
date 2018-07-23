@@ -1,0 +1,69 @@
+/*
+========================================
+PALETTE REGISTRY
+----------------------------------------
+This map collects and organizes the
+available utility palettes to allow
+get-palette() to find the proper palette
+without traversing an entire map
+with each call
+----------------------------------------
+*/
+
+
+$palette-registry:(
+  spacing:(
+    units: $palette-spacing-units,
+    uswds: $palette-spacing-uswds,
+  ),
+  font:(
+    mono:(
+      uswds: $palette-font-mono-uswds,
+      theme: $palette-font-theme-mono,
+    ),
+    sans:(
+      uswds: $palette-font-sans-uswds,
+      theme: $palette-font-theme-sans,
+    ),
+    serif:(
+      uswds: $palette-font-serif-uswds,
+      theme: $palette-font-theme-serif,
+    ),
+    misc: map-collect(
+      $palette-font,
+      $palette-font-uswds-all,
+      $palette-font-theme-all,
+      $palette-font-theme-roles-all
+    ),
+  ),
+  color:(
+    palettes: $palette-palettes,
+    black-transparent: $palette-color-black-transparent,
+    blue-warm: $palette-color-blue-warm,
+    blue: $palette-color-blue,
+    cyan: $palette-color-cyan,
+    gray-cool: $palette-color-gray-cool,
+    gray-warm: $palette-color-gray-warm,
+    gray: $palette-color-gray,
+    gold: $palette-color-gold,
+    green-cool: $palette-color-green-cool,
+    green-warm: $palette-color-green-warm,
+    green: $palette-color-green,
+    indigo-cool: $palette-color-indigo-cool,
+    indigo-warm: $palette-color-indigo-warm,
+    indigo: $palette-color-indigo,
+    magenta: $palette-color-magenta,
+    mint-cool: $palette-color-mint-cool,
+    mint: $palette-color-mint,
+    orange-warm: $palette-color-orange-warm,
+    orange: $palette-color-orange,
+    red-warm: $palette-color-red-warm,
+    red: $palette-color-red,
+    violet-warm: $palette-color-violet-warm,
+    violet: $palette-color-violet,
+    white-transparent: $palette-color-white-transparent,
+    yellow: $palette-color-yellow,
+    misc: $palette-color-all,
+  ),
+  standard: $palette-standard,
+);

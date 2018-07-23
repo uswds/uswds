@@ -23,7 +23,7 @@ $u-square: (
       square: (height, width),
     ),
     values: map-collect(
-      get-plugins($square-plugins),
+      get-palettes($square-palettes),
       $square-manual-values
     ),
     settings: $square-settings,

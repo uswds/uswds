@@ -1,0 +1,66 @@
+$palette-color-green-light: (
+  'green-5':  $green-5,
+  'green-10': $green-10,
+  'green-20': $green-20,
+  'green-30': $green-30,
+);
+
+$palette-color-green-medium: (
+  'green-40': $green-40,
+  'green-50': $green-50,
+  'green-60': $green-60,
+);
+
+$palette-color-green-dark: (
+  'green-70': $green-70,
+  'green-80': $green-80,
+  'green-90': $green-90,
+);
+
+$palette-color-green-light-vivid: (
+  'green-5v':  $green-5v,
+  'green-10v': $green-10v,
+  'green-20v': $green-20v,
+  'green-30v': $green-30v,
+);
+
+$palette-color-green-medium-vivid: (
+  'green-40v': $green-40v,
+  'green-50v': $green-50v,
+  'green-60v': $green-60v,
+);
+
+$palette-color-green-dark-vivid: (
+  'green-70v': $green-70v,
+  'green-80v': $green-80v,
+  'green-90v': $green-90v,
+);
+
+$palette-color-green-standard: map-collect(
+  $palette-color-green-light,
+  $palette-color-green-medium,
+  $palette-color-green-dark
+);
+
+$palette-color-green-vivid: map-collect(
+  $palette-color-green-light-vivid,
+  $palette-color-green-medium-vivid,
+  $palette-color-green-dark-vivid
+);
+
+$palette-color-green-all: map-collect(
+  $palette-color-green-standard,
+  $palette-color-green-vivid
+);
+
+$palette-color-green: (
+  'palette-color-green-light': $palette-color-green-light,
+  'palette-color-green-medium': $palette-color-green-medium,
+  'palette-color-green-dark': $palette-color-green-dark,
+  'palette-color-green-light-vivid': $palette-color-green-light-vivid,
+  'palette-color-green-medium-vivid': $palette-color-green-medium-vivid,
+  'palette-color-green-dark-vivid': $palette-color-green-dark-vivid,
+  'palette-color-green-standard': $palette-color-green-standard,
+  'palette-color-green-vivid': $palette-color-green-vivid,
+  'palette-color-green-all': $palette-color-green-all,
+);

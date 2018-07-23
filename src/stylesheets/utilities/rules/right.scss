@@ -21,7 +21,7 @@ $u-right: (
     base: 'right',
     modifiers: null,
     values: map-collect(
-      get-plugins($right-plugins),
+      get-palettes($right-palettes),
       $right-manual-values
     ),
     settings: $right-settings,

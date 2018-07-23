@@ -19,7 +19,7 @@ $u-line-height: (
     base: 'line-height',
     modifiers: null,
     values: map-collect(
-      get-plugins($line-height-plugins),
+      get-palettes($line-height-palettes),
       $line-height-manual-values
     ),
     settings: $line-height-settings,

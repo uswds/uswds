@@ -1,0 +1,66 @@
+$palette-color-mint-light: (
+  'mint-5':  $mint-5,
+  'mint-10': $mint-10,
+  'mint-20': $mint-20,
+  'mint-30': $mint-30,
+);
+
+$palette-color-mint-medium: (
+  'mint-40': $mint-40,
+  'mint-50': $mint-50,
+  'mint-60': $mint-60,
+);
+
+$palette-color-mint-dark: (
+  'mint-70': $mint-70,
+  'mint-80': $mint-80,
+  'mint-90': $mint-90,
+);
+
+$palette-color-mint-light-vivid: (
+  'mint-5v':  $mint-5v,
+  'mint-10v': $mint-10v,
+  'mint-20v': $mint-20v,
+  'mint-30v': $mint-30v,
+);
+
+$palette-color-mint-medium-vivid: (
+  'mint-40v': $mint-40v,
+  'mint-50v': $mint-50v,
+  'mint-60v': $mint-60v,
+);
+
+$palette-color-mint-dark-vivid: (
+  'mint-70v': $mint-70v,
+  'mint-80v': $mint-80v,
+  'mint-90v': $mint-90v,
+);
+
+$palette-color-mint-standard: map-collect(
+  $palette-color-mint-light,
+  $palette-color-mint-medium,
+  $palette-color-mint-dark
+);
+
+$palette-color-mint-vivid: map-collect(
+  $palette-color-mint-light-vivid,
+  $palette-color-mint-medium-vivid,
+  $palette-color-mint-dark-vivid
+);
+
+$palette-color-mint-all: map-collect(
+  $palette-color-mint-standard,
+  $palette-color-mint-vivid
+);
+
+$palette-color-mint: (
+  'palette-color-mint-light': $palette-color-mint-light,
+  'palette-color-mint-medium': $palette-color-mint-medium,
+  'palette-color-mint-dark': $palette-color-mint-dark,
+  'palette-color-mint-light-vivid': $palette-color-mint-light-vivid,
+  'palette-color-mint-medium-vivid': $palette-color-mint-medium-vivid,
+  'palette-color-mint-dark-vivid': $palette-color-mint-dark-vivid,
+  'palette-color-mint-standard': $palette-color-mint-standard,
+  'palette-color-mint-vivid': $palette-color-mint-vivid,
+  'palette-color-mint-all': $palette-color-mint-all,
+);

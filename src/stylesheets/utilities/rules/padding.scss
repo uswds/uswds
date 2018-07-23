@@ -30,7 +30,7 @@ $u-padding: (
       'left': '-left',
     ),
     values: map-collect(
-      get-plugins($padding-plugins),
+      get-palettes($padding-palettes),
       $padding-manual-values
     ),
     settings: $padding-settings,

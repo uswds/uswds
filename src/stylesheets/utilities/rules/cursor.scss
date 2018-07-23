@@ -19,7 +19,7 @@ $u-cursor: (
     base: 'cursor',
     modifiers: null,
     values: map-collect(
-      get-plugins($cursor-plugins),
+      get-palettes($cursor-palettes),
       $cursor-manual-values
     ),
     settings: $cursor-settings,

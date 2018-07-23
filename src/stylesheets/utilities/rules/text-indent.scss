@@ -19,7 +19,7 @@ $u-text-indent: (
     base: 'text-indent',
     modifiers: null,
     values: map-collect(
-      get-plugins($text-indent-plugins),
+      get-palettes($text-indent-palettes),
       $text-indent-manual-values
     ),
     settings: $text-indent-settings,
