@@ -14,12 +14,22 @@ const AXE_CONTEXT = JSON.stringify({
 });
 
 const AXE_OPTIONS = JSON.stringify({
+  runOnly: {
+    type: 'tag',
+    values: [ 'section508', 'wcag2a', 'wcag2aa', 'best-practice' ],
+  },
   rules: {
     // Not all our examples need "skip to main content" links, so
     // ignore that rule.
     'bypass': { enabled: false },
     // Nor do all our examples need main landmarks...
     'landmark-one-main': { enabled: false },
+    // Not all content will be in a landmark region
+    'region': { enabled: false },
+    // Not all examples have skip-link as a first element
+    'skip-link': { enabled: false },
+    // Links can have an href '#' here
+    'href-no-hash': { enabled: false },
   },
 });
 
@@ -30,7 +40,7 @@ const RUN_AXE_FUNC_JS = function runAxe (context, options) {
   return new Promise((resolve, reject) => {
     window.axe.run(context, options, (err, results) => {
       if (err) return reject(err);
-      resolve(JSON.stringify(results.violations));
+      return resolve(JSON.stringify(results.violations));
     });
   });
 }.toString();

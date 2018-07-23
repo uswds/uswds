@@ -196,15 +196,19 @@ legend {
 [type=checkbox] + label::before,
 [type=radio] + label::before {
   background: $color-white;
-  border-radius: $checkbox-border-radius;
-  box-shadow: 0 0 0 1px $color-gray-medium;
   content: '\a0';
   display: inline-block;
-  height: $spacing-medium;
-  line-height: $spacing-medium;
-  margin-right: 0.6em;
   text-indent: 0.15em;
   vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
+}
+
+[type=checkbox] + label::before {
+  border-radius: $checkbox-border-radius;
+  box-shadow: 0 0 0 1px $color-gray-medium;
+  height: $spacing-medium;
+  line-height: $spacing-medium;
+  margin-left: 1px;
+  margin-right: 0.6em;
   width: $spacing-medium;
 }
 
@@ -213,6 +217,7 @@ legend {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-gray-medium;
   height: 1.4rem; // Size overrides to account for shape + checked styling
   line-height: 1.4rem;
+  margin-left: 3px;
   margin-right: 0.75em;
   width: 1.4rem;
 }
@@ -338,19 +343,26 @@ legend {
 
 // Memorable dates
 
-.usa-date-of-birth {
+.usa-date-of-birth { /* stylelint-disable-line */
   label {
     margin-top: 0;
   }
 
-  [type=number]::-webkit-inner-spin-button,
-  [type=number]::-webkit-outer-spin-button {
-    appearance: none;
-    margin: 0;
-  }
-
   [type=number] {
     -moz-appearance: textfield;
+
+    &::-webkit-inner-spin-button {
+      appearance: none;
+    }
+
+    &::-webkit-contacts-auto-fill-button {
+      visibility: hidden;
+      display: none !important; /* stylelint-disable-line declaration-no-important */
+      pointer-events: none;
+      height: 0;
+      width: 0;
+      margin: 0;
+    }
   }
 }
 

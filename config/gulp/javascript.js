@@ -72,7 +72,9 @@ gulp.task('eslint', function (done) {
       'src/js/**/*.js',
       'spec/**/*.js'
     ])
-    .pipe(eslint())
+    .pipe(eslint({
+      fix: true,
+    }))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });

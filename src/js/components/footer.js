@@ -1,12 +1,11 @@
-'use strict';
-const accordion = require('./accordion');
-const behavior = require('../utils/behavior');
+
 const debounce = require('lodash.debounce');
 const forEach = require('array-foreach');
+const behavior = require('../utils/behavior');
 const select = require('../utils/select');
 
-const CLICK = require('../events').CLICK;
-const PREFIX = require('../config').prefix;
+const { CLICK } = require('../events');
+const { prefix: PREFIX } = require('../config');
 
 const HIDDEN = 'hidden';
 const SCOPE = `.${PREFIX}-footer-big`;
@@ -17,7 +16,7 @@ const LIST = `${NAV} ul`;
 const HIDE_MAX_WIDTH = 600;
 const DEBOUNCE_RATE = 180;
 
-const showPanel = function () {
+function showPanel() {
   if (window.innerWidth < HIDE_MAX_WIDTH) {
     const list = this.closest(LIST);
     list.classList.toggle(HIDDEN);
@@ -27,36 +26,36 @@ const showPanel = function () {
     const lists = list.closest(NAV)
       .querySelectorAll('ul');
 
-    forEach(lists, el => {
+    forEach(lists, (el) => {
       if (el !== list) {
         el.classList.add(HIDDEN);
       }
     });
   }
-};
+}
 
 const resize = debounce(() => {
   const hidden = window.innerWidth < HIDE_MAX_WIDTH;
-  forEach(select(LIST), list => {
+  forEach(select(LIST), (list) => {
     list.classList.toggle(HIDDEN, hidden);
   });
 }, DEBOUNCE_RATE);
 
 module.exports = behavior({
-  [ CLICK ]: {
-    [ BUTTON ]: showPanel,
+  [CLICK]: {
+    [BUTTON]: showPanel,
   },
 }, {
   // export for use elsewhere
   HIDE_MAX_WIDTH,
   DEBOUNCE_RATE,
 
-  init: target => {
+  init() {
     resize();
     window.addEventListener('resize', resize);
   },
 
-  teardown: target => {
+  teardown() {
     window.removeEventListener('resize', resize);
   },
 });

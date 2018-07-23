@@ -1,50 +1,55 @@
-var should = require('should');
-var dispatch = require('../../src/js/utils/dispatch');
+require('should');
+const dispatch = require('../../src/js/utils/dispatch');
 
-describe('1.x dispatch', function () {
+function click(el) {
+  const evt = document.createEvent('HTMLEvents');
+  evt.initEvent('click', false, true);
+  el.dispatchEvent(evt);
+}
 
-  var oldDocument = global.document;
+function touchstart(el) {
+  const evt = document.createEvent('HTMLEvents');
+  evt.initEvent('touchstart', false, true);
+  el.dispatchEvent(evt);
+}
 
-  /*
-  after(function () {
-    global.document = oldDocument;
-    global.window = document.defaultView;
+describe('1.x dispatch', () => {
+  let flag = false;
+  const element = document.body;
+  const listener = () => {
+    flag = true;
+  };
+
+  const createDispatcher = eventName => dispatch(element, eventName, listener);
+
+  afterEach(() => {
+    flag = false;
   });
-  */
 
-  it('attaches an event to an element', function () {
-    var element = document.body;
-    var flag = false;
-    var listener = function (e) { flag = true; };
-    var dispatcher = dispatch(element, 'click', listener);
+  it('attaches an event to an element', () => {
+    const dispatcher = createDispatcher('click');
     click(element);
     flag.should.equal(true);
     dispatcher.off();
   });
 
-  it('can attach a listener for multiple events', function () {
-    var element = document.body;
-    var flag = false;
-    var listener = function (e) { flag = true; };
-    var dispatcher = dispatch(element, 'click touchstart', listener);
-    
+  it('can attach a listener for multiple events', () => {
+    const dispatcher = createDispatcher('click touchstart');
+
     click(element);
     flag.should.equal(true);
-    
+
     flag = false;
     touchstart(element);
     flag.should.equal(true);
-    
-    dispatcher.off();    
+
+    dispatcher.off();
   });
 
-  describe('it returns an object which', function () {
-    it('contains an "off" method for detaching the listener', function () {
+  describe('it returns an object which', () => {
+    it('contains an "off" method for detaching the listener', () => {
       // confirm that the listener has been added
-      var element = document.body;
-      var flag = false;
-      var listener = function (e) { flag = true; };
-      var dispatcher = dispatch(element, 'click touchstart', listener);
+      const dispatcher = createDispatcher('click touchstart');
       click(element);
       flag.should.equal(true);
       // now detach it
@@ -53,29 +58,14 @@ describe('1.x dispatch', function () {
       click(element);
       flag.should.equal(false);
       touchstart(element);
-      flag.should.equal(false);      
+      flag.should.equal(false);
     });
 
-    it('contains a "trigger" method for calling the listener', function () {
-      var element = document.body;
-      var flag = false;
-      var listener = function (e) { flag = true; };
-      var dispatcher = dispatch(element, 'click', listener);
+    it('contains a "trigger" method for calling the listener', () => {
+      const dispatcher = createDispatcher('click');
       dispatcher.trigger();
       flag.should.equal(true);
-      dispatcher.off();      
+      dispatcher.off();
     });
   });
 });
-
-function click (el) {
-  var evt = document.createEvent('HTMLEvents');
-  evt.initEvent('click', false, true);
-  el.dispatchEvent(evt);
-}
-
-function touchstart (el) {
-  var evt = document.createEvent('HTMLEvents');
-  evt.initEvent('touchstart', false, true);
-  el.dispatchEvent(evt);
-}

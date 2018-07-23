@@ -1,16 +1,14 @@
-'use strict';
-
 const os = require('os');
 const urlParse = require('url').parse;
 const chromeLauncher = require('chrome-launcher');
 const CDP = require('chrome-remote-interface');
 const fractal = require('../fractal');
 
-const REMOTE_CHROME_URL = process.env[ 'REMOTE_CHROME_URL' ];
+const { REMOTE_CHROME_URL } = process.env;
 const HOSTNAME = REMOTE_CHROME_URL ? os.hostname().toLowerCase()
                                    : 'localhost';
 
-function launchChromeLocally (headless=true) {
+function launchChromeLocally(headless = true) {
   return chromeLauncher.launch({
     chromeFlags: [
       '--disable-gpu',
@@ -60,7 +58,7 @@ function getHandles () {
 
 const getChrome = REMOTE_CHROME_URL ? getRemoteChrome : launchChromeLocally;
 const server = fractal.web.server({ sync: false });
-const autobind = self => name => { self[ name ] = self[ name ].bind(self); };
+const autobind = self => name => { self[ name ] = self[ name ].bind(self); }; // eslint-disable-line
 
 class ChromeFractalTester {
   constructor () {
