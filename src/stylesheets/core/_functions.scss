@@ -978,6 +978,15 @@ the desired final units (currently rem)
   @if type-of($value) == 'list' and length($value) == 1 {
     $value: nth($value, 1);
   }
+  @if type-of($value) == 'string' {
+    $value: smart-quote($value);
+    @if map-has-key($project-spacing-named, $value) {
+      @return map-get($project-spacing-standard, $value);
+    }
+    @else {
+      @error "`#{$value}` is not a valid named spacing unit. Valid named spacing unit values: #{map-keys($project-spacing-named)}";
+    }
+  }
   @if type-of($value) == 'number' and unitless($value) {
     @return grid-units($value);
   }
@@ -991,10 +1000,6 @@ the desired final units (currently rem)
     }
     @elseif $value == false {
       @return false;
-    }
-    @elseif type-of($value) == 'number' and not unitless($value) {
-      @warn "`#{$value}` is not a standard USWDS unit. This is OK, but consider using a standard spacing unit instead.";
-      @return $value;
     }
     @else {
       @error "`#{$value}` is not a valid spacing unit. Valid spacing unit values: #{map-keys($project-spacing-standard)}";

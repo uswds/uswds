@@ -8,18 +8,18 @@
     $important: ' !important';
   }
   @if $side == all {
-    padding: units($value...)#{$important};
+    padding: get-uswds-value(padding, $value...)#{$important};
   }
   @elseif $side == x {
-    padding-left: units($value...)#{$important};
-    padding-right: units($value...)#{$important};
+    padding-left: get-uswds-value(padding, $value...)#{$important};
+    padding-right: get-uswds-value(padding, $value...)#{$important};
   }
   @elseif $side == y {
-    padding-bottom: units($value...)#{$important};
-    padding-top: units($value...)#{$important};
+    padding-bottom: get-uswds-value(padding, $value...)#{$important};
+    padding-top: get-uswds-value(padding, $value...)#{$important};
   }
   @else {
-    padding-#{$side}: units($value...)#{$important};
+    padding-#{$side}: get-uswds-value(padding, $value...)#{$important};
   }
 }
 
