@@ -1,9 +1,9 @@
-'use strict';
 const fs = require('fs');
+const path = require('path');
 const assert = require('assert');
 const validator = require('../../../src/js/components/validator');
 
-const TEMPLATE = fs.readFileSync(__dirname + '/template.html').toString();
+const TEMPLATE = fs.readFileSync(path.join(__dirname, '/template.html'));
 
 const INPUT_SELECTOR = '[data-validation-element]';
 const VALIDATORS = '[data-validator]';
@@ -15,12 +15,12 @@ const keyup = el => {
   );
 };
 
-describe('validator component', function () {
-  const body = document.body;
+describe('validator component', () => {
+  const { body } = document;
   let validated;
   let validators;
 
-  beforeEach(function () {
+  beforeEach(() => {
     body.innerHTML = TEMPLATE;
 
     validated = document.querySelector(INPUT_SELECTOR);
@@ -29,14 +29,14 @@ describe('validator component', function () {
     validator.on(body);
   });
 
-  afterEach(function () {
+  afterEach(() => {
     body.textContent = '';
     validator.off(body);
   });
 
-  describe('validation state', function () {
+  describe('validation state', () => {
 
-    it('adds .' + CHECKED_CLASS + ' for all successful validations', function () {
+    it('adds .' + CHECKED_CLASS + ' for all successful validations', () => {
       validated.value = 'GreatPassword1';
       keyup(validated);
       validators.forEach(checkbox => {
@@ -44,7 +44,7 @@ describe('validator component', function () {
       });
     });
 
-    it('removes .' + CHECKED_CLASS + ' for failed validations', function () {
+    it('removes .' + CHECKED_CLASS + ' for failed validations', () => {
       validated.value = 'GreatPassword';
       keyup(validated);
       validators.forEach(checkbox => {

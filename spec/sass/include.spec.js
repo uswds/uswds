@@ -1,35 +1,36 @@
-'use strict';
-const assert = require('assert');
-const sass = require('node-sass');
+require('node-sass');
 const path = require('path');
 const { runGulp, distScssPath, render } = require('./util');
 
 const includePath = path.resolve(
   path.join(
     __dirname,
-    '../../src/stylesheets'
-  )
+    '../../src/stylesheets',
+  ),
 );
 
-describe('include paths', function () {
-
-  it('can be loaded with @import "uswds"', function () {
-    this.timeout(20000);
-    return render('@import "uswds";', [ includePath ]);
+describe('include paths', () => {
+  it('can be loaded with @import "uswds"', () => {
+    render('@import "uswds";', [includePath]);
   });
 
+  it('can be loaded with @import "all"', () => {
+    render('@import "all";', [includePath]);
+  });
 });
 
-describe('standalone dist scss', function () {
-
-  before(function () {
-    this.timeout(10000);
-    return runGulp('copy-dist-sass');
+describe('standalone dist scss', () => {
+  before(() => {
+    setTimeout(() => {
+      runGulp('copy-dist-sass');
+    }, 20000);
   });
 
-  it('can be loaded with @import "uswds"', function () {
-    this.timeout(10000);
-    return render('@import "uswds";', [ distScssPath ]);
+  it('can be loaded with @import "uswds"', () => {
+    render('@import "uswds";', [distScssPath]);
   });
 
+  it('can be loaded with @import "all"', () => {
+    render('@import "all";', [distScssPath]);
+  });
 });

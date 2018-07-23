@@ -1,12 +1,11 @@
-'use strict';
 const assert = require('assert');
 const fs = require('fs');
+const path = require('path');
 const behavior = require('../../../src/js/components/footer');
 
-const TEMPLATE = fs.readFileSync(__dirname + '/template.html').toString();
+const TEMPLATE = fs.readFileSync(path.join(__dirname, '/template.html'));
 
-const HIDE_MAX_WIDTH = behavior.HIDE_MAX_WIDTH;
-const DEBOUNCE_RATE = behavior.DEBOUNCE_RATE;
+const { DEBOUNCE_RATE } = behavior;
 const HIDDEN = 'hidden';
 const LIST_SELECTOR = '.usa-footer-big nav ul';
 const BUTTON_SELECTOR = '.usa-footer-primary-link';
@@ -20,15 +19,13 @@ const BUTTON_SELECTOR = '.usa-footer-primary-link';
  * @param {number} width
  * @return {Promise}
  */
-const resizeTo = width => {
-  return new Promise((resolve, reject) => {
-    if (width !== window.innerWidth) {
-      window.innerWidth = width;
-      window.dispatchEvent(new CustomEvent('resize'));
-    }
-    setTimeout(resolve, DEBOUNCE_RATE + 10);
-  });
-};
+const resizeTo = width => new Promise((resolve) => {
+  if (width !== window.innerWidth) {
+    window.innerWidth = width;
+    window.dispatchEvent(new CustomEvent('resize'));
+  }
+  setTimeout(resolve, DEBOUNCE_RATE + 10);
+});
 
 const assertHidden = (el, hidden) => {
   assert.equal(
@@ -38,12 +35,12 @@ const assertHidden = (el, hidden) => {
   );
 };
 
-describe('big footer accordion', function () {
-  const body = document.body;
+describe('big footer accordion', () => {
+  const { body } = document;
   let buttons;
   let lists;
 
-  beforeEach(function () {
+  beforeEach(() => {
     body.innerHTML = TEMPLATE;
 
     lists = document.querySelectorAll(LIST_SELECTOR);
@@ -53,71 +50,70 @@ describe('big footer accordion', function () {
     behavior.on(body);
   });
 
-  afterEach(function () {
+  afterEach(() => {
     body.innerHTML = '';
     behavior.off(body);
   });
 
-  it('defines a max. width', function () {
-    assert(typeof behavior.HIDE_MAX_WIDTH === 'number',
-           'no value defined');
+  it('defines a max. width', () => {
+    assert(typeof behavior.HIDE_MAX_WIDTH === 'number', 'no value defined');
   });
 
-  it('collapses at small screens', function () {
-    return resizeTo(400)
+  it('collapses at small screens', () => {
+    resizeTo(400)
       .then(() => {
         assertHidden(lists[ 0 ], true);
       });
   });
 
-  it('collapses then expands again on larger screens', function () {
-    return resizeTo(400)
+  it('collapses then expands again on larger screens', () => {
+    resizeTo(400)
       .then(() => resizeTo(1024))
       .then(() => {
         assertHidden(lists[ 0 ], false);
       });
   });
 
-  it('opens panel when clicked', function () {
-    return resizeTo(400)
+  it('opens panel when clicked', () => {
+    resizeTo(400)
       .then(() => {
         buttons[ 0 ].click();
         assertHidden(lists[ 0 ], false);
       });
   });
 
-  it('does not open panels when clicked on larger screens', function () {
+  it('does not open panels when clicked on larger screens', () => {
     buttons[ 0 ].click();
     assertHidden(lists[ 0 ], false);
   });
 
-  it('closes panel on subsequent click', function () {
-    return resizeTo(400)
+  it('closes panel on subsequent click', () => {
+    resizeTo(400)
       .then(() => {
-        buttons[ 0 ].click();
+        buttons[0].click();
         assertHidden(lists[ 0 ], false);
         buttons[ 0 ].click();
         assertHidden(lists[ 0 ], true);
       });
   });
 
-  it('closes other panels on small screens', function () {
-    return resizeTo(400)
+  it('closes other panels on small screens', () => {
+    resizeTo(400)
       .then(() => {
-        buttons[ 0 ].click();
+        buttons[0].click();
         assertHidden(lists[ 0 ], false);
         assertHidden(lists[ 1 ], true);
         assertHidden(lists[ 2 ], true);
 
-        buttons[ 1 ].click();
+        buttons[1].click();
         assertHidden(lists[ 0 ], true);
         assertHidden(lists[ 1 ], false);
         assertHidden(lists[ 2 ], true);
       });
   });
 
-  it('does not close other panels on larger screens', function () {
-    buttons[ 0 ].click();
+  it('does not close other panels on larger screens', () => {
+    buttons[0].click();
     assertHidden(lists[ 0 ], false);
     assertHidden(lists[ 1 ], false);
     assertHidden(lists[ 2 ], false);

@@ -1,46 +1,42 @@
-'use strict';
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
-
 const search = require('../../../src/js/components/search');
+
 const TEMPLATE = fs.readFileSync(path.join(__dirname, 'template.html'));
-const VISUALLY_HIDDEN = 'usa-sr-only';
 
-const isVisuallyHidden = el => {
-  return el.classList.contains(VISUALLY_HIDDEN);
-};
+const isVisuallyHidden = el => el.hidden;
 
-describe('search toggle', function () {
+describe('search toggle', () => {
+  const { body } = document;
+
   let button;
   let form;
 
-  const body = document.body;
-
-  beforeEach(function () {
+  beforeEach(() => {
     body.innerHTML = TEMPLATE;
     button = body.querySelector('.js-search-button');
     form = body.querySelector('.js-search-form');
     search.on();
   });
 
-  afterEach(function () {
+  afterEach(() => {
     body.innerHTML = '';
     search.off();
   });
 
-  it('initializes the form as visually hidden, button visible', function () {
+  it('initializes the form as visually hidden, button visible', () => {
     assert.equal(button.hidden, false, 'button is hidden');
     assert.equal(isVisuallyHidden(form), true, 'form is still visible');
   });
 
-  it('reveals the search form on click', function () {
+  it('reveals the search form on click', () => {
     button.click();
     assert.equal(button.hidden, true, 'button is still visible');
     assert.equal(isVisuallyHidden(form), false, 'form is not hidden');
   });
 
-  it('hides the search form on second click', function (done) {
+  it('hides the search form on second click', (done) => {
     button.click();
     setTimeout(() => {
       body.click();
@@ -50,14 +46,14 @@ describe('search toggle', function () {
     }, 0);
   });
 
-  it('does not hide the search form when clicked directly', function () {
+  it('does not hide the search form when clicked directly', () => {
     button.click();
     form.click();
     assert.equal(button.hidden, true, 'button is still visible');
     assert.equal(isVisuallyHidden(form), false, 'form is not hidden');
   });
 
-  it('hides the search form after clicking in the form', function (done) {
+  it('hides the search form after clicking in the form', (done) => {
     button.click();
     form.click();
     assert.equal(button.hidden, true, 'button is not hidden');
@@ -70,13 +66,12 @@ describe('search toggle', function () {
     }, 0);
   });
 
-  describe('off()', function () {
-    it('removes click handlers', function () {
+  describe('off()', () => {
+    it('removes click handlers', () => {
       search.off();
       button.click();
       assert.equal(button.hidden, false, 'button is hidden');
       assert.equal(isVisuallyHidden(form), true, 'form is still visible');
     });
   });
-
 });
