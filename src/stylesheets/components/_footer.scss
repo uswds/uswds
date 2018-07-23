@@ -28,7 +28,7 @@
   }
 
   .usa-footer-primary-link ~ li a,
-  .usa-footer-secondary-link {
+  .usa-footer-secondary-link a {
     text-decoration: none;
   }
 }
@@ -285,6 +285,12 @@ li.usa-footer-primary-content {
 }
 
 .usa-footer-big {
+  .usa-footer-nav {
+    .usa-footer-primary-link, .usa-footer-primary-link > * {
+      margin-bottom: 0;
+    }
+  }
+
   .usa-footer-contact_info {
     display: block;
 
