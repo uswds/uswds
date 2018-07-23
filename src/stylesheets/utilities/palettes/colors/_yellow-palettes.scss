@@ -1,0 +1,66 @@
+$palette-yellow-light: (
+  'yellow-5':  $yellow-5,
+  'yellow-10': $yellow-10,
+  'yellow-20': $yellow-20,
+  'yellow-30': $yellow-30,
+);
+
+$palette-yellow-medium: (
+  'yellow-40': $yellow-40,
+  'yellow-50': $yellow-50,
+  'yellow-60': $yellow-60,
+);
+
+$palette-yellow-dark: (
+  'yellow-70': $yellow-70,
+  'yellow-80': $yellow-80,
+  'yellow-90': $yellow-90,
+);
+
+$palette-yellow-light-vivid: (
+  'yellow-5v':  $yellow-5v,
+  'yellow-10v': $yellow-10v,
+  'yellow-20v': $yellow-20v,
+  'yellow-30v': $yellow-30v,
+);
+
+$palette-yellow-medium-vivid: (
+  'yellow-40v': $yellow-40v,
+  'yellow-50v': $yellow-50v,
+  'yellow-60v': $yellow-60v,
+);
+
+$palette-yellow-dark-vivid: (
+  'yellow-70v': $yellow-70v,
+  'yellow-80v': $yellow-80v,
+  'yellow-90v': $yellow-90v,
+);
+
+$palette-yellow-standard: map-collect(
+  $palette-yellow-light,
+  $palette-yellow-medium,
+  $palette-yellow-dark
+);
+
+$palette-yellow-vivid: map-collect(
+  $palette-yellow-light-vivid,
+  $palette-yellow-medium-vivid,
+  $palette-yellow-dark-vivid
+);
+
+$palette-yellow-all: map-collect(
+  $palette-yellow-standard,
+  $palette-yellow-vivid
+);
+
+$palette-yellow: (
+  'palette-yellow-light': $palette-yellow-light,
+  'palette-yellow-medium': $palette-yellow-medium,
+  'palette-yellow-dark': $palette-yellow-dark,
+  'palette-yellow-light-vivid': $palette-yellow-light-vivid,
+  'palette-yellow-medium-vivid': $palette-yellow-medium-vivid,
+  'palette-yellow-dark-vivid': $palette-yellow-dark-vivid,
+  'palette-yellow-standard': $palette-yellow-standard,
+  'palette-yellow-vivid': $palette-yellow-vivid,
+  'palette-yellow-all': $palette-yellow-all,
+);

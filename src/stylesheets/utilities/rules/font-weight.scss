@@ -19,7 +19,7 @@ $u-font-weight: (
     base: 'text',
     modifiers: null,
     values: map-collect(
-      get-plugins($font-weight-plugins),
+      get-palettes($font-weight-palettes),
       $font-weight-manual-values
     ),
     settings: $font-weight-settings,

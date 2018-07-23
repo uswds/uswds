@@ -19,7 +19,7 @@ $u-position: (
     base: 'position',
     modifiers: null,
     values: map-collect(
-      get-plugins($position-plugins),
+      get-palettes($position-palettes),
       $position-manual-values
     ),
     settings: $position-settings,

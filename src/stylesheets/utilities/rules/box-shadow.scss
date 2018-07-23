@@ -19,7 +19,7 @@ $u-box-shadow: (
     base: 'shadow',
     modifiers: null,
     values: map-collect(
-      get-plugins($box-shadow-plugins),
+      get-palettes($box-shadow-palettes),
       $box-shadow-manual-values
     ),
     settings: $box-shadow-settings,

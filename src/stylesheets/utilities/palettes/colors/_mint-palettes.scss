@@ -1,0 +1,66 @@
+$palette-mint-light: (
+  'mint-5':  $mint-5,
+  'mint-10': $mint-10,
+  'mint-20': $mint-20,
+  'mint-30': $mint-30,
+);
+
+$palette-mint-medium: (
+  'mint-40': $mint-40,
+  'mint-50': $mint-50,
+  'mint-60': $mint-60,
+);
+
+$palette-mint-dark: (
+  'mint-70': $mint-70,
+  'mint-80': $mint-80,
+  'mint-90': $mint-90,
+);
+
+$palette-mint-light-vivid: (
+  'mint-5v':  $mint-5v,
+  'mint-10v': $mint-10v,
+  'mint-20v': $mint-20v,
+  'mint-30v': $mint-30v,
+);
+
+$palette-mint-medium-vivid: (
+  'mint-40v': $mint-40v,
+  'mint-50v': $mint-50v,
+  'mint-60v': $mint-60v,
+);
+
+$palette-mint-dark-vivid: (
+  'mint-70v': $mint-70v,
+  'mint-80v': $mint-80v,
+  'mint-90v': $mint-90v,
+);
+
+$palette-mint-standard: map-collect(
+  $palette-mint-light,
+  $palette-mint-medium,
+  $palette-mint-dark
+);
+
+$palette-mint-vivid: map-collect(
+  $palette-mint-light-vivid,
+  $palette-mint-medium-vivid,
+  $palette-mint-dark-vivid
+);
+
+$palette-mint-all: map-collect(
+  $palette-mint-standard,
+  $palette-mint-vivid
+);
+
+$palette-mint: (
+  'palette-mint-light': $palette-mint-light,
+  'palette-mint-medium': $palette-mint-medium,
+  'palette-mint-dark': $palette-mint-dark,
+  'palette-mint-light-vivid': $palette-mint-light-vivid,
+  'palette-mint-medium-vivid': $palette-mint-medium-vivid,
+  'palette-mint-dark-vivid': $palette-mint-dark-vivid,
+  'palette-mint-standard': $palette-mint-standard,
+  'palette-mint-vivid': $palette-mint-vivid,
+  'palette-mint-all': $palette-mint-all,
+);

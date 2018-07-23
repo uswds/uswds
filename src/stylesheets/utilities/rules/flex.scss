@@ -25,7 +25,7 @@ $u-flex: (
     base: 'flex',
     modifiers: null,
     values: map-collect(
-      get-plugins($flex-plugins),
+      get-palettes($flex-palettes),
       $flex-manual-values
     ),
     settings: $flex-settings,

@@ -21,8 +21,8 @@ $u-border-color: (
     modifiers: null,
     values: map-collect(
       $uswds-required-colors,
-      get-plugins($border-color-plugins),
-      get-plugins($global-color-plugins),
+      get-palettes($border-color-palettes),
+      get-palettes($global-color-palettes),
       $border-color-manual-values
     ),
     settings: $border-color-settings,

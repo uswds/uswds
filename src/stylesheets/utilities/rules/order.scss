@@ -22,7 +22,7 @@ $u-order: (
     base: 'order',
     modifiers: null,
     values: map-collect(
-      get-plugins($order-plugins),
+      get-palettes($order-palettes),
       $order-manual-values
     ),
     settings: $order-settings,

@@ -19,7 +19,7 @@ $u-height: (
     base: 'height',
     modifiers: null,
     values: map-collect(
-      get-plugins($height-plugins),
+      get-palettes($height-palettes),
       $height-manual-values
     ),
     settings: $height-settings,

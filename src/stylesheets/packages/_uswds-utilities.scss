@@ -24,7 +24,7 @@ project
 @import '../core/mixins/all';
 
 // Utilities
-@import '../utilities/plugins/all';
+@import '../utilities/palettes/all';
 @import '../utilities/rules/all';
 @import '../utilities/rules/package';
 @include render-utilities-in($utilities-package);

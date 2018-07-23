@@ -27,7 +27,7 @@ $u-border-width: (
       'left-width': '-left-width',
     ),
     values: map-collect(
-      get-plugins($border-width-plugins),
+      get-palettes($border-width-palettes),
       $border-width-manual-values
     ),
     settings: $border-width-settings,

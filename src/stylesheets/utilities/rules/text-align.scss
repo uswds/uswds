@@ -19,7 +19,7 @@ $u-text-align: (
     base: 'text',
     modifiers: null,
     values: map-collect(
-      get-plugins($text-align-plugins),
+      get-palettes($text-align-palettes),
       $text-align-manual-values
     ),
     settings: $text-align-settings,
