@@ -11,23 +11,23 @@ const HIDDEN = 'hidden';
 const SCOPE = `.${PREFIX}-footer-big`;
 const NAV = `${SCOPE} nav`;
 const BUTTON = `${NAV} .${PREFIX}-footer-primary-link`;
-const LIST = `${NAV} ul`;
+const COLLAPSIBLE = `.${PREFIX}-footer-collapsible`;
 
 const HIDE_MAX_WIDTH = 600;
 const DEBOUNCE_RATE = 180;
 
 function showPanel() {
   if (window.innerWidth < HIDE_MAX_WIDTH) {
-    const list = this.closest(LIST);
-    list.classList.toggle(HIDDEN);
+    const collapseEl = this.closest(COLLAPSIBLE);
+    collapseEl.classList.toggle(HIDDEN);
 
     // NB: this *should* always succeed because the button
     // selector is scoped to ".{prefix}-footer-big nav"
-    const lists = list.closest(NAV)
-      .querySelectorAll('ul');
+    const collapsibleEls = collapseEl.closest(NAV)
+      .querySelectorAll(COLLAPSIBLE);
 
-    forEach(lists, (el) => {
-      if (el !== list) {
+    forEach(collapsibleEls, (el) => {
+      if (el !== collapseEl) {
         el.classList.add(HIDDEN);
       }
     });
@@ -36,9 +36,7 @@ function showPanel() {
 
 const resize = debounce(() => {
   const hidden = window.innerWidth < HIDE_MAX_WIDTH;
-  forEach(select(LIST), (list) => {
-    list.classList.toggle(HIDDEN, hidden);
-  });
+  forEach(select(COLLAPSIBLE), list => list.classList.toggle(HIDDEN, hidden));
 }, DEBOUNCE_RATE);
 
 module.exports = behavior({
