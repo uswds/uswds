@@ -1053,7 +1053,6 @@ elegant
     @error "Use a list of strings as plugin values.";
   }
   @each $palette in $list {
-    @debug "it me #{$palette}";
     @if map-has-key($palette-registry, $palette){
       $our-palettes: map-merge(
         $our-palettes,
