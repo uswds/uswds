@@ -496,6 +496,7 @@ li.usa-footer-primary-content {
 
   @include media($medium-screen) {
     @include u-margin-left($spacing-x-small);
+    @include u-margin-right(0);
     @include u-margin-top(0);
     @include u-margin-y(0);
     left: $spacing-md-small;
