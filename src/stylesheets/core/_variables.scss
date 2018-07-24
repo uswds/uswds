@@ -52,6 +52,12 @@ $project-spacing-standard: map-collect(
   map-get($uswds-spacing, special)
 );
 
+$project-spacing-named: map-collect(
+  map-get($uswds-spacing, large),
+  map-get($uswds-spacing, larger),
+  map-get($uswds-spacing, largest)
+);
+
 $spacing-to-token: (
   '0':           0,
   '1':           '1px',
