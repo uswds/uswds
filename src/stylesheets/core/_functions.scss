@@ -252,24 +252,27 @@ of lists.
 
 @function unpack($value){
   $output: ();
-  @if length($value) != 0 {
-    @each $i in $value {
-      @if type-of($i) == 'list' {
-        @each $ii in $i {
-          $output: append($output, $ii, comma);
-        }
+
+  @if length($value) == 0 {
+    @return $value;
+  }
+
+  @each $i in $value {
+    @if type-of($i) == 'list' {
+      @each $ii in $i {
+        $output: append($output, $ii, comma);
       }
-      @else {
-        $output: append($output, $i, comma);
-      }
-    }
-    @if length($output) == 1 {
-      $output: nth($output, 1);
+    } @else {
+      $output: append($output, $i, comma);
     }
   }
-  @else {
-    $output: $value;
-  }
+
+  $output: if(
+    length($output) == 1,
+    nth($output, 1),
+    $output
+  );
+
   @return $output;
 }
 
