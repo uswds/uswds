@@ -325,7 +325,7 @@
     bottom: calc(5rem + 16px); // XXX magic number, 16px from bottom
     font-size: $small-font-size;
     margin-top: units(1);
-    min-width: $search-min-width;
+    min-width: calc(#{$search-min-width} + #{$usa-btn-small-width});
     position: absolute;
     right: $site-margins;
   }

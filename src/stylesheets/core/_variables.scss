@@ -774,7 +774,8 @@ $focus-outline:                 units(0.5) solid $color-focus !default;
 $focus-spacing:                 0 !default;
 $nav-width:                     951px !default;
 $sidenav-current-border-width:  0.4rem !default; // must be in rem for math
-$search-min-width:              27em !default; // minimum width of 27 letters for comfortable search bar
+$usa-btn-small-width:           4.5rem;
+$search-min-width:              27ch; // minimum width of 27 letters for comfortable search bar
 
 // 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines
 $hit-area: 4.4rem !default;
