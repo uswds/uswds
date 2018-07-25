@@ -489,23 +489,24 @@ withholds certain errors.
 */
 
 @function utility-font($family, $scale){
-  $quote: smart-quote($scale);
   @if not map-has-key($project-cap-heights, $family) {
     @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
-  @elseif not map-get($all-type-scale, $quote) {
+
+  $quote: smart-quote($scale);
+
+  @if not map-get($all-type-scale, $quote) {
     @error "`#{$scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
   }
-  @else {
-    $this-cap: map-get($project-cap-heights, $family);
-    $this-scale: map-get($all-type-scale, $quote);
-    @if $this-scale and $this-cap {
-      @return normalize-type-scale($this-cap, $this-scale);
-    }
-    @else {
-      @return false;
-    }
+
+  $this-cap: map-get($project-cap-heights, $family);
+  $this-scale: map-get($all-type-scale, $quote);
+
+  @if not $this-scale and $this-cap {
+    @return false;
   }
+
+  @return normalize-type-scale($this-cap, $this-scale);
 };
 
 /*
