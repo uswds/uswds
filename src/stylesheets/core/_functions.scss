@@ -302,6 +302,26 @@ of lists.
 
 /*
 ----------------------------------------
+get-last()
+----------------------------------------
+Return the last item of a list,
+Return null if the value is null
+----------------------------------------
+*/
+
+@function get-last($props) {
+  $length: length($props);
+  $last: if($length == 0,
+    null,
+    nth($props, $length)
+  );
+
+  @return $last;
+}
+
+
+/*
+----------------------------------------
 has-important()
 ----------------------------------------
 Check to see if `!important` is
@@ -311,13 +331,8 @@ being passed in a mixin's props
 
 @function has-important($props) {
   $props: de-list($props);
-  $length: length($props);
-  $last: if($length == 0,
-    null,
-    nth($props, $length)
-  );
 
-  @if not $last == '!important' {
+  @if not get-last($props) == '!important' {
     @return false;
   }
 
@@ -333,17 +348,11 @@ Append `!important` to a list
 */
 
 @function append-important($source, $destination) {
-  $length: length($source);
-  $last: null;
-  @if $length != 0 {
-    $last: nth($source, $length);
-  }
-  @if $last == '!important' {
+  @if get-last($source) == '!important' {
     @return append($destination, !important, comma);
   }
-  @else {
-    @return $destination;
-  }
+
+  @return $destination;
 }
 
 /*
@@ -359,12 +368,12 @@ or 16px if the root is set to 100%
   @if $size == 100% {
     @return 16px;
   }
-  @elseif unit($size) == 'px' {
-    @return $size;
-  }
-  @else {
+  
+  @if not unit($size) == 'px' {
     @error "``$theme-root-font-size` needs to be in px or 100%.";
   }
+
+  @return $size;
 }
 
 /*
