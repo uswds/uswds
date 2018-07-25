@@ -286,6 +286,20 @@ li.usa-footer-primary-content {
 
 .usa-footer-big {
   .usa-footer-collapsible {
+    border-top: 1px solid $color-gray-light;
+
+    @include media($medium-screen) {
+      border-top: none;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $color-gray-light;
+
+      @include media($medium-screen) {
+        border-bottom: none;
+      }
+    }
+
     &.hidden {
       ul {
         padding-bottom: 0;
@@ -395,14 +409,6 @@ li.usa-footer-primary-content {
 
     @include media($medium-screen) {
       padding-bottom: 0;
-    }
-
-    &:last-child {
-      border-bottom: 1px solid $color-gray-light;
-
-      @include media($medium-screen) {
-        border-bottom: none;
-      }
     }
 
     li:not(.usa-footer-primary-link) {
