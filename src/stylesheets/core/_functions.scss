@@ -975,10 +975,11 @@ the desired final units (currently rem)
 
 @function units($value) {
   $quote-value: smart-quote($value);
-  $converted: number-to-value($value);
   @if map-has-key($project-spacing-standard, $quote-value) {
     @return map-get($project-spacing-standard, $quote-value);
   }
+  
+  $converted: number-to-value($value);
   @if map-has-key($project-spacing-standard, $converted) {
     @return map-get($project-spacing-standard, $converted);
   }
