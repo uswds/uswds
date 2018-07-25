@@ -520,26 +520,33 @@ a family and a line-height scale unit
 
 @function lh($props...){
   $props: unpack($props);
-  @if length($props) != 2 {
-    @error "lh() needs both a valid face and line height unit in the format `lh(FACE, HEIGHT)`.";
+
+  @if not length($props) == 2 {
+    @error 'lh() needs both a valid face and line height unit in the format `lh(FACE, HEIGHT)`.';
   }
+
   $family: smart-quote(nth($props, 1));
   $scale: smart-quote(nth($props, 2));
+
   @if not map-has-key($project-cap-heights, $family) {
-    @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
+    @error '#{$family} is not a valid font family. '
+         + 'Valid values: #{map-keys($project-cap-heights)}';
   }
-  @elseif not map-get($uswds-line-height, $scale) {
-    @error "`#{$scale}` is not a valid line-height unit. Valid values: #{map-keys($uswds-line-height)}";
+
+  @if not map-get($uswds-line-height, $scale) {
+    @error '`#{$scale}` is not a valid line-height unit. '
+         + 'Valid values: #{map-keys($uswds-line-height)}';
   }
-  @elseif map-get($project-cap-heights, $family) == false {
+
+  @if not map-get($project-cap-heights, $family) {
     @return false;
   }
-  @else {
-    $this-cap: map-get($project-cap-heights, $family);
-    $this-line-height: map-get($uswds-line-height, $scale);
-    $normalized-line-height:  $this-line-height / ($uswds-base-cap-height / $this-cap);
-    @return $normalized-line-height;
-  }
+
+  $this-cap: map-get($project-cap-heights, $family);
+  $this-line-height: map-get($uswds-line-height, $scale);
+  $normalized-line-height:  $this-line-height / ($uswds-base-cap-height / $this-cap);
+
+  @return $normalized-line-height;
 };
 
 /*
