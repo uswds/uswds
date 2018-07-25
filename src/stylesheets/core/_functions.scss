@@ -978,15 +978,15 @@ the desired final units (currently rem)
   $value: smart-quote($value);
   @if map-has-key($project-spacing-standard, $value) {
     @return map-get($project-spacing-standard, $value);
-  } @else if type-of($value) == 'number'
-      and unitless($value)
-      and ($value % 0.5) == 0 {
-    @return grid-units($value);
-  } @else {
-    @error '`#{$value}` is not a valid spacing unit. '
-         + 'Valid spacing unit values: #{map-keys($project-spacing-standard)}'
-         + ', and unitless multiples of 0.5.';
   }
+  @if type-of($value) == 'number'
+    and unitless($value)
+    and ($value % 0.5) == 0 {
+    @return grid-units($value);
+  }
+  @error '`#{$value}` is not a valid spacing unit. '
+       + 'Valid spacing unit values: #{map-keys($project-spacing-standard)}'
+       + ', and unitless multiples of 0.5.';
 };
 
 /*
