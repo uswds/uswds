@@ -119,7 +119,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [PIV Usage Guidelines](https://piv.idmanagement.gov/)
 - [Plainlanguage.gov](https://plainlanguage.gov/)
 - [The Privacy and Civil Liberties Oversight Board](https://www.pclob.gov/)
-- [PubMed Journals - National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov/labs/journals/)
+- [PubMed Labs - National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov/labs/pubmed/)
 - [Report to the President on Federal IT Modernization](https://itmodernization.cio.gov/)
 - [SAM Web Design Standards](https://github.com/GSA/sam-design-system-site)
 - [SBA Certify - U.S. Small Business Administration](https://certify.sba.gov/)
