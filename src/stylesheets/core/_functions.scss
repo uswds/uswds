@@ -295,9 +295,7 @@ of lists.
     }
   }
 
-  $output: de-list($output);
-
-  @return $output;
+  @return de-list($output);
 }
 
 /*
@@ -368,7 +366,7 @@ or 16px if the root is set to 100%
   @if $size == 100% {
     @return 16px;
   }
-  
+
   @if not unit($size) == 'px' {
     @error "``$theme-root-font-size` needs to be in px or 100%.";
   }
@@ -400,14 +398,13 @@ Converts a value in px to a value in rem
 */
 
 @function px($pixels) {
-  @if $pixels {
-    $px-to-rem: strip-unit($pixels) / strip-unit(root-to-px($theme-root-font-size)) * 1rem;
-
-    @return $px-to-rem;
-  }
-  @else {
+  @if not $pixels {
     @return false;
   }
+
+  $px-to-rem: strip-unit($pixels) / strip-unit(root-to-px($theme-root-font-size)) * 1rem;
+
+  @return $px-to-rem;
 }
 
 /*
