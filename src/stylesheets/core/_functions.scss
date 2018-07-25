@@ -671,6 +671,7 @@ functions and mixins.
 */
 
 @function get-uswds-value($property, $value...){
+  // if override is set, simply output the value
   @if type-of($value) == 'arglist' and nth($value, 1) == override {
     @return nth($value, 2);
   }
@@ -691,17 +692,15 @@ functions and mixins.
       @return map-get($our-standard-values, $quoted-value);
     }
   }
-  @elseif map-has-key($our-extended-values, $quoted-value) {
+  @if map-has-key($our-extended-values, $quoted-value) {
     @warn "`#{$value}` is an extended USWDS `#{$property}` unit. This is OK, but only components built with standard values can be accepted back into the system. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
     @return map-get($our-extended-values, $quoted-value);
   }
-  @elseif type-of($value) == 'number' and not unitless($value) {
+  @if type-of($value) == 'number' and not unitless($value) {
     @warn "`#{$value}` is not a USWDS `#{$property}` unit. This is OK, but only components built with standard values can be accepted back into the system. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
     @return $value;
   }
-  @else {
-    @error "`#{$value}` is not a valid `#{$property}` value. You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
-  }
+  @error "`#{$value}` is not a valid `#{$property}` value. You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
 };
 
 /*
@@ -975,18 +974,17 @@ the desired final units (currently rem)
 */
 
 @function units($value) {
-  $value: smart-quote($value);
-  @if map-has-key($project-spacing-standard, $value) {
-    @return map-get($project-spacing-standard, $value);
+  $quote-value: smart-quote($value);
+  $converted: number-to-value($value);
+  @if map-has-key($project-spacing-standard, $quote-value) {
+    @return map-get($project-spacing-standard, $quote-value);
   }
-  @if type-of($value) == 'number'
-    and unitless($value)
-    and ($value % 0.5) == 0 {
-    @return grid-units($value);
+  @if $converted
+    and map-has-key($project-spacing-standard, $converted) {
+    @return map-get($project-spacing-standard, $converted);
   }
   @error '`#{$value}` is not a valid spacing unit. '
-       + 'Valid spacing unit values: #{map-keys($project-spacing-standard)}'
-       + ', and unitless multiples of 0.5.';
+       + 'Valid spacing unit values: #{map-keys($project-spacing-standard)}';
 };
 
 /*
