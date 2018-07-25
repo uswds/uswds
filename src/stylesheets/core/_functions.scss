@@ -391,24 +391,6 @@ the desired final units (currently rem)
 
 /*
 ----------------------------------------
-px()
-----------------------------------------
-Converts a value in px to a value in rem
-----------------------------------------
-*/
-
-@function px($pixels) {
-  @if not $pixels {
-    @return false;
-  }
-
-  $px-to-rem: strip-unit($pixels) / strip-unit(root-to-px($theme-root-font-size)) * 1rem;
-
-  @return $px-to-rem;
-}
-
-/*
-----------------------------------------
 rem-to-px()
 ----------------------------------------
 Converts a value in rem to a value in px
