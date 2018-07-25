@@ -25,7 +25,7 @@ $z-index-nav:     9000;
   .usa-search {
     @include media($nav-width) {
       float: right;
-      max-width: 21.5rem;
+      max-width: calc(#{$search-min-width} + #{$usa-btn-small-width});
     }
   }
 }

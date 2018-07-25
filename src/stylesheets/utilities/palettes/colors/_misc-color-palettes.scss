@@ -67,7 +67,7 @@ $color-palette-grayscale: (
   'gray-90':   get-uswds-color('gray', 90),
 );
 
-$palette-palettes: (
+$palette-all-color-palettes: (
   'palette-colors-theme':     $color-palette-theme,
   'palette-colors-grayscale': $color-palette-grayscale,
   'palette-colors-required':  $uswds-required-colors,
