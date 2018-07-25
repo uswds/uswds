@@ -2,68 +2,50 @@
 ========================================
 PALETTE REGISTRY
 ----------------------------------------
-This map collects and organizes the
-available utility palettes to allow
-get-palette() to find the proper palette
-without traversing an entire map
-with each call
+This map collects the
+available utility palettes
 ----------------------------------------
 */
 
-
-$palette-registry:(
-  spacing:(
-    units: $palette-spacing-units,
-    uswds: $palette-spacing-uswds,
-  ),
-  font:(
-    mono:(
-      uswds: $palette-font-uswds-mono,
-      theme: $palette-font-theme-mono,
-    ),
-    sans:(
-      uswds: $palette-font-uswds-sans,
-      theme: $palette-font-theme-sans,
-    ),
-    serif:(
-      uswds: $palette-font-uswds-serif,
-      theme: $palette-font-theme-serif,
-    ),
-    misc: map-collect(
-      $palette-font,
-      $palette-font-uswds-all,
-      $palette-font-theme-all,
-      $palette-font-theme-roles-all
-    ),
-  ),
-  color:(
-    palettes: $palette-palettes,
-    black-transparent: $palette-black-transparent,
-    blue-warm: $palette-blue-warm,
-    blue: $palette-blue,
-    cyan: $palette-cyan,
-    gray-cool: $palette-gray-cool,
-    gray-warm: $palette-gray-warm,
-    gray: $palette-gray,
-    gold: $palette-gold,
-    green-cool: $palette-green-cool,
-    green-warm: $palette-green-warm,
-    green: $palette-green,
-    indigo-cool: $palette-indigo-cool,
-    indigo-warm: $palette-indigo-warm,
-    indigo: $palette-indigo,
-    magenta: $palette-magenta,
-    mint-cool: $palette-mint-cool,
-    mint: $palette-mint,
-    orange-warm: $palette-orange-warm,
-    orange: $palette-orange,
-    red-warm: $palette-red-warm,
-    red: $palette-red,
-    violet-warm: $palette-violet-warm,
-    violet: $palette-violet,
-    white-transparent: $palette-white-transparent,
-    yellow: $palette-yellow,
-    misc: $palette-color-all,
-  ),
-  standard: $palette-standard,
+$palette-registry: map-collect(
+  $palette-spacing-units,
+  $palette-spacing-uswds,
+  $palette-font-theme-mono,
+  $palette-font-theme-sans,
+  $palette-font-theme-serif,
+  $palette-font-theme-all,
+  $palette-font-theme-roles-all,
+  $palette-font-uswds-mono,
+  $palette-font-uswds-sans,
+  $palette-font-uswds-serif,
+  $palette-font-uswds-all,
+  $palette-font-misc,
+  $palette-all-color-palettes,
+  $palette-black-transparent,
+  $palette-blue-warm,
+  $palette-blue,
+  $palette-cyan,
+  $palette-gray-cool,
+  $palette-gray-warm,
+  $palette-gray,
+  $palette-gold,
+  $palette-green-cool,
+  $palette-green-warm,
+  $palette-green,
+  $palette-indigo-cool,
+  $palette-indigo-warm,
+  $palette-indigo,
+  $palette-magenta,
+  $palette-mint-cool,
+  $palette-mint,
+  $palette-orange-warm,
+  $palette-orange,
+  $palette-red-warm,
+  $palette-red,
+  $palette-violet-warm,
+  $palette-violet,
+  $palette-white-transparent,
+  $palette-yellow,
+  $palette-colors-uswds-all,
+  $palette-standard
 );
