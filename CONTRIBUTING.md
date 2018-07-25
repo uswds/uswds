@@ -88,6 +88,12 @@ bin)/gulp` instead of `gulp`.)
 Note that running the tests also requires an installation of
 Chrome v59 or higher (v60 if you're on Windows).
 
+**For non-OSX users**:
+Before running the tests, if you are developing on a machine running an operating system other than OSX,
+you'll need to export a `CHROME_PATH` environment variable that points to Chrome's binary location. This ensures `chrome-launcher`
+can find a version of Chrome for our aXe visual acceptence tests. A table of the locations of the binary
+for each OS can [be found here](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver#requirements).
+
 #### Visual regression testing
 
 The Design System comes with optional tooling for detecting visual regressions,
