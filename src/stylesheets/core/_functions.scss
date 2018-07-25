@@ -240,6 +240,34 @@ namespace is set to output
 
 /*
 ----------------------------------------
+de-list()
+----------------------------------------
+Transform a one-element list or arglist
+into that single element.
+----------------------------------------
+(1) => 1
+((1)) => (1)
+----------------------------------------
+*/
+
+@function de-list($value){
+  $types: ('list', 'arglist');
+
+  @if not index($types, type-of($value)) {
+    @return $value;
+  }
+
+  $output: if(
+    length($value) == 1,
+    nth($value, 1),
+    $value
+  );
+
+  @return $output;
+}
+
+/*
+----------------------------------------
 unpack()
 ----------------------------------------
 Create lists of single items from lists
@@ -267,11 +295,7 @@ of lists.
     }
   }
 
-  $output: if(
-    length($output) == 1,
-    nth($output, 1),
-    $output
-  );
+  $output: de-list($output);
 
   @return $output;
 }
@@ -286,20 +310,18 @@ being passed in a mixin's props
 */
 
 @function has-important($props) {
-  @if type-of(nth($props, 1)) == 'list' {
-    $props: nth($props, 1);
-  }
+  $props: de-list($props);
   $length: length($props);
-  $last: null;
-  @if $length != 0 {
-    $last: nth($props, $length);
-  }
-  @if $last == '!important' {
-    @return true;
-  }
-  @else {
+  $last: if($length == 0,
+    null,
+    nth($props, $length)
+  );
+
+  @if not $last == '!important' {
     @return false;
   }
+
+  @return true;
 }
 
 /*

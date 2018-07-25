@@ -66,7 +66,7 @@ Output all USWDS
 @import 'core/layout-grid';
 
 .foo {
-  dar: units(2);
+  @include u-padding(2, !important);
   gar: units(0.5);
   far: units('05');
   jar: units('card-lg');
