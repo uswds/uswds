@@ -978,11 +978,12 @@ the desired final units (currently rem)
   @if map-has-key($project-spacing-standard, $quote-value) {
     @return map-get($project-spacing-standard, $quote-value);
   }
-  
+
   $converted: number-to-value($value);
   @if map-has-key($project-spacing-standard, $converted) {
     @return map-get($project-spacing-standard, $converted);
   }
+
   @error '`#{$value}` is not a valid spacing unit. '
        + 'Valid spacing unit values: #{map-keys($project-spacing-standard)}';
 };
