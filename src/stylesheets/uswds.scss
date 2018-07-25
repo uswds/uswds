@@ -64,3 +64,16 @@ Output all USWDS
 @import 'utilities/rules/package';
 @include render-utilities-in($utilities-package);
 @import 'core/layout-grid';
+
+.foo {
+  padding: units(0.5);
+  gerp: units('05');
+  dip: units(card);
+  oop: units('card');
+  frub: units(7.5);
+  plaf: units(-5);
+  korl: units(neg-2);
+  sprud: units(1px);
+  px: units('1px');
+  px: units(9px);
+}

@@ -969,41 +969,23 @@ system orders
 ----------------------------------------
 units()
 ----------------------------------------
-Converts a spacing unit multiple into
+Converts a spacing unit into
 the desired final units (currently rem)
 ----------------------------------------
 */
 
 @function units($value) {
-  @if type-of($value) == 'list' and length($value) == 1 {
-    $value: nth($value, 1);
-  }
-  @if type-of($value) == 'string' {
-    $value: smart-quote($value);
-    @if map-has-key($project-spacing-named, $value) {
-      @return map-get($project-spacing-standard, $value);
-    }
-    @else {
-      @error "`#{$value}` is not a valid named spacing unit. Valid named spacing unit values: #{map-keys($project-spacing-named)}";
-    }
-  }
-  @if type-of($value) == 'number' and unitless($value) {
+  $value: smart-quote($value);
+  @if map-has-key($project-spacing-standard, $value) {
+    @return map-get($project-spacing-standard, $value);
+  } @else if type-of($value) == 'number'
+      and unitless($value)
+      and ($value % 0.5) == 0 {
     @return grid-units($value);
-  }
-  @else {
-    $value: smart-quote($value);
-    @if map-has-key($project-spacing-standard, $value) {
-      @if map-get($project-spacing-standard, $value) == false {
-        @warn "Spacing unit `#{$value}` has been disabled in your theme settings. It will output as `false`.";
-      }
-      @return map-get($project-spacing-standard, $value);
-    }
-    @elseif $value == false {
-      @return false;
-    }
-    @else {
-      @error "`#{$value}` is not a valid spacing unit. Valid spacing unit values: #{map-keys($project-spacing-standard)}";
-    }
+  } @else {
+    @error '`#{$value}` is not a valid spacing unit. '
+         + 'Valid spacing unit values: #{map-keys($project-spacing-standard)}'
+         + ', and unitless multiples of 0.5.';
   }
 };
 
