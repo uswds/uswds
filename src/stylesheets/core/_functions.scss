@@ -425,15 +425,15 @@ Get the cap height of a defined font
 */
 
 @function cap-height($font){
-  @if $font == false {
+  @if not $font {
     @return false;
-  } @else {
-    @return map-deep-get(
-      $all-font-definitions,
-      $font,
-      'cap-height'
-    );
   }
+  
+  @return map-deep-get(
+    $all-font-definitions,
+    $font,
+    'cap-height'
+  );
 };
 
 /*
