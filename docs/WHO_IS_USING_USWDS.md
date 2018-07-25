@@ -160,6 +160,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [USDA School Meal Application Prototype](https://www.fns.usda.gov/apps/school-meals/web-based-prototype/docs/index.html#)
 - [USDS documentation website template](https://github.com/usds/uswds-docs-template)
 - [USGS Earthquake Hazards Program](http://earthquake.usgs.gov/theme/)
+- [USGS.gov - U.S. Geological Survey](https://www.usgs.gov/)
 - [VA Caseflow Certification](https://github.com/department-of-veterans-affairs/caseflow)
 - [VA Office of Information and Technology](https://www.oit.va.gov/)
 - [Vets.gov](https://vets.gov)
