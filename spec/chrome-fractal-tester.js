@@ -11,7 +11,6 @@ const HOSTNAME = REMOTE_CHROME_URL ? os.hostname().toLowerCase()
 const chromePath = process.env.CHROME_PATH ||
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 
-console.log('CHROMEPATH', chromePath);
 function launchChromeLocally(headless = true) {
   return chromeLauncher.launch({
     chromeFlags: [

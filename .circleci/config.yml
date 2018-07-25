@@ -45,8 +45,7 @@ jobs:
             fi
 
   deploy:
-    docker:
-      - image: circleci/node:8.10-browsers
+    <<: *container
     steps:
       - checkout
       - restore_cache:
