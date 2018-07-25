@@ -102,20 +102,17 @@ Leaves bools as is
 */
 
 @function smart-quote($value) {
-  @if type-of($value) == 'string' or type-of($value) == 'color'{
+  @if type-of($value) == 'string'
+    or type-of($value) == 'color' {
     @return quote($value);
   }
-  @if type-of($value) == 'number' {
-    @if index(('px', 'xl', 'xs'), unit($value)) {
-      @return inspect($value);
-    }
-    @else {
-      @return $value;
-    }
+
+  @if type-of($value) == 'number'
+    and index(('px', 'xl', 'xs'), unit($value)) {
+    @return inspect($value);
   }
-  @else {
-    @return $value;
-  }
+
+  @return $value;
 };
 
 /*
@@ -233,12 +230,12 @@ namespace is set to output
 
 @function ns($type) {
   $type: smart-quote($type);
-  @if map-deep-get($theme-namespace, $type, output) {
-    @return map-deep-get($theme-namespace, $type, namespace);
-  }
-  @else {
+
+  @if not map-deep-get($theme-namespace, $type, output) {
     @return '';
   }
+
+  @return map-deep-get($theme-namespace, $type, namespace);
 }
 
 /*
@@ -1026,22 +1023,22 @@ elegant
 
 @function get-palettes($list){
   $our-palettes:();
-  $registry:();
 
   @if type-of($list) == 'map' {
     @error "Use a list of strings as plugin values.";
   }
+
   @each $palette in $list {
-    @if map-has-key($palette-registry, $palette){
-      $our-palettes: map-merge(
-        $our-palettes,
-        map-get($palette-registry, $palette)
-      );
-    }
-    @else {
+    @if not map-has-key($palette-registry, $palette){
       @error "#{$palette} isn't in the registry.";
     }
-  } // end plugin list loop
+
+    $our-palettes: map-merge(
+      $our-palettes,
+      map-get($palette-registry, $palette)
+    );
+  }
+
   @return $our-palettes;
 };
 
