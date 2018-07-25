@@ -1,9 +1,21 @@
 version: 2
 
-jobs:
-  build:
+references:
+  container: &container
     docker:
       - image: circleci/node:8.10-browsers
+        environment:
+          CHROME_PATH: /usr/bin/google-chrome
+  
+  restore_deps: &restore_deps
+    restore_cache:
+      keys:
+        - v1-uswds-dependencies-{{ checksum "package-lock.json" }}
+        - v1-uswds-dependencies-
+
+jobs:
+  build:
+    <<: *container
     steps:
       - checkout
       - run:
