@@ -428,13 +428,31 @@ Get the cap height of a defined font
   @if not $font {
     @return false;
   }
-  
+
   @return map-deep-get(
     $all-font-definitions,
     $font,
     'cap-height'
   );
 };
+
+/*
+----------------------------------------
+px-to-rem()
+----------------------------------------
+Converts a value in px to a value in rem
+----------------------------------------
+*/
+
+@function px-to-rem($pixels) {
+  @if not $pixels {
+    @return false;
+  }
+
+  $px-to-rem: strip-unit($pixels) / strip-unit(root-to-px($theme-root-font-size)) * 1rem;
+
+  @return $px-to-rem;
+}
 
 /*
 ----------------------------------------
@@ -446,13 +464,14 @@ to a set target
 */
 
 @function type-scale($cap-height, $scale) {
-  @if $cap-height {
-    $this-scale: $uswds-base-cap-height * strip-unit($scale) / $cap-height;
-
-    @return px($this-scale);
-  } @else {
+  @if not $cap-height {
     @return false;
   }
+
+  $this-scale: $uswds-base-cap-height * strip-unit($scale) / $cap-height;
+
+  @return px-to-rem($this-scale);
+
 };
 
 /*
