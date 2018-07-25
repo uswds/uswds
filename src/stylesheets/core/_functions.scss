@@ -493,14 +493,14 @@ withholds certain errors.
     @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
   }
 
-  $quote: smart-quote($scale);
+  $quote-scale: smart-quote($scale);
 
-  @if not map-get($all-type-scale, $quote) {
+  @if not map-get($all-type-scale, $quote-scale) {
     @error "`#{$scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
   }
 
   $this-cap: map-get($project-cap-heights, $family);
-  $this-scale: map-get($all-type-scale, $quote);
+  $this-scale: map-get($all-type-scale, $quote-scale);
 
   @if not $this-scale and $this-cap {
     @return false;
