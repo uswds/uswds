@@ -456,14 +456,14 @@ Converts a value in px to a value in rem
 
 /*
 ----------------------------------------
-type-scale()
+normalize-type-scale()
 ----------------------------------------
 Normalizes a specific face's optical size
 to a set target
 ----------------------------------------
 */
 
-@function type-scale($cap-height, $scale) {
+@function normalize-type-scale($cap-height, $scale) {
   @if not $cap-height {
     @return false;
   }
@@ -500,7 +500,7 @@ withholds certain errors.
     $this-cap: map-get($project-cap-heights, $family);
     $this-scale: map-get($all-type-scale, $quote);
     @if $this-scale and $this-cap {
-      @return type-scale($this-cap, $this-scale);
+      @return normalize-type-scale($this-cap, $this-scale);
     }
     @else {
       @return false;
@@ -887,7 +887,7 @@ and scale
     $this-cap: map-get($project-cap-heights, $our-family);
     $this-scale: map-get($all-type-scale, $our-scale);
     @if $this-scale and $this-cap {
-      @return type-scale($this-cap, $this-scale);
+      @return normalize-type-scale($this-cap, $this-scale);
     }
     @else {
       @error "The scale `#{$our-scale}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
