@@ -653,9 +653,8 @@ Ex: 0.5   --> '05'
   @if map-has-key($number-to-value, $number) {
     @return map-get($number-to-value, $number);
   }
-  @else {
-    @return false;
-  }
+
+  @return false;
 }
 
 /*
@@ -974,18 +973,17 @@ the desired final units (currently rem)
 */
 
 @function units($value) {
-  $quote-value: smart-quote($value);
-  @if map-has-key($project-spacing-standard, $quote-value) {
-    @return map-get($project-spacing-standard, $quote-value);
+  $converted: if(type-of($value) == 'string',
+    quote($value),
+    number-to-value($value)
+  );
+
+  @if not map-has-key($project-spacing-standard, $converted) {
+    @error '`#{$value}` is not a valid spacing unit. '
+         + 'Valid spacing unit values: #{map-keys($project-spacing-standard)}';
   }
 
-  $converted: number-to-value($value);
-  @if map-has-key($project-spacing-standard, $converted) {
-    @return map-get($project-spacing-standard, $converted);
-  }
-
-  @error '`#{$value}` is not a valid spacing unit. '
-       + 'Valid spacing unit values: #{map-keys($project-spacing-standard)}';
+  @return map-get($project-spacing-standard, $converted);
 };
 
 /*

@@ -64,3 +64,11 @@ Output all USWDS
 @import 'utilities/rules/package';
 @include render-utilities-in($utilities-package);
 @import 'core/layout-grid';
+
+.foo {
+  dar: units(2);
+  gar: units(0.5);
+  far: units('05');
+  jar: units('card-lg');
+  kar: units(card-lg);
+}
