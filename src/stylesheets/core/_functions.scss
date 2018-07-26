@@ -875,30 +875,6 @@ colors: project, system, and required
 
 /*
 ----------------------------------------
-feature()
-----------------------------------------
-Gets a valid USWDS font feature setting
-----------------------------------------
-*/
-
-@function feature($value) {
-  @return get-uswds-value(feature, $value);
-};
-
-/*
-----------------------------------------
-flex()
-----------------------------------------
-Gets a valid USWDS flex value
-----------------------------------------
-*/
-
-@function flex($value) {
-  @return get-uswds-value(flex, $value);
-};
-
-/*
-----------------------------------------
 scale()
 ----------------------------------------
 Get a normalized typescale from a family
@@ -933,6 +909,59 @@ and scale
 
 /*
 ----------------------------------------
+units()
+----------------------------------------
+Converts a spacing unit into
+the desired final units (currently rem)
+----------------------------------------
+*/
+
+@function units($value) {
+  $converted: if(type-of($value) == 'string',
+    quote($value),
+    number-to-value($value)
+  );
+
+  @if not map-has-key($project-spacing-standard, $converted) {
+    @error '`#{$value}` is not a valid spacing unit. '
+         + 'Valid spacing unit values: #{map-keys($project-spacing-standard)}';
+  }
+
+  @return map-get($project-spacing-standard, $converted);
+};
+
+/*
+----------------------------------------
+get-palettes()
+----------------------------------------
+Build a single map of plugin values
+from a list of plugin keys.
+----------------------------------------
+*/
+
+@function get-palettes($list){
+  $our-palettes:();
+
+  @if type-of($list) == 'map' {
+    @error "Use a list of strings as plugin values.";
+  }
+
+  @each $palette in $list {
+    @if not map-has-key($palette-registry, $palette){
+      @error "#{$palette} isn't in the registry.";
+    }
+
+    $our-palettes: map-merge(
+      $our-palettes,
+      map-get($palette-registry, $palette)
+    );
+  }
+
+  @return $our-palettes;
+};
+
+/*
+----------------------------------------
 fw()
 ----------------------------------------
 Get a font-weight value from the
@@ -946,22 +975,26 @@ system font-weight
 
 /*
 ----------------------------------------
-font-weight()
+feature()
 ----------------------------------------
-Gets a valid USWDS font-weight
+Gets a valid USWDS font feature setting
 ----------------------------------------
 */
 
-@function font-weight($value) {
-  @if map-has-key($project-font-weights, $value) {
-    @if map-get($project-font-weights, $value) == false {
-      @error "Font weight `#{$value}` is disabled in your project's theme settings. Set its value to `true` to use this weight.";
-    }
-    @return map-get($project-font-weights, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid font-weight value. Valid values: #{map-keys($project-font-weights)}";
-  }
+@function feature($value) {
+  @return get-uswds-value(feature, $value);
+};
+
+/*
+----------------------------------------
+flex()
+----------------------------------------
+Gets a valid USWDS flex value
+----------------------------------------
+*/
+
+@function flex($value) {
+  @return get-uswds-value(flex, $value);
 };
 
 /*
@@ -1030,29 +1063,6 @@ system orders
 
 /*
 ----------------------------------------
-units()
-----------------------------------------
-Converts a spacing unit into
-the desired final units (currently rem)
-----------------------------------------
-*/
-
-@function units($value) {
-  $converted: if(type-of($value) == 'string',
-    quote($value),
-    number-to-value($value)
-  );
-
-  @if not map-has-key($project-spacing-standard, $converted) {
-    @error '`#{$value}` is not a valid spacing unit. '
-         + 'Valid spacing unit values: #{map-keys($project-spacing-standard)}';
-  }
-
-  @return map-get($project-spacing-standard, $converted);
-};
-
-/*
-----------------------------------------
 radius()
 ----------------------------------------
 Get a border-radius value from the
@@ -1075,39 +1085,6 @@ system z-index
 
 @function z-index($value) {
   @return get-uswds-value(z-index, $value);
-};
-
-/*
-----------------------------------------
-get-palettes()
-----------------------------------------
-Build a single map of plugin values
-from a list of plugin keys.
-----------------------------------------
-TODO: Somewhat crude now. Could be more
-elegant
-----------------------------------------
-*/
-
-@function get-palettes($list){
-  $our-palettes:();
-
-  @if type-of($list) == 'map' {
-    @error "Use a list of strings as plugin values.";
-  }
-
-  @each $palette in $list {
-    @if not map-has-key($palette-registry, $palette){
-      @error "#{$palette} isn't in the registry.";
-    }
-
-    $our-palettes: map-merge(
-      $our-palettes,
-      map-get($palette-registry, $palette)
-    );
-  }
-
-  @return $our-palettes;
 };
 
 /*
