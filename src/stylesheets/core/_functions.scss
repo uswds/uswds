@@ -560,48 +560,52 @@ variable that is, itself, a list
 */
 
 @function get-uswds-color($props...){
-  @if length($props) == 0 {
-    @return false;
-  }
-  @elseif type-of(nth($props,1)) == 'list' {
-    $props: nth($props,1);
-    @if length($props) == 2 {
-      @return map-deep-get(
-        $uswds-colors,
-        smart-quote(nth($props, 1)),
-        nth($props, 2)
-      );
-    } @elseif length($props) == 3 {
-      @return map-deep-get(
-        $uswds-colors,
-        smart-quote(nth($props, 1)),
-        smart-quote(nth($props, 3)),
-        nth($props, 2)
-      );
+  $props: unpack($props);
+  $length: length($props);
+  $color-family: false;
+  $color-grade: false;
+  $color-vivid: false;
+  @if $length > 0 {
+    $color-family: smart-quote(nth($props, 1));
+    @if $length > 1 {
+      $color-grade: smart-quote(nth($props, 2));
+      @if $length > 2 {
+        $color-vivid: smart-quote(nth($props, 3));
+      }
     }
   }
-  @elseif nth($props, 1) == false {
+
+  @if not $color-family {
     @return false;
   }
-  @elseif length($props) == 1 {
-    $props: smart-quote(nth($props, 1));
-    @return map-get($uswds-required-colors, $props);
-  }
-  @elseif length($props) == 2 {
-    @return map-deep-get(
+
+  @if $color-vivid {
+    $output: map-deep-get(
       $uswds-colors,
-      smart-quote(nth($props, 1)),
-      nth($props, 2)
+      $color-family,
+      $color-vivid,
+      $color-grade
     );
+
+    @return $output;
   }
-  @else {
-    @return map-deep-get(
+
+  @if $color-grade {
+    $output: map-deep-get(
       $uswds-colors,
-      smart-quote(nth($props, 1)),
-      smart-quote(nth($props, 3)),
-      nth($props, 2)
+      $color-family,
+      $color-grade
     );
+
+    @return $output;
   }
+
+  @if not map-has-key($uswds-required-colors, $color-family) {
+    @error 'USWDS colors require a grade. '
+         + 'Exceptions: #{map-keys($uswds-required-colors)}';
+  }
+
+  @return map-get($uswds-required-colors, $color-family);
 };
 
 /*
@@ -614,15 +618,16 @@ Get a value from the system type scale
 
 @function system-type-scale($scale){
   $scale: smart-quote($scale);
-  @if $scale and map-has-key($uswds-type-scale, $scale){
-    @return map-get($uswds-type-scale, $scale);
-  }
-  @elseif $scale == false {
+
+  @if not $scale {
     @return false;
   }
-  @else {
+
+  @if not map-has-key($uswds-type-scale, $scale){
     @error "`#{$scale}` is not a valid type scale value. Valid values: #{map-keys($uswds-type-scale)}";
   }
+
+  @return map-get($uswds-type-scale, $scale);
 };
 
 /*
@@ -645,7 +650,7 @@ grid.
 
   $numeric-eq: map-get($spacing-to-value, $gap-size);
   $numeric-eq-half: inspect($numeric-eq / 2);
-  
+
   @if not map-has-key($spacing-to-token, $numeric-eq-half){
     @error "`#{$gap-size}` is not a valid USWDS gap size. Column gaps need to have a standard size half their width.";
   }
@@ -745,21 +750,18 @@ colors: project, system, and required
   $props: unpack($props);
   $length: length($props);
   $valid-vivid-grades: (5, 10, 20, 30, 40, 50, 60, 70, 80, 90);
-  $color-family: if(
-    $length > 0,
-    smart-quote(nth($props, 1)),
-    false
-  );
-  $color-grade: if(
-    $length > 1,
-    smart-quote(nth($props, 2)),
-    false
-  );
-  $color-vivid: if(
-    $length == 3,
-    'vivid',
-    false
-  );
+  $color-family: false;
+  $color-grade: false;
+  $color-vivid: false;
+  @if $length > 0 {
+    $color-family: smart-quote(nth($props, 1));
+    @if $length > 1 {
+      $color-grade: smart-quote(nth($props, 2));
+      @if $length > 2 {
+        $color-vivid: smart-quote(nth($props, 3));
+      }
+    }
+  }
 
   @if not $color-family {
     @error 'Include a color in the form [family], [grade], [vivid]';
