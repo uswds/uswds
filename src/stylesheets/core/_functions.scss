@@ -172,21 +172,10 @@ isReadable
     $key: '';
   }
 
-  @if $l == 1 or nth($values, $l) != isReadable {
-    @return (
-      slug: $key,
-      isReadable: true,
-      content: $values,
-    );
-  } @else {
-    $values: remove($values, isReadable);
-
-    @return (
-      slug: $key,
-      isReadable: true,
-      content: $values,
-    );
-  }
+  @return (
+    slug: $key,
+    content: $values,
+  );
 }
 
 /*
@@ -1087,7 +1076,7 @@ loop
 ----------------------------------------
 */
 
-@mixin render-pseudoclass($utility, $pseudoclass, $selector, $property, $value, $val-props, $mq) {
+@mixin render-pseudoclass($utility, $pseudoclass, $selector, $property, $value, $mq) {
   $important: null;
   @if $utilities-use-important {
     $important: ' !important';
@@ -1099,32 +1088,6 @@ loop
     $this-mq: '#{$mq}\\:';
   }
   .#{$this-mq}#{$pseudoclass}\:#{ns($this-type)}#{$selector}:#{$pseudoclass} {
-    @each $this-property in $property {
-      #{$this-property}: unquote("#{$value}#{$important}");
-    }
-  }
-}
-
-/*
-----------------------------------------
-@render-placeholder
-----------------------------------------
-Build a placeholder utility from values
-calculated in the @render-utilities-in
-loop
-
-Could be deprecated if we never choose
-to style placeholder text
-----------------------------------------
-*/
-
-@mixin render-placeholder($selector, $property, $value, $val-props, $important) {
-  $this-namespace: null;
-
-  @if $utility-type == settings {
-    $this-namespace: $theme-settings-utilities-namespace;
-  }
-  .#{$this-namespace}pl-#{$selector}::placeholder {
     @each $this-property in $property {
       #{$this-property}: unquote("#{$value}#{$important}");
     }
@@ -1150,6 +1113,11 @@ loop
   $our-breakpoints: map-deep-get($uswds-properties, breakpoints, standard);
   $mq: null;
   $this-type: map-get($utility, type);
+  $value-is-map: if(
+    type-of($val-props) == 'map',
+    true,
+    false
+  );
 
   @each $media-key, $media-value in $our-breakpoints {
     $mq: unquote($media-key);
@@ -1158,7 +1126,7 @@ loop
     @if map-get($theme-output-breakpoints, $media-key) {
       @media screen and (min-width: #{$media-value-px}) {
         .#{$mq}\:#{ns($this-type)}#{$selector} {
-          @if map-has-key($val-props, extend) {
+          @if $value-is-map and map-has-key($val-props, extend) {
             @each $ext-prop, $ext-value in map-get($val-props, extend) {
               #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
             }
@@ -1174,10 +1142,10 @@ loop
             }
           }
           @if map-deep-get($utility, settings, hover) {
-            @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq);
+            @include render-pseudoclass($utility, hover, $selector, $property, $value, $mq);
           }
           @if map-deep-get($utility, settings, visited) {
-            @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq);
+            @include render-pseudoclass($utility, visited, $selector, $property, $value, $mq);
           }
         }
       }
@@ -1201,22 +1169,27 @@ future version of Sass" warning.
 */
 
 @mixin render-utility($utility, $selector, $property, $value, $val-props) {
-
-  $important: null;
-  @if $utilities-use-important {
-    $important: ' !important';
-  }
+  $important: if(
+    $utilities-use-important,
+    ' !important',
+    null
+  );
   $mq: null;
   $this-type: map-get($utility, type);
+  $value-is-map: if(
+    type-of($val-props) == 'map',
+    true,
+    false
+  );
 
   .#{ns($this-type)}#{$selector} {
-    @if map-has-key($val-props, extend) {
+    @if $value-is-map and map-has-key($val-props, extend) {
       @each $ext-prop, $ext-value in map-get($val-props, extend) {
         #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
       }
     }
 
-    @if map-has-key($val-props, extends) {
+    @if $value-is-map and map-has-key($val-props, extends) {
       @extend %#{map-get($val-props, extends)};
     }
 
@@ -1234,25 +1207,19 @@ future version of Sass" warning.
   // Add the pseudoclass variants, if applicable
 
   @if map-deep-get($utility, settings, hover) {
-    @include render-pseudoclass($utility, hover, $selector, $property, $value, $val-props, $mq);
+    @include render-pseudoclass($utility, hover, $selector, $property, $value, $mq);
   }
 
   @if map-deep-get($utility, settings, active) {
-    @include render-pseudoclass($utility, active, $selector, $property, $value, $val-props, $mq);
+    @include render-pseudoclass($utility, active, $selector, $property, $value, $mq);
   }
 
   @if map-deep-get($utility, settings, visited) {
-    @include render-pseudoclass($utility, visited, $selector, $property, $value, $val-props, $mq);
+    @include render-pseudoclass($utility, visited, $selector, $property, $value, $mq);
   }
 
   @if map-deep-get($utility, settings, focus) {
-    @include render-pseudoclass($utility, focus, $selector, $property, $value, $val-props, $mq);
-  }
-
-  // Add the placeholder variant, if applicable
-
-  @if map-get($utility, placeholder) {
-    @include render-placeholder($selector, $property, $value, $val-props);
+    @include render-pseudoclass($utility, focus, $selector, $property, $value, $mq);
   }
 
   // And add the responsive prefixes, if applicable
@@ -1276,7 +1243,6 @@ through all possible variants
 @mixin render-utilities-in($utilities) {
 
   // loop through the $utilities
-
   @each $utility-name, $utility in $utilities {
 
     // Only do this if the the utility is meant to output
@@ -1300,31 +1266,10 @@ through all possible variants
       $val-props: ();
       $mq: null;
 
-      //    If there's a base, use base-to-map() to convert it into a MAP:
-      //    $base-props: (
-      //      slug: STRING,
-      //      isReadable: BOOL,
-      //    )
+      $b: map-get($utility, base);
 
-      @if map-get($utility, base) != null {
-        $base-props: base-to-map(map-get($utility, base));
-
-        // And set $b (used in the selector constructor, below) to base-props.slug.
-
-        $b: map-get($base-props, slug);
-
-        // Otherwise, assign it null props.
-
-      } @else {
-        $base-props: (
-          slug: null,
-        );
-      }
-
-      // Each utility rule takes a value, so let's start here and begin building.
-      // Values are held in a MAP, where each individual value has the keypair
-      // KEY   :  VALUE
-      // [slug]:  [value], [isReadable]*
+      // Each utility rule takes a value, so let's start here
+      // and begin building.
 
       // -------- For each value in utility.values ----------
 
@@ -1332,50 +1277,37 @@ through all possible variants
 
         // If $val-value == null, or if $val-value is a map and
         // the content key or the dependency key has a null value
-        // skip building this rule
-        // altogether
+        // set $val-value to `false`...
 
         @if type-of($val-value) == 'map' {
-          @if map-get($val-value, content) == false {
+          @if not map-get($val-value, content) {
             $val-value: false;
           }
-          @elseif map-has-key($val-value, dependency) {
-            @if map-get($val-value, dependency) == false {
+          @else if map-has-key($val-value, dependency)
+            and not map-get($val-value, dependency) {
               $val-value: false;
-            }
           }
         }
+
+        // ...so we can skip building this rule altogether.
+        // So, if $val-value is _not_ false...
+
         @if $val-value {
 
-          // If $val-value is already a MAP...
+          // Set the value of our rule.
+          // If its a map, use val-value.content.
 
-          @if type-of($val-value) == 'map' {
+          $val-slug: if(
+            type-of($val-value) == 'map',
+            map-get($val-value, content),
+            $val-key
+          );
 
-            // set $val-props = $val-value
-
-            $val-props: $val-value;
-
-            // If it _isn't_ a MAP...
-
-          } @else {
-
-            // ...use to-map() to convert the value keypair into a MAP:
-            //    $val-props: (
-            //      slug: STRING,
-            //      [isReadable: BOOL,]*
-            //      content: LIST,
-            //      [extends: STRING,]*
-            //    )
-
-            // We'll keep the $val-props MAP around,
-            // as we'll need it to build both the rule's value and its selector.
-
-            $val-props: to-map($val-key, $val-value);
-          }
-
-          // In fact, let's set our rule's value now.
-
-          $value: strunquote(nth(map-get($val-props, content), 1));
+          $value: if(
+            type-of($val-value) == 'map',
+            map-get($val-value, content),
+            $val-value
+          );
 
           // Add any appended values...
 
@@ -1389,14 +1321,14 @@ through all possible variants
             $value: map-get($utility, valuePrepend) + $value;
           }
 
-          // Then unquote the string.
+          // Then unquote the entire value string.
 
           $value: strunquote($value);
 
-          // And we'll set the $v as val-props.slug for use in
-          // constructing the selector.
+          // And we'll set the $v as $val-slug for use in
+          // constructing the selector (.$b-$m-$v).
 
-          $v: map-get($val-props, slug);
+          $v: $val-slug;
 
           // -------- Start of Modifiers ----------
 
@@ -1405,23 +1337,22 @@ through all possible variants
 
           // Modifiers are held in a MAP,
           // where each individual modifer has the keypair
-          // KEY   :  VALUE
-          // [slug]:  [value], [isReadable]*
+          // [slug]:[value]
 
           // So, check for modifiers.
 
           @if map-get($utility, modifiers) != null {
 
-            // If there is one, capture it as $our-modifiers.
+            // If there are modifiers, capture them as $our-modifiers.
 
             $our-modifiers: map-get($utility, modifiers);
           } @else {
 
-            // If there isn't one, build a dummy so we can keep
+            // If there aren't, build a dummy so we can keep
             // all our build in the same loop.
 
             $our-modifiers: (
-              slug: null,
+              'slug': null,
             );
           }
 
@@ -1432,57 +1363,19 @@ through all possible variants
 
           @each $mod-key, $mod-val in $our-modifiers {
 
-            // Use to-map() to convert the modifier keypair into a MAP:
-            //    $mod-props: (
-            //      slug: STRING,
-            //      isReadable: BOOL,
-            //      content: LIST,
-            //    )
-
-            // Just as we did before with the value keypair.
-
-            $mod-props: to-map($mod-key, $mod-val);
-
-            // --- if the modifier content is null -----
-
-            @if map-get($mod-props, content) == null or map-get($mod-props, content) == '' {
-
-              // If mod-props.content is null,
-              // we can set our rule's $property now
-              // since $property is simply $property-default.
-
-              $property: $property-default;
-
-            }
-
-              // '-' “oh hey.”
-
-              //                     '-' “hey.”
-
-              // '-' “hey.”
-
-              // OK, cool.
-              // So what if there _is_ a modifier object?
-
-              // -- if the modifier content is NOT null --
-
-            @else {
-
-              // If there are modifiers, $property is a concat of $property-default
-              // with _each_ of the values in $mod-props.content
-              // There's a function for this... multi-cat()!!
-              // (=^･ｪ･^=))ﾉ彡☆
-              // (^._.^)ﾉ☆( _ _).oO
-              // (=චᆽච=)
-
-              $property: multi-cat($property-default, map-get($mod-props, content));
-            }
+            $property: if(
+              $mod-val == null or $mod-val == '',
+              $property-default,
+              multi-cat($property-default, $mod-val)
+            );
 
             // Now we go through to set the $selector.
 
             // If mod-props.slug is noModifier...
 
-            @if map-get($mod-props, slug) == '' or map-get($mod-props, slug) == slug {
+            @if $mod-key == ''
+              or $mod-key == slug
+              or smart-quote($mod-key) == 'noModifier' {
 
               // First, we can test to see if the base $b is null
 
@@ -1494,68 +1387,39 @@ through all possible variants
 
               // if the value is noValue ('')
 
-              } @elseif map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
+              } @else if $val-slug == ''
+                or smart-quote($val-slug) == 'noValue' {
 
-                // selector is the base only
+                  // selector is the base only
 
-                $selector: $b;
+                  $selector: $b;
 
-              // Otherwise, if base-props.isReadable, or val-props.isReadable
-
-              } @elseif map-has-key($base-props, isReadable) or
-                map-has-key($val-props, isReadable) {
-
-                // selector is joined with a '-'
-
-                $selector: $b + '-' + $v;
               } @else {
 
-                // otherwise, it gets a simple join.
+                // otherwise, selctor is joined with a hyphen.
 
-                $selector: $b + $v;
+                $selector: $b + '-' + $v;
 
                 // Nice! We just took care of the non-modifier cases!
 
               }
             }
 
-            // Otherwise, check to see if either mod.isReadable or
-            // val.isReadable
+            // If there _is_ a modifier...
+
             @else {
 
-              @if map-has-key($mod-props, isReadable) or
-                map-has-key($val-props, isReadable) {
+              // Join into selector $mv.
 
-                  // If valProps is `noValue`....
-
-                @if map-get($val-props, slug) == '' or map-get($val-props, slug) == 'noValue' {
-
-                  // ...$mv is just the modifier
-
-                  $mv: map-get($mod-props, slug);
-                } @else {
-
-                  // Otherwise, join with a '-' into selector $mv.
-
-                  $mv: map-get($mod-props, slug) + '-' + map-get($val-props, slug);
-                }
-              } @else {
-
-                // If not, just join into selector $mv.
-
-                $mv: map-get($mod-props, slug) + map-get($val-props, slug);
-              }
+              $mv: $mod-key + '-' + $v;
 
               // Once we have $mv, test for $b
               // and build the selector as before.
 
               @if $b == null {
                 $selector: $mv;
-              } @elseif map-get($base-props, isReadable) or
-                map-get($mod-props, isReadable) {
-                $selector: $b + '-' + $mv;
               } @else {
-                $selector: $b + $mv;
+                $selector: $b + '-' + $mv;
               }
             }
 
@@ -1568,7 +1432,7 @@ through all possible variants
             // FINALLY, "BUILD THE RULE, MAX!"
             // https://www.youtube.com/watch?v=R3Igz5SfBCE
 
-            @include render-utility($utility, $selector, $property, $value, $val-props);
+            @include render-utility($utility, $selector, $property, $value, $val-value);
 
           } // end the modifier loop
         } // end the null value conditional
