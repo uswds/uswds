@@ -319,11 +319,11 @@ being passed in a mixin's props
 @function has-important($props) {
   $props: de-list($props);
 
-  @if not get-last($props) == '!important' {
-    @return false;
+  @if get-last($props) == '!important' {
+    @return true;
   }
 
-  @return true;
+  @return false;
 }
 
 /*
