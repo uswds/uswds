@@ -311,7 +311,7 @@ Return null if the value is null
   $length: length($props);
   $last: if($length == 0,
     null,
-    nth($props, $length)
+    nth($props, -1)
   );
 
   @return $last;
@@ -793,11 +793,50 @@ colors: project and system
 
 @function color($props...){
   $props: unpack($props);
+  $length: length($props);
+  $color-family: if(
+    $length > 0,
+    smart-quote(nth($props, 1)),
+    false
+  );
+  $color-grade: if(
+    $length > 1,
+    smart-quote(nth($props, 2)),
+    false
+  );
+  $color-vivid: if(
+    $length == 3,
+    'vivid',
+    false
+  );
+
+  @if $color-vivid {
+    @if map-deep-get(
+      $uswds-colors,
+      $color-family,
+      $color-vivid,
+      $color-grade
+    ) == false {
+      @error "`#{$color-family}` does not have a vivid variant for `#{$color-grade}`.";
+    }
+    @return map-deep-get(
+      $uswds-colors,
+      $color-family,
+      $color-vivid,
+      $color-grade
+    );
+  }
+
+
   @if length($props) == 0 {
     @return false;
-  } @elseif nth($props, 1) == false {
+  }
+
+  @if nth($props, 1) == false {
     @return false;
-  } @elseif length($props) == 1 {
+  }
+
+  @if length($props) == 1 {
     $props: smart-quote(nth($props, 1));
     @if map-has-key($all-project-colors, $props){
       @return map-deep-get(
