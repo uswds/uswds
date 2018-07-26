@@ -708,14 +708,6 @@ functions and mixins.
   $our-standard-values: map-deep-get($uswds-properties, $property, standard);
   $our-extended-values: map-deep-get($uswds-properties, $property, extended);
 
-  @if type-of($value) == 'number' and not unitless($value) {
-    @warn '`#{$value}` is not a USWDS `#{$property}` unit. '
-        + 'This is OK, but only components built with standard '
-        + 'values can be accepted back into the system. '
-        + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
-    @return $value;
-  }
-
   @if map-has-key($our-standard-values, $quoted-value) {
     $output: map-get($our-standard-values, $quoted-value);
 
@@ -731,16 +723,25 @@ functions and mixins.
     @return $output;
   }
 
-  @if not map-has-key($our-extended-values, $quoted-value) {
-    @error '`#{$value}` is not a valid `#{$property}` value. '
-      + 'You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+  @if map-has-key($our-extended-values, $quoted-value) {
+    @warn '`#{$value}` is an extended USWDS `#{$property}` unit. '
+        + 'This is OK, but only components built with standard values can be accepted back into the system. '
+        + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+
+    @return map-get($our-extended-values, $quoted-value);
   }
 
-  @warn '`#{$value}` is an extended USWDS `#{$property}` unit. '
-      + 'This is OK, but only components built with standard values can be accepted back into the system. '
+  @if not (type-of($value) == 'number' and not unitless($value)) {
+    @error '`#{$value}` is not a valid `#{$property}` value. '
+        + 'You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+  }
+
+  @warn '`#{$value}` is not a USWDS `#{$property}` unit. '
+      + 'This is OK, but only components built with standard '
+      + 'values can be accepted back into the system. '
       + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
 
-  @return map-get($our-extended-values, $quoted-value);
+  @return $value;
 };
 
 /*
