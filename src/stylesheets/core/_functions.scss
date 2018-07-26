@@ -772,6 +772,10 @@ colors: project, system, and required
   @if not $color-family {
     @error 'Include a color in the form [family], [grade], [vivid]';
   } @else {
+    @if str-slice(inspect($color-family), 1, 1) == '#'
+        or str-slice(inspect($color-family), 1, 3) == 'rgb' {
+      @return $color-family;
+    }
     @if not map-has-key($all-colors, $color-family) {
       @error '`#{$color-family}` is not a valid color family.';
     }
