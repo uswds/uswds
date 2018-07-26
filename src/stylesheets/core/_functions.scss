@@ -679,11 +679,11 @@ Ex: 0.5   --> '05'
 */
 
 @function number-to-value($number) {
-  @if map-has-key($number-to-value, $number) {
-    @return map-get($number-to-value, $number);
+  @if not map-has-key($number-to-value, $number) {
+    @return false;
   }
 
-  @return false;
+  @return map-get($number-to-value, $number);
 }
 
 /*
@@ -730,24 +730,6 @@ functions and mixins.
     @return $value;
   }
   @error "`#{$value}` is not a valid `#{$property}` value. You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}";
-};
-
-/*
-----------------------------------------
-border-radius()
-----------------------------------------
-Get a border-radius from the system
-border-radii
-----------------------------------------
-*/
-
-@function border-radius($value) {
-  @if map-has-key($all-border-radius, $value) {
-    @return map-get($all-border-radius, $value);
-  }
-  @else {
-    @error "`#{$value}` is not a valid border radius value. Valid values: #{map-keys($all-border-radius)}";
-  }
 };
 
 /*
@@ -929,6 +911,24 @@ from a list of plugin keys.
   }
 
   @return $our-palettes;
+};
+
+/*
+----------------------------------------
+border-radius()
+----------------------------------------
+Get a border-radius from the system
+border-radii
+----------------------------------------
+*/
+
+@function border-radius($value) {
+  @if map-has-key($all-border-radius, $value) {
+    @return map-get($all-border-radius, $value);
+  }
+  @else {
+    @error "`#{$value}` is not a valid border radius value. Valid values: #{map-keys($all-border-radius)}";
+  }
 };
 
 /*
