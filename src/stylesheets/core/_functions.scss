@@ -787,13 +787,14 @@ is false. Warn if it is.
 color()
 ----------------------------------------
 Derive a color from the map of all
-colors: project and system
+colors: project, system, and required
 ----------------------------------------
 */
 
 @function color($props...){
   $props: unpack($props);
   $length: length($props);
+  $valid-vivid-grades: (5, 10, 20, 30, 40, 50, 60, 70, 80, 90);
   $color-family: if(
     $length > 0,
     smart-quote(nth($props, 1)),
@@ -810,78 +811,66 @@ colors: project and system
     false
   );
 
+  @if not $color-family {
+    @error 'Include a color in the form [family], [grade], [vivid]';
+  } @else {
+    @if not map-has-key($all-colors, $color-family) {
+      @error '`#{$color-family}` is not a valid color family.';
+    }
+  }
+
   @if $color-vivid {
-    @if map-deep-get(
+    @if not index($valid-vivid-grades, $color-grade) {
+      @error '`#{$color-grade}` is not a valid color grade. '
+           + 'Valid color grades: #{$valid-vivid-grades}.';
+    }
+
+    @if not map-has-key($uswds-colors, $color-family) {
+      @error '`#{$color-family}` does not have vivid variants.';
+    }
+
+    $output: map-deep-get(
       $uswds-colors,
       $color-family,
       $color-vivid,
       $color-grade
-    ) == false {
+    );
+
+    @if $output == false {
       @error "`#{$color-family}` does not have a vivid variant for `#{$color-grade}`.";
     }
-    @return map-deep-get(
-      $uswds-colors,
+
+    @return $output;
+  }
+
+  @if $color-grade {
+    $output: map-deep-get(
+      $all-colors,
       $color-family,
-      $color-vivid,
       $color-grade
     );
+    @if $output == false {
+      @error "`#{$color-family}, #{$color-grade}` is set to false in your project settings.";
+    }
+    @if $output == null {
+      @error "`#{$color-grade}` is not a valid grade of `#{$color-family}`.";
+    }
+    @return $output;
   }
 
-
-  @if length($props) == 0 {
-    @return false;
-  }
-
-  @if nth($props, 1) == false {
-    @return false;
-  }
-
-  @if length($props) == 1 {
-    $props: smart-quote(nth($props, 1));
-    @if map-has-key($all-project-colors, $props){
-      @return map-deep-get(
-        $all-project-colors,
-        $props,
-        'base'
-      );
-    }
-    @elseif map-has-key($uswds-required-colors, $props){
-      @return map-get($uswds-required-colors, $props);
-    }
-    @else {
-      @error "#{nth($props, 1)} is not a USWDS color. Reserved values: #{map-keys($uswds-required-colors)}. Project theme values:  #{map-keys($all-project-colors)}. System colors — #{map-keys($uswds-colors)} — need a grade of 5, 10, 20, 30, 40, 50, 60, 70, 80, or 90.";
-    }
-  } @elseif length($props) == 2 {
-    @if type-of(nth($props, 2)) == 'number' {
-      @return map-deep-get(
-        $uswds-colors,
-        smart-quote(nth($props, 1)),
-        nth($props, 2)
-      );
-    }
-    @else {
-      @return map-deep-get(
-        $all-project-colors,
-        smart-quote(nth($props, 1)),
-        smart-quote(nth($props, 2))
-      );
-    }
-  } @else {
-    @if map-deep-get(
-      $uswds-colors,
-      smart-quote(nth($props, 1)),
-      smart-quote(nth($props, 3)),
-      nth($props, 2)
-    ) == false {
-      @error "`#{nth($props, 1)}` does not have a vivid variant for `#{nth($props, 2)}`.";
-    }
+  @if map-has-key($all-project-colors, $color-family){
     @return map-deep-get(
-      $uswds-colors,
-      smart-quote(nth($props, 1)),
-      smart-quote(nth($props, 3)),
-      nth($props, 2)
+      $all-project-colors,
+      $color-family,
+      'default'
     );
   }
+
+  @if not map-has-key($uswds-required-colors, $color-family){
+    @error "`#{$color-family}` requires a grade.";
+  }
+
+  @return map-get($uswds-required-colors, $color-family);
 };
 
 /*

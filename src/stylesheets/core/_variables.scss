@@ -406,6 +406,12 @@ $all-project-colors: map-collect(
   $project-state-colors
 );
 
+$all-colors: map-collect(
+  $all-project-colors,
+  $uswds-required-colors,
+  $uswds-colors
+);
+
 /*
 ----------------------------------------
 Build the project type scale map
