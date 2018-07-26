@@ -638,19 +638,19 @@ grid.
 
 @function calc-gap-offset($gap-size) {
   $gap-size: smart-quote($gap-size);
-  @if map-has-key($spacing-to-value, $gap-size) {
-    $numeric-eq: map-get($spacing-to-value, $gap-size);
-    $numeric-eq-half: inspect($numeric-eq / 2);
-    @if map-has-key($spacing-to-token, $numeric-eq-half){
-      @return map-get($spacing-to-token, $numeric-eq-half);
-    }
-    @else {
-      @error "`#{$gap-size}` is not a valid USWDS gap size. Column gaps need to have a standard size half their width.";
-    }
-  }
-  @else {
+
+  @if not map-has-key($spacing-to-value, $gap-size) {
     @error "`#{$gap-size}` is not a valid USWDS gap size.";
   }
+
+  $numeric-eq: map-get($spacing-to-value, $gap-size);
+  $numeric-eq-half: inspect($numeric-eq / 2);
+  
+  @if not map-has-key($spacing-to-token, $numeric-eq-half){
+    @error "`#{$gap-size}` is not a valid USWDS gap size. Column gaps need to have a standard size half their width.";
+  }
+
+  @return map-get($spacing-to-token, $numeric-eq-half);
 }
 
 /*
