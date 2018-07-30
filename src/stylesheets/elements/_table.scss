@@ -1,29 +1,46 @@
-table {
+%uswds-table {
   border-spacing: 0;
   margin: 2em 0;
-}
 
-thead {
+  thead {
+    th {
+      font-weight: $font-bold;
+    }
+
+    th,
+    td {
+      background-color: $color-gray-lightest;
+    }
+  }
+
   th {
-    font-weight: $font-bold;
+    text-align: left;
   }
 
   th,
   td {
-    background-color: $color-gray-lightest;
+    background-color: $color-white;
+    border: 1px solid $color-gray;
+    font-weight: $font-normal;
+    padding: 1rem 1.5rem;
+  }
+
+  caption {
+    @include h5;
+    font-family: $font-serif;
+    margin-bottom: 1.2rem;
+    text-align: left;
   }
 }
 
-th {
-  text-align: left;
+@mixin uswds-table-styles {
+  table {
+    @extend %uswds-table;
+  }
 }
 
-th,
-td {
-  background-color: $color-white;
-  border: 1px solid $color-gray;
-  font-weight: $font-normal;
-  padding: 1rem 1.5rem;
+.usa-table {
+  @extend %uswds-table;
 }
 
 .usa-table-borderless {
@@ -45,11 +62,4 @@ td {
       padding-left: 0;
     }
   }
-}
-
-caption {
-  @include h5;
-  font-family: $font-serif;
-  margin-bottom: 1.2rem;
-  text-align: left;
 }

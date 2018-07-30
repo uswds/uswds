@@ -39,7 +39,8 @@ body {
   margin-top: 1.5em;
 }
 
-@mixin uswds-element-styles {
+// Paragraph text, links, and headings
+@mixin uswds-typography-styles {
   p {
     @extend %uswds-p;
   }
@@ -88,12 +89,14 @@ body {
 @mixin uswds-global-styles($uswds-global-styles) {
   @if $uswds-global-styles == 'scoped' {
     .usa-prose {
-      @include uswds-element-styles;
+      @include uswds-typography-styles;
       @include uswds-list-styles;
+      @include uswds-table-styles;
     }
   } @else if $uswds-global-styles == 'global' {
-    @include uswds-element-styles;
+    @include uswds-typography-styles;
     @include uswds-list-styles;
+    @include uswds-table-styles;
   } @else {
     // Default nothing if it’s neither
   }
