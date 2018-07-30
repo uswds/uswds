@@ -89,9 +89,11 @@ body {
   @if $uswds-global-styles == 'scoped' {
     .usa-prose {
       @include uswds-element-styles;
+      @include uswds-list-styles;
     }
   } @else if $uswds-global-styles == 'global' {
     @include uswds-element-styles;
+    @include uswds-list-styles;
   } @else {
     // Default nothing if it’s neither
   }
