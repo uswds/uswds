@@ -13,6 +13,18 @@ PROJECT THEME SETTINGS
 
 /*
 ----------------------------------------
+Scoped styles
+----------------------------------------
+Sets the default typography base styles
+
+Accepts global, scoped, or none
+----------------------------------------
+*/
+
+$uswds-global-styles: 'scoped';
+
+/*
+----------------------------------------
 Namespace
 ----------------------------------------
 */
