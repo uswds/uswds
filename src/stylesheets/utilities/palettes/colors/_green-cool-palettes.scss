@@ -1,0 +1,66 @@
+$palette-green-cool-light: (
+  'green-cool-5':  $green-cool-5,
+  'green-cool-10': $green-cool-10,
+  'green-cool-20': $green-cool-20,
+  'green-cool-30': $green-cool-30,
+);
+
+$palette-green-cool-medium: (
+  'green-cool-40': $green-cool-40,
+  'green-cool-50': $green-cool-50,
+  'green-cool-60': $green-cool-60,
+);
+
+$palette-green-cool-dark: (
+  'green-cool-70': $green-cool-70,
+  'green-cool-80': $green-cool-80,
+  'green-cool-90': $green-cool-90,
+);
+
+$palette-green-cool-light-vivid: (
+  'green-cool-5v':  $green-cool-5v,
+  'green-cool-10v': $green-cool-10v,
+  'green-cool-20v': $green-cool-20v,
+  'green-cool-30v': $green-cool-30v,
+);
+
+$palette-green-cool-medium-vivid: (
+  'green-cool-40v': $green-cool-40v,
+  'green-cool-50v': $green-cool-50v,
+  'green-cool-60v': $green-cool-60v,
+);
+
+$palette-green-cool-dark-vivid: (
+  'green-cool-70v': $green-cool-70v,
+  'green-cool-80v': $green-cool-80v,
+  'green-cool-90v': $green-cool-90v,
+);
+
+$palette-green-cool-standard: map-collect(
+  $palette-green-cool-light,
+  $palette-green-cool-medium,
+  $palette-green-cool-dark
+);
+
+$palette-green-cool-vivid: map-collect(
+  $palette-green-cool-light-vivid,
+  $palette-green-cool-medium-vivid,
+  $palette-green-cool-dark-vivid
+);
+
+$palette-green-cool-all: map-collect(
+  $palette-green-cool-standard,
+  $palette-green-cool-vivid
+);
+
+$palette-green-cool: (
+  'palette-green-cool-light': $palette-green-cool-light,
+  'palette-green-cool-medium': $palette-green-cool-medium,
+  'palette-green-cool-dark': $palette-green-cool-dark,
+  'palette-green-cool-light-vivid': $palette-green-cool-light-vivid,
+  'palette-green-cool-medium-vivid': $palette-green-cool-medium-vivid,
+  'palette-green-cool-dark-vivid': $palette-green-cool-dark-vivid,
+  'palette-green-cool-standard': $palette-green-cool-standard,
+  'palette-green-cool-vivid': $palette-green-cool-vivid,
+  'palette-green-cool-all': $palette-green-cool-all,
+);

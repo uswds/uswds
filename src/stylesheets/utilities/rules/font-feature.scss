@@ -20,7 +20,7 @@ $u-font-feature: (
     base: 'text',
     modifiers: null,
     values: map-collect(
-      get-plugins($font-feature-plugins),
+      get-palettes($font-feature-palettes),
       $font-feature-manual-values
     ),
     settings: $font-feature-settings,

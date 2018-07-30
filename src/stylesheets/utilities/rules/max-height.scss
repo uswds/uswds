@@ -19,7 +19,7 @@ $u-max-height: (
     base: 'maxh',
     modifiers: null,
     values: map-collect(
-      get-plugins($max-height-plugins),
+      get-palettes($max-height-palettes),
       $max-height-manual-values
     ),
     settings: $max-height-settings,

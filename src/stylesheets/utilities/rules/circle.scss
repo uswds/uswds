@@ -22,7 +22,7 @@ $u-circle: (
     base: 'circle',
     modifiers: null,
     values: map-collect(
-      get-plugins($circle-plugins),
+      get-palettes($circle-palettes),
       $circle-manual-values
     ),
     settings: $circle-settings,

@@ -19,7 +19,7 @@ $u-vertical-align: (
     base: 'text',
     modifiers: null,
     values: map-collect(
-      get-plugins($vertical-align-plugins),
+      get-palettes($vertical-align-palettes),
       $vertical-align-manual-values
     ),
     settings: $vertical-align-settings,

@@ -21,7 +21,7 @@ $u-measure: (
     base: 'measure',
     modifiers: null,
     values: map-collect(
-      get-plugins($measure-plugins),
+      get-palettes($measure-palettes),
       $measure-manual-values
     ),
     settings: $measure-settings,

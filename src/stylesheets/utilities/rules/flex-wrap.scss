@@ -19,7 +19,7 @@ $u-flex-wrap: (
     base: 'flex',
     modifiers: null,
     values: map-collect(
-      get-plugins($flex-wrap-plugins),
+      get-palettes($flex-wrap-palettes),
       $flex-wrap-manual-values
     ),
     settings: $flex-wrap-settings,

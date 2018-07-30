@@ -23,7 +23,7 @@ $u-overflow: (
       'x': '-x',
     ),
     values: map-collect(
-      get-plugins($overflow-plugins),
+      get-palettes($overflow-palettes),
       $overflow-manual-values
     ),
     settings: $overflow-settings,

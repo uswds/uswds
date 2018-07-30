@@ -40,7 +40,7 @@ const RUN_AXE_FUNC_JS = function runAxe (context, options) {
   return new Promise((resolve, reject) => {
     window.axe.run(context, options, (err, results) => {
       if (err) return reject(err);
-      resolve(JSON.stringify(results.violations));
+      return resolve(JSON.stringify(results.violations));
     });
   });
 }.toString();

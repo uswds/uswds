@@ -1,0 +1,66 @@
+$palette-violet-light: (
+  'violet-5':  $violet-5,
+  'violet-10': $violet-10,
+  'violet-20': $violet-20,
+  'violet-30': $violet-30,
+);
+
+$palette-violet-medium: (
+  'violet-40': $violet-40,
+  'violet-50': $violet-50,
+  'violet-60': $violet-60,
+);
+
+$palette-violet-dark: (
+  'violet-70': $violet-70,
+  'violet-80': $violet-80,
+  'violet-90': $violet-90,
+);
+
+$palette-violet-light-vivid: (
+  'violet-5v':  $violet-5v,
+  'violet-10v': $violet-10v,
+  'violet-20v': $violet-20v,
+  'violet-30v': $violet-30v,
+);
+
+$palette-violet-medium-vivid: (
+  'violet-40v': $violet-40v,
+  'violet-50v': $violet-50v,
+  'violet-60v': $violet-60v,
+);
+
+$palette-violet-dark-vivid: (
+  'violet-70v': $violet-70v,
+  'violet-80v': $violet-80v,
+  'violet-90v': $violet-90v,
+);
+
+$palette-violet-standard: map-collect(
+  $palette-violet-light,
+  $palette-violet-medium,
+  $palette-violet-dark
+);
+
+$palette-violet-vivid: map-collect(
+  $palette-violet-light-vivid,
+  $palette-violet-medium-vivid,
+  $palette-violet-dark-vivid
+);
+
+$palette-violet-all: map-collect(
+  $palette-violet-standard,
+  $palette-violet-vivid
+);
+
+$palette-violet: (
+  'palette-violet-light': $palette-violet-light,
+  'palette-violet-medium': $palette-violet-medium,
+  'palette-violet-dark': $palette-violet-dark,
+  'palette-violet-light-vivid': $palette-violet-light-vivid,
+  'palette-violet-medium-vivid': $palette-violet-medium-vivid,
+  'palette-violet-dark-vivid': $palette-violet-dark-vivid,
+  'palette-violet-standard': $palette-violet-standard,
+  'palette-violet-vivid': $palette-violet-vivid,
+  'palette-violet-all': $palette-violet-all,
+);

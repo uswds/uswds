@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  text-decoration-color: check-color($value)#{$important};
+  text-decoration-color: color($value)#{$important};
 }

@@ -19,7 +19,7 @@ $u-align-items: (
     base: 'flex',
     modifiers: null,
     values: map-collect(
-      get-plugins($align-items-plugins),
+      get-palettes($align-items-palettes),
       $align-items-manual-values
     ),
     settings: $align-items-settings,

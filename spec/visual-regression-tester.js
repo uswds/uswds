@@ -1,3 +1,4 @@
+/* eslint-disable */
 const fs = require('fs');
 const path = require('path');
 
@@ -8,7 +9,7 @@ const METADATA_PATH = path.join(SCREENSHOTS_DIR, 'metadata.js');
 
 const clone = obj => JSON.parse(JSON.stringify(obj));
 
-const autobind = self => name => { self[ name ] = self[ name ].bind(self); };
+const autobind = self => name => { self[ name ] = self[ name ].bind(self); }; // eslint-disable-line
 
 const failName = (handle, device) => `${handle}_${device.name}.fail.png`;
 
@@ -174,3 +175,4 @@ if (!module.parent) {
     .help()
     .argv;
 }
+/* eslint-enable */

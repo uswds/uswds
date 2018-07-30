@@ -19,7 +19,7 @@ $u-whitespace: (
     base: 'text',
     modifiers: null,
     values: map-collect(
-      get-plugins($whitespace-plugins),
+      get-palettes($whitespace-palettes),
       $whitespace-manual-values
     ),
     settings: $whitespace-settings,

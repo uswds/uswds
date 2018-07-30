@@ -34,8 +34,10 @@ jobs:
       - run:
           name: Checking build
           command: |
-            ls -agolf dist/
-            codeclimate-test-reporter < coverage/lcov.info
+            if [[ $(echo "$CIRCLE_BRANCH" | grep -c "pull") -lt 0 ]]; then
+              ls -agolf dist/
+              codeclimate-test-reporter < coverage/lcov.info
+            fi
 
   deploy:
     <<: *container

@@ -21,7 +21,7 @@ $u-top: (
     base: 'top',
     modifiers: null,
     values: map-collect(
-      get-plugins($top-plugins),
+      get-palettes($top-palettes),
       $top-manual-values
     ),
     settings: $top-settings,

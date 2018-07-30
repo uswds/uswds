@@ -52,6 +52,12 @@ $project-spacing-standard: map-collect(
   map-get($uswds-spacing, special)
 );
 
+$project-spacing-named: map-collect(
+  map-get($uswds-spacing, large),
+  map-get($uswds-spacing, larger),
+  map-get($uswds-spacing, largest)
+);
+
 $spacing-to-token: (
   '0':           0,
   '1':           '1px',
@@ -329,28 +335,42 @@ $project-colors: (
     'darkest':  get-uswds-color($theme-color-base-darkest),
   ),
   'primary': (
-    'lighter': get-uswds-color($theme-color-primary-lighter),
-    'light':   get-uswds-color($theme-color-primary-light),
-    'default': get-uswds-color($theme-color-primary),
-    'vivid':   get-uswds-color($theme-color-primary-vivid),
-    'dark':    get-uswds-color($theme-color-primary-dark),
-    'darker':  get-uswds-color($theme-color-primary-darker),
+    'lightest': get-uswds-color($theme-color-primary-lightest),
+    'lighter':  get-uswds-color($theme-color-primary-lighter),
+    'light':    get-uswds-color($theme-color-primary-light),
+    'default':  get-uswds-color($theme-color-primary),
+    'vivid':    get-uswds-color($theme-color-primary-vivid),
+    'dark':     get-uswds-color($theme-color-primary-dark),
+    'darker':   get-uswds-color($theme-color-primary-darker),
+    'darkest':  get-uswds-color($theme-color-primary-darkest),
   ),
   'secondary': (
+    'lightest': get-uswds-color($theme-color-secondary-lightest),
     'lighter':  get-uswds-color($theme-color-secondary-lighter),
-    'light':   get-uswds-color($theme-color-secondary-light),
-    'default': get-uswds-color($theme-color-secondary),
-    'vivid':   get-uswds-color($theme-color-secondary-vivid),
-    'dark':    get-uswds-color($theme-color-secondary-dark),
-    'darker':  get-uswds-color($theme-color-secondary-darker),
+    'light':    get-uswds-color($theme-color-secondary-light),
+    'default':  get-uswds-color($theme-color-secondary),
+    'vivid':    get-uswds-color($theme-color-secondary-vivid),
+    'dark':     get-uswds-color($theme-color-secondary-dark),
+    'darker':   get-uswds-color($theme-color-secondary-darker),
+    'darkest':  get-uswds-color($theme-color-secondary-darkest),
   ),
   'accent-warm': (
-    'default': get-uswds-color($theme-color-accent-warm),
-    'dark':    get-uswds-color($theme-color-accent-warm-dark),
+    'lightest': get-uswds-color($theme-color-accent-warm-lightest),
+    'lighter':  get-uswds-color($theme-color-accent-warm-lighter),
+    'light':    get-uswds-color($theme-color-accent-warm-light),
+    'default':  get-uswds-color($theme-color-accent-warm),
+    'dark':     get-uswds-color($theme-color-accent-warm-dark),
+    'darker':   get-uswds-color($theme-color-accent-warm-darker),
+    'darkest':  get-uswds-color($theme-color-accent-warm-darkest),
   ),
   'accent-cool': (
-    'default': get-uswds-color($theme-color-accent-cool),
-    'dark':    get-uswds-color($theme-color-accent-cool-dark),
+    'lightest': get-uswds-color($theme-color-accent-cool-lightest),
+    'lighter':  get-uswds-color($theme-color-accent-cool-lighter),
+    'light':    get-uswds-color($theme-color-accent-cool-light),
+    'default':  get-uswds-color($theme-color-accent-cool),
+    'dark':     get-uswds-color($theme-color-accent-cool-dark),
+    'darker':   get-uswds-color($theme-color-accent-cool-darker),
+    'darkest':  get-uswds-color($theme-color-accent-cool-darkest),
   )
 );
 
@@ -384,6 +404,12 @@ $project-state-colors: (
 $all-project-colors: map-collect(
   $project-colors,
   $project-state-colors
+);
+
+$all-colors: map-collect(
+  $all-project-colors,
+  $uswds-required-colors,
+  $uswds-colors
 );
 
 /*
@@ -578,7 +604,8 @@ settings
 */
 
 // Removing the !default from $em-base so we are not inheriting that value from Bourbon.
-$em-base:             10px;
+
+$em-base:             $theme-root-font-size;
 $base-font-size:      1.7rem !default;
 $small-font-size:     1.4rem !default;
 $lead-font-size:      2rem !default;
@@ -684,7 +711,7 @@ $color-secondary-light:      $color-red-light !default;
 $color-secondary-lightest:   $color-red-lightest !default;
 
 $color-base:                 $color-black-light !default;
-$color-focus:                $color-gray-light !default;
+$color-focus:                $blue-40v !default;
 $color-visited:              $color-purple !default;
 
 $color-shadow:               $black-transparent-30 !default;
@@ -769,10 +796,12 @@ $checkbox-border-radius:        2px !default;
 $border-radius:                 3px !default;
 $button-border-radius:          5px !default;
 $box-shadow:                    0 0 2px $color-shadow !default;
-$focus-outline:                 2px dotted $color-gray-light !default;
-$focus-spacing:                 3px !default;
+$focus-outline:                 units(0.5) solid $color-focus !default;
+$focus-spacing:                 0 !default;
 $nav-width:                     951px !default;
 $sidenav-current-border-width:  0.4rem !default; // must be in rem for math
+$usa-btn-small-width:           4.5rem;
+$search-min-width:              27ch; // minimum length of 27 letters for typical search query
 
 // 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines
 $hit-area: 4.4rem !default;

@@ -155,15 +155,15 @@ node_modules/uswds/
 ├── dist/
 │   ├── css/
 │   ├── fonts/
-│   ├── html/
 │   ├── img/
 │   ├── js/
+│   └── scss/
 └── src/
+    |── components/
     ├── fonts/
     ├── img/
     ├── js/
-    ├── stylesheets/
-    └── templates/
+    └── stylesheets/
 ```
 
 #### Importing assets

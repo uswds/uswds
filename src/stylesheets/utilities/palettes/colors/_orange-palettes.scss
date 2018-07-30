@@ -1,0 +1,66 @@
+$palette-orange-light: (
+  'orange-5':  $orange-5,
+  'orange-10': $orange-10,
+  'orange-20': $orange-20,
+  'orange-30': $orange-30,
+);
+
+$palette-orange-medium: (
+  'orange-40': $orange-40,
+  'orange-50': $orange-50,
+  'orange-60': $orange-60,
+);
+
+$palette-orange-dark: (
+  'orange-70': $orange-70,
+  'orange-80': $orange-80,
+  'orange-90': $orange-90,
+);
+
+$palette-orange-light-vivid: (
+  'orange-5v':  $orange-5v,
+  'orange-10v': $orange-10v,
+  'orange-20v': $orange-20v,
+  'orange-30v': $orange-30v,
+);
+
+$palette-orange-medium-vivid: (
+  'orange-40v': $orange-40v,
+  'orange-50v': $orange-50v,
+  'orange-60v': $orange-60v,
+);
+
+$palette-orange-dark-vivid: (
+  'orange-70v': $orange-70v,
+  'orange-80v': $orange-80v,
+  'orange-90v': $orange-90v,
+);
+
+$palette-orange-standard: map-collect(
+  $palette-orange-light,
+  $palette-orange-medium,
+  $palette-orange-dark
+);
+
+$palette-orange-vivid: map-collect(
+  $palette-orange-light-vivid,
+  $palette-orange-medium-vivid,
+  $palette-orange-dark-vivid
+);
+
+$palette-orange-all: map-collect(
+  $palette-orange-standard,
+  $palette-orange-vivid
+);
+
+$palette-orange: (
+  'palette-orange-light': $palette-orange-light,
+  'palette-orange-medium': $palette-orange-medium,
+  'palette-orange-dark': $palette-orange-dark,
+  'palette-orange-light-vivid': $palette-orange-light-vivid,
+  'palette-orange-medium-vivid': $palette-orange-medium-vivid,
+  'palette-orange-dark-vivid': $palette-orange-dark-vivid,
+  'palette-orange-standard': $palette-orange-standard,
+  'palette-orange-vivid': $palette-orange-vivid,
+  'palette-orange-all': $palette-orange-all,
+);
