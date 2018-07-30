@@ -8,7 +8,7 @@
     <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="{{ nav.id_prefix }}{{ link.id }}">
       <span>{{ link.text }}</span>
     </button>
-    <ul id="{{ nav.id_prefix }}{{ link.id }}" class="usa-nav-submenu{% if nav.mega %} usa-megamenu usa-grid-full{% endif %}">
+    <{% if nav.mega %}div{% else %}ul{% endif %} id="{{ nav.id_prefix }}{{ link.id }}" class="usa-nav-submenu{% if nav.mega %} usa-megamenu usa-grid-full{% endif %}">
       {%- if nav.id_prefix == "basic-" or nav.id_prefix == "extended-" -%}
         {%- for child in link.links -%}
           {%- if loop.index < 4 -%}
@@ -20,15 +20,18 @@
       {%- else -%}
         {%- for group in link.links | batch(3) -%}
           <div class="usa-megamenu-col">
-            {%- for child in group -%}
-              <li>
-                <a href="{{ child.href }}">{{ child.text }}</a>
-              </li>
-            {%- endfor -%}
+            <!-- <h2 class="display-inline-block text-white font-serif-md margin-top-0">Menu heading</h2> -->
+            <ul>
+              {%- for child in group -%}
+                <li>
+                  <a href="{{ child.href }}">{{ child.text }}</a>
+                </li>
+              {%- endfor -%}
+            </ul>
           </div>
         {%- endfor -%}
       {%- endif -%}
-    </ul>
+    </{% if nav.mega %}div{% else %}ul{% endif %}>
     {%- else -%}
     <a class="usa-nav-link{% if link.current %} usa-current{% endif %}" href="{{ link.href }}">
       <span>{{ link.text }}</span>

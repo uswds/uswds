@@ -561,6 +561,8 @@
 }
 
 .usa-megamenu-col {
+  @include unstyled-list;
+
   @include media($nav-width) {
     @include span-columns(3);
 
