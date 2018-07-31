@@ -7,10 +7,10 @@ variants:
     label: Info
     context:
       label:
-        classes: ""
+        classes: "usa-tag"
 
   - name: big
     label: Big
     context:
       label:
-        classes: "usa-tag-big"
+        classes: "usa-tag usa-tag-big"
