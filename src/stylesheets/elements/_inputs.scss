@@ -18,6 +18,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 // Block form elements
 /* stylelint-disable selector-no-qualifying-type */
+
 .usa-input,
 .usa-textarea,
 .usa-select {
@@ -344,7 +345,7 @@ legend {
 // Memorable dates
 
 .usa-memorable-date { /* stylelint-disable-line */
-  label {
+  .usa-label {
     margin-top: 0;
   }
 
