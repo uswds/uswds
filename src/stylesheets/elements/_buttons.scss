@@ -156,7 +156,8 @@ $button-stroke: inset 0 0 0 2px;
 /* stylelint-disable */
 
 .usa-button {
-  &:focus {
+  &:focus,
+  &.usa-focus {
     outline-offset: units(0.5);
   }
 }
