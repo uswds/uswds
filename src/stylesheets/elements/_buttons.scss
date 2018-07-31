@@ -26,12 +26,7 @@ $button-stroke: inset 0 0 0 2px;
 .usa-button,
 .usa-button-primary,
 .usa-button:visited,
-.usa-button-primary:visited,
-button,
-[type=button],
-[type=submit],
-[type=reset],
-[type=image] {
+.usa-button-primary:visited {
   @include font-smoothing;
   @include margin(0.5em 0.5em 0.5em null);
   appearance: none;
