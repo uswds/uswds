@@ -261,14 +261,14 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 // Range inputs
 
-[type=range] {
+.usa-range {
   appearance: none;
   border: none;
   padding-left: 0;
   width: 100%;
 }
 
-[type=range]::-webkit-slider-runnable-track {
+.usa-range::-webkit-slider-runnable-track {
   background: $color-gray-light;
   border: 1px solid $color-gray-medium;
   cursor: pointer;
@@ -276,7 +276,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   width: 100%;
 }
 
-[type=range]::-moz-range-track {
+.usa-range::-moz-range-track {
   background: $color-primary;
   border: 1px solid $color-gray-medium;
   cursor: pointer;
@@ -284,7 +284,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   width: 100%;
 }
 
-[type=range]::-ms-track {
+.usa-range::-ms-track {
   background: transparent;
   color: transparent;
   cursor: pointer;
@@ -292,7 +292,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   width: 100%;
 }
 
-[type=range]::-webkit-slider-thumb {
+.usa-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 1px solid $color-gray-medium;
   height: 2.2rem;
@@ -303,7 +303,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   width: 2.2rem;
 }
 
-[type=range]::-moz-range-thumb {
+.usa-range::-moz-range-thumb {
   background: $color-gray-lightest;
   border: 1px solid $color-gray-medium;
   border-radius: 1.5rem;
@@ -312,7 +312,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   width: 2.2rem;
 }
 
-[type=range]::-ms-thumb {
+.usa-range::-ms-thumb {
   background: $color-gray-lightest;
   border: 1px solid $color-gray-medium;
   border-radius: 1.5rem;
@@ -321,13 +321,13 @@ $input-height: floor($input-height-exact * 10) / 10;
   width: 2.2rem;
 }
 
-[type=range]::-ms-fill-lower {
+.usa-range::-ms-fill-lower {
   background: $color-gray-light;
   border: 1px solid $color-gray-medium;
   border-radius: 2rem;
 }
 
-[type=range]::-ms-fill-upper {
+.usa-range::-ms-fill-upper {
   background: $color-gray-light;
   border: 1px solid $color-gray-medium;
   border-radius: 2rem;
