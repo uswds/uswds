@@ -172,8 +172,8 @@ legend {
 
 // Custom checkboxes
 
-[type=checkbox],
-[type=radio] {
+.usa-checkbox-input,
+.usa-radio-input {
   // The actual input element is only visible to screen readers, because
   // all visual styling is done via the label.
   @include sr-only();
@@ -187,15 +187,16 @@ legend {
   }
 }
 
-[type=checkbox] + label,
-[type=radio] + label {
+.usa-checkbox-label,
+.usa-radio-label {
   cursor: pointer;
+  display: inherit;
   font-weight: 400;
   margin-bottom: 0.65em;
 }
 
-[type=checkbox] + label::before,
-[type=radio] + label::before {
+.usa-checkbox-label::before,
+.usa-radio-label::before {
   background: $color-white;
   content: '\a0';
   display: inline-block;
@@ -203,7 +204,7 @@ legend {
   vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
 }
 
-[type=checkbox] + label::before {
+.usa-checkbox-label::before {
   border-radius: $checkbox-border-radius;
   box-shadow: 0 0 0 1px $color-gray-medium;
   height: $spacing-medium;
@@ -213,7 +214,7 @@ legend {
   width: $spacing-medium;
 }
 
-[type=radio] + label::before {
+.usa-radio-label::before {
   border-radius: 100%;
   box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-gray-medium;
   height: 1.4rem; // Size overrides to account for shape + checked styling
@@ -223,40 +224,40 @@ legend {
   width: 1.4rem;
 }
 
-[type=checkbox]:checked + label::before,
-[type=radio]:checked + label::before {
+.usa-checkbox-input:checked + .usa-checkbox-label::before,
+.usa-radio-input:checked + .usa-radio-label::before {
   background-color: $color-primary;
   box-shadow: 0 0 0 1px $color-primary;
 }
 
-[type=radio]:checked + label::before {
+.usa-radio-input:checked + .usa-radio-label::before {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary;
 }
 
-[type=checkbox]:checked + label::before,
-[type=checkbox]:checked:disabled + label::before {
+.usa-checkbox-input:checked + .usa-checkbox-label::before,
+.usa-checkbox-input:checked:disabled + .usa-checkbox-label::before {
   background-image: url('#{$theme-image-path}/correct8.png');
   background-image: url('#{$theme-image-path}/correct8.svg');
   background-position: 50%;
   background-repeat: no-repeat;
 }
 
-[type=radio]:focus + label::before {
+.usa-radio-input:focus + .usa-radio-label::before {
   outline: $focus-outline;
-  outline-offset: $focus-spacing * 2; // Double the offset to account for circular shape
+  outline-offset: units(0.5);
 }
 
-[type=checkbox]:disabled + label {
+.usa-checkbox-input:disabled + .usa-checkbox-label {
   color: $color-gray-lighter;
 }
 
-[type=checkbox]:focus + label::before {
+.usa-checkbox-input:focus + .usa-checkbox-label::before {
   outline: $focus-outline;
   outline-offset: $focus-spacing;
 }
 
-[type=checkbox]:disabled + label::before,
-[type=radio]:disabled + label::before {
+.usa-checkbox-input:disabled + .usa-checkbox-label::before,
+.usa-radio-input:disabled + .usa-radio-label::before {
   background: $color-gray-lightest;
   box-shadow: 0 0 0 1px $color-gray-light;
   cursor: not-allowed;
