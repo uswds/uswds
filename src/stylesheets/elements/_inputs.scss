@@ -18,9 +18,9 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 // Block form elements
 /* stylelint-disable selector-no-qualifying-type */
-input,
-textarea,
-select {
+.usa-input,
+.usa-textarea,
+.usa-select {
   appearance: none;
   border: $input-border-width solid $color-gray;
   border-radius: 0;
@@ -50,14 +50,14 @@ select {
   position: relative;
   right: 1.9rem;
 
-  input,
-  textarea,
-  select {
+  .usa-input,
+  .usa-textarea,
+  .usa-select {
     border: 3px solid $color-secondary-dark;
     width: calc(100% + 1.9rem); // 1.5rem left padding + 4px border from input error spacing
   }
 
-  label {
+  .usa-label {
     margin-top: 0;
   }
 
@@ -108,17 +108,17 @@ select {
   color: $color-secondary-darkest;
 }
 
-label {
+.usa-label {
   display: block;
   margin-top: 3rem;
   max-width: $input-max-width;
 }
 
-textarea {
+.usa-textarea {
   height: 16rem;
 }
 
-select {
+.usa-select {
   appearance: none;
   background-color: $color-white;
   background-image: url('#{$theme-image-path}/arrow-both.png');
