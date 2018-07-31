@@ -147,10 +147,6 @@ $input-height: floor($input-height-exact * 10) / 10;
   }
 }
 
-option:first-child {
-  font-weight: $font-bold;
-}
-
 .usa-legend {
   font-size: $h2-font-size;
   font-weight: $font-bold;
