@@ -15,8 +15,11 @@ uswds.components = components;
 
 domready(() => {
   const target = document.body;
-
-  Object.values(components).forEach(behavior => behavior.on(target));
+  Object.keys(components)
+    .forEach((key) => {
+      const behavior = components[key];
+      behavior.on(target);
+    });
 });
 
 module.exports = uswds;
