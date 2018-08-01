@@ -261,7 +261,6 @@ legend {
   cursor: not-allowed;
 }
 
-
 // Range inputs
 
 // Change to $color-focus in 2.0
@@ -306,7 +305,7 @@ legend {
       @include range-focus;
     }
 
-    &::-moz-range-thumb  {
+    &::-moz-range-thumb {
       @include range-focus;
     }
 
