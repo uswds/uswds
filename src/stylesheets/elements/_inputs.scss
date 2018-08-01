@@ -273,17 +273,17 @@ legend {
   background: $color-gray-lighter;
   border: 1px solid $color-gray-medium;
   cursor: pointer;
-  height: 1.2rem;
+  height: 1.6rem;
   width: 100%;
 }
 
 @mixin range-thumb {
   background: $color-gray-lightest;
-  border: 1px solid $color-gray-medium;
+  box-shadow: 0 0 0 1px $color-gray-medium;
   border-radius: 1.5rem;
   cursor: pointer;
-  height: 2.2rem;
-  width: 2.2rem;
+  height: 2.5rem;
+  width: 2.5rem;
 }
 
 @mixin range-ms-fill {
@@ -330,7 +330,7 @@ legend {
   &::-webkit-slider-thumb {
     @include range-thumb;
     appearance: none;
-    margin-top: -0.65rem;
+    margin-top: -0.6rem;
   }
 
   &::-moz-range-thumb {
