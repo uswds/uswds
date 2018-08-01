@@ -263,76 +263,90 @@ legend {
 
 // Range inputs
 
+// Change to $color-focus in 2.0
+@mixin range-focus {
+  box-shadow: 0 0 0 2px $color-primary;
+}
+
+@mixin range-track {
+  background: $color-gray-lighter;
+  border: 1px solid $color-gray-medium;
+  cursor: pointer;
+  height: 1.6rem;
+  width: 100%;
+}
+
+@mixin range-thumb {
+  background: $color-gray-lightest;
+  box-shadow: 0 0 0 1px $color-gray-medium;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+@mixin range-ms-fill {
+  background: $color-gray-light;
+  border: 1px solid $color-gray-medium;
+  border-radius: 2rem;
+}
+
 [type=range] {
   appearance: none;
   border: none;
   padding-left: 0;
+  overflow: hidden;
   width: 100%;
-}
 
-[type=range]::-webkit-slider-runnable-track {
-  background: $color-gray-light;
-  border: 1px solid $color-gray-medium;
-  cursor: pointer;
-  height: 1.2rem;
-  width: 100%;
-}
+  &:focus {
+    outline: none;
 
-[type=range]::-moz-range-track {
-  background: $color-primary;
-  border: 1px solid $color-gray-medium;
-  cursor: pointer;
-  height: 1.2rem;
-  width: 100%;
-}
+    &::-webkit-slider-thumb {
+      @include range-focus;
+    }
 
-[type=range]::-ms-track {
-  background: transparent;
-  color: transparent;
-  cursor: pointer;
-  height: 1.2rem;
-  width: 100%;
-}
+    &::-moz-range-thumb {
+      @include range-focus;
+    }
 
-[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: 1px solid $color-gray-medium;
-  height: 2.2rem;
-  border-radius: 1.5rem;
-  background: $color-gray-lightest;
-  cursor: pointer;
-  margin-top: -.65rem;
-  width: 2.2rem;
-}
+    &::-ms-thumb {
+      @include range-focus;
+    }
+  }
 
-[type=range]::-moz-range-thumb {
-  background: $color-gray-lightest;
-  border: 1px solid $color-gray-medium;
-  border-radius: 1.5rem;
-  cursor: pointer;
-  height: 2.2rem;
-  width: 2.2rem;
-}
+  &::-webkit-slider-runnable-track {
+    @include range-track;
+  }
 
-[type=range]::-ms-thumb {
-  background: $color-gray-lightest;
-  border: 1px solid $color-gray-medium;
-  border-radius: 1.5rem;
-  cursor: pointer;
-  height: 2.2rem;
-  width: 2.2rem;
-}
+  &::-moz-range-track {
+    @include range-track;
+  }
 
-[type=range]::-ms-fill-lower {
-  background: $color-gray-light;
-  border: 1px solid $color-gray-medium;
-  border-radius: 2rem;
-}
+  &::-ms-track {
+    @include range-track;
+  }
 
-[type=range]::-ms-fill-upper {
-  background: $color-gray-light;
-  border: 1px solid $color-gray-medium;
-  border-radius: 2rem;
+  &::-webkit-slider-thumb {
+    @include range-thumb;
+    appearance: none;
+    margin-top: -0.6rem;
+  }
+
+  &::-moz-range-thumb {
+    @include range-thumb;
+  }
+
+  &::-ms-thumb {
+    @include range-thumb;
+  }
+
+  &::-ms-fill-lower {
+    @include range-ms-fill;
+  }
+
+  &::-ms-fill-upper {
+    @include range-ms-fill;
+  }
 }
 
 // File input type
