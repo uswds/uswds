@@ -174,7 +174,6 @@ $z-index-nav:     9000;
     @include media($nav-width) {
       @include outer-container($site-max-width);
       @include padding(null $site-margins null 1.5rem);
-      margin-top: -1px;
       position: relative;
     }
   }
