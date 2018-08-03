@@ -13,6 +13,20 @@ PROJECT THEME SETTINGS
 
 /*
 ----------------------------------------
+Basic styles
+----------------------------------------
+Sets the default typography styles for
+paragraph text and links
+
+Accepts true or false
+----------------------------------------
+*/
+
+$uswds-global-styles-basic: true !default;
+
+
+/*
+----------------------------------------
 Scoped styles
 ----------------------------------------
 Sets the default typography base styles
@@ -21,7 +35,7 @@ Accepts global, scoped, or none
 ----------------------------------------
 */
 
-$uswds-global-styles: 'scoped';
+$uswds-global-styles: 'scoped' !default;
 
 /*
 ----------------------------------------

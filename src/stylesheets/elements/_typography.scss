@@ -39,8 +39,7 @@ body {
   margin-top: 1.5em;
 }
 
-// Paragraph text, links, and headings
-@mixin uswds-typography-styles {
+@mixin uswds-typography-base-styles {
   p {
     @extend %uswds-p;
   }
@@ -48,7 +47,9 @@ body {
   a {
     @extend %uswds-a;
   }
+}
 
+@mixin uswds-headings-styles {
   h1,
   h2,
   h3,
@@ -82,28 +83,38 @@ body {
     @include h6;
     font-family: $font-sans;
   }
-  // More styles go here
+}
+
+// Basic typography styles (paragraph text and links)
+@mixin uswds-global-styles-basic {
+  @if $uswds-global-styles-basic == true {
+    @include uswds-typography-base-styles;
+  }
+}
+
+@mixin uswds-global-styles-all {
+  @include uswds-typography-base-styles;
+  @include uswds-headings-styles;
+  @include uswds-list-styles;
+  @include uswds-table-styles;
 }
 
 /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
-@mixin uswds-global-styles($uswds-global-styles) {
+@mixin uswds-global-styles {
   @if $uswds-global-styles == 'scoped' {
     .usa-prose {
-      @include uswds-typography-styles;
-      @include uswds-list-styles;
-      @include uswds-table-styles;
+      @include uswds-global-styles-all;
     }
   } @else if $uswds-global-styles == 'global' {
-    @include uswds-typography-styles;
-    @include uswds-list-styles;
-    @include uswds-table-styles;
+    @include uswds-global-styles-all;
   } @else {
     // Default nothing if it’s neither
   }
 }
 /* stylelint-enable */
 
-@include uswds-global-styles($uswds-global-styles);
+@include uswds-global-styles-basic;
+@include uswds-global-styles;
 
 @mixin external-link($external-link, $external-link-hover) {
   &::after {
