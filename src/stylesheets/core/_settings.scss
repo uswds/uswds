@@ -26,15 +26,17 @@ $uswds-global-styles-basic: true !default;
 
 /*
 ----------------------------------------
-Scoped styles
+Content styles
 ----------------------------------------
-Sets the default typography base styles
+Sets the default typography styles for
+paragraph text, links, headings, lists,
+and tables
 
 Accepts global, scoped, or none
 ----------------------------------------
 */
 
-$uswds-global-styles: 'scoped' !default;
+$uswds-content-styles: 'scoped' !default;
 
 /*
 ----------------------------------------

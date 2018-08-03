@@ -92,7 +92,7 @@ body {
   }
 }
 
-@mixin uswds-global-styles-all {
+%uswds-content-styles {
   @include uswds-typography-base-styles;
   @include uswds-headings-styles;
   @include uswds-list-styles;
@@ -100,13 +100,13 @@ body {
 }
 
 /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
-@mixin uswds-global-styles {
-  @if $uswds-global-styles == 'scoped' {
+@mixin uswds-content-styles {
+  @if $uswds-content-styles == 'scoped' {
     .usa-prose {
-      @include uswds-global-styles-all;
+      @extend %uswds-content-styles;
     }
-  } @else if $uswds-global-styles == 'global' {
-    @include uswds-global-styles-all;
+  } @else if $uswds-content-styles == 'global' {
+    @extend %uswds-content-styles;
   } @else {
     // Default nothing if it’s neither
   }
@@ -114,7 +114,7 @@ body {
 /* stylelint-enable */
 
 @include uswds-global-styles-basic;
-@include uswds-global-styles;
+@include uswds-content-styles;
 
 @mixin external-link($external-link, $external-link-hover) {
   &::after {
