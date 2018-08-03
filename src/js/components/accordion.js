@@ -5,7 +5,6 @@ const isElementInViewport = require('../utils/is-in-viewport');
 const { CLICK } = require('../events');
 const { prefix: PREFIX } = require('../config');
 
-// XXX match .usa-accordion and .usa-accordion-bordered
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion-bordered`;
 const BUTTON = `.${PREFIX}-accordion-button[aria-controls]`;
 const EXPANDED = 'aria-expanded';

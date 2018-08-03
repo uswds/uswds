@@ -1,4 +1,3 @@
-
 const behavior = require('../utils/behavior');
 const toggleFormInput = require('../utils/toggle-form-input');
 
