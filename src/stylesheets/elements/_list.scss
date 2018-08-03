@@ -1,9 +1,9 @@
-%uswds-list {
+%usa-list {
   @include u-margin-y(1em);
   padding-left: 1.94em; // Approximately 15px left padding at default font size
 }
 
-%uswds-list-item {
+%usa-list-item {
   line-height: $base-line-height;
   margin-bottom: 0.5em;
 
@@ -12,22 +12,22 @@
   }
 }
 
-@mixin uswds-list-styles {
+@mixin usa-list-styles {
   ul,
   ol {
-    @extend %uswds-list;
+    @extend %usa-list;
   }
 
   li {
-    @extend %uswds-list-item;
+    @extend %usa-list-item;
   }
 }
 
 .usa-list {
-  @extend %uswds-list;
+  @extend %usa-list;
 
   li {
-    @extend %uswds-list-item;
+    @extend %usa-list-item;
   }
 }
 

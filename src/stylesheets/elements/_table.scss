@@ -1,4 +1,4 @@
-%uswds-table {
+%usa-table {
   border-spacing: 0;
   margin: 2em 0;
 
@@ -33,14 +33,14 @@
   }
 }
 
-@mixin uswds-table-styles {
+@mixin usa-table-styles {
   table {
-    @extend %uswds-table;
+    @extend %usa-table;
   }
 }
 
 .usa-table {
-  @extend %uswds-table;
+  @extend %usa-table;
 }
 
 .usa-table-borderless {

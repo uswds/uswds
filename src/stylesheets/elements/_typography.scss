@@ -7,13 +7,13 @@ body {
   font-size: $base-font-size;
 }
 
-%uswds-p {
+%usa-paragraph {
   line-height: $base-line-height;
   margin-bottom: 1em;
   margin-top: 1em;
 }
 
-%uswds-a {
+%usa-link {
   color: $color-primary;
   text-decoration: underline;
 
@@ -31,7 +31,7 @@ body {
   }
 }
 
-%uswds-headings-base {
+%usa-heading {
   clear: both;
   font-family: $font-serif;
   line-height: $heading-line-height;
@@ -39,24 +39,24 @@ body {
   margin-top: 1.5em;
 }
 
-@mixin uswds-typography-base-styles {
+@mixin usa-typography-base-styles {
   p {
-    @extend %uswds-p;
+    @extend %usa-paragraph;
   }
 
   a {
-    @extend %uswds-a;
+    @extend %usa-link;
   }
 }
 
-@mixin uswds-headings-styles {
+@mixin usa-headings-styles {
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @extend %uswds-headings-base;
+    @extend %usa-heading;
   }
 
   h1 {
@@ -86,35 +86,35 @@ body {
 }
 
 // Basic typography styles (paragraph text and links)
-@mixin uswds-global-styles-basic {
-  @if $uswds-global-styles-basic == true {
-    @include uswds-typography-base-styles;
+@mixin usa-global-styles-basic {
+  @if $usa-global-styles-basic == true {
+    @include usa-typography-base-styles;
   }
 }
 
-%uswds-content-styles {
-  @include uswds-typography-base-styles;
-  @include uswds-headings-styles;
-  @include uswds-list-styles;
-  @include uswds-table-styles;
+%usa-content-styles {
+  @include usa-typography-base-styles;
+  @include usa-headings-styles;
+  @include usa-list-styles;
+  @include usa-table-styles;
 }
 
 /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
-@mixin uswds-content-styles {
-  @if $uswds-content-styles == 'scoped' {
+@mixin usa-content-styles {
+  @if $usa-content-styles == 'scoped' {
     .usa-prose {
-      @extend %uswds-content-styles;
+      @extend %usa-content-styles;
     }
-  } @else if $uswds-content-styles == 'global' {
-    @extend %uswds-content-styles;
+  } @else if $usa-content-styles == 'global' {
+    @extend %usa-content-styles;
   } @else {
     // Default nothing if it’s neither
   }
 }
 /* stylelint-enable */
 
-@include uswds-global-styles-basic;
-@include uswds-content-styles;
+@include usa-global-styles-basic;
+@include usa-content-styles;
 
 @mixin external-link($external-link, $external-link-hover) {
   &::after {
@@ -135,8 +135,12 @@ body {
   }
 }
 
+.usa-paragraph {
+  @extend %usa-paragraph;
+}
+
 .usa-link {
-  @extend %uswds-a;
+  @extend %usa-link;
 }
 
 // External link consider "effortless style approach":
