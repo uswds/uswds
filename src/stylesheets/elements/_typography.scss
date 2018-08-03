@@ -116,6 +116,14 @@ body {
 @include usa-global-styles-basic;
 @include usa-content-styles;
 
+.usa-paragraph {
+  @extend %usa-paragraph;
+}
+
+.usa-link {
+  @extend %usa-link;
+}
+
 @mixin external-link($external-link, $external-link-hover) {
   &::after {
     background: url('#{$theme-image-path}/#{$external-link}.png') no-repeat 0 0;
@@ -133,14 +141,6 @@ body {
     background-image: url('#{$theme-image-path}/#{$external-link-hover}.png');
     background-image: url('#{$theme-image-path}/#{$external-link-hover}.svg');
   }
-}
-
-.usa-paragraph {
-  @extend %usa-paragraph;
-}
-
-.usa-link {
-  @extend %usa-link;
 }
 
 // External link consider "effortless style approach":
