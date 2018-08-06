@@ -44,7 +44,7 @@ gulp.task('copy-vendor-sass', function () {
 });
 
 gulp.task('copy-dist-sass', function () {
-  dutil.logMessage('copy-dist-sass', 'Copying all SASS to dist dir');
+  dutil.logMessage('copy-dist-sass', 'Copying all Sass to dist dir');
 
   var stream = gulp.src('src/stylesheets/**/*.scss')
     .pipe(gulp.dest('dist/scss'));
