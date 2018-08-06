@@ -20,7 +20,7 @@ gulp.task('clean-dist', function (done) {
 });
 
 gulp.task('docs', function (done) {
-   
+
   dutil.logMessage('docs', 'Copying documentation dist dir');
 
   var stream = gulp.src([
@@ -51,8 +51,8 @@ gulp.task('build', function (done) {
       'images',
       'fonts',
     ],
-    // We need to copy the SASS to dist *after* the sass task, to ensure
-    // that vendor libraries have been copied to the SASS directory first.
+    // We need to copy the Sass to dist *after* the sass task, to ensure
+    // that vendor libraries have been copied to the Sass directory first.
     'copy-dist-sass',
     done
   );

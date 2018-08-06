@@ -4,7 +4,9 @@ references:
   container: &container
     docker:
       - image: circleci/node:8.10-browsers
-  
+        environment:
+          CHROME_PATH: /usr/bin/google-chrome
+
   restore_deps: &restore_deps
     restore_cache:
       keys:
