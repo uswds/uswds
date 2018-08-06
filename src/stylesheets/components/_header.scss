@@ -176,7 +176,6 @@ $z-index-nav:     9000;
       @include outer-container($site-max-width);
       @include u-padding-right($site-margins);
       @include u-padding-left(1.5rem);
-      margin-top: -1px;
       position: relative;
     }
   }

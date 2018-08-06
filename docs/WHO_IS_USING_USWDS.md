@@ -68,7 +68,6 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [FedRAMP Marketplace](https://marketplace.fedramp.gov/)
 - [FedRAMP Tailored](https://tailored.fedramp.gov/)
 - [feedback.usa.gov](https://feedback.usa.gov/)
-- [Fine-Root Ecology Database](https://roots.ornl.gov/)
 - [FOIA](https://www.foia.gov/)
 - [Foster Youth Experience Map](https://github.com/presidential-innovation-fellows/fyem-jekyll)
 - [General Services Administration](https://gsa.gov)
