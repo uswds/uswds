@@ -1,5 +1,3 @@
-const assign = require('object-assign');
-const forEach = require('array-foreach');
 const behavior = require('../utils/behavior');
 const select = require('../utils/select');
 const FocusTrap = require('../utils/focus-trap');
@@ -29,7 +27,7 @@ const toggleNav = function (active) {
 
   body.classList.toggle(ACTIVE_CLASS, safeActive);
 
-  forEach(select(TOGGLES), el => el.classList.toggle(VISIBLE_CLASS, safeActive));
+  select(TOGGLES).forEach(el => el.classList.toggle(VISIBLE_CLASS, safeActive));
 
   navigation.focusTrap.update(safeActive);
 
@@ -56,10 +54,9 @@ const resize = () => {
   const closer = document.body.querySelector(CLOSE_BUTTON);
 
   if (isActive() && closer && closer.getBoundingClientRect().width === 0) {
-    // The mobile nav is active, but the close box isn't visible, which
-    // means the user's viewport has been resized so that it is no longer
-    // in mobile mode. Let's make the page state consistent by
-    // deactivating the mobile nav.
+    // When the mobile nav is active, and the close box isn't visible,
+    // we know the user's viewport has been resized to be larger.
+    // Let's make the page state consistent by deactivating the mobile nav.
     navigation.toggleNav.call(closer, false);
   }
 };
@@ -90,8 +87,8 @@ navigation = behavior({
     },
   },
 }, {
-  init() {
-    const trapContainer = document.querySelector(NAV);
+  init(root) {
+    const trapContainer = root.querySelector(NAV);
 
     if (trapContainer) {
       navigation.focusTrap = FocusTrap(trapContainer, {
@@ -109,12 +106,4 @@ navigation = behavior({
   toggleNav,
 });
 
-/**
- * TODO for 2.0, remove this statement and export `navigation` directly:
- *
- * module.exports = behavior({...});
- */
-module.exports = assign(
-  el => navigation.on(el),
-  navigation,
-);
+module.exports = navigation;
