@@ -776,7 +776,7 @@ colors: project, system, and required
   } @else {
     @if str-slice(inspect($color-family), 1, 1) == '#'
         or str-slice(inspect($color-family), 1, 3) == 'rgb' {
-      @return $color-family;
+      @return unquote($color-family);
     }
     @if not map-has-key($all-colors, $color-family) {
       @error '`#{$color-family}` is not a valid color family.';
