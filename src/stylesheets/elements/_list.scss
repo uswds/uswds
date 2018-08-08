@@ -1,15 +1,33 @@
-ul,
-ol {
+%usa-list {
   @include u-margin-y(1em);
   padding-left: 1.94em; // Approximately 15px left padding at default font size
 }
 
-li {
+%usa-list-item {
   line-height: $base-line-height;
   margin-bottom: 0.5em;
 
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+@mixin usa-list-styles {
+  ul,
+  ol {
+    @extend %usa-list;
+  }
+
+  li {
+    @extend %usa-list-item;
+  }
+}
+
+.usa-list {
+  @extend %usa-list;
+
+  li {
+    @extend %usa-list-item;
   }
 }
 
