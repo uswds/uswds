@@ -2,12 +2,12 @@
 <div class="dark-bg">
 {% endif -%}
 
-<button class="{{ classes }}">Default</button>
+<button class="usa-button {{ classes }}">Default</button>
 {% if (category != 'disabled') and (category != 'big') -%}
-<button class="{{ classes }} usa-button-hover">Hover</button>
-<button class="{{ classes }} usa-button-active">Active</button>
-<button class="{{ classes }} usa-focus">Focus</button>
-<button class="{{ classes }}" disabled>Disabled</button>
+<button class="usa-button {{ classes }} usa-button-hover">Hover</button>
+<button class="usa-button {{ classes }} usa-button-active">Active</button>
+<button class="usa-button {{ classes }} usa-focus">Focus</button>
+<button class="usa-button {{ classes }}" disabled>Disabled</button>
 {%- endif -%}
 
 {%- if (classes == 'usa-button-secondary-inverse') %}

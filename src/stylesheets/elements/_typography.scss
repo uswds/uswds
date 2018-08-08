@@ -7,13 +7,13 @@ body {
   font-size: $base-font-size;
 }
 
-p {
+%usa-paragraph {
   line-height: $base-line-height;
   margin-bottom: 1em;
   margin-top: 1em;
 }
 
-a {
+%usa-link {
   color: $color-primary;
   text-decoration: underline;
 
@@ -29,6 +29,99 @@ a {
   &:visited {
     color: $color-visited;
   }
+}
+
+%usa-heading {
+  clear: both;
+  font-family: $font-serif;
+  line-height: $heading-line-height;
+  margin-bottom: 0.5em;
+  margin-top: 1.5em;
+}
+
+@mixin usa-typography-base-styles {
+  p {
+    @extend %usa-paragraph;
+  }
+
+  a {
+    @extend %usa-link;
+  }
+}
+
+@mixin usa-headings-styles {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @extend %usa-heading;
+  }
+
+  h1 {
+    @include h1;
+  }
+
+  h2 {
+    @include h2;
+  }
+
+  h3 {
+    @include h3;
+  }
+
+  h4 {
+    @include h4;
+  }
+
+  h5 {
+    @include h5;
+  }
+
+  h6 {
+    @include h6;
+    font-family: $font-sans;
+  }
+}
+
+// Basic typography styles (paragraph text and links)
+@mixin usa-global-styles-basic {
+  @if $theme-global-styles-basic == true {
+    @include usa-typography-base-styles;
+  }
+}
+
+%usa-content-styles {
+  @include usa-typography-base-styles;
+  @include usa-headings-styles;
+  @include usa-list-styles;
+  @include usa-table-styles;
+}
+
+/* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
+@mixin usa-content-styles {
+  @if $theme-content-styles == 'scoped' {
+    .usa-prose {
+      @extend %usa-content-styles;
+    }
+  } @else if $usa-content-styles == 'global' {
+    @extend %usa-content-styles;
+  } @else {
+    // Default nothing if it’s neither
+  }
+}
+/* stylelint-enable */
+
+@include usa-global-styles-basic;
+@include usa-content-styles;
+
+.usa-paragraph {
+  @extend %usa-paragraph;
+}
+
+.usa-link {
+  @extend %usa-link;
 }
 
 @mixin external-link($external-link, $external-link-hover) {
@@ -60,44 +153,6 @@ a {
 
 .usa-external_link-alt {
   @include external-link(external-link-alt, external-link-alt-hover);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  clear: both;
-  font-family: $font-serif;
-  line-height: $heading-line-height;
-  margin-bottom: 0.5em;
-  margin-top: 1.5em;
-}
-
-h1 {
-  @include h1();
-}
-
-h2 {
-  @include h2();
-}
-
-h3 {
-  @include h3();
-}
-
-h4 {
-  @include h4();
-}
-
-h5 {
-  @include h5();
-}
-
-h6 {
-  @include h6();
-  font-family: $font-sans;
 }
 
 // Remove user agent styles
@@ -147,15 +202,15 @@ dfn {
 }
 
 .usa-display {
-  @include h3();
+  @include h3;
   margin-bottom: 0;
 
   @include media($small-screen) {
-    @include h1();
+    @include h1;
   }
 
   @include media($medium-screen) {
-    @include title();
+    @include title;
   }
 }
 

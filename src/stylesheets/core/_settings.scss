@@ -13,6 +13,33 @@ PROJECT THEME SETTINGS
 
 /*
 ----------------------------------------
+Basic styles
+----------------------------------------
+Sets the default typography styles for
+paragraph text and links
+
+Accepts true or false
+----------------------------------------
+*/
+
+$theme-global-styles-basic: true !default;
+
+/*
+----------------------------------------
+Content styles
+----------------------------------------
+Sets the default typography styles for
+paragraph text, links, headings, lists,
+and tables
+
+Accepts global, scoped, or none
+----------------------------------------
+*/
+
+$theme-content-styles: 'scoped' !default;
+
+/*
+----------------------------------------
 Namespace
 ----------------------------------------
 */
