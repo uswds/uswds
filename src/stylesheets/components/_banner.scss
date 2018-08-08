@@ -12,6 +12,7 @@ $banner-font-family: 'sans';
   @include u-bg($base-lighter);
   @include u-font-family($banner-font-family);
   @include u-padding-bottom(1);
+  @include u-position('relative');
 
   @include at-media('mobile-lg') {
     @include u-font-size($banner-font-family, $theme-h6-font-size);
