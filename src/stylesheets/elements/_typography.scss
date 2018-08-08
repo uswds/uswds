@@ -87,7 +87,7 @@ body {
 
 // Basic typography styles (paragraph text and links)
 @mixin usa-global-styles-basic {
-  @if $usa-global-styles-basic == true {
+  @if $theme-global-styles-basic == true {
     @include usa-typography-base-styles;
   }
 }
@@ -101,7 +101,7 @@ body {
 
 /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
 @mixin usa-content-styles {
-  @if $usa-content-styles == 'scoped' {
+  @if $theme-content-styles == 'scoped' {
     .usa-prose {
       @extend %usa-content-styles;
     }
