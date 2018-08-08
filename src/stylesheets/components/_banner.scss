@@ -60,7 +60,7 @@ $banner-font-family: 'sans';
 
 .usa-banner-header {
   @include u-padding-y(.5);
-  @include u-font-size($banner-font-family, 1)
+  @include u-font-size($banner-font-family, 1);
 
   @include at-media('mobile-lg') {
     @include u-padding-y(0);
@@ -92,7 +92,7 @@ $banner-font-family: 'sans';
 }
 
 .usa-banner-header-expanded {
-  @include u-font-size($banner-font-family, $theme-h5-font-size)
+  @include u-font-size($banner-font-family, $theme-h5-font-size);
   align-items: center;
   border-bottom: 1px solid $base-light;
   display: flex;
@@ -100,7 +100,7 @@ $banner-font-family: 'sans';
   padding-right: units(4);
 
   @include at-media('mobile-lg') {
-    @include u-font-size($banner-font-family, 1)
+    @include u-font-size($banner-font-family, 1);
     border-bottom: none;
     display: block;
     min-height: 0;
@@ -138,7 +138,7 @@ $banner-font-family: 'sans';
   @include button-unstyled;
   @include u-padding-top(1.5);
   @include u-padding-left(6);
-  @include u-font-size($banner-font-family, 1)
+  @include u-font-size($banner-font-family, 1);
   background-position-x: right;
   color: $primary;
   display: block;
