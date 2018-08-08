@@ -55,7 +55,6 @@
   "dependencies": {
     "@types/node": "^8.5.5",
     "array-filter": "^1.0.0",
-    "array-foreach": "^1.0.2",
     "browserify": "^13.0.0",
     "classlist-polyfill": "^1.0.3",
     "domready": "^1.0.8",

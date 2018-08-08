@@ -1,7 +1,5 @@
-
 const once = require('receptor/once');
 const behavior = require('../utils/behavior');
-
 const { CLICK } = require('../events');
 const { prefix: PREFIX } = require('../config');
 

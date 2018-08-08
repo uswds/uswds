@@ -296,7 +296,7 @@ NOTE: If you plan on upgrading to newer versions of the Design System in the fut
 
 * **HTML** markup for the components is located in: `src/html` in the site root.
 * **Sass** styles are located in: `src/stylesheets/ (/core, /elements, /components)`. **Compiled CSS** is located in the [downloadable zip file](https://github.com/uswds/uswds/releases/latest).
-* **JS** is located in: `src/js/components (accordion.js, toggle-field-mark.js, toggle-form-input.js, validator.js)`.
+* **JS** is located in: `src/js (/components, /utils)`.
 * **Fonts** are located in: `src/fonts`.
 * **Images** and icons are located in: `src/img`.
 

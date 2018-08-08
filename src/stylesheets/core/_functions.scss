@@ -591,6 +591,7 @@ variable that is, itself, a list
   }
 
   @if not map-has-key($uswds-required-colors, $color-family) {
+    @debug '#{$color-family}';
     @error 'USWDS colors require a grade. '
          + 'Exceptions: #{map-keys($uswds-required-colors)}';
   }
@@ -1304,13 +1305,13 @@ through all possible variants
 
           $val-slug: if(
             type-of($val-value) == 'map',
-            map-get($val-value, content),
+            map-get($val-value, 'slug'),
             $val-key
           );
 
           $value: if(
             type-of($val-value) == 'map',
-            map-get($val-value, content),
+            map-get($val-value, 'content'),
             $val-value
           );
 
