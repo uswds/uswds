@@ -54,6 +54,11 @@ $banner-font-family: 'sans';
   @include grid-container($theme-site-max-width);
   @include u-padding-x($theme-site-margins-mobile);
 
+  @include at-media('mobile-lg') {
+    @include grid-row;
+    @include u-flex('align-center');
+  }
+
   @include media($nav-width) {
     @include u-padding-x($theme-site-margins);
   }
@@ -64,17 +69,18 @@ $banner-font-family: 'sans';
   @include u-font-size($banner-font-family, 1);
 
   @include at-media('mobile-lg') {
-    @include u-padding-y(0);
+    @include u-padding-y(2px);
   }
 
   p {
-    @include u-margin-y(0);
-    display: inline;
-    overflow: hidden;
-    vertical-align: middle;
+    @include u-line-height($banner-font-family, 1);
+    @include u-margin-bottom(0);
+    @include u-margin-top(2px);
+    display: block;
+    overflow: visible;
 
     @include at-media('mobile-lg') {
-      @include u-margin-y(2px);
+      @include u-margin-top(0);
       display: inline-block;
     }
   }
@@ -152,7 +158,7 @@ $banner-font-family: 'sans';
 
   @include at-media('mobile-lg') {
     @include u-padding-top(0);
-    @include u-padding-left(0);
+    @include u-padding-left(2px);
     @include u-margin-left(.5);
     /* stylelint-disable declaration-block-no-ignored-properties */
     display: inline;
@@ -185,7 +191,7 @@ $banner-font-family: 'sans';
     @include at-media('mobile-lg') {
       @include display-icon(angle-arrow-up-primary, after, units(1), 0, hover);
       height: initial;
-      padding: 0;
+      padding: 0 0 0 2px;
       position: relative;
 
       &::after {
