@@ -574,6 +574,18 @@ $color-palette-state: (
 $color-palette-grayscale: $uswds-gray;
 
 /*
+----------------------------------------
+Grid
+----------------------------------------
+*/
+
+$grid-global: '';
+
+@if $utilities-use-important {
+  $grid-global: '!important';
+}
+
+/*
 ========================================
 Old USWDS Variables
 Many of these will be deprecated
