@@ -100,9 +100,7 @@ $banner-font-family: 'sans';
 
 .usa-banner-header-expanded {
   @include u-font-size($banner-font-family, $theme-h5-font-size);
-  align-items: center;
   border-bottom: 1px solid $base-light;
-  display: flex;
   min-height: units(7);
   padding-right: units(4);
 
