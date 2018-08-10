@@ -51,7 +51,7 @@ $banner-font-family: 'sans';
     @include u-flex('align-center');
   }
 
-  @include media($nav-width) {
+  @include media(rem-to-px($nav-width)) {
     @include u-padding-x($theme-site-margins);
   }
 }

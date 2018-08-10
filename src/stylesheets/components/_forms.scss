@@ -1,7 +1,7 @@
 $usa-form-width: 32rem;
 
 [type=submit] {
-  @include media($medium-screen) {
+  @include media(rem-to-px($medium-screen)) {
     margin-top: calc(3rem - .2em); // Label margin minus input bottom margin
   }
 }
@@ -13,19 +13,19 @@ fieldset {
 }
 
 .usa-form {
-  @include media($medium-screen) {
+  @include media(rem-to-px($medium-screen)) {
     max-width: $usa-form-width;
   }
 }
 
 .usa-input-tiny {
-  @include media($medium-screen) {
+  @include media(rem-to-px($medium-screen)) {
     max-width: 6rem;
   }
 }
 
 .usa-input-medium {
-  @include media($medium-screen) {
+  @include media(rem-to-px($medium-screen)) {
     max-width: 12rem;
   }
 }
@@ -42,25 +42,25 @@ fieldset {
 }
 
 .usa-form-large {
-  @include media($medium-screen) {
+  @include media(rem-to-px($medium-screen)) {
     max-width: 46rem;
   }
 }
 
 .usa-input-grid {
-  @include media($medium-screen) {
+  @include media(rem-to-px($medium-screen)) {
     padding-right: 5%;
   }
 }
 
 .usa-input-grid:last-of-type {
-  @include media($medium-screen) {
+  @include media(rem-to-px($medium-screen)) {
     padding-right: 0;
   }
 }
 
 .usa-input-grid-small {
-  @include media($medium-screen) {
+  @include media(rem-to-px($medium-screen)) {
     float: left;
     width: 35%;
   }
@@ -75,7 +75,7 @@ fieldset {
 }
 
 .usa-input-grid-medium {
-  @include media($medium-screen) {
+  @include media(rem-to-px($medium-screen)) {
     float: left;
     width: 65%;
   }
@@ -90,7 +90,7 @@ fieldset {
 }
 
 .usa-input-grid-large {
-  @include media($medium-screen) {
+  @include media(rem-to-px($medium-screen)) {
     float: left;
     width: 100%;
   }
