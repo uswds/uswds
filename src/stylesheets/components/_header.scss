@@ -14,7 +14,7 @@ $z-index-nav:     9000;
   width: 100%;
   z-index: $z-index-header;
 
-  @include media(rem-to-px($nav-width)) {
+  @include media($nav-width) {
     border-bottom: 1px solid $color-gray-lighter;
   }
 
@@ -23,7 +23,7 @@ $z-index-nav:     9000;
   }
 
   .usa-search {
-    @include media(rem-to-px($nav-width)) {
+    @include media($nav-width) {
       float: right;
       max-width: calc(#{$search-min-width} + #{$usa-btn-small-width});
     }
@@ -35,7 +35,7 @@ $z-index-nav:     9000;
   line-height: 4rem;
   margin-left: 1.5rem;
 
-  @include media(rem-to-px($nav-width)) {
+  @include media($nav-width) {
     line-height: 7.5rem;
     margin-left: 0;
   }
@@ -48,7 +48,7 @@ $z-index-nav:     9000;
   br {
     display: none;
 
-    @include media(rem-to-px($nav-width)) {
+    @include media($nav-width) {
       display: block;
     }
   }
@@ -61,7 +61,7 @@ $z-index-nav:     9000;
   font-weight: $font-bold;
   margin: 0;
 
-  @include media(rem-to-px($nav-width)) {
+  @include media($nav-width) {
     display: block;
     font-size: 2.4rem;
     line-height: $heading-line-height;
@@ -84,7 +84,7 @@ $z-index-nav:     9000;
   width: 5.8rem;
   /* stylelint-enable */
 
-  @include media(rem-to-px($nav-width)) {
+  @include media($nav-width) {
     display: none;
   }
 
@@ -117,14 +117,14 @@ $z-index-nav:     9000;
 
 .usa-header-basic {
   .usa-logo {
-    @include media(rem-to-px($nav-width)) {
+    @include media($nav-width) {
       bottom: 0;
       position: absolute;
     }
   }
 
   .usa-navbar {
-    @include media(rem-to-px($nav-width)) {
+    @include media($nav-width) {
       position: relative;
       width: 18%; // TODO: review this more
     }
@@ -135,26 +135,26 @@ $z-index-nav:     9000;
 
 .usa-header-extended {
   .usa-header {
-    @include media(rem-to-px($nav-width)) {
+    @include media($nav-width) {
       border-bottom: none;
     }
   }
 
   .usa-logo {
-    @include media(rem-to-px($nav-width)) {
+    @include media($nav-width) {
       @include u-margin-y(3rem);
     }
   }
 
   em {
-    @include media(rem-to-px($nav-width)) {
+    @include media($nav-width) {
       font-size: 3.2rem;
       line-height: 1;
     }
   }
 
   .usa-navbar {
-    @include media(rem-to-px($nav-width)) {
+    @include media($nav-width) {
       @include outer-container($site-max-width);
       @include u-padding-x($site-margins);
       display: block;
@@ -163,7 +163,7 @@ $z-index-nav:     9000;
   }
 
   .usa-nav {
-    @include media(rem-to-px($nav-width)) {
+    @include media($nav-width) {
       border-top: 1px solid $color-gray-lighter;
       float: none;
       padding: 0;
@@ -172,7 +172,7 @@ $z-index-nav:     9000;
   }
 
   .usa-nav-inner {
-    @include media(rem-to-px($nav-width)) {
+    @include media($nav-width) {
       @include outer-container($site-max-width);
       @include u-padding-right($site-margins);
       @include u-padding-left(1.5rem);
@@ -181,14 +181,14 @@ $z-index-nav:     9000;
   }
 
   .usa-nav-primary {
-    @include media(rem-to-px($nav-width)) {
+    @include media($nav-width) {
       @include clearfix;
     }
 
     button {
       &[aria-expanded=false],
       &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
-        @include media(rem-to-px($nav-width)) { /* stylelint-disable-line selector-no-qualifying-type */
+        @include media($nav-width) { /* stylelint-disable-line selector-no-qualifying-type */
           background-position: right 1.5rem top 53%;
         }
       }
@@ -196,21 +196,21 @@ $z-index-nav:     9000;
   }
 
   .usa-nav-link {
-    @include media(rem-to-px($nav-width)) {
+    @include media($nav-width) {
       @include u-padding-y(1.8rem);
     }
   }
 
   .usa-nav-submenu {
     .usa-grid-full {
-      @include media(rem-to-px($nav-width)) {
+      @include media($nav-width) {
         padding-left: 1.2rem;
       }
     }
   }
 
   .usa-megamenu {
-    @include media(rem-to-px($nav-width)) {
+    @include media($nav-width) {
       padding-left: $site-margins;
     }
   }

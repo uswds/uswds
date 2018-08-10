@@ -7,7 +7,7 @@
 .usa-grid {
   @include u-padding-x(override, $site-margins-mobile);
 
-  @include media(rem-to-px($medium-screen)) {
+  @include media($medium-screen) {
     @include u-padding-x(override, $site-margins);
   }
 }
@@ -17,7 +17,7 @@
 }
 
 // Grid items
-@include media(rem-to-px($medium)) {
+@include media($medium) {
   .usa-width-one-whole {
     @include span-columns(6);
   }
@@ -75,7 +75,7 @@
   }
 }
 
-@include media(rem-to-px($large)) {
+@include media($large) {
   .usa-width-one-whole {
     @include span-columns(12);
   }

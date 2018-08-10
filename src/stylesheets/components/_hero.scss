@@ -22,7 +22,7 @@
   background-color: $color-primary-darkest;
   padding: 3rem;
 
-  @include media(rem-to-px($small-screen)) {
+  @include media($small-screen) {
     max-width: 30rem;
   }
 
