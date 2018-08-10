@@ -86,13 +86,13 @@ body {
 }
 
 // Basic typography styles (paragraph text and links)
-@mixin usa-global-styles-basic {
+@mixin theme-global-styles-basic {
   @if $theme-global-styles-basic == true {
     @include usa-typography-base-styles;
   }
 }
 
-%usa-content-styles {
+%theme-content-styles {
   @include usa-typography-base-styles;
   @include usa-headings-styles;
   @include usa-list-styles;
@@ -100,21 +100,21 @@ body {
 }
 
 /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
-@mixin usa-content-styles {
+@mixin theme-content-styles {
   @if $theme-content-styles == 'scoped' {
     .usa-prose {
-      @extend %usa-content-styles;
+      @extend %theme-content-styles;
     }
-  } @else if $usa-content-styles == 'global' {
-    @extend %usa-content-styles;
+  } @else if $theme-content-styles == 'global' {
+    @extend %theme-content-styles;
   } @else {
     // Default nothing if it’s neither
   }
 }
 /* stylelint-enable */
 
-@include usa-global-styles-basic;
-@include usa-content-styles;
+@include theme-global-styles-basic;
+@include theme-content-styles;
 
 .usa-paragraph {
   @extend %usa-paragraph;
