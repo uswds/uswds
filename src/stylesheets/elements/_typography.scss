@@ -4,11 +4,11 @@ html {
 }
 
 body {
-  font-size: $base-font-size;
+  font-size: scale('sans', $theme-base-font-size);
 }
 
 %usa-paragraph {
-  line-height: $base-line-height;
+  line-height: lh('body', $base-line-height);
   margin-bottom: 1em;
   margin-top: 1em;
 }
@@ -34,7 +34,7 @@ body {
 %usa-heading {
   clear: both;
   font-family: $font-serif;
-  line-height: $heading-line-height;
+  line-height: lh('heading', $heading-line-height);
   margin-bottom: 0.5em;
   margin-top: 1.5em;
 }
@@ -216,9 +216,9 @@ dfn {
 
 .usa-font-lead {
   font-family: $font-serif;
-  font-size: $lead-font-size;
+  font-size: scale('serif', $lead-font-size);
   font-weight: $font-normal;
-  line-height: $lead-line-height;
+  line-height: lh('serif', $lead-line-height);
   max-width: $lead-max-width;
 }
 
@@ -240,7 +240,7 @@ dfn {
 }
 
 .usa-text-small {
-  font-size: $h6-font-size;
+  font-size: scale('serif', $h6-font-size);
   margin-top: 0;
 }
 
