@@ -764,9 +764,9 @@ TODO: Need to rethink these
 ----------------------------------------
 */
 
-$small: new-breakpoint(min-width rem-to-px($small-screen) $grid-columns-small) !default;
-$medium: new-breakpoint(min-width rem-to-px($medium-screen) $grid-columns-medium) !default;
-$large: new-breakpoint(min-width rem-to-px($large-screen) $grid-columns-large) !default;
+$small: new-breakpoint(min-width $small-screen $grid-columns-small) !default;
+$medium: new-breakpoint(min-width $medium-screen $grid-columns-medium) !default;
+$large: new-breakpoint(min-width $large-screen $grid-columns-large) !default;
 
 /*
 ----------------------------------------
