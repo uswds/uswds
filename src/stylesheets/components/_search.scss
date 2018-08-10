@@ -24,14 +24,14 @@ $usa-btn-big-width:     11.6rem;
     padding: 0;
     width: $usa-btn-small-width;
 
-    @include media($small-screen) {
+    @include media(rem-to-px($small-screen)) {
       background-image: none;
       width: $usa-btn-medium-width;
     }
   }
 
   &.usa-search-big {
-    @include media($small-screen) {
+    @include media(rem-to-px($small-screen)) {
       $height: 4.4rem;
       $width: $usa-btn-big-width;
 
@@ -52,7 +52,7 @@ $usa-btn-big-width:     11.6rem;
   }
 
   &.usa-search-small {
-    @include media($small-screen) {
+    @include media(rem-to-px($small-screen)) {
       $width: $usa-btn-small-width;
 
       [type=search],
@@ -67,7 +67,7 @@ $usa-btn-big-width:     11.6rem;
       }
     }
 
-    $lt-nav-width: $nav-width - 1px;
+    $lt-nav-width: rem-to-px($nav-width) - 1px;
 
     @media screen and (max-width: $lt-nav-width) {
       &.usa-sr-only {
@@ -97,7 +97,7 @@ input[type=search] { /* stylelint-disable-line selector-no-qualifying-type */
   margin: 0;
   width: calc(100% - #{$usa-btn-small-width});
 
-  @include media($small-screen) {
+  @include media(rem-to-px($small-screen)) {
     width: calc(100% - #{$usa-btn-medium-width});
   }
 }
@@ -105,7 +105,7 @@ input[type=search] { /* stylelint-disable-line selector-no-qualifying-type */
 .usa-search-submit-text {
   @include sr-only;
 
-  @include media($small-screen) {
+  @include media(rem-to-px($small-screen)) {
     @include not-sr-only();
   }
 }

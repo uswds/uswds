@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
 
-  @include media($large-screen) {
+  @include media(rem-to-px($large-screen)) {
     display: inherit;
   }
 
@@ -26,7 +26,7 @@
   margin-bottom: $site-margins;
   order: 1;
 
-  @include media($large-screen) {
+  @include media(rem-to-px($large-screen)) {
     margin-bottom: 0;
   }
 

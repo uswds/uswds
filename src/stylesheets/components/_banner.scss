@@ -1,96 +1,105 @@
-.usa-banner {
-  background-color: $color-gray-lightest;
-  padding-bottom: 0.7rem;
+$banner-font-family: 'sans';
 
-  @include media($small-screen) {
-    font-size: $h6-font-size;
-    padding-bottom: 0;
+.usa-banner {
+  @include u-bg($base-lighter);
+  @include u-font-family($banner-font-family);
+  @include u-padding-bottom(1);
+  @include u-position('relative');
+
+  @include at-media('mobile-lg') {
+    @include u-font-size($banner-font-family, $theme-h6-font-size);
+    @include u-padding-bottom(0);
   }
 }
 
 .usa-banner-content {
-  @include padding(null $site-margins-mobile 3px $site-margins-mobile);
-  background-color: transparent;
-  font-size: $h5-font-size;
-  padding-top: 2rem;
-  width: 100%;
+  @include u-bg('transparent');
+  @include u-padding-bottom(2px);
+  @include u-padding-top(2.5);
+  @include u-padding-x($site-margins-mobile);
+  @include u-width('full');
 
-  @include media($medium-screen) {
-    padding-bottom: 2.3rem;
-    padding-top: 4rem;
+  @include at-media('tablet') {
+    @include u-padding-bottom(3);
+    @include u-padding-top(5);
   }
 
-  @include media($nav-width) {
-    @include padding(null $site-margins);
+  @include at-media($theme-nav-width) {
+    @include u-padding-x($site-margins);
   }
 
   p {
-    &:first-child {
-      margin-top: 1rem;
+    @include u-font-size($banner-font-family, $theme-h5-font-size);
+    @include u-line-height($banner-font-family, $theme-base-line-height);
 
-      @include media($medium-screen) {
-        margin-top: 0;
+    &:first-child {
+      @include u-margin-top(1);
+
+      @include at-media('tablet') {
+        @include u-margin-top(0);
       }
     }
   }
 }
 
 .usa-banner-inner {
-  @include outer-container($site-max-width);
-  @include padding(null $site-margins-mobile);
+  @include grid-container($theme-site-max-width);
+  @include u-padding-x($theme-site-margins-mobile);
 
-  @include media($nav-width) {
-    @include padding(null $site-margins);
+  @include at-media('mobile-lg') {
+    @include grid-row;
+    @include u-flex('align-center');
+  }
+
+  @include media(rem-to-px($nav-width)) {
+    @include u-padding-x($theme-site-margins);
   }
 }
 
 .usa-banner-header {
-  @include padding(0.55rem null);
-  font-size: 1.2rem;
-  font-weight: $font-normal;
+  @include u-padding-y(.5);
+  @include u-font-size($banner-font-family, 1);
 
-  @include media($small-screen) {
-    @include padding(0 null);
+  @include at-media('mobile-lg') {
+    @include u-padding-y(2px);
   }
 
   p {
-    @include margin(0 null);
-    display: inline;
-    overflow: hidden;
-    vertical-align: middle;
+    @include u-line-height($banner-font-family, 1);
+    @include u-margin-bottom(0);
+    @include u-margin-top(2px);
+    display: block;
+    overflow: visible;
 
-    @include media($small-screen) {
-      @include margin(2px null);
+    @include at-media('mobile-lg') {
+      @include u-margin-top(0);
       display: inline-block;
     }
   }
 
   img {
     float: left;
-    margin-right: 1rem;
+    margin-right: units(1);
     margin-top: 1px;
-    width: 2.4rem;
+    width: units(3);
 
-    @include media($small-screen) {
-      margin-right: 0.7rem;
-      width: 2rem;
+    @include at-media('mobile-lg') {
+      margin-right: units(1);
+      width: units(2.5);
     }
   }
 }
 
 .usa-banner-header-expanded {
-  align-items: center;
-  border-bottom: 1px solid $color-gray-light;
-  display: flex;
-  font-size: $h5-font-size;
-  min-height: 5.6rem;
-  padding-right: 3rem;
+  @include u-font-size($banner-font-family, $theme-h5-font-size);
+  border-bottom: 1px solid $base-light;
+  min-height: units(7);
+  padding-right: units(4);
 
-  @include media($small-screen) {
+  @include at-media('mobile-lg') {
+    @include u-font-size($banner-font-family, 1);
     border-bottom: none;
     display: block;
-    font-size: 1.2rem;
-    font-weight: $font-normal;
     min-height: 0;
     padding-right: 0;
   }
@@ -98,25 +107,25 @@
   > .usa-banner-inner {
     margin-left: 0;
 
-    @include media($small-screen) {
+    @include at-media('mobile-lg') {
       margin-left: auto;
     }
   }
 
   img {
-    margin-right: 2.4rem;
+    margin-right: units(3);
 
-    @include media($small-screen) {
-      margin-right: 0.7rem;
+    @include at-media('mobile-lg') {
+      margin-right: units(1);
     }
   }
 
   p {
-    line-height: $heading-line-height;
+    @include u-line-height($banner-font-family, $theme-heading-line-height);
     vertical-align: top;
 
-    @include media($small-screen) {
-      line-height: $base-line-height;
+    @include at-media('mobile-lg') {
+      @include u-line-height($banner-font-family, $theme-base-line-height);
       vertical-align: middle;
     }
   }
@@ -124,24 +133,26 @@
 
 .usa-banner-button {
   @include button-unstyled;
-  @include padding(1.3rem null null 4.8rem);
+  @include u-padding-top(1.5);
+  @include u-padding-left(6);
+  @include u-font-size($banner-font-family, 1);
   background-position-x: right;
-  color: $color-primary;
+  color: $primary;
   display: block;
-  font-size: 1.2rem;
-  height: 4.3rem;
+  height: units(5);
   left: 0;
   position: absolute;
   text-decoration: underline;
   top: 0;
   width: 100%;
 
-  @include media($small-screen) {
-    @include padding(0 null null 0);
+  @include at-media('mobile-lg') {
+    @include u-padding-top(0);
+    @include u-padding-left(2px);
+    @include u-margin-left(.5);
     /* stylelint-disable declaration-block-no-ignored-properties */
     display: inline;
     height: auto;
-    margin-left: 3px;
     position: relative;
     vertical-align: middle;
     width: auto;
@@ -149,12 +160,12 @@
   }
 
   &:hover {
-    color: $color-primary-darker;
+    color: $primary-darker;
     text-decoration: underline;
   }
 
   &[aria-expanded=false] {
-    @include display-icon(angle-arrow-down-primary, after, 1rem, 0, hover);
+    @include display-icon(angle-arrow-down-primary, after, units(1), 0, hover);
     background-image: none;
 
     &::after {
@@ -163,14 +174,14 @@
   }
 
   &[aria-expanded=true] {
-    @include display-icon(close, after, 1.3rem, 0, no-hover);
+    @include display-icon(close, after, units(1.5), 0, no-hover);
     background-image: none;
-    height: 5.6rem;
+    height: units(7);
 
-    @include media($small-screen) {
-      @include display-icon(angle-arrow-up-primary, after, 1rem, 0, hover);
+    @include at-media('mobile-lg') {
+      @include display-icon(angle-arrow-up-primary, after, units(1), 0, hover);
       height: initial;
-      padding: 0;
+      padding: 0 0 0 2px;
       position: relative;
 
       &::after {
@@ -180,10 +191,10 @@
 
     &::after {
       position: absolute;
-      right: 1.5rem;
-      top: 2.15rem;
+      right: units(2);
+      top: units(2.5);
 
-      @include media($small-screen) {
+      @include at-media('mobile-lg') {
         position: static;
       }
     }
@@ -191,7 +202,7 @@
     .usa-banner-button-text {
       display: none;
 
-      @include media($small-screen) {
+      @include at-media('mobile-lg') {
         display: inline;
       }
     }
@@ -199,5 +210,5 @@
 }
 
 .usa-banner-icon {
-  width: 3.8rem;
+  width: units(5);
 }

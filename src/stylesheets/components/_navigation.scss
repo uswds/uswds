@@ -14,7 +14,7 @@
   border-bottom: 1px solid $color-gray-light;
   height: 4rem;
 
-  @include media($nav-width) {
+  @include media(rem-to-px($nav-width)) {
     border-bottom: none;
     display: inline-block;
     height: 7.8rem; // XXX magic number
@@ -26,7 +26,7 @@
 
   &:hover {
     span {
-      @include media($nav-width) {
+      @include media(rem-to-px($nav-width)) {
         @include nav-border;
       }
     }
@@ -34,7 +34,7 @@
 
   &.usa-accordion-button {
     span {
-      @include media($nav-width) {
+      @include media(rem-to-px($nav-width)) {
         margin-right: 0;
         padding-right: 1.5rem;
       }
@@ -43,7 +43,7 @@
 }
 
 .usa-nav-container {
-  @include media($nav-width) {
+  @include media(rem-to-px($nav-width)) {
     @include outer-container($site-max-width);
     @include u-padding-x($site-margins);
   }
@@ -75,7 +75,7 @@
   width: $sliding-panel-width;
   z-index: $z-index-nav;
 
-  @include media($nav-width) {
+  @include media(rem-to-px($nav-width)) {
     @include u-padding-top(4.5rem);
     @include u-padding-bottom(0);
     @include u-padding-right(0);
@@ -97,7 +97,7 @@
     margin-top: 6rem; // XXX magic number
     min-height: 100%;
 
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       margin-top: 0;
     }
   }
@@ -108,7 +108,7 @@
     font-weight: $font-bold;
     padding-left: 1.4rem;
 
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       color: $color-base;
     }
   }
@@ -118,7 +118,7 @@
   }
 
   .usa-search {
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       margin-left: 1.5rem; // XXX magic number
       top: 4px;
     }
@@ -132,12 +132,12 @@
   margin-top: 1.5rem;
   order: 2;
 
-  @include media($nav-width) {
+  @include media(rem-to-px($nav-width)) {
     display: inline;
   }
 
   li {
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       border-top: none;
     }
   }
@@ -145,13 +145,13 @@
   > li {
     width: auto;
 
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       display: inline-block;
       // margin-left: -4px;
     }
 
     > a {
-      @include media($nav-width) {
+      @include media(rem-to-px($nav-width)) {
         @include u-padding-bottom(2.2rem);
         @include u-padding-top(1.3rem);
         @include u-padding-x(1.5rem);
@@ -162,7 +162,7 @@
       }
 
       &:hover {
-        @include media($nav-width) {
+        @include media(rem-to-px($nav-width)) {
           background-color: transparent;
         }
       }
@@ -170,12 +170,12 @@
   }
 
   a {
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       @include u-padding-y(0.75rem);
     }
 
     &:hover {
-      @include media($nav-width) {
+      @include media(rem-to-px($nav-width)) {
         // color: $color-base;
       }
     }
@@ -190,7 +190,7 @@
     line-height: 1.3;
     padding: 0.85rem 1.5rem 0.85rem 1.8rem;
 
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       @include u-padding-bottom(2.2rem);
       @include u-padding-top(1.3rem);
       @include u-padding-x(1.5rem);
@@ -210,7 +210,7 @@
       background-color: $color-gray-lightest;
       color: $color-primary;
 
-      @include media($nav-width) {
+      @include media(rem-to-px($nav-width)) {
         background-color: transparent;
         // color: $color-base;
       }
@@ -223,14 +223,14 @@
       background-position: right 0 center;
       background-size: 1rem;
 
-      @include media($nav-width) {
+      @include media(rem-to-px($nav-width)) {
         background-image: url('#{$theme-image-path}/angle-arrow-down.png');
         background-image: url('#{$theme-image-path}/angle-arrow-down.svg');
         background-position: right 1.5rem top $button-vertical-offset;
       }
 
       &:hover {
-        @include media($nav-width) {
+        @include media(rem-to-px($nav-width)) {
           background-image: url('#{$theme-image-path}/angle-arrow-down-primary.png');
           background-image: url('#{$theme-image-path}/angle-arrow-down-primary.svg');
         }
@@ -244,7 +244,7 @@
       background-position: right 0 center;
       background-size: 1rem;
 
-      @include media($nav-width) {
+      @include media(rem-to-px($nav-width)) {
         background-color: $color-primary-darkest;
         color: $color-white;
         background-image: url('#{$theme-image-path}/angle-arrow-down-hover.png');
@@ -263,7 +263,7 @@
     }
   }
 
-  @include media($nav-width) {
+  @include media(rem-to-px($nav-width)) {
     a.usa-current,
     .usa-current { // stylelint-disable-line selector-no-qualifying-type
       // undo the sidenav style
@@ -290,7 +290,7 @@
   .usa-nav-link {
     &:hover {
       span {
-        @include media($nav-width) {
+        @include media(rem-to-px($nav-width)) {
           @include nav-border-thick;
         }
       }
@@ -300,14 +300,14 @@
   .usa-nav-primary {
     button[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
       span {
-        @include media($nav-width) {
+        @include media(rem-to-px($nav-width)) {
           @include nav-border-thick;
         }
       }
     }
 
     .usa-current {
-      @include media($nav-width) {
+      @include media(rem-to-px($nav-width)) {
         span {
           @include nav-border-thick;
         }
@@ -321,7 +321,7 @@
 .usa-nav-secondary {
   margin-top: 1.5rem;
 
-  @include media($nav-width) {
+  @include media(rem-to-px($nav-width)) {
     bottom: calc(5rem + 16px); // XXX magic number, 16px from bottom
     font-size: $small-font-size;
     margin-top: units(1);
@@ -334,7 +334,7 @@
     @include u-margin-top(1.5rem);
     @include u-margin-bottom(0);
 
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       @include u-margin-bottom(0);
       @include u-margin-left(0);
       @include u-margin-top(0);
@@ -346,20 +346,20 @@
 .usa-nav-secondary-links {
   margin-top: 2.4rem;
 
-  @include media($nav-width) {
+  @include media(rem-to-px($nav-width)) {
     float: right;
     margin-bottom: units(0.5);
     margin-top: 0;
   }
 
   li {
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       display: inline;
       padding-left: 0.5rem;
     }
 
     &:not(:last-child)::after {
-      @include media($nav-width) {
+      @include media(rem-to-px($nav-width)) {
         color: $color-gray-lighter;
         content: '|';
         padding-left: 0.5rem;
@@ -384,7 +384,7 @@
     @include button-unstyled;
     display: none;
 
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       background-image: url('#{$theme-image-path}/search-alt.png');
       background-image: url('#{$theme-image-path}/search-alt.svg');
       background-repeat: no-repeat;
@@ -395,13 +395,13 @@
     }
 
     &.is-hidden {
-      @include media($nav-width) {
+      @include media(rem-to-px($nav-width)) {
         display: none;
       }
     }
   }
 
-  @include media($nav-width) {
+  @include media(rem-to-px($nav-width)) {
     a.usa-current { // stylelint-disable-line selector-no-qualifying-type
       // undo the sidenav style
       border-left: 0;
@@ -415,7 +415,7 @@
 .usa-nav-submenu {
   @include usa-sidenav-sublist;
 
-  @include media($nav-width) {
+  @include media(rem-to-px($nav-width)) {
     @include unstyled-list;
     @include u-padding-top(0.75rem);
     @include u-padding-bottom(0.9rem);
@@ -429,13 +429,13 @@
   }
 
   a {
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       color: $color-white;
       padding-left: 1.5rem; // XXX magic number
     }
 
     &:hover {
-      @include media($nav-width) {
+      @include media(rem-to-px($nav-width)) {
         background-color: $color-primary-darkest;
         color: $color-white;
         padding-left: 1.5rem;
@@ -447,7 +447,7 @@
     // include, above
     // &:hover,
     // &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
-    //   @include media($nav-width) {
+    //   @include media(rem-to-px($nav-width)) {
     //     padding-left: 1.8rem;
     //   }
     // }
@@ -477,7 +477,7 @@
     color: currentColor;
   }
 
-  @include media($nav-width) {
+  @include media(rem-to-px($nav-width)) {
     display: none;
   }
 
@@ -507,7 +507,7 @@
 }
 
 .usa-megamenu {
-  @include media($nav-width) {
+  @include media(rem-to-px($nav-width)) {
     @include u-padding-y(3.15rem); // XXX magic number
     // XXX this is the difference between the 2rem padding-left
     // of .usa-nav-inner and the $site-margins (3rem) padding-left
@@ -517,14 +517,14 @@
   }
 
   &::before {
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       @include outer-megamenu;
       right: 100%;
     }
   }
 
   &::after {
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       @include outer-megamenu;
       left: 100%;
     }
@@ -533,7 +533,7 @@
 
 .usa-header-basic-megamenu {
   .usa-nav {
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       padding-left: 0;
       padding-top: 0;
       width: 100%;
@@ -544,7 +544,7 @@
     display: flex;
     flex-direction: column;
 
-    @include media($nav-width) {
+    @include media(rem-to-px($nav-width)) {
       display: block;
       float: right;
       margin-top: -3.8rem;
@@ -553,7 +553,7 @@
 
   .usa-nav-submenu {
     .usa-grid-full {
-      @include media($nav-width) {
+      @include media(rem-to-px($nav-width)) {
         margin-left: -1.8rem; // XXX magic number
       }
     }
@@ -561,7 +561,7 @@
 }
 
 .usa-megamenu-col {
-  @include media($nav-width) {
+  @include media(rem-to-px($nav-width)) {
     @include span-columns(3);
 
     &:nth-child(2n) {
