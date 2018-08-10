@@ -1,7 +1,7 @@
 .usa-section {
   @include u-padding-y($site-margins);
 
-  @include media(rem-to-px($medium-screen)) {
+  @include media($medium-screen) {
     @include u-padding-y(6rem);
   }
 }

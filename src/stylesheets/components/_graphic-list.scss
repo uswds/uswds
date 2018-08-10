@@ -5,14 +5,14 @@
     .usa-media_block {
       margin-bottom: $site-margins;
 
-      @include media(rem-to-px($medium-screen)) {
+      @include media($medium-screen) {
         margin-bottom: $site-margins * 2;
       }
     }
 
     &:last-child {
       .usa-media_block {
-        @include media(rem-to-px($medium-screen)) {
+        @include media($medium-screen) {
           margin-bottom: 0;
         }
 

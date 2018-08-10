@@ -45,7 +45,7 @@ $button-stroke: inset 0 0 0 2px;
   text-decoration: none;
   width: 100%;
 
-  @include media(rem-to-px($small-screen)) {
+  @include media($small-screen) {
     width: auto;
   }
 

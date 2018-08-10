@@ -3,7 +3,7 @@
   border-bottom: 1px solid;
   border-top: 1px solid;
 
-  @include media(rem-to-px($large-screen)) {
+  @include media($large-screen) {
     border-bottom: none;
     border-top: none;
   }
@@ -11,7 +11,7 @@
   .usa-grid & {
     @include u-margin-x(-$site-margins-mobile);
 
-    @include media(rem-to-px($medium-screen)) {
+    @include media($medium-screen) {
       @include u-margin-x(0);
     }
   }
@@ -24,7 +24,7 @@
 .usa-layout-docs-sidenav {
   padding-top: 2.4rem;
 
-  @include media(rem-to-px($large-screen)) {
+  @include media($large-screen) {
     padding-top: 0;
   }
 }

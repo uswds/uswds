@@ -7,7 +7,7 @@
 .usa-grid {
   @include u-padding-x(override, $site-margins-mobile);
 
-  @include media(rem-to-px($medium-screen)) {
+  @include media($medium-screen) {
     @include u-padding-x(override, $site-margins);
   }
 }
