@@ -92,7 +92,7 @@ body {
   }
 }
 
-%theme-content-styles {
+@mixin usa-content-styles {
   @include usa-typography-base-styles;
   @include usa-headings-styles;
   @include usa-list-styles;
@@ -103,10 +103,10 @@ body {
 @mixin theme-content-styles {
   @if $theme-content-styles == 'scoped' {
     .usa-prose {
-      @extend %theme-content-styles;
+      @include usa-content-styles;
     }
   } @else if $theme-content-styles == 'global' {
-    @extend %theme-content-styles;
+    @include usa-content-styles;
   } @else {
     // Default nothing if it’s neither
   }
