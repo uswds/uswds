@@ -1,6 +1,6 @@
 const EXPANDED = 'aria-expanded';
 const CONTROLS = 'aria-controls';
-const HIDDEN = 'aria-hidden';
+const HIDDEN = 'hidden';
 
 module.exports = (button, expanded) => {
   let safeExpanded = expanded;

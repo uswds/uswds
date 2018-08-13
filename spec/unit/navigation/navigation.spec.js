@@ -43,13 +43,13 @@ describe('navigation toggle', () => {
     sandbox.restore();
   });
 
-  it.only('hides a visible nav menu when the body is clicked', () => {
+  it('hides a visible nav menu when the body is clicked', () => {
     const navMenu = body.querySelector('#sidenav-1');
 
     navControl.click();
-    assert.equal(navMenu.getAttribute('aria-hidden'), 'false');
+    assert.equal(navMenu.getAttribute('hidden'), 'false');
     body.click();
-    assert.equal(navMenu.getAttribute('aria-hidden'), 'true');
+    assert.equal(navMenu.getAttribute('hidden'), 'true');
   });
 
   it('shows the nav when the menu button is clicked', () => {
