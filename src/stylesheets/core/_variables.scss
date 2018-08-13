@@ -618,19 +618,19 @@ settings
 // Removing the !default from $em-base so we are not inheriting that value from Bourbon.
 
 $em-base:             $theme-root-font-size;
-$base-font-size:      $theme-base-font-size;
-$small-font-size:     $theme-small-font-size;
-$lead-font-size:      $theme-lead-font-size;
-$title-font-size:     $theme-title-font-size;
-$h1-font-size:        $theme-h1-font-size;
-$h2-font-size:        $theme-h2-font-size;
-$h3-font-size:        $theme-h3-font-size;
-$h4-font-size:        $theme-h4-font-size;
-$h5-font-size:        $theme-h5-font-size;
-$h6-font-size:        $theme-h6-font-size;
-$base-line-height:    $theme-base-line-height;
-$heading-line-height: $theme-heading-line-height;
-$lead-line-height:    $theme-lead-line-height;
+$base-font-size:      1.7rem !default;
+$small-font-size:     1.4rem !default;
+$lead-font-size:      2rem !default;
+$title-font-size:     5.2rem !default;
+$h1-font-size:        4rem !default;
+$h2-font-size:        3rem !default;
+$h3-font-size:        2rem !default;
+$h4-font-size:        1.7rem !default;
+$h5-font-size:        1.5rem !default;
+$h6-font-size:        1.3rem !default;
+$base-line-height:    1.5;
+$heading-line-height: 1.3;
+$lead-line-height:    1.7;
 
 /*
 ----------------------------------------
@@ -812,7 +812,7 @@ $button-border-radius:          5px !default;
 $box-shadow:                    0 0 2px $color-shadow !default;
 $focus-outline:                 units(0.5) solid $color-focus !default;
 $focus-spacing:                 0 !default;
-$nav-width:                     $theme-nav-width;
+$nav-width:                     951px !default;
 $sidenav-current-border-width:  0.4rem !default; // must be in rem for math
 $usa-btn-small-width:           4.5rem;
 $search-min-width:              27ch; // minimum length of 27 letters for typical search query
