@@ -789,20 +789,15 @@ calculated variables
 ----------------------------------------
 */
 
-$theme-site-margins: units($theme-site-margins);
-$theme-site-margins-mobile: units($theme-site-margins-mobile);
-$theme-nav-width: units($theme-nav-width);
-$theme-site-max-width: units($theme-site-max-width);
-
 $text-width-sm: 60ch;
 
 $text-max-width:                66ch !default; // 66 characters per line
 $text-narrow-width:             40ch !default;
 $text-wide-width:               72ch !default;
 $lead-max-width:                77rem !default;
-$site-max-width:                $theme-site-max-width;
-$site-margins:                  $theme-site-margins;
-$site-margins-mobile:           $theme-site-margins-mobile;
+$site-max-width:                1040px !default;
+$site-margins:                  units($theme-site-margins) !default;
+$site-margins-mobile:           units($theme-site-margins-mobile) !default;
 $article-max-width:             600px !default;
 $input-max-width:               46rem !default;
 $label-border-radius:           2px !default;
