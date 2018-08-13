@@ -591,7 +591,6 @@ variable that is, itself, a list
   }
 
   @if not map-has-key($uswds-required-colors, $color-family) {
-    @debug '#{$color-family}';
     @error 'USWDS colors require a grade. '
          + 'Exceptions: #{map-keys($uswds-required-colors)}';
   }
@@ -1272,8 +1271,6 @@ through all possible variants
       $val-props: ();
       $no-value: false;
       $mq: null;
-      $no-modifier: false;
-      $debug-flag: false;
 
       $b: map-get($utility, base);
 
@@ -1406,9 +1403,6 @@ through all possible variants
                   // selector is the base only
 
                   $selector: $b;
-                  @debug 'it me! #{$utility-name} selector:#{$selector}';
-                  $debug-flag: true;
-
               } @else {
 
                 // otherwise, selctor is joined with a hyphen.
@@ -1450,10 +1444,6 @@ through all possible variants
             // https://www.youtube.com/watch?v=R3Igz5SfBCE
 
             @include render-utility($utility, $selector, $property, $value, $val-value);
-
-            @if $debug-flag {
-              @debug 'UTILITY: #{$utility}, SELECTOR: #{$selector}, PROPERTY: #{$property}, VALUE: #{$value}, VAL-VALUE: #{$val-value}';
-            }
 
           } // end the modifier loop
         } // end the null value conditional
