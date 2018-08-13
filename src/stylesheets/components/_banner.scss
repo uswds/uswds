@@ -57,7 +57,7 @@ $banner-font-family: 'sans';
 }
 
 .usa-banner-header {
-  @include u-padding-y(.5);
+  @include u-padding-y(0.5);
   @include u-font-size($banner-font-family, 1);
 
   @include at-media('mobile-lg') {
@@ -149,7 +149,7 @@ $banner-font-family: 'sans';
   @include at-media('mobile-lg') {
     @include u-padding-top(0);
     @include u-padding-left(2px);
-    @include u-margin-left(.5);
+    @include u-margin-left(0.5);
     /* stylelint-disable declaration-block-no-ignored-properties */
     display: inline;
     height: auto;
