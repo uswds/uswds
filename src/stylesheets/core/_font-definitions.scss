@@ -16,18 +16,28 @@ $uswds-font-definitions: (
     stack: $font-stack-system,
     system-font: true,
     cap-height: 362px,
+    generate: false,
   ),
   georgia: (
     name: 'Georgia',
     stack: $font-stack-georgia,
     system-font: true,
     cap-height: 346px,
+    generate: false,
   ),
   helvetica: (
     name: 'Helvetica',
     stack: $font-stack-helvetica,
     system-font: true,
     cap-height: 357px,
+    generate: false,
+  ),
+  tahoma: (
+    name: 'Tahoma',
+    stack: $font-stack-system,
+    system-font: false,
+    cap-height: 363px,
+    generate: false,
   ),
   merriweather: (
     name: 'Merriweather Web',
@@ -35,6 +45,7 @@ $uswds-font-definitions: (
     stack: $font-stack-georgia,
     system-font: false,
     cap-height: 385px,
+    generate: true,
     variable-font: false,
     roman: (
       100: false,
@@ -65,6 +76,7 @@ $uswds-font-definitions: (
     stack: $font-stack-monospace,
     system-font: false,
     cap-height: 380px,
+    generate: true,
     variable-font: false,
     roman: (
       100: 'roboto-mono-v5-latin-100',
@@ -95,6 +107,7 @@ $uswds-font-definitions: (
     stack: $font-stack-helvetica,
     system-font: false,
     cap-height: 340px,
+    generate: true,
     variable-font: false,
     roman: (
       100: false,
@@ -125,6 +138,7 @@ $uswds-font-definitions: (
     stack: $font-stack-system,
     system-font: false,
     cap-height: 362px,
+    generate: true,
     variable-font: false,
     roman: (
       100: 'UnitedSans-Thin',

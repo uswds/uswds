@@ -574,6 +574,18 @@ $color-palette-state: (
 $color-palette-grayscale: $uswds-gray;
 
 /*
+----------------------------------------
+Grid
+----------------------------------------
+*/
+
+$grid-global: '';
+
+@if $utilities-use-important {
+  $grid-global: '!important';
+}
+
+/*
 ========================================
 Old USWDS Variables
 Many of these will be deprecated
@@ -629,8 +641,8 @@ TODO: Consolidate in settings
 */
 
 // TODO these should be called font-weight-${}
-$font-normal:         400 !default;
-$font-bold:           700 !default;
+$font-normal:         $theme-font-weight-normal;
+$font-bold:           $theme-font-weight-bold;
 
 /*
 ----------------------------------------
@@ -777,8 +789,10 @@ calculated variables
 ----------------------------------------
 */
 
-$theme-site-margins:                  4 !default;
-$theme-site-margins-mobile:           2 !default;
+$theme-site-margins: units($theme-site-margins);
+$theme-site-margins-mobile: units($theme-site-margins-mobile);
+$theme-nav-width: units($theme-nav-width);
+$theme-site-max-width: units($theme-site-max-width);
 
 $text-width-sm: 60ch;
 
@@ -786,9 +800,9 @@ $text-max-width:                66ch !default; // 66 characters per line
 $text-narrow-width:             40ch !default;
 $text-wide-width:               72ch !default;
 $lead-max-width:                77rem !default;
-$site-max-width:                1040px !default;
-$site-margins:                  3rem !default;
-$site-margins-mobile:           1.5rem !default;
+$site-max-width:                $theme-site-max-width;
+$site-margins:                  $theme-site-margins;
+$site-margins-mobile:           $theme-site-margins-mobile;
 $article-max-width:             600px !default;
 $input-max-width:               46rem !default;
 $label-border-radius:           2px !default;

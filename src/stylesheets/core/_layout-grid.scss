@@ -1,11 +1,6 @@
 /* stylelint-disable */
 
 $namespace-grid: ns('grid');
-$grid-global: '';
-
-@if $utilities-use-important {
-  $grid-global: '!important';
-}
 
 // basic container
 .#{$namespace-grid}container {
