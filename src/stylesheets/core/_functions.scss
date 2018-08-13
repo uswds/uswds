@@ -1270,7 +1270,10 @@ through all possible variants
       $v: null;
       $mv: null;
       $val-props: ();
+      $no-value: false;
       $mq: null;
+      $no-modifier: false;
+      $debug-flag: false;
 
       $b: map-get($utility, base);
 
@@ -1314,6 +1317,11 @@ through all possible variants
             map-get($val-value, 'content'),
             $val-value
           );
+
+          @if $val-slug == ''
+            or smart-quote($val-slug) == 'noValue' {
+            $no-value: true;
+          }
 
           // Add any appended values...
 
@@ -1393,12 +1401,13 @@ through all possible variants
 
               // if the value is noValue ('')
 
-              } @else if $val-slug == ''
-                or smart-quote($val-slug) == 'noValue' {
+            } @else if $no-value {
 
                   // selector is the base only
 
                   $selector: $b;
+                  @debug 'it me! #{$utility-name} selector:#{$selector}';
+                  $debug-flag: true;
 
               } @else {
 
@@ -1415,18 +1424,20 @@ through all possible variants
 
             @else {
 
-              // Join into selector $mv.
-
-              $mv: $mod-key + '-' + $v;
+              $mv: if(
+                $no-value,
+                $mod-key,
+                $mod-key + '-' + $v
+              );
 
               // Once we have $mv, test for $b
               // and build the selector as before.
 
-              @if $b == null {
-                $selector: $mv;
-              } @else {
-                $selector: $b + '-' + $mv;
-              }
+              $selector: if(
+                $b == null,
+                $mv,
+                $b + '-' + $mv
+              );
             }
 
             // finished setting modifier vars
@@ -1439,6 +1450,10 @@ through all possible variants
             // https://www.youtube.com/watch?v=R3Igz5SfBCE
 
             @include render-utility($utility, $selector, $property, $value, $val-value);
+
+            @if $debug-flag {
+              @debug 'UTILITY: #{$utility}, SELECTOR: #{$selector}, PROPERTY: #{$property}, VALUE: #{$value}, VAL-VALUE: #{$val-value}';
+            }
 
           } // end the modifier loop
         } // end the null value conditional
