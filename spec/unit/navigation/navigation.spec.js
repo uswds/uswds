@@ -12,6 +12,7 @@ describe('navigation toggle', () => {
 
   let sandbox;
   let nav;
+  let navControl;
   let overlay;
   let closeButton;
   let menuButton;
@@ -25,6 +26,7 @@ describe('navigation toggle', () => {
     accordion.on();
     navigation.on();
     nav = body.querySelector('.usa-nav');
+    navControl = body.querySelector('.usa-nav-link');
     overlay = body.querySelector('.usa-overlay');
     closeButton = body.querySelector('.usa-nav-close');
     menuButton = body.querySelector('.usa-menu-btn');
@@ -39,6 +41,15 @@ describe('navigation toggle', () => {
     navigation.off();
     accordion.off();
     sandbox.restore();
+  });
+
+  it.only('hides a visible nav menu when the body is clicked', () => {
+    const navMenu = body.querySelector('#sidenav-1');
+
+    navControl.click();
+    assert.equal(navMenu.getAttribute('aria-hidden'), 'false');
+    body.click();
+    assert.equal(navMenu.getAttribute('aria-hidden'), 'true');
   });
 
   it('shows the nav when the menu button is clicked', () => {

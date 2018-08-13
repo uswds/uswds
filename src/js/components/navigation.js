@@ -1,13 +1,16 @@
 const behavior = require('../utils/behavior');
 const select = require('../utils/select');
+const toggle = require('../utils/toggle');
 const FocusTrap = require('../utils/focus-trap');
 const accordion = require('./accordion');
 
 const { CLICK } = require('../events');
 const { prefix: PREFIX } = require('../config');
 
+const BODY = 'body';
 const NAV = `.${PREFIX}-nav`;
 const NAV_LINKS = `${NAV} a`;
+const NAV_CONTROL = `.${PREFIX}-nav-link`;
 const OPENERS = `.${PREFIX}-menu-btn`;
 const CLOSE_BUTTON = `.${PREFIX}-nav-close`;
 const OVERLAY = `.${PREFIX}-overlay`;
@@ -18,6 +21,7 @@ const ACTIVE_CLASS = 'usa-mobile_nav-active';
 const VISIBLE_CLASS = 'is-visible';
 
 let navigation;
+let navActive;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
@@ -65,6 +69,17 @@ const onMenuClose = () => navigation.toggleNav.call(navigation, false);
 
 navigation = behavior({
   [CLICK]: {
+    [BODY]() {
+      if (navActive) {
+        toggle(navActive, false);
+        navActive = null;
+      }
+    },
+    [NAV_CONTROL]() {
+      // store a reference to the last clicked nav link element, so we
+      // can hide the dropdown if another element on the page is clicked
+      navActive = navActive === this ? null : this;
+    },
     [OPENERS]: toggleNav,
     [CLOSERS]: toggleNav,
     [NAV_LINKS]() {
@@ -101,6 +116,7 @@ navigation = behavior({
   },
   teardown() {
     window.removeEventListener('resize', resize, false);
+    navActive = false;
   },
   focusTrap: null,
   toggleNav,
