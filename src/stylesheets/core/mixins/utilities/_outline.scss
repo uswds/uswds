@@ -14,6 +14,10 @@
       $match: true;
       outline-color: $this-value#{$important};
     }
+    @elseif map-has-key($uswds-required-colors, $this-value) {
+      $match: true;
+      outline-color: color($this-value)#{$important};
+    }
     @elseif type-of($this-value) == 'number' {
       $converted-value: number-to-value($this-value);
       $widths: map-deep-get($uswds-properties, outline, standard);

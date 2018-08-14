@@ -33,6 +33,9 @@ $text-utililies: (
     map-deep-get($uswds-properties, white-space, standard),
     map-deep-get($uswds-properties, white-space, extended)
   ),
+  color: map-collect(
+    $uswds-required-colors
+  ),
 );
 
 @mixin u-text($value...) {
