@@ -87,30 +87,11 @@ $v-padding: $spacing-md-small;
     margin-top: $spacing-small;
   }
 
-  // TODO deprecated ruleset based on old accordion.
-  > ul {
-    @include accordion-list-styles;
-
-    // TODO deprecated ruleset based on old accordion.
-    > li {
-      @include accordion-list-item-styles;
-    }
-
-    // TODO deprecated ruleset based on old accordion.
-    button {
-      @include accordion-button-styles;
-    }
-
-    // TODO deprecated ruleset based on old accordion.
-    [aria-expanded=false] {
-      @include accordion-button-unopened-styles;
-    }
+  // TODO is this ok? We can't use the .usa-accordion-button class to target here,
+  // because it will overwrite the header menu button styles
+  button {
+    @include accordion-button-styles;
   }
-
-  > li {
-    @include accordion-list-item-styles;
-  }
-
 }
 
 .usa-accordion-bordered {
@@ -118,6 +99,10 @@ $v-padding: $spacing-md-small;
     border-bottom: $accordion-border;
     border-left: $accordion-border;
     border-right: $accordion-border;
+  }
+
+  .usa-accordion-heading {
+    margin-bottom: 0;
   }
 }
 
@@ -132,10 +117,6 @@ $v-padding: $spacing-md-small;
 
   > *:last-child {
     margin-bottom: 0;
-  }
-
-  &:not([aria-hidden]) {
-    @include sr-only();
   }
 
   @include accessibly-hidden();

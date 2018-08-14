@@ -17,7 +17,11 @@ module.exports = (button, expanded) => {
     throw new Error(`No toggle target found with id: "${id}"`);
   }
 
-  controls.setAttribute(HIDDEN, !safeExpanded);
+  if (safeExpanded) {
+    controls.removeAttribute(HIDDEN);
+  } else {
+    controls.setAttribute(HIDDEN, '');
+  }
 
   return safeExpanded;
 };

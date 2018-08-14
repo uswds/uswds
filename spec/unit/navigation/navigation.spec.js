@@ -47,9 +47,9 @@ describe('navigation toggle', () => {
     const navMenu = body.querySelector('#sidenav-1');
 
     navControl.click();
-    assert.equal(navMenu.getAttribute('hidden'), 'false');
+    assert.equal(navMenu.getAttribute('hidden'), null);
     body.click();
-    assert.equal(navMenu.getAttribute('hidden'), 'true');
+    assert.equal(navMenu.hasAttribute('hidden'), true);
   });
 
   it('shows the nav when the menu button is clicked', () => {
