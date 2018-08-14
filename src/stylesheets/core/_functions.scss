@@ -4,6 +4,22 @@ Functions
 ----------------------------------------
 */
 
+// The following vars need to be set
+// here, before the rest of the system
+// variables are set
+
+$root-font-size: if(
+  $theme-respect-user-font-size,
+  100%,
+  $theme-root-font-size
+);
+
+$root-font-size-equiv: if(
+  $theme-respect-user-font-size,
+  16px,
+  $theme-root-font-size
+);
+
 /*
 ========================================
 General-purpose functions
@@ -344,27 +360,6 @@ Append `!important` to a list
 
 /*
 ----------------------------------------
-root-to-px()
-----------------------------------------
-Outputs the size as the original px
-or 16px if the root is set to 100%
-----------------------------------------
-*/
-
-@function root-to-px($size) {
-  @if $size == 100% {
-    @return 16px;
-  }
-
-  @if not unit($size) == 'px' {
-    @error "``$theme-root-font-size` needs to be in px or 100%.";
-  }
-
-  @return $size;
-}
-
-/*
-----------------------------------------
 grid-units()
 ----------------------------------------
 Converts a spacing unit multiple into
@@ -373,7 +368,7 @@ the desired final units (currently rem)
 */
 
 @function grid-units($unit) {
-  $grid-to-rem: strip-unit($uswds-spacing-grid-base) * $unit / strip-unit(root-to-px($theme-root-font-size)) * 1rem;
+  $grid-to-rem: ($uswds-spacing-grid-base * $unit) / $root-font-size-equiv * 1rem;
 
   @return $grid-to-rem;
 }
@@ -386,24 +381,31 @@ Converts a value in rem to a value in px
 ----------------------------------------
 */
 
-@function rem-to-px($value) {
-  $rem-to-px: strip-unit($value) * root-to-px($theme-root-font-size);
-
-  @return $rem-to-px;
+@function rem-to-px($value-in-rem) {
+  @if unit($value-in-rem) == 'rem' {
+    $rem-to-px: ($value-in-rem / 1rem) * $root-font-size-equiv;
+    @return $rem-to-px;
+  }
+  @if unit($value-in-rem) != 'px' {
+    @error 'This value must be in either px or rem';
+  }
+  @return $value-in-rem;
 }
 
 /*
 ----------------------------------------
-grid-to-base-em()
+rem-to-user-em()
 ----------------------------------------
-Converts a value in px to a value in em
+Converts a value in rem to a value in
+[user-settings] em for use in media
+queries
 ----------------------------------------
 */
 
-@function grid-to-base-em($grid-in-rem) {
-  $grid-to-base-em: strip-unit($grid-in-rem) * 1em;
+@function rem-to-user-em($grid-in-rem) {
+  $rem-to-user-em: ($grid-in-rem / 1rem) * 1em;
 
-  @return $grid-to-base-em;
+  @return $rem-to-user-em;
 }
 
 /*
@@ -438,8 +440,7 @@ Converts a value in px to a value in rem
   @if not $pixels {
     @return false;
   }
-
-  $px-to-rem: strip-unit($pixels) / strip-unit(root-to-px($theme-root-font-size)) * 1rem;
+  $px-to-rem: ($pixels / $root-font-size-equiv) * 1rem;
 
   @return $px-to-rem;
 }
@@ -458,7 +459,7 @@ to a set target
     @return false;
   }
 
-  $this-scale: $uswds-base-cap-height * strip-unit($scale) / $cap-height;
+  $this-scale: $uswds-base-cap-height * strip-unit($scale) / $cap-height * 1px;
 
   @return px-to-rem($this-scale);
 
