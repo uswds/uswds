@@ -131,33 +131,33 @@ $theme-output-breakpoints: (
 $theme-font-definitions: (
 
   font-new: (
-    name: "Font Display Name",
-    dir: "folder-name", // relative to settings.$theme-font-path
+    name: 'Font Display Name',
+    dir: 'folder-name', // relative to settings.$theme-font-path
     stack: $font-stack-system,
     system-font: false,
-    cap-height: "364px", // height of a 500px `N` in Sketch
+    cap-height: '364px', // height of a 500px `N` in Sketch
     variable-font: false,
     roman: (
-      100: "Filename-without-extension", // or false
-      200: "Filename-without-extension", // or false
-      300: "Filename-without-extension", // or false
-      400: "Filename-without-extension", // or false
-      500: "Filename-without-extension", // or false
-      600: "Filename-without-extension", // or false
-      700: "Filename-without-extension", // or false
-      800: "Filename-without-extension", // or false
-      900: "Filename-without-extension", // or false
+      100: 'Filename-without-extension', // or false
+      200: 'Filename-without-extension', // or false
+      300: 'Filename-without-extension', // or false
+      400: 'Filename-without-extension', // or false
+      500: 'Filename-without-extension', // or false
+      600: 'Filename-without-extension', // or false
+      700: 'Filename-without-extension', // or false
+      800: 'Filename-without-extension', // or false
+      900: 'Filename-without-extension', // or false
     ),
     italic: (
-      100: "Filename-without-extension", // or false
-      200: "Filename-without-extension", // or false
-      300: "Filename-without-extension", // or false
-      400: "Filename-without-extension", // or false
-      500: "Filename-without-extension", // or false
-      600: "Filename-without-extension", // or false
-      700: "Filename-without-extension", // or false
-      800: "Filename-without-extension", // or false
-      900: "Filename-without-extension", // or false
+      100: 'Filename-without-extension', // or false
+      200: 'Filename-without-extension', // or false
+      300: 'Filename-without-extension', // or false
+      400: 'Filename-without-extension', // or false
+      500: 'Filename-without-extension', // or false
+      600: 'Filename-without-extension', // or false
+      700: 'Filename-without-extension', // or false
+      800: 'Filename-without-extension', // or false
+      900: 'Filename-without-extension', // or false
     ),
   ),
 
