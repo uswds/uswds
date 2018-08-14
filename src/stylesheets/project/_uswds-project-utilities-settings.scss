@@ -555,7 +555,7 @@ $add-aspect-manual-values: ();
 
 // .align-items
 
-$align-items-palettes: ( 'palette-standard-align-items' );
+$align-items-palettes: ('palette-standard-align-items');
 $align-items-manual-values: ();
 
 // .background-color
@@ -565,7 +565,7 @@ $background-color-manual-values: ();
 
 // .border
 
-$border-palettes: ( 'palette-standard-border' );
+$border-palettes: ('palette-standard-border');
 $border-manual-values: ();
 
 // .border-color
@@ -575,38 +575,34 @@ $border-color-manual-values: ();
 
 // .border-radius
 
-$border-radius-palettes: ( 'palette-standard-border-radius' );
+$border-radius-palettes: ('palette-standard-border-radius');
 $border-radius-manual-values: ();
 
 // .border-style
 
-$border-style-palettes: ( 'palette-standard-border-style' );
+$border-style-palettes: ('palette-standard-border-style');
 $border-style-manual-values: ();
 
 // .border-width
 
-$border-width-palettes: ( 'palette-standard-border-width' );
+$border-width-palettes: ('palette-standard-border-width');
 $border-width-manual-values: ();
 
 // .bottom
 
-$bottom-palettes: ( 'palette-standard-bottom' );
+$bottom-palettes: ('palette-standard-bottom');
 
 $bottom-manual-values: ();
 
 // .box-shadow
 
-$box-shadow-palettes: (
-  /*
-  */
-  'palette-standard-box-shadow'
-);
+$box-shadow-palettes: ('palette-standard-box-shadow');
 
 $box-shadow-manual-values: ();
 
 // .circle
 
-$circle-palettes: ( 'palette-standard-circle' );
+$circle-palettes: ('palette-standard-circle');
 $circle-manual-values: ();
 
 // .color
@@ -616,32 +612,32 @@ $color-manual-values: ();
 
 // .cursor
 
-$cursor-palettes: ( 'palette-standard-cursor' );
+$cursor-palettes: ('palette-standard-cursor');
 $cursor-manual-values: ();
 
 // .display
 
-$display-palettes: ( 'palette-standard-display' );
+$display-palettes: ('palette-standard-display');
 $display-manual-values: ();
 
 // .flex
 
-$flex-palettes: ( 'palette-standard-flex' );
+$flex-palettes: ('palette-standard-flex');
 $flex-manual-values: ();
 
 // .flex-direction
 
-$flex-direction-palettes: ( 'palette-standard-flex-direction' );
+$flex-direction-palettes: ('palette-standard-flex-direction');
 $flex-direction-manual-values: ();
 
 // .flex-wrap
 
-$flex-wrap-palettes: ( 'palette-standard-flex-wrap' );
+$flex-wrap-palettes: ('palette-standard-flex-wrap');
 $flex-wrap-manual-values: ();
 
 // .float
 
-$float-palettes: ( 'palette-standard-float' );
+$float-palettes: ('palette-standard-float');
 $float-manual-values: ();
 
 // .font
@@ -654,136 +650,136 @@ $font-manual-values: ();
 
 // .font-family
 
-$font-family-palettes: ( 'palette-standard-font-family' );
+$font-family-palettes: ('palette-standard-font-family');
 $font-family-manual-values: ();
 
 // .font-feature-settings
 
-$font-feature-palettes: ( 'palette-standard-font-feature-settings' );
+$font-feature-palettes: ('palette-standard-font-feature-settings');
 $font-feature-manual-values: ();
 
 // .font-style
 
-$font-style-palettes: ( 'palette-standard-font-style' );
+$font-style-palettes: ('palette-standard-font-style');
 $font-style-manual-values: ();
 
 // .font-weight
 
-$font-weight-palettes: ( 'palette-standard-font-weight' );
+$font-weight-palettes: ('palette-standard-font-weight');
 $font-weight-manual-values: ();
 
 // .height
 
-$height-palettes: ( 'palette-standard-height' );
+$height-palettes: ('palette-standard-height');
 $height-manual-values: ();
 
 // .justify-content
 
-$justify-content-palettes: ( 'palette-standard-justify-content' );
+$justify-content-palettes: ('palette-standard-justify-content');
 $justify-content-manual-values: ();
 
 // .left
 
-$left-palettes: ( 'palette-standard-left' );
+$left-palettes: ('palette-standard-left');
 $left-manual-values: ();
 
 // .letter-spacing
 
-$letter-spacing-palettes: ( 'palette-standard-letter-spacing' );
+$letter-spacing-palettes: ('palette-standard-letter-spacing');
 $letter-spacing-manual-values: ();
 
 // .line-height
 
-$line-height-palettes: ( 'palette-standard-line-height' );
+$line-height-palettes: ('palette-standard-line-height');
 $line-height-manual-values: ();
 
 // .margin
 
-$margin-palettes: ( 'palette-standard-margin' );
+$margin-palettes: ('palette-standard-margin');
 $margin-manual-values: ();
-$margin-vertical-palettes: ( 'palette-standard-margin-vertical' );
+$margin-vertical-palettes: ('palette-standard-margin-vertical');
 $margin-vertical-manual-values: ();
-$margin-horizontal-palettes: ( 'palette-standard-margin-horizontal' );
+$margin-horizontal-palettes: ('palette-standard-margin-horizontal');
 $margin-horizontal-manual-values: ();
 
 // .max-height
 
-$max-height-palettes: ( 'palette-standard-max-height' );
+$max-height-palettes: ('palette-standard-max-height');
 $max-height-manual-values: ();
 
 // .max-width
 
-$max-width-palettes: ( 'palette-standard-max-width' );
+$max-width-palettes: ('palette-standard-max-width');
 $max-width-manual-values: ();
 
 // .measure
 
-$measure-palettes: ( 'palette-standard-measure' );
+$measure-palettes: ('palette-standard-measure');
 $measure-manual-values: ();
 
 // .min-height
 
-$min-height-palettes: ( 'palette-standard-min-height' );
+$min-height-palettes: ('palette-standard-min-height');
 $min-height-manual-values: ();
 
 // .min-width
 
-$min-width-palettes: ( 'palette-standard-min-width' );
+$min-width-palettes: ('palette-standard-min-width');
 $min-width-manual-values: ();
 
 // .opacity
 
-$opacity-palettes: ( 'palette-standard-opacity' );
+$opacity-palettes: ('palette-standard-opacity');
 $opacity-manual-values: ();
 
 // .order
 
-$order-palettes: ( 'palette-standard-order' );
+$order-palettes: ('palette-standard-order');
 $order-manual-values: ();
 
 // .outline
 
-$outline-palettes: ( 'palette-standard-outline' );
+$outline-palettes: ('palette-standard-outline');
 $outline-manual-values: ();
 
 // .outline-color
 
-$outline-color-palettes: ( 'palette-standard-outline-color' );
+$outline-color-palettes: ('palette-standard-outline-color');
 $outline-color-manual-values: ();
 
 // .overflow
 
-$overflow-palettes: ( 'palette-standard-overflow' );
+$overflow-palettes: ('palette-standard-overflow');
 $overflow-manual-values: ();
 
 // .padding
 
-$padding-palettes: ( 'palette-standard-padding' );
+$padding-palettes: ('palette-standard-padding');
 $padding-manual-values: ();
 
 // .position
 
-$position-palettes: ( 'palette-standard-position' );
+$position-palettes: ('palette-standard-position');
 $position-manual-values: ();
 
 // .right
 
-$right-palettes: ( 'palette-standard-right' );
+$right-palettes: ('palette-standard-right');
 $right-manual-values: ();
 
 // .square
 
-$square-palettes: ( 'palette-standard-square' );
+$square-palettes: ('palette-standard-square');
 $square-manual-values: ();
 
 // .text-align
 
-$text-align-palettes: ( 'palette-standard-text-align' );
+$text-align-palettes: ('palette-standard-text-align');
 $text-align-manual-values: ();
 
 // .text-decoration
 
-$text-decoration-palettes: ( 'palette-standard-text-decoration' );
+$text-decoration-palettes: ('palette-standard-text-decoration');
 $text-decoration-manual-values: ();
 
 // .text-decoration-color
@@ -793,36 +789,35 @@ $text-decoration-color-manual-values: ();
 
 // .text-indent
 
-$text-indent-palettes: ( 'palette-standard-text-indent' );
+$text-indent-palettes: ('palette-standard-text-indent');
 $text-indent-manual-values: ();
 
 // .text-transform
 
-$text-transform-palettes: ( 'palette-standard-text-transform' );
+$text-transform-palettes: ('palette-standard-text-transform');
 $text-transform-manual-values: ();
 
 // .top
 
-
-$top-palettes: ( 'palette-standard-top' );
+$top-palettes: ('palette-standard-top');
 $top-manual-values: ();
 
 // .vertical-align
 
-$vertical-align-palettes: ( 'palette-standard-vertical-align' );
+$vertical-align-palettes: ('palette-standard-vertical-align');
 $vertical-align-manual-values: ();
 
 // .white-space
 
-$whitespace-palettes: ( 'palette-standard-white-space' );
+$whitespace-palettes: ('palette-standard-white-space');
 $whitespace-manual-values: ();
 
 // .width
 
-$width-palettes: ( 'palette-standard-width' );
+$width-palettes: ('palette-standard-width');
 $width-manual-values: ();
 
 // .z-index
 
-$z-index-palettes: ( 'palette-standard-z-index' );
+$z-index-palettes: ('palette-standard-z-index');
 $z-index-manual-values: ();

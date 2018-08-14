@@ -22,7 +22,7 @@ var entryFileFilter = filter('uswds.scss', { restore: true });
 var normalizeCssFilter = filter('normalize.css', { restore: true });
 
 gulp.task('stylelint',
-  linter('./src/stylesheets/{,core/,components/,elements/}*.scss',
+  linter('./src/stylesheets/{,core/,components/,elements/,utilities/,packages/,project/}*.scss',
   {
     ignore: './src/stylesheets/lib/**/*.scss'
   })
