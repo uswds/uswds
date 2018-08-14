@@ -71,12 +71,34 @@ $theme-namespace: (
 ----------------------------------------
 Root font size
 ----------------------------------------
-Sets the font size of the html root
-for rem calculations
+Setting $theme-respect-user-font-size to
+true sets the root font size to 100% and
+uses ems for media queries
+----------------------------------------
+$theme-root-font-size only applies when
+$theme-respect-user-font-size is set to
+false.
 
-Accepts [n]px or 100%
+This will set the root font size
+as a specific px value and use px values
+for media queries.
+
+Accepts true or false
 ----------------------------------------
 */
+
+$theme-respect-user-font-size: false;
+
+
+// $theme-root-font-size only applies when
+// $theme-respect-user-font-size is set to
+// false.
+
+// This will set the root font size
+// as a specific px value and use px values
+// for media queries.
+
+// Accepts values in px
 
 $theme-root-font-size: 10px;
 
@@ -149,33 +171,33 @@ defined in the system:
 $theme-font-definitions: (
   /*
   font-new: (
-    name: 'Font Display Name',
-    dir: 'folder-name', // relative to settings.$theme-font-path
+    name: "Font Display Name",
+    dir: "folder-name", // relative to settings.$theme-font-path
     stack: $font-stack-system,
     system-font: false,
-    cap-height: '364px', // height of a 500px `N` in Sketch
+    cap-height: "364px", // height of a 500px `N` in Sketch
     variable-font: false,
     roman: (
-      100: 'Filename-without-extension', // or false
-      200: 'Filename-without-extension', // or false
-      300: 'Filename-without-extension', // or false
-      400: 'Filename-without-extension', // or false
-      500: 'Filename-without-extension', // or false
-      600: 'Filename-without-extension', // or false
-      700: 'Filename-without-extension', // or false
-      800: 'Filename-without-extension', // or false
-      900: 'Filename-without-extension', // or false
+      100: "Filename-without-extension", // or false
+      200: "Filename-without-extension", // or false
+      300: "Filename-without-extension", // or false
+      400: "Filename-without-extension", // or false
+      500: "Filename-without-extension", // or false
+      600: "Filename-without-extension", // or false
+      700: "Filename-without-extension", // or false
+      800: "Filename-without-extension", // or false
+      900: "Filename-without-extension", // or false
     ),
     italic: (
-      100: 'Filename-without-extension', // or false
-      200: 'Filename-without-extension', // or false
-      300: 'Filename-without-extension', // or false
-      400: 'Filename-without-extension', // or false
-      500: 'Filename-without-extension', // or false
-      600: 'Filename-without-extension', // or false
-      700: 'Filename-without-extension', // or false
-      800: 'Filename-without-extension', // or false
-      900: 'Filename-without-extension', // or false
+      100: "Filename-without-extension", // or false
+      200: "Filename-without-extension", // or false
+      300: "Filename-without-extension", // or false
+      400: "Filename-without-extension", // or false
+      500: "Filename-without-extension", // or false
+      600: "Filename-without-extension", // or false
+      700: "Filename-without-extension", // or false
+      800: "Filename-without-extension", // or false
+      900: "Filename-without-extension", // or false
     ),
   ),
   */

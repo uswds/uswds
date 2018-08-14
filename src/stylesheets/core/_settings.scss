@@ -67,12 +67,34 @@ $theme-namespace: (
 ----------------------------------------
 Root font size
 ----------------------------------------
-Sets the font size of the html root
-for rem calculations
+Setting $theme-respect-user-font-size to
+true sets the root font size to 100% and
+uses ems for media queries
+----------------------------------------
+$theme-root-font-size only applies when
+$theme-respect-user-font-size is set to
+false.
 
-Accepts [n]px or 100%
+This will set the root font size
+as a specific px value and use px values
+for media queries.
+
+Accepts true or false
 ----------------------------------------
 */
+
+$theme-respect-user-font-size: false !default;
+
+
+// $theme-root-font-size only applies when
+// $theme-respect-user-font-size is set to
+// false.
+
+// This will set the root font size
+// as a specific px value and use px values
+// for media queries.
+
+// Accepts values in px
 
 $theme-root-font-size: 10px !default;
 
