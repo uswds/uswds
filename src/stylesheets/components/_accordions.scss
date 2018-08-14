@@ -16,14 +16,6 @@ $v-padding: $spacing-md-small;
   width: 100%;
 }
 
-@mixin accordion-list-item-styles {
-  background-color: $color-gray-lightest;
-  font-family: $font-sans;
-  list-style: none;
-  margin-bottom: $spacing-x-small;
-  width: 100%;
-}
-
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
@@ -45,15 +37,6 @@ $v-padding: $spacing-md-small;
   &:hover {
     background-color: $color-gray-lighter;
     color: $color-base;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
   }
 }
 // scss-lint:enable PropertyCount
@@ -86,12 +69,6 @@ $v-padding: $spacing-md-small;
   + .usa-accordion-bordered {
     margin-top: $spacing-small;
   }
-
-  // TODO is this ok? We can't use the .usa-accordion-button class to target here,
-  // because it will overwrite the header menu button styles
-  button {
-    @include accordion-button-styles;
-  }
 }
 
 .usa-accordion-bordered {
@@ -99,6 +76,7 @@ $v-padding: $spacing-md-small;
     border-bottom: $accordion-border;
     border-left: $accordion-border;
     border-right: $accordion-border;
+    padding-bottom: $spacing-md-small;
   }
 
   .usa-accordion-heading {
@@ -106,10 +84,23 @@ $v-padding: $spacing-md-small;
   }
 }
 
+.usa-accordion-heading {
+  font-size: $base-font-size;
+  line-height: 1;
+  margin: 0;
+
+  &:not(:first-child) {
+    margin-top: $spacing-x-small;
+  }
+}
+
 .usa-accordion-content {
   background-color: $color-white;
   overflow: auto;
-  padding: $spacing-md-small $spacing-medium;
+  padding-bottom: calc(#{$spacing-md-small} - #{$spacing-x-small});
+  padding-left: $spacing-medium;
+  padding-right: $spacing-medium;
+  padding-top: $spacing-md-small;
 
   > *:first-child {
     margin-top: 0;
