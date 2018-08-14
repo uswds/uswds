@@ -25,7 +25,7 @@
     "start": "fractal start --sync",
     "test": "gulp eslint typecheck stylelint test",
     "version": "gulp build release",
-    "watch": "nswatch"
+    "watch": "NODE_ENV=development nswatch"
   },
   "watch": {
     "src/stylesheets/{components,core,elements,}/*.scss": "build:css",
