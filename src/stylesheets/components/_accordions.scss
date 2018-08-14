@@ -110,7 +110,7 @@ $v-padding: $spacing-md-small;
     margin-bottom: 0;
   }
 
-  @include accessibly-hidden();
+  @include accessibly-hidden;
 }
 
 .usa-accordion-button {
