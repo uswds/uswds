@@ -1,44 +1,52 @@
-// * * * * * ==============================
-// * * * * * ==============================
-// * * * * * ==============================
-// * * * * * ==============================
-// ========================================
-// ========================================
-// ========================================
-// ----------------------------------------
-// PROJECT THEME SETTINGS
-// ----------------------------------------
-// !! Copy this file to your project's
-//    sass root. Don't edit the version
-//    in node_modules.
-// ----------------------------------------
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+PROJECT THEME SETTINGS
+----------------------------------------
+!! Copy this file to your project's
+   sass root. Don't edit the version
+   in node_modules.
+----------------------------------------
+*/
 
-// ----------------------------------------
-// Basic styles
-// ----------------------------------------
-// Sets the default typography styles for
-// paragraph text and links
-//
-// Accepts true or false
-// ----------------------------------------
+/*
+----------------------------------------
+Basic styles
+----------------------------------------
+Sets the default typography styles for
+paragraph text and links
+
+Accepts true or false
+----------------------------------------
+*/
 
 $theme-global-styles-basic: true;
 
-// ----------------------------------------
-// Content styles
-// ----------------------------------------
-// Sets the default typography styles for
-// paragraph text, links, headings, lists,
-// and tables
-//
-// Accepts global, scoped, or none
-// ----------------------------------------
+/*
+----------------------------------------
+Content styles
+----------------------------------------
+Sets the default typography styles for
+paragraph text, links, headings, lists,
+and tables
+
+Accepts global, scoped, or none
+----------------------------------------
+*/
 
 $theme-content-styles: 'scoped';
 
-// ----------------------------------------
-// Namespace
-// ----------------------------------------
+/*
+----------------------------------------
+Namespace
+----------------------------------------
+*/
 
 $theme-namespace: (
   'component': (
@@ -59,43 +67,51 @@ $theme-namespace: (
   ),
 );
 
-// ----------------------------------------
-// Root font size
-// ----------------------------------------
-// Sets the font size of the html root
-// for rem calculations
-//
-// Accepts [n]px or 100%
-// ----------------------------------------
+/*
+----------------------------------------
+Root font size
+----------------------------------------
+Sets the font size of the html root
+for rem calculations
+
+Accepts [n]px or 100%
+----------------------------------------
+*/
 
 $theme-root-font-size: 10px;
 
-// ----------------------------------------
-// Border box sizing
-// ----------------------------------------
-// When set to true, it sets the box-sizing
-// property of all elements to
-// `border-box`.
-// ----------------------------------------
+/*
+----------------------------------------
+Border box sizing
+----------------------------------------
+When set to true, it sets the box-sizing
+property of all elements to
+`border-box`.
+----------------------------------------
+*/
 
 $border-box-sizing: false;
 
-// ----------------------------------------
-// Paths
-// ----------------------------------------
-// Relative font and image file paths
-// ----------------------------------------
+/*
+----------------------------------------
+Paths
+----------------------------------------
+Relative font and image file paths
+----------------------------------------
+*/
 
 $theme-font-path:   '../fonts';
 $theme-image-path:  '../img';
 
-// ----------------------------------------
-// Output breakpoints
-// ----------------------------------------
-// Which breakpoints does your project
-// need? Select as `true` any breakpoint
-// used by utilities or layout grid
-// ----------------------------------------
+/*
+----------------------------------------
+Output breakpoints
+----------------------------------------
+Which breakpoints does your project
+need? Select as `true` any breakpoint
+used by utilities or layout grid
+----------------------------------------
+*/
 
 $theme-output-breakpoints: (
   'card':             false,   // 160px
@@ -109,27 +125,29 @@ $theme-output-breakpoints: (
   'widescreen':       false,   // 1400px
 );
 
-// ----------------------------------------
-// Custom font definitions
-// ----------------------------------------
-// Add a new custom font definition if
-// your project uses a typeface we've
-// not already defined.
-// ----------------------------------------
-// The following faces already are
-// defined in the system:
-//
-// 'system'
-// 'united-sans'
-// 'source-sans-pro'
-// 'helvetica'
-// 'georgia'
-// 'merriweather'
-// 'roboto-mono'
-// ----------------------------------------
+/*
+----------------------------------------
+Custom font definitions
+----------------------------------------
+Add a new custom font definition if
+your project uses a typeface we've
+not already defined.
+----------------------------------------
+The following faces already are
+defined in the system:
+
+'system'
+'united-sans'
+'source-sans-pro'
+'helvetica'
+'georgia'
+'merriweather'
+'roboto-mono'
+----------------------------------------
+*/
 
 $theme-font-definitions: (
-
+  /*
   font-new: (
     name: 'Font Display Name',
     dir: 'folder-name', // relative to settings.$theme-font-path
@@ -160,56 +178,62 @@ $theme-font-definitions: (
       900: 'Filename-without-extension', // or false
     ),
   ),
-
+  */
 );
 
-// ----------------------------------------
-// Fonts in use
-// ----------------------------------------
-// Set the sans, serif, and mono faces for
-// your project
-// ----------------------------------------
-// currently available:
-//
-// 'system'
-// 'united-sans'
-// 'source-sans-pro'
-// 'helvetica'
-// 'georgia'
-// 'merriweather'
-// 'roboto-mono'
-// ----------------------------------------
+/*
+----------------------------------------
+Fonts in use
+----------------------------------------
+Set the sans, serif, and mono faces for
+your project
+----------------------------------------
+currently available:
+
+'system'
+'united-sans'
+'source-sans-pro'
+'helvetica'
+'georgia'
+'merriweather'
+'roboto-mono'
+----------------------------------------
+*/
 
 $theme-font-mono:   'roboto-mono';
 $theme-font-sans:   'source-sans-pro';
 $theme-font-serif:  'merriweather';
 $theme-font-cond:   false;
 
-// ----------------------------------------
-// Fonts by type
-// ----------------------------------------
-// Set the heading, body, code, and alt
-// faces for your project from
-//
-// $theme-font-sans
-// $theme-font-serif
-// $theme-font-mono
-// $theme-font-cond
-// ----------------------------------------
+/*
+----------------------------------------
+Fonts by type
+----------------------------------------
+Set the heading, body, code, and alt
+faces for your project from
+
+$theme-font-sans
+$theme-font-serif
+$theme-font-mono
+$theme-font-cond
+----------------------------------------
+*/
 
 $theme-font-heading:  $theme-font-serif;
 $theme-font-body:     $theme-font-serif;
 $theme-font-code:     $theme-font-mono;
 $theme-font-alt:      $theme-font-sans;
 
-// ----------------------------------------
-// Type scale
-// ----------------------------------------
-// Define your project's type scale using
-// values from the USWDS system type scale
-//
-// 1-20
-// ----------------------------------------
+/*
+----------------------------------------
+Type scale
+----------------------------------------
+Define your project's type scale using
+values from the USWDS system type scale
+
+1-20
+----------------------------------------
+*/
 
 $theme-type-scale-micro:         1;
 $theme-type-scale-smallest:      3;
@@ -221,12 +245,14 @@ $theme-type-scale-larger:        12;
 $theme-type-scale-largest:       14;
 $theme-type-scale-mega:          16;
 
-// ----------------------------------------
-// Font weights
-// ----------------------------------------
-// Assign weights 100-900
-// Or use `false` for unneeded weights.
-// ----------------------------------------
+/*
+----------------------------------------
+Font weights
+----------------------------------------
+Assign weights 100-900
+Or use `false` for unneeded weights.
+----------------------------------------
+*/
 
 $theme-output-all-weights:        false;
 
@@ -238,9 +264,11 @@ $theme-font-weight-semibold:      false;
 $theme-font-weight-bold:          700;
 $theme-font-weight-heavy:         false;
 
-// ----------------------------------------
-// Palette colors
-// ----------------------------------------
+/*
+----------------------------------------
+Palette colors
+----------------------------------------
+*/
 
 $theme-color-base-family:          'gray';
 $theme-color-base-lightest:        $theme-color-base-family, 2;
@@ -290,9 +318,11 @@ $theme-color-accent-cool-dark:     $theme-color-accent-cool-family, 40, vivid;
 $theme-color-accent-cool-darker:   'blue', 60;
 $theme-color-accent-cool-darkest:  false;
 
-// ----------------------------------------
-// State colors
-// ----------------------------------------
+/*
+----------------------------------------
+State colors
+----------------------------------------
+*/
 
 // Error colors
 $theme-color-error-family:     'red';
@@ -322,94 +352,102 @@ $theme-color-success-darker:   $theme-color-success-family, 70;
 $theme-color-disabled-family:  'gray';
 $theme-color-disabled:         $theme-color-disabled-family, 30;
 
-// ----------------------------------------
-// Border radius
-// ----------------------------------------
-// 2px           2px
-// 0.5           4px
-// 1             8px
-// 1.5           12px
-// 2             16px
-// 2.5           20px
-// 3             24px
-// 4             32px
-// 5             40px
-// 6             48px
-// 7             56px
-// 8             64px
-// 9             72px
-// ----------------------------------------
+/*
+----------------------------------------
+Border radius
+----------------------------------------
+2px           2px
+0.5           4px
+1             8px
+1.5           12px
+2             16px
+2.5           20px
+3             24px
+4             32px
+5             40px
+6             48px
+7             56px
+8             64px
+9             72px
+----------------------------------------
+*/
 
 $theme-border-radius-sm:       2px;
 $theme-border-radius-md:       0.5;
 $theme-border-radius-lg:       1;
 
-// ----------------------------------------
-// Column gap
-// ----------------------------------------
-// 2px         2px
-// 0.5         4px
-// 1           8px
-// 2           16px
-// 3           24px
-// 4           32px
-// 5           48px
-// ----------------------------------------
+/*
+----------------------------------------
+Column gap
+----------------------------------------
+2px         2px
+0.5         4px
+1           8px
+2           16px
+3           24px
+4           32px
+5           48px
+----------------------------------------
+*/
 
 $theme-column-gap-small: 2px;
 $theme-column-gap:       2;
 $theme-column-gap-large: 3;
 
-// ----------------------------------------
-// Grid container max-width
-// ----------------------------------------
-// mobile
-// mobile-lg
-// tablet
-// tablet-lg
-// desktop
-// desktop-lg
-// widescreen
-// ----------------------------------------
+/*
+----------------------------------------
+Grid container max-width
+----------------------------------------
+mobile
+mobile-lg
+tablet
+tablet-lg
+desktop
+desktop-lg
+widescreen
+----------------------------------------
+*/
 
 $theme-grid-container-max-width: desktop;
 
-// ----------------------------------------
-// New stuff from variables
-// ----------------------------------------
-// Type scale tokens
-// ----------------------------------------
-// micro:      10px
-// 1:          12px
-// 2:          13px
-// 3:          14px
-// 4:          15px
-// 5:          16px
-// 6:          17px
-// 7:          18px
-// 8:          20px
-// 9:          22px
-// 10:         24px
-// 11:         28px
-// 12:         32px
-// 13:         36px
-// 14:         40px
-// 15:         48px
-// 16:         56px
-// 17:         64px
-// 18:         80px
-// 19:         120px
-// 20:         140px
-// ----------------------------------------
-// Line height tokens
-// ----------------------------------------
-// 1:    1
-// 2:    1.15
-// 3:    1.35
-// 4:    1.5
-// 5:    1.62
-// 6:    1.75
-// ----------------------------------------
+/*
+----------------------------------------
+New stuff from variables
+----------------------------------------
+Type scale tokens
+----------------------------------------
+micro:      10px
+1:          12px
+2:          13px
+3:          14px
+4:          15px
+5:          16px
+6:          17px
+7:          18px
+8:          20px
+9:          22px
+10:         24px
+11:         28px
+12:         32px
+13:         36px
+14:         40px
+15:         48px
+16:         56px
+17:         64px
+18:         80px
+19:         120px
+20:         140px
+----------------------------------------
+Line height tokens
+----------------------------------------
+1:    1
+2:    1.15
+3:    1.35
+4:    1.5
+5:    1.62
+6:    1.75
+----------------------------------------
+*/
 
 $theme-base-font-size:      6; // was 1.7rem
 $theme-small-font-size:     3; // was 1.4rem
