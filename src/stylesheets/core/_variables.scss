@@ -419,15 +419,15 @@ Build the project type scale map
 */
 
 $project-type-scale: (
-  '3xs': system-type-scale($theme-type-scale-micro),
-  '2xs': system-type-scale($theme-type-scale-smallest),
-  'xs': system-type-scale($theme-type-scale-smaller),
-  'sm': system-type-scale($theme-type-scale-small),
-  'md': system-type-scale($theme-type-scale-base),
-  'lg': system-type-scale($theme-type-scale-large),
-  'xl': system-type-scale($theme-type-scale-larger),
-  '2xl': system-type-scale($theme-type-scale-largest),
-  '3xl': system-type-scale($theme-type-scale-mega),
+  '3xs': system-type-scale($theme-type-scale-3xs),
+  '2xs': system-type-scale($theme-type-scale-2xs),
+  'xs': system-type-scale($theme-type-scale-xs),
+  'sm': system-type-scale($theme-type-scale-sm),
+  'md': system-type-scale($theme-type-scale-md),
+  'lg': system-type-scale($theme-type-scale-lg),
+  'xl': system-type-scale($theme-type-scale-xl),
+  '2xl': system-type-scale($theme-type-scale-2xl),
+  '3xl': system-type-scale($theme-type-scale-3xl),
 );
 
 $all-type-scale: map-collect(
