@@ -1495,11 +1495,9 @@ through all possible variants
     }
 
     @if $italic {
-      @debug 'it me! italic! #{$font-name}';
       @each $weight, $filename in $italic {
         @each $key, $outputweight in $these-weights {
           @if $outputweight == $weight and $filename {
-            @debug 'found an valid italic! #{$font-name}: #{$filename}';
             @include font-face(
               '#{$font-name}',
               '#{$theme-font-path}/#{$dir}/#{$filename}',
