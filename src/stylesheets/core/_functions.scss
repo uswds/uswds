@@ -1473,41 +1473,38 @@ through all possible variants
   @if $this-font-face and map-deep-get($all-font-definitions, $this-font-face, generate) {
     $this-font: map-get($all-font-definitions, $this-font-face);
     $this-font-system: map-get($this-font, system-font);
+    $font-name: map-get($this-font, name);
+    $roman: map-get($this-font, roman);
+    $italic: map-get($this-font, italic);
+    $dir: map-get($this-font, dir);
 
-    @if $this-font-system == false {
-      $font-name: map-get($this-font, name);
-      $roman: map-get($this-font, roman);
-      $italic: map-get($this-font, italic);
-      $dir: map-get($this-font, dir);
-
-      @if $roman {
-        @each $weight, $filename in $roman {
-          @each $key, $outputweight in $these-weights {
-            @if $outputweight == $weight and $filename {
-              @include font-face(
-                '#{$font-name}',
-                '#{$theme-font-path}/#{$dir}/#{$filename}',
-                #{$weight},
-                normal,
-                $file-formats: eot woff2 woff ttf
-              );
-            }
+    @if $roman {
+      @each $weight, $filename in $roman {
+        @each $key, $outputweight in $these-weights {
+          @if $outputweight == $weight and $filename {
+            @include font-face(
+              '#{$font-name}',
+              '#{$theme-font-path}/#{$dir}/#{$filename}',
+              #{$weight},
+              normal,
+              $file-formats: eot woff2 woff ttf
+            );
           }
         }
       }
+    }
 
-      @if $italic {
-        @each $weight, $filename in $italic {
-          @each $outputweight in $these-weights {
-            @if $outputweight == $weight and $filename {
-              @include font-face(
-                '#{$font-name}',
-                '#{$theme-font-path}/#{$dir}/#{$filename}',
-                #{$weight},
-                italic,
-                $file-formats: eot woff2 woff ttf
-              );
-            }
+    @if $italic {
+      @each $weight, $filename in $italic {
+        @each $key, $outputweight in $these-weights {
+          @if $outputweight == $weight and $filename {
+            @include font-face(
+              '#{$font-name}',
+              '#{$theme-font-path}/#{$dir}/#{$filename}',
+              #{$weight},
+              italic,
+              $file-formats: eot woff2 woff ttf
+            );
           }
         }
       }
