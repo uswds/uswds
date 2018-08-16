@@ -1454,6 +1454,23 @@ through all possible variants
   // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
 }
 
+// Helper to generate an @font-face declaration
+@mixin generate-font-face($font-type, $font-weights, $font-name, $dir, $font-style) {
+  @each $weight, $filename in $font-type {
+    @each $key, $outputweight in $font-weights {
+      @if $outputweight == $weight and $filename {
+        @include font-face(
+          '#{$font-name}',
+          '#{$theme-font-path}/#{$dir}/#{$filename}',
+          #{$weight},
+          #{$font-style},
+          $file-formats: eot woff2 woff ttf
+        );
+      }
+    }
+  }
+}
+
 @mixin render-font-face($this-font-face) {
   $these-weights: $project-font-weights;
   @if $theme-output-all-weights {
@@ -1472,42 +1489,17 @@ through all possible variants
 
   @if $this-font-face and map-deep-get($all-font-definitions, $this-font-face, generate) {
     $this-font: map-get($all-font-definitions, $this-font-face);
-    $this-font-system: map-get($this-font, system-font);
     $font-name: map-get($this-font, name);
     $roman: map-get($this-font, roman);
     $italic: map-get($this-font, italic);
     $dir: map-get($this-font, dir);
 
     @if $roman {
-      @each $weight, $filename in $roman {
-        @each $key, $outputweight in $these-weights {
-          @if $outputweight == $weight and $filename {
-            @include font-face(
-              '#{$font-name}',
-              '#{$theme-font-path}/#{$dir}/#{$filename}',
-              #{$weight},
-              normal,
-              $file-formats: eot woff2 woff ttf
-            );
-          }
-        }
-      }
+      @include generate-font-face($roman, $these-weights, $font-name, $dir, normal);
     }
 
     @if $italic {
-      @each $weight, $filename in $italic {
-        @each $key, $outputweight in $these-weights {
-          @if $outputweight == $weight and $filename {
-            @include font-face(
-              '#{$font-name}',
-              '#{$theme-font-path}/#{$dir}/#{$filename}',
-              #{$weight},
-              italic,
-              $file-formats: eot woff2 woff ttf
-            );
-          }
-        }
-      }
+      @include generate-font-face($italic, $these-weights, $font-name, $dir, italic);
     }
   }
 }
