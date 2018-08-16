@@ -23,7 +23,10 @@
     "release": "gulp build release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
     "start": "fractal start --sync",
-    "test": "gulp eslint typecheck stylelint test",
+    "test": "gulp eslint typecheck stylelint test regression",
+    "test:unit": "gulp test",
+    "test:visual": "node ./spec/visual-regression-tester.js test",
+    "test:visual:update": " node ./spec/visual-regression-tester.js test --updateGolden",
     "version": "gulp build release",
     "watch": "NODE_ENV=development nswatch"
   },
