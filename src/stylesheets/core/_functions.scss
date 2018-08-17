@@ -774,6 +774,7 @@ colors: project, system, and required
   @if not $color-family {
     @error 'Include a color in the form [family], [grade], [vivid]';
   } @else {
+    // TODO: maybe this should be an error, comment out and compile
     @if str-slice(inspect($color-family), 1, 1) == '#'
         or str-slice(inspect($color-family), 1, 3) == 'rgb' {
       @return unquote($color-family);
@@ -822,6 +823,7 @@ colors: project, system, and required
     @return $output;
   }
 
+
   @if map-has-key($all-project-colors, $color-family){
     @return map-deep-get(
       $all-project-colors,
@@ -831,6 +833,7 @@ colors: project, system, and required
   }
 
   @if not map-has-key($uswds-required-colors, $color-family){
+    // TODO: probably change to 'is not a valid color family'
     @error "`#{$color-family}` requires a grade.";
   }
 
@@ -1046,10 +1049,11 @@ loop
 */
 
 @mixin render-pseudoclass($utility, $pseudoclass, $selector, $property, $value, $mq) {
-  $important: null;
-  @if $utilities-use-important {
-    $important: ' !important';
-  }
+  $important: if(
+    $utilities-use-important,
+    ' !important',
+    null
+  );
   $this-mq: null;
   $this-type: map-get($utility, type);
 
@@ -1060,6 +1064,13 @@ loop
     @each $this-property in $property {
       #{$this-property}: unquote("#{$value}#{$important}");
     }
+  }
+}
+
+// utility-feature? utility-property
+@mixin add-utility-declaration($declaration, $utility-type, $important) {
+  @each $ext-prop, $ext-value in map-get($declaration, $utility-type) {
+    #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
   }
 }
 
@@ -1096,9 +1107,7 @@ loop
       @media screen and (min-width: #{$media-value-px}) {
         .#{$mq}\:#{ns($this-type)}#{$selector} {
           @if $value-is-map and map-has-key($val-props, extend) {
-            @each $ext-prop, $ext-value in map-get($val-props, extend) {
-              #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-            }
+            @include add-utility-declaration($val-props, extend, $important);
           }
 
           @each $this-property in $property {
@@ -1106,9 +1115,7 @@ loop
           }
 
           @if map-has-key($utility, extend) {
-            @each $ext-prop, $ext-value in map-get($utility, extend) {
-              #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-            }
+            @include add-utility-declaration($utility, extend, $important);
           }
           @if map-deep-get($utility, settings, hover) {
             @include render-pseudoclass($utility, hover, $selector, $property, $value, $mq);
@@ -1121,6 +1128,7 @@ loop
     }
   }
 }
+
 
 /*
 ----------------------------------------
@@ -1153,9 +1161,7 @@ future version of Sass" warning.
 
   .#{ns($this-type)}#{$selector} {
     @if $value-is-map and map-has-key($val-props, extend) {
-      @each $ext-prop, $ext-value in map-get($val-props, extend) {
-        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-      }
+      @include add-utility-declaration($val-props, extend, $important);
     }
 
     @if $value-is-map and map-has-key($val-props, extends) {
@@ -1167,9 +1173,7 @@ future version of Sass" warning.
     }
 
     @if map-has-key($utility, extend) {
-      @each $ext-prop, $ext-value in map-get($utility, extend) {
-        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-      }
+      @include add-utility-declaration($utility, extend, $important)
     }
   }
 
