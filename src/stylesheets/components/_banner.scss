@@ -133,9 +133,10 @@ $banner-font-family: 'sans';
 
 .usa-banner-button {
   @include button-unstyled;
+  @include u-font-size($banner-font-family, 1);
+  @include u-line-height($banner-font-family, 1);
   @include u-padding-top(1.5);
   @include u-padding-left(6);
-  @include u-font-size($banner-font-family, 1);
   background-position-x: right;
   color: $primary;
   display: block;
