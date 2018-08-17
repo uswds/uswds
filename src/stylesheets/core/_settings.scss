@@ -154,12 +154,13 @@ The following faces already are
 defined in the system:
 
 'system'
-'united-sans'
+'public-sans'
 'source-sans-pro'
 'helvetica'
 'georgia'
 'merriweather'
 'roboto-mono'
+'tahoma'
 ----------------------------------------
 */
 
@@ -172,6 +173,7 @@ $theme-font-definitions: (
     system-font: false,
     cap-height: '364px', // height of a 500px `N` in Sketch
     variable-font: false,
+    generate: false,
     roman: (
       100: 'Filename-without-extension', // or false
       200: 'Filename-without-extension', // or false
@@ -208,17 +210,18 @@ your project
 currently available:
 
 'system'
-'united-sans'
+'public-sans'
 'source-sans-pro'
 'helvetica'
 'georgia'
 'merriweather'
 'roboto-mono'
+'trebuchet'
 ----------------------------------------
 */
 
 $theme-font-mono:   'roboto-mono' !default;
-$theme-font-sans:   'source-sans-pro' !default;
+$theme-font-sans:   'public-sans' !default;
 $theme-font-serif:  'merriweather' !default;
 $theme-font-cond:   false !default;
 
@@ -295,7 +298,7 @@ $theme-color-base:                 $theme-color-base-family, 30 !default;
 $theme-color-base-dark:            $theme-color-base-family, 50 !default;
 $theme-color-base-darker:          $theme-color-base-family, 70 !default;
 $theme-color-base-darkest:         $theme-color-base-family, 90 !default;
-$theme-color-ink:                 $theme-color-base-darkest !default;
+$theme-color-ink:                  $theme-color-base-darkest !default;
 
 $theme-color-primary-family:       'blue' !default;
 $theme-color-primary-lightest:     false !default;

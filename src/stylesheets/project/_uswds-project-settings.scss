@@ -158,12 +158,13 @@ The following faces already are
 defined in the system:
 
 'system'
-'united-sans'
+'public-sans'
 'source-sans-pro'
 'helvetica'
 'georgia'
 'merriweather'
 'roboto-mono'
+'tahoma'
 ----------------------------------------
 */
 
@@ -176,6 +177,7 @@ $theme-font-definitions: (
     system-font: false,
     cap-height: '364px', // height of a 500px `N` in Sketch
     variable-font: false,
+    generate: false,
     roman: (
       100: 'Filename-without-extension', // or false
       200: 'Filename-without-extension', // or false
@@ -212,7 +214,7 @@ your project
 currently available:
 
 'system'
-'united-sans'
+'public-sans'
 'source-sans-pro'
 'helvetica'
 'georgia'
