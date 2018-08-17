@@ -1046,10 +1046,11 @@ loop
 */
 
 @mixin render-pseudoclass($utility, $pseudoclass, $selector, $property, $value, $mq) {
-  $important: null;
-  @if $utilities-use-important {
-    $important: ' !important';
-  }
+  $important: if(
+    $utilities-use-important,
+    ' !important',
+    null
+  );
   $this-mq: null;
   $this-type: map-get($utility, type);
 
@@ -1060,6 +1061,13 @@ loop
     @each $this-property in $property {
       #{$this-property}: unquote("#{$value}#{$important}");
     }
+  }
+}
+
+
+@mixin add-utility-declaration($declaration, $utility-type, $important) {
+  @each $ext-prop, $ext-value in map-get($declaration, $utility-type) {
+    #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
   }
 }
 
@@ -1096,9 +1104,7 @@ loop
       @media screen and (min-width: #{$media-value-px}) {
         .#{$mq}\:#{ns($this-type)}#{$selector} {
           @if $value-is-map and map-has-key($val-props, extend) {
-            @each $ext-prop, $ext-value in map-get($val-props, extend) {
-              #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-            }
+            @include add-utility-declaration($val-props, extend, $important);
           }
 
           @each $this-property in $property {
@@ -1106,9 +1112,7 @@ loop
           }
 
           @if map-has-key($utility, extend) {
-            @each $ext-prop, $ext-value in map-get($utility, extend) {
-              #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-            }
+            @include add-utility-declaration($utility, extend, $important);
           }
           @if map-deep-get($utility, settings, hover) {
             @include render-pseudoclass($utility, hover, $selector, $property, $value, $mq);
@@ -1121,6 +1125,7 @@ loop
     }
   }
 }
+
 
 /*
 ----------------------------------------
@@ -1153,9 +1158,7 @@ future version of Sass" warning.
 
   .#{ns($this-type)}#{$selector} {
     @if $value-is-map and map-has-key($val-props, extend) {
-      @each $ext-prop, $ext-value in map-get($val-props, extend) {
-        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-      }
+      @include add-utility-declaration($val-props, extend, $important);
     }
 
     @if $value-is-map and map-has-key($val-props, extends) {
@@ -1167,9 +1170,7 @@ future version of Sass" warning.
     }
 
     @if map-has-key($utility, extend) {
-      @each $ext-prop, $ext-value in map-get($utility, extend) {
-        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-      }
+      @include add-utility-declaration($utility, extend, $important)
     }
   }
 
