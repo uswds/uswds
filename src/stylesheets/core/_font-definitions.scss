@@ -11,35 +11,49 @@ $font-stack-helvetica: 'Helvetica Neue', 'Helvetica', 'Roboto', 'Arial', sans-se
 $font-stack-monospace: 'Bitstream Vera Sans Mono', 'Consolas', 'Courier', monospace;
 
 $uswds-font-definitions: (
-  system: (
+  'system': (
     name: null,
     stack: $font-stack-system,
     system-font: true,
     cap-height: 362px,
     generate: false,
   ),
-  georgia: (
+  'georgia': (
     name: 'Georgia',
     stack: $font-stack-georgia,
     system-font: true,
     cap-height: 346px,
     generate: false,
   ),
-  helvetica: (
+  'helvetica': (
     name: 'Helvetica',
     stack: $font-stack-helvetica,
     system-font: true,
     cap-height: 357px,
     generate: false,
   ),
-  tahoma: (
+  'tahoma': (
     name: 'Tahoma',
     stack: $font-stack-system,
     system-font: false,
     cap-height: 363px,
     generate: false,
   ),
-  merriweather: (
+  'verdana': (
+    name: 'Verdana',
+    stack: $font-stack-system,
+    system-font: false,
+    cap-height: 364px,
+    generate: false,
+  ),
+  'open-sans': (
+    name: 'Open Sans',
+    stack: $font-stack-system,
+    system-font: false,
+    cap-height: 357px,
+    generate: false,
+  ),
+  'merriweather': (
     name: 'Merriweather Web',
     dir: 'merriweather',
     stack: $font-stack-georgia,
@@ -70,7 +84,7 @@ $uswds-font-definitions: (
       900: false,
     ),
   ),
-  roboto-mono: (
+  'roboto-mono': (
     name: 'Roboto Mono Web',
     dir: 'roboto-mono',
     stack: $font-stack-monospace,
@@ -101,7 +115,7 @@ $uswds-font-definitions: (
       900: false,
     ),
   ),
-  source-sans-pro: (
+  'source-sans-pro': (
     name: 'Source Sans Pro Web',
     dir: 'source-sans-pro',
     stack: $font-stack-helvetica,
@@ -132,7 +146,7 @@ $uswds-font-definitions: (
       900: false,
     ),
   ),
-  public-sans: (
+  'public-sans': (
     name: 'Public Sans Web',
     dir: 'public-sans',
     stack: $font-stack-system,
