@@ -839,43 +839,6 @@ colors: project, system, and required
 
 /*
 ----------------------------------------
-scale()
-----------------------------------------
-Get a normalized typescale from a family
-and scale
-----------------------------------------
-*/
-
-@function scale($props...){
-  $props: unpack($props);
-
-  @if length($props) != 2 {
-    @error "Font size requires a valid FAMILY and SIZE in the form `font('FAMILY', 'SIZE')`";
-  }
-
-  $our-family: smart-quote(nth($props, 1));
-  $our-scale: smart-quote(nth($props, 2));
-
-  @if not map-has-key($project-cap-heights, $our-family) {
-    @error "`#{$our-family}` is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
-  }
-
-  @if not map-get($all-type-scale, $our-scale) {
-    @error "`#{$our-scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
-  }
-
-  $this-cap: map-get($project-cap-heights, $our-family);
-  $this-scale: map-get($all-type-scale, $our-scale);
-
-  @if not $this-scale {
-    @error "The scale `#{$our-scale}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
-  }
-
-  @return normalize-type-scale($this-cap, $this-scale);
-};
-
-/*
-----------------------------------------
 units()
 ----------------------------------------
 Converts a spacing unit into
