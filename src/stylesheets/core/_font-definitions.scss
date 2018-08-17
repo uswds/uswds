@@ -11,35 +11,49 @@ $font-stack-helvetica: 'Helvetica Neue', 'Helvetica', 'Roboto', 'Arial', sans-se
 $font-stack-monospace: 'Bitstream Vera Sans Mono', 'Consolas', 'Courier', monospace;
 
 $uswds-font-definitions: (
-  system: (
+  'system': (
     name: null,
     stack: $font-stack-system,
     system-font: true,
     cap-height: 362px,
     generate: false,
   ),
-  georgia: (
+  'georgia': (
     name: 'Georgia',
     stack: $font-stack-georgia,
     system-font: true,
     cap-height: 346px,
     generate: false,
   ),
-  helvetica: (
+  'helvetica': (
     name: 'Helvetica',
     stack: $font-stack-helvetica,
     system-font: true,
     cap-height: 357px,
     generate: false,
   ),
-  tahoma: (
+  'tahoma': (
     name: 'Tahoma',
     stack: $font-stack-system,
     system-font: false,
     cap-height: 363px,
     generate: false,
   ),
-  merriweather: (
+  'verdana': (
+    name: 'Verdana',
+    stack: $font-stack-system,
+    system-font: false,
+    cap-height: 364px,
+    generate: false,
+  ),
+  'open-sans': (
+    name: 'Open Sans',
+    stack: $font-stack-system,
+    system-font: false,
+    cap-height: 357px,
+    generate: false,
+  ),
+  'merriweather': (
     name: 'Merriweather Web',
     dir: 'merriweather',
     stack: $font-stack-georgia,
@@ -70,7 +84,7 @@ $uswds-font-definitions: (
       900: false,
     ),
   ),
-  roboto-mono: (
+  'roboto-mono': (
     name: 'Roboto Mono Web',
     dir: 'roboto-mono',
     stack: $font-stack-monospace,
@@ -101,7 +115,7 @@ $uswds-font-definitions: (
       900: false,
     ),
   ),
-  source-sans-pro: (
+  'source-sans-pro': (
     name: 'Source Sans Pro Web',
     dir: 'source-sans-pro',
     stack: $font-stack-helvetica,
@@ -132,35 +146,35 @@ $uswds-font-definitions: (
       900: false,
     ),
   ),
-  united-sans: (
-    name: 'United Sans Web',
-    dir: 'united-sans',
+  'public-sans': (
+    name: 'Public Sans Web',
+    dir: 'public-sans',
     stack: $font-stack-system,
     system-font: false,
     cap-height: 362px,
     generate: true,
     variable-font: false,
     roman: (
-      100: 'UnitedSans-Thin',
-      200: 'UnitedSans-ExtraLight',
-      300: 'UnitedSans-Light',
-      400: 'UnitedSans-Regular',
-      500: 'UnitedSans-Medium',
-      600: 'UnitedSans-SemiBold',
-      700: 'UnitedSans-Bold',
-      800: 'UnitedSans-ExtraBold',
-      900: 'UnitedSans-Black',
+      100: 'PublicSans-Thin',
+      200: 'PublicSans-ExtraLight',
+      300: 'PublicSans-Light',
+      400: 'PublicSans-Regular',
+      500: 'PublicSans-Medium',
+      600: 'PublicSans-SemiBold',
+      700: 'PublicSans-Bold',
+      800: 'PublicSans-ExtraBold',
+      900: 'PublicSans-Black',
     ),
     italic: (
-      100: 'UnitedSans-ThinItalic',
-      200: 'UnitedSans-ExtraLightItalic',
-      300: 'UnitedSans-LightItalic',
-      400: 'UnitedSans-Italic',
-      500: 'UnitedSans-MediumItalic',
-      600: 'UnitedSans-SemiBoldItalic',
-      700: 'UnitedSans-BoldItalic',
-      800: 'UnitedSans-ExtraBoldItalic',
-      900: 'UnitedSans-BlackItalic',
+      100: 'PublicSans-ThinItalic',
+      200: 'PublicSans-ExtraLightItalic',
+      300: 'PublicSans-LightItalic',
+      400: 'PublicSans-Italic',
+      500: 'PublicSans-MediumItalic',
+      600: 'PublicSans-SemiBoldItalic',
+      700: 'PublicSans-BoldItalic',
+      800: 'PublicSans-ExtraBoldItalic',
+      900: 'PublicSans-BlackItalic',
     ),
   ),
 );

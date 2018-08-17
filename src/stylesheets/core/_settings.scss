@@ -150,16 +150,19 @@ Add a new custom font definition if
 your project uses a typeface we've
 not already defined.
 ----------------------------------------
-The following faces already are
-defined in the system:
+The following faces are defined in the
+system:
 
-'system'
-'united-sans'
-'source-sans-pro'
-'helvetica'
 'georgia'
+'helvetica'
 'merriweather'
+'open-sans'
+'public-sans'
 'roboto-mono'
+'source-sans-pro'
+'system'
+'tahoma'
+'verdana'
 ----------------------------------------
 */
 
@@ -172,6 +175,7 @@ $theme-font-definitions: (
     system-font: false,
     cap-height: '364px', // height of a 500px `N` in Sketch
     variable-font: false,
+    generate: false,
     roman: (
       100: 'Filename-without-extension', // or false
       200: 'Filename-without-extension', // or false
@@ -205,15 +209,19 @@ Fonts in use
 Set the sans, serif, and mono faces for
 your project
 ----------------------------------------
-currently available:
+The following faces are defined in the
+system:
 
-'system'
-'united-sans'
-'source-sans-pro'
-'helvetica'
 'georgia'
+'helvetica'
 'merriweather'
+'open-sans'
+'public-sans'
 'roboto-mono'
+'source-sans-pro'
+'system'
+'tahoma'
+'verdana'
 ----------------------------------------
 */
 
@@ -295,7 +303,7 @@ $theme-color-base:                 $theme-color-base-family, 30 !default;
 $theme-color-base-dark:            $theme-color-base-family, 50 !default;
 $theme-color-base-darker:          $theme-color-base-family, 70 !default;
 $theme-color-base-darkest:         $theme-color-base-family, 90 !default;
-$theme-color-ink:                 $theme-color-base-darkest !default;
+$theme-color-ink:                  $theme-color-base-darkest !default;
 
 $theme-color-primary-family:       'blue' !default;
 $theme-color-primary-lightest:     false !default;
