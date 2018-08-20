@@ -754,10 +754,43 @@ colors: project, system, and required
 ----------------------------------------
 */
 
+// color() can have a 1, 2, or 3 arguments passed to it:
+//
+// [family]
+// ex: color('primary')
+//     - the default in a theme palette family
+// ex: color('white')
+//     - one of the required colors
+// ex: color(white)
+//     - perhaps the source of our rgb/hex check?
+//     - maybe this should be disallowed?
+// ex: color('red')
+//     - ungraded "basic" family color
+//     - perhaps this should be disallowed
+//
+// [family], [grade]
+// ex: color('red', 50)
+//     - a standard system color
+// ex: color('accent-warm', 'light')
+//     - a standard theme color
+// ex: color('primary', 'vivid')
+//     - in theme colors, 'vivid' is considered a grade
+//
+// [family], [grade], [vivid]
+// ex: color('red', 50, 'vivid')
+//     - a vivid system color
+//     - only system colors required three arguments
+
 @function color($props...){
+  // flatten the arglist (props...) into a simple, one-dimensional list
   $props: unpack($props);
   $length: length($props);
+
+  // these are all the allowed system grades that could have a vivid variant
+  // Q: why here? why this way?
   $valid-vivid-grades: (5, 10, 20, 30, 40, 50, 60, 70, 80, 90);
+
+  // Set initial state of vars
   $color-family: false;
   $color-grade: false;
   $color-vivid: false;
@@ -771,14 +804,16 @@ colors: project, system, and required
     }
   }
 
-  @if not $color-family {
+  // Set initial state of vars
+  @if $length == 0 {
     @error 'Include a color in the form [family], [grade], [vivid]';
   } @else {
     // TODO: maybe this should be an error, comment out and compile
-    @if str-slice(inspect($color-family), 1, 1) == '#'
-        or str-slice(inspect($color-family), 1, 3) == 'rgb' {
-      @return unquote($color-family);
-    }
+    // Think this may be to accomodate white, black, etc.
+    // @if str-slice(inspect($color-family), 1, 1) == '#'
+    //     or str-slice(inspect($color-family), 1, 3) == 'rgb' {
+    //   @return unquote($color-family);
+    // }
     @if not map-has-key($all-colors, $color-family) {
       @error '`#{$color-family}` is not a valid color family.';
     }

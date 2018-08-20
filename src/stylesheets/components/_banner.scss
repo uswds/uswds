@@ -1,7 +1,7 @@
 $banner-font-family: 'sans';
 
 .usa-banner {
-  @include u-bg($base-lighter);
+  @include u-bg('base', 'lighter');
   @include u-font-family($banner-font-family);
   @include u-padding-bottom(1);
   @include u-position('relative');
