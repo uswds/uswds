@@ -12,16 +12,16 @@ var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
 var del = require('del');
 var task = 'sass';
+const path = require('path');
 
 var entryFileFilter = filter('uswds.scss', { restore: true });
 var normalizeCssFilter = filter('normalize.css', { restore: true });
 
-gulp.task('stylelint',
-  linter('./src/stylesheets/{,core/,components/,elements/}*.scss',
-  {
-    ignore: './src/stylesheets/lib/**/*.scss'
-  })
-);
+gulp.task('stylelint', () => {
+  return linter('./src/stylesheets/**/*.scss', {
+    ignore: path.join(__dirname, '../', '../', 'src/stylesheets/lib/**/*.scss')
+  })();
+});
 
 gulp.task('copy-vendor-sass', function () {
 
