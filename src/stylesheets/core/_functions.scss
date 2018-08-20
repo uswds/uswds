@@ -774,6 +774,7 @@ colors: project, system, and required
   @if not $color-family {
     @error 'Include a color in the form [family], [grade], [vivid]';
   } @else {
+    // TODO: maybe this should be an error, comment out and compile
     @if str-slice(inspect($color-family), 1, 1) == '#'
         or str-slice(inspect($color-family), 1, 3) == 'rgb' {
       @return unquote($color-family);
@@ -822,6 +823,7 @@ colors: project, system, and required
     @return $output;
   }
 
+
   @if map-has-key($all-project-colors, $color-family){
     @return map-deep-get(
       $all-project-colors,
@@ -831,6 +833,7 @@ colors: project, system, and required
   }
 
   @if not map-has-key($uswds-required-colors, $color-family){
+    // TODO: probably change to 'is not a valid color family'
     @error "`#{$color-family}` requires a grade.";
   }
 
@@ -1064,7 +1067,7 @@ loop
   }
 }
 
-
+// utility-feature? utility-property
 @mixin add-utility-declaration($declaration, $utility-type, $important) {
   @each $ext-prop, $ext-value in map-get($declaration, $utility-type) {
     #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
