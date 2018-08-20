@@ -1,17 +1,3 @@
-@import 'at-media';
-@import 'content-size';
-@import 'focus';
-@import 'font-smoothing';
-@import 'icon';
-@import 'layout-grid';
-@import 'screen-reader';
-@import 'sidenav';
-@import 'typography';
-@import 'unstyled-list';
-
-// object mixins
-@import 'add-list-reset';
-
 // utility mixins
 @import 'utilities/align-items';
 @import 'utilities/background-color';
@@ -57,3 +43,18 @@
 @import 'utilities/white-space';
 @import 'utilities/width';
 @import 'utilities/z-index';
+
+// object mixins
+@import 'add-list-reset';
+
+// general mixins
+@import 'at-media';
+@import 'content-size';
+@import 'focus';
+@import 'font-smoothing';
+@import 'icon';
+@import 'layout-grid';
+@import 'screen-reader';
+@import 'sidenav';
+@import 'typography';
+@import 'unstyled-list';
