@@ -7,15 +7,12 @@
 ========================================
 ========================================
 ----------------------------------------
-CUSTOM PROJECT SASS
-----------------------------------------
-!! Copy this file to your project's
-   sass root. Don't edit the version
-   in node_modules.
-----------------------------------------
-Custom project SASS goes here.
-
-i.e.
-@include u-padding-right('05');
+USWDS THEME SETTINGS
 ----------------------------------------
 */
+
+@import 'uswds-theme-general';
+@import 'uswds-theme-type';
+@import 'uswds-theme-spacing';
+@import 'uswds-theme-color';
+@import 'uswds-theme-utilities';

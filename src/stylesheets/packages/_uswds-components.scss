@@ -2,15 +2,18 @@
 
 /*
 ========================================
-uswds
+uswds-components.scss
 ----------------------------------------
 Output USWDS components and styles
 ----------------------------------------
 */
 
 // Settings
-@import '../core/settings';
-@import '../utilities/utilities-settings';
+@import '../settings/settings-general';
+@import '../settings/settings-type';
+@import '../settings/settings-color';
+@import '../settings/settings-spacing';
+@import '../settings/settings-utilities';
 
 // Tools
 @import '../lib/bourbon';

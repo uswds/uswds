@@ -2,7 +2,7 @@
 
 /*
 ========================================
-uswds-utilities
+uswds-utilities.scss
 ----------------------------------------
 Output utility classes for a USWDS
 project
@@ -10,8 +10,11 @@ project
 */
 
 // Settings
-@import '../core/settings';
-@import '../utilities/utilities-settings';
+@import '../settings/settings-general';
+@import '../settings/settings-type';
+@import '../settings/settings-color';
+@import '../settings/settings-spacing';
+@import '../settings/settings-utilities';
 
 // Tools
 @import '../lib/bourbon';
