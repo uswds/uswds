@@ -739,6 +739,26 @@ functions and mixins.
 
 /*
 ----------------------------------------
+get-shortcode-color()
+----------------------------------------
+Derive a color from a color shortcode
+----------------------------------------
+*/
+
+@function get-shortcode-color($shortcode) {
+  $shortcode: smart-quote(unpack($shortcode));
+  @if map-has-key($all-color-shortcodes, $shortcode){
+    $our-color: (map-get($all-color-shortcodes, $shortcode));
+    @if $our-color == false {
+      @error "`#{$shortcode}` is a color that does not exist or is set to false.";
+    }
+    @return $our-color;
+  }
+  @error '`#{$shortcode}` is not a valid color shortcode.';
+}
+
+/*
+----------------------------------------
 color()
 ----------------------------------------
 Derive a color from the map of all
@@ -774,6 +794,13 @@ colors: project, system, and required
   $color-grade: false,
   $color-variant: false){
 
+  // Convert any arglists into lists
+  $color-family: if(
+    type-of($color-family) == 'arglist',
+    unpack($color-family),
+    $color-family
+  );
+
   // If $color-family is a list, color() had a variable
   // passed to it, and args need to be re-set with the
   // values from the $color-family list:
@@ -789,6 +816,8 @@ colors: project, system, and required
   $color-family: smart-quote($color-family);
   $color-grade: smart-quote($color-grade);
   $color-variant: smart-quote($color-variant);
+
+  // @debug '#{$color-family}: #{type-of($color-family)}, #{$color-grade}: #{type-of($color-grade)}, #{$color-variant}: #{type-of($color-variant)}' ;
 
   // If there are no args, throw an error
   @if not $color-family {
@@ -815,32 +844,7 @@ colors: project, system, and required
   }
 
   // Otherwise, there's one arg....
-  // Is it a system shortcode?
-  @if map-has-key($system-color-shortcodes, $color-family) {
-    @return map-get($system-color-shortcodes, $color-family);
-  }
-
-  // TODO: Is it a theme shortcode?
-  @if map-has-key($project-color-shortcodes, $color-family) {
-    @return map-get($project-color-shortcodes, $color-family);
-  }
-
-  // Is it a required color?
-  @elseif map-has-key($system-required-colors, $color-family) {
-    @return map-get($system-required-colors, $color-family);
-  }
-
-  // Is it theme family default?
-  @elseif map-has-key($all-project-colors, $color-family){
-    @return map-deep-get(
-      $all-project-colors,
-      $color-family,
-      'default'
-    );
-  }
-
-  // Otherwise, [family] is not a valid ungraded color family
-  @error '#{$color-family} is not a valid ungraded color family.';
+  @return get-shortcode-color($color-family);
 };
 
 /*

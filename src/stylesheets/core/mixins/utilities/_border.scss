@@ -21,41 +21,22 @@ $border-utilities: (
   $has-style: false;
   @each $this-value in $value {
     $match: false;
-    @if $value == false {
-      @error "You've added a border color that does not exist or is set to false.";
-    }
-    @elseif map-has-key($system-required-colors, $this-value) {
+    @if map-has-key($all-color-shortcodes, smart-quote($this-value)) {
       $match: true;
+      $this-value: smart-quote($this-value);
       @if $side == n {
-        border-color: color($this-value)#{$important};
+        border-color: get-shortcode-color($this-value)#{$important};
       }
       @elseif $side == x {
-        border-left-color: color($this-value)#{$important};
-        border-right-color: color($this-value)#{$important};
+        border-left-color: get-shortcode-color($this-value)#{$important};
+        border-right-color: get-shortcode-color($this-value)#{$important};
       }
       @elseif $side == y {
-        border-bottom-color: color($this-value)#{$important};
-        border-top-color: color($this-value)#{$important};
+        border-bottom-color: get-shortcode-color($this-value)#{$important};
+        border-top-color: get-shortcode-color($this-value)#{$important};
       }
       @else {
-        border-#{$side}-color: color($this-value)#{$important};
-      }
-    }
-    @elseif type-of($this-value) == 'color' {
-      $match: true;
-      @if $side == n {
-        border-color: $this-value#{$important};
-      }
-      @elseif $side == x {
-        border-left-color: $this-value#{$important};
-        border-right-color: $this-value#{$important};
-      }
-      @elseif $side == y {
-        border-bottom-color: $this-value#{$important};
-        border-top-color: $this-value#{$important};
-      }
-      @else {
-        border-#{$side}-color: $this-value#{$important};
+        border-#{$side}-color: get-shortcode-color($this-value)#{$important};
       }
     }
     @elseif type-of($this-value) == 'number' {

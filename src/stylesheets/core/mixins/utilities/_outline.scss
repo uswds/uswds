@@ -7,16 +7,9 @@
   }
   @each $this-value in $value {
     $match: false;
-    @if $value == false {
-      @error "You've added an outline color that does not exist or is set to false.";
-    }
-    @elseif type-of($this-value) == 'color' {
+    @elseif map-has-key($all-color-shortcodes, smart-quote($this-value)) {
       $match: true;
-      outline-color: $this-value#{$important};
-    }
-    @elseif map-has-key($system-required-colors, $this-value) {
-      $match: true;
-      outline-color: color($this-value)#{$important};
+      outline-color: get-shortcode-color(smart-quote($this-value))#{$important};
     }
     @elseif type-of($this-value) == 'number' {
       $converted-value: number-to-value($this-value);

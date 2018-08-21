@@ -850,6 +850,12 @@ $project-color-shortcodes: map-collect(
   $color-palette-state
 );
 
+$all-color-shortcodes: map-collect(
+  $system-required-colors,
+  $system-color-shortcodes,
+  $project-color-shortcodes
+);
+
 $color-palette-grayscale: $system-color-gray;
 
 /*

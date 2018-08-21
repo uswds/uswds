@@ -45,13 +45,13 @@ $text-utililies: (
     $important: ' !important';
   }
   @each $this-value in $value {
+    $this-value: smart-quote($this-value);
     $match: false;
-    @if type-of($this-value) == 'color' {
+    @if map-has-key($all-color-shortcodes, $this-value) {
       $match: true;
-      color: $this-value#{$important};
+      color: get-shortcode-color($this-value)#{$important};
     }
     @else {
-      $this-value: smart-quote($this-value);
       @each $property, $map in $text-utililies {
         @if not $match and map-has-key($map, $this-value){
           #{$property}: get-uswds-value($property, $this-value...)#{$important};
