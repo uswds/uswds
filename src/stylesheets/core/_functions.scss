@@ -705,10 +705,11 @@ functions and mixins.
     $output: map-get($our-standard-values, $quoted-value);
 
     @if not $output {
-      @warn '`#{$value}` is set as a `false` value '
-          + 'for the #{$property} property in your project settings '
-          + 'and will not output properly. '
-          + 'Set the value of `#{$value}` in project settings.';
+      // TODO: reinstate
+      // @warn '`#{$value}` is set as a `false` value '
+      //     + 'for the #{$property} property in your project settings '
+      //     + 'and will not output properly. '
+      //     + 'Set the value of `#{$value}` in project settings.';
 
       @return map-get($our-standard-values, $quoted-value);
     }
@@ -717,9 +718,10 @@ functions and mixins.
   }
 
   @if map-has-key($our-extended-values, $quoted-value) {
-    @warn '`#{$value}` is an extended USWDS `#{$property}` unit. '
-        + 'This is OK, but only components built with standard values can be accepted back into the system. '
-        + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+    // TODO: reinstate
+    // @warn '`#{$value}` is an extended USWDS `#{$property}` unit. '
+    //     + 'This is OK, but only components built with standard values can be accepted back into the system. '
+    //     + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
 
     @return map-get($our-extended-values, $quoted-value);
   }
@@ -729,10 +731,11 @@ functions and mixins.
         + 'You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}';
   }
 
-  @warn '`#{$value}` is not a USWDS `#{$property}` unit. '
-      + 'This is OK, but only components built with standard '
-      + 'values can be accepted back into the system. '
-      + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+  // TODO: reinstate
+  // @warn '`#{$value}` is not a USWDS `#{$property}` unit. '
+  //     + 'This is OK, but only components built with standard '
+  //     + 'values can be accepted back into the system. '
+  //     + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
 
   @return $value;
 };
@@ -825,11 +828,15 @@ colors: project, system, and required
   }
 
   // If the grade is a number, it's a system color
+  // ex: ('red', 50)
   @if type-of($color-grade) == 'number' {
     @return get-system-color($color-family, $color-grade, $color-variant);
   }
 
-  // If the grade is a string, it's a non-default theme color
+  // non-number grades are associated with non-default theme colors
+  // ex: ('base', 'darker')
+  // default theme colors have no grade
+  // ex: ('base')
   @if type-of($color-grade) == 'string' {
     @if map-has-key($all-project-colors, $color-family){
       @if not map-has-key(map-get($all-project-colors, $color-family), $color-grade){
