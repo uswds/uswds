@@ -587,6 +587,7 @@ variable that is, itself, a list
   //    in the theme colors map:
   //      'dark': get-system-color($theme-color-primary-darkest),
   //      'dark': false, // is the desired outcome
+  // TODO: should a false-pass color function be a separate fn?
 
   @if not $color-family {
     @return false;
