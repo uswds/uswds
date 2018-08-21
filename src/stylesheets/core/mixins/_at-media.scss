@@ -2,7 +2,7 @@
 @mixin at-media($bp) {
   $orig-bp: $bp;
   $quoted-bp: quote($bp);
-  $our-breakpoints: map-deep-get($uswds-properties, breakpoints, standard);
+  $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
   @if map-has-key($our-breakpoints, $quoted-bp){
     @if $theme-respect-user-font-size {
       $bp: rem-to-user-em(map-get($our-breakpoints, $quoted-bp));

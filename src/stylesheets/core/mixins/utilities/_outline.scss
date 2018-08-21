@@ -14,13 +14,13 @@
       $match: true;
       outline-color: $this-value#{$important};
     }
-    @elseif map-has-key($uswds-required-colors, $this-value) {
+    @elseif map-has-key($system-required-colors, $this-value) {
       $match: true;
       outline-color: color($this-value)#{$important};
     }
     @elseif type-of($this-value) == 'number' {
       $converted-value: number-to-value($this-value);
-      $widths: map-deep-get($uswds-properties, outline, standard);
+      $widths: map-deep-get($system-properties, outline, standard);
       @if map-has-key($widths, $converted-value) {
         $match: true;
         $final-value: map-get($widths, $converted-value);

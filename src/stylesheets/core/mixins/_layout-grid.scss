@@ -39,8 +39,8 @@
     @if map-has-key($project-column-gaps, $gap) {
       $gap: map-get($project-column-gaps, $gap);
     }
-    @elseif map-has-key($uswds-column-gaps, $gap) {
-      $gap: map-get($uswds-column-gaps, $gap);
+    @elseif map-has-key($system-column-gaps, $gap) {
+      $gap: map-get($system-column-gaps, $gap);
     }
     @include u-margin-x(append-important($props, unquote("#{$neg-prefix}-#{calc-gap-offset($gap)}")));
     > [class*='grid-col'] {
@@ -69,12 +69,12 @@
       @include u-flex($flex);
       @include u-width($width);
     }
-    @elseif not map-has-key($uswds-layout-grid-widths, $col) {
-      @error "#{$col} is not a valid layout grid width. Valid width are #{map-keys($uswds-layout-grid-widths)}";
+    @elseif not map-has-key($system-layout-grid-widths, $col) {
+      @error "#{$col} is not a valid layout grid width. Valid width are #{map-keys($system-layout-grid-widths)}";
     }
     @else {
       $flex: append-important($props, auto);
-      $width: append-important($props, map-get($uswds-layout-grid-widths, $col));
+      $width: append-important($props, map-get($system-layout-grid-widths, $col));
       @include u-flex($flex);
       @include u-width(override, $width);
     }
@@ -88,11 +88,11 @@
     $width: append-important($props, 0);
     @include u-margin-left(override, $width);
   }
-  @elseif not map-has-key($uswds-layout-grid-widths, $offset) {
-    @error "#{$offset} is not a valid layout grid width. Valid width are #{map-keys($uswds-layout-grid-widths)}";
+  @elseif not map-has-key($system-layout-grid-widths, $offset) {
+    @error "#{$offset} is not a valid layout grid width. Valid width are #{map-keys($system-layout-grid-widths)}";
   }
   @else {
-    $width: append-important($props, map-get($uswds-layout-grid-widths, $offset));
+    $width: append-important($props, map-get($system-layout-grid-widths, $offset));
     @include u-margin-left(override, $width);
   }
 }

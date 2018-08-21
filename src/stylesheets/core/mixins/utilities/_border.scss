@@ -1,14 +1,14 @@
 $border-utilities: (
   width: map-collect(
-    map-deep-get($uswds-properties, border-width, standard),
-    map-deep-get($uswds-properties, border-width, extended)
+    map-deep-get($system-properties, border-width, standard),
+    map-deep-get($system-properties, border-width, extended)
   ),
   style: map-collect(
-    map-deep-get($uswds-properties, border-style, standard),
-    map-deep-get($uswds-properties, border-style, extended)
+    map-deep-get($system-properties, border-style, standard),
+    map-deep-get($system-properties, border-style, extended)
   ),
   color: map-collect(
-    $uswds-required-colors
+    $system-required-colors
   ),
 );
 
@@ -24,7 +24,7 @@ $border-utilities: (
     @if $value == false {
       @error "You've added a border color that does not exist or is set to false.";
     }
-    @elseif map-has-key($uswds-required-colors, $this-value) {
+    @elseif map-has-key($system-required-colors, $this-value) {
       $match: true;
       @if $side == n {
         border-color: color($this-value)#{$important};

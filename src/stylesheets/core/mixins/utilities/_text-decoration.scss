@@ -9,7 +9,7 @@
   @each $this-value in $value {
     @if type-of($this-value) == 'color' {
       text-decoration-color: $this-value#{$important};
-    } @elseif map-has-key($uswds-required-colors, $this-value) {
+    } @elseif map-has-key($system-required-colors, $this-value) {
       text-decoration-color: color($this-value)#{$important};
     } @else {
       text-decoration: get-uswds-value(text-decoration, $value...)#{$important};

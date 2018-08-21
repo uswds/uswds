@@ -1,7 +1,7 @@
 $banner-font-family: 'sans';
 
 .usa-banner {
-  @include u-bg('base', 'lighter');
+  @include u-bg('base-lighter');
   @include u-font-family($banner-font-family);
   @include u-padding-bottom(1);
   @include u-position('relative');
@@ -92,7 +92,7 @@ $banner-font-family: 'sans';
 
 .usa-banner-header-expanded {
   @include u-font-size($banner-font-family, $theme-h5-font-size);
-  border-bottom: 1px solid $base-light;
+  border-bottom: 1px solid $color-base-light;
   min-height: units(7);
   padding-right: units(4);
 
@@ -138,7 +138,7 @@ $banner-font-family: 'sans';
   @include u-padding-top(1.5);
   @include u-padding-left(6);
   background-position-x: right;
-  color: $primary;
+  color: $color-primary;
   display: block;
   height: units(5);
   left: 0;
@@ -161,7 +161,7 @@ $banner-font-family: 'sans';
   }
 
   &:hover {
-    color: $primary-darker;
+    color: $color-primary-darker;
     text-decoration: underline;
   }
 
