@@ -69,6 +69,7 @@ const accordion = behavior({
   [CLICK]: {
     [BUTTON](event) {
       event.preventDefault();
+
       toggleButton(this);
 
       if (this.getAttribute(EXPANDED) === 'true') {

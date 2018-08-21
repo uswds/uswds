@@ -66,19 +66,35 @@ const resize = () => {
 };
 
 const onMenuClose = () => navigation.toggleNav.call(navigation, false);
+const hideActiveNavDropdown = () => {
+  toggle(navActive, false);
+  navActive = null;
+};
+
 
 navigation = behavior({
   [CLICK]: {
-    [BODY]() {
-      if (navActive) {
-        toggle(navActive, false);
-        navActive = null;
-      }
-    },
     [NAV_CONTROL]() {
+      // If another nav is open, close it
+      if (navActive && navActive !== this) {
+        hideActiveNavDropdown();
+      }
       // store a reference to the last clicked nav link element, so we
       // can hide the dropdown if another element on the page is clicked
-      navActive = navActive === this ? null : this;
+      if (navActive) {
+        hideActiveNavDropdown();
+      } else {
+        navActive = this;
+        toggle(navActive, true)
+      }
+
+      // Do this so the event handler on the body doesn't fire
+      return false;
+    },
+    [BODY]() {
+      if (navActive) {
+        hideActiveNavDropdown();
+      }
     },
     [OPENERS]: toggleNav,
     [CLOSERS]: toggleNav,

@@ -31,9 +31,13 @@ gulp.task(task, function (done) {
     .pipe(gulp.dest('dist/js'));
 
   stream
-    .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(uglify())
-    .on('error', gutil.log)
+    .pipe(sourcemaps.init({ loadMaps: true }));
+
+  if (process.env.NODE_ENV !== 'development') {
+    stream.pipe(uglify());
+  }
+
+  stream.on('error', gutil.log)
     .pipe(rename({
       suffix: '.min',
     }))
@@ -41,7 +45,6 @@ gulp.task(task, function (done) {
     .pipe(gulp.dest('dist/js'));
 
   return stream;
-
 });
 
 gulp.task('typecheck', function () {
