@@ -555,6 +555,17 @@ variable that is, itself, a list
   $color-grade: false,
   $color-variant: false){
 
+  // If the arg being passed to the fn
+  // is a variable defined as a list,
+  // $color-family will contain this
+  // entire list, and needs to be
+  // unpacked.
+  // ex:
+  //    in settings:
+  //      $theme-color-primary-dark: 'blue', 70
+  //    in the theme colors map:
+  //      'dark': get-system-color($theme-color-primary-dark),
+
   @if type-of($color-family) == 'list' {
     @if length($color-family) > 2 {
       $color-variant: nth($color-family, 3);
@@ -565,6 +576,17 @@ variable that is, itself, a list
 
   $color-family: smart-quote($color-family);
   $color-variant: smart-quote($color-variant);
+
+  // If the arg being passed to the fn
+  // is false, it should output as `false`
+  // to preserve a false value in the
+  // target map
+  // ex:
+  //    in settings:
+  //      $theme-color-primary-darkest: false;
+  //    in the theme colors map:
+  //      'dark': get-system-color($theme-color-primary-darkest),
+  //      'dark': false, // is the desired outcome
 
   @if not $color-family {
     @return false;
