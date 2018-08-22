@@ -7,7 +7,7 @@
   }
   @each $this-value in $value {
     $match: false;
-    @elseif map-has-key($all-color-shortcodes, smart-quote($this-value)) {
+    @if map-has-key($all-color-shortcodes, smart-quote($this-value)) {
       $match: true;
       outline-color: get-shortcode-color(smart-quote($this-value))#{$important};
     }
