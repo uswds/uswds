@@ -9,30 +9,30 @@ in utilities
 */
 
 $palette-spacing-uswds:(
-  'palette-spacing-uswds-smaller': map-get($uswds-spacing, smaller),
-  'palette-spacing-uswds-small':   map-get($uswds-spacing, small),
-  'palette-spacing-uswds-medium':  map-get($uswds-spacing, medium),
-  'palette-spacing-uswds-large':   map-get($uswds-spacing, large),
-  'palette-spacing-uswds-larger':  map-get($uswds-spacing, larger),
-  'palette-spacing-uswds-largest': map-get($uswds-spacing, largest),
-  'palette-spacing-uswds-smaller-negative': map-get($uswds-spacing, smaller-negative),
-  'palette-spacing-uswds-small-negative': map-get($uswds-spacing, small-negative),
+  'palette-spacing-uswds-smaller': map-get($system-spacing, smaller),
+  'palette-spacing-uswds-small':   map-get($system-spacing, small),
+  'palette-spacing-uswds-medium':  map-get($system-spacing, medium),
+  'palette-spacing-uswds-large':   map-get($system-spacing, large),
+  'palette-spacing-uswds-larger':  map-get($system-spacing, larger),
+  'palette-spacing-uswds-largest': map-get($system-spacing, largest),
+  'palette-spacing-uswds-smaller-negative': map-get($system-spacing, smaller-negative),
+  'palette-spacing-uswds-small-negative': map-get($system-spacing, small-negative),
   'palette-spacing-uswds-all': map-collect(
-    map-get($uswds-spacing, smaller),
-    map-get($uswds-spacing, small),
-    map-get($uswds-spacing, medium),
-    map-get($uswds-spacing, large),
-    map-get($uswds-spacing, larger),
-    map-get($uswds-spacing, largest)
+    map-get($system-spacing, smaller),
+    map-get($system-spacing, small),
+    map-get($system-spacing, medium),
+    map-get($system-spacing, large),
+    map-get($system-spacing, larger),
+    map-get($system-spacing, largest)
   ),
   'palette-spacing-uswds-negative': map-collect(
-    map-get($uswds-spacing, smaller-negative),
-    map-get($uswds-spacing, small-negative)
+    map-get($system-spacing, smaller-negative),
+    map-get($system-spacing, small-negative)
   ),
   'palette-spacing-uswds-breakpoints': map-collect(
-    map-get($uswds-spacing, large),
-    map-get($uswds-spacing, larger),
-    map-get($uswds-spacing, largest)
+    map-get($system-spacing, large),
+    map-get($system-spacing, larger),
+    map-get($system-spacing, largest)
   ),
 );
 

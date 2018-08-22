@@ -9,7 +9,7 @@ $namespace-grid: ns('grid');
 }
 
 // container with custom widths
-@each $width-key, $width-value in $uswds-breakpoints {
+@each $width-key, $width-value in $system-breakpoints {
   .#{$namespace-grid}container-#{$width-key} {
     $props: append-important($grid-global, $width-key);
     @include grid-container($props);
@@ -17,7 +17,7 @@ $namespace-grid: ns('grid');
 }
 
 // responsive containers...
-@each $mq-key, $mq-value in $uswds-breakpoints {
+@each $mq-key, $mq-value in $system-breakpoints {
   @if map-get($theme-output-breakpoints, $mq-key) {
     @include at-media($mq-key){
       .#{$mq-key}\:#{$namespace-grid}container {
@@ -26,7 +26,7 @@ $namespace-grid: ns('grid');
       }
 
 // ...with custom widths
-      @each $width-key, $width-value in $uswds-breakpoints {
+      @each $width-key, $width-value in $system-breakpoints {
         .#{$mq-key}\:#{$namespace-grid}container-#{$width-key} {
           $props: append-important($grid-global, $width-key);
           @include grid-container($props);
@@ -45,7 +45,7 @@ $namespace-grid: ns('grid');
     $props: append-important($grid-global, md);
     @include grid-gap($props);
   }
-  @each $gap-key, $gap-val in map-deep-get($uswds-properties, gap, standard){
+  @each $gap-key, $gap-val in map-deep-get($system-properties, gap, standard){
     @if $gap-key {
       &.#{$namespace-grid}gap-#{$gap-val} {
         $props: append-important($grid-global, $gap-key);
@@ -55,7 +55,7 @@ $namespace-grid: ns('grid');
   }
 
 // responsive column gaps
-  @each $mq-key, $mq-value in $uswds-breakpoints {
+  @each $mq-key, $mq-value in $system-breakpoints {
     @if map-get($theme-output-breakpoints, $mq-key) {
       @include at-media($mq-key){
         &.#{$mq-key}\:#{$namespace-grid}gap {
@@ -99,7 +99,7 @@ $namespace-grid: ns('grid');
 }
 
 // ...with widths
-@each $width-key, $width-value in $uswds-layout-grid-widths {
+@each $width-key, $width-value in $system-layout-grid-widths {
   .#{$namespace-grid}col-#{$width-key} {
     $props: append-important($grid-global, $width-key);
     @include grid-col($props);
@@ -107,7 +107,7 @@ $namespace-grid: ns('grid');
 }
 
 // responsive columns
-@each $mq-key, $mq-value in $uswds-breakpoints {
+@each $mq-key, $mq-value in $system-breakpoints {
   @if map-get($theme-output-breakpoints, $mq-key) {
     @include at-media($mq-key){
       .#{$mq-key}\:#{$namespace-grid}col {
@@ -123,7 +123,7 @@ $namespace-grid: ns('grid');
         @include grid-col($props);
       }
 
-      @each $width-key, $width-value in $uswds-layout-grid-widths {
+      @each $width-key, $width-value in $system-layout-grid-widths {
         .#{$mq-key}\:#{$namespace-grid}col-#{$width-key} {
           $props: append-important($grid-global, $width-key);
           @include grid-col($props);
@@ -134,7 +134,7 @@ $namespace-grid: ns('grid');
 }
 
 // basic offsets
-@each $width-key, $width-value in $uswds-layout-grid-widths {
+@each $width-key, $width-value in $system-layout-grid-widths {
   .#{$namespace-grid}offset-#{$width-key} {
     $props: append-important($grid-global, $width-key);
     @include grid-offset($props);
@@ -146,9 +146,9 @@ $namespace-grid: ns('grid');
 }
 
 // responsive offsets
-@each $mq-key, $mq-value in $uswds-breakpoints {
+@each $mq-key, $mq-value in $system-breakpoints {
   @if map-get($theme-output-breakpoints, $mq-key) {
-    @each $width-key, $width-value in $uswds-layout-grid-widths {
+    @each $width-key, $width-value in $system-layout-grid-widths {
       @include at-media($mq-key) {
         .#{$mq-key}\:#{$namespace-grid}offset-#{$width-key} {
           $props: append-important($grid-global, $width-key);

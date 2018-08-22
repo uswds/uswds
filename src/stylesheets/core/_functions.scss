@@ -368,7 +368,7 @@ the desired final units (currently rem)
 */
 
 @function grid-units($unit) {
-  $grid-to-rem: ($uswds-spacing-grid-base * $unit) / $root-font-size-equiv * 1rem;
+  $grid-to-rem: ($system-spacing-grid-base * $unit) / $root-font-size-equiv * 1rem;
 
   @return $grid-to-rem;
 }
@@ -459,7 +459,7 @@ to a set target
     @return false;
   }
 
-  $this-scale: $uswds-base-cap-height * strip-unit($scale) / $cap-height * 1px;
+  $this-scale: $system-base-cap-height * strip-unit($scale) / $cap-height * 1px;
 
   @return px-to-rem($this-scale);
 
@@ -524,9 +524,9 @@ a family and a line-height scale unit
          + 'Valid values: #{map-keys($project-cap-heights)}';
   }
 
-  @if not map-get($uswds-line-height, $scale) {
+  @if not map-get($system-line-height, $scale) {
     @error '`#{$scale}` is not a valid line-height unit. '
-         + 'Valid values: #{map-keys($uswds-line-height)}';
+         + 'Valid values: #{map-keys($system-line-height)}';
   }
 
   @if not map-get($project-cap-heights, $family) {
@@ -534,15 +534,15 @@ a family and a line-height scale unit
   }
 
   $this-cap: map-get($project-cap-heights, $family);
-  $this-line-height: map-get($uswds-line-height, $scale);
-  $normalized-line-height:  $this-line-height / ($uswds-base-cap-height / $this-cap);
+  $this-line-height: map-get($system-line-height, $scale);
+  $normalized-line-height:  $this-line-height / ($system-base-cap-height / $this-cap);
 
   @return $normalized-line-height;
 };
 
 /*
 ----------------------------------------
-get-uswds-color()
+get-system-color()
 ----------------------------------------
 Derive a system color from its
 family, value, and vivid or a passed
@@ -550,53 +550,68 @@ variable that is, itself, a list
 ----------------------------------------
 */
 
-@function get-uswds-color($props...){
-  $props: unpack($props);
-  $length: length($props);
-  $color-family: false;
-  $color-grade: false;
-  $color-vivid: false;
-  @if $length > 0 {
-    $color-family: smart-quote(nth($props, 1));
-    @if $length > 1 {
-      $color-grade: smart-quote(nth($props, 2));
-      @if $length > 2 {
-        $color-vivid: smart-quote(nth($props, 3));
-      }
+@function get-system-color(
+  $color-family: false,
+  $color-grade: false,
+  $color-variant: false){
+
+  // If the arg being passed to the fn
+  // is a variable defined as a list,
+  // $color-family will contain this
+  // entire list, and needs to be
+  // unpacked.
+  // ex:
+  //    in settings:
+  //      $theme-color-primary-dark: 'blue', 70
+  //    in the theme colors map:
+  //      'dark': get-system-color($theme-color-primary-dark),
+
+  @if type-of($color-family) == 'list' {
+    @if length($color-family) > 2 {
+      $color-variant: nth($color-family, 3);
     }
+    $color-grade: nth($color-family, 2);
+    $color-family: nth($color-family, 1);
   }
+
+  $color-family: smart-quote($color-family);
+  $color-variant: smart-quote($color-variant);
+
+  // If the arg being passed to the fn
+  // is false, it should output as `false`
+  // to preserve a false value in the
+  // target map
+  // ex:
+  //    in settings:
+  //      $theme-color-primary-darkest: false;
+  //    in the theme colors map:
+  //      'dark': get-system-color($theme-color-primary-darkest),
+  //      'dark': false, // is the desired outcome
+  // TODO: should a false-pass color function be a separate fn?
 
   @if not $color-family {
     @return false;
   }
 
-  @if $color-vivid {
+  @if $color-variant {
     $output: map-deep-get(
-      $uswds-colors,
+      $system-colors,
       $color-family,
-      $color-vivid,
+      $color-variant,
       $color-grade
     );
 
     @return $output;
   }
 
-  @if $color-grade {
-    $output: map-deep-get(
-      $uswds-colors,
-      $color-family,
-      $color-grade
-    );
+  $output: map-deep-get(
+    $system-colors,
+    $color-family,
+    $color-grade
+  );
 
-    @return $output;
-  }
+  @return $output;
 
-  @if not map-has-key($uswds-required-colors, $color-family) {
-    @error 'USWDS colors require a grade. '
-         + 'Exceptions: #{map-keys($uswds-required-colors)}';
-  }
-
-  @return map-get($uswds-required-colors, $color-family);
 };
 
 /*
@@ -614,11 +629,11 @@ Get a value from the system type scale
     @return false;
   }
 
-  @if not map-has-key($uswds-type-scale, $scale){
-    @error "`#{$scale}` is not a valid type scale value. Valid values: #{map-keys($uswds-type-scale)}";
+  @if not map-has-key($system-type-scale, $scale){
+    @error "`#{$scale}` is not a valid type scale value. Valid values: #{map-keys($system-type-scale)}";
   }
 
-  @return map-get($uswds-type-scale, $scale);
+  @return map-get($system-type-scale, $scale);
 };
 
 /*
@@ -659,7 +674,7 @@ for a property
 */
 
 @function get-standard-values($property){
- @return map-deep-get($uswds-properties, $property, standard);
+ @return map-deep-get($system-properties, $property, standard);
 }
 
 /*
@@ -706,17 +721,18 @@ functions and mixins.
     smart-quote($converted),
     smart-quote(nth($value, 1))
   );
-  $our-standard-values: map-deep-get($uswds-properties, $property, standard);
-  $our-extended-values: map-deep-get($uswds-properties, $property, extended);
+  $our-standard-values: map-deep-get($system-properties, $property, standard);
+  $our-extended-values: map-deep-get($system-properties, $property, extended);
 
   @if map-has-key($our-standard-values, $quoted-value) {
     $output: map-get($our-standard-values, $quoted-value);
 
     @if not $output {
-      @warn '`#{$value}` is set as a `false` value '
-          + 'for the #{$property} property in your project settings '
-          + 'and will not output properly. '
-          + 'Set the value of `#{$value}` in project settings.';
+      // TODO: reinstate
+      // @warn '`#{$value}` is set as a `false` value '
+      //     + 'for the #{$property} property in your project settings '
+      //     + 'and will not output properly. '
+      //     + 'Set the value of `#{$value}` in project settings.';
 
       @return map-get($our-standard-values, $quoted-value);
     }
@@ -725,9 +741,10 @@ functions and mixins.
   }
 
   @if map-has-key($our-extended-values, $quoted-value) {
-    @warn '`#{$value}` is an extended USWDS `#{$property}` unit. '
-        + 'This is OK, but only components built with standard values can be accepted back into the system. '
-        + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+    // TODO: reinstate
+    // @warn '`#{$value}` is an extended USWDS `#{$property}` unit. '
+    //     + 'This is OK, but only components built with standard values can be accepted back into the system. '
+    //     + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
 
     @return map-get($our-extended-values, $quoted-value);
   }
@@ -737,13 +754,34 @@ functions and mixins.
         + 'You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}';
   }
 
-  @warn '`#{$value}` is not a USWDS `#{$property}` unit. '
-      + 'This is OK, but only components built with standard '
-      + 'values can be accepted back into the system. '
-      + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+  // TODO: reinstate
+  // @warn '`#{$value}` is not a USWDS `#{$property}` unit. '
+  //     + 'This is OK, but only components built with standard '
+  //     + 'values can be accepted back into the system. '
+  //     + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
 
   @return $value;
 };
+
+/*
+----------------------------------------
+get-shortcode-color()
+----------------------------------------
+Derive a color from a color shortcode
+----------------------------------------
+*/
+
+@function get-shortcode-color($shortcode) {
+  $shortcode: smart-quote(unpack($shortcode));
+  @if map-has-key($all-color-shortcodes, $shortcode){
+    $our-color: (map-get($all-color-shortcodes, $shortcode));
+    @if $our-color == false {
+      @error "`#{$shortcode}` is a color that does not exist or is set to false.";
+    }
+    @return $our-color;
+  }
+  @error '`#{$shortcode}` is not a valid color shortcode.';
+}
 
 /*
 ----------------------------------------
@@ -754,124 +792,89 @@ colors: project, system, and required
 ----------------------------------------
 */
 
-@function color($props...){
-  $props: unpack($props);
-  $length: length($props);
-  $valid-vivid-grades: (5, 10, 20, 30, 40, 50, 60, 70, 80, 90);
-  $color-family: false;
-  $color-grade: false;
-  $color-vivid: false;
-  @if $length > 0 {
-    $color-family: smart-quote(nth($props, 1));
-    @if $length > 1 {
-      $color-grade: smart-quote(nth($props, 2));
-      @if $length > 2 {
-        $color-vivid: smart-quote(nth($props, 3));
-      }
+// color() can have a 1, 2, or 3 arguments passed to it:
+//
+// [family]
+// ex: color('primary')
+//     - the default in a theme palette family
+// ex: color('white')
+//     - one of the required colors
+// ex: color('red-50v')
+//     - color shortcode
+//
+// [family], [grade]
+// ex: color('red', 50)
+//     - a standard system color
+// ex: color('accent-warm', 'light')
+//     - a standard theme color
+// ex: color('primary', 'vivid')
+//     - in theme colors, 'vivid' is considered a grade
+//
+// [family], [grade], [vivid]
+// ex: color('red', 50, 'vivid')
+//     - a vivid system color
+//     - only system colors required three arguments
+
+@function color(
+  $color-family: false,
+  $color-grade: false,
+  $color-variant: false){
+
+  // Convert any arglists into lists
+  $color-family: if(
+    type-of($color-family) == 'arglist',
+    unpack($color-family),
+    $color-family
+  );
+
+  // If $color-family is a list, color() had a variable
+  // passed to it, and args need to be re-set with the
+  // values from the $color-family list:
+  @if type-of($color-family) == 'list' {
+    @if length($color-family) > 2 {
+      $color-variant: nth($color-family, 3);
     }
+    $color-grade: nth($color-family, 2);
+    $color-family: nth($color-family, 1);
   }
 
+  // Set initial state of vars
+  $color-family: smart-quote($color-family);
+  $color-grade: smart-quote($color-grade);
+  $color-variant: smart-quote($color-variant);
+
+  // @debug '#{$color-family}: #{type-of($color-family)}, #{$color-grade}: #{type-of($color-grade)}, #{$color-variant}: #{type-of($color-variant)}' ;
+
+  // If there are no args, throw an error
   @if not $color-family {
     @error 'Include a color in the form [family], [grade], [vivid]';
-  } @else {
-    @if str-slice(inspect($color-family), 1, 1) == '#'
-        or str-slice(inspect($color-family), 1, 3) == 'rgb' {
-      @return unquote($color-family);
+  }
+
+  // If the grade is a number, it's a system color
+  // ex: ('red', 50)
+  @if type-of($color-grade) == 'number' {
+    @return get-system-color($color-family, $color-grade, $color-variant);
+  }
+
+  // non-number grades are associated with non-default theme colors
+  // ex: ('base', 'darker')
+  // default theme colors have no grade
+  // ex: ('base')
+  @if type-of($color-grade) == 'string' {
+    @if map-has-key($all-project-colors, $color-family){
+      @if not map-has-key(map-get($all-project-colors, $color-family), $color-grade){
+        @error '`#{$color-grade}` is not a valid grade of `#{$color-family}`. '
+             + 'Valid grades: #{map-keys(map-get($all-project-colors, $color-family))}';
+      }
+    } @else {
+      @error '`#{$color-family}` is not a valid theme family. '
+           + 'Valid families: #{map-keys($all-project-colors)}';
     }
-    @if not map-has-key($all-colors, $color-family) {
-      @error '`#{$color-family}` is not a valid color family.';
-    }
+    @return map-deep-get($all-project-colors, $color-family, $color-grade);
   }
 
-  @if $color-vivid {
-    @if not index($valid-vivid-grades, $color-grade) {
-      @error '`#{$color-grade}` is not a valid color grade. '
-           + 'Valid color grades: #{$valid-vivid-grades}.';
-    }
-
-    @if not map-has-key($uswds-colors, $color-family) {
-      @error '`#{$color-family}` does not have vivid variants.';
-    }
-
-    $output: map-deep-get(
-      $uswds-colors,
-      $color-family,
-      $color-vivid,
-      $color-grade
-    );
-
-    @if $output == false {
-      @error "`#{$color-family}` does not have a vivid variant for `#{$color-grade}`.";
-    }
-
-    @return $output;
-  }
-
-  @if $color-grade {
-    $output: map-deep-get(
-      $all-colors,
-      $color-family,
-      $color-grade
-    );
-    @if $output == false {
-      @error "`#{$color-family}, #{$color-grade}` is set to false in your project settings.";
-    }
-    @if $output == null {
-      @error "`#{$color-grade}` is not a valid grade of `#{$color-family}`.";
-    }
-    @return $output;
-  }
-
-  @if map-has-key($all-project-colors, $color-family){
-    @return map-deep-get(
-      $all-project-colors,
-      $color-family,
-      'default'
-    );
-  }
-
-  @if not map-has-key($uswds-required-colors, $color-family){
-    @error "`#{$color-family}` requires a grade.";
-  }
-
-  @return map-get($uswds-required-colors, $color-family);
-};
-
-/*
-----------------------------------------
-scale()
-----------------------------------------
-Get a normalized typescale from a family
-and scale
-----------------------------------------
-*/
-
-@function scale($props...){
-  $props: unpack($props);
-
-  @if length($props) != 2 {
-    @error "Font size requires a valid FAMILY and SIZE in the form `font('FAMILY', 'SIZE')`";
-  }
-
-  $our-family: smart-quote(nth($props, 1));
-  $our-scale: smart-quote(nth($props, 2));
-
-  @if not map-has-key($project-cap-heights, $our-family) {
-    @error "`#{$our-family}` is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
-  }
-
-  @if not map-get($all-type-scale, $our-scale) {
-    @error "`#{$our-scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
-  }
-
-  $this-cap: map-get($project-cap-heights, $our-family);
-  $this-scale: map-get($all-type-scale, $our-scale);
-
-  @if not $this-scale {
-    @error "The scale `#{$our-scale}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
-  }
-
-  @return normalize-type-scale($this-cap, $this-scale);
+  // Otherwise, there's one arg....
+  @return get-shortcode-color($color-family);
 };
 
 /*
@@ -1083,10 +1086,11 @@ loop
 */
 
 @mixin render-pseudoclass($utility, $pseudoclass, $selector, $property, $value, $mq) {
-  $important: null;
-  @if $utilities-use-important {
-    $important: ' !important';
-  }
+  $important: if(
+    $utilities-use-important,
+    ' !important',
+    null
+  );
   $this-mq: null;
   $this-type: map-get($utility, type);
 
@@ -1097,6 +1101,13 @@ loop
     @each $this-property in $property {
       #{$this-property}: unquote("#{$value}#{$important}");
     }
+  }
+}
+
+// utility-feature? utility-property
+@mixin add-utility-declaration($declaration, $utility-type, $important) {
+  @each $ext-prop, $ext-value in map-get($declaration, $utility-type) {
+    #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
   }
 }
 
@@ -1116,7 +1127,7 @@ loop
     ' !important',
     null
   );
-  $our-breakpoints: map-deep-get($uswds-properties, breakpoints, standard);
+  $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
   $mq: null;
   $this-type: map-get($utility, type);
   $value-is-map: if(
@@ -1133,9 +1144,7 @@ loop
       @media screen and (min-width: #{$media-value-px}) {
         .#{$mq}\:#{ns($this-type)}#{$selector} {
           @if $value-is-map and map-has-key($val-props, extend) {
-            @each $ext-prop, $ext-value in map-get($val-props, extend) {
-              #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-            }
+            @include add-utility-declaration($val-props, extend, $important);
           }
 
           @each $this-property in $property {
@@ -1143,9 +1152,7 @@ loop
           }
 
           @if map-has-key($utility, extend) {
-            @each $ext-prop, $ext-value in map-get($utility, extend) {
-              #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-            }
+            @include add-utility-declaration($utility, extend, $important);
           }
           @if map-deep-get($utility, settings, hover) {
             @include render-pseudoclass($utility, hover, $selector, $property, $value, $mq);
@@ -1158,6 +1165,7 @@ loop
     }
   }
 }
+
 
 /*
 ----------------------------------------
@@ -1190,9 +1198,7 @@ future version of Sass" warning.
 
   .#{ns($this-type)}#{$selector} {
     @if $value-is-map and map-has-key($val-props, extend) {
-      @each $ext-prop, $ext-value in map-get($val-props, extend) {
-        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-      }
+      @include add-utility-declaration($val-props, extend, $important);
     }
 
     @if $value-is-map and map-has-key($val-props, extends) {
@@ -1204,9 +1210,7 @@ future version of Sass" warning.
     }
 
     @if map-has-key($utility, extend) {
-      @each $ext-prop, $ext-value in map-get($utility, extend) {
-        #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-      }
+      @include add-utility-declaration($utility, extend, $important)
     }
   }
 
@@ -1454,6 +1458,23 @@ through all possible variants
   // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
 }
 
+// Helper to generate an @font-face declaration
+@mixin generate-font-face($font-type, $font-weights, $font-name, $dir, $font-style) {
+  @each $weight, $filename in $font-type {
+    @each $key, $outputweight in $font-weights {
+      @if $outputweight == $weight and $filename {
+        @include font-face(
+          '#{$font-name}',
+          '#{$theme-font-path}/#{$dir}/#{$filename}',
+          #{$weight},
+          #{$font-style},
+          $file-formats: eot woff2 woff ttf
+        );
+      }
+    }
+  }
+}
+
 @mixin render-font-face($this-font-face) {
   $these-weights: $project-font-weights;
   @if $theme-output-all-weights {
@@ -1472,42 +1493,17 @@ through all possible variants
 
   @if $this-font-face and map-deep-get($all-font-definitions, $this-font-face, generate) {
     $this-font: map-get($all-font-definitions, $this-font-face);
-    $this-font-system: map-get($this-font, system-font);
     $font-name: map-get($this-font, name);
     $roman: map-get($this-font, roman);
     $italic: map-get($this-font, italic);
     $dir: map-get($this-font, dir);
 
     @if $roman {
-      @each $weight, $filename in $roman {
-        @each $key, $outputweight in $these-weights {
-          @if $outputweight == $weight and $filename {
-            @include font-face(
-              '#{$font-name}',
-              '#{$theme-font-path}/#{$dir}/#{$filename}',
-              #{$weight},
-              normal,
-              $file-formats: eot woff2 woff ttf
-            );
-          }
-        }
-      }
+      @include generate-font-face($roman, $these-weights, $font-name, $dir, normal);
     }
 
     @if $italic {
-      @each $weight, $filename in $italic {
-        @each $key, $outputweight in $these-weights {
-          @if $outputweight == $weight and $filename {
-            @include font-face(
-              '#{$font-name}',
-              '#{$theme-font-path}/#{$dir}/#{$filename}',
-              #{$weight},
-              italic,
-              $file-formats: eot woff2 woff ttf
-            );
-          }
-        }
-      }
+      @include generate-font-face($italic, $these-weights, $font-name, $dir, italic);
     }
   }
 }

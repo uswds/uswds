@@ -1,39 +1,39 @@
 $palette-red-light: (
-  'red-5':  $red-5,
-  'red-10': $red-10,
-  'red-20': $red-20,
-  'red-30': $red-30,
+  'red-5':  $color-red-5,
+  'red-10': $color-red-10,
+  'red-20': $color-red-20,
+  'red-30': $color-red-30,
 );
 
 $palette-red-medium: (
-  'red-40': $red-40,
-  'red-50': $red-50,
-  'red-60': $red-60,
+  'red-40': $color-red-40,
+  'red-50': $color-red-50,
+  'red-60': $color-red-60,
 );
 
 $palette-red-dark: (
-  'red-70': $red-70,
-  'red-80': $red-80,
-  'red-90': $red-90,
+  'red-70': $color-red-70,
+  'red-80': $color-red-80,
+  'red-90': $color-red-90,
 );
 
 $palette-red-light-vivid: (
-  'red-5v':  $red-5v,
-  'red-10v': $red-10v,
-  'red-20v': $red-20v,
-  'red-30v': $red-30v,
+  'red-5v':  $color-red-5v,
+  'red-10v': $color-red-10v,
+  'red-20v': $color-red-20v,
+  'red-30v': $color-red-30v,
 );
 
 $palette-red-medium-vivid: (
-  'red-40v': $red-40v,
-  'red-50v': $red-50v,
-  'red-60v': $red-60v,
+  'red-40v': $color-red-40v,
+  'red-50v': $color-red-50v,
+  'red-60v': $color-red-60v,
 );
 
 $palette-red-dark-vivid: (
-  'red-70v': $red-70v,
-  'red-80v': $red-80v,
-  'red-90v': $red-90v,
+  'red-70v': $color-red-70v,
+  'red-80v': $color-red-80v,
+  'red-90v': $color-red-90v,
 );
 
 $palette-red-standard: map-collect(
