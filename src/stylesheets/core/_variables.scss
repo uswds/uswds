@@ -1013,10 +1013,10 @@ $color-green-light:          $color-green-cool-40 !default;
 $color-green-lighter:        $color-green-cool-20 !default;
 $color-green-lightest:       $color-green-cool-5 !default;
 
-$color-cool-blue:            #205493 !default;
-$color-cool-blue-light:      #4773aa !default;
-$color-cool-blue-lighter:    #8ba6ca !default;
-$color-cool-blue-lightest:   #dce4ef !default;
+$color-cool-blue:            $color-blue-70v !default;
+$color-cool-blue-light:      $color-blue-warm-50 !default;
+$color-cool-blue-lighter:    $color-blue-warm-30 !default;
+$color-cool-blue-lightest:   $color-blue-warm-10 !default;
 
 $color-purple:               $color-violet-70v !default;
 
