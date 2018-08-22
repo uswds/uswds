@@ -78,7 +78,6 @@ $namespace-grid: ns('grid');
 
 // basic columns...
 [class*='#{$namespace-grid}col'] {
-  @include u-minh(1px);
   @include u-position(relative);
   @include u-width(full);
 }
