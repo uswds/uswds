@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  overflow: get-uswds-value(overflow, $value...)#{$important};
+  overflow: get-uswds-value(overflow, $value...) #{$important};
 }

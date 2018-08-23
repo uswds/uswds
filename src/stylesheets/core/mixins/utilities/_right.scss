@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  right: get-uswds-value(right, $value...)#{$important};
+  right: get-uswds-value(right, $value...) #{$important};
 }

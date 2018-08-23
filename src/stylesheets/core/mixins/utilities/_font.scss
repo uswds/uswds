@@ -8,11 +8,11 @@ Get a font-family stack
 
 @mixin u-font-family($family) {
   $our-family: smart-quote($family);
-  @if not map-has-key($project-font-stacks, $our-family){
-    @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-font-stacks)}";
+  @if not map-has-key($project-font-stacks, $our-family) {
+    @error '#{$our-family} is not a valid font family. Valid values: #{map-keys($project-font-stacks)}';
   }
   @elseif not map-get($project-font-stacks, $our-family) {
-    @error "Font family `#{$our-family}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
+    @error 'Font family `#{$our-family}` is disabled in your project\'s theme settings. Set its value to `true` to use this family.';
   }
   @else {
     font-family: map-get($project-font-stacks, $our-family);
@@ -33,10 +33,10 @@ system scale or project scale
   $our-family: smart-quote($family);
   $our-scale: smart-quote($scale);
   @if not map-has-key($project-cap-heights, $our-family) {
-    @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
+    @error '#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}';
   }
   @elseif not map-get($all-type-scale, $our-scale) {
-    @error "`#{$our-scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
+    @error '`#{$our-scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}';
   }
   @else {
     $this-cap: map-get($project-cap-heights, $our-family);
@@ -45,7 +45,7 @@ system scale or project scale
       font-size: normalize-type-scale($this-cap, $this-scale);
     }
     @else {
-      @error "The scale `#{$our-scale}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
+      @error 'The scale `#{$our-scale}` is disabled in your project\'s theme settings. Set its value to `true` to use this family.';
     }
   }
 }
@@ -66,10 +66,10 @@ system scale or project scale
   $our-family: smart-quote($family);
   $our-scale: smart-quote($scale);
   @if not map-has-key($project-cap-heights, $our-family) {
-    @error "#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
+    @error '#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}';
   }
   @elseif not map-get($all-type-scale, $our-scale) {
-    @error "`#{$our-scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
+    @error '`#{$our-scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}';
   }
   @else {
     $this-cap: map-get($project-cap-heights, $our-family);
@@ -79,7 +79,7 @@ system scale or project scale
       font-size: normalize-type-scale($this-cap, $this-scale);
     }
     @else {
-      @error "The scale `#{$our-scale}` is disabled in your project's theme settings. Set its value to `true` to use this family.";
+      @error 'The scale `#{$our-scale}` is disabled in your project\'s theme settings. Set its value to `true` to use this family.';
     }
   }
 }

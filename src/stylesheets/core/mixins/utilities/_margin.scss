@@ -8,7 +8,7 @@
       $value: remove($value, '!important');
       $important: ' !important';
     }
-    margin: get-uswds-value(margin, $value...)#{$important};
+    margin: get-uswds-value(margin, $value...) #{$important};
   }
   @elseif $side == x {
     $important: null;
@@ -16,8 +16,8 @@
       $value: remove($value, '!important');
       $important: ' !important';
     }
-    margin-left: get-uswds-value(margin-horizontal, $value...)#{$important};
-    margin-right: get-uswds-value(margin-horizontal, $value...)#{$important};
+    margin-left: get-uswds-value(margin-horizontal, $value...) #{$important};
+    margin-right: get-uswds-value(margin-horizontal, $value...) #{$important};
   }
   @elseif $side == y {
     $important: null;
@@ -25,8 +25,8 @@
       $value: remove($value, '!important');
       $important: ' !important';
     }
-    margin-bottom: get-uswds-value(margin-vertical, $value...)#{$important};
-    margin-top: get-uswds-value(margin-vertical, $value...)#{$important};
+    margin-bottom: get-uswds-value(margin-vertical, $value...) #{$important};
+    margin-top: get-uswds-value(margin-vertical, $value...) #{$important};
   }
   @elseif $side == t {
     $important: null;
@@ -34,7 +34,7 @@
       $value: remove($value, '!important');
       $important: ' !important';
     }
-    margin-top: get-uswds-value(margin-vertical, $value...)#{$important};
+    margin-top: get-uswds-value(margin-vertical, $value...) #{$important};
   }
   @elseif $side == r {
     $important: null;
@@ -42,7 +42,7 @@
       $value: remove($value, '!important');
       $important: ' !important';
     }
-    margin-right: get-uswds-value(margin-horizontal, $value...)#{$important};
+    margin-right: get-uswds-value(margin-horizontal, $value...) #{$important};
   }
   @elseif $side == b {
     $important: null;
@@ -50,7 +50,7 @@
       $value: remove($value, '!important');
       $important: ' !important';
     }
-    margin-bottom: get-uswds-value(margin-vertical, $value...)#{$important};
+    margin-bottom: get-uswds-value(margin-vertical, $value...) #{$important};
   }
   @elseif $side == l {
     $important: null;
@@ -58,7 +58,7 @@
       $value: remove($value, '!important');
       $important: ' !important';
     }
-    margin-left: get-uswds-value(margin-horizontal, $value...)#{$important};
+    margin-left: get-uswds-value(margin-horizontal, $value...) #{$important};
   }
 }
 

@@ -52,7 +52,7 @@ $utility-pin-options: 'all', 'x', 'y', 'top', 'bottom', 'left', 'right', 'none';
       top: auto#{$important};
     }
     @else {
-      @error "`#{$option}` is not a valid `pin` value. Valid pin values include #{$utility-pin-options}";
+      @error '`#{$option}` is not a valid `pin` value. Valid pin values include #{$utility-pin-options}';
     }
   }
 }

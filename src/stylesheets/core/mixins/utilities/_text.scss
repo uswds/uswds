@@ -49,18 +49,18 @@ $text-utililies: (
     $match: false;
     @if map-has-key($all-color-shortcodes, $this-value) {
       $match: true;
-      color: get-shortcode-color($this-value)#{$important};
+      color: get-shortcode-color($this-value) #{$important};
     }
     @else {
       @each $property, $map in $text-utililies {
-        @if not $match and map-has-key($map, $this-value){
-          #{$property}: get-uswds-value($property, $this-value...)#{$important};
+        @if not $match and map-has-key($map, $this-value) {
+          #{$property}: get-uswds-value($property, $this-value...) #{$important};
           $match: true;
         }
       }
     }
     @if not $match {
-      @error "`#{$this-value}` is not a valid `text` value.";
+      @error '`#{$this-value}` is not a valid `text` value.';
     }
   }
 }

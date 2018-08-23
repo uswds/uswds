@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  color: color($value)#{$important};
+  color: color($value) #{$important};
 }

@@ -33,13 +33,13 @@ $flex-utililies: (
   @each $this-value in $value {
     $match: false;
     @each $property, $map in $flex-utililies {
-      @if not $match and map-has-key($map, $this-value){
-        #{$property}: get-uswds-value($property, $this-value...)#{$important};
+      @if not $match and map-has-key($map, $this-value) {
+        #{$property}: get-uswds-value($property, $this-value...) #{$important};
         $match: true;
       }
     }
     @if not $match {
-      @error "`#{$this-value}` is not a valid `flex` value.";
+      @error '`#{$this-value}` is not a valid `flex` value.';
     }
   }
 }

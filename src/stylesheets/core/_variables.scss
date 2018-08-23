@@ -182,7 +182,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-sans,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-sans,
     'stack'
@@ -195,7 +195,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-serif,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-serif,
     'stack'
@@ -208,7 +208,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-mono,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-mono,
     'stack'
@@ -221,7 +221,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-cond,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-cond,
     'stack'
@@ -234,7 +234,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-heading,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-heading,
     'stack'
@@ -247,7 +247,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-body,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-body,
     'stack'
@@ -260,7 +260,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-code,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-code,
     'stack'
@@ -273,7 +273,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-alt,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-alt,
     'stack'

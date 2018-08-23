@@ -7,5 +7,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  background-color: color($value)#{$important};
+  background-color: color($value) #{$important};
 }

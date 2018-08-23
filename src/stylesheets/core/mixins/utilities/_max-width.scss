@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  max-width: get-uswds-value(max-width, $value...)#{$important};
+  max-width: get-uswds-value(max-width, $value...) #{$important};
 }

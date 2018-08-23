@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  white-space: get-uswds-value(white-space, $value...)#{$important};
+  white-space: get-uswds-value(white-space, $value...) #{$important};
 }

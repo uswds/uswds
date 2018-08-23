@@ -16,10 +16,10 @@ $palette-font-misc:(
     alt:      #{$font-stack-alt},
   ),
   'palette-font-stack-types': (
-    cond:    unquote("#{$font-stack-cond}"),
-    mono:    unquote("#{$font-stack-mono}"),
-    sans:    unquote("#{$font-stack-sans}"),
-    serif:   unquote("#{$font-stack-serif}"),
+    cond:    unquote('#{$font-stack-cond}'),
+    mono:    unquote('#{$font-stack-mono}'),
+    sans:    unquote('#{$font-stack-sans}'),
+    serif:   unquote('#{$font-stack-serif}'),
   ),
   'palette-font-weights-theme': $project-font-weights,
   'palette-font-weights-numeric': (

@@ -7,5 +7,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  width: get-uswds-value(width, $value...)#{$important};
+  width: get-uswds-value(width, $value...) #{$important};
 }

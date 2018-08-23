@@ -7,5 +7,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  display: get-uswds-value(display, $value)#{$important};
+  display: get-uswds-value(display, $value) #{$important};
 }
