@@ -105,9 +105,11 @@ body {
     .usa-prose {
       @include usa-content-styles;
     }
-  } @else if $theme-content-styles == 'global' {
+  }
+  @else if $theme-content-styles == 'global' {
     @include usa-content-styles;
-  } @else {
+  }
+  @else {
     // Default nothing if it’s neither
   }
 }

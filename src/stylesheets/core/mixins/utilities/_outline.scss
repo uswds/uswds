@@ -11,7 +11,7 @@
       $match: true;
       outline-color: get-shortcode-color(smart-quote($this-value)) #{$important};
     }
-    @elseif type-of($this-value) == 'number' {
+    @else if type-of($this-value) == 'number' {
       $converted-value: number-to-value($this-value);
       $widths: map-deep-get($system-properties, outline, standard);
       @if map-has-key($widths, $converted-value) {

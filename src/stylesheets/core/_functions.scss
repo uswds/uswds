@@ -145,7 +145,8 @@ Remove a value from a list
   @for $i from 1 through length($list) {
     @if type-of(nth($list, $i)) == list and $recursive {
       $result: append($result, remove(nth($list, $i), $value, $recursive));
-    } @else if nth($list, $i) != $value {
+    }
+    @else if nth($list, $i) != $value {
       $result: append($result, nth($list, $i));
     }
   }
@@ -214,7 +215,8 @@ isReadable
       slug: $values,
       isReadable: true,
     );
-  } @else {
+  }
+  @else {
     $values: remove($values, isReadable);
 
     @return (
@@ -295,7 +297,8 @@ of lists.
       @each $ii in $i {
         $output: append($output, $ii, comma);
       }
-    } @else {
+    }
+    @else {
       $output: append($output, $i, comma);
     }
   }
@@ -866,7 +869,8 @@ colors: project, system, and required
         @error '`#{$color-grade}` is not a valid grade of `#{$color-family}`. '
              + 'Valid grades: #{map-keys(map-get($all-project-colors, $color-family))}';
       }
-    } @else {
+    }
+    @else {
       @error '`#{$color-family}` is not a valid theme family. '
            + 'Valid families: #{map-keys($all-project-colors)}';
     }
@@ -1362,7 +1366,8 @@ through all possible variants
             // If there are modifiers, capture them as $our-modifiers.
 
             $our-modifiers: map-get($utility, modifiers);
-          } @else {
+          }
+          @else {
 
             // If there aren't, build a dummy so we can keep
             // all our build in the same loop.
@@ -1403,12 +1408,14 @@ through all possible variants
 
               // if the value is noValue ('')
 
-            } @else if $no-value {
+              }
+              @else if $no-value {
 
-                  // selector is the base only
+                    // selector is the base only
 
-                  $selector: $b;
-              } @else {
+                    $selector: $b;
+              }
+              @else {
 
                 // otherwise, selctor is joined with a hyphen.
 

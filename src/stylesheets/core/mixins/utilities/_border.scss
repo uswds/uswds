@@ -27,11 +27,11 @@ $border-utilities: (
       @if $side == n {
         border-color: get-shortcode-color($this-value) #{$important};
       }
-      @elseif $side == x {
+      @else if $side == x {
         border-left-color: get-shortcode-color($this-value) #{$important};
         border-right-color: get-shortcode-color($this-value) #{$important};
       }
-      @elseif $side == y {
+      @else if $side == y {
         border-bottom-color: get-shortcode-color($this-value) #{$important};
         border-top-color: get-shortcode-color($this-value) #{$important};
       }
@@ -39,7 +39,7 @@ $border-utilities: (
         border-#{$side}-color: get-shortcode-color($this-value) #{$important};
       }
     }
-    @elseif type-of($this-value) == 'number' {
+    @else if type-of($this-value) == 'number' {
       $converted-value: number-to-value($this-value);
       $widths: map-get($border-utilities, width);
       @if map-has-key($widths, $converted-value) {
@@ -48,11 +48,11 @@ $border-utilities: (
         @if $side == n {
           border-width: $final-value#{$important};
         }
-        @elseif $side == x {
+        @else if $side == x {
           border-left-width: $final-value#{$important};
           border-right-width: $final-value#{$important};
         }
-        @elseif $side == y {
+        @else if $side == y {
           border-bottom-width: $final-value#{$important};
           border-top-width: $final-value#{$important};
         }
@@ -74,11 +74,11 @@ $border-utilities: (
         @if $side == n {
           border-style: $final-value#{$important};
         }
-        @elseif $side == x {
+        @else if $side == x {
           border-left-style: $final-value#{$important};
           border-right-style: $final-value#{$important};
         }
-        @elseif $side == y {
+        @else if $side == y {
           border-bottom-style: $final-value#{$important};
           border-top-style: $final-value#{$important};
         }
@@ -98,11 +98,11 @@ $border-utilities: (
     @if $side == n {
       border-style: solid#{$important};
     }
-    @elseif $side == x {
+    @else if $side == x {
       border-left-style: solid#{$important};
       border-right-style: solid#{$important};
     }
-    @elseif $side == y {
+    @else if $side == y {
       border-bottom-style: solid#{$important};
       border-top-style: solid#{$important};
     }
