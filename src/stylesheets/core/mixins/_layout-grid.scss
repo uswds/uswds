@@ -39,7 +39,7 @@
     @if map-has-key($project-column-gaps, $gap) {
       $gap: map-get($project-column-gaps, $gap);
     }
-    @elseif map-has-key($system-column-gaps, $gap) {
+    @else if map-has-key($system-column-gaps, $gap) {
       $gap: map-get($system-column-gaps, $gap);
     }
     @include u-margin-x(append-important($props, unquote('#{$neg-prefix}-#{calc-gap-offset($gap)}')));
@@ -63,13 +63,13 @@
       @include u-flex($flex);
       @include u-width($width);
     }
-    @elseif $col == 'fill' {
+    @else if $col == 'fill' {
       $flex: append-important($props, fill);
       $width: append-important($props, auto);
       @include u-flex($flex);
       @include u-width($width);
     }
-    @elseif not map-has-key($system-layout-grid-widths, $col) {
+    @else if not map-has-key($system-layout-grid-widths, $col) {
       @error '#{$col} is not a valid layout grid width. Valid width are #{map-keys($system-layout-grid-widths)}';
     }
     @else {
@@ -88,7 +88,7 @@
     $width: append-important($props, 0);
     @include u-margin-left(override, $width);
   }
-  @elseif not map-has-key($system-layout-grid-widths, $offset) {
+  @else if not map-has-key($system-layout-grid-widths, $offset) {
     @error '#{$offset} is not a valid layout grid width. Valid width are #{map-keys($system-layout-grid-widths)}';
   }
   @else {

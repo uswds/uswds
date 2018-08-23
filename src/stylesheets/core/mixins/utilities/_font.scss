@@ -11,7 +11,7 @@ Get a font-family stack
   @if not map-has-key($project-font-stacks, $our-family) {
     @error '#{$our-family} is not a valid font family. Valid values: #{map-keys($project-font-stacks)}';
   }
-  @elseif not map-get($project-font-stacks, $our-family) {
+  @else if not map-get($project-font-stacks, $our-family) {
     @error 'Font family `#{$our-family}` is disabled in your project\'s theme settings. Set its value to `true` to use this family.';
   }
   @else {
@@ -35,7 +35,7 @@ system scale or project scale
   @if not map-has-key($project-cap-heights, $our-family) {
     @error '#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}';
   }
-  @elseif not map-get($all-type-scale, $our-scale) {
+  @else if not map-get($all-type-scale, $our-scale) {
     @error '`#{$our-scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}';
   }
   @else {
@@ -68,7 +68,7 @@ system scale or project scale
   @if not map-has-key($project-cap-heights, $our-family) {
     @error '#{$our-family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}';
   }
-  @elseif not map-get($all-type-scale, $our-scale) {
+  @else if not map-get($all-type-scale, $our-scale) {
     @error '`#{$our-scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}';
   }
   @else {

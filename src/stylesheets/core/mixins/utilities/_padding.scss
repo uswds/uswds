@@ -10,11 +10,11 @@
   @if $side == all {
     padding: get-uswds-value(padding, $value...) #{$important};
   }
-  @elseif $side == x {
+  @else if $side == x {
     padding-left: get-uswds-value(padding, $value...) #{$important};
     padding-right: get-uswds-value(padding, $value...) #{$important};
   }
-  @elseif $side == y {
+  @else if $side == y {
     padding-bottom: get-uswds-value(padding, $value...) #{$important};
     padding-top: get-uswds-value(padding, $value...) #{$important};
   }
