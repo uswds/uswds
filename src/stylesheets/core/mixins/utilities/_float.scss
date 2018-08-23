@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  float: get-uswds-value(float, $value...)#{$important};
+  float: get-uswds-value(float, $value...) #{$important};
 }

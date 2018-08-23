@@ -19,7 +19,7 @@ $namespace-grid: ns('grid');
 // responsive containers...
 @each $mq-key, $mq-value in $system-breakpoints {
   @if map-get($theme-output-breakpoints, $mq-key) {
-    @include at-media($mq-key){
+    @include at-media($mq-key) {
       .#{$mq-key}\:#{$namespace-grid}container {
         $props: append-important($grid-global, desktop);
         @include grid-container($props);
@@ -40,7 +40,7 @@ $namespace-grid: ns('grid');
 .#{$namespace-grid}row {
   @include grid-row;
 
-// ...that includes column gaps
+  // ...that includes column gaps
   &.#{$namespace-grid}gap {
     $props: append-important($grid-global, md);
     @include grid-gap($props);
@@ -57,7 +57,7 @@ $namespace-grid: ns('grid');
 // responsive column gaps
   @each $mq-key, $mq-value in $system-breakpoints {
     @if map-get($theme-output-breakpoints, $mq-key) {
-      @include at-media($mq-key){
+      @include at-media($mq-key) {
         &.#{$mq-key}\:#{$namespace-grid}gap {
           @include grid-gap;
         }
@@ -108,7 +108,7 @@ $namespace-grid: ns('grid');
 // responsive columns
 @each $mq-key, $mq-value in $system-breakpoints {
   @if map-get($theme-output-breakpoints, $mq-key) {
-    @include at-media($mq-key){
+    @include at-media($mq-key) {
       .#{$mq-key}\:#{$namespace-grid}col {
         $props: append-important($grid-global, fill);
         @include grid-col($props);

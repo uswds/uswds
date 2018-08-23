@@ -7,5 +7,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  border-radius: get-uswds-value(border-radius, $value)#{$important};
+  border-radius: get-uswds-value(border-radius, $value) #{$important};
 }

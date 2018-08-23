@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  justify-content: get-uswds-value(justify-content, $value...)#{$important};
+  justify-content: get-uswds-value(justify-content, $value...) #{$important};
 }

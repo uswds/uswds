@@ -6,7 +6,7 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  border-width: get-uswds-value(border-width, $value)#{$important};
+  border-width: get-uswds-value(border-width, $value) #{$important};
 }
 
 @mixin u-border-x-width($value...) {
@@ -16,8 +16,8 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  border-left-width: get-uswds-value(border-width, $value)#{$important};
-  border-right-width: get-uswds-value(border-width, $value)#{$important};
+  border-left-width: get-uswds-value(border-width, $value) #{$important};
+  border-right-width: get-uswds-value(border-width, $value) #{$important};
 }
 
 @mixin u-border-y-width($value...) {
@@ -27,6 +27,6 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  border-bottom-width: get-uswds-value(border-width, $value)#{$important};
-  border-top-width: get-uswds-value(border-width, $value)#{$important};
+  border-bottom-width: get-uswds-value(border-width, $value) #{$important};
+  border-top-width: get-uswds-value(border-width, $value) #{$important};
 }

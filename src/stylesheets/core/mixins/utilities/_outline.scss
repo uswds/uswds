@@ -9,7 +9,7 @@
     $match: false;
     @if map-has-key($all-color-shortcodes, smart-quote($this-value)) {
       $match: true;
-      outline-color: get-shortcode-color(smart-quote($this-value))#{$important};
+      outline-color: get-shortcode-color(smart-quote($this-value)) #{$important};
     }
     @elseif type-of($this-value) == 'number' {
       $converted-value: number-to-value($this-value);
@@ -21,11 +21,11 @@
         outline-style: solid#{$important};
       }
       @else {
-        @error "#{$this-value} is not a valid outline width. Accepted values: #{map-keys($widths)}";
+        @error '#{$this-value} is not a valid outline width. Accepted values: #{map-keys($widths)}';
       }
     }
     @if not $match {
-      @error "`#{$this-value}` is not a valid outline value.";
+      @error '`#{$this-value}` is not a valid outline value.';
     }
   }
 }

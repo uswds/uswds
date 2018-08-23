@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  font-weight: get-uswds-value(font-weight, $value...)#{$important};
+  font-weight: get-uswds-value(font-weight, $value...) #{$important};
 }

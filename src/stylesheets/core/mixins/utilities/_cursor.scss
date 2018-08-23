@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  cursor: get-uswds-value(cursor, $value)#{$important};
+  cursor: get-uswds-value(cursor, $value) #{$important};
 }

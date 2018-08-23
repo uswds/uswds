@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  min-width: get-uswds-value(min-width, $value...)#{$important};
+  min-width: get-uswds-value(min-width, $value...) #{$important};
 }

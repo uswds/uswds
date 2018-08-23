@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  min-height: get-uswds-value(min-height, $value...)#{$important};
+  min-height: get-uswds-value(min-height, $value...) #{$important};
 }

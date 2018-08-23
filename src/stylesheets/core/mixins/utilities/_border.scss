@@ -9,7 +9,7 @@ $border-utilities: (
   ),
   color: map-collect(
     $system-required-colors
-  ),
+  )
 );
 
 @mixin border-n($side, $value...) {
@@ -25,18 +25,18 @@ $border-utilities: (
       $match: true;
       $this-value: smart-quote($this-value);
       @if $side == n {
-        border-color: get-shortcode-color($this-value)#{$important};
+        border-color: get-shortcode-color($this-value) #{$important};
       }
       @elseif $side == x {
-        border-left-color: get-shortcode-color($this-value)#{$important};
-        border-right-color: get-shortcode-color($this-value)#{$important};
+        border-left-color: get-shortcode-color($this-value) #{$important};
+        border-right-color: get-shortcode-color($this-value) #{$important};
       }
       @elseif $side == y {
-        border-bottom-color: get-shortcode-color($this-value)#{$important};
-        border-top-color: get-shortcode-color($this-value)#{$important};
+        border-bottom-color: get-shortcode-color($this-value) #{$important};
+        border-top-color: get-shortcode-color($this-value) #{$important};
       }
       @else {
-        border-#{$side}-color: get-shortcode-color($this-value)#{$important};
+        border-#{$side}-color: get-shortcode-color($this-value) #{$important};
       }
     }
     @elseif type-of($this-value) == 'number' {
@@ -61,7 +61,7 @@ $border-utilities: (
         }
       }
       @else {
-        @error "#{$this-value} is not a valid border width. Accepted values: #{map-keys($widths)}";
+        @error '#{$this-value} is not a valid border width. Accepted values: #{map-keys($widths)}';
       }
     }
     @else {
@@ -87,11 +87,11 @@ $border-utilities: (
         }
       }
       @else {
-        @error "#{$this-value} is not a valid border style.";
+        @error '#{$this-value} is not a valid border style.';
       }
     }
     @if not $match {
-      @error "`#{$this-value}` is not a valid `border` value.";
+      @error '`#{$this-value}` is not a valid `border` value.';
     }
   }
   @if not $has-style {
