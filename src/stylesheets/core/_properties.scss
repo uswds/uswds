@@ -243,8 +243,8 @@ $system-properties: (
     standard: map-collect(
       $system-column-gaps,
       (
-        'sm': $theme-column-gap-small,
-        'lg': $theme-column-gap-large,
+        'sm': $theme-column-gap-sm,
+        'lg': $theme-column-gap-lg,
       )
     ),
     extended: (),
