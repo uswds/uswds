@@ -36,8 +36,6 @@ $namespace-grid: ns('grid');
   }
 }
 
-@debug '#{map-deep-get($system-properties, gap, standard)}';
-
 // basic row...
 .#{$namespace-grid}row {
   @include grid-row;
@@ -48,11 +46,9 @@ $namespace-grid: ns('grid');
     @include grid-gap($props);
   }
   @each $gap-key, $gap-val in map-deep-get($system-properties, gap, standard){
-    @if $gap-key {
-      &.#{$namespace-grid}gap-#{$gap-val} {
-        $props: append-important($grid-global, $gap-key);
-        @include grid-gap($props);
-      }
+    &.#{$namespace-grid}gap-#{$gap-key} {
+      $props: append-important($grid-global, $gap-key);
+      @include grid-gap($props);
     }
   }
 
