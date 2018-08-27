@@ -27,8 +27,6 @@
     smart-quote(nth($props, 1))
   );
 
-  @debug '#{$props}';
-
   @if $gap == 0 {
     @include u-margin-x(append-important($props, 0));
 
