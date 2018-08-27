@@ -36,6 +36,8 @@ $namespace-grid: ns('grid');
   }
 }
 
+@debug '#{map-keys(map-deep-get($system-properties, gap, standard))}';
+
 // basic row...
 .#{$namespace-grid}row {
   @include grid-row;
