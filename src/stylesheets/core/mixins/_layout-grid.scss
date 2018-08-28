@@ -21,13 +21,12 @@
 
 @mixin grid-gap($props...) {
   $props: unpack($props);
-  $gap: null;
-  @if length($props) == 0 {
-    $gap: $theme-column-gap;
-  }
-  @else {
-    $gap: smart-quote(nth($props, 1));
-  }
+  $gap: if(
+    length($props) == 0,
+    $theme-column-gap,
+    smart-quote(nth($props, 1))
+  );
+
   @if $gap == 0 {
     @include u-margin-x(append-important($props, 0));
 

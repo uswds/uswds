@@ -363,14 +363,14 @@ Append `!important` to a list
 
 /*
 ----------------------------------------
-grid-units()
+spacing-multiple()
 ----------------------------------------
 Converts a spacing unit multiple into
 the desired final units (currently rem)
 ----------------------------------------
 */
 
-@function grid-units($unit) {
+@function spacing-multiple($unit) {
   $grid-to-rem: ($system-spacing-grid-base * $unit) / $root-font-size-equiv * 1rem;
 
   @return $grid-to-rem;

@@ -66,6 +66,7 @@ $spacing-to-token: (
   '8':           1,
   '12':          '105',
   '16':          2,
+  '20':          '205',
   '24':          3,
   '32':          4,
   '40':          5,
@@ -804,9 +805,9 @@ Column gaps
 */
 
 $project-column-gaps: (
-  'sm': $theme-column-gap-small,
+  'sm': $theme-column-gap-sm,
   'md': $theme-column-gap,
-  'lg': $theme-column-gap-large,
+  'lg': $theme-column-gap-lg,
 );
 
 /*
