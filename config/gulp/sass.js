@@ -87,23 +87,22 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
   var plugins = [
     autoprefixer(autoprefixerOptions),
     packCSS({ sort: true }),
-    cssnano()
+    cssnano(({ autoprefixer: { browsers: autoprefixerOptions }}))
   ];
 
   var stream = gulp.src('src/stylesheets/*.scss')
-    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(replace(
+      /\buswds @version\b/g,
+      'uswds v' + pkg.version
+    ))
+    .pipe(sourcemaps.init({ largeFile: true }))
     .pipe(
       sass({
         outputStyle: 'expanded',
       })
         .on('error', sass.logError)
     )
-    .pipe(stripCssComments())
     .pipe(postcss(plugins))
-    .pipe(replace(
-      /\buswds @version\b/g,
-      'uswds v' + pkg.version
-    ))
     .pipe(gulp.dest('dist/css'))
     .pipe(rename({
       suffix: '.min',
