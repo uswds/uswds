@@ -565,9 +565,9 @@ variable that is, itself, a list
   // unpacked.
   // ex:
   //    in settings:
-  //      $theme-color-primary-dark: 'blue', 70
+  //      $theme-color-primary.'dark': 'blue', 70
   //    in the theme colors map:
-  //      'dark': get-system-color($theme-color-primary-dark),
+  //      $color-primary: get-system-color($theme-color-primary.'dark'),
 
   @if type-of($color-family) == 'list' {
     @if length($color-family) > 2 {
@@ -586,9 +586,9 @@ variable that is, itself, a list
   // target map
   // ex:
   //    in settings:
-  //      $theme-color-primary-darkest: false;
+  //      $theme-color-primary.'darkest': false;
   //    in the theme colors map:
-  //      'dark': get-system-color($theme-color-primary-darkest),
+  //      'dark': get-system-color($theme-color-primary.'darkest'),
   //      'dark': false, // is the desired outcome
   // TODO: should a false-pass color function be a separate fn?
 
@@ -768,16 +768,26 @@ functions and mixins.
 
 /*
 ----------------------------------------
-get-shortcode-color()
+color()
 ----------------------------------------
 Derive a color from a color shortcode
 ----------------------------------------
 */
 
-@function get-shortcode-color($shortcode) {
+@function color($shortcode) {
   $shortcode: smart-quote(unpack($shortcode));
-  @if map-has-key($all-color-shortcodes, $shortcode){
-    $our-color: (map-get($all-color-shortcodes, $shortcode));
+  @if not $shortcode {
+    @return false;
+  }
+  @if map-has-key($system-color-shortcodes, $shortcode){
+    $our-color: map-get($system-color-shortcodes, $shortcode);
+    @if $our-color == false {
+      @error "`#{$shortcode}` is a color that does not exist or is set to false.";
+    }
+    @return $our-color;
+  }
+  @if map-has-key($project-color-shortcodes, $shortcode){
+    $our-color: (map-get($project-color-shortcodes, $shortcode));
     @if $our-color == false {
       @error "`#{$shortcode}` is a color that does not exist or is set to false.";
     }
@@ -788,10 +798,10 @@ Derive a color from a color shortcode
 
 /*
 ----------------------------------------
-color()
+advanced-color()
 ----------------------------------------
-Derive a color from the map of all
-colors: project, system, and required
+Derive a color from a color triplet:
+[family], [grade], [variant]
 ----------------------------------------
 */
 
@@ -800,10 +810,6 @@ colors: project, system, and required
 // [family]
 // ex: color('primary')
 //     - the default in a theme palette family
-// ex: color('white')
-//     - one of the required colors
-// ex: color('red-50v')
-//     - color shortcode
 //
 // [family], [grade]
 // ex: color('red', 50)
@@ -818,7 +824,7 @@ colors: project, system, and required
 //     - a vivid system color
 //     - only system colors required three arguments
 
-@function color(
+@function advanced-color(
   $color-family: false,
   $color-grade: false,
   $color-variant: false){
@@ -863,22 +869,17 @@ colors: project, system, and required
   // ex: ('base', 'darker')
   // default theme colors have no grade
   // ex: ('base')
-  @if type-of($color-grade) == 'string' {
-    @if map-has-key($all-project-colors, $color-family){
-      @if not map-has-key(map-get($all-project-colors, $color-family), $color-grade){
-        @error '`#{$color-grade}` is not a valid grade of `#{$color-family}`. '
-             + 'Valid grades: #{map-keys(map-get($all-project-colors, $color-family))}';
-      }
+  @if map-has-key($all-project-colors, $color-family){
+    @if not map-has-key(map-get($all-project-colors, $color-family), $color-grade){
+      @error '`#{$color-grade}` is not a valid grade of `#{$color-family}`. '
+           + 'Valid grades: #{map-keys(map-get($all-project-colors, $color-family))}';
     }
-    @else {
-      @error '`#{$color-family}` is not a valid theme family. '
-           + 'Valid families: #{map-keys($all-project-colors)}';
-    }
-    @return map-deep-get($all-project-colors, $color-family, $color-grade);
   }
-
-  // Otherwise, there's one arg....
-  @return get-shortcode-color($color-family);
+  @else {
+    @error '`#{$color-family}` is not a valid theme family. '
+         + 'Valid families: #{map-keys($all-project-colors)}';
+  }
+  @return map-deep-get($all-project-colors, $color-family, $color-grade);
 };
 
 /*

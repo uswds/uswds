@@ -67,3 +67,9 @@ Output all USWDS
 @import 'utilities/rules/package';
 @include render-utilities-in($utilities-package);
 @import 'core/layout-grid';
+
+.foo {
+  @include u-bg('red-50');
+  background-color: color('red-50');
+  background-color: advanced-color('red', 50, 'vivid');
+}

@@ -1444,6 +1444,9 @@ $color-white-transparent-80:  get-system-color('white-transparent', 80);
 $color-white-transparent-90:  get-system-color('white-transparent', 90);
 
 $system-color-shortcodes: (
+  'transparent':          transparent,
+  'black':                black,
+  'white':                white,
   'red-5':                $color-red-5,
   'red-10':               $color-red-10,
   'red-20':               $color-red-20,
