@@ -10,7 +10,11 @@ body {
 %usa-paragraph {
   line-height: $base-line-height;
   margin-bottom: 0;
-  margin-top: 1em;
+  margin-top: 0;
+
+  * + & {
+    margin-top: 1em;
+  }
 
   + * {
     margin-top: 1em;
