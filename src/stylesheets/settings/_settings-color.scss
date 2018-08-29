@@ -18,57 +18,67 @@ Theme palette colors
 */
 
 // Base colors
-$theme-color-base-family:          'gray' !default;
-$theme-color-base-lightest:        $theme-color-base-family, 2 !default;
-$theme-color-base-lighter:         $theme-color-base-family, 5 !default;
-$theme-color-base-light:           $theme-color-base-family, 10 !default;
-$theme-color-base:                 $theme-color-base-family, 30 !default;
-$theme-color-base-dark:            $theme-color-base-family, 50 !default;
-$theme-color-base-darker:          $theme-color-base-family, 70 !default;
-$theme-color-base-darkest:         $theme-color-base-family, 90 !default;
-$theme-color-ink:                  $theme-color-base-darkest !default;
+$theme-color-base-family: 'gray' !default;
+$theme-color-base: (
+  'lightest':   $theme-color-base-family, 2,
+  'lighter':    $theme-color-base-family, 5,
+  'light':      $theme-color-base-family, 10,
+  'default':    $theme-color-base-family, 30,
+  'dark':       $theme-color-base-family, 50,
+  'darker':     $theme-color-base-family, 70,
+  'darkest':    $theme-color-base-family, 90,
+  'ink':        $theme-color-base-darkest,
+) !default;
 
 // Primary colors
-$theme-color-primary-family:       'blue' !default;
-$theme-color-primary-lightest:     false !default;
-$theme-color-primary-lighter:      $theme-color-primary-family, 10 !default;
-$theme-color-primary-light:        $theme-color-primary-family, 30 !default;
-$theme-color-primary:              $theme-color-primary-family, 60, vivid !default;
-$theme-color-primary-vivid:        'blue-warm', 60, vivid !default;
-$theme-color-primary-dark:         'blue-warm', 70, vivid !default;
-$theme-color-primary-darker:       'blue-warm', 80, vivid !default;
-$theme-color-primary-darkest:      false !default;
+$theme-color-primary-family: 'blue' !default;
+$theme-color-primary: (
+  'lightest':   false,
+  'lighter':    $theme-color-primary-family, 10,
+  'light':      $theme-color-primary-family, 30,
+  'default':    $theme-color-primary-family, 60, 'vivid'
+  'vivid':      'blue-warm', 60, 'vivid',
+  'dark':       'blue-warm', 70, 'vivid',
+  'darker':     'blue-warm', 80, 'vivid',
+  'darkest':    false,
+) !default;
 
 // Secondary colors
-$theme-color-secondary-family:     'red' !default;
-$theme-color-secondary-lightest:   false !default;
-$theme-color-secondary-lighter:    $theme-color-secondary-family, 10 !default;
-$theme-color-secondary-light:      $theme-color-secondary-family, 30 !default;
-$theme-color-secondary:            $theme-color-secondary-family, 50 !default;
-$theme-color-secondary-vivid:      $theme-color-secondary-family, 50, vivid !default;
-$theme-color-secondary-dark:       $theme-color-secondary-family, 60, vivid !default;
-$theme-color-secondary-darker:     $theme-color-secondary-family, 70, vivid !default;
-$theme-color-secondary-darkest:    false !default;
+$theme-color-secondary-family: 'red' !default;
+$theme-color-secondary: (
+  'lightest':   false,
+  'lighter':    $theme-color-secondary-family, 10,
+  'light':      $theme-color-secondary-family, 30,
+  'default':    $theme-color-secondary-family, 50,
+  'vivid':      $theme-color-secondary-family, 50, 'vivid',
+  'dark':       $theme-color-secondary-family, 60, 'vivid',
+  'darker':     $theme-color-secondary-family, 70, 'vivid',
+  'darkest':    false,
+) !default;
 
 // Accent warm colors
-$theme-color-accent-warm-family:   'orange' !default;
-$theme-color-accent-warm-lightest: false !default;
-$theme-color-accent-warm-lighter:  $theme-color-accent-warm-family, 10 !default;
-$theme-color-accent-warm-light:    $theme-color-accent-warm-family, 20, vivid !default;
-$theme-color-accent-warm:          $theme-color-accent-warm-family, 30, vivid !default;
-$theme-color-accent-warm-dark:     $theme-color-accent-warm-family, 50, vivid !default;
-$theme-color-accent-warm-darker:   $theme-color-accent-warm-family, 60 !default;
-$theme-color-accent-warm-darkest:  false !default;
+$theme-color-accent-warm-family: 'orange' !default;
+$theme-color-accent-warm: (
+  'lightest':   false,
+  'lighter':    $theme-color-accent-warm-family, 10,
+  'light':      $theme-color-accent-warm-family, 20, 'vivid',
+  'default':    $theme-color-accent-warm-family, 30, 'vivid',
+  'dark':       $theme-color-accent-warm-family, 50, 'vivid',
+  'darker':     $theme-color-accent-warm-family, 60,
+  'darkest':    false,
+) !default;
 
 // Accent cool colors
-$theme-color-accent-cool-family:   'cyan' !default;
-$theme-color-accent-cool-lightest: false !default;
-$theme-color-accent-cool-lighter:  $theme-color-accent-cool-family, 5 !default;
-$theme-color-accent-cool-light:    $theme-color-accent-cool-family, 20 !default;
-$theme-color-accent-cool:          $theme-color-accent-cool-family, 30, vivid !default;
-$theme-color-accent-cool-dark:     $theme-color-accent-cool-family, 40, vivid !default;
-$theme-color-accent-cool-darker:   'blue', 60 !default;
-$theme-color-accent-cool-darkest:  false !default;
+$theme-color-accent-cool-family: 'cyan' !default;
+$theme-color-accent-cool: (
+  'lightest':   false,
+  'lighter':    $theme-color-accent-cool-family, 5,
+  'light':      $theme-color-accent-cool-family, 20,
+  'default':    $theme-color-accent-cool-family, 30, 'vivid',
+  'dark':       $theme-color-accent-cool-family, 40, 'vivid',
+  'darker':     'blue', 60,
+  'darkest':    false,
+) !default;
 
 /*
 ----------------------------------------
@@ -77,29 +87,35 @@ State palette colors
 */
 
 // Error colors
-$theme-color-error-family:     'red' !default;
-$theme-color-error-lighter:    $theme-color-error-family, 30, vivid !default;
-$theme-color-error-light:      $theme-color-error-family, 40, vivid !default;
-$theme-color-error:            $theme-color-error-family, 50, vivid !default;
-$theme-color-error-dark:       $theme-color-error-family, 60 !default;
-$theme-color-error-darker:     $theme-color-error-family, 70 !default;
+$theme-color-error-family: 'red' !default;
+$theme-color-error: (
+  'lighter':    $theme-color-error-family, 30, 'vivid',
+  'light':      $theme-color-error-family, 40, 'vivid',
+  'default':    $theme-color-error-family, 50, 'vivid',
+  'dark':       $theme-color-error-family, 60,
+  'darker':     $theme-color-error-family, 70,
+) !default;
 
 // Warning colors
-$theme-color-warn-family:      'orange' !default;
-$theme-color-warn-lighter:     $theme-color-warn-family, 10 !default;
-$theme-color-warn-light:       $theme-color-warn-family, 20, vivid !default;
-$theme-color-warn:             $theme-color-warn-family, 30, vivid !default;
-$theme-color-warn-dark:        $theme-color-warn-family, 40 !default;
-$theme-color-warn-darker:      $theme-color-warn-family, 50 !default;
+$theme-color-warn-family: 'orange' !default;
+$theme-color-warn: (
+  'lighter':     $theme-color-warn-family, 10,
+  'light':       $theme-color-warn-family, 20, 'vivid',
+  'default':     $theme-color-warn-family, 30, 'vivid',
+  'dark':        $theme-color-warn-family, 40,
+  'darker':      $theme-color-warn-family, 50,
+) !default;
 
 // Success colors
-$theme-color-success-family:   'green-cool' !default;
-$theme-color-success-lighter:  $theme-color-success-family, 20, vivid !default;
-$theme-color-success-light:    $theme-color-success-family, 30, vivid !default;
-$theme-color-success:          $theme-color-success-family, 40, vivid !default;
-$theme-color-success-dark:     $theme-color-success-family, 50 !default;
-$theme-color-success-darker:   $theme-color-success-family, 70 !default;
+$theme-color-success-family: 'green-cool' !default;
+$theme-color-success: (
+  'lighter':    $theme-color-success-family, 20, 'vivid',
+  'light':      $theme-color-success-family, 30, 'vivid',
+  'default':    $theme-color-success-family, 40, 'vivid',
+  'dark':       $theme-color-success-family, 50,
+  'darker':     $theme-color-success-family, 70,
+) !default;
 
 // Disabled color
-$theme-color-disabled-family:  'gray' !default;
-$theme-color-disabled:         $theme-color-disabled-family, 30 !default;
+$theme-color-disabled-family: 'gray' !default;
+$theme-color-disabled:        $theme-color-disabled-family, 30 !default;
