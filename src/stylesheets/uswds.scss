@@ -2,7 +2,7 @@
 
 /*
 ========================================
-uswds
+uswds.scss
 ----------------------------------------
 Output all USWDS
 - fonts
@@ -12,8 +12,11 @@ Output all USWDS
 */
 
 // Settings
-@import 'core/settings';
-@import 'utilities/utilities-settings';
+@import 'settings/settings-general';
+@import 'settings/settings-typography';
+@import 'settings/settings-color';
+@import 'settings/settings-spacing';
+@import 'settings/settings-utilities';
 
 // Tools
 @import 'lib/bourbon';

@@ -11,14 +11,36 @@ USWDS UTILITIES SETTINGS
 ----------------------------------------
 */
 
-$utilities-use-important:     false;
-$output-all-utilities:        true;
+$utilities-use-important:     false !default;
+$output-all-utilities:        true !default;
+
+/*
+----------------------------------------
+Utility breakpoints
+----------------------------------------
+Which breakpoints does your project
+need? Select as `true` any breakpoint
+used by utilities or layout grid
+----------------------------------------
+*/
+
+$theme-utility-breakpoints: (
+  'card':             false,   // 160px
+  'card-lg':          false,   // 240px
+  'mobile':           false,   // 320px
+  'mobile-lg':        true,    // 480px
+  'tablet':           true,    // 640px
+  'tablet-lg':        false,   // 800px
+  'desktop':          true,    // 1024px
+  'desktop-lg':       false,   // 1200px
+  'widescreen':       false,   // 1400px
+) !default;
 
 /*
 ----------------------------------------
 Global colors
 ----------------------------------------
-The following plugins will be added to
+The following palettes will be added to
 - background-color
 - border-color
 - color
@@ -30,7 +52,7 @@ $global-color-palettes: (
   'palette-colors-theme',
   'palette-colors-basic',
   'palette-colors-grayscale'
-);
+) !default;
 
 /*
 ----------------------------------------
@@ -45,7 +67,7 @@ $add-aspect-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $add-list-reset-settings: (
   output:       true,
@@ -54,7 +76,7 @@ $add-list-reset-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $align-items-settings: (
   output:       true,
@@ -63,7 +85,7 @@ $align-items-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $background-color-settings: (
   output:       true,
@@ -72,7 +94,7 @@ $background-color-settings: (
   focus:        false,
   hover:        true,
   visited:      false
-);
+) !default;
 
 $border-settings: (
   output:       true,
@@ -81,7 +103,7 @@ $border-settings: (
   focus:        false,
   hover:        true,
   visited:      false
-);
+) !default;
 
 $border-color-settings: (
   output:       true,
@@ -90,7 +112,7 @@ $border-color-settings: (
   focus:        false,
   hover:        true,
   visited:      false
-);
+) !default;
 
 $border-radius-settings: (
   output:       true,
@@ -99,7 +121,7 @@ $border-radius-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $border-style-settings: (
   output:       true,
@@ -108,7 +130,7 @@ $border-style-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $border-width-settings: (
   output:       true,
@@ -117,7 +139,7 @@ $border-width-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $bottom-settings: (
   output:       true,
@@ -126,7 +148,7 @@ $bottom-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $box-shadow-settings: (
   output:       true,
@@ -135,7 +157,7 @@ $box-shadow-settings: (
   focus:        false,
   hover:        true,
   visited:      false
-);
+) !default;
 
 $circle-settings: (
   output:       true,
@@ -144,7 +166,7 @@ $circle-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $clearfix-settings: (
   output:       true,
@@ -153,7 +175,7 @@ $clearfix-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $color-settings: (
   output:       true,
@@ -162,7 +184,7 @@ $color-settings: (
   focus:        false,
   hover:        true,
   visited:      false
-);
+) !default;
 
 $cursor-settings: (
   output:       true,
@@ -171,7 +193,7 @@ $cursor-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $display-settings: (
   output:       true,
@@ -180,7 +202,7 @@ $display-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $flex-settings: (
   output:       true,
@@ -189,7 +211,7 @@ $flex-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $flex-direction-settings: (
   output:       true,
@@ -198,7 +220,7 @@ $flex-direction-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $flex-wrap-settings: (
   output:       true,
@@ -207,7 +229,7 @@ $flex-wrap-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $float-settings: (
   output:       true,
@@ -216,7 +238,7 @@ $float-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $font-settings: (
   output:       true,
@@ -225,7 +247,7 @@ $font-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $font-family-settings: (
   output:       true,
@@ -234,7 +256,7 @@ $font-family-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $font-feature-settings: (
   output:       true,
@@ -243,7 +265,7 @@ $font-feature-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $font-style-settings: (
   output:       true,
@@ -252,7 +274,7 @@ $font-style-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $font-weight-settings: (
   output:       true,
@@ -261,7 +283,7 @@ $font-weight-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $height-settings: (
   output:       true,
@@ -270,7 +292,7 @@ $height-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $justify-content-settings: (
   output:       true,
@@ -279,7 +301,7 @@ $justify-content-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $left-settings: (
   output:       true,
@@ -288,7 +310,7 @@ $left-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $letter-spacing-settings: (
   output:       true,
@@ -297,7 +319,7 @@ $letter-spacing-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $line-height-settings: (
   output:       true,
@@ -306,7 +328,7 @@ $line-height-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $margin-settings: (
   output:       true,
@@ -315,7 +337,7 @@ $margin-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $max-height-settings: (
   output:       true,
@@ -324,7 +346,7 @@ $max-height-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $max-width-settings: (
   output:       true,
@@ -333,7 +355,7 @@ $max-width-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $measure-settings: (
   output:       true,
@@ -342,7 +364,7 @@ $measure-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $min-height-settings: (
   output:       true,
@@ -351,7 +373,7 @@ $min-height-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $min-width-settings: (
   output:       true,
@@ -360,7 +382,7 @@ $min-width-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $opacity-settings: (
   output:       true,
@@ -369,7 +391,7 @@ $opacity-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $order-settings: (
   output:       true,
@@ -378,7 +400,7 @@ $order-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $outline-settings: (
   output:       true,
@@ -387,7 +409,7 @@ $outline-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $outline-color-settings: (
   output:       true,
@@ -396,7 +418,7 @@ $outline-color-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $overflow-settings: (
   output:       true,
@@ -405,7 +427,7 @@ $overflow-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $padding-settings: (
   output:       true,
@@ -414,7 +436,7 @@ $padding-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $pin-settings: (
   output:       true,
@@ -423,7 +445,7 @@ $pin-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $position-settings: (
   output:       true,
@@ -432,7 +454,7 @@ $position-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $right-settings: (
   output:       true,
@@ -441,7 +463,7 @@ $right-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $square-settings: (
   output:       true,
@@ -450,7 +472,7 @@ $square-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $text-align-settings: (
   output:       true,
@@ -459,7 +481,7 @@ $text-align-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $text-decoration-settings: (
   output:       true,
@@ -468,7 +490,7 @@ $text-decoration-settings: (
   focus:        false,
   hover:        true,
   visited:      false
-);
+) !default;
 
 $text-decoration-color-settings: (
   output:       true,
@@ -477,7 +499,7 @@ $text-decoration-color-settings: (
   focus:        false,
   hover:        true,
   visited:      false
-);
+) !default;
 
 $text-indent-settings: (
   output:       true,
@@ -486,7 +508,7 @@ $text-indent-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $text-transform-settings: (
   output:       true,
@@ -495,7 +517,7 @@ $text-transform-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $top-settings: (
   output:       true,
@@ -504,7 +526,7 @@ $top-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $vertical-align-settings: (
   output:       true,
@@ -513,7 +535,7 @@ $vertical-align-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $whitespace-settings: (
   output:       true,
@@ -522,7 +544,7 @@ $whitespace-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $width-settings: (
   output:       true,
@@ -531,7 +553,7 @@ $width-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 $z-index-settings: (
   output:       true,
@@ -540,7 +562,7 @@ $z-index-settings: (
   focus:        false,
   hover:        false,
   visited:      false
-);
+) !default;
 
 /*
 ----------------------------------------
@@ -550,274 +572,278 @@ Values
 
 // .add-aspect
 
-$add-aspect-palettes: ();
-$add-aspect-manual-values: ();
+$add-aspect-palettes: () !default;
+$add-aspect-manual-values: () !default;
 
 // .align-items
 
-$align-items-palettes: ('palette-standard-align-items');
-$align-items-manual-values: ();
+$align-items-palettes: ('palette-standard-align-items') !default;
+$align-items-manual-values: () !default;
 
 // .background-color
 
-$background-color-palettes: ();
-$background-color-manual-values: ();
+$background-color-palettes: () !default;
+$background-color-manual-values: () !default;
 
 // .border
 
-$border-palettes: ('palette-standard-border');
-$border-manual-values: ();
+$border-palettes: ('palette-standard-border') !default;
+$border-manual-values: () !default;
 
 // .border-color
 
-$border-color-palettes: ();
-$border-color-manual-values: ();
+$border-color-palettes: () !default;
+$border-color-manual-values: () !default;
 
 // .border-radius
 
-$border-radius-palettes: ('palette-standard-border-radius');
-$border-radius-manual-values: ();
+$border-radius-palettes: ('palette-standard-border-radius') !default;
+$border-radius-manual-values: () !default;
 
 // .border-style
 
-$border-style-palettes: ('palette-standard-border-style');
-$border-style-manual-values: ();
+$border-style-palettes: ('palette-standard-border-style') !default;
+$border-style-manual-values: () !default;
 
 // .border-width
 
-$border-width-palettes: ('palette-standard-border-width');
-$border-width-manual-values: ();
+$border-width-palettes: ('palette-standard-border-width') !default;
+$border-width-manual-values: () !default;
 
 // .bottom
 
-$bottom-palettes: ('palette-standard-bottom');
+$bottom-palettes: ('palette-standard-bottom') !default;
 
-$bottom-manual-values: ();
+$bottom-manual-values: () !default;
 
 // .box-shadow
 
-$box-shadow-palettes: ('palette-standard-box-shadow');
+$box-shadow-palettes: (
+  /*
+  */
+  'palette-standard-box-shadow'
+) !default;
 
-$box-shadow-manual-values: ();
+$box-shadow-manual-values: () !default;
 
 // .circle
 
-$circle-palettes: ('palette-standard-circle');
-$circle-manual-values: ();
+$circle-palettes: ('palette-standard-circle') !default;
+$circle-manual-values: () !default;
 
 // .color
 
-$color-palettes: ();
-$color-manual-values: ();
+$color-palettes: () !default;
+$color-manual-values: () !default;
 
 // .cursor
 
-$cursor-palettes: ('palette-standard-cursor');
-$cursor-manual-values: ();
+$cursor-palettes: ('palette-standard-cursor') !default;
+$cursor-manual-values: () !default;
 
 // .display
 
-$display-palettes: ('palette-standard-display');
-$display-manual-values: ();
+$display-palettes: ('palette-standard-display') !default;
+$display-manual-values: () !default;
 
 // .flex
 
-$flex-palettes: ('palette-standard-flex');
-$flex-manual-values: ();
+$flex-palettes: ('palette-standard-flex') !default;
+$flex-manual-values: () !default;
 
 // .flex-direction
 
-$flex-direction-palettes: ('palette-standard-flex-direction');
-$flex-direction-manual-values: ();
+$flex-direction-palettes: ('palette-standard-flex-direction') !default;
+$flex-direction-manual-values: () !default;
 
 // .flex-wrap
 
-$flex-wrap-palettes: ('palette-standard-flex-wrap');
-$flex-wrap-manual-values: ();
+$flex-wrap-palettes: ('palette-standard-flex-wrap') !default;
+$flex-wrap-manual-values: () !default;
 
 // .float
 
-$float-palettes: ('palette-standard-float');
-$float-manual-values: ();
+$float-palettes: ('palette-standard-float') !default;
+$float-manual-values: () !default;
 
 // .font
 
 $font-palettes: (
   'palette-font-theme-all',
   'palette-font-theme-roles-all'
-);
-$font-manual-values: ();
+) !default;
+$font-manual-values: () !default;
 
 // .font-family
 
-$font-family-palettes: ('palette-standard-font-family');
-$font-family-manual-values: ();
+$font-family-palettes: ('palette-standard-font-family') !default;
+$font-family-manual-values: () !default;
 
 // .font-feature-settings
 
-$font-feature-palettes: ('palette-standard-font-feature-settings');
-$font-feature-manual-values: ();
+$font-feature-palettes: ('palette-standard-font-feature-settings') !default;
+$font-feature-manual-values: () !default;
 
 // .font-style
 
-$font-style-palettes: ('palette-standard-font-style');
-$font-style-manual-values: ();
+$font-style-palettes: ('palette-standard-font-style') !default;
+$font-style-manual-values: () !default;
 
 // .font-weight
 
-$font-weight-palettes: ('palette-standard-font-weight');
-$font-weight-manual-values: ();
+$font-weight-palettes: ('palette-standard-font-weight') !default;
+$font-weight-manual-values: () !default;
 
 // .height
 
-$height-palettes: ('palette-standard-height');
-$height-manual-values: ();
+$height-palettes: ('palette-standard-height') !default;
+$height-manual-values: () !default;
 
 // .justify-content
 
-$justify-content-palettes: ('palette-standard-justify-content');
-$justify-content-manual-values: ();
+$justify-content-palettes: ('palette-standard-justify-content') !default;
+$justify-content-manual-values: () !default;
 
 // .left
 
-$left-palettes: ('palette-standard-left');
-$left-manual-values: ();
+$left-palettes: ('palette-standard-left') !default;
+$left-manual-values: () !default;
 
 // .letter-spacing
 
-$letter-spacing-palettes: ('palette-standard-letter-spacing');
-$letter-spacing-manual-values: ();
+$letter-spacing-palettes: ('palette-standard-letter-spacing') !default;
+$letter-spacing-manual-values: () !default;
 
 // .line-height
 
-$line-height-palettes: ('palette-standard-line-height');
-$line-height-manual-values: ();
+$line-height-palettes: ('palette-standard-line-height') !default;
+$line-height-manual-values: () !default;
 
 // .margin
 
-$margin-palettes: ('palette-standard-margin');
-$margin-manual-values: ();
-$margin-vertical-palettes: ('palette-standard-margin-vertical');
-$margin-vertical-manual-values: ();
-$margin-horizontal-palettes: ('palette-standard-margin-horizontal');
-$margin-horizontal-manual-values: ();
+$margin-palettes: ('palette-standard-margin') !default;
+$margin-manual-values: () !default;
+$margin-vertical-palettes: ('palette-standard-margin-vertical') !default;
+$margin-vertical-manual-values: () !default;
+$margin-horizontal-palettes: ('palette-standard-margin-horizontal') !default;
+$margin-horizontal-manual-values: () !default;
 
 // .max-height
 
-$max-height-palettes: ('palette-standard-max-height');
-$max-height-manual-values: ();
+$max-height-palettes: ('palette-standard-max-height') !default;
+$max-height-manual-values: () !default;
 
 // .max-width
 
-$max-width-palettes: ('palette-standard-max-width');
-$max-width-manual-values: ();
+$max-width-palettes: ('palette-standard-max-width') !default;
+$max-width-manual-values: () !default;
 
 // .measure
 
-$measure-palettes: ('palette-standard-measure');
-$measure-manual-values: ();
+$measure-palettes: ('palette-standard-measure') !default;
+$measure-manual-values: () !default;
 
 // .min-height
 
-$min-height-palettes: ('palette-standard-min-height');
-$min-height-manual-values: ();
+$min-height-palettes: ('palette-standard-min-height') !default;
+$min-height-manual-values: () !default;
 
 // .min-width
 
-$min-width-palettes: ('palette-standard-min-width');
-$min-width-manual-values: ();
+$min-width-palettes: ('palette-standard-min-width') !default;
+$min-width-manual-values: () !default;
 
 // .opacity
 
-$opacity-palettes: ('palette-standard-opacity');
-$opacity-manual-values: ();
+$opacity-palettes: ('palette-standard-opacity') !default;
+$opacity-manual-values: () !default;
 
 // .order
 
-$order-palettes: ('palette-standard-order');
-$order-manual-values: ();
+$order-palettes: ('palette-standard-order') !default;
+$order-manual-values: () !default;
 
 // .outline
 
-$outline-palettes: ('palette-standard-outline');
-$outline-manual-values: ();
+$outline-palettes: ('palette-standard-outline') !default;
+$outline-manual-values: () !default;
 
 // .outline-color
 
-$outline-color-palettes: ('palette-standard-outline-color');
-$outline-color-manual-values: ();
+$outline-color-palettes: ('palette-standard-outline-color') !default;
+$outline-color-manual-values: () !default;
 
 // .overflow
 
-$overflow-palettes: ('palette-standard-overflow');
-$overflow-manual-values: ();
+$overflow-palettes: ('palette-standard-overflow') !default;
+$overflow-manual-values: () !default;
 
 // .padding
 
-$padding-palettes: ('palette-standard-padding');
-$padding-manual-values: ();
+$padding-palettes: ('palette-standard-padding') !default;
+$padding-manual-values: () !default;
 
 // .position
 
-$position-palettes: ('palette-standard-position');
-$position-manual-values: ();
+$position-palettes: ('palette-standard-position') !default;
+$position-manual-values: () !default;
 
 // .right
 
-$right-palettes: ('palette-standard-right');
-$right-manual-values: ();
+$right-palettes: ('palette-standard-right') !default;
+$right-manual-values: () !default;
 
 // .square
 
-$square-palettes: ('palette-standard-square');
-$square-manual-values: ();
+$square-palettes: ('palette-standard-square') !default;
+$square-manual-values: () !default;
 
 // .text-align
 
-$text-align-palettes: ('palette-standard-text-align');
-$text-align-manual-values: ();
+$text-align-palettes: ('palette-standard-text-align') !default;
+$text-align-manual-values: () !default;
 
 // .text-decoration
 
-$text-decoration-palettes: ('palette-standard-text-decoration');
-$text-decoration-manual-values: ();
+$text-decoration-palettes: ('palette-standard-text-decoration') !default;
+$text-decoration-manual-values: () !default;
 
 // .text-decoration-color
 
-$text-decoration-color-palettes: ();
-$text-decoration-color-manual-values: ();
+$text-decoration-color-palettes: () !default;
+$text-decoration-color-manual-values: () !default;
 
 // .text-indent
 
-$text-indent-palettes: ('palette-standard-text-indent');
-$text-indent-manual-values: ();
+$text-indent-palettes: ('palette-standard-text-indent') !default;
+$text-indent-manual-values: () !default;
 
 // .text-transform
 
-$text-transform-palettes: ('palette-standard-text-transform');
-$text-transform-manual-values: ();
+$text-transform-palettes: ('palette-standard-text-transform') !default;
+$text-transform-manual-values: () !default;
 
 // .top
 
-$top-palettes: ('palette-standard-top');
-$top-manual-values: ();
+$top-palettes: ('palette-standard-top') !default;
+$top-manual-values: () !default;
 
 // .vertical-align
 
-$vertical-align-palettes: ('palette-standard-vertical-align');
-$vertical-align-manual-values: ();
+$vertical-align-palettes: ('palette-standard-vertical-align') !default;
+$vertical-align-manual-values: () !default;
 
 // .white-space
 
-$whitespace-palettes: ('palette-standard-white-space');
-$whitespace-manual-values: ();
+$whitespace-palettes: ('palette-standard-white-space') !default;
+$whitespace-manual-values: () !default;
 
 // .width
 
-$width-palettes: ('palette-standard-width');
-$width-manual-values: ();
+$width-palettes: ('palette-standard-width') !default;
+$width-manual-values: () !default;
 
 // .z-index
 
-$z-index-palettes: ('palette-standard-z-index');
-$z-index-manual-values: ();
+$z-index-palettes: ('palette-standard-z-index') !default;
+$z-index-manual-values: () !default;

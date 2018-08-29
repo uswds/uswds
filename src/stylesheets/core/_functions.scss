@@ -1144,7 +1144,7 @@ loop
     $mq: unquote($media-key);
     $media-value-px: rem-to-px($media-value);
 
-    @if map-get($theme-output-breakpoints, $media-key) {
+    @if map-get($theme-utility-breakpoints, $media-key) {
       @media screen and (min-width: #{$media-value-px}) {
         .#{$mq}\:#{ns($this-type)}#{$selector} {
           @if $value-is-map and map-has-key($val-props, extend) {

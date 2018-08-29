@@ -18,7 +18,7 @@ $namespace-grid: ns('grid');
 
 // responsive containers...
 @each $mq-key, $mq-value in $system-breakpoints {
-  @if map-get($theme-output-breakpoints, $mq-key) {
+  @if map-get($theme-utility-breakpoints, $mq-key) {
     @include at-media($mq-key) {
       .#{$mq-key}\:#{$namespace-grid}container {
         $props: append-important($grid-global, desktop);
@@ -54,7 +54,7 @@ $namespace-grid: ns('grid');
 
 // responsive column gaps
   @each $mq-key, $mq-value in $system-breakpoints {
-    @if map-get($theme-output-breakpoints, $mq-key) {
+    @if map-get($theme-utility-breakpoints, $mq-key) {
       @include at-media($mq-key) {
         &.#{$mq-key}\:#{$namespace-grid}gap {
           @include grid-gap;
@@ -105,7 +105,7 @@ $namespace-grid: ns('grid');
 
 // responsive columns
 @each $mq-key, $mq-value in $system-breakpoints {
-  @if map-get($theme-output-breakpoints, $mq-key) {
+  @if map-get($theme-utility-breakpoints, $mq-key) {
     @include at-media($mq-key) {
       .#{$mq-key}\:#{$namespace-grid}col {
         $props: append-important($grid-global, fill);
@@ -144,7 +144,7 @@ $namespace-grid: ns('grid');
 
 // responsive offsets
 @each $mq-key, $mq-value in $system-breakpoints {
-  @if map-get($theme-output-breakpoints, $mq-key) {
+  @if map-get($theme-utility-breakpoints, $mq-key) {
     @each $width-key, $width-value in $system-layout-grid-widths {
       @include at-media($mq-key) {
         .#{$mq-key}\:#{$namespace-grid}offset-#{$width-key} {
