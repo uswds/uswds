@@ -7,7 +7,8 @@ var packCSS = require('css-mqpacker');
 var autoprefixer = require('autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
-var linter = require('@18f/stylelint-rules');
+var gulpStylelint = require('gulp-stylelint');
+const { formatters } = require('stylelint');
 var pkg = require('../../package.json');
 var path = require('path');
 var filter = require('gulp-filter');
@@ -17,16 +18,40 @@ var stripCssComments = require('gulp-strip-css-comments');
 var del = require('del');
 var task = 'sass';
 var autoprefixerOptions = require('./browsers');
+var path = require('path');
 
 var entryFileFilter = filter('uswds.scss', { restore: true });
 var normalizeCssFilter = filter('normalize.css', { restore: true });
 
-gulp.task('stylelint',
-  linter('./src/stylesheets/{,core/,components/,elements/,utilities/,packages/,project/}*.scss',
-  {
-    ignore: './src/stylesheets/lib/**/*.scss'
-  })
-);
+const IGNORE_STRING = 'This file is ignored';
+const ignoreStylelintIgnoreWarnings = lintResults =>
+  formatters.string(
+    lintResults.reduce((memo, result) => {
+      const { warnings } = result;
+      const fileIsIgnored = warnings.some((warning) => {
+        return RegExp(IGNORE_STRING, 'i').test(warning.text);
+      });
+
+      if (!fileIsIgnored) {
+        memo.push(result);
+      }
+
+      return memo;
+    }, [])
+  );
+
+gulp.task('stylelint', () => {
+  return gulp
+    .src('./src/stylesheets/**/*.scss')
+    .pipe(gulpStylelint({
+      failAfterError: true,
+      reporters: [{
+        formatter: ignoreStylelintIgnoreWarnings, console: true,
+      }],
+      syntax: 'scss',
+    }))
+    .on('error', dutil.logError);
+});
 
 gulp.task('copy-vendor-sass', function () {
 
@@ -62,23 +87,22 @@ gulp.task(task, [ 'copy-vendor-sass' ], function () {
   var plugins = [
     autoprefixer(autoprefixerOptions),
     packCSS({ sort: true }),
-    cssnano()
+    cssnano(({ autoprefixer: { browsers: autoprefixerOptions }}))
   ];
 
   var stream = gulp.src('src/stylesheets/*.scss')
-    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(replace(
+      /\buswds @version\b/g,
+      'uswds v' + pkg.version
+    ))
+    .pipe(sourcemaps.init({ largeFile: true }))
     .pipe(
       sass({
         outputStyle: 'expanded',
       })
         .on('error', sass.logError)
     )
-    .pipe(stripCssComments())
     .pipe(postcss(plugins))
-    .pipe(replace(
-      /\buswds @version\b/g,
-      'uswds v' + pkg.version
-    ))
     .pipe(gulp.dest('dist/css'))
     .pipe(rename({
       suffix: '.min',

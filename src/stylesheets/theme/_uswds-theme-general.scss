@@ -43,6 +43,8 @@ Border box sizing
 When set to true, it sets the box-sizing
 property of all elements to
 `border-box`.
+
+TODO: How are we using this?
 ----------------------------------------
 */
 
@@ -76,7 +78,7 @@ $theme-output-breakpoints: (
   'mobile-lg':        true,    // 480px
   'tablet':           true,    // 640px
   'tablet-lg':        false,   // 800px
-  'desktop':          true,    // 1040px
+  'desktop':          true,    // 1024px
   'desktop-lg':       false,   // 1200px
   'widescreen':       false,   // 1400px
 );

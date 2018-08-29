@@ -1,39 +1,39 @@
 $palette-green-light: (
-  'green-5':  $green-5,
-  'green-10': $green-10,
-  'green-20': $green-20,
-  'green-30': $green-30,
+  'green-5':  $color-green-5,
+  'green-10': $color-green-10,
+  'green-20': $color-green-20,
+  'green-30': $color-green-30,
 );
 
 $palette-green-medium: (
-  'green-40': $green-40,
-  'green-50': $green-50,
-  'green-60': $green-60,
+  'green-40': $color-green-40,
+  'green-50': $color-green-50,
+  'green-60': $color-green-60,
 );
 
 $palette-green-dark: (
-  'green-70': $green-70,
-  'green-80': $green-80,
-  'green-90': $green-90,
+  'green-70': $color-green-70,
+  'green-80': $color-green-80,
+  'green-90': $color-green-90,
 );
 
 $palette-green-light-vivid: (
-  'green-5v':  $green-5v,
-  'green-10v': $green-10v,
-  'green-20v': $green-20v,
-  'green-30v': $green-30v,
+  'green-5v':  $color-green-5v,
+  'green-10v': $color-green-10v,
+  'green-20v': $color-green-20v,
+  'green-30v': $color-green-30v,
 );
 
 $palette-green-medium-vivid: (
-  'green-40v': $green-40v,
-  'green-50v': $green-50v,
-  'green-60v': $green-60v,
+  'green-40v': $color-green-40v,
+  'green-50v': $color-green-50v,
+  'green-60v': $color-green-60v,
 );
 
 $palette-green-dark-vivid: (
-  'green-70v': $green-70v,
-  'green-80v': $green-80v,
-  'green-90v': $green-90v,
+  'green-70v': $color-green-70v,
+  'green-80v': $color-green-80v,
+  'green-90v': $color-green-90v,
 );
 
 $palette-green-standard: map-collect(

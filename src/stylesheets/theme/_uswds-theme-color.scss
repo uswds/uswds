@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS THEME SPACING SETTINGS
+USWDS THEME COLOR SETTINGS
 ----------------------------------------
 */
 
@@ -45,33 +45,33 @@ Column gap
 2           16px
 3           24px
 4           32px
-5           48px
+5           40px
+6           48px
 ----------------------------------------
 */
 
-$theme-column-gap-small: 2px;
-$theme-column-gap:       2;
-$theme-column-gap-large: 3;
+$theme-column-gap-sm: 2px;
+//TODO: should this be -md?
+$theme-column-gap:    2;
+$theme-column-gap-lg: 3;
 
 /*
 ----------------------------------------
 Grid container max-width
 ----------------------------------------
-'mobile'
-'mobile-lg'
-'tablet'
-'tablet-lg'
-'desktop'
-'desktop-lg'
-'widescreen'
+mobile
+mobile-lg
+tablet
+tablet-lg
+desktop
+desktop-lg
+widescreen
 ----------------------------------------
 */
 
 $theme-grid-container-max-width: 'desktop';
 
 /*
-----------------------------------------
-New stuff from variables
 ----------------------------------------
 Type scale tokens
 ----------------------------------------

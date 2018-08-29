@@ -7,20 +7,13 @@
   }
   @each $this-value in $value {
     $match: false;
-    @if $value == false {
-      @error "You've added an outline color that does not exist or is set to false.";
-    }
-    @elseif type-of($this-value) == 'color' {
+    @if map-has-key($all-color-shortcodes, smart-quote($this-value)) {
       $match: true;
-      outline-color: $this-value#{$important};
+      outline-color: get-shortcode-color(smart-quote($this-value)) #{$important};
     }
-    @elseif map-has-key($uswds-required-colors, $this-value) {
-      $match: true;
-      outline-color: color($this-value)#{$important};
-    }
-    @elseif type-of($this-value) == 'number' {
+    @else if type-of($this-value) == 'number' {
       $converted-value: number-to-value($this-value);
-      $widths: map-deep-get($uswds-properties, outline, standard);
+      $widths: map-deep-get($system-properties, outline, standard);
       @if map-has-key($widths, $converted-value) {
         $match: true;
         $final-value: map-get($widths, $converted-value);
@@ -28,11 +21,11 @@
         outline-style: solid#{$important};
       }
       @else {
-        @error "#{$this-value} is not a valid outline width. Accepted values: #{map-keys($widths)}";
+        @error '#{$this-value} is not a valid outline width. Accepted values: #{map-keys($widths)}';
       }
     }
     @if not $match {
-      @error "`#{$this-value}` is not a valid outline value.";
+      @error '`#{$this-value}` is not a valid outline value.';
     }
   }
 }

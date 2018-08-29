@@ -23,27 +23,27 @@ $utility-pin-options: 'all', 'x', 'y', 'top', 'bottom', 'left', 'right', 'none';
       right: 0#{$important};
       top: 0#{$important};
     }
-    @elseif $option == 'x' {
+    @else if $option == 'x' {
       left: 0#{$important};
       right: 0#{$important};
     }
-    @elseif $option == 'y' {
+    @else if $option == 'y' {
       bottom: 0#{$important};
       top: 0#{$important};
     }
-    @elseif $option == 'top' {
+    @else if $option == 'top' {
       top: 0#{$important};
     }
-    @elseif $option == 'bottom' {
+    @else if $option == 'bottom' {
       bottom: 0#{$important};
     }
-    @elseif $option == 'left' {
+    @else if $option == 'left' {
       left: 0#{$important};
     }
-    @elseif $option == 'right' {
+    @else if $option == 'right' {
       right: 0#{$important};
     }
-    @elseif $option == 'none' {
+    @else if $option == 'none' {
       $has-position: false;
       @include u-position($position-static);
       bottom: auto#{$important};
@@ -52,7 +52,7 @@ $utility-pin-options: 'all', 'x', 'y', 'top', 'bottom', 'left', 'right', 'none';
       top: auto#{$important};
     }
     @else {
-      @error "`#{$option}` is not a valid `pin` value. Valid pin values include #{$utility-pin-options}";
+      @error '`#{$option}` is not a valid `pin` value. Valid pin values include #{$utility-pin-options}';
     }
   }
 }

@@ -1,39 +1,39 @@
 $palette-cyan-light: (
-  'cyan-5':  $cyan-5,
-  'cyan-10': $cyan-10,
-  'cyan-20': $cyan-20,
-  'cyan-30': $cyan-30,
+  'cyan-5':  $color-cyan-5,
+  'cyan-10': $color-cyan-10,
+  'cyan-20': $color-cyan-20,
+  'cyan-30': $color-cyan-30,
 );
 
 $palette-cyan-medium: (
-  'cyan-40': $cyan-40,
-  'cyan-50': $cyan-50,
-  'cyan-60': $cyan-60,
+  'cyan-40': $color-cyan-40,
+  'cyan-50': $color-cyan-50,
+  'cyan-60': $color-cyan-60,
 );
 
 $palette-cyan-dark: (
-  'cyan-70': $cyan-70,
-  'cyan-80': $cyan-80,
-  'cyan-90': $cyan-90,
+  'cyan-70': $color-cyan-70,
+  'cyan-80': $color-cyan-80,
+  'cyan-90': $color-cyan-90,
 );
 
 $palette-cyan-light-vivid: (
-  'cyan-5v':  $cyan-5v,
-  'cyan-10v': $cyan-10v,
-  'cyan-20v': $cyan-20v,
-  'cyan-30v': $cyan-30v,
+  'cyan-5v':  $color-cyan-5v,
+  'cyan-10v': $color-cyan-10v,
+  'cyan-20v': $color-cyan-20v,
+  'cyan-30v': $color-cyan-30v,
 );
 
 $palette-cyan-medium-vivid: (
-  'cyan-40v': $cyan-40v,
-  'cyan-50v': $cyan-50v,
-  'cyan-60v': $cyan-60v,
+  'cyan-40v': $color-cyan-40v,
+  'cyan-50v': $color-cyan-50v,
+  'cyan-60v': $color-cyan-60v,
 );
 
 $palette-cyan-dark-vivid: (
-  'cyan-70v': $cyan-70v,
-  'cyan-80v': $cyan-80v,
-  'cyan-90v': $cyan-90v,
+  'cyan-70v': $color-cyan-70v,
+  'cyan-80v': $color-cyan-80v,
+  'cyan-90v': $color-cyan-90v,
 );
 
 $palette-cyan-standard: map-collect(

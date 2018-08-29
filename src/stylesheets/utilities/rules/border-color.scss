@@ -20,7 +20,7 @@ $u-border-color: (
     base: 'border',
     modifiers: null,
     values: map-collect(
-      $uswds-required-colors,
+      $system-required-colors,
       get-palettes($border-color-palettes),
       get-palettes($global-color-palettes),
       $border-color-manual-values
@@ -28,4 +28,4 @@ $u-border-color: (
     settings: $border-color-settings,
     type: 'utility',
   )
-)
+);

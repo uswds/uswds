@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -25,7 +25,7 @@
     "start": "fractal start --sync",
     "test": "gulp eslint typecheck stylelint test",
     "version": "gulp build release",
-    "watch": "nswatch"
+    "watch": "NODE_ENV=development nswatch"
   },
   "watch": {
     "src/stylesheets/{components,core,elements,utilities,}/*.scss": "build:css",
@@ -68,11 +68,10 @@
     "yargs": "^8.0.2"
   },
   "devDependencies": {
-    "@18f/stylelint-rules": "^1.2.0",
     "@frctl/fractal": "^1.1.7",
     "@frctl/mandelbrot": "^1.2.0",
     "@frctl/nunjucks": "^1.0.3",
-    "autoprefixer": "^9.0.0",
+    "autoprefixer": "^9.1.3",
     "axe-core": "^2.6.1",
     "babel-preset-es2015": "^6.24.0",
     "babelify": "^7.3.0",
@@ -81,10 +80,10 @@
     "chalk": "^2.0.1",
     "chrome-launcher": "^0.3.2",
     "chrome-remote-interface": "^0.25.6",
-    "css-mqpacker": "^7.0.0",
-    "cssnano": "^4.0.3",
     "cracks": "^3.1.2",
     "cross-spawn": "^2.1.5",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.0.3",
     "del": "^2.2.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.0.0",
@@ -118,6 +117,8 @@
     "run-sequence": "^1.1.5",
     "should": "^11.2.1",
     "sinon": "^2.3.8",
+    "stylelint": "^9.5.0",
+    "stylelint-scss": "^3.3.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^1.1.2"
   }

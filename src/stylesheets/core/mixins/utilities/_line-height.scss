@@ -9,5 +9,5 @@
   }
   $family: nth($value, 1);
   $scale: nth($value, 2);
-  line-height: lh($family, $scale)#{$important};
+  line-height: lh($family, $scale) #{$important};
 }

@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  text-align: get-uswds-value(text-align, $value...)#{$important};
+  text-align: get-uswds-value(text-align, $value...) #{$important};
 }

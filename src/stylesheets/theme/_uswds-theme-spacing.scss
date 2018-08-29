@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS SPACING SETTINGS
+USWDS THEME SPACING SETTINGS
 ----------------------------------------
 */
 
@@ -31,9 +31,9 @@ Border radius
 ----------------------------------------
 */
 
-$theme-border-radius-sm:       2px !default;
-$theme-border-radius-md:       0.5 !default;
-$theme-border-radius-lg:       1 !default;
+$theme-border-radius-sm:       2px;
+$theme-border-radius-md:       0.5;
+$theme-border-radius-lg:       1;
 
 /*
 ----------------------------------------
@@ -50,10 +50,10 @@ Column gap
 ----------------------------------------
 */
 
-$theme-column-gap-sm: 2px !default;
+$theme-column-gap-sm: 2px;
 //TODO: should this be -md?
-$theme-column-gap:    2 !default;
-$theme-column-gap-lg: 3 !default;
+$theme-column-gap:    2;
+$theme-column-gap-lg: 3;
 
 /*
 ----------------------------------------
@@ -69,7 +69,7 @@ widescreen
 ----------------------------------------
 */
 
-$theme-grid-container-max-width: 'desktop' !default;
+$theme-grid-container-max-width: 'desktop';
 
 /*
 ----------------------------------------
@@ -108,8 +108,8 @@ Line height tokens
 ----------------------------------------
 */
 
-$theme-site-margins:        4 !default; // was 3rem
-$theme-site-margins-mobile: 2 !default; // was 1.5rem
+$theme-site-margins:        4; // was 3rem
+$theme-site-margins-mobile: 2; // was 1.5rem
 
-$theme-nav-width:           'desktop' !default; // was 951px
-$theme-site-max-width:      'desktop' !default; // was 1040px
+$theme-nav-width:           'desktop'; // was 951px
+$theme-site-max-width:      'desktop'; // was 1040px

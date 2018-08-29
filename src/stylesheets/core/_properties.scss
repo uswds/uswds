@@ -7,12 +7,12 @@ USWDS Properties
 $standard-colors: map-collect(
   $color-palette-theme,
   $color-palette-state,
-  $uswds-required-colors
+  $system-required-colors
 );
 
 $extended-colors: map-collect(
-  $uswds-colors,
-  $uswds-basic-colors
+  $system-colors,
+  $system-basic-colors
 );
 
 $partial-values: (
@@ -36,7 +36,7 @@ $partial-values: (
   ),
 );
 
-$uswds-properties: (
+$system-properties: (
   align-items: (
     standard: (
       'align-start':    flex-start,
@@ -53,9 +53,9 @@ $uswds-properties: (
   ),
   border: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($partial-values, zero-zero),
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($partial-values, 'zero-zero'),
       (
         'noValue': 1px,
       )
@@ -69,8 +69,8 @@ $uswds-properties: (
   border-radius: (
     standard: $project-border-radius,
     extended: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small')
     ),
   ),
   border-style: (
@@ -83,21 +83,21 @@ $uswds-properties: (
   ),
   border-width: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($partial-values, zero-zero)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($partial-values, 'zero-zero')
     ),
     extended: (),
   ),
   bottom: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, smaller-negative),
-      map-get($uswds-spacing, small-negative),
-      map-get($partial-values, zero-zero),
-      map-get($partial-values, auto),
-      map-get($partial-values, full-percent)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'smaller-negative'),
+      map-get($system-spacing, 'small-negative'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'auto'),
+      map-get($partial-values, 'full-percent')
     ),
     extended: (),
   ),
@@ -114,18 +114,18 @@ $uswds-properties: (
   ),
   breakpoints: (
     standard: map-collect(
-      map-get($uswds-spacing, large),
-      map-get($uswds-spacing, larger),
-      map-get($uswds-spacing, largest)
+      map-get($system-spacing, 'large'),
+      map-get($system-spacing, 'larger'),
+      map-get($system-spacing, 'largest')
     ),
     extended: (),
   ),
   circle: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, medium),
-      map-get($uswds-spacing, large)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'large')
     ),
     extended: (),
   ),
@@ -241,24 +241,25 @@ $uswds-properties: (
   ),
   gap: (
     standard: map-collect(
-      $uswds-column-gaps,
+      $system-column-gaps,
       (
-        'sm': $theme-column-gap-small,
-        'lg': $theme-column-gap-large,
+        'sm': $theme-column-gap-sm,
+        'md': $theme-column-gap,
+        'lg': $theme-column-gap-lg,
       )
     ),
     extended: (),
   ),
   height: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, medium),
-      map-get($uswds-spacing, large),
-      map-get($partial-values, zero-zero),
-      map-get($partial-values, auto),
-      map-get($partial-values, full-percent),
-      map-get($partial-values, full-viewport-height)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'large'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'auto'),
+      map-get($partial-values, 'full-percent'),
+      map-get($partial-values, 'full-viewport-height')
     ),
     extended: (),
   ),
@@ -273,12 +274,12 @@ $uswds-properties: (
   ),
   left: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, smaller-negative),
-      map-get($uswds-spacing, small-negative),
-      map-get($partial-values, zero-zero),
-      map-get($partial-values, auto)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'smaller-negative'),
+      map-get($system-spacing, 'small-negative'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'auto')
     ),
     extended: (),
   ),
@@ -296,54 +297,54 @@ $uswds-properties: (
   ),
   line-height: (
     standard: (
-      'sans-1':    lh(sans, 1),
-      'sans-2':    lh(sans, 2),
-      'sans-3':    lh(sans, 3),
-      'sans-4':    lh(sans, 4),
-      'sans-5':    lh(sans, 5),
-      'sans-6':    lh(sans, 6),
-      'serif-1':   lh(serif, 1),
-      'serif-2':   lh(serif, 2),
-      'serif-3':   lh(serif, 3),
-      'serif-4':   lh(serif, 4),
-      'serif-5':   lh(serif, 5),
-      'serif-6':   lh(serif, 6),
-      'mono-1':    lh(mono, 1),
-      'mono-2':    lh(mono, 2),
-      'mono-3':    lh(mono, 3),
-      'mono-4':    lh(mono, 4),
-      'mono-5':    lh(mono, 5),
-      'mono-6':    lh(mono, 6),
-      'cond-1':    lh(cond, 1),
-      'cond-2':    lh(cond, 2),
-      'cond-3':    lh(cond, 3),
-      'cond-4':    lh(cond, 4),
-      'cond-5':    lh(cond, 5),
-      'cond-6':    lh(cond, 6),
-      'heading-1': lh(heading, 1),
-      'heading-2': lh(heading, 2),
-      'heading-3': lh(heading, 3),
-      'heading-4': lh(heading, 4),
-      'heading-5': lh(heading, 5),
-      'heading-6': lh(heading, 6),
-      'body-1':    lh(body, 1),
-      'body-2':    lh(body, 2),
-      'body-3':    lh(body, 3),
-      'body-4':    lh(body, 4),
-      'body-5':    lh(body, 5),
-      'body-6':    lh(body, 6),
-      'code-1':    lh(code, 1),
-      'code-2':    lh(code, 2),
-      'code-3':    lh(code, 3),
-      'code-4':    lh(code, 4),
-      'code-5':    lh(code, 5),
-      'code-6':    lh(code, 6),
-      'alt-1':     lh(alt, 1),
-      'alt-2':     lh(alt, 2),
-      'alt-3':     lh(alt, 3),
-      'alt-4':     lh(alt, 4),
-      'alt-5':     lh(alt, 5),
-      'alt-6':     lh(alt, 6),
+      'sans-1':    lh('sans', 1),
+      'sans-2':    lh('sans', 2),
+      'sans-3':    lh('sans', 3),
+      'sans-4':    lh('sans', 4),
+      'sans-5':    lh('sans', 5),
+      'sans-6':    lh('sans', 6),
+      'serif-1':   lh('serif', 1),
+      'serif-2':   lh('serif', 2),
+      'serif-3':   lh('serif', 3),
+      'serif-4':   lh('serif', 4),
+      'serif-5':   lh('serif', 5),
+      'serif-6':   lh('serif', 6),
+      'mono-1':    lh('mono', 1),
+      'mono-2':    lh('mono', 2),
+      'mono-3':    lh('mono', 3),
+      'mono-4':    lh('mono', 4),
+      'mono-5':    lh('mono', 5),
+      'mono-6':    lh('mono', 6),
+      'cond-1':    lh('cond', 1),
+      'cond-2':    lh('cond', 2),
+      'cond-3':    lh('cond', 3),
+      'cond-4':    lh('cond', 4),
+      'cond-5':    lh('cond', 5),
+      'cond-6':    lh('cond', 6),
+      'heading-1': lh('heading', 1),
+      'heading-2': lh('heading', 2),
+      'heading-3': lh('heading', 3),
+      'heading-4': lh('heading', 4),
+      'heading-5': lh('heading', 5),
+      'heading-6': lh('heading', 6),
+      'body-1':    lh('body', 1),
+      'body-2':    lh('body', 2),
+      'body-3':    lh('body', 3),
+      'body-4':    lh('body', 4),
+      'body-5':    lh('body', 5),
+      'body-6':    lh('body', 6),
+      'code-1':    lh('code', 1),
+      'code-2':    lh('code', 2),
+      'code-3':    lh('code', 3),
+      'code-4':    lh('code', 4),
+      'code-5':    lh('code', 5),
+      'code-6':    lh('code', 6),
+      'alt-1':     lh('alt', 1),
+      'alt-2':     lh('alt', 2),
+      'alt-3':     lh('alt', 3),
+      'alt-4':     lh('alt', 4),
+      'alt-5':     lh('alt', 5),
+      'alt-6':     lh('alt', 6),
     ),
     extended: (
       1:	       1,
@@ -356,94 +357,91 @@ $uswds-properties: (
   ),
   margin: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, medium),
-      map-get($uswds-spacing-em, small),
-      map-get($partial-values, zero-zero)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing-em, 'small'),
+      map-get($partial-values, 'zero-zero')
     ),
     extended: (),
   ),
   margin-horizontal: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, smaller-negative),
-      map-get($uswds-spacing, small-negative),
-      map-get($uswds-spacing, medium),
-      map-get($uswds-spacing-em, small),
-      map-get($partial-values, zero-zero),
-      map-get($partial-values, auto)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'smaller-negative'),
+      map-get($system-spacing, 'small-negative'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing-em, 'small'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'auto')
     ),
     extended: (),
   ),
   margin-vertical: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, smaller-negative),
-      map-get($uswds-spacing, small-negative),
-      map-get($uswds-spacing, medium),
-      map-get($uswds-spacing-em, small),
-      map-get($partial-values, zero-zero)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'smaller-negative'),
+      map-get($system-spacing, 'small-negative'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing-em, 'small'),
+      map-get($partial-values, 'zero-zero')
     ),
     extended: (),
   ),
   max-height: (
     standard: map-collect(
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, medium),
-      map-get($uswds-spacing, large),
-      map-get($uswds-spacing, larger),
-      map-get($partial-values, none),
-      map-get($partial-values, full-viewport-height)
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'large'),
+      map-get($system-spacing, 'larger'),
+      map-get($partial-values, 'none'),
+      map-get($partial-values, 'full-viewport-height')
     ),
     extended: (),
   ),
   max-width: (
     standard: map-collect(
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, medium),
-      map-get($uswds-spacing, large),
-      map-get($uswds-spacing, larger),
-      map-get($uswds-spacing, largest),
-      (
-        'full':            100%,
-        none:              none,
-      )
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'large'),
+      map-get($system-spacing, 'larger'),
+      map-get($system-spacing, 'largest'),
+      map-get($partial-values, 'none'),
+      map-get($partial-values, 'full-percent')
     ),
     extended: (),
   ),
   measure: (
     standard: (
-      1:	    $uswds-measure-smaller,
-      2:	    $uswds-measure-small,
-      3:	    $uswds-measure-base,
-      4:	    $uswds-measure-large,
-      5:	    $uswds-measure-larger,
+      1:	    $system-measure-smaller,
+      2:	    $system-measure-small,
+      3:	    $system-measure-base,
+      4:	    $system-measure-large,
+      5:	    $system-measure-larger,
       'none':   none,
     ),
     extended: (),
   ),
   min-height: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, medium),
-      map-get($uswds-spacing, large),
-      map-get($uswds-spacing, larger),
-      map-get($partial-values, zero-zero),
-      map-get($partial-values, none),
-      map-get($partial-values, full-percent),
-      map-get($partial-values, full-viewport-height)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'large'),
+      map-get($system-spacing, 'larger'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'full-percent'),
+      map-get($partial-values, 'full-viewport-height')
     ),
     extended: (),
   ),
   min-width: (
     standard: map-collect(
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, medium),
-      map-get($partial-values, none)
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($partial-values, 'zero-zero')
     ),
     extended: (),
   ),
@@ -485,15 +483,15 @@ $uswds-properties: (
   ),
   outline: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($partial-values, zero-zero),
-      ('05': grid-units(0.5))
+      map-get($system-spacing, 'smaller'),
+      map-get($partial-values, 'zero-zero'),
+      ('05': spacing-multiple(0.5))
     ),
     extended: (),
   ),
   outline-color: (
     standard: map-collect(
-      $uswds-required-colors
+      $system-required-colors
     ),
     extended: $extended-colors,
   ),
@@ -508,10 +506,10 @@ $uswds-properties: (
   ),
   padding: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, medium),
-      map-get($partial-values, zero-zero)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($partial-values, 'zero-zero')
     ),
     extended: (),
   ),
@@ -527,21 +525,21 @@ $uswds-properties: (
   ),
   right: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, smaller-negative),
-      map-get($uswds-spacing, small-negative),
-      map-get($partial-values, zero-zero),
-      map-get($partial-values, auto)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'smaller-negative'),
+      map-get($system-spacing, 'small-negative'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'auto')
     ),
     extended: (),
   ),
   square: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, medium),
-      map-get($uswds-spacing, large)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'large')
     ),
     extended: (),
   ),
@@ -566,17 +564,17 @@ $uswds-properties: (
   text-decoration-color: (
     standard: map-collect(
       $standard-colors,
-      map-get($partial-values, auto)
+      map-get($partial-values, 'auto')
     ),
     extended: $extended-colors,
   ),
   text-indent: (
     standard: map-collect(
-      map-get($partial-values, zero-zero),
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, small-negative),
-      map-get($uswds-spacing, medium),
-      map-get($uswds-spacing, medium-negative)
+      map-get($partial-values, 'zero-zero'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'small-negative'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'medium-negative')
     ),
     extended: (),
   ),
@@ -591,12 +589,12 @@ $uswds-properties: (
   ),
   top: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, smaller-negative),
-      map-get($uswds-spacing, small-negative),
-      map-get($partial-values, zero-zero),
-      map-get($partial-values, auto)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'smaller-negative'),
+      map-get($system-spacing, 'small-negative'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'auto')
     ),
     extended: (),
   ),
@@ -607,8 +605,8 @@ $uswds-properties: (
       'middle':      middle,
       'sub':         sub,
       'super':       super,
-      'tbottom': text-bottom,
-      'ttop':    text-top,
+      'tbottom':     text-bottom,
+      'ttop':        text-top,
       'top':         top,
     ),
     extended: (),
@@ -625,15 +623,15 @@ $uswds-properties: (
   ),
   width: (
     standard: map-collect(
-      map-get($uswds-spacing, smaller),
-      map-get($uswds-spacing, small),
-      map-get($uswds-spacing, medium),
-      map-get($uswds-spacing, large),
-      map-get($uswds-spacing, larger),
-      map-get($uswds-spacing, largest),
-      map-get($partial-values, zero-zero),
-      map-get($partial-values, full-percent),
-      map-get($partial-values, auto)
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'large'),
+      map-get($system-spacing, 'larger'),
+      map-get($system-spacing, 'largest'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'full-percent'),
+      map-get($partial-values, 'auto')
     ),
     extended: (),
   ),

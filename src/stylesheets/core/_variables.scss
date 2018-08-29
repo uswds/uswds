@@ -40,22 +40,22 @@ by units()
 */
 
 $project-spacing-standard: map-collect(
-  map-get($uswds-spacing, smaller),
-  map-get($uswds-spacing, small),
-  map-get($uswds-spacing, smaller-negative),
-  map-get($uswds-spacing, small-negative),
-  map-get($uswds-spacing, medium),
-  map-get($uswds-spacing, medium-negative),
-  map-get($uswds-spacing, large),
-  map-get($uswds-spacing, larger),
-  map-get($uswds-spacing, largest),
-  map-get($uswds-spacing, special)
+  map-get($system-spacing, smaller),
+  map-get($system-spacing, small),
+  map-get($system-spacing, smaller-negative),
+  map-get($system-spacing, small-negative),
+  map-get($system-spacing, medium),
+  map-get($system-spacing, medium-negative),
+  map-get($system-spacing, large),
+  map-get($system-spacing, larger),
+  map-get($system-spacing, largest),
+  map-get($system-spacing, special)
 );
 
 $project-spacing-named: map-collect(
-  map-get($uswds-spacing, large),
-  map-get($uswds-spacing, larger),
-  map-get($uswds-spacing, largest)
+  map-get($system-spacing, large),
+  map-get($system-spacing, larger),
+  map-get($system-spacing, largest)
 );
 
 $spacing-to-token: (
@@ -66,6 +66,7 @@ $spacing-to-token: (
   '8':           1,
   '12':          '105',
   '16':          2,
+  '20':          '205',
   '24':          3,
   '32':          4,
   '40':          5,
@@ -104,6 +105,8 @@ $number-to-value: (
   7:          7,
   8:          8,
   9:          9,
+  10:         10,
+  15:         15,
   0.5:        '05',
   1.5:        '105',
   2.5:        '205',
@@ -122,6 +125,37 @@ $number-to-value: (
   -8:         'neg-8',
   -9:         'neg-9',
 );
+
+// Units expressed as variables
+$units-05: units(0.5);
+$units-1: units(1);
+$units-105: units(1.5);
+$units-2: units(2);
+$units-205: units(2.5);
+$units-3: units(3);
+$units-4: units(4);
+$units-5: units(5);
+$units-6: units(6);
+$units-7: units(7);
+$units-8: units(8);
+$units-9: units(9);
+$units-10: units(10);
+$units-15: units(15);
+$units-card: units('card');
+$units-card-lg: units('card-lg');
+$units-mobile: units('mobile');
+$units-mobile-lg: units('mobile-lg');
+$units-tablet: units('tablet');
+$units-tablet-lg: units('tablet-lg');
+$units-desktop: units('desktop');
+$units-desktop-lg: units('desktop-lg');
+$units-widescreen: units('widescreen');
+$units-neg-05: units(-0.5);
+$units-neg-1: units(-1);
+$units-neg-105: units(-1.5);
+$units-neg-2: units(-2);
+$units-neg-205: units(-2.5);
+$units-neg-3: units(-3);
 
 /*
 ----------------------------------------
@@ -149,7 +183,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-sans,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-sans,
     'stack'
@@ -162,7 +196,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-serif,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-serif,
     'stack'
@@ -175,7 +209,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-mono,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-mono,
     'stack'
@@ -188,7 +222,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-cond,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-cond,
     'stack'
@@ -201,7 +235,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-heading,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-heading,
     'stack'
@@ -214,7 +248,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-body,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-body,
     'stack'
@@ -227,7 +261,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-code,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-code,
     'stack'
@@ -240,7 +274,7 @@ $font-stack-alt:      false;
     $all-font-definitions,
     $theme-font-alt,
     'name'
-    ), map-deep-get(
+  ), map-deep-get(
     $all-font-definitions,
     $theme-font-alt,
     'stack'
@@ -326,78 +360,78 @@ $project-font-weights: (
 
 $project-colors: (
   'base': (
-    'lightest': get-uswds-color($theme-color-base-lightest),
-    'lighter':  get-uswds-color($theme-color-base-lighter),
-    'light':    get-uswds-color($theme-color-base-light),
-    'default':  get-uswds-color($theme-color-base),
-    'dark':     get-uswds-color($theme-color-base-dark),
-    'darker':   get-uswds-color($theme-color-base-darker),
-    'darkest':  get-uswds-color($theme-color-base-darkest),
+    'lightest': get-system-color($theme-color-base-lightest),
+    'lighter':  get-system-color($theme-color-base-lighter),
+    'light':    get-system-color($theme-color-base-light),
+    'default':  get-system-color($theme-color-base),
+    'dark':     get-system-color($theme-color-base-dark),
+    'darker':   get-system-color($theme-color-base-darker),
+    'darkest':  get-system-color($theme-color-base-darkest),
   ),
   'primary': (
-    'lightest': get-uswds-color($theme-color-primary-lightest),
-    'lighter':  get-uswds-color($theme-color-primary-lighter),
-    'light':    get-uswds-color($theme-color-primary-light),
-    'default':  get-uswds-color($theme-color-primary),
-    'vivid':    get-uswds-color($theme-color-primary-vivid),
-    'dark':     get-uswds-color($theme-color-primary-dark),
-    'darker':   get-uswds-color($theme-color-primary-darker),
-    'darkest':  get-uswds-color($theme-color-primary-darkest),
+    'lightest': get-system-color($theme-color-primary-lightest),
+    'lighter':  get-system-color($theme-color-primary-lighter),
+    'light':    get-system-color($theme-color-primary-light),
+    'default':  get-system-color($theme-color-primary),
+    'vivid':    get-system-color($theme-color-primary-vivid),
+    'dark':     get-system-color($theme-color-primary-dark),
+    'darker':   get-system-color($theme-color-primary-darker),
+    'darkest':  get-system-color($theme-color-primary-darkest),
   ),
   'secondary': (
-    'lightest': get-uswds-color($theme-color-secondary-lightest),
-    'lighter':  get-uswds-color($theme-color-secondary-lighter),
-    'light':    get-uswds-color($theme-color-secondary-light),
-    'default':  get-uswds-color($theme-color-secondary),
-    'vivid':    get-uswds-color($theme-color-secondary-vivid),
-    'dark':     get-uswds-color($theme-color-secondary-dark),
-    'darker':   get-uswds-color($theme-color-secondary-darker),
-    'darkest':  get-uswds-color($theme-color-secondary-darkest),
+    'lightest': get-system-color($theme-color-secondary-lightest),
+    'lighter':  get-system-color($theme-color-secondary-lighter),
+    'light':    get-system-color($theme-color-secondary-light),
+    'default':  get-system-color($theme-color-secondary),
+    'vivid':    get-system-color($theme-color-secondary-vivid),
+    'dark':     get-system-color($theme-color-secondary-dark),
+    'darker':   get-system-color($theme-color-secondary-darker),
+    'darkest':  get-system-color($theme-color-secondary-darkest),
   ),
   'accent-warm': (
-    'lightest': get-uswds-color($theme-color-accent-warm-lightest),
-    'lighter':  get-uswds-color($theme-color-accent-warm-lighter),
-    'light':    get-uswds-color($theme-color-accent-warm-light),
-    'default':  get-uswds-color($theme-color-accent-warm),
-    'dark':     get-uswds-color($theme-color-accent-warm-dark),
-    'darker':   get-uswds-color($theme-color-accent-warm-darker),
-    'darkest':  get-uswds-color($theme-color-accent-warm-darkest),
+    'lightest': get-system-color($theme-color-accent-warm-lightest),
+    'lighter':  get-system-color($theme-color-accent-warm-lighter),
+    'light':    get-system-color($theme-color-accent-warm-light),
+    'default':  get-system-color($theme-color-accent-warm),
+    'dark':     get-system-color($theme-color-accent-warm-dark),
+    'darker':   get-system-color($theme-color-accent-warm-darker),
+    'darkest':  get-system-color($theme-color-accent-warm-darkest),
   ),
   'accent-cool': (
-    'lightest': get-uswds-color($theme-color-accent-cool-lightest),
-    'lighter':  get-uswds-color($theme-color-accent-cool-lighter),
-    'light':    get-uswds-color($theme-color-accent-cool-light),
-    'default':  get-uswds-color($theme-color-accent-cool),
-    'dark':     get-uswds-color($theme-color-accent-cool-dark),
-    'darker':   get-uswds-color($theme-color-accent-cool-darker),
-    'darkest':  get-uswds-color($theme-color-accent-cool-darkest),
+    'lightest': get-system-color($theme-color-accent-cool-lightest),
+    'lighter':  get-system-color($theme-color-accent-cool-lighter),
+    'light':    get-system-color($theme-color-accent-cool-light),
+    'default':  get-system-color($theme-color-accent-cool),
+    'dark':     get-system-color($theme-color-accent-cool-dark),
+    'darker':   get-system-color($theme-color-accent-cool-darker),
+    'darkest':  get-system-color($theme-color-accent-cool-darkest),
   )
 );
 
 $project-state-colors: (
   'error': (
-    'lighter': get-uswds-color($theme-color-error-lighter),
-    'light':   get-uswds-color($theme-color-error-light),
-    'default': get-uswds-color($theme-color-error),
-    'dark':    get-uswds-color($theme-color-error-dark),
-    'darker':  get-uswds-color($theme-color-error-darker),
+    'lighter': get-system-color($theme-color-error-lighter),
+    'light':   get-system-color($theme-color-error-light),
+    'default': get-system-color($theme-color-error),
+    'dark':    get-system-color($theme-color-error-dark),
+    'darker':  get-system-color($theme-color-error-darker),
   ),
   'warn': (
-    'lighter': get-uswds-color($theme-color-warn-lighter),
-    'light':   get-uswds-color($theme-color-warn-light),
-    'default': get-uswds-color($theme-color-warn),
-    'dark':    get-uswds-color($theme-color-warn-dark),
-    'darker':  get-uswds-color($theme-color-warn-darker),
+    'lighter': get-system-color($theme-color-warn-lighter),
+    'light':   get-system-color($theme-color-warn-light),
+    'default': get-system-color($theme-color-warn),
+    'dark':    get-system-color($theme-color-warn-dark),
+    'darker':  get-system-color($theme-color-warn-darker),
   ),
   'success': (
-    'lighter': get-uswds-color($theme-color-success-lighter),
-    'light':   get-uswds-color($theme-color-success-light),
-    'default': get-uswds-color($theme-color-success),
-    'dark':    get-uswds-color($theme-color-success-dark),
-    'darker':  get-uswds-color($theme-color-success-darker),
+    'lighter': get-system-color($theme-color-success-lighter),
+    'light':   get-system-color($theme-color-success-light),
+    'default': get-system-color($theme-color-success),
+    'dark':    get-system-color($theme-color-success-dark),
+    'darker':  get-system-color($theme-color-success-darker),
   ),
   'disabled': (
-    'default': get-uswds-color($theme-color-disabled),
+    'default': get-system-color($theme-color-disabled),
   ),
 );
 
@@ -408,9 +442,64 @@ $all-project-colors: map-collect(
 
 $all-colors: map-collect(
   $all-project-colors,
-  $uswds-required-colors,
-  $uswds-colors
+  $system-required-colors,
+  $system-colors
 );
+
+$color-theme-base-lightest:         get-system-color($theme-color-base-lightest);
+$color-theme-base-lighter:          get-system-color($theme-color-base-lighter);
+$color-theme-base-light:            get-system-color($theme-color-base-light);
+$color-theme-base:                  get-system-color($theme-color-base);
+$color-theme-base-dark:             get-system-color($theme-color-base-dark);
+$color-theme-base-darker:           get-system-color($theme-color-base-darker);
+$color-theme-base-darkest:          get-system-color($theme-color-base-darkest);
+$color-theme-ink:                   $color-theme-base-darkest;
+$color-theme-primary-lightest:      get-system-color($theme-color-primary-lightest);
+$color-theme-primary-lighter:       get-system-color($theme-color-primary-lighter);
+$color-theme-primary-light:         get-system-color($theme-color-primary-light);
+$color-theme-primary:               get-system-color($theme-color-primary);
+$color-theme-primary-vivid:         get-system-color($theme-color-primary-vivid);
+$color-theme-primary-dark:          get-system-color($theme-color-primary-dark);
+$color-theme-primary-darker:        get-system-color($theme-color-primary-darker);
+$color-theme-primary-darkest:       get-system-color($theme-color-primary-darkest);
+$color-theme-secondary-lightest:    get-system-color($theme-color-secondary-lightest);
+$color-theme-secondary-lighter:     get-system-color($theme-color-secondary-lighter);
+$color-theme-secondary-light:       get-system-color($theme-color-secondary-light);
+$color-theme-secondary:             get-system-color($theme-color-secondary);
+$color-theme-secondary-vivid:       get-system-color($theme-color-secondary-vivid);
+$color-theme-secondary-dark:        get-system-color($theme-color-secondary-dark);
+$color-theme-secondary-darker:      get-system-color($theme-color-secondary-darker);
+$color-theme-secondary-darkest:     get-system-color($theme-color-secondary-darkest);
+$color-theme-accent-warm-darkest:   get-system-color($theme-color-accent-warm-darkest);
+$color-theme-accent-warm-darker:    get-system-color($theme-color-accent-warm-darker);
+$color-theme-accent-warm-dark:      get-system-color($theme-color-accent-warm-dark);
+$color-theme-accent-warm:           get-system-color($theme-color-accent-warm);
+$color-theme-accent-warm-light:     get-system-color($theme-color-accent-warm-light);
+$color-theme-accent-warm-lighter:   get-system-color($theme-color-accent-warm-lighter);
+$color-theme-accent-warm-lightest:  get-system-color($theme-color-accent-warm-lightest);
+$color-theme-accent-cool-darkest:   get-system-color($theme-color-accent-cool-darkest);
+$color-theme-accent-cool-darker:    get-system-color($theme-color-accent-cool-darker);
+$color-theme-accent-cool-dark:      get-system-color($theme-color-accent-cool-dark);
+$color-theme-accent-cool:           get-system-color($theme-color-accent-cool);
+$color-theme-accent-cool-light:     get-system-color($theme-color-accent-cool-light);
+$color-theme-accent-cool-lighter:   get-system-color($theme-color-accent-cool-lighter);
+$color-theme-accent-cool-lightest:  get-system-color($theme-color-accent-cool-lightest);
+$color-theme-error-lighter:         get-system-color($theme-color-error-lighter);
+$color-theme-error-light:           get-system-color($theme-color-error-light);
+$color-theme-error:                 get-system-color($theme-color-error);
+$color-theme-error-dark:            get-system-color($theme-color-error-dark);
+$color-theme-error-darker:          get-system-color($theme-color-error-darker);
+$color-theme-warn-lighter:          get-system-color($theme-color-warn-lighter);
+$color-theme-warn-light:            get-system-color($theme-color-warn-light);
+$color-theme-warn:                  get-system-color($theme-color-warn);
+$color-theme-warn-dark:             get-system-color($theme-color-warn-dark);
+$color-theme-warn-darker:           get-system-color($theme-color-warn-darker);
+$color-theme-success-lighter:       get-system-color($theme-color-success-lighter);
+$color-theme-success-light:         get-system-color($theme-color-success-light);
+$color-theme-success:               get-system-color($theme-color-success);
+$color-theme-success-dark:          get-system-color($theme-color-success-dark);
+$color-theme-success-darker:        get-system-color($theme-color-success-darker);
+$color-theme-disabled:              get-system-color($theme-color-disabled);
 
 /*
 ----------------------------------------
@@ -431,12 +520,12 @@ $project-type-scale: (
 );
 
 $all-type-scale: map-collect(
-  $uswds-type-scale,
+  $system-type-scale,
   $project-type-scale
 );
 
 $project-cap-heights:(
-  'base':     $uswds-base-cap-height,
+  'base':     $system-base-cap-height,
   'mono':     cap-height($theme-font-mono),
   'sans':     cap-height($theme-font-sans),
   'serif':    cap-height($theme-font-serif),
@@ -446,6 +535,248 @@ $project-cap-heights:(
   'code':     cap-height($theme-font-code),
   'alt':      cap-height($theme-font-alt),
 );
+
+// Typescale expressed as variables
+$scale-sans-3xs: scale('sans', '3xs');
+$scale-sans-2xs: scale('sans', '2xs');
+$scale-sans-xs: scale('sans', 'xs');
+$scale-sans-sm: scale('sans', 'sm');
+$scale-sans-md: scale('sans', 'md');
+$scale-sans-lg: scale('sans', 'lg');
+$scale-sans-xl: scale('sans', 'xl');
+$scale-sans-2xl: scale('sans', '2xl');
+$scale-sans-3xl: scale('sans', '3xl');
+$scale-sans-micro: scale('sans', 'micro');
+$scale-sans-1: scale('sans', 1);
+$scale-sans-2: scale('sans', 2);
+$scale-sans-3: scale('sans', 3);
+$scale-sans-4: scale('sans', 4);
+$scale-sans-5: scale('sans', 5);
+$scale-sans-6: scale('sans', 6);
+$scale-sans-7: scale('sans', 7);
+$scale-sans-8: scale('sans', 8);
+$scale-sans-9: scale('sans', 9);
+$scale-sans-10: scale('sans', 10);
+$scale-sans-11: scale('sans', 11);
+$scale-sans-12: scale('sans', 12);
+$scale-sans-13: scale('sans', 13);
+$scale-sans-14: scale('sans', 14);
+$scale-sans-15: scale('sans', 15);
+$scale-sans-16: scale('sans', 16);
+$scale-sans-17: scale('sans', 17);
+$scale-sans-18: scale('sans', 18);
+$scale-sans-19: scale('sans', 19);
+$scale-sans-20: scale('sans', 20);
+$scale-serif-3xs: scale('serif', '3xs');
+$scale-serif-2xs: scale('serif', '2xs');
+$scale-serif-xs: scale('serif', 'xs');
+$scale-serif-sm: scale('serif', 'sm');
+$scale-serif-md: scale('serif', 'md');
+$scale-serif-lg: scale('serif', 'lg');
+$scale-serif-xl: scale('serif', 'xl');
+$scale-serif-2xl: scale('serif', '2xl');
+$scale-serif-3xl: scale('serif', '3xl');
+$scale-serif-micro: scale('serif', 'micro');
+$scale-serif-1: scale('serif', 1);
+$scale-serif-2: scale('serif', 2);
+$scale-serif-3: scale('serif', 3);
+$scale-serif-4: scale('serif', 4);
+$scale-serif-5: scale('serif', 5);
+$scale-serif-6: scale('serif', 6);
+$scale-serif-7: scale('serif', 7);
+$scale-serif-8: scale('serif', 8);
+$scale-serif-9: scale('serif', 9);
+$scale-serif-10: scale('serif', 10);
+$scale-serif-11: scale('serif', 11);
+$scale-serif-12: scale('serif', 12);
+$scale-serif-13: scale('serif', 13);
+$scale-serif-14: scale('serif', 14);
+$scale-serif-15: scale('serif', 15);
+$scale-serif-16: scale('serif', 16);
+$scale-serif-17: scale('serif', 17);
+$scale-serif-18: scale('serif', 18);
+$scale-serif-19: scale('serif', 19);
+$scale-serif-20: scale('serif', 20);
+$scale-mono-3xs: scale('mono', '3xs');
+$scale-mono-2xs: scale('mono', '2xs');
+$scale-mono-xs: scale('mono', 'xs');
+$scale-mono-sm: scale('mono', 'sm');
+$scale-mono-md: scale('mono', 'md');
+$scale-mono-lg: scale('mono', 'lg');
+$scale-mono-xl: scale('mono', 'xl');
+$scale-mono-2xl: scale('mono', '2xl');
+$scale-mono-3xl: scale('mono', '3xl');
+$scale-mono-micro: scale('mono', 'micro');
+$scale-mono-1: scale('mono', 1);
+$scale-mono-2: scale('mono', 2);
+$scale-mono-3: scale('mono', 3);
+$scale-mono-4: scale('mono', 4);
+$scale-mono-5: scale('mono', 5);
+$scale-mono-6: scale('mono', 6);
+$scale-mono-7: scale('mono', 7);
+$scale-mono-8: scale('mono', 8);
+$scale-mono-9: scale('mono', 9);
+$scale-mono-10: scale('mono', 10);
+$scale-mono-11: scale('mono', 11);
+$scale-mono-12: scale('mono', 12);
+$scale-mono-13: scale('mono', 13);
+$scale-mono-14: scale('mono', 14);
+$scale-mono-15: scale('mono', 15);
+$scale-mono-16: scale('mono', 16);
+$scale-mono-17: scale('mono', 17);
+$scale-mono-18: scale('mono', 18);
+$scale-mono-19: scale('mono', 19);
+$scale-mono-20: scale('mono', 20);
+$scale-cond-3xs: scale('cond', '3xs');
+$scale-cond-2xs: scale('cond', '2xs');
+$scale-cond-xs: scale('cond', 'xs');
+$scale-cond-sm: scale('cond', 'sm');
+$scale-cond-md: scale('cond', 'md');
+$scale-cond-lg: scale('cond', 'lg');
+$scale-cond-xl: scale('cond', 'xl');
+$scale-cond-2xl: scale('cond', '2xl');
+$scale-cond-3xl: scale('cond', '3xl');
+$scale-cond-micro: scale('cond', 'micro');
+$scale-cond-1: scale('cond', 1);
+$scale-cond-2: scale('cond', 2);
+$scale-cond-3: scale('cond', 3);
+$scale-cond-4: scale('cond', 4);
+$scale-cond-5: scale('cond', 5);
+$scale-cond-6: scale('cond', 6);
+$scale-cond-7: scale('cond', 7);
+$scale-cond-8: scale('cond', 8);
+$scale-cond-9: scale('cond', 9);
+$scale-cond-10: scale('cond', 10);
+$scale-cond-11: scale('cond', 11);
+$scale-cond-12: scale('cond', 12);
+$scale-cond-13: scale('cond', 13);
+$scale-cond-14: scale('cond', 14);
+$scale-cond-15: scale('cond', 15);
+$scale-cond-16: scale('cond', 16);
+$scale-cond-17: scale('cond', 17);
+$scale-cond-18: scale('cond', 18);
+$scale-cond-19: scale('cond', 19);
+$scale-cond-20: scale('cond', 20);
+$scale-heading-3xs: scale('heading', '3xs');
+$scale-heading-2xs: scale('heading', '2xs');
+$scale-heading-xs: scale('heading', 'xs');
+$scale-heading-sm: scale('heading', 'sm');
+$scale-heading-md: scale('heading', 'md');
+$scale-heading-lg: scale('heading', 'lg');
+$scale-heading-xl: scale('heading', 'xl');
+$scale-heading-2xl: scale('heading', '2xl');
+$scale-heading-3xl: scale('heading', '3xl');
+$scale-heading-micro: scale('heading', 'micro');
+$scale-heading-1: scale('heading', 1);
+$scale-heading-2: scale('heading', 2);
+$scale-heading-3: scale('heading', 3);
+$scale-heading-4: scale('heading', 4);
+$scale-heading-5: scale('heading', 5);
+$scale-heading-6: scale('heading', 6);
+$scale-heading-7: scale('heading', 7);
+$scale-heading-8: scale('heading', 8);
+$scale-heading-9: scale('heading', 9);
+$scale-heading-10: scale('heading', 10);
+$scale-heading-11: scale('heading', 11);
+$scale-heading-12: scale('heading', 12);
+$scale-heading-13: scale('heading', 13);
+$scale-heading-14: scale('heading', 14);
+$scale-heading-15: scale('heading', 15);
+$scale-heading-16: scale('heading', 16);
+$scale-heading-17: scale('heading', 17);
+$scale-heading-18: scale('heading', 18);
+$scale-heading-19: scale('heading', 19);
+$scale-heading-20: scale('heading', 20);
+$scale-body-3xs: scale('body', '3xs');
+$scale-body-2xs: scale('body', '2xs');
+$scale-body-xs: scale('body', 'xs');
+$scale-body-sm: scale('body', 'sm');
+$scale-body-md: scale('body', 'md');
+$scale-body-lg: scale('body', 'lg');
+$scale-body-xl: scale('body', 'xl');
+$scale-body-2xl: scale('body', '2xl');
+$scale-body-3xl: scale('body', '3xl');
+$scale-body-micro: scale('body', 'micro');
+$scale-body-1: scale('body', 1);
+$scale-body-2: scale('body', 2);
+$scale-body-3: scale('body', 3);
+$scale-body-4: scale('body', 4);
+$scale-body-5: scale('body', 5);
+$scale-body-6: scale('body', 6);
+$scale-body-7: scale('body', 7);
+$scale-body-8: scale('body', 8);
+$scale-body-9: scale('body', 9);
+$scale-body-10: scale('body', 10);
+$scale-body-11: scale('body', 11);
+$scale-body-12: scale('body', 12);
+$scale-body-13: scale('body', 13);
+$scale-body-14: scale('body', 14);
+$scale-body-15: scale('body', 15);
+$scale-body-16: scale('body', 16);
+$scale-body-17: scale('body', 17);
+$scale-body-18: scale('body', 18);
+$scale-body-19: scale('body', 19);
+$scale-body-20: scale('body', 20);
+$scale-code-3xs: scale('code', '3xs');
+$scale-code-2xs: scale('code', '2xs');
+$scale-code-xs: scale('code', 'xs');
+$scale-code-sm: scale('code', 'sm');
+$scale-code-md: scale('code', 'md');
+$scale-code-lg: scale('code', 'lg');
+$scale-code-xl: scale('code', 'xl');
+$scale-code-2xl: scale('code', '2xl');
+$scale-code-3xl: scale('code', '3xl');
+$scale-code-micro: scale('code', 'micro');
+$scale-code-1: scale('code', 1);
+$scale-code-2: scale('code', 2);
+$scale-code-3: scale('code', 3);
+$scale-code-4: scale('code', 4);
+$scale-code-5: scale('code', 5);
+$scale-code-6: scale('code', 6);
+$scale-code-7: scale('code', 7);
+$scale-code-8: scale('code', 8);
+$scale-code-9: scale('code', 9);
+$scale-code-10: scale('code', 10);
+$scale-code-11: scale('code', 11);
+$scale-code-12: scale('code', 12);
+$scale-code-13: scale('code', 13);
+$scale-code-14: scale('code', 14);
+$scale-code-15: scale('code', 15);
+$scale-code-16: scale('code', 16);
+$scale-code-17: scale('code', 17);
+$scale-code-18: scale('code', 18);
+$scale-code-19: scale('code', 19);
+$scale-code-20: scale('code', 20);
+$scale-alt-3xs: scale('alt', '3xs');
+$scale-alt-2xs: scale('alt', '2xs');
+$scale-alt-xs: scale('alt', 'xs');
+$scale-alt-sm: scale('alt', 'sm');
+$scale-alt-md: scale('alt', 'md');
+$scale-alt-lg: scale('alt', 'lg');
+$scale-alt-xl: scale('alt', 'xl');
+$scale-alt-2xl: scale('alt', '2xl');
+$scale-alt-3xl: scale('alt', '3xl');
+$scale-alt-micro: scale('alt', 'micro');
+$scale-alt-1: scale('alt', 1);
+$scale-alt-2: scale('alt', 2);
+$scale-alt-3: scale('alt', 3);
+$scale-alt-4: scale('alt', 4);
+$scale-alt-5: scale('alt', 5);
+$scale-alt-6: scale('alt', 6);
+$scale-alt-7: scale('alt', 7);
+$scale-alt-8: scale('alt', 8);
+$scale-alt-9: scale('alt', 9);
+$scale-alt-10: scale('alt', 10);
+$scale-alt-11: scale('alt', 11);
+$scale-alt-12: scale('alt', 12);
+$scale-alt-13: scale('alt', 13);
+$scale-alt-14: scale('alt', 14);
+$scale-alt-15: scale('alt', 15);
+$scale-alt-16: scale('alt', 16);
+$scale-alt-17: scale('alt', 17);
+$scale-alt-18: scale('alt', 18);
+$scale-alt-19: scale('alt', 19);
+$scale-alt-20: scale('alt', 20);
 
 /*
 ----------------------------------------
@@ -463,8 +794,8 @@ $project-border-radius: (
 
 $all-border-radius: map-collect(
   $project-border-radius,
-  map-get($uswds-spacing, smaller),
-  map-get($uswds-spacing, small)
+  map-get($system-spacing, smaller),
+  map-get($system-spacing, small)
 );
 
 /*
@@ -474,104 +805,89 @@ Column gaps
 */
 
 $project-column-gaps: (
-  'sm': $theme-column-gap-small,
+  'sm': $theme-column-gap-sm,
   'md': $theme-column-gap,
-  'lg': $theme-column-gap-large,
+  'lg': $theme-column-gap-lg,
 );
 
 /*
 ----------------------------------------
-Colors and palettes
+Color palettes and shortcodes
 ----------------------------------------
 */
 
-$highlight:             get-uswds-color('highlight');
-$base-lightest:         get-uswds-color($theme-color-base-lightest);
-$base-lighter:          get-uswds-color($theme-color-base-lighter);
-$base-light:            get-uswds-color($theme-color-base-light);
-$base:                  get-uswds-color($theme-color-base);
-$base-dark:             get-uswds-color($theme-color-base-dark);
-$base-darker:           get-uswds-color($theme-color-base-darker);
-$base-darkest:          get-uswds-color($theme-color-base-darkest);
-$ink:                   $base-darkest;
-$primary-lighter:       get-uswds-color($theme-color-primary-lighter);
-$primary-light:         get-uswds-color($theme-color-primary-light);
-$primary:               get-uswds-color($theme-color-primary);
-$primary-vivid:         get-uswds-color($theme-color-primary-vivid);
-$primary-dark:          get-uswds-color($theme-color-primary-dark);
-$primary-darker:        get-uswds-color($theme-color-primary-darker);
-$secondary-lighter:     get-uswds-color($theme-color-secondary-lighter);
-$secondary-light:       get-uswds-color($theme-color-secondary-light);
-$secondary:             get-uswds-color($theme-color-secondary);
-$secondary-vivid:       get-uswds-color($theme-color-secondary-vivid);
-$secondary-dark:        get-uswds-color($theme-color-secondary-dark);
-$secondary-darker:      get-uswds-color($theme-color-secondary-darker);
-$accent-warm-dark:      get-uswds-color($theme-color-accent-warm-dark);
-$accent-warm:           get-uswds-color($theme-color-accent-warm);
-$accent-cool-dark:      get-uswds-color($theme-color-accent-cool-dark);
-$accent-cool:           get-uswds-color($theme-color-accent-cool);
-$error-lighter:         get-uswds-color($theme-color-error-lighter);
-$error-light:           get-uswds-color($theme-color-error-light);
-$error:                 get-uswds-color($theme-color-error);
-$error-dark:            get-uswds-color($theme-color-error-dark);
-$error-darker:          get-uswds-color($theme-color-error-darker);
-$warn-lighter:          get-uswds-color($theme-color-warn-lighter);
-$warn-light:            get-uswds-color($theme-color-warn-light);
-$warn:                  get-uswds-color($theme-color-warn);
-$warn-dark:             get-uswds-color($theme-color-warn-dark);
-$warn-darker:           get-uswds-color($theme-color-warn-darker);
-$success-lighter:       get-uswds-color($theme-color-success-lighter);
-$success-light:         get-uswds-color($theme-color-success-light);
-$success:               get-uswds-color($theme-color-success);
-$success-dark:          get-uswds-color($theme-color-success-dark);
-$success-darker:        get-uswds-color($theme-color-success-darker);
-$disabled:              get-uswds-color($theme-color-disabled);
-
 $color-palette-theme: (
-  'base-lightest':      get-uswds-color($theme-color-base-lightest),
-  'base-lighter':       get-uswds-color($theme-color-base-lighter),
-  'base-light':         get-uswds-color($theme-color-base-light),
-  'base':               get-uswds-color($theme-color-base),
-  'base-dark':          get-uswds-color($theme-color-base-dark),
-  'base-darker':        get-uswds-color($theme-color-base-darker),
-  'base-darkest':       get-uswds-color($theme-color-base-darkest),
-  'ink':                get-uswds-color($theme-color-ink),
-  'primary-lighter':    get-uswds-color($theme-color-primary-lighter),
-  'primary-light':      get-uswds-color($theme-color-primary-light),
-  'primary':            get-uswds-color($theme-color-primary),
-  'primary-vivid':      get-uswds-color($theme-color-primary-vivid),
-  'primary-dark':       get-uswds-color($theme-color-primary-dark),
-  'primary-darker':     get-uswds-color($theme-color-primary-darker),
-  'secondary-light':    get-uswds-color($theme-color-secondary-light),
-  'secondary':          get-uswds-color($theme-color-secondary),
-  'secondary-vivid':    get-uswds-color($theme-color-secondary-vivid),
-  'secondary-dark':     get-uswds-color($theme-color-secondary-dark),
-  'accent-warm-dark':   get-uswds-color($theme-color-accent-warm-dark),
-  'accent-warm':        get-uswds-color($theme-color-accent-warm),
-  'accent-cool-dark':   get-uswds-color($theme-color-accent-cool-dark),
-  'accent-cool':        get-uswds-color($theme-color-accent-cool),
+  'base-lightest':            $color-theme-base-lightest,
+  'base-lighter':             $color-theme-base-lighter,
+  'base-light':               $color-theme-base-light,
+  'base':                     $color-theme-base,
+  'base-dark':                $color-theme-base-dark,
+  'base-darker':              $color-theme-base-darker,
+  'base-darkest':             $color-theme-base-darkest,
+  'ink':                      $color-theme-ink,
+  'primary-lightest':         $color-theme-primary-lightest,
+  'primary-lighter':          $color-theme-primary-lighter,
+  'primary-light':            $color-theme-primary-light,
+  'primary':                  $color-theme-primary,
+  'primary-vivid':            $color-theme-primary-vivid,
+  'primary-dark':             $color-theme-primary-dark,
+  'primary-darker':           $color-theme-primary-darker,
+  'primary-darkest':          $color-theme-primary-darkest,
+  'secondary-lightest':       $color-theme-secondary-lightest,
+  'secondary-lighter':        $color-theme-secondary-lighter,
+  'secondary-light':          $color-theme-secondary-light,
+  'secondary':                $color-theme-secondary,
+  'secondary-vivid':          $color-theme-secondary-vivid,
+  'secondary-dark':           $color-theme-secondary-dark,
+  'secondary-darker':         $color-theme-secondary-darker,
+  'secondary-darkest':        $color-theme-secondary-darkest,
+  'accent-warm-darkest':      $color-theme-accent-warm-darkest,
+  'accent-warm-darker':       $color-theme-accent-warm-darker,
+  'accent-warm-dark':         $color-theme-accent-warm-dark,
+  'accent-warm':              $color-theme-accent-warm,
+  'accent-warm-light':        $color-theme-accent-warm-light,
+  'accent-warm-lighter':      $color-theme-accent-warm-lighter,
+  'accent-warm-lightest':     $color-theme-accent-warm-lightest,
+  'accent-cool-darkest':      $color-theme-accent-cool-darkest,
+  'accent-cool-darker':       $color-theme-accent-cool-darker,
+  'accent-cool-dark':         $color-theme-accent-cool-dark,
+  'accent-cool':              $color-theme-accent-cool,
+  'accent-cool-light':        $color-theme-accent-cool-light,
+  'accent-cool-lighter':      $color-theme-accent-cool-lighter,
+  'accent-cool-lightest':     $color-theme-accent-cool-lightest,
 );
 
 $color-palette-state: (
-  'error-lighter':      get-uswds-color($theme-color-error-lighter),
-  'error-light':        get-uswds-color($theme-color-error-light),
-  'error':              get-uswds-color($theme-color-error),
-  'error-dark':         get-uswds-color($theme-color-error-dark),
-  'error-darker':       get-uswds-color($theme-color-error-darker),
-  'warn-lighter':       get-uswds-color($theme-color-warn-lighter),
-  'warn-light':         get-uswds-color($theme-color-warn-light),
-  'warn':               get-uswds-color($theme-color-warn),
-  'warn-dark':          get-uswds-color($theme-color-warn-dark),
-  'warn-darker':        get-uswds-color($theme-color-warn-darker),
-  'success-lighter':    get-uswds-color($theme-color-success-lighter),
-  'success-light':      get-uswds-color($theme-color-success-light),
-  'success':            get-uswds-color($theme-color-success),
-  'success-dark':       get-uswds-color($theme-color-success-dark),
-  'success-darker':     get-uswds-color($theme-color-success-darker),
-  'disabled':           get-uswds-color($theme-color-disabled),
+  'error-lighter':            $color-theme-error-lighter,
+  'error-light':              $color-theme-error-light,
+  'error':                    $color-theme-error,
+  'error-dark':               $color-theme-error-dark,
+  'error-darker':             $color-theme-error-darker,
+  'warn-lighter':             $color-theme-warn-lighter,
+  'warn-light':               $color-theme-warn-light,
+  'warn':                     $color-theme-warn,
+  'warn-dark':                $color-theme-warn-dark,
+  'warn-darker':              $color-theme-warn-darker,
+  'success-lighter':          $color-theme-success-lighter,
+  'success-light':            $color-theme-success-light,
+  'success':                  $color-theme-success,
+  'success-dark':             $color-theme-success-dark,
+  'success-darker':           $color-theme-success-darker,
+  'disabled':                 $color-theme-disabled,
 );
 
-$color-palette-grayscale: $uswds-gray;
+$project-color-shortcodes: map-collect(
+  $color-palette-theme,
+  $color-palette-state
+);
+
+$all-color-shortcodes: map-collect(
+  $system-required-colors,
+  $system-color-shortcodes,
+  $project-color-shortcodes
+);
+
+$color-palette-grayscale: $system-color-gray;
 
 /*
 ----------------------------------------
@@ -654,79 +970,79 @@ TODO:
 ----------------------------------------
 */
 
-$color-blue:                 $blue-60v !default;
-$color-blue-darker:          $blue-warm-70v !default;
-$color-blue-darkest:         $blue-warm-80v !default;
-$color-blue-light:           $blue-warm-50 !default;
-$color-blue-lighter:         $blue-warm-30 !default;
-$color-blue-lightest:        $blue-warm-10 !default;
+$color-blue:                 $color-blue-60v !default;
+$color-blue-darker:          $color-blue-warm-70v !default;
+$color-blue-darkest:         $color-blue-warm-80v !default;
+$color-blue-light:           $color-blue-warm-50 !default;
+$color-blue-lighter:         $color-blue-warm-30 !default;
+$color-blue-lightest:        $color-blue-warm-10 !default;
 
-$color-aqua:                 $cyan-30v !default;
-$color-aqua-dark:            $cyan-40v !default;
-$color-aqua-darkest:         $blue-60 !default;
-$color-aqua-light:           $cyan-20 !default;
-$color-aqua-lightest:        $cyan-5 !default;
+$color-aqua:                 $color-cyan-30v !default;
+$color-aqua-dark:            $color-cyan-40v !default;
+$color-aqua-darkest:         $color-blue-60 !default;
+$color-aqua-light:           $color-cyan-20 !default;
+$color-aqua-lightest:        $color-cyan-5 !default;
 
-$color-red:                  $red-50 !default;
-$color-red-dark:             $red-60v !default;
-$color-red-darkest:          $red-70v !default;
-$color-red-light:            $red-30 !default;
-$color-red-lightest:         $red-10 !default;
+$color-red:                  $color-red-50 !default;
+$color-red-dark:             $color-red-60v !default;
+$color-red-darkest:          $color-red-70v !default;
+$color-red-light:            $color-red-30 !default;
+$color-red-lightest:         $color-red-10 !default;
 
 $color-white:                white !default;
 $color-black:                black !default;
-$color-black-light:          $gray-90 !default;
+$color-black-light:          $color-gray-90 !default;
 
-$color-gray-dark:            $gray-cool-80 !default;
-$color-gray:                 $gray-cool-60 !default;
+$color-gray-dark:            $color-gray-cool-80 !default;
+$color-gray:                 $color-gray-cool-60 !default;
 $color-gray-medium:          #757575 !default;
-$color-gray-light:           $gray-30 !default;
-$color-gray-lighter:         $gray-cool-10 !default;
-$color-gray-lightest:        $gray-cool-5 !default;
+$color-gray-light:           $color-gray-30 !default;
+$color-gray-lighter:         $color-gray-cool-10 !default;
+$color-gray-lightest:        $color-gray-cool-5 !default;
 
-$color-gray-warm-dark:       $gray-warm-70 !default;
-$color-gray-warm-light:      $gray-warm-10 !default;
-$color-gray-cool-light:      $blue-warm-5 !default;
+$color-gray-warm-dark:       $color-gray-warm-70 !default;
+$color-gray-warm-light:      $color-gray-warm-10 !default;
+$color-gray-cool-light:      $color-blue-warm-5 !default;
 
-$color-gold:                 $gold-20v !default;
-$color-gold-light:           $gold-10v !default;
-$color-gold-lighter:         $yellow-10 !default;
-$color-gold-lightest:        $gold-5v !default;
+$color-gold:                 $color-gold-20v !default;
+$color-gold-light:           $color-gold-10v !default;
+$color-gold-lighter:         $color-yellow-10 !default;
+$color-gold-lightest:        $color-gold-5v !default;
 
-$color-green:                $green-cool-50 !default;
-$color-green-light:          $green-cool-40 !default;
-$color-green-lighter:        $green-cool-20 !default;
-$color-green-lightest:       $green-cool-5 !default;
+$color-green:                $color-green-cool-50 !default;
+$color-green-light:          $color-green-cool-40 !default;
+$color-green-lighter:        $color-green-cool-20 !default;
+$color-green-lightest:       $color-green-cool-5 !default;
 
-$color-cool-blue:            #205493 !default;
-$color-cool-blue-light:      #4773aa !default;
-$color-cool-blue-lighter:    #8ba6ca !default;
-$color-cool-blue-lightest:   #dce4ef !default;
+$color-cool-blue:            $color-blue-70v !default;
+$color-cool-blue-light:      $color-blue-warm-50 !default;
+$color-cool-blue-lighter:    $color-blue-warm-30 !default;
+$color-cool-blue-lightest:   $color-blue-warm-10 !default;
 
-$color-purple:               $violet-70v !default;
+$color-purple:               $color-violet-70v !default;
 
 // Functional colors
-$color-primary:              $color-blue !default;
-$color-primary-darker:       $color-blue-darker !default;
-$color-primary-darkest:      $color-blue-darkest !default;
+$color-primary:              $color-blue !default; //'primary'
+$color-primary-darker:       $color-blue-darker !default; //'primary-dark'
+$color-primary-darkest:      $color-blue-darkest !default; //'primary-darker'
 
-$color-primary-alt:          $color-aqua !default;
-$color-primary-alt-dark:     $color-aqua-dark !default;
-$color-primary-alt-darkest:  $color-aqua-darkest !default;
-$color-primary-alt-light:    $color-aqua-light !default;
-$color-primary-alt-lightest: $color-aqua-lightest !default;
+$color-primary-alt:          $color-aqua !default; //'accent-cool'
+$color-primary-alt-dark:     $color-aqua-dark !default; //'accent-cool-dark'
+$color-primary-alt-darkest:  $color-aqua-darkest !default; //'accent-cool-darker'
+$color-primary-alt-light:    $color-aqua-light !default; //'accent-cool-light'
+$color-primary-alt-lightest: $color-aqua-lightest !default; //'accent-cool-lighter'
 
-$color-secondary:            $color-red !default;
-$color-secondary-dark:       $color-red-dark !default;
-$color-secondary-darkest:    $color-red-darkest !default;
-$color-secondary-light:      $color-red-light !default;
-$color-secondary-lightest:   $color-red-lightest !default;
+$color-secondary:            $color-red !default; //'secondary'
+$color-secondary-dark:       $color-red-dark !default; //'secondary-dark'
+$color-secondary-darkest:    $color-red-darkest !default; //'primary-darker'
+$color-secondary-light:      $color-red-light !default; //'secondary-light'
+$color-secondary-lightest:   $color-red-lightest !default; //'secondary-lighter'
 
-$color-base:                 $color-black-light !default;
-$color-focus:                $blue-40v !default;
+$color-base:                 $color-black-light !default; //'base-darkest'
+$color-focus:                $color-blue-40v !default;
 $color-visited:              $color-purple !default;
 
-$color-shadow:               $black-transparent-30 !default;
+$color-shadow:               $color-black-transparent-30 !default;
 $color-transparent:          rgba(#000, 0) !default;
 
 /*

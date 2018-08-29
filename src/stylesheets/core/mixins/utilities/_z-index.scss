@@ -6,5 +6,5 @@
     $value: remove($value, '!important');
     $important: ' !important';
   }
-  z-index: get-uswds-value(z-index, $value...)#{$important};
+  z-index: get-uswds-value(z-index, $value...) #{$important};
 }
