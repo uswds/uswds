@@ -64,6 +64,11 @@ $namespace-grid: ns('grid');
             @include grid-gap('sm');
           }
         }
+        @if $theme-column-gap-md {
+          &.#{$mq-key}\:#{$namespace-grid}gap-md {
+            @include grid-gap('md');
+          }
+        }
         @if $theme-column-gap-lg {
           &.#{$mq-key}\:#{$namespace-grid}gap-lg {
             @include grid-gap('lg');
