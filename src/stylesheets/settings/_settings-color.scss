@@ -41,7 +41,7 @@ $theme-color-primary-darkest:       false !default;
 
 // Secondary colors
 $theme-color-secondary-family:      'red' !default;
-$theme-color-secondary-lightest:    false !default
+$theme-color-secondary-lightest:    false !default;
 $theme-color-secondary-lighter:     '#{$theme-color-secondary-family}-10' !default;
 $theme-color-secondary-light:       '#{$theme-color-secondary-family}-30' !default;
 $theme-color-secondary:             '#{$theme-color-secondary-family}-50' !default;
