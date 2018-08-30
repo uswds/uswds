@@ -22,7 +22,7 @@ that uses the `package.json` in each directory to:
 
 ## General
 
-If you `require('uswds')` in your bundled JS, you will get the minified ES5 browser bundle. (**This might be a problem if the `uswds` JS API becomes public, because it may not export.**) If you're handling ES5 conversion already or using a tool that does it automatically, you can work around this in two ways:
+If you `require('uswds')` in your bundled JS, you will get the minified ES5 browser bundle. If you're handling ES5 conversion already or using a tool that does it automatically, you can work around this in two ways:
 
 1. Import the specific entry point with `require('uswds/src/js/start')`.
 1. Configure your bundler to read the entry point from the `jsnext:main` field instead of `main`.
