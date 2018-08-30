@@ -19,3 +19,10 @@ that uses the `package.json` in each directory to:
 [Node.js]: https://nodejs.org/en/about/
 [npm]: https://docs.npmjs.com/getting-started/what-is-npm
 [scripts]: https://docs.npmjs.com/misc/scripts
+
+## General
+
+If you `require('uswds')` in your bundled JS, you will get the minified ES5 browser bundle. If you're handling ES5 conversion already or using a tool that does it automatically, you can work around this in two ways:
+
+1. Import the specific entry point with `require('uswds/src/js/start')`.
+1. Configure your bundler to read the entry point from the `jsnext:main` field instead of `main`.
