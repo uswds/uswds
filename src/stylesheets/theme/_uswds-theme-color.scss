@@ -18,67 +18,57 @@ Theme palette colors
 */
 
 // Base colors
-$theme-color-base-family: 'gray';
-$theme-color-base: (
-  'lightest':   '#{$theme-color-base-family}-2',
-  'lighter':    '#{$theme-color-base-family}-5',
-  'light':      '#{$theme-color-base-family}-10',
-  'default':    '#{$theme-color-base-family}-30',
-  'dark':       '#{$theme-color-base-family}-50',
-  'darker':     '#{$theme-color-base-family}-70',
-  'darkest':    '#{$theme-color-base-family}-90',
-  'ink':        '#{$theme-color-base-family}-90',
-);
+$theme-color-base-family:           'gray';
+$theme-color-base-lightest:         '#{$theme-color-base-family}-2';
+$theme-color-base-lighter:          '#{$theme-color-base-family}-5';
+$theme-color-base-light:            '#{$theme-color-base-family}-10';
+$theme-color-base:                  '#{$theme-color-base-family}-30';
+$theme-color-base-dark:             '#{$theme-color-base-family}-50';
+$theme-color-base-darker:           '#{$theme-color-base-family}-70';
+$theme-color-base-darkest:          '#{$theme-color-base-family}-90';
+$theme-color-base-ink:              '#{$theme-color-base-family}-90';
 
 // Primary colors
-$theme-color-primary-family: 'blue';
-$theme-color-primary: (
-  'lightest':   false,
-  'lighter':    '#{$theme-color-primary-family}-10',
-  'light':      '#{$theme-color-primary-family}-30',
-  'default':    '#{$theme-color-primary-family}-60v',
-  'vivid':      'blue-warm-60v',
-  'dark':       'blue-warm-70v',
-  'darker':     'blue-warm-80v',
-  'darkest':    false,
-);
+$theme-color-primary-family:        'blue';
+$theme-color-primary-lightest:      false;
+$theme-color-primary-lighter:       '#{$theme-color-primary-family}-10';
+$theme-color-primary-light:         '#{$theme-color-primary-family}-30';
+$theme-color-primary:               '#{$theme-color-primary-family}-60v';
+$theme-color-primary-vivid:         'blue-warm-60v';
+$theme-color-primary-dark:          'blue-warm-70v';
+$theme-color-primary-darker:        'blue-warm-80v';
+$theme-color-primary-darkest:       false;
 
 // Secondary colors
-$theme-color-secondary-family: 'red';
-$theme-color-secondary: (
-  'lightest':   false,
-  'lighter':    '#{$theme-color-secondary-family}-10',
-  'light':      '#{$theme-color-secondary-family}-30',
-  'default':    '#{$theme-color-secondary-family}-50',
-  'vivid':      '#{$theme-color-secondary-family}-50v',
-  'dark':       '#{$theme-color-secondary-family}-60v',
-  'darker':     '#{$theme-color-secondary-family}-70v',
-  'darkest':    false,
-);
+$theme-color-secondary-family:      'red';
+$theme-color-secondary-lightest:    false;
+$theme-color-secondary-lighter:     '#{$theme-color-secondary-family}-10';
+$theme-color-secondary-light:       '#{$theme-color-secondary-family}-30';
+$theme-color-secondary:             '#{$theme-color-secondary-family}-50';
+$theme-color-secondary-vivid:       '#{$theme-color-secondary-family}-50v';
+$theme-color-secondary-dark:        '#{$theme-color-secondary-family}-60v';
+$theme-color-secondary-darker:      '#{$theme-color-secondary-family}-70v';
+$theme-color-secondary-darkest:     false;
 
 // Accent warm colors
-$theme-color-accent-warm-family: 'orange';
-$theme-color-accent-warm: (
-  'lightest':   false,
-  'lighter':    '#{$theme-color-accent-warm-family}-10',
-  'light':      '#{$theme-color-accent-warm-family}-20v',
-  'default':    '#{$theme-color-accent-warm-family}-30v',
-  'dark':       '#{$theme-color-accent-warm-family}-50v',
-  'darker':     '#{$theme-color-accent-warm-family}-60',
-  'darkest':    false,
-);
+$theme-color-accent-warm-family:    'orange';
+$theme-color-accent-warm-lightest:  false;
+$theme-color-accent-warm-lighter:   '#{$theme-color-accent-warm-family}-10';
+$theme-color-accent-warm-light:     '#{$theme-color-accent-warm-family}-20v';
+$theme-color-accent-warm:           '#{$theme-color-accent-warm-family}-30v';
+$theme-color-accent-warm-dark:      '#{$theme-color-accent-warm-family}-50v';
+$theme-color-accent-warm-darker:    '#{$theme-color-accent-warm-family}-60';
+$theme-color-accent-warm-darkest:   false;
 
 // Accent cool colors
-$theme-color-accent-cool-family: 'cyan';
-$theme-color-accent-cool: (
-  'lightest':   false,
-  'lighter':    '#{$theme-color-accent-cool-family}-5',
-  'light':      '#{$theme-color-accent-cool-family}-20',
-  'default':    '#{$theme-color-accent-cool-family}-30v',
-  'dark':       '#{$theme-color-accent-cool-family}-40v',
-  'darker':     'blue-60',
-  'darkest':    false,
-);
+$theme-color-accent-cool-family:    'cyan';
+$theme-color-accent-cool-lightest:  false;
+$theme-color-accent-cool-lighter:   '#{$theme-color-accent-cool-family}-5';
+$theme-color-accent-cool-light:     '#{$theme-color-accent-cool-family}-20';
+$theme-color-accent-cool:           '#{$theme-color-accent-cool-family}-30v';
+$theme-color-accent-cool-dark:      '#{$theme-color-accent-cool-family}-40v';
+$theme-color-accent-cool-darker:    'blue-60';
+$theme-color-accent-cool-darkest:   false;
 
 /*
 ----------------------------------------
@@ -87,34 +77,28 @@ State palette colors
 */
 
 // Error colors
-$theme-color-error-family: 'red';
-$theme-color-error: (
-  'lighter':    '#{$theme-color-error-family}-30v',
-  'light':      '#{$theme-color-error-family}-40v',
-  'default':    '#{$theme-color-error-family}-50v',
-  'dark':       '#{$theme-color-error-family}-60',
-  'darker':     '#{$theme-color-error-family}-70',
-);
+$theme-color-error-family:    'red';
+$theme-color-error-lighter:   '#{$theme-color-error-family}-30v';
+$theme-color-error-light:     '#{$theme-color-error-family}-40v';
+$theme-color-error:           '#{$theme-color-error-family}-50v';
+$theme-color-error-dark:      '#{$theme-color-error-family}-60';
+$theme-color-error-darker:    '#{$theme-color-error-family}-70';
 
 // Warning colors
-$theme-color-warn-family: 'orange';
-$theme-color-warn: (
-  'lighter':     '#{$theme-color-warn-family}-10',
-  'light':       '#{$theme-color-warn-family}-20v',
-  'default':     '#{$theme-color-warn-family}-30v',
-  'dark':        '#{$theme-color-warn-family}-40',
-  'darker':      '#{$theme-color-warn-family}-50',
-);
+$theme-color-warn-family:     'orange';
+$theme-color-warn-lighter:    '#{$theme-color-warn-family}-10';
+$theme-color-warn-light:      '#{$theme-color-warn-family}-20v';
+$theme-color-warn:            '#{$theme-color-warn-family}-30v';
+$theme-color-warn-dark:       '#{$theme-color-warn-family}-40';
+$theme-color-warn-darker:     '#{$theme-color-warn-family}-50';
 
 // Success colors
-$theme-color-success-family: 'green-cool';
-$theme-color-success: (
-  'lighter':    '#{$theme-color-success-family}-20v',
-  'light':      '#{$theme-color-success-family}-30v',
-  'default':    '#{$theme-color-success-family}-40v',
-  'dark':       '#{$theme-color-success-family}-50',
-  'darker':     '#{$theme-color-success-family}-70',
-);
+$theme-color-success-family:  'green-cool';
+$theme-color-success-lighter: '#{$theme-color-success-family}-20v';
+$theme-color-success-light:   '#{$theme-color-success-family}-30v';
+$theme-color-success:         '#{$theme-color-success-family}-40v';
+$theme-color-success-dark:    '#{$theme-color-success-family}-50';
+$theme-color-success-darker:  '#{$theme-color-success-family}-70';
 
 // Disabled color
 $theme-color-disabled-family: 'gray';
