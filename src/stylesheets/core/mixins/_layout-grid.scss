@@ -23,7 +23,7 @@
   $props: unpack($props);
   $gap: if(
     length($props) == 0,
-    $theme-column-gap,
+    $theme-column-gap-md,
     smart-quote(nth($props, 1))
   );
 

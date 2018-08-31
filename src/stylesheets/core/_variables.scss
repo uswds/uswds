@@ -358,80 +358,141 @@ $project-font-weights: (
   'heavy':      $theme-font-weight-heavy,
 );
 
+/*
+----------------------------------------
+Theme color variables
+----------------------------------------
+*/
+
+$color-theme-base-lightest:         color($theme-color-base-lightest);
+$color-theme-base-lighter:          color($theme-color-base-lighter);
+$color-theme-base-light:            color($theme-color-base-light);
+$color-theme-base:                  color($theme-color-base);
+$color-theme-base-dark:             color($theme-color-base-dark);
+$color-theme-base-darker:           color($theme-color-base-darker);
+$color-theme-base-darkest:          color($theme-color-base-darkest);
+$color-theme-ink:                   color($theme-color-base-ink);
+$color-theme-primary-lightest:      color($theme-color-primary-lightest);
+$color-theme-primary-lighter:       color($theme-color-primary-lighter);
+$color-theme-primary-light:         color($theme-color-primary-light);
+$color-theme-primary:               color($theme-color-primary);
+$color-theme-primary-vivid:         color($theme-color-primary-vivid);
+$color-theme-primary-dark:          color($theme-color-primary-dark);
+$color-theme-primary-darker:        color($theme-color-primary-darker);
+$color-theme-primary-darkest:       color($theme-color-primary-darkest);
+$color-theme-secondary-lightest:    color($theme-color-secondary-lightest);
+$color-theme-secondary-lighter:     color($theme-color-secondary-lighter);
+$color-theme-secondary-light:       color($theme-color-secondary-light);
+$color-theme-secondary:             color($theme-color-secondary);
+$color-theme-secondary-vivid:       color($theme-color-secondary-vivid);
+$color-theme-secondary-dark:        color($theme-color-secondary-dark);
+$color-theme-secondary-darker:      color($theme-color-secondary-darker);
+$color-theme-secondary-darkest:     color($theme-color-secondary-darkest);
+$color-theme-accent-warm-darkest:   color($theme-color-accent-warm-darkest);
+$color-theme-accent-warm-darker:    color($theme-color-accent-warm-darker);
+$color-theme-accent-warm-dark:      color($theme-color-accent-warm-dark);
+$color-theme-accent-warm:           color($theme-color-accent-warm);
+$color-theme-accent-warm-light:     color($theme-color-accent-warm-light);
+$color-theme-accent-warm-lighter:   color($theme-color-accent-warm-lighter);
+$color-theme-accent-warm-lightest:  color($theme-color-accent-warm-lightest);
+$color-theme-accent-cool-darkest:   color($theme-color-accent-cool-darkest);
+$color-theme-accent-cool-darker:    color($theme-color-accent-cool-darker);
+$color-theme-accent-cool-dark:      color($theme-color-accent-cool-dark);
+$color-theme-accent-cool:           color($theme-color-accent-cool);
+$color-theme-accent-cool-light:     color($theme-color-accent-cool-light);
+$color-theme-accent-cool-lighter:   color($theme-color-accent-cool-lighter);
+$color-theme-accent-cool-lightest:  color($theme-color-accent-cool-lightest);
+$color-theme-error-lighter:         color($theme-color-error-lighter);
+$color-theme-error-light:           color($theme-color-error-light);
+$color-theme-error:                 color($theme-color-error);
+$color-theme-error-dark:            color($theme-color-error-dark);
+$color-theme-error-darker:          color($theme-color-error-darker);
+$color-theme-warn-lighter:          color($theme-color-warn-lighter);
+$color-theme-warn-light:            color($theme-color-warn-light);
+$color-theme-warn:                  color($theme-color-warn);
+$color-theme-warn-dark:             color($theme-color-warn-dark);
+$color-theme-warn-darker:           color($theme-color-warn-darker);
+$color-theme-success-lighter:       color($theme-color-success-lighter);
+$color-theme-success-light:         color($theme-color-success-light);
+$color-theme-success:               color($theme-color-success);
+$color-theme-success-dark:          color($theme-color-success-dark);
+$color-theme-success-darker:        color($theme-color-success-darker);
+$color-theme-disabled:              color($theme-color-disabled);
+
 $project-colors: (
   'base': (
-    'lightest': get-system-color($theme-color-base-lightest),
-    'lighter':  get-system-color($theme-color-base-lighter),
-    'light':    get-system-color($theme-color-base-light),
-    'default':  get-system-color($theme-color-base),
-    'dark':     get-system-color($theme-color-base-dark),
-    'darker':   get-system-color($theme-color-base-darker),
-    'darkest':  get-system-color($theme-color-base-darkest),
+    'lightest': $color-theme-base-lightest,
+    'lighter':  $color-theme-base-lighter,
+    'light':    $color-theme-base-light,
+    'default':  $color-theme-base,
+    'dark':     $color-theme-base-dark,
+    'darker':   $color-theme-base-darker,
+    'darkest':  $color-theme-base-darkest,
   ),
   'primary': (
-    'lightest': get-system-color($theme-color-primary-lightest),
-    'lighter':  get-system-color($theme-color-primary-lighter),
-    'light':    get-system-color($theme-color-primary-light),
-    'default':  get-system-color($theme-color-primary),
-    'vivid':    get-system-color($theme-color-primary-vivid),
-    'dark':     get-system-color($theme-color-primary-dark),
-    'darker':   get-system-color($theme-color-primary-darker),
-    'darkest':  get-system-color($theme-color-primary-darkest),
+    'lightest': $color-theme-primary-lightest,
+    'lighter':  $color-theme-primary-lighter,
+    'light':    $color-theme-primary-light,
+    'default':  $color-theme-primary,
+    'vivid':    $color-theme-primary-vivid,
+    'dark':     $color-theme-primary-dark,
+    'darker':   $color-theme-primary-darker,
+    'darkest':  $color-theme-primary-darkest,
   ),
   'secondary': (
-    'lightest': get-system-color($theme-color-secondary-lightest),
-    'lighter':  get-system-color($theme-color-secondary-lighter),
-    'light':    get-system-color($theme-color-secondary-light),
-    'default':  get-system-color($theme-color-secondary),
-    'vivid':    get-system-color($theme-color-secondary-vivid),
-    'dark':     get-system-color($theme-color-secondary-dark),
-    'darker':   get-system-color($theme-color-secondary-darker),
-    'darkest':  get-system-color($theme-color-secondary-darkest),
+    'lightest': $color-theme-secondary-lightest,
+    'lighter':  $color-theme-secondary-lighter,
+    'light':    $color-theme-secondary-light,
+    'default':  $color-theme-secondary,
+    'vivid':    $color-theme-secondary-vivid,
+    'dark':     $color-theme-secondary-dark,
+    'darker':   $color-theme-secondary-darker,
+    'darkest':  $color-theme-secondary-darkest,
   ),
   'accent-warm': (
-    'lightest': get-system-color($theme-color-accent-warm-lightest),
-    'lighter':  get-system-color($theme-color-accent-warm-lighter),
-    'light':    get-system-color($theme-color-accent-warm-light),
-    'default':  get-system-color($theme-color-accent-warm),
-    'dark':     get-system-color($theme-color-accent-warm-dark),
-    'darker':   get-system-color($theme-color-accent-warm-darker),
-    'darkest':  get-system-color($theme-color-accent-warm-darkest),
+    'lightest': $color-theme-accent-warm-lightest,
+    'lighter':  $color-theme-accent-warm-lighter,
+    'light':    $color-theme-accent-warm-light,
+    'default':  $color-theme-accent-warm,
+    'dark':     $color-theme-accent-warm-dark,
+    'darker':   $color-theme-accent-warm-darker,
+    'darkest':  $color-theme-accent-warm-darkest,
   ),
   'accent-cool': (
-    'lightest': get-system-color($theme-color-accent-cool-lightest),
-    'lighter':  get-system-color($theme-color-accent-cool-lighter),
-    'light':    get-system-color($theme-color-accent-cool-light),
-    'default':  get-system-color($theme-color-accent-cool),
-    'dark':     get-system-color($theme-color-accent-cool-dark),
-    'darker':   get-system-color($theme-color-accent-cool-darker),
-    'darkest':  get-system-color($theme-color-accent-cool-darkest),
+    'lightest': $color-theme-accent-cool-lightest,
+    'lighter':  $color-theme-accent-cool-lighter,
+    'light':    $color-theme-accent-cool-light,
+    'default':  $color-theme-accent-cool,
+    'dark':     $color-theme-accent-cool-dark,
+    'darker':   $color-theme-accent-cool-darker,
+    'darkest':  $color-theme-accent-cool-darkest,
   )
 );
 
 $project-state-colors: (
   'error': (
-    'lighter': get-system-color($theme-color-error-lighter),
-    'light':   get-system-color($theme-color-error-light),
-    'default': get-system-color($theme-color-error),
-    'dark':    get-system-color($theme-color-error-dark),
-    'darker':  get-system-color($theme-color-error-darker),
+    'lighter': $color-theme-error-lighter,
+    'light':   $color-theme-error-light,
+    'default': $color-theme-error,
+    'dark':    $color-theme-error-dark,
+    'darker':  $color-theme-error-darker,
   ),
   'warn': (
-    'lighter': get-system-color($theme-color-warn-lighter),
-    'light':   get-system-color($theme-color-warn-light),
-    'default': get-system-color($theme-color-warn),
-    'dark':    get-system-color($theme-color-warn-dark),
-    'darker':  get-system-color($theme-color-warn-darker),
+    'lighter': $color-theme-warn-lighter,
+    'light':   $color-theme-warn-light,
+    'default': $color-theme-warn,
+    'dark':    $color-theme-warn-dark,
+    'darker':  $color-theme-warn-darker,
   ),
   'success': (
-    'lighter': get-system-color($theme-color-success-lighter),
-    'light':   get-system-color($theme-color-success-light),
-    'default': get-system-color($theme-color-success),
-    'dark':    get-system-color($theme-color-success-dark),
-    'darker':  get-system-color($theme-color-success-darker),
+    'lighter': $color-theme-success-lighter,
+    'light':   $color-theme-success-light,
+    'default': $color-theme-success,
+    'dark':    $color-theme-success-dark,
+    'darker':  $color-theme-success-darker,
   ),
   'disabled': (
-    'default': get-system-color($theme-color-disabled),
+    'default': $color-theme-disabled,
   ),
 );
 
@@ -445,61 +506,6 @@ $all-colors: map-collect(
   $system-required-colors,
   $system-colors
 );
-
-$color-theme-base-lightest:         get-system-color($theme-color-base-lightest);
-$color-theme-base-lighter:          get-system-color($theme-color-base-lighter);
-$color-theme-base-light:            get-system-color($theme-color-base-light);
-$color-theme-base:                  get-system-color($theme-color-base);
-$color-theme-base-dark:             get-system-color($theme-color-base-dark);
-$color-theme-base-darker:           get-system-color($theme-color-base-darker);
-$color-theme-base-darkest:          get-system-color($theme-color-base-darkest);
-$color-theme-ink:                   $color-theme-base-darkest;
-$color-theme-primary-lightest:      get-system-color($theme-color-primary-lightest);
-$color-theme-primary-lighter:       get-system-color($theme-color-primary-lighter);
-$color-theme-primary-light:         get-system-color($theme-color-primary-light);
-$color-theme-primary:               get-system-color($theme-color-primary);
-$color-theme-primary-vivid:         get-system-color($theme-color-primary-vivid);
-$color-theme-primary-dark:          get-system-color($theme-color-primary-dark);
-$color-theme-primary-darker:        get-system-color($theme-color-primary-darker);
-$color-theme-primary-darkest:       get-system-color($theme-color-primary-darkest);
-$color-theme-secondary-lightest:    get-system-color($theme-color-secondary-lightest);
-$color-theme-secondary-lighter:     get-system-color($theme-color-secondary-lighter);
-$color-theme-secondary-light:       get-system-color($theme-color-secondary-light);
-$color-theme-secondary:             get-system-color($theme-color-secondary);
-$color-theme-secondary-vivid:       get-system-color($theme-color-secondary-vivid);
-$color-theme-secondary-dark:        get-system-color($theme-color-secondary-dark);
-$color-theme-secondary-darker:      get-system-color($theme-color-secondary-darker);
-$color-theme-secondary-darkest:     get-system-color($theme-color-secondary-darkest);
-$color-theme-accent-warm-darkest:   get-system-color($theme-color-accent-warm-darkest);
-$color-theme-accent-warm-darker:    get-system-color($theme-color-accent-warm-darker);
-$color-theme-accent-warm-dark:      get-system-color($theme-color-accent-warm-dark);
-$color-theme-accent-warm:           get-system-color($theme-color-accent-warm);
-$color-theme-accent-warm-light:     get-system-color($theme-color-accent-warm-light);
-$color-theme-accent-warm-lighter:   get-system-color($theme-color-accent-warm-lighter);
-$color-theme-accent-warm-lightest:  get-system-color($theme-color-accent-warm-lightest);
-$color-theme-accent-cool-darkest:   get-system-color($theme-color-accent-cool-darkest);
-$color-theme-accent-cool-darker:    get-system-color($theme-color-accent-cool-darker);
-$color-theme-accent-cool-dark:      get-system-color($theme-color-accent-cool-dark);
-$color-theme-accent-cool:           get-system-color($theme-color-accent-cool);
-$color-theme-accent-cool-light:     get-system-color($theme-color-accent-cool-light);
-$color-theme-accent-cool-lighter:   get-system-color($theme-color-accent-cool-lighter);
-$color-theme-accent-cool-lightest:  get-system-color($theme-color-accent-cool-lightest);
-$color-theme-error-lighter:         get-system-color($theme-color-error-lighter);
-$color-theme-error-light:           get-system-color($theme-color-error-light);
-$color-theme-error:                 get-system-color($theme-color-error);
-$color-theme-error-dark:            get-system-color($theme-color-error-dark);
-$color-theme-error-darker:          get-system-color($theme-color-error-darker);
-$color-theme-warn-lighter:          get-system-color($theme-color-warn-lighter);
-$color-theme-warn-light:            get-system-color($theme-color-warn-light);
-$color-theme-warn:                  get-system-color($theme-color-warn);
-$color-theme-warn-dark:             get-system-color($theme-color-warn-dark);
-$color-theme-warn-darker:           get-system-color($theme-color-warn-darker);
-$color-theme-success-lighter:       get-system-color($theme-color-success-lighter);
-$color-theme-success-light:         get-system-color($theme-color-success-light);
-$color-theme-success:               get-system-color($theme-color-success);
-$color-theme-success-dark:          get-system-color($theme-color-success-dark);
-$color-theme-success-darker:        get-system-color($theme-color-success-darker);
-$color-theme-disabled:              get-system-color($theme-color-disabled);
 
 /*
 ----------------------------------------
@@ -806,7 +812,7 @@ Column gaps
 
 $project-column-gaps: (
   'sm': $theme-column-gap-sm,
-  'md': $theme-column-gap,
+  'md': $theme-column-gap-md,
   'lg': $theme-column-gap-lg,
 );
 
