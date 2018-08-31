@@ -85,12 +85,12 @@ $theme-color-error-dark:      '#{$theme-color-error-family}-60';
 $theme-color-error-darker:    '#{$theme-color-error-family}-70';
 
 // Warning colors
-$theme-color-warn-family:     'orange';
-$theme-color-warn-lighter:    '#{$theme-color-warn-family}-10';
-$theme-color-warn-light:      '#{$theme-color-warn-family}-20v';
-$theme-color-warn:            '#{$theme-color-warn-family}-30v';
-$theme-color-warn-dark:       '#{$theme-color-warn-family}-40';
-$theme-color-warn-darker:     '#{$theme-color-warn-family}-50';
+$theme-color-warning-family:  'gold';
+$theme-color-warning-lighter: '#{$theme-color-warning-family}-10';
+$theme-color-warning-light:   '#{$theme-color-warning-family}-20v';
+$theme-color-warning:         '#{$theme-color-warning-family}-30v';
+$theme-color-warning-dark:    '#{$theme-color-warning-family}-40';
+$theme-color-warning-darker:  '#{$theme-color-warning-family}-50';
 
 // Success colors
 $theme-color-success-family:  'green-cool';
