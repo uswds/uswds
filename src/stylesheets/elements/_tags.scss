@@ -14,5 +14,5 @@
 
 .usa-tag-big {
   @include u-padding-x(1);
-  @include u-font('sans', 'xs');
+  @include u-font('sans', $theme-base-font-size);
 }
