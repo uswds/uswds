@@ -1,11 +1,11 @@
 .usa-tag {
   @include u-bg('base-dark');
-  @include u-color('white');
   @include u-font('sans', '2xs');
   @include u-margin-right(0.5);
   @include u-padding-x(1);
   @include u-padding-y(1px);
   @include u-radius('sm');
+  @include u-text('white');
   text-transform: uppercase;
 
   &:only-of-type {
