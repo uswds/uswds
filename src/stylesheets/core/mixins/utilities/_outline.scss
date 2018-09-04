@@ -9,7 +9,7 @@
     $match: false;
     @if map-has-key($all-color-shortcodes, smart-quote($this-value)) {
       $match: true;
-      outline-color: get-shortcode-color(smart-quote($this-value)) #{$important};
+      outline-color: color(smart-quote($this-value)) #{$important};
     }
     @else if type-of($this-value) == 'number' {
       $converted-value: number-to-value($this-value);

@@ -49,7 +49,7 @@ $text-utililies: (
     $match: false;
     @if map-has-key($all-color-shortcodes, $this-value) {
       $match: true;
-      color: get-shortcode-color($this-value) #{$important};
+      color: color($this-value) #{$important};
     }
     @else {
       @each $property, $map in $text-utililies {
