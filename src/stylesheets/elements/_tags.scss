@@ -1,11 +1,11 @@
 .usa-tag {
-  background-color: $color-gray;
-  border-radius: $label-border-radius;
-  color: $color-white;
-  font-size: $h5-font-size;
-  margin-right: 0.5rem;
-  padding: 0.1rem 0.7rem;
-  text-transform: uppercase;
+  @include u-bg('base-dark');
+  @include u-font('sans', '2xs');
+  @include u-margin-right(0.5);
+  @include u-padding-x(1);
+  @include u-padding-y(1px);
+  @include u-radius('sm');
+  @include u-text('white', 'uppercase');
 
   &:only-of-type {
     margin-right: 0;
@@ -13,7 +13,6 @@
 }
 
 .usa-tag-big {
-  font-size: $base-font-size;
-  padding-left: 0.9rem;
-  padding-right: 0.9rem;
+  @include u-padding-x(1);
+  @include u-font('sans', $theme-base-font-size);
 }
