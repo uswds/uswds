@@ -25,18 +25,18 @@ $border-utilities: (
       $match: true;
       $this-value: smart-quote($this-value);
       @if $side == n {
-        border-color: get-shortcode-color($this-value) #{$important};
+        border-color: color($this-value) #{$important};
       }
       @else if $side == x {
-        border-left-color: get-shortcode-color($this-value) #{$important};
-        border-right-color: get-shortcode-color($this-value) #{$important};
+        border-left-color: color($this-value) #{$important};
+        border-right-color: color($this-value) #{$important};
       }
       @else if $side == y {
-        border-bottom-color: get-shortcode-color($this-value) #{$important};
-        border-top-color: get-shortcode-color($this-value) #{$important};
+        border-bottom-color: color($this-value) #{$important};
+        border-top-color: color($this-value) #{$important};
       }
       @else {
-        border-#{$side}-color: get-shortcode-color($this-value) #{$important};
+        border-#{$side}-color: color($this-value) #{$important};
       }
     }
     @else if type-of($this-value) == 'number' {
