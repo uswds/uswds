@@ -4,7 +4,7 @@
 
   thead {
     th {
-      font-weight: $font-bold;
+      font-weight: $theme-font-weight-bold;
     }
 
     th,
@@ -21,13 +21,13 @@
   td {
     @include u-border(1px, 'base-dark');
     background-color: color('white');
-    font-weight: $font-normal;
+    font-weight: $theme-font-weight-normal;
     padding: units(1) units(2);
   }
 
   caption {
     @include u-font('serif', 'xs');
-    font-weight: $font-bold;
+    font-weight: $theme-font-weight-bold;
     margin-bottom: units(1.5);
     text-align: left;
   }
