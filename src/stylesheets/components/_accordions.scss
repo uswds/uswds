@@ -1,12 +1,13 @@
 // Variables
 
 $accordion-border: 3px solid color('base-lighter');
+$text-color: color('base-darkest');
 
 // Accordion Styles
 
 @mixin accordion-list-styles {
   @include unstyled-list;
-  color: color('base-darkest');
+  color: $text-color;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -16,24 +17,29 @@ $accordion-border: 3px solid color('base-lighter');
 @mixin accordion-button-styles {
   @include button-unstyled;
   @include u-font-family('sans');
+  @include u-padding(
+    units($theme-spacing-md-small),
+    units($theme-spacing-medium) * 2 + units($theme-spacing-md-small),
+    units($theme-spacing-md-small),
+    units($theme-spacing-medium)
+  );
 
   background-color: color('base-lighter');
   background-image: url('#{$theme-image-path}/minus.png');
   background-image: url('#{$theme-image-path}/minus.svg');
-  background-position: right units(2.5) center;
+  background-position: right units($theme-spacing-medium) center;
   background-repeat: no-repeat;
-  background-size: units(2);
-  color: color('base-darkest');
+  background-size: units($theme-spacing-md-small);
+  color: $text-color;
   cursor: pointer;
   display: inline-block;
   font-weight: $theme-font-weight-bold;
   margin: 0;
-  padding: units(2) (units(2.5) * 2 + units(2)) units(2) units(2.5);
   width: 100%;
 
   &:hover {
-    background-color: color('base-lighter');
-    color: color('base-darkest');
+    background-color: color('base-light');
+    color: $text-color;
   }
 }
 // scss-lint:enable PropertyCount
@@ -42,7 +48,7 @@ $accordion-border: 3px solid color('base-lighter');
   background-image: url('#{$theme-image-path}/plus.png');
   background-image: url('#{$theme-image-path}/plus.svg');
   background-repeat: no-repeat;
-  background-size: units(2);
+  background-size: units($theme-spacing-md-small);
 }
 
 @mixin accordion-nested-list {
@@ -64,7 +70,7 @@ $accordion-border: 3px solid color('base-lighter');
 
   + .usa-accordion,
   + .usa-accordion-bordered {
-    margin-top: units(1);
+    margin-top: units($theme-spacing-small);
   }
 }
 
@@ -73,7 +79,7 @@ $accordion-border: 3px solid color('base-lighter');
     border-bottom: $accordion-border;
     border-left: $accordion-border;
     border-right: $accordion-border;
-    padding-bottom: units(2);
+    padding-bottom: units($theme-spacing-md-small);
   }
 
   .usa-accordion-heading {
@@ -87,14 +93,20 @@ $accordion-border: 3px solid color('base-lighter');
   margin: 0;
 
   &:not(:first-child) {
-    margin-top: units(0.5);
+    margin-top: units($theme-spacing-x-small);
   }
 }
 
 .usa-accordion-content {
+  @include u-padding(
+    units($theme-spacing-md-small),
+    units($theme-spacing-medium),
+    calc(#{units($theme-spacing-md-small)} - #{units($theme-spacing-x-small)}),
+    units($theme-spacing-medium)
+  );
+
   background-color: color('white');
   overflow: auto;
-  padding: units(2) units(2.5) calc(#{units(2)} - #{units(0.5)}) units(2.5);
 
   > *:first-child {
     margin-top: 0;
