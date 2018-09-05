@@ -407,11 +407,11 @@ $color-theme-error-light:           color($theme-color-error-light);
 $color-theme-error:                 color($theme-color-error);
 $color-theme-error-dark:            color($theme-color-error-dark);
 $color-theme-error-darker:          color($theme-color-error-darker);
-$color-theme-warn-lighter:          color($theme-color-warn-lighter);
-$color-theme-warn-light:            color($theme-color-warn-light);
-$color-theme-warn:                  color($theme-color-warn);
-$color-theme-warn-dark:             color($theme-color-warn-dark);
-$color-theme-warn-darker:           color($theme-color-warn-darker);
+$color-theme-warning-lighter:       color($theme-color-warning-lighter);
+$color-theme-warning-light:         color($theme-color-warning-light);
+$color-theme-warning:               color($theme-color-warning);
+$color-theme-warning-dark:          color($theme-color-warning-dark);
+$color-theme-warning-darker:        color($theme-color-warning-darker);
 $color-theme-success-lighter:       color($theme-color-success-lighter);
 $color-theme-success-light:         color($theme-color-success-light);
 $color-theme-success:               color($theme-color-success);
@@ -477,12 +477,12 @@ $project-state-colors: (
     'dark':    $color-theme-error-dark,
     'darker':  $color-theme-error-darker,
   ),
-  'warn': (
-    'lighter': $color-theme-warn-lighter,
-    'light':   $color-theme-warn-light,
-    'default': $color-theme-warn,
-    'dark':    $color-theme-warn-dark,
-    'darker':  $color-theme-warn-darker,
+  'warning': (
+    'lighter': $color-theme-warning-lighter,
+    'light':   $color-theme-warning-light,
+    'default': $color-theme-warning,
+    'dark':    $color-theme-warning-dark,
+    'darker':  $color-theme-warning-darker,
   ),
   'success': (
     'lighter': $color-theme-success-lighter,
@@ -869,11 +869,11 @@ $color-palette-state: (
   'error':                    $color-theme-error,
   'error-dark':               $color-theme-error-dark,
   'error-darker':             $color-theme-error-darker,
-  'warn-lighter':             $color-theme-warn-lighter,
-  'warn-light':               $color-theme-warn-light,
-  'warn':                     $color-theme-warn,
-  'warn-dark':                $color-theme-warn-dark,
-  'warn-darker':              $color-theme-warn-darker,
+  'warning-lighter':          $color-theme-warning-lighter,
+  'warning-light':            $color-theme-warning-light,
+  'warning':                  $color-theme-warning,
+  'warning-dark':             $color-theme-warning-dark,
+  'warning-darker':           $color-theme-warning-darker,
   'success-lighter':          $color-theme-success-lighter,
   'success-light':            $color-theme-success-light,
   'success':                  $color-theme-success,
