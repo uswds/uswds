@@ -8,30 +8,30 @@
   background-size: cover;
 
   .usa-button {
-    color: $color-white;
+    color: color('white');
   }
 }
 
 .usa-section-dark {
   .usa-hero-link {
-    color: $color-primary-alt;
+    color: color('accent-cool');
   }
 }
 
 .usa-hero-callout {
-  background-color: $color-primary-darkest;
-  padding: 3rem;
+  background-color: color('primary-darker');
+  padding: units(4);
 
   @include media($small-screen) {
     max-width: 30rem;
   }
 
   > *:first-child {
-    @include margin(0 null $spacing-medium null);
+    @include margin(0 null unit(2) null);
   }
 }
 
 .usa-hero-callout-alt {
-  color: $color-white;
+  color: color('white');
   display: block;
 }
