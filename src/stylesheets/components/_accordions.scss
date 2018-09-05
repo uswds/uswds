@@ -1,12 +1,12 @@
 // Variables
 
-$accordion-border: 3px solid color('gray-5');
+$accordion-border: 3px solid color('base-lighter');
 
 // Accordion Styles
 
 @mixin accordion-list-styles {
   @include unstyled-list;
-  color: $color-base; // what is this in the new system
+  color: color('base-darkest');
   margin: 0;
   padding: 0;
   width: 100%;
@@ -15,24 +15,25 @@ $accordion-border: 3px solid color('gray-5');
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  background-color: color('gray-5');
+  @include u-font-family('sans');
+
+  background-color: color('base-lighter');
   background-image: url('#{$theme-image-path}/minus.png');
   background-image: url('#{$theme-image-path}/minus.svg');
   background-position: right units(2.5) center;
   background-repeat: no-repeat;
   background-size: units(2);
-  color: $color-base; // theme-base or something?
+  color: color('base-darkest');
   cursor: pointer;
   display: inline-block;
-  font-family: $theme-font-sans;
   font-weight: $theme-font-weight-bold;
   margin: 0;
   padding: units(2) (units(2.5) * 2 + units(2)) units(2) units(2.5);
   width: 100%;
 
   &:hover {
-    background-color: color('gray-5');
-    color: $color-base; // again who knows
+    background-color: color('base-lighter');
+    color: color('base-darkest');
   }
 }
 // scss-lint:enable PropertyCount
