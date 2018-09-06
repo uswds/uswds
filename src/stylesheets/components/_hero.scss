@@ -19,15 +19,15 @@
 }
 
 .usa-hero-callout {
-  background-color: color('primary-darker');
-  padding: units(4);
+  background-color: $color-theme-base-darker;
+  padding: units($theme-spacing-lg);
 
   @include media($small-screen) {
     max-width: 30rem;
   }
 
   > *:first-child {
-    @include margin(0 null unit(2) null);
+    @include margin(0 null unit($theme-spacing-sm) null);
   }
 }
 
