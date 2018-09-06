@@ -181,7 +181,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   background: white;
   content: '\a0';
   display: inline-block;
-  text-indent: 0.15em;
+  text-indent: units(1);
   vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
 }
 
