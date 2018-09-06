@@ -16,12 +16,6 @@ $accordion-border: 3px solid $color-theme-base-lighter;
 @mixin accordion-button-styles {
   @include button-unstyled;
   @include u-font-family('sans');
-  @include u-padding(
-    units($theme-spacing-sm),
-    units($theme-spacing-md) * 2 + units($theme-spacing-sm),
-    units($theme-spacing-sm),
-    units($theme-spacing-md)
-  );
 
   background-color: color('base-lighter');
   background-image: url('#{$theme-image-path}/minus.png');
@@ -34,6 +28,7 @@ $accordion-border: 3px solid $color-theme-base-lighter;
   display: inline-block;
   font-weight: $theme-font-weight-bold;
   margin: 0;
+  padding: units($theme-spacing-sm) units($theme-spacing-md) * 2 + units($theme-spacing-sm) units($theme-spacing-sm) units($theme-spacing-md);
   width: 100%;
 
   &:hover {
@@ -97,15 +92,9 @@ $accordion-border: 3px solid $color-theme-base-lighter;
 }
 
 .usa-accordion-content {
-  @include u-padding(
-    units($theme-spacing-sm),
-    units($theme-spacing-md),
-    calc(#{units($theme-spacing-sm)} - #{units($theme-spacing-2xs)}),
-    units($theme-spacing-md)
-  );
-
   background-color: color('white');
   overflow: auto;
+  padding: units($theme-spacing-sm) units($theme-spacing-md) calc(#{units($theme-spacing-sm)} - #{units($theme-spacing-2xs)}) units($theme-spacing-md);
 
   > *:first-child {
     margin-top: 0;
