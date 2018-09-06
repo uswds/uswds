@@ -417,7 +417,9 @@ $color-theme-success-light:         color($theme-color-success-light);
 $color-theme-success:               color($theme-color-success);
 $color-theme-success-dark:          color($theme-color-success-dark);
 $color-theme-success-darker:        color($theme-color-success-darker);
+$color-theme-disabled-light:        color($theme-color-disabled-light);
 $color-theme-disabled:              color($theme-color-disabled);
+$color-theme-disabled-dark:         color($theme-color-disabled-dark);
 
 $project-colors: (
   'base': (
@@ -492,7 +494,9 @@ $project-state-colors: (
     'darker':  $color-theme-success-darker,
   ),
   'disabled': (
+    'light':   $color-theme-disabled-light,
     'default': $color-theme-disabled,
+    'dark':    $color-theme-disabled-dark,
   ),
 );
 
@@ -879,7 +883,9 @@ $color-palette-state: (
   'success':                  $color-theme-success,
   'success-dark':             $color-theme-success-dark,
   'success-darker':           $color-theme-success-darker,
+  'disabled-light':           $color-theme-disabled-light,
   'disabled':                 $color-theme-disabled,
+  'disabled-dark':            $color-theme-disabled-dark,
 );
 
 $project-color-shortcodes: map-collect(
