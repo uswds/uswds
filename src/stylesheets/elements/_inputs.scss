@@ -173,7 +173,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   cursor: pointer;
   display: inherit;
   font-weight: $theme-font-weight-normal;
-  margin-bottom: units(1);
+  margin-bottom: units(1.5);
 }
 
 .usa-checkbox-label::before,
@@ -187,32 +187,32 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-checkbox-label::before {
   border-radius: $checkbox-border-radius;
-  box-shadow: 0 0 0 1px color('base');
-  height: $spacing-medium;
-  line-height: $spacing-medium;
+  box-shadow: 0 0 0 2px color('base');
+  height: units($theme-spacing-md);
+  line-height: units($theme-spacing-md);
   margin-left: 1px;
-  margin-right: 0.6em;
-  width: $spacing-medium;
+  margin-right: units(1.5);
+  width: units($theme-spacing-md);
 }
 
 .usa-radio-label::before {
   border-radius: 100%;
-  box-shadow: 0 0 0 2px $color-white, 0 0 0 3px color('base');
-  height: 1.4rem; // Size overrides to account for shape + checked styling
-  line-height: 1.4rem;
-  margin-left: 3px;
-  margin-right: 0.75em;
-  width: 1.4rem;
+  box-shadow: 0 0 0 2px white, 0 0 0 units(0.5) color('base');
+  height: units(2); // Size overrides to account for shape + checked styling
+  line-height: units(2);
+  margin-left: units(.5);
+  margin-right: units(1.5);
+  width: units(2);
 }
 
 .usa-checkbox-input:checked + .usa-checkbox-label::before,
 .usa-radio-input:checked + .usa-radio-label::before {
-  background-color: $color-primary;
-  box-shadow: 0 0 0 1px $color-primary;
+  background-color: color('primary');
+  box-shadow: 0 0 0 2px color('primary');
 }
 
 .usa-radio-input:checked + .usa-radio-label::before {
-  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px color('primary');
 }
 
 .usa-checkbox-input:checked + .usa-checkbox-label::before,
@@ -229,7 +229,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-checkbox-input:disabled + .usa-checkbox-label {
-  color: $color-gray-lighter;
+  color: color('disabled');
 }
 
 .usa-checkbox-input:focus + .usa-checkbox-label::before {
@@ -239,8 +239,8 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-checkbox-input:disabled + .usa-checkbox-label::before,
 .usa-radio-input:disabled + .usa-radio-label::before {
-  background: $color-gray-lightest;
-  box-shadow: 0 0 0 1px $color-gray-light;
+  background: color('disabled-light');
+  box-shadow: 0 0 0 2px color('disabled');
   cursor: not-allowed;
 }
 
@@ -248,30 +248,30 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 // Change to $color-focus in 2.0
 @mixin range-focus {
-  box-shadow: 0 0 0 2px $color-primary;
+  box-shadow: 0 0 0 2px color('primary');
 }
 
 @mixin range-track {
-  background: $color-gray-lighter;
+  background: color('base-lighter');
   border: 1px solid color('base');
   cursor: pointer;
-  height: 1.6rem;
+  height: units(2);
   width: 100%;
 }
 
 @mixin range-thumb {
-  background: $color-gray-lightest;
+  background: color('base-lightest');
   box-shadow: 0 0 0 1px color('base');
-  border-radius: 1.5rem;
+  border-radius: radius('pill');
   cursor: pointer;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: units(3);
+  width: units(3);
 }
 
 @mixin range-ms-fill {
-  background: $color-gray-light;
+  background: color('base-light');
   border: 1px solid color('base');
-  border-radius: 2rem;
+  border-radius: radius('pill');
 }
 
 .usa-range {
