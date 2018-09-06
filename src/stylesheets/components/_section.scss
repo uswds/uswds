@@ -2,17 +2,17 @@
   @include u-padding-y($site-margins);
 
   @include media($medium-screen) {
-    @include u-padding-y(6rem);
+    @include u-padding-y(units(6));
   }
 }
 
 .usa-section-light {
-  background-color: $color-gray-lightest;
+  background-color: $color-theme-base-lightest;
 }
 
 .usa-section-dark {
-  background-color: $color-primary-darkest;
-  color: $color-white;
+  background-color: $color-theme-base-darkest;
+  color: color('white');
 
   h1,
   h2,
@@ -24,14 +24,14 @@
   }
 
   p {
-    color: $color-white;
+    color: color('white');
   }
 
   a {
-    color: $color-gray-lighter;
+    color: $color-theme-base-lighter;
 
     &:hover {
-      color: $color-white;
+      color: color('white');
     }
   }
 }
