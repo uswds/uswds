@@ -23,7 +23,8 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-input,
 .usa-textarea,
-.usa-select {
+.usa-select,
+.usa-range {
   @include u-border(1px, 'base-dark');
   @include u-font($input-font-family, $theme-base-font-size);
   appearance: none;
