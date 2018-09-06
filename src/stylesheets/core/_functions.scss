@@ -505,6 +505,7 @@ withholds certain errors.
 
 /*
 ----------------------------------------
+line-height()
 lh()
 ----------------------------------------
 Get a normalized line-height from
@@ -541,6 +542,10 @@ a family and a line-height scale unit
   $normalized-line-height:  $this-line-height / ($system-base-cap-height / $this-cap);
 
   @return $normalized-line-height;
+};
+
+@function line-height($props...) {
+  @return lh($props...);
 };
 
 /*
@@ -955,6 +960,7 @@ border-radii
 
 /*
 ----------------------------------------
+font-weight()
 fw()
 ----------------------------------------
 Get a font-weight value from the
@@ -962,8 +968,12 @@ system font-weight
 ----------------------------------------
 */
 
-@function fw($value) {
+@function font-weight($value) {
   @return get-uswds-value(font-weight, $value);
+};
+
+@function fw($value) {
+  @return font-weight($value);
 };
 
 /*
@@ -992,7 +1002,26 @@ Gets a valid USWDS flex value
 
 /*
 ----------------------------------------
+font-family()
+family()
+----------------------------------------
+Get a font-family stack from a
+role-based or type-based font family
+----------------------------------------
+*/
+
+@function font-family($value) {
+  @return get-uswds-value(font-family, $value);
+}
+
+@function ff($value) {
+  @return font-family($value);
+}
+
+/*
+----------------------------------------
 letter-spacing()
+ls()
 ----------------------------------------
 Get a letter-spacing value from the
 system letter-spacing
@@ -1003,17 +1032,8 @@ system letter-spacing
   @return get-uswds-value(letter-spacing, $value);
 };
 
-/*
-----------------------------------------
-line-height()
-----------------------------------------
-Get a line height from the system
-line heights
-----------------------------------------
-*/
-
-@function line-height($value) {
-  @return get-uswds-value(line-height, $value);
+@function ls($value) {
+  @return letter-spacing($value);
 };
 
 /*
@@ -1070,6 +1090,7 @@ system letter-spacing
 /*
 ----------------------------------------
 z-index()
+z()
 ----------------------------------------
 Get a z-index value from the
 system z-index
@@ -1078,6 +1099,10 @@ system z-index
 
 @function z-index($value) {
   @return get-uswds-value(z-index, $value);
+};
+
+@function z($value) {
+  @return z-index($value);
 };
 
 /*
