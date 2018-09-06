@@ -1,8 +1,8 @@
 .usa-tag {
   @include u-font('sans', '2xs');
-  @include u-radius('sm');
   @include u-text('white', 'uppercase');
   background-color: color('base-dark');
+  border-radius: units($theme-border-radius-sm);
   margin-right: units(0.5);
   padding: 1px units(1);
 
