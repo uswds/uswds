@@ -3,17 +3,17 @@ $usa-custom-alerts: () !default;
 $usa-custom-alerts-bar: () !default;
 
 $usa-alerts: (
-  success: $color-green-lightest,
-  warning: $color-gold-lightest,
-  error: $color-secondary-lightest,
-  info: $color-primary-alt-lightest
+  success: color('success-lighter'),
+  warning: color('warning-lighter'),
+  error: color('error-lighter'),
+  info: color('accent-cool-lighter')
 );
 
 $usa-alerts-bar: (
-  success: $color-green,
-  warning: $color-gold,
-  error: $color-secondary,
-  info: $color-primary-alt
+  success: color('success'),
+  warning: color('warning'),
+  error: color('error'),
+  info: color('accent-cool')
 );
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
@@ -28,15 +28,15 @@ $icon-size: units($theme-spacing-lg);
   background-color: $color-gray-lightest;
   background-position: $h-padding $h-padding;
   background-repeat: no-repeat;
-  background-size: 5.2rem; // TODO abrituary number based on svg size maybe?
-  padding-bottom: $h-padding * 0.7;
+  background-size: units(7);
+  padding-bottom: units($theme-spacing-sm);
   padding-left: $left-padding;
   padding-right: $h-padding;
   padding-top: $h-padding;
   position: relative;
 
   &::before {
-    background-color: darken($color-gray-lightest, 40%);
+    background-color: color('gray-40');
     content: '';
     height: 100%;
     left: 0;
