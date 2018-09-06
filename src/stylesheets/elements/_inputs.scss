@@ -249,12 +249,13 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 // TODO: Change to $color-focus in 2.0
 @mixin range-focus {
-  box-shadow: 0 0 0 2px color('primary');
+  background-color: white;
+  box-shadow: 0 0 0 units(2px) color('primary');
 }
 
 @mixin range-track {
+  border-radius: radius('pill');
   background: color('base-lighter');
-  box-shadow: 0 0 0 1px color('base');
   cursor: pointer;
   height: units(2);
   width: 100%;
@@ -263,13 +264,13 @@ $input-height: floor($input-height-exact * 10) / 10;
 @mixin range-thumb {
   @include u-circle(3)
   background: color('base-lightest');
-  box-shadow: 0 0 0 2px color('base');
+  box-shadow: 0 0 0 units(2px) color('base');
   cursor: pointer;
 }
 
 @mixin range-ms-fill {
   background: color('base-light');
-  border: 1px solid color('base');
+  border: none;
   border-radius: radius('pill');
 }
 
