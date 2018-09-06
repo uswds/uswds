@@ -1,15 +1,15 @@
 %usa-table {
   border-spacing: 0;
-  margin: 2em 0;
+  margin: units(2.5) 0;
 
   thead {
     th {
-      font-weight: $font-bold;
+      font-weight: $theme-font-weight-bold;
     }
 
     th,
     td {
-      background-color: $color-gray-lightest;
+      background-color: color('base-lighter');
     }
   }
 
@@ -19,16 +19,16 @@
 
   th,
   td {
-    background-color: $color-white;
-    border: 1px solid $color-gray;
-    font-weight: $font-normal;
-    padding: 1rem 1.5rem;
+    @include u-border(1px, 'base-dark');
+    background-color: color('white');
+    font-weight: $theme-font-weight-normal;
+    padding: units(1) units(2);
   }
 
   caption {
-    @include h5;
-    font-family: $font-serif;
-    margin-bottom: 1.2rem;
+    @include u-font('serif', 'xs');
+    font-weight: $theme-font-weight-bold;
+    margin-bottom: units(1.5);
     text-align: left;
   }
 }

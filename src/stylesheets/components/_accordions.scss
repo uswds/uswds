@@ -1,16 +1,12 @@
 // Variables
 
-$accordion-border: 3px solid $color-gray-lightest;
+$accordion-border: 3px solid $color-theme-base-lighter;
 
 // Accordion Styles
 
-$icon-size: $spacing-md-small;
-$h-padding: $spacing-medium;
-$v-padding: $spacing-md-small;
-
 @mixin accordion-list-styles {
   @include unstyled-list;
-  color: $color-base;
+  color: $color-theme-base-darkest;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -19,24 +15,25 @@ $v-padding: $spacing-md-small;
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  background-color: $color-gray-lightest;
+  @include u-font-family('sans');
+
+  background-color: color('base-lighter');
   background-image: url('#{$theme-image-path}/minus.png');
   background-image: url('#{$theme-image-path}/minus.svg');
-  background-position: right $h-padding center;
+  background-position: right units($theme-spacing-md) center;
   background-repeat: no-repeat;
-  background-size: $icon-size;
-  color: $color-base;
+  background-size: units($theme-spacing-sm);
+  color: $color-theme-base-darkest;
   cursor: pointer;
   display: inline-block;
-  font-family: $font-sans;
-  font-weight: $font-bold;
+  font-weight: $theme-font-weight-bold;
   margin: 0;
-  padding: $v-padding ($h-padding * 2 + $icon-size) $v-padding $h-padding;
+  padding: units($theme-spacing-sm) units($theme-spacing-md) * 2 + units($theme-spacing-sm) units($theme-spacing-sm) units($theme-spacing-md);
   width: 100%;
 
   &:hover {
-    background-color: $color-gray-lighter;
-    color: $color-base;
+    background-color: color('base-light');
+    color: $color-theme-base-darkest;
   }
 }
 // scss-lint:enable PropertyCount
@@ -45,7 +42,7 @@ $v-padding: $spacing-md-small;
   background-image: url('#{$theme-image-path}/plus.png');
   background-image: url('#{$theme-image-path}/plus.svg');
   background-repeat: no-repeat;
-  background-size: $icon-size;
+  background-size: units($theme-spacing-sm);
 }
 
 @mixin accordion-nested-list {
@@ -67,7 +64,7 @@ $v-padding: $spacing-md-small;
 
   + .usa-accordion,
   + .usa-accordion-bordered {
-    margin-top: $spacing-small;
+    margin-top: units($theme-spacing-xs);
   }
 }
 
@@ -76,7 +73,7 @@ $v-padding: $spacing-md-small;
     border-bottom: $accordion-border;
     border-left: $accordion-border;
     border-right: $accordion-border;
-    padding-bottom: $spacing-md-small;
+    padding-bottom: units($theme-spacing-sm);
   }
 
   .usa-accordion-heading {
@@ -90,17 +87,14 @@ $v-padding: $spacing-md-small;
   margin: 0;
 
   &:not(:first-child) {
-    margin-top: $spacing-x-small;
+    margin-top: units($theme-spacing-2xs);
   }
 }
 
 .usa-accordion-content {
-  background-color: $color-white;
+  background-color: color('white');
   overflow: auto;
-  padding-bottom: calc(#{$spacing-md-small} - #{$spacing-x-small});
-  padding-left: $spacing-medium;
-  padding-right: $spacing-medium;
-  padding-top: $spacing-md-small;
+  padding: units($theme-spacing-sm) units($theme-spacing-md) calc(#{units($theme-spacing-sm)} - #{units($theme-spacing-2xs)}) units($theme-spacing-md);
 
   > *:first-child {
     margin-top: 0;
