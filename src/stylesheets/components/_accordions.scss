@@ -17,18 +17,18 @@ $accordion-border: 3px solid $color-theme-base-lighter;
   @include button-unstyled;
   @include u-font-family('sans');
   @include u-padding(
-    units($theme-spacing-md-small),
-    units($theme-spacing-medium) * 2 + units($theme-spacing-md-small),
-    units($theme-spacing-md-small),
-    units($theme-spacing-medium)
+    units($theme-spacing-sm),
+    units($theme-spacing-md) * 2 + units($theme-spacing-sm),
+    units($theme-spacing-sm),
+    units($theme-spacing-md)
   );
 
   background-color: color('base-lighter');
   background-image: url('#{$theme-image-path}/minus.png');
   background-image: url('#{$theme-image-path}/minus.svg');
-  background-position: right units($theme-spacing-medium) center;
+  background-position: right units($theme-spacing-md) center;
   background-repeat: no-repeat;
-  background-size: units($theme-spacing-md-small);
+  background-size: units($theme-spacing-sm);
   color: $color-theme-base-darkest;
   cursor: pointer;
   display: inline-block;
@@ -47,7 +47,7 @@ $accordion-border: 3px solid $color-theme-base-lighter;
   background-image: url('#{$theme-image-path}/plus.png');
   background-image: url('#{$theme-image-path}/plus.svg');
   background-repeat: no-repeat;
-  background-size: units($theme-spacing-md-small);
+  background-size: units($theme-spacing-sm);
 }
 
 @mixin accordion-nested-list {
@@ -69,7 +69,7 @@ $accordion-border: 3px solid $color-theme-base-lighter;
 
   + .usa-accordion,
   + .usa-accordion-bordered {
-    margin-top: units($theme-spacing-small);
+    margin-top: units($theme-spacing-xs);
   }
 }
 
@@ -78,7 +78,7 @@ $accordion-border: 3px solid $color-theme-base-lighter;
     border-bottom: $accordion-border;
     border-left: $accordion-border;
     border-right: $accordion-border;
-    padding-bottom: units($theme-spacing-md-small);
+    padding-bottom: units($theme-spacing-sm);
   }
 
   .usa-accordion-heading {
@@ -92,16 +92,16 @@ $accordion-border: 3px solid $color-theme-base-lighter;
   margin: 0;
 
   &:not(:first-child) {
-    margin-top: units($theme-spacing-x-small);
+    margin-top: units($theme-spacing-2xs);
   }
 }
 
 .usa-accordion-content {
   @include u-padding(
-    units($theme-spacing-md-small),
-    units($theme-spacing-medium),
-    calc(#{units($theme-spacing-md-small)} - #{units($theme-spacing-x-small)}),
-    units($theme-spacing-medium)
+    units($theme-spacing-sm),
+    units($theme-spacing-md),
+    calc(#{units($theme-spacing-sm)} - #{units($theme-spacing-2xs)}),
+    units($theme-spacing-md)
   );
 
   background-color: color('white');
