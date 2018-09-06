@@ -1,12 +1,12 @@
 // Variables
 
-$accordion-border: 3px solid $color-theme-base-lighter;
+$accordion-border: units(0.5) solid color('base-lightest');
 
 // Accordion Styles
 
 @mixin accordion-list-styles {
   @include unstyled-list;
-  color: $color-theme-base-darkest;
+  color: color('ink');
   margin: 0;
   padding: 0;
   width: 100%;
@@ -17,13 +17,13 @@ $accordion-border: 3px solid $color-theme-base-lighter;
   @include button-unstyled;
   @include u-font-family('sans');
 
-  background-color: color('base-lighter');
+  background-color: color('base-lightest');
   background-image: url('#{$theme-image-path}/minus.png');
   background-image: url('#{$theme-image-path}/minus.svg');
   background-position: right units($theme-spacing-md) center;
   background-repeat: no-repeat;
   background-size: units($theme-spacing-sm);
-  color: $color-theme-base-darkest;
+  color: color('ink');
   cursor: pointer;
   display: inline-block;
   font-weight: $theme-font-weight-bold;
@@ -32,8 +32,8 @@ $accordion-border: 3px solid $color-theme-base-lighter;
   width: 100%;
 
   &:hover {
-    background-color: color('base-light');
-    color: $color-theme-base-darkest;
+    background-color: color('base-lighter');
+    color: color('ink');
   }
 }
 // scss-lint:enable PropertyCount
