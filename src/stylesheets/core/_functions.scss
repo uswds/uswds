@@ -1089,6 +1089,42 @@ system letter-spacing
 
 /*
 ----------------------------------------
+scale()
+----------------------------------------
+Get type scale value from a [family] and
+[scale]
+----------------------------------------
+*/
+
+@function scale($family, $scale, $force: false) {
+  $our-family: smart-quote($family);
+  $our-scale: smart-quote($scale);
+
+  @if not map-has-key($project-cap-heights, $our-family) {
+    @error '#{$our-family} is not a valid font family. '
+         + 'Valid values: #{map-keys($project-cap-heights)}';
+  }
+  @if not map-get($all-type-scale, $our-scale) {
+    @error '`#{$our-scale}` is not a valid font scale. '
+         + 'Valid values: #{map-keys($all-type-scale)}';
+  }
+
+  $this-cap: map-get($project-cap-heights, $our-family);
+  $this-scale: map-get($all-type-scale, $our-scale);
+
+  @if not $force {
+    @if not ($this-scale and $this-cap) {
+      @error 'The scale `#{$our-scale}` is disabled '
+          + 'in your project\'s theme settings. '
+          + 'Set its value to `true` to use this family.';
+    }
+  }
+
+  @return normalize-type-scale($this-cap, $this-scale);
+};
+
+/*
+----------------------------------------
 z-index()
 z()
 ----------------------------------------
