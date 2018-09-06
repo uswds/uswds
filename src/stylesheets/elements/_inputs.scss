@@ -65,7 +65,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-input-error-message {
   @include u-padding-y(0.5);
-  color: color('error-dark');
+  color: color('error');
   display: block;
   font-size: $input-font-size;
   font-weight: $theme-font-weight-bold;
@@ -74,7 +74,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 // Deprecated: Some screen readers can't read CSS content.
 // Will be removed in 2.0.
 .usa-input-required:after {
-  color: color('error-darker');
+  color: color('error-dark');
   content: ' (*required)';
 }
 
@@ -90,7 +90,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-input-label-required {
-  color: color('error-darker');
+  color: color('error-dark');
 }
 
 .usa-label {
