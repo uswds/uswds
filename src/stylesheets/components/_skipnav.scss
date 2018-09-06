@@ -5,7 +5,7 @@
   position: absolute;
   top: -3.8rem; // skipnav link height
   transition: all 0.2s ease-in-out;
-  z-index: 100;
+  z-index: z-index(100);
 
   &:focus {
     background: color('white');
