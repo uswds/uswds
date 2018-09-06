@@ -19,7 +19,7 @@ Theme palette colors
 
 // Base colors
 $theme-color-base-family:           'gray' !default;
-$theme-color-base-lightest:         'gray-cool-5' !default;
+$theme-color-base-lightest:         '#{$theme-color-base-family}-5' !default;
 $theme-color-base-lighter:          'gray-cool-10' !default;
 $theme-color-base-light:            '#{$theme-color-base-family}-30' !default;
 $theme-color-base:                  '#{$theme-color-base-family}-50' !default;
