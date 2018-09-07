@@ -1,17 +1,17 @@
 .usa-section {
-  @include u-padding-y($site-margins);
+  @include u-padding-y(units(4));
 
-  @include media($medium-screen) {
-    @include u-padding-y(units(6));
+  @include media(units('tablet')) {
+    @include u-padding-y(units(8));
   }
 }
 
 .usa-section-light {
-  background-color: $color-theme-base-lightest;
+  background-color: color('base-lightest');
 }
 
 .usa-section-dark {
-  background-color: $color-theme-base-darkest;
+  background-color: color('base-darkest');
   color: color('white');
 
   h1,
@@ -20,7 +20,7 @@
   h4,
   h5,
   h6 {
-    color: $color-primary-alt;
+    color: color('accent-cool');
   }
 
   p {
@@ -28,7 +28,7 @@
   }
 
   a {
-    color: $color-theme-base-lighter;
+    color: color('base-lighter');
 
     &:hover {
       color: color('white');
