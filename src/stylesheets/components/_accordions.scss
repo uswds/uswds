@@ -20,15 +20,15 @@ $accordion-border: units(0.5) solid color('base-lighter');
   background-color: color('base-lighter');
   background-image: url('#{$theme-image-path}/minus.png');
   background-image: url('#{$theme-image-path}/minus.svg');
-  background-position: right units($theme-spacing-md) center;
+  background-position: right units(2.5) center;
   background-repeat: no-repeat;
-  background-size: units($theme-spacing-sm);
+  background-size: units(2);
   color: color('ink');
   cursor: pointer;
   display: inline-block;
   font-weight: font-weight('bold');
   margin: 0;
-  padding: units($theme-spacing-sm) units($theme-spacing-md) * 2 + units($theme-spacing-sm) units($theme-spacing-sm) units($theme-spacing-md);
+  padding: units(2) units(2.5) * 2 + units(2) units(2) units(2.5);
   width: 100%;
 
   &:hover {
@@ -42,7 +42,7 @@ $accordion-border: units(0.5) solid color('base-lighter');
   background-image: url('#{$theme-image-path}/plus.png');
   background-image: url('#{$theme-image-path}/plus.svg');
   background-repeat: no-repeat;
-  background-size: units($theme-spacing-sm);
+  background-size: units(2);
 }
 
 @mixin accordion-nested-list {
@@ -64,7 +64,7 @@ $accordion-border: units(0.5) solid color('base-lighter');
 
   + .usa-accordion,
   + .usa-accordion-bordered {
-    margin-top: units($theme-spacing-xs);
+    margin-top: units(1);
   }
 }
 
@@ -73,7 +73,7 @@ $accordion-border: units(0.5) solid color('base-lighter');
     border-bottom: $accordion-border;
     border-left: $accordion-border;
     border-right: $accordion-border;
-    padding-bottom: units($theme-spacing-sm);
+    padding-bottom: units(2);
   }
 
   .usa-accordion-heading {
@@ -87,14 +87,14 @@ $accordion-border: units(0.5) solid color('base-lighter');
   margin: 0;
 
   &:not(:first-child) {
-    margin-top: units($theme-spacing-xs);
+    margin-top: units(1);
   }
 }
 
 .usa-accordion-content {
   background-color: color('white');
   overflow: auto;
-  padding: units($theme-spacing-sm) units($theme-spacing-md) calc(#{units($theme-spacing-sm)} - #{units($theme-spacing-2xs)}) units($theme-spacing-md);
+  padding: units(2) units(2.5) calc(#{units(2)} - #{units(0.5)}) units(2.5);
 
   > *:first-child {
     margin-top: 0;
