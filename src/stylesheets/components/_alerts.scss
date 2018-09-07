@@ -19,17 +19,17 @@ $usa-alerts-bar: (
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 $alerts-bar: map-merge($usa-alerts-bar, $usa-custom-alerts-bar);
 
-$h-padding: units($theme-spacing-md);
-$bar-size: units($theme-spacing-xs);
+$h-padding: units(2.5);
+$bar-size: units(1);
 $left-padding: $h-padding + $bar-size;
-$icon-size: units($theme-spacing-lg);
+$icon-size: units(4);
 
 .usa-alert {
   background-color: $color-gray-lightest;
   background-position: $h-padding $h-padding;
   background-repeat: no-repeat;
   background-size: units(7);
-  padding-bottom: units($theme-spacing-sm);
+  padding-bottom: units(2);
   padding-left: $left-padding;
   padding-right: $h-padding;
   padding-top: $h-padding;
@@ -67,8 +67,8 @@ $icon-size: units($theme-spacing-lg);
   padding-top: $bar-size;
 
   .usa-alert-text:only-child {
-    margin-bottom: $theme-spacing-2xs;
-    padding-top: $theme-spacing-2xs;
+    margin-bottom: units(0.5);
+    padding-top: units(0.5);
   }
 }
 
@@ -96,7 +96,7 @@ $icon-size: units($theme-spacing-lg);
 
 .usa-alert-text:only-child {
   margin-bottom: $bar-size;
-  padding-top: $theme-spacing-2xs;
+  padding-top: units(0.5);
 }
 
 @each $name, $bgcolor in $alerts {
@@ -125,5 +125,5 @@ $icon-size: units($theme-spacing-lg);
 
 // Deprecated
 .usa-alert {
-  margin-top: $theme-spacing-sm;
+  margin-top: units(2);
 }
