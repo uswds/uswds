@@ -1,7 +1,7 @@
 .usa-section {
   @include u-padding-y(units(4));
 
-  @include at-media(units('tablet')) {
+  @include at-media('tablet') {
     @include u-padding-y(units(8));
   }
 }
