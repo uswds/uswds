@@ -1,7 +1,7 @@
 .usa-section {
   @include u-padding-y(units(4));
 
-  @include media(units('tablet')) {
+  @include at-media(units('tablet')) {
     @include u-padding-y(units(8));
   }
 }
@@ -11,7 +11,7 @@
 }
 
 .usa-section-dark {
-  background-color: color('base-darkest');
+  background-color: color('primary-darker');
   color: color('white');
 
   h1,
