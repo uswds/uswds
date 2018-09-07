@@ -107,7 +107,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-select {
   appearance: none;
-  background-color: white;
+  background-color: color('white');
   background-image: url('#{$theme-image-path}/arrow-both.png');
   // Ensure browsers that don't support SVG in background-image (IE 11 and below) fall back to PNG.
   // See https://www.broken-links.com/2010/06/14/using-svg-in-backgrounds-with-png-fallback/
@@ -129,7 +129,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   // Remove dotted outline from select element on focus in Firefox
   &:-moz-focusring {
     color: transparent;
-    text-shadow: 0 0 0 black;
+    text-shadow: 0 0 0 color('black');
   }
 }
 
@@ -179,7 +179,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-checkbox-label::before,
 .usa-radio-label::before {
-  background: white;
+  background: color('white');
   content: '\a0';
   display: inline-block;
   text-indent: units(1);
@@ -198,7 +198,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-radio-label::before {
   border-radius: 100%;
-  box-shadow: 0 0 0 2px white, 0 0 0 units(0.5) color('base');
+  box-shadow: 0 0 0 2px color('white'), 0 0 0 units(0.5) color('base');
   height: units(2); // Size overrides to account for shape + checked styling
   line-height: units(2);
   margin-left: units(.5);
@@ -213,7 +213,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-radio-input:checked + .usa-radio-label::before {
-  box-shadow: 0 0 0 2px white, 0 0 0 4px color('primary');
+  box-shadow: 0 0 0 2px color('white'), 0 0 0 4px color('primary');
 }
 
 .usa-checkbox-input:checked + .usa-checkbox-label::before,
@@ -249,7 +249,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 // TODO: Change to $color-focus in 2.0
 @mixin range-focus {
-  background-color: white;
+  background-color: color('white');
   box-shadow: 0 0 0 units(2px) color('primary');
 }
 
