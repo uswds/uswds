@@ -1,10 +1,6 @@
 html {
-  font-family: $font-sans;
+  font-family: font-family($theme-font-default);
   font-size: $root-font-size;
-}
-
-body {
-  font-size: $base-font-size;
 }
 
 %usa-paragraph {
@@ -22,12 +18,12 @@ body {
 }
 
 %usa-link {
-  color: $color-primary;
+  color: color('primary');
   text-decoration: underline;
 
   &:hover,
   &:active {
-    color: $color-primary-darker;
+    color: color('primary-darker');
   }
 
   &:focus {

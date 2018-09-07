@@ -181,6 +181,22 @@ $theme-font-alt:      $theme-font-sans !default;
 
 /*
 ----------------------------------------
+Default font family
+----------------------------------------
+Set the font family of the html element
+from the fonts in use:
+
+$theme-font-sans
+$theme-font-serif
+$theme-font-mono
+$theme-font-cond
+----------------------------------------
+*/
+
+$theme-font-default: $theme-font-sans !default;
+
+/*
+----------------------------------------
 Type scale
 ----------------------------------------
 Define your project's type scale using
