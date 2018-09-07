@@ -3,40 +3,40 @@ $usa-custom-alerts: () !default;
 $usa-custom-alerts-bar: () !default;
 
 $usa-alerts: (
-  success: $color-green-lightest,
-  warning: $color-gold-lightest,
-  error: $color-secondary-lightest,
-  info: $color-primary-alt-lightest
+  success: color('success-lighter'),
+  warning: color('warning-lighter'),
+  error: color('error-lighter'),
+  info: color('info-lighter'),
 );
 
 $usa-alerts-bar: (
-  success: $color-green,
-  warning: $color-gold,
-  error: $color-secondary,
-  info: $color-primary-alt
+  success: color('success'),
+  warning: color('warning'),
+  error: color('error'),
+  info: color('info'),
 );
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 $alerts-bar: map-merge($usa-alerts-bar, $usa-custom-alerts-bar);
 
-$h-padding: $spacing-medium;
-$bar-size: $spacing-small;
+$h-padding: units(2.5);
+$bar-size: units(1);
 $left-padding: $h-padding + $bar-size;
-$icon-size: 3rem;
+$icon-size: units(4);
 
 .usa-alert {
   background-color: $color-gray-lightest;
   background-position: $h-padding $h-padding;
   background-repeat: no-repeat;
-  background-size: 5.2rem; // TODO abrituary number based on svg size maybe?
-  padding-bottom: $h-padding * 0.7;
+  background-size: units(7);
+  padding-bottom: units(2);
   padding-left: $left-padding;
   padding-right: $h-padding;
   padding-top: $h-padding;
   position: relative;
 
   &::before {
-    background-color: darken($color-gray-lightest, 40%);
+    background-color: color('gray-40');
     content: '';
     height: 100%;
     left: 0;
@@ -56,25 +56,25 @@ $icon-size: 3rem;
 
   ul {
     margin-bottom: 0;
-    margin-top: $spacing-small;
-    padding-left: $spacing-small;
+    margin-top: $bar-size;
+    padding-left: $bar-size;
   }
 }
 
 .usa-alert-slim {
-  background-position: $h-padding $spacing-small;
-  padding-bottom: $spacing-small;
-  padding-top: $spacing-small;
+  background-position: $h-padding center;
+  padding-bottom: $bar-size;
+  padding-top: $bar-size;
 
   .usa-alert-text:only-child {
-    margin-bottom: $spacing-x-small;
-    padding-top: $spacing-x-small;
+    margin-bottom: units(0.5);
+    padding-top: units(0.5);
   }
 }
 
 .usa-alert-icon {
   display: table-cell;
-  padding-right: $spacing-small;
+  padding-right: $bar-size;
 }
 
 .usa-alert-body {
@@ -83,19 +83,20 @@ $icon-size: 3rem;
 }
 
 .usa-alert-heading {
+  @extend %usa-heading;
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .usa-alert-text {
-  font-family: $font-sans;
+  font-family: font-family('sans');
   margin-bottom: 0;
   margin-top: 0;
 }
 
 .usa-alert-text:only-child {
-  margin-bottom: $spacing-small;
-  padding-top: $spacing-x-small;
+  margin-bottom: $bar-size;
+  padding-top: units(0.5);
 }
 
 @each $name, $bgcolor in $alerts {
@@ -120,9 +121,4 @@ $icon-size: 3rem;
 
 .usa-alert-paragraph {
   width: $text-max-width;
-}
-
-// Deprecated
-.usa-alert {
-  margin-top: 1.5em; // TODO deprecate
 }

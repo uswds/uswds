@@ -417,9 +417,20 @@ $color-theme-success-light:         color($theme-color-success-light);
 $color-theme-success:               color($theme-color-success);
 $color-theme-success-dark:          color($theme-color-success-dark);
 $color-theme-success-darker:        color($theme-color-success-darker);
+$color-theme-info-lighter:          color($theme-color-info-lighter);
+$color-theme-info-light:            color($theme-color-info-light);
+$color-theme-info:                  color($theme-color-info);
+$color-theme-info-dark:             color($theme-color-info-dark);
+$color-theme-info-darker:           color($theme-color-info-darker);
 $color-theme-disabled-light:        color($theme-color-disabled-light);
 $color-theme-disabled:              color($theme-color-disabled);
 $color-theme-disabled-dark:         color($theme-color-disabled-dark);
+
+/*
+----------------------------------------
+Theme color map
+----------------------------------------
+*/
 
 $project-colors: (
   'base': (
@@ -493,6 +504,13 @@ $project-state-colors: (
     'dark':    $color-theme-success-dark,
     'darker':  $color-theme-success-darker,
   ),
+  'info': (
+    'lighter': $color-theme-info-lighter,
+    'light':   $color-theme-info-light,
+    'default': $color-theme-info,
+    'dark':    $color-theme-info-dark,
+    'darker':  $color-theme-info-darker,
+  ),
   'disabled': (
     'light':   $color-theme-disabled-light,
     'default': $color-theme-disabled,
@@ -510,6 +528,90 @@ $all-colors: map-collect(
   $system-required-colors,
   $system-colors
 );
+
+/*
+----------------------------------------
+Theme color shortcodes
+----------------------------------------
+*/
+
+$color-palette-theme: (
+  'base-lightest':            $color-theme-base-lightest,
+  'base-lighter':             $color-theme-base-lighter,
+  'base-light':               $color-theme-base-light,
+  'base':                     $color-theme-base,
+  'base-dark':                $color-theme-base-dark,
+  'base-darker':              $color-theme-base-darker,
+  'base-darkest':             $color-theme-base-darkest,
+  'ink':                      $color-theme-ink,
+  'primary-lightest':         $color-theme-primary-lightest,
+  'primary-lighter':          $color-theme-primary-lighter,
+  'primary-light':            $color-theme-primary-light,
+  'primary':                  $color-theme-primary,
+  'primary-vivid':            $color-theme-primary-vivid,
+  'primary-dark':             $color-theme-primary-dark,
+  'primary-darker':           $color-theme-primary-darker,
+  'primary-darkest':          $color-theme-primary-darkest,
+  'secondary-lightest':       $color-theme-secondary-lightest,
+  'secondary-lighter':        $color-theme-secondary-lighter,
+  'secondary-light':          $color-theme-secondary-light,
+  'secondary':                $color-theme-secondary,
+  'secondary-vivid':          $color-theme-secondary-vivid,
+  'secondary-dark':           $color-theme-secondary-dark,
+  'secondary-darker':         $color-theme-secondary-darker,
+  'secondary-darkest':        $color-theme-secondary-darkest,
+  'accent-warm-darkest':      $color-theme-accent-warm-darkest,
+  'accent-warm-darker':       $color-theme-accent-warm-darker,
+  'accent-warm-dark':         $color-theme-accent-warm-dark,
+  'accent-warm':              $color-theme-accent-warm,
+  'accent-warm-light':        $color-theme-accent-warm-light,
+  'accent-warm-lighter':      $color-theme-accent-warm-lighter,
+  'accent-warm-lightest':     $color-theme-accent-warm-lightest,
+  'accent-cool-darkest':      $color-theme-accent-cool-darkest,
+  'accent-cool-darker':       $color-theme-accent-cool-darker,
+  'accent-cool-dark':         $color-theme-accent-cool-dark,
+  'accent-cool':              $color-theme-accent-cool,
+  'accent-cool-light':        $color-theme-accent-cool-light,
+  'accent-cool-lighter':      $color-theme-accent-cool-lighter,
+  'accent-cool-lightest':     $color-theme-accent-cool-lightest,
+);
+
+$color-palette-state: (
+  'error-lighter':            $color-theme-error-lighter,
+  'error-light':              $color-theme-error-light,
+  'error':                    $color-theme-error,
+  'error-dark':               $color-theme-error-dark,
+  'error-darker':             $color-theme-error-darker,
+  'warning-lighter':          $color-theme-warning-lighter,
+  'warning-light':            $color-theme-warning-light,
+  'warning':                  $color-theme-warning,
+  'warning-dark':             $color-theme-warning-dark,
+  'warning-darker':           $color-theme-warning-darker,
+  'success-lighter':          $color-theme-success-lighter,
+  'success-light':            $color-theme-success-light,
+  'success':                  $color-theme-success,
+  'success-dark':             $color-theme-success-dark,
+  'success-darker':           $color-theme-success-darker,
+  'info-lighter':             $color-theme-info-lighter,
+  'info-light':               $color-theme-info-light,
+  'info':                     $color-theme-info,
+  'info-dark':                $color-theme-info-dark,
+  'info-darker':              $color-theme-info-darker,
+  'disabled':                 $color-theme-disabled,
+);
+
+$project-color-shortcodes: map-collect(
+  $color-palette-theme,
+  $color-palette-state
+);
+
+$all-color-shortcodes: map-collect(
+  $system-required-colors,
+  $system-color-shortcodes,
+  $project-color-shortcodes
+);
+
+$color-palette-grayscale: $system-color-gray;
 
 /*
 ----------------------------------------
@@ -819,87 +921,6 @@ $project-column-gaps: (
   'md': $theme-column-gap-md,
   'lg': $theme-column-gap-lg,
 );
-
-/*
-----------------------------------------
-Color palettes and shortcodes
-----------------------------------------
-*/
-
-$color-palette-theme: (
-  'base-lightest':            $color-theme-base-lightest,
-  'base-lighter':             $color-theme-base-lighter,
-  'base-light':               $color-theme-base-light,
-  'base':                     $color-theme-base,
-  'base-dark':                $color-theme-base-dark,
-  'base-darker':              $color-theme-base-darker,
-  'base-darkest':             $color-theme-base-darkest,
-  'ink':                      $color-theme-ink,
-  'primary-lightest':         $color-theme-primary-lightest,
-  'primary-lighter':          $color-theme-primary-lighter,
-  'primary-light':            $color-theme-primary-light,
-  'primary':                  $color-theme-primary,
-  'primary-vivid':            $color-theme-primary-vivid,
-  'primary-dark':             $color-theme-primary-dark,
-  'primary-darker':           $color-theme-primary-darker,
-  'primary-darkest':          $color-theme-primary-darkest,
-  'secondary-lightest':       $color-theme-secondary-lightest,
-  'secondary-lighter':        $color-theme-secondary-lighter,
-  'secondary-light':          $color-theme-secondary-light,
-  'secondary':                $color-theme-secondary,
-  'secondary-vivid':          $color-theme-secondary-vivid,
-  'secondary-dark':           $color-theme-secondary-dark,
-  'secondary-darker':         $color-theme-secondary-darker,
-  'secondary-darkest':        $color-theme-secondary-darkest,
-  'accent-warm-darkest':      $color-theme-accent-warm-darkest,
-  'accent-warm-darker':       $color-theme-accent-warm-darker,
-  'accent-warm-dark':         $color-theme-accent-warm-dark,
-  'accent-warm':              $color-theme-accent-warm,
-  'accent-warm-light':        $color-theme-accent-warm-light,
-  'accent-warm-lighter':      $color-theme-accent-warm-lighter,
-  'accent-warm-lightest':     $color-theme-accent-warm-lightest,
-  'accent-cool-darkest':      $color-theme-accent-cool-darkest,
-  'accent-cool-darker':       $color-theme-accent-cool-darker,
-  'accent-cool-dark':         $color-theme-accent-cool-dark,
-  'accent-cool':              $color-theme-accent-cool,
-  'accent-cool-light':        $color-theme-accent-cool-light,
-  'accent-cool-lighter':      $color-theme-accent-cool-lighter,
-  'accent-cool-lightest':     $color-theme-accent-cool-lightest,
-);
-
-$color-palette-state: (
-  'error-lighter':            $color-theme-error-lighter,
-  'error-light':              $color-theme-error-light,
-  'error':                    $color-theme-error,
-  'error-dark':               $color-theme-error-dark,
-  'error-darker':             $color-theme-error-darker,
-  'warning-lighter':          $color-theme-warning-lighter,
-  'warning-light':            $color-theme-warning-light,
-  'warning':                  $color-theme-warning,
-  'warning-dark':             $color-theme-warning-dark,
-  'warning-darker':           $color-theme-warning-darker,
-  'success-lighter':          $color-theme-success-lighter,
-  'success-light':            $color-theme-success-light,
-  'success':                  $color-theme-success,
-  'success-dark':             $color-theme-success-dark,
-  'success-darker':           $color-theme-success-darker,
-  'disabled-light':           $color-theme-disabled-light,
-  'disabled':                 $color-theme-disabled,
-  'disabled-dark':            $color-theme-disabled-dark,
-);
-
-$project-color-shortcodes: map-collect(
-  $color-palette-theme,
-  $color-palette-state
-);
-
-$all-color-shortcodes: map-collect(
-  $system-required-colors,
-  $system-color-shortcodes,
-  $project-color-shortcodes
-);
-
-$color-palette-grayscale: $system-color-gray;
 
 /*
 ----------------------------------------
