@@ -100,6 +100,14 @@ $theme-color-success:          '#{$theme-color-success-family}-40v' !default;
 $theme-color-success-dark:     '#{$theme-color-success-family}-50' !default;
 $theme-color-success-darker:   '#{$theme-color-success-family}-70' !default;
 
+// Info colors
+$theme-color-info-family:      'cyan' !default;
+$theme-color-info-lighter:     '#{$theme-color-info-family}-20v' !default;
+$theme-color-info-light:       '#{$theme-color-info-family}-30v' !default;
+$theme-color-info:             '#{$theme-color-info-family}-40v' !default;
+$theme-color-info-dark:        '#{$theme-color-info-family}-50' !default;
+$theme-color-info-darker:      '#{$theme-color-info-family}-70' !default;
+
 // Disabled color
 $theme-color-disabled-family:  'gray' !default;
 $theme-color-disabled:         '#{$theme-color-disabled-family}-30' !default;
