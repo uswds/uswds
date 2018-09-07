@@ -22,7 +22,7 @@
   background-color: color('primary-darker');
   padding: units(4);
 
-  @include at-media(units('mobile-lg')) {
+  @include at-media('mobile-lg') {
     max-width: 30rem;
   }
 
