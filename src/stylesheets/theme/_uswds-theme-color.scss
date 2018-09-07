@@ -101,12 +101,12 @@ $theme-color-success-dark:    '#{$theme-color-success-family}-50';
 $theme-color-success-darker:  '#{$theme-color-success-family}-70';
 
 // Info colors
-$theme-color-info-family:     'cyan' !default;
-$theme-color-info-lighter:    '#{$theme-color-info-family}-20v';
-$theme-color-info-light:      '#{$theme-color-info-family}-30v';
-$theme-color-info:            '#{$theme-color-info-family}-40v';
-$theme-color-info-dark:       '#{$theme-color-info-family}-50';
-$theme-color-info-darker:     '#{$theme-color-info-family}-70';
+$theme-color-info-family:     'cyan';
+$theme-color-info-lighter:    '#{$theme-color-info-family}-5';
+$theme-color-info-light:      '#{$theme-color-info-family}-20';
+$theme-color-info:            '#{$theme-color-info-family}-30v';
+$theme-color-info-dark:       '#{$theme-color-info-family}-40v';
+$theme-color-info-darker:     'blue-60' !default;
 
 // Disabled color
 $theme-color-disabled-family: 'gray';
