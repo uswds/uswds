@@ -2,7 +2,7 @@
 // ==========================
 
 .usa-hero {
-  @include u-padding-y($site-margins);
+  @include u-padding-y(units(4));
   background-image: url('#{$theme-image-path}/hero.png');
   background-position: center;
   background-size: cover;
@@ -19,15 +19,15 @@
 }
 
 .usa-hero-callout {
-  background-color: $color-theme-base-darker;
-  padding: units($theme-spacing-lg);
+  background-color: color('base-darker');
+  padding: units(4);
 
-  @include media($small-screen) {
+  @include media(units('mobile-lg')) {
     max-width: 30rem;
   }
 
   > *:first-child {
-    @include margin(0 null unit($theme-spacing-sm) null);
+    @include margin(0 null units(2) null);
   }
 }
 
