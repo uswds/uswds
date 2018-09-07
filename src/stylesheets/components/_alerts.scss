@@ -6,14 +6,14 @@ $usa-alerts: (
   success: color('success-lighter'),
   warning: color('warning-lighter'),
   error: color('error-lighter'),
-  info: color('accent-cool-lighter')
+  info: color('info-lighter')
 );
 
 $usa-alerts-bar: (
   success: color('success'),
   warning: color('warning'),
   error: color('error'),
-  info: color('accent-cool')
+  info: color('info')
 );
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
@@ -83,6 +83,7 @@ $icon-size: units($theme-spacing-lg);
 }
 
 .usa-alert-heading {
+  @extend %usa-heading;
   margin-top: 0;
   margin-bottom: 0;
 }
