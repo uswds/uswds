@@ -87,7 +87,7 @@ $accordion-border: units(2px) solid color('base-lighter');
   margin: 0;
 
   &:not(:first-child) {
-    margin-top: units($theme-spacing-2xs);
+    margin-top: units($theme-spacing-xs);
   }
 }
 
