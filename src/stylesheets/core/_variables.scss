@@ -597,7 +597,9 @@ $color-palette-state: (
   'info':                     $color-theme-info,
   'info-dark':                $color-theme-info-dark,
   'info-darker':              $color-theme-info-darker,
+  'disabled-light':           $color-theme-disabled-light,
   'disabled':                 $color-theme-disabled,
+  'disabled-dark':            $color-theme-disabled-dark,
 );
 
 $project-color-shortcodes: map-collect(
