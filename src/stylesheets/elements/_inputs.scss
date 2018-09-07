@@ -262,7 +262,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 @mixin range-thumb {
-  @include u-circle(3);
+  @include u-circle(2.5);
   background: color('base-lightest');
   border: none;
   box-shadow: 0 0 0 units(2px) color('base');
@@ -312,7 +312,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   &::-webkit-slider-thumb {
     @include range-thumb;
     appearance: none;
-    margin-top: units(-1.5);
+    margin-top: px-to-rem(-9px); // magic number
   }
 
   &::-moz-range-thumb {
