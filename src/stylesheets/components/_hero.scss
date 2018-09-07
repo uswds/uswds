@@ -19,10 +19,10 @@
 }
 
 .usa-hero-callout {
-  background-color: color('base-darker');
+  background-color: color('primary-darker');
   padding: units(4);
 
-  @include media(units('mobile-lg')) {
+  @include at-media(units('mobile-lg')) {
     max-width: 30rem;
   }
 
