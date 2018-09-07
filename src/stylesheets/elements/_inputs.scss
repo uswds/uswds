@@ -254,10 +254,11 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 @mixin range-track {
-  border-radius: radius('lg');
-  background: color('base');
+  background-color: color('base-lightest');
+  border-radius: radius('pill');
+  border: 1px solid color('base');
   cursor: pointer;
-  height: units(2px);
+  height: units(2);
   width: 100%;
 }
 
@@ -270,9 +271,9 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 @mixin range-ms-fill {
-  background: color('base');
-  border: none;
-  border-radius: radius('lg');
+  background-color: color('base-lightest');
+  border-radius: radius('pill');
+  border: 1px solid color('base');
 }
 
 .usa-range {
@@ -312,7 +313,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   &::-webkit-slider-thumb {
     @include range-thumb;
     appearance: none;
-    margin-top: px-to-rem(-9px); // magic number
+    margin-top: px-to-rem(-3px); // magic number
   }
 
   &::-moz-range-thumb {
