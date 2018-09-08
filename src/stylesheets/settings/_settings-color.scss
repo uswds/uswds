@@ -80,9 +80,9 @@ State palette colors
 $theme-color-error-family:     'red' !default;
 $theme-color-error-lighter:    '#{$theme-color-error-family}-10' !default;
 $theme-color-error-light:      '#{$theme-color-error-family}-40v' !default;
-$theme-color-error:            '#{$theme-color-error-family}-50v' !default;
-$theme-color-error-dark:       '#{$theme-color-error-family}-60' !default;
-$theme-color-error-darker:     '#{$theme-color-error-family}-70' !default;
+$theme-color-error:            '#{$theme-color-error-family}-50' !default;
+$theme-color-error-dark:       '#{$theme-color-error-family}-60v' !default;
+$theme-color-error-darker:     '#{$theme-color-error-family}-70v' !default;
 
 // Warning colors
 $theme-color-warning-family:   'gold' !default; // TODO: How can this be gold vivid?
