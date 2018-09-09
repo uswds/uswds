@@ -161,12 +161,13 @@ Sets:
 
 @mixin h6 {
   @include typeset(
-    'alt',
+    'body',
     $theme-h6-font-size,
     $theme-heading-line-height
   );
 
   font-weight: fw($theme-font-weight-normal);
+  letter-spacing: ls('ls-1');
   text-transform: uppercase;
 }
 
