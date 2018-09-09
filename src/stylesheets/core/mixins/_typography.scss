@@ -14,7 +14,7 @@ Sets:
   @include u-line-height($family, $line-height);
 }
 
-@mixin typeset-default($family) {
+@mixin typeset-default($family: #{$theme-base-font-family}) {
   @include typeset(
     $family,
     $theme-base-font-size,
