@@ -21,6 +21,9 @@ $input-height: floor($input-height-exact * 10) / 10;
 /* stylelint-disable selector-no-qualifying-type */
 
 .usa-form,
+// with a more consistent use of .usa-form
+// the following should be unnecessary
+.usa-form-large,
 .usa-fieldset-inputs,
 .usa-fieldset,
 .usa-input,
