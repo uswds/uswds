@@ -164,7 +164,7 @@ $theme-font-cond:   false !default;
 ----------------------------------------
 Fonts by role
 ----------------------------------------
-Set the heading, body, code, and alt
+Set the ui, heading, body, code, and alt
 faces for your project from
 
 $theme-font-sans
@@ -174,10 +174,11 @@ $theme-font-cond
 ----------------------------------------
 */
 
+$theme-font-ui:       $theme-font-sans !default;
 $theme-font-heading:  $theme-font-serif !default;
-$theme-font-body:     $theme-font-serif !default;
+$theme-font-body:     $theme-font-sans !default;
 $theme-font-code:     $theme-font-mono !default;
-$theme-font-alt:      $theme-font-sans !default;
+$theme-font-alt:      $theme-font-serif !default;
 
 /*
 ----------------------------------------
@@ -258,10 +259,11 @@ Line height tokens
 ----------------------------------------
 Font family tokens
 ----------------------------------------
-'sans'
-'serif'
-'mono'
-'cond'
+'ui'
+'heading'
+'body'
+'code'
+'alt'
 ----------------------------------------
 Max-width tokens
 ----------------------------------------
@@ -275,7 +277,7 @@ none:    none
 */
 
 // Base settings are the defaults for components
-$theme-base-font-family:           'sans' !default;
+$theme-base-font-family:           'body' !default;
 $theme-base-font-size:             'sm' !default; // was 1.7rem
 $theme-base-line-height:           5 !default; // was 1.5
 
@@ -316,6 +318,6 @@ are set.
 ----------------------------------------
 */
 
-$theme-input-font-family: 'sans' !default;
-$theme-lead-font-family: 'heading' !default;
-$theme-accordion-font-family: $theme-base-font-family !default;
+$theme-input-font-family:       'ui' !default;
+$theme-lead-font-family:        'heading' !default;
+$theme-accordion-font-family:   $theme-base-font-family !default;
