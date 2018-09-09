@@ -83,7 +83,7 @@ $icon-size: units(4);
 }
 
 .usa-alert-heading {
-  @extend %usa-heading;
+  @include typeset-h3;
   margin-top: 0;
   margin-bottom: 0;
 }
