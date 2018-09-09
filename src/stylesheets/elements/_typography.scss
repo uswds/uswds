@@ -67,7 +67,7 @@ html {
 }
 
 .usa-prose {
-  @include typeset-default($theme-base-font-family);
+  @include typeset-default($theme-prose-font-family);
 }
 
 /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
