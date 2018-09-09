@@ -1,13 +1,11 @@
-$banner-font-family: 'sans';
-
 .usa-banner {
+  @include typeset-default($theme-banner-font-family);
   @include u-bg('base-lightest');
-  @include u-font-family($banner-font-family);
   @include u-padding-bottom(1);
   @include u-position('relative');
 
   @include at-media('mobile-lg') {
-    @include u-font-size($banner-font-family, $theme-h6-font-size);
+    @include u-font-size($theme-banner-font-family, $theme-h6-font-size);
     @include u-padding-bottom(0);
   }
 }
@@ -29,9 +27,6 @@ $banner-font-family: 'sans';
   }
 
   p {
-    @include u-font-size($banner-font-family, $theme-h5-font-size);
-    @include u-line-height($banner-font-family, $theme-base-line-height);
-
     &:first-child {
       @include u-margin-top(1);
 
@@ -58,14 +53,14 @@ $banner-font-family: 'sans';
 
 .usa-banner-header {
   @include u-padding-y(0.5);
-  @include u-font-size($banner-font-family, 1);
+  @include u-font-size($theme-banner-font-family, 1);
 
   @include at-media('mobile-lg') {
     @include u-padding-y(2px);
   }
 
   p {
-    @include u-line-height($banner-font-family, 1);
+    @include u-line-height($theme-banner-font-family, 1);
     @include u-margin-bottom(0);
     @include u-margin-top(2px);
     display: block;
@@ -91,13 +86,12 @@ $banner-font-family: 'sans';
 }
 
 .usa-banner-header-expanded {
-  @include u-font-size($banner-font-family, $theme-h5-font-size);
   border-bottom: 1px solid color('base-lighter');
   min-height: units(7);
   padding-right: units(4);
 
   @include at-media('mobile-lg') {
-    @include u-font-size($banner-font-family, 1);
+    @include u-font-size($theme-banner-font-family, 1);
     border-bottom: none;
     display: block;
     min-height: 0;
@@ -121,11 +115,11 @@ $banner-font-family: 'sans';
   }
 
   p {
-    @include u-line-height($banner-font-family, $theme-heading-line-height);
+    @include u-line-height($theme-banner-font-family, $theme-heading-line-height);
     vertical-align: top;
 
     @include at-media('mobile-lg') {
-      @include u-line-height($banner-font-family, $theme-base-line-height);
+      @include u-line-height($theme-banner-font-family, $theme-base-line-height);
       vertical-align: middle;
     }
   }
@@ -133,8 +127,8 @@ $banner-font-family: 'sans';
 
 .usa-banner-button {
   @include button-unstyled;
-  @include u-font-size($banner-font-family, 1);
-  @include u-line-height($banner-font-family, 1);
+  @include u-font-size($theme-banner-font-family, 1);
+  @include u-line-height($theme-banner-font-family, 1);
   @include u-padding-top(1.5);
   @include u-padding-left(6);
   background-position-x: right;
