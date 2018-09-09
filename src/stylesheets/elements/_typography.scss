@@ -10,7 +10,7 @@ html {
 }
 
 %usa-heading {
-  @include typeset-heading
+  @include typeset-heading;
 }
 
 @mixin usa-typography-base-styles {
