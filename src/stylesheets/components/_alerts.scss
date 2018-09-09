@@ -25,6 +25,8 @@ $left-padding: $h-padding + $bar-size;
 $icon-size: units(4);
 
 .usa-alert {
+  @include typeset-default;
+
   background-color: $color-gray-lightest;
   background-position: $h-padding $h-padding;
   background-repeat: no-repeat;
@@ -89,9 +91,7 @@ $icon-size: units(4);
 }
 
 .usa-alert-text {
-  font-family: font-family('sans');
-  margin-bottom: 0;
-  margin-top: 0;
+  @include u-margin-y(0);
 }
 
 .usa-alert-text:only-child {
