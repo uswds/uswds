@@ -293,6 +293,9 @@ $theme-h6-font-size:               '3xs' !default; // was 1.3rem
 // Line heights
 $theme-heading-line-height:        3 !default; // was 1.3
 $theme-lead-line-height:           6 !default; // was 1.7
+$theme-input-line-height:          3 !default; // was 1.7
+
+// Font weights
 $theme-font-weight-normal:         400 !default;
 $theme-font-weight-bold:           700 !default;
 
@@ -313,5 +316,6 @@ are set.
 ----------------------------------------
 */
 
+$theme-input-font-family: 'sans' !default;
 $theme-lead-font-family: 'heading' !default;
 $theme-accordion-font-family: $theme-base-font-family !default;
