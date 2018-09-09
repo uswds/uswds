@@ -49,7 +49,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   color: color('ink'); // standardize on firefox
   display: block;
   height: $input-height;
-  margin: units(1) 0;
+  margin-top: units(1);
   max-width: $input-max-width;
   padding: $input-padding-vertical units(1);
   width: 100%;
