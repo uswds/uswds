@@ -281,6 +281,9 @@ $theme-base-font-family:           'body';
 $theme-base-font-size:             'sm'; // was 1.7rem
 $theme-base-line-height:           5; // was 1.5
 
+// If true, explicitly style the <body> element with the base styles
+$theme-style-body-element:         false;
+
 // Font sizes
 $theme-small-font-size:            '2xs'; // was 1.4rem
 $theme-lead-font-size:             'lg'; // was 2rem
