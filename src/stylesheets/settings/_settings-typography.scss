@@ -276,12 +276,12 @@ none:    none
 ----------------------------------------
 */
 
-// Base settings are the defaults for components
+// Base settings are the equivalent of setting the <body> element
 $theme-base-font-family:           'body' !default;
 $theme-base-font-size:             'sm' !default; // was 1.7rem
 $theme-base-line-height:           5 !default; // was 1.5
 
-// Sizes
+// Font sizes
 $theme-small-font-size:            '2xs' !default; // was 1.4rem
 $theme-lead-font-size:             'lg' !default; // was 2rem
 $theme-title-font-size:            '3xl' !default; // was 5.2rem
@@ -312,12 +312,11 @@ $theme-lead-max-width:             5 !default;
 ----------------------------------------
 Component font families
 ----------------------------------------
-Components will take the base font
-settings unless these variables
-are set.
-----------------------------------------
 */
 
-$theme-input-font-family:       'ui' !default;
-$theme-lead-font-family:        'heading' !default;
-$theme-accordion-font-family:   $theme-base-font-family !default;
+$theme-accordion-font-family:      'body' !default;
+$theme-banner-font-family:         'ui' !default;
+$theme-alerts-font-family:         'ui' !default;
+$theme-input-font-family:          'ui' !default;
+$theme-lead-font-family:           'heading' !default;
+$theme-prose-font-family:          'body' !default;

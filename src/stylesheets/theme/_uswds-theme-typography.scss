@@ -164,7 +164,7 @@ $theme-font-cond:   false;
 ----------------------------------------
 Fonts by role
 ----------------------------------------
-Set the heading, body, code, and alt
+Set the ui, heading, body, code, and alt
 faces for your project from
 
 $theme-font-sans
@@ -174,10 +174,11 @@ $theme-font-cond
 ----------------------------------------
 */
 
+$theme-font-ui:       $theme-font-sans;
 $theme-font-heading:  $theme-font-serif;
-$theme-font-body:     $theme-font-serif;
+$theme-font-body:     $theme-font-sans;
 $theme-font-code:     $theme-font-mono;
-$theme-font-alt:      $theme-font-sans;
+$theme-font-alt:      $theme-font-serif;
 
 /*
 ----------------------------------------
@@ -221,6 +222,8 @@ $theme-font-weight-heavy:         false;
 
 /*
 ----------------------------------------
+Defaults
+----------------------------------------
 Type scale tokens
 ----------------------------------------
 micro:      10px
@@ -254,9 +257,31 @@ Line height tokens
 5:    1.62
 6:    1.75
 ----------------------------------------
+Font family tokens
+----------------------------------------
+'ui'
+'heading'
+'body'
+'code'
+'alt'
+----------------------------------------
+Max-width tokens
+----------------------------------------
+1:       40ch
+2:       60ch
+3:       66ch
+4:       72ch
+5:       77ch
+none:    none
+----------------------------------------
 */
 
+// Base settings are the equivalent of setting the <body> element
+$theme-base-font-family:           'body';
 $theme-base-font-size:             'sm'; // was 1.7rem
+$theme-base-line-height:           5; // was 1.5
+
+// Font sizes
 $theme-small-font-size:            '2xs'; // was 1.4rem
 $theme-lead-font-size:             'lg'; // was 2rem
 $theme-title-font-size:            '3xl'; // was 5.2rem
@@ -266,8 +291,32 @@ $theme-h3-font-size:               'lg'; // was 2rem
 $theme-h4-font-size:               'sm'; // was 1.7rem
 $theme-h5-font-size:               'xs'; // was 1.5rem
 $theme-h6-font-size:               '3xs'; // was 1.3rem
-$theme-base-line-height:           4; // was 1.5
+
+// Line heights
 $theme-heading-line-height:        3; // was 1.3
 $theme-lead-line-height:           6; // was 1.7
+$theme-input-line-height:          3; // was 1.7
+
+// Font weights
 $theme-font-weight-normal:         400;
 $theme-font-weight-bold:           700;
+
+// Max widths
+$theme-text-narrow-width:          1;
+$theme-text-max-width:             3;
+$theme-text-wide-width:            4;
+$theme-lead-max-width:             5;
+
+
+/*
+----------------------------------------
+Component font families
+----------------------------------------
+*/
+
+$theme-accordion-font-family:      'body';
+$theme-banner-font-family:         'ui';
+$theme-alerts-font-family:         'ui';
+$theme-input-font-family:          'ui';
+$theme-lead-font-family:           'heading';
+$theme-prose-font-family:          'body';
