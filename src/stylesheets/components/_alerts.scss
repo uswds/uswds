@@ -37,6 +37,10 @@ $icon-size: units(4);
   padding-top: $h-padding;
   position: relative;
 
+  * + & {
+    margin-top: units(2);
+  }
+
   &::before {
     background-color: color('gray-40');
     content: '';
