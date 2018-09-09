@@ -49,7 +49,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   color: color('ink'); // standardize on firefox
   display: block;
   height: $input-height;
-  margin: units(0.5) 0;
+  margin: units(1) 0;
   max-width: $input-max-width;
   padding: $input-padding-vertical units(1);
   width: 100%;
@@ -112,7 +112,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 .usa-label {
   @include typeset($theme-input-font-family, $theme-base-font-size, 2);
   display: block;
-  margin-top: units(4);
+  margin-top: units(3);
   max-width: $input-max-width;
 }
 
