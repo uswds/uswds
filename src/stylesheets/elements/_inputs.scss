@@ -47,7 +47,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 /* stylelint-enable */
 
 .usa-form-group-error {
-  @include u-border-left(0.5, 'error');
+  @include u-border-left(0.5, 'error-dark');
   margin-top: units(4);
   padding-left: units(2);
   position: relative;
@@ -55,7 +55,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-input-error {
-  @include u-border($input-state-border, 'error');
+  @include u-border($input-state-border, 'error-dark');
 }
 
 .usa-input-error-label {
@@ -67,7 +67,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-input-error-message {
   @include u-padding-y(0.5);
-  color: color('error');
+  color: color('error-dark');
   display: block;
   font-size: $input-font-size;
   font-weight: $theme-font-weight-bold;
