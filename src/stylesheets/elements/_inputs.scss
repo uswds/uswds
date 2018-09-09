@@ -1,14 +1,14 @@
 // scss-lint:disable QualifyingElement, PropertyCount
 
-$input-font-size: scale($theme-input-font-family, $theme-base-font-size);
-$input-line-height: lh($theme-input-font-family, $theme-input-line-height); // was 1.3
+$input-font-size: scale($theme-font-family-input, $theme-font-size-base);
+$input-line-height: lh($theme-font-family-input, $theme-line-height-input); // was 1.3
 $input-border-width: px-to-rem(1px); // Using rem instead of px so function uses same units
 $input-padding-vertical: units(1);
 
 // input heights will vary by browser and type
 // if height not explicitly set
 $input-height-exact: (
-  (scale($theme-input-font-family, $theme-base-font-size) * $input-line-height) +
+  (scale($theme-font-family-input, $theme-font-size-base) * $input-line-height) +
   ($input-padding-vertical * 2) +
   ($input-border-width * 2)
 );
@@ -32,9 +32,9 @@ $input-height: floor($input-height-exact * 10) / 10;
 .usa-range,
 .usa-form-hint {
   @include typeset(
-    $theme-input-font-family,
-    $theme-base-font-size,
-    $theme-input-line-height
+    $theme-font-family-input,
+    $theme-font-size-base,
+    $theme-line-height-input
   );
 }
 
@@ -110,7 +110,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-label {
-  @include typeset($theme-input-font-family, $theme-base-font-size, 2);
+  @include typeset($theme-font-family-input, $theme-font-size-base, 2);
   display: block;
   margin-top: units(3);
   max-width: $input-max-width;
@@ -149,7 +149,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-legend {
-  font-size: scale($theme-input-font-family, $theme-h2-font-size);
+  font-size: scale($theme-font-family-input, $theme-font-size-h2);
   font-weight: $theme-font-weight-bold;
 }
 

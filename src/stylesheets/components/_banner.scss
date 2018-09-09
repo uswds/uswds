@@ -1,11 +1,11 @@
 .usa-banner {
-  @include typeset-default($theme-banner-font-family);
+  @include typeset-default($theme-font-family-banner);
   @include u-bg('base-lightest');
   @include u-padding-bottom(1);
   @include u-position('relative');
 
   @include at-media('mobile-lg') {
-    @include u-font-size($theme-banner-font-family, $theme-h6-font-size);
+    @include u-font-size($theme-font-family-banner, $theme-font-size-h6);
     @include u-padding-bottom(0);
   }
 }
@@ -53,14 +53,14 @@
 
 .usa-banner-header {
   @include u-padding-y(0.5);
-  @include u-font-size($theme-banner-font-family, 1);
+  @include u-font-size($theme-font-family-banner, 1);
 
   @include at-media('mobile-lg') {
     @include u-padding-y(2px);
   }
 
   p {
-    @include u-line-height($theme-banner-font-family, 1);
+    @include u-line-height($theme-font-family-banner, 1);
     @include u-margin-bottom(0);
     @include u-margin-top(2px);
     display: block;
@@ -91,7 +91,7 @@
   padding-right: units(4);
 
   @include at-media('mobile-lg') {
-    @include u-font-size($theme-banner-font-family, 1);
+    @include u-font-size($theme-font-family-banner, 1);
     border-bottom: none;
     display: block;
     min-height: 0;
@@ -115,11 +115,11 @@
   }
 
   p {
-    @include u-line-height($theme-banner-font-family, $theme-heading-line-height);
+    @include u-line-height($theme-font-family-banner, $theme-line-height-heading);
     vertical-align: top;
 
     @include at-media('mobile-lg') {
-      @include u-line-height($theme-banner-font-family, $theme-base-line-height);
+      @include u-line-height($theme-font-family-banner, $theme-line-height-base);
       vertical-align: middle;
     }
   }
@@ -127,8 +127,8 @@
 
 .usa-banner-button {
   @include button-unstyled;
-  @include u-font-size($theme-banner-font-family, 1);
-  @include u-line-height($theme-banner-font-family, 1);
+  @include u-font-size($theme-font-family-banner, 1);
+  @include u-line-height($theme-font-family-banner, 1);
   @include u-padding-top(1.5);
   @include u-padding-left(6);
   background-position-x: right;

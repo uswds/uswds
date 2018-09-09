@@ -14,11 +14,11 @@ Sets:
   @include u-line-height($family, $line-height);
 }
 
-@mixin typeset-default($family: #{$theme-base-font-family}) {
+@mixin typeset-default($family: #{$theme-font-family-base}) {
   @include typeset(
     $family,
-    $theme-base-font-size,
-    $theme-base-line-height
+    $theme-font-size-base,
+    $theme-line-height-base
   );
 }
 
@@ -35,12 +35,12 @@ Sets:
 // typeset element mixins
 @mixin typeset-p {
   line-height: line-height(
-    $theme-base-font-family,
-    $theme-base-line-height
+    $theme-font-family-base,
+    $theme-line-height-base
   );
   margin-bottom: 0;
   margin-top: 0;
-  max-width: measure($theme-text-max-width);
+  max-width: measure($theme-measure-text);
 
   * + & {
     margin-top: 1em;
@@ -72,8 +72,8 @@ Sets:
 @mixin title {
   @include typeset(
     'heading',
-    $theme-title-font-size,
-    $theme-heading-line-height
+    $theme-font-size-title,
+    $theme-line-height-heading
   );
 
   font-weight: fw($theme-font-weight-bold);
@@ -87,8 +87,8 @@ Sets:
 @mixin h1 {
   @include typeset(
     'heading',
-    $theme-h1-font-size,
-    $theme-heading-line-height
+    $theme-font-size-h1,
+    $theme-line-height-heading
   );
 
   font-weight: fw($theme-font-weight-bold);
@@ -102,8 +102,8 @@ Sets:
 @mixin h2 {
   @include typeset(
     'heading',
-    $theme-h2-font-size,
-    $theme-heading-line-height
+    $theme-font-size-h2,
+    $theme-line-height-heading
   );
 
   font-weight: fw($theme-font-weight-bold);
@@ -117,8 +117,8 @@ Sets:
 @mixin h3 {
   @include typeset(
     'heading',
-    $theme-h3-font-size,
-    $theme-heading-line-height
+    $theme-font-size-h3,
+    $theme-line-height-heading
   );
 
   font-weight: fw($theme-font-weight-bold);
@@ -132,8 +132,8 @@ Sets:
 @mixin h4 {
   @include typeset(
     'heading',
-    $theme-h4-font-size,
-    $theme-heading-line-height
+    $theme-font-size-h4,
+    $theme-line-height-heading
   );
 
   font-weight: fw($theme-font-weight-bold);
@@ -147,8 +147,8 @@ Sets:
 @mixin h5 {
   @include typeset(
     'heading',
-    $theme-h5-font-size,
-    $theme-heading-line-height
+    $theme-font-size-h5,
+    $theme-line-height-heading
   );
 
   font-weight: fw($theme-font-weight-bold);
@@ -162,8 +162,8 @@ Sets:
 @mixin h6 {
   @include typeset(
     'body',
-    $theme-h6-font-size,
-    $theme-heading-line-height
+    $theme-font-size-h6,
+    $theme-line-height-heading
   );
 
   font-weight: fw($theme-font-weight-normal);

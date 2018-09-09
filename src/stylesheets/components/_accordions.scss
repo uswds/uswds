@@ -15,7 +15,7 @@ $accordion-border: units(0.5) solid color('base-lightest');
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  @include typeset-default($theme-accordion-font-family);
+  @include typeset-default($theme-font-family-accordion);
 
   background-color: color('base-lightest');
   background-image: url('#{$theme-image-path}/minus.png');
@@ -61,7 +61,7 @@ $accordion-border: units(0.5) solid color('base-lightest');
 .usa-accordion-bordered {
   @include accordion-list-styles;
   @include accordion-nested-list;
-  @include typeset-default($theme-accordion-font-family);
+  @include typeset-default($theme-font-family-accordion);
 
   + .usa-accordion,
   + .usa-accordion-bordered {
@@ -83,7 +83,7 @@ $accordion-border: units(0.5) solid color('base-lightest');
 }
 
 .usa-accordion-heading {
-  @include typeset($theme-accordion-font-family, $theme-base-font-size, 1);
+  @include typeset($theme-font-family-accordion, $theme-font-size-base, 1);
   margin: 0;
 
   &:not(:first-child) {

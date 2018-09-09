@@ -1018,7 +1018,7 @@ settings
 
 // Removing the !default from $em-base so we are not inheriting that value from Bourbon.
 
-$em-base:             $theme-root-font-size;
+$em-base:             $theme-font-size-root;
 $base-font-size:      1.7rem !default;
 $small-font-size:     1.4rem !default;
 $lead-font-size:      2rem !default;
