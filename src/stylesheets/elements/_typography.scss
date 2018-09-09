@@ -3,6 +3,12 @@ html {
   font-size: $root-font-size;
 }
 
+@if $theme-style-body-element {
+  body {
+    @include typeset-default;
+  }
+}
+
 %usa-heading {
   @include typeset-heading
 }
