@@ -1,59 +1,19 @@
 html {
-  font-family: font-family($theme-font-default);
+  font-family: font-family($theme-base-font-family);
   font-size: $root-font-size;
 }
 
-%usa-paragraph {
-  line-height: $base-line-height;
-  margin-bottom: 0;
-  margin-top: 0;
-
-  * + & {
-    margin-top: 1em;
-  }
-
-  + * {
-    margin-top: 1em;
-  }
-}
-
-%usa-link {
-  color: color('primary');
-  text-decoration: underline;
-
-  &:hover,
-  &:active {
-    color: color('primary-darker');
-  }
-
-  &:focus {
-    @include focus;
-  }
-
-  &:visited {
-    color: $color-visited;
-  }
-}
-
 %usa-heading {
-  clear: both;
-  font-family: $font-serif;
-  line-height: $heading-line-height;
-  margin-bottom: 0.5em;
-  margin-top: 0;
-}
-
-* + %usa-heading {
-  margin-top: 1.5em;
+  @include typeset-heading
 }
 
 @mixin usa-typography-base-styles {
   p {
-    @extend %usa-paragraph;
+    @include typeset-p;
   }
 
   a {
-    @extend %usa-link;
+    @include typeset-link;
   }
 }
 
@@ -89,7 +49,6 @@ html {
 
   h6 {
     @include h6;
-    font-family: $font-sans;
   }
 }
 
@@ -105,6 +64,10 @@ html {
   @include usa-headings-styles;
   @include usa-list-styles;
   @include usa-table-styles;
+}
+
+.usa-prose {
+  @include typeset-default($theme-base-font-family);
 }
 
 /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
@@ -127,11 +90,11 @@ html {
 @include theme-content-styles;
 
 .usa-paragraph {
-  @extend %usa-paragraph;
+  @include typeset-p;
 }
 
 .usa-link {
-  @extend %usa-link;
+  @include typeset-link;
 }
 
 @mixin external-link($external-link, $external-link-hover) {
@@ -143,7 +106,7 @@ html {
     display: inline-block;
     height: 0.65em;
     margin-bottom: -1px;
-    margin-left: 4px;
+    margin-left: units(0.5);
     width: 0.65em;
   }
 
@@ -180,12 +143,58 @@ dfn {
   p,
   ul:not(.usa-accordion):not(.usa-accordion-bordered),
   ol:not(.usa-accordion):not(.usa-accordion-bordered) {
-    max-width: $text-max-width;
+    max-width: measure($theme-text-max-width);
   }
 }
 
 .usa-content-list {
-  max-width: $text-max-width;
+  max-width: measure($theme-text-max-width);
+}
+
+.usa-display {
+  @include typeset-h3;
+  margin-bottom: 0;
+
+  @include media($small-screen) {
+    @include typeset-h1;
+  }
+
+  @include media($medium-screen) {
+    @include typeset-title;
+  }
+}
+
+.usa-font-lead {
+  @include typeset(
+    $theme-lead-font-family,
+    $theme-lead-font-size,
+    $theme-lead-line-height
+  );
+  font-weight: $theme-font-weight-normal;
+  max-width: measure($theme-lead-max-width);
+}
+
+.usa-background-dark {
+  background-color: color('base-darker');
+
+  p,
+  span {
+    color: color('white');
+  }
+
+  a {
+    color: color('base-lighter');
+
+    &:hover {
+      color: color('white');
+    }
+  }
+}
+
+// TODO: How should we keep or adapt these?
+.usa-text-small {
+  font-size: $h6-font-size;
+  margin-top: 0;
 }
 
 .usa-sans {
@@ -209,47 +218,4 @@ dfn {
   span {
     font-family: $font-serif;
   }
-}
-
-.usa-display {
-  @include h3;
-  margin-bottom: 0;
-
-  @include media($small-screen) {
-    @include h1;
-  }
-
-  @include media($medium-screen) {
-    @include title;
-  }
-}
-
-.usa-font-lead {
-  font-family: $font-serif;
-  font-size: $lead-font-size;
-  font-weight: $font-normal;
-  line-height: $lead-line-height;
-  max-width: $lead-max-width;
-}
-
-.usa-background-dark {
-  background-color: $color-gray-dark;
-
-  p,
-  span {
-    color: $color-white;
-  }
-
-  a {
-    color: $color-gray-lighter;
-
-    &:hover {
-      color: $color-white;
-    }
-  }
-}
-
-.usa-text-small {
-  font-size: $h6-font-size;
-  margin-top: 0;
 }
