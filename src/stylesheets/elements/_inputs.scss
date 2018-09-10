@@ -111,7 +111,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-label {
   display: block;
-  line-height: line-ehight($theme-font-family-input, 2);
+  line-height: line-height($theme-font-family-input, 2);
   margin-top: units(3);
   max-width: $input-max-width;
 }
