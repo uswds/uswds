@@ -1,5 +1,5 @@
 .usa-footer {
-  @include typeset-default($theme-font-family-footer);
+  @include typeset($theme-font-family-footer);
 
   .usa-unstyled-list {
     display: block;

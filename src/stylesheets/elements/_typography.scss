@@ -5,7 +5,7 @@ html {
 
 @if $theme-style-body-element {
   body {
-    @include typeset-default;
+    @include typeset;
   }
 }
 
@@ -73,7 +73,7 @@ html {
 }
 
 .usa-prose {
-  @include typeset-default($theme-font-family-prose);
+  @include typeset($theme-font-family-prose);
 }
 
 /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */

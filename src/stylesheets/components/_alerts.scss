@@ -25,7 +25,7 @@ $left-padding: $h-padding + $bar-size;
 $icon-size: units(4);
 
 .usa-alert {
-  @include typeset-default($theme-font-family-alerts);
+  @include typeset($theme-font-family-alerts);
 
   background-color: $color-gray-lightest;
   background-position: $h-padding $h-padding;

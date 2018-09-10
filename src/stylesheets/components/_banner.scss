@@ -1,5 +1,5 @@
 .usa-banner {
-  @include typeset-default($theme-font-family-banner);
+  @include typeset($theme-font-family-banner);
   @include u-bg('base-lightest');
   @include u-padding-bottom(1);
   @include u-position('relative');
