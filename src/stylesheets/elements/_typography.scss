@@ -198,6 +198,7 @@ dfn {
 }
 
 // TODO: How should we keep or adapt these?
+// Strong candidates for deprecation
 .usa-text-small {
   font-size: $h6-font-size;
   margin-top: 0;
@@ -211,6 +212,7 @@ dfn {
     font-family: $font-sans;
   }
 
+  // TODO: This is an unexpected effect of .usa-sans
   a {
     border-bottom: none;
     font-weight: $font-bold;
