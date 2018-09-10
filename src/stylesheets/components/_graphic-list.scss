@@ -12,7 +12,7 @@
 
     &:last-child {
       .usa-media_block {
-        @include media($medium-screen) {
+        @include at-media(tablet) {
           margin-bottom: 0;
         }
 
