@@ -196,34 +196,3 @@ dfn {
     }
   }
 }
-
-// TODO: How should we keep or adapt these?
-// Strong candidates for deprecation
-.usa-text-small {
-  font-size: $h6-font-size;
-  margin-top: 0;
-}
-
-.usa-sans {
-  p,
-  a,
-  li,
-  span {
-    font-family: $font-sans;
-  }
-
-  // TODO: This is an unexpected effect of .usa-sans
-  a {
-    border-bottom: none;
-    font-weight: $font-bold;
-  }
-}
-
-.usa-serif {
-  p,
-  a,
-  li,
-  span {
-    font-family: $font-serif;
-  }
-}
