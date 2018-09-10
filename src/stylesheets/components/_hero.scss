@@ -27,7 +27,9 @@
   }
 
   > *:first-child {
-    @include margin(0 null units(2) null);
+    margin-bottom: units(2);
+    margin-top: 0;
+    @include u-margin-x(null);
   }
 }
 
