@@ -1,14 +1,14 @@
 // scss-lint:disable QualifyingElement, PropertyCount
 
-$input-font-size: scale($theme-font-family-input, $theme-font-size-base);
-$input-line-height: lh($theme-font-family-input, $theme-line-height-input); // was 1.3
+$input-font-size-calc: scale($theme-font-family-input, $theme-font-size-base);
+$input-line-height-calc: lh($theme-font-family-input, $theme-line-height-input); // was 1.3
 $input-border-width: px-to-rem(1px); // Using rem instead of px so function uses same units
 $input-padding-vertical: units(1);
 
 // input heights will vary by browser and type
 // if height not explicitly set
 $input-height-exact: (
-  (scale($theme-font-family-input, $theme-font-size-base) * $input-line-height) +
+  ($input-font-size-calc * $input-line-height-calc) +
   ($input-padding-vertical * 2) +
   ($input-border-width * 2)
 );
@@ -18,14 +18,12 @@ $input-height-exact: (
 $input-height: floor($input-height-exact * 10) / 10;
 
 // Block form elements
-/* stylelint-disable selector-no-qualifying-type */
-
 .usa-form,
 // with a more consistent use of .usa-form
 // the following should be unnecessary
 .usa-form-large,
-.usa-fieldset-inputs,
 .usa-fieldset,
+.usa-fieldset-inputs,
 .usa-input,
 .usa-textarea,
 .usa-select,
@@ -58,7 +56,6 @@ $input-height: floor($input-height-exact * 10) / 10;
     @include u-border(2px, 'success');
   }
 }
-/* stylelint-enable */
 
 .usa-form-group-error {
   @include u-border-left(0.5, 'error');
@@ -74,7 +71,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-input-error-label {
   display: block;
-  font-size: $input-font-size;
+  font-size: $input-font-size-calc;
   font-weight: $theme-font-weight-bold;
   margin-top: 0;
 }
@@ -83,12 +80,13 @@ $input-height: floor($input-height-exact * 10) / 10;
   @include u-padding-y(0.5);
   color: color('error');
   display: block;
-  font-size: $input-font-size;
+  font-size: $input-font-size-calc;
   font-weight: $theme-font-weight-bold;
 }
 
 // Deprecated: Some screen readers can't read CSS content.
 // Will be removed in 2.0.
+// TODO: remove?
 .usa-input-required:after {
   color: color('error-dark');
   content: ' (*required)';
@@ -96,6 +94,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 // Deprecated: Some screen readers can't read CSS content.
 // Will be removed in 2.0.
+// TODO: remove?
 .usa-input-optional:after {
   color: color('base');
   content: ' (optional)';
@@ -110,8 +109,8 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-label {
-  @include typeset($theme-font-family-input, $theme-font-size-base, 2);
   display: block;
+  line-height: line-ehight($theme-font-family-input, 2);
   margin-top: units(3);
   max-width: $input-max-width;
 }
@@ -151,6 +150,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 .usa-legend {
   font-size: scale($theme-font-family-input, $theme-font-size-h2);
   font-weight: $theme-font-weight-bold;
+  line-height: line-height($theme-font-family-input, 2);
 }
 
 .usa-fieldset-inputs {
@@ -201,7 +201,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-checkbox-label::before {
-  border-radius: $checkbox-border-radius;
+  border-radius: radius($theme-border-radius-checkbox);
   box-shadow: 0 0 0 2px color('base');
   height: units($theme-spacing-md);
   line-height: units($theme-spacing-md);
