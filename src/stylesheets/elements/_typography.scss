@@ -1,63 +1,25 @@
 html {
-  font-family: $font-sans;
+  font-family: font-family($theme-font-family-base);
   font-size: $root-font-size;
 }
 
-body {
-  font-size: $base-font-size;
-}
-
-%usa-paragraph {
-  line-height: $base-line-height;
-  margin-bottom: 0;
-  margin-top: 0;
-
-  * + & {
-    margin-top: 1em;
-  }
-
-  + * {
-    margin-top: 1em;
-  }
-}
-
-%usa-link {
-  color: $color-primary;
-  text-decoration: underline;
-
-  &:hover,
-  &:active {
-    color: $color-primary-darker;
-  }
-
-  &:focus {
-    @include focus;
-  }
-
-  &:visited {
-    color: $color-visited;
+@if $theme-style-body-element {
+  body {
+    @include typeset;
   }
 }
 
 %usa-heading {
-  clear: both;
-  font-family: $font-serif;
-  line-height: $heading-line-height;
-  margin-bottom: 0.5em;
-  margin-top: 0;
-}
-
-* + %usa-heading {
-  margin-top: 1.5em;
+  @include typeset-heading;
 }
 
 @mixin usa-typography-base-styles {
   p {
-    @extend %usa-paragraph;
+    @include typeset-p;
   }
 
   a {
-    @extend %usa-link;
+    @include typeset-link;
   }
 }
 
@@ -93,7 +55,6 @@ body {
 
   h6 {
     @include h6;
-    font-family: $font-sans;
   }
 }
 
@@ -109,6 +70,10 @@ body {
   @include usa-headings-styles;
   @include usa-list-styles;
   @include usa-table-styles;
+}
+
+.usa-prose {
+  @include typeset($theme-font-family-prose);
 }
 
 /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
@@ -131,11 +96,11 @@ body {
 @include theme-content-styles;
 
 .usa-paragraph {
-  @extend %usa-paragraph;
+  @include typeset-p;
 }
 
 .usa-link {
-  @extend %usa-link;
+  @include typeset-link;
 }
 
 @mixin external-link($external-link, $external-link-hover) {
@@ -147,7 +112,7 @@ body {
     display: inline-block;
     height: 0.65em;
     margin-bottom: -1px;
-    margin-left: 4px;
+    margin-left: units(0.5);
     width: 0.65em;
   }
 
@@ -184,76 +149,50 @@ dfn {
   p,
   ul:not(.usa-accordion):not(.usa-accordion-bordered),
   ol:not(.usa-accordion):not(.usa-accordion-bordered) {
-    max-width: $text-max-width;
+    max-width: measure($theme-measure-text);
   }
 }
 
 .usa-content-list {
-  max-width: $text-max-width;
-}
-
-.usa-sans {
-  p,
-  a,
-  li,
-  span {
-    font-family: $font-sans;
-  }
-
-  a {
-    border-bottom: none;
-    font-weight: $font-bold;
-  }
-}
-
-.usa-serif {
-  p,
-  a,
-  li,
-  span {
-    font-family: $font-serif;
-  }
+  max-width: measure($theme-measure-text);
 }
 
 .usa-display {
-  @include h3;
+  @include typeset-h3;
   margin-bottom: 0;
 
-  @include media($small-screen) {
-    @include h1;
+  @include at-media('mobile-lg') {
+    @include typeset-h1;
   }
 
-  @include media($medium-screen) {
-    @include title;
+  @include at-media('tablet') {
+    @include typeset-title;
   }
 }
 
 .usa-font-lead {
-  font-family: $font-serif;
-  font-size: $lead-font-size;
-  font-weight: $font-normal;
-  line-height: $lead-line-height;
-  max-width: $lead-max-width;
+  @include typeset(
+    $theme-font-family-lead,
+    $theme-font-size-lead,
+    $theme-line-height-lead
+  );
+  font-weight: $theme-font-weight-normal;
+  max-width: measure($theme-measure-lead);
 }
 
 .usa-background-dark {
-  background-color: $color-gray-dark;
+  background-color: color('base-darker');
 
   p,
   span {
-    color: $color-white;
+    color: color('white');
   }
 
   a {
-    color: $color-gray-lighter;
+    color: color('base-lighter');
 
     &:hover {
-      color: $color-white;
+      color: color('white');
     }
   }
-}
-
-.usa-text-small {
-  font-size: $h6-font-size;
-  margin-top: 0;
 }

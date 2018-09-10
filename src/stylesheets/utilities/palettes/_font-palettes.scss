@@ -10,6 +10,7 @@ utilities
 
 $palette-font-misc:(
   'palette-font-stack-roles': (
+    ui:       #{$font-stack-ui},
     heading:  #{$font-stack-heading},
     body:     #{$font-stack-body},
     code:     #{$font-stack-code},
@@ -473,6 +474,112 @@ $palette-font-theme-code:(
   'palette-font-theme-code-all': $palette-font-theme-code-all,
 );
 
+$palette-font-theme-ui-3xs: (
+  ui-3xs: (
+    slug: 'ui-3xs',
+    isReadable: true,
+    content: utility-font(ui, 3xs),
+    dependency: $theme-font-ui,
+  ),
+);
+
+$palette-font-theme-ui-2xs: (
+  ui-2xs: (
+    slug: 'ui-2xs',
+    isReadable: true,
+    content: utility-font(ui, 2xs),
+    dependency: $theme-font-ui,
+  ),
+);
+
+$palette-font-theme-ui-xs: (
+  ui-xs: (
+    slug: 'ui-xs',
+    isReadable: true,
+    content: utility-font(ui, xs),
+    dependency: $theme-font-ui,
+  ),
+);
+
+$palette-font-theme-ui-sm: (
+  ui-sm: (
+    slug: 'ui-sm',
+    isReadable: true,
+    content: utility-font(ui, sm),
+    dependency: $theme-font-ui,
+  ),
+);
+
+$palette-font-theme-ui-md: (
+  ui-md: (
+    slug: 'ui-md',
+    isReadable: true,
+    content: utility-font(ui, md),
+    dependency: $theme-font-ui,
+  ),
+);
+
+$palette-font-theme-ui-lg: (
+  ui-lg: (
+    slug: 'ui-lg',
+    isReadable: true,
+    content: utility-font(ui, lg),
+    dependency: $theme-font-ui,
+  ),
+);
+
+$palette-font-theme-ui-xl: (
+  ui-xl: (
+    slug: 'ui-xl',
+    isReadable: true,
+    content: utility-font(ui, xl),
+    dependency: $theme-font-ui,
+  ),
+);
+
+$palette-font-theme-ui-2xl: (
+  ui-2xl: (
+    slug: 'ui-2xl',
+    isReadable: true,
+    content: utility-font(ui, 2xl),
+    dependency: $theme-font-ui,
+  ),
+);
+
+$palette-font-theme-ui-3xl: (
+  ui-3xl: (
+    slug: 'ui-3xl',
+    isReadable: true,
+    content: utility-font(ui, 3xl),
+    dependency: $theme-font-ui,
+  ),
+);
+
+$palette-font-theme-ui-all: map-collect(
+  $palette-font-theme-ui-3xs,
+  $palette-font-theme-ui-2xs,
+  $palette-font-theme-ui-xs,
+  $palette-font-theme-ui-sm,
+  $palette-font-theme-ui-md,
+  $palette-font-theme-ui-lg,
+  $palette-font-theme-ui-xl,
+  $palette-font-theme-ui-2xl,
+  $palette-font-theme-ui-3xl
+);
+
+$palette-font-theme-ui:(
+  'palette-font-theme-ui-3xs': $palette-font-theme-ui-3xs,
+  'palette-font-theme-ui-2xs': $palette-font-theme-ui-2xs,
+  'palette-font-theme-ui-xs': $palette-font-theme-ui-xs,
+  'palette-font-theme-ui-sm': $palette-font-theme-ui-sm,
+  'palette-font-theme-ui-md': $palette-font-theme-ui-md,
+  'palette-font-theme-ui-lg': $palette-font-theme-ui-lg,
+  'palette-font-theme-ui-xl': $palette-font-theme-ui-xl,
+  'palette-font-theme-ui-2xl': $palette-font-theme-ui-2xl,
+  'palette-font-theme-ui-3xl': $palette-font-theme-ui-3xl,
+  'palette-font-theme-ui-all': $palette-font-theme-ui-all,
+);
+
 $palette-font-theme-heading-3xs: (
   heading-3xs: (
     slug: 'heading-3xs',
@@ -794,6 +901,7 @@ $palette-font-theme-alt:(
 $palette-font-theme-roles-all:(
   'palette-font-theme-roles-all': map-collect(
     $palette-font-theme-code-all,
+    $palette-font-theme-ui-all,
     $palette-font-theme-heading-all,
     $palette-font-theme-body-all,
     $palette-font-theme-alt-all

@@ -25,6 +25,8 @@ $left-padding: $h-padding + $bar-size;
 $icon-size: units(4);
 
 .usa-alert {
+  @include typeset($theme-font-family-alerts);
+
   background-color: $color-gray-lightest;
   background-position: $h-padding $h-padding;
   background-repeat: no-repeat;
@@ -34,6 +36,10 @@ $icon-size: units(4);
   padding-right: $h-padding;
   padding-top: $h-padding;
   position: relative;
+
+  * + & {
+    margin-top: units(2);
+  }
 
   &::before {
     background-color: color('gray-40');
@@ -83,15 +89,13 @@ $icon-size: units(4);
 }
 
 .usa-alert-heading {
-  @extend %usa-heading;
+  @include typeset-h3;
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .usa-alert-text {
-  font-family: font-family('sans');
-  margin-bottom: 0;
-  margin-top: 0;
+  @include u-margin-y(0);
 }
 
 .usa-alert-text:only-child {

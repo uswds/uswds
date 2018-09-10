@@ -1,5 +1,6 @@
 label: Grid
 status: ready
+preview: '@uswds-content'
 
 variants:
   - name: default
