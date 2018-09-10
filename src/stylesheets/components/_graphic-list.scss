@@ -3,10 +3,10 @@
 .usa-graphic_list {
   .usa-graphic_list-row {
     .usa-media_block {
-      margin-bottom: $site-margins;
+      margin-bottom: units($theme-site-margins);
 
       @include media($medium-screen) {
-        margin-bottom: $site-margins * 2;
+        margin-bottom: units($theme-site-margins) * 2;
       }
     }
 
@@ -24,7 +24,7 @@
   }
 
   .usa-media_block-img {
-    margin-right: $site-margins;
+    margin-right: units($theme-site-margins);
   }
 
   .usa-media_block-body {
