@@ -29,7 +29,7 @@
   > *:first-child {
     margin-bottom: units(2);
     margin-top: 0;
-    @include u-margin-x(null);
+    @include u-margin-x(0);
   }
 }
 
