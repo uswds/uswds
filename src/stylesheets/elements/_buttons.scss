@@ -29,6 +29,7 @@ $button-stroke: inset 0 0 0 2px;
 .usa-button-primary:visited {
   @include font-smoothing;
   @include typeset($theme-font-family-button, null, 1);
+
   appearance: none;
   background-color: color('primary');
   border: 0;
@@ -44,7 +45,7 @@ $button-stroke: inset 0 0 0 2px;
   text-decoration: none;
   width: 100%;
 
-  @include media($small-screen) {
+  @include at-media('mobile-lg') {
     width: auto;
   }
 
@@ -144,8 +145,8 @@ $button-stroke: inset 0 0 0 2px;
 
   &.usa-button-big {
     border-radius: radius('lg');
-    font-size: 2.4rem;
-    padding: 1.5rem 3rem;
+    font-size: scale($theme-font-family-button, 'lg');
+    padding: units(2) units(3);
   }
 
   &:disabled {
@@ -202,7 +203,7 @@ html .usa-button-secondary-inverse-disabled,  // Deprecated
   background-color: transparent;
   border: 0;
   border-radius: 0;
-  font-weight: $font-normal;
+  font-weight: $theme-font-weight-normal;
   margin: 0;
   padding: 0;
   text-align: left;
