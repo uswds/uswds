@@ -4,6 +4,7 @@ $input-font-size-calc: scale($theme-font-family-input, $theme-font-size-base);
 $input-line-height-calc: lh($theme-font-family-input, $theme-line-height-input); // was 1.3
 $input-border-width: px-to-rem(1px); // Using rem instead of px so function uses same units
 $input-padding-vertical: units(1);
+$input-state-border: 0.5;
 
 // input heights will vary by browser and type
 // if height not explicitly set
@@ -53,12 +54,12 @@ $input-height: floor($input-height-exact * 10) / 10;
   width: 100%;
 
   &.usa-input-success {
-    @include u-border(2px, 'success');
+    @include u-border($input-state-border, 'success');
   }
 }
 
 .usa-form-group-error {
-  @include u-border-left(0.5, 'error');
+  @include u-border-left(0.5, 'error-dark');
   margin-top: units(4);
   padding-left: units(2);
   position: relative;
@@ -66,7 +67,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-input-error {
-  @include u-border(2px, 'error');
+  @include u-border($input-state-border, 'error-dark');
 }
 
 .usa-input-error-label {
@@ -78,7 +79,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-input-error-message {
   @include u-padding-y(0.5);
-  color: color('error');
+  color: color('error-dark');
   display: block;
   font-size: $input-font-size-calc;
   font-weight: $theme-font-weight-bold;
