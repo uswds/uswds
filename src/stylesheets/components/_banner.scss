@@ -1,7 +1,7 @@
 $banner-font-family: 'sans';
 
 .usa-banner {
-  @include u-bg('base-lighter');
+  @include u-bg('base-lightest');
   @include u-font-family($banner-font-family);
   @include u-padding-bottom(1);
   @include u-position('relative');
@@ -92,7 +92,7 @@ $banner-font-family: 'sans';
 
 .usa-banner-header-expanded {
   @include u-font-size($banner-font-family, $theme-h5-font-size);
-  border-bottom: 1px solid color('base-light');
+  border-bottom: 1px solid color('base-lighter');
   min-height: units(7);
   padding-right: units(4);
 

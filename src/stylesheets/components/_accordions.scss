@@ -1,6 +1,7 @@
 // Variables
 
-$accordion-border: units(0.5) solid color('base-lighter');
+$accordion-border: units(0.5) solid color('base-lightest');
+$accordion-font-family: 'sans' !default;
 
 // Accordion Styles
 
@@ -15,9 +16,8 @@ $accordion-border: units(0.5) solid color('base-lighter');
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  @include u-font-family('sans');
 
-  background-color: color('base-lighter');
+  background-color: color('base-lightest');
   background-image: url('#{$theme-image-path}/minus.png');
   background-image: url('#{$theme-image-path}/minus.svg');
   background-position: right units(2.5) center;
@@ -26,13 +26,14 @@ $accordion-border: units(0.5) solid color('base-lighter');
   color: color('ink');
   cursor: pointer;
   display: inline-block;
+  font-family: font-family($accordion-font-family);
   font-weight: font-weight('bold');
   margin: 0;
   padding: units(2) units(2.5) * 2 + units(2) units(2) units(2.5);
   width: 100%;
 
   &:hover {
-    background-color: color('base-light');
+    background-color: color('base-lighter');
     color: color('ink');
   }
 }
@@ -82,8 +83,7 @@ $accordion-border: units(0.5) solid color('base-lighter');
 }
 
 .usa-accordion-heading {
-  font-size: $base-font-size;
-  line-height: 1;
+  @include typeset($accordion-font-family, $theme-base-font-size, 1);
   margin: 0;
 
   &:not(:first-child) {

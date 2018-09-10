@@ -422,7 +422,9 @@ $color-theme-info-light:            color($theme-color-info-light);
 $color-theme-info:                  color($theme-color-info);
 $color-theme-info-dark:             color($theme-color-info-dark);
 $color-theme-info-darker:           color($theme-color-info-darker);
+$color-theme-disabled-light:        color($theme-color-disabled-light);
 $color-theme-disabled:              color($theme-color-disabled);
+$color-theme-disabled-dark:         color($theme-color-disabled-dark);
 
 /*
 ----------------------------------------
@@ -510,7 +512,9 @@ $project-state-colors: (
     'darker':  $color-theme-info-darker,
   ),
   'disabled': (
+    'light':   $color-theme-disabled-light,
     'default': $color-theme-disabled,
+    'dark':    $color-theme-disabled-dark,
   ),
 );
 
@@ -593,7 +597,9 @@ $color-palette-state: (
   'info':                     $color-theme-info,
   'info-dark':                $color-theme-info-dark,
   'info-darker':              $color-theme-info-darker,
+  'disabled-light':           $color-theme-disabled-light,
   'disabled':                 $color-theme-disabled,
+  'disabled-dark':            $color-theme-disabled-dark,
 );
 
 $project-color-shortcodes: map-collect(
@@ -1019,15 +1025,15 @@ $color-red-light:            $color-red-30 !default;
 $color-red-lightest:         $color-red-10 !default;
 
 $color-white:                white !default;
-$color-black:                black !default;
-$color-black-light:          $color-gray-90 !default;
+$color-black:                black !default; // 'black'
+$color-black-light:          $color-gray-90 !default; // 'base-darkest' 'base-ink'
 
-$color-gray-dark:            $color-gray-cool-80 !default;
-$color-gray:                 $color-gray-cool-60 !default;
-$color-gray-medium:          #757575 !default;
-$color-gray-light:           $color-gray-30 !default;
-$color-gray-lighter:         $color-gray-cool-10 !default;
-$color-gray-lightest:        $color-gray-cool-5 !default;
+$color-gray-dark:            $color-gray-cool-80 !default; // 'base-darker'
+$color-gray:                 $color-gray-cool-60 !default; // 'base-dark'
+$color-gray-medium:          $color-gray-50 !default; // 'base'
+$color-gray-light:           $color-gray-30 !default; // 'base-light'
+$color-gray-lighter:         $color-gray-cool-10 !default; // 'base-lighter'
+$color-gray-lightest:        $color-gray-cool-5 !default; // 'base-lightest'
 
 $color-gray-warm-dark:       $color-gray-warm-70 !default;
 $color-gray-warm-light:      $color-gray-warm-10 !default;

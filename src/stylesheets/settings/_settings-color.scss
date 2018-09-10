@@ -19,12 +19,12 @@ Theme palette colors
 
 // Base colors
 $theme-color-base-family:           'gray' !default;
-$theme-color-base-lightest:         '#{$theme-color-base-family}-2' !default;
-$theme-color-base-lighter:          '#{$theme-color-base-family}-5' !default;
-$theme-color-base-light:            '#{$theme-color-base-family}-10' !default;
-$theme-color-base:                  '#{$theme-color-base-family}-30' !default;
-$theme-color-base-dark:             '#{$theme-color-base-family}-50' !default;
-$theme-color-base-darker:           '#{$theme-color-base-family}-70' !default;
+$theme-color-base-lightest:         '#{$theme-color-base-family}-5' !default;
+$theme-color-base-lighter:          'gray-cool-10' !default;
+$theme-color-base-light:            '#{$theme-color-base-family}-30' !default;
+$theme-color-base:                  '#{$theme-color-base-family}-50' !default;
+$theme-color-base-dark:             'gray-cool-60' !default;
+$theme-color-base-darker:           'gray-cool-80' !default;
 $theme-color-base-darkest:          '#{$theme-color-base-family}-90' !default;
 $theme-color-base-ink:              '#{$theme-color-base-family}-90' !default;
 
@@ -80,9 +80,9 @@ State palette colors
 $theme-color-error-family:     'red' !default;
 $theme-color-error-lighter:    '#{$theme-color-error-family}-10' !default;
 $theme-color-error-light:      '#{$theme-color-error-family}-40v' !default;
-$theme-color-error:            '#{$theme-color-error-family}-50v' !default;
-$theme-color-error-dark:       '#{$theme-color-error-family}-60' !default;
-$theme-color-error-darker:     '#{$theme-color-error-family}-70' !default;
+$theme-color-error:            '#{$theme-color-error-family}-50' !default;
+$theme-color-error-dark:       '#{$theme-color-error-family}-60v' !default;
+$theme-color-error-darker:     '#{$theme-color-error-family}-70v' !default;
 
 // Warning colors
 $theme-color-warning-family:   'gold' !default; // TODO: How can this be gold vivid?
@@ -110,4 +110,6 @@ $theme-color-info-darker:      'blue-60' !default;
 
 // Disabled color
 $theme-color-disabled-family:  'gray' !default;
-$theme-color-disabled:         '#{$theme-color-disabled-family}-30' !default;
+$theme-color-disabled-light:   '#{$theme-color-disabled-family}-10' !default;
+$theme-color-disabled:         '#{$theme-color-disabled-family}-20' !default;
+$theme-color-disabled-dark:    '#{$theme-color-disabled-family}-30' !default;
