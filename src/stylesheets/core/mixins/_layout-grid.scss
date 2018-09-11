@@ -10,6 +10,10 @@
     @include u-margin-x($margin-x);
     @include u-maxw($props);
   }
+  @include u-padding-x($theme-site-margins-mobile);
+  @include at-media('desktop'){
+    @include u-padding-x($theme-site-margins);
+  }
 }
 
 @mixin grid-row($props...) {
