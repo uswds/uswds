@@ -47,7 +47,7 @@
 .usa-footer-primary-link {
   @include u-padding-x($theme-site-margins-mobile);
   @include u-padding-y(2);
-  @include u-text('ink', 'no-underline', 'bold')
+  @include u-text('ink', 'no-underline', 'bold');
   display: block;
 
   @include at-media('mobile-lg') {
@@ -287,30 +287,12 @@
 // Medium footer styles
 
 .usa-footer-medium {
-
   .usa-footer-contact-heading {
     margin-top: 0;
 
     @include at-media('mobile-lg') {
       margin-top: units(0.5);
       margin-bottom: units(0.5);
-    }
-  }
-
-  .usa-footer-primary-section {
-    > .usa-grid {
-      padding: 0;
-
-      @include at-media('mobile-lg') {
-        padding-left: units(4);
-        padding-right: units(4);
-      }
-    }
-  }
-
-  .usa-footer-nav ul {
-    @include at-media('mobile-lg') {
-      align-items: center;
     }
   }
 }
