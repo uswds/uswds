@@ -173,6 +173,7 @@ $font-stack-serif:    false;
 $font-stack-mono:     false;
 $font-stack-cond:     false;
 
+$font-stack-ui:       false;
 $font-stack-heading:  false;
 $font-stack-body:     false;
 $font-stack-code:     false;
@@ -228,6 +229,19 @@ $font-stack-alt:      false;
     'stack'
   );
   $font-stack-cond: $font-stack-cond + unquote('');
+}
+
+@if $theme-font-ui {
+  $font-stack-ui: map-deep-get(
+    $all-font-definitions,
+    $theme-font-ui,
+    'name'
+  ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-ui,
+    'stack'
+  );
+  $font-stack-ui: $font-stack-ui + unquote('');
 }
 
 @if $theme-font-heading {
@@ -287,6 +301,7 @@ $project-font-stacks:(
   'sans':     $font-stack-sans,
   'serif':    $font-stack-serif,
   'cond':     $font-stack-cond,
+  'ui':       $font-stack-ui,
   'heading':  $font-stack-heading,
   'body':     $font-stack-body,
   'code':     $font-stack-code,
@@ -330,6 +345,10 @@ $if-important: '';
 
 @if $theme-font-cond {
   [class*='#{ns('utility')}font-cond-'] { font-family: $font-stack-cond#{$if-important}; }
+}
+
+@if $theme-font-ui {
+  [class*='#{ns('utility')}font-ui-'] { font-family: $font-stack-ui#{$if-important}; }
 }
 
 @if $theme-font-heading {
@@ -644,6 +663,7 @@ $project-cap-heights:(
   'sans':     cap-height($theme-font-sans),
   'serif':    cap-height($theme-font-serif),
   'cond':     cap-height($theme-font-cond),
+  'ui':       cap-height($theme-font-ui),
   'heading':  cap-height($theme-font-heading),
   'body':     cap-height($theme-font-body),
   'code':     cap-height($theme-font-code),
@@ -771,6 +791,36 @@ $scale-cond-17: scale('cond', 17, force);
 $scale-cond-18: scale('cond', 18, force);
 $scale-cond-19: scale('cond', 19, force);
 $scale-cond-20: scale('cond', 20, force);
+$scale-ui-3xs: scale('ui', '3xs', force);
+$scale-ui-2xs: scale('ui', '2xs', force);
+$scale-ui-xs: scale('ui', 'xs', force);
+$scale-ui-sm: scale('ui', 'sm', force);
+$scale-ui-md: scale('ui', 'md', force);
+$scale-ui-lg: scale('ui', 'lg', force);
+$scale-ui-xl: scale('ui', 'xl', force);
+$scale-ui-2xl: scale('ui', '2xl', force);
+$scale-ui-3xl: scale('ui', '3xl', force);
+$scale-ui-micro: scale('ui', 'micro', force);
+$scale-ui-1: scale('ui', 1, force);
+$scale-ui-2: scale('ui', 2, force);
+$scale-ui-3: scale('ui', 3, force);
+$scale-ui-4: scale('ui', 4, force);
+$scale-ui-5: scale('ui', 5, force);
+$scale-ui-6: scale('ui', 6, force);
+$scale-ui-7: scale('ui', 7, force);
+$scale-ui-8: scale('ui', 8, force);
+$scale-ui-9: scale('ui', 9, force);
+$scale-ui-10: scale('ui', 10, force);
+$scale-ui-11: scale('ui', 11, force);
+$scale-ui-12: scale('ui', 12, force);
+$scale-ui-13: scale('ui', 13, force);
+$scale-ui-14: scale('ui', 14, force);
+$scale-ui-15: scale('ui', 15, force);
+$scale-ui-16: scale('ui', 16, force);
+$scale-ui-17: scale('ui', 17, force);
+$scale-ui-18: scale('ui', 18, force);
+$scale-ui-19: scale('ui', 19, force);
+$scale-ui-20: scale('ui', 20, force);
 $scale-heading-3xs: scale('heading', '3xs', force);
 $scale-heading-2xs: scale('heading', '2xs', force);
 $scale-heading-xs: scale('heading', 'xs', force);
@@ -968,7 +1018,7 @@ settings
 
 // Removing the !default from $em-base so we are not inheriting that value from Bourbon.
 
-$em-base:             $theme-root-font-size;
+$em-base:             $theme-font-size-root;
 $base-font-size:      1.7rem !default;
 $small-font-size:     1.4rem !default;
 $lead-font-size:      2rem !default;

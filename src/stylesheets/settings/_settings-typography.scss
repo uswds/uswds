@@ -19,7 +19,7 @@ Setting $theme-respect-user-font-size to
 true sets the root font size to 100% and
 uses ems for media queries
 ----------------------------------------
-$theme-root-font-size only applies when
+$theme-font-size-root only applies when
 $theme-respect-user-font-size is set to
 false.
 
@@ -33,7 +33,7 @@ Accepts true or false
 
 $theme-respect-user-font-size: false !default;
 
-// $theme-root-font-size only applies when
+// $theme-font-size-root only applies when
 // $theme-respect-user-font-size is set to
 // false.
 
@@ -43,7 +43,7 @@ $theme-respect-user-font-size: false !default;
 
 // Accepts values in px
 
-$theme-root-font-size: 10px !default;
+$theme-font-size-root: 10px !default;
 
 /*
 ----------------------------------------
@@ -164,7 +164,7 @@ $theme-font-cond:   false !default;
 ----------------------------------------
 Fonts by role
 ----------------------------------------
-Set the heading, body, code, and alt
+Set the ui, heading, body, code, and alt
 faces for your project from
 
 $theme-font-sans
@@ -174,10 +174,11 @@ $theme-font-cond
 ----------------------------------------
 */
 
+$theme-font-ui:       $theme-font-sans !default;
 $theme-font-heading:  $theme-font-serif !default;
-$theme-font-body:     $theme-font-serif !default;
+$theme-font-body:     $theme-font-sans !default;
 $theme-font-code:     $theme-font-mono !default;
-$theme-font-alt:      $theme-font-sans !default;
+$theme-font-alt:      $theme-font-serif !default;
 
 /*
 ----------------------------------------
@@ -221,6 +222,8 @@ $theme-font-weight-heavy:         false !default;
 
 /*
 ----------------------------------------
+Defaults
+----------------------------------------
 Type scale tokens
 ----------------------------------------
 micro:      10px
@@ -254,20 +257,70 @@ Line height tokens
 5:    1.62
 6:    1.75
 ----------------------------------------
+Font family tokens
+----------------------------------------
+'ui'
+'heading'
+'body'
+'code'
+'alt'
+----------------------------------------
+Measure (max-width) tokens
+----------------------------------------
+1:       40ch
+2:       60ch
+3:       66ch
+4:       72ch
+5:       77ch
+none:    none
+----------------------------------------
 */
 
-$theme-base-font-size:             'sm' !default; // was 1.7rem
-$theme-small-font-size:            '2xs' !default; // was 1.4rem
-$theme-lead-font-size:             'lg' !default; // was 2rem
-$theme-title-font-size:            '3xl' !default; // was 5.2rem
-$theme-h1-font-size:               '2xl' !default; // was 4rem
-$theme-h2-font-size:               'xl' !default; // was 3rem
-$theme-h3-font-size:               'lg' !default; // was 2rem
-$theme-h4-font-size:               'sm' !default; // was 1.7rem
-$theme-h5-font-size:               'xs' !default; // was 1.5rem
-$theme-h6-font-size:               '3xs' !default; // was 1.3rem
-$theme-base-line-height:           4 !default; // was 1.5
-$theme-heading-line-height:        3 !default; // was 1.3
-$theme-lead-line-height:           6 !default; // was 1.7
+// Base settings are the equivalent of setting the <body> element
+$theme-font-family-base:           'body' !default;
+$theme-font-size-base:             'sm' !default; // was 1.7rem
+$theme-line-height-base:           5 !default; // was 1.5
+
+// If true, explicitly style the <body> element with the base styles
+$theme-style-body-element:         false !default;
+
+// Font sizes
+$theme-font-size-small:            '2xs' !default; // was 1.4rem
+$theme-font-size-lead:             'lg' !default; // was 2rem
+$theme-font-size-title:            '3xl' !default; // was 5.2rem
+$theme-font-size-h1:               '2xl' !default; // was 4rem
+$theme-font-size-h2:               'xl' !default; // was 3rem
+$theme-font-size-h3:               'lg' !default; // was 2rem
+$theme-font-size-h4:               'sm' !default; // was 1.7rem
+$theme-font-size-h5:               'xs' !default; // was 1.5rem
+$theme-font-size-h6:               '3xs' !default; // was 1.3rem
+
+// Line heights
+$theme-line-height-heading:        3 !default; // was 1.3
+$theme-line-height-lead:           6 !default; // was 1.7
+$theme-line-height-input:          3 !default; // was 1.7
+
+// Font weights
 $theme-font-weight-normal:         400 !default;
 $theme-font-weight-bold:           700 !default;
+
+// Measure (max-width)
+$theme-measure-text-narrow:        1 !default;
+$theme-measure-text:               3 !default;
+$theme-measure-text-wide:          4 !default;
+$theme-measure-lead:               5 !default;
+
+/*
+----------------------------------------
+Component default font families
+----------------------------------------
+*/
+
+$theme-font-family-accordion:      'body' !default;
+$theme-font-family-alerts:         'ui' !default;
+$theme-font-family-banner:         'ui' !default;
+$theme-font-family-button:         'ui' !default;
+$theme-font-family-footer:         'body' !default;
+$theme-font-family-input:          'ui' !default;
+$theme-font-family-lead:           'heading' !default;
+$theme-font-family-prose:          'body' !default;
