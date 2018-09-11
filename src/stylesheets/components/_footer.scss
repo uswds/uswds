@@ -84,10 +84,7 @@
   }
 }
 
-/* stylelint-disable selector-no-qualifying-type */
-ul.usa-footer-primary-content,
-li.usa-footer-primary-content,
-li.usa-footer-primary-content {
+.usa-footer-primary-content {
   border-top: 1px solid color('base-light');
 
   @include at-media('mobile-lg') {
@@ -102,12 +99,10 @@ li.usa-footer-primary-content {
     }
   }
 }
-/* stylelint-enable */
 
 .usa-sign_up-block {
-  padding-bottom: 4.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  @include u-padding-y(2);
+  padding-bottom: units(5);
 
   @include at-media('mobile-lg') {
     float: right;
@@ -121,7 +116,7 @@ li.usa-footer-primary-content {
   button {
     float: none;
     margin-right: 0;
-    margin-top: 1.5rem;
+    margin-top: units(2);
   }
 
   input {
@@ -139,11 +134,40 @@ li.usa-footer-primary-content {
   }
 }
 
-.usa-footer-big-secondary-section {
+.usa-footer-topic {
+  margin: 0;
+  padding: units(2) 0;
+}
+
+.usa-sign_up-header {
   @include at-media('mobile-lg') {
-    padding-top: units(2.5);
-    padding-bottom: units(2.5);
+    margin: 0;
+    padding: units(2) 0;
   }
+}
+
+.usa-footer-logo {
+  padding-top: units(1);
+  padding-bottom: units(2.5);
+
+  @include at-media('mobile-lg') {
+    @include u-flex('align-center');
+    padding: units(2.5) 0;
+  }
+}
+
+.usa-footer-logo-img {
+  max-width: units(10);
+
+  @include at-media('mobile-lg') {
+    float: left;
+  }
+}
+
+.usa-footer-logo-heading {
+  @include h3;
+  @include u-margin-y(1);
+  line-height: line-height('heading', 1);
 }
 
 .usa-footer-contact-links {
@@ -175,10 +199,11 @@ li.usa-footer-primary-content {
 }
 
 .usa-social_link {
-  $background-height: units(4); // Height of icon within hit area.
-  // Link hit target is 44 x 44 pixels following
-  // Apple iOS Human Interface Guidelines.
-  $hit-area: 4.4rem;
+  $background-height: units(3); // Height of icon within hit area.
+  // Apple iOS Human Interface Guidelines recommends
+  // link hit target of 44 x 44 pixels following
+  // TODO: is 40px/units(5) acceptable?
+  $hit-area: units(5);
 
   background-position: center center;
   background-repeat: no-repeat;
@@ -226,6 +251,17 @@ li.usa-footer-primary-content {
 }
 
 // Slim footer styles
+
+.usa-footer-slim-logo-img {
+  float: left;
+  max-width: units(6);
+}
+
+.usa-footer-slim-logo-heading {
+  display: inline-block;
+  margin-top: units(2);
+  padding-left: units(2);
+}
 
 .usa-footer-slim {
   .usa-footer-nav {
@@ -315,14 +351,6 @@ li.usa-footer-primary-content {
     }
   }
 
-  .usa-footer-logo {
-    padding: units(1) 0;
-
-    @include at-media('mobile-lg') {
-      padding: units(2.5) 0;
-    }
-  }
-
   .usa-footer-primary-link {
     padding-bottom: units(2);
     padding-top: units(2);
@@ -347,6 +375,25 @@ li.usa-footer-primary-content {
 }
 
 // Big footer styles
+
+.usa-footer-big-secondary-section {
+  @include at-media('mobile-lg') {
+    padding-top: units(2.5);
+    padding-bottom: units(2.5);
+  }
+}
+
+.usa-footer-big-logo-img {
+  max-width: 10rem;
+}
+
+.usa-footer-big-logo-heading {
+  margin-top: units(2);
+
+  @include at-media('mobile-lg') {
+    margin-top: units(2.5);
+  }
+}
 
 .usa-footer-big {
   .usa-footer-collapsible {
@@ -481,58 +528,4 @@ li.usa-footer-primary-content {
       padding-top: 0.35em;
     }
   }
-}
-
-.usa-footer-topic {
-  margin: 0;
-  padding: 2rem 0;
-}
-
-.usa-sign_up-header {
-  @include at-media('mobile-lg') {
-    margin: 0;
-    padding: 2rem 0;
-  }
-}
-
-.usa-footer-logo-img {
-  max-width: 8rem;
-
-  @include at-media('mobile-lg') {
-    float: left;
-  }
-}
-
-.usa-footer-big-logo-img {
-  max-width: 10rem;
-}
-
-.usa-footer-slim-logo-img {
-  float: left;
-  max-width: 5rem;
-}
-
-.usa-footer-logo-heading {
-  @include h3;
-  margin-top: units(1);
-
-  @include at-media('mobile-lg') {
-    display: inline-block;
-    margin-top: units(4);
-    padding-left: units(2);
-  }
-}
-
-.usa-footer-big-logo-heading {
-  margin-top: units(2);
-
-  @include at-media('mobile-lg') {
-    margin-top: units(2.5);
-  }
-}
-
-.usa-footer-slim-logo-heading {
-  display: inline-block;
-  margin-top: units(2);
-  padding-left: units(2);
 }
