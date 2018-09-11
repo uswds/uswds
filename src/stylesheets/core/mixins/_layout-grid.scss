@@ -10,6 +10,10 @@
     @include u-margin-x($margin-x);
     @include u-maxw($props);
   }
+  @include u-padding-x($theme-site-margins-mobile);
+  @include at-media('desktop') {
+    @include u-padding-x($theme-site-margins);
+  }
 }
 
 @mixin grid-row($props...) {
@@ -19,31 +23,67 @@
   @include u-flex($flex);
 }
 
-@mixin grid-gap($props...) {
-  $props: unpack($props);
-  $gap: if(
-    length($props) == 0,
-    $theme-column-gap-md,
-    smart-quote(nth($props, 1))
+@mixin grid-gap-responsive {
+  $gap-mobile: if(
+    map-has-key($system-column-gaps, $theme-column-gap-mobile),
+    map-get($system-column-gaps, $theme-column-gap-mobile),
+    'error'
+  );
+  $gap-desktop: if(
+    map-has-key($system-column-gaps, $theme-column-gap-desktop),
+    map-get($system-column-gaps, $theme-column-gap-desktop),
+    'error'
   );
 
-  @if $gap == 0 {
-    @include u-margin-x(append-important($props, 0));
+  @if $gap-mobile == 'error' {
+    @error '$theme-column-gap-mobile is not set to a valid column gap width.';
+  }
 
-    > * {
-      @include u-padding-y(append-important($props, 0));
+  @if $gap-desktop == 'error' {
+    @error '$theme-column-gap-desktop is not set to a valid column gap width.';
+  }
+
+  @include u-margin-x( unquote('#{$neg-prefix}-#{calc-gap-offset($gap-mobile)}'));
+
+  > [class*='grid-col'] {
+    @include u-padding-x(calc-gap-offset($gap-mobile));
+  }
+
+  @include at-media('desktop') {
+    @include u-margin-x( unquote('#{$neg-prefix}-#{calc-gap-offset($gap-desktop)}'));
+
+    > [class*='grid-col'] {
+      @include u-padding-x(calc-gap-offset($gap-desktop));
     }
   }
+}
+
+@mixin grid-gap($props...) {
+  $props: unpack($props);
+  @if length($props) == 0 {
+    @error 'grid-gap() needs a valid grid gap.';
+  }
+
   @else {
-    @if map-has-key($project-column-gaps, $gap) {
-      $gap: map-get($project-column-gaps, $gap);
+    $gap: smart-quote(nth($props, 1));
+    @if $gap == 0 {
+      @include u-margin-x(append-important($props, 0));
+
+      > * {
+        @include u-padding-y(append-important($props, 0));
+      }
     }
-    @else if map-has-key($system-column-gaps, $gap) {
-      $gap: map-get($system-column-gaps, $gap);
-    }
-    @include u-margin-x(append-important($props, unquote('#{$neg-prefix}-#{calc-gap-offset($gap)}')));
-    > [class*='grid-col'] {
-      @include u-padding-x(append-important($props, calc-gap-offset($gap)));
+    @else {
+      @if map-has-key($project-column-gaps, $gap) {
+        $gap: map-get($project-column-gaps, $gap);
+      }
+      @else if map-has-key($system-column-gaps, $gap) {
+        $gap: map-get($system-column-gaps, $gap);
+      }
+      @include u-margin-x(append-important($props, unquote('#{$neg-prefix}-#{calc-gap-offset($gap)}')));
+      > [class*='grid-col'] {
+        @include u-padding-x(append-important($props, calc-gap-offset($gap)));
+      }
     }
   }
 }
