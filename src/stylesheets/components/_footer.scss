@@ -3,10 +3,6 @@
 .usa-footer {
   @include typeset($theme-font-family-footer);
   overflow: hidden;
-
-  .usa-unstyled-list {
-    display: block;
-  }
 }
 
 .usa-footer-return-to-top {
@@ -14,6 +10,7 @@
   line-height: line-height($theme-font-family-footer, 1);
 }
 
+// TODO: can I use a regular grid-container and then use neg margin at mobile to make it all work? code would be cleaner and more consistent.
 .usa-footer-nav {
   @include u-margin-x('auto');
   @include u-padding-x(0);
@@ -31,7 +28,7 @@
   background-color: color('base-lightest');
 }
 
-// TODO: usage
+// TODO: usage in big footer? i don't get it yet.
 .usa-footer-primary-content {
   line-height: line-height($theme-font-family-footer, 2);
 
@@ -52,6 +49,7 @@
 
   @include at-media('mobile-lg') {
     @include u-padding-x(0);
+    // TODO: where is this border coming from? necessary?
     border-top: none;
   }
 
@@ -91,6 +89,7 @@
     border: none;
   }
 
+  // TODO: necessary? Is there a cleaner way to do this?
   &:last-child {
     border-bottom: 1px solid color('base-light');
 
@@ -100,6 +99,7 @@
   }
 }
 
+// TODO: what is this? preview?
 .usa-sign_up-block {
   @include u-padding-y(2);
   padding-bottom: units(5);
@@ -125,20 +125,21 @@
 }
 
 .usa-footer-secondary-section {
+  @include u-padding-y(2.5);
   background-color: color('base-lighter');
-  padding-bottom: units(2.5);
-  padding-top: units(2.5);
 
   a {
     color: color('ink');
   }
 }
 
+// TODO: all these styles needed?
 .usa-footer-topic {
   margin: 0;
   padding: units(2) 0;
 }
 
+// TODO: all these styles needed?
 .usa-sign_up-header {
   @include at-media('mobile-lg') {
     margin: 0;
@@ -148,7 +149,6 @@
 
 .usa-footer-logo {
   @include u-margin-y(1);
-
   @include at-media('mobile-lg') {
     @include u-margin-y(0);
     @include u-flex('align-center');
@@ -157,10 +157,6 @@
 
 .usa-footer-logo-img {
   max-width: units(10);
-
-  @include at-media('mobile-lg') {
-    float: left;
-  }
 }
 
 .usa-footer-logo-heading {
@@ -213,8 +209,6 @@
   background-color: color('black-transparent-10');
   display: inline-block;
   height: $hit-area;
-  position: relative;
-  text-align: center;
   width: $hit-area;
 
   span {
