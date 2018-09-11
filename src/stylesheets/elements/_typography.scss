@@ -19,7 +19,9 @@ html {
   }
 
   a {
-    @include typeset-link;
+    &:not(.usa-button) {
+      @include typeset-link;
+    }
   }
 }
 
