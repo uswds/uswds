@@ -69,7 +69,7 @@
     @if $gap == 0 {
       @include u-margin-x(append-important($props, 0));
 
-      > * {
+      > [class*='grid-col'] {
         @include u-padding-x(append-important($props, 0));
       }
     }
