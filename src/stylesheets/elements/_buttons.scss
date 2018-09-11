@@ -120,12 +120,12 @@ $button-stroke: inset 0 0 0 2px;
 
     &:hover,
     &.usa-button-hover {
-      background-color: color('base-darker');
+      background-color: color('base-dark');
     }
 
     &:active,
     &.usa-button-active {
-      background-color: color('ink');
+      background-color: color('base-darker');
     }
   }
 
