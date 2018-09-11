@@ -1208,7 +1208,7 @@ $box-shadow:                    0 0 2px $color-shadow !default;
 $focus-outline:                 units(0.5) solid $color-focus !default;
 $focus-spacing:                 0 !default;
 $nav-width:                     951px !default;
-$sidenav-current-border-width:  0.4rem !default; // must be in rem for math
+$sidenav-current-border-width:  units(0.5) !default; // must be in rem for math
 $usa-btn-small-width:           4.5rem;
 $search-min-width:              27ch; // minimum length of 27 letters for typical search query
 

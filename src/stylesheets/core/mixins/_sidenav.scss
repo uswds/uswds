@@ -3,8 +3,8 @@
 
   > li {
     background-color: transparent;
-    border-top: 1px solid $color-gray;
-    font-size: $h4-font-size;
+    border-top: units(1px) solid color('base-dark');
+    font-size: scale('body', 5);
 
     &:first-child {
       border-top: none;
@@ -13,30 +13,30 @@
 
   a {
     border: none;
-    color: $color-base;
+    color: color('base-dark');
     display: block;
-    font-family: $font-sans;
-    line-height: 1.3;
-    padding: 0.85rem 1rem 0.85rem $site-margins-mobile;
+    font-family: font-family('body');
+    line-height: line-height($theme-font-family-base, 3);
+    padding: units(1) units($theme-site-margins-mobile);
     text-decoration: none;
 
     &:hover {
-      background-color: $color-gray-lightest;
-      color: $color-primary;
+      background-color: color('base-lightest');
+      color: color('primary');
       text-decoration: none;
     }
 
     &:focus {
       outline-offset: 0;
       position: relative;
-      z-index: 1;
+      z-index: z-index(100);
     }
 
     &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
-      border-left: $sidenav-current-border-width solid $color-primary;
-      color: $color-primary;
-      font-weight: $font-bold;
-      padding-left: $site-margins-mobile - $sidenav-current-border-width;
+      border-left: $sidenav-current-border-width solid color('primary');
+      color: color('primary');
+      font-weight: font-weight('bold');
+      padding-left: units($theme-site-margins-mobile) - $sidenav-current-border-width;
     }
   }
 }
@@ -48,30 +48,30 @@
 
   li {
     border: none;
-    font-size: $h5-font-size;
+    font-size: scale('body', 3);
   }
 
   a {
-    padding-left: 2.8rem;
-    line-height: $heading-line-height;
+    padding-left: units($theme-site-margins-mobile) + units(1.5);
+    line-height: line-height($theme-font-family-base, 3);
 
     &:hover,
     &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
       border: none;
-      padding-left: 2.8rem;
+      padding-left: units($theme-site-margins-mobile) + units(1.5);
     }
   }
 
   .usa-sidenav-sub_list {
     a {
-      padding-left: 3.8rem;
+      padding-left: units($theme-site-margins-mobile) + units(1.5) * 2;
 
       &:focus {
         outline-offset: 0;
       }
 
       &:hover {
-        padding-left: 3.8rem;
+        padding-left: units($theme-site-margins-mobile) + units(1.5) * 2;
       }
     }
   }
