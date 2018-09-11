@@ -8,7 +8,7 @@
     border-top: none;
   }
 
-  .usa-grid & {
+  .grid-container & {
     @include u-margin-x(-$site-margins-mobile);
 
     @include at-media(tablet) {
