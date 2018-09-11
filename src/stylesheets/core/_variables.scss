@@ -173,6 +173,7 @@ $font-stack-serif:    false;
 $font-stack-mono:     false;
 $font-stack-cond:     false;
 
+$font-stack-ui:       false;
 $font-stack-heading:  false;
 $font-stack-body:     false;
 $font-stack-code:     false;
@@ -228,6 +229,19 @@ $font-stack-alt:      false;
     'stack'
   );
   $font-stack-cond: $font-stack-cond + unquote('');
+}
+
+@if $theme-font-ui {
+  $font-stack-ui: map-deep-get(
+    $all-font-definitions,
+    $theme-font-ui,
+    'name'
+  ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-ui,
+    'stack'
+  );
+  $font-stack-ui: $font-stack-ui + unquote('');
 }
 
 @if $theme-font-heading {
@@ -287,6 +301,7 @@ $project-font-stacks:(
   'sans':     $font-stack-sans,
   'serif':    $font-stack-serif,
   'cond':     $font-stack-cond,
+  'ui':       $font-stack-ui,
   'heading':  $font-stack-heading,
   'body':     $font-stack-body,
   'code':     $font-stack-code,
@@ -330,6 +345,10 @@ $if-important: '';
 
 @if $theme-font-cond {
   [class*='#{ns('utility')}font-cond-'] { font-family: $font-stack-cond#{$if-important}; }
+}
+
+@if $theme-font-ui {
+  [class*='#{ns('utility')}font-ui-'] { font-family: $font-stack-ui#{$if-important}; }
 }
 
 @if $theme-font-heading {
@@ -417,7 +436,20 @@ $color-theme-success-light:         color($theme-color-success-light);
 $color-theme-success:               color($theme-color-success);
 $color-theme-success-dark:          color($theme-color-success-dark);
 $color-theme-success-darker:        color($theme-color-success-darker);
+$color-theme-info-lighter:          color($theme-color-info-lighter);
+$color-theme-info-light:            color($theme-color-info-light);
+$color-theme-info:                  color($theme-color-info);
+$color-theme-info-dark:             color($theme-color-info-dark);
+$color-theme-info-darker:           color($theme-color-info-darker);
+$color-theme-disabled-light:        color($theme-color-disabled-light);
 $color-theme-disabled:              color($theme-color-disabled);
+$color-theme-disabled-dark:         color($theme-color-disabled-dark);
+
+/*
+----------------------------------------
+Theme color map
+----------------------------------------
+*/
 
 $project-colors: (
   'base': (
@@ -491,8 +523,17 @@ $project-state-colors: (
     'dark':    $color-theme-success-dark,
     'darker':  $color-theme-success-darker,
   ),
+  'info': (
+    'lighter': $color-theme-info-lighter,
+    'light':   $color-theme-info-light,
+    'default': $color-theme-info,
+    'dark':    $color-theme-info-dark,
+    'darker':  $color-theme-info-darker,
+  ),
   'disabled': (
+    'light':   $color-theme-disabled-light,
     'default': $color-theme-disabled,
+    'dark':    $color-theme-disabled-dark,
   ),
 );
 
@@ -506,6 +547,92 @@ $all-colors: map-collect(
   $system-required-colors,
   $system-colors
 );
+
+/*
+----------------------------------------
+Theme color shortcodes
+----------------------------------------
+*/
+
+$color-palette-theme: (
+  'base-lightest':            $color-theme-base-lightest,
+  'base-lighter':             $color-theme-base-lighter,
+  'base-light':               $color-theme-base-light,
+  'base':                     $color-theme-base,
+  'base-dark':                $color-theme-base-dark,
+  'base-darker':              $color-theme-base-darker,
+  'base-darkest':             $color-theme-base-darkest,
+  'ink':                      $color-theme-ink,
+  'primary-lightest':         $color-theme-primary-lightest,
+  'primary-lighter':          $color-theme-primary-lighter,
+  'primary-light':            $color-theme-primary-light,
+  'primary':                  $color-theme-primary,
+  'primary-vivid':            $color-theme-primary-vivid,
+  'primary-dark':             $color-theme-primary-dark,
+  'primary-darker':           $color-theme-primary-darker,
+  'primary-darkest':          $color-theme-primary-darkest,
+  'secondary-lightest':       $color-theme-secondary-lightest,
+  'secondary-lighter':        $color-theme-secondary-lighter,
+  'secondary-light':          $color-theme-secondary-light,
+  'secondary':                $color-theme-secondary,
+  'secondary-vivid':          $color-theme-secondary-vivid,
+  'secondary-dark':           $color-theme-secondary-dark,
+  'secondary-darker':         $color-theme-secondary-darker,
+  'secondary-darkest':        $color-theme-secondary-darkest,
+  'accent-warm-darkest':      $color-theme-accent-warm-darkest,
+  'accent-warm-darker':       $color-theme-accent-warm-darker,
+  'accent-warm-dark':         $color-theme-accent-warm-dark,
+  'accent-warm':              $color-theme-accent-warm,
+  'accent-warm-light':        $color-theme-accent-warm-light,
+  'accent-warm-lighter':      $color-theme-accent-warm-lighter,
+  'accent-warm-lightest':     $color-theme-accent-warm-lightest,
+  'accent-cool-darkest':      $color-theme-accent-cool-darkest,
+  'accent-cool-darker':       $color-theme-accent-cool-darker,
+  'accent-cool-dark':         $color-theme-accent-cool-dark,
+  'accent-cool':              $color-theme-accent-cool,
+  'accent-cool-light':        $color-theme-accent-cool-light,
+  'accent-cool-lighter':      $color-theme-accent-cool-lighter,
+  'accent-cool-lightest':     $color-theme-accent-cool-lightest,
+);
+
+$color-palette-state: (
+  'error-lighter':            $color-theme-error-lighter,
+  'error-light':              $color-theme-error-light,
+  'error':                    $color-theme-error,
+  'error-dark':               $color-theme-error-dark,
+  'error-darker':             $color-theme-error-darker,
+  'warning-lighter':          $color-theme-warning-lighter,
+  'warning-light':            $color-theme-warning-light,
+  'warning':                  $color-theme-warning,
+  'warning-dark':             $color-theme-warning-dark,
+  'warning-darker':           $color-theme-warning-darker,
+  'success-lighter':          $color-theme-success-lighter,
+  'success-light':            $color-theme-success-light,
+  'success':                  $color-theme-success,
+  'success-dark':             $color-theme-success-dark,
+  'success-darker':           $color-theme-success-darker,
+  'info-lighter':             $color-theme-info-lighter,
+  'info-light':               $color-theme-info-light,
+  'info':                     $color-theme-info,
+  'info-dark':                $color-theme-info-dark,
+  'info-darker':              $color-theme-info-darker,
+  'disabled-light':           $color-theme-disabled-light,
+  'disabled':                 $color-theme-disabled,
+  'disabled-dark':            $color-theme-disabled-dark,
+);
+
+$project-color-shortcodes: map-collect(
+  $color-palette-theme,
+  $color-palette-state
+);
+
+$all-color-shortcodes: map-collect(
+  $system-required-colors,
+  $system-color-shortcodes,
+  $project-color-shortcodes
+);
+
+$color-palette-grayscale: $system-color-gray;
 
 /*
 ----------------------------------------
@@ -536,6 +663,7 @@ $project-cap-heights:(
   'sans':     cap-height($theme-font-sans),
   'serif':    cap-height($theme-font-serif),
   'cond':     cap-height($theme-font-cond),
+  'ui':       cap-height($theme-font-ui),
   'heading':  cap-height($theme-font-heading),
   'body':     cap-height($theme-font-body),
   'code':     cap-height($theme-font-code),
@@ -663,6 +791,36 @@ $scale-cond-17: scale('cond', 17, force);
 $scale-cond-18: scale('cond', 18, force);
 $scale-cond-19: scale('cond', 19, force);
 $scale-cond-20: scale('cond', 20, force);
+$scale-ui-3xs: scale('ui', '3xs', force);
+$scale-ui-2xs: scale('ui', '2xs', force);
+$scale-ui-xs: scale('ui', 'xs', force);
+$scale-ui-sm: scale('ui', 'sm', force);
+$scale-ui-md: scale('ui', 'md', force);
+$scale-ui-lg: scale('ui', 'lg', force);
+$scale-ui-xl: scale('ui', 'xl', force);
+$scale-ui-2xl: scale('ui', '2xl', force);
+$scale-ui-3xl: scale('ui', '3xl', force);
+$scale-ui-micro: scale('ui', 'micro', force);
+$scale-ui-1: scale('ui', 1, force);
+$scale-ui-2: scale('ui', 2, force);
+$scale-ui-3: scale('ui', 3, force);
+$scale-ui-4: scale('ui', 4, force);
+$scale-ui-5: scale('ui', 5, force);
+$scale-ui-6: scale('ui', 6, force);
+$scale-ui-7: scale('ui', 7, force);
+$scale-ui-8: scale('ui', 8, force);
+$scale-ui-9: scale('ui', 9, force);
+$scale-ui-10: scale('ui', 10, force);
+$scale-ui-11: scale('ui', 11, force);
+$scale-ui-12: scale('ui', 12, force);
+$scale-ui-13: scale('ui', 13, force);
+$scale-ui-14: scale('ui', 14, force);
+$scale-ui-15: scale('ui', 15, force);
+$scale-ui-16: scale('ui', 16, force);
+$scale-ui-17: scale('ui', 17, force);
+$scale-ui-18: scale('ui', 18, force);
+$scale-ui-19: scale('ui', 19, force);
+$scale-ui-20: scale('ui', 20, force);
 $scale-heading-3xs: scale('heading', '3xs', force);
 $scale-heading-2xs: scale('heading', '2xs', force);
 $scale-heading-xs: scale('heading', 'xs', force);
@@ -818,85 +976,6 @@ $project-column-gaps: (
 
 /*
 ----------------------------------------
-Color palettes and shortcodes
-----------------------------------------
-*/
-
-$color-palette-theme: (
-  'base-lightest':            $color-theme-base-lightest,
-  'base-lighter':             $color-theme-base-lighter,
-  'base-light':               $color-theme-base-light,
-  'base':                     $color-theme-base,
-  'base-dark':                $color-theme-base-dark,
-  'base-darker':              $color-theme-base-darker,
-  'base-darkest':             $color-theme-base-darkest,
-  'ink':                      $color-theme-ink,
-  'primary-lightest':         $color-theme-primary-lightest,
-  'primary-lighter':          $color-theme-primary-lighter,
-  'primary-light':            $color-theme-primary-light,
-  'primary':                  $color-theme-primary,
-  'primary-vivid':            $color-theme-primary-vivid,
-  'primary-dark':             $color-theme-primary-dark,
-  'primary-darker':           $color-theme-primary-darker,
-  'primary-darkest':          $color-theme-primary-darkest,
-  'secondary-lightest':       $color-theme-secondary-lightest,
-  'secondary-lighter':        $color-theme-secondary-lighter,
-  'secondary-light':          $color-theme-secondary-light,
-  'secondary':                $color-theme-secondary,
-  'secondary-vivid':          $color-theme-secondary-vivid,
-  'secondary-dark':           $color-theme-secondary-dark,
-  'secondary-darker':         $color-theme-secondary-darker,
-  'secondary-darkest':        $color-theme-secondary-darkest,
-  'accent-warm-darkest':      $color-theme-accent-warm-darkest,
-  'accent-warm-darker':       $color-theme-accent-warm-darker,
-  'accent-warm-dark':         $color-theme-accent-warm-dark,
-  'accent-warm':              $color-theme-accent-warm,
-  'accent-warm-light':        $color-theme-accent-warm-light,
-  'accent-warm-lighter':      $color-theme-accent-warm-lighter,
-  'accent-warm-lightest':     $color-theme-accent-warm-lightest,
-  'accent-cool-darkest':      $color-theme-accent-cool-darkest,
-  'accent-cool-darker':       $color-theme-accent-cool-darker,
-  'accent-cool-dark':         $color-theme-accent-cool-dark,
-  'accent-cool':              $color-theme-accent-cool,
-  'accent-cool-light':        $color-theme-accent-cool-light,
-  'accent-cool-lighter':      $color-theme-accent-cool-lighter,
-  'accent-cool-lightest':     $color-theme-accent-cool-lightest,
-);
-
-$color-palette-state: (
-  'error-lighter':            $color-theme-error-lighter,
-  'error-light':              $color-theme-error-light,
-  'error':                    $color-theme-error,
-  'error-dark':               $color-theme-error-dark,
-  'error-darker':             $color-theme-error-darker,
-  'warning-lighter':          $color-theme-warning-lighter,
-  'warning-light':            $color-theme-warning-light,
-  'warning':                  $color-theme-warning,
-  'warning-dark':             $color-theme-warning-dark,
-  'warning-darker':           $color-theme-warning-darker,
-  'success-lighter':          $color-theme-success-lighter,
-  'success-light':            $color-theme-success-light,
-  'success':                  $color-theme-success,
-  'success-dark':             $color-theme-success-dark,
-  'success-darker':           $color-theme-success-darker,
-  'disabled':                 $color-theme-disabled,
-);
-
-$project-color-shortcodes: map-collect(
-  $color-palette-theme,
-  $color-palette-state
-);
-
-$all-color-shortcodes: map-collect(
-  $system-required-colors,
-  $system-color-shortcodes,
-  $project-color-shortcodes
-);
-
-$color-palette-grayscale: $system-color-gray;
-
-/*
-----------------------------------------
 Grid
 ----------------------------------------
 */
@@ -939,7 +1018,7 @@ settings
 
 // Removing the !default from $em-base so we are not inheriting that value from Bourbon.
 
-$em-base:             $theme-root-font-size;
+$em-base:             $theme-font-size-root;
 $base-font-size:      1.7rem !default;
 $small-font-size:     1.4rem !default;
 $lead-font-size:      2rem !default;
@@ -996,15 +1075,15 @@ $color-red-light:            $color-red-30 !default;
 $color-red-lightest:         $color-red-10 !default;
 
 $color-white:                white !default;
-$color-black:                black !default;
-$color-black-light:          $color-gray-90 !default;
+$color-black:                black !default; // 'black'
+$color-black-light:          $color-gray-90 !default; // 'base-darkest' 'base-ink'
 
-$color-gray-dark:            $color-gray-cool-80 !default;
-$color-gray:                 $color-gray-cool-60 !default;
-$color-gray-medium:          #757575 !default;
-$color-gray-light:           $color-gray-30 !default;
-$color-gray-lighter:         $color-gray-cool-10 !default;
-$color-gray-lightest:        $color-gray-cool-5 !default;
+$color-gray-dark:            $color-gray-cool-80 !default; // 'base-darker'
+$color-gray:                 $color-gray-cool-60 !default; // 'base-dark'
+$color-gray-medium:          $color-gray-50 !default; // 'base'
+$color-gray-light:           $color-gray-30 !default; // 'base-light'
+$color-gray-lighter:         $color-gray-cool-10 !default; // 'base-lighter'
+$color-gray-lightest:        $color-gray-cool-5 !default; // 'base-lightest'
 
 $color-gray-warm-dark:       $color-gray-warm-70 !default;
 $color-gray-warm-light:      $color-gray-warm-10 !default;
