@@ -1,36 +1,13 @@
 // Flexbox positioning to move sidenav below main content on small screens
-// .usa-layout-docs {
-//   display: flex;
-//   flex-direction: column;
-
-//   @include at-media(desktop) {
-//     display: inherit;
-//   }
-
-//   .usa-grid {
-//     > :first-child:not(.usa-width-*) {
-//       margin-top: 0;
-//     }
-
-//     > :last-child:not(.usa-width-*) {
-//       margin-bottom: 0;
-//     }
-//   }
-// }
-
-// .usa-layout-docs-sidenav {
-//   order: 2;
-// }
+.usa-layout-docs-sidenav {
+  order: 2;
+}
 
 .usa-layout-docs-main_content {
   margin-bottom: $site-margins;
-  //  order: 1;
 
   @include at-media(desktop) {
     margin-bottom: 0;
+    order: 2;
   }
-
-  // > :first-child {
-  //   margin-top: 0;
-  // }
 }
