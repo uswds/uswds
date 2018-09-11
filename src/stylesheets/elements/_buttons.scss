@@ -37,7 +37,7 @@ $button-stroke: inset 0 0 0 2px;
   color: color('white');
   cursor: pointer;
   display: inline-block;
-  font-weight: $theme-font-weight-bold;
+  font-weight: font-weight('bold');
   margin-right: units(0.5);
   margin-top: units(0.5);
   padding: units(1.5) units(2.5);
@@ -144,7 +144,7 @@ $button-stroke: inset 0 0 0 2px;
   }
 
   &.usa-button-big {
-    border-radius: radius('lg');
+    border-radius: radius('md');
     font-size: scale($theme-font-family-button, 'lg');
     padding: units(2) units(3);
   }
@@ -203,7 +203,7 @@ html .usa-button-secondary-inverse-disabled,  // Deprecated
   background-color: transparent;
   border: 0;
   border-radius: 0;
-  font-weight: $theme-font-weight-normal;
+  font-weight: font-weight('normal');
   margin: 0;
   padding: 0;
   text-align: left;
