@@ -3,7 +3,7 @@
     <a href="#">Return to top</a>
   </div>
   <div class="usa-footer-primary-section">
-    <nav class="usa-footer-nav margin-x-auto padding-x-0 mobile-lg:padding-x-2 desktop:padding-x-4">
+    <nav class="usa-footer-nav">
       <ul class="add-list-reset grid-row grid-gap">
         <li class="mobile-lg:grid-col-4 desktop:grid-col-2 usa-footer-primary-content">
           <a class="usa-footer-primary-link" href="javascript:void(0);">Primary link</a>
@@ -25,35 +25,47 @@
   </div>
 
   <div class="usa-footer-secondary-section">
-    <div class="usa-grid">
-      <div class="usa-footer-logo usa-width-one-half">
-        <img class="usa-footer-logo-img" src="{{ uswds.path }}/img/logo-img.png" alt="">
-        <h3 class="usa-footer-logo-heading">Name of Agency</h3>
-      </div>
-      <div class="usa-footer-contact-links usa-width-one-half">
-        <a class="usa-link-facebook" href="javascript:void(0);">
-          <span>Facebook</span>
-        </a>
-        <a class="usa-link-twitter" href="javascript:void(0);">
-          <span>Twitter</span>
-        </a>
-        <a class="usa-link-youtube" href="javascript:void(0);">
-          <span>YouTube</span>
-        </a>
-        <a class="usa-link-rss" href="javascript:void(0);">
-          <span>RSS</span>
-        </a>
-        <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
-        <address>
-          <div class="usa-footer-primary-content usa-footer-contact_info">
-            <p>
-              <a href="tel:1-800-555-5555">(800) CALL-GOVT</a>
-            </p>
+    <div class="grid-container">
+      <div class="grid-row grid-gap">
+        <div class="usa-footer-logo mobile-lg:grid-col-6">
+          <img class="usa-footer-logo-img" src="{{ uswds.path }}/img/logo-img.png" alt="">
+          <h3 class="usa-footer-logo-heading">Name of Agency</h3>
+        </div>
+        <div class="usa-footer-contact-links mobile-lg:grid-col-6">
+          <div class="usa-footer-social-links grid-row grid-gap-1">
+            <div class="grid-col-auto">
+              <a class="usa-link-facebook" href="javascript:void(0);">
+                <span>Facebook</span>
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a class="usa-link-twitter" href="javascript:void(0);">
+                <span>Twitter</span>
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a class="usa-link-youtube" href="javascript:void(0);">
+                <span>YouTube</span>
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a class="usa-link-rss" href="javascript:void(0);">
+                <span>RSS</span>
+              </a>
+            </div>
           </div>
-          <div class="usa-footer-primary-content usa-footer-contact_info">
-            <p><a href="mailto:info@agency.gov">info@agency.gov</a></p>
-          </div>
-        </address>
+          <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
+          <address class="usa-footer-address grid-row grid-gap">
+            <div class="usa-footer-primary-content usa-footer-contact_info grid-col-auto">
+              <p>
+                <a href="tel:1-800-555-5555">(800) CALL-GOVT</a>
+              </p>
+            </div>
+            <div class="usa-footer-primary-content usa-footer-contact_info grid-col-auto">
+              <p><a href="mailto:info@agency.gov">info@agency.gov</a></p>
+            </div>
+          </address>
+        </div>
       </div>
     </div>
   </div>
