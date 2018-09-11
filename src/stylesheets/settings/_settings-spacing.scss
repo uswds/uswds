@@ -35,6 +35,8 @@ $theme-border-radius-sm:       2px !default;
 $theme-border-radius-md:       0.5 !default;
 $theme-border-radius-lg:       1 !default;
 
+$theme-border-radius-checkbox: 'sm' !default;
+
 /*
 ----------------------------------------
 Column gap
@@ -53,6 +55,10 @@ Column gap
 $theme-column-gap-sm: 2px !default;
 $theme-column-gap-md: 2 !default;
 $theme-column-gap-lg: 3 !default;
+
+// These determine the responsive gap sizes set with .grid-gap
+$theme-column-gap-mobile:  2 !default;
+$theme-column-gap-desktop: 4 !default;
 
 /*
 ----------------------------------------

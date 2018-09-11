@@ -1,41 +1,3 @@
-// Heading mixins
-@mixin title {
-  font-size: $title-font-size;
-  font-weight: $font-bold;
-}
-
-@mixin h1 {
-  font-size: $h1-font-size;
-  font-weight: $font-bold;
-}
-
-@mixin h2 {
-  font-size: $h2-font-size;
-  font-weight: $font-bold;
-}
-
-@mixin h3 {
-  font-size: $h3-font-size;
-  font-weight: $font-bold;
-}
-
-@mixin h4 {
-  font-size: $h4-font-size;
-  font-weight: $font-bold;
-}
-
-@mixin h5 {
-  font-size: $h5-font-size;
-  font-weight: $font-bold;
-}
-
-@mixin h6 {
-  font-size: $h6-font-size;
-  font-weight: $font-normal;
-  line-height: $base-line-height;
-  text-transform: uppercase;
-}
-
 /*
 ----------------------------------------
 typeset()
@@ -47,7 +9,180 @@ Sets:
 ----------------------------------------
 */
 
-@mixin typeset($family, $scale, $line-height) {
+@mixin typeset(
+  $family: $theme-font-family-base,
+  $scale: $theme-font-size-base,
+  $line-height: $theme-line-height-base
+) {
+  $family: if(
+    $family == null,
+    $theme-font-family-base,
+    $family
+  );
+  $scale: if(
+    $scale == null,
+    $theme-font-size-base,
+    $scale
+  );
+  $line-height: if(
+    $line-height == null,
+    $theme-line-height-base,
+    $line-height
+  );
   @include u-font($family, $scale);
   @include u-line-height($family, $line-height);
+}
+
+@mixin typeset-heading {
+  clear: both;
+  margin-bottom: 0.5em;
+  margin-top: 0;
+
+  * + & {
+    margin-top: 1.5em;
+  }
+}
+
+// typeset element mixins
+@mixin typeset-p {
+  line-height: line-height(
+    $theme-font-family-base,
+    $theme-line-height-base
+  );
+  margin-bottom: 0;
+  margin-top: 0;
+  max-width: measure($theme-measure-text);
+
+  * + & {
+    margin-top: 1em;
+  }
+
+  + * {
+    margin-top: 1em;
+  }
+}
+
+@mixin typeset-link {
+  color: color('primary');
+  text-decoration: underline;
+
+  &:hover,
+  &:active {
+    color: color('primary-darker');
+  }
+
+  &:focus {
+    @include focus;
+  }
+
+  &:visited {
+    color: $color-visited;
+  }
+}
+
+@mixin title {
+  @include typeset(
+    'heading',
+    $theme-font-size-title,
+    $theme-line-height-heading
+  );
+
+  font-weight: fw($theme-font-weight-bold);
+}
+
+@mixin typeset-title {
+  @include typeset-heading;
+  @include title;
+}
+
+@mixin h1 {
+  @include typeset(
+    'heading',
+    $theme-font-size-h1,
+    $theme-line-height-heading
+  );
+
+  font-weight: fw($theme-font-weight-bold);
+}
+
+@mixin typeset-h1 {
+  @include typeset-heading;
+  @include h1;
+}
+
+@mixin h2 {
+  @include typeset(
+    'heading',
+    $theme-font-size-h2,
+    $theme-line-height-heading
+  );
+
+  font-weight: fw($theme-font-weight-bold);
+}
+
+@mixin typeset-h2 {
+  @include typeset-heading;
+  @include h2;
+}
+
+@mixin h3 {
+  @include typeset(
+    'heading',
+    $theme-font-size-h3,
+    $theme-line-height-heading
+  );
+
+  font-weight: fw($theme-font-weight-bold);
+}
+
+@mixin typeset-h3 {
+  @include typeset-heading;
+  @include h3;
+}
+
+@mixin h4 {
+  @include typeset(
+    'heading',
+    $theme-font-size-h4,
+    $theme-line-height-heading
+  );
+
+  font-weight: fw($theme-font-weight-bold);
+}
+
+@mixin typeset-h4 {
+  @include typeset-heading;
+  @include h4;
+}
+
+@mixin h5 {
+  @include typeset(
+    'heading',
+    $theme-font-size-h5,
+    $theme-line-height-heading
+  );
+
+  font-weight: fw($theme-font-weight-bold);
+}
+
+@mixin typeset-h5 {
+  @include typeset-heading;
+  @include h5;
+}
+
+@mixin h6 {
+  @include typeset(
+    'body',
+    $theme-font-size-h6,
+    $theme-line-height-heading
+  );
+
+  font-weight: fw($theme-font-weight-normal);
+  letter-spacing: ls('ls-1');
+  text-transform: uppercase;
+}
+
+@mixin typeset-h6 {
+  @include typeset-heading;
+  @include h6;
 }

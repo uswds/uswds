@@ -1,8 +1,7 @@
 // scss-lint:disable QualifyingElement, PropertyCount
 
-$input-font-family: 'sans' !default;
-$input-font-size: scale($input-font-family, $theme-base-font-size);
-$input-line-height: lh($input-font-family, 3); // was 1.3
+$input-font-size-calc: scale($theme-font-family-input, $theme-font-size-base);
+$input-line-height-calc: lh($theme-font-family-input, $theme-line-height-input); // was 1.3
 $input-border-width: px-to-rem(1px); // Using rem instead of px so function uses same units
 $input-padding-vertical: units(1);
 $input-state-border: 0.5;
@@ -10,7 +9,7 @@ $input-state-border: 0.5;
 // input heights will vary by browser and type
 // if height not explicitly set
 $input-height-exact: (
-  (scale($input-font-family, $theme-base-font-size) * $input-line-height) +
+  ($input-font-size-calc * $input-line-height-calc) +
   ($input-padding-vertical * 2) +
   ($input-border-width * 2)
 );
@@ -20,22 +19,36 @@ $input-height-exact: (
 $input-height: floor($input-height-exact * 10) / 10;
 
 // Block form elements
-/* stylelint-disable selector-no-qualifying-type */
+.usa-form,
+// with a more consistent use of .usa-form
+// the following should be unnecessary
+.usa-form-large,
+.usa-fieldset,
+.usa-fieldset-inputs,
+.usa-input,
+.usa-textarea,
+.usa-select,
+.usa-range,
+.usa-form-hint {
+  @include typeset(
+    $theme-font-family-input,
+    $theme-font-size-base,
+    $theme-line-height-input
+  );
+}
 
 .usa-input,
 .usa-textarea,
 .usa-select,
 .usa-range {
   @include u-border(1px, 'base-dark');
-  @include u-font($input-font-family, $theme-base-font-size);
   appearance: none;
   border-radius: 0;
   box-sizing: border-box;
   color: color('ink'); // standardize on firefox
   display: block;
   height: $input-height;
-  line-height: $input-line-height;
-  margin: units(1) 0 units(0.5);
+  margin-top: units(1);
   max-width: $input-max-width;
   padding: $input-padding-vertical units(1);
   width: 100%;
@@ -44,7 +57,6 @@ $input-height: floor($input-height-exact * 10) / 10;
     @include u-border($input-state-border, 'success');
   }
 }
-/* stylelint-enable */
 
 .usa-form-group-error {
   @include u-border-left(0.5, 'error-dark');
@@ -60,7 +72,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-input-error-label {
   display: block;
-  font-size: $input-font-size;
+  font-size: $input-font-size-calc;
   font-weight: $theme-font-weight-bold;
   margin-top: 0;
 }
@@ -69,22 +81,8 @@ $input-height: floor($input-height-exact * 10) / 10;
   @include u-padding-y(0.5);
   color: color('error-dark');
   display: block;
-  font-size: $input-font-size;
+  font-size: $input-font-size-calc;
   font-weight: $theme-font-weight-bold;
-}
-
-// Deprecated: Some screen readers can't read CSS content.
-// Will be removed in 2.0.
-.usa-input-required:after {
-  color: color('error-dark');
-  content: ' (*required)';
-}
-
-// Deprecated: Some screen readers can't read CSS content.
-// Will be removed in 2.0.
-.usa-input-optional:after {
-  color: color('base');
-  content: ' (optional)';
 }
 
 .usa-input-label-helper {
@@ -96,9 +94,9 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-label {
-  @include typeset($input-font-family, $theme-base-font-size, 2);
   display: block;
-  margin-top: units(4);
+  line-height: line-height($theme-font-family-input, 2);
+  margin-top: units(3);
   max-width: $input-max-width;
 }
 
@@ -135,8 +133,9 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-legend {
-  font-size: scale($input-font-family, $theme-h2-font-size);
+  font-size: scale($theme-font-family-input, $theme-font-size-h2);
   font-weight: $theme-font-weight-bold;
+  line-height: line-height($theme-font-family-input, 2);
 }
 
 .usa-fieldset-inputs {
@@ -149,7 +148,6 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-form-hint {
   color: color('base');
-  font-family: font-family($input-font-family);
   margin-bottom: 0;
 }
 
@@ -188,7 +186,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-checkbox-label::before {
-  border-radius: $checkbox-border-radius;
+  border-radius: radius($theme-border-radius-checkbox);
   box-shadow: 0 0 0 2px color('base');
   height: units($theme-spacing-md);
   line-height: units($theme-spacing-md);

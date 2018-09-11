@@ -1,7 +1,6 @@
 // Variables
 
 $accordion-border: units(0.5) solid color('base-lightest');
-$accordion-font-family: 'sans' !default;
 
 // Accordion Styles
 
@@ -26,7 +25,6 @@ $accordion-font-family: 'sans' !default;
   color: color('ink');
   cursor: pointer;
   display: inline-block;
-  font-family: font-family($accordion-font-family);
   font-weight: font-weight('bold');
   margin: 0;
   padding: units(2) units(2.5) * 2 + units(2) units(2) units(2.5);
@@ -62,6 +60,7 @@ $accordion-font-family: 'sans' !default;
 .usa-accordion-bordered {
   @include accordion-list-styles;
   @include accordion-nested-list;
+  @include typeset($theme-font-family-accordion);
 
   + .usa-accordion,
   + .usa-accordion-bordered {
@@ -83,7 +82,7 @@ $accordion-font-family: 'sans' !default;
 }
 
 .usa-accordion-heading {
-  @include typeset($accordion-font-family, $theme-base-font-size, 1);
+  @include typeset($theme-font-family-accordion, $theme-font-size-base, 1);
   margin: 0;
 
   &:not(:first-child) {
