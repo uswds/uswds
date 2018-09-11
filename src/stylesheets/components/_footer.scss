@@ -147,12 +147,11 @@
 }
 
 .usa-footer-logo {
-  padding-top: units(1);
-  padding-bottom: units(2.5);
+  @include u-margin-y(1);
 
   @include at-media('mobile-lg') {
+    @include u-margin-y(0);    
     @include u-flex('align-center');
-    padding: units(2.5) 0;
   }
 }
 
@@ -171,7 +170,10 @@
 }
 
 .usa-footer-contact-links {
+  margin-top: units(3);
+
   @include at-media('mobile-lg') {
+    margin-top: 0;
     text-align: right;
   }
 }
@@ -471,14 +473,6 @@
   .usa-footer-contact-links {
     @include at-media('mobile-lg') {
       padding-top: units(2.5);
-    }
-  }
-
-  .usa-footer-logo {
-    padding: units(1) 0;
-
-    @include at-media('mobile-lg') {
-      padding: units(2.5) 0;
     }
   }
 
