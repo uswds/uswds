@@ -11,6 +11,10 @@
   .usa-button {
     color: color('white');
   }
+
+  p {
+    @include typeset-p;
+  }
 }
 
 .usa-section-dark {
