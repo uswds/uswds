@@ -70,7 +70,7 @@
       @include u-margin-x(append-important($props, 0));
 
       > * {
-        @include u-padding-y(append-important($props, 0));
+        @include u-padding-x(append-important($props, 0));
       }
     }
     @else {
