@@ -11,7 +11,7 @@
     @include u-maxw($props);
   }
   @include u-padding-x($theme-site-margins-mobile);
-  @include at-media('desktop'){
+  @include at-media('desktop') {
     @include u-padding-x($theme-site-margins);
   }
 }
@@ -49,7 +49,7 @@
     @include u-padding-x(calc-gap-offset($gap-mobile));
   }
 
-  @include at-media('desktop'){
+  @include at-media('desktop') {
     @include u-margin-x( unquote('#{$neg-prefix}-#{calc-gap-offset($gap-desktop)}'));
 
     > [class*='grid-col'] {
