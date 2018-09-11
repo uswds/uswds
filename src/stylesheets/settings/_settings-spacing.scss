@@ -56,6 +56,10 @@ $theme-column-gap-sm: 2px !default;
 $theme-column-gap-md: 2 !default;
 $theme-column-gap-lg: 3 !default;
 
+// These determine the responsive gap sizes set with .grid-gap
+$theme-column-gap-mobile:  2 !default;
+$theme-column-gap-desktop: 4 !default;
+
 /*
 ----------------------------------------
 Grid container max-width
