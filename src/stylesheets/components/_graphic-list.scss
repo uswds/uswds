@@ -1,6 +1,8 @@
 // A collection of media block objects
 
 .usa-graphic_list {
+  @include typeset;
+
   .usa-graphic_list-row {
     .usa-media_block {
       margin-bottom: units($theme-site-margins);
