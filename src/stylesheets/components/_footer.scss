@@ -14,7 +14,7 @@
     padding-top: $spacing-medium;
     text-decoration: none;
 
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       border-top: none;
     }
 
@@ -22,7 +22,7 @@
       cursor: pointer;
       text-decoration: underline;
 
-      @include media($medium-screen) {
+      @include at-media('mobile-lg') {
         cursor: auto;
         text-decoration: none;
       }
@@ -60,7 +60,7 @@
     padding-left: 1.5rem;
     padding-right: 2.5rem;
 
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       padding-left: 0;
       padding-right: 0;
     }
@@ -68,14 +68,14 @@
     li {
       margin-left: 1rem;
 
-      @include media($medium-screen) {
+      @include at-media('mobile-lg') {
         margin-left: 0;
       }
     }
   }
 
   .usa-grid-full {
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       padding-left: 2.5rem;
       padding-right: 2.5rem;
     }
@@ -87,7 +87,7 @@
     p {
       margin: 0 $spacing-small 0 0;
 
-      @include media($medium-screen) {
+      @include at-media('mobile-lg') {
         margin: 0 0 0 $spacing-small;
       }
     }
@@ -96,7 +96,7 @@
   .usa-footer-contact-heading {
     margin-top: 0;
 
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       margin-top: $spacing-x-small;
       margin-bottom: $spacing-x-small;
     }
@@ -105,7 +105,7 @@
   .usa-footer-logo {
     padding: $spacing-small 0;
 
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       padding: $spacing-medium 0;
     }
   }
@@ -119,20 +119,20 @@
     > .usa-grid {
       padding: 0;
 
-      @include media($medium-screen) {
+      @include at-media('mobile-lg') {
         padding-left: $spacing-large;
         padding-right: $spacing-large;
       }
     }
 
     .usa-footer-primary-content {
-      @include media($large-screen) {
+      @include at-media('desktop') {
         margin-right: 5%;
         width: inherit;
       }
 
       &:last-child {
-        @include media($large-screen) {
+        @include at-media('desktop') {
           margin-right: 0;
         }
       }
@@ -140,7 +140,7 @@
   }
 
   .usa-footer-nav ul {
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       align-items: center;
     }
   }
@@ -153,13 +153,13 @@
     }
 
     .usa-footer-primary-content {
-      @include media($large-screen) {
+      @include at-media('desktop') {
         margin-right: 5%;
         width: inherit;
       }
 
       &:last-child {
-        @include media($large-screen) {
+        @include at-media('desktop') {
           margin-right: 0;
         }
       }
@@ -175,13 +175,13 @@
     > .usa-grid {
       padding: 0;
 
-      @include media($medium-screen) {
+      @include at-media('mobile-lg') {
         padding-left: $spacing-large;
         padding-right: $spacing-large;
       }
     }
 
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       padding-bottom: 0;
       padding-top: 0;
 
@@ -193,20 +193,20 @@
 
   .usa-footer-contact_info {
     > * {
-      @include media($medium-screen) {
+      @include at-media('mobile-lg') {
         margin: 0;
       }
     }
 
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       @include u-padding-y($spacing-md-small);
     }
 
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       width: 100%;
     }
 
-    @include media($large-screen) {
+    @include at-media('desktop') {
       @include span-columns(6);
     }
   }
@@ -218,14 +218,14 @@ li.usa-footer-primary-content,
 li.usa-footer-primary-content {
   border-top: 1px solid $color-gray-light;
 
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     border: none;
   }
 
   &:last-child {
     border-bottom: 1px solid $color-gray-light;
 
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       border-bottom: none;
     }
   }
@@ -237,7 +237,7 @@ li.usa-footer-primary-content {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     float: right;
     padding: 0;
   }
@@ -268,14 +268,14 @@ li.usa-footer-primary-content {
 }
 
 .usa-footer-big-secondary-section {
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     padding-top: $spacing-medium;
     padding-bottom: $spacing-medium;
   }
 }
 
 .usa-footer-contact-links {
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     text-align: right;
   }
 }
@@ -290,14 +290,14 @@ li.usa-footer-primary-content {
   .usa-footer-collapsible {
     border-top: 1px solid $color-gray-light;
 
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       border-top: none;
     }
 
     &:last-child {
       border-bottom: 1px solid $color-gray-light;
 
-      @include media($medium-screen) {
+      @include at-media('mobile-lg') {
         border-bottom: none;
       }
     }
@@ -317,7 +317,7 @@ li.usa-footer-primary-content {
         cursor: pointer;
         display: block;
 
-        @include media($medium-screen) {
+        @include at-media('mobile-lg') {
           background: none;
           padding-left: 0;
         }
@@ -334,7 +334,7 @@ li.usa-footer-primary-content {
       margin-left: 0;
       padding-left: 3.5rem;
 
-      @include media($medium-screen) {
+      @include at-media('mobile-lg') {
         background: none;
         margin-bottom: .8rem;
         padding-bottom: 0;
@@ -353,14 +353,14 @@ li.usa-footer-primary-content {
     p {
       margin: 0 $spacing-small 0 0;
 
-      @include media($medium-screen) {
+      @include at-media('mobile-lg') {
         margin: $spacing-x-small 0 0 $spacing-small;
       }
     }
   }
 
   .usa-footer-contact-links {
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       padding-top: $spacing-medium;
     }
   }
@@ -368,13 +368,13 @@ li.usa-footer-primary-content {
   .usa-footer-logo {
     padding: $spacing-small 0;
 
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       padding: $spacing-medium 0;
     }
   }
 
   .usa-footer-primary-section {
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       padding-bottom: 4rem;
       padding-top: 3rem;
     }
@@ -382,7 +382,7 @@ li.usa-footer-primary-content {
     > .usa-grid {
       padding: 0;
 
-      @include media($medium-screen) {
+      @include at-media('mobile-lg') {
         padding-left: $spacing-large;
         padding-right: $spacing-large;
       }
@@ -395,7 +395,7 @@ li.usa-footer-primary-content {
       li {
         margin-left: $spacing-md-small;
 
-        @include media($medium-screen) {
+        @include at-media('mobile-lg') {
           margin-left: 0;
         }
       }
@@ -409,7 +409,7 @@ li.usa-footer-primary-content {
   ul {
     padding-bottom: 2.4rem;
 
-    @include media($medium-screen) {
+    @include at-media('mobile-lg') {
       padding-bottom: 0;
     }
 
@@ -427,7 +427,7 @@ li.usa-footer-primary-content {
 }
 
 .usa-sign_up-header {
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     margin: 0;
     padding: 2rem 0;
   }
@@ -436,7 +436,7 @@ li.usa-footer-primary-content {
 .usa-footer-logo-img {
   max-width: 8rem;
 
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     float: left;
   }
 }
@@ -454,7 +454,7 @@ li.usa-footer-primary-content {
   display: block;
   margin-top: $spacing-small;
 
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     display: inline-block;
     margin-top: $spacing-large;
     padding-left: $spacing-md-small;
@@ -464,7 +464,7 @@ li.usa-footer-primary-content {
 .usa-footer-big-logo-heading {
   margin-top: $spacing-md-small;
 
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     margin-top: $spacing-medium;
   }
 }
@@ -478,7 +478,7 @@ li.usa-footer-primary-content {
 .usa-footer-contact-heading {
   margin-top: 0;
 
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     margin-top: 1rem;
   }
 }
@@ -503,7 +503,7 @@ li.usa-footer-primary-content {
   text-align: center;
   width: $hit-area;
 
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     @include u-margin-left($spacing-x-small);
     @include u-margin-right(0);
     @include u-margin-top(0);
