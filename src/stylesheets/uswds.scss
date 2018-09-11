@@ -67,7 +67,3 @@ Output all USWDS
 @import 'utilities/rules/package';
 @include render-utilities-in($utilities-package);
 @import 'core/layout-grid';
-
-.foo {
-  @include grid-container;
-}
