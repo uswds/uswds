@@ -2,6 +2,7 @@
 // ==========================
 
 .usa-hero {
+  @include typeset;
   @include u-padding-y(units($theme-site-margins));
   background-image: url('#{$theme-image-path}/hero.png');
   background-position: center;
@@ -27,13 +28,15 @@
   }
 
   > *:first-child {
-    margin-bottom: units(2);
     margin-top: 0;
-    @include u-margin-x(0);
   }
 }
 
 .usa-hero-callout-alt {
   color: color('white');
   display: block;
+}
+
+.usa-hero-heading {
+  @include h2;
 }
