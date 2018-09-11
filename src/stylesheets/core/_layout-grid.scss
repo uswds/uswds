@@ -42,8 +42,7 @@ $namespace-grid: ns('grid');
 
   // ...that includes column gaps
   &.#{$namespace-grid}gap {
-    $props: append-important($grid-global, md);
-    @include grid-gap($props);
+    @include grid-gap-responsive;
   }
   @each $gap-key, $gap-val in map-deep-get($system-properties, gap, standard){
     &.#{$namespace-grid}gap-#{$gap-key} {
@@ -56,22 +55,10 @@ $namespace-grid: ns('grid');
   @each $mq-key, $mq-value in $system-breakpoints {
     @if map-get($theme-utility-breakpoints, $mq-key) {
       @include at-media($mq-key) {
-        &.#{$mq-key}\:#{$namespace-grid}gap {
-          @include grid-gap;
-        }
-        @if $theme-column-gap-sm {
-          &.#{$mq-key}\:#{$namespace-grid}gap-sm {
-            @include grid-gap('sm');
-          }
-        }
-        @if $theme-column-gap-md {
-          &.#{$mq-key}\:#{$namespace-grid}gap-md {
-            @include grid-gap('md');
-          }
-        }
-        @if $theme-column-gap-lg {
-          &.#{$mq-key}\:#{$namespace-grid}gap-lg {
-            @include grid-gap('lg');
+        @each $gap-key, $gap-val in map-deep-get($system-properties, gap, standard){
+          &.#{$mq-key}\:#{$namespace-grid}gap-#{$gap-key} {
+            $props: append-important($grid-global, $gap-key);
+            @include grid-gap($props);
           }
         }
       }
