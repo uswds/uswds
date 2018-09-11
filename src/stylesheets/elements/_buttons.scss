@@ -7,7 +7,7 @@ $button-stroke: inset 0 0 0 2px;
 // This mixin is only needed until we fully remove the
 // deprecated usa-button-disabled style.
 @mixin disabledesque {
-  background-color: color('disabled-light');
+  background-color: color('disabled');
   pointer-events: none;
 
   &:hover,
@@ -16,7 +16,7 @@ $button-stroke: inset 0 0 0 2px;
   &.usa-button-active,
   &:focus,
   &.usa-focus {
-    background-color: color('disabled-light');
+    background-color: color('disabled');
     border: 0;
     box-shadow: none;
   }
@@ -172,9 +172,9 @@ $button-stroke: inset 0 0 0 2px;
 .usa-button-secondary:disabled,
 .usa-button-secondary-inverse:disabled,
 .usa-button-outline-inverse:disabled {   // Outline inverse to be deprecated in 2.0
-  box-shadow: $button-stroke color('base-lighter');
+  box-shadow: $button-stroke color('disabled');
   pointer-events: none;
-  color: color('base-lighter');
+  color: color('disabled');
 
   &:hover,
   &.usa-button-hover,
@@ -195,8 +195,8 @@ html .usa-button-secondary-disabled,          // Deprecated
 html .usa-button-secondary-inverse-disabled,  // Deprecated
 .usa-button-secondary-inverse:disabled {
   background-color: transparent;
-  color: color('base');
-  box-shadow: $button-stroke color('base');
+  color: color('disabled');
+  box-shadow: $button-stroke color('disabled');
 }
 
 @mixin button-unstyled {
