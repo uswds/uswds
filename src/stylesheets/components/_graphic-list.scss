@@ -5,7 +5,7 @@
     .usa-media_block {
       margin-bottom: units($theme-site-margins);
 
-      @include media($medium-screen) {
+      @include at-media(tablet) {
         margin-bottom: units($theme-site-margins) * 2;
       }
     }
