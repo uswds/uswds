@@ -1,7 +1,7 @@
 <section class="usa-hero">
-  <div class="usa-grid">
-    <div class="usa-hero-callout usa-section-dark">
-      <h2>
+  <div class="grid-container">
+    <div class="usa-hero-callout">
+      <h2 class="usa-hero-heading">
         {% if hero.callout %}
           <span class="usa-hero-callout-alt">{{ hero.callout }}</span>
         {% endif %}
@@ -9,11 +9,13 @@
       </h2>
 
       {% if hero.paragraph %}
-      <p>{{ hero.paragraph }}</p>
+        <div class="usa-hero-content">
+          <p>{{ hero.paragraph }}</p>
+        </div>
       {% endif %}
 
       {% if hero.button %}
-      <a class="usa-button" href="{{ hero.button.href }}">{{ hero.button.text }}</a>
+        <a class="usa-button" href="{{ hero.button.href }}">{{ hero.button.text }}</a>
       {% endif %}
     </div>
   </div>
