@@ -14,10 +14,12 @@
 .usa-footer-nav {
   @include u-margin-x('auto');
   @include u-padding-x(0);
+  border-bottom: 1px solid color('base-light');
   max-width: units('desktop');
 
   @include at-media('mobile-lg') {
     @include u-padding-x($theme-site-margins-mobile);
+    border-bottom: none;
   }
   @include at-media('desktop') {
     @include u-padding-x($theme-site-margins);
@@ -88,39 +90,31 @@
   @include at-media('mobile-lg') {
     border: none;
   }
+}
 
-  // TODO: necessary? Is there a cleaner way to do this?
-  &:last-child {
-    border-bottom: 1px solid color('base-light');
+.usa-sign_up-block {
+  padding-bottom: units(4);
+  padding-top: units(3);
 
-    @include at-media('mobile-lg') {
-      border-bottom: none;
-    }
+  .usa-label {
+    margin-top: units(1.5);
+  }
+
+  * + .usa-label {
+    margin-top: units(1.5);
+  }
+
+  .usa-button {
+    margin-top: units(1.5)
   }
 }
 
-// TODO: what is this? preview?
-.usa-sign_up-block {
-  @include u-padding-y(2);
-  padding-bottom: units(5);
-
+// TODO: all these styles needed?
+.usa-sign_up-header {
+  @include typeset-h3;
   @include at-media('mobile-lg') {
-    float: right;
-    padding: 0;
-  }
-
-  label:first-of-type {
-    margin-top: 0;
-  }
-
-  button {
-    float: none;
-    margin-right: 0;
-    margin-top: units(2);
-  }
-
-  input {
-    width: 100%;
+    @include u-padding-y(2);
+    margin: 0;
   }
 }
 
@@ -130,20 +124,6 @@
 
   a {
     color: color('ink');
-  }
-}
-
-// TODO: all these styles needed?
-.usa-footer-topic {
-  margin: 0;
-  padding: units(2) 0;
-}
-
-// TODO: all these styles needed?
-.usa-sign_up-header {
-  @include at-media('mobile-lg') {
-    margin: 0;
-    padding: units(2) 0;
   }
 }
 
@@ -175,11 +155,11 @@
 }
 
 .usa-footer-contact-heading {
-  @include typeset-h3;
+  @include h3;
   margin-top: 0;
 
   @include at-media('mobile-lg') {
-    margin-top: 1rem;
+    @include u-margin-y(0.5);
   }
 }
 
@@ -280,68 +260,47 @@
 
 // Medium footer styles
 
-.usa-footer-medium {
-  .usa-footer-contact-heading {
-    margin-top: 0;
-
-    @include at-media('mobile-lg') {
-      margin-top: units(0.5);
-      margin-bottom: units(0.5);
-    }
-  }
-}
-
 // Big footer styles
 
-.usa-footer-big-secondary-section {
-  @include at-media('mobile-lg') {
-    padding-top: units(2.5);
-    padding-bottom: units(2.5);
-  }
-}
-
-.usa-footer-big-logo-img {
-  max-width: 10rem;
-}
-
-.usa-footer-big-logo-heading {
-  margin-top: units(2);
-
-  @include at-media('mobile-lg') {
-    margin-top: units(2.5);
-  }
-}
-
 .usa-footer-big {
+  .usa-footer-nav {
+    @include u-margin-x($theme-site-margins-mobile * -1);
+  }
+
+  .usa-footer-primary-link {
+    @include h4;
+    @include u-margin-y(0);
+    line-height: line-height('heading', 2);
+    text-decoration: none;
+  }
+
   .usa-footer-collapsible {
-    border-top: 1px solid color('base-light');
-
-    @include at-media('mobile-lg') {
-      border-top: none;
-    }
-
-    &:last-child {
-      border-bottom: 1px solid color('base-light');
+    .usa-footer-primary-link {
+      background-image: url('#{$theme-image-path}/arrow-down.png');
+      background-image: url('#{$theme-image-path}/arrow-down.svg');
+      background-position: units(2) center;
+      background-repeat: no-repeat;
+      background-size: units(1.5);
+      margin-bottom: 0;
+      margin-left: 0;
+      padding-left: units(4);
 
       @include at-media('mobile-lg') {
-        border-bottom: none;
+        background: none;
+        margin-bottom: units(1);
+        padding-left: 0;
       }
     }
 
     &.hidden {
       ul {
-        padding-bottom: 0;
-      }
-
-      li {
         display: none;
       }
 
-      .usa-footer-primary-link { /* stylelint-disable-line selector-no-qualifying-type */
+      .usa-footer-primary-link {
         background-image: url('#{$theme-image-path}/arrow-right.png');
         background-image: url('#{$theme-image-path}/arrow-right.svg');
         cursor: pointer;
-        display: block;
 
         @include at-media('mobile-lg') {
           background: none;
@@ -350,26 +309,31 @@
       }
     }
 
-    .usa-footer-primary-link {
-      background-image: url('#{$theme-image-path}/arrow-down.png');
-      background-image: url('#{$theme-image-path}/arrow-down.svg');
-      background-position: 1.5rem center;
-      background-repeat: no-repeat;
-      background-size: 1.3rem;
-      margin-bottom: 0;
-      margin-left: 0;
-      padding-left: 3.5rem;
+    .usa-unstyled-list {
+      @include u-padding-x($theme-site-margins-mobile)
+      padding-bottom: units(2.5);
 
       @include at-media('mobile-lg') {
-        background: none;
-        margin-bottom: .8rem;
         padding-bottom: 0;
-        padding-left: 0;
       }
+    }
+  }
 
-      > * {
-        @include margin(0 null);
-      }
+  .usa-footer-secondary-link  {
+    line-height: line-height($theme-font-family-footer, 2);
+    margin: 0;
+    padding: 0;
+
+    & + .usa-footer-secondary-link {
+      padding-top: units(2);
+    }
+  }
+
+  .usa-footer-secondary-section {
+    //TODO: orly?
+    @include at-media('mobile-lg') {
+      padding-top: units(2.5);
+      padding-bottom: units(2.5);
     }
   }
 
@@ -388,53 +352,6 @@
   .usa-footer-contact-links {
     @include at-media('mobile-lg') {
       padding-top: units(2.5);
-    }
-  }
-
-  .usa-footer-primary-section {
-    @include at-media('mobile-lg') {
-      padding-bottom: 4rem;
-      padding-top: 3rem;
-    }
-
-    > .usa-grid {
-      padding: 0;
-
-      @include at-media('mobile-lg') {
-        padding-left: units(4);
-        padding-right: units(4);
-      }
-    }
-
-    .usa-footer-primary-content {
-      padding-left: 0;
-      padding-right: 0;
-
-      li {
-        margin-left: units(2);
-
-        @include at-media('mobile-lg') {
-          margin-left: 0;
-        }
-      }
-
-      .usa-footer-primary-link {
-        margin-left: 0;
-      }
-    }
-  }
-
-  ul {
-    padding-bottom: 2.4rem;
-
-    @include at-media('mobile-lg') {
-      padding-bottom: 0;
-    }
-
-    li:not(.usa-footer-primary-link) {
-      line-height: $heading-line-height;
-      padding-bottom: 0.35em;
-      padding-top: 0.35em;
     }
   }
 }
