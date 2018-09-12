@@ -261,33 +261,24 @@
 
   .usa-footer-primary-link {
     @include h4;
-    @include u-margin-y(0);
+    background-image: url('#{$theme-image-path}/arrow-down.png');
+    background-image: url('#{$theme-image-path}/arrow-down.svg');
+    background-position: units(2) center;
+    background-repeat: no-repeat;
+    background-size: units(1.5);
     line-height: line-height('heading', 2);
-    text-decoration: none;
+    margin: 0;
+    padding-left: units(4);
 
     @include at-media('mobile-lg') {
       @include u-padding-y(0);
+      background: none;
+      margin-bottom: units(1);
+      padding-left: 0;
     }
   }
 
   .usa-footer-collapsible {
-    .usa-footer-primary-link {
-      background-image: url('#{$theme-image-path}/arrow-down.png');
-      background-image: url('#{$theme-image-path}/arrow-down.svg');
-      background-position: units(2) center;
-      background-repeat: no-repeat;
-      background-size: units(1.5);
-      margin-bottom: 0;
-      margin-left: 0;
-      padding-left: units(4);
-
-      @include at-media('mobile-lg') {
-        background: none;
-        margin-bottom: units(1);
-        padding-left: 0;
-      }
-    }
-
     &.hidden {
       .usa-unstyled-list {
         display: none;
