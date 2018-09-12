@@ -1,37 +1,43 @@
-$usa-form-width: 32rem;
+// TODO: in general, what's the boundary between this and elements/inputs?
 
+$usa-form-max-width: 'mobile';
+
+// TODO: what's this?
 [type=submit] {
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     margin-top: calc(3rem - .2em); // Label margin minus input bottom margin
   }
 }
 
-fieldset {
+.usa-fieldset {
   border: none;
   margin: 0;
   padding: 0;
 }
 
 .usa-form {
-  @include media($medium-screen) {
-    max-width: $usa-form-width;
+  @include at-media('mobile-lg') {
+    max-width: $usa-form-max-width;
   }
 }
 
 .usa-input-tiny {
-  @include media($medium-screen) {
-    max-width: 6rem;
+  @include at-media('mobile-lg') {
+    max-width: units(8);
   }
 }
 
 .usa-input-medium {
-  @include media($medium-screen) {
-    max-width: 12rem;
+  @include at-media('mobile-lg') {
+    max-width: units(15);
   }
 }
 
+//TODO: floats raise red flags
+//How is this used?
 .usa-form-note {
   float: right;
+  //TODO: do we need to be calling out font families in a typeset component?
   font-family: $font-sans;
   font-size: $h5-font-size;
   margin: 0 0 1.5rem;
@@ -42,25 +48,29 @@ fieldset {
 }
 
 .usa-form-large {
-  @include media($medium-screen) {
-    max-width: 46rem;
+  @include at-media('mobile-lg') {
+    max-width: units('mobile-lg');
   }
 }
 
+// TODO: candidate for deprecation
 .usa-input-grid {
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     padding-right: 5%;
   }
 }
 
+// TODO: candidate for deprecation
+// What are all these grid classes? Necessary?
 .usa-input-grid:last-of-type {
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     padding-right: 0;
   }
 }
 
+// TODO: candidate for deprecation
 .usa-input-grid-small {
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     float: left;
     width: 35%;
   }
@@ -74,8 +84,9 @@ fieldset {
   }
 }
 
+// TODO: candidate for deprecation
 .usa-input-grid-medium {
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     float: left;
     width: 65%;
   }
@@ -90,7 +101,7 @@ fieldset {
 }
 
 .usa-input-grid-large {
-  @include media($medium-screen) {
+  @include at-media('mobile-lg') {
     float: left;
     width: 100%;
   }
@@ -104,12 +115,13 @@ fieldset {
   }
 }
 
+//TODO: use of underscores
 .usa-additional_text {
   font-weight: normal;
 }
 
 // Reset password checklist
-
+// TODO: huh, what's this?
 .usa-checklist {
   list-style: none;
   margin-left: 0;
@@ -133,8 +145,10 @@ fieldset {
   }
 }
 
+//TODO: why is this here and not with the checklist input?
 .usa-checklist-checked {
   &::before {
+    //TODO seems like a background mixin could be useful?
     background-image: url('#{$theme-image-path}/correct9.png');
     background-image: url('#{$theme-image-path}/correct9.svg');
     background-position: 100%;
