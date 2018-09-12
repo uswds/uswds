@@ -105,7 +105,7 @@
   }
 
   .usa-button {
-    margin-top: units(1.5)
+    margin-top: units(1.5);
   }
 }
 
@@ -310,7 +310,7 @@
     }
 
     .usa-unstyled-list {
-      @include u-padding-x($theme-site-margins-mobile)
+      @include u-padding-x($theme-site-margins-mobile);
       padding-bottom: units(2.5);
 
       @include at-media('mobile-lg') {
@@ -319,7 +319,7 @@
     }
   }
 
-  .usa-footer-secondary-link  {
+  .usa-footer-secondary-link {
     line-height: line-height($theme-font-family-footer, 2);
     margin: 0;
     padding: 0;
