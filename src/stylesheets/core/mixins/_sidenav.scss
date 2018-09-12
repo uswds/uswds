@@ -1,3 +1,6 @@
+$sidenav-child-padding-left: units($theme-site-margins-mobile) + units(1.5);
+$sidenav-grandchild-padding-left: units($theme-site-margins-mobile) + units(1.5) * 2;
+
 @mixin usa-sidenav-list {
   @include unstyled-list();
 
@@ -30,19 +33,22 @@
       outline-offset: 0;
       position: relative;
     }
+  }
 
-    &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
-      border-left: $sidenav-current-border-width solid color('primary');
-      color: color('primary');
-      font-weight: font-weight('bold');
-      padding-left: units($theme-site-margins-mobile) - $sidenav-current-border-width;
-    }
+  .usa-current {
+    border-left: $sidenav-current-border-width solid color('primary');
+    color: color('primary');
+    font-weight: font-weight('bold');
+    padding-left: units($theme-site-margins-mobile) - $sidenav-current-border-width;
   }
 }
 
+@mixin usa-sidenav-sublist-no-border {
+  border: none;
+  padding-left: $sidenav-child-padding-left;
+}
+
 @mixin usa-sidenav-sublist {
-  $sidenav-child-padding-left: units($theme-site-margins-mobile) + units(1.5);
-  $sidenav-grandchild-padding-left: units($theme-site-margins-mobile) + units(1.5) * 2;
   @include unstyled-list();
   margin: 0;
   width: 100%;
@@ -56,11 +62,13 @@
     padding-left: $sidenav-child-padding-left;
     line-height: line-height($theme-font-family-sidenav, 3);
 
-    &:hover,
-    &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
-      border: none;
-      padding-left: $sidenav-child-padding-left;
+    &:hover {
+      @include usa-sidenav-sublist-no-border;
     }
+  }
+
+  .usa-current {
+    @include usa-sidenav-sublist-no-border;
   }
 
   .usa-sidenav-sub_list {
