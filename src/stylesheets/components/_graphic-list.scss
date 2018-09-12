@@ -5,10 +5,10 @@
 
   .usa-graphic_list-row {
     .usa-media_block {
-      margin-bottom: units($theme-site-margins);
+      margin-bottom: units(4);
 
       @include at-media(tablet) {
-        margin-bottom: units($theme-site-margins) * 2;
+        margin-bottom: units(8);
       }
     }
 
