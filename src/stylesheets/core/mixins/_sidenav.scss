@@ -36,10 +36,10 @@ $sidenav-grandchild-padding-left: units($theme-site-margins-mobile) + units(1.5)
   }
 
   .usa-current {
-    border-left: $sidenav-current-border-width solid color('primary');
+    border-left: units($sidenav-current-border-width) solid color('primary');
     color: color('primary');
     font-weight: font-weight('bold');
-    padding-left: units($theme-site-margins-mobile) - $sidenav-current-border-width;
+    padding-left: units($theme-site-margins-mobile) - units($sidenav-current-border-width);
   }
 }
 
