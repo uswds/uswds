@@ -31,13 +31,13 @@
 
 .usa-footer-primary-content {
   line-height: line-height($theme-font-family-footer, 2);
+}
 
-  li {
-    margin-left: units(1);
-
-    @include at-media('mobile-lg') {
-      margin-left: 0;
-    }
+.usa-footer-primary-link a,
+.usa-footer-secondary-link a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
   }
 }
 
@@ -54,26 +54,20 @@
   &:hover {
     cursor: pointer;
     text-decoration: underline;
-
-    @include at-media('mobile-lg') {
-      cursor: auto;
-      text-decoration: none;
-    }
   }
-}
-
-.usa-footer-primary-link a,
-.usa-footer-secondary-link a {
-  text-decoration: none;
 }
 
 .usa-footer-secondary-link {
   line-height: line-height($theme-font-family-footer, 2);
-  margin: 0;
+  margin: 0 0 0 units(1);
   padding: 0;
 
   & + .usa-footer-secondary-link {
     padding-top: units(2);
+  }
+
+  @include at-media('mobile-lg') {
+    margin-left: 0;
   }
 }
 
