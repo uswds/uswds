@@ -17,7 +17,6 @@
 
 .usa-hero-content {
   @include u-margin-y(2);
-
   @include at-media('mobile-lg') {
     @include u-margin-y(3);
   }
