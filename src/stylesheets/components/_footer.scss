@@ -291,11 +291,6 @@
     &.hidden {
       .usa-unstyled-list {
         display: none;
-
-        // TODO: Kludge until js is fixed
-        @include at-media('mobile-lg') {
-          display: block;
-        }
       }
 
       .usa-footer-primary-link {
