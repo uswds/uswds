@@ -13,7 +13,10 @@
 .usa-hero-callout {
   background-color: color('primary-darker');
   padding: units(4);
-  max-width: units('mobile');
+  
+  @include at-media('tablet') {
+    max-width: units('mobile');
+  }
 }
 
 .usa-hero-content {
