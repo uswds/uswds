@@ -1,17 +1,17 @@
 .usa-sidenav-list {
   @include usa-sidenav-list;
-  border-bottom: 1px solid;
-  border-top: 1px solid;
+  border-bottom: units(1px) solid;
+  border-top: units(1px) solid;
 
-  @include media($large-screen) {
+  @include at-media(desktop) {
     border-bottom: none;
     border-top: none;
   }
 
-  .usa-grid & {
+  .grid-container & {
     @include u-margin-x(-$site-margins-mobile);
 
-    @include media($medium-screen) {
+    @include at-media(tablet) {
       @include u-margin-x(0);
     }
   }
@@ -22,9 +22,9 @@
 }
 
 .usa-layout-docs-sidenav {
-  padding-top: 2.4rem;
+  padding-top: units(3);
 
-  @include media($large-screen) {
+  @include at-media(desktop) {
     padding-top: 0;
   }
 }

@@ -119,3 +119,5 @@ $theme-site-margins-mobile: 2 !default; // was 1.5rem
 
 $theme-nav-width:           'desktop' !default; // was 951px
 $theme-site-max-width:      'desktop' !default; // was 1040px
+
+$sidenav-current-border-width:  0.5 !default; // must be in rem for math
