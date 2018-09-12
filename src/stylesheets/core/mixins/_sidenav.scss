@@ -16,7 +16,7 @@
     color: color('base-dark');
     display: block;
     font-family: font-family('body');
-    line-height: line-height($theme-font-family-base, 3);
+    line-height: line-height($theme-font-family-sidenav, 3);
     padding: units(1) units($theme-site-margins-mobile);
     text-decoration: none;
 
@@ -55,7 +55,7 @@
 
   a {
     padding-left: $sidenav-child-padding-left;
-    line-height: line-height($theme-font-family-base, 3);
+    line-height: line-height($theme-font-family-sidenav, 3);
 
     &:hover,
     &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
