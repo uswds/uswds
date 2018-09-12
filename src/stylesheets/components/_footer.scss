@@ -279,6 +279,11 @@
       background: none;
       margin-bottom: units(1);
       padding-left: 0;
+
+      &:hover {
+        cursor: auto;
+        text-decoration: none;
+      }
     }
   }
 
