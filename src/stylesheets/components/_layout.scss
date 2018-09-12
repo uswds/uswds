@@ -1,7 +1,7 @@
 // Flexbox positioning to move sidenav below main content on small screens
 .usa-layout-docs-sidenav {
   order: 2;
-  padding-top: units(6);
+  padding-top: units(4);
 
   @include at-media('desktop') {
     padding-top: 0;
