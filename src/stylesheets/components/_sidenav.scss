@@ -20,11 +20,3 @@
 .usa-sidenav-sub_list {
   @include usa-sidenav-sublist;
 }
-
-.usa-layout-docs-sidenav {
-  padding-top: units(3);
-
-  @include at-media(desktop) {
-    padding-top: 0;
-  }
-}
