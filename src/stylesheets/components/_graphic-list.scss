@@ -1,18 +1,20 @@
 // A collection of media block objects
 
 .usa-graphic_list {
+  @include typeset;
+
   .usa-graphic_list-row {
     .usa-media_block {
-      margin-bottom: $site-margins;
+      margin-bottom: units(4);
 
-      @include media($medium-screen) {
-        margin-bottom: $site-margins * 2;
+      @include at-media('tablet') {
+        margin-bottom: units(8);
       }
     }
 
     &:last-child {
       .usa-media_block {
-        @include media($medium-screen) {
+        @include at-media('tablet') {
           margin-bottom: 0;
         }
 
@@ -24,7 +26,7 @@
   }
 
   .usa-media_block-img {
-    margin-right: $site-margins;
+    margin-right: units(3);
   }
 
   .usa-media_block-body {
@@ -32,4 +34,8 @@
       margin-top: 0;
     }
   }
+}
+
+.usa-graphic_list-heading {
+  @include typeset-h3;
 }
