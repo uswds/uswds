@@ -2,36 +2,41 @@
 // ==========================
 
 .usa-hero {
-  @include u-padding-y($site-margins);
+  @include typeset;
+  @include u-padding-y($theme-site-margins);
   background-image: url('#{$theme-image-path}/hero.png');
   background-position: center;
   background-size: cover;
-
-  .usa-button {
-    color: $color-white;
-  }
-}
-
-.usa-section-dark {
-  .usa-hero-link {
-    color: $color-primary-alt;
-  }
+  color: color('white');
 }
 
 .usa-hero-callout {
-  background-color: $color-primary-darkest;
-  padding: 3rem;
+  background-color: color('primary-darker');
+  padding: units(4);
 
-  @include media($small-screen) {
-    max-width: 30rem;
-  }
-
-  > *:first-child {
-    @include margin(0 null $spacing-medium null);
+  @include at-media('tablet') {
+    max-width: units('mobile');
   }
 }
 
+.usa-hero-content {
+  @include u-margin-y(2);
+  @include at-media('mobile-lg') {
+    @include u-margin-y(3);
+  }
+
+  p {
+    @include typeset-p;
+  }
+}
+
+.usa-hero-heading {
+  @include typeset-h2;
+  color: color('accent-cool');
+  line-height: line-height('heading', 2);
+}
+
 .usa-hero-callout-alt {
-  color: $color-white;
+  color: color('white');
   display: block;
 }
