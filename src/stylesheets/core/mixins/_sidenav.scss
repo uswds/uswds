@@ -29,7 +29,6 @@
     &:focus {
       outline-offset: 0;
       position: relative;
-      z-index: z-index(100);
     }
 
     &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
