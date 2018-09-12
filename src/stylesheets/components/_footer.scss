@@ -10,7 +10,6 @@
   line-height: line-height($theme-font-family-footer, 1);
 }
 
-// TODO: can I use a regular grid-container and then use neg margin at mobile to make it all work? code would be cleaner and more consistent.
 .usa-footer-nav {
   @include u-margin-x('auto');
   @include u-padding-x(0);
@@ -66,7 +65,7 @@
   }
 }
 
-.usa-footer-primary-link ~ li a,
+.usa-footer-primary-link a,
 .usa-footer-secondary-link a {
   text-decoration: none;
 }
@@ -111,11 +110,8 @@
 
 // TODO: all these styles needed?
 .usa-sign_up-header {
-  @include typeset-h3;
-  @include at-media('mobile-lg') {
-    @include u-padding-y(2);
-    margin: 0;
-  }
+  @include h3;
+  margin: 0;
 }
 
 .usa-footer-secondary-section {
@@ -258,13 +254,20 @@
   }
 }
 
-// Medium footer styles
-
 // Big footer styles
 
 .usa-footer-big {
   .usa-footer-nav {
     @include u-margin-x($theme-site-margins-mobile * -1);
+    @include at-media('mobile-lg') {
+      border-bottom: 1px solid color('base-light');
+      padding-top: units(4);
+    }
+    @include at-media('tablet') {
+      @include u-margin-x(0);
+      @include u-padding-x(0);
+      border-bottom: none;
+    }
   }
 
   .usa-footer-primary-link {
@@ -272,6 +275,10 @@
     @include u-margin-y(0);
     line-height: line-height('heading', 2);
     text-decoration: none;
+
+    @include at-media('mobile-lg') {
+      @include u-padding-y(0);
+    }
   }
 
   .usa-footer-collapsible {
@@ -293,8 +300,13 @@
     }
 
     &.hidden {
-      ul {
+      .usa-unstyled-list {
         display: none;
+
+        // TODO: Kludge until js is fixed
+        @include at-media('mobile-lg') {
+          display: block;
+        }
       }
 
       .usa-footer-primary-link {
@@ -304,6 +316,7 @@
 
         @include at-media('mobile-lg') {
           background: none;
+          margin: 0;
           padding-left: 0;
         }
       }
@@ -314,7 +327,9 @@
       padding-bottom: units(2.5);
 
       @include at-media('mobile-lg') {
-        padding-bottom: 0;
+        @include u-padding-x(0);
+        padding-bottom: units(4);
+        padding-top: units(1.5);
       }
     }
   }
@@ -326,32 +341,6 @@
 
     & + .usa-footer-secondary-link {
       padding-top: units(2);
-    }
-  }
-
-  .usa-footer-secondary-section {
-    //TODO: orly?
-    @include at-media('mobile-lg') {
-      padding-top: units(2.5);
-      padding-bottom: units(2.5);
-    }
-  }
-
-  .usa-footer-contact_info {
-    display: block;
-
-    p {
-      margin: 0 units(1) 0 0;
-
-      @include at-media('mobile-lg') {
-        margin: units(0.5) 0 0 units(1);
-      }
-    }
-  }
-
-  .usa-footer-contact-links {
-    @include at-media('mobile-lg') {
-      padding-top: units(2.5);
     }
   }
 }
