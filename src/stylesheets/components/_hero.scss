@@ -3,44 +3,38 @@
 
 .usa-hero {
   @include typeset;
-  @include u-padding-y(units($theme-site-margins));
+  @include u-padding-y($theme-site-margins);
   background-image: url('#{$theme-image-path}/hero.png');
   background-position: center;
   background-size: cover;
-
-  .usa-button {
-    color: color('white');
-  }
-
-  p {
-    @include typeset-p;
-  }
 }
 
-.usa-section-dark {
-  .usa-hero-link {
-    color: color('accent-cool');
-  }
+.usa-hero-link {
+  color: color('accent-cool');
 }
 
 .usa-hero-callout {
   background-color: color('primary-darker');
   padding: units(4);
+  max-width: units('mobile');
+}
 
-  @include at-media('mobile-lg') {
-    max-width: 30rem;
-  }
+.usa-hero-content {
+  @include u-margin-y(3);
 
-  > *:first-child {
-    margin-top: 0;
+  p {
+    @include typeset-p;
+    color: color('white');
   }
+}
+
+.usa-hero-heading {
+  @include typeset-h2;
+  color: color('accent-cool');
+  line-height: line-height('heading', 2);
 }
 
 .usa-hero-callout-alt {
   color: color('white');
   display: block;
-}
-
-.usa-hero-heading {
-  @include h2;
 }
