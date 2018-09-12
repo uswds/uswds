@@ -92,14 +92,7 @@
   padding-bottom: units(4);
   padding-top: units(3);
 
-  .usa-label {
-    margin-top: units(1.5);
-  }
-
-  * + .usa-label {
-    margin-top: units(1.5);
-  }
-
+  .usa-label,
   .usa-button {
     margin-top: units(1.5);
   }
