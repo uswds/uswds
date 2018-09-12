@@ -9,10 +9,6 @@
   background-size: cover;
 }
 
-.usa-hero-link {
-  color: color('accent-cool');
-}
-
 .usa-hero-callout {
   background-color: color('primary-darker');
   padding: units(4);
@@ -20,7 +16,11 @@
 }
 
 .usa-hero-content {
-  @include u-margin-y(3);
+  @include u-margin-y(2);
+
+  @include at-media('mobile-lg') {
+    @include u-margin-y(3);
+  }
 
   p {
     @include typeset-p;
