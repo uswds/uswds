@@ -29,7 +29,6 @@
   background-color: color('base-lightest');
 }
 
-// TODO: usage in big footer? i don't get it yet.
 .usa-footer-primary-content {
   line-height: line-height($theme-font-family-footer, 2);
 
@@ -50,8 +49,6 @@
 
   @include at-media('mobile-lg') {
     @include u-padding-x(0);
-    // TODO: where is this border coming from? necessary?
-    border-top: none;
   }
 
   &:hover {
@@ -108,7 +105,6 @@
   }
 }
 
-// TODO: all these styles needed?
 .usa-sign_up-header {
   @include h3;
   margin: 0;
