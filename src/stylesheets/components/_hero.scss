@@ -7,6 +7,7 @@
   background-image: url('#{$theme-image-path}/hero.png');
   background-position: center;
   background-size: cover;
+  color: color('white');
 }
 
 .usa-hero-callout {
@@ -23,7 +24,6 @@
 
   p {
     @include typeset-p;
-    color: color('white');
   }
 }
 
