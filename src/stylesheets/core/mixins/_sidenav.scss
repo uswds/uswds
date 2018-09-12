@@ -4,7 +4,7 @@
   > li {
     background-color: transparent;
     border-top: units(1px) solid color('base-dark');
-    font-size: scale('body', 5);
+    font-size: scale('body', 'sm');
 
     &:first-child {
       border-top: none;
@@ -50,7 +50,7 @@
 
   li {
     border: none;
-    font-size: scale('body', 3);
+    font-size: scale('body', 'xs');
   }
 
   a {
