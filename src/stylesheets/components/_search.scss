@@ -14,8 +14,7 @@
     display: flex;
   }
 
-  [type=submit],
-  .usa-search-submit {
+  [type=submit] {
     @include search-icon;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
