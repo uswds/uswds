@@ -1,6 +1,6 @@
 // $usa-btn-small-width is in core/variables.scss
-$usa-btn-medium-width:  8.5rem;
-$usa-btn-big-width:     11.6rem;
+$usa-btn-medium-width:  units(10);
+$usa-btn-big-width:     units(15);
 
 @mixin search-icon {
   background-image: url('#{$theme-image-path}/search.png');
@@ -11,6 +11,7 @@ $usa-btn-big-width:     11.6rem;
 
 .usa-search {
   @include clearfix;
+  @include typeset;
   max-width: none;
   position: relative;
 
@@ -19,7 +20,7 @@ $usa-btn-big-width:     11.6rem;
     @include search-icon;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
-    height: 3.3rem;
+    height: units(4);
     margin: 0;
     padding: 0;
     width: $usa-btn-small-width;
@@ -32,19 +33,19 @@ $usa-btn-big-width:     11.6rem;
 
   &.usa-search-big {
     @include at-media(mobile-lg) {
-      $height: 4.4rem;
+      $height: units(6);
       $width: $usa-btn-big-width;
 
       [type=search],
       .usa-search-input {
-        font-size: $base-font-size;
+        font-size: scale($theme-font-family-search, 'sm');
         height: $height;
         width: calc(100% - #{$width});
       }
 
       [type=submit],
       .usa-search-submit {
-        font-size: $h3-font-size;
+        font-size: scale($theme-font-family-search, 'lg');
         height: $height;
         width: $width;
       }
@@ -92,8 +93,8 @@ input[type=search] { /* stylelint-disable-line selector-no-qualifying-type */
   border-top-right-radius: 0;
   box-sizing: border-box;
   float: left;
-  font-size: $small-font-size;
-  height: 3.3rem;
+  font-size: scale($theme-font-family-search, 'xs');
+  height: units(4);
   margin: 0;
   width: calc(100% - #{$usa-btn-small-width});
 
