@@ -1,6 +1,3 @@
-// TODO: in general, what's the boundary between this and elements/inputs?
-// Why are they not the same?
-
 .usa-form {
   @include typeset(
     $theme-font-family-forms,
@@ -18,7 +15,7 @@
   .usa-range,
   .usa-select,
   .usa-textarea {
-    // max width not needed since form has one of its own
+    // max width not needed since .usa-form has one of its own
     max-width: none;
   }
 
@@ -49,99 +46,4 @@
   @include typeset($theme-font-family-forms, 'xs', 3);
   margin: 0 0 units(2);
   text-align: right;
-}
-
-// TODO: candidate for deprecation
-.usa-input-grid-small {
-  @include at-media('mobile-lg') {
-    float: left;
-    width: 35%;
-  }
-
-  input {
-    margin-bottom: 3rem;
-  }
-
-  select {
-    margin-bottom: 3rem;
-  }
-}
-
-// TODO: candidate for deprecation
-.usa-input-grid-medium {
-  @include at-media('mobile-lg') {
-    float: left;
-    width: 65%;
-  }
-
-  // TODO: what's the point of these special margins?
-  input {
-    margin-bottom: 3rem;
-  }
-
-  select {
-    margin-bottom: 3rem;
-  }
-}
-
-// TODO: candidate for deprecation
-.usa-input-grid-large {
-  @include at-media('mobile-lg') {
-    float: left;
-    width: 100%;
-  }
-
-  // TODO: why not combine these?
-  // TODO: what's the point of these special margins?
-  input {
-    margin-bottom: 3rem;
-  }
-
-  select {
-    margin-bottom: 3rem;
-  }
-}
-
-// TODO: use of underscores: kinda wish we didn't use them. The BEM benefit doesn't make up for their ugliness
-.usa-additional_text {
-  font-weight: normal;
-}
-
-// Reset password checklist
-// TODO: huh, what's this?
-// Seems like a really low-value use for this potentially valuable name
-.usa-checklist {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-
-  li {
-    display: inline-block;
-    list-style: none;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-left: 3em;
-    text-indent: -2em;
-
-    // TODO: huh, what's this?
-    &::before {
-      content: ' ';
-      display: inline-block;
-      height: .8em;
-      margin-right: .2em;
-      width: 1.8em;
-    }
-  }
-}
-
-// TODO: why is this here and not with the checklist input?
-.usa-checklist-checked {
-  &::before {
-    // TODO seems like a background mixin could be useful?
-    background-image: url('#{$theme-image-path}/correct9.png');
-    background-image: url('#{$theme-image-path}/correct9.svg');
-    background-position: 100%;
-    background-repeat: no-repeat;
-    background-size: 100%;
-  }
 }
