@@ -334,11 +334,8 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 // Memorable dates
 
-.usa-memorable-date { /* stylelint-disable-line */
-  .usa-label {
-    margin-top: 0;
-  }
-
+.usa-memorable-date {
+  display: flex;
   [type=number] {
     -moz-appearance: textfield;
 
@@ -360,8 +357,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 .usa-form-group-day,
 .usa-form-group-month,
 .usa-form-group-year {
-  clear: none;
-  float: left;
+  @include u-flex(auto);
   margin-right: units(2);
   width: units(6);
 }
