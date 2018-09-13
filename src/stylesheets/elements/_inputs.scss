@@ -36,20 +36,27 @@ $input-height: floor($input-height-exact * 10) / 10;
 .usa-textarea,
 .usa-select,
 .usa-range {
-  @include u-border(1px, 'base-dark');
+  @include u-border(2px, 'base-light');
   appearance: none;
-  border-radius: 0;
+  border-radius: radius('sm');
   box-sizing: border-box;
   color: color('ink'); // standardize on firefox
   display: block;
+  font-weight: font-weight('bold');
   height: $input-height;
-  margin-top: units(1);
+  margin-top: units(0.5);
   max-width: $input-max-width;
   padding: $input-padding-vertical units(1);
   width: 100%;
 
   &.usa-input-success {
     @include u-border($input-state-border, 'success');
+  }
+
+  &:focus {
+    @include u-shadow(2);
+    outline: none;
+    border-color: color('primary-vivid');
   }
 }
 
@@ -96,6 +103,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-label {
   display: block;
+  font-size: scale($theme-font-family-forms, 'xs');
   line-height: line-height($theme-font-family-forms, 2);
   margin-top: units(3);
   max-width: $input-max-width;
