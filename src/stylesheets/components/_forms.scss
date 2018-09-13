@@ -4,13 +4,6 @@
 // TODO: what's the point of this var? where else is it used?
 $usa-form-max-width: 'mobile';
 
-// TODO: is there a better way to do this?
-[type=submit] {
-  @include at-media('mobile-lg') {
-    margin-top: calc(3rem - .2em); // Label margin minus input bottom margin
-  }
-}
-
 // TODO: any other fieldsets in rotation? Why is there a different fieldset for inputs?
 .usa-fieldset,
 .usa-fieldset-inputs {
@@ -22,6 +15,12 @@ $usa-form-max-width: 'mobile';
 .usa-form {
   @include at-media('mobile-lg') {
     max-width: $usa-form-max-width;
+  }
+
+  .usa-button {
+    @include at-media('mobile-lg') {
+      margin-top: units(2)
+    }
   }
 }
 
