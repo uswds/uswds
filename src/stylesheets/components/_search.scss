@@ -1,7 +1,3 @@
-// $usa-btn-small-width is in core/variables.scss
-$usa-btn-medium-width:  units(10);
-$usa-btn-big-width:     units(15);
-
 @mixin search-icon {
   background-image: url('#{$theme-image-path}/search.png');
   background-image: url('#{$theme-image-path}/search.svg');
@@ -38,7 +34,6 @@ $usa-btn-big-width:     units(15);
 
 .usa-search-big {
   $height: units(6);
-  $width: $usa-btn-big-width;
 
   @include at-media(mobile-lg) {
     [type=search],
