@@ -14,6 +14,11 @@ $usa-btn-big-width:     units(15);
   @include typeset;
   max-width: none;
   position: relative;
+  width: inherit;
+
+  [role=search] {
+    display: flex;
+  }
 
   [type=submit],
   .usa-search-submit {
@@ -26,55 +31,50 @@ $usa-btn-big-width:     units(15);
     width: $usa-btn-small-width;
 
     @include at-media(mobile-lg) {
+      @include u-padding-x(2);
       background-image: none;
-      width: $usa-btn-medium-width;
+      width: auto;
+    }
+  }
+}
+
+.usa-search-big {
+  @include at-media(mobile-lg) {
+    $height: units(6);
+    $width: $usa-btn-big-width;
+
+    [type=search],
+    .usa-search-input {
+      font-size: scale($theme-font-family-search, 'sm');
+      height: $height;
+    }
+
+    [type=submit],
+    .usa-search-submit {
+      @include u-padding-x(4);
+      font-size: scale($theme-font-family-search, 'lg');
+      height: $height;
+      width: auto;
+    }
+  }
+}
+
+.usa-search-small {
+  $width: $usa-btn-small-width;
+  $lt-nav-width: rem-to-px($nav-width) - 1px;
+
+  @include at-media(mobile-lg) {
+    [type=submit],
+    .usa-search-submit {
+      @include search-icon;
+      width: $width;
     }
   }
 
-  &.usa-search-big {
-    @include at-media(mobile-lg) {
-      $height: units(6);
-      $width: $usa-btn-big-width;
-
-      [type=search],
-      .usa-search-input {
-        font-size: scale($theme-font-family-search, 'sm');
-        height: $height;
-        width: calc(100% - #{$width});
-      }
-
-      [type=submit],
-      .usa-search-submit {
-        font-size: scale($theme-font-family-search, 'lg');
-        height: $height;
-        width: $width;
-      }
-    }
-  }
-
-  &.usa-search-small {
-    @include at-media(mobile-lg) {
-      $width: $usa-btn-small-width;
-
-      [type=search],
-      .usa-search-input {
-        width: calc(100% - #{$width});
-      }
-
-      [type=submit],
-      .usa-search-submit {
-        @include search-icon;
-        width: $width;
-      }
-    }
-
-    $lt-nav-width: rem-to-px($nav-width) - 1px;
-
-    @media screen and (max-width: $lt-nav-width) {
-      &.usa-sr-only {
-        left: auto;
-        position: relative;
-      }
+  @media screen and (max-width: $lt-nav-width) {
+    &.usa-sr-only {
+      left: auto;
+      position: relative;
     }
   }
 }
@@ -96,11 +96,6 @@ input[type=search] { /* stylelint-disable-line selector-no-qualifying-type */
   font-size: scale($theme-font-family-search, 'xs');
   height: units(4);
   margin: 0;
-  width: calc(100% - #{$usa-btn-small-width});
-
-  @include at-media(mobile-lg) {
-    width: calc(100% - #{$usa-btn-medium-width});
-  }
 }
 
 .usa-search-submit-text {
