@@ -12,9 +12,7 @@ $usa-btn-big-width:     units(15);
 .usa-search {
   @include clearfix;
   @include typeset;
-  max-width: none;
   position: relative;
-  width: inherit;
 
   [role=search] {
     display: flex;
@@ -39,10 +37,10 @@ $usa-btn-big-width:     units(15);
 }
 
 .usa-search-big {
-  @include at-media(mobile-lg) {
-    $height: units(6);
-    $width: $usa-btn-big-width;
+  $height: units(6);
+  $width: $usa-btn-big-width;
 
+  @include at-media(mobile-lg) {
     [type=search],
     .usa-search-input {
       font-size: scale($theme-font-family-search, 'sm');
