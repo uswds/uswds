@@ -10,7 +10,7 @@ const NAV = `${SCOPE} nav`;
 const BUTTON = `${NAV} .${PREFIX}-footer-primary-link`;
 const COLLAPSIBLE = `.${PREFIX}-footer-collapsible`;
 
-const HIDE_MAX_WIDTH = 600;
+const HIDE_MAX_WIDTH = 480;
 const DEBOUNCE_RATE = 180;
 
 function showPanel() {

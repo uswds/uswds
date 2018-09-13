@@ -4,8 +4,8 @@ status: ready
 context:
   hero:
     callout: 'Hero callout:'
-    title: Call attention to a current priority
-    paragraph: Support the callout with some short explanatory text. You don't need more than a couple of sentences.
+    title: Bring attention to a project priority
+    paragraph: Support the callout with some short explanatory text. You don’t need more than a couple of sentences.
     button:
-      text: Learn about what we do
+      text: Call to action
       href: 'javascript:void(0)'
