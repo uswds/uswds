@@ -4,11 +4,11 @@
     <div class="usa-alert usa-alert-info">
       <div class="usa-alert-body">
         <h3 class="usa-alert-heading">Codes must:</h3>
+        <ul class="usa-checklist" id="validate-code">
+          <li class="usa-checklist-item is-checked" data-validator="uppercase">Have at least 1 uppercase character</li>
+          <li class="usa-checklist-item" data-validator="numerical">Have at least 1 numerical character</li>
+        </ul>
       </div>
-      <ul class="usa-checklist" id="validate-code">
-        <li data-validator="uppercase">Have at least 1 uppercase character</li>
-        <li data-validator="numerical">Have at least 1 numerical character</li>
-      </ul>
     </div>
     <label class="usa-label" for="code">Code</label>
     <input class="usa-input" id="code" name="code" type="text"
