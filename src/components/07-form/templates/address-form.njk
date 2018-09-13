@@ -1,4 +1,4 @@
-<form class="usa-form-large">
+<form class="usa-form usa-form-large">
   <fieldset class="usa-fieldset">
     <legend class="usa-legend">Mailing address</legend>
     <label class="usa-label" for="mailing-address-1">Street address 1</label>
@@ -7,13 +7,12 @@
     <label class="usa-label" for="mailing-address-2">Street address 2 <span class="usa-input-label-helper">(optional)</span></label>
     <input class="usa-input" id="mailing-address-2" name="mailing-address-2" type="text">
 
-    <div>
-      <div class="usa-input-grid usa-input-grid-medium">
+    <div class="grid-row grid-gap">
+      <div class="mobile-lg:grid-col-8">
         <label class="usa-label" for="city">City</label>
         <input class="usa-input" id="city" name="city" type="text">
       </div>
-
-      <div class="usa-input-grid usa-input-grid-small">
+      <div class="mobile-lg:grid-col-4">
         <label class="usa-label" for="state">State</label>
         <select class="usa-select" id="state" name="state">
           <option value>- Select -</option>
