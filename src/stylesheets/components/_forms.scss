@@ -14,36 +14,28 @@
     max-width: units('mobile');
   }
 
+  .usa-input,
+  .usa-range,
+  .usa-select,
+  .usa-textarea {
+    // max width not needed since form has one of its own
+    max-width: none;
+  }
+
+  .usa-input-tiny {
+    max-width: units(8);
+  }
+
+  .usa-input-medium {
+    max-width: units(15);
+  }
+
   .usa-button {
+    margin-top: units(1);
+
     @include at-media('mobile-lg') {
       margin-top: units(2);
     }
-  }
-}
-
-.usa-input-tiny {
-  @include at-media('mobile-lg') {
-    max-width: units(8);
-  }
-}
-
-.usa-input-medium {
-  @include at-media('mobile-lg') {
-    max-width: units(15);
-  }
-}
-
-// TODO: floats raise red flags
-// How is this component used?
-.usa-form-note {
-  float: right;
-  // TODO: do we need to be calling out font families in a typeset component?
-  font-family: $font-sans;
-  font-size: $h5-font-size;
-  margin: 0 0 1.5rem;
-
-  + * {
-    clear: both;
   }
 }
 
@@ -53,19 +45,10 @@
   }
 }
 
-// TODO: candidate for deprecation
-.usa-input-grid {
-  @include at-media('mobile-lg') {
-    padding-right: 5%;
-  }
-}
-
-// TODO: candidate for deprecation
-// What are all these grid classes? Necessary?
-.usa-input-grid:last-of-type {
-  @include at-media('mobile-lg') {
-    padding-right: 0;
-  }
+.usa-form-note {
+  @include typeset($theme-font-family-input, 'xs', 3);
+  margin: 0 0 units(2);
+  text-align: right;
 }
 
 // TODO: candidate for deprecation
@@ -91,6 +74,7 @@
     width: 65%;
   }
 
+  // TODO: what's the point of these special margins?
   input {
     margin-bottom: 3rem;
   }
@@ -108,6 +92,7 @@
   }
 
   // TODO: why not combine these?
+  // TODO: what's the point of these special margins?
   input {
     margin-bottom: 3rem;
   }
