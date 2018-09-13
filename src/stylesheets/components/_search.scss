@@ -56,20 +56,12 @@
 
 .usa-search-small {
   $width: $usa-btn-small-width;
-  $lt-nav-width: rem-to-px($nav-width) - 1px;
 
   [type=submit],
   .usa-search-submit {
     @include at-media('mobile-lg') {
       @include search-icon;
       width: $width;
-    }
-  }
-
-  &.usa-sr-only {
-    @media screen and (max-width: $lt-nav-width) {
-      left: auto;
-      position: relative;
     }
   }
 }
