@@ -1,12 +1,12 @@
 // TODO: in general, what's the boundary between this and elements/inputs?
 // Why are they not the same?
 
-// TODO: any other fieldsets in rotation? Why is there a different fieldset for inputs? Should we add this to our BEM ticket?
-.usa-fieldset,
-.usa-fieldset-inputs {
-  border: none;
-  margin: 0;
-  padding: 0;
+.usa-form {
+  @include typeset(
+    $theme-font-family-forms,
+    $theme-font-size-base,
+    $theme-line-height-input
+  );
 }
 
 .usa-form {
@@ -46,7 +46,7 @@
 }
 
 .usa-form-note {
-  @include typeset($theme-font-family-input, 'xs', 3);
+  @include typeset($theme-font-family-forms, 'xs', 3);
   margin: 0 0 units(2);
   text-align: right;
 }
