@@ -23,6 +23,10 @@ $z-index-nav:     9000;
   }
 
   .usa-search {
+    @include media($nav-width) {
+      float: right;
+    }
+
     [role=search] {
       @include media($nav-width) {
         float: right;
