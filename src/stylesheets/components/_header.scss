@@ -158,10 +158,10 @@ $z-index-nav:     z-index(500);
 
   .usa-navbar {
     @include at-media($theme-nav-width) {
-      @include outer-container($site-max-width); // TODO: update
-      @include u-padding-x($theme-site-margins);
+      @include grid-container;
       display: block;
       height: auto;
+      overflow: auto;
     }
   }
 
@@ -176,9 +176,8 @@ $z-index-nav:     z-index(500);
 
   .usa-nav-inner {
     @include at-media($theme-nav-width) {
-      @include outer-container($site-max-width); // TODO: update
-      @include u-padding-right($theme-site-margins);
-      @include u-padding-left(2);
+      @include grid-container;
+      padding-left: units(2) !important; /* stylelint-disable declaration-no-important  */
       position: relative;
     }
   }
