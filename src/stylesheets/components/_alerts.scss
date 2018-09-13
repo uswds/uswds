@@ -93,9 +93,9 @@ $icon-size: units(4);
 }
 
 .usa-alert-heading {
-  @include typeset-h3;
+  @include typeset($theme-font-family-alerts, 'lg', 2);
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: units(1);
 }
 
 .usa-alert-text {
