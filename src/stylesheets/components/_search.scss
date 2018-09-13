@@ -55,13 +55,11 @@
 }
 
 .usa-search-small {
-  $width: $usa-btn-small-width;
-
   [type=submit],
   .usa-search-submit {
     @include at-media('mobile-lg') {
       @include search-icon;
-      width: $width;
+      width: $usa-btn-small-width;
     }
   }
 }
