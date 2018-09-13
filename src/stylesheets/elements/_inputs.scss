@@ -133,9 +133,8 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-legend {
-  font-size: scale($theme-font-family-input, $theme-font-size-h2);
+  @include typeset-h2;
   font-weight: $theme-font-weight-bold;
-  line-height: line-height($theme-font-family-input, 2);
 }
 
 .usa-fieldset-inputs {
