@@ -1208,7 +1208,7 @@ $box-shadow:                    0 0 2px $color-shadow !default;
 $focus-outline:                 units(0.5) solid $color-focus !default;
 $focus-spacing:                 0 !default;
 $nav-width:                     951px !default;
-$usa-btn-small-width:           4.5rem;
+$usa-btn-small-width:           units(6);
 $search-min-width:              27ch; // minimum length of 27 letters for typical search query
 
 // 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines

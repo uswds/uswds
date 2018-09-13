@@ -25,7 +25,14 @@ $z-index-nav:     9000;
   .usa-search {
     @include media($nav-width) {
       float: right;
-      max-width: calc(#{$search-min-width} + #{$usa-btn-small-width});
+    }
+
+    [role=search] {
+      @include media($nav-width) {
+        float: right;
+        max-width: calc(#{$search-min-width} + #{$usa-btn-small-width});
+        width: inherit;
+      }
     }
   }
 }
