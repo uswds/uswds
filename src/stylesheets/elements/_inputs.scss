@@ -134,8 +134,8 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-legend {
-  @include typeset-h2;
-  font-weight: $theme-font-weight-bold;
+  font-size: scale($theme-font-family-forms, 'xl');
+  font-weight: font-weight('bold');
 }
 
 // Hint text
