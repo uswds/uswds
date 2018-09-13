@@ -1,7 +1,7 @@
 // scss-lint:disable QualifyingElement, PropertyCount
 
-$input-font-size-calc: scale($theme-font-family-input, $theme-font-size-base);
-$input-line-height-calc: lh($theme-font-family-input, $theme-line-height-input); // was 1.3
+$input-font-size-calc: scale($theme-font-family-forms, $theme-font-size-base);
+$input-line-height-calc: lh($theme-font-family-forms, $theme-line-height-input); // was 1.3
 $input-border-width: px-to-rem(1px); // Using rem instead of px so function uses same units
 $input-padding-vertical: units(1);
 $input-state-border: 0.5;
@@ -18,20 +18,15 @@ $input-height-exact: (
 // (i.e., 1.21rem -> 1.2rem)
 $input-height: floor($input-height-exact * 10) / 10;
 
-// Block form elements
-.usa-form,
-// with a more consistent use of .usa-form
-// the following should be unnecessary
-.usa-form-large,
+// Block input elements
 .usa-fieldset,
-.usa-fieldset-inputs,
 .usa-input,
 .usa-textarea,
 .usa-select,
 .usa-range,
 .usa-form-hint {
   @include typeset(
-    $theme-font-family-input,
+    $theme-font-family-forms,
     $theme-font-size-base,
     $theme-line-height-input
   );
@@ -56,6 +51,12 @@ $input-height: floor($input-height-exact * 10) / 10;
   &.usa-input-success {
     @include u-border($input-state-border, 'success');
   }
+}
+
+.usa-fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
 .usa-form-group-error {
@@ -95,7 +96,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-label {
   display: block;
-  line-height: line-height($theme-font-family-input, 2);
+  line-height: line-height($theme-font-family-forms, 2);
   margin-top: units(3);
   max-width: $input-max-width;
 }
@@ -135,12 +136,6 @@ $input-height: floor($input-height-exact * 10) / 10;
 .usa-legend {
   @include typeset-h2;
   font-weight: $theme-font-weight-bold;
-}
-
-.usa-fieldset-inputs {
-  label {
-    margin-top: 0;
-  }
 }
 
 // Hint text
