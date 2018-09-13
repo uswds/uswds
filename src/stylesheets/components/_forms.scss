@@ -1,10 +1,7 @@
 // TODO: in general, what's the boundary between this and elements/inputs?
 // Why are they not the same?
 
-// TODO: what's the point of this var? where else is it used?
-$usa-form-max-width: 'mobile';
-
-// TODO: any other fieldsets in rotation? Why is there a different fieldset for inputs?
+// TODO: any other fieldsets in rotation? Why is there a different fieldset for inputs? Should we add this to our BEM ticket?
 .usa-fieldset,
 .usa-fieldset-inputs {
   border: none;
@@ -14,12 +11,12 @@ $usa-form-max-width: 'mobile';
 
 .usa-form {
   @include at-media('mobile-lg') {
-    max-width: $usa-form-max-width;
+    max-width: units('mobile');
   }
 
   .usa-button {
     @include at-media('mobile-lg') {
-      margin-top: units(2)
+      margin-top: units(2);
     }
   }
 }
