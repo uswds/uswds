@@ -167,18 +167,14 @@
 
 .usa-social_link {
   $background-height: units(3); // Height of icon within hit area.
-  // Apple iOS Human Interface Guidelines recommends
-  // link hit target of 44 x 44 pixels following
-  // TODO: is 40px/units(5) acceptable?
-  $hit-area: units(5);
 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: auto $background-height;
   background-color: color('black-transparent-10');
   display: inline-block;
-  height: $hit-area;
-  width: $hit-area;
+  height: $touch-target-size;
+  width: $touch-target-size;
 
   span {
     @include sr-only();

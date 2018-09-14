@@ -1211,8 +1211,9 @@ $nav-width:                     951px !default;
 $usa-btn-small-width:           units(6);
 $search-min-width:              27ch; // minimum length of 27 letters for typical search query
 
-// 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines
-$hit-area: 4.4rem !default;
+// Was 44 x 44 pixels hit target following Apple iOS HIG
+// Now 40px to conform with standard units — is this a problem?
+$touch-target-size: units(5) !default;
 
 $spacing-x-small: 0.5rem;
 $spacing-small: 1rem;
