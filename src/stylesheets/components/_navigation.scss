@@ -1,7 +1,7 @@
 // Header navigation ------------- //
 
 @mixin nav-border {
-  border-bottom: 0.4rem solid $color-primary;
+  border-bottom: units(0.5) solid $color-primary;
   padding-bottom: 0.6rem;
 }
 
