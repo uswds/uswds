@@ -1,4 +1,5 @@
 .usa-skipnav {
+  @include typeset;
   background: transparent;
   left: 0;
   padding: units(1) units(2);
