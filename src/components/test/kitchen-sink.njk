@@ -33,7 +33,7 @@
       </p>
 
       {% for spec in inner %}
-      <section id="{{ spec.id }}">
+      <section id="{{ spec.id }}" class="margin-top-4">
         <h2>{{ spec.title }}</h2>
         {% if spec.include %}
           {% include spec.include %}
