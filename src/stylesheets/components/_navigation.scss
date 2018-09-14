@@ -22,7 +22,9 @@
 }
 
 .usa-nav-link {
-  @include font-smoothing;
+  @include at-media($theme-nav-width) {
+    @include add-font-smoothing;
+  }
 
   &:hover {
     span {
@@ -51,7 +53,7 @@
 }
 
 .usa-nav {
-  @include typeset($theme-font-family-navigation);
+  @include typeset($theme-font-family-navigation, null, 1);
   $sliding-panel-width: 'card-lg';
 
   @keyframes slidein-left {
@@ -75,8 +77,7 @@
   overflow-y: auto;
   padding: units(2.5);
   width: units($sliding-panel-width);
-  // TODO: use z()
-  z-index: $z-index-nav;
+  z-index: z-index(500);
 
   @include at-media($theme-nav-width) {
     border-left: none;
@@ -129,6 +130,7 @@
 // Primary navigation ------------- //
 
 .usa-nav-primary {
+  // TODO: what does this do?
   @include usa-sidenav-list;
   margin-top: units(2);
   //TODO: how are we using order?
@@ -149,9 +151,8 @@
     width: auto;
 
     @include at-media($theme-nav-width) {
+      font-size: scale($theme-font-family-navigation, 'xs');
       display: inline-block;
-      // TODO: what's this thing below?
-      // margin-left: -4px;
     }
 
     > a {
@@ -160,10 +161,7 @@
         @include u-padding-top(1.5);
         @include u-padding-x(2);
         color: color('base');
-        // TODO typeset
-        font-size: $h5-font-size;
         font-weight: font-weight('bold');
-        line-height: 1;
       }
 
       &:hover {
@@ -192,21 +190,18 @@
     $button-vertical-offset: 40%;
 
     @include button-unstyled;
-    @include font-smoothing;
     font-weight: font-weight('normal');
-    //TODO: typeset
-    line-height: 1.3;
+    line-height: line-height($theme-font-family-navigation, 3);
     padding: units(1) units(2) units(1) units(2.5);
 
     @include at-media($theme-nav-width) {
+      @include add-font-smoothing;
       @include u-padding-bottom(2.5);
       @include u-padding-top(1.5);
       @include u-padding-x(2);
       color: color('base');
-      // TODO: typeset
-      font-size: $h5-font-size;
       font-weight: font-weight('bold');
-      line-height: 1;
+      line-height: line-height($theme-font-family-navigation, 1);
       width: initial;
     }
 
@@ -335,7 +330,7 @@
   @include at-media($theme-nav-width) {
     // TODO: whoa can we fix this?
     bottom: calc(5rem + 16px); // XXX magic number, 16px from bottom
-    font-size: $small-font-size;
+    font-size: scale($theme-font-family-navigation, '2xs');
     margin-top: units(1);
     min-width: calc(#{$search-min-width} + #{$usa-btn-small-width});
     // TODO: need to be absolute?
@@ -357,10 +352,12 @@
 }
 
 .usa-nav-secondary-links {
+  line-height: line-height($theme-font-family-navigation, 3);
   margin-top: units(3);
 
   @include at-media($theme-nav-width) {
     float: right;
+    line-height: line-height($theme-font-family-navigation, 1);
     margin-bottom: units(0.5);
     margin-top: 0;
   }
@@ -384,7 +381,6 @@
   .usa-header-search-button {
     color: color('base');
     display: inline-block;
-    font-size: $h5-font-size;
     text-decoration: none;
 
     &:hover {
@@ -485,9 +481,9 @@
   @include u-margin-top(-1.5);
   color: currentColor;
   float: right;
-  height: $hit-area;
+  height: $touch-target-size;
   text-align: center;
-  width: $hit-area;
+  width: $touch-target-size;
 
   &:hover {
     color: currentColor;
