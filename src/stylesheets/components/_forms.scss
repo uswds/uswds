@@ -44,6 +44,6 @@
 
 .usa-form-note {
   @include typeset($theme-font-family-forms, 'xs', 3);
+  float: right;
   margin: 0 0 units(2);
-  text-align: right;
 }
