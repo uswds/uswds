@@ -7,7 +7,7 @@ $sidenav-grandchild-padding-left: units($theme-site-margins-mobile) + units(1.5)
   > li {
     background-color: transparent;
     border-top: units(1px) solid color('base-dark');
-    font-size: scale('body', 'sm');
+    font-size: scale($theme-font-family-sidenav, 'sm');
 
     &:first-child {
       border-top: none;
