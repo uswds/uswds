@@ -43,7 +43,7 @@
 }
 
 .usa-form-note {
-  @include typeset($theme-font-family-forms, 'xs', 3);
+  @include typeset($theme-font-family-forms, '2xs', 3);
   float: right;
-  margin: 0 0 units(2);
+  margin: units(0.5) 0 units(2);
 }
