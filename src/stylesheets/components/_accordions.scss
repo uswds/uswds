@@ -81,7 +81,10 @@ $accordion-border: units(0.5) solid color('base-lightest');
   }
 }
 
-.usa-accordion-heading {
+.usa-accordion-heading,
+// kludge to override .usa-prose styles
+// TODO: work this into a mixin
+.usa-prose .usa-accordion-heading {
   @include typeset($theme-font-family-accordion, $theme-font-size-base, 1);
   margin: 0;
 
