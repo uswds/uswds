@@ -338,8 +338,9 @@
     font-size: $small-font-size;
     margin-top: units(1);
     min-width: calc(#{$search-min-width} + #{$usa-btn-small-width});
+    // TODO: need to be absolute?
     position: absolute;
-    right: $theme-site-margins;
+    right: units($theme-site-margins);
   }
 
   .usa-search {
