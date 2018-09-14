@@ -46,6 +46,7 @@
   @include at-media($theme-nav-width) {
     @include grid-container($theme-site-max-width);
     @include u-padding-x($theme-site-margins);
+    @include clearfix;
   }
 }
 
@@ -432,8 +433,7 @@
     @include u-padding-top(0.75rem);
     @include u-padding-bottom(0.9rem);
     background-color: color('primary-darker');
-    // TODO: mangled f/r — check width
-    width: units(2.5);
+    width: units('card-lg');
     position: absolute;
   }
 
