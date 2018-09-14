@@ -6,46 +6,52 @@
     {% render '@' + spec.component, spec.context, true %}
   {% endfor %}
 
-  <main class="usa-grid usa-section usa-content usa-layout-docs" id="main-content">
-    <aside class="usa-width-one-fourth usa-layout-docs-sidenav">
-      {% render '@sidenav', {sidenav: sidenav} %}
-    </aside>
+  <main class="grid-container grid-gap usa-section usa-content usa-layout-docs" id="main-content">
+    <div class="grid-row grid-gap">
+      <div class="desktop:grid-col-3">
+        <aside class="usa-layout-docs-sidenav">
+          {% render '@sidenav', {sidenav: sidenav} %}
+        </aside>
+      </div>
+      <div class="desktop:grid-col-fill">
+        <div class="usa-prose">
+          <h1>{{ page.title }}</h1>
 
-    <div class="usa-width-three-fourths usa-layout-docs-main_content usa-prose">
-      <h1>{{ page.title }}</h1>
+          <p class="usa-font-lead">{{ page.lead }}</p>
 
-      <p class="usa-font-lead">{{ page.lead }}</p>
+          <p class="usa-content">
+            {{ page.body }}
 
-      <p class="usa-content">
-        {{ page.body }}
+            <ul>
+            {% for list in page.lists %}
+              <li>{{ list }}</li>
+            {% endfor %}
+            </ul>
 
-        <ul>
-        {% for list in page.lists %}
-          <li>{{ list }}</li>
-        {% endfor %}
-        </ul>
+            <ol>
+            {% for list in page.lists %}
+              <li>{{ list }}</li>
+            {% endfor %}
+            </ol>
+          </p>
 
-        <ol>
-        {% for list in page.lists %}
-          <li>{{ list }}</li>
-        {% endfor %}
-        </ol>
-      </p>
+          {% for spec in inner %}
+          <section id="{{ spec.id }}" class="margin-top-4">
+            <h2>{{ spec.title }}</h2>
+            {% if spec.include %}
+              {% include spec.include %}
+            {% elseif spec.component %}
+              {% render '@' + spec.component, spec.context, spec.merge %}
+            {% else %}
+              {{ spec.content }}
+            {% endif %}
+          </section>
+          {% endfor %}
 
-      {% for spec in inner %}
-      <section id="{{ spec.id }}" class="margin-top-4">
-        <h2>{{ spec.title }}</h2>
-        {% if spec.include %}
-          {% include spec.include %}
-        {% elseif spec.component %}
-          {% render '@' + spec.component, spec.context, spec.merge %}
-        {% else %}
-          {{ spec.content }}
-        {% endif %}
-      </section>
-      {% endfor %}
-
+        </div>
+      </div>
     </div>
+
   </main>
 
   {% for spec in after %}
