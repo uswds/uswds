@@ -953,7 +953,7 @@ $project-border-radius: (
   'sm':         units($theme-border-radius-sm),
   'md':         units($theme-border-radius-md),
   'lg':         units($theme-border-radius-lg),
-  'pill':       9999em,
+  'pill':       99em,
 );
 
 $all-border-radius: map-collect(

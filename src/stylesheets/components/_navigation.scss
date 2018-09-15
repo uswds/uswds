@@ -130,31 +130,35 @@
 // Primary navigation ------------- //
 
 .usa-nav-primary {
-  // TODO: what does this do?
-  @include usa-sidenav-list;
   margin-top: units(2);
-  //TODO: how are we using order?
   order: 2;
 
+  // Until the $theme-nav-width,
+  // use the usa-nav-list styles for the slide-in nav
+  @include at-media-max($theme-nav-width) {
+    @include usa-nav-list;
+  }
+
+  // At $theme-nav-width and wider...
   @include at-media($theme-nav-width) {
     display: inline;
   }
 
-  // TODO: evaluate direct descendant selectors
-  li {
-    @include at-media($theme-nav-width) {
-      border-top: none;
+  // all nav items in the nav
+  .usa-nav-item {
+    a {
+      text-decoration: none;
     }
   }
 
-  > li {
-    width: auto;
-
+  // just level 1 nav items...
+  > .usa-nav-item {
     @include at-media($theme-nav-width) {
       font-size: scale($theme-font-family-navigation, 'xs');
       display: inline-block;
     }
 
+    // ...and their direct links
     > a {
       @include at-media($theme-nav-width) {
         @include u-padding-bottom(2.5);
@@ -162,12 +166,6 @@
         @include u-padding-x(2);
         color: color('base');
         font-weight: font-weight('bold');
-      }
-
-      &:hover {
-        @include at-media($theme-nav-width) {
-          background-color: transparent;
-        }
       }
     }
   }
@@ -179,8 +177,6 @@
 
     &:hover {
       @include at-media($theme-nav-width) {
-        // TODO: what's this?
-        // color: color('ink');
       }
     }
   }
@@ -202,7 +198,6 @@
       color: color('base');
       font-weight: font-weight('bold');
       line-height: line-height($theme-font-family-navigation, 1);
-      width: initial;
     }
 
     &:focus,
@@ -212,13 +207,7 @@
     }
 
     &:hover {
-      background-color: color('base-lightest');
       color: color('primary');
-
-      @include at-media($theme-nav-width) {
-        background-color: transparent;
-        // color: color('ink');
-      }
     }
 
     // TODO: any way to clean this up with a mixin?
@@ -270,53 +259,10 @@
   }
 
   @include at-media($theme-nav-width) {
-    a.usa-current,
-    .usa-current { // stylelint-disable-line selector-no-qualifying-type
-      // undo the sidenav style
-      border-left: 0;
-      padding-left: units(2);
-
-      &:hover {
-        span {
-          color: color('primary');
-        }
-      }
-
+    .usa-current {
       span {
         @include nav-border;
         color: color('ink');
-      }
-    }
-  }
-}
-
-// Extended header navigation ------- //
-
-.usa-header-extended {
-  .usa-nav-link {
-    &:hover {
-      span {
-        @include at-media($theme-nav-width) {
-          @include nav-border-thick;
-        }
-      }
-    }
-  }
-
-  .usa-nav-primary {
-    button[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
-      span {
-        @include at-media($theme-nav-width) {
-          @include nav-border-thick;
-        }
-      }
-    }
-
-    .usa-current {
-      @include at-media($theme-nav-width) {
-        span {
-          @include nav-border-thick;
-        }
       }
     }
   }
@@ -352,6 +298,8 @@
 }
 
 .usa-nav-secondary-links {
+  @include add-list-reset;
+
   line-height: line-height($theme-font-family-navigation, 3);
   margin-top: units(3);
 
@@ -377,8 +325,7 @@
     }
   }
 
-  a,
-  .usa-header-search-button {
+  a {
     color: color('base');
     display: inline-block;
     text-decoration: none;
@@ -388,49 +335,18 @@
       text-decoration: underline;
     }
   }
-
-  .usa-header-search-button {
-    @include button-unstyled;
-    display: none;
-
-    @include at-media($theme-nav-width) {
-      background-image: url('#{$theme-image-path}/search-alt.png');
-      background-image: url('#{$theme-image-path}/search-alt.svg');
-      background-repeat: no-repeat;
-      background-position: left center;
-      // TODO: 2.5 unitless?
-      background-size: 2.5;
-      display: inline-block;
-      padding-left: units(3);
-    }
-
-    &.is-hidden {
-      @include at-media($theme-nav-width) {
-        display: none;
-      }
-    }
-  }
-
-  @include at-media($theme-nav-width) {
-    a.usa-current { // stylelint-disable-line selector-no-qualifying-type
-      // undo the sidenav style
-      border-left: 0;
-      padding-left: 0;
-    }
-  }
 }
 
 // Navigation submenu (dropdown and mega menu) ----- //
 
 .usa-nav-submenu {
-  @include usa-sidenav-sublist;
+  @include usa-nav-sublist;
 
   @include at-media($theme-nav-width) {
-    @include unstyled-list;
-    @include u-padding-top(0.75rem);
-    @include u-padding-bottom(0.9rem);
+    @include add-list-reset;
     background-color: color('primary-darker');
     width: units('card-lg');
+    padding: units(2);
     position: absolute;
   }
 
@@ -438,33 +354,37 @@
     display: none;
   }
 
-  a {
+  .usa-nav-item {
     @include at-media($theme-nav-width) {
-      color: color('white');
-      padding-left: units(2); // XXX magic number
-    }
+      & + * {
+        margin-top: units(1.5);
+      }
 
-    &:hover {
-      @include at-media($theme-nav-width) {
-        background-color: color('primary-darker');
+      a {
         color: color('white');
-        padding-left: units(2);
-        text-decoration: underline;
+        padding: 0;
+
+        &:hover {
+          background-color: transparent;
+          color: color('white');
+          padding: 0;
+          text-decoration: underline;
+        }
       }
     }
-
-    // this used to be necessary to undo the `usa-sidenav-sublist`
-    // include, above
-    // &:hover,
-    // &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
-    //   @include at-media($theme-nav-width) {
-    //     padding-left: 1.8rem;
-    //   }
-    // }
   }
+}
 
-  li {
-    margin-bottom: 0;
+.usa-nav-submenu-list {
+  @include unstyled-list;
+
+  .usa-nav-item {
+    margin: 0;
+    font-size: scale($theme-font-family-navigation, '2xs');
+
+    a {
+      line-height: line-height($theme-font-family-navigation, 3);
+    }
   }
 }
 
@@ -507,30 +427,24 @@
 // Navigation mega menu -------- //
 
 @mixin outer-megamenu {
+  @include u-pin('y');
   background-color: color('primary-darker');
   content: '';
   display: block;
-  height: 100%;
   position: absolute;
-  top: 0;
-  // TODO: haha what's this
-  width: 1000%;
+  width: 100%;
 }
 
 .usa-megamenu {
   @include at-media($theme-nav-width) {
-    @include u-padding-y(4); // XXX magic number
-    // XXX this is the difference between the units(2.5) padding-left
-    // of .usa-nav-inner and the $theme-site-margins (3rem) padding-left
-    // of .usa-megamenu
-    left: units(-1);
+    @include u-padding-y(4);
+    left: 0;
     width: 100%;
   }
 
   &::before {
     @include at-media($theme-nav-width) {
       @include outer-megamenu;
-      // TODO: better way? pin?
       right: 100%;
     }
   }
@@ -538,7 +452,6 @@
   &::after {
     @include at-media($theme-nav-width) {
       @include outer-megamenu;
-      // TODO: better way? pin?
       left: 100%;
     }
   }
@@ -562,32 +475,5 @@
       float: right;
       margin-top: units(-5);
     }
-  }
-
-  .usa-nav-submenu {
-    .usa-grid-full {
-      @include at-media($theme-nav-width) {
-        margin-left: units(-2); // XXX magic number
-      }
-    }
-  }
-}
-
-.usa-megamenu-col {
-  @include at-media($theme-nav-width) {
-    // rewrite with new grid?
-    @include span-columns(3);
-
-    &:nth-child(2n) {
-      @include span-columns(3);
-    }
-
-    &:nth-child(4n) {
-      margin-right: 0;
-    }
-  }
-
-  > ul {
-    @include unstyled-list;
   }
 }

@@ -1,0 +1,43 @@
+@mixin add-bar($weight: 1, $color: 'ink', $side: 'left') {
+  $weight: if(
+    $weight == null,
+    1,
+    $weight
+  );
+  $color: if(
+    $color == null,
+    'ink',
+    $color
+  );
+  $side: if(
+    $side == null,
+    'left',
+    $side
+  );
+
+  position: relative;
+
+  &::after {
+    @include u-pin($side);
+    background-color: color($color);
+    content: '';
+    display: block;
+    border-radius: radius('pill');
+
+    @if $side == 'left' or 'right' {
+      bottom: units(0.5);
+      top: units(0.5);
+      width: units($weight);
+    }
+    @else {
+      @include u-pin('x');
+      height: units($weight);
+    }
+  }
+}
+
+@mixin remove-bar {
+  &::after {
+    display: none;
+  }
+}
