@@ -27,7 +27,14 @@ $sidenav-grandchild-inset: 6;
   }
 
   .usa-current {
-    @include add-bar($theme-sidenav-current-border-width, 'primary', 'left');
+    @include add-bar(
+      $theme-sidenav-current-border-width,
+      'primary',
+      'left',
+      'pill',
+      0,
+      0.5
+    );
     color: color('primary');
     font-weight: font-weight('bold');
   }

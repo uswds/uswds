@@ -1,4 +1,11 @@
-@mixin add-bar($weight: 1, $color: 'ink', $side: 'left') {
+@mixin add-bar(
+  $weight: 1,
+  $color: 'ink',
+  $side: 'left',
+  $radius: 0,
+  $offset-x: 0,
+  $offset-y: 0
+) {
   $weight: if(
     $weight == null,
     1,
@@ -14,24 +21,43 @@
     'left',
     $side
   );
+  $radius: if(
+    $radius == null,
+    0,
+    $radius
+  );
+  $offset-x: if(
+    $offset-x == null,
+    0,
+    $offset-x
+  );
+  $offset-y: if(
+    $offset-y == null,
+    0,
+    $offset-y
+  );
 
   position: relative;
 
   &::after {
-    @include u-pin($side);
     background-color: color($color);
+    border-radius: radius($radius);
     content: '';
     display: block;
-    border-radius: radius('pill');
+    position: absolute;
 
-    @if $side == 'left' or 'right' {
-      bottom: units(0.5);
-      top: units(0.5);
+    @if $side == ('left' or 'right') {
+      bottom: units($offset-y);
+      top: units($offset-y);
       width: units($weight);
+      #{unquote($side)}: units($offset-x);
     }
+
     @else {
-      @include u-pin('x');
       height: units($weight);
+      left: units($offset-x);
+      right: units($offset-x);
+      #{unquote($side)}: units($offset-y);
     }
   }
 }

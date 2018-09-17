@@ -1,8 +1,14 @@
 // Header navigation ------------- //
 
 @mixin nav-border {
-  border-bottom: units(0.5) solid color('primary');
-  padding-bottom: units(1);
+  @include add-bar(
+    0.5,
+    'primary',
+    'bottom',
+    0,
+    2,
+    -1px
+  );
 }
 
 .usa-navbar {
@@ -19,13 +25,9 @@
 .usa-nav-link {
   @include at-media($theme-nav-width) {
     @include add-font-smoothing;
-  }
 
-  &:hover {
-    span {
-      @include at-media($theme-nav-width) {
-        @include nav-border;
-      }
+    &:hover {
+      @include nav-border;
     }
   }
 
@@ -136,7 +138,7 @@
 
   // At $theme-nav-width and wider...
   @include at-media($theme-nav-width) {
-    display: inline;
+    display: flex;
   }
 
   // all nav items in the nav
@@ -156,11 +158,11 @@
     // ...and their direct links
     > a {
       @include at-media($theme-nav-width) {
-        @include u-padding-bottom(2.5);
-        @include u-padding-top(1.5);
-        @include u-padding-x(2);
         color: color('base');
+        display: block;
         font-weight: font-weight('bold');
+        line-height: line-height($theme-font-family-navigation, 1);
+        padding: units(2);
       }
     }
   }
@@ -230,6 +232,8 @@
       background-size: 1rem;
 
       @include at-media($theme-nav-width) {
+        @include nav-border;
+
         background-color: color('primary-darker');
         color: color('white');
         background-image: url('#{$theme-image-path}/angle-arrow-down-hover.png');
@@ -241,7 +245,6 @@
         }
 
         span {
-          @include nav-border;
           color: color('white');
         }
       }
@@ -250,9 +253,8 @@
 
   @include at-media($theme-nav-width) {
     .usa-current {
-      span {
+      &:hover {
         @include nav-border;
-        color: color('ink');
       }
     }
   }
