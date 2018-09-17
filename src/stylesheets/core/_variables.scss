@@ -1189,31 +1189,5 @@ calculated variables
 ----------------------------------------
 */
 
-$text-max-width:                66ch !default; // 66 characters per line, TODO: use token?
-$text-wide-width:               72ch !default; // TODO: use token?
-$lead-max-width:                77rem !default; // TODO: use token?
-$site-max-width:                units($theme-site-max-width) !default; // TODO: remove variable and occurances from code
-$site-margins:                  units($theme-site-margins) !default;
-$site-margins-mobile:           units($theme-site-margins-mobile) !default;
-$input-max-width:               46rem !default; // TODO: use token?
-$checkbox-border-radius:        units(2px) !default;
-$focus-outline:                 units(0.5) solid $color-focus !default;
-$focus-spacing:                 0 !default;
-$nav-width:                     951px !default; // TODO: remove variable and occurances from code
-$usa-btn-small-width:           units(6);
-$search-min-width:              27ch; // minimum length of 27 letters for typical search query - magic number
-
-// 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines
-$hit-area: 4.4rem !default;
-
-$spacing-x-small: 0.5rem;
-$spacing-small: 1rem;
-$spacing-md-small: 1.5rem;
-$spacing-medium: 2rem;
-$spacing-large: 3rem;
-
-$theme-spacing-2xs: 0.5; // was 0.5rem
-$theme-spacing-xs: 1; // was 1rem
-$theme-spacing-sm: 2; // was 1.5rem;
-$theme-spacing-md: 2.5; // 2rem;
-$theme-spacing-lg: 4; // 3rem;
+$usa-btn-small-width:           units(6); // broke when moved to settings
+$focus-outline:                 units(0.5) solid $color-focus !default; // here until $color-focus moved

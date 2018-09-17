@@ -121,3 +121,30 @@ $theme-nav-width:           'desktop' !default; // was 951px
 $theme-site-max-width:      'desktop' !default; // was 1040px
 
 $sidenav-current-border-width:  0.5 !default; // must be in rem for math
+
+$text-max-width:                66ch !default; // 66 characters per line, TODO: use token?
+$text-wide-width:               72ch !default; // TODO: use token?
+$lead-max-width:                77rem !default; // TODO: use token?
+$site-max-width:                $theme-site-max-width !default; // TODO: remove variable and occurances from code
+$site-margins:                  $theme-site-margins !default;
+$site-margins-mobile:           $theme-site-margins-mobile !default;
+$input-max-width:               46rem !default; // TODO: use token?
+$checkbox-border-radius:        units(2px) !default;
+$focus-spacing:                 0 !default;
+$nav-width:                     951px !default; // TODO: remove variable and occurances from code
+$search-min-width:              27ch; // minimum length of 27 letters for typical search query - magic number
+
+// 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines
+$hit-area: 4.4rem !default;
+
+$spacing-x-small: 0.5rem;
+$spacing-small: 1rem;
+$spacing-md-small: 1.5rem;
+$spacing-medium: 2rem;
+$spacing-large: 3rem;
+
+$theme-spacing-2xs: 0.5; // was 0.5rem
+$theme-spacing-xs: 1; // was 1rem
+$theme-spacing-sm: 2; // was 1.5rem;
+$theme-spacing-md: 2.5; // 2rem;
+$theme-spacing-lg: 4; // 3rem;
