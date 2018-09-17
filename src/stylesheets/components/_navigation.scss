@@ -169,6 +169,7 @@
     @include at-media($theme-nav-width) {
       @include u-padding-y(1);
     }
+  }
 
   button {
     $button-vertical-offset: 40%;
