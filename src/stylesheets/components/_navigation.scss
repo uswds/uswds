@@ -208,6 +208,10 @@ $nav-link-color: 'base-dark';
 
     &:hover {
       color: color('primary');
+      background-color: color('base-lightest');
+      @include at-media($theme-nav-width) {
+        background-color: transparent;
+      }
     }
 
     // TODO: any way to clean this up with a mixin?

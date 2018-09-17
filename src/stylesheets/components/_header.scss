@@ -1,4 +1,4 @@
-// Header variables ---------- //
+// Header helpers ----- //
 
 $height-nav-secondary: units(6);
 $width-nav-sidebar:    units('card-lg');
@@ -11,7 +11,6 @@ $z-index-nav:     z-index(500);
 
 .usa-header {
   @include typeset($theme-font-family-header);
-  width: 100%;
   z-index: $z-index-header;
 
   @include at-media($theme-nav-width) {
@@ -23,6 +22,10 @@ $z-index-nav:     z-index(500);
   }
 
   .usa-search {
+    [type="search"] {
+      min-width: 0;
+    }
+
     @include at-media($theme-nav-width) {
       float: right;
     }
@@ -124,9 +127,8 @@ $z-index-nav:     z-index(500);
     }
 
     .usa-nav {
-      align-items: center;
+      @include u-flex('row', 'align-center');
       display: flex;
-      flex-direction: row;
       padding-bottom: units(1);
     }
 
