@@ -434,6 +434,7 @@
 
 .usa-megamenu {
   @include at-media($theme-nav-width) {
+    @include u-padding-x(0);
     @include u-padding-y(4);
     left: 0;
     width: 100%;
