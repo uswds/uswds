@@ -27,7 +27,12 @@ $nav-link-color: 'base-dark';
   @include at-media($theme-nav-width) {
     border-bottom: none;
     display: inline-block;
-    height: units(10); // XXX magic number
+    height: auto;
+    min-height: units(10);
+
+    em {
+      @include u-margin-y(2);
+    }
   }
 }
 
@@ -207,32 +212,32 @@ $nav-link-color: 'base-dark';
 
     // TODO: any way to clean this up with a mixin?
     &[aria-expanded=false] { /* stylelint-disable-line selector-no-qualifying-type */
-      @include add-background-image('plus-alt')
+      @include add-background-image('plus-alt');
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: units(1);
 
       @include at-media($theme-nav-width) {
-        @include add-background-image('angle-arrow-down')
+        @include add-background-image('angle-arrow-down');
         background-position: right units(2) top $button-vertical-offset;
       }
 
       &:hover {
         @include at-media($theme-nav-width) {
-          @include add-background-image('angle-arrow-down-primary')
+          @include add-background-image('angle-arrow-down-primary');
         }
       }
     }
 
     &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
-      @include add-background-image('minus-alt')
+      @include add-background-image('minus-alt');
       @include add-font-smoothing;
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: 1rem;
 
       @include at-media($theme-nav-width) {
-        @include add-background-image('angle-arrow-down-hover')
+        @include add-background-image('angle-arrow-down-hover');
         @include nav-border;
         background-color: color('primary-darker');
         background-position: right units(2) top $button-vertical-offset;
@@ -256,24 +261,23 @@ $nav-link-color: 'base-dark';
   margin-top: units(2);
 
   @include at-media($theme-nav-width) {
-    // TODO: whoa can we fix this?
-    bottom: calc(5rem + 16px); // XXX magic number, 16px from bottom
+    // TODO: Is this a necessary evil?
+    bottom: calc(5rem + 8px); // XXX magic number
     font-size: scale($theme-font-family-navigation, '2xs');
     margin-top: units(1);
     min-width: calc(#{$search-min-width} + #{$usa-btn-small-width});
-    // TODO: need to be absolute?
     position: absolute;
     right: units($theme-site-margins);
   }
 
   .usa-search {
-    @include u-margin-top(2);
-    @include u-margin-bottom(0);
+    margin-bottom: 0;
+    margin-top: units(2);
 
     @include at-media($theme-nav-width) {
-      @include u-margin-bottom(0);
-      @include u-margin-left(0);
-      @include u-margin-top(0);
+      margin-bottom: 0;
+      margin-left: 0;
+      margin-top: units(1);
       width: 100%;
     }
   }
@@ -281,7 +285,6 @@ $nav-link-color: 'base-dark';
 
 .usa-nav-secondary-links {
   @include add-list-reset;
-
   line-height: line-height($theme-font-family-navigation, 3);
   margin-top: units(3);
 
@@ -377,16 +380,11 @@ $nav-link-color: 'base-dark';
 
 .usa-nav-close {
   @include button-unstyled;
-  @include u-margin-bottom(2);
-  @include u-margin-left(auto);
-  @include u-margin-right(-2);
-  // TODO: mangled f/r — check
-  @include u-margin-top(-1.5);
+  @include u-square($touch-target-size);
   color: currentColor;
   float: right;
-  height: $touch-target-size;
+  margin: units(-1.5) units(-2) units(2) auto;
   text-align: center;
-  width: $touch-target-size;
 
   &:hover {
     color: currentColor;

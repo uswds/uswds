@@ -1213,7 +1213,7 @@ $search-min-width:              27ch; // minimum length of 27 letters for typica
 
 // Was 44 x 44 pixels hit target following Apple iOS HIG
 // Now 40px to conform with standard units — is this a problem?
-$touch-target-size: units(5) !default;
+$touch-target-size: 5 !default;
 
 $spacing-x-small: 0.5rem;
 $spacing-small: 1rem;

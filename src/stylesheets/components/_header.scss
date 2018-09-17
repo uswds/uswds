@@ -38,12 +38,10 @@ $z-index-nav:     z-index(500);
 }
 
 .usa-logo {
-  float: left;
-  line-height: units(5);
-  margin-left: units(2);
-
-  @include at-media($theme-nav-width) {
-    margin-left: 0;
+  @include at-media-max($theme-nav-width) {
+    float: left;
+    line-height: units(5); // TODO: not a great solution
+    margin-left: units(2);
   }
 
   a {
@@ -120,11 +118,6 @@ $z-index-nav:     z-index(500);
 
 .usa-header-basic {
   @include at-media($theme-nav-width) {
-    .usa-logo {
-      bottom: 0;
-      position: absolute;
-    }
-
     .usa-navbar {
       position: relative;
       width: 18%; // TODO: review this more
@@ -135,6 +128,11 @@ $z-index-nav:     z-index(500);
       display: flex;
       flex-direction: row;
       padding-bottom: units(1);
+    }
+
+    .usa-nav-container {
+      @include u-flex('align-end', 'justify');
+      display: flex;
     }
 
     .usa-nav-primary {
@@ -159,6 +157,8 @@ $z-index-nav:     z-index(500);
   .usa-logo {
     @include at-media($theme-nav-width) {
       @include u-margin-y(4);
+      margin-bottom: units(2);
+      max-width: 50%;
     }
   }
 
@@ -219,11 +219,4 @@ $z-index-nav:     z-index(500);
       padding-left: units($theme-site-margins);
     }
   }
-
-  .usa-search {
-    @include at-media($theme-nav-width) {
-      padding-top: units(0.5);
-    }
-  }
-
 }
