@@ -181,6 +181,7 @@
     $button-vertical-offset: 40%;
 
     @include button-unstyled;
+    color: color('base-dark');
     font-weight: font-weight('normal');
     line-height: line-height($theme-font-family-navigation, 3);
     padding: units(1) units(2);
@@ -323,6 +324,7 @@
   a {
     color: color('base');
     display: inline-block;
+    font-size: scale($theme-font-family-navigation, '2xs');
     text-decoration: none;
 
     &:hover {
