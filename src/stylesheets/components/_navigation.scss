@@ -1,4 +1,4 @@
-// Header navigation ------------- //
+// Navigation helpers ------------- //
 
 @mixin nav-border {
   @include add-bar(
@@ -10,6 +10,15 @@
     -1px
   );
 }
+
+@mixin primary-nav-link {
+  line-height: line-height($theme-font-family-navigation, 1);
+  padding: units(2);
+}
+
+$nav-link-color: 'base-dark';
+
+// Header navigation ------------- //
 
 .usa-navbar {
   border-bottom: units(1px) solid color('base-light');
@@ -43,15 +52,17 @@
 
 .usa-nav-container {
   @include at-media($theme-nav-width) {
+    @include clearfix;
     @include grid-container($theme-site-max-width);
     @include u-padding-x($theme-site-margins);
-    @include clearfix;
   }
 }
 
 .usa-nav {
   @include typeset($theme-font-family-navigation, null, 1);
   $sliding-panel-width: 'card-lg';
+  @include u-pin('right');
+  @include u-pin('y');
 
   @keyframes slidein-left {
     from {
@@ -63,8 +74,6 @@
     }
   }
 
-  @include u-pin('right');
-  @include u-pin('y');
   position: fixed;
   background: color('white');
   border-left: units(1px) solid color('base-light');
@@ -118,8 +127,7 @@
 
   .usa-search {
     @include at-media($theme-nav-width) {
-      margin-left: units(2); // XXX magic number
-      top: units(0.5);
+      margin-left: units(2);
     }
   }
 }
@@ -151,18 +159,17 @@
   // just level 1 nav items...
   > .usa-nav-item {
     @include at-media($theme-nav-width) {
-      font-size: scale($theme-font-family-navigation, 'xs');
-      display: inline-block;
+      font-size: scale($theme-font-family-navigation, '2xs');
     }
 
     // ...and their direct links
     > a {
       @include at-media($theme-nav-width) {
-        color: color('base');
+        @include primary-nav-link;
+        @include remove-font-smoothing;
+        color: color($nav-link-color);
         display: block;
         font-weight: font-weight('bold');
-        line-height: line-height($theme-font-family-navigation, 1);
-        padding: units(2);
       }
     }
   }
@@ -174,22 +181,18 @@
   }
 
   button {
-    $button-vertical-offset: 40%;
+    $button-vertical-offset: 53%;
 
     @include button-unstyled;
-    color: color('base-dark');
+    color: color($nav-link-color);
     font-weight: font-weight('normal');
     line-height: line-height($theme-font-family-navigation, 3);
     padding: units(1) units(2);
 
     @include at-media($theme-nav-width) {
-      @include add-font-smoothing;
-      @include u-padding-bottom(2.5);
-      @include u-padding-top(1.5);
-      @include u-padding-x(2);
-      color: color('base');
+      @include primary-nav-link;
+      font-size: scale($theme-font-family-navigation, '2xs');
       font-weight: font-weight('bold');
-      line-height: line-height($theme-font-family-navigation, 1);
     }
 
     &:focus,
@@ -204,49 +207,36 @@
 
     // TODO: any way to clean this up with a mixin?
     &[aria-expanded=false] { /* stylelint-disable-line selector-no-qualifying-type */
-      background-image: url('#{$theme-image-path}/plus-alt.png');
-      background-image: url('#{$theme-image-path}/plus-alt.svg');
+      @include add-background-image('plus-alt')
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: units(1);
 
       @include at-media($theme-nav-width) {
-        background-image: url('#{$theme-image-path}/angle-arrow-down.png');
-        background-image: url('#{$theme-image-path}/angle-arrow-down.svg');
+        @include add-background-image('angle-arrow-down')
         background-position: right units(2) top $button-vertical-offset;
       }
 
       &:hover {
         @include at-media($theme-nav-width) {
-          background-image: url('#{$theme-image-path}/angle-arrow-down-primary.png');
-          background-image: url('#{$theme-image-path}/angle-arrow-down-primary.svg');
+          @include add-background-image('angle-arrow-down-primary')
         }
       }
     }
 
     &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
-      background-image: url('#{$theme-image-path}/minus-alt.png');
-      background-image: url('#{$theme-image-path}/minus-alt.svg');
+      @include add-background-image('minus-alt')
+      @include add-font-smoothing;
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: 1rem;
 
       @include at-media($theme-nav-width) {
+        @include add-background-image('angle-arrow-down-hover')
         @include nav-border;
-
         background-color: color('primary-darker');
-        color: color('white');
-        background-image: url('#{$theme-image-path}/angle-arrow-down-hover.png');
-        background-image: url('#{$theme-image-path}/angle-arrow-down-hover.svg');
         background-position: right units(2) top $button-vertical-offset;
-
-        &:hover {
-          background-color: color('primary-darker');
-        }
-
-        span {
-          color: color('white');
-        }
+        color: color('white');
       }
     }
   }

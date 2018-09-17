@@ -10,3 +10,8 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
+
+@mixin remove-font-smoothing {
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: auto;
+}
