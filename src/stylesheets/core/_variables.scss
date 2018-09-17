@@ -1127,7 +1127,6 @@ $color-base:                 $color-black-light !default; //'base-darkest'
 $color-focus:                $color-blue-40v !default;
 $color-visited:              $color-purple !default;
 
-$color-shadow:               $color-black-transparent-30 !default;
 $color-transparent:          rgba(#000, 0) !default;
 
 /*
@@ -1190,26 +1189,19 @@ calculated variables
 ----------------------------------------
 */
 
-$text-width-sm: 60ch;
-
-$text-max-width:                66ch !default; // 66 characters per line
-$text-narrow-width:             40ch !default;
-$text-wide-width:               72ch !default;
-$lead-max-width:                77rem !default;
-$site-max-width:                1040px !default;
+$text-max-width:                66ch !default; // 66 characters per line, TODO: use token?
+$text-wide-width:               72ch !default; // TODO: use token?
+$lead-max-width:                77rem !default; // TODO: use token?
+$site-max-width:                units($theme-site-max-width) !default; // TODO: remove variable and occurances from code
 $site-margins:                  units($theme-site-margins) !default;
 $site-margins-mobile:           units($theme-site-margins-mobile) !default;
-$article-max-width:             600px !default;
-$input-max-width:               46rem !default;
-$checkbox-border-radius:        2px !default;
-$border-radius:                 3px !default;
-$button-border-radius:          5px !default;
-$box-shadow:                    0 0 2px $color-shadow !default;
+$input-max-width:               46rem !default; // TODO: use token?
+$checkbox-border-radius:        units(2px) !default;
 $focus-outline:                 units(0.5) solid $color-focus !default;
 $focus-spacing:                 0 !default;
-$nav-width:                     951px !default;
+$nav-width:                     951px !default; // TODO: remove variable and occurances from code
 $usa-btn-small-width:           units(6);
-$search-min-width:              27ch; // minimum length of 27 letters for typical search query
+$search-min-width:              27ch; // minimum length of 27 letters for typical search query - magic number
 
 // 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines
 $hit-area: 4.4rem !default;
