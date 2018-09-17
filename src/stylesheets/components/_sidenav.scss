@@ -1,6 +1,6 @@
 .usa-nav-list {
-  @include typeset($theme-font-family-sidenav, 'sm', 3)
-  @include usa-nav-list;
+  @include nav-list;
+  @include typeset($theme-font-family-sidenav, 'sm', 3);
   border-bottom: units(1px) solid color('base-lighter');
 
   .grid-container & {
@@ -13,5 +13,5 @@
 }
 
 .usa-sidenav-sublist {
-  @include usa-nav-sublist;
+  @include nav-sublist;
 }

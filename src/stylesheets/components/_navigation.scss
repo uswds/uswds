@@ -129,7 +129,7 @@
   // Until the $theme-nav-width,
   // use the usa-nav-list styles for the slide-in nav
   @include at-media-max($theme-nav-width) {
-    @include usa-nav-list;
+    @include nav-list;
     margin-top: units(3);
     order: 2;
   }
@@ -170,14 +170,7 @@
       @include u-padding-y(1);
     }
 
-    &:hover {
-      @include at-media($theme-nav-width) {
-      }
-    }
-  }
-
   button {
-    // TODO: red flag...
     $button-vertical-offset: 40%;
 
     @include button-unstyled;
@@ -338,7 +331,7 @@
 
 .usa-nav-submenu {
   @include at-media-max($theme-nav-width) {
-    @include usa-nav-sublist;
+    @include nav-sublist;
   }
 
   @include at-media($theme-nav-width) {
