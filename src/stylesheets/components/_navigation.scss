@@ -5,11 +5,6 @@
   padding-bottom: units(1);
 }
 
-@mixin nav-border-thick {
-  border-bottom: units(1) solid color('primary');
-  padding-bottom: units(1);
-}
-
 .usa-navbar {
   border-bottom: units(1px) solid color('base-light');
   height: units(5);
@@ -130,13 +125,13 @@
 // Primary navigation ------------- //
 
 .usa-nav-primary {
-  margin-top: units(2);
-  order: 2;
 
   // Until the $theme-nav-width,
   // use the usa-nav-list styles for the slide-in nav
   @include at-media-max($theme-nav-width) {
     @include usa-nav-list;
+    margin-top: units(3);
+    order: 2;
   }
 
   // At $theme-nav-width and wider...
@@ -188,7 +183,7 @@
     @include button-unstyled;
     font-weight: font-weight('normal');
     line-height: line-height($theme-font-family-navigation, 3);
-    padding: units(1) units(2) units(1) units(2.5);
+    padding: units(1) units(2);
 
     @include at-media($theme-nav-width) {
       @include add-font-smoothing;
@@ -340,7 +335,9 @@
 // Navigation submenu (dropdown and mega menu) ----- //
 
 .usa-nav-submenu {
-  @include usa-nav-sublist;
+  @include at-media-max($theme-nav-width) {
+    @include usa-nav-sublist;
+  }
 
   @include at-media($theme-nav-width) {
     @include add-list-reset;
