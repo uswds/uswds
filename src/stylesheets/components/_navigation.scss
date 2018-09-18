@@ -18,6 +18,17 @@
 
 $nav-link-color: 'base-dark';
 
+// TODO: Collect animations in a common location?
+@keyframes slidein-left {
+  from {
+    transform: translateX(units($sliding-panel-width));
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 // Header navigation ------------- //
 
 .usa-navbar {
@@ -65,16 +76,6 @@ $nav-link-color: 'base-dark';
   @include typeset($theme-font-family-navigation, null, 1);
   $sliding-panel-width: 'card-lg';
 
-  @keyframes slidein-left {
-    from {
-      transform: translateX(units($sliding-panel-width));
-    }
-
-    to {
-      transform: translateX(0);
-    }
-  }
-
   @include at-media-max($theme-nav-width) {
     @include u-pin('right');
     @include u-pin('y');
@@ -88,6 +89,11 @@ $nav-link-color: 'base-dark';
     padding: units(2.5);
     width: units($sliding-panel-width);
     z-index: z-index(500);
+
+    &.is-visible {
+      animation: slidein-left 0.3s ease-in-out;
+      display: flex;
+    }
   }
 
   @include at-media($theme-nav-width) {
@@ -95,19 +101,10 @@ $nav-link-color: 'base-dark';
     position: relative;
   }
 
-  &.is-visible {
-    animation: slidein-left 0.3s ease-in-out;
-    display: flex;
-  }
-
   .usa-current {
     @include at-media($theme-nav-width) {
       @include nav-border;
     }
-  }
-
-  .usa-button {
-    width: 100%;
   }
 
   .usa-search {
@@ -247,7 +244,6 @@ $nav-link-color: 'base-dark';
   margin-top: units(2);
 
   @include at-media($theme-nav-width) {
-    // TODO: Is this a necessary evil?
     bottom: calc(5rem + 8px); // XXX magic number
     font-size: scale($theme-font-family-navigation, '2xs');
     margin-top: units(1);
@@ -257,14 +253,12 @@ $nav-link-color: 'base-dark';
   }
 
   .usa-search {
-    margin-bottom: 0;
     margin-top: units(2);
+    width: 100%;
 
     @include at-media($theme-nav-width) {
-      margin-bottom: 0;
       margin-left: 0;
       margin-top: units(1);
-      width: 100%;
     }
   }
 }
@@ -281,14 +275,12 @@ $nav-link-color: 'base-dark';
     margin-top: 0;
   }
 
-  li {
+  .usa-nav-secondary-item {
     @include at-media($theme-nav-width) {
       display: inline;
       padding-left: units(0.5);
-    }
 
-    &:not(:last-child)::after {
-      @include at-media($theme-nav-width) {
+      & + .usa-nav-secondary-item::before {
         color: color('base-lighter');
         content: '|';
         padding-left: units(0.5);
