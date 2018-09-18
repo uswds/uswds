@@ -17,6 +17,7 @@
 }
 
 $nav-link-color: 'base-dark';
+$sliding-panel-width: 'card-lg';
 
 // TODO: Collect animations in a common location?
 @keyframes slidein-left {
@@ -74,8 +75,6 @@ $nav-link-color: 'base-dark';
 
 .usa-nav {
   @include typeset($theme-font-family-navigation, null, 1);
-  $sliding-panel-width: 'card-lg';
-
   @include at-media-max($theme-nav-width) {
     @include u-pin('right');
     @include u-pin('y');

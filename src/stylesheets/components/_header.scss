@@ -120,9 +120,10 @@ $z-index-overlay: 400;
     }
 
     .usa-nav {
-      @include u-flex('row', 'align-center');
+      @include u-flex('row', 'align-center', 'justify-end');
       display: flex;
-      padding-bottom: units(0.5);
+      padding: 0 0 units(0.5) units(1);
+      width: 100%;
     }
 
     .usa-nav-container {
@@ -144,15 +145,6 @@ $z-index-overlay: 400;
 // ---------------------------------
 
 .usa-header-basic-megamenu {
-  .usa-nav {
-    @include at-media($theme-nav-width) {
-      justify-content: flex-end;
-      padding-left: 0;
-      padding-top: 0;
-      width: 100%;
-    }
-  }
-
   .usa-nav-inner {
     display: flex;
     flex-direction: column;
