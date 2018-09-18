@@ -168,7 +168,11 @@ $z-index-overlay: 400;
 // ---------------------------------
 
 .usa-header-extended {
-  .usa-header {
+  @include at-media($theme-nav-width) {
+    padding-top: units(2);
+  }
+
+  & .usa-header {
     @include at-media($theme-nav-width) {
       border-bottom: none;
     }
@@ -199,6 +203,7 @@ $z-index-overlay: 400;
 
   .usa-nav {
     @include at-media($theme-nav-width) {
+      border-bottom: units(1px) solid color('base-lighter');
       border-top: units(1px) solid color('base-lighter');
       padding: 0;
       width: 100%;
@@ -235,6 +240,7 @@ $z-index-overlay: 400;
 
   .usa-megamenu {
     @include at-media($theme-nav-width) {
+      left: 0;
       padding-left: units($theme-site-margins);
     }
   }
