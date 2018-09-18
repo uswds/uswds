@@ -1,99 +1,90 @@
-// Header helpers ----- //
+// Header helpers
+// ---------------------------------
 
-$height-nav-secondary: units(6);
-$width-nav-sidebar:    units('card-lg');
+$z-index-header:  300;
+$z-index-overlay: 400;
 
-$z-index-header:  z-index(300);
-$z-index-overlay: z-index(400);
-$z-index-nav:     z-index(500);
-
-// Header ------------- //
+// Header
+// ---------------------------------
 
 .usa-header {
   @include typeset($theme-font-family-header);
-  z-index: $z-index-header;
+  z-index: z-index($z-index-header);
 
   @include at-media($theme-nav-width) {
     border-bottom: units(1px) solid color('base-lighter');
+    padding-top: units(5);
   }
 
   a {
     border-bottom: none;
   }
 
+  // The search <form>
   .usa-search {
-    [type="search"] {
-      min-width: 0;
-    }
-
     @include at-media($theme-nav-width) {
       float: right;
     }
+  }
 
-    [role=search] {
-      @include at-media($theme-nav-width) {
-        float: right;
-        max-width: calc(#{$search-min-width} + #{$usa-btn-small-width});
-        width: inherit;
-      }
+  // Accessibility: The <div> with search role
+  [role=search] {
+    @include at-media($theme-nav-width) {
+      float: right;
+      max-width: calc(#{$search-min-width} + #{$usa-btn-small-width});
+      width: 100%;
     }
+  }
+
+  // The search <input>
+  [type=search] {
+    min-width: 0; // Fix a Firefox display quirk
   }
 }
 
 .usa-logo {
   @include at-media-max($theme-nav-width) {
-    float: left;
-    line-height: units(5); // TODO: not a great solution
-    margin-left: units(2);
+    @include u-flex('fill');
+    font-size: scale($theme-font-family-header, '2xs');
+    line-height: line-height($theme-font-family-header, 1);
+    margin-left: units($theme-site-margins-mobile);
+  }
+
+  @include at-media($theme-nav-width) {
+    font-size: scale($theme-font-family-header, 'lg');
+    line-height: line-height($theme-font-family-header, 2);
   }
 
   a {
     color: color('ink');
     text-decoration: none;
   }
-
-  br {
-    display: none;
-
-    @include at-media($theme-nav-width) {
-      display: block;
-    }
-  }
 }
 
 .usa-logo-text {
   display: block;
-  font-size: scale($theme-font-family-header, '2xs');
   font-style: normal;
   font-weight: font-weight('bold');
   margin: 0;
-
-  @include at-media($theme-nav-width) {
-    display: block;
-    font-size: scale($theme-font-family-header, 'lg');
-    line-height: line-height($theme-font-family-header, 2);
-  }
 }
 
 .usa-menu-btn {
   @include button-unstyled;
+  @include u-flex('auto');
+  @include u-padding-x(1.5);
   background-color: color('primary');
   color: color('white');
-  float: right;
   font-size: scale($theme-font-family-header, '3xs');
-  height: units(5);
-  line-height: units(5);
+  height: units($theme-header-height-mobile);
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  width: units(7); // consider using padding + flex?
 
   @include at-media($theme-nav-width) {
     display: none;
   }
 
   &:hover {
-    color: color('white');
     background-color: color('primary-dark');
   }
 
@@ -109,7 +100,7 @@ $z-index-nav:     z-index(500);
   opacity: opacity(0);
   transition: opacity 0.2s ease-in-out;
   visibility: hidden;
-  z-index: $z-index-overlay;
+  z-index: z-index($z-index-overlay);
 
   &.is-visible {
     opacity: opacity(10);
@@ -117,19 +108,20 @@ $z-index-nav:     z-index(500);
   }
 }
 
-// Basic header ----------- //
+// usa-header-basic
+// ---------------------------------
 
 .usa-header-basic {
   @include at-media($theme-nav-width) {
     .usa-navbar {
       position: relative;
-      width: 18%; // TODO: review this more
+      width: $theme-megamenu-logo-text-width; // TODO: review this more
     }
 
     .usa-nav {
       @include u-flex('row', 'align-center');
       display: flex;
-      padding-bottom: units(1);
+      padding-bottom: units(0.5);
     }
 
     .usa-nav-container {
@@ -147,7 +139,33 @@ $z-index-nav:     z-index(500);
   }
 }
 
-// Extended header ----------- //
+// usa-header-basic-megamenu
+// ---------------------------------
+
+.usa-header-basic-megamenu {
+  .usa-nav {
+    @include at-media($theme-nav-width) {
+      justify-content: flex-end;
+      padding-left: 0;
+      padding-top: 0;
+      width: 100%;
+    }
+  }
+
+  .usa-nav-inner {
+    display: flex;
+    flex-direction: column;
+
+    @include at-media($theme-nav-width) {
+      display: block;
+      float: right;
+      margin-top: units(-5);
+    }
+  }
+}
+
+// usa-header-extended
+// ---------------------------------
 
 .usa-header-extended {
   .usa-header {
@@ -182,7 +200,6 @@ $z-index-nav:     z-index(500);
   .usa-nav {
     @include at-media($theme-nav-width) {
       border-top: units(1px) solid color('base-lighter');
-      float: none;
       padding: 0;
       width: 100%;
     }

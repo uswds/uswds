@@ -22,13 +22,17 @@ $nav-link-color: 'base-dark';
 
 .usa-navbar {
   border-bottom: units(1px) solid color('base-light');
-  height: units(5);
+  height: units($theme-header-height-mobile);
+
+  @include at-media-max($theme-nav-width) {
+    @include u-flex('align-center');
+    display: flex;
+  }
 
   @include at-media($theme-nav-width) {
     border-bottom: none;
     display: inline-block;
     height: auto;
-    min-height: units(10);
 
     em {
       @include u-margin-y(2);
@@ -38,8 +42,6 @@ $nav-link-color: 'base-dark';
 
 .usa-nav-link {
   @include at-media($theme-nav-width) {
-    @include add-font-smoothing;
-
     &:hover {
       @include nav-border;
     }
@@ -95,7 +97,7 @@ $nav-link-color: 'base-dark';
     display: block;
     float: right;
     overflow-y: visible;
-    padding: units(6) 0 0;
+    padding: 0;
     position: relative;
     transform: translateX(0);
     width: auto;
@@ -171,7 +173,6 @@ $nav-link-color: 'base-dark';
     > a {
       @include at-media($theme-nav-width) {
         @include primary-nav-link;
-        @include remove-font-smoothing;
         color: color($nav-link-color);
         display: block;
         font-weight: font-weight('bold');
@@ -235,7 +236,6 @@ $nav-link-color: 'base-dark';
 
     &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
       @include add-background-image('minus-alt');
-      @include add-font-smoothing;
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: 1rem;
@@ -426,8 +426,9 @@ $nav-link-color: 'base-dark';
   @include at-media($theme-nav-width) {
     @include u-padding-x(0);
     @include u-padding-y(4);
-    left: 0;
-    width: 100%;
+    left: -$theme-megamenu-logo-text-width;
+    right: 0;
+    width: auto;
   }
 
   &::before {
@@ -441,27 +442,6 @@ $nav-link-color: 'base-dark';
     @include at-media($theme-nav-width) {
       @include outer-megamenu;
       left: 100%;
-    }
-  }
-}
-
-.usa-header-basic-megamenu {
-  .usa-nav {
-    @include at-media($theme-nav-width) {
-      padding-left: 0;
-      padding-top: 0;
-      width: 100%;
-    }
-  }
-
-  .usa-nav-inner {
-    display: flex;
-    flex-direction: column;
-
-    @include at-media($theme-nav-width) {
-      display: block;
-      float: right;
-      margin-top: units(-5);
     }
   }
 }
