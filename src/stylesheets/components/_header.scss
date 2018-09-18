@@ -155,8 +155,7 @@ $z-index-overlay: 400;
 
     .usa-current,
     [aria-expanded=true],
-    .usa-nav-link:hover
-     {
+    .usa-nav-link:hover {
       @include nav-border-basic;
     }
 
@@ -195,8 +194,7 @@ $z-index-overlay: 400;
 
     .usa-current,
     [aria-expanded=true],
-    .usa-nav-link:hover
-     {
+    .usa-nav-link:hover {
       @include nav-border-extended;
     }
   }
