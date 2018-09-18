@@ -51,6 +51,7 @@ $z-index-overlay: 400;
   }
 
   @include at-media($theme-nav-width) {
+    @include u-margin-y(2);
     font-size: scale($theme-font-family-header, 'lg');
     line-height: line-height($theme-font-family-header, 2);
   }
@@ -169,7 +170,7 @@ $z-index-overlay: 400;
 
 .usa-header-extended {
   @include at-media($theme-nav-width) {
-    padding-top: units(2);
+    padding-top: 0;
   }
 
   & .usa-header {
@@ -180,8 +181,7 @@ $z-index-overlay: 400;
 
   .usa-logo {
     @include at-media($theme-nav-width) {
-      @include u-margin-y(4);
-      margin-bottom: units(2);
+      margin: units(4) 0 units(3);
       max-width: 50%;
     }
   }
