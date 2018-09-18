@@ -1,6 +1,28 @@
 // Header helpers
 // ---------------------------------
 
+@mixin nav-border-extended {
+  @include add-bar(
+    0.5,
+    'primary',
+    'bottom',
+    0,
+    2,
+    -1px
+  );
+}
+
+@mixin nav-border-basic {
+  @include add-bar(
+    0.5,
+    'primary',
+    'bottom',
+    0,
+    2,
+    -0.5
+  );
+}
+
 $z-index-header:  300;
 $z-index-overlay: 400;
 
@@ -131,6 +153,13 @@ $z-index-overlay: 400;
       display: flex;
     }
 
+    .usa-current,
+    [aria-expanded=true],
+    .usa-nav-link:hover
+     {
+      @include nav-border-basic;
+    }
+
     .usa-nav-primary {
       width: auto;
     }
@@ -163,6 +192,13 @@ $z-index-overlay: 400;
 .usa-header-extended {
   @include at-media($theme-nav-width) {
     padding-top: 0;
+
+    .usa-current,
+    [aria-expanded=true],
+    .usa-nav-link:hover
+     {
+      @include nav-border-extended;
+    }
   }
 
   .usa-logo {

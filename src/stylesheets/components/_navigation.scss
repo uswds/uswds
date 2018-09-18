@@ -1,17 +1,6 @@
 // Navigation helpers
 // ---------------------------------
 
-@mixin nav-border {
-  @include add-bar(
-    0.5,
-    'primary',
-    'bottom',
-    0,
-    2,
-    -1px
-  );
-}
-
 @mixin outer-megamenu {
   @include u-pin('y');
   background-color: color('primary-darker');
@@ -61,23 +50,6 @@ $nav-link-arrow-icon-size: 1;
   }
 }
 
-.usa-nav-link {
-  @include at-media($theme-nav-width) {
-    &:hover {
-      @include nav-border;
-    }
-  }
-
-  &.usa-accordion-button {
-    span {
-      @include at-media($theme-nav-width) {
-        margin-right: 0;
-        padding-right: units(2);
-      }
-    }
-  }
-}
-
 .usa-nav-container {
   @include at-media($theme-nav-width) {
     @include clearfix;
@@ -111,12 +83,6 @@ $nav-link-arrow-icon-size: 1;
   @include at-media($theme-nav-width) {
     float: right;
     position: relative;
-  }
-
-  .usa-current {
-    @include at-media($theme-nav-width) {
-      @include nav-border;
-    }
   }
 
   .usa-search {
@@ -240,7 +206,6 @@ $nav-link-arrow-icon-size: 1;
 
       @include at-media($theme-nav-width) {
         @include add-background-image('angle-arrow-down-hover');
-        @include nav-border;
         background-size: units($nav-link-arrow-icon-size);
         background-color: color('primary-darker');
         background-position: right units(2) top $button-vertical-offset;
@@ -249,10 +214,11 @@ $nav-link-arrow-icon-size: 1;
     }
   }
 
-  @include at-media($theme-nav-width) {
-    .usa-current {
-      &:hover {
-        @include nav-border;
+  .usa-accordion-button {
+    span {
+      @include at-media($theme-nav-width) {
+        margin-right: 0;
+        padding-right: units(2);
       }
     }
   }
