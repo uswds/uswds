@@ -5,29 +5,29 @@ context:
   nav:
     search: false
     links:
-      - text: Section title
+      - text: Section dropdown
         id: nav-section-one
         links: &subnav_links
-          - text: Subsection title
+          - text: Navigation link
             href: '#'
-          - text: Subsection title
+          - text: Navigation link
             href: '#'
-          - text: Subsection title
+          - text: Navigation link
             href: '#'
-          - text: Subsection title longer
+          - text: Navigation link
             href: '#'
-          - text: A very long page title that goes onto two lines
+          - text: A very long navigation link that goes onto two lines
             href: '#'
-          - text: Subsection title
+          - text: Navigation link
             href: '#'
-          - text: Subsection title
+          - text: Navigation link
             href: '#'
-          - text: Subsection title
+          - text: Navigation link
             href: '#'
-          - text: Subsection title
+          - text: Navigation link
             href: '#'
-      - text: Simple terms
+      - text: Section dropdown
         id: nav-section-two
         links: *subnav_links
-      - text: Distinct from each other
+      - text: Navigation link
         href: 'javascript:void(0)'
