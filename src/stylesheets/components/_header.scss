@@ -173,22 +173,11 @@ $z-index-overlay: 400;
     padding-top: 0;
   }
 
-  & .usa-header {
-    @include at-media($theme-nav-width) {
-      border-bottom: none;
-    }
-  }
-
   .usa-logo {
     @include at-media($theme-nav-width) {
+      font-size: scale($theme-font-family-header, 'xl');
       margin: units(4) 0 units(3);
       max-width: 50%;
-    }
-  }
-
-  em {
-    @include at-media($theme-nav-width) {
-      font-size: scale($theme-font-family-header, 'xl');
     }
   }
 
@@ -204,7 +193,6 @@ $z-index-overlay: 400;
   .usa-nav {
     @include at-media($theme-nav-width) {
       border-bottom: units(1px) solid color('base-lighter');
-      border-top: units(1px) solid color('base-lighter');
       padding: 0;
       width: 100%;
     }
