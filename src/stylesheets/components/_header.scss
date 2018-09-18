@@ -76,7 +76,7 @@ $z-index-overlay: 400;
   background-color: color('primary');
   color: color('white');
   font-size: scale($theme-font-family-header, '3xs');
-  height: units($theme-header-height-mobile);
+  height: units($touch-target-size);
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
