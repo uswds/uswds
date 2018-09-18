@@ -41,6 +41,7 @@ $icon-size: units(4);
     margin-top: units(2);
   }
 
+  // TODO: why is this not simply a border?
   &::before {
     background-color: color('gray-40');
     content: '';
@@ -62,8 +63,12 @@ $icon-size: units(4);
 
   ul {
     margin-bottom: 0;
-    margin-top: $bar-size;
-    padding-left: $bar-size;
+    margin-top: units(1);
+    padding-left: units(1);
+  }
+
+  .usa-checklist {
+    padding-left: 0;
   }
 }
 
@@ -89,9 +94,9 @@ $icon-size: units(4);
 }
 
 .usa-alert-heading {
-  @include typeset-h3;
+  @include typeset($theme-font-family-alerts, 'lg', 2);
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: units(1);
 }
 
 .usa-alert-text {

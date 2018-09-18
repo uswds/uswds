@@ -1,0 +1,45 @@
+// Mixins here becuase they may be abstracted in the future
+
+@mixin add-checkbox-placeholder {
+  $placeholder-width: units(3);
+  $placeholder-margin: units(0.5);
+
+  text-indent: ($placeholder-width + $placeholder-margin) * -1;
+
+  &::before {
+    content: ' ';
+    display: inline-block;
+    height: units(1.5);
+    margin-right: $placeholder-margin;
+    width: $placeholder-width;
+  }
+}
+
+@mixin add-green-check {
+  &::before {
+    background-image: url('#{$theme-image-path}/correct9.png');
+    background-image: url('#{$theme-image-path}/correct9.svg');
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}
+
+.usa-checklist {
+  @include typeset;
+  @include add-list-reset;
+  margin: 0;
+}
+
+.usa-checklist-item {
+  @include add-checkbox-placeholder;
+  @include u-margin-y(0);
+  margin-bottom: 0;
+  margin-top: units(1);
+
+  &.is-checked,
+  // Deprecate usa-checklist-checked once the js is updated
+  &.usa-checklist-checked {
+    @include add-green-check;
+  }
+}
