@@ -5,7 +5,8 @@ context:
   nav:
     search: false
     links:
-      - text: Section dropdown
+      - text: Current section dropdown
+        is_current: true
         id: nav-section-one
         links: &subnav_links
           - text: Navigation link
