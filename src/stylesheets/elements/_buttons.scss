@@ -27,7 +27,6 @@ $button-stroke: inset 0 0 0 2px;
 .usa-button-primary,
 .usa-button:visited,
 .usa-button-primary:visited {
-  @include font-smoothing;
   @include typeset($theme-font-family-button, null, 1);
 
   appearance: none;
