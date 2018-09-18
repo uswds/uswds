@@ -5,7 +5,7 @@ context:
   nav:
     search: false
     links:
-      - text: Current section dropdown
+      - text: Current section
         is_current: true
         id: nav-section-one
         links: &subnav_links
@@ -27,8 +27,8 @@ context:
             href: '#'
           - text: Navigation link
             href: '#'
-      - text: Section dropdown
+      - text: Section
         id: nav-section-two
         links: *subnav_links
-      - text: Navigation link
+      - text: Simple link
         href: 'javascript:void(0)'
