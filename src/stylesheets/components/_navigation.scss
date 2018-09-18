@@ -157,8 +157,10 @@ $nav-link-arrow-icon-size: 1;
 
   // just level 1 nav items...
   > .usa-nav-item {
+    line-height: line-height($theme-font-family-navigation, 2);
     @include at-media($theme-nav-width) {
       font-size: scale($theme-font-family-navigation, '2xs');
+      line-height: line-height($theme-font-family-navigation, 1);
     }
 
     // ...and their direct links
@@ -188,7 +190,7 @@ $nav-link-arrow-icon-size: 1;
     @include button-unstyled;
     color: color($nav-link-color);
     font-weight: font-weight('normal');
-    line-height: line-height($theme-font-family-navigation, 3);
+    line-height: line-height($theme-font-family-navigation, 2);
     padding: units(1.5) units(2);
 
     @include at-media($theme-nav-width) {
