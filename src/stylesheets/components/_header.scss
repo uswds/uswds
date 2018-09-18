@@ -175,7 +175,10 @@ $z-index-overlay: 400;
 
   .usa-navbar {
     @include at-media($theme-nav-width) {
-      @include grid-container;
+      // @include grid-container; // TODO: disable until mixin is fixed
+      @include u-margin-x(auto);
+      @include u-padding-x($theme-site-margins);
+      max-width: units($theme-site-max-width);
       display: block;
       height: auto;
       overflow: auto;
