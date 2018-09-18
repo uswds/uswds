@@ -103,7 +103,6 @@ $nav-link-color: 'base-dark';
   .usa-current {
     @include at-media($theme-nav-width) {
       @include nav-border;
-      color: color('ink');
     }
   }
 
