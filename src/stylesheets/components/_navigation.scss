@@ -29,6 +29,7 @@
 $nav-link-color: 'base-dark';
 $sliding-panel-width: 'card-lg';
 $nav-link-accordion-icon-size: 1.5;
+$nav-link-arrow-icon-size: 1;
 
 // TODO: Collect animations in a common location?
 @keyframes slidein-left {
@@ -218,6 +219,7 @@ $nav-link-accordion-icon-size: 1.5;
 
       @include at-media($theme-nav-width) {
         @include add-background-image('angle-arrow-down');
+        background-size: units($nav-link-arrow-icon-size);
         background-position: right units(2) top $button-vertical-offset;
       }
 
@@ -237,6 +239,7 @@ $nav-link-accordion-icon-size: 1.5;
       @include at-media($theme-nav-width) {
         @include add-background-image('angle-arrow-down-hover');
         @include nav-border;
+        background-size: units($nav-link-arrow-icon-size);
         background-color: color('primary-darker');
         background-position: right units(2) top $button-vertical-offset;
         color: color('white');
