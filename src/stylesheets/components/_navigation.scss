@@ -255,7 +255,8 @@ $sliding-panel-width: 'card-lg';
   margin-top: units(2);
 
   @include at-media($theme-nav-width) {
-    bottom: calc(5rem + 8px); // XXX magic number
+    // Note: Previius calc() couldn't work. don't hardcode rem vals
+    bottom: units(8); // XXX magic number
     font-size: scale($theme-font-family-navigation, '2xs');
     margin-top: units(1);
     min-width: calc(#{$search-min-width} + #{$usa-btn-small-width});
