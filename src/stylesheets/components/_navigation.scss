@@ -1,4 +1,5 @@
-// Navigation helpers ------------- //
+// Navigation helpers
+// ---------------------------------
 
 @mixin nav-border {
   @include add-bar(
@@ -9,6 +10,15 @@
     2,
     -1px
   );
+}
+
+@mixin outer-megamenu {
+  @include u-pin('y');
+  background-color: color('primary-darker');
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
 }
 
 @mixin primary-nav-link {
@@ -30,7 +40,8 @@ $sliding-panel-width: 'card-lg';
   }
 }
 
-// Header navigation ------------- //
+// Header navigation
+// ---------------------------------
 
 .usa-navbar {
   border-bottom: units(1px) solid color('base-light');
@@ -113,7 +124,8 @@ $sliding-panel-width: 'card-lg';
   }
 }
 
-// Primary navigation ------------- //
+// Primary navigation
+// ---------------------------------
 
 .usa-nav-primary {
 
@@ -165,7 +177,7 @@ $sliding-panel-width: 'card-lg';
   }
 
   button {
-    $button-vertical-offset: 53%;
+    $button-vertical-offset: 53%; // XXX: Magic number
 
     @include button-unstyled;
     color: color($nav-link-color);
@@ -193,7 +205,6 @@ $sliding-panel-width: 'card-lg';
       }
     }
 
-    // TODO: any way to clean this up with a mixin?
     &[aria-expanded=false] { /* stylelint-disable-line selector-no-qualifying-type */
       @include add-background-image('plus-alt');
       background-repeat: no-repeat;
@@ -237,7 +248,8 @@ $sliding-panel-width: 'card-lg';
   }
 }
 
-// Secondary navigation ----------- //
+// Secondary navigation
+// ---------------------------------
 
 .usa-nav-secondary {
   margin-top: units(2);
@@ -300,7 +312,8 @@ $sliding-panel-width: 'card-lg';
   }
 }
 
-// Navigation submenu (dropdown and mega menu) ----- //
+// Navigation dropdowns
+// ---------------------------------
 
 .usa-nav-submenu {
   @include at-media-max($theme-nav-width) {
@@ -353,7 +366,8 @@ $sliding-panel-width: 'card-lg';
   }
 }
 
-// Navigation close button -------- //
+// Navigation close button
+// ---------------------------------
 
 .usa-nav-close {
   @include button-unstyled;
@@ -384,16 +398,8 @@ $sliding-panel-width: 'card-lg';
   overflow: hidden;
 }
 
-// Navigation mega menu -------- //
-
-@mixin outer-megamenu {
-  @include u-pin('y');
-  background-color: color('primary-darker');
-  content: '';
-  display: block;
-  position: absolute;
-  width: 100%;
-}
+// Navigation megamenu
+// ---------------------------------
 
 .usa-megamenu {
   @include at-media($theme-nav-width) {
