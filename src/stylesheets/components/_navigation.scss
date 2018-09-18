@@ -294,7 +294,7 @@ $sliding-panel-width: 'card-lg';
       & + .usa-nav-secondary-item::before {
         color: color('base-lighter');
         content: '|';
-        padding-left: units(0.5);
+        padding-right: units(0.5);
       }
     }
   }
