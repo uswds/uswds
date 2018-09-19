@@ -138,9 +138,7 @@
 }
 
 .usa-banner-header-expanded {
-  background-color: color(ink);
-  color: color('white');
-  min-height: units(4);
+  min-height: units($touch-target-size);
   padding-right: units($touch-target-size);
 
   @include at-media('tablet') {
@@ -207,11 +205,12 @@
     background-image: none;
 
     @include at-media-max('tablet') {
-      @include add-icon('close-blue-30-alt', 'after', 1.5, $touch-target-size, 0, 'no-hover');
+      @include add-icon('close-blue-50-alt', 'after', 2, $touch-target-size, 0, 'no-hover');
 
       &::after {
         @include u-pin('y');
         @include u-pin('right');
+        background-color: color('base-lighter');
         bottom: 0;
         height: auto;
       }
