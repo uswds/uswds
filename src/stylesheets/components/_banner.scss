@@ -205,7 +205,7 @@
     @include at-media-max('tablet') {
       @include add-icon('close-blue-30-alt', 'after', 1.5, $touch-target-size, 0, 'no-hover');
 
-      &::after{
+      &::after {
         @include u-pin('y');
         @include u-pin('right');
         bottom: 0;
