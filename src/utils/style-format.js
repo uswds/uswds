@@ -5,25 +5,24 @@ const helpers = require('handlebars-helpers');
 
 const { trimLeft } = helpers.string();
 
-const colorListTemplate = `
-'{{meta.name}}': (
+const colorListTemplate =
+`'{{meta.name}}': (
   {{#each props as |prop|}}
   {{#isObject prop.value}}
   {{> colorList meta=prop props=prop.value }}
   {{else}}
   '{{prop.name}}': {{prop.value}},
   {{/isObject}}  
-  {{/each}}
+  {{~/each}}
 ),
 `;
 
-const colorMap = `
-\${{global.category}}: (
+const colorMap =
+`\${{global.category}}: (
 {{#each props as |prop|}}
   {{> colorList meta=prop props=prop.value }}
 {{/each}}
-);
-`;
+);`;
 
 handlebars.registerHelper('isObject', function (item, options) {
   if (typeof item === 'object') {
