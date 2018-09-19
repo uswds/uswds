@@ -1,3 +1,5 @@
+/* stylelint-disable max-nesting-depth */
+
 /*
 ----------------------------------------
 @render-pseudoclass
@@ -22,7 +24,7 @@ loop
   }
   .#{$this-mq}#{$pseudoclass}\:#{ns($this-type)}#{$selector}:#{$pseudoclass} {
     @each $this-property in $property {
-      #{$this-property}: unquote("#{$value}#{$important}");
+      #{$this-property}: unquote('#{$value}#{$important}');
     }
   }
 }
@@ -30,7 +32,7 @@ loop
 // utility-feature? utility-property
 @mixin add-utility-declaration($declaration, $utility-type, $important) {
   @each $ext-prop, $ext-value in map-get($declaration, $utility-type) {
-    #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
+    #{strunquote($ext-prop)}: unquote('#{strunquote($ext-value)}#{$important}');
   }
 }
 
@@ -71,7 +73,7 @@ loop
           }
 
           @each $this-property in $property {
-            #{$this-property}: unquote("#{$value}#{$important}");
+            #{$this-property}: unquote('#{$value}#{$important}');
           }
 
           @if map-has-key($utility, extend) {
@@ -89,7 +91,6 @@ loop
   }
 }
 
-
 /*
 ----------------------------------------
 @render-utility
@@ -99,9 +100,9 @@ in the @render-utilities-in loop
 ----------------------------------------
 TODO: Determine the proper use of
 unquote() in the following. Changed to
-account for a "interpolation near
+account for a 'interpolation near
 operators will be simplified in a
-future version of Sass" warning.
+future version of Sass' warning.
 ----------------------------------------
 */
 
@@ -129,11 +130,11 @@ future version of Sass" warning.
     }
 
     @each $this-property in $property {
-      #{$this-property}: unquote("#{$value}#{$important}");
+      #{$this-property}: unquote('#{$value}#{$important}');
     }
 
     @if map-has-key($utility, extend) {
-      @include add-utility-declaration($utility, extend, $important)
+      @include add-utility-declaration($utility, extend, $important);
     }
   }
 
@@ -219,7 +220,7 @@ through all possible variants
           }
           @else if map-has-key($val-value, dependency)
             and not map-get($val-value, dependency) {
-              $val-value: false;
+            $val-value: false;
           }
         }
 
@@ -325,14 +326,14 @@ through all possible variants
 
                 $selector: $v;
 
-              // if the value is noValue ('')
+                // if the value is noValue ('')
 
               }
               @else if $no-value {
 
-                    // selector is the base only
+                // selector is the base only
 
-                    $selector: $b;
+                $selector: $b;
               }
               @else {
 
@@ -371,7 +372,7 @@ through all possible variants
             // And do we also have $property and $value?
             // We do?!?!?! We do!
 
-            // FINALLY, "BUILD THE RULE, MAX!"
+            // FINALLY, 'BUILD THE RULE, MAX!'
             // https://www.youtube.com/watch?v=R3Igz5SfBCE
 
             @include render-utility($utility, $selector, $property, $value, $val-value);
@@ -433,3 +434,5 @@ through all possible variants
     }
   }
 }
+
+/* stylelint-enable */

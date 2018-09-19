@@ -106,7 +106,6 @@ source: https://gist.github.com/bigglesrocks/d75091700f8f2be5abfe
   @return $collection;
 }
 
-/* stylelint-disable */
 /*
 ----------------------------------------
 smart-quote()
@@ -129,7 +128,7 @@ Leaves bools as is
   }
 
   @return $value;
-};
+}
 
 /*
 ----------------------------------------
@@ -257,7 +256,7 @@ into that single element.
 ----------------------------------------
 */
 
-@function de-list($value){
+@function de-list($value) {
   $types: ('list', 'arglist');
 
   @if not index($types, type-of($value)) {
@@ -285,7 +284,7 @@ of lists.
 ----------------------------------------
 */
 
-@function unpack($value){
+@function unpack($value) {
   $output: ();
 
   @if length($value) == 0 {
@@ -324,7 +323,6 @@ Return null if the value is null
 
   @return $last;
 }
-
 
 /*
 ----------------------------------------
@@ -419,7 +417,7 @@ Get the cap height of a defined font
 ----------------------------------------
 */
 
-@function cap-height($font){
+@function cap-height($font) {
   @if not $font {
     @return false;
   }
@@ -429,7 +427,7 @@ Get the cap height of a defined font
     $font,
     'cap-height'
   );
-};
+}
 
 /*
 ----------------------------------------
@@ -465,8 +463,7 @@ to a set target
   $this-scale: $system-base-cap-height * strip-unit($scale) / $cap-height * 1px;
 
   @return px-to-rem($this-scale);
-
-};
+}
 
 /*
 ----------------------------------------
@@ -482,15 +479,17 @@ withholds certain errors.
 ----------------------------------------
 */
 
-@function utility-font($family, $scale){
+@function utility-font($family, $scale) {
   @if not map-has-key($project-cap-heights, $family) {
-    @error "#{$family} is not a valid font family. Valid values: #{map-keys($project-cap-heights)}";
+    @error '#{$family} is not a valid font family. '
+      + 'Valid values: #{map-keys($project-cap-heights)}';
   }
 
   $quote-scale: smart-quote($scale);
 
   @if not map-get($all-type-scale, $quote-scale) {
-    @error "`#{$scale}` is not a valid font scale. Valid values: #{map-keys($all-type-scale)}";
+    @error '`#{$scale}` is not a valid font scale. '
+      + 'Valid values: #{map-keys($all-type-scale)}';
   }
 
   $this-cap: map-get($project-cap-heights, $family);
@@ -501,7 +500,7 @@ withholds certain errors.
   }
 
   @return normalize-type-scale($this-cap, $this-scale);
-};
+}
 
 /*
 ----------------------------------------
@@ -513,11 +512,12 @@ a family and a line-height scale unit
 ----------------------------------------
 */
 
-@function lh($props...){
+@function lh($props...) {
   $props: unpack($props);
 
   @if not length($props) == 2 {
-    @error 'lh() needs both a valid face and line height unit in the format `lh(FACE, HEIGHT)`.';
+    @error 'lh() needs both a valid face and line height unit '
+      + 'in the format `lh(FACE, HEIGHT)`.';
   }
 
   $family: smart-quote(nth($props, 1));
@@ -525,12 +525,12 @@ a family and a line-height scale unit
 
   @if not map-has-key($project-cap-heights, $family) {
     @error '#{$family} is not a valid font family. '
-         + 'Valid values: #{map-keys($project-cap-heights)}';
+      + 'Valid values: #{map-keys($project-cap-heights)}';
   }
 
   @if not map-get($system-line-height, $scale) {
     @error '`#{$scale}` is not a valid line-height unit. '
-         + 'Valid values: #{map-keys($system-line-height)}';
+      + 'Valid values: #{map-keys($system-line-height)}';
   }
 
   @if not map-get($project-cap-heights, $family) {
@@ -539,14 +539,14 @@ a family and a line-height scale unit
 
   $this-cap: map-get($project-cap-heights, $family);
   $this-line-height: map-get($system-line-height, $scale);
-  $normalized-line-height:  $this-line-height / ($system-base-cap-height / $this-cap);
+  $normalized-line-height: $this-line-height / ($system-base-cap-height / $this-cap);
 
   @return $normalized-line-height;
-};
+}
 
 @function line-height($props...) {
   @return lh($props...);
-};
+}
 
 /*
 ----------------------------------------
@@ -561,7 +561,7 @@ variable that is, itself, a list
 @function get-system-color(
   $color-family: false,
   $color-grade: false,
-  $color-variant: false){
+  $color-variant: false) {
 
   // If the arg being passed to the fn
   // is a variable defined as a list,
@@ -619,8 +619,7 @@ variable that is, itself, a list
   );
 
   @return $output;
-
-};
+}
 
 /*
 ----------------------------------------
@@ -630,19 +629,20 @@ Get a value from the system type scale
 ----------------------------------------
 */
 
-@function system-type-scale($scale){
+@function system-type-scale($scale) {
   $scale: smart-quote($scale);
 
   @if not $scale {
     @return false;
   }
 
-  @if not map-has-key($system-type-scale, $scale){
-    @error "`#{$scale}` is not a valid type scale value. Valid values: #{map-keys($system-type-scale)}";
+  @if not map-has-key($system-type-scale, $scale) {
+    @error '`#{$scale}` is not a valid type scale value. '
+      + 'Valid values: #{map-keys($system-type-scale)}';
   }
 
   @return map-get($system-type-scale, $scale);
-};
+}
 
 /*
 ----------------------------------------
@@ -659,14 +659,15 @@ grid.
   $gap-size: smart-quote($gap-size);
 
   @if not map-has-key($spacing-to-value, $gap-size) {
-    @error "`#{$gap-size}` is not a valid USWDS gap size.";
+    @error '`#{$gap-size}` is not a valid USWDS gap size.';
   }
 
   $numeric-eq: map-get($spacing-to-value, $gap-size);
   $numeric-eq-half: inspect($numeric-eq / 2);
 
-  @if not map-has-key($spacing-to-token, $numeric-eq-half){
-    @error "`#{$gap-size}` is not a valid USWDS gap size. Column gaps need to have a standard size half their width.";
+  @if not map-has-key($spacing-to-token, $numeric-eq-half) {
+    @error '`#{$gap-size}` is not a valid USWDS gap size. '
+      + 'Column gaps need to have a standard size half their width.';
   }
 
   @return map-get($spacing-to-token, $numeric-eq-half);
@@ -681,8 +682,8 @@ for a property
 ----------------------------------------
 */
 
-@function get-standard-values($property){
- @return map-deep-get($system-properties, $property, standard);
+@function get-standard-values($property) {
+  @return map-deep-get($system-properties, $property, standard);
 }
 
 /*
@@ -717,7 +718,7 @@ functions and mixins.
 ----------------------------------------
 */
 
-@function get-uswds-value($property, $value...){
+@function get-uswds-value($property, $value...) {
   @if type-of($value) == 'arglist' and nth($value, 1) == override {
     @return nth($value, 2);
   }
@@ -759,7 +760,8 @@ functions and mixins.
 
   @if not (type-of($value) == 'number' and not unitless($value)) {
     @error '`#{$value}` is not a valid `#{$property}` value. '
-        + 'You should correct this. Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+      + 'You should correct this. Standard `#{$property}` values: '
+      + ' #{map-keys($our-standard-values)}';
   }
 
   // TODO: reinstate
@@ -769,7 +771,7 @@ functions and mixins.
   //     + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
 
   @return $value;
-};
+}
 
 /*
 ----------------------------------------
@@ -784,17 +786,19 @@ Derive a color from a color shortcode
   @if not $shortcode {
     @return false;
   }
-  @if map-has-key($system-color-shortcodes, $shortcode){
+  @if map-has-key($system-color-shortcodes, $shortcode) {
     $our-color: map-get($system-color-shortcodes, $shortcode);
     @if $our-color == false {
-      @error "`#{$shortcode}` is a color that does not exist or is set to false.";
+      @error '`#{$shortcode}` is a color that does not exist '
+        + 'or is set to false.';
     }
     @return $our-color;
   }
-  @if map-has-key($project-color-shortcodes, $shortcode){
+  @if map-has-key($project-color-shortcodes, $shortcode) {
     $our-color: (map-get($project-color-shortcodes, $shortcode));
     @if $our-color == false {
-      @error "`#{$shortcode}` is a color that does not exist or is set to false.";
+      @error '`#{$shortcode}` is a color that does not exist '
+        + 'or is set to false.';
     }
     @return $our-color;
   }
@@ -832,7 +836,7 @@ Derive a color from a color triplet:
 @function advanced-color(
   $color-family: false,
   $color-grade: false,
-  $color-variant: false){
+  $color-variant: false) {
 
   // Convert any arglists into lists
   $color-family: if(
@@ -874,18 +878,19 @@ Derive a color from a color triplet:
   // ex: ('base', 'darker')
   // default theme colors have no grade
   // ex: ('base')
-  @if map-has-key($all-project-colors, $color-family){
-    @if not map-has-key(map-get($all-project-colors, $color-family), $color-grade){
+  @if map-has-key($all-project-colors, $color-family) {
+    @if not map-has-key(map-get($all-project-colors, $color-family), $color-grade) {
       @error '`#{$color-grade}` is not a valid grade of `#{$color-family}`. '
-           + 'Valid grades: #{map-keys(map-get($all-project-colors, $color-family))}';
+        + 'Valid grades: '
+        + '#{map-keys(map-get($all-project-colors, $color-family))}';
     }
   }
   @else {
     @error '`#{$color-family}` is not a valid theme family. '
-         + 'Valid families: #{map-keys($all-project-colors)}';
+      + 'Valid families: #{map-keys($all-project-colors)}';
   }
   @return map-deep-get($all-project-colors, $color-family, $color-grade);
-};
+}
 
 /*
 ----------------------------------------
@@ -904,11 +909,12 @@ the desired final units (currently rem)
 
   @if not map-has-key($project-spacing-standard, $converted) {
     @error '`#{$value}` is not a valid spacing unit. '
-         + 'Valid spacing unit values: #{map-keys($project-spacing-standard)}';
+      + 'Valid spacing unit values: '
+      + '#{map-keys($project-spacing-standard)}';
   }
 
   @return map-get($project-spacing-standard, $converted);
-};
+}
 
 /*
 ----------------------------------------
@@ -919,16 +925,16 @@ from a list of plugin keys.
 ----------------------------------------
 */
 
-@function get-palettes($list){
-  $our-palettes:();
+@function get-palettes($list) {
+  $our-palettes: ();
 
   @if type-of($list) == 'map' {
-    @error "Use a list of strings as plugin values.";
+    @error 'Use a list of strings as plugin values.';
   }
 
   @each $palette in $list {
-    @if not map-has-key($palette-registry, $palette){
-      @error "#{$palette} isn't in the registry.";
+    @if not map-has-key($palette-registry, $palette) {
+      @error '#{$palette} isn\'t in the registry.';
     }
 
     $our-palettes: map-merge(
@@ -938,7 +944,7 @@ from a list of plugin keys.
   }
 
   @return $our-palettes;
-};
+}
 
 /*
 ----------------------------------------
@@ -954,9 +960,10 @@ border-radii
     @return map-get($all-border-radius, $value);
   }
   @else {
-    @error "`#{$value}` is not a valid border radius value. Valid values: #{map-keys($all-border-radius)}";
+    @error '`#{$value}` is not a valid border radius value. '
+      + 'Valid values: #{map-keys($all-border-radius)}';
   }
-};
+}
 
 /*
 ----------------------------------------
@@ -970,11 +977,11 @@ system font-weight
 
 @function font-weight($value) {
   @return get-uswds-value(font-weight, $value);
-};
+}
 
 @function fw($value) {
   @return font-weight($value);
-};
+}
 
 /*
 ----------------------------------------
@@ -986,7 +993,7 @@ Gets a valid USWDS font feature setting
 
 @function feature($value) {
   @return get-uswds-value(feature, $value);
-};
+}
 
 /*
 ----------------------------------------
@@ -998,7 +1005,7 @@ Gets a valid USWDS flex value
 
 @function flex($value) {
   @return get-uswds-value(flex, $value);
-};
+}
 
 /*
 ----------------------------------------
@@ -1030,11 +1037,11 @@ system letter-spacing
 
 @function letter-spacing($value) {
   @return get-uswds-value(letter-spacing, $value);
-};
+}
 
 @function ls($value) {
   @return letter-spacing($value);
-};
+}
 
 /*
 ----------------------------------------
@@ -1046,7 +1053,7 @@ Gets a valid USWDS reading line length
 
 @function measure($value) {
   @return get-uswds-value(measure, $value);
-};
+}
 
 /*
 ----------------------------------------
@@ -1059,7 +1066,7 @@ opacities
 
 @function opacity($value) {
   @return get-uswds-value(opacity, $value);
-};
+}
 
 /*
 ----------------------------------------
@@ -1072,7 +1079,7 @@ system orders
 
 @function order($value) {
   @return get-uswds-value(order, $value);
-};
+}
 
 /*
 ----------------------------------------
@@ -1085,7 +1092,7 @@ system letter-spacing
 
 @function radius($value) {
   @return get-uswds-value(border-radius, $value);
-};
+}
 
 /*
 ----------------------------------------
@@ -1102,11 +1109,11 @@ Get type scale value from a [family] and
 
   @if not map-has-key($project-cap-heights, $our-family) {
     @error '#{$our-family} is not a valid font family. '
-         + 'Valid values: #{map-keys($project-cap-heights)}';
+      + 'Valid values: #{map-keys($project-cap-heights)}';
   }
   @if not map-get($all-type-scale, $our-scale) {
     @error '`#{$our-scale}` is not a valid font scale. '
-         + 'Valid values: #{map-keys($all-type-scale)}';
+      + 'Valid values: #{map-keys($all-type-scale)}';
   }
 
   $this-cap: map-get($project-cap-heights, $our-family);
@@ -1115,13 +1122,13 @@ Get type scale value from a [family] and
   @if not $force {
     @if not ($this-scale and $this-cap) {
       @error 'The scale `#{$our-scale}` is disabled '
-          + 'in your project\'s theme settings. '
-          + 'Set its value to `true` to use this family.';
+        + 'in your project\'s theme settings. '
+        + 'Set its value to `true` to use this family.';
     }
   }
 
   @return normalize-type-scale($this-cap, $this-scale);
-};
+}
 
 /*
 ----------------------------------------
@@ -1135,10 +1142,8 @@ system z-index
 
 @function z-index($value) {
   @return get-uswds-value(z-index, $value);
-};
+}
 
 @function z($value) {
   @return z-index($value);
-};
-
-/* stylelint-enable */
+}
