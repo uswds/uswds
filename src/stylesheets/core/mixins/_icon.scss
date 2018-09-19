@@ -1,8 +1,8 @@
 @mixin display-icon($icon, $direction, $size, $margin, $hover) {
   &::#{$direction} {
-    background-image: url('#{$theme-image-path}/#{$icon}.png');
-    background-image: url('#{$theme-image-path}/#{$icon}.svg');
+    @include add-background-image('#{$icon}');
     background-size: 100%;
+    background-repeat: no-repeat;
     content: '';
     display: inline-block;
     height: $size;
@@ -20,21 +20,34 @@
 
   @if $hover == 'hover' {
     &:hover::#{$direction} {
-      background-image: url('#{$theme-image-path}/#{$icon}-hover.png');
-      background-image: url('#{$theme-image-path}/#{$icon}-hover.svg');
+      @include add-background-image('#{$icon}-hover');
     }
   }
 }
 
-@mixin add-icon($icon, $direction, $size, $margin, $hover) {
+@mixin remove-icon($direction) {
   &::#{$direction} {
-    background-image: url('#{$theme-image-path}/#{$icon}.png');
-    background-image: url('#{$theme-image-path}/#{$icon}.svg');
-    background-size: 100%;
+    display: none;
+  }
+}
+
+@mixin add-icon(
+  $icon-name,
+  $direction,
+  $image-size,
+  $container-size,
+  $margin,
+  $hover
+) {
+  &::#{$direction} {
+    @include add-background-image('#{$icon-name}');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: units($image-size);
     content: '';
     display: inline-block;
-    height: $size;
-    width: $size;
+    height: units($container-size);
+    width: units($container-size);
 
     /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
     @if $direction == 'after' {
@@ -48,8 +61,7 @@
 
   @if $hover == 'hover' {
     &:hover::#{$direction} {
-      background-image: url('#{$theme-image-path}/#{$icon}-hover.png');
-      background-image: url('#{$theme-image-path}/#{$icon}-hover.svg');
+      @include add-background-image('#{$icon-name}-hover');
     }
   }
 }

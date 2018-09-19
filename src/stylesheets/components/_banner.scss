@@ -48,12 +48,11 @@
 }
 
 .usa-banner-inner {
-  @include grid-container($theme-site-max-width);
+  @include grid-container;
   @include grid-row;
   @include u-flex('align-start');
   @include u-padding-left($theme-site-margins-mobile);
   @include u-padding-right(0);
-  @include u-padding-x(1);
 
   @include at-media('tablet') {
     @include u-flex('align-center');
@@ -105,7 +104,7 @@
   }
 
   &-action {
-    @include add-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
+    @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 0, 'hover');
     @include u-line-height($theme-font-family-banner, 2);
     @include u-margin-bottom(0);
     @include u-margin-top(2px);
@@ -133,14 +132,6 @@
       @include u-margin-right(1);
       @include u-padding-top(0);
     }
-
-    .usa-banner-header-expanded & {
-      @include u-display('none');
-
-      @include at-media('tablet') {
-        @include u-display(block);
-      }
-    }
   }
 }
 
@@ -153,6 +144,10 @@
     @include u-padding-right(0);
     @include u-font-size($theme-font-family-banner, 1);
     @include u-text(normal);
+  }
+
+  .usa-banner-header-action {
+    display: none;
   }
 
   > .usa-banner-inner {
@@ -179,7 +174,7 @@
 
   @include at-media('tablet') {
     @include u-pin('none');
-    @include add-icon(angle-arrow-down-primary, after, spacing(1), 0, hover);
+    @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 0, 'hover');
     @include u-display(inline);
     @include u-margin-left(1);
     @include u-position(relative);
@@ -194,18 +189,27 @@
     }
   }
 
-  /* stylelint-disable selector-no-qualifying-type */
-
   &[aria-expanded=false] {
     background-image: none;
   }
 
   &[aria-expanded=true] {
-    @include add-icon(close, after, spacing(1.5), 0, no-hover);
     background-image: none;
 
+    @include at-media-max('tablet') {
+      @include add-icon('close', 'after', 1.5, $touch-target-size, 0, 'no-hover');
+      padding-right: units($touch-target-size);
+
+      &::after{
+        @include u-pin('y');
+        @include u-pin('right');
+        bottom: 0;
+        height: auto;
+      }
+    }
+
     @include at-media('tablet') {
-      @include add-icon(angle-arrow-up-primary, after, spacing(1), 0, hover);
+      @include add-icon('angle-arrow-up-primary', 'after', 1, 1, 0, 'hover');
       @include u-height(auto);
       @include u-padding(0);
       @include u-position(relative);
@@ -213,8 +217,6 @@
         @include u-margin-left(.5);
       }
     }
-
-    /* stylelint-enable */
 
     &::after {
       @include u-position(absolute);
