@@ -68,10 +68,12 @@
   @include u-padding-y(1);
   font-size: font-size($theme-font-family-banner, 1);
   font-weight: font-weight('normal');
+  min-height: units($touch-target-size);
   position: relative;
 
   @include at-media('tablet') {
     @include u-padding-y(.5);
+    min-height: 0;
   }
 
   &-close-text {
@@ -138,7 +140,6 @@
 }
 
 .usa-banner-header-expanded {
-  min-height: units($touch-target-size);
   padding-right: units($touch-target-size);
 
   @include at-media('tablet') {
