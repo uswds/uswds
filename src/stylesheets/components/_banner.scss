@@ -1,23 +1,23 @@
 .usa-banner {
   @include typeset($theme-font-family-banner);
-  @include u-bg('base-lightest');
+  background-color: color('base-lightest');
 
   @include at-media('tablet') {
-    @include u-padding-bottom(0);
-    @include u-font-size($theme-font-family-banner, '3xs');
+    font-size: font-size($theme-font-family-banner, '3xs');
+    padding-bottom: units(0);
   }
 }
 
 .usa-banner-content {
   @include grid-container($theme-site-max-width);
-  @include u-bg(transparent);
-  @include u-overflow(hidden);
-  @include u-padding-bottom(1.5);
-  @include u-padding-top(2px);
-  @include u-padding-right($theme-site-margins-mobile);
-  @include u-padding-left($theme-site-margins-mobile - 1);
-  @include u-font-size($theme-font-family-banner, 3);
-  @include u-width(full);
+  background-color: color(transparent);
+  font-size: font-size($theme-font-family-banner, 3);
+  overflow: hidden;
+  padding-bottom: units(1.5);
+  padding-top: units(2px);
+  padding-right: units($theme-site-margins-mobile);
+  padding-left: units($theme-site-margins-mobile - 1);
+  width: 100%;
 
   @include at-media('tablet') {
     @include u-padding-y(3);
@@ -28,23 +28,23 @@
   }
 
   p:first-child {
-    @include u-margin(0);
+    margin: 0;
   }
 }
 
 .usa-banner-guidance-gov {
-  @include u-padding-top(2);
+  padding-top: units(2);
 
   @include at-media('tablet') {
-    @include u-padding-top(0);
+    padding-top: units(0);
   }
 }
 
 .usa-banner-guidance-ssl {
-  @include u-padding-top(2);
+  padding-top: units(2);
 
   @include at-media('tablet') {
-    @include u-padding-top(0);
+    padding-top: units(0);
   }
 }
 
@@ -52,8 +52,8 @@
   @include grid-container;
   @include grid-row;
   @include u-flex('align-start');
-  @include u-padding-left($theme-site-margins-mobile);
-  @include u-padding-right(0);
+  padding-left: units($theme-site-margins-mobile);
+  padding-right: units(0);
 
   @include at-media('tablet') {
     @include u-flex('align-center');
@@ -66,90 +66,91 @@
 
 .usa-banner-header {
   @include u-padding-y(1);
-  @include u-position(relative);
-  @include u-font-size($theme-font-family-banner, 1);
-  @include u-text(normal);
+  font-size: font-size($theme-font-family-banner, 1);
+  font-weight: font-weight('normal');
+  position: relative;
 
   @include at-media('tablet') {
     @include u-padding-y(.5);
   }
 
   &-close-text {
-    @include u-display(none);
-    @include u-line-height($theme-font-family-banner, 2);
     @include u-margin-y(0);
-    @include u-padding-top(.5);
-    @include u-font-size($theme-font-family-banner, 1);
-    @include u-text('base-dark');
+    color: color('base-dark');
+    display: none;
+    font-size: font-size($theme-font-family-banner, 1);
+    line-height: line-height($theme-font-family-banner, 2);
+    padding-top: units(.5);
 
     .banner-header-expanded & {
-      @include u-display(block);
+      display: block;
 
       @include at-media('tablet') {
-        @include u-display(none);
+        display: none;
       }
     }
   }
 
   &-text {
-    @include u-line-height($theme-font-family-banner, 2);
     @include u-margin-y(0);
-    @include u-font-size($theme-font-family-banner, 1);
+    font-size: font-size($theme-font-family-banner, 1);
+    line-height: line-height($theme-font-family-banner, 2);
+
     .banner-header-expanded & {
-      @include u-display('none');
+      display: none;
 
       @include at-media('tablet') {
-        @include u-display(block);
+        display: block;
       }
     }
   }
 
   &-action {
     @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 0, 'hover');
-    @include u-line-height($theme-font-family-banner, 2);
-    @include u-margin-bottom(0);
-    @include u-margin-top(2px);
-    @include u-text('primary');
+    color: color('primary');
+    line-height: line-height($theme-font-family-banner, 2);
+    margin-bottom: units(0);
+    margin-top: units(2px);
 
     @include at-media('tablet') {
-      @include u-display(none);
+      display: none;
     }
 
     .banner-header-expanded & {
-      @include u-display(none);
+      display: none;
     }
 
     &:after {
-      @include u-margin-left(.5);
+      margin-left: units(.5);
     }
   }
 
   &-flag {
     @include u-float('left');
-    @include u-margin-right(1);
-    @include u-width(2);
+    margin-right: units(1);
+    width: units(2);
 
     @include at-media('tablet') {
-      @include u-margin-right(1);
-      @include u-padding-top(0);
+      margin-right: units(1);
+      padding-top: units(0);
     }
   }
 }
 
 .usa-banner-header-expanded {
-  @include u-minh(4);
   background-color: color(ink);
   color: color('white');
+  min-height: units(4);
   padding-right: units($touch-target-size);
 
   @include at-media('tablet') {
-    @include u-display(block);
-    @include u-minh(0);
-    @include u-padding-right(0);
-    @include u-font-size($theme-font-family-banner, 1);
-    @include u-text(normal);
     background-color: transparent;
     color: color('ink');
+    display: block;
+    font-size: font-size($theme-font-family-banner, 1);
+    font-weight: font-weight('normal');
+    min-height: units(0);
+    padding-right: units(0);
   }
 
   .usa-banner-header-action {
@@ -157,37 +158,40 @@
   }
 
   > .usa-banner-inner {
-    @include u-margin-left(0);
+    margin-left: units(0);
 
     @include at-media('tablet') {
-      @include u-margin-left(auto);
+      margin-left: units(auto);
     }
   }
 }
 
 .usa-banner-button {
+  @include button-unstyled;
   @include u-pin('left');
   @include u-pin('y');
-  @include button-unstyled;
-  @include u-display(block);
-  @include u-height(auto);
-  @include u-line-height($theme-font-family-banner, 2);
-  @include u-padding-top(0);
-  @include u-padding-left(0);
-  @include u-font-size($theme-font-family-banner, 1);
   @include u-text('primary', underline, baseline);
-  @include u-width('full');
+  display: block;
+  font-size: font-size($theme-font-family-banner, 1);
+  height: auto;
+  line-height: line-height($theme-font-family-banner, 2);
+  padding-top: units(0);
+  padding-left: units(0);
+  width: auto;
+
+  @include at-media-max('tablet') {
+    width: 100%;
+  }
 
   @include at-media('tablet') {
-    @include u-pin('none');
     @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 0, 'hover');
-    @include u-display(inline);
-    @include u-margin-left(1);
-    @include u-position(relative);
-    @include u-width(auto);
+    @include u-pin('none');
+    display: inline;
+    margin-left: units(1);
+    position: relative;
 
     &::after {
-      @include u-margin-left(.5);
+      margin-left: units(.5);
     }
 
     &:hover {
@@ -215,21 +219,22 @@
 
     @include at-media('tablet') {
       @include add-icon('angle-arrow-up-primary', 'after', 1, 1, 0, 'hover');
-      @include u-height(auto);
-      @include u-padding(0);
-      @include u-position(relative);
+      height: auto;
+      padding: units(0);
+      position: relative;
+
       &::after {
-        @include u-margin-left(.5);
+        margin-left: units(.5);
       }
     }
 
     &::after {
-      @include u-position(absolute);
-      @include u-right(2);
-      @include u-top(1.5);
+      position: absolute;
+      right: units(2);
+      top: units(1.5);
 
       @include at-media('tablet') {
-        @include u-position(static);
+        position: static;
       }
     }
   }
@@ -240,10 +245,10 @@
 
   @include at-media('tablet') {
     @include add-no-sr-only;
-    @include u-display(inline);
+    display: inline;
   }
 }
 
 .usa-banner-icon {
-  @include u-width(5);
+  width: units(5);
 }
