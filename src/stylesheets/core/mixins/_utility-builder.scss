@@ -64,7 +64,7 @@ loop
     $media-value-px: rem-to-px($media-value);
 
     @if map-get($theme-utility-breakpoints, $media-key) {
-      @media screen and (min-width: #{$media-value-px}) {
+      @include at-media($media-key) {
         .#{$mq}\:#{ns($this-type)}#{$selector} {
           @if $value-is-map and map-has-key($val-props, extend) {
             @include add-utility-declaration($val-props, extend, $important);
