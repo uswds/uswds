@@ -11,11 +11,11 @@
 }
 
 .usa-banner-content {
+  @include u-padding-x($site-margins-mobile);
   background-color: color('transparent');
   padding-bottom: units(2px);
   padding-top: units(2.5);
-  @include u-padding-x($site-margins-mobile);
-  @include u-width('full');
+  width: 100%;
 
   @include at-media('tablet') {
     padding-bottom: units(3);
@@ -60,10 +60,10 @@
   }
 
   p {
-    line-height: line-height($theme-font-family-banner, 1);
     @include u-margin-bottom(0);
-    margin-top: units(2px);
     display: block;
+    line-height: line-height($theme-font-family-banner, 1);
+    margin-top: units(2px);
     overflow: visible;
 
     @include at-media('mobile-lg') {
@@ -91,9 +91,9 @@
   padding-right: units(4);
 
   @include at-media('mobile-lg') {
-    font-size: font-size($theme-font-family-banner, 1);
     border-bottom: none;
     display: block;
+    font-size: font-size($theme-font-family-banner, 1);
     min-height: 0;
     padding-right: 0;
   }
@@ -127,31 +127,29 @@
 
 .usa-banner-button {
   @include button-unstyled;
-  font-size: font-size($theme-font-family-banner, 1);
-  line-height: line-height($theme-font-family-banner, 1);
-  padding-top: units(1.5);
-  padding-left: units(6);
   background-position-x: right;
   color: color('primary');
   display: block;
+  font-size: font-size($theme-font-family-banner, 1);
   height: units(5);
   left: 0;
+  line-height: line-height($theme-font-family-banner, 1);
+  padding-top: units(1.5);
+  padding-left: units(6);
   position: absolute;
   text-decoration: underline;
   top: 0;
   width: 100%;
 
   @include at-media('mobile-lg') {
-    padding-top: units(0);
-    padding-left: units(2px);
     margin-left: units(0.5);
-    /* stylelint-disable declaration-block-no-ignored-properties */
     display: inline;
     height: auto;
+    padding-top: units(0);
+    padding-left: units(2px);
     position: relative;
     vertical-align: middle;
     width: auto;
-    /* stylelint-enable */
   }
 
   &:hover {
