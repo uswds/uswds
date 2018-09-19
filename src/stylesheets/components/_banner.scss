@@ -4,7 +4,7 @@
 
   @include at-media('tablet') {
     @include u-padding-bottom(0);
-    @include u-font-size($theme-font-family-banner, 3xs);
+    @include u-font-size($theme-font-family-banner, '3xs');
   }
 }
 
@@ -14,7 +14,8 @@
   @include u-overflow(hidden);
   @include u-padding-bottom(1.5);
   @include u-padding-top(2px);
-  @include u-padding-x(1);
+  @include u-padding-right($theme-site-margins-mobile);
+  @include u-padding-left($theme-site-margins-mobile - 1);
   @include u-font-size($theme-font-family-banner, 3);
   @include u-width(full);
 
@@ -137,6 +138,9 @@
 
 .usa-banner-header-expanded {
   @include u-minh(4);
+  background-color: color(ink);
+  color: color('white');
+  padding-right: units($touch-target-size);
 
   @include at-media('tablet') {
     @include u-display(block);
@@ -144,6 +148,8 @@
     @include u-padding-right(0);
     @include u-font-size($theme-font-family-banner, 1);
     @include u-text(normal);
+    background-color: transparent;
+    color: color('ink');
   }
 
   .usa-banner-header-action {
@@ -197,8 +203,7 @@
     background-image: none;
 
     @include at-media-max('tablet') {
-      @include add-icon('close', 'after', 1.5, $touch-target-size, 0, 'no-hover');
-      padding-right: units($touch-target-size);
+      @include add-icon('close-white', 'after', 1.5, $touch-target-size, 0, 'no-hover');
 
       &::after{
         @include u-pin('y');
