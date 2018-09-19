@@ -144,12 +144,10 @@
   @include at-media('mobile-lg') {
     margin-left: units(0.5);
     display: inline;
-    height: auto;
     padding-top: units(0);
     padding-left: units(2px);
     position: relative;
     vertical-align: middle;
-    width: auto;
   }
 
   &:hover {
