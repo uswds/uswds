@@ -125,7 +125,7 @@ $nav-link-arrow-icon-size: 1;
   > .usa-nav-item {
     line-height: line-height($theme-font-family-navigation, 2);
     @include at-media($theme-nav-width) {
-      font-size: scale($theme-font-family-navigation, '2xs');
+      font-size: font-size($theme-font-family-navigation, '2xs');
       line-height: line-height($theme-font-family-navigation, 1);
     }
 
@@ -161,7 +161,7 @@ $nav-link-arrow-icon-size: 1;
 
     @include at-media($theme-nav-width) {
       @include primary-nav-link;
-      font-size: scale($theme-font-family-navigation, '2xs');
+      font-size: font-size($theme-font-family-navigation, '2xs');
       font-weight: font-weight('bold');
     }
 
@@ -233,7 +233,7 @@ $nav-link-arrow-icon-size: 1;
   @include at-media($theme-nav-width) {
     // Note: Previius calc() couldn't work. don't hardcode rem vals
     bottom: units(8); // XXX magic number
-    font-size: scale($theme-font-family-navigation, '2xs');
+    font-size: font-size($theme-font-family-navigation, '2xs');
     margin-top: units(1);
     min-width: calc(#{$search-min-width} + #{$usa-btn-small-width});
     position: absolute;
@@ -279,7 +279,7 @@ $nav-link-arrow-icon-size: 1;
   a {
     color: color('base');
     display: inline-block;
-    font-size: scale($theme-font-family-navigation, '2xs');
+    font-size: font-size($theme-font-family-navigation, '2xs');
     text-decoration: none;
 
     &:hover {
@@ -335,7 +335,7 @@ $nav-link-arrow-icon-size: 1;
 
   .usa-nav-item {
     margin: 0;
-    font-size: scale($theme-font-family-navigation, '2xs');
+    font-size: font-size($theme-font-family-navigation, '2xs');
 
     a {
       line-height: line-height($theme-font-family-navigation, 3);
