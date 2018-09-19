@@ -203,7 +203,7 @@
     background-image: none;
 
     @include at-media-max('tablet') {
-      @include add-icon('close-white', 'after', 1.5, $touch-target-size, 0, 'no-hover');
+      @include add-icon('close-blue-30-alt', 'after', 1.5, $touch-target-size, 0, 'no-hover');
 
       &::after{
         @include u-pin('y');
