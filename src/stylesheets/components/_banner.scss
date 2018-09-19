@@ -1,25 +1,25 @@
 .usa-banner {
   @include typeset($theme-font-family-banner);
-  @include u-bg('base-lightest');
-  @include u-padding-bottom(1);
-  @include u-position('relative');
+  background-color: color('base-lightest');
+  padding-bottom: units(1);
+  position: relative;
 
   @include at-media('mobile-lg') {
-    @include u-font-size($theme-font-family-banner, $theme-font-size-h6);
-    @include u-padding-bottom(0);
+    font-size: font-size($theme-font-family-banner, $theme-font-size-h6);
+    padding-bottom: units(0);
   }
 }
 
 .usa-banner-content {
-  @include u-bg('transparent');
-  @include u-padding-bottom(2px);
-  @include u-padding-top(2.5);
+  background-color: color('transparent');
+  padding-bottom: units(2px);
+  padding-top: units(2.5);
   @include u-padding-x($site-margins-mobile);
   @include u-width('full');
 
   @include at-media('tablet') {
-    @include u-padding-bottom(3);
-    @include u-padding-top(5);
+    padding-bottom: units(3);
+    padding-top: units(5);
   }
 
   @include at-media($theme-nav-width) {
@@ -28,10 +28,10 @@
 
   p {
     &:first-child {
-      @include u-margin-top(1);
+      margin-top: units(1);
 
       @include at-media('tablet') {
-        @include u-margin-top(0);
+        margin-top: units(0);
       }
     }
   }
@@ -53,21 +53,21 @@
 
 .usa-banner-header {
   @include u-padding-y(0.5);
-  @include u-font-size($theme-font-family-banner, 1);
+  font-size: font-size($theme-font-family-banner, 1);
 
   @include at-media('mobile-lg') {
     @include u-padding-y(2px);
   }
 
   p {
-    @include u-line-height($theme-font-family-banner, 1);
+    line-height: line-height($theme-font-family-banner, 1);
     @include u-margin-bottom(0);
-    @include u-margin-top(2px);
+    margin-top: units(2px);
     display: block;
     overflow: visible;
 
     @include at-media('mobile-lg') {
-      @include u-margin-top(0);
+      margin-top: units(0);
       display: inline-block;
     }
   }
@@ -91,7 +91,7 @@
   padding-right: units(4);
 
   @include at-media('mobile-lg') {
-    @include u-font-size($theme-font-family-banner, 1);
+    font-size: font-size($theme-font-family-banner, 1);
     border-bottom: none;
     display: block;
     min-height: 0;
@@ -115,11 +115,11 @@
   }
 
   p {
-    @include u-line-height($theme-font-family-banner, $theme-line-height-heading);
+    line-height: line-height($theme-font-family-banner, $theme-line-height-heading);
     vertical-align: top;
 
     @include at-media('mobile-lg') {
-      @include u-line-height($theme-font-family-banner, $theme-line-height-base);
+      line-height: line-height($theme-font-family-banner, $theme-line-height-base);
       vertical-align: middle;
     }
   }
@@ -127,10 +127,10 @@
 
 .usa-banner-button {
   @include button-unstyled;
-  @include u-font-size($theme-font-family-banner, 1);
-  @include u-line-height($theme-font-family-banner, 1);
-  @include u-padding-top(1.5);
-  @include u-padding-left(6);
+  font-size: font-size($theme-font-family-banner, 1);
+  line-height: line-height($theme-font-family-banner, 1);
+  padding-top: units(1.5);
+  padding-left: units(6);
   background-position-x: right;
   color: color('primary');
   display: block;
@@ -142,9 +142,9 @@
   width: 100%;
 
   @include at-media('mobile-lg') {
-    @include u-padding-top(0);
-    @include u-padding-left(2px);
-    @include u-margin-left(0.5);
+    padding-top: units(0);
+    padding-left: units(2px);
+    margin-left: units(0.5);
     /* stylelint-disable declaration-block-no-ignored-properties */
     display: inline;
     height: auto;
