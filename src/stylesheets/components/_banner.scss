@@ -111,7 +111,7 @@
 }
 
 .usa-banner-header-action {
-  @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 0, 'hover');
+  @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 0.5, 'hover');
   color: color('primary');
   line-height: line-height($theme-font-family-banner, 2);
   margin-bottom: units(0);
@@ -120,14 +120,6 @@
 
   @include at-media('tablet') {
     display: none;
-  }
-
-  .banner-header-expanded & {
-    display: none;
-  }
-
-  &:after {
-    margin-left: units(0.5);
   }
 }
 
@@ -155,16 +147,16 @@
     padding-right: units(0);
   }
 
-  .usa-banner-header-action {
-    display: none;
-  }
-
   > .usa-banner-inner {
     margin-left: units(0);
 
     @include at-media('tablet') {
       margin-left: units(auto);
     }
+  }
+
+  .usa-banner-header-action {
+    @include add-icon('angle-arrow-up-primary', 'after', 1, 1, 0.5, 'hover');
   }
 }
 
@@ -186,15 +178,11 @@
   }
 
   @include at-media('tablet') {
-    @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 0, 'hover');
+    @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 0.5, 'hover');
     @include u-pin('none');
     display: inline;
     margin-left: units(1);
     position: relative;
-
-    &::after {
-      margin-left: units(0.5);
-    }
 
     &:hover {
       @include u-text('primary-darker', underline);
@@ -227,14 +215,10 @@
     }
 
     @include at-media('tablet') {
-      @include add-icon('angle-arrow-up-primary', 'after', 1, 1, 0, 'hover');
+      @include add-icon('angle-arrow-up-primary', 'after', 1, 1, 0.5, 'hover');
       height: auto;
       padding: units(0);
       position: relative;
-
-      &::after {
-        margin-left: units(0.5);
-      }
     }
 
     &::after {
