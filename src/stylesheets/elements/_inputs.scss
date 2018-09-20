@@ -1,6 +1,6 @@
 // scss-lint:disable QualifyingElement, PropertyCount
 
-$input-font-size-calc: scale($theme-font-family-forms, $theme-font-size-base);
+$input-font-size-calc: font-size($theme-font-family-forms, $theme-font-size-base);
 $input-line-height-calc: line-height($theme-font-family-forms, $theme-line-height-input); // was 1.3
 $input-border-width: px-to-rem(1px); // Using rem instead of px so function uses same units
 $input-padding-vertical: units(1);
@@ -134,7 +134,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-legend {
-  font-size: scale($theme-font-family-forms, 'xl');
+  font-size: font-size($theme-font-family-forms, 'xl');
   font-weight: font-weight('bold');
 }
 

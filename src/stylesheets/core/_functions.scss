@@ -1096,14 +1096,14 @@ system letter-spacing
 
 /*
 ----------------------------------------
-scale()
+font-size()
 ----------------------------------------
 Get type scale value from a [family] and
 [scale]
 ----------------------------------------
 */
 
-@function scale($family, $scale, $force: false) {
+@function font-size($family, $scale, $force: false) {
   $our-family: smart-quote($family);
   $our-scale: smart-quote($scale);
 

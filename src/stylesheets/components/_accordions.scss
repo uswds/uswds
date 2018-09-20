@@ -15,10 +15,9 @@ $accordion-border: units(0.5) solid color('base-lightest');
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
+  @include add-background-image('minus');
 
   background-color: color('base-lightest');
-  background-image: url('#{$theme-image-path}/minus.png');
-  background-image: url('#{$theme-image-path}/minus.svg');
   background-position: right units(2.5) center;
   background-repeat: no-repeat;
   background-size: units(2);
@@ -38,8 +37,7 @@ $accordion-border: units(0.5) solid color('base-lightest');
 // scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
-  background-image: url('#{$theme-image-path}/plus.png');
-  background-image: url('#{$theme-image-path}/plus.svg');
+  @include add-background-image('plus');
   background-repeat: no-repeat;
   background-size: units(2);
 }
