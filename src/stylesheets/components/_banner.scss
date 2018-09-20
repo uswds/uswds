@@ -27,8 +27,10 @@
     @include u-padding-x($theme-site-margins);
   }
 
-  p:first-child {
-    margin: 0;
+  p {
+    &:first-child {
+      margin: 0;
+    }
   }
 }
 
