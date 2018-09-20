@@ -74,7 +74,7 @@ $z-index-overlay: 400;
   @include at-media($theme-nav-width) {
     margin-top: units(4);
     margin-bottom: units(2);
-    font-size: scale($theme-font-family-header, 'lg');
+    font-size: scale($theme-font-family-header, 'xl');
     line-height: line-height($theme-font-family-header, 2);
   }
 
