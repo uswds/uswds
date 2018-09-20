@@ -1147,18 +1147,6 @@ $xlarge-screen: null !default;
 
 /*
 ----------------------------------------
-Grid column counts by screen size
-----------------------------------------
-TODO: Lots of grid work to come
-----------------------------------------
-*/
-
-$grid-columns-small: 1 !default;
-$grid-columns-medium: 6 !default;
-$grid-columns-large: 12 !default;
-
-/*
-----------------------------------------
 Set $asset-pipeline to true if you're
 using the Rails Asset Pipeline
 ----------------------------------------
