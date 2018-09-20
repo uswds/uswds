@@ -11,7 +11,7 @@ const colorListTemplate =
   {{#isObject prop.value}}
   {{> colorList meta=prop props=prop.value }}
   {{else}}
-  '{{prop.name}}': {{prop.value}},
+  {{toNumber prop.name}}: {{prop.value}},
   {{/isObject}}  
   {{~/each}}
 ),
@@ -23,6 +23,17 @@ const colorMap =
   {{> colorList meta=prop props=prop.value }}
 {{/each}}
 );`;
+
+handlebars.registerHelper('toNumber', function(item, options) {
+  const maybeNumber = Number(item);
+  let output;
+
+  if (isNaN(maybeNumber)) output = item;
+
+  output = maybeNumber;
+
+  return output;
+});
 
 handlebars.registerHelper('isObject', function (item, options) {
   if (typeof item === 'object') {
@@ -42,11 +53,14 @@ const format = (options) => {
         throw new Error(err);
       }
   
-      const file = JSON.parse(buffer);
-      let output;
+      const data = JSON.parse(buffer);
+      let output = {
+        output: options.output,
+        file: options.file,
+      };
       
       try {
-        output = options.template(file);
+        output = { data: options.template(data), ...output };
       } catch (error) {
         throw new Error(error);
       }
@@ -56,12 +70,55 @@ const format = (options) => {
   });
 };
 
+const generateFilename = filePath => `_${path.basename(filePath).split('.')[0]}.scss`;
+const resolvePath = pathString =>
+  path.resolve.apply(null, pathString.split('/'));
+const isDirectory = maybeDir => fs.lstatSync(maybeDir).isDirectory();
 
-format({
-  file: path.resolve(__dirname, '../', 'data', 'colors', 'red.json'),
-  output: '',
-  template: colorMapTemplate,
-})
-.then((sass) => {
-  fs.writeFileSync(path.resolve(__dirname, '../', 'stylesheets', 'core', 'system-tokens', '_red.scss'), sass);
-});
+const writeSassFile = (sass) => {
+  const { output, file, data } = sass;  
+  const finalOutput = `${output}/${generateFilename(file)}`;
+  fs.writeFileSync(resolvePath(finalOutput), data);
+};
+
+const argv = require('yargs').argv;
+const ARGS = {
+  FILE: 'file',
+  OUTPUT: 'output',
+  TEMPLATE: 'template'
+};
+
+const rawFilePath = argv[ARGS.FILE];
+const rawOutputPath = argv[ARGS.OUTPUT];
+const template = argv[ARGS.TEMPLATE] || colorMapTemplate;
+
+if (!rawFilePath || !rawOutputPath) {
+  throw new Error(
+    `Both --file and --output paths must be provided as arguments to style-format`
+  );
+}
+
+if (isDirectory(rawFilePath)) {
+  fs.readdir(rawFilePath, (err, files) => {
+    if (err) throw new Error;
+
+    Promise.all(files.map((file) => {
+      const filePath = resolvePath(`${rawFilePath}/${file}`);
+      return format({
+        file: filePath,
+        output: rawOutputPath,
+        template: colorMapTemplate,
+      });
+    }))
+    .then(values => values.forEach(writeSassFile))
+    .catch(err => console.log(err));
+  });
+} else {
+  format({
+    file: resolvePath(rawFilePath),
+    output: rawOutputPath,
+    template: colorMapTemplate,
+  })
+  .then(writeSassFile);
+}
+

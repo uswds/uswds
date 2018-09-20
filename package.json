@@ -15,7 +15,7 @@
     "build:js": "gulp javascript",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
     "cracks": "cracks --paths package.json,spec",
-    "format-tokens": "node ./src/utils/style-format.js",
+    "format-tokens": "node ./src/utils/style-format.js --file './src/data/colors' --output './src/stylesheets/core/system-tokens'",
     "federalist": "npm install --only=dev && gulp build && fractal build",
     "lint": "eslint src/js/**/*.js spec/**/*.js",
     "mocha": "mocha --opts spec/mocha.opts",
