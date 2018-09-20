@@ -66,9 +66,7 @@ $z-index-overlay: 400;
 
   + .usa-section,
   + main {
-    @include at-media($theme-nav-width) {
-      border-top: units(1px) solid color('base-lighter');
-    }
+    border-top: units(1px) solid color('base-lighter');
   }
 }
 

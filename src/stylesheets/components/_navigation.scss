@@ -317,6 +317,7 @@ $nav-link-arrow-icon-size: 1;
       a {
         color: color('white');
         padding: 0;
+        line-height: line-height($theme-font-family-navigation, 3);
 
         &:hover {
           background-color: transparent;
