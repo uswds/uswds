@@ -1,4 +1,6 @@
 // Alert variables ---------- //
+// TODO: Custom alerts are effectively hidden and not well supported
+// Consider removing or rebuilding
 $usa-custom-alerts: () !default;
 $usa-custom-alerts-bar: () !default;
 
@@ -128,5 +130,5 @@ $icon-size: units(4);
 }
 
 .usa-alert-paragraph {
-  width: measure(3);
+  width: measure($theme-measure-alert);
 }
