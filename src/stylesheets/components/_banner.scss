@@ -74,7 +74,7 @@
   position: relative;
 
   @include at-media('tablet') {
-    @include u-padding-y(.5);
+    @include u-padding-y(0.5);
     min-height: 0;
   }
 
@@ -84,7 +84,7 @@
     display: none;
     font-size: font-size($theme-font-family-banner, 1);
     line-height: line-height($theme-font-family-banner, 2);
-    padding-top: units(.5);
+    padding-top: units(0.5);
 
     .banner-header-expanded & {
       display: block;
@@ -126,7 +126,7 @@
     }
 
     &:after {
-      margin-left: units(.5);
+      margin-left: units(0.5);
     }
   }
 
@@ -193,7 +193,7 @@
     position: relative;
 
     &::after {
-      margin-left: units(.5);
+      margin-left: units(0.5);
     }
 
     &:hover {
@@ -233,7 +233,7 @@
       position: relative;
 
       &::after {
-        margin-left: units(.5);
+        margin-left: units(0.5);
       }
     }
 
