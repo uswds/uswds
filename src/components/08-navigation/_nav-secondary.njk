@@ -1,7 +1,7 @@
 <div class="usa-nav-secondary">
-  <ul class="usa-unstyled-list usa-nav-secondary-links">
+  <ul class="usa-nav-secondary-links">
     {% for link in nav.links %}
-    <li>
+    <li class="usa-nav-secondary-item">
       <a href="{{ link.href }}"{% if link.current %} class="usa-current"{% endif %}>
         {{ link.text }}
       </a>

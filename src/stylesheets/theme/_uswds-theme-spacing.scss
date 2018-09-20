@@ -35,6 +35,9 @@ $theme-border-radius-sm:       2px;
 $theme-border-radius-md:       0.5;
 $theme-border-radius-lg:       1;
 
+$theme-border-radius-checkbox: 'sm';
+$theme-border-radius-button:   'md';
+
 /*
 ----------------------------------------
 Column gap
@@ -51,9 +54,12 @@ Column gap
 */
 
 $theme-column-gap-sm: 2px;
-//TODO: should this be -md?
-$theme-column-gap-md:    2;
+$theme-column-gap-md: 2;
 $theme-column-gap-lg: 3;
+
+// These determine the responsive gap sizes set with .grid-gap
+$theme-column-gap-mobile:  2;
+$theme-column-gap-desktop: 4;
 
 /*
 ----------------------------------------
@@ -113,3 +119,6 @@ $theme-site-margins-mobile: 2; // was 1.5rem
 
 $theme-nav-width:           'desktop'; // was 951px
 $theme-site-max-width:      'desktop'; // was 1040px
+
+$theme-sidenav-current-border-width:  0.5;
+$theme-megamenu-logo-text-width: 20%;

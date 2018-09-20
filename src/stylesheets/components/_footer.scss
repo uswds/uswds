@@ -167,18 +167,12 @@
 
 .usa-social_link {
   $background-height: units(3); // Height of icon within hit area.
-  // Apple iOS Human Interface Guidelines recommends
-  // link hit target of 44 x 44 pixels following
-  // TODO: is 40px/units(5) acceptable?
-  $hit-area: units(5);
-
+  @include u-square($touch-target-size);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: auto $background-height;
   background-color: color('black-transparent-10');
   display: inline-block;
-  height: $hit-area;
-  width: $hit-area;
 
   span {
     @include sr-only();
@@ -187,26 +181,22 @@
 
 .usa-link-facebook {
   @extend .usa-social_link;
-  background-image: url('#{$theme-image-path}/social-icons/png/facebook25.png');
-  background-image: url('#{$theme-image-path}/social-icons/svg/facebook25.svg');
+  @include add-background-image('social-icons/facebook25');
 }
 
 .usa-link-twitter {
   @extend .usa-social_link;
-  background-image: url('#{$theme-image-path}/social-icons/png/twitter16.png');
-  background-image: url('#{$theme-image-path}/social-icons/svg/twitter16.svg');
+  @include add-background-image('social-icons/twitter16');
 }
 
 .usa-link-youtube {
   @extend .usa-social_link;
-  background-image: url('#{$theme-image-path}/social-icons/png/youtube15.png');
-  background-image: url('#{$theme-image-path}/social-icons/svg/youtube15.svg');
+  @include add-background-image('social-icons/youtube15');
 }
 
 .usa-link-rss {
   @extend .usa-social_link;
-  background-image: url('#{$theme-image-path}/social-icons/png/rss25.png');
-  background-image: url('#{$theme-image-path}/social-icons/svg/rss25.svg');
+  @include add-background-image('social-icons/rss25');
 }
 
 .usa-footer-address {
@@ -265,8 +255,7 @@
 
   .usa-footer-primary-link {
     @include h4;
-    background-image: url('#{$theme-image-path}/arrow-down.png');
-    background-image: url('#{$theme-image-path}/arrow-down.svg');
+    @include add-background-image('arrow-down');
     background-position: units(2) center;
     background-repeat: no-repeat;
     background-size: units(1.5);
@@ -294,8 +283,7 @@
       }
 
       .usa-footer-primary-link {
-        background-image: url('#{$theme-image-path}/arrow-right.png');
-        background-image: url('#{$theme-image-path}/arrow-right.svg');
+        @include add-background-image('arrow-right');
         cursor: pointer;
 
         @include at-media('mobile-lg') {

@@ -1,206 +1,244 @@
 .usa-banner {
   @include typeset($theme-font-family-banner);
-  @include u-bg('base-lightest');
-  @include u-padding-bottom(1);
-  @include u-position('relative');
+  background-color: color('base-lightest');
 
-  @include at-media('mobile-lg') {
-    @include u-font-size($theme-font-family-banner, $theme-font-size-h6);
-    @include u-padding-bottom(0);
+  @include at-media('tablet') {
+    font-size: font-size($theme-font-family-banner, '3xs');
+    padding-bottom: units(0);
   }
 }
 
 .usa-banner-content {
-  @include u-bg('transparent');
-  @include u-padding-bottom(2px);
-  @include u-padding-top(2.5);
-  @include u-padding-x($site-margins-mobile);
-  @include u-width('full');
+  @include grid-container($theme-site-max-width);
+  background-color: color(transparent);
+  font-size: font-size($theme-font-family-banner, 4);
+  overflow: hidden;
+  padding-bottom: units(2);
+  padding-left: units($theme-site-margins-mobile - 1);
+  padding-right: units($theme-site-margins-mobile);
+  padding-top: units(0.5);
+  width: 100%;
 
   @include at-media('tablet') {
-    @include u-padding-bottom(3);
-    @include u-padding-top(5);
+    @include u-padding-y(3);
   }
 
-  @include at-media($theme-nav-width) {
-    @include u-padding-x($site-margins);
+  @include at-media('desktop') {
+    @include u-padding-x($theme-site-margins);
   }
 
   p {
     &:first-child {
-      @include u-margin-top(1);
-
-      @include at-media('tablet') {
-        @include u-margin-top(0);
-      }
+      margin: 0;
     }
   }
 }
 
-.usa-banner-inner {
-  @include grid-container($theme-site-max-width);
-  @include u-padding-x($theme-site-margins-mobile);
+.usa-banner-guidance-gov {
+  padding-top: units(2);
 
-  @include at-media('mobile-lg') {
-    @include grid-row;
+  @include at-media('tablet') {
+    padding-top: units(0);
+  }
+}
+
+.usa-banner-guidance-ssl {
+  padding-top: units(2);
+
+  @include at-media('tablet') {
+    padding-top: units(0);
+  }
+}
+
+.usa-banner-inner {
+  @include grid-container;
+  @include grid-row;
+  @include u-flex('align-start');
+  padding-left: units($theme-site-margins-mobile);
+  padding-right: units(0);
+
+  @include at-media('tablet') {
     @include u-flex('align-center');
   }
 
-  @include media($nav-width) {
+  @include at-media('desktop') {
     @include u-padding-x($theme-site-margins);
   }
 }
 
 .usa-banner-header {
-  @include u-padding-y(0.5);
-  @include u-font-size($theme-font-family-banner, 1);
+  @include u-padding-y(1);
+  font-size: font-size($theme-font-family-banner, 1);
+  font-weight: font-weight('normal');
+  min-height: units($touch-target-size);
+  position: relative;
 
-  @include at-media('mobile-lg') {
-    @include u-padding-y(2px);
+  @include at-media('tablet') {
+    @include u-padding-y(0.5);
+    min-height: 0;
   }
+}
 
-  p {
-    @include u-line-height($theme-font-family-banner, 1);
-    @include u-margin-bottom(0);
-    @include u-margin-top(2px);
+.usa-banner-header-close-text {
+  @include u-margin-y(0);
+  color: color('base-dark');
+  display: none;
+  font-size: font-size($theme-font-family-banner, 1);
+  line-height: line-height($theme-font-family-banner, 2);
+  padding-top: units(0.5);
+
+  .banner-header-expanded & {
     display: block;
-    overflow: visible;
 
-    @include at-media('mobile-lg') {
-      @include u-margin-top(0);
-      display: inline-block;
-    }
-  }
-
-  img {
-    float: left;
-    margin-right: units(1);
-    margin-top: 1px;
-    width: units(3);
-
-    @include at-media('mobile-lg') {
-      margin-right: units(1);
-      width: units(2.5);
+    @include at-media('tablet') {
+      display: none;
     }
   }
 }
 
+.usa-banner-header-text {
+  @include u-margin-y(0);
+  font-size: font-size($theme-font-family-banner, 1);
+  line-height: line-height($theme-font-family-banner, 2);
+
+  .banner-header-expanded & {
+    display: none;
+
+    @include at-media('tablet') {
+      display: block;
+    }
+  }
+}
+
+.usa-banner-header-action {
+  @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 0.5, 'hover');
+  color: color('primary');
+  line-height: line-height($theme-font-family-banner, 2);
+  margin-bottom: units(0);
+  margin-top: units(2px);
+  text-decoration: underline;
+
+  @include at-media('tablet') {
+    display: none;
+  }
+}
+
+.usa-banner-header-flag {
+  @include u-float('left');
+  margin-right: units(1);
+  width: units(2);
+
+  @include at-media('tablet') {
+    margin-right: units(1);
+    padding-top: units(0);
+  }
+}
+
 .usa-banner-header-expanded {
-  border-bottom: 1px solid color('base-lighter');
-  min-height: units(7);
-  padding-right: units(4);
+  padding-right: units($touch-target-size + 1);
 
-  @include at-media('mobile-lg') {
-    @include u-font-size($theme-font-family-banner, 1);
-    border-bottom: none;
+  @include at-media('tablet') {
+    background-color: transparent;
+    color: color('ink');
     display: block;
-    min-height: 0;
-    padding-right: 0;
+    font-size: font-size($theme-font-family-banner, 1);
+    font-weight: font-weight('normal');
+    min-height: units(0);
+    padding-right: units(0);
   }
 
-  > .usa-banner-inner {
-    margin-left: 0;
+  .usa-banner-inner {
+    margin-left: units(0);
 
-    @include at-media('mobile-lg') {
-      margin-left: auto;
+    @include at-media('tablet') {
+      margin-left: units(auto);
     }
   }
 
-  img {
-    margin-right: units(3);
-
-    @include at-media('mobile-lg') {
-      margin-right: units(1);
-    }
-  }
-
-  p {
-    @include u-line-height($theme-font-family-banner, $theme-line-height-heading);
-    vertical-align: top;
-
-    @include at-media('mobile-lg') {
-      @include u-line-height($theme-font-family-banner, $theme-line-height-base);
-      vertical-align: middle;
-    }
+  .usa-banner-header-action {
+    display: none;
   }
 }
 
 .usa-banner-button {
   @include button-unstyled;
-  @include u-font-size($theme-font-family-banner, 1);
-  @include u-line-height($theme-font-family-banner, 1);
-  @include u-padding-top(1.5);
-  @include u-padding-left(6);
-  background-position-x: right;
-  color: color('primary');
+  @include u-pin('left');
+  @include u-pin('y');
+  @include u-text('primary', underline, baseline);
   display: block;
-  height: units(5);
-  left: 0;
-  position: absolute;
-  text-decoration: underline;
-  top: 0;
-  width: 100%;
+  font-size: font-size($theme-font-family-banner, 1);
+  height: auto;
+  line-height: line-height($theme-font-family-banner, 2);
+  padding-top: units(0);
+  padding-left: units(0);
+  width: auto;
 
-  @include at-media('mobile-lg') {
-    @include u-padding-top(0);
-    @include u-padding-left(2px);
-    @include u-margin-left(0.5);
-    /* stylelint-disable declaration-block-no-ignored-properties */
+  @include at-media-max('tablet') {
+    width: 100%;
+  }
+
+  @include at-media('tablet') {
+    @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 0.5, 'hover');
+    @include u-pin('none');
     display: inline;
-    height: auto;
+    margin-left: units(1);
     position: relative;
-    vertical-align: middle;
-    width: auto;
-    /* stylelint-enable */
-  }
 
-  &:hover {
-    color: color('primary-darker');
-    text-decoration: underline;
-  }
-
-  &[aria-expanded=false] {
-    @include display-icon(angle-arrow-down-primary, after, units(1), 0, hover);
-    background-image: none;
-
-    &::after {
-      background-position-y: 1px;
+    &:hover {
+      @include u-text('primary-darker', underline);
     }
   }
 
-  &[aria-expanded=true] {
-    @include display-icon(close, after, units(1.5), 0, no-hover);
+  &[aria-expanded=false] {
     background-image: none;
-    height: units(7);
+  }
 
-    @include at-media('mobile-lg') {
-      @include display-icon(angle-arrow-up-primary, after, units(1), 0, hover);
-      height: initial;
-      padding: 0 0 0 2px;
-      position: relative;
+  &[aria-expanded=true] {
+    background-image: none;
+
+    @include at-media-max('tablet') {
+      @include add-icon('close-blue-60v-alt',
+        'after',
+        $theme-icon-image-size,
+        $touch-target-size,
+        0,
+        'no-hover'
+      );
 
       &::after {
-        background-position-y: 1px;
+        @include u-pin('y');
+        @include u-pin('right');
+        background-color: color('base-lighter');
+        bottom: 0;
+        height: auto;
       }
+    }
+
+    @include at-media('tablet') {
+      @include add-icon('angle-arrow-up-primary', 'after', 1, 1, 0.5, 'hover');
+      height: auto;
+      padding: units(0);
+      position: relative;
     }
 
     &::after {
       position: absolute;
       right: units(2);
-      top: units(2.5);
+      top: units(1.5);
 
-      @include at-media('mobile-lg') {
+      @include at-media('tablet') {
         position: static;
       }
     }
+  }
+}
 
-    .usa-banner-button-text {
-      display: none;
+.usa-banner-button-text {
+  @include add-sr-only;
 
-      @include at-media('mobile-lg') {
-        display: inline;
-      }
-    }
+  @include at-media('tablet') {
+    @include add-no-sr-only;
+    display: inline;
   }
 }
 

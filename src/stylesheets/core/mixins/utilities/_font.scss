@@ -21,7 +21,7 @@ system scale or project scale
 */
 
 @mixin u-font-size($family, $scale) {
-  font-size: scale($family, $scale);
+  font-size: font-size($family, $scale);
 }
 
 /*
@@ -38,5 +38,5 @@ system scale or project scale
 
 @mixin u-font($family, $scale) {
   font-family: ff($family);
-  font-size: scale($family, $scale);
+  font-size: font-size($family, $scale);
 }

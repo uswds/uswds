@@ -1,0 +1,81 @@
+$sidenav-inset: 2;
+$sidenav-child-inset: 4;
+$sidenav-grandchild-inset: 6;
+
+@mixin nav-list {
+  @include unstyled-list();
+
+  .usa-nav-item {
+    border-top: units(1px) solid color('base-lighter');
+  }
+
+  a {
+    color: color('base-dark');
+    display: block;
+    padding: units(1) units($sidenav-inset);
+    text-decoration: none;
+
+    &:hover {
+      background-color: color('base-lightest');
+      color: color('primary');
+      text-decoration: none;
+    }
+
+    &:focus {
+      outline-offset: 0;
+    }
+  }
+
+  .usa-current {
+    @include add-bar(
+      $theme-sidenav-current-border-width,
+      'primary',
+      'left',
+      'pill',
+      0.5,
+      0.5
+    );
+    color: color('primary');
+    font-weight: font-weight('bold');
+
+    @include at-media('tablet') {
+      @include add-bar(
+        $theme-sidenav-current-border-width,
+        'primary',
+        'left',
+        'pill',
+        0,
+        0.5
+      );
+    }
+  }
+}
+
+@mixin nav-sublist {
+  @include unstyled-list();
+  margin: 0;
+
+  .usa-nav-item {
+    font-size: font-size($theme-font-family-sidenav, '2xs');
+  }
+
+  .usa-current {
+    @include remove-bar;
+
+    @include at-media('tablet') {
+      @include remove-bar;
+    }
+  }
+
+  // children and grandchildren
+  a {
+    padding-left: units($sidenav-child-inset);
+  }
+
+  // grandchildren
+  .usa-sidenav-sublist {
+    a {
+      padding-left: units($sidenav-grandchild-inset);
+    }
+  }
+}

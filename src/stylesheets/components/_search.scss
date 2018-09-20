@@ -3,6 +3,7 @@
   background-image: url('#{$theme-image-path}/search.svg');
   background-position: 50%;
   background-repeat: no-repeat;
+  background-size: units(3);
 }
 
 .usa-search {
@@ -37,7 +38,7 @@
   [type=search],
   .usa-search-input {
     @include at-media('mobile-lg') {
-      font-size: scale($theme-font-family-search, 'sm');
+      font-size: font-size($theme-font-family-search, 'sm');
       height: $height;
     }
   }
@@ -46,7 +47,7 @@
   .usa-search-submit {
     @include at-media('mobile-lg') {
       @include u-padding-x(4);
-      font-size: scale($theme-font-family-search, 'lg');
+      font-size: font-size($theme-font-family-search, 'lg');
       height: $height;
       width: auto;
     }
@@ -77,7 +78,7 @@ input[type=search] { /* stylelint-disable-line selector-no-qualifying-type */
   border-top-right-radius: 0;
   box-sizing: border-box;
   float: left;
-  font-size: scale($theme-font-family-search, 'xs');
+  font-size: font-size($theme-font-family-search, 'xs');
   height: units(4);
   margin: 0;
 }

@@ -27,7 +27,6 @@ $button-stroke: inset 0 0 0 2px;
 .usa-button-primary,
 .usa-button:visited,
 .usa-button-primary:visited {
-  @include font-smoothing;
   @include typeset($theme-font-family-button, null, 1);
 
   appearance: none;
@@ -144,7 +143,7 @@ $button-stroke: inset 0 0 0 2px;
 
   &.usa-button-big {
     border-radius: radius('md');
-    font-size: scale($theme-font-family-button, 'lg');
+    font-size: font-size($theme-font-family-button, 'lg');
     padding: units(2) units(3);
   }
 
