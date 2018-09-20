@@ -1009,36 +1009,6 @@ then
 
 /*
 ----------------------------------------
-Typography
-----------------------------------------
-TODO: Rethink naming and consolidate in
-settings
-----------------------------------------
-*/
-
-// Removing the !default from $em-base so we are not inheriting that value from Bourbon.
-
-$em-base:             $theme-font-size-root;
-$base-font-size:      1.7rem !default;
-$small-font-size:     1.4rem !default;
-$lead-font-size:      2rem !default;
-$title-font-size:     5.2rem !default;
-$h1-font-size:        4rem !default;
-$h2-font-size:        3rem !default;
-$h3-font-size:        2rem !default;
-$h4-font-size:        1.7rem !default;
-$h5-font-size:        1.5rem !default;
-$h6-font-size:        1.3rem !default;
-$base-line-height:    1.5 !default;
-$heading-line-height: 1.3 !default;
-$lead-line-height:    1.7 !default;
-
-
-
-
-
-/*
-----------------------------------------
 Set $asset-pipeline to true if you're
 using the Rails Asset Pipeline
 ----------------------------------------

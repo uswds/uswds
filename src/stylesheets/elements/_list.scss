@@ -1,10 +1,10 @@
 %usa-list {
   @include u-margin-y(1em);
-  padding-left: 1.94em; // Approximately 15px left padding at default font size
+  padding-left: units(2);
 }
 
 %usa-list-item {
-  line-height: $base-line-height;
+  line-height: line-height($theme-font-family-base, $theme-line-height-base);
   margin-bottom: 0.5em;
 
   &:last-child {

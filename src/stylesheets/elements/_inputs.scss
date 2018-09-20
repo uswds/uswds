@@ -226,7 +226,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-checkbox-input:focus + .usa-checkbox-label::before {
-  @include focus-outline
+  @include focus-outline;
 }
 
 .usa-checkbox-input:disabled + .usa-checkbox-label::before,
