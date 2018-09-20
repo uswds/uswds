@@ -35,7 +35,6 @@ $nav-link-arrow-icon-size: 1;
 // ---------------------------------
 
 .usa-navbar {
-  border-bottom: units(1px) solid color('base-light');
   height: units($touch-target-size);
 
   @include at-media-max($theme-nav-width) {
@@ -65,7 +64,6 @@ $nav-link-arrow-icon-size: 1;
     @include u-pin('y');
     position: fixed;
     background: color('white');
-    border-left: units(1px) solid color('base-light');
     border-right: 0;
     display: none;
     flex-direction: column;
@@ -303,6 +301,7 @@ $nav-link-arrow-icon-size: 1;
     width: units('card-lg');
     padding: units(2);
     position: absolute;
+    z-index: z-index(400);
   }
 
   &[aria-hidden=true] {
@@ -318,6 +317,7 @@ $nav-link-arrow-icon-size: 1;
       a {
         color: color('white');
         padding: 0;
+        line-height: line-height($theme-font-family-navigation, 3);
 
         &:hover {
           background-color: transparent;
