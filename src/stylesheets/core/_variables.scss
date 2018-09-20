@@ -279,13 +279,6 @@ $project-font-stacks:(
   'alt':      $font-stack-alt,
 );
 
-// for backward compatibility
-// TODO: deprecate
-$font-sans:   $font-stack-sans;
-$font-serif:  $font-stack-serif;
-$font-mono:   $font-stack-mono;
-$font-cond:   $font-stack-cond;
-
 /*
 ----------------------------------------
 Set basic font rules for the font
