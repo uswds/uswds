@@ -128,37 +128,6 @@ $number-to-value: (
   -9:         'neg-9',
 );
 
-// Units expressed as variables
-$units-05: units(0.5);
-$units-1: units(1);
-$units-105: units(1.5);
-$units-2: units(2);
-$units-205: units(2.5);
-$units-3: units(3);
-$units-4: units(4);
-$units-5: units(5);
-$units-6: units(6);
-$units-7: units(7);
-$units-8: units(8);
-$units-9: units(9);
-$units-10: units(10);
-$units-15: units(15);
-$units-card: units('card');
-$units-card-lg: units('card-lg');
-$units-mobile: units('mobile');
-$units-mobile-lg: units('mobile-lg');
-$units-tablet: units('tablet');
-$units-tablet-lg: units('tablet-lg');
-$units-desktop: units('desktop');
-$units-desktop-lg: units('desktop-lg');
-$units-widescreen: units('widescreen');
-$units-neg-05: units(-0.5);
-$units-neg-1: units(-1);
-$units-neg-105: units(-1.5);
-$units-neg-2: units(-2);
-$units-neg-205: units(-2.5);
-$units-neg-3: units(-3);
-
 /*
 ----------------------------------------
 Font stack
