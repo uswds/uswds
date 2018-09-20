@@ -301,6 +301,7 @@ $nav-link-arrow-icon-size: 1;
     width: units('card-lg');
     padding: units(2);
     position: absolute;
+    z-index: z-index(400);
   }
 
   &[aria-hidden=true] {
