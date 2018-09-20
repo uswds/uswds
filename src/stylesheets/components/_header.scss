@@ -126,7 +126,7 @@ $z-index-overlay: 400;
   z-index: z-index($z-index-overlay);
 
   &.is-visible {
-    opacity: opacity(10);
+    opacity: opacity(20);
     visibility: visible;
   }
 }

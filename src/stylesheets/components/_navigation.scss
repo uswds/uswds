@@ -65,7 +65,6 @@ $nav-link-arrow-icon-size: 1;
     @include u-pin('y');
     position: fixed;
     background: color('white');
-    border-left: units(1px) solid color('base-light');
     border-right: 0;
     display: none;
     flex-direction: column;
