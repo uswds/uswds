@@ -147,7 +147,7 @@
     padding-right: units(0);
   }
 
-  > .usa-banner-inner {
+  .usa-banner-inner {
     margin-left: units(0);
 
     @include at-media('tablet') {
