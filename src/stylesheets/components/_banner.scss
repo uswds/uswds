@@ -135,7 +135,7 @@
 }
 
 .usa-banner-header-expanded {
-  padding-right: units($touch-target-size + 2);
+  padding-right: units($touch-target-size + 1);
 
   @include at-media('tablet') {
     background-color: transparent;
