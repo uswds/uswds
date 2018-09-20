@@ -3,17 +3,17 @@ $usa-custom-alerts: () !default;
 $usa-custom-alerts-bar: () !default;
 
 $usa-alerts: (
-  success: color('success-lighter'),
-  warning: color('warning-lighter'),
-  error: color('error-lighter'),
-  info: color('info-lighter'),
+  success: 'success-lighter',
+  warning: 'warning-lighter',
+  error: 'error-lighter',
+  info: 'info-lighter',
 );
 
 $usa-alerts-bar: (
-  success: color('success'),
-  warning: color('warning'),
-  error: color('error'),
-  info: color('info'),
+  success: 'success',
+  warning: 'warning',
+  error: 'error',
+  info: 'info',
 );
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
@@ -27,7 +27,7 @@ $icon-size: units(4);
 .usa-alert {
   @include typeset($theme-font-family-alerts);
 
-  background-color: $color-gray-lightest;
+  background-color: color('base-lightest');
   background-position: $h-padding $h-padding;
   background-repeat: no-repeat;
   background-size: units(7);
@@ -43,7 +43,7 @@ $icon-size: units(4);
 
   // TODO: why is this not simply a border?
   &::before {
-    background-color: color('gray-40');
+    background-color: color('base-light');
     content: '';
     height: 100%;
     left: 0;
@@ -53,11 +53,11 @@ $icon-size: units(4);
   }
 
   a {
-    color: $color-primary-darker;
+    color: color($theme-color-link);
 
     &:focus,
     &:hover {
-      color: $color-primary-darkest;
+      color: color($theme-color-link-hover);
     }
   }
 
@@ -110,12 +110,11 @@ $icon-size: units(4);
 
 @each $name, $bgcolor in $alerts {
   .usa-alert-#{$name} {
-    background-color: $bgcolor;
-    background-image: url('#{$theme-image-path}/alerts/#{$name}.png');
-    background-image: url('#{$theme-image-path}/alerts/#{$name}.svg');
+    @include background-image('alerts/#{$name}');
+    background-color: color($bgcolor);
 
     &::before {
-      background-color: map-get($alerts-bar, $name);
+      background-color: color(map-get($alerts-bar, $name));
     }
 
     .usa-alert-body {

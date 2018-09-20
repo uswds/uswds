@@ -62,20 +62,23 @@ Sets:
 }
 
 @mixin typeset-link {
-  color: color('primary');
+  color: color($theme-color-link);
   text-decoration: underline;
 
-  &:hover,
+  &:hover {
+    color: color($theme-color-link-hover);
+  }
+
   &:active {
-    color: color('primary-darker');
+    color: color($theme-color-link-active);
   }
 
   &:focus {
-    @include focus;
+    @include focus-outline;
   }
 
   &:visited {
-    color: $color-visited;
+    color: color($theme-color-link-visited);
   }
 }
 

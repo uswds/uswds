@@ -1033,102 +1033,9 @@ $base-line-height:    1.5 !default;
 $heading-line-height: 1.3 !default;
 $lead-line-height:    1.7 !default;
 
-/*
-----------------------------------------
-Font weights
-----------------------------------------
-TODO: Consolidate in settings
-----------------------------------------
-*/
 
-// TODO these should be called font-weight-${}
-$font-normal:         $theme-font-weight-normal;
-$font-bold:           $theme-font-weight-bold;
 
-/*
-----------------------------------------
-Colors
-----------------------------------------
-TODO:
-1. These should be set in settings
-2. Probably need different naming rubric
-----------------------------------------
-*/
 
-$color-blue:                 $color-blue-60v !default;
-$color-blue-darker:          $color-blue-warm-70v !default;
-$color-blue-darkest:         $color-blue-warm-80v !default;
-$color-blue-light:           $color-blue-warm-50 !default;
-$color-blue-lighter:         $color-blue-warm-30 !default;
-$color-blue-lightest:        $color-blue-warm-10 !default;
-
-$color-aqua:                 $color-cyan-30v !default;
-$color-aqua-dark:            $color-cyan-40v !default;
-$color-aqua-darkest:         $color-blue-60 !default;
-$color-aqua-light:           $color-cyan-20 !default;
-$color-aqua-lightest:        $color-cyan-5 !default;
-
-$color-red:                  $color-red-50 !default;
-$color-red-dark:             $color-red-60v !default;
-$color-red-darkest:          $color-red-70v !default;
-$color-red-light:            $color-red-30 !default;
-$color-red-lightest:         $color-red-10 !default;
-
-$color-white:                white !default;
-$color-black:                black !default; // 'black'
-$color-black-light:          $color-gray-90 !default; // 'base-darkest' 'base-ink'
-
-$color-gray-dark:            $color-gray-cool-80 !default; // 'base-darker'
-$color-gray:                 $color-gray-cool-60 !default; // 'base-dark'
-$color-gray-medium:          $color-gray-50 !default; // 'base'
-$color-gray-light:           $color-gray-30 !default; // 'base-light'
-$color-gray-lighter:         $color-gray-cool-10 !default; // 'base-lighter'
-$color-gray-lightest:        $color-gray-cool-5 !default; // 'base-lightest'
-
-$color-gray-warm-dark:       $color-gray-warm-70 !default;
-$color-gray-warm-light:      $color-gray-warm-10 !default;
-$color-gray-cool-light:      $color-blue-warm-5 !default;
-
-$color-gold:                 $color-gold-20v !default;
-$color-gold-light:           $color-gold-10v !default;
-$color-gold-lighter:         $color-yellow-10 !default;
-$color-gold-lightest:        $color-gold-5v !default;
-
-$color-green:                $color-green-cool-50 !default;
-$color-green-light:          $color-green-cool-40 !default;
-$color-green-lighter:        $color-green-cool-20 !default;
-$color-green-lightest:       $color-green-cool-5 !default;
-
-$color-cool-blue:            $color-blue-70v !default;
-$color-cool-blue-light:      $color-blue-warm-50 !default;
-$color-cool-blue-lighter:    $color-blue-warm-30 !default;
-$color-cool-blue-lightest:   $color-blue-warm-10 !default;
-
-$color-purple:               $color-violet-70v !default;
-
-// Functional colors
-$color-primary:              $color-blue !default; //'primary'
-$color-primary-darker:       $color-blue-darker !default; //'primary-dark'
-$color-primary-darkest:      $color-blue-darkest !default; //'primary-darker'
-
-$color-primary-alt:          $color-aqua !default; //'accent-cool'
-$color-primary-alt-dark:     $color-aqua-dark !default; //'accent-cool-dark'
-$color-primary-alt-darkest:  $color-aqua-darkest !default; //'accent-cool-darker'
-$color-primary-alt-light:    $color-aqua-light !default; //'accent-cool-light'
-$color-primary-alt-lightest: $color-aqua-lightest !default; //'accent-cool-lighter'
-
-$color-secondary:            $color-red !default; //'secondary'
-$color-secondary-dark:       $color-red-dark !default; //'secondary-dark'
-$color-secondary-darkest:    $color-red-darkest !default; //'primary-darker'
-$color-secondary-light:      $color-red-light !default; //'secondary-light'
-$color-secondary-lightest:   $color-red-lightest !default; //'secondary-lighter'
-
-$color-base:                 $color-black-light !default; //'base-darkest'
-$color-focus:                $color-blue-40v !default;
-$color-visited:              $color-purple !default;
-
-$color-shadow:               $color-black-transparent-30 !default;
-$color-transparent:          rgba(#000, 0) !default;
 
 /*
 ----------------------------------------
@@ -1136,6 +1043,8 @@ Set $asset-pipeline to true if you're
 using the Rails Asset Pipeline
 ----------------------------------------
 TODO: This should be set in settings
+Has something to do with the bourbon font builder
+See: https://github.com/uswds/uswds/pull/1500
 ----------------------------------------
 */
 
@@ -1165,8 +1074,7 @@ $input-max-width:               46rem !default;
 $checkbox-border-radius:        2px !default;
 $border-radius:                 3px !default;
 $button-border-radius:          5px !default;
-$box-shadow:                    0 0 2px $color-shadow !default;
-$focus-outline:                 units(0.5) solid $color-focus !default;
+//$focus-outline:                 units(0.5) solid $color-focus !default;
 $focus-spacing:                 0 !default;
 $nav-width:                     951px !default;
 $usa-btn-small-width:           units(6);

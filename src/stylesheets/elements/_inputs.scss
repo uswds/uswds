@@ -218,8 +218,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-radio-input:focus + .usa-radio-label::before {
-  outline: $focus-outline;
-  outline-offset: units(0.5);
+  @include focus-outline(null, null, null, 0.5);
 }
 
 .usa-checkbox-input:disabled + .usa-checkbox-label {
@@ -227,8 +226,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-checkbox-input:focus + .usa-checkbox-label::before {
-  outline: $focus-outline;
-  outline-offset: $focus-spacing;
+  @include focus-outline
 }
 
 .usa-checkbox-input:disabled + .usa-checkbox-label::before,
@@ -240,10 +238,9 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 // Range inputs
 
-// TODO: Change to $color-focus in 2.0
 @mixin range-focus {
   background-color: color('white');
-  box-shadow: 0 0 0 units(2px) color('primary');
+  box-shadow: 0 0 0 units(2px) color($theme-color-focus);
 }
 
 @mixin range-track {

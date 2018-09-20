@@ -1,5 +1,30 @@
 // Focus state mixin
-@mixin focus {
-  outline: $focus-outline;
-  outline-offset: $focus-spacing;
+@mixin focus-outline(
+  $width: $theme-width-focus,
+  $style: $theme-style-focus,
+  $color: $theme-color-focus,
+  $offset: $theme-offset-focus,
+) {
+  $width: if(
+    $width == null,
+    $theme-width-focus,
+    $width
+  );
+  $style: if(
+    $style == null,
+    $theme-style-focus,
+    $style
+  );
+  $color: if(
+    $color == null,
+    $theme-color-focus,
+    $color
+  );
+  $offset: if(
+    $offset == null,
+    $theme-offset-focus,
+    $offset
+  );
+  outline: units($theme-width-focus) $theme-style-focus color($theme-color-focus);
+  outline-offset: units($theme-offset-focus);
 }

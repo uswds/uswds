@@ -163,12 +163,6 @@ $nav-link-arrow-icon-size: 1;
       font-weight: font-weight('bold');
     }
 
-    &:focus,
-    &:active {
-      // TODO: check this var
-      box-shadow: $focus-outline;
-    }
-
     &:hover {
       color: color('primary');
       background-color: color('base-lightest');
