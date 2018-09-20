@@ -4,7 +4,7 @@
   border-bottom: units(1px) solid color('base-lighter');
 
   .grid-container & {
-    @include u-margin-x(-$site-margins-mobile);
+    @include u-margin-x(-$theme-width-site-margins-mobile);
 
     @include at-media('tablet') {
       @include u-margin-x(0);

@@ -17,11 +17,11 @@
   max-width: units('desktop');
 
   @include at-media('mobile-lg') {
-    @include u-padding-x($theme-site-margins-mobile);
+    @include u-padding-x($theme-width-site-margins-mobile);
     border-bottom: none;
   }
   @include at-media('desktop') {
-    @include u-padding-x($theme-site-margins);
+    @include u-padding-x($theme-width-site-margins);
   }
 }
 
@@ -42,7 +42,7 @@
 }
 
 .usa-footer-primary-link {
-  @include u-padding-x($theme-site-margins-mobile);
+  @include u-padding-x($theme-width-site-margins-mobile);
   @include u-padding-y(2);
   @include u-text('ink', 'no-underline', 'bold');
   display: block;
@@ -167,7 +167,7 @@
 
 .usa-social_link {
   $background-height: units(3); // Height of icon within hit area.
-  @include u-square($touch-target-size);
+  @include u-square($size-touch-target);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: auto $background-height;
@@ -216,7 +216,7 @@
 
   .usa-footer-address {
     @include u-padding-y(2);
-    @include u-padding-x($theme-site-margins-mobile);
+    @include u-padding-x($theme-width-site-margins-mobile);
     @include at-media('mobile-lg') {
       @include u-padding(0);
     }
@@ -241,7 +241,7 @@
 
 .usa-footer-big {
   .usa-footer-nav {
-    @include u-margin-x($theme-site-margins-mobile * -1);
+    @include u-margin-x($theme-width-site-margins-mobile * -1);
     @include at-media('mobile-lg') {
       border-bottom: 1px solid color('base-light');
       padding-top: units(4);
@@ -295,7 +295,7 @@
     }
 
     .usa-unstyled-list {
-      @include u-padding-x($theme-site-margins-mobile);
+      @include u-padding-x($theme-width-site-margins-mobile);
       padding-bottom: units(2.5);
 
       @include at-media('mobile-lg') {

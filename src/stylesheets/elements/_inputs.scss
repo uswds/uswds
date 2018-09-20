@@ -44,7 +44,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   display: block;
   height: $input-height;
   margin-top: units(1);
-  max-width: $input-max-width;
+  max-width: units($theme-max-width-input);
   padding: $input-padding-vertical units(1);
   width: 100%;
 
@@ -98,7 +98,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   display: block;
   line-height: line-height($theme-font-family-forms, 2);
   margin-top: units(3);
-  max-width: $input-max-width;
+  max-width: units($theme-max-width-input);
 }
 
 .usa-textarea {
@@ -182,11 +182,11 @@ $input-height: floor($input-height-exact * 10) / 10;
 .usa-checkbox-label::before {
   border-radius: radius($theme-border-radius-checkbox);
   box-shadow: 0 0 0 2px color('base');
-  height: units($theme-spacing-md);
-  line-height: units($theme-spacing-md);
+  height: units(2.5);
+  line-height: units(2.5);
   margin-left: 1px;
   margin-right: units(1.5);
-  width: units($theme-spacing-md);
+  width: units(2.5);
 }
 
 .usa-radio-label::before {

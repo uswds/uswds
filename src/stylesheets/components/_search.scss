@@ -22,7 +22,7 @@
     height: units(4);
     margin: 0;
     padding: 0;
-    width: $usa-btn-small-width;
+    width: units($theme-width-button-small);
 
     @include at-media('mobile-lg') {
       @include u-padding-x(2);
@@ -59,7 +59,7 @@
   .usa-search-submit {
     @include at-media('mobile-lg') {
       @include search-icon;
-      width: $usa-btn-small-width;
+      width: units($theme-width-button-small);
     }
   }
 }

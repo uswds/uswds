@@ -114,13 +114,13 @@ Line height tokens
 ----------------------------------------
 */
 
-$theme-site-margins:        4 !default; // was 3rem
-$theme-site-margins-mobile: 2 !default; // was 1.5rem
-
-$theme-nav-width:           'desktop' !default; // was 951px
-$theme-site-max-width:      'desktop' !default; // was 1040px
-
-$theme-sidenav-current-border-width:  0.5 !default;
-$theme-megamenu-logo-text-width: 33% !default;
-
-$theme-icon-image-size: 2 !default;
+$theme-max-width-site:                'desktop' !default;
+$theme-max-width-input:               'mobile-lg' !default;
+$theme-min-width-search:              27ch !default;
+$theme-size-icon-image:               2 !default;
+$theme-width-button-small:            6 !default;
+$theme-width-site-margins:            4 !default;
+$theme-width-site-margins-mobile:     2 !default;
+$theme-width-nav:                     'desktop' !default;
+$theme-width-sidenav-current-border:  0.5 !default;
+$theme-width-megamenu-logo-text:      33% !default;

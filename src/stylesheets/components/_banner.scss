@@ -9,13 +9,13 @@
 }
 
 .usa-banner-content {
-  @include grid-container($theme-site-max-width);
+  @include grid-container($theme-max-width-site);
   background-color: color(transparent);
   font-size: font-size($theme-font-family-banner, 4);
   overflow: hidden;
   padding-bottom: units(2);
-  padding-left: units($theme-site-margins-mobile - 1);
-  padding-right: units($theme-site-margins-mobile);
+  padding-left: units($theme-width-site-margins-mobile - 1);
+  padding-right: units($theme-width-site-margins-mobile);
   padding-top: units(0.5);
   width: 100%;
 
@@ -24,7 +24,7 @@
   }
 
   @include at-media('desktop') {
-    @include u-padding-x($theme-site-margins);
+    @include u-padding-x($theme-width-site-margins);
   }
 
   p {
@@ -54,7 +54,7 @@
   @include grid-container;
   @include grid-row;
   @include u-flex('align-start');
-  padding-left: units($theme-site-margins-mobile);
+  padding-left: units($theme-width-site-margins-mobile);
   padding-right: units(0);
 
   @include at-media('tablet') {
@@ -62,7 +62,7 @@
   }
 
   @include at-media('desktop') {
-    @include u-padding-x($theme-site-margins);
+    @include u-padding-x($theme-width-site-margins);
   }
 }
 
@@ -70,7 +70,7 @@
   @include u-padding-y(1);
   font-size: font-size($theme-font-family-banner, 1);
   font-weight: font-weight('normal');
-  min-height: units($touch-target-size);
+  min-height: units($size-touch-target);
   position: relative;
 
   @include at-media('tablet') {
@@ -135,7 +135,7 @@
 }
 
 .usa-banner-header-expanded {
-  padding-right: units($touch-target-size + 1);
+  padding-right: units($size-touch-target + 1);
 
   @include at-media('tablet') {
     background-color: transparent;
@@ -199,8 +199,8 @@
     @include at-media-max('tablet') {
       @include add-icon('close-blue-60v-alt',
         'after',
-        $theme-icon-image-size,
-        $touch-target-size,
+        $theme-size-icon-image,
+        $size-touch-target,
         0,
         'no-hover'
       );

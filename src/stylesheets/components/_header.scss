@@ -39,16 +39,16 @@ $z-index-overlay: 400;
 
   // The search <form>
   .usa-search {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       float: right;
     }
   }
 
   // Accessibility: The <div> with search role
   [role=search] {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       float: right;
-      max-width: calc(#{$search-min-width} + #{$usa-btn-small-width});
+      max-width: calc(#{$theme-min-width-search} + #{units($theme-width-button-small)});
       width: 100%;
     }
   }
@@ -69,14 +69,14 @@ $z-index-overlay: 400;
 }
 
 .usa-logo {
-  @include at-media-max($theme-nav-width) {
+  @include at-media-max($theme-width-nav) {
     @include u-flex('fill');
     font-size: font-size($theme-font-family-header, '2xs');
     line-height: line-height($theme-font-family-header, 1);
-    margin-left: units($theme-site-margins-mobile);
+    margin-left: units($theme-width-site-margins-mobile);
   }
 
-  @include at-media($theme-nav-width) {
+  @include at-media($theme-width-nav) {
     margin-top: units(4);
     margin-bottom: units(2);
     font-size: font-size($theme-font-family-header, 'lg');
@@ -103,12 +103,12 @@ $z-index-overlay: 400;
   background-color: color('primary');
   color: color('white');
   font-size: font-size($theme-font-family-header, '3xs');
-  height: units($touch-target-size);
+  height: units($size-touch-target);
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
 
-  @include at-media($theme-nav-width) {
+  @include at-media($theme-width-nav) {
     display: none;
   }
 
@@ -140,10 +140,10 @@ $z-index-overlay: 400;
 // ---------------------------------
 
 .usa-header-basic {
-  @include at-media($theme-nav-width) {
+  @include at-media($theme-width-nav) {
     .usa-navbar {
       position: relative;
-      width: $theme-megamenu-logo-text-width; // TODO: review this more
+      width: $theme-width-megamenu-logo-text; // TODO: review this more
     }
 
     .usa-nav {
@@ -182,7 +182,7 @@ $z-index-overlay: 400;
     display: flex;
     flex-direction: column;
 
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       display: block;
       float: right;
       margin-top: units(-5);
@@ -194,7 +194,7 @@ $z-index-overlay: 400;
 // ---------------------------------
 
 .usa-header-extended {
-  @include at-media($theme-nav-width) {
+  @include at-media($theme-width-nav) {
     padding-top: 0;
 
     .usa-current,
@@ -205,7 +205,7 @@ $z-index-overlay: 400;
   }
 
   .usa-logo {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       font-size: font-size($theme-font-family-header, 'xl');
       margin: units(4) 0 units(3);
       max-width: 50%;
@@ -213,11 +213,11 @@ $z-index-overlay: 400;
   }
 
   .usa-navbar {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       // @include grid-container; // TODO: disable until mixin is fixed
       @include u-margin-x(auto);
-      @include u-padding-x($theme-site-margins);
-      max-width: units($theme-site-max-width);
+      @include u-padding-x($theme-width-site-margins);
+      max-width: units($theme-max-width-site);
       display: block;
       height: auto;
       overflow: auto;
@@ -225,7 +225,7 @@ $z-index-overlay: 400;
   }
 
   .usa-nav {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       border-top: units(1px) solid color('base-lighter');
       padding: 0;
       width: 100%;
@@ -233,7 +233,7 @@ $z-index-overlay: 400;
   }
 
   .usa-nav-inner {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       @include grid-container;
       padding-left: units(2) !important; /* stylelint-disable declaration-no-important  */
       position: relative;
@@ -241,29 +241,29 @@ $z-index-overlay: 400;
   }
 
   .usa-nav-primary {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       @include clearfix;
     }
   }
 
   .usa-nav-link {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       @include u-padding-y(2);
     }
   }
 
   .usa-nav-submenu {
     .usa-grid-full {
-      @include at-media($theme-nav-width) {
+      @include at-media($theme-width-nav) {
         padding-left: units(1.5);
       }
     }
   }
 
   .usa-megamenu {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       left: 0;
-      padding-left: units($theme-site-margins);
+      padding-left: units($theme-width-site-margins);
     }
   }
 }

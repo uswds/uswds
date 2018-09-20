@@ -67,7 +67,7 @@ Focus styles
 ----------------------------------------
 */
 
-$theme-style-focus:  solid;
-$theme-color-focus:  'blue-40v';
-$theme-width-focus:  0.5;
-$theme-offset-focus: 0;
+$theme-color-focus:  'blue-40v' !default;
+$theme-offset-focus: 0 !default;
+$theme-style-focus:  solid !default;
+$theme-width-focus:  0.5 !default;

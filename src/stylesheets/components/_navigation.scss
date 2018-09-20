@@ -35,14 +35,14 @@ $nav-link-arrow-icon-size: 1;
 // ---------------------------------
 
 .usa-navbar {
-  height: units($touch-target-size);
+  height: units($size-touch-target);
 
-  @include at-media-max($theme-nav-width) {
+  @include at-media-max($theme-width-nav) {
     @include u-flex('align-center');
     display: flex;
   }
 
-  @include at-media($theme-nav-width) {
+  @include at-media($theme-width-nav) {
     border-bottom: none;
     display: inline-block;
     height: auto;
@@ -50,16 +50,16 @@ $nav-link-arrow-icon-size: 1;
 }
 
 .usa-nav-container {
-  @include at-media($theme-nav-width) {
+  @include at-media($theme-width-nav) {
     @include clearfix;
-    @include grid-container($theme-site-max-width);
-    @include u-padding-x($theme-site-margins);
+    @include grid-container($theme-max-width-site);
+    @include u-padding-x($theme-width-site-margins);
   }
 }
 
 .usa-nav {
   @include typeset($theme-font-family-navigation, null, 1);
-  @include at-media-max($theme-nav-width) {
+  @include at-media-max($theme-width-nav) {
     @include u-pin('right');
     @include u-pin('y');
     position: fixed;
@@ -78,13 +78,13 @@ $nav-link-arrow-icon-size: 1;
     }
   }
 
-  @include at-media($theme-nav-width) {
+  @include at-media($theme-width-nav) {
     float: right;
     position: relative;
   }
 
   .usa-search {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       margin-left: units(2);
     }
   }
@@ -95,9 +95,9 @@ $nav-link-arrow-icon-size: 1;
 
 .usa-nav-primary {
 
-  // Until the $theme-nav-width,
+  // Until the $theme-width-nav,
   // use the usa-nav-list styles for the slide-in nav
-  @include at-media-max($theme-nav-width) {
+  @include at-media-max($theme-width-nav) {
     @include nav-list;
     margin-top: units(3);
     order: 2;
@@ -107,8 +107,8 @@ $nav-link-arrow-icon-size: 1;
     }
   }
 
-  // At $theme-nav-width and wider...
-  @include at-media($theme-nav-width) {
+  // At $theme-width-nav and wider...
+  @include at-media($theme-width-nav) {
     display: flex;
   }
 
@@ -122,14 +122,14 @@ $nav-link-arrow-icon-size: 1;
   // just level 1 nav items...
   > .usa-nav-item {
     line-height: line-height($theme-font-family-navigation, 2);
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       font-size: font-size($theme-font-family-navigation, '2xs');
       line-height: line-height($theme-font-family-navigation, 1);
     }
 
     // ...and their direct links
     > a {
-      @include at-media($theme-nav-width) {
+      @include at-media($theme-width-nav) {
         @include primary-nav-link;
         color: color($nav-link-color);
         display: block;
@@ -143,7 +143,7 @@ $nav-link-arrow-icon-size: 1;
   }
 
   a {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       @include u-padding-y(1);
     }
   }
@@ -157,7 +157,7 @@ $nav-link-arrow-icon-size: 1;
     line-height: line-height($theme-font-family-navigation, 2);
     padding: units(1.5) units(2);
 
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       @include primary-nav-link;
       font-size: font-size($theme-font-family-navigation, '2xs');
       font-weight: font-weight('bold');
@@ -166,7 +166,7 @@ $nav-link-arrow-icon-size: 1;
     &:hover {
       color: color('primary');
       background-color: color('base-lightest');
-      @include at-media($theme-nav-width) {
+      @include at-media($theme-width-nav) {
         background-color: transparent;
       }
     }
@@ -177,14 +177,14 @@ $nav-link-arrow-icon-size: 1;
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
 
-      @include at-media($theme-nav-width) {
+      @include at-media($theme-width-nav) {
         @include add-background-image('angle-arrow-down');
         background-size: units($nav-link-arrow-icon-size);
         background-position: right units(2) top $button-vertical-offset;
       }
 
       &:hover {
-        @include at-media($theme-nav-width) {
+        @include at-media($theme-width-nav) {
           @include add-background-image('angle-arrow-down-primary');
         }
       }
@@ -196,7 +196,7 @@ $nav-link-arrow-icon-size: 1;
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
 
-      @include at-media($theme-nav-width) {
+      @include at-media($theme-width-nav) {
         @include add-background-image('angle-arrow-down-hover');
         background-size: units($nav-link-arrow-icon-size);
         background-color: color('primary-darker');
@@ -208,7 +208,7 @@ $nav-link-arrow-icon-size: 1;
 
   .usa-accordion-button {
     span {
-      @include at-media($theme-nav-width) {
+      @include at-media($theme-width-nav) {
         margin-right: 0;
         padding-right: units(2);
       }
@@ -222,21 +222,21 @@ $nav-link-arrow-icon-size: 1;
 .usa-nav-secondary {
   margin-top: units(2);
 
-  @include at-media($theme-nav-width) {
+  @include at-media($theme-width-nav) {
     // Note: Previius calc() couldn't work. don't hardcode rem vals
     bottom: units(8); // XXX magic number
     font-size: font-size($theme-font-family-navigation, '2xs');
     margin-top: units(1);
-    min-width: calc(#{$search-min-width} + #{$usa-btn-small-width});
+    min-width: calc(#{$theme-min-width-search} + #{units($theme-width-button-small)});
     position: absolute;
-    right: units($theme-site-margins);
+    right: units($theme-width-site-margins);
   }
 
   .usa-search {
     margin-top: units(2);
     width: 100%;
 
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       margin-left: 0;
       margin-top: units(1);
     }
@@ -248,7 +248,7 @@ $nav-link-arrow-icon-size: 1;
   line-height: line-height($theme-font-family-navigation, 3);
   margin-top: units(3);
 
-  @include at-media($theme-nav-width) {
+  @include at-media($theme-width-nav) {
     float: right;
     line-height: line-height($theme-font-family-navigation, 1);
     margin-bottom: units(0.5);
@@ -256,7 +256,7 @@ $nav-link-arrow-icon-size: 1;
   }
 
   .usa-nav-secondary-item {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       display: inline;
       padding-left: units(0.5);
 
@@ -285,11 +285,11 @@ $nav-link-arrow-icon-size: 1;
 // ---------------------------------
 
 .usa-nav-submenu {
-  @include at-media-max($theme-nav-width) {
+  @include at-media-max($theme-width-nav) {
     @include nav-sublist;
   }
 
-  @include at-media($theme-nav-width) {
+  @include at-media($theme-width-nav) {
     @include add-list-reset;
     background-color: color('primary-darker');
     width: units('card-lg');
@@ -303,7 +303,7 @@ $nav-link-arrow-icon-size: 1;
   }
 
   .usa-nav-item {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       & + * {
         margin-top: units(1.5);
       }
@@ -342,7 +342,7 @@ $nav-link-arrow-icon-size: 1;
 
 .usa-nav-close {
   @include button-unstyled;
-  @include u-square($touch-target-size);
+  @include u-square($size-touch-target);
   color: currentColor;
   float: right;
   margin: units(-1.5) units(-2) units(2) auto;
@@ -352,7 +352,7 @@ $nav-link-arrow-icon-size: 1;
     color: currentColor;
   }
 
-  @include at-media($theme-nav-width) {
+  @include at-media($theme-width-nav) {
     display: none;
   }
 
@@ -373,23 +373,23 @@ $nav-link-arrow-icon-size: 1;
 // ---------------------------------
 
 .usa-megamenu {
-  @include at-media($theme-nav-width) {
+  @include at-media($theme-width-nav) {
     @include u-padding-x(0);
     @include u-padding-y(4);
-    left: -$theme-megamenu-logo-text-width;
+    left: -$theme-width-megamenu-logo-text;
     right: 0;
     width: auto;
   }
 
   &::before {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       @include outer-megamenu;
       right: 100%;
     }
   }
 
   &::after {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       @include outer-megamenu;
       left: 100%;
     }

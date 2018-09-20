@@ -114,11 +114,11 @@ Line height tokens
 ----------------------------------------
 */
 
-$theme-site-margins:        4; // was 3rem
-$theme-site-margins-mobile: 2; // was 1.5rem
+$theme-width-site-margins:        4; // was 3rem
+$theme-width-site-margins-mobile: 2; // was 1.5rem
 
-$theme-nav-width:           'desktop'; // was 951px
-$theme-site-max-width:      'desktop'; // was 1040px
+$theme-width-nav:           'desktop'; // was 951px
+$theme-max-width-site:      'desktop'; // was 1040px
 
-$theme-sidenav-current-border-width:  0.5;
-$theme-megamenu-logo-text-width: 20%;
+$theme-width-sidenav-current-border:  0.5;
+$theme-width-megamenu-logo-text: 20%;
