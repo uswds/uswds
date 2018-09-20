@@ -32,11 +32,22 @@ $sidenav-grandchild-inset: 6;
       'primary',
       'left',
       'pill',
-      0,
+      0.5,
       0.5
     );
     color: color('primary');
     font-weight: font-weight('bold');
+
+    @include at-media('tablet') {
+      @include add-bar(
+        $theme-sidenav-current-border-width,
+        'primary',
+        'left',
+        'pill',
+        0,
+        0.5
+      );
+    }
   }
 }
 
@@ -50,6 +61,10 @@ $sidenav-grandchild-inset: 6;
 
   .usa-current {
     @include remove-bar;
+
+    @include at-media('tablet') {
+      @include remove-bar;
+    }
   }
 
   // children and grandchildren
