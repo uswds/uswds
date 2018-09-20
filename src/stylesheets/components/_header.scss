@@ -7,8 +7,7 @@
     'primary',
     'bottom',
     0,
-    2,
-    -1px
+    2
   );
 }
 
@@ -31,6 +30,7 @@ $z-index-overlay: 400;
 
 .usa-header {
   @include typeset($theme-font-family-header);
+  @include clearfix;
   z-index: z-index($z-index-header);
 
   a {
@@ -56,6 +56,19 @@ $z-index-overlay: 400;
   // The search <input>
   [type=search] {
     min-width: 0; // Fix a Firefox display quirk
+  }
+
+  + .usa-hero {
+    @include at-media($theme-nav-width) {
+      border-top: units(1px) solid color('white');
+    }
+  }
+
+  + .usa-section,
+  + main {
+    @include at-media($theme-nav-width) {
+      border-top: units(1px) solid color('base-lighter');
+    }
   }
 }
 
@@ -217,7 +230,7 @@ $z-index-overlay: 400;
 
   .usa-nav {
     @include at-media($theme-nav-width) {
-      border-bottom: units(1px) solid color('base-lighter');
+      border-top: units(1px) solid color('base-lighter');
       padding: 0;
       width: 100%;
     }
