@@ -1132,21 +1132,6 @@ $color-transparent:          rgba(#000, 0) !default;
 
 /*
 ----------------------------------------
-Mobile First Breakpoints
-----------------------------------------
-TODO: deprecate in favor of the values
-in settings
-----------------------------------------
-*/
-
-$xsmall-screen: null !default;
-$small-screen:  481px !default;
-$medium-screen: 600px !default;
-$large-screen:  1201px !default;
-$xlarge-screen: null !default;
-
-/*
-----------------------------------------
 Set $asset-pipeline to true if you're
 using the Rails Asset Pipeline
 ----------------------------------------
