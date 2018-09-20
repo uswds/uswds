@@ -59,9 +59,7 @@ $z-index-overlay: 400;
   }
 
   + .usa-hero {
-    @include at-media($theme-nav-width) {
-      border-top: units(1px) solid color('white');
-    }
+    border-top: units(1px) solid color('white');
   }
 
   + .usa-section,
