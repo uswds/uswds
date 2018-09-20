@@ -40,7 +40,6 @@ const format = (options) => {
     fs.readFile(options.file, (err, buffer) => {
       if (err) {
         throw new Error(err);
-        process.exit(1);
       }
   
       const file = JSON.parse(buffer);
@@ -50,7 +49,6 @@ const format = (options) => {
         output = options.template(file);
       } catch (error) {
         throw new Error(error);
-        process.exit(1);
       }
       
       resolve(output);
@@ -61,10 +59,9 @@ const format = (options) => {
 
 format({
   file: path.resolve(__dirname, '../', 'data', 'colors', 'red.json'),
+  output: '',
   template: colorMapTemplate,
 })
 .then((sass) => {
-  //const o = sass.replace(/^(\r?\n|\r)|\s+\n/g, '');
-
   fs.writeFileSync(path.resolve(__dirname, '../', 'stylesheets', 'core', 'system-tokens', '_red.scss'), sass);
 });
