@@ -19,7 +19,6 @@ $accordion-border: units(0.5) solid color('base-lightest');
 
   background-color: color('base-lightest');
   background-position: right units(2.5) center;
-  background-repeat: no-repeat;
   background-size: units(2);
   color: color('ink');
   cursor: pointer;
@@ -38,7 +37,6 @@ $accordion-border: units(0.5) solid color('base-lightest');
 
 @mixin accordion-button-unopened-styles {
   @include add-background-svg('plus');
-  background-repeat: no-repeat;
   background-size: units(2);
 }
 

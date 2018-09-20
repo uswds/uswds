@@ -19,7 +19,6 @@
   &::before {
     @include add-background-svg('correct9');
     background-position: 100%;
-    background-repeat: no-repeat;
     background-size: 100%;
   }
 }

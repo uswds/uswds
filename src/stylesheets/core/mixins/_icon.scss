@@ -2,7 +2,6 @@
   &::#{$direction} {
     @include add-background-svg('#{$icon}');
     background-size: 100%;
-    background-repeat: no-repeat;
     content: '';
     display: inline-block;
     height: $size;

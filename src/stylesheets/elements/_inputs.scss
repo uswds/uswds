@@ -110,7 +110,6 @@ $input-height: floor($input-height-exact * 10) / 10;
   appearance: none;
   background-color: color('white');
   background-position: right units(1.5) center;
-  background-repeat: no-repeat;
   background-size: units(1);
   padding-right: units(4);
 
@@ -210,7 +209,6 @@ $input-height: floor($input-height-exact * 10) / 10;
 .usa-checkbox-input:checked:disabled + .usa-checkbox-label::before {
   @include add-background-svg('correct8');
   background-position: center center;
-  background-repeat: no-repeat;
 }
 
 .usa-radio-input:focus + .usa-radio-label::before {

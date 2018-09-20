@@ -173,7 +173,6 @@ $nav-link-arrow-icon-size: 1;
 
     &[aria-expanded=false] { /* stylelint-disable-line selector-no-qualifying-type */
       @include add-background-svg('plus-alt');
-      background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
 
@@ -192,7 +191,6 @@ $nav-link-arrow-icon-size: 1;
 
     &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
       @include add-background-svg('minus-alt');
-      background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
 

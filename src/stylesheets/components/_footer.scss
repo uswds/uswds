@@ -169,7 +169,6 @@
   $background-height: units(3); // Height of icon within hit area.
   @include u-square($size-touch-target);
   background-position: center center;
-  background-repeat: no-repeat;
   background-size: auto $background-height;
   background-color: color('black-transparent-10');
   display: inline-block;
@@ -257,7 +256,6 @@
     @include h4;
     @include add-background-svg('arrow-down');
     background-position: units(2) center;
-    background-repeat: no-repeat;
     background-size: units(1.5);
     line-height: line-height('heading', 2);
     margin: 0;
