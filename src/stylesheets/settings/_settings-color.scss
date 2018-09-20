@@ -114,8 +114,8 @@ $theme-color-disabled-light:   '#{$theme-color-disabled-family}-10' !default;
 $theme-color-disabled:         '#{$theme-color-disabled-family}-20' !default;
 $theme-color-disabled-dark:    '#{$theme-color-disabled-family}-30' !default;
 
-// Other colors
-$theme-color-link:         'primary' !default;
-$theme-color-link-visited: 'violet-70v' !default;
-$theme-color-link-hover:   'primary-darker' !default;
-$theme-color-link-active:  'primary-darker' !default;
+// Link colors
+$theme-color-link:             'primary' !default;
+$theme-color-link-visited:     'violet-70v' !default;
+$theme-color-link-hover:       'primary-darker' !default;
+$theme-color-link-active:      'primary-darker' !default;
