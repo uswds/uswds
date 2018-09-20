@@ -33,10 +33,6 @@ $z-index-overlay: 400;
   @include typeset($theme-font-family-header);
   z-index: z-index($z-index-header);
 
-  @include at-media($theme-nav-width) {
-    border-bottom: units(1px) solid color('base-lighter');
-  }
-
   a {
     border-bottom: none;
   }

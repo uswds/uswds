@@ -35,7 +35,6 @@ $nav-link-arrow-icon-size: 1;
 // ---------------------------------
 
 .usa-navbar {
-  border-bottom: units(1px) solid color('base-light');
   height: units($touch-target-size);
 
   @include at-media-max($theme-nav-width) {

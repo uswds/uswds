@@ -8,6 +8,10 @@
   background-position: center;
   background-size: cover;
   color: color('white');
+
+  @include at-media($theme-nav-width) {
+    border-top: units(1px) solid color('white');
+  }
 }
 
 .usa-hero-callout {
