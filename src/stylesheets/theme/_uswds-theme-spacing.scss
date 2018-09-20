@@ -114,11 +114,13 @@ Line height tokens
 ----------------------------------------
 */
 
-$theme-width-site-margins:        4; // was 3rem
-$theme-width-site-margins-mobile: 2; // was 1.5rem
-
-$theme-width-nav:           'desktop'; // was 951px
-$theme-max-width-site:      'desktop'; // was 1040px
-
+$theme-max-width-site:                'desktop';
+$theme-max-width-input:               'mobile-lg';
+$theme-min-width-search:              27ch;
+$theme-size-icon-image:               2;
+$theme-width-button-small:            6;
+$theme-width-site-margins:            4;
+$theme-width-site-margins-mobile:     2;
+$theme-width-nav:                     'desktop';
 $theme-width-sidenav-current-border:  0.5;
-$theme-width-megamenu-logo-text: 20%;
+$theme-width-megamenu-logo-text:      33%;
