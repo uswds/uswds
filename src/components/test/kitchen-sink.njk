@@ -6,15 +6,14 @@
     {% render '@' + spec.component, spec.context, true %}
   {% endfor %}
 
-  <main class="grid-container grid-gap usa-section usa-content usa-layout-docs" id="main-content">
-    <div class="grid-row grid-gap">
-      <div class="desktop:grid-col-3">
-        <aside class="usa-layout-docs-sidenav">
+  <main class="usa-section usa-content usa-layout-docs" id="main-content">
+    <div class="grid-container">
+      <div class="grid-row grid-gap">
+        <aside class="tablet:grid-col-3 usa-layout-docs-sidenav">
           {% render '@sidenav', {sidenav: sidenav} %}
         </aside>
-      </div>
-      <div class="desktop:grid-col-fill">
-        <div class="usa-prose">
+
+        <div class="tablet:grid-col-9 usa-layout-docs-main_content usa-prose">
           <h1>{{ page.title }}</h1>
 
           <p class="usa-font-lead">{{ page.lead }}</p>
@@ -36,7 +35,7 @@
           </p>
 
           {% for spec in inner %}
-          <section id="{{ spec.id }}" class="margin-top-4">
+          <section id="{{ spec.id }}">
             <h2>{{ spec.title }}</h2>
             {% if spec.include %}
               {% include spec.include %}
@@ -47,11 +46,9 @@
             {% endif %}
           </section>
           {% endfor %}
-
         </div>
       </div>
     </div>
-
   </main>
 
   {% for spec in after %}
