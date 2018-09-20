@@ -181,22 +181,22 @@
 
 .usa-link-facebook {
   @extend .usa-social_link;
-  @include add-background-image('social-icons/facebook25');
+  @include add-background-svg('social-icons/facebook25');
 }
 
 .usa-link-twitter {
   @extend .usa-social_link;
-  @include add-background-image('social-icons/twitter16');
+  @include add-background-svg('social-icons/twitter16');
 }
 
 .usa-link-youtube {
   @extend .usa-social_link;
-  @include add-background-image('social-icons/youtube15');
+  @include add-background-svg('social-icons/youtube15');
 }
 
 .usa-link-rss {
   @extend .usa-social_link;
-  @include add-background-image('social-icons/rss25');
+  @include add-background-svg('social-icons/rss25');
 }
 
 .usa-footer-address {
@@ -255,7 +255,7 @@
 
   .usa-footer-primary-link {
     @include h4;
-    @include add-background-image('arrow-down');
+    @include add-background-svg('arrow-down');
     background-position: units(2) center;
     background-repeat: no-repeat;
     background-size: units(1.5);
@@ -283,7 +283,7 @@
       }
 
       .usa-footer-primary-link {
-        @include add-background-image('arrow-right');
+        @include add-background-svg('arrow-right');
         cursor: pointer;
 
         @include at-media('mobile-lg') {

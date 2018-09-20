@@ -106,12 +106,9 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-select {
+  @include add-background-svg('arrow-both');
   appearance: none;
   background-color: color('white');
-  background-image: url('#{$theme-image-path}/arrow-both.png');
-  // Ensure browsers that don't support SVG in background-image (IE 11 and below) fall back to PNG.
-  // See https://www.broken-links.com/2010/06/14/using-svg-in-backgrounds-with-png-fallback/
-  background-image: none, url('#{$theme-image-path}/arrow-both.svg'), url('#{$theme-image-path}/arrow-both.png');
   background-position: right units(1.5) center;
   background-repeat: no-repeat;
   background-size: units(1);
@@ -211,9 +208,8 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-checkbox-input:checked + .usa-checkbox-label::before,
 .usa-checkbox-input:checked:disabled + .usa-checkbox-label::before {
-  background-image: url('#{$theme-image-path}/correct8.png');
-  background-image: url('#{$theme-image-path}/correct8.svg');
-  background-position: 50%;
+  @include add-background-svg('correct8');
+  background-position: center center;
   background-repeat: no-repeat;
 }
 

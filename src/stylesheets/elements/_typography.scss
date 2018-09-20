@@ -117,8 +117,7 @@ html {
   }
 
   &:hover::after {
-    background-image: url('#{$theme-image-path}/#{$external-link-hover}.png');
-    background-image: url('#{$theme-image-path}/#{$external-link-hover}.svg');
+    @include add-background-svg('#{$external-link-hover}');
   }
 }
 

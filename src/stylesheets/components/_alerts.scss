@@ -110,7 +110,7 @@ $icon-size: units(4);
 
 @each $name, $bgcolor in $alerts {
   .usa-alert-#{$name} {
-    @include background-image('alerts/#{$name}');
+    @include add-background-svg('alerts/#{$name}');
     background-color: color($bgcolor);
 
     &::before {

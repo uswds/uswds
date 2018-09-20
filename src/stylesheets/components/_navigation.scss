@@ -172,32 +172,32 @@ $nav-link-arrow-icon-size: 1;
     }
 
     &[aria-expanded=false] { /* stylelint-disable-line selector-no-qualifying-type */
-      @include add-background-image('plus-alt');
+      @include add-background-svg('plus-alt');
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
 
       @include at-media($theme-width-nav) {
-        @include add-background-image('angle-arrow-down');
+        @include add-background-svg('angle-arrow-down');
         background-size: units($nav-link-arrow-icon-size);
         background-position: right units(2) top $button-vertical-offset;
       }
 
       &:hover {
         @include at-media($theme-width-nav) {
-          @include add-background-image('angle-arrow-down-primary');
+          @include add-background-svg('angle-arrow-down-primary');
         }
       }
     }
 
     &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
-      @include add-background-image('minus-alt');
+      @include add-background-svg('minus-alt');
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
 
       @include at-media($theme-width-nav) {
-        @include add-background-image('angle-arrow-down-hover');
+        @include add-background-svg('angle-arrow-down-hover');
         background-size: units($nav-link-arrow-icon-size);
         background-color: color('primary-darker');
         background-position: right units(2) top $button-vertical-offset;
