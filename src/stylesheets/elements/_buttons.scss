@@ -28,7 +28,7 @@ $button-stroke: inset 0 0 0 2px;
 .usa-button:visited,
 .usa-button-primary:visited {
   @include typeset($theme-font-family-button, null, 1);
-
+  @include add-knockout-font-smoothing;
   appearance: none;
   background-color: color('primary');
   border: 0;
@@ -61,6 +61,7 @@ $button-stroke: inset 0 0 0 2px;
   }
 
   &.usa-button-primary-alt {
+    @include no-knockout-font-smoothing;
     background-color: color('accent-cool');
     color: color('ink');
 
@@ -71,12 +72,14 @@ $button-stroke: inset 0 0 0 2px;
 
     &:active,
     &.usa-button-active {
+      @include add-knockout-font-smoothing;
       background-color: color('accent-cool-darker');
       color: color('white');
     }
   }
 
   &.usa-button-secondary {
+    @include no-knockout-font-smoothing;
     background-color: color('white');
     box-shadow: $button-stroke color('primary');
     color: color('primary');
@@ -198,21 +201,6 @@ html .usa-button-secondary-inverse-disabled, // Deprecated
   background-color: transparent;
   box-shadow: $button-stroke color('base');
   color: color('base');
-}
-
-@mixin button-unstyled {
-  background-color: transparent;
-  border: 0;
-  border-radius: 0;
-  font-weight: font-weight('normal');
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  -webkit-font-smoothing: auto;
-
-  &:hover {
-    background-color: transparent;
-  }
 }
 
 .usa-button-unstyled {
