@@ -277,7 +277,7 @@ none:    none
 */
 
 // Base settings are the equivalent of setting the <body> element
-$theme-font-family-base:           'body' !default;
+$theme-base-font-family:           'body' !default;
 $theme-font-size-base:             'sm' !default; // was 1.7rem
 $theme-line-height-base:           5 !default; // was 1.5
 
@@ -298,34 +298,18 @@ $theme-font-size-h6:               '3xs' !default; // was 1.3rem
 // Line heights
 $theme-line-height-heading:        2 !default; // was 1.3
 $theme-line-height-lead:           6 !default; // was 1.7
-$theme-line-height-input:          3 !default; // was 1.7
 
 // Font weights
+// TODO: remove
 $theme-font-weight-normal:         400 !default;
 $theme-font-weight-bold:           700 !default;
 
 // Measure (max-width)
-$theme-measure-alert:              3 !default;
 $theme-measure-text-narrow:        1 !default;
 $theme-measure-text:               3 !default;
 $theme-measure-text-wide:          4 !default;
 $theme-measure-lead:               5 !default;
 
-/*
-----------------------------------------
-Component default font families
-----------------------------------------
-*/
-
-$theme-font-family-accordion:      'body' !default;
-$theme-font-family-alerts:         'ui' !default;
-$theme-font-family-banner:         'ui' !default;
-$theme-font-family-button:         'ui' !default;
-$theme-font-family-footer:         'body' !default;
-$theme-font-family-forms:          'ui' !default;
-$theme-font-family-header:         'ui' !default;
-$theme-font-family-lead:           'heading' !default;
-$theme-font-family-navigation:     'ui' !default;
-$theme-font-family-prose:          'body' !default;
-$theme-font-family-search:         'ui' !default;
-$theme-font-family-sidenav:        'ui' !default;
+// Font family
+$theme-lead-font-family:           'heading' !default;
+$theme-prose-font-family:          'body' !default;

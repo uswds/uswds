@@ -1,5 +1,5 @@
 .usa-section {
-  @include u-padding-y($theme-width-site-margins);
+  @include u-padding-y($theme-site-margins-width);
 
   @include at-media('tablet') {
     @include u-padding-y(units(8));

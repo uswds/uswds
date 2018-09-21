@@ -10,13 +10,13 @@ Sets:
 */
 
 @mixin typeset(
-  $family: $theme-font-family-base,
+  $family: $theme-base-font-family,
   $scale: $theme-font-size-base,
   $line-height: $theme-line-height-base
 ) {
   $family: if(
     $family == null,
-    $theme-font-family-base,
+    $theme-base-font-family,
     $family
   );
   $scale: if(
@@ -45,7 +45,7 @@ Sets:
 // typeset element mixins
 @mixin typeset-p {
   line-height: line-height(
-    $theme-font-family-base,
+    $theme-base-font-family,
     $theme-line-height-base
   );
   margin-bottom: 0;

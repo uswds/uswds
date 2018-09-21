@@ -35,8 +35,8 @@ $theme-border-radius-sm:       2px;
 $theme-border-radius-md:       0.5;
 $theme-border-radius-lg:       1;
 
-$theme-border-radius-checkbox: 'sm';
-$theme-border-radius-button:   'md';
+$theme-checkbox-border-radius: 'sm';
+$theme-button-border-radius:   'md';
 
 /*
 ----------------------------------------
@@ -114,13 +114,13 @@ Line height tokens
 ----------------------------------------
 */
 
-$theme-max-width-site:                'desktop';
-$theme-max-width-input:               'mobile-lg';
-$theme-min-width-search:              27ch;
-$theme-size-icon-image:               2;
-$theme-width-button-small:            6;
-$theme-width-site-margins:            4;
-$theme-width-site-margins-mobile:     2;
-$theme-width-nav:                     'desktop';
-$theme-width-sidenav-current-border:  0.5;
-$theme-width-megamenu-logo-text:      33%;
+$theme-site-max-width:                'desktop';
+$theme-input-max-width:               'mobile-lg';
+$theme-search-min-width:              27ch;
+$theme-icon-image-size:               2;
+$theme-button-small-width:            6;
+$theme-site-margins-width:            4;
+$theme-site-margins-mobile-width:     2;
+$theme-navigation-width:                     'desktop';
+$theme-sidenav-current-border-width:  0.5;
+$theme-megamenu-logo-text-width:      33%;

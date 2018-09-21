@@ -28,7 +28,7 @@ $sidenav-grandchild-inset: 6;
 
   .usa-current {
     @include add-bar(
-      $theme-width-sidenav-current-border,
+      $theme-sidenav-current-border-width,
       'primary',
       'left',
       'pill',
@@ -40,7 +40,7 @@ $sidenav-grandchild-inset: 6;
 
     @include at-media('tablet') {
       @include add-bar(
-        $theme-width-sidenav-current-border,
+        $theme-sidenav-current-border-width,
         'primary',
         'left',
         'pill',
@@ -56,7 +56,7 @@ $sidenav-grandchild-inset: 6;
   margin: 0;
 
   .usa-nav-item {
-    font-size: font-size($theme-font-family-sidenav, '2xs');
+    font-size: font-size($theme-sidenav-font-family, '2xs');
   }
 
   .usa-current {

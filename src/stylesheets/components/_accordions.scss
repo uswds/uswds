@@ -56,7 +56,7 @@ $accordion-border: units(0.5) solid color('base-lightest');
 .usa-accordion-bordered {
   @include accordion-list-styles;
   @include accordion-nested-list;
-  @include typeset($theme-font-family-accordion);
+  @include typeset($theme-accordion-font-family);
 
   + .usa-accordion,
   + .usa-accordion-bordered {
@@ -81,7 +81,7 @@ $accordion-border: units(0.5) solid color('base-lightest');
 // kludge to override .usa-prose styles
 // TODO: work this into a mixin
 .usa-prose .usa-accordion-heading {
-  @include typeset($theme-font-family-accordion, $theme-font-size-base, 1);
+  @include typeset($theme-accordion-font-family, $theme-font-size-base, 1);
   margin: 0;
 
   &:not(:first-child) {

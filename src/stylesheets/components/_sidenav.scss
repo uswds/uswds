@@ -1,10 +1,10 @@
 .usa-nav-list {
   @include nav-list;
-  @include typeset($theme-font-family-sidenav, 'sm', 3);
+  @include typeset($theme-sidenav-font-family, 'sm', 3);
   border-bottom: units(1px) solid color('base-lighter');
 
   .grid-container & {
-    @include u-margin-x(-$theme-width-site-margins-mobile);
+    @include u-margin-x(-$theme-site-margins-mobile-width);
 
     @include at-media('tablet') {
       @include u-margin-x(0);

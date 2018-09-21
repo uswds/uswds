@@ -35,9 +35,6 @@ $theme-border-radius-sm:       2px !default;
 $theme-border-radius-md:       0.5 !default;
 $theme-border-radius-lg:       1 !default;
 
-$theme-border-radius-checkbox: 'sm' !default;
-$theme-border-radius-button:   'md' !default;
-
 /*
 ----------------------------------------
 Column gap
@@ -114,13 +111,6 @@ Line height tokens
 ----------------------------------------
 */
 
-$theme-max-width-site:                'desktop' !default;
-$theme-max-width-input:               'mobile-lg' !default;
-$theme-min-width-search:              27ch !default;
-$theme-size-icon-image:               2 !default;
-$theme-width-button-small:            6 !default;
-$theme-width-site-margins:            4 !default;
-$theme-width-site-margins-mobile:     2 !default;
-$theme-width-nav:                     'desktop' !default;
-$theme-width-sidenav-current-border:  0.5 !default;
-$theme-width-megamenu-logo-text:      33% !default;
+$theme-site-max-width:                'desktop' !default;
+$theme-site-margins-width:            4 !default;
+$theme-site-margins-mobile-width:     2 !default;

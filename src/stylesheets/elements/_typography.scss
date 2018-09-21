@@ -1,6 +1,6 @@
 html {
   @include add-kerning;
-  font-family: font-family($theme-font-family-base);
+  font-family: font-family($theme-base-font-family);
   font-size: $root-font-size;
 }
 
@@ -74,7 +74,7 @@ html {
 }
 
 .usa-prose {
-  @include typeset($theme-font-family-prose);
+  @include typeset($theme-prose-font-family);
 }
 
 /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
@@ -172,7 +172,7 @@ dfn {
 
 .usa-font-lead {
   @include typeset(
-    $theme-font-family-lead,
+    $theme-lead-font-family,
     $theme-font-size-lead,
     $theme-line-height-lead
   );

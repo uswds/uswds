@@ -27,12 +27,12 @@ $button-stroke: inset 0 0 0 2px;
 .usa-button-primary,
 .usa-button:visited,
 .usa-button-primary:visited {
-  @include typeset($theme-font-family-button, null, 1);
+  @include typeset($theme-button-font-family, null, 1);
   @include add-knockout-font-smoothing;
   appearance: none;
   background-color: color('primary');
   border: 0;
-  border-radius: radius($theme-border-radius-button);
+  border-radius: radius($theme-button-border-radius);
   color: color('white');
   cursor: pointer;
   display: inline-block;
@@ -146,7 +146,7 @@ $button-stroke: inset 0 0 0 2px;
 
   &.usa-button-big {
     border-radius: radius('md');
-    font-size: font-size($theme-font-family-button, 'lg');
+    font-size: font-size($theme-button-font-family, 'lg');
     padding: units(2) units(3);
   }
 

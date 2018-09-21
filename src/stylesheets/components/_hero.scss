@@ -3,7 +3,7 @@
 
 .usa-hero {
   @include typeset;
-  @include u-padding-y($theme-width-site-margins);
+  @include u-padding-y($theme-site-margins-width);
   background-image: url('#{$theme-image-path}/hero.png');
   background-position: center;
   background-size: cover;

@@ -1,8 +1,8 @@
 .usa-form {
   @include typeset(
-    $theme-font-family-forms,
+    $theme-form-font-family,
     $theme-font-size-base,
-    $theme-line-height-input
+    $theme-input-line-height
   );
 }
 
@@ -43,7 +43,7 @@
 }
 
 .usa-form-note {
-  @include typeset($theme-font-family-forms, '2xs', 3);
+  @include typeset($theme-form-font-family, '2xs', 3);
   float: right;
   margin: units(0.5) 0 units(2);
 }

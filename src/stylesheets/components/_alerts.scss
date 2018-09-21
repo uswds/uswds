@@ -27,7 +27,7 @@ $left-padding: $h-padding + $bar-size;
 $icon-size: units(4);
 
 .usa-alert {
-  @include typeset($theme-font-family-alerts);
+  @include typeset($theme-alert-font-family);
 
   background-color: color('base-lightest');
   background-position: $h-padding $h-padding;
@@ -96,7 +96,7 @@ $icon-size: units(4);
 }
 
 .usa-alert-heading {
-  @include typeset($theme-font-family-alerts, 'lg', 2);
+  @include typeset($theme-alert-font-family, 'lg', 2);
   margin-top: 0;
   margin-bottom: units(1);
 }
@@ -130,5 +130,5 @@ $icon-size: units(4);
 }
 
 .usa-alert-paragraph {
-  width: measure($theme-measure-alert);
+  width: measure($theme-alert-measure);
 }

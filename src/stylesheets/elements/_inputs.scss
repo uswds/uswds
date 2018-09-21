@@ -1,7 +1,7 @@
 // scss-lint:disable QualifyingElement, PropertyCount
 
-$input-font-size-calc: font-size($theme-font-family-forms, $theme-font-size-base);
-$input-line-height-calc: line-height($theme-font-family-forms, $theme-line-height-input); // was 1.3
+$input-font-size-calc: font-size($theme-form-font-family, $theme-font-size-base);
+$input-line-height-calc: line-height($theme-form-font-family, $theme-input-line-height); // was 1.3
 $input-border-width: px-to-rem(1px); // Using rem instead of px so function uses same units
 $input-padding-vertical: units(1);
 $input-state-border: 0.5;
@@ -26,9 +26,9 @@ $input-height: floor($input-height-exact * 10) / 10;
 .usa-range,
 .usa-form-hint {
   @include typeset(
-    $theme-font-family-forms,
+    $theme-form-font-family,
     $theme-font-size-base,
-    $theme-line-height-input
+    $theme-input-line-height
   );
 }
 
@@ -44,7 +44,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   display: block;
   height: $input-height;
   margin-top: units(1);
-  max-width: units($theme-max-width-input);
+  max-width: units($theme-input-max-width);
   padding: $input-padding-vertical units(1);
   width: 100%;
 
@@ -96,9 +96,9 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-label {
   display: block;
-  line-height: line-height($theme-font-family-forms, 2);
+  line-height: line-height($theme-form-font-family, 2);
   margin-top: units(3);
-  max-width: units($theme-max-width-input);
+  max-width: units($theme-input-max-width);
 }
 
 .usa-textarea {
@@ -130,7 +130,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-legend {
-  font-size: font-size($theme-font-family-forms, 'xl');
+  font-size: font-size($theme-form-font-family, 'xl');
   font-weight: font-weight('bold');
 }
 
@@ -176,7 +176,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-checkbox-label::before {
-  border-radius: radius($theme-border-radius-checkbox);
+  border-radius: radius($theme-checkbox-border-radius);
   box-shadow: 0 0 0 2px color('base');
   height: units(2.5);
   line-height: units(2.5);
