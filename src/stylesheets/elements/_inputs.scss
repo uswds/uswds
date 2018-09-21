@@ -1,7 +1,7 @@
 // scss-lint:disable QualifyingElement, PropertyCount
 
-$input-font-size-calc: font-size($theme-font-family-forms, $theme-font-size-base);
-$input-line-height-calc: line-height($theme-font-family-forms, $theme-line-height-input); // was 1.3
+$input-font-size-calc: font-size($theme-form-font-family, $theme-body-font-size);
+$input-line-height-calc: line-height($theme-form-font-family, $theme-input-line-height); // was 1.3
 $input-border-width: px-to-rem(1px); // Using rem instead of px so function uses same units
 $input-padding-vertical: units(1);
 $input-state-border: 0.5;
@@ -26,9 +26,9 @@ $input-height: floor($input-height-exact * 10) / 10;
 .usa-range,
 .usa-form-hint {
   @include typeset(
-    $theme-font-family-forms,
-    $theme-font-size-base,
-    $theme-line-height-input
+    $theme-form-font-family,
+    $theme-body-font-size,
+    $theme-input-line-height
   );
 }
 
@@ -44,7 +44,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   display: block;
   height: $input-height;
   margin-top: units(1);
-  max-width: $input-max-width;
+  max-width: units($theme-input-max-width);
   padding: $input-padding-vertical units(1);
   width: 100%;
 
@@ -96,9 +96,9 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-label {
   display: block;
-  line-height: line-height($theme-font-family-forms, 2);
+  line-height: line-height($theme-form-font-family, 2);
   margin-top: units(3);
-  max-width: $input-max-width;
+  max-width: units($theme-input-max-width);
 }
 
 .usa-textarea {
@@ -106,14 +106,10 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-select {
+  @include add-background-svg('arrow-both');
   appearance: none;
   background-color: color('white');
-  background-image: url('#{$theme-image-path}/arrow-both.png');
-  // Ensure browsers that don't support SVG in background-image (IE 11 and below) fall back to PNG.
-  // See https://www.broken-links.com/2010/06/14/using-svg-in-backgrounds-with-png-fallback/
-  background-image: none, url('#{$theme-image-path}/arrow-both.svg'), url('#{$theme-image-path}/arrow-both.png');
   background-position: right units(1.5) center;
-  background-repeat: no-repeat;
   background-size: units(1);
   padding-right: units(4);
 
@@ -134,7 +130,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-legend {
-  font-size: font-size($theme-font-family-forms, 'xl');
+  font-size: font-size($theme-form-font-family, 'xl');
   font-weight: font-weight('bold');
 }
 
@@ -180,13 +176,13 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-checkbox-label::before {
-  border-radius: radius($theme-border-radius-checkbox);
+  border-radius: radius($theme-checkbox-border-radius);
   box-shadow: 0 0 0 2px color('base');
-  height: units($theme-spacing-md);
-  line-height: units($theme-spacing-md);
+  height: units(2.5);
+  line-height: units(2.5);
   margin-left: 1px;
   margin-right: units(1.5);
-  width: units($theme-spacing-md);
+  width: units(2.5);
 }
 
 .usa-radio-label::before {
@@ -211,15 +207,12 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-checkbox-input:checked + .usa-checkbox-label::before,
 .usa-checkbox-input:checked:disabled + .usa-checkbox-label::before {
-  background-image: url('#{$theme-image-path}/correct8.png');
-  background-image: url('#{$theme-image-path}/correct8.svg');
-  background-position: 50%;
-  background-repeat: no-repeat;
+  @include add-background-svg('correct8');
+  background-position: center center;
 }
 
 .usa-radio-input:focus + .usa-radio-label::before {
-  outline: $focus-outline;
-  outline-offset: units(0.5);
+  @include focus-outline(null, null, null, 0.5);
 }
 
 .usa-checkbox-input:disabled + .usa-checkbox-label {
@@ -227,8 +220,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 }
 
 .usa-checkbox-input:focus + .usa-checkbox-label::before {
-  outline: $focus-outline;
-  outline-offset: $focus-spacing;
+  @include focus-outline;
 }
 
 .usa-checkbox-input:disabled + .usa-checkbox-label::before,
@@ -240,10 +232,9 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 // Range inputs
 
-// TODO: Change to $color-focus in 2.0
 @mixin range-focus {
   background-color: color('white');
-  box-shadow: 0 0 0 units(2px) color('primary');
+  box-shadow: 0 0 0 units(2px) color($theme-color-focus);
 }
 
 @mixin range-track {

@@ -1,24 +1,26 @@
 /*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
 ========================================
+========================================
+========================================
+----------------------------------------
 USWDS 2.0 Variables
-Use for computed variables not meant
-to be set by system users.
-----------------------------------------
-Master system palette variables are set
-in core/_units
-----------------------------------------
-Anything meant to be set directly should
-go in:
-
-core/_settings
-(for default settings)
-
-and its pair:
-©
-project/_uswds-project-settings
-(for project overrides)
+Use for computed variables or any
+not meant to be set by system users
+directly.
 ----------------------------------------
 */
+
+/*
+----------------------------------------
+Touch target size
+----------------------------------------
+*/
+
+$size-touch-target: 6; // 48px to meet WCAG minimum of 44px
 
 /*
 ----------------------------------------
@@ -125,37 +127,6 @@ $number-to-value: (
   -8:         'neg-8',
   -9:         'neg-9',
 );
-
-// Units expressed as variables
-$units-05: units(0.5);
-$units-1: units(1);
-$units-105: units(1.5);
-$units-2: units(2);
-$units-205: units(2.5);
-$units-3: units(3);
-$units-4: units(4);
-$units-5: units(5);
-$units-6: units(6);
-$units-7: units(7);
-$units-8: units(8);
-$units-9: units(9);
-$units-10: units(10);
-$units-15: units(15);
-$units-card: units('card');
-$units-card-lg: units('card-lg');
-$units-mobile: units('mobile');
-$units-mobile-lg: units('mobile-lg');
-$units-tablet: units('tablet');
-$units-tablet-lg: units('tablet-lg');
-$units-desktop: units('desktop');
-$units-desktop-lg: units('desktop-lg');
-$units-widescreen: units('widescreen');
-$units-neg-05: units(-0.5);
-$units-neg-1: units(-1);
-$units-neg-105: units(-1.5);
-$units-neg-2: units(-2);
-$units-neg-205: units(-2.5);
-$units-neg-3: units(-3);
 
 /*
 ----------------------------------------
@@ -308,20 +279,10 @@ $project-font-stacks:(
   'alt':      $font-stack-alt,
 );
 
-// for backward compatibility
-// TODO: deprecate
-$font-sans:   $font-stack-sans;
-$font-serif:  $font-stack-serif;
-$font-mono:   $font-stack-mono;
-$font-cond:   $font-stack-cond;
-
 /*
 ----------------------------------------
 Set basic font rules for the font
 utilities to reference.
-----------------------------------------
-TODO: Do these need to integrate the
-namespace var set in utilities-settings?
 ----------------------------------------
 */
 
@@ -379,161 +340,93 @@ $project-font-weights: (
 
 /*
 ----------------------------------------
-Theme color variables
-----------------------------------------
-*/
-
-$color-theme-base-lightest:         color($theme-color-base-lightest);
-$color-theme-base-lighter:          color($theme-color-base-lighter);
-$color-theme-base-light:            color($theme-color-base-light);
-$color-theme-base:                  color($theme-color-base);
-$color-theme-base-dark:             color($theme-color-base-dark);
-$color-theme-base-darker:           color($theme-color-base-darker);
-$color-theme-base-darkest:          color($theme-color-base-darkest);
-$color-theme-ink:                   color($theme-color-base-ink);
-$color-theme-primary-lightest:      color($theme-color-primary-lightest);
-$color-theme-primary-lighter:       color($theme-color-primary-lighter);
-$color-theme-primary-light:         color($theme-color-primary-light);
-$color-theme-primary:               color($theme-color-primary);
-$color-theme-primary-vivid:         color($theme-color-primary-vivid);
-$color-theme-primary-dark:          color($theme-color-primary-dark);
-$color-theme-primary-darker:        color($theme-color-primary-darker);
-$color-theme-primary-darkest:       color($theme-color-primary-darkest);
-$color-theme-secondary-lightest:    color($theme-color-secondary-lightest);
-$color-theme-secondary-lighter:     color($theme-color-secondary-lighter);
-$color-theme-secondary-light:       color($theme-color-secondary-light);
-$color-theme-secondary:             color($theme-color-secondary);
-$color-theme-secondary-vivid:       color($theme-color-secondary-vivid);
-$color-theme-secondary-dark:        color($theme-color-secondary-dark);
-$color-theme-secondary-darker:      color($theme-color-secondary-darker);
-$color-theme-secondary-darkest:     color($theme-color-secondary-darkest);
-$color-theme-accent-warm-darkest:   color($theme-color-accent-warm-darkest);
-$color-theme-accent-warm-darker:    color($theme-color-accent-warm-darker);
-$color-theme-accent-warm-dark:      color($theme-color-accent-warm-dark);
-$color-theme-accent-warm:           color($theme-color-accent-warm);
-$color-theme-accent-warm-light:     color($theme-color-accent-warm-light);
-$color-theme-accent-warm-lighter:   color($theme-color-accent-warm-lighter);
-$color-theme-accent-warm-lightest:  color($theme-color-accent-warm-lightest);
-$color-theme-accent-cool-darkest:   color($theme-color-accent-cool-darkest);
-$color-theme-accent-cool-darker:    color($theme-color-accent-cool-darker);
-$color-theme-accent-cool-dark:      color($theme-color-accent-cool-dark);
-$color-theme-accent-cool:           color($theme-color-accent-cool);
-$color-theme-accent-cool-light:     color($theme-color-accent-cool-light);
-$color-theme-accent-cool-lighter:   color($theme-color-accent-cool-lighter);
-$color-theme-accent-cool-lightest:  color($theme-color-accent-cool-lightest);
-$color-theme-error-lighter:         color($theme-color-error-lighter);
-$color-theme-error-light:           color($theme-color-error-light);
-$color-theme-error:                 color($theme-color-error);
-$color-theme-error-dark:            color($theme-color-error-dark);
-$color-theme-error-darker:          color($theme-color-error-darker);
-$color-theme-warning-lighter:       color($theme-color-warning-lighter);
-$color-theme-warning-light:         color($theme-color-warning-light);
-$color-theme-warning:               color($theme-color-warning);
-$color-theme-warning-dark:          color($theme-color-warning-dark);
-$color-theme-warning-darker:        color($theme-color-warning-darker);
-$color-theme-success-lighter:       color($theme-color-success-lighter);
-$color-theme-success-light:         color($theme-color-success-light);
-$color-theme-success:               color($theme-color-success);
-$color-theme-success-dark:          color($theme-color-success-dark);
-$color-theme-success-darker:        color($theme-color-success-darker);
-$color-theme-info-lighter:          color($theme-color-info-lighter);
-$color-theme-info-light:            color($theme-color-info-light);
-$color-theme-info:                  color($theme-color-info);
-$color-theme-info-dark:             color($theme-color-info-dark);
-$color-theme-info-darker:           color($theme-color-info-darker);
-$color-theme-disabled-light:        color($theme-color-disabled-light);
-$color-theme-disabled:              color($theme-color-disabled);
-$color-theme-disabled-dark:         color($theme-color-disabled-dark);
-
-/*
-----------------------------------------
 Theme color map
 ----------------------------------------
 */
 
 $project-colors: (
   'base': (
-    'lightest': $color-theme-base-lightest,
-    'lighter':  $color-theme-base-lighter,
-    'light':    $color-theme-base-light,
-    'default':  $color-theme-base,
-    'dark':     $color-theme-base-dark,
-    'darker':   $color-theme-base-darker,
-    'darkest':  $color-theme-base-darkest,
+    'lightest': color($theme-color-base-lightest),
+    'lighter':  color($theme-color-base-lighter),
+    'light':    color($theme-color-base-light),
+    'default':  color($theme-color-base),
+    'dark':     color($theme-color-base-dark),
+    'darker':   color($theme-color-base-darker),
+    'darkest':  color($theme-color-base-darkest),
   ),
   'primary': (
-    'lightest': $color-theme-primary-lightest,
-    'lighter':  $color-theme-primary-lighter,
-    'light':    $color-theme-primary-light,
-    'default':  $color-theme-primary,
-    'vivid':    $color-theme-primary-vivid,
-    'dark':     $color-theme-primary-dark,
-    'darker':   $color-theme-primary-darker,
-    'darkest':  $color-theme-primary-darkest,
+    'lightest': color($theme-color-primary-lightest),
+    'lighter':  color($theme-color-primary-lighter),
+    'light':    color($theme-color-primary-light),
+    'default':  color($theme-color-primary),
+    'vivid':    color($theme-color-primary-vivid),
+    'dark':     color($theme-color-primary-dark),
+    'darker':   color($theme-color-primary-darker),
+    'darkest':  color($theme-color-primary-darkest),
   ),
   'secondary': (
-    'lightest': $color-theme-secondary-lightest,
-    'lighter':  $color-theme-secondary-lighter,
-    'light':    $color-theme-secondary-light,
-    'default':  $color-theme-secondary,
-    'vivid':    $color-theme-secondary-vivid,
-    'dark':     $color-theme-secondary-dark,
-    'darker':   $color-theme-secondary-darker,
-    'darkest':  $color-theme-secondary-darkest,
+    'lightest': color($theme-color-secondary-lightest),
+    'lighter':  color($theme-color-secondary-lighter),
+    'light':    color($theme-color-secondary-light),
+    'default':  color($theme-color-secondary),
+    'vivid':    color($theme-color-secondary-vivid),
+    'dark':     color($theme-color-secondary-dark),
+    'darker':   color($theme-color-secondary-darker),
+    'darkest':  color($theme-color-secondary-darkest),
   ),
   'accent-warm': (
-    'lightest': $color-theme-accent-warm-lightest,
-    'lighter':  $color-theme-accent-warm-lighter,
-    'light':    $color-theme-accent-warm-light,
-    'default':  $color-theme-accent-warm,
-    'dark':     $color-theme-accent-warm-dark,
-    'darker':   $color-theme-accent-warm-darker,
-    'darkest':  $color-theme-accent-warm-darkest,
+    'lightest': color($theme-color-accent-warm-lightest),
+    'lighter':  color($theme-color-accent-warm-lighter),
+    'light':    color($theme-color-accent-warm-light),
+    'default':  color($theme-color-accent-warm),
+    'dark':     color($theme-color-accent-warm-dark),
+    'darker':   color($theme-color-accent-warm-darker),
+    'darkest':  color($theme-color-accent-warm-darkest),
   ),
   'accent-cool': (
-    'lightest': $color-theme-accent-cool-lightest,
-    'lighter':  $color-theme-accent-cool-lighter,
-    'light':    $color-theme-accent-cool-light,
-    'default':  $color-theme-accent-cool,
-    'dark':     $color-theme-accent-cool-dark,
-    'darker':   $color-theme-accent-cool-darker,
-    'darkest':  $color-theme-accent-cool-darkest,
+    'lightest': color($theme-color-accent-cool-lightest),
+    'lighter':  color($theme-color-accent-cool-lighter),
+    'light':    color($theme-color-accent-cool-light),
+    'default':  color($theme-color-accent-cool),
+    'dark':     color($theme-color-accent-cool-dark),
+    'darker':   color($theme-color-accent-cool-darker),
+    'darkest':  color($theme-color-accent-cool-darkest),
   )
 );
 
 $project-state-colors: (
   'error': (
-    'lighter': $color-theme-error-lighter,
-    'light':   $color-theme-error-light,
-    'default': $color-theme-error,
-    'dark':    $color-theme-error-dark,
-    'darker':  $color-theme-error-darker,
+    'lighter': color($theme-color-error-lighter),
+    'light':   color($theme-color-error-light),
+    'default': color($theme-color-error),
+    'dark':    color($theme-color-error-dark),
+    'darker':  color($theme-color-error-darker),
   ),
   'warning': (
-    'lighter': $color-theme-warning-lighter,
-    'light':   $color-theme-warning-light,
-    'default': $color-theme-warning,
-    'dark':    $color-theme-warning-dark,
-    'darker':  $color-theme-warning-darker,
+    'lighter': color($theme-color-warning-lighter),
+    'light':   color($theme-color-warning-light),
+    'default': color($theme-color-warning),
+    'dark':    color($theme-color-warning-dark),
+    'darker':  color($theme-color-warning-darker),
   ),
   'success': (
-    'lighter': $color-theme-success-lighter,
-    'light':   $color-theme-success-light,
-    'default': $color-theme-success,
-    'dark':    $color-theme-success-dark,
-    'darker':  $color-theme-success-darker,
+    'lighter': color($theme-color-success-lighter),
+    'light':   color($theme-color-success-light),
+    'default': color($theme-color-success),
+    'dark':    color($theme-color-success-dark),
+    'darker':  color($theme-color-success-darker),
   ),
   'info': (
-    'lighter': $color-theme-info-lighter,
-    'light':   $color-theme-info-light,
-    'default': $color-theme-info,
-    'dark':    $color-theme-info-dark,
-    'darker':  $color-theme-info-darker,
+    'lighter': color($theme-color-info-lighter),
+    'light':   color($theme-color-info-light),
+    'default': color($theme-color-info),
+    'dark':    color($theme-color-info-dark),
+    'darker':  color($theme-color-info-darker),
   ),
   'disabled': (
-    'light':   $color-theme-disabled-light,
-    'default': $color-theme-disabled,
-    'dark':    $color-theme-disabled-dark,
+    'light':   color($theme-color-disabled-light),
+    'default': color($theme-color-disabled),
+    'dark':    color($theme-color-disabled-dark),
   ),
 );
 
@@ -555,70 +448,70 @@ Theme color shortcodes
 */
 
 $color-palette-theme: (
-  'base-lightest':            $color-theme-base-lightest,
-  'base-lighter':             $color-theme-base-lighter,
-  'base-light':               $color-theme-base-light,
-  'base':                     $color-theme-base,
-  'base-dark':                $color-theme-base-dark,
-  'base-darker':              $color-theme-base-darker,
-  'base-darkest':             $color-theme-base-darkest,
-  'ink':                      $color-theme-ink,
-  'primary-lightest':         $color-theme-primary-lightest,
-  'primary-lighter':          $color-theme-primary-lighter,
-  'primary-light':            $color-theme-primary-light,
-  'primary':                  $color-theme-primary,
-  'primary-vivid':            $color-theme-primary-vivid,
-  'primary-dark':             $color-theme-primary-dark,
-  'primary-darker':           $color-theme-primary-darker,
-  'primary-darkest':          $color-theme-primary-darkest,
-  'secondary-lightest':       $color-theme-secondary-lightest,
-  'secondary-lighter':        $color-theme-secondary-lighter,
-  'secondary-light':          $color-theme-secondary-light,
-  'secondary':                $color-theme-secondary,
-  'secondary-vivid':          $color-theme-secondary-vivid,
-  'secondary-dark':           $color-theme-secondary-dark,
-  'secondary-darker':         $color-theme-secondary-darker,
-  'secondary-darkest':        $color-theme-secondary-darkest,
-  'accent-warm-darkest':      $color-theme-accent-warm-darkest,
-  'accent-warm-darker':       $color-theme-accent-warm-darker,
-  'accent-warm-dark':         $color-theme-accent-warm-dark,
-  'accent-warm':              $color-theme-accent-warm,
-  'accent-warm-light':        $color-theme-accent-warm-light,
-  'accent-warm-lighter':      $color-theme-accent-warm-lighter,
-  'accent-warm-lightest':     $color-theme-accent-warm-lightest,
-  'accent-cool-darkest':      $color-theme-accent-cool-darkest,
-  'accent-cool-darker':       $color-theme-accent-cool-darker,
-  'accent-cool-dark':         $color-theme-accent-cool-dark,
-  'accent-cool':              $color-theme-accent-cool,
-  'accent-cool-light':        $color-theme-accent-cool-light,
-  'accent-cool-lighter':      $color-theme-accent-cool-lighter,
-  'accent-cool-lightest':     $color-theme-accent-cool-lightest,
+  'base-lightest':            color($theme-color-base-lightest),
+  'base-lighter':             color($theme-color-base-lighter),
+  'base-light':               color($theme-color-base-light),
+  'base':                     color($theme-color-base),
+  'base-dark':                color($theme-color-base-dark),
+  'base-darker':              color($theme-color-base-darker),
+  'base-darkest':             color($theme-color-base-darkest),
+  'ink':                      color($theme-color-base-ink),
+  'primary-lightest':         color($theme-color-primary-lightest),
+  'primary-lighter':          color($theme-color-primary-lighter),
+  'primary-light':            color($theme-color-primary-light),
+  'primary':                  color($theme-color-primary),
+  'primary-vivid':            color($theme-color-primary-vivid),
+  'primary-dark':             color($theme-color-primary-dark),
+  'primary-darker':           color($theme-color-primary-darker),
+  'primary-darkest':          color($theme-color-primary-darkest),
+  'secondary-lightest':       color($theme-color-secondary-lightest),
+  'secondary-lighter':        color($theme-color-secondary-lighter),
+  'secondary-light':          color($theme-color-secondary-light),
+  'secondary':                color($theme-color-secondary),
+  'secondary-vivid':          color($theme-color-secondary-vivid),
+  'secondary-dark':           color($theme-color-secondary-dark),
+  'secondary-darker':         color($theme-color-secondary-darker),
+  'secondary-darkest':        color($theme-color-secondary-darkest),
+  'accent-warm-darkest':      color($theme-color-accent-warm-darkest),
+  'accent-warm-darker':       color($theme-color-accent-warm-darker),
+  'accent-warm-dark':         color($theme-color-accent-warm-dark),
+  'accent-warm':              color($theme-color-accent-warm),
+  'accent-warm-light':        color($theme-color-accent-warm-light),
+  'accent-warm-lighter':      color($theme-color-accent-warm-lighter),
+  'accent-warm-lightest':     color($theme-color-accent-warm-lightest),
+  'accent-cool-darkest':      color($theme-color-accent-cool-darkest),
+  'accent-cool-darker':       color($theme-color-accent-cool-darker),
+  'accent-cool-dark':         color($theme-color-accent-cool-dark),
+  'accent-cool':              color($theme-color-accent-cool),
+  'accent-cool-light':        color($theme-color-accent-cool-light),
+  'accent-cool-lighter':      color($theme-color-accent-cool-lighter),
+  'accent-cool-lightest':     color($theme-color-accent-cool-lightest),
 );
 
 $color-palette-state: (
-  'error-lighter':            $color-theme-error-lighter,
-  'error-light':              $color-theme-error-light,
-  'error':                    $color-theme-error,
-  'error-dark':               $color-theme-error-dark,
-  'error-darker':             $color-theme-error-darker,
-  'warning-lighter':          $color-theme-warning-lighter,
-  'warning-light':            $color-theme-warning-light,
-  'warning':                  $color-theme-warning,
-  'warning-dark':             $color-theme-warning-dark,
-  'warning-darker':           $color-theme-warning-darker,
-  'success-lighter':          $color-theme-success-lighter,
-  'success-light':            $color-theme-success-light,
-  'success':                  $color-theme-success,
-  'success-dark':             $color-theme-success-dark,
-  'success-darker':           $color-theme-success-darker,
-  'info-lighter':             $color-theme-info-lighter,
-  'info-light':               $color-theme-info-light,
-  'info':                     $color-theme-info,
-  'info-dark':                $color-theme-info-dark,
-  'info-darker':              $color-theme-info-darker,
-  'disabled-light':           $color-theme-disabled-light,
-  'disabled':                 $color-theme-disabled,
-  'disabled-dark':            $color-theme-disabled-dark,
+  'error-lighter':            color($theme-color-error-lighter),
+  'error-light':              color($theme-color-error-light),
+  'error':                    color($theme-color-error),
+  'error-dark':               color($theme-color-error-dark),
+  'error-darker':             color($theme-color-error-darker),
+  'warning-lighter':          color($theme-color-warning-lighter),
+  'warning-light':            color($theme-color-warning-light),
+  'warning':                  color($theme-color-warning),
+  'warning-dark':             color($theme-color-warning-dark),
+  'warning-darker':           color($theme-color-warning-darker),
+  'success-lighter':          color($theme-color-success-lighter),
+  'success-light':            color($theme-color-success-light),
+  'success':                  color($theme-color-success),
+  'success-dark':             color($theme-color-success-dark),
+  'success-darker':           color($theme-color-success-darker),
+  'info-lighter':             color($theme-color-info-lighter),
+  'info-light':               color($theme-color-info-light),
+  'info':                     color($theme-color-info),
+  'info-dark':                color($theme-color-info-dark),
+  'info-darker':              color($theme-color-info-darker),
+  'disabled-light':           color($theme-color-disabled-light),
+  'disabled':                 color($theme-color-disabled),
+  'disabled-dark':            color($theme-color-disabled-dark),
 );
 
 $project-color-shortcodes: map-collect(
@@ -670,278 +563,6 @@ $project-cap-heights:(
   'alt':      cap-height($theme-font-alt),
 );
 
-// Typescale expressed as variables
-$scale-sans-3xs: font-size('sans', '3xs', force);
-$scale-sans-2xs: font-size('sans', '2xs', force);
-$scale-sans-xs: font-size('sans', 'xs', force);
-$scale-sans-sm: font-size('sans', 'sm', force);
-$scale-sans-md: font-size('sans', 'md', force);
-$scale-sans-lg: font-size('sans', 'lg', force);
-$scale-sans-xl: font-size('sans', 'xl', force);
-$scale-sans-2xl: font-size('sans', '2xl', force);
-$scale-sans-3xl: font-size('sans', '3xl', force);
-$scale-sans-micro: font-size('sans', 'micro', force);
-$scale-sans-1: font-size('sans', 1, force);
-$scale-sans-2: font-size('sans', 2, force);
-$scale-sans-3: font-size('sans', 3, force);
-$scale-sans-4: font-size('sans', 4, force);
-$scale-sans-5: font-size('sans', 5, force);
-$scale-sans-6: font-size('sans', 6, force);
-$scale-sans-7: font-size('sans', 7, force);
-$scale-sans-8: font-size('sans', 8, force);
-$scale-sans-9: font-size('sans', 9, force);
-$scale-sans-10: font-size('sans', 10, force);
-$scale-sans-11: font-size('sans', 11, force);
-$scale-sans-12: font-size('sans', 12, force);
-$scale-sans-13: font-size('sans', 13, force);
-$scale-sans-14: font-size('sans', 14, force);
-$scale-sans-15: font-size('sans', 15, force);
-$scale-sans-16: font-size('sans', 16, force);
-$scale-sans-17: font-size('sans', 17, force);
-$scale-sans-18: font-size('sans', 18, force);
-$scale-sans-19: font-size('sans', 19, force);
-$scale-sans-20: font-size('sans', 20, force);
-$scale-serif-3xs: font-size('serif', '3xs', force);
-$scale-serif-2xs: font-size('serif', '2xs', force);
-$scale-serif-xs: font-size('serif', 'xs', force);
-$scale-serif-sm: font-size('serif', 'sm', force);
-$scale-serif-md: font-size('serif', 'md', force);
-$scale-serif-lg: font-size('serif', 'lg', force);
-$scale-serif-xl: font-size('serif', 'xl', force);
-$scale-serif-2xl: font-size('serif', '2xl', force);
-$scale-serif-3xl: font-size('serif', '3xl', force);
-$scale-serif-micro: font-size('serif', 'micro', force);
-$scale-serif-1: font-size('serif', 1, force);
-$scale-serif-2: font-size('serif', 2, force);
-$scale-serif-3: font-size('serif', 3, force);
-$scale-serif-4: font-size('serif', 4, force);
-$scale-serif-5: font-size('serif', 5, force);
-$scale-serif-6: font-size('serif', 6, force);
-$scale-serif-7: font-size('serif', 7, force);
-$scale-serif-8: font-size('serif', 8, force);
-$scale-serif-9: font-size('serif', 9, force);
-$scale-serif-10: font-size('serif', 10, force);
-$scale-serif-11: font-size('serif', 11, force);
-$scale-serif-12: font-size('serif', 12, force);
-$scale-serif-13: font-size('serif', 13, force);
-$scale-serif-14: font-size('serif', 14, force);
-$scale-serif-15: font-size('serif', 15, force);
-$scale-serif-16: font-size('serif', 16, force);
-$scale-serif-17: font-size('serif', 17, force);
-$scale-serif-18: font-size('serif', 18, force);
-$scale-serif-19: font-size('serif', 19, force);
-$scale-serif-20: font-size('serif', 20, force);
-$scale-mono-3xs: font-size('mono', '3xs', force);
-$scale-mono-2xs: font-size('mono', '2xs', force);
-$scale-mono-xs: font-size('mono', 'xs', force);
-$scale-mono-sm: font-size('mono', 'sm', force);
-$scale-mono-md: font-size('mono', 'md', force);
-$scale-mono-lg: font-size('mono', 'lg', force);
-$scale-mono-xl: font-size('mono', 'xl', force);
-$scale-mono-2xl: font-size('mono', '2xl', force);
-$scale-mono-3xl: font-size('mono', '3xl', force);
-$scale-mono-micro: font-size('mono', 'micro', force);
-$scale-mono-1: font-size('mono', 1, force);
-$scale-mono-2: font-size('mono', 2, force);
-$scale-mono-3: font-size('mono', 3, force);
-$scale-mono-4: font-size('mono', 4, force);
-$scale-mono-5: font-size('mono', 5, force);
-$scale-mono-6: font-size('mono', 6, force);
-$scale-mono-7: font-size('mono', 7, force);
-$scale-mono-8: font-size('mono', 8, force);
-$scale-mono-9: font-size('mono', 9, force);
-$scale-mono-10: font-size('mono', 10, force);
-$scale-mono-11: font-size('mono', 11, force);
-$scale-mono-12: font-size('mono', 12, force);
-$scale-mono-13: font-size('mono', 13, force);
-$scale-mono-14: font-size('mono', 14, force);
-$scale-mono-15: font-size('mono', 15, force);
-$scale-mono-16: font-size('mono', 16, force);
-$scale-mono-17: font-size('mono', 17, force);
-$scale-mono-18: font-size('mono', 18, force);
-$scale-mono-19: font-size('mono', 19, force);
-$scale-mono-20: font-size('mono', 20, force);
-$scale-cond-3xs: font-size('cond', '3xs', force);
-$scale-cond-2xs: font-size('cond', '2xs', force);
-$scale-cond-xs: font-size('cond', 'xs', force);
-$scale-cond-sm: font-size('cond', 'sm', force);
-$scale-cond-md: font-size('cond', 'md', force);
-$scale-cond-lg: font-size('cond', 'lg', force);
-$scale-cond-xl: font-size('cond', 'xl', force);
-$scale-cond-2xl: font-size('cond', '2xl', force);
-$scale-cond-3xl: font-size('cond', '3xl', force);
-$scale-cond-micro: font-size('cond', 'micro', force);
-$scale-cond-1: font-size('cond', 1, force);
-$scale-cond-2: font-size('cond', 2, force);
-$scale-cond-3: font-size('cond', 3, force);
-$scale-cond-4: font-size('cond', 4, force);
-$scale-cond-5: font-size('cond', 5, force);
-$scale-cond-6: font-size('cond', 6, force);
-$scale-cond-7: font-size('cond', 7, force);
-$scale-cond-8: font-size('cond', 8, force);
-$scale-cond-9: font-size('cond', 9, force);
-$scale-cond-10: font-size('cond', 10, force);
-$scale-cond-11: font-size('cond', 11, force);
-$scale-cond-12: font-size('cond', 12, force);
-$scale-cond-13: font-size('cond', 13, force);
-$scale-cond-14: font-size('cond', 14, force);
-$scale-cond-15: font-size('cond', 15, force);
-$scale-cond-16: font-size('cond', 16, force);
-$scale-cond-17: font-size('cond', 17, force);
-$scale-cond-18: font-size('cond', 18, force);
-$scale-cond-19: font-size('cond', 19, force);
-$scale-cond-20: font-size('cond', 20, force);
-$scale-ui-3xs: font-size('ui', '3xs', force);
-$scale-ui-2xs: font-size('ui', '2xs', force);
-$scale-ui-xs: font-size('ui', 'xs', force);
-$scale-ui-sm: font-size('ui', 'sm', force);
-$scale-ui-md: font-size('ui', 'md', force);
-$scale-ui-lg: font-size('ui', 'lg', force);
-$scale-ui-xl: font-size('ui', 'xl', force);
-$scale-ui-2xl: font-size('ui', '2xl', force);
-$scale-ui-3xl: font-size('ui', '3xl', force);
-$scale-ui-micro: font-size('ui', 'micro', force);
-$scale-ui-1: font-size('ui', 1, force);
-$scale-ui-2: font-size('ui', 2, force);
-$scale-ui-3: font-size('ui', 3, force);
-$scale-ui-4: font-size('ui', 4, force);
-$scale-ui-5: font-size('ui', 5, force);
-$scale-ui-6: font-size('ui', 6, force);
-$scale-ui-7: font-size('ui', 7, force);
-$scale-ui-8: font-size('ui', 8, force);
-$scale-ui-9: font-size('ui', 9, force);
-$scale-ui-10: font-size('ui', 10, force);
-$scale-ui-11: font-size('ui', 11, force);
-$scale-ui-12: font-size('ui', 12, force);
-$scale-ui-13: font-size('ui', 13, force);
-$scale-ui-14: font-size('ui', 14, force);
-$scale-ui-15: font-size('ui', 15, force);
-$scale-ui-16: font-size('ui', 16, force);
-$scale-ui-17: font-size('ui', 17, force);
-$scale-ui-18: font-size('ui', 18, force);
-$scale-ui-19: font-size('ui', 19, force);
-$scale-ui-20: font-size('ui', 20, force);
-$scale-heading-3xs: font-size('heading', '3xs', force);
-$scale-heading-2xs: font-size('heading', '2xs', force);
-$scale-heading-xs: font-size('heading', 'xs', force);
-$scale-heading-sm: font-size('heading', 'sm', force);
-$scale-heading-md: font-size('heading', 'md', force);
-$scale-heading-lg: font-size('heading', 'lg', force);
-$scale-heading-xl: font-size('heading', 'xl', force);
-$scale-heading-2xl: font-size('heading', '2xl', force);
-$scale-heading-3xl: font-size('heading', '3xl', force);
-$scale-heading-micro: font-size('heading', 'micro', force);
-$scale-heading-1: font-size('heading', 1, force);
-$scale-heading-2: font-size('heading', 2, force);
-$scale-heading-3: font-size('heading', 3, force);
-$scale-heading-4: font-size('heading', 4, force);
-$scale-heading-5: font-size('heading', 5, force);
-$scale-heading-6: font-size('heading', 6, force);
-$scale-heading-7: font-size('heading', 7, force);
-$scale-heading-8: font-size('heading', 8, force);
-$scale-heading-9: font-size('heading', 9, force);
-$scale-heading-10: font-size('heading', 10, force);
-$scale-heading-11: font-size('heading', 11, force);
-$scale-heading-12: font-size('heading', 12, force);
-$scale-heading-13: font-size('heading', 13, force);
-$scale-heading-14: font-size('heading', 14, force);
-$scale-heading-15: font-size('heading', 15, force);
-$scale-heading-16: font-size('heading', 16, force);
-$scale-heading-17: font-size('heading', 17, force);
-$scale-heading-18: font-size('heading', 18, force);
-$scale-heading-19: font-size('heading', 19, force);
-$scale-heading-20: font-size('heading', 20, force);
-$scale-body-3xs: font-size('body', '3xs', force);
-$scale-body-2xs: font-size('body', '2xs', force);
-$scale-body-xs: font-size('body', 'xs', force);
-$scale-body-sm: font-size('body', 'sm', force);
-$scale-body-md: font-size('body', 'md', force);
-$scale-body-lg: font-size('body', 'lg', force);
-$scale-body-xl: font-size('body', 'xl', force);
-$scale-body-2xl: font-size('body', '2xl', force);
-$scale-body-3xl: font-size('body', '3xl', force);
-$scale-body-micro: font-size('body', 'micro', force);
-$scale-body-1: font-size('body', 1, force);
-$scale-body-2: font-size('body', 2, force);
-$scale-body-3: font-size('body', 3, force);
-$scale-body-4: font-size('body', 4, force);
-$scale-body-5: font-size('body', 5, force);
-$scale-body-6: font-size('body', 6, force);
-$scale-body-7: font-size('body', 7, force);
-$scale-body-8: font-size('body', 8, force);
-$scale-body-9: font-size('body', 9, force);
-$scale-body-10: font-size('body', 10, force);
-$scale-body-11: font-size('body', 11, force);
-$scale-body-12: font-size('body', 12, force);
-$scale-body-13: font-size('body', 13, force);
-$scale-body-14: font-size('body', 14, force);
-$scale-body-15: font-size('body', 15, force);
-$scale-body-16: font-size('body', 16, force);
-$scale-body-17: font-size('body', 17, force);
-$scale-body-18: font-size('body', 18, force);
-$scale-body-19: font-size('body', 19, force);
-$scale-body-20: font-size('body', 20, force);
-$scale-code-3xs: font-size('code', '3xs', force);
-$scale-code-2xs: font-size('code', '2xs', force);
-$scale-code-xs: font-size('code', 'xs', force);
-$scale-code-sm: font-size('code', 'sm', force);
-$scale-code-md: font-size('code', 'md', force);
-$scale-code-lg: font-size('code', 'lg', force);
-$scale-code-xl: font-size('code', 'xl', force);
-$scale-code-2xl: font-size('code', '2xl', force);
-$scale-code-3xl: font-size('code', '3xl', force);
-$scale-code-micro: font-size('code', 'micro', force);
-$scale-code-1: font-size('code', 1, force);
-$scale-code-2: font-size('code', 2, force);
-$scale-code-3: font-size('code', 3, force);
-$scale-code-4: font-size('code', 4, force);
-$scale-code-5: font-size('code', 5, force);
-$scale-code-6: font-size('code', 6, force);
-$scale-code-7: font-size('code', 7, force);
-$scale-code-8: font-size('code', 8, force);
-$scale-code-9: font-size('code', 9, force);
-$scale-code-10: font-size('code', 10, force);
-$scale-code-11: font-size('code', 11, force);
-$scale-code-12: font-size('code', 12, force);
-$scale-code-13: font-size('code', 13, force);
-$scale-code-14: font-size('code', 14, force);
-$scale-code-15: font-size('code', 15, force);
-$scale-code-16: font-size('code', 16, force);
-$scale-code-17: font-size('code', 17, force);
-$scale-code-18: font-size('code', 18, force);
-$scale-code-19: font-size('code', 19, force);
-$scale-code-20: font-size('code', 20, force);
-$scale-alt-3xs: font-size('alt', '3xs', force);
-$scale-alt-2xs: font-size('alt', '2xs', force);
-$scale-alt-xs: font-size('alt', 'xs', force);
-$scale-alt-sm: font-size('alt', 'sm', force);
-$scale-alt-md: font-size('alt', 'md', force);
-$scale-alt-lg: font-size('alt', 'lg', force);
-$scale-alt-xl: font-size('alt', 'xl', force);
-$scale-alt-2xl: font-size('alt', '2xl', force);
-$scale-alt-3xl: font-size('alt', '3xl', force);
-$scale-alt-micro: font-size('alt', 'micro', force);
-$scale-alt-1: font-size('alt', 1, force);
-$scale-alt-2: font-size('alt', 2, force);
-$scale-alt-3: font-size('alt', 3, force);
-$scale-alt-4: font-size('alt', 4, force);
-$scale-alt-5: font-size('alt', 5, force);
-$scale-alt-6: font-size('alt', 6, force);
-$scale-alt-7: font-size('alt', 7, force);
-$scale-alt-8: font-size('alt', 8, force);
-$scale-alt-9: font-size('alt', 9, force);
-$scale-alt-10: font-size('alt', 10, force);
-$scale-alt-11: font-size('alt', 11, force);
-$scale-alt-12: font-size('alt', 12, force);
-$scale-alt-13: font-size('alt', 13, force);
-$scale-alt-14: font-size('alt', 14, force);
-$scale-alt-15: font-size('alt', 15, force);
-$scale-alt-16: font-size('alt', 16, force);
-$scale-alt-17: font-size('alt', 17, force);
-$scale-alt-18: font-size('alt', 18, force);
-$scale-alt-19: font-size('alt', 19, force);
-$scale-alt-20: font-size('alt', 20, force);
-
 /*
 ----------------------------------------
 Border-radius
@@ -987,242 +608,14 @@ $grid-global: '';
 }
 
 /*
-========================================
-Old USWDS Variables
-Many of these will be deprecated
-or converted into settings
-----------------------------------------
-These variables drive almost every
-aspect of the U.S. Web Design system.
-Every variable is declared as !default
-so that it can be overridden by a
-previous import.
-
-XXX Do not modify this file!
-
-If you want to override a variable, set
-that variable in one of your own partials,
-then
-@import '{path/to/uswds/}core/variables'.
-----------------------------------------
-*/
-
-/*
-----------------------------------------
-Typography
-----------------------------------------
-TODO: Rethink naming and consolidate in
-settings
-----------------------------------------
-*/
-
-// Removing the !default from $em-base so we are not inheriting that value from Bourbon.
-
-$em-base:             $theme-font-size-root;
-$base-font-size:      1.7rem !default;
-$small-font-size:     1.4rem !default;
-$lead-font-size:      2rem !default;
-$title-font-size:     5.2rem !default;
-$h1-font-size:        4rem !default;
-$h2-font-size:        3rem !default;
-$h3-font-size:        2rem !default;
-$h4-font-size:        1.7rem !default;
-$h5-font-size:        1.5rem !default;
-$h6-font-size:        1.3rem !default;
-$base-line-height:    1.5 !default;
-$heading-line-height: 1.3 !default;
-$lead-line-height:    1.7 !default;
-
-/*
-----------------------------------------
-Font weights
-----------------------------------------
-TODO: Consolidate in settings
-----------------------------------------
-*/
-
-// TODO these should be called font-weight-${}
-$font-normal:         $theme-font-weight-normal;
-$font-bold:           $theme-font-weight-bold;
-
-/*
-----------------------------------------
-Colors
-----------------------------------------
-TODO:
-1. These should be set in settings
-2. Probably need different naming rubric
-----------------------------------------
-*/
-
-$color-blue:                 $color-blue-60v !default;
-$color-blue-darker:          $color-blue-warm-70v !default;
-$color-blue-darkest:         $color-blue-warm-80v !default;
-$color-blue-light:           $color-blue-warm-50 !default;
-$color-blue-lighter:         $color-blue-warm-30 !default;
-$color-blue-lightest:        $color-blue-warm-10 !default;
-
-$color-aqua:                 $color-cyan-30v !default;
-$color-aqua-dark:            $color-cyan-40v !default;
-$color-aqua-darkest:         $color-blue-60 !default;
-$color-aqua-light:           $color-cyan-20 !default;
-$color-aqua-lightest:        $color-cyan-5 !default;
-
-$color-red:                  $color-red-50 !default;
-$color-red-dark:             $color-red-60v !default;
-$color-red-darkest:          $color-red-70v !default;
-$color-red-light:            $color-red-30 !default;
-$color-red-lightest:         $color-red-10 !default;
-
-$color-white:                white !default;
-$color-black:                black !default; // 'black'
-$color-black-light:          $color-gray-90 !default; // 'base-darkest' 'base-ink'
-
-$color-gray-dark:            $color-gray-cool-80 !default; // 'base-darker'
-$color-gray:                 $color-gray-cool-60 !default; // 'base-dark'
-$color-gray-medium:          $color-gray-50 !default; // 'base'
-$color-gray-light:           $color-gray-30 !default; // 'base-light'
-$color-gray-lighter:         $color-gray-cool-10 !default; // 'base-lighter'
-$color-gray-lightest:        $color-gray-cool-5 !default; // 'base-lightest'
-
-$color-gray-warm-dark:       $color-gray-warm-70 !default;
-$color-gray-warm-light:      $color-gray-warm-10 !default;
-$color-gray-cool-light:      $color-blue-warm-5 !default;
-
-$color-gold:                 $color-gold-20v !default;
-$color-gold-light:           $color-gold-10v !default;
-$color-gold-lighter:         $color-yellow-10 !default;
-$color-gold-lightest:        $color-gold-5v !default;
-
-$color-green:                $color-green-cool-50 !default;
-$color-green-light:          $color-green-cool-40 !default;
-$color-green-lighter:        $color-green-cool-20 !default;
-$color-green-lightest:       $color-green-cool-5 !default;
-
-$color-cool-blue:            $color-blue-70v !default;
-$color-cool-blue-light:      $color-blue-warm-50 !default;
-$color-cool-blue-lighter:    $color-blue-warm-30 !default;
-$color-cool-blue-lightest:   $color-blue-warm-10 !default;
-
-$color-purple:               $color-violet-70v !default;
-
-// Functional colors
-$color-primary:              $color-blue !default; //'primary'
-$color-primary-darker:       $color-blue-darker !default; //'primary-dark'
-$color-primary-darkest:      $color-blue-darkest !default; //'primary-darker'
-
-$color-primary-alt:          $color-aqua !default; //'accent-cool'
-$color-primary-alt-dark:     $color-aqua-dark !default; //'accent-cool-dark'
-$color-primary-alt-darkest:  $color-aqua-darkest !default; //'accent-cool-darker'
-$color-primary-alt-light:    $color-aqua-light !default; //'accent-cool-light'
-$color-primary-alt-lightest: $color-aqua-lightest !default; //'accent-cool-lighter'
-
-$color-secondary:            $color-red !default; //'secondary'
-$color-secondary-dark:       $color-red-dark !default; //'secondary-dark'
-$color-secondary-darkest:    $color-red-darkest !default; //'primary-darker'
-$color-secondary-light:      $color-red-light !default; //'secondary-light'
-$color-secondary-lightest:   $color-red-lightest !default; //'secondary-lighter'
-
-$color-base:                 $color-black-light !default; //'base-darkest'
-$color-focus:                $color-blue-40v !default;
-$color-visited:              $color-purple !default;
-
-$color-shadow:               $color-black-transparent-30 !default;
-$color-transparent:          rgba(#000, 0) !default;
-
-/*
-----------------------------------------
-Mobile First Breakpoints
-----------------------------------------
-TODO: deprecate in favor of the values
-in settings
-----------------------------------------
-*/
-
-$xsmall-screen: null !default;
-$small-screen:  481px !default;
-$medium-screen: 600px !default;
-$large-screen:  1201px !default;
-$xlarge-screen: null !default;
-
-/*
-----------------------------------------
-Grid column counts by screen size
-----------------------------------------
-TODO: Lots of grid work to come
-----------------------------------------
-*/
-
-$grid-columns-small: 1 !default;
-$grid-columns-medium: 6 !default;
-$grid-columns-large: 12 !default;
-
-/*
-----------------------------------------
-@media single-keyword helpers
-----------------------------------------
-TODO: Need to rethink these
-----------------------------------------
-*/
-
-$small: new-breakpoint(min-width $small-screen $grid-columns-small) !default;
-$medium: new-breakpoint(min-width $medium-screen $grid-columns-medium) !default;
-$large: new-breakpoint(min-width $large-screen $grid-columns-large) !default;
-
-/*
 ----------------------------------------
 Set $asset-pipeline to true if you're
 using the Rails Asset Pipeline
 ----------------------------------------
 TODO: This should be set in settings
+Has something to do with the bourbon font builder
+See: https://github.com/uswds/uswds/pull/1500
 ----------------------------------------
 */
 
 $asset-pipeline:      false !default;
-
-/*
-----------------------------------------
-Magic numbers
-----------------------------------------
-TODO: Evaluate which of these should be
-set in settings and which are static or
-calculated variables
-----------------------------------------
-*/
-
-$text-width-sm: 60ch;
-
-$text-max-width:                66ch !default; // 66 characters per line
-$text-narrow-width:             40ch !default;
-$text-wide-width:               72ch !default;
-$lead-max-width:                77rem !default;
-$site-max-width:                1040px !default;
-$site-margins:                  units($theme-site-margins) !default;
-$site-margins-mobile:           units($theme-site-margins-mobile) !default;
-$article-max-width:             600px !default;
-$input-max-width:               46rem !default;
-$checkbox-border-radius:        2px !default;
-$border-radius:                 3px !default;
-$button-border-radius:          5px !default;
-$box-shadow:                    0 0 2px $color-shadow !default;
-$focus-outline:                 units(0.5) solid $color-focus !default;
-$focus-spacing:                 0 !default;
-$nav-width:                     951px !default;
-$usa-btn-small-width:           units(6);
-$search-min-width:              27ch; // minimum length of 27 letters for typical search query
-
-// Was 44 x 44 pixels hit target following Apple iOS HIG
-// Now 48px to conform with standard units — is this a problem?
-$touch-target-size: 6 !default;
-
-$spacing-x-small: 0.5rem;
-$spacing-small: 1rem;
-$spacing-md-small: 1.5rem;
-$spacing-medium: 2rem;
-$spacing-large: 3rem;
-
-$theme-spacing-2xs: 0.5; // was 0.5rem
-$theme-spacing-xs: 1; // was 1rem
-$theme-spacing-sm: 2; // was 1.5rem;
-$theme-spacing-md: 2.5; // 2rem;
-$theme-spacing-lg: 4; // 3rem;

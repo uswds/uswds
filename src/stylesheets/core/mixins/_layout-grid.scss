@@ -10,9 +10,9 @@
     @include u-margin-x($margin-x);
     @include u-maxw($props);
   }
-  @include u-padding-x($theme-site-margins-mobile);
+  @include u-padding-x($theme-site-margins-mobile-width);
   @include at-media('desktop') {
-    @include u-padding-x($theme-site-margins);
+    @include u-padding-x($theme-site-margins-width);
   }
 }
 

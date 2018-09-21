@@ -35,8 +35,8 @@ $theme-border-radius-sm:       2px;
 $theme-border-radius-md:       0.5;
 $theme-border-radius-lg:       1;
 
-$theme-border-radius-checkbox: 'sm';
-$theme-border-radius-button:   'md';
+$theme-checkbox-border-radius: 'sm';
+$theme-button-border-radius:   'md';
 
 /*
 ----------------------------------------
@@ -79,46 +79,17 @@ $theme-grid-container-max-width: 'desktop';
 
 /*
 ----------------------------------------
-Type scale tokens
-----------------------------------------
-micro:      10px
-1:          12px
-2:          13px
-3:          14px
-4:          15px
-5:          16px
-6:          17px
-7:          18px
-8:          20px
-9:          22px
-10:         24px
-11:         28px
-12:         32px
-13:         36px
-14:         40px
-15:         48px
-16:         56px
-17:         64px
-18:         80px
-19:         120px
-20:         140px
-----------------------------------------
-Line height tokens
-----------------------------------------
-1:    1
-2:    1.15
-3:    1.35
-4:    1.5
-5:    1.62
-6:    1.75
+Site
 ----------------------------------------
 */
 
-$theme-site-margins:        4; // was 3rem
-$theme-site-margins-mobile: 2; // was 1.5rem
-
-$theme-nav-width:           'desktop'; // was 951px
-$theme-site-max-width:      'desktop'; // was 1040px
-
+$theme-site-max-width:                'desktop';
+$theme-input-max-width:               'mobile-lg';
+$theme-search-min-width:              27ch;
+$theme-icon-image-size:               2;
+$theme-button-small-width:            6;
+$theme-site-margins-width:            4;
+$theme-site-margins-mobile-width:     2;
+$theme-navigation-width:              'desktop';
 $theme-sidenav-current-border-width:  0.5;
-$theme-megamenu-logo-text-width: 20%;
+$theme-megamenu-logo-text-width:      33%;

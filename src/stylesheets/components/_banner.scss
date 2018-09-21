@@ -1,9 +1,9 @@
 .usa-banner {
-  @include typeset($theme-font-family-banner);
+  @include typeset($theme-banner-font-family);
   background-color: color('base-lightest');
 
   @include at-media('tablet') {
-    font-size: font-size($theme-font-family-banner, '3xs');
+    font-size: font-size($theme-banner-font-family, '3xs');
     padding-bottom: units(0);
   }
 }
@@ -11,11 +11,11 @@
 .usa-banner-content {
   @include grid-container($theme-site-max-width);
   background-color: color(transparent);
-  font-size: font-size($theme-font-family-banner, 4);
+  font-size: font-size($theme-banner-font-family, 4);
   overflow: hidden;
   padding-bottom: units(2);
-  padding-left: units($theme-site-margins-mobile - 1);
-  padding-right: units($theme-site-margins-mobile);
+  padding-left: units($theme-site-margins-mobile-width - 1);
+  padding-right: units($theme-site-margins-mobile-width);
   padding-top: units(0.5);
   width: 100%;
 
@@ -24,7 +24,7 @@
   }
 
   @include at-media('desktop') {
-    @include u-padding-x($theme-site-margins);
+    @include u-padding-x($theme-site-margins-width);
   }
 
   p {
@@ -54,7 +54,7 @@
   @include grid-container;
   @include grid-row;
   @include u-flex('align-start');
-  padding-left: units($theme-site-margins-mobile);
+  padding-left: units($theme-site-margins-mobile-width);
   padding-right: units(0);
 
   @include at-media('tablet') {
@@ -62,15 +62,15 @@
   }
 
   @include at-media('desktop') {
-    @include u-padding-x($theme-site-margins);
+    @include u-padding-x($theme-site-margins-width);
   }
 }
 
 .usa-banner-header {
   @include u-padding-y(1);
-  font-size: font-size($theme-font-family-banner, 1);
+  font-size: font-size($theme-banner-font-family, 1);
   font-weight: font-weight('normal');
-  min-height: units($touch-target-size);
+  min-height: units($size-touch-target);
   position: relative;
 
   @include at-media('tablet') {
@@ -83,8 +83,8 @@
   @include u-margin-y(0);
   color: color('base-dark');
   display: none;
-  font-size: font-size($theme-font-family-banner, 1);
-  line-height: line-height($theme-font-family-banner, 2);
+  font-size: font-size($theme-banner-font-family, 1);
+  line-height: line-height($theme-banner-font-family, 2);
   padding-top: units(0.5);
 
   .banner-header-expanded & {
@@ -98,8 +98,8 @@
 
 .usa-banner-header-text {
   @include u-margin-y(0);
-  font-size: font-size($theme-font-family-banner, 1);
-  line-height: line-height($theme-font-family-banner, 2);
+  font-size: font-size($theme-banner-font-family, 1);
+  line-height: line-height($theme-banner-font-family, 2);
 
   .banner-header-expanded & {
     display: none;
@@ -113,7 +113,7 @@
 .usa-banner-header-action {
   @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 0.5, 'hover');
   color: color('primary');
-  line-height: line-height($theme-font-family-banner, 2);
+  line-height: line-height($theme-banner-font-family, 2);
   margin-bottom: units(0);
   margin-top: units(2px);
   text-decoration: underline;
@@ -135,13 +135,13 @@
 }
 
 .usa-banner-header-expanded {
-  padding-right: units($touch-target-size + 1);
+  padding-right: units($size-touch-target + 1);
 
   @include at-media('tablet') {
     background-color: transparent;
     color: color('ink');
     display: block;
-    font-size: font-size($theme-font-family-banner, 1);
+    font-size: font-size($theme-banner-font-family, 1);
     font-weight: font-weight('normal');
     min-height: units(0);
     padding-right: units(0);
@@ -166,9 +166,9 @@
   @include u-pin('y');
   @include u-text('primary', underline, baseline);
   display: block;
-  font-size: font-size($theme-font-family-banner, 1);
+  font-size: font-size($theme-banner-font-family, 1);
   height: auto;
-  line-height: line-height($theme-font-family-banner, 2);
+  line-height: line-height($theme-banner-font-family, 2);
   padding-top: units(0);
   padding-left: units(0);
   width: auto;
@@ -200,7 +200,7 @@
       @include add-icon('close-blue-60v-alt',
         'after',
         $theme-icon-image-size,
-        $touch-target-size,
+        $size-touch-target,
         0,
         'no-hover'
       );

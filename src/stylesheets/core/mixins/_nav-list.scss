@@ -56,7 +56,7 @@ $sidenav-grandchild-inset: 6;
   margin: 0;
 
   .usa-nav-item {
-    font-size: font-size($theme-font-family-sidenav, '2xs');
+    font-size: font-size($theme-sidenav-font-family, '2xs');
   }
 
   .usa-current {

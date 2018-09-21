@@ -1,13 +1,13 @@
 // General footer styles
 
 .usa-footer {
-  @include typeset($theme-font-family-footer);
+  @include typeset($theme-footer-font-family);
   overflow: hidden;
 }
 
 .usa-footer-return-to-top {
   @include u-padding-y(2.5);
-  line-height: line-height($theme-font-family-footer, 1);
+  line-height: line-height($theme-footer-font-family, 1);
 }
 
 .usa-footer-nav {
@@ -17,11 +17,11 @@
   max-width: units('desktop');
 
   @include at-media('mobile-lg') {
-    @include u-padding-x($theme-site-margins-mobile);
+    @include u-padding-x($theme-site-margins-mobile-width);
     border-bottom: none;
   }
   @include at-media('desktop') {
-    @include u-padding-x($theme-site-margins);
+    @include u-padding-x($theme-site-margins-width);
   }
 }
 
@@ -30,7 +30,7 @@
 }
 
 .usa-footer-primary-content {
-  line-height: line-height($theme-font-family-footer, 2);
+  line-height: line-height($theme-footer-font-family, 2);
 }
 
 .usa-footer-primary-link a,
@@ -42,7 +42,7 @@
 }
 
 .usa-footer-primary-link {
-  @include u-padding-x($theme-site-margins-mobile);
+  @include u-padding-x($theme-site-margins-mobile-width);
   @include u-padding-y(2);
   @include u-text('ink', 'no-underline', 'bold');
   display: block;
@@ -58,7 +58,7 @@
 }
 
 .usa-footer-secondary-link {
-  line-height: line-height($theme-font-family-footer, 2);
+  line-height: line-height($theme-footer-font-family, 2);
   margin: 0 0 0 units(1);
   padding: 0;
 
@@ -73,7 +73,7 @@
 
 .usa-footer-contact_info {
   display: inline-block;
-  line-height: line-height($theme-font-family-footer, 2);
+  line-height: line-height($theme-footer-font-family, 2);
 
   a {
     @include u-text('ink', 'no-underline');
@@ -153,7 +153,7 @@
 }
 
 .usa-footer-social-links {
-  line-height: line-height($theme-font-family-footer, 1);
+  line-height: line-height($theme-footer-font-family, 1);
   padding-bottom: units(1);
 
   a {
@@ -167,9 +167,8 @@
 
 .usa-social_link {
   $background-height: units(3); // Height of icon within hit area.
-  @include u-square($touch-target-size);
+  @include u-square($size-touch-target);
   background-position: center center;
-  background-repeat: no-repeat;
   background-size: auto $background-height;
   background-color: color('black-transparent-10');
   display: inline-block;
@@ -181,22 +180,22 @@
 
 .usa-link-facebook {
   @extend .usa-social_link;
-  @include add-background-image('social-icons/facebook25');
+  @include add-background-svg('social-icons/facebook25');
 }
 
 .usa-link-twitter {
   @extend .usa-social_link;
-  @include add-background-image('social-icons/twitter16');
+  @include add-background-svg('social-icons/twitter16');
 }
 
 .usa-link-youtube {
   @extend .usa-social_link;
-  @include add-background-image('social-icons/youtube15');
+  @include add-background-svg('social-icons/youtube15');
 }
 
 .usa-link-rss {
   @extend .usa-social_link;
-  @include add-background-image('social-icons/rss25');
+  @include add-background-svg('social-icons/rss25');
 }
 
 .usa-footer-address {
@@ -216,7 +215,7 @@
 
   .usa-footer-address {
     @include u-padding-y(2);
-    @include u-padding-x($theme-site-margins-mobile);
+    @include u-padding-x($theme-site-margins-mobile-width);
     @include at-media('mobile-lg') {
       @include u-padding(0);
     }
@@ -241,7 +240,7 @@
 
 .usa-footer-big {
   .usa-footer-nav {
-    @include u-margin-x($theme-site-margins-mobile * -1);
+    @include u-margin-x($theme-site-margins-mobile-width * -1);
     @include at-media('mobile-lg') {
       border-bottom: 1px solid color('base-light');
       padding-top: units(4);
@@ -255,9 +254,8 @@
 
   .usa-footer-primary-link {
     @include h4;
-    @include add-background-image('arrow-down');
+    @include add-background-svg('arrow-down');
     background-position: units(2) center;
-    background-repeat: no-repeat;
     background-size: units(1.5);
     line-height: line-height('heading', 2);
     margin: 0;
@@ -283,7 +281,7 @@
       }
 
       .usa-footer-primary-link {
-        @include add-background-image('arrow-right');
+        @include add-background-svg('arrow-right');
         cursor: pointer;
 
         @include at-media('mobile-lg') {
@@ -295,7 +293,7 @@
     }
 
     .usa-unstyled-list {
-      @include u-padding-x($theme-site-margins-mobile);
+      @include u-padding-x($theme-site-margins-mobile-width);
       padding-bottom: units(2.5);
 
       @include at-media('mobile-lg') {

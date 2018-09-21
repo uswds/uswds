@@ -12,8 +12,8 @@ html {
 }
 
 body {
-  background-color: $color-white;
-  color: $color-base;
+  background-color: color('white');
+  color: color('ink');
   overflow-x: hidden;
 }
 
@@ -32,5 +32,5 @@ body {
 
 *:focus,
 .usa-focus {
-  @include focus;
+  @include focus-outline;
 }
