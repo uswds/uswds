@@ -39,6 +39,7 @@ $nav-link-arrow-icon-size: 1;
 
   @include at-media-max($theme-nav-width) {
     @include u-flex('align-center');
+    border-bottom: units(1px) solid color('base-lighter');
     display: flex;
   }
 
