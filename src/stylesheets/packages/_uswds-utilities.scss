@@ -10,6 +10,7 @@ project
 */
 
 // Settings
+// -------------------------------------
 @import '../settings/settings-general';
 @import '../settings/settings-typography';
 @import '../settings/settings-color';
@@ -17,8 +18,8 @@ project
 @import '../settings/settings-utilities';
 
 // Tools
+// -------------------------------------
 @import '../lib/bourbon';
-@import '../lib/neat';
 @import '../core/font-definitions';
 @import '../core/functions';
 @import '../core/system-tokens';
@@ -26,8 +27,17 @@ project
 @import '../core/properties';
 @import '../core/mixins/all';
 
+// Components
+// -------------------------------------
+// Not included
+
 // Utilities
+// -------------------------------------
 @import '../utilities/palettes/all';
 @import '../utilities/rules/all';
 @import '../utilities/rules/package';
 @include render-utilities-in($utilities-package);
+
+// Layout grid
+// -------------------------------------
+// Not included

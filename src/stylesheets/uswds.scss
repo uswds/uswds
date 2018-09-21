@@ -8,10 +8,12 @@ Output all USWDS
 - fonts
 - components
 - utilities
+- layout grid
 ----------------------------------------
 */
 
 // Settings
+// -------------------------------------
 @import 'settings/settings-general';
 @import 'settings/settings-typography';
 @import 'settings/settings-color';
@@ -19,6 +21,7 @@ Output all USWDS
 @import 'settings/settings-utilities';
 
 // Tools
+// -------------------------------------
 @import 'lib/bourbon';
 @import 'core/font-definitions';
 @import 'core/functions';
@@ -28,11 +31,13 @@ Output all USWDS
 @import 'core/mixins/all';
 
 // Generic
+// -------------------------------------
 @import 'core/font-face';
 @import 'lib/normalize';
 @import 'core/base';
 
 // Elements
+// -------------------------------------
 @import 'elements/buttons';
 @import 'elements/embed';
 @import 'elements/figure';
@@ -43,6 +48,7 @@ Output all USWDS
 @import 'elements/typography';
 
 // Components
+// -------------------------------------
 @import 'components/accordions';
 @import 'components/alerts';
 @import 'components/banner';
@@ -61,8 +67,12 @@ Output all USWDS
 @import 'components/skipnav';
 
 // Utilities
+// -------------------------------------
 @import 'utilities/palettes/all';
 @import 'utilities/rules/all';
 @import 'utilities/rules/package';
 @include render-utilities-in($utilities-package);
+
+// Layout grid
+// -------------------------------------
 @import 'core/layout-grid';
