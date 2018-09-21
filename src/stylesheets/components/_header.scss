@@ -59,14 +59,14 @@ $z-index-overlay: 400;
   }
 
   + .usa-hero {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       border-top: units(1px) solid color('white');
     }
   }
 
   + .usa-section,
   + main {
-    @include at-media($theme-nav-width) {
+    @include at-media($theme-width-nav) {
       border-top: units(1px) solid color('base-lighter');
     }
   }
