@@ -52,8 +52,7 @@ $accordion-border: units(0.5) solid color('base-lightest');
   }
 }
 
-.usa-accordion,
-.usa-accordion-bordered {
+.usa-accordion {
   @include accordion-list-styles;
   @include accordion-nested-list;
   @include typeset($theme-accordion-font-family);
