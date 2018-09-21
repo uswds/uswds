@@ -10,6 +10,7 @@ USWDS project
 */
 
 // Settings
+// -------------------------------------
 @import '../settings/settings-general';
 @import '../settings/settings-typography';
 @import '../settings/settings-color';
@@ -17,6 +18,7 @@ USWDS project
 @import '../settings/settings-utilities';
 
 // Tools
+// -------------------------------------
 @import '../lib/bourbon';
 @import '../core/font-definitions';
 @import '../core/functions';
@@ -25,5 +27,22 @@ USWDS project
 @import '../core/properties';
 @import '../core/mixins/all';
 
+// Generic
+// -------------------------------------
+// Not included
+
+// Elements
+// -------------------------------------
+// Not included
+
+// Components
+// -------------------------------------
+// Not included
+
 // Utilities
+// -------------------------------------
+// Not included
+
+// Layout grid
+// -------------------------------------
 @import '../core/layout-grid';
