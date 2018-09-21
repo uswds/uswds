@@ -2,6 +2,7 @@
 // ==========================
 
 .usa-hero {
+  @include add-knockout-font-smoothing;
   @include typeset;
   @include u-padding-y($theme-site-margins);
   background-image: url('#{$theme-image-path}/hero.png');

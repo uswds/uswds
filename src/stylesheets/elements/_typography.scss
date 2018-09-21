@@ -181,6 +181,7 @@ dfn {
 }
 
 .usa-background-dark {
+  @include add-knockout-font-smoothing;
   background-color: color('base-darker');
 
   p,
