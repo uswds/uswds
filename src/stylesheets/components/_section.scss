@@ -11,7 +11,6 @@
 }
 
 .usa-section-dark {
-  @include add-knockout-font-smoothing;
   background-color: color('primary-darker');
   color: color('white');
 
