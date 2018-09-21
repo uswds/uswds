@@ -1,4 +1,5 @@
 html {
+  @include add-kerning;
   font-family: font-family($theme-font-family-base);
   font-size: $root-font-size;
 }
