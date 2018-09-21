@@ -25,6 +25,6 @@
     $theme-offset-focus,
     $offset
   );
-  outline: units($theme-width-focus) $theme-style-focus color($theme-color-focus);
-  outline-offset: units($theme-offset-focus);
+  outline: units($width) $style color($color);
+  outline-offset: units($offset);
 }
