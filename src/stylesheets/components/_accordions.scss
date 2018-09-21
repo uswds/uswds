@@ -81,7 +81,7 @@ $accordion-border: units(0.5) solid color('base-lightest');
 // kludge to override .usa-prose styles
 // TODO: work this into a mixin
 .usa-prose .usa-accordion-heading {
-  @include typeset($theme-accordion-font-family, $theme-font-size-base, 1);
+  @include typeset($theme-accordion-font-family, $theme-body-font-size, 1);
   margin: 0;
 
   &:not(:first-child) {

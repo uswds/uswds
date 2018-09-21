@@ -4,7 +4,7 @@
 }
 
 %usa-list-item {
-  line-height: line-height($theme-base-font-family, $theme-line-height-base);
+  line-height: line-height($theme-body-font-family, $theme-body-line-height);
   margin-bottom: 0.5em;
 
   &:last-child {

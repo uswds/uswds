@@ -1,6 +1,6 @@
 html {
   @include add-kerning;
-  font-family: font-family($theme-base-font-family);
+  font-family: font-family($theme-body-font-family);
   font-size: $root-font-size;
 }
 
@@ -149,12 +149,12 @@ dfn {
   p,
   ul:not(.usa-accordion):not(.usa-accordion-bordered),
   ol:not(.usa-accordion):not(.usa-accordion-bordered) {
-    max-width: measure($theme-measure-text);
+    max-width: measure($theme-text-measure);
   }
 }
 
 .usa-content-list {
-  max-width: measure($theme-measure-text);
+  max-width: measure($theme-text-measure);
 }
 
 .usa-display {
@@ -173,11 +173,11 @@ dfn {
 .usa-font-lead {
   @include typeset(
     $theme-lead-font-family,
-    $theme-font-size-lead,
-    $theme-line-height-lead
+    $theme-lead-font-size,
+    $theme-lead-line-height
   );
   font-weight: $theme-font-weight-normal;
-  max-width: measure($theme-measure-lead);
+  max-width: measure($theme-lead-measure);
 }
 
 .usa-background-dark {
