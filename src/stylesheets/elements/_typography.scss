@@ -1,4 +1,5 @@
 html {
+  @include add-kerning;
   font-family: font-family($theme-font-family-base);
   font-size: $root-font-size;
 }
@@ -181,6 +182,7 @@ dfn {
 }
 
 .usa-background-dark {
+  @include add-knockout-font-smoothing;
   background-color: color('base-darker');
 
   p,

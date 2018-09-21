@@ -39,6 +39,7 @@ $nav-link-arrow-icon-size: 1;
 
   @include at-media-max($theme-nav-width) {
     @include u-flex('align-center');
+    border-bottom: units(1px) solid color('base-lighter');
     display: flex;
   }
 
@@ -204,6 +205,7 @@ $nav-link-arrow-icon-size: 1;
 
       @include at-media($theme-nav-width) {
         @include add-background-image('angle-arrow-down-hover');
+        @include add-knockout-font-smoothing;
         background-size: units($nav-link-arrow-icon-size);
         background-color: color('primary-darker');
         background-position: right units(2) top $button-vertical-offset;

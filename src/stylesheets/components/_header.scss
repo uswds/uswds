@@ -59,12 +59,16 @@ $z-index-overlay: 400;
   }
 
   + .usa-hero {
-    border-top: units(1px) solid color('white');
+    @include at-media($theme-nav-width) {
+      border-top: units(1px) solid color('white');
+    }
   }
 
   + .usa-section,
   + main {
-    border-top: units(1px) solid color('base-lighter');
+    @include at-media($theme-nav-width) {
+      border-top: units(1px) solid color('base-lighter');
+    }
   }
 }
 
