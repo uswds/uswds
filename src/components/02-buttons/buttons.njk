@@ -1,5 +1,5 @@
-{%- if (classes == 'usa-button-secondary-inverse') -%}
-<div class="dark-bg">
+{%- if (classes == 'usa-button-outline-inverse') -%}
+<div class="bg-base-darkest">
 {% endif -%}
 
 <button class="usa-button {{ classes }}">Default</button>
@@ -10,12 +10,6 @@
 <button class="usa-button {{ classes }}" disabled>Disabled</button>
 {%- endif -%}
 
-{%- if (classes == 'usa-button-secondary-inverse') %}
+{%- if (classes == 'usa-button-outline-inverse') %}
 </div>
-
-<style scoped>
-  .dark-bg {
-    background-color: #212121;
-  }
-</style>
 {%- endif %}

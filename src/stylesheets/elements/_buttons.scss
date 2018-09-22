@@ -60,7 +60,7 @@ $button-stroke: inset 0 0 0 2px;
     background-color: color('primary-darker');
   }
 
-  &.usa-button-primary-alt {
+  &.usa-button-accent-cool {
     @include no-knockout-font-smoothing;
     background-color: color('accent-cool');
     color: color('ink');
@@ -78,7 +78,7 @@ $button-stroke: inset 0 0 0 2px;
     }
   }
 
-  &.usa-button-secondary {
+  &.usa-button-outline {
     @include no-knockout-font-smoothing;
     background-color: color('white');
     box-shadow: $button-stroke color('primary');
@@ -97,7 +97,7 @@ $button-stroke: inset 0 0 0 2px;
     }
   }
 
-  &.usa-button-secondary-inverse,
+  &.usa-button-outline-inverse,
   &.usa-button-outline-inverse {    // Outline inverse to be deprecated in 2.0
     background: transparent;
     box-shadow: $button-stroke color('base-lighter');
@@ -116,7 +116,7 @@ $button-stroke: inset 0 0 0 2px;
     }
   }
 
-  &.usa-button-gray {
+  &.usa-button-base {
     background-color: color('base');
 
     &:hover,
@@ -130,7 +130,7 @@ $button-stroke: inset 0 0 0 2px;
     }
   }
 
-  &.usa-button-red {
+  &.usa-button-secondary {
     background-color: color('secondary');
 
     &:hover,
@@ -168,10 +168,10 @@ $button-stroke: inset 0 0 0 2px;
   @include disabledesque
 }
 
-.usa-button-secondary-disabled,          // Deprecated
-.usa-button-secondary-inverse-disabled,  // Deprecated
-.usa-button-secondary:disabled,
-.usa-button-secondary-inverse:disabled,
+.usa-button-outline-disabled,          // Deprecated
+.usa-button-outline-inverse-disabled,  // Deprecated
+.usa-button-outline:disabled,
+.usa-button-outline-inverse:disabled,
 .usa-button-outline-inverse:disabled {   // Outline inverse to be deprecated in 2.0
   pointer-events: none;
 
@@ -186,17 +186,17 @@ $button-stroke: inset 0 0 0 2px;
   }
 }
 
-html .usa-button-secondary-disabled, // Deprecated
-.usa-button-secondary-disabled, // Deprecated
-.usa-button-secondary:disabled {
+html .usa-button-outline-disabled, // Deprecated
+.usa-button-outline-disabled, // Deprecated
+.usa-button-outline:disabled {
   background-color: color('white');
   box-shadow: $button-stroke color('disabled');
   color: color('disabled');
 }
 
-html .usa-button-secondary-inverse-disabled, // Deprecated
-.usa-button-secondary-inverse-disabled,  // Deprecated
-.usa-button-secondary-inverse:disabled,
+html .usa-button-outline-inverse-disabled, // Deprecated
+.usa-button-outline-inverse-disabled,  // Deprecated
+.usa-button-outline-inverse:disabled,
 .usa-button-outline-inverse:disabled {   // Outline inverse to be deprecated in 2.0
   background-color: transparent;
   box-shadow: $button-stroke color('base');
