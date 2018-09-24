@@ -58,7 +58,7 @@
 @mixin grid-gap($props...) {
   $props: unpack($props);
   @if length($props) == 0 {
-    @error 'grid-gap() needs a valid grid gap.';
+    @include grid-gap-responsive;
   }
 
   @else {
