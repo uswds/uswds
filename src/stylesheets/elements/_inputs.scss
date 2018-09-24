@@ -5,7 +5,6 @@ $input-line-height-calc: line-height($theme-form-font-family, $theme-input-line-
 $input-border-width: px-to-rem(1px); // Using rem instead of px so function uses same units
 $input-padding-vertical: units(1);
 $input-state-border: 0.5;
-$input-error-offset: units(2.5);
 
 // input heights will vary by browser and type
 // if height not explicitly set
@@ -67,16 +66,12 @@ $input-height: floor($input-height-exact * 10) / 10;
   position: relative;
 
   @include at-media('desktop') {
-    right: $input-error-offset;
+    margin-left: units(-2.5);
   }
 }
 
 .usa-input-error {
   @include u-border($input-state-border, 'error-dark');
-
-  @include at-media('desktop') {
-    width: calc(100% + #{$input-error-offset});
-  }
 }
 
 .usa-input-error-label {
