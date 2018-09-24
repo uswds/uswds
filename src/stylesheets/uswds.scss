@@ -81,7 +81,7 @@ Output all USWDS
 $example-number-of-columns: 3;
 
 @function columns($number) {
-  @if 12 % $number is not 0 {
+  @if 12 % $number != 0 {
     @error '`#{$number}` must divide evenly into 12 columns.';
   }
   $columns: 12 / $number;
@@ -90,6 +90,9 @@ $example-number-of-columns: 3;
 
 .example-container {
   @include grid-container;
+  &.usa-form {
+    max-width: units($theme-site-max-width);
+  }
 }
 
 .example-row {
@@ -98,5 +101,12 @@ $example-number-of-columns: 3;
 }
 
 .example-col {
-  @include grid-col(columns($example-number-of-columns));
+  @include grid-col(12);
+  @include at-media('tablet') {
+    @include grid-col(columns($example-number-of-columns));
+  }
+}
+
+.foo {
+  @include u-text('blue-50' 'underline');
 }
