@@ -75,7 +75,6 @@ $sidenav-grandchild-inset: 6;
 
   // grandchildren
   & & a {
-    content: 'foobar';
     padding-left: units($sidenav-grandchild-inset);
   }
 }
