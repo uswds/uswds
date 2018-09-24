@@ -78,25 +78,18 @@ Output all USWDS
 // -------------------------------------
 @import 'core/layout-grid';
 
-$example-number-of-columns: 3;
-
-@function columns($number) {
-  @if 12 % $number != 0 {
-    @error '`#{$number}` must divide evenly into 12 columns.';
-  }
-  $columns: 12 / $number;
-  @return $columns;
-}
+// Testing code
+// -------------------------------------
+$example-number-of-columns: 2; // can accept 'fill', 'auto', and 1-12
 
 .example-container {
-  @include grid-container;
   &.usa-form {
-    max-width: units($theme-site-max-width);
+    @include grid-container('tablet');
   }
 }
 
 .example-row {
-  @include grid-gap;
+  @include grid-gap();
   @include grid-row;
 }
 
