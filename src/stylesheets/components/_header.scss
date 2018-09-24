@@ -212,4 +212,17 @@ $z-index-nav:     9000;
       padding-left: $site-margins;
     }
   }
+
+  // Temp code for v1 to force show the search at mobile, not dekstop
+  /* stylelint-disable selector-no-id, declaration-no-important  */
+  .usa-search {
+    &[hidden] {
+      display: block !important;
+
+      @include media($nav-width) {
+        display: none !important;
+      }
+    }
+  }
+  /* stylelint-enable */
 }
