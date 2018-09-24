@@ -4,7 +4,7 @@ $button-stroke: inset 0 0 0 2px;
 
 // Buttons
 
-@mixin disabledesque {
+@mixin button-disabled {
   background-color: color('disabled');
   pointer-events: none;
 
@@ -148,7 +148,7 @@ $button-stroke: inset 0 0 0 2px;
   }
 
   &:disabled {
-    @include disabledesque;
+    @include button-disabled;
   }
 }
 /* stylelint-disable */
@@ -160,9 +160,8 @@ $button-stroke: inset 0 0 0 2px;
   }
 }
 
-.usa-button-disabled
-{
-  @include disabledesque
+.usa-button-disabled {
+  @include button-disabled;
 }
 
 .usa-button-outline-disabled,
