@@ -17,11 +17,8 @@
   max-width: units('desktop');
 
   @include at-media('mobile-lg') {
-    @include u-padding-x($theme-site-margins-mobile-width);
+    @include add-responsive-site-margins;
     border-bottom: none;
-  }
-  @include at-media('desktop') {
-    @include u-padding-x($theme-site-margins-width);
   }
 }
 

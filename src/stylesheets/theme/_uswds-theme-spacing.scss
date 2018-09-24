@@ -35,9 +35,6 @@ $theme-border-radius-sm:       2px;
 $theme-border-radius-md:       0.5;
 $theme-border-radius-lg:       1;
 
-$theme-checkbox-border-radius: 'sm';
-$theme-button-border-radius:   'md';
-
 /*
 ----------------------------------------
 Column gap
@@ -83,13 +80,7 @@ Site
 ----------------------------------------
 */
 
-$theme-site-max-width:                'desktop';
-$theme-input-max-width:               'mobile-lg';
-$theme-search-min-width:              27ch;
-$theme-icon-image-size:               2;
-$theme-button-small-width:            6;
-$theme-site-margins-width:            4;
-$theme-site-margins-mobile-width:     2;
-$theme-navigation-width:              'desktop';
-$theme-sidenav-current-border-width:  0.5;
-$theme-megamenu-logo-text-width:      33%;
+$theme-site-max-width:              'desktop';
+$theme-site-margins-breakpoint:     'desktop';
+$theme-site-margins-width:          4;
+$theme-site-margins-mobile-width:   2;
