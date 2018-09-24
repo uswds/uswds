@@ -77,3 +77,26 @@ Output all USWDS
 // Layout grid
 // -------------------------------------
 @import 'core/layout-grid';
+
+$example-number-of-columns: 3;
+
+@function columns($number) {
+  @if 12 % $number is not 0 {
+    @error '`#{$number}` must divide evenly into 12 columns.';
+  }
+  $columns: 12 / $number;
+  @return $columns;
+}
+
+.example-container {
+  @include grid-container;
+}
+
+.example-row {
+  @include grid-gap;
+  @include grid-row;
+}
+
+.example-col {
+  @include grid-col(columns($example-number-of-columns));
+}

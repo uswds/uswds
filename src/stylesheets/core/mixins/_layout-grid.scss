@@ -42,14 +42,14 @@
 
   @include u-margin-x( unquote('#{$neg-prefix}-#{calc-gap-offset($gap-mobile)}'));
 
-  > [class*='grid-col'] {
+  > * {
     @include u-padding-x(calc-gap-offset($gap-mobile));
   }
 
   @include at-media('desktop') {
     @include u-margin-x( unquote('#{$neg-prefix}-#{calc-gap-offset($gap-desktop)}'));
 
-    > [class*='grid-col'] {
+    > * {
       @include u-padding-x(calc-gap-offset($gap-desktop));
     }
   }
@@ -66,7 +66,7 @@
     @if $gap == 0 {
       @include u-margin-x(append-important($props, 0));
 
-      > [class*='grid-col'] {
+      > * {
         @include u-padding-x(append-important($props, 0));
       }
     }
@@ -78,7 +78,7 @@
         $gap: map-get($system-column-gaps, $gap);
       }
       @include u-margin-x(append-important($props, unquote('#{$neg-prefix}-#{calc-gap-offset($gap)}')));
-      > [class*='grid-col'] {
+      > * {
         @include u-padding-x(append-important($props, calc-gap-offset($gap)));
       }
     }

@@ -53,7 +53,7 @@ $nav-link-arrow-icon-size: 1;
 .usa-nav-container {
   @include at-media($theme-navigation-width) {
     @include clearfix;
-    @include grid-container($theme-site-max-width);
+    @include grid-container;
     @include u-padding-x($theme-site-margins-width);
   }
 }
@@ -69,7 +69,7 @@ $nav-link-arrow-icon-size: 1;
     display: none;
     flex-direction: column;
     overflow-y: auto;
-    padding: units(2.5);
+    padding: units(2);
     width: units($sliding-panel-width);
     z-index: z-index(500);
 
