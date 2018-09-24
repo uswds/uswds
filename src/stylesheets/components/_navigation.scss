@@ -114,14 +114,14 @@ $nav-link-arrow-icon-size: 1;
   }
 
   // all nav items in the nav
-  .usa-nav-item {
+  .usa-nav-primary-item {
     a {
       text-decoration: none;
     }
   }
 
   // just level 1 nav items...
-  > .usa-nav-item {
+  > .usa-nav-primary-item {
     line-height: line-height($theme-navigation-font-family, 2);
     @include at-media($theme-navigation-width) {
       font-size: font-size($theme-navigation-font-family, '2xs');
@@ -302,7 +302,7 @@ $nav-link-arrow-icon-size: 1;
     display: none;
   }
 
-  .usa-nav-item {
+  .usa-nav-submenu-item {
     @include at-media($theme-navigation-width) {
       & + * {
         margin-top: units(1.5);
@@ -327,7 +327,7 @@ $nav-link-arrow-icon-size: 1;
 .usa-nav-submenu-list {
   @include unstyled-list;
 
-  .usa-nav-item {
+  .usa-nav-submenu-list-item {
     margin: 0;
     font-size: font-size($theme-navigation-font-family, '2xs');
 

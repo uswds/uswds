@@ -1,6 +1,6 @@
 {% macro nav_list(links, subclass) %}
   {% for item in links %}
-  <li class="usa-nav-item">
+  <li class="usa-sidenav-item">
     <a href="{{ item.href }}"{% if item.current %} class="usa-current"{% endif %}>
       {{ item.text }}
     </a>
