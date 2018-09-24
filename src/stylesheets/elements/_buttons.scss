@@ -97,8 +97,7 @@ $button-stroke: inset 0 0 0 2px;
     }
   }
 
-  &.usa-button-outline-inverse,
-  &.usa-button-outline-inverse {    // Outline inverse to be deprecated in 2.0
+  &.usa-button-outline-inverse {
     background: transparent;
     box-shadow: $button-stroke color('base-lighter');
     color: color('base-lighter');
