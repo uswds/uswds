@@ -162,16 +162,16 @@ $button-stroke: inset 0 0 0 2px;
   }
 }
 
-.usa-button-disabled  // Deprecated
+.usa-button-disabled
 {
   @include disabledesque
 }
 
-.usa-button-outline-disabled,          // Deprecated
-.usa-button-outline-inverse-disabled,  // Deprecated
+.usa-button-outline-disabled,
+.usa-button-outline-inverse-disabled,
 .usa-button-outline:disabled,
 .usa-button-outline-inverse:disabled,
-.usa-button-outline-inverse:disabled {   // Outline inverse to be deprecated in 2.0
+.usa-button-outline-inverse:disabled {
   pointer-events: none;
 
   &:hover,
@@ -185,17 +185,17 @@ $button-stroke: inset 0 0 0 2px;
   }
 }
 
-html .usa-button-outline-disabled, // Deprecated
-.usa-button-outline-disabled, // Deprecated
+html .usa-button-outline-disabled,
+.usa-button-outline-disabled,
 .usa-button-outline:disabled {
   background-color: color('white');
   box-shadow: $button-stroke color('disabled');
   color: color('disabled');
 }
 
-html .usa-button-outline-inverse-disabled, // Deprecated
-.usa-button-outline-inverse-disabled,  // Deprecated
-.usa-button-outline-inverse:disabled {   // Outline inverse to be deprecated in 2.0
+html .usa-button-outline-inverse-disabled,
+.usa-button-outline-inverse-disabled,
+.usa-button-outline-inverse:disabled {
   background-color: transparent;
   box-shadow: $button-stroke color('base');
   color: color('base');
