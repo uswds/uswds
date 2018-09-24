@@ -1,13 +1,6 @@
 // Hero feature
 // ==========================
 
-@mixin hero-top-padding {
-  @include u-margin-top(2);
-  @include at-media('mobile-lg') {
-    @include u-margin-top(3);
-  }
-}
-
 .usa-hero {
   @include typeset;
   @include u-padding-y($theme-site-margins-width);
@@ -23,18 +16,6 @@
 
   @include at-media('tablet') {
     max-width: units('mobile');
-  }
-
-  .usa-button {
-    @include hero-top-padding;
-  }
-}
-
-.usa-hero-content {
-  @include hero-top-padding;
-
-  p {
-    @include typeset-p;
   }
 }
 
