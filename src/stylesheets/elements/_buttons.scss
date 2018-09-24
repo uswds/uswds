@@ -4,8 +4,6 @@ $button-stroke: inset 0 0 0 2px;
 
 // Buttons
 
-// This mixin is only needed until we fully remove the
-// deprecated usa-button-disabled style.
 @mixin disabledesque {
   background-color: color('disabled');
   pointer-events: none;
