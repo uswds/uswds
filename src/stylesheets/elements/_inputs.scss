@@ -1,22 +1,6 @@
 // scss-lint:disable QualifyingElement, PropertyCount
 
-$input-font-size-calc: font-size($theme-form-font-family, $theme-body-font-size);
-$input-line-height-calc: line-height($theme-form-font-family, $theme-input-line-height); // was 1.3
-$input-border-width: px-to-rem(1px); // Using rem instead of px so function uses same units
-$input-padding-vertical: units(1);
 $input-state-border: 0.5;
-
-// input heights will vary by browser and type
-// if height not explicitly set
-$input-height-exact: (
-  ($input-font-size-calc * $input-line-height-calc) +
-  ($input-padding-vertical * 2) +
-  ($input-border-width * 2)
-);
-
-// truncated to 1 decimal place
-// (i.e., 1.21rem -> 1.2rem)
-$input-height: floor($input-height-exact * 10) / 10;
 
 // Block input elements
 .usa-fieldset,
@@ -42,10 +26,10 @@ $input-height: floor($input-height-exact * 10) / 10;
   box-sizing: border-box;
   color: color('ink'); // standardize on firefox
   display: block;
-  height: $input-height;
+  height: units(5);
   margin-top: units(1);
   max-width: units($theme-input-max-width);
-  padding: $input-padding-vertical units(1);
+  padding: units(1);
   width: 100%;
 
   &.usa-input-success {
@@ -76,8 +60,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 
 .usa-input-error-label {
   display: block;
-  font-size: $input-font-size-calc;
-  font-weight: $theme-font-weight-bold;
+  font-weight: font-weight('bold');
   margin-top: 0;
 }
 
@@ -85,8 +68,7 @@ $input-height: floor($input-height-exact * 10) / 10;
   @include u-padding-y(0.5);
   color: color('error-dark');
   display: block;
-  font-size: $input-font-size-calc;
-  font-weight: $theme-font-weight-bold;
+  font-weight: font-weight('bold');
 }
 
 .usa-input-label-helper {
@@ -165,7 +147,7 @@ $input-height: floor($input-height-exact * 10) / 10;
 .usa-radio-label {
   cursor: pointer;
   display: inherit;
-  font-weight: $theme-font-weight-normal;
+  font-weight: font-weight('normal');
   margin-bottom: units(1.5);
 }
 
