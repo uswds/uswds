@@ -20,9 +20,9 @@
 }
 
 .usa-hero-content {
-  @include u-margin-y(2);
+  @include u-margin-top(2);
   @include at-media('mobile-lg') {
-    @include u-margin-y(3);
+    @include u-margin-top(3);
   }
 
   p {
