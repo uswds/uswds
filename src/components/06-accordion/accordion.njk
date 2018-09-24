@@ -1,5 +1,5 @@
 <div class="usa-accordion{%
-  if accordion.variant %}-{{ accordion.variant }}{% endif %}"{%
+  if accordion.variant %} usa-accordion-{{ accordion.variant }}{% endif %}"{%
   if accordion.multiselectable == true %} aria-multiselectable="true"{% endif %}>
   {% for item in accordion.items %}
   <!-- Use the accurate heading level to maintain the document outline -->
