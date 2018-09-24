@@ -106,7 +106,3 @@ $example-number-of-columns: 3;
     @include grid-col(columns($example-number-of-columns));
   }
 }
-
-.foo {
-  @include u-text('blue-50' 'underline');
-}
