@@ -1,0 +1,75 @@
+
+// Output the @font-face rule
+@mixin at-font-face(
+  $font-family,
+  $file-path,
+  $font-weight,
+  $font-style
+) {
+  $file-path: unquote($file-path);
+
+  // TODO: If $theme-use-rails-pipeline use font-url() statements
+  // instead of url()
+  // Dunno why I can't do this without an error...
+
+  @font-face {
+    font-family: unquote($font-family);
+    font-style: unquote($font-style);
+    font-weight: $font-weight;
+    src:
+      url(#{$file-path}.eot?#iefix) format('embedded-opentype'),
+      url(#{$file-path}.woff2) format('woff2'),
+      url(#{$file-path}.woff) format('woff'),
+      url(#{$file-path}.ttf) format('truetype');
+  }
+}
+
+// Loop through weights, then call at-font-face
+@mixin generate-font-face($font-type, $font-weights, $font-name, $dir, $font-style) {
+  @each $weight, $filename in $font-type {
+    @each $key, $outputweight in $font-weights {
+      @if $outputweight == $weight and $filename {
+        @include at-font-face(
+          '#{$font-name}',
+          '#{$theme-font-path}/#{$dir}/#{$filename}',
+          #{$weight},
+          #{$font-style}
+        );
+      }
+    }
+  }
+}
+
+// Collect all font metadata, then call generate-font-face
+@mixin render-font-face($this-font-face) {
+  $these-weights: $project-font-weights;
+  @if $theme-output-all-weights {
+    $these-weights: (
+      100: 100,
+      200: 200,
+      300: 300,
+      400: 400,
+      500: 500,
+      600: 600,
+      700: 700,
+      800: 800,
+      900: 900
+    );
+  }
+
+  @if $this-font-face and map-deep-get($all-font-definitions, $this-font-face, generate) {
+    $this-font: map-get($all-font-definitions, $this-font-face);
+    $font-name: map-get($this-font, name);
+    $roman: map-get($this-font, roman);
+    $italic: map-get($this-font, italic);
+    $dir: map-get($this-font, dir);
+
+    @if $roman {
+      @include generate-font-face($roman, $these-weights, $font-name, $dir, normal);
+    }
+
+    @if $italic {
+      @include generate-font-face($italic, $these-weights, $font-name, $dir, italic);
+    }
+  }
+}
