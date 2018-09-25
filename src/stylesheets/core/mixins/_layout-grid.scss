@@ -10,10 +10,7 @@
     @include u-margin-x($margin-x);
     @include u-maxw($props);
   }
-  @include u-padding-x($theme-site-margins-mobile-width);
-  @include at-media('desktop') {
-    @include u-padding-x($theme-site-margins-width);
-  }
+  @include add-responsive-site-margins;
 }
 
 @mixin grid-row($props...) {
@@ -45,14 +42,14 @@
 
   @include u-margin-x( unquote('#{$neg-prefix}-#{calc-gap-offset($gap-mobile)}'));
 
-  > [class*='grid-col'] {
+  > * {
     @include u-padding-x(calc-gap-offset($gap-mobile));
   }
 
   @include at-media('desktop') {
     @include u-margin-x( unquote('#{$neg-prefix}-#{calc-gap-offset($gap-desktop)}'));
 
-    > [class*='grid-col'] {
+    > * {
       @include u-padding-x(calc-gap-offset($gap-desktop));
     }
   }
@@ -61,7 +58,7 @@
 @mixin grid-gap($props...) {
   $props: unpack($props);
   @if length($props) == 0 {
-    @error 'grid-gap() needs a valid grid gap.';
+    @include grid-gap-responsive;
   }
 
   @else {
@@ -69,7 +66,7 @@
     @if $gap == 0 {
       @include u-margin-x(append-important($props, 0));
 
-      > [class*='grid-col'] {
+      > * {
         @include u-padding-x(append-important($props, 0));
       }
     }
@@ -81,7 +78,7 @@
         $gap: map-get($system-column-gaps, $gap);
       }
       @include u-margin-x(append-important($props, unquote('#{$neg-prefix}-#{calc-gap-offset($gap)}')));
-      > [class*='grid-col'] {
+      > * {
         @include u-padding-x(append-important($props, calc-gap-offset($gap)));
       }
     }

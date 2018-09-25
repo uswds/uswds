@@ -10,21 +10,17 @@
 
 .usa-banner-content {
   @include grid-container($theme-site-max-width);
+  @include add-responsive-site-margins;
   background-color: color(transparent);
   font-size: font-size($theme-banner-font-family, 4);
   overflow: hidden;
   padding-bottom: units(2);
   padding-left: units($theme-site-margins-mobile-width - 1);
-  padding-right: units($theme-site-margins-mobile-width);
   padding-top: units(0.5);
   width: 100%;
 
   @include at-media('tablet') {
     @include u-padding-y(3);
-  }
-
-  @include at-media('desktop') {
-    @include u-padding-x($theme-site-margins-width);
   }
 
   p {
@@ -51,18 +47,14 @@
 }
 
 .usa-banner-inner {
+  @include add-responsive-site-margins;
   @include grid-container;
   @include grid-row;
   @include u-flex('align-start');
-  padding-left: units($theme-site-margins-mobile-width);
   padding-right: units(0);
 
   @include at-media('tablet') {
     @include u-flex('align-center');
-  }
-
-  @include at-media('desktop') {
-    @include u-padding-x($theme-site-margins-width);
   }
 }
 
