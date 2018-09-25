@@ -386,53 +386,5 @@ through all possible variants
 }
 
 // Helper to generate an @font-face declaration
-@mixin generate-font-face($font-type, $font-weights, $font-name, $dir, $font-style) {
-  @each $weight, $filename in $font-type {
-    @each $key, $outputweight in $font-weights {
-      @if $outputweight == $weight and $filename {
-        @include font-face(
-          '#{$font-name}',
-          '#{$theme-font-path}/#{$dir}/#{$filename}',
-          #{$weight},
-          #{$font-style},
-          $file-formats: eot woff2 woff ttf
-        );
-      }
-    }
-  }
-}
-
-@mixin render-font-face($this-font-face) {
-  $these-weights: $project-font-weights;
-  @if $theme-output-all-weights {
-    $these-weights: (
-      100: 100,
-      200: 200,
-      300: 300,
-      400: 400,
-      500: 500,
-      600: 600,
-      700: 700,
-      800: 800,
-      900: 900
-    );
-  }
-
-  @if $this-font-face and map-deep-get($all-font-definitions, $this-font-face, generate) {
-    $this-font: map-get($all-font-definitions, $this-font-face);
-    $font-name: map-get($this-font, name);
-    $roman: map-get($this-font, roman);
-    $italic: map-get($this-font, italic);
-    $dir: map-get($this-font, dir);
-
-    @if $roman {
-      @include generate-font-face($roman, $these-weights, $font-name, $dir, normal);
-    }
-
-    @if $italic {
-      @include generate-font-face($italic, $these-weights, $font-name, $dir, italic);
-    }
-  }
-}
 
 /* stylelint-enable */
