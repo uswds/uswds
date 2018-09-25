@@ -77,23 +77,3 @@ Output all USWDS
 // Layout grid
 // -------------------------------------
 @import 'core/layout-grid';
-
-.example-1 {
-  @include u-shadow(1);
-}
-
-.example-2 {
-  @include u-shadow(2);
-}
-
-.example-3 {
-  @include u-shadow(3);
-}
-
-.example-4 {
-  @include u-shadow(4);
-}
-
-.example-5 {
-  @include u-shadow(5);
-}
