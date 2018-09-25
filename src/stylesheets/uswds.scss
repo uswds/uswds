@@ -77,25 +77,3 @@ Output all USWDS
 // Layout grid
 // -------------------------------------
 @import 'core/layout-grid';
-
-// Testing code
-// -------------------------------------
-$example-number-of-columns: 2; // can accept 'fill', 'auto', and 1-12
-
-.example-container {
-  &.usa-form {
-    @include grid-container('tablet');
-  }
-}
-
-.example-row {
-  @include grid-gap();
-  @include grid-row;
-}
-
-.example-col {
-  @include grid-col(12);
-  @include at-media('tablet') {
-    @include grid-col(columns($example-number-of-columns));
-  }
-}
