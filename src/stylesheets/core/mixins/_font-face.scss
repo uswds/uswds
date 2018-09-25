@@ -1,3 +1,5 @@
+
+// Output the @font-face rule
 @mixin at-font-face(
   $font-family,
   $file-path,
@@ -18,6 +20,7 @@
   }
 }
 
+// Loop through weights, then call at-font-face
 @mixin generate-font-face($font-type, $font-weights, $font-name, $dir, $font-style) {
   @each $weight, $filename in $font-type {
     @each $key, $outputweight in $font-weights {
@@ -33,6 +36,7 @@
   }
 }
 
+// Collect all font metadata, then call generate-font-face
 @mixin render-font-face($this-font-face) {
   $these-weights: $project-font-weights;
   @if $theme-output-all-weights {
