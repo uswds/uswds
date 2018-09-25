@@ -1,6 +1,7 @@
-$sidenav-inset: 2;
-$sidenav-child-inset: 4;
-$sidenav-grandchild-inset: 6;
+$sidenav-level-1-inset: 2;
+$sidenav-level-2-inset: 4;
+$sidenav-level-3-inset: 6;
+$sidenav-level-4-inset: 8;
 
 @mixin nav-list {
   @include unstyled-list();
@@ -12,7 +13,7 @@ $sidenav-grandchild-inset: 6;
   a {
     color: color('base-dark');
     display: block;
-    padding: units(1) units($sidenav-inset);
+    padding: units(1) units($sidenav-level-1-inset);
     text-decoration: none;
 
     &:hover {
@@ -68,13 +69,19 @@ $sidenav-grandchild-inset: 6;
     }
   }
 
-  // children and grandchildren
+  // level 2+
   a {
-    padding-left: units($sidenav-child-inset);
+    padding-left: units($sidenav-level-2-inset);
   }
 
-  // grandchildren
+  // level 3+
   & & a {
-    padding-left: units($sidenav-grandchild-inset);
+    padding-left: units($sidenav-level-3-inset);
+  }
+
+  // level 4+
+  & & & a {
+    content: 'foobar';
+    padding-left: units($sidenav-level-4-inset);
   }
 }
