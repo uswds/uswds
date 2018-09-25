@@ -606,16 +606,3 @@ $grid-global: '';
 @if $utilities-use-important {
   $grid-global: '!important';
 }
-
-/*
-----------------------------------------
-Set $asset-pipeline to true if you're
-using the Rails Asset Pipeline
-----------------------------------------
-TODO: This should be set in settings
-Has something to do with the bourbon font builder
-See: https://github.com/uswds/uswds/pull/1500
-----------------------------------------
-*/
-
-$asset-pipeline:      false !default;
