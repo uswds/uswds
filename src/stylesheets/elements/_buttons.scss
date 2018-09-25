@@ -1,11 +1,13 @@
 // Buttons variables
 
-$button-stroke: inset 0 0 0 2px;
+$button-stroke: inset 0 0 0 units(2px);
 
 // Buttons
 
 @mixin button-disabled {
+  @include add-knockout-font-smoothing;
   background-color: color('disabled');
+  color: color('white');
   pointer-events: none;
 
   &:hover,
@@ -21,9 +23,7 @@ $button-stroke: inset 0 0 0 2px;
 }
 
 .usa-button,
-.usa-button-primary,
-.usa-button:visited,
-.usa-button-primary:visited {
+.usa-button:visited {
   @include typeset($theme-button-font-family, null, 1);
   @include add-knockout-font-smoothing;
   appearance: none;
@@ -57,93 +57,9 @@ $button-stroke: inset 0 0 0 2px;
     background-color: color('primary-darker');
   }
 
-  &.usa-button-accent-cool {
-    @include no-knockout-font-smoothing;
-    background-color: color('accent-cool');
-    color: color('ink');
-
-    &:hover,
-    &.usa-button-hover {
-      background-color: color('accent-cool-dark');
-    }
-
-    &:active,
-    &.usa-button-active {
-      @include add-knockout-font-smoothing;
-      background-color: color('accent-cool-darker');
-      color: color('white');
-    }
-  }
-
-  &.usa-button-outline {
-    @include no-knockout-font-smoothing;
-    background-color: color('white');
-    box-shadow: $button-stroke color('primary');
-    color: color('primary');
-
-    &:hover,
-    &.usa-button-hover {
-      box-shadow: $button-stroke color('primary-dark');
-      color: color('primary-dark');
-    }
-
-    &:active,
-    &.usa-button-active {
-      box-shadow: $button-stroke color('primary-darker');
-      color: color('primary-darker');
-    }
-  }
-
-  &.usa-button-outline-inverse {
-    background: transparent;
-    box-shadow: $button-stroke color('base-lighter');
-    color: color('base-lighter');
-
-    &:hover,
-    &.usa-button-hover {
-      box-shadow: $button-stroke color('base-lightest');
-      color: color('base-lightest');
-    }
-
-    &:active,
-    &.usa-button-active {
-      box-shadow: $button-stroke color('white');
-      color: color('white');
-    }
-  }
-
-  &.usa-button-base {
-    background-color: color('base');
-
-    &:hover,
-    &.usa-button-hover {
-      background-color: color('base-dark');
-    }
-
-    &:active,
-    &.usa-button-active {
-      background-color: color('base-darker');
-    }
-  }
-
-  &.usa-button-secondary {
-    background-color: color('secondary');
-
-    &:hover,
-    &.usa-button-hover {
-      background-color: color('secondary-dark');
-    }
-
-    &:active,
-    &.usa-button-active {
-      background-color: color('secondary-darker');
-    }
-  }
-
-  &.usa-button-big {
-    border-radius: radius('md');
-    font-size: font-size($theme-button-font-family, 'lg');
-    padding: units(2) units(3);
+  &:focus,
+  &.usa-focus {
+    outline-offset: units(0.5);
   }
 
   &:disabled {
@@ -151,11 +67,98 @@ $button-stroke: inset 0 0 0 2px;
   }
 }
 
-.usa-button {
-  &:focus,
-  &.usa-focus {
-    outline-offset: units(0.5);
+.usa-button-accent-cool {
+  @include no-knockout-font-smoothing;
+  background-color: color('accent-cool');
+  color: color('ink');
+
+  &:hover,
+  &.usa-button-hover {
+    @include add-knockout-font-smoothing;
+    background-color: color('accent-cool-dark');
   }
+
+  &:active,
+  &.usa-button-active {
+    @include add-knockout-font-smoothing;
+    background-color: color('accent-cool-darker');
+    color: color('white');
+  }
+}
+
+.usa-button-outline {
+  @include no-knockout-font-smoothing;
+  background-color: color('white');
+  box-shadow: $button-stroke color('primary');
+  color: color('primary');
+
+  &:hover,
+  &.usa-button-hover {
+    background-color: color('white');
+    box-shadow: $button-stroke color('primary-dark');
+    color: color('primary-dark');
+  }
+
+  &:active,
+  &.usa-button-active {
+    background-color: color('white');
+    box-shadow: $button-stroke color('primary-darker');
+    color: color('primary-darker');
+  }
+}
+
+.usa-button-outline-inverse {
+  background: transparent;
+  box-shadow: $button-stroke color('base-lighter');
+  color: color('base-lighter');
+
+  &:hover,
+  &.usa-button-hover {
+    background: transparent;
+    box-shadow: $button-stroke color('base-lightest');
+    color: color('base-lightest');
+  }
+
+  &:active,
+  &.usa-button-active {
+    background: transparent;
+    box-shadow: $button-stroke color('white');
+    color: color('white');
+  }
+}
+
+.usa-button-base {
+  background-color: color('base');
+
+  &:hover,
+  &.usa-button-hover {
+    background-color: color('base-dark');
+  }
+
+  &:active,
+  &.usa-button-active {
+    background-color: color('base-darker');
+  }
+}
+
+.usa-button-secondary {
+  background-color: color('secondary');
+
+  &:hover,
+  &.usa-button-hover {
+    background-color: color('secondary-dark');
+  }
+
+  &:active,
+  &.usa-button-active {
+    background-color: color('secondary-darker');
+  }
+}
+
+.usa-button-big {
+  border-radius: radius('md');
+  font-size: font-size($theme-button-font-family, 'lg');
+  padding: units(2) units(3);
 }
 
 .usa-button-disabled {
@@ -180,7 +183,6 @@ $button-stroke: inset 0 0 0 2px;
   }
 }
 
-html .usa-button-outline-disabled,
 .usa-button-outline-disabled,
 .usa-button-outline:disabled {
   background-color: color('white');
@@ -188,7 +190,6 @@ html .usa-button-outline-disabled,
   color: color('disabled');
 }
 
-html .usa-button-outline-inverse-disabled,
 .usa-button-outline-inverse-disabled,
 .usa-button-outline-inverse:disabled {
   background-color: transparent;
