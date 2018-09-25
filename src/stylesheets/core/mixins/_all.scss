@@ -45,14 +45,15 @@
 @import 'utilities/width';
 @import 'utilities/z-index';
 
-// object mixins
-@import 'add-list-reset';
+// helper mixins
+@import 'override-prose';
 
 // general mixins
 @import 'add-bar';
 @import 'add-background-svg';
 @import 'add-kerning';
 @import 'add-knockout-font-smoothing';
+@import 'add-list-reset';
 @import 'add-responsive-site-margins';
 @import 'at-media';
 @import 'button-unstyled';
