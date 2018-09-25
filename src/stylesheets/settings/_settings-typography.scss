@@ -74,19 +74,6 @@ $theme-content-styles: 'scoped' !default;
 
 /*
 ----------------------------------------
-Use Rails font pipeline
-----------------------------------------
-If true, outputs @font-face rules with
-`font-url`.
-----------------------------------------
-** Currently not working **
-----------------------------------------
-*/
-
-// $theme-use-rails-pipeline: false !default;
-
-/*
-----------------------------------------
 Custom font definitions
 ----------------------------------------
 Add a new custom font definition if
