@@ -19,17 +19,6 @@
   }
 }
 
-.usa-hero-content {
-  @include u-margin-y(2);
-  @include at-media('mobile-lg') {
-    @include u-margin-y(3);
-  }
-
-  p {
-    @include typeset-p;
-  }
-}
-
 .usa-hero-heading {
   @include typeset-h2;
   color: color('accent-cool');
