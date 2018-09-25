@@ -8,6 +8,10 @@
 ) {
   $file-path: unquote($file-path);
 
+  // TODO: If $theme-use-rails-pipeline use font-url() statements
+  // instead of url()
+  // Dunno why I can't do this without an error...
+
   @font-face {
     font-family: unquote($font-family);
     font-style: unquote($font-style);
