@@ -1,6 +1,37 @@
-// scss-lint:disable QualifyingElement, PropertyCount
+// Helpers
 
-$input-state-border: 0.5;
+$box-input-size: 2.5;
+$box-input-border-width: 2px;
+$box-input-margin-right: 1.5;
+$input-state-border-width: 0.5;
+
+@mixin range-focus {
+  background-color: color('white');
+  box-shadow: 0 0 0 units(2px) color($theme-color-focus);
+}
+
+@mixin range-track {
+  background-color: color('base-lightest');
+  border-radius: radius('pill');
+  border: units(1px) solid color('base');
+  cursor: pointer;
+  height: units(2);
+  width: 100%;
+}
+
+@mixin range-thumb {
+  @include u-circle($box-input-size);
+  background: color('base-lightest');
+  border: none;
+  box-shadow: 0 0 0 units($box-input-border-width) color('base');
+  cursor: pointer;
+}
+
+@mixin range-ms-fill {
+  background-color: color('base-lightest');
+  border-radius: radius('pill');
+  border: units(1px) solid color('base');
+}
 
 // Block input elements
 .usa-fieldset,
@@ -33,7 +64,7 @@ $input-state-border: 0.5;
   width: 100%;
 
   &.usa-input-success {
-    @include u-border($input-state-border, 'success');
+    @include u-border($input-state-border-width, 'success');
   }
 }
 
@@ -55,7 +86,7 @@ $input-state-border: 0.5;
 }
 
 .usa-input-error {
-  @include u-border($input-state-border, 'error-dark');
+  @include u-border($input-state-border-width, 'error-dark');
 }
 
 .usa-input-error-label {
@@ -128,6 +159,16 @@ $input-state-border: 0.5;
 
 // Custom checkboxes
 
+@include override-prose {
+  .usa-input-list {
+    @include add-list-reset;
+
+    li {
+      line-height: line-height($theme-form-font-family, $theme-input-line-height);
+    }
+  }
+}
+
 .usa-checkbox-input,
 .usa-radio-input {
   // The actual input element is only visible to screen readers, because
@@ -149,6 +190,9 @@ $input-state-border: 0.5;
   display: inherit;
   font-weight: font-weight('normal');
   margin-bottom: units(1.5);
+  padding-left: units($box-input-margin-right + $box-input-size);
+  position: relative;
+  text-indent: units(-$box-input-margin-right - $box-input-size);
 }
 
 .usa-checkbox-label::before,
@@ -156,38 +200,35 @@ $input-state-border: 0.5;
   background: color('white');
   content: '\a0';
   display: inline-block;
-  text-indent: units(1);
+  left: units($box-input-border-width);
+  position: relative;
   vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
 }
 
 .usa-checkbox-label::before {
+  @include u-square($box-input-size);
   border-radius: radius($theme-checkbox-border-radius);
-  box-shadow: 0 0 0 2px color('base');
-  height: units(2.5);
-  line-height: units(2.5);
-  margin-left: 1px;
-  margin-right: units(1.5);
-  width: units(2.5);
 }
 
 .usa-radio-label::before {
-  border-radius: 100%;
-  box-shadow: 0 0 0 2px color('white'), 0 0 0 units(0.5) color('base');
-  height: units(2); // Size overrides to account for shape + checked styling
-  line-height: units(2);
-  margin-left: units(.5);
-  margin-right: units(1.5);
-  width: units(2);
+  @include u-circle($box-input-size);
+}
+
+.usa-checkbox-label::before,
+.usa-radio-label::before {
+  box-shadow: 0 0 0 units($box-input-border-width) color('base');
+  line-height: units($box-input-size);
+  margin-right: units($box-input-margin-right);
 }
 
 .usa-checkbox-input:checked + .usa-checkbox-label::before,
 .usa-radio-input:checked + .usa-radio-label::before {
   background-color: color('primary');
-  box-shadow: 0 0 0 2px color('primary');
+  box-shadow: 0 0 0 units($box-input-border-width) color('primary');
 }
 
 .usa-radio-input:checked + .usa-radio-label::before {
-  box-shadow: 0 0 0 2px color('white'), 0 0 0 4px color('primary');
+  box-shadow: 0 0 0 units($box-input-border-width) color('primary'), inset 0 0 0 units($box-input-border-width) color('white');
 }
 
 .usa-checkbox-input:checked + .usa-checkbox-label::before,
@@ -211,40 +252,11 @@ $input-state-border: 0.5;
 .usa-checkbox-input:disabled + .usa-checkbox-label::before,
 .usa-radio-input:disabled + .usa-radio-label::before {
   background: color('disabled-light');
-  box-shadow: 0 0 0 2px color('disabled');
+  box-shadow: 0 0 0 units($box-input-border-width) color('disabled');
   cursor: not-allowed;
 }
 
 // Range inputs
-
-@mixin range-focus {
-  background-color: color('white');
-  box-shadow: 0 0 0 units(2px) color($theme-color-focus);
-}
-
-@mixin range-track {
-  background-color: color('base-lightest');
-  border-radius: radius('pill');
-  border: 1px solid color('base');
-  cursor: pointer;
-  height: units(2);
-  width: 100%;
-}
-
-@mixin range-thumb {
-  @include u-circle(2.5);
-  background: color('base-lightest');
-  border: none;
-  box-shadow: 0 0 0 units(2px) color('base');
-  cursor: pointer;
-}
-
-@mixin range-ms-fill {
-  background-color: color('base-lightest');
-  border-radius: radius('pill');
-  border: 1px solid color('base');
-}
-
 .usa-range {
   appearance: none;
   border: none;

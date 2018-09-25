@@ -1,0 +1,8 @@
+@mixin override-prose {
+  @content;
+  @if $theme-content-styles == 'scoped' {
+    .usa-prose {
+      @content;
+    }
+  }
+}
