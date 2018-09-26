@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS THEME GENERAL SETTINGS
+USWDS GENERAL SETTINGS
 ----------------------------------------
 */
 
@@ -48,14 +48,12 @@ $theme-namespace: (
 Border box sizing
 ----------------------------------------
 When set to true, it sets the box-sizing
-property of all elements to
+property of all site elements to
 `border-box`.
-
-TODO: How are we using this?
 ----------------------------------------
 */
 
-$border-box-sizing: false;
+$theme-apply-global-border-box-sizing: false;
 
 /*
 ----------------------------------------
@@ -63,10 +61,10 @@ Focus styles
 ----------------------------------------
 */
 
-$theme-color-focus:  'blue-40v';
-$theme-offset-focus: 0;
-$theme-style-focus:  solid;
-$theme-width-focus:  0.5;
+$theme-focus-color:  'blue-40v';
+$theme-focus-offset: 0;
+$theme-focus-style:  solid;
+$theme-focus-width:  0.5;
 
 /*
 ----------------------------------------

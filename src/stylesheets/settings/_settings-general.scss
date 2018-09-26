@@ -48,14 +48,12 @@ $theme-namespace: (
 Border box sizing
 ----------------------------------------
 When set to true, it sets the box-sizing
-property of all elements to
+property of all site elements to
 `border-box`.
-
-TODO: How are we using this?
 ----------------------------------------
 */
 
-$border-box-sizing: false !default;
+$theme-apply-global-border-box-sizing: false !default;
 
 /*
 ----------------------------------------
@@ -63,10 +61,10 @@ Focus styles
 ----------------------------------------
 */
 
-$theme-color-focus:  'blue-40v' !default;
-$theme-offset-focus: 0 !default;
-$theme-style-focus:  solid !default;
-$theme-width-focus:  0.5 !default;
+$theme-focus-color:  'blue-40v' !default;
+$theme-focus-offset: 0 !default;
+$theme-focus-style:  solid !default;
+$theme-focus-width:  0.5 !default;
 
 /*
 ----------------------------------------
