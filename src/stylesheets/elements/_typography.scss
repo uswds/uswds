@@ -10,14 +10,6 @@ html {
   }
 }
 
-@if $theme-apply-global-border-box-sizing {
-  *,
-  *::after,
-  *::before {
-    box-sizing: border-box;
-  }
-}
-
 %usa-heading {
   @include typeset-heading;
 }
