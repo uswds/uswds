@@ -55,7 +55,6 @@ $input-state-border-width: 0.5;
   @include u-border(1px, 'base-dark');
   appearance: none;
   border-radius: 0;
-  box-sizing: border-box;
   color: color('ink'); // standardize on firefox
   display: block;
   height: units(5);
