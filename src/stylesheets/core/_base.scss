@@ -1,7 +1,7 @@
 // Apply a natural box layout model to all elements, but allowing components to
 // change
 
-@if $theme-apply-global-border-box-sizing {
+@if $theme-global-border-box-sizing {
   html {
     box-sizing: border-box;
   }
