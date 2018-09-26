@@ -7,7 +7,7 @@ $input-state-border-width: 0.5;
 
 @mixin range-focus {
   background-color: color('white');
-  box-shadow: 0 0 0 units(2px) color($theme-color-focus);
+  box-shadow: 0 0 0 units(2px) color($theme-focus-color);
 }
 
 @mixin range-track {
