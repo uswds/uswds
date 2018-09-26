@@ -19,7 +19,7 @@ Setting $theme-respect-user-font-size to
 true sets the root font size to 100% and
 uses ems for media queries
 ----------------------------------------
-$theme-font-size-root only applies when
+$theme-root-font-size only applies when
 $theme-respect-user-font-size is set to
 false.
 
@@ -33,7 +33,7 @@ Accepts true or false
 
 $theme-respect-user-font-size: true;
 
-// $theme-font-size-root only applies when
+// $theme-root-font-size only applies when
 // $theme-respect-user-font-size is set to
 // false.
 
@@ -43,7 +43,7 @@ $theme-respect-user-font-size: true;
 
 // Accepts values in px
 
-$theme-font-size-root: 10px;
+$theme-root-font-size: 10px;
 
 /*
 ----------------------------------------
@@ -222,7 +222,7 @@ $theme-font-weight-heavy:         false;
 
 /*
 ----------------------------------------
-Defaults
+General typography settings
 ----------------------------------------
 Type scale tokens
 ----------------------------------------
