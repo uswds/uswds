@@ -63,8 +63,9 @@
   }
 }
 
-// Extra specificity to override rules set in reset.css.
+// Extra specificity to override rules set in normalize.css.
 input[type=search] { /* stylelint-disable-line selector-no-qualifying-type */
+  box-sizing: border-box;
   appearance: none;
 }
 
@@ -74,6 +75,7 @@ input[type=search] { /* stylelint-disable-line selector-no-qualifying-type */
   border-bottom-right-radius: 0;
   border-right: none;
   border-top-right-radius: 0;
+  box-sizing: border-box;
   float: left;
   font-size: font-size($theme-search-font-family, 'xs');
   height: units(4);
