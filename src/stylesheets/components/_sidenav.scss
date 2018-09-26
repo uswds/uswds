@@ -1,4 +1,5 @@
 .usa-sidenav {
+  @include border-box-sizing;
   @include nav-list;
   @include typeset($theme-sidenav-font-family, 'sm', 3);
   border-bottom: units(1px) solid color('base-lighter');

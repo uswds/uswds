@@ -1,6 +1,7 @@
 // General footer styles
 
 .usa-footer {
+  @include border-box-sizing;
   @include typeset($theme-footer-font-family);
   overflow: hidden;
 }

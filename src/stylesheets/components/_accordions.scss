@@ -55,6 +55,7 @@ $accordion-border: units(0.5) solid color('base-lightest');
 .usa-accordion {
   @include accordion-list-styles;
   @include accordion-nested-list;
+  @include border-box-sizing;
   @include typeset($theme-accordion-font-family);
 
   + .usa-accordion,

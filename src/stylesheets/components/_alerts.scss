@@ -28,6 +28,7 @@ $icon-size: units(4);
 
 .usa-alert {
   @include typeset($theme-alert-font-family);
+  @include border-box-sizing;
 
   background-color: color('base-lightest');
   background-position: $h-padding $h-padding;

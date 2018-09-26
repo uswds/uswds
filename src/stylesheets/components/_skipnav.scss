@@ -1,4 +1,5 @@
 .usa-skipnav {
+  @include border-box-sizing;
   @include typeset;
   background: transparent;
   left: 0;

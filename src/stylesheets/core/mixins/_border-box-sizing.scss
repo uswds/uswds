@@ -1,4 +1,4 @@
-@mixin use-border-box-sizing {
+@mixin border-box-sizing {
   @if not $theme-apply-global-border-box-sizing {
     box-sizing: border-box;
 
@@ -9,5 +9,11 @@
     & *::before {
       box-sizing: inherit;
     }
+  }
+}
+
+@mixin this-border-box-sizing {
+  @if not $theme-apply-global-border-box-sizing {
+    box-sizing: border-box;
   }
 }

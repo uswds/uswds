@@ -40,6 +40,7 @@ $input-state-border-width: 0.5;
 .usa-select,
 .usa-range,
 .usa-form-hint {
+  @include border-box-sizing;
   @include typeset(
     $theme-form-font-family,
     $theme-body-font-size,

@@ -46,8 +46,8 @@
 @import 'utilities/z-index';
 
 // helper mixins
+@import 'border-box-sizing';
 @import 'override-prose';
-@import 'use-border-box-sizing';
 
 // general mixins
 @import 'add-bar';

@@ -11,6 +11,7 @@
     @include u-maxw($props);
   }
   @include add-responsive-site-margins;
+  @include this-border-box-sizing;
 }
 
 @mixin grid-row($props...) {
@@ -18,6 +19,7 @@
   $flex: append-important($grid-global, wrap);
   @include u-display($display);
   @include u-flex($flex);
+  @include this-border-box-sizing;
 }
 
 @mixin grid-gap-responsive {
@@ -43,6 +45,7 @@
   @include u-margin-x( unquote('#{$neg-prefix}-#{calc-gap-offset($gap-mobile)}'));
 
   > * {
+    @include this-border-box-sizing;
     @include u-padding-x(calc-gap-offset($gap-mobile));
   }
 
@@ -50,6 +53,7 @@
     @include u-margin-x( unquote('#{$neg-prefix}-#{calc-gap-offset($gap-desktop)}'));
 
     > * {
+      @include this-border-box-sizing;
       @include u-padding-x(calc-gap-offset($gap-desktop));
     }
   }
@@ -67,6 +71,7 @@
       @include u-margin-x(append-important($props, 0));
 
       > * {
+        @include this-border-box-sizing;
         @include u-padding-x(append-important($props, 0));
       }
     }
@@ -79,6 +84,7 @@
       }
       @include u-margin-x(append-important($props, unquote('#{$neg-prefix}-#{calc-gap-offset($gap)}')));
       > * {
+        @include this-border-box-sizing;
         @include u-padding-x(append-important($props, calc-gap-offset($gap)));
       }
     }
@@ -87,6 +93,8 @@
 
 @mixin grid-col($props...) {
   $props: unpack($props);
+  @include this-border-box-sizing;
+
   @if length($props) == 0 {
     @include u-flex(fill);
     @include u-width(auto);
