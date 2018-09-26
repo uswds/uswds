@@ -59,8 +59,6 @@ gulp.task('copy-vendor-sass', function () {
 
   var stream = gulp.src([
     './node_modules/normalize.css/normalize.css',
-    './node_modules/bourbon/app/assets/stylesheets/**/*.scss',
-    './node_modules/bourbon-neat/app/assets/stylesheets/**/*.scss',
   ])
     .pipe(normalizeCssFilter)
     .pipe(rename('_normalize.scss'))
