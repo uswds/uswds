@@ -1,0 +1,13 @@
+@mixin use-border-box-sizing {
+  @if not $theme-apply-global-border-box-sizing {
+    box-sizing: border-box;
+
+    &::after,
+    &::before,
+    & *,
+    & *::after,
+    & *::before {
+    box-sizing: border-box;
+    }
+  }
+}
