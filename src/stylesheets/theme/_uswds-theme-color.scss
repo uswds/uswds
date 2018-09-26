@@ -114,7 +114,13 @@ $theme-color-disabled-light:   '#{$theme-color-disabled-family}-10';
 $theme-color-disabled:         '#{$theme-color-disabled-family}-20';
 $theme-color-disabled-dark:    '#{$theme-color-disabled-family}-30';
 
-// Link colors
+/*
+----------------------------------------
+General colors
+----------------------------------------
+*/
+
+// Links
 $theme-link-color:             'primary';
 $theme-link-visited-color:     'violet-70v';
 $theme-link-hover-color:       'primary-darker';
