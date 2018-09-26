@@ -24,8 +24,9 @@
 }
 
 .usa-checklist {
-  @include typeset;
   @include add-list-reset;
+  @include border-box-sizing;
+  @include typeset;
   margin: 0;
 }
 

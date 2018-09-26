@@ -1,4 +1,5 @@
 .usa-tag {
+  @include border-box-sizing;
   @include u-font('ui', '2xs');
   @include u-text('white', 'uppercase');
   background-color: color('base-dark');

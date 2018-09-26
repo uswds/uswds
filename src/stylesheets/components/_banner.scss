@@ -1,5 +1,6 @@
 .usa-banner {
   @include typeset($theme-banner-font-family);
+  @include border-box-sizing;
   background-color: color('base-lightest');
 
   @include at-media('tablet') {

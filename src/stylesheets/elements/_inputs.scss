@@ -7,7 +7,7 @@ $input-state-border-width: 0.5;
 
 @mixin range-focus {
   background-color: color('white');
-  box-shadow: 0 0 0 units(2px) color($theme-color-focus);
+  box-shadow: 0 0 0 units(2px) color($theme-focus-color);
 }
 
 @mixin range-track {
@@ -40,6 +40,7 @@ $input-state-border-width: 0.5;
 .usa-select,
 .usa-range,
 .usa-form-hint {
+  @include border-box-sizing;
   @include typeset(
     $theme-form-font-family,
     $theme-body-font-size,
@@ -54,7 +55,6 @@ $input-state-border-width: 0.5;
   @include u-border(1px, 'base-dark');
   appearance: none;
   border-radius: 0;
-  box-sizing: border-box;
   color: color('ink'); // standardize on firefox
   display: block;
   height: units(5);

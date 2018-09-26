@@ -2,6 +2,7 @@
 // ==========================
 
 .usa-hero {
+  @include border-box-sizing;
   @include typeset;
   @include u-padding-y($theme-site-margins-width);
   background-image: url('#{$theme-image-path}/hero.png');

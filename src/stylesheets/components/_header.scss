@@ -29,8 +29,9 @@ $z-index-overlay: 400;
 // ---------------------------------
 
 .usa-header {
-  @include typeset($theme-header-font-family);
   @include clearfix;
+  @include typeset($theme-header-font-family);
+  @include border-box-sizing;
   z-index: z-index($z-index-header);
 
   a {

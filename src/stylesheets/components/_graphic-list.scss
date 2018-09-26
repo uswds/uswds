@@ -2,6 +2,7 @@
 
 .usa-graphic_list {
   @include typeset;
+  @include border-box-sizing;
 
   .usa-graphic_list-row {
     .usa-media_block {

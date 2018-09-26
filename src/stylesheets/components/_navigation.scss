@@ -35,6 +35,7 @@ $nav-link-arrow-icon-size: 1;
 // ---------------------------------
 
 .usa-navbar {
+  @include border-box-sizing;
   height: units($size-touch-target);
 
   @include at-media-max($theme-navigation-width) {

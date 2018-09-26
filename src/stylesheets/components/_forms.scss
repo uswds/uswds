@@ -4,6 +4,7 @@
     $theme-body-font-size,
     $theme-input-line-height
   );
+  @include border-box-sizing;
 }
 
 .usa-form {

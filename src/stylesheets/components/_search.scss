@@ -5,6 +5,7 @@
 }
 
 .usa-search {
+  @include border-box-sizing;
   @include clearfix;
   @include typeset($theme-search-font-family);
   position: relative;
@@ -62,7 +63,7 @@
   }
 }
 
-// Extra specificity to override rules set in reset.css.
+// Extra specificity to override rules set in normalize.css.
 input[type=search] { /* stylelint-disable-line selector-no-qualifying-type */
   box-sizing: border-box;
   appearance: none;

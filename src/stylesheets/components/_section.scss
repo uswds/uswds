@@ -1,4 +1,5 @@
 .usa-section {
+  @include border-box-sizing;
   @include u-padding-y($theme-site-margins-width);
 
   @include at-media('tablet') {
