@@ -62,15 +62,15 @@ Sets:
 }
 
 @mixin typeset-link {
-  color: color($theme-color-link);
+  color: color($theme-link-color);
   text-decoration: underline;
 
   &:hover {
-    color: color($theme-color-link-hover);
+    color: color($theme-link-hover-color);
   }
 
   &:active {
-    color: color($theme-color-link-active);
+    color: color($theme-link-active-color);
   }
 
   &:focus {
@@ -78,7 +78,7 @@ Sets:
   }
 
   &:visited {
-    color: color($theme-color-link-visited);
+    color: color($theme-link-visited-color);
   }
 }
 

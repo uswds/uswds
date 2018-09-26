@@ -12,41 +12,47 @@ USWDS COMPONENT SETTINGS
 */
 
 // Accordion
-$theme-accordion-font-family: 'body' !default;
+$theme-accordion-font-family:         'body' !default;
 
 // Alert
-$theme-alert-font-family: 'ui' !default;
-$theme-alert-measure: 3 !default;
+$theme-alert-font-family:             'ui' !default;
+$theme-alert-measure:                 3 !default;
 
 // Banner
-$theme-banner-font-family: 'ui' !default;
+$theme-banner-font-family:            'ui' !default;
 
 // Button
-$theme-button-font-family: 'ui' !default;
-$theme-button-border-radius: 'md' !default;
-$theme-button-small-width: 6 !default;
+$theme-button-font-family:            'ui' !default;
+$theme-button-border-radius:          'md' !default;
+$theme-button-small-width:            6 !default;
 
 // Footer
-$theme-footer-font-family: 'body' !default;
+$theme-footer-font-family:            'body' !default;
 
 // Form and input
-$theme-checkbox-border-radius: 'sm' !default;
-$theme-form-font-family: 'ui' !default;
-$theme-input-line-height: 3 !default;
-$theme-input-max-width: 'mobile-lg' !default;
+$theme-checkbox-border-radius:        'sm' !default;
+$theme-form-font-family:              'ui' !default;
+$theme-input-line-height:             3 !default;
+$theme-input-max-width:               'mobile-lg' !default;
 
 // Header
-$theme-header-font-family: 'ui' !default;
-$theme-megamenu-logo-text-width: 33% !default;
+$theme-header-font-family:            'ui' !default;
+$theme-megamenu-logo-text-width:      33% !default;
+
+// Links
+$theme-link-color:                    'primary' !default;
+$theme-link-visited-color:            'violet-70v' !default;
+$theme-link-hover-color:              'primary-darker' !default;
+$theme-link-active-color:             'primary-darker' !default;
 
 // Navigation
-$theme-navigation-font-family: 'ui' !default;
-$theme-navigation-width: 'desktop' !default;
+$theme-navigation-font-family:        'ui' !default;
+$theme-navigation-width:              'desktop' !default;
 
 // Search
-$theme-search-font-family: 'ui' !default;
-$theme-search-min-width: 27ch !default;
+$theme-search-font-family:            'ui' !default;
+$theme-search-min-width:              27ch !default;
 
 // Sidenav
-$theme-sidenav-current-border-width: 0.5 !default;
-$theme-sidenav-font-family: 'ui' !default;
+$theme-sidenav-current-border-width:  0.5 !default;
+$theme-sidenav-font-family:           'ui' !default;
