@@ -10,10 +10,6 @@ html {
   }
 }
 
-%usa-heading {
-  @include typeset-heading;
-}
-
 @mixin usa-typography-base-styles {
   p {
     @include typeset-p;
@@ -77,7 +73,6 @@ html {
   @include typeset($theme-prose-font-family);
 }
 
-/* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
 @mixin theme-content-styles {
   @if $theme-content-styles == 'scoped' {
     .usa-prose {
@@ -91,7 +86,6 @@ html {
     // Default nothing if it’s neither
   }
 }
-/* stylelint-enable */
 
 @include theme-global-styles-basic;
 @include theme-content-styles;
@@ -196,4 +190,8 @@ dfn {
       color: color('white');
     }
   }
+}
+
+%usa-heading {
+  @include typeset-heading;
 }
