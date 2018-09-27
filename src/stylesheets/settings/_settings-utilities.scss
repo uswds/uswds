@@ -618,11 +618,7 @@ $bottom-manual-values: () !default;
 
 // .box-shadow
 
-$box-shadow-palettes: (
-  /*
-  */
-  'palette-standard-box-shadow'
-) !default;
+$box-shadow-palettes: ('palette-standard-box-shadow') !default;
 
 $box-shadow-manual-values: () !default;
 
