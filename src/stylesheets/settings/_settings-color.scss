@@ -85,7 +85,7 @@ $theme-color-error-dark:       '#{$theme-color-error-family}-60v' !default;
 $theme-color-error-darker:     '#{$theme-color-error-family}-70v' !default;
 
 // Warning colors
-$theme-color-warning-family:   'gold' !default; // TODO: How can this be gold vivid?
+$theme-color-warning-family:   'gold' !default;
 $theme-color-warning-lighter:  '#{$theme-color-warning-family}-5v' !default;
 $theme-color-warning-light:    '#{$theme-color-warning-family}-10v' !default;
 $theme-color-warning:          '#{$theme-color-warning-family}-20v' !default;
