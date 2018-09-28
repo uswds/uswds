@@ -110,6 +110,7 @@
     "jsdom": "^9.0.0",
     "jsdom-global": "^2.1.0",
     "mocha": "^3.5.3",
+    "mem": "^4.0.0",
     "node-notifier": "^4.6.0",
     "node-sass": "^4.7.2",
     "normalize.css": "^3.0.3",
