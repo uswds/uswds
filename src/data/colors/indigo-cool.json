@@ -1,0 +1,40 @@
+{
+  "global": {
+    "category": "system-color-indigo-cool"
+  },
+  "props": [
+    {
+      "name": "indigo-cool",
+      "value": [
+        { "name": "5", "value": "#eef0f9" },
+        { "name": "10", "value": "#e1e6f9" },
+        { "name": "20", "value": "#bbc8f5" },
+        { "name": "30", "value": "#96abee" },
+        { "name": "40", "value": "#6b8ee8" },
+        { "name": "50", "value": "#496fd8" },
+        { "name": "60", "value": "#3f57a6" },
+        { "name": "70", "value": "#374274" },
+        { "name": "80", "value": "#292d42" },
+        { "name": "90", "value": "#151622" },
+        {
+          "name": "vivid",
+          "value": [
+            { "name": "5", "value": false },
+            { "name": "10", "value": false },
+            { "name": "20", "value": false },
+            { "name": "30", "value": false },
+            { "name": "40", "value": "#628ef4" },
+            { "name": "50", "value": false },
+            { "name": "60", "value": "#4150f2" },
+            { "name": "70", "value": false },
+            { "name": "80", "value": false },
+            { "name": "90", "value": false }
+          ]
+        }
+      ]
+    }
+  ],
+  "options": {
+    "file": "system-color"
+  }
+}
