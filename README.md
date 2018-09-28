@@ -70,7 +70,7 @@ There are a few different ways to use the Design System within your project. Whi
     After extracting the zip file you should see the following file and folder structure:
 
     ```
-    uswds-1.0.0/
+    uswds-2.0.0-beta/
     ├── css/
     │   ├── uswds.min.css.map
     │   ├── uswds.min.css
@@ -90,7 +90,7 @@ There are a few different ways to use the Design System within your project. Whi
     ```
     example-project/
     ├── assets/
-    │   ├── uswds-1.0.0/
+    │   ├── uswds-2.0.0-beta/
     │   ├── stylesheets/
     │   ├── images/
     │   └── javascript/
@@ -110,11 +110,11 @@ There are a few different ways to use the Design System within your project. Whi
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>My Example Project</title>
-      <link rel="stylesheet" href="assets/uswds-1.0.0/css/uswds.min.css">
+      <link rel="stylesheet" href="assets/uswds-2.0.0-beta/css/uswds.min.css">
     </head>
     <body>
 
-      <script src="assets/uswds-1.0.0/js/uswds.min.js"></script>
+      <script src="assets/uswds-2.0.0-beta/js/uswds.min.js"></script>
     </body>
     </html>
     ```
@@ -302,7 +302,7 @@ NOTE: If you plan on upgrading to newer versions of the Design System in the fut
 
 ## Browser support
 
-We’ve designed the Design System to support older and newer browsers through [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). The current major version of the Design System (1.0) is designed to support the newest versions of Chrome, Firefox, Safari, and Internet Explorer 9 and up. The next major release (2.0) will follow the [2% rule](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we will officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). Currently, this means that the Design System version 2.0 will support the newest versions of Chrome, Firefox, Safari, and Internet Explorer 11 and up.
+We’ve designed the Design System to support older and newer browsers through [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). The current major version of the Design System (2.0) follows the [2% rule](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). Currently, this means that the Design System version 2.0 supports the newest versions of Chrome, Firefox, Safari, and Internet Explorer 11 and up.
 
 
 ## Accessibility
