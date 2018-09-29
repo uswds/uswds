@@ -40,7 +40,7 @@ context:
       - title: Third Amendment
         id: a3
         content: |
-          <h3>A heading</h3><p>No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.</p>
+          <p>No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.</p>
       - title: Fourth Amendment
         id: a4
         content: |
