@@ -261,6 +261,14 @@ legend {
   cursor: not-allowed;
 }
 
+@media print {
+  [type=checkbox]:checked + label::before,
+  [type=checkbox]:checked:disabled + label::before {
+    content: url('#{$image-path}/correct8-alt.png');
+    content: url('#{$image-path}/correct8-alt.svg');
+  }
+}
+
 // Range inputs
 
 // Change to $color-focus in 2.0
