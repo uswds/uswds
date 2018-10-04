@@ -55,13 +55,11 @@ We’re glad you’d like to use the Design System — here’s how you can get 
 
 ## Using the Design System
 
-There are a few different ways to use the Design System within your project. Which one you choose depends on the needs of your project and how you are most comfortable working. Here are a few notes on what to consider when deciding which installation method to use:
+How you implement the Design System depends on the needs of your project and your workstyle. We recommend implementing the Design System with `npm`, but we also provide a direct download if `npm` will not work for you or your project.
 
-*Download the Design System if:*
-- You are not familiar with `npm` and package management.
+- **[Download the Design System](#download)** if you are not familiar with `npm` and package management.
 
-*Use the Design System `npm` package if:*
-- You are familiar with using `npm` and package management.
+- **[Use the Design System `npm` package](#install-using-npm)** if you are familiar with using `npm` and package management.
 
 ### Download
 
@@ -97,9 +95,9 @@ There are a few different ways to use the Design System within your project. Whi
     └── index.html
     ```
 
-    You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project.
+    You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project and separate from the design system assets.
 
-3. To use the Design System on your project, you’ll need to reference the [CSS (*C*ascading *S*tyle *S*heets)](https://developer.mozilla.org/en-US/docs/Web/CSS) and JavaScript files in each HTML page or dynamic templates in your project. (We also provide Sass (SCSS) files in the zip file which you can compile to CSS. See [Sass](#sass).)
+3. Reference the CSS and JavaScript files in each HTML page or dynamic templates in your project. We also provide Sass (.scss) files in the zip package which you can use to generate new CSS with project-specific settings. See [Sass](#sass) for more information.
 
     Here is an example of how to reference these assets in your `index.html` file:
 
@@ -119,13 +117,13 @@ There are a few different ways to use the Design System within your project. Whi
     </html>
     ```
 
-We offer both files, the CSS and the JavaScript, in two versions — a minified version, and an un-minified one. (In the examples above, we are using the minified files.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. And the un-minified files are better if you are in a development environment or would like to debug the CSS or JavaScript assets in the browser.
+We offer both the CSS and the JavaScript in two versions — minified and un-minified. (In the examples above, we are using the minified files.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. Use the un-minified files  if you are in a development environment or would like to debug the CSS or JavaScript assets in the browser.
 
 And that’s it — you should now be able to copy our code samples into your `index.html` and start using the Design System.
 
 ### Install using npm
 
-`npm` is a package manager for Node based projects. The U.S. Web Design System maintains a [`uswds` package](https://www.npmjs.com/package/uswds) for you to utilize both the pre-compiled and compiled files on your project.
+`npm` is a package manager for Node-based projects. The U.S. Web Design System maintains a [`uswds` package](https://www.npmjs.com/package/uswds) that includes both the pre-compiled and compiled files — just like the direct download. `npm` packages make it easy to update and install the design system from the command line.
 
 1. Install `Node/npm`. Below is a link to find the install method that coincides with your operating system:
 
@@ -145,10 +143,10 @@ And that’s it — you should now be able to copy our code samples into your `i
 4. Add `uswds` to your project’s `package.json`:
 
     ```shell
-    npm install --save uswds
+    npm install --save uswds@2.0.0-beta
     ```
 
-The `uswds` module is now installed as a dependency. You can use the un-compiled files found in the `src/` or the compiled files in the `dist/` directory.
+The `uswds` module is now installed as a dependency. You can use the un-compiled files found in the  `node_modules/uswds/dist/` directory.
 
 ```
 node_modules/uswds/
@@ -158,42 +156,81 @@ node_modules/uswds/
 │   ├── img/
 │   ├── js/
 │   └── scss/
-└── src/
-    |── components/
-    ├── fonts/
-    ├── img/
-    ├── js/
-    └── stylesheets/
 ```
 
-#### Importing assets
+**Note:** We do _not_ recommend directly editing the Design System files in `node_modules`. One of the benefits of using a package manager is its ease of upgrade and installation. If you make customizations to the files in the package, any upgrade or re-installation will wipe them out.
 
-Since you are already using `npm`, the U.S. Web Design System team recommends leveraging the ability to write custom scripts. Here are some links to how we do this with our docs website using `npm` + [`gulp`](http://gulpjs.com/):
+#### Using the USWDS package
 
-[Link to `npm` scripts example in `uswds-site`](https://github.com/uswds/uswds-site/blob/master/package.json#L28)
+If you want to take full advantage of USWDS custom settings and add build new styles and components with the USWDS toolset, you'll need a way to access the assets in the USWDS package and compile custom CSS from the USWDS source files.
 
-[Link to gulpfile.js example in `uswds-site`](https://github.com/uswds/uswds-site/blob/master/gulpfile.js)
+USWDS uses the task manager [Gulp](http://gulpjs.com/) as a way to add USWDS assets to a project and compile our CSS from the package source. Gulp is a useful and powerful tool, but it can be difficult to set up if you are new to it.
 
-#### Sass
+The [`uswds-gulp` repo](https://github.com/uswds/uswds-gulp) is made for developers new to Gulp or those who just want a simple setup to get started quickly. The repo contains files and instructions for installing Gulp 4.0 in your project, initializing USWDS, and compiling CSS from the source files.
 
-The Design System is easily customizable using the power of [Sass (Syntactically Awesome Style Sheets)](http://sass-lang.com/). The main Sass (SCSS) source file is located here:
+#### Sass and theme settings
+
+The Design System is easily customizable using the power of [Sass (Syntactically Awesome Style Sheets)](http://sass-lang.com/). The main Sass (.scss) source file is located here:
+
+The critical files you'll need in your project are those in `dist/scss/theme`:
 
 ```
-node_modules/uswds/src/stylesheets/uswds.scss
+scss
+├── components/
+├── core/
+├── elements/
+├── lib/
+├── packages/
+├── settings/
+├── theme/
+│   ├── _uswds-theme-color.scss
+│   ├── _uswds-theme-components.scss
+│   ├── _uswds-theme-custom-styles.scss
+│   ├── _uswds-theme-general.scss
+│   ├── _uswds-theme-spacing.scss
+│   ├── _uswds-theme-typography.scss
+│   ├── _uswds-theme-utilities.scss
+│   ├── _uswds-theme.scss
+│   ├── styles.scss
 ```
 
-Global variables are defined in the `node_modules/uswds/src/stylesheets/core/_variables.scss` file. Custom theming can be done by copying the `_variables.scss` file into your own project’s Sass folder, changing applicable variable values, and importing it before `uswds.scss`.
+- `_uswds-theme-color.scss`: theme color settings
+- `_uswds-theme-components.scss`: theme component settings
+- `_uswds-theme-custom-styles.scss`: additional project CSS for customizing or adding to what USWDS provides
+- `_uswds-theme-general.scss`: General theme settings
+- `_uswds-theme-spacing.scss`: Theme spacing settings
+- `_uswds-theme-typography.scss`: Theme typography settings
+- `_uswds-theme-utilities.scss`: Utility class output settings
+- `_uswds-theme.scss`: Collects all theme files together [**note:** _slated for deprecation by 2.0.0 Beta 2_]
+- `styles.scss`: The primary Sass file that you'll compile. It collects theme settings, USWDS source files, and custom CSS
 
-Below is an example of how you might setup your main Sass file to achieve this:
+`styles.css` looks something like the following: it's adds all the project theme settings, then adds USWDS source, and finally adds your project's custom styles:
 
 ```scss
-@import 'variables.scss'; # Custom Sass variables file
-@import 'node_modules/uswds/src/stylesheets/uswds.scss';
+@import 'uswds-theme-general';
+@import 'uswds-theme-typography';
+@import 'uswds-theme-spacing';
+@import 'uswds-theme-color';
+@import 'uswds-theme-utilities';
+@import 'uswds';
+@import 'uswds-theme-custom-styles';
 ```
 
-You can now use your copied version of `_variables.scss` to override any styles to create a more custom look and feel to your application.
+**Technical note:** The `@import 'uswds'` statement above needs to reference the `uswds.scss` file in `node_modules/uswds/dist/scss`. The gulpfile in  [`uswds-gulp`](https://github.com/uswds/uswds-gulp) is set up to do this automatically, using `gulp-sass` and `includePaths`.
 
-The Design System uses [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets (`css/uswds.min.css` and `css/uswds.css`) however prefixes will not be applied when using the Sass source files directly. If your project requires the use of Sass and vendor prefixes we recommend incorportaing a plugin such as [Autoprefixer](https://github.com/postcss/autoprefixer) into your build process.
+#### Sass compilation requirements
+
+The Design System requires both **autoprefixing** and **media query** packing to work properly. These are included in the [`uswds-gulp`](https://github.com/uswds/uswds-gulp) package.
+
+- **autoprefixing** uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. We use the following autoprefixer settings:
+
+```
+'> 1%','Last 2 versions', 'IE 11'
+```
+
+- **media query packing** collects all similar media queries together at the end of the compiled stylesheet. USWDS and `uswds-gulp` use [`css-mqpacker`](https://github.com/hail2u/node-css-mqpacker). This is necessary to provide the proper cascade and specificity for utility classes. If you are not implementing utility classes, media query packing may not be necessary — but it it still a good idea.
+
+Additionally, we recommend using a minifier like [`cssnano`](https://cssnano.co/) to compress your final compiled CSS and sourcemaps like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
 
 #### JavaScript
 `require('uswds')` will load all of the U.S. Web Design System’s JavaScript onto the page. Add this line to whatever initializer you use to load JavaScript into your application.
@@ -213,9 +250,9 @@ If you’re interested in maintaining a package that helps us distribute the U.S
 * Uses a **[modified BEM](https://frontend.18f.gov/css/naming/)** approach created by 18F for naming CSS selectors. Objects in CSS are separated by single dashes. Multi-word objects are separated by an underscore (For example: `.usa-button-cool_feature-active`).
 * Uses **modular CSS** for scalable, modular, and flexible code.
 * Uses **nesting** when appropriate. Nest minimally with up to two levels of nesting.
-* Hard-coded magic numbers are avoided and, if necessary, defined in the `core/variables` scss file.
+* Hard-coded magic numbers are avoided..
 * Media queries are built **mobile first**.
-* **Spacing units** are as much as possible defined as rem or em units so they scale appropriately with text size. Pixels can be used for detail work and should not exceed 5px (For example: 3px borders).
+* **Spacing units** are set with the `units()` function as described in [the USWDS 2.0 documentation](https://v2.designsystem.digital.gov/style/spacing-units/). In general, we use spacing in multiples of `8px` — expressed as a multiple in `units([multiple])`. For instance `units(2)` is the equivalent of `2 * 8px` or `16px`. In the final, compiled CSS, this value will be expressed in rem, as a multiple of the base font size set with `$theme-base-font-size`.
 
 **For more information, visit:**
 [18F’s CSS Front End Guide](https://frontend.18f.gov/css/)
@@ -242,62 +279,87 @@ Each component has a standardized interface that can be used to extend it furthe
 Some components have additional methods for manipulating specific aspects of them based on what they are and what they do. These can be found in the component's JS file.
 
 
-## Customization and theming
+## Customization, theming, and tokens
 
-The Design System can be customized to use different typography, colors and grid systems. The easiest way to do this is to use Sass and override the Design System’s global variables. If it isn’t possible to use Sass, do theming by overriding the CSS rules in the Design System set.
+USWDS 2.0 provides extensive support for theming via its theme settings files introduced in [Sass and theme settings](#sass-and-theme-settgings), above.
 
-To start theming through Sass, copy the `core/variables` file into your own project’s Sass folder, changing applicable variable values, and importing it before the WDS. Below is an example of customizing the import of the Design System's all.scss file.
+Set theme settings with USWDS style tokens, not with values directly. They tend to be quoted strings like `'desktop'` or `'md'` or unitless numbers like `2` or `-1.5`. Tokens are the values _passed into_ the USWDS functions and mixins that parse them. They are the _keys_ that, through the mechanism of a function or mixin, unlock a _value_ — they are not the values themselves.
 
-```scss
-// src/main.scss
-@import 'path/to/my/scss/files/main/scss/my-custom-vars';
-@import 'lib/uswds/src/stylesheets/all';
+Visit the [Style section](https://v2.designsystem.digital.gov/style/) of USWDS 2.0 documentation for more on the available tokens for [color](https://v2.designsystem.digital.gov/style/color), [spacing units](https://v2.designsystem.digital.gov/style/spacing-units), [typescale](https://v2.designsystem.digital.gov/style/typescale), and more.
+
+**Note:** These style tokens sections are still in progress in USWDS 2.0.0 Beta. We expect to finish them in October 2018.
+
+### Using tokens in theme settings
+The following is an example of theme settings from `_uswds-theme-spacing.scss`:
+
+```sass
+$theme-site-max-width:              'desktop';
+$theme-site-margins-breakpoint:     'desktop';
+$theme-site-margins-width:          4;
+$theme-site-margins-mobile-width:   2;
 ```
 
-```scss
-// path/to/my/scss/files/main/scss/my-custom_vars.scss
+The USWDS uses those tokens to build component styles:
 
-// Colors
-$color-primary: #2c3e50;
-$color-secondary: #ad2020;
-$color-secondary-dark: #b0392e;
+```sass
+.usa-example {
+  @include u-padding-x($theme-site-margins-mobile-width);
+  max-width: units($theme-site-max-width);
 
-// Typography
-$font-serif: 'Georgia', 'Times', serif;
-$h2-font-size: 2rem;
-$h3-font-size: 1.75rem;
-$heading-line-height: 1.4;
-
-// Grid/breakpoints
-$small-screen:  540px !default;
-$medium-screen: 620px !default;
-$large-screen:  1120px !default;
+  @include at-media($theme-site-margins-breakpoint) {
+    @include u-padding-x($theme-site-margins-width);
+  }
+}
 ```
 
-### Set the base asset path (fonts and images)
-If you copy the USWDS `dist` directory to a folder on your project or your fonts and images are in the same folder, set the location of the directory with `$asset-path: path/to/my/assets/`. The default is set to `$asset-path: ../`. This will be appended to the font and image path variables so you only need to set this variable. You can also set the font and image paths individually:
+This is the functional equivalent of:
+
+```sass
+.usa-example {
+  @include u-padding-x(2);
+  max-width: units('desktop');
+
+  @include at-media('desktop') {
+    @include u-padding-x(4);
+  }
+}
+```
+
+
+Which, if `$theme-respect-user-font-size` is set to `true` would output  something like:
+
+```css
+.usa-example {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 64rem;
+}
+
+@media screen and (min-width: 64em) {
+  .usa-example {
+    padding-left: 2rem;
+    padding-right: 2rem;    
+  }
+}
+```
+
+In general, USWDS sets **variables** with **tokens**, and passes those variables into **functions and mixins** in the source Sass.
+
+### Set the base asset paths (fonts and images)
+The values of `$theme-font-path` and `$theme-image-path` will be appended to USWDS font paths and image paths, respectively:
 
 ```
-$theme-font-path: path/to/my/fonts;
-$theme-image-path: path/to/my/images;
+$theme-font-path:   '../fonts';
+$theme-image-path:  '../img';
 ```
-
-NOTE: If you plan on upgrading to newer versions of the Design System in the future, or are not using your own forked version of the Design System, try to avoid making changes in the Design System folder itself. Doing so could make it impossible to upgrade in the future without undoing your custom changes.
-
-### Main variables that can be customized
-* Colors can be found in the `core/variables` [file, line 35](https://github.com/uswds/uswds/blob/develop/src/stylesheets/core/_variables.scss#L35).
-* Font families can be found in the `core/variables` [file, line 28](https://github.com/uswds/uswds/blob/develop/src/stylesheets/core/_variables.scss#L28).
-* Typography sizing can be found in `core/variables` [file, line 13](https://github.com/uswds/uswds/blob/develop/src/stylesheets/core/_variables.scss#L13).
-* Grid and breakpoint settings can be found in `core/variables` [file, line 87](https://github.com/uswds/uswds/blob/develop/src/stylesheets/core/_variables.scss#L87).
-
 
 ## Where things live
 
-* **HTML** markup for the components is located in: `src/html` in the site root.
-* **Sass** styles are located in: `src/stylesheets/ (/core, /elements, /components)`. **Compiled CSS** is located in the [downloadable zip file](https://github.com/uswds/uswds/releases/latest).
+* **HTML** markup for the components is located in: `src/components` in the site root. These, however, are written in the templating language Nunjucks. It's best to get HTML source markup directly from [v2.designsystem.digital.gov/components](https://v2.designsystem.digital.gov/components)
+* **Sass** stylesheets are located in: `dist/scss/ (/core, /elements, /components)`. **Compiled CSS** is located in the [downloadable zip file](https://github.com/uswds/uswds/releases/latest).
 * **JS** is located in: `src/js (/components, /utils)`.
-* **Fonts** are located in: `src/fonts`.
-* **Images** and icons are located in: `src/img`.
+* **Fonts** are located in: `dist/fonts`.
+* **Images** and icons are located in: `dist/img`.
 
 
 ## Browser support
