@@ -39,14 +39,17 @@
   },
   "author": "18F",
   "contributors": [
+    "Shawn Allen <shawn.allen@gsa.gov>",
     "Maya Benari <maya.ben-ari@gsa.gov>",
-    "Marco Segreto <marco.segreto@gsa.gov>",
+    "Adam Biagianti <adam.biagianti@gsa.gov>",
+    "John Donmoyer <john.donmoyer@gsa.gov>",
+    "Julia Elman <julia.elman@gsa.gov>",
+    "Brian Hurst <brian.hurst@gsa.gov>",
     "Jeremia Kimelman <jeremia.kimelman@gsa.gov>",
     "Roger Steve Ruiz <roger.ruiz@gsa.gov>",
-    "Julia Elman <julia.elman@gsa.gov>",
-    "Shawn Allen <shawn.allen@gsa.gov>",
+    "Marco Segreto <marco.segreto@gsa.gov>",
     "Atul Varma <atul.varma@gsa.gov>",
-    "John Donmoyer <john.donmoyer@gsa.gov>"
+    "Dan O. Williams <daniel.williams@gsa.gov>"
   ],
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
