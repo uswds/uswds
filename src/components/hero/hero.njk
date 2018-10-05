@@ -2,19 +2,17 @@
   <div class="grid-container">
     <div class="usa-hero-callout">
       <h2 class="usa-hero-heading">
-        {% if hero.callout %}
+        {%- if hero.callout -%}
           <span class="usa-hero-callout-alt">{{ hero.callout }}</span>
-        {% endif %}
+        {%- endif -%}
         {{ hero.title }}
       </h2>
-
-      {% if hero.paragraph %}
+      {%- if hero.paragraph -%}
         <p>{{ hero.paragraph }}</p>
-      {% endif %}
-
-      {% if hero.button %}
+      {%- endif -%}
+      {%- if hero.button -%}
         <a class="usa-button" href="{{ hero.button.href }}">{{ hero.button.text }}</a>
-      {% endif %}
+      {%- endif %}
     </div>
   </div>
 </section>

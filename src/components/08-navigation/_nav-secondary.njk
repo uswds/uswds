@@ -1,14 +1,12 @@
 <div class="usa-nav-secondary">
   <ul class="usa-nav-secondary-links">
-    {% for link in nav.links %}
+    {%- for link in nav.links -%}
     <li class="usa-nav-secondary-item">
-      <a href="{{ link.href }}"{% if link.current %} class="usa-current"{% endif %}>
-        {{ link.text }}
-      </a>
+      <a href="{{ link.href }}"{% if link.current %} class="usa-current"{% endif %}>{{ link.text }}</a>
     </li>
-    {% endfor %}
+    {%- endfor -%}
   </ul>
-  {% if nav.search %}
+  {%- if nav.search -%}
     {% render '@search--header', {search: nav.search, search_js: false, id_prefix: id_prefix} %}
-  {% endif %}
+  {%- endif -%}
 </div>
