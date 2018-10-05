@@ -22,8 +22,7 @@ $button-stroke: inset 0 0 0 units(2px);
   }
 }
 
-.usa-button,
-.usa-button:visited {
+.usa-button {
   @include border-box-sizing;
   @include typeset($theme-button-font-family, null, 1);
   @include add-knockout-font-smoothing;
