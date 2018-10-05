@@ -294,6 +294,15 @@ $system-properties: (
       'ls-3':	      .15em,
     ),
     extended: (),
+    function: (
+      'auto':	      initial,
+      -3:	          -.03em,
+      -2:	          -.02em,
+      -1:	          -.01em,
+      1:	          .05em,
+      2:	          .1em,
+      3:	          .15em,
+    ),
   ),
   line-height: (
     standard: (
