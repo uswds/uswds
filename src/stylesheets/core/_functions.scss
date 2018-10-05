@@ -1063,6 +1063,15 @@ system letter-spacing
 */
 
 @function letter-spacing($value) {
+  $lh-map: map-get($system-properties, letter-spacing);
+  $fn-map: map-get($lh-map, function);
+  @if map-has-key($fn-map, $value) {
+    @return map-get($fn-map, $value);
+  }
+  @if type-of($value) == 'number' {
+    @error '`#{$value}` is a not a valid letter-spacing token. '
+      + 'Valid letter-spacing tokens: #{map-keys($fn-map)}';
+  }
   @return get-uswds-value(letter-spacing, $value);
 }
 
