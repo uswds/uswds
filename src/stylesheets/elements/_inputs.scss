@@ -266,6 +266,7 @@ legend {
   [type=checkbox]:checked:disabled + label::before {
     content: url('#{$image-path}/correct8-alt.png');
     content: url('#{$image-path}/correct8-alt.svg');
+    text-indent: 0;
   }
 }
 
