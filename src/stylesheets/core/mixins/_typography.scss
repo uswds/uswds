@@ -65,19 +65,19 @@ Sets:
   color: color($theme-link-color);
   text-decoration: underline;
 
-  &:not(.usa-button):hover {
+  &:hover {
     color: color($theme-link-hover-color);
   }
 
-  &:not(.usa-button):active {
+  &:active {
     color: color($theme-link-active-color);
   }
 
-  &:not(.usa-button):focus {
+  &:focus {
     @include focus-outline;
   }
 
-  &:not(.usa-button):visited {
+  &:visited {
     color: color($theme-link-visited-color);
   }
 }
