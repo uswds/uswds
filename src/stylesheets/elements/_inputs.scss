@@ -264,6 +264,7 @@ legend {
 @media print {
   [type=checkbox]:checked + label::before,
   [type=checkbox]:checked:disabled + label::before {
+    background-color: $color-white;
     content: url('#{$image-path}/correct8-alt.png');
     content: url('#{$image-path}/correct8-alt.svg');
     text-indent: 0;
