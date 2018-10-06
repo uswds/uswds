@@ -55,6 +55,7 @@ $button-stroke: inset 0 0 0 units(2px);
   &:active,
   &.usa-button-active {
     background-color: color('primary-darker');
+    color: color('white');
   }
 
   &:focus,
@@ -64,6 +65,10 @@ $button-stroke: inset 0 0 0 units(2px);
 
   &:disabled {
     @include button-disabled;
+  }
+
+  &:visited {
+    color: color('white');
   }
 }
 
@@ -83,6 +88,14 @@ $button-stroke: inset 0 0 0 units(2px);
     @include add-knockout-font-smoothing;
     background-color: color('accent-cool-darker');
     color: color('white');
+  }
+
+  &:visited {
+    color: color('ink');
+    &:hover,
+    &:active {
+      color: color('white');
+    }
   }
 }
 
@@ -105,6 +118,18 @@ $button-stroke: inset 0 0 0 units(2px);
     box-shadow: $button-stroke color('primary-darker');
     color: color('primary-darker');
   }
+
+  &:visited {
+    color: color('primary');
+
+    &:hover {
+      color: color('primary-dark');
+    }
+
+    &:active {
+      color: color('primary-darker');
+    }
+  }
 }
 
 .usa-button-outline-inverse {
@@ -124,6 +149,18 @@ $button-stroke: inset 0 0 0 units(2px);
     background: transparent;
     box-shadow: $button-stroke color('white');
     color: color('white');
+  }
+
+  &:visited {
+    color: color('base-lighter');
+
+    &:hover {
+      color: color('base-lightest');
+    }
+
+    &:active {
+      color: color('white');
+    }
   }
 }
 
