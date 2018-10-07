@@ -44,6 +44,10 @@ $button-stroke: inset 0 0 0 units(2px);
     width: auto;
   }
 
+  &:visited {
+    color: color('white');
+  }
+
   &:hover,
   &.usa-button-hover {
     background-color: color('primary-dark');
@@ -66,10 +70,6 @@ $button-stroke: inset 0 0 0 units(2px);
   &:disabled {
     @include button-disabled;
   }
-
-  &:visited {
-    color: color('white');
-  }
 }
 
 .usa-button-accent-cool {
@@ -77,10 +77,15 @@ $button-stroke: inset 0 0 0 units(2px);
   background-color: color('accent-cool');
   color: color('ink');
 
+  &:visited {
+    color: color('ink');
+  }
+
   &:hover,
   &.usa-button-hover {
     @include add-knockout-font-smoothing;
     background-color: color('accent-cool-dark');
+    color: color('white');
   }
 
   &:active,
@@ -89,14 +94,6 @@ $button-stroke: inset 0 0 0 units(2px);
     background-color: color('accent-cool-darker');
     color: color('white');
   }
-
-  &:visited {
-    color: color('ink');
-    &:hover,
-    &:active {
-      color: color('white');
-    }
-  }
 }
 
 .usa-button-outline {
@@ -104,6 +101,10 @@ $button-stroke: inset 0 0 0 units(2px);
   background-color: color('white');
   box-shadow: $button-stroke color('primary');
   color: color('primary');
+
+  &:visited {
+    color: color('primary');
+  }
 
   &:hover,
   &.usa-button-hover {
@@ -118,24 +119,16 @@ $button-stroke: inset 0 0 0 units(2px);
     box-shadow: $button-stroke color('primary-darker');
     color: color('primary-darker');
   }
-
-  &:visited {
-    color: color('primary');
-
-    &:hover {
-      color: color('primary-dark');
-    }
-
-    &:active {
-      color: color('primary-darker');
-    }
-  }
 }
 
 .usa-button-outline-inverse {
   background: transparent;
   box-shadow: $button-stroke color('base-lighter');
   color: color('base-lighter');
+
+  &:visited {
+    color: color('base-lighter');
+  }
 
   &:hover,
   &.usa-button-hover {
@@ -149,18 +142,6 @@ $button-stroke: inset 0 0 0 units(2px);
     background: transparent;
     box-shadow: $button-stroke color('white');
     color: color('white');
-  }
-
-  &:visited {
-    color: color('base-lighter');
-
-    &:hover {
-      color: color('base-lightest');
-    }
-
-    &:active {
-      color: color('white');
-    }
   }
 }
 
