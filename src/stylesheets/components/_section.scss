@@ -3,7 +3,7 @@
   @include u-padding-y($theme-site-margins-width);
 
   @include at-media('tablet') {
-    @include u-padding-y(units(8));
+    @include u-padding-y(8);
   }
 }
 
