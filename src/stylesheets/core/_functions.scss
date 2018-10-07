@@ -779,9 +779,9 @@ functions and mixins.
 
   @if map-has-key($our-extended-values, $quoted-value) {
     @if $theme-show-compile-warnings {
-    @warn '`#{$value}` is an extended USWDS `#{$property}` token. '
-      + 'This is OK, but only components built with standard tokens can be accepted back into the system. '
-      + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+      @warn '`#{$value}` is an extended USWDS `#{$property}` token. '
+        + 'This is OK, but only components built with standard tokens can be accepted back into the system. '
+        + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
     }
 
     @return map-get($our-extended-values, $quoted-value);
