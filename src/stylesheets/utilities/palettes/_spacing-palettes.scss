@@ -8,16 +8,16 @@ in utilities
 ----------------------------------------
 */
 
-$palette-spacing-uswds:(
-  'palette-spacing-uswds-smaller': map-get($system-spacing, smaller),
-  'palette-spacing-uswds-small':   map-get($system-spacing, small),
-  'palette-spacing-uswds-medium':  map-get($system-spacing, medium),
-  'palette-spacing-uswds-large':   map-get($system-spacing, large),
-  'palette-spacing-uswds-larger':  map-get($system-spacing, larger),
-  'palette-spacing-uswds-largest': map-get($system-spacing, largest),
-  'palette-spacing-uswds-smaller-negative': map-get($system-spacing, smaller-negative),
-  'palette-spacing-uswds-small-negative': map-get($system-spacing, small-negative),
-  'palette-spacing-uswds-all': map-collect(
+$palette-spacing-system:(
+  'palette-spacing-system-smaller': map-get($system-spacing, smaller),
+  'palette-spacing-system-small':   map-get($system-spacing, small),
+  'palette-spacing-system-medium':  map-get($system-spacing, medium),
+  'palette-spacing-system-large':   map-get($system-spacing, large),
+  'palette-spacing-system-larger':  map-get($system-spacing, larger),
+  'palette-spacing-system-largest': map-get($system-spacing, largest),
+  'palette-spacing-system-smaller-negative': map-get($system-spacing, smaller-negative),
+  'palette-spacing-system-small-negative': map-get($system-spacing, small-negative),
+  'palette-spacing-system-all': map-collect(
     map-get($system-spacing, smaller),
     map-get($system-spacing, small),
     map-get($system-spacing, medium),
@@ -25,11 +25,11 @@ $palette-spacing-uswds:(
     map-get($system-spacing, larger),
     map-get($system-spacing, largest)
   ),
-  'palette-spacing-uswds-negative': map-collect(
+  'palette-spacing-system-negative': map-collect(
     map-get($system-spacing, smaller-negative),
     map-get($system-spacing, small-negative)
   ),
-  'palette-spacing-uswds-breakpoints': map-collect(
+  'palette-spacing-system-breakpoints': map-collect(
     map-get($system-spacing, large),
     map-get($system-spacing, larger),
     map-get($system-spacing, largest)
