@@ -261,6 +261,17 @@ legend {
   cursor: not-allowed;
 }
 
+@media print {
+  [type=checkbox]:checked + label::before,
+  [type=checkbox]:checked:disabled + label::before {
+    background-image: none;
+    background-color: $color-white;
+    content: url('#{$image-path}/correct8-alt.png');
+    content: url('#{$image-path}/correct8-alt.svg');
+    text-indent: 0;
+  }
+}
+
 // Range inputs
 
 // Change to $color-focus in 2.0
