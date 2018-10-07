@@ -9,16 +9,16 @@ available utility palettes
 
 $palette-registry: map-collect(
   $palette-spacing-units,
-  $palette-spacing-uswds,
+  $palette-spacing-system,
   $palette-font-theme-mono,
   $palette-font-theme-sans,
   $palette-font-theme-serif,
   $palette-font-theme-all,
   $palette-font-theme-roles-all,
-  $palette-font-uswds-mono,
-  $palette-font-uswds-sans,
-  $palette-font-uswds-serif,
-  $palette-font-uswds-all,
+  $palette-font-system-mono,
+  $palette-font-system-sans,
+  $palette-font-system-serif,
+  $palette-font-system-all,
   $palette-font-misc,
   $palette-all-color-palettes,
   $palette-black-transparent,
@@ -46,6 +46,6 @@ $palette-registry: map-collect(
   $palette-violet,
   $palette-white-transparent,
   $palette-yellow,
-  $palette-colors-uswds-all,
+  $palette-colors-system-all,
   $palette-standard
 );

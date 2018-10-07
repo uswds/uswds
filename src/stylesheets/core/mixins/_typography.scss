@@ -89,7 +89,7 @@ Sets:
     $theme-heading-line-height
   );
 
-  font-weight: fw($theme-font-weight-bold);
+  font-weight: fw('bold');
 }
 
 @mixin typeset-title {
@@ -104,7 +104,7 @@ Sets:
     $theme-heading-line-height
   );
 
-  font-weight: fw($theme-font-weight-bold);
+  font-weight: fw('bold');
 }
 
 @mixin typeset-h1 {
@@ -119,7 +119,7 @@ Sets:
     $theme-heading-line-height
   );
 
-  font-weight: fw($theme-font-weight-bold);
+  font-weight: fw('bold');
 }
 
 @mixin typeset-h2 {
@@ -134,7 +134,7 @@ Sets:
     $theme-heading-line-height
   );
 
-  font-weight: fw($theme-font-weight-bold);
+  font-weight: fw('bold');
 }
 
 @mixin typeset-h3 {
@@ -149,7 +149,7 @@ Sets:
     $theme-heading-line-height
   );
 
-  font-weight: fw($theme-font-weight-bold);
+  font-weight: fw('bold');
 }
 
 @mixin typeset-h4 {
@@ -164,7 +164,7 @@ Sets:
     $theme-heading-line-height
   );
 
-  font-weight: fw($theme-font-weight-bold);
+  font-weight: fw('bold');
 }
 
 @mixin typeset-h5 {
@@ -179,7 +179,7 @@ Sets:
     $theme-heading-line-height
   );
 
-  font-weight: fw($theme-font-weight-normal);
+  font-weight: fw('normal');
   letter-spacing: ls('ls-1');
   text-transform: uppercase;
 }
