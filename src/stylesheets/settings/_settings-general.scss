@@ -24,6 +24,17 @@ $theme-image-path:  '../img' !default;
 
 /*
 ----------------------------------------
+Show compile warnings
+----------------------------------------
+Show Sass warnings when functions and
+mixins use nonstanard or false tokens.
+----------------------------------------
+*/
+
+$theme-show-compile-warnings: true !default;
+
+/*
+----------------------------------------
 Namespace
 ----------------------------------------
 */
