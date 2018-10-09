@@ -66,13 +66,13 @@ Output all USWDS
 @import 'components/sidenav';
 @import 'components/skipnav';
 
+// Layout grid
+// -------------------------------------
+@import 'core/layout-grid';
+
 // Utilities
 // -------------------------------------
 @import 'utilities/palettes/all';
 @import 'utilities/rules/all';
 @import 'utilities/rules/package';
 @include render-utilities-in($utilities-package);
-
-// Layout grid
-// -------------------------------------
-@import 'core/layout-grid';
