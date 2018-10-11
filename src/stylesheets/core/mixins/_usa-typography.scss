@@ -1,0 +1,58 @@
+@mixin usa-typography-base-styles {
+  p {
+    @include typeset-p;
+  }
+
+  a {
+    @include typeset-link;
+  }
+}
+
+@mixin usa-headings-styles {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @extend %usa-heading;
+  }
+
+  h1 {
+    @include h1;
+  }
+
+  h2 {
+    @include h2;
+  }
+
+  h3 {
+    @include h3;
+  }
+
+  h4 {
+    @include h4;
+  }
+
+  h5 {
+    @include h5;
+  }
+
+  h6 {
+    @include h6;
+  }
+}
+
+// Basic typography styles (paragraph text and links)
+@mixin theme-global-styles-basic {
+  @if $theme-global-styles-basic == true {
+    @include usa-typography-base-styles;
+  }
+}
+
+@mixin usa-content-styles {
+  @include usa-typography-base-styles;
+  @include usa-headings-styles;
+  @include usa-list-styles;
+  @include usa-table-styles;
+}

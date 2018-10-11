@@ -1,28 +1,3 @@
-// Mixins here becuase they may be abstracted in the future
-
-@mixin add-checkbox-placeholder {
-  $placeholder-width: units(3);
-  $placeholder-margin: units(0.5);
-
-  text-indent: ($placeholder-width + $placeholder-margin) * -1;
-
-  &::before {
-    content: ' ';
-    display: inline-block;
-    height: units(1.5);
-    margin-right: $placeholder-margin;
-    width: $placeholder-width;
-  }
-}
-
-@mixin add-green-check {
-  &::before {
-    @include add-background-svg('correct9');
-    background-position: 100%;
-    background-size: 100%;
-  }
-}
-
 .usa-checklist {
   @include add-list-reset;
   @include border-box-sizing;
@@ -39,6 +14,6 @@
   &.is-checked,
   // Deprecate usa-checklist-checked once the js is updated
   &.usa-checklist-checked {
-    @include add-green-check;
+    @include add-success-mark;
   }
 }

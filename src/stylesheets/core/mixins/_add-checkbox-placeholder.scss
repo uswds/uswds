@@ -1,0 +1,14 @@
+@mixin add-checkbox-placeholder {
+  $placeholder-width: units(3);
+  $placeholder-margin: units(0.5);
+
+  text-indent: ($placeholder-width + $placeholder-margin) * -1;
+
+  &::before {
+    content: ' ';
+    display: inline-block;
+    height: units(1.5);
+    margin-right: $placeholder-margin;
+    width: $placeholder-width;
+  }
+}

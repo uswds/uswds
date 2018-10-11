@@ -1,0 +1,5 @@
+@mixin usa-table-styles {
+  table {
+    @extend %usa-table;
+  }
+}
