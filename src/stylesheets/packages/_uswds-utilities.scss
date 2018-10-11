@@ -31,13 +31,13 @@ project
 // -------------------------------------
 // Not included
 
+// Layout grid
+// -------------------------------------
+// Not included
+
 // Utilities
 // -------------------------------------
 @import '../utilities/palettes/all';
 @import '../utilities/rules/all';
 @import '../utilities/rules/package';
 @include render-utilities-in($utilities-package);
-
-// Layout grid
-// -------------------------------------
-// Not included

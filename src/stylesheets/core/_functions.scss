@@ -481,15 +481,15 @@ withholds certain errors.
 
 @function utility-font($family, $scale) {
   @if not map-has-key($project-cap-heights, $family) {
-    @error '#{$family} is not a valid font family. '
-      + 'Valid values: #{map-keys($project-cap-heights)}';
+    @error '#{$family} is not a valid font family token. '
+      + 'Valid tokens: #{map-keys($project-cap-heights)}';
   }
 
   $quote-scale: smart-quote($scale);
 
   @if not map-get($all-type-scale, $quote-scale) {
-    @error '`#{$scale}` is not a valid font scale. '
-      + 'Valid values: #{map-keys($all-type-scale)}';
+    @error '`#{$scale}` is not a valid font scale token. '
+      + 'Valid tokens: #{map-keys($all-type-scale)}';
   }
 
   $this-cap: map-get($project-cap-heights, $family);
@@ -516,7 +516,7 @@ a family and a line-height scale unit
   $props: unpack($props);
 
   @if not length($props) == 2 {
-    @error 'lh() needs both a valid face and line height unit '
+    @error 'lh() needs both a valid face and line height token '
       + 'in the format `lh(FACE, HEIGHT)`.';
   }
 
@@ -524,13 +524,13 @@ a family and a line-height scale unit
   $scale: smart-quote(nth($props, 2));
 
   @if not map-has-key($project-cap-heights, $family) {
-    @error '#{$family} is not a valid font family. '
-      + 'Valid values: #{map-keys($project-cap-heights)}';
+    @error '#{$family} is not a valid font family token. '
+      + 'Valid tokens: #{map-keys($project-cap-heights)}';
   }
 
   @if not map-get($system-line-height, $scale) {
-    @error '`#{$scale}` is not a valid line-height unit. '
-      + 'Valid values: #{map-keys($system-line-height)}';
+    @error '`#{$scale}` is not a valid line-height token. '
+      + 'Valid tokens: #{map-keys($system-line-height)}';
   }
 
   @if not map-get($project-cap-heights, $family) {
@@ -637,8 +637,8 @@ Get a value from the system type scale
   }
 
   @if not map-has-key($system-type-scale, $scale) {
-    @error '`#{$scale}` is not a valid type scale value. '
-      + 'Valid values: #{map-keys($system-type-scale)}';
+    @error '`#{$scale}` is not a valid type scale token. '
+      + 'Valid tokens: #{map-keys($system-type-scale)}';
   }
 
   @return map-get($system-type-scale, $scale);
@@ -659,14 +659,14 @@ grid.
   $gap-size: smart-quote($gap-size);
 
   @if not map-has-key($spacing-to-value, $gap-size) {
-    @error '`#{$gap-size}` is not a valid USWDS gap size.';
+    @error '`#{$gap-size}` is not a valid USWDS gap size token.';
   }
 
   $numeric-eq: map-get($spacing-to-value, $gap-size);
   $numeric-eq-half: inspect($numeric-eq / 2);
 
   @if not map-has-key($spacing-to-token, $numeric-eq-half) {
-    @error '`#{$gap-size}` is not a valid USWDS gap size. '
+    @error '`#{$gap-size}` is not a valid USWDS gap size token. '
       + 'Column gaps need to have a standard size half their width.';
   }
 
@@ -764,11 +764,12 @@ functions and mixins.
     $output: map-get($our-standard-values, $quoted-value);
 
     @if not $output {
-      // TODO: reinstate
-      // @warn '`#{$value}` is set as a `false` value '
-      //     + 'for the #{$property} property in your project settings '
-      //     + 'and will not output properly. '
-      //     + 'Set the value of `#{$value}` in project settings.';
+      @if $theme-show-compile-warnings {
+        @warn '`#{$value}` is set as a `false` value '
+          + 'for the #{$property} property in your project settings '
+          + 'and will not output properly. '
+          + 'Set the value of `#{$value}` in project settings.';
+      }
 
       @return map-get($our-standard-values, $quoted-value);
     }
@@ -777,25 +778,27 @@ functions and mixins.
   }
 
   @if map-has-key($our-extended-values, $quoted-value) {
-    // TODO: reinstate
-    // @warn '`#{$value}` is an extended USWDS `#{$property}` unit. '
-    //     + 'This is OK, but only components built with standard values can be accepted back into the system. '
-    //     + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+    @if $theme-show-compile-warnings {
+      @warn '`#{$value}` is an extended USWDS `#{$property}` token. '
+        + 'This is OK, but only components built with standard tokens can be accepted back into the system. '
+        + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+    }
 
     @return map-get($our-extended-values, $quoted-value);
   }
 
   @if not (type-of($value) == 'number' and not unitless($value)) {
-    @error '`#{$value}` is not a valid `#{$property}` value. '
-      + 'You should correct this. Standard `#{$property}` values: '
+    @error '`#{$value}` is not a valid `#{$property}` token. '
+      + 'You should correct this. Standard `#{$property}` tokens: '
       + ' #{map-keys($our-standard-values)}';
   }
 
-  // TODO: reinstate
-  // @warn '`#{$value}` is not a USWDS `#{$property}` unit. '
-  //     + 'This is OK, but only components built with standard '
-  //     + 'values can be accepted back into the system. '
-  //     + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+  @if $theme-show-compile-warnings {
+    @warn '`#{$value}` is not a USWDS `#{$property}` token. '
+      + 'This is OK, but only components built with standard '
+      + 'tokens can be accepted back into the system. '
+      + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+  }
 
   @return $value;
 }
@@ -829,7 +832,7 @@ Derive a color from a color shortcode
     }
     @return $our-color;
   }
-  @error '`#{$shortcode}` is not a valid color shortcode.';
+  @error '`#{$shortcode}` is not a valid color token.';
 }
 
 /*
@@ -913,8 +916,8 @@ Derive a color from a color triplet:
     }
   }
   @else {
-    @error '`#{$color-family}` is not a valid theme family. '
-      + 'Valid families: #{map-keys($all-project-colors)}';
+    @error '`#{$color-family}` is not a valid theme family token. '
+      + 'Valid family tokens: #{map-keys($all-project-colors)}';
   }
   @return map-deep-get($all-project-colors, $color-family, $color-grade);
 }
@@ -935,8 +938,8 @@ the desired final units (currently rem)
   );
 
   @if not map-has-key($project-spacing-standard, $converted) {
-    @error '`#{$value}` is not a valid spacing unit. '
-      + 'Valid spacing unit values: '
+    @error '`#{$value}` is not a valid spacing unit token. '
+      + 'Valid spacing unit tokens: '
       + '#{map-keys($project-spacing-standard)}';
   }
 
@@ -987,8 +990,8 @@ border-radii
     @return map-get($all-border-radius, $value);
   }
   @else {
-    @error '`#{$value}` is not a valid border radius value. '
-      + 'Valid values: #{map-keys($all-border-radius)}';
+    @error '`#{$value}` is not a valid border radius token. '
+      + 'Valid tokens: #{map-keys($all-border-radius)}';
   }
 }
 
@@ -1144,12 +1147,12 @@ Get type scale value from a [family] and
   $our-scale: smart-quote($scale);
 
   @if not map-has-key($project-cap-heights, $our-family) {
-    @error '#{$our-family} is not a valid font family. '
-      + 'Valid values: #{map-keys($project-cap-heights)}';
+    @error '#{$our-family} is not a valid font family token. '
+      + 'Valid tokens: #{map-keys($project-cap-heights)}';
   }
   @if not map-get($all-type-scale, $our-scale) {
-    @error '`#{$our-scale}` is not a valid font scale. '
-      + 'Valid values: #{map-keys($all-type-scale)}';
+    @error '`#{$our-scale}` is not a valid font scale token. '
+      + 'Valid token: #{map-keys($all-type-scale)}';
   }
 
   $this-cap: map-get($project-cap-heights, $our-family);

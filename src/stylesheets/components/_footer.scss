@@ -234,7 +234,7 @@
 
   .usa-footer-contact_info {
     @include at-media('mobile-lg') {
-      @include u-padding-y(units(2));
+      @include u-padding-y(2);
       margin-top: 0;
     }
   }

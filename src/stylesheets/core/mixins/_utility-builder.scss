@@ -17,12 +17,11 @@ loop
     null
   );
   $this-mq: null;
-  $this-type: map-get($utility, type);
 
   @if $mq {
     $this-mq: '#{$mq}\\:';
   }
-  .#{$this-mq}#{$pseudoclass}\:#{ns($this-type)}#{$selector}:#{$pseudoclass} {
+  .#{$this-mq}#{$pseudoclass}\:#{ns('utility')}#{$selector}:#{$pseudoclass} {
     @each $this-property in $property {
       #{$this-property}: unquote('#{$value}#{$important}');
     }
@@ -54,7 +53,6 @@ loop
   );
   $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
   $mq: null;
-  $this-type: map-get($utility, type);
   $value-is-map: if(
     type-of($val-props) == 'map',
     true,
@@ -67,7 +65,7 @@ loop
 
     @if map-get($theme-utility-breakpoints, $media-key) {
       @include at-media($media-key) {
-        .#{$mq}\:#{ns($this-type)}#{$selector} {
+        .#{$mq}\:#{ns('utility')}#{$selector} {
           @if $value-is-map and map-has-key($val-props, extend) {
             @include add-utility-declaration($val-props, extend, $important);
           }
@@ -113,14 +111,13 @@ future version of Sass' warning.
     null
   );
   $mq: null;
-  $this-type: map-get($utility, type);
   $value-is-map: if(
     type-of($val-props) == 'map',
     true,
     false
   );
 
-  .#{ns($this-type)}#{$selector} {
+  .#{ns('utility')}#{$selector} {
     @if $value-is-map and map-has-key($val-props, extend) {
       @include add-utility-declaration($val-props, extend, $important);
     }

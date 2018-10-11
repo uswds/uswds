@@ -35,12 +35,6 @@
   }
 }
 
-@mixin usa-table-styles {
-  table {
-    @extend %usa-table;
-  }
-}
-
 .usa-table {
   @extend %usa-table;
 }

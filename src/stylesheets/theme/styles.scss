@@ -9,21 +9,16 @@
 */
 
 // -------------------------------------
-// import individual theme settings...
+// Import individual theme settings
 
-// @import 'uswds-theme-general';
-// @import 'uswds-theme-typography';
-// @import 'uswds-theme-spacing';
-// @import 'uswds-theme-color';
-// @import 'uswds-theme-utilities';
-
-// -------------------------------------
-// ...or import all theme settings
-
-@import 'uswds-theme';
+@import 'uswds-theme-general';
+@import 'uswds-theme-typography';
+@import 'uswds-theme-spacing';
+@import 'uswds-theme-color';
+@import 'uswds-theme-utilities';
 
 // -------------------------------------
-// import individual USWDS modules...
+// Import individual USWDS modules...
 
 // @import 'uswds-fonts';
 // @import 'uswds-layout-grid';
@@ -36,6 +31,6 @@
 @import 'uswds';
 
 // -------------------------------------
-// import theme custom styles
+// Import theme custom styles
 
 @import 'uswds-theme-custom-styles';

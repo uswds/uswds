@@ -24,6 +24,17 @@ $theme-image-path:  '../img';
 
 /*
 ----------------------------------------
+Show compile warnings
+----------------------------------------
+Show Sass warnings when functions and
+mixins use nonstanard or false tokens.
+----------------------------------------
+*/
+
+$theme-show-compile-warnings: true;
+
+/*
+----------------------------------------
 Namespace
 ----------------------------------------
 */
@@ -31,10 +42,6 @@ Namespace
 $theme-namespace: (
   'grid': (
     namespace:  'grid-',
-    output:     true,
-  ),
-  'object': (
-    namespace:  'add-',
     output:     true,
   ),
   'utility': (
