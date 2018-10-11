@@ -1,10 +1,6 @@
 $aspect-height: 9;
 $aspect-width: 16;
 
-@mixin embed-container ($height, $width) {
-  padding-bottom: percentage($height/$width);
-}
-
 .usa-embed-container {
   iframe,
   object,
