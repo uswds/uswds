@@ -270,6 +270,24 @@ legend {
     content: url('#{$image-path}/correct8-alt.svg');
     text-indent: 0;
   }
+
+  [type=radio] {
+    appearance: radio;
+    display: inline;
+    position: static;
+    margin-right: 0.75em;
+    vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
+    width: auto;
+    height: auto;
+  }
+
+  [type=radio] + label {
+    display: inline-block;
+  }
+
+  [type=radio] + label::before {
+    display: none;
+  }
 }
 
 // Range inputs
