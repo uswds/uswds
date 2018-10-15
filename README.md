@@ -65,7 +65,7 @@ How you implement the Design System depends on the needs of your project and you
 
 ### Download
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/latest) from the latest release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/tag/v2.0.0-beta.2) from the latest USWDS 2.0.0 Beta release and open that file.
 
     After extracting the zip file you should see the following file and folder structure:
 
