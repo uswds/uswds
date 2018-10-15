@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "1.6.8",
+  "version": "1.6.9",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -23,9 +23,12 @@
     "release": "gulp build release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
     "start": "fractal start --sync",
-    "test": "gulp eslint typecheck stylelint test",
+    "test": "gulp eslint typecheck stylelint test regression",
+    "test:unit": "gulp test",
+    "test:visual": "node ./spec/visual-regression-tester.js test",
+    "test:visual:update": " node ./spec/visual-regression-tester.js test --updateGolden",
     "version": "gulp build release",
-    "watch": "nswatch"
+    "watch": "NODE_ENV=development nswatch"
   },
   "watch": {
     "src/stylesheets/{components,core,elements,}/*.scss": "build:css",
@@ -64,7 +67,7 @@
     "receptor": "^1.0.0",
     "resolve-id-refs": "^0.1.0",
     "typescript": "^2.4.1",
-    "yargs": "^8.0.2"
+    "yargs": "^12.0.2"
   },
   "devDependencies": {
     "@18f/stylelint-rules": "^1.2.0",
