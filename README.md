@@ -65,12 +65,12 @@ How you implement the Design System depends on the needs of your project and you
 
 ### Download
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/latest) from the latest release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/tag/v2.0.0-beta.2) from the latest USWDS 2.0.0 Beta release and open that file.
 
     After extracting the zip file you should see the following file and folder structure:
 
     ```
-    uswds-2.0.0-beta/
+    uswds-2.0.0-beta.2/
     ├── css/
     │   ├── uswds.min.css.map
     │   ├── uswds.min.css
@@ -90,7 +90,7 @@ How you implement the Design System depends on the needs of your project and you
     ```
     example-project/
     ├── assets/
-    │   ├── uswds-2.0.0-beta/
+    │   ├── uswds-2.0.0-beta.2/
     │   ├── stylesheets/
     │   ├── images/
     │   └── javascript/
@@ -110,11 +110,11 @@ How you implement the Design System depends on the needs of your project and you
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>My Example Project</title>
-      <link rel="stylesheet" href="assets/uswds-2.0.0-beta/css/uswds.min.css">
+      <link rel="stylesheet" href="assets/uswds-2.0.0-beta.2/css/uswds.min.css">
     </head>
     <body>
 
-      <script src="assets/uswds-2.0.0-beta/js/uswds.min.js"></script>
+      <script src="assets/uswds-2.0.0-beta.2/js/uswds.min.js"></script>
     </body>
     </html>
     ```
@@ -145,7 +145,7 @@ And that’s it — you should now be able to copy our code samples into your `i
 4. Add `uswds` to your project’s `package.json`:
 
     ```shell
-    npm install --save uswds@2.0.0-beta
+    npm install --save uswds@2.0.0-beta.2
     ```
 
 The `uswds` module is now installed as a dependency. You can use the un-compiled files found in the  `node_modules/uswds/dist/` directory.
@@ -192,7 +192,6 @@ scss
 │   ├── _uswds-theme-spacing.scss
 │   ├── _uswds-theme-typography.scss
 │   ├── _uswds-theme-utilities.scss
-│   ├── _uswds-theme.scss
 │   ├── styles.scss
 ```
 
@@ -203,7 +202,6 @@ scss
 - `_uswds-theme-spacing.scss`: Theme spacing settings
 - `_uswds-theme-typography.scss`: Theme typography settings
 - `_uswds-theme-utilities.scss`: Utility class output settings
-- `_uswds-theme.scss`: Collects all theme files together [**note:** _slated for deprecation by 2.0.0 Beta 2_]
 - `styles.scss`: The primary Sass file that you'll compile. It collects theme settings, USWDS source files, and custom CSS
 
 `styles.css` looks something like the following: it's adds all the project theme settings, then adds USWDS source, and finally adds your project's custom styles:
