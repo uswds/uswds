@@ -192,7 +192,6 @@ scss
 │   ├── _uswds-theme-spacing.scss
 │   ├── _uswds-theme-typography.scss
 │   ├── _uswds-theme-utilities.scss
-│   ├── _uswds-theme.scss
 │   ├── styles.scss
 ```
 
@@ -203,7 +202,6 @@ scss
 - `_uswds-theme-spacing.scss`: Theme spacing settings
 - `_uswds-theme-typography.scss`: Theme typography settings
 - `_uswds-theme-utilities.scss`: Utility class output settings
-- `_uswds-theme.scss`: Collects all theme files together [**note:** _slated for deprecation by 2.0.0 Beta 2_]
 - `styles.scss`: The primary Sass file that you'll compile. It collects theme settings, USWDS source files, and custom CSS
 
 `styles.css` looks something like the following: it's adds all the project theme settings, then adds USWDS source, and finally adds your project's custom styles:
