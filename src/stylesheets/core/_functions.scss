@@ -1055,6 +1055,10 @@ role-based or type-based font family
   @return font-family($value);
 }
 
+@function family($value) {
+  @return font-family($value);
+}
+
 /*
 ----------------------------------------
 letter-spacing()
@@ -1167,6 +1171,14 @@ Get type scale value from a [family] and
   }
 
   @return normalize-type-scale($this-cap, $this-scale);
+}
+
+@function fs($family, $scale) {
+  @return font-size($family, $scale);
+}
+
+@function size($family, $scale) {
+  @return font-size($family, $scale);
 }
 
 /*
