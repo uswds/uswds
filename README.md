@@ -1,17 +1,17 @@
-# U.S. Web Design System
+# United States Web Design System
 
 [![CircleCI Build Status](https://circleci.com/gh/uswds/uswds/tree/develop.svg?style=shield)](https://circleci.com/gh/uswds/uswds/tree/develop) [![Test Coverage](https://api.codeclimate.com/v1/badges/c10cd4505d61d161cd3a/test_coverage)](https://codeclimate.com/github/uswds/uswds/test_coverage)
 
-The [U.S. Web Design System](https://designsystem.digital.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
+The [United States Web Design System](https://designsystem.digital.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
 
-This repository is for the Design System itself. We maintain [another repository for the documentation and website](https://github.com/uswds/uswds-site). To see the Design System and documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
+This repository is for the design system code itself. We maintain [another repository for the documentation and website](https://github.com/uswds/uswds-site). To see the design system and its documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
 
 ## Contents
 
 * [Background](#background)
 * [Recent updates](#recent-updates)
 * [Getting started](#getting-started)
-* [Using the Design System](#using-the-design-system)
+* [Using the design system](#using-the-design-system)
   * [Download](#download)
   * [Install using `npm`](#install-using-npm)
     * [Using the USWDS package](#using-the-uswds-package)
@@ -37,40 +37,40 @@ This repository is for the Design System itself. We maintain [another repository
 
 ## Background
 
-The components and style guide of the U.S. Web Design System follows industry-standard web accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created the U.S. Web Design System for designers and developers. The U.S. Web Design System is a project of GSA’s [Technology Transformation Service](https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services), maintained by the Office of Products and Programs. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/) and to view websites and applications check out our list [here](docs/WHO_IS_USING_USWDS.md).
+USWDS components and style guide follow industry-standard accessibility guidelines and use the best practices of existing style libraries and modern web design. The [U.S. Digital Service](https://www.whitehouse.gov/digital/united-states-digital-service) and [18F](https://18f.gsa.gov/) created USWDS for designers and developers. USWDS is a project of GSA’s [Technology Transformation Service](https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services), maintained by the Office of Products and Programs. They are designed for use by government product teams who want to create beautiful, easy-to-use online experiences for the public. To learn more about the project, check out this [blog post](https://18f.gsa.gov/2015/09/28/web-design-standards/) and to view websites and applications check out our list [here](docs/WHO_IS_USING_USWDS.md).
 
 
 ## Recent updates
 
-Information about the most recent release of the Design System can always be found in the [release history](https://github.com/uswds/uswds/releases). We include details about significant updates and any backwards incompatible changes along with a list of all changes.
+Information about the most recent release of the design system can always be found in the [release history](https://github.com/uswds/uswds/releases). We include details about significant updates and any backwards incompatible changes along with a list of all changes.
 
 
 ## Getting started
 
-We’re glad you’d like to use the Design System — here’s how you can get started:
+We’re glad you’d like to use the design system — here’s how you can get started:
 
 * Designers: [Check out our Getting Started for Designers information](https://designsystem.digital.gov/getting-started/designers/).
-  * [Design files of all the assets included in the Design System are available for download](https://github.com/uswds/uswds-assets/archive/master.zip).
+  * [Design files of all the assets included in the design system are available for download](https://github.com/uswds/uswds-assets/archive/master.zip).
 * Developers: [Follow the instructions in this README to get started.](#using-the-design-system)
   * [CSS, JavaScript, image, and font files of all the assets on this site are available for download](https://github.com/uswds/uswds/releases/latest).
 
 
-## Using the Design System
+## Using the design system
 
-How you implement the Design System depends on the needs of your project and your workstyle. We recommend implementing the Design System with `npm`, but we also provide a direct download if `npm` will not work for you or your project.
+How you implement the design system depends on the needs of your project and your workstyle. We recommend implementing the design system with `npm`, but we also provide a direct download if `npm` will not work for you or your project.
 
-- **[Download the Design System](#download)** if you are not familiar with `npm` and package management.
+- **[Download the design system](#download)** if you are not familiar with `npm` and package management.
 
-- **[Use the Design System `npm` package](#install-using-npm)** if you are familiar with using `npm` and package management.
+- **[Use the design system `npm` package](#install-using-npm)** if you are familiar with using `npm` and package management.
 
 ### Download
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/tag/v2.0.0-beta.2) from the latest USWDS 2.0.0 Beta release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/tag/v2.0.0-beta.3) from the latest USWDS 2.0.0 Beta release and open that file.
 
     After extracting the zip file you should see the following file and folder structure:
 
     ```
-    uswds-2.0.0-beta.2/
+    uswds-2.0.0-beta.3/
     ├── css/
     │   ├── uswds.min.css.map
     │   ├── uswds.min.css
@@ -90,7 +90,7 @@ How you implement the Design System depends on the needs of your project and you
     ```
     example-project/
     ├── assets/
-    │   ├── uswds-2.0.0-beta.2/
+    │   ├── uswds-2.0.0-beta.3/
     │   ├── stylesheets/
     │   ├── images/
     │   └── javascript/
@@ -110,22 +110,22 @@ How you implement the Design System depends on the needs of your project and you
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>My Example Project</title>
-      <link rel="stylesheet" href="assets/uswds-2.0.0-beta.2/css/uswds.min.css">
+      <link rel="stylesheet" href="assets/uswds-2.0.0-beta.3/css/uswds.min.css">
     </head>
     <body>
 
-      <script src="assets/uswds-2.0.0-beta.2/js/uswds.min.js"></script>
+      <script src="assets/uswds-2.0.0-beta.3/js/uswds.min.js"></script>
     </body>
     </html>
     ```
 
 We offer both the CSS and the JavaScript in two versions — minified and un-minified. (In the examples above, we are using the minified files.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. Use the un-minified files  if you are in a development environment or would like to debug the CSS or JavaScript assets in the browser.
 
-And that’s it — you should now be able to copy our code samples into your `index.html` and start using the Design System.
+And that’s it — you should now be able to copy our code samples into your `index.html` and start using the design system.
 
 ### Install using npm
 
-`npm` is a package manager for Node-based projects. The U.S. Web Design System maintains a [`uswds` package](https://www.npmjs.com/package/uswds) that includes both the pre-compiled and compiled files — just like the direct download. `npm` packages make it easy to update and install the design system from the command line.
+`npm` is a package manager for Node-based projects. USWDS maintains a [`uswds` package](https://www.npmjs.com/package/uswds) that includes both the pre-compiled and compiled files — just like the direct download. `npm` packages make it easy to update and install the design system from the command line.
 
 1. Install `Node/npm`. Below is a link to find the install method that coincides with your operating system:
 
@@ -145,7 +145,7 @@ And that’s it — you should now be able to copy our code samples into your `i
 4. Add `uswds` to your project’s `package.json`:
 
     ```shell
-    npm install --save uswds@2.0.0-beta.2
+    npm install --save uswds@2.0.0-beta.3
     ```
 
 The `uswds` module is now installed as a dependency. You can use the un-compiled files found in the  `node_modules/uswds/dist/` directory.
@@ -160,7 +160,7 @@ node_modules/uswds/
 │   └── scss/
 ```
 
-**Note:** We do _not_ recommend directly editing the Design System files in `node_modules`. One of the benefits of using a package manager is its ease of upgrade and installation. If you make customizations to the files in the package, any upgrade or re-installation will wipe them out.
+**Note:** We do _not_ recommend directly editing the design system files in `node_modules`. One of the benefits of using a package manager is its ease of upgrade and installation. If you make customizations to the files in the package, any upgrade or re-installation will wipe them out.
 
 #### Using the USWDS package
 
@@ -172,9 +172,7 @@ The [`uswds-gulp` repo](https://github.com/uswds/uswds-gulp) is made for develop
 
 #### Sass and theme settings
 
-The Design System is easily customizable using the power of [Sass (Syntactically Awesome Style Sheets)](http://sass-lang.com/). The main Sass (.scss) source file is located here:
-
-The critical files you'll need in your project are those in `dist/scss/theme`:
+The design system is customizable using the power of [Sass (Syntactically Awesome Style Sheets)](http://sass-lang.com/). The critical files you'll need in your project are those in `dist/scss/theme`:
 
 ```
 scss
@@ -204,7 +202,7 @@ scss
 - `_uswds-theme-utilities.scss`: Utility class output settings
 - `styles.scss`: The primary Sass file that you'll compile. It collects theme settings, USWDS source files, and custom CSS
 
-`styles.css` looks something like the following: it's adds all the project theme settings, then adds USWDS source, and finally adds your project's custom styles:
+`styles.css` looks something like the following code. It adds all the project theme settings, then adds USWDS source, and finally adds your project's custom styles:
 
 ```scss
 @import 'uswds-theme-general';
@@ -220,12 +218,12 @@ scss
 
 #### Sass compilation requirements
 
-The Design System requires both **autoprefixing** and **media query** packing to work properly. These are included in the [`uswds-gulp`](https://github.com/uswds/uswds-gulp) package.
+The design system requires both **autoprefixing** and **media query packing** to work properly. These are included in the [`uswds-gulp`](https://github.com/uswds/uswds-gulp) package.
 
 - **autoprefixing** uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. We use the following autoprefixer settings:
 
 ```
-'> 1%','Last 2 versions', 'IE 11'
+'> 2%','Last 2 versions', 'IE 11'
 ```
 
 - **media query packing** collects all similar media queries together at the end of the compiled stylesheet. USWDS and `uswds-gulp` use [`css-mqpacker`](https://github.com/hail2u/node-css-mqpacker). This is necessary to provide the proper cascade and specificity for utility classes. If you are not implementing utility classes, media query packing may not be necessary — but it it still a good idea.
@@ -233,21 +231,21 @@ The Design System requires both **autoprefixing** and **media query** packing to
 Additionally, we recommend using a minifier like [`cssnano`](https://cssnano.co/) to compress your final compiled CSS and sourcemaps like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
 
 #### JavaScript
-`require('uswds')` will load all of the U.S. Web Design System’s JavaScript onto the page. Add this line to whatever initializer you use to load JavaScript into your application.
+`require('uswds')` will load all of USWDS’s JavaScript onto the page. Add this line to whatever initializer you use to load JavaScript into your application.
 
 ### Use another framework or package manager
 
 If you’re using another framework or package manager that doesn’t support `npm`, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the [download instructions](#download). Please note that the core team [isn’t responsible for all frameworks’ implementations](https://github.com/uswds/uswds/issues/877).
 
-If you’re interested in maintaining a package that helps us distribute the U.S. Web Design System, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
+If you’re interested in maintaining a package that helps us distribute USWDS, the project’s build system can help you create distribution bundles to use in your project. Please read our [contributing guidelines](CONTRIBUTING.md#building-the-project-locally-with--gulp-) to locally build distributions for your framework or package manager.
 
 
 ## CSS architecture
 
 * The CSS foundation of this site is built with the **[Sass](https://sass-lang.com)** preprocessor language.
 * The CSS organization and naming conventions follow **[18F’s CSS Front End Guide](https://frontend.18f.gov/css/)**.
-* CSS selectors are **prefixed** with `usa` (For example: `.usa-button`). This identifier helps the design system avoid conflicts with other styles on a site which are not part of the U.S. Web Design System.
-* Uses a **[modified BEM](https://frontend.18f.gov/css/naming/)** approach created by 18F for naming CSS selectors. Objects in CSS are separated by single dashes. Multi-word objects are separated by an underscore (For example: `.usa-button-cool_feature-active`).
+* CSS selectors are **prefixed** with `usa` (For example: `.usa-button`). This identifier helps the design system avoid conflicts with other styles on a site which are not part of USWDS.
+* Uses a **[modified BEM](https://frontend.18f.gov/css/naming/)** approach created by 18F for naming CSS selectors. Objects in CSS are separated by single dashes. Multi-word objects are separated by an underscore (For example: `.usa-button-feature_name-active`).
 * Uses **modular CSS** for scalable, modular, and flexible code.
 * Uses **nesting** when appropriate. Nest minimally with up to two levels of nesting.
 * Hard-coded magic numbers are avoided..
@@ -260,7 +258,7 @@ If you’re interested in maintaining a package that helps us distribute the U.S
 
 ## JS customization
 
-**Unfortunately, customizing the JavaScript for the USWDS currently requires NodeJS and a module bundler like Browserify or Webpack. We apologize for this inconvenience, and are working to resolve it in a future release of the Design System.**
+**Unfortunately, customizing the JavaScript for the USWDS currently requires NodeJS and a module bundler like Browserify or Webpack. We apologize for this inconvenience, and are working to resolve it in a future release of the design system.**
 
 The JavaScript for the USWDS is separated into components in the same manner as the visual interface which is all initialized with event handlers when the DOM is ready. These components are accessible as CommonJS modules that can be required in other JavaScript files which then must be built for the browser. The components are currently not accessible in the global browser scope, but can be extended to be included by requiring `components` and setting it to a global scope:
 
@@ -285,9 +283,7 @@ USWDS 2.0 provides extensive support for theming via its theme settings files in
 
 Set theme settings with USWDS style tokens, not with values directly. They tend to be quoted strings like `'desktop'` or `'md'` or unitless numbers like `2` or `-1.5`. Tokens are the values _passed into_ the USWDS functions and mixins that parse them. They are the _keys_ that, through the mechanism of a function or mixin, unlock a _value_ — they are not the values themselves.
 
-Visit the [Style section](https://v2.designsystem.digital.gov/style/) of USWDS 2.0 documentation for more on the available tokens for [color](https://v2.designsystem.digital.gov/style/color), [spacing units](https://v2.designsystem.digital.gov/style/spacing-units), [typescale](https://v2.designsystem.digital.gov/style/typescale), and more.
-
-**Note:** These style tokens sections are still in progress in USWDS 2.0.0 Beta. We expect to finish them in October 2018.
+Visit the [Style tokens section](https://v2.designsystem.digital.gov/style/) of USWDS 2.0 documentation for more on the available tokens for [color](https://v2.designsystem.digital.gov/style/color), [spacing units](https://v2.designsystem.digital.gov/style/spacing-units), [typescale](https://v2.designsystem.digital.gov/style/typescale), and more.
 
 ### Using tokens in theme settings
 The following is an example of theme settings from `_uswds-theme-spacing.scss`:
@@ -364,23 +360,23 @@ $theme-image-path:  '../img';
 
 ## Browser support
 
-We’ve designed the Design System to support older and newer browsers through [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). The current major version of the Design System (2.0) follows the [2% rule](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). Currently, this means that the Design System version 2.0 supports the newest versions of Chrome, Firefox, Safari, and Internet Explorer 11 and up.
+We’ve designed the design system to support older and newer browsers through [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). The current major version of the design system (2.0) follows the [2% rule](https://gds.blog.gov.uk/2012/01/25/support-for-browsers/): we officially support any browser above 2% usage as observed by [analytics.usa.gov](https://analytics.usa.gov/). Currently, this means that the design system version 2.0 supports the newest versions of Chrome, Firefox, Safari, and Internet Explorer 11 and up.
 
 
 ## Accessibility
 
-The Design System also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/). We’re happy to answer questions about accessibility — email us for more information.
+The design system also meets the [WCAG 2.0 AA accessibility guidelines](https://www.w3.org/TR/WCAG20/) and conforms to the standards of [Section 508 of the Rehabilitation Act](http://www.section508.gov/). We’re happy to answer questions about accessibility — email us for more information.
 
 
 ## Fractal
 
-We're using [Fractal](http://fractal.build) to generate an interactive component library for the Design System. You can run it locally after `npm install` with:
+We're using [Fractal](http://fractal.build) to generate an interactive component library for the design system. You can run it locally after `npm install` with:
 
 ```sh
 npm start
 ```
 
-Then, visit [http://localhost:3000/](http://localhost:3000/) to see the Design System in action.
+Then, visit [http://localhost:3000/](http://localhost:3000/) to see the design system in action.
 
 _**Optional**: To re-build when code changes are made, run the following command from the project directory in a separate terminal window:_
 ```sh
@@ -403,7 +399,7 @@ You can also email us directly at uswds@gsa.gov.
 
 ## Contributing to the code base
 
-For complete instructions on how to contribute code, please read [CONTRIBUTING.md](CONTRIBUTING.md). These instructions also include guidance on how to set up your own copy of the Design System style guide website for development.
+For complete instructions on how to contribute code, please read [CONTRIBUTING.md](CONTRIBUTING.md). These instructions also include guidance on how to set up your own copy of the design system style guide website for development.
 
 If you would like to learn more about our workflow process, check out the [Workflow](https://github.com/uswds/uswds/wiki/Workflow) and [Issue label Glossary](https://github.com/uswds/uswds/wiki/Issue-label-glossary) pages on the wiki.
 
@@ -412,7 +408,7 @@ If you have questions or concerns about our contributing workflow, please contac
 
 ## Reuse of open-source style guides
 
-Much of the guidance in the U.S. Web Design System leans on open source designs, code, and patterns from other civic and government organizations, including:
+Much of the guidance in USWDS leans on open source designs, code, and patterns from other civic and government organizations, including:
 
 * Consumer Financial Protection Bureau’s [Design Manual](https://cfpb.github.io/design-manual/)
 * U.S. Patent and Trademark Office’s [Design Patterns](http://uspto.github.io/designpatterns/)
