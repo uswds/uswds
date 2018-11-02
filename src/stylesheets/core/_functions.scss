@@ -117,14 +117,20 @@ Leaves bools as is
 */
 
 @function smart-quote($value) {
-  @if type-of($value) == 'string'
-    or type-of($value) == 'color' {
+  @debug 'value: #{$value} : #{type-of($value)}';
+  @if type-of($value) == 'string' {
     @return quote($value);
   }
 
   @if type-of($value) == 'number'
     and index(('px', 'xl', 'xs'), unit($value)) {
     @return inspect($value);
+  }
+
+  @if type-of($value) == 'color' {
+    @error 'Only use quoted color tokens in USWDS functions and mixins. '
+      + 'See v2.designsystem.digital.gov/style-tokens/color '
+      + 'for more information';
   }
 
   @return $value;
