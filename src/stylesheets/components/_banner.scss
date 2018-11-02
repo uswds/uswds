@@ -12,7 +12,7 @@
 .usa-banner-content {
   @include grid-container($theme-site-max-width);
   @include add-responsive-site-margins;
-  background-color: color(transparent);
+  background-color: color('transparent');
   font-size: font-size($theme-banner-font-family, 4);
   overflow: hidden;
   padding-bottom: units(2);
