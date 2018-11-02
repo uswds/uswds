@@ -704,6 +704,8 @@ Ex: 0.5   --> '05'
 */
 
 @function number-to-value($number) {
+  $number: inspect($number);
+
   @if not map-has-key($number-to-value, $number) {
     @return false;
   }
