@@ -17,7 +17,7 @@
       @if map-has-key($widths, $converted-value) {
         $match: true;
         $final-value: map-get($widths, $converted-value);
-        outline-width: $final-value#{$important};
+        outline-width: unquote('#{$final-value}#{$important}');
         outline-style: solid#{$important};
       }
       @else {

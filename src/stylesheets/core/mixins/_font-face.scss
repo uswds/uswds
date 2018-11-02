@@ -33,7 +33,7 @@
           '#{$font-name}',
           '#{$theme-font-path}/#{$dir}/#{$filename}',
           #{$weight},
-          #{$font-style}
+          unquote('#{$font-style}')
         );
       }
     }
