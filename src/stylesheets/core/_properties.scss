@@ -5,7 +5,7 @@ USWDS Properties
 */
 
 $standard-colors: map-collect(
-  $color-palette-theme,
+  $palette-colors-theme,
   $color-palette-state,
   $system-required-colors
 );
