@@ -12,12 +12,12 @@
       outline-color: color(smart-quote($this-value)) #{$important};
     }
     @else if type-of($this-value) == 'number' {
-      $converted-value: number-to-value($this-value);
+      $converted-value: number-to-token($this-value);
       $widths: map-deep-get($system-properties, outline, standard);
       @if map-has-key($widths, $converted-value) {
         $match: true;
         $final-value: map-get($widths, $converted-value);
-        outline-width: $final-value#{$important};
+        outline-width: unquote('#{$final-value}#{$important}');
         outline-style: solid#{$important};
       }
       @else {

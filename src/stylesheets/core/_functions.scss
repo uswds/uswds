@@ -117,14 +117,19 @@ Leaves bools as is
 */
 
 @function smart-quote($value) {
-  @if type-of($value) == 'string'
-    or type-of($value) == 'color' {
+  @if type-of($value) == 'string' {
     @return quote($value);
   }
 
   @if type-of($value) == 'number'
     and index(('px', 'xl', 'xs'), unit($value)) {
     @return inspect($value);
+  }
+
+  @if type-of($value) == 'color' {
+    @error 'Only use quoted color tokens in USWDS functions and mixins. '
+      + 'See v2.designsystem.digital.gov/style-tokens/color '
+      + 'for more information.';
   }
 
   @return $value;
@@ -688,7 +693,7 @@ for a property
 
 /*
 ----------------------------------------
-number-to-value()
+number-to-token()
 ----------------------------------------
 Converts an integer or numeric value
 into a system value
@@ -698,7 +703,9 @@ Ex: 0.5   --> '05'
 ----------------------------------------
 */
 
-@function number-to-value($number) {
+@function number-to-token($number) {
+  $number: inspect($number);
+
   @if not map-has-key($number-to-value, $number) {
     @return false;
   }
@@ -751,7 +758,7 @@ functions and mixins.
   }
 
   $value: nth($value, 1);
-  $converted: number-to-value($value);
+  $converted: number-to-token($value);
   $quoted-value: if(
     $converted,
     smart-quote($converted),
@@ -934,7 +941,7 @@ the desired final units (currently rem)
 @function units($value) {
   $converted: if(type-of($value) == 'string',
     quote($value),
-    number-to-value($value)
+    number-to-token($value)
   );
 
   @if not map-has-key($project-spacing-standard, $converted) {
