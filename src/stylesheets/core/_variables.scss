@@ -446,7 +446,7 @@ Theme color shortcodes
 ----------------------------------------
 */
 
-$palette-colors-theme: (
+$palette-color-theme: (
   'base-lightest':            color($theme-color-base-lightest),
   'base-lighter':             color($theme-color-base-lighter),
   'base-light':               color($theme-color-base-light),
@@ -514,7 +514,7 @@ $color-palette-state: (
 );
 
 $project-color-shortcodes: map-collect(
-  $palette-colors-theme,
+  $palette-color-theme,
   $color-palette-state
 );
 

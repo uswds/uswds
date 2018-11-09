@@ -9,15 +9,15 @@ in utilities
 */
 
 $palette-units-system:(
-  'palette-units-system-smaller': map-get($system-spacing, smaller),
-  'palette-units-system-small':   map-get($system-spacing, small),
-  'palette-units-system-medium':  map-get($system-spacing, medium),
-  'palette-units-system-large':   map-get($system-spacing, large),
-  'palette-units-system-larger':  map-get($system-spacing, larger),
-  'palette-units-system-largest': map-get($system-spacing, largest),
-  'palette-units-system-smaller-negative': map-get($system-spacing, smaller-negative),
-  'palette-units-system-small-negative': map-get($system-spacing, small-negative),
-  'palette-units-system-positive': map-collect(
+  'palette-units-smaller': map-get($system-spacing, smaller),
+  'palette-units-small':   map-get($system-spacing, small),
+  'palette-units-medium':  map-get($system-spacing, medium),
+  'palette-units-large':   map-get($system-spacing, large),
+  'palette-units-larger':  map-get($system-spacing, larger),
+  'palette-units-largest': map-get($system-spacing, largest),
+  'palette-units-smaller-negative': map-get($system-spacing, smaller-negative),
+  'palette-units-small-negative': map-get($system-spacing, small-negative),
+  'palette-units-positive': map-collect(
     map-get($system-spacing, smaller),
     map-get($system-spacing, small),
     map-get($system-spacing, medium),
@@ -25,11 +25,11 @@ $palette-units-system:(
     map-get($system-spacing, larger),
     map-get($system-spacing, largest)
   ),
-  'palette-units-system-negative': map-collect(
+  'palette-units-negative': map-collect(
     map-get($system-spacing, smaller-negative),
     map-get($system-spacing, small-negative)
   ),
-  'palette-units-system': map-collect(
+  'palette-units': map-collect(
     map-get($system-spacing, small-negative),
     map-get($system-spacing, smaller-negative),
     map-get($system-spacing, smaller),
@@ -39,7 +39,7 @@ $palette-units-system:(
     map-get($system-spacing, larger),
     map-get($system-spacing, largest)
   ),
-  'palette-units-system-breakpoints': map-collect(
+  'palette-units-breakpoints': map-collect(
     map-get($system-spacing, large),
     map-get($system-spacing, larger),
     map-get($system-spacing, largest)

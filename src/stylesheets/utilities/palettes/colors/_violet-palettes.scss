@@ -1,66 +1,66 @@
-$palette-colors-violet-light: (
+$palette-color-violet-light: (
   'violet-5':  $color-violet-5,
   'violet-10': $color-violet-10,
   'violet-20': $color-violet-20,
   'violet-30': $color-violet-30,
 );
 
-$palette-colors-violet-medium: (
+$palette-color-violet-medium: (
   'violet-40': $color-violet-40,
   'violet-50': $color-violet-50,
   'violet-60': $color-violet-60,
 );
 
-$palette-colors-violet-dark: (
+$palette-color-violet-dark: (
   'violet-70': $color-violet-70,
   'violet-80': $color-violet-80,
   'violet-90': $color-violet-90,
 );
 
-$palette-colors-violet-light-vivid: (
+$palette-color-violet-light-vivid: (
   'violet-5v':  $color-violet-5v,
   'violet-10v': $color-violet-10v,
   'violet-20v': $color-violet-20v,
   'violet-30v': $color-violet-30v,
 );
 
-$palette-colors-violet-medium-vivid: (
+$palette-color-violet-medium-vivid: (
   'violet-40v': $color-violet-40v,
   'violet-50v': $color-violet-50v,
   'violet-60v': $color-violet-60v,
 );
 
-$palette-colors-violet-dark-vivid: (
+$palette-color-violet-dark-vivid: (
   'violet-70v': $color-violet-70v,
   'violet-80v': $color-violet-80v,
   'violet-90v': $color-violet-90v,
 );
 
-$palette-colors-violet-standard: map-collect(
-  $palette-colors-violet-light,
-  $palette-colors-violet-medium,
-  $palette-colors-violet-dark
+$palette-color-violet-standard: map-collect(
+  $palette-color-violet-light,
+  $palette-color-violet-medium,
+  $palette-color-violet-dark
 );
 
-$palette-colors-violet-vivid: map-collect(
-  $palette-colors-violet-light-vivid,
-  $palette-colors-violet-medium-vivid,
-  $palette-colors-violet-dark-vivid
+$palette-color-violet-vivid: map-collect(
+  $palette-color-violet-light-vivid,
+  $palette-color-violet-medium-vivid,
+  $palette-color-violet-dark-vivid
 );
 
-$palette-colors-violet: map-collect(
-  $palette-colors-violet-standard,
-  $palette-colors-violet-vivid
+$palette-color-violet: map-collect(
+  $palette-color-violet-standard,
+  $palette-color-violet-vivid
 );
 
-$palette-colors-violet: (
-  'palette-colors-violet-light': $palette-colors-violet-light,
-  'palette-colors-violet-medium': $palette-colors-violet-medium,
-  'palette-colors-violet-dark': $palette-colors-violet-dark,
-  'palette-colors-violet-light-vivid': $palette-colors-violet-light-vivid,
-  'palette-colors-violet-medium-vivid': $palette-colors-violet-medium-vivid,
-  'palette-colors-violet-dark-vivid': $palette-colors-violet-dark-vivid,
-  'palette-colors-violet-standard': $palette-colors-violet-standard,
-  'palette-colors-violet-vivid': $palette-colors-violet-vivid,
-  'palette-colors-violet': $palette-colors-violet,
+$palette-color-violet: (
+  'palette-color-violet-light': $palette-color-violet-light,
+  'palette-color-violet-medium': $palette-color-violet-medium,
+  'palette-color-violet-dark': $palette-color-violet-dark,
+  'palette-color-violet-light-vivid': $palette-color-violet-light-vivid,
+  'palette-color-violet-medium-vivid': $palette-color-violet-medium-vivid,
+  'palette-color-violet-dark-vivid': $palette-color-violet-dark-vivid,
+  'palette-color-violet-standard': $palette-color-violet-standard,
+  'palette-color-violet-vivid': $palette-color-violet-vivid,
+  'palette-color-violet': $palette-color-violet,
 );

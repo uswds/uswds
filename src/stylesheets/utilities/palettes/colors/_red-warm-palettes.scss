@@ -1,66 +1,66 @@
-$palette-colors-red-warm-light: (
+$palette-color-red-warm-light: (
   'red-warm-5':  $color-red-warm-5,
   'red-warm-10': $color-red-warm-10,
   'red-warm-20': $color-red-warm-20,
   'red-warm-30': $color-red-warm-30,
 );
 
-$palette-colors-red-warm-medium: (
+$palette-color-red-warm-medium: (
   'red-warm-40': $color-red-warm-40,
   'red-warm-50': $color-red-warm-50,
   'red-warm-60': $color-red-warm-60,
 );
 
-$palette-colors-red-warm-dark: (
+$palette-color-red-warm-dark: (
   'red-warm-70': $color-red-warm-70,
   'red-warm-80': $color-red-warm-80,
   'red-warm-90': $color-red-warm-90,
 );
 
-$palette-colors-red-warm-light-vivid: (
+$palette-color-red-warm-light-vivid: (
   'red-warm-5v':  $color-red-warm-5v,
   'red-warm-10v': $color-red-warm-10v,
   'red-warm-20v': $color-red-warm-20v,
   'red-warm-30v': $color-red-warm-30v,
 );
 
-$palette-colors-red-warm-medium-vivid: (
+$palette-color-red-warm-medium-vivid: (
   'red-warm-40v': $color-red-warm-40v,
   'red-warm-50v': $color-red-warm-50v,
   'red-warm-60v': $color-red-warm-60v,
 );
 
-$palette-colors-red-warm-dark-vivid: (
+$palette-color-red-warm-dark-vivid: (
   'red-warm-70v': $color-red-warm-70v,
   'red-warm-80v': $color-red-warm-80v,
   'red-warm-90v': $color-red-warm-90v,
 );
 
-$palette-colors-red-warm-standard: map-collect(
-  $palette-colors-red-warm-light,
-  $palette-colors-red-warm-medium,
-  $palette-colors-red-warm-dark
+$palette-color-red-warm-standard: map-collect(
+  $palette-color-red-warm-light,
+  $palette-color-red-warm-medium,
+  $palette-color-red-warm-dark
 );
 
-$palette-colors-red-warm-vivid: map-collect(
-  $palette-colors-red-warm-light-vivid,
-  $palette-colors-red-warm-medium-vivid,
-  $palette-colors-red-warm-dark-vivid
+$palette-color-red-warm-vivid: map-collect(
+  $palette-color-red-warm-light-vivid,
+  $palette-color-red-warm-medium-vivid,
+  $palette-color-red-warm-dark-vivid
 );
 
-$palette-colors-red-warm: map-collect(
-  $palette-colors-red-warm-standard,
-  $palette-colors-red-warm-vivid
+$palette-color-red-warm: map-collect(
+  $palette-color-red-warm-standard,
+  $palette-color-red-warm-vivid
 );
 
-$palette-colors-red-warm: (
-  'palette-colors-red-warm-light': $palette-colors-red-warm-light,
-  'palette-colors-red-warm-medium': $palette-colors-red-warm-medium,
-  'palette-colors-red-warm-dark': $palette-colors-red-warm-dark,
-  'palette-colors-red-warm-light-vivid': $palette-colors-red-warm-light-vivid,
-  'palette-colors-red-warm-medium-vivid': $palette-colors-red-warm-medium-vivid,
-  'palette-colors-red-warm-dark-vivid': $palette-colors-red-warm-dark-vivid,
-  'palette-colors-red-warm-standard': $palette-colors-red-warm-standard,
-  'palette-colors-red-warm-vivid': $palette-colors-red-warm-vivid,
-  'palette-colors-red-warm': $palette-colors-red-warm,
+$palette-color-red-warm: (
+  'palette-color-red-warm-light': $palette-color-red-warm-light,
+  'palette-color-red-warm-medium': $palette-color-red-warm-medium,
+  'palette-color-red-warm-dark': $palette-color-red-warm-dark,
+  'palette-color-red-warm-light-vivid': $palette-color-red-warm-light-vivid,
+  'palette-color-red-warm-medium-vivid': $palette-color-red-warm-medium-vivid,
+  'palette-color-red-warm-dark-vivid': $palette-color-red-warm-dark-vivid,
+  'palette-color-red-warm-standard': $palette-color-red-warm-standard,
+  'palette-color-red-warm-vivid': $palette-color-red-warm-vivid,
+  'palette-color-red-warm': $palette-color-red-warm,
 );
