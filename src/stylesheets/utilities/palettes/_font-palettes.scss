@@ -23,7 +23,7 @@ $palette-font-misc:(
     serif:   unquote('#{$font-stack-serif}'),
   ),
   'palette-font-weights-theme': $project-font-weights,
-  'palette-font-weights-numeric': (
+  'palette-font-weights-system': (
     '100': 100,
     '200': 200,
     '300': 300,
@@ -117,7 +117,7 @@ $palette-font-theme-mono-3xl: (
   ),
 );
 
-$palette-font-theme-mono-all: map-collect(
+$palette-font-theme-mono: map-collect(
   $palette-font-theme-mono-3xs,
   $palette-font-theme-mono-2xs,
   $palette-font-theme-mono-xs,
@@ -139,7 +139,7 @@ $palette-font-theme-mono:(
   'palette-font-theme-mono-xl': $palette-font-theme-mono-xl,
   'palette-font-theme-mono-2xl': $palette-font-theme-mono-2xl,
   'palette-font-theme-mono-3xl': $palette-font-theme-mono-3xl,
-  'palette-font-theme-mono-all': $palette-font-theme-mono-all,
+  'palette-font-theme-mono': $palette-font-theme-mono,
 );
 
 $palette-font-theme-sans-3xs: (
@@ -223,7 +223,7 @@ $palette-font-theme-sans-3xl: (
   ),
 );
 
-$palette-font-theme-sans-all: map-collect(
+$palette-font-theme-sans: map-collect(
   $palette-font-theme-sans-3xs,
   $palette-font-theme-sans-2xs,
   $palette-font-theme-sans-xs,
@@ -245,7 +245,7 @@ $palette-font-theme-sans:(
   'palette-font-theme-sans-xl': $palette-font-theme-sans-xl,
   'palette-font-theme-sans-2xl': $palette-font-theme-sans-2xl,
   'palette-font-theme-sans-3xl': $palette-font-theme-sans-3xl,
-  'palette-font-theme-sans-all': $palette-font-theme-sans-all,
+  'palette-font-theme-sans': $palette-font-theme-sans,
 );
 
 $palette-font-theme-serif-3xs: (
@@ -329,7 +329,7 @@ $palette-font-theme-serif-3xl: (
   ),
 );
 
-$palette-font-theme-serif-all: map-collect(
+$palette-font-theme-serif: map-collect(
   $palette-font-theme-serif-3xs,
   $palette-font-theme-serif-2xs,
   $palette-font-theme-serif-xs,
@@ -351,14 +351,14 @@ $palette-font-theme-serif:(
   'palette-font-theme-serif-xl': $palette-font-theme-serif-xl,
   'palette-font-theme-serif-2xl': $palette-font-theme-serif-2xl,
   'palette-font-theme-serif-3xl': $palette-font-theme-serif-3xl,
-  'palette-font-theme-serif-all': $palette-font-theme-serif-all,
+  'palette-font-theme-serif': $palette-font-theme-serif,
 );
 
-$palette-font-theme-all:(
-  'palette-font-theme-all': map-collect(
-    $palette-font-theme-mono-all,
-    $palette-font-theme-sans-all,
-    $palette-font-theme-serif-all
+$palette-font-theme-types:(
+  'palette-font-theme-types': map-collect(
+    $palette-font-theme-mono,
+    $palette-font-theme-sans,
+    $palette-font-theme-serif
   ),
 );
 
@@ -449,7 +449,7 @@ $palette-font-theme-code-3xl: (
   ),
 );
 
-$palette-font-theme-code-all: map-collect(
+$palette-font-theme-code: map-collect(
   $palette-font-theme-code-3xs,
   $palette-font-theme-code-2xs,
   $palette-font-theme-code-xs,
@@ -471,7 +471,7 @@ $palette-font-theme-code:(
   'palette-font-theme-code-xl': $palette-font-theme-code-xl,
   'palette-font-theme-code-2xl': $palette-font-theme-code-2xl,
   'palette-font-theme-code-3xl': $palette-font-theme-code-3xl,
-  'palette-font-theme-code-all': $palette-font-theme-code-all,
+  'palette-font-theme-code': $palette-font-theme-code,
 );
 
 $palette-font-theme-ui-3xs: (
@@ -555,7 +555,7 @@ $palette-font-theme-ui-3xl: (
   ),
 );
 
-$palette-font-theme-ui-all: map-collect(
+$palette-font-theme-ui: map-collect(
   $palette-font-theme-ui-3xs,
   $palette-font-theme-ui-2xs,
   $palette-font-theme-ui-xs,
@@ -577,7 +577,7 @@ $palette-font-theme-ui:(
   'palette-font-theme-ui-xl': $palette-font-theme-ui-xl,
   'palette-font-theme-ui-2xl': $palette-font-theme-ui-2xl,
   'palette-font-theme-ui-3xl': $palette-font-theme-ui-3xl,
-  'palette-font-theme-ui-all': $palette-font-theme-ui-all,
+  'palette-font-theme-ui': $palette-font-theme-ui,
 );
 
 $palette-font-theme-heading-3xs: (
@@ -661,7 +661,7 @@ $palette-font-theme-heading-3xl: (
   ),
 );
 
-$palette-font-theme-heading-all: map-collect(
+$palette-font-theme-heading: map-collect(
   $palette-font-theme-heading-3xs,
   $palette-font-theme-heading-2xs,
   $palette-font-theme-heading-xs,
@@ -683,7 +683,7 @@ $palette-font-theme-heading:(
   'palette-font-theme-heading-xl': $palette-font-theme-heading-xl,
   'palette-font-theme-heading-2xl': $palette-font-theme-heading-2xl,
   'palette-font-theme-heading-3xl': $palette-font-theme-heading-3xl,
-  'palette-font-theme-heading-all': $palette-font-theme-heading-all,
+  'palette-font-theme-heading': $palette-font-theme-heading,
 );
 
 $palette-font-theme-body-3xs: (
@@ -767,7 +767,7 @@ $palette-font-theme-body-3xl: (
   ),
 );
 
-$palette-font-theme-body-all: map-collect(
+$palette-font-theme-body: map-collect(
   $palette-font-theme-body-3xs,
   $palette-font-theme-body-2xs,
   $palette-font-theme-body-xs,
@@ -789,7 +789,7 @@ $palette-font-theme-body:(
   'palette-font-theme-body-xl': $palette-font-theme-body-xl,
   'palette-font-theme-body-2xl': $palette-font-theme-body-2xl,
   'palette-font-theme-body-3xl': $palette-font-theme-body-3xl,
-  'palette-font-theme-body-all': $palette-font-theme-body-all,
+  'palette-font-theme-body': $palette-font-theme-body,
 );
 
 $palette-font-theme-alt-3xs: (
@@ -873,7 +873,7 @@ $palette-font-theme-alt-3xl: (
   ),
 );
 
-$palette-font-theme-alt-all: map-collect(
+$palette-font-theme-alt: map-collect(
   $palette-font-theme-alt-3xs,
   $palette-font-theme-alt-2xs,
   $palette-font-theme-alt-xs,
@@ -895,16 +895,16 @@ $palette-font-theme-alt:(
   'palette-font-theme-alt-xl': $palette-font-theme-alt-xl,
   'palette-font-theme-alt-2xl': $palette-font-theme-alt-2xl,
   'palette-font-theme-alt-3xl': $palette-font-theme-alt-3xl,
-  'palette-font-theme-alt-all': $palette-font-theme-alt-all,
+  'palette-font-theme-alt': $palette-font-theme-alt,
 );
 
-$palette-font-theme-roles-all:(
-  'palette-font-theme-roles-all': map-collect(
-    $palette-font-theme-code-all,
-    $palette-font-theme-ui-all,
-    $palette-font-theme-heading-all,
-    $palette-font-theme-body-all,
-    $palette-font-theme-alt-all
+$palette-font-theme-roles:(
+  'palette-font-theme-roles': map-collect(
+    $palette-font-theme-code,
+    $palette-font-theme-ui,
+    $palette-font-theme-heading,
+    $palette-font-theme-body,
+    $palette-font-theme-alt
   ),
 );
 
@@ -1082,7 +1082,7 @@ $palette-font-system-mono-20: (
   ),
 );
 
-$palette-font-system-mono-sm: map-collect(
+$palette-font-system-mono-small: map-collect(
   $palette-font-system-mono-micro,
   $palette-font-system-mono-1,
   $palette-font-system-mono-2,
@@ -1097,7 +1097,7 @@ $palette-font-system-mono-medium: map-collect(
   $palette-font-system-mono-8
 );
 
-$palette-font-system-mono-lg: map-collect(
+$palette-font-system-mono-large: map-collect(
   $palette-font-system-mono-9,
   $palette-font-system-mono-10,
   $palette-font-system-mono-11,
@@ -1106,7 +1106,7 @@ $palette-font-system-mono-lg: map-collect(
   $palette-font-system-mono-14
 );
 
-$palette-font-system-mono-xlarge: map-collect(
+$palette-font-system-mono-larger: map-collect(
   $palette-font-system-mono-15,
   $palette-font-system-mono-16,
   $palette-font-system-mono-17,
@@ -1115,11 +1115,11 @@ $palette-font-system-mono-xlarge: map-collect(
   $palette-font-system-mono-20
 );
 
-$palette-font-system-mono-all: map-collect(
-  $palette-font-system-mono-sm,
+$palette-font-system-mono: map-collect(
+  $palette-font-system-mono-small,
   $palette-font-system-mono-medium,
-  $palette-font-system-mono-lg,
-  $palette-font-system-mono-xlarge
+  $palette-font-system-mono-large,
+  $palette-font-system-mono-larger
 );
 
 $palette-font-system-sans-micro: (
@@ -1290,7 +1290,7 @@ $palette-font-system-sans-20: (
   ),
 );
 
-$palette-font-system-sans-sm: map-collect(
+$palette-font-system-sans-small: map-collect(
   $palette-font-system-sans-micro,
   $palette-font-system-sans-1,
   $palette-font-system-sans-2,
@@ -1305,7 +1305,7 @@ $palette-font-system-sans-medium: map-collect(
   $palette-font-system-sans-8
 );
 
-$palette-font-system-sans-lg: map-collect(
+$palette-font-system-sans-large: map-collect(
   $palette-font-system-sans-9,
   $palette-font-system-sans-10,
   $palette-font-system-sans-11,
@@ -1314,7 +1314,7 @@ $palette-font-system-sans-lg: map-collect(
   $palette-font-system-sans-14
 );
 
-$palette-font-system-sans-xlarge: map-collect(
+$palette-font-system-sans-larger: map-collect(
   $palette-font-system-sans-15,
   $palette-font-system-sans-16,
   $palette-font-system-sans-17,
@@ -1323,11 +1323,11 @@ $palette-font-system-sans-xlarge: map-collect(
   $palette-font-system-sans-20
 );
 
-$palette-font-system-sans-all: map-collect(
-  $palette-font-system-sans-sm,
+$palette-font-system-sans: map-collect(
+  $palette-font-system-sans-small,
   $palette-font-system-sans-medium,
-  $palette-font-system-sans-lg,
-  $palette-font-system-sans-xlarge
+  $palette-font-system-sans-large,
+  $palette-font-system-sans-larger
 );
 
 $palette-font-system-serif-micro: (
@@ -1498,7 +1498,7 @@ $palette-font-system-serif-20: (
   ),
 );
 
-$palette-font-system-serif-sm: map-collect(
+$palette-font-system-serif-small: map-collect(
   $palette-font-system-serif-micro,
   $palette-font-system-serif-1,
   $palette-font-system-serif-2,
@@ -1513,7 +1513,7 @@ $palette-font-system-serif-medium: map-collect(
   $palette-font-system-serif-8
 );
 
-$palette-font-system-serif-lg: map-collect(
+$palette-font-system-serif-large: map-collect(
   $palette-font-system-serif-9,
   $palette-font-system-serif-10,
   $palette-font-system-serif-11,
@@ -1522,7 +1522,7 @@ $palette-font-system-serif-lg: map-collect(
   $palette-font-system-serif-14
 );
 
-$palette-font-system-serif-xlarge: map-collect(
+$palette-font-system-serif-larger: map-collect(
   $palette-font-system-serif-15,
   $palette-font-system-serif-16,
   $palette-font-system-serif-17,
@@ -1531,11 +1531,11 @@ $palette-font-system-serif-xlarge: map-collect(
   $palette-font-system-serif-20
 );
 
-$palette-font-system-serif-all: map-collect(
-  $palette-font-system-serif-sm,
+$palette-font-system-serif: map-collect(
+  $palette-font-system-serif-small,
   $palette-font-system-serif-medium,
-  $palette-font-system-serif-lg,
-  $palette-font-system-serif-xlarge
+  $palette-font-system-serif-large,
+  $palette-font-system-serif-larger
 );
 
 $palette-font-system-mono:(
@@ -1560,11 +1560,11 @@ $palette-font-system-mono:(
   'palette-font-system-mono-18':     $palette-font-system-mono-18,
   'palette-font-system-mono-19':     $palette-font-system-mono-19,
   'palette-font-system-mono-20':     $palette-font-system-mono-20,
-  'palette-font-system-mono-sm':     $palette-font-system-mono-sm,
+  'palette-font-system-mono-small':  $palette-font-system-mono-small,
   'palette-font-system-mono-medium': $palette-font-system-mono-medium,
-  'palette-font-system-mono-lg':     $palette-font-system-mono-lg,
-  'palette-font-system-mono-xlarge': $palette-font-system-mono-xlarge,
-  'palette-font-system-mono-all':    $palette-font-system-mono-all,
+  'palette-font-system-mono-large':  $palette-font-system-mono-large,
+  'palette-font-system-mono-larger': $palette-font-system-mono-larger,
+  'palette-font-system-mono':        $palette-font-system-mono,
 );
 
 $palette-font-system-sans:(
@@ -1589,11 +1589,11 @@ $palette-font-system-sans:(
   'palette-font-system-sans-18':     $palette-font-system-sans-18,
   'palette-font-system-sans-19':     $palette-font-system-sans-19,
   'palette-font-system-sans-20':     $palette-font-system-sans-20,
-  'palette-font-system-sans-sm':     $palette-font-system-sans-sm,
+  'palette-font-system-sans-small':  $palette-font-system-sans-small,
   'palette-font-system-sans-medium': $palette-font-system-sans-medium,
-  'palette-font-system-sans-lg':     $palette-font-system-sans-lg,
-  'palette-font-system-sans-xlarge': $palette-font-system-sans-xlarge,
-  'palette-font-system-sans-all':    $palette-font-system-sans-all,
+  'palette-font-system-sans-large':  $palette-font-system-sans-large,
+  'palette-font-system-sans-larger': $palette-font-system-sans-larger,
+  'palette-font-system-sans':        $palette-font-system-sans,
 );
 
 $palette-font-system-serif:(
@@ -1618,17 +1618,17 @@ $palette-font-system-serif:(
   'palette-font-system-serif-18':     $palette-font-system-serif-18,
   'palette-font-system-serif-19':     $palette-font-system-serif-19,
   'palette-font-system-serif-20':     $palette-font-system-serif-20,
-  'palette-font-system-serif-sm':     $palette-font-system-serif-sm,
+  'palette-font-system-serif-small':  $palette-font-system-serif-small,
   'palette-font-system-serif-medium': $palette-font-system-serif-medium,
-  'palette-font-system-serif-lg':     $palette-font-system-serif-lg,
-  'palette-font-system-serif-xlarge': $palette-font-system-serif-xlarge,
-  'palette-font-system-serif-all':    $palette-font-system-serif-all,
+  'palette-font-system-serif-large':  $palette-font-system-serif-large,
+  'palette-font-system-serif-larger': $palette-font-system-serif-larger,
+  'palette-font-system-serif':        $palette-font-system-serif,
 );
 
-$palette-font-system-all: (
-  'palette-font-system-all': map-collect(
-    $palette-font-system-mono-all,
-    $palette-font-system-sans-all,
-    $palette-font-system-serif-all
+$palette-font-system: (
+  'palette-font-system': map-collect(
+    $palette-font-system-mono,
+    $palette-font-system-sans,
+    $palette-font-system-serif
   ),
 );

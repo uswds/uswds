@@ -17,7 +17,7 @@ $palette-units-system:(
   'palette-units-system-largest': map-get($system-spacing, largest),
   'palette-units-system-smaller-negative': map-get($system-spacing, smaller-negative),
   'palette-units-system-small-negative': map-get($system-spacing, small-negative),
-  'palette-units-system-all': map-collect(
+  'palette-units-system-positive': map-collect(
     map-get($system-spacing, smaller),
     map-get($system-spacing, small),
     map-get($system-spacing, medium),
@@ -29,6 +29,16 @@ $palette-units-system:(
     map-get($system-spacing, smaller-negative),
     map-get($system-spacing, small-negative)
   ),
+  'palette-units-system': map-collect(
+    map-get($system-spacing, small-negative),
+    map-get($system-spacing, smaller-negative),
+    map-get($system-spacing, smaller),
+    map-get($system-spacing, small),
+    map-get($system-spacing, medium),
+    map-get($system-spacing, large),
+    map-get($system-spacing, larger),
+    map-get($system-spacing, largest)
+  ),
   'palette-units-system-breakpoints': map-collect(
     map-get($system-spacing, large),
     map-get($system-spacing, larger),
@@ -37,7 +47,7 @@ $palette-units-system:(
 );
 
 $palette-units:(
-  'palette-units-ch': (
+  'palette-units-ch-positive': (
     '05ch':   '.5ch',
     '1ch':    '1ch',
     '105ch':  '1.5ch',
@@ -47,6 +57,22 @@ $palette-units:(
     '5ch':    '5ch',
   ),
   'palette-units-ch-negative': (
+    '#{$neg-prefix}-05ch':   '-.5ch',
+    '#{$neg-prefix}-1ch':    '-1ch',
+    '#{$neg-prefix}-105ch':  '-1.5ch',
+    '#{$neg-prefix}-2ch':    '-2ch',
+    '#{$neg-prefix}-3ch':    '-3ch',
+    '#{$neg-prefix}-4ch':    '-4ch',
+    '#{$neg-prefix}-5ch':    '-5ch',
+  ),
+  'palette-units-ch': (
+    '05ch':   '.5ch',
+    '1ch':    '1ch',
+    '105ch':  '1.5ch',
+    '2ch':    '2ch',
+    '3ch':    '3ch',
+    '4ch':    '4ch',
+    '5ch':    '5ch',
     '#{$neg-prefix}-05ch':   '-.5ch',
     '#{$neg-prefix}-1ch':    '-1ch',
     '#{$neg-prefix}-105ch':  '-1.5ch',
