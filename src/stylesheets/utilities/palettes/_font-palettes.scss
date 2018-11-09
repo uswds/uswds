@@ -908,6 +908,19 @@ $palette-font-theme-roles:(
   ),
 );
 
+$palette-font-theme:(
+  'palette-font-theme': map-collect(
+    $palette-font-theme-mono,
+    $palette-font-theme-sans,
+    $palette-font-theme-serif,
+    $palette-font-theme-heading,
+    $palette-font-theme-body,
+    $palette-font-theme-code,
+    $palette-font-theme-alt,
+    $palette-font-theme-ui
+  ),
+);
+
 /*
 ----------------------------------------
 system font sizes
