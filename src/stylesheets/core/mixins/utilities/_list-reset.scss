@@ -1,9 +1,0 @@
-@mixin u-list-reset($value...) {
-  $important: null;
-  @if length($value) > 0 and has-important($value) {
-    $value: remove($value, '!important');
-    $important: ' !important';
-  }
-  list-style-type: none#{$important};
-  padding-left: 0#{$important};
-}
