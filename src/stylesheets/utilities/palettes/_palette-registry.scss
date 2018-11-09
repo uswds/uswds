@@ -8,8 +8,8 @@ available utility palettes
 */
 
 $palette-registry: map-collect(
-  $palette-spacing-units,
-  $palette-spacing-system,
+  $palette-units,
+  $palette-units-system,
   $palette-font-theme-mono,
   $palette-font-theme-sans,
   $palette-font-theme-serif,
@@ -46,6 +46,5 @@ $palette-registry: map-collect(
   $palette-colors-violet,
   $palette-colors-white-transparent,
   $palette-colors-yellow,
-  $palette-colors-system,
   $palette-default
 );

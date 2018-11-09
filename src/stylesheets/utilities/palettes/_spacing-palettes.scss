@@ -8,16 +8,16 @@ in utilities
 ----------------------------------------
 */
 
-$palette-spacing-system:(
-  'palette-spacing-system-smaller': map-get($system-spacing, smaller),
-  'palette-spacing-system-small':   map-get($system-spacing, small),
-  'palette-spacing-system-medium':  map-get($system-spacing, medium),
-  'palette-spacing-system-large':   map-get($system-spacing, large),
-  'palette-spacing-system-larger':  map-get($system-spacing, larger),
-  'palette-spacing-system-largest': map-get($system-spacing, largest),
-  'palette-spacing-system-smaller-negative': map-get($system-spacing, smaller-negative),
-  'palette-spacing-system-small-negative': map-get($system-spacing, small-negative),
-  'palette-spacing-system-all': map-collect(
+$palette-units-system:(
+  'palette-units-system-smaller': map-get($system-spacing, smaller),
+  'palette-units-system-small':   map-get($system-spacing, small),
+  'palette-units-system-medium':  map-get($system-spacing, medium),
+  'palette-units-system-large':   map-get($system-spacing, large),
+  'palette-units-system-larger':  map-get($system-spacing, larger),
+  'palette-units-system-largest': map-get($system-spacing, largest),
+  'palette-units-system-smaller-negative': map-get($system-spacing, smaller-negative),
+  'palette-units-system-small-negative': map-get($system-spacing, small-negative),
+  'palette-units-system-all': map-collect(
     map-get($system-spacing, smaller),
     map-get($system-spacing, small),
     map-get($system-spacing, medium),
@@ -25,19 +25,19 @@ $palette-spacing-system:(
     map-get($system-spacing, larger),
     map-get($system-spacing, largest)
   ),
-  'palette-spacing-system-negative': map-collect(
+  'palette-units-system-negative': map-collect(
     map-get($system-spacing, smaller-negative),
     map-get($system-spacing, small-negative)
   ),
-  'palette-spacing-system-breakpoints': map-collect(
+  'palette-units-system-breakpoints': map-collect(
     map-get($system-spacing, large),
     map-get($system-spacing, larger),
     map-get($system-spacing, largest)
   ),
 );
 
-$palette-spacing-units:(
-  'palette-spacing-units-ch': (
+$palette-units:(
+  'palette-units-ch': (
     '05ch':   '.5ch',
     '1ch':    '1ch',
     '105ch':  '1.5ch',
@@ -46,7 +46,7 @@ $palette-spacing-units:(
     '4ch':    '4ch',
     '5ch':    '5ch',
   ),
-  'palette-spacing-units-ch-negative': (
+  'palette-units-ch-negative': (
     '#{$neg-prefix}-05ch':   '-.5ch',
     '#{$neg-prefix}-1ch':    '-1ch',
     '#{$neg-prefix}-105ch':  '-1.5ch',
@@ -55,7 +55,7 @@ $palette-spacing-units:(
     '#{$neg-prefix}-4ch':    '-4ch',
     '#{$neg-prefix}-5ch':    '-5ch',
   ),
-  'palette-spacing-units-em': (
+  'palette-units-em': (
     '05em':   '.5em',
     '1em':    '1em',
     '105em':  '1.5em',
@@ -69,7 +69,7 @@ $palette-spacing-units:(
     '9em':    '9em',
     '10em':   '10em',
   ),
-  'palette-spacing-units-percentage':(
+  'palette-units-percentage':(
     '10ct':   10%,
     '20ct':   20%,
     '25ct':   25%,
@@ -85,7 +85,7 @@ $palette-spacing-units:(
     '90ct':   90%,
     '100ct':  100%,
   ),
-  'palette-spacing-units-zero':(
+  'palette-units-zero':(
     '0':   0,
   ),
 );
