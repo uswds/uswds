@@ -8,7 +8,7 @@ in utilities
 ----------------------------------------
 */
 
-$palette-units:(
+$palettes-units:(
   'palette-units-smaller': map-get($system-spacing, smaller),
   'palette-units-small':   map-get($system-spacing, small),
   'palette-units-medium':  map-get($system-spacing, medium),
@@ -46,7 +46,7 @@ $palette-units:(
   ),
 );
 
-$palette-units-misc:(
+$palettes-units-misc:(
   'palette-units-ch-positive': (
     '05ch':   '.5ch',
     '1ch':    '1ch',
