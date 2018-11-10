@@ -1,40 +1,40 @@
-$palette-color-gray-lighter: (
+$palette-colors-gray-lighter: (
   'gray-1':  $color-gray-1,
   'gray-2':  $color-gray-2,
   'gray-3':  $color-gray-3,
   'gray-4':  $color-gray-4,
 );
 
-$palette-color-gray-light: (
+$palette-colors-gray-light: (
   'gray-5':  $color-gray-5,
   'gray-10': $color-gray-10,
   'gray-20': $color-gray-20,
   'gray-30': $color-gray-30,
 );
 
-$palette-color-gray-medium: (
+$palette-colors-gray-medium: (
   'gray-40': $color-gray-40,
   'gray-50': $color-gray-50,
   'gray-60': $color-gray-60,
 );
 
-$palette-color-gray-dark: (
+$palette-colors-gray-dark: (
   'gray-70': $color-gray-70,
   'gray-80': $color-gray-80,
   'gray-90': $color-gray-90,
 );
 
-$palette-color-gray: map-collect(
-  $palette-color-gray-lighter,
-  $palette-color-gray-light,
-  $palette-color-gray-medium,
-  $palette-color-gray-dark
+$palette-colors-gray: map-collect(
+  $palette-colors-gray-lighter,
+  $palette-colors-gray-light,
+  $palette-colors-gray-medium,
+  $palette-colors-gray-dark
 );
 
-$palette-color-gray: (
-  'palette-color-gray-lighter': $palette-color-gray-lighter,
-  'palette-color-gray-light': $palette-color-gray-light,
-  'palette-color-gray-medium': $palette-color-gray-medium,
-  'palette-color-gray-dark': $palette-color-gray-dark,
-  'palette-color-gray': $palette-color-gray,
+$palettes-colors-gray: (
+  'palette-colors-gray-lighter': $palette-colors-gray-lighter,
+  'palette-colors-gray-light': $palette-colors-gray-light,
+  'palette-colors-gray-medium': $palette-colors-gray-medium,
+  'palette-colors-gray-dark': $palette-colors-gray-dark,
+  'palette-colors-gray': $palette-colors-gray,
 );

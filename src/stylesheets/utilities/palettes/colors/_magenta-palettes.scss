@@ -1,66 +1,66 @@
-$palette-color-magenta-light: (
+$palette-colors-magenta-light: (
   'magenta-5':  $color-magenta-5,
   'magenta-10': $color-magenta-10,
   'magenta-20': $color-magenta-20,
   'magenta-30': $color-magenta-30,
 );
 
-$palette-color-magenta-medium: (
+$palette-colors-magenta-medium: (
   'magenta-40': $color-magenta-40,
   'magenta-50': $color-magenta-50,
   'magenta-60': $color-magenta-60,
 );
 
-$palette-color-magenta-dark: (
+$palette-colors-magenta-dark: (
   'magenta-70': $color-magenta-70,
   'magenta-80': $color-magenta-80,
   'magenta-90': $color-magenta-90,
 );
 
-$palette-color-magenta-light-vivid: (
+$palette-colors-magenta-light-vivid: (
   'magenta-5v':  $color-magenta-5v,
   'magenta-10v': $color-magenta-10v,
   'magenta-20v': $color-magenta-20v,
   'magenta-30v': $color-magenta-30v,
 );
 
-$palette-color-magenta-medium-vivid: (
+$palette-colors-magenta-medium-vivid: (
   'magenta-40v': $color-magenta-40v,
   'magenta-50v': $color-magenta-50v,
   'magenta-60v': $color-magenta-60v,
 );
 
-$palette-color-magenta-dark-vivid: (
+$palette-colors-magenta-dark-vivid: (
   'magenta-70v': $color-magenta-70v,
   'magenta-80v': $color-magenta-80v,
   'magenta-90v': $color-magenta-90v,
 );
 
-$palette-color-magenta-standard: map-collect(
-  $palette-color-magenta-light,
-  $palette-color-magenta-medium,
-  $palette-color-magenta-dark
+$palette-colors-magenta-standard: map-collect(
+  $palette-colors-magenta-light,
+  $palette-colors-magenta-medium,
+  $palette-colors-magenta-dark
 );
 
-$palette-color-magenta-vivid: map-collect(
-  $palette-color-magenta-light-vivid,
-  $palette-color-magenta-medium-vivid,
-  $palette-color-magenta-dark-vivid
+$palette-colors-magenta-vivid: map-collect(
+  $palette-colors-magenta-light-vivid,
+  $palette-colors-magenta-medium-vivid,
+  $palette-colors-magenta-dark-vivid
 );
 
-$palette-color-magenta: map-collect(
-  $palette-color-magenta-standard,
-  $palette-color-magenta-vivid
+$palette-colors-magenta: map-collect(
+  $palette-colors-magenta-standard,
+  $palette-colors-magenta-vivid
 );
 
-$palette-color-magenta: (
-  'palette-color-magenta-light': $palette-color-magenta-light,
-  'palette-color-magenta-medium': $palette-color-magenta-medium,
-  'palette-color-magenta-dark': $palette-color-magenta-dark,
-  'palette-color-magenta-light-vivid': $palette-color-magenta-light-vivid,
-  'palette-color-magenta-medium-vivid': $palette-color-magenta-medium-vivid,
-  'palette-color-magenta-dark-vivid': $palette-color-magenta-dark-vivid,
-  'palette-color-magenta-standard': $palette-color-magenta-standard,
-  'palette-color-magenta-vivid': $palette-color-magenta-vivid,
-  'palette-color-magenta': $palette-color-magenta,
+$palettes-colors-magenta: (
+  'palette-colors-magenta-light': $palette-colors-magenta-light,
+  'palette-colors-magenta-medium': $palette-colors-magenta-medium,
+  'palette-colors-magenta-dark': $palette-colors-magenta-dark,
+  'palette-colors-magenta-light-vivid': $palette-colors-magenta-light-vivid,
+  'palette-colors-magenta-medium-vivid': $palette-colors-magenta-medium-vivid,
+  'palette-colors-magenta-dark-vivid': $palette-colors-magenta-dark-vivid,
+  'palette-colors-magenta-standard': $palette-colors-magenta-standard,
+  'palette-colors-magenta-vivid': $palette-colors-magenta-vivid,
+  'palette-colors-magenta': $palette-colors-magenta,
 );

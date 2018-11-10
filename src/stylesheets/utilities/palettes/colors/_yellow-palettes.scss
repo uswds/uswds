@@ -1,66 +1,66 @@
-$palette-color-yellow-light: (
+$palette-colors-yellow-light: (
   'yellow-5': $color-yellow-5,
   'yellow-10': $color-yellow-10,
   'yellow-20': $color-yellow-20,
   'yellow-30': $color-yellow-30,
 );
 
-$palette-color-yellow-medium: (
+$palette-colors-yellow-medium: (
   'yellow-40': $color-yellow-40,
   'yellow-50': $color-yellow-50,
   'yellow-60': $color-yellow-60,
 );
 
-$palette-color-yellow-dark: (
+$palette-colors-yellow-dark: (
   'yellow-70': $color-yellow-70,
   'yellow-80': $color-yellow-80,
   'yellow-90': $color-yellow-90,
 );
 
-$palette-color-yellow-light-vivid: (
+$palette-colors-yellow-light-vivid: (
   'yellow-5v': $color-yellow-5v,
   'yellow-10v': $color-yellow-10v,
   'yellow-20v': $color-yellow-20v,
   'yellow-30v': $color-yellow-30v,
 );
 
-$palette-color-yellow-medium-vivid: (
+$palette-colors-yellow-medium-vivid: (
   'yellow-40v': $color-yellow-40v,
   'yellow-50v': $color-yellow-50v,
   'yellow-60v': $color-yellow-60v,
 );
 
-$palette-color-yellow-dark-vivid: (
+$palette-colors-yellow-dark-vivid: (
   'yellow-70v': $color-yellow-70v,
   'yellow-80v': $color-yellow-80v,
   'yellow-90v': $color-yellow-90v,
 );
 
-$palette-color-yellow-standard: map-collect(
-  $palette-color-yellow-light,
-  $palette-color-yellow-medium,
-  $palette-color-yellow-dark
+$palette-colors-yellow-standard: map-collect(
+  $palette-colors-yellow-light,
+  $palette-colors-yellow-medium,
+  $palette-colors-yellow-dark
 );
 
-$palette-color-yellow-vivid: map-collect(
-  $palette-color-yellow-light-vivid,
-  $palette-color-yellow-medium-vivid,
-  $palette-color-yellow-dark-vivid
+$palette-colors-yellow-vivid: map-collect(
+  $palette-colors-yellow-light-vivid,
+  $palette-colors-yellow-medium-vivid,
+  $palette-colors-yellow-dark-vivid
 );
 
-$palette-color-yellow: map-collect(
-  $palette-color-yellow-standard,
-  $palette-color-yellow-vivid
+$palette-colors-yellow: map-collect(
+  $palette-colors-yellow-standard,
+  $palette-colors-yellow-vivid
 );
 
-$palette-color-yellow: (
-  'palette-color-yellow-light': $palette-color-yellow-light,
-  'palette-color-yellow-medium': $palette-color-yellow-medium,
-  'palette-color-yellow-dark': $palette-color-yellow-dark,
-  'palette-color-yellow-light-vivid': $palette-color-yellow-light-vivid,
-  'palette-color-yellow-medium-vivid': $palette-color-yellow-medium-vivid,
-  'palette-color-yellow-dark-vivid': $palette-color-yellow-dark-vivid,
-  'palette-color-yellow-standard': $palette-color-yellow-standard,
-  'palette-color-yellow-vivid': $palette-color-yellow-vivid,
-  'palette-color-yellow': $palette-color-yellow,
+$palettes-colors-yellow: (
+  'palette-colors-yellow-light': $palette-colors-yellow-light,
+  'palette-colors-yellow-medium': $palette-colors-yellow-medium,
+  'palette-colors-yellow-dark': $palette-colors-yellow-dark,
+  'palette-colors-yellow-light-vivid': $palette-colors-yellow-light-vivid,
+  'palette-colors-yellow-medium-vivid': $palette-colors-yellow-medium-vivid,
+  'palette-colors-yellow-dark-vivid': $palette-colors-yellow-dark-vivid,
+  'palette-colors-yellow-standard': $palette-colors-yellow-standard,
+  'palette-colors-yellow-vivid': $palette-colors-yellow-vivid,
+  'palette-colors-yellow': $palette-colors-yellow,
 );
