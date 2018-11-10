@@ -22,8 +22,8 @@ $palettes-fonts-misc:(
     sans:    unquote('#{$font-stack-sans}'),
     serif:   unquote('#{$font-stack-serif}'),
   ),
-  'palette-fonts-weights-theme': $project-font-weights,
-  'palette-fonts-weights-system': (
+  'palette-font-weights-theme': $project-font-weights,
+  'palette-font-weights-system': (
     '100': 100,
     '200': 200,
     '300': 300,
