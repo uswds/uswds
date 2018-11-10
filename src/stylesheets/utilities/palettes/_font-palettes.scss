@@ -1669,6 +1669,14 @@ $palette-fonts-system: (
   ),
 );
 
+$palette-fonts-system: (
+  'palette-fonts-system': map-collect(
+    $palette-fonts-system-mono,
+    $palette-fonts-system-sans,
+    $palette-fonts-system-serif
+  ),
+);
+
 $palettes-fonts-system: map-collect(
   $palettes-fonts-system-serif,
   $palettes-fonts-system-sans,

@@ -670,10 +670,7 @@ $float-manual-values: () !default;
 
 // .font
 
-$font-palettes: (
-  'palette-fonts-theme-types',
-  'palette-fonts-theme-roles'
-) !default;
+$font-palettes: ('palette-fonts-theme') !default;
 $font-manual-values: () !default;
 
 // .font-family
