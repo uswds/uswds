@@ -9,26 +9,6 @@ in utilities
 */
 
 $palettes-units:(
-  'palette-units-smaller': map-get($system-spacing, smaller),
-  'palette-units-small':   map-get($system-spacing, small),
-  'palette-units-medium':  map-get($system-spacing, medium),
-  'palette-units-large':   map-get($system-spacing, large),
-  'palette-units-larger':  map-get($system-spacing, larger),
-  'palette-units-largest': map-get($system-spacing, largest),
-  'palette-units-smaller-negative': map-get($system-spacing, smaller-negative),
-  'palette-units-small-negative': map-get($system-spacing, small-negative),
-  'palette-units-positive': map-collect(
-    map-get($system-spacing, smaller),
-    map-get($system-spacing, small),
-    map-get($system-spacing, medium),
-    map-get($system-spacing, large),
-    map-get($system-spacing, larger),
-    map-get($system-spacing, largest)
-  ),
-  'palette-units-negative': map-collect(
-    map-get($system-spacing, smaller-negative),
-    map-get($system-spacing, small-negative)
-  ),
   'palette-units': map-collect(
     map-get($system-spacing, small-negative),
     map-get($system-spacing, smaller-negative),
@@ -39,6 +19,26 @@ $palettes-units:(
     map-get($system-spacing, larger),
     map-get($system-spacing, largest)
   ),
+  'palette-units-positive': map-collect(
+    map-get($system-spacing, smaller),
+    map-get($system-spacing, small),
+    map-get($system-spacing, medium),
+    map-get($system-spacing, large),
+    map-get($system-spacing, larger),
+    map-get($system-spacing, largest)
+  ),
+  'palette-units-positive-smaller': map-get($system-spacing, smaller),
+  'palette-units-positive-small':   map-get($system-spacing, small),
+  'palette-units-positive-medium':  map-get($system-spacing, medium),
+  'palette-units-positive-large':   map-get($system-spacing, large),
+  'palette-units-positive-larger':  map-get($system-spacing, larger),
+  'palette-units-positive-largest': map-get($system-spacing, largest),
+  'palette-units-negative': map-collect(
+    map-get($system-spacing, smaller-negative),
+    map-get($system-spacing, small-negative)
+  ),
+  'palette-units-negative-smaller': map-get($system-spacing, smaller-negative),
+  'palette-units-negative-small': map-get($system-spacing, small-negative),
   'palette-units-breakpoints': map-collect(
     map-get($system-spacing, large),
     map-get($system-spacing, larger),
