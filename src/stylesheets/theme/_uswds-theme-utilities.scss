@@ -55,9 +55,7 @@ The following palettes will be added to
 */
 
 $global-color-palettes: (
-  'palette-colors-theme',
-  'palette-colors-basic',
-  'palette-colors-grayscale'
+  'palette-color-default'
 );
 
 /*
@@ -583,7 +581,7 @@ $add-aspect-manual-values: ();
 
 // .align-items
 
-$align-items-palettes: ('palette-default-align-items');
+$align-items-palettes: ('palette-align-items-default');
 $align-items-manual-values: ();
 
 // .background-color
@@ -593,7 +591,7 @@ $background-color-manual-values: ();
 
 // .border
 
-$border-palettes: ('palette-default-border');
+$border-palettes: ('palette-border-default');
 $border-manual-values: ();
 
 // .border-color
@@ -603,22 +601,22 @@ $border-color-manual-values: ();
 
 // .border-radius
 
-$border-radius-palettes: ('palette-default-border-radius');
+$border-radius-palettes: ('palette-border-radius-default');
 $border-radius-manual-values: ();
 
 // .border-style
 
-$border-style-palettes: ('palette-default-border-style');
+$border-style-palettes: ('palette-border-style-default');
 $border-style-manual-values: ();
 
 // .border-width
 
-$border-width-palettes: ('palette-default-border-width');
+$border-width-palettes: ('palette-border-width-default');
 $border-width-manual-values: ();
 
 // .bottom
 
-$bottom-palettes: ('palette-default-bottom');
+$bottom-palettes: ('palette-bottom-default');
 
 $bottom-manual-values: ();
 
@@ -627,14 +625,14 @@ $bottom-manual-values: ();
 $box-shadow-palettes: (
   /*
   */
-  'palette-default-box-shadow'
+  'palette-box-shadow-default'
 );
 
 $box-shadow-manual-values: ();
 
 // .circle
 
-$circle-palettes: ('palette-default-circle');
+$circle-palettes: ('palette-circle-default');
 $circle-manual-values: ();
 
 // .color
@@ -644,171 +642,171 @@ $color-manual-values: ();
 
 // .cursor
 
-$cursor-palettes: ('palette-default-cursor');
+$cursor-palettes: ('palette-cursor-default');
 $cursor-manual-values: ();
 
 // .display
 
-$display-palettes: ('palette-default-display');
+$display-palettes: ('palette-display-default');
 $display-manual-values: ();
 
 // .flex
 
-$flex-palettes: ('palette-default-flex');
+$flex-palettes: ('palette-flex-default');
 $flex-manual-values: ();
 
 // .flex-direction
 
-$flex-direction-palettes: ('palette-default-flex-direction');
+$flex-direction-palettes: ('palette-flex-direction-default');
 $flex-direction-manual-values: ();
 
 // .flex-wrap
 
-$flex-wrap-palettes: ('palette-default-flex-wrap');
+$flex-wrap-palettes: ('palette-flex-wrap-default');
 $flex-wrap-manual-values: ();
 
 // .float
 
-$float-palettes: ('palette-default-float');
+$float-palettes: ('palette-float-default');
 $float-manual-values: ();
 
 // .font
 
-$font-palettes: ('palette-fonts-theme');
+$font-palettes: ('palette-font-theme');
 $font-manual-values: ();
 
 // .font-family
 
-$font-family-palettes: ('palette-default-font-family');
+$font-family-palettes: ('palette-font-family-default');
 $font-family-manual-values: ();
 
 // .font-feature-settings
 
-$font-feature-palettes: ('palette-default-font-feature-settings');
+$font-feature-palettes: ('palette-font-feature-settings-default');
 $font-feature-manual-values: ();
 
 // .font-style
 
-$font-style-palettes: ('palette-default-font-style');
+$font-style-palettes: ('palette-font-style-default');
 $font-style-manual-values: ();
 
 // .font-weight
 
-$font-weight-palettes: ('palette-default-font-weight');
+$font-weight-palettes: ('palette-font-weight-default');
 $font-weight-manual-values: ();
 
 // .height
 
-$height-palettes: ('palette-default-height');
+$height-palettes: ('palette-height-default');
 $height-manual-values: ();
 
 // .justify-content
 
-$justify-content-palettes: ('palette-default-justify-content');
+$justify-content-palettes: ('palette-justify-content-default');
 $justify-content-manual-values: ();
 
 // .left
 
-$left-palettes: ('palette-default-left');
+$left-palettes: ('palette-left-default');
 $left-manual-values: ();
 
 // .letter-spacing
 
-$letter-spacing-palettes: ('palette-default-letter-spacing');
+$letter-spacing-palettes: ('palette-letter-spacing-default');
 $letter-spacing-manual-values: ();
 
 // .line-height
 
-$line-height-palettes: ('palette-default-line-height');
+$line-height-palettes: ('palette-line-height-default');
 $line-height-manual-values: ();
 
 // .margin
 
-$margin-palettes: ('palette-default-margin');
+$margin-palettes: ('palette-margin-default');
 $margin-manual-values: ();
-$margin-vertical-palettes: ('palette-default-margin-vertical');
+$margin-vertical-palettes: ('palette-margin-vertical-default');
 $margin-vertical-manual-values: ();
-$margin-horizontal-palettes: ('palette-default-margin-horizontal');
+$margin-horizontal-palettes: ('palette-margin-horizontal-default');
 $margin-horizontal-manual-values: ();
 
 // .max-height
 
-$max-height-palettes: ('palette-default-max-height');
+$max-height-palettes: ('palette-max-height-default');
 $max-height-manual-values: ();
 
 // .max-width
 
-$max-width-palettes: ('palette-default-max-width');
+$max-width-palettes: ('palette-max-width-default');
 $max-width-manual-values: ();
 
 // .measure
 
-$measure-palettes: ('palette-default-measure');
+$measure-palettes: ('palette-measure-default');
 $measure-manual-values: ();
 
 // .min-height
 
-$min-height-palettes: ('palette-default-min-height');
+$min-height-palettes: ('palette-min-height-default');
 $min-height-manual-values: ();
 
 // .min-width
 
-$min-width-palettes: ('palette-default-min-width');
+$min-width-palettes: ('palette-min-width-default');
 $min-width-manual-values: ();
 
 // .opacity
 
-$opacity-palettes: ('palette-default-opacity');
+$opacity-palettes: ('palette-opacity-default');
 $opacity-manual-values: ();
 
 // .order
 
-$order-palettes: ('palette-default-order');
+$order-palettes: ('palette-order-default');
 $order-manual-values: ();
 
 // .outline
 
-$outline-palettes: ('palette-default-outline');
+$outline-palettes: ('palette-outline-default');
 $outline-manual-values: ();
 
 // .outline-color
 
-$outline-color-palettes: ('palette-default-outline-color');
+$outline-color-palettes: ('palette-outline-color-default');
 $outline-color-manual-values: ();
 
 // .overflow
 
-$overflow-palettes: ('palette-default-overflow');
+$overflow-palettes: ('palette-overflow-default');
 $overflow-manual-values: ();
 
 // .padding
 
-$padding-palettes: ('palette-default-padding');
+$padding-palettes: ('palette-padding-default');
 $padding-manual-values: ();
 
 // .position
 
-$position-palettes: ('palette-default-position');
+$position-palettes: ('palette-position-default');
 $position-manual-values: ();
 
 // .right
 
-$right-palettes: ('palette-default-right');
+$right-palettes: ('palette-right-default');
 $right-manual-values: ();
 
 // .square
 
-$square-palettes: ('palette-default-square');
+$square-palettes: ('palette-square-default');
 $square-manual-values: ();
 
 // .text-align
 
-$text-align-palettes: ('palette-default-text-align');
+$text-align-palettes: ('palette-text-align-default');
 $text-align-manual-values: ();
 
 // .text-decoration
 
-$text-decoration-palettes: ('palette-default-text-decoration');
+$text-decoration-palettes: ('palette-text-decoration-default');
 $text-decoration-manual-values: ();
 
 // .text-decoration-color
@@ -818,35 +816,35 @@ $text-decoration-color-manual-values: ();
 
 // .text-indent
 
-$text-indent-palettes: ('palette-default-text-indent');
+$text-indent-palettes: ('palette-text-indent-default');
 $text-indent-manual-values: ();
 
 // .text-transform
 
-$text-transform-palettes: ('palette-default-text-transform');
+$text-transform-palettes: ('palette-text-transform-default');
 $text-transform-manual-values: ();
 
 // .top
 
-$top-palettes: ('palette-default-top');
+$top-palettes: ('palette-top-default');
 $top-manual-values: ();
 
 // .vertical-align
 
-$vertical-align-palettes: ('palette-default-vertical-align');
+$vertical-align-palettes: ('palette-vertical-align-default');
 $vertical-align-manual-values: ();
 
 // .white-space
 
-$whitespace-palettes: ('palette-default-white-space');
+$whitespace-palettes: ('palette-white-space-default');
 $whitespace-manual-values: ();
 
 // .width
 
-$width-palettes: ('palette-default-width');
+$width-palettes: ('palette-width-default');
 $width-manual-values: ();
 
 // .z-index
 
-$z-index-palettes: ('palette-default-z-index');
+$z-index-palettes: ('palette-z-index-default');
 $z-index-manual-values: ();

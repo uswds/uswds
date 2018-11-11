@@ -1,4 +1,4 @@
-$palette-colors-grayscale: (
+$tokens-color-grayscale: (
   'gray-5':                 $color-gray-5,
   'gray-10':                $color-gray-10,
   'gray-30':                $color-gray-30,
@@ -7,38 +7,48 @@ $palette-colors-grayscale: (
   'gray-90':                $color-gray-90,
 );
 
-$palettes-colors-sets: (
-  'palette-colors-theme':     $palette-colors-theme,
-  'palette-colors-grayscale': $palette-colors-grayscale,
-  'palette-colors-required':  $system-required-colors,
-  'palette-colors-state':     $color-palette-state,
-  'palette-colors-basic':     $system-basic-colors,
-  'palette-colors-system':    map-collect(
-    $palette-colors-black-transparent,
-    $palette-colors-gray-cool,
-    $palette-colors-gray,
-    $palette-colors-gray-warm,
-    $palette-colors-blue,
-    $palette-colors-blue-warm,
-    $palette-colors-cyan,
-    $palette-colors-cyan,
-    $palette-colors-gold,
-    $palette-colors-green-cool,
-    $palette-colors-green,
-    $palette-colors-green-warm,
-    $palette-colors-indigo-cool,
-    $palette-colors-indigo,
-    $palette-colors-indigo-warm,
-    $palette-colors-magenta,
-    $palette-colors-mint-cool,
-    $palette-colors-mint,
-    $palette-colors-orange,
-    $palette-colors-orange-warm,
-    $palette-colors-red,
-    $palette-colors-red-warm,
-    $palette-colors-violet,
-    $palette-colors-violet-warm,
-    $palette-colors-white-transparent,
-    $palette-colors-yellow
+$tokens-color-system: map-collect(
+  $tokens-color-black-transparent,
+  $tokens-color-gray-cool,
+  $tokens-color-gray,
+  $tokens-color-gray-warm,
+  $tokens-color-blue,
+  $tokens-color-blue-warm,
+  $tokens-color-cyan,
+  $tokens-color-cyan,
+  $tokens-color-gold,
+  $tokens-color-green-cool,
+  $tokens-color-green,
+  $tokens-color-green-warm,
+  $tokens-color-indigo-cool,
+  $tokens-color-indigo,
+  $tokens-color-indigo-warm,
+  $tokens-color-magenta,
+  $tokens-color-mint-cool,
+  $tokens-color-mint,
+  $tokens-color-orange,
+  $tokens-color-orange-warm,
+  $tokens-color-red,
+  $tokens-color-red-warm,
+  $tokens-color-violet,
+  $tokens-color-violet-warm,
+  $tokens-color-white-transparent,
+  $tokens-color-yellow
+);
+
+$palettes-color: (
+  'palette-color': map-collect(
+    $tokens-color-theme,
+    $tokens-color-grayscale,
+    $tokens-color-required,
+    $tokens-color-state,
+    $tokens-color-basic,
+    $tokens-color-system
   ),
+  'palette-color-required':  $tokens-color-required,
+  'palette-color-basic':     $tokens-color-basic,
+  'palette-color-grayscale': $tokens-color-grayscale,
+  'palette-color-theme':     $tokens-color-theme,
+  'palette-color-state':     $tokens-color-state,
+  'palette-color-system':    $tokens-color-system,
 );

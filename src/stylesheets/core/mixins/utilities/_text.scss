@@ -34,7 +34,7 @@ $text-utililies: (
     map-deep-get($system-properties, white-space, extended)
   ),
   color: map-collect(
-    $system-required-colors
+    $tokens-color-required
   ),
 );
 
