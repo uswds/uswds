@@ -54,13 +54,13 @@ $tokens-color-magenta: map-collect(
 );
 
 $palettes-color-magenta: (
-  'palette-color-magenta-light': $tokens-color-magenta-light,
-  'palette-color-magenta-medium': $tokens-color-magenta-medium,
-  'palette-color-magenta-dark': $tokens-color-magenta-dark,
-  'palette-color-magenta-light-vivid': $tokens-color-magenta-light-vivid,
-  'palette-color-magenta-medium-vivid': $tokens-color-magenta-medium-vivid,
-  'palette-color-magenta-dark-vivid': $tokens-color-magenta-dark-vivid,
-  'palette-color-magenta-standard': $tokens-color-magenta-standard,
-  'palette-color-magenta-vivid': $tokens-color-magenta-vivid,
-  'palette-color-magenta': $tokens-color-magenta,
+  'palette-color-system-magenta-light': $tokens-color-magenta-light,
+  'palette-color-system-magenta-medium': $tokens-color-magenta-medium,
+  'palette-color-system-magenta-dark': $tokens-color-magenta-dark,
+  'palette-color-system-magenta-light-vivid': $tokens-color-magenta-light-vivid,
+  'palette-color-system-magenta-medium-vivid': $tokens-color-magenta-medium-vivid,
+  'palette-color-system-magenta-dark-vivid': $tokens-color-magenta-dark-vivid,
+  'palette-color-system-magenta-standard': $tokens-color-magenta-standard,
+  'palette-color-system-magenta-vivid': $tokens-color-magenta-vivid,
+  'palette-color-system-magenta': $tokens-color-magenta,
 );

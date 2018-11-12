@@ -54,13 +54,13 @@ $tokens-color-yellow: map-collect(
 );
 
 $palettes-color-yellow: (
-  'palette-color-yellow-light': $tokens-color-yellow-light,
-  'palette-color-yellow-medium': $tokens-color-yellow-medium,
-  'palette-color-yellow-dark': $tokens-color-yellow-dark,
-  'palette-color-yellow-light-vivid': $tokens-color-yellow-light-vivid,
-  'palette-color-yellow-medium-vivid': $tokens-color-yellow-medium-vivid,
-  'palette-color-yellow-dark-vivid': $tokens-color-yellow-dark-vivid,
-  'palette-color-yellow-standard': $tokens-color-yellow-standard,
-  'palette-color-yellow-vivid': $tokens-color-yellow-vivid,
-  'palette-color-yellow': $tokens-color-yellow,
+  'palette-color-system-yellow-light': $tokens-color-yellow-light,
+  'palette-color-system-yellow-medium': $tokens-color-yellow-medium,
+  'palette-color-system-yellow-dark': $tokens-color-yellow-dark,
+  'palette-color-system-yellow-light-vivid': $tokens-color-yellow-light-vivid,
+  'palette-color-system-yellow-medium-vivid': $tokens-color-yellow-medium-vivid,
+  'palette-color-system-yellow-dark-vivid': $tokens-color-yellow-dark-vivid,
+  'palette-color-system-yellow-standard': $tokens-color-yellow-standard,
+  'palette-color-system-yellow-vivid': $tokens-color-yellow-vivid,
+  'palette-color-system-yellow': $tokens-color-yellow,
 );

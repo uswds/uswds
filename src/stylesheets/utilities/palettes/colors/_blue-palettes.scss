@@ -54,13 +54,13 @@ $tokens-color-blue: map-collect(
 );
 
 $palettes-color-blue: (
-  'palette-color-blue-light': $tokens-color-blue-light,
-  'palette-color-blue-medium': $tokens-color-blue-medium,
-  'palette-color-blue-dark': $tokens-color-blue-dark,
-  'palette-color-blue-light-vivid': $tokens-color-blue-light-vivid,
-  'palette-color-blue-medium-vivid': $tokens-color-blue-medium-vivid,
-  'palette-color-blue-dark-vivid': $tokens-color-blue-dark-vivid,
-  'palette-color-blue-standard': $tokens-color-blue-standard,
-  'palette-color-blue-vivid': $tokens-color-blue-vivid,
-  'palette-color-blue': $tokens-color-blue,
+  'palette-color-system-blue-light': $tokens-color-blue-light,
+  'palette-color-system-blue-medium': $tokens-color-blue-medium,
+  'palette-color-system-blue-dark': $tokens-color-blue-dark,
+  'palette-color-system-blue-light-vivid': $tokens-color-blue-light-vivid,
+  'palette-color-system-blue-medium-vivid': $tokens-color-blue-medium-vivid,
+  'palette-color-system-blue-dark-vivid': $tokens-color-blue-dark-vivid,
+  'palette-color-system-blue-standard': $tokens-color-blue-standard,
+  'palette-color-system-blue-vivid': $tokens-color-blue-vivid,
+  'palette-color-system-blue': $tokens-color-blue,
 );

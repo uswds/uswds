@@ -54,13 +54,13 @@ $tokens-color-green: map-collect(
 );
 
 $palettes-color-green: (
-  'palette-color-green-light': $tokens-color-green-light,
-  'palette-color-green-medium': $tokens-color-green-medium,
-  'palette-color-green-dark': $tokens-color-green-dark,
-  'palette-color-green-light-vivid': $tokens-color-green-light-vivid,
-  'palette-color-green-medium-vivid': $tokens-color-green-medium-vivid,
-  'palette-color-green-dark-vivid': $tokens-color-green-dark-vivid,
-  'palette-color-green-standard': $tokens-color-green-standard,
-  'palette-color-green-vivid': $tokens-color-green-vivid,
-  'palette-color-green': $tokens-color-green,
+  'palette-color-system-green-light': $tokens-color-green-light,
+  'palette-color-system-green-medium': $tokens-color-green-medium,
+  'palette-color-system-green-dark': $tokens-color-green-dark,
+  'palette-color-system-green-light-vivid': $tokens-color-green-light-vivid,
+  'palette-color-system-green-medium-vivid': $tokens-color-green-medium-vivid,
+  'palette-color-system-green-dark-vivid': $tokens-color-green-dark-vivid,
+  'palette-color-system-green-standard': $tokens-color-green-standard,
+  'palette-color-system-green-vivid': $tokens-color-green-vivid,
+  'palette-color-system-green': $tokens-color-green,
 );

@@ -32,9 +32,9 @@ $tokens-color-gray-cool: map-collect(
 );
 
 $palettes-color-gray-cool: (
-  'palette-color-gray-cool-lighter': $tokens-color-gray-cool-lighter,
-  'palette-color-gray-cool-light': $tokens-color-gray-cool-light,
-  'palette-color-gray-cool-medium': $tokens-color-gray-cool-medium,
-  'palette-color-gray-cool-dark': $tokens-color-gray-cool-dark,
-  'palette-color-gray-cool': $tokens-color-gray-cool,
+  'palette-color-system-gray-cool-lighter': $tokens-color-gray-cool-lighter,
+  'palette-color-system-gray-cool-light': $tokens-color-gray-cool-light,
+  'palette-color-system-gray-cool-medium': $tokens-color-gray-cool-medium,
+  'palette-color-system-gray-cool-dark': $tokens-color-gray-cool-dark,
+  'palette-color-system-gray-cool': $tokens-color-gray-cool,
 );

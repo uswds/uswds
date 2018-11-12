@@ -54,13 +54,13 @@ $tokens-color-violet: map-collect(
 );
 
 $palettes-color-violet: (
-  'palette-color-violet-light': $tokens-color-violet-light,
-  'palette-color-violet-medium': $tokens-color-violet-medium,
-  'palette-color-violet-dark': $tokens-color-violet-dark,
-  'palette-color-violet-light-vivid': $tokens-color-violet-light-vivid,
-  'palette-color-violet-medium-vivid': $tokens-color-violet-medium-vivid,
-  'palette-color-violet-dark-vivid': $tokens-color-violet-dark-vivid,
-  'palette-color-violet-standard': $tokens-color-violet-standard,
-  'palette-color-violet-vivid': $tokens-color-violet-vivid,
-  'palette-color-violet': $tokens-color-violet,
+  'palette-color-system-violet-light': $tokens-color-violet-light,
+  'palette-color-system-violet-medium': $tokens-color-violet-medium,
+  'palette-color-system-violet-dark': $tokens-color-violet-dark,
+  'palette-color-system-violet-light-vivid': $tokens-color-violet-light-vivid,
+  'palette-color-system-violet-medium-vivid': $tokens-color-violet-medium-vivid,
+  'palette-color-system-violet-dark-vivid': $tokens-color-violet-dark-vivid,
+  'palette-color-system-violet-standard': $tokens-color-violet-standard,
+  'palette-color-system-violet-vivid': $tokens-color-violet-vivid,
+  'palette-color-system-violet': $tokens-color-violet,
 );

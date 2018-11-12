@@ -54,13 +54,13 @@ $tokens-color-red-warm: map-collect(
 );
 
 $palettes-color-red-warm: (
-  'palette-color-red-warm-light': $tokens-color-red-warm-light,
-  'palette-color-red-warm-medium': $tokens-color-red-warm-medium,
-  'palette-color-red-warm-dark': $tokens-color-red-warm-dark,
-  'palette-color-red-warm-light-vivid': $tokens-color-red-warm-light-vivid,
-  'palette-color-red-warm-medium-vivid': $tokens-color-red-warm-medium-vivid,
-  'palette-color-red-warm-dark-vivid': $tokens-color-red-warm-dark-vivid,
-  'palette-color-red-warm-standard': $tokens-color-red-warm-standard,
-  'palette-color-red-warm-vivid': $tokens-color-red-warm-vivid,
-  'palette-color-red-warm': $tokens-color-red-warm,
+  'palette-color-system-red-warm-light': $tokens-color-red-warm-light,
+  'palette-color-system-red-warm-medium': $tokens-color-red-warm-medium,
+  'palette-color-system-red-warm-dark': $tokens-color-red-warm-dark,
+  'palette-color-system-red-warm-light-vivid': $tokens-color-red-warm-light-vivid,
+  'palette-color-system-red-warm-medium-vivid': $tokens-color-red-warm-medium-vivid,
+  'palette-color-system-red-warm-dark-vivid': $tokens-color-red-warm-dark-vivid,
+  'palette-color-system-red-warm-standard': $tokens-color-red-warm-standard,
+  'palette-color-system-red-warm-vivid': $tokens-color-red-warm-vivid,
+  'palette-color-system-red-warm': $tokens-color-red-warm,
 );

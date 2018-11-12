@@ -54,13 +54,13 @@ $tokens-color-cyan: map-collect(
 );
 
 $palettes-color-cyan: (
-  'palette-color-cyan-light': $tokens-color-cyan-light,
-  'palette-color-cyan-medium': $tokens-color-cyan-medium,
-  'palette-color-cyan-dark': $tokens-color-cyan-dark,
-  'palette-color-cyan-light-vivid': $tokens-color-cyan-light-vivid,
-  'palette-color-cyan-medium-vivid': $tokens-color-cyan-medium-vivid,
-  'palette-color-cyan-dark-vivid': $tokens-color-cyan-dark-vivid,
-  'palette-color-cyan-standard': $tokens-color-cyan-standard,
-  'palette-color-cyan-vivid': $tokens-color-cyan-vivid,
-  'palette-color-cyan': $tokens-color-cyan,
+  'palette-color-system-cyan-light': $tokens-color-cyan-light,
+  'palette-color-system-cyan-medium': $tokens-color-cyan-medium,
+  'palette-color-system-cyan-dark': $tokens-color-cyan-dark,
+  'palette-color-system-cyan-light-vivid': $tokens-color-cyan-light-vivid,
+  'palette-color-system-cyan-medium-vivid': $tokens-color-cyan-medium-vivid,
+  'palette-color-system-cyan-dark-vivid': $tokens-color-cyan-dark-vivid,
+  'palette-color-system-cyan-standard': $tokens-color-cyan-standard,
+  'palette-color-system-cyan-vivid': $tokens-color-cyan-vivid,
+  'palette-color-system-cyan': $tokens-color-cyan,
 );

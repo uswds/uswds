@@ -54,13 +54,13 @@ $tokens-color-indigo: map-collect(
 );
 
 $palettes-color-indigo: (
-  'palette-color-indigo-light': $tokens-color-indigo-light,
-  'palette-color-indigo-medium': $tokens-color-indigo-medium,
-  'palette-color-indigo-dark': $tokens-color-indigo-dark,
-  'palette-color-indigo-light-vivid': $tokens-color-indigo-light-vivid,
-  'palette-color-indigo-medium-vivid': $tokens-color-indigo-medium-vivid,
-  'palette-color-indigo-dark-vivid': $tokens-color-indigo-dark-vivid,
-  'palette-color-indigo-standard': $tokens-color-indigo-standard,
-  'palette-color-indigo-vivid': $tokens-color-indigo-vivid,
-  'palette-color-indigo': $tokens-color-indigo,
+  'palette-color-system-indigo-light': $tokens-color-indigo-light,
+  'palette-color-system-indigo-medium': $tokens-color-indigo-medium,
+  'palette-color-system-indigo-dark': $tokens-color-indigo-dark,
+  'palette-color-system-indigo-light-vivid': $tokens-color-indigo-light-vivid,
+  'palette-color-system-indigo-medium-vivid': $tokens-color-indigo-medium-vivid,
+  'palette-color-system-indigo-dark-vivid': $tokens-color-indigo-dark-vivid,
+  'palette-color-system-indigo-standard': $tokens-color-indigo-standard,
+  'palette-color-system-indigo-vivid': $tokens-color-indigo-vivid,
+  'palette-color-system-indigo': $tokens-color-indigo,
 );

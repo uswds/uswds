@@ -54,13 +54,13 @@ $tokens-color-red: map-collect(
 );
 
 $palettes-color-red: (
-  'palette-color-red-light': $tokens-color-red-light,
-  'palette-color-red-medium': $tokens-color-red-medium,
-  'palette-color-red-dark': $tokens-color-red-dark,
-  'palette-color-red-light-vivid': $tokens-color-red-light-vivid,
-  'palette-color-red-medium-vivid': $tokens-color-red-medium-vivid,
-  'palette-color-red-dark-vivid': $tokens-color-red-dark-vivid,
-  'palette-color-red-standard': $tokens-color-red-standard,
-  'palette-color-red-vivid': $tokens-color-red-vivid,
-  'palette-color-red': $tokens-color-red,
+  'palette-color-system-red-light': $tokens-color-red-light,
+  'palette-color-system-red-medium': $tokens-color-red-medium,
+  'palette-color-system-red-dark': $tokens-color-red-dark,
+  'palette-color-system-red-light-vivid': $tokens-color-red-light-vivid,
+  'palette-color-system-red-medium-vivid': $tokens-color-red-medium-vivid,
+  'palette-color-system-red-dark-vivid': $tokens-color-red-dark-vivid,
+  'palette-color-system-red-standard': $tokens-color-red-standard,
+  'palette-color-system-red-vivid': $tokens-color-red-vivid,
+  'palette-color-system-red': $tokens-color-red,
 );

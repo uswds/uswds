@@ -54,13 +54,13 @@ $tokens-color-orange: map-collect(
 );
 
 $palettes-color-orange: (
-  'palette-color-orange-light': $tokens-color-orange-light,
-  'palette-color-orange-medium': $tokens-color-orange-medium,
-  'palette-color-orange-dark': $tokens-color-orange-dark,
-  'palette-color-orange-light-vivid': $tokens-color-orange-light-vivid,
-  'palette-color-orange-medium-vivid': $tokens-color-orange-medium-vivid,
-  'palette-color-orange-dark-vivid': $tokens-color-orange-dark-vivid,
-  'palette-color-orange-standard': $tokens-color-orange-standard,
-  'palette-color-orange-vivid': $tokens-color-orange-vivid,
-  'palette-color-orange': $tokens-color-orange,
+  'palette-color-system-orange-light': $tokens-color-orange-light,
+  'palette-color-system-orange-medium': $tokens-color-orange-medium,
+  'palette-color-system-orange-dark': $tokens-color-orange-dark,
+  'palette-color-system-orange-light-vivid': $tokens-color-orange-light-vivid,
+  'palette-color-system-orange-medium-vivid': $tokens-color-orange-medium-vivid,
+  'palette-color-system-orange-dark-vivid': $tokens-color-orange-dark-vivid,
+  'palette-color-system-orange-standard': $tokens-color-orange-standard,
+  'palette-color-system-orange-vivid': $tokens-color-orange-vivid,
+  'palette-color-system-orange': $tokens-color-orange,
 );
