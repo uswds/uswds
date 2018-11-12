@@ -1,6 +1,8 @@
+// Fonts
 @import 'font-palettes';
+
+// Spacing
 @import 'spacing-palettes';
-@import 'standard-palettes';
 
 // Colors
 @import 'colors/black-transparent-palettes';
@@ -30,8 +32,8 @@
 @import 'colors/yellow-palettes';
 @import 'colors/all-colors-palettes';
 
-// Palettes
-@import 'colors/misc-color-palettes';
+// Defaults
+@import 'default-palettes';
 
 // Registry
 @import 'palette-registry';

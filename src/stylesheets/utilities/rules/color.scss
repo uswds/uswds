@@ -19,7 +19,7 @@ $u-color: (
     base: 'text',
     modifiers: null,
     values: map-collect(
-      $system-required-colors,
+      $tokens-color-required,
       get-palettes($color-palettes),
       get-palettes($global-color-palettes),
       $color-manual-values

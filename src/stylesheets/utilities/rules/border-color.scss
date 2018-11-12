@@ -20,7 +20,7 @@ $u-border-color: (
     base: 'border',
     modifiers: null,
     values: map-collect(
-      $system-required-colors,
+      $tokens-color-required,
       get-palettes($border-color-palettes),
       get-palettes($global-color-palettes),
       $border-color-manual-values

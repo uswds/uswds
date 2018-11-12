@@ -1,66 +1,66 @@
-$palette-green-light: (
+$tokens-color-green-light: (
   'green-5':  $color-green-5,
   'green-10': $color-green-10,
   'green-20': $color-green-20,
   'green-30': $color-green-30,
 );
 
-$palette-green-medium: (
+$tokens-color-green-medium: (
   'green-40': $color-green-40,
   'green-50': $color-green-50,
   'green-60': $color-green-60,
 );
 
-$palette-green-dark: (
+$tokens-color-green-dark: (
   'green-70': $color-green-70,
   'green-80': $color-green-80,
   'green-90': $color-green-90,
 );
 
-$palette-green-light-vivid: (
+$tokens-color-green-light-vivid: (
   'green-5v':  $color-green-5v,
   'green-10v': $color-green-10v,
   'green-20v': $color-green-20v,
   'green-30v': $color-green-30v,
 );
 
-$palette-green-medium-vivid: (
+$tokens-color-green-medium-vivid: (
   'green-40v': $color-green-40v,
   'green-50v': $color-green-50v,
   'green-60v': $color-green-60v,
 );
 
-$palette-green-dark-vivid: (
+$tokens-color-green-dark-vivid: (
   'green-70v': $color-green-70v,
   'green-80v': $color-green-80v,
   'green-90v': $color-green-90v,
 );
 
-$palette-green-standard: map-collect(
-  $palette-green-light,
-  $palette-green-medium,
-  $palette-green-dark
+$tokens-color-green-standard: map-collect(
+  $tokens-color-green-light,
+  $tokens-color-green-medium,
+  $tokens-color-green-dark
 );
 
-$palette-green-vivid: map-collect(
-  $palette-green-light-vivid,
-  $palette-green-medium-vivid,
-  $palette-green-dark-vivid
+$tokens-color-green-vivid: map-collect(
+  $tokens-color-green-light-vivid,
+  $tokens-color-green-medium-vivid,
+  $tokens-color-green-dark-vivid
 );
 
-$palette-green-all: map-collect(
-  $palette-green-standard,
-  $palette-green-vivid
+$tokens-color-green: map-collect(
+  $tokens-color-green-standard,
+  $tokens-color-green-vivid
 );
 
-$palette-green: (
-  'palette-green-light': $palette-green-light,
-  'palette-green-medium': $palette-green-medium,
-  'palette-green-dark': $palette-green-dark,
-  'palette-green-light-vivid': $palette-green-light-vivid,
-  'palette-green-medium-vivid': $palette-green-medium-vivid,
-  'palette-green-dark-vivid': $palette-green-dark-vivid,
-  'palette-green-standard': $palette-green-standard,
-  'palette-green-vivid': $palette-green-vivid,
-  'palette-green-all': $palette-green-all,
+$palettes-color-green: (
+  'palette-color-system-green-light': $tokens-color-green-light,
+  'palette-color-system-green-medium': $tokens-color-green-medium,
+  'palette-color-system-green-dark': $tokens-color-green-dark,
+  'palette-color-system-green-light-vivid': $tokens-color-green-light-vivid,
+  'palette-color-system-green-medium-vivid': $tokens-color-green-medium-vivid,
+  'palette-color-system-green-dark-vivid': $tokens-color-green-dark-vivid,
+  'palette-color-system-green-standard': $tokens-color-green-standard,
+  'palette-color-system-green-vivid': $tokens-color-green-vivid,
+  'palette-color-system-green': $tokens-color-green,
 );

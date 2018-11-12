@@ -5,14 +5,14 @@ USWDS Properties
 */
 
 $standard-colors: map-collect(
-  $color-palette-theme,
-  $color-palette-state,
-  $system-required-colors
+  $tokens-color-theme,
+  $tokens-color-state,
+  $tokens-color-required
 );
 
 $extended-colors: map-collect(
   $system-colors,
-  $system-basic-colors
+  $tokens-color-basic
 );
 
 $partial-values: (
@@ -506,7 +506,7 @@ $system-properties: (
   ),
   outline-color: (
     standard: map-collect(
-      $system-required-colors
+      $tokens-color-required
     ),
     extended: $extended-colors,
   ),

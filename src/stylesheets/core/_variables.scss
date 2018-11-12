@@ -434,9 +434,9 @@ $all-project-colors: map-collect(
   $project-state-colors
 );
 
-$all-colors: map-collect(
+$palette-colors: map-collect(
   $all-project-colors,
-  $system-required-colors,
+  $tokens-color-required,
   $system-colors
 );
 
@@ -446,7 +446,7 @@ Theme color shortcodes
 ----------------------------------------
 */
 
-$color-palette-theme: (
+$tokens-color-theme: (
   'base-lightest':            color($theme-color-base-lightest),
   'base-lighter':             color($theme-color-base-lighter),
   'base-light':               color($theme-color-base-light),
@@ -487,7 +487,7 @@ $color-palette-theme: (
   'accent-cool-lightest':     color($theme-color-accent-cool-lightest),
 );
 
-$color-palette-state: (
+$tokens-color-state: (
   'error-lighter':            color($theme-color-error-lighter),
   'error-light':              color($theme-color-error-light),
   'error':                    color($theme-color-error),
@@ -514,12 +514,12 @@ $color-palette-state: (
 );
 
 $project-color-shortcodes: map-collect(
-  $color-palette-theme,
-  $color-palette-state
+  $tokens-color-theme,
+  $tokens-color-state
 );
 
 $all-color-shortcodes: map-collect(
-  $system-required-colors,
+  $tokens-color-required,
   $system-color-shortcodes,
   $project-color-shortcodes
 );

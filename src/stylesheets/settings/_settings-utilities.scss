@@ -55,9 +55,7 @@ The following palettes will be added to
 */
 
 $global-color-palettes: (
-  'palette-colors-theme',
-  'palette-colors-basic',
-  'palette-colors-grayscale'
+  'palette-color-default'
 ) !default;
 
 /*
@@ -583,7 +581,7 @@ $add-aspect-manual-values: () !default;
 
 // .align-items
 
-$align-items-palettes: ('palette-standard-align-items') !default;
+$align-items-palettes: ('palette-align-items-default') !default;
 $align-items-manual-values: () !default;
 
 // .background-color
@@ -593,7 +591,7 @@ $background-color-manual-values: () !default;
 
 // .border
 
-$border-palettes: ('palette-standard-border') !default;
+$border-palettes: ('palette-border-default') !default;
 $border-manual-values: () !default;
 
 // .border-color
@@ -603,34 +601,34 @@ $border-color-manual-values: () !default;
 
 // .border-radius
 
-$border-radius-palettes: ('palette-standard-border-radius') !default;
+$border-radius-palettes: ('palette-border-radius-default') !default;
 $border-radius-manual-values: () !default;
 
 // .border-style
 
-$border-style-palettes: ('palette-standard-border-style') !default;
+$border-style-palettes: ('palette-border-style-default') !default;
 $border-style-manual-values: () !default;
 
 // .border-width
 
-$border-width-palettes: ('palette-standard-border-width') !default;
+$border-width-palettes: ('palette-border-width-default') !default;
 $border-width-manual-values: () !default;
 
 // .bottom
 
-$bottom-palettes: ('palette-standard-bottom') !default;
+$bottom-palettes: ('palette-bottom-default') !default;
 
 $bottom-manual-values: () !default;
 
 // .box-shadow
 
-$box-shadow-palettes: ('palette-standard-box-shadow') !default;
+$box-shadow-palettes: ('palette-box-shadow-default') !default;
 
 $box-shadow-manual-values: () !default;
 
 // .circle
 
-$circle-palettes: ('palette-standard-circle') !default;
+$circle-palettes: ('palette-circle-default') !default;
 $circle-manual-values: () !default;
 
 // .color
@@ -640,174 +638,171 @@ $color-manual-values: () !default;
 
 // .cursor
 
-$cursor-palettes: ('palette-standard-cursor') !default;
+$cursor-palettes: ('palette-cursor-default') !default;
 $cursor-manual-values: () !default;
 
 // .display
 
-$display-palettes: ('palette-standard-display') !default;
+$display-palettes: ('palette-display-default') !default;
 $display-manual-values: () !default;
 
 // .flex
 
-$flex-palettes: ('palette-standard-flex') !default;
+$flex-palettes: ('palette-flex-default') !default;
 $flex-manual-values: () !default;
 
 // .flex-direction
 
-$flex-direction-palettes: ('palette-standard-flex-direction') !default;
+$flex-direction-palettes: ('palette-flex-direction-default') !default;
 $flex-direction-manual-values: () !default;
 
 // .flex-wrap
 
-$flex-wrap-palettes: ('palette-standard-flex-wrap') !default;
+$flex-wrap-palettes: ('palette-flex-wrap-default') !default;
 $flex-wrap-manual-values: () !default;
 
 // .float
 
-$float-palettes: ('palette-standard-float') !default;
+$float-palettes: ('palette-float-default') !default;
 $float-manual-values: () !default;
 
 // .font
 
-$font-palettes: (
-  'palette-font-theme-all',
-  'palette-font-theme-roles-all'
-) !default;
+$font-palettes: ('palette-font-default') !default;
 $font-manual-values: () !default;
 
 // .font-family
 
-$font-family-palettes: ('palette-standard-font-family') !default;
+$font-family-palettes: ('palette-font-family-default') !default;
 $font-family-manual-values: () !default;
 
 // .font-feature-settings
 
-$font-feature-palettes: ('palette-standard-font-feature-settings') !default;
+$font-feature-palettes: ('palette-font-feature-settings-default') !default;
 $font-feature-manual-values: () !default;
 
 // .font-style
 
-$font-style-palettes: ('palette-standard-font-style') !default;
+$font-style-palettes: ('palette-font-style-default') !default;
 $font-style-manual-values: () !default;
 
 // .font-weight
 
-$font-weight-palettes: ('palette-standard-font-weight') !default;
+$font-weight-palettes: ('palette-font-weight-default') !default;
 $font-weight-manual-values: () !default;
 
 // .height
 
-$height-palettes: ('palette-standard-height') !default;
+$height-palettes: ('palette-height-default') !default;
 $height-manual-values: () !default;
 
 // .justify-content
 
-$justify-content-palettes: ('palette-standard-justify-content') !default;
+$justify-content-palettes: ('palette-justify-content-default') !default;
 $justify-content-manual-values: () !default;
 
 // .left
 
-$left-palettes: ('palette-standard-left') !default;
+$left-palettes: ('palette-left-default') !default;
 $left-manual-values: () !default;
 
 // .letter-spacing
 
-$letter-spacing-palettes: ('palette-standard-letter-spacing') !default;
+$letter-spacing-palettes: ('palette-letter-spacing-default') !default;
 $letter-spacing-manual-values: () !default;
 
 // .line-height
 
-$line-height-palettes: ('palette-standard-line-height') !default;
+$line-height-palettes: ('palette-line-height-default') !default;
 $line-height-manual-values: () !default;
 
 // .margin
 
-$margin-palettes: ('palette-standard-margin') !default;
+$margin-palettes: ('palette-margin-default') !default;
 $margin-manual-values: () !default;
-$margin-vertical-palettes: ('palette-standard-margin-vertical') !default;
+$margin-vertical-palettes: ('palette-margin-vertical-default') !default;
 $margin-vertical-manual-values: () !default;
-$margin-horizontal-palettes: ('palette-standard-margin-horizontal') !default;
+$margin-horizontal-palettes: ('palette-margin-horizontal-default') !default;
 $margin-horizontal-manual-values: () !default;
 
 // .max-height
 
-$max-height-palettes: ('palette-standard-max-height') !default;
+$max-height-palettes: ('palette-max-height-default') !default;
 $max-height-manual-values: () !default;
 
 // .max-width
 
-$max-width-palettes: ('palette-standard-max-width') !default;
+$max-width-palettes: ('palette-max-width-default') !default;
 $max-width-manual-values: () !default;
 
 // .measure
 
-$measure-palettes: ('palette-standard-measure') !default;
+$measure-palettes: ('palette-measure-default') !default;
 $measure-manual-values: () !default;
 
 // .min-height
 
-$min-height-palettes: ('palette-standard-min-height') !default;
+$min-height-palettes: ('palette-min-height-default') !default;
 $min-height-manual-values: () !default;
 
 // .min-width
 
-$min-width-palettes: ('palette-standard-min-width') !default;
+$min-width-palettes: ('palette-min-width-default') !default;
 $min-width-manual-values: () !default;
 
 // .opacity
 
-$opacity-palettes: ('palette-standard-opacity') !default;
+$opacity-palettes: ('palette-opacity-default') !default;
 $opacity-manual-values: () !default;
 
 // .order
 
-$order-palettes: ('palette-standard-order') !default;
+$order-palettes: ('palette-order-default') !default;
 $order-manual-values: () !default;
 
 // .outline
 
-$outline-palettes: ('palette-standard-outline') !default;
+$outline-palettes: ('palette-outline-default') !default;
 $outline-manual-values: () !default;
 
 // .outline-color
 
-$outline-color-palettes: ('palette-standard-outline-color') !default;
+$outline-color-palettes: ('palette-outline-color-default') !default;
 $outline-color-manual-values: () !default;
 
 // .overflow
 
-$overflow-palettes: ('palette-standard-overflow') !default;
+$overflow-palettes: ('palette-overflow-default') !default;
 $overflow-manual-values: () !default;
 
 // .padding
 
-$padding-palettes: ('palette-standard-padding') !default;
+$padding-palettes: ('palette-padding-default') !default;
 $padding-manual-values: () !default;
 
 // .position
 
-$position-palettes: ('palette-standard-position') !default;
+$position-palettes: ('palette-position-default') !default;
 $position-manual-values: () !default;
 
 // .right
 
-$right-palettes: ('palette-standard-right') !default;
+$right-palettes: ('palette-right-default') !default;
 $right-manual-values: () !default;
 
 // .square
 
-$square-palettes: ('palette-standard-square') !default;
+$square-palettes: ('palette-square-default') !default;
 $square-manual-values: () !default;
 
 // .text-align
 
-$text-align-palettes: ('palette-standard-text-align') !default;
+$text-align-palettes: ('palette-text-align-default') !default;
 $text-align-manual-values: () !default;
 
 // .text-decoration
 
-$text-decoration-palettes: ('palette-standard-text-decoration') !default;
+$text-decoration-palettes: ('palette-text-decoration-default') !default;
 $text-decoration-manual-values: () !default;
 
 // .text-decoration-color
@@ -817,35 +812,35 @@ $text-decoration-color-manual-values: () !default;
 
 // .text-indent
 
-$text-indent-palettes: ('palette-standard-text-indent') !default;
+$text-indent-palettes: ('palette-text-indent-default') !default;
 $text-indent-manual-values: () !default;
 
 // .text-transform
 
-$text-transform-palettes: ('palette-standard-text-transform') !default;
+$text-transform-palettes: ('palette-text-transform-default') !default;
 $text-transform-manual-values: () !default;
 
 // .top
 
-$top-palettes: ('palette-standard-top') !default;
+$top-palettes: ('palette-top-default') !default;
 $top-manual-values: () !default;
 
 // .vertical-align
 
-$vertical-align-palettes: ('palette-standard-vertical-align') !default;
+$vertical-align-palettes: ('palette-vertical-align-default') !default;
 $vertical-align-manual-values: () !default;
 
 // .white-space
 
-$whitespace-palettes: ('palette-standard-white-space') !default;
+$whitespace-palettes: ('palette-white-space-default') !default;
 $whitespace-manual-values: () !default;
 
 // .width
 
-$width-palettes: ('palette-standard-width') !default;
+$width-palettes: ('palette-width-default') !default;
 $width-manual-values: () !default;
 
 // .z-index
 
-$z-index-palettes: ('palette-standard-z-index') !default;
+$z-index-palettes: ('palette-z-index-default') !default;
 $z-index-manual-values: () !default;

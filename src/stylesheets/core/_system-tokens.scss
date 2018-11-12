@@ -318,13 +318,13 @@ $system-colors: map-collect(
   $system-color-white-transparent
 );
 
-$system-required-colors: (
+$tokens-color-required: (
   'transparent':    transparent,
   'black':          black,
   'white':          white,
 );
 
-$system-basic-colors: (
+$tokens-color-basic: (
   'red':                get-system-color('red', 50, 'vivid'),
   'red-warm':           false,
   'orange-warm':        false,
