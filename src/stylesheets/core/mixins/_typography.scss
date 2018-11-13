@@ -40,6 +40,10 @@ Sets:
   * + & {
     margin-top: 1.5em;  // TODO: add as var to settings?
   }
+
+  + * {
+    margin-top: 1em;
+  }
 }
 
 // typeset element mixins
