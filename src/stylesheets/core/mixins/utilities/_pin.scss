@@ -56,3 +56,35 @@ $utility-pin-options: 'all', 'x', 'y', 'top', 'bottom', 'left', 'right', 'none';
     }
   }
 }
+
+@mixin u-pin-none($value...) {
+  @include u-pin('none', $value...);
+}
+
+@mixin u-pin-all($value...) {
+  @include u-pin('all', $value...);
+}
+
+@mixin u-pin-y($value...) {
+  @include u-pin('y', $value...);
+}
+
+@mixin u-pin-x($value...) {
+  @include u-pin('x', $value...);
+}
+
+@mixin u-pin-bottom($value...) {
+  @include u-pin('bottom', $value...);
+}
+
+@mixin u-pin-left($value...) {
+  @include u-pin('left', $value...);
+}
+
+@mixin u-pin-right($value...) {
+  @include u-pin('right', $value...);
+}
+
+@mixin u-pin-top($value...) {
+  @include u-pin('top', $value...);
+}
