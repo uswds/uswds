@@ -16,7 +16,8 @@ html {
 
 @mixin theme-content-styles {
   @if $theme-content-styles == 'scoped' {
-    .usa-prose {
+    .usa-prose > {
+      // * + p { margin-top }
       @include usa-content-styles;
     }
   }
@@ -117,4 +118,8 @@ dfn {
 
 %usa-heading {
   @include typeset-heading;
+}
+
+%usa-paragraph {
+  @include typeset-p;
 }

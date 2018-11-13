@@ -1,8 +1,8 @@
 @mixin usa-typography-base-styles {
   p {
-    @include typeset-p;
+    @extend %usa-paragraph;
   }
-
+  
   a {
     @include typeset-link;
   }
