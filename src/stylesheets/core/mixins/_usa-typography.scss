@@ -2,7 +2,7 @@
   p {
     @extend %usa-paragraph;
   }
-  
+
   a {
     @include typeset-link;
   }
