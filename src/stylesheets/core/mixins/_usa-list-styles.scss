@@ -2,9 +2,9 @@
   ul,
   ol {
     @extend %usa-list;
-  }
 
-  li {
-    @extend %usa-list-item;
+    li {
+      @extend %usa-list-item;
+    }
   }
 }
