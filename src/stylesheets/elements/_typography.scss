@@ -116,10 +116,10 @@ dfn {
   }
 }
 
-%usa-heading {
-  @include typeset-heading;
-}
-
 %usa-paragraph {
   @include typeset-p;
+}
+
+%usa-heading {
+  @include typeset-heading;
 }
