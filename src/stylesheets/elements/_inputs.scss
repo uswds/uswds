@@ -235,6 +235,14 @@ $input-state-border-width: 0.5;
 .usa-checkbox-input:checked:disabled + .usa-checkbox-label::before {
   @include add-background-svg('correct8');
   background-position: center center;
+
+  @media print {
+    background-image: none;
+    background-color: color('white');
+    content: url('#{$theme-image-path}/correct8-alt.png');
+    content: url('#{$theme-image-path}/correct8-alt.svg');
+    text-indent: 0;
+  }
 }
 
 .usa-radio-input:focus + .usa-radio-label::before {
