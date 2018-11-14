@@ -39,7 +39,7 @@
   @extend %usa-table;
 }
 
-.usa-table-borderless {
+%usa-table-borderless {
   thead {
     th {
       background-color: transparent;
@@ -58,4 +58,8 @@
       padding-left: 0;
     }
   }
+}
+
+.usa-table-borderless {
+  @extend %usa-table-borderless;
 }
