@@ -16,7 +16,8 @@ html {
 
 @mixin theme-content-styles {
   @if $theme-content-styles == 'scoped' {
-    .usa-prose {
+    .usa-prose > {
+      // * + p { margin-top }
       @include usa-content-styles;
     }
   }
@@ -113,6 +114,10 @@ dfn {
       color: color('white');
     }
   }
+}
+
+%usa-paragraph {
+  @include typeset-p;
 }
 
 %usa-heading {

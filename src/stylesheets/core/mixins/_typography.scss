@@ -38,7 +38,11 @@ Sets:
   clear: both;
 
   * + & {
-    margin-top: 1.5em;
+    margin-top: 1.5em;  // TODO: add as var to settings?
+  }
+
+  + * {
+    margin-top: 1em;
   }
 }
 
@@ -53,7 +57,7 @@ Sets:
   max-width: measure($theme-text-measure);
 
   * + & {
-    margin-top: 1em;
+    margin-top: 1em;  // TODO: add as var to settings?
   }
 
   + * {
