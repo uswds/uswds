@@ -35,10 +35,6 @@
   }
 }
 
-.usa-table {
-  @extend %usa-table;
-}
-
 %usa-table-borderless {
   thead {
     th {
@@ -58,6 +54,10 @@
       padding-left: 0;
     }
   }
+}
+
+.usa-table {
+  @extend %usa-table;
 }
 
 .usa-table-borderless {
