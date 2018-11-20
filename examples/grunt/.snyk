@@ -1,0 +1,63 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - uswds > @frctl/fractal > browser-sync > socket.io > socket.io-adapter > socket.io-parser > debug:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/fractal > @frctl/mandelbrot > @frctl/fractal > browser-sync > socket.io > socket.io-adapter > socket.io-parser > debug:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/mandelbrot > @frctl/fractal > @frctl/handlebars > @frctl/fractal > browser-sync > socket.io > socket.io-adapter > socket.io-parser > debug:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/fractal > @frctl/mandelbrot > @frctl/fractal > @frctl/handlebars > @frctl/fractal > browser-sync > socket.io > socket.io-adapter > socket.io-parser > debug:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/nunjucks > @frctl/fractal > @frctl/handlebars > @frctl/fractal > @frctl/mandelbrot > @frctl/fractal > browser-sync > socket.io > socket.io-adapter > socket.io-parser > debug:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/mandelbrot > @frctl/fractal > browser-sync > socket.io > socket.io-adapter > socket.io-parser > debug:
+        patched: '2018-11-20T22:19:47.366Z'
+  'npm:lodash:20180130':
+    - uswds > @frctl/fractal > cli-table2 > lodash:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/fractal > vorpal > inquirer > lodash:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/mandelbrot > @frctl/fractal > cli-table2 > lodash:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/mandelbrot > @frctl/fractal > vorpal > inquirer > lodash:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/fractal > @frctl/handlebars > @frctl/fractal > cli-table2 > lodash:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/nunjucks > @frctl/fractal > @frctl/mandelbrot > @frctl/fractal > cli-table2 > lodash:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/fractal > @frctl/mandelbrot > @frctl/fractal > vorpal > inquirer > lodash:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/fractal > @frctl/handlebars > @frctl/fractal > @frctl/mandelbrot > @frctl/fractal > cli-table2 > lodash:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/nunjucks > @frctl/fractal > @frctl/mandelbrot > @frctl/fractal > vorpal > inquirer > lodash:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/nunjucks > @frctl/fractal > @frctl/handlebars > @frctl/fractal > @frctl/mandelbrot > @frctl/fractal > cli-table2 > lodash:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/fractal > @frctl/mandelbrot > @frctl/fractal > @frctl/handlebars > @frctl/fractal > vorpal > inquirer > lodash:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/nunjucks > @frctl/fractal > @frctl/handlebars > @frctl/fractal > @frctl/mandelbrot > @frctl/fractal > vorpal > inquirer > lodash:
+        patched: '2018-11-20T22:19:47.366Z'
+  'npm:minimatch:20160620':
+    - uswds > gulp > vinyl-fs > glob-stream > minimatch:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > gulp > vinyl-fs > glob-watcher > gaze > globule > minimatch:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2018-11-20T22:19:47.366Z'
+  'npm:ms:20170412':
+    - uswds > @frctl/fractal > browser-sync > socket.io > socket.io-adapter > socket.io-parser > debug > ms:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/mandelbrot > @frctl/fractal > browser-sync > socket.io > socket.io-adapter > socket.io-parser > debug > ms:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/fractal > @frctl/mandelbrot > @frctl/fractal > browser-sync > socket.io > socket.io-adapter > socket.io-parser > debug > ms:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/mandelbrot > @frctl/fractal > @frctl/handlebars > @frctl/fractal > browser-sync > socket.io > socket.io-adapter > socket.io-parser > debug > ms:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/fractal > @frctl/mandelbrot > @frctl/fractal > @frctl/handlebars > @frctl/fractal > browser-sync > socket.io > socket.io-adapter > socket.io-parser > debug > ms:
+        patched: '2018-11-20T22:19:47.366Z'
+    - uswds > @frctl/nunjucks > @frctl/fractal > @frctl/handlebars > @frctl/fractal > @frctl/mandelbrot > @frctl/fractal > browser-sync > socket.io > socket.io-adapter > socket.io-parser > debug > ms:
+        patched: '2018-11-20T22:19:47.366Z'
