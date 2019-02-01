@@ -1,6 +1,6 @@
 // Variables
 
-$accordion-border: units(0.5) solid color('base-lightest');
+$accordion-border: units($theme-accordion-border-width) solid color($theme-accordion-border-color);
 
 // Accordion Styles
 

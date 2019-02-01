@@ -20,24 +20,20 @@ $usa-alerts-bar: (
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 $alerts-bar: map-merge($usa-alerts-bar, $usa-custom-alerts-bar);
-
-$h-padding: units(2.5);
-$bar-size: units(1);
-$left-padding: $h-padding + $bar-size;
-$icon-size: units(4);
+$padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 
 .usa-alert {
   @include typeset($theme-alert-font-family);
   @include border-box-sizing;
 
   background-color: color('base-lightest');
-  background-position: $h-padding $h-padding;
+  background-position: units($theme-alert-padding-x) units($theme-alert-padding-x);
   background-repeat: no-repeat;
   background-size: units(7);
   padding-bottom: units(2);
-  padding-left: $left-padding;
-  padding-right: $h-padding;
-  padding-top: $h-padding;
+  padding-left: $padding-left;
+  padding-right: units($theme-alert-padding-x);
+  padding-top: units($theme-alert-padding-x);
   position: relative;
 
   * + & {
@@ -52,7 +48,7 @@ $icon-size: units(4);
     left: 0;
     position: absolute;
     top: 0;
-    width: $bar-size;
+    width: units($theme-alert-bar-width);
   }
 
   a {
@@ -76,9 +72,9 @@ $icon-size: units(4);
 }
 
 .usa-alert-slim {
-  background-position: $h-padding center;
-  padding-bottom: $bar-size;
-  padding-top: $bar-size;
+  background-position: units($theme-alert-padding-x) center;
+  padding-bottom: units($theme-alert-bar-width);
+  padding-top: units($theme-alert-bar-width);
 
   .usa-alert-text:only-child {
     margin-bottom: units(0.5);
@@ -88,7 +84,7 @@ $icon-size: units(4);
 
 .usa-alert-icon {
   display: table-cell;
-  padding-right: $bar-size;
+  padding-right: units($theme-alert-bar-width);
 }
 
 .usa-alert-body {
@@ -107,7 +103,7 @@ $icon-size: units(4);
 }
 
 .usa-alert-text:only-child {
-  margin-bottom: $bar-size;
+  margin-bottom: units($theme-alert-bar-width);
   padding-top: units(0.5);
 }
 
@@ -121,7 +117,7 @@ $icon-size: units(4);
     }
 
     .usa-alert-body {
-      padding-left: $icon-size + $h-padding;
+      padding-left: units($theme-alert-icon-size) + units($theme-alert-padding-x);
     }
   }
 }
