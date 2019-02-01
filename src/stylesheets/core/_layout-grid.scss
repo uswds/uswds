@@ -70,6 +70,7 @@ $namespace-grid: ns('grid');
 [class*='#{$namespace-grid}col'] {
   @include u-position(relative);
   @include u-width(full);
+  box-sizing: border-box;
 }
 
 .#{$namespace-grid}col {

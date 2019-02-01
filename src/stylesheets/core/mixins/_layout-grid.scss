@@ -104,14 +104,18 @@
     @if $col == 'auto' {
       $flex: append-important($props, auto);
       $width: append-important($props, auto);
+      $maxw: append-important($props, full);
       @include u-flex($flex);
       @include u-width($width);
+      @include u-maxw($maxw);
     }
     @else if $col == 'fill' {
       $flex: append-important($props, fill);
       $width: append-important($props, auto);
+      $maxw: append-important($props, full);
       @include u-flex($flex);
       @include u-width($width);
+      @include u-maxw($maxw);
     }
     @else if not map-has-key($system-layout-grid-widths, $col) {
       @error '#{$col} is not a valid layout grid width. Valid width are #{map-keys($system-layout-grid-widths)}';
