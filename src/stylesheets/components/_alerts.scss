@@ -20,21 +20,20 @@ $usa-alerts-bar: (
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 $alerts-bar: map-merge($usa-alerts-bar, $usa-custom-alerts-bar);
-
-$left-padding: $theme-alert-padding-x + $theme-alert-bar-width;
+$padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 
 .usa-alert {
   @include typeset($theme-alert-font-family);
   @include border-box-sizing;
 
   background-color: color('base-lightest');
-  background-position: $theme-alert-padding-x $theme-alert-padding-x;
+  background-position: units($theme-alert-padding-x) units($theme-alert-padding-x);
   background-repeat: no-repeat;
   background-size: units(7);
   padding-bottom: units(2);
-  padding-left: $left-padding;
-  padding-right: $theme-alert-padding-x;
-  padding-top: $theme-alert-padding-x;
+  padding-left: $padding-left;
+  padding-right: units($theme-alert-padding-x);
+  padding-top: units($theme-alert-padding-x);
   position: relative;
 
   * + & {
@@ -49,7 +48,7 @@ $left-padding: $theme-alert-padding-x + $theme-alert-bar-width;
     left: 0;
     position: absolute;
     top: 0;
-    width: $theme-alert-bar-width;
+    width: units($theme-alert-bar-width);
   }
 
   a {
@@ -73,9 +72,9 @@ $left-padding: $theme-alert-padding-x + $theme-alert-bar-width;
 }
 
 .usa-alert-slim {
-  background-position: $theme-alert-padding-x center;
-  padding-bottom: $theme-alert-bar-width;
-  padding-top: $theme-alert-bar-width;
+  background-position: units($theme-alert-padding-x) center;
+  padding-bottom: units($theme-alert-bar-width);
+  padding-top: units($theme-alert-bar-width);
 
   .usa-alert-text:only-child {
     margin-bottom: units(0.5);
@@ -85,7 +84,7 @@ $left-padding: $theme-alert-padding-x + $theme-alert-bar-width;
 
 .usa-alert-icon {
   display: table-cell;
-  padding-right: $theme-alert-bar-width;
+  padding-right: units($theme-alert-bar-width);
 }
 
 .usa-alert-body {
@@ -104,7 +103,7 @@ $left-padding: $theme-alert-padding-x + $theme-alert-bar-width;
 }
 
 .usa-alert-text:only-child {
-  margin-bottom: $theme-alert-bar-width;
+  margin-bottom: units($theme-alert-bar-width);
   padding-top: units(0.5);
 }
 
@@ -118,7 +117,7 @@ $left-padding: $theme-alert-padding-x + $theme-alert-bar-width;
     }
 
     .usa-alert-body {
-      padding-left: $theme-alert-icon-size + $theme-alert-padding-x;
+      padding-left: units($theme-alert-icon-size) + units($theme-alert-padding-x);
     }
   }
 }
