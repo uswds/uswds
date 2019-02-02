@@ -248,6 +248,7 @@ Colors
 @import './system-tokens/mint';
 @import './system-tokens/mint-cool';
 @import './system-tokens/cyan';
+@import './system-tokens/blue-cool';
 @import './system-tokens/blue';
 @import './system-tokens/blue-warm';
 @import './system-tokens/indigo-cool';
@@ -303,6 +304,7 @@ $system-colors: map-collect(
   $system-color-mint,
   $system-color-mint-cool,
   $system-color-cyan,
+  $system-color-blue-cool,
   $system-color-blue,
   $system-color-blue-warm,
   $system-color-indigo-cool,
@@ -616,6 +618,28 @@ $color-cyan-60v:  get-system-color('cyan', 60, 'vivid');
 $color-cyan-70v:  get-system-color('cyan', 70, 'vivid');
 $color-cyan-80v:  get-system-color('cyan', 80, 'vivid');
 $color-cyan-90v:  get-system-color('cyan', 90, 'vivid');
+
+// blue-cool
+$color-blue-cool-5:    get-system-color('blue-cool', 5);
+$color-blue-cool-10:   get-system-color('blue-cool', 10);
+$color-blue-cool-20:   get-system-color('blue-cool', 20);
+$color-blue-cool-30:   get-system-color('blue-cool', 30);
+$color-blue-cool-40:   get-system-color('blue-cool', 40);
+$color-blue-cool-50:   get-system-color('blue-cool', 50);
+$color-blue-cool-60:   get-system-color('blue-cool', 60);
+$color-blue-cool-70:   get-system-color('blue-cool', 70);
+$color-blue-cool-80:   get-system-color('blue-cool', 80);
+$color-blue-cool-90:   get-system-color('blue-cool', 90);
+$color-blue-cool-5v:   get-system-color('blue-cool', 5, 'vivid');
+$color-blue-cool-10v:  get-system-color('blue-cool', 10, 'vivid');
+$color-blue-cool-20v:  get-system-color('blue-cool', 20, 'vivid');
+$color-blue-cool-30v:  get-system-color('blue-cool', 30, 'vivid');
+$color-blue-cool-40v:  get-system-color('blue-cool', 40, 'vivid');
+$color-blue-cool-50v:  get-system-color('blue-cool', 50, 'vivid');
+$color-blue-cool-60v:  get-system-color('blue-cool', 60, 'vivid');
+$color-blue-cool-70v:  get-system-color('blue-cool', 70, 'vivid');
+$color-blue-cool-80v:  get-system-color('blue-cool', 80, 'vivid');
+$color-blue-cool-90v:  get-system-color('blue-cool', 90, 'vivid');
 
 // blue
 $color-blue-5:    get-system-color('blue', 5);
@@ -1109,6 +1133,26 @@ $system-color-shortcodes: (
   'cyan-70v':             $color-cyan-70v,
   'cyan-80v':             $color-cyan-80v,
   'cyan-90v':             $color-cyan-90v,
+  'blue-cool-5':          $color-blue-cool-5,
+  'blue-cool-10':         $color-blue-cool-10,
+  'blue-cool-20':         $color-blue-cool-20,
+  'blue-cool-30':         $color-blue-cool-30,
+  'blue-cool-40':         $color-blue-cool-40,
+  'blue-cool-50':         $color-blue-cool-50,
+  'blue-cool-60':         $color-blue-cool-60,
+  'blue-cool-70':         $color-blue-cool-70,
+  'blue-cool-80':         $color-blue-cool-80,
+  'blue-cool-90':         $color-blue-cool-90,
+  'blue-cool-5v':         $color-blue-cool-5v,
+  'blue-cool-10v':        $color-blue-cool-10v,
+  'blue-cool-20v':        $color-blue-cool-20v,
+  'blue-cool-30v':        $color-blue-cool-30v,
+  'blue-cool-40v':        $color-blue-cool-40v,
+  'blue-cool-50v':        $color-blue-cool-50v,
+  'blue-cool-60v':        $color-blue-cool-60v,
+  'blue-cool-70v':        $color-blue-cool-70v,
+  'blue-cool-80v':        $color-blue-cool-80v,
+  'blue-cool-90v':        $color-blue-cool-90v,
   'blue-5':               $color-blue-5,
   'blue-10':              $color-blue-10,
   'blue-20':              $color-blue-20,
