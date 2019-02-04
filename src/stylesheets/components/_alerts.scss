@@ -71,7 +71,7 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
   }
 }
 
-.usa-alert-slim {
+.usa-alert--slim {
   background-position: units($theme-alert-padding-x) center;
   padding-bottom: units($theme-alert-bar-width);
   padding-top: units($theme-alert-bar-width);
@@ -108,7 +108,7 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 }
 
 @each $name, $bgcolor in $alerts {
-  .usa-alert-#{$name} {
+  .usa-alert--#{$name} {
     @include add-background-svg('alerts/#{$name}');
     background-color: color($bgcolor);
 
@@ -122,7 +122,7 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
   }
 }
 
-.usa-alert-no_icon {
+.usa-alert--no-icon {
   background-image: none;
 }
 
