@@ -8,7 +8,7 @@ variants:
 
   - name: bordered
     notes: >
-      Add the `usa-accordion-bordered` class to your `.usa-accordion`
+      Add the `usa-accordion--bordered` class to your `.usa-accordion`
       to enable the visual border.
     context:
       accordion:

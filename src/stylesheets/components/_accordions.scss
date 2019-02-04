@@ -59,12 +59,12 @@ $accordion-border: units($theme-accordion-border-width) solid color($theme-accor
   @include typeset($theme-accordion-font-family);
 
   + .usa-accordion,
-  + .usa-accordion-bordered {
+  + .usa-accordion--bordered {
     margin-top: units(1);
   }
 }
 
-.usa-accordion-bordered {
+.usa-accordion--bordered {
   .usa-accordion-content {
     border-bottom: $accordion-border;
     border-left: $accordion-border;
