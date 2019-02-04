@@ -1,10 +1,10 @@
 // A collection of media block objects
 
-.usa-graphic_list {
+.usa-graphic-list {
   @include typeset;
   @include border-box-sizing;
 
-  .usa-graphic_list-row {
+  .usa-graphic-list-row {
     .usa-media_block {
       margin-bottom: units(4);
 
@@ -37,6 +37,6 @@
   }
 }
 
-.usa-graphic_list-heading {
+.usa-graphic-list-heading {
   @include typeset-h3;
 }
