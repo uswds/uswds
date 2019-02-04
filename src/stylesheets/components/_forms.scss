@@ -37,7 +37,7 @@
   }
 }
 
-.usa-form-large {
+.usa-form--lg {
   @include at-media('mobile-lg') {
     max-width: units('mobile-lg');
   }
