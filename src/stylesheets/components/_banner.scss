@@ -31,15 +31,7 @@
   }
 }
 
-.usa-banner-guidance-gov {
-  padding-top: units(2);
-
-  @include at-media('tablet') {
-    padding-top: units(0);
-  }
-}
-
-.usa-banner-guidance-ssl {
+.usa-banner-guidance {
   padding-top: units(2);
 
   @include at-media('tablet') {
