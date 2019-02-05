@@ -17,7 +17,7 @@ const OVERLAY = `.${PREFIX}-overlay`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
 const TOGGLES = [NAV, OVERLAY].join(', ');
 
-const ACTIVE_CLASS = 'usa-mobile_nav-active';
+const ACTIVE_CLASS = 'usa-mobile-nav-active';
 const VISIBLE_CLASS = 'is-visible';
 
 let navigation;
