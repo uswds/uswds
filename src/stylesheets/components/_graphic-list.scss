@@ -5,7 +5,7 @@
   @include border-box-sizing;
 
   .usa-graphic-list-row {
-    .usa-media_block {
+    .usa-media-block {
       margin-bottom: units(4);
 
       @include at-media('tablet') {
@@ -14,7 +14,7 @@
     }
 
     &:last-child {
-      .usa-media_block {
+      .usa-media-block {
         @include at-media('tablet') {
           margin-bottom: 0;
         }
@@ -26,11 +26,11 @@
     }
   }
 
-  .usa-media_block-img {
+  .usa-media-block-img {
     margin-right: units(3);
   }
 
-  .usa-media_block-body {
+  .usa-media-block-body {
     > :first-child {
       margin-top: 0;
     }
