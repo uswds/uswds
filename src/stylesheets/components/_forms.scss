@@ -20,11 +20,11 @@
     max-width: none;
   }
 
-  .usa-input--sm {
+  .usa-input--small {
     max-width: units(8);
   }
 
-  .usa-input--md {
+  .usa-input--medium {
     max-width: units(15);
   }
 
@@ -37,7 +37,7 @@
   }
 }
 
-.usa-form--lg {
+.usa-form--large {
   @include at-media('mobile-lg') {
     max-width: units('mobile-lg');
   }

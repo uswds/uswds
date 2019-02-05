@@ -36,4 +36,4 @@ variants:
     context:
       category: 'big'
       label: Big button
-      classes: 'usa-button--lg'
+      classes: 'usa-button--large'
