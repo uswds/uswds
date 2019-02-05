@@ -32,7 +32,7 @@
   }
 }
 
-.usa-search-big {
+.usa-search--lg {
   $height: units(6);
 
   [type=search],
@@ -54,7 +54,7 @@
   }
 }
 
-.usa-search-small {
+.usa-search--sm {
   [type=submit],
   .usa-search-submit {
     @include at-media('mobile-lg') {
