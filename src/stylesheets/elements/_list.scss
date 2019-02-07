@@ -1,11 +1,16 @@
 %usa-list {
   @include u-margin-y(1em);
   padding-left: 3ch;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 %usa-list-item {
   line-height: line-height($theme-body-font-family, $theme-body-line-height);
   margin-bottom: 0.25em;
+  max-width: measure($theme-text-measure);
 
   &:last-child {
     margin-bottom: 0;
