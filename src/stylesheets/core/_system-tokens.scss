@@ -236,6 +236,7 @@ Colors
 ----------------------------------------
 */
 
+@import './system-tokens/red-cool';
 @import './system-tokens/red';
 @import './system-tokens/red-warm';
 @import './system-tokens/orange-warm';
@@ -292,6 +293,7 @@ $system-color-white-transparent: (
 );
 
 $system-colors: map-collect(
+  $system-color-red-cool,
   $system-color-red,
   $system-color-red-warm,
   $system-color-orange-warm,
@@ -353,6 +355,28 @@ $tokens-color-basic: (
   'black-transparent':  false,
   'white-transparent':  false,
 );
+
+//red-cool
+$color-red-cool-5:   get-system-color('red-cool', 5);
+$color-red-cool-10:  get-system-color('red-cool', 10);
+$color-red-cool-20:  get-system-color('red-cool', 20);
+$color-red-cool-30:  get-system-color('red-cool', 30);
+$color-red-cool-40:  get-system-color('red-cool', 40);
+$color-red-cool-50:  get-system-color('red-cool', 50);
+$color-red-cool-60:  get-system-color('red-cool', 60);
+$color-red-cool-70:  get-system-color('red-cool', 70);
+$color-red-cool-80:  get-system-color('red-cool', 80);
+$color-red-cool-90:  get-system-color('red-cool', 90);
+$color-red-cool-5v:  get-system-color('red-cool', 5, 'vivid');
+$color-red-cool-10v: get-system-color('red-cool', 10, 'vivid');
+$color-red-cool-20v: get-system-color('red-cool', 20, 'vivid');
+$color-red-cool-30v: get-system-color('red-cool', 30, 'vivid');
+$color-red-cool-40v: get-system-color('red-cool', 40, 'vivid');
+$color-red-cool-50v: get-system-color('red-cool', 50, 'vivid');
+$color-red-cool-60v: get-system-color('red-cool', 60, 'vivid');
+$color-red-cool-70v: get-system-color('red-cool', 70, 'vivid');
+$color-red-cool-80v: get-system-color('red-cool', 80, 'vivid');
+$color-red-cool-90v: get-system-color('red-cool', 90, 'vivid');
 
 //red
 $color-red-5:   get-system-color('red', 5);
@@ -893,6 +917,26 @@ $system-color-shortcodes: (
   'transparent':          transparent,
   'black':                black,
   'white':                white,
+  'red-cool-5':           $color-red-cool-5,
+  'red-cool-10':          $color-red-cool-10,
+  'red-cool-20':          $color-red-cool-20,
+  'red-cool-30':          $color-red-cool-30,
+  'red-cool-40':          $color-red-cool-40,
+  'red-cool-50':          $color-red-cool-50,
+  'red-cool-60':          $color-red-cool-60,
+  'red-cool-70':          $color-red-cool-70,
+  'red-cool-80':          $color-red-cool-80,
+  'red-cool-90':          $color-red-cool-90,
+  'red-cool-5v':          $color-red-cool-5v,
+  'red-cool-10v':         $color-red-cool-10v,
+  'red-cool-20v':         $color-red-cool-20v,
+  'red-cool-30v':         $color-red-cool-30v,
+  'red-cool-40v':         $color-red-cool-40v,
+  'red-cool-50v':         $color-red-cool-50v,
+  'red-cool-60v':         $color-red-cool-60v,
+  'red-cool-70v':         $color-red-cool-70v,
+  'red-cool-80v':         $color-red-cool-80v,
+  'red-cool-90v':         $color-red-cool-90v,
   'red-5':                $color-red-5,
   'red-10':               $color-red-10,
   'red-20':               $color-red-20,
