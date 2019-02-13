@@ -85,34 +85,34 @@ State palette colors
 // Error colors
 $theme-color-error-family:     'red' !default;
 $theme-color-error-lighter:    '#{$theme-color-error-family}-10' !default;
-$theme-color-error-light:      '#{$theme-color-error-family}-40v' !default;
+$theme-color-error-light:      '#{$theme-color-error-family}-30v' !default;
 $theme-color-error:            '#{$theme-color-error-family}-50' !default;
 $theme-color-error-dark:       '#{$theme-color-error-family}-60v' !default;
-$theme-color-error-darker:     '#{$theme-color-error-family}-70v' !default;
+$theme-color-error-darker:     '#{$theme-color-error-family}-70' !default;
 
 // Warning colors
 $theme-color-warning-family:   'gold' !default;
-$theme-color-warning-lighter:  '#{$theme-color-warning-family}-5v' !default;
-$theme-color-warning-light:    '#{$theme-color-warning-family}-10v' !default;
+$theme-color-warning-lighter:  'yellow-5' !default;
+$theme-color-warning-light:    'yellow-10v' !default;
 $theme-color-warning:          '#{$theme-color-warning-family}-20v' !default;
 $theme-color-warning-dark:     '#{$theme-color-warning-family}-30v' !default;
-$theme-color-warning-darker:   '#{$theme-color-warning-family}-40v' !default;
+$theme-color-warning-darker:   '#{$theme-color-warning-family}-50v' !default;
 
 // Success colors
 $theme-color-success-family:   'green-cool' !default;
 $theme-color-success-lighter:  '#{$theme-color-success-family}-5' !default;
-$theme-color-success-light:    '#{$theme-color-success-family}-30v' !default;
+$theme-color-success-light:    '#{$theme-color-success-family}-20v' !default;
 $theme-color-success:          '#{$theme-color-success-family}-40v' !default;
 $theme-color-success-dark:     '#{$theme-color-success-family}-50' !default;
-$theme-color-success-darker:   '#{$theme-color-success-family}-70' !default;
+$theme-color-success-darker:   '#{$theme-color-success-family}-60' !default;
 
 // Info colors
 $theme-color-info-family:      'cyan' !default;
 $theme-color-info-lighter:     '#{$theme-color-info-family}-5' !default;
-$theme-color-info-light:       '#{$theme-color-info-family}-20' !default;
+$theme-color-info-light:       '#{$theme-color-info-family}-20v' !default;
 $theme-color-info:             '#{$theme-color-info-family}-30v' !default;
 $theme-color-info-dark:        '#{$theme-color-info-family}-40v' !default;
-$theme-color-info-darker:      'blue-cool-60v' !default;
+$theme-color-info-darker:      'blue-cool-60' !default;
 
 // Disabled colors
 $theme-color-disabled-family:  'gray' !default;
