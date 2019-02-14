@@ -27,7 +27,7 @@
             { "name": "50", "value": "#0d7ea2" },
             { "name": "60", "value": "#07648d" },
             { "name": "70", "value": "#074b69" },
-            { "name": "80", "value": false },
+            { "name": "80", "value": "#002d3f" },
             { "name": "90", "value": false }
           ]
         }
