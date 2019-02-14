@@ -83,12 +83,12 @@ State palette colors
 */
 
 // Error colors
-$theme-color-error-family:     'red';
+$theme-color-error-family:     'red-warm';
 $theme-color-error-lighter:    '#{$theme-color-error-family}-10';
 $theme-color-error-light:      '#{$theme-color-error-family}-30v';
-$theme-color-error:            '#{$theme-color-error-family}-50';
-$theme-color-error-dark:       '#{$theme-color-error-family}-60v';
-$theme-color-error-darker:     '#{$theme-color-error-family}-70';
+$theme-color-error:            '#{$theme-color-error-family}-50v';
+$theme-color-error-dark:       'red-60v';
+$theme-color-error-darker:     'red-70';
 
 // Warning colors
 $theme-color-warning-family:   'gold';
