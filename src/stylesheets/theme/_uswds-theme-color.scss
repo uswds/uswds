@@ -48,10 +48,10 @@ $theme-color-primary-darkest:       false;
 // Secondary colors
 $theme-color-secondary-family:      'red';
 $theme-color-secondary-lightest:    false;
-$theme-color-secondary-lighter:     '#{$theme-color-secondary-family}-10';
+$theme-color-secondary-lighter:     'red-cool-10';
 $theme-color-secondary-light:       '#{$theme-color-secondary-family}-30';
 $theme-color-secondary:             '#{$theme-color-secondary-family}-50';
-$theme-color-secondary-vivid:       '#{$theme-color-secondary-family}-50v';
+$theme-color-secondary-vivid:       'red-cool-50v';
 $theme-color-secondary-dark:        '#{$theme-color-secondary-family}-60v';
 $theme-color-secondary-darker:      '#{$theme-color-secondary-family}-70v';
 $theme-color-secondary-darkest:     false;
