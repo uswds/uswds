@@ -6,9 +6,9 @@
     {
       "name": "orange",
       "value": [
-        { "name": "5", "value": "#fceee2" },
-        { "name": "10", "value": "#fce2c5" },
-        { "name": "20", "value": "#fbcca2" },
+        { "name": "5", "value": "#f6efe9" },
+        { "name": "10", "value": "#f2e4d4" },
+        { "name": "20", "value": "#f3bf90" },
         { "name": "30", "value": "#f09860" },
         { "name": "40", "value": "#dd7533" },
         { "name": "50", "value": "#a86437" },
@@ -20,7 +20,7 @@
           "name": "vivid",
           "value": [
             { "name": "5", "value": "#ffedda" },
-            { "name": "10", "value": false },
+            { "name": "10", "value": "#fce2c5" },
             { "name": "20", "value": "#ffbc78" },
             { "name": "30", "value": "#fa9441" },
             { "name": "40", "value": "#e66f0e" },
