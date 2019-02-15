@@ -1,4 +1,5 @@
 // Mobile-first media query helper
+
 @mixin at-media($bp) {
   $quoted-bp: smart-quote($bp);
   $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
@@ -13,7 +14,7 @@
   @else {
     @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map-keys($our-breakpoints)}';
   }
-  @media screen and (min-width: #{$bp}) {
+  @media all and (min-width: #{$bp}) {
     @content;
   }
 }
@@ -33,7 +34,7 @@
   @else {
     @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map-keys($our-breakpoints)}';
   }
-  @media screen and (max-width: #{$bp}) {
+  @media all and (max-width: #{$bp}) {
     @content;
   }
 }
