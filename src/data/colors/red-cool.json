@@ -20,7 +20,7 @@
           "name": "vivid",
           "value": [
             { "name": "5", "value": false },
-            { "name": "10", "value": false },
+            { "name": "10", "value": "#f8dfe2" },
             { "name": "20", "value": "#f8b9c5" },
             { "name": "30", "value": "#fd8ba0" },
             { "name": "40", "value": "#f45d79" },
