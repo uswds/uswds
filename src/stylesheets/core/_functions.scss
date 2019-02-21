@@ -757,6 +757,7 @@ functions and mixins.
     @return nth($value, 2);
   }
 
+
   $value: nth($value, 1);
   $converted: number-to-token($value);
   $quoted-value: if(
@@ -772,13 +773,11 @@ functions and mixins.
 
     @if not $output {
       @if $theme-show-compile-warnings {
-        @warn '`#{$value}` is set as a `false` value '
+        @error '`#{$value}` is set as a `false` value '
           + 'for the #{$property} property in your project settings '
           + 'and will not output properly. '
           + 'Set the value of `#{$value}` in project settings.';
       }
-
-      @return map-get($our-standard-values, $quoted-value);
     }
 
     @return $output;
@@ -794,6 +793,7 @@ functions and mixins.
     @return map-get($our-extended-values, $quoted-value);
   }
 
+  // TODO: what are these last two cases? Evaluate.
   @if not (type-of($value) == 'number' and not unitless($value)) {
     @error '`#{$value}` is not a valid `#{$property}` token. '
       + 'You should correct this. Standard `#{$property}` tokens: '
