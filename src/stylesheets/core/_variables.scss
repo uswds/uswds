@@ -138,47 +138,6 @@ core/_font-definitions
 ----------------------------------------
 */
 
-@function render-font-stack($role-token) {
-  $this-stack: null;
-  $this-type: map-get($theme-fonts-by-type, $role-token);
-  @if map-get($this-type, 'font') {
-    $this-font-token: map-get($this-type, 'font');
-    $this-name: map-deep-get(
-      $all-font-definitions,
-      $this-font-token,
-      'name'
-    );
-    @if map-get($this-type, 'custom-stack'){
-      $this-stack: map-get($this-type, 'custom-stack');
-    }
-    @else {
-      $this-stack: map-deep-get(
-        $all-font-definitions,
-        $this-font-token,
-        'stack'
-      );
-    }
-    @return #{$this-name}, #{$this-stack};
-  }
-  @return false;
-}
-
-@function get-font-stack($font-token) {
-  $this-token: $font-token;
-  @if map-has-key($theme-fonts-by-role, $font-token) {
-    $this-token: map-get($theme-fonts-by-role, $font-token);
-  }
-  @return render-font-stack($this-token);
-}
-
-@function get-face-token($font-token) {
-  $this-token: $font-token;
-  @if map-has-key($theme-fonts-by-role, $font-token) {
-    $this-token: map-get($theme-fonts-by-role, $font-token);
-  }
-  @return map-deep-get($theme-fonts-by-type, $this-token, 'font');
-}
-
 $project-font-stacks:(
   'mono':     get-font-stack('mono'),
   'sans':     get-font-stack('sans'),

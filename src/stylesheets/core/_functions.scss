@@ -555,6 +555,73 @@ a family and a line-height scale unit
 
 /*
 ----------------------------------------
+render-font-stack()
+----------------------------------------
+Helper function for get-font-stack()
+----------------------------------------
+*/
+
+@function render-font-stack($role-token) {
+  $this-stack: null;
+  $this-type: map-get($theme-fonts-by-type, $role-token);
+  @if map-get($this-type, 'font') {
+    $this-font-token: map-get($this-type, 'font');
+    $this-name: map-deep-get(
+      $all-font-definitions,
+      $this-font-token,
+      'name'
+    );
+    @if map-get($this-type, 'custom-stack') {
+      $this-stack: map-get($this-type, 'custom-stack');
+    }
+    @else {
+      $this-stack: map-deep-get(
+        $all-font-definitions,
+        $this-font-token,
+        'stack'
+      );
+    }
+    @return #{$this-name}, #{$this-stack};
+  }
+  @return false;
+}
+
+/*
+----------------------------------------
+get-font-stack()
+----------------------------------------
+Get a font stack from a style- or
+role-based font token.
+----------------------------------------
+*/
+
+@function get-font-stack($font-token) {
+  $this-token: $font-token;
+  @if map-has-key($theme-fonts-by-role, $font-token) {
+    $this-token: map-get($theme-fonts-by-role, $font-token);
+  }
+  @return render-font-stack($this-token);
+}
+
+/*
+----------------------------------------
+get-face-token()
+----------------------------------------
+Get a typeface token from a style- or
+role-based font token.
+----------------------------------------
+*/
+
+@function get-face-token($font-token) {
+  $this-token: $font-token;
+  @if map-has-key($theme-fonts-by-role, $font-token) {
+    $this-token: map-get($theme-fonts-by-role, $font-token);
+  }
+  @return map-deep-get($theme-fonts-by-type, $this-token, 'font');
+}
+
+/*
+----------------------------------------
 get-system-color()
 ----------------------------------------
 Derive a system color from its
