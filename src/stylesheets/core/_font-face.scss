@@ -12,5 +12,8 @@
 @if $theme-font-cond {
   @include render-font-face($theme-font-cond);
 }
+@if $theme-font-icon {
+  @include render-font-face($theme-font-icon);
+}
 
 /* stylelint-enable */

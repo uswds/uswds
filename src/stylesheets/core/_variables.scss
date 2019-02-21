@@ -150,16 +150,22 @@ $font-stack-code:     false;
 $font-stack-alt:      false;
 
 @if $theme-font-sans {
-  $font-stack-sans: map-deep-get(
+  $this-name: map-deep-get(
     $all-font-definitions,
     $theme-font-sans,
     'name'
-  ), map-deep-get(
-    $all-font-definitions,
-    $theme-font-sans,
-    'stack'
   );
-  $font-stack-sans: $font-stack-sans + unquote('');
+  @if $theme-font-sans-custom-stack {
+    $font-stack-sans: #{$this-name}, #{$theme-font-sans-custom-stack};
+  }
+  @else {
+    $this-stack: map-deep-get(
+      $all-font-definitions,
+      $theme-font-sans,
+      'stack'
+    );
+    $font-stack-sans: #{$this-name}, #{$this-stack};
+  }
 }
 
 @if $theme-font-serif {
@@ -199,6 +205,19 @@ $font-stack-alt:      false;
     'stack'
   );
   $font-stack-cond: $font-stack-cond + unquote('');
+}
+
+@if $theme-font-icon {
+  $font-stack-icon: map-deep-get(
+    $all-font-definitions,
+    $theme-font-icon,
+    'name'
+  ), map-deep-get(
+    $all-font-definitions,
+    $theme-font-icon,
+    'stack'
+  );
+  $font-stack-icon: $font-stack-icon + unquote('');
 }
 
 @if $theme-font-ui {

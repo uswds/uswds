@@ -80,6 +80,16 @@ $theme-content-styles: 'scoped' !default;
 
 /*
 ----------------------------------------
+Font path
+----------------------------------------
+Relative font file path
+----------------------------------------
+*/
+
+$theme-font-path:   '../fonts' !default;
+
+/*
+----------------------------------------
 Custom font definitions
 ----------------------------------------
 Add a new custom font definition if
@@ -87,7 +97,7 @@ your project uses a typeface we've
 not already defined.
 ----------------------------------------
 The following faces are defined in the
-system:
+system with names and cap heights:
 
 'georgia'
 'helvetica'
@@ -106,34 +116,7 @@ $theme-font-definitions: (
   /*
   font-new: (
     name: 'Font Display Name',
-    dir: 'folder-name', // relative to settings.$theme-font-path
-    stack: $font-stack-system,
-    system-font: false,
     cap-height: '364px', // height of a 500px `N` in Sketch
-    variable-font: false,
-    generate: false,
-    roman: (
-      100: 'Filename-without-extension', // or false
-      200: 'Filename-without-extension', // or false
-      300: 'Filename-without-extension', // or false
-      400: 'Filename-without-extension', // or false
-      500: 'Filename-without-extension', // or false
-      600: 'Filename-without-extension', // or false
-      700: 'Filename-without-extension', // or false
-      800: 'Filename-without-extension', // or false
-      900: 'Filename-without-extension', // or false
-    ),
-    italic: (
-      100: 'Filename-without-extension', // or false
-      200: 'Filename-without-extension', // or false
-      300: 'Filename-without-extension', // or false
-      400: 'Filename-without-extension', // or false
-      500: 'Filename-without-extension', // or false
-      600: 'Filename-without-extension', // or false
-      700: 'Filename-without-extension', // or false
-      800: 'Filename-without-extension', // or false
-      900: 'Filename-without-extension', // or false
-    ),
   ),
   */
 ) !default;
@@ -145,8 +128,9 @@ Fonts in use
 Set the sans, serif, and mono faces for
 your project
 ----------------------------------------
-The following faces are defined in the
-system:
+Pick from the following,
+or from any font or fonts you added in
+$theme-font-definitions:
 
 'georgia'
 'helvetica'
@@ -161,10 +145,58 @@ system:
 ----------------------------------------
 */
 
+// TODO: Add icon font family
+
+$theme-font-cond:   false !default;
+$theme-font-icon:   false !default;
 $theme-font-mono:   'roboto-mono' !default;
 $theme-font-sans:   'source-sans-pro' !default;
 $theme-font-serif:  'merriweather' !default;
-$theme-font-cond:   false !default;
+
+// TODO: Add custom stacks for each family
+$theme-font-cond-custom-stack:  false !default;
+$theme-font-icon-custom-stack:  false !default;
+$theme-font-mono-custom-stack:  false !default;
+$theme-font-sans-custom-stack:  false !default;
+$theme-font-serif-custom-stack: false !default;
+$theme-font-cond-custom-stack:  false !default;
+
+// TODO: Add custom output for each font family
+$theme-font-cond-custom-generate:   false !default;
+$theme-font-icon-custom-generate:   false !default;
+$theme-font-mono-custom-generate:   false !default;
+$theme-font-sans-custom-generate:   false !default;
+$theme-font-serif-custom-generate:  false !default;
+$theme-font-cond-custom-generate:   false !default;
+
+/*
+// custom font source map for generating @font-face files
+(
+  dir: 'folder-name', // relative to settings.$theme-font-path
+  roman: (
+    100: 'Filename-without-extension', // or false
+    200: 'Filename-without-extension', // or false
+    300: 'Filename-without-extension', // or false
+    400: 'Filename-without-extension', // or false
+    500: 'Filename-without-extension', // or false
+    600: 'Filename-without-extension', // or false
+    700: 'Filename-without-extension', // or false
+    800: 'Filename-without-extension', // or false
+    900: 'Filename-without-extension', // or false
+  ),
+  italic: (
+    100: 'Filename-without-extension', // or false
+    200: 'Filename-without-extension', // or false
+    300: 'Filename-without-extension', // or false
+    400: 'Filename-without-extension', // or false
+    500: 'Filename-without-extension', // or false
+    600: 'Filename-without-extension', // or false
+    700: 'Filename-without-extension', // or false
+    800: 'Filename-without-extension', // or false
+    900: 'Filename-without-extension', // or false
+  ),
+)
+*/
 
 /*
 ----------------------------------------
@@ -216,6 +248,7 @@ Or use `false` for unneeded weights.
 ----------------------------------------
 */
 
+// TODO: What does this do? Output it where?
 $theme-output-all-weights:        false !default;
 
 $theme-font-weight-thin:          false !default;
