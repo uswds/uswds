@@ -229,9 +229,6 @@ Or use `false` for unneeded weights.
 ----------------------------------------
 */
 
-// TODO: What does this do? Output it where?
-$theme-output-all-weights:        false !default;
-
 $theme-font-weight-thin:          false !default;
 $theme-font-weight-light:         300 !default;
 $theme-font-weight-normal:        400 !default;
@@ -239,6 +236,12 @@ $theme-font-weight-medium:        false !default;
 $theme-font-weight-semibold:      false !default;
 $theme-font-weight-bold:          700 !default;
 $theme-font-weight-heavy:         false !default;
+
+// If USWDS is generating your @font-face rules,
+// should we generate all available weights
+// regardless of the assignments above?
+
+$theme-generate-all-weights:        false !default;
 
 /*
 ----------------------------------------

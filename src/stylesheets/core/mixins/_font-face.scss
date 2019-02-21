@@ -43,7 +43,7 @@
 // Collect all font metadata, then call generate-font-face
 @mixin render-font-face($this-font-face) {
   $these-weights: $project-font-weights;
-  @if $theme-output-all-weights {
+  @if $theme-generate-all-weights {
     $these-weights: (
       100: 100,
       200: 200,
