@@ -169,6 +169,218 @@ $palettes-font-theme-mono:(
   'palette-font-theme-mono': $tokens-font-theme-mono,
 );
 
+$token-font-theme-cond-3xs: (
+  cond-3xs: (
+    slug: 'cond-3xs',
+    isReadable: true,
+    content: utility-font(cond, 3xs),
+    dependency: $project-font-cond,
+  ),
+);
+
+$token-font-theme-cond-2xs: (
+  cond-2xs: (
+    slug: 'cond-2xs',
+    isReadable: true,
+    content: utility-font(cond, 2xs),
+    dependency: $project-font-cond,
+  ),
+);
+
+$token-font-theme-cond-xs: (
+  cond-xs: (
+    slug: 'cond-xs',
+    isReadable: true,
+    content: utility-font(cond, xs),
+    dependency: $project-font-cond,
+  ),
+);
+
+$token-font-theme-cond-sm: (
+  cond-sm: (
+    slug: 'cond-sm',
+    isReadable: true,
+    content: utility-font(cond, sm),
+    dependency: $project-font-cond,
+  ),
+);
+
+$token-font-theme-cond-md: (
+  cond-md: (
+    slug: 'cond-md',
+    isReadable: true,
+    content: utility-font(cond, md),
+    dependency: $project-font-cond,
+  ),
+);
+
+$token-font-theme-cond-lg: (
+  cond-lg: (
+    slug: 'cond-lg',
+    isReadable: true,
+    content: utility-font(cond, lg),
+    dependency: $project-font-cond,
+  ),
+);
+
+$token-font-theme-cond-xl: (
+  cond-xl: (
+    slug: 'cond-xl',
+    isReadable: true,
+    content: utility-font(cond, xl),
+    dependency: $project-font-cond,
+  ),
+);
+
+$token-font-theme-cond-2xl: (
+  cond-2xl: (
+    slug: 'cond-2xl',
+    isReadable: true,
+    content: utility-font(cond, 2xl),
+    dependency: $project-font-cond,
+  ),
+);
+
+$token-font-theme-cond-3xl: (
+  cond-3xl: (
+    slug: 'cond-3xl',
+    isReadable: true,
+    content: utility-font(cond, 3xl),
+    dependency: $project-font-cond,
+  ),
+);
+
+$tokens-font-theme-cond: map-collect(
+  $token-font-theme-cond-3xs,
+  $token-font-theme-cond-2xs,
+  $token-font-theme-cond-xs,
+  $token-font-theme-cond-sm,
+  $token-font-theme-cond-md,
+  $token-font-theme-cond-lg,
+  $token-font-theme-cond-xl,
+  $token-font-theme-cond-2xl,
+  $token-font-theme-cond-3xl
+);
+
+$palettes-font-theme-cond:(
+  'palette-font-theme-cond-3xs': $token-font-theme-cond-3xs,
+  'palette-font-theme-cond-2xs': $token-font-theme-cond-2xs,
+  'palette-font-theme-cond-xs': $token-font-theme-cond-xs,
+  'palette-font-theme-cond-sm': $token-font-theme-cond-sm,
+  'palette-font-theme-cond-md': $token-font-theme-cond-md,
+  'palette-font-theme-cond-lg': $token-font-theme-cond-lg,
+  'palette-font-theme-cond-xl': $token-font-theme-cond-xl,
+  'palette-font-theme-cond-2xl': $token-font-theme-cond-2xl,
+  'palette-font-theme-cond-3xl': $token-font-theme-cond-3xl,
+  'palette-font-theme-cond': $tokens-font-theme-cond,
+);
+
+$token-font-theme-icon-3xs: (
+  icon-3xs: (
+    slug: 'icon-3xs',
+    isReadable: true,
+    content: utility-font(icon, 3xs),
+    dependency: $project-font-icon,
+  ),
+);
+
+$token-font-theme-icon-2xs: (
+  icon-2xs: (
+    slug: 'icon-2xs',
+    isReadable: true,
+    content: utility-font(icon, 2xs),
+    dependency: $project-font-icon,
+  ),
+);
+
+$token-font-theme-icon-xs: (
+  icon-xs: (
+    slug: 'icon-xs',
+    isReadable: true,
+    content: utility-font(icon, xs),
+    dependency: $project-font-icon,
+  ),
+);
+
+$token-font-theme-icon-sm: (
+  icon-sm: (
+    slug: 'icon-sm',
+    isReadable: true,
+    content: utility-font(icon, sm),
+    dependency: $project-font-icon,
+  ),
+);
+
+$token-font-theme-icon-md: (
+  icon-md: (
+    slug: 'icon-md',
+    isReadable: true,
+    content: utility-font(icon, md),
+    dependency: $project-font-icon,
+  ),
+);
+
+$token-font-theme-icon-lg: (
+  icon-lg: (
+    slug: 'icon-lg',
+    isReadable: true,
+    content: utility-font(icon, lg),
+    dependency: $project-font-icon,
+  ),
+);
+
+$token-font-theme-icon-xl: (
+  icon-xl: (
+    slug: 'icon-xl',
+    isReadable: true,
+    content: utility-font(icon, xl),
+    dependency: $project-font-icon,
+  ),
+);
+
+$token-font-theme-icon-2xl: (
+  icon-2xl: (
+    slug: 'icon-2xl',
+    isReadable: true,
+    content: utility-font(icon, 2xl),
+    dependency: $project-font-icon,
+  ),
+);
+
+$token-font-theme-icon-3xl: (
+  icon-3xl: (
+    slug: 'icon-3xl',
+    isReadable: true,
+    content: utility-font(icon, 3xl),
+    dependency: $project-font-icon,
+  ),
+);
+
+$tokens-font-theme-icon: map-collect(
+  $token-font-theme-icon-3xs,
+  $token-font-theme-icon-2xs,
+  $token-font-theme-icon-xs,
+  $token-font-theme-icon-sm,
+  $token-font-theme-icon-md,
+  $token-font-theme-icon-lg,
+  $token-font-theme-icon-xl,
+  $token-font-theme-icon-2xl,
+  $token-font-theme-icon-3xl
+);
+
+$palettes-font-theme-icon:(
+  'palette-font-theme-icon-3xs': $token-font-theme-icon-3xs,
+  'palette-font-theme-icon-2xs': $token-font-theme-icon-2xs,
+  'palette-font-theme-icon-xs': $token-font-theme-icon-xs,
+  'palette-font-theme-icon-sm': $token-font-theme-icon-sm,
+  'palette-font-theme-icon-md': $token-font-theme-icon-md,
+  'palette-font-theme-icon-lg': $token-font-theme-icon-lg,
+  'palette-font-theme-icon-xl': $token-font-theme-icon-xl,
+  'palette-font-theme-icon-2xl': $token-font-theme-icon-2xl,
+  'palette-font-theme-icon-3xl': $token-font-theme-icon-3xl,
+  'palette-font-theme-icon': $tokens-font-theme-icon,
+);
+
 $token-font-theme-sans-3xs: (
   sans-3xs: (
     slug: 'sans-3xs',
@@ -952,6 +1164,8 @@ $palettes-font-theme-roles: map-collect(
 );
 
 $tokens-font-theme: map-collect(
+  $tokens-font-theme-cond,
+  $tokens-font-theme-icon,
   $tokens-font-theme-mono,
   $tokens-font-theme-sans,
   $tokens-font-theme-serif,
@@ -977,6 +1191,422 @@ $palettes-font-theme: map-collect(
 system font sizes
 ----------------------------------------
 */
+
+$token-font-system-cond-micro: (
+  cond-micro: (
+    slug: 'cond-micro',
+    isReadable: true,
+    content: utility-font(cond, 'micro'),
+  ),
+);
+
+$token-font-system-cond-1: (
+  cond-1: (
+    slug: 'cond-1',
+    isReadable: true,
+    content: utility-font(cond, 1),
+  ),
+);
+
+$token-font-system-cond-2: (
+  cond-2: (
+    slug: 'cond-2',
+    isReadable: true,
+    content: utility-font(cond, 2),
+  ),
+);
+
+$token-font-system-cond-3: (
+  cond-3: (
+    slug: 'cond-3',
+    isReadable: true,
+    content: utility-font(cond, 3),
+  ),
+);
+
+$token-font-system-cond-4: (
+  cond-4: (
+    slug: 'cond-4',
+    isReadable: true,
+    content: utility-font(cond, 4),
+  ),
+);
+
+$token-font-system-cond-5: (
+  cond-5: (
+    slug: 'cond-5',
+    isReadable: true,
+    content: utility-font(cond, 5),
+  ),
+);
+
+$token-font-system-cond-6: (
+  cond-6: (
+    slug: 'cond-6',
+    isReadable: true,
+    content: utility-font(cond, 6),
+  ),
+);
+
+$token-font-system-cond-7: (
+  cond-7: (
+    slug: 'cond-7',
+    isReadable: true,
+    content: utility-font(cond, 7),
+  ),
+);
+
+$token-font-system-cond-8: (
+  cond-8: (
+    slug: 'cond-8',
+    isReadable: true,
+    content: utility-font(cond, 8),
+  ),
+);
+
+$token-font-system-cond-9: (
+  cond-9: (
+    slug: 'cond-9',
+    isReadable: true,
+    content: utility-font(cond, 9),
+  ),
+);
+
+$token-font-system-cond-10: (
+  cond-10: (
+    slug: 'cond-10',
+    isReadable: true,
+    content: utility-font(cond, 10),
+  ),
+);
+
+$token-font-system-cond-11: (
+  cond-11: (
+    slug: 'cond-11',
+    isReadable: true,
+    content: utility-font(cond, 11),
+  ),
+);
+
+$token-font-system-cond-12: (
+  cond-12: (
+    slug: 'cond-12',
+    isReadable: true,
+    content: utility-font(cond, 12),
+  ),
+);
+
+$token-font-system-cond-13: (
+  cond-13: (
+    slug: 'cond-13',
+    isReadable: true,
+    content: utility-font(cond, 13),
+  ),
+);
+
+$token-font-system-cond-14: (
+  cond-14: (
+    slug: 'cond-14',
+    isReadable: true,
+    content: utility-font(cond, 14),
+  ),
+);
+
+$token-font-system-cond-15: (
+  cond-15: (
+    slug: 'cond-15',
+    isReadable: true,
+    content: utility-font(cond, 15),
+  ),
+);
+
+$token-font-system-cond-16: (
+  cond-16: (
+    slug: 'cond-16',
+    isReadable: true,
+    content: utility-font(cond, 16),
+  ),
+);
+
+$token-font-system-cond-17: (
+  cond-17: (
+    slug: 'cond-17',
+    isReadable: true,
+    content: utility-font(cond, 17),
+  ),
+);
+
+$token-font-system-cond-18: (
+  cond-18: (
+    slug: 'cond-18',
+    isReadable: true,
+    content: utility-font(cond, 18),
+  ),
+);
+
+$token-font-system-cond-19: (
+  cond-19: (
+    slug: 'cond-19',
+    isReadable: true,
+    content: utility-font(cond, 19),
+  ),
+);
+
+$token-font-system-cond-20: (
+  cond-20: (
+    slug: 'cond-20',
+    isReadable: true,
+    content: utility-font(cond, 20),
+  ),
+);
+
+$tokens-font-system-cond-small: map-collect(
+  $token-font-system-cond-micro,
+  $token-font-system-cond-1,
+  $token-font-system-cond-2,
+  $token-font-system-cond-3
+);
+
+$tokens-font-system-cond-medium: map-collect(
+  $token-font-system-cond-4,
+  $token-font-system-cond-5,
+  $token-font-system-cond-6,
+  $token-font-system-cond-7,
+  $token-font-system-cond-8
+);
+
+$tokens-font-system-cond-large: map-collect(
+  $token-font-system-cond-9,
+  $token-font-system-cond-10,
+  $token-font-system-cond-11,
+  $token-font-system-cond-12,
+  $token-font-system-cond-13,
+  $token-font-system-cond-14
+);
+
+$tokens-font-system-cond-larger: map-collect(
+  $token-font-system-cond-15,
+  $token-font-system-cond-16,
+  $token-font-system-cond-17,
+  $token-font-system-cond-18,
+  $token-font-system-cond-19,
+  $token-font-system-cond-20
+);
+
+$tokens-font-system-cond: map-collect(
+  $tokens-font-system-cond-small,
+  $tokens-font-system-cond-medium,
+  $tokens-font-system-cond-large,
+  $tokens-font-system-cond-larger
+);
+
+$token-font-system-icon-micro: (
+  icon-micro: (
+    slug: 'icon-micro',
+    isReadable: true,
+    content: utility-font(icon, 'micro'),
+  ),
+);
+
+$token-font-system-icon-1: (
+  icon-1: (
+    slug: 'icon-1',
+    isReadable: true,
+    content: utility-font(icon, 1),
+  ),
+);
+
+$token-font-system-icon-2: (
+  icon-2: (
+    slug: 'icon-2',
+    isReadable: true,
+    content: utility-font(icon, 2),
+  ),
+);
+
+$token-font-system-icon-3: (
+  icon-3: (
+    slug: 'icon-3',
+    isReadable: true,
+    content: utility-font(icon, 3),
+  ),
+);
+
+$token-font-system-icon-4: (
+  icon-4: (
+    slug: 'icon-4',
+    isReadable: true,
+    content: utility-font(icon, 4),
+  ),
+);
+
+$token-font-system-icon-5: (
+  icon-5: (
+    slug: 'icon-5',
+    isReadable: true,
+    content: utility-font(icon, 5),
+  ),
+);
+
+$token-font-system-icon-6: (
+  icon-6: (
+    slug: 'icon-6',
+    isReadable: true,
+    content: utility-font(icon, 6),
+  ),
+);
+
+$token-font-system-icon-7: (
+  icon-7: (
+    slug: 'icon-7',
+    isReadable: true,
+    content: utility-font(icon, 7),
+  ),
+);
+
+$token-font-system-icon-8: (
+  icon-8: (
+    slug: 'icon-8',
+    isReadable: true,
+    content: utility-font(icon, 8),
+  ),
+);
+
+$token-font-system-icon-9: (
+  icon-9: (
+    slug: 'icon-9',
+    isReadable: true,
+    content: utility-font(icon, 9),
+  ),
+);
+
+$token-font-system-icon-10: (
+  icon-10: (
+    slug: 'icon-10',
+    isReadable: true,
+    content: utility-font(icon, 10),
+  ),
+);
+
+$token-font-system-icon-11: (
+  icon-11: (
+    slug: 'icon-11',
+    isReadable: true,
+    content: utility-font(icon, 11),
+  ),
+);
+
+$token-font-system-icon-12: (
+  icon-12: (
+    slug: 'icon-12',
+    isReadable: true,
+    content: utility-font(icon, 12),
+  ),
+);
+
+$token-font-system-icon-13: (
+  icon-13: (
+    slug: 'icon-13',
+    isReadable: true,
+    content: utility-font(icon, 13),
+  ),
+);
+
+$token-font-system-icon-14: (
+  icon-14: (
+    slug: 'icon-14',
+    isReadable: true,
+    content: utility-font(icon, 14),
+  ),
+);
+
+$token-font-system-icon-15: (
+  icon-15: (
+    slug: 'icon-15',
+    isReadable: true,
+    content: utility-font(icon, 15),
+  ),
+);
+
+$token-font-system-icon-16: (
+  icon-16: (
+    slug: 'icon-16',
+    isReadable: true,
+    content: utility-font(icon, 16),
+  ),
+);
+
+$token-font-system-icon-17: (
+  icon-17: (
+    slug: 'icon-17',
+    isReadable: true,
+    content: utility-font(icon, 17),
+  ),
+);
+
+$token-font-system-icon-18: (
+  icon-18: (
+    slug: 'icon-18',
+    isReadable: true,
+    content: utility-font(icon, 18),
+  ),
+);
+
+$token-font-system-icon-19: (
+  icon-19: (
+    slug: 'icon-19',
+    isReadable: true,
+    content: utility-font(icon, 19),
+  ),
+);
+
+$token-font-system-icon-20: (
+  icon-20: (
+    slug: 'icon-20',
+    isReadable: true,
+    content: utility-font(icon, 20),
+  ),
+);
+
+$tokens-font-system-icon-small: map-collect(
+  $token-font-system-icon-micro,
+  $token-font-system-icon-1,
+  $token-font-system-icon-2,
+  $token-font-system-icon-3
+);
+
+$tokens-font-system-icon-medium: map-collect(
+  $token-font-system-icon-4,
+  $token-font-system-icon-5,
+  $token-font-system-icon-6,
+  $token-font-system-icon-7,
+  $token-font-system-icon-8
+);
+
+$tokens-font-system-icon-large: map-collect(
+  $token-font-system-icon-9,
+  $token-font-system-icon-10,
+  $token-font-system-icon-11,
+  $token-font-system-icon-12,
+  $token-font-system-icon-13,
+  $token-font-system-icon-14
+);
+
+$tokens-font-system-icon-larger: map-collect(
+  $token-font-system-icon-15,
+  $token-font-system-icon-16,
+  $token-font-system-icon-17,
+  $token-font-system-icon-18,
+  $token-font-system-icon-19,
+  $token-font-system-icon-20
+);
+
+$tokens-font-system-icon: map-collect(
+  $tokens-font-system-icon-small,
+  $tokens-font-system-icon-medium,
+  $tokens-font-system-icon-large,
+  $tokens-font-system-icon-larger
+);
 
 $token-font-system-mono-micro: (
   mono-micro: (
@@ -1602,6 +2232,64 @@ $tokens-font-system-serif: map-collect(
   $tokens-font-system-serif-larger
 );
 
+$palettes-font-system-cond:(
+  'palette-font-system-cond-micro':  $token-font-system-cond-micro,
+  'palette-font-system-cond-1':      $token-font-system-cond-1,
+  'palette-font-system-cond-2':      $token-font-system-cond-2,
+  'palette-font-system-cond-3':      $token-font-system-cond-3,
+  'palette-font-system-cond-4':      $token-font-system-cond-4,
+  'palette-font-system-cond-5':      $token-font-system-cond-5,
+  'palette-font-system-cond-6':      $token-font-system-cond-6,
+  'palette-font-system-cond-7':      $token-font-system-cond-7,
+  'palette-font-system-cond-8':      $token-font-system-cond-8,
+  'palette-font-system-cond-9':      $token-font-system-cond-9,
+  'palette-font-system-cond-10':     $token-font-system-cond-10,
+  'palette-font-system-cond-11':     $token-font-system-cond-11,
+  'palette-font-system-cond-12':     $token-font-system-cond-12,
+  'palette-font-system-cond-13':     $token-font-system-cond-13,
+  'palette-font-system-cond-14':     $token-font-system-cond-14,
+  'palette-font-system-cond-15':     $token-font-system-cond-15,
+  'palette-font-system-cond-16':     $token-font-system-cond-16,
+  'palette-font-system-cond-17':     $token-font-system-cond-17,
+  'palette-font-system-cond-18':     $token-font-system-cond-18,
+  'palette-font-system-cond-19':     $token-font-system-cond-19,
+  'palette-font-system-cond-20':     $token-font-system-cond-20,
+  'palette-font-system-cond-small':  $tokens-font-system-cond-small,
+  'palette-font-system-cond-medium': $tokens-font-system-cond-medium,
+  'palette-font-system-cond-large':  $tokens-font-system-cond-large,
+  'palette-font-system-cond-larger': $tokens-font-system-cond-larger,
+  'palette-font-system-cond':        $tokens-font-system-cond,
+);
+
+$palettes-font-system-icon:(
+  'palette-font-system-icon-micro':  $token-font-system-icon-micro,
+  'palette-font-system-icon-1':      $token-font-system-icon-1,
+  'palette-font-system-icon-2':      $token-font-system-icon-2,
+  'palette-font-system-icon-3':      $token-font-system-icon-3,
+  'palette-font-system-icon-4':      $token-font-system-icon-4,
+  'palette-font-system-icon-5':      $token-font-system-icon-5,
+  'palette-font-system-icon-6':      $token-font-system-icon-6,
+  'palette-font-system-icon-7':      $token-font-system-icon-7,
+  'palette-font-system-icon-8':      $token-font-system-icon-8,
+  'palette-font-system-icon-9':      $token-font-system-icon-9,
+  'palette-font-system-icon-10':     $token-font-system-icon-10,
+  'palette-font-system-icon-11':     $token-font-system-icon-11,
+  'palette-font-system-icon-12':     $token-font-system-icon-12,
+  'palette-font-system-icon-13':     $token-font-system-icon-13,
+  'palette-font-system-icon-14':     $token-font-system-icon-14,
+  'palette-font-system-icon-15':     $token-font-system-icon-15,
+  'palette-font-system-icon-16':     $token-font-system-icon-16,
+  'palette-font-system-icon-17':     $token-font-system-icon-17,
+  'palette-font-system-icon-18':     $token-font-system-icon-18,
+  'palette-font-system-icon-19':     $token-font-system-icon-19,
+  'palette-font-system-icon-20':     $token-font-system-icon-20,
+  'palette-font-system-icon-small':  $tokens-font-system-icon-small,
+  'palette-font-system-icon-medium': $tokens-font-system-icon-medium,
+  'palette-font-system-icon-large':  $tokens-font-system-icon-large,
+  'palette-font-system-icon-larger': $tokens-font-system-icon-larger,
+  'palette-font-system-icon':        $tokens-font-system-icon,
+);
+
 $palettes-font-system-mono:(
   'palette-font-system-mono-micro':  $token-font-system-mono-micro,
   'palette-font-system-mono-1':      $token-font-system-mono-1,
@@ -1690,6 +2378,8 @@ $palettes-font-system-serif:(
 );
 
 $tokens-font-system: map-collect(
+  $tokens-font-system-cond,
+  $tokens-font-system-icon,
   $tokens-font-system-mono,
   $tokens-font-system-sans,
   $tokens-font-system-serif
@@ -1703,6 +2393,8 @@ $palettes-font-system: map-collect(
   $palettes-font-system-serif,
   $palettes-font-system-sans,
   $palettes-font-system-mono,
+  $palettes-font-system-cond,
+  $palettes-font-system-icon,
   $palette-font-system
 );
 
