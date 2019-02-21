@@ -563,7 +563,7 @@ Helper function for get-font-stack()
 
 @function render-font-stack($role-token) {
   $this-stack: null;
-  $this-type: map-get($theme-fonts-by-type, $role-token);
+  $this-type: map-get($project-fonts-by-type, $role-token);
   @if map-get($this-type, 'font') {
     $this-font-token: map-get($this-type, 'font');
     $this-name: map-deep-get(
@@ -597,8 +597,8 @@ role-based font token.
 
 @function get-font-stack($font-token) {
   $this-token: $font-token;
-  @if map-has-key($theme-fonts-by-role, $font-token) {
-    $this-token: map-get($theme-fonts-by-role, $font-token);
+  @if map-has-key($project-fonts-by-role, $font-token) {
+    $this-token: map-get($project-fonts-by-role, $font-token);
   }
   @return render-font-stack($this-token);
 }
@@ -614,10 +614,10 @@ role-based font token.
 
 @function get-face-token($font-token) {
   $this-token: $font-token;
-  @if map-has-key($theme-fonts-by-role, $font-token) {
-    $this-token: map-get($theme-fonts-by-role, $font-token);
+  @if map-has-key($project-fonts-by-role, $font-token) {
+    $this-token: map-get($project-fonts-by-role, $font-token);
   }
-  @return map-deep-get($theme-fonts-by-type, $this-token, 'font');
+  @return map-deep-get($project-fonts-by-type, $this-token, 'font');
 }
 
 /*

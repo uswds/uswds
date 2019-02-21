@@ -129,6 +129,51 @@ $number-to-value: (
 
 /*
 ----------------------------------------
+Project fonts
+----------------------------------------
+Collects font settings in a map for
+looping.
+----------------------------------------
+*/
+
+$project-fonts-by-type: (
+  'cond': (
+    'font': $theme-font-type-cond,
+    'custom-stack': $theme-font-cond-custom-stack,
+    'custom-generate': $theme-font-cond-custom-generate,
+  ),
+  'icon': (
+    'font': $theme-font-type-icon,
+    'custom-stack': $theme-font-icon-custom-stack,
+    'custom-generate': $theme-font-icon-custom-generate,
+  ),
+  'mono': (
+    'font': $theme-font-type-mono,
+    'custom-stack': $theme-font-mono-custom-stack,
+    'custom-generate': $theme-font-mono-custom-generate,
+  ),
+  'sans': (
+    'font': $theme-font-type-sans,
+    'custom-stack': $theme-font-sans-custom-stack,
+    'custom-generate': $theme-font-sans-custom-generate,
+  ),
+  'serif': (
+    'font': $theme-font-type-serif,
+    'custom-custom-stack': $theme-font-serif-custom-stack,
+    'custom-generate': $theme-font-serif-custom-generate,
+  ),
+);
+
+$project-fonts-by-role: (
+  'ui':       $theme-font-role-ui,
+  'heading':  $theme-font-role-heading,
+  'body':     $theme-font-role-body,
+  'code':     $theme-font-role-code,
+  'alt':      $theme-font-role-alt,
+);
+
+/*
+----------------------------------------
 Font stack
 ----------------------------------------
 Compute the project font stack based on
@@ -171,6 +216,28 @@ $project-font-heading:        get-face-token('heading');
 $project-font-body:           get-face-token('body');
 $project-font-code:           get-face-token('code');
 $project-font-alt:            get-face-token('alt');
+
+/*
+----------------------------------------
+Cap heights
+----------------------------------------
+Collect project cap heights
+----------------------------------------
+*/
+
+$project-cap-heights:(
+  'base':     $system-base-cap-height,
+  'mono':     cap-height($project-font-mono),
+  'sans':     cap-height($project-font-sans),
+  'serif':    cap-height($project-font-serif),
+  'cond':     cap-height($project-font-cond),
+  'icon':     cap-height($project-font-icon),
+  'ui':       cap-height($project-font-ui),
+  'heading':  cap-height($project-font-heading),
+  'body':     cap-height($project-font-body),
+  'code':     cap-height($project-font-code),
+  'alt':      cap-height($project-font-alt),
+);
 
 /*
 ----------------------------------------
@@ -411,20 +478,6 @@ $project-type-scale: (
 $all-type-scale: map-collect(
   $system-type-scale,
   $project-type-scale
-);
-
-$project-cap-heights:(
-  'base':     $system-base-cap-height,
-  'mono':     cap-height(get-face-token('mono')),
-  'sans':     cap-height(get-face-token('sans')),
-  'serif':    cap-height(get-face-token('serif')),
-  'cond':     cap-height(get-face-token('cond')),
-  'icon':     cap-height(get-face-token('icon')),
-  'ui':       cap-height(get-face-token('ui')),
-  'heading':  cap-height(get-face-token('heading')),
-  'body':     cap-height(get-face-token('body')),
-  'code':     cap-height(get-face-token('code')),
-  'alt':      cap-height(get-face-token('alt')),
 );
 
 /*

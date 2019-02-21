@@ -1,6 +1,6 @@
 /* stylelint-disable */
 
-@each $type, $value in $theme-fonts-by-type {
+@each $type, $value in $project-fonts-by-type {
   @if map-get($value, 'font') {
     $this-face: map-get($value, 'font');
     @include render-font-face($this-face);
