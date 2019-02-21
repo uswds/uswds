@@ -10,28 +10,30 @@ utilities
 
 $palettes-font-misc:(
   'palette-font-family': (
-    ui:       #{$font-stack-ui},
-    heading:  #{$font-stack-heading},
-    body:     #{$font-stack-body},
-    code:     #{$font-stack-code},
-    alt:      #{$font-stack-alt},
-    cond:    unquote('#{$font-stack-cond}'),
-    mono:    unquote('#{$font-stack-mono}'),
-    sans:    unquote('#{$font-stack-sans}'),
-    serif:   unquote('#{$font-stack-serif}'),
+    ui:       get-font-stack('ui'),
+    heading:  get-font-stack('heading'),
+    body:     get-font-stack('body'),
+    code:     get-font-stack('cond'),
+    alt:      get-font-stack('alt'),
+    cond:     get-font-stack('cond'),
+    mono:     get-font-stack('mono'),
+    sans:     get-font-stack('sans'),
+    serif:    get-font-stack('serif'),
+    icon:     get-font-stack('icon'),
   ),
   'palette-font-family-roles': (
-    ui:       #{$font-stack-ui},
-    heading:  #{$font-stack-heading},
-    body:     #{$font-stack-body},
-    code:     #{$font-stack-code},
-    alt:      #{$font-stack-alt},
+    ui:       get-font-stack('ui'),
+    heading:  get-font-stack('heading'),
+    body:     get-font-stack('body'),
+    code:     get-font-stack('code'),
+    alt:      get-font-stack('alt'),
   ),
   'palette-font-family-types': (
-    cond:    unquote('#{$font-stack-cond}'),
-    mono:    unquote('#{$font-stack-mono}'),
-    sans:    unquote('#{$font-stack-sans}'),
-    serif:   unquote('#{$font-stack-serif}'),
+    cond:     get-font-stack('cond'),
+    mono:     get-font-stack('mono'),
+    sans:     get-font-stack('sans'),
+    serif:    get-font-stack('serif'),
+    icon:     get-font-stack('icon'),
   ),
   'palette-font-weight': map-collect(
     $project-font-weights,
@@ -66,7 +68,7 @@ $token-font-theme-mono-3xs: (
     slug: 'mono-3xs',
     isReadable: true,
     content: utility-font(mono, 3xs),
-    dependency: $theme-font-mono,
+    dependency: $project-font-mono,
   ),
 );
 
@@ -75,7 +77,7 @@ $token-font-theme-mono-2xs: (
     slug: 'mono-2xs',
     isReadable: true,
     content: utility-font(mono, 2xs),
-    dependency: $theme-font-mono,
+    dependency: $project-font-mono,
   ),
 );
 
@@ -84,7 +86,7 @@ $token-font-theme-mono-xs: (
     slug: 'mono-xs',
     isReadable: true,
     content: utility-font(mono, xs),
-    dependency: $theme-font-mono,
+    dependency: $project-font-mono,
   ),
 );
 
@@ -93,7 +95,7 @@ $token-font-theme-mono-sm: (
     slug: 'mono-sm',
     isReadable: true,
     content: utility-font(mono, sm),
-    dependency: $theme-font-mono,
+    dependency: $project-font-mono,
   ),
 );
 
@@ -102,7 +104,7 @@ $token-font-theme-mono-md: (
     slug: 'mono-md',
     isReadable: true,
     content: utility-font(mono, md),
-    dependency: $theme-font-mono,
+    dependency: $project-font-mono,
   ),
 );
 
@@ -111,7 +113,7 @@ $token-font-theme-mono-lg: (
     slug: 'mono-lg',
     isReadable: true,
     content: utility-font(mono, lg),
-    dependency: $theme-font-mono,
+    dependency: $project-font-mono,
   ),
 );
 
@@ -120,7 +122,7 @@ $token-font-theme-mono-xl: (
     slug: 'mono-xl',
     isReadable: true,
     content: utility-font(mono, xl),
-    dependency: $theme-font-mono,
+    dependency: $project-font-mono,
   ),
 );
 
@@ -129,7 +131,7 @@ $token-font-theme-mono-2xl: (
     slug: 'mono-2xl',
     isReadable: true,
     content: utility-font(mono, 2xl),
-    dependency: $theme-font-mono,
+    dependency: $project-font-mono,
   ),
 );
 
@@ -138,7 +140,7 @@ $token-font-theme-mono-3xl: (
     slug: 'mono-3xl',
     isReadable: true,
     content: utility-font(mono, 3xl),
-    dependency: $theme-font-mono,
+    dependency: $project-font-mono,
   ),
 );
 
@@ -172,7 +174,7 @@ $token-font-theme-sans-3xs: (
     slug: 'sans-3xs',
     isReadable: true,
     content: utility-font(sans, 3xs),
-    dependency: $theme-font-sans,
+    dependency: $project-font-sans,
   ),
 );
 
@@ -181,7 +183,7 @@ $token-font-theme-sans-2xs: (
     slug: 'sans-2xs',
     isReadable: true,
     content: utility-font(sans, 2xs),
-    dependency: $theme-font-sans,
+    dependency: $project-font-sans,
   ),
 );
 
@@ -190,7 +192,7 @@ $token-font-theme-sans-xs: (
     slug: 'sans-xs',
     isReadable: true,
     content: utility-font(sans, xs),
-    dependency: $theme-font-sans,
+    dependency: $project-font-sans,
   ),
 );
 
@@ -199,7 +201,7 @@ $token-font-theme-sans-sm: (
     slug: 'sans-sm',
     isReadable: true,
     content: utility-font(sans, sm),
-    dependency: $theme-font-sans,
+    dependency: $project-font-sans,
   ),
 );
 
@@ -208,7 +210,7 @@ $token-font-theme-sans-md: (
     slug: 'sans-md',
     isReadable: true,
     content: utility-font(sans, md),
-    dependency: $theme-font-sans,
+    dependency: $project-font-sans,
   ),
 );
 
@@ -217,7 +219,7 @@ $token-font-theme-sans-lg: (
     slug: 'sans-lg',
     isReadable: true,
     content: utility-font(sans, lg),
-    dependency: $theme-font-sans,
+    dependency: $project-font-sans,
   ),
 );
 
@@ -226,7 +228,7 @@ $token-font-theme-sans-xl: (
     slug: 'sans-xl',
     isReadable: true,
     content: utility-font(sans, xl),
-    dependency: $theme-font-sans,
+    dependency: $project-font-sans,
   ),
 );
 
@@ -235,7 +237,7 @@ $token-font-theme-sans-2xl: (
     slug: 'sans-2xl',
     isReadable: true,
     content: utility-font(sans, 2xl),
-    dependency: $theme-font-sans,
+    dependency: $project-font-sans,
   ),
 );
 
@@ -244,7 +246,7 @@ $token-font-theme-sans-3xl: (
     slug: 'sans-3xl',
     isReadable: true,
     content: utility-font(sans, 3xl),
-    dependency: $theme-font-sans,
+    dependency: $project-font-sans,
   ),
 );
 
@@ -278,7 +280,7 @@ $token-font-theme-serif-3xs: (
     slug: 'serif-3xs',
     isReadable: true,
     content: utility-font(serif, 3xs),
-    dependency: $theme-font-serif,
+    dependency: $project-font-serif,
   ),
 );
 
@@ -287,7 +289,7 @@ $token-font-theme-serif-2xs: (
     slug: 'serif-2xs',
     isReadable: true,
     content: utility-font(serif, 2xs),
-    dependency: $theme-font-serif,
+    dependency: $project-font-serif,
   ),
 );
 
@@ -296,7 +298,7 @@ $token-font-theme-serif-xs: (
     slug: 'serif-xs',
     isReadable: true,
     content: utility-font(serif, xs),
-    dependency: $theme-font-serif,
+    dependency: $project-font-serif,
   ),
 );
 
@@ -305,7 +307,7 @@ $token-font-theme-serif-sm: (
     slug: 'serif-sm',
     isReadable: true,
     content: utility-font(serif, sm),
-    dependency: $theme-font-serif,
+    dependency: $project-font-serif,
   ),
 );
 
@@ -314,7 +316,7 @@ $token-font-theme-serif-md: (
     slug: 'serif-md',
     isReadable: true,
     content: utility-font(serif, md),
-    dependency: $theme-font-serif,
+    dependency: $project-font-serif,
   ),
 );
 
@@ -323,7 +325,7 @@ $token-font-theme-serif-lg: (
     slug: 'serif-lg',
     isReadable: true,
     content: utility-font(serif, lg),
-    dependency: $theme-font-serif,
+    dependency: $project-font-serif,
   ),
 );
 
@@ -332,7 +334,7 @@ $token-font-theme-serif-xl: (
     slug: 'serif-xl',
     isReadable: true,
     content: utility-font(serif, xl),
-    dependency: $theme-font-serif,
+    dependency: $project-font-serif,
   ),
 );
 
@@ -341,7 +343,7 @@ $token-font-theme-serif-2xl: (
     slug: 'serif-2xl',
     isReadable: true,
     content: utility-font(serif, 2xl),
-    dependency: $theme-font-serif,
+    dependency: $project-font-serif,
   ),
 );
 
@@ -350,7 +352,7 @@ $token-font-theme-serif-3xl: (
     slug: 'serif-3xl',
     isReadable: true,
     content: utility-font(serif, 3xl),
-    dependency: $theme-font-serif,
+    dependency: $project-font-serif,
   ),
 );
 
@@ -405,7 +407,7 @@ $token-font-theme-code-3xs: (
     slug: 'code-3xs',
     isReadable: true,
     content: utility-font(code, 3xs),
-    dependency: $theme-font-code,
+    dependency: $project-font-code,
   ),
 );
 
@@ -414,7 +416,7 @@ $token-font-theme-code-2xs: (
     slug: 'code-2xs',
     isReadable: true,
     content: utility-font(code, 2xs),
-    dependency: $theme-font-code,
+    dependency: $project-font-code,
   ),
 );
 
@@ -423,7 +425,7 @@ $token-font-theme-code-xs: (
     slug: 'code-xs',
     isReadable: true,
     content: utility-font(code, xs),
-    dependency: $theme-font-code,
+    dependency: $project-font-code,
   ),
 );
 
@@ -432,7 +434,7 @@ $token-font-theme-code-sm: (
     slug: 'code-sm',
     isReadable: true,
     content: utility-font(code, sm),
-    dependency: $theme-font-code,
+    dependency: $project-font-code,
   ),
 );
 
@@ -441,7 +443,7 @@ $token-font-theme-code-md: (
     slug: 'code-md',
     isReadable: true,
     content: utility-font(code, md),
-    dependency: $theme-font-code,
+    dependency: $project-font-code,
   ),
 );
 
@@ -450,7 +452,7 @@ $token-font-theme-code-lg: (
     slug: 'code-lg',
     isReadable: true,
     content: utility-font(code, lg),
-    dependency: $theme-font-code,
+    dependency: $project-font-code,
   ),
 );
 
@@ -459,7 +461,7 @@ $token-font-theme-code-xl: (
     slug: 'code-xl',
     isReadable: true,
     content: utility-font(code, xl),
-    dependency: $theme-font-code,
+    dependency: $project-font-code,
   ),
 );
 
@@ -468,7 +470,7 @@ $token-font-theme-code-2xl: (
     slug: 'code-2xl',
     isReadable: true,
     content: utility-font(code, 2xl),
-    dependency: $theme-font-code,
+    dependency: $project-font-code,
   ),
 );
 
@@ -477,7 +479,7 @@ $token-font-theme-code-3xl: (
     slug: 'code-3xl',
     isReadable: true,
     content: utility-font(code, 3xl),
-    dependency: $theme-font-code,
+    dependency: $project-font-code,
   ),
 );
 
@@ -511,7 +513,7 @@ $token-font-theme-ui-3xs: (
     slug: 'ui-3xs',
     isReadable: true,
     content: utility-font(ui, 3xs),
-    dependency: $theme-font-ui,
+    dependency: $project-font-ui,
   ),
 );
 
@@ -520,7 +522,7 @@ $token-font-theme-ui-2xs: (
     slug: 'ui-2xs',
     isReadable: true,
     content: utility-font(ui, 2xs),
-    dependency: $theme-font-ui,
+    dependency: $project-font-ui,
   ),
 );
 
@@ -529,7 +531,7 @@ $token-font-theme-ui-xs: (
     slug: 'ui-xs',
     isReadable: true,
     content: utility-font(ui, xs),
-    dependency: $theme-font-ui,
+    dependency: $project-font-ui,
   ),
 );
 
@@ -538,7 +540,7 @@ $token-font-theme-ui-sm: (
     slug: 'ui-sm',
     isReadable: true,
     content: utility-font(ui, sm),
-    dependency: $theme-font-ui,
+    dependency: $project-font-ui,
   ),
 );
 
@@ -547,7 +549,7 @@ $token-font-theme-ui-md: (
     slug: 'ui-md',
     isReadable: true,
     content: utility-font(ui, md),
-    dependency: $theme-font-ui,
+    dependency: $project-font-ui,
   ),
 );
 
@@ -556,7 +558,7 @@ $token-font-theme-ui-lg: (
     slug: 'ui-lg',
     isReadable: true,
     content: utility-font(ui, lg),
-    dependency: $theme-font-ui,
+    dependency: $project-font-ui,
   ),
 );
 
@@ -565,7 +567,7 @@ $token-font-theme-ui-xl: (
     slug: 'ui-xl',
     isReadable: true,
     content: utility-font(ui, xl),
-    dependency: $theme-font-ui,
+    dependency: $project-font-ui,
   ),
 );
 
@@ -574,7 +576,7 @@ $token-font-theme-ui-2xl: (
     slug: 'ui-2xl',
     isReadable: true,
     content: utility-font(ui, 2xl),
-    dependency: $theme-font-ui,
+    dependency: $project-font-ui,
   ),
 );
 
@@ -583,7 +585,7 @@ $token-font-theme-ui-3xl: (
     slug: 'ui-3xl',
     isReadable: true,
     content: utility-font(ui, 3xl),
-    dependency: $theme-font-ui,
+    dependency: $project-font-ui,
   ),
 );
 
@@ -617,7 +619,7 @@ $token-font-theme-heading-3xs: (
     slug: 'heading-3xs',
     isReadable: true,
     content: utility-font(heading, 3xs),
-    dependency: $theme-font-heading,
+    dependency: $project-font-heading,
   ),
 );
 
@@ -626,7 +628,7 @@ $token-font-theme-heading-2xs: (
     slug: 'heading-2xs',
     isReadable: true,
     content: utility-font(heading, 2xs),
-    dependency: $theme-font-heading,
+    dependency: $project-font-heading,
   ),
 );
 
@@ -635,7 +637,7 @@ $token-font-theme-heading-xs: (
     slug: 'heading-xs',
     isReadable: true,
     content: utility-font(heading, xs),
-    dependency: $theme-font-heading,
+    dependency: $project-font-heading,
   ),
 );
 
@@ -644,7 +646,7 @@ $token-font-theme-heading-sm: (
     slug: 'heading-sm',
     isReadable: true,
     content: utility-font(heading, sm),
-    dependency: $theme-font-heading,
+    dependency: $project-font-heading,
   ),
 );
 
@@ -653,7 +655,7 @@ $token-font-theme-heading-md: (
     slug: 'heading-md',
     isReadable: true,
     content: utility-font(heading, md),
-    dependency: $theme-font-heading,
+    dependency: $project-font-heading,
   ),
 );
 
@@ -662,7 +664,7 @@ $token-font-theme-heading-lg: (
     slug: 'heading-lg',
     isReadable: true,
     content: utility-font(heading, lg),
-    dependency: $theme-font-heading,
+    dependency: $project-font-heading,
   ),
 );
 
@@ -671,7 +673,7 @@ $token-font-theme-heading-xl: (
     slug: 'heading-xl',
     isReadable: true,
     content: utility-font(heading, xl),
-    dependency: $theme-font-heading,
+    dependency: $project-font-heading,
   ),
 );
 
@@ -680,7 +682,7 @@ $token-font-theme-heading-2xl: (
     slug: 'heading-2xl',
     isReadable: true,
     content: utility-font(heading, 2xl),
-    dependency: $theme-font-heading,
+    dependency: $project-font-heading,
   ),
 );
 
@@ -689,7 +691,7 @@ $token-font-theme-heading-3xl: (
     slug: 'heading-3xl',
     isReadable: true,
     content: utility-font(heading, 3xl),
-    dependency: $theme-font-heading,
+    dependency: $project-font-heading,
   ),
 );
 
@@ -723,7 +725,7 @@ $token-font-theme-body-3xs: (
     slug: 'body-3xs',
     isReadable: true,
     content: utility-font(body, 3xs),
-    dependency: $theme-font-body,
+    dependency: $project-font-body,
   ),
 );
 
@@ -732,7 +734,7 @@ $token-font-theme-body-2xs: (
     slug: 'body-2xs',
     isReadable: true,
     content: utility-font(body, 2xs),
-    dependency: $theme-font-body,
+    dependency: $project-font-body,
   ),
 );
 
@@ -741,7 +743,7 @@ $token-font-theme-body-xs: (
     slug: 'body-xs',
     isReadable: true,
     content: utility-font(body, xs),
-    dependency: $theme-font-body,
+    dependency: $project-font-body,
   ),
 );
 
@@ -750,7 +752,7 @@ $token-font-theme-body-sm: (
     slug: 'body-sm',
     isReadable: true,
     content: utility-font(body, sm),
-    dependency: $theme-font-body,
+    dependency: $project-font-body,
   ),
 );
 
@@ -759,7 +761,7 @@ $token-font-theme-body-md: (
     slug: 'body-md',
     isReadable: true,
     content: utility-font(body, md),
-    dependency: $theme-font-body,
+    dependency: $project-font-body,
   ),
 );
 
@@ -768,7 +770,7 @@ $token-font-theme-body-lg: (
     slug: 'body-lg',
     isReadable: true,
     content: utility-font(body, lg),
-    dependency: $theme-font-body,
+    dependency: $project-font-body,
   ),
 );
 
@@ -777,7 +779,7 @@ $token-font-theme-body-xl: (
     slug: 'body-xl',
     isReadable: true,
     content: utility-font(body, xl),
-    dependency: $theme-font-body,
+    dependency: $project-font-body,
   ),
 );
 
@@ -786,7 +788,7 @@ $token-font-theme-body-2xl: (
     slug: 'body-2xl',
     isReadable: true,
     content: utility-font(body, 2xl),
-    dependency: $theme-font-body,
+    dependency: $project-font-body,
   ),
 );
 
@@ -795,7 +797,7 @@ $token-font-theme-body-3xl: (
     slug: 'body-3xl',
     isReadable: true,
     content: utility-font(body, 3xl),
-    dependency: $theme-font-body,
+    dependency: $project-font-body,
   ),
 );
 
@@ -829,7 +831,7 @@ $token-font-theme-alt-3xs: (
     slug: 'alt-3xs',
     isReadable: true,
     content: utility-font(alt, 3xs),
-    dependency: $theme-font-alt,
+    dependency: $project-font-alt,
   ),
 );
 
@@ -838,7 +840,7 @@ $token-font-theme-alt-2xs: (
     slug: 'alt-2xs',
     isReadable: true,
     content: utility-font(alt, 2xs),
-    dependency: $theme-font-alt,
+    dependency: $project-font-alt,
   ),
 );
 
@@ -847,7 +849,7 @@ $token-font-theme-alt-xs: (
     slug: 'alt-xs',
     isReadable: true,
     content: utility-font(alt, xs),
-    dependency: $theme-font-alt,
+    dependency: $project-font-alt,
   ),
 );
 
@@ -856,7 +858,7 @@ $token-font-theme-alt-sm: (
     slug: 'alt-sm',
     isReadable: true,
     content: utility-font(alt, sm),
-    dependency: $theme-font-alt,
+    dependency: $project-font-alt,
   ),
 );
 
@@ -865,7 +867,7 @@ $token-font-theme-alt-md: (
     slug: 'alt-md',
     isReadable: true,
     content: utility-font(alt, md),
-    dependency: $theme-font-alt,
+    dependency: $project-font-alt,
   ),
 );
 
@@ -874,7 +876,7 @@ $token-font-theme-alt-lg: (
     slug: 'alt-lg',
     isReadable: true,
     content: utility-font(alt, lg),
-    dependency: $theme-font-alt,
+    dependency: $project-font-alt,
   ),
 );
 
@@ -883,7 +885,7 @@ $token-font-theme-alt-xl: (
     slug: 'alt-xl',
     isReadable: true,
     content: utility-font(alt, xl),
-    dependency: $theme-font-alt,
+    dependency: $project-font-alt,
   ),
 );
 
@@ -892,7 +894,7 @@ $token-font-theme-alt-2xl: (
     slug: 'alt-2xl',
     isReadable: true,
     content: utility-font(alt, 2xl),
-    dependency: $theme-font-alt,
+    dependency: $project-font-alt,
   ),
 );
 
@@ -901,7 +903,7 @@ $token-font-theme-alt-3xl: (
     slug: 'alt-3xl',
     isReadable: true,
     content: utility-font(alt, 3xl),
-    dependency: $theme-font-alt,
+    dependency: $project-font-alt,
   ),
 );
 

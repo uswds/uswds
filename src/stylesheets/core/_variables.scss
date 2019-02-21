@@ -138,164 +138,80 @@ core/_font-definitions
 ----------------------------------------
 */
 
-$font-stack-sans:     false;
-$font-stack-serif:    false;
-$font-stack-mono:     false;
-$font-stack-cond:     false;
-
-$font-stack-ui:       false;
-$font-stack-heading:  false;
-$font-stack-body:     false;
-$font-stack-code:     false;
-$font-stack-alt:      false;
-
-@if $theme-font-sans {
-  $this-name: map-deep-get(
-    $all-font-definitions,
-    $theme-font-sans,
-    'name'
-  );
-  @if $theme-font-sans-custom-stack {
-    $font-stack-sans: #{$this-name}, #{$theme-font-sans-custom-stack};
-  }
-  @else {
-    $this-stack: map-deep-get(
+@function render-font-stack($role-token) {
+  $this-stack: null;
+  $this-type: map-get($theme-fonts-by-type, $role-token);
+  @if map-get($this-type, 'font') {
+    $this-font-token: map-get($this-type, 'font');
+    $this-name: map-deep-get(
       $all-font-definitions,
-      $theme-font-sans,
-      'stack'
+      $this-font-token,
+      'name'
     );
-    $font-stack-sans: #{$this-name}, #{$this-stack};
+    @if map-get($this-type, 'custom-stack'){
+      $this-stack: map-get($this-type, 'custom-stack');
+    }
+    @else {
+      $this-stack: map-deep-get(
+        $all-font-definitions,
+        $this-font-token,
+        'stack'
+      );
+    }
+    @return #{$this-name}, #{$this-stack};
   }
+  @return false;
 }
 
-@if $theme-font-serif {
-  $font-stack-serif: map-deep-get(
-    $all-font-definitions,
-    $theme-font-serif,
-    'name'
-  ), map-deep-get(
-    $all-font-definitions,
-    $theme-font-serif,
-    'stack'
-  );
-  $font-stack-serif: $font-stack-serif + unquote('');
+@function get-font-stack($font-token) {
+  $this-token: $font-token;
+  @if map-has-key($theme-fonts-by-role, $font-token) {
+    $this-token: map-get($theme-fonts-by-role, $font-token);
+  }
+  @return render-font-stack($this-token);
 }
 
-@if $theme-font-mono {
-  $font-stack-mono: map-deep-get(
-    $all-font-definitions,
-    $theme-font-mono,
-    'name'
-  ), map-deep-get(
-    $all-font-definitions,
-    $theme-font-mono,
-    'stack'
-  );
-  $font-stack-mono: $font-stack-mono + unquote('');
-}
-
-@if $theme-font-cond {
-  $font-stack-cond: map-deep-get(
-    $all-font-definitions,
-    $theme-font-cond,
-    'name'
-  ), map-deep-get(
-    $all-font-definitions,
-    $theme-font-cond,
-    'stack'
-  );
-  $font-stack-cond: $font-stack-cond + unquote('');
-}
-
-@if $theme-font-icon {
-  $font-stack-icon: map-deep-get(
-    $all-font-definitions,
-    $theme-font-icon,
-    'name'
-  ), map-deep-get(
-    $all-font-definitions,
-    $theme-font-icon,
-    'stack'
-  );
-  $font-stack-icon: $font-stack-icon + unquote('');
-}
-
-@if $theme-font-ui {
-  $font-stack-ui: map-deep-get(
-    $all-font-definitions,
-    $theme-font-ui,
-    'name'
-  ), map-deep-get(
-    $all-font-definitions,
-    $theme-font-ui,
-    'stack'
-  );
-  $font-stack-ui: $font-stack-ui + unquote('');
-}
-
-@if $theme-font-heading {
-  $font-stack-heading: map-deep-get(
-    $all-font-definitions,
-    $theme-font-heading,
-    'name'
-  ), map-deep-get(
-    $all-font-definitions,
-    $theme-font-heading,
-    'stack'
-  );
-  $font-stack-heading: $font-stack-heading + unquote('');
-}
-
-@if $theme-font-body {
-  $font-stack-body: map-deep-get(
-    $all-font-definitions,
-    $theme-font-body,
-    'name'
-  ), map-deep-get(
-    $all-font-definitions,
-    $theme-font-body,
-    'stack'
-  );
-  $font-stack-body: $font-stack-body + unquote('');
-}
-
-@if $theme-font-code {
-  $font-stack-code: map-deep-get(
-    $all-font-definitions,
-    $theme-font-code,
-    'name'
-  ), map-deep-get(
-    $all-font-definitions,
-    $theme-font-code,
-    'stack'
-  );
-  $font-stack-code: $font-stack-code + unquote('');
-}
-
-@if $theme-font-alt {
-  $font-stack-alt: map-deep-get(
-    $all-font-definitions,
-    $theme-font-alt,
-    'name'
-  ), map-deep-get(
-    $all-font-definitions,
-    $theme-font-alt,
-    'stack'
-  );
-  $font-stack-alt: $font-stack-alt + unquote('');
+@function get-face-token($font-token) {
+  $this-token: $font-token;
+  @if map-has-key($theme-fonts-by-role, $font-token) {
+    $this-token: map-get($theme-fonts-by-role, $font-token);
+  }
+  @return map-deep-get($theme-fonts-by-type, $this-token, 'font');
 }
 
 $project-font-stacks:(
-  'mono':     $font-stack-mono,
-  'sans':     $font-stack-sans,
-  'serif':    $font-stack-serif,
-  'cond':     $font-stack-cond,
-  'ui':       $font-stack-ui,
-  'heading':  $font-stack-heading,
-  'body':     $font-stack-body,
-  'code':     $font-stack-code,
-  'alt':      $font-stack-alt,
+  'mono':     get-font-stack('mono'),
+  'sans':     get-font-stack('sans'),
+  'serif':    get-font-stack('serif'),
+  'cond':     get-font-stack('cond'),
+  'ui':       get-font-stack('ui'),
+  'heading':  get-font-stack('heading'),
+  'body':     get-font-stack('body'),
+  'code':     get-font-stack('code'),
+  'alt':      get-font-stack('alt'),
 );
+
+$project-font-stack-mono:     get-font-stack('mono');
+$project-font-stack-sans:     get-font-stack('sans');
+$project-font-stack-serif:    get-font-stack('serif');
+$project-font-stack-cond:     get-font-stack('cond');
+$project-font-stack-icon:     get-font-stack('icon');
+$project-font-stack-ui:       get-font-stack('ui');
+$project-font-stack-heading:  get-font-stack('heading');
+$project-font-stack-body:     get-font-stack('body');
+$project-font-stack-code:     get-font-stack('code');
+$project-font-stack-alt:      get-font-stack('alt');
+
+$project-font-mono:           get-face-token('mono');
+$project-font-sans:           get-face-token('sans');
+$project-font-serif:          get-face-token('serif');
+$project-font-cond:           get-face-token('cond');
+$project-font-icon:           get-face-token('icon');
+$project-font-ui:             get-face-token('ui');
+$project-font-heading:        get-face-token('heading');
+$project-font-body:           get-face-token('body');
+$project-font-code:           get-face-token('code');
+$project-font-alt:            get-face-token('alt');
 
 /*
 ----------------------------------------
@@ -310,40 +226,10 @@ $if-important: '';
   $if-important: ' !important';
 }
 
-@if $theme-font-mono {
-  [class*='#{ns('utility')}font-mono-'] { font-family: $font-stack-mono#{$if-important}; }
-}
-
-@if $theme-font-sans {
-  [class*='#{ns('utility')}font-sans-'] { font-family: $font-stack-sans#{$if-important}; }
-}
-
-@if $theme-font-serif {
-  [class*='#{ns('utility')}font-serif-'] { font-family: $font-stack-serif#{$if-important}; }
-}
-
-@if $theme-font-cond {
-  [class*='#{ns('utility')}font-cond-'] { font-family: $font-stack-cond#{$if-important}; }
-}
-
-@if $theme-font-ui {
-  [class*='#{ns('utility')}font-ui-'] { font-family: $font-stack-ui#{$if-important}; }
-}
-
-@if $theme-font-heading {
-  [class*='#{ns('utility')}font-heading-'] { font-family: $font-stack-heading#{$if-important}; }
-}
-
-@if $theme-font-body {
-  [class*='#{ns('utility')}font-body-'] { font-family: $font-stack-body#{$if-important}; }
-}
-
-@if $theme-font-code {
-  [class*='#{ns('utility')}font-code-'] { font-family: $font-stack-code#{$if-important}; }
-}
-
-@if $theme-font-alt {
-  [class*='#{ns('utility')}font-alt-'] { font-family: $font-stack-alt#{$if-important}; }
+@each $face, $stack in $project-font-stacks {
+  @if $stack {
+    [class*='#{ns('utility')}font-#{$face}-'] { font-family: #{$stack}#{$if-important}; }
+  }
 }
 
 $project-font-weights: (
@@ -570,15 +456,16 @@ $all-type-scale: map-collect(
 
 $project-cap-heights:(
   'base':     $system-base-cap-height,
-  'mono':     cap-height($theme-font-mono),
-  'sans':     cap-height($theme-font-sans),
-  'serif':    cap-height($theme-font-serif),
-  'cond':     cap-height($theme-font-cond),
-  'ui':       cap-height($theme-font-ui),
-  'heading':  cap-height($theme-font-heading),
-  'body':     cap-height($theme-font-body),
-  'code':     cap-height($theme-font-code),
-  'alt':      cap-height($theme-font-alt),
+  'mono':     cap-height(get-face-token('mono')),
+  'sans':     cap-height(get-face-token('sans')),
+  'serif':    cap-height(get-face-token('serif')),
+  'cond':     cap-height(get-face-token('cond')),
+  'icon':     cap-height(get-face-token('icon')),
+  'ui':       cap-height(get-face-token('ui')),
+  'heading':  cap-height(get-face-token('heading')),
+  'body':     cap-height(get-face-token('body')),
+  'code':     cap-height(get-face-token('code')),
+  'alt':      cap-height(get-face-token('alt')),
 );
 
 /*

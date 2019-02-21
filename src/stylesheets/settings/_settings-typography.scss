@@ -147,27 +147,41 @@ $theme-font-definitions:
 
 // TODO: Add icon font family
 
-$theme-font-cond:   false !default;
-$theme-font-icon:   false !default;
-$theme-font-mono:   'roboto-mono' !default;
-$theme-font-sans:   'source-sans-pro' !default;
-$theme-font-serif:  'merriweather' !default;
+$theme-fonts-by-type: (
+  'cond': (
+    'font': false,
+    'custom-stack': false,
+    'custom-generate': false,
+  ),
+  'icon': (
+    'font': false,
+    'custom-stack': false,
+    'custom-generate': false,
+  ),
+  'mono': (
+    'font': 'roboto-mono',
+    'custom-stack': false,
+    'custom-generate': false,
+  ),
+  'sans': (
+    'font': 'source-sans-pro',
+    'custom-stack': false,
+    'custom-generate': false,
+  ),
+  'serif': (
+    'font': 'merriweather',
+    'custom-custom-stack': false,
+    'custom-generate': false,
+  ),
+) !default;
 
-// TODO: Add custom stacks for each family
-$theme-font-cond-custom-stack:  false !default;
-$theme-font-icon-custom-stack:  false !default;
-$theme-font-mono-custom-stack:  false !default;
-$theme-font-sans-custom-stack:  false !default;
-$theme-font-serif-custom-stack: false !default;
-$theme-font-cond-custom-stack:  false !default;
-
-// TODO: Add custom output for each font family
-$theme-font-cond-custom-generate:   false !default;
-$theme-font-icon-custom-generate:   false !default;
-$theme-font-mono-custom-generate:   false !default;
-$theme-font-sans-custom-generate:   false !default;
-$theme-font-serif-custom-generate:  false !default;
-$theme-font-cond-custom-generate:   false !default;
+$theme-fonts-by-role: (
+  'ui':       'sans',
+  'heading':  'serif',
+  'body':     'sans',
+  'code':     'mono',
+  'alt':      'serif',
+) !default;
 
 /*
 // custom font source map for generating @font-face files
@@ -197,26 +211,6 @@ $theme-font-cond-custom-generate:   false !default;
   ),
 )
 */
-
-/*
-----------------------------------------
-Fonts by role
-----------------------------------------
-Set the ui, heading, body, code, and alt
-faces for your project from
-
-$theme-font-sans
-$theme-font-serif
-$theme-font-mono
-$theme-font-cond
-----------------------------------------
-*/
-
-$theme-font-ui:       $theme-font-sans !default;
-$theme-font-heading:  $theme-font-serif !default;
-$theme-font-body:     $theme-font-sans !default;
-$theme-font-code:     $theme-font-mono !default;
-$theme-font-alt:      $theme-font-serif !default;
 
 /*
 ----------------------------------------

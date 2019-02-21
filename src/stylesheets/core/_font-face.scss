@@ -1,19 +1,10 @@
 /* stylelint-disable */
 
-@if $theme-font-mono {
-  @include render-font-face($theme-font-mono);
-}
-@if $theme-font-sans {
-  @include render-font-face($theme-font-sans);
-}
-@if $theme-font-serif {
-  @include render-font-face($theme-font-serif);
-}
-@if $theme-font-cond {
-  @include render-font-face($theme-font-cond);
-}
-@if $theme-font-icon {
-  @include render-font-face($theme-font-icon);
+@each $type, $value in $theme-fonts-by-type {
+  @if map-get($value, 'font') {
+    $this-face: map-get($value, 'font');
+    @include render-font-face($this-face);
+  }
 }
 
 /* stylelint-enable */
