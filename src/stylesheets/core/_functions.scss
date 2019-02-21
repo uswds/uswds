@@ -757,7 +757,6 @@ functions and mixins.
     @return nth($value, 2);
   }
 
-
   $value: nth($value, 1);
   $converted: number-to-token($value);
   $quoted-value: if(
