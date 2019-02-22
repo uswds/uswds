@@ -32,7 +32,6 @@
   $dir,
   $font-style
 ) {
-  @debug 'it me! #{$display-name}';
   @each $font-weight, $filename in $font-style-src {
     @each $key, $output-weight in $output-weights {
       @if $output-weight == $font-weight and $filename {
