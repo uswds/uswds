@@ -7,13 +7,13 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS TYPOGRAPHY SETTINGS
+USWDS 2.0.0 Beta 5
 ----------------------------------------
--
+TYPOGRAPHY SETTINGS
+----------------------------------------
 Read more about settings and
 USWDS typography tokens in the documentation:
 https://v2.designsystem.digital.gov/style-tokens/typography
--
 ----------------------------------------
 */
 
@@ -197,31 +197,7 @@ $theme-font-cond-custom-src:   false !default;
 $theme-font-icon-custom-src:   false !default;
 $theme-font-mono-custom-src:   false !default;
 $theme-font-sans-custom-src:   false !default;
-$theme-font-serif-custom-src: (
-  dir: 'custom/example-serif',
-  roman: (
-    100: false,
-    200: false,
-    300: 'ExampleSerif-Light',
-    400: 'ExampleSerif-Normal',
-    500: false,
-    600: false,
-    700: 'ExampleSerif-Bold',
-    800: false,
-    900: false,
-  ),
-  italic: (
-    100: false,
-    200: false,
-    300: 'ExampleSerif-LightItalic',
-    400: 'ExampleSerif-Italic',
-    500: false,
-    600: false,
-    700: 'ExampleSerif-BoldItalic',
-    800: false,
-    900: false,
-  ),
-);
+$theme-font-serif-custom-src:  false !default;
 
 /*
 EXAMPLE:
