@@ -416,22 +416,39 @@ queries
 
 /*
 ----------------------------------------
-cap-height()
+validate-typeface-token()
 ----------------------------------------
-Get the cap height of a defined font
+Check to see if a typeface-token exists.
+Throw an error if a passed token does
+not exist in the typeface-token map.
 ----------------------------------------
 */
 
-@function cap-height($font) {
-  @if not $font {
+@function validate-typeface-token($typeface-token) {
+  @if not map-has-key($all-typeface-tokens, $typeface-token) {
+    @error '`#{$typeface-token}` is not a valid typeface token. '
+      + 'Valid tokens: #{map-keys($all-typeface-tokens)} ';
+  }
+
+  @return $typeface-token;
+}
+
+/*
+----------------------------------------
+cap-height()
+----------------------------------------
+Get the cap height of a valid typeface
+----------------------------------------
+*/
+
+@function cap-height($typeface-token) {
+  @if not $typeface-token {
     @return false;
   }
 
-  @return map-deep-get(
-    $all-font-definitions,
-    $font,
-    'cap-height'
-  );
+  $typeface-token: validate-typeface-token($typeface-token);
+  $token-data: map-get($all-typeface-tokens, $typeface-token);
+  @return map-get($token-data, 'cap-height');
 }
 
 /*
@@ -555,35 +572,20 @@ a family and a line-height scale unit
 
 /*
 ----------------------------------------
-render-font-stack()
+convert-to-font-type()
 ----------------------------------------
-Helper function for get-font-stack()
+Converts a font-role token into a
+font-type token. Leaves font-type tokens
+unchanged.
 ----------------------------------------
 */
 
-@function render-font-stack($role-token) {
-  $this-stack: null;
-  $this-type: map-get($project-fonts-by-type, $role-token);
-  @if map-get($this-type, 'font') {
-    $this-font-token: map-get($this-type, 'font');
-    $this-name: map-deep-get(
-      $all-font-definitions,
-      $this-font-token,
-      'name'
-    );
-    @if map-get($this-type, 'custom-stack') {
-      $this-stack: map-get($this-type, 'custom-stack');
-    }
-    @else {
-      $this-stack: map-deep-get(
-        $all-font-definitions,
-        $this-font-token,
-        'stack'
-      );
-    }
-    @return #{$this-name}, #{$this-stack};
+@function convert-to-font-type($token) {
+  @if map-has-key($project-font-role-tokens, $token) {
+    @return map-get($project-font-role-tokens, $token);
   }
-  @return false;
+
+  @return $token;
 }
 
 /*
@@ -595,29 +597,47 @@ role-based font token.
 ----------------------------------------
 */
 
-@function get-font-stack($font-token) {
-  $this-token: $font-token;
-  @if map-has-key($project-fonts-by-role, $font-token) {
-    $this-token: map-get($project-fonts-by-role, $font-token);
+@function get-font-stack($token) {
+  $type-token: convert-to-font-type($token);
+  $this-stack: null;
+  $this-font-map: map-get($project-font-type-tokens, $type-token);
+  @if map-get($this-font-map, 'typeface-token') {
+    $this-font-token: map-get($this-font-map, 'typeface-token');
+    $this-name: map-deep-get(
+      $all-typeface-tokens,
+      $this-font-token,
+      'display-name'
+    );
+    @if map-get($this-font-map, 'custom-stack') {
+      $this-stack: map-get($this-font-map, 'custom-stack');
+    }
+    @else {
+      $this-stack: map-deep-get(
+        $all-typeface-tokens,
+        $this-font-token,
+        'stack'
+      );
+    }
+    @return #{$this-name}, #{$this-stack};
   }
-  @return render-font-stack($this-token);
+  @return false;
 }
 
 /*
 ----------------------------------------
-get-face-token()
+get-typeface-token()
 ----------------------------------------
-Get a typeface token from a style- or
-role-based font token.
+Get a typeface token from a font-type or
+font-role token.
 ----------------------------------------
 */
 
-@function get-face-token($font-token) {
+@function get-typeface-token($font-token) {
   $this-token: $font-token;
-  @if map-has-key($project-fonts-by-role, $font-token) {
-    $this-token: map-get($project-fonts-by-role, $font-token);
+  @if map-has-key($project-font-role-tokens, $font-token) {
+    $this-token: map-get($project-font-role-tokens, $font-token);
   }
-  @return map-deep-get($project-fonts-by-type, $this-token, 'font');
+  @return map-deep-get($project-font-type-tokens, $this-token, 'typeface-token');
 }
 
 /*
