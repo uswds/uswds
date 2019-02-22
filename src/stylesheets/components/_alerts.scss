@@ -76,33 +76,33 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
   padding-bottom: units($theme-alert-bar-width);
   padding-top: units($theme-alert-bar-width);
 
-  .usa-alert-text:only-child {
+  .usa-alert__text:only-child {
     margin-bottom: units(0.5);
     padding-top: units(0.5);
   }
 }
 
-.usa-alert-icon {
+.usa-alert__icon {
   display: table-cell;
   padding-right: units($theme-alert-bar-width);
 }
 
-.usa-alert-body {
+.usa-alert__body {
   display: table-cell;
   vertical-align: top;
 }
 
-.usa-alert-heading {
+.usa-alert__heading {
   @include typeset($theme-alert-font-family, 'lg', 2);
   margin-top: 0;
   margin-bottom: units(1);
 }
 
-.usa-alert-text {
+.usa-alert__text {
   @include u-margin-y(0);
 }
 
-.usa-alert-text:only-child {
+.usa-alert__text:only-child {
   margin-bottom: units($theme-alert-bar-width);
   padding-top: units(0.5);
 }
@@ -116,7 +116,7 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
       background-color: color(map-get($alerts-bar, $name));
     }
 
-    .usa-alert-body {
+    .usa-alert__body {
       padding-left: units($theme-alert-icon-size) + units($theme-alert-padding-x);
     }
   }
@@ -126,6 +126,6 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
   background-image: none;
 }
 
-.usa-alert-paragraph {
+.usa-alert__paragraph {
   width: measure($theme-alert-measure);
 }
