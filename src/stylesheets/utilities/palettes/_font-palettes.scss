@@ -16,10 +16,11 @@ $palettes-font-misc:(
     code:     get-font-stack('cond'),
     alt:      get-font-stack('alt'),
     cond:     get-font-stack('cond'),
+    icon:     get-font-stack('icon'),
+    lang:     get-font-stack('lang'),
     mono:     get-font-stack('mono'),
     sans:     get-font-stack('sans'),
     serif:    get-font-stack('serif'),
-    icon:     get-font-stack('icon'),
   ),
   'palette-font-family-roles': (
     ui:       get-font-stack('ui'),
@@ -30,10 +31,11 @@ $palettes-font-misc:(
   ),
   'palette-font-family-types': (
     cond:     get-font-stack('cond'),
+    icon:     get-font-stack('icon'),
+    lang:     get-font-stack('lang'),
     mono:     get-font-stack('mono'),
     sans:     get-font-stack('sans'),
     serif:    get-font-stack('serif'),
-    icon:     get-font-stack('icon'),
   ),
   'palette-font-weight': map-collect(
     $project-font-weights,
@@ -61,112 +63,6 @@ $palettes-font-misc:(
     '800': 800,
     '900': 900,
   ),
-);
-
-$token-font-theme-mono-3xs: (
-  mono-3xs: (
-    slug: 'mono-3xs',
-    isReadable: true,
-    content: utility-font(mono, 3xs),
-    dependency: $project-font-mono,
-  ),
-);
-
-$token-font-theme-mono-2xs: (
-  mono-2xs: (
-    slug: 'mono-2xs',
-    isReadable: true,
-    content: utility-font(mono, 2xs),
-    dependency: $project-font-mono,
-  ),
-);
-
-$token-font-theme-mono-xs: (
-  mono-xs: (
-    slug: 'mono-xs',
-    isReadable: true,
-    content: utility-font(mono, xs),
-    dependency: $project-font-mono,
-  ),
-);
-
-$token-font-theme-mono-sm: (
-  mono-sm: (
-    slug: 'mono-sm',
-    isReadable: true,
-    content: utility-font(mono, sm),
-    dependency: $project-font-mono,
-  ),
-);
-
-$token-font-theme-mono-md: (
-  mono-md: (
-    slug: 'mono-md',
-    isReadable: true,
-    content: utility-font(mono, md),
-    dependency: $project-font-mono,
-  ),
-);
-
-$token-font-theme-mono-lg: (
-  mono-lg: (
-    slug: 'mono-lg',
-    isReadable: true,
-    content: utility-font(mono, lg),
-    dependency: $project-font-mono,
-  ),
-);
-
-$token-font-theme-mono-xl: (
-  mono-xl: (
-    slug: 'mono-xl',
-    isReadable: true,
-    content: utility-font(mono, xl),
-    dependency: $project-font-mono,
-  ),
-);
-
-$token-font-theme-mono-2xl: (
-  mono-2xl: (
-    slug: 'mono-2xl',
-    isReadable: true,
-    content: utility-font(mono, 2xl),
-    dependency: $project-font-mono,
-  ),
-);
-
-$token-font-theme-mono-3xl: (
-  mono-3xl: (
-    slug: 'mono-3xl',
-    isReadable: true,
-    content: utility-font(mono, 3xl),
-    dependency: $project-font-mono,
-  ),
-);
-
-$tokens-font-theme-mono: map-collect(
-  $token-font-theme-mono-3xs,
-  $token-font-theme-mono-2xs,
-  $token-font-theme-mono-xs,
-  $token-font-theme-mono-sm,
-  $token-font-theme-mono-md,
-  $token-font-theme-mono-lg,
-  $token-font-theme-mono-xl,
-  $token-font-theme-mono-2xl,
-  $token-font-theme-mono-3xl
-);
-
-$palettes-font-theme-mono:(
-  'palette-font-theme-mono-3xs': $token-font-theme-mono-3xs,
-  'palette-font-theme-mono-2xs': $token-font-theme-mono-2xs,
-  'palette-font-theme-mono-xs': $token-font-theme-mono-xs,
-  'palette-font-theme-mono-sm': $token-font-theme-mono-sm,
-  'palette-font-theme-mono-md': $token-font-theme-mono-md,
-  'palette-font-theme-mono-lg': $token-font-theme-mono-lg,
-  'palette-font-theme-mono-xl': $token-font-theme-mono-xl,
-  'palette-font-theme-mono-2xl': $token-font-theme-mono-2xl,
-  'palette-font-theme-mono-3xl': $token-font-theme-mono-3xl,
-  'palette-font-theme-mono': $tokens-font-theme-mono,
 );
 
 $token-font-theme-cond-3xs: (
@@ -379,6 +275,218 @@ $palettes-font-theme-icon:(
   'palette-font-theme-icon-2xl': $token-font-theme-icon-2xl,
   'palette-font-theme-icon-3xl': $token-font-theme-icon-3xl,
   'palette-font-theme-icon': $tokens-font-theme-icon,
+);
+
+$token-font-theme-lang-3xs: (
+  lang-3xs: (
+    slug: 'lang-3xs',
+    isReadable: true,
+    content: utility-font(lang, 3xs),
+    dependency: $project-font-lang,
+  ),
+);
+
+$token-font-theme-lang-2xs: (
+  lang-2xs: (
+    slug: 'lang-2xs',
+    isReadable: true,
+    content: utility-font(lang, 2xs),
+    dependency: $project-font-lang,
+  ),
+);
+
+$token-font-theme-lang-xs: (
+  lang-xs: (
+    slug: 'lang-xs',
+    isReadable: true,
+    content: utility-font(lang, xs),
+    dependency: $project-font-lang,
+  ),
+);
+
+$token-font-theme-lang-sm: (
+  lang-sm: (
+    slug: 'lang-sm',
+    isReadable: true,
+    content: utility-font(lang, sm),
+    dependency: $project-font-lang,
+  ),
+);
+
+$token-font-theme-lang-md: (
+  lang-md: (
+    slug: 'lang-md',
+    isReadable: true,
+    content: utility-font(lang, md),
+    dependency: $project-font-lang,
+  ),
+);
+
+$token-font-theme-lang-lg: (
+  lang-lg: (
+    slug: 'lang-lg',
+    isReadable: true,
+    content: utility-font(lang, lg),
+    dependency: $project-font-lang,
+  ),
+);
+
+$token-font-theme-lang-xl: (
+  lang-xl: (
+    slug: 'lang-xl',
+    isReadable: true,
+    content: utility-font(lang, xl),
+    dependency: $project-font-lang,
+  ),
+);
+
+$token-font-theme-lang-2xl: (
+  lang-2xl: (
+    slug: 'lang-2xl',
+    isReadable: true,
+    content: utility-font(lang, 2xl),
+    dependency: $project-font-lang,
+  ),
+);
+
+$token-font-theme-lang-3xl: (
+  lang-3xl: (
+    slug: 'lang-3xl',
+    isReadable: true,
+    content: utility-font(lang, 3xl),
+    dependency: $project-font-lang,
+  ),
+);
+
+$tokens-font-theme-lang: map-collect(
+  $token-font-theme-lang-3xs,
+  $token-font-theme-lang-2xs,
+  $token-font-theme-lang-xs,
+  $token-font-theme-lang-sm,
+  $token-font-theme-lang-md,
+  $token-font-theme-lang-lg,
+  $token-font-theme-lang-xl,
+  $token-font-theme-lang-2xl,
+  $token-font-theme-lang-3xl
+);
+
+$palettes-font-theme-lang:(
+  'palette-font-theme-lang-3xs': $token-font-theme-lang-3xs,
+  'palette-font-theme-lang-2xs': $token-font-theme-lang-2xs,
+  'palette-font-theme-lang-xs': $token-font-theme-lang-xs,
+  'palette-font-theme-lang-sm': $token-font-theme-lang-sm,
+  'palette-font-theme-lang-md': $token-font-theme-lang-md,
+  'palette-font-theme-lang-lg': $token-font-theme-lang-lg,
+  'palette-font-theme-lang-xl': $token-font-theme-lang-xl,
+  'palette-font-theme-lang-2xl': $token-font-theme-lang-2xl,
+  'palette-font-theme-lang-3xl': $token-font-theme-lang-3xl,
+  'palette-font-theme-lang': $tokens-font-theme-lang,
+);
+
+$token-font-theme-mono-3xs: (
+  mono-3xs: (
+    slug: 'mono-3xs',
+    isReadable: true,
+    content: utility-font(mono, 3xs),
+    dependency: $project-font-mono,
+  ),
+);
+
+$token-font-theme-mono-2xs: (
+  mono-2xs: (
+    slug: 'mono-2xs',
+    isReadable: true,
+    content: utility-font(mono, 2xs),
+    dependency: $project-font-mono,
+  ),
+);
+
+$token-font-theme-mono-xs: (
+  mono-xs: (
+    slug: 'mono-xs',
+    isReadable: true,
+    content: utility-font(mono, xs),
+    dependency: $project-font-mono,
+  ),
+);
+
+$token-font-theme-mono-sm: (
+  mono-sm: (
+    slug: 'mono-sm',
+    isReadable: true,
+    content: utility-font(mono, sm),
+    dependency: $project-font-mono,
+  ),
+);
+
+$token-font-theme-mono-md: (
+  mono-md: (
+    slug: 'mono-md',
+    isReadable: true,
+    content: utility-font(mono, md),
+    dependency: $project-font-mono,
+  ),
+);
+
+$token-font-theme-mono-lg: (
+  mono-lg: (
+    slug: 'mono-lg',
+    isReadable: true,
+    content: utility-font(mono, lg),
+    dependency: $project-font-mono,
+  ),
+);
+
+$token-font-theme-mono-xl: (
+  mono-xl: (
+    slug: 'mono-xl',
+    isReadable: true,
+    content: utility-font(mono, xl),
+    dependency: $project-font-mono,
+  ),
+);
+
+$token-font-theme-mono-2xl: (
+  mono-2xl: (
+    slug: 'mono-2xl',
+    isReadable: true,
+    content: utility-font(mono, 2xl),
+    dependency: $project-font-mono,
+  ),
+);
+
+$token-font-theme-mono-3xl: (
+  mono-3xl: (
+    slug: 'mono-3xl',
+    isReadable: true,
+    content: utility-font(mono, 3xl),
+    dependency: $project-font-mono,
+  ),
+);
+
+$tokens-font-theme-mono: map-collect(
+  $token-font-theme-mono-3xs,
+  $token-font-theme-mono-2xs,
+  $token-font-theme-mono-xs,
+  $token-font-theme-mono-sm,
+  $token-font-theme-mono-md,
+  $token-font-theme-mono-lg,
+  $token-font-theme-mono-xl,
+  $token-font-theme-mono-2xl,
+  $token-font-theme-mono-3xl
+);
+
+$palettes-font-theme-mono:(
+  'palette-font-theme-mono-3xs': $token-font-theme-mono-3xs,
+  'palette-font-theme-mono-2xs': $token-font-theme-mono-2xs,
+  'palette-font-theme-mono-xs': $token-font-theme-mono-xs,
+  'palette-font-theme-mono-sm': $token-font-theme-mono-sm,
+  'palette-font-theme-mono-md': $token-font-theme-mono-md,
+  'palette-font-theme-mono-lg': $token-font-theme-mono-lg,
+  'palette-font-theme-mono-xl': $token-font-theme-mono-xl,
+  'palette-font-theme-mono-2xl': $token-font-theme-mono-2xl,
+  'palette-font-theme-mono-3xl': $token-font-theme-mono-3xl,
+  'palette-font-theme-mono': $tokens-font-theme-mono,
 );
 
 $token-font-theme-sans-3xs: (
@@ -1608,6 +1716,214 @@ $tokens-font-system-icon: map-collect(
   $tokens-font-system-icon-larger
 );
 
+$token-font-system-lang-micro: (
+  lang-micro: (
+    slug: 'lang-micro',
+    isReadable: true,
+    content: utility-font(lang, 'micro'),
+  ),
+);
+
+$token-font-system-lang-1: (
+  lang-1: (
+    slug: 'lang-1',
+    isReadable: true,
+    content: utility-font(lang, 1),
+  ),
+);
+
+$token-font-system-lang-2: (
+  lang-2: (
+    slug: 'lang-2',
+    isReadable: true,
+    content: utility-font(lang, 2),
+  ),
+);
+
+$token-font-system-lang-3: (
+  lang-3: (
+    slug: 'lang-3',
+    isReadable: true,
+    content: utility-font(lang, 3),
+  ),
+);
+
+$token-font-system-lang-4: (
+  lang-4: (
+    slug: 'lang-4',
+    isReadable: true,
+    content: utility-font(lang, 4),
+  ),
+);
+
+$token-font-system-lang-5: (
+  lang-5: (
+    slug: 'lang-5',
+    isReadable: true,
+    content: utility-font(lang, 5),
+  ),
+);
+
+$token-font-system-lang-6: (
+  lang-6: (
+    slug: 'lang-6',
+    isReadable: true,
+    content: utility-font(lang, 6),
+  ),
+);
+
+$token-font-system-lang-7: (
+  lang-7: (
+    slug: 'lang-7',
+    isReadable: true,
+    content: utility-font(lang, 7),
+  ),
+);
+
+$token-font-system-lang-8: (
+  lang-8: (
+    slug: 'lang-8',
+    isReadable: true,
+    content: utility-font(lang, 8),
+  ),
+);
+
+$token-font-system-lang-9: (
+  lang-9: (
+    slug: 'lang-9',
+    isReadable: true,
+    content: utility-font(lang, 9),
+  ),
+);
+
+$token-font-system-lang-10: (
+  lang-10: (
+    slug: 'lang-10',
+    isReadable: true,
+    content: utility-font(lang, 10),
+  ),
+);
+
+$token-font-system-lang-11: (
+  lang-11: (
+    slug: 'lang-11',
+    isReadable: true,
+    content: utility-font(lang, 11),
+  ),
+);
+
+$token-font-system-lang-12: (
+  lang-12: (
+    slug: 'lang-12',
+    isReadable: true,
+    content: utility-font(lang, 12),
+  ),
+);
+
+$token-font-system-lang-13: (
+  lang-13: (
+    slug: 'lang-13',
+    isReadable: true,
+    content: utility-font(lang, 13),
+  ),
+);
+
+$token-font-system-lang-14: (
+  lang-14: (
+    slug: 'lang-14',
+    isReadable: true,
+    content: utility-font(lang, 14),
+  ),
+);
+
+$token-font-system-lang-15: (
+  lang-15: (
+    slug: 'lang-15',
+    isReadable: true,
+    content: utility-font(lang, 15),
+  ),
+);
+
+$token-font-system-lang-16: (
+  lang-16: (
+    slug: 'lang-16',
+    isReadable: true,
+    content: utility-font(lang, 16),
+  ),
+);
+
+$token-font-system-lang-17: (
+  lang-17: (
+    slug: 'lang-17',
+    isReadable: true,
+    content: utility-font(lang, 17),
+  ),
+);
+
+$token-font-system-lang-18: (
+  lang-18: (
+    slug: 'lang-18',
+    isReadable: true,
+    content: utility-font(lang, 18),
+  ),
+);
+
+$token-font-system-lang-19: (
+  lang-19: (
+    slug: 'lang-19',
+    isReadable: true,
+    content: utility-font(lang, 19),
+  ),
+);
+
+$token-font-system-lang-20: (
+  lang-20: (
+    slug: 'lang-20',
+    isReadable: true,
+    content: utility-font(lang, 20),
+  ),
+);
+
+$tokens-font-system-lang-small: map-collect(
+  $token-font-system-lang-micro,
+  $token-font-system-lang-1,
+  $token-font-system-lang-2,
+  $token-font-system-lang-3
+);
+
+$tokens-font-system-lang-medium: map-collect(
+  $token-font-system-lang-4,
+  $token-font-system-lang-5,
+  $token-font-system-lang-6,
+  $token-font-system-lang-7,
+  $token-font-system-lang-8
+);
+
+$tokens-font-system-lang-large: map-collect(
+  $token-font-system-lang-9,
+  $token-font-system-lang-10,
+  $token-font-system-lang-11,
+  $token-font-system-lang-12,
+  $token-font-system-lang-13,
+  $token-font-system-lang-14
+);
+
+$tokens-font-system-lang-larger: map-collect(
+  $token-font-system-lang-15,
+  $token-font-system-lang-16,
+  $token-font-system-lang-17,
+  $token-font-system-lang-18,
+  $token-font-system-lang-19,
+  $token-font-system-lang-20
+);
+
+$tokens-font-system-lang: map-collect(
+  $tokens-font-system-lang-small,
+  $tokens-font-system-lang-medium,
+  $tokens-font-system-lang-large,
+  $tokens-font-system-lang-larger
+);
+
 $token-font-system-mono-micro: (
   mono-micro: (
     slug: 'mono-micro',
@@ -2290,6 +2606,35 @@ $palettes-font-system-icon:(
   'palette-font-system-icon':        $tokens-font-system-icon,
 );
 
+$palettes-font-system-lang:(
+  'palette-font-system-lang-micro':  $token-font-system-lang-micro,
+  'palette-font-system-lang-1':      $token-font-system-lang-1,
+  'palette-font-system-lang-2':      $token-font-system-lang-2,
+  'palette-font-system-lang-3':      $token-font-system-lang-3,
+  'palette-font-system-lang-4':      $token-font-system-lang-4,
+  'palette-font-system-lang-5':      $token-font-system-lang-5,
+  'palette-font-system-lang-6':      $token-font-system-lang-6,
+  'palette-font-system-lang-7':      $token-font-system-lang-7,
+  'palette-font-system-lang-8':      $token-font-system-lang-8,
+  'palette-font-system-lang-9':      $token-font-system-lang-9,
+  'palette-font-system-lang-10':     $token-font-system-lang-10,
+  'palette-font-system-lang-11':     $token-font-system-lang-11,
+  'palette-font-system-lang-12':     $token-font-system-lang-12,
+  'palette-font-system-lang-13':     $token-font-system-lang-13,
+  'palette-font-system-lang-14':     $token-font-system-lang-14,
+  'palette-font-system-lang-15':     $token-font-system-lang-15,
+  'palette-font-system-lang-16':     $token-font-system-lang-16,
+  'palette-font-system-lang-17':     $token-font-system-lang-17,
+  'palette-font-system-lang-18':     $token-font-system-lang-18,
+  'palette-font-system-lang-19':     $token-font-system-lang-19,
+  'palette-font-system-lang-20':     $token-font-system-lang-20,
+  'palette-font-system-lang-small':  $tokens-font-system-lang-small,
+  'palette-font-system-lang-medium': $tokens-font-system-lang-medium,
+  'palette-font-system-lang-large':  $tokens-font-system-lang-large,
+  'palette-font-system-lang-larger': $tokens-font-system-lang-larger,
+  'palette-font-system-lang':        $tokens-font-system-lang,
+);
+
 $palettes-font-system-mono:(
   'palette-font-system-mono-micro':  $token-font-system-mono-micro,
   'palette-font-system-mono-1':      $token-font-system-mono-1,
@@ -2380,6 +2725,7 @@ $palettes-font-system-serif:(
 $tokens-font-system: map-collect(
   $tokens-font-system-cond,
   $tokens-font-system-icon,
+  $tokens-font-system-lang,
   $tokens-font-system-mono,
   $tokens-font-system-sans,
   $tokens-font-system-serif
@@ -2390,11 +2736,12 @@ $palette-font-system: (
 );
 
 $palettes-font-system: map-collect(
+  $palettes-font-system-cond,
+  $palettes-font-system-icon,
+  $palettes-font-system-lang,
   $palettes-font-system-serif,
   $palettes-font-system-sans,
   $palettes-font-system-mono,
-  $palettes-font-system-cond,
-  $palettes-font-system-icon,
   $palette-font-system
 );
 

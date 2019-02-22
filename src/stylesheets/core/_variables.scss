@@ -147,6 +147,11 @@ $project-font-type-tokens: (
     'custom-stack': $theme-font-icon-custom-stack,
     'src': $theme-font-icon-custom-src,
   ),
+  'lang': (
+    'typeface-token': $theme-font-type-lang,
+    'custom-stack': $theme-font-lang-custom-stack,
+    'src': $theme-font-lang-custom-src,
+  ),
   'mono': (
     'typeface-token': $theme-font-type-mono,
     'custom-stack': $theme-font-mono-custom-stack,
@@ -184,10 +189,12 @@ core/_font-definitions
 */
 
 $project-font-stacks:(
+  'cond':     get-font-stack('cond'),
+  'icon':     get-font-stack('icon'),
+  'lang':     get-font-stack('lang'),
   'mono':     get-font-stack('mono'),
   'sans':     get-font-stack('sans'),
   'serif':    get-font-stack('serif'),
-  'cond':     get-font-stack('cond'),
   'ui':       get-font-stack('ui'),
   'heading':  get-font-stack('heading'),
   'body':     get-font-stack('body'),
@@ -195,22 +202,24 @@ $project-font-stacks:(
   'alt':      get-font-stack('alt'),
 );
 
+$project-font-stack-cond:     get-font-stack('cond');
+$project-font-stack-icon:     get-font-stack('icon');
+$project-font-stack-lang:     get-font-stack('lang');
 $project-font-stack-mono:     get-font-stack('mono');
 $project-font-stack-sans:     get-font-stack('sans');
 $project-font-stack-serif:    get-font-stack('serif');
-$project-font-stack-cond:     get-font-stack('cond');
-$project-font-stack-icon:     get-font-stack('icon');
 $project-font-stack-ui:       get-font-stack('ui');
 $project-font-stack-heading:  get-font-stack('heading');
 $project-font-stack-body:     get-font-stack('body');
 $project-font-stack-code:     get-font-stack('code');
 $project-font-stack-alt:      get-font-stack('alt');
 
+$project-font-cond:           get-typeface-token('cond');
+$project-font-icon:           get-typeface-token('icon');
+$project-font-lang:           get-typeface-token('lang');
 $project-font-mono:           get-typeface-token('mono');
 $project-font-sans:           get-typeface-token('sans');
 $project-font-serif:          get-typeface-token('serif');
-$project-font-cond:           get-typeface-token('cond');
-$project-font-icon:           get-typeface-token('icon');
 $project-font-ui:             get-typeface-token('ui');
 $project-font-heading:        get-typeface-token('heading');
 $project-font-body:           get-typeface-token('body');
@@ -227,11 +236,12 @@ Collect project cap heights
 
 $project-cap-heights:(
   'base':     $system-base-cap-height,
+  'cond':     cap-height($project-font-cond),
+  'icon':     cap-height($project-font-icon),
+  'lang':     cap-height($project-font-lang),
   'mono':     cap-height($project-font-mono),
   'sans':     cap-height($project-font-sans),
   'serif':    cap-height($project-font-serif),
-  'cond':     cap-height($project-font-cond),
-  'icon':     cap-height($project-font-icon),
   'ui':       cap-height($project-font-ui),
   'heading':  cap-height($project-font-heading),
   'body':     cap-height($project-font-body),

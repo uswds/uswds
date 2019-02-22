@@ -205,6 +205,7 @@ font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans;
 
 $theme-font-cond-custom-stack:  false !default;
 $theme-font-icon-custom-stack:  false !default;
+$theme-font-lang-custom-stack:  false !default;
 $theme-font-mono-custom-stack:  false !default;
 $theme-font-sans-custom-stack:  false !default;
 $theme-font-serif-custom-stack: false !default;
@@ -270,6 +271,7 @@ $theme-font-serif-custom-src: (
 
 $theme-font-cond-custom-src:   false !default;
 $theme-font-icon-custom-src:   false !default;
+$theme-font-lang-custom-src:   false !default;
 $theme-font-mono-custom-src:   false !default;
 $theme-font-sans-custom-src:   false !default;
 $theme-font-serif-custom-src:  false !default;
@@ -282,12 +284,12 @@ Set the role-based tokens for your
 project from the following font-type
 tokens.
 ----------------------------------------
-'sans'
-'serif'
-'mono'
 'cond'
 'icon'
 'lang'
+'mono'
+'sans'
+'serif'
 ----------------------------------------
 */
 
