@@ -136,35 +136,35 @@ looping.
 ----------------------------------------
 */
 
-$project-fonts-by-type: (
+$project-font-type-tokens: (
   'cond': (
-    'font': $theme-font-type-cond,
+    'typeface-token': $theme-font-type-cond,
     'custom-stack': $theme-font-cond-custom-stack,
-    'custom-generate': $theme-font-cond-custom-generate,
+    'src': $theme-font-cond-custom-src,
   ),
   'icon': (
-    'font': $theme-font-type-icon,
+    'typeface-token': $theme-font-type-icon,
     'custom-stack': $theme-font-icon-custom-stack,
-    'custom-generate': $theme-font-icon-custom-generate,
+    'src': $theme-font-icon-custom-src,
   ),
   'mono': (
-    'font': $theme-font-type-mono,
+    'typeface-token': $theme-font-type-mono,
     'custom-stack': $theme-font-mono-custom-stack,
-    'custom-generate': $theme-font-mono-custom-generate,
+    'src': $theme-font-mono-custom-src,
   ),
   'sans': (
-    'font': $theme-font-type-sans,
+    'typeface-token': $theme-font-type-sans,
     'custom-stack': $theme-font-sans-custom-stack,
-    'custom-generate': $theme-font-sans-custom-generate,
+    'src': $theme-font-sans-custom-src,
   ),
   'serif': (
-    'font': $theme-font-type-serif,
-    'custom-custom-stack': $theme-font-serif-custom-stack,
-    'custom-generate': $theme-font-serif-custom-generate,
+    'typeface-token': $theme-font-type-serif,
+    'custom-stack': $theme-font-serif-custom-stack,
+    'src': $theme-font-serif-custom-src,
   ),
 );
 
-$project-fonts-by-role: (
+$project-font-role-tokens: (
   'ui':       $theme-font-role-ui,
   'heading':  $theme-font-role-heading,
   'body':     $theme-font-role-body,
@@ -206,16 +206,16 @@ $project-font-stack-body:     get-font-stack('body');
 $project-font-stack-code:     get-font-stack('code');
 $project-font-stack-alt:      get-font-stack('alt');
 
-$project-font-mono:           get-face-token('mono');
-$project-font-sans:           get-face-token('sans');
-$project-font-serif:          get-face-token('serif');
-$project-font-cond:           get-face-token('cond');
-$project-font-icon:           get-face-token('icon');
-$project-font-ui:             get-face-token('ui');
-$project-font-heading:        get-face-token('heading');
-$project-font-body:           get-face-token('body');
-$project-font-code:           get-face-token('code');
-$project-font-alt:            get-face-token('alt');
+$project-font-mono:           get-typeface-token('mono');
+$project-font-sans:           get-typeface-token('sans');
+$project-font-serif:          get-typeface-token('serif');
+$project-font-cond:           get-typeface-token('cond');
+$project-font-icon:           get-typeface-token('icon');
+$project-font-ui:             get-typeface-token('ui');
+$project-font-heading:        get-typeface-token('heading');
+$project-font-body:           get-typeface-token('body');
+$project-font-code:           get-typeface-token('code');
+$project-font-alt:            get-typeface-token('alt');
 
 /*
 ----------------------------------------
