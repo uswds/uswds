@@ -16,6 +16,7 @@
     font-family: unquote($display-name);
     font-style: unquote($font-style);
     font-weight: $font-weight;
+    font-display: fallback;
     src:
       url(#{$file-path}.eot?#iefix) format('embedded-opentype'),
       url(#{$file-path}.woff2) format('woff2'),
