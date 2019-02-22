@@ -5,8 +5,8 @@ const isElementInViewport = require('../utils/is-in-viewport');
 const { CLICK } = require('../events');
 const { prefix: PREFIX } = require('../config');
 
-const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion-bordered`;
-const BUTTON = `.${PREFIX}-accordion-button[aria-controls]`;
+const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
+const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;
 const EXPANDED = 'aria-expanded';
 const MULTISELECTABLE = 'aria-multiselectable';
 
