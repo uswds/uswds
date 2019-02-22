@@ -90,15 +90,15 @@ $theme-font-path:   '../fonts' !default;
 
 /*
 ----------------------------------------
-Custom font definitions
+Custom typeface tokens
 ----------------------------------------
-Add a new custom font definition if
+Add a new custom typeface token if
 your project uses a typeface we've
 not already defined.
 ----------------------------------------
 The following font tokens are defined
-in the system with names and cap
-heights:
+in the system with names and
+cap-heights:
 
 'georgia'
 'helvetica'
@@ -113,14 +113,31 @@ heights:
 ----------------------------------------
 */
 
-$theme-font-definitions: (
-  /*
-  font-new: (
-    name: 'Font Display Name',
-    cap-height: '364px', // height of a 500px `N` in Sketch
+// Add as many new tokens as you have custom fonts.
+// Reference your new token(s) in the style-based
+// font declarations below using the quoted
+// name of the token. For example:
+//
+// $theme-font-type-cond: 'example-font-token';
+
+// token: Change `my-font-token` to desired token name
+// display-name: Add the display name of your font
+// cap-height: Add the height of a 500px `N` in Sketch
+
+$theme-typeface-tokens: (
+  example-serif-token: (
+    display-name: 'Example Serif Display Name',
+    cap-height: 364px,
   ),
-  */
+  example-sans-token: (
+    display-name: 'Example Sans Display Name',
+    cap-height: 364px,
+  ),
 ) !default;
+
+// **
+// If you use a custom typeface token, be sure to add a
+// custom font stack below.
 
 /*
 ----------------------------------------
@@ -131,7 +148,7 @@ your project
 ----------------------------------------
 Pick from the following tokens,
 or from any new font tokens you added in
-$theme-font-definitions:
+$theme-typeface-tokens:
 
 'georgia'
 'helvetica'
@@ -146,11 +163,15 @@ $theme-font-definitions:
 ----------------------------------------
 */
 
+// Assign typeface tokens to font types:
+
 $theme-font-type-cond:      false !default;
 $theme-font-type-icon:      false !default;
 $theme-font-type-mono:      'roboto-mono' !default;
 $theme-font-type-sans:      'source-sans-pro' !default;
-$theme-font-type-serif:     'merriweather' !default;
+$theme-font-type-serif:     'example-serif-token' !default;
+
+// Assign font-type tokens to font roles:
 
 $theme-font-role-ui:        'sans' !default;
 $theme-font-role-heading:   'serif' !default;
@@ -158,45 +179,84 @@ $theme-font-role-body:      'sans' !default;
 $theme-font-role-code:      'mono' !default;
 $theme-font-role-alt:       'serif' !default;
 
+// Add any custom font stacks:
+
 $theme-font-cond-custom-stack:      false !default;
 $theme-font-icon-custom-stack:      false !default;
 $theme-font-mono-custom-stack:      false !default;
 $theme-font-sans-custom-stack:      false !default;
 $theme-font-serif-custom-stack:     false !default;
 
-$theme-font-cond-custom-generate:   false !default;
-$theme-font-icon-custom-generate:   false !default;
-$theme-font-mono-custom-generate:   false !default;
-$theme-font-sans-custom-generate:   false !default;
-$theme-font-serif-custom-generate:  false !default;
+// USWDS automatically generates @font-face decalarations for 'merriweather', 'public-sans', 'roboto-mono', and 'source-sans-pro'
 
-/*
-// custom font source map for generating @font-face files
-(
-  dir: 'folder-name', // relative to settings.$theme-font-path
+// If you want USWDS to generate additional @font-face declarations,
+// add your font data as a map.
+// An example follows the variables.
+
+$theme-font-cond-custom-src:   false !default;
+$theme-font-icon-custom-src:   false !default;
+$theme-font-mono-custom-src:   false !default;
+$theme-font-sans-custom-src:   false !default;
+$theme-font-serif-custom-src: (
+  dir: 'custom/example-serif',
   roman: (
-    100: 'Filename-without-extension', // or false
-    200: 'Filename-without-extension', // or false
-    300: 'Filename-without-extension', // or false
-    400: 'Filename-without-extension', // or false
-    500: 'Filename-without-extension', // or false
-    600: 'Filename-without-extension', // or false
-    700: 'Filename-without-extension', // or false
-    800: 'Filename-without-extension', // or false
-    900: 'Filename-without-extension', // or false
+    100: false,
+    200: false,
+    300: 'ExampleSerif-Light',
+    400: 'ExampleSerif-Normal',
+    500: false,
+    600: false,
+    700: 'ExampleSerif-Bold',
+    800: false,
+    900: false,
   ),
   italic: (
-    100: 'Filename-without-extension', // or false
-    200: 'Filename-without-extension', // or false
-    300: 'Filename-without-extension', // or false
-    400: 'Filename-without-extension', // or false
-    500: 'Filename-without-extension', // or false
-    600: 'Filename-without-extension', // or false
-    700: 'Filename-without-extension', // or false
-    800: 'Filename-without-extension', // or false
-    900: 'Filename-without-extension', // or false
+    100: false,
+    200: false,
+    300: 'ExampleSerif-LightItalic',
+    400: 'ExampleSerif-Italic',
+    500: false,
+    600: false,
+    700: 'ExampleSerif-BoldItalic',
+    800: false,
+    900: false,
   ),
-)
+);
+
+/*
+EXAMPLE:
+- dir: Directory relative to $theme-font-path
+- This directory should include fonts saved as .eot, .ttf, .woff, and .woff2
+  - ExampleSerif-Normal.eot
+  - ExampleSerif-Normal.ttf
+  - ExampleSerif-Normal.woff
+  - ExampleSerif-Normal.woff2
+
+$theme-font-serif-custom-src: (
+  dir: 'custom/example-serif',
+  roman: (
+    100: false,
+    200: false,
+    300: 'ExampleSerif-Light',
+    400: 'ExampleSerif-Normal',
+    500: false,
+    600: false,
+    700: 'ExampleSerif-Bold',
+    800: false,
+    900: false,
+  ),
+  italic: (
+    100: false,
+    200: false,
+    300: 'ExampleSerif-LightItalic',
+    400: 'ExampleSerif-Italic',
+    500: false,
+    600: false,
+    700: 'ExampleSerif-BoldItalic',
+    800: false,
+    900: false,
+  ),
+);
 */
 
 /*
