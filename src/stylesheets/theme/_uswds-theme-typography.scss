@@ -164,13 +164,45 @@ $theme-typeface-tokens.
 ----------------------------------------
 */
 
+// condensed
 $theme-font-type-cond:  false;
+
+// icon
 $theme-font-type-icon:  false;
+
+// language-specific
+$theme-font-type-lang:  false;
+
+// monospace
 $theme-font-type-mono:  'roboto-mono';
+
+// sans-serif
 $theme-font-type-sans:  'source-sans-pro';
+
+// serif
 $theme-font-type-serif: 'merriweather';
 
-// Add any custom font stacks:
+/*
+----------------------------------------
+Custom font stacks
+----------------------------------------
+Add custom font stacks to any of the
+type-based fonts. Any USWDS typeface
+token already has a default stack.
+
+Custom stacks don't need to include the
+font's display name. It will
+automatically appear at the start of
+the stack.
+----------------------------------------
+Example:
+$theme-font-type-sans: 'source-sans-pro';
+$theme-font-sans-custom-stack: "Helvetica Neue", Helvetica, Arial, sans;
+
+Output:
+font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans;
+----------------------------------------
+*/
 
 $theme-font-cond-custom-stack:  false;
 $theme-font-icon-custom-stack:  false;
