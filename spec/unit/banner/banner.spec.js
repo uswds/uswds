@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
 const EXPANDED = 'aria-expanded';
-const EXPANDED_CLASS = 'usa-banner-header-expanded';
+const EXPANDED_CLASS = 'usa-banner__header-expanded';
 const HIDDEN = 'hidden';
 
 describe('banner', () => {
@@ -17,9 +17,9 @@ describe('banner', () => {
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
-    header = body.querySelector('.usa-banner-header');
-    button = body.querySelector('.usa-banner-button');
-    content = body.querySelector('.usa-banner-content');
+    header = body.querySelector('.usa-banner__header');
+    button = body.querySelector('.usa-banner__button');
+    content = body.querySelector('.usa-banner__content');
     banner.on();
     accordion.on();
   });

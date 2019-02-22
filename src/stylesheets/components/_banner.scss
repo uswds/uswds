@@ -9,7 +9,7 @@
   }
 }
 
-.usa-banner-content {
+.usa-banner__content {
   @include grid-container($theme-site-max-width);
   @include add-responsive-site-margins;
   background-color: color('transparent');
@@ -31,7 +31,7 @@
   }
 }
 
-.usa-banner-guidance {
+.usa-banner__guidance {
   padding-top: units(2);
 
   @include at-media('tablet') {
@@ -39,7 +39,7 @@
   }
 }
 
-.usa-banner-inner {
+.usa-banner__inner {
   @include add-responsive-site-margins;
   @include grid-container;
   @include grid-row;
@@ -51,7 +51,7 @@
   }
 }
 
-.usa-banner-header {
+.usa-banner__header {
   @include u-padding-y(1);
   font-size: font-size($theme-banner-font-family, 1);
   font-weight: font-weight('normal');
@@ -64,7 +64,7 @@
   }
 }
 
-.usa-banner-header-close-text {
+.usa-banner__header-close-text {
   @include u-margin-y(0);
   color: color('base-dark');
   display: none;
@@ -72,7 +72,7 @@
   line-height: line-height($theme-banner-font-family, 2);
   padding-top: units(0.5);
 
-  .banner-header-expanded & {
+  .usa-banner__header--expanded & {
     display: block;
 
     @include at-media('tablet') {
@@ -81,12 +81,12 @@
   }
 }
 
-.usa-banner-header-text {
+.usa-banner__header-text {
   @include u-margin-y(0);
   font-size: font-size($theme-banner-font-family, 1);
   line-height: line-height($theme-banner-font-family, 2);
 
-  .banner-header-expanded & {
+  .usa-banner__header--expanded & {
     display: none;
 
     @include at-media('tablet') {
@@ -95,7 +95,7 @@
   }
 }
 
-.usa-banner-header-action {
+.usa-banner__header-action {
   @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 0.5, 'hover');
   color: color('primary');
   line-height: line-height($theme-banner-font-family, 2);
@@ -108,7 +108,7 @@
   }
 }
 
-.usa-banner-header-flag {
+.usa-banner__header-flag {
   @include u-float('left');
   margin-right: units(1);
   width: units(2);
@@ -119,7 +119,7 @@
   }
 }
 
-.usa-banner-header-expanded {
+.usa-banner__header-expanded {
   padding-right: units($size-touch-target + 1);
 
   @include at-media('tablet') {
@@ -132,7 +132,7 @@
     padding-right: units(0);
   }
 
-  .usa-banner-inner {
+  .usa-banner__inner {
     margin-left: units(0);
 
     @include at-media('tablet') {
@@ -140,12 +140,12 @@
     }
   }
 
-  .usa-banner-header-action {
+  .usa-banner__header-action {
     display: none;
   }
 }
 
-.usa-banner-button {
+.usa-banner__button {
   @include button-unstyled;
   @include u-pin('left');
   @include u-pin('y');
@@ -219,7 +219,7 @@
   }
 }
 
-.usa-banner-button-text {
+.usa-banner__button-text {
   @include add-sr-only;
   text-decoration: underline;
 
@@ -229,6 +229,6 @@
   }
 }
 
-.usa-banner-icon {
+.usa-banner__icon {
   width: units(5);
 }
