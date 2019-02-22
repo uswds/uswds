@@ -1,9 +1,10 @@
 /* stylelint-disable */
 
-@each $type, $value in $project-fonts-by-type {
-  @if map-get($value, 'font') {
-    $this-face: map-get($value, 'font');
-    @include render-font-face($this-face);
+@each $font-type-token, $metadata in $project-font-type-tokens {
+  @if map-get($metadata, 'typeface-token') {
+    $this-typeface-token: map-get($metadata, 'typeface-token');
+    $this-src: map-get($metadata, 'src');
+    @include render-font-face($this-typeface-token, $this-src);
   }
 }
 
