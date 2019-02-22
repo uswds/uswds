@@ -30,7 +30,7 @@ describe('navigation toggle', () => {
     overlay = body.querySelector('.usa-overlay');
     closeButton = body.querySelector('.usa-nav-close');
     menuButton = body.querySelector('.usa-menu-btn');
-    accordionButton = nav.querySelector('.usa-accordion-button');
+    accordionButton = nav.querySelector('.usa-accordion__button');
     navLink = nav.querySelector('a');
     sandbox = sinon.sandbox.create();
   });

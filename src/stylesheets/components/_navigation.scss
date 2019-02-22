@@ -207,7 +207,7 @@ $nav-link-arrow-icon-size: 1;
     }
   }
 
-  .usa-accordion-button {
+  .usa-accordion__button {
     span {
       @include at-media($theme-navigation-width) {
         margin-right: 0;

@@ -266,7 +266,7 @@ The JavaScript for the USWDS is separated into components in the same manner as 
 window.uswds = require('./components');
 ```
 
-Each component has a standardized interface that can be used to extend it further. The components store a HTML class name (e.g. `.usa-accordion-button[aria-controls]`) that's used to link HTML elements with the JS component, so when a component is initialized, it will search through the current HTML DOM finding all elements that match its class and inialize the component JavaScript for those elements. The primary methods each component has are as follows:
+Each component has a standardized interface that can be used to extend it further. The components store a HTML class name (e.g. `.usa-accordion__button[aria-controls]`) that's used to link HTML elements with the JS component, so when a component is initialized, it will search through the current HTML DOM finding all elements that match its class and inialize the component JavaScript for those elements. The primary methods each component has are as follows:
 
 - `on`: Initialize a component's JavaScript behavior by passing the root element, such as `window.document`.
 - `off`: The opposite of `on`, de-initializes a component, removing any JavaScript event handlers on the component.
