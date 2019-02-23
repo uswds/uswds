@@ -95,7 +95,7 @@ $nav-link-arrow-icon-size: 1;
 // Primary navigation
 // ---------------------------------
 
-.usa-nav-primary {
+.usa-nav__primary {
 
   // Until the $theme-navigation-width,
   // use the usa-nav-list styles for the slide-in nav
@@ -115,14 +115,14 @@ $nav-link-arrow-icon-size: 1;
   }
 
   // all nav items in the nav
-  .usa-nav-primary-item {
+  .usa-nav__primary-item {
     a {
       text-decoration: none;
     }
   }
 
   // just level 1 nav items...
-  > .usa-nav-primary-item {
+  > .usa-nav__primary-item {
     line-height: line-height($theme-navigation-font-family, 2);
     @include at-media($theme-navigation-width) {
       font-size: font-size($theme-navigation-font-family, '2xs');
@@ -220,7 +220,7 @@ $nav-link-arrow-icon-size: 1;
 // Secondary navigation
 // ---------------------------------
 
-.usa-nav-secondary {
+.usa-nav__secondary {
   margin-top: units(2);
 
   @include at-media($theme-navigation-width) {
@@ -244,7 +244,7 @@ $nav-link-arrow-icon-size: 1;
   }
 }
 
-.usa-nav-secondary-links {
+.usa-nav__secondary-links {
   @include add-list-reset;
   line-height: line-height($theme-navigation-font-family, 3);
   margin-top: units(3);
@@ -256,12 +256,12 @@ $nav-link-arrow-icon-size: 1;
     margin-top: 0;
   }
 
-  .usa-nav-secondary-item {
+  .usa-nav__secondary-item {
     @include at-media($theme-navigation-width) {
       display: inline;
       padding-left: units(0.5);
 
-      & + .usa-nav-secondary-item::before {
+      & + .usa-nav__secondary-item::before {
         color: color('base-lighter');
         content: '|';
         padding-right: units(0.5);
@@ -285,7 +285,7 @@ $nav-link-arrow-icon-size: 1;
 // Navigation dropdowns
 // ---------------------------------
 
-.usa-nav-submenu {
+.usa-nav__submenu {
   @include at-media-max($theme-navigation-width) {
     @include nav-sublist;
   }
@@ -303,7 +303,7 @@ $nav-link-arrow-icon-size: 1;
     display: none;
   }
 
-  .usa-nav-submenu-item {
+  .usa-nav__submenu-item {
     @include at-media($theme-navigation-width) {
       & + * {
         margin-top: units(1.5);
@@ -325,10 +325,10 @@ $nav-link-arrow-icon-size: 1;
   }
 }
 
-.usa-nav-submenu-list {
+.usa-nav__submenu-list {
   @include unstyled-list;
 
-  .usa-nav-submenu-list-item {
+  .usa-nav__submenu-list-item {
     margin: 0;
     font-size: font-size($theme-navigation-font-family, '2xs');
 
@@ -341,7 +341,7 @@ $nav-link-arrow-icon-size: 1;
 // Navigation close button
 // ---------------------------------
 
-.usa-nav-close {
+.usa-nav__close {
   @include button-unstyled;
   @include u-square($size-touch-target);
   color: currentColor;

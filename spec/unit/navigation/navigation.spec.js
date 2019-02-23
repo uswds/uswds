@@ -26,9 +26,9 @@ describe('navigation toggle', () => {
     accordion.on();
     navigation.on();
     nav = body.querySelector('.usa-nav');
-    navControl = body.querySelector('.usa-nav-link');
+    navControl = body.querySelector('.usa-nav__link');
     overlay = body.querySelector('.usa-overlay');
-    closeButton = body.querySelector('.usa-nav-close');
+    closeButton = body.querySelector('.usa-nav__close');
     menuButton = body.querySelector('.usa-menu-btn');
     accordionButton = nav.querySelector('.usa-accordion__button');
     navLink = nav.querySelector('a');

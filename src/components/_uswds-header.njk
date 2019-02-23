@@ -4,7 +4,7 @@
   {% render '@site-title' %}
   <nav role="navigation" class="usa-nav">
     <div class="header-mask"></div>
-    <div class="usa-nav-inner">
+    <div class="usa-nav__inner">
       {{ yield }}
     </div>
   </nav>
@@ -22,8 +22,8 @@
     z-index: 999;
   }
 
-  .usa-nav-inner,
-  .usa-nav-secondary {
+  .usa-nav__inner,
+  .usa-nav__secondary {
     background-color: white;
     z-index: 1000;
   }
