@@ -5,10 +5,10 @@ const { CLICK } = require('../events');
 const { prefix: PREFIX } = require('../config');
 
 const HIDDEN = 'hidden';
-const SCOPE = `.${PREFIX}-footer-big`;
+const SCOPE = `.${PREFIX}-footer--big`;
 const NAV = `${SCOPE} nav`;
-const BUTTON = `${NAV} .${PREFIX}-footer-primary-link`;
-const COLLAPSIBLE = `.${PREFIX}-footer-collapsible`;
+const BUTTON = `${NAV} .${PREFIX}-footer__primary-link`;
+const COLLAPSIBLE = `.${PREFIX}-footer__primary-content--collapsible`;
 
 const HIDE_MAX_WIDTH = 480;
 const DEBOUNCE_RATE = 180;
