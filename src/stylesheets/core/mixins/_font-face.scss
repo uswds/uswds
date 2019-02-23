@@ -1,7 +1,7 @@
 
 // Output the @font-face rule
 @mixin at-font-face(
-  $font-family,
+  $display-name,
   $file-path,
   $font-weight,
   $font-style
@@ -13,9 +13,10 @@
   // Dunno why I can't do this without an error...
 
   @font-face {
-    font-family: unquote($font-family);
+    font-family: unquote($display-name);
     font-style: unquote($font-style);
     font-weight: $font-weight;
+    font-display: fallback;
     src:
       url(#{$file-path}.eot?#iefix) format('embedded-opentype'),
       url(#{$file-path}.woff2) format('woff2'),
@@ -25,14 +26,20 @@
 }
 
 // Loop through weights, then call at-font-face
-@mixin generate-font-face($font-type, $font-weights, $font-name, $dir, $font-style) {
-  @each $weight, $filename in $font-type {
-    @each $key, $outputweight in $font-weights {
-      @if $outputweight == $weight and $filename {
+@mixin generate-font-face(
+  $font-style-src,
+  $output-weights,
+  $display-name,
+  $dir,
+  $font-style
+) {
+  @each $font-weight, $filename in $font-style-src {
+    @each $key, $output-weight in $output-weights {
+      @if $output-weight == $font-weight and $filename {
         @include at-font-face(
-          '#{$font-name}',
+          '#{$display-name}',
           '#{$theme-font-path}/#{$dir}/#{$filename}',
-          #{$weight},
+          #{$font-weight},
           unquote('#{$font-style}')
         );
       }
@@ -41,10 +48,12 @@
 }
 
 // Collect all font metadata, then call generate-font-face
-@mixin render-font-face($this-font-face) {
-  $these-weights: $project-font-weights;
-  @if $theme-output-all-weights {
-    $these-weights: (
+@mixin render-font-face($typeface-token, $src) {
+  $generate: false;
+  $this-src: ();
+  $output-weights: $project-font-weights;
+  @if $theme-generate-all-weights {
+    $output-weights: (
       100: 100,
       200: 200,
       300: 300,
@@ -53,23 +62,50 @@
       600: 600,
       700: 700,
       800: 800,
-      900: 900
+      900: 900,
     );
   }
 
-  @if $this-font-face and map-deep-get($all-font-definitions, $this-font-face, generate) {
-    $this-font: map-get($all-font-definitions, $this-font-face);
-    $font-name: map-get($this-font, name);
-    $roman: map-get($this-font, roman);
-    $italic: map-get($this-font, italic);
-    $dir: map-get($this-font, dir);
+  $typeface-metadata: map-get($all-typeface-tokens, $typeface-token);
+
+  // If the typeface has src in its USWDS metadata, generate and
+  // set $this-src
+  @if map-get($typeface-metadata, src) {
+    $generate: true;
+    $this-src: map-get($typeface-metadata, src);
+  }
+
+  // If the typeface has custom src sefined, generate and override
+  // any existing USWDS src
+  @if $src {
+    $generate: true;
+    $this-src: $src;
+  }
+
+  @if $generate {
+    $display-name: map-get($typeface-metadata, display-name);
+    $roman: map-get($this-src, roman);
+    $italic: map-get($this-src, italic);
+    $dir: map-get($this-src, dir);
 
     @if $roman {
-      @include generate-font-face($roman, $these-weights, $font-name, $dir, normal);
+      @include generate-font-face(
+        $roman,
+        $output-weights,
+        $display-name,
+        $dir,
+        normal
+      );
     }
 
     @if $italic {
-      @include generate-font-face($italic, $these-weights, $font-name, $dir, italic);
+      @include generate-font-face(
+        $italic,
+        $output-weights,
+        $display-name,
+        $dir,
+        italic
+      );
     }
   }
 }

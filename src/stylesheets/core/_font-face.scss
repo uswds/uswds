@@ -1,16 +1,11 @@
 /* stylelint-disable */
 
-@if $theme-font-mono {
-  @include render-font-face($theme-font-mono);
-}
-@if $theme-font-sans {
-  @include render-font-face($theme-font-sans);
-}
-@if $theme-font-serif {
-  @include render-font-face($theme-font-serif);
-}
-@if $theme-font-cond {
-  @include render-font-face($theme-font-cond);
+@each $font-type-token, $metadata in $project-font-type-tokens {
+  @if map-get($metadata, 'typeface-token') {
+    $this-typeface-token: map-get($metadata, 'typeface-token');
+    $this-src: map-get($metadata, 'src');
+    @include render-font-face($this-typeface-token, $this-src);
+  }
 }
 
 /* stylelint-enable */
