@@ -44,7 +44,7 @@ describe('navigation toggle', () => {
   });
 
   it('hides a visible nav menu when the body is clicked', () => {
-    const navMenu = body.querySelector('#sidenav-1');
+    const navMenu = body.querySelector('#basic-nav-section-one');
 
     navControl.click();
     assert.equal(navMenu.getAttribute('hidden'), null);
