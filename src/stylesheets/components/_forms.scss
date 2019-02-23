@@ -43,7 +43,7 @@
   }
 }
 
-.usa-form-note {
+.usa-form__note {
   @include typeset($theme-form-font-family, '2xs', 3);
   float: right;
   margin: units(0.5) 0 units(2);
