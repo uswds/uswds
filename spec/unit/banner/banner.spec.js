@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
 const EXPANDED = 'aria-expanded';
-const EXPANDED_CLASS = 'usa-banner__header-expanded';
+const EXPANDED_CLASS = 'usa-banner__header--expanded';
 const HIDDEN = 'hidden';
 
 describe('banner', () => {
