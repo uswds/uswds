@@ -92,7 +92,7 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 .usa-alert-text {
   @include u-margin-y(0);
 
-  a { @include typeset-link };
+  a { @include typeset-link; }
 }
 
 .usa-alert-text:only-child {

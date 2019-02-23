@@ -36,7 +36,7 @@
     }
   }
 
-  a { @include typeset-link };
+  a { @include typeset-link; }
 }
 
 .usa-form-large {
