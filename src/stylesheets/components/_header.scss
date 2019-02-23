@@ -119,6 +119,11 @@ $z-index-overlay: 400;
 
   &:hover {
     background-color: color('primary-dark');
+    color: color('white');
+  }
+
+  &:active {
+    color: color('white');
   }
 
   &:visited {
