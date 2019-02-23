@@ -44,11 +44,11 @@ html {
 // [href^="http:"]:not([href*="my-domain.com"])
 // [href^="https:"]:not([href*="my-domain.com"])
 
-.usa-external_link {
+.usa-external-link {
   @include external-link(external-link, external-link-hover);
 }
 
-.usa-external_link-alt {
+.usa-external-link-alt {
   @include external-link(external-link-alt, external-link-alt-hover);
 }
 
@@ -98,7 +98,7 @@ dfn {
   max-width: measure($theme-lead-measure);
 }
 
-.usa-background-dark {
+.usa-dark-background {
   @include add-knockout-font-smoothing;
   background-color: color('base-darker');
 
