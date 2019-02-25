@@ -58,6 +58,17 @@ $theme-namespace: (
 
 /*
 ----------------------------------------
+Layout grid
+----------------------------------------
+Should the layout grid classes output
+with !important
+----------------------------------------
+*/
+
+$theme-layout-grid-uses-important: false !default;
+
+/*
+----------------------------------------
 Border box sizing
 ----------------------------------------
 When set to true, sets the box-sizing

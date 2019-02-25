@@ -602,6 +602,6 @@ Grid
 
 $grid-global: '';
 
-@if $utilities-use-important {
+@if $theme-layout-grid-uses-important {
   $grid-global: '!important';
 }
