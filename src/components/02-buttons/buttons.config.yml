@@ -30,7 +30,7 @@ variants:
     context:
       category: outline-inverse
       label: outline inverse buttons
-      classes: 'usa-button--outline-inverse'
+      classes: 'usa-button--outline usa-button--inverse'
 
   - name: big
     context:
