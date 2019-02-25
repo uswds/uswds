@@ -197,7 +197,7 @@ $nav-link-arrow-icon-size: 1;
       background-size: units($nav-link-accordion-icon-size);
 
       @include at-media($theme-navigation-width) {
-        @include add-background-svg('angle-arrow-down-hover');
+        @include add-background-svg('angle-arrow-up-white');
         @include add-knockout-font-smoothing;
         background-size: units($nav-link-arrow-icon-size);
         background-color: color('primary-darker');
