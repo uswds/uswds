@@ -13,7 +13,7 @@
   }
 }
 
-.usa-sidenav-sublist {
+.usa-sidenav__sublist {
   @include nav-sublist;
   font-size: font-size($theme-sidenav-font-family, 'xs');
 }

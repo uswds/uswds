@@ -26,11 +26,11 @@ describe('navigation toggle', () => {
     accordion.on();
     navigation.on();
     nav = body.querySelector('.usa-nav');
-    navControl = body.querySelector('.usa-nav-link');
+    navControl = body.querySelector('.usa-nav__link');
     overlay = body.querySelector('.usa-overlay');
-    closeButton = body.querySelector('.usa-nav-close');
+    closeButton = body.querySelector('.usa-nav__close');
     menuButton = body.querySelector('.usa-menu-btn');
-    accordionButton = nav.querySelector('.usa-accordion-button');
+    accordionButton = nav.querySelector('.usa-accordion__button');
     navLink = nav.querySelector('a');
     sandbox = sinon.sandbox.create();
   });
@@ -44,7 +44,7 @@ describe('navigation toggle', () => {
   });
 
   it('hides a visible nav menu when the body is clicked', () => {
-    const navMenu = body.querySelector('#sidenav-1');
+    const navMenu = body.querySelector('#basic-nav-section-one');
 
     navControl.click();
     assert.equal(navMenu.getAttribute('hidden'), null);

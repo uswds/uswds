@@ -15,7 +15,7 @@ describe('skip nav link', () => {
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
     skipLink = body.querySelector('.usa-skipnav');
-    topLink = body.querySelector('.usa-footer-return-to-top a');
+    topLink = body.querySelector('.usa-footer__return-to-top a');
     main = body.querySelector('main');
     skipnav.on(body);
   });

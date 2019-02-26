@@ -23,7 +23,7 @@ describe('accordion behavior', () => {
     Accordion.on();
 
     root = body.querySelector('.usa-accordion');
-    buttons = root.querySelectorAll('.usa-accordion-button');
+    buttons = root.querySelectorAll('.usa-accordion__button');
     /* eslint-disable */
     button = buttons[0];
     /* eslint-enable */

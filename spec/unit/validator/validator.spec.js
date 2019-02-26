@@ -7,7 +7,7 @@ const TEMPLATE = fs.readFileSync(path.join(__dirname, '/template.html'));
 
 const INPUT_SELECTOR = '[data-validation-element]';
 const VALIDATORS = '[data-validator]';
-const CHECKED_CLASS = 'usa-checklist-checked';
+const CHECKED_CLASS = 'usa-checklist__item--checked';
 
 const keyup = el => {
   el.dispatchEvent(

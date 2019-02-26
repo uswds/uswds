@@ -13,4 +13,4 @@ variants:
     label: Big
     context:
       label:
-        classes: "usa-tag usa-tag-big"
+        classes: "usa-tag usa-tag--big"

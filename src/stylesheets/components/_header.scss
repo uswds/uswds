@@ -94,7 +94,7 @@ $z-index-overlay: 400;
   }
 }
 
-.usa-logo-text {
+.usa-logo__text {
   display: block;
   font-style: normal;
   font-weight: font-weight('bold');
@@ -141,10 +141,10 @@ $z-index-overlay: 400;
   }
 }
 
-// usa-header-basic
+// usa-header--basic
 // ---------------------------------
 
-.usa-header-basic {
+.usa-header--basic {
   @include at-media($theme-navigation-width) {
     .usa-navbar {
       position: relative;
@@ -165,11 +165,11 @@ $z-index-overlay: 400;
 
     .usa-current,
     [aria-expanded=true],
-    .usa-nav-link:hover {
+    .usa-nav__link:hover {
       @include nav-border-basic;
     }
 
-    .usa-nav-primary {
+    .usa-nav__primary {
       width: auto;
     }
 
@@ -177,34 +177,30 @@ $z-index-overlay: 400;
       top: 0;
     }
   }
-}
+  &.usa-header--megamenu {
+    .usa-nav__inner {
+      display: flex;
+      flex-direction: column;
 
-// usa-header-basic-megamenu
-// ---------------------------------
-
-.usa-header-basic-megamenu {
-  .usa-nav-inner {
-    display: flex;
-    flex-direction: column;
-
-    @include at-media($theme-navigation-width) {
-      display: block;
-      float: right;
-      margin-top: units(-5);
+      @include at-media($theme-navigation-width) {
+        display: block;
+        float: right;
+        margin-top: units(-5);
+      }
     }
   }
 }
 
-// usa-header-extended
+// usa-header--extended
 // ---------------------------------
 
-.usa-header-extended {
+.usa-header--extended {
   @include at-media($theme-navigation-width) {
     padding-top: 0;
 
     .usa-current,
     [aria-expanded=true],
-    .usa-nav-link:hover {
+    .usa-nav__link:hover {
       @include nav-border-extended;
     }
   }
@@ -234,7 +230,7 @@ $z-index-overlay: 400;
     }
   }
 
-  .usa-nav-inner {
+  .usa-nav__inner {
     @include at-media($theme-navigation-width) {
       @include grid-container;
       padding-left: units(2) !important; /* stylelint-disable declaration-no-important  */
@@ -242,19 +238,19 @@ $z-index-overlay: 400;
     }
   }
 
-  .usa-nav-primary {
+  .usa-nav__primary {
     @include at-media($theme-navigation-width) {
       @include clearfix;
     }
   }
 
-  .usa-nav-link {
+  .usa-nav__link {
     @include at-media($theme-navigation-width) {
       @include u-padding-y(2);
     }
   }
 
-  .usa-nav-submenu {
+  .usa-nav__submenu {
     .usa-grid-full {
       @include at-media($theme-navigation-width) {
         padding-left: units(1.5);

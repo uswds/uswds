@@ -60,7 +60,7 @@ $input-select-margin-right: 1.5;
   padding: units(1);
   width: 100%;
 
-  &.usa-input-success {
+  &.usa-input--success {
     @include u-border($theme-input-state-border-width, 'success');
   }
 }
@@ -71,7 +71,7 @@ $input-select-margin-right: 1.5;
   padding: 0;
 }
 
-.usa-form-group-error {
+.usa-form-group--error {
   @include u-border-left(0.5, 'error-dark');
   margin-top: units(4);
   padding-left: units(2);
@@ -82,11 +82,11 @@ $input-select-margin-right: 1.5;
   }
 }
 
-.usa-input-error {
+.usa-input--error {
   @include u-border($theme-input-state-border-width, 'error-dark');
 }
 
-.usa-input-error-label {
+.usa-label--error {
   display: block;
   font-weight: font-weight('bold');
   margin-top: 0;
@@ -347,14 +347,14 @@ $input-select-margin-right: 1.5;
   }
 }
 
-.usa-form-group-day,
-.usa-form-group-month,
-.usa-form-group-year {
+.usa-form-group--day,
+.usa-form-group--month,
+.usa-form-group--year {
   @include u-flex(auto);
   margin-right: units(2);
   width: units(6);
 }
 
-.usa-form-group-year {
+.usa-form-group--year {
   width: units(9);
 }

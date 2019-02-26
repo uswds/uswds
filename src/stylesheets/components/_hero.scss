@@ -11,7 +11,7 @@
   color: color('white');
 }
 
-.usa-hero-callout {
+.usa-hero__callout {
   background-color: color('primary-darker');
   padding: units(4);
 
@@ -20,13 +20,13 @@
   }
 }
 
-.usa-hero-heading {
+.usa-hero__heading {
   @include typeset-h2;
   color: color('accent-cool');
   line-height: line-height('heading', 2);
 }
 
-.usa-hero-callout-alt {
+.usa-hero__callout-alt {
   color: color('white');
   display: block;
 }

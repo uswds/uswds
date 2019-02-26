@@ -20,11 +20,11 @@
     max-width: none;
   }
 
-  .usa-input-tiny {
+  .usa-input--small {
     max-width: units(8);
   }
 
-  .usa-input-medium {
+  .usa-input--medium {
     max-width: units(15);
   }
 
@@ -37,13 +37,13 @@
   }
 }
 
-.usa-form-large {
+.usa-form--large {
   @include at-media('mobile-lg') {
     max-width: units('mobile-lg');
   }
 }
 
-.usa-form-note {
+.usa-form__note {
   @include typeset($theme-form-font-family, '2xs', 3);
   float: right;
   margin: units(0.5) 0 units(2);
