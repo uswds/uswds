@@ -530,6 +530,6 @@ Grid
 
 $grid-global: '';
 
-@if $utilities-use-important {
+@if $theme-layout-grid-use-important {
   $grid-global: '!important';
 }
