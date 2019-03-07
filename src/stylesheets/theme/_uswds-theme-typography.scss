@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.0.0 Beta 5
+USWDS 2.0.0 Beta 6
 ----------------------------------------
 TYPOGRAPHY SETTINGS
 ----------------------------------------
@@ -53,30 +53,21 @@ $theme-root-font-size: 10px;
 
 /*
 ----------------------------------------
-Basic styles
+Global styles
 ----------------------------------------
-Sets the default typography styles for
-paragraph text and links
+Adds basic styling for the following
+unclassed elements:
 
-Accepts true or false
-----------------------------------------
-*/
-
-$theme-global-styles-basic: true;
-
-/*
-----------------------------------------
-Content styles
-----------------------------------------
-Sets the default typography styles for
-paragraph text, links, headings, lists,
-and tables
-
-Accepts global, scoped, or none
+- paragraph: paragraph text
+- link: links
+- content: paragraph text, links,
+  headings, lists, and tables
 ----------------------------------------
 */
 
-$theme-content-styles: 'scoped';
+$theme-global-paragraph-styles: false;
+$theme-global-link-styles:      false;
+$theme-global-content-styles:   false;
 
 /*
 ----------------------------------------

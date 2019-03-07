@@ -1,8 +1,10 @@
-@mixin usa-typography-base-styles {
+@mixin usa-paragraph-style {
   p {
     @extend %usa-paragraph;
   }
+}
 
+@mixin usa-link-style {
   a {
     @include typeset-link;
   }
@@ -43,15 +45,9 @@
   }
 }
 
-// Basic typography styles (paragraph text and links)
-@mixin theme-global-styles-basic {
-  @if $theme-global-styles-basic == true {
-    @include usa-typography-base-styles;
-  }
-}
-
 @mixin usa-content-styles {
-  @include usa-typography-base-styles;
+  @include usa-paragraph-style;
+  @include usa-link-style;
   @include usa-headings-styles;
   @include usa-list-styles;
   @include usa-table-styles;

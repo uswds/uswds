@@ -35,6 +35,10 @@
       margin-top: units(3);
     }
   }
+
+  a {
+    @include typeset-link;
+  }
 }
 
 .usa-form--large {

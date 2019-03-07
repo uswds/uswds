@@ -9,6 +9,10 @@
 .usa-footer__return-to-top {
   @include u-padding-y(2.5);
   line-height: line-height($theme-footer-font-family, 1);
+
+  a {
+    @include typeset-link;
+  }
 }
 
 .usa-footer__nav {
@@ -60,7 +64,11 @@
   margin: 0 0 0 units(1);
   padding: 0;
 
-  & + .usa-footer__secondary-link {
+  a {
+    @include typeset-link;
+  }
+
+  & + .usa-footer-secondary-link {
     padding-top: units(2);
   }
 

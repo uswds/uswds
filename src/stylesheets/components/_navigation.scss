@@ -158,6 +158,7 @@ $nav-link-arrow-icon-size: 1;
     font-weight: font-weight('normal');
     line-height: line-height($theme-navigation-font-family, 2);
     padding: units(1.5) units(2);
+    text-decoration: none;
 
     @include at-media($theme-navigation-width) {
       @include primary-nav-link;

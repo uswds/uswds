@@ -51,15 +51,6 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
     width: units($theme-alert-bar-width);
   }
 
-  a {
-    color: color($theme-link-color);
-
-    &:focus,
-    &:hover {
-      color: color($theme-link-hover-color);
-    }
-  }
-
   ul {
     margin-bottom: 0;
     margin-top: units(1);
@@ -100,6 +91,10 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 
 .usa-alert__text {
   @include u-margin-y(0);
+
+  a {
+    @include typeset-link;
+  }
 }
 
 .usa-alert__text:only-child {

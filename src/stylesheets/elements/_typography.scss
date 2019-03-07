@@ -12,25 +12,22 @@ html {
 
 .usa-prose {
   @include typeset($theme-prose-font-family);
-}
-
-@mixin theme-content-styles {
-  @if $theme-content-styles == 'scoped' {
-    .usa-prose > {
-      // * + p { margin-top }
-      @include usa-content-styles;
-    }
-  }
-  @else if $theme-content-styles == 'global' {
+  & > {
     @include usa-content-styles;
   }
-  @else {
-    // Default nothing if it’s neither
-  }
 }
 
-@include theme-global-styles-basic;
-@include theme-content-styles;
+@if $theme-global-paragraph-styles == true {
+  @include usa-paragraph-style;
+}
+
+@if $theme-global-link-styles == true {
+  @include usa-link-style;
+}
+
+@if $theme-global-content-styles == true {
+  @include usa-content-styles;
+}
 
 .usa-paragraph {
   @include typeset-p;
