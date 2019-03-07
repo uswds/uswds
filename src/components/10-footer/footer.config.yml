@@ -3,6 +3,6 @@ status: ready
 
 variants:
   - name: default
-    label: Medium
+    label: Default
 
 context: {}

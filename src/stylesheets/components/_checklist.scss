@@ -5,15 +5,15 @@
   margin: 0;
 }
 
-.usa-checklist-item {
+.usa-checklist__item {
   @include add-checkbox-placeholder;
   @include u-margin-y(0);
   margin-bottom: 0;
   margin-top: units(1);
 
-  &.is-checked,
-  // Deprecate usa-checklist-checked once the js is updated
-  &.usa-checklist-checked {
+  &.usa-checklist__item--checked,
+  // Deprecate usa-checklist__item--checked once the js is updated
+  &.usa-checklist__item--checked {
     @include add-success-mark;
   }
 }

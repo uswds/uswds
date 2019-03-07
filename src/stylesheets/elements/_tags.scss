@@ -12,7 +12,7 @@
   }
 }
 
-.usa-tag-big {
+.usa-tag--big {
   @include u-padding-x(1);
   @include u-font('ui', $theme-body-font-size);
 }

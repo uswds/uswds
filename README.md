@@ -245,7 +245,7 @@ If you’re interested in maintaining a package that helps us distribute USWDS, 
 * The CSS foundation of this site is built with the **[Sass](https://sass-lang.com)** preprocessor language.
 * The CSS organization and naming conventions follow **[18F’s CSS Front End Guide](https://frontend.18f.gov/css/)**.
 * CSS selectors are **prefixed** with `usa` (For example: `.usa-button`). This identifier helps the design system avoid conflicts with other styles on a site which are not part of USWDS.
-* Uses a **[modified BEM](https://frontend.18f.gov/css/naming/)** approach created by 18F for naming CSS selectors. Objects in CSS are separated by single dashes. Multi-word objects are separated by an underscore (For example: `.usa-button-feature_name-active`).
+* Uses a **[BEM](http://getbem.com/)** approach for naming CSS selectors. Blocks are separated from elements with two underscores (`__`). Multi-word blocks use single hyphens instead of spaces. Modifier classes are additive — proper markup requires the base class _and_ the modifier class or classes. Modifier classes consist of the base class plus a modifier suffix, separated by two hyphens (`--`) as in `.usa-button.usa-button--secondary` or `usa-accordion.usa-accordion--bordered`.
 * Uses **modular CSS** for scalable, modular, and flexible code.
 * Uses **nesting** when appropriate. Nest minimally with up to two levels of nesting.
 * Hard-coded magic numbers are avoided..
@@ -266,7 +266,7 @@ The JavaScript for the USWDS is separated into components in the same manner as 
 window.uswds = require('./components');
 ```
 
-Each component has a standardized interface that can be used to extend it further. The components store a HTML class name (e.g. `.usa-accordion-button[aria-controls]`) that's used to link HTML elements with the JS component, so when a component is initialized, it will search through the current HTML DOM finding all elements that match its class and inialize the component JavaScript for those elements. The primary methods each component has are as follows:
+Each component has a standardized interface that can be used to extend it further. The components store a HTML class name (e.g. `.usa-accordion__button[aria-controls]`) that's used to link HTML elements with the JS component, so when a component is initialized, it will search through the current HTML DOM finding all elements that match its class and inialize the component JavaScript for those elements. The primary methods each component has are as follows:
 
 - `on`: Initialize a component's JavaScript behavior by passing the root element, such as `window.document`.
 - `off`: The opposite of `on`, de-initializes a component, removing any JavaScript event handlers on the component.

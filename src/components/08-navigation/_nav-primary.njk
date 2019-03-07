@@ -1,14 +1,14 @@
-<button class="usa-nav-close"><img src="{{ uswds.path }}/img/close.svg" alt="close"></button>
-<ul class="usa-nav-primary usa-accordion">
+<button class="usa-nav__close"><img src="{{ uswds.path }}/img/close.svg" alt="close"></button>
+<ul class="usa-nav__primary usa-accordion">
   {%- for link in nav.links -%}
-  <li class="usa-nav-primary-item">
+  <li class="usa-nav__primary-item">
     {% if link.links -%}
-    <button class="usa-accordion-button usa-nav-link{% if link.is_current %}  usa-current{% endif %}" aria-expanded="false" aria-controls="{{ nav.id_prefix }}{{ link.id }}"><span>{{ link.text }}</span></button>
-    <{% if nav.mega %}div{% else %}ul{% endif %} id="{{ nav.id_prefix }}{{ link.id }}" class="usa-nav-submenu{% if nav.mega %} usa-megamenu{% endif %}">
+    <button class="usa-accordion__button usa-nav__link{% if link.is_current %}  usa-current{% endif %}" aria-expanded="false" aria-controls="{{ nav.id_prefix }}{{ link.id }}"><span>{{ link.text }}</span></button>
+    <{% if nav.mega %}div{% else %}ul{% endif %} id="{{ nav.id_prefix }}{{ link.id }}" class="usa-nav__submenu{% if nav.mega %} usa-megamenu{% endif %}">
       {%- if nav.id_prefix == "basic-" or nav.id_prefix == "extended-" -%}
         {%- for child in link.links -%}
           {%- if loop.index < 4 -%}
-            <li class="usa-nav-submenu-item">
+            <li class="usa-nav__submenu-item">
               <a href="{{ child.href }}">{{ child.text }}</a>
             </li>
           {%- endif -%}
@@ -17,9 +17,9 @@
         <div class="grid-row grid-gap-4">
           {%- for group in link.links | batch(3) -%}
             <div class="desktop:grid-col-3">
-              <ul class="usa-nav-submenu-list">
+              <ul class="usa-nav__submenu-list">
                 {%- for child in group -%}
-                  <li class="usa-nav-submenu-item">
+                  <li class="usa-nav__submenu-item">
                     <a href="{{ child.href }}">{{ child.text }}</a>
                   </li>
                 {%- endfor -%}
@@ -30,7 +30,7 @@
       {%- endif -%}
     </{% if nav.mega %}div{% else %}ul{% endif %}>
     {%- else -%}
-    <a class="usa-nav-link{% if link.current %} usa-current{% endif %}" href="{{ link.href }}"><span>{{ link.text }}</span></a>
+    <a class="usa-nav__link{% if link.current %} usa-current{% endif %}" href="{{ link.href }}"><span>{{ link.text }}</span></a>
     {% endif -%}
   </li>
   {%- endfor -%}

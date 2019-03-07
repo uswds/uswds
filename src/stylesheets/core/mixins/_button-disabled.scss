@@ -5,9 +5,9 @@
   pointer-events: none;
 
   &:hover,
-  &.usa-button-hover,
+  &.usa-button--hover,
   &:active,
-  &.usa-button-active,
+  &.usa-button--active,
   &:focus,
   &.usa-focus {
     background-color: color('disabled');

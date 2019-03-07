@@ -10,14 +10,14 @@ const { prefix: PREFIX } = require('../config');
 const BODY = 'body';
 const NAV = `.${PREFIX}-nav`;
 const NAV_LINKS = `${NAV} a`;
-const NAV_CONTROL = `.${PREFIX}-nav-link`;
+const NAV_CONTROL = `.${PREFIX}-nav__link`;
 const OPENERS = `.${PREFIX}-menu-btn`;
-const CLOSE_BUTTON = `.${PREFIX}-nav-close`;
+const CLOSE_BUTTON = `.${PREFIX}-nav__close`;
 const OVERLAY = `.${PREFIX}-overlay`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
 const TOGGLES = [NAV, OVERLAY].join(', ');
 
-const ACTIVE_CLASS = 'usa-mobile_nav-active';
+const ACTIVE_CLASS = 'usa-mobile-nav-active';
 const VISIBLE_CLASS = 'is-visible';
 
 let navigation;

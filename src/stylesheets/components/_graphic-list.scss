@@ -1,11 +1,11 @@
 // A collection of media block objects
 
-.usa-graphic_list {
+.usa-graphic-list {
   @include typeset;
   @include border-box-sizing;
 
-  .usa-graphic_list-row {
-    .usa-media_block {
+  .usa-graphic-list__row {
+    .usa-media-block {
       margin-bottom: units(4);
 
       @include at-media('tablet') {
@@ -14,7 +14,7 @@
     }
 
     &:last-child {
-      .usa-media_block {
+      .usa-media-block {
         @include at-media('tablet') {
           margin-bottom: 0;
         }
@@ -26,17 +26,17 @@
     }
   }
 
-  .usa-media_block-img {
+  .usa-media-block__img {
     margin-right: units(3);
   }
 
-  .usa-media_block-body {
+  .usa-media-block__body {
     > :first-child {
       margin-top: 0;
     }
   }
 }
 
-.usa-graphic_list-heading {
+.usa-graphic-list__heading {
   @include typeset-h3;
 }
