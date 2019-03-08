@@ -103,7 +103,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   }
 
   &.usa-button--inverse {
-    background: transparent;
+    background-color: transparent;
     box-shadow: $button-stroke color('base-lighter');
     color: color('base-lighter');
 
@@ -113,14 +113,14 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
     &:hover,
     &.usa-button--hover {
-      background: transparent;
+      background-color: transparent;
       box-shadow: $button-stroke color('base-lightest');
       color: color('base-lightest');
     }
 
     &:active,
     &.usa-button--active {
-      background: transparent;
+      background-color: transparent;
       box-shadow: $button-stroke color('white');
       color: color('white');
     }
