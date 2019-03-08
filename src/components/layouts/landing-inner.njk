@@ -3,11 +3,13 @@
 
   {% if tagline %}
   <section class="grid-container usa-section">
-    <div class="usa-width-one-third">
-      <h2>{{ tagline.title }}</h2>
-    </div>
-    <div class="usa-width-two-thirds">
-      {{ tagline.content }}
+    <div class="grid-row grid-gap">
+      <div class="tablet:grid-col-4">
+        <h2 class="font-heading-xl margin-top-0">{{ tagline.title }}</h2>
+      </div>
+      <div class="tablet:grid-col-8 usa-prose">
+        {{ tagline.content }}
+      </div>
     </div>
   </section>
   {% endif %}
@@ -16,7 +18,7 @@
 
   <section class="usa-section">
     <div class="grid-container">
-      <h2 class="font-heading-xl">Section heading</h2>
+      <h2 class="font-heading-xl margin-top-0">Section heading</h2>
       <p class="usa-font-lead">Everything up to this point should help people understand your agency or project: who you are, your goal or mission, and how you approach it. Use this section to encourage them to act. Describe why they should get in touch here, and use an active verb on the button below. “Get in touch,” “Learn more,” and so on.</p>
       <a class="usa-button usa-button--big" href="#">Call to action</a>
     </div>
