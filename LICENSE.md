@@ -2,9 +2,9 @@
 
 ### Files licensed under the SIL Open Font License
 
-The Source Sans Pro font files in `src/fonts/source-sans-pro` are from [Google Web Fonts](https://fonts.google.com/specimen/Source+Sans+Pro), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL), and copyright [Adobe Systems Incorporated](http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries.
+The Source Sans Pro font files in `src/fonts/source-sans-pro` are the Latin set from [Google Web Fonts](https://fonts.google.com/specimen/Source+Sans+Pro), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL), and copyright [Adobe Systems Incorporated](http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries.
 
-The Merriweather font files in `src/fonts/merriweather` are from [Google Web Fonts](https://fonts.google.com/specimen/Merriweather), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL), and copyright [Sorkin Type Co](www.sorkintype.com) with Reserved Font Name 'Merriweather'.
+The Merriweather font files in `src/fonts/merriweather` are the Latin set from [Google Web Fonts](https://fonts.google.com/specimen/Merriweather), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL), and copyright [Sorkin Type Co](www.sorkintype.com) with Reserved Font Name 'Merriweather'.
 
 The Public Sans font files in `src/fonts/public-sans` are licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL).
 
