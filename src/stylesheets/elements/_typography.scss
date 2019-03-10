@@ -1,3 +1,57 @@
+@mixin usa-texts {
+  .usa-text-body {
+    @include typeset-p;
+  }
+
+  .usa-text-intro {
+    @include typeset(
+      $theme-lead-font-family,
+      $theme-lead-font-size,
+      $theme-lead-line-height
+    );
+    font-weight: $theme-font-weight-normal;
+    max-width: measure($theme-lead-measure);
+  }
+}
+
+@mixin usa-headings {
+  .usa-heading-3xl {
+    @include typeset-heading-3xl;
+  }
+
+  .usa-heading-2xl {
+    @include typeset-heading-2xl;
+  }
+
+  .usa-heading-xl {
+    @include typeset-heading-xl;
+  }
+
+  .usa-heading-lg {
+    @include typeset-heading-lg;
+  }
+
+  .usa-heading-md {
+    @include typeset-heading-md;
+  }
+
+  .usa-heading-sm {
+    @include typeset-heading-sm;
+  }
+
+  .usa-heading-xs {
+    @include typeset-heading-xs;
+  }
+
+  .usa-heading-2xs {
+    @include typeset-heading-2xs;
+  }
+
+  .usa-heading-3xs {
+    @include typeset-heading-3xs;
+  }
+}
+
 html {
   @include add-kerning;
   font-family: font-family($theme-body-font-family);
@@ -12,6 +66,8 @@ html {
 
 .usa-prose {
   @include typeset($theme-prose-font-family);
+  @include usa-headings;
+  @include usa-texts;
   & > {
     @include usa-content-styles;
   }
@@ -85,15 +141,8 @@ dfn {
   }
 }
 
-.usa-text-intro {
-  @include typeset(
-    $theme-lead-font-family,
-    $theme-lead-font-size,
-    $theme-lead-line-height
-  );
-  font-weight: $theme-font-weight-normal;
-  max-width: measure($theme-lead-measure);
-}
+@include usa-headings;
+@include usa-texts;
 
 .usa-dark-background {
   @include add-knockout-font-smoothing;
