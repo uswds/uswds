@@ -114,7 +114,7 @@
 }
 
 .usa-sign-up__heading {
-  @include h3;
+  @include heading-lg;
   margin: 0;
 }
 
@@ -140,7 +140,7 @@
 }
 
 .usa-footer__logo-heading {
-  @include h3;
+  @include heading-lg;
   @include u-margin-y(1);
   line-height: line-height('heading', 1);
 }
@@ -155,7 +155,7 @@
 }
 
 .usa-footer__contact-heading {
-  @include h3;
+  @include heading-lg;
   margin-top: 0;
 
   @include at-media('mobile-lg') {
@@ -261,7 +261,7 @@
   }
 
   .usa-footer__primary-link {
-    @include h4;
+    @include heading-sm;
     @include add-background-svg('arrow-down');
     background-position: units(2) center;
     background-size: units(1.5);

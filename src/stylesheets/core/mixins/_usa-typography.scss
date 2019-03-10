@@ -21,27 +21,27 @@
   }
 
   h1 {
-    @include h1;
+    @include heading-2xl;
   }
 
   h2 {
-    @include h2;
+    @include heading-xl;
   }
 
   h3 {
-    @include h3;
+    @include heading-lg;
   }
 
   h4 {
-    @include h4;
+    @include heading-sm;
   }
 
   h5 {
-    @include h5;
+    @include heading-xs;
   }
 
   h6 {
-    @include h6;
+    @include heading-3xs;
   }
 }
 

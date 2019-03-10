@@ -21,7 +21,7 @@
 }
 
 .usa-hero__heading {
-  @include typeset-h2;
+  @include typeset-heading-xl;
   color: color('accent-cool');
   line-height: line-height('heading', 2);
 }

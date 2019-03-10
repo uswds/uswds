@@ -73,15 +73,15 @@ dfn {
 }
 
 .usa-display {
-  @include typeset-h3;
+  @include typeset-heading-lg;
   margin-bottom: 0;
 
   @include at-media('mobile-lg') {
-    @include typeset-h1;
+    @include typeset-heading-2xl;
   }
 
   @include at-media('tablet') {
-    @include typeset-title;
+    @include typeset-heading-3xl;
   }
 }
 

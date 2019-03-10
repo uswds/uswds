@@ -86,109 +86,146 @@ Sets:
   }
 }
 
-@mixin title {
+@mixin heading-3xl {
   @include typeset(
-    'heading',
-    $theme-title-font-size,
-    $theme-heading-line-height
+    $theme-heading-3xl-font-family,
+    $theme-heading-3xl-font-size,
+    $theme-heading-3xl-line-height
   );
-
-  font-weight: fw('bold');
+  @each $token in $theme-heading-3xl-text-styles {
+    @include u-text($token);
+  }
 }
 
-@mixin typeset-title {
+@mixin typeset-heading-3xl {
   @include typeset-heading;
-  @include title;
+  @include heading-3xl;
 }
 
-@mixin h1 {
+@mixin heading-2xl {
   @include typeset(
-    'heading',
-    $theme-h1-font-size,
-    $theme-heading-line-height
+    $theme-heading-2xl-font-family,
+    $theme-heading-2xl-font-size,
+    $theme-heading-2xl-line-height
   );
-
-  font-weight: fw('bold');
+  @each $token in $theme-heading-2xl-text-styles {
+    @include u-text($token);
+  }
 }
 
-@mixin typeset-h1 {
+@mixin typeset-heading-2xl {
   @include typeset-heading;
-  @include h1;
+  @include heading-2xl;
 }
 
-@mixin h2 {
+@mixin heading-xl {
   @include typeset(
-    'heading',
-    $theme-h2-font-size,
-    $theme-heading-line-height
+    $theme-heading-xl-font-family,
+    $theme-heading-xl-font-size,
+    $theme-heading-xl-line-height
   );
-
-  font-weight: fw('bold');
+  @each $token in $theme-heading-xl-text-styles {
+    @include u-text($token);
+  }
 }
 
-@mixin typeset-h2 {
+@mixin typeset-heading-xl {
   @include typeset-heading;
-  @include h2;
+  @include heading-xl;
 }
 
-@mixin h3 {
+@mixin heading-lg {
   @include typeset(
-    'heading',
-    $theme-h3-font-size,
-    $theme-heading-line-height
+    $theme-heading-lg-font-family,
+    $theme-heading-lg-font-size,
+    $theme-heading-lg-line-height
   );
-
-  font-weight: fw('bold');
+  @each $token in $theme-heading-lg-text-styles {
+    @include u-text($token);
+  }
 }
 
-@mixin typeset-h3 {
+@mixin typeset-heading-lg {
   @include typeset-heading;
-  @include h3;
+  @include heading-lg;
 }
 
-@mixin h4 {
+@mixin heading-md {
   @include typeset(
-    'heading',
-    $theme-h4-font-size,
-    $theme-heading-line-height
+    $theme-heading-md-font-family,
+    $theme-heading-md-font-size,
+    $theme-heading-md-line-height
   );
-
-  font-weight: fw('bold');
+  @each $token in $theme-heading-md-text-styles {
+    @include u-text($token);
+  }
 }
 
-@mixin typeset-h4 {
+@mixin typeset-heading-md {
   @include typeset-heading;
-  @include h4;
+  @include heading-md;
 }
 
-@mixin h5 {
+@mixin heading-sm {
   @include typeset(
-    'heading',
-    $theme-h5-font-size,
-    $theme-heading-line-height
+    $theme-heading-sm-font-family,
+    $theme-heading-sm-font-size,
+    $theme-heading-sm-line-height
   );
-
-  font-weight: fw('bold');
+  @each $token in $theme-heading-sm-text-styles {
+    @include u-text($token);
+  }
 }
 
-@mixin typeset-h5 {
+@mixin typeset-heading-sm {
   @include typeset-heading;
-  @include h5;
+  @include heading-sm;
 }
 
-@mixin h6 {
+@mixin heading-xs {
   @include typeset(
-    'body',
-    $theme-h6-font-size,
-    $theme-heading-line-height
+    $theme-heading-xs-font-family,
+    $theme-heading-xs-font-size,
+    $theme-heading-xs-line-height
   );
-
-  font-weight: fw('normal');
-  letter-spacing: ls('ls-1');
-  text-transform: uppercase;
+  @each $token in $theme-heading-xs-text-styles {
+    @include u-text($token);
+  }
 }
 
-@mixin typeset-h6 {
+@mixin typeset-heading-xs {
   @include typeset-heading;
-  @include h6;
+  @include heading-xs;
+}
+
+@mixin heading-2xs {
+  @include typeset(
+    $theme-heading-2xs-font-family,
+    $theme-heading-2xs-font-size,
+    $theme-heading-2xs-line-height
+  );
+  @each $token in $theme-heading-2xs-text-styles {
+    @include u-text($token);
+  }
+}
+
+@mixin typeset-heading-2xs {
+  @include typeset-heading;
+  @include heading-2xs;
+}
+
+@mixin heading-3xs {
+  @include typeset(
+    $theme-heading-3xs-font-family,
+    $theme-heading-3xs-font-size,
+    $theme-heading-3xs-line-height
+  );
+  @each $token in $theme-heading-3xs-text-styles {
+    @include u-text($token);
+  }
+}
+
+@mixin typeset-heading-3xs {
+  @include typeset-heading;
+  @include heading-3xs;
 }
