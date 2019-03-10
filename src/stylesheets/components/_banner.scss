@@ -85,14 +85,6 @@
   @include u-margin-y(0);
   font-size: font-size($theme-banner-font-family, 1);
   line-height: line-height($theme-banner-font-family, 2);
-
-  .usa-banner__header--expanded & {
-    display: none;
-
-    @include at-media('tablet') {
-      display: block;
-    }
-  }
 }
 
 .usa-banner__header-action {
@@ -102,6 +94,10 @@
   margin-bottom: units(0);
   margin-top: units(2px);
   text-decoration: underline;
+
+  .usa-banner__header--expanded & {
+    display: none;
+  }
 
   @include at-media('tablet') {
     display: none;
@@ -119,7 +115,7 @@
   }
 }
 
-.usa-banner__header-expanded {
+.usa-banner__header--expanded {
   padding-right: units($size-touch-target + 1);
 
   @include at-media('tablet') {

@@ -26,6 +26,7 @@ $accordion-border: units($theme-accordion-border-width) solid color($theme-accor
   font-weight: font-weight('bold');
   margin: 0;
   padding: units(2) units(2.5) * 2 + units(2) units(2) units(2.5);
+  text-decoration: none;
   width: 100%;
 
   &:hover {
