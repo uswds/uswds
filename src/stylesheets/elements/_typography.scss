@@ -1,6 +1,6 @@
 @mixin usa-texts {
   .usa-text-body {
-    @include typeset-p;
+    @extend %usa-text-body;
   }
 
   .usa-text-intro {
@@ -16,39 +16,39 @@
 
 @mixin usa-headings {
   .usa-heading-3xl {
-    @include typeset-heading-3xl;
+    @extend %usa-heading-3xl;
   }
 
   .usa-heading-2xl {
-    @include typeset-heading-2xl;
+    @extend %usa-heading-2xl;
   }
 
   .usa-heading-xl {
-    @include typeset-heading-xl;
+    @extend %usa-heading-xl;
   }
 
   .usa-heading-lg {
-    @include typeset-heading-lg;
+    @extend %usa-heading-lg;
   }
 
   .usa-heading-md {
-    @include typeset-heading-md;
+    @extend %usa-heading-md;
   }
 
   .usa-heading-sm {
-    @include typeset-heading-sm;
+    @extend %usa-heading-sm;
   }
 
   .usa-heading-xs {
-    @include typeset-heading-xs;
+    @extend %usa-heading-xs;
   }
 
   .usa-heading-2xs {
-    @include typeset-heading-2xs;
+    @extend %usa-heading-2xs;
   }
 
   .usa-heading-3xs {
-    @include typeset-heading-3xs;
+    @extend %usa-heading-3xs;
   }
 }
 
@@ -66,6 +66,7 @@ html {
 
 .usa-prose {
   @include typeset($theme-prose-font-family);
+  // TODO: check that adjacency selectors are working properly in context
   @include usa-headings;
   @include usa-texts;
   & > {
@@ -162,8 +163,48 @@ dfn {
   }
 }
 
+%usa-text-body {
+  @include typeset-p;
+}
+
 %usa-paragraph {
   @include typeset-p;
+}
+
+%usa-heading-3xl {
+  @include typeset-heading-3xl;
+}
+
+%usa-heading-2xl {
+  @include typeset-heading-2xl;
+}
+
+%usa-heading-xl {
+  @include typeset-heading-xl;
+}
+
+%usa-heading-lg {
+  @include typeset-heading-lg;
+}
+
+%usa-heading-md {
+  @include typeset-heading-md;
+}
+
+%usa-heading-sm {
+  @include typeset-heading-sm;
+}
+
+%usa-heading-xs {
+  @include typeset-heading-xs;
+}
+
+%usa-heading-2xs {
+  @include typeset-heading-2xs;
+}
+
+%usa-heading-3xs {
+  @include typeset-heading-3xs;
 }
 
 %usa-heading {
