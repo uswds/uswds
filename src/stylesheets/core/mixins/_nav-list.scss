@@ -6,7 +6,7 @@ $sidenav-level-4-inset: 8;
 @mixin nav-list {
   @include unstyled-list();
 
-  &-item {
+  &__item {
     border-top: units(1px) solid color('base-lighter');
   }
 
@@ -56,7 +56,7 @@ $sidenav-level-4-inset: 8;
   @include unstyled-list();
   margin: 0;
 
-  &-item {
+  &__item {
     border-top: units(1px) solid color('base-lighter');
     font-size: font-size($theme-sidenav-font-family, '2xs');
   }
