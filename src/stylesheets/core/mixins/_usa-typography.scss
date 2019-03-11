@@ -20,28 +20,58 @@
     @extend %usa-heading;
   }
 
-  h1 {
-    @include heading-2xl;
+  @if $theme-heading-3xl-assign {
+    #{$theme-heading-3xl-assign} {
+      @include heading-3xl;
+    }
   }
 
-  h2 {
-    @include heading-xl;
+  @if $theme-heading-2xl-assign {
+    #{$theme-heading-2xl-assign} {
+      @include heading-2xl;
+    }
   }
 
-  h3 {
-    @include heading-lg;
+  @if $theme-heading-xl-assign {
+    #{$theme-heading-xl-assign} {
+      @include heading-xl;
+    }
   }
 
-  h4 {
-    @include heading-sm;
+  @if $theme-heading-lg-assign {
+    #{$theme-heading-lg-assign} {
+      @include heading-lg;
+    }
   }
 
-  h5 {
-    @include heading-xs;
+  @if $theme-heading-md-assign {
+    #{$theme-heading-md-assign} {
+      @include heading-md;
+    }
   }
 
-  h6 {
-    @include heading-3xs;
+  @if $theme-heading-sm-assign {
+    #{$theme-heading-sm-assign} {
+      @include heading-sm;
+    }
+  }
+
+  @if $theme-heading-xs-assign {
+    #{$theme-heading-xs-assign} {
+      @include heading-xs;
+    }
+  }
+
+  @if $theme-heading-2xs-assign {
+    #{$theme-heading-2xs-assign} {
+      @include heading-2xs;
+    }
+  }
+
+  @if $theme-heading-3xs-assign {
+    #{$theme-heading-3xs-assign} {
+      @include heading-3xs;
+    }
   }
 }
 

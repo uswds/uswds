@@ -407,46 +407,55 @@ $theme-heading-3xl-font-size:      '3xl' !default;
 $theme-heading-3xl-font-family:    $theme-heading-font-family !default;
 $theme-heading-3xl-line-height:    $theme-heading-line-height !default;
 $theme-heading-3xl-text-styles:    $theme-heading-text-styles !default;
+$theme-heading-3xl-assign:         'h8' !default;
 
 $theme-heading-2xl-font-size:      '2xl' !default;
 $theme-heading-2xl-font-family:    $theme-heading-font-family !default;
 $theme-heading-2xl-line-height:    $theme-heading-line-height !default;
 $theme-heading-2xl-text-styles:    $theme-heading-text-styles !default;
+$theme-heading-2xl-assign:         'h1' !default;
 
 $theme-heading-xl-font-size:       'xl' !default;
 $theme-heading-xl-font-family:     $theme-heading-font-family !default;
 $theme-heading-xl-line-height:     $theme-heading-line-height !default;
 $theme-heading-xl-text-styles:     $theme-heading-text-styles !default;
+$theme-heading-xl-assign:          'h2' !default;
 
 $theme-heading-lg-font-size:       'lg' !default;
 $theme-heading-lg-font-family:     $theme-heading-font-family !default;
 $theme-heading-lg-line-height:     $theme-heading-line-height !default;
 $theme-heading-lg-text-styles:     $theme-heading-text-styles !default;
+$theme-heading-lg-assign:          'h3' !default;
 
 $theme-heading-md-font-size:       'md' !default;
 $theme-heading-md-font-family:     $theme-heading-font-family !default;
 $theme-heading-md-line-height:     $theme-heading-line-height !default;
 $theme-heading-md-text-styles:     $theme-heading-text-styles !default;
+$theme-heading-md-assign:          false !default;
 
 $theme-heading-sm-font-size:       'sm' !default;
 $theme-heading-sm-font-family:     $theme-heading-font-family !default;
 $theme-heading-sm-line-height:     $theme-heading-line-height !default;
 $theme-heading-sm-text-styles:     $theme-heading-text-styles !default;
+$theme-heading-sm-assign:          'h4' !default;
 
 $theme-heading-xs-font-size:       'xs' !default;
 $theme-heading-xs-font-family:     $theme-heading-font-family !default;
 $theme-heading-xs-line-height:     $theme-heading-line-height !default;
 $theme-heading-xs-text-styles:     $theme-heading-text-styles !default;
+$theme-heading-xs-assign:          'h5' !default;
 
 $theme-heading-2xs-font-size:      '2xs' !default;
 $theme-heading-2xs-font-family:    $theme-heading-font-family !default;
 $theme-heading-2xs-line-height:    $theme-heading-line-height !default;
 $theme-heading-2xs-text-styles:    $theme-heading-text-styles !default;
+$theme-heading-2xs-assign:         false !default;
 
 $theme-heading-3xs-font-size:      '3xs' !default;
 $theme-heading-3xs-font-family:    'sans' !default;
 $theme-heading-3xs-line-height:    $theme-heading-line-height !default;
 $theme-heading-3xs-text-styles:    'normal', 'ls-1', 'uppercase' !default;
+$theme-heading-3xs-assign:          'h6' !default;
 
 $theme-small-font-size:            '2xs' !default;
 $theme-title-font-size:            '3xl' !default;
