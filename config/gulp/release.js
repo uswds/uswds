@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var dutil = require('./doc-util');
 var spawn = require('cross-spawn');
-var runSequence = require('run-sequence');
 var del = require('del');
 var task = 'release';
 
@@ -60,14 +59,15 @@ gulp.task('zip-archives', function (done) {
 
 });
 
-gulp.task(task, [ 'build' ], function (done) {
-
-  dutil.logMessage(task, 'Creating a zip archive at dist/' + dutil.dirName + '.zip');
-
-  runSequence(
+gulp.task(task,
+  gulp.series(
+    function (done) {
+      dutil.logMessage(task, 'Creating a zip archive at dist/' + dutil.dirName + '.zip');
+      done();
+    },
+    'build',
     'make-tmp-directory',
     'zip-archives',
     'clean-tmp-directory',
-    done
-  );
-});
+  )
+);

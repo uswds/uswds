@@ -13,7 +13,6 @@ var pkg = require('../../package.json');
 var path = require('path');
 var filter = require('gulp-filter');
 var replace = require('gulp-replace');
-var runSequence = require('run-sequence');
 var stripCssComments = require('gulp-strip-css-comments');
 var del = require('del');
 var task = 'sass';
@@ -80,7 +79,7 @@ gulp.task('copy-dist-sass', function () {
   return stream;
 });
 
-gulp.task(task, [ 'copy-vendor-sass' ], function () {
+gulp.task(task, gulp.series('copy-vendor-sass'), function () {
   dutil.logMessage(task, 'Compiling Sass');
   var plugins = [
     autoprefixer(autoprefixerOptions),
