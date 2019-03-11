@@ -61,8 +61,8 @@
 
 .usa-footer__secondary-link {
   line-height: line-height($theme-footer-font-family, 2);
-  padding: 0;
   margin-left: units(2);
+  padding: 0;
 
   a {
     @include typeset-link;
