@@ -41,13 +41,14 @@ html {
 // [href^="http:"]:not([href*="my-domain.com"])
 // [href^="https:"]:not([href*="my-domain.com"])
 
-.usa-external-link {
+.usa-link--external {
   @include external-link(external-link, external-link-hover);
+
+  &.usa-link--alt {
+    @include external-link(external-link-alt, external-link-alt-hover);
+  }
 }
 
-.usa-external-link-alt {
-  @include external-link(external-link-alt, external-link-alt-hover);
-}
 
 // Remove user agent styles
 
