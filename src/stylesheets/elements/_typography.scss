@@ -15,6 +15,61 @@
 }
 
 @mixin usa-headings {
+
+  @if $theme-heading-3xl-assign {
+    .usa-heading-#{$theme-heading-3xl-assign} {
+      @extend %usa-heading-3xl;
+    }
+  }
+
+  @if $theme-heading-2xl-assign {
+    .usa-heading-#{$theme-heading-2xl-assign} {
+      @extend %usa-heading-2xl;
+    }
+  }
+
+  @if $theme-heading-xl-assign {
+    .usa-heading-#{$theme-heading-xl-assign} {
+      @extend %usa-heading-xl;
+    }
+  }
+
+  @if $theme-heading-lg-assign {
+    .usa-heading-#{$theme-heading-lg-assign} {
+      @extend %usa-heading-lg;
+    }
+  }
+
+  @if $theme-heading-md-assign {
+    .usa-heading-#{$theme-heading-md-assign} {
+      @extend %usa-heading-md;
+    }
+  }
+
+  @if $theme-heading-sm-assign {
+    .usa-heading-#{$theme-heading-sm-assign} {
+      @extend %usa-heading-sm;
+    }
+  }
+
+  @if $theme-heading-xs-assign {
+    .usa-heading-#{$theme-heading-xs-assign} {
+      @extend %usa-heading-xs;
+    }
+  }
+
+  @if $theme-heading-2xs-assign {
+    .usa-heading-#{$theme-heading-2xs-assign} {
+      @extend %usa-heading-2xs;
+    }
+  }
+
+  @if $theme-heading-3xs-assign {
+    .usa-heading-#{$theme-heading-3xs-assign} {
+      @extend %usa-heading-3xs;
+    }
+  }
+
   .usa-heading-3xl {
     @extend %usa-heading-3xl;
   }
