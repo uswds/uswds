@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var dutil = require('./doc-util');
-var clean = require('gulp-clean');
+var del = require('del');
 
 gulp.task('clean-dist', function (done) {
 
@@ -14,7 +14,7 @@ gulp.task('clean-dist', function (done) {
 
   dutil.logMessage('clean-dist', 'Removing distribution directories.');
 
-  return gulp.src([ 'dist' ], { read: false }).pipe(clean());
+  return del('dist');
 
 });
 
