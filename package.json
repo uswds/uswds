@@ -105,7 +105,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-spawn-mocha": "^5.0.1",
     "gulp-strip-css-comments": "^2.0.0",
-    "gulp-stylelint": "^2.0.2",
+    "gulp-stylelint": "^8.0.0",
     "gulp-uglify": "^1.5.1",
     "gulp-zip": "^3.1.0",
     "handlebars": "^4.0.12",
