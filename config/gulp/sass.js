@@ -61,7 +61,6 @@ gulp.task('copy-vendor-sass', function () {
   ])
     .pipe(normalizeCssFilter)
     .pipe(rename('_normalize.scss'))
-    .pipe(normalizeCssFilter.restore)
     .on('error', function (error) {
       dutil.logError('copy-vendor-sass', error);
     })
