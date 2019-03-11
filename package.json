@@ -101,7 +101,7 @@
     "gulp-filter": "^5.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-spawn-mocha": "^3.3.1",
     "gulp-strip-css-comments": "^2.0.0",
