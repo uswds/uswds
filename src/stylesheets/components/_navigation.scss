@@ -100,7 +100,7 @@ $nav-link-arrow-icon-size: 1;
   // Until the $theme-navigation-width,
   // use the usa-nav-list styles for the slide-in nav
   @include at-media-max($theme-navigation-width) {
-    @include nav-list;
+    @include nav-list('nav');
     margin-top: units(3);
     order: 2;
 
