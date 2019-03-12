@@ -599,17 +599,19 @@ role-based font token.
 
 @function get-font-stack($token) {
   $type-token: convert-to-font-type($token);
+  $output-display-name: true;
   $this-stack: null;
   $this-font-map: map-get($project-font-type-tokens, $type-token);
   @if map-get($this-font-map, 'typeface-token') {
     $this-font-token: map-get($this-font-map, 'typeface-token');
-    $this-name: map-deep-get(
-      $all-typeface-tokens,
-      $this-font-token,
-      'display-name'
-    );
+    $this-typeface-data: map-get($all-typeface-tokens, $this-font-token);
+    $this-name: map-get($this-typeface-data, 'display-name');
+    @if map-has-key($this-typeface-data, 'system-font') {
+      $output-display-name: false;
+    }
     @if map-get($this-font-map, 'custom-stack') {
       $this-stack: map-get($this-font-map, 'custom-stack');
+      $output-display-name: true;
     }
     @else {
       $this-stack: map-deep-get(
@@ -617,6 +619,12 @@ role-based font token.
         $this-font-token,
         'stack'
       );
+    }
+    @if map-get($this-typeface-data, 'display-name') == null {
+      $output-display-name: false;
+    }
+    @if not $output-display-name {
+      @return #{$this-stack};
     }
     @return #{$this-name}, #{$this-stack};
   }
