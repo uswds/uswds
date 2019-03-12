@@ -64,7 +64,7 @@
     "del": "^2.2.0",
     "domready": "^1.0.8",
     "elem-dataset": "^1.1.1",
-    "gulp-postcss": "^7.0.1",
+    "gulp-postcss": "^8.0.0",
     "lodash.debounce": "^4.0.7",
     "object-assign": "^4.1.1",
     "receptor": "^1.0.0",
