@@ -166,8 +166,8 @@ $input-select-margin-right: 1.5;
   }
 }
 
-.usa-checkbox-input,
-.usa-radio-input {
+.usa-checkbox__input,
+.usa-radio__input {
   // The actual input element is only visible to screen readers, because
   // all visual styling is done via the label.
   @include sr-only();
@@ -181,8 +181,8 @@ $input-select-margin-right: 1.5;
   }
 }
 
-.usa-checkbox-label,
-.usa-radio-label {
+.usa-checkbox__label,
+.usa-radio__label {
   cursor: pointer;
   display: inherit;
   font-weight: font-weight('normal');
@@ -192,8 +192,8 @@ $input-select-margin-right: 1.5;
   text-indent: units(-$input-select-margin-right - $theme-input-select-size);
 }
 
-.usa-checkbox-label::before,
-.usa-radio-label::before {
+.usa-checkbox__label::before,
+.usa-radio__label::before {
   background: color('white');
   content: '\a0';
   display: inline-block;
@@ -202,29 +202,29 @@ $input-select-margin-right: 1.5;
   vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
 }
 
-.usa-checkbox-label::before {
+.usa-checkbox__label::before {
   @include u-square($theme-input-select-size);
   border-radius: radius($theme-checkbox-border-radius);
 }
 
-.usa-radio-label::before {
+.usa-radio__label::before {
   @include u-circle($theme-input-select-size);
 }
 
-.usa-checkbox-label::before,
-.usa-radio-label::before {
+.usa-checkbox__label::before,
+.usa-radio__label::before {
   box-shadow: 0 0 0 units($theme-input-select-border-width) color('base');
   line-height: units($theme-input-select-size);
   margin-right: units($input-select-margin-right);
 }
 
-.usa-checkbox-input:checked + .usa-checkbox-label::before,
-.usa-radio-input:checked + .usa-radio-label::before {
+.usa-checkbox__input:checked + .usa-checkbox__label::before,
+.usa-radio__input:checked + .usa-radio__label::before {
   background-color: color('primary');
   box-shadow: 0 0 0 units($theme-input-select-border-width) color('primary');
 }
 
-.usa-radio-input:checked + .usa-radio-label::before {
+.usa-radio__input:checked + .usa-radio__label::before {
   box-shadow:
     0 0 0 units($theme-input-select-border-width) color('primary'),
     inset 0 0 0 units($theme-input-select-border-width) color('white');
@@ -237,8 +237,8 @@ $input-select-margin-right: 1.5;
   }
 }
 
-.usa-checkbox-input:checked + .usa-checkbox-label::before,
-.usa-checkbox-input:checked:disabled + .usa-checkbox-label::before {
+.usa-checkbox__input:checked + .usa-checkbox__label::before,
+.usa-checkbox__input:checked:disabled + .usa-checkbox__label::before {
   @include add-background-svg('correct8');
   background-position: center center;
 
@@ -251,20 +251,20 @@ $input-select-margin-right: 1.5;
   }
 }
 
-.usa-radio-input:focus + .usa-radio-label::before {
+.usa-radio__input:focus + .usa-radio__label::before {
   @include focus-outline(null, null, null, 0.5);
 }
 
-.usa-checkbox-input:disabled + .usa-checkbox-label {
+.usa-checkbox__input:disabled + .usa-checkbox__label {
   color: color('disabled');
 }
 
-.usa-checkbox-input:focus + .usa-checkbox-label::before {
+.usa-checkbox__input:focus + .usa-checkbox__label::before {
   @include focus-outline;
 }
 
-.usa-checkbox-input:disabled + .usa-checkbox-label::before,
-.usa-radio-input:disabled + .usa-radio-label::before {
+.usa-checkbox__input:disabled + .usa-checkbox__label::before,
+.usa-radio__input:disabled + .usa-radio__label::before {
   background: color('disabled-light');
   box-shadow: 0 0 0 units($theme-input-select-border-width) color('disabled');
   cursor: not-allowed;
