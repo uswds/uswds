@@ -225,7 +225,16 @@ $input-select-margin-right: 1.5;
 }
 
 .usa-radio-input:checked + .usa-radio-label::before {
-  box-shadow: 0 0 0 units($theme-input-select-border-width) color('primary'), inset 0 0 0 units($theme-input-select-border-width) color('white');
+  box-shadow:
+    0 0 0 units($theme-input-select-border-width) color('primary'),
+    inset 0 0 0 units($theme-input-select-border-width) color('white');
+
+  @media print {
+    box-shadow:
+      inset 0 0 0 units($theme-input-select-border-width) color('white'),
+      inset 0 0 0 units(2) color('primary'),
+      0 0 0 units($theme-input-select-border-width) color('primary');
+  }
 }
 
 .usa-checkbox-input:checked + .usa-checkbox-label::before,
