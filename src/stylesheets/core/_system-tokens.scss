@@ -177,16 +177,19 @@ $system-typeface-tokens: (
     display-name: null,
     cap-height: 362px,
     stack: $font-stack-system,
+    system-font: true,
   ),
   'georgia': (
     display-name: 'Georgia',
     cap-height: 346px,
     stack: $font-stack-georgia,
+    system-font: true,
   ),
   'helvetica': (
     display-name: 'Helvetica',
     cap-height: 357px,
     stack: $font-stack-helvetica,
+    system-font: true,
   ),
   'tahoma': (
     display-name: 'Tahoma',
