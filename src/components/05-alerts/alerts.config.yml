@@ -56,4 +56,4 @@ variants:
     context:
       alert:
         classes: "usa-alert--info usa-alert--slim"
-        content: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
