@@ -11,14 +11,14 @@ variants:
     context:
       alert:
         classes: "usa-alert--info"
-        title: Information Status
+        title: Informative status
 
   - name: info
     label: Success
     context:
       alert:
         classes: "usa-alert--success"
-        title: Success Status
+        title: Success status
 
 
   - name: warning
@@ -26,14 +26,14 @@ variants:
     context:
       alert:
         classes: "usa-alert--warning"
-        title: Warning Status
+        title: Warning status
 
   - name: error
     label: Error
     context:
       alert:
         classes: "usa-alert--error"
-        title: Error Status
+        title: Error status
         role: "alert"
 
   - name: paragraph
@@ -41,7 +41,7 @@ variants:
     context:
       alert:
         classes: "usa-alert--info usa-alert__paragraph"
-        title: Information Status - Paragraph Width
+        title: "Informative status: Paragraph width"
         content: "Multi line. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui atione voluptatem sequi nesciunt. Neque porro quisquam est, qui doloremipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
 
   - name: no-header
@@ -49,11 +49,11 @@ variants:
     context:
       alert:
         classes: "usa-alert--info"
-        content: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 
   - name: slim
     label: Slim
     context:
       alert:
         classes: "usa-alert--info usa-alert--slim"
-        content: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
