@@ -95,7 +95,7 @@
     "eslint-plugin-import": "^2.16.0",
     "fancy-log": "^1.3.3",
     "gulp": "^4.0.0",
-    "gulp-cli": "^1.4.0",
+    "gulp-cli": "^2.0.1",
     "gulp-cssnano": "^2.1.2",
     "gulp-eslint": "^5.0.0",
     "gulp-filter": "^5.1.0",
