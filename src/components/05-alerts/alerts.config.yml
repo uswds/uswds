@@ -49,7 +49,7 @@ variants:
     context:
       alert:
         classes: "usa-alert--info"
-        content: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
 
   - name: slim
     label: Slim
