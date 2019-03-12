@@ -598,25 +598,41 @@ role-based font token.
 */
 
 @function get-font-stack($token) {
+  // Start by converting to a type token (sans, serif, etc)
   $type-token: convert-to-font-type($token);
+  $output-display-name: true;
   $this-stack: null;
+  // Get the font type metadata
   $this-font-map: map-get($project-font-type-tokens, $type-token);
+  // Only output if the font type has an assigned typeface token
   @if map-get($this-font-map, 'typeface-token') {
     $this-font-token: map-get($this-font-map, 'typeface-token');
-    $this-name: map-deep-get(
-      $all-typeface-tokens,
-      $this-font-token,
-      'display-name'
-    );
+    // Get the typeface metadata
+    $this-typeface-data: map-get($all-typeface-tokens, $this-font-token);
+    $this-name: map-get($this-typeface-data, 'display-name');
+    // If it's a system typeface, don't output the display name
+    @if map-has-key($this-typeface-data, 'system-font') {
+      $output-display-name: false;
+    }
+    // If there's a custom stack, use it and output the display name
     @if map-get($this-font-map, 'custom-stack') {
       $this-stack: map-get($this-font-map, 'custom-stack');
+      $output-display-name: true;
     }
+    // Otherwise, just get the token's default stack
     @else {
       $this-stack: map-deep-get(
         $all-typeface-tokens,
         $this-font-token,
         'stack'
       );
+    }
+    // If the typeface has no display name (system fonts), don't output the display name 
+    @if map-get($this-typeface-data, 'display-name') == null {
+      $output-display-name: false;
+    }
+    @if not $output-display-name {
+      @return #{$this-stack};
     }
     @return #{$this-name}, #{$this-stack};
   }
