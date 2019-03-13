@@ -195,6 +195,16 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   }
 }
 
-.usa-button-unstyled {
-  @include button-unstyled;
+.usa-button,
+.usa-button--accent-cool,
+.usa-button--base,
+.usa-button--inverse,
+.usa-button--outline,
+.usa-button--secondary {
+  &.usa-button--unstyled {
+    @include button-unstyled;
+  }
 }
+
+// TODO: inverse unstyled
+// TODO: big unstyled
