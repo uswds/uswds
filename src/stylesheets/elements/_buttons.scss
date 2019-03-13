@@ -198,6 +198,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 .usa-button,
 .usa-button--accent-cool,
 .usa-button--base,
+.usa-button--big,
 .usa-button--inverse,
 .usa-button--outline,
 .usa-button--secondary {
@@ -206,5 +207,17 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   }
 }
 
-// TODO: inverse unstyled
-// TODO: big unstyled
+.usa-button--inverse {
+  &.usa-button--unstyled {
+    // TODO: inverse unstyled
+  }
+}
+
+.usa-button--big {
+  &.usa-button--unstyled {
+    // TODO: big unstyled
+  }
+}
+
+// TODO: check other components that might use the old class
+// TODO: check usage on uswds-site
