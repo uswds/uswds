@@ -20,7 +20,7 @@ var autoprefixerOptions = require('./browsers');
 var path = require('path');
 
 var entryFileFilter = filter('uswds.scss', { restore: true });
-var normalizeCssFilter = filter('normalize.css', { restore: true });
+var normalizeCssFilter = filter('**/normalize.css', { restore: true });
 
 const IGNORE_STRING = 'This file is ignored';
 const ignoreStylelintIgnoreWarnings = lintResults =>
