@@ -36,7 +36,6 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [Defense Digital Service](https://www.dds.mil/)
 - [Defense Nuclear Facilities Safety Board](https://www.dnfsb.gov/)
 - [Department of Commerce](https://commerce.gov/)
-- [Department of Commerce (beta)](https://beta.commerce.gov/)
 - [Department of Homeland Security](https://www.dhs.gov/)
 - [Dietary Guidelines - USDA](https://www.dietaryguidelines.gov/)
 - [Digital Acquisition Accelerator](https://pages.18f.gov/digitalaccelerator/)
