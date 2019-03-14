@@ -141,7 +141,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [U.S. Data Federation](http://federation.data.gov/)
 - [U.S. Department of Agriculture (USDA)](https://www.usda.gov/)
 - [U.S. Department of Labor](https://www.dol.gov/)
-- [U.S. Department of the Treasury](https://home.treasury.gov)
+- [U.S. Department of the Treasury](https://treasury.gov)
 - [U.S. Department of Veterans Affairs](https://va.gov)
 - [U.S. Digital Service](https://www.usds.gov/)
 - [U.S. Emerging Citizen Technology Atlas](https://emerging.digital.gov/)
