@@ -96,5 +96,5 @@ const search = behavior({
 
 module.exports = assign(
   el => search.on(el),
-  search,
+  search
 );

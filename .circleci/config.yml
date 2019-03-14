@@ -39,7 +39,7 @@ jobs:
       - run:
           name: Checking build
           command: |
-            if [[ $(echo "$CIRCLE_BRANCH" | grep -c "pull") -lt 0 ]]; then
+            if [[ $(echo "$CIRCLE_BRANCH" | grep -c "pull") -le 0 ]]; then
               ls -agolf dist/
               codeclimate-test-reporter < coverage/lcov.info
             fi

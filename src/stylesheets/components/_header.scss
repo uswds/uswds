@@ -174,7 +174,6 @@ $z-index-nav:     9000;
     @include media($nav-width) {
       @include outer-container($site-max-width);
       @include padding(null $site-margins null 1.5rem);
-      margin-top: -1px;
       position: relative;
     }
   }
@@ -213,4 +212,17 @@ $z-index-nav:     9000;
       padding-left: $site-margins;
     }
   }
+
+  // Temp code for v1 to force show the search at mobile, not dekstop
+  /* stylelint-disable selector-no-id, declaration-no-important  */
+  .usa-search {
+    &[hidden] {
+      display: block !important;
+
+      @include media($nav-width) {
+        display: none !important;
+      }
+    }
+  }
+  /* stylelint-enable */
 }

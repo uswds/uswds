@@ -45,3 +45,9 @@ for more information.
 [source map]: https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/
 [uglifyjs]: https://github.com/mishoo/UglifyJS2
 [uglifyify]: https://github.com/hughsk/uglifyify
+
+### JS bundling guidance
+- You don't need to use `babelify` if you're just using `require('uswds')`, because our ["main" field](https://github.com/18F/web-design-standards/blob/develop/package.json#L5) points to the built distribution.
+- If you wish to import uswds submodules directly with browserify,
+ such as `require('uswds/src/js/components/accordion')`, you should use `babelify` as a global transform.
+- If you're using `babelify` (or another Babel-powered browserify transform) already, you can access the ES2015 entry point directly with `require('uswds/src/js/start')`. **Note that you must either use the transform globally, or tell it _not_ to exclude scripts in `node_modules`.**

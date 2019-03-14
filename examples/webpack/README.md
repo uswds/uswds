@@ -28,3 +28,7 @@ for more information.
 [es2015]: https://babeljs.io/learn-es2015/
 [npm]: https://docs.npmjs.com/getting-started/what-is-npm
 [source map]: https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/
+
+### JS bundling guidance
+- Because webpack 2 understands ES2015 natively, it's safe to use one of the above techniques import the original sources.
+- As of this writing, it's not possible to take advantage of [tree shaking](https://webpack.js.org/guides/tree-shaking/) because the Standards source JavaScript doesn't use the `import`/`export` module syntax.

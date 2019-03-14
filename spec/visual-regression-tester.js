@@ -153,7 +153,7 @@ if (!module.parent) {
       const mocha = path.join(ROOT_DIR, 'node_modules', '.bin', 'mocha');
       const mochaArgs = [
         '--opts', path.join(SPEC_DIR, 'mocha.opts'),
-        path.join(SPEC_DIR, 'headless-chrome.spec.js'),
+        path.join(SPEC_DIR, 'headless-chrome.js'),
       ];
       if (argv.grep) {
         mochaArgs.push('-g', argv.grep);
