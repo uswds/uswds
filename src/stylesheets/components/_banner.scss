@@ -180,12 +180,12 @@
 
     @include at-media-max('tablet') {
       @include add-icon('close-blue-60v-alt',
-        'after',
-        $theme-icon-image-size,
-        $size-touch-target,
-        0,
-        'no-hover'
-      );
+      'after',
+      $theme-icon-image-size,
+      $size-touch-target,
+      0,
+      'no-hover'
+    );
 
       &::after {
         @include u-pin('y');

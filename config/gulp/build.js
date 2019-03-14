@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var dutil = require('./doc-util');
-var clean = require('gulp-clean');
-var runSequence = require( 'run-sequence' );
+var del = require('del');
 
 gulp.task('clean-dist', function (done) {
 
@@ -15,7 +14,7 @@ gulp.task('clean-dist', function (done) {
 
   dutil.logMessage('clean-dist', 'Removing distribution directories.');
 
-  return gulp.src([ 'dist' ], { read: false }).pipe(clean());
+  return del('dist');
 
 });
 
@@ -34,27 +33,26 @@ gulp.task('docs', function (done) {
 
 });
 
-gulp.task('build', function (done) {
-
-  dutil.logIntroduction();
-  dutil.logMessage(
-    'build',
-    'Creating distribution directories.'
-  );
-
-  runSequence(
-    'clean-dist',
+gulp.task('build',
+  gulp.series(
+    function (done) {
+      dutil.logIntroduction();
+      dutil.logMessage(
+        'build',
+        'Creating distribution directories.'
+      );
+      done();
+      },
+    'clean-dist', 
     'docs',
-    [
+    gulp.parallel(
       'sass',
       'javascript',
       'images',
       'fonts',
-    ],
+    ),
     // We need to copy the Sass to dist *after* the sass task, to ensure
     // that vendor libraries have been copied to the Sass directory first.
     'copy-dist-sass',
-    done
-  );
-
-});
+  ),
+);
