@@ -172,7 +172,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [VA Office of Information and Technology](https://www.oit.va.gov/)
 - [Virtual Student Foreign Service](http://vsfs.state.gov/)
 - [vote.gov](https://vote.gov/)
-- [Water Data for the Nation UI (USGS)](https://waterdata.usgs.gov/blog/)
+- [Water Data for the Nation (USGS)](https://waterdata.usgs.gov/blog/)
 - [We the People (Petition the White House)](https://petitions.whitehouse.gov/)
 - [The White House](https://www.whitehouse.gov/)
 - [WIC Works Resource System - USDA](https://wicworks.fns.usda.gov/)
