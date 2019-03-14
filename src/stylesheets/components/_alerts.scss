@@ -124,6 +124,10 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 
 .usa-alert--no-icon {
   background-image: none;
+
+  .usa-alert__body {
+    padding-left: 0;
+  }
 }
 
 .usa-alert__paragraph {
