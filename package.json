@@ -59,7 +59,7 @@
   "dependencies": {
     "@types/node": "^8.10.39",
     "array-filter": "^1.0.0",
-    "browserify": "^13.0.0",
+    "browserify": "^16.2.3",
     "classlist-polyfill": "^1.0.3",
     "del": "^2.2.0",
     "domready": "^1.0.8",
