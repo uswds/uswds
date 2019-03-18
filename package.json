@@ -23,7 +23,7 @@
     "release": "gulp build release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
     "start": "fractal start --sync",
-    "test": "gulp eslint typecheck stylelint test regression",
+    "test": "snyk test && gulp eslint typecheck stylelint test regression",
     "test:unit": "gulp test",
     "test:visual": "node ./spec/visual-regression-tester.js test",
     "test:visual:update": " node ./spec/visual-regression-tester.js test --updateGolden",
@@ -58,7 +58,7 @@
     "@types/node": "^8.5.5",
     "array-filter": "^1.0.0",
     "array-foreach": "^1.0.2",
-    "browserify": "^13.0.0",
+    "browserify": "^13.3.0",
     "classlist-polyfill": "^1.0.3",
     "domready": "^1.0.8",
     "elem-dataset": "^1.1.1",
@@ -118,6 +118,7 @@
     "should": "^11.2.1",
     "sinon": "^2.3.8",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^1.1.2"
+    "vinyl-source-stream": "^1.1.2",
+    "snyk": "^1.136.1"
   }
 }
