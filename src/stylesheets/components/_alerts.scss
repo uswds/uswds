@@ -25,7 +25,6 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 .usa-alert {
   @include typeset($theme-alert-font-family);
   @include border-box-sizing;
-
   background-color: color('base-lightest');
   background-position: units($theme-alert-padding-x) units($theme-alert-padding-x);
   background-repeat: no-repeat;
@@ -124,6 +123,10 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 
 .usa-alert--no-icon {
   background-image: none;
+
+  .usa-alert__body {
+    padding-left: 0;
+  }
 }
 
 .usa-alert__paragraph {

@@ -322,9 +322,9 @@ Return null if the value is null
 @function get-last($props) {
   $length: length($props);
   $last: if($length == 0,
-    null,
-    nth($props, -1)
-  );
+  null,
+  nth($props, -1)
+);
 
   @return $last;
 }
@@ -627,7 +627,7 @@ role-based font token.
         'stack'
       );
     }
-    // If the typeface has no display name (system fonts), don't output the display name 
+    // If the typeface has no display name (system fonts), don't output the display name
     @if map-get($this-typeface-data, 'display-name') == null {
       $output-display-name: false;
     }
@@ -1042,9 +1042,9 @@ the desired final units (currently rem)
 
 @function units($value) {
   $converted: if(type-of($value) == 'string',
-    quote($value),
-    number-to-token($value)
-  );
+  quote($value),
+  number-to-token($value)
+);
 
   @if not map-has-key($project-spacing-standard, $converted) {
     @error '`#{$value}` is not a valid spacing unit token. '
