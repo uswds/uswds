@@ -129,7 +129,7 @@ And that’s it — you should now be able to copy our code samples into your `i
 
 1. Install `Node/npm`. Below is a link to find the install method that coincides with your operating system:
 
-    - Node v10.15.1+, [Installation guides](https://nodejs.org/en/download/)
+    - Node v10.15.1, [Installation guides](https://nodejs.org/en/download/)
 
     **Note for Windows users:** If you are using Windows and are unfamiliar with `Node` or `npm`, we recommend following [Team Treehouse's tutorial](http://blog.teamtreehouse.com/install-node-js-npm-windows) for more information.
 
