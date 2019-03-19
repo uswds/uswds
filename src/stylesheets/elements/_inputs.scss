@@ -92,7 +92,7 @@ $input-select-margin-right: 1.5;
   margin-top: 0;
 }
 
-.usa-input-error-message {
+.usa-error-message {
   @include u-padding-y(0.5);
   color: color('error-dark');
   display: block;
