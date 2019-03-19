@@ -68,10 +68,6 @@ dfn {
   }
 }
 
-.usa-content-list {
-  max-width: measure($theme-text-measure);
-}
-
 .usa-display {
   @include typeset-h3;
   margin-bottom: 0;
