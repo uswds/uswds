@@ -36,7 +36,7 @@ $input-select-margin-right: 1.5;
 .usa-textarea,
 .usa-select,
 .usa-range,
-.usa-form-hint {
+.usa-hint {
   @include border-box-sizing;
   @include typeset(
     $theme-form-font-family,
@@ -99,7 +99,7 @@ $input-select-margin-right: 1.5;
   font-weight: font-weight('bold');
 }
 
-.usa-input-label-helper {
+.usa-hint {
   color: color('base');
 }
 
@@ -145,13 +145,6 @@ $input-select-margin-right: 1.5;
 .usa-legend {
   font-size: font-size($theme-form-font-family, 'xl');
   font-weight: font-weight('bold');
-}
-
-// Hint text
-
-.usa-form-hint {
-  color: color('base');
-  margin-bottom: 0;
 }
 
 // Custom checkboxes
