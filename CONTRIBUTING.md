@@ -73,7 +73,7 @@ npm test
 ```
 
 This will also run [eslint] and [stylelint] to ensure that the JavaScript
-and SCSS source files meet our coding standards. To lint without the unit
+and SCSS source files meet our coding standards along with [snyk test] to check for package dependency vulnerabilities. To lint without the unit
 tests, you'll need [Gulp][]. Install it globally (`npm install -g
 gulp-cli`), then run:
 
