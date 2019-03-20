@@ -10,8 +10,7 @@ references:
   restore_deps: &restore_deps
     restore_cache:
       keys:
-        - v1-uswds-dependencies-{{ checksum "package-lock.json" }}
-        - v1-uswds-dependencies-
+        - v2-uswds-dependencies-{{ checksum "package-lock.json" }}
 
 jobs:
   build:
@@ -26,7 +25,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v1-uswds-dependencies-{{ checksum "package-lock.json" }}
+          key: v2-uswds-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Run test
           command: npm test
