@@ -126,12 +126,12 @@ Units
 */
 
 $system-spacing-em: (
- small: (
-   '05em':  .5em,
-   1em:     1em,
-   105em:   1.5em,
-   2em:     2em,
- ),
+  small: (
+    '05em':  .5em,
+    1em:     1em,
+    105em:   1.5em,
+    2em:     2em,
+  ),
 );
 
 /*
@@ -177,16 +177,19 @@ $system-typeface-tokens: (
     display-name: null,
     cap-height: 362px,
     stack: $font-stack-system,
+    system-font: true,
   ),
   'georgia': (
     display-name: 'Georgia',
     cap-height: 346px,
     stack: $font-stack-georgia,
+    system-font: true,
   ),
   'helvetica': (
-    display-name: 'Helvetica',
+    display-name: 'Helvetica Neue',
     cap-height: 357px,
     stack: $font-stack-helvetica,
+    system-font: true,
   ),
   'tahoma': (
     display-name: 'Tahoma',
@@ -366,11 +369,12 @@ Measure
 ----------------------------------------
 */
 
-$system-measure-smaller:      40ch;
-$system-measure-small:        60ch;
-$system-measure-base:         66ch;
-$system-measure-large:        72ch;
-$system-measure-larger:       77ch;
+$system-measure-smaller:      44ex;
+$system-measure-small:        60ex;
+$system-measure-base:         64ex;
+$system-measure-large:        68ex;
+$system-measure-larger:       74ex;
+$system-measure-largest:      88ex;
 
 /*
 ----------------------------------------

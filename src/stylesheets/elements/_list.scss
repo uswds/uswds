@@ -1,5 +1,6 @@
 %usa-list {
   @include u-margin-y(1em);
+  line-height: line-height($theme-body-font-family, $theme-body-line-height);
   padding-left: 3ch;
 
   &:last-child {
@@ -8,7 +9,6 @@
 }
 
 %usa-list-item {
-  line-height: line-height($theme-body-font-family, $theme-body-line-height);
   margin-bottom: 0.25em;
   max-width: measure($theme-text-measure);
 
@@ -27,7 +27,7 @@
 
 // Unstyled lists
 @include override-prose {
-  .usa-unstyled-list {
+  .usa-list--unstyled {
     @include unstyled-list;
   }
 }
