@@ -3,7 +3,7 @@ version: 2
 references:
   container: &container
     docker:
-      - image: circleci/node:8.10-browsers
+      - image: circleci/node:10.15.1-browsers
         environment:
           CHROME_PATH: /usr/bin/google-chrome
 
