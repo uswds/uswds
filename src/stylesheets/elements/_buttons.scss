@@ -80,7 +80,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
 .usa-button--outline {
   @include no-knockout-font-smoothing;
-  background-color: color('white');
+  background-color: color('transparent');
   box-shadow: $button-stroke color('primary');
   color: color('primary');
 
@@ -90,39 +90,56 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
   &:hover,
   &.usa-button--hover {
-    background-color: color('white');
+    background-color: color('transparent');
     box-shadow: $button-stroke color('primary-dark');
     color: color('primary-dark');
   }
 
   &:active,
   &.usa-button--active {
-    background-color: color('white');
+    background-color: color('transparent');
     box-shadow: $button-stroke color('primary-darker');
     color: color('primary-darker');
   }
 
   &.usa-button--inverse {
-    background-color: transparent;
+    $button-inverse-color: 'base-lighter';
+    $button-inverse-hover-color: 'base-lightest';
+    $button-inverse-active-color: 'white';
+
     box-shadow: $button-stroke color('base-lighter');
-    color: color('base-lighter');
+    color: color($button-inverse-color);
 
     &:visited {
-      color: color('base-lighter');
+      color: color($button-inverse-color);
     }
 
     &:hover,
     &.usa-button--hover {
-      background-color: transparent;
-      box-shadow: $button-stroke color('base-lightest');
-      color: color('base-lightest');
+      box-shadow: $button-stroke color($button-inverse-hover-color);
+      color: color($button-inverse-hover-color);
     }
 
     &:active,
     &.usa-button--active {
       background-color: transparent;
-      box-shadow: $button-stroke color('white');
-      color: color('white');
+      box-shadow: $button-stroke color($button-inverse-active-color);
+      color: color($button-inverse-active-color);
+    }
+
+    &.usa-button--unstyled {
+      @include button-unstyled;
+      color: color($button-inverse-color);
+
+      &:hover,
+      &.usa-button--hover {
+        color: color($button-inverse-hover-color);
+      }
+
+      &:active,
+      &.usa-button--active {
+        color: color($button-inverse-active-color);
+      }
     }
   }
 }
@@ -170,6 +187,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 .usa-button--outline:disabled,
 .usa-button--outline-inverse:disabled,
 .usa-button--outline-inverse:disabled {
+  background-color: color('transparent');
   pointer-events: none;
 
   &:hover,
@@ -178,14 +196,13 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   &.usa-button--active,
   &:focus,
   &.usa-focus {
-    background-color: color('white');
+    background-color: color('transparent');
     border: 0;
   }
 }
 
 .usa-button--outline-disabled,
 .usa-button--outline:disabled {
-  background-color: color('white');
   box-shadow: $button-stroke color('disabled');
   color: color('disabled');
   &.usa-button--inverse {
@@ -195,6 +212,6 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   }
 }
 
-.usa-button-unstyled {
+.usa-button--unstyled {
   @include button-unstyled;
 }
