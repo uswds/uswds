@@ -36,7 +36,7 @@ $input-select-margin-right: 1.5;
 .usa-textarea,
 .usa-select,
 .usa-range,
-.usa-form-hint {
+.usa-hint {
   @include border-box-sizing;
   @include typeset(
     $theme-form-font-family,
@@ -92,18 +92,18 @@ $input-select-margin-right: 1.5;
   margin-top: 0;
 }
 
-.usa-input-error-message {
+.usa-error-message {
   @include u-padding-y(0.5);
   color: color('error-dark');
   display: block;
   font-weight: font-weight('bold');
 }
 
-.usa-input-label-helper {
+.usa-hint {
   color: color('base');
 }
 
-.usa-input-label-required {
+.usa-label--required {
   color: color('error-dark');
 }
 
@@ -145,13 +145,6 @@ $input-select-margin-right: 1.5;
 .usa-legend {
   font-size: font-size($theme-form-font-family, 'xl');
   font-weight: font-weight('bold');
-}
-
-// Hint text
-
-.usa-form-hint {
-  color: color('base');
-  margin-bottom: 0;
 }
 
 // Custom checkboxes
