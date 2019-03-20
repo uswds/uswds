@@ -381,11 +381,12 @@ Font role tokens
 ----------------------------------------
 Measure (max-width) tokens
 ----------------------------------------
-1:       40ch
-2:       60ch
-3:       66ch
-4:       72ch
-5:       77ch
+1:       44ex
+2:       60ex
+3:       64ex
+4:       68ex
+5:       74ex
+6:       88ex
 none:    none
 ----------------------------------------
 */
@@ -411,12 +412,12 @@ $theme-title-font-size:            '3xl' !default;
 
 // Text and prose
 $theme-text-measure-narrow:        1 !default;
-$theme-text-measure:               3 !default;
-$theme-text-measure-wide:          4 !default;
+$theme-text-measure:               4 !default;
+$theme-text-measure-wide:          6 !default;
 $theme-prose-font-family:          'body' !default;
 
 // Lead text
 $theme-lead-font-family:           'heading' !default;
 $theme-lead-font-size:             'lg' !default;
 $theme-lead-line-height:           6 !default;
-$theme-lead-measure:               5 !default;
+$theme-lead-measure:               6 !default;

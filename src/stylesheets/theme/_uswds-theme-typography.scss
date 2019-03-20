@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.0.0 Beta 6
+USWDS 2.0.0 Beta 5
 ----------------------------------------
 TYPOGRAPHY SETTINGS
 ----------------------------------------
@@ -381,11 +381,12 @@ Font role tokens
 ----------------------------------------
 Measure (max-width) tokens
 ----------------------------------------
-1:       40ch
-2:       60ch
-3:       66ch
-4:       72ch
-5:       77ch
+1:       44ex
+2:       60ex
+3:       64ex
+4:       68ex
+5:       74ex
+6:       88ex
 none:    none
 ----------------------------------------
 */
@@ -411,12 +412,12 @@ $theme-title-font-size:            '3xl';
 
 // Text and prose
 $theme-text-measure-narrow:        1;
-$theme-text-measure:               3;
-$theme-text-measure-wide:          4;
+$theme-text-measure:               4;
+$theme-text-measure-wide:          6;
 $theme-prose-font-family:          'body';
 
 // Lead text
 $theme-lead-font-family:           'heading';
 $theme-lead-font-size:             'lg';
 $theme-lead-line-height:           6;
-$theme-lead-measure:               5;
+$theme-lead-measure:               6;

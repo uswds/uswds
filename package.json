@@ -49,7 +49,9 @@
     "Roger Steve Ruiz <roger.ruiz@gsa.gov>",
     "Marco Segreto <marco.segreto@gsa.gov>",
     "Atul Varma <atul.varma@gsa.gov>",
-    "Dan O. Williams <daniel.williams@gsa.gov>"
+    "Dan O. Williams <daniel.williams@gsa.gov>",
+    "Sara D. Cope <sara.cope@gsa.gov>",
+    "Stephanie Green <stephanie.green@gsa.gov"
   ],
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
@@ -59,7 +61,6 @@
   "dependencies": {
     "@types/node": "^8.10.39",
     "array-filter": "^1.0.0",
-    "browserify": "^13.0.0",
     "classlist-polyfill": "^1.0.3",
     "del": "^2.2.0",
     "domready": "^1.0.8",
@@ -81,6 +82,7 @@
     "axe-core": "^2.6.1",
     "babel-preset-es2015": "^6.24.0",
     "babelify": "^7.3.0",
+    "browserify": "^16.2.3",
     "canvas-prebuilt": "1.6.11",
     "chalk": "^2.4.2",
     "chrome-launcher": "^0.3.2",
@@ -107,7 +109,7 @@
     "gulp-strip-css-comments": "^2.0.0",
     "gulp-stylelint": "^8.0.0",
     "gulp-uglify": "^3.0.0",
-    "handlebars": "^4.0.12",
+    "handlebars": "^4.1.0",
     "handlebars-helpers": "^0.10.0",
     "istanbul": "^0.4.5",
     "jquery": "^3.2.1",
