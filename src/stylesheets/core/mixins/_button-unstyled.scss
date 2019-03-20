@@ -1,4 +1,5 @@
 @mixin button-unstyled {
+  @include no-knockout-font-smoothing;
   @include typeset-link;
   background-color: transparent;
   border: 0;
@@ -8,11 +9,12 @@
   margin: 0;
   padding: 0;
   text-align: left;
-  -webkit-font-smoothing: auto;
 
   &:hover,
   &:active {
+    @include no-knockout-font-smoothing;
     background-color: transparent;
+    box-shadow: none;
     text-decoration: underline;
   }
 }
