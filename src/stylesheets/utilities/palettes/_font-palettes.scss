@@ -703,6 +703,9 @@ $palettes-font-theme-serif:(
 
 $palette-font-theme-types:(
   'palette-font-theme-types': map-collect(
+    $tokens-font-theme-cond,
+    $tokens-font-theme-icon,
+    $tokens-font-theme-lang,
     $tokens-font-theme-mono,
     $tokens-font-theme-sans,
     $tokens-font-theme-serif
@@ -710,6 +713,9 @@ $palette-font-theme-types:(
 );
 
 $palettes-font-theme-types: map-collect(
+  $palettes-font-theme-cond,
+  $palettes-font-theme-icon,
+  $palettes-font-theme-lang,
   $palettes-font-theme-sans,
   $palettes-font-theme-serif,
   $palettes-font-theme-mono,
@@ -1274,6 +1280,7 @@ $palettes-font-theme-roles: map-collect(
 $tokens-font-theme: map-collect(
   $tokens-font-theme-cond,
   $tokens-font-theme-icon,
+  $tokens-font-theme-lang,
   $tokens-font-theme-mono,
   $tokens-font-theme-sans,
   $tokens-font-theme-serif,
