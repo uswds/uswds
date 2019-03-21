@@ -30,7 +30,26 @@ body {
   display: none !important; /* stylelint-disable-line declaration-no-important */
 }
 
-*:focus,
+input,
+select,
+textarea,
+button {
+  &:not([disabled]) {
+    &:focus {
+      @include focus;
+    }
+  }
+}
+
+iframe,
+[href],
+[tabindex],
+[contentEditable=true] {
+  &:focus {
+    @include focus;
+  }
+}
+
 .usa-focus {
   @include focus;
 }
