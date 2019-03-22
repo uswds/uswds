@@ -30,6 +30,7 @@ body {
   display: none !important; /* stylelint-disable-line declaration-no-important */
 }
 
+// Apply :focus behavior to focusable elements only (For IE 11)
 input,
 select,
 textarea,
