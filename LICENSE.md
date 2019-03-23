@@ -6,7 +6,7 @@ The Source Sans Pro font files in `src/fonts/source-sans-pro` are a [customized 
 
 The Merriweather font files in `src/fonts/merriweather` are v2.001 from [GitHub](https://github.com/EbenSorkin/Merriweather/releases/tag/v2.001) subsetted into Latin and with additional formats generated with [Transfonter](https://transfonter.org/), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL), and copyright [Sorkin Type Co](www.sorkintype.com) with Reserved Font Name 'Merriweather'.
 
-The Public Sans font files in `src/fonts/public-sans` are licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL).
+The Public Sans font files in `src/fonts/public-sans` are licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL). Public Sans is a modification of Libre Franklin, copyright [Impallari Type](www.impallari.com).
 
 The files in `src/img` are from [Font Awesome](http://fontawesome.io/) by Dave Gandy under the [SIL Open Font License 1.1](http://scripts.sil.org/OFL).
 
