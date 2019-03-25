@@ -36,14 +36,6 @@ variants:
         title: Error status
         role: "alert"
 
-  - name: paragraph
-    label: Paragraph
-    context:
-      alert:
-        classes: "usa-alert--info usa-alert__paragraph"
-        title: "Informative status: Paragraph width"
-        content: "Multi line. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui atione voluptatem sequi nesciunt. Neque porro quisquam est, qui doloremipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
-
   - name: no-header
     label: No header
     context:
