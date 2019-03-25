@@ -18,7 +18,6 @@
     font-weight: $font-weight;
     font-display: fallback;
     src:
-      url(#{$file-path}.eot?#iefix) format('embedded-opentype'),
       url(#{$file-path}.woff2) format('woff2'),
       url(#{$file-path}.woff) format('woff'),
       url(#{$file-path}.ttf) format('truetype');
