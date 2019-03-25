@@ -32,6 +32,7 @@ $accordion-border: units($theme-accordion-border-width) solid color($theme-accor
   &:hover {
     background-color: color('base-lighter');
     color: color('ink');
+    text-decoration: none;
   }
 }
 // scss-lint:enable PropertyCount
