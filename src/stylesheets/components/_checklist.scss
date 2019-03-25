@@ -2,7 +2,6 @@
   @include add-list-reset;
   @include border-box-sizing;
   @include typeset;
-  margin: 0;
 }
 
 .usa-checklist__item {
@@ -11,7 +10,6 @@
   margin-bottom: 0;
   margin-top: units(1);
 
-  &.usa-checklist__item--checked,
   // Deprecate usa-checklist__item--checked once the js is updated
   &.usa-checklist__item--checked {
     @include add-success-mark;
