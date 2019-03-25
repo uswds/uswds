@@ -128,7 +128,3 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
     padding-left: 0;
   }
 }
-
-.usa-alert__paragraph {
-  width: measure($theme-alert-measure);
-}
