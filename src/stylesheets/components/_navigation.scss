@@ -169,6 +169,8 @@ $nav-link-arrow-icon-size: 1;
     &:hover {
       color: color('primary');
       background-color: color('base-lightest');
+      text-decoration: none;
+
       @include at-media($theme-navigation-width) {
         background-color: transparent;
       }
@@ -353,6 +355,7 @@ $nav-link-arrow-icon-size: 1;
 
   &:hover {
     color: currentColor;
+    text-decoration: none;
   }
 
   @include at-media($theme-navigation-width) {
