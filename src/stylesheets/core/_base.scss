@@ -30,7 +30,27 @@ body {
   display: none !important; /* stylelint-disable-line declaration-no-important */
 }
 
-*:focus,
+// Apply :focus behavior to focusable elements only (For IE 11)
+input,
+select,
+textarea,
+button {
+  &:not([disabled]) {
+    &:focus {
+      @include focus;
+    }
+  }
+}
+
+iframe,
+[href],
+[tabindex],
+[contentEditable=true] {
+  &:focus {
+    @include focus;
+  }
+}
+
 .usa-focus {
   @include focus;
 }
