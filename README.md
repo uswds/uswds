@@ -389,7 +389,7 @@ Many of our Fractal view templates are compatible with [Nunjucks](https://mozill
 
 
 ## Longtime support of v1.x
-Version 1.x is in [maintenence mode](https://en.wikipedia.org/wiki/Maintenance_mode) and is supporting critical bug fixes for 9 months (through January 2020).
+Version 1.x is in [maintenence mode](https://en.wikipedia.org/wiki/Maintenance_mode) and will be supporting critical bug fixes through January 2020.
 
 
 ## Need installation help?
