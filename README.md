@@ -388,6 +388,10 @@ npm run watch
 Many of our Fractal view templates are compatible with [Nunjucks](https://mozilla.github.io/nunjucks/) (for JavaScript/Node), [Jinja](http://jinja.pocoo.org/docs/2.9/) (Python), and [Twig](https://twig.sensiolabs.org/) (PHP) out of the box. Components that reference other components use a Fractal-specific `{% render %}` tag that will either need to be implemented in other environments or replaced with the appropriate `{% include %}` tags.
 
 
+## Longtime support of v1.x
+Version 1.x is in [maintenence mode](https://en.wikipedia.org/wiki/Maintenance_mode) and is supporting critical bug fixes for 9 months (through January 2020).
+
+
 ## Need installation help?
 
 Do you have questions or need help with setup? Did you run into any weird errors while following these instructions? Feel free to open an issue here:
