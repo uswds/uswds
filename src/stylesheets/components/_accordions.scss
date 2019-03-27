@@ -32,6 +32,7 @@ $accordion-border: units($theme-accordion-border-width) solid color($theme-accor
   &:hover {
     background-color: color('base-lighter');
     color: color('ink');
+    text-decoration: none;
   }
 }
 // scss-lint:enable PropertyCount
@@ -92,6 +93,7 @@ $accordion-border: units($theme-accordion-border-width) solid color($theme-accor
 
 .usa-accordion__content {
   background-color: color('white');
+  margin-top: 0;
   overflow: auto;
   padding: units(2) units(2.5) calc(#{units(2)} - #{units(0.5)}) units(2.5);
 
