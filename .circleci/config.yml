@@ -6,7 +6,7 @@ references:
       - image: circleci/node:8.10-browsers
         environment:
           CHROME_PATH: /usr/bin/google-chrome
-  
+
   restore_deps: &restore_deps
     restore_cache:
       keys:
@@ -50,6 +50,7 @@ jobs:
           keys:
           - v1-uswds-dependencies-{{ checksum "package-lock.json" }}
       - run: npm install --ignore-scripts
+      - run: npm rebuild node-sass
       - run:
           name: Build the USWDS package
           command: npm run release
