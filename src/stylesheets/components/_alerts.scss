@@ -128,3 +128,15 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
     padding-left: 0;
   }
 }
+
+.usa-alert--validation {
+  background-size: units(5);
+
+  .usa-alert__body {
+    padding-left: units(5);
+  }
+
+  .usa-checklist {
+    margin-top: units(2);
+  }
+}
