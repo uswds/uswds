@@ -42,13 +42,6 @@ $z-index-overlay: 400;
   .usa-search {
     @include at-media($theme-navigation-width) {
       float: right;
-    }
-  }
-
-  // Accessibility: The <div> with search role
-  [role=search] {
-    @include at-media($theme-navigation-width) {
-      float: right;
       max-width: calc(#{$theme-search-min-width} + #{units($theme-button-small-width)});
       width: 100%;
     }

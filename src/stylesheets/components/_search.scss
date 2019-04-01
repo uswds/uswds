@@ -10,10 +10,7 @@
   @include clearfix;
   @include typeset($theme-search-font-family);
   position: relative;
-
-  [role=search] {
-    display: flex;
-  }
+  display: flex;
 
   [type=submit] {
     @include search-icon;
