@@ -503,7 +503,6 @@ $system-properties: (
       map-get($partial-values, 'zero-zero'),
       (
         '05': spacing-multiple(0.5),
-        1: spacing-multiple(1)
       )
     ),
     extended: (),
