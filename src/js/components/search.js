@@ -1,6 +1,3 @@
-
-const assign = require('object-assign');
-const forEach = require('array-foreach');
 const ignore = require('receptor/ignore');
 const behavior = require('../utils/behavior');
 const select = require('../utils/select');
@@ -31,7 +28,7 @@ const toggleSearch = (button, active) => {
   /* eslint-disable no-param-reassign */
   button.hidden = active;
   form.hidden = !active;
-  /* eslint-enable*/
+  /* eslint-enable */
 
   if (!active) {
     return;
@@ -78,7 +75,7 @@ const search = behavior({
   },
 }, {
   init(target) {
-    forEach(select(BUTTON, target), (button) => {
+    select(BUTTON, target).forEach((button) => {
       toggleSearch(button, false);
     });
   },
@@ -88,13 +85,4 @@ const search = behavior({
   },
 });
 
-/**
- * TODO for 2.0, remove this statement and export `navigation` directly:
- *
- * module.exports = behavior({...});
- */
-
-module.exports = assign(
-  el => search.on(el),
-  search
-);
+module.exports = search;

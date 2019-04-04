@@ -1,25 +1,27 @@
-const assign = require('object-assign');
-const forEach = require('array-foreach');
 const behavior = require('../utils/behavior');
 const select = require('../utils/select');
+const toggle = require('../utils/toggle');
 const FocusTrap = require('../utils/focus-trap');
 const accordion = require('./accordion');
 
 const { CLICK } = require('../events');
 const { prefix: PREFIX } = require('../config');
 
+const BODY = 'body';
 const NAV = `.${PREFIX}-nav`;
 const NAV_LINKS = `${NAV} a`;
+const NAV_CONTROL = `.${PREFIX}-nav__link`;
 const OPENERS = `.${PREFIX}-menu-btn`;
-const CLOSE_BUTTON = `.${PREFIX}-nav-close`;
+const CLOSE_BUTTON = `.${PREFIX}-nav__close`;
 const OVERLAY = `.${PREFIX}-overlay`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
 const TOGGLES = [NAV, OVERLAY].join(', ');
 
-const ACTIVE_CLASS = 'usa-mobile_nav-active';
+const ACTIVE_CLASS = 'usa-js-mobile-nav--active';
 const VISIBLE_CLASS = 'is-visible';
 
 let navigation;
+let navActive;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
@@ -29,7 +31,7 @@ const toggleNav = function (active) {
 
   body.classList.toggle(ACTIVE_CLASS, safeActive);
 
-  forEach(select(TOGGLES), el => el.classList.toggle(VISIBLE_CLASS, safeActive));
+  select(TOGGLES).forEach(el => el.classList.toggle(VISIBLE_CLASS, safeActive));
 
   navigation.focusTrap.update(safeActive);
 
@@ -56,18 +58,44 @@ const resize = () => {
   const closer = document.body.querySelector(CLOSE_BUTTON);
 
   if (isActive() && closer && closer.getBoundingClientRect().width === 0) {
-    // The mobile nav is active, but the close box isn't visible, which
-    // means the user's viewport has been resized so that it is no longer
-    // in mobile mode. Let's make the page state consistent by
-    // deactivating the mobile nav.
+    // When the mobile nav is active, and the close box isn't visible,
+    // we know the user's viewport has been resized to be larger.
+    // Let's make the page state consistent by deactivating the mobile nav.
     navigation.toggleNav.call(closer, false);
   }
 };
 
 const onMenuClose = () => navigation.toggleNav.call(navigation, false);
+const hideActiveNavDropdown = () => {
+  toggle(navActive, false);
+  navActive = null;
+};
+
 
 navigation = behavior({
   [CLICK]: {
+    [NAV_CONTROL]() {
+      // If another nav is open, close it
+      if (navActive && navActive !== this) {
+        hideActiveNavDropdown();
+      }
+      // store a reference to the last clicked nav link element, so we
+      // can hide the dropdown if another element on the page is clicked
+      if (navActive) {
+        hideActiveNavDropdown();
+      } else {
+        navActive = this;
+        toggle(navActive, true)
+      }
+
+      // Do this so the event handler on the body doesn't fire
+      return false;
+    },
+    [BODY]() {
+      if (navActive) {
+        hideActiveNavDropdown();
+      }
+    },
     [OPENERS]: toggleNav,
     [CLOSERS]: toggleNav,
     [NAV_LINKS]() {
@@ -90,8 +118,8 @@ navigation = behavior({
     },
   },
 }, {
-  init() {
-    const trapContainer = document.querySelector(NAV);
+  init(root) {
+    const trapContainer = root.querySelector(NAV);
 
     if (trapContainer) {
       navigation.focusTrap = FocusTrap(trapContainer, {
@@ -104,17 +132,10 @@ navigation = behavior({
   },
   teardown() {
     window.removeEventListener('resize', resize, false);
+    navActive = false;
   },
   focusTrap: null,
   toggleNav,
 });
 
-/**
- * TODO for 2.0, remove this statement and export `navigation` directly:
- *
- * module.exports = behavior({...});
- */
-module.exports = assign(
-  el => navigation.on(el),
-  navigation
-);
+module.exports = navigation;

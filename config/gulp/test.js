@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var mocha = require('gulp-spawn-mocha');
-var runSequence = require('run-sequence');
 
 var mochaOpts = {
   opts: 'spec/mocha.opts',
@@ -23,13 +22,11 @@ gulp.task('cover', function () {
     })));
 });
 
-gulp.task('test:watch', function () {
+gulp.task('test:watch', () => {
   gulp.watch([
     'spec/**/*.spec.js',
     'src/js/**/*.js',
-  ], function (event) {
-    runSequence(
-      'test'
-    );
-  });
+  ],
+  gulp.series('test'),
+  );
 });

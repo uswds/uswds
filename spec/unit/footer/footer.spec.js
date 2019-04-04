@@ -7,8 +7,8 @@ const TEMPLATE = fs.readFileSync(path.join(__dirname, '/template.html'));
 
 const { DEBOUNCE_RATE } = behavior;
 const HIDDEN = 'hidden';
-const LIST_SELECTOR = '.usa-footer-big nav ul';
-const BUTTON_SELECTOR = '.usa-footer-primary-link';
+const LIST_SELECTOR = '.usa-footer--big nav ul';
+const BUTTON_SELECTOR = '.usa-footer__primary-link';
 
 /**
  * Resize the window's width, then dispatch a

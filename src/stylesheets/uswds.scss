@@ -1,33 +1,57 @@
 /*! uswds @version */
 
-// Vendor -------------- //
-@import 'core/variables-vendor';
-@import 'lib/bourbon';
-@import 'lib/neat';
-@import 'lib/normalize';
+/*
+========================================
+uswds.scss
+----------------------------------------
+Output all USWDS
+- fonts
+- components
+- utilities
+- layout grid
+----------------------------------------
+*/
 
-// Core -------------- //
+// Settings
+// -------------------------------------
+@import 'settings/settings-general';
+@import 'settings/settings-typography';
+@import 'settings/settings-color';
+@import 'settings/settings-spacing';
+@import 'settings/settings-utilities';
+@import 'settings/settings-components';
+
+// Tools
+// -------------------------------------
+@import 'core/functions';
+@import 'core/system-tokens';
 @import 'core/variables';
-@import 'core/fonts';
-@import 'core/grid';
-@import 'core/utilities';
+@import 'core/properties';
+@import 'core/mixins/all';
+
+// Generic
+// -------------------------------------
+@import 'core/font-face';
+@import 'lib/normalize';
 @import 'core/base';
 
-// Elements -------------- //
-// Styles basic HTML elements
+// Elements
+// -------------------------------------
 @import 'elements/buttons';
 @import 'elements/embed';
 @import 'elements/figure';
 @import 'elements/inputs';
-@import 'elements/labels';
 @import 'elements/list';
 @import 'elements/table';
+@import 'elements/tags';
 @import 'elements/typography';
 
-// Components -------------- //
+// Components
+// -------------------------------------
 @import 'components/accordions';
 @import 'components/alerts';
 @import 'components/banner';
+@import 'components/checklist';
 @import 'components/footer';
 @import 'components/forms';
 @import 'components/graphic-list';
@@ -40,3 +64,14 @@
 @import 'components/section';
 @import 'components/sidenav';
 @import 'components/skipnav';
+
+// Layout grid
+// -------------------------------------
+@import 'core/layout-grid';
+
+// Utilities
+// -------------------------------------
+@import 'utilities/palettes/all';
+@import 'utilities/rules/all';
+@import 'utilities/rules/package';
+@include render-utilities-in($utilities-package);

@@ -1,6 +1,6 @@
 var child_process = require('child_process');
 var gulp = require('gulp');
-var gutil = require('gulp-util');
+var log = require('fancy-log');
 var dutil = require('./doc-util');
 var browserify = require('browserify');
 var buffer = require('vinyl-buffer');
@@ -37,7 +37,7 @@ gulp.task(task, function (done) {
     stream.pipe(uglify());
   }
 
-  stream.on('error', gutil.log)
+  stream.on('error', log)
     .pipe(rename({
       suffix: '.min',
     }))
@@ -45,7 +45,6 @@ gulp.task(task, function (done) {
     .pipe(gulp.dest('dist/js'));
 
   return stream;
-
 });
 
 gulp.task('typecheck', function () {

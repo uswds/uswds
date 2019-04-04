@@ -1,0 +1,40 @@
+{
+  "global": {
+    "category": "system-color-green-warm"
+  },
+  "props": [
+    {
+      "name": "green-warm",
+      "value": [
+        { "name": "5", "value": "#f1f4d7" },
+        { "name": "10", "value": "#e7eab7" },
+        { "name": "20", "value": "#cbd17a" },
+        { "name": "30", "value": "#a6b557" },
+        { "name": "40", "value": "#8a984b" },
+        { "name": "50", "value": "#6f7a41" },
+        { "name": "60", "value": "#5a5f38" },
+        { "name": "70", "value": "#45472f" },
+        { "name": "80", "value": "#2d2f21" },
+        { "name": "90", "value": "#171712" },
+        {
+          "name": "vivid",
+          "value": [
+            { "name": "5", "value": "#f1f6a5" },
+            { "name": "10", "value": "#e2f106" },
+            { "name": "20", "value": "#c5d30a" },
+            { "name": "30", "value": "#a3b72c" },
+            { "name": "40", "value": "#7e9c1d" },
+            { "name": "50", "value": "#6a7d00" },
+            { "name": "60", "value": false },
+            { "name": "70", "value": false },
+            { "name": "80", "value": false },
+            { "name": "90", "value": false }
+          ]
+        }
+      ]
+    }
+  ],
+  "options": {
+    "file": "system-color"
+  }
+}

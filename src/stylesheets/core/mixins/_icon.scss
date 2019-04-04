@@ -1,0 +1,66 @@
+@mixin display-icon($icon, $direction, $size, $margin, $hover) {
+  &::#{$direction} {
+    @include add-background-svg('#{$icon}');
+    background-size: 100%;
+    content: '';
+    display: inline-block;
+    height: $size;
+    width: $size;
+
+    /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
+    @if $direction == 'after' {
+      margin-left: $margin;
+    }
+    @else {
+      margin-right: $margin;
+    }
+    /* stylelint-enable */
+  }
+
+  @if $hover == 'hover' {
+    &:hover::#{$direction} {
+      @include add-background-svg('#{$icon}-hover');
+    }
+  }
+}
+
+@mixin remove-icon($direction) {
+  &::#{$direction} {
+    display: none;
+  }
+}
+
+@mixin add-icon(
+  $icon-name,
+  $direction,
+  $image-size,
+  $container-size,
+  $margin,
+  $hover
+) {
+  &::#{$direction} {
+    @include add-background-svg('#{$icon-name}');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: units($image-size);
+    content: '';
+    display: inline-block;
+    height: units($container-size);
+    width: units($container-size);
+
+    /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
+    @if $direction == 'after' {
+      margin-left: units($margin);
+    }
+    @else {
+      margin-right: units($margin);
+    }
+    /* stylelint-enable */
+  }
+
+  @if $hover == 'hover' {
+    &:hover::#{$direction} {
+      @include add-background-svg('#{$icon-name}-hover');
+    }
+  }
+}

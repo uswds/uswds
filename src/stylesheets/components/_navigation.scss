@@ -1,470 +1,369 @@
-// Header navigation ------------- //
+// Navigation helpers
+// ---------------------------------
 
-@mixin nav-border {
-  border-bottom: 0.4rem solid $color-primary;
-  padding-bottom: 0.6rem;
+@mixin outer-megamenu {
+  @include u-pin('y');
+  background-color: color('primary-darker');
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
 }
 
-@mixin nav-border-thick {
-  border-bottom: 0.7rem solid $color-primary;
-  padding-bottom: 0.9rem;
+@mixin primary-nav-link {
+  line-height: line-height($theme-navigation-font-family, 1);
+  padding: units(2);
 }
+
+$nav-link-color: 'base-dark';
+$sliding-panel-width: 'card-lg';
+$nav-link-accordion-icon-size: 1.5;
+$nav-link-arrow-icon-size: 1;
+
+// TODO: Collect animations in a common location?
+@keyframes slidein-left {
+  from {
+    transform: translateX(units($sliding-panel-width));
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+// Header navigation
+// ---------------------------------
 
 .usa-navbar {
-  border-bottom: 1px solid $color-gray-light;
-  height: 4rem;
+  @include border-box-sizing;
+  height: units($size-touch-target);
 
-  @include media($nav-width) {
+  @include at-media-max($theme-navigation-width) {
+    @include u-flex('align-center');
+    border-bottom: units(1px) solid color('base-lighter');
+    display: flex;
+  }
+
+  @include at-media($theme-navigation-width) {
     border-bottom: none;
     display: inline-block;
-    height: 7.8rem; // XXX magic number
-  }
-}
-
-.usa-nav-link {
-  @include font-smoothing;
-
-  &:hover {
-    span {
-      @include media($nav-width) {
-        @include nav-border;
-      }
-    }
-  }
-
-  &.usa-accordion-button {
-    span {
-      @include media($nav-width) {
-        margin-right: 0;
-        padding-right: 1.5rem;
-      }
-    }
+    height: auto;
   }
 }
 
 .usa-nav-container {
-  @include media($nav-width) {
-    @include outer-container($site-max-width);
-    @include padding(null $site-margins);
+  @include at-media($theme-navigation-width) {
+    @include clearfix;
+    @include grid-container;
+    @include u-padding-x($theme-site-margins-width);
   }
 }
 
 .usa-nav {
-  $sliding-panel-width: 26rem;
+  @include typeset($theme-navigation-font-family, null, 1);
+  @include at-media-max($theme-navigation-width) {
+    @include u-pin('right');
+    @include u-pin('y');
+    position: fixed;
+    background: color('white');
+    border-right: 0;
+    display: none;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: units(2);
+    width: units($sliding-panel-width);
+    z-index: z-index(500);
 
-  @keyframes slidein-left {
-    from {
-      transform: translateX($sliding-panel-width);
-    }
-
-    to {
-      transform: translateX(0);
+    &.is-visible {
+      animation: slidein-left 0.3s ease-in-out;
+      display: flex;
     }
   }
 
-  @include position(fixed, 0 0 0 auto);
-  background: $color-white;
-  border-left: 1px solid $color-gray-light;
-  border-right: 0;
-  display: none;
-  flex-direction: column;
-  overflow-y: auto;
-  padding: 2rem;
-  width: $sliding-panel-width;
-  z-index: $z-index-nav;
-
-  @include media($nav-width) {
-    @include padding(4.5rem 0 0 null);
-    border-left: none;
-    display: block;
+  @include at-media($theme-navigation-width) {
     float: right;
-    overflow-y: visible;
     position: relative;
-    transform: translateX(0);
-    width: auto;
-  }
-
-  &.is-visible {
-    animation: slidein-left 0.3s ease-in-out;
-    display: flex;
-  }
-
-  nav {
-    margin-top: 6rem; // XXX magic number
-    min-height: 100%;
-
-    @include media($nav-width) {
-      margin-top: 0;
-    }
-  }
-
-  .usa-current {
-    border-left: 4px solid $color-primary;
-    color: $color-primary;
-    font-weight: $font-bold;
-    padding-left: 1.4rem;
-
-    @include media($nav-width) {
-      color: $color-base;
-    }
-  }
-
-  .usa-button {
-    width: 100%;
   }
 
   .usa-search {
-    @include media($nav-width) {
-      margin-left: 1.5rem; // XXX magic number
-      top: 4px;
+    @include at-media($theme-navigation-width) {
+      margin-left: units(2);
     }
   }
 }
 
-// Primary navigation ------------- //
+// Primary navigation
+// ---------------------------------
 
-.usa-nav-primary {
-  @include usa-sidenav-list;
-  margin-top: 1.5rem;
-  order: 2;
+.usa-nav__primary {
 
-  @include media($nav-width) {
-    display: inline;
-  }
+  // Until the $theme-navigation-width,
+  // use the usa-nav-list styles for the slide-in nav
+  @include at-media-max($theme-navigation-width) {
+    @include nav-list('nav');
+    margin-top: units(3);
+    order: 2;
 
-  li {
-    @include media($nav-width) {
-      border-top: none;
+    a {
+      @include u-padding-y(1.5);
     }
   }
 
-  > li {
-    width: auto;
+  // At $theme-navigation-width and wider...
+  @include at-media($theme-navigation-width) {
+    display: flex;
+  }
 
-    @include media($nav-width) {
-      display: inline-block;
-      // margin-left: -4px;
+  // all nav items in the nav
+  .usa-nav__primary-item {
+    a {
+      text-decoration: none;
+    }
+  }
+
+  // just level 1 nav items...
+  > .usa-nav__primary-item {
+    line-height: line-height($theme-navigation-font-family, 2);
+    @include at-media($theme-navigation-width) {
+      font-size: font-size($theme-navigation-font-family, '2xs');
+      line-height: line-height($theme-navigation-font-family, 1);
     }
 
+    // ...and their direct links
     > a {
-      @include media($nav-width) {
-        @include padding(1.3rem 1.5rem 2.2rem 1.5rem);
-        color: $color-gray;
-        font-size: $h5-font-size;
-        font-weight: $font-bold;
-        line-height: 1;
-      }
+      @include at-media($theme-navigation-width) {
+        @include primary-nav-link;
+        color: color($nav-link-color);
+        display: block;
+        font-weight: font-weight('bold');
 
-      &:hover {
-        @include media($nav-width) {
-          background-color: transparent;
+        &:hover {
+          color: color('primary');
         }
       }
     }
   }
 
   a {
-    @include media($nav-width) {
-      @include padding(0.75rem null);
-    }
-
-    &:hover {
-      @include media($nav-width) {
-        // color: $color-base;
-      }
+    @include at-media($theme-navigation-width) {
+      @include u-padding-y(1);
     }
   }
 
   button {
-    $button-vertical-offset: 40%;
+    $button-vertical-offset: 53%; // XXX: Magic number
 
     @include button-unstyled;
-    @include font-smoothing;
-    font-weight: $font-normal;
-    line-height: 1.3;
-    padding: 0.85rem 1.5rem 0.85rem 1.8rem;
+    color: color($nav-link-color);
+    font-weight: font-weight('normal');
+    line-height: line-height($theme-navigation-font-family, 2);
+    padding: units(1.5) units(2);
+    text-decoration: none;
 
-    @include media($nav-width) {
-      @include padding(1.3rem 1.5rem 2.2rem 1.5rem);
-      color: $color-gray;
-      font-size: $h5-font-size;
-      font-weight: $font-bold;
-      line-height: 1;
-      width: initial;
-    }
-
-    &:focus,
-    &:active {
-      box-shadow: $focus-outline;
+    @include at-media($theme-navigation-width) {
+      @include primary-nav-link;
+      font-size: font-size($theme-navigation-font-family, '2xs');
+      font-weight: font-weight('bold');
     }
 
     &:hover {
-      background-color: $color-gray-lightest;
-      color: $color-primary;
+      color: color('primary');
+      background-color: color('base-lightest');
+      text-decoration: none;
 
-      @include media($nav-width) {
+      @include at-media($theme-navigation-width) {
         background-color: transparent;
-        // color: $color-base;
       }
     }
 
     &[aria-expanded=false] { /* stylelint-disable-line selector-no-qualifying-type */
-      background-image: url('#{$image-path}/plus-alt.png');
-      background-image: url('#{$image-path}/plus-alt.svg');
-      background-repeat: no-repeat;
+      @include add-background-svg('plus-alt');
       background-position: right 0 center;
-      background-size: 1rem;
+      background-size: units($nav-link-accordion-icon-size);
 
-      @include media($nav-width) {
-        background-image: url('#{$image-path}/angle-arrow-down.png');
-        background-image: url('#{$image-path}/angle-arrow-down.svg');
-        background-position: right 1.5rem top $button-vertical-offset;
+      @include at-media($theme-navigation-width) {
+        @include add-background-svg('angle-arrow-down');
+        background-size: units($nav-link-arrow-icon-size);
+        background-position: right units(2) top $button-vertical-offset;
       }
 
       &:hover {
-        @include media($nav-width) {
-          background-image: url('#{$image-path}/angle-arrow-down-primary.png');
-          background-image: url('#{$image-path}/angle-arrow-down-primary.svg');
+        @include at-media($theme-navigation-width) {
+          @include add-background-svg('angle-arrow-down-primary');
         }
       }
     }
 
     &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
-      background-image: url('#{$image-path}/minus-alt.png');
-      background-image: url('#{$image-path}/minus-alt.svg');
-      background-repeat: no-repeat;
+      @include add-background-svg('minus-alt');
       background-position: right 0 center;
-      background-size: 1rem;
+      background-size: units($nav-link-accordion-icon-size);
 
-      @include media($nav-width) {
-        background-color: $color-primary-darkest;
-        color: $color-white;
-        background-image: url('#{$image-path}/angle-arrow-down-hover.png');
-        background-image: url('#{$image-path}/angle-arrow-down-hover.svg');
-        background-position: right 1.5rem top $button-vertical-offset;
-
-        &:hover {
-          background-color: $color-primary-darkest;
-        }
-
-        span {
-          @include nav-border;
-          color: $color-white;
-        }
+      @include at-media($theme-navigation-width) {
+        @include add-background-svg('angle-arrow-up-white');
+        @include add-knockout-font-smoothing;
+        background-size: units($nav-link-arrow-icon-size);
+        background-color: color('primary-darker');
+        background-position: right units(2) top $button-vertical-offset;
+        color: color('white');
       }
     }
   }
 
-  @include media($nav-width) {
-    a.usa-current,
-    .usa-current { // stylelint-disable-line selector-no-qualifying-type
-      // undo the sidenav style
-      border-left: 0;
-      padding-left: 1.5rem;
-
-      &:hover {
-        span {
-          color: $color-primary;
-        }
-      }
-
-      span {
-        @include nav-border;
-        color: $color-base;
+  .usa-accordion__button {
+    span {
+      @include at-media($theme-navigation-width) {
+        margin-right: 0;
+        padding-right: units(2);
       }
     }
   }
 }
 
-// Extended header navigation ------- //
+// Secondary navigation
+// ---------------------------------
 
-.usa-header-extended {
-  .usa-nav-link {
-    &:hover {
-      span {
-        @include media($nav-width) {
-          @include nav-border-thick;
-        }
-      }
-    }
-  }
+.usa-nav__secondary {
+  margin-top: units(2);
 
-  .usa-nav-primary {
-    button[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
-      span {
-        @include media($nav-width) {
-          @include nav-border-thick;
-        }
-      }
-    }
-
-    .usa-current {
-      @include media($nav-width) {
-        span {
-          @include nav-border-thick;
-        }
-      }
-    }
-  }
-}
-
-// Secondary navigation ----------- //
-
-.usa-nav-secondary {
-  margin-top: 1.5rem;
-
-  @include media($nav-width) {
-    margin-top: 0;
+  @include at-media($theme-navigation-width) {
+    // Note: Previius calc() couldn't work. don't hardcode rem vals
+    bottom: units(8); // XXX magic number
+    font-size: font-size($theme-navigation-font-family, '2xs');
+    margin-top: units(1);
+    min-width: calc(#{$theme-search-min-width} + #{units($theme-button-small-width)});
     position: absolute;
-    right: $site-margins;
-    top: -5.7rem; // XXX magic number
+    right: units($theme-site-margins-width);
   }
 
   .usa-search {
-    @include margin(1.5rem null 0 null);
+    margin-top: units(2);
+    width: 100%;
 
-    @include media($nav-width) {
-      @include margin(-0.9rem null 0 0);
-      float: left;
+    @include at-media($theme-navigation-width) {
+      margin-left: 0;
+      margin-top: units(1);
     }
   }
 }
 
-.usa-nav-secondary-links {
-  margin-top: 2.4rem;
+.usa-nav__secondary-links {
+  @include add-list-reset;
+  line-height: line-height($theme-navigation-font-family, 3);
+  margin-top: units(3);
 
-  @include media($nav-width) {
-    float: left;
+  @include at-media($theme-navigation-width) {
+    float: right;
+    line-height: line-height($theme-navigation-font-family, 1);
+    margin-bottom: units(0.5);
     margin-top: 0;
   }
 
-  li {
-    @include media($nav-width) {
+  .usa-nav__secondary-item {
+    @include at-media($theme-navigation-width) {
       display: inline;
-      padding-left: 0.5rem;
-    }
+      padding-left: units(0.5);
 
-    &:not(:last-child)::after {
-      @include media($nav-width) {
-        color: $color-gray-lighter;
+      & + .usa-nav__secondary-item::before {
+        color: color('base-lighter');
         content: '|';
-        padding-left: 0.5rem;
+        padding-right: units(0.5);
       }
     }
   }
 
-  a,
-  .usa-header-search-button {
-    color: $color-gray;
+  a {
+    color: color('base');
     display: inline-block;
-    font-size: $h5-font-size;
+    font-size: font-size($theme-navigation-font-family, '2xs');
     text-decoration: none;
 
     &:hover {
-      color: $color-primary;
+      color: color('primary');
       text-decoration: underline;
-    }
-  }
-
-  .usa-header-search-button {
-    @include button-unstyled;
-    display: none;
-
-    @include media($nav-width) {
-      background-image: url('#{$image-path}/search-alt.png');
-      background-image: url('#{$image-path}/search-alt.svg');
-      background-repeat: no-repeat;
-      background-position: left center;
-      background-size: 2.2rem;
-      display: inline-block;
-      padding-left: 2.3rem;
-    }
-
-    &.is-hidden {
-      @include media($nav-width) {
-        display: none;
-      }
-    }
-  }
-
-  @include media($nav-width) {
-    a.usa-current { // stylelint-disable-line selector-no-qualifying-type
-      // undo the sidenav style
-      border-left: 0;
-      padding-left: 0;
     }
   }
 }
 
-// Navigation submenu (dropdown and mega menu) ----- //
+// Navigation dropdowns
+// ---------------------------------
 
-.usa-nav-submenu {
-  @include usa-sidenav-sublist;
+.usa-nav__submenu {
+  @include at-media-max($theme-navigation-width) {
+    @include nav-sublist;
+  }
 
-  @include media($nav-width) {
-    @include unstyled-list;
-    @include padding(0.75rem null 0.9rem null);
-    background-color: $color-primary-darkest;
-    width: 21.5rem;
+  @include at-media($theme-navigation-width) {
+    @include add-list-reset;
+    background-color: color('primary-darker');
+    width: units('card-lg');
+    padding: units(2);
     position: absolute;
+    z-index: z-index(400);
   }
 
   &[aria-hidden=true] {
     display: none;
   }
 
-  a {
-    @include media($nav-width) {
-      color: $color-white;
-      padding-left: 1.5rem; // XXX magic number
-    }
+  .usa-nav__submenu-item {
+    @include at-media($theme-navigation-width) {
+      & + * {
+        margin-top: units(1.5);
+      }
 
-    &:hover {
-      @include media($nav-width) {
-        background-color: $color-primary-darkest;
-        color: $color-white;
-        padding-left: 1.5rem;
-        text-decoration: underline;
+      a {
+        color: color('white');
+        padding: 0;
+        line-height: line-height($theme-navigation-font-family, 3);
+
+        &:hover {
+          background-color: transparent;
+          color: color('white');
+          padding: 0;
+          text-decoration: underline;
+        }
       }
     }
-
-    // this used to be necessary to undo the `usa-sidenav-sublist`
-    // include, above
-    // &:hover,
-    // &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
-    //   @include media($nav-width) {
-    //     padding-left: 1.8rem;
-    //   }
-    // }
-  }
-
-  li {
-    font-size: $h5-font-size;
-    margin-bottom: 0;
   }
 }
 
-// Navigation close button -------- //
+.usa-nav__submenu-list {
+  @include unstyled-list;
 
-.usa-nav-close {
+  .usa-nav__submenu-list-item {
+    margin: 0;
+    font-size: font-size($theme-navigation-font-family, '2xs');
+
+    a {
+      line-height: line-height($theme-navigation-font-family, 3);
+    }
+  }
+}
+
+// Navigation close button
+// ---------------------------------
+
+.usa-nav__close {
   @include button-unstyled;
-  @include margin(-1.2rem -1.5rem 1.5rem auto);
+  @include u-square($size-touch-target);
   color: currentColor;
+  flex: none;
   float: right;
-  height: $hit-area;
+  margin: units(-1.5) units(-2) units(2) auto;
   text-align: center;
-  width: $hit-area;
 
   &:hover {
     color: currentColor;
+    text-decoration: none;
   }
 
-  @include media($nav-width) {
+  @include at-media($theme-navigation-width) {
     display: none;
   }
 
   img {
-    width: 1.3rem;
+    width: units(1.5);
   }
 
   + * {
@@ -472,90 +371,33 @@
   }
 }
 
-.usa-mobile_nav-active {
+.usa-js-mobile-nav--active {
   overflow: hidden;
 }
 
-// Navigation mega menu -------- //
-
-@mixin outer-megamenu {
-  background-color: $color-primary-darkest;
-  content: '';
-  display: block;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  width: 1000%;
-}
+// Navigation megamenu
+// ---------------------------------
 
 .usa-megamenu {
-  @include media($nav-width) {
-    @include padding(3.15rem null); // XXX magic number
-    // XXX this is the difference between the 2rem padding-left
-    // of .usa-nav-inner and the $site-margins (3rem) padding-left
-    // of .usa-megamenu
-    left: -1rem;
-    width: 100%;
+  @include at-media($theme-navigation-width) {
+    @include u-padding-x(0);
+    @include u-padding-y(4);
+    left: -$theme-megamenu-logo-text-width;
+    right: 0;
+    width: auto;
   }
 
   &::before {
-    @include media($nav-width) {
+    @include at-media($theme-navigation-width) {
       @include outer-megamenu;
       right: 100%;
     }
   }
 
   &::after {
-    @include media($nav-width) {
+    @include at-media($theme-navigation-width) {
       @include outer-megamenu;
       left: 100%;
     }
-  }
-}
-
-.usa-header-basic-megamenu {
-  .usa-nav {
-    @include media($nav-width) {
-      padding-left: 0;
-      padding-top: 0;
-      width: 100%;
-    }
-  }
-
-  .usa-nav-inner {
-    display: flex;
-    flex-direction: column;
-
-    @include media($nav-width) {
-      display: block;
-      float: right;
-      margin-top: -3.8rem;
-    }
-  }
-
-  .usa-nav-submenu {
-    .usa-grid-full {
-      @include media($nav-width) {
-        margin-left: -1.8rem; // XXX magic number
-      }
-    }
-  }
-}
-
-.usa-megamenu-col {
-  @include media($nav-width) {
-    @include span-columns(3);
-
-    &:nth-child(2n) {
-      @include span-columns(3);
-    }
-
-    &:nth-child(4n) {
-      margin-right: 0;
-    }
-  }
-
-  > ul {
-    @include unstyled-list;
   }
 }

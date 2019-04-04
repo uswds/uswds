@@ -1,8 +1,8 @@
 label: Footer
-status: wip
+status: ready
 
 variants:
   - name: default
-    label: Medium
+    label: Default
 
 context: {}

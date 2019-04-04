@@ -1,21 +1,16 @@
-{%- if (classes == 'usa-button-secondary-inverse') -%}
-<div class="dark-bg">
+{%- if (classes == 'usa-button--outline usa-button--inverse') -%}
+<div class="bg-base-darkest padding-1" style="max-width: fit-content">
 {% endif -%}
 
-<button class="{{ classes }}">Default</button>
+<button class="usa-button {{ classes }}">Default</button>
 {% if (category != 'disabled') and (category != 'big') -%}
-<button class="{{ classes }} usa-button-hover">Hover</button>
-<button class="{{ classes }} usa-button-active">Active</button>
-<button class="{{ classes }} usa-focus">Focus</button>
-<button class="{{ classes }}" disabled>Disabled</button>
+<button class="usa-button {{ classes }} usa-button--hover">Hover</button>
+<button class="usa-button {{ classes }} usa-button--active">Active</button>
+<button class="usa-button {{ classes }} usa-focus">Focus</button>
+<button class="usa-button {{ classes }}" disabled>Disabled</button>
 {%- endif -%}
+<button class="usa-button {{ classes }} usa-button--unstyled">Unstyled button</button>
 
-{%- if (classes == 'usa-button-secondary-inverse') %}
+{%- if (classes == 'usa-button--outline usa-button--inverse') %}
 </div>
-
-<style scoped>
-  .dark-bg {
-    background-color: #212121;
-  }
-</style>
 {%- endif %}

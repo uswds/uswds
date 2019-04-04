@@ -1,19 +1,21 @@
 // Apply a natural box layout model to all elements, but allowing components to
 // change
 
-html {
-  box-sizing: border-box;
-}
+@if $theme-global-border-box-sizing {
+  html {
+    box-sizing: border-box;
+  }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
 }
 
 body {
-  background-color: $color-white;
-  color: $color-base;
+  background-color: color('white');
+  color: color('ink');
   overflow-x: hidden;
 }
 
@@ -37,7 +39,7 @@ textarea,
 button {
   &:not([disabled]) {
     &:focus {
-      @include focus;
+      @include focus-outline;
     }
   }
 }
@@ -47,10 +49,10 @@ iframe,
 [tabindex],
 [contentEditable=true] {
   &:focus {
-    @include focus;
+    @include focus-outline;
   }
 }
 
 .usa-focus {
-  @include focus;
+  @include focus-outline;
 }

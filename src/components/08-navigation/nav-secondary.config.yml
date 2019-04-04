@@ -5,5 +5,5 @@ context:
   nav:
     search: true
     links:
-      - text: Secondary priority link
-      - text: Easy to comprehend
+      - text: Secondary link
+      - text: Another secondary link

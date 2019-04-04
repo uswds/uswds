@@ -1,0 +1,17 @@
+@mixin external-link($external-link, $external-link-hover) {
+  &::after {
+    background: url('#{$theme-image-path}/#{$external-link}.png') no-repeat 0 0;
+    background: url('#{$theme-image-path}/#{$external-link}.svg') no-repeat 0 0;
+    background-size: 100%;
+    content: '';
+    display: inline-block;
+    height: 0.65em;
+    margin-bottom: -1px;
+    margin-left: units(0.5);
+    width: 0.65em;
+  }
+
+  &:hover::after {
+    @include add-background-svg('#{$external-link-hover}');
+  }
+}

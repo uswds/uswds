@@ -1,31 +1,19 @@
+.usa-sidenav {
+  @include border-box-sizing;
+  @include nav-list('sidenav');
+  @include typeset($theme-sidenav-font-family, 'sm', 3);
+  border-bottom: units(1px) solid color('base-lighter');
 
-.usa-sidenav-list {
-  @include usa-sidenav-list;
-  border-bottom: 1px solid;
-  border-top: 1px solid;
+  .grid-container & {
+    @include u-margin-x(-$theme-site-margins-mobile-width);
 
-  @include media($large-screen) {
-    border-bottom: none;
-    border-top: none;
-  }
-
-  .usa-grid & {
-    @include margin(null (-$site-margins-mobile) null (-$site-margins-mobile));
-
-    @include media($medium-screen) {
-      @include margin(null 0);
+    @include at-media('tablet') {
+      @include u-margin-x(0);
     }
   }
 }
 
-.usa-sidenav-sub_list {
-  @include usa-sidenav-sublist;
-}
-
-.usa-layout-docs-sidenav {
-  padding-top: 2.4rem;
-
-  @include media($large-screen) {
-    padding-top: 0;
-  }
+.usa-sidenav__sublist {
+  @include nav-sublist;
+  font-size: font-size($theme-sidenav-font-family, 'xs');
 }

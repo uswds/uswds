@@ -4,5 +4,5 @@ hidden: true
 # default template ("context") data
 context:
   header:
-    title: Department of Web Design
+    title: Project title
     href: 'javascript:void(0)'

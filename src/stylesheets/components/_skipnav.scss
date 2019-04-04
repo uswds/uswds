@@ -1,17 +1,17 @@
 .usa-skipnav {
+  @include border-box-sizing;
+  @include typeset;
   background: transparent;
-  color: $color-base;
   left: 0;
-  padding: 1rem 1.5rem;
+  padding: units(1) units(2);
   position: absolute;
-  top: -4.2rem;
+  top: -3.8rem; // skipnav link height
   transition: all 0.2s ease-in-out;
-  z-index: 100;
+  z-index: z-index(100);
 
   &:focus {
-    background: $color-white;
+    background: color('white');
     left: 0;
-    outline: 0;
     position: absolute;
     top: 0;
     transition: all 0.2s ease-in-out;

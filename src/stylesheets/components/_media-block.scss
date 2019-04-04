@@ -1,12 +1,7 @@
-@mixin media-block-img($margin-right: 1rem) {
-  float: left;
-  margin-right: $margin-right;
-}
-
-.usa-media_block-img {
+.usa-media-block__img {
   @include media-block-img;
 }
 
-.usa-media_block-body {
+.usa-media-block__body {
   overflow: hidden;
 }

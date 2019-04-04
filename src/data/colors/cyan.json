@@ -1,0 +1,40 @@
+{
+  "global": {
+    "category": "system-color-cyan"
+  },
+  "props": [
+    {
+      "name": "cyan",
+      "value": [
+        { "name": "5", "value": "#e7f6f8" },
+        { "name": "10", "value": "#ccecf2" },
+        { "name": "20", "value": "#9ddfeb" },
+        { "name": "30", "value": "#6ecbdb" },
+        { "name": "40", "value": "#449dac" },
+        { "name": "50", "value": "#168092" },
+        { "name": "60", "value": "#2a646d" },
+        { "name": "70", "value": "#2c4a4e" },
+        { "name": "80", "value": "#203133" },
+        { "name": "90", "value": "#111819" },
+        {
+          "name": "vivid",
+          "value": [
+            { "name": "5", "value": false },
+            { "name": "10", "value": "#a8f2ff" },
+            { "name": "20", "value": "#52daf2" },
+            { "name": "30", "value": "#00bde3" },
+            { "name": "40", "value": "#009ec1" },
+            { "name": "50", "value": false },
+            { "name": "60", "value": false },
+            { "name": "70", "value": false },
+            { "name": "80", "value": false },
+            { "name": "90", "value": false }
+          ]
+        }
+      ]
+    }
+  ],
+  "options": {
+    "file": "system-color"
+  }
+}

@@ -1,11 +1,9 @@
-
 const once = require('receptor/once');
 const behavior = require('../utils/behavior');
-
 const { CLICK } = require('../events');
 const { prefix: PREFIX } = require('../config');
 
-const LINK = `.${PREFIX}-skipnav[href^="#"], .${PREFIX}-footer-return-to-top [href^="#"]`;
+const LINK = `.${PREFIX}-skipnav[href^="#"], .${PREFIX}-footer__return-to-top [href^="#"]`;
 const MAINCONTENT = 'main-content';
 
 function setTabindex() {

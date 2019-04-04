@@ -1,12 +1,13 @@
+const Accordion = require('../../../src/js/components/accordion');
 const assert = require('assert');
 const fs = require('fs');
-const Accordion = require('../../../src/js/components/accordion');
 
 const TEMPLATE = fs.readFileSync(`${__dirname}/template.html`);
+
 // `aria` prefixed attributes
 const EXPANDED = 'aria-expanded';
 const CONTROLS = 'aria-controls';
-const HIDDEN = 'aria-hidden';
+const HIDDEN   = 'hidden';
 const MULTISELECTABLE = 'aria-multiselectable';
 
 describe('accordion behavior', () => {
@@ -22,9 +23,13 @@ describe('accordion behavior', () => {
     Accordion.on();
 
     root = body.querySelector('.usa-accordion');
-    buttons = root.querySelectorAll('.usa-accordion-button');
-    button = buttons[ 0 ]; // eslint-disable-line
-    content = document.getElementById(button.getAttribute(CONTROLS));
+    buttons = root.querySelectorAll('.usa-accordion__button');
+    /* eslint-disable */
+    button = buttons[0];
+    /* eslint-enable */
+    content = document.getElementById(
+      button.getAttribute(CONTROLS)
+    );
   });
 
   afterEach(() => {
@@ -51,8 +56,8 @@ describe('accordion behavior', () => {
         assert.equal(button.getAttribute(EXPANDED), 'true');
       });
 
-      it('toggles content aria-hidden="false"', () => {
-        assert.equal(content.getAttribute(HIDDEN), 'false');
+      it('toggles content "hidden" off', () => {
+        assert(content.getAttribute(HIDDEN) !== true);
       });
     });
 
@@ -66,38 +71,42 @@ describe('accordion behavior', () => {
         assert.equal(button.getAttribute(EXPANDED), 'false');
       });
 
-      it('toggles content aria-hidden="true"', () => {
-        assert.equal(content.getAttribute(HIDDEN), 'true');
+      it('toggles content "hidden" on', () => {
+        assert(content.hasAttribute(HIDDEN));
       });
     });
   });
 
   describe('interaction', () => {
+
     it('shows the second item when clicked', () => {
-      const second = buttons[1];
-      const target = document.getElementById(second.getAttribute(CONTROLS));
+      const second = buttons[ 1 ];
+      const target = document.getElementById(
+        second.getAttribute(CONTROLS)
+      );
       second.click();
       // first button and section should be collapsed
       assert.equal(button.getAttribute(EXPANDED), 'false');
-      assert.equal(content.getAttribute(HIDDEN), 'true');
+      assert(content.hasAttribute(HIDDEN));
       // second should be expanded
       assert.equal(second.getAttribute(EXPANDED), 'true');
-      assert.equal(target.getAttribute(HIDDEN), 'false');
+      assert(target.getAttribute(HIDDEN) !== true);
     });
 
     it('keeps multiple sections open with aria-multiselectable="true"', () => {
       root.setAttribute(MULTISELECTABLE, true);
 
       const second = buttons[1];
-      const target = document.getElementById(second.getAttribute(CONTROLS));
       second.click();
       button.click();
 
       assert.equal(button.getAttribute(EXPANDED), 'true');
-      assert.equal(content.getAttribute(HIDDEN), 'false');
+      assert(content.getAttribute(HIDDEN) !== true);
       // second should be expanded
       assert.equal(second.getAttribute(EXPANDED), 'true');
-      assert.equal(target.getAttribute(HIDDEN), 'false');
+      assert(content.getAttribute(HIDDEN) !== true);
     });
+
+
   });
 });

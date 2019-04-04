@@ -1,0 +1,69 @@
+/*! uswds @version */
+
+/*
+========================================
+uswds-components.scss
+----------------------------------------
+Output USWDS components and styles
+----------------------------------------
+*/
+
+// Settings
+// -------------------------------------
+@import '../settings/settings-general';
+@import '../settings/settings-typography';
+@import '../settings/settings-color';
+@import '../settings/settings-spacing';
+@import '../settings/settings-utilities';
+@import '../settings/settings-components';
+
+// Tools
+// -------------------------------------
+@import '../core/functions';
+@import '../core/system-tokens';
+@import '../core/variables';
+@import '../core/properties';
+@import '../core/mixins/all';
+
+// Generic
+// -------------------------------------
+@import '../lib/normalize';
+@import '../core/base';
+
+// Elements
+// -------------------------------------
+@import '../elements/buttons';
+@import '../elements/embed';
+@import '../elements/figure';
+@import '../elements/inputs';
+@import '../elements/list';
+@import '../elements/table';
+@import '../elements/tags';
+@import '../elements/typography';
+
+// Components
+// -------------------------------------
+@import '../components/accordions';
+@import '../components/alerts';
+@import '../components/banner';
+@import '../components/checklist';
+@import '../components/footer';
+@import '../components/forms';
+@import '../components/graphic-list';
+@import '../components/header';
+@import '../components/hero';
+@import '../components/layout';
+@import '../components/media-block';
+@import '../components/navigation';
+@import '../components/search';
+@import '../components/section';
+@import '../components/sidenav';
+@import '../components/skipnav';
+
+// Layout grid
+// -------------------------------------
+// Not included
+
+// Utilities
+// -------------------------------------
+// Not included

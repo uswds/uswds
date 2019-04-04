@@ -1,0 +1,66 @@
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+USWDS 2.0.0
+----------------------------------------
+COMPONENT SETTINGS
+----------------------------------------
+Read more about settings and
+USWDS style tokens in the documentation:
+https://v2.designsystem.digital.gov/style-tokens
+----------------------------------------
+*/
+
+// Accordion
+$theme-accordion-border-width:        0.5 !default;
+$theme-accordion-border-color:        'base-lightest' !default;
+$theme-accordion-font-family:         'body' !default;
+
+// Alert
+$theme-alert-bar-width:               1 !default;
+$theme-alert-font-family:             'ui' !default;
+$theme-alert-icon-size:               4 !default;
+$theme-alert-padding-x:               2.5 !default;
+
+// Banner
+$theme-banner-font-family:            'ui' !default;
+
+// Button
+$theme-button-font-family:            'ui' !default;
+$theme-button-border-radius:          'md' !default;
+$theme-button-small-width:            6 !default;
+$theme-button-stroke-width:           2px !default;
+
+// Footer
+$theme-footer-font-family:            'body' !default;
+
+// Form and input
+$theme-checkbox-border-radius:        'sm' !default;
+$theme-form-font-family:              'ui' !default;
+$theme-input-line-height:             3 !default;
+$theme-input-max-width:               'mobile-lg' !default;
+$theme-input-select-border-width:     2px !default;
+$theme-input-select-size:             2.5 !default;
+$theme-input-state-border-width:      0.5 !default;
+
+// Header
+$theme-header-font-family:            'ui' !default;
+$theme-megamenu-logo-text-width:      33% !default;
+
+// Navigation
+$theme-navigation-font-family:        'ui' !default;
+$theme-navigation-width:              'desktop' !default;
+
+// Search
+$theme-search-font-family:            'ui' !default;
+$theme-search-min-width:              27ch !default;
+
+// Sidenav
+$theme-sidenav-current-border-width:  0.5 !default;
+$theme-sidenav-font-family:           'ui' !default;
