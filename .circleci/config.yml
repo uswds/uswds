@@ -29,6 +29,9 @@ jobs:
             - node_modules
           key: v2-uswds-dependencies-{{ checksum "package-lock.json" }}
       - run:
+          name: Setup Snyk
+          command: sudo npm install -g snyk
+      - run:
           name: Run test
           command: npm test
       - run:
