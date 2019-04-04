@@ -501,7 +501,9 @@ $system-properties: (
     standard: map-collect(
       map-get($system-spacing, 'smaller'),
       map-get($partial-values, 'zero-zero'),
-      ('05': spacing-multiple(0.5))
+      (
+        '05': spacing-multiple(0.5),
+      )
     ),
     extended: (),
   ),
