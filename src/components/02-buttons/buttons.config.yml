@@ -2,44 +2,38 @@ label: Buttons
 status: ready
 
 variants:
-  - name: primary
-    context:
-      category: primary
-      label: Primary buttons
-      classes: 'usa-button'
-
   - name: secondary
     context:
-      category: secondary
+      category: alternate
       label: Secondary buttons
-      classes: 'usa-button-secondary'
+      classes: 'usa-button--secondary'
 
-  - name: secondary-inverse
-    context:
-      category: secondary-inverse
-      label: Secondary inverse buttons
-      classes: 'usa-button-secondary-inverse'
-
-  - name: aqua
+  - name: accent-cool
     context:
       category: alternate
-      label: Aqua buttons
-      classes: 'usa-button-primary-alt'
+      label: Accent cool buttons
+      classes: 'usa-button--accent-cool'
 
-  - name: gray
+  - name: base
     context:
       category: alternate
       label: Gray buttons
-      classes: 'usa-button-gray'
+      classes: 'usa-button--base'
 
-  - name: red
+  - name: outline
     context:
-      category: alternate
-      label: Red buttons
-      classes: 'usa-button-red'
+      category: outline
+      label: outline buttons
+      classes: 'usa-button--outline'
+
+  - name: outline-inverse
+    context:
+      category: outline-inverse
+      label: outline inverse buttons
+      classes: 'usa-button--outline usa-button--inverse'
 
   - name: big
     context:
       category: 'big'
       label: Big button
-      classes: 'usa-button-big'
+      classes: 'usa-button--big'

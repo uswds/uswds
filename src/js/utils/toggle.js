@@ -1,6 +1,6 @@
 const EXPANDED = 'aria-expanded';
 const CONTROLS = 'aria-controls';
-const HIDDEN = 'aria-hidden';
+const HIDDEN = 'hidden';
 
 module.exports = (button, expanded) => {
   let safeExpanded = expanded;
@@ -17,7 +17,11 @@ module.exports = (button, expanded) => {
     throw new Error(`No toggle target found with id: "${id}"`);
   }
 
-  controls.setAttribute(HIDDEN, !safeExpanded);
+  if (safeExpanded) {
+    controls.removeAttribute(HIDDEN);
+  } else {
+    controls.setAttribute(HIDDEN, '');
+  }
 
   return safeExpanded;
 };

@@ -1,18 +1,19 @@
 .usa-section {
-  @include padding($site-margins null);
+  @include border-box-sizing;
+  @include u-padding-y($theme-site-margins-width);
 
-  @include media($medium-screen) {
-    @include padding(6rem null);
+  @include at-media('tablet') {
+    @include u-padding-y(8);
   }
 }
 
-.usa-section-light {
-  background-color: $color-gray-lightest;
+.usa-section--light {
+  background-color: color('base-lightest');
 }
 
-.usa-section-dark {
-  background-color: $color-primary-darkest;
-  color: $color-white;
+.usa-section--dark {
+  background-color: color('primary-darker');
+  color: color('white');
 
   h1,
   h2,
@@ -20,18 +21,18 @@
   h4,
   h5,
   h6 {
-    color: $color-primary-alt;
+    color: color('accent-cool');
   }
 
   p {
-    color: $color-white;
+    color: color('white');
   }
 
   a {
-    color: $color-gray-lighter;
+    color: color('base-lighter');
 
     &:hover {
-      color: $color-white;
+      color: color('white');
     }
   }
 }

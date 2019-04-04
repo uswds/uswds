@@ -1,0 +1,670 @@
+/*
+----------------------------------------
+USWDS Properties
+----------------------------------------
+*/
+
+$standard-colors: map-collect(
+  $tokens-color-theme,
+  $tokens-color-state,
+  $tokens-color-required
+);
+
+$extended-colors: map-collect(
+  $system-colors,
+  $tokens-color-basic
+);
+
+$partial-values: (
+  zero-zero: (
+    0: 0,
+  ),
+  none: (
+    'none': none,
+  ),
+  auto: (
+    'auto': auto,
+  ),
+  full-percent: (
+    'full': 100%,
+  ),
+  full-viewport-height: (
+    'viewport': 100vh,
+  ),
+  full-viewport-width: (
+    'viewport': 100vw,
+  ),
+);
+
+$system-properties: (
+  align-items: (
+    standard: (
+      'align-start':    flex-start,
+      'align-end':      flex-end,
+      'align-center':   center,
+      'align-stretch':  stretch,
+      'align-baseline': baseline,
+    ),
+    extended: (),
+  ),
+  background-color: (
+    standard: $standard-colors,
+    extended: $extended-colors,
+  ),
+  border: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($partial-values, 'zero-zero'),
+      (
+        'noValue': 1px,
+      )
+    ),
+    extended: (),
+  ),
+  border-color: (
+    standard: $standard-colors,
+    extended: $extended-colors,
+  ),
+  border-radius: (
+    standard: $project-border-radius,
+    extended: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small')
+    ),
+  ),
+  border-style: (
+    standard: (
+      'dashed': dashed,
+      'dotted': dotted,
+      'solid':  solid,
+    ),
+    extended: (),
+  ),
+  border-width: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($partial-values, 'zero-zero')
+    ),
+    extended: (),
+  ),
+  bottom: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'smaller-negative'),
+      map-get($system-spacing, 'small-negative'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'auto'),
+      map-get($partial-values, 'full-percent')
+    ),
+    extended: (),
+  ),
+  box-shadow: (
+    standard: (
+      'none':   none,
+      1:     0 units(1px) units(0.5) 0 rgba(0, 0, 0, 0.1),
+      2:     0 units(0.5) units(1) 0 rgba(0, 0, 0, 0.1),
+      3:     0 units(1) units(2) 0 rgba(0, 0, 0, 0.1),
+      4:     0 units(1.5) units(3) 0 rgba(0, 0, 0, 0.1),
+      5:     0 units(2) units(4) 0 rgba(0, 0, 0, 0.1),
+    ),
+    extended: (),
+  ),
+  breakpoints: (
+    standard: map-collect(
+      map-get($system-spacing, 'large'),
+      map-get($system-spacing, 'larger'),
+      map-get($system-spacing, 'largest')
+    ),
+    extended: (),
+  ),
+  circle: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'large')
+    ),
+    extended: (),
+  ),
+  color: (
+    standard: $standard-colors,
+    extended: $extended-colors,
+  ),
+  cursor: (
+    standard: (
+      'auto':         auto,
+      'default':      default,
+      'pointer':      pointer,
+      'wait':         wait,
+      'move':         move,
+      'not-allowed':  not-allowed,
+    ),
+    extended: (),
+  ),
+  display: (
+    standard: (
+      'block':        block,
+      'flex':         flex,
+      'none':         none,
+      'inline':       inline,
+      'inline-block': inline-block,
+      'inline-flex':  inline-flex,
+      'table':        table,
+      'table-cell':   table-cell,
+      'table-row':    table-row,
+    ),
+    extended: (),
+  ),
+  flex: (
+    standard: (
+      1:    1 0 0,
+      2:    2 0 0,
+      3:    3 0 0,
+      4:    4 0 0,
+      5:    5 0 0,
+      6:    6 0 0,
+      7:    7 0 0,
+      8:    8 0 0,
+      9:    9 0 0,
+      10:   10 0 0,
+      11:   11 0 0,
+      12:   12 0 0,
+      'fill': 1 0 0,
+      'auto': 0 0 auto,
+    ),
+    extended: (),
+  ),
+  flex-direction: (
+    standard: (
+      'row':    row,
+      'column': column,
+    ),
+    extended: (),
+  ),
+  flex-wrap: (
+    standard: (
+      'wrap':   wrap,
+      'no-wrap': nowrap,
+    ),
+    extended: (),
+  ),
+  float: (
+    standard: (
+      'left':  left,
+      'none':  none,
+      'right': right,
+    ),
+    extended: (),
+  ),
+  font-family: (
+    standard: $project-font-stacks,
+    extended: (),
+  ),
+  font-feature-settings: (
+    standard: (
+      'tabular': unquote('"tnum" 1, "kern" 1'),
+      'no-tabular': unquote('"kern" 1'),
+    ),
+    extended: (),
+  ),
+  font-style: (
+    standard: (
+      'italic': italic,
+      'no-italic': normal,
+    ),
+    extended: (),
+  ),
+  font-weight: (
+    standard: (
+      'thin': $theme-font-weight-thin,
+      'light': $theme-font-weight-light,
+      'normal': normal,
+      'medium': $theme-font-weight-medium,
+      'semibold': $theme-font-weight-semibold,
+      'bold': bold,
+      'heavy': $theme-font-weight-heavy,
+    ),
+    extended: (
+      100: 100,
+      200: 200,
+      300: 300,
+      400: 400,
+      500: 500,
+      600: 600,
+      700: 700,
+      800: 800,
+      900: 900,
+    ),
+  ),
+  gap: (
+    standard: map-collect(
+      $system-column-gaps,
+      (
+        'sm': $theme-column-gap-sm,
+        'md': $theme-column-gap-md,
+        'lg': $theme-column-gap-lg,
+      )
+    ),
+    extended: (),
+  ),
+  height: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'large'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'auto'),
+      map-get($partial-values, 'full-percent'),
+      map-get($partial-values, 'full-viewport-height')
+    ),
+    extended: (),
+  ),
+  justify-content: (
+    standard: (
+      'justify-center': center,
+      'justify-start':  flex-start,
+      'justify-end':    flex-end,
+      'justify':        space-between,
+    ),
+    extended: (),
+  ),
+  left: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'smaller-negative'),
+      map-get($system-spacing, 'small-negative'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'auto')
+    ),
+    extended: (),
+  ),
+  letter-spacing: (
+    standard: (
+      'ls-auto':	  initial,
+      'ls-neg-3':	  -.03em,
+      'ls-neg-2':	  -.02em,
+      'ls-neg-1':	  -.01em,
+      'ls-1':	      .025em,
+      'ls-2':	      .1em,
+      'ls-3':	      .15em,
+    ),
+    extended: (),
+    function: (
+      'auto':	      initial,
+      -3:	          -.03em,
+      -2:	          -.02em,
+      -1:	          -.01em,
+      1:	          .05em,
+      2:	          .1em,
+      3:	          .15em,
+    ),
+  ),
+  line-height: (
+    standard: (
+      'sans-1':    lh('sans', 1),
+      'sans-2':    lh('sans', 2),
+      'sans-3':    lh('sans', 3),
+      'sans-4':    lh('sans', 4),
+      'sans-5':    lh('sans', 5),
+      'sans-6':    lh('sans', 6),
+      'serif-1':   lh('serif', 1),
+      'serif-2':   lh('serif', 2),
+      'serif-3':   lh('serif', 3),
+      'serif-4':   lh('serif', 4),
+      'serif-5':   lh('serif', 5),
+      'serif-6':   lh('serif', 6),
+      'mono-1':    lh('mono', 1),
+      'mono-2':    lh('mono', 2),
+      'mono-3':    lh('mono', 3),
+      'mono-4':    lh('mono', 4),
+      'mono-5':    lh('mono', 5),
+      'mono-6':    lh('mono', 6),
+      'cond-1':    lh('cond', 1),
+      'cond-2':    lh('cond', 2),
+      'cond-3':    lh('cond', 3),
+      'cond-4':    lh('cond', 4),
+      'cond-5':    lh('cond', 5),
+      'cond-6':    lh('cond', 6),
+      'heading-1': lh('heading', 1),
+      'heading-2': lh('heading', 2),
+      'heading-3': lh('heading', 3),
+      'heading-4': lh('heading', 4),
+      'heading-5': lh('heading', 5),
+      'heading-6': lh('heading', 6),
+      'ui-1':      lh('ui', 1),
+      'ui-2':      lh('ui', 2),
+      'ui-3':      lh('ui', 3),
+      'ui-4':      lh('ui', 4),
+      'ui-5':      lh('ui', 5),
+      'ui-6':      lh('ui', 6),
+      'body-1':    lh('body', 1),
+      'body-2':    lh('body', 2),
+      'body-3':    lh('body', 3),
+      'body-4':    lh('body', 4),
+      'body-5':    lh('body', 5),
+      'body-6':    lh('body', 6),
+      'code-1':    lh('code', 1),
+      'code-2':    lh('code', 2),
+      'code-3':    lh('code', 3),
+      'code-4':    lh('code', 4),
+      'code-5':    lh('code', 5),
+      'code-6':    lh('code', 6),
+      'alt-1':     lh('alt', 1),
+      'alt-2':     lh('alt', 2),
+      'alt-3':     lh('alt', 3),
+      'alt-4':     lh('alt', 4),
+      'alt-5':     lh('alt', 5),
+      'alt-6':     lh('alt', 6),
+    ),
+    extended: (
+      1:	       1,
+      2:	       1.1,
+      3:	       1.35,
+      4:	       1.5,
+      5:	       1.62,
+      6:	       1.75,
+    ),
+  ),
+  margin: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing-em, 'small'),
+      map-get($partial-values, 'zero-zero')
+    ),
+    extended: (),
+  ),
+  margin-horizontal: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'smaller-negative'),
+      map-get($system-spacing, 'small-negative'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing-em, 'small'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'auto')
+    ),
+    extended: (),
+  ),
+  margin-vertical: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'smaller-negative'),
+      map-get($system-spacing, 'small-negative'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing-em, 'small'),
+      map-get($partial-values, 'zero-zero')
+    ),
+    extended: (),
+  ),
+  max-height: (
+    standard: map-collect(
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'large'),
+      map-get($system-spacing, 'larger'),
+      map-get($partial-values, 'none'),
+      map-get($partial-values, 'full-viewport-height')
+    ),
+    extended: (),
+  ),
+  max-width: (
+    standard: map-collect(
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'large'),
+      map-get($system-spacing, 'larger'),
+      map-get($system-spacing, 'largest'),
+      map-get($partial-values, 'none'),
+      map-get($partial-values, 'full-percent')
+    ),
+    extended: (),
+  ),
+  measure: (
+    standard: (
+      1:	    $system-measure-smaller,
+      2:	    $system-measure-small,
+      3:	    $system-measure-base,
+      4:	    $system-measure-large,
+      5:	    $system-measure-larger,
+      6:	    $system-measure-largest,
+      'none':   none,
+    ),
+    extended: (),
+  ),
+  min-height: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'large'),
+      map-get($system-spacing, 'larger'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'full-percent'),
+      map-get($partial-values, 'full-viewport-height')
+    ),
+    extended: (),
+  ),
+  min-width: (
+    standard: map-collect(
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($partial-values, 'zero-zero')
+    ),
+    extended: (),
+  ),
+  opacity: (
+    standard: (
+      0:  0,
+      10: 0.1,
+      20: 0.2,
+      30: 0.3,
+      40: 0.4,
+      50: 0.5,
+      60: 0.6,
+      70: 0.7,
+      80: 0.8,
+      90: 0.9,
+      100:  1,
+    ),
+    extended: (),
+  ),
+  order: (
+    standard: (
+      'first':	-1,
+      'last':	  999,
+      'initial': initial,
+      0:      0,
+      1:      1,
+      2:      2,
+      3:      3,
+      4:      4,
+      5:      5,
+      6:      6,
+      7:      7,
+      8:      8,
+      9:      9,
+      10:     10,
+      11:     11,
+    ),
+    extended: (),
+  ),
+  outline: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($partial-values, 'zero-zero'),
+      (
+        '05': spacing-multiple(0.5),
+      )
+    ),
+    extended: (),
+  ),
+  outline-color: (
+    standard: map-collect(
+      $tokens-color-required
+    ),
+    extended: $extended-colors,
+  ),
+  overflow: (
+    standard: (
+      'hidden':  hidden,
+      'scroll':  scroll,
+      'auto':    auto,
+      'visible': visible,
+    ),
+    extended: (),
+  ),
+  padding: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($partial-values, 'zero-zero')
+    ),
+    extended: (),
+  ),
+  position: (
+    standard: (
+      'absolute': absolute,
+      'fixed':    fixed,
+      'relative': relative,
+      'static':   static,
+      'sticky':   sticky,
+    ),
+    extended: (),
+  ),
+  right: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'smaller-negative'),
+      map-get($system-spacing, 'small-negative'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'auto')
+    ),
+    extended: (),
+  ),
+  square: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'large')
+    ),
+    extended: (),
+  ),
+  text-align: (
+    standard: (
+      'center':  center,
+      'left':    left,
+      'justify': justify,
+      'right':   right,
+    ),
+    extended: (),
+  ),
+  text-decoration: (
+    standard: (
+      'strike':       line-through,
+      'underline':    underline,
+      'no-underline': none,
+      'no-strike':    none,
+    ),
+    extended: (),
+  ),
+  text-decoration-color: (
+    standard: map-collect(
+      $standard-colors,
+      map-get($partial-values, 'auto')
+    ),
+    extended: $extended-colors,
+  ),
+  text-indent: (
+    standard: map-collect(
+      map-get($partial-values, 'zero-zero'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'small-negative'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'medium-negative')
+    ),
+    extended: (),
+  ),
+  text-transform: (
+    standard: (
+      'uppercase':    uppercase,
+      'no-uppercase': none,
+      'lowercase':    lowercase,
+      'no-lowercase': none,
+    ),
+    extended: (),
+  ),
+  top: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'smaller-negative'),
+      map-get($system-spacing, 'small-negative'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'auto')
+    ),
+    extended: (),
+  ),
+  vertical-align: (
+    standard: (
+      'baseline':    baseline,
+      'bottom':      bottom,
+      'middle':      middle,
+      'sub':         sub,
+      'super':       super,
+      'tbottom':     text-bottom,
+      'ttop':        text-top,
+      'top':         top,
+    ),
+    extended: (),
+  ),
+  white-space: (
+    standard: (
+      'pre':      pre,
+      'pre-line': pre-line,
+      'pre-wrap': pre-wrap,
+      'wrap':     normal,
+      'no-wrap':  nowrap,
+    ),
+    extended: (),
+  ),
+  width: (
+    standard: map-collect(
+      map-get($system-spacing, 'smaller'),
+      map-get($system-spacing, 'small'),
+      map-get($system-spacing, 'medium'),
+      map-get($system-spacing, 'large'),
+      map-get($system-spacing, 'larger'),
+      map-get($system-spacing, 'largest'),
+      map-get($partial-values, 'zero-zero'),
+      map-get($partial-values, 'full-percent'),
+      map-get($partial-values, 'auto')
+    ),
+    extended: (),
+  ),
+  z-index: (
+    standard: (
+      'auto':    auto,
+      'bottom':  -100,
+      'top':     99999,
+      0:         0,
+      100:	     100,
+      200:	     200,
+      300:       300,
+      400:	     400,
+      500:	     500,
+    ),
+    extended: (),
+  ),
+);

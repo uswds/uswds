@@ -1,0 +1,69 @@
+/*
+========================================
+STANDARD PLUGINS
+----------------------------------------
+These plugins collect standard property
+values as plugin
+----------------------------------------
+*/
+
+$palettes-default:(
+  'palette-align-items-default': get-standard-values(align-items),
+  'palette-background-color-default': get-standard-values(background-color),
+  'palette-border-default': get-standard-values(border),
+  'palette-border-color-default': get-standard-values(border-color),
+  'palette-border-radius-default': get-standard-values(border-radius),
+  'palette-border-style-default': get-standard-values(border-style),
+  'palette-border-width-default': get-standard-values(border-width),
+  'palette-bottom-default': get-standard-values(bottom),
+  'palette-box-shadow-default': get-standard-values(box-shadow),
+  'palette-circle-default': get-standard-values(circle),
+  'palette-color-default': map-collect(
+    $tokens-color-basic,
+    $tokens-color-grayscale,
+    $tokens-color-theme
+  ),
+  'palette-cursor-default': get-standard-values(cursor),
+  'palette-display-default': get-standard-values(display),
+  'palette-flex-default': get-standard-values(flex),
+  'palette-flex-direction-default': get-standard-values(flex-direction),
+  'palette-flex-wrap-default': get-standard-values(flex-wrap),
+  'palette-float-default': get-standard-values(float),
+  'palette-font-default': $tokens-font-theme,
+  'palette-font-family-default': get-standard-values(font-family),
+  'palette-font-feature-settings-default': get-standard-values(font-feature-settings),
+  'palette-font-style-default': get-standard-values(font-style),
+  'palette-font-weight-default': get-standard-values(font-weight),
+  'palette-height-default': get-standard-values(height),
+  'palette-justify-content-default': get-standard-values(justify-content),
+  'palette-left-default': get-standard-values(left),
+  'palette-letter-spacing-default': get-standard-values(letter-spacing),
+  'palette-line-height-default': get-standard-values(line-height),
+  'palette-margin-default': get-standard-values(margin),
+  'palette-margin-horizontal-default': get-standard-values(margin-horizontal),
+  'palette-margin-vertical-default': get-standard-values(margin-vertical),
+  'palette-max-height-default': get-standard-values(max-height),
+  'palette-max-width-default': get-standard-values(max-width),
+  'palette-measure-default': get-standard-values(measure),
+  'palette-min-height-default': get-standard-values(min-height),
+  'palette-min-width-default': get-standard-values(min-width),
+  'palette-opacity-default': get-standard-values(opacity),
+  'palette-order-default': get-standard-values(order),
+  'palette-outline-default': get-standard-values(outline),
+  'palette-outline-color-default': get-standard-values(outline-color),
+  'palette-overflow-default': get-standard-values(overflow),
+  'palette-padding-default': get-standard-values(padding),
+  'palette-position-default': get-standard-values(position),
+  'palette-right-default': get-standard-values(right),
+  'palette-square-default': get-standard-values(square),
+  'palette-text-align-default': get-standard-values(text-align),
+  'palette-text-decoration-default': get-standard-values(text-decoration),
+  'palette-text-decoration-color-default': get-standard-values(text-decoration-color),
+  'palette-text-indent-default': get-standard-values(text-indent),
+  'palette-text-transform-default': get-standard-values(text-transform),
+  'palette-top-default': get-standard-values(top),
+  'palette-vertical-align-default': get-standard-values(vertical-align),
+  'palette-white-space-default': get-standard-values(white-space),
+  'palette-width-default': get-standard-values(width),
+  'palette-z-index-default': get-standard-values(z-index),
+);

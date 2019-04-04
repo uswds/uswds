@@ -1,4 +1,3 @@
-const forEach = require('array-foreach');
 const resolveIdRefs = require('resolve-id-refs');
 const toggleFieldMask = require('./toggle-field-mask');
 
@@ -31,7 +30,7 @@ module.exports = (el) => {
     && el.getAttribute(PRESSED) !== 'true';
 
   const fields = resolveIdRefs(el.getAttribute(CONTROLS));
-  forEach(fields, field => toggleFieldMask(field, pressed));
+  fields.forEach(field => toggleFieldMask(field, pressed));
 
   if (!el.hasAttribute(SHOW_ATTR)) {
     el.setAttribute(SHOW_ATTR, el.textContent);

@@ -1,203 +1,230 @@
 .usa-banner {
-  background-color: $color-gray-lightest;
-  padding-bottom: 0.7rem;
+  @include typeset($theme-banner-font-family);
+  @include border-box-sizing;
+  background-color: color('base-lightest');
 
-  @include media($small-screen) {
-    font-size: $h6-font-size;
-    padding-bottom: 0;
+  @include at-media('tablet') {
+    font-size: font-size($theme-banner-font-family, '3xs');
+    padding-bottom: units(0);
   }
 }
 
-.usa-banner-content {
-  @include padding(null $site-margins-mobile 3px $site-margins-mobile);
-  background-color: transparent;
-  font-size: $h5-font-size;
-  padding-top: 2rem;
+.usa-banner__content {
+  @include grid-container($theme-site-max-width);
+  @include add-responsive-site-margins;
+  background-color: color('transparent');
+  font-size: font-size($theme-banner-font-family, 4);
+  overflow: hidden;
+  padding-bottom: units(2);
+  padding-left: units($theme-site-margins-mobile-width - 1);
+  padding-top: units(0.5);
   width: 100%;
 
-  @include media($medium-screen) {
-    padding-bottom: 2.3rem;
-    padding-top: 4rem;
-  }
-
-  @include media($nav-width) {
-    @include padding(null $site-margins);
+  @include at-media('tablet') {
+    @include u-padding-y(3);
   }
 
   p {
     &:first-child {
-      margin-top: 1rem;
-
-      @include media($medium-screen) {
-        margin-top: 0;
-      }
+      margin: 0;
     }
   }
 }
 
-.usa-banner-inner {
-  @include outer-container($site-max-width);
-  @include padding(null $site-margins-mobile);
+.usa-banner__guidance {
+  padding-top: units(2);
 
-  @include media($nav-width) {
-    @include padding(null $site-margins);
+  @include at-media('tablet') {
+    padding-top: units(0);
   }
 }
 
-.usa-banner-header {
-  @include padding(0.55rem null);
-  font-size: 1.2rem;
-  font-weight: $font-normal;
+.usa-banner__inner {
+  @include add-responsive-site-margins;
+  @include grid-container;
+  @include grid-row;
+  @include u-flex('align-start');
+  padding-right: units(0);
 
-  @include media($small-screen) {
-    @include padding(0 null);
-  }
-
-  p {
-    @include margin(0 null);
-    display: inline;
-    overflow: hidden;
-    vertical-align: middle;
-
-    @include media($small-screen) {
-      @include margin(2px null);
-      display: inline-block;
-    }
-  }
-
-  img {
-    float: left;
-    margin-right: 1rem;
-    margin-top: 1px;
-    width: 2.4rem;
-
-    @include media($small-screen) {
-      margin-right: 0.7rem;
-      width: 2rem;
-    }
+  @include at-media('tablet') {
+    @include u-flex('align-center');
   }
 }
 
-.usa-banner-header-expanded {
-  align-items: center;
-  border-bottom: 1px solid $color-gray-light;
-  display: flex;
-  font-size: $h5-font-size;
-  min-height: 5.6rem;
-  padding-right: 3rem;
+.usa-banner__header {
+  @include u-padding-y(1);
+  font-size: font-size($theme-banner-font-family, 1);
+  font-weight: font-weight('normal');
+  min-height: units($size-touch-target);
+  position: relative;
 
-  @include media($small-screen) {
-    border-bottom: none;
-    display: block;
-    font-size: 1.2rem;
-    font-weight: $font-normal;
+  @include at-media('tablet') {
+    @include u-padding-y(0.5);
     min-height: 0;
-    padding-right: 0;
   }
+}
 
-  > .usa-banner-inner {
-    margin-left: 0;
+.usa-banner__header-close-text {
+  @include u-margin-y(0);
+  color: color('base-dark');
+  display: none;
+  font-size: font-size($theme-banner-font-family, 1);
+  line-height: line-height($theme-banner-font-family, 2);
+  padding-top: units(0.5);
 
-    @include media($small-screen) {
-      margin-left: auto;
-    }
-  }
+  .usa-banner__header--expanded & {
+    display: block;
 
-  img {
-    margin-right: 2.4rem;
-
-    @include media($small-screen) {
-      margin-right: 0.7rem;
-    }
-  }
-
-  p {
-    line-height: $heading-line-height;
-    vertical-align: top;
-
-    @include media($small-screen) {
-      line-height: $base-line-height;
-      vertical-align: middle;
+    @include at-media('tablet') {
+      display: none;
     }
   }
 }
 
-.usa-banner-button {
-  @include button-unstyled;
-  @include padding(1.3rem null null 4.8rem);
-  background-position-x: right;
-  color: $color-primary;
-  display: block;
-  font-size: 1.2rem;
-  height: 4.3rem;
-  left: 0;
-  position: absolute;
-  text-decoration: underline;
-  top: 0;
-  width: 100%;
+.usa-banner__header-text {
+  @include u-margin-y(0);
+  font-size: font-size($theme-banner-font-family, 1);
+  line-height: line-height($theme-banner-font-family, 2);
+}
 
-  @include media($small-screen) {
-    @include padding(0 null null 0);
-    /* stylelint-disable declaration-block-no-ignored-properties */
-    display: inline;
-    height: auto;
-    margin-left: 3px;
-    position: relative;
-    vertical-align: middle;
-    width: auto;
-    /* stylelint-enable */
+.usa-banner__header-action {
+  @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 0.5, 'hover');
+  color: color('primary');
+  line-height: line-height($theme-banner-font-family, 2);
+  margin-bottom: units(0);
+  margin-top: units(2px);
+  text-decoration: underline;
+
+  .usa-banner__header--expanded & {
+    display: none;
   }
 
-  &:hover {
-    color: $color-primary-darker;
-    text-decoration: underline;
+  @include at-media('tablet') {
+    display: none;
+  }
+}
+
+.usa-banner__header-flag {
+  @include u-float('left');
+  margin-right: units(1);
+  width: units(2);
+
+  @include at-media('tablet') {
+    margin-right: units(1);
+    padding-top: units(0);
+  }
+}
+
+.usa-banner__header--expanded {
+  padding-right: units($size-touch-target + 1);
+
+  @include at-media('tablet') {
+    background-color: transparent;
+    color: color('ink');
+    display: block;
+    font-size: font-size($theme-banner-font-family, 1);
+    font-weight: font-weight('normal');
+    min-height: units(0);
+    padding-right: units(0);
+  }
+
+  .usa-banner__inner {
+    margin-left: units(0);
+
+    @include at-media('tablet') {
+      margin-left: units(auto);
+    }
+  }
+
+  .usa-banner__header-action {
+    display: none;
+  }
+}
+
+.usa-banner__button {
+  @include button-unstyled;
+  @include u-pin('left');
+  @include u-pin('y');
+  @include u-text('primary', underline, baseline);
+  display: block;
+  font-size: font-size($theme-banner-font-family, 1);
+  height: auto;
+  line-height: line-height($theme-banner-font-family, 2);
+  padding-top: units(0);
+  padding-left: units(0);
+  text-decoration: none;
+  width: auto;
+
+  @include at-media-max('tablet') {
+    width: 100%;
+  }
+
+  @include at-media('tablet') {
+    @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 2px, 'hover');
+    @include u-pin('none');
+    display: inline;
+    margin-left: units(1);
+    position: relative;
+
+    &:hover {
+      @include u-text('primary-darker');
+    }
   }
 
   &[aria-expanded=false] {
-    @include display-icon(angle-arrow-down-primary, after, 1rem, 0, hover);
     background-image: none;
-
-    &::after {
-      background-position-y: 1px;
-    }
   }
 
   &[aria-expanded=true] {
-    @include display-icon(close, after, 1.3rem, 0, no-hover);
     background-image: none;
-    height: 5.6rem;
 
-    @include media($small-screen) {
-      @include display-icon(angle-arrow-up-primary, after, 1rem, 0, hover);
-      height: initial;
-      padding: 0;
-      position: relative;
+    @include at-media-max('tablet') {
+      @include add-icon('close-blue-60v-alt',
+      'after',
+      $theme-icon-image-size,
+      $size-touch-target,
+      0,
+      'no-hover'
+    );
 
       &::after {
-        background-position-y: 1px;
+        @include u-pin('y');
+        @include u-pin('right');
+        background-color: color('base-lighter');
+        bottom: 0;
+        height: auto;
       }
+    }
+
+    @include at-media('tablet') {
+      @include add-icon('angle-arrow-up-primary', 'after', 1, 1, 2px, 'hover');
+      height: auto;
+      padding: units(0);
+      position: relative;
     }
 
     &::after {
       position: absolute;
-      right: 1.5rem;
-      top: 2.15rem;
+      right: units(2);
+      top: units(1.5);
 
-      @include media($small-screen) {
+      @include at-media('tablet') {
         position: static;
-      }
-    }
-
-    .usa-banner-button-text {
-      display: none;
-
-      @include media($small-screen) {
-        display: inline;
       }
     }
   }
 }
 
-.usa-banner-icon {
-  width: 3.8rem;
+.usa-banner__button-text {
+  @include add-sr-only;
+  text-decoration: underline;
+
+  @include at-media('tablet') {
+    @include add-no-sr-only;
+    display: inline;
+  }
+}
+
+.usa-banner__icon {
+  width: units(5);
 }

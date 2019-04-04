@@ -1,15 +1,12 @@
-const assign = require('object-assign');
-const filter = require('array-filter');
-const forEach = require('array-foreach');
+const select = require('../utils/select');
 const behavior = require('../utils/behavior');
 const toggle = require('../utils/toggle');
 const isElementInViewport = require('../utils/is-in-viewport');
 const { CLICK } = require('../events');
 const { prefix: PREFIX } = require('../config');
 
-// XXX match .usa-accordion and .usa-accordion-bordered
-const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion-bordered`;
-const BUTTON = `.${PREFIX}-accordion-button[aria-controls]`;
+const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
+const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;
 const EXPANDED = 'aria-expanded';
 const MULTISELECTABLE = 'aria-multiselectable';
 
@@ -20,9 +17,9 @@ const MULTISELECTABLE = 'aria-multiselectable';
  * @return {array<HTMLButtonElement>}
  */
 const getAccordionButtons = (accordion) => {
-  const buttons = accordion.querySelectorAll(BUTTON);
+  const buttons = select(BUTTON, accordion);
 
-  return filter(buttons, button => button.closest(ACCORDION) === accordion);
+  return buttons.filter(button => button.closest(ACCORDION) === accordion);
 };
 
 /**
@@ -37,6 +34,7 @@ const getAccordionButtons = (accordion) => {
 const toggleButton = (button, expanded) => {
   const accordion = button.closest(ACCORDION);
   let safeExpanded = expanded;
+
   if (!accordion) {
     throw new Error(`${BUTTON} is missing outer ${ACCORDION}`);
   }
@@ -47,7 +45,7 @@ const toggleButton = (button, expanded) => {
   const multiselectable = accordion.getAttribute(MULTISELECTABLE) === 'true';
 
   if (safeExpanded && !multiselectable) {
-    forEach(getAccordionButtons(accordion), (other) => {
+    getAccordionButtons(accordion).forEach((other) => {
       if (other !== button) {
         toggle(other, false);
       }
@@ -71,6 +69,7 @@ const accordion = behavior({
   [CLICK]: {
     [BUTTON](event) {
       event.preventDefault();
+
       toggleButton(this);
 
       if (this.getAttribute(EXPANDED) === 'true') {
@@ -83,7 +82,7 @@ const accordion = behavior({
   },
 }, {
   init(root) {
-    forEach(root.querySelectorAll(BUTTON), (button) => {
+    select(BUTTON, root).forEach((button) => {
       const expanded = button.getAttribute(EXPANDED) === 'true';
       toggleButton(button, expanded);
     });
@@ -96,25 +95,4 @@ const accordion = behavior({
   getButtons: getAccordionButtons,
 });
 
-/**
- * TODO: for 2.0, remove everything below this comment and export the
- * behavior directly:
- *
- * module.exports = behavior({...});
- */
-const Accordion = function (root) {
-  this.root = root;
-  accordion.on(this.root);
-};
-
-// copy all of the behavior methods and props to Accordion
-assign(Accordion, accordion);
-
-Accordion.prototype.show = showButton;
-Accordion.prototype.hide = hideButton;
-
-Accordion.prototype.remove = function () {
-  accordion.off(this.root);
-};
-
-module.exports = Accordion;
+module.exports = accordion;

@@ -1,0 +1,10 @@
+@mixin usa-list-styles {
+  ul,
+  ol {
+    @extend %usa-list;
+
+    li {
+      @extend %usa-list-item;
+    }
+  }
+}

@@ -1,18 +1,21 @@
 // A collection of media block objects
 
-.usa-graphic_list {
-  .usa-graphic_list-row {
-    .usa-media_block {
-      margin-bottom: $site-margins;
+.usa-graphic-list {
+  @include typeset;
+  @include border-box-sizing;
 
-      @include media($medium-screen) {
-        margin-bottom: $site-margins * 2;
+  .usa-graphic-list__row {
+    .usa-media-block {
+      margin-bottom: units(4);
+
+      @include at-media('tablet') {
+        margin-bottom: units(8);
       }
     }
 
     &:last-child {
-      .usa-media_block {
-        @include media($medium-screen) {
+      .usa-media-block {
+        @include at-media('tablet') {
           margin-bottom: 0;
         }
 
@@ -23,13 +26,17 @@
     }
   }
 
-  .usa-media_block-img {
-    margin-right: $site-margins;
+  .usa-media-block__img {
+    margin-right: units(3);
   }
 
-  .usa-media_block-body {
+  .usa-media-block__body {
     > :first-child {
       margin-top: 0;
     }
   }
+}
+
+.usa-graphic-list__heading {
+  @include typeset-h3;
 }

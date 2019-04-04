@@ -1,0 +1,8 @@
+@mixin usa-table-styles {
+  table {
+    @extend %usa-table;
+  }
+  .usa-table--borderless {
+    @extend %usa-table--borderless;
+  }
+}

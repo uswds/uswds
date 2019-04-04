@@ -1,4 +1,4 @@
-label: Labels
+label: Tags
 status: ready
 preview: '@uswds-framed'
 
@@ -7,10 +7,10 @@ variants:
     label: Info
     context:
       label:
-        classes: ""
+        classes: "usa-tag"
 
   - name: big
     label: Big
     context:
       label:
-        classes: "usa-label-big"
+        classes: "usa-tag usa-tag--big"

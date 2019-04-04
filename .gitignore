@@ -4,6 +4,7 @@
 # ignore Node-specific files and directories
 node_modules/
 npm-debug.log*
+.gz
 
 # code coverage
 coverage/
@@ -20,3 +21,6 @@ src/stylesheets/lib
 # ignore saved screenshots
 spec/screenshots/*.png
 spec/screenshots/metadata.js
+
+# ignore sass cache
+.sass-cache/

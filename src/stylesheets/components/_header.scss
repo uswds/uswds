@@ -1,228 +1,273 @@
-// Header variables ---------- //
+// Header helpers
+// ---------------------------------
 
-$height-nav-secondary: 5rem;
-$width-nav-sidebar:    250px;
+@mixin nav-border-extended {
+  @include add-bar(
+    0.5,
+    'primary',
+    'bottom',
+    0,
+    2
+  );
+}
 
-// z-indexes - TODO refactor to a site-wide z-index management approach
-$z-index-header:  7000;
-$z-index-overlay: 8000;
-$z-index-nav:     9000;
+@mixin nav-border-basic {
+  @include add-bar(
+    0.5,
+    'primary',
+    'bottom',
+    0,
+    2,
+    -0.5
+  );
+}
 
-// Header ------------- //
+$z-index-header:  300;
+$z-index-overlay: 400;
+
+// Header
+// ---------------------------------
 
 .usa-header {
-  width: 100%;
-  z-index: $z-index-header;
-
-  @include media($nav-width) {
-    border-bottom: 1px solid $color-gray-lighter;
-  }
+  @include clearfix;
+  @include typeset($theme-header-font-family);
+  @include border-box-sizing;
+  z-index: z-index($z-index-header);
 
   a {
     border-bottom: none;
   }
 
+  // The search <form>
   .usa-search {
-    @include media($nav-width) {
+    @include at-media($theme-navigation-width) {
       float: right;
-      max-width: 21.5rem;
+    }
+  }
+
+  // Accessibility: The <div> with search role
+  [role=search] {
+    @include at-media($theme-navigation-width) {
+      float: right;
+      max-width: calc(#{$theme-search-min-width} + #{units($theme-button-small-width)});
+      width: 100%;
+    }
+  }
+
+  // The search <input>
+  [type=search] {
+    min-width: 0; // Fix a Firefox display quirk
+  }
+
+  + .usa-hero {
+    @include at-media($theme-navigation-width) {
+      border-top: units(1px) solid color('white');
+    }
+  }
+
+  + .usa-section,
+  + main {
+    @include at-media($theme-navigation-width) {
+      border-top: units(1px) solid color('base-lighter');
     }
   }
 }
 
 .usa-logo {
-  float: left;
-  line-height: 4rem;
-  margin-left: 1.5rem;
+  @include at-media-max($theme-navigation-width) {
+    @include u-flex('fill');
+    font-size: font-size($theme-header-font-family, '2xs');
+    line-height: line-height($theme-header-font-family, 1);
+    margin-left: units($theme-site-margins-mobile-width);
+  }
 
-  @include media($nav-width) {
-    line-height: 7.5rem;
-    margin-left: 0;
+  @include at-media($theme-navigation-width) {
+    margin-top: units(4);
+    margin-bottom: units(2);
+    font-size: font-size($theme-header-font-family, 'lg');
+    line-height: line-height($theme-header-font-family, 2);
   }
 
   a {
-    color: $color-base;
+    color: color('ink');
     text-decoration: none;
-  }
-
-  br {
-    display: none;
-
-    @include media($nav-width) {
-      display: block;
-    }
   }
 }
 
-.usa-logo-text {
+.usa-logo__text {
   display: block;
-  font-size: $h5-font-size;
   font-style: normal;
-  font-weight: $font-bold;
+  font-weight: font-weight('bold');
   margin: 0;
-
-  @include media($nav-width) {
-    display: block;
-    font-size: 2.4rem;
-    line-height: $heading-line-height;
-  }
 }
 
 .usa-menu-btn {
-  /* stylelint-disable declaration-block-no-ignored-properties */
   @include button-unstyled;
-  background-color: $color-primary;
-  color: $color-white;
-  display: inline;
-  float: right;
-  font-size: $h6-font-size;
-  height: 4rem;
-  line-height: 4rem;
+  @include u-flex('auto');
+  @include u-padding-x(1.5);
+  background-color: color('primary');
+  color: color('white');
+  font-size: font-size($theme-header-font-family, '3xs');
+  height: units($size-touch-target);
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  width: 5.8rem;
-  /* stylelint-enable */
 
-  @include media($nav-width) {
+  @include at-media($theme-navigation-width) {
     display: none;
   }
 
   &:hover {
-    color: $color-white;
-    background-color: $color-primary-darker;
+    background-color: color('primary-dark');
+    color: color('white');
+    text-decoration: none;
+  }
+
+  &:active {
+    color: color('white');
   }
 
   &:visited {
-    color: $color-white;
+    color: color('white');
   }
 }
 
 .usa-overlay {
-  @include position(fixed, 0);
-  background: $color-black;
-  opacity: 0;
+  @include u-pin('all');
+  position: fixed;
+  background: color('black');
+  opacity: opacity(0);
   transition: opacity 0.2s ease-in-out;
   visibility: hidden;
-  z-index: $z-index-overlay;
+  z-index: z-index($z-index-overlay);
 
   &.is-visible {
-    opacity: 0.1;
+    opacity: opacity(20);
     visibility: visible;
   }
 }
 
-// Basic header ----------- //
+// usa-header--basic
+// ---------------------------------
 
-.usa-header-basic {
-  .usa-logo {
-    @include media($nav-width) {
-      bottom: 0;
-      position: absolute;
+.usa-header--basic {
+  @include at-media($theme-navigation-width) {
+    .usa-navbar {
+      position: relative;
+      width: $theme-megamenu-logo-text-width; // TODO: review this more
+    }
+
+    .usa-nav {
+      @include u-flex('row', 'align-center', 'justify-end');
+      display: flex;
+      padding: 0 0 units(0.5) units(1);
+      width: 100%;
+    }
+
+    .usa-nav-container {
+      @include u-flex('align-end', 'justify');
+      display: flex;
+    }
+
+    .usa-current,
+    [aria-expanded=true],
+    .usa-nav__link:hover {
+      @include nav-border-basic;
+    }
+
+    .usa-nav__primary {
+      width: auto;
+    }
+
+    .usa-search {
+      top: 0;
     }
   }
+  &.usa-header--megamenu {
+    .usa-nav__inner {
+      display: flex;
+      flex-direction: column;
 
-  .usa-navbar {
-    @include media($nav-width) {
-      position: relative;
-      width: 18%; // TODO: review this more
+      @include at-media($theme-navigation-width) {
+        display: block;
+        float: right;
+        margin-top: units(-5);
+      }
     }
   }
 }
 
-// Extended header ----------- //
+// usa-header--extended
+// ---------------------------------
 
-.usa-header-extended {
-  .usa-header {
-    @include media($nav-width) {
-      border-bottom: none;
+.usa-header--extended {
+  @include at-media($theme-navigation-width) {
+    padding-top: 0;
+
+    .usa-current,
+    [aria-expanded=true],
+    .usa-nav__link:hover {
+      @include nav-border-extended;
     }
   }
 
   .usa-logo {
-    @include media($nav-width) {
-      @include margin(3rem null);
-    }
-  }
-
-  em {
-    @include media($nav-width) {
-      font-size: 3.2rem;
-      line-height: 1;
+    @include at-media($theme-navigation-width) {
+      font-size: font-size($theme-header-font-family, 'xl');
+      margin: units(4) 0 units(3);
+      max-width: 50%;
     }
   }
 
   .usa-navbar {
-    @include media($nav-width) {
-      @include outer-container($site-max-width);
-      @include padding(null $site-margins);
+    @include at-media($theme-navigation-width) {
+      @include grid-container;
       display: block;
       height: auto;
+      overflow: auto;
     }
   }
 
   .usa-nav {
-    @include media($nav-width) {
-      border-top: 1px solid $color-gray-lighter;
-      float: none;
+    @include at-media($theme-navigation-width) {
+      border-top: units(1px) solid color('base-lighter');
       padding: 0;
       width: 100%;
     }
   }
 
-  .usa-nav-inner {
-    @include media($nav-width) {
-      @include outer-container($site-max-width);
-      @include padding(null $site-margins null 1.5rem);
+  .usa-nav__inner {
+    @include at-media($theme-navigation-width) {
+      @include grid-container;
+      padding-left: units(2) !important; /* stylelint-disable declaration-no-important  */
       position: relative;
     }
   }
 
-  .usa-nav-primary {
-    @include media($nav-width) {
+  .usa-nav__primary {
+    @include at-media($theme-navigation-width) {
       @include clearfix;
     }
+  }
 
-    button {
-      &[aria-expanded=false],
-      &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
-        @include media($nav-width) { /* stylelint-disable-line selector-no-qualifying-type */
-          background-position: right 1.5rem top 53%;
-        }
-      }
+  .usa-nav__link {
+    @include at-media($theme-navigation-width) {
+      @include u-padding-y(2);
     }
   }
 
-  .usa-nav-link {
-    @include media($nav-width) {
-      @include padding(1.8rem null);
-    }
-  }
-
-  .usa-nav-submenu {
+  .usa-nav__submenu {
     .usa-grid-full {
-      @include media($nav-width) {
-        padding-left: 1.2rem;
+      @include at-media($theme-navigation-width) {
+        padding-left: units(1.5);
       }
     }
   }
 
   .usa-megamenu {
-    @include media($nav-width) {
-      padding-left: $site-margins;
+    @include at-media($theme-navigation-width) {
+      left: 0;
+      padding-left: units($theme-site-margins-width);
     }
   }
-
-  // Temp code for v1 to force show the search at mobile, not dekstop
-  /* stylelint-disable selector-no-id, declaration-no-important  */
-  .usa-search {
-    &[hidden] {
-      display: block !important;
-
-      @include media($nav-width) {
-        display: none !important;
-      }
-    }
-  }
-  /* stylelint-enable */
 }
