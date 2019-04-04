@@ -146,6 +146,12 @@ $namespace-grid: ns('grid');
         }
       }
     }
+    @include at-media($mq-key) {
+      .#{$mq-key}\:#{$namespace-grid}offset-none {
+        $props: append-important($grid-global, none);
+        @include grid-offset($props);
+      }
+    }
   }
 }
 /* stylelint-enable */
