@@ -73,7 +73,7 @@ npm test
 ```
 
 This will also run [eslint] and [stylelint] to ensure that the JavaScript
-and SCSS source files meet our coding standards. To lint without the unit
+and SCSS source files meet our coding standards along with [snyk test] to check for package dependency vulnerabilities. To lint without the unit
 tests, you'll need [Gulp][]. Install it globally (`npm install -g
 gulp-cli`), then run:
 
@@ -87,6 +87,15 @@ bin)/gulp` instead of `gulp`.)
 
 Note that running the tests also requires an installation of
 Chrome v59 or higher (v60 if you're on Windows).
+
+If you want to run a single test file, run `npm run mocha ${path/to/spec-file}`,
+substituting the actual path to the spec. Only javascript files can be executed by the `mocha` runner,
+and only those js files in the `spec` directory ending with a `.spec.js`.
+
+Alternatively, you can add an `.only` to a `describe` or `it` block (i.e. `describe.only('my spec')`)
+and run the `npm run test` command. Keep in mind that this will also run linters and aXe accessibility tests.
+
+To run all of the unit tests, run `npm run test:unit`.
 
 **For non-OSX users**:
 Before running the tests, if you are developing on a machine running an operating system other than OSX,
@@ -111,7 +120,7 @@ branch) to generate your golden screenshots.
 To generate the golden screenshots, run:
 
 ```
-node spec/visual-regression-tester.js test --updateGolden
+npm run test:visual:update
 ```
 
 Then, make any CSS refactorings (or switch to a branch that has them).
@@ -119,7 +128,7 @@ Then, make any CSS refactorings (or switch to a branch that has them).
 To compare the current state of your CSS to the golden screenshots, run:
 
 ```
-node spec/visual-regression-tester.js test
+npm run test:visual
 ```
 
 If the current screenshots don't match their golden counterparts, you will

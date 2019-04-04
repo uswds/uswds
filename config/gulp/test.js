@@ -10,6 +10,11 @@ gulp.task('test', function () {
     .pipe(mocha(mochaOpts));
 });
 
+gulp.task('regression', () => {
+  return gulp.src('spec/headless-chrome.js')
+    .pipe(mocha(mochaOpts));
+});
+
 gulp.task('cover', function () {
   return gulp.src('spec/unit/**/*.spec.js')
     .pipe(mocha(Object.assign(mochaOpts, {
