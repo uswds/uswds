@@ -1,6 +1,5 @@
 @mixin external-link($external-link, $external-link-hover) {
   &::after {
-    background: url('#{$theme-image-path}/#{$external-link}.png') no-repeat 0 0;
     background: url('#{$theme-image-path}/#{$external-link}.svg') no-repeat 0 0;
     background-size: 100%;
     content: '';
