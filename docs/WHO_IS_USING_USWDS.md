@@ -12,6 +12,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [18F Micro-purchase](https://micropurchase.18f.gov/)
 - [18F Modular Contracting](https://modularcontracting.18f.gov/)
 - [18F Testing Cookbook](https://testing-cookbook.18f.gov/)
+- [Accessibility for Teams](https://accessibility.digital.gov/)
 - [Agile Solicitation Builder](https://github.com/18F/agile-solicitation-builder)
 - [Agricultural Marketing Service - USDA](http://gipsa.usda.gov/)
 - [Agricultural Research Service - USDA](https://www.ars.usda.gov/)
