@@ -1,1 +1,1 @@
-test snyk
+test snyk v2
