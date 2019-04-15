@@ -31,6 +31,9 @@ jobs:
       - run:
           name: Setup Snyk
           command: sudo npm install -g snyk
+      - run: # run snyk auth - authenticate snyk use environment variables to add token
+          name: snyk auth
+          command: snyk auth $SNYK_TOKEN
       - run:
           name: Run test
           command: npm test
