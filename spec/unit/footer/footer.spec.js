@@ -7,7 +7,7 @@ const TEMPLATE = fs.readFileSync(path.join(__dirname, '/template.html'));
 
 const { DEBOUNCE_RATE } = behavior;
 const HIDDEN = 'hidden';
-const LIST_SELECTOR = '.usa-footer--big nav ul';
+const LIST_SELECTOR = '.usa-footer--big .usa-footer__primary-content--collapsible';
 const BUTTON_SELECTOR = '.usa-footer__primary-link';
 
 /**
