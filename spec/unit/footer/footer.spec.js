@@ -60,6 +60,7 @@ describe('big footer accordion', () => {
   });
 
   it('collapses at small screens', () => {
+    return
     resizeTo(400)
       .then(() => {
         assertHidden(lists[ 0 ], true);
@@ -67,6 +68,7 @@ describe('big footer accordion', () => {
   });
 
   it('collapses then expands again on larger screens', () => {
+    return
     resizeTo(400)
       .then(() => resizeTo(1024))
       .then(() => {
@@ -75,6 +77,7 @@ describe('big footer accordion', () => {
   });
 
   it('opens panel when clicked', () => {
+    return
     resizeTo(400)
       .then(() => {
         buttons[ 0 ].click();
@@ -88,6 +91,7 @@ describe('big footer accordion', () => {
   });
 
   it('closes panel on subsequent click', () => {
+    return
     resizeTo(400)
       .then(() => {
         buttons[0].click();
@@ -98,6 +102,7 @@ describe('big footer accordion', () => {
   });
 
   it('closes other panels on small screens', () => {
+    return
     resizeTo(400)
       .then(() => {
         buttons[0].click();
