@@ -1,6 +1,6 @@
 # Websites and applications that use the Design System
 
-Below are a list of websites and applications currently using the U.S. Web Design System. If your project is currently using the Design System and you do not see it on this list, please feel free to submit a pull request or email the core team at uswebdesignstandards@gsa.gov.
+Below are a list of websites and applications currently using the U.S. Web Design System. If your project is currently using the Design System and you do not see it on this list, please feel free to submit a pull request or email the core team at uswds@gsa.gov.
 
 - [10x](https://10x.gsa.gov/)
 - [18F](https://18f.gsa.gov)
@@ -12,6 +12,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [18F Micro-purchase](https://micropurchase.18f.gov/)
 - [18F Modular Contracting](https://modularcontracting.18f.gov/)
 - [18F Testing Cookbook](https://testing-cookbook.18f.gov/)
+- [Accessibility for Teams](https://accessibility.digital.gov/)
 - [Agile Solicitation Builder](https://github.com/18F/agile-solicitation-builder)
 - [Agricultural Marketing Service - USDA](http://gipsa.usda.gov/)
 - [Agricultural Research Service - USDA](https://www.ars.usda.gov/)
@@ -33,6 +34,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [Compliance Viewer](https://compliance-viewer.18f.gov/)
 - [Customs and Border Protection](https://www.cbp.gov/)
 - [cyber.dhs.gov](https://cyber.dhs.gov/)
+- [Data Center Optimization Initiative (Office of the Federal Chief Information Officer - OMB)](https://datacenters.cio.gov/)
 - [Data Science Jobs Microsite (USAJOBS)](https://usajobs.github.io/microsite-data-science/)
 - [Defense Digital Service](https://www.dds.mil/)
 - [Defense Nuclear Facilities Safety Board](https://www.dnfsb.gov/)
@@ -45,6 +47,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [Digital Acquisition Playbook](https://digital-acquisition-playbook.18f.gov/)
 - [Digital Contracting Cookbook](https://pages.18f.gov/contracting-cookbook/)
 - [Digital Service Playbook — U.S. Digital Service](https://playbook.cio.gov)
+- [Discovery Market Research Tool (GSA)](https://discovery.gsa.gov/)
 - [Dotgov.gov](https://home.dotgov.gov/)
 - [eCPIC Electronic Capital Planning and Investment Control System](https://www.ecpic.gov/)
 - [EPA.gov - U.S. Environmental Protection Agency](https://www.epa.gov/)
@@ -76,7 +79,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [GI Bill Comparison Tool (Vets.gov)](https://www.vets.gov/gi-bill-comparison-tool)
 - [GSA Grace Hopper Day Hackathon](https://open.gsa.gov/events/grace-hopper-hackathon/)
 - [GSA Open IAE (Integrated Award Environment)](http://gsa.github.io/openIAE/)
-- [GSA Open Technology](https://open.gsa.gov/)
+- [openGSA - GSA Open Technology](https://open.gsa.gov/)
 - [GSA Recruiter](https://github.com/GSA/recruiter)
 - [HealthCare.gov](https://www.healthcare.gov/)
 - [Hack the Pay Gap](https://paygap.pif.gov/)
@@ -117,6 +120,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [OMB Policy Library](https://omb-eregs-demo.app.cloud.gov/)
 - [OpenFDA](https://open.fda.gov/)
 - [Open Opportunities](https://openopps.usajobs.gov/)
+- [Open Source @ NSA (National Security Administration)](https://code.nsa.gov/)
 - [Opioids.gov](https://www.opioids.gov/)
 - [The Opportunity Project](http://opportunity.census.gov/)
 - [Pathogen Detection - NCBI](https://www.ncbi.nlm.nih.gov/pathogens/)
@@ -171,7 +175,8 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [USGS Earthquake Hazards Program](http://earthquake.usgs.gov/theme/)
 - [USGS.gov - U.S. Geological Survey](https://www.usgs.gov/)
 - [USGS Publications Warehouse](https://pubs.er.usgs.gov/)
-- [VA Caseflow Certification](https://github.com/department-of-veterans-affairs/caseflow)
+- [VA Caseflow](https://github.com/department-of-veterans-affairs/caseflow)
+- [VA Developer Portal](https://developer.va.gov/)
 - [VA Office of Information and Technology](https://www.oit.va.gov/)
 - [Virtual Student Foreign Service](http://vsfs.state.gov/)
 - [vote.gov](https://vote.gov/)
