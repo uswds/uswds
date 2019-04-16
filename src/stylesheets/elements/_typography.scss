@@ -77,7 +77,7 @@ dfn {
   }
 
   @include at-media('tablet') {
-    @include typeset-title;
+    @include typeset-display;
   }
 }
 
