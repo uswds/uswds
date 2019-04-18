@@ -69,16 +69,8 @@ dfn {
 }
 
 .usa-display {
-  @include typeset-h3;
+  @include typeset-display;
   margin-bottom: 0;
-
-  @include at-media('mobile-lg') {
-    @include typeset-h1;
-  }
-
-  @include at-media('tablet') {
-    @include typeset-display;
-  }
 }
 
 .usa-intro {

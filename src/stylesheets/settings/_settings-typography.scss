@@ -399,15 +399,24 @@ $theme-body-line-height:           5 !default;
 $theme-style-body-element:         false !default;
 
 // Headings
+$theme-display-font-size:          '3xl' !default;
 $theme-h1-font-size:               '2xl' !default;
 $theme-h2-font-size:               'xl' !default;
 $theme-h3-font-size:               'lg' !default;
 $theme-h4-font-size:               'sm' !default;
 $theme-h5-font-size:               'xs' !default;
 $theme-h6-font-size:               '3xs' !default;
-$theme-heading-line-height:        2 !default;
 $theme-small-font-size:            '2xs' !default;
-$theme-display-font-size:          '3xl' !default;
+$theme-heading-line-height:        2 !default;
+
+// Responsive headings
+$theme-display-mobile-font-size:   '2xl' !default;
+$theme-h1-mobile-font-size:        'xl' !default;
+$theme-h2-mobile-font-size:        'lg' !default;
+$theme-h3-mobile-font-size:        'md' !default;
+$theme-h4-mobile-font-size:        $theme-h4-font-size !default;
+$theme-h5-mobile-font-size:        $theme-h5-font-size !default;
+$theme-h6-mobile-font-size:        $theme-h6-font-size !default;
 
 // Text and prose
 $theme-text-measure-narrow:        1 !default;

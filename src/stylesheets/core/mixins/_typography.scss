@@ -87,11 +87,27 @@ Sets:
 }
 
 @mixin display {
-  @include typeset(
-    'heading',
-    $theme-display-font-size,
-    $theme-heading-line-height
-  );
+  @if $theme-responsive-headings == true {
+    @include typeset(
+      'heading',
+      $theme-display-mobile-font-size,
+      $theme-heading-line-height
+    );
+
+    @include at-media('mobile-lg') {
+      @include typeset(
+        'heading',
+        $theme-display-font-size
+      );
+    }
+  }
+  @else {
+    @include typeset(
+      'heading',
+      $theme-display-font-size,
+      $theme-heading-line-height
+    );
+  }
 
   font-weight: fw('bold');
 }
@@ -102,11 +118,27 @@ Sets:
 }
 
 @mixin h1 {
-  @include typeset(
-    'heading',
-    $theme-h1-font-size,
-    $theme-heading-line-height
-  );
+  @if $theme-responsive-headings == true {
+    @include typeset(
+      'heading',
+      $theme-h1-mobile-font-size,
+      $theme-heading-line-height
+    );
+
+    @include at-media('mobile-lg') {
+      @include typeset(
+        'heading',
+        $theme-h1-font-size
+      );
+    }
+  }
+  @else {
+    @include typeset(
+      'heading',
+      $theme-h1-font-size,
+      $theme-heading-line-height
+    );
+  }
 
   font-weight: fw('bold');
 }
@@ -117,11 +149,27 @@ Sets:
 }
 
 @mixin h2 {
-  @include typeset(
-    'heading',
-    $theme-h2-font-size,
-    $theme-heading-line-height
-  );
+  @if $theme-responsive-headings == true {
+    @include typeset(
+      'heading',
+      $theme-h2-mobile-font-size,
+      $theme-heading-line-height
+    );
+
+    @include at-media('mobile-lg') {
+      @include typeset(
+        'heading',
+        $theme-h2-font-size
+      );
+    }
+  }
+  @else {
+    @include typeset(
+      'heading',
+      $theme-h2-font-size,
+      $theme-heading-line-height
+    );
+  }
 
   font-weight: fw('bold');
 }
@@ -132,11 +180,27 @@ Sets:
 }
 
 @mixin h3 {
-  @include typeset(
-    'heading',
-    $theme-h3-font-size,
-    $theme-heading-line-height
-  );
+  @if $theme-responsive-headings == true {
+    @include typeset(
+      'heading',
+      $theme-h3-mobile-font-size,
+      $theme-heading-line-height
+    );
+
+    @include at-media('mobile-lg') {
+      @include typeset(
+        'heading',
+        $theme-h3-font-size
+      );
+    }
+  }
+  @else {
+    @include typeset(
+      'heading',
+      $theme-h3-font-size,
+      $theme-heading-line-height
+    );
+  }
 
   font-weight: fw('bold');
 }
