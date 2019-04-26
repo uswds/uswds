@@ -20,8 +20,10 @@ const BUTTON_SELECTOR = '.usa-footer__primary-link';
  * @return {Promise}
  */
 const resizeTo = width => new Promise((resolve) => {
-  window.innerWidth = width;
-  window.dispatchEvent(new CustomEvent('resize'));
+  if (width !== window.innerWidth) {
+    window.innerWidth = width;
+    window.dispatchEvent(new CustomEvent('resize'));
+  }
   setTimeout(resolve, DEBOUNCE_RATE + 10);
 });
 
@@ -86,7 +88,8 @@ describe('big footer accordion', () => {
   });
 
   it('closes panel on subsequent click', () => {
-    return resizeTo(400)
+    return resizeTo(800)
+      .then(() => resizeTo(400))
       .then(() => {
         buttons[0].click();
         assertHidden(lists[ 0 ], false);
@@ -96,7 +99,8 @@ describe('big footer accordion', () => {
   });
 
   it('closes other panels on small screens', () => {
-    return resizeTo(400)
+    return resizeTo(800)
+      .then(() => resizeTo(400))
       .then(() => {
         buttons[0].click();
         assertHidden(lists[ 0 ], false);
