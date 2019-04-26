@@ -20,10 +20,8 @@ const BUTTON_SELECTOR = '.usa-footer__primary-link';
  * @return {Promise}
  */
 const resizeTo = width => new Promise((resolve) => {
-  if (width !== window.innerWidth) {
-    window.innerWidth = width;
-    window.dispatchEvent(new CustomEvent('resize'));
-  }
+  window.innerWidth = width;
+  window.dispatchEvent(new CustomEvent('resize'));
   setTimeout(resolve, DEBOUNCE_RATE + 10);
 });
 
