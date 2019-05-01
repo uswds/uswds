@@ -16,16 +16,13 @@ const dutil = require('./doc-util');
 const pkg = require('../../package.json');
 
 const task = 'sass';
-
 const normalizeCssFilter = filter('**/normalize.css', { restore: true });
 
 const IGNORE_STRING = 'This file is ignored';
 const ignoreStylelintIgnoreWarnings = lintResults => formatters.string(
   lintResults.reduce((memo, result) => {
     const { warnings } = result;
-    const fileIsIgnored = warnings.some((warning) => {
-      return RegExp(IGNORE_STRING, 'i').test(warning.text);
-    });
+    const fileIsIgnored = warnings.some(warning => RegExp(IGNORE_STRING, 'i').test(warning.text));
 
     if (!fileIsIgnored) {
       memo.push(result);
