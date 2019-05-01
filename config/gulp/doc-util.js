@@ -1,122 +1,102 @@
-var pkg = require('../../package.json');
-var log = require('fancy-log');
-var colors = require('ansi-colors');
-var notifier = require('node-notifier');
+const log = require('fancy-log');
+const colors = require('ansi-colors');
+const notifier = require('node-notifier');
+const pkg = require('../../package.json');
 
-var shellPrefix = '$';
+const shellPrefix = '$';
 
-function drawFlag () {
-
-  // American Flag in ASCII
-  //
+function drawFlag() {
   log(
-    colors.white('')
+    colors.white(''),
   );
   log(
-    colors.white('* * * * * ========================')
+    colors.white('* * * * * ========================'),
   );
   log(
-    colors.white('* * * * * ========================')
+    colors.white('* * * * * ========================'),
   );
   log(
-    colors.white('* * * * * ========================')
+    colors.white('* * * * * ========================'),
   );
   log(
-    colors.white('* * * * * ========================')
+    colors.white('* * * * * ========================'),
   );
   log(
-    colors.white('==================================')
+    colors.white('=================================='),
   );
   log(
-    colors.white('==================================')
+    colors.white('=================================='),
   );
   log(
-    colors.white('==================================')
+    colors.white('=================================='),
   );
   log(
-    colors.white('')
+    colors.white(''),
   );
 }
 
-function notify (title, message, wait) {
+function notify(title, message, wait) {
   notifier.notify({
-    title: title,
-    message: message,
+    title,
+    message,
     icon: 'src/img/favicons/favicon-192.png',
-    wait: wait,
+    wait,
   });
 }
 
 module.exports = {
-
   pkg: {
-
     name: pkg.name,
     version: pkg.version,
-
   },
 
-  dirName: pkg.name + '-' + pkg.version,
+  dirName: `${pkg.name}-${pkg.version}`,
 
-  logIntroduction: function (message) {
-
-    message = message || 'U.S. Web Design System';
-
+  logIntroduction(message) {
+    const introMessage = message || 'USWDS';
     log(
-      colors.yellow('v' + pkg.version),
-      message
+      colors.yellow(`${introMessage} v${pkg.version}`),
     );
     drawFlag();
-
   },
 
-  logCommand: function (name, message) {
-
+  logCommand(name, message) {
     log(
       shellPrefix,
       colors.cyan(name),
-      colors.magenta(message)
+      colors.magenta(message),
     );
-
   },
 
-  logHelp: function (name, message) {
 
+  logHelp(name, message) {
     log(
       shellPrefix,
       colors.cyan(name),
-      colors.yellow(message)
+      colors.yellow(message),
     );
-
   },
 
-  logData: function (name, message) {
-
+  logData(name, message) {
     log(
       colors.cyan(name),
-      colors.yellow(message)
+      colors.yellow(message),
     );
-
   },
 
-  logError: function (name, message) {
-
+  logError(name, message) {
     log(
       colors.red(name),
-      colors.yellow(message)
+      colors.yellow(message),
     );
-    notify(this.dirName + ' gulp ' + name, message, true);
-
+    notify(`${this.dirName} gulp ${name}`, message, true);
   },
 
-  logMessage: function (name, message) {
-
+  logMessage(name, message) {
     log(
       colors.cyan(name),
-      colors.green(message)
+      colors.green(message),
     );
-    notify(this.dirName + ' gulp ' + name, message, false);
-
+    notify(`${this.dirName} gulp ${name}`, message, false);
   },
-
 };

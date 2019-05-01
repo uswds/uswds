@@ -9,10 +9,11 @@ const source = require('vinyl-source-stream');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const dutil = require('./doc-util');
+const cFlags = require('./cflags');
 
 const task = 'javascript';
 
-gulp.task(task, () => {
+gulp.task(task, (done) => {
   dutil.logMessage(task, 'Compiling JavaScript');
 
   const defaultStream = browserify({
@@ -44,6 +45,7 @@ gulp.task(task, () => {
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist/js'));
 
+  done();
   return stream;
 });
 
