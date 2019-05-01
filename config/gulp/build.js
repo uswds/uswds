@@ -1,49 +1,48 @@
-var gulp = require('gulp');
-var dutil = require('./doc-util');
-var del = require('del');
+const gulp = require('gulp');
+const del = require('del');
+const dutil = require('./doc-util');
+const cFlags = require('./cflags');
 
-gulp.task('clean-dist', function (done) {
-
+gulp.task('clean-dist', (done) => {
   if (!cFlags.cleanup) {
     dutil.logMessage(
       'clean-dist',
-      'Skipping cleaning up the distribution directories.'
+      'Skipping cleaning up the distribution directories.',
     );
     return done();
   }
-
   dutil.logMessage('clean-dist', 'Removing distribution directories.');
 
   return del('dist');
-
 });
 
-gulp.task('docs', function (done) {
 
+gulp.task('docs', (done) => {
   dutil.logMessage('docs', 'Copying documentation dist dir');
 
-  var stream = gulp.src([
+  const stream = gulp.src([
     'README.md',
     'LICENSE.md',
-    'CONTRIBUTING.md'
-    ])
+    'CONTRIBUTING.md',
+  ])
     .pipe(gulp.dest('dist'));
 
+  done();
   return stream;
-
 });
+
 
 gulp.task('build',
   gulp.series(
-    function (done) {
+    (done) => {
       dutil.logIntroduction();
       dutil.logMessage(
         'build',
-        'Creating distribution directories.'
+        'Creating distribution directories.',
       );
       done();
-      },
-    'clean-dist', 
+    },
+    'clean-dist',
     'docs',
     gulp.parallel(
       'sass',
@@ -54,5 +53,4 @@ gulp.task('build',
     // We need to copy the Sass to dist *after* the sass task, to ensure
     // that vendor libraries have been copied to the Sass directory first.
     'copy-dist-sass',
-  ),
-);
+  ));

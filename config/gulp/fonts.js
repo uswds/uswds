@@ -1,14 +1,13 @@
-var gulp = require('gulp');
-var dutil = require('./doc-util');
-var task = 'fonts';
+const gulp = require('gulp');
+const dutil = require('./doc-util');
 
-gulp.task(task, function (done) {
+const task = 'fonts';
 
+gulp.task(task, (done) => {
   dutil.logMessage(task, 'Copying Fonts');
-
-  var stream = gulp.src('src/fonts/**/*')
+  const stream = gulp.src('src/fonts/**/*')
     .pipe(gulp.dest('dist/fonts'));
 
+  done();
   return stream;
-
 });

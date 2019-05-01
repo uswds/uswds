@@ -13,10 +13,6 @@ describe('include paths', () => {
   it('can be loaded with @import "uswds"', () => {
     render('@import "uswds";', [includePath]);
   });
-
-  it('can be loaded with @import "all"', () => {
-    render('@import "all";', [includePath]);
-  });
 });
 
 describe('standalone dist scss', () => {
@@ -28,9 +24,5 @@ describe('standalone dist scss', () => {
 
   it('can be loaded with @import "uswds"', () => {
     render('@import "uswds";', [distScssPath]);
-  });
-
-  it('can be loaded with @import "all"', () => {
-    render('@import "all";', [distScssPath]);
   });
 });

@@ -119,7 +119,7 @@ How you implement the design system depends on the needs of your project and you
     </html>
     ```
 
-We offer both the CSS and the JavaScript in two versions — minified and un-minified. (In the examples above, we are using the minified files.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. Use the un-minified files  if you are in a development environment or would like to debug the CSS or JavaScript assets in the browser.
+We offer both the CSS and the JavaScript in two versions — minified and un-minified. (In the examples above, we are using the minified files.) Use the minified files in a production environment or to reduce the file size of your downloaded assets. Use the un-minified files if you are in a development environment or would like to debug the CSS or JavaScript assets in the browser.
 
 And that’s it — you should now be able to copy our code samples into your `index.html` and start using the design system.
 

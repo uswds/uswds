@@ -25,7 +25,7 @@ let navActive;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
-const toggleNav = function (active) {
+const toggleNav = (active) => {
   const { body } = document;
   const safeActive = typeof active === 'boolean' ? active : !isActive();
 
@@ -85,7 +85,7 @@ navigation = behavior({
         hideActiveNavDropdown();
       } else {
         navActive = this;
-        toggle(navActive, true)
+        toggle(navActive, true);
       }
 
       // Do this so the event handler on the body doesn't fire
