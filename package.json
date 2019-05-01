@@ -123,6 +123,7 @@
     "node-sass": "^4.11.0",
     "normalize.css": "^3.0.3",
     "nswatch": "^0.2.0",
+    "postcss-discard-comments": "^4.0.2",
     "resemblejs": "^3.0.0",
     "should": "^11.2.1",
     "sinon": "^2.3.8",
