@@ -1,22 +1,21 @@
-const gulp = require('gulp');
-const dutil = require('./doc-util');
-const sass = require('gulp-sass');
-const postcss = require('gulp-postcss');
-const cssnano = require('cssnano');
-const packCSS = require('css-mqpacker');
-const autoprefixer = require('autoprefixer');
-const sourcemaps = require('gulp-sourcemaps');
-const rename = require('gulp-rename');
-const gulpStylelint = require('gulp-stylelint');
 const { formatters } = require('stylelint');
-const pkg = require('../../package.json');
-const path = require('path');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const discardComments = require('postcss-discard-comments');
 const filter = require('gulp-filter');
+const gulp = require('gulp');
+const gulpStylelint = require('gulp-stylelint');
+const packCSS = require('css-mqpacker');
+const postcss = require('gulp-postcss');
 const replace = require('gulp-replace');
-const stripCssComments = require('gulp-strip-css-comments');
-const del = require('del');
-const task = 'sass';
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
 const autoprefixerOptions = require('./browsers');
+const dutil = require('./doc-util');
+const pkg = require('../../package.json');
+
+const task = 'sass';
 
 const normalizeCssFilter = filter('**/normalize.css', { restore: true });
 
@@ -75,7 +74,12 @@ gulp.task('copy-dist-sass', () => {
 gulp.task('sass', gulp.series('copy-vendor-sass',
   () => {
     dutil.logMessage(task, 'Compiling Sass');
-    const plugins = [
+    const pluginsProcess = [
+      discardComments(),
+      autoprefixer(autoprefixerOptions),
+      packCSS({ sort: true }),
+    ];
+    const pluginsMinify = [
       autoprefixer(autoprefixerOptions),
       packCSS({ sort: true }),
       cssnano(({ autoprefixer: { browsers: autoprefixerOptions } })),
@@ -93,11 +97,12 @@ gulp.task('sass', gulp.series('copy-vendor-sass',
         })
           .on('error', sass.logError),
       )
-      .pipe(postcss(plugins))
+      .pipe(postcss(pluginsProcess))
       .pipe(gulp.dest('dist/css'))
       .pipe(rename({
         suffix: '.min',
       }))
+      .pipe(postcss(pluginsMinify))
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest('dist/css'));
 
