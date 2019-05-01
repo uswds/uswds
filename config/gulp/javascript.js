@@ -1,30 +1,30 @@
-var child_process = require('child_process');
-var gulp = require('gulp');
-var log = require('fancy-log');
-var dutil = require('./doc-util');
-var browserify = require('browserify');
-var buffer = require('vinyl-buffer');
-var source = require('vinyl-source-stream');
-var uglify = require('gulp-uglify');
-var sourcemaps = require('gulp-sourcemaps');
-var rename = require('gulp-rename');
-var eslint = require('gulp-eslint');
-var task = 'javascript';
+const buffer = require('vinyl-buffer');
+const browserify = require('browserify');
+const childProcess = require('child_process');
+const eslint = require('gulp-eslint');
+const gulp = require('gulp');
+const log = require('fancy-log');
+const rename = require('gulp-rename');
+const source = require('vinyl-source-stream');
+const sourcemaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
+const dutil = require('./doc-util');
 
-gulp.task(task, function (done) {
+const task = 'javascript';
 
+gulp.task(task, () => {
   dutil.logMessage(task, 'Compiling JavaScript');
 
-  var defaultStream = browserify({
+  const defaultStream = browserify({
     entries: 'src/js/start.js',
     debug: true,
   })
-  .transform('babelify', {
-    global: true,
-    presets: ['es2015'],
-  });
+    .transform('babelify', {
+      global: true,
+      presets: ['es2015'],
+    });
 
-  var stream = defaultStream.bundle()
+  const stream = defaultStream.bundle()
     .pipe(source('uswds.js')) // XXX why is this necessary?
     .pipe(buffer())
     .pipe(rename({ basename: dutil.pkg.name }))
@@ -47,34 +47,32 @@ gulp.task(task, function (done) {
   return stream;
 });
 
-gulp.task('typecheck', function () {
-  return new Promise((resolve, reject) => {
-    child_process.spawn(
-      './node_modules/.bin/tsc',
-      { stdio: 'inherit' }
-    )
+gulp.task('typecheck', () => new Promise((resolve, reject) => {
+  childProcess.spawn(
+    './node_modules/.bin/tsc',
+    { stdio: 'inherit' },
+  )
     .on('error', reject)
-    .on('exit', code => {
+    .on('exit', (code) => {
       if (code === 0) {
         dutil.logMessage('typecheck', 'TypeScript likes our code!');
         resolve();
       } else {
         reject(new Error('TypeScript failed, see output for details!'));
       }
-     });
-  });
-});
+    });
+}));
 
-gulp.task('eslint', function (done) {
+gulp.task('eslint', (done) => {
   if (!cFlags.test) {
     dutil.logMessage('eslint', 'Skipping linting of JavaScript files.');
     return done();
   }
 
   return gulp.src([
-      'src/js/**/*.js',
-      'spec/**/*.js'
-    ])
+    'src/js/**/*.js',
+    'spec/**/*.js',
+  ])
     .pipe(eslint({
       fix: true,
     }))
