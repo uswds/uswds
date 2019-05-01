@@ -109,7 +109,6 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-spawn-mocha": "^5.0.1",
-    "gulp-strip-css-comments": "^2.0.0",
     "gulp-stylelint": "^8.0.0",
     "gulp-uglify": "^3.0.0",
     "handlebars": "^4.1.0",
