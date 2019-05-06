@@ -30,7 +30,11 @@ function showPanel() {
   }
 }
 
+let lastInnerWidth;
+
 const resize = debounce(() => {
+  if (lastInnerWidth === window.innerWidth) return;
+  lastInnerWidth = window.innerWidth;
   const hidden = window.innerWidth < HIDE_MAX_WIDTH;
   select(COLLAPSIBLE).forEach(list => list.classList.toggle(HIDDEN, hidden));
 }, DEBOUNCE_RATE);

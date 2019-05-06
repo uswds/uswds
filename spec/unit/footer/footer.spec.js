@@ -88,7 +88,8 @@ describe('big footer accordion', () => {
   });
 
   it('closes panel on subsequent click', () => {
-    return resizeTo(400)
+    return resizeTo(800)
+      .then(() => resizeTo(400))
       .then(() => {
         buttons[0].click();
         assertHidden(lists[ 0 ], false);
@@ -98,7 +99,8 @@ describe('big footer accordion', () => {
   });
 
   it('closes other panels on small screens', () => {
-    return resizeTo(400)
+    return resizeTo(800)
+      .then(() => resizeTo(400))
       .then(() => {
         buttons[0].click();
         assertHidden(lists[ 0 ], false);
