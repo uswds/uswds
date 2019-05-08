@@ -17,8 +17,6 @@ Promise.all([
   exports.fractalLoad,
 ]).then(() => {
   run();
-}).catch(e => {
-  console.log('An error occurred while loading tests.');
-  console.log(e);
+}).catch(() => {
   process.exit(1);
 });
