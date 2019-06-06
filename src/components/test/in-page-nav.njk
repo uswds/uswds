@@ -1,0 +1,78 @@
+{% extends 'layouts/_base.njk' %}
+
+{% block header %}
+  <div class="usa-overlay"></div>
+  <header class="usa-header usa-header--extended" role="banner">
+    <div class="usa-navbar">
+      <div class="usa-logo" id="extended-logo">
+        <em class="usa-logo__text">
+          <a href="/" title="Home" aria-label="Home">Project title</a>
+        </em>
+      </div>
+      <button class="usa-menu-btn">Menu</button>
+    </div>
+    <nav role="navigation" class="usa-nav">
+      <div class="usa-nav__inner">
+        <button class="usa-nav__close"><img src="../../dist/img/close.svg" alt="close"></button>
+        <ul class="usa-nav__primary usa-accordion">
+          <li class="usa-nav__primary-item">
+            <button class="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false" aria-controls="extended-nav-section-one">
+              <span>Current section</span></button>
+            <ul id="extended-nav-section-one" class="usa-nav__submenu" hidden="">
+              <li class="usa-nav__submenu-item">
+                <a href="#">Navigation link</a>
+              </li>
+              <li class="usa-nav__submenu-item">
+                <a href="#">Navigation link</a>
+              </li>
+              <li class="usa-nav__submenu-item">
+                <a href="#">Navigation link</a>
+              </li>
+            </ul>
+          </li>
+          <li class="usa-nav__primary-item">
+            <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-two">
+              <span>Section</span></button>
+            <ul id="extended-nav-section-two" class="usa-nav__submenu" hidden="">
+              <li class="usa-nav__submenu-item">
+                <a href="#">Navigation link</a>
+              </li>
+              <li class="usa-nav__submenu-item">
+                <a href="#">Navigation link</a>
+              </li>
+              <li class="usa-nav__submenu-item">
+                <a href="#">Navigation link</a>
+              </li>
+            </ul>
+          </li>
+          <li class="usa-nav__primary-item">
+            <a class="usa-nav__link" href="#test-section-id">
+              <span>In-page anchor link</span></a>
+          </li>
+        </ul>
+        <div class="usa-nav__secondary">
+          <ul class="usa-nav__secondary-links">
+            <li class="usa-nav__secondary-item">
+              <a href="">Secondary link</a>
+            </li>
+            <li class="usa-nav__secondary-item">
+              <a href="">Another secondary link</a>
+            </li>
+          </ul>
+          <form class="usa-search usa-search--small ">
+            <div role="search">
+              <label class="usa-sr-only" for="extended-search-field-small">Search small</label>
+              <input class="usa-input" id="extended-search-field-small" type="search" name="search">
+              <button class="usa-button" type="submit">
+                <span class="usa-sr-only">Search</span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+{% endblock %}
+
+{% block body %}
+  {% render '@layout--landing-inner' %}
+{% endblock %}
