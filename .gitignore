@@ -24,3 +24,6 @@ spec/screenshots/metadata.js
 
 # ignore sass cache
 .sass-cache/
+
+# ignore sassdoc build
+sassdoc/
