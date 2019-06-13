@@ -250,7 +250,7 @@ If you’re interested in maintaining a package that helps us distribute USWDS, 
 * Uses **nesting** when appropriate. Nest minimally with up to two levels of nesting.
 * Hard-coded magic numbers are avoided.
 * Media queries are built **mobile first**.
-* **Spacing units** are set with the `units()` function as described in [the USWDS 2.0 documentation](https://v2.designsystem.digital.gov/style/spacing-units/). In general, we use spacing in multiples of `8px` — expressed as a multiple in `units([multiple])`. For instance `units(2)` is the equivalent of `2 * 8px` or `16px`. In the final, compiled CSS, this value will be expressed in rem, as a multiple of the base font size set with `$theme-base-font-size`.
+* **Spacing units** are set with the `units()` function as described in [the USWDS 2.0 documentation](https://designsystem.digital.gov/design-tokens/spacing-units/). In general, we use spacing in multiples of `8px` — expressed as a multiple in `units([multiple])`. For instance `units(2)` is the equivalent of `2 * 8px` or `16px`. In the final, compiled CSS, this value will be expressed in rem, as a multiple of the base font size set with `$theme-base-font-size`.
 
 **For more information, visit:**
 [18F’s CSS Front End Guide](https://frontend.18f.gov/css/)
@@ -279,11 +279,11 @@ Some components have additional methods for manipulating specific aspects of the
 
 ## Customization, theming, and tokens
 
-USWDS 2.0 provides extensive support for theming via its theme settings files introduced in [Sass and theme settings](#sass-and-theme-settgings), above.
+USWDS 2.0 provides extensive support for theming via its theme settings files introduced in [Sass and theme settings](#sass-and-theme-settings), above.
 
 Set theme settings with USWDS style tokens, not with values directly. They tend to be quoted strings like `'desktop'` or `'md'` or unitless numbers like `2` or `-1.5`. Tokens are the values _passed into_ the USWDS functions and mixins that parse them. They are the _keys_ that, through the mechanism of a function or mixin, unlock a _value_ — they are not the values themselves.
 
-Visit the [Style tokens section](https://v2.designsystem.digital.gov/style/) of USWDS 2.0 documentation for more on the available tokens for [color](https://v2.designsystem.digital.gov/style/color), [spacing units](https://v2.designsystem.digital.gov/style/spacing-units), [typescale](https://v2.designsystem.digital.gov/style/typescale), and more.
+Visit the [Style tokens section](https://designsystem.digital.gov/design-tokens/) of USWDS 2.0 documentation for more on the available tokens for [color](https://designsystem.digital.gov/design-tokens/color), [spacing units](https://designsystem.digital.gov/design-tokens/spacing-units), [font size](https://designsystem.digital.gov/design-tokens/typesetting/font-size/), and more.
 
 ### Using tokens in theme settings
 The following is an example of theme settings from `_uswds-theme-spacing.scss`:
@@ -351,7 +351,7 @@ $theme-image-path:  '../img';
 
 ## Where things live
 
-* **HTML** markup for the components is located in: `src/components` in the site root. These, however, are written in the templating language Nunjucks. It's best to get HTML source markup directly from [v2.designsystem.digital.gov/components](https://v2.designsystem.digital.gov/components)
+* **HTML** markup for the components is located in: `src/components` in the site root. These, however, are written in the templating language Nunjucks. It's best to get HTML source markup directly from [designsystem.digital.gov/components](https://designsystem.digital.gov/components)
 * **Sass** stylesheets are located in: `dist/scss/ (/core, /elements, /components)`. **Compiled CSS** is located in the [downloadable zip file](https://github.com/uswds/uswds/releases/latest).
 * **JS** is located in: `src/js (/components, /utils)`.
 * **Fonts** are located in: `dist/fonts`.
