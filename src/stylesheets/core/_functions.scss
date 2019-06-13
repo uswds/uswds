@@ -869,6 +869,7 @@ functions and mixins.
   );
   $our-standard-values: map-deep-get($system-properties, $property, standard);
   $our-extended-values: map-deep-get($system-properties, $property, extended);
+  $user-manual-values: map-deep-get($system-properties, $property, manual);
 
   @if map-has-key($our-standard-values, $quoted-value) {
     $output: map-get($our-standard-values, $quoted-value);
@@ -893,6 +894,16 @@ functions and mixins.
     }
 
     @return map-get($our-extended-values, $quoted-value);
+  }
+
+  @if map-has-key($user-manual-values, $quoted-value) {
+    @if $theme-show-compile-warnings {
+      @warn '`#{$value}` is a manual value `#{$property}` token. '
+        + 'This is OK, but only components built with standard tokens can be accepted back into the system. '
+        + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
+    }
+
+    @return map-get($user-manual-values, $quoted-value);
   }
 
   // TODO: what are these last two cases? Evaluate.

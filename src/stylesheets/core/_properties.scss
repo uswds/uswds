@@ -46,10 +46,12 @@ $system-properties: (
       'align-baseline': baseline,
     ),
     extended: (),
+    manual: $align-items-manual-values
   ),
   background-color: (
     standard: $standard-colors,
     extended: $extended-colors,
+    manual: $background-color-manual-values
   ),
   border: (
     standard: map-collect(
@@ -61,10 +63,12 @@ $system-properties: (
       )
     ),
     extended: (),
+    manual: $border-manual-values
   ),
   border-color: (
     standard: $standard-colors,
     extended: $extended-colors,
+    manual: $border-color-manual-values
   ),
   border-radius: (
     standard: $project-border-radius,
@@ -72,6 +76,7 @@ $system-properties: (
       map-get($system-spacing, 'smaller'),
       map-get($system-spacing, 'small')
     ),
+    manual: $border-radius-manual-values
   ),
   border-style: (
     standard: (
@@ -80,6 +85,7 @@ $system-properties: (
       'solid':  solid,
     ),
     extended: (),
+    manual: $border-style-manual-values
   ),
   border-width: (
     standard: map-collect(
@@ -88,6 +94,7 @@ $system-properties: (
       map-get($partial-values, 'zero-zero')
     ),
     extended: (),
+    manual: $border-width-manual-values
   ),
   bottom: (
     standard: map-collect(
@@ -100,6 +107,7 @@ $system-properties: (
       map-get($partial-values, 'full-percent')
     ),
     extended: (),
+    manual: $bottom-manual-values
   ),
   box-shadow: (
     standard: (
@@ -111,6 +119,7 @@ $system-properties: (
       5:     0 units(2) units(4) 0 rgba(0, 0, 0, 0.1),
     ),
     extended: (),
+    manual: $box-shadow-manual-values
   ),
   breakpoints: (
     standard: map-collect(
@@ -128,10 +137,12 @@ $system-properties: (
       map-get($system-spacing, 'large')
     ),
     extended: (),
+    manual: $circle-manual-values
   ),
   color: (
     standard: $standard-colors,
     extended: $extended-colors,
+    manual: $color-manual-values
   ),
   cursor: (
     standard: (
@@ -143,6 +154,7 @@ $system-properties: (
       'not-allowed':  not-allowed,
     ),
     extended: (),
+    manual: $cursor-manual-values
   ),
   display: (
     standard: (
@@ -157,6 +169,7 @@ $system-properties: (
       'table-row':    table-row,
     ),
     extended: (),
+    manual: $display-manual-values
   ),
   flex: (
     standard: (
@@ -176,6 +189,7 @@ $system-properties: (
       'auto': 0 0 auto,
     ),
     extended: (),
+    manual: $flex-manual-values
   ),
   flex-direction: (
     standard: (
@@ -183,6 +197,7 @@ $system-properties: (
       'column': column,
     ),
     extended: (),
+    manual: $flex-direction-manual-values
   ),
   flex-wrap: (
     standard: (
@@ -190,6 +205,7 @@ $system-properties: (
       'no-wrap': nowrap,
     ),
     extended: (),
+    manual: $flex-wrap-manual-values
   ),
   float: (
     standard: (
@@ -198,10 +214,12 @@ $system-properties: (
       'right': right,
     ),
     extended: (),
+    manual: $float-manual-values
   ),
   font-family: (
     standard: $project-font-stacks,
     extended: (),
+    manual: $font-family-manual-values
   ),
   font-feature-settings: (
     standard: (
@@ -209,6 +227,7 @@ $system-properties: (
       'no-tabular': unquote('"kern" 1'),
     ),
     extended: (),
+    manual: $font-feature-manual-values
   ),
   font-style: (
     standard: (
@@ -216,6 +235,7 @@ $system-properties: (
       'no-italic': normal,
     ),
     extended: (),
+    manual: $font-style-manual-values
   ),
   font-weight: (
     standard: (
@@ -238,6 +258,7 @@ $system-properties: (
       800: 800,
       900: 900,
     ),
+    manual: $font-weight-manual-values
   ),
   gap: (
     standard: map-collect(
@@ -262,6 +283,7 @@ $system-properties: (
       map-get($partial-values, 'full-viewport-height')
     ),
     extended: (),
+    manual: $height-manual-values
   ),
   justify-content: (
     standard: (
@@ -271,6 +293,7 @@ $system-properties: (
       'justify':        space-between,
     ),
     extended: (),
+    manual: $justify-content-manual-values
   ),
   left: (
     standard: map-collect(
@@ -282,6 +305,7 @@ $system-properties: (
       map-get($partial-values, 'auto')
     ),
     extended: (),
+    manual: $left-manual-values
   ),
   letter-spacing: (
     standard: (
@@ -294,6 +318,7 @@ $system-properties: (
       'ls-3':	      .15em,
     ),
     extended: (),
+    manual: $letter-spacing-manual-values,
     function: (
       'auto':	      initial,
       -3:	          -.03em,
@@ -369,6 +394,7 @@ $system-properties: (
       5:	       1.62,
       6:	       1.75,
     ),
+    manual: $line-height-manual-values
   ),
   margin: (
     standard: map-collect(
@@ -379,6 +405,7 @@ $system-properties: (
       map-get($partial-values, 'zero-zero')
     ),
     extended: (),
+    manual: $margin-manual-values
   ),
   margin-horizontal: (
     standard: map-collect(
@@ -392,6 +419,7 @@ $system-properties: (
       map-get($partial-values, 'auto')
     ),
     extended: (),
+    manual: $margin-horizontal-manual-values
   ),
   margin-vertical: (
     standard: map-collect(
@@ -404,6 +432,7 @@ $system-properties: (
       map-get($partial-values, 'zero-zero')
     ),
     extended: (),
+    manual: $margin-vertical-manual-values
   ),
   max-height: (
     standard: map-collect(
@@ -415,6 +444,7 @@ $system-properties: (
       map-get($partial-values, 'full-viewport-height')
     ),
     extended: (),
+    manual: $max-height-manual-values
   ),
   max-width: (
     standard: map-collect(
@@ -427,6 +457,7 @@ $system-properties: (
       map-get($partial-values, 'full-percent')
     ),
     extended: (),
+    manual: $max-width-manual-values
   ),
   measure: (
     standard: (
@@ -439,6 +470,7 @@ $system-properties: (
       'none':   none,
     ),
     extended: (),
+    manual: $measure-manual-values
   ),
   min-height: (
     standard: map-collect(
@@ -452,6 +484,7 @@ $system-properties: (
       map-get($partial-values, 'full-viewport-height')
     ),
     extended: (),
+    manual: $min-height-manual-values
   ),
   min-width: (
     standard: map-collect(
@@ -460,6 +493,7 @@ $system-properties: (
       map-get($partial-values, 'zero-zero')
     ),
     extended: (),
+    manual: $min-width-manual-values
   ),
   opacity: (
     standard: (
@@ -476,6 +510,7 @@ $system-properties: (
       100:  1,
     ),
     extended: (),
+    manual: $opacity-manual-values
   ),
   order: (
     standard: (
@@ -496,6 +531,7 @@ $system-properties: (
       11:     11,
     ),
     extended: (),
+    manual: $order-manual-values
   ),
   outline: (
     standard: map-collect(
@@ -506,12 +542,14 @@ $system-properties: (
       )
     ),
     extended: (),
+    manual: $outline-manual-values
   ),
   outline-color: (
     standard: map-collect(
       $tokens-color-required
     ),
     extended: $extended-colors,
+    manual: $outline-color-manual-values
   ),
   overflow: (
     standard: (
@@ -521,6 +559,7 @@ $system-properties: (
       'visible': visible,
     ),
     extended: (),
+    manual: $overflow-manual-values
   ),
   padding: (
     standard: map-collect(
@@ -530,6 +569,7 @@ $system-properties: (
       map-get($partial-values, 'zero-zero')
     ),
     extended: (),
+    manual: $padding-manual-values
   ),
   position: (
     standard: (
@@ -540,6 +580,7 @@ $system-properties: (
       'sticky':   sticky,
     ),
     extended: (),
+    manual: $position-manual-values
   ),
   right: (
     standard: map-collect(
@@ -551,6 +592,7 @@ $system-properties: (
       map-get($partial-values, 'auto')
     ),
     extended: (),
+    manual: $right-manual-values
   ),
   square: (
     standard: map-collect(
@@ -560,6 +602,7 @@ $system-properties: (
       map-get($system-spacing, 'large')
     ),
     extended: (),
+    manual: $square-manual-values
   ),
   text-align: (
     standard: (
@@ -569,6 +612,7 @@ $system-properties: (
       'right':   right,
     ),
     extended: (),
+    manual: $text-align-manual-values
   ),
   text-decoration: (
     standard: (
@@ -578,6 +622,7 @@ $system-properties: (
       'no-strike':    none,
     ),
     extended: (),
+    manual: $text-decoration-manual-values
   ),
   text-decoration-color: (
     standard: map-collect(
@@ -585,6 +630,7 @@ $system-properties: (
       map-get($partial-values, 'auto')
     ),
     extended: $extended-colors,
+    manual: $text-decoration-color-manual-values
   ),
   text-indent: (
     standard: map-collect(
@@ -595,6 +641,7 @@ $system-properties: (
       map-get($system-spacing, 'medium-negative')
     ),
     extended: (),
+    manual: $text-indent-manual-values
   ),
   text-transform: (
     standard: (
@@ -604,6 +651,7 @@ $system-properties: (
       'no-lowercase': none,
     ),
     extended: (),
+    manual: $text-transform-manual-values
   ),
   top: (
     standard: map-collect(
@@ -615,6 +663,7 @@ $system-properties: (
       map-get($partial-values, 'auto')
     ),
     extended: (),
+    manual: $top-manual-values
   ),
   vertical-align: (
     standard: (
@@ -628,6 +677,7 @@ $system-properties: (
       'top':         top,
     ),
     extended: (),
+    manual: $vertical-align-manual-values
   ),
   white-space: (
     standard: (
@@ -638,6 +688,7 @@ $system-properties: (
       'no-wrap':  nowrap,
     ),
     extended: (),
+    manual: $whitespace-manual-values
   ),
   width: (
     standard: map-collect(
@@ -652,6 +703,7 @@ $system-properties: (
       map-get($partial-values, 'auto')
     ),
     extended: (),
+    manual: $width-manual-values
   ),
   z-index: (
     standard: (
@@ -666,5 +718,6 @@ $system-properties: (
       500:	     500,
     ),
     extended: (),
+    manual: $z-index-manual-values
   ),
 );
