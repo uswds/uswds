@@ -99,7 +99,7 @@ How you implement the design system depends on the needs of your project and you
 
     You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project and separate from the design system assets.
 
-3. Reference the CSS and JavaScript files in each HTML page or dynamic templates in your project. We also provide Sass (.scss) files in the zip package which you can use to generate new CSS with project-specific settings. See [Sass](#sass) for more information.
+3. Reference the CSS and JavaScript files in each HTML page or dynamic templates in your project. We also provide Sass (.scss) files in the zip package which you can use to generate new CSS with project-specific settings. See [Sass and theme settings](#sass-and-theme-settings) for more information.
 
     Here is an example of how to reference these assets in your `index.html` file:
 
