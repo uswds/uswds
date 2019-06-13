@@ -288,7 +288,7 @@ Visit the [Style tokens section](https://v2.designsystem.digital.gov/style/) of 
 ### Using tokens in theme settings
 The following is an example of theme settings from `_uswds-theme-spacing.scss`:
 
-```sass
+```scss
 $theme-site-max-width:              'desktop';
 $theme-site-margins-breakpoint:     'desktop';
 $theme-site-margins-width:          4;
@@ -297,7 +297,7 @@ $theme-site-margins-mobile-width:   2;
 
 The USWDS uses those tokens to build component styles:
 
-```sass
+```scss
 .usa-example {
   @include u-padding-x($theme-site-margins-mobile-width);
   max-width: units($theme-site-max-width);
@@ -310,7 +310,7 @@ The USWDS uses those tokens to build component styles:
 
 This is the functional equivalent of:
 
-```sass
+```scss
 .usa-example {
   @include u-padding-x(2);
   max-width: units('desktop');
