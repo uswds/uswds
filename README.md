@@ -279,11 +279,11 @@ Some components have additional methods for manipulating specific aspects of the
 
 ## Customization, theming, and tokens
 
-USWDS 2.0 provides extensive support for theming via its theme settings files introduced in [Sass and theme settings](#sass-and-theme-settgings), above.
+USWDS 2.0 provides extensive support for theming via its theme settings files introduced in [Sass and theme settings](#sass-and-theme-settings), above.
 
 Set theme settings with USWDS style tokens, not with values directly. They tend to be quoted strings like `'desktop'` or `'md'` or unitless numbers like `2` or `-1.5`. Tokens are the values _passed into_ the USWDS functions and mixins that parse them. They are the _keys_ that, through the mechanism of a function or mixin, unlock a _value_ — they are not the values themselves.
 
-Visit the [Style tokens section](https://designsystem.digital.gov/design-tokens/) of USWDS 2.0 documentation for more on the available tokens for [color](https://designsystem.digital.gov/design-tokens/color), [spacing units](https://designsystem.digital.gov/design-tokens/spacing-units), [typescale](https://designsystem.digital.gov/design-tokens/typescale), and more.
+Visit the [Style tokens section](https://designsystem.digital.gov/design-tokens/) of USWDS 2.0 documentation for more on the available tokens for [color](https://designsystem.digital.gov/design-tokens/color), [spacing units](https://designsystem.digital.gov/design-tokens/spacing-units), [font size](https://designsystem.digital.gov/design-tokens/typesetting/font-size/), and more.
 
 ### Using tokens in theme settings
 The following is an example of theme settings from `_uswds-theme-spacing.scss`:
