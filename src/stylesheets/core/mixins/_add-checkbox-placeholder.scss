@@ -1,3 +1,5 @@
+@import "../functions";
+
 @mixin add-checkbox-placeholder {
   $placeholder-width: units(4);
   $placeholder-margin: units(1);

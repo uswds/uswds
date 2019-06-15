@@ -1,3 +1,15 @@
+@import "../core/mixins/border-box-sizing";
+@import "../core/mixins/typography";
+@import "../core/mixins/at-media";
+@import "../core/mixins/add-responsive-site-margins";
+@import "../core/mixins/add-background-svg";
+@import "../core/mixins/utilities/padding";
+@import "../core/mixins/utilities/text";
+@import "../core/mixins/utilities/flex";
+@import "../core/mixins/utilities/square";
+@import "../settings/settings-components";
+@import "../theme/uswds-theme-components";
+
 // General footer styles
 
 .usa-footer {

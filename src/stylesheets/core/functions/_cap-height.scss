@@ -1,0 +1,20 @@
+@import "./validate-typeface-token";
+@import "../system-tokens";
+
+/*
+----------------------------------------
+cap-height()
+----------------------------------------
+Get the cap height of a valid typeface
+----------------------------------------
+*/
+
+@function cap-height($typeface-token) {
+  @if not $typeface-token {
+    @return false;
+  }
+
+  $typeface-token: validate-typeface-token($typeface-token);
+  $token-data: map-get($all-typeface-tokens, $typeface-token);
+  @return map-get($token-data, 'cap-height');
+}

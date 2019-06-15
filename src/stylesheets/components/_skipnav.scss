@@ -1,3 +1,7 @@
+@import "../core/functions";
+@import "../core/mixins/border-box-sizing";
+@import "../core/mixins/typography";
+
 .usa-skipnav {
   @include border-box-sizing;
   @include typeset;
