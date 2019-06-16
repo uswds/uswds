@@ -3,6 +3,7 @@
 
 @mixin add-background-svg($image-name) {
   $image-name: unquote($image-name);
+  @debug "$theme-image-path: ", $theme-image-path;
   background-image: url('#{$theme-image-path}/#{$image-name}.svg'),
     linear-gradient(transparent, transparent);
   background-repeat: no-repeat;

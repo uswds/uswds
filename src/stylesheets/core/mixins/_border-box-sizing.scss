@@ -1,5 +1,4 @@
 @import "../../settings/_settings-general.scss";
-@import "../../theme/_uswds-theme-general.scss";
 
 @mixin border-box-sizing {
   @if not $theme-global-border-box-sizing {

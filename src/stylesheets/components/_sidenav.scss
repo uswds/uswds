@@ -6,7 +6,6 @@
 @import "../core/mixins/typography";
 @import "../core/functions";
 @import "../settings/settings-components";
-@import "../theme/uswds-theme-components";
 
 .usa-sidenav {
   @include border-box-sizing;
