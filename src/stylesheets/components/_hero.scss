@@ -10,6 +10,7 @@
   @include border-box-sizing;
   @include typeset;
   @include u-padding-y($theme-site-margins-width);
+  $image-path: $theme-image-path or "../../img";
   background-image: url('#{$theme-image-path}/hero.png');
   background-position: center;
   background-size: cover;

@@ -238,7 +238,8 @@ $input-select-margin-right: 1.5;
   @media print {
     background-image: none;
     background-color: color('white');
-    content: url('#{$theme-image-path}/correct8-alt.svg');
+    $image-path: $theme-image-path or '../../img';
+    content: url('#{$image-path}/correct8-alt.svg');
     text-indent: 0;
   }
 }
