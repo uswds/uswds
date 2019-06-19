@@ -1,3 +1,7 @@
+@import "../core/mixins/utilities/margin";
+@import "../core/mixins/override-prose";
+@import "../core/mixins/unstyled-list";
+
 %usa-list {
   @include u-margin-y(1em);
   line-height: line-height($theme-body-font-family, $theme-body-line-height);

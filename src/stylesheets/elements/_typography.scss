@@ -1,3 +1,13 @@
+@import "../core/mixins/add-kerning";
+@import "../core/mixins/typography";
+@import "../core/mixins/usa-typography";
+@import "../core/mixins/usa-list-styles";
+@import "../core/mixins/usa-table-styles";
+@import "../core/mixins/external-link";
+@import "../core/mixins/add-background-svg";
+@import "../core/mixins/at-media";
+@import "../core/mixins/add-knockout-font-smoothing";
+
 html {
   @include add-kerning;
   font-family: font-family($theme-body-font-family);
