@@ -1,4 +1,7 @@
-@mixin external-link($external-link, $external-link-hover, $image-path: $theme-image-path) {
+@mixin external-link($external-link, $external-link-hover, $image-path) {
+  @if $theme-image-path {
+    $image-path: $theme-image-path;
+  }
   &::after {
     background: url('#{$image-path}/#{$external-link}.svg') no-repeat 0 0;
     background-size: 100%;
@@ -11,6 +14,6 @@
   }
 
   &:hover::after {
-    @include add-background-svg('#{$external-link-hover}');
+    @include add-background-svg('#{$external-link-hover}', $image-path);
   }
 }

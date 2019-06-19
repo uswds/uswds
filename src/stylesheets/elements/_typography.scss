@@ -52,10 +52,10 @@ html {
 // [href^="https:"]:not([href*="my-domain.com"])
 
 .usa-link--external {
-  @include external-link(external-link, external-link-hover);
+  @include external-link(external-link, external-link-hover, $image-path: "../../img");
 
   &.usa-link--alt {
-    @include external-link(external-link-alt, external-link-alt-hover);
+    @include external-link(external-link-alt, external-link-alt-hover, $image-path: "../../img");
   }
 }
 
