@@ -82,11 +82,7 @@ gulp.task('sass', gulp.series('copy-vendor-sass',
       cssnano(({ autoprefixer: { browsers: autoprefixerOptions } })),
     ];
 
-    const stream = gulp.src('src/stylesheets/*.scss')
-      .pipe(replace(
-        /\buswds @version\b/g,
-        `uswds v${pkg.version}`,
-      ))
+    return gulp.src('src/stylesheets/uswds.scss')
       .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(
         sass({
@@ -95,6 +91,10 @@ gulp.task('sass', gulp.series('copy-vendor-sass',
           .on('error', sass.logError),
       )
       .pipe(postcss(pluginsProcess))
+      .pipe(replace(
+        /\buswds @version\b/g,
+        `uswds v${pkg.version}`,
+      ))
       .pipe(gulp.dest('dist/css'))
       .pipe(rename({
         suffix: '.min',
@@ -103,5 +103,27 @@ gulp.task('sass', gulp.series('copy-vendor-sass',
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest('dist/css'));
 
-    return stream;
+
+    // const stream = gulp.src('src/stylesheets/*.scss')
+    //   .pipe(replace(
+    //     /\buswds @version\b/g,
+    //     `uswds v${pkg.version}`,
+    //   ))
+    //   .pipe(sourcemaps.init({ largeFile: true }))
+    //   .pipe(
+    //     sass({
+    //       outputStyle: 'expanded',
+    //     })
+    //       .on('error', sass.logError),
+    //   )
+    //   .pipe(postcss(pluginsProcess))
+    //   .pipe(gulp.dest('dist/css'))
+    //   .pipe(rename({
+    //     suffix: '.min',
+    //   }))
+    //   .pipe(postcss(pluginsMinify))
+    //   .pipe(sourcemaps.write('.'))
+    //   .pipe(gulp.dest('dist/css'));
+
+    // return stream;
   }));

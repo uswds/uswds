@@ -1,3 +1,5 @@
+@import "../../core/functions/map-collect";
+
 /*
 ========================================
 MISC PLUGINS
@@ -125,6 +127,6 @@ $palettes-units-misc:(
     $tokens-units-ch-negative,
     $tokens-units-em,
     $tokens-units-percentage,
-    $tokens-units-zero,
+    $tokens-units-zero
   ),
 );
