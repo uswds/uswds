@@ -25,7 +25,7 @@ $accordion-border: units($theme-accordion-border-width) solid color($theme-accor
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  @include add-background-svg('minus');
+  @include add-background-svg('minus', '../../img');
 
   background-color: color('base-lightest');
   background-position: right units(2.5) center;
@@ -48,7 +48,7 @@ $accordion-border: units($theme-accordion-border-width) solid color($theme-accor
 // scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
-  @include add-background-svg('plus');
+  @include add-background-svg('plus', '../../img');
   background-size: units(2);
 }
 

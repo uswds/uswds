@@ -195,30 +195,30 @@ $nav-link-arrow-icon-size: 1;
     }
 
     &[aria-expanded=false] { /* stylelint-disable-line selector-no-qualifying-type */
-      @include add-background-svg('plus-alt');
+      @include add-background-svg('plus-alt', '../../img');
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
 
       @include at-media($theme-navigation-width) {
-        @include add-background-svg('angle-arrow-down');
+        @include add-background-svg('angle-arrow-down', '../../img');
         background-size: units($nav-link-arrow-icon-size);
         background-position: right units(2) top $button-vertical-offset;
       }
 
       &:hover {
         @include at-media($theme-navigation-width) {
-          @include add-background-svg('angle-arrow-down-primary');
+          @include add-background-svg('angle-arrow-down-primary', '../../img');
         }
       }
     }
 
     &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
-      @include add-background-svg('minus-alt');
+      @include add-background-svg('minus-alt', '../../img');
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
 
       @include at-media($theme-navigation-width) {
-        @include add-background-svg('angle-arrow-up-white');
+        @include add-background-svg('angle-arrow-up-white', '../../img');
         @include add-knockout-font-smoothing;
         background-size: units($nav-link-arrow-icon-size);
         background-color: color('primary-darker');

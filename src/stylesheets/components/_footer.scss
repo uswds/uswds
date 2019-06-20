@@ -201,19 +201,19 @@
 }
 
 .usa-social-link--facebook {
-  @include add-background-svg('social-icons/facebook25');
+  @include add-background-svg('social-icons/facebook25', '../../img');
 }
 
 .usa-social-link--twitter {
-  @include add-background-svg('social-icons/twitter16');
+  @include add-background-svg('social-icons/twitter16', '../../img');
 }
 
 .usa-social-link--youtube {
-  @include add-background-svg('social-icons/youtube15');
+  @include add-background-svg('social-icons/youtube15', '../../img');
 }
 
 .usa-social-link--rss {
-  @include add-background-svg('social-icons/rss25');
+  @include add-background-svg('social-icons/rss25', '../../img');
 }
 
 .usa-footer__address {
@@ -273,7 +273,7 @@
 
   .usa-footer__primary-link {
     @include h4;
-    @include add-background-svg('arrow-down');
+    @include add-background-svg('arrow-down', '../../../img');
     background-position: units(2) center;
     background-size: units(1.5);
     line-height: line-height('heading', 2);
@@ -300,7 +300,7 @@
       }
 
       .usa-footer__primary-link {
-        @include add-background-svg('arrow-right');
+        @include add-background-svg('arrow-right', '../../../img');
         cursor: pointer;
 
         @include at-media('mobile-lg') {
