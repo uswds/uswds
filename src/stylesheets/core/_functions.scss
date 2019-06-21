@@ -899,7 +899,7 @@ functions and mixins.
   @if map-has-key($our-manual-values, $quoted-value) {
     @if $theme-show-compile-warnings {
       @warn '`#{$value}` is a manual value `#{$property}` token. '
-        + 'This is OK, but only components built with standard tokens can be accepted back into the system. '
+        + 'We recommend converting any manual values to USWDS tokens in production code. '
         + 'Standard `#{$property}` values: #{map-keys($our-standard-values)}';
     }
 
