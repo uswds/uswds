@@ -16,6 +16,7 @@
 @import 'uswds-theme-spacing';
 @import 'uswds-theme-color';
 @import 'uswds-theme-utilities';
+@import 'uswds-theme-components';
 
 // -------------------------------------
 // Import individual USWDS modules...
@@ -28,7 +29,7 @@
 // -------------------------------------
 // ...or import all USWDS modules
 
-@import 'uswds';
+@import '../uswds';
 
 // -------------------------------------
 // Import theme custom styles

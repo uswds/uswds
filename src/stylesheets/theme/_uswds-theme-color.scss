@@ -25,10 +25,10 @@ Theme palette colors
 
 // Base colors
 $theme-color-base-family:           'gray-cool';
-$theme-color-base-lightest:         'gray-5';
-$theme-color-base-lighter:          'gray-cool-10';
+$theme-color-base-lightest:         'gray-1';
+$theme-color-base-lighter:          'gray-cool-20';
 $theme-color-base-light:            'gray-cool-30';
-$theme-color-base:                  'gray-cool-50';
+$theme-color-base:                  'gray-cool-90';
 $theme-color-base-dark:             'gray-cool-60';
 $theme-color-base-darker:           'gray-cool-70';
 $theme-color-base-darkest:          'gray-90';
@@ -39,18 +39,18 @@ $theme-color-primary-family:        'blue';
 $theme-color-primary-lightest:      false;
 $theme-color-primary-lighter:       'blue-10';
 $theme-color-primary-light:         'blue-30';
-$theme-color-primary:               'blue-60v';
+$theme-color-primary:               'blue-warm-60v';
 $theme-color-primary-vivid:         'blue-warm-60v';
 $theme-color-primary-dark:          'blue-warm-70v';
 $theme-color-primary-darker:        'blue-warm-80v';
-$theme-color-primary-darkest:       false;
+$theme-color-primary-darkest:       'blue-warm-90';
 
 // Secondary colors
 $theme-color-secondary-family:      'red';
 $theme-color-secondary-lightest:    false;
 $theme-color-secondary-lighter:     'red-cool-10';
 $theme-color-secondary-light:       'red-30';
-$theme-color-secondary:             'red-50';
+$theme-color-secondary:             'red-50v';
 $theme-color-secondary-vivid:       'red-cool-50v';
 $theme-color-secondary-dark:        'red-60v';
 $theme-color-secondary-darker:      'red-70v';
@@ -69,11 +69,11 @@ $theme-color-accent-warm-darkest:   false;
 // Accent cool colors
 $theme-color-accent-cool-family:    'blue-cool';
 $theme-color-accent-cool-lightest:  false;
-$theme-color-accent-cool-lighter:   'blue-cool-5v';
-$theme-color-accent-cool-light:     'blue-cool-20v';
-$theme-color-accent-cool:           'cyan-30v';
-$theme-color-accent-cool-dark:      'blue-cool-40v';
-$theme-color-accent-cool-darker:    'blue-cool-60v';
+$theme-color-accent-cool-lighter:   'blue-10';
+$theme-color-accent-cool-light:     'blue-20';
+$theme-color-accent-cool:           'blue-30v';
+$theme-color-accent-cool-dark:      'blue-50';
+$theme-color-accent-cool-darker:    'blue-70v';
 $theme-color-accent-cool-darkest:   false;
 
 /*
@@ -92,8 +92,8 @@ $theme-color-error-darker:     'red-70';
 
 // Warning colors
 $theme-color-warning-family:   'gold';
-$theme-color-warning-lighter:  'yellow-5';
-$theme-color-warning-light:    'yellow-10v';
+$theme-color-warning-lighter:  'gold-5v';
+$theme-color-warning-light:    'gold-20v';
 $theme-color-warning:          'gold-20v';
 $theme-color-warning-dark:     'gold-30v';
 $theme-color-warning-darker:   'gold-50v';

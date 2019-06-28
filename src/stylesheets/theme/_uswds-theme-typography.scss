@@ -13,7 +13,7 @@ TYPOGRAPHY SETTINGS
 ----------------------------------------
 Read more about settings and
 USWDS typography tokens in the documentation:
-https://designsystem.digital.gov/design-tokens/typesetting/font-family/
+https://v2.designsystem.digital.gov/style-tokens/typography
 ----------------------------------------
 */
 
@@ -161,7 +161,7 @@ $theme-font-type-cond:  false;
 $theme-font-type-icon:  false;
 
 // language-specific
-$theme-font-type-lang:  false;
+$theme-font-type-lang:  'helvetica';
 
 // monospace
 $theme-font-type-mono:  'roboto-mono';
@@ -284,7 +284,7 @@ tokens.
 */
 
 $theme-font-role-ui:        'sans';
-$theme-font-role-heading:   'serif';
+$theme-font-role-heading:   'lang';
 $theme-font-role-body:      'sans';
 $theme-font-role-code:      'mono';
 $theme-font-role-alt:       'serif';
@@ -399,12 +399,12 @@ $theme-body-line-height:           5;
 $theme-style-body-element:         false;
 
 // Headings
-$theme-h1-font-size:               '2xl';
-$theme-h2-font-size:               'xl';
-$theme-h3-font-size:               'lg';
-$theme-h4-font-size:               'sm';
-$theme-h5-font-size:               'xs';
-$theme-h6-font-size:               '3xs';
+$theme-h1-font-size:               17;
+$theme-h2-font-size:               15;
+$theme-h3-font-size:               12;
+$theme-h4-font-size:               11;
+$theme-h5-font-size:               10;
+$theme-h6-font-size:               9;
 $theme-heading-line-height:        2;
 $theme-small-font-size:            '2xs';
 $theme-display-font-size:          '3xl';
