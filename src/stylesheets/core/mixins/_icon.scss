@@ -1,6 +1,3 @@
-@import "./add-background-svg";
-@import "../functions";
-
 @mixin display-icon($icon, $direction, $size, $margin, $hover) {
   &::#{$direction} {
     @include add-background-svg('#{$icon}', '../../../img');

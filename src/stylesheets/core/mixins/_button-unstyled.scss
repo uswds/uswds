@@ -1,5 +1,3 @@
-@import "./add-knockout-font-smoothing";
-
 @mixin button-unstyled {
   @include no-knockout-font-smoothing;
   @include typeset-link;

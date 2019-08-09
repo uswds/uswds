@@ -1,6 +1,3 @@
-@import "./utilities/max-width";
-@import "./utilities/padding";
-
 @mixin grid-gap-responsive {
   $gap-mobile: if(
     map-has-key($system-column-gaps, $theme-column-gap-mobile),

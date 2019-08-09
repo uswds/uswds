@@ -1,5 +1,3 @@
-@import "./add-background-svg";
-
 @mixin add-success-mark {
   &::before {
     @include add-background-svg('correct9', '../../../img');
