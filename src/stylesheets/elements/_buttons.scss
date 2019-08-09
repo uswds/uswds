@@ -1,13 +1,3 @@
-@import "../core/base";
-@import "./typography";
-@import "../core/mixins/border-box-sizing";
-@import "../core/mixins/add-knockout-font-smoothing";
-@import "../core/mixins/at-media";
-@import "../core/mixins/button-unstyled";
-@import "../core/mixins/button-disabled";
-@import "../core/functions";
-@import "../settings/settings-components";
-
 // Buttons variables
 
 $button-stroke: inset 0 0 0 units($theme-button-stroke-width);

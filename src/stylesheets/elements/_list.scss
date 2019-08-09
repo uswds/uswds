@@ -1,8 +1,3 @@
-@import "../core/base";
-@import "../core/mixins/utilities/margin";
-@import "../core/mixins/override-prose";
-@import "../core/mixins/unstyled-list";
-
 .usa-list {
   @extend %usa-list;
 

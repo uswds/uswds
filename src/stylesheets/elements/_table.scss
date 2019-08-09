@@ -1,8 +1,3 @@
-@import "../core/base";
-@import "../core/mixins/utilities/border";
-@import "../core/mixins/utilities/font";
-@import "../core/functions";
-
 .usa-table {
   @extend %usa-table;
 }
