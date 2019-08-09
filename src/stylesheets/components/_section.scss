@@ -1,9 +1,3 @@
-@import "../core/base";
-@import "../core/mixins/border-box-sizing";
-@import "../core/mixins/at-media";
-@import "../core/mixins/utilities/padding";
-@import "../core/functions";
-
 .usa-section {
   @include border-box-sizing;
   @include u-padding-y($theme-site-margins-width);
