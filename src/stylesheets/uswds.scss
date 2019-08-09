@@ -1,41 +1,18 @@
 /*! uswds @version */
 
-/*
-========================================
-uswds.scss
-----------------------------------------
-Output all USWDS
-- fonts
-- components
-- utilities
-- layout grid
-----------------------------------------
-*/
-
-$theme-image-path: "../img";
-
-// Settings
+// Required
 // -------------------------------------
-@import 'settings/settings-general';
-@import 'settings/settings-typography';
-@import 'settings/settings-color';
-@import 'settings/settings-spacing';
-@import 'settings/settings-utilities';
-@import 'settings/settings-components';
+@import 'packages/required';
 
-// Tools
+// Base
 // -------------------------------------
-@import 'core/functions';
-@import 'core/system-tokens';
-@import 'core/variables';
-@import 'core/properties';
-@import 'core/mixins/all';
+@import 'core/base/body';
+@import 'core/base/accessibility';
+@import 'core/base/focus';
 
-// Generic
+// Layout grid
 // -------------------------------------
-@import 'core/font-face';
-@import 'lib/normalize';
-@import 'core/base';
+@import 'core/layout-grid';
 
 // Elements
 // -------------------------------------
@@ -66,10 +43,6 @@ $theme-image-path: "../img";
 @import 'components/section';
 @import 'components/sidenav';
 @import 'components/skipnav';
-
-// Layout grid
-// -------------------------------------
-@import 'core/layout-grid';
 
 // Utilities
 // -------------------------------------
