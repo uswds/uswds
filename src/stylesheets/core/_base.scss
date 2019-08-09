@@ -60,3 +60,7 @@ iframe,
 .usa-focus {
   @include focus-outline;
 }
+
+.usa-sr-only {
+  @include sr-only;
+}
