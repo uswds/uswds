@@ -1,3 +1,13 @@
+@import "../core/base";
+@import "../core/mixins/border-box-sizing";
+@import "../core/mixins/nav-list";
+@import "../core/mixins/unstyled-list";
+@import "../core/mixins/add-bar";
+@import "../core/mixins/at-media";
+@import "../core/mixins/typography";
+@import "../core/functions";
+@import "../settings/settings-components";
+
 .usa-sidenav {
   @include border-box-sizing;
   @include nav-list('sidenav');

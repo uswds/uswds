@@ -1,3 +1,15 @@
+@import "../core/base";
+@import "../core/mixins/unstyled-list";
+@import "../core/mixins/button-unstyled";
+@import "../core/mixins/border-box-sizing";
+@import "../core/mixins/typography";
+@import "../core/mixins/screen-reader";
+@import "../core/mixins/add-background-svg";
+@import "../core/functions";
+@import "../elements/typography";
+@import "../settings/settings-components";
+@import "../settings/settings-typography";
+
 // Variables
 
 $accordion-border: units($theme-accordion-border-width) solid color($theme-accordion-border-color);
@@ -15,7 +27,7 @@ $accordion-border: units($theme-accordion-border-width) solid color($theme-accor
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  @include add-background-svg('minus');
+  @include add-background-svg('minus', '../../img');
 
   background-color: color('base-lightest');
   background-position: right units(2.5) center;
@@ -38,7 +50,7 @@ $accordion-border: units($theme-accordion-border-width) solid color($theme-accor
 // scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
-  @include add-background-svg('plus');
+  @include add-background-svg('plus', '../../img');
   background-size: units(2);
 }
 

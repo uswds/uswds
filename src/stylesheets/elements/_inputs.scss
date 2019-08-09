@@ -1,3 +1,12 @@
+@import "../core/base";
+@import "../core/functions";
+@import "../core/mixins/utilities/circle";
+@import "../core/mixins/utilities/padding";
+@import "../core/mixins/border-box-sizing";
+@import "../core/mixins/typography";
+@import "../core/mixins/add-background-svg";
+@import "../core/mixins/utilities/border";
+
 // Helpers
 
 $input-select-margin-right: 1.5;
@@ -119,7 +128,7 @@ $input-select-margin-right: 1.5;
 }
 
 .usa-select {
-  @include add-background-svg('arrow-both');
+  @include add-background-svg('arrow-both', '../../img');
   appearance: none;
   background-color: color('white');
   background-position: right units(1.5) center;
@@ -232,13 +241,14 @@ $input-select-margin-right: 1.5;
 
 .usa-checkbox__input:checked + .usa-checkbox__label::before,
 .usa-checkbox__input:checked:disabled + .usa-checkbox__label::before {
-  @include add-background-svg('correct8');
+  @include add-background-svg('correct8', "../../img");
   background-position: center center;
 
   @media print {
     background-image: none;
     background-color: color('white');
-    content: url('#{$theme-image-path}/correct8-alt.svg');
+    $image-path: $theme-image-path or '../../img';
+    content: url('#{$image-path}/correct8-alt.svg');
     text-indent: 0;
   }
 }

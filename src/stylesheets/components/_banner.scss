@@ -1,3 +1,18 @@
+@import "../core/base";
+@import "../core/mixins/typography";
+@import "../core/mixins/at-media";
+@import "../core/mixins/icon";
+@import "../core/mixins/button-unstyled";
+@import "../core/mixins/screen-reader";
+@import "../core/mixins/add-background-svg";
+@import "../core/mixins/layout-grid/grid-container";
+@import "../core/mixins/layout-grid/grid-row";
+@import "../core/mixins/utilities/float";
+@import "../core/mixins/utilities/pin";
+@import "../core/mixins/utilities/position";
+@import "../core/mixins/utilities/text";
+@import "../settings/settings-components";
+
 .usa-banner {
   @include typeset($theme-banner-font-family);
   @include border-box-sizing;

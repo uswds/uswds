@@ -1,3 +1,6 @@
+@import "../core/base";
+@import "../core/mixins/media-block-img";
+
 .usa-media-block__img {
   @include media-block-img;
 }

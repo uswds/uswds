@@ -1,3 +1,7 @@
+@import "../core/base";
+@import "../core/functions";
+@import "../core/mixins/at-media";
+
 // Flexbox positioning to move sidenav below main content on small screens
 .usa-layout-docs__sidenav {
   order: 2;

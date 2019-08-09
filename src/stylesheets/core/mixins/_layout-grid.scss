@@ -1,26 +1,5 @@
-
-@mixin grid-container($props...) {
-  @if length($props) == 0 {
-    @include u-margin-x(auto);
-    @include u-maxw($theme-grid-container-max-width);
-  }
-  @else {
-    $props: nth($props, 1);
-    $margin-x: append-important($props, auto);
-    @include u-margin-x($margin-x);
-    @include u-maxw($props);
-  }
-  @include add-responsive-site-margins;
-  @include this-border-box-sizing;
-}
-
-@mixin grid-row($props...) {
-  $display: append-important($grid-global, flex);
-  $flex: append-important($grid-global, wrap);
-  @include u-display($display);
-  @include u-flex($flex);
-  @include this-border-box-sizing;
-}
+@import "./utilities/max-width";
+@import "./utilities/padding";
 
 @mixin grid-gap-responsive {
   $gap-mobile: if(

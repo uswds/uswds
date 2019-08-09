@@ -1,6 +1,17 @@
+@import "../core/base";
+@import "../core/functions";
+@import "../core/mixins/border-box-sizing";
+@import "../core/mixins/add-background-svg";
+@import "../core/mixins/clearfix";
+@import "../core/mixins/typography";
+@import "../core/mixins/at-media";
+@import "../core/mixins/utilities/padding";
+@import "../core/mixins/screen-reader";
+@import "../settings/settings-components";
+
 // TODO: abstract and integrate
 @mixin search-icon {
-  @include add-background-svg('search');
+  @include add-background-svg('search', '../../img');
   background-position: center center;
   background-size: units(3);
 }

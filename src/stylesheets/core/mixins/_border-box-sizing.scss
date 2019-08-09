@@ -1,3 +1,5 @@
+@import "../../settings/_settings-general.scss";
+
 @mixin border-box-sizing {
   @if not $theme-global-border-box-sizing {
     box-sizing: border-box;

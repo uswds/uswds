@@ -3,7 +3,7 @@
   $width: $theme-focus-width,
   $style: $theme-focus-style,
   $color: $theme-focus-color,
-  $offset: $theme-focus-offset,
+  $offset: $theme-focus-offset
 ) {
   $width: if(
     $width == null,

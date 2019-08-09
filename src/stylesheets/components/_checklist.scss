@@ -1,3 +1,11 @@
+@import "../core/base";
+@import "../core/mixins/add-list-reset";
+@import "../core/mixins/add-checkbox-placeholder";
+@import "../core/mixins/add-background-svg";
+@import "../core/mixins/border-box-sizing";
+@import "../core/mixins/typography";
+@import "../core/mixins/add-success-mark";
+
 .usa-checklist {
   @include add-list-reset;
   @include border-box-sizing;
