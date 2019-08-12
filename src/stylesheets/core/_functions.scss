@@ -1,7 +1,3 @@
-@import "./variables";
-@import "./properties";
-@import "../settings/settings-typography";
-
 /*
 ========================================
 Functions
@@ -29,6 +25,26 @@ $root-font-size-equiv: if(
 General-purpose functions
 ----------------------------------------
 */
+
+/*
+----------------------------------------
+map-deep-get()
+----------------------------------------
+@author Hugo Giraudel
+@access public
+@param {Map} $map - Map
+@param {Arglist} $keys - Key chain
+@return {*} - Desired value
+----------------------------------------
+*/
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
 
 /*
 ----------------------------------------
@@ -68,6 +84,55 @@ Concatenate two lists
   }
 
   @return $this-list;
+}
+
+/*
+----------------------------------------
+map-collect()
+----------------------------------------
+Collect multiple maps into a single
+large map
+source: https://gist.github.com/bigglesrocks/d75091700f8f2be5abfe
+----------------------------------------
+*/
+
+@function map-collect($maps...) {
+  $collection: ();
+
+  @each $map in $maps {
+    $collection: map-merge($collection, $map);
+  }
+
+  @return $collection;
+}
+
+/*
+----------------------------------------
+smart-quote()
+----------------------------------------
+Quotes strings
+Inspects `px`, `xs`, and `xl` numbers
+Leaves bools as is
+----------------------------------------
+*/
+
+@function smart-quote($value) {
+  @if type-of($value) == 'string' {
+    @return quote($value);
+  }
+
+  @if type-of($value) == 'number'
+    and index(('px', 'xl', 'xs'), unit($value)) {
+    @return inspect($value);
+  }
+
+  @if type-of($value) == 'color' {
+    @error 'Only use quoted color tokens in USWDS functions and mixins. '
+      + 'See v2.designsystem.digital.gov/style-tokens/color '
+      + 'for more information.';
+  }
+
+  @return $value;
 }
 
 /*
@@ -351,6 +416,43 @@ queries
 
 /*
 ----------------------------------------
+validate-typeface-token()
+----------------------------------------
+Check to see if a typeface-token exists.
+Throw an error if a passed token does
+not exist in the typeface-token map.
+----------------------------------------
+*/
+
+@function validate-typeface-token($typeface-token) {
+  @if not map-has-key($all-typeface-tokens, $typeface-token) {
+    @error '`#{$typeface-token}` is not a valid typeface token. '
+      + 'Valid tokens: #{map-keys($all-typeface-tokens)} ';
+  }
+
+  @return $typeface-token;
+}
+
+/*
+----------------------------------------
+cap-height()
+----------------------------------------
+Get the cap height of a valid typeface
+----------------------------------------
+*/
+
+@function cap-height($typeface-token) {
+  @if not $typeface-token {
+    @return false;
+  }
+
+  $typeface-token: validate-typeface-token($typeface-token);
+  $token-data: map-get($all-typeface-tokens, $typeface-token);
+  @return map-get($token-data, 'cap-height');
+}
+
+/*
+----------------------------------------
 px-to-rem()
 ----------------------------------------
 Converts a value in px to a value in rem
@@ -539,6 +641,23 @@ role-based font token.
 
 /*
 ----------------------------------------
+get-typeface-token()
+----------------------------------------
+Get a typeface token from a font-type or
+font-role token.
+----------------------------------------
+*/
+
+@function get-typeface-token($font-token) {
+  $this-token: $font-token;
+  @if map-has-key($project-font-role-tokens, $font-token) {
+    $this-token: map-get($project-font-role-tokens, $font-token);
+  }
+  @return map-deep-get($project-font-type-tokens, $this-token, 'typeface-token');
+}
+
+/*
+----------------------------------------
 get-system-color()
 ----------------------------------------
 Derive a system color from its
@@ -608,6 +727,29 @@ variable that is, itself, a list
   );
 
   @return $output;
+}
+
+/*
+----------------------------------------
+system-type-scale()
+----------------------------------------
+Get a value from the system type scale
+----------------------------------------
+*/
+
+@function system-type-scale($scale) {
+  $scale: smart-quote($scale);
+
+  @if not $scale {
+    @return false;
+  }
+
+  @if not map-has-key($system-type-scale, $scale) {
+    @error '`#{$scale}` is not a valid type scale token. '
+      + 'Valid tokens: #{map-keys($system-type-scale)}';
+  }
+
+  @return map-get($system-type-scale, $scale);
 }
 
 /*
