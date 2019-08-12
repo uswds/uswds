@@ -1,7 +1,3 @@
-@import "../add-responsive-site-margins";
-@import "../utilities/padding";
-@import "../utilities/max-width";
-
 @mixin grid-container($props...) {
   @if length($props)==0 {
     @include u-margin-x(auto);
