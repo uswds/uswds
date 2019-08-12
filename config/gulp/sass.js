@@ -96,10 +96,10 @@ gulp.task('sass', gulp.series('copy-vendor-sass',
         `uswds v${pkg.version}`,
       ))
       .pipe(gulp.dest('dist/css'))
+      .pipe(postcss(pluginsMinify))
       .pipe(rename({
         suffix: '.min',
       }))
-      .pipe(postcss(pluginsMinify))
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest('dist/css'));
 
