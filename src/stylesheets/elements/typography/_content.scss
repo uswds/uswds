@@ -1,28 +1,5 @@
-.usa-prose {
-  @include typeset($theme-prose-font-family);
-  & > {
-    @include usa-content-styles;
-  }
-}
-
 .usa-paragraph {
   @include typeset-p;
-}
-
-.usa-link {
-  @include typeset-link;
-}
-
-// External link consider "effortless style approach":
-// [href^="http:"]:not([href*="my-domain.com"])
-// [href^="https:"]:not([href*="my-domain.com"])
-
-.usa-link--external {
-  @include external-link(external-link, external-link-hover, $image-path: "../../img");
-
-  &.usa-link--alt {
-    @include external-link(external-link-alt, external-link-alt-hover, $image-path: "../../img");
-  }
 }
 
 // Custom typography
