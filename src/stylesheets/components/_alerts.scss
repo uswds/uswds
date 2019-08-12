@@ -92,7 +92,7 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 
 @each $name, $bgcolor in $alerts {
   .usa-alert--#{$name} {
-    @include add-background-svg('alerts/#{$name}', '../../img');
+    @include add-background-svg('alerts/#{$name}');
     background-color: color($bgcolor);
 
     &::before {

@@ -2,14 +2,14 @@
   @include typeset-link;
 }
 
-// External link consider "effortless style approach":
-// [href^="http:"]:not([href*="my-domain.com"])
-// [href^="https:"]:not([href*="my-domain.com"])
+// External link consider 'effortless style approach':
+// [href^='http:']:not([href*='my-domain.com'])
+// [href^='https:']:not([href*='my-domain.com'])
 
 .usa-link--external {
-  @include external-link(external-link, external-link-hover, $image-path: "../../img");
+  @include external-link(external-link, external-link-hover);
 
   &.usa-link--alt {
-    @include external-link(external-link-alt, external-link-alt-hover, $image-path: "../../img");
+    @include external-link(external-link-alt, external-link-alt-hover);
   }
 }

@@ -119,7 +119,7 @@ $input-select-margin-right: 1.5;
 }
 
 .usa-select {
-  @include add-background-svg('arrow-both', '../../img');
+  @include add-background-svg('arrow-both');
   appearance: none;
   background-color: color('white');
   background-position: right units(1.5) center;
@@ -232,14 +232,13 @@ $input-select-margin-right: 1.5;
 
 .usa-checkbox__input:checked + .usa-checkbox__label::before,
 .usa-checkbox__input:checked:disabled + .usa-checkbox__label::before {
-  @include add-background-svg('correct8', "../../img");
+  @include add-background-svg('correct8');
   background-position: center center;
 
   @media print {
     background-image: none;
     background-color: color('white');
-    $image-path: $theme-image-path or '../../img';
-    content: url('#{$image-path}/correct8-alt.svg');
+    content: url('#{$theme-image-path}/correct8-alt.svg');
     text-indent: 0;
   }
 }

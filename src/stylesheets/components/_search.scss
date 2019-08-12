@@ -1,6 +1,6 @@
 // TODO: abstract and integrate
 @mixin search-icon {
-  @include add-background-svg('search', '../../img');
+  @include add-background-svg('search');
   background-position: center center;
   background-size: units(3);
 }
