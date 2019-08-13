@@ -35,14 +35,10 @@ Output USWDS components and styles
 @import '../elements/buttons';
 @import '../elements/embed';
 @import '../elements/figure';
-@import '../elements/inputs';
+@import '../elements/form-controls/all';
 @import '../elements/table';
 @import '../elements/tags';
-@import '../elements/typography/base';
-@import '../elements/typography/content';
-@import '../elements/typography/links';
-@import '../elements/typography/list';
-@import '../elements/typography/prose';
+@import '../elements/typography/all';
 
 // Components
 // -------------------------------------
