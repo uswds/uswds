@@ -4,14 +4,14 @@
 // -------------------------------------
 @import 'packages/required';
 
+// Global
+// -------------------------------------
+@import 'packages/global';
+
 // Base
 // -------------------------------------
-@import 'core/base/body';
-@import 'core/base/accessibility';
-
-// Layout grid
-// -------------------------------------
-@import 'core/layout-grid';
+@import 'base/body';
+@import 'base/accessibility';
 
 // Elements
 // -------------------------------------
@@ -19,9 +19,13 @@
 @import 'elements/embed';
 @import 'elements/figure';
 @import 'elements/form-controls/all';
+@import 'elements/layout-grid';
 @import 'elements/table';
 @import 'elements/tags';
-@import 'elements/typography/all';
+@import 'elements/typography/content';
+@import 'elements/typography/links';
+@import 'elements/typography/list';
+@import 'elements/typography/prose';
 
 // Components
 // -------------------------------------
@@ -36,6 +40,9 @@
 @import 'components/hero';
 @import 'components/layout';
 @import 'components/media-block';
+@import 'components/megamenu';
+@import 'components/nav-container';
+@import 'components/navbar';
 @import 'components/navigation';
 @import 'components/search';
 @import 'components/section';
