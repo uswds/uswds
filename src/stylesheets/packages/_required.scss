@@ -7,19 +7,9 @@
 @import '../settings/settings-utilities';
 @import '../settings/settings-components';
 
-// Tools
-// -------------------------------------
 @import '../core/functions';
 @import '../core/system-tokens';
 @import '../core/variables';
 @import '../core/properties';
 @import '../core/mixins/all';
 @import '../core/placeholders/all';
-
-// Generic
-// -------------------------------------
-@import '../lib/normalize';
-@import '../core/base/font-face';
-@import '../core/base/sizing';
-@import '../core/base/focus';
-@import '../elements/typography/global';
