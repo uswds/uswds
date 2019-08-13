@@ -1,7 +1,8 @@
 // dependencies
-@import '../stylesheets/base/accessibility';
-@import 'form-controls';
+@import '../base/accessibility';
+@import '../elements/form-controls/global';
+@import '../elements/form-controls/text-input';
 @import 'usa-button';
 
-// component
-@import '../stylesheets/components/search';
+// src
+@import '../components/search';

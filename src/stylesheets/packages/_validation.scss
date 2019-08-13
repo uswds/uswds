@@ -1,8 +1,8 @@
 // dependencies
-@import 'alert';
-@import 'button';
-@import '../stylesheets/components/checklist';
-@import '../stylesheets/elements/form-controls/all';
+@import '../elements/form-controls/all';
+@import 'usa-checklist';
+@import 'usa-alert';
+@import 'usa-button';
 
-// component
-@import '../stylesheets/components/forms';
+// src
+@import '../components/forms';
