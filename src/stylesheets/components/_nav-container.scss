@@ -1,0 +1,7 @@
+.usa-nav-container {
+  @include at-media($theme-navigation-width) {
+    @include clearfix;
+    @include grid-container;
+    @include u-padding-x($theme-site-margins-width);
+  }
+}
