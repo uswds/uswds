@@ -25,6 +25,10 @@
     @include add-responsive-site-margins;
     border-bottom: none;
   }
+
+  > ul {
+    @include add-list-reset;
+  }
 }
 
 .usa-footer__primary-section {
