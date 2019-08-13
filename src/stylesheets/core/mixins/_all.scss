@@ -1,5 +1,8 @@
 // utility mixins
+@import 'utilities/align-items';
+@import 'utilities/background-color';
 @import 'utilities/border';
+@import 'utilities/border-color';
 @import 'utilities/border-width';
 @import 'utilities/border-radius';
 @import 'utilities/bottom';
@@ -8,6 +11,7 @@
 @import 'utilities/cursor';
 @import 'utilities/display';
 @import 'utilities/flex';
+@import 'utilities/flex-direction';
 @import 'utilities/float';
 @import 'utilities/font';
 @import 'utilities/font-weight';
