@@ -25,10 +25,23 @@
     @include add-responsive-site-margins;
     border-bottom: none;
   }
+
+  > ul {
+    @include add-list-reset;
+  }
 }
 
 .usa-footer__primary-section {
   background-color: color('base-lightest');
+}
+
+.usa-footer__primary-container {
+  @include u-margin-x('auto');
+  max-width: units('desktop');
+
+  @include at-media('desktop') {
+    @include u-padding-x(4);
+  }
 }
 
 .usa-footer__primary-content {

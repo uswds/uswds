@@ -46,6 +46,10 @@
 @import 'utilities/width';
 @import 'utilities/z-index';
 
+// grid mixins
+@import 'layout-grid/grid-container';
+@import 'layout-grid/grid-row';
+
 // helper mixins
 @import 'border-box-sizing';
 @import 'override-prose';

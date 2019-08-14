@@ -1,4 +1,4 @@
-// Outputs line-height
+// Outputs border-color
 
 @mixin u-border-color($value...) {
   $value: unpack($value);
