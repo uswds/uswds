@@ -1,5 +1,3 @@
-// Outputs background-color
-
 @mixin u-bg($value...) {
   $value: unpack($value);
   $important: null;

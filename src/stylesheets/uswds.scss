@@ -1,50 +1,31 @@
 /*! uswds @version */
 
-/*
-========================================
-uswds.scss
-----------------------------------------
-Output all USWDS
-- fonts
-- components
-- utilities
-- layout grid
-----------------------------------------
-*/
-
-// Settings
+// Required
 // -------------------------------------
-@import 'settings/settings-general';
-@import 'settings/settings-typography';
-@import 'settings/settings-color';
-@import 'settings/settings-spacing';
-@import 'settings/settings-utilities';
-@import 'settings/settings-components';
+@import 'packages/required';
 
-// Tools
+// Global
 // -------------------------------------
-@import 'core/functions';
-@import 'core/system-tokens';
-@import 'core/variables';
-@import 'core/properties';
-@import 'core/mixins/all';
+@import 'packages/global';
 
-// Generic
+// Base
 // -------------------------------------
-@import 'core/font-face';
-@import 'lib/normalize';
-@import 'core/base';
+@import 'base/body';
+@import 'base/accessibility';
 
 // Elements
 // -------------------------------------
 @import 'elements/buttons';
 @import 'elements/embed';
 @import 'elements/figure';
-@import 'elements/inputs';
-@import 'elements/list';
+@import 'elements/form-controls/all';
+@import 'elements/layout-grid';
 @import 'elements/table';
 @import 'elements/tags';
-@import 'elements/typography';
+@import 'elements/typography/content';
+@import 'elements/typography/links';
+@import 'elements/typography/list';
+@import 'elements/typography/prose';
 
 // Components
 // -------------------------------------
@@ -59,18 +40,18 @@ Output all USWDS
 @import 'components/hero';
 @import 'components/layout';
 @import 'components/media-block';
+@import 'components/megamenu';
+@import 'components/nav-container';
+@import 'components/navbar';
 @import 'components/navigation';
 @import 'components/search';
 @import 'components/section';
 @import 'components/sidenav';
 @import 'components/skipnav';
 
-// Layout grid
-// -------------------------------------
-@import 'core/layout-grid';
-
 // Utilities
 // -------------------------------------
+@import 'utilities/utility-fonts';
 @import 'utilities/palettes/all';
 @import 'utilities/rules/all';
 @import 'utilities/rules/package';

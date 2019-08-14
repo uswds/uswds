@@ -65,12 +65,12 @@ How you implement the design system depends on the needs of your project and you
 
 ### Download
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/tag/v2.0.3) from the latest USWDS release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/tag/v2.1.0) from the latest USWDS release and open that file.
 
     After extracting the zip file you should see the following file and folder structure:
 
     ```
-    uswds-2.0.3/
+    uswds-2.1.0/
     ├── css/
     │   ├── uswds.min.css.map
     │   ├── uswds.min.css
@@ -90,7 +90,7 @@ How you implement the design system depends on the needs of your project and you
     ```
     example-project/
     ├── assets/
-    │   ├── uswds-2.0.3/
+    │   ├── uswds-2.1.0/
     │   ├── stylesheets/
     │   ├── images/
     │   └── javascript/
@@ -99,7 +99,7 @@ How you implement the design system depends on the needs of your project and you
 
     You'll notice in our example above that we also outline a `stylesheets`, `images` and `javascript` folder in your `assets` folder. These folders are to help organize any assets that are unique to your project and separate from the design system assets.
 
-3. Reference the CSS and JavaScript files in each HTML page or dynamic templates in your project. We also provide Sass (.scss) files in the zip package which you can use to generate new CSS with project-specific settings. See [Sass](#sass) for more information.
+3. Reference the CSS and JavaScript files in each HTML page or dynamic templates in your project. We also provide Sass (.scss) files in the zip package which you can use to generate new CSS with project-specific settings. See [Sass and theme settings](#sass-and-theme-settings) for more information.
 
     Here is an example of how to reference these assets in your `index.html` file:
 
@@ -110,11 +110,11 @@ How you implement the design system depends on the needs of your project and you
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>My Example Project</title>
-      <link rel="stylesheet" href="assets/uswds-2.0.3/css/uswds.min.css">
+      <link rel="stylesheet" href="assets/uswds-2.1.0/css/uswds.min.css">
     </head>
     <body>
 
-      <script src="assets/uswds-2.0.3/js/uswds.min.js"></script>
+      <script src="assets/uswds-2.1.0/js/uswds.min.js"></script>
     </body>
     </html>
     ```
@@ -250,7 +250,7 @@ If you’re interested in maintaining a package that helps us distribute USWDS, 
 * Uses **nesting** when appropriate. Nest minimally with up to two levels of nesting.
 * Hard-coded magic numbers are avoided.
 * Media queries are built **mobile first**.
-* **Spacing units** are set with the `units()` function as described in [the USWDS 2.0 documentation](https://v2.designsystem.digital.gov/style/spacing-units/). In general, we use spacing in multiples of `8px` — expressed as a multiple in `units([multiple])`. For instance `units(2)` is the equivalent of `2 * 8px` or `16px`. In the final, compiled CSS, this value will be expressed in rem, as a multiple of the base font size set with `$theme-base-font-size`.
+* **Spacing units** are set with the `units()` function as described in [the USWDS 2.0 documentation](https://designsystem.digital.gov/design-tokens/spacing-units/). In general, we use spacing in multiples of `8px` — expressed as a multiple in `units([multiple])`. For instance `units(2)` is the equivalent of `2 * 8px` or `16px`. In the final, compiled CSS, this value will be expressed in rem, as a multiple of the base font size set with `$theme-base-font-size`.
 
 **For more information, visit:**
 [18F’s CSS Front End Guide](https://frontend.18f.gov/css/)
@@ -279,16 +279,16 @@ Some components have additional methods for manipulating specific aspects of the
 
 ## Customization, theming, and tokens
 
-USWDS 2.0 provides extensive support for theming via its theme settings files introduced in [Sass and theme settings](#sass-and-theme-settgings), above.
+USWDS 2.0 provides extensive support for theming via its theme settings files introduced in [Sass and theme settings](#sass-and-theme-settings), above.
 
-Set theme settings with USWDS style tokens, not with values directly. They tend to be quoted strings like `'desktop'` or `'md'` or unitless numbers like `2` or `-1.5`. Tokens are the values _passed into_ the USWDS functions and mixins that parse them. They are the _keys_ that, through the mechanism of a function or mixin, unlock a _value_ — they are not the values themselves.
+Set theme settings with USWDS design tokens, not with values directly. They tend to be quoted strings like `'desktop'` or `'md'` or unitless numbers like `2` or `-1.5`. Tokens are the values _passed into_ the USWDS functions and mixins that parse them. They are the _keys_ that, through the mechanism of a function or mixin, unlock a _value_ — they are not the values themselves.
 
-Visit the [Style tokens section](https://v2.designsystem.digital.gov/style/) of USWDS 2.0 documentation for more on the available tokens for [color](https://v2.designsystem.digital.gov/style/color), [spacing units](https://v2.designsystem.digital.gov/style/spacing-units), [typescale](https://v2.designsystem.digital.gov/style/typescale), and more.
+Visit the [Design tokens section](https://designsystem.digital.gov/design-tokens/) of USWDS 2.0 documentation for more on the available tokens for [color](https://designsystem.digital.gov/design-tokens/color), [spacing units](https://designsystem.digital.gov/design-tokens/spacing-units), [font size](https://designsystem.digital.gov/design-tokens/typesetting/font-size/), and more.
 
 ### Using tokens in theme settings
 The following is an example of theme settings from `_uswds-theme-spacing.scss`:
 
-```sass
+```scss
 $theme-site-max-width:              'desktop';
 $theme-site-margins-breakpoint:     'desktop';
 $theme-site-margins-width:          4;
@@ -297,7 +297,7 @@ $theme-site-margins-mobile-width:   2;
 
 The USWDS uses those tokens to build component styles:
 
-```sass
+```scss
 .usa-example {
   @include u-padding-x($theme-site-margins-mobile-width);
   max-width: units($theme-site-max-width);
@@ -310,7 +310,7 @@ The USWDS uses those tokens to build component styles:
 
 This is the functional equivalent of:
 
-```sass
+```scss
 .usa-example {
   @include u-padding-x(2);
   max-width: units('desktop');
@@ -351,7 +351,7 @@ $theme-image-path:  '../img';
 
 ## Where things live
 
-* **HTML** markup for the components is located in: `src/components` in the site root. These, however, are written in the templating language Nunjucks. It's best to get HTML source markup directly from [v2.designsystem.digital.gov/components](https://v2.designsystem.digital.gov/components)
+* **HTML** markup for the components is located in: `src/components` in the site root. These, however, are written in the templating language Nunjucks. It's best to get HTML source markup directly from [designsystem.digital.gov/components](https://designsystem.digital.gov/components)
 * **Sass** stylesheets are located in: `dist/scss/ (/core, /elements, /components)`. **Compiled CSS** is located in the [downloadable zip file](https://github.com/uswds/uswds/releases/latest).
 * **JS** is located in: `src/js (/components, /utils)`.
 * **Fonts** are located in: `dist/fonts`.

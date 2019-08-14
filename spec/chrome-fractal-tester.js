@@ -8,16 +8,12 @@ const { REMOTE_CHROME_URL } = process.env;
 const HOSTNAME = REMOTE_CHROME_URL ? os.hostname().toLowerCase()
                                    : 'localhost';
 
-const chromePath = process.env.CHROME_PATH ||
-  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-
 function launchChromeLocally(headless = true) {
   return chromeLauncher.launch({
     chromeFlags: [
       '--disable-gpu',
       headless ? '--headless' : '',
     ],
-    chromePath,
   });
 }
 
