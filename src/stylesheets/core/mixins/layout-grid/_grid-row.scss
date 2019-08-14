@@ -1,7 +1,3 @@
-@import "../utilities/display";
-@import "../utilities/flex";
-@import "../border-box-sizing";
-
 @mixin grid-row($props...) {
   $display: append-important($grid-global, flex);
   $flex: append-important($grid-global, wrap);
