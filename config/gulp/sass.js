@@ -102,28 +102,4 @@ gulp.task('sass', gulp.series('copy-vendor-sass',
       }))
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest('dist/css'));
-
-
-    // const stream = gulp.src('src/stylesheets/*.scss')
-    //   .pipe(replace(
-    //     /\buswds @version\b/g,
-    //     `uswds v${pkg.version}`,
-    //   ))
-    //   .pipe(sourcemaps.init({ largeFile: true }))
-    //   .pipe(
-    //     sass({
-    //       outputStyle: 'expanded',
-    //     })
-    //       .on('error', sass.logError),
-    //   )
-    //   .pipe(postcss(pluginsProcess))
-    //   .pipe(gulp.dest('dist/css'))
-    //   .pipe(rename({
-    //     suffix: '.min',
-    //   }))
-    //   .pipe(postcss(pluginsMinify))
-    //   .pipe(sourcemaps.write('.'))
-    //   .pipe(gulp.dest('dist/css'));
-
-    // return stream;
   }));
