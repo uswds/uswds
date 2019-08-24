@@ -76,6 +76,7 @@
     "yargs": "^12.0.5"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.5.5",
     "@frctl/fractal": "^1.1.7",
     "@frctl/mandelbrot": "^1.2.1",
     "@frctl/nunjucks": "^2.0.1",
@@ -83,8 +84,7 @@
     "ansi-colors": "^3.2.4",
     "autoprefixer": "^9.6.1",
     "axe-core": "^2.6.1",
-    "babel-preset-es2015": "^6.24.0",
-    "babelify": "^7.3.0",
+    "babelify": "^10.0.0",
     "browserify": "^16.5.0",
     "canvas-prebuilt": "1.6.11",
     "chalk": "^2.4.2",
@@ -113,7 +113,6 @@
     "gulp-uglify": "^3.0.0",
     "handlebars": "^4.1.2",
     "handlebars-helpers": "^0.10.0",
-    "istanbul": "^0.4.5",
     "jquery": "^3.4.1",
     "jsdom": "^9.0.0",
     "jsdom-global": "^2.1.0",
@@ -122,6 +121,7 @@
     "node-sass": "^4.12.0",
     "normalize.css": "^3.0.3",
     "nswatch": "^0.2.0",
+    "nyc": "^14.1.1",
     "postcss-discard-comments": "^4.0.2",
     "resemblejs": "^3.2.0",
     "should": "^11.2.1",

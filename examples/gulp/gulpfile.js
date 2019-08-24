@@ -37,7 +37,7 @@ gulp.task('js', function () {
     })
     .transform('babelify', {
       global: true,
-      presets: ['es2015']
+      presets: ['@babel/preset-env']
     })
     .bundle()
     .pipe(source('main.js'))
