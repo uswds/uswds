@@ -13,7 +13,7 @@ gulp.task('regression', () => gulp.src('spec/headless-chrome.js')
 
 gulp.task('cover', () => gulp.src('spec/unit/**/*.spec.js')
   .pipe(mocha(Object.assign(mochaOpts, {
-    istanbul: true,
+    nyc: true,
   }))));
 
 gulp.task('test:watch', () => {

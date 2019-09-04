@@ -5,7 +5,7 @@
   },
   "babel": {
     "presets": [
-      "es2015"
+      "env"
     ]
   },
   "dependencies": {
