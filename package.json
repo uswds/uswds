@@ -13,7 +13,7 @@
     "build": "gulp build",
     "build:css": "gulp sass",
     "build:js": "gulp javascript",
-    "cover": "nyc --config config/nycrc.yml gulp cover",
+    "cover": "nyc --reporter=lcov --config config/nycrc.yml gulp cover",
     "cracks": "cracks --paths package.json,spec",
     "format-tokens": "node ./src/utils/style-format.js --file './src/data/colors' --output './src/stylesheets/core/system-tokens'",
     "federalist": "npm install --only=dev && gulp build && fractal build",
