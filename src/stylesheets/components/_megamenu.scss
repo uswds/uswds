@@ -7,7 +7,7 @@
   width: 100%;
 }
 
-.usa-megamenu {
+.usa-megamenu.usa-nav__submenu {
   @include at-media($theme-navigation-width) {
     @include u-padding-x(0);
     @include u-padding-y(4);
