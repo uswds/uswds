@@ -464,6 +464,7 @@ Converts a value in px to a value in rem
     @return false;
   }
   $px-to-rem: ($pixels / $root-font-size-equiv) * 1rem;
+  $px-to-rem: round($px-to-rem * 100)/100;
 
   @return $px-to-rem;
 }
