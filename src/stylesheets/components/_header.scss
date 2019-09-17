@@ -264,7 +264,7 @@ $z-index-overlay: 400;
     }
   }
 
-  .usa-megamenu {
+  .usa-nav__submenu.usa-megamenu {
     @include at-media($theme-navigation-width) {
       left: 0;
       padding-left: units($theme-site-margins-width);
