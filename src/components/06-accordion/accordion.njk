@@ -11,7 +11,7 @@
     </button>
   </h2>
   <div id="{{ accordion.id_prefix }}{{ item.id }}" class="usa-accordion__content usa-prose">
-    {{ item.content }}
+    {{ item.content | safe }}
   </div>
   {% endfor %}
 </div>
