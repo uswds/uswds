@@ -15,7 +15,6 @@
   }
 }
 
-
 .usa-megamenu.usa-nav__submenu {
   @include at-media($theme-header-min-width) {
     @include u-padding-x(0);
