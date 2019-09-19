@@ -18,15 +18,16 @@
 @import 'uswds-theme-utilities';
 
 // -------------------------------------
-// Import individual USWDS modules...
+// Import individual USWDS packages...
+// See https://designsystem.digital.gov/components/
 
-// @import 'uswds-fonts';
-// @import 'uswds-layout-grid';
-// @import 'uswds-components';
-// @import 'uswds-utilities';
+// @import 'packages/required';
+// @import 'packages/global';
+// @import 'packages/usa-banner';
+// ...
 
 // -------------------------------------
-// ...or import all USWDS modules
+// ...or import the complete USWDS package
 
 @import 'uswds';
 
