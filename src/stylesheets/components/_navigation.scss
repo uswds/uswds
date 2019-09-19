@@ -26,7 +26,7 @@ $nav-link-arrow-icon-size: 1;
 // ---------------------------------
 .usa-nav {
   @include typeset($theme-navigation-font-family, null, 1);
-  @include at-media-max($theme-navigation-width) {
+  @include at-media-max($theme-header-min-width) {
     @include u-pin('right');
     @include u-pin('y');
     position: fixed;
@@ -45,13 +45,13 @@ $nav-link-arrow-icon-size: 1;
     }
   }
 
-  @include at-media($theme-navigation-width) {
+  @include at-media($theme-header-min-width) {
     float: right;
     position: relative;
   }
 
   .usa-search {
-    @include at-media($theme-navigation-width) {
+    @include at-media($theme-header-min-width) {
       margin-left: units(2);
     }
   }
@@ -62,9 +62,9 @@ $nav-link-arrow-icon-size: 1;
 
 .usa-nav__primary {
 
-  // Until the $theme-navigation-width,
+  // Until the $theme-header-width,
   // use the usa-nav-list styles for the slide-in nav
-  @include at-media-max($theme-navigation-width) {
+  @include at-media-max($theme-header-min-width) {
     @include nav-list('nav');
     margin-top: units(3);
     order: 2;
@@ -74,8 +74,8 @@ $nav-link-arrow-icon-size: 1;
     }
   }
 
-  // At $theme-navigation-width and wider...
-  @include at-media($theme-navigation-width) {
+  // At $theme-header-width and wider...
+  @include at-media($theme-header-min-width) {
     display: flex;
   }
 
@@ -89,14 +89,14 @@ $nav-link-arrow-icon-size: 1;
   // just level 1 nav items...
   > .usa-nav__primary-item {
     line-height: line-height($theme-navigation-font-family, 2);
-    @include at-media($theme-navigation-width) {
+    @include at-media($theme-header-min-width) {
       font-size: font-size($theme-navigation-font-family, '2xs');
       line-height: line-height($theme-navigation-font-family, 1);
     }
 
     // ...and their direct links
     > a {
-      @include at-media($theme-navigation-width) {
+      @include at-media($theme-header-min-width) {
         @include primary-nav-link;
         color: color($nav-link-color);
         display: block;
@@ -110,7 +110,7 @@ $nav-link-arrow-icon-size: 1;
   }
 
   a {
-    @include at-media($theme-navigation-width) {
+    @include at-media($theme-header-min-width) {
       @include u-padding-y(1);
     }
   }
@@ -125,7 +125,7 @@ $nav-link-arrow-icon-size: 1;
     padding: units(1.5) units(2);
     text-decoration: none;
 
-    @include at-media($theme-navigation-width) {
+    @include at-media($theme-header-min-width) {
       @include primary-nav-link;
       font-size: font-size($theme-navigation-font-family, '2xs');
       font-weight: font-weight('bold');
@@ -136,7 +136,7 @@ $nav-link-arrow-icon-size: 1;
       background-color: color('base-lightest');
       text-decoration: none;
 
-      @include at-media($theme-navigation-width) {
+      @include at-media($theme-header-min-width) {
         background-color: transparent;
       }
     }
@@ -146,14 +146,14 @@ $nav-link-arrow-icon-size: 1;
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
 
-      @include at-media($theme-navigation-width) {
+      @include at-media($theme-header-min-width) {
         @include add-background-svg('angle-arrow-down');
         background-size: units($nav-link-arrow-icon-size);
         background-position: right units(2) top $button-vertical-offset;
       }
 
       &:hover {
-        @include at-media($theme-navigation-width) {
+        @include at-media($theme-header-min-width) {
           @include add-background-svg('angle-arrow-down-primary');
         }
       }
@@ -164,7 +164,7 @@ $nav-link-arrow-icon-size: 1;
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
 
-      @include at-media($theme-navigation-width) {
+      @include at-media($theme-header-min-width) {
         @include add-background-svg('angle-arrow-up-white');
         @include add-knockout-font-smoothing;
         background-size: units($nav-link-arrow-icon-size);
@@ -177,7 +177,7 @@ $nav-link-arrow-icon-size: 1;
 
   .usa-accordion__button {
     span {
-      @include at-media($theme-navigation-width) {
+      @include at-media($theme-header-min-width) {
         margin-right: 0;
         padding-right: units(2);
       }
@@ -191,7 +191,7 @@ $nav-link-arrow-icon-size: 1;
 .usa-nav__secondary {
   margin-top: units(2);
 
-  @include at-media($theme-navigation-width) {
+  @include at-media($theme-header-min-width) {
     // Note: Previius calc() couldn't work. don't hardcode rem vals
     bottom: units(8); // XXX magic number
     font-size: font-size($theme-navigation-font-family, '2xs');
@@ -205,7 +205,7 @@ $nav-link-arrow-icon-size: 1;
     margin-top: units(2);
     width: 100%;
 
-    @include at-media($theme-navigation-width) {
+    @include at-media($theme-header-min-width) {
       margin-left: 0;
       margin-top: units(1);
     }
@@ -217,7 +217,7 @@ $nav-link-arrow-icon-size: 1;
   line-height: line-height($theme-navigation-font-family, 3);
   margin-top: units(3);
 
-  @include at-media($theme-navigation-width) {
+  @include at-media($theme-header-min-width) {
     float: right;
     line-height: line-height($theme-navigation-font-family, 1);
     margin-bottom: units(0.5);
@@ -225,7 +225,7 @@ $nav-link-arrow-icon-size: 1;
   }
 
   .usa-nav__secondary-item {
-    @include at-media($theme-navigation-width) {
+    @include at-media($theme-header-min-width) {
       display: inline;
       padding-left: units(0.5);
 
@@ -254,11 +254,11 @@ $nav-link-arrow-icon-size: 1;
 // ---------------------------------
 
 .usa-nav__submenu {
-  @include at-media-max($theme-navigation-width) {
+  @include at-media-max($theme-header-min-width) {
     @include nav-sublist;
   }
 
-  @include at-media($theme-navigation-width) {
+  @include at-media($theme-header-min-width) {
     @include add-list-reset;
     background-color: color('primary-darker');
     width: units('card-lg');
@@ -272,7 +272,7 @@ $nav-link-arrow-icon-size: 1;
   }
 
   .usa-nav__submenu-item {
-    @include at-media($theme-navigation-width) {
+    @include at-media($theme-header-min-width) {
       & + * {
         margin-top: units(1.5);
       }
@@ -323,7 +323,7 @@ $nav-link-arrow-icon-size: 1;
     text-decoration: none;
   }
 
-  @include at-media($theme-navigation-width) {
+  @include at-media($theme-header-min-width) {
     display: none;
   }
 
