@@ -5,7 +5,7 @@
   @include border-box-sizing;
   @include typeset;
   @include u-padding-y($theme-site-margins-width);
-  background-image: url('#{$theme-image-path}/hero.png');
+  background-image: url('#{$theme-hero-image}');
   background-position: center;
   background-size: cover;
   color: color('white');

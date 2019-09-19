@@ -10,7 +10,7 @@
 }
 
 .usa-banner__content {
-  @include grid-container($theme-site-max-width);
+  @include grid-container($theme-banner-max-width);
   @include add-responsive-site-margins;
   background-color: color('transparent');
   font-size: font-size($theme-banner-font-family, 4);
@@ -41,7 +41,7 @@
 
 .usa-banner__inner {
   @include add-responsive-site-margins;
-  @include grid-container;
+  @include grid-container($theme-banner-max-width);
   @include grid-row;
   @include u-flex('align-start');
   padding-right: units(0);

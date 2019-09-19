@@ -464,6 +464,7 @@ Converts a value in px to a value in rem
     @return false;
   }
   $px-to-rem: ($pixels / $root-font-size-equiv) * 1rem;
+  $px-to-rem: round($px-to-rem * 100)/100;
 
   @return $px-to-rem;
 }
@@ -562,6 +563,7 @@ a family and a line-height scale unit
   $this-cap: map-get($project-cap-heights, $family);
   $this-line-height: map-get($system-line-height, $scale);
   $normalized-line-height: $this-line-height / ($system-base-cap-height / $this-cap);
+  $normalized-line-height: round($normalized-line-height * 10)/10;
 
   @return $normalized-line-height;
 }

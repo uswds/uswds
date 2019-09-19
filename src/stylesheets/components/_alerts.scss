@@ -20,17 +20,17 @@ $usa-alerts-bar: (
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 $alerts-bar: map-merge($usa-alerts-bar, $usa-custom-alerts-bar);
-$padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
+$alert-padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 
 .usa-alert {
   @include typeset($theme-alert-font-family);
   @include border-box-sizing;
   background-color: color('base-lightest');
-  background-position: units($theme-alert-padding-x) units($theme-alert-padding-x);
+  background-position: $alert-padding-left units($theme-alert-padding-x);
   background-repeat: no-repeat;
-  background-size: units(7);
+  background-size: units(4);
   padding-bottom: units(2);
-  padding-left: $padding-left;
+  padding-left: $alert-padding-left;
   padding-right: units($theme-alert-padding-x);
   padding-top: units($theme-alert-padding-x);
   position: relative;
@@ -106,8 +106,8 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 }
 
 .usa-alert--slim {
-  background-position: units($theme-alert-padding-x) center;
-  background-size: units(5);
+  background-position: $alert-padding-left center;
+  background-size: units(3);
   padding-bottom: units($theme-alert-bar-width);
   padding-top: units($theme-alert-bar-width);
 
@@ -130,7 +130,7 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 }
 
 .usa-alert--validation {
-  background-size: units(5);
+  background-size: units(3);
 
   .usa-alert__body {
     padding-left: units(5);

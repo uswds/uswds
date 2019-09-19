@@ -83,11 +83,12 @@
 .usa-checkbox__input:checked:disabled + .usa-checkbox__label::before {
   @include add-background-svg('correct8');
   background-position: center center;
+  background-size: units(1.5) auto;
 
   @media print {
     background-image: none;
     background-color: color('white');
-    content: url('#{$theme-image-path}/correct8-alt.svg');
+    content: url('#{$theme-image-path}/checkbox-check-print.svg');
     text-indent: 0;
   }
 }

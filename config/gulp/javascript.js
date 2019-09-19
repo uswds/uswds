@@ -22,7 +22,7 @@ gulp.task(task, (done) => {
   })
     .transform('babelify', {
       global: true,
-      presets: ['es2015'],
+      presets: ['@babel/preset-env'],
     });
 
   const stream = defaultStream.bundle()

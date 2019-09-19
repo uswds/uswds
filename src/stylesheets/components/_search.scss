@@ -2,7 +2,7 @@
 @mixin search-icon {
   @include add-background-svg('search');
   background-position: center center;
-  background-size: units(3);
+  background-size: units(2);
 }
 
 .usa-search {

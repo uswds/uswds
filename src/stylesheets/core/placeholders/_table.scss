@@ -28,7 +28,7 @@
   }
 
   caption {
-    @include u-font('serif', 'xs');
+    @include u-font('body', 'xs');
     font-weight: $theme-font-weight-bold;
     margin-bottom: units(1.5);
     text-align: left;
