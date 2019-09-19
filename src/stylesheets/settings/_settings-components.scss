@@ -30,6 +30,7 @@ $theme-alert-padding-x:               2.5 !default;
 
 // Banner
 $theme-banner-font-family:            'ui' !default;
+$theme-banner-max-width:              'desktop' !default;
 
 // Button
 $theme-button-font-family:            'ui' !default;
@@ -51,11 +52,13 @@ $theme-input-state-border-width:      0.5 !default;
 
 // Header
 $theme-header-font-family:            'ui' !default;
-$theme-megamenu-logo-text-width:      33% !default;
+$theme-header-logo-text-width:        33% !default;
+$theme-header-max-width:              'desktop' !default;
+$theme-header-min-width:              'desktop' !default;
 
 // Navigation
 $theme-navigation-font-family:        'ui' !default;
-$theme-navigation-width:              'desktop' !default;
+$theme-megamenu-columns:              3 !default;
 
 // Search
 $theme-search-font-family:            'ui' !default;
