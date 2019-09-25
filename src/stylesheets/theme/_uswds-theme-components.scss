@@ -57,7 +57,7 @@ $theme-header-max-width:              'desktop';
 $theme-header-min-width:              'desktop';
 
 // Hero
-$theme-hero-image:                    '../img/hero.png';
+$theme-hero-image:                    '#{$theme-image-path}/hero.png';
 
 // Navigation
 $theme-navigation-font-family:        'ui';
