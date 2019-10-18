@@ -25,7 +25,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [2018 Census Survey](https://survey.census.gov/login/)
 - [The Centers for Medicare and Medicaid Services (CMS) Blue Button API](https://cmsgov.github.io/bluebutton-developer-help/)
 - [Centers of Excellence (GSA)](https://coe.gsa.gov/)
-- [Christmas Tree Permits | U.S. Forest Service](https://openforest.fs.usda.gov/christmas-trees/forests)
+- [Christmas Tree Permits - U.S. Forest Service](https://openforest.fs.usda.gov/christmas-trees/forests)
 - [CitizenScience.gov](https://www.citizenscience.gov/)
 - [ClinicalTrials.gov](https://clinicaltrials.gov/)
 - [cloud.gov](https://cloud.gov/)
