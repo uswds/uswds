@@ -110,7 +110,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [National Archives Museum](https://museum.archives.gov/)
 - [National Blue Ribbon Schools](https://nationalblueribbonschools.ed.gov)
 - [National Initiative for Cybersecurity Careers & Studies (NICCS)](https://niccs.us-cert.gov/)
-- [National Institute of Health](https://www.nih.gov/)
+- [National Institutes of Health](https://www.nih.gov/)
 - [The National Flood Insurance Program (FloodSmart)](https://www.floodsmart.gov/)
 - [National Library of Medicine Customer Support](https://support.nlm.nih.gov)
 - [Navy 6th Fleet](http://www.c6f.navy.mil/)
