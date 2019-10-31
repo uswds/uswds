@@ -91,7 +91,6 @@
 }
 
 .usa-footer__contact-info {
-  display: inline-block;
   line-height: line-height($theme-footer-font-family, 2);
 
   a {
@@ -250,6 +249,8 @@
   }
 
   .usa-footer__contact-info {
+    display: inline-block;
+
     @include at-media('mobile-lg') {
       @include u-padding-y(2);
       margin-top: 0;
