@@ -6,7 +6,7 @@ The Source Sans Pro font files in `src/fonts/source-sans-pro` are a [customized 
 
 The Merriweather font files in `src/fonts/merriweather` are v2.001 from [GitHub](https://github.com/EbenSorkin/Merriweather/releases/tag/v2.001) subsetted into Latin and with additional formats generated with [Transfonter](https://transfonter.org/), licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL), and copyright [Sorkin Type Co](www.sorkintype.com) with Reserved Font Name 'Merriweather'.
 
-The Public Sans font files in `src/fonts/public-sans` are licensed under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL). Public Sans is a modification of Libre Franklin, copyright [Impallari Type](www.impallari.com).
+The Public Sans font files in `src/fonts/public-sans` contain both software under the [SIL Open Font License 1.1](http://scripts.sil.org/OFL) and software modifications by GSA released as [CC0](https://creativecommons.org/publicdomain/zero/1.0/). It is a “joint work” made of the original software and modifications combined into a single work. In practice, users of this Modified Version (Public Sans) should use Public Sans according to the terms of the SIL Open Font License, Version 1.1. This is because this font is a combination of work subject to copyright and work not subject to copyright, so the more restrictive requirements apply to using the combined work. Public Sans is a fork of [Libre Franklin](https://github.com/impallari/Libre-Franklin), copyright 2015, [Impallari Type](www.impallari.com).
 
 The files in `src/img` are from [Font Awesome](http://fontawesome.io/) by Dave Gandy under the [SIL Open Font License 1.1](http://scripts.sil.org/OFL).
 
@@ -18,7 +18,7 @@ The Roboto Mono font files in `src/fonts/roboto-mono` are licensed under the [Ap
 
 The files in `src/stylesheets/lib` are from:
 
-* [Normalize.css](https://github.com/necolas/normalize.css), copyright Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
+- [Normalize.css](https://github.com/necolas/normalize.css), copyright Nicolas Gallagher and Jonathan Neal, under the [MIT license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md).
 
 #### Full license text for the MIT licensed files:
 
