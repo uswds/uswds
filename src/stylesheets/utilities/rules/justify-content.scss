@@ -18,14 +18,15 @@ example:
 
 $u-justify-content: (
   justify-content: (
-    base: 'flex',
+    base: "flex",
     modifiers: null,
-    values: map-collect(
-      get-palettes($justify-content-palettes),
-      $justify-content-manual-values
-    ),
+    values:
+      map-collect(
+        get-palettes($justify-content-palettes),
+        $justify-content-manual-values
+      ),
     settings: $justify-content-settings,
-    property: 'justify-content',
-    type: 'utility',
+    property: "justify-content",
+    type: "utility"
   )
 );

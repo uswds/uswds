@@ -16,14 +16,15 @@ example:
 
 $u-font-weight: (
   font-weight: (
-    base: 'text',
+    base: "text",
     modifiers: null,
-    values: map-collect(
-      get-palettes($font-weight-palettes),
-      $font-weight-manual-values
-    ),
+    values:
+      map-collect(
+        get-palettes($font-weight-palettes),
+        $font-weight-manual-values
+      ),
     settings: $font-weight-settings,
-    property: 'font-weight',
-    type: 'utility',
+    property: "font-weight",
+    type: "utility"
   )
 );

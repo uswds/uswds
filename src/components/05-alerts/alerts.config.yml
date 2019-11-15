@@ -1,9 +1,9 @@
 label: Alerts
 status: ready
-preview: '@uswds-framed'
+preview: "@uswds-framed"
 context:
   alert:
-    content: "Lorem ipsum dolor sit amet, <a href=\"javascript:void(0);\">consectetur adipiscing</a> elit, sed do eiusmod."
+    content: 'Lorem ipsum dolor sit amet, <a href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.'
 
 variants:
   - name: default
@@ -19,7 +19,6 @@ variants:
       alert:
         classes: "usa-alert--success"
         title: Success status
-
 
   - name: warning
     label: Warning

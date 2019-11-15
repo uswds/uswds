@@ -19,17 +19,17 @@ example:
 
 $u-circle: (
   circle: (
-    base: 'circle',
+    base: "circle",
     modifiers: null,
-    values: map-collect(
-      get-palettes($circle-palettes),
-      $circle-manual-values
-    ),
+    values: map-collect(get-palettes($circle-palettes), $circle-manual-values),
     settings: $circle-settings,
-    property: (height, width),
-    extend: (
-      'border-radius': '50%',
+    property: (
+      height,
+      width
     ),
-    type: 'utility',
+    extend: (
+      "border-radius": "50%"
+    ),
+    type: "utility"
   )
 );

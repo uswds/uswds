@@ -12,10 +12,10 @@ $input-select-margin-right: 1.5;
 }
 
 %block-input-styles {
-  @include u-border(1px, 'base-dark');
+  @include u-border(1px, "base-dark");
   appearance: none;
   border-radius: 0;
-  color: color('ink'); // standardize on firefox
+  color: color("ink"); // standardize on firefox
   display: block;
   height: units(5);
   margin-top: units(1);
@@ -24,7 +24,7 @@ $input-select-margin-right: 1.5;
   width: 100%;
 
   &.usa-input--success {
-    @include u-border($theme-input-state-border-width, 'success');
+    @include u-border($theme-input-state-border-width, "success");
   }
 }
 
@@ -41,35 +41,35 @@ $input-select-margin-right: 1.5;
 }
 
 .usa-form-group--error {
-  @include u-border-left(0.5, 'error-dark');
+  @include u-border-left(0.5, "error-dark");
   margin-top: units(4);
   padding-left: units(2);
   position: relative;
 
-  @include at-media('desktop') {
+  @include at-media("desktop") {
     margin-left: units(-2.5);
   }
 }
 
 .usa-label--error {
   display: block;
-  font-weight: font-weight('bold');
+  font-weight: font-weight("bold");
   margin-top: 0;
 }
 
 .usa-error-message {
   @include u-padding-y(0.5);
-  color: color('error-dark');
+  color: color("error-dark");
   display: block;
-  font-weight: font-weight('bold');
+  font-weight: font-weight("bold");
 }
 
 .usa-hint {
-  color: color('base');
+  color: color("base");
 }
 
 .usa-label--required {
-  color: color('error-dark');
+  color: color("error-dark");
 }
 
 .usa-label {
@@ -80,6 +80,6 @@ $input-select-margin-right: 1.5;
 }
 
 .usa-legend {
-  font-size: font-size($theme-form-font-family, 'xl');
-  font-weight: font-weight('bold');
+  font-size: font-size($theme-form-font-family, "xl");
+  font-weight: font-weight("bold");
 }

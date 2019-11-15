@@ -1,10 +1,10 @@
 .usa-banner {
   @include typeset($theme-banner-font-family);
   @include border-box-sizing;
-  background-color: color('base-lightest');
+  background-color: color("base-lightest");
 
-  @include at-media('tablet') {
-    font-size: font-size($theme-banner-font-family, '3xs');
+  @include at-media("tablet") {
+    font-size: font-size($theme-banner-font-family, "3xs");
     padding-bottom: units(0);
   }
 }
@@ -12,7 +12,7 @@
 .usa-banner__content {
   @include grid-container($theme-banner-max-width);
   @include add-responsive-site-margins;
-  background-color: color('transparent');
+  background-color: color("transparent");
   font-size: font-size($theme-banner-font-family, 4);
   overflow: hidden;
   padding-bottom: units(2);
@@ -20,7 +20,7 @@
   padding-top: units(0.5);
   width: 100%;
 
-  @include at-media('tablet') {
+  @include at-media("tablet") {
     @include u-padding-y(3);
   }
 
@@ -34,7 +34,7 @@
 .usa-banner__guidance {
   padding-top: units(2);
 
-  @include at-media('tablet') {
+  @include at-media("tablet") {
     padding-top: units(0);
   }
 }
@@ -43,22 +43,22 @@
   @include add-responsive-site-margins;
   @include grid-container($theme-banner-max-width);
   @include grid-row;
-  @include u-flex('align-start');
+  @include u-flex("align-start");
   padding-right: units(0);
 
-  @include at-media('tablet') {
-    @include u-flex('align-center');
+  @include at-media("tablet") {
+    @include u-flex("align-center");
   }
 }
 
 .usa-banner__header {
   @include u-padding-y(1);
   font-size: font-size($theme-banner-font-family, 1);
-  font-weight: font-weight('normal');
+  font-weight: font-weight("normal");
   min-height: units($size-touch-target);
   position: relative;
 
-  @include at-media('tablet') {
+  @include at-media("tablet") {
     @include u-padding-y(0.5);
     min-height: 0;
   }
@@ -66,7 +66,7 @@
 
 .usa-banner__header-close-text {
   @include u-margin-y(0);
-  color: color('base-dark');
+  color: color("base-dark");
   display: none;
   font-size: font-size($theme-banner-font-family, 1);
   line-height: line-height($theme-banner-font-family, 2);
@@ -75,7 +75,7 @@
   .usa-banner__header--expanded & {
     display: block;
 
-    @include at-media('tablet') {
+    @include at-media("tablet") {
       display: none;
     }
   }
@@ -88,8 +88,8 @@
 }
 
 .usa-banner__header-action {
-  @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 0.5, 'hover');
-  color: color('primary');
+  @include add-icon("angle-arrow-down-primary", "after", 1, 1, 0.5, "hover");
+  color: color("primary");
   line-height: line-height($theme-banner-font-family, 2);
   margin-bottom: units(0);
   margin-top: units(2px);
@@ -99,17 +99,17 @@
     display: none;
   }
 
-  @include at-media('tablet') {
+  @include at-media("tablet") {
     display: none;
   }
 }
 
 .usa-banner__header-flag {
-  @include u-float('left');
+  @include u-float("left");
   margin-right: units(1);
   width: units(2);
 
-  @include at-media('tablet') {
+  @include at-media("tablet") {
     margin-right: units(1);
     padding-top: units(0);
   }
@@ -118,12 +118,12 @@
 .usa-banner__header--expanded {
   padding-right: units($size-touch-target + 1);
 
-  @include at-media('tablet') {
+  @include at-media("tablet") {
     background-color: transparent;
-    color: color('ink');
+    color: color("ink");
     display: block;
     font-size: font-size($theme-banner-font-family, 1);
-    font-weight: font-weight('normal');
+    font-weight: font-weight("normal");
     min-height: units(0);
     padding-right: units(0);
   }
@@ -131,7 +131,7 @@
   .usa-banner__inner {
     margin-left: units(0);
 
-    @include at-media('tablet') {
+    @include at-media("tablet") {
       margin-left: units(auto);
     }
   }
@@ -143,9 +143,9 @@
 
 .usa-banner__button {
   @include button-unstyled;
-  @include u-pin('left');
-  @include u-pin('y');
-  @include u-text('primary', underline, baseline);
+  @include u-pin("left");
+  @include u-pin("y");
+  @include u-text("primary", underline, baseline);
   display: block;
   font-size: font-size($theme-banner-font-family, 1);
   height: auto;
@@ -155,49 +155,50 @@
   text-decoration: none;
   width: auto;
 
-  @include at-media-max('tablet') {
+  @include at-media-max("tablet") {
     width: 100%;
   }
 
-  @include at-media('tablet') {
-    @include add-icon('angle-arrow-down-primary', 'after', 1, 1, 2px, 'hover');
-    @include u-pin('none');
+  @include at-media("tablet") {
+    @include add-icon("angle-arrow-down-primary", "after", 1, 1, 2px, "hover");
+    @include u-pin("none");
     display: inline;
     margin-left: units(1);
     position: relative;
 
     &:hover {
-      @include u-text('primary-darker');
+      @include u-text("primary-darker");
     }
   }
 
-  &[aria-expanded=false] {
+  &[aria-expanded="false"] {
     background-image: none;
   }
 
-  &[aria-expanded=true] {
+  &[aria-expanded="true"] {
     background-image: none;
 
-    @include at-media-max('tablet') {
-      @include add-icon('close-blue-60v-alt',
-      'after',
-      $theme-icon-image-size,
-      $size-touch-target,
-      0,
-      'no-hover'
-    );
+    @include at-media-max("tablet") {
+      @include add-icon(
+        "close-blue-60v-alt",
+        "after",
+        $theme-icon-image-size,
+        $size-touch-target,
+        0,
+        "no-hover"
+      );
 
       &::after {
-        @include u-pin('y');
-        @include u-pin('right');
-        background-color: color('base-lighter');
+        @include u-pin("y");
+        @include u-pin("right");
+        background-color: color("base-lighter");
         bottom: 0;
         height: auto;
       }
     }
 
-    @include at-media('tablet') {
-      @include add-icon('angle-arrow-up-primary', 'after', 1, 1, 2px, 'hover');
+    @include at-media("tablet") {
+      @include add-icon("angle-arrow-up-primary", "after", 1, 1, 2px, "hover");
       height: auto;
       padding: units(0);
       position: relative;
@@ -208,7 +209,7 @@
       right: units(2);
       top: units(1.5);
 
-      @include at-media('tablet') {
+      @include at-media("tablet") {
         position: static;
       }
     }
@@ -219,7 +220,7 @@
   @include add-sr-only;
   text-decoration: underline;
 
-  @include at-media('tablet') {
+  @include at-media("tablet") {
     @include add-no-sr-only;
     display: inline;
   }

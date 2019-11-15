@@ -6,27 +6,27 @@ $sidenav-level-4-inset: 8;
 @mixin nav-list($type) {
   @include unstyled-list();
 
-  @if $type == 'sidenav' {
+  @if $type == "sidenav" {
     &__item {
-      border-top: units(1px) solid color('base-lighter');
+      border-top: units(1px) solid color("base-lighter");
     }
   }
 
-  @if $type == 'nav' {
+  @if $type == "nav" {
     &-item {
-      border-top: units(1px) solid color('base-lighter');
+      border-top: units(1px) solid color("base-lighter");
     }
   }
 
   a {
-    color: color('base-dark');
+    color: color("base-dark");
     display: block;
     padding: units(1) units($sidenav-level-1-inset);
     text-decoration: none;
 
     &:hover {
-      background-color: color('base-lightest');
-      color: color('primary');
+      background-color: color("base-lightest");
+      color: color("primary");
       text-decoration: none;
     }
 
@@ -38,21 +38,21 @@ $sidenav-level-4-inset: 8;
   .usa-current {
     @include add-bar(
       $theme-sidenav-current-border-width,
-      'primary',
-      'left',
-      'pill',
+      "primary",
+      "left",
+      "pill",
       0.5,
       0.5
     );
-    color: color('primary');
-    font-weight: font-weight('bold');
+    color: color("primary");
+    font-weight: font-weight("bold");
 
-    @include at-media('tablet') {
+    @include at-media("tablet") {
       @include add-bar(
         $theme-sidenav-current-border-width,
-        'primary',
-        'left',
-        'pill',
+        "primary",
+        "left",
+        "pill",
         0,
         0.5
       );
@@ -65,14 +65,14 @@ $sidenav-level-4-inset: 8;
   margin: 0;
 
   &-item {
-    border-top: units(1px) solid color('base-lighter');
-    font-size: font-size($theme-sidenav-font-family, '2xs');
+    border-top: units(1px) solid color("base-lighter");
+    font-size: font-size($theme-sidenav-font-family, "2xs");
   }
 
   .usa-current {
     @include remove-bar;
 
-    @include at-media('tablet') {
+    @include at-media("tablet") {
       @include remove-bar;
     }
   }
@@ -89,7 +89,7 @@ $sidenav-level-4-inset: 8;
 
   // level 4+
   & & & a {
-    content: 'foobar';
+    content: "foobar";
     padding-left: units($sidenav-level-4-inset);
   }
 }

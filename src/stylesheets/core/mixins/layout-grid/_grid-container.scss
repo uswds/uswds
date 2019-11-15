@@ -1,10 +1,8 @@
 @mixin grid-container($props...) {
-  @if length($props)==0 {
+  @if length($props) ==0 {
     @include u-margin-x(auto);
     @include u-maxw($theme-grid-container-max-width);
-  }
-
-  @else {
+  } @else {
     $props: nth($props, 1);
     $margin-x: append-important($props, auto);
     @include u-margin-x($margin-x);

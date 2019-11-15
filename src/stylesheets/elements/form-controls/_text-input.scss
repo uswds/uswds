@@ -5,9 +5,9 @@
 }
 
 .usa-textarea {
-  height: units('card');
+  height: units("card");
 }
 
 .usa-input--error {
-  @include u-border($theme-input-state-border-width, 'error-dark');
+  @include u-border($theme-input-state-border-width, "error-dark");
 }

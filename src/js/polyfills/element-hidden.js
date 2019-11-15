@@ -1,6 +1,5 @@
-
 const elproto = window.HTMLElement.prototype;
-const HIDDEN = 'hidden';
+const HIDDEN = "hidden";
 
 if (!(HIDDEN in elproto)) {
   Object.defineProperty(elproto, HIDDEN, {
@@ -9,10 +8,10 @@ if (!(HIDDEN in elproto)) {
     },
     set(value) {
       if (value) {
-        this.setAttribute(HIDDEN, '');
+        this.setAttribute(HIDDEN, "");
       } else {
         this.removeAttribute(HIDDEN);
       }
-    },
+    }
   });
 }

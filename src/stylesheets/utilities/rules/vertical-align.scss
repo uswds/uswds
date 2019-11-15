@@ -16,14 +16,15 @@ example:
 
 $u-vertical-align: (
   vertical-align: (
-    base: 'text',
+    base: "text",
     modifiers: null,
-    values: map-collect(
-      get-palettes($vertical-align-palettes),
-      $vertical-align-manual-values
-    ),
+    values:
+      map-collect(
+        get-palettes($vertical-align-palettes),
+        $vertical-align-manual-values
+      ),
     settings: $vertical-align-settings,
-    property: 'vertical-align',
-    type: 'utility',
+    property: "vertical-align",
+    type: "utility"
   )
 );

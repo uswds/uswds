@@ -1,12 +1,13 @@
 // Variables
 
-$accordion-border: units($theme-accordion-border-width) solid color($theme-accordion-border-color);
+$accordion-border: units($theme-accordion-border-width) solid
+  color($theme-accordion-border-color);
 
 // Accordion Styles
 
 @mixin accordion-list-styles {
   @include unstyled-list;
-  color: color('ink');
+  color: color("ink");
   margin: 0;
   padding: 0;
   width: 100%;
@@ -15,30 +16,30 @@ $accordion-border: units($theme-accordion-border-width) solid color($theme-accor
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  @include add-background-svg('minus');
+  @include add-background-svg("minus");
 
-  background-color: color('base-lightest');
+  background-color: color("base-lightest");
   background-position: right units(2.5) center;
   background-size: units(2);
-  color: color('ink');
+  color: color("ink");
   cursor: pointer;
   display: inline-block;
-  font-weight: font-weight('bold');
+  font-weight: font-weight("bold");
   margin: 0;
   padding: units(2) units(2.5) * 2 + units(2) units(2) units(2.5);
   text-decoration: none;
   width: 100%;
 
   &:hover {
-    background-color: color('base-lighter');
-    color: color('ink');
+    background-color: color("base-lighter");
+    color: color("ink");
     text-decoration: none;
   }
 }
 // scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
-  @include add-background-svg('plus');
+  @include add-background-svg("plus");
   background-size: units(2);
 }
 
@@ -92,7 +93,7 @@ $accordion-border: units($theme-accordion-border-width) solid color($theme-accor
 }
 
 .usa-accordion__content {
-  background-color: color('white');
+  background-color: color("white");
   margin-top: 0;
   overflow: auto;
   padding: units(2) units(2.5) calc(#{units(2)} - #{units(0.5)}) units(2.5);
@@ -112,6 +113,6 @@ $accordion-border: units($theme-accordion-border-width) solid color($theme-accor
   @include accordion-button-styles;
 }
 
-.usa-accordion__button[aria-expanded=false] {
+.usa-accordion__button[aria-expanded="false"] {
   @include accordion-button-unopened-styles;
 }

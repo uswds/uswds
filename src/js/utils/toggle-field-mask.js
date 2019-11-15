@@ -4,7 +4,7 @@
  * @param {Boolean} mask - Whether the mask should be applied, hiding the field value
  */
 module.exports = (field, mask) => {
-  field.setAttribute('autocapitalize', 'off');
-  field.setAttribute('autocorrect', 'off');
-  field.setAttribute('type', mask ? 'password' : 'text');
+  field.setAttribute("autocapitalize", "off");
+  field.setAttribute("autocorrect", "off");
+  field.setAttribute("type", mask ? "password" : "text");
 };

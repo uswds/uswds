@@ -19,22 +19,25 @@ example:
 
 $u-padding: (
   padding: (
-    base: 'padding',
+    base: "padding",
     modifiers: (
-      noModifier: '',
-      'y': ('-top', '-bottom'),
-      'x': ('-left', '-right'),
-      'top': '-top',
-      'right': '-right',
-      'bottom': '-bottom',
-      'left': '-left',
+      noModifier: "",
+      "y": (
+        "-top",
+        "-bottom"
+      ),
+      "x": (
+        "-left",
+        "-right"
+      ),
+      "top": "-top",
+      "right": "-right",
+      "bottom": "-bottom",
+      "left": "-left"
     ),
-    values: map-collect(
-      get-palettes($padding-palettes),
-      $padding-manual-values
-    ),
+    values: map-collect(get-palettes($padding-palettes), $padding-manual-values),
     settings: $padding-settings,
-    property: 'padding',
-    type: 'utility',
+    property: "padding",
+    type: "utility"
   )
 );

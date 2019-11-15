@@ -8,11 +8,7 @@ Functions
 // here, before the rest of the system
 // variables are set
 
-$root-font-size: if(
-  $theme-respect-user-font-size,
-  100%,
-  $theme-root-font-size
-);
+$root-font-size: if($theme-respect-user-font-size, 100%, $theme-root-font-size);
 
 $root-font-size-equiv: if(
   $theme-respect-user-font-size,
@@ -58,7 +54,7 @@ Remove the unit of a length
 */
 
 @function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
+  @if type-of($number) == "number" and not unitless($number) {
     @return $number / ($number * 0 + 1);
   }
 
@@ -117,16 +113,15 @@ Leaves bools as is
 */
 
 @function smart-quote($value) {
-  @if type-of($value) == 'string' {
+  @if type-of($value) == "string" {
     @return quote($value);
   }
 
-  @if type-of($value) == 'number'
-    and index(('px', 'xl', 'xs'), unit($value)) {
+  @if type-of($value) == "number" and index(("px", "xl", "xs"), unit($value)) {
     @return inspect($value);
   }
 
-  @if type-of($value) == 'color' {
+  @if type-of($value) == "color" {
     @error 'Only use quoted color tokens in USWDS functions and mixins. '
       + 'See v2.designsystem.digital.gov/style-tokens/color '
       + 'for more information.';
@@ -149,8 +144,7 @@ Remove a value from a list
   @for $i from 1 through length($list) {
     @if type-of(nth($list, $i)) == list and $recursive {
       $result: append($result, remove(nth($list, $i), $value, $recursive));
-    }
-    @else if nth($list, $i) != $value {
+    } @else if nth($list, $i) != $value {
       $result: append($result, nth($list, $i));
     }
   }
@@ -167,7 +161,7 @@ Unquote a string
 */
 
 @function strunquote($value) {
-  @if type-of($value) == 'string' {
+  @if type-of($value) == "string" {
     $value: unquote($value);
   }
 
@@ -189,14 +183,11 @@ isReadable
 @function to-map($key, $values) {
   $l: length($values);
 
-  @if $key == 'noModifier' or $key == 'noValue' {
-    $key: '';
+  @if $key == "noModifier" or $key == "noValue" {
+    $key: "";
   }
 
-  @return (
-    slug: $key,
-    content: $values,
-  );
+  @return (slug: $key, content: $values);
 }
 
 /*
@@ -215,18 +206,11 @@ isReadable
   $l: length($values);
 
   @if $l == 1 or nth($values, $l) != isReadable {
-    @return (
-      slug: $values,
-      isReadable: true,
-    );
-  }
-  @else {
+    @return (slug: $values, isReadable: true);
+  } @else {
     $values: remove($values, isReadable);
 
-    @return (
-      slug: unquote(nth($values, 1)),
-      isReadable: true,
-    );
+    @return (slug: unquote(nth($values, 1)), isReadable: true);
   }
 }
 
@@ -243,7 +227,7 @@ namespace is set to output
   $type: smart-quote($type);
 
   @if not map-deep-get($theme-namespace, $type, output) {
-    @return '';
+    @return "";
   }
 
   @return map-deep-get($theme-namespace, $type, namespace);
@@ -262,17 +246,13 @@ into that single element.
 */
 
 @function de-list($value) {
-  $types: ('list', 'arglist');
+  $types: ("list", "arglist");
 
   @if not index($types, type-of($value)) {
     @return $value;
   }
 
-  $output: if(
-    length($value) == 1,
-    nth($value, 1),
-    $value
-  );
+  $output: if(length($value) == 1, nth($value, 1), $value);
 
   @return $output;
 }
@@ -297,12 +277,11 @@ of lists.
   }
 
   @each $i in $value {
-    @if type-of($i) == 'list' {
+    @if type-of($i) == "list" {
       @each $ii in $i {
         $output: append($output, $ii, comma);
       }
-    }
-    @else {
+    } @else {
       $output: append($output, $i, comma);
     }
   }
@@ -321,10 +300,7 @@ Return null if the value is null
 
 @function get-last($props) {
   $length: length($props);
-  $last: if($length == 0,
-  null,
-  nth($props, -1)
-);
+  $last: if($length == 0, null, nth($props, -1));
 
   @return $last;
 }
@@ -341,7 +317,7 @@ being passed in a mixin's props
 @function has-important($props) {
   $props: de-list($props);
 
-  @if get-last($props) == '!important' {
+  @if get-last($props) == "!important" {
     @return true;
   }
 
@@ -357,7 +333,7 @@ Append `!important` to a list
 */
 
 @function append-important($source, $destination) {
-  @if get-last($source) == '!important' {
+  @if get-last($source) == "!important" {
     @return append($destination, !important, comma);
   }
 
@@ -374,7 +350,8 @@ the desired final units (currently rem)
 */
 
 @function spacing-multiple($unit) {
-  $grid-to-rem: ($system-spacing-grid-base * $unit) / $root-font-size-equiv * 1rem;
+  $grid-to-rem: ($system-spacing-grid-base * $unit) / $root-font-size-equiv *
+    1rem;
 
   @return $grid-to-rem;
 }
@@ -388,11 +365,11 @@ Converts a value in rem to a value in px
 */
 
 @function rem-to-px($value-in-rem) {
-  @if unit($value-in-rem) == 'rem' {
+  @if unit($value-in-rem) == "rem" {
     $rem-to-px: ($value-in-rem / 1rem) * $root-font-size-equiv;
     @return $rem-to-px;
   }
-  @if unit($value-in-rem) != 'px' {
+  @if unit($value-in-rem) != "px" {
     @error 'This value must be in either px or rem';
   }
   @return $value-in-rem;
@@ -448,7 +425,7 @@ Get the cap height of a valid typeface
 
   $typeface-token: validate-typeface-token($typeface-token);
   $token-data: map-get($all-typeface-tokens, $typeface-token);
-  @return map-get($token-data, 'cap-height');
+  @return map-get($token-data, "cap-height");
 }
 
 /*
@@ -464,7 +441,7 @@ Converts a value in px to a value in rem
     @return false;
   }
   $px-to-rem: ($pixels / $root-font-size-equiv) * 1rem;
-  $px-to-rem: round($px-to-rem * 100)/100;
+  $px-to-rem: round($px-to-rem * 100) / 100;
 
   @return $px-to-rem;
 }
@@ -562,8 +539,9 @@ a family and a line-height scale unit
 
   $this-cap: map-get($project-cap-heights, $family);
   $this-line-height: map-get($system-line-height, $scale);
-  $normalized-line-height: $this-line-height / ($system-base-cap-height / $this-cap);
-  $normalized-line-height: round($normalized-line-height * 10)/10;
+  $normalized-line-height: $this-line-height /
+    ($system-base-cap-height / $this-cap);
+  $normalized-line-height: round($normalized-line-height * 10) / 10;
 
   @return $normalized-line-height;
 }
@@ -607,18 +585,18 @@ role-based font token.
   // Get the font type metadata
   $this-font-map: map-get($project-font-type-tokens, $type-token);
   // Only output if the font type has an assigned typeface token
-  @if map-get($this-font-map, 'typeface-token') {
-    $this-font-token: map-get($this-font-map, 'typeface-token');
+  @if map-get($this-font-map, "typeface-token") {
+    $this-font-token: map-get($this-font-map, "typeface-token");
     // Get the typeface metadata
     $this-typeface-data: map-get($all-typeface-tokens, $this-font-token);
-    $this-name: map-get($this-typeface-data, 'display-name');
+    $this-name: map-get($this-typeface-data, "display-name");
     // If it's a system typeface, don't output the display name
-    @if map-has-key($this-typeface-data, 'system-font') {
+    @if map-has-key($this-typeface-data, "system-font") {
       $output-display-name: false;
     }
     // If there's a custom stack, use it and output the display name
-    @if map-get($this-font-map, 'custom-stack') {
-      $this-stack: map-get($this-font-map, 'custom-stack');
+    @if map-get($this-font-map, "custom-stack") {
+      $this-stack: map-get($this-font-map, "custom-stack");
       $output-display-name: true;
     }
     // Otherwise, just get the token's default stack
@@ -626,11 +604,11 @@ role-based font token.
       $this-stack: map-deep-get(
         $all-typeface-tokens,
         $this-font-token,
-        'stack'
+        "stack"
       );
     }
     // If the typeface has no display name (system fonts), don't output the display name
-    @if map-get($this-typeface-data, 'display-name') == null {
+    @if map-get($this-typeface-data, "display-name") == null {
       $output-display-name: false;
     }
     @if not $output-display-name {
@@ -655,7 +633,11 @@ font-role token.
   @if map-has-key($project-font-role-tokens, $font-token) {
     $this-token: map-get($project-font-role-tokens, $font-token);
   }
-  @return map-deep-get($project-font-type-tokens, $this-token, 'typeface-token');
+  @return map-deep-get(
+    $project-font-type-tokens,
+    $this-token,
+    "typeface-token"
+  );
 }
 
 /*
@@ -671,8 +653,8 @@ variable that is, itself, a list
 @function get-system-color(
   $color-family: false,
   $color-grade: false,
-  $color-variant: false) {
-
+  $color-variant: false
+) {
   // If the arg being passed to the fn
   // is a variable defined as a list,
   // $color-family will contain this
@@ -684,7 +666,7 @@ variable that is, itself, a list
   //    in the theme colors map:
   //      $color-primary-dark: get-system-color($theme-color-primary.'dark'),
 
-  @if type-of($color-family) == 'list' {
+  @if type-of($color-family) == "list" {
     @if length($color-family) > 2 {
       $color-variant: nth($color-family, 3);
     }
@@ -722,11 +704,7 @@ variable that is, itself, a list
     @return $output;
   }
 
-  $output: map-deep-get(
-    $system-colors,
-    $color-family,
-    $color-grade
-  );
+  $output: map-deep-get($system-colors, $color-family, $color-grade);
 
   @return $output;
 }
@@ -832,7 +810,7 @@ Ex: columns(2) --> 6
 */
 
 @function columns($number) {
-  $options: 'auto', 'fill';
+  $options: "auto", "fill";
   $number: smart-quote($number);
 
   @if index($options, $number) {
@@ -858,7 +836,7 @@ functions and mixins.
 */
 
 @function get-uswds-value($property, $value...) {
-  @if type-of($value) == 'arglist' and nth($value, 1) == override {
+  @if type-of($value) == "arglist" and nth($value, 1) == override {
     @return nth($value, 2);
   }
 
@@ -898,7 +876,7 @@ functions and mixins.
   }
 
   // TODO: what are these last two cases? Evaluate.
-  @if not (type-of($value) == 'number' and not unitless($value)) {
+  @if not(type-of($value) == "number" and not unitless($value)) {
     @error '`#{$value}` is not a valid `#{$property}` token. '
       + 'You should correct this. Standard `#{$property}` tokens: '
       + ' #{map-keys($our-standard-values)}';
@@ -977,11 +955,11 @@ Derive a color from a color triplet:
 @function advanced-color(
   $color-family: false,
   $color-grade: false,
-  $color-variant: false) {
-
+  $color-variant: false
+) {
   // Convert any arglists into lists
   $color-family: if(
-    type-of($color-family) == 'arglist',
+    type-of($color-family) == "arglist",
     unpack($color-family),
     $color-family
   );
@@ -989,7 +967,7 @@ Derive a color from a color triplet:
   // If $color-family is a list, color() had a variable
   // passed to it, and args need to be re-set with the
   // values from the $color-family list:
-  @if type-of($color-family) == 'list' {
+  @if type-of($color-family) == "list" {
     @if length($color-family) > 2 {
       $color-variant: nth($color-family, 3);
     }
@@ -1011,7 +989,7 @@ Derive a color from a color triplet:
 
   // If the grade is a number, it's a system color
   // ex: ('red', 50)
-  @if type-of($color-grade) == 'number' {
+  @if type-of($color-grade) == "number" {
     @return get-system-color($color-family, $color-grade, $color-variant);
   }
 
@@ -1020,13 +998,14 @@ Derive a color from a color triplet:
   // default theme colors have no grade
   // ex: ('base')
   @if map-has-key($all-project-colors, $color-family) {
-    @if not map-has-key(map-get($all-project-colors, $color-family), $color-grade) {
+    @if not
+      map-has-key(map-get($all-project-colors, $color-family), $color-grade)
+    {
       @error '`#{$color-grade}` is not a valid grade of `#{$color-family}`. '
         + 'Valid grades: '
         + '#{map-keys(map-get($all-project-colors, $color-family))}';
     }
-  }
-  @else {
+  } @else {
     @error '`#{$color-family}` is not a valid theme family token. '
       + 'Valid family tokens: #{map-keys($all-project-colors)}';
   }
@@ -1043,10 +1022,11 @@ the desired final units (currently rem)
 */
 
 @function units($value) {
-  $converted: if(type-of($value) == 'string',
-  quote($value),
-  number-to-token($value)
-);
+  $converted: if(
+    type-of($value) == "string",
+    quote($value),
+    number-to-token($value)
+  );
 
   @if not map-has-key($project-spacing-standard, $converted) {
     @error '`#{$value}` is not a valid spacing unit token. '
@@ -1069,7 +1049,7 @@ from a list of plugin keys.
 @function get-palettes($list) {
   $our-palettes: ();
 
-  @if type-of($list) == 'map' {
+  @if type-of($list) == "map" {
     @error 'Use a list of strings as plugin values.';
   }
 
@@ -1099,8 +1079,7 @@ border-radii
 @function border-radius($value) {
   @if map-has-key($all-border-radius, $value) {
     @return map-get($all-border-radius, $value);
-  }
-  @else {
+  } @else {
     @error '`#{$value}` is not a valid border radius token. '
       + 'Valid tokens: #{map-keys($all-border-radius)}';
   }
@@ -1186,7 +1165,7 @@ system letter-spacing
   @if map-has-key($fn-map, $value) {
     @return map-get($fn-map, $value);
   }
-  @if type-of($value) == 'number' {
+  @if type-of($value) == "number" {
     @error '`#{$value}` is a not a valid letter-spacing token. '
       + 'Valid letter-spacing tokens: #{map-keys($fn-map)}';
   }
@@ -1274,7 +1253,7 @@ Get type scale value from a [family] and
   $this-scale: map-get($all-type-scale, $our-scale);
 
   @if not $force {
-    @if not ($this-scale and $this-cap) {
+    @if not($this-scale and $this-cap) {
       @error 'The scale `#{$our-scale}` is disabled '
         + 'in your project\'s theme settings. '
         + 'Set its value to `true` to use this family.';
