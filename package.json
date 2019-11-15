@@ -87,7 +87,6 @@
     "babelify": "^10.0.0",
     "browserify": "^16.5.0",
     "canvas-prebuilt": "1.6.11",
-    "chalk": "^2.4.2",
     "chrome-launcher": "^0.3.2",
     "chrome-remote-interface": "^0.25.6",
     "cracks": "^3.1.2",
