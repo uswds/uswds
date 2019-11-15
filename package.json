@@ -113,7 +113,7 @@
     "mocha": "^5.2.0",
     "node-notifier": "^6.0.0",
     "node-sass": "^4.13.0",
-    "normalize.css": "^3.0.3",
+    "normalize.css": "^8.0.1",
     "nswatch": "^0.2.0",
     "nyc": "^14.1.1",
     "postcss-discard-comments": "^4.0.2",
