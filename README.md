@@ -133,7 +133,7 @@ And that’s it — you should now be able to copy our code samples into your `i
 
    ```shell
    npm -v
-   6.4.1 # This line may vary depending on what version of Node you've installed.
+   6.13.0 # This line may vary depending on what version of Node you've installed.
    ```
 
 3. Create a `package.json` file. You can do this manually, but an easier method is to use the `npm init` command. This command will prompt you with a few questions to create your `package.json` file.
