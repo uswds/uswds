@@ -79,7 +79,6 @@
     "@frctl/fractal": "^1.2.0",
     "@frctl/mandelbrot": "^1.2.1",
     "@frctl/nunjucks": "^2.0.1",
-    "acorn": "^6.3.0",
     "ansi-colors": "^3.2.4",
     "autoprefixer": "^9.7.1",
     "axe-core": "^2.6.1",
