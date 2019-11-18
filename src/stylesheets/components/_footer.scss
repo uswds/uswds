@@ -95,10 +95,9 @@
 
   a {
     @include u-text("ink", "no-underline");
-  }
-
-  &:hover {
-    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   @include at-media("mobile-lg") {
