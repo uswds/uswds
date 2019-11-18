@@ -16,14 +16,12 @@ example:
 
 $u-min-height: (
   min-height: (
-    base: 'minh',
+    base: "minh",
     modifiers: null,
-    values: map-collect(
-      get-palettes($min-height-palettes),
-      $min-height-manual-values
-    ),
+    values:
+      map-collect(get-palettes($min-height-palettes), $min-height-manual-values),
     settings: $min-height-settings,
-    property: 'min-height',
-    type: 'utility',
+    property: "min-height",
+    type: "utility"
   )
 );

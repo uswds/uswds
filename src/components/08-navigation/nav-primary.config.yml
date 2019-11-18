@@ -1,5 +1,5 @@
 label: Primary (header)
-preview: '@uswds-header'
+preview: "@uswds-header"
 
 context:
   nav:
@@ -10,25 +10,25 @@ context:
         id: nav-section-one
         links: &subnav_links
           - text: Navigation link
-            href: '#'
+            href: "#"
           - text: Navigation link
-            href: '#'
+            href: "#"
           - text: Navigation link
-            href: '#'
+            href: "#"
           - text: Navigation link
-            href: '#'
+            href: "#"
           - text: A very long navigation link that goes onto two lines
-            href: '#'
+            href: "#"
           - text: Navigation link
-            href: '#'
+            href: "#"
           - text: Navigation link
-            href: '#'
+            href: "#"
           - text: Navigation link
-            href: '#'
+            href: "#"
           - text: Navigation link
-            href: '#'
+            href: "#"
       - text: Section
         id: nav-section-two
         links: *subnav_links
       - text: Simple link
-        href: 'javascript:void(0)'
+        href: "javascript:void(0)"

@@ -17,14 +17,15 @@ example:
 
 $u-font-feature: (
   font-feature: (
-    base: 'text',
+    base: "text",
     modifiers: null,
-    values: map-collect(
-      get-palettes($font-feature-palettes),
-      $font-feature-manual-values
-    ),
+    values:
+      map-collect(
+        get-palettes($font-feature-palettes),
+        $font-feature-manual-values
+      ),
     settings: $font-feature-settings,
-    property: 'font-feature-settings',
-    type: 'utility',
+    property: "font-feature-settings",
+    type: "utility"
   )
 );

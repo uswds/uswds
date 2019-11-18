@@ -6,12 +6,10 @@
   @if map-has-key($our-breakpoints, $quoted-bp) {
     @if $theme-respect-user-font-size {
       $bp: rem-to-user-em(map-get($our-breakpoints, $quoted-bp));
-    }
-    @else {
+    } @else {
       $bp: rem-to-px(map-get($our-breakpoints, $quoted-bp));
     }
-  }
-  @else {
+  } @else {
     @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map-keys($our-breakpoints)}';
   }
   @media all and (min-width: #{$bp}) {
@@ -25,13 +23,11 @@
   $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
   @if map-has-key($our-breakpoints, $quoted-bp) {
     @if $theme-respect-user-font-size {
-      $bp: rem-to-user-em(map-get($our-breakpoints, $quoted-bp)) - .01em;
-    }
-    @else {
+      $bp: rem-to-user-em(map-get($our-breakpoints, $quoted-bp)) - 0.01em;
+    } @else {
       $bp: rem-to-px(map-get($our-breakpoints, $quoted-bp)) - 1px;
     }
-  }
-  @else {
+  } @else {
     @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map-keys($our-breakpoints)}';
   }
   @media all and (max-width: #{$bp}) {

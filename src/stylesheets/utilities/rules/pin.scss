@@ -18,84 +18,84 @@ example:
 
 $u-pin: (
   pin: (
-    base: 'pin',
+    base: "pin",
     modifiers: null,
     values: (
       all: (
-        slug: 'all',
+        slug: "all",
         isReadable: true,
-        content: 'absolute',
+        content: "absolute",
         extend: (
-          'bottom': '0',
-          'left': '0',
-          'right': '0',
-          'top': '0',
-        ),
+          "bottom": "0",
+          "left": "0",
+          "right": "0",
+          "top": "0"
+        )
       ),
       x: (
-        slug: 'x',
+        slug: "x",
         isReadable: true,
-        content: 'absolute',
+        content: "absolute",
         extend: (
-          'left': '0',
-          'right': '0',
-        ),
+          "left": "0",
+          "right": "0"
+        )
       ),
       y: (
-        slug: 'y',
+        slug: "y",
         isReadable: true,
-        content: 'absolute',
+        content: "absolute",
         extend: (
-          'bottom': '0',
-          'top': '0',
-        ),
+          "bottom": "0",
+          "top": "0"
+        )
       ),
       bottom: (
-        slug: 'bottom',
+        slug: "bottom",
         isReadable: true,
-        content: 'absolute',
+        content: "absolute",
         extend: (
-          'bottom': '0',
-        ),
+          "bottom": "0"
+        )
       ),
       left: (
-        slug: 'left',
+        slug: "left",
         isReadable: true,
-        content: 'absolute',
+        content: "absolute",
         extend: (
-          'left': '0',
-        ),
+          "left": "0"
+        )
       ),
       right: (
-        slug: 'right',
+        slug: "right",
         isReadable: true,
-        content: 'absolute',
+        content: "absolute",
         extend: (
-          'right': '0',
-        ),
+          "right": "0"
+        )
       ),
       top: (
-        slug: 'top',
+        slug: "top",
         isReadable: true,
-        content: 'absolute',
+        content: "absolute",
         extend: (
-          'top': '0',
-        ),
+          "top": "0"
+        )
       ),
       none: (
-        slug: 'none',
+        slug: "none",
         isReadable: true,
         content: static,
         extend: (
-          'bottom': auto,
-          'left': auto,
-          'right': auto,
-          'top': auto,
-        ),
-      ),
+          "bottom": auto,
+          "left": auto,
+          "right": auto,
+          "top": auto
+        )
+      )
     ),
     settings: $pin-settings,
-    property: 'position',
-    type: 'utility',
+    property: "position",
+    type: "utility"
   )
 );

@@ -3,13 +3,13 @@
   order: 2;
   padding-top: units(4);
 
-  @include at-media('desktop') {
+  @include at-media("desktop") {
     padding-top: 0;
   }
 }
 
 .usa-layout-docs__main {
-  @include at-media('desktop') {
+  @include at-media("desktop") {
     order: 2;
   }
 }

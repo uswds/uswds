@@ -18,14 +18,11 @@ example:
 
 $u-measure: (
   measure: (
-    base: 'measure',
+    base: "measure",
     modifiers: null,
-    values: map-collect(
-      get-palettes($measure-palettes),
-      $measure-manual-values
-    ),
+    values: map-collect(get-palettes($measure-palettes), $measure-manual-values),
     settings: $measure-settings,
-    property: 'max-width',
-    type: 'utility',
+    property: "max-width",
+    type: "utility"
   )
 );

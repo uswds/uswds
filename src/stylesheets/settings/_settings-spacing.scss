@@ -38,9 +38,9 @@ Border radius
 ----------------------------------------
 */
 
-$theme-border-radius-sm:       2px !default;
-$theme-border-radius-md:       0.5 !default;
-$theme-border-radius-lg:       1 !default;
+$theme-border-radius-sm: 2px !default;
+$theme-border-radius-md: 0.5 !default;
+$theme-border-radius-lg: 1 !default;
 
 /*
 ----------------------------------------
@@ -62,7 +62,7 @@ $theme-column-gap-md: 2 !default;
 $theme-column-gap-lg: 3 !default;
 
 // These determine the responsive gap sizes set with .grid-gap
-$theme-column-gap-mobile:  2 !default;
+$theme-column-gap-mobile: 2 !default;
 $theme-column-gap-desktop: 4 !default;
 
 /*
@@ -79,7 +79,7 @@ widescreen
 ----------------------------------------
 */
 
-$theme-grid-container-max-width: 'desktop' !default;
+$theme-grid-container-max-width: "desktop" !default;
 
 /*
 ----------------------------------------
@@ -87,7 +87,7 @@ Site
 ----------------------------------------
 */
 
-$theme-site-max-width:              'desktop' !default;
-$theme-site-margins-breakpoint:     'desktop' !default;
-$theme-site-margins-width:          4 !default;
-$theme-site-margins-mobile-width:   2 !default;
+$theme-site-max-width: "desktop" !default;
+$theme-site-margins-breakpoint: "desktop" !default;
+$theme-site-margins-width: 4 !default;
+$theme-site-margins-mobile-width: 2 !default;

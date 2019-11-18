@@ -16,14 +16,11 @@ example:
 
 $u-width: (
   width: (
-    base: 'width',
+    base: "width",
     modifiers: null,
-    values: map-collect(
-      get-palettes($width-palettes),
-      $width-manual-values
-    ),
+    values: map-collect(get-palettes($width-palettes), $width-manual-values),
     settings: $width-settings,
-    property: 'width',
-    type: 'utility',
+    property: "width",
+    type: "utility"
   )
 );

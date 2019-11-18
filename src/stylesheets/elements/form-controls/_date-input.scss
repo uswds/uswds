@@ -1,6 +1,6 @@
 .usa-memorable-date {
   display: flex;
-  [type=number] {
+  [type="number"] {
     -moz-appearance: textfield;
 
     &::-webkit-inner-spin-button {

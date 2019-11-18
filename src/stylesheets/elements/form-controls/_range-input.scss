@@ -1,12 +1,12 @@
 @mixin range-focus {
-  background-color: color('white');
+  background-color: color("white");
   box-shadow: 0 0 0 units(2px) color($theme-focus-color);
 }
 
 @mixin range-track {
-  background-color: color('base-lightest');
-  border-radius: radius('pill');
-  border: units(1px) solid color('base');
+  background-color: color("base-lightest");
+  border-radius: radius("pill");
+  border: units(1px) solid color("base");
   cursor: pointer;
   height: units(2);
   width: 100%;
@@ -14,16 +14,16 @@
 
 @mixin range-thumb {
   @include u-circle($theme-input-select-size);
-  background: color('base-lightest');
+  background: color("base-lightest");
   border: none;
-  box-shadow: 0 0 0 units($theme-input-select-border-width) color('base');
+  box-shadow: 0 0 0 units($theme-input-select-border-width) color("base");
   cursor: pointer;
 }
 
 @mixin range-ms-fill {
-  background-color: color('base-lightest');
-  border-radius: radius('pill');
-  border: units(1px) solid color('base');
+  background-color: color("base-lightest");
+  border-radius: radius("pill");
+  border: units(1px) solid color("base");
 }
 
 .usa-range {

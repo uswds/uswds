@@ -16,14 +16,12 @@ example:
 
 $u-position: (
   position: (
-    base: 'position',
+    base: "position",
     modifiers: null,
-    values: map-collect(
-      get-palettes($position-palettes),
-      $position-manual-values
-    ),
+    values:
+      map-collect(get-palettes($position-palettes), $position-manual-values),
     settings: $position-settings,
-    property: 'position',
-    type: 'utility',
+    property: "position",
+    type: "utility"
   )
 );

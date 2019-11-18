@@ -3,8 +3,8 @@
 @mixin u-float($value...) {
   $important: null;
   @if has-important($value) {
-    $value: remove($value, '!important');
-    $important: ' !important';
+    $value: remove($value, "!important");
+    $important: " !important";
   }
   float: get-uswds-value(float, $value...) #{$important};
 }

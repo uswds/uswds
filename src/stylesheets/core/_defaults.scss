@@ -5,4 +5,4 @@
 // For backwards compatibility with consumers of _defaults.scss, we just
 // re-import _variables here. This should be a noop if it has already been
 // imported, since every variable is declared with `!default`.
-@import './variables';
+@import "./variables";

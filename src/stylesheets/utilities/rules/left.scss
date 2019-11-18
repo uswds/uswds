@@ -18,14 +18,11 @@ example:
 
 $u-left: (
   left: (
-    base: 'left',
+    base: "left",
     modifiers: null,
-    values: map-collect(
-      get-palettes($left-palettes),
-      $left-manual-values
-    ),
+    values: map-collect(get-palettes($left-palettes), $left-manual-values),
     settings: $left-settings,
-    property: 'left',
-    type: 'utility',
+    property: "left",
+    type: "utility"
   )
 );

@@ -19,14 +19,11 @@ example:
 
 $u-order: (
   order: (
-    base: 'order',
+    base: "order",
     modifiers: null,
-    values: map-collect(
-      get-palettes($order-palettes),
-      $order-manual-values
-    ),
+    values: map-collect(get-palettes($order-palettes), $order-manual-values),
     settings: $order-settings,
-    property: 'order',
-    type: 'utility',
+    property: "order",
+    type: "utility"
   )
 );

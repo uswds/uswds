@@ -1,6 +1,6 @@
 label: Accordion
 status: ready
-preview: '@uswds-framed'
+preview: "@uswds-framed"
 
 variants:
   - name: default

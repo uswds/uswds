@@ -66,8 +66,8 @@ unclassed elements:
 */
 
 $theme-global-paragraph-styles: false !default;
-$theme-global-link-styles:      false !default;
-$theme-global-content-styles:   false !default;
+$theme-global-link-styles: false !default;
+$theme-global-content-styles: false !default;
 
 /*
 ----------------------------------------
@@ -77,7 +77,7 @@ Relative font file path
 ----------------------------------------
 */
 
-$theme-font-path:   '../fonts' !default;
+$theme-font-path: "../fonts" !default;
 
 /*
 ----------------------------------------
@@ -123,13 +123,13 @@ names to something more descriptive.
 
 $theme-typeface-tokens: (
   example-serif-token: (
-    display-name: 'Example Serif Display Name',
-    cap-height: 364px,
+    display-name: "Example Serif Display Name",
+    cap-height: 364px
   ),
   example-sans-token: (
-    display-name: 'Example Sans Display Name',
-    cap-height: 364px,
-  ),
+    display-name: "Example Sans Display Name",
+    cap-height: 364px
+  )
 ) !default;
 
 /*
@@ -155,22 +155,22 @@ $theme-typeface-tokens.
 */
 
 // condensed
-$theme-font-type-cond:  false !default;
+$theme-font-type-cond: false !default;
 
 // icon
-$theme-font-type-icon:  false !default;
+$theme-font-type-icon: false !default;
 
 // language-specific
-$theme-font-type-lang:  false !default;
+$theme-font-type-lang: false !default;
 
 // monospace
-$theme-font-type-mono:  'roboto-mono' !default;
+$theme-font-type-mono: "roboto-mono" !default;
 
 // sans-serif
-$theme-font-type-sans:  'source-sans-pro' !default;
+$theme-font-type-sans: "source-sans-pro" !default;
 
 // serif
-$theme-font-type-serif: 'merriweather' !default;
+$theme-font-type-serif: "merriweather" !default;
 
 /*
 ----------------------------------------
@@ -194,11 +194,11 @@ font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans;
 ----------------------------------------
 */
 
-$theme-font-cond-custom-stack:  false !default;
-$theme-font-icon-custom-stack:  false !default;
-$theme-font-lang-custom-stack:  false !default;
-$theme-font-mono-custom-stack:  false !default;
-$theme-font-sans-custom-stack:  false !default;
+$theme-font-cond-custom-stack: false !default;
+$theme-font-icon-custom-stack: false !default;
+$theme-font-lang-custom-stack: false !default;
+$theme-font-mono-custom-stack: false !default;
+$theme-font-sans-custom-stack: false !default;
 $theme-font-serif-custom-stack: false !default;
 
 /*
@@ -259,12 +259,12 @@ $theme-font-serif-custom-src: (
 ----------------------------------------
 */
 
-$theme-font-cond-custom-src:   false !default;
-$theme-font-icon-custom-src:   false !default;
-$theme-font-lang-custom-src:   false !default;
-$theme-font-mono-custom-src:   false !default;
-$theme-font-sans-custom-src:   false !default;
-$theme-font-serif-custom-src:  false !default;
+$theme-font-cond-custom-src: false !default;
+$theme-font-icon-custom-src: false !default;
+$theme-font-lang-custom-src: false !default;
+$theme-font-mono-custom-src: false !default;
+$theme-font-sans-custom-src: false !default;
+$theme-font-serif-custom-src: false !default;
 
 /*
 ----------------------------------------
@@ -283,11 +283,11 @@ tokens.
 ----------------------------------------
 */
 
-$theme-font-role-ui:        'sans' !default;
-$theme-font-role-heading:   'serif' !default;
-$theme-font-role-body:      'sans' !default;
-$theme-font-role-code:      'mono' !default;
-$theme-font-role-alt:       'serif' !default;
+$theme-font-role-ui: "sans" !default;
+$theme-font-role-heading: "serif" !default;
+$theme-font-role-body: "sans" !default;
+$theme-font-role-code: "mono" !default;
+$theme-font-role-alt: "serif" !default;
 
 /*
 ----------------------------------------
@@ -300,15 +300,15 @@ values from the USWDS system type scale
 ----------------------------------------
 */
 
-$theme-type-scale-3xs:      2 !default;
-$theme-type-scale-2xs:      3 !default;
-$theme-type-scale-xs:       4 !default;
-$theme-type-scale-sm:       5 !default;
-$theme-type-scale-md:       6 !default;
-$theme-type-scale-lg:       9 !default;
-$theme-type-scale-xl:       12 !default;
-$theme-type-scale-2xl:      14 !default;
-$theme-type-scale-3xl:      15 !default;
+$theme-type-scale-3xs: 2 !default;
+$theme-type-scale-2xs: 3 !default;
+$theme-type-scale-xs: 4 !default;
+$theme-type-scale-sm: 5 !default;
+$theme-type-scale-md: 6 !default;
+$theme-type-scale-lg: 9 !default;
+$theme-type-scale-xl: 12 !default;
+$theme-type-scale-2xl: 14 !default;
+$theme-type-scale-3xl: 15 !default;
 
 /*
 ----------------------------------------
@@ -319,19 +319,19 @@ Or use `false` for unneeded weights.
 ----------------------------------------
 */
 
-$theme-font-weight-thin:          false !default;
-$theme-font-weight-light:         300 !default;
-$theme-font-weight-normal:        400 !default;
-$theme-font-weight-medium:        false !default;
-$theme-font-weight-semibold:      false !default;
-$theme-font-weight-bold:          700 !default;
-$theme-font-weight-heavy:         false !default;
+$theme-font-weight-thin: false !default;
+$theme-font-weight-light: 300 !default;
+$theme-font-weight-normal: 400 !default;
+$theme-font-weight-medium: false !default;
+$theme-font-weight-semibold: false !default;
+$theme-font-weight-bold: 700 !default;
+$theme-font-weight-heavy: false !default;
 
 // If USWDS is generating your @font-face rules,
 // should we generate all available weights
 // regardless of the assignments above?
 
-$theme-generate-all-weights:        false !default;
+$theme-generate-all-weights: false !default;
 
 /*
 ----------------------------------------
@@ -391,32 +391,32 @@ none:    none
 */
 
 // Body settings are the equivalent of setting the <body> element
-$theme-body-font-family:           'body' !default;
-$theme-body-font-size:             'sm' !default;
-$theme-body-line-height:           5 !default;
+$theme-body-font-family: "body" !default;
+$theme-body-font-size: "sm" !default;
+$theme-body-line-height: 5 !default;
 
 // If true, explicitly style the <body> element with the base styles
-$theme-style-body-element:         false !default;
+$theme-style-body-element: false !default;
 
 // Headings
-$theme-h1-font-size:               '2xl' !default;
-$theme-h2-font-size:               'xl' !default;
-$theme-h3-font-size:               'lg' !default;
-$theme-h4-font-size:               'sm' !default;
-$theme-h5-font-size:               'xs' !default;
-$theme-h6-font-size:               '3xs' !default;
-$theme-heading-line-height:        2 !default;
-$theme-small-font-size:            '2xs' !default;
-$theme-display-font-size:          '3xl' !default;
+$theme-h1-font-size: "2xl" !default;
+$theme-h2-font-size: "xl" !default;
+$theme-h3-font-size: "lg" !default;
+$theme-h4-font-size: "sm" !default;
+$theme-h5-font-size: "xs" !default;
+$theme-h6-font-size: "3xs" !default;
+$theme-heading-line-height: 2 !default;
+$theme-small-font-size: "2xs" !default;
+$theme-display-font-size: "3xl" !default;
 
 // Text and prose
-$theme-text-measure-narrow:        1 !default;
-$theme-text-measure:               4 !default;
-$theme-text-measure-wide:          6 !default;
-$theme-prose-font-family:          'body' !default;
+$theme-text-measure-narrow: 1 !default;
+$theme-text-measure: 4 !default;
+$theme-text-measure-wide: 6 !default;
+$theme-prose-font-family: "body" !default;
 
 // Lead text
-$theme-lead-font-family:           'heading' !default;
-$theme-lead-font-size:             'lg' !default;
-$theme-lead-line-height:           6 !default;
-$theme-lead-measure:               6 !default;
+$theme-lead-font-family: "heading" !default;
+$theme-lead-font-size: "lg" !default;
+$theme-lead-line-height: 6 !default;
+$theme-lead-measure: 6 !default;

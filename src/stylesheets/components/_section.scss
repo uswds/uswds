@@ -2,18 +2,18 @@
   @include border-box-sizing;
   @include u-padding-y($theme-site-margins-width);
 
-  @include at-media('tablet') {
+  @include at-media("tablet") {
     @include u-padding-y(8);
   }
 }
 
 .usa-section--light {
-  background-color: color('base-lightest');
+  background-color: color("base-lightest");
 }
 
 .usa-section--dark {
-  background-color: color('primary-darker');
-  color: color('white');
+  background-color: color("primary-darker");
+  color: color("white");
 
   h1,
   h2,
@@ -21,18 +21,18 @@
   h4,
   h5,
   h6 {
-    color: color('accent-cool');
+    color: color("accent-cool");
   }
 
   p {
-    color: color('white');
+    color: color("white");
   }
 
   a {
-    color: color('base-lighter');
+    color: color("base-lighter");
 
     &:hover {
-      color: color('white');
+      color: color("white");
     }
   }
 }
