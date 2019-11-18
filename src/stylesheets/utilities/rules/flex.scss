@@ -22,14 +22,11 @@ example:
 
 $u-flex: (
   flex: (
-    base: 'flex',
+    base: "flex",
     modifiers: null,
-    values: map-collect(
-      get-palettes($flex-palettes),
-      $flex-manual-values
-    ),
+    values: map-collect(get-palettes($flex-palettes), $flex-manual-values),
     settings: $flex-settings,
-    property: 'flex',
-    type: 'utility',
+    property: "flex",
+    type: "utility"
   )
 );

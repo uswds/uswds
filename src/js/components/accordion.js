@@ -1,14 +1,14 @@
-const select = require('../utils/select');
-const behavior = require('../utils/behavior');
-const toggle = require('../utils/toggle');
-const isElementInViewport = require('../utils/is-in-viewport');
-const { CLICK } = require('../events');
-const { prefix: PREFIX } = require('../config');
+const select = require("../utils/select");
+const behavior = require("../utils/behavior");
+const toggle = require("../utils/toggle");
+const isElementInViewport = require("../utils/is-in-viewport");
+const { CLICK } = require("../events");
+const { prefix: PREFIX } = require("../config");
 
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
 const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;
-const EXPANDED = 'aria-expanded';
-const MULTISELECTABLE = 'aria-multiselectable';
+const EXPANDED = "aria-expanded";
+const MULTISELECTABLE = "aria-multiselectable";
 
 /**
  * Get an Array of button elements belonging directly to the given
@@ -16,7 +16,7 @@ const MULTISELECTABLE = 'aria-multiselectable';
  * @param {HTMLElement} accordion
  * @return {array<HTMLButtonElement>}
  */
-const getAccordionButtons = (accordion) => {
+const getAccordionButtons = accordion => {
   const buttons = select(BUTTON, accordion);
 
   return buttons.filter(button => button.closest(ACCORDION) === accordion);
@@ -42,10 +42,10 @@ const toggleButton = (button, expanded) => {
   safeExpanded = toggle(button, expanded);
 
   // XXX multiselectable is opt-in, to preserve legacy behavior
-  const multiselectable = accordion.getAttribute(MULTISELECTABLE) === 'true';
+  const multiselectable = accordion.getAttribute(MULTISELECTABLE) === "true";
 
   if (safeExpanded && !multiselectable) {
-    getAccordionButtons(accordion).forEach((other) => {
+    getAccordionButtons(accordion).forEach(other => {
       if (other !== button) {
         toggle(other, false);
       }
@@ -65,34 +65,37 @@ const showButton = button => toggleButton(button, true);
  */
 const hideButton = button => toggleButton(button, false);
 
-const accordion = behavior({
-  [CLICK]: {
-    [BUTTON](event) {
-      event.preventDefault();
+const accordion = behavior(
+  {
+    [CLICK]: {
+      [BUTTON](event) {
+        event.preventDefault();
 
-      toggleButton(this);
+        toggleButton(this);
 
-      if (this.getAttribute(EXPANDED) === 'true') {
-        // We were just expanded, but if another accordion was also just
-        // collapsed, we may no longer be in the viewport. This ensures
-        // that we are still visible, so the user isn't confused.
-        if (!isElementInViewport(this)) this.scrollIntoView();
+        if (this.getAttribute(EXPANDED) === "true") {
+          // We were just expanded, but if another accordion was also just
+          // collapsed, we may no longer be in the viewport. This ensures
+          // that we are still visible, so the user isn't confused.
+          if (!isElementInViewport(this)) this.scrollIntoView();
+        }
       }
+    }
+  },
+  {
+    init(root) {
+      select(BUTTON, root).forEach(button => {
+        const expanded = button.getAttribute(EXPANDED) === "true";
+        toggleButton(button, expanded);
+      });
     },
-  },
-}, {
-  init(root) {
-    select(BUTTON, root).forEach((button) => {
-      const expanded = button.getAttribute(EXPANDED) === 'true';
-      toggleButton(button, expanded);
-    });
-  },
-  ACCORDION,
-  BUTTON,
-  show: showButton,
-  hide: hideButton,
-  toggle: toggleButton,
-  getButtons: getAccordionButtons,
-});
+    ACCORDION,
+    BUTTON,
+    show: showButton,
+    hide: hideButton,
+    toggle: toggleButton,
+    getButtons: getAccordionButtons
+  }
+);
 
 module.exports = accordion;

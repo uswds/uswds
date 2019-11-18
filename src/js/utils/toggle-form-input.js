@@ -1,17 +1,18 @@
-const resolveIdRefs = require('resolve-id-refs');
-const toggleFieldMask = require('./toggle-field-mask');
+const resolveIdRefs = require("resolve-id-refs");
+const toggleFieldMask = require("./toggle-field-mask");
 
-const CONTROLS = 'aria-controls';
-const PRESSED = 'aria-pressed';
-const SHOW_ATTR = 'data-show-text';
-const HIDE_ATTR = 'data-hide-text';
+const CONTROLS = "aria-controls";
+const PRESSED = "aria-pressed";
+const SHOW_ATTR = "data-show-text";
+const HIDE_ATTR = "data-hide-text";
 
 /**
  * Replace the word "Show" (or "show") with "Hide" (or "hide") in a string.
  * @param {string} showText
  * @return {strong} hideText
  */
-const getHideText = showText => showText.replace(/\bShow\b/i, show => `${show[0] === 'S' ? 'H' : 'h'}ide`);
+const getHideText = showText =>
+  showText.replace(/\bShow\b/i, show => `${show[0] === "S" ? "H" : "h"}ide`);
 
 /**
  * Component that decorates an HTML element with the ability to toggle the
@@ -22,12 +23,12 @@ const getHideText = showText => showText.replace(/\bShow\b/i, show => `${show[0]
  * @param  {HTMLElement} el    Parent element containing the fields to be masked
  * @return {boolean}
  */
-module.exports = (el) => {
+module.exports = el => {
   // this is the *target* state:
   // * if the element has the attr and it's !== "true", pressed is true
   // * otherwise, pressed is false
-  const pressed = el.hasAttribute(PRESSED)
-    && el.getAttribute(PRESSED) !== 'true';
+  const pressed =
+    el.hasAttribute(PRESSED) && el.getAttribute(PRESSED) !== "true";
 
   const fields = resolveIdRefs(el.getAttribute(CONTROLS));
   fields.forEach(field => toggleFieldMask(field, pressed));

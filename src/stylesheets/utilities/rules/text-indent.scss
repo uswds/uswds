@@ -16,14 +16,15 @@ example:
 
 $u-text-indent: (
   text-indent: (
-    base: 'text-indent',
+    base: "text-indent",
     modifiers: null,
-    values: map-collect(
-      get-palettes($text-indent-palettes),
-      $text-indent-manual-values
-    ),
+    values:
+      map-collect(
+        get-palettes($text-indent-palettes),
+        $text-indent-manual-values
+      ),
     settings: $text-indent-settings,
-    property: 'text-indent',
-    type: 'utility',
+    property: "text-indent",
+    type: "utility"
   )
 );

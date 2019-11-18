@@ -4,8 +4,8 @@
   $value: unpack($value);
   $important: null;
   @if has-important($value) {
-    $value: remove($value, '!important');
-    $important: ' !important';
+    $value: remove($value, "!important");
+    $important: " !important";
   }
   border-radius: get-uswds-value(border-radius, $value) #{$important};
 }
@@ -14,8 +14,8 @@
   $value: unpack($value);
   $important: null;
   @if has-important($value) {
-    $value: remove($value, '!important');
-    $important: ' !important';
+    $value: remove($value, "!important");
+    $important: " !important";
   }
   border-bottom-left-radius: get-uswds-value(border-radius, $value) #{$important};
   border-bottom-right-radius: get-uswds-value(border-radius, $value) #{$important};
@@ -25,8 +25,8 @@
   $value: unpack($value);
   $important: null;
   @if has-important($value) {
-    $value: remove($value, '!important');
-    $important: ' !important';
+    $value: remove($value, "!important");
+    $important: " !important";
   }
   border-bottom-left-radius: get-uswds-value(border-radius, $value) #{$important};
   border-top-left-radius: get-uswds-value(border-radius, $value) #{$important};
@@ -36,8 +36,8 @@
   $value: unpack($value);
   $important: null;
   @if has-important($value) {
-    $value: remove($value, '!important');
-    $important: ' !important';
+    $value: remove($value, "!important");
+    $important: " !important";
   }
   border-bottom-right-radius: get-uswds-value(border-radius, $value) #{$important};
   border-top-right-radius: get-uswds-value(border-radius, $value) #{$important};
@@ -47,8 +47,8 @@
   $value: unpack($value);
   $important: null;
   @if has-important($value) {
-    $value: remove($value, '!important');
-    $important: ' !important';
+    $value: remove($value, "!important");
+    $important: " !important";
   }
   border-top-left-radius: get-uswds-value(border-radius, $value) #{$important};
   border-top-right-radius: get-uswds-value(border-radius, $value) #{$important};

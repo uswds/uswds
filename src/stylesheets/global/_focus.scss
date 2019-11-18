@@ -13,7 +13,7 @@ button {
 iframe,
 [href],
 [tabindex],
-[contentEditable=true] {
+[contentEditable="true"] {
   &:focus {
     @include focus-outline;
   }

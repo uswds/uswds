@@ -8,14 +8,14 @@
     .usa-media-block {
       margin-bottom: units(4);
 
-      @include at-media('tablet') {
+      @include at-media("tablet") {
         margin-bottom: units(8);
       }
     }
 
     &:last-child {
       .usa-media-block {
-        @include at-media('tablet') {
+        @include at-media("tablet") {
           margin-bottom: 0;
         }
 

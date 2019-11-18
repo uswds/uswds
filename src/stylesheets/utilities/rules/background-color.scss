@@ -16,16 +16,17 @@ example:
 
 $u-background-color: (
   background-color: (
-    base: 'bg',
+    base: "bg",
     modifiers: null,
-    property: 'background-color',
-    values: map-collect(
-      get-palettes($background-color-palettes),
-      get-palettes('palette-color-required'),
-      get-palettes($global-color-palettes),
-      $background-color-manual-values
-    ),
+    property: "background-color",
+    values:
+      map-collect(
+        get-palettes($background-color-palettes),
+        get-palettes("palette-color-required"),
+        get-palettes($global-color-palettes),
+        $background-color-manual-values
+      ),
     settings: $background-color-settings,
-    type: 'utility',
+    type: "utility"
   )
 );

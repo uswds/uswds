@@ -5,27 +5,28 @@ $usa-custom-alerts: () !default;
 $usa-custom-alerts-bar: () !default;
 
 $usa-alerts: (
-  success: 'success-lighter',
-  warning: 'warning-lighter',
-  error: 'error-lighter',
-  info: 'info-lighter',
+  success: "success-lighter",
+  warning: "warning-lighter",
+  error: "error-lighter",
+  info: "info-lighter"
 );
 
 $usa-alerts-bar: (
-  success: 'success',
-  warning: 'warning',
-  error: 'error',
-  info: 'info',
+  success: "success",
+  warning: "warning",
+  error: "error",
+  info: "info"
 );
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 $alerts-bar: map-merge($usa-alerts-bar, $usa-custom-alerts-bar);
-$alert-padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
+$alert-padding-left: units($theme-alert-padding-x) +
+  units($theme-alert-bar-width);
 
 .usa-alert {
   @include typeset($theme-alert-font-family);
   @include border-box-sizing;
-  background-color: color('base-lightest');
+  background-color: color("base-lightest");
   background-position: $alert-padding-left units($theme-alert-padding-x);
   background-repeat: no-repeat;
   background-size: units(4);
@@ -41,8 +42,8 @@ $alert-padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-widt
 
   // TODO: why is this not simply a border?
   &::before {
-    background-color: color('base-light');
-    content: '';
+    background-color: color("base-light");
+    content: "";
     height: 100%;
     left: 0;
     position: absolute;
@@ -72,7 +73,7 @@ $alert-padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-widt
 }
 
 .usa-alert__heading {
-  @include typeset($theme-alert-font-family, 'lg', 2);
+  @include typeset($theme-alert-font-family, "lg", 2);
   margin-top: 0;
   margin-bottom: units(1);
 }
@@ -92,7 +93,7 @@ $alert-padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-widt
 
 @each $name, $bgcolor in $alerts {
   .usa-alert--#{$name} {
-    @include add-background-svg('alerts/#{$name}');
+    @include add-background-svg("alerts/#{$name}");
     background-color: color($bgcolor);
 
     &::before {
@@ -100,7 +101,8 @@ $alert-padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-widt
     }
 
     .usa-alert__body {
-      padding-left: units($theme-alert-icon-size) + units($theme-alert-padding-x);
+      padding-left: units($theme-alert-icon-size) +
+        units($theme-alert-padding-x);
     }
   }
 }

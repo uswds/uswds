@@ -1,12 +1,11 @@
-
-
 /**
  * @name isElement
  * @desc returns whether or not the given argument is a DOM element.
  * @param {any} value
  * @return {boolean}
  */
-const isElement = value => value && typeof value === 'object' && value.nodeType === 1;
+const isElement = value =>
+  value && typeof value === "object" && value.nodeType === 1;
 
 /**
  * @name select
@@ -17,7 +16,7 @@ const isElement = value => value && typeof value === 'object' && value.nodeType 
  * @return {HTMLElement[]} - An array of DOM nodes or an empty array.
  */
 module.exports = (selector, context) => {
-  if (typeof selector !== 'string') {
+  if (typeof selector !== "string") {
     return [];
   }
 

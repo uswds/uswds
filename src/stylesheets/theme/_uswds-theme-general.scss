@@ -25,7 +25,7 @@ Relative image file path
 ----------------------------------------
 */
 
-$theme-image-path: '../img';
+$theme-image-path: "../img";
 
 /*
 ----------------------------------------
@@ -45,14 +45,14 @@ Namespace
 */
 
 $theme-namespace: (
-  'grid': (
-    namespace:  'grid-',
-    output:     true,
+  "grid": (
+    namespace: "grid-",
+    output: true
   ),
-  'utility': (
-    namespace:  'u-',
-    output:     false,
-  ),
+  "utility": (
+    namespace: "u-",
+    output: false
+  )
 );
 
 /*
@@ -84,10 +84,10 @@ Focus styles
 ----------------------------------------
 */
 
-$theme-focus-color:  'blue-40v';
+$theme-focus-color: "blue-40v";
 $theme-focus-offset: 0;
-$theme-focus-style:  solid;
-$theme-focus-width:  0.5;
+$theme-focus-style: solid;
+$theme-focus-width: 0.5;
 
 /*
 ----------------------------------------

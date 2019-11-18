@@ -16,14 +16,15 @@ example:
 
 $u-text-transform: (
   text-transform: (
-    base: 'text',
+    base: "text",
     modifiers: null,
-    values: map-collect(
-      get-palettes($text-transform-palettes),
-      $text-transform-manual-values
-    ),
+    values:
+      map-collect(
+        get-palettes($text-transform-palettes),
+        $text-transform-manual-values
+      ),
     settings: $text-transform-settings,
-    property: 'text-transform',
-    type: 'utility',
+    property: "text-transform",
+    type: "utility"
   )
 );

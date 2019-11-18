@@ -1,5 +1,5 @@
 $system-color-indigo: (
-  'indigo': (
+  "indigo": (
     5: #efeff8,
     10: #e5e4fa,
     20: #c5c5f3,
@@ -10,7 +10,7 @@ $system-color-indigo: (
     70: #3d4076,
     80: #2b2c40,
     90: #16171f,
-    'vivid': (
+    "vivid": (
       5: false,
       10: false,
       20: #c4c6f2,
@@ -20,7 +20,7 @@ $system-color-indigo: (
       60: #4d52b0,
       70: false,
       80: false,
-      90: false,
-    ),
-  ),
+      90: false
+    )
+  )
 );

@@ -24,14 +24,15 @@ example:
 
 $u-font-family: (
   font-family: (
-    base: 'font-family',
+    base: "font-family",
     modifiers: null,
-    values: map-collect(
-      get-palettes($font-family-palettes),
-      $font-family-manual-values
-    ),
+    values:
+      map-collect(
+        get-palettes($font-family-palettes),
+        $font-family-manual-values
+      ),
     settings: $font-family-settings,
-    property: 'font-family',
-    type: 'utility',
+    property: "font-family",
+    type: "utility"
   )
 );

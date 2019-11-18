@@ -11,14 +11,14 @@
 // -------------------------------------
 // Import individual theme settings
 
-@import 'uswds-theme-general';
-@import 'uswds-theme-typography';
-@import 'uswds-theme-spacing';
-@import 'uswds-theme-color';
-@import 'uswds-theme-utilities';
+@import "uswds-theme-general";
+@import "uswds-theme-typography";
+@import "uswds-theme-spacing";
+@import "uswds-theme-color";
+@import "uswds-theme-utilities";
 
 // components import needs to be last
-@import 'uswds-theme-components';
+@import "uswds-theme-components";
 
 // -------------------------------------
 // Import individual USWDS packages...
@@ -61,9 +61,9 @@
 // -------------------------------------
 // ...or import the complete USWDS kit
 
-@import 'uswds';
+@import "uswds";
 
 // -------------------------------------
 // Import theme custom styles
 
-@import 'uswds-theme-custom-styles';
+@import "uswds-theme-custom-styles";

@@ -16,11 +16,11 @@
   @include typeset-h3;
   margin-bottom: 0;
 
-  @include at-media('mobile-lg') {
+  @include at-media("mobile-lg") {
     @include typeset-h1;
   }
 
-  @include at-media('tablet') {
+  @include at-media("tablet") {
     @include typeset-display;
   }
 }
@@ -37,18 +37,18 @@
 
 .usa-dark-background {
   @include add-knockout-font-smoothing;
-  background-color: color('base-darker');
+  background-color: color("base-darker");
 
   p,
   span {
-    color: color('white');
+    color: color("white");
   }
 
   a {
-    color: color('base-lighter');
+    color: color("base-lighter");
 
     &:hover {
-      color: color('white');
+      color: color("white");
     }
   }
 }
