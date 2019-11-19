@@ -1,4 +1,7 @@
-version: 2
+version: 2.1
+
+orbs:
+  snyk: snyk/snyk@0.0.8
 
 references:
   container: &container
@@ -28,15 +31,10 @@ jobs:
           paths:
             - node_modules
           key: v2-uswds-dependencies-{{ checksum "package-lock.json" }}
-      - run:
-          name: Setup Snyk
-          command: sudo npm install -g snyk
-      - run: # run snyk auth - authenticate snyk use environment variables to add token
-          name: snyk auth
-          command: snyk auth $SNYK_TOKEN
+      - snyk/scan
       - run:
           name: Run test
-          command: npm test
+          command: npm test:ci
       - run:
           name: Run code coverage report
           command: npm run cover
