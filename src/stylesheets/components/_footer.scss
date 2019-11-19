@@ -91,15 +91,13 @@
 }
 
 .usa-footer__contact-info {
-  display: inline-block;
   line-height: line-height($theme-footer-font-family, 2);
 
   a {
     @include u-text("ink", "no-underline");
-  }
-
-  &:hover {
-    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   @include at-media("mobile-lg") {
@@ -234,8 +232,8 @@
   }
 
   .usa-footer__address {
-    @include u-padding-y(2);
     @include u-padding-x($theme-site-margins-mobile-width);
+    @include u-padding-y(2);
     @include at-media("mobile-lg") {
       @include u-padding(0);
     }
@@ -250,6 +248,8 @@
   }
 
   .usa-footer__contact-info {
+    display: inline-block;
+
     @include at-media("mobile-lg") {
       @include u-padding-y(2);
       margin-top: 0;
@@ -275,18 +275,12 @@
 
   .usa-footer__primary-link {
     @include h4;
-    @include add-background-svg("arrow-down");
-    background-position: units(2) center;
-    background-size: units(1.5);
     line-height: line-height("heading", 2);
     margin: 0;
-    padding-left: units(4);
 
     @include at-media("mobile-lg") {
       @include u-padding-y(0);
-      background: none;
       margin-bottom: units(1);
-      padding-left: 0;
 
       &:hover {
         cursor: auto;
@@ -296,19 +290,44 @@
   }
 
   .usa-footer__primary-content--collapsible {
+    .usa-footer__primary-link {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      justify-content: flex-start;
+
+      // Arrow for collapsible content.
+      &::before {
+        @include add-background-svg("arrow-down");
+        align-items: center;
+        background-size: contain;
+        content: "";
+        display: inline-flex;
+        height: units(1.5);
+        justify-content: center;
+        margin-right: units(1);
+        width: units(1.5);
+      }
+
+      @include at-media("mobile-lg") {
+        &::before {
+          content: none;
+        }
+      }
+    }
+
     &.hidden {
       .usa-list--unstyled {
         display: none;
       }
 
       .usa-footer__primary-link {
-        @include add-background-svg("arrow-right");
-        cursor: pointer;
+        &::before {
+          @include add-background-svg("arrow-right");
+        }
 
         @include at-media("mobile-lg") {
-          background: none;
           margin: 0;
-          padding-left: 0;
         }
       }
     }
