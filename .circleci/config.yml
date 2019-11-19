@@ -34,7 +34,7 @@ jobs:
       - snyk/scan
       - run:
           name: Run test
-          command: npm test:ci
+          command: npm run test:ci
       - run:
           name: Run code coverage report
           command: npm run cover
