@@ -16,14 +16,11 @@ example:
 
 $u-height: (
   height: (
-    base: 'height',
+    base: "height",
     modifiers: null,
-    values: map-collect(
-      get-palettes($height-palettes),
-      $height-manual-values
-    ),
+    values: map-collect(get-palettes($height-palettes), $height-manual-values),
     settings: $height-settings,
-    property: 'height',
-    type: 'utility',
+    property: "height",
+    type: "utility"
   )
 );

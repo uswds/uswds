@@ -3,8 +3,8 @@
   $value: unpack($value);
   $important: null;
   @if has-important($value) {
-    $value: remove($value, '!important');
-    $important: ' !important';
+    $value: remove($value, "!important");
+    $important: " !important";
   }
   border-width: get-uswds-value(border-width, $value) #{$important};
 }
@@ -13,8 +13,8 @@
   $value: unpack($value);
   $important: null;
   @if has-important($value) {
-    $value: remove($value, '!important');
-    $important: ' !important';
+    $value: remove($value, "!important");
+    $important: " !important";
   }
   border-left-width: get-uswds-value(border-width, $value) #{$important};
   border-right-width: get-uswds-value(border-width, $value) #{$important};
@@ -24,8 +24,8 @@
   $value: unpack($value);
   $important: null;
   @if has-important($value) {
-    $value: remove($value, '!important');
-    $important: ' !important';
+    $value: remove($value, "!important");
+    $important: " !important";
   }
   border-bottom-width: get-uswds-value(border-width, $value) #{$important};
   border-top-width: get-uswds-value(border-width, $value) #{$important};

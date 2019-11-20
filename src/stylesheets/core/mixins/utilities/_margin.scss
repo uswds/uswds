@@ -5,58 +5,52 @@
   @if $side == all {
     $important: null;
     @if has-important($value) {
-      $value: remove($value, '!important');
-      $important: ' !important';
+      $value: remove($value, "!important");
+      $important: " !important";
     }
     margin: get-uswds-value(margin, $value...) #{$important};
-  }
-  @else if $side == x {
+  } @else if $side == x {
     $important: null;
     @if has-important($value) {
-      $value: remove($value, '!important');
-      $important: ' !important';
+      $value: remove($value, "!important");
+      $important: " !important";
     }
     margin-left: get-uswds-value(margin-horizontal, $value...) #{$important};
     margin-right: get-uswds-value(margin-horizontal, $value...) #{$important};
-  }
-  @else if $side == y {
+  } @else if $side == y {
     $important: null;
     @if has-important($value) {
-      $value: remove($value, '!important');
-      $important: ' !important';
+      $value: remove($value, "!important");
+      $important: " !important";
     }
     margin-bottom: get-uswds-value(margin-vertical, $value...) #{$important};
     margin-top: get-uswds-value(margin-vertical, $value...) #{$important};
-  }
-  @else if $side == t {
+  } @else if $side == t {
     $important: null;
     @if has-important($value) {
-      $value: remove($value, '!important');
-      $important: ' !important';
+      $value: remove($value, "!important");
+      $important: " !important";
     }
     margin-top: get-uswds-value(margin-vertical, $value...) #{$important};
-  }
-  @else if $side == r {
+  } @else if $side == r {
     $important: null;
     @if has-important($value) {
-      $value: remove($value, '!important');
-      $important: ' !important';
+      $value: remove($value, "!important");
+      $important: " !important";
     }
     margin-right: get-uswds-value(margin-horizontal, $value...) #{$important};
-  }
-  @else if $side == b {
+  } @else if $side == b {
     $important: null;
     @if has-important($value) {
-      $value: remove($value, '!important');
-      $important: ' !important';
+      $value: remove($value, "!important");
+      $important: " !important";
     }
     margin-bottom: get-uswds-value(margin-vertical, $value...) #{$important};
-  }
-  @else if $side == l {
+  } @else if $side == l {
     $important: null;
     @if has-important($value) {
-      $value: remove($value, '!important');
-      $important: ' !important';
+      $value: remove($value, "!important");
+      $important: " !important";
     }
     margin-left: get-uswds-value(margin-horizontal, $value...) #{$important};
   }

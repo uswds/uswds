@@ -1,12 +1,13 @@
-const assign = require('object-assign');
-const { keymap } = require('receptor');
-const behavior = require('./behavior');
-const select = require('./select');
-const activeElement = require('./active-element');
+const assign = require("object-assign");
+const { keymap } = require("receptor");
+const behavior = require("./behavior");
+const select = require("./select");
+const activeElement = require("./active-element");
 
-const FOCUSABLE = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+const FOCUSABLE =
+  'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
 
-const tabHandler = (context) => {
+const tabHandler = context => {
   const focusableElements = select(FOCUSABLE, context);
   const firstTabStop = focusableElements[0];
   const lastTabStop = focusableElements[focusableElements.length - 1];
@@ -31,7 +32,7 @@ const tabHandler = (context) => {
     firstTabStop,
     lastTabStop,
     tabAhead,
-    tabBack,
+    tabBack
   };
 };
 
@@ -41,27 +42,35 @@ module.exports = (context, additionalKeyBindings = {}) => {
   //  TODO: In the future, loop over additional keybindings and pass an array
   // of functions, if necessary, to the map keys. Then people implementing
   // the focus trap could pass callbacks to fire when tabbing
-  const keyMappings = keymap(assign({
-    Tab: tabEventHandler.tabAhead,
-    'Shift+Tab': tabEventHandler.tabBack,
-  }, additionalKeyBindings));
+  const keyMappings = keymap(
+    assign(
+      {
+        Tab: tabEventHandler.tabAhead,
+        "Shift+Tab": tabEventHandler.tabBack
+      },
+      additionalKeyBindings
+    )
+  );
 
-  const focusTrap = behavior({
-    keydown: keyMappings,
-  }, {
-    init() {
-      // TODO: is this desireable behavior? Should the trap always do this by default or should
-      // the component getting decorated handle this?
-      tabEventHandler.firstTabStop.focus();
+  const focusTrap = behavior(
+    {
+      keydown: keyMappings
     },
-    update(isActive) {
-      if (isActive) {
-        this.on();
-      } else {
-        this.off();
+    {
+      init() {
+        // TODO: is this desireable behavior? Should the trap always do this by default or should
+        // the component getting decorated handle this?
+        tabEventHandler.firstTabStop.focus();
+      },
+      update(isActive) {
+        if (isActive) {
+          this.on();
+        } else {
+          this.off();
+        }
       }
-    },
-  });
+    }
+  );
 
   return focusTrap;
 };

@@ -1,21 +1,19 @@
-const ignore = require('receptor/ignore');
-const behavior = require('../utils/behavior');
-const select = require('../utils/select');
+const ignore = require("receptor/ignore");
+const behavior = require("../utils/behavior");
+const select = require("../utils/select");
 
-const { CLICK } = require('../events');
+const { CLICK } = require("../events");
 
-const BUTTON = '.js-search-button';
-const FORM = '.js-search-form';
-const INPUT = '[type=search]';
-const CONTEXT = 'header'; // XXX
+const BUTTON = ".js-search-button";
+const FORM = ".js-search-form";
+const INPUT = "[type=search]";
+const CONTEXT = "header"; // XXX
 
 let lastButton;
 
-const getForm = (button) => {
+const getForm = button => {
   const context = button.closest(CONTEXT);
-  return context
-    ? context.querySelector(FORM)
-    : document.querySelector(FORM);
+  return context ? context.querySelector(FORM) : document.querySelector(FORM);
 };
 
 const toggleSearch = (button, active) => {
@@ -69,20 +67,23 @@ function hideSearch() {
   lastButton = undefined;
 }
 
-const search = behavior({
-  [CLICK]: {
-    [BUTTON]: showSearch,
+const search = behavior(
+  {
+    [CLICK]: {
+      [BUTTON]: showSearch
+    }
   },
-}, {
-  init(target) {
-    select(BUTTON, target).forEach((button) => {
-      toggleSearch(button, false);
-    });
-  },
-  teardown() {
-    // forget the last button clicked
-    lastButton = undefined;
-  },
-});
+  {
+    init(target) {
+      select(BUTTON, target).forEach(button => {
+        toggleSearch(button, false);
+      });
+    },
+    teardown() {
+      // forget the last button clicked
+      lastButton = undefined;
+    }
+  }
+);
 
 module.exports = search;

@@ -1,10 +1,5 @@
 // Output the @font-face rule
-@mixin at-font-face(
-  $display-name,
-  $file-path,
-  $font-weight,
-  $font-style
-) {
+@mixin at-font-face($display-name, $file-path, $font-weight, $font-style) {
   $file-path: unquote($file-path);
 
   // TODO: If $theme-use-rails-pipeline use font-url() statements
@@ -16,10 +11,9 @@
     font-style: unquote($font-style);
     font-weight: $font-weight;
     font-display: fallback;
-    src:
-      url(#{$file-path}.woff2) format('woff2'),
-      url(#{$file-path}.woff) format('woff'),
-      url(#{$file-path}.ttf) format('truetype');
+    src: url(#{$file-path}.woff2) format("woff2"),
+      url(#{$file-path}.woff) format("woff"),
+      url(#{$file-path}.ttf) format("truetype");
   }
 }
 
@@ -35,10 +29,10 @@
     @each $key, $output-weight in $output-weights {
       @if $output-weight == $font-weight and $filename {
         @include at-font-face(
-          '#{$display-name}',
-          '#{$theme-font-path}/#{$dir}/#{$filename}',
+          "#{$display-name}",
+          "#{$theme-font-path}/#{$dir}/#{$filename}",
           #{$font-weight},
-          unquote('#{$font-style}')
+          unquote("#{$font-style}")
         );
       }
     }
@@ -60,7 +54,7 @@
       600: 600,
       700: 700,
       800: 800,
-      900: 900,
+      900: 900
     );
   }
 

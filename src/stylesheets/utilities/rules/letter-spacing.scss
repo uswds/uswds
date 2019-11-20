@@ -16,14 +16,15 @@ example:
 
 $u-letter-spacing: (
   letter-spacing: (
-    base: 'text',
+    base: "text",
     modifiers: null,
-    values: map-collect(
-      get-palettes($letter-spacing-palettes),
-      $letter-spacing-manual-values
-    ),
+    values:
+      map-collect(
+        get-palettes($letter-spacing-palettes),
+        $letter-spacing-manual-values
+      ),
     settings: $letter-spacing-settings,
-    property: 'letter-spacing',
-    type: 'utility',
+    property: "letter-spacing",
+    type: "utility"
   )
 );

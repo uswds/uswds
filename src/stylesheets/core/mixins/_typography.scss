@@ -14,21 +14,9 @@ Sets:
   $scale: $theme-body-font-size,
   $line-height: $theme-body-line-height
 ) {
-  $family: if(
-    $family == null,
-    $theme-body-font-family,
-    $family
-  );
-  $scale: if(
-    $scale == null,
-    $theme-body-font-size,
-    $scale
-  );
-  $line-height: if(
-    $line-height == null,
-    $theme-body-line-height,
-    $line-height
-  );
+  $family: if($family == null, $theme-body-font-family, $family);
+  $scale: if($scale == null, $theme-body-font-size, $scale);
+  $line-height: if($line-height == null, $theme-body-line-height, $line-height);
   @include u-font($family, $scale);
   @include u-line-height($family, $line-height);
 }
@@ -38,7 +26,7 @@ Sets:
   clear: both;
 
   * + & {
-    margin-top: 1.5em;  // TODO: add as var to settings?
+    margin-top: 1.5em; // TODO: add as var to settings?
   }
 
   + * {
@@ -48,16 +36,13 @@ Sets:
 
 // typeset element mixins
 @mixin typeset-p {
-  line-height: line-height(
-    $theme-body-font-family,
-    $theme-body-line-height
-  );
+  line-height: line-height($theme-body-font-family, $theme-body-line-height);
   margin-bottom: 0;
   margin-top: 0;
   max-width: measure($theme-text-measure);
 
   * + & {
-    margin-top: 1em;  // TODO: add as var to settings?
+    margin-top: 1em; // TODO: add as var to settings?
   }
 
   + * {
@@ -88,12 +73,12 @@ Sets:
 
 @mixin display {
   @include typeset(
-    'heading',
+    "heading",
     $theme-display-font-size,
     $theme-heading-line-height
   );
 
-  font-weight: fw('bold');
+  font-weight: fw("bold");
 }
 
 @mixin typeset-display {
@@ -102,13 +87,9 @@ Sets:
 }
 
 @mixin h1 {
-  @include typeset(
-    'heading',
-    $theme-h1-font-size,
-    $theme-heading-line-height
-  );
+  @include typeset("heading", $theme-h1-font-size, $theme-heading-line-height);
 
-  font-weight: fw('bold');
+  font-weight: fw("bold");
 }
 
 @mixin typeset-h1 {
@@ -117,13 +98,9 @@ Sets:
 }
 
 @mixin h2 {
-  @include typeset(
-    'heading',
-    $theme-h2-font-size,
-    $theme-heading-line-height
-  );
+  @include typeset("heading", $theme-h2-font-size, $theme-heading-line-height);
 
-  font-weight: fw('bold');
+  font-weight: fw("bold");
 }
 
 @mixin typeset-h2 {
@@ -132,13 +109,9 @@ Sets:
 }
 
 @mixin h3 {
-  @include typeset(
-    'heading',
-    $theme-h3-font-size,
-    $theme-heading-line-height
-  );
+  @include typeset("heading", $theme-h3-font-size, $theme-heading-line-height);
 
-  font-weight: fw('bold');
+  font-weight: fw("bold");
 }
 
 @mixin typeset-h3 {
@@ -147,13 +120,9 @@ Sets:
 }
 
 @mixin h4 {
-  @include typeset(
-    'heading',
-    $theme-h4-font-size,
-    $theme-heading-line-height
-  );
+  @include typeset("heading", $theme-h4-font-size, $theme-heading-line-height);
 
-  font-weight: fw('bold');
+  font-weight: fw("bold");
 }
 
 @mixin typeset-h4 {
@@ -162,13 +131,9 @@ Sets:
 }
 
 @mixin h5 {
-  @include typeset(
-    'heading',
-    $theme-h5-font-size,
-    $theme-heading-line-height
-  );
+  @include typeset("heading", $theme-h5-font-size, $theme-heading-line-height);
 
-  font-weight: fw('bold');
+  font-weight: fw("bold");
 }
 
 @mixin typeset-h5 {
@@ -177,14 +142,10 @@ Sets:
 }
 
 @mixin h6 {
-  @include typeset(
-    'body',
-    $theme-h6-font-size,
-    $theme-heading-line-height
-  );
+  @include typeset("body", $theme-h6-font-size, $theme-heading-line-height);
 
-  font-weight: fw('normal');
-  letter-spacing: ls('ls-1');
+  font-weight: fw("normal");
+  letter-spacing: ls("ls-1");
   text-transform: uppercase;
 }
 

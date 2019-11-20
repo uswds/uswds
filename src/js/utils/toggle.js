@@ -1,12 +1,12 @@
-const EXPANDED = 'aria-expanded';
-const CONTROLS = 'aria-controls';
-const HIDDEN = 'hidden';
+const EXPANDED = "aria-expanded";
+const CONTROLS = "aria-controls";
+const HIDDEN = "hidden";
 
 module.exports = (button, expanded) => {
   let safeExpanded = expanded;
 
-  if (typeof safeExpanded !== 'boolean') {
-    safeExpanded = button.getAttribute(EXPANDED) === 'false';
+  if (typeof safeExpanded !== "boolean") {
+    safeExpanded = button.getAttribute(EXPANDED) === "false";
   }
 
   button.setAttribute(EXPANDED, safeExpanded);
@@ -20,7 +20,7 @@ module.exports = (button, expanded) => {
   if (safeExpanded) {
     controls.removeAttribute(HIDDEN);
   } else {
-    controls.setAttribute(HIDDEN, '');
+    controls.setAttribute(HIDDEN, "");
   }
 
   return safeExpanded;

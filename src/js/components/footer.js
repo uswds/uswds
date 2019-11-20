@@ -1,10 +1,10 @@
-const debounce = require('lodash.debounce');
-const behavior = require('../utils/behavior');
-const select = require('../utils/select');
-const { CLICK } = require('../events');
-const { prefix: PREFIX } = require('../config');
+const debounce = require("lodash.debounce");
+const behavior = require("../utils/behavior");
+const select = require("../utils/select");
+const { CLICK } = require("../events");
+const { prefix: PREFIX } = require("../config");
 
-const HIDDEN = 'hidden';
+const HIDDEN = "hidden";
 const SCOPE = `.${PREFIX}-footer--big`;
 const NAV = `${SCOPE} nav`;
 const BUTTON = `${NAV} .${PREFIX}-footer__primary-link`;
@@ -22,7 +22,7 @@ function showPanel() {
     // selector is scoped to ".{prefix}-footer-big nav"
     const collapsibleEls = select(COLLAPSIBLE, collapseEl.closest(NAV));
 
-    collapsibleEls.forEach((el) => {
+    collapsibleEls.forEach(el => {
       if (el !== collapseEl) {
         el.classList.add(HIDDEN);
       }
@@ -39,21 +39,24 @@ const resize = debounce(() => {
   select(COLLAPSIBLE).forEach(list => list.classList.toggle(HIDDEN, hidden));
 }, DEBOUNCE_RATE);
 
-module.exports = behavior({
-  [CLICK]: {
-    [BUTTON]: showPanel,
+module.exports = behavior(
+  {
+    [CLICK]: {
+      [BUTTON]: showPanel
+    }
   },
-}, {
-  // export for use elsewhere
-  HIDE_MAX_WIDTH,
-  DEBOUNCE_RATE,
+  {
+    // export for use elsewhere
+    HIDE_MAX_WIDTH,
+    DEBOUNCE_RATE,
 
-  init() {
-    resize();
-    window.addEventListener('resize', resize);
-  },
+    init() {
+      resize();
+      window.addEventListener("resize", resize);
+    },
 
-  teardown() {
-    window.removeEventListener('resize', resize);
-  },
-});
+    teardown() {
+      window.removeEventListener("resize", resize);
+    }
+  }
+);

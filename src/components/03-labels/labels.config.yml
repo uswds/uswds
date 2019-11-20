@@ -1,6 +1,6 @@
 label: Tags
 status: ready
-preview: '@uswds-framed'
+preview: "@uswds-framed"
 
 variants:
   - name: default

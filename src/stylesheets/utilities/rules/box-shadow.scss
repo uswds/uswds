@@ -16,14 +16,12 @@ example:
 
 $u-box-shadow: (
   box-shadow: (
-    base: 'shadow',
+    base: "shadow",
     modifiers: null,
-    values: map-collect(
-      get-palettes($box-shadow-palettes),
-      $box-shadow-manual-values
-    ),
+    values:
+      map-collect(get-palettes($box-shadow-palettes), $box-shadow-manual-values),
     settings: $box-shadow-settings,
-    property: 'box-shadow',
-    type: 'utility',
+    property: "box-shadow",
+    type: "utility"
   )
 );

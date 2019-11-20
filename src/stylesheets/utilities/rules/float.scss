@@ -16,14 +16,11 @@ example:
 
 $u-float: (
   float: (
-    base: 'float',
+    base: "float",
     modifiers: null,
-    values: map-collect(
-      get-palettes($float-palettes),
-      $float-manual-values
-    ),
+    values: map-collect(get-palettes($float-palettes), $float-manual-values),
     settings: $float-settings,
-    property: 'float',
-    type: 'utility',
+    property: "float",
+    type: "utility"
   )
 );

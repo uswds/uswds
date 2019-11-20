@@ -3,8 +3,8 @@
   height: units($size-touch-target);
 
   @include at-media-max($theme-header-min-width) {
-    @include u-flex('align-center');
-    border-bottom: units(1px) solid color('base-lighter');
+    @include u-flex("align-center");
+    border-bottom: units(1px) solid color("base-lighter");
     display: flex;
   }
 

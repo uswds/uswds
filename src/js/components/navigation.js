@@ -1,13 +1,13 @@
-const behavior = require('../utils/behavior');
-const select = require('../utils/select');
-const toggle = require('../utils/toggle');
-const FocusTrap = require('../utils/focus-trap');
-const accordion = require('./accordion');
+const behavior = require("../utils/behavior");
+const select = require("../utils/select");
+const toggle = require("../utils/toggle");
+const FocusTrap = require("../utils/focus-trap");
+const accordion = require("./accordion");
 
-const { CLICK } = require('../events');
-const { prefix: PREFIX } = require('../config');
+const { CLICK } = require("../events");
+const { prefix: PREFIX } = require("../config");
 
-const BODY = 'body';
+const BODY = "body";
 const NAV = `.${PREFIX}-nav`;
 const NAV_LINKS = `${NAV} a`;
 const NAV_CONTROL = `button.${PREFIX}-nav__link`;
@@ -15,19 +15,19 @@ const OPENERS = `.${PREFIX}-menu-btn`;
 const CLOSE_BUTTON = `.${PREFIX}-nav__close`;
 const OVERLAY = `.${PREFIX}-overlay`;
 const CLOSERS = `${CLOSE_BUTTON}, .${PREFIX}-overlay`;
-const TOGGLES = [NAV, OVERLAY].join(', ');
+const TOGGLES = [NAV, OVERLAY].join(", ");
 
-const ACTIVE_CLASS = 'usa-js-mobile-nav--active';
-const VISIBLE_CLASS = 'is-visible';
+const ACTIVE_CLASS = "usa-js-mobile-nav--active";
+const VISIBLE_CLASS = "is-visible";
 
 let navigation;
 let navActive;
 
 const isActive = () => document.body.classList.contains(ACTIVE_CLASS);
 
-const toggleNav = (active) => {
+const toggleNav = active => {
   const { body } = document;
-  const safeActive = typeof active === 'boolean' ? active : !isActive();
+  const safeActive = typeof active === "boolean" ? active : !isActive();
 
   body.classList.toggle(ACTIVE_CLASS, safeActive);
 
@@ -42,7 +42,11 @@ const toggleNav = (active) => {
     // The mobile nav was just activated, so focus on the close button,
     // which is just before all the nav elements in the tab order.
     closeButton.focus();
-  } else if (!safeActive && document.activeElement === closeButton && menuButton) {
+  } else if (
+    !safeActive &&
+    document.activeElement === closeButton &&
+    menuButton
+  ) {
     // The mobile nav was just deactivated, and focus was on the close
     // button, which is no longer visible. We don't want the focus to
     // disappear into the void, so focus on the menu button if it's
@@ -71,71 +75,73 @@ const hideActiveNavDropdown = () => {
   navActive = null;
 };
 
+navigation = behavior(
+  {
+    [CLICK]: {
+      [NAV_CONTROL]() {
+        // If another nav is open, close it
+        if (navActive && navActive !== this) {
+          hideActiveNavDropdown();
+        }
+        // store a reference to the last clicked nav link element, so we
+        // can hide the dropdown if another element on the page is clicked
+        if (navActive) {
+          hideActiveNavDropdown();
+        } else {
+          navActive = this;
+          toggle(navActive, true);
+        }
 
-navigation = behavior({
-  [CLICK]: {
-    [NAV_CONTROL]() {
-      // If another nav is open, close it
-      if (navActive && navActive !== this) {
-        hideActiveNavDropdown();
+        // Do this so the event handler on the body doesn't fire
+        return false;
+      },
+      [BODY]() {
+        if (navActive) {
+          hideActiveNavDropdown();
+        }
+      },
+      [OPENERS]: toggleNav,
+      [CLOSERS]: toggleNav,
+      [NAV_LINKS]() {
+        // A navigation link has been clicked! We want to collapse any
+        // hierarchical navigation UI it's a part of, so that the user
+        // can focus on whatever they've just selected.
+
+        // Some navigation links are inside accordions; when they're
+        // clicked, we want to collapse those accordions.
+        const acc = this.closest(accordion.ACCORDION);
+
+        if (acc) {
+          accordion.getButtons(acc).forEach(btn => accordion.hide(btn));
+        }
+
+        // If the mobile navigation menu is active, we want to hide it.
+        if (isActive()) {
+          navigation.toggleNav.call(navigation, false);
+        }
       }
-      // store a reference to the last clicked nav link element, so we
-      // can hide the dropdown if another element on the page is clicked
-      if (navActive) {
-        hideActiveNavDropdown();
-      } else {
-        navActive = this;
-        toggle(navActive, true);
-      }
-
-      // Do this so the event handler on the body doesn't fire
-      return false;
-    },
-    [BODY]() {
-      if (navActive) {
-        hideActiveNavDropdown();
-      }
-    },
-    [OPENERS]: toggleNav,
-    [CLOSERS]: toggleNav,
-    [NAV_LINKS]() {
-      // A navigation link has been clicked! We want to collapse any
-      // hierarchical navigation UI it's a part of, so that the user
-      // can focus on whatever they've just selected.
-
-      // Some navigation links are inside accordions; when they're
-      // clicked, we want to collapse those accordions.
-      const acc = this.closest(accordion.ACCORDION);
-
-      if (acc) {
-        accordion.getButtons(acc).forEach(btn => accordion.hide(btn));
-      }
-
-      // If the mobile navigation menu is active, we want to hide it.
-      if (isActive()) {
-        navigation.toggleNav.call(navigation, false);
-      }
-    },
-  },
-}, {
-  init(root) {
-    const trapContainer = root.querySelector(NAV);
-
-    if (trapContainer) {
-      navigation.focusTrap = FocusTrap(trapContainer, {
-        Escape: onMenuClose,
-      });
     }
+  },
+  {
+    init(root) {
+      const trapContainer = root.querySelector(NAV);
 
-    resize();
-    window.addEventListener('resize', resize, false);
-  },
-  teardown() {
-    window.removeEventListener('resize', resize, false);
-    navActive = false;
-  },
-  focusTrap: null,
-  toggleNav,
-});
+      if (trapContainer) {
+        navigation.focusTrap = FocusTrap(trapContainer, {
+          Escape: onMenuClose
+        });
+      }
+
+      resize();
+      window.addEventListener("resize", resize, false);
+    },
+    teardown() {
+      window.removeEventListener("resize", resize, false);
+      navActive = false;
+    },
+    focusTrap: null,
+    toggleNav
+  }
+);
 
 module.exports = navigation;

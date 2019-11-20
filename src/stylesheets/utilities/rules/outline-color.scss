@@ -16,17 +16,18 @@ example:
 
 $u-outline-color: (
   outline-color: (
-    base: 'outline',
+    base: "outline",
     modifiers: null,
-    values: map-collect(
-      get-palettes($outline-color-palettes),
-      get-palettes($global-color-palettes),
-      $outline-color-manual-values
-    ),
+    values:
+      map-collect(
+        get-palettes($outline-color-palettes),
+        get-palettes($global-color-palettes),
+        $outline-color-manual-values
+      ),
     settings: $outline-color-settings,
     valuePrepend: null,
     valueAppend: null,
-    property: 'outline-color',
-    type: 'utility',
+    property: "outline-color",
+    type: "utility"
   )
 );

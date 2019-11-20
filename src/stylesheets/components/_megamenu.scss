@@ -1,7 +1,7 @@
 @mixin outer-megamenu {
-  @include u-pin('y');
-  background-color: color('primary-darker');
-  content: '';
+  @include u-pin("y");
+  background-color: color("primary-darker");
+  content: "";
   display: block;
   position: absolute;
   width: 100%;
@@ -9,8 +9,9 @@
 
 .usa-megamenu {
   .usa-col {
+    @include u-flex(1);
     @include at-media($theme-header-min-width) {
-      @include u-flex(12/$theme-megamenu-columns);
+      @include u-flex(12 / $theme-megamenu-columns);
     }
   }
 }
