@@ -69,7 +69,7 @@ jobs:
 
 workflows:
   version: 2
-  build-and-publish-if-master:
+  circle-uswds:
     jobs:
       - build
       - deploy:
