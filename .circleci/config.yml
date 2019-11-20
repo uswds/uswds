@@ -69,7 +69,7 @@ jobs:
 
 workflows:
   version: 2
-  uswds:
+  circle-uswds:
     jobs:
       - build
       - deploy:
