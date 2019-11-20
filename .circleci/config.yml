@@ -31,7 +31,8 @@ jobs:
           paths:
             - node_modules
           key: v2-uswds-dependencies-{{ checksum "package-lock.json" }}
-      - snyk/scan
+      - snyk/scan:
+          organization: uswds
       - run:
           name: Run test
           command: npm run test:ci
@@ -63,16 +64,12 @@ jobs:
           command: |
             npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
             npm publish
-      - run:
-          name: Setup Snyk
-          command: sudo npm install -g snyk
-      - run:
-          name: Update dependencies in Snyk dashboard
-          command: snyk monitor --org=uswds
+      - snyk/scan:
+          organization: uswds
 
 workflows:
   version: 2
-  build_and_deploy:
+  build-and-publish-if-master:
     jobs:
       - build
       - deploy:
