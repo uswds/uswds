@@ -1,48 +1,23 @@
 
 
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <title>Uswds Content: Default</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../dist/css/uswds.min.css">
-  </head>
-  <body>
-    
-  <div class="grid-container usa-prose" style="padding-top: 2em; padding-bottom: 2em;">
-    <form class="usa-form">
-  <fieldset class="usa-fieldset">
-    <legend class="usa-legend">Enter a code</legend>
-    <div class="usa-alert usa-alert--info usa-alert--validation">
-      <div class="usa-alert__body">
-        <h3 class="usa-alert__heading">Code requirements</h3>
-        <ul class="usa-checklist" id="validate-code">
-          <li class="usa-checklist__item usa-checklist__item--checked" data-validator="uppercase">Use at least one uppercase character</li>
-          <li class="usa-checklist__item" data-validator="numerical">Use at least one number</li>
-        </ul>
+<form class="usa-form">
+  <fieldset>
+    <legend class="usa-drop_text">Enter a code</legend>
+    <div class="usa-alert usa-alert-info">
+      <div class="usa-alert-body">
+        <h3 class="usa-alert-heading">Codes must:</h3>
       </div>
+      <ul class="usa-checklist" id="validate-code">
+        <li data-validator="uppercase">Have at least 1 uppercase character</li>
+        <li data-validator="numerical">Have at least 1 numerical character</li>
+      </ul>
     </div>
-    <label class="usa-label" for="code">Code</label>
-    <input class="usa-input" id="code" name="code" type="text"
+    <label for="code">Code</label>
+    <input id="code" name="code" type="text"
       aria-describedby="validate-code"
       data-validate-uppercase="[A-Z]"
       data-validate-numerical="\d"
       data-validation-element="#validate-code">
-    <input class="usa-button" type="submit" value="Submit code">
+    <input type="submit" value="Submit code">
   </fieldset>
 </form>
-
-  </div>
-
-    <script src="../../dist/js/uswds.min.js"></script>
-    <script>
-    window.addEventListener('load', function() {
-      document.body.addEventListener('submit', function(e) {
-        // https://github.com/uswds/uswds/issues/2101
-        e.preventDefault();
-      }, true);
-    }, false);
-    </script>
-  </body>
-</html>
-
