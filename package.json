@@ -71,7 +71,7 @@
   },
   "devDependencies": {
     "@18f/stylelint-rules": "^1.2.0",
-    "@frctl/fractal": "^1.1.7",
+    "@frctl/fractal": "^1.2.0",
     "@frctl/mandelbrot": "^1.2.0",
     "@frctl/nunjucks": "^1.0.3",
     "axe-core": "^2.6.1",
@@ -105,20 +105,20 @@
     "gulp-util": "^3.0.7",
     "gulp-zip": "^3.1.0",
     "istanbul": "^0.4.5",
-    "jquery": "^3.2.1",
+    "jquery": "^3.4.1",
     "jsdom": "^9.0.0",
     "jsdom-global": "^2.1.0",
     "mocha": "^3.5.3",
     "node-notifier": "^4.6.0",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.13.0",
     "normalize.css": "^3.0.3",
     "nswatch": "^0.2.0",
     "resemblejs": "^2.2.4",
     "run-sequence": "^1.1.5",
     "should": "^11.2.1",
     "sinon": "^2.3.8",
+    "snyk": "^1.136.1",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^1.1.2",
-    "snyk": "^1.136.1"
+    "vinyl-source-stream": "^1.1.2"
   }
 }
