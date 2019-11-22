@@ -1,35 +1,27 @@
-var gulp = require('gulp');
-var mocha = require('gulp-spawn-mocha');
-var runSequence = require('run-sequence');
+var gulp = require("gulp");
+var mocha = require("gulp-spawn-mocha");
+var runSequence = require("run-sequence");
 
 var mochaOpts = {
-  opts: 'spec/mocha.opts',
+  opts: "spec/mocha.opts"
 };
 
-gulp.task('test', function () {
-  return gulp.src('spec/**/*.spec.js')
-    .pipe(mocha(mochaOpts));
+gulp.task("test", function() {
+  return gulp.src("spec/**/*.spec.js").pipe(mocha(mochaOpts));
 });
 
-gulp.task('regression', () => {
-  return gulp.src('spec/headless-chrome.js')
-    .pipe(mocha(mochaOpts));
+gulp.task("cover", function() {
+  return gulp.src("spec/unit/**/*.spec.js").pipe(
+    mocha(
+      Object.assign(mochaOpts, {
+        istanbul: true
+      })
+    )
+  );
 });
 
-gulp.task('cover', function () {
-  return gulp.src('spec/unit/**/*.spec.js')
-    .pipe(mocha(Object.assign(mochaOpts, {
-      istanbul: true
-    })));
-});
-
-gulp.task('test:watch', function () {
-  gulp.watch([
-    'spec/**/*.spec.js',
-    'src/js/**/*.js',
-  ], function (event) {
-    runSequence(
-      'test'
-    );
+gulp.task("test:watch", function() {
+  gulp.watch(["spec/**/*.spec.js", "src/js/**/*.js"], function(event) {
+    runSequence("test");
   });
 });
