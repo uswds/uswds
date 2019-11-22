@@ -1,0 +1,36 @@
+
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Uswds Content: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css">
+  </head>
+  <body>
+    
+  <div class="grid-container usa-prose" style="padding-top: 2em; padding-bottom: 2em;">
+    <p><a class="usa-link" href="javascript:void(0);">This</a> is a text link on a light background.</p>
+
+<p><a class="usa-link usa-color-text-visited" href="javascript:void(0);">This</a> is a visited link.</p>
+
+<p>This is a link that goes to an <a class="usa-link usa-link--external" href="https://i.giphy.com/media/WPzQF6ruiIIVzHNlwX/source.gif">external website</a>.</p>
+
+<div class="usa-dark-background">
+  <p><a class="usa-link" href="javascript:void(0);">This</a> is a text link on a dark background.</p>
+</div>
+
+  </div>
+
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+    window.addEventListener('load', function() {
+      document.body.addEventListener('submit', function(e) {
+        // https://github.com/uswds/uswds/issues/2101
+        e.preventDefault();
+      }, true);
+    }, false);
+    </script>
+  </body>
+</html>
+
