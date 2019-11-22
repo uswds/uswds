@@ -1,6 +1,16 @@
 
 
-<div class="usa-grid">
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Uswds Framed: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../dist/css/uswds.min.css">
+  </head>
+  <body>
+
+  <div class="usa-grid" style="padding: 2em 0">
+    <div class="usa-grid">
   <h6 class="usa-heading-alt">Alignment</h6>
   <div class="alignment-example">
     <h5>The Grand Canyon</h5>
@@ -30,4 +40,18 @@
   <h5>Subsection of the page</h5>
   <p>Entrance to Great Smoky Mountains National Park is free. The park is one of the few national parks where no entrance fees are charged.</p>
 </div>
+
+  </div>
+
+    <script src="../dist/js/uswds.min.js"></script>
+    <script>
+    window.addEventListener('load', function() {
+      document.body.addEventListener('submit', function(e) {
+        // https://github.com/uswds/uswds/issues/2101
+        e.preventDefault();
+      }, true);
+    }, false);
+    </script>
+  </body>
+</html>
 

@@ -1,6 +1,14 @@
 
 
-<style scoped>
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Uswds: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../dist/css/uswds.min.css">
+  </head>
+  <body>
+    <style scoped>
   .usa-header {
     margin-bottom: 14rem;
   }
@@ -26,7 +34,7 @@
 </div>
 
     <nav role="navigation" class="usa-nav">
-      
+
       <button class="usa-nav-close">
   <img src="../../dist/img/close.svg" alt="close">
 </button>
@@ -60,7 +68,7 @@
   </div>
 </form>
 
-      
+
     </nav>
   </div>
 </header>
@@ -203,7 +211,7 @@
       <span>Distinct from each other</span>
     </a></li></ul>
       <div class="usa-nav-secondary">
-  
+
     <form class="usa-search usa-search-small  js-search-form">
   <div role="search">
     <label class="usa-sr-only" for="extended-search-field-small">Search small</label>
@@ -214,26 +222,26 @@
   </div>
 </form>
 
-  
+
   <ul class="usa-unstyled-list usa-nav-secondary-links">
-    
+
     <li class="js-search-button-container">
       <button class="usa-header-search-button js-search-button">Search</button>
     </li>
-    
-    
+
+
     <li>
       <a href="">
         Secondary priority link
       </a>
     </li>
-    
+
     <li>
       <a href="">
         Easy to comprehend
       </a>
     </li>
-    
+
   </ul>
 </div>
 
@@ -321,7 +329,7 @@
       <span>Distinct from each other</span>
     </a></li></ul>
       <div class="usa-nav-secondary">
-  
+
     <form class="usa-search usa-search-small  js-search-form">
   <div role="search">
     <label class="usa-sr-only" for="extended-mega-search-field-small">Search small</label>
@@ -332,26 +340,26 @@
   </div>
 </form>
 
-  
+
   <ul class="usa-unstyled-list usa-nav-secondary-links">
-    
+
     <li class="js-search-button-container">
       <button class="usa-header-search-button js-search-button">Search</button>
     </li>
-    
-    
+
+
     <li>
       <a href="">
         Secondary priority link
       </a>
     </li>
-    
+
     <li>
       <a href="">
         Easy to comprehend
       </a>
     </li>
-    
+
   </ul>
 </div>
 
@@ -361,4 +369,16 @@
 <div class="usa-overlay"></div>
 
 
+
+    <script src="../dist/js/uswds.min.js"></script>
+    <script>
+    window.addEventListener('load', function() {
+      document.body.addEventListener('submit', function(e) {
+        // https://github.com/uswds/uswds/issues/2101
+        e.preventDefault();
+      }, true);
+    }, false);
+    </script>
+  </body>
+</html>
 

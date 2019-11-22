@@ -1,6 +1,16 @@
 
 
-<form class="usa-form-large">
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Uswds Framed: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../dist/css/uswds.min.css">
+  </head>
+  <body>
+
+  <div class="usa-grid" style="padding: 2em 0">
+    <form class="usa-form-large">
   <fieldset>
     <legend>Mailing address</legend>
     <label for="mailing-address-1">Street address 1</label>
@@ -84,3 +94,17 @@
     <input class="usa-input-medium" id="zip" name="zip" type="text" pattern="[\d]{5}(-[\d]{4})?">
   </fieldset>
 </form>
+  </div>
+
+    <script src="../dist/js/uswds.min.js"></script>
+    <script>
+    window.addEventListener('load', function() {
+      document.body.addEventListener('submit', function(e) {
+        // https://github.com/uswds/uswds/issues/2101
+        e.preventDefault();
+      }, true);
+    }, false);
+    </script>
+  </body>
+</html>
+
