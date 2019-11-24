@@ -11,7 +11,7 @@ gulp.task("cover", () =>
   gulp.src("spec/unit/**/*.spec.js").pipe(
     mocha(
       Object.assign(mochaOpts, {
-        nyc: true
+        istanbul: true
       })
     )
   )
