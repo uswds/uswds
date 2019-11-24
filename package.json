@@ -14,22 +14,17 @@
     "build:css": "gulp sass",
     "build:js": "gulp javascript",
     "cover": "istanbul cover --config config/istanbul.yml gulp cover",
-    "cracks": "cracks --paths package.json,spec",
-    "federalist": "npm install --only=dev && gulp build",
+    "federalist": "npm install && gulp build",
     "lint": "eslint src/js/**/*.js spec/**/*.js",
     "mocha": "mocha --opts spec/mocha.opts",
     "prepare": "gulp build",
     "preversion": "npm test",
     "release": "gulp build release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
-    "test": "snyk test && gulp eslint && gulp typecheck && gulp stylelint && gulp test",
-    "test:ci": "gulp eslint && gulp typecheck && gulp stylelint && gulp test && gulp regression",
+    "test": "gulp build && snyk test && gulp eslint && gulp typecheck && gulp stylelint && gulp test",
+    "test:ci": "gulp build && gulp eslint && gulp typecheck && gulp stylelint && gulp test && gulp regression",
     "test:unit": "gulp test",
     "version": "gulp build release"
-  },
-  "watch": {
-    "src/stylesheets/{components,core,elements,}/*.scss": "build:css",
-    "src/js/**/*.js": "build:js"
   },
   "repository": {
     "type": "git",
