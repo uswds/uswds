@@ -68,7 +68,7 @@ jobs:
 
 workflows:
   version: 2
-  circle-uswds:
+  circle-uswds-v1:
     jobs:
       - build
       - deploy:
@@ -77,5 +77,4 @@ workflows:
           filters:
             branches:
               only:
-                - master
                 - v1-master
