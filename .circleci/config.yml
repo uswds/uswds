@@ -49,7 +49,6 @@ jobs:
       - restore_cache:
           keys:
           - v1-uswds-dependencies-{{ checksum "package-lock.json" }}
-          - v1-uswds-dependencies-
       - run: npm install --ignore-scripts
       - run:
           name: Build the USWDS package
@@ -59,6 +58,9 @@ jobs:
           command: |
             npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
             npm publish
+      - run:
+          name: Setup Snyk
+          command: sudo npm install -g snyk
       - run:
           name: Update dependencies in Snyk dashboard
           command: snyk monitor --org=uswds
