@@ -1,4 +1,12 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.3
-ignore: {}
+version: v1.13.5
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-ELLIPTIC-511941:
+    - browserify > crypto-browserify > browserify-sign > elliptic:
+        reason: no fix yet
+        expires: '2019-12-22T20:45:44.012Z'
+    - browserify > crypto-browserify > create-ecdh > elliptic:
+        reason: no fix yet
+        expires: '2019-12-22T20:45:44.012Z'
 patch: {}

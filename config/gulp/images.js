@@ -1,14 +1,12 @@
-var gulp = require('gulp');
-var dutil = require('./doc-util');
-var task = 'images';
+const gulp = require("gulp");
+const dutil = require("./doc-util");
 
-gulp.task(task, function (done) {
+const task = "images";
 
-  dutil.logMessage(task, 'Copying Images');
+gulp.task(task, done => {
+  dutil.logMessage(task, "Copying Images");
+  const stream = gulp.src("src/img/**/*").pipe(gulp.dest("dist/img"));
 
-  var stream = gulp.src('src/img/**/*')
-    .pipe(gulp.dest('dist/img'));
-
+  done();
   return stream;
-
 });

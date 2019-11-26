@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Uswds Content: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css" />
+  </head>
+  <body>
+    <div class="usa-grid" style="padding: 2em">
+      <div class="usa-width-one-whole">
+        <nav>
+          <ul class="usa-sidenav-list">
+            <li>
+              <a href="">
+                Parent link
+              </a>
+            </li>
+
+            <li>
+              <a href="" class="usa-current">
+                Current page
+              </a>
+
+              <ul class="usa-sidenav-sub_list">
+                <li>
+                  <a href="">
+                    Child link
+                  </a>
+                </li>
+
+                <li>
+                  <a href="" class="usa-current">
+                    Child link
+                  </a>
+
+                  <ul class="usa-sidenav-sub_list">
+                    <li>
+                      <a href="">
+                        Grandchild link
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="">
+                        Grandchild link
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="" class="usa-current">
+                        Grandchild link
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="">
+                        Grandchild link
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="">
+                    Child link
+                  </a>
+                </li>
+
+                <li>
+                  <a href="">
+                    Child link
+                  </a>
+                </li>
+
+                <li>
+                  <a href="">
+                    Child link
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="">
+                Parent link
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+      window.addEventListener(
+        "load",
+        function() {
+          document.body.addEventListener(
+            "submit",
+            function(e) {
+              // https://github.com/uswds/uswds/issues/2101
+              e.preventDefault();
+            },
+            true
+          );
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
