@@ -15,7 +15,6 @@ const dutil = require("./doc-util");
 const pkg = require("../../package.json");
 
 const task = "sass";
-const normalizeCssFilter = filter("**/normalize.css", { restore: true });
 
 const IGNORE_STRING = "This file is ignored";
 const ignoreStylelintIgnoreWarnings = lintResults =>
@@ -55,6 +54,7 @@ gulp.task("stylelint", () =>
 gulp.task("copy-vendor-sass", () => {
   dutil.logMessage("copy-vendor-sass", "Compiling vendor CSS");
 
+  const normalizeCssFilter = filter("**/normalize.css", { restore: true });
   const stream = gulp
     .src([
       "./node_modules/normalize.css/normalize.css",
