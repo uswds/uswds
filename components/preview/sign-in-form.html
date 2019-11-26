@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Uswds Framed: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css" />
+  </head>
+  <body>
+    <div class="usa-grid" style="padding: 2em 0">
+      <form class="usa-form">
+        <fieldset>
+          <legend class="usa-drop_text">Sign in</legend>
+          <span>or <a href="javascript:void(0);">create an account</a></span>
+
+          <label for="username">Username or email address</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            autocapitalize="off"
+            autocorrect="off"
+          />
+
+          <label for="password-sign-in">Password</label>
+          <input id="password-sign-in" name="password" type="password" />
+          <p class="usa-form-note">
+            <a
+              title="Show password"
+              href="javascript:void(0);"
+              class="usa-show_password"
+              aria-controls="password-sign-in"
+              >Show password</a
+            >
+          </p>
+
+          <input type="submit" value="Sign in" />
+          <p>
+            <a href="javascript:void(0);" title="Forgot username">
+              Forgot username?</a
+            >
+          </p>
+          <p>
+            <a href="javascript:void(0);" title="Forgot password">
+              Forgot password?</a
+            >
+          </p>
+        </fieldset>
+      </form>
+    </div>
+
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+      window.addEventListener(
+        "load",
+        function() {
+          document.body.addEventListener(
+            "submit",
+            function(e) {
+              // https://github.com/uswds/uswds/issues/2101
+              e.preventDefault();
+            },
+            true
+          );
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

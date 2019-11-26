@@ -1,100 +1,118 @@
-var gulp = require('gulp');
-var dutil = require('./doc-util');
-var sass = require('gulp-sass');
-var cssnano = require('gulp-cssnano');
-var autoprefixer = require('gulp-autoprefixer');
-var sourcemaps = require('gulp-sourcemaps');
-var rename = require('gulp-rename');
-var linter = require('@18f/stylelint-rules');
-var pkg = require('../../package.json');
-var filter = require('gulp-filter');
-var replace = require('gulp-replace');
-var runSequence = require('run-sequence');
-var del = require('del');
-var task = 'sass';
+const { formatters } = require("stylelint");
+const autoprefixer = require("autoprefixer");
+const cssnano = require("cssnano");
+const discardComments = require("postcss-discard-comments");
+const filter = require("gulp-filter");
+const gulp = require("gulp");
+const gulpStylelint = require("gulp-stylelint");
+const postcss = require("gulp-postcss");
+const replace = require("gulp-replace");
+const rename = require("gulp-rename");
+const sass = require("gulp-sass");
+const sourcemaps = require("gulp-sourcemaps");
+const autoprefixerOptions = require("./browsers");
+const dutil = require("./doc-util");
+const pkg = require("../../package.json");
 
-var entryFileFilter = filter('uswds.scss', { restore: true });
-var normalizeCssFilter = filter('normalize.css', { restore: true });
+const task = "sass";
+const normalizeCssFilter = filter("**/normalize.css", { restore: true });
 
-gulp.task('stylelint',
-  linter('./src/stylesheets/{,core/,components/,elements/}*.scss',
-  {
-    ignore: './src/stylesheets/lib/**/*.scss'
-  })
-);
+const IGNORE_STRING = "This file is ignored";
+const ignoreStylelintIgnoreWarnings = lintResults =>
+  formatters.string(
+    lintResults.reduce((memo, result) => {
+      const { warnings } = result;
+      const fileIsIgnored = warnings.some(warning =>
+        RegExp(IGNORE_STRING, "i").test(warning.text)
+      );
 
-gulp.task('copy-vendor-sass', function () {
+      if (!fileIsIgnored) {
+        memo.push(result);
+      }
 
-  dutil.logMessage('copy-vendor-sass', 'Compiling vendor CSS');
+      return memo;
+    }, [])
+  );
 
-  var stream = gulp.src([
-    './node_modules/normalize.css/normalize.css',
-    './node_modules/bourbon/app/assets/stylesheets/**/*.scss',
-    './node_modules/bourbon-neat/app/assets/stylesheets/**/*.scss',
-  ])
-    .pipe(normalizeCssFilter)
-    .pipe(rename('_normalize.scss'))
-    .pipe(normalizeCssFilter.restore)
-    .on('error', function (error) {
-      dutil.logError('copy-vendor-sass', error);
-    })
-    .pipe(gulp.dest('src/stylesheets/lib'));
-
-  return stream;
-});
-
-gulp.task('copy-dist-sass', function () {
-  dutil.logMessage('copy-dist-sass', 'Copying all Sass to dist dir');
-
-  var stream = gulp.src('src/stylesheets/**/*.scss')
-    .pipe(gulp.dest('dist/scss'));
-
-  return stream;
-});
-
-gulp.task(task, [ 'copy-vendor-sass' ], function () {
-
-  dutil.logMessage(task, 'Compiling Sass');
-
-  var stream = gulp.src('src/stylesheets/uswds.scss')
-    // 1. do the version replacement
-    .pipe(replace(
-      /\buswds @version\b/g,
-      'uswds v' + pkg.version
-    ))
-    // 2. convert SCSS to CSS
+gulp.task("stylelint", () =>
+  gulp
+    .src("./src/stylesheets/**/*.scss")
     .pipe(
-      sass({ outputStyle: 'expanded' })
-        .on('error', sass.logError)
-    )
-    // 3. run it through autoprefixer
-    .pipe(
-      autoprefixer({
-        browsers: require('./browsers'),
-        cascade: false,
+      gulpStylelint({
+        failAfterError: true,
+        reporters: [
+          {
+            formatter: ignoreStylelintIgnoreWarnings,
+            console: true
+          }
+        ],
+        syntax: "scss"
       })
     )
-    // 4. write dist/css/uswds.css
-    .pipe(gulp.dest('dist/css'));
+    .on("error", dutil.logError)
+);
 
-  // we can reuse this stream for minification!
-  stream
-    // 1. initialize sourcemaps
-    .pipe(sourcemaps.init({ loadMaps: true }))
-    // 2. minify with cssnano
-    .pipe(cssnano({
-      safe: true,
-      // XXX see https://github.com/ben-eb/cssnano/issues/340
-      mergeRules: false,
-    }))
-    // 3. rename to uswds.min.css
-    .pipe(rename({
-      suffix: '.min',
-    }))
-    // 4. write dist/css/uswds.min.css.map
-    .pipe(sourcemaps.write('.'))
-    // 5. write dist/css/uswds.min.css
-    .pipe(gulp.dest('dist/css'));
+gulp.task("copy-vendor-sass", () => {
+  dutil.logMessage("copy-vendor-sass", "Compiling vendor CSS");
+
+  const stream = gulp
+    .src([
+      "./node_modules/normalize.css/normalize.css",
+      "./node_modules/bourbon/app/assets/stylesheets/**/*.scss",
+      "./node_modules/bourbon-neat/app/assets/stylesheets/**/*.scss"
+    ])
+    .pipe(normalizeCssFilter)
+    .pipe(rename("_normalize.scss"))
+    .pipe(normalizeCssFilter.restore)
+    .on("error", error => {
+      dutil.logError("copy-vendor-sass", error);
+    })
+    .pipe(gulp.dest("src/stylesheets/lib"));
 
   return stream;
 });
+
+gulp.task("copy-dist-sass", () => {
+  dutil.logMessage("copy-dist-sass", "Copying all Sass to dist dir");
+
+  const stream = gulp
+    .src("src/stylesheets/**/*.scss")
+    .pipe(gulp.dest("dist/scss"));
+
+  return stream;
+});
+
+gulp.task(
+  "sass",
+  gulp.series("copy-vendor-sass", () => {
+    dutil.logMessage(task, "Compiling Sass");
+    const pluginsProcess = [
+      discardComments(),
+      autoprefixer(autoprefixerOptions)
+    ];
+    const pluginsMinify = [
+      autoprefixer(autoprefixerOptions),
+      cssnano({ autoprefixer: { browsers: autoprefixerOptions } })
+    ];
+
+    return gulp
+      .src("src/stylesheets/uswds.scss")
+      .pipe(sourcemaps.init({ largeFile: true }))
+      .pipe(
+        sass({
+          outputStyle: "expanded"
+        }).on("error", sass.logError)
+      )
+      .pipe(postcss(pluginsProcess))
+      .pipe(replace(/\buswds @version\b/g, `uswds v${pkg.version}`))
+      .pipe(gulp.dest("dist/css"))
+      .pipe(postcss(pluginsMinify))
+      .pipe(
+        rename({
+          suffix: ".min"
+        })
+      )
+      .pipe(sourcemaps.write("."))
+      .pipe(gulp.dest("dist/css"));
+  })
+);

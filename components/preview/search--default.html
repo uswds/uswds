@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Uswds: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css" />
+  </head>
+  <body>
+    <h6>Search big</h6>
+
+    <div role="search">
+      <form class="usa-search usa-search-big">
+        <label class="usa-sr-only" for="search-field-big">Search big</label>
+        <input id="search-field-big" type="search" name="search" />
+        <button type="submit">
+          <span class="usa-search-submit-text">Search</span>
+        </button>
+      </form>
+    </div>
+
+    <h6>Search medium</h6>
+
+    <div role="search">
+      <form class="usa-search">
+        <label class="usa-sr-only" for="search-field">Search medium</label>
+        <input id="search-field" type="search" name="search" />
+        <button type="submit">
+          <span class="usa-search-submit-text">Search</span>
+        </button>
+      </form>
+    </div>
+
+    <h6>Search small</h6>
+
+    <div role="search">
+      <form class="usa-search usa-search-small">
+        <label class="usa-sr-only" for="search-field-small">Search small</label>
+        <input id="search-field-small" type="search" name="search" />
+        <button type="submit">
+          <span class="usa-sr-only">Search</span>
+        </button>
+      </form>
+    </div>
+
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+      window.addEventListener(
+        "load",
+        function() {
+          document.body.addEventListener(
+            "submit",
+            function(e) {
+              // https://github.com/uswds/uswds/issues/2101
+              e.preventDefault();
+            },
+            true
+          );
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

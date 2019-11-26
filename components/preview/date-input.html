@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Uswds Framed: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css" />
+  </head>
+  <body>
+    <div class="usa-grid" style="padding: 2em 0">
+      <form>
+        <fieldset>
+          <legend>Date of birth</legend>
+          <span class="usa-form-hint" id="dobHint"
+            >For example: 04 28 1986</span
+          >
+          <div class="usa-date-of-birth">
+            <div class="usa-form-group usa-form-group-month">
+              <label for="date_of_birth_1">Month</label>
+              <input
+                class="usa-input-inline"
+                aria-describedby="dobHint"
+                id="date_of_birth_1"
+                name="date_of_birth_1"
+                type="number"
+                min="1"
+                max="12"
+                value=""
+              />
+            </div>
+            <div class="usa-form-group usa-form-group-day">
+              <label for="date_of_birth_2">Day</label>
+              <input
+                class="usa-input-inline"
+                aria-describedby="dobHint"
+                id="date_of_birth_2"
+                name="date_of_birth_2"
+                type="number"
+                min="1"
+                max="31"
+                value=""
+              />
+            </div>
+            <div class="usa-form-group usa-form-group-year">
+              <label for="date_of_birth_3">Year</label>
+              <input
+                class="usa-input-inline"
+                aria-describedby="dobHint"
+                id="date_of_birth_3"
+                name="date_of_birth_3"
+                type="number"
+                min="1900"
+                max="2000"
+                value=""
+              />
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+      window.addEventListener(
+        "load",
+        function() {
+          document.body.addEventListener(
+            "submit",
+            function(e) {
+              // https://github.com/uswds/uswds/issues/2101
+              e.preventDefault();
+            },
+            true
+          );
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

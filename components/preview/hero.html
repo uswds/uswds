@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Uswds: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css" />
+  </head>
+  <body>
+    <section class="usa-hero">
+      <div class="usa-grid">
+        <div class="usa-hero-callout usa-section-dark">
+          <h2>
+            <span class="usa-hero-callout-alt">Hero callout:</span>
+
+            Call attention to a current priority
+          </h2>
+
+          <p>
+            Support the callout with some short explanatory text. You don't need
+            more than a couple of sentences.
+          </p>
+
+          <a class="usa-button" href="javascript:void(0)"
+            >Learn about what we do</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+      window.addEventListener(
+        "load",
+        function() {
+          document.body.addEventListener(
+            "submit",
+            function(e) {
+              // https://github.com/uswds/uswds/issues/2101
+              e.preventDefault();
+            },
+            true
+          );
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

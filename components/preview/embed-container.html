@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Uswds Content: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css" />
+  </head>
+  <body>
+    <div class="usa-grid" style="padding: 2em">
+      <div class="usa-width-one-whole">
+        <div class="usa-embed-container" aria-label="16:9">
+          <iframe
+            src="data:text/html,%3C!DOCTYPE%20html%3E%0A%3Cmeta%20charset%3D%22utf-8%22%3E%0A%3Cstyle%3E%0Ahtml%20%7B%0A%20%20background-color%3A%20black%3B%0A%20%20color%3A%20white%3B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%20%20justify-content%3A%20center%3B%0A%7D%0A%3C%2Fstyle%3E%0A%3Ctitle%3E16%3A9%20aspect%20ratio%20example%20iframe%3C%2Ftitle%3E%0A%3Cp%3E16%3A9%20aspect%20ratio%20example%20iframe%3C%2Fp%3E%0A"
+            title="16:9 aspect ratio example iframe"
+            frameborder="0"
+          ></iframe>
+        </div>
+
+        <p>
+          The responsive embed container can be used to ensure that its contents
+          scale to the width of its parent element while retaining an aspect
+          ratio of 16:9.
+        </p>
+      </div>
+    </div>
+
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+      window.addEventListener(
+        "load",
+        function() {
+          document.body.addEventListener(
+            "submit",
+            function(e) {
+              // https://github.com/uswds/uswds/issues/2101
+              e.preventDefault();
+            },
+            true
+          );
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

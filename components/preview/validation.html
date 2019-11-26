@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Uswds Framed: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css" />
+  </head>
+  <body>
+    <div class="usa-grid" style="padding: 2em 0">
+      <form class="usa-form">
+        <fieldset>
+          <legend class="usa-drop_text">Enter a code</legend>
+          <div class="usa-alert usa-alert-info">
+            <div class="usa-alert-body">
+              <h3 class="usa-alert-heading">Codes must:</h3>
+            </div>
+            <ul class="usa-checklist" id="validate-code">
+              <li data-validator="uppercase">Have at least 1 uppercase character</li>
+              <li data-validator="numerical">Have at least 1 numerical character</li>
+            </ul>
+          </div>
+          <label for="code">Code</label>
+          <input
+            id="code"
+            name="code"
+            type="text"
+            aria-describedby="validate-code"
+            data-validate-uppercase="[A-Z]"
+            data-validate-numerical="\d"
+            data-validation-element="#validate-code"
+          />
+          <input type="submit" value="Submit code" />
+        </fieldset>
+      </form>
+    </div>
+
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+      window.addEventListener(
+        "load",
+        function() {
+          document.body.addEventListener(
+            "submit",
+            function(e) {
+              // https://github.com/uswds/uswds/issues/2101
+              e.preventDefault();
+            },
+            true
+          );
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

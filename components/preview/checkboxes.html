@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Uswds Framed: Default</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../dist/css/uswds.min.css" />
+  </head>
+  <body>
+    <div class="usa-grid" style="padding: 2em 0">
+      <fieldset class="usa-fieldset-inputs usa-sans">
+        <legend class="usa-sr-only">Historical figures 1</legend>
+        <ul class="usa-unstyled-list">
+          <li>
+            <input
+              id="truth"
+              type="checkbox"
+              name="historical-figures-1"
+              value="truth"
+              checked
+            />
+            <label for="truth">Sojourner Truth</label>
+          </li>
+          <li>
+            <input
+              id="douglass"
+              type="checkbox"
+              name="historical-figures-1"
+              value="douglass"
+            />
+            <label for="douglass">Frederick Douglass</label>
+          </li>
+          <li>
+            <input
+              id="washington"
+              type="checkbox"
+              name="historical-figures-1"
+              value="washington"
+            />
+            <label for="washington">Booker T. Washington</label>
+          </li>
+          <li>
+            <input
+              id="carver"
+              type="checkbox"
+              name="historical-figures-1"
+              disabled
+            />
+            <label for="carver">George Washington Carver</label>
+          </li>
+        </ul>
+      </fieldset>
+    </div>
+
+    <script src="../../dist/js/uswds.min.js"></script>
+    <script>
+      window.addEventListener(
+        "load",
+        function() {
+          document.body.addEventListener(
+            "submit",
+            function(e) {
+              // https://github.com/uswds/uswds/issues/2101
+              e.preventDefault();
+            },
+            true
+          );
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
