@@ -32,9 +32,6 @@ components.engine(
   })
 );
 
-const docs = fractal.docs;
-docs.set("path", "docs");
-
 const web = fractal.web;
 
 web.theme(
