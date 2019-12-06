@@ -151,9 +151,8 @@
 }
 
 .usa-footer__logo-heading {
-  @include h3;
+  @include typeset($theme-footer-font-family, $theme-h3-font-size, 1);
   @include u-margin-y(1);
-  line-height: line-height("heading", 1);
 }
 
 .usa-footer__contact-links {
@@ -166,7 +165,11 @@
 }
 
 .usa-footer__contact-heading {
-  @include h3;
+  @include typeset(
+    $theme-footer-font-family,
+    $theme-h3-font-size,
+    $theme-heading-line-height
+  );
   margin-top: 0;
 
   @include at-media("mobile-lg") {
