@@ -900,11 +900,31 @@ Derive a color from a color shortcode
 ----------------------------------------
 */
 
-@function color($shortcode) {
-  $shortcode: smart-quote(unpack($shortcode));
-  @if not $shortcode {
-    @return false;
+@function color($value, $flags: null) {
+  $shortcode: unpack($value);
+
+  // The bypass flag simply passes the value
+  @if ($flags == bypass) {
+    @return $value;
   }
+
+  // The theme flag accepts colors with a warning
+  @if ($flags == theme) {
+    @if (type-of($value) == color) {
+      @if $theme-show-compile-warnings {
+        @warn 'Theme color override: `#{$value}` is not a USWDS color token.';
+      }
+      @return $value;
+    }
+  }
+
+  // Explicit false values should be passed through
+  @if $value == false {
+    @return $value;
+  }
+
+  $shortcode: smart-quote(unpack($value));
+
   @if map-has-key($system-color-shortcodes, $shortcode) {
     $our-color: map-get($system-color-shortcodes, $shortcode);
     @if $our-color == false {
@@ -913,14 +933,19 @@ Derive a color from a color shortcode
     }
     @return $our-color;
   }
-  @if map-has-key($project-color-shortcodes, $shortcode) {
-    $our-color: (map-get($project-color-shortcodes, $shortcode));
-    @if $our-color == false {
-      @error '`#{$shortcode}` is a color that does not exist '
-        + 'or is set to false.';
+
+  // If we're using the theme flag, $project-color-shortcodes has not yet been set
+  @if $flags != theme {
+    @if map-has-key($project-color-shortcodes, $shortcode) {
+      $our-color: (map-get($project-color-shortcodes, $shortcode));
+      @if $our-color == false {
+        @error '`#{$shortcode}` is a color that does not exist '
+          + 'or is set to false.';
+      }
+      @return $our-color;
     }
-    @return $our-color;
   }
+
   @error '`#{$shortcode}` is not a valid color token.';
 }
 
