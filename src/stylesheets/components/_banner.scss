@@ -7,6 +7,10 @@
     font-size: font-size($theme-banner-font-family, "3xs");
     padding-bottom: units(0);
   }
+
+  .usa-accordion {
+    @include typeset($theme-banner-font-family);
+  }
 }
 
 .usa-banner__content {

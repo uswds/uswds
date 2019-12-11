@@ -55,6 +55,10 @@ $nav-link-arrow-icon-size: 1;
       margin-left: units(2);
     }
   }
+
+  .usa-accordion {
+    @include typeset($theme-navigation-font-family, null, 1);
+  }
 }
 
 // Primary navigation
