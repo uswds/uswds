@@ -269,51 +269,51 @@ Theme color map
 
 $project-colors: (
   "base": (
-    "lightest": color($theme-color-base-lightest, theme),
-    "lighter": color($theme-color-base-lighter, theme),
-    "light": color($theme-color-base-light, theme),
-    "default": color($theme-color-base, theme),
-    "dark": color($theme-color-base-dark, theme),
-    "darker": color($theme-color-base-darker, theme),
-    "darkest": color($theme-color-base-darkest, theme)
+    "lightest": color($theme-color-base-lightest, set-theme),
+    "lighter": color($theme-color-base-lighter, set-theme),
+    "light": color($theme-color-base-light, set-theme),
+    "default": color($theme-color-base, set-theme),
+    "dark": color($theme-color-base-dark, set-theme),
+    "darker": color($theme-color-base-darker, set-theme),
+    "darkest": color($theme-color-base-darkest, set-theme)
   ),
   "primary": (
-    "lightest": color($theme-color-primary-lightest, theme),
-    "lighter": color($theme-color-primary-lighter, theme),
-    "light": color($theme-color-primary-light, theme),
-    "default": color($theme-color-primary, theme),
-    "vivid": color($theme-color-primary-vivid, theme),
-    "dark": color($theme-color-primary-dark, theme),
-    "darker": color($theme-color-primary-darker, theme),
-    "darkest": color($theme-color-primary-darkest, theme)
+    "lightest": color($theme-color-primary-lightest, set-theme),
+    "lighter": color($theme-color-primary-lighter, set-theme),
+    "light": color($theme-color-primary-light, set-theme),
+    "default": color($theme-color-primary, set-theme),
+    "vivid": color($theme-color-primary-vivid, set-theme),
+    "dark": color($theme-color-primary-dark, set-theme),
+    "darker": color($theme-color-primary-darker, set-theme),
+    "darkest": color($theme-color-primary-darkest, set-theme)
   ),
   "secondary": (
-    "lightest": color($theme-color-secondary-lightest, theme),
-    "lighter": color($theme-color-secondary-lighter, theme),
-    "light": color($theme-color-secondary-light, theme),
-    "default": color($theme-color-secondary, theme),
-    "vivid": color($theme-color-secondary-vivid, theme),
-    "dark": color($theme-color-secondary-dark, theme),
-    "darker": color($theme-color-secondary-darker, theme),
-    "darkest": color($theme-color-secondary-darkest, theme)
+    "lightest": color($theme-color-secondary-lightest, set-theme),
+    "lighter": color($theme-color-secondary-lighter, set-theme),
+    "light": color($theme-color-secondary-light, set-theme),
+    "default": color($theme-color-secondary, set-theme),
+    "vivid": color($theme-color-secondary-vivid, set-theme),
+    "dark": color($theme-color-secondary-dark, set-theme),
+    "darker": color($theme-color-secondary-darker, set-theme),
+    "darkest": color($theme-color-secondary-darkest, set-theme)
   ),
   "accent-warm": (
-    "lightest": color($theme-color-accent-warm-lightest, theme),
-    "lighter": color($theme-color-accent-warm-lighter, theme),
-    "light": color($theme-color-accent-warm-light, theme),
-    "default": color($theme-color-accent-warm, theme),
-    "dark": color($theme-color-accent-warm-dark, theme),
-    "darker": color($theme-color-accent-warm-darker, theme),
-    "darkest": color($theme-color-accent-warm-darkest, theme)
+    "lightest": color($theme-color-accent-warm-lightest, set-theme),
+    "lighter": color($theme-color-accent-warm-lighter, set-theme),
+    "light": color($theme-color-accent-warm-light, set-theme),
+    "default": color($theme-color-accent-warm, set-theme),
+    "dark": color($theme-color-accent-warm-dark, set-theme),
+    "darker": color($theme-color-accent-warm-darker, set-theme),
+    "darkest": color($theme-color-accent-warm-darkest, set-theme)
   ),
   "accent-cool": (
-    "lightest": color($theme-color-accent-cool-lightest, theme),
-    "lighter": color($theme-color-accent-cool-lighter, theme),
-    "light": color($theme-color-accent-cool-light, theme),
-    "default": color($theme-color-accent-cool, theme),
-    "dark": color($theme-color-accent-cool-dark, theme),
-    "darker": color($theme-color-accent-cool-darker, theme),
-    "darkest": color($theme-color-accent-cool-darkest, theme)
+    "lightest": color($theme-color-accent-cool-lightest, set-theme),
+    "lighter": color($theme-color-accent-cool-lighter, set-theme),
+    "light": color($theme-color-accent-cool-light, set-theme),
+    "default": color($theme-color-accent-cool, set-theme),
+    "dark": color($theme-color-accent-cool-dark, set-theme),
+    "darker": color($theme-color-accent-cool-darker, set-theme),
+    "darkest": color($theme-color-accent-cool-darkest, set-theme)
   )
 );
 
@@ -368,44 +368,53 @@ Theme color shortcodes
 */
 
 $tokens-color-theme: (
-  "base-lightest": color($theme-color-base-lightest, bypass),
-  "base-lighter": color($theme-color-base-lighter, bypass),
-  "base-light": color($theme-color-base-light, bypass),
-  "base": color($theme-color-base, bypass),
-  "base-dark": color($theme-color-base-dark, bypass),
-  "base-darker": color($theme-color-base-darker, bypass),
-  "base-darkest": color($theme-color-base-darkest, bypass),
-  "ink": color($theme-color-base-ink, bypass),
-  "primary-lightest": color($theme-color-primary-lightest, bypass),
-  "primary-lighter": color($theme-color-primary-lighter, bypass),
-  "primary-light": color($theme-color-primary-light, bypass),
-  "primary": color($theme-color-primary, bypass),
-  "primary-vivid": color($theme-color-primary-vivid, bypass),
-  "primary-dark": color($theme-color-primary-dark, bypass),
-  "primary-darker": color($theme-color-primary-darker, bypass),
-  "primary-darkest": color($theme-color-primary-darkest, bypass),
-  "secondary-lightest": color($theme-color-secondary-lightest, bypass),
-  "secondary-lighter": color($theme-color-secondary-lighter, bypass),
-  "secondary-light": color($theme-color-secondary-light, bypass),
-  "secondary": color($theme-color-secondary, bypass),
-  "secondary-vivid": color($theme-color-secondary-vivid, bypass),
-  "secondary-dark": color($theme-color-secondary-dark, bypass),
-  "secondary-darker": color($theme-color-secondary-darker, bypass),
-  "secondary-darkest": color($theme-color-secondary-darkest, bypass),
-  "accent-warm-darkest": color($theme-color-accent-warm-darkest, bypass),
-  "accent-warm-darker": color($theme-color-accent-warm-darker, bypass),
-  "accent-warm-dark": color($theme-color-accent-warm-dark, bypass),
-  "accent-warm": color($theme-color-accent-warm, bypass),
-  "accent-warm-light": color($theme-color-accent-warm-light, bypass),
-  "accent-warm-lighter": color($theme-color-accent-warm-lighter, bypass),
-  "accent-warm-lightest": color($theme-color-accent-warm-lightest, bypass),
-  "accent-cool-darkest": color($theme-color-accent-cool-darkest, bypass),
-  "accent-cool-darker": color($theme-color-accent-cool-darker, bypass),
-  "accent-cool-dark": color($theme-color-accent-cool-dark, bypass),
-  "accent-cool": color($theme-color-accent-cool, bypass),
-  "accent-cool-light": color($theme-color-accent-cool-light, bypass),
-  "accent-cool-lighter": color($theme-color-accent-cool-lighter, bypass),
-  "accent-cool-lightest": color($theme-color-accent-cool-lightest, bypass)
+  "base-lightest": color($theme-color-base-lightest, set-theme, no-warn),
+  "base-lighter": color($theme-color-base-lighter, set-theme, no-warn),
+  "base-light": color($theme-color-base-light, set-theme, no-warn),
+  "base": color($theme-color-base, set-theme, no-warn),
+  "base-dark": color($theme-color-base-dark, set-theme, no-warn),
+  "base-darker": color($theme-color-base-darker, set-theme, no-warn),
+  "base-darkest": color($theme-color-base-darkest, set-theme, no-warn),
+  "ink": color($theme-color-base-ink, set-theme, no-warn),
+  "primary-lightest": color($theme-color-primary-lightest, set-theme, no-warn),
+  "primary-lighter": color($theme-color-primary-lighter, set-theme, no-warn),
+  "primary-light": color($theme-color-primary-light, set-theme, no-warn),
+  "primary": color($theme-color-primary, set-theme, no-warn),
+  "primary-vivid": color($theme-color-primary-vivid, set-theme, no-warn),
+  "primary-dark": color($theme-color-primary-dark, set-theme, no-warn),
+  "primary-darker": color($theme-color-primary-darker, set-theme, no-warn),
+  "primary-darkest": color($theme-color-primary-darkest, set-theme, no-warn),
+  "secondary-lightest":
+    color($theme-color-secondary-lightest, set-theme, no-warn),
+  "secondary-lighter": color($theme-color-secondary-lighter, set-theme, no-warn),
+  "secondary-light": color($theme-color-secondary-light, set-theme, no-warn),
+  "secondary": color($theme-color-secondary, set-theme, no-warn),
+  "secondary-vivid": color($theme-color-secondary-vivid, set-theme, no-warn),
+  "secondary-dark": color($theme-color-secondary-dark, set-theme, no-warn),
+  "secondary-darker": color($theme-color-secondary-darker, set-theme, no-warn),
+  "secondary-darkest": color($theme-color-secondary-darkest, set-theme, no-warn),
+  "accent-warm-darkest":
+    color($theme-color-accent-warm-darkest, set-theme, no-warn),
+  "accent-warm-darker":
+    color($theme-color-accent-warm-darker, set-theme, no-warn),
+  "accent-warm-dark": color($theme-color-accent-warm-dark, set-theme, no-warn),
+  "accent-warm": color($theme-color-accent-warm, set-theme, no-warn),
+  "accent-warm-light": color($theme-color-accent-warm-light, set-theme, no-warn),
+  "accent-warm-lighter":
+    color($theme-color-accent-warm-lighter, set-theme, no-warn),
+  "accent-warm-lightest":
+    color($theme-color-accent-warm-lightest, set-theme, no-warn),
+  "accent-cool-darkest":
+    color($theme-color-accent-cool-darkest, set-theme, no-warn),
+  "accent-cool-darker":
+    color($theme-color-accent-cool-darker, set-theme, no-warn),
+  "accent-cool-dark": color($theme-color-accent-cool-dark, set-theme, no-warn),
+  "accent-cool": color($theme-color-accent-cool, set-theme, no-warn),
+  "accent-cool-light": color($theme-color-accent-cool-light, set-theme, no-warn),
+  "accent-cool-lighter":
+    color($theme-color-accent-cool-lighter, set-theme, no-warn),
+  "accent-cool-lightest":
+    color($theme-color-accent-cool-lightest, set-theme, no-warn)
 );
 
 $tokens-color-state: (

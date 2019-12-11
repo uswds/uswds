@@ -123,7 +123,7 @@ Leaves bools as is
 
   @if type-of($value) == "color" {
     @error 'Only use quoted color tokens in USWDS functions and mixins. '
-      + 'See v2.designsystem.digital.gov/style-tokens/color '
+      + 'See designsystem.digital.gov/design-tokens/color '
       + 'for more information.';
   }
 
@@ -900,53 +900,61 @@ Derive a color from a color shortcode
 ----------------------------------------
 */
 
-@function color($value, $flags: null) {
-  $shortcode: unpack($value);
+@function color($value, $flags...) {
+  $value: unpack($value);
 
-  // The bypass flag simply passes the value
-  @if ($flags == bypass) {
-    @return $value;
-  }
-
-  // The theme flag accepts colors with a warning
-  @if ($flags == theme) {
-    @if (type-of($value) == color) {
-      @if $theme-show-compile-warnings {
-        @warn 'Theme color override: `#{$value}` is not a USWDS color token.';
+  // Non-token colors may be passed with specific flags
+  @if type-of($value) == color {
+    // override or set-theme will allow any color
+    @if index($flags, override) or index($flags, set-theme) {
+      // override + no-warn will skip warnings
+      @if index($flags, no-warn) {
+        @return $value;
       }
+
+      @if $theme-show-compile-warnings {
+        @warn 'Override: `#{$value}` is not a USWDS color token.';
+      }
+
       @return $value;
     }
   }
 
-  // Explicit false values should be passed through
+  // False values may be passed through when setting theme colors
   @if $value == false {
-    @return $value;
+    @if index($flags, set-theme) {
+      @return $value;
+    }
   }
 
-  $shortcode: smart-quote(unpack($value));
+  // Now, any value should be evaluated as a token
 
-  @if map-has-key($system-color-shortcodes, $shortcode) {
-    $our-color: map-get($system-color-shortcodes, $shortcode);
+  $value: smart-quote($value);
+
+  @if map-has-key($system-color-shortcodes, $value) {
+    $our-color: map-get($system-color-shortcodes, $value);
     @if $our-color == false {
-      @error '`#{$shortcode}` is a color that does not exist '
+      @error '`#{$value}` is a color that does not exist '
         + 'or is set to false.';
     }
     @return $our-color;
   }
 
   // If we're using the theme flag, $project-color-shortcodes has not yet been set
-  @if $flags != theme {
-    @if map-has-key($project-color-shortcodes, $shortcode) {
-      $our-color: (map-get($project-color-shortcodes, $shortcode));
+  @if not index($flags, set-theme) {
+    @if map-has-key($project-color-shortcodes, $value) {
+      $our-color: (map-get($project-color-shortcodes, $value));
       @if $our-color == false {
-        @error '`#{$shortcode}` is a color that does not exist '
+        @error '`#{$value}` is a color that does not exist '
           + 'or is set to false.';
       }
       @return $our-color;
     }
   }
 
-  @error '`#{$shortcode}` is not a valid color token.';
+  @error '`#{$value}` is not a valid USWDS color token. '
+      + 'See designsystem.digital.gov/design-tokens/color '
+      + 'for more information.';
 }
 
 /*
