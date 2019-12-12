@@ -44,8 +44,8 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
     color: color("white");
   }
 
-  &:focus,
-  &.usa-focus {
+  &:not([disabled]):focus,
+  &:not([disabled]).usa-focus {
     outline-offset: units(0.5);
   }
 
