@@ -9,11 +9,33 @@
 
 */
 
-$uswds-notifications: "\a"+ "--------------------------------------------------------------------\a"+
-  "USWDS Notifications\a"+ "--------------------------------------------------------------------\a"+
-  'Please make sure you\'re importing the components settings in \a your Sass entry point (often styles.scss) using something like \a `@import "uswds-theme-components"` \a';
+$uswds-notifications: "
+--------------------------------------------------------------------
+\2709  USWDS Notifications
+--------------------------------------------------------------------
+2.4.0: If your component settings aren't working as expected, make
+sure you're importing the components settings in your Sass entry
+point (often styles.scss) with `@import \"uswds-theme-components\"`.
+A bug in 2.0 omitted that import.
+--------------------------------------------------------------------
+2.2.0: We changed the names of some settings.
+$theme-navigation-width \2192  $theme-header-min-width
+$theme-megamenu-logo-text-width \2192  $theme-header-logo-text-width
+--------------------------------------------------------------------
+2.0.2: We changed the names of some settings and mixins.
+$theme-title-font-size \2192  $theme-display-font-size
+@include title \2192  @include display
+@include typeset-title \2192  @include typeset-display";
+
+$uswds-notification-disable-message: "
+--------------------------------------------------------------------
+These are notifications from the USWDS team, not necessarily a
+problem with your code.
+
+Disable notifications using $theme-show-notifications: false
+--------------------------------------------------------------------";
 
 @if $theme-show-notifications {
   @warn "#{$uswds-notifications}"
-    + "#{$uswds-deprecation-warnings}";
+    + "#{$uswds-notification-disable-message}";
 }

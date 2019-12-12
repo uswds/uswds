@@ -11,20 +11,11 @@
     Note the USWDS version where we deprecated the
     old functionality in a comment.
 
-    Add the deprecation to the warning.
+    Be sure to update notifications.scss.
 
     This file should started fresh at each
     major version.
 */
-
-$uswds-deprecation-warnings: "\a"+ "--------------------------------------------------------------------\a"+
-  "Deprecated in USWDS 2.x\a"+ "--------------------------------------------------------------------\a"+
-  "2.2.0\a"+ "$theme-navigation-width \2192  $theme-header-min-width\a"+
-  "$theme-megamenu-logo-text-width \2192  $theme-header-logo-text-width\a"+ "--------------------------------------------------------------------\a"+
-  "2.0.2\a"+ "$theme-title-font-size \2192  $theme-display-font-size\a"+
-  "@include title \2192  @include display\a"+ "@include typeset-title \2192  @include typeset-display\a"+
-  "--------------------------------------------------------------------\a"+ "Disable this message using \a"+
-  "$theme-show-deprecation-warnings: false\a"+ "--------------------------------------------------------------------\a";
 
 // Deprecated in 2.2.0
 $theme-navigation-width: $theme-header-min-width;
