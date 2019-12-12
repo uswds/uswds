@@ -1,0 +1,19 @@
+/*  notifications.scss
+    ---
+    Adds a notification at the top of each USWDS
+    compile. Use this file for important notifications
+    and updates to the design system.
+
+    This file should started fresh at each
+    major version.
+
+*/
+
+$uswds-notifications: "\a"+ "--------------------------------------------------------------------\a"+
+  "USWDS Notifications\a"+ "--------------------------------------------------------------------\a"+
+  'Please make sure you\'re importing the components settings in \a your Sass entry point (often styles.scss) using something like \a `@import "uswds-theme-components"` \a';
+
+@if $theme-show-notifications {
+  @warn "#{$uswds-notifications}"
+    + "#{$uswds-deprecation-warnings}";
+}
