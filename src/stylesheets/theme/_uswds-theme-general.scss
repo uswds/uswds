@@ -33,10 +33,13 @@ Show compile warnings
 ----------------------------------------
 Show Sass warnings when functions and
 mixins use non-standard tokens.
+AND
+Show deprecation notifications.
 ----------------------------------------
 */
 
 $theme-show-compile-warnings: true;
+$theme-show-deprecation-warnings: true;
 
 /*
 ----------------------------------------
