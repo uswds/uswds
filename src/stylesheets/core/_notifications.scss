@@ -9,6 +9,7 @@
 
 */
 
+/* stylelint-disable string-no-newline  */
 $uswds-notifications: "\a
 --------------------------------------------------------------------
 \2709  USWDS Notifications
@@ -39,6 +40,7 @@ problem with your code.
 Disable notifications using `$theme-show-notifications: false`
 in your general settings file.
 --------------------------------------------------------------------\a";
+/* stylelint-enable  */
 
 @if $theme-show-notifications {
   @warn "#{$uswds-notifications}"
