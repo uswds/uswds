@@ -17,6 +17,8 @@ $uswds-notifications: "\a
 sure you're importing the components settings in your Sass entry
 point (often styles.scss) with `@import \"uswds-theme-components\"`.
 A bug in 2.0 omitted that import.
+
+- We added `$theme-show-notifications: true` to general settings
 --------------------------------------------------------------------
 2.2.0: We changed the names of some settings.
 
@@ -35,6 +37,7 @@ These are notifications from the USWDS team, not necessarily a
 problem with your code.
 
 Disable notifications using `$theme-show-notifications: false`
+in your general settings file.
 --------------------------------------------------------------------\a";
 
 @if $theme-show-notifications {
