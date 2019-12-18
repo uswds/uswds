@@ -1,6 +1,7 @@
 %usa-table {
   @include border-box-sizing;
   @include typeset;
+  border-collapse: collapse;
   border-spacing: 0;
   margin: units(2.5) 0;
 

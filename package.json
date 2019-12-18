@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -62,7 +62,7 @@
   },
   "homepage": "https://github.com/uswds/uswds#readme",
   "dependencies": {
-    "@types/node": "^12.12.9",
+    "@types/node": "^12.12.20",
     "classlist-polyfill": "^1.0.3",
     "del": "^5.1.0",
     "domready": "^1.0.8",
@@ -75,11 +75,11 @@
     "yargs": "^12.0.5"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.7.1",
-    "@frctl/fractal": "^1.2.1-beta.1",
+    "@babel/preset-env": "^7.7.6",
+    "@frctl/fractal": "^1.2.1",
     "@frctl/nunjucks": "^2.0.1",
     "ansi-colors": "^4.1.1",
-    "autoprefixer": "^9.7.1",
+    "autoprefixer": "^9.7.3",
     "axe-core": "^2.6.1",
     "babelify": "^10.0.0",
     "browserify": "^16.5.0",
@@ -90,8 +90,8 @@
     "cssnano": "^4.1.10",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-config-prettier": "^6.6.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.19.1",
     "fancy-log": "^1.3.3",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
@@ -121,9 +121,9 @@
     "sinon": "^7.5.0",
     "stylelint": "^11.1.1",
     "stylelint-config-prettier": "^6.0.0",
-    "stylelint-config-recommended-scss": "^4.0.0",
-    "stylelint-prettier": "^1.1.1",
-    "stylelint-scss": "^3.12.1",
+    "stylelint-config-recommended-scss": "^4.1.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-scss": "^3.13.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   }

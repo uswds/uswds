@@ -7,13 +7,13 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.3.1
+USWDS 2.4.0
 ----------------------------------------
 GENERAL SETTINGS
 ----------------------------------------
 Read more about settings and
 USWDS style tokens in the documentation:
-https://v2.designsystem.digital.gov/style-tokens
+https://designsystem.digital.gov/design-tokens
 ----------------------------------------
 */
 
@@ -33,10 +33,13 @@ Show compile warnings
 ----------------------------------------
 Show Sass warnings when functions and
 mixins use non-standard tokens.
+AND
+Show updates and notifications.
 ----------------------------------------
 */
 
 $theme-show-compile-warnings: true;
+$theme-show-notifications: true;
 
 /*
 ----------------------------------------

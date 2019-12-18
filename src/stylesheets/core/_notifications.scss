@@ -1,0 +1,48 @@
+/*  notifications.scss
+    ---
+    Adds a notification at the top of each USWDS
+    compile. Use this file for important notifications
+    and updates to the design system.
+
+    This file should started fresh at each
+    major version.
+
+*/
+
+/* stylelint-disable string-no-newline  */
+$uswds-notifications: "\a
+--------------------------------------------------------------------
+\2709  USWDS Notifications
+--------------------------------------------------------------------
+2.4.0: If your component settings aren't working as expected, make
+sure you're importing the components settings in your Sass entry
+point (often styles.scss) with `@import \"uswds-theme-components\"`.
+A bug in 2.0 omitted that import.
+
+- We added `$theme-show-notifications: true` to general settings
+--------------------------------------------------------------------
+2.2.0: We changed the names of some settings.
+
+- $theme-navigation-width \2192  $theme-header-min-width
+- $theme-megamenu-logo-text-width \2192  $theme-header-logo-text-width
+--------------------------------------------------------------------
+2.0.2: We changed the names of some settings and mixins.
+
+- $theme-title-font-size \2192  $theme-display-font-size
+- @include title \2192  @include display
+- @include typeset-title \2192  @include typeset-display";
+
+$uswds-notification-disable-message: "
+--------------------------------------------------------------------
+These are notifications from the USWDS team, not necessarily a
+problem with your code.
+
+Disable notifications using `$theme-show-notifications: false`
+in your general settings file.
+--------------------------------------------------------------------\a";
+/* stylelint-enable  */
+
+@if $theme-show-notifications {
+  @warn "#{$uswds-notifications}"
+    + "#{$uswds-notification-disable-message}";
+}
