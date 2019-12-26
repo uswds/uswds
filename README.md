@@ -198,7 +198,7 @@ scss
 - `_uswds-theme-utilities.scss`: Utility class output settings
 - `styles.scss`: The primary Sass file that you'll compile. It collects theme settings, USWDS source files, and custom CSS
 
-`styles.css` looks something like the following code. It adds all the project theme settings, then adds USWDS source, and finally adds your project's custom styles:
+`styles.scss` looks something like the following code. It adds all the project theme settings, then adds USWDS source, and finally adds your project's custom styles:
 
 ```scss
 @import "uswds-theme-general";
