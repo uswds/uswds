@@ -36,7 +36,11 @@ Sets:
 
 // typeset element mixins
 @mixin typeset-p {
-  line-height: line-height($theme-body-font-family, $theme-body-line-height);
+  @include typeset(
+    $theme-body-font-family,
+    $theme-body-font-size,
+    $theme-body-line-height
+  );
   margin-bottom: 0;
   margin-top: 0;
   max-width: measure($theme-text-measure);
