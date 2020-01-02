@@ -1,6 +1,7 @@
 const { formatters } = require("stylelint");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
+const del = require("del");
 const discardComments = require("postcss-discard-comments");
 const filter = require("gulp-filter");
 const gulp = require("gulp");
@@ -53,6 +54,12 @@ gulp.task("stylelint", () =>
     .on("error", dutil.logError)
 );
 
+gulp.task("clean-vendor-sass", () => {
+  dutil.logMessage("clean-vendor-sass", "Removing old vendor Sass");
+
+  return del("src/stylesheets/lib");
+});
+
 gulp.task("copy-vendor-sass", () => {
   dutil.logMessage("copy-vendor-sass", "Compiling vendor CSS");
 
@@ -80,7 +87,7 @@ gulp.task("copy-dist-sass", () => {
 
 gulp.task(
   "sass",
-  gulp.series("copy-vendor-sass", () => {
+  gulp.series("clean-vendor-sass", "copy-vendor-sass", () => {
     dutil.logMessage(task, "Compiling Sass");
     const pluginsProcess = [
       discardComments(),
