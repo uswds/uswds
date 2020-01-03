@@ -190,6 +190,7 @@ future version of Sass' warning.
 
   // And add the responsive prefixes, if applicable
 
+  /*
   @if map-deep-get($utility, settings, responsive) {
     @include render-media-queries(
       $utility,
@@ -199,6 +200,7 @@ future version of Sass' warning.
       $val-props
     );
   }
+  */
 }
 
 /*
@@ -212,7 +214,7 @@ through all possible variants
 ----------------------------------------
 */
 
-@mixin render-utilities-in($utilities) {
+@mixin these-utilities($utilities) {
   // loop through the $utilities
   @each $utility-name, $utility in $utilities {
     // Only do this if the the utility is meant to output
@@ -405,6 +407,14 @@ through all possible variants
   // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
 }
 
-// Helper to generate an @font-face declaration
+@mixin render-utilities-in($utilities) {
+  $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
+
+  @each $media-key, $media-value in $our-breakpoints {
+    @include at-media($media-key) {
+      @include these-utilities($utilities);
+    }
+  }
+}
 
 /* stylelint-enable */
