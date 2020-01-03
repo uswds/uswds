@@ -5,7 +5,7 @@ const discardComments = require("postcss-discard-comments");
 const filter = require("gulp-filter");
 const gulp = require("gulp");
 const gulpStylelint = require("gulp-stylelint");
-const packCSS = require("css-mqpacker");
+const packMediaQueries = require("postcss-combine-media-query");
 const postcss = require("gulp-postcss");
 const replace = require("gulp-replace");
 const rename = require("gulp-rename");
@@ -85,11 +85,11 @@ gulp.task(
     const pluginsProcess = [
       discardComments(),
       autoprefixer(autoprefixerOptions),
-      packCSS({ sort: true })
+      packMediaQueries
     ];
     const pluginsMinify = [
       autoprefixer(autoprefixerOptions),
-      packCSS({ sort: true }),
+      packMediaQueries,
       cssnano({ autoprefixer: { browsers: autoprefixerOptions } })
     ];
 
