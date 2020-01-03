@@ -84,12 +84,10 @@ gulp.task(
     dutil.logMessage(task, "Compiling Sass");
     const pluginsProcess = [
       discardComments(),
-      autoprefixer(autoprefixerOptions),
-      packMediaQueries
+      autoprefixer(autoprefixerOptions)
     ];
     const pluginsMinify = [
       autoprefixer(autoprefixerOptions),
-      packMediaQueries,
       cssnano({ autoprefixer: { browsers: autoprefixerOptions } })
     ];
 
