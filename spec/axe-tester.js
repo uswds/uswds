@@ -27,9 +27,7 @@ const AXE_OPTIONS = JSON.stringify({
     // Not all content will be in a landmark region
     region: { enabled: false },
     // Not all examples have skip-link as a first element
-    "skip-link": { enabled: false },
-    // Links can have an href '#' here
-    "href-no-hash": { enabled: false }
+    "skip-link": { enabled: false }
   }
 });
 
