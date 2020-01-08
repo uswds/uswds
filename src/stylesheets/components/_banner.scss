@@ -196,7 +196,6 @@
         @include u-pin("y");
         @include u-pin("right");
         background-color: color("base-lighter");
-        bottom: 0;
         height: auto;
       }
     }
@@ -206,16 +205,6 @@
       height: auto;
       padding: units(0);
       position: relative;
-    }
-
-    &::after {
-      position: absolute;
-      right: units(2);
-      top: units(1.5);
-
-      @include at-media("tablet") {
-        position: static;
-      }
     }
   }
 }
