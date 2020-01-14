@@ -9,6 +9,11 @@
   "jsnext:main": "src/js/start.js",
   "style": "dist/css/uswds.min.css",
   "sass": "src/stylesheets/uswds.scss",
+  "mocha": {
+    "require": ["jsdom-global/register", "./spec/delayed-root-suite"],
+    "delay": true,
+    "exit": true
+  },
   "scripts": {
     "build": "gulp build",
     "build:css": "gulp sass",

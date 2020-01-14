@@ -1,20 +1,16 @@
 const gulp = require("gulp");
 const mocha = require("gulp-spawn-mocha");
 
-const mochaOpts = {
-  opts: "spec/mocha.opts"
-};
-
-gulp.task("test", () => gulp.src("spec/**/*.spec.js").pipe(mocha(mochaOpts)));
+gulp.task("test", () => gulp.src("spec/**/*.spec.js").pipe(mocha()));
 
 gulp.task("regression", () =>
-  gulp.src("spec/headless-chrome.js").pipe(mocha(mochaOpts))
+  gulp.src("spec/headless-chrome.js").pipe(mocha())
 );
 
 gulp.task("cover", () =>
   gulp.src("spec/unit/**/*.spec.js").pipe(
     mocha(
-      Object.assign(mochaOpts, {
+      Object.assign({
         nyc: true
       })
     )
