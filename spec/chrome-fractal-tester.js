@@ -17,18 +17,19 @@ function launchChromeLocally(headless = true) {
   });
 }
 
-function getRemoteChrome () {
+function getRemoteChrome() {
   const info = urlParse(REMOTE_CHROME_URL);
-  if (info.protocol !== 'http:')
+  if (info.protocol !== 'http:') {
     throw new Error(`Unsupported protocol: ${info.protocol}`);
+  }
   return Promise.resolve({
     host: info.hostname,
     port: info.port,
-    kill () { return Promise.resolve(); },
+    kill() { return Promise.resolve(); },
   });
 }
 
-function loadPage ({ cdp, url }) {
+function loadPage({ cdp, url }) {
   const { Page, Network } = cdp;
 
   return Promise.all([
@@ -41,7 +42,7 @@ function loadPage ({ cdp, url }) {
         `${response.url} returned HTTP ${response.status}!`
       ));
     });
-    Network.loadingFailed(details => {
+    Network.loadingFailed((details) => {
       reject(new Error('A network request failed to load: ' +
                        JSON.stringify(details, null, 2)));
     });
@@ -52,7 +53,7 @@ function loadPage ({ cdp, url }) {
   }));
 }
 
-function getHandles () {
+function getHandles() {
   return Array.from(fractal.components.flatten().map(c => c.handle));
 }
 
@@ -61,7 +62,7 @@ const server = fractal.web.server({ sync: false });
 const autobind = self => name => { self[ name ] = self[ name ].bind(self); }; // eslint-disable-line
 
 class ChromeFractalTester {
-  constructor () {
+  constructor() {
     this.chrome = null;
     this.chromeHost = null;
     this.serverUrl = null;
@@ -72,7 +73,7 @@ class ChromeFractalTester {
       'teardown' ].forEach(autobind(this));
   }
 
-  setup () {
+  setup() {
     // Note that we're not killing the server; this is because
     // the remote chrome instance (if we're using one) may be
     // keeping some network connections to the server alive, which
@@ -80,26 +81,26 @@ class ChromeFractalTester {
     // terminate the process when it's done running tests.
     return server.start()
       .then(getChrome)
-      .then(newChrome => {
+      .then((newChrome) => {
         this.chrome = newChrome;
         this.chromeHost = this.chrome.host || 'localhost';
         this.serverUrl = `http://${HOSTNAME}:${server.port}`;
       });
   }
 
-  createChromeDevtoolsProtocol () {
+  createChromeDevtoolsProtocol() {
     return CDP({
       host: this.chromeHost,
       port: this.chrome.port,
     });
   }
 
-  loadFractalPreview (cdp, handle) {
+  loadFractalPreview(cdp, handle) {
     const url = `${this.serverUrl}/components/preview/${handle}`;
     return loadPage({ url, cdp });
   }
 
-  teardown () {
+  teardown() {
     return this.chrome.kill();
   }
 }
