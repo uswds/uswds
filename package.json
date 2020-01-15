@@ -10,7 +10,10 @@
   "style": "dist/css/uswds.min.css",
   "sass": "src/stylesheets/uswds.scss",
   "mocha": {
-    "require": ["jsdom-global/register", "./spec/delayed-root-suite"],
+    "require": [
+      "jsdom-global/register",
+      "./spec/delayed-root-suite"
+    ],
     "delay": true,
     "exit": true
   },
@@ -27,7 +30,7 @@
     "preversion": "npm test",
     "release": "gulp release",
     "spec": "npm run mocha -- 'spec/**/*.spec.js'",
-    "start": "fractal start --sync",
+    "start": "fractal start --sync & npm run watch",
     "test": "snyk test && gulp eslint && gulp typecheck && gulp stylelint && gulp test && gulp regression",
     "test:ci": "gulp eslint && gulp typecheck && gulp stylelint && gulp test && gulp regression",
     "test:unit": "gulp test",
@@ -99,6 +102,7 @@
     "eslint-plugin-import": "^2.19.1",
     "fancy-log": "^1.3.3",
     "gulp": "^4.0.2",
+    "gulp-changed": "^4.0.2",
     "gulp-cli": "^2.2.0",
     "gulp-eslint": "^5.0.0",
     "gulp-filter": "^6.0.0",
