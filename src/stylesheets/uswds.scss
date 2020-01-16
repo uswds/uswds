@@ -15,8 +15,3 @@
 // Utilities
 // -------------------------------------
 @import "packages/uswds-utilities";
-
-
-.my-aspect-ratio {
-  @include add-aspect("4x3");
-}
