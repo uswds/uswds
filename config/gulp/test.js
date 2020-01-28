@@ -14,6 +14,7 @@ gulp.task("regression", () =>
 gulp.task("cover", () =>
   gulp.src("spec/unit/**/*.spec.js").pipe(
     mocha(
+      mochaConfig,
       Object.assign({
         nyc: true
       })
