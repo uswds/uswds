@@ -10,12 +10,7 @@
   "style": "dist/css/uswds.min.css",
   "sass": "src/stylesheets/uswds.scss",
   "mocha": {
-    "require": [
-      "jsdom-global/register",
-      "./spec/delayed-root-suite"
-    ],
-    "delay": true,
-    "exit": true
+    "config": "spec/.mocharc.json"
   },
   "scripts": {
     "build": "gulp build",
@@ -25,7 +20,7 @@
     "format-tokens": "node ./src/utils/style-format.js --file './src/data/colors' --output './src/stylesheets/core/system-tokens'",
     "federalist": "npm install && gulp build && fractal build",
     "lint": "eslint src/js/**/*.js spec/**/*.js",
-    "mocha": "mocha --opts spec/mocha.opts",
+    "mocha": "mocha",
     "prepare": "gulp build",
     "preversion": "npm test",
     "release": "gulp release",
@@ -118,7 +113,7 @@
     "handlebars-helpers": "^0.10.0",
     "jsdom": "^15.2.1",
     "jsdom-global": "^3.0.2",
-    "mocha": "^7.0.0",
+    "mocha": "^7.0.1",
     "node-notifier": "^6.0.0",
     "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",

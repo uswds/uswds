@@ -1,10 +1,14 @@
 const gulp = require("gulp");
 const mocha = require("gulp-spawn-mocha");
 
-gulp.task("test", () => gulp.src("spec/**/*.spec.js").pipe(mocha()));
+const mochaConfig = {
+  config: 'spec/.mocharc.json'
+};
+
+gulp.task("test", () => gulp.src("spec/**/*.spec.js").pipe(mocha(mochaConfig)));
 
 gulp.task("regression", () =>
-  gulp.src("spec/headless-chrome.js").pipe(mocha())
+  gulp.src("spec/headless-chrome.js").pipe(mocha(mochaConfig))
 );
 
 gulp.task("cover", () =>
