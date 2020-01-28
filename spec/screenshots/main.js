@@ -1,12 +1,12 @@
-const TEMPLATE_VAR_ATTRS = ["src", "href"];
+const TEMPLATE_VAR_ATTRS = ['src', 'href'];
 
 function renderTemplate(id, context = {}) {
   const template = document.getElementById(id);
   const { content } = template;
   const $ = selector => content.querySelectorAll(selector);
 
+  /* eslint-disable */
   Object.keys(context).forEach(name => {
-    /* eslint-disable */
     $(`[data-var="${name}"]`).forEach(el => {
       el.textContent = context[name];
     });
@@ -17,29 +17,32 @@ function renderTemplate(id, context = {}) {
       )
     );
   });
+  /* eslint-enable */
 
   return document.importNode(content, true);
 }
 
+/* eslint-disable consistent-return */
 window.onload = () => {
-  const main = document.querySelector("main");
+  const main = document.querySelector('main');
 
   // Did we load the metadata?
   if (!window.metadata) {
-    return main.appendChild(renderTemplate("metadata-not-found"));
+    return main.appendChild(renderTemplate('metadata-not-found'));
   }
 
   // Were there any failures?
   const failures = window.metadata.filter(info => info.failed);
   if (failures.length === 0) {
     return main.appendChild(
-      renderTemplate("no-failures", {
-        count: window.metadata.length
-      })
+      renderTemplate('no-failures', {
+        count: window.metadata.length,
+      }),
     );
   }
 
   // Show the failures.
+  /* eslint-disable */
   failures.forEach(info => {
     resemble(info.goldenName)
       .compareTo(info.failName)

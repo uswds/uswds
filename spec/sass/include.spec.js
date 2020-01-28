@@ -1,19 +1,19 @@
-require("node-sass");
-const path = require("path");
-const { runGulp, distScssPath, render } = require("./util");
+require('node-sass');
+const path = require('path');
+const { runGulp, distScssPath, render } = require('./util');
 
-const includePath = path.resolve(path.join(__dirname, "../../src/stylesheets"));
+const includePath = path.resolve(path.join(__dirname, '../../src/stylesheets'));
 
-describe("include paths", () => {
+describe('include paths', () => {
   it('can be loaded with @import "uswds"', () => {
     render('@import "uswds";', [includePath]);
   });
 });
 
-describe("standalone dist scss", () => {
+describe('standalone dist scss', () => {
   before(() => {
     setTimeout(() => {
-      runGulp("copy-dist-sass");
+      runGulp('copy-dist-sass');
     }, 20000);
   });
 
