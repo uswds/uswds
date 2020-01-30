@@ -9,7 +9,8 @@
   transition: all 0.2s ease-in-out;
   z-index: z-index(100);
 
-  &:focus {
+  &:focus,
+  &.usa-focus {
     background: color("white");
     left: 0;
     position: absolute;
