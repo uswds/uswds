@@ -5,5 +5,5 @@
   ],
   "delay": true,
   "exit": true,
-  "timeout": 6000
+  "timeout": 4000
 }
