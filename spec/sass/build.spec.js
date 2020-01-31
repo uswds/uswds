@@ -45,15 +45,15 @@ describe('version output', () => {
         resolve();
       });
     });
-  /* esling-enable */
+  /* eslint-enable */
 
-  it("includes the current version text in uswds.css", () => {
-    const distFilename = path.join(distCssPath, "uswds.css");
+  it('includes the current version text in uswds.css', () => {
+    const distFilename = path.join(distCssPath, 'uswds.css');
     return checkVersion(distFilename);
   });
 
-  it("includes the current version text in uswds.min.css", () => {
-    const distFilename = path.join(distCssPath, "uswds.min.css");
+  it('includes the current version text in uswds.min.css', () => {
+    const distFilename = path.join(distCssPath, 'uswds.min.css');
     return checkVersion(distFilename);
   });
 });
