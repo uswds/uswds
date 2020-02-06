@@ -1,4 +1,4 @@
-const TEMPLATE_VAR_ATTRS = ['src', 'href'];
+const TEMPLATE_VAR_ATTRS = ["src", "href"];
 
 function renderTemplate(id, context = {}) {
   const template = document.getElementById(id);
@@ -24,20 +24,20 @@ function renderTemplate(id, context = {}) {
 
 /* eslint-disable consistent-return */
 window.onload = () => {
-  const main = document.querySelector('main');
+  const main = document.querySelector("main");
 
   // Did we load the metadata?
   if (!window.metadata) {
-    return main.appendChild(renderTemplate('metadata-not-found'));
+    return main.appendChild(renderTemplate("metadata-not-found"));
   }
 
   // Were there any failures?
   const failures = window.metadata.filter(info => info.failed);
   if (failures.length === 0) {
     return main.appendChild(
-      renderTemplate('no-failures', {
-        count: window.metadata.length,
-      }),
+      renderTemplate("no-failures", {
+        count: window.metadata.length
+      })
     );
   }
 
