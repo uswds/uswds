@@ -25,6 +25,7 @@ Check out the [18F Open Source Policy GitHub repository]( https://github.com/18f
   - [Running locally](#running-locally)
   - [Testing](#testing)
   - [Submitting a pull request](#submitting-a-pull-request)
+  - [Releases](#releases)
 
 - [Licenses and attribution](#licenses-and-attribution)
 
@@ -91,18 +92,20 @@ For JavaScript contributions, we will review the code coverage percentage and ch
 High code coverage numbers are generally good, and we would prefer that our coverage increases over time. We will not categorically reject contributions that reduce code coverage, but we may ask contributors to refactor their code, add new unit tests, or modify existing tests to avoid significant reductions in coverage.
 
 ### Browser support
-See [browser support](https://designsystem.digital.gov/getting-started/developers#browser-support) in the “Getting started: Developers” guidelines.
+USWDS v2 supports the newest versions fo Chrome, Firefox, Safari, and Internet Explorer 11 and up.
+
+For more details see [browser support](https://designsystem.digital.gov/documentation/developers/#browser-support) in the “Getting started: Developers” guidelines.
 
 ### Our use of branches
 
 See the [release documentation](https://github.com/uswds/uswds/wiki/Release-process) for more information on our git/GitHub release workflow.
 
 #### Here's what a typical workflow would look like:
-1. Install necessary packages w/ `npm install`
-2. Run a local server with `npm start`
+1. Install necessary packages `npm install`
+2. Run a local server `npm start`
 3. Watch for local scss/js/component changes `npm run watch` (separate terminal tab)
-4. Test your work with `npm test`
-5. Run `npm run test:visual:update` if you've created a new component otherwise test with `npm run test:visual`
+4. Test your work `npm test`
+5. Run `npm run test:visual:update` if you've created a new component otherwise test `npm run test:visual`
 
 #### Running locally
 
@@ -137,7 +140,7 @@ sure you're on a compatible version of node.
 npm install
 ```
 
-**ProTip**: You can also use [Yarn], which tends to install dependencies more quickly than npm.
+>**ProTip**: You can also use [Yarn], which tends to install dependencies more quickly than npm.
 
 To start the [Fractal] live reload server, run:
 
@@ -178,19 +181,24 @@ npm test
 
 ### Eslint & Stylelint
 This will also run [eslint] and [stylelint] to ensure that the JavaScript
-and SCSS source files meet our coding standards along with [snyk test] to check for package dependency vulnerabilities. To lint without the unit
-tests, you'll need [Gulp][]. Install it globally (`npm install -g
-gulp-cli`), then run:
+and SCSS source files meet our coding standards along with [snyk test] to check for package dependency vulnerabilities.
 
+To lint without the unit
+tests, you'll need [Gulp][]. Install it globally:
+
+```sh
+npm install -g gulp-cli
+```
+
+And then run:
 ```sh
 gulp eslint
 gulp stylelint
 ```
 
-(Or, if you don't want to install Gulp globally, you can run `$(npm
-bin)/gulp` instead of `gulp`.)
+>Or, if you don't want to install Gulp globally, you can run `npx gulp` instead of `gulp`.
 
-Note that running the tests also requires an installation of
+>Note that running the tests also requires an installation of
 Chrome v59 or higher (v60 if you're on Windows).
 
 If you want to run a single test file, run `npm run mocha ${path/to/spec-file}`,
@@ -240,7 +248,26 @@ If the current screenshots don't match their golden counterparts, you will
 be directed to an HTML file that visually shows the differences between
 any conflicting screenshots.
 
-### Building
+---
+
+### Submitting a pull request
+
+Here are a few guidelines to follow when submitting a pull request:
+
+1. Create a GitHub account or sign in to your existing account.
+1. Fork this repo into your GitHub account (or just clone it if you’re an 18F team member). Read more about forking a repo here on [GitHub](https://help.github.com/articles/fork-a-repo/).
+1. Create a branch from `develop` that lightly defines what you’re working on (for example, add-styles).
+1. Ensure that your contribution works via `npm`, if applicable.
+1. Once you’re ready to submit a pull request, fill out the [PULL REQUEST](https://github.com/uswds/uswds/blob/develop/.github/PULL_REQUEST_TEMPLATE.md) template provided.
+1. Submit your pull request against the `develop` branch.
+
+>[Open an issue](https://github.com/uswds/uswds/issues/new) if you have questions or need help with setup.
+
+<!-- @TODO: What does a good PR look like? -->
+
+---
+
+## Releases
 
 To build the `uswds` package in preparation for releases, run:
 
@@ -248,20 +275,9 @@ To build the `uswds` package in preparation for releases, run:
 npm run release
 ```
 
-#### Submitting a pull request
+Read more about our release process on our [wiki page](https://github.com/uswds/uswds/wiki/Release-process).
 
-Here are a few guidelines to follow when submitting a pull request:
-
-1. Create a GitHub account or sign in to your existing account.
-1. Fork this repo into your GitHub account (or just clone it if you’re an 18F team member). Read more about forking a repo here on GitHub:
-[https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/)
-1. Create a branch from `develop` that lightly defines what you’re working on (for example, add-styles).
-1. Ensure that your contribution works via `npm`, if applicable.
-1. Once you’re ready to submit a pull request, fill out the PULL REQUEST template provided.
-1. Submit your pull request against the `develop` branch.
-
-[Open an issue](https://github.com/uswds/uswds/issues/new) if you have questions or need help with setup.
-
+---
 
 ## Licenses and attribution
 
@@ -283,6 +299,7 @@ All contributions to this project will be released under the CC0
 dedication. By submitting a pull request, you are agreeing to comply
 with this waiver of copyright interest.
 
+<!-- Written for use above. -->
 [Node.js]: https://nodejs.org
 [Fractal]: http://fractal.build
 [Gulp]: http://gulpjs.com/
