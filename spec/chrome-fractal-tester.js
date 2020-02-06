@@ -61,9 +61,9 @@ function getHandles() {
 
 const getChrome = REMOTE_CHROME_URL ? getRemoteChrome : launchChromeLocally;
 const server = fractal.web.server({ sync: false });
-const autobind = self => name => {
-  self[name] = self[name].bind(self);
-}; // eslint-disable-line
+
+// eslint-disable-next-line no-param-reassign, no-return-assign
+const autobind = self => name => self[name] = self[name].bind(self);
 
 class ChromeFractalTester {
   constructor() {
