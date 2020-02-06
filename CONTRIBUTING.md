@@ -1,4 +1,4 @@
-## Welcome!
+# Welcome!
 
 We’re so glad you’re thinking about contributing to a Technology Transformation Services (TTS) open source project! If you’re unsure about anything, just ask — or submit your issue or pull request anyway. The worst that can happen is we’ll politely ask you to change something. We appreciate all friendly contributions.
 
@@ -6,38 +6,132 @@ TTS is committed to building a safe, welcoming, harassment-free culture for ever
 
 We encourage you to read this project’s CONTRIBUTING policy (you are here), its [LICENSE](LICENSE.md), [README](README.md) and its [Workflow](https://github.com/uswds/uswds/wiki/Workflow) process.
 
-If you have any questions or want to read more, check out the [18F Open Source Policy GitHub repository]( https://github.com/18f/open-source-policy), or [send us an email](mailto:18f@gsa.gov).
+## If you have any questions or want to read more
 
-## Guidelines
+Check out the [18F Open Source Policy GitHub repository]( https://github.com/18f/open-source-policy), request an invite to our [slack channel](https://chat.18f.gov/), or [send us an email](mailto:18f@gsa.gov).
 
-### Contributor Guidelines for Design
+---
+
+## Table of Contents
+[Contributing for Design](#contributor-Guidelines-for-Design)
+
+[Contributing for Code](#contributing-Guidelines-for-Code)
+- [Report Bugs](#report-a-bug)
+- [Suggest features](#suggest-features)
+- [Submitting Code](#submitting-code)
+    - [Before you start coding](#before-you-start-coding)
+      - [Coding guidelines](#coding-guidelines)
+      - [Browser support](#browser-support)
+  - [Running locally](#running-locally)
+  - [Testing](#testing)
+  - [Submitting a pull request](#submitting-a-pull-request)
+
+- [Licenses and attribution](#licenses-and-attribution)
+
+---
+
+## Contributor Guidelines for Design
 
 We have provided some guidelines for folks that would like to submit new components to the U.S. Web Design System and the lifecycle those new components will go through. For more detail, please visit the [guidelines on our wiki](https://github.com/uswds/uswds/wiki/Contribution-Guidelines:-Design).
 
-### Submitting an issue
+We also have [uswds-for-designers](https://github.com/uswds/uswds-for-designers) for designers that want to contribute directly.
+Here are the types of things we're looking for:
+- UX Researchers & testers
+- Typographers
+- UI Designers
+- Improving and Maintaining sketch files
 
-To help us get a better understanding of the issue you’re submitting, follow our ISSUE TEMPLATE and the guidelines it describes.
+---
 
-### Submitting a pull request
+## Contributing Guidelines for Code
 
-Here are a few guidelines to follow when submitting a pull request:
+### Report a bug
+---
+To help us get a better understanding of the issue you’re submitting, follow our [ISSUE TEMPLATE](https://github.com/uswds/uswds/blob/develop/.github/ISSUE_TEMPLATE.md) and the guidelines it describes. The more information you can include, the faster we can resolve the issue.
 
-1. Create a GitHub account or sign in to your existing account.
-1. Fork this repo into your GitHub account (or just clone it if you’re an 18F team member). Read more about forking a repo here on GitHub:
-[https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/)
-1. Create a branch from `develop` that lightly defines what you’re working on (for example, add-styles).
-1. Ensure that your contribution works via `npm`, if applicable.
-1. Once you’re ready to submit a pull request, fill out the PULL REQUEST template provided.
-1. Submit your pull request against the `develop` branch.
+#### Before reporting a bug
 
-[Open an issue](https://github.com/uswds/uswds/issues/new) if you have questions or need help with setup.
+Please make sure you've checked the [issues](https://github.com/uswds/uswds/issues). This helps reduce duplicate tickets and someone might've already found a fix or is actively working on it.
 
-### Running locally
+<!-- @TODO: Example of a good issue -->
+
+
+### Suggest features
+---
+Do you have an idea to help improve USWDS? If you have a new feature or improvement you'd like to see open an [issue](https://github.com/uswds/uswds/issues/new). Add a label of `type: feature request` on the right hand side and any other labels that apply.
+
+Be sure to tell us what problem you're trying to solve with this suggestion. References, examples, or any additional research you can provide will help us greatly.
+
+#### Before suggesting a feature
+- Make sure you have the right [repo](https://github.com/uswds)
+- Search to reduce duplicate efforts, if you have additional info add it to the existing issue
+
+<!-- @TODO: Example of a good feature -->
+
+### Submitting Code
+---
+
+### Before you start coding
+
+### Coding guidelines
+
+The purpose of our coding styleguides are to create consistent coding practices across 18F. The styleguide should be treated as a guide — rules can be modified according to project needs.
+
+This project follows the 18F Front End Guide [CSS](https://pages.18f.gov/frontend/#css) and [JavaScript](https://pages.18f.gov/frontend/#javascript). Please use this guide for your reference.
+
+#### Code coverage
+
+We use [code coverage](https://en.wikipedia.org/wiki/Code_coverage) tools to understand how much of our JavaScript is tested by our [unit test suite](spec/unit). Code coverage is one way (among many) of measuring code _quality_ more generally. Here's how it works for contributions:
+
+1. Each pull request creates a new coverage report on [Code Climate](https://codeclimate.com/).
+1. Code Climate then posts a status message back to GitHub that lists the coverage percentage on that branch, and the difference between that number and the one last reported on our default branch.
+
+For JavaScript contributions, we will review the code coverage percentage and change to ensure that the quality of our code is not dramatically affected.
+
+High code coverage numbers are generally good, and we would prefer that our coverage increases over time. We will not categorically reject contributions that reduce code coverage, but we may ask contributors to refactor their code, add new unit tests, or modify existing tests to avoid significant reductions in coverage.
+
+### Browser support
+See [browser support](https://designsystem.digital.gov/getting-started/developers#browser-support) in the “Getting started: Developers” guidelines.
+
+### Our use of branches
+
+See the [release documentation](https://github.com/uswds/uswds/wiki/Release-process) for more information on our git/GitHub release workflow.
+
+#### Here's what a typical workflow would look like:
+1. Install necessary packages w/ `npm install`
+2. Run a local server with `npm start`
+3. Watch for local scss/js/component changes `npm run watch` (separate terminal tab)
+4. Test your work with `npm test`
+5. Run `npm run test:visual:update` if you've created a new component otherwise test with `npm run test:visual`
+
+#### Running locally
 
 The U.S. Web Design System `uswds` package (the zip download and the
 files needed to use the Design System on your project) is built primarily with
-two [Node.js] tools: [Fractal] and [Gulp]. Once you've cloned this
-repository, you'll need to install its dependencies:
+two [Node.js] tools: [Fractal] and [Gulp].
+
+If you're added as a core contributor of the organization go ahead and clone the repo.
+Otherwise, fork to have your own copy of the repo and then clone that.
+
+If you're forking the repo make sure you add the original as a new remote.
+This allows you to pull the latest changes.
+
+```sh
+# Creates a new remote called uswds
+git add remote uswds git@github.com:uswds/uswds.git
+
+# Make sure you added it correctly
+git remote -v
+
+# You should see something like this:
+# origin  git@github.com:your-username/uswds.git (fetch)
+# origin  git@github.com:your-username/uswds.git (push)
+# uswds   git@github.com:uswds/uswds.git (fetch)
+# uswds   git@github.com:uswds/uswds.git (push)
+```
+
+In your terminal, go to your newly created folder and run. Check `.nvmrc` to make
+sure you're on a compatible version of node.
 
 ```sh
 npm install
@@ -64,14 +158,25 @@ references with:
 npm run watch
 ```
 
-### Testing
+Congrats! Now you're up and running with a local instance so you can start working.
 
+---
+
+## Testing
+
+Testing helps with code quality. Here are a few things we test for:
+- [Unit testing for components](#unit-testing)
+- [Eslint for JS & Stylelint for SCSS](#eslint-&amp;-stylelint)
+- [Visual regressions for components](#visual-regression-testing)
+
+### Unit Testing
 To run the component unit tests, run:
 
 ```sh
 npm test
 ```
 
+### Eslint & Stylelint
 This will also run [eslint] and [stylelint] to ensure that the JavaScript
 and SCSS source files meet our coding standards along with [snyk test] to check for package dependency vulnerabilities. To lint without the unit
 tests, you'll need [Gulp][]. Install it globally (`npm install -g
@@ -103,7 +208,7 @@ you'll need to export a `CHROME_PATH` environment variable that points to Chrome
 can find a version of Chrome for our aXe visual acceptence tests. A table of the locations of the binary
 for each OS can [be found here](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver#requirements).
 
-#### Visual regression testing
+### Visual regression testing
 
 The Design System comes with optional tooling for detecting visual regressions,
 which can be especially useful if you're refactoring CSS.
@@ -143,29 +248,20 @@ To build the `uswds` package in preparation for releases, run:
 npm run release
 ```
 
-## Coding guidelines
+#### Submitting a pull request
 
-The purpose of our coding styleguides are to create consistent coding practices across 18F. The styleguide should be treated as a guide — rules can be modified according to project needs.
+Here are a few guidelines to follow when submitting a pull request:
 
-This project follows the 18F Front End Guide [CSS](https://pages.18f.gov/frontend/#css) and [JavaScript](https://pages.18f.gov/frontend/#javascript). Please use this guide for your reference.
+1. Create a GitHub account or sign in to your existing account.
+1. Fork this repo into your GitHub account (or just clone it if you’re an 18F team member). Read more about forking a repo here on GitHub:
+[https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/)
+1. Create a branch from `develop` that lightly defines what you’re working on (for example, add-styles).
+1. Ensure that your contribution works via `npm`, if applicable.
+1. Once you’re ready to submit a pull request, fill out the PULL REQUEST template provided.
+1. Submit your pull request against the `develop` branch.
 
-### Code coverage
+[Open an issue](https://github.com/uswds/uswds/issues/new) if you have questions or need help with setup.
 
-We use [code coverage](https://en.wikipedia.org/wiki/Code_coverage) tools to understand how much of our JavaScript is tested by our [unit test suite](spec/unit). Code coverage is one way (among many) of measuring code _quality_ more generally. Here's how it works for contributions:
-
-1. Each pull request creates a new coverage report on [Code Climate](https://codeclimate.com/).
-1. Code Climate then posts a status message back to GitHub that lists the coverage percentage on that branch, and the difference between that number and the one last reported on our default branch.
-
-For JavaScript contributions, we will review the code coverage percentage and change to ensure that the quality of our code is not dramatically affected.
-
-High code coverage numbers are generally good, and we would prefer that our coverage increases over time. We will not categorically reject contributions that reduce code coverage, but we may ask contributors to refactor their code, add new unit tests, or modify existing tests to avoid significant reductions in coverage.
-
-## Browser support
-See [browser support](https://designsystem.digital.gov/getting-started/developers/#browser-support) in the “Getting started: Developers” guidelines.
-
-## Our use of branches
-
-See the [release documentation](https://github.com/uswds/uswds/wiki/Release-process) for more information on our git/GitHub release workflow.
 
 ## Licenses and attribution
 
