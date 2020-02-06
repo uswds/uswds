@@ -1,32 +1,32 @@
-const assert = require('assert');
-const fs = require('fs');
-const path = require('path');
-const pkg = require('../../package.json');
-const { distCssPath, runGulp } = require('./util');
+const assert = require("assert");
+const fs = require("fs");
+const path = require("path");
+const pkg = require("../../package.json");
+const { distCssPath, runGulp } = require("./util");
 
 before(() => {
-  setTimeout(() => runGulp('sass'), 20000);
+  setTimeout(() => runGulp("sass"), 20000);
 });
 
-describe('build output', () => {
-  it('generates CSS at dist/css/uswds.css', () => {
-    const distFilename = path.join(distCssPath, 'uswds.css');
+describe("build output", () => {
+  it("generates CSS at dist/css/uswds.css", () => {
+    const distFilename = path.join(distCssPath, "uswds.css");
     assert.ok(
       fs.existsSync(distFilename),
-      `the file does not exist:  ${distFilename}`,
+      `the file does not exist:  ${distFilename}`
     );
   });
 
-  it('generates minified CSS at dist/css/uswds.min.css', () => {
-    const distFilename = path.join(distCssPath, 'uswds.min.css');
+  it("generates minified CSS at dist/css/uswds.min.css", () => {
+    const distFilename = path.join(distCssPath, "uswds.min.css");
     assert.ok(
       fs.existsSync(distFilename),
-      `the file does not exist:  ${distFilename}`,
+      `the file does not exist:  ${distFilename}`
     );
   });
 });
 
-describe('version output', () => {
+describe("version output", () => {
   const versionString = `/*! uswds v${pkg.version} */`;
 
   /* eslint-disable */
@@ -47,13 +47,13 @@ describe('version output', () => {
     });
   /* eslint-enable */
 
-  it('includes the current version text in uswds.css', () => {
-    const distFilename = path.join(distCssPath, 'uswds.css');
+  it("includes the current version text in uswds.css", () => {
+    const distFilename = path.join(distCssPath, "uswds.css");
     return checkVersion(distFilename);
   });
 
-  it('includes the current version text in uswds.min.css', () => {
-    const distFilename = path.join(distCssPath, 'uswds.min.css');
+  it("includes the current version text in uswds.min.css", () => {
+    const distFilename = path.join(distCssPath, "uswds.min.css");
     return checkVersion(distFilename);
   });
 });
