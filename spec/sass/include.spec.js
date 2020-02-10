@@ -5,9 +5,8 @@ const { runGulp, distScssPath, render } = require("./util");
 const includePath = path.resolve(path.join(__dirname, "../../src/stylesheets"));
 
 describe("include paths", () => {
-  it('can be loaded with @import "uswds"', () => {
-    render('@import "uswds";', [includePath]);
-  });
+  it('can be loaded with @import "uswds"', async () =>
+    render('@import "uswds";', [includePath]));
 });
 
 describe("standalone dist scss", () => {
@@ -18,6 +17,8 @@ describe("standalone dist scss", () => {
   });
 
   it('can be loaded with @import "uswds"', () => {
-    render('@import "uswds";', [distScssPath]);
+    setTimeout(() => {
+      render('@import "uswds";', [distScssPath]);
+    }, 20000);
   });
 });

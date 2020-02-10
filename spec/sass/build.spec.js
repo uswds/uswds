@@ -45,7 +45,7 @@ describe("version output", () => {
         resolve();
       });
     });
-  /* esling-enable */
+  /* eslint-enable */
 
   it("includes the current version text in uswds.css", () => {
     const distFilename = path.join(distCssPath, "uswds.css");

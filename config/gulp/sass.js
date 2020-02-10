@@ -11,6 +11,7 @@ const replace = require("gulp-replace");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass");
 const sourcemaps = require("gulp-sourcemaps");
+const changed = require("gulp-changed");
 const autoprefixerOptions = require("./browsers");
 const dutil = require("./doc-util");
 const pkg = require("../../package.json");
@@ -56,14 +57,18 @@ gulp.task("stylelint", () =>
 gulp.task("copy-vendor-sass", () => {
   dutil.logMessage("copy-vendor-sass", "Compiling vendor CSS");
 
+  const source = './node_modules/normalize.css/normalize.css';
+  const destination = 'src/stylesheets/lib';
+
   const stream = gulp
-    .src(["./node_modules/normalize.css/normalize.css"])
+    .src([source])
     .pipe(normalizeCssFilter)
-    .pipe(rename("_normalize.scss"))
-    .on("error", error => {
-      dutil.logError("copy-vendor-sass", error);
+    .pipe(rename('_normalize.scss'))
+    .pipe(changed(destination))
+    .on('error', error => {
+      dutil.logError('copy-vendor-sass', error);
     })
-    .pipe(gulp.dest("src/stylesheets/lib"));
+    .pipe(gulp.dest(destination));
 
   return stream;
 });
