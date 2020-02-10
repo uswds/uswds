@@ -1,0 +1,13 @@
+<section class="usa-card margin-x-auto {{ card.classes }}" aria-labelledby="{{ card.id }}">
+  <div class="usa-card__body">
+    <h1 id="{{ card.id }}" class="usa-card__heading">
+      What is a card?
+    </h1>
+    {%- if card.content -%}
+    <p>{{ card.content }}</p>
+    {%- endif -%}
+    <div class="card-footer" aria-label="Action items">
+      <button class="usa-button">Read more on cards</button>
+    </div>
+  </div>
+</section>

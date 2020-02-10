@@ -1,0 +1,46 @@
+label: Card
+status: prototype
+order: 1
+
+context:
+  card:
+    content:
+      - A card is typically a member of a collection a subset or summary of a parent/record.
+        It includes at least an actionable element. Is modular — can vary peer order without destroying card meaning.
+        Is distinct from its collection peers in content.
+    # actions:
+    #   button:
+    #     text: "Read more on Cards"
+    #   link: link
+    #   social:
+    #     instagram:
+    #       label: instagram
+    #       href: "javascript:void(0)"
+    #     twitter:
+    #       label: twitter
+    #       href: "javascript:void(0)"
+
+# variants:
+#   - name: default
+#     label: Default
+#     context:
+#       card:
+#         classes: "usa-card"
+#         title: What is a card?
+#         id: "whats-a-card"
+
+#   - name: raised
+#     label: Raised
+#     context:
+#       card:
+#         classes: "usa-card--raised"
+#         title: Make your card standout
+#         id: "card-standout"
+
+#   - name: media
+#     label: Media Card
+#     context:
+#       card:
+#         classes: "usa-card--media"
+#         title: Media Card
+#         social: true

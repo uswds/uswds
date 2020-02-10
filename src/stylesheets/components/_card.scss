@@ -1,0 +1,27 @@
+.usa-card {
+  @include typeset;
+  @include border-box-sizing;
+  @include u-radius("md");
+  @include u-border(2px, "base-lighter");
+  @include u-bg("white");
+  @include u-maxw("mobile");
+}
+
+.usa-card__body {
+  @include u-padding(4);
+}
+
+.usa-card__heading {
+  @include typeset($theme-card-font-family, "lg", 2);
+  @include u-margin-top(0);
+}
+
+// ---------------------------------
+// Variations
+// ---------------------------------
+
+// Raised
+// ---------------------------------
+.usa-card--raised {
+  @include u-shadow(3);
+}
