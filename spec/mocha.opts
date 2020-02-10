@@ -1,1 +1,0 @@
---require jsdom-global/register --require ./spec/delayed-root-suite --delay --exit
