@@ -1,7 +1,7 @@
 const fs = require("fs");
 const assert = require("assert");
 
-const AXE_JS = fs.readFileSync(__dirname + "/../node_modules/axe-core/axe.js");
+const AXE_JS = fs.readFileSync(`${__dirname}/../node_modules/axe-core/axe.js`);
 
 const AXE_CONTEXT = JSON.stringify({
   exclude: [
@@ -28,8 +28,8 @@ const AXE_OPTIONS = JSON.stringify({
     region: { enabled: false },
     // Not all examples have skip-link as a first element
     "skip-link": { enabled: false },
-    // Links can have an href '#' here
-    "href-no-hash": { enabled: false }
+    // Not all examples will need an h1, ex: links.
+    "page-has-heading-one": { enabled: false }
   }
 });
 
@@ -65,21 +65,22 @@ function run(cdp) {
     if (details.result.type !== "string") {
       return Promise.reject(
         new Error(
-          "Unexpected result from aXe JS evaluation: " +
-            JSON.stringify(details.result, null, 2)
+          `Unexpected result from aXe JS evaluation: ${JSON.stringify(
+            details.result,
+            null,
+            2
+          )}`
         )
       );
     }
     const viols = JSON.parse(details.result.value);
     if (viols.length > 0) {
-      return Promise.reject(
-        new Error(
-          `Found ${viols.length} aXe violations: ` +
-            JSON.stringify(viols, null, 2) +
-            `\nTo debug these violations, install aXe at:\n\n` +
-            `  https://www.deque.com/products/axe/\n`
-        )
-      );
+      const errorMsg = `Found ${viols.length} aXe violations:
+        ${JSON.stringify(viols, null, 2)}
+        To debug these violations, install aXe at:
+        https://www.deque.com/products/axe/`;
+
+      return Promise.reject(new Error(errorMsg));
     }
     return Promise.resolve();
   });
