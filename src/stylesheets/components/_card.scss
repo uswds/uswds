@@ -4,16 +4,61 @@
   @include u-radius("md");
   @include u-border(2px, "base-lighter");
   @include u-bg("white");
-  @include u-maxw("mobile");
+  @include u-maxw(300px);
+  @include u-margin-bottom(2);
 }
 
 .usa-card__body {
-  @include u-padding(4);
+  @include u-padding($theme-card-padding-size);
 }
 
 .usa-card__heading {
   @include typeset($theme-card-font-family, "lg", 2);
   @include u-margin-top(0);
+}
+
+.usa-card__footer {
+  @include u-display("flex");
+  @include u-flex("row");
+  @include u-padding($theme-card-padding-size);
+  @include u-padding-top(0);
+  @include u-align-items("align-center");
+}
+
+.usa-card__social {
+  @include add-list-reset;
+  @include u-display("flex");
+  @include u-flex("row");
+  @include u-margin-left("neg-2");
+  @include u-margin-bottom("neg-2");
+}
+
+.usa-card__social .usa-social-nav__link {
+  $background-height: units(2); // Height of icon within hit area.
+  @include u-square($size-touch-target);
+  background-position: center center;
+  background-size: auto $background-height;
+  display: inline-block;
+
+  span {
+    @include sr-only();
+  }
+}
+
+.usa-social-nav__link--facebook {
+  @include add-background-svg("social-icons/facebook25");
+}
+
+.usa-social-nav__link--twitter {
+  @include add-background-svg("social-icons/twitter16");
+}
+
+.usa-social-nav__link--youtube {
+  @include add-background-svg("social-icons/youtube15");
+}
+
+.usa-social-nav__link--rss {
+  @include add-background-svg("social-icons/rss25");
 }
 
 // ---------------------------------
@@ -24,4 +69,14 @@
 // ---------------------------------
 .usa-card--raised {
   @include u-shadow(3);
+}
+
+// Media
+// ---------------------------------
+.usa-card__img {
+  display: block;
+}
+
+.usa-card--media .usa-card__body {
+  @include u-padding-y(3);
 }

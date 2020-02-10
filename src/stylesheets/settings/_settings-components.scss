@@ -40,6 +40,15 @@ $theme-button-stroke-width: 2px !default;
 
 // Card
 $theme-card-font-family: "ui" !default;
+$theme-card-padding-size: 4 !default;
+$theme-card-social-networks: (
+  twitter: #4099ff,
+  linkedin: #0077b5,
+  facebook: #3b5998,
+  pinterest: #cb2027,
+  youtube: #cd201f,
+  instagram: #fb3958
+);
 
 // Footer
 $theme-footer-font-family: "body" !default;
