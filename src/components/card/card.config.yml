@@ -21,7 +21,6 @@ variants:
       card:
         classes: "usa-card"
         title: What is a card?
-        id: "whats-a-card"
 
   - name: raised
     label: Raised
@@ -37,7 +36,7 @@ variants:
       card:
         media: true
         classes: "usa-card--media"
-        title: Media Card
+        title: Highlight images
 
   - name: icon
     label: Icon Card
@@ -45,6 +44,6 @@ variants:
       card:
         icon: true
         classes: "usa-card--icon"
-        title: Icon Card
+        title: Keep it simple
         content: false
         actions: false

@@ -1,9 +1,9 @@
 <section class="usa-card margin-x-auto {{ card.classes }}">
   {% if card.icon %}
   <div class="usa-card__body">
-    <h1 id="{{ card.id }}" class="usa-card__heading">
+    <h2 id="{{ card.id }}" class="usa-card__heading">
       {{ card.title }}
-    </h1>
+    </h2>
   </div>
   <svg class="usa-card__icon" width="24" height="24" viewBox="0 0 24 24">
     <path
@@ -12,9 +12,9 @@
   </svg>
   {% else %}
     <div class="usa-card__body">
-      <h1 id="{{ card.id }}" class="usa-card__heading">
+      <h2 class="usa-card__heading">
         {{ card.title }}
-      </h1>
+      </h2>
       {%- if card.content -%}
       <p>{{ card.content }}</p>
       {%- endif -%}
