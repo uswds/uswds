@@ -222,7 +222,7 @@ The design system requires both **autoprefixing** and **media query packing** to
 '> 2%','Last 2 versions', 'IE 11'
 ```
 
-- **media query packing** collects all similar media queries together at the end of the compiled stylesheet. USWDS and `uswds-gulp` use [`css-mqpacker`](https://github.com/hail2u/node-css-mqpacker). This is necessary to provide the proper cascade and specificity for utility classes. If you are not implementing utility classes, media query packing may not be necessary — but it is still a good idea.
+- **media query packing** collects all similar media queries together at the end of the compiled stylesheet. USWDS and `uswds-gulp` use [`postcss-sort-media-queries`](https://github.com/solversgroup/postcss-sort-media-queries). This is necessary to provide the proper cascade and specificity for utility classes. If you are not implementing utility classes, media query packing may not be necessary — but it is still a good idea.
 
 Additionally, we recommend using a minifier like [`cssnano`](https://cssnano.co/) to compress your final compiled CSS and sourcemaps like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
 

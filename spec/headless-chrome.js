@@ -30,9 +30,13 @@ class Device {
 const SKIP_COMPONENTS = [
   // Any components that need to be temporarily skipped can be put
   // here. They will be regarded as a "pending test" by Mocha.
+  "layout--docs",
   "layout--docs-inner",
-  "layout--landing-inner"
+  "layout--landing-inner",
+  "header",
+  "fonts"
 ];
+
 const DEVICES = [
   new Device("small-desktop", {
     width: 412,
@@ -70,15 +74,17 @@ fractalLoad.then(() => {
 
       describe(`"${handle}"`, () => {
         if (SKIP_COMPONENTS.includes(handle)) {
-          it("skipping for now. TODO: fix this test!");
+          it("Skipping for now. TODO: fix this test!");
           return;
         }
 
-        before("init chrome devtools protocol", () =>
-          chromeFractalTester.createChromeDevtoolsProtocol().then(client => {
-            cdp = client;
-          })
-        );
+        before("init chrome devtools protocol", () => {
+          return chromeFractalTester
+            .createChromeDevtoolsProtocol()
+            .then(client => {
+              cdp = client;
+            });
+        });
 
         before("load fractal component in chrome", function waitBeforeChrome() {
           this.timeout(20000);

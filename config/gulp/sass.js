@@ -2,21 +2,25 @@ const { formatters } = require("stylelint");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const discardComments = require("postcss-discard-comments");
+const Fiber = require("fibers");
 const filter = require("gulp-filter");
 const gulp = require("gulp");
 const gulpStylelint = require("gulp-stylelint");
-const packCSS = require("css-mqpacker");
 const postcss = require("gulp-postcss");
+const sortMQ = require("postcss-sort-media-queries");
 const replace = require("gulp-replace");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass");
 const sourcemaps = require("gulp-sourcemaps");
+const changed = require("gulp-changed");
 const autoprefixerOptions = require("./browsers");
 const dutil = require("./doc-util");
 const pkg = require("../../package.json");
 
 const task = "sass";
 const normalizeCssFilter = filter("**/normalize.css", { restore: true });
+
+sass.compiler = require("sass");
 
 const IGNORE_STRING = "This file is ignored";
 const ignoreStylelintIgnoreWarnings = lintResults =>
@@ -56,14 +60,18 @@ gulp.task("stylelint", () =>
 gulp.task("copy-vendor-sass", () => {
   dutil.logMessage("copy-vendor-sass", "Compiling vendor CSS");
 
+  const source = "./node_modules/normalize.css/normalize.css";
+  const destination = "src/stylesheets/lib";
+
   const stream = gulp
-    .src(["./node_modules/normalize.css/normalize.css"])
+    .src([source])
     .pipe(normalizeCssFilter)
     .pipe(rename("_normalize.scss"))
+    .pipe(changed(destination))
     .on("error", error => {
       dutil.logError("copy-vendor-sass", error);
     })
-    .pipe(gulp.dest("src/stylesheets/lib"));
+    .pipe(gulp.dest(destination));
 
   return stream;
 });
@@ -85,11 +93,11 @@ gulp.task(
     const pluginsProcess = [
       discardComments(),
       autoprefixer(autoprefixerOptions),
-      packCSS({ sort: true })
+      sortMQ({ sort: "mobile-first" })
     ];
     const pluginsMinify = [
       autoprefixer(autoprefixerOptions),
-      packCSS({ sort: true }),
+      sortMQ({ sort: "mobile-first" }),
       cssnano({ autoprefixer: { browsers: autoprefixerOptions } })
     ];
 
@@ -98,6 +106,7 @@ gulp.task(
       .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(
         sass({
+          fiber: Fiber,
           outputStyle: "expanded"
         }).on("error", sass.logError)
       )
