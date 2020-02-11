@@ -13,15 +13,18 @@ Check out the [18F Open Source Policy GitHub repository]( https://github.com/18f
 ---
 
 ## Table of Contents
-[Contributing for Design](#contributor-Guidelines-for-Design)
+[Contributing for design](#contributor-Guidelines-for-Design)
 
-[Contributing for Code](#contributing-Guidelines-for-Code)
-- [Report Bugs](#report-a-bug)
+[Contributing for code](#contributing-Guidelines-for-Code)
+- [Report bugs](#report-a-bug)
 - [Suggest features](#suggest-features)
-- [Submitting Code](#submitting-code)
+- [Submitting code](#submitting-code)
     - [Before you start coding](#before-you-start-coding)
       - [Coding guidelines](#coding-guidelines)
+      - [Code coverage](#code-coverage)
       - [Browser support](#browser-support)
+      - [Directory structure](#directory-structure)
+      - [Our use of branches](#our-use-of-branches)
   - [Running locally](#running-locally)
   - [Testing](#testing)
   - [Submitting a pull request](#submitting-a-pull-request)
@@ -91,21 +94,61 @@ For JavaScript contributions, we will review the code coverage percentage and ch
 
 High code coverage numbers are generally good, and we would prefer that our coverage increases over time. We will not categorically reject contributions that reduce code coverage, but we may ask contributors to refactor their code, add new unit tests, or modify existing tests to avoid significant reductions in coverage.
 
-### Browser support
+#### Browser support
 USWDS v2 supports the newest versions fo Chrome, Firefox, Safari, and Internet Explorer 11 and up.
 
 For more details see [browser support](https://designsystem.digital.gov/documentation/developers/#browser-support) in the “Getting started: Developers” guidelines.
 
-### Our use of branches
+#### Directory Structure
+```
+uswds-2.4.0/
+├── .circleci/
+├── .github/
+├── config/
+│   ├── gulp/
+│   └── nycrc.yml
+├── docs/
+├── examples/
+├── spec/
+│   ├── sass/
+│   ├── screenshots/
+│   ├── unit/
+│   ├── .eslintrc.yml
+│   ├── axe-tester.js
+│   ├── chrome-fractal-tester.js
+│   ├── delayed-root-suite.js
+│   ├── headless-chrome.js
+│   ├── mocha.opts
+│   └── visual-regression-tester.js
+└── src/
+│   ├── components/
+│   ├── data/
+│   ├── fonts/
+│   ├── img/
+│   ├── js/
+│   ├── stylesheets/
+│   └── utils/
+```
+
+- .circleci <br>
+Holds continuous integration tasks. Push your branch upstream as an org-member you'll see these tests run.
+
+- .github <br>
+Our github templates for good issues and pull requests. These are automatically used when creating issues and pull requests.
+
+- config <br>
+Files for our internal gulp tasks to run, build, and test the USWDS codebase.
+
+#### Our use of branches
 
 See the [release documentation](https://github.com/uswds/uswds/wiki/Release-process) for more information on our git/GitHub release workflow.
 
 #### Here's what a typical workflow would look like:
 1. Install necessary packages `npm install`
-2. Run a local server `npm start`
-3. Watch for local scss/js/component changes `npm run watch` (separate terminal tab)
-4. Test your work `npm test`
-5. Run `npm run test:visual:update` if you've created a new component otherwise test `npm run test:visual`
+1. Run a local server `npm start`
+1. Watch for local scss/js/component changes `npm run watch` (separate terminal tab)
+1. Test your work `npm test`
+1. Run `npm run test:visual:update` if you've created a new component otherwise test `npm run test:visual`
 
 #### Running locally
 
