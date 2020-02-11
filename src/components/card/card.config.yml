@@ -2,7 +2,6 @@ label: Card
 status: prototype
 order: 1
 preview: "@uswds-content"
-collated: false
 
 context:
   card:
@@ -39,3 +38,13 @@ variants:
         media: true
         classes: "usa-card--media"
         title: Media Card
+
+  - name: icon
+    label: Icon Card
+    context:
+      card:
+        icon: true
+        classes: "usa-card--icon"
+        title: Icon Card
+        content: false
+        actions: false

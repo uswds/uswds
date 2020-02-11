@@ -1,21 +1,34 @@
 <section class="usa-card margin-x-auto {{ card.classes }}">
-  {% if card.media %}
-    <img
-      class="usa-card__img"
-      src="https://images.unsplash.com/photo-1579800070193-abe62433f737?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-      alt="A placeholder image">
-  {% endif %}
+  {% if card.icon %}
   <div class="usa-card__body">
     <h1 id="{{ card.id }}" class="usa-card__heading">
       {{ card.title }}
     </h1>
-    {%- if card.content -%}
-    <p>{{ card.content }}</p>
-    {%- endif -%}
   </div>
-  <div class="usa-card__footer" aria-label="Action items">
-    {% block card_footer %}
-      <button class="usa-button">More on Cards</button>
-    {% endblock %}
-  </div>
+  <svg class="usa-card__icon" width="24" height="24" viewBox="0 0 24 24">
+    <path
+      d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M13,17H11V15H13V17M13,13H11V7H13V13Z">
+    </path>
+  </svg>
+  {% else %}
+    <div class="usa-card__body">
+      <h1 id="{{ card.id }}" class="usa-card__heading">
+        {{ card.title }}
+      </h1>
+      {%- if card.content -%}
+      <p>{{ card.content }}</p>
+      {%- endif -%}
+    </div>
+    <div class="usa-card__footer" aria-label="Action items">
+      {% block card_footer %}
+        <button class="usa-button">More on Cards</button>
+      {% endblock %}
+    </div>
+    <!-- Should have media OR icon, but not both -->
+    {% if card.media %}
+    <img class="usa-card__img"
+      src="https://images.unsplash.com/photo-1579800070193-abe62433f737?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+      alt="A placeholder image">
+    {% endif %}
+  {% endif %}
 </section>

@@ -73,10 +73,39 @@
 
 // Media
 // ---------------------------------
+.usa-card--media {
+  @include u-display("flex");
+  @include u-flex-direction("column");
+}
+
 .usa-card__img {
   display: block;
+  @include u-order("first");
 }
 
 .usa-card--media .usa-card__body {
   @include u-padding-y(3);
+}
+
+// Icon
+// ---------------------------------
+.usa-card--icon {
+  @include u-display("flex");
+  @include u-flex-direction("column");
+  @include u-align-items("align-center");
+  @include u-padding(4);
+}
+
+.usa-card__icon {
+  display: block;
+  @include u-order("first");
+  @include u-margin-bottom(2);
+}
+
+.usa-card--icon .usa-card__heading {
+  @include u-margin-bottom(0);
+}
+
+.usa-card--icon .usa-card__body {
+  @include u-padding(0);
 }
