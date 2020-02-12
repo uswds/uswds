@@ -1,12 +1,11 @@
 const { formatters } = require("stylelint");
 const autoprefixer = require("autoprefixer");
-const cssnano = require("cssnano");
+const csso = require("postcss-csso");
 const discardComments = require("postcss-discard-comments");
 const filter = require("gulp-filter");
 const gulp = require("gulp");
 const gulpStylelint = require("gulp-stylelint");
 const postcss = require("gulp-postcss");
-const sortMQ = require("postcss-sort-media-queries");
 const replace = require("gulp-replace");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass");
@@ -91,14 +90,9 @@ gulp.task(
     dutil.logMessage(task, "Compiling Sass");
     const pluginsProcess = [
       discardComments(),
-      autoprefixer(autoprefixerOptions),
-      sortMQ({ sort: "mobile-first" })
+      autoprefixer(autoprefixerOptions)
     ];
-    const pluginsMinify = [
-      autoprefixer(autoprefixerOptions),
-      sortMQ({ sort: "mobile-first" }),
-      cssnano({ autoprefixer: { browsers: autoprefixerOptions } })
-    ];
+    const pluginsMinify = [csso({ forceMediaMerge: true })];
 
     return gulp
       .src("src/stylesheets/uswds.scss")
