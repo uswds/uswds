@@ -16,15 +16,13 @@ loop
   $selector,
   $property,
   $value,
-  $mq
+  $mq,
+  $media-prefix
 ) {
   $important: if($utilities-use-important, " !important", null);
   $this-mq: null;
 
-  @if $mq {
-    $this-mq: "#{$mq}\\:";
-  }
-  .#{$this-mq}#{$pseudoclass}\:#{ns("utility")}#{$selector}:#{$pseudoclass} {
+  .#{$media-prefix}#{$pseudoclass}\:#{ns("utility")}#{$selector}:#{$pseudoclass} {
     @each $this-property in $property {
       #{$this-property}: unquote("#{$value}#{$important}");
     }
@@ -119,12 +117,24 @@ future version of Sass' warning.
 ----------------------------------------
 */
 
-@mixin render-utility($utility, $selector, $property, $value, $val-props) {
+@mixin render-utility(
+  $utility,
+  $selector,
+  $property,
+  $value,
+  $val-props,
+  $media-key
+) {
   $important: if($utilities-use-important, " !important", null);
   $mq: null;
+  $media-prefix: null;
   $value-is-map: if(type-of($val-props) == "map", true, false);
 
-  .#{ns("utility")}#{$selector} {
+  @if $media-key {
+    $media-prefix: #{$media-key}\: ;
+  }
+
+  .#{$media-prefix}#{ns("utility")}#{$selector} {
     @if $value-is-map and map-has-key($val-props, extend) {
       @include add-utility-declaration($val-props, extend, $important);
     }
@@ -151,7 +161,8 @@ future version of Sass' warning.
       $selector,
       $property,
       $value,
-      $mq
+      $mq,
+      $media-prefix
     );
   }
 
@@ -214,7 +225,7 @@ through all possible variants
 ----------------------------------------
 */
 
-@mixin these-utilities($utilities) {
+@mixin these-utilities($utilities, $media-key: false) {
   // loop through the $utilities
   @each $utility-name, $utility in $utilities {
     // Only do this if the the utility is meant to output
@@ -397,7 +408,8 @@ through all possible variants
               $selector,
               $property,
               $value,
-              $val-value
+              $val-value,
+              $media-key
             );
           } // end the modifier loop
         } // end the null value conditional
@@ -408,11 +420,15 @@ through all possible variants
 }
 
 @mixin render-utilities-in($utilities) {
-  $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
+  @include these-utilities($utilities);
 
+  $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
   @each $media-key, $media-value in $our-breakpoints {
-    @include at-media($media-key) {
-      @include these-utilities($utilities);
+    @if map-get($theme-utility-breakpoints, $media-key) {
+      @debug "#{$media-key}: #{map-get($theme-utility-breakpoints, $media-key)}";
+      @include at-media($media-key) {
+        @include these-utilities($utilities, $media-key);
+      }
     }
   }
 }
