@@ -1,6 +1,5 @@
 const { formatters } = require("stylelint");
 const autoprefixer = require("autoprefixer");
-const cssnano = require("cssnano");
 const csso = require("postcss-csso");
 const discardComments = require("postcss-discard-comments");
 const Fiber = require("fibers");

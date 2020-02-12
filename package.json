@@ -88,7 +88,6 @@
     "chrome-launcher": "^0.3.2",
     "chrome-remote-interface": "^0.25.6",
     "cross-spawn": "^2.1.5",
-    "cssnano": "^4.1.10",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-config-prettier": "^6.7.0",
