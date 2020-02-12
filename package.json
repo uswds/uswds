@@ -118,7 +118,6 @@
     "nswatch": "^0.2.0",
     "nyc": "^15.0.0",
     "postcss-discard-comments": "^4.0.2",
-    "postcss-sort-media-queries": "^1.0.15",
     "prettier": "^1.19.1",
     "resemblejs": "^3.2.3",
     "sass": "^1.25.0",

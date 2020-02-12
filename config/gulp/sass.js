@@ -7,7 +7,6 @@ const filter = require("gulp-filter");
 const gulp = require("gulp");
 const gulpStylelint = require("gulp-stylelint");
 const postcss = require("gulp-postcss");
-const sortMQ = require("postcss-sort-media-queries");
 const replace = require("gulp-replace");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass");
@@ -92,12 +91,10 @@ gulp.task(
     dutil.logMessage(task, "Compiling Sass");
     const pluginsProcess = [
       discardComments(),
-      autoprefixer(autoprefixerOptions),
-      sortMQ({ sort: "mobile-first" })
+      autoprefixer(autoprefixerOptions)
     ];
     const pluginsMinify = [
       autoprefixer(autoprefixerOptions),
-      sortMQ({ sort: "mobile-first" }),
       cssnano({ autoprefixer: { browsers: autoprefixerOptions } })
     ];
 
