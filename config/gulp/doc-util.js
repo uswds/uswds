@@ -21,8 +21,9 @@ function notify(title, message, wait) {
   notifier.notify({
     title,
     message,
-    icon: "src/img/favicons/favicon-192.png",
-    wait
+    icon: 'src/img/favicons/favicon-192.png',
+    wait,
+    timeout: false
   });
 }
 
