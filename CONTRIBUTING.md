@@ -130,18 +130,41 @@ uswds-2.4.0/
 │   └── utils/
 ```
 
-- .circleci <br>
-Holds continuous integration tasks. Push your branch upstream as an org-member you'll see these tests run.
+- **.circleci**
 
-- .github <br>
-Our github templates for good issues and pull requests. These are automatically used when creating issues and pull requests.
+  Holds continuous integration tasks. Push your branch upstream as an org-member you'll see these tests run.
 
-- config <br>
-Files for our internal gulp tasks to run, build, and test the USWDS codebase.
+- **.github/**
+
+  Our github templates for good issues and pull requests. These are automatically used when creating issues and pull requests.
+
+- **config/**
+
+  Files for our internal gulp tasks to run, build, and test the USWDS codebase.
+
+- **docs/**
+
+  Documentation, currently only has a list of who else is using USWDS.
+
+- **examples/**
+
+  Examples on how USWDS is used with different tools includes: browserify, grunt, gulp, node-sass, and webpack.
+
+- **spec/**
+
+  Where our files for accessibility testing, unit tests, js linting, and visual regression screenshots live. Visual regression screenshots need to be remade when creating a new component. You can do this with `test:visual:update` and you can test against original screenshots with `test:visual`.
+
+- **src/**
+
+  Where our source files live for all USWDS assets. This will compile into a `dist/` directory on `gulp build`. If you're modifying components, creating new components, or adding functionality via SCSS/JS this is where your code will go.
+
+---
 
 #### Our use of branches
 
 See the [release documentation](https://github.com/uswds/uswds/wiki/Release-process) for more information on our git/GitHub release workflow.
+
+---
 
 #### Here's what a typical workflow would look like:
 1. Install necessary packages `npm install`
@@ -149,6 +172,8 @@ See the [release documentation](https://github.com/uswds/uswds/wiki/Release-proc
 1. Watch for local scss/js/component changes `npm run watch` (separate terminal tab)
 1. Test your work `npm test`
 1. Run `npm run test:visual:update` if you've created a new component otherwise test `npm run test:visual`
+
+---
 
 #### Running locally
 
