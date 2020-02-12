@@ -425,7 +425,6 @@ through all possible variants
   $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
   @each $media-key, $media-value in $our-breakpoints {
     @if map-get($theme-utility-breakpoints, $media-key) {
-      @debug "#{$media-key}: #{map-get($theme-utility-breakpoints, $media-key)}";
       @include at-media($media-key) {
         @include these-utilities($utilities, $media-key);
       }
