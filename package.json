@@ -117,6 +117,7 @@
     "normalize.css": "^8.0.1",
     "nswatch": "^0.2.0",
     "nyc": "^15.0.0",
+    "postcss-csso": "^4.0.0",
     "postcss-discard-comments": "^4.0.2",
     "prettier": "^1.19.1",
     "resemblejs": "^3.2.3",
