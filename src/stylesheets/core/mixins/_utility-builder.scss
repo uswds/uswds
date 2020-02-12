@@ -16,7 +16,6 @@ loop
   $selector,
   $property,
   $value,
-  $mq,
   $media-prefix
 ) {
   $important: if($utilities-use-important, " !important", null);
@@ -33,72 +32,6 @@ loop
 @mixin add-utility-declaration($declaration, $utility-type, $important) {
   @each $ext-prop, $ext-value in map-get($declaration, $utility-type) {
     #{strunquote($ext-prop)}: unquote("#{strunquote($ext-value)}#{$important}");
-  }
-}
-
-/*
-----------------------------------------
-@render-media-queries
-----------------------------------------
-Build @media media queries from values
-calculated in the @render-utilities-in
-loop
-----------------------------------------
-*/
-
-@mixin render-media-queries(
-  $utility,
-  $selector,
-  $property,
-  $value,
-  $val-props
-) {
-  $important: if($utilities-use-important, " !important", null);
-  $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
-  $mq: null;
-  $value-is-map: if(type-of($val-props) == "map", true, false);
-
-  @each $media-key, $media-value in $our-breakpoints {
-    $mq: unquote($media-key);
-    $media-value-px: rem-to-px($media-value);
-
-    @if map-get($theme-utility-breakpoints, $media-key) {
-      @include at-media($media-key) {
-        .#{$mq}\:#{ns("utility")}#{$selector} {
-          @if $value-is-map and map-has-key($val-props, extend) {
-            @include add-utility-declaration($val-props, extend, $important);
-          }
-
-          @each $this-property in $property {
-            #{$this-property}: unquote("#{$value}#{$important}");
-          }
-
-          @if map-has-key($utility, extend) {
-            @include add-utility-declaration($utility, extend, $important);
-          }
-          @if map-deep-get($utility, settings, hover) {
-            @include render-pseudoclass(
-              $utility,
-              hover,
-              $selector,
-              $property,
-              $value,
-              $mq
-            );
-          }
-          @if map-deep-get($utility, settings, visited) {
-            @include render-pseudoclass(
-              $utility,
-              visited,
-              $selector,
-              $property,
-              $value,
-              $mq
-            );
-          }
-        }
-      }
-    }
   }
 }
 
@@ -126,7 +59,6 @@ future version of Sass' warning.
   $media-key
 ) {
   $important: if($utilities-use-important, " !important", null);
-  $mq: null;
   $media-prefix: null;
   $value-is-map: if(type-of($val-props) == "map", true, false);
 
@@ -161,20 +93,12 @@ future version of Sass' warning.
       $selector,
       $property,
       $value,
-      $mq,
       $media-prefix
     );
   }
 
   @if map-deep-get($utility, settings, active) {
-    @include render-pseudoclass(
-      $utility,
-      active,
-      $selector,
-      $property,
-      $value,
-      $mq
-    );
+    @include render-pseudoclass($utility, active, $selector, $property, $value);
   }
 
   @if map-deep-get($utility, settings, visited) {
@@ -183,20 +107,12 @@ future version of Sass' warning.
       visited,
       $selector,
       $property,
-      $value,
-      $mq
+      $value
     );
   }
 
   @if map-deep-get($utility, settings, focus) {
-    @include render-pseudoclass(
-      $utility,
-      focus,
-      $selector,
-      $property,
-      $value,
-      $mq
-    );
+    @include render-pseudoclass($utility, focus, $selector, $property, $value);
   }
 
   // And add the responsive prefixes, if applicable
@@ -246,7 +162,6 @@ through all possible variants
       $mv: null;
       $val-props: ();
       $no-value: false;
-      $mq: null;
 
       $b: map-get($utility, base);
 
