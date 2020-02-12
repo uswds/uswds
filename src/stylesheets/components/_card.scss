@@ -93,7 +93,9 @@
   @include u-display("flex");
   @include u-flex-direction("column");
   @include u-align-items("align-center");
-  @include u-padding(4);
+  @include u-justify-content("justify-center");
+  @include u-padding(3);
+  @include u-square("card");
 }
 
 .usa-card__icon {
@@ -103,7 +105,9 @@
 }
 
 .usa-card--icon .usa-card__heading {
+  @include typeset($theme-card-font-family, "lg", 2);
   @include u-margin-bottom(0);
+  @include u-text-align("center");
 }
 
 .usa-card--icon .usa-card__body {
