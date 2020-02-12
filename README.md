@@ -62,12 +62,12 @@ How you implement the design system depends on the needs of your project and you
 
 ### Download
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/tag/v2.4.0) from the latest USWDS release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/tag/v2.5.0) from the latest USWDS release and open that file.
 
    After extracting the zip file you should see the following file and folder structure:
 
    ```
-   uswds-2.4.0/
+   uswds-2.5.0/
    ├── css/
    │   ├── uswds.min.css.map
    │   ├── uswds.min.css
@@ -87,7 +87,7 @@ How you implement the design system depends on the needs of your project and you
    ```
    example-project/
    ├── assets/
-   │   ├── uswds-2.4.0/
+   │   ├── uswds-2.5.0/
    │   ├── stylesheets/
    │   ├── images/
    │   └── javascript/
@@ -107,10 +107,10 @@ How you implement the design system depends on the needs of your project and you
        <meta charset="utf-8" />
        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
        <title>My Example Project</title>
-       <link rel="stylesheet" href="assets/uswds-2.4.0/css/uswds.min.css" />
+       <link rel="stylesheet" href="assets/uswds-2.5.0/css/uswds.min.css" />
      </head>
      <body>
-       <script src="assets/uswds-2.4.0/js/uswds.min.js"></script>
+       <script src="assets/uswds-2.5.0/js/uswds.min.js"></script>
      </body>
    </html>
    ```
@@ -198,7 +198,7 @@ scss
 - `_uswds-theme-utilities.scss`: Utility class output settings
 - `styles.scss`: The primary Sass file that you'll compile. It collects theme settings, USWDS source files, and custom CSS
 
-`styles.css` looks something like the following code. It adds all the project theme settings, then adds USWDS source, and finally adds your project's custom styles:
+`styles.scss` looks something like the following code. It adds all the project theme settings, then adds USWDS source, and finally adds your project's custom styles:
 
 ```scss
 @import "uswds-theme-general";
@@ -222,7 +222,7 @@ The design system requires both **autoprefixing** and **media query packing** to
 '> 2%','Last 2 versions', 'IE 11'
 ```
 
-- **media query packing** collects all similar media queries together at the end of the compiled stylesheet. USWDS and `uswds-gulp` use [`css-mqpacker`](https://github.com/hail2u/node-css-mqpacker). This is necessary to provide the proper cascade and specificity for utility classes. If you are not implementing utility classes, media query packing may not be necessary — but it is still a good idea.
+- **media query packing** collects all similar media queries together at the end of the compiled stylesheet. USWDS and `uswds-gulp` use [`postcss-sort-media-queries`](https://github.com/yunusga/postcss-sort-media-queries). This is necessary to provide the proper cascade and specificity for utility classes. If you are not implementing utility classes, media query packing may not be necessary — but it is still a good idea.
 
 Additionally, we recommend using a minifier like [`cssnano`](https://cssnano.co/) to compress your final compiled CSS and sourcemaps like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
 

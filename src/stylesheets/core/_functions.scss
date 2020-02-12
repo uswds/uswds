@@ -515,7 +515,7 @@ a family and a line-height scale unit
 @function lh($props...) {
   $props: unpack($props);
 
-  @if not length($props) == 2 {
+  @if not(length($props) == 2) {
     @error 'lh() needs both a valid face and line height token '
       + 'in the format `lh(FACE, HEIGHT)`.';
   }
@@ -614,7 +614,7 @@ role-based font token.
     @if not $output-display-name {
       @return #{$this-stack};
     }
-    @return #{$this-name}, #{$this-stack};
+    @return unquote("#{$this-name}, #{$this-stack}");
   }
   @return false;
 }
