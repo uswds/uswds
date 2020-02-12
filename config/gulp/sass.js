@@ -2,7 +2,6 @@ const { formatters } = require("stylelint");
 const autoprefixer = require("autoprefixer");
 const csso = require("postcss-csso");
 const discardComments = require("postcss-discard-comments");
-const Fiber = require("fibers");
 const filter = require("gulp-filter");
 const gulp = require("gulp");
 const gulpStylelint = require("gulp-stylelint");
@@ -99,10 +98,11 @@ gulp.task(
       .src("src/stylesheets/uswds.scss")
       .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(
-        sass({
-          fiber: Fiber,
-          outputStyle: "expanded"
-        }).on("error", sass.logError)
+        sass
+          .sync({
+            outputStyle: "expanded"
+          })
+          .on("error", sass.logError)
       )
       .pipe(postcss(pluginsProcess))
       .pipe(replace(/\buswds @version\b/g, `uswds v${pkg.version}`))
