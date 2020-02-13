@@ -4,7 +4,9 @@
   $image-path: $theme-image-path
 ) {
   &::after {
-    background: url("#{$image-path}/#{$external-link}.svg") no-repeat 0 0;
+    background-image: url("#{$image-path}/#{$external-link}.svg");
+    background-position: 0 0;
+    background-repeat: no-repeat;
     background-size: 100%;
     content: "";
     display: inline-block;
