@@ -214,17 +214,17 @@ scss
 
 #### Sass compilation requirements
 
-The design system requires both **autoprefixing** and **media query packing** to work properly. These are included in the [`uswds-gulp`](https://github.com/uswds/uswds-gulp) package.
+The design system requires **autoprefixing** to work properly. This is included in the [`uswds-gulp`](https://github.com/uswds/uswds-gulp) package.
 
-- **autoprefixing** uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. We use the following autoprefixer settings:
+**Autoprefixing** uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. We use the following autoprefixer settings:
 
 ```
 '> 2%','Last 2 versions', 'IE 11'
 ```
 
-- **media query packing** collects all similar media queries together at the end of the compiled stylesheet. USWDS and `uswds-gulp` use [`postcss-sort-media-queries`](https://github.com/yunusga/postcss-sort-media-queries). This is necessary to provide the proper cascade and specificity for utility classes. If you are not implementing utility classes, media query packing may not be necessary — but it is still a good idea.
+> Note: **media query sorting** is no longer required as of USWDS 2.5.0. We minify and sort media queries with [csso](https://github.com/css/csso) to improve performance and file size, but utility classes now output with the proper cascade with no additional postprocessing.
 
-Additionally, we recommend using a minifier like [`cssnano`](https://cssnano.co/) to compress your final compiled CSS and sourcemaps like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
+We recommend using a **minifier** like [csso](https://github.com/css/csso) to compress your final compiled CSS and **sourcemaps** like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
 
 #### JavaScript
 
