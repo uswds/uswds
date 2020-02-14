@@ -319,37 +319,37 @@ $project-colors: (
 
 $project-state-colors: (
   "error": (
-    "lighter": color($theme-color-error-lighter),
-    "light": color($theme-color-error-light),
-    "default": color($theme-color-error),
-    "dark": color($theme-color-error-dark),
-    "darker": color($theme-color-error-darker)
+    "lighter": color($theme-color-error-lighter, set-theme),
+    "light": color($theme-color-error-light, set-theme),
+    "default": color($theme-color-error, set-theme),
+    "dark": color($theme-color-error-dark, set-theme),
+    "darker": color($theme-color-error-darker, set-theme)
   ),
   "warning": (
-    "lighter": color($theme-color-warning-lighter),
-    "light": color($theme-color-warning-light),
-    "default": color($theme-color-warning),
-    "dark": color($theme-color-warning-dark),
-    "darker": color($theme-color-warning-darker)
+    "lighter": color($theme-color-warning-lighter, set-theme),
+    "light": color($theme-color-warning-light, set-theme),
+    "default": color($theme-color-warning, set-theme),
+    "dark": color($theme-color-warning-dark, set-theme),
+    "darker": color($theme-color-warning-darker, set-theme)
   ),
   "success": (
-    "lighter": color($theme-color-success-lighter),
-    "light": color($theme-color-success-light),
-    "default": color($theme-color-success),
-    "dark": color($theme-color-success-dark),
-    "darker": color($theme-color-success-darker)
+    "lighter": color($theme-color-success-lighter, set-theme),
+    "light": color($theme-color-success-light, set-theme),
+    "default": color($theme-color-success, set-theme),
+    "dark": color($theme-color-success-dark, set-theme),
+    "darker": color($theme-color-success-darker, set-theme)
   ),
   "info": (
-    "lighter": color($theme-color-info-lighter),
-    "light": color($theme-color-info-light),
-    "default": color($theme-color-info),
-    "dark": color($theme-color-info-dark),
-    "darker": color($theme-color-info-darker)
+    "lighter": color($theme-color-info-lighter, set-theme),
+    "light": color($theme-color-info-light, set-theme),
+    "default": color($theme-color-info, set-theme),
+    "dark": color($theme-color-info-dark, set-theme),
+    "darker": color($theme-color-info-darker, set-theme)
   ),
   "disabled": (
-    "light": color($theme-color-disabled-light),
-    "default": color($theme-color-disabled),
-    "dark": color($theme-color-disabled-dark)
+    "light": color($theme-color-disabled-light, set-theme),
+    "default": color($theme-color-disabled, set-theme),
+    "dark": color($theme-color-disabled-dark, set-theme)
   )
 );
 
@@ -418,29 +418,29 @@ $tokens-color-theme: (
 );
 
 $tokens-color-state: (
-  "error-lighter": color($theme-color-error-lighter),
-  "error-light": color($theme-color-error-light),
-  "error": color($theme-color-error),
-  "error-dark": color($theme-color-error-dark),
-  "error-darker": color($theme-color-error-darker),
-  "warning-lighter": color($theme-color-warning-lighter),
-  "warning-light": color($theme-color-warning-light),
-  "warning": color($theme-color-warning),
-  "warning-dark": color($theme-color-warning-dark),
-  "warning-darker": color($theme-color-warning-darker),
-  "success-lighter": color($theme-color-success-lighter),
-  "success-light": color($theme-color-success-light),
-  "success": color($theme-color-success),
-  "success-dark": color($theme-color-success-dark),
-  "success-darker": color($theme-color-success-darker),
-  "info-lighter": color($theme-color-info-lighter),
-  "info-light": color($theme-color-info-light),
-  "info": color($theme-color-info),
-  "info-dark": color($theme-color-info-dark),
-  "info-darker": color($theme-color-info-darker),
-  "disabled-light": color($theme-color-disabled-light),
-  "disabled": color($theme-color-disabled),
-  "disabled-dark": color($theme-color-disabled-dark)
+  "error-lighter": color($theme-color-error-lighter, set-theme, no-warn),
+  "error-light": color($theme-color-error-light, set-theme, no-warn),
+  "error": color($theme-color-error, set-theme, no-warn),
+  "error-dark": color($theme-color-error-dark, set-theme, no-warn),
+  "error-darker": color($theme-color-error-darker, set-theme, no-warn),
+  "warning-lighter": color($theme-color-warning-lighter, set-theme, no-warn),
+  "warning-light": color($theme-color-warning-light, set-theme, no-warn),
+  "warning": color($theme-color-warning, set-theme, no-warn),
+  "warning-dark": color($theme-color-warning-dark, set-theme, no-warn),
+  "warning-darker": color($theme-color-warning-darker, set-theme, no-warn),
+  "success-lighter": color($theme-color-success-lighter, set-theme, no-warn),
+  "success-light": color($theme-color-success-light, set-theme, no-warn),
+  "success": color($theme-color-success, set-theme, no-warn),
+  "success-dark": color($theme-color-success-dark, set-theme, no-warn),
+  "success-darker": color($theme-color-success-darker, set-theme, no-warn),
+  "info-lighter": color($theme-color-info-lighter, set-theme, no-warn),
+  "info-light": color($theme-color-info-light, set-theme, no-warn),
+  "info": color($theme-color-info, set-theme, no-warn),
+  "info-dark": color($theme-color-info-dark, set-theme, no-warn),
+  "info-darker": color($theme-color-info-darker, set-theme, no-warn),
+  "disabled-light": color($theme-color-disabled-light, set-theme, no-warn),
+  "disabled": color($theme-color-disabled, set-theme, no-warn),
+  "disabled-dark": color($theme-color-disabled-dark, set-theme, no-warn)
 );
 
 $project-color-shortcodes: map-collect(
@@ -519,3 +519,16 @@ $grid-global: "";
 @if $theme-layout-grid-use-important {
   $grid-global: "!important";
 }
+
+/*
+----------------------------------------
+Aspect Ratios
+----------------------------------------
+*/
+$project-aspect-ratios: (
+  "9x16": 177.77778%,
+  "16x9": 56.25%,
+  "1x1": 100%,
+  "4x3": 75%,
+  "2x1": 50%
+);
