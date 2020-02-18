@@ -8,6 +8,7 @@ Below are a list of websites and applications currently using the U.S. Web Desig
 - [18F Before you ship](https://before-you-ship.18f.gov/)
 - [18F Front End Guide](https://frontend.18f.gov/)
 - [Accessibility for Teams](https://accessibility.digital.gov/)
+- [Advanced Distributed Learning (ADL) Initiative](https://adlnet.gov)
 - [Agricultural Marketing Service - USDA](http://gipsa.usda.gov/)
 - [Agricultural Research Service - USDA](https://www.ars.usda.gov/)
 - [America’s Seed Fund - National Science Foundation](https://seedfund.nsf.gov/)
