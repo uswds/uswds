@@ -32,11 +32,9 @@
     "test:visual": "node ./spec/visual-regression-tester.js test",
     "test:visual:update": " node ./spec/visual-regression-tester.js test --updateGolden",
     "version": "gulp build release",
-    "watch": "NODE_ENV=development nswatch"
-  },
-  "watch": {
-    "src/stylesheets/**/*.scss": "build:css",
-    "src/js/**/*.js": "build:js"
+    "watch:scss": "onchange 'src/stylesheets/**/*.scss' -- npm run build:css",
+    "watch:js": "onchange 'src/js/**/*.js' -- npm run build:js",
+    "watch": "npm run watch:scss & npm run watch:js"
   },
   "repository": {
     "type": "git",
@@ -113,8 +111,8 @@
     "mocha": "^7.0.1",
     "node-notifier": "^6.0.0",
     "normalize.css": "^8.0.1",
-    "nswatch": "^0.2.0",
     "nyc": "^15.0.0",
+    "onchange": "^6.1.0",
     "postcss-csso": "^4.0.0",
     "postcss-discard-comments": "^4.0.2",
     "prettier": "^1.19.1",
