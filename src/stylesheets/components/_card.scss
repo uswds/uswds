@@ -78,9 +78,16 @@
   @include u-flex-direction("column");
 }
 
+.usa-card--media .usa-card__media {
+  @include u-order("first");
+  @include u-margin-x(-2px);
+  @include u-margin-top(-2px);
+  @include u-radius-top("md");
+  overflow: hidden;
+}
+
 .usa-card__img {
   display: block;
-  @include u-order("first");
 }
 
 .usa-card--media .usa-card__body {
