@@ -11,6 +11,14 @@
     </path>
   </svg>
   {% else %}
+    <!-- Should have media OR icon, but not both -->
+    {% if card.media %}
+    <div class="usa-card__media">
+      <img class="usa-card__img"
+        src="https://images.unsplash.com/photo-1579800070193-abe62433f737?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+        alt="A placeholder image">
+    </div>
+    {% endif %}
     <div class="usa-card__body">
       <h2 class="usa-card__heading">
         {{ card.title }}
@@ -23,14 +31,6 @@
       {% block card_footer %}
         <button class="usa-button">More on Cards</button>
       {% endblock %}
-    </div>
-    <!-- Should have media OR icon, but not both -->
-    {% if card.media %}
-    <div class="usa-card__media">
-      <img class="usa-card__img"
-        src="https://images.unsplash.com/photo-1579800070193-abe62433f737?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-        alt="A placeholder image">
-      {% endif %}
     </div>
   {% endif %}
 </section>
