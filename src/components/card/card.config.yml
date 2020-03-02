@@ -30,20 +30,3 @@ variants:
         title: Make your card standout
         id: "card-standout"
 
-  - name: media
-    label: Media Card
-    context:
-      card:
-        media: true
-        classes: "usa-card--media"
-        title: Highlight images
-
-  - name: icon
-    label: Icon Card
-    context:
-      card:
-        icon: true
-        classes: "usa-card--icon"
-        title: Keep it simple
-        content: false
-        actions: false
