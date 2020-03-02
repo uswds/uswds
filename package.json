@@ -71,7 +71,7 @@
     "object-assign": "^4.1.1",
     "receptor": "^1.0.0",
     "resolve-id-refs": "^0.1.0",
-    "yargs": "^12.0.5"
+    "yargs": "^15.1.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.8.6",
@@ -125,7 +125,7 @@
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-prettier": "^1.1.2",
     "stylelint-scss": "^3.14.2",
-    "typescript": "^3.8.2",
+    "typescript": "^3.8.3",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   }
