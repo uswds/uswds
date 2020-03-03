@@ -222,7 +222,7 @@ The design system requires **autoprefixing** to work properly. This is included 
 '> 2%','Last 2 versions', 'IE 11'
 ```
 
-> Note: **media query sorting** is no longer required as of USWDS 2.5.0. We minify and sort media queries with [csso](https://github.com/css/csso) to improve performance and file size, but utility classes now output with the proper cascade with no additional postprocessing.
+> Note: **media query sorting** is no longer required as of USWDS 2.5.0. We stopped sorting media queries with [csso](https://github.com/css/csso) in USWDS 2.5.1 because it wasn't outputting as expected. While both the minified and unminified CSS files are modestly larger as a result: `268 KB` unsorted vs. `259 KB` sorted, our testing indicates that once the files are compressed server side with gzip, the unsorted CSS is actually smaller: `36 KB` unsorted and gzipped vs. `38 KB` sorted and gzipped. As a result, we recommend that teams do not use media query sorting at this time.
 
 We recommend using a **minifier** like [csso](https://github.com/css/csso) to compress your final compiled CSS and **sourcemaps** like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
 
