@@ -1,6 +1,6 @@
 {
   "name": "uswds",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "Open source UI components and visual style guide for U.S. government websites",
   "engines": {
     "node": ">= 4"
@@ -85,9 +85,9 @@
     "axe-core": "^3.4.1",
     "babelify": "^10.0.0",
     "browserify": "^16.5.0",
-    "chrome-launcher": "^0.3.2",
-    "chrome-remote-interface": "^0.25.6",
-    "cross-spawn": "^2.1.5",
+    "chrome-launcher": "^0.12.0",
+    "chrome-remote-interface": "^0.28.1",
+    "cross-spawn": "^7.0.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-config-prettier": "^6.7.0",

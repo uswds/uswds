@@ -92,7 +92,7 @@ gulp.task(
       discardComments(),
       autoprefixer(autoprefixerOptions)
     ];
-    const pluginsMinify = [csso({ forceMediaMerge: true })];
+    const pluginsMinify = [csso({ forceMediaMerge: false })];
 
     return gulp
       .src("src/stylesheets/uswds.scss")
