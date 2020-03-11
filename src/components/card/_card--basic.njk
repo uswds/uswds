@@ -1,5 +1,4 @@
-<section class="usa-card margin-x-auto {{ card.classes }}">
-  <!-- Should have media OR icon, but not both -->
+<section class="usa-card {{ card.classes }}">
   {% if card.media %}
   <div class="usa-card__media">
     <img class="usa-card__img"
@@ -7,11 +6,13 @@
       alt="A placeholder image">
   </div>
   {% endif %}
+  <header class="usa-card__header">
+    <h2 class="usa-card__heading">
+      {{ card.title }}
+    </h2>
+  </header>
   <div class="usa-card__body">
     {% block card_body %}
-      <h2 class="usa-card__heading">
-        {{ card.title }}
-      </h2>
       {%- if card.content -%}
       <p>{{ card.content }}</p>
       {%- endif -%}

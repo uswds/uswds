@@ -22,6 +22,16 @@ variants:
         classes: "usa-card"
         title: What is a card?
 
+  - name: media
+    label: Media
+    context:
+      card:
+        classes: "usa-card--media"
+        title: Showoff photography
+        id: "card-media"
+        media: true
+
+
   - name: raised
     label: Raised
     context:
