@@ -55,11 +55,7 @@
 // Footer
 // ---------------------------------
 .usa-card__footer {
-  @include u-display("flex");
-  @include u-flex("row");
   @include u-padding($theme-card-padding-size);
-  // @include u-padding-top($theme-card-padding-size / 2);
-  @include u-align-items("align-center");
 }
 
 .usa-card__footer .usa-button:only-of-type {
