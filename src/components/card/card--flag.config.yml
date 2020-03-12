@@ -1,4 +1,4 @@
 label: Card Flag
 status: prototype
-order: 1
+order: 1 # For prototyping purposes, remove line after
 preview: "@uswds-content"
