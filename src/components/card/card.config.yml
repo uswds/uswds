@@ -20,7 +20,6 @@ variants:
     context:
       card:
         classes: "usa-card"
-        title: What is a card?
 
   - name: media
     label: Media
