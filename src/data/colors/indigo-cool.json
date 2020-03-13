@@ -8,7 +8,7 @@
       "value": [
         { "name": "5", "value": "#eef0f9" },
         { "name": "10", "value": "#e1e6f9" },
-        { "name": "20", "value": "#bbc8f5" },
+        { "name": "20", "value": "#b9c5f0" },
         { "name": "30", "value": "#96abee" },
         { "name": "40", "value": "#6b8ee8" },
         { "name": "50", "value": "#496fd8" },
@@ -19,15 +19,15 @@
         {
           "name": "vivid",
           "value": [
-            { "name": "5", "value": false },
-            { "name": "10", "value": false },
-            { "name": "20", "value": false },
-            { "name": "30", "value": false },
+            { "name": "5", "value": "#edf0ff" },
+            { "name": "10", "value": "#dbe3ff" },
+            { "name": "20", "value": "#b8c8ff" },
+            { "name": "30", "value": "#94adff" },
             { "name": "40", "value": "#628ef4" },
-            { "name": "50", "value": false },
+            { "name": "50", "value": "#496fd8" },
             { "name": "60", "value": "#4150f2" },
-            { "name": "70", "value": false },
-            { "name": "80", "value": false },
+            { "name": "70", "value": "#3e4ded" },
+            { "name": "80", "value": "#222fbf" },
             { "name": "90", "value": false }
           ]
         }

@@ -19,15 +19,15 @@
         {
           "name": "vivid",
           "value": [
-            { "name": "5", "value": false },
-            { "name": "10", "value": false },
+            { "name": "5", "value": "#fff3ea" },
+            { "name": "10", "value": "#ffe2d1" },
             { "name": "20", "value": "#fbbaa7" },
             { "name": "30", "value": "#fc906d" },
             { "name": "40", "value": "#ff580a" },
-            { "name": "50", "value": "#d24302" },
-            { "name": "60", "value": false },
-            { "name": "70", "value": false },
-            { "name": "80", "value": false },
+            { "name": "50", "value": "#cf4900" },
+            { "name": "60", "value": "#a72f10" },
+            { "name": "70", "value": "#782312" },
+            { "name": "80", "value": "#3d231d" },
             { "name": "90", "value": false }
           ]
         }

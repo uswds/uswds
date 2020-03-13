@@ -19,9 +19,9 @@
         {
           "name": "vivid",
           "value": [
-            { "name": "5", "value": false },
-            { "name": "10", "value": false },
-            { "name": "20", "value": false },
+            { "name": "5", "value": "#e8f5ff" },
+            { "name": "10", "value": "#cfe8ff" },
+            { "name": "20", "value": "#a1d3ff" },
             { "name": "30", "value": "#58b4ff" },
             { "name": "40", "value": "#2491ff" },
             { "name": "50", "value": "#0076d6" },
