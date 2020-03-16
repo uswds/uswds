@@ -1,5 +1,5 @@
 $system-color-red: (
-  "red": (
+  'red': (
     5: #f9eeee,
     10: #f8e1de,
     20: #f7bbb1,
@@ -10,8 +10,8 @@ $system-color-red: (
     70: #6f3331,
     80: #3e2927,
     90: #1b1616,
-    "vivid": (
-      5: false,
+    'vivid': (
+      5: #fff3f2,
       10: #fde0db,
       20: #fdb8ae,
       30: #ff8d7b,
@@ -20,7 +20,7 @@ $system-color-red: (
       60: #b50909,
       70: #8b0a03,
       80: #5c1111,
-      90: false
-    )
-  )
+      90: false,
+    ),
+  ),
 );
