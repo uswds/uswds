@@ -51,12 +51,6 @@ $input-select-margin-right: 1.5;
   }
 }
 
-.usa-label--error {
-  display: block;
-  font-weight: font-weight("bold");
-  margin-top: 0;
-}
-
 .usa-error-message {
   @include u-padding-y(0.5);
   color: color("error-dark");
@@ -68,15 +62,20 @@ $input-select-margin-right: 1.5;
   color: color("base");
 }
 
-.usa-label--required {
-  color: color("error-dark");
-}
-
 .usa-label {
   display: block;
   line-height: line-height($theme-form-font-family, 2);
   margin-top: units(3);
   max-width: units($theme-input-max-width);
+}
+
+.usa-label--error {
+  font-weight: font-weight("bold");
+  margin-top: 0;
+}
+
+.usa-label--required {
+  color: color("error-dark");
 }
 
 .usa-legend {
