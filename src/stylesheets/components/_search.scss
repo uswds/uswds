@@ -11,6 +11,11 @@
   @include typeset($theme-search-font-family);
   position: relative;
 
+  // if role is in the <form> element (>=2.6.0)...
+  &[role="search"],
+  // if there is a (=2.5.[0,1])...
+  &[role="search"] > div,
+  // ...or if the component has a separate <div[role="search"]> (<=2.4.0)
   [role="search"] {
     display: flex;
   }
