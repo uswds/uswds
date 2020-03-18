@@ -20,14 +20,14 @@
           "name": "vivid",
           "value": [
             { "name": "5", "value": "#ddf9c7" },
-            { "name": "10", "value": "#c3ee90" },
+            { "name": "10", "value": "#c5ee93" },
             { "name": "20", "value": "#98d035" },
             { "name": "30", "value": "#7fb135" },
             { "name": "40", "value": "#719f2a" },
             { "name": "50", "value": "#538200" },
-            { "name": "60", "value": false },
-            { "name": "70", "value": false },
-            { "name": "80", "value": false },
+            { "name": "60", "value": "#466c04" },
+            { "name": "70", "value": "#2f4a0b" },
+            { "name": "80", "value": "#243413" },
             { "name": "90", "value": false }
           ]
         }

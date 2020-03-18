@@ -19,7 +19,7 @@
         {
           "name": "vivid",
           "value": [
-            { "name": "5", "value": false },
+            { "name": "5", "value": "#fff2f5" },
             { "name": "10", "value": "#f8dfe2" },
             { "name": "20", "value": "#f8b9c5" },
             { "name": "30", "value": "#fd8ba0" },
@@ -27,7 +27,7 @@
             { "name": "50", "value": "#e41d3d" },
             { "name": "60", "value": "#b21d38" },
             { "name": "70", "value": "#822133" },
-            { "name": "80", "value": false },
+            { "name": "80", "value": "#4f1c24" },
             { "name": "90", "value": false }
           ]
         }
