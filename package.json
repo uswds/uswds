@@ -32,7 +32,7 @@
     "test:visual": "node ./spec/visual-regression-tester.js test",
     "test:visual:update": " node ./spec/visual-regression-tester.js test --updateGolden",
     "version": "gulp build release",
-    "watch": "NODE_ENV=development gulp watch"
+    "watch": "NODE_ENV=development nswatch"
   },
   "watch": {
     "src/stylesheets/**/*.scss": "build:css",
@@ -113,6 +113,7 @@
     "mocha": "^7.1.0",
     "node-notifier": "^6.0.0",
     "normalize.css": "^8.0.1",
+    "nswatch": "^0.2.0",
     "nyc": "^15.0.0",
     "postcss-csso": "^4.0.0",
     "postcss-discard-comments": "^4.0.2",
