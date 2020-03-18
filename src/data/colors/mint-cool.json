@@ -11,7 +11,7 @@
         { "name": "20", "value": "#9bd4cf" },
         { "name": "30", "value": "#6fbab3" },
         { "name": "40", "value": "#4f9e99" },
-        { "name": "50", "value": "#21827f" },
+        { "name": "50", "value": "#40807e" },
         { "name": "60", "value": "#376462" },
         { "name": "70", "value": "#2a4b45" },
         { "name": "80", "value": "#203131" },
@@ -24,10 +24,10 @@
             { "name": "20", "value": "#29e1cb" },
             { "name": "30", "value": "#1dc2ae" },
             { "name": "40", "value": "#00a398" },
-            { "name": "50", "value": false },
-            { "name": "60", "value": false },
-            { "name": "70", "value": false },
-            { "name": "80", "value": false },
+            { "name": "50", "value": "#008480" },
+            { "name": "60", "value": "#0f6460" },
+            { "name": "70", "value": "#0b4b3f" },
+            { "name": "80", "value": "#123131" },
             { "name": "90", "value": false }
           ]
         }

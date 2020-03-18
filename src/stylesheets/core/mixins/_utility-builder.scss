@@ -98,7 +98,14 @@ future version of Sass' warning.
   }
 
   @if map-deep-get($utility, settings, active) {
-    @include render-pseudoclass($utility, active, $selector, $property, $value);
+    @include render-pseudoclass(
+      $utility,
+      active,
+      $selector,
+      $property,
+      $value,
+      $media-prefix
+    );
   }
 
   @if map-deep-get($utility, settings, visited) {
@@ -107,12 +114,20 @@ future version of Sass' warning.
       visited,
       $selector,
       $property,
-      $value
+      $value,
+      $media-prefix
     );
   }
 
   @if map-deep-get($utility, settings, focus) {
-    @include render-pseudoclass($utility, focus, $selector, $property, $value);
+    @include render-pseudoclass(
+      $utility,
+      focus,
+      $selector,
+      $property,
+      $value,
+      $media-prefix
+    );
   }
 
   // And add the responsive prefixes, if applicable

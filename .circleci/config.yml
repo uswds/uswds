@@ -64,8 +64,6 @@ jobs:
           command: |
             npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
             npm publish
-      - snyk/scan:
-          organization: uswds
 
 workflows:
   version: 2
