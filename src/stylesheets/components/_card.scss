@@ -21,6 +21,18 @@
   }
 }
 
+.usa-card .usa-card__header {
+  @include u-padding-top($theme-card-padding-size);
+}
+
+.usa-card:not(.usa-card--flag) > :only-child {
+  @include u-padding($theme-card-padding-size);
+}
+
+.usa-card .usa-card__footer {
+  @include u-padding-bottom($theme-card-padding-size);
+}
+
 .usa-card .usa-card__img {
   @include u-display("block");
 }
