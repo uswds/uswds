@@ -21,6 +21,10 @@
   }
 }
 
+.usa-card .usa-card__img {
+  @include u-display("block");
+}
+
 // Header
 // ---------------------------------
 .usa-card__header {
@@ -82,7 +86,6 @@
 }
 
 .usa-card--media .usa-card__img {
-  @include u-display("block");
   @include u-radius-top($theme-card-border-radius);
   overflow: hidden;
 }
@@ -118,6 +121,16 @@
   @include at-media(tablet) {
     @include grid-col(8);
   }
+}
+
+.usa-card--flag .usa-card__header,
+.usa-card--flag .usa-card__body,
+.usa-card--flag .usa-card__footer {
+  @include u-padding-y($theme-card-padding-size);
+}
+
+.usa-card--flag .usa-card__header + .usa-card__body {
+  @include u-padding-y(0);
 }
 
 .usa-card--flag.usa-card--media-right .usa-card__media {
