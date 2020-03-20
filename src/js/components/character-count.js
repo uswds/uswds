@@ -46,23 +46,21 @@ const updateCountMessage = input => {
 
   if (!maxlength) return;
 
-  const currentLength = input.value.length;
   let newMessage;
+  const currentLength = input.value.length;
+  const isOverLimit = currentLength && currentLength > maxlength;
+  const isCloseToLimit = currentLength && currentLength >= maxlength - 10;
 
   if (currentLength === 0) {
     newMessage = `${maxlength} characters allowed`;
-  } else if (maxlength - currentLength === 1) {
-    newMessage = `1 character left`;
-  } else if (maxlength - currentLength === -1) {
-    newMessage = `1 character over limit`;
-  } else if (currentLength <= maxlength) {
-    newMessage = `${maxlength - currentLength} characters left`;
   } else {
-    newMessage = `${currentLength - maxlength} characters over limit`;
+    const difference = Math.abs(maxlength - currentLength);
+    const characters = "character" + (difference === 1 ? "" : "s");
+    const guidance = isOverLimit ? "over limit" : "left";
+
+    newMessage = `${difference} ${characters} ${guidance}`;
   }
 
-  const isOverLimit = currentLength && currentLength > maxlength;
-  const isCloseToLimit = currentLength && currentLength >= maxlength - 10;
   characterCount.classList.toggle(WARNING_CLASS, isCloseToLimit);
   characterCount.classList.toggle(INVALID_CLASS, isOverLimit);
 
