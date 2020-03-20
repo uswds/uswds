@@ -21,16 +21,8 @@
   }
 }
 
-.usa-card .usa-card__header {
-  @include u-padding-top($theme-card-padding-size);
-}
-
 .usa-card:not(.usa-card--flag) > :only-child {
   @include u-padding($theme-card-padding-size);
-}
-
-.usa-card .usa-card__footer {
-  @include u-padding-bottom($theme-card-padding-size);
 }
 
 .usa-card .usa-card__img {
@@ -41,7 +33,8 @@
 // ---------------------------------
 .usa-card__header {
   @include u-padding-x($theme-card-padding-size);
-  @include u-padding-y($theme-card-padding-size / 2);
+  @include u-padding-top($theme-card-padding-size);
+  @include u-padding-bottom($theme-card-padding-size / 2);
 }
 
 .usa-card__heading {
@@ -68,7 +61,8 @@
 // ---------------------------------
 .usa-card__footer {
   @include u-padding-x($theme-card-padding-size);
-  @include u-padding-y($theme-card-padding-size / 2);
+  @include u-padding-top($theme-card-padding-size / 2);
+  @include u-padding-bottom($theme-card-padding-size);
 }
 
 .usa-card__footer .usa-button:only-of-type {
