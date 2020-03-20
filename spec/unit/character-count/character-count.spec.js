@@ -66,11 +66,21 @@ describe("character count component", () => {
   });
 
   describe("validation", () => {
+    beforeEach(() => {
+      input.value = "1";
+      keyup(input);
+    });
+
     describe("under limit", () => {
       it("should show the input as valid when the input is under the limit", () => {
-        input.value = "1";
-        keyup(input);
         assert.equal(input.validationMessage, "");
+      });
+
+      it("should not show the component as invalid when the input is under the limit", () => {
+        assert.equal(
+          root.classList.contains(CharacterCount.INVALID_CLASS),
+          false
+        );
       });
     });
 
@@ -79,6 +89,7 @@ describe("character count component", () => {
         input.value = "123456789012345678901";
         keyup(input);
       });
+
       it("should show the input as invalid when the input is over the limit", () => {
         assert.equal(
           input.validationMessage,
@@ -97,7 +108,7 @@ describe("character count component", () => {
 
   describe("warning modification", () => {
     it("should not modify the component as type warning when the input is not close to the limit", () => {
-      input.value = "1234567890";
+      input.value = "123456789";
       keyup(input);
       assert.equal(
         root.classList.contains(CharacterCount.WARNING_CLASS),
@@ -106,7 +117,7 @@ describe("character count component", () => {
     });
 
     it("should modify the component as type warning when the input is close to the limit", () => {
-      input.value = "12345678901";
+      input.value = "1234567890";
       keyup(input);
       assert.equal(root.classList.contains(CharacterCount.WARNING_CLASS), true);
     });

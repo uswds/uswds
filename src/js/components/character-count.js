@@ -62,7 +62,7 @@ const updateCountMessage = input => {
   }
 
   const isOverLimit = currentLength && currentLength > maxlength;
-  const isCloseToLimit = currentLength && currentLength > maxlength - 10;
+  const isCloseToLimit = currentLength && currentLength >= maxlength - 10;
   characterCount.classList.toggle(WARNING_CLASS, isCloseToLimit);
   characterCount.classList.toggle(INVALID_CLASS, isOverLimit);
 
