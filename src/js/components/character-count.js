@@ -92,7 +92,7 @@ const setupAttributes = input => {
 
 const characterCount = behavior(
   {
-    "input change paste keyup mouseup": {
+    input: {
       [INPUT]() {
         updateCountMessage(this);
       }

@@ -5,8 +5,8 @@ const CharacterCount = require("../../../src/js/components/character-count");
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 
-const keyup = el => {
-  el.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+const dispatchInputEvent = el => {
+  el.dispatchEvent(new KeyboardEvent("input", { bubbles: true }));
 };
 
 describe("character count component", () => {
@@ -40,26 +40,26 @@ describe("character count component", () => {
     describe("under limit", () => {
       it("informs the user how many more characters they are allowed", () => {
         input.value = "1";
-        keyup(input);
+        dispatchInputEvent(input);
         assert.equal(message.innerHTML, "19 characters left");
       });
 
       it("informs the user they are allowed a single character", () => {
         input.value = "1234567890123456789";
-        keyup(input);
+        dispatchInputEvent(input);
         assert.equal(message.innerHTML, "1 character left");
       });
     });
     describe("over limit", () => {
       it("informs the user they are over the limit by a single character", () => {
         input.value = "123456789012345678901";
-        keyup(input);
+        dispatchInputEvent(input);
         assert.equal(message.innerHTML, "1 character over limit");
       });
 
       it("informs the user how many characters they will need to remove", () => {
         input.value = "1234567890123456789012345";
-        keyup(input);
+        dispatchInputEvent(input);
         assert.equal(message.innerHTML, "5 characters over limit");
       });
     });
@@ -68,7 +68,7 @@ describe("character count component", () => {
   describe("validation", () => {
     beforeEach(() => {
       input.value = "1";
-      keyup(input);
+      dispatchInputEvent(input);
     });
 
     describe("under limit", () => {
@@ -87,7 +87,7 @@ describe("character count component", () => {
     describe("over limit", () => {
       beforeEach(() => {
         input.value = "123456789012345678901";
-        keyup(input);
+        dispatchInputEvent(input);
       });
 
       it("should show the input as invalid when the input is over the limit", () => {
@@ -109,7 +109,7 @@ describe("character count component", () => {
   describe("warning modification", () => {
     it("should not modify the component as type warning when the input is not close to the limit", () => {
       input.value = "123456789";
-      keyup(input);
+      dispatchInputEvent(input);
       assert.equal(
         root.classList.contains(CharacterCount.WARNING_CLASS),
         false
@@ -118,7 +118,7 @@ describe("character count component", () => {
 
     it("should modify the component as type warning when the input is close to the limit", () => {
       input.value = "1234567890";
-      keyup(input);
+      dispatchInputEvent(input);
       assert.equal(root.classList.contains(CharacterCount.WARNING_CLASS), true);
     });
   });
