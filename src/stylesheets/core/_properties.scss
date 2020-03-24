@@ -7,7 +7,7 @@ USWDS Properties
 $standard-colors: map-collect(
   $tokens-color-theme,
   $tokens-color-state,
-  $tokens-color-required
+  $tokens-color-global
 );
 
 $extended-colors: map-collect($system-colors, $tokens-color-basic);
@@ -522,7 +522,7 @@ $system-properties: (
     extended: ()
   ),
   outline-color: (
-    standard: map-collect($tokens-color-required),
+    standard: map-collect($tokens-color-global),
     extended: $extended-colors
   ),
   overflow: (

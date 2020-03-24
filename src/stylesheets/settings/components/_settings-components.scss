@@ -16,6 +16,7 @@ USWDS style tokens in the documentation:
 https://designsystem.digital.gov/design-tokens
 ----------------------------------------
 */
+@use "../core";
 
 // Accordion
 $theme-accordion-border-width: 0.5 !default;
@@ -57,7 +58,7 @@ $theme-header-max-width: "desktop" !default;
 $theme-header-min-width: "desktop" !default;
 
 // Hero
-$theme-hero-image: "#{$theme-image-path}/hero.png" !default;
+$theme-hero-image: "#{core.$theme-image-path}/hero.png" !default;
 
 // Navigation
 $theme-navigation-font-family: "ui" !default;

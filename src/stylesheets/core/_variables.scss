@@ -357,7 +357,7 @@ $all-project-colors: map-collect($project-colors, $project-state-colors);
 
 $palette-colors: map-collect(
   $all-project-colors,
-  $tokens-color-required,
+  $tokens-color-global,
   $system-colors
 );
 
@@ -449,7 +449,7 @@ $project-color-shortcodes: map-collect(
 );
 
 $all-color-shortcodes: map-collect(
-  $tokens-color-required,
+  $tokens-color-global,
   $system-color-shortcodes,
   $project-color-shortcodes
 );

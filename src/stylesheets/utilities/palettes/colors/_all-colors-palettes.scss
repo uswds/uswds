@@ -42,12 +42,12 @@ $palettes-color: (
     map-collect(
       $tokens-color-theme,
       $tokens-color-grayscale,
-      $tokens-color-required,
+      $tokens-color-global,
       $tokens-color-state,
       $tokens-color-basic,
       $tokens-color-system
     ),
-  "palette-color-required": $tokens-color-required,
+  "palette-color-required": $tokens-color-global,
   "palette-color-basic": $tokens-color-basic,
   "palette-color-grayscale": $tokens-color-grayscale,
   "palette-color-theme": $tokens-color-theme,

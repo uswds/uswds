@@ -1,3 +1,5 @@
+@use "functions" as *;
+
 /*
 ========================================
 core/units
@@ -19,8 +21,6 @@ project/uswds-project-settings
 Spacing grid multiplier
 ----------------------------------------
 */
-
-$system-spacing-grid-base: 8px;
 
 /*
 ----------------------------------------
@@ -486,7 +486,7 @@ $system-base-cap-height: 362px;
 Colors
 ----------------------------------------
 */
-
+/*
 @import "./system-tokens/red-cool";
 @import "./system-tokens/red";
 @import "./system-tokens/red-warm";
@@ -573,11 +573,12 @@ $system-colors: map-collect(
   $system-color-white-transparent
 );
 
-$tokens-color-required: (
+$tokens-color-global: (
   "transparent": transparent,
   "black": black,
   "white": white
 );
+*/
 
 $tokens-color-basic: (
   "red": get-system-color("red", 50, "vivid"),
