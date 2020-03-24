@@ -1,3 +1,10 @@
+.usa-character-count {
+  .usa-character-count__message {
+    display: inline-block;
+    padding-top: units(0.5);
+  }
+}
+
 .usa-character-count--warning {
   .usa-character-count__message {
     font-weight: font-weight("bold");
