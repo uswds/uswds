@@ -1,29 +1,60 @@
-@forward "red-cool";
-@forward "red";
-@forward "red-warm";
-@forward "orange-warm";
-@forward "orange";
-@forward "gold";
-@forward "yellow";
-@forward "green-warm";
-@forward "green";
-@forward "green-cool";
-@forward "mint";
-@forward "mint-cool";
-@forward "cyan";
-@forward "blue-cool";
-@forward "blue";
-@forward "blue-warm";
-@forward "indigo-cool";
-@forward "indigo";
-@forward "indigo-warm";
-@forward "violet";
-@forward "violet-warm";
-@forward "magenta";
-@forward "gray-cool";
-@forward "gray";
-@forward "gray-warm";
+@use "red-cool" as *;
+@use "red" as *;
+@use "red-warm" as *;
+@use "orange-warm" as *;
+@use "orange" as *;
+@use "gold" as *;
+@use "yellow" as *;
+@use "green-warm" as *;
+@use "green" as *;
+@use "green-cool" as *;
+@use "mint" as *;
+@use "mint-cool" as *;
+@use "cyan" as *;
+@use "blue-cool" as *;
+@use "blue" as *;
+@use "blue-warm" as *;
+@use "indigo-cool" as *;
+@use "indigo" as *;
+@use "indigo-warm" as *;
+@use "violet" as *;
+@use "violet-warm" as *;
+@use "magenta" as *;
+@use "gray-cool" as *;
+@use "gray" as *;
+@use "gray-warm" as *;
+@use "black-transparent" as *;
+@use "white-transparent" as *;
+@use "global" as *;
 
-@forward "black-transparent";
-@forward "white-transparent";
-@forward "global";
+@use "../../functions/general" as general;
+
+$system-colors: general.map-collect(
+  $system-color-red-cool,
+  $system-color-red,
+  $system-color-red-warm,
+  $system-color-orange-warm,
+  $system-color-orange,
+  $system-color-gold,
+  $system-color-yellow,
+  $system-color-green-warm,
+  $system-color-green,
+  $system-color-green-cool,
+  $system-color-mint,
+  $system-color-mint-cool,
+  $system-color-cyan,
+  $system-color-blue-cool,
+  $system-color-blue,
+  $system-color-blue-warm,
+  $system-color-indigo-cool,
+  $system-color-indigo,
+  $system-color-indigo-warm,
+  $system-color-violet,
+  $system-color-violet-warm,
+  $system-color-magenta,
+  $system-color-gray-cool,
+  $system-color-gray,
+  $system-color-gray-warm,
+  $system-color-black-transparent,
+  $system-color-white-transparent
+);

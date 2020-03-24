@@ -8,13 +8,20 @@ not exist in the typeface-token map.
 ----------------------------------------
 */
 
-// TODO: dependencies
+@use "../../tokens";
 
 @function validate-typeface-token($typeface-token) {
-  @if not map-has-key($all-typeface-tokens, $typeface-token) {
+  @if not map-has-key(tokens.$all-typeface-tokens, $typeface-token) {
     @error '`#{$typeface-token}` is not a valid typeface token. '
-      + 'Valid tokens: #{map-keys($all-typeface-tokens)} ';
+      + 'Valid tokens: #{map-keys(tokens.$system-typeface-tokens)}, '
+      + 'or any custom tokens.';
   }
 
   @return $typeface-token;
 }
+
+// @debug validate-typeface-token("public-sans");
+// @return public-sans
+
+// @debug validate-typeface-token("foo");
+// @return error
