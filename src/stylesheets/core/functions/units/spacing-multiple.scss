@@ -7,11 +7,11 @@ the desired final units (currently rem)
 ----------------------------------------
 */
 
-@use "../../tokens";
+@use "../../tokens/units/grid-base";
 @use "root";
 
 @function spacing-multiple($unit) {
-  $grid-to-rem: (tokens.$system-spacing-grid-base * $unit) /
+  $grid-to-rem: (grid-base.$system-spacing-grid-base * $unit) /
     root.$root-font-size-equiv * 1rem;
 
   @return $grid-to-rem;

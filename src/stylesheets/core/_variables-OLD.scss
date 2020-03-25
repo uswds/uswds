@@ -14,22 +14,23 @@ directly.
 ----------------------------------------
 */
 
+@use "sass:map";
+@use "functions/output";
+@use "functions/font";
+@use "functions/general";
+@use "tokens/font";
+
 /*
 ----------------------------------------
 Touch target size
 ----------------------------------------
 */
 
-$size-touch-target: 6; // 48px to meet WCAG minimum of 44px
-
 /*
 ----------------------------------------
 Namespace
 ----------------------------------------
 */
-
-$ns-utility: ns("utility");
-$ns-grid: ns("grid");
 
 /*
 ----------------------------------------
@@ -39,145 +40,6 @@ All spacing values that can be called
 by units()
 ----------------------------------------
 */
-
-$project-spacing-standard: map-collect(
-  map-get($system-spacing, smaller),
-  map-get($system-spacing, small),
-  map-get($system-spacing, smaller-negative),
-  map-get($system-spacing, small-negative),
-  map-get($system-spacing, medium),
-  map-get($system-spacing, medium-negative),
-  map-get($system-spacing, large),
-  map-get($system-spacing, larger),
-  map-get($system-spacing, largest),
-  map-get($system-spacing, special)
-);
-
-$project-spacing-named: map-collect(
-  map-get($system-spacing, large),
-  map-get($system-spacing, larger),
-  map-get($system-spacing, largest)
-);
-
-$spacing-to-token: (
-  "0": 0,
-  "1": "1px",
-  "2": "2px",
-  "4": "05",
-  "8": 1,
-  "12": "105",
-  "16": 2,
-  "20": "205",
-  "24": 3,
-  "32": 4,
-  "40": 5,
-  "48": 6,
-  "56": 7,
-  "64": 8,
-  "72": 9
-);
-
-$spacing-to-value: (
-  0: 0,
-  "2px": 2,
-  "05": 4,
-  1: 8,
-  "105": 12,
-  2: 16,
-  3: 24,
-  4: 32,
-  5: 40,
-  6: 48,
-  7: 56,
-  8: 64,
-  9: 72
-);
-
-$number-to-value: (
-  "1px": "1px",
-  "2px": "2px",
-  "0": 0,
-  "1": 1,
-  "2": 2,
-  "3": 3,
-  "4": 4,
-  "5": 5,
-  "6": 6,
-  "7": 7,
-  "8": 8,
-  "9": 9,
-  "10": 10,
-  "15": 15,
-  "0.5": "05",
-  ".5": "05",
-  "1.5": "105",
-  "2.5": "205",
-  "-1px": "neg-1px",
-  "-2px": "neg-2px",
-  "-0.5": "neg-05",
-  "-.5": "neg-05",
-  "-1": "neg-1",
-  "-1.5": "neg-105",
-  "-2": "neg-2",
-  "-2.5": "neg-205",
-  "-3": "neg-3",
-  "-4": "neg-4",
-  "-5": "neg-5",
-  "-6": "neg-6",
-  "-7": "neg-7",
-  "-8": "neg-8",
-  "-9": "neg-9"
-);
-
-/*
-----------------------------------------
-Project fonts
-----------------------------------------
-Collects font settings in a map for
-looping.
-----------------------------------------
-*/
-
-$project-font-type-tokens: (
-  "cond": (
-    "typeface-token": $theme-font-type-cond,
-    "custom-stack": $theme-font-cond-custom-stack,
-    "src": $theme-font-cond-custom-src
-  ),
-  "icon": (
-    "typeface-token": $theme-font-type-icon,
-    "custom-stack": $theme-font-icon-custom-stack,
-    "src": $theme-font-icon-custom-src
-  ),
-  "lang": (
-    "typeface-token": $theme-font-type-lang,
-    "custom-stack": $theme-font-lang-custom-stack,
-    "src": $theme-font-lang-custom-src
-  ),
-  "mono": (
-    "typeface-token": $theme-font-type-mono,
-    "custom-stack": $theme-font-mono-custom-stack,
-    "src": $theme-font-mono-custom-src
-  ),
-  "sans": (
-    "typeface-token": $theme-font-type-sans,
-    "custom-stack": $theme-font-sans-custom-stack,
-    "src": $theme-font-sans-custom-src
-  ),
-  "serif": (
-    "typeface-token": $theme-font-type-serif,
-    "custom-stack": $theme-font-serif-custom-stack,
-    "src": $theme-font-serif-custom-src
-  )
-);
-
-$project-font-role-tokens: (
-  "ui": $theme-font-role-ui,
-  "heading": $theme-font-role-heading,
-  "body": $theme-font-role-body,
-  "code": $theme-font-role-code,
-  "alt": $theme-font-role-alt
-);
 
 /*
 ----------------------------------------
@@ -190,44 +52,6 @@ core/_font-definitions
 ----------------------------------------
 */
 
-$project-font-stacks: (
-  "cond": get-font-stack("cond"),
-  "icon": get-font-stack("icon"),
-  "lang": get-font-stack("lang"),
-  "mono": get-font-stack("mono"),
-  "sans": get-font-stack("sans"),
-  "serif": get-font-stack("serif"),
-  "ui": get-font-stack("ui"),
-  "heading": get-font-stack("heading"),
-  "body": get-font-stack("body"),
-  "code": get-font-stack("code"),
-  "alt": get-font-stack("alt")
-);
-
-$project-font-stack-cond: get-font-stack("cond");
-$project-font-stack-icon: get-font-stack("icon");
-$project-font-stack-lang: get-font-stack("lang");
-$project-font-stack-mono: get-font-stack("mono");
-$project-font-stack-sans: get-font-stack("sans");
-$project-font-stack-serif: get-font-stack("serif");
-$project-font-stack-ui: get-font-stack("ui");
-$project-font-stack-heading: get-font-stack("heading");
-$project-font-stack-body: get-font-stack("body");
-$project-font-stack-code: get-font-stack("code");
-$project-font-stack-alt: get-font-stack("alt");
-
-$project-font-cond: get-typeface-token("cond");
-$project-font-icon: get-typeface-token("icon");
-$project-font-lang: get-typeface-token("lang");
-$project-font-mono: get-typeface-token("mono");
-$project-font-sans: get-typeface-token("sans");
-$project-font-serif: get-typeface-token("serif");
-$project-font-ui: get-typeface-token("ui");
-$project-font-heading: get-typeface-token("heading");
-$project-font-body: get-typeface-token("body");
-$project-font-code: get-typeface-token("code");
-$project-font-alt: get-typeface-token("alt");
-
 /*
 ----------------------------------------
 Cap heights
@@ -235,31 +59,6 @@ Cap heights
 Collect project cap heights
 ----------------------------------------
 */
-
-$project-cap-heights: (
-  "base": $system-base-cap-height,
-  "cond": cap-height($project-font-cond),
-  "icon": cap-height($project-font-icon),
-  "lang": cap-height($project-font-lang),
-  "mono": cap-height($project-font-mono),
-  "sans": cap-height($project-font-sans),
-  "serif": cap-height($project-font-serif),
-  "ui": cap-height($project-font-ui),
-  "heading": cap-height($project-font-heading),
-  "body": cap-height($project-font-body),
-  "code": cap-height($project-font-code),
-  "alt": cap-height($project-font-alt)
-);
-
-$project-font-weights: (
-  "thin": $theme-font-weight-thin,
-  "light": $theme-font-weight-light,
-  "normal": $theme-font-weight-normal,
-  "medium": $theme-font-weight-medium,
-  "semibold": $theme-font-weight-semibold,
-  "bold": $theme-font-weight-bold,
-  "heavy": $theme-font-weight-heavy
-);
 
 /*
 ----------------------------------------
@@ -353,9 +152,12 @@ $project-state-colors: (
   )
 );
 
-$all-project-colors: map-collect($project-colors, $project-state-colors);
+$all-project-colors: general.map-collect(
+  $project-colors,
+  $project-state-colors
+);
 
-$palette-colors: map-collect(
+$palette-colors: general.map-collect(
   $all-project-colors,
   $tokens-color-global,
   $system-colors
@@ -443,12 +245,12 @@ $tokens-color-state: (
   "disabled-dark": color($theme-color-disabled-dark, set-theme, no-warn)
 );
 
-$project-color-shortcodes: map-collect(
+$project-color-shortcodes: general.map-collect(
   $tokens-color-theme,
   $tokens-color-state
 );
 
-$all-color-shortcodes: map-collect(
+$all-color-shortcodes: general.map-collect(
   $tokens-color-global,
   $system-color-shortcodes,
   $project-color-shortcodes
@@ -474,7 +276,7 @@ $project-type-scale: (
   "3xl": system-type-scale($theme-type-scale-3xl)
 );
 
-$all-type-scale: map-collect($system-type-scale, $project-type-scale);
+$all-type-scale: general.map-collect($system-type-scale, $project-type-scale);
 
 /*
 ----------------------------------------
@@ -490,10 +292,10 @@ $project-border-radius: (
   "pill": 99rem
 );
 
-$all-border-radius: map-collect(
+$all-border-radius: general.map-collect(
   $project-border-radius,
-  map-get($system-spacing, smaller),
-  map-get($system-spacing, small)
+  map.get($system-spacing, smaller),
+  map.get($system-spacing, small)
 );
 
 /*
