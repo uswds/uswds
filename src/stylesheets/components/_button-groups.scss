@@ -1,0 +1,104 @@
+// Default styles
+.usa-button-group {
+  @include unstyled-list;
+  display: flex;
+}
+
+.usa-button-group__item {
+  margin-left: units(0.5);
+  margin-right: units(0.5);
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .usa-button {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+// Segemented styles
+.usa-button-group--segmented {
+
+  .usa-button {
+    position: relative;
+    width: auto;
+
+    // Ensures edges are not cut off when interacting with outline buttons
+    &:hover,
+    &:active{
+      z-index: 2;
+    }
+
+    &:focus {
+      z-index: 3;
+    }
+  }
+
+  .usa-button-group__item {
+    margin-left: 0;
+    margin-right: 0;
+
+    &:first-child > .usa-button {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      margin-right: -(units($theme-button-stroke-width)) / 2;
+    }
+
+    &:last-child > .usa-button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-right: 0;
+      margin-left: -(units($theme-button-stroke-width)) / 2;
+    }
+
+
+    &:not(:first-child):not(:last-child) > .usa-button {
+      border-radius: 0;
+      margin-right: -(units($theme-button-stroke-width)) / 2;
+      margin-left: -(units($theme-button-stroke-width)) / 2;
+    }
+
+    // Creates separators 
+    &:not(:last-child) .usa-button::before {
+      border-right: 1px solid color("primary-dark");
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      right: 1px;
+      top: 0;
+      width: 1px;
+      z-index: 3;
+    }
+
+    &:not(:last-child) .usa-button--secondary::before {
+      border-right-color: color("secondary-dark")
+    }
+
+    &:not(:last-child) .usa-button--accent-cool::before {
+      border-right-color: color("accent-cool-dark")
+    }
+
+    &:not(:last-child) .usa-button--base::before {
+      border-right-color: color("base-dark")
+    }
+
+    &:not(:last-child) .usa-button--secondary:disabled::before,
+    &:not(:last-child) .usa-button--accent-cool:disabled::before,
+    &:not(:last-child) .usa-button--base:disabled::before {
+      border-right-color: color("base");
+    }
+
+    &:not(:last-child) .usa-button:active::before,
+    &:not(:last-child) .usa-button--outline::before {
+      display: none;
+    }
+  }
+}
