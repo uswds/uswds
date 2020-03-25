@@ -5,10 +5,12 @@
 @forward "../core/functions";
 @forward "../core/tokens";
 @forward "../core/variables";
-//@forward "../core/properties";
+@forward "../core/properties";
 //@forward "../core/mixins/all";
 //@forward "../core/placeholders/all";
 
 // deprecated import needs to be last
 //@forward "../core/deprecated";
 //@forward "../core/notifications";
+
+@use "../utilities/palettes";

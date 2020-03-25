@@ -10,14 +10,14 @@ the desired final units (currently rem)
 @use "sass:map";
 @use "sass:meta";
 @use "sass:string";
-@use "../../functions/output";
+@use "../../functions/output/number-to-token" as *;
 @use "../../variables/project-spacing" as vars;
 
 @function units($value) {
   $converted: if(
     meta.type-of($value) == "string",
     string.quote($value),
-    output.number-to-token($value)
+    number-to-token($value)
   );
 
   @if not(map.has-key(vars.$project-spacing-standard, $converted)) {

@@ -1,4 +1,4 @@
-@use "../functions/output";
+@use "../functions/output/ns" as *;
 
-$ns-utility: output.ns("utility");
-$ns-grid: output.ns("grid");
+$ns-utility: ns("utility");
+$ns-grid: ns("grid");
