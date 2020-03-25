@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "../../functions" as *;
+
 // Outputs height
 
 @mixin u-height($value...) {
@@ -7,5 +10,5 @@
     $value: remove($value, "!important");
     $important: " !important";
   }
-  height: get-uswds-value(height, $value...) #{$important};
+  height: get-uswds-value("height", $value...) #{$important};
 }

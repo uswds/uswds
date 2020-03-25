@@ -94,26 +94,28 @@ gulp.task(
     ];
     const pluginsMinify = [csso({ forceMediaMerge: false })];
 
-    return gulp
-      .src("src/stylesheets/uswds.scss")
-      .pipe(sourcemaps.init({ largeFile: true }))
-      .pipe(
-        sass
-          .sync({
-            outputStyle: "expanded"
+    return (
+      gulp
+        .src("src/stylesheets/uswds.scss")
+        .pipe(sourcemaps.init({ largeFile: true }))
+        .pipe(
+          sass
+            .sync({
+              outputStyle: "expanded"
+            })
+            .on("error", sass.logError)
+        )
+        .pipe(postcss(pluginsProcess))
+        .pipe(replace(/\buswds @version\b/g, `uswds v${pkg.version}`))
+        .pipe(gulp.dest("dist/css"))
+        // removed minify to see what happens
+        .pipe(
+          rename({
+            suffix: ".min"
           })
-          .on("error", sass.logError)
-      )
-      .pipe(postcss(pluginsProcess))
-      .pipe(replace(/\buswds @version\b/g, `uswds v${pkg.version}`))
-      .pipe(gulp.dest("dist/css"))
-      .pipe(postcss(pluginsMinify))
-      .pipe(
-        rename({
-          suffix: ".min"
-        })
-      )
-      .pipe(sourcemaps.write("."))
-      .pipe(gulp.dest("dist/css"));
+        )
+        .pipe(sourcemaps.write("."))
+        .pipe(gulp.dest("dist/css"))
+    );
   })
 );

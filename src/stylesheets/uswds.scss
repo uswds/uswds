@@ -1,6 +1,8 @@
 // Required
 // -------------------------------------
-@use "packages/required";
+@use "packages/required" as * with (
+  $theme-show-notifications: false,
+);
 
 // Global
 // -------------------------------------
@@ -15,5 +17,15 @@
 //@import "packages/uswds-utilities";
 
 .foo {
-  background-image: required.$theme-hero-image;
+  @include u-align-items("align-start");
+  @include u-bg("primary", !important);
+  @include u-border(0.5, "secondary", !important);
+  @include u-border-color("orange-80v");
+  @include u-border-width(1px);
+  @include u-bottom(2px);
+  @include u-circle("card");
+  @include u-color("orange-80v", !important);
+  @include u-radius("pill");
+  background-image: $theme-hero-image;
+  //color: color("orange-80v");
 }

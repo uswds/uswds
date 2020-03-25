@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "../../functions" as *;
+
 // Outputs width
 
 @mixin u-width($value...) {
@@ -7,5 +10,5 @@
     $value: remove($value, "!important");
     $important: " !important";
   }
-  width: get-uswds-value(width, $value...) #{$important};
+  width: get-uswds-value("width", $value...) #{$important};
 }

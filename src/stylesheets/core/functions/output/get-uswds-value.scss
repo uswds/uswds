@@ -5,6 +5,8 @@
 @use "../../functions/output/number-to-token" as *;
 @use "../../functions/general/smart-quote" as *;
 @use "../../functions/general/map-deep-get" as *;
+@use "../../properties" as *;
+@use "../../../settings" as *;
 
 /*
 ----------------------------------------
@@ -59,7 +61,8 @@ functions and mixins.
   }
 
   // TODO: what are these last two cases? Evaluate.
-  @if not(meta.type-of($value) == "number") and not(math.unitless($value)) {
+  @if not((meta.type-of($value) == "number") and not(math.is-unitless($value)))
+  {
     @error '`#{$value}` is not a valid `#{$property}` token. '
       + 'You should correct this. Standard `#{$property}` tokens: '
       + ' #{map.keys($our-standard-values)}';
