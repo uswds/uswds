@@ -1,0 +1,29 @@
+/*
+----------------------------------------
+system-type-scale()
+----------------------------------------
+Get a value from the system type scale
+----------------------------------------
+*/
+
+@use "sass:map";
+@use "../../functions/general";
+@use "../../tokens/font";
+
+@function system-type-scale($scale) {
+  $scale: general.smart-quote($scale);
+
+  @if not $scale {
+    @return false;
+  }
+
+  @if not(map.has-key(font.$system-type-scale, $scale)) {
+    @error '`#{$scale}` is not a valid type scale token. '
+      + 'Valid tokens: #{map.keys($system-type-scale)}';
+  }
+
+  @return map.get(font.$system-type-scale, $scale);
+}
+
+// @debug system-type-scale(2);
+// @return 13px;

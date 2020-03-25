@@ -12,6 +12,7 @@ of lists.
 
 @use "sass:list";
 @use "sass:meta";
+@use "de-list" as *;
 
 @function unpack($value) {
   $output: ();

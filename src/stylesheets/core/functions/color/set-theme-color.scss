@@ -14,11 +14,27 @@ or a hex value
 @use "../../../settings";
 @use "../../tokens/color/shortcodes-color-system" as tokens;
 
-@function set-theme-color($value) {
+@function set-theme-color($value, $flag: null) {
+  $value: general.unpack($value);
+
   // If it's a color, return that color
+  // Withhold warning if "no-warn" flag
+
+  @if meta.type-of($value) == color {
+    @if $flag == "no-warn" {
+      @return $value;
+    }
+
+    @if settings.$theme-show-compile-warnings {
+      @warn 'Override: `#{$value}` is not a USWDS color token.';
+    }
+
+    @return $value;
+  }
+
   // If it's false, return false
 
-  @if meta.type-of($value) == color or $value == false {
+  @if $value == false {
     @return $value;
   }
 
@@ -45,7 +61,9 @@ or a hex value
 // @return false;
 // @debug set-theme-color("red-90v");
 // @return error "no 90v tokens";
-// @debug set-theme-color(#f00);
+// @debug set-theme-color(#f00, no-warn);
 // @return #f00;
+// @debug set-theme-color(#f00);
+// @return #f00 + warning;
 // @debug set-theme-color("foo");
 // @return error "not valid";

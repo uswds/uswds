@@ -1,0 +1,15 @@
+@use "../functions/units"
+
+$project-border-radius: (
+  0: 0,
+  "sm": units($theme-border-radius-sm),
+  "md": units($theme-border-radius-md),
+  "lg": units($theme-border-radius-lg),
+  "pill": 99rem
+);
+
+$all-border-radius: general.map-collect(
+  $project-border-radius,
+  map.get($system-spacing, "smaller"),
+  map.get($system-spacing, "small")
+);

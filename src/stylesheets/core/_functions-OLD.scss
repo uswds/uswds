@@ -60,29 +60,6 @@ a family and a line-height scale unit
 
 /*
 ----------------------------------------
-system-type-scale()
-----------------------------------------
-Get a value from the system type scale
-----------------------------------------
-*/
-
-@function system-type-scale($scale) {
-  $scale: smart-quote($scale);
-
-  @if not $scale {
-    @return false;
-  }
-
-  @if not map-has-key($system-type-scale, $scale) {
-    @error '`#{$scale}` is not a valid type scale token. '
-      + 'Valid tokens: #{map-keys($system-type-scale)}';
-  }
-
-  @return map-get($system-type-scale, $scale);
-}
-
-/*
-----------------------------------------
 calc-gap-offset()
 ----------------------------------------
 Calculate a valid uswds unit that is
@@ -121,28 +98,6 @@ for a property
 
 @function get-standard-values($property) {
   @return map-deep-get($system-properties, $property, standard);
-}
-
-/*
-----------------------------------------
-number-to-token()
-----------------------------------------
-Converts an integer or numeric value
-into a system value
-
-Ex: 0.5   --> '05'
-    -1px  --> 'neg-1px'
-----------------------------------------
-*/
-
-@function number-to-token($number) {
-  $number: inspect($number);
-
-  @if not map-has-key($number-to-value, $number) {
-    @return false;
-  }
-
-  @return map-get($number-to-value, $number);
 }
 
 /*
@@ -327,31 +282,6 @@ Derive a color from a color triplet:
       + 'Valid family tokens: #{map-keys($all-project-colors)}';
   }
   @return map-deep-get($all-project-colors, $color-family, $color-grade);
-}
-
-/*
-----------------------------------------
-units()
-----------------------------------------
-Converts a spacing unit into
-the desired final units (currently rem)
-----------------------------------------
-*/
-
-@function units($value) {
-  $converted: if(
-    type-of($value) == "string",
-    quote($value),
-    number-to-token($value)
-  );
-
-  @if not map-has-key($project-spacing-standard, $converted) {
-    @error '`#{$value}` is not a valid spacing unit token. '
-      + 'Valid spacing unit tokens: '
-      + '#{map-keys($project-spacing-standard)}';
-  }
-
-  @return map-get($project-spacing-standard, $converted);
 }
 
 /*

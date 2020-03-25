@@ -1,0 +1,28 @@
+@use "../../../settings";
+@use "../../functions/color/set-theme-color" as *;
+
+$tokens-color-state: (
+  "error-lighter": color(settings.$theme-color-error-lighter, no-warn),
+  "error-light": color(settings.$theme-color-error-light, no-warn),
+  "error": color(settings.$theme-color-error, no-warn),
+  "error-dark": color(settings.$theme-color-error-dark, no-warn),
+  "error-darker": color(settings.$theme-color-error-darker, no-warn),
+  "warning-lighter": color(settings.$theme-color-warning-lighter, no-warn),
+  "warning-light": color(settings.$theme-color-warning-light, no-warn),
+  "warning": color(settings.$theme-color-warning, no-warn),
+  "warning-dark": color(settings.$theme-color-warning-dark, no-warn),
+  "warning-darker": color(settings.$theme-color-warning-darker, no-warn),
+  "success-lighter": color(settings.$theme-color-success-lighter, no-warn),
+  "success-light": color(settings.$theme-color-success-light, no-warn),
+  "success": color(settings.$theme-color-success, no-warn),
+  "success-dark": color(settings.$theme-color-success-dark, no-warn),
+  "success-darker": color(settings.$theme-color-success-darker, no-warn),
+  "info-lighter": color(settings.$theme-color-info-lighter, no-warn),
+  "info-light": color(settings.$theme-color-info-light, no-warn),
+  "info": color(settings.$theme-color-info, no-warn),
+  "info-dark": color(settings.$theme-color-info-dark, no-warn),
+  "info-darker": color(settings.$theme-color-info-darker, no-warn),
+  "disabled-light": color(settings.$theme-color-disabled-light, no-warn),
+  "disabled": color(settings.$theme-color-disabled, no-warn),
+  "disabled-dark": color(settings.$theme-color-disabled-dark, no-warn)
+);
