@@ -1,3 +1,9 @@
+@use "../functions" as *;
+@use "../mixins/general/typography" as *;
+@use "../mixins/helpers" as *;
+@use "../mixins/utilities" as *;
+@use "../../settings" as *;
+
 %usa-table {
   @include border-box-sizing;
   @include typeset;

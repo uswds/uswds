@@ -1,3 +1,5 @@
+@use "../utilities" as *;
+
 @mixin grid-container($props...) {
   @if length($props) ==0 {
     @include u-margin-x(auto);

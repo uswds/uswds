@@ -4,6 +4,7 @@
 // Outputs bottom
 
 @mixin u-bottom($value...) {
+  $value: unpack($value);
   $important: null;
   @if has-important($value) {
     $value: remove($value, "!important");

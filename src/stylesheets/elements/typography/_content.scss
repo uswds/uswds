@@ -1,3 +1,9 @@
+@use "../../core/mixins/general/typography" as *;
+@use "../../core/mixins/general/add-knockout-font-smoothing" as *;
+@use "../../core/mixins/helpers" as *;
+@use "../../core/functions" as *;
+@use "../../settings" as *;
+
 .usa-paragraph {
   @include typeset-p;
 }

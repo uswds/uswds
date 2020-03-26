@@ -1,10 +1,14 @@
+@use "./add-background-svg" as *;
+@use "../../functions" as *;
+@use "../../../settings" as *;
+
 @mixin external-link(
   $external-link,
   $external-link-hover,
   $image-path: $theme-image-path
 ) {
   &::after {
-    background-image: url("#{$image-path}/#{$external-link}.svg");
+    @include add-background-svg("#{$external-link}", $image-path);
     background-position: 0 0;
     background-repeat: no-repeat;
     background-size: 100%;

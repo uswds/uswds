@@ -1,3 +1,8 @@
+@use "sass:map" as *;
+@use "../../functions" as *;
+@use "../../variables" as *;
+@use "../../../settings" as *;
+
 // Output the @font-face rule
 @mixin at-font-face($display-name, $file-path, $font-weight, $font-style) {
   $file-path: unquote($file-path);
@@ -58,11 +63,11 @@
     );
   }
 
-  $typeface-metadata: map-get($all-typeface-tokens, $typeface-token);
+  $typeface-metadata: map.get($all-typeface-tokens, $typeface-token);
 
   // If the typeface has src in its USWDS metadata, generate and
   // set $this-src
-  @if map-get($typeface-metadata, src) {
+  @if map.get($typeface-metadata, src) {
     $generate: true;
     $this-src: map-get($typeface-metadata, src);
   }
@@ -75,10 +80,10 @@
   }
 
   @if $generate {
-    $display-name: map-get($typeface-metadata, display-name);
-    $roman: map-get($this-src, roman);
-    $italic: map-get($this-src, italic);
-    $dir: map-get($this-src, dir);
+    $display-name: map.get($typeface-metadata, display-name);
+    $roman: map.get($this-src, roman);
+    $italic: map.get($this-src, italic);
+    $dir: map.get($this-src, dir);
 
     @if $roman {
       @include generate-font-face(

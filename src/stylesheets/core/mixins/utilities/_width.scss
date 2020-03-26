@@ -8,6 +8,9 @@
   $important: null;
   @if has-important($value) {
     $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
     $important: " !important";
   }
   width: get-uswds-value("width", $value...) #{$important};

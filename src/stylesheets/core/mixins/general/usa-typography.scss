@@ -1,3 +1,7 @@
+@use "../../placeholders" as *;
+@use "../../mixins/general/typography" as *;
+@use "../../../elements/typography/content" as *;
+
 @mixin usa-paragraph-style {
   p {
     @extend %usa-paragraph;

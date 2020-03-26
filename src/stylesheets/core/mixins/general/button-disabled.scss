@@ -1,3 +1,6 @@
+@use "./add-knockout-font-smoothing" as *;
+@use "../../functions" as *;
+
 @mixin button-disabled {
   @include add-knockout-font-smoothing;
   background-color: color("disabled");

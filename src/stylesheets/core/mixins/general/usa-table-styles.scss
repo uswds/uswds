@@ -1,3 +1,5 @@
+@use "../../placeholders" as *;
+
 @mixin usa-table-styles {
   table {
     @extend %usa-table;

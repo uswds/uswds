@@ -1,16 +1,21 @@
+@use "sass:map";
+@use "../../functions" as *;
+@use "../../properties" as *;
+@use "../../../settings" as *;
+
 // Mobile-first media query helper
 
 @mixin at-media($bp) {
   $quoted-bp: smart-quote($bp);
-  $our-breakpoints: map-deep-get($system-properties, breakpoints, standard);
-  @if map-has-key($our-breakpoints, $quoted-bp) {
+  $our-breakpoints: map-deep-get($system-properties, "breakpoints", "standard");
+  @if map.has-key($our-breakpoints, $quoted-bp) {
     @if $theme-respect-user-font-size {
-      $bp: rem-to-user-em(map-get($our-breakpoints, $quoted-bp));
+      $bp: rem-to-user-em(map.get($our-breakpoints, $quoted-bp));
     } @else {
-      $bp: rem-to-px(map-get($our-breakpoints, $quoted-bp));
+      $bp: rem-to-px(map.get($our-breakpoints, $quoted-bp));
     }
   } @else {
-    @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map-keys($our-breakpoints)}';
+    @warn '`#{$bp}` is not a valid USWDS project breakpoint. Valid values: #{map.keys($our-breakpoints)}';
   }
   @media all and (min-width: #{$bp}) {
     @content;

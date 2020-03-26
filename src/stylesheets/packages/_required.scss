@@ -7,7 +7,7 @@
 @forward "../core/variables";
 @forward "../core/properties";
 @forward "../core/mixins";
-//@forward "../core/placeholders/all";
+@forward "../core/placeholders";
 
 // deprecated import needs to be last
 //@forward "../core/deprecated";

@@ -1,3 +1,8 @@
+@use "./focus-outline" as *;
+@use "../../functions" as *;
+@use "../../mixins/utilities" as *;
+@use "../../../settings" as *;
+
 /*
 ----------------------------------------
 typeset()

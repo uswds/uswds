@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "../../functions" as *;
+
 // Outputs line-height
 
 @mixin u-line-height($value...) {
@@ -5,9 +8,12 @@
   $important: null;
   @if has-important($value) {
     $value: remove($value, "!important");
+    @if list.length($value) == 1 {
+      $value: de-list($value);
+    }
     $important: " !important";
   }
-  $family: nth($value, 1);
-  $scale: nth($value, 2);
+  $family: list.nth($value, 1);
+  $scale: list.nth($value, 2);
   line-height: lh($family, $scale) #{$important};
 }

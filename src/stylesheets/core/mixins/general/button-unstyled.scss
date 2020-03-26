@@ -1,3 +1,8 @@
+@use "./add-knockout-font-smoothing" as *;
+@use "./typography" as *;
+@use "../../functions" as *;
+@use "../../mixins/utilities" as *;
+
 @mixin button-unstyled {
   @include no-knockout-font-smoothing;
   @include typeset-link;

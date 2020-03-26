@@ -1,3 +1,6 @@
+@use "./add-background-svg" as *;
+@use "../../functions" as *;
+
 @mixin display-icon($icon, $direction, $size, $margin, $hover) {
   &::#{$direction} {
     @include add-background-svg("#{$icon}");

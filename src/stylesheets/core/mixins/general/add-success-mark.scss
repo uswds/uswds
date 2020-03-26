@@ -1,3 +1,6 @@
+@use "./add-background-svg" as *;
+@use "../../functions" as *;
+
 @mixin add-success-mark {
   &::before {
     @include add-background-svg("correct9");

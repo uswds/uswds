@@ -1,3 +1,7 @@
+@use "../functions" as *;
+@use "../mixins/utilities" as *;
+@use "../../settings" as *;
+
 %usa-list {
   @include u-margin-y(1em);
   line-height: line-height($theme-body-font-family, $theme-body-line-height);

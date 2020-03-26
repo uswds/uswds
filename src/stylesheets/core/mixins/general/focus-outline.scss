@@ -1,3 +1,6 @@
+@use "../../functions" as *;
+@use "../../../settings" as *;
+
 // Focus state mixin
 @mixin focus-outline(
   $width: $theme-focus-width,

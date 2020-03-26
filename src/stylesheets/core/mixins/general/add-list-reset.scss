@@ -1,6 +1,9 @@
+@use "sass:list";
+@use "../../functions" as *;
+
 @mixin add-list-reset($value...) {
   $important: null;
-  @if length($value) > 0 and has-important($value) {
+  @if list.length($value) > 0 and has-important($value) {
     $value: remove($value, "!important");
     $important: " !important";
   }
