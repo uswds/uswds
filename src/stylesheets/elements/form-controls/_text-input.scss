@@ -1,3 +1,8 @@
+@use "../../core/functions" as *;
+@use "../../core/mixins" as *;
+@use "../../settings" as *;
+@use "./global" as *;
+
 .usa-input,
 .usa-textarea {
   @extend %block-input-general;

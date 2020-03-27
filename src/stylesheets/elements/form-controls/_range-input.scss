@@ -1,3 +1,7 @@
+@use "../../core/functions" as *;
+@use "../../core/mixins" as *;
+@use "../../settings" as *;
+
 @mixin range-focus {
   background-color: color("white");
   box-shadow: 0 0 0 units(2px) color($theme-focus-color);

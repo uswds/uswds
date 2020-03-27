@@ -1,3 +1,7 @@
+@use "../../core/functions" as *;
+@use "../../core/mixins" as *;
+@use "../../settings" as *;
+
 .usa-memorable-date {
   display: flex;
   [type="number"] {
