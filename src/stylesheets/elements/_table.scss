@@ -1,3 +1,5 @@
+@use "../packages/required" as *;
+
 .usa-table {
   @extend %usa-table;
 }

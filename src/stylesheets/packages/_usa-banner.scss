@@ -1,7 +1,7 @@
 // dependencies
-@import "layout-grid";
-@import "usa-accordion";
-@import "usa-media-block";
+@use "layout-grid";
+@use "usa-accordion";
+@use "usa-media-block";
 
 // src
-@import "../components/banner";
+@use "../components/banner";

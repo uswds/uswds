@@ -1,3 +1,5 @@
+@use "../packages/required" as *;
+
 .usa-media-block__img {
   @include media-block-img;
 }

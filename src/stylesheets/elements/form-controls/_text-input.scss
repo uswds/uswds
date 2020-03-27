@@ -1,7 +1,7 @@
 @use "../../core/functions" as *;
 @use "../../core/mixins" as *;
 @use "../../settings" as *;
-@use "./global" as *;
+@use "./global" as global;
 
 .usa-input,
 .usa-textarea {

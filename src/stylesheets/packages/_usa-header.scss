@@ -1,13 +1,13 @@
 // dependencies
-@import "../base/accessibility";
-@import "layout-grid";
-@import "usa-accordion";
-@import "usa-banner";
-@import "usa-nav";
-@import "usa-nav-container";
-@import "usa-navbar";
-@import "usa-search";
-@import "usa-skipnav";
+@use "../base/accessibility";
+@use "layout-grid";
+@use "usa-accordion";
+@use "usa-banner";
+@use "usa-nav";
+@use "usa-nav-container";
+@use "usa-navbar";
+@use "usa-search";
+@use "usa-skipnav";
 
 // src
-@import "../components/header";
+@use "../components/header";

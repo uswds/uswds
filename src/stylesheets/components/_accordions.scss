@@ -1,3 +1,5 @@
+@use "../packages/required" as *;
+
 // Variables
 
 $accordion-border: units($theme-accordion-border-width) solid

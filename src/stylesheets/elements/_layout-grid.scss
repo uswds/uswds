@@ -1,10 +1,5 @@
 @use "sass:map";
-@use "../settings" as *;
-@use "../core/mixins" as *;
-@use "../core/functions" as *;
-@use "../core/properties" as *;
-@use "../core/tokens" as *;
-@use "../core/variables" as *;
+@use "../packages/required" as *;
 
 /* stylelint-disable */
 

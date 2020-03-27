@@ -1,3 +1,5 @@
+@use "../packages/required" as *;
+
 .usa-banner {
   @include typeset($theme-banner-font-family);
   @include border-box-sizing;

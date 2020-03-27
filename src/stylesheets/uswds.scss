@@ -10,63 +10,31 @@
 
 // Components
 // -------------------------------------
-// @forward "packages/uswds-components";
 @use "./packages/form-controls";
-// @use "./packages/form-templates";
+@use "./packages/form-templates";
 @use "./packages/layout-grid";
 @use "./packages/typography";
+@use "./packages/usa-accordion";
+@use "./packages/usa-alert";
+@use "./packages/usa-banner";
+@use "./packages/usa-button";
+@use "./packages/usa-checklist";
+@use "./packages/usa-footer";
+@use "./packages/usa-header";
+@use "./packages/usa-hero";
+@use "./packages/usa-media-block";
+@use "./packages/usa-megamenu";
+@use "./packages/usa-nav-container";
+@use "./packages/usa-nav";
+@use "./packages/usa-navbar";
+@use "./packages/usa-search";
+@use "./packages/usa-sidenav";
+@use "./packages/usa-skipnav";
+@use "./packages/usa-table";
+@use "./packages/usa-tag";
+@use "./packages/validation";
+// @use "packages/uswds-components";
 
 // Utilities
 // -------------------------------------
 @use "packages/uswds-utilities";
-
-.foo {
-  @include u-align-items("align-start");
-  @include u-bg("primary", !important);
-  @include u-border(0.5, "secondary", !important);
-  @include u-border-color("orange-80v");
-  @include u-border-width(1px);
-  @include u-bottom(2px);
-  @include u-circle("card");
-  @include u-color("orange-80v", !important);
-  @include u-display("inline-block", !important);
-  @include u-flex("align-start", "column", !important);
-  @include u-font("sans", "2xs");
-  @include u-line-height("sans", 2);
-  @include u-margin-x("auto");
-  @include u-radius("pill");
-  @include u-outline("primary", 2px);
-  @include u-padding-top(0.5);
-  @include u-pin("top", !important);
-  @include u-square(15);
-  @include u-text-decoration("underline", "red-50v");
-  @include u-text("uppercase", "light", "italic", "red-50v", "ls-2");
-  @include u-top("neg-2");
-  @include add-aspect("16x9");
-  @include add-background-svg("image");
-  @include add-bar;
-  @include add-list-reset(!important);
-  @include grid-row;
-  @include at-media("desktop") {
-    background-image: $theme-hero-image;
-    //color: color("orange-80v");
-  }
-}
-
-.bar {
-  @include button-unstyled;
-  @include typeset;
-}
-
-.baz {
-  @include external-link("link", "link-hover");
-}
-
-.grid {
-  @include grid-col;
-  @include nav-list("sidenav");
-}
-
-@include usa-list-styles;
-@include usa-table-styles;
-@include usa-headings-styles;

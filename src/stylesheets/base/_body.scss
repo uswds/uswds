@@ -1,3 +1,5 @@
+@use "../packages/required" as *;
+
 body {
   background-color: color("white");
   color: color("ink");
