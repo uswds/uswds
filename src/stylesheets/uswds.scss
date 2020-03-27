@@ -1,40 +1,35 @@
-// Required
-// -------------------------------------
-@use "packages/required" as * with (
-  $theme-show-notifications: false,
-);
-
 // Global
 // -------------------------------------
-@use "packages/global";
+@forward "./packages/global";
 
 // Components
 // -------------------------------------
-@use "./packages/form-controls";
-@use "./packages/form-templates";
-@use "./packages/layout-grid";
-@use "./packages/typography";
-@use "./packages/usa-accordion";
-@use "./packages/usa-alert";
-@use "./packages/usa-banner";
-@use "./packages/usa-button";
-@use "./packages/usa-checklist";
-@use "./packages/usa-footer";
-@use "./packages/usa-header";
-@use "./packages/usa-hero";
-@use "./packages/usa-media-block";
-@use "./packages/usa-megamenu";
-@use "./packages/usa-nav-container";
-@use "./packages/usa-nav";
-@use "./packages/usa-navbar";
-@use "./packages/usa-search";
-@use "./packages/usa-sidenav";
-@use "./packages/usa-skipnav";
-@use "./packages/usa-table";
-@use "./packages/usa-tag";
-@use "./packages/validation";
-// @use "packages/uswds-components";
+// @forward "./packages/form-controls";
+// @forward "./packages/form-templates";
+// @forward "./packages/layout-grid";
+// @forward "./packages/typography";
+// @forward "./packages/usa-accordion";
+// @forward "./packages/usa-alert";
+// @forward "./packages/usa-banner";
+// @forward "./packages/usa-button";
+// @forward "./packages/usa-checklist";
+// @forward "./packages/usa-footer";
+// @forward "./packages/usa-header";
+// @forward "./packages/usa-hero";
+// @forward "./packages/usa-media-block";
+// @forward "./packages/usa-megamenu";
+// @forward "./packages/usa-nav-container";
+// @forward "./packages/usa-nav";
+// @forward "./packages/usa-navbar";
+// @forward "./packages/usa-search";
+// @forward "./packages/usa-sidenav";
+// @forward "./packages/usa-skipnav";
+// @forward "./packages/usa-table";
+// @forward "./packages/usa-tag";
+// @forward "./packages/validation";
+@forward "./packages/uswds-components";
+// @forward "./packages/uswds-fonts";
 
 // Utilities
 // -------------------------------------
-@use "packages/uswds-utilities";
+@forward "./packages/uswds-utilities";
