@@ -1,8 +1,8 @@
 // dependencies
-@use "../base/accessibility";
-@use "../elements/form-controls/global";
-@use "../elements/form-controls/text-input";
-@use "usa-button";
+@forward "../base/accessibility";
+@forward "../elements/form-controls/global";
+@forward "../elements/form-controls/text-input";
+@forward "usa-button";
 
 // src
-@use "../components/search";
+@forward "../components/search";

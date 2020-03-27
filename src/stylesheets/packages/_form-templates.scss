@@ -1,8 +1,8 @@
 // dependencies
-@use "layout-grid";
-@use "usa-alert";
-@use "usa-button";
-@use "form-controls";
+@forward "layout-grid";
+@forward "usa-alert";
+@forward "usa-button";
+@forward "form-controls";
 
 // component
-@use "../components/forms";
+@forward "../components/forms";

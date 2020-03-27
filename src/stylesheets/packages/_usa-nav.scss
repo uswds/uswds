@@ -1,5 +1,5 @@
 // dependencies
-@use "usa-megamenu";
+@forward "usa-megamenu";
 
 // src
-@use "../components/navigation";
+@forward "../components/navigation";

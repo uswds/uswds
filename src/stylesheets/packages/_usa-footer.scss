@@ -1,10 +1,10 @@
 // dependencies
-@use "../elements/layout-grid";
-@use "../elements/form-controls/global";
-@use "../elements/form-controls/text-input";
-@use "../elements/typography/list";
-@use "../components/forms";
-@use "usa-button";
+@forward "../elements/layout-grid";
+@forward "../elements/form-controls/global";
+@forward "../elements/form-controls/text-input";
+@forward "../elements/typography/list";
+@forward "../components/forms";
+@forward "usa-button";
 
 // component
-@use "../components/footer";
+@forward "../components/footer";

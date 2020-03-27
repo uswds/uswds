@@ -1,5 +1,5 @@
 // src
-@use "../utilities/utility-fonts";
+@forward "../utilities/utility-fonts";
 @use "../utilities/rules/package" as *;
 @use "../core/mixins/utility-builder" as *;
 

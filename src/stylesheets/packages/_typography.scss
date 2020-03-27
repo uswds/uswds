@@ -1,7 +1,7 @@
 // dependencies
 
 // src
-@use "../elements/typography/links";
-@use "../elements/typography/list";
-@use "../elements/typography/prose";
-@use "../elements/typography/content";
+@forward "../elements/typography/links";
+@forward "../elements/typography/list";
+@forward "../elements/typography/prose";
+@forward "../elements/typography/content";

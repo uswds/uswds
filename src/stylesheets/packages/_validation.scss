@@ -1,8 +1,8 @@
 // dependencies
-@use "form-controls";
-@use "usa-checklist";
-@use "usa-alert";
-@use "usa-button";
+@forward "form-controls";
+@forward "usa-checklist";
+@forward "usa-alert";
+@forward "usa-button";
 
 // src
-@use "../components/forms";
+@forward "../components/forms";

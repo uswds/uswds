@@ -1,6 +1,6 @@
 // dependencies
-@use "layout-grid";
-@use "usa-button";
+@forward "layout-grid";
+@forward "usa-button";
 
 // src
-@use "../components/hero";
+@forward "../components/hero";

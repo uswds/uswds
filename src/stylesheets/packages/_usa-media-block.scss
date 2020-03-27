@@ -1,5 +1,5 @@
 // dependencies
-@use "../elements/figure";
+@forward "../elements/figure";
 
 // src
-@use "../components/media-block";
+@forward "../components/media-block";

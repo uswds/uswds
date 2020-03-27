@@ -1,13 +1,13 @@
 // dependencies
-@use "../base/accessibility";
-@use "layout-grid";
-@use "usa-accordion";
-@use "usa-banner";
-@use "usa-nav";
-@use "usa-nav-container";
-@use "usa-navbar";
-@use "usa-search";
-@use "usa-skipnav";
+@forward "../base/accessibility";
+@forward "layout-grid";
+@forward "usa-accordion";
+@forward "usa-banner";
+@forward "usa-nav";
+@forward "usa-nav-container";
+@forward "usa-navbar";
+@forward "usa-search";
+@forward "usa-skipnav";
 
 // src
-@use "../components/header";
+@forward "../components/header";
