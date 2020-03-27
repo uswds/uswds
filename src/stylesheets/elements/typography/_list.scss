@@ -1,3 +1,5 @@
+@use "../../core/mixins" as *;
+
 .usa-list {
   @extend %usa-list;
 

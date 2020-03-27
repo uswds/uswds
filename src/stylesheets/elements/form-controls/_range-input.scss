@@ -1,6 +1,7 @@
 @use "../../core/functions" as *;
 @use "../../core/mixins" as *;
 @use "../../settings" as *;
+@use "./global" as *;
 
 @mixin range-focus {
   background-color: color("white");

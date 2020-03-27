@@ -1,3 +1,5 @@
+@use "../../packages/required" as *;
+
 .usa-prose {
   @include typeset($theme-prose-font-family);
   & > {
