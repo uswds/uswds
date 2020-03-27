@@ -1,3 +1,6 @@
+@use "../rules" as *;
+@use "../../core/functions" as *;
+
 // Collect all the individual utility maps
 // into a single map for looping.
 

@@ -10,5 +10,5 @@
 @forward "../core/placeholders";
 
 // deprecated import needs to be last
-//@forward "../core/deprecated";
+@forward "../core/deprecated";
 @forward "../core/notifications";

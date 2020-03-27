@@ -14,7 +14,7 @@
 
 // Utilities
 // -------------------------------------
-//@import "packages/uswds-utilities";
+@use "packages/uswds-utilities";
 
 .foo {
   @include u-align-items("align-start");
