@@ -1,4 +1,5 @@
 @use "../packages/required" as *;
+@use "../core/placeholders" as *;
 
 .usa-table {
   @extend %usa-table;
