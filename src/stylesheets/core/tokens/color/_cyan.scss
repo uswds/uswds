@@ -1,5 +1,5 @@
 $system-color-cyan: (
-  'cyan': (
+  "cyan": (
     5: #e7f6f8,
     10: #ccecf2,
     20: #99deea,
@@ -10,7 +10,7 @@ $system-color-cyan: (
     70: #2c4a4e,
     80: #203133,
     90: #111819,
-    'vivid': (
+    "vivid": (
       5: #e5faff,
       10: #a8f2ff,
       20: #52daf2,
@@ -20,7 +20,7 @@ $system-color-cyan: (
       60: #00687d,
       70: #0e4f5c,
       80: #093b44,
-      90: false,
-    ),
-  ),
+      90: false
+    )
+  )
 );
