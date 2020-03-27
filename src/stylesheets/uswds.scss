@@ -6,11 +6,11 @@
 
 // Global
 // -------------------------------------
-//@import "packages/global";
+@use "packages/global";
 
 // Components
 // -------------------------------------
-//@import "packages/uswds-components";
+// @forward "packages/uswds-components";
 
 // Utilities
 // -------------------------------------

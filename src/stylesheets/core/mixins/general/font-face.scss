@@ -1,6 +1,7 @@
-@use "sass:map" as *;
+@use "sass:map";
 @use "../../functions" as *;
 @use "../../variables" as *;
+@use "../../tokens/font" as *;
 @use "../../../settings" as *;
 
 // Output the @font-face rule

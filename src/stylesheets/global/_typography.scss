@@ -1,3 +1,8 @@
+@use "../settings" as *;
+@use "../core/mixins" as *;
+@use "../core/functions/units/root" as *;
+// TODO $root-font-size should not be in functions
+
 html {
   @include add-kerning;
   font-family: font-family($theme-body-font-family);
