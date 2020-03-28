@@ -1,3 +1,10 @@
+@use "sass:map";
+@use "sass:meta";
+@use "../../functions/general/smart-quote" as *;
+@use "../../functions/font/normalize-type-scale" as *;
+@use "../../variables/project-cap-heights" as *;
+@use "../../variables/type-scale" as *;
+
 /*
 ----------------------------------------
 utility-font()
@@ -13,20 +20,19 @@ withholds certain errors.
 */
 
 @function utility-font($family, $scale) {
-  @if not map-has-key($project-cap-heights, $family) {
+  @if not(map.has-key($project-cap-heights, $family)) {
     @error '#{$family} is not a valid font family token. '
-      + 'Valid tokens: #{map-keys($project-cap-heights)}';
+      + 'Valid tokens: #{map.keys($project-cap-heights)}';
   }
 
   $quote-scale: smart-quote($scale);
-
-  @if not map-get($all-type-scale, $quote-scale) {
+  @if not(map.get($all-type-scale, $quote-scale)) {
     @error '`#{$scale}` is not a valid font scale token. '
-      + 'Valid tokens: #{map-keys($all-type-scale)}';
+      + 'Valid tokens: #{map.keys($all-type-scale)}';
   }
 
-  $this-cap: map-get($project-cap-heights, $family);
-  $this-scale: map-get($all-type-scale, $quote-scale);
+  $this-cap: map.get($project-cap-heights, $family);
+  $this-scale: map.get($all-type-scale, $quote-scale);
 
   @if not $this-scale and $this-cap {
     @return false;
@@ -34,3 +40,6 @@ withholds certain errors.
 
   @return normalize-type-scale($this-cap, $this-scale);
 }
+
+// @debug utility-font("cond", "2xs");
+// @return 14px;

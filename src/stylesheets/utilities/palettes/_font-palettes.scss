@@ -9,6 +9,7 @@ utilities
 */
 
 @use "../../core/functions/general/map-collect" as *;
+@use "../../core/functions/utilities/utility-font" as *;
 @use "../../core/functions/font/get-font-stack" as *;
 @use "../../core/variables/project-font-weights" as *;
 @use "../../core/variables/project-font-types" as *;
