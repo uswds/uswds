@@ -11,10 +11,11 @@ Leaves bools as is
 @use "sass:list";
 @use "sass:meta";
 @use "sass:math";
+@use "sass:string";
 
 @function smart-quote($value) {
   @if meta.type-of($value) == "string" {
-    @return quote($value);
+    @return string.quote($value);
   }
 
   @if meta.type-of($value) ==
@@ -34,3 +35,4 @@ Leaves bools as is
 }
 
 // @debug smart-quote(foo);
+// @debug smart-quote("3xs");
