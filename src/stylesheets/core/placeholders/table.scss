@@ -4,7 +4,7 @@
 @use "../mixins/utilities" as *;
 @use "../../settings" as *;
 
-%usa-table {
+@mixin usa-table {
   @include border-box-sizing;
   @include typeset;
   border-collapse: collapse;
@@ -42,7 +42,7 @@
   }
 }
 
-%usa-table--borderless {
+@mixin usa-table--borderless {
   thead {
     th {
       background-color: transparent;

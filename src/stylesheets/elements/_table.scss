@@ -2,9 +2,11 @@
 @use "../core/placeholders" as *;
 
 .usa-table {
-  @extend %usa-table;
+  @include usa-table;
 }
 
 .usa-table--borderless {
-  @extend %usa-table--borderless;
+  @include usa-table--borderless;
 }
+
+// TODO: These were extends, why? Can they be mixins? Can this be simplified?
