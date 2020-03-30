@@ -1,3 +1,6 @@
+// dependencies
+@forward "global";
+
 // src
 @forward "../utilities/utility-fonts";
 @use "../utilities/rules/package" as *;
