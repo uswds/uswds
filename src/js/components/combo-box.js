@@ -5,9 +5,11 @@ const { prefix: PREFIX } = require("../config");
 const COMBO_BOX = `.${PREFIX}-combo-box`;
 
 const INPUT_CLASS = `${PREFIX}-combo-box__input`;
+const LIST_CLASS = `${PREFIX}-combo-box__list`;
 
 const SELECT = `.${PREFIX}-combo-box__select`;
 const INPUT = `.${INPUT_CLASS}`;
+// const LIST = `.${LIST_CLASS}`;
 
 const ENHANCED_MODIFIER = `${PREFIX}-combo-box--enhanced`;
 
@@ -76,9 +78,17 @@ const enhanceComboBox = selectElement => {
     throw new Error(`${INPUT} is missing outer ${COMBO_BOX}`);
   }
 
+  const selectId = selectElement.id;
+  const listId = `${selectId}--list`;
+
   const newInput = document.createElement('input');
-  newInput.id = selectElement.id;
+  newInput.id = selectId;
   newInput.classList.add(INPUT_CLASS);
+
+  const newList = document.createElement('ul');
+  newList.id = listId;
+  newList.classList.add(LIST_CLASS);
+  newList.hidden = true;
 
   selectElement.setAttribute("aria-hidden", "true");
   selectElement.setAttribute("tabindex", "-1");
@@ -87,6 +97,7 @@ const enhanceComboBox = selectElement => {
 
   comboBox.classList.add(ENHANCED_MODIFIER);
   comboBox.appendChild(newInput);
+  comboBox.appendChild(newList);
 
 
   // console.log(comboBox.innerHTML);

@@ -15,6 +15,7 @@ describe('combo box component', () => {
   let root;
   let input;
   let select;
+  let list;
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
@@ -22,6 +23,7 @@ describe('combo box component', () => {
     root = body.querySelector('.usa-combo-box');
     input = root.querySelector('.usa-combo-box__input');
     select = root.querySelector('.usa-combo-box__select');
+    list = root.querySelector('.usa-combo-box__list');
   });
 
   afterEach(() => {
@@ -29,7 +31,7 @@ describe('combo box component', () => {
     ComboBox.off(body);
   });
 
-  describe('initial state', () => {
+  describe('enhancement', () => {
     it('adds an input element', () => {
       const hasInputElement = !!input;
       assert(hasInputElement);
@@ -45,7 +47,10 @@ describe('combo box component', () => {
       assert(selectIsHiddenFromSight);
     });
 
-    it('adds an hidden list element for dropdown', () => { });
+    it('adds an hidden list element', () => {
+      const listIsHidden = list && list.hidden;
+      assert(listIsHidden);
+    });
   });
 
   describe('interaction - mouse', () => {
