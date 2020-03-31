@@ -46,7 +46,7 @@ describe('combo box component', () => {
     });
 
     describe('accessibilty', () => {
-      it('the list should have a role an `listbox`', () => {
+      it('the list should have a role of `listbox`', () => {
         assert.equal(list.getAttribute('role'), 'listbox');
       });
 
@@ -61,19 +61,31 @@ describe('combo box component', () => {
   });
 
   describe('interaction - mouse', () => {
-    beforeEach('save the current value of the select and input', () => { });
-
     describe('show the list by clicking the input', () => {
       beforeEach('click the input', () => {
         sendClick(input);
       });
 
-      it('displays the option list', () => {
+      it('should display the option list', () => {
         assert(list && !list.hidden);
       });
 
       it('should have all of the initial select items in the list except placeholder empty items', () => {
         assert.equal(list.children.length, select.options.length - 1);
+      });
+
+      describe('subsequent click', () => {
+        beforeEach('click the input', () => {
+          sendClick(input);
+        });
+
+        it('should keep the option list displayed', () => {
+          assert(list && !list.hidden);
+        });
+
+        it('should have all of the initial select items in the list except placeholder empty items', () => {
+          assert.equal(list.children.length, select.options.length - 1);
+        });
       });
 
       describe('accessibilty', () => {
@@ -89,7 +101,7 @@ describe('combo box component', () => {
           }
         });
 
-        it('all of the items should have a role an `option`', () => {
+        it('all of the items should have a role of `option`', () => {
           for (let i = 0, len = list.children.length; i < len; i += 1) {
             assert.equal(list.children[i].getAttribute('role'), 'option');
           }
@@ -97,19 +109,14 @@ describe('combo box component', () => {
       });
 
       describe('close list by clicking away', () => {
-        beforeEach('click the outside the combobox', () => {
+        beforeEach('click outside of the combobox', () => {
           sendClick(body);
         });
         it('should hide and empty the option list', () => {
-          assert(list.hidden);
           assert.equal(list.children.length, 0);
+          assert(list.hidden);
         });
       });
-    });
-
-    describe('show the list by clicking down button', () => {
-      beforeEach('click the open button', () => { });
-      it('displays the option list', () => { });
     });
 
     describe('selecting an item', () => {
@@ -119,7 +126,7 @@ describe('combo box component', () => {
       });
 
       it('should set that item to being the select option', () => {
-        assert.equal(select.value, 'ActionScript');
+        assert.equal(select.value, 'value-ActionScript');
       });
 
       it('should set that item to being the input value', () => {
@@ -131,26 +138,44 @@ describe('combo box component', () => {
         assert.equal(list.children.length, 0);
       });
     });
+
+    describe('show the list by clicking the down arrow', () => {
+      beforeEach('click the down arrow', () => { });
+      it('displays the option list', () => { });
+    });
   });
 
   describe('interaction - input', () => {
-    beforeEach('set a value in the select', () => { });
+    beforeEach('set an initial value in the select', () => { });
 
     describe('typing letters - incomplete option', () => {
       beforeEach('type in letter into the input', () => { });
       it('displays the option list', () => { });
       it('should filter the item by the string being present in the option', () => { });
 
-      describe('close list by clicking away', () => {
+      describe('close the list by clicking away', () => {
         beforeEach('click the outside the combobox', () => { });
         it('should hide and empty the option list', () => { });
         it('should clear the value on the select and input', () => { });
       });
 
-      describe('close list by clicking escape', () => {
-        beforeEach('click the escape button in input', () => { });
+      describe('complete selection by pressing enter', () => {
+        beforeEach('press enter from within the input', () => { });
         it('should hide and empty the option list', () => { });
         it('should clear the value on the select and input', () => { });
+
+        describe('subsequent enter', () => {
+          beforeEach('press enter from within the input', () => { });
+          it('should attempt to submit the form', () => { });
+        });
+      });
+
+      describe('close the list by clicking escape', () => {
+        beforeEach('click the escape button within the input', () => { });
+        it('should hide and empty the option list', () => { });
+        it('should not change the value of the select', () => { });
+        it('should not change the value in the input', () => { });
+        it('should keep focus on the input', () => { });
       });
     });
 
@@ -159,13 +184,6 @@ describe('combo box component', () => {
       it('displays the option list', () => { });
       it('should filter the item by the string being present in the option', () => { });
 
-      describe('leaving the input', () => {
-        beforeEach('remove focus from the input', () => { });
-        it('should hide and empty the option list', () => { });
-        it('should set that item to being the select option', () => { });
-        it('should set that item to being the input value', () => { });
-      });
-
       describe('close list by clicking away', () => {
         beforeEach('click the outside the combobox', () => { });
         it('should hide and empty the option list', () => { });
@@ -173,11 +191,24 @@ describe('combo box component', () => {
         it('should set that item to being the input value', () => { });
       });
 
-      describe('closing the option list by clicking escape', () => {
-        beforeEach('press the escape button from the input', () => { });
+      describe('complete selection by pressing enter', () => {
+        beforeEach('press enter from within the input', () => { });
         it('should hide and empty the option list', () => { });
         it('should set that item to being the select option', () => { });
         it('should set that item to being the input value', () => { });
+
+        describe('subsequent enter', () => {
+          beforeEach('press enter from within the input', () => { });
+          it('should attempt to submit the form', () => { });
+        });
+      });
+
+      describe('closing the option list by clicking escape', () => {
+        beforeEach('press the escape button from the input', () => { });
+        it('should hide and empty the option list', () => { });
+        it('should not change the value of the select', () => { });
+        it('should not change the value in the input', () => { });
+        it('should keep focus on the input', () => { });
       });
     });
 
@@ -185,18 +216,6 @@ describe('combo box component', () => {
       beforeEach('type a nonexistent option into the input', () => { });
       it('displays the option list', () => { });
       it('should show an empty list', () => { });
-
-      describe('close list by clicking away', () => {
-        beforeEach('click the outside the combobox', () => { });
-        it('should hide and empty the option list', () => { });
-        it('should clear the value on the select and input', () => { });
-      });
-
-      describe('close list by clicking escape', () => {
-        beforeEach('click the escape button in input', () => { });
-        it('should hide and empty the option list', () => { });
-        it('should clear the value on the select and input', () => { });
-      });
     });
   });
 
@@ -226,7 +245,9 @@ describe('combo box component', () => {
         describe('close list by clicking escape', () => {
           beforeEach('click the escape button in input', () => { });
           it('should hide and empty the option list', () => { });
-          it('should clear the value on the select and input', () => { });
+          it('should not change the value of the select', () => { });
+          it('should not change the value in the input', () => { });
+          it('should keep focus on the input', () => { });
         });
       });
     });
