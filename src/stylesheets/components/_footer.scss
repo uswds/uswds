@@ -13,7 +13,7 @@
   line-height: line-height($theme-footer-font-family, 1);
 
   a {
-    @include typeset-link;
+    @include usa-prose-link;
   }
 }
 
@@ -80,7 +80,7 @@
   padding: 0;
 
   a {
-    @include typeset-link;
+    @include usa-prose-link;
   }
 
   & + .usa-footer__secondary-link {

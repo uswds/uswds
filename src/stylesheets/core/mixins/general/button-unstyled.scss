@@ -1,11 +1,11 @@
 @use "./add-knockout-font-smoothing" as *;
-@use "./typography" as *;
+@use "../typography/usa-prose" as *;
 @use "../../functions" as *;
 @use "../../mixins/utilities" as *;
 
 @mixin button-unstyled {
   @include no-knockout-font-smoothing;
-  @include typeset-link;
+  @include usa-prose-link;
   background-color: transparent;
   border: 0;
   border-radius: 0;

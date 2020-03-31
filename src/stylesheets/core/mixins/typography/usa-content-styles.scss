@@ -1,19 +1,18 @@
-@use "../../placeholders" as *;
-@use "../../mixins/general/typography" as *;
-@use "../../../elements/typography/content" as *;
-@use "../../mixins/general/usa-list-styles" as *;
-@use "../../mixins/general/usa-table-styles" as *;
-// TODO ^^^ why are these not in typography?
+@use "./headings" as *;
+@use "./typeset" as *;
+@use "./usa-prose" as *;
+@use "./usa-list" as *;
+@use "./usa-table" as *;
 
 @mixin usa-paragraph-style {
   p {
-    @extend %usa-paragraph;
+    @include usa-prose-p;
   }
 }
 
 @mixin usa-link-style {
   a {
-    @include typeset-link;
+    @include usa-prose-link;
   }
 }
 
@@ -24,7 +23,7 @@
   h4,
   h5,
   h6 {
-    @extend %usa-heading;
+    @include usa-prose-heading;
   }
 
   h1 {

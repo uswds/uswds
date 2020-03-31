@@ -1,8 +1,8 @@
-@use "../functions" as *;
-@use "../mixins/utilities" as *;
-@use "../../settings" as *;
+@use "../../functions" as *;
+@use "../../mixins/utilities" as *;
+@use "../../../settings" as *;
 
-%usa-list {
+@mixin usa-list {
   @include u-margin-y(1em);
   line-height: line-height($theme-body-font-family, $theme-body-line-height);
   padding-left: 3ch;
@@ -12,11 +12,22 @@
   }
 }
 
-%usa-list-item {
+@mixin usa-list-item {
   margin-bottom: 0.25em;
   max-width: measure($theme-text-measure);
 
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+@mixin usa-list-styles {
+  ul,
+  ol {
+    @include usa-list;
+
+    li {
+      @include usa-list-item;
+    }
   }
 }

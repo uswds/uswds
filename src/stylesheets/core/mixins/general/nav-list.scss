@@ -1,7 +1,7 @@
 @use "./add-bar" as *;
-@use "./unstyled-list" as *;
 @use "../../functions" as *;
 @use "../../mixins/helpers" as *;
+@use "../../mixins/typography/unstyled-list" as *;
 @use "../../mixins/utilities" as *;
 @use "../../../settings" as *;
 

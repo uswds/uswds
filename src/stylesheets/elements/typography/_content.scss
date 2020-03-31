@@ -1,11 +1,11 @@
-@use "../../core/mixins/general/typography" as *;
+@use "../../core/mixins/typography" as *;
 @use "../../core/mixins/general/add-knockout-font-smoothing" as *;
 @use "../../core/mixins/helpers" as *;
 @use "../../core/functions" as *;
 @use "../../settings" as *;
 
 .usa-paragraph {
-  @include typeset-p;
+  @include usa-prose-p;
 }
 
 // Custom typography
@@ -19,15 +19,15 @@
 }
 
 .usa-display {
-  @include typeset-h3;
+  @include usa-prose-h3;
   margin-bottom: 0;
 
   @include at-media("mobile-lg") {
-    @include typeset-h1;
+    @include usa-prose-h1;
   }
 
   @include at-media("tablet") {
-    @include typeset-display;
+    @include usa-prose-display;
   }
 }
 
@@ -58,13 +58,3 @@
     }
   }
 }
-
-%usa-paragraph {
-  @include typeset-p;
-}
-
-%usa-heading {
-  @include typeset-heading;
-}
-
-// TODO: Do these need to be here? Why aren't they in placeholders?

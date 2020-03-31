@@ -1,7 +1,7 @@
 @use "../../core/mixins" as *;
 
 .usa-link {
-  @include typeset-link;
+  @include usa-prose-link;
 }
 
 // External link consider 'effortless style approach':

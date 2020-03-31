@@ -84,7 +84,7 @@ $alert-padding-left: units($theme-alert-padding-x) +
   @include u-margin-y(0);
 
   a {
-    @include typeset-link;
+    @include usa-prose-link;
   }
 }
 

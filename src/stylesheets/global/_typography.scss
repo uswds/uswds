@@ -17,6 +17,15 @@ html {
 
 @if $theme-global-paragraph-styles == true {
   @include usa-paragraph-style;
+  p {
+    * + & {
+      margin-top: 1em; // TODO: add as var to settings?
+    }
+
+    + * {
+      margin-top: 1em;
+    }
+  }
 }
 
 @if $theme-global-link-styles == true {
@@ -25,6 +34,20 @@ html {
 
 @if $theme-global-content-styles == true {
   @include usa-content-styles;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    * + & {
+      margin-top: 1.5em; // TODO: add as var to settings?
+    }
+
+    + * {
+      margin-top: 1em;
+    }
+  }
 }
 
 // Remove user agent styles
