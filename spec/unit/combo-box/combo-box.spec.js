@@ -5,9 +5,9 @@ const ComboBox = require('../../../src/js/components/combo-box');
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, '/template.html'));
 
-// const dispatchInputEvent = (el) => {
-//   el.dispatchEvent(new KeyboardEvent('input', { bubbles: true }));
-// };
+const sendClick = (el) => {
+  el.dispatchEvent(new KeyboardEvent('click', { bubbles: true }));
+};
 
 describe('combo box component', () => {
   const { body } = document;
@@ -33,23 +33,30 @@ describe('combo box component', () => {
 
   describe('enhancement', () => {
     it('adds an input element', () => {
-      const hasInputElement = !!input;
-      assert(hasInputElement);
+      assert.ok(input);
     });
 
-    it('hides the select element', () => {
-      const selectIsHiddenFromScreenReader = select.getAttribute('aria-hidden');
-      const selectIsHiddenFromKeyboard = select.getAttribute('tabindex') === '-1';
-      const selectIsHiddenFromSight = root.classList.contains('usa-combo-box--enhanced');
-
-      assert(selectIsHiddenFromScreenReader);
-      assert(selectIsHiddenFromKeyboard);
-      assert(selectIsHiddenFromSight);
+    it('hides the select element from view', () => {
+      assert(select.classList.contains('usa-sr-only'));
     });
 
     it('adds an hidden list element', () => {
-      const listIsHidden = list && list.hidden;
-      assert(listIsHidden);
+      assert.ok(list);
+      assert(list.hidden);
+    });
+
+    describe('accessibilty', () => {
+      it('the list should have a role an `listbox`', () => {
+        assert.equal(list.getAttribute('role'), 'listbox');
+      });
+
+      it('the select should be hidden from screen readers', () => {
+        assert(select.getAttribute('aria-hidden'));
+      });
+
+      it('the select should be hidden from keyboard navigation', () => {
+        assert.equal(select.getAttribute('tabindex'), '-1');
+      });
     });
   });
 
@@ -57,33 +64,72 @@ describe('combo box component', () => {
     beforeEach('save the current value of the select and input', () => { });
 
     describe('show the list by clicking the input', () => {
-      beforeEach('click the input', () => { });
-      it('displays the option list', () => { });
-      it('should have all of the initial select items in the list', () => { });
+      beforeEach('click the input', () => {
+        sendClick(input);
+      });
+
+      it('displays the option list', () => {
+        assert(list && !list.hidden);
+      });
+
+      it('should have all of the initial select items in the list except placeholder empty items', () => {
+        assert.equal(list.children.length, select.options.length - 1);
+      });
 
       describe('accessibilty', () => {
-        it('the option list should have a role an `listbox`', () => { });
-        it('none of the items should be shown as selected', () => { });
-        it('all of the items should have a role an `option`', () => { });
+        it('none of the items should be shown as selected', () => {
+          for (let i = 0, len = list.children.length; i < len; i += 1) {
+            assert.equal(list.children[i].getAttribute('aria-selected'), 'false');
+          }
+        });
+
+        it('all of the options should be hidden from keyboard navigation', () => {
+          for (let i = 0, len = list.children.length; i < len; i += 1) {
+            assert.equal(list.children[i].getAttribute('tabindex'), '-1');
+          }
+        });
+
+        it('all of the items should have a role an `option`', () => {
+          for (let i = 0, len = list.children.length; i < len; i += 1) {
+            assert.equal(list.children[i].getAttribute('role'), 'option');
+          }
+        });
+      });
+
+      describe('close list by clicking away', () => {
+        beforeEach('click the outside the combobox', () => {
+          sendClick(body);
+        });
+        it('should hide and empty the option list', () => {
+          assert(list.hidden);
+          assert.equal(list.children.length, 0);
+        });
       });
     });
 
     describe('show the list by clicking down button', () => {
       beforeEach('click the open button', () => { });
       it('displays the option list', () => { });
-
-      describe('close list by clicking away', () => {
-        beforeEach('click the outside the combobox', () => { });
-        it('should hide and empty the option list', () => { });
-        it('should not change the value on the select and input', () => { });
-      });
     });
 
     describe('selecting an item', () => {
-      beforeEach('click the open button', () => { });
-      beforeEach('click an item in the list', () => { });
-      it('should set that item to being the select option', () => { });
-      it('should set that item to being the input value', () => { });
+      beforeEach('click the open button then click an item in the list', () => {
+        sendClick(input);
+        sendClick(list.children[0]);
+      });
+
+      it('should set that item to being the select option', () => {
+        assert.equal(select.value, 'ActionScript');
+      });
+
+      it('should set that item to being the input value', () => {
+        assert.equal(input.value, 'ActionScript');
+      });
+
+      it('should hide and empty the option list', () => {
+        assert(list.hidden);
+        assert.equal(list.children.length, 0);
+      });
     });
   });
 
