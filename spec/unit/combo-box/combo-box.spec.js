@@ -5,20 +5,23 @@ const ComboBox = require('../../../src/js/components/combo-box');
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, '/template.html'));
 
-const dispatchInputEvent = (el) => {
-  el.dispatchEvent(new KeyboardEvent('input', { bubbles: true }));
-};
+// const dispatchInputEvent = (el) => {
+//   el.dispatchEvent(new KeyboardEvent('input', { bubbles: true }));
+// };
 
 describe('combo box component', () => {
   const { body } = document;
 
   let root;
   let input;
+  let select;
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
     ComboBox.on();
     root = body.querySelector('.usa-combo-box');
+    input = root.querySelector('.usa-combo-box__input');
+    select = root.querySelector('.usa-combo-box__select');
   });
 
   afterEach(() => {
@@ -27,8 +30,21 @@ describe('combo box component', () => {
   });
 
   describe('initial state', () => {
-    it('adds an input element', () => { });
-    it('hides the select element', () => { });
+    it('adds an input element', () => {
+      const hasInputElement = !!input;
+      assert(hasInputElement);
+    });
+
+    it('hides the select element', () => {
+      const selectIsHiddenFromScreenReader = select.getAttribute('aria-hidden');
+      const selectIsHiddenFromKeyboard = select.getAttribute('tabindex') === '-1';
+      const selectIsHiddenFromSight = root.classList.contains('usa-combo-box--enhanced');
+
+      assert(selectIsHiddenFromScreenReader);
+      assert(selectIsHiddenFromKeyboard);
+      assert(selectIsHiddenFromSight);
+    });
+
     it('adds an hidden list element for dropdown', () => { });
   });
 

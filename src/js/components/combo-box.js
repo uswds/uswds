@@ -3,8 +3,13 @@ const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
 
 const COMBO_BOX = `.${PREFIX}-combo-box`;
+
+const INPUT_CLASS = `${PREFIX}-combo-box__input`;
+
 const SELECT = `.${PREFIX}-combo-box__select`;
-const INPUT = `.${PREFIX}-combo-box__input`;
+const INPUT = `.${INPUT_CLASS}`;
+
+const ENHANCED_MODIFIER = `${PREFIX}-combo-box--enhanced`;
 
 /**
  * Returns the root and message element
@@ -15,55 +20,77 @@ const INPUT = `.${PREFIX}-combo-box__input`;
  * @returns {HTMLElement} elements.comboBox The root combo box element
  * @returns {HTMLElement} elements.selectElement The select object
  */
-const getElements = input => {
-  const comboBox = input.closest(COMBO_BOX);
+// const getElements = input => {
+//   const comboBox = input.closest(COMBO_BOX);
 
-  if (!comboBox) {
-    throw new Error(`${INPUT} is missing outer ${COMBO_BOX}`);
-  }
+//   if (!comboBox) {
+//     throw new Error(`${INPUT} is missing outer ${COMBO_BOX}`);
+//   }
 
-  const selectElement = comboBox.querySelector(SELECT);
+//   const selectElement = comboBox.querySelector(SELECT);
 
-  if (!selectElement) {
-    throw new Error(`${COMBO_BOX} is missing inner ${SELECT}`);
-  }
+//   if (!selectElement) {
+//     throw new Error(`${COMBO_BOX} is missing inner ${SELECT}`);
+//   }
 
-  return { comboBox, selectElement };
-};
+//   return { comboBox, selectElement };
+// };
 
 /**
  * Update the select value and the input value
  *
  * @param {Element} input The combobox input element
  */
-const updateSelectValue = event => {
-  const input = event.target;
-  const { comboBox, selectElement } = getElements(input);
+// const updateSelectValue = event => {
+//   const input = event.target;
+//   const { comboBox, selectElement } = getElements(input);
 
-  let newSelectValue = "";
+//   let newSelectValue = "";
 
-  if (input.value) {
-    let option;
-    for (let i = 0, len = selectElement.options.length; i < len; i += 1) {
-      option = selectElement.options[i];
-      if (option.text === input.value) {
-        newSelectValue = option.value;
-        break;
-      }
-    }
-  }
+//   if (input.value) {
+//     let option;
+//     for (let i = 0, len = selectElement.options.length; i < len; i += 1) {
+//       option = selectElement.options[i];
+//       if (option.text === input.value) {
+//         newSelectValue = option.value;
+//         break;
+//       }
+//     }
+//   }
 
-  selectElement.value = newSelectValue;
+//   selectElement.value = newSelectValue;
 
-  console.log(input, selectElement);
-};
+//   console.log(input, selectElement);
+// };
 
 /**
  * Transform select into input
  *
  * @param {Element} selectElement The initial select element
  */
-const initialTransform = selectElement => {
+const enhanceComboBox = selectElement => {
+
+  const comboBox = selectElement.closest(COMBO_BOX);
+
+  if (!comboBox) {
+    throw new Error(`${INPUT} is missing outer ${COMBO_BOX}`);
+  }
+
+  const newInput = document.createElement('input');
+  newInput.id = selectElement.id;
+  newInput.classList.add(INPUT_CLASS);
+
+  selectElement.setAttribute("aria-hidden", "true");
+  selectElement.setAttribute("tabindex", "-1");
+  // eslint-disable-next-line no-param-reassign
+  selectElement.id = '';
+
+  comboBox.classList.add(ENHANCED_MODIFIER);
+  comboBox.appendChild(newInput);
+
+
+  // console.log(comboBox.innerHTML);
+
 
   //   inputElement.addEventListener("blur", updateSelectValue);
   //   inputElement.addEventListener("focus", updateSelectValue);
@@ -75,14 +102,14 @@ const comboBox = behavior(
   {
     init(root) {
       select(SELECT, root).forEach(selectElement => {
-        initialTransform(selectElement);
+        enhanceComboBox(selectElement);
       });
-    },
-    teardown(root) {
-      select(INPUT, root).forEach(inputElement => {
-        // inputElement.removeEventListener("blur", noop);
-        // inputElement.removeEventListener("focus", noop);
-      });
+      // },
+      // teardown(root) {
+      //   select(INPUT, root).forEach(inputElement => {
+      //     // inputElement.removeEventListener("blur", noop);
+      //     // inputElement.removeEventListener("focus", noop);
+      //   });
     }
   }
 );
