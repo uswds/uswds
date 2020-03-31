@@ -5,8 +5,8 @@ const ComboBox = require('../../../src/js/components/combo-box');
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, '/template.html'));
 
-const sendClick = (el) => {
-  el.dispatchEvent(new KeyboardEvent('click', { bubbles: true }));
+const dispatch = (event, el) => {
+  el.dispatchEvent(new KeyboardEvent(event, { bubbles: true }));
 };
 
 describe('combo box component', () => {
@@ -63,7 +63,7 @@ describe('combo box component', () => {
   describe('interaction - mouse', () => {
     describe('show the list by clicking the input', () => {
       beforeEach('click the input', () => {
-        sendClick(input);
+        dispatch('click', input);
       });
 
       it('should display the option list', () => {
@@ -76,7 +76,7 @@ describe('combo box component', () => {
 
       describe('subsequent click', () => {
         beforeEach('click the input', () => {
-          sendClick(input);
+          dispatch('click', input);
         });
 
         it('should keep the option list displayed', () => {
@@ -108,9 +108,9 @@ describe('combo box component', () => {
         });
       });
 
-      describe('close list by clicking away', () => {
+      describe('close the list by clicking away', () => {
         beforeEach('click outside of the combobox', () => {
-          sendClick(body);
+          dispatch('click', body);
         });
         it('should hide and empty the option list', () => {
           assert.equal(list.children.length, 0);
@@ -121,8 +121,8 @@ describe('combo box component', () => {
 
     describe('selecting an item', () => {
       beforeEach('click the open button then click an item in the list', () => {
-        sendClick(input);
-        sendClick(list.children[0]);
+        dispatch('click', input);
+        dispatch('click', list.children[0]);
       });
 
       it('should set that item to being the select option', () => {
@@ -139,30 +139,77 @@ describe('combo box component', () => {
       });
     });
 
-    describe('show the list by clicking the down arrow', () => {
-      beforeEach('click the down arrow', () => { });
-      it('displays the option list', () => { });
-    });
+    // describe('show the list by clicking the down arrow', () => {
+    //   beforeEach('click the down arrow', () => { });
+    //   it('displays the option list', () => { });
+    // });
   });
 
   describe('interaction - input', () => {
-    beforeEach('set an initial value in the select', () => { });
+    beforeEach('set an initial value in the select', () => {
+      select.value = 'value-ActionScript';
+    });
 
     describe('typing letters - incomplete option', () => {
-      beforeEach('type in letter into the input', () => { });
-      it('displays the option list', () => { });
-      it('should filter the item by the string being present in the option', () => { });
-
-      describe('close the list by clicking away', () => {
-        beforeEach('click the outside the combobox', () => { });
-        it('should hide and empty the option list', () => { });
-        it('should clear the value on the select and input', () => { });
+      beforeEach('type in letter into the input', () => {
+        input.value = 'a';
+        const e = new KeyboardEvent('keyup', {
+          bubbles: true,
+          key: 'a',
+          keyCode: 65,
+        });
+        input.dispatchEvent(e);
       });
 
-      describe('complete selection by pressing enter', () => {
-        beforeEach('press enter from within the input', () => { });
-        it('should hide and empty the option list', () => { });
-        it('should clear the value on the select and input', () => { });
+      it('displays the option list', () => {
+        assert(list && !list.hidden);
+      });
+
+      it('should filter the item by the string being present in the option', () => {
+        assert.equal(list.children.length, 10);
+      });
+
+      describe('close the list by clicking away', () => {
+        beforeEach('click outside of the combobox', () => {
+          dispatch('click', body);
+        });
+
+        it('should hide and empty the option list', () => {
+          assert.equal(list.children.length, 0);
+          assert(list.hidden);
+        });
+
+        it('should clear the value on the select', () => {
+          assert.equal(select.value, '');
+        });
+
+        it('should clear the value on the input', () => {
+          assert.equal(input.value, '');
+        });
+      });
+
+      describe.skip('complete selection by pressing enter', () => {
+        beforeEach('press enter from within the input', () => {
+          const e = new KeyboardEvent('keydown', {
+            code: 'Enter',
+            key: 'Enter',
+            keyCode: 13,
+          });
+          input.dispatchEvent(e);
+        });
+
+        it('should hide and empty the option list', () => {
+          assert.equal(list.children.length, 0);
+          assert(list.hidden);
+        });
+
+        it('should clear the value on the select', () => {
+          assert.equal(select.value, '');
+        });
+
+        it('should clear the value on the input', () => {
+          assert.equal(input.value, '');
+        });
 
         describe('subsequent enter', () => {
           beforeEach('press enter from within the input', () => { });

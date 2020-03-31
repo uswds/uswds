@@ -15,7 +15,17 @@ const INPUT = `.${INPUT_CLASS}`;
 const LIST = `.${LIST_CLASS}`;
 const LIST_OPTION = `.${LIST_OPTION_CLASS}`;
 
-
+const KEYS = {
+  enter: 13,
+  esc: 27,
+  space: 32,
+  up: 38,
+  down: 40,
+  tab: 9,
+  left: 37,
+  right: 39,
+  shift: 16
+};
 
 const hideList = comboBox => {
   const listElement = comboBox.querySelector(LIST);
@@ -23,33 +33,6 @@ const hideList = comboBox => {
   listElement.setAttribute('aria-expanded', 'false');
   listElement.hidden = true;
 };
-
-/**
- * Update the select value and the input value
- *
- * @param {Element} input The combobox input element
- */
-// const updateSelectValue = event => {
-//   const input = event.target;
-//   const { comboBox, selectElement } = getElements(input);
-
-//   let newSelectValue = "";
-
-//   if (input.value) {
-//     let option;
-//     for (let i = 0, len = selectElement.options.length; i < len; i += 1) {
-//       option = selectElement.options[i];
-//       if (option.text === input.value) {
-//         newSelectValue = option.value;
-//         break;
-//       }
-//     }
-//   }
-
-//   selectElement.value = newSelectValue;
-
-//   console.log(input, selectElement);
-// };
 
 /**
  * Enhance the combo box element
@@ -87,7 +70,6 @@ const enhanceComboBox = selectElement => {
   comboBox.appendChild(newInput);
   comboBox.appendChild(newList);
 
-
   // console.log(comboBox.innerHTML);
 
 
@@ -102,12 +84,12 @@ const displayList = inputElement => {
 
   hideList(comboBox);
 
-  const inputValue = inputElement.value || '';
+  const inputValue = (inputElement.value || '').toLowerCase();
 
   let option;
   for (let i = 0, len = selectElement.options.length; i < len; i += 1) {
     option = selectElement.options[i];
-    if (option.value && (!inputValue || option.text.indexOf(inputValue) !== -1)) {
+    if (option.value && (!inputValue || option.text.toLowerCase().indexOf(inputValue) !== -1)) {
       const newOption = document.createElement('li');
       newOption.id = `${listElement.id}--option-${i}`;
       newOption.classList.add(LIST_OPTION_CLASS);
@@ -134,6 +116,45 @@ const selectItem = listOption => {
   hideList(comboBox);
 };
 
+const handlePrintableKey = input => {
+  displayList(input);
+};
+
+const completeSelection = comboBox => {
+  const selectElement = comboBox.querySelector(SELECT);
+  const inputElement = comboBox.querySelector(INPUT);
+
+  const inputValue = (inputElement.value || '').toLowerCase();
+
+  if (inputValue) {
+    let option;
+    for (let i = 0, len = selectElement.options.length; i < len; i += 1) {
+      option = selectElement.options[i];
+      if (option.text.toLowerCase() === inputValue) {
+        selectElement.value = option.value;
+        // eslint-disable-next-line no-param-reassign
+        inputElement.value = option.text;
+        return;
+      }
+    }
+  }
+
+  selectElement.value = '';
+  // eslint-disable-next-line no-param-reassign
+  inputElement.value = '';
+};
+
+const handleEnter = (event, inputElement) => {
+  const comboBox = inputElement.closest(COMBO_BOX);
+  const listElement = comboBox.querySelector(LIST);
+
+  if (!listElement.hidden) {
+    event.preventDefault();
+    completeSelection(comboBox);
+    hideList(comboBox);
+  }
+};
+
 const comboBox = behavior(
   {
     [CLICK]: {
@@ -146,9 +167,48 @@ const comboBox = behavior(
       [BODY](event) {
         select(COMBO_BOX).forEach(comboBoxComponent => {
           if (!comboBoxComponent.contains(event.target)) {
+            completeSelection(comboBoxComponent);
             hideList(comboBoxComponent);
           }
         });
+      },
+    },
+    'keydown': {
+      [INPUT](event) {
+        switch (event.keyCode) {
+          case KEYS.esc:
+          case KEYS.up:
+          case KEYS.left:
+          case KEYS.right:
+          case KEYS.space:
+          case KEYS.tab:
+          case KEYS.shift:
+          case KEYS.down:
+            break;
+          case KEYS.enter:
+            handleEnter(event, this);
+            break;
+          default:
+            break;
+        }
+      },
+    },
+    'keyup': {
+      [INPUT](event) {
+        switch (event.keyCode) {
+          case KEYS.esc:
+          case KEYS.up:
+          case KEYS.left:
+          case KEYS.right:
+          case KEYS.space:
+          case KEYS.tab:
+          case KEYS.shift:
+          case KEYS.down:
+          case KEYS.enter:
+            break;
+          default:
+            handlePrintableKey(this);
+        }
       },
     },
   },

@@ -1,4 +1,12 @@
 .usa-combo-box {
-  font-weight: font-weight("bold");
-  color: color("ink");
+  .usa-combo-box__input {
+    @extend %block-input-general;
+    @extend %block-input-styles;
+    @include add-background-svg("arrow-both");
+    appearance: none;
+    background-color: color("white");
+    background-position: right units(1.5) center;
+    background-size: units(1);
+    padding-right: units(4);
+  }
 }
