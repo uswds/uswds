@@ -159,6 +159,7 @@ const handleEnter = (event, inputElement) => {
 const handleEscape = (inputElement) => {
   const comboBox = inputElement.closest(COMBO_BOX);
   hideList(comboBox);
+  inputElement.focus();
 };
 
 const highlightOption = (current, next) => {
