@@ -155,6 +155,11 @@ const handleEnter = (event, inputElement) => {
   }
 };
 
+const handleEscape = (inputElement) => {
+  const comboBox = inputElement.closest(COMBO_BOX);
+  hideList(comboBox);
+};
+
 const comboBox = behavior(
   {
     [CLICK]: {
@@ -176,7 +181,6 @@ const comboBox = behavior(
     'keydown': {
       [INPUT](event) {
         switch (event.keyCode) {
-          case KEYS.esc:
           case KEYS.up:
           case KEYS.left:
           case KEYS.right:
@@ -184,6 +188,9 @@ const comboBox = behavior(
           case KEYS.tab:
           case KEYS.shift:
           case KEYS.down:
+            break;
+          case KEYS.esc:
+            handleEscape(this);
             break;
           case KEYS.enter:
             handleEnter(event, this);

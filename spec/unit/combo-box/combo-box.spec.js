@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const sinon = require('sinon');
 const assert = require('assert');
 const ComboBox = require('../../../src/js/components/combo-box');
 
@@ -188,13 +189,17 @@ describe('combo box component', () => {
         });
       });
 
-      describe.skip('complete selection by pressing enter', () => {
+      describe('complete selection by pressing enter', () => {
+        let preventDefaultSpy;
+
         beforeEach('press enter from within the input', () => {
           const e = new KeyboardEvent('keydown', {
+            bubbles: true,
             code: 'Enter',
             key: 'Enter',
             keyCode: 13,
           });
+          preventDefaultSpy = sinon.spy(e, 'preventDefault');
           input.dispatchEvent(e);
         });
 
@@ -211,58 +216,129 @@ describe('combo box component', () => {
           assert.equal(input.value, '');
         });
 
+        it('should not have allowed enter to propagate', () => {
+          assert(preventDefaultSpy.called);
+        });
+
         describe('subsequent enter', () => {
-          beforeEach('press enter from within the input', () => { });
-          it('should attempt to submit the form', () => { });
+          beforeEach('press enter from within the input', () => {
+            const e = new KeyboardEvent('keydown', {
+              bubbles: true,
+              code: 'Enter',
+              key: 'Enter',
+              keyCode: 13,
+            });
+            preventDefaultSpy = sinon.spy(e, 'preventDefault');
+            input.dispatchEvent(e);
+          });
+
+          it('should attempt to submit the form', () => {
+            assert(preventDefaultSpy.notCalled);
+          });
         });
       });
 
       describe('close the list by clicking escape', () => {
-        beforeEach('click the escape button within the input', () => { });
-        it('should hide and empty the option list', () => { });
-        it('should not change the value of the select', () => { });
-        it('should not change the value in the input', () => { });
-        it('should keep focus on the input', () => { });
+        beforeEach('click the escape button within the input', () => {
+          const e = new KeyboardEvent('keydown', {
+            bubbles: true,
+            code: 'Escape',
+            key: 'Escape',
+            keyCode: 27,
+          });
+          input.dispatchEvent(e);
+        });
+
+        it('should hide and empty the option list', () => {
+          assert.equal(list.children.length, 0);
+          assert(list.hidden);
+        });
+        it('should not change the value of the select', () => {
+          assert.equal(select.value, 'value-ActionScript');
+        });
+        it('should not change the value in the input', () => {
+          assert.equal(input.value, 'a');
+        });
       });
     });
 
     describe('typing a complete option', () => {
-      beforeEach('type a complete option into the input', () => { });
-      it('displays the option list', () => { });
-      it('should filter the item by the string being present in the option', () => { });
-
-      describe('close list by clicking away', () => {
-        beforeEach('click the outside the combobox', () => { });
-        it('should hide and empty the option list', () => { });
-        it('should set that item to being the select option', () => { });
-        it('should set that item to being the input value', () => { });
+      beforeEach('type a complete option into the input', () => {
+        input.value = 'go';
+        const e = new KeyboardEvent('keyup', {
+          bubbles: true,
+          key: 'o',
+          keyCode: 79,
+        });
+        input.dispatchEvent(e);
       });
 
-      describe('complete selection by pressing enter', () => {
-        beforeEach('press enter from within the input', () => { });
-        it('should hide and empty the option list', () => { });
-        it('should set that item to being the select option', () => { });
-        it('should set that item to being the input value', () => { });
+      it('displays the option list', () => {
+        assert(list && !list.hidden);
+      });
 
-        describe('subsequent enter', () => {
-          beforeEach('press enter from within the input', () => { });
-          it('should attempt to submit the form', () => { });
+      describe('close list by clicking away', () => {
+        beforeEach('click outside of the combobox', () => {
+          dispatch('click', body);
+        });
+
+        it('should hide and empty the option list', () => {
+          assert.equal(list.children.length, 0);
+          assert(list.hidden);
+        });
+
+        it('should set that item to being the select option', () => {
+          assert.equal(select.value, 'value-Go');
+        });
+
+        it('should set that item to being the input value', () => {
+          assert.equal(input.value, 'Go');
         });
       });
 
-      describe('closing the option list by clicking escape', () => {
-        beforeEach('press the escape button from the input', () => { });
-        it('should hide and empty the option list', () => { });
-        it('should not change the value of the select', () => { });
-        it('should not change the value in the input', () => { });
-        it('should keep focus on the input', () => { });
+      describe('complete selection by pressing enter', () => {
+        beforeEach('press enter from within the input', () => {
+          const e = new KeyboardEvent('keydown', {
+            bubbles: true,
+            code: 'Enter',
+            key: 'Enter',
+            keyCode: 13,
+          });
+          input.dispatchEvent(e);
+        });
+        it('should hide and empty the option list', () => {
+          assert.equal(list.children.length, 0);
+          assert(list.hidden);
+        });
+
+        it('should set that item to being the select option', () => {
+          assert.equal(select.value, 'value-Go');
+        });
+
+        it('should set that item to being the input value', () => {
+          assert.equal(input.value, 'Go');
+        });
       });
     });
 
     describe('typing an nonexistent option', () => {
-      beforeEach('type a nonexistent option into the input', () => { });
-      it('displays the option list', () => { });
-      it('should show an empty list', () => { });
+      beforeEach('type a nonexistent option into the input', () => {
+        input.value = 'Bibbidi-Bobbidi-Boo';
+        const e = new KeyboardEvent('keyup', {
+          bubbles: true,
+          key: 'o',
+          keyCode: 79,
+        });
+        input.dispatchEvent(e);
+      });
+
+      it('displays the option list', () => {
+        assert(list && !list.hidden);
+      });
+
+      it('should show an empty list', () => {
+        assert.equal(list.children.length, 0);
+      });
     });
   });
 
