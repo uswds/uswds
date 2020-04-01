@@ -1,19 +1,32 @@
 // Default styles
 .usa-button-group {
-  @include unstyled-list;
+  @include u-margin-y(0);
+  list-style-type: none;
+  padding-left: 0;
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: units(-0.5);
+  margin-right: units(-0.5);
+
+  @include at-media("mobile-lg") {
+    flex-direction: row;
+  }
 }
 
 .usa-button-group__item {
-  margin-left: units(0.5);
-  margin-right: units(0.5);
+  margin: units(0.5);
 
   &:first-child {
-    margin-left: 0;
+    @include at-media("mobile-lg") {
+      //margin-left: 0;
+    }
   }
 
   &:last-child {
-    margin-right: 0;
+    @include at-media("mobile-lg") {
+      margin-right: 0;
+    }
   }
 
   .usa-button {
@@ -24,6 +37,11 @@
 
 // Segemented styles
 .usa-button-group--segmented {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-left: 0;
+  margin-right: 0;
+
   .usa-button {
     position: relative;
     width: auto;
