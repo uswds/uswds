@@ -114,6 +114,7 @@ const selectItem = listOption => {
   selectElement.value = listOption.getAttribute('data-option-value');
   input.value = listOption.textContent;
   hideList(comboBox);
+  input.focus();
 };
 
 const handlePrintableKey = input => {
@@ -160,6 +161,37 @@ const handleEscape = (inputElement) => {
   hideList(comboBox);
 };
 
+const highlightOption = (current, next) => {
+  if (current) {
+    current.setAttribute('aria-selected', 'false');
+  }
+  if (next) {
+    next.setAttribute('aria-selected', 'true');
+    next.focus();
+  }
+};
+
+const handleUp = (inputElement) => {
+  const comboBox = inputElement.closest(COMBO_BOX);
+  const listElement = comboBox.querySelector(LIST);
+  const currentOption = listElement.querySelector(`${LIST_OPTION}[aria-selected=true]`);
+  const nextOption = currentOption && currentOption.previousSibling;
+  highlightOption(currentOption, nextOption)
+  if (currentOption && !nextOption) {
+    inputElement.focus();
+  }
+};
+
+
+const handleDown = (inputElement) => {
+  const comboBox = inputElement.closest(COMBO_BOX);
+  const listElement = comboBox.querySelector(LIST);
+  const currentOption = listElement.querySelector(`${LIST_OPTION}[aria-selected=true]`);
+  const nextOption = currentOption ? currentOption.nextSibling : listElement.querySelector(`${LIST_OPTION}`);
+  if (nextOption) { highlightOption(currentOption, nextOption) }
+};
+
+
 const comboBox = behavior(
   {
     [CLICK]: {
@@ -179,15 +211,45 @@ const comboBox = behavior(
       },
     },
     'keydown': {
-      [INPUT](event) {
+      [LIST_OPTION](event) {
+        const comboBoxEl = event.target.closest(COMBO_BOX);
+        const inputEl = comboBoxEl.querySelector(INPUT);
         switch (event.keyCode) {
-          case KEYS.up:
           case KEYS.left:
           case KEYS.right:
           case KEYS.space:
           case KEYS.tab:
           case KEYS.shift:
+            break;
+          case KEYS.up:
+            handleUp(inputEl);
+            break;
           case KEYS.down:
+            handleDown(inputEl);
+            break;
+          case KEYS.esc:
+            handleEscape(inputEl);
+            break;
+          case KEYS.enter:
+            selectItem(this);
+            break;
+          default:
+            break;
+        }
+      },
+      [INPUT](event) {
+        switch (event.keyCode) {
+          case KEYS.left:
+          case KEYS.right:
+          case KEYS.space:
+          case KEYS.tab:
+          case KEYS.shift:
+            break;
+          case KEYS.up:
+            handleUp(this);
+            break;
+          case KEYS.down:
+            handleDown(this);
             break;
           case KEYS.esc:
             handleEscape(this);

@@ -343,34 +343,112 @@ describe('combo box component', () => {
   });
 
   describe('interaction - input - keyboard', () => {
-    beforeEach('set a value in the select', () => { });
+    let selectedOption;
+
+    beforeEach('set a value in the select', () => {
+      selectedOption = null;
+      select.value = 'value-JavaScript';
+    });
 
     describe('typing letters', () => {
-      beforeEach('type in letters into the input', () => { });
-      it('displays the option list', () => { });
-      it('should filter the item by the string being present in the option', () => { });
+      beforeEach('type in letters into the input', () => {
+        input.value = 'la';
+        const e = new KeyboardEvent('keyup', {
+          bubbles: true,
+          key: 'a',
+          keyCode: 65,
+        });
+        input.dispatchEvent(e);
+      });
+
+      it('displays the option list', () => {
+        assert(list && !list.hidden);
+      });
+
+      it('should filter the item by the string being present in the option', () => {
+        assert.equal(list.children.length, 2);
+      });
 
       describe('highlighting an item', () => {
-        beforeEach('press down arrow from input', () => { });
-        it('should highlight the first item in the list', () => { });
+        beforeEach('press down arrow from input', () => {
+          const e = new KeyboardEvent('keydown', {
+            bubbles: true,
+            code: 'Down',
+            key: 'Down',
+            keyCode: 40,
+          });
+          input.dispatchEvent(e);
+        });
+
+        beforeEach('find the highlighted item in the list', () => {
+          selectedOption = root.querySelector('.usa-combo-box__list-option[aria-selected=true]');
+        });
+
+        it('should highlight the first item in the list', () => {
+          assert.equal(selectedOption.textContent, 'Erlang');
+        });
 
         describe('selecting an item', () => {
-          beforeEach('press enter from input', () => { });
-          it('select the first item in the list', () => { });
-          it('should set that item to being the select option', () => { });
+          beforeEach('press enter from selected item', () => {
+            const e = new KeyboardEvent('keydown', {
+              bubbles: true,
+              code: 'Enter',
+              key: 'Enter',
+              keyCode: 13,
+            });
+            selectedOption.dispatchEvent(e);
+          });
+
+          it('select the first item in the list', () => {
+            assert.equal(select.value, 'value-Erlang');
+          });
+
+          it('should set the value in the input', () => {
+            assert.equal(input.value, 'Erlang');
+          });
         });
       });
 
       describe('highlighting the last item', () => {
-        beforeEach('press down arrow from input many times', () => { });
-        it('should highlight the last item in the list', () => { });
+        beforeEach('press down arrow from input many times', () => {
+          const e = new KeyboardEvent('keydown', {
+            bubbles: true,
+            code: 'Down',
+            key: 'Down',
+            keyCode: 40,
+          });
+          input.dispatchEvent(e);
+          selectedOption = root.querySelector('.usa-combo-box__list-option[aria-selected=true]');
+          selectedOption.dispatchEvent(e);
+          selectedOption = root.querySelector('.usa-combo-box__list-option[aria-selected=true]');
+          selectedOption.dispatchEvent(e);
+          selectedOption = root.querySelector('.usa-combo-box__list-option[aria-selected=true]');
+        });
+
+        it('should highlight the last item in the list', () => {
+          assert.equal(selectedOption.textContent, 'Scala');
+        });
 
         describe('close list by clicking escape', () => {
-          beforeEach('click the escape button in input', () => { });
-          it('should hide and empty the option list', () => { });
-          it('should not change the value of the select', () => { });
-          it('should not change the value in the input', () => { });
-          it('should keep focus on the input', () => { });
+          beforeEach('click the escape button in input', () => {
+            const e = new KeyboardEvent('keydown', {
+              bubbles: true,
+              code: 'Escape',
+              key: 'Escape',
+              keyCode: 27,
+            });
+            input.dispatchEvent(e);
+          });
+          it('should hide and empty the option list', () => {
+            assert.equal(list.children.length, 0);
+            assert(list.hidden);
+          });
+          it('should not change the value of the select', () => {
+            select.value = 'value-JavaScript';
+          });
+          it('should not change the value in the input', () => {
+            input.value = 'la';
+          });
         });
       });
     });
