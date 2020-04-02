@@ -1,3 +1,4 @@
+const keymap = require("receptor/keymap");
 const select = require("../utils/select");
 const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
@@ -9,26 +10,20 @@ const COMBO_BOX = `.${PREFIX}-combo-box`;
 const INPUT_CLASS = `${PREFIX}-combo-box__input`;
 const LIST_CLASS = `${PREFIX}-combo-box__list`;
 const LIST_OPTION_CLASS = `${PREFIX}-combo-box__list-option`;
+const STATUS_CLASS = `${PREFIX}-combo-box__status`;
 
 const SELECT = `.${PREFIX}-combo-box__select`;
 const INPUT = `.${INPUT_CLASS}`;
 const LIST = `.${LIST_CLASS}`;
 const LIST_OPTION = `.${LIST_OPTION_CLASS}`;
-
-const KEYS = {
-  enter: 13,
-  esc: 27,
-  space: 32,
-  up: 38,
-  down: 40,
-  tab: 9,
-  left: 37,
-  right: 39,
-  shift: 16
-};
+const STATUS = `.${STATUS_CLASS}`;
 
 const hideList = comboBox => {
   const listElement = comboBox.querySelector(LIST);
+  const status = comboBox.querySelector(STATUS);
+
+  status.innerHTML = "";
+
   listElement.innerHTML = "";
   listElement.setAttribute("aria-expanded", "false");
   listElement.hidden = true;
@@ -72,10 +67,10 @@ const enhanceComboBox = selectElement => {
         hidden>
       </ul>`,
       `<div 
-        role='status'
-        aria-atomic='true'
-        aria-live='polite'
-        class="usa-sr-only">
+        class="${STATUS_CLASS} usa-sr-only"
+        role="status"
+        aria-atomic="true"
+        aria-live="polite">
       </div>`,
       `<span id="${assistiveHintID}" class="usa-sr-only">
         When autocomplete results are available use up and down arrows to review and enter to select.
@@ -98,6 +93,7 @@ const displayList = inputElement => {
   const comboBox = inputElement.closest(COMBO_BOX);
   const selectElement = comboBox.querySelector(SELECT);
   const listElement = comboBox.querySelector(LIST);
+  const status = comboBox.querySelector(STATUS);
 
   const listOptionBaseId = `${listElement.id}--option-`;
 
@@ -115,6 +111,7 @@ const displayList = inputElement => {
     }
   }
 
+  const numOptions = options.length;
   const optionHtml = options
     .map(
       (option, index) =>
@@ -134,6 +131,10 @@ const displayList = inputElement => {
   listElement.innerHTML = optionHtml;
   listElement.setAttribute("aria-expanded", "true");
   listElement.hidden = false;
+
+  status.innerHTML = numOptions ?
+    `${numOptions} result${numOptions > 1 ? 's' : ''} available.` :
+    '"No results.';
 };
 
 const selectItem = listOption => {
@@ -184,23 +185,6 @@ const completeSelection = comboBox => {
   inputElement.value = "";
 };
 
-const handleEnter = (event, inputElement) => {
-  const comboBox = inputElement.closest(COMBO_BOX);
-  const listElement = comboBox.querySelector(LIST);
-
-  if (!listElement.hidden) {
-    event.preventDefault();
-    completeSelection(comboBox);
-    hideList(comboBox);
-  }
-};
-
-const handleEscape = inputElement => {
-  const comboBox = inputElement.closest(COMBO_BOX);
-  hideList(comboBox);
-  inputElement.focus();
-};
-
 const highlightOption = (current, next, inputEl) => {
   if (current) {
     current.setAttribute("aria-selected", "false");
@@ -213,8 +197,28 @@ const highlightOption = (current, next, inputEl) => {
   }
 };
 
-const handleUp = (event, inputElement) => {
+function handleEnter(event) {
+  const inputElement = event.target;
+  const comboBox = inputElement.closest(COMBO_BOX);
+  const listElement = comboBox.querySelector(LIST);
+
+  if (!listElement.hidden) {
+    event.preventDefault();
+    completeSelection(comboBox);
+    hideList(comboBox);
+  }
+}
+
+function handleEscape(event) {
+  const inputElement = event.target;
+  const comboBox = inputElement.closest(COMBO_BOX);
+  hideList(comboBox);
+  inputElement.focus();
+}
+
+function handleUp(event) {
   event.preventDefault();
+  const inputElement = event.target;
   const comboBox = inputElement.closest(COMBO_BOX);
   const listElement = comboBox.querySelector(LIST);
   const currentOption = listElement.querySelector(
@@ -223,12 +227,14 @@ const handleUp = (event, inputElement) => {
   const nextOption = currentOption && currentOption.previousSibling;
   highlightOption(currentOption, nextOption, inputElement);
   if (currentOption && !nextOption) {
+    console.log("setting focus to the input");
     inputElement.focus();
   }
-};
+}
 
-const handleDown = (event, inputElement) => {
+function handleDown(event) {
   event.preventDefault();
+  const inputElement = event.target;
   const comboBox = inputElement.closest(COMBO_BOX);
   const listElement = comboBox.querySelector(LIST);
   const currentOption = listElement.querySelector(
@@ -240,7 +246,18 @@ const handleDown = (event, inputElement) => {
   if (nextOption) {
     highlightOption(currentOption, nextOption, inputElement);
   }
-};
+}
+
+function isPrintableKeyCode(keyCode) {
+  return (
+    (keyCode > 47 && keyCode < 58) || // number keys
+    keyCode === 32 || keyCode === 8 || // spacebar or backspace
+    (keyCode > 64 && keyCode < 91) || // letter keys
+    (keyCode > 95 && keyCode < 112) || // numpad keys
+    (keyCode > 185 && keyCode < 193) || // ;=,-./` (in order)
+    (keyCode > 218 && keyCode < 223) // [\]' (in order)
+  )
+}
 
 const comboBox = behavior(
   {
@@ -261,46 +278,17 @@ const comboBox = behavior(
       }
     },
     keydown: {
-      [INPUT](event) {
-        switch (event.keyCode) {
-          case KEYS.left:
-          case KEYS.right:
-          case KEYS.space:
-          case KEYS.tab:
-          case KEYS.shift:
-            break;
-          case KEYS.up:
-            handleUp(event, this);
-            break;
-          case KEYS.down:
-            handleDown(event, this);
-            break;
-          case KEYS.esc:
-            handleEscape(this);
-            break;
-          case KEYS.enter:
-            handleEnter(event, this);
-            break;
-          default:
-            break;
-        }
-      }
+      [INPUT]: keymap({
+        ArrowUp: handleUp,
+        ArrowDown: handleDown,
+        Escape: handleEscape,
+        Enter: handleEnter
+      })
     },
     keyup: {
       [INPUT](event) {
-        switch (event.keyCode) {
-          case KEYS.esc:
-          case KEYS.up:
-          case KEYS.left:
-          case KEYS.right:
-          case KEYS.space:
-          case KEYS.tab:
-          case KEYS.shift:
-          case KEYS.down:
-          case KEYS.enter:
-            break;
-          default:
-            handlePrintableKey(this);
+        if (isPrintableKeyCode(event.keyCode)) {
+          handlePrintableKey(this);
         }
       }
     }

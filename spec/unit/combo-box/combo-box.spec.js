@@ -92,7 +92,10 @@ describe('combo box component', () => {
       describe('accessibilty', () => {
         it('none of the items should be shown as selected', () => {
           for (let i = 0, len = list.children.length; i < len; i += 1) {
-            assert.equal(list.children[i].getAttribute('aria-selected'), 'false');
+            assert.equal(
+              list.children[i].getAttribute('aria-selected'),
+              'false',
+            );
           }
         });
 
@@ -195,7 +198,6 @@ describe('combo box component', () => {
         beforeEach('press enter from within the input', () => {
           const e = new KeyboardEvent('keydown', {
             bubbles: true,
-            code: 'Enter',
             key: 'Enter',
             keyCode: 13,
           });
@@ -224,7 +226,6 @@ describe('combo box component', () => {
           beforeEach('press enter from within the input', () => {
             const e = new KeyboardEvent('keydown', {
               bubbles: true,
-              code: 'Enter',
               key: 'Enter',
               keyCode: 13,
             });
@@ -242,7 +243,6 @@ describe('combo box component', () => {
         beforeEach('click the escape button within the input', () => {
           const e = new KeyboardEvent('keydown', {
             bubbles: true,
-            code: 'Escape',
             key: 'Escape',
             keyCode: 27,
           });
@@ -300,7 +300,6 @@ describe('combo box component', () => {
         beforeEach('press enter from within the input', () => {
           const e = new KeyboardEvent('keydown', {
             bubbles: true,
-            code: 'Enter',
             key: 'Enter',
             keyCode: 13,
           });
@@ -373,15 +372,15 @@ describe('combo box component', () => {
         beforeEach('press down arrow from input', () => {
           const e = new KeyboardEvent('keydown', {
             bubbles: true,
-            code: 'Down',
-            key: 'Down',
-            keyCode: 40,
+            key: 'ArrowDown',
           });
           input.dispatchEvent(e);
         });
 
         beforeEach('find the highlighted item in the list', () => {
-          selectedOption = root.querySelector('.usa-combo-box__list-option[aria-selected=true]');
+          selectedOption = root.querySelector(
+            '.usa-combo-box__list-option[aria-selected=true]',
+          );
         });
 
         it('should highlight the first item in the list', () => {
@@ -392,9 +391,7 @@ describe('combo box component', () => {
           beforeEach('press enter from selected item', () => {
             const e = new KeyboardEvent('keydown', {
               bubbles: true,
-              code: 'Enter',
               key: 'Enter',
-              keyCode: 13,
             });
             input.dispatchEvent(e);
           });
@@ -413,9 +410,7 @@ describe('combo box component', () => {
         beforeEach('press down arrow from input many times', () => {
           const e = new KeyboardEvent('keydown', {
             bubbles: true,
-            code: 'Down',
-            key: 'Down',
-            keyCode: 40,
+            key: 'ArrowDown',
           });
           input.dispatchEvent(e);
           input.dispatchEvent(e);
@@ -423,7 +418,9 @@ describe('combo box component', () => {
         });
 
         beforeEach('find the highlighted item in the list', () => {
-          selectedOption = root.querySelector('.usa-combo-box__list-option[aria-selected=true]');
+          selectedOption = root.querySelector(
+            '.usa-combo-box__list-option[aria-selected=true]',
+          );
         });
 
         it('should highlight the last item in the list', () => {
@@ -434,9 +431,7 @@ describe('combo box component', () => {
           beforeEach('click the escape button in input', () => {
             const e = new KeyboardEvent('keydown', {
               bubbles: true,
-              code: 'Escape',
               key: 'Escape',
-              keyCode: 27,
             });
             input.dispatchEvent(e);
           });
