@@ -23,6 +23,8 @@
   padding: 0;
   margin: 0;
   width: 100%;
+  position: relative;
+  z-index: z-index(100);
 }
 
 .usa-combo-box__list-option {
