@@ -1,42 +1,40 @@
-.usa-combo-box {
-  .usa-combo-box__input {
-    @extend %block-input-general;
-    @extend %block-input-styles;
-    @include add-background-svg("arrow-down");
-    appearance: none;
-    background-color: color("white");
-    background-position: right units(1.5) center;
-    background-size: units(2);
-    padding-right: units(4);
-    margin-bottom: 0; /* BUG: Safari 10 on macOS seems to add an implicit margin. */
-  }
+.usa-combo-box__input {
+  @extend %block-input-general;
+  @extend %block-input-styles;
+  @include add-background-svg("arrow-down");
+  appearance: none;
+  background-color: color("white");
+  background-position: right units(1.5) center;
+  background-size: units(2);
+  padding-right: units(4);
+  margin-bottom: 0;
+}
 
-  .usa-combo-box__list {
-    @extend %block-input-general;
-    @include u-border(1px, "base-dark");
-    background-color: color("white");
-    max-height: 12em;
-    overflow-y: auto;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    border-top: 0;
-    border-radius: 0;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-  }
+.usa-combo-box__list {
+  @extend %block-input-general;
+  @include u-border(1px, "base-dark");
+  background-color: color("white");
+  max-height: 12em;
+  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-top: 0;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
 
-  .usa-combo-box__list-option {
-    padding: units(1);
-    display: block;
-    border-bottom: units(1px) solid color("base-lighter");
-    cursor: pointer;
+.usa-combo-box__list-option {
+  padding: units(1);
+  display: block;
+  border-bottom: units(1px) solid color("base-lighter");
+  cursor: pointer;
 
-    &:hover,
-    &[aria-selected="true"] {
-      background-color: color("primary");
-      border-color: color("primary");
-      color: color("white");
-    }
+  &:hover,
+  &[aria-selected="true"] {
+    background-color: color("primary");
+    border-color: color("primary");
+    color: color("white");
   }
 }
