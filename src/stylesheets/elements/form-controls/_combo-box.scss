@@ -2,11 +2,18 @@
   .usa-combo-box__input {
     @extend %block-input-general;
     @extend %block-input-styles;
-    @include add-background-svg("arrow-both");
+    @include add-background-svg("arrow-down");
     appearance: none;
     background-color: color("white");
     background-position: right units(1.5) center;
-    background-size: units(1);
+    background-size: units(2);
     padding-right: units(4);
+  }
+
+  [aria-selected="true"] {
+    background-color: #1d70b8;
+    border-color: #1d70b8;
+    color: white;
+    outline: none;
   }
 }

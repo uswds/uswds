@@ -8,12 +8,14 @@ const COMBO_BOX = `.${PREFIX}-combo-box`;
 
 const INPUT_CLASS = `${PREFIX}-combo-box__input`;
 const LIST_CLASS = `${PREFIX}-combo-box__list`;
+const DROPDOWN_ARROW_CLASS = `${PREFIX}-combo-box__dropdown-arrow`;
 const LIST_OPTION_CLASS = `${PREFIX}-combo-box__list-option`;
 
 const SELECT = `.${PREFIX}-combo-box__select`;
 const INPUT = `.${INPUT_CLASS}`;
 const LIST = `.${LIST_CLASS}`;
 const LIST_OPTION = `.${LIST_OPTION_CLASS}`;
+const DROPDOWN_ARROW = `.${PREFIX}-combo-box__dropdown-arrow`;
 
 const KEYS = {
   enter: 13,
@@ -64,7 +66,12 @@ const enhanceComboBox = selectElement => {
       aria-expanded="false"
       aria-describedby="${assistiveHintID}"
     >`,
-    `<svg focusable="false" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    `<svg 
+      class="${DROPDOWN_ARROW_CLASS}" 
+      focusable="false" 
+      version="1.1" 
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <g>
         <polygon points="0 0 22 0 11 17"></polygon>
       </g>
@@ -196,12 +203,15 @@ const handleEscape = (inputElement) => {
   inputElement.focus();
 };
 
-const highlightOption = (current, next) => {
+const highlightOption = (current, next, inputEl) => {
   if (current) {
     current.setAttribute('aria-selected', 'false');
   }
   if (next) {
     next.setAttribute('aria-selected', 'true');
+    inputEl.setAttribute('aria-activedescendant', next.id);
+  } else {
+    inputEl.removeAttribute('aria-activedescendant');
   }
 };
 
@@ -211,7 +221,7 @@ const handleUp = (event, inputElement) => {
   const listElement = comboBox.querySelector(LIST);
   const currentOption = listElement.querySelector(`${LIST_OPTION}[aria-selected=true]`);
   const nextOption = currentOption && currentOption.previousSibling;
-  highlightOption(currentOption, nextOption)
+  highlightOption(currentOption, nextOption, inputElement)
   if (currentOption && !nextOption) {
     inputElement.focus();
   }
@@ -224,7 +234,7 @@ const handleDown = (event, inputElement) => {
   const listElement = comboBox.querySelector(LIST);
   const currentOption = listElement.querySelector(`${LIST_OPTION}[aria-selected=true]`);
   const nextOption = currentOption ? currentOption.nextSibling : listElement.querySelector(`${LIST_OPTION}`);
-  if (nextOption) { highlightOption(currentOption, nextOption) }
+  if (nextOption) { highlightOption(currentOption, nextOption, inputElement) }
 };
 
 
