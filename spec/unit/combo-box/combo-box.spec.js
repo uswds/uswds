@@ -396,7 +396,7 @@ describe('combo box component', () => {
               key: 'Enter',
               keyCode: 13,
             });
-            selectedOption.dispatchEvent(e);
+            input.dispatchEvent(e);
           });
 
           it('select the first item in the list', () => {
@@ -418,10 +418,11 @@ describe('combo box component', () => {
             keyCode: 40,
           });
           input.dispatchEvent(e);
-          selectedOption = root.querySelector('.usa-combo-box__list-option[aria-selected=true]');
-          selectedOption.dispatchEvent(e);
-          selectedOption = root.querySelector('.usa-combo-box__list-option[aria-selected=true]');
-          selectedOption.dispatchEvent(e);
+          input.dispatchEvent(e);
+          input.dispatchEvent(e);
+        });
+
+        beforeEach('find the highlighted item in the list', () => {
           selectedOption = root.querySelector('.usa-combo-box__list-option[aria-selected=true]');
         });
 

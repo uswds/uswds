@@ -49,29 +49,49 @@ const enhanceComboBox = selectElement => {
 
   const selectId = selectElement.id;
   const listId = `${selectId}--list`;
+  const assistiveHintID = `${selectId}--assistiveHint`;
 
-  const newInput = document.createElement('input');
-  newInput.id = selectId;
-  newInput.classList.add(INPUT_CLASS);
-
-  const newList = document.createElement('ul');
-  newList.id = listId;
-  newList.classList.add(LIST_CLASS);
-  newList.setAttribute('role', 'listbox');
-  newList.setAttribute('aria-expanded', 'false');
-  newList.hidden = true;
+  comboBox.insertAdjacentHTML('beforeend', [
+    `<input 
+      id="${selectId}" 
+      class="${INPUT_CLASS}"
+      role='combobox'
+      autocapitalize="none" 
+      autocomplete="off"
+      type="text" 
+      aria-owns="${listId}"
+      aria-autocomplete="list" 
+      aria-expanded="false"
+      aria-describedby="${assistiveHintID}"
+    >`,
+    `<svg focusable="false" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <polygon points="0 0 22 0 11 17"></polygon>
+      </g>
+    </svg>`,
+    `<ul 
+      id="${listId}" 
+      class="${LIST_CLASS}" 
+      role="listbox"
+      hidden>
+    </ul>`,
+    `<div 
+      role='status'
+      aria-atomic='true'
+      aria-live='polite'
+      class="usa-sr-only">
+    </div>`,
+    `<span id="${assistiveHintID}" class="usa-sr-only">
+      When autocomplete results are available use up and down arrows to review and enter to select.
+      Touch device users, explore by touch or with swipe gestures.
+    </span>`
+  ].join(''));
 
   selectElement.setAttribute("aria-hidden", "true");
   selectElement.setAttribute("tabindex", "-1");
   selectElement.classList.add("usa-sr-only");
   // eslint-disable-next-line no-param-reassign
   selectElement.id = '';
-
-  comboBox.appendChild(newInput);
-  comboBox.appendChild(newList);
-
-  // console.log(comboBox.innerHTML);
-
 
   //   inputElement.addEventListener("blur", updateSelectValue);
   //   inputElement.addEventListener("focus", updateSelectValue);
@@ -82,26 +102,33 @@ const displayList = inputElement => {
   const selectElement = comboBox.querySelector(SELECT);
   const listElement = comboBox.querySelector(LIST);
 
-  hideList(comboBox);
+  const listOptionBaseId = `${listElement.id}--option-`;
 
   const inputValue = (inputElement.value || '').toLowerCase();
 
-  let option;
+  let optionEl;
+  const options = [];
   for (let i = 0, len = selectElement.options.length; i < len; i += 1) {
-    option = selectElement.options[i];
-    if (option.value && (!inputValue || option.text.toLowerCase().indexOf(inputValue) !== -1)) {
-      const newOption = document.createElement('li');
-      newOption.id = `${listElement.id}--option-${i}`;
-      newOption.classList.add(LIST_OPTION_CLASS);
-      newOption.setAttribute("tabindex", "-1");
-      newOption.setAttribute('role', 'option');
-      newOption.setAttribute('aria-selected', 'false');
-      newOption.setAttribute('data-option-value', option.value);
-      newOption.textContent = option.text;
-      listElement.appendChild(newOption);
+    optionEl = selectElement.options[i];
+    if (optionEl.value && (!inputValue || optionEl.text.toLowerCase().indexOf(inputValue) !== -1)) {
+      options.push(optionEl);
     }
   }
 
+  const optionHtml = options.map((option, index) => (
+    `<li
+      id="${listOptionBaseId}${index}"
+      class="${LIST_OPTION_CLASS}"
+      tabindex="-1"
+      role=option
+      aria-selected="false"
+      aria-setsize="${options.length}" 
+      aria-posinset="${index + 1}"
+      data-option-value="${option.value}"
+    >${option.text}</li>`
+  )).join('');
+
+  listElement.innerHTML = optionHtml;
   listElement.setAttribute('aria-expanded', 'true');
   listElement.hidden = false;
 };
@@ -124,6 +151,13 @@ const handlePrintableKey = input => {
 const completeSelection = comboBox => {
   const selectElement = comboBox.querySelector(SELECT);
   const inputElement = comboBox.querySelector(INPUT);
+  const currentOption = comboBox.querySelector(`${LIST_OPTION}[aria-selected=true]`);
+
+  if (currentOption) {
+    selectElement.value = currentOption.getAttribute('data-option-value');
+    inputElement.value = currentOption.textContent;
+    return;
+  }
 
   const inputValue = (inputElement.value || '').toLowerCase();
 
@@ -168,11 +202,11 @@ const highlightOption = (current, next) => {
   }
   if (next) {
     next.setAttribute('aria-selected', 'true');
-    next.focus();
   }
 };
 
-const handleUp = (inputElement) => {
+const handleUp = (event, inputElement) => {
+  event.preventDefault()
   const comboBox = inputElement.closest(COMBO_BOX);
   const listElement = comboBox.querySelector(LIST);
   const currentOption = listElement.querySelector(`${LIST_OPTION}[aria-selected=true]`);
@@ -184,7 +218,8 @@ const handleUp = (inputElement) => {
 };
 
 
-const handleDown = (inputElement) => {
+const handleDown = (event, inputElement) => {
+  event.preventDefault()
   const comboBox = inputElement.closest(COMBO_BOX);
   const listElement = comboBox.querySelector(LIST);
   const currentOption = listElement.querySelector(`${LIST_OPTION}[aria-selected=true]`);
@@ -212,32 +247,6 @@ const comboBox = behavior(
       },
     },
     'keydown': {
-      [LIST_OPTION](event) {
-        const comboBoxEl = event.target.closest(COMBO_BOX);
-        const inputEl = comboBoxEl.querySelector(INPUT);
-        switch (event.keyCode) {
-          case KEYS.left:
-          case KEYS.right:
-          case KEYS.space:
-          case KEYS.tab:
-          case KEYS.shift:
-            break;
-          case KEYS.up:
-            handleUp(inputEl);
-            break;
-          case KEYS.down:
-            handleDown(inputEl);
-            break;
-          case KEYS.esc:
-            handleEscape(inputEl);
-            break;
-          case KEYS.enter:
-            selectItem(this);
-            break;
-          default:
-            break;
-        }
-      },
       [INPUT](event) {
         switch (event.keyCode) {
           case KEYS.left:
@@ -247,10 +256,10 @@ const comboBox = behavior(
           case KEYS.shift:
             break;
           case KEYS.up:
-            handleUp(this);
+            handleUp(event, this);
             break;
           case KEYS.down:
-            handleDown(this);
+            handleDown(event, this);
             break;
           case KEYS.esc:
             handleEscape(this);
