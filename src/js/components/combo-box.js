@@ -30,17 +30,36 @@ function isPrintableKeyCode(keyCode) {
   );
 }
 
+const getComboBoxElements = (el) => {
+  const comboBoxEl = el.closest(COMBO_BOX);
+
+  if (!comboBoxEl) {
+    throw new Error(`Element is missing outer ${COMBO_BOX}`);
+  }
+
+  const selectEl = comboBoxEl.querySelector(SELECT);
+
+  if (!selectEl) {
+    throw new Error(`${COMBO_BOX} is missing inner ${SELECT}`);
+  }
+
+  const inputEl = comboBoxEl.querySelector(INPUT);
+  const listEl = comboBoxEl.querySelector(LIST);
+  const statusEl = comboBoxEl.querySelector(STATUS);
+  const currentOptionEl = comboBoxEl.querySelector(
+    `${LIST_OPTION}[aria-selected=true]`
+  );
+
+  return { comboBoxEl, selectEl, inputEl, listEl, statusEl, currentOptionEl };
+};
+
 /**
  * Enhance the combo box element
  *
- * @param {Element} selectEl The initial select element
+ * @param {Element} el The initial element within the combobox component
  */
-const enhanceComboBox = selectEl => {
-  const comboBoxEl = selectEl.closest(COMBO_BOX);
-
-  if (!comboBoxEl) {
-    throw new Error(`${INPUT} is missing outer ${COMBO_BOX}`);
-  }
+const enhanceComboBox = el => {
+  const { comboBoxEl, selectEl } = getComboBoxElements(el);
 
   const selectId = selectEl.id;
   const listId = `${selectId}--list`;
@@ -82,15 +101,11 @@ const enhanceComboBox = selectEl => {
   selectEl.setAttribute("aria-hidden", "true");
   selectEl.setAttribute("tabindex", "-1");
   selectEl.classList.add("usa-sr-only");
-  // eslint-disable-next-line no-param-reassign
   selectEl.id = "";
 };
 
-const displayList = inputEl => {
-  const comboBoxEl = inputEl.closest(COMBO_BOX);
-  const selectEl = comboBoxEl.querySelector(SELECT);
-  const listEl = comboBoxEl.querySelector(LIST);
-  const statusEl = comboBoxEl.querySelector(STATUS);
+const displayList = el => {
+  const { selectEl, inputEl, listEl, statusEl } = getComboBoxElements(el);
 
   const listOptionBaseId = `${listEl.id}--option-`;
 
@@ -127,19 +142,18 @@ const displayList = inputEl => {
 
   const noResults = `<li class="${LIST_OPTION_CLASS}--no-results">No results found</li>`;
 
-  listEl.innerHTML = numOptions ? optionHtml : noResults;
-  inputEl.setAttribute("aria-expanded", "true");
   listEl.hidden = false;
+  listEl.innerHTML = numOptions ? optionHtml : noResults;
+
+  inputEl.setAttribute("aria-expanded", "true");
 
   statusEl.innerHTML = numOptions
     ? `${numOptions} result${numOptions > 1 ? "s" : ""} available.`
     : '"No results.';
 };
 
-const hideList = comboBoxEl => {
-  const listEl = comboBoxEl.querySelector(LIST);
-  const statusEl = comboBoxEl.querySelector(STATUS);
-  const inputEl = comboBoxEl.querySelector(INPUT);
+const hideList = el => {
+  const { inputEl, listEl, statusEl } = getComboBoxElements(el);
 
   statusEl.innerHTML = "";
 
@@ -150,9 +164,7 @@ const hideList = comboBoxEl => {
 };
 
 const selectItem = listOptionEl => {
-  const comboBoxEl = listOptionEl.closest(COMBO_BOX);
-  const selectEl = comboBoxEl.querySelector(SELECT);
-  const inputEl = comboBoxEl.querySelector(INPUT);
+  const { comboBoxEl, selectEl, inputEl } = getComboBoxElements(listOptionEl);
 
   selectEl.value = listOptionEl.getAttribute("data-option-value");
   inputEl.value = listOptionEl.textContent;
@@ -164,12 +176,10 @@ const handlePrintableKey = input => {
   displayList(input);
 };
 
-const completeSelection = comboBoxEl => {
-  const selectEl = comboBoxEl.querySelector(SELECT);
-  const inputEl = comboBoxEl.querySelector(INPUT);
-  const currentOptionEl = comboBoxEl.querySelector(
-    `${LIST_OPTION}[aria-selected=true]`
-  );
+const completeSelection = el => {
+  const { selectEl, inputEl, statusEl, currentOptionEl } = getComboBoxElements(el);
+
+  statusEl.textContent = "";
 
   if (currentOptionEl) {
     selectEl.value = currentOptionEl.getAttribute("data-option-value");
@@ -193,14 +203,16 @@ const completeSelection = comboBoxEl => {
   }
 
   selectEl.value = "";
-  // eslint-disable-next-line no-param-reassign
   inputEl.value = "";
 };
 
-const highlightOption = (currentEl, nextEl, inputEl, listEl) => {
+const highlightOption = (el, currentEl, nextEl) => {
+  const { inputEl, listEl } = getComboBoxElements(el);
+
   if (currentEl) {
     currentEl.setAttribute("aria-selected", "false");
   }
+
   if (nextEl) {
     inputEl.setAttribute("aria-activedescendant", nextEl.id);
     nextEl.setAttribute("aria-selected", "true");
@@ -209,11 +221,10 @@ const highlightOption = (currentEl, nextEl, inputEl, listEl) => {
     const currentBottom = listEl.scrollTop + listEl.offsetHeight;
 
     if (optionBottom > currentBottom) {
-      // eslint-disable-next-line no-param-reassign
       listEl.scrollTop = optionBottom - listEl.offsetHeight;
     }
+
     if (nextEl.offsetTop < listEl.scrollTop) {
-      // eslint-disable-next-line no-param-reassign
       listEl.scrollTop = nextEl.offsetTop;
     }
   } else {
@@ -222,9 +233,7 @@ const highlightOption = (currentEl, nextEl, inputEl, listEl) => {
 };
 
 function handleEnter(event) {
-  const inputEl = event.target;
-  const comboBoxEl = inputEl.closest(COMBO_BOX);
-  const listEl = comboBoxEl.querySelector(LIST);
+  const { comboBoxEl, listEl } = getComboBoxElements(event.target);
 
   if (!listEl.hidden) {
     event.preventDefault();
@@ -234,22 +243,17 @@ function handleEnter(event) {
 }
 
 function handleEscape(event) {
-  const inputEl = event.target;
-  const comboBoxEl = inputEl.closest(COMBO_BOX);
+  const { comboBoxEl, inputEl } = getComboBoxElements(event.target);
   hideList(comboBoxEl);
   inputEl.focus();
 }
 
 function handleUp(event) {
   event.preventDefault();
-  const inputEl = event.target;
-  const comboBoxEl = inputEl.closest(COMBO_BOX);
-  const listEl = comboBoxEl.querySelector(LIST);
-  const currentOptionEl = listEl.querySelector(
-    `${LIST_OPTION}[aria-selected=true]`
-  );
+  const { comboBoxEl, inputEl, currentOptionEl } = getComboBoxElements(event.target);
   const nextOptionEl = currentOptionEl && currentOptionEl.previousSibling;
-  highlightOption(currentOptionEl, nextOptionEl, inputEl, listEl);
+
+  highlightOption(comboBoxEl, currentOptionEl, nextOptionEl);
 
   if (currentOptionEl && !nextOptionEl) {
     hideList(comboBoxEl);
@@ -259,28 +263,23 @@ function handleUp(event) {
 
 function handleDown(event) {
   event.preventDefault();
-  const inputEl = event.target;
-  const comboBoxEl = inputEl.closest(COMBO_BOX);
-  const listEl = comboBoxEl.querySelector(LIST);
+  const { comboBoxEl, listEl, currentOptionEl } = getComboBoxElements(event.target);
 
   if (listEl.hidden) {
-    displayList(inputEl);
+    displayList(comboBoxEl);
   }
 
-  const currentOptionEl = listEl.querySelector(
-    `${LIST_OPTION}[aria-selected=true]`
-  );
   const nextOptionEl = currentOptionEl
     ? currentOptionEl.nextSibling
     : listEl.querySelector(`${LIST_OPTION}`);
+
   if (nextOptionEl) {
-    highlightOption(currentOptionEl, nextOptionEl, inputEl, listEl);
+    highlightOption(comboBoxEl, currentOptionEl, nextOptionEl);
   }
 }
 
 function handleTab(event) {
-  const inputEl = event.target;
-  const comboBoxEl = inputEl.closest(COMBO_BOX);
+  const { comboBoxEl } = getComboBoxElements(event.target);
 
   completeSelection(comboBoxEl);
   hideList(comboBoxEl);
