@@ -18,16 +18,17 @@ const LIST = `.${LIST_CLASS}`;
 const LIST_OPTION = `.${LIST_OPTION_CLASS}`;
 const STATUS = `.${STATUS_CLASS}`;
 
-const hideList = comboBox => {
-  const listElement = comboBox.querySelector(LIST);
-  const status = comboBox.querySelector(STATUS);
-
-  status.innerHTML = "";
-
-  listElement.innerHTML = "";
-  listElement.setAttribute("aria-expanded", "false");
-  listElement.hidden = true;
-};
+function isPrintableKeyCode(keyCode) {
+  return (
+    (keyCode > 47 && keyCode < 58) || // number keys
+    keyCode === 32 ||
+    keyCode === 8 || // spacebar or backspace
+    (keyCode > 64 && keyCode < 91) || // letter keys
+    (keyCode > 95 && keyCode < 112) || // numpad keys
+    (keyCode > 185 && keyCode < 193) || // ;=,-./` (in order)
+    (keyCode > 218 && keyCode < 223) // [\]' (in order)
+  );
+}
 
 /**
  * Enhance the combo box element
@@ -131,12 +132,25 @@ const displayList = inputElement => {
   const noResults = `<li class="${LIST_OPTION_CLASS}--no-results">No results found</li>`;
 
   listElement.innerHTML = numOptions ? optionHtml : noResults;
-  listElement.setAttribute("aria-expanded", "true");
+  inputElement.setAttribute("aria-expanded", "true");
   listElement.hidden = false;
 
   status.innerHTML = numOptions
     ? `${numOptions} result${numOptions > 1 ? "s" : ""} available.`
     : '"No results.';
+};
+
+const hideList = comboBox => {
+  const listElement = comboBox.querySelector(LIST);
+  const status = comboBox.querySelector(STATUS);
+  const input = comboBox.querySelector(INPUT);
+
+  status.innerHTML = "";
+
+  input.setAttribute("aria-expanded", "false");
+
+  listElement.innerHTML = "";
+  listElement.hidden = true;
 };
 
 const selectItem = listOption => {
@@ -192,8 +206,8 @@ const highlightOption = (current, next, inputEl, listEl) => {
     current.setAttribute("aria-selected", "false");
   }
   if (next) {
-    next.setAttribute("aria-selected", "true");
     inputEl.setAttribute("aria-activedescendant", next.id);
+    next.setAttribute("aria-selected", "true");
 
     const optionBottom = next.offsetTop + next.offsetHeight;
     const currentBottom = listEl.scrollTop + listEl.offsetHeight;
@@ -242,6 +256,7 @@ function handleUp(event) {
   highlightOption(currentOption, nextOption, inputElement, listElement);
 
   if (currentOption && !nextOption) {
+    hideList(comboBox);
     inputElement.focus();
   }
 }
@@ -273,18 +288,6 @@ function handleTab(event) {
 
   completeSelection(comboBoxComponent);
   hideList(comboBoxComponent);
-}
-
-function isPrintableKeyCode(keyCode) {
-  return (
-    (keyCode > 47 && keyCode < 58) || // number keys
-    keyCode === 32 ||
-    keyCode === 8 || // spacebar or backspace
-    (keyCode > 64 && keyCode < 91) || // letter keys
-    (keyCode > 95 && keyCode < 112) || // numpad keys
-    (keyCode > 185 && keyCode < 193) || // ;=,-./` (in order)
-    (keyCode > 218 && keyCode < 223) // [\]' (in order)
-  );
 }
 
 const comboBox = behavior(
