@@ -70,7 +70,6 @@ const enhanceComboBox = selectElement => {
       `<div 
         class="${STATUS_CLASS} usa-sr-only"
         role="status"
-        aria-atomic="true"
         aria-live="polite">
       </div>`,
       `<span id="${assistiveHintID}" class="usa-sr-only">
