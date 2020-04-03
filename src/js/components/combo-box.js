@@ -132,9 +132,9 @@ const displayList = inputElement => {
   listElement.setAttribute("aria-expanded", "true");
   listElement.hidden = false;
 
-  status.innerHTML = numOptions ?
-    `${numOptions} result${numOptions > 1 ? 's' : ''} available.` :
-    '"No results.';
+  status.innerHTML = numOptions
+    ? `${numOptions} result${numOptions > 1 ? "s" : ""} available.`
+    : '"No results.';
 };
 
 const selectItem = listOption => {
@@ -237,6 +237,11 @@ function handleDown(event) {
   const inputElement = event.target;
   const comboBox = inputElement.closest(COMBO_BOX);
   const listElement = comboBox.querySelector(LIST);
+
+  if (listElement.hidden) {
+    displayList(inputElement);
+  }
+
   const currentOption = listElement.querySelector(
     `${LIST_OPTION}[aria-selected=true]`
   );
@@ -248,15 +253,24 @@ function handleDown(event) {
   }
 }
 
+function handleTab(event) {
+  const inputElement = event.target;
+  const comboBoxComponent = inputElement.closest(COMBO_BOX);
+
+  completeSelection(comboBoxComponent);
+  hideList(comboBoxComponent);
+}
+
 function isPrintableKeyCode(keyCode) {
   return (
     (keyCode > 47 && keyCode < 58) || // number keys
-    keyCode === 32 || keyCode === 8 || // spacebar or backspace
+    keyCode === 32 ||
+    keyCode === 8 || // spacebar or backspace
     (keyCode > 64 && keyCode < 91) || // letter keys
     (keyCode > 95 && keyCode < 112) || // numpad keys
     (keyCode > 185 && keyCode < 193) || // ;=,-./` (in order)
     (keyCode > 218 && keyCode < 223) // [\]' (in order)
-  )
+  );
 }
 
 const comboBox = behavior(
@@ -282,7 +296,8 @@ const comboBox = behavior(
         ArrowUp: handleUp,
         ArrowDown: handleDown,
         Escape: handleEscape,
-        Enter: handleEnter
+        Enter: handleEnter,
+        Tab: handleTab
       })
     },
     keyup: {
@@ -298,12 +313,6 @@ const comboBox = behavior(
       select(SELECT, root).forEach(selectElement => {
         enhanceComboBox(selectElement);
       });
-      // },
-      // teardown(root) {
-      //   select(INPUT, root).forEach(inputElement => {
-      //     // inputElement.removeEventListener("blur", noop);
-      //     // inputElement.removeEventListener("focus", noop);
-      //   });
     }
   }
 );
