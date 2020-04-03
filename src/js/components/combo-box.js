@@ -128,9 +128,7 @@ const displayList = inputElement => {
     )
     .join("");
 
-  const noResults = `<li class="${LIST_OPTION_CLASS}--no-results">
-      No results found
-    </li>`;
+  const noResults = `<li class="${LIST_OPTION_CLASS}--no-results">No results found</li>`;
 
   listElement.innerHTML = numOptions ? optionHtml : noResults;
   listElement.setAttribute("aria-expanded", "true");

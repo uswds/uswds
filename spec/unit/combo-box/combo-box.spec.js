@@ -335,8 +335,9 @@ describe('combo box component', () => {
         assert(list && !list.hidden);
       });
 
-      it('should show an empty list', () => {
-        assert.equal(list.children.length, 0);
+      it('should show no results list item', () => {
+        assert.equal(list.children.length, 1);
+        assert.equal(list.children[0].textContent, 'No results found');
       });
     });
   });
