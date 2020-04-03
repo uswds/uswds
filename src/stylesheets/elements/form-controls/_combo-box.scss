@@ -40,3 +40,9 @@
     color: color("white");
   }
 }
+
+.usa-combo-box__list-option--no-results {
+  padding: units(1);
+  display: block;
+  cursor: not-allowed;
+}
