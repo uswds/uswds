@@ -187,13 +187,25 @@ const completeSelection = comboBox => {
   inputElement.value = "";
 };
 
-const highlightOption = (current, next, inputEl) => {
+const highlightOption = (current, next, inputEl, listEl) => {
   if (current) {
     current.setAttribute("aria-selected", "false");
   }
   if (next) {
     next.setAttribute("aria-selected", "true");
     inputEl.setAttribute("aria-activedescendant", next.id);
+
+    const optionBottom = next.offsetTop + next.offsetHeight;
+    const currentBottom = listEl.scrollTop + listEl.offsetHeight;
+
+    if (optionBottom > currentBottom) {
+      // eslint-disable-next-line no-param-reassign
+      listEl.scrollTop = optionBottom - listEl.offsetHeight;
+    }
+    if (next.offsetTop < listEl.scrollTop) {
+      // eslint-disable-next-line no-param-reassign
+      listEl.scrollTop = next.offsetTop;
+    }
   } else {
     inputEl.removeAttribute("aria-activedescendant");
   }
@@ -227,9 +239,9 @@ function handleUp(event) {
     `${LIST_OPTION}[aria-selected=true]`
   );
   const nextOption = currentOption && currentOption.previousSibling;
-  highlightOption(currentOption, nextOption, inputElement);
+  highlightOption(currentOption, nextOption, inputElement, listElement);
+
   if (currentOption && !nextOption) {
-    console.log("setting focus to the input");
     inputElement.focus();
   }
 }
@@ -251,7 +263,7 @@ function handleDown(event) {
     ? currentOption.nextSibling
     : listElement.querySelector(`${LIST_OPTION}`);
   if (nextOption) {
-    highlightOption(currentOption, nextOption, inputElement);
+    highlightOption(currentOption, nextOption, inputElement, listElement);
   }
 }
 
