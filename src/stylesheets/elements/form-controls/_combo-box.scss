@@ -38,7 +38,7 @@
   cursor: pointer;
 
   &:hover,
-  &[aria-selected="true"] {
+  &--selected {
     background-color: color("primary");
     border-color: color("primary");
     color: color("white");

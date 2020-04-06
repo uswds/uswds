@@ -380,7 +380,7 @@ describe('combo box component', () => {
 
         beforeEach('find the highlighted item in the list', () => {
           selectedOption = root.querySelector(
-            '.usa-combo-box__list-option[aria-selected=true]',
+            '.usa-combo-box__list-option--selected',
           );
         });
 
@@ -420,7 +420,7 @@ describe('combo box component', () => {
 
         beforeEach('find the highlighted item in the list', () => {
           selectedOption = root.querySelector(
-            '.usa-combo-box__list-option[aria-selected=true]',
+            '.usa-combo-box__list-option--selected',
           );
         });
 

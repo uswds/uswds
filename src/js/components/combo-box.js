@@ -11,14 +11,16 @@ const INPUT_CLASS = `${PREFIX}-combo-box__input`;
 const LIST_CLASS = `${PREFIX}-combo-box__list`;
 const LIST_OPTION_CLASS = `${PREFIX}-combo-box__list-option`;
 const STATUS_CLASS = `${PREFIX}-combo-box__status`;
+const LIST_OPTION_SELECTED_CLASS = `${LIST_OPTION_CLASS}--selected`;
 
 const SELECT = `.${PREFIX}-combo-box__select`;
 const INPUT = `.${INPUT_CLASS}`;
 const LIST = `.${LIST_CLASS}`;
 const LIST_OPTION = `.${LIST_OPTION_CLASS}`;
+const LIST_OPTION_SELECTED = `.${LIST_OPTION_SELECTED_CLASS}`;
 const STATUS = `.${STATUS_CLASS}`;
 
-function isPrintableKeyCode(keyCode) {
+const isPrintableKeyCode = (keyCode) => {
   return (
     (keyCode > 47 && keyCode < 58) || // number keys
     keyCode === 32 ||
@@ -46,9 +48,7 @@ const getComboBoxElements = (el) => {
   const inputEl = comboBoxEl.querySelector(INPUT);
   const listEl = comboBoxEl.querySelector(LIST);
   const statusEl = comboBoxEl.querySelector(STATUS);
-  const currentOptionEl = comboBoxEl.querySelector(
-    `${LIST_OPTION}[aria-selected=true]`
-  );
+  const currentOptionEl = comboBoxEl.querySelector(LIST_OPTION_SELECTED);
 
   return { comboBoxEl, selectEl, inputEl, listEl, statusEl, currentOptionEl };
 };
@@ -195,7 +195,6 @@ const completeSelection = el => {
       optionEl = selectEl.options[i];
       if (optionEl.text.toLowerCase() === inputValue) {
         selectEl.value = optionEl.value;
-        // eslint-disable-next-line no-param-reassign
         inputEl.value = optionEl.text;
         return;
       }
@@ -211,11 +210,13 @@ const highlightOption = (el, currentEl, nextEl) => {
 
   if (currentEl) {
     currentEl.setAttribute("aria-selected", "false");
+    currentEl.classList.remove(LIST_OPTION_SELECTED_CLASS);
   }
 
   if (nextEl) {
     inputEl.setAttribute("aria-activedescendant", nextEl.id);
     nextEl.setAttribute("aria-selected", "true");
+    nextEl.classList.add(LIST_OPTION_SELECTED_CLASS);
 
     const optionBottom = nextEl.offsetTop + nextEl.offsetHeight;
     const currentBottom = listEl.scrollTop + listEl.offsetHeight;
@@ -232,7 +233,7 @@ const highlightOption = (el, currentEl, nextEl) => {
   }
 };
 
-function handleEnter(event) {
+const handleEnter = (event) => {
   const { comboBoxEl, listEl } = getComboBoxElements(event.target);
 
   if (!listEl.hidden) {
@@ -240,15 +241,15 @@ function handleEnter(event) {
     completeSelection(comboBoxEl);
     hideList(comboBoxEl);
   }
-}
+};
 
-function handleEscape(event) {
+const handleEscape = (event) => {
   const { comboBoxEl, inputEl } = getComboBoxElements(event.target);
   hideList(comboBoxEl);
   inputEl.focus();
-}
+};
 
-function handleUp(event) {
+const handleUp = (event) => {
   event.preventDefault();
   const { comboBoxEl, inputEl, currentOptionEl } = getComboBoxElements(event.target);
   const nextOptionEl = currentOptionEl && currentOptionEl.previousSibling;
@@ -259,9 +260,9 @@ function handleUp(event) {
     hideList(comboBoxEl);
     inputEl.focus();
   }
-}
+};
 
-function handleDown(event) {
+const handleDown = (event) => {
   event.preventDefault();
   const { comboBoxEl, listEl, currentOptionEl } = getComboBoxElements(event.target);
 
@@ -276,14 +277,14 @@ function handleDown(event) {
   if (nextOptionEl) {
     highlightOption(comboBoxEl, currentOptionEl, nextOptionEl);
   }
-}
+};
 
-function handleTab(event) {
+const handleTab = (event) => {
   const { comboBoxEl } = getComboBoxElements(event.target);
 
   completeSelection(comboBoxEl);
   hideList(comboBoxEl);
-}
+};
 
 const comboBox = behavior(
   {
