@@ -46,6 +46,16 @@ describe('combo box component', () => {
       assert(list.hidden);
     });
 
+    it('transfers id attribute to combobox', () => {
+      assert.equal(select.getAttribute('id'), '');
+      assert.equal(input.getAttribute('id'), 'combobox');
+    });
+
+    it('transfers required attribute to combobox', () => {
+      assert.equal(select.getAttribute('required'), null);
+      assert.equal(input.getAttribute('required'), '');
+    });
+
     describe('accessibilty', () => {
       it('the list should have a role of `listbox`', () => {
         assert.equal(list.getAttribute('role'), 'listbox');

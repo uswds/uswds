@@ -62,6 +62,7 @@ const enhanceComboBox = el => {
   const { comboBoxEl, selectEl } = getComboBoxElements(el);
 
   const selectId = selectEl.id;
+  const isRequired = selectEl.required;
   const listId = `${selectId}--list`;
   const assistiveHintID = `${selectId}--assistiveHint`;
 
@@ -79,6 +80,7 @@ const enhanceComboBox = el => {
         aria-autocomplete="list" 
         aria-expanded="false"
         aria-describedby="${assistiveHintID}"
+        ${isRequired ? 'required' : ''}
       >`,
       `<ul 
         id="${listId}" 
@@ -100,6 +102,7 @@ const enhanceComboBox = el => {
 
   selectEl.setAttribute("aria-hidden", "true");
   selectEl.setAttribute("tabindex", "-1");
+  selectEl.removeAttribute("required");
   selectEl.classList.add("usa-sr-only");
   selectEl.id = "";
 };
