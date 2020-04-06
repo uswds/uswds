@@ -65,6 +65,15 @@ const enhanceComboBox = el => {
   const isRequired = selectEl.required;
   const listId = `${selectId}--list`;
   const assistiveHintID = `${selectId}--assistiveHint`;
+  let placeholder = '';
+
+  for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
+    const optionEl = selectEl.options[i];
+    if (!optionEl.value) {
+      placeholder = `placeholder="${optionEl.text}"`
+      break;
+    }
+  }
 
   comboBoxEl.insertAdjacentHTML(
     "beforeend",
@@ -74,7 +83,8 @@ const enhanceComboBox = el => {
         aria-autocomplete="list"
         aria-describedby="${assistiveHintID}"
         aria-expanded="false"
-        autocapitalize="off" 
+        autocapitalize="off"
+        ${placeholder || ''}
         autocomplete="off"
         id="${selectId}" 
         class="${INPUT_CLASS}"
@@ -251,6 +261,7 @@ const handleEnter = (event) => {
 
 const handleEscape = (event) => {
   const { comboBoxEl, inputEl } = getComboBoxElements(event.target);
+
   hideList(comboBoxEl);
   inputEl.focus();
 };
