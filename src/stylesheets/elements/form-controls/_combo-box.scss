@@ -37,8 +37,12 @@
   border-bottom: units(1px) solid color("base-lighter");
   cursor: pointer;
 
+  &--focused:focus {
+    outline-offset: -4px;
+  }
+
   &:hover,
-  &--selected {
+  &--focused {
     background-color: color("primary");
     border-color: color("primary");
     color: color("white");

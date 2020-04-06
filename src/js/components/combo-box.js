@@ -11,13 +11,13 @@ const INPUT_CLASS = `${PREFIX}-combo-box__input`;
 const LIST_CLASS = `${PREFIX}-combo-box__list`;
 const LIST_OPTION_CLASS = `${PREFIX}-combo-box__list-option`;
 const STATUS_CLASS = `${PREFIX}-combo-box__status`;
-const LIST_OPTION_SELECTED_CLASS = `${LIST_OPTION_CLASS}--selected`;
+const LIST_OPTION_FOCUSED_CLASS = `${LIST_OPTION_CLASS}--focused`;
 
 const SELECT = `.${PREFIX}-combo-box__select`;
 const INPUT = `.${INPUT_CLASS}`;
 const LIST = `.${LIST_CLASS}`;
 const LIST_OPTION = `.${LIST_OPTION_CLASS}`;
-const LIST_OPTION_SELECTED = `.${LIST_OPTION_SELECTED_CLASS}`;
+const LIST_OPTION_FOCUSED = `.${LIST_OPTION_FOCUSED_CLASS}`;
 const STATUS = `.${STATUS_CLASS}`;
 
 const isPrintableKeyCode = (keyCode) => {
@@ -48,7 +48,7 @@ const getComboBoxElements = (el) => {
   const inputEl = comboBoxEl.querySelector(INPUT);
   const listEl = comboBoxEl.querySelector(LIST);
   const statusEl = comboBoxEl.querySelector(STATUS);
-  const currentOptionEl = comboBoxEl.querySelector(LIST_OPTION_SELECTED);
+  const currentOptionEl = comboBoxEl.querySelector(LIST_OPTION_FOCUSED);
 
   return { comboBoxEl, selectEl, inputEl, listEl, statusEl, currentOptionEl };
 };
@@ -73,6 +73,7 @@ const enhanceComboBox = el => {
         aria-owns="${listId}"
         aria-autocomplete="list"
         aria-describedby="${assistiveHintID}"
+        aria-expanded="false"
         autocapitalize="off" 
         autocomplete="off"
         id="${selectId}" 
@@ -127,12 +128,13 @@ const displayList = el => {
     .map(
       (option, index) =>
         `<li
+          aria-selected="false"
+          aria-setsize="${options.length}" 
+          aria-posinset="${index + 1}"
           id="${listOptionBaseId}${index}"
           class="${LIST_OPTION_CLASS}"
           tabindex="-1"
           role="option"
-          aria-setsize="${options.length}" 
-          aria-posinset="${index + 1}"
           data-option-value="${option.value}"
         >${option.text}</li>`
     )
@@ -155,7 +157,8 @@ const hideList = el => {
 
   statusEl.innerHTML = "";
 
-  inputEl.removeAttribute("aria-expanded");
+  inputEl.setAttribute("aria-expanded", "false");
+  inputEl.setAttribute("aria-activedescendant", "");
 
   listEl.innerHTML = "";
   listEl.hidden = true;
@@ -207,14 +210,14 @@ const highlightOption = (el, currentEl, nextEl) => {
   const { inputEl, listEl } = getComboBoxElements(el);
 
   if (currentEl) {
-    currentEl.removeAttribute("aria-selected");
-    currentEl.classList.remove(LIST_OPTION_SELECTED_CLASS);
+    currentEl.classList.remove(LIST_OPTION_FOCUSED_CLASS);
+    currentEl.setAttribute("aria-selected", "false");
   }
 
   if (nextEl) {
     inputEl.setAttribute("aria-activedescendant", nextEl.id);
     nextEl.setAttribute("aria-selected", "true");
-    nextEl.classList.add(LIST_OPTION_SELECTED_CLASS);
+    nextEl.classList.add(LIST_OPTION_FOCUSED_CLASS);
 
     const optionBottom = nextEl.offsetTop + nextEl.offsetHeight;
     const currentBottom = listEl.scrollTop + listEl.offsetHeight;
@@ -226,18 +229,22 @@ const highlightOption = (el, currentEl, nextEl) => {
     if (nextEl.offsetTop < listEl.scrollTop) {
       listEl.scrollTop = nextEl.offsetTop;
     }
+    nextEl.focus();
   } else {
-    inputEl.removeAttribute("aria-activedescendant");
+    inputEl.setAttribute("aria-activedescendant", "");
+    inputEl.focus();
   }
 };
 
 const handleEnter = (event) => {
-  const { comboBoxEl, listEl } = getComboBoxElements(event.target);
+  const { comboBoxEl, inputEl, listEl } = getComboBoxElements(event.target);
+  const listShown = !listEl.hidden;
 
   completeSelection(comboBoxEl);
 
-  if (!listEl.hidden) {
+  if (listShown) {
     hideList(comboBoxEl);
+    inputEl.focus();
     event.preventDefault();
   }
 };
@@ -249,17 +256,17 @@ const handleEscape = (event) => {
 };
 
 const handleUp = (event) => {
-  const { comboBoxEl, inputEl, listEl, currentOptionEl } = getComboBoxElements(event.target);
+  const { comboBoxEl, listEl, currentOptionEl } = getComboBoxElements(event.target);
   const nextOptionEl = currentOptionEl && currentOptionEl.previousSibling;
+  const listShown = !listEl.hidden;
 
   highlightOption(comboBoxEl, currentOptionEl, nextOptionEl);
 
-  if (!listEl.hidden) {
+  if (listShown) {
     event.preventDefault();
   }
 
   if (!nextOptionEl) {
-    inputEl.focus();
     hideList(comboBoxEl);
   }
 };
@@ -308,7 +315,7 @@ const comboBox = behavior(
       }
     },
     keydown: {
-      [INPUT]: keymap({
+      [COMBO_BOX]: keymap({
         ArrowUp: handleUp,
         ArrowDown: handleDown,
         Escape: handleEscape,

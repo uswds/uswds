@@ -393,13 +393,12 @@ describe('combo box component', () => {
           input.dispatchEvent(e);
         });
 
-        beforeEach('find the highlighted item in the list', () => {
-          selectedOption = root.querySelector(
-            '.usa-combo-box__list-option--selected',
-          );
+        beforeEach('find the focused item in the list', () => {
+          selectedOption = document.activeElement;
         });
 
-        it('should highlight the first item in the list', () => {
+        it('should focus the first item in the list', () => {
+          assert(selectedOption.classList.contains('usa-combo-box__list-option--focused'));
           assert.equal(selectedOption.textContent, 'Erlang');
         });
 
@@ -433,13 +432,12 @@ describe('combo box component', () => {
           input.dispatchEvent(e);
         });
 
-        beforeEach('find the highlighted item in the list', () => {
-          selectedOption = root.querySelector(
-            '.usa-combo-box__list-option--selected',
-          );
+        beforeEach('find the focused item in the list', () => {
+          selectedOption = document.activeElement;
         });
 
-        it('should highlight the last item in the list', () => {
+        it('should focus the last item in the list', () => {
+          assert(selectedOption.classList.contains('usa-combo-box__list-option--focused'));
           assert.equal(selectedOption.textContent, 'Scala');
         });
 
