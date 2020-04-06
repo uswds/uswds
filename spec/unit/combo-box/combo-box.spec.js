@@ -56,6 +56,11 @@ describe('combo box component', () => {
       assert.equal(input.getAttribute('required'), '');
     });
 
+    it('should not transfer name attribute to combobox', () => {
+      assert.equal(select.getAttribute('name'), 'combobox');
+      assert.equal(input.getAttribute('name'), null);
+    });
+
     describe('accessibilty', () => {
       it('the list should have a role of `listbox`', () => {
         assert.equal(list.getAttribute('role'), 'listbox');
