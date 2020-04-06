@@ -69,17 +69,16 @@ const enhanceComboBox = el => {
   comboBoxEl.insertAdjacentHTML(
     "beforeend",
     [
-      `<input 
+      `<input
+        aria-owns="${listId}"
+        aria-autocomplete="list"
+        aria-describedby="${assistiveHintID}"
+        autocapitalize="off" 
+        autocomplete="off"
         id="${selectId}" 
         class="${INPUT_CLASS}"
-        role='combobox'
-        autocapitalize="none" 
-        autocomplete="off"
         type="text" 
-        aria-owns="${listId}"
-        aria-autocomplete="list" 
-        aria-expanded="false"
-        aria-describedby="${assistiveHintID}"
+        role="combobox"
         ${isRequired ? 'required' : ''}
       >`,
       `<ul 
@@ -88,10 +87,7 @@ const enhanceComboBox = el => {
         role="listbox"
         hidden>
       </ul>`,
-      `<div 
-        class="${STATUS_CLASS} usa-sr-only"
-        role="status"
-        aria-live="polite">
+      `<div class="${STATUS_CLASS} usa-sr-only" role="status">
       </div>`,
       `<span id="${assistiveHintID}" class="usa-sr-only">
         When autocomplete results are available use up and down arrows to review and enter to select.
@@ -131,15 +127,14 @@ const displayList = el => {
     .map(
       (option, index) =>
         `<li
-      id="${listOptionBaseId}${index}"
-      class="${LIST_OPTION_CLASS}"
-      tabindex="-1"
-      role=option
-      aria-selected="false"
-      aria-setsize="${options.length}" 
-      aria-posinset="${index + 1}"
-      data-option-value="${option.value}"
-    >${option.text}</li>`
+          id="${listOptionBaseId}${index}"
+          class="${LIST_OPTION_CLASS}"
+          tabindex="-1"
+          role="option"
+          aria-setsize="${options.length}" 
+          aria-posinset="${index + 1}"
+          data-option-value="${option.value}"
+        >${option.text}</li>`
     )
     .join("");
 
@@ -152,7 +147,7 @@ const displayList = el => {
 
   statusEl.innerHTML = numOptions
     ? `${numOptions} result${numOptions > 1 ? "s" : ""} available.`
-    : '"No results.';
+    : 'No results.';
 };
 
 const hideList = el => {
@@ -160,7 +155,7 @@ const hideList = el => {
 
   statusEl.innerHTML = "";
 
-  inputEl.setAttribute("aria-expanded", "false");
+  inputEl.removeAttribute("aria-expanded");
 
   listEl.innerHTML = "";
   listEl.hidden = true;
@@ -212,7 +207,7 @@ const highlightOption = (el, currentEl, nextEl) => {
   const { inputEl, listEl } = getComboBoxElements(el);
 
   if (currentEl) {
-    currentEl.setAttribute("aria-selected", "false");
+    currentEl.removeAttribute("aria-selected");
     currentEl.classList.remove(LIST_OPTION_SELECTED_CLASS);
   }
 
@@ -239,10 +234,11 @@ const highlightOption = (el, currentEl, nextEl) => {
 const handleEnter = (event) => {
   const { comboBoxEl, listEl } = getComboBoxElements(event.target);
 
+  completeSelection(comboBoxEl);
+
   if (!listEl.hidden) {
-    event.preventDefault();
-    completeSelection(comboBoxEl);
     hideList(comboBoxEl);
+    event.preventDefault();
   }
 };
 
@@ -253,20 +249,22 @@ const handleEscape = (event) => {
 };
 
 const handleUp = (event) => {
-  event.preventDefault();
-  const { comboBoxEl, inputEl, currentOptionEl } = getComboBoxElements(event.target);
+  const { comboBoxEl, inputEl, listEl, currentOptionEl } = getComboBoxElements(event.target);
   const nextOptionEl = currentOptionEl && currentOptionEl.previousSibling;
 
   highlightOption(comboBoxEl, currentOptionEl, nextOptionEl);
 
-  if (currentOptionEl && !nextOptionEl) {
-    hideList(comboBoxEl);
+  if (!listEl.hidden) {
+    event.preventDefault();
+  }
+
+  if (!nextOptionEl) {
     inputEl.focus();
+    hideList(comboBoxEl);
   }
 };
 
 const handleDown = (event) => {
-  event.preventDefault();
   const { comboBoxEl, listEl, currentOptionEl } = getComboBoxElements(event.target);
 
   if (listEl.hidden) {
@@ -275,11 +273,13 @@ const handleDown = (event) => {
 
   const nextOptionEl = currentOptionEl
     ? currentOptionEl.nextSibling
-    : listEl.querySelector(`${LIST_OPTION}`);
+    : listEl.querySelector(LIST_OPTION);
 
   if (nextOptionEl) {
     highlightOption(comboBoxEl, currentOptionEl, nextOptionEl);
   }
+
+  event.preventDefault();
 };
 
 const handleTab = (event) => {
