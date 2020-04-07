@@ -1,3 +1,15 @@
+@mixin card-equal-height {
+  @include at-media("tablet") {
+    @include u-display("flex");
+    @include u-flex("column");
+    @include u-height("full");
+
+    .usa-card__body {
+      @include u-flex("fill");
+    }
+  }
+}
+
 .usa-card {
   @include border-box-sizing;
   @include typeset;
@@ -6,19 +18,6 @@
   @include u-border($theme-card-border-width, $theme-card-border-color);
   @include u-margin-bottom($theme-card-margin);
   @include u-radius($theme-card-border-radius);
-
-  @if $theme-card-equal-height {
-    // We don't need full-height on mobile.
-    @include at-media(tablet) {
-      @include u-display("flex");
-      @include u-flex("column");
-      @include u-height(full);
-
-      .usa-card__body {
-        @include u-flex("fill");
-      }
-    }
-  }
 }
 
 .usa-card:not(.usa-card--flag) > :only-child {
@@ -100,7 +99,7 @@
 // Flag
 // ---------------------------------
 .usa-flag__inner {
-  @include at-media(tablet) {
+  @include at-media("tablet") {
     @include grid-row;
     @include u-padding-x(0);
     @include u-width("full");
@@ -113,7 +112,7 @@
   @include u-radius-top($theme-card-border-radius);
   overflow: hidden;
 
-  @include at-media(tablet) {
+  @include at-media("tablet") {
     @include grid-col(4);
     @include u-margin-top(0);
     @include u-margin-x(0);
@@ -124,7 +123,7 @@
 }
 
 .usa-card--flag .usa-card__content-wrapper {
-  @include at-media(tablet) {
+  @include at-media("tablet") {
     @include grid-col(8);
   }
 }
@@ -140,14 +139,14 @@
 }
 
 .usa-card--flag.usa-card--media-right .usa-card__media {
-  @include at-media(tablet) {
+  @include at-media("tablet") {
     @include u-padding-left(0);
     @include u-padding-right($theme-card-padding-size);
   }
 }
 
 .usa-card--flag.usa-card--media-right .usa-card__content-wrapper {
-  @include at-media(tablet) {
+  @include at-media("tablet") {
     @include u-order("first");
   }
 }
