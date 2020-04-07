@@ -30,7 +30,6 @@ variants:
         id: "card-media"
         media: true
 
-
   - name: raised
     label: Raised
     context:
@@ -39,3 +38,10 @@ variants:
         title: Make your card standout from its context
         id: "card-standout"
 
+  - name: equal-height
+    label: Equal Height
+    context:
+      card:
+        classes: "usa-card--equal-height"
+        title: Equal height as a class or mixin
+        id: "card-equal-height"

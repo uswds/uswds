@@ -150,3 +150,9 @@
     @include u-order("first");
   }
 }
+
+// Equal Height
+// ---------------------------------
+.usa-card--equal-height {
+  @include card-equal-height;
+}
