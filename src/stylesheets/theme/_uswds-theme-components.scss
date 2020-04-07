@@ -39,16 +39,16 @@ $theme-button-small-width: 6;
 $theme-button-stroke-width: 2px;
 
 // Card
-$theme-card-header-font-family: "ui";
-$theme-card-font-family: "ui";
-$theme-card-margin: 2;
+$theme-card-bg-color: "white";
+$theme-card-border-color: "base-lighter";
 $theme-card-border-radius: "md";
 $theme-card-border-width: 2px;
-$theme-card-border-color: "base-lighter";
-$theme-card-bg-color: "white";
-$theme-card-shadow-density: 3;
-$theme-card-padding-size: 4;
 $theme-card-equal-height: false;
+$theme-card-font-family: "ui";
+$theme-card-header-font-family: "ui";
+$theme-card-margin: 2;
+$theme-card-padding-size: 4;
+$theme-card-shadow-size: 3;
 
 // Footer
 $theme-footer-font-family: "body";
