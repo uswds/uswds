@@ -36,6 +36,6 @@ variants:
     context:
       card:
         classes: "usa-card--raised"
-        title: Make your card standout
+        title: Make your card standout from its context
         id: "card-standout"
 
