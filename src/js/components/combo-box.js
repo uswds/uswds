@@ -22,7 +22,7 @@ const STATUS = `.${STATUS_CLASS}`;
 
 /**
  * Determine if the key code of an event is printable
- *
+ * 
  * @param {number} keyCode The key code of the event
  * @returns {boolean} true is the key code is printable
  */
@@ -38,6 +38,25 @@ const isPrintableKeyCode = (keyCode) => {
   );
 }
 
+
+/**
+ * The elements within the combo box.
+ * @typedef {Object} ComboBoxElements
+ * @property {HTMLElement} comboBoxEl
+ * @property {HTMLSelectElement} selectEl
+ * @property {HTMLInputElement} inputEl
+ * @property {HTMLUListElement} listEl
+ * @property {HTMLDivElement} statusEl
+ * @property {HTMLOptionElement} currentOptionEl
+ */
+
+/**
+ * Get an object of elements belonging directly to the given
+ * combo box component.
+ * 
+ * @param {HTMLElement} el the element within the combo box
+ * @returns {ComboBoxElements} elements
+ */
 const getComboBoxElements = (el) => {
   const comboBoxEl = el.closest(COMBO_BOX);
 
@@ -60,9 +79,9 @@ const getComboBoxElements = (el) => {
 };
 
 /**
- * Enhance the combo box element
+ * Enhance a select element into a combo box component.
  *
- * @param {Element} el The initial element within the combobox component
+ * @param {HTMLElement} el The initial element within the combobox component
  */
 const enhanceComboBox = el => {
   const { comboBoxEl, selectEl } = getComboBoxElements(el);
@@ -120,6 +139,11 @@ const enhanceComboBox = el => {
   );
 };
 
+/**
+ * Display the option list of a combo box component.
+ *
+ * @param {HTMLElement} el An element within the combobox component
+ */
 const displayList = el => {
   const { selectEl, inputEl, listEl, statusEl } = getComboBoxElements(el);
 
@@ -167,6 +191,11 @@ const displayList = el => {
     : 'No results.';
 };
 
+/**
+ * Hide the option list of a combo box component.
+ *
+ * @param {HTMLElement} el An element within the combobox component
+ */
 const hideList = el => {
   const { inputEl, listEl, statusEl } = getComboBoxElements(el);
 
@@ -179,6 +208,11 @@ const hideList = el => {
   listEl.hidden = true;
 };
 
+/**
+ * Select an option list of the combo box component.
+ *
+ * @param {HTMLElement} listOptionEl The list option being selected
+ */
 const selectItem = listOptionEl => {
   const { comboBoxEl, selectEl, inputEl } = getComboBoxElements(listOptionEl);
 
@@ -188,10 +222,14 @@ const selectItem = listOptionEl => {
   inputEl.focus();
 };
 
-const handlePrintableKey = input => {
-  displayList(input);
-};
-
+/**
+ * Select an option list of the combo box component based off of
+ * having a current focused list option or
+ * having test that completely matches a list option.
+ * Otherwise it clears the input and select.
+ *
+ * @param {HTMLElement} el An element within the combobox component
+ */
 const completeSelection = el => {
   const { selectEl, inputEl, statusEl, currentOptionEl } = getComboBoxElements(el);
 
@@ -220,6 +258,14 @@ const completeSelection = el => {
   inputEl.value = "";
 };
 
+/**
+ * Manage the focused element within the list options when 
+ * navigating via keyboard.
+ *
+ * @param {HTMLElement} el An element within the combobox component
+ * @param {HTMLElement} currentEl An element within the combobox component
+ * @param {HTMLElement} nextEl An element within the combobox component
+ */
 const highlightOption = (el, currentEl, nextEl) => {
   const { inputEl, listEl } = getComboBoxElements(el);
 
@@ -250,6 +296,11 @@ const highlightOption = (el, currentEl, nextEl) => {
   }
 };
 
+/**
+ * Handle the enter event within the combo box component.
+ *
+ * @param {KeyboardEvent} event An event within the combo box component
+ */
 const handleEnter = (event) => {
   const { comboBoxEl, inputEl, listEl } = getComboBoxElements(event.target);
   const listShown = !listEl.hidden;
@@ -263,6 +314,11 @@ const handleEnter = (event) => {
   }
 };
 
+/**
+ * Handle the down event within the combo box component.
+ *
+ * @param {KeyboardEvent} event An event within the combo box component
+ */
 const handleEscape = (event) => {
   const { comboBoxEl, inputEl } = getComboBoxElements(event.target);
 
@@ -270,6 +326,11 @@ const handleEscape = (event) => {
   inputEl.focus();
 };
 
+/**
+ * Handle the up event within the combo box component.
+ *
+ * @param {KeyboardEvent} event An event within the combo box component
+ */
 const handleUp = (event) => {
   const { comboBoxEl, listEl, currentOptionEl } = getComboBoxElements(event.target);
   const nextOptionEl = currentOptionEl && currentOptionEl.previousSibling;
@@ -286,6 +347,11 @@ const handleUp = (event) => {
   }
 };
 
+/**
+ * Handle the down event within the combo box component.
+ *
+ * @param {KeyboardEvent} event An event within the combo box component
+ */
 const handleDown = (event) => {
   const { comboBoxEl, listEl, currentOptionEl } = getComboBoxElements(event.target);
 
@@ -304,6 +370,11 @@ const handleDown = (event) => {
   event.preventDefault();
 };
 
+/**
+ * Handle the tab event within the combo box component.
+ *
+ * @param {KeyboardEvent} event An event within the combo box component
+ */
 const handleTab = (event) => {
   const { comboBoxEl } = getComboBoxElements(event.target);
 
@@ -341,7 +412,7 @@ const comboBox = behavior(
     keyup: {
       [INPUT](event) {
         if (isPrintableKeyCode(event.keyCode)) {
-          handlePrintableKey(this);
+          displayList(this);
         }
       }
     }
