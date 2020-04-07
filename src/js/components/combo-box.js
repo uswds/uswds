@@ -20,6 +20,12 @@ const LIST_OPTION = `.${LIST_OPTION_CLASS}`;
 const LIST_OPTION_FOCUSED = `.${LIST_OPTION_FOCUSED_CLASS}`;
 const STATUS = `.${STATUS_CLASS}`;
 
+/**
+ * Determine if the key code of an event is printable
+ *
+ * @param {number} keyCode The key code of the event
+ * @returns {boolean} true is the key code is printable
+ */
 const isPrintableKeyCode = (keyCode) => {
   return (
     (keyCode > 47 && keyCode < 58) || // number keys
@@ -75,6 +81,12 @@ const enhanceComboBox = el => {
     }
   }
 
+  selectEl.setAttribute("aria-hidden", "true");
+  selectEl.setAttribute("tabindex", "-1");
+  selectEl.removeAttribute("required");
+  selectEl.classList.add("usa-sr-only");
+  selectEl.id = "";
+
   comboBoxEl.insertAdjacentHTML(
     "beforeend",
     [
@@ -106,12 +118,6 @@ const enhanceComboBox = el => {
       </span>`
     ].join("")
   );
-
-  selectEl.setAttribute("aria-hidden", "true");
-  selectEl.setAttribute("tabindex", "-1");
-  selectEl.removeAttribute("required");
-  selectEl.classList.add("usa-sr-only");
-  selectEl.id = "";
 };
 
 const displayList = el => {
@@ -121,10 +127,9 @@ const displayList = el => {
 
   const inputValue = (inputEl.value || "").toLowerCase();
 
-  let optionEl;
   const options = [];
   for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
-    optionEl = selectEl.options[i];
+    const optionEl = selectEl.options[i];
     if (
       optionEl.value &&
       (!inputValue || optionEl.text.toLowerCase().indexOf(inputValue) !== -1)
@@ -201,9 +206,8 @@ const completeSelection = el => {
   const inputValue = (inputEl.value || "").toLowerCase();
 
   if (inputValue) {
-    let optionEl;
     for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
-      optionEl = selectEl.options[i];
+      const optionEl = selectEl.options[i];
       if (optionEl.text.toLowerCase() === inputValue) {
         selectEl.value = optionEl.value;
         inputEl.value = optionEl.text;

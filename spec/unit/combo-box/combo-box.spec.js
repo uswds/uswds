@@ -157,11 +157,6 @@ describe('combo box component', () => {
         assert.equal(list.children.length, 0);
       });
     });
-
-    // describe('show the list by clicking the down arrow', () => {
-    //   beforeEach('click the down arrow', () => { });
-    //   it('displays the option list', () => { });
-    // });
   });
 
   describe('interaction - input', () => {
