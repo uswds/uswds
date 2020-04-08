@@ -6,6 +6,7 @@
 
     .usa-card__body {
       @include u-flex("fill");
+      flex-basis: auto; // IE 11
     }
   }
 }
