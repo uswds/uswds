@@ -11,47 +11,47 @@ const INVALID_CLASS = `${PREFIX}-character-count--invalid`;
 /**
  * The elements within the character count.
  * @typedef {Object} CharacterCountElements
- * @property {HTMLDivElement} characterCount
- * @property {HTMLSpanElement} message
+ * @property {HTMLDivElement} characterCountEl
+ * @property {HTMLSpanElement} messageEl
  */
 
 /**
  * Returns the root and message element
  * for an character count input
  *
- * @param {HTMLInputElement|HTMLTextAreaElement} input The character count input element
+ * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
  * @returns {CharacterCountElements} elements The root and message element.
  */
-const getCharacterCountElements = input => {
-  const characterCount = input.closest(CHARACTER_COUNT);
+const getCharacterCountElements = inputEl => {
+  const characterCountEl = inputEl.closest(CHARACTER_COUNT);
 
-  if (!characterCount) {
+  if (!characterCountEl) {
     throw new Error(`${INPUT} is missing outer ${CHARACTER_COUNT}`);
   }
 
-  const message = characterCount.querySelector(MESSAGE);
+  const messageEl = characterCountEl.querySelector(MESSAGE);
 
-  if (!message) {
+  if (!messageEl) {
     throw new Error(`${CHARACTER_COUNT} is missing inner ${MESSAGE}`);
   }
 
-  return { characterCount, message };
+  return { characterCountEl, messageEl };
 };
 
 /**
  * Update the character count component
  *
- * @param {HTMLInputElement|HTMLTextAreaElement} input The character count input element
+ * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
  */
-const updateCountMessage = input => {
-  const { characterCount, message } = getCharacterCountElements(input);
+const updateCountMessage = inputEl => {
+  const { characterCountEl, messageEl } = getCharacterCountElements(inputEl);
 
-  const maxlength = parseInt(characterCount.getAttribute("data-maxlength"), 10);
+  const maxlength = parseInt(characterCountEl.getAttribute("data-maxlength"), 10);
 
   if (!maxlength) return;
 
   let newMessage = '';
-  const currentLength = input.value.length;
+  const currentLength = inputEl.value.length;
   const isOverLimit = currentLength && currentLength > maxlength;
 
   if (currentLength === 0) {
@@ -64,33 +64,33 @@ const updateCountMessage = input => {
     newMessage = `${difference} ${characters} ${guidance}`;
   }
 
-  characterCount.classList.toggle(INVALID_CLASS, isOverLimit);
+  characterCountEl.classList.toggle(INVALID_CLASS, isOverLimit);
 
-  message.innerHTML = newMessage;
+  messageEl.innerHTML = newMessage;
 
-  if (isOverLimit && !input.validationMessage) {
-    input.setCustomValidity(VALIDATION_MESSAGE);
+  if (isOverLimit && !inputEl.validationMessage) {
+    inputEl.setCustomValidity(VALIDATION_MESSAGE);
   }
 
-  if (!isOverLimit && input.validationMessage === VALIDATION_MESSAGE) {
-    input.setCustomValidity("");
+  if (!isOverLimit && inputEl.validationMessage === VALIDATION_MESSAGE) {
+    inputEl.setCustomValidity("");
   }
 };
 
 /**
  * Setup the character count component
  *
- * @param {HTMLInputElement|HTMLTextAreaElement} input The character count input element
+ * @param {HTMLInputElement|HTMLTextAreaElement} inputEl The character count input element
  */
-const setupAttributes = input => {
-  const { characterCount } = getCharacterCountElements(input);
+const setupAttributes = inputEl => {
+  const { characterCountEl } = getCharacterCountElements(inputEl);
 
-  const maxlength = input.getAttribute("maxlength");
+  const maxlength = inputEl.getAttribute("maxlength");
 
   if (!maxlength) return;
 
-  input.removeAttribute("maxlength");
-  characterCount.setAttribute("data-maxlength", maxlength);
+  inputEl.removeAttribute("maxlength");
+  characterCountEl.setAttribute("data-maxlength", maxlength);
 };
 
 const characterCount = behavior(
