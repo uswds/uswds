@@ -89,11 +89,20 @@ const enhanceComboBox = el => {
   const listId = `${selectId}--list`;
   const assistiveHintID = `${selectId}--assistiveHint`;
   let placeholder = '';
+  let selectedOption;
 
   for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
     const optionEl = selectEl.options[i];
-    if (!optionEl.value) {
+
+    if (!placeholder && !optionEl.value) {
       placeholder = `placeholder="${optionEl.text}"`
+    }
+
+    if (!selectedOption && optionEl.selected && optionEl.value) {
+      selectedOption = optionEl;
+    }
+
+    if (placeholder && selectedOption) {
       break;
     }
   }
@@ -135,6 +144,12 @@ const enhanceComboBox = el => {
       </span>`
     ].join("")
   );
+
+  if (selectedOption) {
+    const { inputEl } = getComboBoxElements(el);
+    selectEl.value = selectedOption.value;
+    inputEl.value = selectedOption.text;
+  }
 };
 
 /**
