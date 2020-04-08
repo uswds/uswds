@@ -1,5 +1,5 @@
 label: Card
-status: prototype
+status: draft
 order: 1
 preview: "@uswds-content"
 
@@ -9,17 +9,46 @@ context:
     content:
       - A card is typically a member of a collection a subset or summary of a parent/record.
         It includes at least an actionable element. It's modular and distinct from its collection peers in content.
-    actions:
-      button: true
-      link: false
-      social: false
 
 variants:
-  - name: default
-    label: Default
+  - name: compare
+    label: Compare
     context:
-      card:
-        classes: "usa-card"
+      cards:
+        - name: default
+          classes: ""
+          title: Default card
+          content:
+            - A card is typically a member of a collection a subset or
+              summary of a parent/record.
+        - name: raised
+          classes: "usa-card--raised"
+          title: Raised Card
+          content:
+            - A raised card makes your card standout. Cards are typically the
+              visual representation of a member of a collection.
+        - name: media
+          classes: "usa-card--media"
+          title: Media card
+          media: true
+          content:
+            - Adding media to your card can help visually separate it from
+              its peers.
+        - name: flag
+          classes: "usa-card--flag"
+          title: Flag default
+          media: true
+          flag: true
+          content:
+            - Some filler text.
+        - name: flag-right
+          classes: "usa-card--flag usa-card--media-right"
+          title: Flag media on right
+          media: true
+          flag: true
+          content:
+            - Some filler text.
+  - name: default
 
   - name: media
     label: Media
