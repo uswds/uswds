@@ -48,6 +48,7 @@ variants:
           flag: true
           content:
             - Some filler text.
+
   - name: default
 
   - name: media

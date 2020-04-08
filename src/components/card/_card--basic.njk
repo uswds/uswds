@@ -1,6 +1,6 @@
 <section class="usa-card {{ card.classes }}">
   {% if card.flag %}<div class="usa-flag__inner">{% endif %}
-  {% if card.media %}
+  {%- if card.media -%}
   <div class="usa-card__media">
     <img class="usa-card__img"
       srcset="https://images.unsplash.com/photo-1579800070193-abe62433f737?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ 400w,
@@ -12,24 +12,24 @@
       src="https://images.unsplash.com/photo-1579800070193-abe62433f737?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
       alt="A placeholder image">
   </div>
-  {% endif %}
-  {% if card.flag %}<div class="usa-flag__content-wrapper">{% endif %}
+  {%- endif -%}
+  {%- if card.flag %}<div class="usa-flag__content-wrapper">{% endif -%}
   <header class="usa-card__header">
     <h2 class="usa-card__heading">
       {{ card.title }}
     </h2>
   </header>
   <div class="usa-card__body">
-    {% block card_body %}
+    {%- block card_body -%}
       {%- if card.content -%}
       <p>{{ card.content }}</p>
       {%- endif -%}
-    {% endblock %}
+    {%- endblock -%}
   </div>
   <div class="usa-card__footer">
-    {% block card_footer %}
+    {% block card_footer -%}
       <button class="usa-button">More on Cards</button>
-    {% endblock %}
+    {%- endblock %}
   </div>
-  {% if card.flag %}</div></div>{% endif %}
+  {%- if card.flag %}</div></div>{% endif %}
 </section>
