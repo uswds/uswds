@@ -37,7 +37,6 @@ const isPrintableKeyCode = (keyCode) => {
   );
 }
 
-
 /**
  * The elements within the combo box.
  * @typedef {Object} ComboBoxElements
@@ -372,18 +371,6 @@ const handleDown = (event) => {
   event.preventDefault();
 };
 
-/**
- * Handle the tab event within the combo box component.
- *
- * @param {KeyboardEvent} event An event within the combo box component
- */
-const handleTab = (event) => {
-  const { comboBoxEl } = getComboBoxElements(event.target);
-
-  completeSelection(comboBoxEl);
-  hideList(comboBoxEl);
-};
-
 const comboBox = behavior(
   {
     [CLICK]: {
@@ -408,8 +395,7 @@ const comboBox = behavior(
         ArrowUp: handleUp,
         ArrowDown: handleDown,
         Escape: handleEscape,
-        Enter: handleEnter,
-        Tab: handleTab
+        Enter: handleEnter
       })
     },
     keyup: {
