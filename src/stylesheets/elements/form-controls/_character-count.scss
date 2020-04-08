@@ -5,15 +5,9 @@
   }
 }
 
-.usa-character-count--warning {
-  .usa-character-count__message {
-    font-weight: font-weight("bold");
-    color: color("ink");
-  }
-}
-
 .usa-character-count--invalid {
   .usa-character-count__message {
+    font-weight: font-weight("bold");
     color: color("error-dark");
   }
 }

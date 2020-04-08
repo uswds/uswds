@@ -7,16 +7,20 @@ const INPUT = `.${PREFIX}-character-count__input`;
 const MESSAGE = `.${PREFIX}-character-count__message`;
 const VALIDATION_MESSAGE = "The content is too long.";
 const INVALID_CLASS = `${PREFIX}-character-count--invalid`;
-const WARNING_CLASS = `${PREFIX}-character-count--warning`;
+
+/**
+ * The elements within the character count.
+ * @typedef {Object} CharacterCountElements
+ * @property {HTMLDivElement} characterCount
+ * @property {HTMLSpanElement} message
+ */
 
 /**
  * Returns the root and message element
  * for an character count input
  *
- * @param {Element} input The character count input element
- * @returns {Object} elements The root and message element.
- * @returns {HTMLElement} elements.characterCount The root character count element
- * @returns {HTMLElement} elements.messages The message objects
+ * @param {HTMLInputElement|HTMLTextAreaElement} input The character count input element
+ * @returns {CharacterCountElements} elements The root and message element.
  */
 const getElements = input => {
   const characterCount = input.closest(CHARACTER_COUNT);
@@ -37,31 +41,29 @@ const getElements = input => {
 /**
  * Update the character count component
  *
- * @param {Element} input The character count input element
+ * @param {HTMLInputElement|HTMLTextAreaElement} input The character count input element
  */
 const updateCountMessage = input => {
   const { characterCount, message } = getElements(input);
 
-  const maxlength = characterCount.getAttribute("data-maxlength");
+  const maxlength = parseInt(characterCount.getAttribute("data-maxlength"), 10);
 
   if (!maxlength) return;
 
-  let newMessage;
+  let newMessage = '';
   const currentLength = input.value.length;
   const isOverLimit = currentLength && currentLength > maxlength;
-  const isCloseToLimit = currentLength && currentLength >= maxlength - 10;
 
   if (currentLength === 0) {
     newMessage = `${maxlength} characters allowed`;
   } else {
     const difference = Math.abs(maxlength - currentLength);
-    const characters = "character" + (difference === 1 ? "" : "s");
+    const characters = `character${difference === 1 ? "" : "s"}`;
     const guidance = isOverLimit ? "over limit" : "left";
 
     newMessage = `${difference} ${characters} ${guidance}`;
   }
 
-  characterCount.classList.toggle(WARNING_CLASS, isCloseToLimit);
   characterCount.classList.toggle(INVALID_CLASS, isOverLimit);
 
   message.innerHTML = newMessage;
@@ -69,6 +71,7 @@ const updateCountMessage = input => {
   if (isOverLimit && !input.validationMessage) {
     input.setCustomValidity(VALIDATION_MESSAGE);
   }
+
   if (!isOverLimit && input.validationMessage === VALIDATION_MESSAGE) {
     input.setCustomValidity("");
   }
@@ -77,7 +80,7 @@ const updateCountMessage = input => {
 /**
  * Setup the character count component
  *
- * @param {Element} input The character count input element
+ * @param {HTMLInputElement|HTMLTextAreaElement} input The character count input element
  */
 const setupAttributes = input => {
   const { characterCount } = getElements(input);
@@ -106,7 +109,6 @@ const characterCount = behavior(
       });
     },
     INVALID_CLASS,
-    WARNING_CLASS,
     VALIDATION_MESSAGE
   }
 );
