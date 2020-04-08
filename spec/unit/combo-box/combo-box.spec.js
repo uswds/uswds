@@ -100,6 +100,18 @@ EVENTS.keydownArrowDown = (el) => {
   el.dispatchEvent(evt);
 };
 
+/**
+ * send a keydown ArrowUp event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.keydownArrowUp = (el) => {
+  const evt = new KeyboardEvent('keydown', {
+    bubbles: true,
+    key: 'ArrowUp',
+  });
+  el.dispatchEvent(evt);
+};
+
 describe('combo box component', () => {
   const { body } = document;
 
@@ -136,9 +148,13 @@ describe('combo box component', () => {
     assert.equal(list.getAttribute('role'), 'listbox', 'the list should have a role of `listbox`');
     assert.ok(select.getAttribute('aria-hidden'), 'the select should be hidden from screen readers');
     assert.equal(select.getAttribute('tabindex'), '-1', 'the select should be hidden from keyboard navigation');
+    assert.equal(select.value, 'value-JavaScript', 'select the selected select item');
+    assert.equal(input.value, 'JavaScript', 'select the selected select item');
   });
 
   it('should show the list by clicking the input', () => {
+    input.value = '';
+
     EVENTS.click(input);
 
     assert.ok(list && !list.hidden, 'should display the option list');
@@ -150,6 +166,8 @@ describe('combo box component', () => {
   });
 
   it('should show the list by clicking when clicking the input twice', () => {
+    input.value = '';
+
     EVENTS.click(input);
     EVENTS.click(input);
 
@@ -192,6 +210,8 @@ describe('combo box component', () => {
   });
 
   it('should select an item from the option list when clicking a list option', () => {
+    input.value = '';
+
     EVENTS.click(input);
     EVENTS.click(list.children[0]);
 
@@ -298,6 +318,13 @@ describe('combo box component', () => {
     assert.equal(list.children[0].textContent, 'No results found', 'should show no results list item');
   });
 
+  it('should show the list when pressing down from an empty input', () => {
+    assert.ok(list.hidden, 'the option list is hidden');
+
+    EVENTS.keydownArrowDown(input);
+    assert.ok(list && !list.hidden, 'should display the option list');
+  });
+
   it('should focus the first item in the list when pressing down from the input', () => {
     input.value = 'la';
 
@@ -355,5 +382,20 @@ describe('combo box component', () => {
     assert.equal(list.children.length, 0, 'should empty the option list');
     assert.equal(select.value, 'value-JavaScript', 'should not change the value of the select');
     assert.equal(input.value, 'la', 'should not change the value in the input');
+  });
+
+  it('should focus the input and hide the list when pressing up from the first item in the list', () => {
+    input.value = 'la';
+
+    EVENTS.keyupA(input);
+    assert.ok(list && !list.hidden, 'should display the option list');
+    assert.equal(list.children.length, 2, 'should filter the item by the string being present in the option');
+    EVENTS.keydownArrowDown(input);
+    const focusedOption = document.activeElement;
+    assert.equal(focusedOption.textContent, 'Erlang', 'should focus the first item in the list');
+    EVENTS.keydownArrowUp(focusedOption);
+
+    assert.ok(list.hidden, 'should hide the option list');
+    assert.equal(document.activeElement, input, 'should focus the input');
   });
 });
