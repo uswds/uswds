@@ -33,6 +33,74 @@ EVENTS.focusout = (el) => {
   el.dispatchEvent(evt);
 };
 
+/**
+ * send a keyup A event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.keyupA = (el) => {
+  const evt = new KeyboardEvent('keyup', {
+    bubbles: true,
+    key: 'a',
+    keyCode: 65,
+  });
+  el.dispatchEvent(evt);
+};
+
+/**
+ * send a keyup O event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.keyupO = (el) => {
+  const evt = new KeyboardEvent('keyup', {
+    bubbles: true,
+    key: 'o',
+    keyCode: 79,
+  });
+  el.dispatchEvent(evt);
+};
+
+/**
+ * send a keydown Enter event
+ * @param {HTMLElement} el the element to sent the event to
+  * @returns {{preventDefaultSpy: sinon.SinonSpy<[], void>}}
+ */
+EVENTS.keydownEnter = (el) => {
+  const evt = new KeyboardEvent('keydown', {
+    bubbles: true,
+    key: 'Enter',
+    keyCode: 13,
+  });
+  const preventDefaultSpy = sinon.spy(evt, 'preventDefault');
+  el.dispatchEvent(evt);
+  return { preventDefaultSpy };
+};
+
+/**
+ * send a keydown Escape event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.keydownEscape = (el) => {
+  const evt = new KeyboardEvent('keydown', {
+    bubbles: true,
+    key: 'Escape',
+    keyCode: 27,
+  });
+  el.dispatchEvent(evt);
+};
+
+/**
+ * send a keydown ArrowDown event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.keydownArrowDown = (el) => {
+  const evt = new KeyboardEvent('keydown', {
+    bubbles: true,
+    key: 'ArrowDown',
+  });
+  el.dispatchEvent(evt);
+};
+
+
 describe('combo box component', () => {
   const { body } = document;
 
@@ -94,7 +162,7 @@ describe('combo box component', () => {
     );
   });
 
-  it('should set up the list item for accessibilty', () => {
+  it('should set up the list items for accessibilty', () => {
     EVENTS.click(input);
 
     for (let i = 0, len = list.children.length; i < len; i += 1) {
@@ -134,303 +202,163 @@ describe('combo box component', () => {
     assert.equal(list.children.length, 0, 'should empty the option list');
   });
 
-  describe('interaction - input', () => {
-    beforeEach('set an initial value in the select', () => {
-      select.value = 'value-ActionScript';
-    });
+  it('should display and filter the option list after a character is typed', () => {
+    input.value = 'a';
 
-    describe('typing letters - incomplete option', () => {
-      beforeEach('type in letter into the input', () => {
-        input.value = 'a';
-        const e = new KeyboardEvent('keyup', {
-          bubbles: true,
-          key: 'a',
-          keyCode: 65,
-        });
-        input.dispatchEvent(e);
-      });
+    EVENTS.keyupA(input);
 
-      it('displays the option list', () => {
-        assert(list && !list.hidden);
-      });
-
-      it('should filter the item by the string being present in the option', () => {
-        assert.equal(list.children.length, 10);
-      });
-
-      describe('close the list by clicking away', () => {
-        beforeEach('click outside of the combobox', () => {
-          EVENTS.focusout(input);
-        });
-
-        it('should hide and empty the option list', () => {
-          assert.equal(list.children.length, 0);
-          assert(list.hidden);
-        });
-
-        it('should clear the value on the select', () => {
-          assert.equal(select.value, '');
-        });
-
-        it('should clear the value on the input', () => {
-          assert.equal(input.value, '');
-        });
-      });
-
-      describe('complete selection by pressing enter', () => {
-        let preventDefaultSpy;
-
-        beforeEach('press enter from within the input', () => {
-          const e = new KeyboardEvent('keydown', {
-            bubbles: true,
-            key: 'Enter',
-            keyCode: 13,
-          });
-          preventDefaultSpy = sinon.spy(e, 'preventDefault');
-          input.dispatchEvent(e);
-        });
-
-        it('should hide and empty the option list', () => {
-          assert.equal(list.children.length, 0);
-          assert(list.hidden);
-        });
-
-        it('should clear the value on the select', () => {
-          assert.equal(select.value, '');
-        });
-
-        it('should clear the value on the input', () => {
-          assert.equal(input.value, '');
-        });
-
-        it('should not have allowed enter to propagate', () => {
-          assert(preventDefaultSpy.called);
-        });
-
-        describe('subsequent enter', () => {
-          beforeEach('press enter from within the input', () => {
-            const e = new KeyboardEvent('keydown', {
-              bubbles: true,
-              key: 'Enter',
-              keyCode: 13,
-            });
-            preventDefaultSpy = sinon.spy(e, 'preventDefault');
-            input.dispatchEvent(e);
-          });
-
-          it('should attempt to submit the form', () => {
-            assert(preventDefaultSpy.notCalled);
-          });
-        });
-      });
-
-      describe('close the list by clicking escape', () => {
-        beforeEach('click the escape button within the input', () => {
-          const e = new KeyboardEvent('keydown', {
-            bubbles: true,
-            key: 'Escape',
-            keyCode: 27,
-          });
-          input.dispatchEvent(e);
-        });
-
-        it('should hide and empty the option list', () => {
-          assert.equal(list.children.length, 0);
-          assert(list.hidden);
-        });
-        it('should not change the value of the select', () => {
-          assert.equal(select.value, 'value-ActionScript');
-        });
-        it('should not change the value in the input', () => {
-          assert.equal(input.value, 'a');
-        });
-      });
-    });
-
-    describe('typing a complete option', () => {
-      beforeEach('type a complete option into the input', () => {
-        input.value = 'go';
-        const e = new KeyboardEvent('keyup', {
-          bubbles: true,
-          key: 'o',
-          keyCode: 79,
-        });
-        input.dispatchEvent(e);
-      });
-
-      it('displays the option list', () => {
-        assert(list && !list.hidden);
-      });
-
-      describe('close list by clicking away', () => {
-        beforeEach('click outside of the combobox', () => {
-          EVENTS.focusout(input);
-        });
-
-        it('should hide and empty the option list', () => {
-          assert.equal(list.children.length, 0);
-          assert(list.hidden);
-        });
-
-        it('should set that item to being the select option', () => {
-          assert.equal(select.value, 'value-Go');
-        });
-
-        it('should set that item to being the input value', () => {
-          assert.equal(input.value, 'Go');
-        });
-      });
-
-      describe('complete selection by pressing enter', () => {
-        beforeEach('press enter from within the input', () => {
-          const e = new KeyboardEvent('keydown', {
-            bubbles: true,
-            key: 'Enter',
-            keyCode: 13,
-          });
-          input.dispatchEvent(e);
-        });
-        it('should hide and empty the option list', () => {
-          assert.equal(list.children.length, 0);
-          assert(list.hidden);
-        });
-
-        it('should set that item to being the select option', () => {
-          assert.equal(select.value, 'value-Go');
-        });
-
-        it('should set that item to being the input value', () => {
-          assert.equal(input.value, 'Go');
-        });
-      });
-    });
-
-    describe('typing an nonexistent option', () => {
-      beforeEach('type a nonexistent option into the input', () => {
-        input.value = 'Bibbidi-Bobbidi-Boo';
-        const e = new KeyboardEvent('keyup', {
-          bubbles: true,
-          key: 'o',
-          keyCode: 79,
-        });
-        input.dispatchEvent(e);
-      });
-
-      it('displays the option list', () => {
-        assert(list && !list.hidden);
-      });
-
-      it('should show no results list item', () => {
-        assert.equal(list.children.length, 1);
-        assert.equal(list.children[0].textContent, 'No results found');
-      });
-    });
+    assert(list && !list.hidden, 'should display the option list');
+    assert.equal(list.children.length, 10, 'should filter the item by the string being present in the option');
   });
 
-  describe('interaction - input - keyboard', () => {
-    let selectedOption;
+  it('should clear input values when an incomplete item is remaining on blur', () => {
+    select.value = 'value-ActionScript';
+    input.value = 'a';
 
-    beforeEach('set a value in the select', () => {
-      selectedOption = null;
-      select.value = 'value-JavaScript';
-    });
+    EVENTS.keyupA(input);
+    assert(list && !list.hidden, 'should display the option list');
+    EVENTS.focusout(input);
 
-    describe('typing letters', () => {
-      beforeEach('type in letters into the input', () => {
-        input.value = 'la';
-        const e = new KeyboardEvent('keyup', {
-          bubbles: true,
-          key: 'a',
-          keyCode: 65,
-        });
-        input.dispatchEvent(e);
-      });
+    assert(list.hidden, 'should hide the option list');
+    assert.equal(list.children.length, 0, 'should empty the option list');
+    assert.equal(select.value, '', 'should clear the value on the select');
+    assert.equal(input.value, '', 'should clear the value on the input');
+  });
 
-      it('displays the option list', () => {
-        assert(list && !list.hidden);
-      });
+  it('should clear input values when an incomplete item is submitted through enter', () => {
+    select.value = 'value-ActionScript';
+    input.value = 'a';
 
-      it('should filter the item by the string being present in the option', () => {
-        assert.equal(list.children.length, 2);
-      });
+    EVENTS.keyupA(input);
+    assert(list && !list.hidden, 'should display the option list');
+    const { preventDefaultSpy } = EVENTS.keydownEnter(input);
 
-      describe('highlighting an item', () => {
-        beforeEach('press down arrow from input', () => {
-          const e = new KeyboardEvent('keydown', {
-            bubbles: true,
-            key: 'ArrowDown',
-          });
-          input.dispatchEvent(e);
-        });
+    assert(list.hidden, 'should hide the option list');
+    assert.equal(list.children.length, 0, 'should empty the option list');
+    assert.equal(select.value, '', 'should clear the value on the select');
+    assert.equal(input.value, '', 'should clear the value on the input');
+    assert(preventDefaultSpy.called, 'should not have allowed enter to propagate');
+  });
 
-        beforeEach('find the focused item in the list', () => {
-          selectedOption = document.activeElement;
-        });
+  it('should allow enter to propagate when the list is hidden', () => {
+    const { preventDefaultSpy } = EVENTS.keydownEnter(input);
 
-        it('should focus the first item in the list', () => {
-          assert(selectedOption.classList.contains('usa-combo-box__list-option--focused'));
-          assert.equal(selectedOption.textContent, 'Erlang');
-        });
+    assert(list.hidden, 'the list is hidden');
+    assert(preventDefaultSpy.notCalled, 'should allow event to perform default action');
+  });
 
-        describe('selecting an item', () => {
-          beforeEach('press enter from selected item', () => {
-            const e = new KeyboardEvent('keydown', {
-              bubbles: true,
-              key: 'Enter',
-            });
-            input.dispatchEvent(e);
-          });
+  it('should close the list but not the clear input values when escape is performed while the list is open', () => {
+    select.value = 'value-ActionScript';
+    input.value = 'a';
 
-          it('select the first item in the list', () => {
-            assert.equal(select.value, 'value-Erlang');
-          });
+    EVENTS.keyupA(input);
+    assert(list && !list.hidden, 'should display the option list');
+    EVENTS.keydownEscape(input);
 
-          it('should set the value in the input', () => {
-            assert.equal(input.value, 'Erlang');
-          });
-        });
-      });
+    assert(list.hidden, 'should hide the option list');
+    assert.equal(list.children.length, 0, 'should empty the option list');
+    assert.equal(select.value, 'value-ActionScript', 'should not change the value of the select');
+    assert.equal(input.value, 'a', 'should not change the value in the input');
+  });
 
-      describe('highlighting the last item', () => {
-        beforeEach('press down arrow from input many times', () => {
-          const e = new KeyboardEvent('keydown', {
-            bubbles: true,
-            key: 'ArrowDown',
-          });
-          input.dispatchEvent(e);
-          input.dispatchEvent(e);
-          input.dispatchEvent(e);
-        });
 
-        beforeEach('find the focused item in the list', () => {
-          selectedOption = document.activeElement;
-        });
+  it('should set input values when an complete item is submitted by clicking away', () => {
+    select.value = 'value-ActionScript';
+    input.value = 'go';
 
-        it('should focus the last item in the list', () => {
-          assert(selectedOption.classList.contains('usa-combo-box__list-option--focused'));
-          assert.equal(selectedOption.textContent, 'Scala');
-        });
+    EVENTS.keyupO(input);
+    assert(list && !list.hidden, 'should display the option list');
+    EVENTS.focusout(input);
 
-        describe('close list by clicking escape', () => {
-          beforeEach('click the escape button in input', () => {
-            const e = new KeyboardEvent('keydown', {
-              bubbles: true,
-              key: 'Escape',
-            });
-            input.dispatchEvent(e);
-          });
-          it('should hide and empty the option list', () => {
-            assert.equal(list.children.length, 0);
-            assert(list.hidden);
-          });
-          it('should not change the value of the select', () => {
-            select.value = 'value-JavaScript';
-          });
-          it('should not change the value in the input', () => {
-            input.value = 'la';
-          });
-        });
-      });
-    });
+    assert(list.hidden, 'should hide the option list');
+    assert.equal(list.children.length, 0, 'should empty the option list');
+    assert.equal(select.value, 'value-Go', 'should set that item to being the select option');
+    assert.equal(input.value, 'Go', 'should set that item to being the input value');
+  });
+
+  it('should set input values when an complete item is submitted by pressing enter', () => {
+    select.value = 'value-ActionScript';
+    input.value = 'go';
+
+    EVENTS.keyupO(input);
+    assert(list && !list.hidden, 'should display the option list');
+    EVENTS.keydownEnter(input);
+
+    assert(list.hidden, 'should hide the option list');
+    assert.equal(list.children.length, 0, 'should empty the option list');
+    assert.equal(select.value, 'value-Go', 'should set that item to being the select option');
+    assert.equal(input.value, 'Go', 'should set that item to being the input value');
+  });
+
+
+  it('should show the no results item when a nonexistent option is typed', () => {
+    input.value = 'Bibbidi-Bobbidi-Boo';
+
+    EVENTS.keyupO(input);
+
+    assert(list && !list.hidden, 'should display the option list');
+    assert.equal(list.children.length, 1, 'should show no results list item');
+    assert.equal(list.children[0].textContent, 'No results found', 'should show no results list item');
+  });
+
+  it('should focus the first item in the list when pressing down from the input', () => {
+    input.value = 'la';
+
+    EVENTS.keyupA(input);
+    assert(list && !list.hidden, 'should display the option list');
+    assert.equal(list.children.length, 2, 'should filter the item by the string being present in the option');
+    EVENTS.keydownArrowDown(input);
+
+    const focusedOption = document.activeElement;
+    assert(focusedOption.classList.contains('usa-combo-box__list-option--focused'), 'should focus the first item in the list');
+    assert.equal(focusedOption.textContent, 'Erlang', 'should focus the first item in the list');
+  });
+
+
+  it('should select the focused list item in the list when pressing enter on a focused item', () => {
+    select.value = 'value-JavaScript';
+    input.value = 'la';
+
+    EVENTS.keyupA(input);
+    EVENTS.keydownArrowDown(input);
+    const focusedOption = document.activeElement;
+    assert.equal(focusedOption.textContent, 'Erlang', 'should focus the first item in the list');
+    EVENTS.keydownEnter(focusedOption);
+
+    assert.equal(select.value, 'value-Erlang', 'select the first item in the list');
+    assert.equal(input.value, 'Erlang', 'should set the value in the input');
+  });
+
+
+  it('should focus the last item in the list when pressing down many times from the input', () => {
+    input.value = 'la';
+
+    EVENTS.keyupA(input);
+    assert(list && !list.hidden, 'should display the option list');
+    assert.equal(list.children.length, 2, 'should filter the item by the string being present in the option');
+    EVENTS.keydownArrowDown(input);
+    EVENTS.keydownArrowDown(input);
+    EVENTS.keydownArrowDown(input);
+
+    const focusedOption = document.activeElement;
+    assert(focusedOption.classList.contains('usa-combo-box__list-option--focused'), 'should focus the first item in the list');
+    assert.equal(focusedOption.textContent, 'Scala', 'should focus the last item in the list');
+  });
+
+  it('should not select the focused item in the list when pressing escape from the focused item', () => {
+    select.value = 'value-JavaScript';
+    input.value = 'la';
+
+    EVENTS.keyupA(input);
+    assert(list && !list.hidden && list.children.length, 'should display the option list with options');
+    EVENTS.keydownArrowDown(input);
+    const focusedOption = document.activeElement;
+    assert.equal(focusedOption.textContent, 'Erlang', 'should focus the first item in the list');
+    EVENTS.keydownEscape(focusedOption);
+
+    assert(list.hidden, 'should hide the option list');
+    assert.equal(list.children.length, 0, 'should empty the option list');
+    assert.equal(select.value, 'value-JavaScript', 'should not change the value of the select');
+    assert.equal(input.value, 'la', 'should not change the value in the input');
   });
 });
