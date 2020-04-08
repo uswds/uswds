@@ -22,7 +22,7 @@ const INVALID_CLASS = `${PREFIX}-character-count--invalid`;
  * @param {HTMLInputElement|HTMLTextAreaElement} input The character count input element
  * @returns {CharacterCountElements} elements The root and message element.
  */
-const getElements = input => {
+const getCharacterCountElements = input => {
   const characterCount = input.closest(CHARACTER_COUNT);
 
   if (!characterCount) {
@@ -44,7 +44,7 @@ const getElements = input => {
  * @param {HTMLInputElement|HTMLTextAreaElement} input The character count input element
  */
 const updateCountMessage = input => {
-  const { characterCount, message } = getElements(input);
+  const { characterCount, message } = getCharacterCountElements(input);
 
   const maxlength = parseInt(characterCount.getAttribute("data-maxlength"), 10);
 
@@ -83,7 +83,7 @@ const updateCountMessage = input => {
  * @param {HTMLInputElement|HTMLTextAreaElement} input The character count input element
  */
 const setupAttributes = input => {
-  const { characterCount } = getElements(input);
+  const { characterCount } = getCharacterCountElements(input);
 
   const maxlength = input.getAttribute("maxlength");
 
