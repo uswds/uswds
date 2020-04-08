@@ -13,7 +13,6 @@
 .usa-card {
   @include border-box-sizing;
   @include typeset;
-  @include u-bg("white");
   @include u-bg($theme-card-bg-color);
   @include u-border($theme-card-border-width, $theme-card-border-color);
   @include u-margin-bottom($theme-card-margin);
@@ -116,8 +115,9 @@
     @include grid-col(4);
     @include u-margin-top(0);
     @include u-margin-x(0);
+    @include u-padding-left($theme-card-padding-size);
     @include u-padding-right(0);
-    @include u-padding($theme-card-padding-size);
+    @include u-padding-y($theme-card-padding-size);
     @include u-radius-top(0);
   }
 }
