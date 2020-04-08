@@ -254,7 +254,10 @@ const completeSelection = el => {
   }
 
   selectEl.value = "";
-  inputEl.value = "";
+
+  if (inputEl.value) {
+    inputEl.value = "";
+  }
 };
 
 /**
