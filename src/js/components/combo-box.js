@@ -4,7 +4,6 @@ const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
 
-const BODY = "body";
 const COMBO_BOX = `.${PREFIX}-combo-box`;
 
 const INPUT_CLASS = `${PREFIX}-combo-box__input`;
@@ -390,14 +389,15 @@ const comboBox = behavior(
       },
       [LIST_OPTION]() {
         selectItem(this);
-      },
-      [BODY](event) {
-        select(COMBO_BOX).forEach(comboBoxEl => {
-          if (!comboBoxEl.contains(event.target)) {
-            completeSelection(comboBoxEl);
-            hideList(comboBoxEl);
-          }
-        });
+      }
+    },
+    focusout: {
+      [COMBO_BOX](event) {
+        const { comboBoxEl } = getComboBoxElements(event.target);
+        if (!comboBoxEl.contains(event.relatedTarget)) {
+          completeSelection(comboBoxEl);
+          hideList(comboBoxEl);
+        }
       }
     },
     keydown: {

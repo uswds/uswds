@@ -6,8 +6,31 @@ const ComboBox = require('../../../src/js/components/combo-box');
 
 const TEMPLATE = fs.readFileSync(path.join(__dirname, '/template.html'));
 
-const dispatch = (event, el) => {
-  el.dispatchEvent(new KeyboardEvent(event, { bubbles: true }));
+const EVENTS = {};
+
+/**
+ * send a click event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.click = (el) => {
+  const evt = new MouseEvent('click', {
+    view: el.ownerDocument.defaultView,
+    bubbles: true,
+    cancelable: true,
+  });
+  el.dispatchEvent(evt);
+};
+
+/**
+ * send a focusout event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.focusout = (el) => {
+  const evt = new Event('focusout', {
+    bubbles: true,
+    cancelable: true,
+  });
+  el.dispatchEvent(evt);
 };
 
 describe('combo box component', () => {
@@ -32,131 +55,83 @@ describe('combo box component', () => {
     ComboBox.off(body);
   });
 
-  describe('enhancement', () => {
-    it('adds an input element', () => {
-      assert.ok(input);
-    });
-
-    it('hides the select element from view', () => {
-      assert(select.classList.contains('usa-sr-only'));
-    });
-
-    it('adds an hidden list element', () => {
-      assert.ok(list);
-      assert(list.hidden);
-    });
-
-    it('transfers id attribute to combobox', () => {
-      assert.equal(select.getAttribute('id'), '');
-      assert.equal(input.getAttribute('id'), 'combobox');
-    });
-
-    it('transfers required attribute to combobox', () => {
-      assert.equal(select.getAttribute('required'), null);
-      assert.equal(input.getAttribute('required'), '');
-    });
-
-    it('should not transfer name attribute to combobox', () => {
-      assert.equal(select.getAttribute('name'), 'combobox');
-      assert.equal(input.getAttribute('name'), null);
-    });
-
-    describe('accessibilty', () => {
-      it('the list should have a role of `listbox`', () => {
-        assert.equal(list.getAttribute('role'), 'listbox');
-      });
-
-      it('the select should be hidden from screen readers', () => {
-        assert(select.getAttribute('aria-hidden'));
-      });
-
-      it('the select should be hidden from keyboard navigation', () => {
-        assert.equal(select.getAttribute('tabindex'), '-1');
-      });
-    });
+  it('enchaces a select element into a combo box component', () => {
+    assert.ok(input, 'adds an input element');
+    assert(select.classList.contains('usa-sr-only'), 'hides the select element from view');
+    assert.ok(list, 'adds an list element');
+    assert(list.hidden, 'the list is hidden');
+    assert.equal(select.getAttribute('id'), '', 'transfers id attribute to combobox');
+    assert.equal(input.getAttribute('id'), 'combobox', 'transfers id attribute to combobox');
+    assert.equal(select.getAttribute('required'), null, 'transfers required attribute to combobox');
+    assert.equal(input.getAttribute('required'), '', 'transfers required attribute to combobox');
+    assert.equal(select.getAttribute('name'), 'combobox', 'should not transfer name attribute to combobox');
+    assert.equal(input.getAttribute('name'), null, 'should not transfer name attribute to combobox');
+    assert.equal(list.getAttribute('role'), 'listbox', 'the list should have a role of `listbox`');
+    assert(select.getAttribute('aria-hidden'), 'the select should be hidden from screen readers');
+    assert.equal(select.getAttribute('tabindex'), '-1', 'the select should be hidden from keyboard navigation');
   });
 
-  describe('interaction - mouse', () => {
-    describe('show the list by clicking the input', () => {
-      beforeEach('click the input', () => {
-        dispatch('click', input);
-      });
+  it('should show the list by clicking the input', () => {
+    EVENTS.click(input);
 
-      it('should display the option list', () => {
-        assert(list && !list.hidden);
-      });
+    assert(list && !list.hidden, 'should display the option list');
+    assert.equal(
+      list.children.length,
+      select.options.length - 1,
+      'should have all of the initial select items in the list except placeholder empty items',
+    );
+  });
 
-      it('should have all of the initial select items in the list except placeholder empty items', () => {
-        assert.equal(list.children.length, select.options.length - 1);
-      });
+  it('should show the list by clicking when clicking the input twice', () => {
+    EVENTS.click(input);
+    EVENTS.click(input);
 
-      describe('subsequent click', () => {
-        beforeEach('click the input', () => {
-          dispatch('click', input);
-        });
+    assert(list && !list.hidden, 'should keep the option list displayed');
+    assert.equal(
+      list.children.length,
+      select.options.length - 1,
+      'should have all of the initial select items in the list except placeholder empty items',
+    );
+  });
 
-        it('should keep the option list displayed', () => {
-          assert(list && !list.hidden);
-        });
+  it('should set up the list item for accessibilty', () => {
+    EVENTS.click(input);
 
-        it('should have all of the initial select items in the list except placeholder empty items', () => {
-          assert.equal(list.children.length, select.options.length - 1);
-        });
-      });
+    for (let i = 0, len = list.children.length; i < len; i += 1) {
+      assert.equal(
+        list.children[i].getAttribute('aria-selected'),
+        'false',
+        `item ${i} should not be shown as selected`,
+      );
+      assert.equal(
+        list.children[i].getAttribute('tabindex'),
+        '-1',
+        `item ${i} should be hidden from keyboard navigation`,
+      );
+      assert.equal(
+        list.children[i].getAttribute('role'),
+        'option',
+        `item ${i} should have a role of 'option'`,
+      );
+    }
+  });
 
-      describe('accessibilty', () => {
-        it('none of the items should be shown as selected', () => {
-          for (let i = 0, len = list.children.length; i < len; i += 1) {
-            assert.equal(
-              list.children[i].getAttribute('aria-selected'),
-              'false',
-            );
-          }
-        });
+  it('should close the list by clicking away', () => {
+    EVENTS.click(input);
+    EVENTS.focusout(input);
 
-        it('all of the options should be hidden from keyboard navigation', () => {
-          for (let i = 0, len = list.children.length; i < len; i += 1) {
-            assert.equal(list.children[i].getAttribute('tabindex'), '-1');
-          }
-        });
+    assert.equal(list.children.length, 0, 'should empty the option list');
+    assert(list.hidden, 'should hide the option list');
+  });
 
-        it('all of the items should have a role of `option`', () => {
-          for (let i = 0, len = list.children.length; i < len; i += 1) {
-            assert.equal(list.children[i].getAttribute('role'), 'option');
-          }
-        });
-      });
+  it('should select an item from the option list when clicking a list option', () => {
+    EVENTS.click(input);
+    EVENTS.click(list.children[0]);
 
-      describe('close the list by clicking away', () => {
-        beforeEach('click outside of the combobox', () => {
-          dispatch('click', body);
-        });
-        it('should hide and empty the option list', () => {
-          assert.equal(list.children.length, 0);
-          assert(list.hidden);
-        });
-      });
-    });
-
-    describe('selecting an item', () => {
-      beforeEach('click the open button then click an item in the list', () => {
-        dispatch('click', input);
-        dispatch('click', list.children[0]);
-      });
-
-      it('should set that item to being the select option', () => {
-        assert.equal(select.value, 'value-ActionScript');
-      });
-
-      it('should set that item to being the input value', () => {
-        assert.equal(input.value, 'ActionScript');
-      });
-
-      it('should hide and empty the option list', () => {
-        assert(list.hidden);
-        assert.equal(list.children.length, 0);
-      });
-    });
+    assert.equal(select.value, 'value-ActionScript', 'should set that item to being the select option');
+    assert.equal(input.value, 'ActionScript', 'should set that item to being the input value');
+    assert(list.hidden, 'should hide the option list');
+    assert.equal(list.children.length, 0, 'should empty the option list');
   });
 
   describe('interaction - input', () => {
@@ -185,7 +160,7 @@ describe('combo box component', () => {
 
       describe('close the list by clicking away', () => {
         beforeEach('click outside of the combobox', () => {
-          dispatch('click', body);
+          EVENTS.focusout(input);
         });
 
         it('should hide and empty the option list', () => {
@@ -289,7 +264,7 @@ describe('combo box component', () => {
 
       describe('close list by clicking away', () => {
         beforeEach('click outside of the combobox', () => {
-          dispatch('click', body);
+          EVENTS.focusout(input);
         });
 
         it('should hide and empty the option list', () => {
