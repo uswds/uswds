@@ -85,11 +85,11 @@ const enhanceComboBox = el => {
   const { comboBoxEl, selectEl } = getComboBoxElements(el);
 
   const selectId = selectEl.id;
-  const isRequired = selectEl.required;
   const listId = `${selectId}--list`;
   const assistiveHintID = `${selectId}--assistiveHint`;
   let placeholder = '';
   let selectedOption;
+  const additionalAttributes = [];
 
   for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
     const optionEl = selectEl.options[i];
@@ -109,9 +109,16 @@ const enhanceComboBox = el => {
 
   selectEl.setAttribute("aria-hidden", "true");
   selectEl.setAttribute("tabindex", "-1");
-  selectEl.removeAttribute("required");
   selectEl.classList.add("usa-sr-only");
   selectEl.id = "";
+
+  ['required', 'aria-label', 'aria-labelledby'].forEach(name => {
+    if (selectEl.hasAttribute(name)) {
+      const value = selectEl.getAttribute(name);
+      additionalAttributes.push(`${name}="${value}"`);
+      selectEl.removeAttribute(name);
+    }
+  })
 
   comboBoxEl.insertAdjacentHTML(
     "beforeend",
@@ -128,7 +135,7 @@ const enhanceComboBox = el => {
         class="${INPUT_CLASS}"
         type="text" 
         role="combobox"
-        ${isRequired ? 'required' : ''}
+        ${additionalAttributes.join(' ')}
       >`,
       `<ul 
         id="${listId}" 
