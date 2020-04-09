@@ -13,7 +13,7 @@ describe('character count input without wrapping element', () => {
     CharacterCount.off(body);
   });
 
-  it('should throw an error when a character count compoent is created with no wrapping class', () => {
+  it('should throw an error when a character count component is created with no wrapping class', () => {
     body.innerHTML = INVALID_TEMPLATE_NO_WRAPPER;
     assert.throws(() => CharacterCount.on(), {
       message: '.usa-character-count__input is missing outer .usa-character-count',

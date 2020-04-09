@@ -13,7 +13,7 @@ describe('character count component without message', () => {
     CharacterCount.off(body);
   });
 
-  it('should throw an error when a character count compoent is created with no message element', () => {
+  it('should throw an error when a character count component is created with no message element', () => {
     body.innerHTML = INVALID_TEMPLATE_NO_MESSAGE;
     assert.throws(() => CharacterCount.on(), {
       message: '.usa-character-count is missing inner .usa-character-count__message',

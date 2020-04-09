@@ -7,7 +7,7 @@
 
 .usa-character-count--invalid {
   .usa-character-count__message {
-    font-weight: font-weight("bold");
     color: color("error-dark");
+    font-weight: font-weight("bold");
   }
 }
