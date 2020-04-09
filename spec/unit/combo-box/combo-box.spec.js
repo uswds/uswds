@@ -139,12 +139,12 @@ describe('combo box component', () => {
     assert.ok(select.classList.contains('usa-sr-only'), 'hides the select element from view');
     assert.ok(list, 'adds an list element');
     assert.ok(list.hidden, 'the list is hidden');
-    assert.equal(select.getAttribute('id'), '', 'transfers id attribute to combobox');
-    assert.equal(input.getAttribute('id'), 'combobox', 'transfers id attribute to combobox');
-    assert.equal(select.getAttribute('required'), null, 'transfers required attribute to combobox');
-    assert.equal(input.getAttribute('required'), '', 'transfers required attribute to combobox');
-    assert.equal(select.getAttribute('name'), 'combobox', 'should not transfer name attribute to combobox');
-    assert.equal(input.getAttribute('name'), null, 'should not transfer name attribute to combobox');
+    assert.equal(select.getAttribute('id'), '', 'transfers id attribute to combo box');
+    assert.equal(input.getAttribute('id'), 'combo-box', 'transfers id attribute to combo box');
+    assert.equal(select.getAttribute('required'), null, 'transfers required attribute to combo box');
+    assert.equal(input.getAttribute('required'), '', 'transfers required attribute to combo box');
+    assert.equal(select.getAttribute('name'), 'combo-box', 'should not transfer name attribute to combo box');
+    assert.equal(input.getAttribute('name'), null, 'should not transfer name attribute to combo box');
     assert.equal(list.getAttribute('role'), 'listbox', 'the list should have a role of `listbox`');
     assert.ok(select.getAttribute('aria-hidden'), 'the select should be hidden from screen readers');
     assert.equal(select.getAttribute('tabindex'), '-1', 'the select should be hidden from keyboard navigation');
@@ -179,7 +179,7 @@ describe('combo box component', () => {
     );
   });
 
-  it('should set up the list items for accessibilty', () => {
+  it('should set up the list items for accessibility', () => {
     EVENTS.click(input);
 
     for (let i = 0, len = list.children.length; i < len; i += 1) {

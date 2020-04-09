@@ -28,8 +28,8 @@ const STATUS = `.${STATUS_CLASS}`;
 const isPrintableKeyCode = (keyCode) => {
   return (
     (keyCode > 47 && keyCode < 58) || // number keys
-    keyCode === 32 ||
-    keyCode === 8 || // spacebar or backspace
+    keyCode === 32 || // space
+    keyCode === 8 || // backspace
     (keyCode > 64 && keyCode < 91) || // letter keys
     (keyCode > 95 && keyCode < 112) || // numpad keys
     (keyCode > 185 && keyCode < 193) || // ;=,-./` (in order)
@@ -79,7 +79,7 @@ const getComboBoxElements = (el) => {
 /**
  * Enhance a select element into a combo box component.
  *
- * @param {HTMLElement} el The initial element within the combobox component
+ * @param {HTMLElement} el The initial element within the combo box component
  */
 const enhanceComboBox = el => {
   const { comboBoxEl, selectEl } = getComboBoxElements(el);
@@ -162,7 +162,7 @@ const enhanceComboBox = el => {
 /**
  * Display the option list of a combo box component.
  *
- * @param {HTMLElement} el An element within the combobox component
+ * @param {HTMLElement} el An element within the combo box component
  */
 const displayList = el => {
   const { selectEl, inputEl, listEl, statusEl } = getComboBoxElements(el);
@@ -214,7 +214,7 @@ const displayList = el => {
 /**
  * Hide the option list of a combo box component.
  *
- * @param {HTMLElement} el An element within the combobox component
+ * @param {HTMLElement} el An element within the combo box component
  */
 const hideList = el => {
   const { inputEl, listEl, statusEl } = getComboBoxElements(el);
@@ -248,7 +248,7 @@ const selectItem = listOptionEl => {
  * having test that completely matches a list option.
  * Otherwise it clears the input and select.
  *
- * @param {HTMLElement} el An element within the combobox component
+ * @param {HTMLElement} el An element within the combo box component
  */
 const completeSelection = el => {
   const { selectEl, inputEl, statusEl, focusedOptionEl } = getComboBoxElements(el);
@@ -285,9 +285,9 @@ const completeSelection = el => {
  * Manage the focused element within the list options when 
  * navigating via keyboard.
  *
- * @param {HTMLElement} el An element within the combobox component
- * @param {HTMLElement} currentEl An element within the combobox component
- * @param {HTMLElement} nextEl An element within the combobox component
+ * @param {HTMLElement} el An element within the combo box component
+ * @param {HTMLElement} currentEl An element within the combo box component
+ * @param {HTMLElement} nextEl An element within the combo box component
  */
 const highlightOption = (el, currentEl, nextEl) => {
   const { inputEl, listEl } = getComboBoxElements(el);
