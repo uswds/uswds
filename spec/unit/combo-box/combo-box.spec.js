@@ -134,7 +134,7 @@ describe('combo box component', () => {
     ComboBox.off(body);
   });
 
-  it('enchaces a select element into a combo box component', () => {
+  it('enhances a select element into a combo box component', () => {
     assert.ok(input, 'adds an input element');
     assert.ok(select.classList.contains('usa-sr-only'), 'hides the select element from view');
     assert.ok(list, 'adds an list element');
