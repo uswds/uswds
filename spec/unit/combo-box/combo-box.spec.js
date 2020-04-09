@@ -157,7 +157,7 @@ describe('combo box component', () => {
 
     EVENTS.click(input);
 
-    assert.ok(list && !list.hidden, 'should display the option list');
+    assert.ok(!list.hidden, 'should display the option list');
     assert.equal(
       list.children.length,
       select.options.length - 1,
@@ -171,7 +171,7 @@ describe('combo box component', () => {
     EVENTS.click(input);
     EVENTS.click(input);
 
-    assert.ok(list && !list.hidden, 'should keep the option list displayed');
+    assert.ok(!list.hidden, 'should keep the option list displayed');
     assert.equal(
       list.children.length,
       select.options.length - 1,
@@ -226,7 +226,7 @@ describe('combo box component', () => {
 
     EVENTS.keyupA(input);
 
-    assert.ok(list && !list.hidden, 'should display the option list');
+    assert.ok(!list.hidden, 'should display the option list');
     assert.equal(list.children.length, 10, 'should filter the item by the string being present in the option');
   });
 
@@ -235,7 +235,7 @@ describe('combo box component', () => {
     input.value = 'a';
 
     EVENTS.keyupA(input);
-    assert.ok(list && !list.hidden, 'should display the option list');
+    assert.ok(!list.hidden, 'should display the option list');
     EVENTS.focusout(input);
 
     assert.ok(list.hidden, 'should hide the option list');
@@ -249,29 +249,29 @@ describe('combo box component', () => {
     input.value = 'a';
 
     EVENTS.keyupA(input);
-    assert.ok(list && !list.hidden, 'should display the option list');
+    assert.ok(!list.hidden, 'should display the option list');
     const { preventDefaultSpy } = EVENTS.keydownEnter(input);
 
     assert.ok(list.hidden, 'should hide the option list');
     assert.equal(list.children.length, 0, 'should empty the option list');
     assert.equal(select.value, '', 'should clear the value on the select');
     assert.equal(input.value, '', 'should clear the value on the input');
-    assert.ok(preventDefaultSpy.called, 'should not have allowed enter to propagate');
+    assert.ok(preventDefaultSpy.called, 'should not have allowed enter to perform default action');
   });
 
-  it('should allow enter to propagate when the list is hidden', () => {
+  it('should allow enter to perform default action when the list is hidden', () => {
+    assert.ok(list.hidden, 'the list is hidden');
     const { preventDefaultSpy } = EVENTS.keydownEnter(input);
 
-    assert.ok(list.hidden, 'the list is hidden');
     assert.ok(preventDefaultSpy.notCalled, 'should allow event to perform default action');
   });
 
-  it('should close the list but not the clear input values when escape is performed while the list is open', () => {
+  it('should close the list but not the clear the input value when escape is performed while the list is open', () => {
     select.value = 'value-ActionScript';
     input.value = 'a';
 
     EVENTS.keyupA(input);
-    assert.ok(list && !list.hidden, 'should display the option list');
+    assert.ok(!list.hidden, 'should display the option list');
     EVENTS.keydownEscape(input);
 
     assert.ok(list.hidden, 'should hide the option list');
@@ -280,12 +280,12 @@ describe('combo box component', () => {
     assert.equal(input.value, 'a', 'should not change the value in the input');
   });
 
-  it('should set input values when an complete item is submitted by clicking away', () => {
+  it('should set the input value when a complete selection is submitted by clicking away', () => {
     select.value = 'value-ActionScript';
     input.value = 'go';
 
     EVENTS.keyupO(input);
-    assert.ok(list && !list.hidden, 'should display the option list');
+    assert.ok(!list.hidden, 'should display the option list');
     EVENTS.focusout(input);
 
     assert.ok(list.hidden, 'should hide the option list');
@@ -294,12 +294,12 @@ describe('combo box component', () => {
     assert.equal(input.value, 'Go', 'should set that item to being the input value');
   });
 
-  it('should set input values when an complete item is submitted by pressing enter', () => {
+  it('should set the input value when a complete selection is submitted by pressing enter', () => {
     select.value = 'value-ActionScript';
     input.value = 'go';
 
     EVENTS.keyupO(input);
-    assert.ok(list && !list.hidden, 'should display the option list');
+    assert.ok(!list.hidden, 'should display the option list');
     EVENTS.keydownEnter(input);
 
     assert.ok(list.hidden, 'should hide the option list');
@@ -313,28 +313,28 @@ describe('combo box component', () => {
 
     EVENTS.keyupO(input);
 
-    assert.ok(list && !list.hidden, 'should display the option list');
+    assert.ok(!list.hidden, 'should display the option list');
     assert.equal(list.children.length, 1, 'should show no results list item');
-    assert.equal(list.children[0].textContent, 'No results found', 'should show no results list item');
+    assert.equal(list.children[0].textContent, 'No results found', 'should show the no results list item');
   });
 
   it('should show the list when pressing down from an empty input', () => {
     assert.ok(list.hidden, 'the option list is hidden');
 
     EVENTS.keydownArrowDown(input);
-    assert.ok(list && !list.hidden, 'should display the option list');
+    assert.ok(!list.hidden, 'should display the option list');
   });
 
   it('should focus the first item in the list when pressing down from the input', () => {
     input.value = 'la';
 
     EVENTS.keyupA(input);
-    assert.ok(list && !list.hidden, 'should display the option list');
+    assert.ok(!list.hidden, 'should display the option list');
     assert.equal(list.children.length, 2, 'should filter the item by the string being present in the option');
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
 
-    assert.ok(focusedOption.classList.contains('usa-combo-box__list-option--focused'), 'should focus the first item in the list');
+    assert.ok(focusedOption.classList.contains('usa-combo-box__list-option--focused'), 'should style the focused item in the list');
     assert.equal(focusedOption.textContent, 'Erlang', 'should focus the first item in the list');
   });
 
@@ -356,14 +356,14 @@ describe('combo box component', () => {
     input.value = 'la';
 
     EVENTS.keyupA(input);
-    assert.ok(list && !list.hidden, 'should display the option list');
+    assert.ok(!list.hidden, 'should display the option list');
     assert.equal(list.children.length, 2, 'should filter the item by the string being present in the option');
     EVENTS.keydownArrowDown(input);
     EVENTS.keydownArrowDown(input);
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
 
-    assert.ok(focusedOption.classList.contains('usa-combo-box__list-option--focused'), 'should focus the first item in the list');
+    assert.ok(focusedOption.classList.contains('usa-combo-box__list-option--focused'), 'should style the focused item in the list');
     assert.equal(focusedOption.textContent, 'Scala', 'should focus the last item in the list');
   });
 
@@ -372,7 +372,7 @@ describe('combo box component', () => {
     input.value = 'la';
 
     EVENTS.keyupA(input);
-    assert.ok(list && !list.hidden && list.children.length, 'should display the option list with options');
+    assert.ok(!list.hidden && list.children.length, 'should display the option list with options');
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
     assert.equal(focusedOption.textContent, 'Erlang', 'should focus the first item in the list');
@@ -388,7 +388,7 @@ describe('combo box component', () => {
     input.value = 'la';
 
     EVENTS.keyupA(input);
-    assert.ok(list && !list.hidden, 'should display the option list');
+    assert.ok(!list.hidden, 'should display the option list');
     assert.equal(list.children.length, 2, 'should filter the item by the string being present in the option');
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
