@@ -3,7 +3,7 @@ const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
 
 const CHARACTER_COUNT = `.${PREFIX}-character-count`;
-const INPUT = `.${PREFIX}-character-count__input`;
+const INPUT = `.${PREFIX}-character-count__field`;
 const MESSAGE = `.${PREFIX}-character-count__message`;
 const VALIDATION_MESSAGE = "The content is too long.";
 const INVALID_CLASS = `${PREFIX}-character-count--invalid`;

@@ -1,13 +1,11 @@
-.usa-character-count {
-  .usa-character-count__message {
-    display: inline-block;
-    padding-top: units(0.5);
-  }
+.usa-character-count__message {
+  display: inline-block;
+  padding-top: units(0.5);
 }
 
 .usa-character-count--invalid {
   .usa-character-count__message {
-    color: color("error-dark");
-    font-weight: font-weight("bold");
+    color: color('error-dark');
+    font-weight: font-weight('bold');
   }
 }

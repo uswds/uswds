@@ -27,7 +27,7 @@ describe('character count component without maxlength', () => {
     CharacterCount.on();
 
     root = body.querySelector('.usa-character-count');
-    input = root.querySelector('.usa-character-count__input');
+    input = root.querySelector('.usa-character-count__field');
     message = root.querySelector('.usa-character-count__message');
   });
 

@@ -16,7 +16,7 @@ describe('character count input without wrapping element', () => {
   it('should throw an error when a character count component is created with no wrapping class', () => {
     body.innerHTML = INVALID_TEMPLATE_NO_WRAPPER;
     assert.throws(() => CharacterCount.on(), {
-      message: '.usa-character-count__input is missing outer .usa-character-count',
+      message: '.usa-character-count__field is missing outer .usa-character-count',
     });
   });
 });

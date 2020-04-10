@@ -26,7 +26,7 @@ describe('character count component with multiple validators', () => {
     CharacterCount.on();
 
     root = body.querySelector('.usa-character-count');
-    input = root.querySelector('.usa-character-count__input');
+    input = root.querySelector('.usa-character-count__field');
   });
 
   afterEach(() => {
