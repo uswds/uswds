@@ -46,11 +46,14 @@ const getCharacterCountElements = inputEl => {
 const updateCountMessage = inputEl => {
   const { characterCountEl, messageEl } = getCharacterCountElements(inputEl);
 
-  const maxlength = parseInt(characterCountEl.getAttribute("data-maxlength"), 10);
+  const maxlength = parseInt(
+    characterCountEl.getAttribute("data-maxlength"),
+    10
+  );
 
   if (!maxlength) return;
 
-  let newMessage = '';
+  let newMessage = "";
   const currentLength = inputEl.value.length;
   const isOverLimit = currentLength && currentLength > maxlength;
 
