@@ -5,9 +5,9 @@ preview: "@uswds-content"
 
 context:
   card:
-    title:  "What is a card?"
+    title: "What is a card?"
     content:
-      - A card is typically a member of a collection a subset or summary of a parent/record.
+      - A card is typically a member of a collection of similar cards as well as a subset or summary of a parent record.
         It includes at least an actionable element. It's modular and distinct from its collection peers in content.
 
 variants:
@@ -19,20 +19,18 @@ variants:
           classes: ""
           title: Default card
           content:
-            - A card is typically a member of a collection a subset or
-              summary of a parent/record.
+            - A card is typically a member of a collection of similar cards as well as a subset or summary of a parent record.
         - name: raised
           classes: "usa-card--raised"
           title: Raised Card
           content:
-            - A raised card makes your card standout. Cards are typically the
-              visual representation of a member of a collection.
+            - A raised card is a way to make a card stand out from its context.
         - name: media
           classes: "usa-card--media"
           title: Media card
           media: true
           content:
-            - Adding media to your card can help visually separate it from
+            - Adding media to a card can help visually distinguish it from
               its peers.
         - name: flag
           classes: "usa-card--flag"
@@ -65,7 +63,7 @@ variants:
     context:
       card:
         classes: "usa-card--raised"
-        title: Make your card standout from its context
+        title: Make your card stand out from its context
         id: "card-standout"
 
   - name: equal-height
