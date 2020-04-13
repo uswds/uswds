@@ -1,16 +1,14 @@
-<div class="grid-container">
-  <div class="grid-row grid-gap">
-    {%- for card in cards -%}
-      {% if not card.flag %}
-        <div class="tablet:grid-col-4">
-          {%- include "@card--basic" -%}
-        </div>
-      {% else %}
-        <div class="tablet:grid-col-12">
-          {%- include "@card--basic-link" -%}
-        </div>
-      {% endif %}
-    {%- endfor -%}
-  </div>
+<div class="grid-row grid-gap">
+  {%- for card in cards -%}
+    {% if not card.flag %}
+      <div class="tablet:grid-col-4">
+        {%- include "@card--basic" -%}
+      </div>
+    {% else %}
+      <div class="tablet:grid-col-12">
+        {%- include "@card--basic-link" -%}
+      </div>
+    {% endif %}
+  {%- endfor -%}
 </div>
 
