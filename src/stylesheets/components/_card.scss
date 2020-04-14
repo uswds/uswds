@@ -1,5 +1,5 @@
 @mixin card-equal-height {
-  @include at-media($theme-card-min-width) {
+  @include at-media("tablet") {
     @include u-display("flex");
     @include u-flex("column");
     @include u-height("full");
@@ -99,7 +99,7 @@
 // Flag
 // ---------------------------------
 .usa-card__inner {
-  @include at-media($theme-card-min-width) {
+  @include at-media($theme-card-flag-min-width) {
     @include grid-row;
     @include u-padding-x(0);
     @include u-width("full");
@@ -112,7 +112,7 @@
   @include u-radius-top($theme-card-border-radius);
   overflow: hidden;
 
-  @include at-media($theme-card-min-width) {
+  @include at-media($theme-card-flag-min-width) {
     @include grid-col(4);
     @include u-margin-top(0);
     @include u-margin-x(0);
@@ -124,7 +124,7 @@
 }
 
 .usa-card--flag .usa-card__flag-content {
-  @include at-media($theme-card-min-width) {
+  @include at-media($theme-card-flag-min-width) {
     @include grid-col(8);
   }
 }
@@ -140,14 +140,14 @@
 }
 
 .usa-card--flag.usa-card--media-right .usa-card__media {
-  @include at-media($theme-card-min-width) {
+  @include at-media($theme-card-flag-min-width) {
     @include u-padding-left(0);
     @include u-padding-right($theme-card-padding-size);
   }
 }
 
 .usa-card--flag.usa-card--media-right .usa-card__flag-content {
-  @include at-media($theme-card-min-width) {
+  @include at-media($theme-card-flag-min-width) {
     @include u-order("first");
   }
 }
