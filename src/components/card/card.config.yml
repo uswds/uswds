@@ -23,7 +23,7 @@ variants:
               Excepturi nobis dolores molestias! Quas quisquam a officia eos.
         - name: raised
           classes: "usa-card--raised"
-          title: Raised Card
+          title: Raised card
           content:
             - Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
