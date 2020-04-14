@@ -1,13 +1,13 @@
 // Default styles
 .usa-button-group {
   @include u-margin-y(0);
-  list-style-type: none;
-  padding-left: 0;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  list-style-type: none;
   margin-left: units(-0.5);
   margin-right: units(-0.5);
+  padding-left: 0;
 
   @include at-media("mobile-lg") {
     flex-direction: row;
@@ -16,12 +16,6 @@
 
 .usa-button-group__item {
   margin: units(0.5);
-
-  &:first-child {
-    @include at-media("mobile-lg") {
-      //margin-left: 0;
-    }
-  }
 
   &:last-child {
     @include at-media("mobile-lg") {
@@ -39,9 +33,9 @@
 .usa-button-group--segmented {
   flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: space-between;
   margin-left: 0;
   margin-right: 0;
-  justify-content: space-between;
 
   @include at-media("mobile-lg") {
     justify-content: flex-start;
@@ -135,23 +129,6 @@
     &:not(:last-child) .usa-button:active::before,
     &:not(:last-child) .usa-button--outline::before {
       display: none;
-    }
-  }
-}
-
-.usa-button-group--segmented.usa-button-group--stretched {
-  //justify-content: space-between;
-
-  .usa-button {
-    //width: calc(100% + #{units($theme-button-stroke-width)});
-  }
-
-  .usa-button-group__item {
-    //width: 100%;
-
-    &:last-child > .usa-button {
-    //  margin-left: -(units($theme-button-stroke-width));
-    //  width: calc(100% + #{units($theme-button-stroke-width)});
     }
   }
 }
