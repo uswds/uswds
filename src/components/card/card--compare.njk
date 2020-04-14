@@ -1,12 +1,19 @@
+<h6 class="margin-0">Standard Layout</h6>
 <div class="grid-row grid-gap">
   {%- for card in cards -%}
     {% if not card.flag %}
       <div class="tablet:grid-col-4">
         {%- include "@card--basic" -%}
       </div>
-    {% else %}
+    {% endif %}
+  {%- endfor -%}
+</div>
+<h6 class="margin-0">Flag Layout</h6>
+<div class="grid-row grid-gap">
+  {%- for card in cards -%}
+    {% if card.flag %}
       <div class="tablet:grid-col-12">
-        {%- include "@card--basic-link" -%}
+        {%- include "@card--basic" -%}
       </div>
     {% endif %}
   {%- endfor -%}
