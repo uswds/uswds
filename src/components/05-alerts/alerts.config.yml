@@ -6,14 +6,14 @@ context:
     content: 'Lorem ipsum dolor sit amet, <a href="javascript:void(0);">consectetur adipiscing</a> elit, sed do eiusmod.'
 
 variants:
-  - name: default
+  - name: info
     label: Info
     context:
       alert:
         classes: "usa-alert--info"
         title: Informative status
 
-  - name: info
+  - name: success
     label: Success
     context:
       alert:
