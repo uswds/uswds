@@ -1,6 +1,4 @@
 label: Card
-status: draft
-order: 1
 preview: "@uswds-content"
 
 context:
@@ -22,12 +20,14 @@ variants:
           content:
             - Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
+              Excepturi nobis dolores molestias! Quas quisquam a officia eos.
         - name: raised
           classes: "usa-card--raised"
           title: Raised Card
           content:
             - Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
+              Excepturi nobis dolores molestias! Quas quisquam a officia eos.
         - name: media
           classes: "usa-card--media"
           title: Media card

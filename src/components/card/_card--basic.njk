@@ -1,5 +1,5 @@
 <section class="usa-card {{ card.classes }}">
-  {% if card.flag %}<div class="usa-flag__inner">{% endif %}
+  {% if card.flag %}<div class="usa-card__inner">{% endif %}
   {%- if card.media -%}
   <div class="usa-card__media">
     <img class="usa-card__img"
@@ -7,7 +7,7 @@
       alt="A placeholder image">
   </div>
   {%- endif -%}
-  {%- if card.flag %}<div class="usa-flag__content-wrapper">{% endif -%}
+  {%- if card.flag %}<div class="usa-card__flag-content">{% endif -%}
   <header class="usa-card__header">
     <h2 class="usa-card__heading">
       {{ card.title }}
