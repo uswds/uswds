@@ -6,7 +6,7 @@ const CHARACTER_COUNT = `.${PREFIX}-character-count`;
 const INPUT = `.${PREFIX}-character-count__field`;
 const MESSAGE = `.${PREFIX}-character-count__message`;
 const VALIDATION_MESSAGE = "The content is too long.";
-const INVALID_CLASS = `${PREFIX}-character-count--invalid`;
+const MESSAGE_INVALID_CLASS = `${PREFIX}-character-count__message--invalid`;
 
 /**
  * The elements within the character count.
@@ -67,8 +67,7 @@ const updateCountMessage = inputEl => {
     newMessage = `${difference} ${characters} ${guidance}`;
   }
 
-  characterCountEl.classList.toggle(INVALID_CLASS, isOverLimit);
-
+  messageEl.classList.toggle(MESSAGE_INVALID_CLASS, isOverLimit);
   messageEl.innerHTML = newMessage;
 
   if (isOverLimit && !inputEl.validationMessage) {
@@ -111,7 +110,7 @@ const characterCount = behavior(
         updateCountMessage(input);
       });
     },
-    INVALID_CLASS,
+    MESSAGE_INVALID_CLASS,
     VALIDATION_MESSAGE
   }
 );

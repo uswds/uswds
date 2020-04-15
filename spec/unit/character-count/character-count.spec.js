@@ -3,6 +3,8 @@ const path = require('path');
 const assert = require('assert');
 const CharacterCount = require('../../../src/js/components/character-count');
 
+const { VALIDATION_MESSAGE, MESSAGE_INVALID_CLASS } = CharacterCount;
+
 const TEMPLATE = fs.readFileSync(path.join(__dirname, '/character-count.template.html'));
 
 const EVENTS = {};
@@ -79,7 +81,7 @@ describe('character count component', () => {
 
     assert.equal(input.validationMessage, '');
     assert.equal(
-      root.classList.contains(CharacterCount.INVALID_CLASS),
+      message.classList.contains(MESSAGE_INVALID_CLASS),
       false,
     );
   });
@@ -91,10 +93,10 @@ describe('character count component', () => {
 
     assert.equal(
       input.validationMessage,
-      CharacterCount.VALIDATION_MESSAGE,
+      VALIDATION_MESSAGE,
     );
     assert.equal(
-      root.classList.contains(CharacterCount.INVALID_CLASS),
+      message.classList.contains(MESSAGE_INVALID_CLASS),
       true,
     );
   });
