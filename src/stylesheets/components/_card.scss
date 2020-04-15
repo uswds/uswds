@@ -86,6 +86,10 @@
 // ---------------------------------
 .usa-card--media .usa-card__header {
   @include u-padding-top($theme-card-padding);
+
+  &:last-child {
+    @include u-padding-bottom($theme-card-padding);
+  }
 }
 
 .usa-card--media .usa-card__media {
