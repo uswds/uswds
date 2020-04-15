@@ -34,6 +34,40 @@ context:
       - text: Yet another page
 
   inner:
+    - title: Cards
+      id: cards
+      component: card
+    - id: card-raised
+      component: card
+      context:
+        card:
+          title: Test
+          content: Hac habitasse platea dictumst quisque sagittis purus.
+            Ultrices neque ornare aenean euismod elementum nisi. In nibh mauris
+            cursus mattis molestie a. Risus viverra adipiscing at in tellus integer.
+            Amet dictum sit amet justo donec enim diam. Habitant morbi tristique
+            senectus et netus et malesuada fames. Commodo ullamcorper a lacus
+            vestibulum sed arcu.
+          classes: "usa-card--raised"
+    - id: card-media
+      component: card
+      context:
+        card:
+          title: Test
+          content: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+            do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.
+          media: true
+          classes: "usa-card--media"
+    - id: card-flag
+      component: card--flag
+      context:
+        card:
+          title: Test
+          media: true
+          flag: true
+          classes: "usa-card--flag"
     - title: Accordions - Borderless
       id: accordions
       component: accordion
