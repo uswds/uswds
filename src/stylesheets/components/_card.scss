@@ -21,7 +21,7 @@
 }
 
 .usa-card:not(.usa-card--flag) > :only-child {
-  @include u-padding($theme-card-padding-size);
+  @include u-padding($theme-card-padding);
 }
 
 .usa-card .usa-card__img {
@@ -31,9 +31,9 @@
 // Header
 // ---------------------------------
 .usa-card__header {
-  @include u-padding-bottom($theme-card-padding-size / 2);
-  @include u-padding-top($theme-card-padding-size);
-  @include u-padding-x($theme-card-padding-size);
+  @include u-padding-bottom($theme-card-padding / 2);
+  @include u-padding-top($theme-card-padding);
+  @include u-padding-x($theme-card-padding);
 }
 
 .usa-card__heading {
@@ -44,8 +44,8 @@
 // Body
 // ---------------------------------
 .usa-card__body {
-  @include u-padding-x($theme-card-padding-size);
-  @include u-padding-y($theme-card-padding-size / 2);
+  @include u-padding-x($theme-card-padding);
+  @include u-padding-y($theme-card-padding / 2);
 
   :first-child {
     @include u-margin-top(0);
@@ -59,9 +59,9 @@
 // Footer
 // ---------------------------------
 .usa-card__footer {
-  @include u-padding-bottom($theme-card-padding-size);
-  @include u-padding-top($theme-card-padding-size / 2);
-  @include u-padding-x($theme-card-padding-size);
+  @include u-padding-bottom($theme-card-padding);
+  @include u-padding-top($theme-card-padding / 2);
+  @include u-padding-x($theme-card-padding);
 }
 
 .usa-card__footer .usa-button:only-of-type {
@@ -75,13 +75,13 @@
 // Raised
 // ---------------------------------
 .usa-card--raised {
-  @include u-shadow($theme-card-shadow-size);
+  @include u-shadow($theme-card-shadow);
 }
 
 // Media
 // ---------------------------------
 .usa-card--media .usa-card__header {
-  @include u-padding-top($theme-card-padding-size);
+  @include u-padding-top($theme-card-padding);
 }
 
 .usa-card--media .usa-card__media {
@@ -116,9 +116,9 @@
     @include grid-col(4);
     @include u-margin-top(0);
     @include u-margin-x(0);
-    @include u-padding-left($theme-card-padding-size);
+    @include u-padding-left($theme-card-padding);
     @include u-padding-right(0);
-    @include u-padding-y($theme-card-padding-size);
+    @include u-padding-y($theme-card-padding);
     @include u-radius-top(0);
   }
 }
@@ -132,7 +132,7 @@
 .usa-card--flag .usa-card__header,
 .usa-card--flag .usa-card__body,
 .usa-card--flag .usa-card__footer {
-  @include u-padding-y($theme-card-padding-size);
+  @include u-padding-y($theme-card-padding);
 }
 
 .usa-card--flag .usa-card__header + .usa-card__body {
@@ -142,7 +142,7 @@
 .usa-card--flag.usa-card--media-right .usa-card__media {
   @include at-media($theme-card-flag-min-width) {
     @include u-padding-left(0);
-    @include u-padding-right($theme-card-padding-size);
+    @include u-padding-right($theme-card-padding);
   }
 }
 
