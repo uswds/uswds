@@ -16,7 +16,11 @@
 
 .usa-date-picker__calendar__date--next-month,
 .usa-date-picker__calendar__date--previous-month {
-  color: color("disabled");
+  color: color("gray-warm-60");
+}
+
+button.usa-date-picker__calendar__date--focused:focus {
+  outline-offset: -4px;
 }
 
 .usa-date-picker__calendar__month,

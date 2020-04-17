@@ -77,7 +77,17 @@ describe('date picker component', () => {
     assert.equal(calendar.hidden, true, 'The calendar is hidden');
   });
 
-  it('should allow for the selection of a date within the calendar');
+  it('should allow for the selection of a date within the calendar', () => {
+    button.focus();
+
+    EVENTS.click();
+    EVENTS.click(); // clicks the currently focused calendar date
+
+    assert.ok(input.value, 'The value has been filled in');
+    assert.equal(input, document.activeElement, 'The focus on the input');
+    assert.equal(calendar.hidden, true, 'The calendar is hidden');
+  });
+
   it('should display a calendar for the inputted date when the date picker button is clicked with a date entered');
   it('should allow for navigation to the preceding month by clicking the left single arrow button within the calendar');
   it('should allow for navigation to the succeeding month by clicking the right single arrow button within the calendar');
