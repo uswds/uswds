@@ -3,16 +3,27 @@ const select = require("../utils/select");
 const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
 
-const DATE_PICKER = `.${PREFIX}-date-picker`;
-const INPUT_CLASS = `${PREFIX}-date-picker__input`;
-const BUTTON_CLASS = `${PREFIX}-date-picker__button`;
-const CALENDAR_CLASS = `${PREFIX}-date-picker__calendar`;
-const CALENDAR_DATE_CLASS = `${PREFIX}-date-picker__calendar__date`;
+const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
+const INPUT_CLASS = `${DATE_PICKER_CLASS}__input`;
+const BUTTON_CLASS = `${DATE_PICKER_CLASS}__button`;
+const CALENDAR_CLASS = `${DATE_PICKER_CLASS}__calendar`;
+const CALENDAR_DATE_CLASS = `${CALENDAR_CLASS}__date`;
+const CALENDAR_DATE_FOCUSED_CLASS = `${CALENDAR_DATE_CLASS}--focused`;
+const CALENDAR_PREVIOUS_YEAR_CLASS = `${CALENDAR_CLASS}__previous-year`;
+const CALENDAR_PREVIOUS_MONTH_CLASS = `${CALENDAR_CLASS}__previous-month`;
+const CALENDAR_NEXT_YEAR_CLASS = `${CALENDAR_CLASS}__next-year`;
+const CALENDAR_NEXT_MONTH_CLASS = `${CALENDAR_CLASS}__next-month`;
 
+const DATE_PICKER = `.${DATE_PICKER_CLASS}`;
 const BUTTON = `.${BUTTON_CLASS}`;
 const INPUT = `.${INPUT_CLASS}`;
 const CALENDAR = `.${CALENDAR_CLASS}`;
 const CALENDAR_DATE = `.${CALENDAR_DATE_CLASS}`;
+const CALENDAR_DATE_FOCUSED = `.${CALENDAR_DATE_FOCUSED_CLASS}`;
+const CALENDAR_PREVIOUS_YEAR = `.${CALENDAR_PREVIOUS_YEAR_CLASS}`;
+const CALENDAR_PREVIOUS_MONTH = `.${CALENDAR_PREVIOUS_MONTH_CLASS}`;
+const CALENDAR_NEXT_YEAR = `.${CALENDAR_NEXT_YEAR_CLASS}`;
+const CALENDAR_NEXT_MONTH = `.${CALENDAR_NEXT_MONTH_CLASS}`;
 
 /**
  * The elements within the date picker.
@@ -21,6 +32,7 @@ const CALENDAR_DATE = `.${CALENDAR_DATE_CLASS}`;
  * @property {HTMLInputElement} inputEl
  * @property {HTMLButtonElement} calendarBtn
  * @property {HTMLDivElement} calendarEl
+ * @property {HTMLButtonElement} focusedDateEl
  */
 
 /**
@@ -40,8 +52,9 @@ const getDatePickerElements = (el) => {
   const inputEl = datePickerEl.querySelector(INPUT);
   const calendarBtn = datePickerEl.querySelector(BUTTON);
   const calendarEl = datePickerEl.querySelector(CALENDAR);
+  const focusedDateEl = datePickerEl.querySelector(CALENDAR_DATE_FOCUSED);
 
-  return { datePickerEl, inputEl, calendarBtn, calendarEl };
+  return { datePickerEl, inputEl, calendarBtn, calendarEl, focusedDateEl };
 };
 
 
@@ -66,24 +79,23 @@ const enhanceDatePicker = datePickerEl => {
     ].join(''));
 };
 
-
 /**
- * Display the calendar.
+ * render the calendar.
  *
  * @param {HTMLElement} el An element within the date picker component
+ * @param {Date} dateToDisplay a date to render on the calendar
  */
-const displayCalendar = el => {
+const renderCalendar = (el, dateToDisplay = new Date()) => {
   const { calendarEl } = getDatePickerElements(el);
 
-  const date = new Date();
-  const focusedDay = date.getDate();
-  const focusedMonth = date.getMonth();
-  const focusedYear = date.getFullYear();
+  const focusedDay = dateToDisplay.getDate();
+  const focusedMonth = dateToDisplay.getMonth();
+  const focusedYear = dateToDisplay.getFullYear();
 
   const firstDay = new Date(focusedYear, focusedMonth, 1).getDay();
 
   // test September
-  const fullMonth = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(date);
+  const fullMonth = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(dateToDisplay);
 
   const renderDate = (dateToRender) => {
     const classes = [CALENDAR_DATE_CLASS];
@@ -100,7 +112,7 @@ const displayCalendar = el => {
     }
 
     if (year === focusedYear && month === focusedMonth && day === focusedDay) {
-      classes.push('usa-date-picker__calendar__date--focused');
+      classes.push(CALENDAR_DATE_FOCUSED_CLASS);
     }
 
     return `<button 
@@ -113,27 +125,27 @@ const displayCalendar = el => {
   }
 
   // set date to first rendered day
-  date.setDate(1 - firstDay);
+  dateToDisplay.setDate(1 - firstDay);
 
   const dates = [];
 
   // while (dates.length / 7 < 6) {
-  while (date.getMonth() <= focusedMonth || dates.length % 7 !== 0) {
-    dates.push(renderDate(date));
-    date.setDate(date.getDate() + 1);
+  while (dates.length / 7 < 4 || dateToDisplay.getMonth() === focusedMonth || dates.length % 7 !== 0) {
+    dates.push(renderDate(dateToDisplay));
+    dateToDisplay.setDate(dateToDisplay.getDate() + 1);
   }
 
   calendarEl.hidden = false;
   calendarEl.innerHTML = [
     `<div class="usa-date-picker__calendar__month">
-      <button class="usa-date-picker__calendar__month-selector usa-date-picker__calendar__previous-year"><<</button>
-      <button class="usa-date-picker__calendar__month-selector usa-date-picker__calendar__previous-month"><</button>
+      <button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}"><<</button>
+      <button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}"><</button>
       <div class="usa-date-picker__calendar__date-display">
         <button class="usa-date-picker__calendar__month-selector usa-date-picker__calendar__month-selection">${fullMonth}</button>
         <button class="usa-date-picker__calendar__month-selector usa-date-picker__calendar__year-selection">${focusedYear}</button>
       </div>
-      <button class="usa-date-picker__calendar__month-selector usa-date-picker__calendar__next-month">></button>
-      <button class="usa-date-picker__calendar__month-selector usa-date-picker__calendar__next-year">>></button>
+      <button class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">></button>
+      <button class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">>></button>
     </div>`,
     `<div class="usa-date-picker__calendar__days-of-week">
       <div class="usa-date-picker__calendar__days-of-week__day">S</div>
@@ -148,6 +160,141 @@ const displayCalendar = el => {
   ].join('');
 
   calendarEl.querySelector('.usa-date-picker__calendar__date--focused').focus();
+}
+
+/**
+ * Display the calendar.
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const displayCalendar = el => {
+  const { calendarEl, inputEl } = getDatePickerElements(el);
+
+  let date;
+  if (inputEl.value) {
+    const [month, day, year] = inputEl.value.split('/').map(numStr => {
+      const parsed = Number.parseInt(numStr, 10);
+      if (Number.isNaN(parsed)) {
+        return false;
+      }
+
+      return parsed;
+    });
+
+    if (day && month && year) {
+      date = new Date(year, month - 1, day);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
+};
+
+/**
+ * Display the calendar.
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const displayPreviousYear = el => {
+  const { calendarEl, focusedDateEl } = getDatePickerElements(el);
+
+  let date;
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl.getAttribute('data-value').split('/').map(numStr => {
+      const parsed = Number.parseInt(numStr, 10);
+      if (Number.isNaN(parsed)) {
+        return false;
+      }
+
+      return parsed;
+    });
+
+    if (day && month && year) {
+      date = new Date(year - 1, month - 1, day);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
+};
+
+/**
+ * Display the calendar.
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const displayPreviousMonth = el => {
+  const { calendarEl, focusedDateEl } = getDatePickerElements(el);
+
+  let date;
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl.getAttribute('data-value').split('/').map(numStr => {
+      const parsed = Number.parseInt(numStr, 10);
+      if (Number.isNaN(parsed)) {
+        return false;
+      }
+
+      return parsed;
+    });
+
+    if (day && month && year) {
+      date = new Date(year, month - 2, day);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
+};
+
+/**
+ * Display the calendar.
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const displayNextMonth = el => {
+  const { calendarEl, focusedDateEl } = getDatePickerElements(el);
+
+  let date;
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl.getAttribute('data-value').split('/').map(numStr => {
+      const parsed = Number.parseInt(numStr, 10);
+      if (Number.isNaN(parsed)) {
+        return false;
+      }
+
+      return parsed;
+    });
+
+    if (day && month && year) {
+      date = new Date(year, month, day);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
+};
+
+/**
+ * Display the calendar.
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const displayNextYear = el => {
+  const { calendarEl, focusedDateEl } = getDatePickerElements(el);
+
+  let date;
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl.getAttribute('data-value').split('/').map(numStr => {
+      const parsed = Number.parseInt(numStr, 10);
+      if (Number.isNaN(parsed)) {
+        return false;
+      }
+
+      return parsed;
+    });
+
+    if (day && month && year) {
+      date = new Date(year + 1, month - 1, day);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
 };
 
 /**
@@ -185,10 +332,23 @@ const datePicker = behavior(
       },
       [CALENDAR_DATE]() {
         selectDate(this);
+      },
+      [CALENDAR_PREVIOUS_YEAR]() {
+        displayPreviousYear(this);
+      },
+      [CALENDAR_PREVIOUS_MONTH]() {
+        displayPreviousMonth(this);
+      },
+      [CALENDAR_NEXT_MONTH]() {
+        displayNextMonth(this);
+      },
+      [CALENDAR_NEXT_YEAR]() {
+        displayNextYear(this);
       }
     },
     focusout: {
       [DATE_PICKER](event) {
+
         const { datePickerEl } = getDatePickerElements(event.target);
         if (!datePickerEl.contains(event.relatedTarget)) {
           hideCalendar(datePickerEl);

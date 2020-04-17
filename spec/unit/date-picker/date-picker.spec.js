@@ -88,11 +88,75 @@ describe('date picker component', () => {
     assert.equal(calendar.hidden, true, 'The calendar is hidden');
   });
 
-  it('should display a calendar for the inputted date when the date picker button is clicked with a date entered');
-  it('should allow for navigation to the preceding month by clicking the left single arrow button within the calendar');
-  it('should allow for navigation to the succeeding month by clicking the right single arrow button within the calendar');
-  it('should allow for navigation to the preceding year by clicking the left double arrow button within the calendar');
-  it('should allow for navigation to the succeeding year by clicking the right double arrow button within the calendar');
+
+  it('should display a calendar for the inputted date when the date picker button is clicked with a date entered', () => {
+    input.value = '1/1/2020';
+    button.focus();
+
+    EVENTS.click();
+
+    assert.equal(calendar.hidden, false, 'The calendar is shown');
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__date--focused').textContent, '1', 'focuses correct date');
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__month-selection').textContent, 'January', 'shows correct month');
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__year-selection').textContent, '2020', 'shows correct year');
+  });
+
+  it('should allow for navigation to the preceding month by clicking the left single arrow button within the calendar', () => {
+    input.value = '1/1/2020';
+    button.focus();
+
+    EVENTS.click();
+    assert.equal(calendar.hidden, false, 'The calendar is shown');
+    calendar.querySelector('.usa-date-picker__calendar__previous-month').focus();
+    EVENTS.click();
+
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__date--focused').textContent, '1', 'focuses correct date');
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__month-selection').textContent, 'December', 'shows correct month');
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__year-selection').textContent, '2019', 'shows correct year');
+  });
+
+  it('should allow for navigation to the succeeding month by clicking the right single arrow button within the calendar', () => {
+    input.value = '1/1/2020';
+    button.focus();
+
+    EVENTS.click();
+    assert.equal(calendar.hidden, false, 'The calendar is shown');
+    calendar.querySelector('.usa-date-picker__calendar__next-month').focus();
+    EVENTS.click();
+
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__date--focused').textContent, '1', 'focuses correct date');
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__month-selection').textContent, 'February', 'shows correct month');
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__year-selection').textContent, '2020', 'shows correct year');
+  });
+
+  it('should allow for navigation to the preceding year by clicking the left double arrow button within the calendar', () => {
+    input.value = '1/1/2020';
+    button.focus();
+
+    EVENTS.click();
+    assert.equal(calendar.hidden, false, 'The calendar is shown');
+    calendar.querySelector('.usa-date-picker__calendar__previous-year').focus();
+    EVENTS.click();
+
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__date--focused').textContent, '1', 'focuses correct date');
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__month-selection').textContent, 'January', 'shows correct month');
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__year-selection').textContent, '2019', 'shows correct year');
+  });
+
+  it('should allow for navigation to the succeeding year by clicking the right double arrow button within the calendar', () => {
+    input.value = '1/1/2020';
+    button.focus();
+
+    EVENTS.click();
+    assert.equal(calendar.hidden, false, 'The calendar is shown');
+    calendar.querySelector('.usa-date-picker__calendar__next-year').focus();
+    EVENTS.click();
+
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__date--focused').textContent, '1', 'focuses correct date');
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__month-selection').textContent, 'January', 'shows correct month');
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__year-selection').textContent, '2021', 'shows correct year');
+  });
+
   it('should display a month selection screen by clicking the month display within the calendar');
   it('should allow for the selection of a month within month selection screen');
   it('should display a year selection screen by clicking the year display within the calendar');
