@@ -1,17 +1,52 @@
 const fs = require('fs');
 const path = require('path');
+const assert = require('assert');
 const DatePicker = require('../../../src/js/components/date-picker');
 
-const TEMPLATE = fs.readFileSync(
-  path.join(__dirname, '/date-picker.template.html'),
-);
+const TEMPLATE = fs.readFileSync(path.join(__dirname, '/date-picker.template.html'));
 
-describe('character count component', () => {
+const EVENTS = {};
+
+/**
+ * send a click event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.click = (el = document.activeElement) => {
+  const evt = new MouseEvent('click', {
+    view: el.ownerDocument.defaultView,
+    bubbles: true,
+    cancelable: true,
+  });
+  el.dispatchEvent(evt);
+};
+
+/**
+ * send a focusout event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.focusout = (el = document.activeElement) => {
+  const evt = new Event('focusout', {
+    bubbles: true,
+    cancelable: true,
+  });
+  el.dispatchEvent(evt);
+};
+
+describe('date picker component', () => {
   const { body } = document;
+
+  let root;
+  let input;
+  let button;
+  let calendar;
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
     DatePicker.on();
+    root = body.querySelector('.usa-date-picker');
+    input = root.querySelector('.usa-date-picker__input');
+    button = root.querySelector('.usa-date-picker__button');
+    calendar = root.querySelector('.usa-date-picker__calendar');
   });
 
   afterEach(() => {
@@ -19,15 +54,29 @@ describe('character count component', () => {
     DatePicker.off(body);
   });
 
-  // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date
-  // it - should - when - from?
-
-  // initialization
-  it('should enhance the date input with a date picker button');
+  it('should enhance the date input with a date picker button', () => {
+    assert.ok(input, 'has an input element');
+    assert.ok(button, 'has a button element');
+  });
 
   // mouse interactions
-  it('should display a calendar for the current date when the date picker button is clicked');
-  it('should close the calendar you click outside of an active calendar');
+  it('should display a calendar for the current date when the date picker button is clicked', () => {
+    button.focus();
+
+    EVENTS.click();
+
+    assert.equal(calendar.hidden, false, 'The calendar is shown');
+    assert.ok(root.contains(document.activeElement), 'The focus is within the component');
+  });
+
+  it('should close the calendar you click outside of an active calendar', () => {
+    calendar.focus();
+
+    EVENTS.focusout();
+
+    assert.equal(calendar.hidden, true, 'The calendar is hidden');
+  });
+
   it('should allow for the selection of a date within the calendar');
   it('should display a calendar for the inputted date when the date picker button is clicked with a date entered');
   it('should allow for navigation to the preceding month by clicking the left single arrow button within the calendar');

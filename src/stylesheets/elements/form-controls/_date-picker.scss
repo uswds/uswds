@@ -1,0 +1,41 @@
+.usa-date-picker__button {
+  margin: 0;
+}
+
+.usa-date-picker__calendar {
+  background-color: color("base-lightest");
+}
+
+.usa-date-picker__calendar__month-selector,
+.usa-date-picker__calendar__date,
+.usa-date-picker__calendar__days-of-week__day {
+  padding: 10px 5px;
+  border: 0;
+  margin: 0;
+}
+
+.usa-date-picker__calendar__date--next-month,
+.usa-date-picker__calendar__date--previous-month {
+  color: color("disabled");
+}
+
+.usa-date-picker__calendar__month,
+.usa-date-picker__calendar__days-of-week,
+.usa-date-picker__calendar__dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+
+.usa-date-picker__calendar__date-display {
+  grid-column: 3 / span 3;
+}
+
+.usa-date-picker__calendar__month-selector,
+.usa-date-picker__calendar__date {
+  &:hover {
+    background-color: color("base-lighter");
+    color: color("ink");
+    text-decoration: none;
+  }
+}
