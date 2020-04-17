@@ -1,0 +1,65 @@
+.usa-dropzone--is-initialized .usa-dropzone__target {
+  border: 1px dashed color('base-light');
+  display: block;
+  font-size: size('body', '2xs');
+  margin-top: units(1);
+  padding: units(4) units(2);
+  position: relative;
+  text-align:center;
+  width: 100%;
+
+  &:hover {
+    border-color: color('base');
+  }
+}
+
+.usa-dropzone__choose {
+  @include typeset-link;
+}
+
+.usa-dropzone__instructions {
+  display: none;
+}
+
+.usa-dropzone--is-initialized .usa-dropzone__label-text {
+  position: absolute;
+  left: -999em;
+}
+
+.usa-dropzone--is-initialized .usa-dropzone__instructions {
+  display: inline-block;
+}
+
+.usa-dropzone--is-initialized .usa-dropzone__input[type] {
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  max-width: none;
+  position: absolute;
+  padding: units(1);
+  text-indent: -999em;
+  top: 0;
+  width: 100%;
+}
+
+.usa-dropzone--is-initialized .usa-dropzone__input[type]::-webkit-file-upload-button {
+  display: none;
+}
+
+.usa-dropzone__preview {
+  align-items: center;
+  background: color('base-lighter');
+  display: flex;
+  font-size: size('body', '3xs');
+  margin-top: units(1px);
+  padding: units(0.5);
+}
+
+.usa-dropzone__preview__image {
+  border: none;
+  display: block;
+  height: units(5);
+  margin-right: units(1);
+  object-fit: contain;
+  width: units(5);
+}
