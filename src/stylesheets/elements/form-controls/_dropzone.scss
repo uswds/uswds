@@ -13,6 +13,10 @@
   }
 }
 
+.usa-dropzone--drag .usa-dropzone__target {
+  border-color: color('primary');
+}
+
 .usa-dropzone__choose {
   @include typeset-link;
 }

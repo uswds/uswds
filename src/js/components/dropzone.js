@@ -6,6 +6,7 @@ const DROPZONE = `.${PREFIX}-dropzone`;
 const INPUT = `.${PREFIX}-dropzone__input`;
 const INITIALIZED_CLASS = `${PREFIX}-dropzone--is-initialized`;
 const PREVIEW_CLASS = 'usa-dropzone__preview';
+const DRAG_CLASS = 'usa-dropzone--drag'
 
 
 /**
@@ -36,6 +37,19 @@ const setupAttributes = inputEl => {
   const { dropzoneEl } = getinputElements(inputEl);
 
   dropzoneEl.classList.add(INITIALIZED_CLASS);
+
+  inputEl.ondragover = e => {
+    dropzoneEl.classList.add(DRAG_CLASS);
+  }
+
+  inputEl.ondragleave = e => {
+    dropzoneEl.classList.remove(DRAG_CLASS);
+  }
+
+  inputEl.ondrop = e => {
+    dropzoneEl.classList.remove(DRAG_CLASS);
+  }
+
 };
 
 
@@ -80,6 +94,9 @@ const handleChange = inputEl => {
   }
 }
 
+
+
+
 const dropzone = behavior(
   {
     input: {
@@ -92,11 +109,8 @@ const dropzone = behavior(
     init(root) {
       select(DROPZONE, root).forEach(input => {
         setupAttributes(input);
-        //updateCountMessage(input);
       });
-    },
-    //MESSAGE_INVALID_CLASS,
-    //VALIDATION_MESSAGE
+    }
   }
 );
 
