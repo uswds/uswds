@@ -6,7 +6,20 @@ const DROPZONE = `.${PREFIX}-dropzone`;
 const INPUT = `.${PREFIX}-dropzone__input`;
 const INITIALIZED_CLASS = `${PREFIX}-dropzone--is-initialized`;
 const PREVIEW_CLASS = 'usa-dropzone__preview';
-const DRAG_CLASS = 'usa-dropzone--drag'
+const DRAG_CLASS = 'usa-dropzone--drag';
+const LOADING_CLASS = 'usa-dropzone__preview__image--loading';
+const GENERIC_PREVIEW_CLASS = 'usa-dropzone__preview__image--generic';
+const SPACER_GIF = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+
+const makeSafeForID = name => {
+    return name.replace(/[^a-z0-9]/g, function(s) {
+        var c = s.charCodeAt(0);
+        if (c == 32) return '-';
+        if (c >= 65 && c <= 90) return '_' + s.toLowerCase();
+        return '__' + ('000' + c.toString(16)).slice(-4);
+    });
+}
 
 
 /**
@@ -62,17 +75,6 @@ const setupAttributes = inputEl => {
 const handleChange = inputEl => {
   const { dropzoneEl } = getinputElements(inputEl);
 
-  var support = (function () {
-    if (!window.DOMParser) return false;
-    var parser = new DOMParser();
-    try {
-      parser.parseFromString('x', 'text/html');
-    } catch(err) {
-      return false;
-    }
-    return true;
-  })();
-
 
 
   inputEl.onchange = e => {
@@ -91,37 +93,25 @@ const handleChange = inputEl => {
      const reader  = new FileReader();
 
      reader.onloadstart = function() {
-       console.log(inputEl.id);
 
-       let the_id = the_file_name.replace(" ", "_");
+       const image_id = makeSafeForID(the_file_name);
 
-       const preview_image = '<img id="'+ the_id +'" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="usa-dropzone__preview__image usa-dropzone__preview__image--blank"/>';
+       const preview_image = '<img id="'+ image_id +'" src="' + SPACER_GIF + '" alt=" " class="usa-dropzone__preview__image ' + LOADING_CLASS + '"/>';
 
        dropzoneEl.insertAdjacentHTML('beforeend', '<div class="' + PREVIEW_CLASS +  '" aria-hidden="true">'+ preview_image + the_file_name+'<div>');
 
      }
 
      reader.onloadend = function() {
-       console.log(inputEl.id);
 
-       let the_id = the_file_name.replace(" ", "_");
+       const image_id = makeSafeForID(the_file_name);
 
-       let preview_image = document.getElementById(the_id);
-       console.log(preview_image);
+       const preview_image = document.getElementById(image_id);
 
-       preview_image.classList.remove('usa-dropzone__preview__image--blank');
+       preview_image.setAttribute("onerror",'this.onerror=null;this.src="'+ SPACER_GIF +'"; this.classList.add("' + GENERIC_PREVIEW_CLASS + '")')
+
+       preview_image.classList.remove(LOADING_CLASS);
        preview_image.src = reader.result;
-
-       //let new_preview_image = dropzoneEl.querySelectorAll(PREVIEW_CLASS + " .usa-dropzone__preview__image");
-
-       //dropzoneEl.insertAdjacentHTML('beforeend', '<div class="' + PREVIEW_CLASS +  '" aria-hidden="true"><img src="' + reader.result + '" alt="" class="usa-dropzone__preview__image"/>'+the_file_name+'<div>');
-
-
-
-       //preview_image[0].remove();
-
-       //console.log(preview_image[0].getAttribute("src"));
-
 
      }
 
@@ -145,7 +135,7 @@ const dropzone = behavior(
   {
     input: {
       [INPUT]() {
-        handleChange(this);
+        //handleChange(this);
       }
     }
   },
@@ -153,6 +143,7 @@ const dropzone = behavior(
     init(root) {
       select(DROPZONE, root).forEach(input => {
         setupAttributes(input);
+        handleChange(input);
       });
     }
   }

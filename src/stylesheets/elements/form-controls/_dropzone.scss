@@ -32,18 +32,34 @@
 
 .usa-dropzone--is-initialized .usa-dropzone__instructions {
   display: inline-block;
+  pointer-events: none;
+  position: relative;
+  z-index: 3;
+}
+
+.usa-dropzone--is-initialized .usa-dropzone__box {
+  background: white;
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }
 
 .usa-dropzone--is-initialized .usa-dropzone__input[type] {
   cursor: pointer;
   height: 100%;
   left: 0;
+  margin: 0;
   max-width: none;
   position: absolute;
   padding: units(1);
   text-indent: -999em;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 .usa-dropzone--is-initialized .usa-dropzone__input[type]::-webkit-file-upload-button {
@@ -66,4 +82,18 @@
   margin-right: units(1);
   object-fit: contain;
   width: units(5);
+}
+
+.usa-dropzone__preview__image--loading {
+  @include add-background-svg("loader");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: units(4);
+}
+
+.usa-dropzone__preview__image--generic {
+  @include add-background-svg("file");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: units(3);
 }

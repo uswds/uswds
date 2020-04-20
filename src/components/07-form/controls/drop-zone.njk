@@ -1,4 +1,5 @@
 <h6>Control - Base form</h6>
+
 <form class="usa-form margin-bottom-7" method="post" action="#">
   <label class="usa-dropzone__label" for="input-drop-test">
     Select a file
@@ -6,13 +7,15 @@
   </label>
 </form>
 
+
 <h6 class="margin-top-7">Javascript Works Version</h6>
 <form class="usa-form" method="post" action="#">
   <div class="usa-dropzone">
   <label class="usa-label" for="input-drop3">Upload last two paystubs</label>
       <div class="usa-dropzone__target">
         <span class="usa-dropzone__instructions" aria-hidden="true">Drag here or <span class="usa-dropzone__choose">choose from folder</span></span>
-        <input id="input-drop3" class="usa-dropzone__input" multiple type="file" name="" value="" />
+        <div class="usa-dropzone__box"></div>
+        <input id="input-drop3" class="usa-dropzone__input" multiple type="file" name=""/>
       </div>
   </div>
 </form>
