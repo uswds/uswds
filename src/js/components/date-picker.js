@@ -38,11 +38,11 @@ const CALENDAR_NEXT_MONTH = `.${CALENDAR_NEXT_MONTH_CLASS}`;
 /**
  * Get an object of elements belonging directly to the given
  * date picker component.
- * 
+ *
  * @param {HTMLElement} el the element within the combo box
  * @returns {DatePickerElements} elements
  */
-const getDatePickerElements = (el) => {
+const getDatePickerElements = el => {
   const datePickerEl = el.closest(DATE_PICKER);
 
   if (!datePickerEl) {
@@ -56,7 +56,6 @@ const getDatePickerElements = (el) => {
 
   return { datePickerEl, inputEl, calendarBtn, calendarEl, focusedDateEl };
 };
-
 
 /**
  * Enhance an input with the button for a date picker
@@ -72,11 +71,13 @@ const enhanceDatePicker = datePickerEl => {
 
   inputEl.classList.add(INPUT_CLASS);
 
-  datePickerEl.insertAdjacentHTML("beforeend",
+  datePickerEl.insertAdjacentHTML(
+    "beforeend",
     [
       `<button class="usa-button ${BUTTON_CLASS}">Calendar</button>`,
       `<div class="${CALENDAR_CLASS}" hidden></div>`
-    ].join(''));
+    ].join("")
+  );
 };
 
 /**
@@ -95,34 +96,36 @@ const renderCalendar = (el, dateToDisplay = new Date()) => {
   const firstDay = new Date(focusedYear, focusedMonth, 1).getDay();
 
   // test September
-  const fullMonth = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(dateToDisplay);
+  const fullMonth = new Intl.DateTimeFormat("en-US", { month: "long" }).format(
+    dateToDisplay
+  );
 
-  const renderDate = (dateToRender) => {
+  const renderDate = dateToRender => {
     const classes = [CALENDAR_DATE_CLASS];
     const day = dateToRender.getDate();
     const month = dateToRender.getMonth();
     const year = dateToRender.getFullYear();
 
     if (month < focusedMonth) {
-      classes.push('usa-date-picker__calendar__date--previous-month');
+      classes.push("usa-date-picker__calendar__date--previous-month");
     }
 
     if (month > focusedMonth) {
-      classes.push('usa-date-picker__calendar__date--next-month');
+      classes.push("usa-date-picker__calendar__date--next-month");
     }
 
     if (year === focusedYear && month === focusedMonth && day === focusedDay) {
       classes.push(CALENDAR_DATE_FOCUSED_CLASS);
     }
 
-    return `<button 
-      class="${classes.join(' ')}" 
+    return `<button
+      class="${classes.join(" ")}" 
       data-day="${day}" 
       data-month="${month + 1}" 
       data-year="${year}" 
       data-value="${month + 1}/${day}/${year}"
     >${day}</button>`;
-  }
+  };
 
   // set date to first rendered day
   dateToDisplay.setDate(1 - firstDay);
@@ -130,12 +133,17 @@ const renderCalendar = (el, dateToDisplay = new Date()) => {
   const dates = [];
 
   // while (dates.length / 7 < 6) {
-  while (dates.length / 7 < 4 || dateToDisplay.getMonth() === focusedMonth || dates.length % 7 !== 0) {
+  while (
+    dates.length / 7 < 4 ||
+    dateToDisplay.getMonth() === focusedMonth ||
+    dates.length % 7 !== 0
+  ) {
     dates.push(renderDate(dateToDisplay));
     dateToDisplay.setDate(dateToDisplay.getDate() + 1);
   }
 
   calendarEl.hidden = false;
+  calendarEl.setAttribute("tabindex", -1);
   calendarEl.innerHTML = [
     `<div class="usa-date-picker__calendar__month">
       <button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}"><<</button>
@@ -156,11 +164,11 @@ const renderCalendar = (el, dateToDisplay = new Date()) => {
       <div class="usa-date-picker__calendar__days-of-week__day">F</div>
       <div class="usa-date-picker__calendar__days-of-week__day">S</div>
     </div>`,
-    `<div class="usa-date-picker__calendar__dates">${dates.join('')}</div>`
-  ].join('');
+    `<div class="usa-date-picker__calendar__dates">${dates.join("")}</div>`
+  ].join("");
 
-  calendarEl.querySelector('.usa-date-picker__calendar__date--focused').focus();
-}
+  calendarEl.querySelector(".usa-date-picker__calendar__date--focused").focus();
+};
 
 /**
  * Display the calendar.
@@ -172,7 +180,7 @@ const displayCalendar = el => {
 
   let date;
   if (inputEl.value) {
-    const [month, day, year] = inputEl.value.split('/').map(numStr => {
+    const [month, day, year] = inputEl.value.split("/").map(numStr => {
       const parsed = Number.parseInt(numStr, 10);
       if (Number.isNaN(parsed)) {
         return false;
@@ -199,14 +207,17 @@ const displayPreviousYear = el => {
 
   let date;
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl.getAttribute('data-value').split('/').map(numStr => {
-      const parsed = Number.parseInt(numStr, 10);
-      if (Number.isNaN(parsed)) {
-        return false;
-      }
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
 
-      return parsed;
-    });
+        return parsed;
+      });
 
     if (day && month && year) {
       date = new Date(year - 1, month - 1, day);
@@ -226,14 +237,17 @@ const displayPreviousMonth = el => {
 
   let date;
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl.getAttribute('data-value').split('/').map(numStr => {
-      const parsed = Number.parseInt(numStr, 10);
-      if (Number.isNaN(parsed)) {
-        return false;
-      }
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
 
-      return parsed;
-    });
+        return parsed;
+      });
 
     if (day && month && year) {
       date = new Date(year, month - 2, day);
@@ -253,14 +267,17 @@ const displayNextMonth = el => {
 
   let date;
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl.getAttribute('data-value').split('/').map(numStr => {
-      const parsed = Number.parseInt(numStr, 10);
-      if (Number.isNaN(parsed)) {
-        return false;
-      }
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
 
-      return parsed;
-    });
+        return parsed;
+      });
 
     if (day && month && year) {
       date = new Date(year, month, day);
@@ -280,14 +297,17 @@ const displayNextYear = el => {
 
   let date;
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl.getAttribute('data-value').split('/').map(numStr => {
-      const parsed = Number.parseInt(numStr, 10);
-      if (Number.isNaN(parsed)) {
-        return false;
-      }
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
 
-      return parsed;
-    });
+        return parsed;
+      });
 
     if (day && month && year) {
       date = new Date(year + 1, month - 1, day);
@@ -317,7 +337,7 @@ const hideCalendar = el => {
 const selectDate = calendarDateEl => {
   const { datePickerEl, inputEl } = getDatePickerElements(calendarDateEl);
 
-  inputEl.value = calendarDateEl.getAttribute('data-value');
+  inputEl.value = calendarDateEl.getAttribute("data-value");
 
   hideCalendar(datePickerEl);
 
@@ -354,7 +374,7 @@ const datePicker = behavior(
           hideCalendar(datePickerEl);
         }
       }
-    },
+    }
   },
   {
     init(root) {
