@@ -62,6 +62,19 @@ const setupAttributes = inputEl => {
 const handleChange = inputEl => {
   const { dropzoneEl } = getinputElements(inputEl);
 
+  var support = (function () {
+    if (!window.DOMParser) return false;
+    var parser = new DOMParser();
+    try {
+      parser.parseFromString('x', 'text/html');
+    } catch(err) {
+      return false;
+    }
+    return true;
+  })();
+
+
+
   inputEl.onchange = e => {
     const fileNames = e.target.files;
     const filePreviews = dropzoneEl.querySelectorAll('.'+ PREVIEW_CLASS);
@@ -77,9 +90,42 @@ const handleChange = inputEl => {
     {
      const reader  = new FileReader();
 
-     reader.onloadend = function() {
-       dropzoneEl.insertAdjacentHTML('beforeend', '<div class="' + PREVIEW_CLASS +  '" aria-hidden="true"><img src="' + reader.result + '" alt="" class="usa-dropzone__preview__image"/>'+the_file_name+'<div>');
+     reader.onloadstart = function() {
+       console.log(inputEl.id);
+
+       let the_id = the_file_name.replace(" ", "_");
+
+       const preview_image = '<img id="'+ the_id +'" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="usa-dropzone__preview__image usa-dropzone__preview__image--blank"/>';
+
+       dropzoneEl.insertAdjacentHTML('beforeend', '<div class="' + PREVIEW_CLASS +  '" aria-hidden="true">'+ preview_image + the_file_name+'<div>');
+
      }
+
+     reader.onloadend = function() {
+       console.log(inputEl.id);
+
+       let the_id = the_file_name.replace(" ", "_");
+
+       let preview_image = document.getElementById(the_id);
+       console.log(preview_image);
+
+       preview_image.classList.remove('usa-dropzone__preview__image--blank');
+       preview_image.src = reader.result;
+
+       //let new_preview_image = dropzoneEl.querySelectorAll(PREVIEW_CLASS + " .usa-dropzone__preview__image");
+
+       //dropzoneEl.insertAdjacentHTML('beforeend', '<div class="' + PREVIEW_CLASS +  '" aria-hidden="true"><img src="' + reader.result + '" alt="" class="usa-dropzone__preview__image"/>'+the_file_name+'<div>');
+
+
+
+       //preview_image[0].remove();
+
+       //console.log(preview_image[0].getAttribute("src"));
+
+
+     }
+
+     const the_file_name = fileNames[i].name;
 
      if (fileNames[i]) {
         reader.readAsDataURL(fileNames[i]);
@@ -87,8 +133,6 @@ const handleChange = inputEl => {
      else {
        preview.src = "";
      }
-
-     const the_file_name = fileNames[i].name;
 
     }
   }
