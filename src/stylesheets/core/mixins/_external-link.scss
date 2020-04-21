@@ -3,19 +3,16 @@
   $external-link-hover,
   $image-path: $theme-image-path
 ) {
-  display: inline-block;
-
   &::after {
+    $icon-size: 0.65em;
     background-image: url("#{$image-path}/#{$external-link}.svg");
-    background-position: 0 0;
+    background-position: 50% 60%;
     background-repeat: no-repeat;
     background-size: 100%;
     content: "";
-    display: inline-block;
-    height: 0.65em;
-    margin-bottom: -1px;
+    display: inline;
     margin-left: units(0.5);
-    width: 0.65em;
+    padding-left: $icon-size;
   }
 
   &:hover::after {
