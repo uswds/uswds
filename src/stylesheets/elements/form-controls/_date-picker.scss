@@ -9,18 +9,24 @@
 .usa-date-picker__calendar__month-selector,
 .usa-date-picker__calendar__date,
 .usa-date-picker__calendar__days-of-week__day {
+  background-color: color("base-lightest");
   padding: 10px 5px;
   border: 0;
   margin: 0;
+
+  &:focus {
+    outline-offset: -4px;
+  }
+}
+
+.usa-date-picker__calendar__date-display .usa-date-picker__calendar__month-selector { 
+  width: auto;
+  display: inline-block;
 }
 
 .usa-date-picker__calendar__date--next-month,
 .usa-date-picker__calendar__date--previous-month {
   color: color("gray-warm-60");
-}
-
-button.usa-date-picker__calendar__date--focused:focus {
-  outline-offset: -4px;
 }
 
 .usa-date-picker__calendar__month,
