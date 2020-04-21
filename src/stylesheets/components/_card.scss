@@ -1,0 +1,157 @@
+@mixin card-equal-height {
+  @include at-media("tablet") {
+    @include u-display("flex");
+    @include u-flex("column");
+    @include u-height("full");
+
+    .usa-card__body {
+      @include u-flex("fill");
+      flex-basis: auto; // IE 11
+    }
+  }
+}
+
+.usa-card {
+  @include border-box-sizing;
+  @include typeset;
+  @include u-bg($theme-card-bg-color);
+  @include u-border($theme-card-border-width, $theme-card-border-color);
+  @include u-margin-bottom($theme-card-margin);
+  @include u-radius($theme-card-border-radius);
+}
+
+.usa-card:not(.usa-card--flag) > :only-child {
+  @include u-padding($theme-card-padding);
+}
+
+.usa-card .usa-card__img {
+  @include u-display("block");
+}
+
+// Header
+// ---------------------------------
+.usa-card__header {
+  @include u-padding-bottom($theme-card-padding / 2);
+  @include u-padding-top($theme-card-padding);
+  @include u-padding-x($theme-card-padding);
+}
+
+.usa-card__heading {
+  @include typeset($theme-card-header-font-family, "lg", 2);
+  @include u-margin(0);
+}
+
+// Body
+// ---------------------------------
+.usa-card__body {
+  @include u-padding-x($theme-card-padding);
+  @include u-padding-y($theme-card-padding / 2);
+
+  &:last-child {
+    @include u-padding-bottom($theme-card-padding);
+  }
+
+  :first-child {
+    @include u-margin-top(0);
+  }
+
+  :only-child {
+    @include u-margin-y(0);
+  }
+}
+
+// Footer
+// ---------------------------------
+.usa-card__footer {
+  @include u-padding-bottom($theme-card-padding);
+  @include u-padding-top($theme-card-padding / 2);
+  @include u-padding-x($theme-card-padding);
+}
+
+.usa-card__footer .usa-button:only-of-type {
+  @include u-margin-right(0);
+}
+
+// ---------------------------------
+// Variations
+// ---------------------------------
+
+// Raised
+// ---------------------------------
+.usa-card--raised {
+  @include u-shadow($theme-card-shadow);
+}
+
+// Media
+// ---------------------------------
+.usa-card--media .usa-card__header {
+  @include u-padding-top($theme-card-padding);
+
+  &:last-child {
+    @include u-padding-bottom($theme-card-padding);
+  }
+}
+
+.usa-card--media .usa-card__media {
+  @include u-margin-top(-$theme-card-border-width);
+  @include u-margin-x(-$theme-card-border-width);
+  @include u-order("first");
+}
+
+.usa-card--media .usa-card__img {
+  @include u-radius-top($theme-card-border-radius);
+  overflow: hidden;
+}
+
+
+// Flag
+// ---------------------------------
+.usa-card__inner {
+  @include at-media($theme-card-flag-min-width) {
+    @include grid-row;
+    @include u-padding-x(0);
+    @include u-width("full");
+  }
+}
+
+.usa-card--flag .usa-card__media {
+  @include u-margin-top(-$theme-card-border-width);
+  @include u-margin-x(-$theme-card-border-width);
+  @include u-radius-top($theme-card-border-radius);
+  overflow: hidden;
+
+  @include at-media($theme-card-flag-min-width) {
+    @include grid-col(4);
+    @include u-margin-top(0);
+    @include u-margin-x(0);
+    @include u-padding-left($theme-card-padding);
+    @include u-padding-right(0);
+    @include u-padding-y($theme-card-padding);
+    @include u-radius-top(0);
+  }
+}
+
+.usa-card--flag .usa-card__flag-content {
+  @include at-media($theme-card-flag-min-width) {
+    @include grid-col(8);
+  }
+}
+
+.usa-card--flag.usa-card--media-right .usa-card__media {
+  @include at-media($theme-card-flag-min-width) {
+    @include u-padding-left(0);
+    @include u-padding-right($theme-card-padding);
+  }
+}
+
+.usa-card--flag.usa-card--media-right .usa-card__flag-content {
+  @include at-media($theme-card-flag-min-width) {
+    @include u-order("first");
+  }
+}
+
+// Equal Height
+// ---------------------------------
+.usa-card--equal-height {
+  @include card-equal-height;
+}
