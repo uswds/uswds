@@ -60,7 +60,6 @@
   }
 }
 
-
 .usa-date-picker__calendar__date--next-month,
 .usa-date-picker__calendar__date--previous-month {
   color: color("gray-warm-60");
@@ -111,6 +110,7 @@
 
 .usa-date-picker__calendar__next-year-chunk,
 .usa-date-picker__calendar__previous-year-chunk {
+  cursor: pointer;
   font-size: 1.06rem;
   font-weight: 700;
   margin: auto;

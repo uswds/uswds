@@ -507,11 +507,13 @@ const selectYear = yearEl => {
 const displayMonthSelection = (el) => {
   const { calendarEl } = getDatePickerElements(el);
   calendarEl.classList.add(CALENDAR_MONTH_PICKER_CLASS);
+  calendarEl.focus();
 };
 
 const displayYearSelection = (el) => {
   const { calendarEl } = getDatePickerElements(el);
   calendarEl.classList.add(CALENDAR_YEAR_PICKER_CLASS);
+  calendarEl.focus();
 };
 
 const displayPreviousYearChunk = (el) => {
