@@ -3,6 +3,8 @@
   $external-link-hover,
   $image-path: $theme-image-path
 ) {
+  display: inline-block;
+
   &::after {
     background-image: url("#{$image-path}/#{$external-link}.svg");
     background-position: 0 0;
