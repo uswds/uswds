@@ -13,6 +13,11 @@ const CALENDAR_PREVIOUS_YEAR_CLASS = `${CALENDAR_CLASS}__previous-year`;
 const CALENDAR_PREVIOUS_MONTH_CLASS = `${CALENDAR_CLASS}__previous-month`;
 const CALENDAR_NEXT_YEAR_CLASS = `${CALENDAR_CLASS}__next-year`;
 const CALENDAR_NEXT_MONTH_CLASS = `${CALENDAR_CLASS}__next-month`;
+const CALENDAR_NEXT_MONTH_SELECTION_CLASS = `${CALENDAR_CLASS}__month-selection`;
+const CALENDAR_NEXT_YEAR_SELECTION_CLASS = `${CALENDAR_CLASS}__year-selection`;
+const CALENDAR_MONTH_CLASS = `${CALENDAR_CLASS}__month`;
+const CALENDAR_MONTH_PICKER_CLASS = `${CALENDAR_CLASS}--month-picker`;
+const CALENDAR_YEAR_PICKER_CLASS = `${CALENDAR_CLASS}--year-picker`;
 
 const DATE_PICKER = `.${DATE_PICKER_CLASS}`;
 const BUTTON = `.${BUTTON_CLASS}`;
@@ -24,6 +29,11 @@ const CALENDAR_PREVIOUS_YEAR = `.${CALENDAR_PREVIOUS_YEAR_CLASS}`;
 const CALENDAR_PREVIOUS_MONTH = `.${CALENDAR_PREVIOUS_MONTH_CLASS}`;
 const CALENDAR_NEXT_YEAR = `.${CALENDAR_NEXT_YEAR_CLASS}`;
 const CALENDAR_NEXT_MONTH = `.${CALENDAR_NEXT_MONTH_CLASS}`;
+const CALENDAR_NEXT_YEAR_SELECTION = `.${CALENDAR_NEXT_YEAR_SELECTION_CLASS}`;
+const CALENDAR_NEXT_MONTH_SELECTION = `.${CALENDAR_NEXT_MONTH_SELECTION_CLASS}`;
+const CALENDAR_MONTH = `.${CALENDAR_MONTH_CLASS}`;
+
+const MONTH_LABELS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 /**
  * The elements within the date picker.
@@ -89,6 +99,9 @@ const enhanceDatePicker = datePickerEl => {
 const renderCalendar = (el, dateToDisplay = new Date()) => {
   const { calendarEl } = getDatePickerElements(el);
 
+  calendarEl.classList.remove(CALENDAR_MONTH_PICKER_CLASS);
+  calendarEl.classList.remove(CALENDAR_YEAR_PICKER_CLASS);
+
   const focusedDay = dateToDisplay.getDate();
   const focusedMonth = dateToDisplay.getMonth();
   const focusedYear = dateToDisplay.getFullYear();
@@ -99,6 +112,30 @@ const renderCalendar = (el, dateToDisplay = new Date()) => {
   const fullMonth = new Intl.DateTimeFormat("en-US", { month: "long" }).format(
     dateToDisplay
   );
+
+  /**
+   * The elements within the date picker calendar.
+   * 
+   * @typedef {Object} DatePickerCalendarElements
+   * @property {HTMLButtonElement} monthEl
+   * @property {HTMLButtonElement} yearEl
+   * @property {HTMLDivElement} datesEl
+   */
+
+  /**
+   * Get an object of elements belonging directly to the given
+   * date picker component.
+   *
+   * @param {HTMLDivElement} calendarEl the calendar element
+   * @returns {DatePickerCalendarElements} elements
+   */
+  const getDatePickerCalendarElements = () => {
+    const monthEl = calendarEl.querySelector('.usa-date-picker__calendar__month-selection');
+    const yearEl = calendarEl.querySelector('.usa-date-picker__calendar__year-selection');
+    const datesEl = calendarEl.querySelector('.usa-date-picker__calendar__date-grid');
+
+    return { monthEl, yearEl, datesEl };
+  };
 
   const renderDate = dateToRender => {
     const classes = [CALENDAR_DATE_CLASS];
@@ -143,30 +180,46 @@ const renderCalendar = (el, dateToDisplay = new Date()) => {
     dateToDisplay.setDate(dateToDisplay.getDate() + 1);
   }
 
-  calendarEl.hidden = false;
-  calendarEl.setAttribute("tabindex", -1);
-  calendarEl.innerHTML = [
-    `<div class="usa-date-picker__calendar__month">
-      <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}"><<</div>
-      <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}"><</div>
-      <div class="usa-date-picker__calendar__date-display">
-        <div tabindex="-1" class="usa-date-picker__calendar__month-selector usa-date-picker__calendar__month-selection">${fullMonth}</div>
-        <div tabindex="-1" class="usa-date-picker__calendar__month-selector usa-date-picker__calendar__year-selection">${focusedYear}</div>
-      </div>
-      <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">></div>
-      <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">>></div>
-    </div>`,
-    `<div class="usa-date-picker__calendar__days-of-week">
-      <div class="usa-date-picker__calendar__days-of-week__day">S</div>
-      <div class="usa-date-picker__calendar__days-of-week__day">M</div>
-      <div class="usa-date-picker__calendar__days-of-week__day">T</div>
-      <div class="usa-date-picker__calendar__days-of-week__day">W</div>
-      <div class="usa-date-picker__calendar__days-of-week__day">Th</div>
-      <div class="usa-date-picker__calendar__days-of-week__day">F</div>
-      <div class="usa-date-picker__calendar__days-of-week__day">S</div>
-    </div>`,
-    `<div class="usa-date-picker__calendar__dates">${dates.join("")}</div>`
-  ].join("");
+  if (calendarEl.hidden) {
+    calendarEl.hidden = false;
+    calendarEl.setAttribute("tabindex", -1);
+    calendarEl.innerHTML = [
+      `<div class="usa-date-picker__calendar__month-header">
+        <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}"><<</div>
+        <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}"><</div>
+        <div class="usa-date-picker__calendar__date-display">
+          <div tabindex="-1" class="usa-date-picker__calendar__month-selector usa-date-picker__calendar__month-selection">${fullMonth}</div>
+          <div tabindex="-1" class="usa-date-picker__calendar__month-selector usa-date-picker__calendar__year-selection">${focusedYear}</div>
+        </div>
+        <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">></div>
+        <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">>></div>
+      </div>`,
+      `<div class="usa-date-picker__calendar__days-of-week">
+        <div class="usa-date-picker__calendar__days-of-week__day">S</div>
+        <div class="usa-date-picker__calendar__days-of-week__day">M</div>
+        <div class="usa-date-picker__calendar__days-of-week__day">T</div>
+        <div class="usa-date-picker__calendar__days-of-week__day">W</div>
+        <div class="usa-date-picker__calendar__days-of-week__day">Th</div>
+        <div class="usa-date-picker__calendar__days-of-week__day">F</div>
+        <div class="usa-date-picker__calendar__days-of-week__day">S</div>
+      </div>`,
+      `<div class="usa-date-picker__calendar__date-grid">${dates.join("")}</div>`,
+      `<div class="usa-date-picker__calendar__month-picker">${MONTH_LABELS.map((month, index) => {
+        return `<div
+          tabindex="-1"
+          class="${CALENDAR_MONTH_CLASS}" 
+          data-value="${index}"
+        >${month}</div>`;
+      }).join('')}</div>`,
+      `<div class="usa-date-picker__calendar__year-picker"></div>`,
+    ].join("");
+  } else {
+    const { monthEl, yearEl, datesEl } = getDatePickerCalendarElements(calendarEl);
+
+    monthEl.innerHTML = fullMonth;
+    yearEl.innerHTML = focusedYear;
+    datesEl.innerHTML = dates.join("");
+  }
 
   calendarEl.querySelector(".usa-date-picker__calendar__date--focused").focus();
 };
@@ -346,32 +399,92 @@ const selectDate = calendarDateEl => {
   inputEl.focus();
 };
 
+/**
+ * Select a month in a date picker component.
+ *
+ * @param {HTMLButtonElement} calendarDateEl An element within the date picker component
+ */
+const selectMonth = monthEl => {
+  const { calendarEl, focusedDateEl } = getDatePickerElements(monthEl);
+
+  let date;
+  const selectedMonth = Number.parseInt(monthEl.getAttribute('data-value'), 10);
+
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
+
+        return parsed;
+      });
+
+    if (day && month && year) {
+      date = new Date(year, selectedMonth, day);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
+};
+
+const displayMonthSelection = (el) => {
+  const { calendarEl } = getDatePickerElements(el);
+  calendarEl.classList.add(CALENDAR_MONTH_PICKER_CLASS);
+};
+
+const displayYearSelection = (el) => {
+  const { calendarEl } = getDatePickerElements(el);
+  calendarEl.classList.add(CALENDAR_YEAR_PICKER_CLASS);
+};
+
 const datePicker = behavior(
   {
     [CLICK]: {
-      [BUTTON]() {
+      [BUTTON](event) {
+        console.log(event);
         displayCalendar(this);
       },
-      [CALENDAR_DATE]() {
+      [CALENDAR_DATE](event) {
+        console.log(event);
         selectDate(this);
       },
-      [CALENDAR_PREVIOUS_YEAR]() {
+      [CALENDAR_MONTH](event) {
+        console.log(event);
+        selectMonth(this);
+      },
+      [CALENDAR_PREVIOUS_YEAR](event) {
+        console.log(event);
         displayPreviousYear(this);
       },
-      [CALENDAR_PREVIOUS_MONTH]() {
+      [CALENDAR_PREVIOUS_MONTH](event) {
+        console.log(event);
         displayPreviousMonth(this);
       },
-      [CALENDAR_NEXT_MONTH]() {
+      [CALENDAR_NEXT_MONTH](event) {
+        console.log(event);
         displayNextMonth(this);
       },
-      [CALENDAR_NEXT_YEAR]() {
+      [CALENDAR_NEXT_YEAR](event) {
+        console.log(event);
         displayNextYear(this);
+      },
+      [CALENDAR_NEXT_MONTH_SELECTION](event) {
+        console.log(event);
+        displayMonthSelection(this);
+      },
+      [CALENDAR_NEXT_YEAR_SELECTION](event) {
+        console.log(event);
+        displayYearSelection(this);
       }
     },
     focusout: {
       [DATE_PICKER](event) {
-
         const { datePickerEl } = getDatePickerElements(event.target);
+        console.log(datePickerEl.contains(event.relatedTarget), event);
         if (!datePickerEl.contains(event.relatedTarget)) {
           hideCalendar(datePickerEl);
         }
@@ -382,6 +495,7 @@ const datePicker = behavior(
     init(root) {
       select(DATE_PICKER, root).forEach(datePickerEl => {
         enhanceDatePicker(datePickerEl);
+        // displayCalendar(datePickerEl);
       });
     }
   }
