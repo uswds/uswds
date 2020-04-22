@@ -1,9 +1,16 @@
+.usa-date-picker {
+  position: relative;
+}
+
 .usa-date-picker__button {
   margin: 0;
 }
 
 .usa-date-picker__calendar {
   background-color: color("base-lightest");
+  position: absolute;
+  width: 100%;
+  z-index: z-index(100);
 }
 
 .usa-date-picker__calendar {
