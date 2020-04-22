@@ -160,6 +160,7 @@ const getDatePickerCalendarElements = (calendarEl) => {
  */
 const renderCalendar = (el, dateToDisplay = new Date()) => {
   const { calendarEl } = getDatePickerElements(el);
+  calendarEl.focus();
 
   calendarEl.classList.remove(CALENDAR_MONTH_PICKER_MODIFIER_CLASS);
   calendarEl.classList.remove(CALENDAR_YEAR_PICKER_MODIFIER_CLASS);
