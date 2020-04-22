@@ -1,7 +1,5 @@
 @mixin card-equal-height {
   @include at-media("tablet") {
-    @include u-display("flex");
-    @include u-flex("column");
     @include u-height("full");
 
     .usa-card__body {
@@ -16,6 +14,8 @@
   @include typeset;
   @include u-bg($theme-card-bg-color);
   @include u-border($theme-card-border-width, $theme-card-border-color);
+  @include u-display("flex");
+  @include u-flex-direction("column");
   @include u-margin-bottom($theme-card-margin);
   @include u-radius($theme-card-border-radius);
 }
@@ -24,8 +24,17 @@
   @include u-padding($theme-card-padding);
 }
 
-.usa-card .usa-card__img {
+.usa-card__media {
+  @include u-margin-top(-$theme-card-border-width);
+  @include u-margin-x(-$theme-card-border-width);
+  @include u-order("first");
+  // Fixes incorrect height calculation on IE11.
+  flex: 0 0 auto;
+}
+
+.usa-card__media .usa-card__img {
   @include u-display("block");
+  @include u-radius-top($theme-card-border-radius);
 }
 
 // Header
@@ -92,61 +101,65 @@
   }
 }
 
-.usa-card--media .usa-card__media {
-  @include u-margin-top(-$theme-card-border-width);
-  @include u-margin-x(-$theme-card-border-width);
-  @include u-order("first");
-}
-
-.usa-card--media .usa-card__img {
-  @include u-radius-top($theme-card-border-radius);
-  overflow: hidden;
-}
-
-
 // Flag
 // ---------------------------------
-.usa-card__inner {
+.usa-card--flag {
   @include at-media($theme-card-flag-min-width) {
-    @include grid-row;
-    @include u-padding-x(0);
-    @include u-width("full");
+    display: grid;
+    grid-template-areas:  'card-img . card-header'
+                          'card-img . card-body'
+                          'card-img . card-footer';
+    grid-template-columns: 2fr units($theme-card-padding) 3fr;
+    // Make card body take up most of the space.
+    grid-template-rows: auto 1fr auto;
   }
 }
 
 .usa-card--flag .usa-card__media {
-  @include u-margin-top(-$theme-card-border-width);
-  @include u-margin-x(-$theme-card-border-width);
-  @include u-radius-top($theme-card-border-radius);
-  overflow: hidden;
-
   @include at-media($theme-card-flag-min-width) {
-    @include grid-col(4);
-    @include u-margin-top(0);
-    @include u-margin-x(0);
+    @include u-padding-top($theme-card-padding);
     @include u-padding-left($theme-card-padding);
-    @include u-padding-right(0);
-    @include u-padding-y($theme-card-padding);
-    @include u-radius-top(0);
+    grid-area: card-img;
   }
 }
 
-.usa-card--flag .usa-card__flag-content {
+.usa-card--flag .usa-card__img {
   @include at-media($theme-card-flag-min-width) {
-    @include grid-col(8);
+    @include u-radius-top(0);
+    @include u-margin(0);
   }
 }
 
+.usa-card--flag .usa-card__header {
+  @include at-media($theme-card-flag-min-width) {
+    grid-area: card-header;
+  }
+}
+
+.usa-card--flag .usa-card__body {
+  @include at-media($theme-card-flag-min-width) {
+    grid-area: card-body;
+  }
+}
+
+.usa-card--flag .usa-card__footer {
+  @include at-media($theme-card-flag-min-width) {
+    grid-area: card-footer;
+  }
+}
+
+.usa-card--flag.usa-card--media-right {
+  @include at-media($theme-card-flag-min-width) {
+    grid-template-columns: 3fr units($theme-card-padding) 2fr;
+    grid-template-areas:  'card-header . card-img'
+                          'card-body . card-img'
+                          'card-footer . card-img';
+  }
+}
 .usa-card--flag.usa-card--media-right .usa-card__media {
   @include at-media($theme-card-flag-min-width) {
     @include u-padding-left(0);
     @include u-padding-right($theme-card-padding);
-  }
-}
-
-.usa-card--flag.usa-card--media-right .usa-card__flag-content {
-  @include at-media($theme-card-flag-min-width) {
-    @include u-order("first");
   }
 }
 

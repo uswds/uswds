@@ -90,7 +90,11 @@ gulp.task(
     dutil.logMessage(task, "Compiling Sass");
     const pluginsProcess = [
       discardComments(),
-      autoprefixer(autoprefixerOptions)
+      autoprefixer({
+        autoprefixerOptions,
+        cascade: false,
+        grid: true
+      })
     ];
     const pluginsMinify = [csso({ forceMediaMerge: false })];
 
