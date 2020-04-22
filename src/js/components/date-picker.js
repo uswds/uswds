@@ -13,8 +13,8 @@ const CALENDAR_PREVIOUS_YEAR_CLASS = `${CALENDAR_CLASS}__previous-year`;
 const CALENDAR_PREVIOUS_MONTH_CLASS = `${CALENDAR_CLASS}__previous-month`;
 const CALENDAR_NEXT_YEAR_CLASS = `${CALENDAR_CLASS}__next-year`;
 const CALENDAR_NEXT_MONTH_CLASS = `${CALENDAR_CLASS}__next-month`;
-const CALENDAR_NEXT_MONTH_SELECTION_CLASS = `${CALENDAR_CLASS}__month-selection`;
-const CALENDAR_NEXT_YEAR_SELECTION_CLASS = `${CALENDAR_CLASS}__year-selection`;
+const CALENDAR_MONTH_SELECTION_CLASS = `${CALENDAR_CLASS}__month-selection`;
+const CALENDAR_YEAR_SELECTION_CLASS = `${CALENDAR_CLASS}__year-selection`;
 const CALENDAR_MONTH_CLASS = `${CALENDAR_CLASS}__month`;
 const CALENDAR_MONTH_PICKER_CLASS = `${CALENDAR_CLASS}--month-picker`;
 const CALENDAR_YEAR_CLASS = `${CALENDAR_CLASS}__year`;
@@ -32,8 +32,8 @@ const CALENDAR_PREVIOUS_YEAR = `.${CALENDAR_PREVIOUS_YEAR_CLASS}`;
 const CALENDAR_PREVIOUS_MONTH = `.${CALENDAR_PREVIOUS_MONTH_CLASS}`;
 const CALENDAR_NEXT_YEAR = `.${CALENDAR_NEXT_YEAR_CLASS}`;
 const CALENDAR_NEXT_MONTH = `.${CALENDAR_NEXT_MONTH_CLASS}`;
-const CALENDAR_NEXT_YEAR_SELECTION = `.${CALENDAR_NEXT_YEAR_SELECTION_CLASS}`;
-const CALENDAR_NEXT_MONTH_SELECTION = `.${CALENDAR_NEXT_MONTH_SELECTION_CLASS}`;
+const CALENDAR_YEAR_SELECTION = `.${CALENDAR_YEAR_SELECTION_CLASS}`;
+const CALENDAR_MONTH_SELECTION = `.${CALENDAR_MONTH_SELECTION_CLASS}`;
 const CALENDAR_MONTH = `.${CALENDAR_MONTH_CLASS}`;
 const CALENDAR_YEAR = `.${CALENDAR_YEAR_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR_CHUNK = `.${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}`;
@@ -221,8 +221,8 @@ const renderCalendar = (el, dateToDisplay = new Date()) => {
         <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}"><<</div>
         <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}"><</div>
         <div class="usa-date-picker__calendar__date-display">
-          <div tabindex="-1" class="usa-date-picker__calendar__month-selector usa-date-picker__calendar__month-selection">${fullMonth}</div>
-          <div tabindex="-1" class="usa-date-picker__calendar__month-selector usa-date-picker__calendar__year-selection">${focusedYear}</div>
+          <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}">${fullMonth}</div>
+          <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}">${focusedYear}</div>
         </div>
         <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">></div>
         <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">>></div>
