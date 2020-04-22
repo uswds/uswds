@@ -563,6 +563,7 @@ const handleUp = (event) => {
   }
 
   renderCalendar(calendarEl, date);
+  event.preventDefault();
 };
 
 const handleDown = (event) => {
@@ -590,6 +591,7 @@ const handleDown = (event) => {
   }
 
   renderCalendar(calendarEl, date);
+  event.preventDefault();
 };
 
 const handleLeft = (event) => {
@@ -617,6 +619,7 @@ const handleLeft = (event) => {
   }
 
   renderCalendar(calendarEl, date);
+  event.preventDefault();
 };
 
 const handleRight = (event) => {
@@ -644,6 +647,7 @@ const handleRight = (event) => {
   }
 
   renderCalendar(calendarEl, date);
+  event.preventDefault();
 };
 
 const handleEnter = (event) => {
@@ -679,6 +683,7 @@ const handleHome = (event) => {
   }
 
   renderCalendar(calendarEl, date);
+  event.preventDefault();
 };
 
 const handleEnd = (event) => {
@@ -707,6 +712,7 @@ const handleEnd = (event) => {
   }
 
   renderCalendar(calendarEl, date);
+  event.preventDefault();
 };
 
 const handlePageDown = (event) => {
@@ -733,6 +739,7 @@ const handlePageDown = (event) => {
   }
 
   renderCalendar(calendarEl, date);
+  event.preventDefault();
 };
 
 const handlePageUp = (event) => {
@@ -759,6 +766,7 @@ const handlePageUp = (event) => {
   }
 
   renderCalendar(calendarEl, date);
+  event.preventDefault();
 };
 
 const datePicker = behavior(
