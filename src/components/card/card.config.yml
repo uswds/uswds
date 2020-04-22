@@ -78,3 +78,11 @@ variants:
         classes: "usa-card--equal-height"
         title: Florida Keys
         id: "card-equal-height"
+
+  - name: clickable
+    label: Clickable
+    context:
+      card:
+        classes: "usa-card--clickable"
+        title: Clickable card
+        id: "card-clickable"
