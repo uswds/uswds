@@ -802,10 +802,10 @@ const datePicker = behavior(
       [CALENDAR_NEXT_YEAR_CHUNK]() {
         displayNextYearChunk(this);
       },
-      [CALENDAR_NEXT_MONTH_SELECTION]() {
+      [CALENDAR_MONTH_SELECTION]() {
         displayMonthSelection(this);
       },
-      [CALENDAR_NEXT_YEAR_SELECTION]() {
+      [CALENDAR_YEAR_SELECTION]() {
         displayYearSelection(this);
       }
     },
