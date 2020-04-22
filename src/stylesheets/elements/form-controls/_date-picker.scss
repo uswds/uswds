@@ -14,9 +14,7 @@
 }
 
 .usa-date-picker__calendar.usa-date-picker__calendar--month-picker {
-  .usa-date-picker__calendar__month-header,
-  .usa-date-picker__calendar__days-of-week,
-  .usa-date-picker__calendar__date-grid,
+  .usa-date-picker__calendar__date-picker,
   .usa-date-picker__calendar__year-picker {
     display: none;
   }
@@ -27,9 +25,7 @@
 }
 
 .usa-date-picker__calendar.usa-date-picker__calendar--year-picker {
-  .usa-date-picker__calendar__month-header,
-  .usa-date-picker__calendar__days-of-week,
-  .usa-date-picker__calendar__date-grid,
+  .usa-date-picker__calendar__date-picker,
   .usa-date-picker__calendar__month-picker {
     display: none;
   }

@@ -1,3 +1,4 @@
+const keymap = require("receptor/keymap");
 const behavior = require("../utils/behavior");
 const select = require("../utils/select");
 const { prefix: PREFIX } = require("../config");
@@ -16,11 +17,14 @@ const CALENDAR_NEXT_MONTH_CLASS = `${CALENDAR_CLASS}__next-month`;
 const CALENDAR_MONTH_SELECTION_CLASS = `${CALENDAR_CLASS}__month-selection`;
 const CALENDAR_YEAR_SELECTION_CLASS = `${CALENDAR_CLASS}__year-selection`;
 const CALENDAR_MONTH_CLASS = `${CALENDAR_CLASS}__month`;
-const CALENDAR_MONTH_PICKER_CLASS = `${CALENDAR_CLASS}--month-picker`;
+const CALENDAR_MONTH_PICKER_MODIFIER_CLASS = `${CALENDAR_CLASS}--month-picker`;
 const CALENDAR_YEAR_CLASS = `${CALENDAR_CLASS}__year`;
-const CALENDAR_YEAR_PICKER_CLASS = `${CALENDAR_CLASS}--year-picker`;
+const CALENDAR_YEAR_PICKER_MODIFIER_CLASS = `${CALENDAR_CLASS}--year-picker`;
 const CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS = `${CALENDAR_CLASS}__previous-year-chunk`;
 const CALENDAR_NEXT_YEAR_CHUNK_CLASS = `${CALENDAR_CLASS}__next-year-chunk`;
+const CALENDAR_DATE_PICKER_CLASS = `${CALENDAR_CLASS}__date-picker`;
+const CALENDAR_MONTH_PICKER_CLASS = `${CALENDAR_CLASS}__month-picker`;
+const CALENDAR_YEAR_PICKER_CLASS = `${CALENDAR_CLASS}__year-picker`;
 
 const DATE_PICKER = `.${DATE_PICKER_CLASS}`;
 const BUTTON = `.${BUTTON_CLASS}`;
@@ -38,6 +42,9 @@ const CALENDAR_MONTH = `.${CALENDAR_MONTH_CLASS}`;
 const CALENDAR_YEAR = `.${CALENDAR_YEAR_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR_CHUNK = `.${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}`;
 const CALENDAR_NEXT_YEAR_CHUNK = `.${CALENDAR_NEXT_YEAR_CHUNK_CLASS}`;
+const CALENDAR_DATE_PICKER = `.${CALENDAR_DATE_PICKER_CLASS}`;
+const CALENDAR_MONTH_PICKER = `.${CALENDAR_MONTH_PICKER_CLASS}`;
+const CALENDAR_YEAR_PICKER = `.${CALENDAR_YEAR_PICKER_CLASS}`;
 
 const MONTH_LABELS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -156,8 +163,8 @@ const getDatePickerCalendarElements = (calendarEl) => {
 const renderCalendar = (el, dateToDisplay = new Date()) => {
   const { calendarEl } = getDatePickerElements(el);
 
-  calendarEl.classList.remove(CALENDAR_MONTH_PICKER_CLASS);
-  calendarEl.classList.remove(CALENDAR_YEAR_PICKER_CLASS);
+  calendarEl.classList.remove(CALENDAR_MONTH_PICKER_MODIFIER_CLASS);
+  calendarEl.classList.remove(CALENDAR_YEAR_PICKER_MODIFIER_CLASS);
 
   const focusedDay = dateToDisplay.getDate();
   const focusedMonth = dateToDisplay.getMonth();
@@ -217,6 +224,7 @@ const renderCalendar = (el, dateToDisplay = new Date()) => {
     calendarEl.hidden = false;
     calendarEl.setAttribute("tabindex", -1);
     calendarEl.innerHTML = [
+      `<div class="${CALENDAR_DATE_PICKER_CLASS}">`,
       `<div class="usa-date-picker__calendar__month-header">
         <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}"><<</div>
         <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}"><</div>
@@ -237,14 +245,15 @@ const renderCalendar = (el, dateToDisplay = new Date()) => {
         <div class="usa-date-picker__calendar__days-of-week__day">S</div>
       </div>`,
       `<div class="usa-date-picker__calendar__date-grid">${dates.join("")}</div>`,
-      `<div class="usa-date-picker__calendar__month-picker">${MONTH_LABELS.map((month, index) => {
+      `</div>`,
+      `<div class="${CALENDAR_MONTH_PICKER_CLASS}">${MONTH_LABELS.map((month, index) => {
         return `<div
           tabindex="-1"
           class="${CALENDAR_MONTH_CLASS}" 
           data-value="${index}"
         >${month}</div>`;
       }).join('')}</div>`,
-      `<div class="usa-date-picker__calendar__year-picker">
+      `<div class="${CALENDAR_YEAR_PICKER_CLASS}">
         <div tabindex="-1" class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}"><</div>
         <div class="usa-date-picker__calendar__year-grid">${renderYearChunk(focusedYear)}</div>
         <div tabindex="-1" class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_NEXT_YEAR_CHUNK_CLASS}">></div>
@@ -506,13 +515,13 @@ const selectYear = yearEl => {
 
 const displayMonthSelection = (el) => {
   const { calendarEl } = getDatePickerElements(el);
-  calendarEl.classList.add(CALENDAR_MONTH_PICKER_CLASS);
+  calendarEl.classList.add(CALENDAR_MONTH_PICKER_MODIFIER_CLASS);
   calendarEl.focus();
 };
 
 const displayYearSelection = (el) => {
   const { calendarEl } = getDatePickerElements(el);
-  calendarEl.classList.add(CALENDAR_YEAR_PICKER_CLASS);
+  calendarEl.classList.add(CALENDAR_YEAR_PICKER_MODIFIER_CLASS);
   calendarEl.focus();
 };
 
@@ -528,6 +537,230 @@ const displayNextYearChunk = (el) => {
   const { yearChunkEl, firstYearChunkEl } = getDatePickerCalendarElements(calendarEl);
   const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
   yearChunkEl.innerHTML = renderYearChunk(firstYearChunkYear + YEAR_CHUNK);
+};
+
+
+const handleUp = (event) => {
+
+  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+
+  let date;
+
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
+
+        return parsed;
+      });
+
+    if (day && month && year) {
+      date = new Date(year, month - 1, day - 7);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
+};
+
+const handleDown = (event) => {
+
+  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+
+  let date;
+
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
+
+        return parsed;
+      });
+
+    if (day && month && year) {
+      date = new Date(year, month - 1, day + 7);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
+};
+
+const handleLeft = (event) => {
+
+  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+
+  let date;
+
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
+
+        return parsed;
+      });
+
+    if (day && month && year) {
+      date = new Date(year, month - 1, day - 1);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
+};
+
+const handleRight = (event) => {
+
+  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+
+  let date;
+
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
+
+        return parsed;
+      });
+
+    if (day && month && year) {
+      date = new Date(year, month - 1, day + 1);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
+};
+
+const handleEnter = (event) => {
+  const { focusedDateEl } = getDatePickerElements(event.target);
+  selectDate(focusedDateEl);
+  event.preventDefault();
+};
+
+
+const handleHome = (event) => {
+  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+
+  let date;
+
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
+
+        return parsed;
+      });
+
+    if (day && month && year) {
+      date = new Date(year, month - 1, day);
+      const dayOfWeek = date.getDay();
+      date.setDate(date.getDate() - dayOfWeek);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
+};
+
+const handleEnd = (event) => {
+  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+
+  let date;
+
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
+
+        return parsed;
+      });
+
+    if (day && month && year) {
+      date = new Date(year, month - 1, day);
+      const dayOfWeek = date.getDay();
+      date.setDate(date.getDate() + (6 - dayOfWeek));
+    }
+  }
+
+  renderCalendar(calendarEl, date);
+};
+
+const handlePageDown = (event) => {
+  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+
+  let date;
+
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
+
+        return parsed;
+      });
+
+    if (day && month && year) {
+      date = new Date(year, month, day);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
+};
+
+const handlePageUp = (event) => {
+  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+
+  let date;
+
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
+
+        return parsed;
+      });
+
+    if (day && month && year) {
+      date = new Date(year, month - 2, day);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
 };
 
 const datePicker = behavior(
@@ -577,7 +810,20 @@ const datePicker = behavior(
           hideCalendar(datePickerEl);
         }
       }
-    }
+    },
+    keydown: {
+      [CALENDAR_DATE_PICKER]: keymap({
+        ArrowUp: handleUp,
+        ArrowDown: handleDown,
+        ArrowLeft: handleLeft,
+        ArrowRight: handleRight,
+        Home: handleHome,
+        End: handleEnd,
+        PageDown: handlePageDown,
+        PageUp: handlePageUp,
+        Enter: handleEnter
+      })
+    },
   },
   {
     init(root) {
