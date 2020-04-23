@@ -45,10 +45,16 @@
 .usa-date-picker__calendar__month-selector,
 .usa-date-picker__calendar__date,
 .usa-date-picker__calendar__month,
+.usa-date-picker__calendar__year {
+  cursor: pointer;
+}
+
+.usa-date-picker__calendar__month-selector,
+.usa-date-picker__calendar__date,
+.usa-date-picker__calendar__month,
 .usa-date-picker__calendar__year,
 .usa-date-picker__calendar__days-of-week__day {
   background-color: color("base-lightest");
-  cursor: pointer;
   padding: 10px 5px;
 
   &:focus {
