@@ -158,7 +158,7 @@
 
 // Clickable
 // ---------------------------------
-@include card-active-state {
+@mixin card-active-state {
   @include u-border-color("base-darker");
 
   .usa-card__action {
