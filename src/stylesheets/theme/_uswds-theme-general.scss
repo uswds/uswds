@@ -99,3 +99,15 @@ Icons
 */
 
 $theme-icon-image-size: 2;
+
+/*
+----------------------------------------
+Transitions
+----------------------------------------
+*/
+
+// Seen in:
+// _header.scss
+// _skipnav.scss
+// _card.scss
+$theme-transition: 0.2s ease-in-out;

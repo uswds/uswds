@@ -155,3 +155,29 @@
 .usa-card--equal-height {
   @include card-equal-height;
 }
+
+// Clickable
+// ---------------------------------
+@include card-active-state {
+  @include u-border-color("base-darker");
+
+  .usa-card__action {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+.usa-card--clickable {
+  transition: border $theme-transition;
+
+  // Separated because hover won't work combined
+  // if focus-within isn't supported.
+  // https://inclusive-components.design/cards#affordance
+  &:hover {
+    @include card-active-state;
+  }
+
+  &:focus-within {
+    @include card-active-state;
+  }
+}
