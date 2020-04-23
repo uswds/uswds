@@ -22,7 +22,7 @@
   </div>
   <div class="usa-card__footer">
     {% block card_footer -%}
-      <button class="usa-button">Visit Florida Keys</button>
+      <button class="usa-button {% if card.clickable -%} usa-card__action {%- endif %}">Visit Florida Keys</button>
     {%- endblock %}
   </div>
   {%- if card.flag %}</div></div>{% endif %}

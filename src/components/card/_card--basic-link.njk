@@ -12,5 +12,5 @@
 {% endblock %}
 
 {%- block card_footer -%}
-  <a class="usa-link" href="#">Visit Florida Keys</a>
+  <a class="usa-link {% if card.clickable -%} usa-card__action {%- endif %}" href="https://designsystem.digital.gov/">Visit Florida Keys</a>
 {%- endblock %}

@@ -86,3 +86,4 @@ variants:
         classes: "usa-card--clickable"
         title: Clickable card
         id: "card-clickable"
+        clickable: true
