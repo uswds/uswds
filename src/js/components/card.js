@@ -3,13 +3,12 @@
 const behavior = require('../utils/behavior');
 const select = require('../utils/select');
 const { prefix: PREFIX } = require("../config");
-const { CLICK } = require('../events');
 
 const CARD = `.${PREFIX}-card--clickable`;
 const CURSOR = 'pointer';
 const ACTION = `.${PREFIX}-card__action`;
 
-const card = behavior(
+const cards = behavior(
   {},
   {
     init(root) {
@@ -20,13 +19,14 @@ const card = behavior(
       let down;
       let up;
 
+      /* eslint no-param-reassign: "error" */
       select(CARD, root).forEach(card => {
         const [ cardAction ] = select(ACTION, card);
 
         card.style.cursor = CURSOR;
-        card.onmousedown = () => down = +new Date();
+        card.onmousedown = () => {down = +new Date()};
         card.onmouseup = () => {
-          let timeDifference = up - down;
+          const timeDifference = up - down;
           up = +new Date();
           if (timeDifference < 200) {
             cardAction.click();
@@ -37,4 +37,4 @@ const card = behavior(
   }
 );
 
-module.exports = card;
+module.exports = cards;
