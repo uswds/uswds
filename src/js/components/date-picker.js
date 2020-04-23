@@ -770,6 +770,69 @@ const handlePageUp = (event) => {
   event.preventDefault();
 };
 
+
+
+const handleShiftPageDown = (event) => {
+  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+
+  let date;
+
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
+
+        return parsed;
+      });
+
+    if (day && month && year) {
+      date = new Date(year + 1, month - 1, day);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
+  event.preventDefault();
+};
+
+const handleShiftPageUp = (event) => {
+  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+
+  let date;
+
+  if (focusedDateEl) {
+    const [month, day, year] = focusedDateEl
+      .getAttribute("data-value")
+      .split("/")
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
+
+        return parsed;
+      });
+
+    if (day && month && year) {
+      date = new Date(year - 1, month - 1, day);
+    }
+  }
+
+  renderCalendar(calendarEl, date);
+  event.preventDefault();
+};
+
+const handleEscape = (event) => {
+  const { datePickerEl, inputEl } = getDatePickerElements(event.target);
+  hideCalendar(datePickerEl);
+  inputEl.focus();
+  event.preventDefault();
+};
+
 const datePicker = behavior(
   {
     [CLICK]: {
@@ -828,6 +891,9 @@ const datePicker = behavior(
         End: handleEnd,
         PageDown: handlePageDown,
         PageUp: handlePageUp,
+        'Shift+PageDown': handleShiftPageDown,
+        'Shift+PageUp': handleShiftPageUp,
+        Escape: handleEscape,
         Enter: handleEnter
       })
     },
