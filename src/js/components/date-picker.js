@@ -42,11 +42,28 @@ const CALENDAR_MONTH = `.${CALENDAR_MONTH_CLASS}`;
 const CALENDAR_YEAR = `.${CALENDAR_YEAR_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR_CHUNK = `.${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}`;
 const CALENDAR_NEXT_YEAR_CHUNK = `.${CALENDAR_NEXT_YEAR_CHUNK_CLASS}`;
-const CALENDAR_DATE_PICKER = `.${CALENDAR_DATE_PICKER_CLASS}`;
 
 const MONTH_LABELS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 const YEAR_CHUNK = 12;
+
+
+/**
+ * Keep date within month. Month would only be over
+ *
+ * @param {Date} dateToCheck the element within the date picker
+ * @param {number} month the correct month
+ * @returns {Date} the corrected date
+ */
+const keepDateWithinMonth = (dateToCheck, month) => {
+
+  if (month !== dateToCheck.getMonth()) {
+    dateToCheck.setDate(0);
+  }
+
+  return dateToCheck;
+}
+
 
 /**
  * Parse a date with format M-D-YY
@@ -326,7 +343,9 @@ const displayPreviousYear = el => {
   let date;
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    const dateMonth = date.getMonth();
     date.setFullYear(date.getFullYear() - 1);
+    keepDateWithinMonth(date, dateMonth);
   }
 
   renderCalendar(calendarEl, date);
@@ -343,7 +362,9 @@ const displayPreviousMonth = el => {
   let date;
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    const dateMonth = date.getMonth() + 11 % 12;
     date.setMonth(date.getMonth() - 1);
+    keepDateWithinMonth(date, dateMonth);
   }
 
   renderCalendar(calendarEl, date);
@@ -360,7 +381,9 @@ const displayNextMonth = el => {
   let date;
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    const dateMonth = date.getMonth() + 1 % 12;
     date.setMonth(date.getMonth() + 1);
+    keepDateWithinMonth(date, dateMonth);
   }
 
   renderCalendar(calendarEl, date);
@@ -377,7 +400,9 @@ const displayNextYear = el => {
   let date;
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    const dateMonth = date.getMonth();
     date.setFullYear(date.getFullYear() + 1);
+    keepDateWithinMonth(date, dateMonth);
   }
 
   renderCalendar(calendarEl, date);
@@ -424,7 +449,9 @@ const selectMonth = monthEl => {
 
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    const dateMonth = selectedMonth;
     date.setMonth(selectedMonth);
+    keepDateWithinMonth(date, dateMonth);
   }
 
   renderCalendar(calendarEl, date);
@@ -443,7 +470,9 @@ const selectYear = yearEl => {
 
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    const dateMonth = date.getMonth();
     date.setFullYear(selectedYear);
+    keepDateWithinMonth(date, dateMonth);
   }
 
   renderCalendar(calendarEl, date);
@@ -573,7 +602,9 @@ const handlePageDown = (event) => {
 
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    const dateMonth = date.getMonth() + 1 % 12;
     date.setMonth(date.getMonth() + 1);
+    keepDateWithinMonth(date, dateMonth);
   }
 
   renderCalendar(calendarEl, date);
@@ -587,7 +618,9 @@ const handlePageUp = (event) => {
 
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    const dateMonth = date.getMonth() + 11 % 12;
     date.setMonth(date.getMonth() - 1);
+    keepDateWithinMonth(date, dateMonth);
   }
 
   renderCalendar(calendarEl, date);
@@ -603,7 +636,9 @@ const handleShiftPageDown = (event) => {
 
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    const dateMonth = date.getMonth();
     date.setFullYear(date.getFullYear() + 1);
+    keepDateWithinMonth(date, dateMonth);
   }
 
   renderCalendar(calendarEl, date);
@@ -617,7 +652,9 @@ const handleShiftPageUp = (event) => {
 
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    const dateMonth = date.getMonth();
     date.setFullYear(date.getFullYear() - 1);
+    keepDateWithinMonth(date, dateMonth);
   }
 
   renderCalendar(calendarEl, date);
@@ -650,7 +687,7 @@ const handleSpaceOrEnterFromButton = (event) => {
 const datePicker = behavior(
   {
     [CLICK]: {
-      [BUTTON]() {
+      [DATE_PICKER_BUTTON]() {
         displayCalendar(this);
       },
       [CALENDAR_DATE]() {
@@ -688,7 +725,7 @@ const datePicker = behavior(
       }
     },
     keydown: {
-      [CALENDAR_DATE_PICKER]: keymap({
+      [CALENDAR_DATE_FOCUSED]: keymap({
         ArrowUp: handleUp,
         ArrowDown: handleDown,
         ArrowLeft: handleLeft,
