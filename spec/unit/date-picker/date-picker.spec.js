@@ -69,7 +69,7 @@ EVENTS.keydownEscape = (el = document.activeElement) => {
 EVENTS.keydownSpace = (el = document.activeElement) => {
   const evt = new KeyboardEvent('keydown', {
     bubbles: true,
-    key: 'Space',
+    key: ' ',
   });
   el.dispatchEvent(evt);
 };
@@ -287,7 +287,7 @@ describe('date picker component', () => {
   });
 
   it('should allow for navigation to the preceding year by clicking the left double arrow button within the calendar', () => {
-    input.value = '1/1/2020';
+    input.value = '1/1/2016';
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, 'The calendar is shown');
 
@@ -295,7 +295,7 @@ describe('date picker component', () => {
 
     assert.equal(calendar.querySelector('.usa-date-picker__calendar__date--focused').textContent, '1', 'focuses correct date');
     assert.equal(calendar.querySelector('.usa-date-picker__calendar__month-selection').textContent, 'January', 'shows correct month');
-    assert.equal(calendar.querySelector('.usa-date-picker__calendar__year-selection').textContent, '2019', 'shows correct year');
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__year-selection').textContent, '2015', 'shows correct year');
   });
 
   it('should allow for navigation to the succeeding year by clicking the right double arrow button within the calendar', () => {
@@ -561,8 +561,9 @@ describe('date picker component', () => {
   it('should select a date and focus the input when enter is pressed from a focused day within the calendar', () => {
     input.value = '1/1/2020';
     EVENTS.click(button);
-    EVENTS.keydownDown();
+    EVENTS.keydownArrowDown();
     assert.equal(calendar.querySelector('.usa-date-picker__calendar__date--focused').textContent, '8', 'focuses correct date');
+    assert.equal(document.activeElement.textContent, '8', 'focuses correct date');
 
     EVENTS.keydownEnter();
 
@@ -578,7 +579,6 @@ describe('date picker component', () => {
     assert.equal(calendar.querySelector('.usa-date-picker__calendar__date--focused').textContent, '2', 'focuses correct date');
 
     EVENTS.keydownSpace();
-
 
     assert.equal(input.value, '1/2/2020', 'adds correct date');
     assert.equal(calendar.hidden, true, 'The calendar is hidden');

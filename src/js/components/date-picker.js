@@ -5,31 +5,31 @@ const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
-const INPUT_CLASS = `${DATE_PICKER_CLASS}__input`;
-const BUTTON_CLASS = `${DATE_PICKER_CLASS}__button`;
-const CALENDAR_CLASS = `${DATE_PICKER_CLASS}__calendar`;
-const CALENDAR_DATE_CLASS = `${CALENDAR_CLASS}__date`;
+const DATE_PICKER_INPUT_CLASS = `${DATE_PICKER_CLASS}__input`;
+const DATE_PICKER_BUTTON_CLASS = `${DATE_PICKER_CLASS}__button`;
+const DATE_PICKER_CALENDAR_CLASS = `${DATE_PICKER_CLASS}__calendar`;
+const CALENDAR_DATE_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__date`;
 const CALENDAR_DATE_FOCUSED_CLASS = `${CALENDAR_DATE_CLASS}--focused`;
-const CALENDAR_PREVIOUS_YEAR_CLASS = `${CALENDAR_CLASS}__previous-year`;
-const CALENDAR_PREVIOUS_MONTH_CLASS = `${CALENDAR_CLASS}__previous-month`;
-const CALENDAR_NEXT_YEAR_CLASS = `${CALENDAR_CLASS}__next-year`;
-const CALENDAR_NEXT_MONTH_CLASS = `${CALENDAR_CLASS}__next-month`;
-const CALENDAR_MONTH_SELECTION_CLASS = `${CALENDAR_CLASS}__month-selection`;
-const CALENDAR_YEAR_SELECTION_CLASS = `${CALENDAR_CLASS}__year-selection`;
-const CALENDAR_MONTH_CLASS = `${CALENDAR_CLASS}__month`;
-const CALENDAR_MONTH_PICKER_MODIFIER_CLASS = `${CALENDAR_CLASS}--month-picker`;
-const CALENDAR_YEAR_CLASS = `${CALENDAR_CLASS}__year`;
-const CALENDAR_YEAR_PICKER_MODIFIER_CLASS = `${CALENDAR_CLASS}--year-picker`;
-const CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS = `${CALENDAR_CLASS}__previous-year-chunk`;
-const CALENDAR_NEXT_YEAR_CHUNK_CLASS = `${CALENDAR_CLASS}__next-year-chunk`;
-const CALENDAR_DATE_PICKER_CLASS = `${CALENDAR_CLASS}__date-picker`;
-const CALENDAR_MONTH_PICKER_CLASS = `${CALENDAR_CLASS}__month-picker`;
-const CALENDAR_YEAR_PICKER_CLASS = `${CALENDAR_CLASS}__year-picker`;
+const CALENDAR_PREVIOUS_YEAR_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-year`;
+const CALENDAR_PREVIOUS_MONTH_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-month`;
+const CALENDAR_NEXT_YEAR_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__next-year`;
+const CALENDAR_NEXT_MONTH_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__next-month`;
+const CALENDAR_MONTH_SELECTION_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__month-selection`;
+const CALENDAR_YEAR_SELECTION_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year-selection`;
+const CALENDAR_MONTH_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__month`;
+const CALENDAR_MONTH_PICKER_MODIFIER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}--month-picker`;
+const CALENDAR_YEAR_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year`;
+const CALENDAR_YEAR_PICKER_MODIFIER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}--year-picker`;
+const CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-year-chunk`;
+const CALENDAR_NEXT_YEAR_CHUNK_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__next-year-chunk`;
+const CALENDAR_DATE_PICKER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__date-picker`;
+const CALENDAR_MONTH_PICKER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__month-picker`;
+const CALENDAR_YEAR_PICKER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year-picker`;
 
 const DATE_PICKER = `.${DATE_PICKER_CLASS}`;
-const BUTTON = `.${BUTTON_CLASS}`;
-const INPUT = `.${INPUT_CLASS}`;
-const CALENDAR = `.${CALENDAR_CLASS}`;
+const DATE_PICKER_BUTTON = `.${DATE_PICKER_BUTTON_CLASS}`;
+const DATE_PICKER_INPUT = `.${DATE_PICKER_INPUT_CLASS}`;
+const DATE_PICKER_CALENDAR = `.${DATE_PICKER_CALENDAR_CLASS}`;
 const CALENDAR_DATE = `.${CALENDAR_DATE_CLASS}`;
 const CALENDAR_DATE_FOCUSED = `.${CALENDAR_DATE_FOCUSED_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR = `.${CALENDAR_PREVIOUS_YEAR_CLASS}`;
@@ -72,9 +72,9 @@ const getDatePickerElements = el => {
     throw new Error(`Element is missing outer ${DATE_PICKER}`);
   }
 
-  const inputEl = datePickerEl.querySelector(INPUT);
-  const calendarBtn = datePickerEl.querySelector(BUTTON);
-  const calendarEl = datePickerEl.querySelector(CALENDAR);
+  const inputEl = datePickerEl.querySelector(DATE_PICKER_INPUT);
+  const calendarBtn = datePickerEl.querySelector(DATE_PICKER_BUTTON);
+  const calendarEl = datePickerEl.querySelector(DATE_PICKER_CALENDAR);
   const focusedDateEl = datePickerEl.querySelector(CALENDAR_DATE_FOCUSED);
 
   return { datePickerEl, inputEl, calendarBtn, calendarEl, focusedDateEl };
@@ -89,16 +89,16 @@ const enhanceDatePicker = datePickerEl => {
   const inputEl = datePickerEl.querySelector(`input.usa-input`);
 
   if (!inputEl) {
-    throw new Error(`${DATE_PICKER} is missing inner ${INPUT}`);
+    throw new Error(`${DATE_PICKER} is missing inner ${DATE_PICKER_INPUT}`);
   }
 
-  inputEl.classList.add(INPUT_CLASS);
+  inputEl.classList.add(DATE_PICKER_INPUT_CLASS);
 
   datePickerEl.insertAdjacentHTML(
     "beforeend",
     [
-      `<button class="usa-button ${BUTTON_CLASS}">Calendar</button>`,
-      `<div class="${CALENDAR_CLASS}" hidden></div>`
+      `<button type="button" class="usa-button ${DATE_PICKER_BUTTON_CLASS}">Calendar</button>`,
+      `<div  class="${DATE_PICKER_CALENDAR_CLASS}" hidden></div>`
     ].join("")
   );
 };
@@ -651,13 +651,6 @@ const handleRight = (event) => {
   event.preventDefault();
 };
 
-const handleEnter = (event) => {
-  const { focusedDateEl } = getDatePickerElements(event.target);
-  selectDate(focusedDateEl);
-  event.preventDefault();
-};
-
-
 const handleHome = (event) => {
   const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
 
@@ -833,6 +826,22 @@ const handleEscape = (event) => {
   event.preventDefault();
 };
 
+
+const handleSpaceOrEnterFromCalendar = (event) => {
+  const datePickerEl = event.target.closest(DATE_PICKER);
+
+  if (datePickerEl) {
+    const { focusedDateEl } = getDatePickerElements(event.target);
+    selectDate(focusedDateEl);
+    event.preventDefault();
+  }
+};
+
+const handleSpaceOrEnterFromButton = (event) => {
+  displayCalendar(event.target);
+  event.preventDefault();
+};
+
 const datePicker = behavior(
   {
     [CLICK]: {
@@ -873,14 +882,6 @@ const datePicker = behavior(
         displayYearSelection(this);
       }
     },
-    focusout: {
-      [DATE_PICKER](event) {
-        const { datePickerEl } = getDatePickerElements(event.target);
-        if (!datePickerEl.contains(event.relatedTarget)) {
-          hideCalendar(datePickerEl);
-        }
-      }
-    },
     keydown: {
       [CALENDAR_DATE_PICKER]: keymap({
         ArrowUp: handleUp,
@@ -894,28 +895,23 @@ const datePicker = behavior(
         'Shift+PageDown': handleShiftPageDown,
         'Shift+PageUp': handleShiftPageUp,
         Escape: handleEscape,
-        Enter: handleEnter
+        Enter: handleSpaceOrEnterFromCalendar,
+        Spacebar: handleSpaceOrEnterFromCalendar,
+        " ": handleSpaceOrEnterFromCalendar
       }),
-      [CALENDAR_DATE]: keymap({
-        Space: (event) => {
-          selectDate(event.target);
-          event.preventDefault();
-        },
-        Enter: (event) => {
-          selectDate(event.target);
-          event.preventDefault();
-        },
-      }),
-      [BUTTON]: keymap({
-        Space: (event) => {
-          displayCalendar(event.target);
-          event.preventDefault();
-        },
-        Enter: (event) => {
-          displayCalendar(event.target);
-          event.preventDefault();
-        },
+      [DATE_PICKER_BUTTON]: keymap({
+        Enter: handleSpaceOrEnterFromButton,
+        Spacebar: handleSpaceOrEnterFromButton,
+        " ": handleSpaceOrEnterFromButton
       })
+    },
+    focusout: {
+      [DATE_PICKER](event) {
+        const { datePickerEl } = getDatePickerElements(event.target);
+        if (!datePickerEl.contains(event.relatedTarget)) {
+          hideCalendar(datePickerEl);
+        }
+      }
     },
   },
   {
