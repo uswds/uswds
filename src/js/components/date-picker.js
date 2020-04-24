@@ -49,6 +49,36 @@ const MONTH_LABELS = ['January', 'February', 'March', 'April', 'May', 'June', 'J
 const YEAR_CHUNK = 12;
 
 /**
+ * Parse a date with format M-D-YY
+ *
+ * @param {string} dateString the element within the date picker
+ * @returns {Date} the parsed date
+ */
+const parseDateString = (dateString) => {
+  let date;
+
+  if (dateString) {
+    const [month, day, year] = dateString
+      .split(/[\s\\/-]/)
+      .map(numStr => {
+        const parsed = Number.parseInt(numStr, 10);
+
+        if (Number.isNaN(parsed)) {
+          return false;
+        }
+
+        return parsed;
+      });
+
+    if (day && month && year) {
+      date = new Date(year, month - 1, day);
+    }
+  }
+
+  return date;
+}
+
+/**
  * The elements within the date picker.
  * @typedef {Object} DatePickerElements
  * @property {HTMLElement} datePickerEl
@@ -156,10 +186,11 @@ const getDatePickerCalendarElements = (calendarEl) => {
  * render the calendar.
  *
  * @param {HTMLElement} el An element within the date picker component
- * @param {Date} dateToDisplay a date to render on the calendar
+ * @param {Date} _dateToDisplay a date to render on the calendar
  */
-const renderCalendar = (el, dateToDisplay = new Date()) => {
+const renderCalendar = (el, _dateToDisplay) => {
   const { calendarEl } = getDatePickerElements(el);
+  const dateToDisplay = _dateToDisplay || new Date();
   calendarEl.focus();
 
   calendarEl.classList.remove(CALENDAR_MONTH_PICKER_MODIFIER_CLASS);
@@ -280,23 +311,7 @@ const renderCalendar = (el, dateToDisplay = new Date()) => {
  */
 const displayCalendar = el => {
   const { calendarEl, inputEl } = getDatePickerElements(el);
-
-  let date;
-  if (inputEl.value) {
-    const [month, day, year] = inputEl.value.split("/").map(numStr => {
-      const parsed = Number.parseInt(numStr, 10);
-      if (Number.isNaN(parsed)) {
-        return false;
-      }
-
-      return parsed;
-    });
-
-    if (day && month && year) {
-      date = new Date(year, month - 1, day);
-    }
-  }
-
+  const date = parseDateString(inputEl.value);
   renderCalendar(calendarEl, date);
 };
 
@@ -310,21 +325,8 @@ const displayPreviousYear = el => {
 
   let date;
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year - 1, month - 1, day);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    date.setFullYear(date.getFullYear() - 1);
   }
 
   renderCalendar(calendarEl, date);
@@ -340,21 +342,8 @@ const displayPreviousMonth = el => {
 
   let date;
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year, month - 2, day);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    date.setMonth(date.getMonth() - 1);
   }
 
   renderCalendar(calendarEl, date);
@@ -370,21 +359,8 @@ const displayNextMonth = el => {
 
   let date;
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year, month, day);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    date.setMonth(date.getMonth() + 1);
   }
 
   renderCalendar(calendarEl, date);
@@ -400,21 +376,8 @@ const displayNextYear = el => {
 
   let date;
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year + 1, month - 1, day);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    date.setFullYear(date.getFullYear() + 1);
   }
 
   renderCalendar(calendarEl, date);
@@ -460,21 +423,8 @@ const selectMonth = monthEl => {
   const selectedMonth = Number.parseInt(monthEl.getAttribute('data-value'), 10);
 
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year, selectedMonth, day);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    date.setMonth(selectedMonth);
   }
 
   renderCalendar(calendarEl, date);
@@ -492,21 +442,8 @@ const selectYear = yearEl => {
   const selectedYear = Number.parseInt(yearEl.innerHTML, 10);
 
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(selectedYear, month - 1, day);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    date.setFullYear(selectedYear);
   }
 
   renderCalendar(calendarEl, date);
@@ -546,21 +483,8 @@ const handleUp = (event) => {
   let date;
 
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year, month - 1, day - 7);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    date.setDate(date.getDate() - 7);
   }
 
   renderCalendar(calendarEl, date);
@@ -574,21 +498,8 @@ const handleDown = (event) => {
   let date;
 
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year, month - 1, day + 7);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    date.setDate(date.getDate() + 7);
   }
 
   renderCalendar(calendarEl, date);
@@ -602,21 +513,8 @@ const handleLeft = (event) => {
   let date;
 
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year, month - 1, day - 1);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    date.setDate(date.getDate() - 1);
   }
 
   renderCalendar(calendarEl, date);
@@ -630,21 +528,8 @@ const handleRight = (event) => {
   let date;
 
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year, month - 1, day + 1);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    date.setDate(date.getDate() + 1);
   }
 
   renderCalendar(calendarEl, date);
@@ -657,23 +542,9 @@ const handleHome = (event) => {
   let date;
 
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year, month - 1, day);
-      const dayOfWeek = date.getDay();
-      date.setDate(date.getDate() - dayOfWeek);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    const dayOfWeek = date.getDay();
+    date.setDate(date.getDate() - dayOfWeek);
   }
 
   renderCalendar(calendarEl, date);
@@ -686,23 +557,9 @@ const handleEnd = (event) => {
   let date;
 
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year, month - 1, day);
-      const dayOfWeek = date.getDay();
-      date.setDate(date.getDate() + (6 - dayOfWeek));
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    const dayOfWeek = date.getDay();
+    date.setDate(date.getDate() + (6 - dayOfWeek));
   }
 
   renderCalendar(calendarEl, date);
@@ -715,21 +572,8 @@ const handlePageDown = (event) => {
   let date;
 
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year, month, day);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    date.setMonth(date.getMonth() + 1);
   }
 
   renderCalendar(calendarEl, date);
@@ -742,21 +586,8 @@ const handlePageUp = (event) => {
   let date;
 
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year, month - 2, day);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    date.setMonth(date.getMonth() - 1);
   }
 
   renderCalendar(calendarEl, date);
@@ -771,21 +602,8 @@ const handleShiftPageDown = (event) => {
   let date;
 
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year + 1, month - 1, day);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    date.setFullYear(date.getFullYear() + 1);
   }
 
   renderCalendar(calendarEl, date);
@@ -798,21 +616,8 @@ const handleShiftPageUp = (event) => {
   let date;
 
   if (focusedDateEl) {
-    const [month, day, year] = focusedDateEl
-      .getAttribute("data-value")
-      .split("/")
-      .map(numStr => {
-        const parsed = Number.parseInt(numStr, 10);
-        if (Number.isNaN(parsed)) {
-          return false;
-        }
-
-        return parsed;
-      });
-
-    if (day && month && year) {
-      date = new Date(year - 1, month - 1, day);
-    }
+    date = parseDateString(focusedDateEl.getAttribute("data-value"));
+    date.setFullYear(date.getFullYear() - 1);
   }
 
   renderCalendar(calendarEl, date);
