@@ -895,6 +895,26 @@ const datePicker = behavior(
         'Shift+PageUp': handleShiftPageUp,
         Escape: handleEscape,
         Enter: handleEnter
+      }),
+      [CALENDAR_DATE]: keymap({
+        Space: (event) => {
+          selectDate(event.target);
+          event.preventDefault();
+        },
+        Enter: (event) => {
+          selectDate(event.target);
+          event.preventDefault();
+        },
+      }),
+      [BUTTON]: keymap({
+        Space: (event) => {
+          displayCalendar(event.target);
+          event.preventDefault();
+        },
+        Enter: (event) => {
+          displayCalendar(event.target);
+          event.preventDefault();
+        },
       })
     },
   },
