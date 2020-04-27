@@ -1,20 +1,153 @@
-<h6 class="margin-bottom-0">Standard Layout</h6>
-<div class="grid-row grid-gap">
-  {%- for card in cards -%}
-    {% if not card.flag %}
-      <div class="tablet:grid-col-4">
-        {%- include "@card--basic" -%}
+<section class="">
+  <ul class="usa-card-group">
+    <li class="usa-card usa-card--header-first tablet:grid-col-6">
+      <div class="usa-card__container border-ink">
+        <div class="usa-card__header bg-base-lightest">
+          <h3 class="usa-card__heading">
+            Cities have the capability of providing something for everybody
+          </h3>
+          <p class="font-sans-6 text-primary">But only because, and only when, they are created <em>by</em> everybody.</p>
+        </div>
+        <div class="usa-card__media">
+          <div class="usa-card__img add-aspect-16x9">
+            <img
+              src="https://source.unsplash.com/featured/800x800/daily?cities"
+              alt="An image's description"
+              class="pin-all"
+            >
+          </div>
+        </div>
+        <div class="usa-card__body padding-top-3">
+          <p>A city street equipped to handle strangers, and to make a safety asset, in itself, our of the presence of strangers, as the streets of successful city neighborhoods always do, must have three main qualities:</p>
+          <p>First, there must be a clear demarcation between what is public space and what is private space. Public and private spaces cannot ooze into each other as they do typically in suburban settings or in projects.</p>
+        </div>
+        <div class="usa-card__footer">
+          <a href="javascript:void(0);" class="usa-button usa-button--secondary">Read more reasons</a>
+        </div>
       </div>
-    {% endif %}
-  {%- endfor -%}
-</div>
-<h6 class="margin-bottom-0">Flag Layout</h6>
-<div class="grid-row grid-gap">
-  {%- for card in cards -%}
-    {% if card.flag %}
-      <div class="tablet:grid-col-6">
-        {%- include "@card--basic" -%}
+    </li>
+    <li class="usa-card tablet:grid-col-6">
+      <div class="usa-card__container">
+        <div class="usa-card__header">
+          <h3 class="usa-card__heading">Systems of survival: A dialogue about two syndromes of behavior</h3>
+        </div>
+        <div class="usa-card__body">
+          <p>To generate exuberant diversity in a city's streets and districts four conditions are indispensable:</p>
+          <ol class="usa-list">
+            <li>The district, and indeed as many of its internal parts as possible, must serve more than one primary function; preferably more than two...</li>
+            <li>Most blocks must be short; that is, streets and opportunities to turn corners must be frequent.</li>
+            <li>The district must mingle buildings that vary in age and condition, including a good proportion of old ones so that they vary in the economic yield they must produce. This mingling must be fairly close-grained.</li>
+            <li>There must be a sufficiently dense concentration of people, for whatever purposes they may be there.</li>
+          </ol>
+        </div>
+        <div class="usa-card__footer">
+          <a href="javascript:void(0);" class="usa-button">Help the less fortunate</a>
+        </div>
       </div>
-    {% endif %}
-  {%- endfor -%}
-</div>
+    </li>
+    <li class="usa-card usa-card--flag usa-card--header-first tablet:grid-col-12">
+      <div class="usa-card__container">
+        <div class="usa-card__header">
+          <h3 class="usa-card__heading">A quality even meaner than outright ugliness or disorder</h3>
+        </div>
+        <div class="usa-card__media usa-card__media--exdent">
+          <div class="usa-card__img">
+            <img
+              src="https://source.unsplash.com/featured/800x450/daily?patterns"
+              alt="">
+          </div>
+        </div>
+        <div class="usa-card__body">
+          <p>There is a quality even meaner than outright ugliness or disorder, and this meaner quality is the dishonest mask of pretended order, achieved by ignoring or suppressing the real order that is struggling to exist and to be served.</p>
+        </div>
+        <div class="usa-card__footer">
+          <a href="javascript:void(0);" class="usa-button">Pursue a better life</a>
+        </div>
+      </div>
+    </li>
+    <li class="usa-card usa-card--media-right usa-card--flag tablet:grid-col-12">
+      <div class="usa-card__container border-primary-vivid">
+        <div class="usa-card__header">
+          <h3 class="usa-card__heading">Pretend order</h3>
+        </div>
+        <div class="usa-card__media flex-align-center">
+          <div class="usa-card__img circle-card margin-x-auto">
+            <img
+              src="https://source.unsplash.com/featured/450x600/daily?human"
+              alt="">
+          </div>
+        </div>
+        <div class="usa-card__body">
+          <p>There is a quality even meaner than outright ugliness or disorder, and this meaner quality is the dishonest mask of pretended order, achieved by ignoring or suppressing the real order that is struggling to exist and to be served.</p>
+        </div>
+        <div class="usa-card__footer">
+          <a href="javascript:void(0);" class="usa-button usa-button--outline">Pursue a better life</a>
+        </div>
+      </div>
+    </li>
+    <li class="usa-card usa-card--header-first tablet:grid-col-6 desktop:grid-col-4">
+      <div class="usa-card__container">
+        <div class="usa-card__header">
+          <h3 class="usa-card__heading">The death and life of great American cities</h3>
+        </div>
+        <div class="usa-card__media usa-card__media--exdent usa-card__media--fix-aspect add-aspect-1x1">
+          <div class="usa-card__img">
+            <img
+              src="https://source.unsplash.com/featured/450x600/daily?people"
+              alt="">
+          </div>
+        </div>
+        <div class="usa-card__body">
+          <p>There is a quality even meaner than outright ugliness or disorder, and this meaner quality is the dishonest mask of pretended order, achieved by ignoring or suppressing the real order that is struggling to exist and to be served.</p>
+        </div>
+        <div class="usa-card__footer">
+          <a href="javascript:void(0);" class="usa-button">Pursue a better life</a>
+        </div>
+      </div>
+    </li>
+    <li class="usa-card tablet:grid-col-6 desktop:grid-col-4">
+      <div class="usa-card__container bg-base-lightest border-0">
+        <div class="usa-card__header">
+          <h3 class="usa-card__heading">Dark age ahead</h3>
+          <p class="font-sans-6 text-primary margin-top-1">There are fashions in building.</p>
+        </div>
+        <div class="usa-card__media usa-card__media--fix-aspect" aria-hidden="true">
+          <div class="usa-card__img">
+            <img
+              src="https://source.unsplash.com/featured/800x450/daily?architecture"
+              alt="">
+          </div>
+        </div>
+        <div class="usa-card__body">
+          <p>
+            <em>This card has aria-hidden on the image container.</em>
+          </p>
+          <p>There are fashions in building. Behind the fashions lie economic and technological reasons, and these fashions exclude all but a few genuinely different possibilities in city dwelling construction at any one time.</p>
+        </div>
+        <div class="usa-card__footer">
+          <a href="javascript:void(0);" class="usa-button">Speak in universal terms</a>
+        </div>
+      </div>
+    </li>
+    <li class="usa-card tablet:grid-col-6 desktop:grid-col-4">
+      <div class="usa-card__container shadow-2">
+        <div class="usa-card__header">
+          <h3 class="usa-card__heading">The economy of cities</h3>
+        </div>
+        <div class="usa-card__media usa-card__media--fix-aspect">
+          <div class="usa-card__img">
+            <img
+              src="https://source.unsplash.com/featured/800x600/daily?plants"
+              alt="">
+          </div>
+        </div>
+        <div class="usa-card__body">
+          <p>The stretch of Hudson Street where I live is each day the scene of an intricate sidewalk ballet. I make my own first entrance into it a little after eight when I put out my garbage can, surely a prosaic occupation, but I enjoy my part, my little clang, as the junior droves of junior high school students walk by the center of the stage dropping candy wrapper. (How do they eat so much candy so early in the morning?)</p>
+        </div>
+        <div class="usa-card__footer">
+          <a href="javascript:void(0);" class="usa-button">Eat candy</a>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
