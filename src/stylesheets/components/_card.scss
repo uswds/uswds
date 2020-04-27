@@ -4,9 +4,7 @@
  * Is card grid gap different from other gaps?
  */
 
-$card-grid-gap: 2;
-$theme-card-padding-y: 3;
-$theme-card-flag-image-width: "card-lg";
+$card-bg-color: "white";
 
 @mixin card-inner-radius {
   border-top-left-radius: calc(
@@ -21,31 +19,34 @@ $theme-card-flag-image-width: "card-lg";
   @include add-list-reset;
   @include u-display("flex");
   @include u-flex("column", "wrap", "align-stretch");
-  @include u-margin-x($card-grid-gap / -2);
+  @include u-margin-x($theme-card-gap / -2);
   @include at-media($theme-card-flag-min-width) {
     @include u-flex("row");
   }
 }
 
 .usa-card {
-  @include u-margin-bottom($theme-card-margin);
+  @include u-margin-bottom($theme-card-margin-bottom + 1);
+  @include at-media("tablet") {
+    @include u-margin-bottom($theme-card-margin-bottom);
+  }
 }
 
 .usa-card__container {
   @include border-box-sizing;
   @include typeset;
-  @include u-bg($theme-card-bg-color);
+  @include u-bg($card-bg-color);
   @include u-border($theme-card-border-width, $theme-card-border-color);
   @include u-display("flex");
   @include u-height("full");
   @include u-flex("column");
-  @include u-margin-x($card-grid-gap / 2);
+  @include u-margin-x($theme-card-gap / 2);
   @include u-position("relative");
   @include u-radius($theme-card-border-radius);
 }
 
 .usa-card:not(.usa-card--flag) .usa-card__container > :only-child {
-  @include u-padding($theme-card-padding);
+  @include u-padding($theme-card-padding-perimeter);
 }
 
 .usa-card .usa-card__img {
@@ -56,16 +57,16 @@ $theme-card-flag-image-width: "card-lg";
 // ---------------------------------
 .usa-card__header {
   @include u-padding-bottom($theme-card-padding-y / 2);
-  @include u-padding-top($theme-card-padding);
-  @include u-padding-x($theme-card-padding);
+  @include u-padding-top($theme-card-padding-perimeter);
+  @include u-padding-x($theme-card-padding-perimeter);
 
   &:last-child {
-    @include u-padding-bottom($theme-card-padding);
+    @include u-padding-bottom($theme-card-padding-perimeter);
   }
 }
 
 .usa-card__heading {
-  @include typeset($theme-card-header-font-family, "lg", 2);
+  @include typeset($theme-card-header-typeset);
   @include u-margin(0);
 }
 
@@ -93,29 +94,29 @@ $theme-card-flag-image-width: "card-lg";
 // ---------------------------------
 .usa-card__body {
   @include u-flex("fill");
-  @include u-padding-x($theme-card-padding);
+  @include u-padding-x($theme-card-padding-perimeter);
   @include u-padding-y($theme-card-padding-y / 2);
 
   // adjust spacing if body lack siblings
   &:last-child {
-    @include u-padding-bottom($theme-card-padding);
+    @include u-padding-bottom($theme-card-padding-perimeter);
   }
 
   &:first-child {
-    @include u-padding-top($theme-card-padding);
+    @include u-padding-top($theme-card-padding-perimeter);
   }
 
   &:only-child {
-    @include u-padding-y($theme-card-padding);
+    @include u-padding-y($theme-card-padding-perimeter);
   }
 }
 
 // Footer
 // ---------------------------------
 .usa-card__footer {
-  @include u-padding-bottom($theme-card-padding);
+  @include u-padding-bottom($theme-card-padding-perimeter);
   @include u-padding-top($theme-card-padding-y / 2);
-  @include u-padding-x($theme-card-padding);
+  @include u-padding-x($theme-card-padding-perimeter);
 }
 
 .usa-card__footer .usa-button:only-of-type {
@@ -165,12 +166,6 @@ $theme-card-flag-image-width: "card-lg";
   .usa-card__img {
     @include u-radius-top($theme-card-border-radius);
   }
-}
-
-// Raised
-// ---------------------------------
-.usa-card--raised .usa-card__container {
-  @include u-shadow($theme-card-shadow);
 }
 
 // Header first
