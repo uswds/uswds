@@ -3,6 +3,9 @@
 }
 
 .usa-date-picker__button {
+  @include add-background-svg("calendar-alt-solid");
+  background-position: center;
+  background-size: units(2);
   margin: 0;
 }
 
