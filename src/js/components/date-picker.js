@@ -44,6 +44,7 @@ const CALENDAR_PREVIOUS_YEAR_CHUNK = `.${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}`;
 const CALENDAR_NEXT_YEAR_CHUNK = `.${CALENDAR_NEXT_YEAR_CHUNK_CLASS}`;
 
 const MONTH_LABELS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const DAY_OF_WEEK_LABELS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 const YEAR_CHUNK = 12;
 
@@ -227,6 +228,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     const day = dateToRender.getDate();
     const month = dateToRender.getMonth();
     const year = dateToRender.getFullYear();
+    const dayOfWeek = dateToRender.getDay();
 
     if (month < focusedMonth) {
       classes.push("usa-date-picker__calendar__date--previous-month");
@@ -248,7 +250,7 @@ const renderCalendar = (el, _dateToDisplay) => {
       data-month="${month + 1}" 
       data-year="${year}" 
       data-value="${month + 1}/${day}/${year}"
-      aria-label="${day} ${MONTH_LABELS[month]} ${year}"
+      aria-label="${day} ${MONTH_LABELS[month]} ${year} ${DAY_OF_WEEK_LABELS[dayOfWeek]}"
     >${day}</div>`;
   };
 
