@@ -669,7 +669,7 @@ const handleEscape = (event) => {
 };
 
 
-const handleSpaceOrEnterFromCalendar = (event) => {
+const handleSpaceOrEnter = (event) => {
   const datePickerEl = event.target.closest(DATE_PICKER);
 
   if (datePickerEl) {
@@ -677,11 +677,6 @@ const handleSpaceOrEnterFromCalendar = (event) => {
     selectDate(focusedDateEl);
     event.preventDefault();
   }
-};
-
-const handleSpaceOrEnterFromButton = (event) => {
-  displayCalendar(event.target);
-  event.preventDefault();
 };
 
 const datePicker = behavior(
@@ -737,15 +732,10 @@ const datePicker = behavior(
         'Shift+PageDown': handleShiftPageDown,
         'Shift+PageUp': handleShiftPageUp,
         Escape: handleEscape,
-        Enter: handleSpaceOrEnterFromCalendar,
-        Spacebar: handleSpaceOrEnterFromCalendar,
-        " ": handleSpaceOrEnterFromCalendar
+        Enter: handleSpaceOrEnter,
+        Spacebar: handleSpaceOrEnter,
+        " ": handleSpaceOrEnter
       }),
-      [DATE_PICKER_BUTTON]: keymap({
-        Enter: handleSpaceOrEnterFromButton,
-        Spacebar: handleSpaceOrEnterFromButton,
-        " ": handleSpaceOrEnterFromButton
-      })
     },
     focusout: {
       [DATE_PICKER](event) {

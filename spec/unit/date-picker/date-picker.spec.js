@@ -369,17 +369,6 @@ describe('date picker component', () => {
   });
 
   // keyboard interactions
-  it('should display a calendar and focus the selected date when enter is pressed from the date picker button', () => {
-    EVENTS.keydownEnter(button);
-
-    assert.equal(calendar.hidden, false, 'The calendar is shown');
-  });
-
-  it('should display a calendar and focus the current date when space is pressed from the date picker button', () => {
-    EVENTS.keydownSpace(button);
-
-    assert.equal(calendar.hidden, false, 'The calendar is shown');
-  });
 
   it('should close the calendar when escape is pressed within the calendar', () => {
     EVENTS.click(button);
