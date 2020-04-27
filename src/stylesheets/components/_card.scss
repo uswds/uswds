@@ -1,26 +1,50 @@
-@mixin card-equal-height {
-  @include at-media("tablet") {
-    @include u-display("flex");
-    @include u-flex("column");
-    @include u-height("full");
+/* TODO:
+ * Add/edit settings variables to settings and trim
+ * Add a way to change the flag breakpoint as a modifier/class
+ * Is card grid gap different from other gaps?
+ */
 
-    .usa-card__body {
-      @include u-flex("fill");
-      flex-basis: auto; // IE 11
-    }
+$card-grid-gap: 2;
+$theme-card-padding-y: 3;
+$theme-card-flag-image-width: "card-lg";
+
+@mixin card-inner-radius {
+  border-top-left-radius: calc(
+    #{radius($theme-card-border-radius)} - #{units($theme-card-border-width)}
+  );
+  border-top-right-radius: calc(
+    #{radius($theme-card-border-radius)} - #{units($theme-card-border-width)}
+  );
+}
+
+.usa-card-group {
+  @include add-list-reset;
+  @include u-display("flex");
+  @include u-flex("column", "wrap", "align-stretch");
+  @include u-margin-x($card-grid-gap / -2);
+  @include at-media($theme-card-flag-min-width) {
+    @include u-flex("row");
   }
 }
 
 .usa-card {
+  @include u-margin-bottom($theme-card-margin);
+}
+
+.usa-card__container {
   @include border-box-sizing;
   @include typeset;
   @include u-bg($theme-card-bg-color);
   @include u-border($theme-card-border-width, $theme-card-border-color);
-  @include u-margin-bottom($theme-card-margin);
+  @include u-display("flex");
+  @include u-height("full");
+  @include u-flex("column");
+  @include u-margin-x($card-grid-gap / 2);
+  @include u-position("relative");
   @include u-radius($theme-card-border-radius);
 }
 
-.usa-card:not(.usa-card--flag) > :only-child {
+.usa-card:not(.usa-card--flag) .usa-card__container > :only-child {
   @include u-padding($theme-card-padding);
 }
 
@@ -31,9 +55,13 @@
 // Header
 // ---------------------------------
 .usa-card__header {
-  @include u-padding-bottom($theme-card-padding / 2);
+  @include u-padding-bottom($theme-card-padding-y / 2);
   @include u-padding-top($theme-card-padding);
   @include u-padding-x($theme-card-padding);
+
+  &:last-child {
+    @include u-padding-bottom($theme-card-padding);
+  }
 }
 
 .usa-card__heading {
@@ -41,22 +69,44 @@
   @include u-margin(0);
 }
 
+// Media
+// ---------------------------------
+.usa-card__media {
+  @include u-order("first");
+}
+
+.usa-card__img {
+  @include card-inner-radius;
+  @include u-bg("base-lightest");
+  @include u-position("relative");
+  overflow: hidden;
+
+  img {
+    @include u-display("block");
+    @include u-height("full");
+    @include u-width("full");
+    object-fit: cover;
+  }
+}
+
 // Body
 // ---------------------------------
 .usa-card__body {
+  @include u-flex("fill");
   @include u-padding-x($theme-card-padding);
-  @include u-padding-y($theme-card-padding / 2);
+  @include u-padding-y($theme-card-padding-y / 2);
 
+  // adjust spacing if body lack siblings
   &:last-child {
     @include u-padding-bottom($theme-card-padding);
   }
 
-  :first-child {
-    @include u-margin-top(0);
+  &:first-child {
+    @include u-padding-top($theme-card-padding);
   }
 
-  :only-child {
-    @include u-margin-y(0);
+  &:only-child {
+    @include u-padding-y($theme-card-padding);
   }
 }
 
@@ -64,7 +114,7 @@
 // ---------------------------------
 .usa-card__footer {
   @include u-padding-bottom($theme-card-padding);
-  @include u-padding-top($theme-card-padding / 2);
+  @include u-padding-top($theme-card-padding-y / 2);
   @include u-padding-x($theme-card-padding);
 }
 
@@ -72,86 +122,176 @@
   @include u-margin-right(0);
 }
 
+.usa-card__header,
+.usa-card__body {
+  // strip spacing from first and last content
+  > :last-child {
+    @include u-padding-bottom(0);
+    @include u-margin-bottom(0);
+  }
+
+  > :first-child {
+    @include u-margin-top(0);
+    @include u-padding-top(0);
+  }
+
+  > :only-child {
+    @include u-margin-y(0);
+    @include u-padding-y(0);
+  }
+}
+
 // ---------------------------------
 // Variations
 // ---------------------------------
 
+// Exdent
+.usa-card__header--exdent,
+.usa-card__media--exdent,
+.usa-card__footer--exdent {
+  @include u-margin-x(-$theme-card-border-width);
+}
+
+.usa-card__header--exdent,
+.usa-card__footer--exdent {
+  > * {
+    @include u-padding-x($theme-card-border-width);
+  }
+}
+
+.usa-card__media--exdent {
+  @include u-margin-top(-$theme-card-border-width);
+
+  .usa-card__img {
+    @include u-radius-top($theme-card-border-radius);
+  }
+}
+
 // Raised
 // ---------------------------------
-.usa-card--raised {
+.usa-card--raised .usa-card__container {
   @include u-shadow($theme-card-shadow);
 }
 
-// Media
+// Header first
 // ---------------------------------
-.usa-card--media .usa-card__header {
-  @include u-padding-top($theme-card-padding);
+.usa-card--header-first {
+  .usa-card__header {
+    @include card-inner-radius;
+    @include u-padding-bottom($theme-card-padding-y);
+  }
 
-  &:last-child {
-    @include u-padding-bottom($theme-card-padding);
+  .usa-card__header--exdent {
+    @include u-margin-top(-$theme-card-border-width);
+    @include u-radius-top($theme-card-border-radius);
+  }
+
+  .usa-card__media {
+    @include u-order("initial");
+  }
+
+  .usa-card__img {
+    @include u-radius(0);
+  }
+
+  .usa-card__body {
+    @include u-padding-top($theme-card-padding-y);
   }
 }
 
-.usa-card--media .usa-card__media {
-  @include u-margin-top(-$theme-card-border-width);
-  @include u-margin-x(-$theme-card-border-width);
-  @include u-order("first");
-}
+.usa-card--flag {
+  .usa-card__media {
+    @include at-media($theme-card-flag-min-width) {
+      @include u-display("flex");
+      @include u-overflow("hidden");
+      @include u-pin-y;
+      @include u-pin-left;
+      @include u-position("absolute");
+      @include u-width($theme-card-flag-image-width);
+      border-top-left-radius: calc(
+        #{radius($theme-card-border-radius)} - #{units(
+            $theme-card-border-width
+          )}
+      );
+      border-bottom-left-radius: calc(
+        #{radius($theme-card-border-radius)} - #{units(
+            $theme-card-border-width
+          )}
+      );
+    }
+  }
 
-.usa-card--media .usa-card__img {
-  @include u-radius-top($theme-card-border-radius);
-  overflow: hidden;
-}
+  .usa-card__header,
+  .usa-card__body,
+  .usa-card__footer {
+    @include at-media($theme-card-flag-min-width) {
+      @include u-margin-left($theme-card-flag-image-width);
+    }
+  }
 
+  .usa-card__media--exdent {
+    @include at-media($theme-card-flag-min-width) {
+      @include u-margin-left(-$theme-card-border-width);
+      @include u-margin-right(0);
+      @include u-margin-y(-$theme-card-border-width);
+      @include u-radius-left($theme-card-border-radius);
+      margin-right: 0;
+    }
+  }
 
-// Flag
-// ---------------------------------
-.usa-card__inner {
-  @include at-media($theme-card-flag-min-width) {
-    @include grid-row;
-    @include u-padding-x(0);
-    @include u-width("full");
+  &.usa-card--header-first {
+    @include at-media($theme-card-flag-min-width) {
+      .usa-card__header {
+        @include u-padding-bottom($theme-card-padding-y / 2);
+      }
+      .usa-card__body {
+        @include u-padding-top($theme-card-padding-y / 2);
+      }
+    }
+  }
+
+  &.usa-card--media-right {
+    .usa-card__media {
+      @include at-media($theme-card-flag-min-width) {
+        @include u-left("auto");
+        @include u-right(0);
+        @include u-radius(0);
+        border-top-right-radius: calc(
+          #{radius($theme-card-border-radius)} - #{units(
+              $theme-card-border-width
+            )}
+        );
+        border-bottom-right-radius: calc(
+          #{radius($theme-card-border-radius)} - #{units(
+              $theme-card-border-width
+            )}
+        );
+      }
+    }
+
+    .usa-card__header,
+    .usa-card__body,
+    .usa-card__footer {
+      @include at-media($theme-card-flag-min-width) {
+        @include u-margin-left(0);
+        @include u-margin-right($theme-card-flag-image-width);
+      }
+    }
+    .usa-card__media--exdent {
+      @include at-media($theme-card-flag-min-width) {
+        @include u-margin-right(-$theme-card-border-width);
+        @include u-margin-left(0);
+        @include u-radius-right($theme-card-border-radius);
+      }
+    }
   }
 }
 
-.usa-card--flag .usa-card__media {
-  @include u-margin-top(-$theme-card-border-width);
-  @include u-margin-x(-$theme-card-border-width);
-  @include u-radius-top($theme-card-border-radius);
-  overflow: hidden;
+.usa-card__media--fix-aspect {
+  @include add-aspect("16x9");
+  @include u-position("relative");
 
-  @include at-media($theme-card-flag-min-width) {
-    @include grid-col(4);
-    @include u-margin-top(0);
-    @include u-margin-x(0);
-    @include u-padding-left($theme-card-padding);
-    @include u-padding-right(0);
-    @include u-padding-y($theme-card-padding);
-    @include u-radius-top(0);
+  .usa-card__img {
+    @include u-pin-all;
   }
-}
-
-.usa-card--flag .usa-card__flag-content {
-  @include at-media($theme-card-flag-min-width) {
-    @include grid-col(8);
-  }
-}
-
-.usa-card--flag.usa-card--media-right .usa-card__media {
-  @include at-media($theme-card-flag-min-width) {
-    @include u-padding-left(0);
-    @include u-padding-right($theme-card-padding);
-  }
-}
-
-.usa-card--flag.usa-card--media-right .usa-card__flag-content {
-  @include at-media($theme-card-flag-min-width) {
-    @include u-order("first");
-  }
-}
-
-// Equal Height
-// ---------------------------------
-.usa-card--equal-height {
-  @include card-equal-height;
 }
