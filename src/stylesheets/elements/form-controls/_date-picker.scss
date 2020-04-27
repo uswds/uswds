@@ -20,6 +20,7 @@
   .usa-date-picker__calendar__month-picker,
   .usa-date-picker__calendar__year-picker {
     display: none;
+    padding: 20px 5px;
   }
 }
 
@@ -88,7 +89,6 @@
 .usa-date-picker__calendar__month-picker {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 20px 5px;
   text-align: center;
 }
 
@@ -107,7 +107,6 @@
 
 .usa-date-picker__calendar__year-picker {
   grid-template-columns: 1fr 3fr 1fr;
-  padding: 20px 5px;
 }
 
 .usa-date-picker__calendar__year-grid {

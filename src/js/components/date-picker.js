@@ -220,9 +220,7 @@ const renderCalendar = (el, _dateToDisplay) => {
   const firstDay = new Date(focusedYear, focusedMonth, 1).getDay();
 
   // test September
-  const fullMonth = new Intl.DateTimeFormat("en-US", { month: "long" }).format(
-    dateToDisplay
-  );
+  const fullMonth = MONTH_LABELS[focusedMonth];
 
   const renderDate = dateToRender => {
     const classes = [CALENDAR_DATE_CLASS];
@@ -244,11 +242,13 @@ const renderCalendar = (el, _dateToDisplay) => {
 
     return `<div
       tabindex="-1"
+      role="button"
       class="${classes.join(" ")}" 
       data-day="${day}" 
       data-month="${month + 1}" 
       data-year="${year}" 
       data-value="${month + 1}/${day}/${year}"
+      aria-label="${day} ${MONTH_LABELS[month]} ${year}"
     >${day}</div>`;
   };
 
@@ -381,7 +381,7 @@ const displayNextMonth = el => {
   let date;
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dateMonth = date.getMonth() + 1 % 12;
+    const dateMonth = (date.getMonth() + 1) % 12;
     date.setMonth(date.getMonth() + 1);
     keepDateWithinMonth(date, dateMonth);
   }
@@ -602,7 +602,7 @@ const handlePageDown = (event) => {
 
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dateMonth = date.getMonth() + 1 % 12;
+    const dateMonth = (date.getMonth() + 1) % 12;
     date.setMonth(date.getMonth() + 1);
     keepDateWithinMonth(date, dateMonth);
   }

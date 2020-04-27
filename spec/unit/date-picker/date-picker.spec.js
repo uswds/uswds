@@ -499,6 +499,18 @@ describe('date picker component', () => {
     assert.equal(calendar.querySelector('.usa-date-picker__calendar__year-selection').textContent, '2020', 'shows correct year');
   });
 
+  it('should move focus the to the same day of the month January when page down is pressed from the currently focused day in December', () => {
+    input.value = '12/31/2020';
+    EVENTS.click(button);
+    assert.equal(calendar.hidden, false, 'The calendar is shown');
+
+    EVENTS.keydownPageDown();
+
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__date--focused').textContent, '31', 'focuses correct date');
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__month-selection').textContent, 'January', 'shows correct month');
+    assert.equal(calendar.querySelector('.usa-date-picker__calendar__year-selection').textContent, '2020', 'shows correct year');
+  });
+
   it('should move focus the to the same day/month of the previous year when shift + page up is pressed from the currently focused day', () => {
     input.value = '1/1/2020';
     EVENTS.click(button);
