@@ -1,7 +1,7 @@
 /* TODO:
- * Add/edit settings variables to settings and trim
- * Add a way to change the flag breakpoint as a modifier/class
- * Is card grid gap different from other gaps?
+ * Add a way to change the flag breakpoint as a modifier/class?
+ * Is card grid gap be different from other gaps?
+ * Fix flag and set-aspect
  */
 
 $card-bg-color: "white";
@@ -87,6 +87,15 @@ $card-bg-color: "white";
     @include u-height("full");
     @include u-width("full");
     object-fit: cover;
+  }
+}
+
+.usa-card__media--inset {
+  @include u-padding-top($theme-card-padding-perimeter);
+  @include u-padding-x($theme-card-padding-perimeter);
+
+  .usa-card__img {
+    @include u-radius(0);
   }
 }
 
@@ -181,6 +190,10 @@ $card-bg-color: "white";
     @include u-radius-top($theme-card-border-radius);
   }
 
+  .usa-card__media--inset {
+    @include u-padding-top(0);
+  }
+
   .usa-card__media {
     @include u-order("initial");
   }
@@ -195,14 +208,17 @@ $card-bg-color: "white";
 }
 
 .usa-card--flag {
-  .usa-card__media {
-    @include at-media($theme-card-flag-min-width) {
+  @include at-media($theme-card-flag-min-width) {
+    .usa-card__media {
       @include u-display("flex");
       @include u-overflow("hidden");
       @include u-pin-y;
       @include u-pin-left;
       @include u-position("absolute");
       @include u-width($theme-card-flag-image-width);
+    }
+    .usa-card__img {
+      @include u-radius(0);
       border-top-left-radius: calc(
         #{radius($theme-card-border-radius)} - #{units(
             $theme-card-border-width
@@ -214,42 +230,61 @@ $card-bg-color: "white";
           )}
       );
     }
-  }
 
-  .usa-card__header,
-  .usa-card__body,
-  .usa-card__footer {
-    @include at-media($theme-card-flag-min-width) {
+    .usa-card__header,
+    .usa-card__body,
+    .usa-card__footer {
       @include u-margin-left($theme-card-flag-image-width);
     }
-  }
 
-  .usa-card__media--exdent {
-    @include at-media($theme-card-flag-min-width) {
+    .usa-card__media--exdent {
       @include u-margin-left(-$theme-card-border-width);
       @include u-margin-right(0);
       @include u-margin-y(-$theme-card-border-width);
-      @include u-radius-left($theme-card-border-radius);
       margin-right: 0;
-    }
-  }
 
-  &.usa-card--header-first {
-    @include at-media($theme-card-flag-min-width) {
+      .usa-card__img {
+        @include u-radius-left($theme-card-border-radius);
+      }
+    }
+
+    .usa-card__media--inset {
+      @include u-padding-right(0);
+      @include u-padding-bottom($theme-card-padding-perimeter);
+
+      .usa-card__img {
+        @include u-radius(0);
+      }
+    }
+
+    &.usa-card--header-first {
       .usa-card__header {
         @include u-padding-bottom($theme-card-padding-y / 2);
       }
       .usa-card__body {
         @include u-padding-top($theme-card-padding-y / 2);
       }
+      .usa-card__media--inset {
+        @include u-padding-top($theme-card-padding-perimeter);
+      }
     }
-  }
 
-  &.usa-card--media-right {
-    .usa-card__media {
-      @include at-media($theme-card-flag-min-width) {
+    &.usa-card--media-right {
+      .usa-card__media {
         @include u-left("auto");
         @include u-right(0);
+      }
+
+      .usa-card__media--inset {
+        @include u-padding-left(0);
+        @include u-padding-right($theme-card-padding-perimeter);
+
+        .usa-card__img {
+          @include u-radius(0);
+        }
+      }
+
+      .usa-card__img {
         @include u-radius(0);
         border-top-right-radius: calc(
           #{radius($theme-card-border-radius)} - #{units(
@@ -262,27 +297,28 @@ $card-bg-color: "white";
             )}
         );
       }
-    }
 
-    .usa-card__header,
-    .usa-card__body,
-    .usa-card__footer {
-      @include at-media($theme-card-flag-min-width) {
+      .usa-card__header,
+      .usa-card__body,
+      .usa-card__footer {
         @include u-margin-left(0);
         @include u-margin-right($theme-card-flag-image-width);
       }
-    }
-    .usa-card__media--exdent {
-      @include at-media($theme-card-flag-min-width) {
+
+      .usa-card__media--exdent {
         @include u-margin-right(-$theme-card-border-width);
         @include u-margin-left(0);
-        @include u-radius-right($theme-card-border-radius);
+
+        .usa-card__img {
+          @include u-radius(0);
+          @include u-radius-right($theme-card-border-radius);
+        }
       }
     }
   }
 }
 
-.usa-card__media--fix-aspect {
+.usa-card:not(.usa-card--flag).usa-card__media--set-aspect {
   @include add-aspect("16x9");
   @include u-position("relative");
 
