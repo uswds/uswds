@@ -200,7 +200,7 @@ $card-bg-color: "white";
   }
 
   .usa-card__media {
-    @include u-order("initial");
+    @include u-order(0);
   }
 
   .usa-card__img {
