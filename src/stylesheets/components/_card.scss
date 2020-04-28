@@ -105,6 +105,8 @@ $card-bg-color: "white";
   @include u-flex("fill");
   @include u-padding-x($theme-card-padding-perimeter);
   @include u-padding-y($theme-card-padding-y / 2);
+  // IE 11
+  flex-basis: auto;
 
   // adjust spacing if body lack siblings
   &:last-child {
