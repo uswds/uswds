@@ -74,6 +74,9 @@ $card-bg-color: "white";
 // ---------------------------------
 .usa-card__media {
   @include u-order("first");
+  // IE 11
+  // http://github.com/philipwalton/flexbugs/issues/75
+  min-height: 1px;
 }
 
 .usa-card__img {
