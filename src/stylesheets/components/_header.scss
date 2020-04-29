@@ -168,6 +168,15 @@ $z-index-overlay: 400;
       width: auto;
     }
 
+    // Issue #3401: last dropdown gets cutoff.
+    .usa-nav__primary-item:last-of-type {
+      position: relative;
+
+      .usa-nav__submenu {
+        @include u-pin-right;
+      }
+    }
+
     .usa-search {
       top: 0;
     }
@@ -181,6 +190,12 @@ $z-index-overlay: 400;
         display: block;
         float: right;
         margin-top: units(-5);
+      }
+    }
+
+    .usa-nav__primary-item:last-of-type {
+      @include at-media($theme-header-min-width) {
+        position: static;
       }
     }
   }
