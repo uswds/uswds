@@ -1,22 +1,13 @@
 // Navigation helpers
 // ---------------------------------
 
-@mixin outer-megamenu {
-  @include u-pin('y');
-  background-color: color('primary-darker');
-  content: '';
-  display: block;
-  position: absolute;
-  width: 100%;
-}
-
 @mixin primary-nav-link {
   line-height: line-height($theme-navigation-font-family, 1);
   padding: units(2);
 }
 
-$nav-link-color: 'base-dark';
-$sliding-panel-width: 'card-lg';
+$nav-link-color: "base-dark";
+$sliding-panel-width: "card-lg";
 $nav-link-accordion-icon-size: 1.5;
 $nav-link-arrow-icon-size: 1;
 
@@ -33,39 +24,13 @@ $nav-link-arrow-icon-size: 1;
 
 // Header navigation
 // ---------------------------------
-
-.usa-navbar {
-  @include border-box-sizing;
-  height: units($size-touch-target);
-
-  @include at-media-max($theme-navigation-width) {
-    @include u-flex('align-center');
-    border-bottom: units(1px) solid color('base-lighter');
-    display: flex;
-  }
-
-  @include at-media($theme-navigation-width) {
-    border-bottom: none;
-    display: inline-block;
-    height: auto;
-  }
-}
-
-.usa-nav-container {
-  @include at-media($theme-navigation-width) {
-    @include clearfix;
-    @include grid-container;
-    @include u-padding-x($theme-site-margins-width);
-  }
-}
-
 .usa-nav {
   @include typeset($theme-navigation-font-family, null, 1);
-  @include at-media-max($theme-navigation-width) {
-    @include u-pin('right');
-    @include u-pin('y');
+  @include at-media-max($theme-header-min-width) {
+    @include u-pin("right");
+    @include u-pin("y");
     position: fixed;
-    background: color('white');
+    background: color("white");
     border-right: 0;
     display: none;
     flex-direction: column;
@@ -80,15 +45,19 @@ $nav-link-arrow-icon-size: 1;
     }
   }
 
-  @include at-media($theme-navigation-width) {
+  @include at-media($theme-header-min-width) {
     float: right;
     position: relative;
   }
 
   .usa-search {
-    @include at-media($theme-navigation-width) {
+    @include at-media($theme-header-min-width) {
       margin-left: units(2);
     }
+  }
+
+  .usa-accordion {
+    @include typeset($theme-navigation-font-family, null, 1);
   }
 }
 
@@ -96,11 +65,10 @@ $nav-link-arrow-icon-size: 1;
 // ---------------------------------
 
 .usa-nav__primary {
-
-  // Until the $theme-navigation-width,
+  // Until the $theme-header-width,
   // use the usa-nav-list styles for the slide-in nav
-  @include at-media-max($theme-navigation-width) {
-    @include nav-list('nav');
+  @include at-media-max($theme-header-min-width) {
+    @include nav-list("nav");
     margin-top: units(3);
     order: 2;
 
@@ -109,8 +77,8 @@ $nav-link-arrow-icon-size: 1;
     }
   }
 
-  // At $theme-navigation-width and wider...
-  @include at-media($theme-navigation-width) {
+  // At $theme-header-width and wider...
+  @include at-media($theme-header-min-width) {
     display: flex;
   }
 
@@ -124,28 +92,28 @@ $nav-link-arrow-icon-size: 1;
   // just level 1 nav items...
   > .usa-nav__primary-item {
     line-height: line-height($theme-navigation-font-family, 2);
-    @include at-media($theme-navigation-width) {
-      font-size: font-size($theme-navigation-font-family, '2xs');
+    @include at-media($theme-header-min-width) {
+      font-size: font-size($theme-navigation-font-family, "2xs");
       line-height: line-height($theme-navigation-font-family, 1);
     }
 
     // ...and their direct links
     > a {
-      @include at-media($theme-navigation-width) {
+      @include at-media($theme-header-min-width) {
         @include primary-nav-link;
         color: color($nav-link-color);
         display: block;
-        font-weight: font-weight('bold');
+        font-weight: font-weight("bold");
 
         &:hover {
-          color: color('primary');
+          color: color("primary");
         }
       }
     }
   }
 
   a {
-    @include at-media($theme-navigation-width) {
+    @include at-media($theme-header-min-width) {
       @include u-padding-y(1);
     }
   }
@@ -155,64 +123,66 @@ $nav-link-arrow-icon-size: 1;
 
     @include button-unstyled;
     color: color($nav-link-color);
-    font-weight: font-weight('normal');
+    font-weight: font-weight("normal");
     line-height: line-height($theme-navigation-font-family, 2);
     padding: units(1.5) units(2);
     text-decoration: none;
 
-    @include at-media($theme-navigation-width) {
+    @include at-media($theme-header-min-width) {
       @include primary-nav-link;
-      font-size: font-size($theme-navigation-font-family, '2xs');
-      font-weight: font-weight('bold');
+      font-size: font-size($theme-navigation-font-family, "2xs");
+      font-weight: font-weight("bold");
     }
 
     &:hover {
-      color: color('primary');
-      background-color: color('base-lightest');
+      color: color("primary");
+      background-color: color("base-lightest");
       text-decoration: none;
 
-      @include at-media($theme-navigation-width) {
+      @include at-media($theme-header-min-width) {
         background-color: transparent;
       }
     }
 
-    &[aria-expanded=false] { /* stylelint-disable-line selector-no-qualifying-type */
-      @include add-background-svg('plus-alt');
+    &[aria-expanded="false"] {
+      /* stylelint-disable-line selector-no-qualifying-type */
+      @include add-background-svg("plus-alt");
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
 
-      @include at-media($theme-navigation-width) {
-        @include add-background-svg('angle-arrow-down');
+      @include at-media($theme-header-min-width) {
+        @include add-background-svg("angle-arrow-down");
         background-size: units($nav-link-arrow-icon-size);
         background-position: right units(2) top $button-vertical-offset;
       }
 
       &:hover {
-        @include at-media($theme-navigation-width) {
-          @include add-background-svg('angle-arrow-down-primary');
+        @include at-media($theme-header-min-width) {
+          @include add-background-svg("angle-arrow-down-primary");
         }
       }
     }
 
-    &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
-      @include add-background-svg('minus-alt');
+    &[aria-expanded="true"] {
+      /* stylelint-disable-line selector-no-qualifying-type */
+      @include add-background-svg("minus-alt");
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
 
-      @include at-media($theme-navigation-width) {
-        @include add-background-svg('angle-arrow-up-white');
+      @include at-media($theme-header-min-width) {
+        @include add-background-svg("angle-arrow-up-white");
         @include add-knockout-font-smoothing;
         background-size: units($nav-link-arrow-icon-size);
-        background-color: color('primary-darker');
+        background-color: color("primary-darker");
         background-position: right units(2) top $button-vertical-offset;
-        color: color('white');
+        color: color("white");
       }
     }
   }
 
   .usa-accordion__button {
     span {
-      @include at-media($theme-navigation-width) {
+      @include at-media($theme-header-min-width) {
         margin-right: 0;
         padding-right: units(2);
       }
@@ -226,12 +196,14 @@ $nav-link-arrow-icon-size: 1;
 .usa-nav__secondary {
   margin-top: units(2);
 
-  @include at-media($theme-navigation-width) {
+  @include at-media($theme-header-min-width) {
     // Note: Previius calc() couldn't work. don't hardcode rem vals
     bottom: units(8); // XXX magic number
-    font-size: font-size($theme-navigation-font-family, '2xs');
+    font-size: font-size($theme-navigation-font-family, "2xs");
     margin-top: units(1);
-    min-width: calc(#{$theme-search-min-width} + #{units($theme-button-small-width)});
+    min-width: calc(
+      #{$theme-search-min-width} + #{units($theme-button-small-width)}
+    );
     position: absolute;
     right: units($theme-site-margins-width);
   }
@@ -240,7 +212,7 @@ $nav-link-arrow-icon-size: 1;
     margin-top: units(2);
     width: 100%;
 
-    @include at-media($theme-navigation-width) {
+    @include at-media($theme-header-min-width) {
       margin-left: 0;
       margin-top: units(1);
     }
@@ -252,7 +224,7 @@ $nav-link-arrow-icon-size: 1;
   line-height: line-height($theme-navigation-font-family, 3);
   margin-top: units(3);
 
-  @include at-media($theme-navigation-width) {
+  @include at-media($theme-header-min-width) {
     float: right;
     line-height: line-height($theme-navigation-font-family, 1);
     margin-bottom: units(0.5);
@@ -260,26 +232,26 @@ $nav-link-arrow-icon-size: 1;
   }
 
   .usa-nav__secondary-item {
-    @include at-media($theme-navigation-width) {
+    @include at-media($theme-header-min-width) {
       display: inline;
       padding-left: units(0.5);
 
       & + .usa-nav__secondary-item::before {
-        color: color('base-lighter');
-        content: '|';
+        color: color("base-lighter");
+        content: "|";
         padding-right: units(0.5);
       }
     }
   }
 
   a {
-    color: color('base');
+    color: color("base");
     display: inline-block;
-    font-size: font-size($theme-navigation-font-family, '2xs');
+    font-size: font-size($theme-navigation-font-family, "2xs");
     text-decoration: none;
 
     &:hover {
-      color: color('primary');
+      color: color("primary");
       text-decoration: underline;
     }
   }
@@ -289,37 +261,37 @@ $nav-link-arrow-icon-size: 1;
 // ---------------------------------
 
 .usa-nav__submenu {
-  @include at-media-max($theme-navigation-width) {
+  @include at-media-max($theme-header-min-width) {
     @include nav-sublist;
   }
 
-  @include at-media($theme-navigation-width) {
+  @include at-media($theme-header-min-width) {
     @include add-list-reset;
-    background-color: color('primary-darker');
-    width: units('card-lg');
+    background-color: color("primary-darker");
+    width: units("card-lg");
     padding: units(2);
     position: absolute;
     z-index: z-index(400);
   }
 
-  &[aria-hidden=true] {
+  &[aria-hidden="true"] {
     display: none;
   }
 
   .usa-nav__submenu-item {
-    @include at-media($theme-navigation-width) {
+    @include at-media($theme-header-min-width) {
       & + * {
         margin-top: units(1.5);
       }
 
       a {
-        color: color('white');
+        color: color("white");
         padding: 0;
         line-height: line-height($theme-navigation-font-family, 3);
 
         &:hover {
           background-color: transparent;
-          color: color('white');
+          color: color("white");
           padding: 0;
           text-decoration: underline;
         }
@@ -333,7 +305,7 @@ $nav-link-arrow-icon-size: 1;
 
   .usa-nav__submenu-list-item {
     margin: 0;
-    font-size: font-size($theme-navigation-font-family, '2xs');
+    font-size: font-size($theme-navigation-font-family, "2xs");
 
     a {
       line-height: line-height($theme-navigation-font-family, 3);
@@ -358,7 +330,7 @@ $nav-link-arrow-icon-size: 1;
     text-decoration: none;
   }
 
-  @include at-media($theme-navigation-width) {
+  @include at-media($theme-header-min-width) {
     display: none;
   }
 
@@ -373,31 +345,4 @@ $nav-link-arrow-icon-size: 1;
 
 .usa-js-mobile-nav--active {
   overflow: hidden;
-}
-
-// Navigation megamenu
-// ---------------------------------
-
-.usa-megamenu {
-  @include at-media($theme-navigation-width) {
-    @include u-padding-x(0);
-    @include u-padding-y(4);
-    left: -$theme-megamenu-logo-text-width;
-    right: 0;
-    width: auto;
-  }
-
-  &::before {
-    @include at-media($theme-navigation-width) {
-      @include outer-megamenu;
-      right: 100%;
-    }
-  }
-
-  &::after {
-    @include at-media($theme-navigation-width) {
-      @include outer-megamenu;
-      left: 100%;
-    }
-  }
 }

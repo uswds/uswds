@@ -18,14 +18,11 @@ example:
 
 $u-top: (
   top: (
-    base: 'top',
+    base: "top",
     modifiers: null,
-    values: map-collect(
-      get-palettes($top-palettes),
-      $top-manual-values
-    ),
+    values: map-collect(get-palettes($top-palettes), $top-manual-values),
     settings: $top-settings,
-    property: 'top',
-    type: 'utility',
+    property: "top",
+    type: "utility"
   )
 );

@@ -1,6 +1,6 @@
 {% extends '_uswds.njk' %}
 {% block body %}
   <div class="grid-container" style="padding: 0">
-    {{ yield }}
+    {{ yield | safe }}
   </div>
 {% endblock %}

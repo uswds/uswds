@@ -1,0 +1,16 @@
+.usa-navbar {
+  @include border-box-sizing;
+  height: units($size-touch-target);
+
+  @include at-media-max($theme-header-min-width) {
+    @include u-flex("align-center");
+    border-bottom: units(1px) solid color("base-lighter");
+    display: flex;
+  }
+
+  @include at-media($theme-header-min-width) {
+    border-bottom: none;
+    display: inline-block;
+    height: auto;
+  }
+}

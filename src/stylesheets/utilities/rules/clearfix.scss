@@ -15,21 +15,21 @@ example:
 
 $u-clearfix: (
   clearfix: (
-    base: 'clearfix::after',
+    base: "clearfix::after",
     modifiers: null,
     values: (
       reset: (
-        slug: 'noValue',
+        slug: "noValue",
         isReadable: false,
-        content: 'both',
+        content: "both",
         extend: (
-          'content': '""',
-          'display': 'block',
-        ),
-      ),
+          "content": '""',
+          "display": "block"
+        )
+      )
     ),
     settings: $clearfix-settings,
-    property: 'clear',
-    type: 'utility',
+    property: "clear",
+    type: "utility"
   )
 );

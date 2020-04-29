@@ -1,11 +1,11 @@
-const assert = require('assert');
-const fs = require('fs');
-const path = require('path');
-const skipnav = require('../../../src/js/components/skipnav');
+const assert = require("assert");
+const fs = require("fs");
+const path = require("path");
+const skipnav = require("../../../src/js/components/skipnav");
 
-const TEMPLATE = fs.readFileSync(path.join(__dirname, '/template.html'));
+const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 
-describe('skip nav link', () => {
+describe("skip nav link", () => {
   const { body } = document;
 
   let skipLink;
@@ -14,33 +14,33 @@ describe('skip nav link', () => {
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
-    skipLink = body.querySelector('.usa-skipnav');
-    topLink = body.querySelector('.usa-footer__return-to-top a');
-    main = body.querySelector('main');
+    skipLink = body.querySelector(".usa-skipnav");
+    topLink = body.querySelector(".usa-footer__return-to-top a");
+    main = body.querySelector("main");
     skipnav.on(body);
   });
 
   afterEach(() => {
-    body.innerHTML = '';
+    body.innerHTML = "";
     skipnav.off(body);
   });
 
   it('skipnav link sets tabindex="0" when clicked', () => {
     skipLink.click();
-    assert.equal(main.getAttribute('tabindex'), '0');
+    assert.equal(main.getAttribute("tabindex"), "0");
   });
 
   it('skipnav link sets tabindex="-1" when blurred', () => {
     skipLink.click();
-    assert.equal(main.getAttribute('tabindex'), '0');
+    assert.equal(main.getAttribute("tabindex"), "0");
 
     main.focus(); // XXX jsdom doesn't do this for us
     main.blur();
-    assert.equal(main.getAttribute('tabindex'), '-1');
+    assert.equal(main.getAttribute("tabindex"), "-1");
   });
 
   it('return to top link sets tabindex="0" when clicked', () => {
     topLink.click();
-    assert.equal(main.getAttribute('tabindex'), '0');
+    assert.equal(main.getAttribute("tabindex"), "0");
   });
 });

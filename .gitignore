@@ -8,6 +8,7 @@ npm-debug.log*
 
 # code coverage
 coverage/
+.nyc_output
 
 # ignore the generated dist directory
 dist/

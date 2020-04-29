@@ -16,14 +16,15 @@ example:
 
 $u-line-height: (
   line-height: (
-    base: 'line-height',
+    base: "line-height",
     modifiers: null,
-    values: map-collect(
-      get-palettes($line-height-palettes),
-      $line-height-manual-values
-    ),
+    values:
+      map-collect(
+        get-palettes($line-height-palettes),
+        $line-height-manual-values
+      ),
     settings: $line-height-settings,
-    property: 'line-height',
-    type: 'utility',
+    property: "line-height",
+    type: "utility"
   )
 );

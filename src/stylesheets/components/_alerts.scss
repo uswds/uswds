@@ -5,32 +5,33 @@ $usa-custom-alerts: () !default;
 $usa-custom-alerts-bar: () !default;
 
 $usa-alerts: (
-  success: 'success-lighter',
-  warning: 'warning-lighter',
-  error: 'error-lighter',
-  info: 'info-lighter',
+  success: "success-lighter",
+  warning: "warning-lighter",
+  error: "error-lighter",
+  info: "info-lighter"
 );
 
 $usa-alerts-bar: (
-  success: 'success',
-  warning: 'warning',
-  error: 'error',
-  info: 'info',
+  success: "success",
+  warning: "warning",
+  error: "error",
+  info: "info"
 );
 
 $alerts: map-merge($usa-alerts, $usa-custom-alerts);
 $alerts-bar: map-merge($usa-alerts-bar, $usa-custom-alerts-bar);
-$padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
+$alert-padding-left: units($theme-alert-padding-x) +
+  units($theme-alert-bar-width);
 
 .usa-alert {
   @include typeset($theme-alert-font-family);
   @include border-box-sizing;
-  background-color: color('base-lightest');
-  background-position: units($theme-alert-padding-x) units($theme-alert-padding-x);
+  background-color: color("base-lightest");
+  background-position: $alert-padding-left units($theme-alert-padding-x);
   background-repeat: no-repeat;
-  background-size: units(7);
+  background-size: units(4);
   padding-bottom: units(2);
-  padding-left: $padding-left;
+  padding-left: $alert-padding-left;
   padding-right: units($theme-alert-padding-x);
   padding-top: units($theme-alert-padding-x);
   position: relative;
@@ -41,8 +42,8 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 
   // TODO: why is this not simply a border?
   &::before {
-    background-color: color('base-light');
-    content: '';
+    background-color: color("base-light");
+    content: "";
     height: 100%;
     left: 0;
     position: absolute;
@@ -72,7 +73,7 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 }
 
 .usa-alert__heading {
-  @include typeset($theme-alert-font-family, 'lg', 2);
+  @include typeset($theme-alert-font-family, "lg", 2);
   margin-top: 0;
   margin-bottom: units(1);
 }
@@ -92,7 +93,7 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 
 @each $name, $bgcolor in $alerts {
   .usa-alert--#{$name} {
-    @include add-background-svg('alerts/#{$name}');
+    @include add-background-svg("alerts/#{$name}");
     background-color: color($bgcolor);
 
     &::before {
@@ -100,14 +101,15 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
     }
 
     .usa-alert__body {
-      padding-left: units($theme-alert-icon-size) + units($theme-alert-padding-x);
+      padding-left: units($theme-alert-icon-size) +
+        units($theme-alert-padding-x);
     }
   }
 }
 
 .usa-alert--slim {
-  background-position: units($theme-alert-padding-x) center;
-  background-size: units(5);
+  background-position: $alert-padding-left center;
+  background-size: units(3);
   padding-bottom: units($theme-alert-bar-width);
   padding-top: units($theme-alert-bar-width);
 
@@ -130,7 +132,7 @@ $padding-left: units($theme-alert-padding-x) + units($theme-alert-bar-width);
 }
 
 .usa-alert--validation {
-  background-size: units(5);
+  background-size: units(3);
 
   .usa-alert__body {
     padding-left: units(5);

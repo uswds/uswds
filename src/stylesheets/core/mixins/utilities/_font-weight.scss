@@ -3,8 +3,8 @@
 @mixin u-font-weight($value...) {
   $important: null;
   @if has-important($value) {
-    $value: remove($value, '!important');
-    $important: ' !important';
+    $value: remove($value, "!important");
+    $important: " !important";
   }
   font-weight: get-uswds-value(font-weight, $value...) #{$important};
 }

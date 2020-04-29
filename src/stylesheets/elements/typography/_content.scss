@@ -1,0 +1,62 @@
+.usa-paragraph {
+  @include typeset-p;
+}
+
+// Custom typography
+
+.usa-content {
+  p,
+  ul:not(.usa-accordion):not(.usa-accordion--bordered),
+  ol:not(.usa-accordion):not(.usa-accordion--bordered) {
+    max-width: measure($theme-text-measure);
+  }
+}
+
+.usa-display {
+  @include typeset-h3;
+  margin-bottom: 0;
+
+  @include at-media("mobile-lg") {
+    @include typeset-h1;
+  }
+
+  @include at-media("tablet") {
+    @include typeset-display;
+  }
+}
+
+.usa-intro {
+  @include typeset(
+    $theme-lead-font-family,
+    $theme-lead-font-size,
+    $theme-lead-line-height
+  );
+  font-weight: $theme-font-weight-normal;
+  max-width: measure($theme-lead-measure);
+}
+
+.usa-dark-background {
+  @include add-knockout-font-smoothing;
+  background-color: color("base-darker");
+
+  p,
+  span {
+    color: color("white");
+  }
+
+  a {
+    color: color("base-lighter");
+
+    &:hover {
+      color: color("white");
+    }
+  }
+}
+
+%usa-paragraph {
+  @include typeset-p;
+}
+
+%usa-heading {
+  @include typeset-heading;
+}

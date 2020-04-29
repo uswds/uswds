@@ -18,16 +18,13 @@ example:
 
 $u-outline: (
   outline: (
-    base: 'outline',
+    base: "outline",
     modifiers: null,
-    values: map-collect(
-      get-palettes($outline-palettes),
-      $outline-manual-values
-    ),
+    values: map-collect(get-palettes($outline-palettes), $outline-manual-values),
     settings: $outline-settings,
     valuePrepend: null,
-    valueAppend: ' solid',
-    property: 'outline',
-    type: 'utility',
+    valueAppend: " solid",
+    property: "outline",
+    type: "utility"
   )
 );

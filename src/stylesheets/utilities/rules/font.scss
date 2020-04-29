@@ -28,14 +28,11 @@ example:
 
 $u-font: (
   font: (
-    base: 'font',
+    base: "font",
     modifiers: null,
-    values: map-collect(
-      get-palettes($font-palettes),
-      $font-manual-values
-    ),
+    values: map-collect(get-palettes($font-palettes), $font-manual-values),
     settings: $font-settings,
-    property: 'font-size',
-    type: 'utility',
+    property: "font-size",
+    type: "utility"
   )
 );

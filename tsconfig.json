@@ -7,11 +7,8 @@
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "types": [
-      "node"
-    ]
+    "lib": ["es6", "DOM"],
+    "types": ["node"]
   },
-  "include": [
-    "src/js/utils/select.js"
-  ]
+  "include": ["src/js/utils/select.js"]
 }

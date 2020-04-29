@@ -1,6 +1,6 @@
 /* stylelint-disable */
 
-$namespace-grid: ns('grid');
+$namespace-grid: ns("grid");
 
 // basic container
 .#{$namespace-grid}container {
@@ -25,7 +25,7 @@ $namespace-grid: ns('grid');
         @include grid-container($props);
       }
 
-// ...with custom widths
+      // ...with custom widths
       @each $width-key, $width-value in $system-breakpoints {
         .#{$mq-key}\:#{$namespace-grid}container-#{$width-key} {
           $props: append-important($grid-global, $width-key);
@@ -44,18 +44,20 @@ $namespace-grid: ns('grid');
   &.#{$namespace-grid}gap {
     @include grid-gap-responsive;
   }
-  @each $gap-key, $gap-val in map-deep-get($system-properties, gap, standard){
+  @each $gap-key, $gap-val in map-deep-get($system-properties, gap, standard) {
     &.#{$namespace-grid}gap-#{$gap-key} {
       $props: append-important($grid-global, $gap-key);
       @include grid-gap($props);
     }
   }
 
-// responsive column gaps
+  // responsive column gaps
   @each $mq-key, $mq-value in $system-breakpoints {
     @if map-get($theme-utility-breakpoints, $mq-key) {
       @include at-media($mq-key) {
-        @each $gap-key, $gap-val in map-deep-get($system-properties, gap, standard){
+        @each $gap-key,
+          $gap-val in map-deep-get($system-properties, gap, standard)
+        {
           &.#{$mq-key}\:#{$namespace-grid}gap-#{$gap-key} {
             $props: append-important($grid-global, $gap-key);
             @include grid-gap($props);
@@ -67,7 +69,7 @@ $namespace-grid: ns('grid');
 }
 
 // basic columns...
-[class*='#{$namespace-grid}col'] {
+[class*="#{$namespace-grid}col"] {
   @include u-position(relative);
   @include u-width(full);
   box-sizing: border-box;

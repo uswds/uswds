@@ -16,18 +16,16 @@ example:
 
 $u-overflow: (
   overflow: (
-    base: 'overflow',
+    base: "overflow",
     modifiers: (
-      noModifier: '',
-      'y': '-y',
-      'x': '-x',
+      noModifier: "",
+      "y": "-y",
+      "x": "-x"
     ),
-    values: map-collect(
-      get-palettes($overflow-palettes),
-      $overflow-manual-values
-    ),
+    values:
+      map-collect(get-palettes($overflow-palettes), $overflow-manual-values),
     settings: $overflow-settings,
-    property: 'overflow',
-    type: 'utility',
+    property: "overflow",
+    type: "utility"
   )
 );

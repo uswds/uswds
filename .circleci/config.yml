@@ -1,9 +1,12 @@
-version: 2
+version: 2.1
+
+orbs:
+  snyk: snyk/snyk@0.0.8
 
 references:
   container: &container
     docker:
-      - image: circleci/node:10.15.1-browsers
+      - image: circleci/node:12.13.0-browsers
         environment:
           CHROME_PATH: /usr/bin/google-chrome
 
@@ -22,21 +25,17 @@ jobs:
           command: sudo npm install -g codeclimate-test-reporter
       - restore_cache:
           keys:
-          - v2-uswds-dependencies-{{ checksum "package-lock.json" }}
+            - v2-uswds-dependencies-{{ checksum "package-lock.json" }}
       - run: npm install
       - save_cache:
           paths:
             - node_modules
           key: v2-uswds-dependencies-{{ checksum "package-lock.json" }}
-      - run:
-          name: Setup Snyk
-          command: sudo npm install -g snyk
-      - run: # run snyk auth - authenticate snyk use environment variables to add token
-          name: snyk auth
-          command: snyk auth $SNYK_TOKEN
+      - snyk/scan:
+          organization: uswds
       - run:
           name: Run test
-          command: npm test
+          command: npm run test:ci
       - run:
           name: Run code coverage report
           command: npm run cover
@@ -54,7 +53,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-          - v2-uswds-dependencies-{{ checksum "package-lock.json" }}
+            - v2-uswds-dependencies-{{ checksum "package-lock.json" }}
       - run: npm install --ignore-scripts
       - run: npm rebuild node-sass
       - run:
@@ -65,16 +64,10 @@ jobs:
           command: |
             npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
             npm publish
-      - run:
-          name: Setup Snyk
-          command: sudo npm install -g snyk
-      - run:
-          name: Update dependencies in Snyk dashboard
-          command: snyk monitor --org=uswds
 
 workflows:
   version: 2
-  build_and_deploy:
+  circle-uswds:
     jobs:
       - build
       - deploy:

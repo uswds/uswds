@@ -4,21 +4,18 @@
   $value: unpack($value);
   $important: null;
   @if has-important($value) {
-    $value: remove($value, '!important');
-    $important: ' !important';
+    $value: remove($value, "!important");
+    $important: " !important";
   }
   @if $side == all {
     padding: get-uswds-value(padding, $value...) #{$important};
-  }
-  @else if $side == x {
+  } @else if $side == x {
     padding-left: get-uswds-value(padding, $value...) #{$important};
     padding-right: get-uswds-value(padding, $value...) #{$important};
-  }
-  @else if $side == y {
+  } @else if $side == y {
     padding-bottom: get-uswds-value(padding, $value...) #{$important};
     padding-top: get-uswds-value(padding, $value...) #{$important};
-  }
-  @else {
+  } @else {
     padding-#{$side}: get-uswds-value(padding, $value...) #{$important};
   }
 }

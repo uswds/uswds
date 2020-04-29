@@ -5,7 +5,7 @@
   text-indent: ($placeholder-width + $placeholder-margin) * -1;
 
   &::before {
-    content: ' ';
+    content: " ";
     display: inline-block;
     height: units(2);
     margin-left: units(-0.5);

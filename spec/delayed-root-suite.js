@@ -9,14 +9,14 @@
 // prerequistes needed for test collection to work. That's what
 // this file is for.
 
-const fractal = require('../fractal');
+const fractal = require("../fractal");
 
 exports.fractalLoad = fractal.components.load();
 
-Promise.all([
-  exports.fractalLoad,
-]).then(() => {
-  run();
-}).catch(() => {
-  process.exit(1);
-});
+Promise.all([exports.fractalLoad])
+  .then(() => {
+    run();
+  })
+  .catch(() => {
+    process.exit(1);
+  });

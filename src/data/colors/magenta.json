@@ -19,15 +19,15 @@
         {
           "name": "vivid",
           "value": [
-            { "name": "5", "value": false },
+            { "name": "5", "value": "#fff2f5" },
             { "name": "10", "value": "#ffddea" },
             { "name": "20", "value": "#ffb4cf" },
             { "name": "30", "value": "#ff87b2" },
             { "name": "40", "value": "#fd4496" },
             { "name": "50", "value": "#d72d79" },
             { "name": "60", "value": "#ab2165" },
-            { "name": "70", "value": false },
-            { "name": "80", "value": false },
+            { "name": "70", "value": "#731f44" },
+            { "name": "80", "value": "#4f172e" },
             { "name": "90", "value": false }
           ]
         }

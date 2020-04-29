@@ -1,0 +1,20 @@
+/*
+----------------------------------------
+Set basic font rules for the font
+utilities to reference.
+----------------------------------------
+*/
+
+$if-important: "";
+
+@if $utilities-use-important {
+  $if-important: " !important";
+}
+
+@each $face, $stack in $project-font-stacks {
+  @if $stack {
+    [class*="#{ns("utility")}font-#{$face}-"] {
+      font-family: #{$stack}#{$if-important};
+    }
+  }
+}

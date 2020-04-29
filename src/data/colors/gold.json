@@ -25,9 +25,9 @@
             { "name": "30", "value": "#e5a000" },
             { "name": "40", "value": "#c2850c" },
             { "name": "50", "value": "#936f38" },
-            { "name": "60", "value": false },
-            { "name": "70", "value": false },
-            { "name": "80", "value": false },
+            { "name": "60", "value": "#7a591a" },
+            { "name": "70", "value": "#5c410a" },
+            { "name": "80", "value": "#3b2b15" },
             { "name": "90", "value": false }
           ]
         }

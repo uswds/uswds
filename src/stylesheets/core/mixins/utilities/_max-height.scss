@@ -3,8 +3,8 @@
 @mixin u-maxh($value...) {
   $important: null;
   @if has-important($value) {
-    $value: remove($value, '!important');
-    $important: ' !important';
+    $value: remove($value, "!important");
+    $important: " !important";
   }
   max-height: get-uswds-value(max-height, $value...) #{$important};
 }

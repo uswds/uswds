@@ -16,14 +16,11 @@ example:
 
 $u-cursor: (
   cursor: (
-    base: 'cursor',
+    base: "cursor",
     modifiers: null,
-    values: map-collect(
-      get-palettes($cursor-palettes),
-      $cursor-manual-values
-    ),
+    values: map-collect(get-palettes($cursor-palettes), $cursor-manual-values),
     settings: $cursor-settings,
-    property: 'cursor',
-    type: 'utility',
+    property: "cursor",
+    type: "utility"
   )
 );

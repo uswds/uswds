@@ -1,0 +1,31 @@
+.usa-memorable-date {
+  display: flex;
+  [type="number"] {
+    -moz-appearance: textfield;
+
+    &::-webkit-inner-spin-button {
+      appearance: none;
+    }
+
+    &::-webkit-contacts-auto-fill-button {
+      visibility: hidden;
+      display: none !important; /* stylelint-disable-line declaration-no-important */
+      pointer-events: none;
+      height: 0;
+      width: 0;
+      margin: 0;
+    }
+  }
+}
+
+.usa-form-group--day,
+.usa-form-group--month,
+.usa-form-group--year {
+  @include u-flex(auto);
+  margin-right: units(2);
+  width: units(6);
+}
+
+.usa-form-group--year {
+  width: units(9);
+}

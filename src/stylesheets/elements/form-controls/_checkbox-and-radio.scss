@@ -1,0 +1,115 @@
+@include override-prose {
+  .usa-input-list {
+    @include add-list-reset;
+
+    li {
+      line-height: line-height(
+        $theme-form-font-family,
+        $theme-input-line-height
+      );
+    }
+  }
+}
+
+.usa-checkbox__input,
+.usa-radio__input {
+  // The actual input element is only visible to screen readers, because
+  // all visual styling is done via the label.
+  @include sr-only();
+
+  .lt-ie9 & {
+    border: 0;
+    float: left;
+    margin: units(0.5) units(0.5) 0 0;
+    position: static;
+    width: auto;
+  }
+}
+
+.usa-checkbox__label,
+.usa-radio__label {
+  cursor: pointer;
+  display: inherit;
+  font-weight: font-weight("normal");
+  margin-bottom: units(1.5);
+  padding-left: units($input-select-margin-right + $theme-input-select-size);
+  position: relative;
+  text-indent: units(-$input-select-margin-right - $theme-input-select-size);
+}
+
+.usa-checkbox__label::before,
+.usa-radio__label::before {
+  background: color("white");
+  content: "\a0";
+  display: inline-block;
+  left: units($theme-input-select-border-width);
+  position: relative;
+  vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
+}
+
+.usa-checkbox__label::before {
+  @include u-square($theme-input-select-size);
+  border-radius: radius($theme-checkbox-border-radius);
+}
+
+.usa-radio__label::before {
+  @include u-circle($theme-input-select-size);
+}
+
+.usa-checkbox__label::before,
+.usa-radio__label::before {
+  box-shadow: 0 0 0 units($theme-input-select-border-width) color("base");
+  line-height: units($theme-input-select-size);
+  margin-right: units($input-select-margin-right);
+}
+
+.usa-checkbox__input:checked + .usa-checkbox__label::before,
+.usa-radio__input:checked + .usa-radio__label::before {
+  background-color: color("primary");
+  box-shadow: 0 0 0 units($theme-input-select-border-width) color("primary");
+}
+
+.usa-radio__input:checked + .usa-radio__label::before {
+  box-shadow: 0 0 0 units($theme-input-select-border-width) color("primary"),
+    inset 0 0 0 units($theme-input-select-border-width) color("white");
+
+  @media print {
+    box-shadow: inset 0 0 0 units($theme-input-select-border-width)
+        color("white"),
+      inset 0 0 0 units(2) color("primary"),
+      0 0 0 units($theme-input-select-border-width) color("primary");
+  }
+}
+
+.usa-checkbox__input:checked + .usa-checkbox__label::before,
+.usa-checkbox__input:checked:disabled + .usa-checkbox__label::before {
+  @include add-background-svg("correct8");
+  background-position: center center;
+  background-size: units(1.5) auto;
+
+  @media print {
+    background-image: none;
+    background-color: color("white");
+    content: url("#{$theme-image-path}/checkbox-check-print.svg");
+    text-indent: 0;
+  }
+}
+
+.usa-radio__input:focus + .usa-radio__label::before {
+  @include focus-outline(null, null, null, 0.5);
+}
+
+.usa-checkbox__input:disabled + .usa-checkbox__label {
+  color: color("disabled");
+}
+
+.usa-checkbox__input:focus + .usa-checkbox__label::before {
+  @include focus-outline;
+}
+
+.usa-checkbox__input:disabled + .usa-checkbox__label::before,
+.usa-radio__input:disabled + .usa-radio__label::before {
+  background: color("disabled-light");
+  box-shadow: 0 0 0 units($theme-input-select-border-width) color("disabled");
+  cursor: not-allowed;
+}
