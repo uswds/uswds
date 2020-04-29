@@ -43,11 +43,31 @@ const CALENDAR_YEAR = `.${CALENDAR_YEAR_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR_CHUNK = `.${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}`;
 const CALENDAR_NEXT_YEAR_CHUNK = `.${CALENDAR_NEXT_YEAR_CHUNK_CLASS}`;
 
-const MONTH_LABELS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const DAY_OF_WEEK_LABELS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const MONTH_LABELS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
+const DAY_OF_WEEK_LABELS = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
 
 const YEAR_CHUNK = 12;
-
 
 /**
  * Keep date within month. Month would only be over
@@ -57,14 +77,12 @@ const YEAR_CHUNK = 12;
  * @returns {Date} the corrected date
  */
 const keepDateWithinMonth = (dateToCheck, month) => {
-
   if (month !== dateToCheck.getMonth()) {
     dateToCheck.setDate(0);
   }
 
   return dateToCheck;
-}
-
+};
 
 /**
  * Parse a date with format M-D-YY
@@ -94,7 +112,7 @@ const parseDateString = (dateString) => {
   }
 
   return date;
-}
+};
 
 /**
  * The elements within the date picker.
@@ -155,25 +173,26 @@ const enhanceDatePicker = datePickerEl => {
  * render a year chunk.
  *
  * @param {number} selectedYear the year chuck to display
- * 
+ *
  * @returns {string} the html for the year chunk
  */
-const renderYearChunk = (selectedYear) => {
-
+const renderYearChunk = selectedYear => {
   const years = [];
   let yearIndex = Math.floor(selectedYear / YEAR_CHUNK) * YEAR_CHUNK;
 
   while (years.length < YEAR_CHUNK) {
-    years.push(`<div tabindex="-1" class="${CALENDAR_YEAR_CLASS}">${yearIndex}</div>`);
+    years.push(
+      `<div tabindex="-1" class="${CALENDAR_YEAR_CLASS}">${yearIndex}</div>`
+    );
     yearIndex += 1;
   }
 
-  return years.join('');
+  return years.join("");
 };
 
 /**
  * The elements within the date picker calendar.
- * 
+ *
  * @typedef {Object} DatePickerCalendarElements
  * @property {HTMLButtonElement} monthEl
  * @property {HTMLButtonElement} yearEl
@@ -198,7 +217,6 @@ const getDatePickerCalendarElements = (calendarEl) => {
 
   return { monthEl, yearEl, datesEl, yearChunkEl, firstYearChunkEl };
 };
-
 
 /**
  * render the calendar.
@@ -364,7 +382,7 @@ const displayPreviousMonth = el => {
   let date;
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dateMonth = date.getMonth() + 11 % 12;
+    const dateMonth = (date.getMonth() + 11) % 12;
     date.setMonth(date.getMonth() - 1);
     keepDateWithinMonth(date, dateMonth);
   }
@@ -620,7 +638,7 @@ const handlePageUp = (event) => {
 
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dateMonth = date.getMonth() + 11 % 12;
+    const dateMonth = (date.getMonth() + 11) % 12;
     date.setMonth(date.getMonth() - 1);
     keepDateWithinMonth(date, dateMonth);
   }
@@ -628,8 +646,6 @@ const handlePageUp = (event) => {
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
-
-
 
 const handleShiftPageDown = (event) => {
   const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
@@ -669,7 +685,6 @@ const handleEscape = (event) => {
   inputEl.focus();
   event.preventDefault();
 };
-
 
 const handleSpaceOrEnter = (event) => {
   const datePickerEl = event.target.closest(DATE_PICKER);
@@ -737,7 +752,7 @@ const datePicker = behavior(
         Enter: handleSpaceOrEnter,
         Spacebar: handleSpaceOrEnter,
         " ": handleSpaceOrEnter
-      }),
+      })
     },
     focusout: {
       [DATE_PICKER](event) {
@@ -746,7 +761,7 @@ const datePicker = behavior(
           hideCalendar(datePickerEl);
         }
       }
-    },
+    }
   },
   {
     init(root) {
