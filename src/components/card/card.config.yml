@@ -15,23 +15,38 @@ variants:
     context:
       cards:
         - name: default
-          classes: ""
           title: Card
           content:
             - Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
               Excepturi nobis dolores molestias! Quas quisquam a officia eos.
         - name: raised
-          classes: "usa-card--raised"
-          title: Raised card
+          title: Card with media
+          media: true
           content:
             - Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
               Excepturi nobis dolores molestias! Quas quisquam a officia eos.
         - name: media
-          classes: "usa-card--media"
-          title: Media card
+          title: Media and header first
+          classes: "usa-card--header-first"
           media: true
+          content:
+            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
+        - name: media_inset
+          title: Inset media
+          classes: "usa-card--header-first"
+          media: true
+          media_classes: "usa-card__media--inset"
+          content:
+            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
+        - name: media_exdent
+          title: Exdent media
+          classes: "usa-card--header-first"
+          media: true
+          media_classes: "usa-card__media--exdent"
           content:
             - Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
@@ -39,10 +54,11 @@ variants:
           classes: "usa-card--flag"
           title: Flag default
           media: true
+          media_classes: "flex-align-center"
+          image_classes: "circle-card margin-x-auto usa-card__media--inset"
           flag: true
           content:
             - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
         - name: flag-right
           classes: "usa-card--flag usa-card--media-right"
           title: Flag media on right
@@ -50,7 +66,6 @@ variants:
           flag: true
           content:
             - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
 
   - name: default
 
@@ -62,19 +77,3 @@ variants:
         title: Florida Keys
         id: "card-media"
         media: true
-
-  - name: raised
-    label: Raised
-    context:
-      card:
-        classes: "usa-card--raised"
-        title: Florida Keys
-        id: "card-standout"
-
-  - name: equal-height
-    label: Equal Height
-    context:
-      card:
-        classes: "usa-card--equal-height"
-        title: Florida Keys
-        id: "card-equal-height"
