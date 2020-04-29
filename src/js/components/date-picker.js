@@ -8,6 +8,7 @@ const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_PICKER_INPUT_CLASS = `${DATE_PICKER_CLASS}__input`;
 const DATE_PICKER_BUTTON_CLASS = `${DATE_PICKER_CLASS}__button`;
 const DATE_PICKER_CALENDAR_CLASS = `${DATE_PICKER_CLASS}__calendar`;
+const DATE_PICKER_STATUS_CLASS = `${DATE_PICKER_CLASS}__status`;
 const CALENDAR_DATE_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__date`;
 const CALENDAR_DATE_FOCUSED_CLASS = `${CALENDAR_DATE_CLASS}--focused`;
 const CALENDAR_PREVIOUS_YEAR_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-year`;
@@ -32,6 +33,7 @@ const DATE_PICKER = `.${DATE_PICKER_CLASS}`;
 const DATE_PICKER_BUTTON = `.${DATE_PICKER_BUTTON_CLASS}`;
 const DATE_PICKER_INPUT = `.${DATE_PICKER_INPUT_CLASS}`;
 const DATE_PICKER_CALENDAR = `.${DATE_PICKER_CALENDAR_CLASS}`;
+const DATE_PICKER_STATUS = `.${DATE_PICKER_STATUS_CLASS}`;
 const CALENDAR_DATE = `.${CALENDAR_DATE_CLASS}`;
 const CALENDAR_DATE_FOCUSED = `.${CALENDAR_DATE_FOCUSED_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR = `.${CALENDAR_PREVIOUS_YEAR_CLASS}`;
@@ -124,6 +126,7 @@ const parseDateString = dateString => {
  * @property {HTMLButtonElement} calendarBtn
  * @property {HTMLDivElement} calendarEl
  * @property {HTMLButtonElement} focusedDateEl
+ * @property {HTMLDivElement} statusEl
  */
 
 /**
@@ -144,8 +147,16 @@ const getDatePickerElements = el => {
   const calendarBtn = datePickerEl.querySelector(DATE_PICKER_BUTTON);
   const calendarEl = datePickerEl.querySelector(DATE_PICKER_CALENDAR);
   const focusedDateEl = datePickerEl.querySelector(CALENDAR_DATE_FOCUSED);
+  const statusEl = datePickerEl.querySelector(DATE_PICKER_STATUS);
 
-  return { datePickerEl, inputEl, calendarBtn, calendarEl, focusedDateEl };
+  return {
+    datePickerEl,
+    inputEl,
+    calendarBtn,
+    calendarEl,
+    focusedDateEl,
+    statusEl
+  };
 };
 
 /**
@@ -166,8 +177,9 @@ const enhanceDatePicker = datePickerEl => {
   datePickerEl.insertAdjacentHTML(
     "beforeend",
     [
-      `<button type="button" class="usa-button ${DATE_PICKER_BUTTON_CLASS}" aria-label="Display calendar">&nbsp;</button>`,
-      `<div class="${DATE_PICKER_CALENDAR_CLASS}" hidden></div>`
+      `<div tabindex="0" role="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-label="Display calendar">&nbsp;</div>`,
+      `<div class="${DATE_PICKER_CALENDAR_CLASS}" hidden></div>`,
+      `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role='status' aria-live='polite'></div>`
     ].join("")
   );
 };
@@ -228,7 +240,7 @@ const getDatePickerCalendarElements = calendarEl => {
  * @param {Date} _dateToDisplay a date to render on the calendar
  */
 const renderCalendar = (el, _dateToDisplay) => {
-  const { datePickerEl, calendarEl } = getDatePickerElements(el);
+  const { datePickerEl, calendarEl, statusEl } = getDatePickerElements(el);
   const dateToDisplay = _dateToDisplay || new Date();
   calendarEl.focus();
 
@@ -299,6 +311,8 @@ const renderCalendar = (el, _dateToDisplay) => {
   const yearsHtml = renderYearChunk(focusedYear);
 
   if (calendarEl.hidden) {
+    statusEl.innerHTML =
+      "You can navigate by day using left and right arrows; weeks by using up and down arrows; months by using page up and page down keys; years by using shift plus page up and shift plus page down; home and end keys navigate to the beginning and end of a week.";
     calendarEl.style.top = `${datePickerEl.offsetHeight}px`;
     calendarEl.setAttribute("tabindex", -1);
     calendarEl.innerHTML = [
@@ -348,7 +362,7 @@ const renderCalendar = (el, _dateToDisplay) => {
       datesEl,
       yearChunkEl
     } = getDatePickerCalendarElements(calendarEl);
-
+    statusEl.innerHTML = `${fullMonth} ${focusedYear}`;
     monthEl.innerHTML = fullMonth;
     yearEl.innerHTML = focusedYear;
     datesEl.innerHTML = datesHtml;
@@ -453,8 +467,9 @@ const displayNextYear = el => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const hideCalendar = el => {
-  const { calendarEl } = getDatePickerElements(el);
+  const { calendarEl, statusEl } = getDatePickerElements(el);
 
+  statusEl.innerHTML = "";
   calendarEl.innerHTML = "";
   calendarEl.removeAttribute("tabindex");
   calendarEl.hidden = true;
@@ -704,7 +719,7 @@ const handleEscape = event => {
   event.preventDefault();
 };
 
-const handleSpaceOrEnter = event => {
+const handleSpaceOrEnterFromDate = event => {
   const datePickerEl = event.target.closest(DATE_PICKER);
 
   if (datePickerEl) {
@@ -714,11 +729,26 @@ const handleSpaceOrEnter = event => {
   }
 };
 
+const toggleCalendar = el => {
+  const { calendarEl } = getDatePickerElements(el);
+
+  if (calendarEl.hidden) {
+    displayCalendar(el);
+  } else {
+    hideCalendar(el);
+  }
+};
+
+const handleSpaceOrEnterFromToggle = event => {
+  toggleCalendar(event.target);
+  event.preventDefault();
+};
+
 const datePicker = behavior(
   {
     [CLICK]: {
       [DATE_PICKER_BUTTON]() {
-        displayCalendar(this);
+        toggleCalendar(this);
       },
       [CALENDAR_DATE]() {
         selectDate(this);
@@ -767,10 +797,15 @@ const datePicker = behavior(
         "Shift+PageDown": handleShiftPageDown,
         "Shift+PageUp": handleShiftPageUp,
         Escape: handleEscape,
-        Enter: handleSpaceOrEnter,
-        Spacebar: handleSpaceOrEnter,
-        " ": handleSpaceOrEnter
-      })
+        Enter: handleSpaceOrEnterFromDate,
+        Spacebar: handleSpaceOrEnterFromDate,
+        " ": handleSpaceOrEnterFromDate
+      }),
+      [DATE_PICKER_BUTTON](event) {
+        if (event.code === "Space" || event.code === "Enter") {
+          toggleCalendar(this);
+        }
+      }
     },
     focusout: {
       [DATE_PICKER](event) {

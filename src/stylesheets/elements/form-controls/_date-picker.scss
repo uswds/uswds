@@ -8,15 +8,12 @@
   background-size: units(2);
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+  margin-top: 0.5em;
   width: 3em;
 }
 
 .usa-date-picker--initialized {
   display: flex;
-
-  button.usa-date-picker__button {
-    margin-top: 0.5em;
-  }
 }
 
 .usa-date-picker__calendar {
