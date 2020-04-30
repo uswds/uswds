@@ -63,6 +63,7 @@ const MONTH_LABELS = [
   "November",
   "December"
 ];
+
 const DAY_OF_WEEK_LABELS = [
   "Sunday",
   "Monday",
@@ -341,8 +342,8 @@ const renderCalendar = (el, _dateToDisplay) => {
       `<div class="${CALENDAR_MONTH_PICKER_CLASS}">${MONTH_LABELS.map(
         (month, index) => {
           return `<div
-      tabindex="-1"
-      role="button"
+          tabindex="-1"
+          role="button"
           class="${CALENDAR_MONTH_CLASS}" 
           data-value="${index}"
         >${month}</div>`;
@@ -737,11 +738,6 @@ const toggleCalendar = el => {
   } else {
     hideCalendar(el);
   }
-};
-
-const handleSpaceOrEnterFromToggle = event => {
-  toggleCalendar(event.target);
-  event.preventDefault();
 };
 
 const datePicker = behavior(
