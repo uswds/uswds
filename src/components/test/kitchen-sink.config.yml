@@ -34,9 +34,12 @@ context:
       - text: Yet another page
 
   inner:
-    - title: Cards
-      id: cards
-      component: card--kitchen-sink
+    - title: Basic cards
+      id: default-cards
+      component: card
+    - title: Cards with media
+      id: media-cards
+      component: card--media
     - title: Accordions - Borderless
       id: accordions
       component: accordion
