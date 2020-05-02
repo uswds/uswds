@@ -79,9 +79,9 @@ const YEAR_CHUNK = 12;
 /**
  * Keep date within month. Month would only be over
  *
- * @param {Date} dateToCheck the element within the date picker
+ * @param {Date} dateToCheck the date object to check
  * @param {number} month the correct month
- * @returns {Date} the corrected date
+ * @returns {Date} the date, corrected if needed
  */
 const keepDateWithinMonth = (dateToCheck, month) => {
   if (month !== dateToCheck.getMonth()) {
@@ -101,7 +101,7 @@ const parseDateString = dateString => {
   let date;
 
   if (dateString) {
-    const [month, day, year] = dateString.split(/[\s\\/-]/).map(numStr => {
+    const [month, day, year] = dateString.split("/").map(numStr => {
       const parsed = Number.parseInt(numStr, 10);
 
       if (Number.isNaN(parsed)) {
@@ -192,7 +192,7 @@ const enhanceDatePicker = datePickerEl => {
  *
  * @returns {string} the html for the year chunk
  */
-const renderYearChunk = selectedYear => {
+const generateYearChunkHtml = selectedYear => {
   const years = [];
   let yearIndex = Math.floor(selectedYear / YEAR_CHUNK) * YEAR_CHUNK;
 
@@ -243,8 +243,8 @@ const getDatePickerCalendarElements = calendarEl => {
 const renderCalendar = (el, _dateToDisplay) => {
   const { datePickerEl, calendarEl, statusEl } = getDatePickerElements(el);
   const dateToDisplay = _dateToDisplay || new Date();
-  calendarEl.focus();
 
+  calendarEl.focus();
   calendarEl.classList.remove(CALENDAR_MONTH_PICKER_MODIFIER_CLASS);
   calendarEl.classList.remove(CALENDAR_YEAR_PICKER_MODIFIER_CLASS);
 
@@ -252,19 +252,19 @@ const renderCalendar = (el, _dateToDisplay) => {
   const focusedMonth = dateToDisplay.getMonth();
   const focusedYear = dateToDisplay.getFullYear();
 
+  const prevMonth = (focusedMonth + 11) % 12;
+  const nextMonth = (focusedMonth + 1) % 12;
+
   const firstDay = new Date(focusedYear, focusedMonth, 1).getDay();
 
-  const fullMonth = MONTH_LABELS[focusedMonth];
+  const monthLabel = MONTH_LABELS[focusedMonth];
 
-  const renderDate = dateToRender => {
+  const generateDateHtml = dateToRender => {
     const classes = [CALENDAR_DATE_CLASS];
     const day = dateToRender.getDate();
     const month = dateToRender.getMonth();
     const year = dateToRender.getFullYear();
     const dayOfWeek = dateToRender.getDay();
-
-    const prevMonth = (focusedMonth + 11) % 12;
-    const nextMonth = (focusedMonth + 1) % 12;
 
     if (month === prevMonth) {
       classes.push("usa-date-picker__calendar__date--previous-month");
@@ -300,16 +300,16 @@ const renderCalendar = (el, _dateToDisplay) => {
 
   // while (dates.length / 7 < 6) {
   while (
-    dates.length / 7 < 4 ||
+    dates.length < 28 ||
     dateToDisplay.getMonth() === focusedMonth ||
     dates.length % 7 !== 0
   ) {
-    dates.push(renderDate(dateToDisplay));
+    dates.push(generateDateHtml(dateToDisplay));
     dateToDisplay.setDate(dateToDisplay.getDate() + 1);
   }
 
   const datesHtml = dates.join("");
-  const yearsHtml = renderYearChunk(focusedYear);
+  const yearsHtml = generateYearChunkHtml(focusedYear);
 
   if (calendarEl.hidden) {
     statusEl.innerHTML =
@@ -322,7 +322,7 @@ const renderCalendar = (el, _dateToDisplay) => {
         <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}"><<</div>
         <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}"><</div>
         <div class="usa-date-picker__calendar__date-display">
-          <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}">${fullMonth}</div>
+          <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}">${monthLabel}</div>
           <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}">${focusedYear}</div>
         </div>
         <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">></div>
@@ -363,8 +363,8 @@ const renderCalendar = (el, _dateToDisplay) => {
       datesEl,
       yearChunkEl
     } = getDatePickerCalendarElements(calendarEl);
-    statusEl.innerHTML = `${fullMonth} ${focusedYear}`;
-    monthEl.innerHTML = fullMonth;
+    statusEl.innerHTML = `${monthLabel} ${focusedYear}`;
+    monthEl.innerHTML = monthLabel;
     yearEl.innerHTML = focusedYear;
     datesEl.innerHTML = datesHtml;
     if (yearsHtml !== yearChunkEl.innerHTML) {
@@ -470,10 +470,10 @@ const displayNextYear = el => {
 const hideCalendar = el => {
   const { calendarEl, statusEl } = getDatePickerElements(el);
 
+  calendarEl.hidden = true;
   statusEl.innerHTML = "";
   calendarEl.innerHTML = "";
   calendarEl.removeAttribute("tabindex");
-  calendarEl.hidden = true;
 };
 
 /**
@@ -551,7 +551,7 @@ const displayPreviousYearChunk = el => {
     calendarEl
   );
   const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
-  yearChunkEl.innerHTML = renderYearChunk(firstYearChunkYear - YEAR_CHUNK);
+  yearChunkEl.innerHTML = generateYearChunkHtml(firstYearChunkYear - YEAR_CHUNK);
 };
 
 const displayNextYearChunk = el => {
@@ -560,7 +560,7 @@ const displayNextYearChunk = el => {
     calendarEl
   );
   const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
-  yearChunkEl.innerHTML = renderYearChunk(firstYearChunkYear + YEAR_CHUNK);
+  yearChunkEl.innerHTML = generateYearChunkHtml(firstYearChunkYear + YEAR_CHUNK);
 };
 
 const handleUp = event => {

@@ -956,4 +956,9 @@ describe('date picker component', () => {
     assert.equal(calendar.hidden, true, 'The calendar is hidden');
     assert.equal(input, document.activeElement, 'The focus on the input');
   });
+
+  it('should accept a parse-able date with a two digit year and display the calendar of that year in the current century');
+  it('should format a parse-able date and display the defined format as the user leaves the component');
+  it('should format a parse-able date with a two digit year and re-format the date to be that year in the current century');
+  it('should should show an improper date as invalid as the user leaves the component');
 });
