@@ -5,8 +5,8 @@ function renderTemplate(id, context = {}) {
   const { content } = template;
   const $ = selector => content.querySelectorAll(selector);
 
+  /* eslint-disable */
   Object.keys(context).forEach(name => {
-    /* eslint-disable */
     $(`[data-var="${name}"]`).forEach(el => {
       el.textContent = context[name];
     });
@@ -17,10 +17,12 @@ function renderTemplate(id, context = {}) {
       )
     );
   });
+  /* eslint-enable */
 
   return document.importNode(content, true);
 }
 
+/* eslint-disable consistent-return */
 window.onload = () => {
   const main = document.querySelector("main");
 
@@ -40,6 +42,7 @@ window.onload = () => {
   }
 
   // Show the failures.
+  /* eslint-disable */
   failures.forEach(info => {
     resemble(info.goldenName)
       .compareTo(info.failName)

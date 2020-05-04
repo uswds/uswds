@@ -171,8 +171,8 @@ if (!module.parent) {
       argv => {
         const mocha = path.join(ROOT_DIR, "node_modules", ".bin", "mocha");
         const mochaArgs = [
-          "--opts",
-          path.join(SPEC_DIR, "mocha.opts"),
+          "--config",
+          path.join(SPEC_DIR, ".mocharc.json"),
           path.join(SPEC_DIR, "headless-chrome.js")
         ];
         if (argv.grep) {

@@ -1,6 +1,7 @@
 # United States Web Design System
 
-[![CircleCI Build Status](https://circleci.com/gh/uswds/uswds/tree/develop.svg?style=shield)](https://circleci.com/gh/uswds/uswds/tree/develop) [![Test Coverage](https://api.codeclimate.com/v1/badges/c10cd4505d61d161cd3a/test_coverage)](https://codeclimate.com/github/uswds/uswds/test_coverage)
+[![CircleCI Build Status](https://img.shields.io/circleci/build/gh/uswds/uswds/develop?style=for-the-badge&logo=circleci)](https://circleci.com/gh/uswds/uswds/tree/develop) ![Snyk vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/uswds?style=for-the-badge) [![npm Version](https://img.shields.io/npm/v/uswds?style=for-the-badge)](https://www.npmjs.com/package/uswds) [![npm Downloads](https://img.shields.io/npm/dt/uswds?style=for-the-badge)](https://www.npmjs.com/package/uswds) [![GitHub issues](https://img.shields.io/github/issues/uswds/uswds?style=for-the-badge&logo=github)](https://github.com/uswds/uswds/issues) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4?style=for-the-badge)](https://github.com/prettier/prettier)
+
 
 The [United States Web Design System](https://designsystem.digital.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
 
@@ -62,12 +63,12 @@ How you implement the design system depends on the needs of your project and you
 
 ### Download
 
-1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/tag/v2.4.0) from the latest USWDS release and open that file.
+1. Download the [USWDS zip file](https://github.com/uswds/uswds/releases/download/v2.6.0/uswds-2.6.0.zip) from the latest USWDS release and open that file.
 
    After extracting the zip file you should see the following file and folder structure:
 
    ```
-   uswds-2.4.0/
+   uswds-2.6.0/
    ├── css/
    │   ├── uswds.min.css.map
    │   ├── uswds.min.css
@@ -87,7 +88,7 @@ How you implement the design system depends on the needs of your project and you
    ```
    example-project/
    ├── assets/
-   │   ├── uswds-2.4.0/
+   │   ├── uswds-2.6.0/
    │   ├── stylesheets/
    │   ├── images/
    │   └── javascript/
@@ -107,10 +108,10 @@ How you implement the design system depends on the needs of your project and you
        <meta charset="utf-8" />
        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
        <title>My Example Project</title>
-       <link rel="stylesheet" href="assets/uswds-2.4.0/css/uswds.min.css" />
+       <link rel="stylesheet" href="assets/uswds-2.6.0/css/uswds.min.css" />
      </head>
      <body>
-       <script src="assets/uswds-2.4.0/js/uswds.min.js"></script>
+       <script src="assets/uswds-2.6.0/js/uswds.min.js"></script>
      </body>
    </html>
    ```
@@ -214,17 +215,17 @@ scss
 
 #### Sass compilation requirements
 
-The design system requires both **autoprefixing** and **media query packing** to work properly. These are included in the [`uswds-gulp`](https://github.com/uswds/uswds-gulp) package.
+The design system requires **autoprefixing** to work properly. This is included in the [`uswds-gulp`](https://github.com/uswds/uswds-gulp) package.
 
-- **autoprefixing** uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. We use the following autoprefixer settings:
+**Autoprefixing** uses a service like [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) to automatically add vendor prefixes to the precompiled stylesheets. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing. We use the following autoprefixer settings:
 
 ```
 '> 2%','Last 2 versions', 'IE 11'
 ```
 
-- **media query packing** collects all similar media queries together at the end of the compiled stylesheet. USWDS and `uswds-gulp` use [`css-mqpacker`](https://github.com/hail2u/node-css-mqpacker). This is necessary to provide the proper cascade and specificity for utility classes. If you are not implementing utility classes, media query packing may not be necessary — but it is still a good idea.
+> Note: **media query sorting** is no longer required as of USWDS 2.5.0. We stopped sorting media queries with [csso](https://github.com/css/csso) in USWDS 2.5.1 because it wasn't outputting as expected. While both the minified and unminified CSS files are modestly larger as a result: `268 KB` unsorted vs. `259 KB` sorted, our testing indicates that once the files are compressed server side with gzip, the unsorted CSS is actually smaller: `36 KB` unsorted and gzipped vs. `38 KB` sorted and gzipped. As a result, we recommend that teams do not use media query sorting at this time.
 
-Additionally, we recommend using a minifier like [`cssnano`](https://cssnano.co/) to compress your final compiled CSS and sourcemaps like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
+We recommend using a **minifier** like [csso](https://github.com/css/csso) to compress your final compiled CSS and **sourcemaps** like [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps) to keep track of the location of all the source Sass for easier debugging.
 
 #### JavaScript
 
@@ -383,7 +384,7 @@ Many of our Fractal view templates are compatible with [Nunjucks](https://mozill
 
 ## Long-term support of v1.x
 
-Version 1.x is in [maintenence mode](https://en.wikipedia.org/wiki/Maintenance_mode) and will be supporting critical bug fixes through January 2020.
+[Version 1.x](https://v1.designsystem.digital.gov) is in [maintenance mode](https://en.wikipedia.org/wiki/Maintenance_mode) and will be supporting critical bug fixes through January 2020.
 
 ## Need installation help?
 
