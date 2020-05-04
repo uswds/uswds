@@ -7,6 +7,7 @@ const { prefix: PREFIX } = require("../config");
 
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
 const BUTTON = `.${PREFIX}-accordion__button[aria-controls]`;
+const BUTTON_CONTROL_ALL = `.${PREFIX}-accordion__button-control-all`;
 const EXPANDED = "aria-expanded";
 const MULTISELECTABLE = "aria-multiselectable";
 
@@ -53,6 +54,26 @@ const toggleButton = (button, expanded) => {
   }
 };
 
+const toggleText = (element) => {
+  let myElement = element;
+  const originalString = myElement.textContent.trim();
+  const startText = myElement.getAttribute('data-expanded-text');
+  const endText = myElement.getAttribute('data-collapsed-text');
+
+  myElement.textContent = (originalString === startText) ? endText : startText;
+}
+
+const toggleAll = (toggleAllBtn) => {
+  const accordion = toggleAllBtn.closest(ACCORDION);
+  const buttons = getAccordionButtons(accordion);
+  let accordionExpanded = (toggleAllBtn.getAttribute(EXPANDED) === "true");
+
+  toggleText(toggleAllBtn);
+  toggleAllBtn.setAttribute('aria-expanded', !accordionExpanded);
+
+  buttons.forEach(button => toggle(button, !accordionExpanded));
+}
+
 /**
  * @param {HTMLButtonElement} button
  * @return {boolean} true
@@ -79,6 +100,9 @@ const accordion = behavior(
           // that we are still visible, so the user isn't confused.
           if (!isElementInViewport(this)) this.scrollIntoView();
         }
+      },
+      [BUTTON_CONTROL_ALL]() {
+        toggleAll(this);
       }
     }
   },
