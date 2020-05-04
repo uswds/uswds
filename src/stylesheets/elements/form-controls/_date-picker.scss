@@ -21,6 +21,18 @@
   position: absolute;
   width: 100%;
   z-index: z-index(100);
+
+  &[tabindex]:focus {
+    outline: 0;
+  }
+
+  button {
+    border: 0;
+
+    &:focus {
+      outline-offset: -4px;
+    }
+  }
 }
 
 .usa-date-picker__calendar {
@@ -53,13 +65,9 @@
   }
 }
 
-.usa-date-picker__calendar__month-selector,
-.usa-date-picker__calendar__date,
-.usa-date-picker__calendar__month,
-.usa-date-picker__calendar__year {
-  cursor: pointer;
-}
 
+.usa-date-picker__calendar__next-year-chunk,
+.usa-date-picker__calendar__previous-year-chunk,
 .usa-date-picker__calendar__month-selector,
 .usa-date-picker__calendar__date,
 .usa-date-picker__calendar__month,
@@ -67,10 +75,6 @@
 .usa-date-picker__calendar__days-of-week__day {
   background-color: color("base-lightest");
   padding: 10px 5px;
-
-  &:focus {
-    outline-offset: -4px;
-  }
 }
 
 .usa-date-picker__calendar__date-display {
@@ -128,7 +132,6 @@
 
 .usa-date-picker__calendar__next-year-chunk,
 .usa-date-picker__calendar__previous-year-chunk {
-  cursor: pointer;
   font-size: 1.06rem;
   font-weight: 700;
   margin: auto;

@@ -179,7 +179,7 @@ const enhanceDatePicker = datePickerEl => {
     "beforeend",
     [
       `<div tabindex="0" role="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-label="Display calendar">&nbsp;</div>`,
-      `<div class="${DATE_PICKER_CALENDAR_CLASS}" hidden></div>`,
+      `<div tabindex="-1" class="${DATE_PICKER_CALENDAR_CLASS}" hidden></div>`,
       `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role='status' aria-live='polite'></div>`
     ].join("")
   );
@@ -198,7 +198,7 @@ const generateYearChunkHtml = selectedYear => {
 
   while (years.length < YEAR_CHUNK) {
     years.push(
-      `<div tabindex="-1" role="button" class="${CALENDAR_YEAR_CLASS}">${yearIndex}</div>`
+      `<button class="${CALENDAR_YEAR_CLASS}">${yearIndex}</button>`
     );
     yearIndex += 1;
   }
@@ -265,6 +265,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     const month = dateToRender.getMonth();
     const year = dateToRender.getFullYear();
     const dayOfWeek = dateToRender.getDay();
+    let tabindex = "-1";
 
     if (month === prevMonth) {
       classes.push("usa-date-picker__calendar__date--previous-month");
@@ -275,22 +276,22 @@ const renderCalendar = (el, _dateToDisplay) => {
     }
 
     if (year === focusedYear && month === focusedMonth && day === focusedDay) {
+      tabindex = "0";
       classes.push(CALENDAR_DATE_FOCUSED_CLASS);
     }
 
     const monthStr = MONTH_LABELS[month];
     const dayStr = DAY_OF_WEEK_LABELS[dayOfWeek];
 
-    return `<div
-      tabindex="-1"
-      role="button"
+    return `<button
+      tabindex="${tabindex}"
       class="${classes.join(" ")}" 
       data-day="${day}" 
       data-month="${month + 1}" 
       data-year="${year}" 
       data-value="${month + 1}/${day}/${year}"
       aria-label="${day} ${monthStr} ${year} ${dayStr}"
-    >${day}</div>`;
+    >${day}</button>`;
   };
 
   // set date to first rendered day
@@ -315,18 +316,17 @@ const renderCalendar = (el, _dateToDisplay) => {
     statusEl.innerHTML =
       "You can navigate by day using left and right arrows; weeks by using up and down arrows; months by using page up and page down keys; years by using shift plus page up and shift plus page down; home and end keys navigate to the beginning and end of a week.";
     calendarEl.style.top = `${datePickerEl.offsetHeight}px`;
-    calendarEl.setAttribute("tabindex", -1);
     calendarEl.innerHTML = [
       `<div class="${CALENDAR_DATE_PICKER_CLASS}">`,
       `<div class="usa-date-picker__calendar__month-header">
-        <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}"><<</div>
-        <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}"><</div>
+        <button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}"><<</button>
+        <button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}"><</button>
         <div class="usa-date-picker__calendar__date-display">
-          <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}">${monthLabel}</div>
-          <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}">${focusedYear}</div>
+          <button class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}">${monthLabel}</button>
+          <button class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}">${focusedYear}</button>
         </div>
-        <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">></div>
-        <div tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">>></div>
+        <button class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">></button>
+        <button class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">>></button>
       </div>`,
       `<div class="usa-date-picker__calendar__days-of-week">
         <div class="usa-date-picker__calendar__days-of-week__day">S</div>
@@ -341,18 +341,16 @@ const renderCalendar = (el, _dateToDisplay) => {
       `</div>`,
       `<div class="${CALENDAR_MONTH_PICKER_CLASS}">${MONTH_LABELS.map(
         (month, index) => {
-          return `<div
-          tabindex="-1"
-          role="button"
+          return `<button
           class="${CALENDAR_MONTH_CLASS}" 
           data-value="${index}"
-        >${month}</div>`;
+        >${month}</button>`;
         }
       ).join("")}</div>`,
       `<div class="${CALENDAR_YEAR_PICKER_CLASS}">
-        <div tabindex="-1" class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}"><</div>
+        <button class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}"><</button>
         <div class="usa-date-picker__calendar__year-grid">${yearsHtml}</div>
-        <div tabindex="-1" class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_NEXT_YEAR_CHUNK_CLASS}">></div>
+        <button class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_NEXT_YEAR_CHUNK_CLASS}">></button>
       </div>`
     ].join("");
     calendarEl.hidden = false;
@@ -473,7 +471,6 @@ const hideCalendar = el => {
   calendarEl.hidden = true;
   statusEl.innerHTML = "";
   calendarEl.innerHTML = "";
-  calendarEl.removeAttribute("tabindex");
 };
 
 /**
@@ -720,16 +717,6 @@ const handleEscape = event => {
   event.preventDefault();
 };
 
-const handleSpaceOrEnterFromDate = event => {
-  const datePickerEl = event.target.closest(DATE_PICKER);
-
-  if (datePickerEl) {
-    const { focusedDateEl } = getDatePickerElements(event.target);
-    selectDate(focusedDateEl);
-    event.preventDefault();
-  }
-};
-
 const toggleCalendar = el => {
   const { calendarEl } = getDatePickerElements(el);
 
@@ -793,9 +780,6 @@ const datePicker = behavior(
         "Shift+PageDown": handleShiftPageDown,
         "Shift+PageUp": handleShiftPageUp,
         Escape: handleEscape,
-        Enter: handleSpaceOrEnterFromDate,
-        Spacebar: handleSpaceOrEnterFromDate,
-        " ": handleSpaceOrEnterFromDate
       }),
       [DATE_PICKER_BUTTON](event) {
         if (event.code === "Space" || event.code === "Enter") {

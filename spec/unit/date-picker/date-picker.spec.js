@@ -278,7 +278,7 @@ describe('date picker component', () => {
     );
 
     assert.equal(input.value, '1/10/2020', 'The value has been filled in');
-    assert.equal(input, document.activeElement, 'The focus on the input');
+    assert.equal(input, document.activeElement, 'The focus is on the input');
     assert.equal(calendar.hidden, true, 'The calendar is hidden');
   });
 
@@ -914,47 +914,6 @@ describe('date picker component', () => {
       '2021',
       'shows correct year',
     );
-  });
-
-  it('should select a date and focus the input when enter is pressed from a focused day within the calendar', () => {
-    input.value = '1/1/2020';
-    EVENTS.click(button);
-    EVENTS.keydownArrowDown();
-    assert.equal(
-      calendar.querySelector('.usa-date-picker__calendar__date--focused')
-        .textContent,
-      '8',
-      'focuses correct date',
-    );
-    assert.equal(
-      document.activeElement.textContent,
-      '8',
-      'focuses correct date',
-    );
-
-    EVENTS.keydownEnter();
-
-    assert.equal(input.value, '1/8/2020', 'adds correct date');
-    assert.equal(calendar.hidden, true, 'The calendar is hidden');
-    assert.equal(input, document.activeElement, 'The focus on the input');
-  });
-
-  it('should select a date and focus the input when space is pressed from a focused day within the calendar', () => {
-    input.value = '1/1/2020';
-    EVENTS.click(button);
-    EVENTS.keydownArrowRight();
-    assert.equal(
-      calendar.querySelector('.usa-date-picker__calendar__date--focused')
-        .textContent,
-      '2',
-      'focuses correct date',
-    );
-
-    EVENTS.keydownSpace();
-
-    assert.equal(input.value, '1/2/2020', 'adds correct date');
-    assert.equal(calendar.hidden, true, 'The calendar is hidden');
-    assert.equal(input, document.activeElement, 'The focus on the input');
   });
 
   it('should accept a parse-able date with a two digit year and display the calendar of that year in the current century');
