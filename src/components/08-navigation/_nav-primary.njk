@@ -9,7 +9,7 @@
         {%- for child in link.links -%}
           {%- if loop.index < 4 -%}
             <li class="usa-nav__submenu-item">
-              <a href="{{ child.href }}">{{ child.text }}</a>
+              <a href="{{ child.href }}" class="{% if child.is_current %} usa-current{% endif %}"> {{ child.text }}</a>
             </li>
           {%- endif -%}
         {%- endfor -%}
