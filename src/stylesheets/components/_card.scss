@@ -1,10 +1,6 @@
 /* TODO:
  * Add a way to change the flag breakpoint as a modifier/class?
- * Is card grid gap be different from other gaps?
- * Fix flag and set-aspect
  */
-
-$card-bg-color: "white";
 
 @mixin card-inner-radius {
   border-top-left-radius: calc(
@@ -53,7 +49,7 @@ $card-bg-color: "white";
 .usa-card__container {
   @include border-box-sizing;
   @include typeset;
-  @include u-bg($card-bg-color);
+  @include u-bg("white");
   @include u-border($theme-card-border-width, $theme-card-border-color);
   @include u-display("flex");
   @include u-height("full");
