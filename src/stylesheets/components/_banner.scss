@@ -172,6 +172,8 @@
 
     &:hover {
       @include u-text("primary-darker");
+      // Underline added to inner text instead.
+      text-decoration: none;
     }
   }
 
