@@ -1,0 +1,47 @@
+.usa-breadcrumb__list {
+  @include unstyled-list;
+
+  @include at-media("mobile-lg") {
+    @include u-display("flex");
+  }
+}
+
+.usa-breadcrumb__list-item {
+  @include sr-only;
+
+  &:first-child {
+    @include not-sr-only;
+
+    .usa-breadcrumb__link::before {
+      content: '←';
+      display: inline-block;
+      @include u-margin-right(1);
+    }
+  }
+
+  @include at-media("mobile-lg") {
+    @include not-sr-only;
+
+    &:first-child .usa-breadcrumb__link::before {
+      content: none;
+    }
+
+    &:not(:last-child) {
+      @include u-padding-right(2);
+      @include u-position("relative");
+      @include u-left("auto");
+    }
+
+    &:not(:last-child)::after {
+      content: "#{$theme-breadcrumb-separator}";
+      @include u-position("absolute");
+      @include u-pin-top;
+      right: 6px;
+    }
+  }
+}
+
+.usa-breadcrumb__link {
+  color: color($theme-link-color);
+  @include u-text-decoration("no-underline");
+}
