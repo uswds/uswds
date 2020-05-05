@@ -46,8 +46,8 @@ variants:
           classes: "usa-card--flag"
           title: Flag default
           media: true
-          media_classes: "flex-align-center usa-card__media--inset"
-          image_classes: "circle-card margin-x-auto"
+          media_classes: ""
+          image_classes: ""
           flag: true
           content:
             - Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -69,27 +69,27 @@ variants:
           media_classes: ""
           image_classes: ""
           content:
-          - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
-            Facere magnam quo nostrum amet odio ut ducimus?
+            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
+              Facere magnam quo nostrum amet odio ut ducimus?
         - title: The economy of cities
           media: false
           classes: "tablet:grid-col-4"
           media_classes: ""
           image_classes: ""
           content:
-          - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
-            Facere magnam quo nostrum amet odio ut ducimus?
+            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
+              Facere magnam quo nostrum amet odio ut ducimus?
         - title: Cities have the capability of providing something for everybody
           media: false
           classes: "tablet:grid-col-4"
           media_classes: ""
           image_classes: ""
           content:
-          - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
-            Facere magnam quo nostrum amet odio ut ducimus?
+            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.
+              Facere magnam quo nostrum amet odio ut ducimus?
 
   - name: media
     label: Media
@@ -101,31 +101,31 @@ variants:
           media_classes: ""
           image_classes: ""
           content:
-          - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
         - title: Inset media
           classes: "usa-card--header-first tablet:grid-col"
           media: true
           media_classes: "usa-card__media--inset"
           image_classes: ""
           content:
-          - Nemo illo et error deserunt qui doloremque provident
-            perferendis fuga pariatur eum?
+            - Nemo illo et error deserunt qui doloremque provident
+              perferendis fuga pariatur eum?
         - title: Exdent media
           classes: "tablet:grid-col"
           media: true
           media_classes: "usa-card__media--exdent"
           image_classes: ""
           content:
-          - Tempore ab exercitationem distinctio iste esse
-            numquam a rerum culpa at quibusdam
+            - Tempore ab exercitationem distinctio iste esse
+              numquam a rerum culpa at quibusdam
         - title: Media with header first
           classes: "usa-card--header-first tablet:grid-col"
           media: true
           media_classes: "usa-card__media--exdent"
           image_classes: ""
           content:
-          - Tempore ab exercitationem distinctio iste esse
-            numquam a rerum culpa at quibusdam
+            - Tempore ab exercitationem distinctio iste esse
+              numquam a rerum culpa at quibusdam
 
   - name: flag
     label: Flag
@@ -137,12 +137,12 @@ variants:
           media_classes: ""
           image_classes: ""
           content:
-          - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
         - title: Flag media right inset
           classes: "usa-card--flag usa-card--media-right tablet:grid-col-6"
           media: true
           media_classes: "usa-card__media--inset"
           image_classes: ""
           content:
-          - Nemo illo et error deserunt qui doloremque provident
-            perferendis fuga pariatur eum?
+            - Nemo illo et error deserunt qui doloremque provident
+              perferendis fuga pariatur eum?
