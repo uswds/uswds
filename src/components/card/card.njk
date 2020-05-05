@@ -1,8 +1,7 @@
-<div class="grid-row grid-gap">
-  <div class="tablet:grid-col">
+<ul class="usa-card-group">
+  {%- for card in cards -%}
+  <li class="usa-card {{ card.classes }}">
     {% include "@card--basic" %}
-  </div>
-  <div class="tablet:grid-col">
-    {% include "@card--basic-link" %}
-  </div>
-</div>
+  </li>
+  {%- endfor -%}
+</ul>

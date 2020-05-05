@@ -34,6 +34,45 @@ context:
       - text: Yet another page
 
   inner:
+    - title: Basic cards
+      id: default-cards
+      component: card
+    - title: Cards with media
+      id: media-cards
+      component: card--media
+      context:
+        cards:
+        - title: Default media
+          classes: "tablet:grid-col-6"
+          media: true
+          media_classes: ""
+          image_classes: ""
+          content:
+          - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        - title: Inset media
+          classes: "usa-card--header-first tablet:grid-col-6"
+          media: true
+          media_classes: "usa-card__media--inset"
+          image_classes: ""
+          content:
+          - Nemo illo et error deserunt qui doloremque provident
+            perferendis fuga pariatur eum?
+        - title: Exdent media
+          classes: "tablet:grid-col-6"
+          media: true
+          media_classes: "usa-card__media--exdent"
+          image_classes: ""
+          content:
+          - Tempore ab exercitationem distinctio iste esse
+            numquam a rerum culpa at quibusdam
+        - title: Media with header first
+          classes: "usa-card--header-first tablet:grid-col-6"
+          media: true
+          media_classes: "usa-card__media--exdent"
+          image_classes: ""
+          content:
+          - Tempore ab exercitationem distinctio iste esse
+            numquam a rerum culpa at quibusdam
     - title: Accordions - Borderless
       id: accordions
       component: accordion
