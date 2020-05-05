@@ -15,8 +15,13 @@ $card-bg-color: "white";
   );
 }
 
+@include override-prose {
+  .usa-card-group {
+    @include add-list-reset;
+  }
+}
+
 .usa-card-group {
-  @include add-list-reset;
   @include u-display("flex");
   @include u-flex("column", "wrap", "align-stretch");
   @include u-margin-x($theme-card-gap / -2);
@@ -25,10 +30,23 @@ $card-bg-color: "white";
   }
 }
 
-.usa-card {
-  @include u-margin-bottom($theme-card-margin-bottom + 1);
-  @include at-media("tablet") {
-    @include u-margin-bottom($theme-card-margin-bottom);
+@include override-prose {
+  .usa-card {
+    @include u-margin-bottom($theme-card-margin-bottom + 1);
+    @include u-maxw("none"); // override prose scope
+    &:last-child {
+      @include u-margin-bottom(
+        $theme-card-margin-bottom + 1
+      ); // override prose scope
+    }
+    @include at-media("tablet") {
+      @include u-margin-bottom($theme-card-margin-bottom);
+      &:last-child {
+        @include u-margin-bottom(
+          $theme-card-margin-bottom
+        ); // override prose scope
+      }
+    }
   }
 }
 

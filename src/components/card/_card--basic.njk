@@ -1,18 +1,18 @@
-<section class="usa-card {{ card.classes }}">
-  {% if card.flag %}<div class="usa-card__inner">{% endif %}
-  {%- if card.media -%}
-  <div class="usa-card__media">
-    <img class="usa-card__img"
-      src="https://images.unsplash.com/photo-1579800070193-abe62433f737?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=610&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-      alt="A placeholder image">
-  </div>
-  {%- endif -%}
-  {%- if card.flag %}<div class="usa-card__flag-content">{% endif -%}
+<div class="usa-card__container">
   <header class="usa-card__header">
     <h2 class="usa-card__heading">
       {{ card.title }}
     </h2>
   </header>
+  {%- if card.media -%}
+  <div class="usa-card__media {% if card.media_classes %}{{ card.media_classes }}{% endif %}">
+    <div class="usa-card__img {% if card.image_classes %}{{ card.image_classes }}{% endif %}">
+      <img
+        src="https://images.unsplash.com/photo-1579800070193-abe62433f737?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=610&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+        alt="A placeholder image">
+    </div>
+  </div>
+  {%- endif -%}
   <div class="usa-card__body">
     {%- block card_body -%}
       {%- if card.content -%}
@@ -25,5 +25,4 @@
       <button class="usa-button">Visit Florida Keys</button>
     {%- endblock %}
   </div>
-  {%- if card.flag %}</div></div>{% endif %}
-</section>
+</div>

@@ -1,20 +1,21 @@
-<h6 class="margin-bottom-0">Standard Layout</h6>
-<div class="grid-row grid-gap">
+<h6 class="margin-bottom-2">Standard Layout</h6>
+<ul class="usa-card-group">
   {%- for card in cards -%}
     {% if not card.flag %}
-      <div class="tablet:grid-col-4">
-        {%- include "@card--basic" -%}
-      </div>
+    <li class="tablet:grid-col-4 usa-card {{ card.classes }}">
+      {%- include "@card--basic" -%}
+    </li>
     {% endif %}
   {%- endfor -%}
-</div>
-<h6 class="margin-bottom-0">Flag Layout</h6>
-<div class="grid-row grid-gap">
+</ul>
+
+<h6 class="margin-bottom-2">Flag Layout</h6>
+<ul class="usa-card-group">
   {%- for card in cards -%}
     {% if card.flag %}
-      <div class="tablet:grid-col-6">
-        {%- include "@card--basic" -%}
-      </div>
+    <li class="tablet:grid-col-6 usa-card {{ card.classes }}">
+      {%- include "@card--basic" -%}
+    </li>
     {% endif %}
   {%- endfor -%}
-</div>
+</ul>
