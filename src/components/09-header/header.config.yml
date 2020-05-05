@@ -32,6 +32,7 @@ variants:
           id_prefix: extended-
         secondary:
           search: true
+          id_prefix: extended-
 
   - name: extended-mega
     label: Extended with mega-menu
@@ -43,3 +44,4 @@ variants:
           mega: true
         secondary:
           search: true
+          id_prefix: extended-mega-
