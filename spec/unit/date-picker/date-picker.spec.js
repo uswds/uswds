@@ -916,8 +916,29 @@ describe('date picker component', () => {
     );
   });
 
-  it('should accept a parse-able date with a two digit year and display the calendar of that year in the current century');
-  it('should format a parse-able date and display the defined format as the user leaves the component');
-  it('should format a parse-able date with a two digit year and re-format the date to be that year in the current century');
   it('should should show an improper date as invalid as the user leaves the component');
+  it('should accept a parse-able date with a two digit year and display the calendar of that year in the current century', () => {
+    input.value = '2/29/20';
+    EVENTS.click(button);
+
+    assert.equal(calendar.hidden, false, 'The calendar is shown');
+    assert.equal(
+      calendar.querySelector('.usa-date-picker__calendar__date--focused')
+        .textContent,
+      '29',
+      'focuses correct date',
+    );
+    assert.equal(
+      calendar.querySelector('.usa-date-picker__calendar__month-selection')
+        .textContent,
+      'February',
+      'shows correct month',
+    );
+    assert.equal(
+      calendar.querySelector('.usa-date-picker__calendar__year-selection')
+        .textContent,
+      '2020',
+      'shows correct year',
+    );
+  });
 });

@@ -101,15 +101,32 @@ const parseDateString = dateString => {
   let date;
 
   if (dateString) {
-    const [month, day, year] = dateString.split("/").map(numStr => {
-      const parsed = Number.parseInt(numStr, 10);
+    let month; let day; let year; let parsed;
+    const [monthStr, dayStr, yearStr] = dateString.split("/")
 
-      if (Number.isNaN(parsed)) {
-        return false;
+    if (monthStr) {
+      parsed = Number.parseInt(monthStr, 10);
+      if (!Number.isNaN(parsed)) month = parsed;
+    }
+
+    if (dayStr) {
+      parsed = Number.parseInt(dayStr, 10);
+      if (!Number.isNaN(parsed)) day = parsed;
+    }
+
+    if (yearStr) {
+      parsed = Number.parseInt(yearStr, 10);
+      if (!Number.isNaN(parsed)) {
+        year = parsed;
+        const currentYear = (new Date()).getFullYear();
+        const currentYearLength = (`${currentYear}`).length;
+
+        if (yearStr.length < currentYearLength) {
+          const currentYearStub = currentYear - currentYear % 10 ** yearStr.length;
+          year = currentYearStub + parsed;
+        }
       }
-
-      return parsed;
-    });
+    }
 
     if (day && month && year) {
       date = new Date(year, month - 1, day);
