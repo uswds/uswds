@@ -9,6 +9,7 @@ const TEMPLATE = fs.readFileSync(
 );
 
 const EVENTS = {};
+const VALIDATION_MESSAGE = 'Please enter a valid date';
 
 /**
  * send a click event
@@ -916,7 +917,6 @@ describe('date picker component', () => {
     );
   });
 
-  it('should should show an improper date as invalid as the user leaves the component');
   it('should accept a parse-able date with a two digit year and display the calendar of that year in the current century', () => {
     input.value = '2/29/20';
     EVENTS.click(button);
@@ -939,6 +939,16 @@ describe('date picker component', () => {
         .textContent,
       '2020',
       'shows correct year',
+    );
+  });
+
+  it('should should show an improper date as invalid as the user leaves the component', () => {
+    input.value = 'abcdefg... That means the convo is done';
+    EVENTS.focusout(input);
+
+    assert.equal(
+      input.validationMessage,
+      VALIDATION_MESSAGE,
     );
   });
 });

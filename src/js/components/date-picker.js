@@ -49,6 +49,8 @@ const CALENDAR_NEXT_YEAR_CHUNK = `.${CALENDAR_NEXT_YEAR_CHUNK_CLASS}`;
 const CALENDAR_YEAR_GRID = `.${CALENDAR_YEAR_GRID_CLASS}`;
 const CALENDAR_DATE_GRID = `.${CALENDAR_DATE_GRID_CLASS}`;
 
+const VALIDATION_MESSAGE = 'Please enter a valid date';
+
 const MONTH_LABELS = [
   "January",
   "February",
@@ -89,6 +91,12 @@ const keepDateWithinMonth = (dateToCheck, month) => {
   }
 
   return dateToCheck;
+};
+
+const padStart = (paddingValue) => {
+  return value => {
+    return String(paddingValue + value).slice(-paddingValue.length);
+  };
 };
 
 /**
@@ -202,6 +210,51 @@ const enhanceDatePicker = datePickerEl => {
   );
 };
 
+const validateDateInput = (el) => {
+  const { inputEl } = getDatePickerElements(el);
+  const dateString = inputEl.value;
+  let isInvalid = false;
+
+  if (dateString) {
+    isInvalid = true;
+
+    let month; let day; let year; let parsed;
+    const [monthStr, dayStr, yearStr] = dateString.split("/")
+
+    if (monthStr) {
+      parsed = Number.parseInt(monthStr, 10);
+      if (!Number.isNaN(parsed) && parsed >= 1 && parsed <= 12) month = parsed;
+    }
+
+    if (yearStr && yearStr.length === 4) {
+      parsed = Number.parseInt(yearStr, 10);
+      if (!Number.isNaN(parsed)) year = parsed;
+    }
+
+    if (month && year && dayStr) {
+      parsed = Number.parseInt(dayStr, 10);
+      if (!Number.isNaN(parsed)) {
+        const checkDate = new Date(year, month - 1, parsed);
+        if (checkDate.getMonth() === month - 1) {
+          day = parsed;
+        }
+      }
+    }
+
+    if (day && month && year) {
+      isInvalid = false;
+    }
+  }
+
+  if (isInvalid && !inputEl.validationMessage) {
+    inputEl.setCustomValidity(VALIDATION_MESSAGE);
+  }
+
+  if (!isInvalid && inputEl.validationMessage === VALIDATION_MESSAGE) {
+    inputEl.setCustomValidity("");
+  }
+}
+
 /**
  * render a year chunk.
  *
@@ -271,6 +324,8 @@ const renderCalendar = (el, _dateToDisplay) => {
 
   const prevMonth = (focusedMonth + 11) % 12;
   const nextMonth = (focusedMonth + 1) % 12;
+  const padDayMonth = padStart("00");
+  const padYear = padStart("0000");
 
   const firstDay = new Date(focusedYear, focusedMonth, 1).getDay();
 
@@ -306,7 +361,7 @@ const renderCalendar = (el, _dateToDisplay) => {
       data-day="${day}" 
       data-month="${month + 1}" 
       data-year="${year}" 
-      data-value="${month + 1}/${day}/${year}"
+      data-value="${padDayMonth(month + 1)}/${padDayMonth(day)}/${padYear(year)}"
       aria-label="${day} ${monthStr} ${year} ${dayStr}"
     >${day}</button>`;
   };
@@ -786,9 +841,13 @@ const datePicker = behavior(
     },
     keydown: {
       [CALENDAR_DATE_FOCUSED]: keymap({
+        Up: handleUp,
         ArrowUp: handleUp,
+        Down: handleDown,
         ArrowDown: handleDown,
+        Left: handleLeft,
         ArrowLeft: handleLeft,
+        Right: handleRight,
         ArrowRight: handleRight,
         Home: handleHome,
         End: handleEnd,
@@ -809,6 +868,7 @@ const datePicker = behavior(
         const { datePickerEl } = getDatePickerElements(event.target);
         if (!datePickerEl.contains(event.relatedTarget)) {
           hideCalendar(datePickerEl);
+          validateDateInput(datePickerEl);
         }
       }
     }
