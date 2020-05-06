@@ -28,7 +28,16 @@
   }
 
   button {
+    background-color: color("base-lightest");
     border: 0;
+    padding: 6px 1px;
+    width: 100%;
+
+    &:hover {
+      background-color: color("base-lighter");
+      color: color("ink");
+      text-decoration: none;
+    }
   }
 }
 
@@ -39,13 +48,18 @@
 
 .calendar_cell {
   background-color: color("base-lightest");
-  flex: 1;
+  @include u-flex(1);
   padding: 4px;
 }
 
 .calendar_cell_month_label {
-  flex: 3;
+  @include u-flex(3);
   text-align: center;
+  padding: 4px 0;
+  
+  button {
+    width: auto;
+  }
 }
 
 .usa-date-picker__calendar__date-table,
@@ -69,6 +83,8 @@
 }
 
 .usa-date-picker__calendar__year-table {
+
+  @include u-flex(1);
  
 }
 
@@ -131,21 +147,24 @@
 
 .usa-date-picker__calendar__month-selector,
 .usa-date-picker__calendar__date {
-  &:hover {
-    background-color: color("base-lighter");
-    color: color("ink");
-    text-decoration: none;
-  }
 }
 
 .usa-date-picker__calendar__next-year-chunk {
-  text-align: right;
 }
 
-.usa-date-picker__calendar__next-year-chunk,
-.usa-date-picker__calendar__previous-year-chunk {
+button.usa-date-picker__calendar__next-year-chunk,
+button.usa-date-picker__calendar__previous-year-chunk {
   font-size: 1.06rem;
   font-weight: 700;
   margin: auto;
-  padding: 40px 10px;
+
+  padding: 40px 0;
+}
+
+.usa-date-picker__calendar__year-chunk-selector {
+  @include u-flex(1);
+}
+
+.usa-date-picker__calendar__year-table {
+  @include u-flex(3);
 }
