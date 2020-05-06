@@ -107,9 +107,12 @@ const padStart = (paddingValue) => {
  */
 const parseDateString = dateString => {
   let date;
+  let month;
+  let day;
+  let year;
+  let parsed;
 
   if (dateString) {
-    let month; let day; let year; let parsed;
     const [monthStr, dayStr, yearStr] = dateString.split("/")
 
     if (monthStr) {
@@ -210,20 +213,20 @@ const enhanceDatePicker = datePickerEl => {
   );
 };
 
-const listToTableBody = (htmlArray, rowSize) => {
+const listToGridHtml = (htmlArray, rowSize) => {
   const grid = [];
   let row = [];
 
   for (let i = 0; i < htmlArray.length; i += 1) {
-    row.push(`<td>${htmlArray[i]}</td>`);
+    row.push(`<div class="calendar_cell">${htmlArray[i]}</div>`);
     if (row.length === rowSize) {
-      grid.push(`<tr>${row.join("")}</tr>`);
+      grid.push(`<div class="calendar_row">${row.join("")}</div>`);
       row = [];
     }
   }
 
   if (row.length) {
-    grid.push(`<tr>${row.join("")}</tr>`);
+    grid.push(`<div class="calendar_row">${row.join("")}</div>`);
   }
 
   return grid.join('');
@@ -234,11 +237,14 @@ const validateDateInput = (el) => {
   const { inputEl } = getDatePickerElements(el);
   const dateString = inputEl.value;
   let isInvalid = false;
+  let month;
+  let day;
+  let year;
+  let parsed;
 
   if (dateString) {
     isInvalid = true;
 
-    let month; let day; let year; let parsed;
     const [monthStr, dayStr, yearStr] = dateString.split("/")
 
     if (monthStr) {
@@ -293,7 +299,7 @@ const generateYearChunkHtml = selectedYear => {
     yearIndex += 1;
   }
 
-  return listToTableBody(years, 3);
+  return listToGridHtml(years, 3);
 };
 
 /**
@@ -409,8 +415,8 @@ const renderCalendar = (el, _dateToDisplay) => {
     }
   );
 
-  const datesHtml = listToTableBody(days, 7);
-  const monthsHtml = listToTableBody(months, 3);
+  const datesHtml = listToGridHtml(days, 7);
+  const monthsHtml = listToGridHtml(months, 3);
   const yearsHtml = generateYearChunkHtml(focusedYear);
 
   if (calendarEl.hidden) {
@@ -419,43 +425,44 @@ const renderCalendar = (el, _dateToDisplay) => {
     calendarEl.style.top = `${datePickerEl.offsetHeight}px`;
     calendarEl.innerHTML = [
       `<div class="${CALENDAR_DATE_PICKER_CLASS}">
-        <table role="grid" class="usa-date-picker__calendar__date-table">
-          <tbody>
-            <tr>
-              <td><button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}"><<</button></td>
-              <td><button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}"><</button></td>
-              <td colspan="3">
-                <button class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}">${monthLabel}</button>
-                <button class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}">${focusedYear}</button>
-              </td>
-              <td><button class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">></button></td>
-              <td><button class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">>></button></td>
-            </tr>
-            <tr>
-              <td role="columnheader" aria-label="Sunday">S</td>
-              <td role="columnheader" aria-label="Monday">M</td>
-              <td role="columnheader" aria-label="Tuesday">T</td>
-              <td role="columnheader" aria-label="Wednesday">W</td>
-              <td role="columnheader" aria-label="Thursday">T</td>
-              <td role="columnheader" aria-label="Friday">F</td>
-              <td role="columnheader" aria-label="Saturday">S</td>
-            </tr>
-          </tbody>
-          <tbody class="${CALENDAR_DATE_GRID_CLASS}">
+        <div role="grid" class="usa-date-picker__calendar__date-table">
+          <div class="calendar_row">
+            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}"><<</button></div>
+            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}"><</button></div>
+            <div class="calendar_cell_month_label">
+              <button class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}">${monthLabel}</button>
+              <button class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}">${focusedYear}</button>
+            </div>
+            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">></button></div>
+            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">>></button></div>
+          </div>
+    
+        </div>
+        <div role="grid" class="usa-date-picker__calendar__date-table">
+          <div class="calendar_row">
+            <div class="calendar_cell" role="columnheader" aria-label="Sunday">S</div>
+            <div class="calendar_cell" role="columnheader" aria-label="Monday">M</div>
+            <div class="calendar_cell" role="columnheader" aria-label="Tuesday">T</div>
+            <div class="calendar_cell" role="columnheader" aria-label="Wednesday">W</div>
+            <div class="calendar_cell" role="columnheader" aria-label="Thursday">T</div>
+            <div class="calendar_cell" role="columnheader" aria-label="Friday">F</div>
+            <div class="calendar_cell" role="columnheader" aria-label="Saturday">S</div>
+          </div>
+          <div class="${CALENDAR_DATE_GRID_CLASS}">
             ${datesHtml}
-          </tbody>
-        </table>
+          </div>
+        </div>
       </div>`,
       `<div class="${CALENDAR_MONTH_PICKER_CLASS}">
-        <table role="grid" class="usa-date-picker__calendar__month-table">
+        <div role="grid" class="usa-date-picker__calendar__month-table">
           ${monthsHtml}
-        </table>
+        </div>
       </div>`,
       `<div class="${CALENDAR_YEAR_PICKER_CLASS}">
         <button class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}"><</button>
-        <table role="grid" class="usa-date-picker__calendar__year-table ${CALENDAR_YEAR_GRID_CLASS}">
+        <div role="grid" class="usa-date-picker__calendar__year-table ${CALENDAR_YEAR_GRID_CLASS}">
           ${yearsHtml}
-        </table>
+        </div>
         <button class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_NEXT_YEAR_CHUNK_CLASS}">></button>
       </div>`
     ].join("");

@@ -35,15 +35,42 @@
   }
 }
 
+
+.calendar_row {
+  display:flex;
+}
+
+.calendar_cell {
+  flex: 1;
+}
+
+
+.calendar_cell_month_label {
+  flex: 3;
+  text-align: center;
+}
 .usa-date-picker__calendar__date-table,
 .usa-date-picker__calendar__month-header,
 .usa-date-picker__calendar__month-table,
 .usa-date-picker__calendar__year-table {
-  width: 100%;
-
-  td {
+  .calendar_cell {
     text-align: center;
   }
+}
+
+.usa-date-picker__calendar__date-table{
+  width:100%; 
+}
+
+.usa-date-picker__calendar__month-header{
+}
+
+.usa-date-picker__calendar__month-table{
+  width:100%;
+}
+
+.usa-date-picker__calendar__year-table {
+ 
 }
 
 .usa-date-picker__calendar {
