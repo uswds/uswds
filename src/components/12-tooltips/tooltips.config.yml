@@ -1,0 +1,17 @@
+label: Tooltips
+status: ready
+preview: "@uswds-framed"
+
+variants:
+  - name: default
+    label: Top
+    context:
+      tooltip:
+        attributes: "usa-alert--info"
+        text: Tooltip on top
+  - name: right
+    label: Right
+    context:
+      tooltip:
+        attributes: "usa-alert--info"
+        text: Right tooltip

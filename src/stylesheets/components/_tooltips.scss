@@ -1,0 +1,59 @@
+/* Tooltips */
+.usa-tooltip-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.usa-tooltip-trigger {
+  cursor: pointer;
+
+  > svg {
+    display: block;
+    pointer-events: none;
+  }
+}
+
+.usa-tooltip {
+  transform: translate(-50%, .25rem);
+  transition: all .08s ease-in-out;
+  background-color: color('ink');
+  border-radius: 4px;
+  color: #fff;
+  display: none;
+  font-size: size('ui', 'xs');
+  padding: units(1);
+  position: absolute;
+  pointer-events: none;
+  top: -42px;
+  left: 50%;
+  opacity: 0;
+  width: auto;
+  white-space: pre;
+  z-index: 100000;
+
+  &:after {
+    transform: translateX(-50%);
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid color('ink');
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+  }
+}
+
+
+
+.usa-tooltip.show {
+  display: block;
+}
+
+.usa-tooltip.transition {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
