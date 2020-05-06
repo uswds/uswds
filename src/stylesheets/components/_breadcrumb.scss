@@ -17,7 +17,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
   @include sr-only;
 
   @include at-media-max('mobile-lg') {
-    &:first-child {
+    &:nth-last-child(2) {
       @include not-sr-only;
 
       .usa-breadcrumb__link {
