@@ -1,5 +1,9 @@
 $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
+.usa-breadcrumb {
+  @include u-margin-top(1);
+  @include u-margin-bottom(2);
+}
 
 .usa-breadcrumb__list {
   @include unstyled-list;
