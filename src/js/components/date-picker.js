@@ -590,6 +590,7 @@ const selectDate = calendarDateEl => {
   inputEl.value = calendarDateEl.getAttribute("data-value");
 
   hideCalendar(datePickerEl);
+  validateDateInput(datePickerEl);
 
   inputEl.focus();
 };
@@ -898,11 +899,13 @@ const datePicker = behavior(
       }
     },
     focusout: {
+      [DATE_PICKER_INPUT]() {
+        validateDateInput(this);
+      },
       [DATE_PICKER](event) {
         const { datePickerEl } = getDatePickerElements(event.target);
         if (!datePickerEl.contains(event.relatedTarget)) {
           hideCalendar(datePickerEl);
-          validateDateInput(datePickerEl);
         }
       }
     }

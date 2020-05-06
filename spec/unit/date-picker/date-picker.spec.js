@@ -278,7 +278,7 @@ describe('date picker component', () => {
       calendar.querySelector('.usa-date-picker__calendar__date[data-day="10"]'),
     );
 
-    assert.equal(input.value, '1/10/2020', 'The value has been filled in');
+    assert.equal(input.value, '01/10/2020', 'The value has been filled in');
     assert.equal(input, document.activeElement, 'The focus is on the input');
     assert.equal(calendar.hidden, true, 'The calendar is hidden');
   });
@@ -942,13 +942,24 @@ describe('date picker component', () => {
     );
   });
 
-  it('should should show an improper date as invalid as the user leaves the component', () => {
+  it('should show an improper date as invalid as the user leaves the input', () => {
     input.value = 'abcdefg... That means the convo is done';
     EVENTS.focusout(input);
 
-    assert.equal(
-      input.validationMessage,
-      VALIDATION_MESSAGE,
+    assert.equal(input.validationMessage, VALIDATION_MESSAGE);
+  });
+
+  it('should validate the input when a date is selected', () => {
+    input.value = '2/31/2019';
+    EVENTS.focusout(input);
+    assert.equal(input.validationMessage, VALIDATION_MESSAGE);
+    EVENTS.click(button);
+    assert.equal(calendar.hidden, false, 'The calendar is shown');
+
+    EVENTS.click(
+      calendar.querySelector('.usa-date-picker__calendar__date[data-day="10"]'),
     );
+
+    assert.equal(input.validationMessage, '');
   });
 });
