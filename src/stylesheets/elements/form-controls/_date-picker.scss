@@ -18,6 +18,7 @@
 
 .usa-date-picker__calendar {
   background-color: color("base-lightest");
+  left: 0;
   position: absolute;
   width: 100%;
   z-index: z-index(100);
@@ -28,10 +29,6 @@
 
   button {
     border: 0;
-
-    &:focus {
-      outline-offset: -4px;
-    }
   }
 }
 
@@ -41,14 +38,16 @@
 }
 
 .calendar_cell {
+  background-color: color("base-lightest");
   flex: 1;
+  padding: 4px;
 }
-
 
 .calendar_cell_month_label {
   flex: 3;
   text-align: center;
 }
+
 .usa-date-picker__calendar__date-table,
 .usa-date-picker__calendar__month-header,
 .usa-date-picker__calendar__month-table,
@@ -115,7 +114,7 @@
 .usa-date-picker__calendar__year,
 .usa-date-picker__calendar__days-of-week__day {
   background-color: color("base-lightest");
-  padding: 10px 5px;
+  padding: 6px 1px;
 }
 
 .usa-date-picker__calendar__date-display {

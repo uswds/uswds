@@ -903,7 +903,8 @@ const datePicker = behavior(
         Escape: handleEscape,
       }),
       [DATE_PICKER_BUTTON](event) {
-        if (event.code === "Space" || event.code === "Enter") {
+        // Space (32) or Enter (13)
+        if (event.keyCode === 32 || event.keyCode === 13) {
           toggleCalendar(this);
         }
       }
