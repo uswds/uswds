@@ -117,17 +117,17 @@ const parseDateString = (dateString, adjustDate = false) => {
     const [monthStr, dayStr, yearStr] = dateString.split("/")
 
     if (monthStr) {
-      parsed = Number.parseInt(monthStr, 10);
+      parsed = parseInt(monthStr, 10);
       if (!Number.isNaN(parsed)) month = parsed;
     }
 
     if (dayStr) {
-      parsed = Number.parseInt(dayStr, 10);
+      parsed = parseInt(dayStr, 10);
       if (!Number.isNaN(parsed)) day = parsed;
     }
 
     if (yearStr) {
-      parsed = Number.parseInt(yearStr, 10);
+      parsed = parseInt(yearStr, 10);
       if (!Number.isNaN(parsed)) {
         year = parsed;
         if (adjustDate) {
@@ -251,17 +251,17 @@ const validateDateInput = (el) => {
     const [monthStr, dayStr, yearStr] = dateString.split("/")
 
     if (monthStr) {
-      parsed = Number.parseInt(monthStr, 10);
+      parsed = parseInt(monthStr, 10);
       if (!Number.isNaN(parsed) && parsed >= 1 && parsed <= 12) month = parsed;
     }
 
     if (yearStr && yearStr.length === 4) {
-      parsed = Number.parseInt(yearStr, 10);
+      parsed = parseInt(yearStr, 10);
       if (!Number.isNaN(parsed)) year = parsed;
     }
 
     if (month && year && dayStr) {
-      parsed = Number.parseInt(dayStr, 10);
+      parsed = parseInt(dayStr, 10);
       if (!Number.isNaN(parsed)) {
         const checkDate = new Date(year, month - 1, parsed);
         if (checkDate.getMonth() === month - 1) {
@@ -614,7 +614,7 @@ const selectMonth = monthEl => {
   const { calendarEl, focusedDateEl } = getDatePickerElements(monthEl);
 
   let date;
-  const selectedMonth = Number.parseInt(monthEl.getAttribute("data-value"), 10);
+  const selectedMonth = parseInt(monthEl.getAttribute("data-value"), 10);
 
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
@@ -635,7 +635,7 @@ const selectYear = yearEl => {
   const { calendarEl, focusedDateEl } = getDatePickerElements(yearEl);
 
   let date;
-  const selectedYear = Number.parseInt(yearEl.innerHTML, 10);
+  const selectedYear = parseInt(yearEl.innerHTML, 10);
 
   if (focusedDateEl) {
     date = parseDateString(focusedDateEl.getAttribute("data-value"));
