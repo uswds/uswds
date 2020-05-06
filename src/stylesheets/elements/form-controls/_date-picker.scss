@@ -53,10 +53,10 @@
 }
 
 .calendar_cell_month_label {
-  @include u-flex(3);
-  text-align: center;
+  @include u-flex(4);
   padding: 4px 0;
-  
+  text-align: center;
+
   button {
     width: auto;
   }
