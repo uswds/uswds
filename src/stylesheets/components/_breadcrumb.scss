@@ -1,3 +1,6 @@
+$button-stroke: inset 0 0 0 units($theme-button-stroke-width);
+
+
 .usa-breadcrumb__list {
   @include unstyled-list;
 
@@ -9,15 +12,29 @@
 .usa-breadcrumb__list-item {
   @include sr-only;
 
-  &:first-child {
-    @include not-sr-only;
+  @include at-media-max('mobile-lg') {
+    &:first-child {
+      @include not-sr-only;
 
-    .usa-breadcrumb__link::before {
-      content: '←';
-      display: inline-block;
-      @include u-margin-right(1);
+      .usa-breadcrumb__link {
+        @include u-display("inline-flex");
+        @include u-text-align("center");
+        border-radius: radius($theme-button-border-radius);
+        box-shadow: $button-stroke color("primary");
+        padding: units(1.5) units(2.5);
+
+        &:focus {
+          outline-offset: units(0.5);
+        }
+      }
+
+      .usa-breadcrumb__link::before {
+        content: '←';
+        @include u-margin-right(1);
+      }
     }
   }
+
 
   @include at-media("mobile-lg") {
     @include not-sr-only;
@@ -27,7 +44,7 @@
     }
 
     &:not(:last-child) {
-      @include u-padding-right(2);
+      @include u-padding-right(2.5);
       @include u-position("relative");
       @include u-left("auto");
     }
@@ -36,7 +53,7 @@
       content: "#{$theme-breadcrumb-separator}";
       @include u-position("absolute");
       @include u-pin-top;
-      right: 6px;
+      right: 7px;
     }
   }
 }
@@ -44,4 +61,26 @@
 .usa-breadcrumb__link {
   color: color($theme-link-color);
   @include u-text-decoration("no-underline");
+}
+
+
+// Ordered list
+ol.usa-breadcrumb__list {
+  .usa-breadcrumb__list-item {
+    @include at-media("mobile-lg") {
+
+      &:not(:last-child) {
+        @include u-padding-right(0);
+        @include u-position("static");
+        @include u-display("flex");
+        @include u-align-items("align-start");
+        flex-wrap: nowrap;
+      }
+
+      &:not(:last-child)::after {
+        @include u-position("static");
+        @include u-margin-x(1.5);
+      }
+    }
+  }
 }
