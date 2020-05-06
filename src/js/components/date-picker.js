@@ -103,9 +103,10 @@ const padStart = (paddingValue) => {
  * Parse a date with format M-D-YY
  *
  * @param {string} dateString the element within the date picker
+ * @param {boolean} adjustDate should the year be adjusted
  * @returns {Date} the parsed date
  */
-const parseDateString = dateString => {
+const parseDateString = (dateString, adjustDate = false) => {
   let date;
   let month;
   let day;
@@ -129,12 +130,14 @@ const parseDateString = dateString => {
       parsed = Number.parseInt(yearStr, 10);
       if (!Number.isNaN(parsed)) {
         year = parsed;
-        const currentYear = (new Date()).getFullYear();
-        const currentYearLength = (`${currentYear}`).length;
+        if (adjustDate) {
+          const currentYear = (new Date()).getFullYear();
+          const currentYearLength = (`${currentYear}`).length;
 
-        if (yearStr.length < currentYearLength) {
-          const currentYearStub = currentYear - currentYear % 10 ** yearStr.length;
-          year = currentYearStub + parsed;
+          if (yearStr.length < currentYearLength) {
+            const currentYearStub = currentYear - currentYear % 10 ** yearStr.length;
+            year = currentYearStub + parsed;
+          }
         }
       }
     }
@@ -493,7 +496,7 @@ const renderCalendar = (el, _dateToDisplay) => {
  */
 const displayCalendar = el => {
   const { calendarEl, inputEl } = getDatePickerElements(el);
-  const date = parseDateString(inputEl.value);
+  const date = parseDateString(inputEl.value, true);
   renderCalendar(calendarEl, date);
 };
 
