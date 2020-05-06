@@ -33,7 +33,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
       }
 
       .usa-breadcrumb__link::before {
-        content: '←';
+        content: '‹';
         @include u-margin-right(1);
       }
     }
