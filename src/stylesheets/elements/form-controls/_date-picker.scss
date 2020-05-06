@@ -35,6 +35,17 @@
   }
 }
 
+.usa-date-picker__calendar__date-table,
+.usa-date-picker__calendar__month-header,
+.usa-date-picker__calendar__month-table,
+.usa-date-picker__calendar__year-table {
+  width: 100%;
+
+  td {
+    text-align: center;
+  }
+}
+
 .usa-date-picker__calendar {
   .usa-date-picker__calendar__month-picker,
   .usa-date-picker__calendar__year-picker {
@@ -50,7 +61,7 @@
   }
 
   .usa-date-picker__calendar__month-picker {
-    display: grid;
+    display: block;
   }
 }
 
@@ -61,10 +72,13 @@
   }
 
   .usa-date-picker__calendar__year-picker {
-    display: grid;
+    display: flex;
   }
 }
 
+.usa-date-picker__calendar__date {
+  width: 100%;
+}
 
 .usa-date-picker__calendar__next-year-chunk,
 .usa-date-picker__calendar__previous-year-chunk,
@@ -89,24 +103,6 @@
   color: color("gray-warm-60");
 }
 
-.usa-date-picker__calendar__month-header,
-.usa-date-picker__calendar__days-of-week,
-.usa-date-picker__calendar__date-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-}
-
-.usa-date-picker__calendar__month-picker {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  text-align: center;
-}
-
-.usa-date-picker__calendar__date-display {
-  grid-column: 3 / span 3;
-}
-
 .usa-date-picker__calendar__month-selector,
 .usa-date-picker__calendar__date {
   &:hover {
@@ -114,16 +110,6 @@
     color: color("ink");
     text-decoration: none;
   }
-}
-
-.usa-date-picker__calendar__year-picker {
-  grid-template-columns: 1fr 3fr 1fr;
-}
-
-.usa-date-picker__calendar__year-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  text-align: center;
 }
 
 .usa-date-picker__calendar__next-year-chunk {
