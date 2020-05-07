@@ -430,14 +430,14 @@ const renderCalendar = (el, _dateToDisplay) => {
       `<div class="${CALENDAR_DATE_PICKER_CLASS}">
         <div role="grid" class="usa-date-picker__calendar__date-table">
           <div class="calendar_row">
-            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}"><<</button></div>
-            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}"><</button></div>
+            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}">&nbsp;</button></div>
+            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}">&nbsp;</button></div>
             <div class="calendar_cell_month_label">
               <button class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}">${monthLabel}</button>
               <button class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}">${focusedYear}</button>
             </div>
-            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">></button></div>
-            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">>></button></div>
+            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">&nbsp;</button></div>
+            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">&nbsp;</button></div>
           </div>
     
         </div>

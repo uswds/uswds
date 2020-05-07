@@ -168,3 +168,23 @@ button.usa-date-picker__calendar__previous-year-chunk {
 .usa-date-picker__calendar__year-table {
   @include u-flex(3);
 }
+
+.usa-date-picker__calendar__previous-year {
+  @include add-background-svg("angle-double-left-solid");
+  background-position: center;
+}
+
+.usa-date-picker__calendar__previous-month {
+  @include add-background-svg("angle-left-solid");
+  background-position: center;
+}
+
+.usa-date-picker__calendar__next-year {
+  @include add-background-svg("angle-double-right-solid");
+  background-position: center;
+}
+
+.usa-date-picker__calendar__next-month {
+  @include add-background-svg("angle-right-solid");
+  background-position: center;
+}
