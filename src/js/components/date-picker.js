@@ -11,7 +11,6 @@ const DATE_PICKER_CALENDAR_CLASS = `${DATE_PICKER_CLASS}__calendar`;
 const DATE_PICKER_STATUS_CLASS = `${DATE_PICKER_CLASS}__status`;
 const CALENDAR_DATE_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__date`;
 
-
 const CALENDAR_FRAME_CLASS = `${CALENDAR_DATE_CLASS}__frame`;
 const CALENDAR_DATE_FOCUSED_CLASS = `${CALENDAR_DATE_CLASS}--focused`;
 const CALENDAR_PREVIOUS_YEAR_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-year`;
@@ -241,7 +240,6 @@ const listToGridHtml = (htmlArray, rowSize) => {
   return grid.join('');
 };
 
-
 const validateDateInput = (el) => {
   const { inputEl } = getDatePickerElements(el);
   const dateString = inputEl.value;
@@ -340,6 +338,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     const dayStr = DAY_OF_WEEK_LABELS[dayOfWeek];
 
     return `<button
+      type="button"
       tabindex="${tabindex}"
       class="${classes.join(" ")}" 
       data-day="${day}" 
@@ -370,14 +369,14 @@ const renderCalendar = (el, _dateToDisplay) => {
   newFrame.innerHTML =
     `<div class="${CALENDAR_DATE_PICKER_CLASS}">
       <div class="calendar_row">
-        <div class="calendar_cell calendar_cell--center-items"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}">&nbsp;</button></div>
-        <div class="calendar_cell calendar_cell--center-items"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}">&nbsp;</button></div>
+        <div class="calendar_cell calendar_cell--center-items"><button type="button" tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}">&nbsp;</button></div>
+        <div class="calendar_cell calendar_cell--center-items"><button type="button" tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}">&nbsp;</button></div>
         <div class="calendar_cell_month_label">
-          <button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}">${monthLabel}</button>
-          <button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}">${focusedYear}</button>
+          <button type="button" tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}">${monthLabel}</button>
+          <button type="button" tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}">${focusedYear}</button>
         </div>
-        <div class="calendar_cell calendar_cell--center-items"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">&nbsp;</button></div>
-        <div class="calendar_cell calendar_cell--center-items"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">&nbsp;</button></div>
+        <div class="calendar_cell calendar_cell--center-items"><button type="button" tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">&nbsp;</button></div>
+        <div class="calendar_cell calendar_cell--center-items"><button type="button" tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">&nbsp;</button></div>
       </div>
       <div class="calendar_row">
         <div class="calendar_cell" role="columnheader" aria-label="Sunday">S</div>
@@ -433,7 +432,6 @@ const displayPreviousYear = el => {
   date.setFullYear(date.getFullYear() - 1);
   keepDateWithinMonth(date, dateMonth);
 
-
   renderCalendar(calendarEl, date);
 };
 
@@ -449,7 +447,6 @@ const displayPreviousMonth = el => {
   const dateMonth = (date.getMonth() + 11) % 12;
   date.setMonth(date.getMonth() - 1);
   keepDateWithinMonth(date, dateMonth);
-
 
   renderCalendar(calendarEl, date);
 };
@@ -467,7 +464,6 @@ const displayNextMonth = el => {
   date.setMonth(date.getMonth() + 1);
   keepDateWithinMonth(date, dateMonth);
 
-
   renderCalendar(calendarEl, date);
 };
 
@@ -483,7 +479,6 @@ const displayNextYear = el => {
   const dateMonth = date.getMonth();
   date.setFullYear(date.getFullYear() + 1);
   keepDateWithinMonth(date, dateMonth);
-
 
   renderCalendar(calendarEl, date);
 };
@@ -532,7 +527,6 @@ const selectMonth = monthEl => {
   date.setMonth(selectedMonth);
   keepDateWithinMonth(date, dateMonth);
 
-
   renderCalendar(calendarEl, date);
 };
 
@@ -556,7 +550,7 @@ const selectYear = yearEl => {
 
 const MONTH_HTML = (() => {
   const months = MONTH_LABELS.map((month, index) => {
-    return `<button class="${CALENDAR_MONTH_CLASS}" data-value="${index}">${month}</button>`;
+    return `<button type="button" class="${CALENDAR_MONTH_CLASS}" data-value="${index}">${month}</button>`;
   });
   const monthsHtml = listToGridHtml(months, 3);
   return `<div class="${CALENDAR_MONTH_PICKER_CLASS}">${monthsHtml}</div>`;
@@ -589,7 +583,7 @@ const displayYearSelection = (el, yearToDisplay) => {
   let yearIndex = yearToChunk;
 
   while (years.length < YEAR_CHUNK) {
-    years.push(`<button class="${CALENDAR_YEAR_CLASS}">${yearIndex}</button>`);
+    years.push(`<button type="button" class="${CALENDAR_YEAR_CLASS}">${yearIndex}</button>`);
     yearIndex += 1;
   }
 
@@ -598,11 +592,11 @@ const displayYearSelection = (el, yearToDisplay) => {
   const newFrame = calendarFrameEl.cloneNode();
   newFrame.innerHTML =
     `<div class="${CALENDAR_YEAR_PICKER_CLASS}">
-      <button class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}">&nbsp;</button>
+      <button type="button" class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}">&nbsp;</button>
       <div role="grid" class="usa-date-picker__calendar__year-table ${CALENDAR_YEAR_GRID_CLASS}">
         ${yearsHtml}
       </div>
-      <button class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_NEXT_YEAR_CHUNK_CLASS}">&nbsp;</button>
+      <button type="button" class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_NEXT_YEAR_CHUNK_CLASS}">&nbsp;</button>
     </div >`;
   calendarFrameEl.parentNode.replaceChild(newFrame, calendarFrameEl);
 
@@ -810,6 +804,12 @@ const datePicker = behavior(
         // Space (32) or Enter (13)
         if (event.keyCode === 32 || event.keyCode === 13) {
           toggleCalendar(this);
+        }
+      },
+      [DATE_PICKER_INPUT](event) {
+        // Enter (13)
+        if (event.keyCode === 13) {
+          validateDateInput(this);
         }
       }
     },
