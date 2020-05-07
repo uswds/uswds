@@ -1,6 +1,6 @@
 .usa-media-block {
   @include u-display("flex");
-  @include u-align-items("flex-align-start");
+  @include u-align-items("align-start");
 
   .usa-media-block__img {
     @include media-block-img;
