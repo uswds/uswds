@@ -215,7 +215,7 @@ const enhanceDatePicker = datePickerEl => {
     "beforeend",
     [
       `<div tabindex="0" role="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-label="Display calendar">&nbsp;</div>`,
-      `<div tabindex="-1" class="${DATE_PICKER_CALENDAR_CLASS}" hidden>
+      `<div tabindex="-1" class="${DATE_PICKER_CALENDAR_CLASS}" aria-label="Calendar" hidden>
         <div class="${CALENDAR_FRAME_CLASS}"></div>
       </div>`,
       `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role='status' aria-live='polite'></div>`
