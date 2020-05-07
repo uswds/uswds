@@ -1,8 +1,6 @@
-$button-stroke: inset 0 0 0 units($theme-button-stroke-width);
-
 .usa-breadcrumb {
-  @include u-margin-top(1);
-  @include u-margin-bottom(2);
+  @include u-margin-bottom(4);
+  @include u-margin-top(2);
 }
 
 .usa-breadcrumb__list {
@@ -21,42 +19,31 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
       @include not-sr-only;
 
       .usa-breadcrumb__link {
+        @include button-unstyled;
         @include u-display("inline-flex");
-        @include u-text-align("center");
-        border-radius: radius($theme-button-border-radius);
-        box-shadow: $button-stroke color("primary");
         padding: units(1.5) units(2.5);
-
-        &:focus {
-          outline-offset: units(0.5);
-        }
       }
 
       .usa-breadcrumb__link::before {
-        content: '‹';
         @include u-margin-right(1);
+        content: '‹';
       }
     }
   }
 
-
   @include at-media("mobile-lg") {
     @include not-sr-only;
 
-    &:first-child .usa-breadcrumb__link::before {
-      content: none;
-    }
-
     &:not(:last-child) {
+      @include u-left("auto");
       @include u-padding-right(2.5);
       @include u-position("relative");
-      @include u-left("auto");
     }
 
     &:not(:last-child)::after {
-      content: "#{$theme-breadcrumb-separator}";
-      @include u-position("absolute");
       @include u-pin-top;
+      @include u-position("absolute");
+      content: "#{$theme-breadcrumb-separator}";
       right: 7px;
     }
   }
@@ -64,7 +51,6 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
 .usa-breadcrumb__link {
   color: color($theme-link-color);
-  @include u-text-decoration("no-underline");
 }
 
 
@@ -74,16 +60,16 @@ ol.usa-breadcrumb__list {
     @include at-media("mobile-lg") {
 
       &:not(:last-child) {
+        @include u-align-items("align-start");
+        @include u-display("flex");
         @include u-padding-right(0);
         @include u-position("static");
-        @include u-display("flex");
-        @include u-align-items("align-start");
         flex-wrap: nowrap;
       }
 
       &:not(:last-child)::after {
-        @include u-position("static");
         @include u-margin-x(1.5);
+        @include u-position("static");
       }
     }
   }
