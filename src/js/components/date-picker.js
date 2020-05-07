@@ -370,21 +370,21 @@ const renderCalendar = (el, _dateToDisplay) => {
   newFrame.innerHTML =
     `<div class="${CALENDAR_DATE_PICKER_CLASS}">
       <div class="calendar_row">
-        <div class="calendar_cell"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}">&nbsp;</button></div>
-        <div class="calendar_cell"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}">&nbsp;</button></div>
+        <div class="calendar_cell calendar_cell--center-items"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}">&nbsp;</button></div>
+        <div class="calendar_cell calendar_cell--center-items"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}">&nbsp;</button></div>
         <div class="calendar_cell_month_label">
           <button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}">${monthLabel}</button>
           <button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}">${focusedYear}</button>
         </div>
-        <div class="calendar_cell"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">&nbsp;</button></div>
-        <div class="calendar_cell"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">&nbsp;</button></div>
+        <div class="calendar_cell calendar_cell--center-items"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">&nbsp;</button></div>
+        <div class="calendar_cell calendar_cell--center-items"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">&nbsp;</button></div>
       </div>
       <div class="calendar_row">
         <div class="calendar_cell" role="columnheader" aria-label="Sunday">S</div>
         <div class="calendar_cell" role="columnheader" aria-label="Monday">M</div>
         <div class="calendar_cell" role="columnheader" aria-label="Tuesday">T</div>
         <div class="calendar_cell" role="columnheader" aria-label="Wednesday">W</div>
-        <div class="calendar_cell" role="columnheader" aria-label="Thursday">T</div>
+        <div class="calendar_cell" role="columnheader" aria-label="Thursday">Th</div>
         <div class="calendar_cell" role="columnheader" aria-label="Friday">F</div>
         <div class="calendar_cell" role="columnheader" aria-label="Saturday">S</div>
       </div>
@@ -675,7 +675,6 @@ const handleHome = event => {
 const handleEnd = event => {
   const { calendarEl } = getDatePickerElements(event.target);
 
-
   const date = parseDateString(calendarEl.getAttribute("data-value"));
   const dayOfWeek = date.getDay();
   date.setDate(date.getDate() + (6 - dayOfWeek));
@@ -698,7 +697,6 @@ const handlePageDown = event => {
 
 const handlePageUp = event => {
   const { calendarEl } = getDatePickerElements(event.target);
-
 
   const date = parseDateString(calendarEl.getAttribute("data-value"));
   const dateMonth = (date.getMonth() + 11) % 12;

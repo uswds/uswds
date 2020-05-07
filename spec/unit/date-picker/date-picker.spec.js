@@ -235,6 +235,14 @@ describe('date picker component', () => {
     );
   });
 
+  it('should hide the calendar when the date picker button is clicked and the calendar is already open', () => {
+    EVENTS.click(button);
+    assert.equal(calendar.hidden, false, 'The calendar is shown');
+
+    EVENTS.click(button);
+    assert.equal(calendar.hidden, true, 'The calendar is hidden');
+  });
+
   it('should close the calendar you click outside of an active calendar', () => {
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, 'The calendar is shown');
