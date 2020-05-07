@@ -10,6 +10,9 @@ const DATE_PICKER_BUTTON_CLASS = `${DATE_PICKER_CLASS}__button`;
 const DATE_PICKER_CALENDAR_CLASS = `${DATE_PICKER_CLASS}__calendar`;
 const DATE_PICKER_STATUS_CLASS = `${DATE_PICKER_CLASS}__status`;
 const CALENDAR_DATE_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__date`;
+
+
+const CALENDAR_FRAME_CLASS = `${CALENDAR_DATE_CLASS}__frame`;
 const CALENDAR_DATE_FOCUSED_CLASS = `${CALENDAR_DATE_CLASS}--focused`;
 const CALENDAR_PREVIOUS_YEAR_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-year`;
 const CALENDAR_PREVIOUS_MONTH_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-month`;
@@ -18,9 +21,7 @@ const CALENDAR_NEXT_MONTH_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__next-month`;
 const CALENDAR_MONTH_SELECTION_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__month-selection`;
 const CALENDAR_YEAR_SELECTION_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year-selection`;
 const CALENDAR_MONTH_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__month`;
-const CALENDAR_MONTH_PICKER_MODIFIER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}--month-picker`;
 const CALENDAR_YEAR_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year`;
-const CALENDAR_YEAR_PICKER_MODIFIER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}--year-picker`;
 const CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-year-chunk`;
 const CALENDAR_NEXT_YEAR_CHUNK_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__next-year-chunk`;
 const CALENDAR_DATE_PICKER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__date-picker`;
@@ -34,6 +35,7 @@ const DATE_PICKER_BUTTON = `.${DATE_PICKER_BUTTON_CLASS}`;
 const DATE_PICKER_INPUT = `.${DATE_PICKER_INPUT_CLASS}`;
 const DATE_PICKER_CALENDAR = `.${DATE_PICKER_CALENDAR_CLASS}`;
 const DATE_PICKER_STATUS = `.${DATE_PICKER_STATUS_CLASS}`;
+const CALENDAR_FRAME = `.${CALENDAR_FRAME_CLASS}`;
 const CALENDAR_DATE = `.${CALENDAR_DATE_CLASS}`;
 const CALENDAR_DATE_FOCUSED = `.${CALENDAR_DATE_FOCUSED_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR = `.${CALENDAR_PREVIOUS_YEAR_CLASS}`;
@@ -46,8 +48,6 @@ const CALENDAR_MONTH = `.${CALENDAR_MONTH_CLASS}`;
 const CALENDAR_YEAR = `.${CALENDAR_YEAR_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR_CHUNK = `.${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}`;
 const CALENDAR_NEXT_YEAR_CHUNK = `.${CALENDAR_NEXT_YEAR_CHUNK_CLASS}`;
-const CALENDAR_YEAR_GRID = `.${CALENDAR_YEAR_GRID_CLASS}`;
-const CALENDAR_DATE_GRID = `.${CALENDAR_DATE_GRID_CLASS}`;
 
 const VALIDATION_MESSAGE = 'Please enter a valid date';
 
@@ -153,12 +153,14 @@ const parseDateString = (dateString, adjustDate = false) => {
 /**
  * The elements within the date picker.
  * @typedef {Object} DatePickerElements
- * @property {HTMLElement} datePickerEl
- * @property {HTMLInputElement} inputEl
  * @property {HTMLButtonElement} calendarBtn
  * @property {HTMLDivElement} calendarEl
+ * @property {HTMLDivElement} calendarFrameEl
+ * @property {HTMLElement} datePickerEl
  * @property {HTMLButtonElement} focusedDateEl
+ * @property {HTMLInputElement} inputEl
  * @property {HTMLDivElement} statusEl
+ * @property {HTMLDivElement} firstYearChunkEl
  */
 
 /**
@@ -180,12 +182,16 @@ const getDatePickerElements = el => {
   const calendarEl = datePickerEl.querySelector(DATE_PICKER_CALENDAR);
   const focusedDateEl = datePickerEl.querySelector(CALENDAR_DATE_FOCUSED);
   const statusEl = datePickerEl.querySelector(DATE_PICKER_STATUS);
+  const calendarFrameEl = datePickerEl.querySelector(CALENDAR_FRAME);
+  const firstYearChunkEl = calendarEl.querySelector(CALENDAR_YEAR);
 
   return {
+    firstYearChunkEl,
     datePickerEl,
     inputEl,
     calendarBtn,
     calendarEl,
+    calendarFrameEl,
     focusedDateEl,
     statusEl
   };
@@ -210,7 +216,9 @@ const enhanceDatePicker = datePickerEl => {
     "beforeend",
     [
       `<div tabindex="0" role="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-label="Display calendar">&nbsp;</div>`,
-      `<div tabindex="-1" class="${DATE_PICKER_CALENDAR_CLASS}" hidden></div>`,
+      `<div tabindex="-1" class="${DATE_PICKER_CALENDAR_CLASS}" hidden>
+        <div class="${CALENDAR_FRAME_CLASS}"></div>
+      </div>`,
       `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role='status' aria-live='polite'></div>`
     ].join("")
   );
@@ -220,15 +228,13 @@ const listToGridHtml = (htmlArray, rowSize) => {
   const grid = [];
   let row = [];
 
-  for (let i = 0; i < htmlArray.length; i += 1) {
-    row.push(`<div class="calendar_cell">${htmlArray[i]}</div>`);
-    if (row.length === rowSize) {
-      grid.push(`<div class="calendar_row">${row.join("")}</div>`);
-      row = [];
+  let i = 0;
+  while (i < htmlArray.length) {
+    row = [];
+    while (i < htmlArray.length && row.length < rowSize) {
+      row.push(`<div class="calendar_cell">${htmlArray[i]}</div>`);
+      i += 1;
     }
-  }
-
-  if (row.length) {
     grid.push(`<div class="calendar_row">${row.join("")}</div>`);
   }
 
@@ -285,67 +291,16 @@ const validateDateInput = (el) => {
 }
 
 /**
- * render a year chunk.
- *
- * @param {number} selectedYear the year chuck to display
- *
- * @returns {string} the html for the year chunk
- */
-const generateYearChunkHtml = selectedYear => {
-  const years = [];
-  let yearIndex = Math.floor(selectedYear / YEAR_CHUNK) * YEAR_CHUNK;
-
-  while (years.length < YEAR_CHUNK) {
-    years.push(
-      `<button class="${CALENDAR_YEAR_CLASS}">${yearIndex}</button>`
-    );
-    yearIndex += 1;
-  }
-
-  return listToGridHtml(years, 3);
-};
-
-/**
- * The elements within the date picker calendar.
- *
- * @typedef {Object} DatePickerCalendarElements
- * @property {HTMLButtonElement} monthEl
- * @property {HTMLButtonElement} yearEl
- * @property {HTMLDivElement} datesEl
- * @property {HTMLDivElement} yearChunkEl
- * @property {HTMLDivElement} firstYearChunkEl
- */
-
-/**
- * Get an object of elements belonging directly to the given
- * date picker component.
- *
- * @param {HTMLDivElement} calendarEl the calendar element
- * @returns {DatePickerCalendarElements} elements
- */
-const getDatePickerCalendarElements = calendarEl => {
-  const monthEl = calendarEl.querySelector(CALENDAR_MONTH_SELECTION);
-  const yearEl = calendarEl.querySelector(CALENDAR_YEAR_SELECTION);
-  const datesEl = calendarEl.querySelector(CALENDAR_DATE_GRID);
-  const yearChunkEl = calendarEl.querySelector(CALENDAR_YEAR_GRID);
-  const firstYearChunkEl = calendarEl.querySelector(CALENDAR_YEAR);
-
-  return { monthEl, yearEl, datesEl, yearChunkEl, firstYearChunkEl };
-};
-
-/**
  * render the calendar.
  *
  * @param {HTMLElement} el An element within the date picker component
  * @param {Date} _dateToDisplay a date to render on the calendar
  */
 const renderCalendar = (el, _dateToDisplay) => {
-  const { datePickerEl, calendarEl, statusEl } = getDatePickerElements(el);
+  const { datePickerEl, calendarEl, calendarFrameEl, statusEl } = getDatePickerElements(el);
   const dateToDisplay = _dateToDisplay || new Date();
 
   calendarEl.focus();
-  calendarEl.classList.remove(CALENDAR_MONTH_PICKER_MODIFIER_CLASS);
-  calendarEl.classList.remove(CALENDAR_YEAR_PICKER_MODIFIER_CLASS);
 
   const focusedDay = dateToDisplay.getDate();
   const focusedMonth = dateToDisplay.getMonth();
@@ -409,84 +364,49 @@ const renderCalendar = (el, _dateToDisplay) => {
     dateToDisplay.setDate(dateToDisplay.getDate() + 1);
   }
 
-  const months = MONTH_LABELS.map(
-    (month, index) => {
-      return `<button
-          class="${CALENDAR_MONTH_CLASS}" 
-          data-value="${index}"
-        >${month}</button>`;
-    }
-  );
-
   const datesHtml = listToGridHtml(days, 7);
-  const monthsHtml = listToGridHtml(months, 3);
-  const yearsHtml = generateYearChunkHtml(focusedYear);
+
+  const newFrame = calendarFrameEl.cloneNode();
+  newFrame.innerHTML =
+    `<div class="${CALENDAR_DATE_PICKER_CLASS}">
+      <div class="calendar_row">
+        <div class="calendar_cell"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}">&nbsp;</button></div>
+        <div class="calendar_cell"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}">&nbsp;</button></div>
+        <div class="calendar_cell_month_label">
+          <button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}">${monthLabel}</button>
+          <button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}">${focusedYear}</button>
+        </div>
+        <div class="calendar_cell"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">&nbsp;</button></div>
+        <div class="calendar_cell"><button tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">&nbsp;</button></div>
+      </div>
+      <div class="calendar_row">
+        <div class="calendar_cell" role="columnheader" aria-label="Sunday">S</div>
+        <div class="calendar_cell" role="columnheader" aria-label="Monday">M</div>
+        <div class="calendar_cell" role="columnheader" aria-label="Tuesday">T</div>
+        <div class="calendar_cell" role="columnheader" aria-label="Wednesday">W</div>
+        <div class="calendar_cell" role="columnheader" aria-label="Thursday">T</div>
+        <div class="calendar_cell" role="columnheader" aria-label="Friday">F</div>
+        <div class="calendar_cell" role="columnheader" aria-label="Saturday">S</div>
+      </div>
+      <div class="${CALENDAR_DATE_GRID_CLASS}">
+        ${datesHtml}
+      </div>
+    </div>`;
+
+  calendarFrameEl.parentNode.replaceChild(newFrame, calendarFrameEl);
 
   if (calendarEl.hidden) {
-    statusEl.innerHTML =
-      "You can navigate by day using left and right arrows; weeks by using up and down arrows; months by using page up and page down keys; years by using shift plus page up and shift plus page down; home and end keys navigate to the beginning and end of a week.";
+    statusEl.innerHTML = "You can navigate by day using left and right arrows; weeks by using up and down arrows; months by using page up and page down keys; years by using shift plus page up and shift plus page down; home and end keys navigate to the beginning and end of a week.";
     calendarEl.style.top = `${datePickerEl.offsetHeight}px`;
-    calendarEl.innerHTML = [
-      `<div class="${CALENDAR_DATE_PICKER_CLASS}">
-        <div role="grid" class="usa-date-picker__calendar__date-table">
-          <div class="calendar_row">
-            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}">&nbsp;</button></div>
-            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}">&nbsp;</button></div>
-            <div class="calendar_cell_month_label">
-              <button class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}">${monthLabel}</button>
-              <button class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}">${focusedYear}</button>
-            </div>
-            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">&nbsp;</button></div>
-            <div class="calendar_cell"><button class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">&nbsp;</button></div>
-          </div>
-    
-        </div>
-        <div role="grid" class="usa-date-picker__calendar__date-table">
-          <div class="calendar_row">
-            <div class="calendar_cell" role="columnheader" aria-label="Sunday">S</div>
-            <div class="calendar_cell" role="columnheader" aria-label="Monday">M</div>
-            <div class="calendar_cell" role="columnheader" aria-label="Tuesday">T</div>
-            <div class="calendar_cell" role="columnheader" aria-label="Wednesday">W</div>
-            <div class="calendar_cell" role="columnheader" aria-label="Thursday">T</div>
-            <div class="calendar_cell" role="columnheader" aria-label="Friday">F</div>
-            <div class="calendar_cell" role="columnheader" aria-label="Saturday">S</div>
-          </div>
-          <div class="${CALENDAR_DATE_GRID_CLASS}">
-            ${datesHtml}
-          </div>
-        </div>
-      </div>`,
-      `<div class="${CALENDAR_MONTH_PICKER_CLASS}">
-        <div role="grid" class="usa-date-picker__calendar__month-table">
-          ${monthsHtml}
-        </div>
-      </div>`,
-      `<div class="${CALENDAR_YEAR_PICKER_CLASS}">
-        <button class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}"><</button>
-        <div role="grid" class="usa-date-picker__calendar__year-table ${CALENDAR_YEAR_GRID_CLASS}">
-          ${yearsHtml}
-        </div>
-        <button class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_NEXT_YEAR_CHUNK_CLASS}">></button>
-      </div>`
-    ].join("");
     calendarEl.hidden = false;
   } else {
-    const {
-      monthEl,
-      yearEl,
-      datesEl,
-      yearChunkEl
-    } = getDatePickerCalendarElements(calendarEl);
     statusEl.innerHTML = `${monthLabel} ${focusedYear}`;
-    monthEl.innerHTML = monthLabel;
-    yearEl.innerHTML = focusedYear;
-    datesEl.innerHTML = datesHtml;
-    if (yearsHtml !== yearChunkEl.innerHTML) {
-      yearChunkEl.innerHTML = yearsHtml;
-    }
   }
 
-  calendarEl.querySelector(CALENDAR_DATE_FOCUSED).focus();
+  const focusedDateEl = calendarEl.querySelector(CALENDAR_DATE_FOCUSED);
+  const focusedDate = focusedDateEl.getAttribute("data-value");
+  calendarEl.setAttribute("data-value", focusedDate);
+  focusedDateEl.focus();
 };
 
 /**
@@ -506,15 +426,13 @@ const displayCalendar = el => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const displayPreviousYear = el => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(el);
+  const { calendarEl } = getDatePickerElements(el);
 
-  let date;
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dateMonth = date.getMonth();
-    date.setFullYear(date.getFullYear() - 1);
-    keepDateWithinMonth(date, dateMonth);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  const dateMonth = date.getMonth();
+  date.setFullYear(date.getFullYear() - 1);
+  keepDateWithinMonth(date, dateMonth);
+
 
   renderCalendar(calendarEl, date);
 };
@@ -525,15 +443,13 @@ const displayPreviousYear = el => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const displayPreviousMonth = el => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(el);
+  const { calendarEl } = getDatePickerElements(el);
 
-  let date;
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dateMonth = (date.getMonth() + 11) % 12;
-    date.setMonth(date.getMonth() - 1);
-    keepDateWithinMonth(date, dateMonth);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  const dateMonth = (date.getMonth() + 11) % 12;
+  date.setMonth(date.getMonth() - 1);
+  keepDateWithinMonth(date, dateMonth);
+
 
   renderCalendar(calendarEl, date);
 };
@@ -544,15 +460,13 @@ const displayPreviousMonth = el => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const displayNextMonth = el => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(el);
+  const { calendarEl } = getDatePickerElements(el);
 
-  let date;
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dateMonth = (date.getMonth() + 1) % 12;
-    date.setMonth(date.getMonth() + 1);
-    keepDateWithinMonth(date, dateMonth);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  const dateMonth = (date.getMonth() + 1) % 12;
+  date.setMonth(date.getMonth() + 1);
+  keepDateWithinMonth(date, dateMonth);
+
 
   renderCalendar(calendarEl, date);
 };
@@ -563,15 +477,13 @@ const displayNextMonth = el => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const displayNextYear = el => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(el);
+  const { calendarEl } = getDatePickerElements(el);
 
-  let date;
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dateMonth = date.getMonth();
-    date.setFullYear(date.getFullYear() + 1);
-    keepDateWithinMonth(date, dateMonth);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  const dateMonth = date.getMonth();
+  date.setFullYear(date.getFullYear() + 1);
+  keepDateWithinMonth(date, dateMonth);
+
 
   renderCalendar(calendarEl, date);
 };
@@ -582,11 +494,11 @@ const displayNextYear = el => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const hideCalendar = el => {
-  const { calendarEl, statusEl } = getDatePickerElements(el);
+  const { calendarEl, calendarFrameEl, statusEl } = getDatePickerElements(el);
 
   calendarEl.hidden = true;
+  calendarFrameEl.innerHTML = "";
   statusEl.innerHTML = "";
-  calendarEl.innerHTML = "";
 };
 
 /**
@@ -611,17 +523,15 @@ const selectDate = calendarDateEl => {
  * @param {HTMLButtonElement} monthEl An element within the date picker component
  */
 const selectMonth = monthEl => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(monthEl);
+  const { calendarEl } = getDatePickerElements(monthEl);
 
-  let date;
   const selectedMonth = parseInt(monthEl.getAttribute("data-value"), 10);
 
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dateMonth = selectedMonth;
-    date.setMonth(selectedMonth);
-    keepDateWithinMonth(date, dateMonth);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  const dateMonth = selectedMonth;
+  date.setMonth(selectedMonth);
+  keepDateWithinMonth(date, dateMonth);
+
 
   renderCalendar(calendarEl, date);
 };
@@ -632,196 +542,192 @@ const selectMonth = monthEl => {
  * @param {HTMLButtonElement} yearEl An element within the date picker component
  */
 const selectYear = yearEl => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(yearEl);
+  const { calendarEl } = getDatePickerElements(yearEl);
 
-  let date;
   const selectedYear = parseInt(yearEl.innerHTML, 10);
 
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dateMonth = date.getMonth();
-    date.setFullYear(selectedYear);
-    keepDateWithinMonth(date, dateMonth);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  const dateMonth = date.getMonth();
+  date.setFullYear(selectedYear);
+  keepDateWithinMonth(date, dateMonth);
 
   renderCalendar(calendarEl, date);
 };
 
+const MONTH_HTML = (() => {
+  const months = MONTH_LABELS.map((month, index) => {
+    return `<button class="${CALENDAR_MONTH_CLASS}" data-value="${index}">${month}</button>`;
+  });
+  const monthsHtml = listToGridHtml(months, 3);
+  return `<div class="${CALENDAR_MONTH_PICKER_CLASS}">${monthsHtml}</div>`;
+})();
+
 const displayMonthSelection = el => {
-  const { calendarEl } = getDatePickerElements(el);
-  calendarEl.classList.add(CALENDAR_MONTH_PICKER_MODIFIER_CLASS);
+  const { calendarEl, calendarFrameEl, statusEl } = getDatePickerElements(el);
+
   calendarEl.focus();
+  const newFrame = calendarFrameEl.cloneNode();
+  newFrame.innerHTML = MONTH_HTML;
+  calendarFrameEl.parentNode.replaceChild(newFrame, calendarFrameEl);
+
+  statusEl.innerHTML = "Select a month.";
 };
 
-const displayYearSelection = el => {
-  const { calendarEl } = getDatePickerElements(el);
-  calendarEl.classList.add(CALENDAR_YEAR_PICKER_MODIFIER_CLASS);
+const displayYearSelection = (el, yearToDisplay) => {
+  const { calendarEl, calendarFrameEl, statusEl } = getDatePickerElements(el);
+  let yearToChunk = yearToDisplay;
+
   calendarEl.focus();
+
+  if (!yearToChunk) {
+    const date = parseDateString(calendarEl.getAttribute("data-value"));
+    yearToChunk = date.getFullYear();
+  }
+  yearToChunk -= yearToChunk % YEAR_CHUNK;
+
+  const years = [];
+  let yearIndex = yearToChunk;
+
+  while (years.length < YEAR_CHUNK) {
+    years.push(`<button class="${CALENDAR_YEAR_CLASS}">${yearIndex}</button>`);
+    yearIndex += 1;
+  }
+
+  const yearsHtml = listToGridHtml(years, 3);
+
+  const newFrame = calendarFrameEl.cloneNode();
+  newFrame.innerHTML =
+    `<div class="${CALENDAR_YEAR_PICKER_CLASS}">
+      <button class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}">&nbsp;</button>
+      <div role="grid" class="usa-date-picker__calendar__year-table ${CALENDAR_YEAR_GRID_CLASS}">
+        ${yearsHtml}
+      </div>
+      <button class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_NEXT_YEAR_CHUNK_CLASS}">&nbsp;</button>
+    </div >`;
+  calendarFrameEl.parentNode.replaceChild(newFrame, calendarFrameEl);
+
+  statusEl.innerHTML = `Showing years ${yearToChunk} to ${yearToChunk + YEAR_CHUNK - 1}. Select a year.`;
 };
 
 const displayPreviousYearChunk = el => {
-  const { calendarEl } = getDatePickerElements(el);
-  const { yearChunkEl, firstYearChunkEl } = getDatePickerCalendarElements(
-    calendarEl
-  );
+  const { firstYearChunkEl } = getDatePickerElements(el);
   const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
-  yearChunkEl.innerHTML = generateYearChunkHtml(firstYearChunkYear - YEAR_CHUNK);
+  displayYearSelection(el, firstYearChunkYear - YEAR_CHUNK)
 };
 
 const displayNextYearChunk = el => {
-  const { calendarEl } = getDatePickerElements(el);
-  const { yearChunkEl, firstYearChunkEl } = getDatePickerCalendarElements(
-    calendarEl
-  );
+  const { firstYearChunkEl } = getDatePickerElements(el);
   const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
-  yearChunkEl.innerHTML = generateYearChunkHtml(firstYearChunkYear + YEAR_CHUNK);
+  displayYearSelection(el, firstYearChunkYear + YEAR_CHUNK)
 };
 
 const handleUp = event => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+  const { calendarEl } = getDatePickerElements(event.target);
 
-  let date;
-
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    date.setDate(date.getDate() - 7);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  date.setDate(date.getDate() - 7);
 
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
 
 const handleDown = event => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+  const { calendarEl } = getDatePickerElements(event.target);
 
-  let date;
-
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    date.setDate(date.getDate() + 7);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  date.setDate(date.getDate() + 7);
 
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
 
 const handleLeft = event => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+  const { calendarEl } = getDatePickerElements(event.target);
 
-  let date;
-
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    date.setDate(date.getDate() - 1);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  date.setDate(date.getDate() - 1);
 
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
 
 const handleRight = event => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+  const { calendarEl } = getDatePickerElements(event.target);
 
-  let date;
-
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    date.setDate(date.getDate() + 1);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  date.setDate(date.getDate() + 1);
 
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
 
 const handleHome = event => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+  const { calendarEl } = getDatePickerElements(event.target);
 
-  let date;
-
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dayOfWeek = date.getDay();
-    date.setDate(date.getDate() - dayOfWeek);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  const dayOfWeek = date.getDay();
+  date.setDate(date.getDate() - dayOfWeek);
 
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
 
 const handleEnd = event => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+  const { calendarEl } = getDatePickerElements(event.target);
 
-  let date;
 
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dayOfWeek = date.getDay();
-    date.setDate(date.getDate() + (6 - dayOfWeek));
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  const dayOfWeek = date.getDay();
+  date.setDate(date.getDate() + (6 - dayOfWeek));
 
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
 
 const handlePageDown = event => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+  const { calendarEl } = getDatePickerElements(event.target);
 
-  let date;
-
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dateMonth = (date.getMonth() + 1) % 12;
-    date.setMonth(date.getMonth() + 1);
-    keepDateWithinMonth(date, dateMonth);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  const dateMonth = (date.getMonth() + 1) % 12;
+  date.setMonth(date.getMonth() + 1);
+  keepDateWithinMonth(date, dateMonth);
 
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
 
 const handlePageUp = event => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+  const { calendarEl } = getDatePickerElements(event.target);
 
-  let date;
 
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dateMonth = (date.getMonth() + 11) % 12;
-    date.setMonth(date.getMonth() - 1);
-    keepDateWithinMonth(date, dateMonth);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  const dateMonth = (date.getMonth() + 11) % 12;
+  date.setMonth(date.getMonth() - 1);
+  keepDateWithinMonth(date, dateMonth);
 
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
 
 const handleShiftPageDown = event => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+  const { calendarEl } = getDatePickerElements(event.target);
 
-  let date;
-
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dateMonth = date.getMonth();
-    date.setFullYear(date.getFullYear() + 1);
-    keepDateWithinMonth(date, dateMonth);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  const dateMonth = date.getMonth();
+  date.setFullYear(date.getFullYear() + 1);
+  keepDateWithinMonth(date, dateMonth);
 
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
 
 const handleShiftPageUp = event => {
-  const { calendarEl, focusedDateEl } = getDatePickerElements(event.target);
+  const { calendarEl } = getDatePickerElements(event.target);
 
-  let date;
-
-  if (focusedDateEl) {
-    date = parseDateString(focusedDateEl.getAttribute("data-value"));
-    const dateMonth = date.getMonth();
-    date.setFullYear(date.getFullYear() - 1);
-    keepDateWithinMonth(date, dateMonth);
-  }
+  const date = parseDateString(calendarEl.getAttribute("data-value"));
+  const dateMonth = date.getMonth();
+  date.setFullYear(date.getFullYear() - 1);
+  keepDateWithinMonth(date, dateMonth);
 
   renderCalendar(calendarEl, date);
   event.preventDefault();

@@ -408,7 +408,7 @@ describe('date picker component', () => {
     );
 
     assert.ok(
-      calendar.classList.contains('usa-date-picker__calendar--month-picker'),
+      calendar.querySelector('.usa-date-picker__calendar__month-picker'),
       'calendar is showing the month picker',
     );
     assert.equal(document.activeElement, calendar, 'calendar is focused');
@@ -439,7 +439,7 @@ describe('date picker component', () => {
     );
 
     assert.ok(
-      calendar.classList.contains('usa-date-picker__calendar--year-picker'),
+      calendar.querySelector('.usa-date-picker__calendar__year-picker'),
       'calendar is showing the year picker',
     );
     assert.equal(

@@ -43,7 +43,9 @@
 
 
 .calendar_row {
-  display:flex;
+  display: flex;
+  text-align: center;
+  width: 100%;
 }
 
 .calendar_cell {
@@ -62,64 +64,18 @@
   }
 }
 
-.usa-date-picker__calendar__date-table,
-.usa-date-picker__calendar__month-header,
-.usa-date-picker__calendar__month-table,
 .usa-date-picker__calendar__year-table {
-  .calendar_cell {
-    text-align: center;
-  }
-}
-
-.usa-date-picker__calendar__date-table{
-  width:100%; 
-}
-
-.usa-date-picker__calendar__month-header{
-}
-
-.usa-date-picker__calendar__month-table{
-  width:100%;
-}
-
-.usa-date-picker__calendar__year-table {
-
   @include u-flex(1);
- 
 }
 
-.usa-date-picker__calendar {
-  .usa-date-picker__calendar__month-picker,
-  .usa-date-picker__calendar__year-picker {
-    display: none;
-    padding: 20px 5px;
-  }
+.usa-date-picker__calendar__month-picker,
+.usa-date-picker__calendar__year-picker {
+  padding: 20px 5px;
 }
 
-.usa-date-picker__calendar.usa-date-picker__calendar--month-picker {
-  .usa-date-picker__calendar__date-picker,
-  .usa-date-picker__calendar__year-picker {
-    display: none;
-  }
 
-  .usa-date-picker__calendar__month-picker {
-    display: block;
-  }
-}
-
-.usa-date-picker__calendar.usa-date-picker__calendar--year-picker {
-  .usa-date-picker__calendar__date-picker,
-  .usa-date-picker__calendar__month-picker {
-    display: none;
-  }
-
-  .usa-date-picker__calendar__year-picker {
-    display: flex;
-  }
-}
-
-.usa-date-picker__calendar__date {
-  width: 100%;
+.usa-date-picker__calendar__year-picker {
+  display: flex;
 }
 
 .usa-date-picker__calendar__next-year-chunk,
@@ -145,19 +101,9 @@
   color: color("gray-warm-60");
 }
 
-.usa-date-picker__calendar__month-selector,
-.usa-date-picker__calendar__date {
-}
-
-.usa-date-picker__calendar__next-year-chunk {
-}
-
 button.usa-date-picker__calendar__next-year-chunk,
 button.usa-date-picker__calendar__previous-year-chunk {
-  font-size: 1.06rem;
-  font-weight: 700;
   margin: auto;
-
   padding: 40px 0;
 }
 
@@ -174,6 +120,7 @@ button.usa-date-picker__calendar__previous-year-chunk {
   background-position: center;
 }
 
+.usa-date-picker__calendar__previous-year-chunk,
 .usa-date-picker__calendar__previous-month {
   @include add-background-svg("angle-left-solid");
   background-position: center;
@@ -184,6 +131,7 @@ button.usa-date-picker__calendar__previous-year-chunk {
   background-position: center;
 }
 
+.usa-date-picker__calendar__next-year-chunk,
 .usa-date-picker__calendar__next-month {
   @include add-background-svg("angle-right-solid");
   background-position: center;
