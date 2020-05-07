@@ -782,7 +782,18 @@ const datePicker = behavior(
         displayYearSelection(this);
       }
     },
+    keyup: {
+      [DATE_PICKER_CALENDAR](event) {
+        const keydownDateNow = this.getAttribute('date-keydown-date-now');
+        if (!keydownDateNow || Date.now() - parseInt(keydownDateNow, 10) > 1000) {
+          event.preventDefault();
+        }
+      },
+    },
     keydown: {
+      [DATE_PICKER_CALENDAR]() {
+        this.setAttribute('date-keydown-date-now', Date.now());
+      },
       [CALENDAR_DATE_FOCUSED]: keymap({
         Up: handleUp,
         ArrowUp: handleUp,
@@ -804,6 +815,7 @@ const datePicker = behavior(
         // Space (32) or Enter (13)
         if (event.keyCode === 32 || event.keyCode === 13) {
           toggleCalendar(this);
+          event.preventDefault();
         }
       },
       [DATE_PICKER_INPUT](event) {
