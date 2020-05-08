@@ -21,11 +21,11 @@ const STATUS = `.${STATUS_CLASS}`;
 
 /**
  * Determine if the key code of an event is printable
- * 
+ *
  * @param {number} keyCode The key code of the event
  * @returns {boolean} true is the key code is printable
  */
-const isPrintableKeyCode = (keyCode) => {
+const isPrintableKeyCode = keyCode => {
   return (
     (keyCode > 47 && keyCode < 58) || // number keys
     keyCode === 32 || // space
@@ -35,7 +35,7 @@ const isPrintableKeyCode = (keyCode) => {
     (keyCode > 185 && keyCode < 193) || // ;=,-./` (in order)
     (keyCode > 218 && keyCode < 223) // [\]' (in order)
   );
-}
+};
 
 /**
  * The elements within the combo box.
@@ -51,11 +51,11 @@ const isPrintableKeyCode = (keyCode) => {
 /**
  * Get an object of elements belonging directly to the given
  * combo box component.
- * 
+ *
  * @param {HTMLElement} el the element within the combo box
  * @returns {ComboBoxElements} elements
  */
-const getComboBoxElements = (el) => {
+const getComboBoxElements = el => {
   const comboBoxEl = el.closest(COMBO_BOX);
 
   if (!comboBoxEl) {
@@ -87,7 +87,7 @@ const enhanceComboBox = el => {
   const selectId = selectEl.id;
   const listId = `${selectId}--list`;
   const assistiveHintID = `${selectId}--assistiveHint`;
-  let placeholder = '';
+  let placeholder = "";
   let selectedOption;
   const additionalAttributes = [];
 
@@ -95,7 +95,7 @@ const enhanceComboBox = el => {
     const optionEl = selectEl.options[i];
 
     if (!placeholder && !optionEl.value) {
-      placeholder = `placeholder="${optionEl.text}"`
+      placeholder = `placeholder="${optionEl.text}"`;
     }
 
     if (!selectedOption && optionEl.selected && optionEl.value) {
@@ -112,13 +112,13 @@ const enhanceComboBox = el => {
   selectEl.classList.add("usa-sr-only");
   selectEl.id = "";
 
-  ['required', 'aria-label', 'aria-labelledby'].forEach(name => {
+  ["required", "aria-label", "aria-labelledby"].forEach(name => {
     if (selectEl.hasAttribute(name)) {
       const value = selectEl.getAttribute(name);
       additionalAttributes.push(`${name}="${value}"`);
       selectEl.removeAttribute(name);
     }
-  })
+  });
 
   comboBoxEl.insertAdjacentHTML(
     "beforeend",
@@ -129,17 +129,17 @@ const enhanceComboBox = el => {
         aria-describedby="${assistiveHintID}"
         aria-expanded="false"
         autocapitalize="off"
-        ${placeholder || ''}
+        ${placeholder || ""}
         autocomplete="off"
-        id="${selectId}" 
+        id="${selectId}"
         class="${INPUT_CLASS}"
-        type="text" 
+        type="text"
         role="combobox"
-        ${additionalAttributes.join(' ')}
+        ${additionalAttributes.join(" ")}
       >`,
-      `<ul 
-        id="${listId}" 
-        class="${LIST_CLASS}" 
+      `<ul
+        id="${listId}"
+        class="${LIST_CLASS}"
         role="listbox"
         hidden>
       </ul>`,
@@ -188,7 +188,7 @@ const displayList = el => {
       (option, index) =>
         `<li
           aria-selected="false"
-          aria-setsize="${options.length}" 
+          aria-setsize="${options.length}"
           aria-posinset="${index + 1}"
           id="${listOptionBaseId}${index}"
           class="${LIST_OPTION_CLASS}"
@@ -208,7 +208,7 @@ const displayList = el => {
 
   statusEl.innerHTML = numOptions
     ? `${numOptions} result${numOptions > 1 ? "s" : ""} available.`
-    : 'No results.';
+    : "No results.";
 };
 
 /**
@@ -251,7 +251,9 @@ const selectItem = listOptionEl => {
  * @param {HTMLElement} el An element within the combo box component
  */
 const completeSelection = el => {
-  const { selectEl, inputEl, statusEl, focusedOptionEl } = getComboBoxElements(el);
+  const { selectEl, inputEl, statusEl, focusedOptionEl } = getComboBoxElements(
+    el
+  );
 
   statusEl.textContent = "";
 
@@ -282,7 +284,7 @@ const completeSelection = el => {
 };
 
 /**
- * Manage the focused element within the list options when 
+ * Manage the focused element within the list options when
  * navigating via keyboard.
  *
  * @param {HTMLElement} el An element within the combo box component
@@ -324,7 +326,7 @@ const highlightOption = (el, currentEl, nextEl) => {
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleEnter = (event) => {
+const handleEnter = event => {
   const { comboBoxEl, inputEl, listEl } = getComboBoxElements(event.target);
   const listShown = !listEl.hidden;
 
@@ -342,7 +344,7 @@ const handleEnter = (event) => {
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleEscape = (event) => {
+const handleEscape = event => {
   const { comboBoxEl, inputEl } = getComboBoxElements(event.target);
 
   hideList(comboBoxEl);
@@ -354,8 +356,10 @@ const handleEscape = (event) => {
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleUp = (event) => {
-  const { comboBoxEl, listEl, focusedOptionEl } = getComboBoxElements(event.target);
+const handleUp = event => {
+  const { comboBoxEl, listEl, focusedOptionEl } = getComboBoxElements(
+    event.target
+  );
   const nextOptionEl = focusedOptionEl && focusedOptionEl.previousSibling;
   const listShown = !listEl.hidden;
 
@@ -375,8 +379,10 @@ const handleUp = (event) => {
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
-const handleDown = (event) => {
-  const { comboBoxEl, listEl, focusedOptionEl } = getComboBoxElements(event.target);
+const handleDown = event => {
+  const { comboBoxEl, listEl, focusedOptionEl } = getComboBoxElements(
+    event.target
+  );
 
   if (listEl.hidden) {
     displayList(comboBoxEl);
