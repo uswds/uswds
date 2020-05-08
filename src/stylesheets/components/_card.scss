@@ -260,7 +260,6 @@
       @include u-margin-left(-$theme-card-border-width);
       @include u-margin-right(0);
       @include u-margin-y(-$theme-card-border-width);
-      margin-right: 0;
 
       .usa-card__img {
         @include u-radius-left($theme-card-border-radius);
