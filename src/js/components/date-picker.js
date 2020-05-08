@@ -78,7 +78,7 @@ const DAY_OF_WEEK_LABELS = [
 const YEAR_CHUNK = 12;
 
 /**
- * Keep date within month. Month would only be over
+ * Keep date within month. Month would only be over by 1 to 3 days
  *
  * @param {Date} dateToCheck the date object to check
  * @param {number} month the correct month
@@ -92,6 +92,12 @@ const keepDateWithinMonth = (dateToCheck, month) => {
   return dateToCheck;
 };
 
+/**
+ * Pad a string. Used to add leading zeros for date format
+ *
+ * @param {string} paddingValue the mask for the string
+ * @returns {function} a function that pads a string
+ */
 const padStart = (paddingValue) => {
   return value => {
     return String(paddingValue + value).slice(-paddingValue.length);
@@ -99,10 +105,34 @@ const padStart = (paddingValue) => {
 };
 
 /**
+ * Create a grid string from an array of html strings
+ *
+ * @param {string[]} htmlArray the array of html items
+ * @param {number} rowSize the length of a row
+ * @returns {string} the grid string
+ */
+const listToGridHtml = (htmlArray, rowSize) => {
+  const grid = [];
+  let row = [];
+
+  let i = 0;
+  while (i < htmlArray.length) {
+    row = [];
+    while (i < htmlArray.length && row.length < rowSize) {
+      row.push(`<div class="calendar_cell">${htmlArray[i]}</div>`);
+      i += 1;
+    }
+    grid.push(`<div class="calendar_row">${row.join("")}</div>`);
+  }
+
+  return grid.join('');
+};
+
+/**
  * Parse a date with format M-D-YY
  *
  * @param {string} dateString the element within the date picker
- * @param {boolean} adjustDate should the year be adjusted
+ * @param {boolean} adjustDate should the date be adjusted
  * @returns {Date} the parsed date
  */
 const parseDateString = (dateString, adjustDate = false) => {
@@ -115,28 +145,40 @@ const parseDateString = (dateString, adjustDate = false) => {
   if (dateString) {
     const [monthStr, dayStr, yearStr] = dateString.split("/")
 
-    if (monthStr) {
-      parsed = parseInt(monthStr, 10);
-      if (!Number.isNaN(parsed)) month = parsed;
-    }
-
-    if (dayStr) {
-      parsed = parseInt(dayStr, 10);
-      if (!Number.isNaN(parsed)) day = parsed;
-    }
-
     if (yearStr) {
       parsed = parseInt(yearStr, 10);
       if (!Number.isNaN(parsed)) {
         year = parsed;
         if (adjustDate) {
-          const currentYear = (new Date()).getFullYear();
-          const currentYearLength = (`${currentYear}`).length;
-
-          if (yearStr.length < currentYearLength) {
+          year = Math.max(0, year);
+          if (yearStr.length < 3) {
+            const currentYear = (new Date()).getFullYear();
             const currentYearStub = currentYear - currentYear % 10 ** yearStr.length;
             year = currentYearStub + parsed;
           }
+        }
+      }
+    }
+
+    if (monthStr) {
+      parsed = parseInt(monthStr, 10);
+      if (!Number.isNaN(parsed)) {
+        month = parsed;
+        if (adjustDate) {
+          month = Math.max(1, month);
+          month = Math.min(12, month);
+        }
+      }
+    }
+
+    if (year && month && dayStr) {
+      parsed = parseInt(dayStr, 10);
+      if (!Number.isNaN(parsed)) {
+        day = parsed;
+        if (adjustDate) {
+          const lastDayOfMonth = new Date(year, month, 0).getDate();
+          day = Math.max(1, day);
+          day = Math.min(lastDayOfMonth, day);
         }
       }
     }
@@ -152,7 +194,6 @@ const parseDateString = (dateString, adjustDate = false) => {
 /**
  * The elements within the date picker.
  * @typedef {Object} DatePickerElements
- * @property {HTMLButtonElement} calendarBtn
  * @property {HTMLDivElement} calendarEl
  * @property {HTMLDivElement} calendarFrameEl
  * @property {HTMLElement} datePickerEl
@@ -177,18 +218,16 @@ const getDatePickerElements = el => {
   }
 
   const inputEl = datePickerEl.querySelector(DATE_PICKER_INPUT);
-  const calendarBtn = datePickerEl.querySelector(DATE_PICKER_BUTTON);
   const calendarEl = datePickerEl.querySelector(DATE_PICKER_CALENDAR);
   const focusedDateEl = datePickerEl.querySelector(CALENDAR_DATE_FOCUSED);
   const statusEl = datePickerEl.querySelector(DATE_PICKER_STATUS);
   const calendarFrameEl = datePickerEl.querySelector(CALENDAR_FRAME);
-  const firstYearChunkEl = calendarEl.querySelector(CALENDAR_YEAR);
+  const firstYearChunkEl = datePickerEl.querySelector(CALENDAR_YEAR);
 
   return {
     firstYearChunkEl,
     datePickerEl,
     inputEl,
-    calendarBtn,
     calendarEl,
     calendarFrameEl,
     focusedDateEl,
@@ -197,12 +236,12 @@ const getDatePickerElements = el => {
 };
 
 /**
- * Enhance an input with the button for a date picker
+ * Enhance an input with the date picker elements
  *
  * @param {HTMLElement} el The initial element within the date picker component
  */
 const enhanceDatePicker = datePickerEl => {
-  const inputEl = datePickerEl.querySelector(`input.usa-input`);
+  const inputEl = datePickerEl.querySelector(`input`);
 
   if (!inputEl) {
     throw new Error(`${DATE_PICKER} is missing inner ${DATE_PICKER_INPUT}`);
@@ -223,23 +262,11 @@ const enhanceDatePicker = datePickerEl => {
   );
 };
 
-const listToGridHtml = (htmlArray, rowSize) => {
-  const grid = [];
-  let row = [];
-
-  let i = 0;
-  while (i < htmlArray.length) {
-    row = [];
-    while (i < htmlArray.length && row.length < rowSize) {
-      row.push(`<div class="calendar_cell">${htmlArray[i]}</div>`);
-      i += 1;
-    }
-    grid.push(`<div class="calendar_row">${row.join("")}</div>`);
-  }
-
-  return grid.join('');
-};
-
+/**
+ * Validate the value in the input as a valid date of format MM/DD/YYYY
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
 const validateDateInput = (el) => {
   const { inputEl } = getDatePickerElements(el);
   const dateString = inputEl.value;
@@ -254,14 +281,14 @@ const validateDateInput = (el) => {
 
     const [monthStr, dayStr, yearStr] = dateString.split("/")
 
+    if (yearStr && yearStr.length === 4) {
+      parsed = parseInt(yearStr, 10);
+      if (!Number.isNaN(parsed) && parsed >= 0) year = parsed;
+    }
+
     if (monthStr) {
       parsed = parseInt(monthStr, 10);
       if (!Number.isNaN(parsed) && parsed >= 1 && parsed <= 12) month = parsed;
-    }
-
-    if (yearStr && yearStr.length === 4) {
-      parsed = parseInt(yearStr, 10);
-      if (!Number.isNaN(parsed)) year = parsed;
     }
 
     if (month && year && dayStr) {
@@ -369,14 +396,50 @@ const renderCalendar = (el, _dateToDisplay) => {
   newFrame.innerHTML =
     `<div class="${CALENDAR_DATE_PICKER_CLASS}">
       <div class="calendar_row">
-        <div class="calendar_cell calendar_cell--center-items"><button type="button" tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}">&nbsp;</button></div>
-        <div class="calendar_cell calendar_cell--center-items"><button type="button" tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}">&nbsp;</button></div>
-        <div class="calendar_cell_month_label">
-          <button type="button" tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}">${monthLabel}</button>
-          <button type="button" tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}">${focusedYear}</button>
+        <div class="calendar_cell calendar_cell--center-items">
+          <button 
+            type="button"
+            tabindex="-1"
+            class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}"
+            aria-label="Navigate back one year"
+          >&nbsp;</button>
         </div>
-        <div class="calendar_cell calendar_cell--center-items"><button type="button" tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}">&nbsp;</button></div>
-        <div class="calendar_cell calendar_cell--center-items"><button type="button" tabindex="-1" class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}">&nbsp;</button></div>
+        <div class="calendar_cell calendar_cell--center-items">
+          <button 
+            type="button"
+            tabindex="-1"
+            class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}"
+            aria-label="Navigate back one month"
+          >&nbsp;</button>
+        </div>
+        <div class="calendar_cell_month_label">
+          <button 
+            type="button"
+            tabindex="-1"
+            class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}" aria-label="${monthLabel}. Click to select month">${monthLabel}
+          </button>
+          <button 
+            type="button"
+            tabindex="-1"
+            class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}" aria-label="${focusedYear}. Click to select year">${focusedYear}
+          </button>
+        </div>
+        <div class="calendar_cell calendar_cell--center-items">
+          <button 
+            type="button"
+            tabindex="-1"
+            class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}"
+            aria-label="Navigate forward one month"
+          >&nbsp;</button>
+        </div>
+        <div class="calendar_cell calendar_cell--center-items">
+          <button 
+            type="button"
+            tabindex="-1"
+            class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}"
+            aria-label="Navigate forward one year"
+          >&nbsp;</button>
+        </div>
       </div>
       <div class="calendar_row">
         <div class="calendar_cell" role="columnheader" aria-label="Sunday">S</div>
@@ -420,7 +483,7 @@ const displayCalendar = el => {
 };
 
 /**
- * Display the calendar.
+ * Navigate back one year and display the calendar.
  *
  * @param {HTMLElement} el An element within the date picker component
  */
@@ -436,7 +499,7 @@ const displayPreviousYear = el => {
 };
 
 /**
- * Display the calendar.
+ * Navigate back one month and display the calendar.
  *
  * @param {HTMLElement} el An element within the date picker component
  */
@@ -452,7 +515,7 @@ const displayPreviousMonth = el => {
 };
 
 /**
- * Display the calendar.
+ * Navigate forward one month and display the calendar.
  *
  * @param {HTMLElement} el An element within the date picker component
  */
@@ -468,7 +531,7 @@ const displayNextMonth = el => {
 };
 
 /**
- * Display the calendar.
+ * Navigate forward one year and display the calendar.
  *
  * @param {HTMLElement} el An element within the date picker component
  */
@@ -497,9 +560,9 @@ const hideCalendar = el => {
 };
 
 /**
- * Hide the calendar of a date picker component.
+ * Select a date within the date picker component.
  *
- * @param {HTMLButtonElement} calendarDateEl An element within the date picker component
+ * @param {HTMLButtonElement} calendarDateEl A date element within the date picker component
  */
 const selectDate = calendarDateEl => {
   const { datePickerEl, inputEl } = getDatePickerElements(calendarDateEl);
@@ -513,9 +576,9 @@ const selectDate = calendarDateEl => {
 };
 
 /**
- * Select a month in a date picker component.
+ * Select a month in the date picker component.
  *
- * @param {HTMLButtonElement} monthEl An element within the date picker component
+ * @param {HTMLButtonElement} monthEl An month element within the date picker component
  */
 const selectMonth = monthEl => {
   const { calendarEl } = getDatePickerElements(monthEl);
@@ -531,9 +594,9 @@ const selectMonth = monthEl => {
 };
 
 /**
- * Select a year in a date picker component.
+ * Select a year in the date picker component.
  *
- * @param {HTMLButtonElement} yearEl An element within the date picker component
+ * @param {HTMLButtonElement} yearEl A year element within the date picker component
  */
 const selectYear = yearEl => {
   const { calendarEl } = getDatePickerElements(yearEl);
@@ -548,6 +611,9 @@ const selectYear = yearEl => {
   renderCalendar(calendarEl, date);
 };
 
+/**
+ * Generated html for month selection.
+ */
 const MONTH_HTML = (() => {
   const months = MONTH_LABELS.map((month, index) => {
     return `<button type="button" class="${CALENDAR_MONTH_CLASS}" data-value="${index}">${month}</button>`;
@@ -556,6 +622,11 @@ const MONTH_HTML = (() => {
   return `<div class="${CALENDAR_MONTH_PICKER_CLASS}">${monthsHtml}</div>`;
 })();
 
+/**
+ * Display the month selection screen in the date picker.
+ *
+ * @param {HTMLButtonElement} el An element within the date picker component
+ */
 const displayMonthSelection = el => {
   const { calendarEl, calendarFrameEl, statusEl } = getDatePickerElements(el);
 
@@ -567,6 +638,11 @@ const displayMonthSelection = el => {
   statusEl.innerHTML = "Select a month.";
 };
 
+/**
+ * Display the year selection screen in the date picker.
+ *
+ * @param {HTMLButtonElement} el An element within the date picker component
+ */
 const displayYearSelection = (el, yearToDisplay) => {
   const { calendarEl, calendarFrameEl, statusEl } = getDatePickerElements(el);
   let yearToChunk = yearToDisplay;
@@ -578,6 +654,7 @@ const displayYearSelection = (el, yearToDisplay) => {
     yearToChunk = date.getFullYear();
   }
   yearToChunk -= yearToChunk % YEAR_CHUNK;
+  yearToChunk = Math.max(100, yearToChunk);
 
   const years = [];
   let yearIndex = yearToChunk;
@@ -592,29 +669,44 @@ const displayYearSelection = (el, yearToDisplay) => {
   const newFrame = calendarFrameEl.cloneNode();
   newFrame.innerHTML =
     `<div class="${CALENDAR_YEAR_PICKER_CLASS}">
-      <button type="button" class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}">&nbsp;</button>
+      <button type="button" class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}" aria-label="Navigate back ${YEAR_CHUNK} years">&nbsp;</button>
       <div role="grid" class="usa-date-picker__calendar__year-table ${CALENDAR_YEAR_GRID_CLASS}">
         ${yearsHtml}
       </div>
-      <button type="button" class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_NEXT_YEAR_CHUNK_CLASS}">&nbsp;</button>
+      <button type="button" class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_NEXT_YEAR_CHUNK_CLASS}" aria-label="Navigate forward ${YEAR_CHUNK} years">&nbsp;</button>
     </div >`;
   calendarFrameEl.parentNode.replaceChild(newFrame, calendarFrameEl);
 
   statusEl.innerHTML = `Showing years ${yearToChunk} to ${yearToChunk + YEAR_CHUNK - 1}. Select a year.`;
 };
 
+/**
+ * Navigate back by years and display the year selection screen.
+ *
+ * @param {HTMLButtonElement} el An element within the date picker component
+ */
 const displayPreviousYearChunk = el => {
   const { firstYearChunkEl } = getDatePickerElements(el);
   const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
   displayYearSelection(el, firstYearChunkYear - YEAR_CHUNK)
 };
 
+/**
+ * Navigate forward by years and display the year selection screen.
+ *
+ * @param {HTMLButtonElement} el An element within the date picker component
+ */
 const displayNextYearChunk = el => {
   const { firstYearChunkEl } = getDatePickerElements(el);
   const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
   displayYearSelection(el, firstYearChunkYear + YEAR_CHUNK)
 };
 
+/**
+ * Navigate back one week and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
 const handleUp = event => {
   const { calendarEl } = getDatePickerElements(event.target);
 
@@ -625,6 +717,11 @@ const handleUp = event => {
   event.preventDefault();
 };
 
+/**
+ * Navigate forward one week and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
 const handleDown = event => {
   const { calendarEl } = getDatePickerElements(event.target);
 
@@ -635,6 +732,11 @@ const handleDown = event => {
   event.preventDefault();
 };
 
+/**
+ * Navigate back one day and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
 const handleLeft = event => {
   const { calendarEl } = getDatePickerElements(event.target);
 
@@ -645,6 +747,11 @@ const handleLeft = event => {
   event.preventDefault();
 };
 
+/**
+ * Navigate forward one day and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
 const handleRight = event => {
   const { calendarEl } = getDatePickerElements(event.target);
 
@@ -655,6 +762,11 @@ const handleRight = event => {
   event.preventDefault();
 };
 
+/**
+ * Navigate to the start of the week and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
 const handleHome = event => {
   const { calendarEl } = getDatePickerElements(event.target);
 
@@ -666,6 +778,11 @@ const handleHome = event => {
   event.preventDefault();
 };
 
+/**
+ * Navigate to the end of the week and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
 const handleEnd = event => {
   const { calendarEl } = getDatePickerElements(event.target);
 
@@ -677,6 +794,11 @@ const handleEnd = event => {
   event.preventDefault();
 };
 
+/**
+ * Navigate forward one month and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
 const handlePageDown = event => {
   const { calendarEl } = getDatePickerElements(event.target);
 
@@ -689,6 +811,11 @@ const handlePageDown = event => {
   event.preventDefault();
 };
 
+/**
+ * Navigate back one month and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
 const handlePageUp = event => {
   const { calendarEl } = getDatePickerElements(event.target);
 
@@ -701,6 +828,11 @@ const handlePageUp = event => {
   event.preventDefault();
 };
 
+/**
+ * Navigate forward one year and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
 const handleShiftPageDown = event => {
   const { calendarEl } = getDatePickerElements(event.target);
 
@@ -713,6 +845,11 @@ const handleShiftPageDown = event => {
   event.preventDefault();
 };
 
+/**
+ * Navigate back one year and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
 const handleShiftPageUp = event => {
   const { calendarEl } = getDatePickerElements(event.target);
 
@@ -725,13 +862,25 @@ const handleShiftPageUp = event => {
   event.preventDefault();
 };
 
+/**
+ * Hide the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
 const handleEscape = event => {
   const { datePickerEl, inputEl } = getDatePickerElements(event.target);
+
   hideCalendar(datePickerEl);
   inputEl.focus();
+
   event.preventDefault();
 };
 
+/**
+ * Toggle the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
 const toggleCalendar = el => {
   const { calendarEl } = getDatePickerElements(el);
 
