@@ -119,10 +119,10 @@ const listToGridHtml = (htmlArray, rowSize) => {
   while (i < htmlArray.length) {
     row = [];
     while (i < htmlArray.length && row.length < rowSize) {
-      row.push(`<div class="calendar_cell">${htmlArray[i]}</div>`);
+      row.push(`<div class="usa-date-picker__calendar__cell">${htmlArray[i]}</div>`);
       i += 1;
     }
-    grid.push(`<div class="calendar_row">${row.join("")}</div>`);
+    grid.push(`<div class="usa-date-picker__calendar__row">${row.join("")}</div>`);
   }
 
   return grid.join('');
@@ -395,60 +395,60 @@ const renderCalendar = (el, _dateToDisplay) => {
   const newFrame = calendarFrameEl.cloneNode();
   newFrame.innerHTML =
     `<div class="${CALENDAR_DATE_PICKER_CLASS}">
-      <div class="calendar_row">
-        <div class="calendar_cell calendar_cell--center-items">
+      <div class="usa-date-picker__calendar__row">
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
           <button 
             type="button"
             tabindex="-1"
-            class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_YEAR_CLASS}"
+            class="${CALENDAR_PREVIOUS_YEAR_CLASS}"
             aria-label="Navigate back one year"
           >&nbsp;</button>
         </div>
-        <div class="calendar_cell calendar_cell--center-items">
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
           <button 
             type="button"
             tabindex="-1"
-            class="usa-date-picker__calendar__month-selector ${CALENDAR_PREVIOUS_MONTH_CLASS}"
+            class="${CALENDAR_PREVIOUS_MONTH_CLASS}"
             aria-label="Navigate back one month"
           >&nbsp;</button>
         </div>
-        <div class="calendar_cell_month_label">
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__month-label">
           <button 
             type="button"
             tabindex="-1"
-            class="usa-date-picker__calendar__month-selector ${CALENDAR_MONTH_SELECTION_CLASS}" aria-label="${monthLabel}. Click to select month">${monthLabel}
+            class="${CALENDAR_MONTH_SELECTION_CLASS}" aria-label="${monthLabel}. Click to select month">${monthLabel}
           </button>
           <button 
             type="button"
             tabindex="-1"
-            class="usa-date-picker__calendar__month-selector ${CALENDAR_YEAR_SELECTION_CLASS}" aria-label="${focusedYear}. Click to select year">${focusedYear}
+            class="${CALENDAR_YEAR_SELECTION_CLASS}" aria-label="${focusedYear}. Click to select year">${focusedYear}
           </button>
         </div>
-        <div class="calendar_cell calendar_cell--center-items">
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
           <button 
             type="button"
             tabindex="-1"
-            class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_MONTH_CLASS}"
+            class="${CALENDAR_NEXT_MONTH_CLASS}"
             aria-label="Navigate forward one month"
           >&nbsp;</button>
         </div>
-        <div class="calendar_cell calendar_cell--center-items">
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
           <button 
             type="button"
             tabindex="-1"
-            class="usa-date-picker__calendar__month-selector ${CALENDAR_NEXT_YEAR_CLASS}"
+            class="${CALENDAR_NEXT_YEAR_CLASS}"
             aria-label="Navigate forward one year"
           >&nbsp;</button>
         </div>
       </div>
-      <div class="calendar_row">
-        <div class="calendar_cell" role="columnheader" aria-label="Sunday">S</div>
-        <div class="calendar_cell" role="columnheader" aria-label="Monday">M</div>
-        <div class="calendar_cell" role="columnheader" aria-label="Tuesday">T</div>
-        <div class="calendar_cell" role="columnheader" aria-label="Wednesday">W</div>
-        <div class="calendar_cell" role="columnheader" aria-label="Thursday">Th</div>
-        <div class="calendar_cell" role="columnheader" aria-label="Friday">F</div>
-        <div class="calendar_cell" role="columnheader" aria-label="Saturday">S</div>
+      <div class="usa-date-picker__calendar__row">
+        <div class="usa-date-picker__calendar__cell" role="columnheader" aria-label="Sunday">S</div>
+        <div class="usa-date-picker__calendar__cell" role="columnheader" aria-label="Monday">M</div>
+        <div class="usa-date-picker__calendar__cell" role="columnheader" aria-label="Tuesday">T</div>
+        <div class="usa-date-picker__calendar__cell" role="columnheader" aria-label="Wednesday">W</div>
+        <div class="usa-date-picker__calendar__cell" role="columnheader" aria-label="Thursday">Th</div>
+        <div class="usa-date-picker__calendar__cell" role="columnheader" aria-label="Friday">F</div>
+        <div class="usa-date-picker__calendar__cell" role="columnheader" aria-label="Saturday">S</div>
       </div>
       <div class="${CALENDAR_DATE_GRID_CLASS}">
         ${datesHtml}
@@ -642,6 +642,7 @@ const displayMonthSelection = el => {
  * Display the year selection screen in the date picker.
  *
  * @param {HTMLButtonElement} el An element within the date picker component
+ * @param {number} yearToDisplay year to display in year selection
  */
 const displayYearSelection = (el, yearToDisplay) => {
   const { calendarEl, calendarFrameEl, statusEl } = getDatePickerElements(el);
@@ -669,11 +670,11 @@ const displayYearSelection = (el, yearToDisplay) => {
   const newFrame = calendarFrameEl.cloneNode();
   newFrame.innerHTML =
     `<div class="${CALENDAR_YEAR_PICKER_CLASS}">
-      <button type="button" class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}" aria-label="Navigate back ${YEAR_CHUNK} years">&nbsp;</button>
+      <button type="button" class="${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}" aria-label="Navigate back ${YEAR_CHUNK} years">&nbsp;</button>
       <div role="grid" class="usa-date-picker__calendar__year-table ${CALENDAR_YEAR_GRID_CLASS}">
         ${yearsHtml}
       </div>
-      <button type="button" class="usa-date-picker__calendar__year-chunk-selector ${CALENDAR_NEXT_YEAR_CHUNK_CLASS}" aria-label="Navigate forward ${YEAR_CHUNK} years">&nbsp;</button>
+      <button type="button" class="${CALENDAR_NEXT_YEAR_CHUNK_CLASS}" aria-label="Navigate forward ${YEAR_CHUNK} years">&nbsp;</button>
     </div >`;
   calendarFrameEl.parentNode.replaceChild(newFrame, calendarFrameEl);
 

@@ -1,11 +1,15 @@
+// Date Picker
+
 .usa-date-picker {
   position: relative;
 }
 
+// Date Picker -- initialized
+
 .usa-date-picker__button {
   @include add-background-svg("calendar-alt-solid");
   background-position: center;
-  background-size: units(4);
+  background-size: units(3);
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   margin-top: 0.5em;
@@ -15,6 +19,8 @@
 .usa-date-picker--initialized {
   display: flex;
 }
+
+// Date Picker - Calendar View
 
 .usa-date-picker__calendar {
   background-color: color("base-lightest");
@@ -28,77 +34,84 @@
   }
 
   button {
-    background-color: color("base-lightest");
     border: 0;
-    padding: 6px 1px;
-    width: 100%;
 
     &:hover {
       background-color: color("base-lighter");
-      color: color("ink");
-      text-decoration: none;
+    }
+
+    &:active {
+      background-color: color("base-light");
     }
   }
 }
 
-.calendar_row {
-  display: flex;
+// Date Picker - Grid
+
+.usa-date-picker__calendar__row {
+  @include grid-row;
   text-align: center;
   width: 100%;
 }
 
-.calendar_cell {
+.usa-date-picker__calendar__cell {
   background-color: color("base-lightest");
   @include u-flex(1);
   padding: 4px;
 }
 
-.calendar_cell--center-items {
+.usa-date-picker__calendar__cell--center-items {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.calendar_cell_month_label {
+// Date Picker - Date Selection View
+
+.usa-date-picker__calendar__previous-year,
+.usa-date-picker__calendar__previous-month,
+.usa-date-picker__calendar__next-year,
+.usa-date-picker__calendar__next-month {
+  background-position: center;
+  background-size: auto units(2.5);
+  height: units(3);
+  padding: 15px 10px;
+  width: 100%;
+}
+
+.usa-date-picker__calendar__previous-year {
+  @include add-background-svg("angle-double-left-solid");
+}
+
+.usa-date-picker__calendar__previous-month {
+  @include add-background-svg("angle-left-solid");
+}
+
+.usa-date-picker__calendar__next-year {
+  @include add-background-svg("angle-double-right-solid");
+}
+
+.usa-date-picker__calendar__next-month {
+  @include add-background-svg("angle-right-solid");
+}
+
+.usa-date-picker__calendar__date {
+  padding: 6px 1px;
+  width: 100%;
+}
+
+.usa-date-picker__calendar__month-label {
   @include u-flex(4);
   padding: 4px 0;
   text-align: center;
-
-  button {
-    width: auto;
-  }
 }
 
-.usa-date-picker__calendar__year-table {
-  @include u-flex(1);
-}
-
-.usa-date-picker__calendar__month-picker,
-.usa-date-picker__calendar__year-picker {
-  padding: 20px 5px;
-}
-
-
-.usa-date-picker__calendar__year-picker {
-  display: flex;
-}
-
-.usa-date-picker__calendar__next-year-chunk,
-.usa-date-picker__calendar__previous-year-chunk,
-.usa-date-picker__calendar__month-selector,
-.usa-date-picker__calendar__date,
-.usa-date-picker__calendar__month,
-.usa-date-picker__calendar__year,
-.usa-date-picker__calendar__days-of-week__day {
-  background-color: color("base-lightest");
-  padding: 6px 1px;
-}
-
-.usa-date-picker__calendar__date-display {
-  .usa-date-picker__calendar__month-selector {
-    display: inline-block;
-    width: auto;
-  }
+.usa-date-picker__calendar__year-selection,
+.usa-date-picker__calendar__month-selection {
+  display: inline-block;
+  height: 100%;
+  padding: 4px;
+  width: auto;
 }
 
 .usa-date-picker__calendar__date--next-month,
@@ -106,42 +119,46 @@
   color: color("gray-warm-60");
 }
 
-button.usa-date-picker__calendar__next-year-chunk,
-button.usa-date-picker__calendar__previous-year-chunk {
+// Date Picker - Month Selection View
+
+.usa-date-picker__calendar__month-picker {
+  padding: 20px 5px;
+}
+
+.usa-date-picker__calendar__month {
+  padding: 6px 1px;
+  width: 100%;
+}
+
+// Date Picker - Year Selection View
+
+.usa-date-picker__calendar__year-picker {
+  padding: 20px 5px;
+  display: flex;
+}
+
+.usa-date-picker__calendar__previous-year-chunk,
+.usa-date-picker__calendar__next-year-chunk {
+  @include u-flex(1);
+  background-position: center;
+  background-size: auto units(4);
   margin: auto;
   padding: 40px 0;
 }
 
-.usa-date-picker__calendar__year-chunk-selector {
-  @include u-flex(1);
+.usa-date-picker__calendar__previous-year-chunk {
+  @include add-background-svg("angle-left-solid");
 }
 
-.usa-date-picker__calendar__year-table {
+.usa-date-picker__calendar__next-year-chunk {
+  @include add-background-svg("angle-right-solid");
+}
+
+.usa-date-picker__calendar__year-grid {
   @include u-flex(3);
 }
 
-.usa-date-picker__calendar__previous-year {
-  @include add-background-svg("angle-double-left-solid");
-  background-position: center;
-  height: units(3);
-}
-
-.usa-date-picker__calendar__previous-year-chunk,
-.usa-date-picker__calendar__previous-month {
-  @include add-background-svg("angle-left-solid");
-  background-position: center;
-  height: units(3);
-}
-
-.usa-date-picker__calendar__next-year {
-  @include add-background-svg("angle-double-right-solid");
-  background-position: center;
-  height: units(3);
-}
-
-.usa-date-picker__calendar__next-year-chunk,
-.usa-date-picker__calendar__next-month {
-  @include add-background-svg("angle-right-solid");
-  background-position: center;
-  height: units(3);
+.usa-date-picker__calendar__year {
+  padding: 6px 1px;
+  width: 100%;
 }
