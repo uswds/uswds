@@ -14,6 +14,12 @@ Sets:
   $scale: $theme-body-font-size,
   $line-height: $theme-body-line-height
 ) {
+  @if type-of($family) == "list" {
+    $list: $family;
+    $family: if(nth($list, 1), nth($list, 1), null);
+    $scale: if(nth($list, 2), nth($list, 2), null);
+    $line-height: if(nth($list, 3), nth($list, 3), null);
+  }
   $family: if($family == null, $theme-body-font-family, $family);
   $scale: if($scale == null, $theme-body-font-size, $scale);
   $line-height: if($line-height == null, $theme-body-line-height, $line-height);
