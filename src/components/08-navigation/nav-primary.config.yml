@@ -11,8 +11,9 @@ context:
         links: &subnav_links
           - text: Navigation link
             href: "#"
-          - text: Navigation link
+          - text: Current Navigation link
             href: "#"
+            is_current: true
           - text: Navigation link
             href: "#"
           - text: Navigation link
