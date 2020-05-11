@@ -78,6 +78,18 @@ const DAY_OF_WEEK_LABELS = [
 const YEAR_CHUNK = 12;
 
 /**
+ * Pad a string. Used to add leading zeros for date format
+ *
+ * @param {string} paddingValue the mask for the string
+ * @returns {function} a function that pads a string
+ */
+const padStart = paddingValue => {
+  return value => {
+    return String(paddingValue + value).slice(-paddingValue.length);
+  };
+};
+
+/**
  * Keep date within month. Month would only be over by 1 to 3 days
  *
  * @param {Date} dateToCheck the date object to check
@@ -90,18 +102,6 @@ const keepDateWithinMonth = (dateToCheck, month) => {
   }
 
   return dateToCheck;
-};
-
-/**
- * Pad a string. Used to add leading zeros for date format
- *
- * @param {string} paddingValue the mask for the string
- * @returns {function} a function that pads a string
- */
-const padStart = paddingValue => {
-  return value => {
-    return String(paddingValue + value).slice(-paddingValue.length);
-  };
 };
 
 /**
@@ -176,7 +176,7 @@ const parseDateString = (dateString, adjustDate = false) => {
       }
     }
 
-    if (year && month && dayStr) {
+    if (month && dayStr && year != null) {
       parsed = parseInt(dayStr, 10);
       if (!Number.isNaN(parsed)) {
         day = parsed;
@@ -188,12 +188,121 @@ const parseDateString = (dateString, adjustDate = false) => {
       }
     }
 
-    if (day && month && year) {
-      date = new Date(year, month - 1, day);
+    if (month && day && year != null) {
+      date = new Date(0);
+      date.setFullYear(year, month - 1, day);
     }
   }
 
   return date;
+};
+
+/**
+ * Add days to date
+ *
+ * @returns {Date} _date the date to adjust
+ * @param {number} numDays the difference in days
+ * @returns {Date} the adjusted date
+ */
+const addDays = (_date, numDays) => {
+  var newDate = new Date(_date.getTime());
+  newDate.setDate(newDate.getDate() + numDays);
+  return newDate;
+};
+
+/**
+ * Add weeks to date
+ *
+ * @returns {Date} _date the date to adjust
+ * @param {number} numWeeks the difference in weeks
+ * @returns {Date} the adjusted date
+ */
+const addWeeks = (_date, numWeeks) => {
+  return addDays(_date, numWeeks * 7);
+};
+
+/**
+ * Set date to the start of the week (Sunday)
+ *
+ * @returns {Date} _date the date to adjust
+ * @returns {Date} the adjusted date
+ */
+const startOfWeek = _date => {
+  const dayOfWeek = _date.getDay();
+  return addDays(_date, -dayOfWeek);
+};
+
+/**
+ * Set date to the end of the week (Saturday)
+ *
+ * @returns {Date} _date the date to adjust
+ * @param {number} numWeeks the difference in weeks
+ * @returns {Date} the adjusted date
+ */
+const endOfWeek = _date => {
+  const dayOfWeek = _date.getDay();
+  return addDays(_date, 6 - dayOfWeek);
+};
+
+/**
+ * Add months to date and keep date within month
+ *
+ * @returns {Date} _date the date to adjust
+ * @param {number} numMonths the difference in months
+ * @returns {Date} the adjusted date
+ */
+const addMonths = (_date, numMonths) => {
+  var newDate = new Date(_date.getTime());
+
+  const dateMonth = (newDate.getMonth() + 12 + numMonths) % 12;
+  newDate.setMonth(newDate.getMonth() + numMonths);
+  keepDateWithinMonth(newDate, dateMonth);
+
+  return newDate;
+};
+
+/**
+ * Add years to date and keep date within month
+ *
+ * @returns {Date} _date the date to adjust
+ * @param {number} numYears the difference in years
+ * @returns {Date} the adjusted date
+ */
+const addYears = (_date, numYears) => {
+  return addMonths(_date, numYears * 12);
+};
+
+/**
+ * Set months of date
+ *
+ * @returns {Date} _date the date to adjust
+ * @param {number} month zero-indexed month to set
+ * @returns {Date} the adjusted date
+ */
+const setMonth = (_date, month) => {
+  var newDate = new Date(_date.getTime());
+
+  newDate.setMonth(month);
+  keepDateWithinMonth(newDate, month);
+
+  return newDate;
+};
+
+/**
+ * Set year of date
+ *
+ * @returns {Date} _date the date to adjust
+ * @param {number} year the year to set
+ * @returns {Date} the adjusted date
+ */
+const setYear = (_date, year) => {
+  var newDate = new Date(_date.getTime());
+
+  const month = newDate.getMonth();
+  newDate.setFullYear(year);
+  keepDateWithinMonth(newDate, month);
+
+  return newDate;
 };
 
 /**
@@ -249,7 +358,7 @@ const enhanceDatePicker = datePickerEl => {
   const inputEl = datePickerEl.querySelector(`input`);
 
   if (!inputEl) {
-    throw new Error(`${DATE_PICKER} is missing inner ${DATE_PICKER_INPUT}`);
+    throw new Error(`${DATE_PICKER} is missing inner input`);
   }
 
   inputEl.classList.add(DATE_PICKER_INPUT_CLASS);
@@ -276,38 +385,30 @@ const validateDateInput = el => {
   const { inputEl } = getDatePickerElements(el);
   const dateString = inputEl.value;
   let isInvalid = false;
-  let month;
-  let day;
-  let year;
-  let parsed;
 
   if (dateString) {
     isInvalid = true;
 
-    const [monthStr, dayStr, yearStr] = dateString.split("/");
+    const dateStringParts = dateString.split("/");
+    const [month, day, year] = dateStringParts.map(str => {
+      let value;
+      const parsed = parseInt(str, 10);
+      if (!Number.isNaN(parsed)) value = parsed;
+      return value;
+    });
 
-    if (yearStr && yearStr.length === 4) {
-      parsed = parseInt(yearStr, 10);
-      if (!Number.isNaN(parsed) && parsed >= 0) year = parsed;
-    }
+    if (month && day && year != null) {
+      const checkDate = new Date(0);
+      checkDate.setFullYear(year, month - 1, day);
 
-    if (monthStr) {
-      parsed = parseInt(monthStr, 10);
-      if (!Number.isNaN(parsed) && parsed >= 1 && parsed <= 12) month = parsed;
-    }
-
-    if (month && year && dayStr) {
-      parsed = parseInt(dayStr, 10);
-      if (!Number.isNaN(parsed)) {
-        const checkDate = new Date(year, month - 1, parsed);
-        if (checkDate.getMonth() === month - 1) {
-          day = parsed;
-        }
+      if (
+        checkDate.getMonth() === month - 1 &&
+        checkDate.getDate() === day &&
+        checkDate.getFullYear() === year &&
+        dateStringParts[2].length === 4
+      ) {
+        isInvalid = false;
       }
-    }
-
-    if (day && month && year) {
-      isInvalid = false;
     }
   }
 
@@ -326,16 +427,18 @@ const validateDateInput = el => {
  * @param {HTMLElement} el An element within the date picker component
  * @param {Date} _dateToDisplay a date to render on the calendar
  */
-const renderCalendar = (el, _dateToDisplay) => {
+const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
   const {
     datePickerEl,
     calendarEl,
     calendarFrameEl,
     statusEl
   } = getDatePickerElements(el);
-  const dateToDisplay = _dateToDisplay || new Date();
+  let dateToDisplay = _dateToDisplay || new Date();
 
-  calendarEl.focus();
+  if (adjustFocus) {
+    calendarEl.focus();
+  }
 
   const focusedDay = dateToDisplay.getDate();
   const focusedMonth = dateToDisplay.getMonth();
@@ -345,6 +448,12 @@ const renderCalendar = (el, _dateToDisplay) => {
   const nextMonth = (focusedMonth + 1) % 12;
   const padDayMonth = padStart("00");
   const padYear = padStart("0000");
+
+  const currentFormattedDate = [
+    padDayMonth(focusedMonth + 1),
+    padDayMonth(focusedDay),
+    padYear(focusedYear)
+  ].join("/");
 
   const firstDay = new Date(focusedYear, focusedMonth, 1).getDay();
 
@@ -356,6 +465,12 @@ const renderCalendar = (el, _dateToDisplay) => {
     const month = dateToRender.getMonth();
     const year = dateToRender.getFullYear();
     const dayOfWeek = dateToRender.getDay();
+    const formattedDate = [
+      padDayMonth(month + 1),
+      padDayMonth(day),
+      padYear(year)
+    ].join("/");
+
     let tabindex = "-1";
 
     if (month === prevMonth) {
@@ -381,9 +496,7 @@ const renderCalendar = (el, _dateToDisplay) => {
       data-day="${day}" 
       data-month="${month + 1}" 
       data-year="${year}" 
-      data-value="${padDayMonth(month + 1)}/${padDayMonth(day)}/${padYear(
-      year
-    )}"
+      data-value="${formattedDate}"
       aria-label="${day} ${monthStr} ${year} ${dayStr}"
     >${day}</button>`;
   };
@@ -399,7 +512,7 @@ const renderCalendar = (el, _dateToDisplay) => {
     days.length % 7 !== 0
   ) {
     days.push(generateDateHtml(dateToDisplay));
-    dateToDisplay.setDate(dateToDisplay.getDate() + 1);
+    dateToDisplay = addDays(dateToDisplay, 1);
   }
 
   const datesHtml = listToGridHtml(days, 7);
@@ -468,6 +581,8 @@ const renderCalendar = (el, _dateToDisplay) => {
 
   calendarFrameEl.parentNode.replaceChild(newFrame, calendarFrameEl);
 
+  calendarEl.setAttribute("data-value", currentFormattedDate);
+
   if (calendarEl.hidden) {
     statusEl.innerHTML =
       "You can navigate by day using left and right arrows; weeks by using up and down arrows; months by using page up and page down keys; years by using shift plus page up and shift plus page down; home and end keys navigate to the beginning and end of a week.";
@@ -478,9 +593,10 @@ const renderCalendar = (el, _dateToDisplay) => {
   }
 
   const focusedDateEl = calendarEl.querySelector(CALENDAR_DATE_FOCUSED);
-  const focusedDate = focusedDateEl.getAttribute("data-value");
-  calendarEl.setAttribute("data-value", focusedDate);
-  focusedDateEl.focus();
+
+  if (adjustFocus) {
+    focusedDateEl.focus();
+  }
 };
 
 /**
@@ -501,12 +617,10 @@ const displayCalendar = el => {
  */
 const displayPreviousYear = el => {
   const { calendarEl } = getDatePickerElements(el);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  const dateMonth = date.getMonth();
-  date.setFullYear(date.getFullYear() - 1);
-  keepDateWithinMonth(date, dateMonth);
-
+  const date = addYears(
+    parseDateString(calendarEl.getAttribute("data-value")),
+    -1
+  );
   renderCalendar(calendarEl, date);
 };
 
@@ -517,12 +631,10 @@ const displayPreviousYear = el => {
  */
 const displayPreviousMonth = el => {
   const { calendarEl } = getDatePickerElements(el);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  const dateMonth = (date.getMonth() + 11) % 12;
-  date.setMonth(date.getMonth() - 1);
-  keepDateWithinMonth(date, dateMonth);
-
+  const date = addMonths(
+    parseDateString(calendarEl.getAttribute("data-value")),
+    -1
+  );
   renderCalendar(calendarEl, date);
 };
 
@@ -533,12 +645,10 @@ const displayPreviousMonth = el => {
  */
 const displayNextMonth = el => {
   const { calendarEl } = getDatePickerElements(el);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  const dateMonth = (date.getMonth() + 1) % 12;
-  date.setMonth(date.getMonth() + 1);
-  keepDateWithinMonth(date, dateMonth);
-
+  const date = addMonths(
+    parseDateString(calendarEl.getAttribute("data-value")),
+    1
+  );
   renderCalendar(calendarEl, date);
 };
 
@@ -549,12 +659,10 @@ const displayNextMonth = el => {
  */
 const displayNextYear = el => {
   const { calendarEl } = getDatePickerElements(el);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  const dateMonth = date.getMonth();
-  date.setFullYear(date.getFullYear() + 1);
-  keepDateWithinMonth(date, dateMonth);
-
+  const date = addYears(
+    parseDateString(calendarEl.getAttribute("data-value")),
+    1
+  );
   renderCalendar(calendarEl, date);
 };
 
@@ -596,11 +704,10 @@ const selectMonth = monthEl => {
   const { calendarEl } = getDatePickerElements(monthEl);
 
   const selectedMonth = parseInt(monthEl.getAttribute("data-value"), 10);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  const dateMonth = selectedMonth;
-  date.setMonth(selectedMonth);
-  keepDateWithinMonth(date, dateMonth);
+  const date = setMonth(
+    parseDateString(calendarEl.getAttribute("data-value")),
+    selectedMonth
+  );
 
   renderCalendar(calendarEl, date);
 };
@@ -614,11 +721,10 @@ const selectYear = yearEl => {
   const { calendarEl } = getDatePickerElements(yearEl);
 
   const selectedYear = parseInt(yearEl.innerHTML, 10);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  const dateMonth = date.getMonth();
-  date.setFullYear(selectedYear);
-  keepDateWithinMonth(date, dateMonth);
+  const date = setYear(
+    parseDateString(calendarEl.getAttribute("data-value")),
+    selectedYear
+  );
 
   renderCalendar(calendarEl, date);
 };
@@ -662,12 +768,12 @@ const displayYearSelection = (el, yearToDisplay) => {
 
   calendarEl.focus();
 
-  if (!yearToChunk) {
+  if (yearToChunk == null) {
     const date = parseDateString(calendarEl.getAttribute("data-value"));
     yearToChunk = date.getFullYear();
   }
   yearToChunk -= yearToChunk % YEAR_CHUNK;
-  yearToChunk = Math.max(100, yearToChunk);
+  yearToChunk = Math.max(0, yearToChunk);
 
   const years = [];
   let yearIndex = yearToChunk;
@@ -725,10 +831,10 @@ const displayNextYearChunk = el => {
  */
 const handleUp = event => {
   const { calendarEl } = getDatePickerElements(event.target);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  date.setDate(date.getDate() - 7);
-
+  const date = addWeeks(
+    parseDateString(calendarEl.getAttribute("data-value")),
+    -1
+  );
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
@@ -740,10 +846,10 @@ const handleUp = event => {
  */
 const handleDown = event => {
   const { calendarEl } = getDatePickerElements(event.target);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  date.setDate(date.getDate() + 7);
-
+  const date = addWeeks(
+    parseDateString(calendarEl.getAttribute("data-value")),
+    1
+  );
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
@@ -755,10 +861,10 @@ const handleDown = event => {
  */
 const handleLeft = event => {
   const { calendarEl } = getDatePickerElements(event.target);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  date.setDate(date.getDate() - 1);
-
+  const date = addDays(
+    parseDateString(calendarEl.getAttribute("data-value")),
+    -1
+  );
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
@@ -770,10 +876,10 @@ const handleLeft = event => {
  */
 const handleRight = event => {
   const { calendarEl } = getDatePickerElements(event.target);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  date.setDate(date.getDate() + 1);
-
+  const date = addDays(
+    parseDateString(calendarEl.getAttribute("data-value")),
+    1
+  );
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
@@ -785,11 +891,9 @@ const handleRight = event => {
  */
 const handleHome = event => {
   const { calendarEl } = getDatePickerElements(event.target);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  const dayOfWeek = date.getDay();
-  date.setDate(date.getDate() - dayOfWeek);
-
+  const date = startOfWeek(
+    parseDateString(calendarEl.getAttribute("data-value"))
+  );
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
@@ -801,11 +905,9 @@ const handleHome = event => {
  */
 const handleEnd = event => {
   const { calendarEl } = getDatePickerElements(event.target);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  const dayOfWeek = date.getDay();
-  date.setDate(date.getDate() + (6 - dayOfWeek));
-
+  const date = endOfWeek(
+    parseDateString(calendarEl.getAttribute("data-value"))
+  );
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
@@ -817,12 +919,10 @@ const handleEnd = event => {
  */
 const handlePageDown = event => {
   const { calendarEl } = getDatePickerElements(event.target);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  const dateMonth = (date.getMonth() + 1) % 12;
-  date.setMonth(date.getMonth() + 1);
-  keepDateWithinMonth(date, dateMonth);
-
+  const date = addMonths(
+    parseDateString(calendarEl.getAttribute("data-value")),
+    1
+  );
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
@@ -834,12 +934,10 @@ const handlePageDown = event => {
  */
 const handlePageUp = event => {
   const { calendarEl } = getDatePickerElements(event.target);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  const dateMonth = (date.getMonth() + 11) % 12;
-  date.setMonth(date.getMonth() - 1);
-  keepDateWithinMonth(date, dateMonth);
-
+  const date = addMonths(
+    parseDateString(calendarEl.getAttribute("data-value")),
+    -1
+  );
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
@@ -851,12 +949,10 @@ const handlePageUp = event => {
  */
 const handleShiftPageDown = event => {
   const { calendarEl } = getDatePickerElements(event.target);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  const dateMonth = date.getMonth();
-  date.setFullYear(date.getFullYear() + 1);
-  keepDateWithinMonth(date, dateMonth);
-
+  const date = addYears(
+    parseDateString(calendarEl.getAttribute("data-value")),
+    1
+  );
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
@@ -868,12 +964,10 @@ const handleShiftPageDown = event => {
  */
 const handleShiftPageUp = event => {
   const { calendarEl } = getDatePickerElements(event.target);
-
-  const date = parseDateString(calendarEl.getAttribute("data-value"));
-  const dateMonth = date.getMonth();
-  date.setFullYear(date.getFullYear() - 1);
-  keepDateWithinMonth(date, dateMonth);
-
+  const date = addYears(
+    parseDateString(calendarEl.getAttribute("data-value")),
+    -1
+  );
   renderCalendar(calendarEl, date);
   event.preventDefault();
 };
@@ -904,6 +998,18 @@ const toggleCalendar = el => {
     displayCalendar(el);
   } else {
     hideCalendar(el);
+  }
+};
+
+const updateCalendarIfVisible = el => {
+  const { calendarEl, inputEl } = getDatePickerElements(el);
+  const calendarShown = !calendarEl.hidden;
+
+  if (calendarShown) {
+    const date = parseDateString(inputEl.value, true);
+    if (date) {
+      renderCalendar(calendarEl, date, false);
+    }
   }
 };
 
@@ -949,18 +1055,15 @@ const datePicker = behavior(
     },
     keyup: {
       [DATE_PICKER_CALENDAR](event) {
-        const keydownDateNow = this.getAttribute("date-keydown-date-now");
-        if (
-          !keydownDateNow ||
-          Date.now() - parseInt(keydownDateNow, 10) > 1000
-        ) {
+        const keydown = this.getAttribute("data-keydown-keyCode");
+        if (`${event.keyCode}` !== keydown) {
           event.preventDefault();
         }
       }
     },
     keydown: {
-      [DATE_PICKER_CALENDAR]() {
-        this.setAttribute("date-keydown-date-now", Date.now());
+      [DATE_PICKER_CALENDAR](event) {
+        this.setAttribute("data-keydown-keyCode", event.keyCode);
       },
       [CALENDAR_DATE_FOCUSED]: keymap({
         Up: handleUp,
@@ -1002,6 +1105,11 @@ const datePicker = behavior(
         if (!datePickerEl.contains(event.relatedTarget)) {
           hideCalendar(datePickerEl);
         }
+      }
+    },
+    input: {
+      [DATE_PICKER_INPUT]() {
+        updateCalendarIfVisible(this);
       }
     }
   },
