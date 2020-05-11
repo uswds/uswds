@@ -158,14 +158,28 @@ $z-index-overlay: 400;
       display: flex;
     }
 
-    .usa-current,
-    [aria-expanded="true"],
+    .usa-nav__primary-item > .usa-current,
     .usa-nav__link:hover {
       @include nav-border-basic;
     }
 
+    // Don't show extended border if dropdown is active.
+    .usa-nav__link[aria-expanded="true"]::after,
+    .usa-nav__link[aria-expanded="true"]:hover::after {
+      display: none;
+    }
+
     .usa-nav__primary {
       width: auto;
+    }
+
+    // Issue #3401: last dropdown gets cutoff.
+    .usa-nav__primary-item:last-of-type {
+      position: relative;
+
+      .usa-nav__submenu {
+        @include u-pin-right;
+      }
     }
 
     .usa-search {
@@ -183,6 +197,12 @@ $z-index-overlay: 400;
         margin-top: units(-5);
       }
     }
+
+    .usa-nav__primary-item:last-of-type {
+      @include at-media($theme-header-min-width) {
+        position: static;
+      }
+    }
   }
 }
 
@@ -193,10 +213,15 @@ $z-index-overlay: 400;
   @include at-media($theme-header-min-width) {
     padding-top: 0;
 
-    .usa-current,
-    [aria-expanded="true"],
-    .usa-nav__link:hover {
+    .usa-nav__primary-item > .usa-current,
+    .usa-nav__primary-item > .usa-nav__link:hover {
       @include nav-border-extended;
+    }
+
+    // Don't show extended border if dropdown is active.
+    .usa-nav__link[aria-expanded="true"]::after,
+    .usa-nav__link[aria-expanded="true"]:hover::after {
+      display: none;
     }
   }
 

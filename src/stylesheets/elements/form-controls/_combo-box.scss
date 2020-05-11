@@ -1,0 +1,55 @@
+.usa-combo-box {
+  position: relative;
+}
+
+.usa-combo-box__input {
+  @extend %block-input-general;
+  @extend %block-input-styles;
+  @include add-background-svg("arrow-down");
+  appearance: none;
+  background-color: color("white");
+  background-position: right units(1.5) center;
+  background-size: units(2);
+  margin-bottom: 0;
+  padding-right: units(4);
+}
+
+.usa-combo-box__list {
+  @extend %block-input-general;
+  @include u-border(1px, "base-dark");
+  background-color: color("white");
+  border-radius: 0;
+  border-top: 0;
+  margin: 0;
+  max-height: 12.1em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  z-index: z-index(100);
+}
+
+.usa-combo-box__list-option {
+  border-bottom: units(1px) solid color("base-lighter");
+  cursor: pointer;
+  display: block;
+  padding: units(1);
+
+  &--focused:focus {
+    outline-offset: -4px;
+  }
+
+  &:hover,
+  &--focused {
+    background-color: color("primary");
+    border-color: color("primary");
+    color: color("white");
+  }
+}
+
+.usa-combo-box__list-option--no-results {
+  cursor: not-allowed;
+  display: block;
+  padding: units(1);
+}
