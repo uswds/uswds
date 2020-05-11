@@ -12,6 +12,12 @@
   "mocha": {
     "config": "spec/.mocharc.json"
   },
+  "browserslist": [
+    "> 2%",
+    "last 2 versions",
+    "ie 11",
+    "not dead"
+  ],
   "scripts": {
     "build": "gulp build",
     "build:css": "gulp sass",
