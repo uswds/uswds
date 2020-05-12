@@ -87,22 +87,15 @@ const enhanceComboBox = el => {
   const selectId = selectEl.id;
   const listId = `${selectId}--list`;
   const assistiveHintID = `${selectId}--assistiveHint`;
-  let placeholder = "";
+  const placeholder = comboBoxEl.getAttribute("placeholder");
   let selectedOption;
   const additionalAttributes = [];
 
   for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
     const optionEl = selectEl.options[i];
 
-    if (!placeholder && !optionEl.value) {
-      placeholder = `placeholder="${optionEl.text}"`;
-    }
-
     if (!selectedOption && optionEl.selected && optionEl.value) {
       selectedOption = optionEl;
-    }
-
-    if (placeholder && selectedOption) {
       break;
     }
   }
