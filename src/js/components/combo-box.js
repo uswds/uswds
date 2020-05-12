@@ -143,7 +143,7 @@ const enhanceComboBox = el => {
         role="listbox"
         hidden>
       </ul>`,
-      `<div class="${STATUS_CLASS} usa-sr-only" role="status">
+      `<div class="${STATUS_CLASS} usa-sr-only" role="status" aria-live="polite">
       </div>`,
       `<span id="${assistiveHintID}" class="usa-sr-only">
         When autocomplete results are available use up and down arrows to review and enter to select.
@@ -201,8 +201,8 @@ const displayList = el => {
 
   const noResults = `<li class="${LIST_OPTION_CLASS}--no-results">No results found</li>`;
 
-  listEl.hidden = false;
   listEl.innerHTML = numOptions ? optionHtml : noResults;
+  listEl.hidden = false;
 
   inputEl.setAttribute("aria-expanded", "true");
 
@@ -224,8 +224,8 @@ const hideList = el => {
   inputEl.setAttribute("aria-expanded", "false");
   inputEl.setAttribute("aria-activedescendant", "");
 
-  listEl.innerHTML = "";
   listEl.hidden = true;
+  listEl.innerHTML = "";
 };
 
 /**
@@ -419,13 +419,22 @@ const comboBox = behavior(
       }
     },
     keydown: {
+      [INPUT]: keymap({
+        Enter: handleEnter
+      }),
+      [LIST_OPTION](event) {
+        // Space (32) or Enter (13)
+        if (event.keyCode === 32 || event.keyCode === 13) {
+          selectItem(this);
+          event.preventDefault();
+        }
+      },
       [COMBO_BOX]: keymap({
         ArrowUp: handleUp,
         Up: handleUp,
         ArrowDown: handleDown,
         Down: handleDown,
-        Escape: handleEscape,
-        Enter: handleEnter
+        Escape: handleEscape
       })
     },
     keyup: {
