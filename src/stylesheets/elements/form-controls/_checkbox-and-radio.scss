@@ -11,6 +11,11 @@
   }
 }
 
+.usa-legend + .usa-checkbox,
+.usa-legend + .usa-radio__input {
+  margin-top: units(3);
+}
+
 .usa-checkbox__input,
 .usa-radio__input {
   // The actual input element is only visible to screen readers, because
