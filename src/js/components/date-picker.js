@@ -495,8 +495,6 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
 
   const prevMonth = (focusedMonth + 11) % 12;
   const nextMonth = (focusedMonth + 1) % 12;
-  const padDayMonth = padStart("00");
-  const padYear = padStart("0000");
 
   const currentFormattedDate = formatDate(dateToDisplay);
 
