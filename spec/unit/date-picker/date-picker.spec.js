@@ -12,6 +12,18 @@ const EVENTS = {};
 const VALIDATION_MESSAGE = "Please enter a valid date";
 
 /**
+ * send an input event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.input = (el = document.activeElement) => {
+  const evt = new KeyboardEvent("input", {
+    bubbles: true,
+    cancelable: true
+  });
+  el.dispatchEvent(evt);
+};
+
+/**
  * send a click event
  * @param {HTMLElement} el the element to sent the event to
  */
@@ -44,6 +56,23 @@ EVENTS.focusout = (el = document.activeElement) => {
 EVENTS.keydownEnter = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
+    keyCode: 13,
+    key: "Enter"
+  });
+  const preventDefaultSpy = sinon.spy(evt, "preventDefault");
+  el.dispatchEvent(evt);
+  return { preventDefaultSpy };
+};
+
+/**
+ * send a keyup Enter event
+ * @param {HTMLElement} el the element to sent the event to
+ * @returns {{preventDefaultSpy: sinon.SinonSpy<[], void>}}
+ */
+EVENTS.keyupEnter = (el = document.activeElement) => {
+  const evt = new KeyboardEvent("keyup", {
+    bubbles: true,
+    keyCode: 13,
     key: "Enter"
   });
   const preventDefaultSpy = sinon.spy(evt, "preventDefault");
@@ -70,6 +99,7 @@ EVENTS.keydownEscape = (el = document.activeElement) => {
 EVENTS.keydownSpace = (el = document.activeElement) => {
   const evt = new KeyboardEvent("keydown", {
     bubbles: true,
+    keyCode: 32,
     key: " "
   });
   el.dispatchEvent(evt);
@@ -520,7 +550,7 @@ describe("date picker component", () => {
     assert.equal(calendar.hidden, true, "The calendar is hidden");
   });
 
-  it("should move focus the to the same day of week of the previous week when up is pressed from the currently focused day", () => {
+  it("should move focus to the same day of week of the previous week when up is pressed from the currently focused day", () => {
     input.value = "1/10/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -547,7 +577,7 @@ describe("date picker component", () => {
     );
   });
 
-  it("should move focus the to the same day of week of the next week when down is pressed from the currently focused day", () => {
+  it("should move focus to the same day of week of the next week when down is pressed from the currently focused day", () => {
     input.value = "1/10/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -574,7 +604,7 @@ describe("date picker component", () => {
     );
   });
 
-  it("should move focus the to the previous day when left is pressed from the currently focused day", () => {
+  it("should move focus to the previous day when left is pressed from the currently focused day", () => {
     input.value = "1/10/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -601,7 +631,7 @@ describe("date picker component", () => {
     );
   });
 
-  it("should move focus the to the next day when right is pressed from the currently focused day", () => {
+  it("should move focus to the next day when right is pressed from the currently focused day", () => {
     input.value = "1/10/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -628,7 +658,7 @@ describe("date picker component", () => {
     );
   });
 
-  it("should move focus the to the first day (e.g. Sunday) of the current week when home is pressed from the currently focused day", () => {
+  it("should move focus to the first day (e.g. Sunday) of the current week when home is pressed from the currently focused day", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -655,7 +685,7 @@ describe("date picker component", () => {
     );
   });
 
-  it("should move focus the to the last day (e.g. Saturday) of the current week when end is pressed from the currently focused day", () => {
+  it("should move focus to the last day (e.g. Saturday) of the current week when end is pressed from the currently focused day", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -682,7 +712,7 @@ describe("date picker component", () => {
     );
   });
 
-  it("should move focus the to the same day of the previous month when page up is pressed from the currently focused day", () => {
+  it("should move focus to the same day of the previous month when page up is pressed from the currently focused day", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -709,7 +739,7 @@ describe("date picker component", () => {
     );
   });
 
-  it("should move focus the to the last day of the previous month when page up is pressed from the the last day of a longer month", () => {
+  it("should move focus to the last day of the previous month when page up is pressed from the the last day of a longer month", () => {
     input.value = "12/31/2019";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -736,7 +766,34 @@ describe("date picker component", () => {
     );
   });
 
-  it("should move focus the to the same day of the next month when page down is pressed from the currently focused day", () => {
+  it("should not move focus to the previous month when page up is pressed from a focused date that will then move before the minimum date", () => {
+    input.value = "1/28/0000";
+    EVENTS.click(button);
+    assert.equal(calendar.hidden, false, "The calendar is shown");
+
+    EVENTS.keydownPageUp();
+
+    assert.equal(
+      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+        .textContent,
+      "28",
+      "focuses correct date"
+    );
+    assert.equal(
+      calendar.querySelector(".usa-date-picker__calendar__month-selection")
+        .textContent,
+      "January",
+      "shows correct month"
+    );
+    assert.equal(
+      calendar.querySelector(".usa-date-picker__calendar__year-selection")
+        .textContent,
+      "0",
+      "shows correct year"
+    );
+  });
+
+  it("should move focus to the same day of the next month when page down is pressed from the currently focused day", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -763,7 +820,7 @@ describe("date picker component", () => {
     );
   });
 
-  it("should move focus the to the last day of the next month when page down is pressed from the the last day of a longer month", () => {
+  it("should move focus to the last day of the next month when page down is pressed from the the last day of a longer month", () => {
     input.value = "1/31/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -790,7 +847,7 @@ describe("date picker component", () => {
     );
   });
 
-  it("should move focus the to the same day of the month January when page down is pressed from the currently focused day in December", () => {
+  it("should move focus to the same day of the month January when page down is pressed from the currently focused day in December", () => {
     input.value = "12/31/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -817,7 +874,7 @@ describe("date picker component", () => {
     );
   });
 
-  it("should move focus the to the same day/month of the previous year when shift + page up is pressed from the currently focused day", () => {
+  it("should move focus to the same day/month of the previous year when shift + page up is pressed from the currently focused day", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -844,7 +901,34 @@ describe("date picker component", () => {
     );
   });
 
-  it("should move focus the to February 28th of the previous year when shift + page up is pressed from a focused February 29th date of a leap year", () => {
+  it("should not move focus to the previous year when shift + page up is pressed from a focused date that will then move before the minimum date", () => {
+    input.value = "2/28/0000";
+    EVENTS.click(button);
+    assert.equal(calendar.hidden, false, "The calendar is shown");
+
+    EVENTS.keydownShiftPageUp();
+
+    assert.equal(
+      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+        .textContent,
+      "28",
+      "focuses correct date"
+    );
+    assert.equal(
+      calendar.querySelector(".usa-date-picker__calendar__month-selection")
+        .textContent,
+      "February",
+      "shows correct month"
+    );
+    assert.equal(
+      calendar.querySelector(".usa-date-picker__calendar__year-selection")
+        .textContent,
+      "0",
+      "shows correct year"
+    );
+  });
+
+  it("should not move focus to February 28th of the previous year when shift + page up is pressed from a focused February 29th date of a leap year", () => {
     input.value = "2/29/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -871,7 +955,7 @@ describe("date picker component", () => {
     );
   });
 
-  it("should move focus the to the same day/month of the next year when shift + page down is pressed from the currently focused day", () => {
+  it("should move focus to the same day/month of the next year when shift + page down is pressed from the currently focused day", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -898,7 +982,7 @@ describe("date picker component", () => {
     );
   });
 
-  it("should move focus the to February 28th of the next year when shift + page down is pressed from a focused February 29th date of a leap year", () => {
+  it("should move focus to February 28th of the next year when shift + page down is pressed from a focused February 29th date of a leap year", () => {
     input.value = "2/29/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
@@ -957,6 +1041,23 @@ describe("date picker component", () => {
     assert.equal(input.validationMessage, VALIDATION_MESSAGE);
   });
 
+  it("should update the calendar when a valid date is entered in the input while the date picker is open", () => {
+    input.value = "6/1/2020";
+    EVENTS.click(button);
+    const firstFocus = calendar.querySelector(
+      ".usa-date-picker__calendar__date--focused"
+    );
+
+    input.value = "6/20/2020";
+    EVENTS.input(input);
+
+    const secondFocus = calendar.querySelector(
+      ".usa-date-picker__calendar__date--focused"
+    );
+
+    assert.equal(firstFocus !== secondFocus, true);
+  });
+
   it("should validate the input when a date is selected", () => {
     input.value = "2/31/2019";
     EVENTS.focusout(input);
@@ -969,5 +1070,44 @@ describe("date picker component", () => {
     );
 
     assert.equal(input.validationMessage, "");
+  });
+
+  it("should show an improper date as invalid if the user presses enter from the input", () => {
+    input.value = "2/31/2019";
+
+    EVENTS.keydownEnter(input);
+
+    assert.equal(input.validationMessage, VALIDATION_MESSAGE);
+  });
+
+  it("should prevent action from button when event didn't originate from date", () => {
+    input.value = "2/31/2019";
+    EVENTS.click(button);
+    assert.equal(calendar.hidden, false, "The calendar is shown");
+    const { preventDefaultSpy } = EVENTS.keyupEnter();
+    assert.ok(
+      preventDefaultSpy.called,
+      "should not have allowed enter to perform default action"
+    );
+  });
+
+  it("should display a calendar for the current date when enter is pressed from the date picker button", () => {
+    EVENTS.keydownEnter(button);
+
+    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.ok(
+      calendar.contains(document.activeElement),
+      "The focus is within the component"
+    );
+  });
+
+  it("should display a calendar for the current date when space is pressed from the date picker button", () => {
+    EVENTS.keydownSpace(button);
+
+    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.ok(
+      calendar.contains(document.activeElement),
+      "The focus is within the component"
+    );
   });
 });
