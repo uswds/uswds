@@ -436,7 +436,7 @@ const enhanceDatePicker = datePickerEl => {
 };
 
 /**
- * Validate the value in the input as a valid date of format MM/DD/YYYY
+ * Validate the value in the input as a valid date of format M/D/YYYY
  *
  * @param {HTMLElement} el An element within the date picker component
  */
