@@ -412,9 +412,12 @@ const comboBox = behavior(
       }
     },
     keydown: {
-      [INPUT]: keymap({
-        Enter: handleEnter
-      }),
+      [INPUT](event) {
+        this.setAttribute("data-keydown-keyCode", event.keyCode);
+        if (event.keyCode === 13) {
+          handleEnter(event);
+        }
+      },
       [LIST_OPTION](event) {
         // Space (32) or Enter (13)
         if (event.keyCode === 32 || event.keyCode === 13) {
@@ -432,7 +435,10 @@ const comboBox = behavior(
     },
     keyup: {
       [INPUT](event) {
-        if (isPrintableKeyCode(event.keyCode)) {
+        const keydown = this.getAttribute("data-keydown-keyCode");
+        if (event.keyCode === 32 && keydown !== "32") {
+          event.preventDefault();
+        } else if (isPrintableKeyCode(event.keyCode)) {
           displayList(this);
         }
       }
