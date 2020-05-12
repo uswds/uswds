@@ -109,6 +109,18 @@ const setDate = (year, month, date) => {
 };
 
 /**
+ * Set date to first day of the month
+ *
+ * @param {number} date the date to adjust
+ * @returns {Date} the adjusted date
+ */
+const startOfMonth = date => {
+  var newDate = new Date(0);
+  newDate.setFullYear(date.getFullYear(), date.getMonth(), 1);
+  return newDate;
+};
+
+/**
  * Set date to last day of the month
  *
  * @param {number} date the date to adjust
@@ -498,10 +510,9 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
 
   const currentFormattedDate = formatDate(dateToDisplay);
 
-  const firstOfMonth = setDate(focusedYear, focusedMonth, 1);
-  const firstDay = firstOfMonth.getDay();
+  const firstOfMonth = startOfMonth(dateToDisplay);
   const prevMonthDisabled = addDays(firstOfMonth, -1) < minDate;
-  const prevYearDisabled = addDays(addMonths(firstOfMonth, -11), -1) < minDate;
+  const prevYearDisabled = lastDayOfMonth(addYears(firstOfMonth, -1)) < minDate;
 
   const monthLabel = MONTH_LABELS[focusedMonth];
 
@@ -547,7 +558,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
   };
 
   // set date to first rendered day
-  dateToDisplay.setDate(1 - firstDay);
+  dateToDisplay = startOfWeek(firstOfMonth);
 
   const days = [];
 
