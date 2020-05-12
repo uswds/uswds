@@ -430,7 +430,7 @@ const enhanceDatePicker = datePickerEl => {
       `<div tabindex="-1" class="${DATE_PICKER_CALENDAR_CLASS}" aria-label="Calendar" hidden>
         <div class="${CALENDAR_FRAME_CLASS}"></div>
       </div>`,
-      `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role='status' aria-live='polite'></div>`
+      `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
     ].join("")
   );
 };
