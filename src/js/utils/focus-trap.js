@@ -39,6 +39,9 @@ const tabHandler = context => {
 module.exports = (context, additionalKeyBindings = {}) => {
   const tabEventHandler = tabHandler(context);
 
+  const { Esc, Escape } = additionalKeyBindings;
+  if (Escape && !Esc) additionalKeyBindings.Esc = Escape;
+
   //  TODO: In the future, loop over additional keybindings and pass an array
   // of functions, if necessary, to the map keys. Then people implementing
   // the focus trap could pass callbacks to fire when tabbing
