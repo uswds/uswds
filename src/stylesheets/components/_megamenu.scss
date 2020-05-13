@@ -10,6 +10,7 @@
 .usa-megamenu {
   .usa-col {
     @include u-flex(1);
+    flex-basis: auto;
     @include at-media($theme-header-min-width) {
       // needs this round() to avoid a compile bug
       @include u-flex(round(12 / $theme-megamenu-columns));
