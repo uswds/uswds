@@ -4,7 +4,9 @@ const sinon = require("sinon");
 const assert = require("assert");
 const ComboBox = require("../../../src/js/components/combo-box");
 
-const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
+const TEMPLATE = fs.readFileSync(
+  path.join(__dirname, "/combo-box.template.html")
+);
 
 const EVENTS = {};
 
@@ -202,12 +204,6 @@ describe("combo box component", () => {
       "-1",
       "the select should be hidden from keyboard navigation"
     );
-    assert.equal(
-      select.value,
-      "value-JavaScript",
-      "select the selected select item"
-    );
-    assert.equal(input.value, "JavaScript", "select the selected select item");
   });
 
   it("should show the list by clicking the input", () => {

@@ -87,16 +87,19 @@ const enhanceComboBox = el => {
   const selectId = selectEl.id;
   const listId = `${selectId}--list`;
   const assistiveHintID = `${selectId}--assistiveHint`;
-  const placeholder = comboBoxEl.getAttribute("placeholder");
+  const placeholder = comboBoxEl.getAttribute("data-placeholder");
+  const defaultValue = comboBoxEl.getAttribute("data-default-value");
   let selectedOption;
   const additionalAttributes = [];
 
-  for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
-    const optionEl = selectEl.options[i];
+  if (defaultValue) {
+    for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
+      const optionEl = selectEl.options[i];
 
-    if (!selectedOption && optionEl.selected && optionEl.value) {
-      selectedOption = optionEl;
-      break;
+      if (optionEl.value && optionEl.value === defaultValue) {
+        selectedOption = optionEl;
+        break;
+      }
     }
   }
 
@@ -104,6 +107,10 @@ const enhanceComboBox = el => {
   selectEl.setAttribute("tabindex", "-1");
   selectEl.classList.add("usa-sr-only");
   selectEl.id = "";
+
+  if (placeholder) {
+    additionalAttributes.push(`placeholder="${placeholder}"`);
+  }
 
   ["required", "aria-label", "aria-labelledby"].forEach(name => {
     if (selectEl.hasAttribute(name)) {
@@ -122,7 +129,6 @@ const enhanceComboBox = el => {
         aria-describedby="${assistiveHintID}"
         aria-expanded="false"
         autocapitalize="off"
-        ${placeholder || ""}
         autocomplete="off"
         id="${selectId}"
         class="${INPUT_CLASS}"
