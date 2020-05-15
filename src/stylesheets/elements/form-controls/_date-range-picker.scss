@@ -124,6 +124,27 @@
   color: color("gray-warm-60");
 }
 
+.usa-date-range-picker__input--selected {
+  //@include focus-outline(2, null, null, 0.5);
+  background-color: #d0dcfd;
+}
+
+button.usa-date-range-picker__calendar__date--range-date {
+  background-color: #d0dcfd;
+}
+
+button.usa-date-range-picker__calendar__date--start-date {
+  background-color: #424bfe;
+}
+
+button.usa-date-range-picker__calendar__date--end-date {
+  background-color: #424bfe;
+}
+
+button.usa-date-range-picker__calendar__date--focused {
+  background-color: color("base-lightest");
+}
+
 // Date Range Picker - Month Selection View
 
 .usa-date-range-picker__calendar__month-picker {

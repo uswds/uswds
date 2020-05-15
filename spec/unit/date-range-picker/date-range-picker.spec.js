@@ -49,6 +49,18 @@ EVENTS.focusout = (el = document.activeElement) => {
 };
 
 /**
+ * send a focusin event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.focusin = (el = document.activeElement) => {
+  const evt = new Event("focusin", {
+    bubbles: true,
+    cancelable: true
+  });
+  el.dispatchEvent(evt);
+};
+
+/**
  * send a keydown Enter event
  * @param {HTMLElement} el the element to sent the event to
  * @returns {{preventDefaultSpy: sinon.SinonSpy<[], void>}}
@@ -313,6 +325,7 @@ describe("date range picker component", () => {
 
   it("should allow for the selection of a date within the calendar", () => {
     startInput.value = "1/1/2020";
+    endInput.value = "1/1/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
 
@@ -640,22 +653,12 @@ describe("date range picker component", () => {
   });
 
   it("should close the calendar and focus the end input when escape is pressed within the calendar and a start value has already been selected", () => {
+    startInput.value = "01/09/2020";
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
 
-    EVENTS.click(
-      calendar.querySelector(
-        '.usa-date-range-picker__calendar__date[data-day="9"]'
-      )
-    );
-
     EVENTS.keydownEscape();
 
-    assert.equal(
-      startInput.value,
-      "01/09/2020",
-      "The start value has been filled in"
-    );
     assert.equal(calendar.hidden, true, "The calendar is hidden");
     assert.equal(
       endInput,
@@ -1206,15 +1209,15 @@ describe("date range picker component", () => {
     assert.equal(startInput.validationMessage, VALIDATION_MESSAGE);
   });
 
-  it("should update the calendar when a valid date is entered in the startInput while the date range picker is open", () => {
+  it("should update the calendar when a valid date is entered in the start input while the date range picker is open", () => {
     startInput.value = "6/1/2020";
     EVENTS.click(button);
     const firstFocus = calendar.querySelector(
       ".usa-date-range-picker__calendar__date--focused"
     );
 
-    startInput.value = "6/20/2020";
-    EVENTS.input(startInput);
+    endInput.value = "6/20/2020";
+    EVENTS.input(endInput);
 
     const secondFocus = calendar.querySelector(
       ".usa-date-range-picker__calendar__date--focused"
@@ -1230,6 +1233,7 @@ describe("date range picker component", () => {
     EVENTS.click(button);
     assert.equal(calendar.hidden, false, "The calendar is shown");
 
+    EVENTS.focusin(startInput);
     EVENTS.click(
       calendar.querySelector(
         '.usa-date-range-picker__calendar__date[data-day="10"]'

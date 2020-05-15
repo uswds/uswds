@@ -36,6 +36,7 @@ const CALENDAR_DATE_CLASS = `${DATE_RANGE_PICKER_CALENDAR_CLASS}__date`;
 const CALENDAR_FRAME_CLASS = `${CALENDAR_DATE_CLASS}__frame`;
 const CALENDAR_DATE_FOCUSED_CLASS = `${CALENDAR_DATE_CLASS}--focused`;
 const CALENDAR_DATE_START_DATE_CLASS = `${CALENDAR_DATE_CLASS}--start-date`;
+const CALENDAR_DATE_END_DATE_CLASS = `${CALENDAR_DATE_CLASS}--end-date`;
 const CALENDAR_DATE_RANGE_DATE_CLASS = `${CALENDAR_DATE_CLASS}--range-date`;
 const CALENDAR_PREVIOUS_YEAR_CLASS = `${DATE_RANGE_PICKER_CALENDAR_CLASS}__previous-year`;
 const CALENDAR_PREVIOUS_MONTH_CLASS = `${DATE_RANGE_PICKER_CALENDAR_CLASS}__previous-month`;
@@ -405,6 +406,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     statusEl,
     isEndDate,
     startDate,
+    endDate,
     minDate
   } = getDateRangePickerContext(el);
   let dateToDisplay = _dateToDisplay || new Date();
@@ -413,6 +415,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     calendarEl.focus();
   }
 
+  const focusedDate = addDays(dateToDisplay, 0);
   const focusedMonth = dateToDisplay.getMonth();
   const focusedYear = dateToDisplay.getFullYear();
 
@@ -448,18 +451,34 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     }
 
     if (isEndDate) {
-      if (isSameDay(dateToRender, startDate)) {
-        classes.push(CALENDAR_DATE_START_DATE_CLASS);
+      if (startDate) {
+        if (isSameDay(dateToRender, startDate)) {
+          classes.push(CALENDAR_DATE_START_DATE_CLASS);
+        }
+
+        if (
+          isAfter(dateToRender, startDate) &&
+          isBefore(dateToRender, focusedDate)
+        ) {
+          classes.push(CALENDAR_DATE_RANGE_DATE_CLASS);
+        }
       }
-      if (
-        isAfter(dateToRender, startDate) &&
-        isBefore(dateToRender, dateToDisplay)
-      ) {
-        classes.push(CALENDAR_DATE_RANGE_DATE_CLASS);
+    } else {
+      if (endDate) {
+        if (isSameDay(dateToRender, endDate)) {
+          classes.push(CALENDAR_DATE_END_DATE_CLASS);
+        }
+
+        if (
+          isAfter(dateToRender, focusedDate) &&
+          isBefore(dateToRender, endDate)
+        ) {
+          classes.push(CALENDAR_DATE_RANGE_DATE_CLASS);
+        }
       }
     }
 
-    if (isSameDay(dateToRender, dateToDisplay)) {
+    if (isSameDay(dateToRender, focusedDate)) {
       tabindex = "0";
       classes.push(CALENDAR_DATE_FOCUSED_CLASS);
     }
@@ -640,21 +659,17 @@ const showInputAsSelected = (el, isEndDate) => {
     el
   );
 
-  const isCalendarShown = !calendarEl.hidden;
+  startInputEl.classList.toggle(
+    DATE_RANGE_PICKER_INPUT_SELECTED_CLASS,
+    !isEndDate
+  );
 
-  if (isCalendarShown) {
-    startInputEl.classList.toggle(
-      DATE_RANGE_PICKER_INPUT_SELECTED_CLASS,
-      !isEndDate
-    );
+  endInputEl.classList.toggle(
+    DATE_RANGE_PICKER_INPUT_SELECTED_CLASS,
+    isEndDate
+  );
 
-    endInputEl.classList.toggle(
-      DATE_RANGE_PICKER_INPUT_SELECTED_CLASS,
-      isEndDate
-    );
-
-    calendarEl.setAttribute("range-selected", isEndDate ? "end" : "start");
-  }
+  calendarEl.setAttribute("range-selected", isEndDate ? "end" : "start");
 };
 
 /**
@@ -696,18 +711,20 @@ const selectDate = calendarDateEl => {
   } = getDateRangePickerContext(calendarDateEl);
 
   if (isEndDate) {
-    endInputEl.value = calendarDateEl.getAttribute("data-value");
+    const newDate = calendarDateEl.getAttribute("data-value");
+    endInputEl.value = newDate;
     if (!startDate) {
       showInputAsSelected(calendarDateEl, false);
-      displayCalendar(dateRangePickerEl);
+      renderCalendar(dateRangePickerEl, parseDateString(newDate));
     } else {
       hideCalendar(dateRangePickerEl);
       selectedInputEl.focus();
     }
   } else {
-    startInputEl.value = calendarDateEl.getAttribute("data-value");
+    const newDate = calendarDateEl.getAttribute("data-value");
+    startInputEl.value = newDate;
     showInputAsSelected(calendarDateEl, true);
-    displayCalendar(dateRangePickerEl);
+    renderCalendar(dateRangePickerEl, parseDateString(newDate));
   }
 
   validateDateInput(selectedInputEl);
@@ -1005,7 +1022,7 @@ const toggleCalendar = el => {
 
   if (calendarEl.hidden) {
     displayCalendar(el);
-    showInputAsSelected(el, startDate && !endDate);
+    showInputAsSelected(el, !!startDate && !endDate);
   } else {
     hideCalendar(el);
   }
@@ -1119,10 +1136,22 @@ const datePicker = behavior(
     },
     focusin: {
       [DATE_RANGE_PICKER_START_INPUT]() {
-        showInputAsSelected(this, false);
+        const { calendarEl } = getDateRangePickerContext(this);
+
+        const isCalendarShown = !calendarEl.hidden;
+        if (isCalendarShown) {
+          showInputAsSelected(this, false);
+          displayCalendar(this);
+        }
       },
       [DATE_RANGE_PICKER_END_INPUT]() {
-        showInputAsSelected(this, true);
+        const { calendarEl } = getDateRangePickerContext(this);
+
+        const isCalendarShown = !calendarEl.hidden;
+        if (isCalendarShown) {
+          showInputAsSelected(this, true);
+          displayCalendar(this);
+        }
       }
     },
     input: {
