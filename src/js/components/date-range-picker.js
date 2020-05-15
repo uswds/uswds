@@ -4,6 +4,25 @@ const select = require("../utils/select");
 const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
 
+const isSameDay = require("date-fns/isSameDay");
+const isSameMonth = require("date-fns/isSameMonth");
+const isAfter = require("date-fns/isAfter");
+const isBefore = require("date-fns/isBefore");
+const startOfMonth = require("date-fns/startOfMonth");
+const lastDayOfMonth = require("date-fns/lastDayOfMonth");
+const addDays = require("date-fns/addDays");
+const subDays = require("date-fns/subDays");
+const addWeeks = require("date-fns/addWeeks");
+const subWeeks = require("date-fns/subWeeks");
+const addMonths = require("date-fns/addMonths");
+const subMonths = require("date-fns/subMonths");
+const addYears = require("date-fns/addYears");
+const subYears = require("date-fns/subYears");
+const startOfWeek = require("date-fns/startOfWeek");
+const endOfWeek = require("date-fns/endOfWeek");
+const setMonth = require("date-fns/setMonth");
+const setYear = require("date-fns/setYear");
+
 const DATE_RANGE_PICKER_CLASS = `${PREFIX}-date-range-picker`;
 const DATE_RANGE_PICKER_INPUT_CLASS = `${DATE_RANGE_PICKER_CLASS}__input`;
 const DATE_RANGE_PICKER_INPUT_SELECTED_CLASS = `${DATE_RANGE_PICKER_INPUT_CLASS}--selected`;
@@ -16,6 +35,8 @@ const CALENDAR_DATE_CLASS = `${DATE_RANGE_PICKER_CALENDAR_CLASS}__date`;
 
 const CALENDAR_FRAME_CLASS = `${CALENDAR_DATE_CLASS}__frame`;
 const CALENDAR_DATE_FOCUSED_CLASS = `${CALENDAR_DATE_CLASS}--focused`;
+const CALENDAR_DATE_START_DATE_CLASS = `${CALENDAR_DATE_CLASS}--start-date`;
+const CALENDAR_DATE_RANGE_DATE_CLASS = `${CALENDAR_DATE_CLASS}--range-date`;
 const CALENDAR_PREVIOUS_YEAR_CLASS = `${DATE_RANGE_PICKER_CALENDAR_CLASS}__previous-year`;
 const CALENDAR_PREVIOUS_MONTH_CLASS = `${DATE_RANGE_PICKER_CALENDAR_CLASS}__previous-month`;
 const CALENDAR_NEXT_YEAR_CLASS = `${DATE_RANGE_PICKER_CALENDAR_CLASS}__next-year`;
@@ -85,21 +106,6 @@ const YEAR_CHUNK = 12;
 const DEFAULT_MIN_DATE = "01/01/0000";
 
 /**
- * Keep date within month. Month would only be over by 1 to 3 days
- *
- * @param {Date} dateToCheck the date object to check
- * @param {number} month the correct month
- * @returns {Date} the date, corrected if needed
- */
-const keepDateWithinMonth = (dateToCheck, month) => {
-  if (month !== dateToCheck.getMonth()) {
-    dateToCheck.setDate(0);
-  }
-
-  return dateToCheck;
-};
-
-/**
  * Set date from month day year
  *
  * @param {number} year the year to set
@@ -110,138 +116,6 @@ const keepDateWithinMonth = (dateToCheck, month) => {
 const setDate = (year, month, date) => {
   var newDate = new Date(0);
   newDate.setFullYear(year, month, date);
-  return newDate;
-};
-
-/**
- * Set date to first day of the month
- *
- * @param {number} date the date to adjust
- * @returns {Date} the adjusted date
- */
-const startOfMonth = date => {
-  var newDate = new Date(0);
-  newDate.setFullYear(date.getFullYear(), date.getMonth(), 1);
-  return newDate;
-};
-
-/**
- * Set date to last day of the month
- *
- * @param {number} date the date to adjust
- * @returns {Date} the adjusted date
- */
-const lastDayOfMonth = date => {
-  var newDate = new Date(0);
-  newDate.setFullYear(date.getFullYear(), date.getMonth() + 1, 0);
-  return newDate;
-};
-
-/**
- * Add days to date
- *
- * @returns {Date} _date the date to adjust
- * @param {number} numDays the difference in days
- * @returns {Date} the adjusted date
- */
-const addDays = (_date, numDays) => {
-  var newDate = new Date(_date.getTime());
-  newDate.setDate(newDate.getDate() + numDays);
-  return newDate;
-};
-
-/**
- * Add weeks to date
- *
- * @returns {Date} _date the date to adjust
- * @param {number} numWeeks the difference in weeks
- * @returns {Date} the adjusted date
- */
-const addWeeks = (_date, numWeeks) => {
-  return addDays(_date, numWeeks * 7);
-};
-
-/**
- * Set date to the start of the week (Sunday)
- *
- * @returns {Date} _date the date to adjust
- * @returns {Date} the adjusted date
- */
-const startOfWeek = _date => {
-  const dayOfWeek = _date.getDay();
-  return addDays(_date, -dayOfWeek);
-};
-
-/**
- * Set date to the end of the week (Saturday)
- *
- * @returns {Date} _date the date to adjust
- * @param {number} numWeeks the difference in weeks
- * @returns {Date} the adjusted date
- */
-const endOfWeek = _date => {
-  const dayOfWeek = _date.getDay();
-  return addDays(_date, 6 - dayOfWeek);
-};
-
-/**
- * Add months to date and keep date within month
- *
- * @returns {Date} _date the date to adjust
- * @param {number} numMonths the difference in months
- * @returns {Date} the adjusted date
- */
-const addMonths = (_date, numMonths) => {
-  var newDate = new Date(_date.getTime());
-
-  const dateMonth = (newDate.getMonth() + 12 + numMonths) % 12;
-  newDate.setMonth(newDate.getMonth() + numMonths);
-  keepDateWithinMonth(newDate, dateMonth);
-
-  return newDate;
-};
-
-/**
- * Add years to date and keep date within month
- *
- * @returns {Date} _date the date to adjust
- * @param {number} numYears the difference in years
- * @returns {Date} the adjusted date
- */
-const addYears = (_date, numYears) => {
-  return addMonths(_date, numYears * 12);
-};
-
-/**
- * Set months of date
- *
- * @returns {Date} _date the date to adjust
- * @param {number} month zero-indexed month to set
- * @returns {Date} the adjusted date
- */
-const setMonth = (_date, month) => {
-  var newDate = new Date(_date.getTime());
-
-  newDate.setMonth(month);
-  keepDateWithinMonth(newDate, month);
-
-  return newDate;
-};
-
-/**
- * Set year of date
- *
- * @returns {Date} _date the date to adjust
- * @param {number} year the year to set
- * @returns {Date} the adjusted date
- */
-const setYear = (_date, year) => {
-  var newDate = new Date(_date.getTime());
-
-  const month = newDate.getMonth();
-  newDate.setFullYear(year);
-  keepDateWithinMonth(newDate, month);
-
   return newDate;
 };
 
@@ -389,10 +263,10 @@ const getDateRangePickerContext = el => {
   }
 
   const startInputEl = dateRangePickerEl.querySelector(
-    DATE_RANGE_PICKER_START_INPUT_CLASS
+    DATE_RANGE_PICKER_START_INPUT
   );
   const endInputEl = dateRangePickerEl.querySelector(
-    DATE_RANGE_PICKER_END_INPUT_CLASS
+    DATE_RANGE_PICKER_END_INPUT
   );
   const calendarEl = dateRangePickerEl.querySelector(
     DATE_RANGE_PICKER_CALENDAR
@@ -474,10 +348,10 @@ const enhanceDatePicker = dateRangePickerEl => {
 /**
  * Validate the value in the input as a valid date of format M/D/YYYY
  *
- * @param {HTMLElement} el An element within the date range picker component
+ * @param {HTMLInputElement} inputEl An input element within the date range picker component
  */
-const validateDateInput = el => {
-  const { inputEl, minDate } = getDateRangePickerContext(el);
+const validateDateInput = inputEl => {
+  const { minDate } = getDateRangePickerContext(inputEl);
 
   const dateString = inputEl.value;
   let isInvalid = false;
@@ -529,6 +403,8 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     calendarEl,
     calendarFrameEl,
     statusEl,
+    isEndDate,
+    startDate,
     minDate
   } = getDateRangePickerContext(el);
   let dateToDisplay = _dateToDisplay || new Date();
@@ -537,18 +413,17 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     calendarEl.focus();
   }
 
-  const focusedDay = dateToDisplay.getDate();
   const focusedMonth = dateToDisplay.getMonth();
   const focusedYear = dateToDisplay.getFullYear();
 
-  const prevMonth = (focusedMonth + 11) % 12;
-  const nextMonth = (focusedMonth + 1) % 12;
+  const prevMonth = subMonths(dateToDisplay, 1);
+  const nextMonth = addMonths(dateToDisplay, 1);
 
   const currentFormattedDate = formatDate(dateToDisplay);
 
   const firstOfMonth = startOfMonth(dateToDisplay);
-  const prevMonthDisabled = addDays(firstOfMonth, -1) < minDate;
-  const prevYearDisabled = lastDayOfMonth(addYears(firstOfMonth, -1)) < minDate;
+  const prevMonthDisabled = subMonths(firstOfMonth, 1) < minDate;
+  const prevYearDisabled = lastDayOfMonth(subYears(firstOfMonth, 1)) < minDate;
 
   const monthLabel = MONTH_LABELS[focusedMonth];
 
@@ -564,15 +439,27 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     let tabindex = "-1";
     let isDisabled = dateToRender < minDate;
 
-    if (month === prevMonth) {
+    if (isSameMonth(dateToRender, prevMonth)) {
       classes.push("usa-date-range-picker__calendar__date--previous-month");
     }
 
-    if (month === nextMonth) {
+    if (isSameMonth(dateToRender, nextMonth)) {
       classes.push("usa-date-range-picker__calendar__date--next-month");
     }
 
-    if (year === focusedYear && month === focusedMonth && day === focusedDay) {
+    if (isEndDate) {
+      if (isSameDay(dateToRender, startDate)) {
+        classes.push(CALENDAR_DATE_START_DATE_CLASS);
+      }
+      if (
+        isAfter(dateToRender, startDate) &&
+        isBefore(dateToRender, dateToDisplay)
+      ) {
+        classes.push(CALENDAR_DATE_RANGE_DATE_CLASS);
+      }
+    }
+
+    if (isSameDay(dateToRender, dateToDisplay)) {
       tabindex = "0";
       classes.push(CALENDAR_DATE_FOCUSED_CLASS);
     }
@@ -699,8 +586,8 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
  * @param {HTMLElement} el An element within the date range picker component
  */
 const displayCalendar = el => {
-  const { calendarEl, inputEl } = getDateRangePickerContext(el);
-  const date = parseDateString(inputEl.value, true);
+  const { calendarEl, selectedInputEl } = getDateRangePickerContext(el);
+  const date = parseDateString(selectedInputEl.value, true);
   renderCalendar(calendarEl, date);
 };
 
@@ -711,7 +598,7 @@ const displayCalendar = el => {
  */
 const displayPreviousYear = el => {
   const { calendarEl, calendarDate } = getDateRangePickerContext(el);
-  const date = addYears(calendarDate, -1);
+  const date = subYears(calendarDate, 1);
   renderCalendar(calendarEl, date);
 };
 
@@ -722,7 +609,7 @@ const displayPreviousYear = el => {
  */
 const displayPreviousMonth = el => {
   const { calendarEl, calendarDate } = getDateRangePickerContext(el);
-  const date = addMonths(calendarDate, -1);
+  const date = subMonths(calendarDate, 1);
   renderCalendar(calendarEl, date);
 };
 
@@ -746,6 +633,28 @@ const displayNextYear = el => {
   const { calendarEl, calendarDate } = getDateRangePickerContext(el);
   const date = addYears(calendarDate, 1);
   renderCalendar(calendarEl, date);
+};
+
+const showInputAsSelected = (el, isEndDate) => {
+  const { calendarEl, startInputEl, endInputEl } = getDateRangePickerContext(
+    el
+  );
+
+  const isCalendarShown = !calendarEl.hidden;
+
+  if (isCalendarShown) {
+    startInputEl.classList.toggle(
+      DATE_RANGE_PICKER_INPUT_SELECTED_CLASS,
+      !isEndDate
+    );
+
+    endInputEl.classList.toggle(
+      DATE_RANGE_PICKER_INPUT_SELECTED_CLASS,
+      isEndDate
+    );
+
+    calendarEl.setAttribute("range-selected", isEndDate ? "end" : "start");
+  }
 };
 
 /**
@@ -779,21 +688,29 @@ const hideCalendar = el => {
 const selectDate = calendarDateEl => {
   const {
     dateRangePickerEl,
+    selectedInputEl,
     startInputEl,
     endInputEl,
+    startDate,
     isEndDate
   } = getDateRangePickerContext(calendarDateEl);
 
   if (isEndDate) {
     endInputEl.value = calendarDateEl.getAttribute("data-value");
-    hideCalendar(dateRangePickerEl);
+    if (!startDate) {
+      showInputAsSelected(calendarDateEl, false);
+      displayCalendar(dateRangePickerEl);
+    } else {
+      hideCalendar(dateRangePickerEl);
+      selectedInputEl.focus();
+    }
   } else {
     startInputEl.value = calendarDateEl.getAttribute("data-value");
+    showInputAsSelected(calendarDateEl, true);
+    displayCalendar(dateRangePickerEl);
   }
 
-  validateDateInput(dateRangePickerEl);
-
-  inputEl.focus();
+  validateDateInput(selectedInputEl);
 };
 
 /**
@@ -931,7 +848,7 @@ const handleUp = event => {
   const { calendarEl, calendarDate, minDate } = getDateRangePickerContext(
     event.target
   );
-  const date = addWeeks(calendarDate, -1);
+  const date = subWeeks(calendarDate, 1);
   if (lastDayOfMonth(date) >= minDate) {
     renderCalendar(calendarEl, date);
   }
@@ -959,7 +876,7 @@ const handleLeft = event => {
   const { calendarEl, calendarDate, minDate } = getDateRangePickerContext(
     event.target
   );
-  const date = addDays(calendarDate, -1);
+  const date = subDays(calendarDate, 1);
   if (lastDayOfMonth(date) >= minDate) {
     renderCalendar(calendarEl, date);
   }
@@ -1027,7 +944,7 @@ const handlePageUp = event => {
   const { calendarEl, calendarDate, minDate } = getDateRangePickerContext(
     event.target
   );
-  const date = addMonths(calendarDate, -1);
+  const date = subMonths(calendarDate, 1);
   if (lastDayOfMonth(date) >= minDate) {
     renderCalendar(calendarEl, date);
   }
@@ -1055,7 +972,7 @@ const handleShiftPageUp = event => {
   const { calendarEl, calendarDate, minDate } = getDateRangePickerContext(
     event.target
   );
-  const date = addYears(calendarDate, -1);
+  const date = subYears(calendarDate, 1);
   if (lastDayOfMonth(date) >= minDate) {
     renderCalendar(calendarEl, date);
   }
@@ -1068,12 +985,12 @@ const handleShiftPageUp = event => {
  * @param {KeyboardEvent} event the keydown event
  */
 const handleEscape = event => {
-  const { dateRangePickerEl, inputEl } = getDateRangePickerContext(
+  const { dateRangePickerEl, selectedInputEl } = getDateRangePickerContext(
     event.target
   );
 
   hideCalendar(dateRangePickerEl);
-  inputEl.focus();
+  selectedInputEl.focus();
 
   event.preventDefault();
 };
@@ -1084,44 +1001,26 @@ const handleEscape = event => {
  * @param {KeyboardEvent} event the keydown event
  */
 const toggleCalendar = el => {
-  const { calendarEl } = getDateRangePickerContext(el);
+  const { calendarEl, startDate, endDate } = getDateRangePickerContext(el);
 
   if (calendarEl.hidden) {
-    showInputAsSelected();
     displayCalendar(el);
+    showInputAsSelected(el, startDate && !endDate);
   } else {
     hideCalendar(el);
   }
 };
 
 const updateCalendarIfVisible = el => {
-  const { calendarEl, inputEl } = getDateRangePickerContext(el);
+  const { calendarEl, selectedInputEl } = getDateRangePickerContext(el);
   const calendarShown = !calendarEl.hidden;
 
   if (calendarShown) {
-    const date = parseDateString(inputEl.value, true);
+    const date = parseDateString(selectedInputEl.value, true);
     if (date) {
       renderCalendar(calendarEl, date, false);
     }
   }
-};
-
-const showInputAsSelected = (el, isEndDate) => {
-  const { calendarEl, startInputEl, endInputEl } = getDateRangePickerContext(
-    el
-  );
-
-  startInputEl.classList.toggle(
-    DATE_RANGE_PICKER_INPUT_SELECTED_CLASS,
-    !isEndDate
-  );
-
-  endInputEl.classList.toggle(
-    DATE_RANGE_PICKER_INPUT_SELECTED_CLASS,
-    isEndDate
-  );
-
-  calendarEl.setAttribute("range-selected", isEndDate ? "end" : "start");
 };
 
 const datePicker = behavior(
