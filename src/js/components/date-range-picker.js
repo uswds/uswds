@@ -1141,7 +1141,7 @@ const datePicker = behavior(
         const isCalendarShown = !calendarEl.hidden;
         if (isCalendarShown) {
           showInputAsSelected(this, false);
-          displayCalendar(this);
+          updateCalendarIfVisible(this);
         }
       },
       [DATE_RANGE_PICKER_END_INPUT]() {
@@ -1150,7 +1150,7 @@ const datePicker = behavior(
         const isCalendarShown = !calendarEl.hidden;
         if (isCalendarShown) {
           showInputAsSelected(this, true);
-          displayCalendar(this);
+          updateCalendarIfVisible(this);
         }
       }
     },
