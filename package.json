@@ -66,6 +66,7 @@
   "dependencies": {
     "@types/node": "^13.9.1",
     "classlist-polyfill": "^1.0.3",
+    "date-fns": "^2.13.0",
     "del": "^5.1.0",
     "domready": "^1.0.8",
     "elem-dataset": "^1.1.1",
