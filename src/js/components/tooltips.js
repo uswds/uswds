@@ -53,6 +53,7 @@ const createToolTip = tooltip => {
   TOOLTIP_EL.setAttribute("id", TOOLTIP_ID);
   TOOLTIP_EL.setAttribute("role", "tooltip");
   TOOLTIP_EL.setAttribute("aria-hidden", "true");
+  TOOLTIP_EL.setAttribute("tabindex", "0");
   TOOLTIP_EL.innerHTML = TOOLTIP_TEXT;
 
   const showToolTip = event => {
