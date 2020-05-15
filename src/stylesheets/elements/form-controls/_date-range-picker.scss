@@ -6,6 +6,10 @@
 
 // Date Range Picker -- initialized
 
+.usa-date-range-picker--initialized {
+  display: flex;
+}
+
 .usa-date-range-picker__button {
   @include add-background-svg("calendar-alt-solid");
   background-position: center;
@@ -16,8 +20,8 @@
   width: 3em;
 }
 
-.usa-date-range-picker--initialized {
-  display: flex;
+.usa-date-range-picker__input {
+  width: 8em;
 }
 
 // Date Range Picker - Calendar View

@@ -6,6 +6,9 @@ const { CLICK } = require("../events");
 
 const DATE_RANGE_PICKER_CLASS = `${PREFIX}-date-range-picker`;
 const DATE_RANGE_PICKER_INPUT_CLASS = `${DATE_RANGE_PICKER_CLASS}__input`;
+const DATE_RANGE_PICKER_INPUT_SELECTED_CLASS = `${DATE_RANGE_PICKER_INPUT_CLASS}--selected`;
+const DATE_RANGE_PICKER_START_INPUT_CLASS = `${DATE_RANGE_PICKER_CLASS}__start-input`;
+const DATE_RANGE_PICKER_END_INPUT_CLASS = `${DATE_RANGE_PICKER_CLASS}__end-input`;
 const DATE_RANGE_PICKER_BUTTON_CLASS = `${DATE_RANGE_PICKER_CLASS}__button`;
 const DATE_RANGE_PICKER_CALENDAR_CLASS = `${DATE_RANGE_PICKER_CLASS}__calendar`;
 const DATE_RANGE_PICKER_STATUS_CLASS = `${DATE_RANGE_PICKER_CLASS}__status`;
@@ -32,6 +35,8 @@ const CALENDAR_YEAR_GRID_CLASS = `${DATE_RANGE_PICKER_CALENDAR_CLASS}__year-grid
 const DATE_RANGE_PICKER = `.${DATE_RANGE_PICKER_CLASS}`;
 const DATE_RANGE_PICKER_BUTTON = `.${DATE_RANGE_PICKER_BUTTON_CLASS}`;
 const DATE_RANGE_PICKER_INPUT = `.${DATE_RANGE_PICKER_INPUT_CLASS}`;
+const DATE_RANGE_PICKER_START_INPUT = `.${DATE_RANGE_PICKER_START_INPUT_CLASS}`;
+const DATE_RANGE_PICKER_END_INPUT = `.${DATE_RANGE_PICKER_END_INPUT_CLASS}`;
 const DATE_RANGE_PICKER_CALENDAR = `.${DATE_RANGE_PICKER_CALENDAR_CLASS}`;
 const DATE_RANGE_PICKER_STATUS = `.${DATE_RANGE_PICKER_STATUS_CLASS}`;
 const CALENDAR_FRAME = `.${CALENDAR_FRAME_CLASS}`;
@@ -352,16 +357,21 @@ const listToGridHtml = (htmlArray, rowSize) => {
 
 /**
  * The properties and elements within the date range picker.
- * @typedef {Object} DateRangePickerElements
+ * @typedef {Object} DateRangePickerContext
  * @property {HTMLDivElement} calendarEl
  * @property {HTMLDivElement} calendarFrameEl
  * @property {HTMLElement} dateRangePickerEl
  * @property {HTMLButtonElement} focusedDateEl
- * @property {HTMLInputElement} inputEl
+ * @property {HTMLInputElement} startInputEl
+ * @property {HTMLInputElement} endInputEl
+ * @property {HTMLInputElement} selectedInputEl
  * @property {HTMLDivElement} statusEl
  * @property {HTMLDivElement} firstYearChunkEl
  * @property {Date} calendarDate
  * @property {Date} minDate
+ * @property {Date} startDate
+ * @property {Date} endDate
+ * @property {boolean} isEndDate
  */
 
 /**
@@ -369,16 +379,21 @@ const listToGridHtml = (htmlArray, rowSize) => {
  * date range picker component.
  *
  * @param {HTMLElement} el the element within the date range picker
- * @returns {DateRangePickerElements} elements
+ * @returns {DateRangePickerContext} elements
  */
-const getDateRangePickerElements = el => {
+const getDateRangePickerContext = el => {
   const dateRangePickerEl = el.closest(DATE_RANGE_PICKER);
 
   if (!dateRangePickerEl) {
     throw new Error(`Element is missing outer ${DATE_RANGE_PICKER}`);
   }
 
-  const inputEl = dateRangePickerEl.querySelector(DATE_RANGE_PICKER_INPUT);
+  const startInputEl = dateRangePickerEl.querySelector(
+    DATE_RANGE_PICKER_START_INPUT_CLASS
+  );
+  const endInputEl = dateRangePickerEl.querySelector(
+    DATE_RANGE_PICKER_END_INPUT_CLASS
+  );
   const calendarEl = dateRangePickerEl.querySelector(
     DATE_RANGE_PICKER_CALENDAR
   );
@@ -387,21 +402,29 @@ const getDateRangePickerElements = el => {
   const calendarFrameEl = dateRangePickerEl.querySelector(CALENDAR_FRAME);
   const firstYearChunkEl = dateRangePickerEl.querySelector(CALENDAR_YEAR);
 
-  const calendarDate = parseDateString(
-    calendarEl && calendarEl.getAttribute("data-value")
-  );
+  const calendarDate = parseDateString(calendarEl.getAttribute("data-value"));
   const minDate = parseDateString(dateRangePickerEl.getAttribute("min-date"));
+  const startDate = parseDateString(startInputEl.value);
+  const endDate = parseDateString(endInputEl.value);
+  const isEndDate = calendarEl.getAttribute("range-selected") === "end";
+
+  const selectedInputEl = isEndDate ? endInputEl : startInputEl;
 
   return {
     calendarDate,
     minDate,
     firstYearChunkEl,
     dateRangePickerEl,
-    inputEl,
+    startInputEl,
+    endInputEl,
     calendarEl,
     calendarFrameEl,
+    selectedInputEl,
     focusedDateEl,
-    statusEl
+    statusEl,
+    startDate,
+    isEndDate,
+    endDate
   };
 };
 
@@ -411,19 +434,30 @@ const getDateRangePickerElements = el => {
  * @param {HTMLElement} dateRangePickerEl The initial wrapping element of the date range picker component
  */
 const enhanceDatePicker = dateRangePickerEl => {
-  const inputEl = dateRangePickerEl.querySelector(`input`);
+  const [startInputEl, endInputEl] = dateRangePickerEl.querySelectorAll(
+    `input`
+  );
 
-  if (!inputEl) {
-    throw new Error(`${DATE_RANGE_PICKER} is missing inner input`);
+  if (!(startInputEl && endInputEl)) {
+    throw new Error(`${DATE_RANGE_PICKER} is missing inner inputs`);
   }
 
-  inputEl.classList.add(DATE_RANGE_PICKER_INPUT_CLASS);
+  startInputEl.classList.add(
+    DATE_RANGE_PICKER_INPUT_CLASS,
+    DATE_RANGE_PICKER_START_INPUT_CLASS
+  );
+  endInputEl.classList.add(
+    DATE_RANGE_PICKER_INPUT_CLASS,
+    DATE_RANGE_PICKER_END_INPUT_CLASS
+  );
+
   dateRangePickerEl.classList.add("usa-date-range-picker--initialized");
 
   const minDate = parseDateString(dateRangePickerEl.getAttribute("min-date"));
-  if (!minDate) {
-    dateRangePickerEl.setAttribute("min-date", DEFAULT_MIN_DATE);
-  }
+  dateRangePickerEl.setAttribute(
+    "min-date",
+    minDate ? formatDate(minDate) : DEFAULT_MIN_DATE
+  );
 
   dateRangePickerEl.insertAdjacentHTML(
     "beforeend",
@@ -443,7 +477,7 @@ const enhanceDatePicker = dateRangePickerEl => {
  * @param {HTMLElement} el An element within the date range picker component
  */
 const validateDateInput = el => {
-  const { inputEl, minDate } = getDateRangePickerElements(el);
+  const { inputEl, minDate } = getDateRangePickerContext(el);
 
   const dateString = inputEl.value;
   let isInvalid = false;
@@ -496,7 +530,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     calendarFrameEl,
     statusEl,
     minDate
-  } = getDateRangePickerElements(el);
+  } = getDateRangePickerContext(el);
   let dateToDisplay = _dateToDisplay || new Date();
 
   if (adjustFocus) {
@@ -665,7 +699,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
  * @param {HTMLElement} el An element within the date range picker component
  */
 const displayCalendar = el => {
-  const { calendarEl, inputEl } = getDateRangePickerElements(el);
+  const { calendarEl, inputEl } = getDateRangePickerContext(el);
   const date = parseDateString(inputEl.value, true);
   renderCalendar(calendarEl, date);
 };
@@ -676,7 +710,7 @@ const displayCalendar = el => {
  * @param {HTMLElement} el An element within the date range picker component
  */
 const displayPreviousYear = el => {
-  const { calendarEl, calendarDate } = getDateRangePickerElements(el);
+  const { calendarEl, calendarDate } = getDateRangePickerContext(el);
   const date = addYears(calendarDate, -1);
   renderCalendar(calendarEl, date);
 };
@@ -687,7 +721,7 @@ const displayPreviousYear = el => {
  * @param {HTMLElement} el An element within the date range picker component
  */
 const displayPreviousMonth = el => {
-  const { calendarEl, calendarDate } = getDateRangePickerElements(el);
+  const { calendarEl, calendarDate } = getDateRangePickerContext(el);
   const date = addMonths(calendarDate, -1);
   renderCalendar(calendarEl, date);
 };
@@ -698,7 +732,7 @@ const displayPreviousMonth = el => {
  * @param {HTMLElement} el An element within the date range picker component
  */
 const displayNextMonth = el => {
-  const { calendarEl, calendarDate } = getDateRangePickerElements(el);
+  const { calendarEl, calendarDate } = getDateRangePickerContext(el);
   const date = addMonths(calendarDate, 1);
   renderCalendar(calendarEl, date);
 };
@@ -709,7 +743,7 @@ const displayNextMonth = el => {
  * @param {HTMLElement} el An element within the date range picker component
  */
 const displayNextYear = el => {
-  const { calendarEl, calendarDate } = getDateRangePickerElements(el);
+  const { calendarEl, calendarDate } = getDateRangePickerContext(el);
   const date = addYears(calendarDate, 1);
   renderCalendar(calendarEl, date);
 };
@@ -720,11 +754,19 @@ const displayNextYear = el => {
  * @param {HTMLElement} el An element within the date range picker component
  */
 const hideCalendar = el => {
-  const { calendarEl, calendarFrameEl, statusEl } = getDateRangePickerElements(
-    el
-  );
+  const {
+    calendarEl,
+    calendarFrameEl,
+    statusEl,
+    startInputEl,
+    endInputEl
+  } = getDateRangePickerContext(el);
+
+  startInputEl.classList.remove(DATE_RANGE_PICKER_INPUT_SELECTED_CLASS);
+  endInputEl.classList.remove(DATE_RANGE_PICKER_INPUT_SELECTED_CLASS);
 
   calendarEl.hidden = true;
+  calendarEl.removeAttribute("range-selected");
   calendarFrameEl.innerHTML = "";
   statusEl.innerHTML = "";
 };
@@ -735,13 +777,20 @@ const hideCalendar = el => {
  * @param {HTMLButtonElement} calendarDateEl A date element within the date range picker component
  */
 const selectDate = calendarDateEl => {
-  const { dateRangePickerEl, inputEl } = getDateRangePickerElements(
-    calendarDateEl
-  );
+  const {
+    dateRangePickerEl,
+    startInputEl,
+    endInputEl,
+    isEndDate
+  } = getDateRangePickerContext(calendarDateEl);
 
-  inputEl.value = calendarDateEl.getAttribute("data-value");
+  if (isEndDate) {
+    endInputEl.value = calendarDateEl.getAttribute("data-value");
+    hideCalendar(dateRangePickerEl);
+  } else {
+    startInputEl.value = calendarDateEl.getAttribute("data-value");
+  }
 
-  hideCalendar(dateRangePickerEl);
   validateDateInput(dateRangePickerEl);
 
   inputEl.focus();
@@ -753,7 +802,7 @@ const selectDate = calendarDateEl => {
  * @param {HTMLButtonElement} monthEl An month element within the date range picker component
  */
 const selectMonth = monthEl => {
-  const { calendarEl, calendarDate } = getDateRangePickerElements(monthEl);
+  const { calendarEl, calendarDate } = getDateRangePickerContext(monthEl);
   const selectedMonth = parseInt(monthEl.getAttribute("data-value"), 10);
   const date = setMonth(calendarDate, selectedMonth);
   renderCalendar(calendarEl, date);
@@ -765,7 +814,7 @@ const selectMonth = monthEl => {
  * @param {HTMLButtonElement} yearEl A year element within the date range picker component
  */
 const selectYear = yearEl => {
-  const { calendarEl, calendarDate } = getDateRangePickerElements(yearEl);
+  const { calendarEl, calendarDate } = getDateRangePickerContext(yearEl);
   const selectedYear = parseInt(yearEl.innerHTML, 10);
   const date = setYear(calendarDate, selectedYear);
   renderCalendar(calendarEl, date);
@@ -788,7 +837,7 @@ const MONTH_HTML = (() => {
  * @param {HTMLButtonElement} el An element within the date range picker component
  */
 const displayMonthSelection = el => {
-  const { calendarEl, calendarFrameEl, statusEl } = getDateRangePickerElements(
+  const { calendarEl, calendarFrameEl, statusEl } = getDateRangePickerContext(
     el
   );
 
@@ -813,7 +862,7 @@ const displayYearSelection = (el, yearToDisplay) => {
     statusEl,
     calendarDate,
     minDate
-  } = getDateRangePickerElements(el);
+  } = getDateRangePickerContext(el);
   let yearToChunk = yearToDisplay;
 
   calendarEl.focus();
@@ -857,7 +906,7 @@ const displayYearSelection = (el, yearToDisplay) => {
  * @param {HTMLButtonElement} el An element within the date range picker component
  */
 const displayPreviousYearChunk = el => {
-  const { firstYearChunkEl } = getDateRangePickerElements(el);
+  const { firstYearChunkEl } = getDateRangePickerContext(el);
   const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
   displayYearSelection(el, firstYearChunkYear - YEAR_CHUNK);
 };
@@ -868,7 +917,7 @@ const displayPreviousYearChunk = el => {
  * @param {HTMLButtonElement} el An element within the date range picker component
  */
 const displayNextYearChunk = el => {
-  const { firstYearChunkEl } = getDateRangePickerElements(el);
+  const { firstYearChunkEl } = getDateRangePickerContext(el);
   const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
   displayYearSelection(el, firstYearChunkYear + YEAR_CHUNK);
 };
@@ -879,7 +928,7 @@ const displayNextYearChunk = el => {
  * @param {KeyboardEvent} event the keydown event
  */
 const handleUp = event => {
-  const { calendarEl, calendarDate, minDate } = getDateRangePickerElements(
+  const { calendarEl, calendarDate, minDate } = getDateRangePickerContext(
     event.target
   );
   const date = addWeeks(calendarDate, -1);
@@ -895,7 +944,7 @@ const handleUp = event => {
  * @param {KeyboardEvent} event the keydown event
  */
 const handleDown = event => {
-  const { calendarEl, calendarDate } = getDateRangePickerElements(event.target);
+  const { calendarEl, calendarDate } = getDateRangePickerContext(event.target);
   const date = addWeeks(calendarDate, 1);
   renderCalendar(calendarEl, date);
   event.preventDefault();
@@ -907,7 +956,7 @@ const handleDown = event => {
  * @param {KeyboardEvent} event the keydown event
  */
 const handleLeft = event => {
-  const { calendarEl, calendarDate, minDate } = getDateRangePickerElements(
+  const { calendarEl, calendarDate, minDate } = getDateRangePickerContext(
     event.target
   );
   const date = addDays(calendarDate, -1);
@@ -923,7 +972,7 @@ const handleLeft = event => {
  * @param {KeyboardEvent} event the keydown event
  */
 const handleRight = event => {
-  const { calendarEl, calendarDate } = getDateRangePickerElements(event.target);
+  const { calendarEl, calendarDate } = getDateRangePickerContext(event.target);
   const date = addDays(calendarDate, 1);
   renderCalendar(calendarEl, date);
   event.preventDefault();
@@ -935,7 +984,7 @@ const handleRight = event => {
  * @param {KeyboardEvent} event the keydown event
  */
 const handleHome = event => {
-  const { calendarEl, calendarDate, minDate } = getDateRangePickerElements(
+  const { calendarEl, calendarDate, minDate } = getDateRangePickerContext(
     event.target
   );
   const date = startOfWeek(calendarDate);
@@ -951,7 +1000,7 @@ const handleHome = event => {
  * @param {KeyboardEvent} event the keydown event
  */
 const handleEnd = event => {
-  const { calendarEl, calendarDate } = getDateRangePickerElements(event.target);
+  const { calendarEl, calendarDate } = getDateRangePickerContext(event.target);
   const date = endOfWeek(calendarDate);
   renderCalendar(calendarEl, date);
   event.preventDefault();
@@ -963,7 +1012,7 @@ const handleEnd = event => {
  * @param {KeyboardEvent} event the keydown event
  */
 const handlePageDown = event => {
-  const { calendarEl, calendarDate } = getDateRangePickerElements(event.target);
+  const { calendarEl, calendarDate } = getDateRangePickerContext(event.target);
   const date = addMonths(calendarDate, 1);
   renderCalendar(calendarEl, date);
   event.preventDefault();
@@ -975,7 +1024,7 @@ const handlePageDown = event => {
  * @param {KeyboardEvent} event the keydown event
  */
 const handlePageUp = event => {
-  const { calendarEl, calendarDate, minDate } = getDateRangePickerElements(
+  const { calendarEl, calendarDate, minDate } = getDateRangePickerContext(
     event.target
   );
   const date = addMonths(calendarDate, -1);
@@ -991,7 +1040,7 @@ const handlePageUp = event => {
  * @param {KeyboardEvent} event the keydown event
  */
 const handleShiftPageDown = event => {
-  const { calendarEl, calendarDate } = getDateRangePickerElements(event.target);
+  const { calendarEl, calendarDate } = getDateRangePickerContext(event.target);
   const date = addYears(calendarDate, 1);
   renderCalendar(calendarEl, date);
   event.preventDefault();
@@ -1003,7 +1052,7 @@ const handleShiftPageDown = event => {
  * @param {KeyboardEvent} event the keydown event
  */
 const handleShiftPageUp = event => {
-  const { calendarEl, calendarDate, minDate } = getDateRangePickerElements(
+  const { calendarEl, calendarDate, minDate } = getDateRangePickerContext(
     event.target
   );
   const date = addYears(calendarDate, -1);
@@ -1019,7 +1068,7 @@ const handleShiftPageUp = event => {
  * @param {KeyboardEvent} event the keydown event
  */
 const handleEscape = event => {
-  const { dateRangePickerEl, inputEl } = getDateRangePickerElements(
+  const { dateRangePickerEl, inputEl } = getDateRangePickerContext(
     event.target
   );
 
@@ -1035,9 +1084,10 @@ const handleEscape = event => {
  * @param {KeyboardEvent} event the keydown event
  */
 const toggleCalendar = el => {
-  const { calendarEl } = getDateRangePickerElements(el);
+  const { calendarEl } = getDateRangePickerContext(el);
 
   if (calendarEl.hidden) {
+    showInputAsSelected();
     displayCalendar(el);
   } else {
     hideCalendar(el);
@@ -1045,7 +1095,7 @@ const toggleCalendar = el => {
 };
 
 const updateCalendarIfVisible = el => {
-  const { calendarEl, inputEl } = getDateRangePickerElements(el);
+  const { calendarEl, inputEl } = getDateRangePickerContext(el);
   const calendarShown = !calendarEl.hidden;
 
   if (calendarShown) {
@@ -1054,6 +1104,24 @@ const updateCalendarIfVisible = el => {
       renderCalendar(calendarEl, date, false);
     }
   }
+};
+
+const showInputAsSelected = (el, isEndDate) => {
+  const { calendarEl, startInputEl, endInputEl } = getDateRangePickerContext(
+    el
+  );
+
+  startInputEl.classList.toggle(
+    DATE_RANGE_PICKER_INPUT_SELECTED_CLASS,
+    !isEndDate
+  );
+
+  endInputEl.classList.toggle(
+    DATE_RANGE_PICKER_INPUT_SELECTED_CLASS,
+    isEndDate
+  );
+
+  calendarEl.setAttribute("range-selected", isEndDate ? "end" : "start");
 };
 
 const datePicker = behavior(
@@ -1144,10 +1212,18 @@ const datePicker = behavior(
         validateDateInput(this);
       },
       [DATE_RANGE_PICKER](event) {
-        const { dateRangePickerEl } = getDateRangePickerElements(event.target);
+        const { dateRangePickerEl } = getDateRangePickerContext(event.target);
         if (!dateRangePickerEl.contains(event.relatedTarget)) {
           hideCalendar(dateRangePickerEl);
         }
+      }
+    },
+    focusin: {
+      [DATE_RANGE_PICKER_START_INPUT]() {
+        showInputAsSelected(this, false);
+      },
+      [DATE_RANGE_PICKER_END_INPUT]() {
+        showInputAsSelected(this, true);
       }
     },
     input: {
