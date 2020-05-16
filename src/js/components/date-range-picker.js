@@ -38,6 +38,9 @@ const CALENDAR_DATE_FOCUSED_CLASS = `${CALENDAR_DATE_CLASS}--focused`;
 const CALENDAR_DATE_START_DATE_CLASS = `${CALENDAR_DATE_CLASS}--start-date`;
 const CALENDAR_DATE_END_DATE_CLASS = `${CALENDAR_DATE_CLASS}--end-date`;
 const CALENDAR_DATE_RANGE_DATE_CLASS = `${CALENDAR_DATE_CLASS}--range-date`;
+const CALENDAR_DATE_PREVIOUS_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--previous-month`;
+const CALENDAR_DATE_CURRENT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--current-month`;
+const CALENDAR_DATE_NEXT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--next-month`;
 const CALENDAR_PREVIOUS_YEAR_CLASS = `${DATE_RANGE_PICKER_CALENDAR_CLASS}__previous-year`;
 const CALENDAR_PREVIOUS_MONTH_CLASS = `${DATE_RANGE_PICKER_CALENDAR_CLASS}__previous-month`;
 const CALENDAR_NEXT_YEAR_CLASS = `${DATE_RANGE_PICKER_CALENDAR_CLASS}__next-year`;
@@ -64,6 +67,7 @@ const DATE_RANGE_PICKER_STATUS = `.${DATE_RANGE_PICKER_STATUS_CLASS}`;
 const CALENDAR_FRAME = `.${CALENDAR_FRAME_CLASS}`;
 const CALENDAR_DATE = `.${CALENDAR_DATE_CLASS}`;
 const CALENDAR_DATE_FOCUSED = `.${CALENDAR_DATE_FOCUSED_CLASS}`;
+const CALENDAR_DATE_CURRENT_MONTH = `.${CALENDAR_DATE_CURRENT_MONTH_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR = `.${CALENDAR_PREVIOUS_YEAR_CLASS}`;
 const CALENDAR_PREVIOUS_MONTH = `.${CALENDAR_PREVIOUS_MONTH_CLASS}`;
 const CALENDAR_NEXT_YEAR = `.${CALENDAR_NEXT_YEAR_CLASS}`;
@@ -443,11 +447,11 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     let isDisabled = dateToRender < minDate;
 
     if (isSameMonth(dateToRender, prevMonth)) {
-      classes.push("usa-date-range-picker__calendar__date--previous-month");
-    }
-
-    if (isSameMonth(dateToRender, nextMonth)) {
-      classes.push("usa-date-range-picker__calendar__date--next-month");
+      classes.push(CALENDAR_DATE_PREVIOUS_MONTH_CLASS);
+    } else if (isSameMonth(dateToRender, focusedDate)) {
+      classes.push(CALENDAR_DATE_CURRENT_MONTH_CLASS);
+    } else if (isSameMonth(dateToRender, nextMonth)) {
+      classes.push(CALENDAR_DATE_NEXT_MONTH_CLASS);
     }
 
     if (isEndDate) {
@@ -1157,6 +1161,12 @@ const datePicker = behavior(
     input: {
       [DATE_RANGE_PICKER_INPUT]() {
         updateCalendarIfVisible(this);
+      }
+    },
+    mouseover: {
+      [CALENDAR_DATE_CURRENT_MONTH]() {
+        const date = parseDateString(this.getAttribute("data-value"));
+        renderCalendar(this, date);
       }
     }
   },
