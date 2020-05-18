@@ -112,7 +112,7 @@ const enhanceComboBox = el => {
     additionalAttributes.push(`placeholder="${placeholder}"`);
   }
 
-  ["required", "aria-label", "aria-labelledby"].forEach(name => {
+  ["required", "disabled", "aria-label", "aria-labelledby"].forEach(name => {
     if (selectEl.hasAttribute(name)) {
       const value = selectEl.getAttribute(name);
       additionalAttributes.push(`${name}="${value}"`);
