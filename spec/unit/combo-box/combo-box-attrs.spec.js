@@ -30,6 +30,7 @@ describe("combo box component with placeholder and default value attributes", ()
   it("enhances a select element into a combo box component", () => {
     assert.equal(select.value, "value-Go", "select the selected select item");
     assert.equal(input.value, "Go", "select the selected select item");
+    assert.equal(input.disabled, true, "The input is disabled");
     assert.equal(
       input.getAttribute("placeholder"),
       "Select one...",
