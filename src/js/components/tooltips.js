@@ -9,6 +9,8 @@ const WRAPPER_CLASS = 'usa-tooltip-wrapper';
 const TOOLTIP_CLASS = 'usa-tooltip';
 const TRANSITION_CLASS = 'transition';
 const SHOW_CLASS = 'show';
+const TRIANGLE_SIZE = 5;
+const SPACER = 2;
 
 /* Add one or more listeners to an element
 ** @param {DOMElement} element - DOM element to add listeners to
@@ -22,54 +24,74 @@ const addListenerMulti = (element, eventNames, listener) => {
   }
 }
 
-
-
 const createToolTip = tooltip => {
 
-  const TOOLTIP_ID = "tooltip" + (Math.floor(Math.random()*90000) + 10000);
-  const TOOLTIP_TEXT = tooltip.getAttribute("title");
-  const WRAPPER = document.createElement('div');
-  const TOOLTIP_EL = document.createElement('span');
-  const TOOLTIP_HEIGHT = tooltip.offsetHeight;
-  const TOOLTIP_WIDTH = tooltip.offsetWidth;
-  const POSITION = tooltip.getAttribute("data-position") ? tooltip.getAttribute("data-position") : 'top';
+  let tooltipID = "tooltip" + (Math.floor(Math.random()*90000) + 10000);
+  let tooltipContent = tooltip.getAttribute("title");
+  let wrapper = document.createElement('div');
+  let tooltipBody = document.createElement('span');
+  let position = tooltip.getAttribute("data-position") ? tooltip.getAttribute("data-position") : 'top';
 
-  console.log(POSITION);
 
-  tooltip.setAttribute("aria-describedby", TOOLTIP_ID);
-  //tooltip.setAttribute("tabindex", "0");
+  // Set attributes
+  tooltip.setAttribute("aria-describedby", tooltipID);
+  tooltip.setAttribute("tabindex", "0");
   tooltip.setAttribute("title", "");
   tooltip.classList.add(TRIGGER_CLASS);
-  tooltip.classList.add(TOOLTIP_CLASS + '--' + POSITION)
-
-  console.log(TOOLTIP_ID +': height: ' + TOOLTIP_HEIGHT + '; width:' + TOOLTIP_WIDTH);
+  tooltip.classList.add(TOOLTIP_CLASS + '--' + position);
 
   // insert wrapper before el in the DOM tree
-  tooltip.parentNode.insertBefore(WRAPPER, tooltip);
+  tooltip.parentNode.insertBefore(wrapper, tooltip);
 
   // move el into wrapper
-  WRAPPER.appendChild(tooltip);
-  WRAPPER.classList.add(WRAPPER_CLASS);
+  wrapper.appendChild(tooltip);
+  wrapper.classList.add(WRAPPER_CLASS);
+  wrapper.appendChild(tooltipBody);
 
-  WRAPPER.appendChild(TOOLTIP_EL);
+  // make accessible
+  tooltipBody.classList.add(TOOLTIP_CLASS);
+  tooltipBody.setAttribute("id", tooltipID);
+  tooltipBody.setAttribute("role", "tooltip");
+  tooltipBody.setAttribute("aria-hidden", "true");
 
-  TOOLTIP_EL.classList.add(TOOLTIP_CLASS);
-  TOOLTIP_EL.setAttribute("id", TOOLTIP_ID);
-  TOOLTIP_EL.setAttribute("role", "tooltip");
-  TOOLTIP_EL.setAttribute("aria-hidden", "true");
-  TOOLTIP_EL.setAttribute("tabindex", "0");
-  TOOLTIP_EL.innerHTML = TOOLTIP_TEXT;
+  // Place the text in the tooltip
+  tooltipBody.innerHTML = tooltipContent;
 
   const showToolTip = event => {
-    TOOLTIP_EL.classList.add(SHOW_CLASS);
+    tooltipBody.classList.add(SHOW_CLASS);
+
+    // Adjust positioning in case there are margins.
+    let tooltipWidth = tooltip.offsetWidth;
+    let tooltipHeight = tooltip.offsetHeight;
+    let offsetForRightMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-right"));
+    let offsetForLeftMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-left"));
+    let adjustHorizontalCenter = tooltipWidth / 2;
+    let adjustToEdge = tooltipWidth + TRIANGLE_SIZE + SPACER;
+
+    switch(position) {
+      case "top":
+        tooltipBody.setAttribute("style", "margin-left: " + adjustHorizontalCenter + "px");
+        break;
+      case "bottom":
+        tooltipBody.setAttribute("style", "margin-left: " + adjustHorizontalCenter + "px");
+        break;
+      case "right":
+        tooltipBody.setAttribute("style", "margin-left: " + (adjustToEdge + offsetForLeftMargin) + "px");
+        break;
+      case "left":
+        tooltipBody.setAttribute("style", "margin-right: " + (adjustToEdge + offsetForRightMargin) + "px");
+        break
+    }
+
+    // Actually show the tooltip
     setTimeout(function(){
-      TOOLTIP_EL.classList.add(TRANSITION_CLASS);
+      tooltipBody.classList.add(TRANSITION_CLASS);
     }, 20);
   };
 
   const hideToolTip = event => {
-    TOOLTIP_EL.classList.remove(TRANSITION_CLASS);
-    TOOLTIP_EL.classList.remove(SHOW_CLASS);
+    tooltipBody.classList.remove(TRANSITION_CLASS);
+    tooltipBody.classList.remove(SHOW_CLASS);
   };
 
 
