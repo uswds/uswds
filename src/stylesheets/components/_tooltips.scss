@@ -77,12 +77,36 @@
   left: 100%;
   bottom: auto;
   transform: translate(0,0);
+
+  &:after {
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-right:4px solid color('ink');
+    border-left: 0;
+    right: auto;
+    top: 50%;
+    bottom: 0;
+    left: -2px;
+    margin: -4.5px 0 0 0;
+  }
 }
 
 .usa-tooltip--left + .usa-tooltip {
   top: 0;
   left: auto;
-  right: 100%;
+  right: calc(100% + 5px);
   bottom: auto;
   transform: translate(0,0);
+
+  &:after {
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid color('ink');
+    border-right: 0;
+    right: -7px;
+    top: 50%;
+    bottom: 0;
+    left: auto;
+    margin: -4.5px 0 0 0;
+  }
 }
