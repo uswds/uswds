@@ -14,8 +14,8 @@
 }
 
 .usa-tooltip {
-  transform: translate(-50%, .25rem);
-  transition: all .08s ease-in-out;
+  transform: translateX(-50%);
+  transition: opacity .08s ease-in-out;
   background-color: color('ink');
   border-radius: 4px;
   color: #fff;
@@ -52,7 +52,6 @@
 }
 
 .usa-tooltip.transition {
-  transform: translate(-50%, 0);
   opacity: 1;
 }
 
@@ -60,7 +59,7 @@
 .usa-tooltip--bottom + .usa-tooltip {
   bottom: calc(-100% - 5px);
   top: auto;
-  transform: translate(-50%, 0);
+  transform: translateX(-50%);
 
   &:after {
     border-left: 5px solid transparent;
@@ -76,7 +75,7 @@
   top: 0;
   left: 100%;
   bottom: auto;
-  transform: translate(0,0);
+  transform: translateX(0);
 
   &:after {
     border-top: 4px solid transparent;
@@ -96,7 +95,7 @@
   left: auto;
   right: calc(100% + 5px);
   bottom: auto;
-  transform: translate(0,0);
+  transform: translateX(0);
 
   &:after {
     border-top: 5px solid transparent;
