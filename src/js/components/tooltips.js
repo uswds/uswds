@@ -32,11 +32,15 @@ const createToolTip = tooltip => {
   const TOOLTIP_EL = document.createElement('span');
   const TOOLTIP_HEIGHT = tooltip.offsetHeight;
   const TOOLTIP_WIDTH = tooltip.offsetWidth;
+  const POSITION = tooltip.getAttribute("data-position") ? tooltip.getAttribute("data-position") : 'top';
+
+  console.log(POSITION);
 
   tooltip.setAttribute("aria-describedby", TOOLTIP_ID);
   //tooltip.setAttribute("tabindex", "0");
   tooltip.setAttribute("title", "");
   tooltip.classList.add(TRIGGER_CLASS);
+  tooltip.classList.add(TOOLTIP_CLASS + '--' + POSITION)
 
   console.log(TOOLTIP_ID +': height: ' + TOOLTIP_HEIGHT + '; width:' + TOOLTIP_WIDTH);
 
@@ -83,8 +87,6 @@ const createToolTip = tooltip => {
 
 
 // Setup our function to run on various events
-
-
 const tooltips = behavior(
   {
   },

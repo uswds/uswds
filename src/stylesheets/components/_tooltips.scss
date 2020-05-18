@@ -47,8 +47,6 @@
   }
 }
 
-
-
 .usa-tooltip.show {
   display: block;
 }
@@ -56,4 +54,35 @@
 .usa-tooltip.transition {
   transform: translate(-50%, 0);
   opacity: 1;
+}
+
+
+.usa-tooltip--bottom + .usa-tooltip {
+  bottom: calc(-100% - 5px);
+  top: auto;
+  transform: translate(-50%, 0);
+
+  &:after {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid color('ink');
+    border-top: 0;
+    bottom: auto;
+    top: -5px;
+  }
+}
+
+.usa-tooltip--right + .usa-tooltip {
+  top: 0;
+  left: 100%;
+  bottom: auto;
+  transform: translate(0,0);
+}
+
+.usa-tooltip--left + .usa-tooltip {
+  top: 0;
+  left: auto;
+  right: 100%;
+  bottom: auto;
+  transform: translate(0,0);
 }
