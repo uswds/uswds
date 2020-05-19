@@ -74,9 +74,12 @@ const createToolTip = tooltip => {
     let offsetForLeftMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-left"));
     let offsetForTopMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-top"));
     let offsetForBottomMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-bottom"));
+    let offsetForTooltipBodyHeight = parseInt(window.getComputedStyle(tooltipBody).getPropertyValue("height"));
     let adjustHorizontalCenter = tooltipWidth / 2;
     let adjustToEdgeX = tooltipWidth + TRIANGLE_SIZE + SPACER;
     let adjustToEdgeY = tooltipHeight + TRIANGLE_SIZE + SPACER;
+
+    console.log(offsetForTooltipBodyHeight);
 
     const resetToPosition = newPos => {
       tooltip.classList.remove(TOOLTIP_CLASS  + '--' + position);
@@ -86,7 +89,7 @@ const createToolTip = tooltip => {
 
     const positionTop = e => {
       resetToPosition("top");
-      e.setAttribute("style", "margin-left: " + adjustHorizontalCenter + "px");
+      e.style.marginLeft = adjustHorizontalCenter + "px"
       if (!isElementInViewport(e)) {
         e.classList.add(ADJUST_WIDTH_CLASS);
       }
@@ -95,7 +98,7 @@ const createToolTip = tooltip => {
 
     const positionBottom = e => {
       resetToPosition("bottom");
-      e.setAttribute("style", "margin-left: " + adjustHorizontalCenter + "px");
+      e.style.marginLeft = adjustHorizontalCenter + "px"
       if (!isElementInViewport(e)) {
         e.classList.add(ADJUST_WIDTH_CLASS);
       }
@@ -104,12 +107,14 @@ const createToolTip = tooltip => {
 
     const positionRight = e => {
       resetToPosition("right");
-      e.setAttribute("style", "margin-left: " + (adjustToEdgeX + offsetForLeftMargin) + "px");
+      e.style.marginLeft = (adjustToEdgeX + offsetForLeftMargin) + "px")
+      e.style.bottom = ((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin + "px";
     }
 
     const positionLeft = e => {
       resetToPosition("left");
-      e.setAttribute("style", "margin-right: " + (adjustToEdgeX + offsetForRightMargin) + "px");
+      e.style.marginRight = (adjustToEdgeX + offsetForRightMargin) + "px");
+      e.style.bottom = ((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin + "px";
     }
 
     switch(position) {
