@@ -4,7 +4,7 @@ const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
 const isElementInViewport = require("../utils/is-in-viewport");
 
-const TOOLTIP = document.querySelectorAll('[data-toggle="tooltip"]');
+const TOOLTIP = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="tooltip"]'));
 const TRIGGER_CLASS = `${PREFIX}-tooltip-trigger`;
 const WRAPPER_CLASS = 'usa-tooltip-wrapper';
 const TOOLTIP_CLASS = 'usa-tooltip';
