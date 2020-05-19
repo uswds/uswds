@@ -8,8 +8,8 @@ const TOOLTIP = Array.prototype.slice.call(document.querySelectorAll('[data-togg
 const TRIGGER_CLASS = `${PREFIX}-tooltip-trigger`;
 const WRAPPER_CLASS = 'usa-tooltip-wrapper';
 const TOOLTIP_CLASS = 'usa-tooltip';
-const TRANSITION_CLASS = 'transition';
-const SHOW_CLASS = 'show';
+const SET_CLASS = 'is-set';
+const VISIBLE_CLASS = 'is-visible';
 const TRIANGLE_SIZE = 5;
 const SPACER = 2;
 const ADJUST_WIDTH_CLASS = `${PREFIX}-tooltip--wrap`;
@@ -64,7 +64,7 @@ const createToolTip = tooltip => {
   tooltipBody.innerHTML = tooltipContent;
 
   const showToolTip = event => {
-    tooltipBody.classList.add(SHOW_CLASS);
+    tooltipBody.classList.add(SET_CLASS);
     tooltip.classList.add(TOOLTIP_CLASS + '--' + position);
 
     // Adjust positioning in case there are margins.
@@ -152,13 +152,13 @@ const createToolTip = tooltip => {
 
     // Actually show the tooltip
     setTimeout(function(){
-      tooltipBody.classList.add(TRANSITION_CLASS);
+      tooltipBody.classList.add(VISIBLE_CLASS);
     }, 20);
   };
 
   const hideToolTip = event => {
-    tooltipBody.classList.remove(TRANSITION_CLASS);
-    tooltipBody.classList.remove(SHOW_CLASS);
+    tooltipBody.classList.remove(VISIBLE_CLASS);
+    tooltipBody.classList.remove(SET_CLASS);
     tooltipBody.classList.remove(ADJUST_WIDTH_CLASS);
     tooltip.classList.remove(TOOLTIP_CLASS  + '--' + position);
     position = originalPosition;

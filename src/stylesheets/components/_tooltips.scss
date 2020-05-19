@@ -52,11 +52,11 @@
   white-space: normal;
 }
 
-.usa-tooltip.show {
+.usa-tooltip.is-set {
   display: block;
 }
 
-.usa-tooltip.transition {
+.usa-tooltip.is-visible {
   opacity: 1;
 }
 
