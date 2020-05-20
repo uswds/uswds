@@ -6,6 +6,22 @@
   &:focus {
     outline: 0;
   }
+
+  button {
+    border: 0;
+
+    &:not([disabled]) {
+      cursor: pointer;
+
+      &:hover {
+        background-color: color("base-lighter");
+      }
+
+      &:active {
+        background-color: color("base-light");
+      }
+    }
+  }
 }
 
 // Date Picker -- initialized
@@ -15,8 +31,6 @@
   background-color: transparent;
   background-position: center;
   background-size: units(3);
-  border: 0;
-  cursor: pointer;
   margin-top: 0.5em;
   width: 3em;
 }
@@ -36,16 +50,6 @@
 
   button {
     background-color: color("base-lightest");
-    border: 0;
-    cursor: pointer;
-
-    &:hover {
-      background-color: color("base-lighter");
-    }
-
-    &:active {
-      background-color: color("base-light");
-    }
   }
 }
 

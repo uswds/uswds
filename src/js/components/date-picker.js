@@ -426,7 +426,7 @@ const enhanceDatePicker = datePickerEl => {
   datePickerEl.insertAdjacentHTML(
     "beforeend",
     [
-      `<button class="${DATE_PICKER_BUTTON_CLASS}" aria-label="Display calendar">&nbsp;</button>`,
+      `<button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-label="Display calendar">&nbsp;</button>`,
       `<div class="${DATE_PICKER_CALENDAR_CLASS}" aria-label="Calendar" hidden></div>`,
       `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
     ].join("")
