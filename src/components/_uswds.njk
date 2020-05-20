@@ -7,13 +7,44 @@
   </head>
   <body tabindex="0">
     {% block body %}{{ yield | safe }}{% endblock %}
+    <script type="text/javascript">
+      (function () {
+        let results = [];
+        location.search
+          .substr(1)
+          .split("&")
+          .forEach(function (item) {
+            console.log(item);
+            const tmp = item.split("=");
+            if (tmp.length > 1) {
+              results.push(
+                `<li><strong>${decodeURIComponent(
+                  tmp[0]
+                )}</strong> - ${decodeURIComponent(
+                  tmp[1].replace(/\+/g, " ")
+                )}</li>`
+              );
+            }
+          });
+
+        if (results.length) {
+          const resultsEl = document.getElementById("form-results");
+          const resultsListEl = document.getElementById(
+            "form-results-list"
+          );
+
+            console.log(resultsEl, resultsListEl);
+          if (resultsEl && resultsListEl) {
+            resultsListEl.innerHTML = `<ul>${results.join("")}</ul>`;
+            resultsEl.hidden = false;
+          }
+        }
+      })();
+    </script>
     <script src="{{ uswds.path }}/js/uswds.min.js"></script>
     <script>
     window.addEventListener('load', function() {
-      document.body.addEventListener('submit', function(e) {
-        // https://github.com/uswds/uswds/issues/2101
-        e.preventDefault();
-      }, true);
+
     }, false);
     </script>
   </body>
