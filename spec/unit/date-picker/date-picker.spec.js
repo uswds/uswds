@@ -233,7 +233,7 @@ describe("date picker component", () => {
   let root;
   let input;
   let button;
-  let calendar;
+  const getCalendarEl = () => root.querySelector(".usa-date-picker__calendar");
 
   beforeEach(() => {
     body.innerHTML = TEMPLATE;
@@ -241,7 +241,6 @@ describe("date picker component", () => {
     root = body.querySelector(".usa-date-picker");
     input = root.querySelector(".usa-date-picker__input");
     button = root.querySelector(".usa-date-picker__button");
-    calendar = root.querySelector(".usa-date-picker__calendar");
   });
 
   afterEach(() => {
@@ -258,50 +257,52 @@ describe("date picker component", () => {
   it("should display a calendar for the current date when the date picker button is clicked", () => {
     EVENTS.click(button);
 
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
     assert.ok(
-      calendar.contains(document.activeElement),
+      getCalendarEl().contains(document.activeElement),
       "The focus is within the component"
     );
   });
 
   it("should hide the calendar when the date picker button is clicked and the calendar is already open", () => {
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(button);
-    assert.equal(calendar.hidden, true, "The calendar is hidden");
+    assert.equal(getCalendarEl().hidden, true, "The calendar is hidden");
   });
 
   it("should close the calendar you click outside of an active calendar", () => {
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.focusout();
 
-    assert.equal(calendar.hidden, true, "The calendar is hidden");
+    assert.equal(getCalendarEl().hidden, true, "The calendar is hidden");
   });
 
   it("should display a calendar for the inputted date when the date picker button is clicked with a date entered", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
 
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "1",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "January",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2020",
       "shows correct year"
     );
@@ -310,41 +311,47 @@ describe("date picker component", () => {
   it("should allow for the selection of a date within the calendar", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(
-      calendar.querySelector('.usa-date-picker__calendar__date[data-day="10"]')
+      getCalendarEl().querySelector(
+        '.usa-date-picker__calendar__date[data-day="10"]'
+      )
     );
 
     assert.equal(input.value, "01/10/2020", "The value has been filled in");
     assert.equal(input, document.activeElement, "The focus is on the input");
-    assert.equal(calendar.hidden, true, "The calendar is hidden");
+    assert.equal(getCalendarEl().hidden, true, "The calendar is hidden");
   });
 
   it("should allow for navigation to the preceding month by clicking the left single arrow button within the calendar", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(
-      calendar.querySelector(".usa-date-picker__calendar__previous-month")
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__previous-month"
+      )
     );
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "1",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "December",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2019",
       "shows correct year"
     );
@@ -353,27 +360,29 @@ describe("date picker component", () => {
   it("should allow for navigation to the succeeding month by clicking the right single arrow button within the calendar", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(
-      calendar.querySelector(".usa-date-picker__calendar__next-month")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__next-month")
     );
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "1",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "February",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2020",
       "shows correct year"
     );
@@ -382,27 +391,29 @@ describe("date picker component", () => {
   it("should allow for navigation to the preceding year by clicking the left double arrow button within the calendar", () => {
     input.value = "1/1/2016";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(
-      calendar.querySelector(".usa-date-picker__calendar__previous-year")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__previous-year")
     );
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "1",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "January",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2015",
       "shows correct year"
     );
@@ -411,27 +422,29 @@ describe("date picker component", () => {
   it("should allow for navigation to the succeeding year by clicking the right double arrow button within the calendar", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(
-      calendar.querySelector(".usa-date-picker__calendar__next-year")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__next-year")
     );
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "1",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "January",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2021",
       "shows correct year"
     );
@@ -439,31 +452,38 @@ describe("date picker component", () => {
 
   it("should display a month selection screen by clicking the month display within the calendar", () => {
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      )
     );
 
     assert.ok(
-      calendar.querySelector(".usa-date-picker__calendar__month-picker"),
+      getCalendarEl().querySelector(".usa-date-picker__calendar__month-picker"),
       "calendar is showing the month picker"
     );
-    assert.equal(document.activeElement, calendar, "calendar is focused");
+    assert.equal(document.activeElement, root, "calendar is focused");
   });
 
   it("should allow for the selection of a month within month selection screen", () => {
     input.value = "2/1/2020";
     EVENTS.click(button);
     EVENTS.click(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      )
     );
 
-    EVENTS.click(calendar.querySelector(".usa-date-picker__calendar__month"));
+    EVENTS.click(
+      getCalendarEl().querySelector(".usa-date-picker__calendar__month")
+    );
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "January",
       "shows correct month"
     );
@@ -473,33 +493,41 @@ describe("date picker component", () => {
     EVENTS.click(button);
 
     EVENTS.click(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      )
     );
 
     assert.ok(
-      calendar.querySelector(".usa-date-picker__calendar__year-picker"),
+      getCalendarEl().querySelector(".usa-date-picker__calendar__year-picker"),
       "calendar is showing the year picker"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year").textContent,
+      getCalendarEl().querySelector(".usa-date-picker__calendar__year")
+        .textContent,
       "2016",
       "shows correct first year of chunk"
     );
-    assert.equal(document.activeElement, calendar, "calendar is focused");
+    assert.equal(document.activeElement, root, "calendar is focused");
   });
 
   it("should allow for navigation to the preceding dozen years by clicking the left single arrow button within the year selection screen", () => {
     EVENTS.click(button);
     EVENTS.click(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      )
     );
 
     EVENTS.click(
-      calendar.querySelector(".usa-date-picker__calendar__previous-year-chunk")
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__previous-year-chunk"
+      )
     );
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year").textContent,
+      getCalendarEl().querySelector(".usa-date-picker__calendar__year")
+        .textContent,
       "2004",
       "shows correct first year of chunk"
     );
@@ -508,15 +536,20 @@ describe("date picker component", () => {
   it("should allow for navigation to the succeeding dozen year by clicking the right single arrow button within the year selection screen", () => {
     EVENTS.click(button);
     EVENTS.click(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      )
     );
 
     EVENTS.click(
-      calendar.querySelector(".usa-date-picker__calendar__next-year-chunk")
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__next-year-chunk"
+      )
     );
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year").textContent,
+      getCalendarEl().querySelector(".usa-date-picker__calendar__year")
+        .textContent,
       "2028",
       "shows correct first year of chunk"
     );
@@ -526,14 +559,19 @@ describe("date picker component", () => {
     input.value = "2/1/2020";
     EVENTS.click(button);
     EVENTS.click(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      )
     );
 
-    EVENTS.click(calendar.querySelector(".usa-date-picker__calendar__year"));
+    EVENTS.click(
+      getCalendarEl().querySelector(".usa-date-picker__calendar__year")
+    );
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2016",
       "shows correct year"
     );
@@ -543,35 +581,37 @@ describe("date picker component", () => {
 
   it("should close the calendar when escape is pressed within the calendar", () => {
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownEscape();
 
-    assert.equal(calendar.hidden, true, "The calendar is hidden");
+    assert.equal(getCalendarEl().hidden, true, "The calendar is hidden");
   });
 
   it("should move focus to the same day of week of the previous week when up is pressed from the currently focused day", () => {
     input.value = "1/10/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownArrowUp();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "3",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "January",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2020",
       "shows correct year"
     );
@@ -580,25 +620,27 @@ describe("date picker component", () => {
   it("should move focus to the same day of week of the next week when down is pressed from the currently focused day", () => {
     input.value = "1/10/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownArrowDown();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "17",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "January",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2020",
       "shows correct year"
     );
@@ -607,25 +649,27 @@ describe("date picker component", () => {
   it("should move focus to the previous day when left is pressed from the currently focused day", () => {
     input.value = "1/10/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownArrowLeft();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "9",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "January",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2020",
       "shows correct year"
     );
@@ -634,25 +678,27 @@ describe("date picker component", () => {
   it("should move focus to the next day when right is pressed from the currently focused day", () => {
     input.value = "1/10/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownArrowRight();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "11",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "January",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2020",
       "shows correct year"
     );
@@ -661,25 +707,27 @@ describe("date picker component", () => {
   it("should move focus to the first day (e.g. Sunday) of the current week when home is pressed from the currently focused day", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownHome();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "29",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "December",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2019",
       "shows correct year"
     );
@@ -688,25 +736,27 @@ describe("date picker component", () => {
   it("should move focus to the last day (e.g. Saturday) of the current week when end is pressed from the currently focused day", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownEnd();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "4",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "January",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2020",
       "shows correct year"
     );
@@ -715,25 +765,27 @@ describe("date picker component", () => {
   it("should move focus to the same day of the previous month when page up is pressed from the currently focused day", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownPageUp();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "1",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "December",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2019",
       "shows correct year"
     );
@@ -742,25 +794,27 @@ describe("date picker component", () => {
   it("should move focus to the last day of the previous month when page up is pressed from the the last day of a longer month", () => {
     input.value = "12/31/2019";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownPageUp();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "30",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "November",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2019",
       "shows correct year"
     );
@@ -769,25 +823,27 @@ describe("date picker component", () => {
   it("should not move focus to the previous month when page up is pressed from a focused date that will then move before the minimum date", () => {
     input.value = "1/28/0000";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownPageUp();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "28",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "January",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "0",
       "shows correct year"
     );
@@ -796,25 +852,27 @@ describe("date picker component", () => {
   it("should move focus to the same day of the next month when page down is pressed from the currently focused day", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownPageDown();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "1",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "February",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2020",
       "shows correct year"
     );
@@ -823,25 +881,27 @@ describe("date picker component", () => {
   it("should move focus to the last day of the next month when page down is pressed from the the last day of a longer month", () => {
     input.value = "1/31/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownPageDown();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "29",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "February",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2020",
       "shows correct year"
     );
@@ -850,25 +910,27 @@ describe("date picker component", () => {
   it("should move focus to the same day of the month January when page down is pressed from the currently focused day in December", () => {
     input.value = "12/31/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownPageDown();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "31",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "January",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2021",
       "shows correct year"
     );
@@ -877,25 +939,27 @@ describe("date picker component", () => {
   it("should move focus to the same day/month of the previous year when shift + page up is pressed from the currently focused day", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownShiftPageUp();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "1",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "January",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2019",
       "shows correct year"
     );
@@ -904,25 +968,27 @@ describe("date picker component", () => {
   it("should not move focus to the previous year when shift + page up is pressed from a focused date that will then move before the minimum date", () => {
     input.value = "2/28/0000";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownShiftPageUp();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "28",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "February",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "0",
       "shows correct year"
     );
@@ -931,25 +997,27 @@ describe("date picker component", () => {
   it("should not move focus to February 28th of the previous year when shift + page up is pressed from a focused February 29th date of a leap year", () => {
     input.value = "2/29/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownShiftPageUp();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "28",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "February",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2019",
       "shows correct year"
     );
@@ -958,25 +1026,27 @@ describe("date picker component", () => {
   it("should move focus to the same day/month of the next year when shift + page down is pressed from the currently focused day", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownShiftPageDown();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "1",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "January",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2021",
       "shows correct year"
     );
@@ -985,25 +1055,27 @@ describe("date picker component", () => {
   it("should move focus to February 28th of the next year when shift + page down is pressed from a focused February 29th date of a leap year", () => {
     input.value = "2/29/2020";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.keydownShiftPageDown();
 
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "28",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "February",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2021",
       "shows correct year"
     );
@@ -1013,22 +1085,24 @@ describe("date picker component", () => {
     input.value = "2/29/20";
     EVENTS.click(button);
 
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__date--focused")
+      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
         .textContent,
       "29",
       "focuses correct date"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__month-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__month-selection"
+      ).textContent,
       "February",
       "shows correct month"
     );
     assert.equal(
-      calendar.querySelector(".usa-date-picker__calendar__year-selection")
-        .textContent,
+      getCalendarEl().querySelector(
+        ".usa-date-picker__calendar__year-selection"
+      ).textContent,
       "2020",
       "shows correct year"
     );
@@ -1044,14 +1118,14 @@ describe("date picker component", () => {
   it("should update the calendar when a valid date is entered in the input while the date picker is open", () => {
     input.value = "6/1/2020";
     EVENTS.click(button);
-    const firstFocus = calendar.querySelector(
+    const firstFocus = getCalendarEl().querySelector(
       ".usa-date-picker__calendar__date--focused"
     );
 
     input.value = "6/20/2020";
     EVENTS.input(input);
 
-    const secondFocus = calendar.querySelector(
+    const secondFocus = getCalendarEl().querySelector(
       ".usa-date-picker__calendar__date--focused"
     );
 
@@ -1063,10 +1137,12 @@ describe("date picker component", () => {
     EVENTS.focusout(input);
     assert.equal(input.validationMessage, VALIDATION_MESSAGE);
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
     EVENTS.click(
-      calendar.querySelector('.usa-date-picker__calendar__date[data-day="10"]')
+      getCalendarEl().querySelector(
+        '.usa-date-picker__calendar__date[data-day="10"]'
+      )
     );
 
     assert.equal(input.validationMessage, "");
@@ -1083,7 +1159,7 @@ describe("date picker component", () => {
   it("should prevent action from button when event didn't originate from date", () => {
     input.value = "2/31/2019";
     EVENTS.click(button);
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
     const { preventDefaultSpy } = EVENTS.keyupEnter();
     assert.ok(
       preventDefaultSpy.called,
@@ -1094,9 +1170,9 @@ describe("date picker component", () => {
   it("should display a calendar for the current date when enter is pressed from the date picker button", () => {
     EVENTS.keydownEnter(button);
 
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
     assert.ok(
-      calendar.contains(document.activeElement),
+      getCalendarEl().contains(document.activeElement),
       "The focus is within the component"
     );
   });
@@ -1104,9 +1180,9 @@ describe("date picker component", () => {
   it("should display a calendar for the current date when space is pressed from the date picker button", () => {
     EVENTS.keydownSpace(button);
 
-    assert.equal(calendar.hidden, false, "The calendar is shown");
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
     assert.ok(
-      calendar.contains(document.activeElement),
+      getCalendarEl().contains(document.activeElement),
       "The focus is within the component"
     );
   });
