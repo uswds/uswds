@@ -13,10 +13,10 @@ const TRIANGLE_SIZE = 5;
 const SPACER = 2;
 const ADJUST_WIDTH_CLASS = `${PREFIX}-tooltip--wrap`;
 
-/* Add one or more listeners to an element
-** @param {DOMElement} element - DOM element to add listeners to
-** @param {string} eventNames - space separated list of event names, e.g. 'click change'
-** @param {Function} listener - function to attach for each event as a listener
+/** Add one or more listeners to an element
+* @param {DOMElement} element - DOM element to add listeners to
+* @param {string} eventNames - space separated list of event names, e.g. 'click change'
+* @param {Function} listener - function to attach for each event as a listener
 */
 const addListenerMulti = (element, eventNames, listener) => {
   const events = eventNames.split(' ');
@@ -25,8 +25,8 @@ const addListenerMulti = (element, eventNames, listener) => {
   }
 }
 
-/* Creates the tooltip
-** @param {HTMLElement} toolitp - the element that initializes the tooltip
+/** Creates the tooltip
+* @param {HTMLElement} toolitp - the element that initializes the tooltip
 */
 const createToolTip = tooltip => {
   const tooltipID = `tooltip ${Math.floor(Math.random()*900000) + 100000}`;
@@ -76,12 +76,12 @@ const createToolTip = tooltip => {
     const adjustToEdgeX = tooltipWidth + TRIANGLE_SIZE + SPACER;
     const adjustToEdgeY = tooltipHeight + TRIANGLE_SIZE + SPACER;
 
-    /* Position the tooltip body when the trigger is hovered
-    ** Removes old positioning classnames and reapplies. This allows
-    ** positioning to change in case the user resizes browser or DOM manipulation
-    ** causes tooltip to get clipped from viewport
-    **
-    ** @param {string} position - can be "top", "bottom", "right", "left"
+    /** Position the tooltip body when the trigger is hovered
+    * Removes old positioning classnames and reapplies. This allows
+    * positioning to change in case the user resizes browser or DOM manipulation
+    * causes tooltip to get clipped from viewport
+    *
+    * @param {string} position - can be "top", "bottom", "right", "left"
     */
     const adjustToPosition = setPos => {
       tooltip.classList.remove(`${TOOLTIP_CLASS}--${position}`);
@@ -89,11 +89,11 @@ const createToolTip = tooltip => {
       tooltip.classList.add(`${TOOLTIP_CLASS}--${position}`);
     }
 
-    /* Positions tooltip at the top
-    ** We check if the element is in theviewport so we know whether or not we
-    ** need to constrain the width
-    **
-    ** @param {HTMLElement} tooltip body
+    /** Positions tooltip at the top
+    * We check if the element is in theviewport so we know whether or not we
+    * need to constrain the width
+    *
+    * @param {HTMLElement} tooltip body
     */
     const positionTop = e => {
       adjustToPosition("top");
@@ -104,11 +104,11 @@ const createToolTip = tooltip => {
       e.style.marginBottom = `${adjustToEdgeY + offsetForBottomMargin}px`;
     }
 
-    /* Positions tooltip at the bottom
-    ** We check if the element is in theviewport so we know whether or not we
-    ** need to constrain the width
-    **
-    ** @param {HTMLElement} tooltip body
+    /** Positions tooltip at the bottom
+    * We check if the element is in theviewport so we know whether or not we
+    * need to constrain the width
+    *
+    * @param {HTMLElement} tooltip body
     */
     const positionBottom = e => {
       adjustToPosition("bottom");
@@ -119,9 +119,9 @@ const createToolTip = tooltip => {
       e.style.marginTop = `${adjustToEdgeY + offsetForTopMargin}px`;
     }
 
-    /* Positions tooltip at the right
-    **
-    ** @param {HTMLElement} tooltip body
+    /** Positions tooltip at the right
+    *
+    * @param {HTMLElement} tooltip body
     */
     const positionRight = e => {
       adjustToPosition("right");
@@ -129,9 +129,9 @@ const createToolTip = tooltip => {
       e.style.bottom = `${((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin}px`;
     }
 
-    /* Positions tooltip at the right
-    **
-    ** @param {HTMLElement} tooltip body
+    /** Positions tooltip at the right
+    *
+    * @param {HTMLElement} tooltip body
     */
     const positionLeft = e => {
       adjustToPosition("left");
@@ -139,9 +139,9 @@ const createToolTip = tooltip => {
       e.style.bottom = `${((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin}px`;
     }
 
-    /* We try to set the position based on the
-    ** original intention, but make adjustments
-    ** if the element is clipped out of the viewport
+    /** We try to set the position based on the
+    * original intention, but make adjustments
+    * if the element is clipped out of the viewport
     */
     switch(position) {
       case "top":
@@ -180,19 +180,19 @@ const createToolTip = tooltip => {
         break;
     }
 
-    /* Actually show the tooltip. The VISIBLE_CLASS
-    ** will change the opacity to 1
+    /**
+    * Actually show the tooltip. The VISIBLE_CLASS
+    * will change the opacity to 1
     */
     setTimeout(function makeVisible(){
       tooltipBody.classList.add(VISIBLE_CLASS);
     }, 20);
   };
 
-  /* Removes all the properties to show and position the tooltip,
-  ** and resets the tooltip position to the original intention
-  ** in case the window is resized or the element is moved through
-  ** DOM maniulation.
-  **
+  /** Removes all the properties to show and position the tooltip,
+  * and resets the tooltip position to the original intention
+  * in case the window is resized or the element is moved through
+  * DOM maniulation.
   */
   const hideToolTip = () => {
     tooltipBody.classList.remove(VISIBLE_CLASS);
@@ -224,8 +224,7 @@ const tooltips = behavior(
       TOOLTIP.forEach(tooltip =>
         createToolTip(tooltip)
       );
-    },
-    TOOLTIP
+    }
   }
 );
 
