@@ -1,5 +1,4 @@
 // Tooltips
-const select = require("../utils/select");
 const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
 const isElementInViewport = require("../utils/is-in-viewport");
@@ -20,8 +19,8 @@ const ADJUST_WIDTH_CLASS = `${PREFIX}-tooltip--wrap`;
 ** @param {Function} listener - function to attach for each event as a listener
 */
 const addListenerMulti = (element, eventNames, listener) => {
-  var events = eventNames.split(' ');
-  for (var i=0, iLen=events.length; i<iLen; i++) {
+  const events = eventNames.split(' ');
+  for (let i=0, iLen=events.length; i<iLen; i += 1) {
     element.addEventListener(events[i], listener, false);
   }
 }
@@ -30,12 +29,12 @@ const addListenerMulti = (element, eventNames, listener) => {
 ** @param {HTMLElement} toolitp - the element that initializes the tooltip
 */
 const createToolTip = tooltip => {
-  let tooltipID = "tooltip" + (Math.floor(Math.random()*90000) + 10000);
-  let tooltipContent = tooltip.getAttribute("title");
-  let wrapper = document.createElement('div');
-  let tooltipBody = document.createElement('span');
+  const tooltipID = `tooltip ${Math.floor(Math.random()*900000) + 100000}`;
+  const tooltipContent = tooltip.getAttribute("title");
+  const wrapper = document.createElement('div');
+  const tooltipBody = document.createElement('span');
   let position = tooltip.getAttribute("data-position") ? tooltip.getAttribute("data-position") : 'top';
-  let originalPosition = position;
+  const originalPosition = position;
 
   // Set up tooltip attributes
   tooltip.setAttribute("aria-describedby", tooltipID);
@@ -60,22 +59,22 @@ const createToolTip = tooltip => {
   // place the text in the tooltip
   tooltipBody.innerHTML = tooltipContent;
 
-  const showToolTip = event => {
+  const showToolTip = () => {
     // This sets up the tooltip body. The opacity is 0, but
     // we can begin running the calculations below.
     tooltipBody.classList.add(SET_CLASS);
 
     // Calculate sizing and adjustments for positioning
-    let tooltipWidth = tooltip.offsetWidth;
-    let tooltipHeight = tooltip.offsetHeight;
-    let offsetForRightMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-right"));
-    let offsetForLeftMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-left"));
-    let offsetForTopMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-top"));
-    let offsetForBottomMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-bottom"));
-    let offsetForTooltipBodyHeight = parseInt(window.getComputedStyle(tooltipBody).getPropertyValue("height"));
-    let adjustHorizontalCenter = tooltipWidth / 2;
-    let adjustToEdgeX = tooltipWidth + TRIANGLE_SIZE + SPACER;
-    let adjustToEdgeY = tooltipHeight + TRIANGLE_SIZE + SPACER;
+    const tooltipWidth = tooltip.offsetWidth;
+    const tooltipHeight = tooltip.offsetHeight;
+    const offsetForRightMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-right"), 10);
+    const offsetForLeftMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-left"), 10);
+    const offsetForTopMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-top"), 10);
+    const offsetForBottomMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-bottom"), 10);
+    const offsetForTooltipBodyHeight = parseInt(window.getComputedStyle(tooltipBody).getPropertyValue("height"), 10);
+    const adjustHorizontalCenter = tooltipWidth / 2;
+    const adjustToEdgeX = tooltipWidth + TRIANGLE_SIZE + SPACER;
+    const adjustToEdgeY = tooltipHeight + TRIANGLE_SIZE + SPACER;
 
     /* Position the tooltip body when the trigger is hovered
     ** Removes old positioning classnames and reapplies. This allows
@@ -85,9 +84,9 @@ const createToolTip = tooltip => {
     ** @param {string} position - can be "top", "bottom", "right", "left"
     */
     const adjustToPosition = setPos => {
-      tooltip.classList.remove(TOOLTIP_CLASS  + '--' + position);
+      tooltip.classList.remove(`${TOOLTIP_CLASS}--${position}`);
       position = setPos;
-      tooltip.classList.add(TOOLTIP_CLASS + '--' + position);
+      tooltip.classList.add(`${TOOLTIP_CLASS}--${position}`);
     }
 
     /* Positions tooltip at the top
@@ -98,11 +97,11 @@ const createToolTip = tooltip => {
     */
     const positionTop = e => {
       adjustToPosition("top");
-      e.style.marginLeft = adjustHorizontalCenter + "px"
+      e.style.marginLeft = `${adjustHorizontalCenter}px`
       if (!isElementInViewport(e)) {
         e.classList.add(ADJUST_WIDTH_CLASS);
       }
-      e.style.marginBottom = adjustToEdgeY + offsetForBottomMargin + "px";
+      e.style.marginBottom = `${adjustToEdgeY + offsetForBottomMargin}px`;
     }
 
     /* Positions tooltip at the bottom
@@ -113,11 +112,11 @@ const createToolTip = tooltip => {
     */
     const positionBottom = e => {
       adjustToPosition("bottom");
-      e.style.marginLeft = adjustHorizontalCenter + "px"
+      e.style.marginLeft = `${adjustHorizontalCenter}px`
       if (!isElementInViewport(e)) {
         e.classList.add(ADJUST_WIDTH_CLASS);
       }
-      e.style.marginTop = adjustToEdgeY + offsetForTopMargin + "px";
+      e.style.marginTop = `${adjustToEdgeY + offsetForTopMargin}px`;
     }
 
     /* Positions tooltip at the right
@@ -126,8 +125,8 @@ const createToolTip = tooltip => {
     */
     const positionRight = e => {
       adjustToPosition("right");
-      e.style.marginLeft = (adjustToEdgeX + offsetForLeftMargin) + "px"
-      e.style.bottom = ((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin + "px";
+      e.style.marginLeft = `${adjustToEdgeX + offsetForLeftMargin}px`
+      e.style.bottom = `${((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin}px`;
     }
 
     /* Positions tooltip at the right
@@ -136,8 +135,8 @@ const createToolTip = tooltip => {
     */
     const positionLeft = e => {
       adjustToPosition("left");
-      e.style.marginRight = (adjustToEdgeX + offsetForRightMargin) + "px";
-      e.style.bottom = ((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin + "px";
+      e.style.marginRight = `${adjustToEdgeX + offsetForRightMargin}px`;
+      e.style.bottom = `${((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin}px`;
     }
 
     /* We try to set the position based on the
@@ -174,13 +173,17 @@ const createToolTip = tooltip => {
             positionTop(tooltipBody);
           }
         }
-      break
+        break;
+
+      default:
+        // skip default case
+        break;
     }
 
     /* Actually show the tooltip. The VISIBLE_CLASS
     ** will change the opacity to 1
     */
-    setTimeout(function(){
+    setTimeout(function makeVisible(){
       tooltipBody.classList.add(VISIBLE_CLASS);
     }, 20);
   };
@@ -190,24 +193,23 @@ const createToolTip = tooltip => {
   ** in case the window is resized or the element is moved through
   ** DOM maniulation.
   **
-  ** @param {event}
   */
-  const hideToolTip = event => {
+  const hideToolTip = () => {
     tooltipBody.classList.remove(VISIBLE_CLASS);
     tooltipBody.classList.remove(SET_CLASS);
     tooltipBody.classList.remove(ADJUST_WIDTH_CLASS);
-    tooltip.classList.remove(TOOLTIP_CLASS  + '--' + position);
+    tooltip.classList.remove(`${TOOLTIP_CLASS}--${position}`);
     position = originalPosition;
   };
 
-  // Listeners for showing and hiding the tooltip 
-  addListenerMulti(tooltip, 'mouseenter focus', function(){
-    showToolTip(event);
+  // Listeners for showing and hiding the tooltip
+  addListenerMulti(tooltip, 'mouseenter focus', function handleShow(){
+    showToolTip();
     return false;
   });
 
-  addListenerMulti(tooltip, 'mouseleave blur', function(){
-    hideToolTip(event);
+  addListenerMulti(tooltip, 'mouseleave blur', function handleHide(){
+    hideToolTip();
     return false;
   });
 
@@ -218,9 +220,7 @@ const tooltips = behavior(
   {
   },
   {
-    init(root) {
-      //createToolTip(TOOLTIP)
-
+    init() {
       TOOLTIP.forEach(tooltip =>
         createToolTip(tooltip)
       );
