@@ -2,16 +2,21 @@
 
 .usa-date-picker {
   position: relative;
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 // Date Picker -- initialized
 
 .usa-date-picker__button {
   @include add-background-svg("calendar-alt-solid");
+  background-color: transparent;
   background-position: center;
   background-size: units(3);
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
+  border: 0;
+  cursor: pointer;
   margin-top: 0.5em;
   width: 3em;
 }
@@ -29,13 +34,10 @@
   width: 100%;
   z-index: z-index(100);
 
-  &[tabindex]:focus {
-    outline: 0;
-  }
-
   button {
     background-color: color("base-lightest");
     border: 0;
+    cursor: pointer;
 
     &:hover {
       background-color: color("base-lighter");
