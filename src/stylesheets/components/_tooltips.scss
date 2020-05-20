@@ -1,3 +1,6 @@
+// Variables
+$triangle-size: 5px;
+
 /* Tooltips */
 .usa-tooltip-wrapper {
   display: inline-block;
@@ -15,12 +18,12 @@
 
 .usa-tooltip {
   transition: opacity .08s ease-in-out;
-  background-color: color('ink');
-  border-radius: 4px;
+  background-color: color($theme-tooltip-color);
+  border-radius: radius($theme-button-border-radius);
   bottom: 0;
   color: #fff;
   display: none;
-  font-size: size('ui', 'xs');
+  font-size: size('ui', $theme-tooltip-font-size);
   padding: units(1);
   position: absolute;
   pointer-events: none;
@@ -37,13 +40,13 @@
     width: 0;
     height: 0;
     pointer-events: none;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid color('ink');
+    border-left: $triangle-size solid transparent;
+    border-right: $triangle-size solid transparent;
+    border-top: $triangle-size solid color('ink');
     position: absolute;
-    bottom: -5px;
+    bottom: -$triangle-size;
     left: 50%;
-    margin-left: -5px;
+    margin-left: -$triangle-size;
   }
 }
 
@@ -66,12 +69,12 @@
   top: 0;
 
   &:after {
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid color('ink');
+    border-left: $triangle-size solid transparent;
+    border-right: $triangle-size solid transparent;
+    border-bottom: $triangle-size solid color($theme-tooltip-color);
     border-top: 0;
     bottom: auto;
-    top: -5px;
+    top: -$triangle-size;
   }
 }
 
@@ -80,15 +83,15 @@
   transform: translateX(0);
 
   &:after {
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-right:5px solid color('ink');
+    border-top: $triangle-size solid transparent;
+    border-bottom: $triangle-size solid transparent;
+    border-right: $triangle-size solid color('ink');
     border-left: 0;
     right: auto;
     top: 50%;
     bottom: 0;
-    left: -5px;
-    margin: -5px 0 0 0;
+    left: -$triangle-size;
+    margin: -$triangle-size 0 0 0;
   }
 }
 
@@ -99,14 +102,14 @@
   transform: translateX(0);
 
   &:after {
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 5px solid color('ink');
+    border-top: $triangle-size solid transparent;
+    border-bottom: $triangle-size solid transparent;
+    border-left: $triangle-size solid color('ink');
     border-right: 0;
-    right: -5px;
+    right: -$triangle-size;
     top: 50%;
     bottom: 0;
     left: auto;
-    margin: -5px 0 0 0;
+    margin: -$triangle-size 0 0 0;
   }
 }
