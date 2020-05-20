@@ -1119,13 +1119,6 @@ const datePicker = behavior(
         "Shift+PageUp": handleShiftPageUp,
         Escape: handleEscape
       }),
-      [DATE_PICKER_BUTTON](event) {
-        // Space (32) or Enter (13)
-        if (event.keyCode === 32 || event.keyCode === 13) {
-          toggleCalendar(this);
-          event.preventDefault();
-        }
-      },
       [DATE_PICKER_INPUT](event) {
         // Enter (13)
         if (event.keyCode === 13) {
