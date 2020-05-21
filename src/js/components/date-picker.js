@@ -549,7 +549,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
       data-year="${year}" 
       data-value="${formattedDate}"
       aria-label="${day} ${monthStr} ${year} ${dayStr}"
-      ${isDisabled ? "disabled" : ""}
+      ${isDisabled ? `disabled="disabled"` : ""}
     >${day}</button>`;
   };
 
@@ -581,7 +581,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
             tabindex="-1"
             class="${CALENDAR_PREVIOUS_YEAR_CLASS}"
             aria-label="Navigate back one year"
-            ${prevYearDisabled ? "disabled" : ""}
+            ${prevYearDisabled ? `disabled="disabled"` : ""}
           >&nbsp;</button>
         </div>
         <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
@@ -590,7 +590,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
             tabindex="-1"
             class="${CALENDAR_PREVIOUS_MONTH_CLASS}"
             aria-label="Navigate back one month"
-            ${prevMonthDisabled ? "disabled" : ""}
+            ${prevMonthDisabled ? `disabled="disabled"` : ""}
           >&nbsp;</button>
         </div>
         <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__month-label">
