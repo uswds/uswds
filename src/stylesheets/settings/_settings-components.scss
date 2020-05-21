@@ -33,7 +33,14 @@ $theme-banner-font-family: "ui" !default;
 $theme-banner-max-width: "desktop" !default;
 
 // Breadcrumb
-$theme-breadcrumb-separator: "›" !default;
+$theme-breadcrumb-icon: "arrow-right" !default;
+$theme-breadcrumb-icon-size: 1 !default;
+$theme-breadcrumb-margin-top: 2 !default;
+$theme-breadcrumb-margin-bottom: 2 !default;
+$theme-breadcrumb-gap: 05 !default;
+$theme-breadcrumb-wrapping: true !default;
+$theme-breadcrumb-min-width: "mobile-lg" !default;
+
 
 // Button
 $theme-button-font-family: "ui" !default;
