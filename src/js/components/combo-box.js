@@ -140,6 +140,7 @@ const enhanceComboBox = el => {
       `<ul
         id="${listId}"
         class="${LIST_CLASS}"
+        tabindex="-1"
         role="listbox"
         hidden>
       </ul>`,

@@ -1,3 +1,4 @@
+<div class="default-container" style="background-color:#fcfcfc; height:100%">
 
 <br /><br /><br />
 <div class="grid-container">
@@ -6,9 +7,9 @@
     <div id="form-results-list"></div>
   </div>
 
-  <form class="usa-form" method="GET">
+  <form class="usa-form preview" method="GET">
     <fieldset class="usa-fieldset">
-      <legend class="usa-legend">Submit Feedback</legend>
+      <legend class="usa-legend">Say Thanks</legend>
 
       <label class="usa-label" for="agency"
         >Select your government agency</label
@@ -805,21 +806,21 @@
         </select>
       </div>
 
-      <label class="usa-label" for="feedback">Provide feedback</label>
+      <label class="usa-label" for="message">Your message</label>
       <div class="usa-form-group">
         <div class="usa-character-count">
           <textarea
             class="usa-textarea usa-character-count__field"
-            id="feedback"
+            id="message"
             maxlength="20"
-            name="feedback"
+            name="message"
             rows="5"
-            aria-describedby="feedback-info"
+            aria-describedby="message-info"
             required
           ></textarea>
 
           <span
-            id="feedback-info"
+            id="message-info"
             class="usa-hint usa-character-count__message"
             aria-live="polite"
           >
@@ -828,7 +829,8 @@
         </div>
       </div>
 
-      <input class="usa-button" type="submit" value="Submit feedback" />
+      <input class="usa-button" type="submit" value="Submit Thanks" />
     </fieldset>
   </form>
+</div>
 </div>

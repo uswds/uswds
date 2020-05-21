@@ -4,6 +4,20 @@
     <title>{{ _self.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ uswds.path }}/css/uswds.min.css">
+    <style>
+    html, 
+body {
+    height: 100%;
+}
+
+.preview {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #f0f0f0;
+}
+    </style>
   </head>
   <body tabindex="0">
     {% block body %}{{ yield | safe }}{% endblock %}
