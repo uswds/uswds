@@ -1,10 +1,10 @@
 // Tooltips
+const select = require("../utils/select");
 const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
 const isElementInViewport = require("../utils/is-in-viewport");
 
-const TOOLTIP = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="tooltip"]'));
-const TRIGGER_CLASS = `${PREFIX}-tooltip-trigger`;
+const TOOLTIP_TRIGGER = `.${PREFIX}-tooltip__trigger`
 const WRAPPER_CLASS = 'usa-tooltip-wrapper';
 const TOOLTIP_CLASS = 'usa-tooltip';
 const SET_CLASS = 'is-set';
@@ -26,7 +26,7 @@ const addListenerMulti = (element, eventNames, listener) => {
 }
 
 /** Creates the tooltip
-* @param {HTMLElement} toolitp - the element that initializes the tooltip
+* @param {HTMLElement} tooltip - the element that initializes the tooltip
 */
 const createToolTip = tooltip => {
   const tooltipID = `tooltip ${Math.floor(Math.random()*900000) + 100000}`;
@@ -40,7 +40,6 @@ const createToolTip = tooltip => {
   tooltip.setAttribute("aria-describedby", tooltipID);
   tooltip.setAttribute("tabindex", "0");
   tooltip.setAttribute("title", "");
-  tooltip.classList.add(TRIGGER_CLASS);
 
   // insert wrapper before el in the DOM tree
   tooltip.parentNode.insertBefore(wrapper, tooltip);
@@ -220,10 +219,10 @@ const tooltips = behavior(
   {
   },
   {
-    init() {
-      TOOLTIP.forEach(tooltip =>
-        createToolTip(tooltip)
-      );
+    init(root) {
+      select(TOOLTIP_TRIGGER, root).forEach(tooltip => {
+        createToolTip(tooltip);
+      });
     }
   }
 );
