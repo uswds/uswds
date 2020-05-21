@@ -63,7 +63,7 @@
 
 .usa-date-picker__calendar__cell {
   background-color: color("base-lightest");
-  @include u-flex(1);
+  flex: 1;
   padding: 4px;
 }
 
@@ -108,7 +108,7 @@
 }
 
 .usa-date-picker__calendar__month-label {
-  @include u-flex(4);
+  flex: 4;
   padding: 4px 0;
   text-align: center;
 }
@@ -146,7 +146,7 @@
 
 .usa-date-picker__calendar__previous-year-chunk,
 .usa-date-picker__calendar__next-year-chunk {
-  @include u-flex(1);
+  flex: 1;
   background-position: center;
   background-size: auto units(4);
   margin: auto;
@@ -162,7 +162,7 @@
 }
 
 .usa-date-picker__calendar__year-grid {
-  @include u-flex(3);
+  flex: 3;
 }
 
 .usa-date-picker__calendar__year {
