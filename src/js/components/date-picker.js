@@ -670,6 +670,7 @@ const displayCalendar = el => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const displayPreviousYear = el => {
+  if (el.disabled) return;
   const { calendarEl, calendarDate } = getDatePickerContext(el);
   const date = addYears(calendarDate, -1);
   renderCalendar(calendarEl, date);
@@ -681,6 +682,7 @@ const displayPreviousYear = el => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const displayPreviousMonth = el => {
+  if (el.disabled) return;
   const { calendarEl, calendarDate } = getDatePickerContext(el);
   const date = addMonths(calendarDate, -1);
   renderCalendar(calendarEl, date);
@@ -692,6 +694,7 @@ const displayPreviousMonth = el => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const displayNextMonth = el => {
+  if (el.disabled) return;
   const { calendarEl, calendarDate } = getDatePickerContext(el);
   const date = addMonths(calendarDate, 1);
   renderCalendar(calendarEl, date);
@@ -703,6 +706,7 @@ const displayNextMonth = el => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const displayNextYear = el => {
+  if (el.disabled) return;
   const { calendarEl, calendarDate } = getDatePickerContext(el);
   const date = addYears(calendarDate, 1);
   renderCalendar(calendarEl, date);
@@ -735,6 +739,7 @@ const hideCalendar = el => {
  * @param {HTMLButtonElement} calendarDateEl A date element within the date picker component
  */
 const selectDate = calendarDateEl => {
+  if (calendarDateEl.disabled) return;
   const { datePickerEl, inputEl } = getDatePickerContext(calendarDateEl);
 
   inputEl.value = calendarDateEl.getAttribute("data-value");
