@@ -765,6 +765,7 @@ const MONTH_HTML = (() => {
   const months = MONTH_LABELS.map((month, index) => {
     return `<button type="button" class="${CALENDAR_MONTH_CLASS}" data-value="${index}">${month}</button>`;
   });
+
   const monthsHtml = listToGridHtml(months, 3);
   return `<div class="${CALENDAR_MONTH_PICKER_CLASS}">${monthsHtml}</div>`;
 })();
