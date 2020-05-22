@@ -60,6 +60,6 @@
 .usa-breadcrumb__link {
   color: color($theme-link-color);
   display: inline-flex;
-}
-
+  // Reduce jitter from desktop → mobile.
+  transition: padding $theme-easing;
 }
