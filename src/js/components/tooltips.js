@@ -212,7 +212,7 @@ const setUpAttributes = tooltipTrigger => {
   // place the text in the tooltip
   tooltipBody.innerHTML = tooltipContent;
 
-  return { tooltipBody, position }
+  return { tooltipBody, position, tooltipContent }
 
 };
 
@@ -223,18 +223,24 @@ const tooltips = behavior(
   {
     init(root) {
       select(TOOLTIP_TRIGGER, root).forEach(tooltipTrigger => {
-        const { tooltipBody, position } = setUpAttributes(tooltipTrigger);
+        const { tooltipBody, position, tooltipContent } = setUpAttributes(tooltipTrigger);
 
-        // Listeners for showing and hiding the tooltip
-        addListenerMulti(tooltipTrigger, 'mouseenter focus', function handleShow(){
-          showToolTip(tooltipBody, tooltipTrigger, position);
-          return false;
-        });
+        if (tooltipContent) {
+          // Listeners for showing and hiding the tooltip
+          addListenerMulti(tooltipTrigger, 'mouseenter focus', function handleShow(){
+            showToolTip(tooltipBody, tooltipTrigger, position);
+            return false;
+          });
 
-        addListenerMulti(tooltipTrigger, 'mouseleave blur', function handleHide(){
-          hideToolTip(tooltipBody);
-          return false;
-        });
+          addListenerMulti(tooltipTrigger, 'mouseleave blur', function handleHide(){
+            hideToolTip(tooltipBody);
+            return false;
+          });
+        }
+        else {
+          // throw error or let other tooltips on page function?
+        }
+
       });
     }
   }
