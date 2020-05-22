@@ -26,26 +26,26 @@ const addListenerMulti = (element, eventNames, listener) => {
 }
 
 /** Creates the tooltip
-* @param {HTMLElement} tooltip - the element that initializes the tooltip
+* @param {HTMLElement} tooltipTrigger - the element that initializes the tooltip
 */
-const createToolTip = tooltip => {
-  const tooltipID = `tooltip ${Math.floor(Math.random()*900000) + 100000}`;
-  const tooltipContent = tooltip.getAttribute("title");
+const createToolTip = tooltipTrigger => {
+  const tooltipID = `tooltip-${Math.floor(Math.random()*900000) + 100000}`;
+  const tooltipContent = tooltipTrigger.getAttribute("title");
   const wrapper = document.createElement('div');
   const tooltipBody = document.createElement('span');
-  let position = tooltip.getAttribute("data-position") ? tooltip.getAttribute("data-position") : 'top';
+  let position = tooltipTrigger.getAttribute("data-position") ? tooltipTrigger.getAttribute("data-position") : 'top';
   const originalPosition = position;
 
   // Set up tooltip attributes
-  tooltip.setAttribute("aria-describedby", tooltipID);
-  tooltip.setAttribute("tabindex", "0");
-  tooltip.setAttribute("title", "");
+  tooltipTrigger.setAttribute("aria-describedby", tooltipID);
+  tooltipTrigger.setAttribute("tabindex", "0");
+  tooltipTrigger.setAttribute("title", "");
 
   // insert wrapper before el in the DOM tree
-  tooltip.parentNode.insertBefore(wrapper, tooltip);
+  tooltipTrigger.parentNode.insertBefore(wrapper, tooltipTrigger);
 
   // set up the wrapper
-  wrapper.appendChild(tooltip);
+  wrapper.appendChild(tooltipTrigger);
   wrapper.classList.add(WRAPPER_CLASS);
   wrapper.appendChild(tooltipBody);
 
@@ -64,12 +64,12 @@ const createToolTip = tooltip => {
     tooltipBody.classList.add(SET_CLASS);
 
     // Calculate sizing and adjustments for positioning
-    const tooltipWidth = tooltip.offsetWidth;
-    const tooltipHeight = tooltip.offsetHeight;
-    const offsetForRightMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-right"), 10);
-    const offsetForLeftMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-left"), 10);
-    const offsetForTopMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-top"), 10);
-    const offsetForBottomMargin = parseInt(window.getComputedStyle(tooltip).getPropertyValue("margin-bottom"), 10);
+    const tooltipWidth = tooltipTrigger.offsetWidth;
+    const tooltipHeight = tooltipTrigger.offsetHeight;
+    const offsetForRightMargin = parseInt(window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-right"), 10);
+    const offsetForLeftMargin = parseInt(window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-left"), 10);
+    const offsetForTopMargin = parseInt(window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-top"), 10);
+    const offsetForBottomMargin = parseInt(window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-bottom"), 10);
     const offsetForTooltipBodyHeight = parseInt(window.getComputedStyle(tooltipBody).getPropertyValue("height"), 10);
     const adjustHorizontalCenter = tooltipWidth / 2;
     const adjustToEdgeX = tooltipWidth + TRIANGLE_SIZE + SPACER;
@@ -83,16 +83,16 @@ const createToolTip = tooltip => {
     * @param {string} position - can be "top", "bottom", "right", "left"
     */
     const adjustToPosition = setPos => {
-      tooltip.classList.remove(`${TOOLTIP_CLASS}--${position}`);
+      tooltipTrigger.classList.remove(`${TOOLTIP_CLASS}--${position}`);
       position = setPos;
-      tooltip.classList.add(`${TOOLTIP_CLASS}--${position}`);
+      tooltipTrigger.classList.add(`${TOOLTIP_CLASS}--${position}`);
     }
 
     /** Positions tooltip at the top
     * We check if the element is in theviewport so we know whether or not we
     * need to constrain the width
     *
-    * @param {HTMLElement} tooltip body
+    * @param {HTMLElement} tooltipTrigger body
     */
     const positionTop = e => {
       adjustToPosition("top");
@@ -107,7 +107,7 @@ const createToolTip = tooltip => {
     * We check if the element is in theviewport so we know whether or not we
     * need to constrain the width
     *
-    * @param {HTMLElement} tooltip body
+    * @param {HTMLElement} tooltipTrigger body
     */
     const positionBottom = e => {
       adjustToPosition("bottom");
@@ -120,7 +120,7 @@ const createToolTip = tooltip => {
 
     /** Positions tooltip at the right
     *
-    * @param {HTMLElement} tooltip body
+    * @param {HTMLElement} tooltipTrigger body
     */
     const positionRight = e => {
       adjustToPosition("right");
@@ -130,7 +130,7 @@ const createToolTip = tooltip => {
 
     /** Positions tooltip at the right
     *
-    * @param {HTMLElement} tooltip body
+    * @param {HTMLElement} tooltipTrigger body
     */
     const positionLeft = e => {
       adjustToPosition("left");
@@ -197,17 +197,17 @@ const createToolTip = tooltip => {
     tooltipBody.classList.remove(VISIBLE_CLASS);
     tooltipBody.classList.remove(SET_CLASS);
     tooltipBody.classList.remove(ADJUST_WIDTH_CLASS);
-    tooltip.classList.remove(`${TOOLTIP_CLASS}--${position}`);
+    tooltipTrigger.classList.remove(`${TOOLTIP_CLASS}--${position}`);
     position = originalPosition;
   };
 
   // Listeners for showing and hiding the tooltip
-  addListenerMulti(tooltip, 'mouseenter focus', function handleShow(){
+  addListenerMulti(tooltipTrigger, 'mouseenter focus', function handleShow(){
     showToolTip();
     return false;
   });
 
-  addListenerMulti(tooltip, 'mouseleave blur', function handleHide(){
+  addListenerMulti(tooltipTrigger, 'mouseleave blur', function handleHide(){
     hideToolTip();
     return false;
   });
@@ -220,8 +220,8 @@ const tooltips = behavior(
   },
   {
     init(root) {
-      select(TOOLTIP_TRIGGER, root).forEach(tooltip => {
-        createToolTip(tooltip);
+      select(TOOLTIP_TRIGGER, root).forEach(tooltipTrigger => {
+        createToolTip(tooltipTrigger);
       });
     }
   }
