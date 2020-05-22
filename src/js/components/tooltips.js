@@ -13,9 +13,10 @@ const TRIANGLE_SIZE = 5;
 const SPACER = 2;
 const ADJUST_WIDTH_CLASS = `${PREFIX}-tooltip--wrap`;
 
-/** Add one or more listeners to an element
+/**
+* Add one or more listeners to an element
 * @param {DOMElement} element - DOM element to add listeners to
-* @param {string} eventNames - space separated list of event names, e.g. 'click change'
+* @param {events} eventNames - space separated list of event names, e.g. 'click change'
 * @param {Function} listener - function to attach for each event as a listener
 */
 const addListenerMulti = (element, eventNames, listener) => {
@@ -25,7 +26,8 @@ const addListenerMulti = (element, eventNames, listener) => {
   }
 }
 
-/** Creates the tooltip
+/**
+* Shows the tooltip
 * @param {HTMLElement} tooltipTrigger - the element that initializes the tooltip
 */
 const showToolTip = (tooltipBody, tooltipTrigger, position) => {
@@ -47,7 +49,8 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   const adjustToEdgeX = tooltipWidth + TRIANGLE_SIZE + SPACER;
   const adjustToEdgeY = tooltipHeight + TRIANGLE_SIZE + SPACER;
 
-  /** Position the tooltip body when the trigger is hovered
+  /**
+  * Position the tooltip body when the trigger is hovered
   * Removes old positioning classnames and reapplies. This allows
   * positioning to change in case the user resizes browser or DOM manipulation
   * causes tooltip to get clipped from viewport
@@ -60,11 +63,11 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     tooltipTrigger.classList.add(`${TOOLTIP_CLASS}--${setPos}`);
   }
 
-  /** Positions tooltip at the top
+  /**
+  * Positions tooltip at the top
   * We check if the element is in the viewport so we know whether or not we
   * need to constrain the width
-  *
-  * @param {HTMLElement} tooltipTrigger body
+  * @param {HTMLElement} e - this is the tooltip body
   */
   const positionTop = e => {
     setPositionClass("top");
@@ -75,11 +78,11 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     e.style.marginBottom = `${adjustToEdgeY + offsetForBottomMargin}px`;
   }
 
-  /** Positions tooltip at the bottom
+  /**
+  * Positions tooltip at the bottom
   * We check if the element is in theviewport so we know whether or not we
   * need to constrain the width
-  *
-  * @param {HTMLElement} tooltipTrigger body
+  * @param {HTMLElement} e - this is the tooltip body
   */
   const positionBottom = e => {
     setPositionClass("bottom");
@@ -90,9 +93,9 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     e.style.marginTop = `${adjustToEdgeY + offsetForTopMargin}px`;
   }
 
-  /** Positions tooltip at the right
-  *
-  * @param {HTMLElement} tooltipTrigger body
+  /**
+  * Positions tooltip at the right
+  * @param {HTMLElement} e - this is the tooltip body
   */
   const positionRight = e => {
     setPositionClass("right");
@@ -101,9 +104,9 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     e.style.bottom = `${((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin}px`;
   }
 
-  /** Positions tooltip at the right
-  *
-  * @param {HTMLElement} tooltipTrigger body
+  /**
+  * Positions tooltip at the right
+  * @param {HTMLElement} e - this is the tooltip body
   */
   const positionLeft = e => {
     setPositionClass("left");
@@ -112,7 +115,8 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     e.style.bottom = `${((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin}px`;
   }
 
-  /** We try to set the position based on the
+  /**
+  * We try to set the position based on the
   * original intention, but make adjustments
   * if the element is clipped out of the viewport
   */
@@ -162,12 +166,12 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   }, 20);
 };
 
-/** Removes all the properties to show and position the tooltip,
+/**
+* Removes all the properties to show and position the tooltip,
 * and resets the tooltip position to the original intention
 * in case the window is resized or the element is moved through
 * DOM maniulation.
-* @param {HTMLElement} tooltipBody    The body of the tooltip
-* @param {HTMLElement} tooltipTrigger The element that creates the tooltip
+* @param {HTMLElement} tooltipBody - The body of the tooltip
 */
 const hideToolTip = (tooltipBody) => {
   tooltipBody.classList.remove(VISIBLE_CLASS);
@@ -176,10 +180,9 @@ const hideToolTip = (tooltipBody) => {
 };
 
 /**
- * Setup the tooltip component
- *
- * @param {HTMLElement} tooltipTrigger The element that creates the tooltip
- */
+* Setup the tooltip component
+* @param {HTMLElement} tooltipTrigger The element that creates the tooltip
+*/
 const setUpAttributes = tooltipTrigger => {
   const tooltipID = `tooltip-${Math.floor(Math.random()*900000) + 100000}`;
   const tooltipContent = tooltipTrigger.getAttribute("title");
