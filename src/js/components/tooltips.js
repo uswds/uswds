@@ -242,8 +242,7 @@ const tooltips = behavior(
         }
 
       });
-    },
-    TOOLTIP_TRIGGER
+    }
   }
 );
 
