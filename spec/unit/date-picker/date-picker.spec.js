@@ -1166,24 +1166,4 @@ describe("date picker component", () => {
       "should not have allowed enter to perform default action"
     );
   });
-
-  it("should display a calendar for the current date when enter is pressed from the date picker button", () => {
-    EVENTS.keydownEnter(button);
-
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
-    assert.ok(
-      getCalendarEl().contains(document.activeElement),
-      "The focus is within the component"
-    );
-  });
-
-  it("should display a calendar for the current date when space is pressed from the date picker button", () => {
-    EVENTS.keydownSpace(button);
-
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
-    assert.ok(
-      getCalendarEl().contains(document.activeElement),
-      "The focus is within the component"
-    );
-  });
 });

@@ -26,13 +26,18 @@
 
 // Date Picker -- initialized
 
+.usa-date-picker__button-wrapper {
+  margin-top: 0.5em;
+  width: 3em;
+}
+
 .usa-date-picker__button {
   @include add-background-svg("calendar-alt-solid");
   background-color: transparent;
   background-position: center;
   background-size: units(3);
-  margin-top: 0.5em;
-  width: 3em;
+  height: 100%;
+  width: 100%;
 }
 
 .usa-date-picker--initialized {
