@@ -15,16 +15,14 @@
 
 .usa-breadcrumb__list {
   @include unstyled-list;
-
-  @include at-media($theme-breadcrumb-min-width) {
-    // @include u-display("flex");
-    // @include u-flex("wrap");
-  }
+  @include u-white-space("no-wrap");
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .usa-breadcrumb__list-item {
   @include sr-only;
-  display: inline-block;
+  @include u-display("inline");
 
   @include at-media-max("mobile-lg") {
     &:nth-last-child(2) {
@@ -58,29 +56,4 @@
   display: inline-flex;
 }
 
-// ---------------------------------
-// Variations
-// ---------------------------------
-
-// No wrap
-// ---------------------------------
-.usa-breadcrumb--nowrap {
-
-  .usa-breadcrumb__list {
-    @include u-flex("no-wrap");
-    @include u-white-space("no-wrap");
-    display: inherit;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-
-  .usa-breadcrumb__list-item {
-    @include u-display("inline");
-
-    @include at-media-max("mobile-lg") {
-      &:nth-last-child(2) .usa-breadcrumb__link {
-        display: inline;
-      }
-    }
-  }
 }
