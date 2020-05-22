@@ -17,13 +17,13 @@ $triangle-size: 5px;
 }
 
 .usa-tooltip {
-  transition: opacity .08s ease-in-out;
-  background-color: color($theme-tooltip-color);
+  transition: opacity 0.08s ease-in-out;
+  background-color: color($theme-tooltip-bg-color);
   border-radius: radius($theme-button-border-radius);
   bottom: 0;
-  color: #fff;
+  color: color($theme-tooltip-font-color);
   display: none;
-  font-size: size('ui', $theme-tooltip-font-size);
+  font-size: size("ui", $theme-tooltip-font-size);
   padding: units(1);
   position: absolute;
   pointer-events: none;
@@ -42,7 +42,7 @@ $triangle-size: 5px;
     pointer-events: none;
     border-left: $triangle-size solid transparent;
     border-right: $triangle-size solid transparent;
-    border-top: $triangle-size solid color('ink');
+    border-top: $triangle-size solid color($theme-tooltip-bg-color);
     position: absolute;
     bottom: -$triangle-size;
     left: 50%;
@@ -63,7 +63,6 @@ $triangle-size: 5px;
   opacity: 1;
 }
 
-
 .usa-tooltip--bottom + .usa-tooltip {
   bottom: auto;
   top: 0;
@@ -71,7 +70,7 @@ $triangle-size: 5px;
   &:after {
     border-left: $triangle-size solid transparent;
     border-right: $triangle-size solid transparent;
-    border-bottom: $triangle-size solid color($theme-tooltip-color);
+    border-bottom: $triangle-size solid color($theme-tooltip-bg-color);
     border-top: 0;
     bottom: auto;
     top: -$triangle-size;
@@ -85,7 +84,7 @@ $triangle-size: 5px;
   &:after {
     border-top: $triangle-size solid transparent;
     border-bottom: $triangle-size solid transparent;
-    border-right: $triangle-size solid color('ink');
+    border-right: $triangle-size solid color($theme-tooltip-bg-color);
     border-left: 0;
     right: auto;
     top: 50%;
@@ -104,7 +103,7 @@ $triangle-size: 5px;
   &:after {
     border-top: $triangle-size solid transparent;
     border-bottom: $triangle-size solid transparent;
-    border-left: $triangle-size solid color('ink');
+    border-left: $triangle-size solid color($theme-tooltip-bg-color);
     border-right: 0;
     right: -$triangle-size;
     top: 50%;
