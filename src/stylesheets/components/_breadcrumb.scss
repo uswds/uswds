@@ -1,16 +1,20 @@
-@mixin breadcrumb-icon {
-  @include add-background-svg("#{$theme-breadcrumb-icon}");
-  background-size: units($theme-breadcrumb-icon-size);
-  background-position: center;
-  background-repeat: no-repeat;
+
+@mixin breadcrumb-icon($icon: $theme-breadcrumb-separator-icon, $size: $theme-breadcrumb-separator-icon-size) {
+  // 1. Possible mixin code.
+  $image-name: unquote($icon); // 1
+  background-color: color($theme-breadcrumb-icon-color); // 1
+  mask: url("#{$theme-image-path}/#{$image-name}.svg") no-repeat center; // 1
+  mask-size: units($size); // 1
   content: "";
   display: inline-block;
-  padding: units($theme-breadcrumb-icon-size);
+  padding: units($size);
 }
 
 .usa-breadcrumb {
-  @include u-margin-bottom($theme-breadcrumb-margin-top);
-  @include u-margin-top($theme-breadcrumb-margin-bottom);
+  @include at-media("mobile-lg") {
+    @include u-margin-bottom($theme-breadcrumb-spacing-top);
+    @include u-margin-top($theme-breadcrumb-spacing-bottom);
+  }
 }
 
 .usa-breadcrumb__list {
@@ -25,18 +29,20 @@
   @include u-display("inline");
 
   @include at-media-max("mobile-lg") {
+
+    // ⃪ Parent link.
     &:nth-last-child(2) {
       @include not-sr-only;
 
       .usa-breadcrumb__link {
         @include button-unstyled;
-        padding: units(1.5) units(2.5);
+        @include u-padding-top($theme-breadcrumb-spacing-top);
+        @include u-padding-bottom($theme-breadcrumb-spacing-bottom);
       }
 
       .usa-breadcrumb__link::before {
-        @include breadcrumb-icon;
+        @include breadcrumb-icon($theme-breadcrumb-back-icon, $theme-breadcrumb-back-icon-size);
         @include u-margin-right(1);
-        transform: scaleX(-1);
       }
     }
   }
@@ -46,7 +52,7 @@
 
     &:not(:last-child)::after {
       @include breadcrumb-icon;
-      @include u-margin-x($theme-breadcrumb-margin-top);
+      @include u-margin-x($theme-breadcrumb-spacing-top);
     }
   }
 }
