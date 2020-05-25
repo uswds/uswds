@@ -646,7 +646,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
   let dateToDisplay = _dateToDisplay || today();
 
   if (adjustFocus) {
-    calendarEl.focus();
+    datePickerEl.focus();
   }
 
   const calendarWasHidden = calendarEl.hidden;
@@ -807,10 +807,10 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
 
   if (calendarWasHidden) {
     datePickerEl.tabIndex = -1;
-    statusEl.innerHTML =
+    statusEl.textContent =
       "You can navigate by day using left and right arrows; weeks by using up and down arrows; months by using page up and page down keys; years by using shift plus page up and shift plus page down; home and end keys navigate to the beginning and end of a week.";
   } else {
-    statusEl.innerHTML = `${monthLabel} ${focusedYear}`;
+    statusEl.textContent = `${monthLabel} ${focusedYear}`;
   }
 
   const focusedDateEl = newCalendar.querySelector(CALENDAR_DATE_FOCUSED);
@@ -890,7 +890,7 @@ const hideCalendar = el => {
 
   calendarEl.hidden = true;
   calendarEl.innerHTML = "";
-  statusEl.innerHTML = "";
+  statusEl.textContent = "";
 };
 
 /**
@@ -986,7 +986,7 @@ const displayMonthSelection = el => {
   newCalendar.innerHTML = monthsHtml;
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
-  statusEl.innerHTML = "Select a month.";
+  statusEl.textContent = "Select a month.";
 };
 
 /**
@@ -1068,7 +1068,7 @@ const displayYearSelection = (el, yearToDisplay) => {
     </div >`;
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
-  statusEl.innerHTML = `Showing years ${yearToChunk} to ${yearToChunk +
+  statusEl.textContent = `Showing years ${yearToChunk} to ${yearToChunk +
     YEAR_CHUNK -
     1}. Select a year.`;
 };
