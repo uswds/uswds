@@ -939,6 +939,14 @@ describe("date picker component", () => {
     assert.equal(input.validationMessage, VALIDATION_MESSAGE);
   });
 
+  it("should show an empty input as valid", () => {
+    input.value = "";
+
+    EVENTS.keydownEnter(input);
+
+    assert.equal(input.validationMessage, "");
+  });
+
   it("should prevent action from button when event didn't originate from date", () => {
     input.value = "2/31/2019";
     EVENTS.click(button);

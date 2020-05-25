@@ -126,8 +126,8 @@
   width: auto;
 }
 
-.usa-date-picker__calendar__date--next-month,
-.usa-date-picker__calendar__date--previous-month {
+.usa-date-picker__calendar__date--next-month:not([disabled]),
+.usa-date-picker__calendar__date--previous-month:not([disabled]) {
   color: color("gray-warm-60");
 }
 

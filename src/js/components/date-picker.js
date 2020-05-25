@@ -337,6 +337,17 @@ const keepDateBetweenMinAndMax = (date, minDate, maxDate) => {
 };
 
 /**
+ * Check if dates month is valid.
+ *
+ * @param {Date} date date to check
+ * @param {Date} minDate minimum date to allow
+ * @param {Date} maxDate maximum date to allow
+ * @return {boolean} is there a day within the month within min and max dates
+ */
+const isDateWithinMinAndMax = (date, minDate, maxDate) =>
+  date >= minDate && (!maxDate || date <= maxDate);
+
+/**
  * Check if dates month is invalid.
  *
  * @param {Date} date date to check
@@ -351,15 +362,19 @@ const isDatesMonthOutsideMinAndMax = (date, minDate, maxDate) => {
 };
 
 /**
- * Check if dates month is valid.
+ * Check if dates year is invalid.
  *
  * @param {Date} date date to check
  * @param {Date} minDate minimum date to allow
  * @param {Date} maxDate maximum date to allow
- * @return {boolean} is there a day within the month within min and max dates
+ * @return {boolean} is the month outside min or max dates
  */
-const isDatesMonthWithinMinAndMax = (date, minDate, maxDate) =>
-  !isDatesMonthOutsideMinAndMax(date, minDate, maxDate);
+const isDatesYearOutsideMinOrMax = (date, minDate, maxDate) => {
+  return (
+    lastDayOfMonth(setMonth(date, 11)) < minDate ||
+    (maxDate && startOfMonth(setMonth(date, 0)) > maxDate)
+  );
+};
 
 /**
  * Parse a date with format M-D-YY
@@ -597,8 +612,7 @@ const validateDateInput = _inputEl => {
         checkDate.getDate() === day &&
         checkDate.getFullYear() === year &&
         dateStringParts[2].length === 4 &&
-        checkDate >= minDate &&
-        (!maxDate || checkDate <= maxDate)
+        isDateWithinMinAndMax(checkDate, minDate, maxDate)
       ) {
         isInvalid = false;
       }
@@ -956,6 +970,7 @@ const displayMonthSelection = el => {
         type="button" 
         class="${CALENDAR_MONTH_CLASS}" 
         data-value="${index}"
+        data-label="${month}"
         ${isDisabled ? `disabled="disabled"` : ""}
       >${month}</button>`;
   });
@@ -986,7 +1001,8 @@ const displayYearSelection = (el, yearToDisplay) => {
     calendarEl,
     statusEl,
     calendarDate,
-    minDate
+    minDate,
+    maxDate
   } = getDatePickerContext(el);
   let yearToChunk = yearToDisplay;
 
@@ -996,14 +1012,36 @@ const displayYearSelection = (el, yearToDisplay) => {
     yearToChunk = calendarDate.getFullYear();
   }
   yearToChunk -= yearToChunk % YEAR_CHUNK;
-  yearToChunk = Math.max(minDate.getFullYear(), yearToChunk);
+  yearToChunk = Math.max(0, yearToChunk);
+
+  const prevYearChunkDisabled = isDatesYearOutsideMinOrMax(
+    setYear(calendarDate, yearToChunk - 1),
+    minDate,
+    maxDate
+  );
+
+  const nextYearChunkDisabled = isDatesYearOutsideMinOrMax(
+    setYear(calendarDate, yearToChunk + YEAR_CHUNK),
+    minDate,
+    maxDate
+  );
 
   const years = [];
   let yearIndex = yearToChunk;
-
   while (years.length < YEAR_CHUNK) {
+    const isDisabled = isDatesYearOutsideMinOrMax(
+      setYear(calendarDate, yearIndex),
+      minDate,
+      maxDate
+    );
+
     years.push(
-      `<button type="button" class="${CALENDAR_YEAR_CLASS}">${yearIndex}</button>`
+      `<button 
+        type="button" 
+        class="${CALENDAR_YEAR_CLASS}" 
+        data-value="${yearIndex}"
+        ${isDisabled ? `disabled="disabled"` : ""}
+      >${yearIndex}</button>`
     );
     yearIndex += 1;
   }
@@ -1012,11 +1050,21 @@ const displayYearSelection = (el, yearToDisplay) => {
 
   const newCalendar = calendarEl.cloneNode();
   newCalendar.innerHTML = `<div class="${CALENDAR_YEAR_PICKER_CLASS}">
-      <button type="button" class="${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}" aria-label="Navigate back ${YEAR_CHUNK} years">&nbsp;</button>
+      <button 
+        type="button" 
+        class="${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}" 
+        aria-label="Navigate back ${YEAR_CHUNK} years"
+        ${prevYearChunkDisabled ? `disabled="disabled"` : ""}
+      >&nbsp;</button>
       <div role="grid" class="usa-date-picker__calendar__year-table ${CALENDAR_YEAR_GRID_CLASS}">
         ${yearsHtml}
       </div>
-      <button type="button" class="${CALENDAR_NEXT_YEAR_CHUNK_CLASS}" aria-label="Navigate forward ${YEAR_CHUNK} years">&nbsp;</button>
+      <button 
+        type="button" 
+        class="${CALENDAR_NEXT_YEAR_CHUNK_CLASS}" 
+        aria-label="Navigate forward ${YEAR_CHUNK} years"
+        ${nextYearChunkDisabled ? `disabled="disabled"` : ""}
+      >&nbsp;</button>
     </div >`;
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
@@ -1031,6 +1079,7 @@ const displayYearSelection = (el, yearToDisplay) => {
  * @param {HTMLButtonElement} el An element within the date picker component
  */
 const displayPreviousYearChunk = el => {
+  if (el.disabled) return;
   const { firstYearChunkEl } = getDatePickerContext(el);
   const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
   displayYearSelection(el, firstYearChunkYear - YEAR_CHUNK);
@@ -1042,6 +1091,7 @@ const displayPreviousYearChunk = el => {
  * @param {HTMLButtonElement} el An element within the date picker component
  */
 const displayNextYearChunk = el => {
+  if (el.disabled) return;
   const { firstYearChunkEl } = getDatePickerContext(el);
   const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
   displayYearSelection(el, firstYearChunkYear + YEAR_CHUNK);
@@ -1059,7 +1109,7 @@ const handleUp = event => {
     event.target
   );
   const date = subWeeks(calendarDate, 1);
-  if (isDatesMonthWithinMinAndMax(date, minDate, maxDate)) {
+  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
     renderCalendar(calendarEl, date);
   }
   event.preventDefault();
@@ -1075,7 +1125,7 @@ const handleDown = event => {
     event.target
   );
   const date = addWeeks(calendarDate, 1);
-  if (isDatesMonthWithinMinAndMax(date, minDate, maxDate)) {
+  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
     renderCalendar(calendarEl, date);
   }
   event.preventDefault();
@@ -1091,7 +1141,7 @@ const handleLeft = event => {
     event.target
   );
   const date = subDays(calendarDate, 1);
-  if (isDatesMonthWithinMinAndMax(date, minDate, maxDate)) {
+  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
     renderCalendar(calendarEl, date);
   }
   event.preventDefault();
@@ -1107,7 +1157,7 @@ const handleRight = event => {
     event.target
   );
   const date = addDays(calendarDate, 1);
-  if (isDatesMonthWithinMinAndMax(date, minDate, maxDate)) {
+  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
     renderCalendar(calendarEl, date);
   }
   event.preventDefault();
@@ -1123,7 +1173,7 @@ const handleHome = event => {
     event.target
   );
   const date = startOfWeek(calendarDate);
-  if (isDatesMonthWithinMinAndMax(date, minDate, maxDate)) {
+  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
     renderCalendar(calendarEl, date);
   }
   event.preventDefault();
@@ -1139,7 +1189,7 @@ const handleEnd = event => {
     event.target
   );
   const date = endOfWeek(calendarDate);
-  if (isDatesMonthWithinMinAndMax(date, minDate, maxDate)) {
+  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
     renderCalendar(calendarEl, date);
   }
   event.preventDefault();
@@ -1155,7 +1205,7 @@ const handlePageDown = event => {
     event.target
   );
   const date = addMonths(calendarDate, 1);
-  if (isDatesMonthWithinMinAndMax(date, minDate, maxDate)) {
+  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
     renderCalendar(calendarEl, date);
   }
   event.preventDefault();
@@ -1171,7 +1221,7 @@ const handlePageUp = event => {
     event.target
   );
   const date = subMonths(calendarDate, 1);
-  if (isDatesMonthWithinMinAndMax(date, minDate, maxDate)) {
+  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
     renderCalendar(calendarEl, date);
   }
   event.preventDefault();
@@ -1187,7 +1237,7 @@ const handleShiftPageDown = event => {
     event.target
   );
   const date = addYears(calendarDate, 1);
-  if (isDatesMonthWithinMinAndMax(date, minDate, maxDate)) {
+  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
     renderCalendar(calendarEl, date);
   }
   event.preventDefault();
@@ -1203,7 +1253,7 @@ const handleShiftPageUp = event => {
     event.target
   );
   const date = subYears(calendarDate, 1);
-  if (isDatesMonthWithinMinAndMax(date, minDate, maxDate)) {
+  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
     renderCalendar(calendarEl, date);
   }
   event.preventDefault();
