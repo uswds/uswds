@@ -68,23 +68,140 @@ describe("date picker component with min date and max date", () => {
     );
   });
 
-  it("should allow navigation back a month to a month that is partially disabled due to a minimum date being set", () => {});
+  it("should allow navigation back a month to a month that is partially disabled due to a minimum date being set", () => {
+    input.value = "06/15/2020";
+    EVENTS.click(button);
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
-  it("should not allow navigation back a month to a month that is fully disabled due to a minimum date being set", () => {});
+    EVENTS.click(getCalendarEl(".usa-date-picker__calendar__previous-month"));
 
-  it("should allow navigation forward a year to a month that is partially disabled due to a maximum date being set", () => {});
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+      "05/22/2020",
+      "focuses correct date"
+    );
+  });
 
-  it("should not allow navigation forward a year to a month that is fully disabled due to a maximum date being set", () => {});
+  it("should not allow navigation back a month to a month that is fully disabled due to a minimum date being set", () => {
+    input.value = "05/30/2020";
+    EVENTS.click(button);
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
-  it("should allow navigation forward a month to a month that is partially disabled due to a maximum date being set", () => {});
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__previous-year").disabled,
+      true,
+      "the button is disabled"
+    );
 
-  it("should not allow navigation forward a month to a month that is fully disabled due to a maximum date being set", () => {});
+    EVENTS.click(getCalendarEl(".usa-date-picker__calendar__previous-month"));
 
-  it("should allow selection of a month in the month selection screen that is partially disabled due to a minimum date being set", () => {});
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+      "05/30/2020",
+      "focuses correct date"
+    );
+  });
 
-  it("should allow selection of a month in the month selection screen that is partially disabled due to a maximum date being set", () => {});
+  it("should allow navigation forward a year to a month that is partially disabled due to a maximum date being set", () => {
+    input.value = "06/25/2020";
+    EVENTS.click(button);
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
 
-  it("should not allow selection of a month in the month selection screen that is fully disabled due to a minimum date being set", () => {});
+    EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-year"));
+
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+      "06/20/2021",
+      "focuses correct date"
+    );
+  });
+
+  it("should not allow navigation forward a year to a month that is fully disabled due to a maximum date being set", () => {
+    input.value = "07/25/2020";
+    EVENTS.click(button);
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+
+    EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-year"));
+
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+      "07/25/2020",
+      "focuses correct date"
+    );
+  });
+
+  it("should allow navigation forward a month to a month that is partially disabled due to a maximum date being set", () => {
+    input.value = "05/25/2021";
+    EVENTS.click(button);
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+
+    EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-month"));
+
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+      "06/20/2021",
+      "focuses correct date"
+    );
+  });
+
+  it("should not allow navigation forward a month to a month that is fully disabled due to a maximum date being set", () => {
+    input.value = "06/17/2021";
+    EVENTS.click(button);
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+
+    EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-month"));
+
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+      "06/17/2021",
+      "focuses correct date"
+    );
+  });
+
+  it("should allow selection of a month in the month selection screen that is partially disabled due to a minimum date being set", () => {
+    input.value = "12/01/2020";
+    EVENTS.click(button);
+    EVENTS.click(getCalendarEl(".usa-date-picker__calendar__month-selection"));
+    assert.ok(
+      getCalendarEl(".usa-date-picker__calendar__month-picker"),
+      "the month picker is shown"
+    );
+
+    EVENTS.click(
+      getCalendarEl().querySelector(
+        '.usa-date-picker__calendar__month[data-value="4"]'
+      )
+    );
+
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+      "05/22/2020",
+      "focuses correct date"
+    );
+    assert.ok(
+      getCalendarEl(".usa-date-picker__calendar__date-picker"),
+      "the date picker is shown"
+    );
+  });
+
+  it("should not allow selection of a month in the month selection screen that is fully disabled due to a minimum date being set", () => {
+    input.value = "10/31/2020";
+    EVENTS.click(button);
+    EVENTS.click(getCalendarEl(".usa-date-picker__calendar__month-selection"));
+    assert.ok(
+      getCalendarEl(".usa-date-picker__calendar__month-picker"),
+      "the month picker is shown"
+    );
+
+    EVENTS.click(
+      getCalendarEl('.usa-date-picker__calendar__month[data-value="0"]')
+    );
+
+    assert.ok(
+      getCalendarEl(".usa-date-picker__calendar__month-picker"),
+      "the month picker is shown"
+    );
+  });
 
   it("should not allow selection of a month in the month selection screen that is fully disabled due to a maximum date being set", () => {});
 
