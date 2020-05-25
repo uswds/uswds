@@ -603,35 +603,6 @@ describe("date picker component", () => {
     );
   });
 
-  it("should not move focus to the previous month when page up is pressed from a focused date that will then move before the minimum date", () => {
-    input.value = "1/28/0000";
-    EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
-
-    EVENTS.keydownPageUp();
-
-    assert.equal(
-      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-        .textContent,
-      "28",
-      "focuses correct date"
-    );
-    assert.equal(
-      getCalendarEl().querySelector(
-        ".usa-date-picker__calendar__month-selection"
-      ).textContent,
-      "January",
-      "shows correct month"
-    );
-    assert.equal(
-      getCalendarEl().querySelector(
-        ".usa-date-picker__calendar__year-selection"
-      ).textContent,
-      "0",
-      "shows correct year"
-    );
-  });
-
   it("should move focus to the same day of the next month when page down is pressed from the currently focused day", () => {
     input.value = "1/1/2020";
     EVENTS.click(button);
@@ -748,36 +719,7 @@ describe("date picker component", () => {
     );
   });
 
-  it("should not move focus to the previous year when shift + page up is pressed from a focused date that will then move before the minimum date", () => {
-    input.value = "2/28/0000";
-    EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
-
-    EVENTS.keydownShiftPageUp();
-
-    assert.equal(
-      getCalendarEl().querySelector(".usa-date-picker__calendar__date--focused")
-        .textContent,
-      "28",
-      "focuses correct date"
-    );
-    assert.equal(
-      getCalendarEl().querySelector(
-        ".usa-date-picker__calendar__month-selection"
-      ).textContent,
-      "February",
-      "shows correct month"
-    );
-    assert.equal(
-      getCalendarEl().querySelector(
-        ".usa-date-picker__calendar__year-selection"
-      ).textContent,
-      "0",
-      "shows correct year"
-    );
-  });
-
-  it("should not move focus to February 28th of the previous year when shift + page up is pressed from a focused February 29th date of a leap year", () => {
+  it("should move focus to February 28th of the previous year when shift + page up is pressed from a focused February 29th date of a leap year", () => {
     input.value = "2/29/2020";
     EVENTS.click(button);
     assert.equal(getCalendarEl().hidden, false, "The calendar is shown");

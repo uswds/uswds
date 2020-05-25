@@ -576,7 +576,7 @@ const enhanceDatePicker = el => {
       `<span class="usa-date-picker__button-wrapper" tabindex="-1">
         <button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-label="Display calendar">&nbsp;</button>
       </span>`,
-      `<div class="${DATE_PICKER_CALENDAR_CLASS}" aria-label="Calendar" hidden></div>`,
+      `<div tabindex="-1" class="${DATE_PICKER_CALENDAR_CLASS}" aria-label="Calendar" hidden></div>`,
       `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
     ].join("")
   );
@@ -1109,8 +1109,9 @@ const handleUp = event => {
     event.target
   );
   const date = subWeeks(calendarDate, 1);
-  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
-    renderCalendar(calendarEl, date);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
   }
   event.preventDefault();
 };
@@ -1125,8 +1126,9 @@ const handleDown = event => {
     event.target
   );
   const date = addWeeks(calendarDate, 1);
-  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
-    renderCalendar(calendarEl, date);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
   }
   event.preventDefault();
 };
@@ -1141,8 +1143,9 @@ const handleLeft = event => {
     event.target
   );
   const date = subDays(calendarDate, 1);
-  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
-    renderCalendar(calendarEl, date);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
   }
   event.preventDefault();
 };
@@ -1157,8 +1160,9 @@ const handleRight = event => {
     event.target
   );
   const date = addDays(calendarDate, 1);
-  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
-    renderCalendar(calendarEl, date);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
   }
   event.preventDefault();
 };
@@ -1173,8 +1177,9 @@ const handleHome = event => {
     event.target
   );
   const date = startOfWeek(calendarDate);
-  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
-    renderCalendar(calendarEl, date);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
   }
   event.preventDefault();
 };
@@ -1189,8 +1194,9 @@ const handleEnd = event => {
     event.target
   );
   const date = endOfWeek(calendarDate);
-  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
-    renderCalendar(calendarEl, date);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
   }
   event.preventDefault();
 };
@@ -1205,8 +1211,9 @@ const handlePageDown = event => {
     event.target
   );
   const date = addMonths(calendarDate, 1);
-  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
-    renderCalendar(calendarEl, date);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
   }
   event.preventDefault();
 };
@@ -1221,8 +1228,9 @@ const handlePageUp = event => {
     event.target
   );
   const date = subMonths(calendarDate, 1);
-  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
-    renderCalendar(calendarEl, date);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
   }
   event.preventDefault();
 };
@@ -1237,8 +1245,9 @@ const handleShiftPageDown = event => {
     event.target
   );
   const date = addYears(calendarDate, 1);
-  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
-    renderCalendar(calendarEl, date);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
   }
   event.preventDefault();
 };
@@ -1253,8 +1262,9 @@ const handleShiftPageUp = event => {
     event.target
   );
   const date = subYears(calendarDate, 1);
-  if (isDateWithinMinAndMax(date, minDate, maxDate)) {
-    renderCalendar(calendarEl, date);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
   }
   event.preventDefault();
 };

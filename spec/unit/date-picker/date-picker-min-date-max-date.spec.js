@@ -460,7 +460,21 @@ describe("date picker component with min date and max date", () => {
     );
   });
 
-  it("should not allow keyboard navigation to move back one week to a date that is before the minimum date", () => {
+  it("should allow keyboard navigation to move to the start of the week to a date that is before the minimum date but cap at minimum date", () => {
+    input.value = "05/23/2020";
+    EVENTS.click(button);
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+
+    EVENTS.keydownHome();
+
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+      "05/22/2020",
+      "focuses correct date"
+    );
+  });
+
+  it("should allow keyboard navigation to move back one week to a date that is before the minimum date but cap at minimum date", () => {
     input.value = "05/28/2020";
     EVENTS.click(button);
     assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
@@ -469,12 +483,12 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/28/2020",
+      "05/22/2020",
       "focuses correct date"
     );
   });
 
-  it("should not allow keyboard navigation to move back one month to a date that is before the minimum date", () => {
+  it("should allow keyboard navigation to move back one month to a date that is before the minimum date but cap at minimum date", () => {
     input.value = "06/21/2020";
     EVENTS.click(button);
     assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
@@ -483,12 +497,12 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/21/2020",
+      "05/22/2020",
       "focuses correct date"
     );
   });
 
-  it("should not allow keyboard navigation to move back one year to a date that is before the minimum date", () => {
+  it("should allow keyboard navigation to move back one year to a date that is before the minimum date but cap at minimum date", () => {
     input.value = "05/21/2021";
     EVENTS.click(button);
     assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
@@ -497,7 +511,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/21/2021",
+      "05/22/2020",
       "focuses correct date"
     );
   });
@@ -572,7 +586,22 @@ describe("date picker component with min date and max date", () => {
     );
   });
 
-  it("should not allow keyboard navigation to move forward one week to a date that is after the maximum date", () => {
+  it("should allow keyboard navigation to move to the end of the week to a date that is after the maximum date but cap at maximum date", () => {
+    root.dataset.maxDate = "06/21/2021";
+    input.value = "06/20/2021";
+    EVENTS.click(button);
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+
+    EVENTS.keydownEnd();
+
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+      "06/21/2021",
+      "focuses correct date"
+    );
+  });
+
+  it("should allow keyboard navigation to move forward one week to a date that is after the maximum date but cap at maximum date", () => {
     input.value = "06/14/2021";
     EVENTS.click(button);
     assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
@@ -581,12 +610,12 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/14/2021",
+      "06/20/2021",
       "focuses correct date"
     );
   });
 
-  it("should not allow keyboard navigation to move forward one month to a date that is after the maximum date", () => {
+  it("should allow keyboard navigation to move forward one month to a date that is after the maximum date but cap at maximum date", () => {
     input.value = "05/21/2021";
     EVENTS.click(button);
     assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
@@ -595,12 +624,12 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "05/21/2021",
+      "06/20/2021",
       "focuses correct date"
     );
   });
 
-  it("should not allow keyboard navigation to move forward one year to a date that is after the maximum date", () => {
+  it("should allow keyboard navigation to move forward one year to a date that is after the maximum date but cap at maximum date", () => {
     input.value = "06/21/2020";
     EVENTS.click(button);
     assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
@@ -609,7 +638,7 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "06/21/2020",
+      "06/20/2021",
       "focuses correct date"
     );
   });
