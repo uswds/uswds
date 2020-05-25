@@ -645,10 +645,6 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
   } = getDatePickerContext(el);
   let dateToDisplay = _dateToDisplay || today();
 
-  if (adjustFocus) {
-    datePickerEl.focus();
-  }
-
   const calendarWasHidden = calendarEl.hidden;
 
   const focusedDate = addDays(dateToDisplay, 0);
