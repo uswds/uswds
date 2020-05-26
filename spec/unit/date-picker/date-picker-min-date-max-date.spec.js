@@ -110,26 +110,6 @@ describe("date picker component with min date and max date", () => {
     );
   });
 
-  it("should not allow navigation back a year to a month that is fully disabled due to a minimum date being set", () => {
-    input.value = "04/15/2021";
-    EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
-
-    assert.equal(
-      getCalendarEl(".usa-date-picker__calendar__previous-year").disabled,
-      true,
-      "the button is disabled"
-    );
-
-    EVENTS.click(getCalendarEl(".usa-date-picker__calendar__previous-year"));
-
-    assert.equal(
-      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "04/15/2021",
-      "focuses correct date"
-    );
-  });
-
   it("should allow navigation back a year to a month that is less than a year from the minimum date being set and cap at that minimum date", () => {
     input.value = "04/15/2021";
     EVENTS.click(button);
@@ -189,20 +169,6 @@ describe("date picker component with min date and max date", () => {
     assert.equal(
       getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
       "06/20/2021",
-      "focuses correct date"
-    );
-  });
-
-  it("should not allow navigation forward a year to a month that is fully disabled due to a maximum date being set", () => {
-    input.value = "07/25/2020";
-    EVENTS.click(button);
-    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
-
-    EVENTS.click(getCalendarEl(".usa-date-picker__calendar__next-year"));
-
-    assert.equal(
-      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
-      "07/25/2020",
       "focuses correct date"
     );
   });

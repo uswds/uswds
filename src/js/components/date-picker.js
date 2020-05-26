@@ -659,10 +659,8 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
   const currentFormattedDate = formatDate(dateToDisplay);
 
   const firstOfMonth = startOfMonth(dateToDisplay);
-  const prevMonthDisabled = subDays(firstOfMonth, 1) < minDate;
-  const prevYearDisabled = lastDayOfMonth(subYears(firstOfMonth, 1)) < minDate;
-  const nextMonthDisabled = maxDate && addMonths(firstOfMonth, 1) > maxDate;
-  const nextYearDisabled = maxDate && addYears(firstOfMonth, 1) > maxDate;
+  const prevButtonsDisabled = isSameMonth(dateToDisplay, minDate);
+  const nextButtonsDisabled = isSameMonth(dateToDisplay, maxDate);
 
   const monthLabel = MONTH_LABELS[focusedMonth];
 
@@ -744,7 +742,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
             tabindex="-1"
             class="${CALENDAR_PREVIOUS_YEAR_CLASS}"
             aria-label="Navigate back one year"
-            ${prevYearDisabled ? `disabled="disabled"` : ""}
+            ${prevButtonsDisabled ? `disabled="disabled"` : ""}
           >&nbsp;</button>
         </div>
         <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
@@ -753,7 +751,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
             tabindex="-1"
             class="${CALENDAR_PREVIOUS_MONTH_CLASS}"
             aria-label="Navigate back one month"
-            ${prevMonthDisabled ? `disabled="disabled"` : ""}
+            ${prevButtonsDisabled ? `disabled="disabled"` : ""}
           >&nbsp;</button>
         </div>
         <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__month-label">
@@ -774,7 +772,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
             tabindex="-1"
             class="${CALENDAR_NEXT_MONTH_CLASS}"
             aria-label="Navigate forward one month"
-            ${nextMonthDisabled ? `disabled="disabled"` : ""}
+            ${nextButtonsDisabled ? `disabled="disabled"` : ""}
           >&nbsp;</button>
         </div>
         <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
@@ -783,7 +781,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
             tabindex="-1"
             class="${CALENDAR_NEXT_YEAR_CLASS}"
             aria-label="Navigate forward one year"
-            ${nextYearDisabled ? `disabled="disabled"` : ""}
+            ${nextButtonsDisabled ? `disabled="disabled"` : ""}
           >&nbsp;</button>
         </div>
       </div>
