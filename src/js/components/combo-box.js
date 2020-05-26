@@ -87,25 +87,26 @@ const enhanceComboBox = el => {
   const selectId = selectEl.id;
   const listId = `${selectId}--list`;
   const assistiveHintID = `${selectId}--assistiveHint`;
-  let placeholder = "";
-  let selectedOption;
   const additionalAttributes = [];
+  const defaultValue = comboBoxEl.dataset.defaultValue;
+  const placeholder = comboBoxEl.dataset.placeholder;
+  let selectedOption;
 
-  for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
-    const optionEl = selectEl.options[i];
+  if (placeholder) {
+    additionalAttributes.push(`placeholder="${placeholder}"`);
+  }
 
-    if (!placeholder && !optionEl.value) {
-      placeholder = `placeholder="${optionEl.text}"`;
-    }
+  if (defaultValue) {
+    for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
+      const optionEl = selectEl.options[i];
 
-    if (!selectedOption && optionEl.selected && optionEl.value) {
-      selectedOption = optionEl;
-    }
-
-    if (placeholder && selectedOption) {
-      break;
+      if (optionEl.value === defaultValue) {
+        selectedOption = optionEl;
+        break;
+      }
     }
   }
+ 
 
   selectEl.setAttribute("aria-hidden", "true");
   selectEl.setAttribute("tabindex", "-1");
@@ -129,7 +130,6 @@ const enhanceComboBox = el => {
         aria-describedby="${assistiveHintID}"
         aria-expanded="false"
         autocapitalize="off"
-        ${placeholder || ""}
         autocomplete="off"
         id="${selectId}"
         class="${INPUT_CLASS}"
