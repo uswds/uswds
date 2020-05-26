@@ -35,6 +35,8 @@ $theme-banner-max-width: "desktop" !default;
 // Breadcrumb
 $theme-breadcrumb-back-icon: "#{$theme-image-path}/arrow-left.svg" !default;
 $theme-breadcrumb-back-icon-dim: 1, 1 !default;
+$theme-breadcrumb-font-size: "sm" !default;
+$theme-breadcrumb-font-family: "body" !default;
 $theme-breadcrumb-gap: 1.5 !default;
 $theme-breadcrumb-icon-color: "base" !default;
 $theme-breadcrumb-min-width: "mobile-lg" !default;

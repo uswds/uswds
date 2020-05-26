@@ -16,7 +16,7 @@ $breadcrumb-icon-height: 1.35ex;
 }
 
 .usa-breadcrumb {
-  @include typeset;
+  @include typeset($theme-breadcrumb-font-family, $theme-breadcrumb-font-size, 3);
   @include at-media($theme-breadcrumb-min-width) {
     @include u-margin-bottom($theme-breadcrumb-spacing-bottom);
     @include u-margin-top($theme-breadcrumb-spacing-top);
