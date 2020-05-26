@@ -213,10 +213,9 @@ const setUpAttributes = tooltipTrigger => {
   wrapper.classList.add(TOOLTIP_CLASS);
   wrapper.appendChild(tooltipBody);
 
-  console.log(additionalClasses);
+  // Apply additional class names to wrapper element
   if (additionalClasses) {
     const classesArray = additionalClasses.split(' ');
-    console.log(classesArray);
     classesArray.forEach(classname => wrapper.classList.add(classname));
   }
 
