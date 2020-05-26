@@ -4,13 +4,14 @@
   $image-name: unquote($icon); // 1
   background-color: color($theme-breadcrumb-icon-color); // 1
   mask: url("#{$theme-image-path}/#{$image-name}.svg") no-repeat center; // 1
-  mask-size: units($size); // 1
+  mask-size: units($size) / 2; // 1
   content: "";
   display: inline-block;
-  padding: units($size);
+  padding: units($size) / 2;
 }
 
 .usa-breadcrumb {
+  @include typeset;
   @include at-media("mobile-lg") {
     @include u-margin-bottom($theme-breadcrumb-spacing-top);
     @include u-margin-top($theme-breadcrumb-spacing-bottom);
@@ -18,8 +19,10 @@
 }
 
 .usa-breadcrumb__list {
-  @include unstyled-list;
+  // Prefer flex but breaks ellipsis
+  @include u-display("block");
   @include u-white-space("no-wrap");
+  @include unstyled-list;
   text-overflow: ellipsis;
   overflow: hidden;
 }
@@ -50,17 +53,22 @@
   @include at-media($theme-breadcrumb-min-width) {
     @include not-sr-only;
 
+    // These help balance spacing around inline-block elements
+    $gap-left-inline-spacer: .5em;
+    $gap-right-inline-spacer: .5em;
+
     &:not(:last-child)::after {
       @include breadcrumb-icon;
-      @include u-margin-left(0.5rem);
-      @include u-margin-right(0.25rem);
+      margin-left: calc(#{units($theme-breadcrumb-gap)} - #{$gap-left-inline-spacer});
+      margin-right: calc(#{units($theme-breadcrumb-gap)} - #{$gap-right-inline-spacer});
     }
   }
 }
 
 .usa-breadcrumb__link {
-  color: color($theme-link-color);
-  display: inline-flex;
+  // Prefer inline-flex but breaks ellipsis
+  @include u-display("inline");
+  @include u-text($theme-link-color);
   // Reduce jitter from desktop → mobile.
   transition: padding $theme-easing;
 }
