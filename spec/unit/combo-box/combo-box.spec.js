@@ -148,6 +148,7 @@ describe('combo box component', () => {
     assert.equal(list.getAttribute('role'), 'listbox', 'the list should have a role of `listbox`');
     assert.ok(select.getAttribute('aria-hidden'), 'the select should be hidden from screen readers');
     assert.equal(select.getAttribute('tabindex'), '-1', 'the select should be hidden from keyboard navigation');
+    assert.ok(select.classList.contains("usa-combo-box__select"), "add the class for the select element");
     assert.equal(select.value, 'value-JavaScript', 'select the selected select item');
     assert.equal(input.value, 'JavaScript', 'select the selected select item');
   });
