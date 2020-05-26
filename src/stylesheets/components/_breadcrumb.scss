@@ -17,9 +17,9 @@ $breadcrumb-icon-height: 1.35ex;
 
 .usa-breadcrumb {
   @include typeset;
-  @include at-media("mobile-lg") {
-    @include u-margin-bottom($theme-breadcrumb-spacing-top);
-    @include u-margin-top($theme-breadcrumb-spacing-bottom);
+  @include at-media($theme-breadcrumb-min-width) {
+    @include u-margin-bottom($theme-breadcrumb-spacing-bottom);
+    @include u-margin-top($theme-breadcrumb-spacing-top);
   }
 }
 
@@ -40,7 +40,7 @@ $breadcrumb-icon-height: 1.35ex;
   @include u-display("inline");
   @include u-white-space("no-wrap");
 
-  @include at-media-max("mobile-lg") {
+  @include at-media-max($theme-breadcrumb-min-width) {
 
     // ⃪ Parent link.
     &:nth-last-child(2) {

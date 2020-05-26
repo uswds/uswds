@@ -33,16 +33,16 @@ $theme-banner-font-family: "ui" !default;
 $theme-banner-max-width: "desktop" !default;
 
 // Breadcrumb
-$theme-breadcrumb-icon-color: "base" !default;
-$theme-breadcrumb-separator-icon: "#{$theme-image-path}/angle-arrow-right.svg" !default;
 $theme-breadcrumb-back-icon: "#{$theme-image-path}/arrow-left.svg" !default;
 $theme-breadcrumb-back-icon-dim: 1, 1 !default;
-$theme-breadcrumb-separator-icon-dim: 38, 64 !default;
-$theme-breadcrumb-spacing-top: 2 !default;
-$theme-breadcrumb-spacing-bottom: 2 !default;
 $theme-breadcrumb-gap: 1.5 !default;
-$theme-breadcrumb-wrapping: false !default;
+$theme-breadcrumb-icon-color: "base" !default;
 $theme-breadcrumb-min-width: "mobile-lg" !default;
+$theme-breadcrumb-separator-icon: "#{$theme-image-path}/angle-arrow-right.svg" !default;
+$theme-breadcrumb-separator-icon-dim: 38, 64 !default;
+$theme-breadcrumb-spacing-bottom: 2 !default;
+$theme-breadcrumb-spacing-top: 2 !default;
+$theme-breadcrumb-wrapping: false !default;
 
 // Button
 $theme-button-font-family: "ui" !default;
