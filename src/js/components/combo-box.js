@@ -112,7 +112,7 @@ const enhanceComboBox = el => {
   selectEl.classList.add("usa-sr-only");
   selectEl.id = "";
 
-  ["required", "aria-label", "aria-labelledby"].forEach(name => {
+  ["required", "disabled", "aria-label", "aria-labelledby"].forEach(name => {
     if (selectEl.hasAttribute(name)) {
       const value = selectEl.getAttribute(name);
       additionalAttributes.push(`${name}="${value}"`);
@@ -403,6 +403,7 @@ const comboBox = behavior(
   {
     [CLICK]: {
       [INPUT]() {
+        if (this.disabled) return;
         displayList(this);
       },
       [LIST_OPTION]() {
