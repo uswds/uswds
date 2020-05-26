@@ -318,6 +318,7 @@ const isSameDay = (dateA, dateB) => {
 };
 
 /**
+ * return a new date within minimum and maximum date
  *
  * @param {Date} date date to check
  * @param {Date} minDate minimum date to allow
@@ -337,7 +338,7 @@ const keepDateBetweenMinAndMax = (date, minDate, maxDate) => {
 };
 
 /**
- * Check if dates month is valid.
+ * Check if dates is valid.
  *
  * @param {Date} date date to check
  * @param {Date} minDate minimum date to allow
@@ -355,7 +356,7 @@ const isDateWithinMinAndMax = (date, minDate, maxDate) =>
  * @param {Date} maxDate maximum date to allow
  * @return {boolean} is the month outside min or max dates
  */
-const isDatesMonthOutsideMinAndMax = (date, minDate, maxDate) => {
+const isDatesMonthOutsideMinOrMax = (date, minDate, maxDate) => {
   return (
     lastDayOfMonth(date) < minDate || (maxDate && startOfMonth(date) > maxDate)
   );
@@ -493,7 +494,6 @@ const listToGridHtml = (htmlArray, rowSize) => {
  * @typedef {Object} DatePickerContext
  * @property {HTMLDivElement} calendarEl
  * @property {HTMLElement} datePickerEl
- * @property {HTMLButtonElement} focusedDateEl
  * @property {HTMLInputElement} inputEl
  * @property {HTMLDivElement} statusEl
  * @property {HTMLDivElement} firstYearChunkEl
@@ -519,7 +519,6 @@ const getDatePickerContext = el => {
 
   const inputEl = datePickerEl.querySelector(DATE_PICKER_INPUT);
   const calendarEl = datePickerEl.querySelector(DATE_PICKER_CALENDAR);
-  const focusedDateEl = datePickerEl.querySelector(CALENDAR_DATE_FOCUSED);
   const statusEl = datePickerEl.querySelector(DATE_PICKER_STATUS);
   const firstYearChunkEl = datePickerEl.querySelector(CALENDAR_YEAR);
 
@@ -527,6 +526,10 @@ const getDatePickerContext = el => {
   const calendarDate = parseDateString(calendarEl.dataset.value);
   const minDate = parseDateString(datePickerEl.dataset.minDate);
   const maxDate = parseDateString(datePickerEl.dataset.maxDate);
+
+  if (minDate && maxDate && minDate > maxDate) {
+    throw new Error("Minimum date cannot be after maximum date");
+  }
 
   return {
     calendarDate,
@@ -537,7 +540,6 @@ const getDatePickerContext = el => {
     datePickerEl,
     inputEl,
     calendarEl,
-    focusedDateEl,
     statusEl
   };
 };
@@ -809,9 +811,8 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     statusEl.textContent = `${monthLabel} ${focusedYear}`;
   }
 
-  const focusedDateEl = newCalendar.querySelector(CALENDAR_DATE_FOCUSED);
-
   if (adjustFocus) {
+    const focusedDateEl = newCalendar.querySelector(CALENDAR_DATE_FOCUSED);
     focusedDateEl.focus();
   }
 };
@@ -941,7 +942,7 @@ const selectYear = yearEl => {
 /**
  * Display the month selection screen in the date picker.
  *
- * @param {HTMLElement} el An element within the date picker component
+ * @param {HTMLButtonElement} el An element within the date picker component
  */
 const displayMonthSelection = el => {
   const {
@@ -956,7 +957,7 @@ const displayMonthSelection = el => {
   const months = MONTH_LABELS.map((month, index) => {
     const monthToDisplay = setMonth(calendarDate, index);
 
-    const isDisabled = isDatesMonthOutsideMinAndMax(
+    const isDisabled = isDatesMonthOutsideMinOrMax(
       monthToDisplay,
       minDate,
       maxDate
@@ -988,7 +989,7 @@ const displayMonthSelection = el => {
 /**
  * Display the year selection screen in the date picker.
  *
- * @param {HTMLElement} el An element within the date picker component
+ * @param {HTMLButtonElement} el An element within the date picker component
  * @param {number} yearToDisplay year to display in year selection
  */
 const displayYearSelection = (el, yearToDisplay) => {
@@ -1284,9 +1285,10 @@ const handleEscape = event => {
 /**
  * Toggle the calendar.
  *
- * @param {HTMLElement} el An element within the date picker component
+ * @param {HTMLButtonElement} el An element within the date picker component
  */
 const toggleCalendar = el => {
+  if (el.disabled) return;
   const { calendarEl, inputDate } = getDatePickerContext(el);
 
   if (calendarEl.hidden) {

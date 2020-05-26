@@ -16,6 +16,8 @@ describe("date picker component with min date and max date", () => {
   let root;
   let input;
   let button;
+  let error;
+  let expectedError;
   const getCalendarEl = query =>
     root.querySelector(
       ".usa-date-picker__calendar" + (query ? ` ${query}` : "")
@@ -27,9 +29,15 @@ describe("date picker component with min date and max date", () => {
     root = body.querySelector(".usa-date-picker");
     input = root.querySelector(".usa-date-picker__input");
     button = root.querySelector(".usa-date-picker__button");
+    expectedError = "";
+    window.onerror = message => {
+      error = message;
+      return error === expectedError;
+    };
   });
 
   afterEach(() => {
+    window.onerror = null;
     body.textContent = "";
     DatePicker.off(body);
   });
@@ -673,5 +681,15 @@ describe("date picker component with min date and max date", () => {
     EVENTS.keydownEnter(input);
 
     assert.equal(input.validationMessage, "");
+  });
+
+  it("should throw when minDate is larger than maxDate", () => {
+    root.dataset.minDate = "07/04/2020";
+    root.dataset.maxDate = "06/20/2020";
+    expectedError = "Minimum date cannot be after maximum date";
+
+    EVENTS.click(button);
+
+    assert.equal(error, expectedError, "caught the error");
   });
 });
