@@ -2,12 +2,12 @@
 $triangle-size: 5px;
 
 /* Tooltips */
-.usa-tooltip-wrapper {
+.usa-tooltip {
   display: inline-block;
   position: relative;
 }
 
-.usa-tooltip-trigger {
+.usa-tooltip__trigger {
   cursor: pointer;
 
   > svg {
@@ -16,7 +16,7 @@ $triangle-size: 5px;
   }
 }
 
-.usa-tooltip {
+.usa-tooltip__body {
   transition: opacity 0.08s ease-in-out;
   background-color: color($theme-tooltip-bg-color);
   border-radius: radius($theme-button-border-radius);
@@ -50,20 +50,20 @@ $triangle-size: 5px;
   }
 }
 
-.usa-tooltip--wrap {
+.usa-tooltip__body--wrap {
   width: 100%;
   white-space: normal;
 }
 
-.usa-tooltip.is-set {
+.usa-tooltip__body.is-set {
   display: block;
 }
 
-.usa-tooltip.is-visible {
+.usa-tooltip__body.is-visible {
   opacity: 1;
 }
 
-.usa-tooltip--bottom + .usa-tooltip {
+.usa-tooltip__body--bottom {
   bottom: auto;
   top: 0;
 
@@ -77,7 +77,7 @@ $triangle-size: 5px;
   }
 }
 
-.usa-tooltip--right + .usa-tooltip {
+.usa-tooltip__body--right {
   top: auto;
   transform: translateX(0);
 
@@ -94,7 +94,7 @@ $triangle-size: 5px;
   }
 }
 
-.usa-tooltip--left + .usa-tooltip {
+.usa-tooltip__body--left {
   top: auto;
   left: auto;
   right: 0;

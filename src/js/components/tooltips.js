@@ -4,14 +4,15 @@ const behavior = require("../utils/behavior");
 const { prefix: PREFIX } = require("../config");
 const isElementInViewport = require("../utils/is-in-viewport");
 
-const TOOLTIP_TRIGGER = `.${PREFIX}-tooltip__trigger`
-const WRAPPER_CLASS = 'usa-tooltip-wrapper';
-const TOOLTIP_CLASS = 'usa-tooltip';
+const TOOLTIP = `.${PREFIX}-tooltip`
+const TOOLTIP_TRIGGER_CLASS = `${PREFIX}-tooltip__trigger`;
+const TOOLTIP_CLASS = `${PREFIX}-tooltip`;
+const TOOLTIP_BODY_CLASS = `${PREFIX}-tooltip__body`;
 const SET_CLASS = 'is-set';
 const VISIBLE_CLASS = 'is-visible';
 const TRIANGLE_SIZE = 5;
 const SPACER = 2;
-const ADJUST_WIDTH_CLASS = `${PREFIX}-tooltip--wrap`;
+const ADJUST_WIDTH_CLASS = `${PREFIX}-tooltip__body--wrap`;
 
 /**
 * Add one or more listeners to an element
@@ -60,9 +61,9 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   * @param {string} setPos - can be "top", "bottom", "right", "left"
   */
   const setPositionClass = setPos => {
-    tooltipTrigger.classList.remove(`${TOOLTIP_CLASS}--${tooltipPosition}`);
+    tooltipBody.classList.remove(`${TOOLTIP_BODY_CLASS}--${tooltipPosition}`);
     tooltipPosition = setPos;
-    tooltipTrigger.classList.add(`${TOOLTIP_CLASS}--${setPos}`);
+    tooltipBody.classList.add(`${TOOLTIP_BODY_CLASS}--${setPos}`);
   }
 
   /**
@@ -192,25 +193,35 @@ const hideToolTip = (tooltipBody) => {
 const setUpAttributes = tooltipTrigger => {
   const tooltipID = `tooltip-${Math.floor(Math.random()*900000) + 100000}`;
   const tooltipContent = tooltipTrigger.getAttribute("title");
-  const wrapper = document.createElement('div');
+  const wrapper = document.createElement('span');
   const tooltipBody = document.createElement('span');
   const position = tooltipTrigger.getAttribute("data-position") ? tooltipTrigger.getAttribute("data-position") : 'top';
+  const additionalClasses = tooltipTrigger.getAttribute("data-classes");
 
   // Set up tooltip attributes
   tooltipTrigger.setAttribute("aria-describedby", tooltipID);
   tooltipTrigger.setAttribute("tabindex", "0");
   tooltipTrigger.setAttribute("title", "");
+  tooltipTrigger.classList.remove(TOOLTIP_CLASS);
+  tooltipTrigger.classList.add(TOOLTIP_TRIGGER_CLASS);
 
   // insert wrapper before el in the DOM tree
   tooltipTrigger.parentNode.insertBefore(wrapper, tooltipTrigger);
 
   // set up the wrapper
   wrapper.appendChild(tooltipTrigger);
-  wrapper.classList.add(WRAPPER_CLASS);
+  wrapper.classList.add(TOOLTIP_CLASS);
   wrapper.appendChild(tooltipBody);
 
+  console.log(additionalClasses);
+  if (additionalClasses) {
+    const classesArray = additionalClasses.split(' ');
+    console.log(classesArray);
+    classesArray.forEach(classname => wrapper.classList.add(classname));
+  }
+
   // set up the tooltip body
-  tooltipBody.classList.add(TOOLTIP_CLASS);
+  tooltipBody.classList.add(TOOLTIP_BODY_CLASS);
   tooltipBody.setAttribute("id", tooltipID);
   tooltipBody.setAttribute("role", "tooltip");
   tooltipBody.setAttribute("aria-hidden", "true");
@@ -228,7 +239,7 @@ const tooltips = behavior(
   },
   {
     init(root) {
-      select(TOOLTIP_TRIGGER, root).forEach(tooltipTrigger => {
+      select(TOOLTIP, root).forEach(tooltipTrigger => {
         const { tooltipBody, position, tooltipContent } = setUpAttributes(tooltipTrigger);
 
         if (tooltipContent) {
@@ -238,6 +249,7 @@ const tooltips = behavior(
             return false;
           });
 
+          // Keydown here prevents tooltips from being read twice by screen reader. also allows excape key to close it (along with any other.)
           addListenerMulti(tooltipTrigger, 'mouseleave blur keydown', function handleHide(){
             hideToolTip(tooltipBody);
             return false;

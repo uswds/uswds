@@ -7,14 +7,13 @@ const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
 
 describe("tooltips", () => {
  const { body } = document;
- //let tooltipWrapper;
  let tooltipBody;
 
  beforeEach(() => {
    body.innerHTML = TEMPLATE;
    tooltip.on();
-   tooltipWrapper = body.querySelector(".usa-tooltip-wrapper");
-   tooltipBody = body.querySelector(".usa-tooltip");
+   tooltipWrapper = body.querySelector("span.usa-tooltip");
+   tooltipBody = body.querySelector(".usa-tooltip__body");
    tooltipTrigger = body.querySelector(".usa-tooltip__trigger")
    tooltip.on(body);
  });
@@ -23,8 +22,8 @@ describe("tooltips", () => {
    body.textContent = '';
  });
 
- it('wrapper is created', () => {
-   assert.equal(tooltipWrapper.getAttribute("class"), "usa-tooltip-wrapper");
+ it('trigger is created', () => {
+   assert.equal(tooltipTrigger.getAttribute("class"), "usa-button usa-tooltip__trigger");
  });
 
  it('title attribute on trigger is cleared', () => {
