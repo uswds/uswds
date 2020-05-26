@@ -1,17 +1,16 @@
 label: Tooltips
 status: ready
-preview: "@uswds-framed"
 
 variants:
   - name: default
-    label: Top
+    label: Default
     context:
       tooltip:
-        attributes: "usa-alert--info"
+        direction: "top"
         text: Tooltip on top
-  - name: right
-    label: Right
+        button_text: Show on top
+  - name: utilities
+    label: With utilities
     context:
       tooltip:
-        attributes: "usa-alert--info"
-        text: Right tooltip
+        classes: margin-left-3 margin-top-2 border
