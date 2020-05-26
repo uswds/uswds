@@ -32,6 +32,18 @@ $theme-alert-padding-x: 2.5;
 $theme-banner-font-family: "ui";
 $theme-banner-max-width: "desktop";
 
+// Breadcrumb
+$theme-breadcrumb-icon-color: "base";
+$theme-breadcrumb-separator-icon: "angle-arrow-right";
+$theme-breadcrumb-back-icon: "arrow-left-solid";
+$theme-breadcrumb-back-icon-size: 1;
+$theme-breadcrumb-separator-icon-size: 1.5;
+$theme-breadcrumb-spacing-top: 2;
+$theme-breadcrumb-spacing-bottom: 2;
+$theme-breadcrumb-gap: 1;
+$theme-breadcrumb-wrapping: true;
+$theme-breadcrumb-min-width: "mobile-lg";
+
 // Button
 $theme-button-font-family: "ui";
 $theme-button-border-radius: "md";
