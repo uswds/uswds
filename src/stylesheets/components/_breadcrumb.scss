@@ -54,13 +54,16 @@
     @include not-sr-only;
 
     // These help balance spacing around inline-block elements
-    $gap-left-inline-spacer: .5em;
-    $gap-right-inline-spacer: .5em;
+    $gap-inline-spacer: -.25em;
 
     &:not(:last-child)::after {
       @include breadcrumb-icon;
-      margin-left: calc(#{units($theme-breadcrumb-gap)} - #{$gap-left-inline-spacer});
-      margin-right: calc(#{units($theme-breadcrumb-gap)} - #{$gap-right-inline-spacer});
+      margin-left: calc(
+        #{units($theme-breadcrumb-gap)} + #{$gap-inline-spacer}
+      );
+      margin-right: calc(
+        #{units($theme-breadcrumb-gap)} + #{$gap-inline-spacer}
+      );
     }
   }
 }
