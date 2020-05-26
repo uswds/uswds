@@ -26,15 +26,19 @@ $breadcrumb-icon-height: 1.35ex;
 .usa-breadcrumb__list {
   // Prefer flex but breaks ellipsis
   @include u-display("block");
-  @include u-white-space("no-wrap");
   @include unstyled-list;
-  text-overflow: ellipsis;
-  overflow: hidden;
+
+  @if not $theme-breadcrumb-wrapping {
+    @include u-white-space("no-wrap");
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 }
 
 .usa-breadcrumb__list-item {
   @include sr-only;
   @include u-display("inline");
+  @include u-white-space("no-wrap");
 
   @include at-media-max("mobile-lg") {
 
