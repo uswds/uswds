@@ -52,7 +52,8 @@
 
     &:not(:last-child)::after {
       @include breadcrumb-icon;
-      @include u-margin-x($theme-breadcrumb-spacing-top);
+      @include u-margin-left(0.5rem);
+      @include u-margin-right(0.25rem);
     }
   }
 }
