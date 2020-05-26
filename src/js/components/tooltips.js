@@ -33,6 +33,8 @@ const addListenerMulti = (element, eventNames, listener) => {
 const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   let tooltipPosition = position;
 
+  tooltipBody.setAttribute("aria-hidden", "false");
+
   // This sets up the tooltip body. The opacity is 0, but
   // we can begin running the calculations below.
   tooltipBody.classList.add(SET_CLASS);
@@ -164,6 +166,9 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   setTimeout(function makeVisible(){
     tooltipBody.classList.add(VISIBLE_CLASS);
   }, 20);
+
+
+
 };
 
 /**
@@ -177,6 +182,7 @@ const hideToolTip = (tooltipBody) => {
   tooltipBody.classList.remove(VISIBLE_CLASS);
   tooltipBody.classList.remove(SET_CLASS);
   tooltipBody.classList.remove(ADJUST_WIDTH_CLASS);
+  tooltipBody.setAttribute("aria-hidden", "true");
 };
 
 /**
@@ -232,7 +238,7 @@ const tooltips = behavior(
             return false;
           });
 
-          addListenerMulti(tooltipTrigger, 'mouseleave blur', function handleHide(){
+          addListenerMulti(tooltipTrigger, 'mouseleave blur keydown', function handleHide(){
             hideToolTip(tooltipBody);
             return false;
           });
