@@ -31,7 +31,7 @@ const addListenerMulti = (element, eventNames, listener) => {
 * Shows the tooltip
 * @param {HTMLElement} tooltipTrigger - the element that initializes the tooltip
 */
-const showToolTip = (tooltipBody, tooltipTrigger, position) => {
+const showToolTip = (tooltipBody, tooltipTrigger, position, wrapper) => {
   let tooltipPosition = position;
 
   tooltipBody.setAttribute("aria-hidden", "false");
@@ -47,8 +47,12 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   const offsetForLeftMargin = parseInt(window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-left"), 10);
   const offsetForTopMargin = parseInt(window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-top"), 10);
   const offsetForBottomMargin = parseInt(window.getComputedStyle(tooltipTrigger).getPropertyValue("margin-bottom"), 10);
+  const offsetForRightPadding = parseInt(window.getComputedStyle(wrapper).getPropertyValue("padding-right"), 10);
+  const offsetForLeftPadding = parseInt(window.getComputedStyle(wrapper).getPropertyValue("padding-left"), 10);
+  const offsetForTopPadding = parseInt(window.getComputedStyle(wrapper).getPropertyValue("padding-top"), 10);
+  const offsetForBottomPadding = parseInt(window.getComputedStyle(wrapper).getPropertyValue("padding-bottom"), 10);
   const offsetForTooltipBodyHeight = parseInt(window.getComputedStyle(tooltipBody).getPropertyValue("height"), 10);
-  const adjustHorizontalCenter = tooltipWidth / 2;
+  const adjustHorizontalCenter = (tooltipWidth / 2) + offsetForLeftPadding;
   const adjustToEdgeX = tooltipWidth + TRIANGLE_SIZE + SPACER;
   const adjustToEdgeY = tooltipHeight + TRIANGLE_SIZE + SPACER;
 
@@ -78,7 +82,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     if (!isElementInViewport(e)) {
       e.classList.add(ADJUST_WIDTH_CLASS);
     }
-    e.style.marginBottom = `${adjustToEdgeY + offsetForBottomMargin}px`;
+    e.style.marginBottom = `${adjustToEdgeY + offsetForBottomMargin + offsetForBottomPadding}px`;
   }
 
   /**
@@ -93,7 +97,7 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
     if (!isElementInViewport(e)) {
       e.classList.add(ADJUST_WIDTH_CLASS);
     }
-    e.style.marginTop = `${adjustToEdgeY + offsetForTopMargin}px`;
+    e.style.marginTop = `${adjustToEdgeY + offsetForTopMargin + offsetForTopPadding}px`;
   }
 
   /**
@@ -103,8 +107,8 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   const positionRight = e => {
     setPositionClass("right");
     e.style.marginBottom = "0";
-    e.style.marginLeft = `${adjustToEdgeX + offsetForLeftMargin}px`;
-    e.style.bottom = `${((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin}px`;
+    e.style.marginLeft = `${adjustToEdgeX + offsetForLeftMargin + offsetForLeftPadding}px`;
+    e.style.bottom = `${((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin + offsetForBottomPadding}px`;
   }
 
   /**
@@ -114,8 +118,8 @@ const showToolTip = (tooltipBody, tooltipTrigger, position) => {
   const positionLeft = e => {
     setPositionClass("left");
     e.style.marginBottom = "0";
-    e.style.marginRight = `${adjustToEdgeX + offsetForRightMargin}px`;
-    e.style.bottom = `${((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin}px`;
+    e.style.marginRight = `${adjustToEdgeX + offsetForRightMargin + offsetForRightPadding}px`;
+    e.style.bottom = `${((tooltipHeight - offsetForTooltipBodyHeight) / 2) + offsetForBottomMargin + offsetForBottomPadding}px`;
   }
 
   /**
@@ -228,7 +232,7 @@ const setUpAttributes = tooltipTrigger => {
   // place the text in the tooltip
   tooltipBody.innerHTML = tooltipContent;
 
-  return { tooltipBody, position, tooltipContent }
+  return { tooltipBody, position, tooltipContent, wrapper }
 
 };
 
@@ -239,12 +243,12 @@ const tooltips = behavior(
   {
     init(root) {
       select(TOOLTIP, root).forEach(tooltipTrigger => {
-        const { tooltipBody, position, tooltipContent } = setUpAttributes(tooltipTrigger);
+        const { tooltipBody, position, tooltipContent, wrapper } = setUpAttributes(tooltipTrigger);
 
         if (tooltipContent) {
           // Listeners for showing and hiding the tooltip
           addListenerMulti(tooltipTrigger, 'mouseenter focus', function handleShow(){
-            showToolTip(tooltipBody, tooltipTrigger, position);
+            showToolTip(tooltipBody, tooltipTrigger, position, wrapper);
             return false;
           });
 
