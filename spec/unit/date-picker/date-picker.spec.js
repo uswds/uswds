@@ -257,7 +257,11 @@ describe("date picker component", () => {
       getCalendarEl().querySelector(".usa-date-picker__calendar__month-picker"),
       "calendar is showing the month picker"
     );
-    assert.equal(document.activeElement, root, "calendar is focused");
+    assert.equal(
+      document.activeElement,
+      getCalendarEl(),
+      "calendar is focused"
+    );
   });
 
   it("should allow for the selection of a month within month selection screen", () => {
@@ -301,7 +305,11 @@ describe("date picker component", () => {
       "2016",
       "shows correct first year of chunk"
     );
-    assert.equal(document.activeElement, root, "calendar is focused");
+    assert.equal(
+      document.activeElement,
+      getCalendarEl(),
+      "calendar is focused"
+    );
   });
 
   it("should allow for navigation to the preceding dozen years by clicking the left single arrow button within the year selection screen", () => {
@@ -846,6 +854,13 @@ describe("date picker component", () => {
   it("should show an improper date as invalid as the user leaves the input", () => {
     input.value = "abcdefg... That means the convo is done";
     EVENTS.focusout(input);
+
+    assert.equal(input.validationMessage, VALIDATION_MESSAGE);
+  });
+
+  it("should validate input on a validate event being emitted", () => {
+    input.value = "ab/cd/efg";
+    EVENTS.validate(input);
 
     assert.equal(input.validationMessage, VALIDATION_MESSAGE);
   });

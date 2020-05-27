@@ -218,4 +218,16 @@ EVENTS.keydownShiftPageDown = (el = document.activeElement) => {
   el.dispatchEvent(evt);
 };
 
+/**
+ * send a custom validate event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.validate = (el = document.activeElement) => {
+  const evt = new Event("validate", {
+    bubbles: true,
+    cancelable: true
+  });
+  el.dispatchEvent(evt);
+};
+
 module.exports = EVENTS;

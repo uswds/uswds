@@ -636,10 +636,10 @@ const enhanceDatePicker = el => {
 /**
  * Validate the value in the input as a valid date of format M/D/YYYY
  *
- * @param {HTMLInputElement} _inputEl An input element within the date picker component
+ * @param {HTMLElement} el An element within the date picker component
  */
-const validateDateInput = _inputEl => {
-  const { inputEl, minDate, maxDate } = getDatePickerContext(_inputEl);
+const validateDateInput = el => {
+  const { inputEl, minDate, maxDate } = getDatePickerContext(el);
 
   const dateString = inputEl.value;
   let isInvalid = false;
@@ -851,13 +851,13 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
         </div>
       </div>
       <div class="usa-date-picker__calendar__row">
-        <div class="usa-date-picker__calendar__cell" role="columnheader" aria-label="Sunday">S</div>
-        <div class="usa-date-picker__calendar__cell" role="columnheader" aria-label="Monday">M</div>
-        <div class="usa-date-picker__calendar__cell" role="columnheader" aria-label="Tuesday">T</div>
-        <div class="usa-date-picker__calendar__cell" role="columnheader" aria-label="Wednesday">W</div>
-        <div class="usa-date-picker__calendar__cell" role="columnheader" aria-label="Thursday">Th</div>
-        <div class="usa-date-picker__calendar__cell" role="columnheader" aria-label="Friday">F</div>
-        <div class="usa-date-picker__calendar__cell" role="columnheader" aria-label="Saturday">S</div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Sunday">S</div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Monday">M</div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Tuesday">T</div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Wednesday">W</div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Thursday">Th</div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Friday">F</div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Saturday">S</div>
       </div>
       <div class="${CALENDAR_DATE_GRID_CLASS}">
         ${datesHtml}
@@ -1009,7 +1009,6 @@ const selectYear = yearEl => {
  */
 const displayMonthSelection = el => {
   const {
-    datePickerEl,
     calendarEl,
     statusEl,
     calendarDate,
@@ -1040,11 +1039,11 @@ const displayMonthSelection = el => {
     3
   )}</div>`;
 
-  datePickerEl.focus();
-
   const newCalendar = calendarEl.cloneNode();
   newCalendar.innerHTML = monthsHtml;
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
+
+  newCalendar.focus();
 
   statusEl.textContent = "Select a month.";
 };
@@ -1057,7 +1056,6 @@ const displayMonthSelection = el => {
  */
 const displayYearSelection = (el, yearToDisplay) => {
   const {
-    datePickerEl,
     calendarEl,
     statusEl,
     calendarDate,
@@ -1065,8 +1063,6 @@ const displayYearSelection = (el, yearToDisplay) => {
     maxDate
   } = getDatePickerContext(el);
   let yearToChunk = yearToDisplay;
-
-  datePickerEl.focus();
 
   if (yearToChunk == null) {
     yearToChunk = calendarDate.getFullYear();
@@ -1127,6 +1123,8 @@ const displayYearSelection = (el, yearToDisplay) => {
       >&nbsp;</button>
     </div >`;
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
+
+  newCalendar.focus();
 
   statusEl.textContent = `Showing years ${yearToChunk} to ${yearToChunk +
     YEAR_CHUNK -
@@ -1464,6 +1462,11 @@ const datePicker = behavior(
         if (!this.contains(event.relatedTarget)) {
           hideCalendar(this);
         }
+      }
+    },
+    validate: {
+      [DATE_PICKER]() {
+        validateDateInput(this);
       }
     },
     input: {
