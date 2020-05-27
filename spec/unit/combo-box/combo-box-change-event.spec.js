@@ -127,6 +127,8 @@ describe("combo box component change event dispatch", () => {
   });
 
   afterEach(() => {
+    input.removeEventListener("change", inputChangeSpy);
+    select.removeEventListener("change", selectChangeSpy);
     body.textContent = "";
     ComboBox.off(body);
   });
