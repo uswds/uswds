@@ -3,6 +3,7 @@ const path = require("path");
 const assert = require("assert");
 const DatePicker = require("../../../src/js/components/date-picker");
 const EVENTS = require("./events");
+const sinon = require("sinon");
 
 const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/date-picker.template.html")
@@ -16,6 +17,8 @@ describe("date picker component", () => {
   let root;
   let input;
   let button;
+  let inputChangeSpy;
+
   const getCalendarEl = () => root.querySelector(".usa-date-picker__calendar");
 
   beforeEach(() => {
@@ -24,9 +27,12 @@ describe("date picker component", () => {
     root = body.querySelector(".usa-date-picker");
     input = root.querySelector(".usa-date-picker__input");
     button = root.querySelector(".usa-date-picker__button");
+    inputChangeSpy = sinon.stub();
+    input.addEventListener("change", inputChangeSpy);
   });
 
   afterEach(() => {
+    input.removeEventListener("change", inputChangeSpy);
     body.textContent = "";
     DatePicker.off(body);
   });
@@ -105,6 +111,10 @@ describe("date picker component", () => {
     assert.equal(input.value, "01/10/2020", "The value has been filled in");
     assert.equal(input, document.activeElement, "The focus is on the input");
     assert.equal(getCalendarEl().hidden, true, "The calendar is hidden");
+    assert.ok(
+      inputChangeSpy.called,
+      "should have dispatched a change event from the input"
+    );
   });
 
   it("should allow for navigation to the preceding month by clicking the left single arrow button within the calendar", () => {

@@ -490,6 +490,21 @@ const listToGridHtml = (htmlArray, rowSize) => {
 };
 
 /**
+ * set the value of the element and dispatch a change event
+ *
+ * @param {HTMLInputElement|HTMLSelectElement} el The element to update
+ * @param {string} value The new value of the element
+ */
+const changeElementValue = (el, value = "") => {
+  const elementToChange = el;
+  elementToChange.value = value;
+
+  const event = document.createEvent("Event");
+  event.initEvent("change", true, true);
+  elementToChange.dispatchEvent(event);
+};
+
+/**
  * The properties and elements within the date picker.
  * @typedef {Object} DatePickerContext
  * @property {HTMLDivElement} calendarEl
@@ -897,7 +912,7 @@ const selectDate = calendarDateEl => {
   if (calendarDateEl.disabled) return;
   const { datePickerEl, inputEl } = getDatePickerContext(calendarDateEl);
 
-  inputEl.value = calendarDateEl.dataset.value;
+  changeElementValue(inputEl, calendarDateEl.dataset.value);
 
   hideCalendar(datePickerEl);
   validateDateInput(datePickerEl);
