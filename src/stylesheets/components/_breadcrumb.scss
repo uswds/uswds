@@ -25,20 +25,23 @@ $breadcrumb-icon-height: 1.35ex;
 
 .usa-breadcrumb__list {
   // Prefer flex but breaks ellipsis
-  @include u-display("block");
+  @include u-display("flex");
   @include unstyled-list;
-
-  @if not $theme-breadcrumb-wrapping {
-    @include u-white-space("no-wrap");
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
 }
 
 .usa-breadcrumb__list-item {
   @include sr-only;
   @include u-display("inline");
   @include u-white-space("no-wrap");
+
+  &:last-child {
+    @if not $theme-breadcrumb-wrapping {
+      @include u-white-space("no-wrap");
+      min-width: 0;
+      text-overflow: ellipsis;
+      overflow-x: hidden;
+    }
+  }
 
   @include at-media-max($theme-breadcrumb-min-width) {
 
@@ -48,8 +51,10 @@ $breadcrumb-icon-height: 1.35ex;
 
       .usa-breadcrumb__link {
         @include button-unstyled;
+        @include u-display("inline-block");
         @include u-padding-top($theme-breadcrumb-spacing-top);
         @include u-padding-bottom($theme-breadcrumb-spacing-bottom);
+        @include u-text(nth($theme-breadcrumb-link-colors, 1));
       }
 
       .usa-breadcrumb__link::before {
@@ -78,8 +83,8 @@ $breadcrumb-icon-height: 1.35ex;
 
 .usa-breadcrumb__link {
   // Prefer inline-flex but breaks ellipsis
+  @include add-link-styles($theme-breadcrumb-link-colors);
   @include u-display("inline");
-  @include u-text($theme-link-color);
   // Reduce jitter from desktop → mobile.
   transition: padding $theme-easing;
 }
