@@ -5,18 +5,20 @@ $gap-inline-spacer: -.25em;
 // Should this be a setting?
 $breadcrumb-icon-height: 1.35ex;
 
-@mixin breadcrumb-icon($icon: $theme-breadcrumb-separator-icon, $dim: $theme-breadcrumb-separator-icon-dim) {
+@mixin breadcrumb-icon($icon: $theme-breadcrumb-separator-icon, $dim: $theme-breadcrumb-separator-icon-aspect) {
   $aspect: nth($dim, 1) / nth($dim, 2);
+  // 1. Chould these be a separate mixin?
   $image-name: unquote($icon); // 1
   background-color: color($theme-breadcrumb-icon-color); // 1
   content: "";
   display: inline-block;
+  height: $breadcrumb-icon-height;
   mask: url("#{$image-name}") no-repeat center; // 1
   mask-size: ($breadcrumb-icon-height * $aspect) $breadcrumb-icon-height; // 1
-  padding: ($breadcrumb-icon-height / 2) ($breadcrumb-icon-height * $aspect / 2);
+  width: $breadcrumb-icon-height * $aspect;
 }
 
-@mixin exdent-icon($dim: $theme-breadcrumb-back-icon-dim) {
+@mixin exdent-icon($dim: $theme-breadcrumb-back-icon-aspect) {
   $aspect: nth($dim, 1) / nth($dim, 2);
   $icon-width: $breadcrumb-icon-height * $aspect;
   $gap: calc(
@@ -31,6 +33,10 @@ $breadcrumb-icon-height: 1.35ex;
   @include at-media($theme-breadcrumb-min-width) {
     @include u-padding-bottom($theme-breadcrumb-spacing-bottom);
     @include u-padding-top($theme-breadcrumb-spacing-top);
+
+    @if $theme-breadcrumb-wrapping {
+      @include u-line-height($theme-breadcrumb-font-family, 4);
+    }
   }
 }
 
@@ -73,7 +79,7 @@ $breadcrumb-icon-height: 1.35ex;
       }
 
       .usa-breadcrumb__link::before {
-        @include breadcrumb-icon($theme-breadcrumb-back-icon, $theme-breadcrumb-back-icon-dim);
+        @include breadcrumb-icon($theme-breadcrumb-back-icon, $theme-breadcrumb-back-icon-aspect);
         margin-right: calc(
           #{units($theme-breadcrumb-gap)} + #{$gap-inline-spacer}
         );
