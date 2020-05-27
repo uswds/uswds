@@ -117,6 +117,16 @@
   background-color: color("primary-vivid");
 }
 
+.usa-date-picker__calendar__date--range-date-start {
+  border-top-left-radius: 10%;
+  border-bottom-left-radius: 10%;
+}
+
+.usa-date-picker__calendar__date--range-date-end {
+  border-top-right-radius: 10%;
+  border-bottom-right-radius: 10%;
+}
+
 .usa-date-picker__calendar__date--within-range {
   background-color: color("blue-10v");
 }

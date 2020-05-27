@@ -17,6 +17,8 @@ const CALENDAR_DATE_CURRENT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--current-month
 const CALENDAR_DATE_NEXT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--next-month`;
 const CALENDAR_DATE_INPUTTED_CLASS = `${CALENDAR_DATE_CLASS}--current-input-value`;
 const CALENDAR_DATE_RANGE_DATE_CLASS = `${CALENDAR_DATE_CLASS}--range-date`;
+const CALENDAR_DATE_RANGE_DATE_START_CLASS = `${CALENDAR_DATE_CLASS}--range-date-start`;
+const CALENDAR_DATE_RANGE_DATE_END_CLASS = `${CALENDAR_DATE_CLASS}--range-date-end`;
 const CALENDAR_DATE_WITHIN_RANGE_CLASS = `${CALENDAR_DATE_CLASS}--within-range`;
 const CALENDAR_PREVIOUS_YEAR_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-year`;
 const CALENDAR_PREVIOUS_MONTH_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-month`;
@@ -712,8 +714,11 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
   const prevButtonsDisabled = isSameMonth(dateToDisplay, minDate);
   const nextButtonsDisabled = isSameMonth(dateToDisplay, maxDate);
 
-  const rangeMinDate = rangeDate && addDays(min(dateToDisplay, rangeDate), 1);
-  const rangeMaxDate = rangeDate && subDays(max(dateToDisplay, rangeDate), 1);
+  const rangeStartDate = rangeDate && min(dateToDisplay, rangeDate);
+  const rangeEndDate = rangeDate && max(dateToDisplay, rangeDate);
+
+  const withinRangeStartDate = rangeDate && addDays(rangeStartDate, 1);
+  const withinRangeEndDate = rangeDate && subDays(rangeEndDate, 1);
 
   const monthLabel = MONTH_LABELS[focusedMonth];
 
@@ -729,10 +734,6 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     let tabindex = "-1";
 
     const isDisabled = !isDateWithinMinAndMax(dateToRender, minDate, maxDate);
-
-    const dateWithinRange =
-      rangeDate &&
-      isDateWithinMinAndMax(dateToRender, rangeMinDate, rangeMaxDate);
 
     if (isSameMonth(dateToRender, prevMonth)) {
       classes.push(CALENDAR_DATE_PREVIOUS_MONTH_CLASS);
@@ -750,12 +751,28 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
       classes.push(CALENDAR_DATE_INPUTTED_CLASS);
     }
 
-    if (isSameDay(dateToRender, rangeDate)) {
-      classes.push(CALENDAR_DATE_RANGE_DATE_CLASS);
-    }
+    if (rangeDate) {
+      if (isSameDay(dateToRender, rangeDate)) {
+        classes.push(CALENDAR_DATE_RANGE_DATE_CLASS);
+      }
 
-    if (dateWithinRange) {
-      classes.push(CALENDAR_DATE_WITHIN_RANGE_CLASS);
+      if (isSameDay(dateToRender, rangeStartDate)) {
+        classes.push(CALENDAR_DATE_RANGE_DATE_START_CLASS);
+      }
+
+      if (isSameDay(dateToRender, rangeEndDate)) {
+        classes.push(CALENDAR_DATE_RANGE_DATE_END_CLASS);
+      }
+
+      if (
+        isDateWithinMinAndMax(
+          dateToRender,
+          withinRangeStartDate,
+          withinRangeEndDate
+        )
+      ) {
+        classes.push(CALENDAR_DATE_WITHIN_RANGE_CLASS);
+      }
     }
 
     if (isSameDay(dateToRender, focusedDate)) {
