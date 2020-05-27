@@ -25,23 +25,22 @@ $breadcrumb-icon-height: 1.35ex;
 
 .usa-breadcrumb__list {
   // Prefer flex but breaks ellipsis
-  @include u-display("flex");
+  @include u-display("block");
   @include unstyled-list;
+  @include u-padding($theme-focus-width);
+  @include u-margin(-$theme-focus-width);
+
+  @if not $theme-breadcrumb-wrapping {
+    @include u-white-space("no-wrap");
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 }
 
 .usa-breadcrumb__list-item {
   @include sr-only;
   @include u-display("inline");
   @include u-white-space("no-wrap");
-
-  &:last-child {
-    @if not $theme-breadcrumb-wrapping {
-      @include u-white-space("no-wrap");
-      min-width: 0;
-      text-overflow: ellipsis;
-      overflow-x: hidden;
-    }
-  }
 
   @include at-media-max($theme-breadcrumb-min-width) {
 
