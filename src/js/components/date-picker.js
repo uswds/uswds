@@ -363,6 +363,7 @@ const isSameDay = (dateA, dateB) => {
  * @returns {Date} the date between min and max
  */
 const keepDateBetweenMinAndMax = (date, minDate, maxDate) => {
+  if (!date) return date;
   let newDate = date;
 
   if (date < minDate) {
@@ -1351,10 +1352,15 @@ const handleEscape = event => {
  */
 const toggleCalendar = el => {
   if (el.disabled) return;
-  const { calendarEl, inputDate } = getDatePickerContext(el);
+  const { calendarEl, inputDate, minDate, maxDate } = getDatePickerContext(el);
 
   if (calendarEl.hidden) {
-    renderCalendar(calendarEl, inputDate);
+    const dateToDisplay = keepDateBetweenMinAndMax(
+      inputDate || today(),
+      minDate,
+      maxDate
+    );
+    renderCalendar(calendarEl, dateToDisplay);
   } else {
     hideCalendar(el);
   }
@@ -1366,11 +1372,12 @@ const toggleCalendar = el => {
  * @param {HTMLElement} el an element within the date picker
  */
 const updateCalendarIfVisible = el => {
-  const { calendarEl, inputDate } = getDatePickerContext(el);
+  const { calendarEl, inputDate, minDate, maxDate } = getDatePickerContext(el);
   const calendarShown = !calendarEl.hidden;
 
   if (calendarShown && inputDate) {
-    renderCalendar(calendarEl, inputDate, false);
+    const dateToDisplay = keepDateBetweenMinAndMax(inputDate, minDate, maxDate);
+    renderCalendar(calendarEl, dateToDisplay, false);
   }
 };
 

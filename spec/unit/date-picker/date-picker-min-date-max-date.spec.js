@@ -738,4 +738,62 @@ describe("date picker component with min date and max date", () => {
 
     assert.equal(error, expectedError, "caught the error");
   });
+
+  it("should open the calendar on the min date when the input date is before the min date", () => {
+    input.value = "04/15/2020";
+    EVENTS.click(button);
+
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+      "05/22/2020",
+      "focuses correct date"
+    );
+  });
+
+  it("should open the calendar on the max date when the input date is after the max date", () => {
+    input.value = "04/15/2023";
+    EVENTS.click(button);
+
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+      "06/20/2021",
+      "focuses correct date"
+    );
+  });
+
+  it("should open the calendar on the max date when the input is empty and the current date is after the max date", () => {
+    root.dataset.minDate = "01/01/2020";
+    root.dataset.maxDate = "02/14/2020";
+    EVENTS.click(button);
+
+    assert.equal(getCalendarEl().hidden, false, "The calendar is shown");
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+      "02/14/2020",
+      "focuses correct date"
+    );
+  });
+
+  it("should update the calendar to the max date when the input is changed and the input date is after the max date", () => {
+    root.dataset.minDate = "01/01/2020";
+    root.dataset.maxDate = "02/14/2020";
+    input.value = "01/20/2020";
+    EVENTS.click(button);
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+      "01/20/2020",
+      "focuses correct date"
+    );
+
+    input.value = "6/20/2020";
+    EVENTS.input(input);
+
+    assert.equal(
+      getCalendarEl(".usa-date-picker__calendar__date--focused").dataset.value,
+      "02/14/2020",
+      "focuses correct date"
+    );
+  });
 });
