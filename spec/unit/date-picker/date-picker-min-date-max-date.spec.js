@@ -56,8 +56,6 @@ describe("date picker component with min date and max date", () => {
     );
   });
 
-
-
   it("should disable back buttons when displaying the minimum month", () => {
     input.value = "05/30/2020";
     EVENTS.click(button);
@@ -123,7 +121,6 @@ describe("date picker component with min date and max date", () => {
       "focuses correct date"
     );
   });
-
 
   it("should allow navigation back a month to a month that is partially disabled due to a minimum date being set", () => {
     input.value = "06/15/2020";

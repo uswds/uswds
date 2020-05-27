@@ -14,8 +14,10 @@ const CALENDAR_DATE_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__date`;
 const CALENDAR_DATE_FOCUSED_CLASS = `${CALENDAR_DATE_CLASS}--focused`;
 const CALENDAR_DATE_PREVIOUS_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--previous-month`;
 const CALENDAR_DATE_CURRENT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--current-month`;
-const CALENDAR_DATE_INPUTTED_CLASS = `${CALENDAR_DATE_CLASS}--current-input-value`;
 const CALENDAR_DATE_NEXT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--next-month`;
+const CALENDAR_DATE_INPUTTED_CLASS = `${CALENDAR_DATE_CLASS}--current-input-value`;
+const CALENDAR_DATE_RANGE_DATE_CLASS = `${CALENDAR_DATE_CLASS}--range-date`;
+const CALENDAR_DATE_WITHIN_RANGE_CLASS = `${CALENDAR_DATE_CLASS}--within-range`;
 const CALENDAR_PREVIOUS_YEAR_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-year`;
 const CALENDAR_PREVIOUS_MONTH_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-month`;
 const CALENDAR_NEXT_YEAR_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__next-year`;
@@ -101,17 +103,6 @@ const keepDateWithinMonth = (dateToCheck, month) => {
 };
 
 /**
- * todays date
- *
- * @returns {Date} todays date
- */
-const today = () => {
-  const newDate = new Date();
-  newDate.setHours(0, 0, 0, 0);
-  return newDate;
-};
-
-/**
  * Set date from month day year
  *
  * @param {number} year the year to set
@@ -123,6 +114,19 @@ const setDate = (year, month, date) => {
   const newDate = new Date(0);
   newDate.setFullYear(year, month, date);
   return newDate;
+};
+
+/**
+ * todays date
+ *
+ * @returns {Date} todays date
+ */
+const today = () => {
+  const newDate = new Date();
+  const day = newDate.getDate();
+  const month = newDate.getMonth();
+  const year = newDate.getFullYear();
+  return setDate(year, month, day);
 };
 
 /**
@@ -290,10 +294,44 @@ const setYear = (_date, year) => {
 };
 
 /**
+ * Return the earliest date
+ *
+ * @param {Date} dateA date to compare
+ * @param {Date} dateB date to compare
+ * @returns {Date} the earliest date
+ */
+const min = (dateA, dateB) => {
+  let newDate = dateA;
+
+  if (dateB < dateA) {
+    newDate = dateB;
+  }
+
+  return new Date(newDate.getTime());
+};
+
+/**
+ * Return the latest date
+ *
+ * @param {Date} dateA date to compare
+ * @param {Date} dateB date to compare
+ * @returns {Date} the latest date
+ */
+const max = (dateA, dateB) => {
+  let newDate = dateA;
+
+  if (dateB > dateA) {
+    newDate = dateB;
+  }
+
+  return new Date(newDate.getTime());
+};
+
+/**
  * Check if dates are the in the same month
  *
- * @param {Date} _date the date to adjust
- * @param {number} year the year to set
+ * @param {Date} dateA date to compare
+ * @param {Date} dateB date to compare
  * @returns {Date} the adjusted date
  */
 const isSameMonth = (dateA, dateB) => {
@@ -310,7 +348,6 @@ const isSameMonth = (dateA, dateB) => {
  *
  * @param {Date} dateA the date to compare
  * @param {Date} dateA the date to compare
- * @param {number} year the year to set
  * @returns {Date} the adjusted date
  */
 const isSameDay = (dateA, dateB) => {
@@ -516,6 +553,7 @@ const changeElementValue = (el, value = "") => {
  * @property {Date} minDate
  * @property {Date} maxDate
  * @property {Date} inputDate
+ * @property {Date} rangeDate
  */
 
 /**
@@ -541,6 +579,7 @@ const getDatePickerContext = el => {
   const calendarDate = parseDateString(calendarEl.dataset.value);
   const minDate = parseDateString(datePickerEl.dataset.minDate);
   const maxDate = parseDateString(datePickerEl.dataset.maxDate);
+  const rangeDate = parseDateString(datePickerEl.dataset.rangeDate);
 
   if (minDate && maxDate && minDate > maxDate) {
     throw new Error("Minimum date cannot be after maximum date");
@@ -555,6 +594,7 @@ const getDatePickerContext = el => {
     datePickerEl,
     inputEl,
     calendarEl,
+    rangeDate,
     statusEl
   };
 };
@@ -576,15 +616,8 @@ const enhanceDatePicker = el => {
   datePickerEl.classList.add("usa-date-picker--initialized");
 
   const minDate = parseDateString(datePickerEl.dataset.minDate);
-  datePickerEl.dataset.minDate = minDate
-    ? formatDate(minDate)
-    : DEFAULT_MIN_DATE;
-
-  const maxDate = parseDateString(datePickerEl.dataset.maxDate);
-  if (maxDate) {
-    datePickerEl.dataset.maxDate = formatDate(maxDate);
-  } else {
-    datePickerEl.removeAttribute("data-max-date");
+  if (!minDate) {
+    datePickerEl.dataset.minDate = DEFAULT_MIN_DATE;
   }
 
   datePickerEl.insertAdjacentHTML(
@@ -658,7 +691,8 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     statusEl,
     inputDate,
     maxDate,
-    minDate
+    minDate,
+    rangeDate
   } = getDatePickerContext(el);
   let dateToDisplay = _dateToDisplay || today();
 
@@ -677,6 +711,9 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
   const prevButtonsDisabled = isSameMonth(dateToDisplay, minDate);
   const nextButtonsDisabled = isSameMonth(dateToDisplay, maxDate);
 
+  const rangeMinDate = rangeDate && addDays(min(dateToDisplay, rangeDate), 1);
+  const rangeMaxDate = rangeDate && subDays(max(dateToDisplay, rangeDate), 1);
+
   const monthLabel = MONTH_LABELS[focusedMonth];
 
   const generateDateHtml = dateToRender => {
@@ -689,8 +726,12 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     const formattedDate = formatDate(dateToRender);
 
     let tabindex = "-1";
-    const isDisabled =
-      dateToRender < minDate || (maxDate && dateToRender > maxDate);
+
+    const isDisabled = !isDateWithinMinAndMax(dateToRender, minDate, maxDate);
+
+    const dateWithinRange =
+      rangeDate &&
+      isDateWithinMinAndMax(dateToRender, rangeMinDate, rangeMaxDate);
 
     if (isSameMonth(dateToRender, prevMonth)) {
       classes.push(CALENDAR_DATE_PREVIOUS_MONTH_CLASS);
@@ -704,8 +745,16 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
       classes.push(CALENDAR_DATE_NEXT_MONTH_CLASS);
     }
 
-    if (inputDate && isSameDay(dateToRender, inputDate)) {
+    if (isSameDay(dateToRender, inputDate)) {
       classes.push(CALENDAR_DATE_INPUTTED_CLASS);
+    }
+
+    if (isSameDay(dateToRender, rangeDate)) {
+      classes.push(CALENDAR_DATE_RANGE_DATE_CLASS);
+    }
+
+    if (dateWithinRange) {
+      classes.push(CALENDAR_DATE_WITHIN_RANGE_CLASS);
     }
 
     if (isSameDay(dateToRender, focusedDate)) {
