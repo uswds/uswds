@@ -365,7 +365,6 @@ const isSameDay = (dateA, dateB) => {
  * @returns {Date} the date between min and max
  */
 const keepDateBetweenMinAndMax = (date, minDate, maxDate) => {
-  if (!date) return date;
   let newDate = date;
 
   if (date < minDate) {
@@ -532,7 +531,7 @@ const listToGridHtml = (htmlArray, rowSize) => {
 /**
  * set the value of the element and dispatch a change event
  *
- * @param {HTMLInputElement|HTMLSelectElement} el The element to update
+ * @param {HTMLInputElement} el The element to update
  * @param {string} value The new value of the element
  */
 const changeElementValue = (el, value = "") => {
