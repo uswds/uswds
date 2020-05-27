@@ -15,6 +15,16 @@ $breadcrumb-icon-height: 1.35ex;
   padding: ($breadcrumb-icon-height / 2) ($breadcrumb-icon-height * $aspect / 2);
 }
 
+@mixin exdent-icon($dim: $theme-breadcrumb-back-icon-dim) {
+  $aspect: nth($dim, 1) / nth($dim, 2);
+  $icon-width: $breadcrumb-icon-height * $aspect;
+  $gap: calc(
+        #{units($theme-breadcrumb-gap)} + #{$gap-inline-spacer}
+      );
+  padding-left: calc(#{$icon-width} + #{$gap});
+  text-indent: calc((#{$icon-width} + #{$gap}) * -1);
+}
+
 .usa-breadcrumb {
   @include typeset($theme-breadcrumb-font-family, $theme-breadcrumb-font-size, 3);
   @include at-media($theme-breadcrumb-min-width) {
@@ -24,16 +34,17 @@ $breadcrumb-icon-height: 1.35ex;
 }
 
 .usa-breadcrumb__list {
-  // Prefer flex but breaks ellipsis
   @include u-display("block");
   @include unstyled-list;
   @include u-padding($theme-focus-width);
   @include u-margin(-$theme-focus-width);
 
   @if not $theme-breadcrumb-wrapping {
-    @include u-white-space("no-wrap");
-    text-overflow: ellipsis;
-    overflow: hidden;
+    @include at-media($theme-breadcrumb-min-width) {
+      @include u-white-space("no-wrap");
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
   }
 }
 
@@ -43,6 +54,7 @@ $breadcrumb-icon-height: 1.35ex;
   @include u-white-space("no-wrap");
 
   @include at-media-max($theme-breadcrumb-min-width) {
+    @include u-white-space("wrap");
 
     // ⃪ Parent link.
     &:nth-last-child(2) {
@@ -50,10 +62,11 @@ $breadcrumb-icon-height: 1.35ex;
 
       .usa-breadcrumb__link {
         @include button-unstyled;
+        @include add-link-styles($theme-breadcrumb-link-colors);
+        @include exdent-icon;
         @include u-display("inline-block");
         @include u-padding-top($theme-breadcrumb-spacing-top);
         @include u-padding-bottom($theme-breadcrumb-spacing-bottom);
-        @include u-text(nth($theme-breadcrumb-link-colors, 1));
       }
 
       .usa-breadcrumb__link::before {
@@ -81,7 +94,6 @@ $breadcrumb-icon-height: 1.35ex;
 }
 
 .usa-breadcrumb__link {
-  // Prefer inline-flex but breaks ellipsis
   @include add-link-styles($theme-breadcrumb-link-colors);
   @include u-display("inline");
   // Reduce jitter from desktop → mobile.
