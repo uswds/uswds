@@ -112,6 +112,18 @@ EVENTS.keydownArrowUp = (el) => {
   el.dispatchEvent(evt);
 };
 
+/**
+ * send a keydown Tab event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.keydownTab = (el) => {
+  const evt = new KeyboardEvent('keydown', {
+    bubbles: true,
+    key: 'Tab',
+  });
+  el.dispatchEvent(evt);
+};
+
 describe('combo box component', () => {
   const { body } = document;
 
@@ -230,12 +242,13 @@ describe('combo box component', () => {
     assert.equal(list.children.length, 10, 'should filter the item by the string being present in the option');
   });
 
-  it('should clear input values when an incomplete item is remaining on blur', () => {
+  it('should clear input values when an incomplete item is remaining on tab/blur', () => {
     select.value = 'value-ActionScript';
     input.value = 'a';
 
     EVENTS.keyupA(input);
     assert.ok(!list.hidden, 'should display the option list');
+    EVENTS.keydownTab(input);
     EVENTS.focusout(input);
 
     assert.ok(list.hidden, 'should hide the option list');
@@ -280,12 +293,13 @@ describe('combo box component', () => {
     assert.equal(input.value, 'a', 'should not change the value in the input');
   });
 
-  it('should set the input value when a complete selection is submitted by clicking away', () => {
+  it('should set the input value when a complete selection is left on tab/blur from the input element', () => {
     select.value = 'value-ActionScript';
     input.value = 'go';
 
     EVENTS.keyupO(input);
     assert.ok(!list.hidden, 'should display the option list');
+    EVENTS.keydownTab(input);
     EVENTS.focusout(input);
 
     assert.ok(list.hidden, 'should hide the option list');
