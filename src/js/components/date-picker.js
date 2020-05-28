@@ -556,6 +556,7 @@ const changeElementValue = (el, value = "") => {
  * @property {Date} maxDate
  * @property {Date} inputDate
  * @property {Date} rangeDate
+ * @property {Date} defaultDate
  */
 
 /**
@@ -582,6 +583,7 @@ const getDatePickerContext = el => {
   const minDate = parseDateString(datePickerEl.dataset.minDate);
   const maxDate = parseDateString(datePickerEl.dataset.maxDate);
   const rangeDate = parseDateString(datePickerEl.dataset.rangeDate);
+  const defaultDate = parseDateString(datePickerEl.dataset.defaultDate);
 
   if (minDate && maxDate && minDate > maxDate) {
     throw new Error("Minimum date cannot be after maximum date");
@@ -597,6 +599,7 @@ const getDatePickerContext = el => {
     inputEl,
     calendarEl,
     rangeDate,
+    defaultDate,
     statusEl
   };
 };
@@ -1366,11 +1369,17 @@ const handleEscape = event => {
  */
 const toggleCalendar = el => {
   if (el.disabled) return;
-  const { calendarEl, inputDate, minDate, maxDate } = getDatePickerContext(el);
+  const {
+    calendarEl,
+    inputDate,
+    minDate,
+    maxDate,
+    defaultDate
+  } = getDatePickerContext(el);
 
   if (calendarEl.hidden) {
     const dateToDisplay = keepDateBetweenMinAndMax(
-      inputDate || today(),
+      inputDate || defaultDate || today(),
       minDate,
       maxDate
     );
@@ -1496,7 +1505,8 @@ const datePicker = behavior(
       select(DATE_PICKER, root).forEach(datePickerEl => {
         enhanceDatePicker(datePickerEl);
       });
-    }
+    },
+    parseDateString
   }
 );
 
