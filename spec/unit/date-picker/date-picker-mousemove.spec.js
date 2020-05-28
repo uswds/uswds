@@ -30,7 +30,7 @@ describe("date picker component mouse move selection", () => {
     DatePicker.off(body);
   });
 
-  it("should ignore disabled days", () => {
+  it("should ignore mouse move events over disabled days", () => {
     root.dataset.minDate = "06/01/2020";
     root.dataset.maxDate = "06/24/2020";
     input.value = "6/20/2020";
@@ -54,7 +54,7 @@ describe("date picker component mouse move selection", () => {
     );
   });
 
-  it("should update the focus then moving over a non-selected valid day", () => {
+  it("should update the focus when moving over a non-selected valid day", () => {
     root.dataset.minDate = "06/01/2020";
     root.dataset.maxDate = "06/24/2020";
     input.value = "6/20/2020";
