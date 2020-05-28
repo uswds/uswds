@@ -43,6 +43,7 @@ const DATE_PICKER_CALENDAR = `.${DATE_PICKER_CALENDAR_CLASS}`;
 const DATE_PICKER_STATUS = `.${DATE_PICKER_STATUS_CLASS}`;
 const CALENDAR_DATE = `.${CALENDAR_DATE_CLASS}`;
 const CALENDAR_DATE_FOCUSED = `.${CALENDAR_DATE_FOCUSED_CLASS}`;
+const CALENDAR_DATE_CURRENT_MONTH = `.${CALENDAR_DATE_CURRENT_MONTH_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR = `.${CALENDAR_PREVIOUS_YEAR_CLASS}`;
 const CALENDAR_PREVIOUS_MONTH = `.${CALENDAR_PREVIOUS_MONTH_CLASS}`;
 const CALENDAR_NEXT_YEAR = `.${CALENDAR_NEXT_YEAR_CLASS}`;
@@ -1415,6 +1416,27 @@ const updateCalendarIfVisible = el => {
   }
 };
 
+/**
+ * display the calendar for the mousemove date.
+ *
+ * @param {MouseEvent} event The mousemove event
+ * @param {HTMLButtonElement} el An element within the date picker component
+ */
+const handleMousemove = (event, el) => {
+  if (el.disabled) return;
+
+  const datePickerEl = el.closest(DATE_PICKER);
+
+  const calendarEl = datePickerEl.querySelector(DATE_PICKER_CALENDAR);
+  const currentCalendarDate = calendarEl.dataset.value;
+  const hoverDate = el.dataset.value;
+
+  if (hoverDate === currentCalendarDate) return;
+
+  const dateToDisplay = parseDateString(hoverDate);
+  renderCalendar(calendarEl, dateToDisplay);
+};
+
 const datePicker = behavior(
   {
     [CLICK]: {
@@ -1508,6 +1530,11 @@ const datePicker = behavior(
     input: {
       [DATE_PICKER_INPUT]() {
         updateCalendarIfVisible(this);
+      }
+    },
+    mousemove: {
+      [CALENDAR_DATE_CURRENT_MONTH](event) {
+        handleMousemove(event, this);
       }
     }
   },
