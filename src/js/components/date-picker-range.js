@@ -19,6 +19,66 @@ const DATE_PICKER_RANGE_RANGE_END_INPUT = `.${DATE_PICKER_RANGE_RANGE_END_CLASS}
 const DEFAULT_MIN_DATE = "01/01/0000";
 
 /**
+ * handle update from range start date picker
+ *
+ * @param {HTMLInputElement} inputEl the input element within the range start date picker
+ */
+const handleRangeStartUpdate = inputEl => {
+  if (!inputEl) return;
+
+  const datePickerRangeEl = inputEl.closest(DATE_PICKER_RANGE);
+
+  if (!datePickerRangeEl) {
+    throw new Error(`Element is missing outer ${DATE_PICKER_RANGE}`);
+  }
+
+  const rangeEndEl = datePickerRangeEl.querySelector(
+    DATE_PICKER_RANGE_RANGE_END
+  );
+  const updatedDate = inputEl.value;
+
+  if (updatedDate && !isDateInputInvalid(inputEl)) {
+    rangeEndEl.dataset.minDate = updatedDate;
+    rangeEndEl.dataset.rangeDate = updatedDate;
+    rangeEndEl.dataset.defaultDate = updatedDate;
+  } else {
+    rangeEndEl.dataset.minDate = datePickerRangeEl.dataset.minDate || "";
+    rangeEndEl.dataset.rangeDate = "";
+    rangeEndEl.dataset.defaultDate = "";
+  }
+};
+
+/**
+ * handle update from range start date picker
+ *
+ * @param {HTMLInputElement} inputEl the input element within the range start date picker
+ */
+const handleRangeEndUpdate = inputEl => {
+  if (!inputEl) return;
+
+  const datePickerRangeEl = inputEl.closest(DATE_PICKER_RANGE);
+
+  if (!datePickerRangeEl) {
+    throw new Error(`Element is missing outer ${DATE_PICKER_RANGE}`);
+  }
+
+  const rangeStartEl = datePickerRangeEl.querySelector(
+    DATE_PICKER_RANGE_RANGE_START
+  );
+  const updatedDate = inputEl.value;
+
+  if (updatedDate && !isDateInputInvalid(inputEl)) {
+    rangeStartEl.dataset.maxDate = updatedDate;
+    rangeStartEl.dataset.rangeDate = updatedDate;
+    rangeStartEl.dataset.defaultDate = updatedDate;
+  } else {
+    rangeStartEl.dataset.maxDate = datePickerRangeEl.dataset.maxDate || "";
+    rangeStartEl.dataset.rangeDate = "";
+    rangeStartEl.dataset.defaultDate = "";
+  }
+};
+
+/**
  * Enhance an input with the date picker elements
  *
  * @param {HTMLElement} el The initial wrapping element of the date picker range component
@@ -56,62 +116,13 @@ const enhanceDatePickerRange = el => {
     rangeStart.dataset.maxDate = maxDate;
     rangeEnd.dataset.maxDate = maxDate;
   }
-};
 
-/**
- * handle update from range start date picker
- *
- * @param {HTMLInputElement} inputEl the input element within the range start date picker
- */
-const handleRangeStartUpdate = inputEl => {
-  const datePickerRangeEl = inputEl.closest(DATE_PICKER_RANGE);
-
-  if (!datePickerRangeEl) {
-    throw new Error(`Element is missing outer ${DATE_PICKER_RANGE}`);
-  }
-
-  const rangeEndEl = datePickerRangeEl.querySelector(
-    DATE_PICKER_RANGE_RANGE_END
+  handleRangeStartUpdate(
+    datePickerRangeEl.querySelector(DATE_PICKER_RANGE_RANGE_START_INPUT)
   );
-  const updatedDate = inputEl.value;
-
-  if (updatedDate && !isDateInputInvalid(inputEl)) {
-    rangeEndEl.dataset.minDate = updatedDate;
-    rangeEndEl.dataset.rangeDate = updatedDate;
-    rangeEndEl.dataset.defaultDate = updatedDate;
-  } else {
-    rangeEndEl.dataset.minDate = datePickerRangeEl.dataset.minDate || "";
-    rangeEndEl.dataset.rangeDate = "";
-    rangeEndEl.dataset.defaultDate = "";
-  }
-};
-
-/**
- * handle update from range start date picker
- *
- * @param {HTMLInputElement} inputEl the input element within the range start date picker
- */
-const handleRangeEndUpdate = inputEl => {
-  const datePickerRangeEl = inputEl.closest(DATE_PICKER_RANGE);
-
-  if (!datePickerRangeEl) {
-    throw new Error(`Element is missing outer ${DATE_PICKER_RANGE}`);
-  }
-
-  const rangeStartEl = datePickerRangeEl.querySelector(
-    DATE_PICKER_RANGE_RANGE_START
+  handleRangeEndUpdate(
+    datePickerRangeEl.querySelector(DATE_PICKER_RANGE_RANGE_END_INPUT)
   );
-  const updatedDate = inputEl.value;
-
-  if (updatedDate && !isDateInputInvalid(inputEl)) {
-    rangeStartEl.dataset.maxDate = updatedDate;
-    rangeStartEl.dataset.rangeDate = updatedDate;
-    rangeStartEl.dataset.defaultDate = updatedDate;
-  } else {
-    rangeStartEl.dataset.maxDate = datePickerRangeEl.dataset.maxDate || "";
-    rangeStartEl.dataset.rangeDate = "";
-    rangeStartEl.dataset.defaultDate = "";
-  }
 };
 
 const datePickerRange = behavior(
