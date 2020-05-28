@@ -8,7 +8,7 @@ const INVALID_TEMPLATE_NO_INPUT = fs.readFileSync(
   path.join(__dirname, "/invalid-template-no-input.template.html")
 );
 
-describe("Date picker range without input", () => {
+describe("Date picker range without inputs", () => {
   const { body } = document;
 
   beforeEach(() => {
@@ -23,7 +23,7 @@ describe("Date picker range without input", () => {
   });
 
   it('should throw an error when a toggle button is clicked without a wrapping "usa-date-picker"', () => {
-    assert.throws(() => DatePicker.on(), {
+    assert.throws(() => DatePickerRange.on(), {
       message:
         ".usa-date-picker-range is missing inner two '.usa-date-picker' elements"
     });

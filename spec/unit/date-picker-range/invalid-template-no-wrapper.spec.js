@@ -12,6 +12,7 @@ const INVALID_TEMPLATE_NO_WRAPPER = fs.readFileSync(
 describe("Date picker range button without wrapping element", () => {
   const { body } = document;
   let rangeStartInputEl;
+  let rangeEndInputEl;
   let error;
   let expectedError;
 
@@ -21,6 +22,9 @@ describe("Date picker range button without wrapping element", () => {
     DatePickerRange.on();
     rangeStartInputEl = body.querySelector(
       ".usa-date-picker-range__range-start .usa-date-picker__input"
+    );
+    rangeEndInputEl = body.querySelector(
+      ".usa-date-picker-range__range-end .usa-date-picker__input"
     );
     expectedError = "";
     window.onerror = message => {
@@ -36,10 +40,17 @@ describe("Date picker range button without wrapping element", () => {
     DatePickerRange.off(body);
   });
 
-  it('should throw an error when a toggle button is clicked without a wrapping "usa-date-picker-range"', () => {
+  it('should throw an error when the range start value is changed without a wrapping "usa-date-picker-range"', () => {
     expectedError = "Element is missing outer .usa-date-picker-range";
     rangeStartInputEl.value = "12/12/2020";
     EVENTS.input(rangeStartInputEl);
+    assert.equal(error, expectedError, "caught the error");
+  });
+
+  it('should throw an error when the range end value is changed without a wrapping "usa-date-picker-range"', () => {
+    expectedError = "Element is missing outer .usa-date-picker-range";
+    rangeEndInputEl.value = "12/12/2020";
+    EVENTS.input(rangeEndInputEl);
     assert.equal(error, expectedError, "caught the error");
   });
 });

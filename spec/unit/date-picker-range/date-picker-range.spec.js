@@ -22,17 +22,11 @@ describe("date picker range component", () => {
     body.innerHTML = TEMPLATE;
     DatePicker.on();
     DatePickerRange.on();
-    console.log("gothert");
     root = body.querySelector(".usa-date-picker-range");
-    console.log("gsdfsdfothert");
     rangeStart = root.querySelector(".usa-date-picker-range__range-start");
-    console.log("gothsdsert");
     rangeEnd = root.querySelector(".usa-date-picker-range__range-end");
-    console.log("gotsdfhert");
     rangeStartInputEl = rangeStart.querySelector(".usa-date-picker__input");
-    console.log("gothedsfrt");
     rangeEndInputEl = rangeEnd.querySelector(".usa-date-picker__input");
-    console.log("gosdfthert");
   });
 
   afterEach(() => {
@@ -48,12 +42,16 @@ describe("date picker range component", () => {
 
   // event interactions
 
-  it("should not update the range end date picker properties when the range start date picker has an empty value", () => {
+  it("should reset the range end date picker properties when the range start date picker has an empty value", () => {
     rangeStartInputEl.value = "";
 
     EVENTS.input(rangeStartInputEl);
 
-    assert.equal(rangeEnd.dataset.minDate, "", "has no min date");
+    assert.equal(
+      rangeEnd.dataset.minDate,
+      "01/01/0000",
+      "has the default min date"
+    );
     assert.equal(rangeEnd.dataset.rangeDate, "", "has no range date");
     assert.equal(rangeEnd.dataset.defaultDate, "", "has no default date");
   });
@@ -80,22 +78,26 @@ describe("date picker range component", () => {
     );
   });
 
-  it("should clear the range end date picker properties when the range start date picker has an updated invalid value", () => {
+  it("should reset the range end date picker properties when the range start date picker has an updated invalid value", () => {
     rangeStartInputEl.value = "ab/dc/efg";
 
     EVENTS.input(rangeStartInputEl);
 
-    assert.equal(rangeEnd.dataset.minDate, "", "has no min date");
+    assert.equal(
+      rangeEnd.dataset.minDate,
+      "01/01/0000",
+      "has the default min date"
+    );
     assert.equal(rangeEnd.dataset.rangeDate, "", "has no range date");
     assert.equal(rangeEnd.dataset.defaultDate, "", "has no default date");
   });
 
-  it("should not update the range start date picker properties when the range end date picker has an empty value", () => {
+  it("should reset the range start date picker properties when the range end date picker has an empty value", () => {
     rangeEndInputEl.value = "";
 
     EVENTS.input(rangeEndInputEl);
 
-    assert.equal(rangeStart.dataset.minDate, "", "has no min date");
+    assert.equal(rangeStart.dataset.maxDate, "", "has no max date");
     assert.equal(rangeStart.dataset.rangeDate, "", "has no range date");
     assert.equal(rangeStart.dataset.defaultDate, "", "has no default date");
   });
@@ -122,12 +124,12 @@ describe("date picker range component", () => {
     );
   });
 
-  it("should not update the range end date picker properties when the range start date picker has an updated invalid value", () => {
+  it("should reset the range end date picker properties when the range start date picker has an updated invalid value", () => {
     rangeEndInputEl.value = "35/35/3535";
 
     EVENTS.input(rangeEndInputEl);
 
-    assert.equal(rangeStart.dataset.minDate, "", "has no min date");
+    assert.equal(rangeStart.dataset.maxDate, "", "has no max date");
     assert.equal(rangeStart.dataset.rangeDate, "", "has no range date");
     assert.equal(rangeStart.dataset.defaultDate, "", "has no default date");
   });

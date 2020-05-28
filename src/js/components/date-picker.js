@@ -642,7 +642,7 @@ const enhanceDatePicker = el => {
  *
  * @param {HTMLElement} el An element within the date picker component
  */
-const validateDateInput = el => {
+const isDateInputInvalid = el => {
   const { inputEl, minDate, maxDate } = getDatePickerContext(el);
 
   const dateString = inputEl.value;
@@ -673,6 +673,18 @@ const validateDateInput = el => {
       }
     }
   }
+
+  return isInvalid;
+};
+
+/**
+ * Validate the value in the input as a valid date of format M/D/YYYY
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const validateDateInput = el => {
+  const { inputEl } = getDatePickerContext(el);
+  const isInvalid = isDateInputInvalid(inputEl);
 
   if (isInvalid && !inputEl.validationMessage) {
     inputEl.setCustomValidity(VALIDATION_MESSAGE);
@@ -886,7 +898,6 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
   if (calendarWasHidden) {
-    datePickerEl.tabIndex = -1;
     statusEl.textContent =
       "You can navigate by day using left and right arrows; weeks by using up and down arrows; months by using page up and page down keys; years by using shift plus page up and shift plus page down; home and end keys navigate to the beginning and end of a week.";
   } else {
@@ -1506,7 +1517,7 @@ const datePicker = behavior(
         enhanceDatePicker(datePickerEl);
       });
     },
-    parseDateString
+    isDateInputInvalid
   }
 );
 
