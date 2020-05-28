@@ -1,6 +1,5 @@
-
 // This helps balance spacing around inline-block elements
-$gap-inline-spacer: -.25em;
+$gap-inline-spacer: -0.25em;
 
 // Should this be a setting?
 $breadcrumb-icon-height: 1.35ex;
@@ -8,7 +7,7 @@ $breadcrumb-icon-height: 1.35ex;
 @mixin add-svg-mask($image, $color, $height, $width) {
   $image-name: unquote($image);
   $image-props: url("#{$image-name}") no-repeat center / #{$width} #{$height};
-  // Default background shorthand for browsers that don't support mask or supports.
+  // Default background shorthand for browsers that don't support mask or @supports.
   background: $image-props;
 
   @supports (mask: url("")) or (-webkit-mask: url("")) {
@@ -18,10 +17,18 @@ $breadcrumb-icon-height: 1.35ex;
   }
 }
 
-@mixin breadcrumb-icon($icon: $theme-breadcrumb-separator-icon, $dim: $theme-breadcrumb-separator-icon-aspect) {
+@mixin breadcrumb-icon(
+  $icon: $theme-breadcrumb-separator-icon,
+  $dim: $theme-breadcrumb-separator-icon-aspect
+) {
   $aspect: nth($dim, 1) / nth($dim, 2);
   $icon-width: $breadcrumb-icon-height * $aspect;
-  @include add-svg-mask($icon, $theme-breadcrumb-icon-color, $breadcrumb-icon-height, $icon-width);
+  @include add-svg-mask(
+    $icon,
+    $theme-breadcrumb-icon-color,
+    $breadcrumb-icon-height,
+    $icon-width
+  );
   content: "";
   display: inline-block;
   height: $breadcrumb-icon-height;
@@ -31,15 +38,17 @@ $breadcrumb-icon-height: 1.35ex;
 @mixin exdent-icon($dim: $theme-breadcrumb-back-icon-aspect) {
   $aspect: nth($dim, 1) / nth($dim, 2);
   $icon-width: $breadcrumb-icon-height * $aspect;
-  $gap: calc(
-        #{units($theme-breadcrumb-gap)} + #{$gap-inline-spacer}
-      );
+  $gap: calc(#{units($theme-breadcrumb-gap)} + #{$gap-inline-spacer});
   padding-left: calc(#{$icon-width} + #{$gap});
   text-indent: calc((#{$icon-width} + #{$gap}) * -1);
 }
 
 .usa-breadcrumb {
-  @include typeset($theme-breadcrumb-font-family, $theme-breadcrumb-font-size, 3);
+  @include typeset(
+    $theme-breadcrumb-font-family,
+    $theme-breadcrumb-font-size,
+    3
+  );
   @include at-media($theme-breadcrumb-min-width) {
     @include u-padding-bottom($theme-breadcrumb-spacing-bottom);
     @include u-padding-top($theme-breadcrumb-spacing-top);
@@ -89,7 +98,10 @@ $breadcrumb-icon-height: 1.35ex;
       }
 
       .usa-breadcrumb__link::before {
-        @include breadcrumb-icon($theme-breadcrumb-back-icon, $theme-breadcrumb-back-icon-aspect);
+        @include breadcrumb-icon(
+          $theme-breadcrumb-back-icon,
+          $theme-breadcrumb-back-icon-aspect
+        );
         margin-right: calc(
           #{units($theme-breadcrumb-gap)} + #{$gap-inline-spacer}
         );
