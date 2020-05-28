@@ -43,6 +43,7 @@ const DATE_PICKER_CALENDAR = `.${DATE_PICKER_CALENDAR_CLASS}`;
 const DATE_PICKER_STATUS = `.${DATE_PICKER_STATUS_CLASS}`;
 const CALENDAR_DATE = `.${CALENDAR_DATE_CLASS}`;
 const CALENDAR_DATE_FOCUSED = `.${CALENDAR_DATE_FOCUSED_CLASS}`;
+const CALENDAR_DATE_CURRENT_MONTH = `.${CALENDAR_DATE_CURRENT_MONTH_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR = `.${CALENDAR_PREVIOUS_YEAR_CLASS}`;
 const CALENDAR_PREVIOUS_MONTH = `.${CALENDAR_PREVIOUS_MONTH_CLASS}`;
 const CALENDAR_NEXT_YEAR = `.${CALENDAR_NEXT_YEAR_CLASS}`;
@@ -556,6 +557,7 @@ const changeElementValue = (el, value = "") => {
  * @property {Date} maxDate
  * @property {Date} inputDate
  * @property {Date} rangeDate
+ * @property {Date} defaultDate
  */
 
 /**
@@ -582,6 +584,7 @@ const getDatePickerContext = el => {
   const minDate = parseDateString(datePickerEl.dataset.minDate);
   const maxDate = parseDateString(datePickerEl.dataset.maxDate);
   const rangeDate = parseDateString(datePickerEl.dataset.rangeDate);
+  const defaultDate = parseDateString(datePickerEl.dataset.defaultDate);
 
   if (minDate && maxDate && minDate > maxDate) {
     throw new Error("Minimum date cannot be after maximum date");
@@ -597,6 +600,7 @@ const getDatePickerContext = el => {
     inputEl,
     calendarEl,
     rangeDate,
+    defaultDate,
     statusEl
   };
 };
@@ -639,7 +643,7 @@ const enhanceDatePicker = el => {
  *
  * @param {HTMLElement} el An element within the date picker component
  */
-const validateDateInput = el => {
+const isDateInputInvalid = el => {
   const { inputEl, minDate, maxDate } = getDatePickerContext(el);
 
   const dateString = inputEl.value;
@@ -670,6 +674,18 @@ const validateDateInput = el => {
       }
     }
   }
+
+  return isInvalid;
+};
+
+/**
+ * Validate the value in the input as a valid date of format M/D/YYYY
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const validateDateInput = el => {
+  const { inputEl } = getDatePickerContext(el);
+  const isInvalid = isDateInputInvalid(inputEl);
 
   if (isInvalid && !inputEl.validationMessage) {
     inputEl.setCustomValidity(VALIDATION_MESSAGE);
@@ -883,7 +899,6 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
   if (calendarWasHidden) {
-    datePickerEl.tabIndex = -1;
     statusEl.textContent =
       "You can navigate by day using left and right arrows; weeks by using up and down arrows; months by using page up and page down keys; years by using shift plus page up and shift plus page down; home and end keys navigate to the beginning and end of a week.";
   } else {
@@ -1366,11 +1381,17 @@ const handleEscape = event => {
  */
 const toggleCalendar = el => {
   if (el.disabled) return;
-  const { calendarEl, inputDate, minDate, maxDate } = getDatePickerContext(el);
+  const {
+    calendarEl,
+    inputDate,
+    minDate,
+    maxDate,
+    defaultDate
+  } = getDatePickerContext(el);
 
   if (calendarEl.hidden) {
     const dateToDisplay = keepDateBetweenMinAndMax(
-      inputDate || today(),
+      inputDate || defaultDate || today(),
       minDate,
       maxDate
     );
@@ -1393,6 +1414,27 @@ const updateCalendarIfVisible = el => {
     const dateToDisplay = keepDateBetweenMinAndMax(inputDate, minDate, maxDate);
     renderCalendar(calendarEl, dateToDisplay, false);
   }
+};
+
+/**
+ * display the calendar for the mousemove date.
+ *
+ * @param {MouseEvent} event The mousemove event
+ * @param {HTMLButtonElement} el An element within the date picker component
+ */
+const handleMousemove = (event, el) => {
+  if (el.disabled) return;
+
+  const datePickerEl = el.closest(DATE_PICKER);
+
+  const calendarEl = datePickerEl.querySelector(DATE_PICKER_CALENDAR);
+  const currentCalendarDate = calendarEl.dataset.value;
+  const hoverDate = el.dataset.value;
+
+  if (hoverDate === currentCalendarDate) return;
+
+  const dateToDisplay = parseDateString(hoverDate);
+  renderCalendar(calendarEl, dateToDisplay);
 };
 
 const datePicker = behavior(
@@ -1489,6 +1531,11 @@ const datePicker = behavior(
       [DATE_PICKER_INPUT]() {
         updateCalendarIfVisible(this);
       }
+    },
+    mousemove: {
+      [CALENDAR_DATE_CURRENT_MONTH](event) {
+        handleMousemove(event, this);
+      }
     }
   },
   {
@@ -1496,7 +1543,8 @@ const datePicker = behavior(
       select(DATE_PICKER, root).forEach(datePickerEl => {
         enhanceDatePicker(datePickerEl);
       });
-    }
+    },
+    isDateInputInvalid
   }
 );
 
