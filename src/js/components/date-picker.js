@@ -1514,6 +1514,7 @@ const datePicker = behavior(
         validateDateInput(this);
       },
       [DATE_PICKER](event) {
+        if (this.hasAttribute("data-disable-hide-on-blur")) return;
         if (!this.contains(event.relatedTarget)) {
           hideCalendar(this);
         }
