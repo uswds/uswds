@@ -33,7 +33,8 @@ describe("date picker component with default date", () => {
     DatePicker.off(body);
   });
 
-  it("should display the input date when showing an input date is present", () => {
+
+  it("should display the input date when an input date is present", () => {
     input.value = "06/20/2020";
 
     EVENTS.click(button);
@@ -46,7 +47,7 @@ describe("date picker component with default date", () => {
     );
   });
 
-  it("should display the default date when showing an input date is empty", () => {
+  it("should display the default date when the input date is empty", () => {
     input.value = "";
 
     EVENTS.click(button);
@@ -59,7 +60,7 @@ describe("date picker component with default date", () => {
     );
   });
 
-  it("should display the default date when showing an input date is invalid", () => {
+  it("should display the default date when the input date is invalid", () => {
     input.value = "";
 
     EVENTS.click(button);
