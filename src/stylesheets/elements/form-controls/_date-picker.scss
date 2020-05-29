@@ -113,7 +113,8 @@
   width: 100%;
 }
 
-.usa-date-picker__calendar__date--range-date {
+.usa-date-picker__calendar__date--range-date-start:not(:focus),
+.usa-date-picker__calendar__date--range-date-end:not(:focus) {
   background-color: color("primary-vivid");
   color: color("gray-2");
 }
