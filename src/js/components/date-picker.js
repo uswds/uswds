@@ -1420,16 +1420,14 @@ const updateCalendarIfVisible = el => {
  * display the calendar for the mousemove date.
  *
  * @param {MouseEvent} event The mousemove event
- * @param {HTMLButtonElement} el An element within the date picker component
+ * @param {HTMLButtonElement} dateEl A date element within the date picker component
  */
-const handleMousemove = (event, el) => {
-  if (el.disabled) return;
+const handleMousemove = (dateEl) => {
+  if (dateEl.disabled) return;
 
-  const datePickerEl = el.closest(DATE_PICKER);
-
-  const calendarEl = datePickerEl.querySelector(DATE_PICKER_CALENDAR);
+  const calendarEl = dateEl.closest(DATE_PICKER_CALENDAR);
   const currentCalendarDate = calendarEl.dataset.value;
-  const hoverDate = el.dataset.value;
+  const hoverDate = dateEl.dataset.value;
 
   if (hoverDate === currentCalendarDate) return;
 
@@ -1533,8 +1531,8 @@ const datePicker = behavior(
       }
     },
     mousemove: {
-      [CALENDAR_DATE_CURRENT_MONTH](event) {
-        handleMousemove(event, this);
+      [CALENDAR_DATE_CURRENT_MONTH]() {
+        handleMousemove(this);
       }
     }
   },
