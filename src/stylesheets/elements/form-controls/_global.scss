@@ -81,4 +81,10 @@ $input-select-margin-right: 1.5;
 .usa-legend {
   font-size: font-size($theme-form-font-family, "xl");
   font-weight: font-weight("bold");
+  margin-top: units(2);
+}
+
+.usa-legend--small {
+  font-size: font-size($theme-form-font-family, 5);
+  margin-top: units(2);
 }
