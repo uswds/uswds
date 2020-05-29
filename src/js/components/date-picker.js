@@ -980,7 +980,6 @@ const hideCalendar = el => {
   const { calendarEl, statusEl } = getDatePickerContext(el);
 
   calendarEl.hidden = true;
-  calendarEl.innerHTML = "";
   statusEl.textContent = "";
 };
 
