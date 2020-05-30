@@ -1530,7 +1530,7 @@ const datePicker = behavior(
         validateDateInput(this);
       }
     },
-    input: {
+    "rerender input": {
       [DATE_PICKER_INPUT]() {
         updateCalendarIfVisible(this);
       }

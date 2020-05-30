@@ -19,6 +19,20 @@ const DATE_PICKER_RANGE_RANGE_END_INPUT = `.${DATE_PICKER_RANGE_RANGE_END_CLASS}
 const DEFAULT_MIN_DATE = "01/01/0000";
 
 /**
+ * emit event to element
+ *
+ * @param {HTMLElement} el The element to update
+ * @param {string} eventName the name of the event
+ */
+const emitEvent = (el, eventName) => {
+  if (!el) return;
+  const event = document.createEvent("Event");
+  event.initEvent(eventName, true, true);
+  el.dispatchEvent(event);
+};
+
+
+/**
  * handle update from range start date picker
  *
  * @param {HTMLInputElement} inputEl the input element within the range start date picker
@@ -46,6 +60,9 @@ const handleRangeStartUpdate = inputEl => {
     rangeEndEl.dataset.rangeDate = "";
     rangeEndEl.dataset.defaultDate = "";
   }
+
+  const endInputEl = datePickerRangeEl.querySelector(DATE_PICKER_RANGE_RANGE_END_INPUT);
+  emitEvent(endInputEl, "rerender");
 };
 
 /**
@@ -76,6 +93,9 @@ const handleRangeEndUpdate = inputEl => {
     rangeStartEl.dataset.rangeDate = "";
     rangeStartEl.dataset.defaultDate = "";
   }
+
+  const startInputEl = datePickerRangeEl.querySelector(DATE_PICKER_RANGE_RANGE_START_INPUT);
+  emitEvent(startInputEl, "rerender");
 };
 
 /**
