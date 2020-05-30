@@ -977,10 +977,8 @@ const displayNextYear = _buttonEl => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const hideCalendar = el => {
-  const { calendarEl, statusEl } = getDatePickerContext(el);
-
+  const { calendarEl } = getDatePickerContext(el);
   calendarEl.hidden = true;
-  statusEl.textContent = "";
 };
 
 /**
@@ -1509,14 +1507,21 @@ const datePicker = behavior(
         }
       }
     },
+    focusin: {
+      [DATE_PICKER]() {
+        this.classList.add("usa-date-picker--active");
+      }
+    },
     focusout: {
       [DATE_PICKER_INPUT]() {
         validateDateInput(this);
       },
       [DATE_PICKER](event) {
-        if (this.hasAttribute("data-disable-hide-on-blur")) return;
         if (!this.contains(event.relatedTarget)) {
-          hideCalendar(this);
+          this.classList.remove("usa-date-picker--active");
+          if (!this.hasAttribute("data-disable-hide-on-blur")) {
+            hideCalendar(this);
+          }
         }
       }
     },
