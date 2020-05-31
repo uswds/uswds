@@ -1,0 +1,22 @@
+@mixin set-text-from-bg($bg-token, $dark-token: "black", $light-token: "white") {
+  $grade-bg: get-color-grade($bg-token);
+  $grade-dark: get-color-grade($dark-token);
+  $grade-light: get-color-grade($light-token);
+
+  $min-contrast-grade: $grade-light + 50;
+
+  @if $grade-bg >= $min-contrast-grade {
+    color: color($light-token);
+  }
+  @else {
+    @if ($grade-bg - $grade-dark) > 50 {
+      @error "Neither '#{$dark-token}' nor '#{$light-token}' have sufficient contrast on a '#{$bg-token}' background.";
+    }
+    color: color($dark-token);
+  }
+}
+
+@mixin set-text-and-bg($bg-token, $dark-token: "black", $light-token: "white") {
+  @include set-text-from-bg($bg-token, $dark-token,$light-token);
+  background-color: color($bg-token);
+}
