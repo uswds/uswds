@@ -17,6 +17,8 @@ https://designsystem.digital.gov/design-tokens/color
 ----------------------------------------
 */
 
+$theme-test-colors: false;
+
 /*
 ----------------------------------------
 Theme palette colors
@@ -72,8 +74,8 @@ $theme-color-accent-cool-lightest: false;
 $theme-color-accent-cool-lighter: "blue-cool-5v";
 $theme-color-accent-cool-light: "blue-cool-20v";
 $theme-color-accent-cool: "cyan-30v";
-$theme-color-accent-cool-dark: "blue-cool-60v";
-$theme-color-accent-cool-darker: "blue-cool-70v";
+$theme-color-accent-cool-dark: "blue-cool-40v";
+$theme-color-accent-cool-darker: "blue-cool-60v";
 $theme-color-accent-cool-darkest: false;
 
 /*
