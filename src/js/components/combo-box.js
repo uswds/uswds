@@ -138,6 +138,7 @@ const enhanceComboBox = el => {
         ${additionalAttributes.join(" ")}
       >`,
       `<ul
+        tabindex="-1"
         id="${listId}"
         class="${LIST_CLASS}"
         role="listbox"
