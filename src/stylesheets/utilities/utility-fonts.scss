@@ -13,7 +13,7 @@ $if-important: "";
 
 @each $face, $stack in $project-font-stacks {
   @if $stack {
-    [class*="#{ns("utility")}font-#{$face}-"] {
+    [class*="#{ns('utility')}font-#{$face}-"] {
       font-family: #{$stack}#{$if-important};
     }
   }
