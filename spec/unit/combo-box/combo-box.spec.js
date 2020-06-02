@@ -34,32 +34,6 @@ EVENTS.focusout = el => {
 };
 
 /**
- * send a keyup A event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.keyupA = el => {
-  const evt = new KeyboardEvent("keyup", {
-    bubbles: true,
-    key: "a",
-    keyCode: 65
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
- * send a keyup O event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.keyupO = el => {
-  const evt = new KeyboardEvent("keyup", {
-    bubbles: true,
-    key: "o",
-    keyCode: 79
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
  * send a keydown Enter event
  * @param {HTMLElement} el the element to sent the event to
  * @returns {{preventDefaultSpy: sinon.SinonSpy<[], void>}}
@@ -255,7 +229,6 @@ describe("combo box component", () => {
     EVENTS.click(input);
     EVENTS.focusout(input);
 
-    assert.equal(list.children.length, 0, "should empty the option list");
     assert.ok(list.hidden, "should hide the option list");
   });
 
@@ -268,21 +241,20 @@ describe("combo box component", () => {
     assert.equal(
       select.value,
       "value-ActionScript",
-      "should set that item to being the select option"
+      "should set that item to the select option"
     );
     assert.equal(
       input.value,
       "ActionScript",
-      "should set that item to being the input value"
+      "should set that item to the input value"
     );
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(list.children.length, 0, "should empty the option list");
   });
 
   it("should display and filter the option list after a character is typed", () => {
     input.value = "a";
 
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
 
     assert.ok(!list.hidden, "should display the option list");
     assert.equal(
@@ -296,12 +268,11 @@ describe("combo box component", () => {
     select.value = "value-ActionScript";
     input.value = "a";
 
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
     EVENTS.focusout(input);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(list.children.length, 0, "should empty the option list");
     assert.equal(select.value, "", "should clear the value on the select");
     assert.equal(input.value, "", "should clear the value on the input");
   });
@@ -310,12 +281,11 @@ describe("combo box component", () => {
     select.value = "value-ActionScript";
     input.value = "a";
 
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
     const { preventDefaultSpy } = EVENTS.keydownEnter(input);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(list.children.length, 0, "should empty the option list");
     assert.equal(select.value, "", "should clear the value on the select");
     assert.equal(input.value, "", "should clear the value on the input");
     assert.ok(
@@ -338,12 +308,11 @@ describe("combo box component", () => {
     select.value = "value-ActionScript";
     input.value = "a";
 
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
     EVENTS.keydownEscape(input);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(list.children.length, 0, "should empty the option list");
     assert.equal(
       select.value,
       "value-ActionScript",
@@ -356,50 +325,40 @@ describe("combo box component", () => {
     select.value = "value-ActionScript";
     input.value = "go";
 
-    EVENTS.keyupO(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
     EVENTS.focusout(input);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(list.children.length, 0, "should empty the option list");
     assert.equal(
       select.value,
       "value-Go",
-      "should set that item to being the select option"
+      "should set that item to the select option"
     );
-    assert.equal(
-      input.value,
-      "Go",
-      "should set that item to being the input value"
-    );
+    assert.equal(input.value, "Go", "should set that item to the input value");
   });
 
   it("should set the input value when a complete selection is submitted by pressing enter", () => {
     select.value = "value-ActionScript";
     input.value = "go";
 
-    EVENTS.keyupO(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
     EVENTS.keydownEnter(input);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(list.children.length, 0, "should empty the option list");
     assert.equal(
       select.value,
       "value-Go",
-      "should set that item to being the select option"
+      "should set that item to the select option"
     );
-    assert.equal(
-      input.value,
-      "Go",
-      "should set that item to being the input value"
-    );
+    assert.equal(input.value, "Go", "should set that item to the input value");
   });
 
   it("should show the no results item when a nonexistent option is typed", () => {
     input.value = "Bibbidi-Bobbidi-Boo";
 
-    EVENTS.keyupO(input);
+    EVENTS.input(input);
 
     assert.ok(!list.hidden, "should display the option list");
     assert.equal(list.children.length, 1, "should show no results list item");
@@ -420,7 +379,7 @@ describe("combo box component", () => {
   it("should focus the first item in the list when pressing down from the input", () => {
     input.value = "la";
 
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
     assert.equal(
       list.children.length,
@@ -445,7 +404,7 @@ describe("combo box component", () => {
     select.value = "value-JavaScript";
     input.value = "la";
 
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
     assert.equal(
@@ -466,7 +425,7 @@ describe("combo box component", () => {
   it("should focus the last item in the list when pressing down many times from the input", () => {
     input.value = "la";
 
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
     assert.equal(
       list.children.length,
@@ -493,7 +452,7 @@ describe("combo box component", () => {
     select.value = "value-JavaScript";
     input.value = "la";
 
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
     assert.ok(
       !list.hidden && list.children.length,
       "should display the option list with options"
@@ -508,7 +467,6 @@ describe("combo box component", () => {
     EVENTS.keydownEscape(focusedOption);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(list.children.length, 0, "should empty the option list");
     assert.equal(
       select.value,
       "value-JavaScript",
@@ -520,7 +478,7 @@ describe("combo box component", () => {
   it("should focus the input and hide the list when pressing up from the first item in the list", () => {
     input.value = "la";
 
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
     assert.equal(
       list.children.length,
@@ -540,10 +498,134 @@ describe("combo box component", () => {
     assert.equal(document.activeElement, input, "should focus the input");
   });
 
-  it("should display the full list when the input is pristine (fresh selection or empty)", () => {});
-  it("should display the filtered list when the input is dirty (characters inputted)", () => {});
-  it("should show a clear button when the input has a selected value present", () => {});
-  it("should display a clear input button when the combo box has a selected value", () => {});
-  it("should clear the input when the clear button is clicked", () => {});
-  it("should update the filter when the input is changed", () => {});
+  it("should display the full list and focus the selected item when the input is pristine (after fresh selection)", () => {
+    input.value = "go";
+    EVENTS.click(input);
+    EVENTS.keydownEnter(input);
+    assert.equal(
+      select.value,
+      "value-Go",
+      "should set that item to the select option"
+    );
+    assert.equal(input.value, "Go", "should set that item to the input value");
+    assert.ok(
+      root.classList.contains("usa-combo-box--pristine"),
+      "pristine class added after selection"
+    );
+
+    EVENTS.click(input);
+
+    assert.ok(!list.hidden, "should show the option list");
+    assert.equal(
+      list.children.length,
+      select.options.length - 1,
+      "should have all of the initial select items in the list except placeholder empty items"
+    );
+    const highlightedOption = list.querySelector(
+      ".usa-combo-box__list-option--focused"
+    );
+    assert.ok(
+      highlightedOption.classList.contains(
+        "usa-combo-box__list-option--focused"
+      ),
+      "should style the focused item in the list"
+    );
+    assert.equal(
+      highlightedOption.textContent,
+      "Go",
+      "should focus the previously selected item"
+    );
+  });
+
+  it("should display the filtered list when the input is dirty (characters inputted)", () => {
+    input.value = "go";
+    EVENTS.click(input);
+    EVENTS.keydownEnter(input);
+    assert.equal(
+      select.value,
+      "value-Go",
+      "should set that item to the select option"
+    );
+    assert.equal(input.value, "Go", "should set that item to the input value");
+    EVENTS.click(input);
+    assert.equal(
+      list.children.length,
+      select.options.length - 1,
+      "should have all of the initial select items in the list except placeholder empty items"
+    );
+
+    input.value = "COBOL";
+    EVENTS.input(input);
+
+    assert.equal(
+      list.children.length,
+      1,
+      "should only show the filtered items"
+    );
+  });
+
+  it("should show a clear button when the input has a selected value present", () => {
+    input.value = "go";
+    EVENTS.click(input);
+    EVENTS.keydownEnter(input);
+
+    assert.ok(
+      root.classList.contains("usa-combo-box--pristine"),
+      "pristine class added after selection"
+    );
+    assert.ok(
+      root.querySelector(".usa-combo-box__clear-input"),
+      "clear input button is present"
+    );
+  });
+  it("should clear the input when the clear button is clicked", () => {
+    input.value = "go";
+    EVENTS.click(input);
+    EVENTS.keydownEnter(input);
+    assert.equal(
+      select.value,
+      "value-Go",
+      "should set that item to the select option"
+    );
+    assert.equal(input.value, "Go", "should set that item to the input value");
+    EVENTS.click(input);
+    assert.equal(
+      list.children.length,
+      select.options.length - 1,
+      "should have all of the initial select items in the list except placeholder empty items"
+    );
+
+    EVENTS.click(root.querySelector(".usa-combo-box__clear-input"));
+
+    assert.equal(select.value, "", "should clear the value on the select");
+    assert.equal(input.value, "", "should clear the value on the input");
+    assert.equal(
+      list.children.length,
+      select.options.length - 1,
+      "should have all of the initial select items in the list except placeholder empty items"
+    );
+    assert.equal(document.activeElement, input, "should focus the input");
+  });
+
+  it("should update the filter and begin filtering once a pristine input value is changed", () => {
+    input.value = "go";
+    EVENTS.click(input);
+    EVENTS.keydownEnter(input);
+    assert.equal(input.value, "Go", "should set that item to the input value");
+    EVENTS.click(input);
+    assert.equal(
+      list.children.length,
+      select.options.length - 1,
+      "should have all of the initial select items in the list except placeholder empty items"
+    );
+
+    input.value = "COBOL";
+    EVENTS.input(input);
+
+    assert.equal(
+      list.children.length,
+      1,
+      "should only show the filtered items"
+    );
+  });
 });

@@ -5,9 +5,9 @@ const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
 
 const COMBO_BOX_CLASS = `${PREFIX}-combo-box`;
+const COMBO_BOX_PRISTINE_CLASS = `${COMBO_BOX_CLASS}--pristine`;
 const SELECT_CLASS = `${COMBO_BOX_CLASS}__select`;
 const INPUT_CLASS = `${COMBO_BOX_CLASS}__input`;
-const INPUT_DIRTY_CLASS = `${INPUT_CLASS}--dirty`;
 const CLEAR_INPUT_BUTTON_CLASS = `${COMBO_BOX_CLASS}__clear-input`;
 const LIST_CLASS = `${COMBO_BOX_CLASS}__list`;
 const LIST_OPTION_CLASS = `${COMBO_BOX_CLASS}__list-option`;
@@ -17,6 +17,7 @@ const STATUS_CLASS = `${COMBO_BOX_CLASS}__status`;
 const COMBO_BOX = `.${COMBO_BOX_CLASS}`;
 const SELECT = `.${SELECT_CLASS}`;
 const INPUT = `.${INPUT_CLASS}`;
+const CLEAR_INPUT_BUTTON = `.${CLEAR_INPUT_BUTTON_CLASS}`;
 const LIST = `.${LIST_CLASS}`;
 const LIST_OPTION = `.${LIST_OPTION_CLASS}`;
 const LIST_OPTION_FOCUSED = `.${LIST_OPTION_FOCUSED_CLASS}`;
@@ -58,7 +59,7 @@ const getComboBoxContext = el => {
   const statusEl = comboBoxEl.querySelector(STATUS);
   const focusedOptionEl = comboBoxEl.querySelector(LIST_OPTION_FOCUSED);
 
-  const isPristine = !inputEl.classList.contains(INPUT_DIRTY_CLASS);
+  const isPristine = comboBoxEl.classList.contains(COMBO_BOX_PRISTINE_CLASS);
 
   return {
     comboBoxEl,
@@ -142,7 +143,7 @@ const enhanceComboBox = el => {
         role="combobox"
         ${additionalAttributes.join(" ")}
       >`,
-      `<button class="${CLEAR_INPUT_BUTTON_CLASS}" hidden></button>`,
+      `<span tabindex="-1"><button type="button" class="${CLEAR_INPUT_BUTTON_CLASS}">&nbsp;</button></span>`,
       `<ul
         tabindex="-1"
         id="${listId}"
@@ -163,6 +164,46 @@ const enhanceComboBox = el => {
     const { inputEl } = getComboBoxContext(el);
     selectEl.value = selectedOption.value;
     inputEl.value = selectedOption.text;
+  }
+};
+
+/**
+ * Manage the focused element within the list options when
+ * navigating via keyboard.
+ *
+ * @param {HTMLElement} el An element within the combo box component
+ * @param {HTMLElement} currentEl An element within the combo box component
+ * @param {HTMLElement} nextEl An element within the combo box component
+ * @param {boolean} skipFocus skip focus of highlighted item
+ */
+const highlightOption = (el, currentEl, nextEl, skipFocus) => {
+  const { inputEl, listEl } = getComboBoxContext(el);
+
+  if (currentEl) {
+    currentEl.classList.remove(LIST_OPTION_FOCUSED_CLASS);
+    currentEl.setAttribute("aria-selected", "false");
+  }
+
+  if (nextEl) {
+    inputEl.setAttribute("aria-activedescendant", nextEl.id);
+    nextEl.setAttribute("aria-selected", "true");
+    nextEl.classList.add(LIST_OPTION_FOCUSED_CLASS);
+
+    const optionBottom = nextEl.offsetTop + nextEl.offsetHeight;
+    const currentBottom = listEl.scrollTop + listEl.offsetHeight;
+
+    if (optionBottom > currentBottom) {
+      listEl.scrollTop = optionBottom - listEl.offsetHeight;
+    }
+
+    if (nextEl.offsetTop < listEl.scrollTop) {
+      listEl.scrollTop = nextEl.offsetTop;
+    }
+
+    if (!skipFocus) nextEl.focus();
+  } else {
+    inputEl.setAttribute("aria-activedescendant", "");
+    inputEl.focus();
   }
 };
 
@@ -194,7 +235,11 @@ const displayList = el => {
         !inputValue ||
         optionEl.text.toLowerCase().indexOf(inputValue) !== -1)
     ) {
-      if (isPristine && inputValue && inputValue === optionEl.value) {
+      if (
+        isPristine &&
+        inputValue &&
+        inputValue === optionEl.text.toLowerCase()
+      ) {
         optionToHighlightId = `#${listOptionBaseId}${options.length}`;
       }
 
@@ -231,7 +276,12 @@ const displayList = el => {
     : "No results.";
 
   if (optionToHighlightId) {
-    highlightOption(listEl, null, listEl.querySelector(optionToHighlightId));
+    highlightOption(
+      listEl,
+      null,
+      listEl.querySelector(optionToHighlightId),
+      true
+    );
   }
 };
 
@@ -247,10 +297,9 @@ const hideList = el => {
 
   inputEl.setAttribute("aria-expanded", "false");
   inputEl.setAttribute("aria-activedescendant", "");
-  inputEl.classList.remove(INPUT_DIRTY_CLASS);
 
+  listEl.scrollTop = 0;
   listEl.hidden = true;
-  listEl.innerHTML = "";
 };
 
 /**
@@ -263,8 +312,23 @@ const selectItem = listOptionEl => {
 
   selectEl.value = listOptionEl.getAttribute("data-option-value");
   inputEl.value = listOptionEl.textContent;
+  comboBoxEl.classList.add(COMBO_BOX_PRISTINE_CLASS);
   hideList(comboBoxEl);
   inputEl.focus();
+};
+
+/**
+ * Clear the input of the combobox
+ *
+ * @param {HTMLButtonElement} clearButtonEl The clear input button
+ */
+const clearInput = clearButtonEl => {
+  const { comboBoxEl, selectEl, inputEl } = getComboBoxContext(clearButtonEl);
+
+  inputEl.focus();
+  selectEl.value = "";
+  inputEl.value = "";
+  comboBoxEl.classList.remove(COMBO_BOX_PRISTINE_CLASS);
 };
 
 /**
@@ -276,15 +340,20 @@ const selectItem = listOptionEl => {
  * @param {HTMLElement} el An element within the combo box component
  */
 const completeSelection = el => {
-  const { selectEl, inputEl, statusEl, focusedOptionEl } = getComboBoxContext(
-    el
-  );
+  const {
+    comboBoxEl,
+    selectEl,
+    inputEl,
+    statusEl,
+    focusedOptionEl
+  } = getComboBoxContext(el);
 
   statusEl.textContent = "";
 
   if (focusedOptionEl) {
     selectEl.value = focusedOptionEl.getAttribute("data-option-value");
     inputEl.value = focusedOptionEl.textContent;
+    comboBoxEl.classList.add(COMBO_BOX_PRISTINE_CLASS);
     return;
   }
 
@@ -296,6 +365,7 @@ const completeSelection = el => {
       if (optionEl.text.toLowerCase() === inputValue) {
         selectEl.value = optionEl.value;
         inputEl.value = optionEl.text;
+        comboBoxEl.classList.add(COMBO_BOX_PRISTINE_CLASS);
         return;
       }
     }
@@ -305,44 +375,6 @@ const completeSelection = el => {
 
   if (inputEl.value) {
     inputEl.value = "";
-  }
-};
-
-/**
- * Manage the focused element within the list options when
- * navigating via keyboard.
- *
- * @param {HTMLElement} el An element within the combo box component
- * @param {HTMLElement} currentEl An element within the combo box component
- * @param {HTMLElement} nextEl An element within the combo box component
- */
-const highlightOption = (el, currentEl, nextEl) => {
-  const { inputEl, listEl } = getComboBoxContext(el);
-
-  if (currentEl) {
-    currentEl.classList.remove(LIST_OPTION_FOCUSED_CLASS);
-    currentEl.setAttribute("aria-selected", "false");
-  }
-
-  if (nextEl) {
-    inputEl.setAttribute("aria-activedescendant", nextEl.id);
-    nextEl.setAttribute("aria-selected", "true");
-    nextEl.classList.add(LIST_OPTION_FOCUSED_CLASS);
-
-    const optionBottom = nextEl.offsetTop + nextEl.offsetHeight;
-    const currentBottom = listEl.scrollTop + listEl.offsetHeight;
-
-    if (optionBottom > currentBottom) {
-      listEl.scrollTop = optionBottom - listEl.offsetHeight;
-    }
-
-    if (nextEl.offsetTop < listEl.scrollTop) {
-      listEl.scrollTop = nextEl.offsetTop;
-    }
-    nextEl.focus();
-  } else {
-    inputEl.setAttribute("aria-activedescendant", "");
-    inputEl.focus();
   }
 };
 
@@ -432,6 +464,9 @@ const comboBox = behavior(
       },
       [LIST_OPTION]() {
         selectItem(this);
+      },
+      [CLEAR_INPUT_BUTTON]() {
+        clearInput(this);
       }
     },
     focusout: {
@@ -455,7 +490,8 @@ const comboBox = behavior(
     },
     input: {
       [INPUT]() {
-        this.classList.add(INPUT_DIRTY_CLASS);
+        const comboBoxEl = this.closest(COMBO_BOX);
+        comboBoxEl.classList.remove(COMBO_BOX_PRISTINE_CLASS);
         displayList(this);
       }
     }

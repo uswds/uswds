@@ -2,6 +2,16 @@
   position: relative;
 }
 
+.usa-combo-box--pristine {
+  button.usa-combo-box__clear-input {
+    display: block;
+
+    &:focus {
+      outline-offset: -4px;
+    }
+  }
+}
+
 .usa-combo-box__input {
   @extend %block-input-general;
   @extend %block-input-styles;
@@ -12,6 +22,22 @@
   background-size: units(2);
   margin-bottom: 0;
   padding-right: units(4);
+}
+
+.usa-combo-box__clear-input {
+  @include add-background-svg("close");
+  background-color: transparent;
+  background-position: right units(1.5) center;
+  background-size: units(2);
+  border: 0;
+  cursor: pointer;
+  display: none;
+  margin-bottom: 0;
+  padding-right: units(4);
+  position: absolute;
+  top: 0;
+  height: 2.5em;
+  right: 3em;
 }
 
 .usa-combo-box__list {
