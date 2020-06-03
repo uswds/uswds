@@ -21,6 +21,24 @@ const LIST_OPTION_FOCUSED = `.${LIST_OPTION_FOCUSED_CLASS}`;
 const STATUS = `.${STATUS_CLASS}`;
 
 /**
+ * set the value of the element and dispatch a change event
+ *
+ * @param {HTMLInputElement|HTMLSelectElement} el The element to update
+ * @param {string} value The new value of the element
+ */
+const changeElementValue = (el, value = "") => {
+  const elementToChange = el;
+  elementToChange.value = value;
+
+  const event = new CustomEvent("change", {
+    bubbles: true,
+    cancelable: true,
+    detail: { value }
+  });
+  elementToChange.dispatchEvent(event);
+};
+
+/**
  * Determine if the key code of an event is printable
  *
  * @param {number} keyCode The key code of the event
@@ -78,7 +96,7 @@ const getComboBoxElements = el => {
  * @param {HTMLElement} comboBoxEl The initial element of the combo box component
  */
 const enhanceComboBox = comboBoxEl => {
-  const selectEl = comboBoxEl.querySelector('select');
+  const selectEl = comboBoxEl.querySelector("select");
 
   if (!selectEl) {
     throw new Error(`${COMBO_BOX} is missing inner select`);
@@ -138,6 +156,7 @@ const enhanceComboBox = comboBoxEl => {
         ${additionalAttributes.join(" ")}
       >`,
       `<ul
+        tabindex="-1"
         id="${listId}"
         class="${LIST_CLASS}"
         role="listbox"
@@ -153,8 +172,8 @@ const enhanceComboBox = comboBoxEl => {
 
   if (selectedOption) {
     const { inputEl } = getComboBoxElements(comboBoxEl);
-    selectEl.value = selectedOption.value;
-    inputEl.value = selectedOption.text;
+    changeElementValue(selectEl, selectedOption.value);
+    changeElementValue(inputEl, selectedOption.text);
   }
 };
 
@@ -235,8 +254,8 @@ const hideList = el => {
 const selectItem = listOptionEl => {
   const { comboBoxEl, selectEl, inputEl } = getComboBoxElements(listOptionEl);
 
-  selectEl.value = listOptionEl.getAttribute("data-option-value");
-  inputEl.value = listOptionEl.textContent;
+  changeElementValue(selectEl, listOptionEl.dataset.optionValue);
+  changeElementValue(inputEl, listOptionEl.textContent);
   hideList(comboBoxEl);
   inputEl.focus();
 };
@@ -257,8 +276,8 @@ const completeSelection = el => {
   statusEl.textContent = "";
 
   if (focusedOptionEl) {
-    selectEl.value = focusedOptionEl.getAttribute("data-option-value");
-    inputEl.value = focusedOptionEl.textContent;
+    changeElementValue(selectEl, focusedOptionEl.dataset.optionValue);
+    changeElementValue(inputEl, focusedOptionEl.textContent);
     return;
   }
 
@@ -268,17 +287,19 @@ const completeSelection = el => {
     for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
       const optionEl = selectEl.options[i];
       if (optionEl.text.toLowerCase() === inputValue) {
-        selectEl.value = optionEl.value;
-        inputEl.value = optionEl.text;
+        changeElementValue(selectEl, optionEl.value);
+        changeElementValue(inputEl, optionEl.text);
         return;
       }
     }
   }
 
-  selectEl.value = "";
+  if (selectEl.value) {
+    changeElementValue(selectEl);
+  }
 
   if (inputEl.value) {
-    inputEl.value = "";
+    changeElementValue(inputEl);
   }
 };
 
