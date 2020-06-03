@@ -13,6 +13,7 @@ const CLEAR_INPUT_BUTTON_WRAPPER_CLASS = `${CLEAR_INPUT_BUTTON_CLASS}__wrapper`;
 const LIST_CLASS = `${COMBO_BOX_CLASS}__list`;
 const LIST_OPTION_CLASS = `${COMBO_BOX_CLASS}__list-option`;
 const LIST_OPTION_FOCUSED_CLASS = `${LIST_OPTION_CLASS}--focused`;
+const LIST_OPTION_SELECTED_CLASS = `${LIST_OPTION_CLASS}--selected`;
 const STATUS_CLASS = `${COMBO_BOX_CLASS}__status`;
 
 const COMBO_BOX = `.${COMBO_BOX_CLASS}`;
@@ -223,7 +224,7 @@ const displayList = el => {
     statusEl,
     isPristine
   } = getComboBoxContext(el);
-  let optionToHighlightId;
+  let selectedItemId;
 
   const listOptionBaseId = `${listEl.id}--option-`;
 
@@ -238,12 +239,8 @@ const displayList = el => {
         !inputValue ||
         optionEl.text.toLowerCase().indexOf(inputValue) !== -1)
     ) {
-      if (
-        isPristine &&
-        inputValue &&
-        inputValue === optionEl.text.toLowerCase()
-      ) {
-        optionToHighlightId = `#${listOptionBaseId}${options.length}`;
+      if (selectEl.value && optionEl.value === selectEl.value) {
+        selectedItemId = `#${listOptionBaseId}${options.length}`;
       }
 
       options.push(optionEl);
@@ -252,19 +249,25 @@ const displayList = el => {
 
   const numOptions = options.length;
   const optionHtml = options
-    .map(
-      (option, index) =>
-        `<li
+    .map((option, index) => {
+      const optionId = `${listOptionBaseId}${index}`;
+      const classes = [LIST_OPTION_CLASS];
+
+      if (optionId === selectedItemId) {
+        classes.push(LIST_OPTION_SELECTED_CLASS);
+      }
+
+      return `<li
           aria-selected="false"
           aria-setsize="${options.length}"
           aria-posinset="${index + 1}"
-          id="${listOptionBaseId}${index}"
-          class="${LIST_OPTION_CLASS}"
+          id="${optionId}"
+          class="${classes.join(" ")}"
           tabindex="-1"
           role="option"
-          data-option-value="${option.value}"
-        >${option.text}</li>`
-    )
+          data-value="${option.value}"
+        >${option.text}</li>`;
+    })
     .join("");
 
   const noResults = `<li class="${LIST_OPTION_CLASS}--no-results">No results found</li>`;
@@ -278,13 +281,8 @@ const displayList = el => {
     ? `${numOptions} result${numOptions > 1 ? "s" : ""} available.`
     : "No results.";
 
-  if (optionToHighlightId) {
-    highlightOption(
-      listEl,
-      null,
-      listEl.querySelector(optionToHighlightId),
-      true
-    );
+  if (isPristine && selectedItemId) {
+    highlightOption(listEl, null, listEl.querySelector(selectedItemId), true);
   }
 };
 
@@ -317,7 +315,7 @@ const hideList = el => {
 const selectItem = listOptionEl => {
   const { comboBoxEl, selectEl, inputEl } = getComboBoxContext(listOptionEl);
 
-  selectEl.value = listOptionEl.getAttribute("data-option-value");
+  selectEl.value = listOptionEl.dataset.value;
   inputEl.value = listOptionEl.textContent;
   comboBoxEl.classList.add(COMBO_BOX_PRISTINE_CLASS);
   hideList(comboBoxEl);
@@ -358,7 +356,7 @@ const completeSelection = el => {
   statusEl.textContent = "";
 
   if (focusedOptionEl) {
-    selectEl.value = focusedOptionEl.getAttribute("data-option-value");
+    selectEl.value = focusedOptionEl.dataset.value;
     inputEl.value = focusedOptionEl.textContent;
     comboBoxEl.classList.add(COMBO_BOX_PRISTINE_CLASS);
     return;
