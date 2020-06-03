@@ -9,6 +9,7 @@ const COMBO_BOX_PRISTINE_CLASS = `${COMBO_BOX_CLASS}--pristine`;
 const SELECT_CLASS = `${COMBO_BOX_CLASS}__select`;
 const INPUT_CLASS = `${COMBO_BOX_CLASS}__input`;
 const CLEAR_INPUT_BUTTON_CLASS = `${COMBO_BOX_CLASS}__clear-input`;
+const CLEAR_INPUT_BUTTON_WRAPPER_CLASS = `${CLEAR_INPUT_BUTTON_CLASS}__wrapper`;
 const LIST_CLASS = `${COMBO_BOX_CLASS}__list`;
 const LIST_OPTION_CLASS = `${COMBO_BOX_CLASS}__list-option`;
 const LIST_OPTION_FOCUSED_CLASS = `${LIST_OPTION_CLASS}--focused`;
@@ -143,7 +144,9 @@ const enhanceComboBox = el => {
         role="combobox"
         ${additionalAttributes.join(" ")}
       >`,
-      `<span tabindex="-1"><button type="button" class="${CLEAR_INPUT_BUTTON_CLASS}">&nbsp;</button></span>`,
+      `<span class="${CLEAR_INPUT_BUTTON_WRAPPER_CLASS}" tabindex="-1">
+        <button type="button" class="${CLEAR_INPUT_BUTTON_CLASS}">&nbsp;</button>
+      </span>`,
       `<ul
         tabindex="-1"
         id="${listId}"
@@ -291,12 +294,16 @@ const displayList = el => {
  * @param {HTMLElement} el An element within the combo box component
  */
 const hideList = el => {
-  const { inputEl, listEl, statusEl } = getComboBoxContext(el);
+  const { inputEl, listEl, statusEl, focusedOptionEl } = getComboBoxContext(el);
 
   statusEl.innerHTML = "";
 
   inputEl.setAttribute("aria-expanded", "false");
   inputEl.setAttribute("aria-activedescendant", "");
+
+  if (focusedOptionEl) {
+    focusedOptionEl.classList.remove(LIST_OPTION_FOCUSED_CLASS);
+  }
 
   listEl.scrollTop = 0;
   listEl.hidden = true;

@@ -24,6 +24,10 @@
   padding-right: units(4);
 }
 
+.usa-combo-box__clear-input__wrapper:focus {
+  outline: 0;
+}
+
 .usa-combo-box__clear-input {
   @include add-background-svg("close");
   background-color: transparent;
