@@ -8,6 +8,8 @@ const password = require("./password");
 const search = require("./search");
 const skipnav = require("./skipnav");
 const validator = require("./validator");
+const datePicker = require("./date-picker");
+const datePickerRange = require("./date-picker-range");
 
 module.exports = {
   accordion,
@@ -19,5 +21,7 @@ module.exports = {
   password,
   search,
   skipnav,
-  validator
+  validator,
+  datePicker,
+  datePickerRange
 };

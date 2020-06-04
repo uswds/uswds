@@ -1,0 +1,1554 @@
+const keymap = require("receptor/keymap");
+const behavior = require("../utils/behavior");
+const select = require("../utils/select");
+const { prefix: PREFIX } = require("../config");
+const { CLICK } = require("../events");
+
+const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
+const DATE_PICKER_INPUT_CLASS = `${DATE_PICKER_CLASS}__input`;
+const DATE_PICKER_BUTTON_CLASS = `${DATE_PICKER_CLASS}__button`;
+const DATE_PICKER_CALENDAR_CLASS = `${DATE_PICKER_CLASS}__calendar`;
+const DATE_PICKER_STATUS_CLASS = `${DATE_PICKER_CLASS}__status`;
+const CALENDAR_DATE_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__date`;
+
+const CALENDAR_DATE_FOCUSED_CLASS = `${CALENDAR_DATE_CLASS}--focused`;
+const CALENDAR_DATE_PREVIOUS_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--previous-month`;
+const CALENDAR_DATE_CURRENT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--current-month`;
+const CALENDAR_DATE_NEXT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--next-month`;
+const CALENDAR_DATE_INPUTTED_CLASS = `${CALENDAR_DATE_CLASS}--current-input-value`;
+const CALENDAR_DATE_RANGE_DATE_CLASS = `${CALENDAR_DATE_CLASS}--range-date`;
+const CALENDAR_DATE_RANGE_DATE_START_CLASS = `${CALENDAR_DATE_CLASS}--range-date-start`;
+const CALENDAR_DATE_RANGE_DATE_END_CLASS = `${CALENDAR_DATE_CLASS}--range-date-end`;
+const CALENDAR_DATE_WITHIN_RANGE_CLASS = `${CALENDAR_DATE_CLASS}--within-range`;
+const CALENDAR_PREVIOUS_YEAR_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-year`;
+const CALENDAR_PREVIOUS_MONTH_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-month`;
+const CALENDAR_NEXT_YEAR_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__next-year`;
+const CALENDAR_NEXT_MONTH_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__next-month`;
+const CALENDAR_MONTH_SELECTION_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__month-selection`;
+const CALENDAR_YEAR_SELECTION_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year-selection`;
+const CALENDAR_MONTH_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__month`;
+const CALENDAR_YEAR_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year`;
+const CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-year-chunk`;
+const CALENDAR_NEXT_YEAR_CHUNK_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__next-year-chunk`;
+const CALENDAR_DATE_PICKER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__date-picker`;
+const CALENDAR_MONTH_PICKER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__month-picker`;
+const CALENDAR_YEAR_PICKER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year-picker`;
+const CALENDAR_DATE_GRID_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__date-grid`;
+const CALENDAR_YEAR_GRID_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year-grid`;
+
+const DATE_PICKER = `.${DATE_PICKER_CLASS}`;
+const DATE_PICKER_BUTTON = `.${DATE_PICKER_BUTTON_CLASS}`;
+const DATE_PICKER_INPUT = `.${DATE_PICKER_INPUT_CLASS}`;
+const DATE_PICKER_CALENDAR = `.${DATE_PICKER_CALENDAR_CLASS}`;
+const DATE_PICKER_STATUS = `.${DATE_PICKER_STATUS_CLASS}`;
+const CALENDAR_DATE = `.${CALENDAR_DATE_CLASS}`;
+const CALENDAR_DATE_FOCUSED = `.${CALENDAR_DATE_FOCUSED_CLASS}`;
+const CALENDAR_DATE_CURRENT_MONTH = `.${CALENDAR_DATE_CURRENT_MONTH_CLASS}`;
+const CALENDAR_PREVIOUS_YEAR = `.${CALENDAR_PREVIOUS_YEAR_CLASS}`;
+const CALENDAR_PREVIOUS_MONTH = `.${CALENDAR_PREVIOUS_MONTH_CLASS}`;
+const CALENDAR_NEXT_YEAR = `.${CALENDAR_NEXT_YEAR_CLASS}`;
+const CALENDAR_NEXT_MONTH = `.${CALENDAR_NEXT_MONTH_CLASS}`;
+const CALENDAR_YEAR_SELECTION = `.${CALENDAR_YEAR_SELECTION_CLASS}`;
+const CALENDAR_MONTH_SELECTION = `.${CALENDAR_MONTH_SELECTION_CLASS}`;
+const CALENDAR_MONTH = `.${CALENDAR_MONTH_CLASS}`;
+const CALENDAR_YEAR = `.${CALENDAR_YEAR_CLASS}`;
+const CALENDAR_PREVIOUS_YEAR_CHUNK = `.${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}`;
+const CALENDAR_NEXT_YEAR_CHUNK = `.${CALENDAR_NEXT_YEAR_CHUNK_CLASS}`;
+
+const VALIDATION_MESSAGE = "Please enter a valid date";
+
+const MONTH_LABELS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
+
+const DAY_OF_WEEK_LABELS = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
+
+const ENTER_KEYCODE = 13;
+
+const YEAR_CHUNK = 12;
+
+const DEFAULT_MIN_DATE = "01/01/0000";
+
+// #region Date Manipulation Functions
+
+/**
+ * Keep date within month. Month would only be over by 1 to 3 days
+ *
+ * @param {Date} dateToCheck the date object to check
+ * @param {number} month the correct month
+ * @returns {Date} the date, corrected if needed
+ */
+const keepDateWithinMonth = (dateToCheck, month) => {
+  if (month !== dateToCheck.getMonth()) {
+    dateToCheck.setDate(0);
+  }
+
+  return dateToCheck;
+};
+
+/**
+ * Set date from month day year
+ *
+ * @param {number} year the year to set
+ * @param {number} month the month to set (zero-indexed)
+ * @param {number} date the date to set
+ * @returns {Date} the set date
+ */
+const setDate = (year, month, date) => {
+  const newDate = new Date(0);
+  newDate.setFullYear(year, month, date);
+  return newDate;
+};
+
+/**
+ * todays date
+ *
+ * @returns {Date} todays date
+ */
+const today = () => {
+  const newDate = new Date();
+  const day = newDate.getDate();
+  const month = newDate.getMonth();
+  const year = newDate.getFullYear();
+  return setDate(year, month, day);
+};
+
+/**
+ * Set date to first day of the month
+ *
+ * @param {number} date the date to adjust
+ * @returns {Date} the adjusted date
+ */
+const startOfMonth = date => {
+  const newDate = new Date(0);
+  newDate.setFullYear(date.getFullYear(), date.getMonth(), 1);
+  return newDate;
+};
+
+/**
+ * Set date to last day of the month
+ *
+ * @param {number} date the date to adjust
+ * @returns {Date} the adjusted date
+ */
+const lastDayOfMonth = date => {
+  const newDate = new Date(0);
+  newDate.setFullYear(date.getFullYear(), date.getMonth() + 1, 0);
+  return newDate;
+};
+
+/**
+ * Add days to date
+ *
+ * @param {Date} _date the date to adjust
+ * @param {number} numDays the difference in days
+ * @returns {Date} the adjusted date
+ */
+const addDays = (_date, numDays) => {
+  const newDate = new Date(_date.getTime());
+  newDate.setDate(newDate.getDate() + numDays);
+  return newDate;
+};
+
+/**
+ * Subtract days from date
+ *
+ * @param {Date} _date the date to adjust
+ * @param {number} numDays the difference in days
+ * @returns {Date} the adjusted date
+ */
+const subDays = (_date, numDays) => addDays(_date, -numDays);
+
+/**
+ * Add weeks to date
+ *
+ * @param {Date} _date the date to adjust
+ * @param {number} numWeeks the difference in weeks
+ * @returns {Date} the adjusted date
+ */
+const addWeeks = (_date, numWeeks) => addDays(_date, numWeeks * 7);
+
+/**
+ * Subtract weeks from date
+ *
+ * @param {Date} _date the date to adjust
+ * @param {number} numWeeks the difference in weeks
+ * @returns {Date} the adjusted date
+ */
+const subWeeks = (_date, numWeeks) => addWeeks(_date, -numWeeks);
+
+/**
+ * Set date to the start of the week (Sunday)
+ *
+ * @param {Date} _date the date to adjust
+ * @returns {Date} the adjusted date
+ */
+const startOfWeek = _date => {
+  const dayOfWeek = _date.getDay();
+  return subDays(_date, dayOfWeek);
+};
+
+/**
+ * Set date to the end of the week (Saturday)
+ *
+ * @param {Date} _date the date to adjust
+ * @param {number} numWeeks the difference in weeks
+ * @returns {Date} the adjusted date
+ */
+const endOfWeek = _date => {
+  const dayOfWeek = _date.getDay();
+  return addDays(_date, 6 - dayOfWeek);
+};
+
+/**
+ * Add months to date and keep date within month
+ *
+ * @param {Date} _date the date to adjust
+ * @param {number} numMonths the difference in months
+ * @returns {Date} the adjusted date
+ */
+const addMonths = (_date, numMonths) => {
+  const newDate = new Date(_date.getTime());
+
+  const dateMonth = (newDate.getMonth() + 12 + numMonths) % 12;
+  newDate.setMonth(newDate.getMonth() + numMonths);
+  keepDateWithinMonth(newDate, dateMonth);
+
+  return newDate;
+};
+
+/**
+ * Subtract months from date
+ *
+ * @param {Date} _date the date to adjust
+ * @param {number} numMonths the difference in months
+ * @returns {Date} the adjusted date
+ */
+const subMonths = (_date, numMonths) => addMonths(_date, -numMonths);
+
+/**
+ * Add years to date and keep date within month
+ *
+ * @param {Date} _date the date to adjust
+ * @param {number} numYears the difference in years
+ * @returns {Date} the adjusted date
+ */
+const addYears = (_date, numYears) => addMonths(_date, numYears * 12);
+
+/**
+ * Subtract years from date
+ *
+ * @param {Date} _date the date to adjust
+ * @param {number} numYears the difference in years
+ * @returns {Date} the adjusted date
+ */
+const subYears = (_date, numYears) => addYears(_date, -numYears);
+
+/**
+ * Set months of date
+ *
+ * @param {Date} _date the date to adjust
+ * @param {number} month zero-indexed month to set
+ * @returns {Date} the adjusted date
+ */
+const setMonth = (_date, month) => {
+  const newDate = new Date(_date.getTime());
+
+  newDate.setMonth(month);
+  keepDateWithinMonth(newDate, month);
+
+  return newDate;
+};
+
+/**
+ * Set year of date
+ *
+ * @param {Date} _date the date to adjust
+ * @param {number} year the year to set
+ * @returns {Date} the adjusted date
+ */
+const setYear = (_date, year) => {
+  const newDate = new Date(_date.getTime());
+
+  const month = newDate.getMonth();
+  newDate.setFullYear(year);
+  keepDateWithinMonth(newDate, month);
+
+  return newDate;
+};
+
+/**
+ * Return the earliest date
+ *
+ * @param {Date} dateA date to compare
+ * @param {Date} dateB date to compare
+ * @returns {Date} the earliest date
+ */
+const min = (dateA, dateB) => {
+  let newDate = dateA;
+
+  if (dateB < dateA) {
+    newDate = dateB;
+  }
+
+  return new Date(newDate.getTime());
+};
+
+/**
+ * Return the latest date
+ *
+ * @param {Date} dateA date to compare
+ * @param {Date} dateB date to compare
+ * @returns {Date} the latest date
+ */
+const max = (dateA, dateB) => {
+  let newDate = dateA;
+
+  if (dateB > dateA) {
+    newDate = dateB;
+  }
+
+  return new Date(newDate.getTime());
+};
+
+/**
+ * Check if dates are the in the same month
+ *
+ * @param {Date} dateA date to compare
+ * @param {Date} dateB date to compare
+ * @returns {Date} the adjusted date
+ */
+const isSameMonth = (dateA, dateB) => {
+  return (
+    dateA &&
+    dateB &&
+    dateA.getFullYear() === dateB.getFullYear() &&
+    dateA.getMonth() === dateB.getMonth()
+  );
+};
+
+/**
+ * Check if dates are the same date
+ *
+ * @param {Date} dateA the date to compare
+ * @param {Date} dateA the date to compare
+ * @returns {Date} the adjusted date
+ */
+const isSameDay = (dateA, dateB) => {
+  return isSameMonth(dateA, dateB) && dateA.getDate() === dateB.getDate();
+};
+
+/**
+ * return a new date within minimum and maximum date
+ *
+ * @param {Date} date date to check
+ * @param {Date} minDate minimum date to allow
+ * @param {Date} maxDate maximum date to allow
+ * @returns {Date} the date between min and max
+ */
+const keepDateBetweenMinAndMax = (date, minDate, maxDate) => {
+  let newDate = date;
+
+  if (date < minDate) {
+    newDate = minDate;
+  } else if (maxDate && date > maxDate) {
+    newDate = maxDate;
+  }
+
+  return new Date(newDate.getTime());
+};
+
+/**
+ * Check if dates is valid.
+ *
+ * @param {Date} date date to check
+ * @param {Date} minDate minimum date to allow
+ * @param {Date} maxDate maximum date to allow
+ * @return {boolean} is there a day within the month within min and max dates
+ */
+const isDateWithinMinAndMax = (date, minDate, maxDate) =>
+  date >= minDate && (!maxDate || date <= maxDate);
+
+/**
+ * Check if dates month is invalid.
+ *
+ * @param {Date} date date to check
+ * @param {Date} minDate minimum date to allow
+ * @param {Date} maxDate maximum date to allow
+ * @return {boolean} is the month outside min or max dates
+ */
+const isDatesMonthOutsideMinOrMax = (date, minDate, maxDate) => {
+  return (
+    lastDayOfMonth(date) < minDate || (maxDate && startOfMonth(date) > maxDate)
+  );
+};
+
+/**
+ * Check if dates year is invalid.
+ *
+ * @param {Date} date date to check
+ * @param {Date} minDate minimum date to allow
+ * @param {Date} maxDate maximum date to allow
+ * @return {boolean} is the month outside min or max dates
+ */
+const isDatesYearOutsideMinOrMax = (date, minDate, maxDate) => {
+  return (
+    lastDayOfMonth(setMonth(date, 11)) < minDate ||
+    (maxDate && startOfMonth(setMonth(date, 0)) > maxDate)
+  );
+};
+
+/**
+ * Parse a date with format M-D-YY
+ *
+ * @param {string} dateString the element within the date picker
+ * @param {boolean} adjustDate should the date be adjusted
+ * @returns {Date} the parsed date
+ */
+const parseDateString = (dateString, adjustDate = false) => {
+  let date;
+  let month;
+  let day;
+  let year;
+  let parsed;
+
+  if (dateString) {
+    const [monthStr, dayStr, yearStr] = dateString.split("/");
+
+    if (yearStr) {
+      parsed = parseInt(yearStr, 10);
+      if (!Number.isNaN(parsed)) {
+        year = parsed;
+        if (adjustDate) {
+          year = Math.max(0, year);
+          if (yearStr.length < 3) {
+            const currentYear = today().getFullYear();
+            const currentYearStub =
+              currentYear - (currentYear % 10 ** yearStr.length);
+            year = currentYearStub + parsed;
+          }
+        }
+      }
+    }
+
+    if (monthStr) {
+      parsed = parseInt(monthStr, 10);
+      if (!Number.isNaN(parsed)) {
+        month = parsed;
+        if (adjustDate) {
+          month = Math.max(1, month);
+          month = Math.min(12, month);
+        }
+      }
+    }
+
+    if (month && dayStr && year != null) {
+      parsed = parseInt(dayStr, 10);
+      if (!Number.isNaN(parsed)) {
+        day = parsed;
+        if (adjustDate) {
+          const lastDayOfTheMonth = setDate(year, month, 0).getDate();
+          day = Math.max(1, day);
+          day = Math.min(lastDayOfTheMonth, day);
+        }
+      }
+    }
+
+    if (month && day && year != null) {
+      date = setDate(year, month - 1, day);
+    }
+  }
+
+  return date;
+};
+
+/**
+ * Format a date to format MM-DD-YYYY
+ *
+ * @param {Date} date the date to format
+ * @returns {string} the formatted date string
+ */
+const formatDate = date => {
+  const padZeros = (value, length) => {
+    return `0000${value}`.slice(-length);
+  };
+
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const year = date.getFullYear();
+
+  return [padZeros(month, 2), padZeros(day, 2), padZeros(year, 4)].join("/");
+};
+
+// #endregion Date Manipulation Functions
+
+/**
+ * Create a grid string from an array of html strings
+ *
+ * @param {string[]} htmlArray the array of html items
+ * @param {number} rowSize the length of a row
+ * @returns {string} the grid string
+ */
+const listToGridHtml = (htmlArray, rowSize) => {
+  const grid = [];
+  let row = [];
+
+  let i = 0;
+  while (i < htmlArray.length) {
+    row = [];
+    while (i < htmlArray.length && row.length < rowSize) {
+      row.push(
+        `<div class="usa-date-picker__calendar__cell">${htmlArray[i]}</div>`
+      );
+      i += 1;
+    }
+    grid.push(
+      `<div class="usa-date-picker__calendar__row">${row.join("")}</div>`
+    );
+  }
+
+  return grid.join("");
+};
+
+/**
+ * set the value of the element and dispatch a change event
+ *
+ * @param {HTMLInputElement} el The element to update
+ * @param {string} value The new value of the element
+ */
+const changeElementValue = (el, value = "") => {
+  const elementToChange = el;
+  elementToChange.value = value;
+
+  const event = document.createEvent("Event");
+  event.initEvent("change", true, true);
+  elementToChange.dispatchEvent(event);
+};
+
+/**
+ * The properties and elements within the date picker.
+ * @typedef {Object} DatePickerContext
+ * @property {HTMLDivElement} calendarEl
+ * @property {HTMLElement} datePickerEl
+ * @property {HTMLInputElement} inputEl
+ * @property {HTMLDivElement} statusEl
+ * @property {HTMLDivElement} firstYearChunkEl
+ * @property {Date} calendarDate
+ * @property {Date} minDate
+ * @property {Date} maxDate
+ * @property {Date} inputDate
+ * @property {Date} rangeDate
+ * @property {Date} defaultDate
+ */
+
+/**
+ * Get an object of the properties and elements belonging directly to the given
+ * date picker component.
+ *
+ * @param {HTMLElement} el the element within the date picker
+ * @returns {DatePickerContext} elements
+ */
+const getDatePickerContext = el => {
+  const datePickerEl = el.closest(DATE_PICKER);
+
+  if (!datePickerEl) {
+    throw new Error(`Element is missing outer ${DATE_PICKER}`);
+  }
+
+  const inputEl = datePickerEl.querySelector(DATE_PICKER_INPUT);
+  const calendarEl = datePickerEl.querySelector(DATE_PICKER_CALENDAR);
+  const statusEl = datePickerEl.querySelector(DATE_PICKER_STATUS);
+  const firstYearChunkEl = datePickerEl.querySelector(CALENDAR_YEAR);
+
+  const inputDate = parseDateString(inputEl.value, true);
+  const calendarDate = parseDateString(calendarEl.dataset.value);
+  const minDate = parseDateString(datePickerEl.dataset.minDate);
+  const maxDate = parseDateString(datePickerEl.dataset.maxDate);
+  const rangeDate = parseDateString(datePickerEl.dataset.rangeDate);
+  const defaultDate = parseDateString(datePickerEl.dataset.defaultDate);
+
+  if (minDate && maxDate && minDate > maxDate) {
+    throw new Error("Minimum date cannot be after maximum date");
+  }
+
+  return {
+    calendarDate,
+    minDate,
+    inputDate,
+    maxDate,
+    firstYearChunkEl,
+    datePickerEl,
+    inputEl,
+    calendarEl,
+    rangeDate,
+    defaultDate,
+    statusEl
+  };
+};
+
+/**
+ * Enhance an input with the date picker elements
+ *
+ * @param {HTMLElement} el The initial wrapping element of the date picker component
+ */
+const enhanceDatePicker = el => {
+  const datePickerEl = el.closest(DATE_PICKER);
+  const inputEl = datePickerEl.querySelector(`input`);
+
+  if (!inputEl) {
+    throw new Error(`${DATE_PICKER} is missing inner input`);
+  }
+
+  inputEl.classList.add(DATE_PICKER_INPUT_CLASS);
+  datePickerEl.classList.add("usa-date-picker--initialized");
+
+  const minDate = parseDateString(datePickerEl.dataset.minDate);
+  if (!minDate) {
+    datePickerEl.dataset.minDate = DEFAULT_MIN_DATE;
+  }
+
+  datePickerEl.insertAdjacentHTML(
+    "beforeend",
+    [
+      `<span class="usa-date-picker__button-wrapper" tabindex="-1">
+        <button type="button" class="${DATE_PICKER_BUTTON_CLASS}" aria-label="Display calendar">&nbsp;</button>
+      </span>`,
+      `<div tabindex="-1" class="${DATE_PICKER_CALENDAR_CLASS}" aria-label="Calendar" hidden></div>`,
+      `<div class="usa-sr-only ${DATE_PICKER_STATUS_CLASS}" role="status" aria-live="polite"></div>`
+    ].join("")
+  );
+};
+
+/**
+ * Validate the value in the input as a valid date of format M/D/YYYY
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const isDateInputInvalid = el => {
+  const { inputEl, minDate, maxDate } = getDatePickerContext(el);
+
+  const dateString = inputEl.value;
+  let isInvalid = false;
+
+  if (dateString) {
+    isInvalid = true;
+
+    const dateStringParts = dateString.split("/");
+    const [month, day, year] = dateStringParts.map(str => {
+      let value;
+      const parsed = parseInt(str, 10);
+      if (!Number.isNaN(parsed)) value = parsed;
+      return value;
+    });
+
+    if (month && day && year != null) {
+      const checkDate = setDate(year, month - 1, day);
+
+      if (
+        checkDate.getMonth() === month - 1 &&
+        checkDate.getDate() === day &&
+        checkDate.getFullYear() === year &&
+        dateStringParts[2].length === 4 &&
+        isDateWithinMinAndMax(checkDate, minDate, maxDate)
+      ) {
+        isInvalid = false;
+      }
+    }
+  }
+
+  return isInvalid;
+};
+
+/**
+ * Validate the value in the input as a valid date of format M/D/YYYY
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const validateDateInput = el => {
+  const { inputEl } = getDatePickerContext(el);
+  const isInvalid = isDateInputInvalid(inputEl);
+
+  if (isInvalid && !inputEl.validationMessage) {
+    inputEl.setCustomValidity(VALIDATION_MESSAGE);
+  }
+
+  if (!isInvalid && inputEl.validationMessage === VALIDATION_MESSAGE) {
+    inputEl.setCustomValidity("");
+  }
+};
+
+/**
+ * render the calendar.
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ * @param {Date} _dateToDisplay a date to render on the calendar
+ */
+const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
+  const {
+    datePickerEl,
+    calendarEl,
+    statusEl,
+    inputDate,
+    maxDate,
+    minDate,
+    rangeDate
+  } = getDatePickerContext(el);
+  let dateToDisplay = _dateToDisplay || today();
+
+  const calendarWasHidden = calendarEl.hidden;
+
+  const focusedDate = addDays(dateToDisplay, 0);
+  const focusedMonth = dateToDisplay.getMonth();
+  const focusedYear = dateToDisplay.getFullYear();
+
+  const prevMonth = subMonths(dateToDisplay, 1);
+  const nextMonth = addMonths(dateToDisplay, 1);
+
+  const currentFormattedDate = formatDate(dateToDisplay);
+
+  const firstOfMonth = startOfMonth(dateToDisplay);
+  const prevButtonsDisabled = isSameMonth(dateToDisplay, minDate);
+  const nextButtonsDisabled = isSameMonth(dateToDisplay, maxDate);
+
+  const rangeStartDate = rangeDate && min(dateToDisplay, rangeDate);
+  const rangeEndDate = rangeDate && max(dateToDisplay, rangeDate);
+
+  const withinRangeStartDate = rangeDate && addDays(rangeStartDate, 1);
+  const withinRangeEndDate = rangeDate && subDays(rangeEndDate, 1);
+
+  const monthLabel = MONTH_LABELS[focusedMonth];
+
+  const generateDateHtml = dateToRender => {
+    const classes = [CALENDAR_DATE_CLASS];
+    const day = dateToRender.getDate();
+    const month = dateToRender.getMonth();
+    const year = dateToRender.getFullYear();
+    const dayOfWeek = dateToRender.getDay();
+
+    const formattedDate = formatDate(dateToRender);
+
+    let tabindex = "-1";
+
+    const isDisabled = !isDateWithinMinAndMax(dateToRender, minDate, maxDate);
+
+    if (isSameMonth(dateToRender, prevMonth)) {
+      classes.push(CALENDAR_DATE_PREVIOUS_MONTH_CLASS);
+    }
+
+    if (isSameMonth(dateToRender, focusedDate)) {
+      classes.push(CALENDAR_DATE_CURRENT_MONTH_CLASS);
+    }
+
+    if (isSameMonth(dateToRender, nextMonth)) {
+      classes.push(CALENDAR_DATE_NEXT_MONTH_CLASS);
+    }
+
+    if (isSameDay(dateToRender, inputDate)) {
+      classes.push(CALENDAR_DATE_INPUTTED_CLASS);
+    }
+
+    if (rangeDate) {
+      if (isSameDay(dateToRender, rangeDate)) {
+        classes.push(CALENDAR_DATE_RANGE_DATE_CLASS);
+      }
+
+      if (isSameDay(dateToRender, rangeStartDate)) {
+        classes.push(CALENDAR_DATE_RANGE_DATE_START_CLASS);
+      }
+
+      if (isSameDay(dateToRender, rangeEndDate)) {
+        classes.push(CALENDAR_DATE_RANGE_DATE_END_CLASS);
+      }
+
+      if (
+        isDateWithinMinAndMax(
+          dateToRender,
+          withinRangeStartDate,
+          withinRangeEndDate
+        )
+      ) {
+        classes.push(CALENDAR_DATE_WITHIN_RANGE_CLASS);
+      }
+    }
+
+    if (isSameDay(dateToRender, focusedDate)) {
+      tabindex = "0";
+      classes.push(CALENDAR_DATE_FOCUSED_CLASS);
+    }
+
+    const monthStr = MONTH_LABELS[month];
+    const dayStr = DAY_OF_WEEK_LABELS[dayOfWeek];
+
+    return `<button
+      type="button"
+      tabindex="${tabindex}"
+      class="${classes.join(" ")}" 
+      data-day="${day}" 
+      data-month="${month + 1}" 
+      data-year="${year}" 
+      data-value="${formattedDate}"
+      aria-label="${day} ${monthStr} ${year} ${dayStr}"
+      ${isDisabled ? `disabled="disabled"` : ""}
+    >${day}</button>`;
+  };
+
+  // set date to first rendered day
+  dateToDisplay = startOfWeek(firstOfMonth);
+
+  const days = [];
+
+  while (
+    days.length < 28 ||
+    dateToDisplay.getMonth() === focusedMonth ||
+    days.length % 7 !== 0
+  ) {
+    days.push(generateDateHtml(dateToDisplay));
+    dateToDisplay = addDays(dateToDisplay, 1);
+  }
+
+  const datesHtml = listToGridHtml(days, 7);
+
+  const newCalendar = calendarEl.cloneNode();
+  newCalendar.dataset.value = currentFormattedDate;
+  newCalendar.style.top = `${datePickerEl.offsetHeight}px`;
+  newCalendar.hidden = false;
+  newCalendar.innerHTML = `<div class="${CALENDAR_DATE_PICKER_CLASS}">
+      <div class="usa-date-picker__calendar__row">
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
+          <button 
+            type="button"
+            tabindex="-1"
+            class="${CALENDAR_PREVIOUS_YEAR_CLASS}"
+            aria-label="Navigate back one year"
+            ${prevButtonsDisabled ? `disabled="disabled"` : ""}
+          >&nbsp;</button>
+        </div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
+          <button 
+            type="button"
+            tabindex="-1"
+            class="${CALENDAR_PREVIOUS_MONTH_CLASS}"
+            aria-label="Navigate back one month"
+            ${prevButtonsDisabled ? `disabled="disabled"` : ""}
+          >&nbsp;</button>
+        </div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__month-label">
+          <button 
+            type="button"
+            tabindex="-1"
+            class="${CALENDAR_MONTH_SELECTION_CLASS}" aria-label="${monthLabel}. Click to select month"
+          >${monthLabel}</button>
+          <button 
+            type="button"
+            tabindex="-1"
+            class="${CALENDAR_YEAR_SELECTION_CLASS}" aria-label="${focusedYear}. Click to select year"
+          >${focusedYear}</button>
+        </div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
+          <button 
+            type="button"
+            tabindex="-1"
+            class="${CALENDAR_NEXT_MONTH_CLASS}"
+            aria-label="Navigate forward one month"
+            ${nextButtonsDisabled ? `disabled="disabled"` : ""}
+          >&nbsp;</button>
+        </div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
+          <button 
+            type="button"
+            tabindex="-1"
+            class="${CALENDAR_NEXT_YEAR_CLASS}"
+            aria-label="Navigate forward one year"
+            ${nextButtonsDisabled ? `disabled="disabled"` : ""}
+          >&nbsp;</button>
+        </div>
+      </div>
+      <div class="usa-date-picker__calendar__row">
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Sunday">S</div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Monday">M</div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Tuesday">T</div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Wednesday">W</div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Thursday">Th</div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Friday">F</div>
+        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Saturday">S</div>
+      </div>
+      <div class="${CALENDAR_DATE_GRID_CLASS}">
+        ${datesHtml}
+      </div>
+    </div>`;
+
+  calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
+
+  if (calendarWasHidden) {
+    statusEl.textContent =
+      "You can navigate by day using left and right arrows; weeks by using up and down arrows; months by using page up and page down keys; years by using shift plus page up and shift plus page down; home and end keys navigate to the beginning and end of a week.";
+  } else {
+    statusEl.textContent = `${monthLabel} ${focusedYear}`;
+  }
+
+  if (adjustFocus) {
+    const focusedDateEl = newCalendar.querySelector(CALENDAR_DATE_FOCUSED);
+    focusedDateEl.focus();
+  }
+};
+
+/**
+ * Navigate back one year and display the calendar.
+ *
+ * @param {HTMLButtonElement} _buttonEl An element within the date picker component
+ */
+const displayPreviousYear = _buttonEl => {
+  if (_buttonEl.disabled) return;
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    _buttonEl
+  );
+  let date = subYears(calendarDate, 1);
+  date = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  renderCalendar(calendarEl, date);
+};
+
+/**
+ * Navigate back one month and display the calendar.
+ *
+ * @param {HTMLButtonElement} _buttonEl An element within the date picker component
+ */
+const displayPreviousMonth = _buttonEl => {
+  if (_buttonEl.disabled) return;
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    _buttonEl
+  );
+  let date = subMonths(calendarDate, 1);
+  date = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  renderCalendar(calendarEl, date);
+};
+
+/**
+ * Navigate forward one month and display the calendar.
+ *
+ * @param {HTMLButtonElement} _buttonEl An element within the date picker component
+ */
+const displayNextMonth = _buttonEl => {
+  if (_buttonEl.disabled) return;
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    _buttonEl
+  );
+  let date = addMonths(calendarDate, 1);
+  date = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  renderCalendar(calendarEl, date);
+};
+
+/**
+ * Navigate forward one year and display the calendar.
+ *
+ * @param {HTMLButtonElement} _buttonEl An element within the date picker component
+ */
+const displayNextYear = _buttonEl => {
+  if (_buttonEl.disabled) return;
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    _buttonEl
+  );
+  let date = addYears(calendarDate, 1);
+  date = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  renderCalendar(calendarEl, date);
+};
+
+/**
+ * Hide the calendar of a date picker component.
+ *
+ * @param {HTMLElement} el An element within the date picker component
+ */
+const hideCalendar = el => {
+  const { calendarEl } = getDatePickerContext(el);
+  calendarEl.hidden = true;
+};
+
+/**
+ * Select a date within the date picker component.
+ *
+ * @param {HTMLButtonElement} calendarDateEl A date element within the date picker component
+ */
+const selectDate = calendarDateEl => {
+  if (calendarDateEl.disabled) return;
+  const { datePickerEl, inputEl } = getDatePickerContext(calendarDateEl);
+
+  changeElementValue(inputEl, calendarDateEl.dataset.value);
+
+  hideCalendar(datePickerEl);
+  validateDateInput(datePickerEl);
+
+  inputEl.focus();
+};
+
+/**
+ * Select a month in the date picker component.
+ *
+ * @param {HTMLButtonElement} monthEl An month element within the date picker component
+ */
+const selectMonth = monthEl => {
+  if (monthEl.disabled) return;
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    monthEl
+  );
+  const selectedMonth = parseInt(monthEl.dataset.value, 10);
+  let date = setMonth(calendarDate, selectedMonth);
+  date = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  renderCalendar(calendarEl, date);
+};
+
+/**
+ * Select a year in the date picker component.
+ *
+ * @param {HTMLButtonElement} yearEl A year element within the date picker component
+ */
+const selectYear = yearEl => {
+  if (yearEl.disabled) return;
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    yearEl
+  );
+  const selectedYear = parseInt(yearEl.innerHTML, 10);
+  let date = setYear(calendarDate, selectedYear);
+  date = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  renderCalendar(calendarEl, date);
+};
+
+/**
+ * Display the month selection screen in the date picker.
+ *
+ * @param {HTMLButtonElement} el An element within the date picker component
+ */
+const displayMonthSelection = el => {
+  const {
+    calendarEl,
+    statusEl,
+    calendarDate,
+    minDate,
+    maxDate
+  } = getDatePickerContext(el);
+
+  const months = MONTH_LABELS.map((month, index) => {
+    const monthToDisplay = setMonth(calendarDate, index);
+
+    const isDisabled = isDatesMonthOutsideMinOrMax(
+      monthToDisplay,
+      minDate,
+      maxDate
+    );
+
+    return `<button 
+        type="button" 
+        class="${CALENDAR_MONTH_CLASS}" 
+        data-value="${index}"
+        data-label="${month}"
+        ${isDisabled ? `disabled="disabled"` : ""}
+      >${month}</button>`;
+  });
+
+  const monthsHtml = `<div class="${CALENDAR_MONTH_PICKER_CLASS}">${listToGridHtml(
+    months,
+    3
+  )}</div>`;
+
+  const newCalendar = calendarEl.cloneNode();
+  newCalendar.innerHTML = monthsHtml;
+  calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
+
+  newCalendar.focus();
+
+  statusEl.textContent = "Select a month.";
+};
+
+/**
+ * Display the year selection screen in the date picker.
+ *
+ * @param {HTMLButtonElement} el An element within the date picker component
+ * @param {number} yearToDisplay year to display in year selection
+ */
+const displayYearSelection = (el, yearToDisplay) => {
+  const {
+    calendarEl,
+    statusEl,
+    calendarDate,
+    minDate,
+    maxDate
+  } = getDatePickerContext(el);
+  let yearToChunk = yearToDisplay;
+
+  if (yearToChunk == null) {
+    yearToChunk = calendarDate.getFullYear();
+  }
+  yearToChunk -= yearToChunk % YEAR_CHUNK;
+  yearToChunk = Math.max(0, yearToChunk);
+
+  const prevYearChunkDisabled = isDatesYearOutsideMinOrMax(
+    setYear(calendarDate, yearToChunk - 1),
+    minDate,
+    maxDate
+  );
+
+  const nextYearChunkDisabled = isDatesYearOutsideMinOrMax(
+    setYear(calendarDate, yearToChunk + YEAR_CHUNK),
+    minDate,
+    maxDate
+  );
+
+  const years = [];
+  let yearIndex = yearToChunk;
+  while (years.length < YEAR_CHUNK) {
+    const isDisabled = isDatesYearOutsideMinOrMax(
+      setYear(calendarDate, yearIndex),
+      minDate,
+      maxDate
+    );
+
+    years.push(
+      `<button 
+        type="button" 
+        class="${CALENDAR_YEAR_CLASS}" 
+        data-value="${yearIndex}"
+        ${isDisabled ? `disabled="disabled"` : ""}
+      >${yearIndex}</button>`
+    );
+    yearIndex += 1;
+  }
+
+  const yearsHtml = listToGridHtml(years, 3);
+
+  const newCalendar = calendarEl.cloneNode();
+  newCalendar.innerHTML = `<div class="${CALENDAR_YEAR_PICKER_CLASS}">
+      <button 
+        type="button" 
+        class="${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}" 
+        aria-label="Navigate back ${YEAR_CHUNK} years"
+        ${prevYearChunkDisabled ? `disabled="disabled"` : ""}
+      >&nbsp;</button>
+      <div role="grid" class="usa-date-picker__calendar__year-table ${CALENDAR_YEAR_GRID_CLASS}">
+        ${yearsHtml}
+      </div>
+      <button 
+        type="button" 
+        class="${CALENDAR_NEXT_YEAR_CHUNK_CLASS}" 
+        aria-label="Navigate forward ${YEAR_CHUNK} years"
+        ${nextYearChunkDisabled ? `disabled="disabled"` : ""}
+      >&nbsp;</button>
+    </div >`;
+  calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
+
+  newCalendar.focus();
+
+  statusEl.textContent = `Showing years ${yearToChunk} to ${yearToChunk +
+    YEAR_CHUNK -
+    1}. Select a year.`;
+};
+
+/**
+ * Navigate back by years and display the year selection screen.
+ *
+ * @param {HTMLButtonElement} el An element within the date picker component
+ */
+const displayPreviousYearChunk = el => {
+  if (el.disabled) return;
+  const { firstYearChunkEl } = getDatePickerContext(el);
+  const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
+  displayYearSelection(el, firstYearChunkYear - YEAR_CHUNK);
+};
+
+/**
+ * Navigate forward by years and display the year selection screen.
+ *
+ * @param {HTMLButtonElement} el An element within the date picker component
+ */
+const displayNextYearChunk = el => {
+  if (el.disabled) return;
+  const { firstYearChunkEl } = getDatePickerContext(el);
+  const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
+  displayYearSelection(el, firstYearChunkYear + YEAR_CHUNK);
+};
+
+// #region Keyboard Event Handling
+
+/**
+ * Navigate back one week and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleUp = event => {
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    event.target
+  );
+  const date = subWeeks(calendarDate, 1);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
+  }
+  event.preventDefault();
+};
+
+/**
+ * Navigate forward one week and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleDown = event => {
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    event.target
+  );
+  const date = addWeeks(calendarDate, 1);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
+  }
+  event.preventDefault();
+};
+
+/**
+ * Navigate back one day and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleLeft = event => {
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    event.target
+  );
+  const date = subDays(calendarDate, 1);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
+  }
+  event.preventDefault();
+};
+
+/**
+ * Navigate forward one day and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleRight = event => {
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    event.target
+  );
+  const date = addDays(calendarDate, 1);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
+  }
+  event.preventDefault();
+};
+
+/**
+ * Navigate to the start of the week and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleHome = event => {
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    event.target
+  );
+  const date = startOfWeek(calendarDate);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
+  }
+  event.preventDefault();
+};
+
+/**
+ * Navigate to the end of the week and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleEnd = event => {
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    event.target
+  );
+  const date = endOfWeek(calendarDate);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
+  }
+  event.preventDefault();
+};
+
+/**
+ * Navigate forward one month and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handlePageDown = event => {
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    event.target
+  );
+  const date = addMonths(calendarDate, 1);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
+  }
+  event.preventDefault();
+};
+
+/**
+ * Navigate back one month and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handlePageUp = event => {
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    event.target
+  );
+  const date = subMonths(calendarDate, 1);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
+  }
+  event.preventDefault();
+};
+
+/**
+ * Navigate forward one year and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleShiftPageDown = event => {
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    event.target
+  );
+  const date = addYears(calendarDate, 1);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
+  }
+  event.preventDefault();
+};
+
+/**
+ * Navigate back one year and display the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleShiftPageUp = event => {
+  const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+    event.target
+  );
+  const date = subYears(calendarDate, 1);
+  const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+  if (!isSameDay(calendarDate, cappedDate)) {
+    renderCalendar(calendarEl, cappedDate);
+  }
+  event.preventDefault();
+};
+
+/**
+ * Hide the calendar.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleEscape = event => {
+  const { datePickerEl, inputEl } = getDatePickerContext(event.target);
+
+  hideCalendar(datePickerEl);
+  inputEl.focus();
+
+  event.preventDefault();
+};
+
+// #endregion Keyboard Event Handling
+
+/**
+ * Toggle the calendar.
+ *
+ * @param {HTMLButtonElement} el An element within the date picker component
+ */
+const toggleCalendar = el => {
+  if (el.disabled) return;
+  const {
+    calendarEl,
+    inputDate,
+    minDate,
+    maxDate,
+    defaultDate
+  } = getDatePickerContext(el);
+
+  if (calendarEl.hidden) {
+    const dateToDisplay = keepDateBetweenMinAndMax(
+      inputDate || defaultDate || today(),
+      minDate,
+      maxDate
+    );
+    renderCalendar(calendarEl, dateToDisplay);
+  } else {
+    hideCalendar(el);
+  }
+};
+
+/**
+ * Update the calendar when visible.
+ *
+ * @param {HTMLElement} el an element within the date picker
+ */
+const updateCalendarIfVisible = el => {
+  const { calendarEl, inputDate, minDate, maxDate } = getDatePickerContext(el);
+  const calendarShown = !calendarEl.hidden;
+
+  if (calendarShown && inputDate) {
+    const dateToDisplay = keepDateBetweenMinAndMax(inputDate, minDate, maxDate);
+    renderCalendar(calendarEl, dateToDisplay, false);
+  }
+};
+
+/**
+ * display the calendar for the mousemove date.
+ *
+ * @param {MouseEvent} event The mousemove event
+ * @param {HTMLButtonElement} dateEl A date element within the date picker component
+ */
+const handleMousemove = (dateEl) => {
+  if (dateEl.disabled) return;
+
+  const calendarEl = dateEl.closest(DATE_PICKER_CALENDAR);
+  const currentCalendarDate = calendarEl.dataset.value;
+  const hoverDate = dateEl.dataset.value;
+
+  if (hoverDate === currentCalendarDate) return;
+
+  const dateToDisplay = parseDateString(hoverDate);
+  renderCalendar(calendarEl, dateToDisplay);
+};
+
+const datePicker = behavior(
+  {
+    [CLICK]: {
+      [DATE_PICKER_BUTTON]() {
+        toggleCalendar(this);
+      },
+      [CALENDAR_DATE]() {
+        selectDate(this);
+      },
+      [CALENDAR_MONTH]() {
+        selectMonth(this);
+      },
+      [CALENDAR_YEAR]() {
+        selectYear(this);
+      },
+      [CALENDAR_PREVIOUS_MONTH]() {
+        displayPreviousMonth(this);
+      },
+      [CALENDAR_NEXT_MONTH]() {
+        displayNextMonth(this);
+      },
+      [CALENDAR_PREVIOUS_YEAR]() {
+        displayPreviousYear(this);
+      },
+      [CALENDAR_NEXT_YEAR]() {
+        displayNextYear(this);
+      },
+      [CALENDAR_PREVIOUS_YEAR_CHUNK]() {
+        displayPreviousYearChunk(this);
+      },
+      [CALENDAR_NEXT_YEAR_CHUNK]() {
+        displayNextYearChunk(this);
+      },
+      [CALENDAR_MONTH_SELECTION]() {
+        displayMonthSelection(this);
+      },
+      [CALENDAR_YEAR_SELECTION]() {
+        displayYearSelection(this);
+      }
+    },
+    keyup: {
+      [CALENDAR_DATE_FOCUSED](event) {
+        const keydown = this.dataset.keydownKeyCode;
+        if (`${event.keyCode}` !== keydown) {
+          event.preventDefault();
+        }
+      }
+    },
+    keydown: {
+      [CALENDAR_DATE_FOCUSED](event) {
+        this.dataset.keydownKeyCode = event.keyCode;
+      },
+      [DATE_PICKER_CALENDAR]: keymap({
+        Up: handleUp,
+        ArrowUp: handleUp,
+        Down: handleDown,
+        ArrowDown: handleDown,
+        Left: handleLeft,
+        ArrowLeft: handleLeft,
+        Right: handleRight,
+        ArrowRight: handleRight,
+        Home: handleHome,
+        End: handleEnd,
+        PageDown: handlePageDown,
+        PageUp: handlePageUp,
+        "Shift+PageDown": handleShiftPageDown,
+        "Shift+PageUp": handleShiftPageUp,
+        Escape: handleEscape
+      }),
+      [DATE_PICKER_INPUT](event) {
+        if (event.keyCode === ENTER_KEYCODE) {
+          validateDateInput(this);
+        }
+      }
+    },
+    focusin: {
+      [DATE_PICKER]() {
+        this.classList.add("usa-date-picker--active");
+      }
+    },
+    focusout: {
+      [DATE_PICKER_INPUT]() {
+        validateDateInput(this);
+      },
+      [DATE_PICKER](event) {
+        if (!this.contains(event.relatedTarget)) {
+          this.classList.remove("usa-date-picker--active");
+          if (!this.hasAttribute("data-disable-hide-on-blur")) {
+            hideCalendar(this);
+          }
+        }
+      }
+    },
+    validate: {
+      [DATE_PICKER]() {
+        validateDateInput(this);
+      }
+    },
+    "rerender input": {
+      [DATE_PICKER_INPUT]() {
+        updateCalendarIfVisible(this);
+      }
+    },
+    mousemove: {
+      [CALENDAR_DATE_CURRENT_MONTH]() {
+        handleMousemove(this);
+      }
+    }
+  },
+  {
+    init(root) {
+      select(DATE_PICKER, root).forEach(datePickerEl => {
+        enhanceDatePicker(datePickerEl);
+      });
+    },
+    isDateInputInvalid
+  }
+);
+
+module.exports = datePicker;

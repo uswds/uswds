@@ -4,3 +4,5 @@ require("classlist-polyfill");
 require("./element-hidden");
 // polyfills CustomEvent
 require("./custom-event");
+// polyfills Number.isNaN()
+require("./number-is-nan");

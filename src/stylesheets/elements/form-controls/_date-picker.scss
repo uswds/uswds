@@ -1,0 +1,209 @@
+// Date Picker
+
+.usa-date-picker {
+  position: relative;
+
+  button {
+    border: 0;
+
+    &:not([disabled]) {
+      cursor: pointer;
+
+      &:focus {
+        outline-offset: -4px;
+      }
+
+      &:hover {
+        background-color: color("base-lighter");
+      }
+
+      &:active {
+        background-color: color("base-light");
+      }
+    }
+  }
+}
+
+// Date Picker -- initialized
+
+.usa-date-picker__button-wrapper {
+  margin-top: 0.5em;
+  width: 3em;
+}
+
+.usa-date-picker__button {
+  @include add-background-svg("calendar-alt-solid");
+  background-color: transparent;
+  background-position: center;
+  background-size: units(3);
+  height: 100%;
+  width: 100%;
+}
+
+.usa-date-picker--initialized {
+  display: flex;
+}
+
+.usa-date-picker--active {
+ .usa-date-picker__calendar {
+    z-index: z-index(400);
+  }
+}
+// Date Picker - Calendar View
+
+.usa-date-picker__calendar {
+  background-color: color("base-lightest");
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: z-index(100);
+}
+
+// Date Picker - Grid
+
+.usa-date-picker__calendar__row {
+  @include grid-row;
+  text-align: center;
+  width: 100%;
+}
+
+.usa-date-picker__calendar__cell {
+  background-color: color("base-lightest");
+  flex: 1;
+}
+
+.usa-date-picker__calendar__cell--center-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Date Picker - Date Selection View
+
+.usa-date-picker__calendar__previous-year,
+.usa-date-picker__calendar__previous-month,
+.usa-date-picker__calendar__next-year,
+.usa-date-picker__calendar__next-month {
+  background-color: color("base-lightest");
+  background-position: center;
+  background-size: auto units(2.5);
+  height: units(3);
+  padding: 19px 10px;
+  width: 100%;
+}
+
+.usa-date-picker__calendar__previous-year:not([disabled]) {
+  @include add-background-svg("angle-double-left-solid");
+}
+
+.usa-date-picker__calendar__previous-month:not([disabled]) {
+  @include add-background-svg("angle-left-solid");
+}
+
+.usa-date-picker__calendar__next-year:not([disabled]) {
+  @include add-background-svg("angle-double-right-solid");
+}
+
+.usa-date-picker__calendar__next-month:not([disabled]) {
+  @include add-background-svg("angle-right-solid");
+}
+
+.usa-date-picker__calendar__day-of-week {
+  padding: 6px 0px;
+}
+
+.usa-date-picker__calendar__date {
+  background-color: color("base-lightest");
+  padding: 10px 0px;
+  width: 100%;
+}
+
+.usa-date-picker__calendar__date--focused:not(:focus):not(:active) {
+  @include focus-outline($width:2px, $offset:-2px, $color: "blue-warm-80v"); 
+}
+
+.usa-date-picker__calendar__date--range-date-start:not(:focus),
+.usa-date-picker__calendar__date--range-date-end:not(:focus) {
+  background-color: color("primary-vivid");
+  color: color("gray-2");
+}
+
+.usa-date-picker__calendar__date--range-date-start {
+  border-top-left-radius: 10%;
+  border-bottom-left-radius: 10%;
+}
+
+.usa-date-picker__calendar__date--range-date-end {
+  border-top-right-radius: 10%;
+  border-bottom-right-radius: 10%;
+}
+
+.usa-date-picker__calendar__date--within-range {
+  background-color: color("blue-10v");
+}
+
+.usa-date-picker__calendar__month-label {
+  flex: 4;
+  text-align: center;
+}
+
+.usa-date-picker__calendar__year-selection,
+.usa-date-picker__calendar__month-selection {
+  background-color: color("base-lightest");
+  display: inline-block;
+  height: 100%;
+  padding: 8px 4px;
+  width: auto;
+}
+
+.usa-date-picker__calendar__date--next-month:not([disabled]),
+.usa-date-picker__calendar__date--previous-month:not([disabled]) {
+  color: color("gray-warm-60");
+}
+
+// Date Picker - Month Selection View
+
+.usa-date-picker__calendar__month-picker {
+  padding: 20px 5px;
+}
+
+.usa-date-picker__calendar__month {
+  background-color: color("base-lightest");
+  padding: 10px 0;
+  width: 100%;
+}
+
+// Date Picker - Year Selection View
+
+.usa-date-picker__calendar__year-picker {
+  padding: 20px 5px;
+  display: flex;
+}
+
+.usa-date-picker__calendar__previous-year-chunk,
+.usa-date-picker__calendar__next-year-chunk {
+  background-color: color("base-lightest");
+  background-position: center;
+  background-size: auto units(4);
+  flex: 1;
+  margin: auto;
+  padding: 40px 0;
+}
+
+.usa-date-picker__calendar__previous-year-chunk:not([disabled]) {
+  @include add-background-svg("angle-left-solid");
+}
+
+.usa-date-picker__calendar__next-year-chunk:not([disabled]) {
+  @include add-background-svg("angle-right-solid");
+}
+
+.usa-date-picker__calendar__year-grid {
+  flex: 3;
+}
+
+.usa-date-picker__calendar__year {
+  background-color: color("base-lightest");
+  padding: 10px 0;
+  width: 100%;
+}
