@@ -133,14 +133,28 @@
   }
 
   &--focused,
-  &--focused:hover,
   &--range-date-start,
   &--range-date-end {
-    background-color: color("base-lighter");
+    background-color: color("primary-vivid");
+    color: color("gray-2");
 
-    &.usa-date-picker__calendar__date--current-month {
+    &:not([disabled]) {
       background-color: color("primary-vivid");
       color: color("gray-2");
+
+      &:hover {
+        background-color: color("primary-vivid");
+        color: color("gray-10");
+      }
+
+      &:focus {
+        background-color: color("primary-vivid");
+        color: color("gray-2");
+      }
+
+      &:active {
+        background-color: color("primary-dark");
+      }
     }
   }
 
