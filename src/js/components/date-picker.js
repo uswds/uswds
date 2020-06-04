@@ -16,7 +16,7 @@ const CALENDAR_DATE_FOCUSED_CLASS = `${CALENDAR_DATE_CLASS}--focused`;
 const CALENDAR_DATE_PREVIOUS_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--previous-month`;
 const CALENDAR_DATE_CURRENT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--current-month`;
 const CALENDAR_DATE_NEXT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--next-month`;
-const CALENDAR_DATE_INPUTTED_CLASS = `${CALENDAR_DATE_CLASS}--current-input-value`;
+const CALENDAR_DATE_SELECTED_CLASS = `${CALENDAR_DATE_CLASS}--selected-date`;
 const CALENDAR_DATE_RANGE_DATE_CLASS = `${CALENDAR_DATE_CLASS}--range-date`;
 const CALENDAR_DATE_RANGE_DATE_START_CLASS = `${CALENDAR_DATE_CLASS}--range-date-start`;
 const CALENDAR_DATE_RANGE_DATE_END_CLASS = `${CALENDAR_DATE_CLASS}--range-date-end`;
@@ -765,7 +765,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     }
 
     if (isSameDay(dateToRender, inputDate)) {
-      classes.push(CALENDAR_DATE_INPUTTED_CLASS);
+      classes.push(CALENDAR_DATE_SELECTED_CLASS);
     }
 
     if (rangeDate) {
@@ -1156,7 +1156,7 @@ const displayYearSelection = (el, yearToDisplay) => {
         aria-label="Navigate forward ${YEAR_CHUNK} years"
         ${nextYearChunkDisabled ? `disabled="disabled"` : ""}
       >&nbsp;</button>
-    </div >`;
+    </div>`;
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
   newCalendar.focus();
