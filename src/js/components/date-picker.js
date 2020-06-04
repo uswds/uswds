@@ -1514,21 +1514,13 @@ const datePicker = behavior(
         }
       }
     },
-    focusin: {
-      [DATE_PICKER]() {
-        this.classList.add("usa-date-picker--active");
-      }
-    },
     focusout: {
       [DATE_PICKER_INPUT]() {
         validateDateInput(this);
       },
       [DATE_PICKER](event) {
         if (!this.contains(event.relatedTarget)) {
-          this.classList.remove("usa-date-picker--active");
-          if (!this.hasAttribute("data-disable-hide-on-blur")) {
-            hideCalendar(this);
-          }
+          hideCalendar(this);
         }
       }
     },
