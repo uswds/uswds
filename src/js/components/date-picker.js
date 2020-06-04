@@ -5,6 +5,7 @@ const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
+const DATE_PICKER_ACTIVE_CLASS = `${DATE_PICKER_CLASS}--active`;
 const DATE_PICKER_INPUT_CLASS = `${DATE_PICKER_CLASS}__input`;
 const DATE_PICKER_BUTTON_CLASS = `${DATE_PICKER_CLASS}__button`;
 const DATE_PICKER_CALENDAR_CLASS = `${DATE_PICKER_CLASS}__calendar`;
@@ -15,7 +16,7 @@ const CALENDAR_DATE_FOCUSED_CLASS = `${CALENDAR_DATE_CLASS}--focused`;
 const CALENDAR_DATE_PREVIOUS_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--previous-month`;
 const CALENDAR_DATE_CURRENT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--current-month`;
 const CALENDAR_DATE_NEXT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--next-month`;
-const CALENDAR_DATE_INPUTTED_CLASS = `${CALENDAR_DATE_CLASS}--current-input-value`;
+const CALENDAR_DATE_SELECTED_CLASS = `${CALENDAR_DATE_CLASS}--selected-date`;
 const CALENDAR_DATE_RANGE_DATE_CLASS = `${CALENDAR_DATE_CLASS}--range-date`;
 const CALENDAR_DATE_RANGE_DATE_START_CLASS = `${CALENDAR_DATE_CLASS}--range-date-start`;
 const CALENDAR_DATE_RANGE_DATE_END_CLASS = `${CALENDAR_DATE_CLASS}--range-date-end`;
@@ -35,6 +36,11 @@ const CALENDAR_MONTH_PICKER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__month-picker
 const CALENDAR_YEAR_PICKER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year-picker`;
 const CALENDAR_DATE_GRID_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__date-grid`;
 const CALENDAR_YEAR_GRID_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year-grid`;
+const CALENDAR_ROW_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__row`;
+const CALENDAR_CELL_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__cell`;
+const CALENDAR_CELL_CENTER_ITEMS_CLASS = `${CALENDAR_CELL_CLASS}--center-items`;
+const CALENDAR_MONTH_LABEL_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__month-label`;
+const CALENDAR_DAY_OF_WEEK_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__day-of-week`;
 
 const DATE_PICKER = `.${DATE_PICKER_CLASS}`;
 const DATE_PICKER_BUTTON = `.${DATE_PICKER_BUTTON_CLASS}`;
@@ -516,14 +522,10 @@ const listToGridHtml = (htmlArray, rowSize) => {
   while (i < htmlArray.length) {
     row = [];
     while (i < htmlArray.length && row.length < rowSize) {
-      row.push(
-        `<div class="usa-date-picker__calendar__cell">${htmlArray[i]}</div>`
-      );
+      row.push(`<div class="${CALENDAR_CELL_CLASS}">${htmlArray[i]}</div>`);
       i += 1;
     }
-    grid.push(
-      `<div class="usa-date-picker__calendar__row">${row.join("")}</div>`
-    );
+    grid.push(`<div class="${CALENDAR_ROW_CLASS}">${row.join("")}</div>`);
   }
 
   return grid.join("");
@@ -763,7 +765,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     }
 
     if (isSameDay(dateToRender, inputDate)) {
-      classes.push(CALENDAR_DATE_INPUTTED_CLASS);
+      classes.push(CALENDAR_DATE_SELECTED_CLASS);
     }
 
     if (rangeDate) {
@@ -832,8 +834,8 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
   newCalendar.style.top = `${datePickerEl.offsetHeight}px`;
   newCalendar.hidden = false;
   newCalendar.innerHTML = `<div class="${CALENDAR_DATE_PICKER_CLASS}">
-      <div class="usa-date-picker__calendar__row">
-        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
+      <div class="${CALENDAR_ROW_CLASS}">
+        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
           <button 
             type="button"
             tabindex="-1"
@@ -842,7 +844,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
             ${prevButtonsDisabled ? `disabled="disabled"` : ""}
           >&nbsp;</button>
         </div>
-        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
+        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
           <button 
             type="button"
             tabindex="-1"
@@ -851,7 +853,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
             ${prevButtonsDisabled ? `disabled="disabled"` : ""}
           >&nbsp;</button>
         </div>
-        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__month-label">
+        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_MONTH_LABEL_CLASS}">
           <button 
             type="button"
             tabindex="-1"
@@ -863,7 +865,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
             class="${CALENDAR_YEAR_SELECTION_CLASS}" aria-label="${focusedYear}. Click to select year"
           >${focusedYear}</button>
         </div>
-        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
+        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
           <button 
             type="button"
             tabindex="-1"
@@ -872,7 +874,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
             ${nextButtonsDisabled ? `disabled="disabled"` : ""}
           >&nbsp;</button>
         </div>
-        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__cell--center-items">
+        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
           <button 
             type="button"
             tabindex="-1"
@@ -882,14 +884,14 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
           >&nbsp;</button>
         </div>
       </div>
-      <div class="usa-date-picker__calendar__row">
-        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Sunday">S</div>
-        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Monday">M</div>
-        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Tuesday">T</div>
-        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Wednesday">W</div>
-        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Thursday">Th</div>
-        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Friday">F</div>
-        <div class="usa-date-picker__calendar__cell usa-date-picker__calendar__day-of-week" role="columnheader" aria-label="Saturday">S</div>
+      <div class="${CALENDAR_ROW_CLASS}">
+        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_DAY_OF_WEEK_CLASS}" role="columnheader" aria-label="Sunday">S</div>
+        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_DAY_OF_WEEK_CLASS}" role="columnheader" aria-label="Monday">M</div>
+        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_DAY_OF_WEEK_CLASS}" role="columnheader" aria-label="Tuesday">T</div>
+        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_DAY_OF_WEEK_CLASS}" role="columnheader" aria-label="Wednesday">W</div>
+        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_DAY_OF_WEEK_CLASS}" role="columnheader" aria-label="Thursday">Th</div>
+        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_DAY_OF_WEEK_CLASS}" role="columnheader" aria-label="Friday">F</div>
+        <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_DAY_OF_WEEK_CLASS}" role="columnheader" aria-label="Saturday">S</div>
       </div>
       <div class="${CALENDAR_DATE_GRID_CLASS}">
         ${datesHtml}
@@ -897,6 +899,8 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     </div>`;
 
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
+
+  datePickerEl.classList.add(DATE_PICKER_ACTIVE_CLASS);
 
   if (calendarWasHidden) {
     statusEl.textContent =
@@ -977,8 +981,11 @@ const displayNextYear = _buttonEl => {
  * @param {HTMLElement} el An element within the date picker component
  */
 const hideCalendar = el => {
-  const { calendarEl } = getDatePickerContext(el);
+  const { datePickerEl, calendarEl, statusEl } = getDatePickerContext(el);
+
+  datePickerEl.classList.remove(DATE_PICKER_ACTIVE_CLASS);
   calendarEl.hidden = true;
+  statusEl.textContent = "";
 };
 
 /**
@@ -1140,7 +1147,7 @@ const displayYearSelection = (el, yearToDisplay) => {
         aria-label="Navigate back ${YEAR_CHUNK} years"
         ${prevYearChunkDisabled ? `disabled="disabled"` : ""}
       >&nbsp;</button>
-      <div role="grid" class="usa-date-picker__calendar__year-table ${CALENDAR_YEAR_GRID_CLASS}">
+      <div role="grid" class="${CALENDAR_YEAR_GRID_CLASS}">
         ${yearsHtml}
       </div>
       <button 
@@ -1149,7 +1156,7 @@ const displayYearSelection = (el, yearToDisplay) => {
         aria-label="Navigate forward ${YEAR_CHUNK} years"
         ${nextYearChunkDisabled ? `disabled="disabled"` : ""}
       >&nbsp;</button>
-    </div >`;
+    </div>`;
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
   newCalendar.focus();
@@ -1419,7 +1426,7 @@ const updateCalendarIfVisible = el => {
  * @param {MouseEvent} event The mousemove event
  * @param {HTMLButtonElement} dateEl A date element within the date picker component
  */
-const handleMousemove = (dateEl) => {
+const handleMousemove = dateEl => {
   if (dateEl.disabled) return;
 
   const calendarEl = dateEl.closest(DATE_PICKER_CALENDAR);
