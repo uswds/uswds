@@ -33,16 +33,16 @@ $theme-banner-font-family: "ui";
 $theme-banner-max-width: "desktop";
 
 // Breadcrumb
-$theme-breadcrumb-back-icon: "#{$theme-image-path}/arrow-left.svg";
 $theme-breadcrumb-back-icon-aspect: 1, 1;
-$theme-breadcrumb-font-size: "sm";
+$theme-breadcrumb-back-icon: "#{$theme-image-path}/arrow-left.svg";
 $theme-breadcrumb-font-family: "body";
+$theme-breadcrumb-font-size: "sm";
 $theme-breadcrumb-gap: 1.5;
 $theme-breadcrumb-icon-color: "base";
 $theme-breadcrumb-link-colors: "primary", "primary-dark", "primary-dark";
 $theme-breadcrumb-min-width: "mobile-lg";
-$theme-breadcrumb-separator-icon: "#{$theme-image-path}/angle-arrow-right.svg";
 $theme-breadcrumb-separator-icon-aspect: 38, 64;
+$theme-breadcrumb-separator-icon: "#{$theme-image-path}/angle-arrow-right.svg";
 $theme-breadcrumb-spacing-bottom: 2;
 $theme-breadcrumb-spacing-top: 2;
 $theme-breadcrumb-wrapping: false;
