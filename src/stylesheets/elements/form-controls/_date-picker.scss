@@ -26,6 +26,12 @@
 
 // Date Picker -- initialized
 
+.usa-date-picker--active {
+  .usa-date-picker__button {
+    background-color: #f0f0f0;
+  }
+}
+
 .usa-date-picker__button-wrapper {
   margin-top: 0.5em;
   width: 3em;
@@ -114,7 +120,7 @@
 }
 
 .usa-date-picker__calendar__date--focused:not(:focus):not(:active) {
-  @include focus-outline($width:2px, $offset:-2px, $color: "blue-warm-80v"); 
+  @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
 }
 
 .usa-date-picker__calendar__date--range-date-start:not(:focus),
