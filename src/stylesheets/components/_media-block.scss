@@ -1,7 +1,12 @@
+.usa-media-block {
+  @include u-align-items("align-start");
+  @include u-display("flex");
+}
+
 .usa-media-block__img {
   @include media-block-img;
 }
 
 .usa-media-block__body {
-  overflow: hidden;
+  @include u-flex(1);
 }
