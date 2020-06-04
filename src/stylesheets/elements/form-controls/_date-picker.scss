@@ -32,6 +32,10 @@
   .usa-date-picker__button {
     background-color: #f0f0f0;
   }
+
+  .usa-date-picker__calendar {
+    z-index: z-index(400);
+  }
 }
 
 .usa-date-picker__button-wrapper {
@@ -137,6 +141,8 @@
   &--focused:hover,
   &--range-date-start,
   &--range-date-end {
+    background-color: color("base-lighter");
+
     &.usa-date-picker__calendar__date--current-month {
       background-color: color("primary-vivid");
       color: color("gray-2");
