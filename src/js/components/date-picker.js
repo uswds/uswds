@@ -541,8 +541,11 @@ const changeElementValue = (el, value = "") => {
   const elementToChange = el;
   elementToChange.value = value;
 
-  const event = document.createEvent("Event");
-  event.initEvent("change", true, true);
+  const event = new CustomEvent("change", {
+    bubbles: true,
+    cancelable: true,
+    detail: { value }
+  });
   elementToChange.dispatchEvent(event);
 };
 
