@@ -13,4 +13,4 @@ variants:
     label: With utilities
     context:
       tooltip:
-        classes: margin-left-3 margin-top-2 border padding-left-6 padding-right-2 padding-top-5 padding-bottom-1 bg-base-lightest
+        classes: border padding-2 bg-base-lightest border-base-light
