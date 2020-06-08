@@ -10,6 +10,9 @@ const SELECT_CLASS = `${COMBO_BOX_CLASS}__select`;
 const INPUT_CLASS = `${COMBO_BOX_CLASS}__input`;
 const CLEAR_INPUT_BUTTON_CLASS = `${COMBO_BOX_CLASS}__clear-input`;
 const CLEAR_INPUT_BUTTON_WRAPPER_CLASS = `${CLEAR_INPUT_BUTTON_CLASS}__wrapper`;
+const INPUT_BUTTON_SEPARATOR_CLASS = `${COMBO_BOX_CLASS}__input-button-separator`;
+const TOGGLE_LIST_BUTTON_CLASS = `${COMBO_BOX_CLASS}__toggle-list`;
+const TOGGLE_LIST_BUTTON_WRAPPER_CLASS = `${TOGGLE_LIST_BUTTON_CLASS}__wrapper`;
 const LIST_CLASS = `${COMBO_BOX_CLASS}__list`;
 const LIST_OPTION_CLASS = `${COMBO_BOX_CLASS}__list-option`;
 const LIST_OPTION_FOCUSED_CLASS = `${LIST_OPTION_CLASS}--focused`;
@@ -24,6 +27,24 @@ const LIST = `.${LIST_CLASS}`;
 const LIST_OPTION = `.${LIST_OPTION_CLASS}`;
 const LIST_OPTION_FOCUSED = `.${LIST_OPTION_FOCUSED_CLASS}`;
 const STATUS = `.${STATUS_CLASS}`;
+
+/**
+ * set the value of the element and dispatch a change event
+ *
+ * @param {HTMLInputElement|HTMLSelectElement} el The element to update
+ * @param {string} value The new value of the element
+ */
+const changeElementValue = (el, value = "") => {
+  const elementToChange = el;
+  elementToChange.value = value;
+
+  const event = new CustomEvent("change", {
+    bubbles: true,
+    cancelable: true,
+    detail: { value }
+  });
+  elementToChange.dispatchEvent(event);
+};
 
 /**
  * The elements within the combo box.
@@ -148,6 +169,10 @@ const enhanceComboBox = el => {
       `<span class="${CLEAR_INPUT_BUTTON_WRAPPER_CLASS}" tabindex="-1">
         <button type="button" class="${CLEAR_INPUT_BUTTON_CLASS}">&nbsp;</button>
       </span>`,
+      `<span class="${INPUT_BUTTON_SEPARATOR_CLASS}">&nbsp;</span>`,
+      `<span class="${TOGGLE_LIST_BUTTON_WRAPPER_CLASS}" tabindex="-1">
+        <button type="button" class="${TOGGLE_LIST_BUTTON_CLASS}">&nbsp;</button>
+      </span>`,
       `<ul
         tabindex="-1"
         id="${listId}"
@@ -166,8 +191,8 @@ const enhanceComboBox = el => {
 
   if (selectedOption) {
     const { inputEl } = getComboBoxContext(el);
-    selectEl.value = selectedOption.value;
-    inputEl.value = selectedOption.text;
+    changeElementValue(selectEl, selectedOption.value);
+    changeElementValue(inputEl, selectedOption.text);
   }
 };
 
@@ -315,8 +340,8 @@ const hideList = el => {
 const selectItem = listOptionEl => {
   const { comboBoxEl, selectEl, inputEl } = getComboBoxContext(listOptionEl);
 
-  selectEl.value = listOptionEl.dataset.value;
-  inputEl.value = listOptionEl.textContent;
+  changeElementValue(selectEl, listOptionEl.dataset.value);
+  changeElementValue(inputEl, listOptionEl.textContent);
   comboBoxEl.classList.add(COMBO_BOX_PRISTINE_CLASS);
   hideList(comboBoxEl);
   inputEl.focus();
@@ -356,8 +381,8 @@ const completeSelection = el => {
   statusEl.textContent = "";
 
   if (focusedOptionEl) {
-    selectEl.value = focusedOptionEl.dataset.value;
-    inputEl.value = focusedOptionEl.textContent;
+    changeElementValue(selectEl, focusedOptionEl.dataset.value);
+    changeElementValue(inputEl, focusedOptionEl.textContent);
     comboBoxEl.classList.add(COMBO_BOX_PRISTINE_CLASS);
     return;
   }
@@ -368,18 +393,20 @@ const completeSelection = el => {
     for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
       const optionEl = selectEl.options[i];
       if (optionEl.text.toLowerCase() === inputValue) {
-        selectEl.value = optionEl.value;
-        inputEl.value = optionEl.text;
+        changeElementValue(selectEl, optionEl.value);
+        changeElementValue(inputEl, optionEl.text);
         comboBoxEl.classList.add(COMBO_BOX_PRISTINE_CLASS);
         return;
       }
     }
   }
 
-  selectEl.value = "";
+  if (selectEl.value) {
+    changeElementValue(selectEl);
+  }
 
   if (inputEl.value) {
-    inputEl.value = "";
+    changeElementValue(inputEl);
   }
 };
 
