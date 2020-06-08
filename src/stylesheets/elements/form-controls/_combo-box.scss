@@ -3,45 +3,70 @@
 }
 
 .usa-combo-box--pristine {
-  button.usa-combo-box__clear-input {
-    display: block;
+  .usa-combo-box__input {
+    padding-right: calc(5em + 4px);
+  }
 
-    &:focus {
-      outline-offset: -4px;
-    }
+  .usa-combo-box__clear-input {
+    display: block;
   }
 }
 
 .usa-combo-box__input {
   @extend %block-input-general;
   @extend %block-input-styles;
-  @include add-background-svg("arrow-down");
   appearance: none;
-  background-color: color("white");
-  background-position: right units(1.5) center;
-  background-size: units(2);
   margin-bottom: 0;
-  padding-right: units(4);
+  padding-right: calc(2.5em + 3px);
 }
 
+button.usa-combo-box__toggle-list,
+button.usa-combo-box__clear-input {
+  &:focus {
+    outline-offset: -4px;
+  }
+}
+
+.usa-combo-box__toggle-list__wrapper:focus,
 .usa-combo-box__clear-input__wrapper:focus {
   outline: 0;
 }
 
+.usa-combo-box__toggle-list,
 .usa-combo-box__clear-input {
-  @include add-background-svg("close");
   background-color: transparent;
-  background-position: right units(1.5) center;
+  background-position: center;
   background-size: units(2);
   border: 0;
   cursor: pointer;
-  display: none;
   margin-bottom: 0;
   padding-right: units(4);
   position: absolute;
-  top: 0;
-  height: 2.5em;
-  right: 3em;
+  top: 1px;
+  height: 2.25em;
+  z-index: z-index(100);
+}
+.usa-combo-box__clear-input {
+  @include add-background-svg("close");
+  display: none;
+  right: calc(2.5em + 3px);
+}
+
+.usa-combo-box__toggle-list {
+  @include add-background-svg("arrow-down");
+  right: 1px;
+}
+
+.usa-combo-box__input-button-separator {
+  background-color: black;
+  position: absolute;
+  top: 1px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  width: 1px;
+  right: calc(2.5em + 2px);
+  box-sizing: border-box;
+  z-index: z-index(200);
 }
 
 .usa-combo-box__list {
