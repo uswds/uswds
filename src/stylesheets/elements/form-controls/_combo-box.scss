@@ -91,15 +91,14 @@ button.usa-combo-box__clear-input {
   display: block;
   padding: units(1);
 
-  &--focused:focus {
-    outline-offset: -4px;
-  }
-
-  &:hover,
   &--focused {
     background-color: color("primary");
     border-color: color("primary");
     color: color("white");
+
+    &:focus {
+      outline-offset: -4px;
+    }
   }
 }
 

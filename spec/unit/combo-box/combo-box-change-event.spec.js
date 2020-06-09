@@ -79,6 +79,7 @@ describe("combo box component change event dispatch", () => {
     EVENTS.keyupA(input);
     assert.ok(!list.hidden, "should display the option list");
 
+    EVENTS.keydownTab(input);
     EVENTS.focusout(input);
 
     assert.equal(select.value, "", "should clear the value on the select");
@@ -131,6 +132,7 @@ describe("combo box component change event dispatch", () => {
     EVENTS.keyupO(input);
     assert.ok(!list.hidden, "should display the option list");
 
+    EVENTS.keydownTab(input);
     EVENTS.focusout(input);
 
     assert.equal(
