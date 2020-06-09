@@ -36,6 +36,8 @@
 }
 
 .usa-banner__guidance {
+  @include u-display("flex");
+  @include u-flex("align-start");
   padding-top: units(2);
 
   @include at-media("tablet") {
