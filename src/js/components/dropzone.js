@@ -7,7 +7,7 @@ const INPUT = `.${PREFIX}-dropzone__input`;
 const INITIALIZED_CLASS = `${PREFIX}-dropzone--is-initialized`;
 const PREVIEW_CLASS = 'usa-dropzone__preview';
 const DRAG_CLASS = 'usa-dropzone--drag';
-const LOADING_CLASS = 'usa-dropzone__preview__image--loading';
+const LOADING_CLASS = 'is-loading';
 const GENERIC_PREVIEW_CLASS = 'usa-dropzone__preview__image--generic';
 const SPACER_GIF = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
