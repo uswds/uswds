@@ -22,7 +22,7 @@ EVENTS.click = el => {
   el.dispatchEvent(evt);
 };
 
-describe("disabled combo box component", () => {
+describe("combo box component - disabled enhancement", () => {
   const { body } = document;
 
   let root;

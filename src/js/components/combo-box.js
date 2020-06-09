@@ -64,7 +64,7 @@ const isPrintableKeyCode = keyCode => {
  * @property {HTMLInputElement} inputEl
  * @property {HTMLUListElement} listEl
  * @property {HTMLDivElement} statusEl
- * @property {HTMLOptionElement} focusedOptionEl
+ * @property {HTMLLIElement} focusedOptionEl
  */
 
 /**
@@ -242,8 +242,8 @@ const hideList = el => {
   inputEl.setAttribute("aria-expanded", "false");
   inputEl.setAttribute("aria-activedescendant", "");
 
-  listEl.innerHTML = "";
   listEl.hidden = true;
+  listEl.innerHTML = "";
 };
 
 /**
@@ -310,8 +310,9 @@ const completeSelection = el => {
  * @param {HTMLElement} el An element within the combo box component
  * @param {HTMLElement} currentEl An element within the combo box component
  * @param {HTMLElement} nextEl An element within the combo box component
+ * @param {boolean} preventScroll should skip procedure to scroll to element
  */
-const highlightOption = (el, currentEl, nextEl) => {
+const highlightOption = (el, currentEl, nextEl, preventScroll) => {
   const { inputEl, listEl } = getComboBoxElements(el);
 
   if (currentEl) {
@@ -324,17 +325,20 @@ const highlightOption = (el, currentEl, nextEl) => {
     nextEl.setAttribute("aria-selected", "true");
     nextEl.classList.add(LIST_OPTION_FOCUSED_CLASS);
 
-    const optionBottom = nextEl.offsetTop + nextEl.offsetHeight;
-    const currentBottom = listEl.scrollTop + listEl.offsetHeight;
+    if (!preventScroll) {
+      const optionBottom = nextEl.offsetTop + nextEl.offsetHeight;
+      const currentBottom = listEl.scrollTop + listEl.offsetHeight;
 
-    if (optionBottom > currentBottom) {
-      listEl.scrollTop = optionBottom - listEl.offsetHeight;
+      if (optionBottom > currentBottom) {
+        listEl.scrollTop = optionBottom - listEl.offsetHeight;
+      }
+
+      if (nextEl.offsetTop < listEl.scrollTop) {
+        listEl.scrollTop = nextEl.offsetTop;
+      }
     }
 
-    if (nextEl.offsetTop < listEl.scrollTop) {
-      listEl.scrollTop = nextEl.offsetTop;
-    }
-    nextEl.focus();
+    nextEl.focus({ preventScroll });
   } else {
     inputEl.setAttribute("aria-activedescendant", "");
     inputEl.focus();
@@ -342,25 +346,7 @@ const highlightOption = (el, currentEl, nextEl) => {
 };
 
 /**
- * Handle the enter event within the combo box component.
- *
- * @param {KeyboardEvent} event An event within the combo box component
- */
-const handleEnter = event => {
-  const { comboBoxEl, inputEl, listEl } = getComboBoxElements(event.target);
-  const listShown = !listEl.hidden;
-
-  completeSelection(comboBoxEl);
-
-  if (listShown) {
-    hideList(comboBoxEl);
-    inputEl.focus();
-    event.preventDefault();
-  }
-};
-
-/**
- * Handle the down event within the combo box component.
+ * Handle the escape event within the combo box component.
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
@@ -369,29 +355,6 @@ const handleEscape = event => {
 
   hideList(comboBoxEl);
   inputEl.focus();
-};
-
-/**
- * Handle the up event within the combo box component.
- *
- * @param {KeyboardEvent} event An event within the combo box component
- */
-const handleUp = event => {
-  const { comboBoxEl, listEl, focusedOptionEl } = getComboBoxElements(
-    event.target
-  );
-  const nextOptionEl = focusedOptionEl && focusedOptionEl.previousSibling;
-  const listShown = !listEl.hidden;
-
-  highlightOption(comboBoxEl, focusedOptionEl, nextOptionEl);
-
-  if (listShown) {
-    event.preventDefault();
-  }
-
-  if (!nextOptionEl) {
-    hideList(comboBoxEl);
-  }
 };
 
 /**
@@ -419,6 +382,83 @@ const handleDown = event => {
   event.preventDefault();
 };
 
+/**
+ * Handle the enter event from an input element within the combo box component.
+ *
+ * @param {KeyboardEvent} event An event within the combo box component
+ */
+const handleEnterFromInput = event => {
+  const { comboBoxEl, listEl } = getComboBoxElements(event.target);
+  const listShown = !listEl.hidden;
+
+  completeSelection(comboBoxEl);
+
+  if (listShown) {
+    hideList(comboBoxEl);
+    event.preventDefault();
+  }
+};
+
+/**
+ * Handle the enter event from an input element within the combo box component.
+ *
+ * @param {KeyboardEvent} event An event within the combo box component
+ */
+const handleTabFromInput = event => {
+  completeSelection(event.target);
+};
+
+/**
+ * Handle the enter event from list option within the combo box component.
+ *
+ * @param {KeyboardEvent} event An event within the combo box component
+ */
+const handleEnterFromListOption = event => {
+  selectItem(event.target);
+  event.preventDefault();
+};
+
+/**
+ * Handle the up event from list option within the combo box component.
+ *
+ * @param {KeyboardEvent} event An event within the combo box component
+ */
+const handleUpFromListOption = event => {
+  const { comboBoxEl, listEl, focusedOptionEl } = getComboBoxElements(
+    event.target
+  );
+  const nextOptionEl = focusedOptionEl && focusedOptionEl.previousSibling;
+  const listShown = !listEl.hidden;
+
+  highlightOption(comboBoxEl, focusedOptionEl, nextOptionEl);
+
+  if (listShown) {
+    event.preventDefault();
+  }
+
+  if (!nextOptionEl) {
+    hideList(comboBoxEl);
+  }
+};
+
+/**
+ * Select list option on the mousemove event.
+ *
+ * @param {MouseEvent} event The mousemove event
+ * @param {HTMLLIElement} listOptionEl An element within the combo box component
+ */
+const handleMousemove = listOptionEl => {
+  const isCurrentlyFocused = listOptionEl.classList.contains(
+    LIST_OPTION_FOCUSED_CLASS
+  );
+
+  if (isCurrentlyFocused) return;
+
+  const { comboBoxEl, focusedOptionEl } = getComboBoxElements(listOptionEl);
+
+  highlightOption(comboBoxEl, focusedOptionEl, listOptionEl, true);
+};
+
 const comboBox = behavior(
   {
     [CLICK]: {
@@ -434,19 +474,25 @@ const comboBox = behavior(
       [COMBO_BOX](event) {
         const { comboBoxEl } = getComboBoxElements(event.target);
         if (!comboBoxEl.contains(event.relatedTarget)) {
-          completeSelection(comboBoxEl);
           hideList(comboBoxEl);
         }
       }
     },
     keydown: {
-      [COMBO_BOX]: keymap({
-        ArrowUp: handleUp,
-        Up: handleUp,
+      [INPUT]: keymap({
         ArrowDown: handleDown,
         Down: handleDown,
         Escape: handleEscape,
-        Enter: handleEnter
+        Enter: handleEnterFromInput,
+        Tab: handleTabFromInput
+      }),
+      [LIST_OPTION]: keymap({
+        ArrowUp: handleUpFromListOption,
+        Up: handleUpFromListOption,
+        ArrowDown: handleDown,
+        Down: handleDown,
+        Escape: handleEscape,
+        Enter: handleEnterFromListOption
       })
     },
     keyup: {
@@ -454,6 +500,11 @@ const comboBox = behavior(
         if (isPrintableKeyCode(event.keyCode)) {
           displayList(this);
         }
+      }
+    },
+    mousemove: {
+      [LIST_OPTION]() {
+        handleMousemove(this);
       }
     }
   },
