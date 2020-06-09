@@ -82,13 +82,8 @@ describe("combo box component", () => {
       "-1",
       "the select should be hidden from keyboard navigation"
     );
-    assert.equal(
-      select.value,
-      "value-JavaScript",
-      "select the selected select item"
-    );
-    assert.equal(input.value, "JavaScript", "select the selected select item");
-
+    assert.equal(select.value, "", "should not set a value for the select");
+    assert.equal(input.value, "", "should not set a value for the input");
     assert.ok(
       select.classList.contains("usa-combo-box__select"),
       "add the class for the select element"
@@ -123,9 +118,27 @@ describe("combo box component", () => {
   });
 
   it("should set up the list items for accessibility", () => {
+    let i = 0;
+    let len = list.children.length;
     EVENTS.click(input);
 
-    for (let i = 0, len = list.children.length; i < len; i += 1) {
+    assert.equal(
+      list.children[i].getAttribute("aria-selected"),
+      "false",
+      `item ${i} should not be shown as selected`
+    );
+    assert.equal(
+      list.children[i].getAttribute("tabindex"),
+      "0",
+      `item ${i} should be available with tab from keyboard navigation`
+    );
+    assert.equal(
+      list.children[i].getAttribute("role"),
+      "option",
+      `item ${i} should have a role of 'option'`
+    );
+
+    for (i = 1; i < len; i += 1) {
       assert.equal(
         list.children[i].getAttribute("aria-selected"),
         "false",
@@ -187,7 +200,7 @@ describe("combo box component", () => {
     select.value = "value-ActionScript";
     input.value = "a";
 
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
     EVENTS.keydownTab(input);
     EVENTS.focusout(input);
@@ -245,7 +258,7 @@ describe("combo box component", () => {
     select.value = "value-ActionScript";
     input.value = "go";
 
-    EVENTS.keyupO(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
     EVENTS.keydownTab(input);
     EVENTS.focusout(input);
@@ -365,7 +378,7 @@ describe("combo box component", () => {
     assert.equal(input.value, "Erlang", "should set the value in the input");
   });
 
-  it("should not select the focused list item in the list when pressing bluring component on a focused item", () => {
+  it("should not select the focused list item in the list when blurring component from a focused item", () => {
     input.value = "la";
 
     EVENTS.input(input);
@@ -376,7 +389,7 @@ describe("combo box component", () => {
       "Erlang",
       "should focus the first item in the list"
     );
-    EVENTS.keydownTab(focusedOption);
+    EVENTS.focusout(focusedOption);
 
     assert.equal(select.value, "", "select the first item in the list");
     assert.equal(input.value, "", "should set the value in the input");

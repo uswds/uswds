@@ -76,7 +76,7 @@ describe("combo box component change event dispatch", () => {
   it("should emit change events when clearing input values when an incomplete item is remaining on blur", () => {
     select.value = "value-ActionScript";
     input.value = "a";
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
 
     EVENTS.keydownTab(input);
@@ -91,7 +91,7 @@ describe("combo box component change event dispatch", () => {
   it("should emit change events when clearing input values when an incomplete item is submitted through enter", () => {
     select.value = "value-ActionScript";
     input.value = "a";
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
 
     EVENTS.keydownEnter(input);
@@ -105,7 +105,7 @@ describe("combo box component change event dispatch", () => {
   it("should not emit change events when closing the list but not the clear the input value when escape is performed while the list is open", () => {
     select.value = "value-ActionScript";
     input.value = "a";
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
 
     EVENTS.keydownEscape(input);
@@ -129,7 +129,7 @@ describe("combo box component change event dispatch", () => {
   it("should emit change events when setting the input value when a complete selection is submitted by clicking away", () => {
     select.value = "value-ActionScript";
     input.value = "go";
-    EVENTS.keyupO(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
 
     EVENTS.keydownTab(input);
@@ -152,7 +152,7 @@ describe("combo box component change event dispatch", () => {
   it("should emit change events when setting the input value when a complete selection is submitted by pressing enter", () => {
     select.value = "value-ActionScript";
     input.value = "go";
-    EVENTS.keyupO(input);
+    EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
 
     EVENTS.keydownEnter(input);
@@ -175,7 +175,7 @@ describe("combo box component change event dispatch", () => {
     select.value = "value-JavaScript";
     input.value = "la";
 
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
     EVENTS.keydownArrowDown(input);
     const focusedOption = document.activeElement;
     assert.equal(
@@ -199,7 +199,7 @@ describe("combo box component change event dispatch", () => {
     select.value = "value-JavaScript";
     input.value = "la";
 
-    EVENTS.keyupA(input);
+    EVENTS.input(input);
     assert.ok(
       !list.hidden && list.children.length,
       "should display the option list with options"
@@ -214,7 +214,6 @@ describe("combo box component change event dispatch", () => {
     EVENTS.keydownEscape(focusedOption);
 
     assert.ok(list.hidden, "should hide the option list");
-    assert.equal(list.children.length, 0, "should empty the option list");
     assert.equal(
       select.value,
       "value-JavaScript",

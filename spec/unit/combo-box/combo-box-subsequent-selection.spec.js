@@ -8,7 +8,7 @@ const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/combo-box-subsequent-selection.template.html")
 );
 
-describe("combo box component", () => {
+xdescribe("combo box component- subsequent selection", () => {
   const { body } = document;
 
   let root;
