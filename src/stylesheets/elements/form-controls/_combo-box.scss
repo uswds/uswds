@@ -47,18 +47,18 @@ button.usa-combo-box__clear-input {
   z-index: z-index(100);
 }
 .usa-combo-box__clear-input {
-  @include add-background-svg("close");
+  @include add-background-svg("close-gray-90");
   display: none;
   right: calc(2.5em + 3px);
 }
 
 .usa-combo-box__toggle-list {
-  @include add-background-svg("arrow-down");
+  @include add-background-svg("arrow-down-gray-90");
   right: 1px;
 }
 
 .usa-combo-box__input-button-separator {
-  background-color: black;
+  background-color: color("ink");
   position: absolute;
   top: 1px;
   margin-bottom: 8px;

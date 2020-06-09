@@ -3,104 +3,11 @@ const path = require("path");
 const sinon = require("sinon");
 const assert = require("assert");
 const ComboBox = require("../../../src/js/components/combo-box");
+const EVENTS = require("./events");
 
 const TEMPLATE = fs.readFileSync(
   path.join(__dirname, "/combo-box-change-event.template.html")
 );
-
-const EVENTS = {};
-
-/**
- * send a click event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.click = el => {
-  const evt = new MouseEvent("click", {
-    view: el.ownerDocument.defaultView,
-    bubbles: true,
-    cancelable: true
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
- * send a focusout event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.focusout = el => {
-  const evt = new Event("focusout", {
-    bubbles: true,
-    cancelable: true
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
- * send a keyup A event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.keyupA = el => {
-  const evt = new KeyboardEvent("keyup", {
-    bubbles: true,
-    key: "a",
-    keyCode: 65
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
- * send a keyup O event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.keyupO = el => {
-  const evt = new KeyboardEvent("keyup", {
-    bubbles: true,
-    key: "o",
-    keyCode: 79
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
- * send a keydown Enter event
- * @param {HTMLElement} el the element to sent the event to
- * @returns {{preventDefaultSpy: sinon.SinonSpy<[], void>}}
- */
-EVENTS.keydownEnter = el => {
-  const evt = new KeyboardEvent("keydown", {
-    bubbles: true,
-    key: "Enter",
-    keyCode: 13
-  });
-  const preventDefaultSpy = sinon.spy(evt, "preventDefault");
-  el.dispatchEvent(evt);
-  return { preventDefaultSpy };
-};
-
-/**
- * send a keydown Escape event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.keydownEscape = el => {
-  const evt = new KeyboardEvent("keydown", {
-    bubbles: true,
-    key: "Escape",
-    keyCode: 27
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
- * send a keydown ArrowDown event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.keydownArrowDown = el => {
-  const evt = new KeyboardEvent("keydown", {
-    bubbles: true,
-    key: "ArrowDown"
-  });
-  el.dispatchEvent(evt);
-};
 
 describe("combo box component change event dispatch", () => {
   const { body } = document;

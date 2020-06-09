@@ -23,6 +23,7 @@ const COMBO_BOX = `.${COMBO_BOX_CLASS}`;
 const SELECT = `.${SELECT_CLASS}`;
 const INPUT = `.${INPUT_CLASS}`;
 const CLEAR_INPUT_BUTTON = `.${CLEAR_INPUT_BUTTON_CLASS}`;
+const TOGGLE_LIST_BUTTON = `.${TOGGLE_LIST_BUTTON_CLASS}`;
 const LIST = `.${LIST_CLASS}`;
 const LIST_OPTION = `.${LIST_OPTION_CLASS}`;
 const LIST_OPTION_FOCUSED = `.${LIST_OPTION_FOCUSED_CLASS}`;
@@ -277,9 +278,15 @@ const displayList = el => {
     .map((option, index) => {
       const optionId = `${listOptionBaseId}${index}`;
       const classes = [LIST_OPTION_CLASS];
+      let tabindex = "-1";
 
       if (optionId === selectedItemId) {
         classes.push(LIST_OPTION_SELECTED_CLASS);
+        tabindex = "0";
+      }
+
+      if (!selectedItemId && index === 0) {
+        tabindex = "0";
       }
 
       return `<li
@@ -288,7 +295,7 @@ const displayList = el => {
           aria-posinset="${index + 1}"
           id="${optionId}"
           class="${classes.join(" ")}"
-          tabindex="-1"
+          tabindex="${tabindex}"
           role="option"
           data-value="${option.value}"
         >${option.text}</li>`;
@@ -424,8 +431,9 @@ const handleEnter = event => {
   if (listShown) {
     hideList(comboBoxEl);
     inputEl.focus();
-    event.preventDefault();
   }
+
+  event.preventDefault();
 };
 
 /**
@@ -488,11 +496,29 @@ const handleDown = event => {
   event.preventDefault();
 };
 
+/**
+ * Toggle the list when the button is clicked
+ *
+ * @param {HTMLElement} el An element within the combo box component
+ */
+const toggleList = el => {
+  const { comboBoxEl, listEl } = getComboBoxContext(el);
+
+  if (listEl.hidden) {
+    displayList(comboBoxEl);
+  } else {
+    hideList(comboBoxEl);
+  }
+};
+
 const comboBox = behavior(
   {
     [CLICK]: {
       [INPUT]() {
         displayList(this);
+      },
+      [TOGGLE_LIST_BUTTON]() {
+        toggleList(this);
       },
       [LIST_OPTION]() {
         selectItem(this);

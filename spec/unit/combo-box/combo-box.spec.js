@@ -1,98 +1,12 @@
 const fs = require("fs");
 const path = require("path");
-const sinon = require("sinon");
 const assert = require("assert");
 const ComboBox = require("../../../src/js/components/combo-box");
+const EVENTS = require("./events");
 
-const TEMPLATE = fs.readFileSync(path.join(__dirname, "/template.html"));
-
-const EVENTS = {};
-
-/**
- * send a click event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.click = el => {
-  const evt = new MouseEvent("click", {
-    view: el.ownerDocument.defaultView,
-    bubbles: true,
-    cancelable: true
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
- * send a focusout event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.focusout = el => {
-  const evt = new Event("focusout", {
-    bubbles: true,
-    cancelable: true
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
- * send a keydown Enter event
- * @param {HTMLElement} el the element to sent the event to
- * @returns {{preventDefaultSpy: sinon.SinonSpy<[], void>}}
- */
-EVENTS.keydownEnter = el => {
-  const evt = new KeyboardEvent("keydown", {
-    bubbles: true,
-    key: "Enter",
-    keyCode: 13
-  });
-  const preventDefaultSpy = sinon.spy(evt, "preventDefault");
-  el.dispatchEvent(evt);
-  return { preventDefaultSpy };
-};
-
-/**
- * send a keydown Escape event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.keydownEscape = el => {
-  const evt = new KeyboardEvent("keydown", {
-    bubbles: true,
-    key: "Escape",
-    keyCode: 27
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
- * send a keydown ArrowDown event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.keydownArrowDown = el => {
-  const evt = new KeyboardEvent("keydown", {
-    bubbles: true,
-    key: "ArrowDown"
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
- * send a keydown ArrowUp event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.keydownArrowUp = el => {
-  const evt = new KeyboardEvent("keydown", {
-    bubbles: true,
-    key: "ArrowUp"
-  });
-  el.dispatchEvent(evt);
-};
-
-/**
- * send an input event
- * @param {HTMLElement} el the element to sent the event to
- */
-EVENTS.input = el => {
-  el.dispatchEvent(new KeyboardEvent("input", { bubbles: true }));
-};
+const TEMPLATE = fs.readFileSync(
+  path.join(__dirname, "/combo-box.template.html")
+);
 
 describe("combo box component", () => {
   const { body } = document;
@@ -264,12 +178,11 @@ describe("combo box component", () => {
     );
   });
 
-  it("should clear input values when an incomplete item is remaining on blur", () => {
-    select.value = "value-ActionScript";
+  it("should reset input values when an incomplete item is remaining on blur", () => {
     input.value = "a";
-
     EVENTS.input(input);
     assert.ok(!list.hidden, "should display the option list");
+
     EVENTS.focusout(input);
 
     assert.ok(list.hidden, "should hide the option list");
@@ -294,13 +207,13 @@ describe("combo box component", () => {
     );
   });
 
-  it("should allow enter to perform default action when the list is hidden", () => {
+  it("should not allow enter to perform default action when the list is hidden", () => {
     assert.ok(list.hidden, "the list is hidden");
     const { preventDefaultSpy } = EVENTS.keydownEnter(input);
 
     assert.ok(
-      preventDefaultSpy.notCalled,
-      "should allow event to perform default action"
+      preventDefaultSpy.called,
+      "should not allow event to perform default action"
     );
   });
 
@@ -420,6 +333,45 @@ describe("combo box component", () => {
       "select the first item in the list"
     );
     assert.equal(input.value, "Erlang", "should set the value in the input");
+  });
+
+  it("should select the focused list item in the list when pressing tab on a focused item", () => {
+    select.value = "value-JavaScript";
+    input.value = "la";
+
+    EVENTS.input(input);
+    EVENTS.keydownArrowDown(input);
+    const focusedOption = document.activeElement;
+    assert.equal(
+      focusedOption.textContent,
+      "Erlang",
+      "should focus the first item in the list"
+    );
+    EVENTS.keydownTab(focusedOption);
+
+    assert.equal(
+      select.value,
+      "value-Erlang",
+      "select the first item in the list"
+    );
+    assert.equal(input.value, "Erlang", "should set the value in the input");
+  });
+
+  it("should not select the focused list item in the list when pressing bluring component on a focused item", () => {
+    input.value = "la";
+
+    EVENTS.input(input);
+    EVENTS.keydownArrowDown(input);
+    const focusedOption = document.activeElement;
+    assert.equal(
+      focusedOption.textContent,
+      "Erlang",
+      "should focus the first item in the list"
+    );
+    EVENTS.keydownTab(focusedOption);
+
+    assert.equal(select.value, "", "select the first item in the list");
+    assert.equal(input.value, "", "should set the value in the input");
   });
 
   it("should focus the last item in the list when pressing down many times from the input", () => {
@@ -578,6 +530,7 @@ describe("combo box component", () => {
       "clear input button is present"
     );
   });
+
   it("should clear the input when the clear button is clicked", () => {
     input.value = "go";
     EVENTS.click(input);
