@@ -156,11 +156,11 @@ const enhanceComboBox = comboBoxEl => {
         ${additionalAttributes.join(" ")}
       >`,
       `<span class="${CLEAR_INPUT_BUTTON_WRAPPER_CLASS}" tabindex="-1">
-        <button type="button" class="${CLEAR_INPUT_BUTTON_CLASS}">&nbsp;</button>
+        <button type="button" class="${CLEAR_INPUT_BUTTON_CLASS}" aria-label="Clear the select contents">&nbsp;</button>
       </span>`,
       `<span class="${INPUT_BUTTON_SEPARATOR_CLASS}">&nbsp;</span>`,
       `<span class="${TOGGLE_LIST_BUTTON_WRAPPER_CLASS}" tabindex="-1">
-        <button type="button" class="${TOGGLE_LIST_BUTTON_CLASS}">&nbsp;</button>
+        <button type="button" class="${TOGGLE_LIST_BUTTON_CLASS}" aria-label="Toggle the dropdown list">&nbsp;</button>
       </span>`,
       `<ul
         tabindex="-1"
