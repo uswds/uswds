@@ -8,11 +8,12 @@ const COMBO_BOX = `.${PREFIX}-combo-box`;
 
 const INPUT_CLASS = `${PREFIX}-combo-box__input`;
 const LIST_CLASS = `${PREFIX}-combo-box__list`;
+const SELECT_CLASS = `${PREFIX}-combo-box__select`;
 const LIST_OPTION_CLASS = `${PREFIX}-combo-box__list-option`;
 const STATUS_CLASS = `${PREFIX}-combo-box__status`;
 const LIST_OPTION_FOCUSED_CLASS = `${LIST_OPTION_CLASS}--focused`;
 
-const SELECT = `.${PREFIX}-combo-box__select`;
+const SELECT = `.${SELECT_CLASS}`;
 const INPUT = `.${INPUT_CLASS}`;
 const LIST = `.${LIST_CLASS}`;
 const LIST_OPTION = `.${LIST_OPTION_CLASS}`;
@@ -81,11 +82,6 @@ const getComboBoxElements = el => {
   }
 
   const selectEl = comboBoxEl.querySelector(SELECT);
-
-  if (!selectEl) {
-    throw new Error(`${COMBO_BOX} is missing inner ${SELECT}`);
-  }
-
   const inputEl = comboBoxEl.querySelector(INPUT);
   const listEl = comboBoxEl.querySelector(LIST);
   const statusEl = comboBoxEl.querySelector(STATUS);
@@ -97,10 +93,14 @@ const getComboBoxElements = el => {
 /**
  * Enhance a select element into a combo box component.
  *
- * @param {HTMLElement} el The initial element within the combo box component
+ * @param {HTMLElement} comboBoxEl The initial element of the combo box component
  */
-const enhanceComboBox = el => {
-  const { comboBoxEl, selectEl } = getComboBoxElements(el);
+const enhanceComboBox = comboBoxEl => {
+  const selectEl = comboBoxEl.querySelector("select");
+
+  if (!selectEl) {
+    throw new Error(`${COMBO_BOX} is missing inner select`);
+  }
 
   const selectId = selectEl.id;
   const listId = `${selectId}--list`;
@@ -124,14 +124,14 @@ const enhanceComboBox = el => {
       }
     }
   }
- 
 
   selectEl.setAttribute("aria-hidden", "true");
   selectEl.setAttribute("tabindex", "-1");
-  selectEl.classList.add("usa-sr-only");
+  selectEl.classList.add("usa-sr-only", SELECT_CLASS);
   selectEl.id = "";
+  selectEl.value = "";
 
-  ["required", "aria-label", "aria-labelledby"].forEach(name => {
+  ["required", "disabled", "aria-label", "aria-labelledby"].forEach(name => {
     if (selectEl.hasAttribute(name)) {
       const value = selectEl.getAttribute(name);
       additionalAttributes.push(`${name}="${value}"`);
@@ -162,8 +162,7 @@ const enhanceComboBox = el => {
         role="listbox"
         hidden>
       </ul>`,
-      `<div class="${STATUS_CLASS} usa-sr-only" role="status">
-      </div>`,
+      `<div class="${STATUS_CLASS} usa-sr-only" role="status"></div>`,
       `<span id="${assistiveHintID}" class="usa-sr-only">
         When autocomplete results are available use up and down arrows to review and enter to select.
         Touch device users, explore by touch or with swipe gestures.
@@ -172,7 +171,7 @@ const enhanceComboBox = el => {
   );
 
   if (selectedOption) {
-    const { inputEl } = getComboBoxElements(el);
+    const { inputEl } = getComboBoxElements(comboBoxEl);
     changeElementValue(selectEl, selectedOption.value);
     changeElementValue(inputEl, selectedOption.text);
   }
@@ -424,6 +423,7 @@ const comboBox = behavior(
   {
     [CLICK]: {
       [INPUT]() {
+        if (this.disabled) return;
         displayList(this);
       },
       [LIST_OPTION]() {
@@ -459,8 +459,8 @@ const comboBox = behavior(
   },
   {
     init(root) {
-      select(SELECT, root).forEach(selectEl => {
-        enhanceComboBox(selectEl);
+      select(COMBO_BOX, root).forEach(comboBoxEl => {
+        enhanceComboBox(comboBoxEl);
       });
     }
   }
