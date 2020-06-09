@@ -88,6 +88,11 @@ describe("combo box component", () => {
       "select the selected select item"
     );
     assert.equal(input.value, "JavaScript", "select the selected select item");
+
+    assert.ok(
+      select.classList.contains("usa-combo-box__select"),
+      "add the class for the select element"
+    );
   });
 
   it("should show the list by clicking the input", () => {

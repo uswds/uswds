@@ -73,11 +73,6 @@ const getComboBoxContext = el => {
   }
 
   const selectEl = comboBoxEl.querySelector(SELECT);
-
-  if (!selectEl) {
-    throw new Error(`${COMBO_BOX} is missing inner ${SELECT}`);
-  }
-
   const inputEl = comboBoxEl.querySelector(INPUT);
   const listEl = comboBoxEl.querySelector(LIST);
   const statusEl = comboBoxEl.querySelector(STATUS);
@@ -99,19 +94,13 @@ const getComboBoxContext = el => {
 /**
  * Enhance a select element into a combo box component.
  *
- * @param {HTMLElement} el The initial element within the combo box component
+ * @param {HTMLElement} comboBoxEl The initial element of the combo box component
  */
-const enhanceComboBox = el => {
-  const comboBoxEl = el.closest(COMBO_BOX);
-
-  if (!comboBoxEl) {
-    throw new Error(`Element is missing outer ${COMBO_BOX}`);
-  }
-
-  const selectEl = comboBoxEl.querySelector(SELECT);
+const enhanceComboBox = comboBoxEl => {
+  const selectEl = comboBoxEl.querySelector("select");
 
   if (!selectEl) {
-    throw new Error(`${COMBO_BOX} is missing inner ${SELECT}`);
+    throw new Error(`${COMBO_BOX} is missing inner select`);
   }
 
   const selectId = selectEl.id;
@@ -136,14 +125,13 @@ const enhanceComboBox = el => {
       }
     }
   }
- 
 
   selectEl.setAttribute("aria-hidden", "true");
   selectEl.setAttribute("tabindex", "-1");
-  selectEl.classList.add("usa-sr-only");
+  selectEl.classList.add("usa-sr-only", SELECT_CLASS);
   selectEl.id = "";
 
-  ["required", "aria-label", "aria-labelledby"].forEach(name => {
+  ["required", "disabled", "aria-label", "aria-labelledby"].forEach(name => {
     if (selectEl.hasAttribute(name)) {
       const value = selectEl.getAttribute(name);
       additionalAttributes.push(`${name}="${value}"`);
@@ -181,8 +169,7 @@ const enhanceComboBox = el => {
         role="listbox"
         hidden>
       </ul>`,
-      `<div class="${STATUS_CLASS} usa-sr-only" role="status">
-      </div>`,
+      `<div class="${STATUS_CLASS} usa-sr-only" role="status"></div>`,
       `<span id="${assistiveHintID}" class="usa-sr-only">
         When autocomplete results are available use up and down arrows to review and enter to select.
         Touch device users, explore by touch or with swipe gestures.
@@ -594,6 +581,7 @@ const comboBox = behavior(
   {
     [CLICK]: {
       [INPUT]() {
+        if (this.disabled) return;
         displayList(this);
       },
       [TOGGLE_LIST_BUTTON]() {
@@ -646,8 +634,8 @@ const comboBox = behavior(
   },
   {
     init(root) {
-      select(SELECT, root).forEach(selectEl => {
-        enhanceComboBox(selectEl);
+      select(COMBO_BOX, root).forEach(comboBoxEl => {
+        enhanceComboBox(comboBoxEl);
       });
     }
   }
