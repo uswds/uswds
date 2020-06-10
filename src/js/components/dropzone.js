@@ -96,9 +96,9 @@ const handleChange = inputEl => {
 
        const image_id = makeSafeForID(the_file_name);
 
-       const preview_image = '<img id="'+ image_id +'" src="' + SPACER_GIF + '" alt=" " class="usa-dropzone__preview__image ' + LOADING_CLASS + '"/>';
+       const preview_image = `<img id="${image_id}" src="${SPACER_GIF}" alt="" class="usa-dropzone__preview__image  ${LOADING_CLASS}"/>`;
 
-       dropzoneEl.insertAdjacentHTML('beforeend', '<div class="' + PREVIEW_CLASS +  '" aria-hidden="true">'+ preview_image + the_file_name+'<div>');
+       dropzoneEl.insertAdjacentHTML('beforeend', `<div class="${PREVIEW_CLASS}" aria-hidden="true">${preview_image}${the_file_name}<div>`);
 
      }
 
@@ -108,7 +108,7 @@ const handleChange = inputEl => {
 
        const preview_image = document.getElementById(image_id);
 
-       preview_image.setAttribute("onerror",'this.onerror=null;this.src="'+ SPACER_GIF +'"; this.classList.add("' + GENERIC_PREVIEW_CLASS + '")')
+       preview_image.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${GENERIC_PREVIEW_CLASS}")`)
 
        preview_image.classList.remove(LOADING_CLASS);
        preview_image.src = reader.result;
