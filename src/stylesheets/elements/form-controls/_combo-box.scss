@@ -5,6 +5,10 @@
 .usa-combo-box--pristine {
   .usa-combo-box__input {
     padding-right: calc(5em + 4px);
+
+    &::-ms-clear {
+      display: none;
+    }
   }
 
   .usa-combo-box__clear-input {
@@ -47,18 +51,35 @@ button.usa-combo-box__clear-input {
   z-index: z-index(100);
 }
 .usa-combo-box__clear-input {
-  @include add-background-svg("close-gray-90");
+  @include add-background-svg("close-gray-60");
+
   display: none;
   right: calc(2.5em + 3px);
+
+  &:hover {
+    @include add-background-svg("close-gray-80");
+  }
+
+  &:active {
+    @include add-background-svg("close-black");
+  }
 }
 
 .usa-combo-box__toggle-list {
-  @include add-background-svg("arrow-down-gray-90");
+  @include add-background-svg("arrow-down-gray-60");
   right: 1px;
+
+  &:hover {
+    @include add-background-svg("arrow-down-gray-80");
+  }
+
+  &:active {
+    @include add-background-svg("arrow-down");
+  }
 }
 
 .usa-combo-box__input-button-separator {
-  background-color: color("ink");
+  background-color: color("gray-60");
   position: absolute;
   top: 1px;
   margin-bottom: 8px;
