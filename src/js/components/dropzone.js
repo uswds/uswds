@@ -14,10 +14,10 @@ const SPACER_GIF = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALA
 
 const makeSafeForID = name => {
     return name.replace(/[^a-z0-9]/g, function(s) {
-        var c = s.charCodeAt(0);
-        if (c == 32) return '-';
-        if (c >= 65 && c <= 90) return '_' + s.toLowerCase();
-        return '__' + ('000' + c.toString(16)).slice(-4);
+        const c = s.charCodeAt(0);
+        if (c === 32) return '-';
+        if (c >= 65 && c <= 90) return `img_${s.toLowerCase()}`;
+        return `__${("000", c.toString(16)).slice(-4)}`;
     });
 }
 
@@ -75,11 +75,9 @@ const setupAttributes = inputEl => {
 const handleChange = inputEl => {
   const { dropzoneEl } = getinputElements(inputEl);
 
-
-
   inputEl.onchange = e => {
     const fileNames = e.target.files;
-    const filePreviews = dropzoneEl.querySelectorAll('.'+ PREVIEW_CLASS);
+    const filePreviews = dropzoneEl.querySelectorAll(`.${PREVIEW_CLASS}`);
 
     // Get rid of existing previews if they exist
     if (filePreviews !== null){
@@ -88,34 +86,30 @@ const handleChange = inputEl => {
       });
     }
 
-    for (var i = 0; i < fileNames.length; i++)
+    for (let i = 0; i < fileNames.length; i++)
     {
      const reader  = new FileReader();
 
      reader.onloadstart = function() {
+       const imageId = makeSafeForID(fileName);
+       const previewImage = `<img id="${imageId}" src="${SPACER_GIF}" alt="" class="usa-dropzone__preview__image  ${LOADING_CLASS}"/>`;
 
-       const image_id = makeSafeForID(the_file_name);
-
-       const preview_image = `<img id="${image_id}" src="${SPACER_GIF}" alt="" class="usa-dropzone__preview__image  ${LOADING_CLASS}"/>`;
-
-       dropzoneEl.insertAdjacentHTML('beforeend', `<div class="${PREVIEW_CLASS}" aria-hidden="true">${preview_image}${the_file_name}<div>`);
+       dropzoneEl.insertAdjacentHTML('beforeend', `<div class="${PREVIEW_CLASS}" aria-hidden="true">${previewImage}${fileName}<div>`);
 
      }
 
      reader.onloadend = function() {
+       const imageId = makeSafeForID(fileName);
+       const previewImage = document.getElementById(imageId);
 
-       const image_id = makeSafeForID(the_file_name);
+       previewImage.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${GENERIC_PREVIEW_CLASS}")`)
 
-       const preview_image = document.getElementById(image_id);
-
-       preview_image.setAttribute("onerror",`this.onerror=null;this.src="${SPACER_GIF}"; this.classList.add("${GENERIC_PREVIEW_CLASS}")`)
-
-       preview_image.classList.remove(LOADING_CLASS);
-       preview_image.src = reader.result;
+       previewImage.classList.remove(LOADING_CLASS);
+       previewImage.src = reader.result;
 
      }
 
-     const the_file_name = fileNames[i].name;
+     const fileName = fileNames[i].name;
 
      if (fileNames[i]) {
         reader.readAsDataURL(fileNames[i]);
@@ -135,7 +129,7 @@ const dropzone = behavior(
   {
     input: {
       [INPUT]() {
-        //handleChange(this);
+        // handleChange(this);
       }
     }
   },
