@@ -5,6 +5,7 @@ const { prefix: PREFIX } = require("../config");
 const DROPZONE = `.${PREFIX}-dropzone`;
 const INPUT = `.${PREFIX}-dropzone__input`;
 const INITIALIZED_CLASS = `${PREFIX}-dropzone--is-initialized`;
+const INSTRUCTIONS = `.${PREFIX}-dropzone__instructions`;
 const PREVIEW_CLASS = 'usa-dropzone__preview';
 const DRAG_CLASS = 'usa-dropzone--drag';
 const LOADING_CLASS = 'is-loading';
@@ -33,11 +34,12 @@ const makeSafeForID = name => {
 
 const getinputElements = inputEl => {
   const dropzoneEl = inputEl.closest(DROPZONE);
+  const dropzoneInstructions = inputEl.querySelector(INSTRUCTIONS);
   if (!dropzoneEl) {
     throw new Error(`${INPUT} is missing outer ${DROPZONE}`);
   }
 
-  return { dropzoneEl };
+  return { dropzoneEl, dropzoneInstructions };
 };
 
 
@@ -73,7 +75,7 @@ const setupAttributes = inputEl => {
  */
 
 const handleChange = inputEl => {
-  const { dropzoneEl } = getinputElements(inputEl);
+  const { dropzoneEl, dropzoneInstructions } = getinputElements(inputEl);
 
   inputEl.onchange = e => {
     const fileNames = e.target.files;
@@ -94,7 +96,7 @@ const handleChange = inputEl => {
        const imageId = makeSafeForID(fileName);
        const previewImage = `<img id="${imageId}" src="${SPACER_GIF}" alt="" class="usa-dropzone__preview__image  ${LOADING_CLASS}"/>`;
 
-       dropzoneEl.insertAdjacentHTML('beforeend', `<div class="${PREVIEW_CLASS}" aria-hidden="true">${previewImage}${fileName}<div>`);
+       dropzoneInstructions.insertAdjacentHTML('afterend', `<div class="${PREVIEW_CLASS}" aria-hidden="true">${previewImage}${fileName}<div>`);
 
      }
 

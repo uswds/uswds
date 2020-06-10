@@ -3,7 +3,7 @@
   display: block;
   font-size: size('body', '2xs');
   margin-top: units(1);
-  padding: units(4) units(2);
+  padding: units(4) units(2) 0;
   position: relative;
   text-align:center;
   width: 100%;
@@ -28,6 +28,7 @@
 
 .usa-dropzone--is-initialized .usa-dropzone__instructions {
   display: inline-block;
+  margin-bottom: units(4);
   pointer-events: none;
   position: relative;
   z-index: 3;
@@ -75,8 +76,15 @@
   background: color('base-lighter');
   display: flex;
   font-size: size('body', '3xs');
-  margin-top: units(1px);
+  margin: units(1px) units(-2) 0;
   padding: units(0.5);
+  pointer-events: none;
+  position: relative;
+  z-index: 3;
+
+  &:last-child {
+    margin-bottom: units(-3);
+  }
 }
 
 .usa-dropzone__preview__image {
