@@ -73,22 +73,7 @@ describe("combo box component change event dispatch", () => {
     );
   });
 
-  it("should emit change events when clearing input values when an incomplete item is remaining on blur", () => {
-    select.value = "value-ActionScript";
-    input.value = "a";
-    EVENTS.input(input);
-    assert.ok(!list.hidden, "should display the option list");
-
-    EVENTS.keydownTab(input);
-    EVENTS.focusout(input);
-
-    assert.equal(select.value, "", "should clear the value on the select");
-    assert.equal(input.value, "", "should clear the value on the input");
-    assert.ok(selectChangeSpy.called, "should have dispatched a change event");
-    assert.ok(inputChangeSpy.called, "should have dispatched a change event");
-  });
-
-  it("should emit change events when clearing input values when an incomplete item is submitted through enter", () => {
+  it("should emit change events when resetting input values when an incomplete item is submitted through enter", () => {
     select.value = "value-ActionScript";
     input.value = "a";
     EVENTS.input(input);
@@ -96,13 +81,20 @@ describe("combo box component change event dispatch", () => {
 
     EVENTS.keydownEnter(input);
 
-    assert.equal(select.value, "", "should clear the value on the select");
-    assert.equal(input.value, "", "should clear the value on the input");
-    assert.ok(selectChangeSpy.called, "should have dispatched a change event");
+    assert.equal(select.value, "value-ActionScript");
+    assert.equal(
+      input.value,
+      "ActionScript",
+      "should reset the value on the input"
+    );
+    assert.ok(
+      selectChangeSpy.notCalled,
+      "should not have dispatched a change event"
+    );
     assert.ok(inputChangeSpy.called, "should have dispatched a change event");
   });
 
-  it("should not emit change events when closing the list but not the clear the input value when escape is performed while the list is open", () => {
+  it("should emit change events when closing the list but not the clear the input value when escape is performed while the list is open", () => {
     select.value = "value-ActionScript";
     input.value = "a";
     EVENTS.input(input);
@@ -115,37 +107,15 @@ describe("combo box component change event dispatch", () => {
       "value-ActionScript",
       "should not change the value of the select"
     );
-    assert.equal(input.value, "a", "should not change the value in the input");
+    assert.equal(
+      input.value,
+      "ActionScript",
+      "should reset the value in the input"
+    );
     assert.ok(
       selectChangeSpy.notCalled,
       "should not have dispatched a change event"
     );
-    assert.ok(
-      inputChangeSpy.notCalled,
-      "should not have dispatched a change event"
-    );
-  });
-
-  it("should emit change events when setting the input value when a complete selection is submitted by clicking away", () => {
-    select.value = "value-ActionScript";
-    input.value = "go";
-    EVENTS.input(input);
-    assert.ok(!list.hidden, "should display the option list");
-
-    EVENTS.keydownTab(input);
-    EVENTS.focusout(input);
-
-    assert.equal(
-      select.value,
-      "value-Go",
-      "should set that item to being the select option"
-    );
-    assert.equal(
-      input.value,
-      "Go",
-      "should set that item to being the input value"
-    );
-    assert.ok(selectChangeSpy.called, "should have dispatched a change event");
     assert.ok(inputChangeSpy.called, "should have dispatched a change event");
   });
 
@@ -195,7 +165,7 @@ describe("combo box component change event dispatch", () => {
     assert.ok(inputChangeSpy.called, "should have dispatched a change event");
   });
 
-  it("should not emit change events when pressing escape from a focused item", () => {
+  it("should emit change events when pressing escape from a focused item", () => {
     select.value = "value-JavaScript";
     input.value = "la";
 
@@ -219,14 +189,15 @@ describe("combo box component change event dispatch", () => {
       "value-JavaScript",
       "should not change the value of the select"
     );
-    assert.equal(input.value, "la", "should not change the value in the input");
+    assert.equal(
+      input.value,
+      "JavaScript",
+      "should reset the value in the input"
+    );
     assert.ok(
       selectChangeSpy.notCalled,
       "should not have dispatched a change event"
     );
-    assert.ok(
-      inputChangeSpy.notCalled,
-      "should not have dispatched a change event"
-    );
+    assert.ok(inputChangeSpy.called, "should have dispatched a change event");
   });
 });

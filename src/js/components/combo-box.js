@@ -161,7 +161,7 @@ const enhanceComboBox = comboBoxEl => {
       </span>`,
       `<span class="${INPUT_BUTTON_SEPARATOR_CLASS}">&nbsp;</span>`,
       `<span class="${TOGGLE_LIST_BUTTON_WRAPPER_CLASS}" tabindex="-1">
-        <button type="button" class="${TOGGLE_LIST_BUTTON_CLASS}" aria-label="Toggle the dropdown list">&nbsp;</button>
+        <button type="button" tabindex="-1" class="${TOGGLE_LIST_BUTTON_CLASS}" aria-label="Toggle the dropdown list">&nbsp;</button>
       </span>`,
       `<ul
         tabindex="-1"
@@ -182,6 +182,7 @@ const enhanceComboBox = comboBoxEl => {
     const { inputEl } = getComboBoxContext(comboBoxEl);
     changeElementValue(selectEl, selectedOption.value);
     changeElementValue(inputEl, selectedOption.text);
+    comboBoxEl.classList.add(COMBO_BOX_PRISTINE_CLASS);
   }
 };
 
@@ -265,7 +266,8 @@ const displayList = el => {
         optionEl.text.toLowerCase().indexOf(inputValue) !== -1)
     ) {
       if (selectEl.value && optionEl.value === selectEl.value) {
-        selectedItemId = `#${listOptionBaseId}${options.length}`;
+        selectedItemId = `${listOptionBaseId}${options.length}`;
+        console.log(selectedItemId);
       }
 
       options.push(optionEl);
@@ -282,6 +284,7 @@ const displayList = el => {
       if (optionId === selectedItemId) {
         classes.push(LIST_OPTION_SELECTED_CLASS);
         tabindex = "0";
+        console.log(selectedItemId);
       }
 
       if (!selectedItemId && index === 0) {
@@ -313,7 +316,7 @@ const displayList = el => {
     : "No results.";
 
   if (isPristine && selectedItemId) {
-    highlightOption(listEl, null, listEl.querySelector(selectedItemId), {
+    highlightOption(listEl, null, listEl.querySelector("#" + selectedItemId), {
       skipFocus: true
     });
   }
@@ -367,6 +370,36 @@ const clearInput = clearButtonEl => {
   selectEl.value = "";
   inputEl.value = "";
   comboBoxEl.classList.remove(COMBO_BOX_PRISTINE_CLASS);
+  displayList(comboBoxEl);
+};
+
+/**
+ * Reset the select based off of currently set select value
+ *
+ * @param {HTMLElement} el An element within the combo box component
+ */
+const resetSelection = el => {
+  const { comboBoxEl, selectEl, inputEl } = getComboBoxContext(el);
+
+  const selectValue = selectEl.value;
+  const inputValue = (inputEl.value || "").toLowerCase();
+
+  if (selectValue) {
+    for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
+      const optionEl = selectEl.options[i];
+      if (optionEl.value === selectValue) {
+        if (inputValue !== optionEl.text) {
+          changeElementValue(inputEl, optionEl.text);
+        }
+        comboBoxEl.classList.add(COMBO_BOX_PRISTINE_CLASS);
+        return;
+      }
+    }
+  }
+
+  if (inputValue) {
+    changeElementValue(inputEl);
+  }
 };
 
 /**
@@ -409,42 +442,7 @@ const completeSelection = el => {
     }
   }
 
-  if (selectEl.value) {
-    changeElementValue(selectEl);
-  }
-
-  if (inputEl.value) {
-    changeElementValue(inputEl);
-  }
-};
-
-/**
- * Reset the select based off of currently set select value
- *
- * @param {HTMLElement} el An element within the combo box component
- */
-const resetSelection = el => {
-  const { comboBoxEl, selectEl, inputEl } = getComboBoxContext(el);
-
-  const selectValue = selectEl.value;
-  const inputValue = (inputEl.value || "").toLowerCase();
-
-  if (selectValue) {
-    for (let i = 0, len = selectEl.options.length; i < len; i += 1) {
-      const optionEl = selectEl.options[i];
-      if (optionEl.value === selectValue) {
-        if (inputValue !== optionEl.text) {
-          changeElementValue(inputEl, optionEl.text);
-        }
-        comboBoxEl.classList.add(COMBO_BOX_PRISTINE_CLASS);
-        return;
-      }
-    }
-  }
-
-  if (inputValue) {
-    changeElementValue(inputEl);
-  }
+  resetSelection(comboBoxEl);
 };
 
 /**
@@ -456,6 +454,7 @@ const handleEscape = event => {
   const { comboBoxEl, inputEl } = getComboBoxContext(event.target);
 
   hideList(comboBoxEl);
+  resetSelection(comboBoxEl);
   inputEl.focus();
 };
 
@@ -503,16 +502,7 @@ const handleEnterFromInput = event => {
 };
 
 /**
- * Handle the enter event from an input element within the combo box component.
- *
- * @param {KeyboardEvent} event An event within the combo box component
- */
-const handleTabFromInput = event => {
-  completeSelection(event.target);
-};
-
-/**
- * Handle the enter event from an input element within the combo box component.
+ * Handle the tab event from an list option element within the combo box component.
  *
  * @param {KeyboardEvent} event An event within the combo box component
  */
@@ -580,12 +570,13 @@ const handleMousemove = listOptionEl => {
  * @param {HTMLElement} el An element within the combo box component
  */
 const toggleList = el => {
-  const { comboBoxEl, listEl } = getComboBoxContext(el);
+  const { comboBoxEl, listEl, inputEl } = getComboBoxContext(el);
 
   if (listEl.hidden) {
     displayList(comboBoxEl);
   } else {
     hideList(comboBoxEl);
+    inputEl.focus();
   }
 };
 
@@ -597,12 +588,15 @@ const comboBox = behavior(
         displayList(this);
       },
       [TOGGLE_LIST_BUTTON]() {
+        if (this.disabled) return;
         toggleList(this);
       },
       [LIST_OPTION]() {
+        if (this.disabled) return;
         selectItem(this);
       },
       [CLEAR_INPUT_BUTTON]() {
+        if (this.disabled) return;
         clearInput(this);
       }
     },
@@ -615,19 +609,17 @@ const comboBox = behavior(
       }
     },
     keydown: {
-      [INPUT]: keymap({
+      [COMBO_BOX]: keymap({
         ArrowDown: handleDown,
         Down: handleDown,
-        Escape: handleEscape,
-        Enter: handleEnterFromInput,
-        Tab: handleTabFromInput
+        Escape: handleEscape
+      }),
+      [INPUT]: keymap({
+        Enter: handleEnterFromInput
       }),
       [LIST_OPTION]: keymap({
         ArrowUp: handleUpFromListOption,
         Up: handleUpFromListOption,
-        ArrowDown: handleDown,
-        Down: handleDown,
-        Escape: handleEscape,
         Enter: handleEnterFromListOption,
         Tab: handleTabFromListOption
       })
