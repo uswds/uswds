@@ -130,6 +130,7 @@ const enhanceComboBox = comboBoxEl => {
   selectEl.setAttribute("tabindex", "-1");
   selectEl.classList.add("usa-sr-only", SELECT_CLASS);
   selectEl.id = "";
+  selectEl.value = "";
 
   ["required", "disabled", "aria-label", "aria-labelledby"].forEach(name => {
     if (selectEl.hasAttribute(name)) {
