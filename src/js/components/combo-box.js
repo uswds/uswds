@@ -27,6 +27,7 @@ const TOGGLE_LIST_BUTTON = `.${TOGGLE_LIST_BUTTON_CLASS}`;
 const LIST = `.${LIST_CLASS}`;
 const LIST_OPTION = `.${LIST_OPTION_CLASS}`;
 const LIST_OPTION_FOCUSED = `.${LIST_OPTION_FOCUSED_CLASS}`;
+const LIST_OPTION_SELECTED = `.${LIST_OPTION_SELECTED_CLASS}`;
 const STATUS = `.${STATUS_CLASS}`;
 
 /**
@@ -77,6 +78,7 @@ const getComboBoxContext = el => {
   const listEl = comboBoxEl.querySelector(LIST);
   const statusEl = comboBoxEl.querySelector(STATUS);
   const focusedOptionEl = comboBoxEl.querySelector(LIST_OPTION_FOCUSED);
+  const selectedOptionEl = comboBoxEl.querySelector(LIST_OPTION_SELECTED);
 
   const isPristine = comboBoxEl.classList.contains(COMBO_BOX_PRISTINE_CLASS);
 
@@ -87,6 +89,7 @@ const getComboBoxContext = el => {
     listEl,
     statusEl,
     focusedOptionEl,
+    selectedOptionEl,
     isPristine
   };
 };
@@ -203,16 +206,22 @@ const highlightOption = (
   nextEl,
   { skipFocus, preventScroll } = {}
 ) => {
-  const { inputEl, listEl } = getComboBoxContext(el);
+  const { inputEl, listEl, selectedOptionEl } = getComboBoxContext(el);
+
+  if (selectedOptionEl) {
+    selectedOptionEl.tabIndex = "-1";
+  }
 
   if (currentEl) {
     currentEl.classList.remove(LIST_OPTION_FOCUSED_CLASS);
     currentEl.setAttribute("aria-selected", "false");
+    currentEl.setAttribute("tabIndex", "-1");
   }
 
   if (nextEl) {
     inputEl.setAttribute("aria-activedescendant", nextEl.id);
     nextEl.setAttribute("aria-selected", "true");
+    nextEl.setAttribute("tabIndex", "0");
     nextEl.classList.add(LIST_OPTION_FOCUSED_CLASS);
 
     if (!preventScroll) {
@@ -267,7 +276,6 @@ const displayList = el => {
     ) {
       if (selectEl.value && optionEl.value === selectEl.value) {
         selectedItemId = `${listOptionBaseId}${options.length}`;
-        console.log(selectedItemId);
       }
 
       options.push(optionEl);
@@ -284,7 +292,6 @@ const displayList = el => {
       if (optionId === selectedItemId) {
         classes.push(LIST_OPTION_SELECTED_CLASS);
         tabindex = "0";
-        console.log(selectedItemId);
       }
 
       if (!selectedItemId && index === 0) {
@@ -364,13 +371,17 @@ const selectItem = listOptionEl => {
  * @param {HTMLButtonElement} clearButtonEl The clear input button
  */
 const clearInput = clearButtonEl => {
-  const { comboBoxEl, selectEl, inputEl } = getComboBoxContext(clearButtonEl);
+  const { comboBoxEl, listEl, selectEl, inputEl } = getComboBoxContext(
+    clearButtonEl
+  );
+  const listShown = !listEl.hidden;
 
-  inputEl.focus();
-  selectEl.value = "";
-  inputEl.value = "";
+  if (selectEl.value) changeElementValue(selectEl);
+  if (inputEl.value) changeElementValue(inputEl);
   comboBoxEl.classList.remove(COMBO_BOX_PRISTINE_CLASS);
-  displayList(comboBoxEl);
+
+  if (listShown) displayList(comboBoxEl);
+  inputEl.focus();
 };
 
 /**
@@ -472,9 +483,13 @@ const handleDown = event => {
     displayList(comboBoxEl);
   }
 
-  const nextOptionEl = focusedOptionEl
-    ? focusedOptionEl.nextSibling
-    : listEl.querySelector(LIST_OPTION);
+  let nextOptionEl =
+    listEl.querySelector(LIST_OPTION_SELECTED) ||
+    listEl.querySelector(LIST_OPTION);
+
+  if (focusedOptionEl) {
+    nextOptionEl = focusedOptionEl.nextSibling;
+  }
 
   if (nextOptionEl) {
     highlightOption(comboBoxEl, focusedOptionEl, nextOptionEl);
@@ -576,16 +591,32 @@ const toggleList = el => {
     displayList(comboBoxEl);
   } else {
     hideList(comboBoxEl);
-    inputEl.focus();
+  }
+
+  inputEl.focus();
+};
+
+/**
+ * Handle click from input
+ *
+ * @param {HTMLInputElement} el An element within the combo box component
+ */
+const handleClickFromInput = el => {
+  const { comboBoxEl, listEl } = getComboBoxContext(el);
+
+  if (listEl.hidden) {
+    displayList(comboBoxEl);
   }
 };
+
+const noop = () => {};
 
 const comboBox = behavior(
   {
     [CLICK]: {
       [INPUT]() {
         if (this.disabled) return;
-        displayList(this);
+        handleClickFromInput(this);
       },
       [TOGGLE_LIST_BUTTON]() {
         if (this.disabled) return;
@@ -621,7 +652,8 @@ const comboBox = behavior(
         ArrowUp: handleUpFromListOption,
         Up: handleUpFromListOption,
         Enter: handleEnterFromListOption,
-        Tab: handleTabFromListOption
+        Tab: handleTabFromListOption,
+        "Shift+Tab": noop
       })
     },
     input: {
