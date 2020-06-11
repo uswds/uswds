@@ -1,5 +1,28 @@
+@function get-svg-url($image-name, $image-path: $theme-image-path) {
+  $image-name: unquote($image-name);
+  @return url("#{$image-path}/#{$image-name}.svg");
+}
+
+@function preload-image($image-url) {
+  $preloaded-images: $preloaded-images get-svg-url($image-url) !global;
+  @return $preloaded-images;
+}
+
+$preloaded-images: null;
+$tmp: preload-image("close-gray-60");
+$tmp: preload-image("close-gray-80");
+$tmp: preload-image("close-black");
+$tmp: preload-image("arrow-down-gray-60");
+$tmp: preload-image("arrow-down-gray-80");
+$tmp: preload-image("arrow-down");
+
 .usa-combo-box {
   position: relative;
+
+  &:before {
+    display: none;
+    content: $preloaded-images;
+  }
 }
 
 .usa-combo-box--pristine {
