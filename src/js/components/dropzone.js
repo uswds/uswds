@@ -36,10 +36,10 @@ const makeSafeForID = name => {
  * @param {HTMLinputElement|HTMLTextAreaElement} inputEl The character count input element
  * @returns {CharacterCountElements} elements The root and message element.
  */
-const getDropzoneElements = droopzone => {
-  const dropzoneEl = droopzone;
-  const inputEl = droopzone.querySelector(INPUT);
-  const dropzoneInstructions = droopzone.querySelector(INSTRUCTIONS);
+const getDropzoneElements = instance => {
+  const dropzoneEl = instance;
+  const inputEl = instance.querySelector(INPUT);
+  const dropzoneInstructions = instance.querySelector(INSTRUCTIONS);
   if (!dropzoneEl) {
     throw new Error(`${INPUT} is missing outer ${DROPZONE}`);
   }
@@ -119,12 +119,11 @@ const dropzone = behavior(
   },
   {
     init(root) {
-      select(DROPZONE, root).forEach(droopzone => {
-        const { inputEl, dropzoneEl, dropzoneInstructions } = getDropzoneElements(droopzone);
+      select(DROPZONE, root).forEach(instance => {
+        const { inputEl, dropzoneEl, dropzoneInstructions } = getDropzoneElements(instance);
 
         setupAttributes(dropzoneEl);
 
-        console.log(inputEl);
         inputEl.onchange = e => {
           handleChange(e, inputEl, dropzoneEl, dropzoneInstructions)
         }
