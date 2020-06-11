@@ -95,6 +95,8 @@ $all-project-colors: general.map-collect(
   $project-state-colors
 );
 
+@debug $all-project-colors;
+
 $palette-colors: general.map-collect(
   $all-project-colors,
   global.$tokens-color-global,
