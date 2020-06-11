@@ -36,14 +36,13 @@ const makeSafeForID = name => {
  * @param {HTMLinputElement|HTMLTextAreaElement} inputEl The character count input element
  * @returns {CharacterCountElements} elements The root and message element.
  */
-const getDropzoneElements = instance => {
-  const dropzoneEl = instance;
-  const inputEl = instance.querySelector(INPUT);
-  const dropzoneInstructions = instance.querySelector(INSTRUCTIONS);
+const getDropzoneElements = dropzoneEl => {
+  const inputEl = dropzoneEl.querySelector(INPUT);
+  const dropzoneInstructions = dropzoneEl.querySelector(INSTRUCTIONS);
   if (!dropzoneEl) {
     throw new Error(`${INPUT} is missing outer ${DROPZONE}`);
   }
-  return { inputEl, dropzoneEl, dropzoneInstructions };
+  return { inputEl, dropzoneInstructions };
 };
 
 
@@ -64,18 +63,17 @@ const setupAttributes = dropzoneEl => {
  */
 
 const handleChange = (e, inputEl, dropzoneEl, dropzoneInstructions) => {
-    const fileNames = e.target.files;
-    const filePreviews = dropzoneEl.querySelectorAll(`.${PREVIEW_CLASS}`);
+  const fileNames = e.target.files;
+  const filePreviews = dropzoneEl.querySelectorAll(`.${PREVIEW_CLASS}`);
 
-    // Get rid of existing previews if they exist
-    if (filePreviews !== null){
-      Array.prototype.forEach.call(filePreviews, function removePreviews(node) {
-        node.parentNode.removeChild(node);
-      });
-    }
+  // Get rid of existing previews if they exist
+  if (filePreviews !== null) {
+    Array.prototype.forEach.call(filePreviews, function removePreviews(node) {
+      node.parentNode.removeChild(node);
+    });
+  }
 
-    for (let i = 0; i < fileNames.length; i += 1)
-    {
+  for (let i = 0; i < fileNames.length; i += 1) {
      const reader = new FileReader();
      const fileName = fileNames[i].name;
 
@@ -98,44 +96,35 @@ const handleChange = (e, inputEl, dropzoneEl, dropzoneInstructions) => {
      if (fileNames[i]) {
         reader.readAsDataURL(fileNames[i]);
      }
-    }
+   }
 }
-
-const handleDragOver = el => {
-  el.classList.add(DRAG_CLASS);
-}
-
-const handleDragLeave = el => {
-  el.classList.remove(DRAG_CLASS);
-}
-
-const handleDrop = el => {
-  el.classList.remove(DRAG_CLASS);
-}
-
 
 const dropzone = behavior(
   {
   },
   {
     init(root) {
-      select(DROPZONE, root).forEach(instance => {
-        const { inputEl, dropzoneEl, dropzoneInstructions } = getDropzoneElements(instance);
+      select(DROPZONE, root).forEach(dropzoneEl => {
+        const { inputEl, dropzoneInstructions } = getDropzoneElements(dropzoneEl);
 
         setupAttributes(dropzoneEl);
+
+        dropzoneEl.addEventListener("dragover", function handleDragOver() {
+          this.classList.add(DRAG_CLASS);
+        }, false);
+
+        dropzoneEl.addEventListener("dragleave", function handleDragLeave() {
+          this.classList.remove(DRAG_CLASS);
+        }, false);
+
+        dropzoneEl.addEventListener("drop", function handleDrop() {
+          this.classList.remove(DRAG_CLASS);
+        }, false);
 
         inputEl.onchange = e => {
           handleChange(e, inputEl, dropzoneEl, dropzoneInstructions)
         }
-        dropzoneEl.ondragover = () => {
-          handleDragOver(dropzoneEl);
-        }
-        dropzoneEl.ondragleave = () => {
-          handleDragLeave(dropzoneEl);
-        }
-        dropzoneEl.ondrop = () => {
-          handleDrop(dropzoneEl);
-        }
+
       });
     }
   }
