@@ -1,22 +1,44 @@
-@mixin set-text-from-bg($bg-token, $dark-token: "black", $light-token: "white") {
-  $grade-bg: get-color-grade($bg-token);
-  $grade-dark: get-color-grade($dark-token);
-  $grade-light: get-color-grade($light-token);
+@mixin set-text-from-bg(
+  $bg-color,
+  $preferred-text-color: "white",
+  $fallback-text-color: "ink",
+  $wcag-target: "AA"
+) {
+  $magic-numbers: (
+    "AA": 50,
+    "AAA": 70,
+    "AA-large": 40
+  );
+  $target-magic-number: map-get($magic-numbers, $wcag-target);
+  $grade-bg: get-color-grade($bg-color);
+  $grade-preferred: get-color-grade($preferred-text-color);
+  $magic-num-preferred: abs($grade-bg - $grade-preferred);
 
-  $min-contrast-grade: $grade-light + 50;
+  //@debug "Background grade: #{$grade-bg} | Preferred text grade: #{$grade-preferred} | Magic number: #{$magic-num-preferred} | Target: #{$target-magic-number}";
 
-  @if $grade-bg >= $min-contrast-grade {
-    color: color($light-token);
-  }
-  @else {
-    @if ($grade-bg - $grade-dark) > 50 {
-      @error "Neither '#{$dark-token}' nor '#{$light-token}' have sufficient contrast on a '#{$bg-token}' background.";
+  @if $magic-num-preferred >= $target-magic-number {
+    color: color($preferred-text-color);
+  } @else {
+    $grade-fallback: get-color-grade($fallback-text-color);
+    $magic-num-fallback: abs($grade-bg - $grade-fallback);
+    @if $magic-num-fallback < $target-magic-number {
+      @error "Neither '#{$preferred-text-color}' nor '#{$fallback-text-color}' have #{$wcag-target} contrast on a '#{$bg-color}' background.";
     }
-    color: color($dark-token);
+    color: color($fallback-text-color);
   }
 }
 
-@mixin set-text-and-bg($bg-token, $dark-token: "black", $light-token: "white") {
-  @include set-text-from-bg($bg-token, $dark-token,$light-token);
-  background-color: color($bg-token);
+@mixin set-text-and-bg(
+  $bg-color,
+  $preferred-text-color: "white",
+  $fallback-text-color: "ink",
+  $wcag-target: "AA"
+) {
+  @include set-text-from-bg(
+    $bg-color,
+    $preferred-text-color,
+    $fallback-text-color,
+    $wcag-target
+  );
+  background-color: color($bg-color);
 }
