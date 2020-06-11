@@ -1,28 +1,5 @@
-@function get-svg-url($image-name, $image-path: $theme-image-path) {
-  $image-name: unquote($image-name);
-  @return url("#{$image-path}/#{$image-name}.svg");
-}
-
-@function preload-image($image-url) {
-  $preloaded-images: $preloaded-images get-svg-url($image-url) !global;
-  @return $preloaded-images;
-}
-
-$preloaded-images: null;
-$tmp: preload-image("close-gray-60");
-$tmp: preload-image("close-gray-80");
-$tmp: preload-image("close-black");
-$tmp: preload-image("arrow-down-gray-60");
-$tmp: preload-image("arrow-down-gray-80");
-$tmp: preload-image("arrow-down");
-
 .usa-combo-box {
   position: relative;
-
-  &:before {
-    display: none;
-    content: $preloaded-images;
-  }
 }
 
 .usa-combo-box--pristine {
@@ -63,7 +40,7 @@ button.usa-combo-box__clear-input {
 .usa-combo-box__clear-input {
   background-color: transparent;
   background-position: center;
-  background-size: units(2);
+  background-size: auto units(1.5);
   border: 0;
   cursor: pointer;
   margin-bottom: 0;
@@ -78,27 +55,11 @@ button.usa-combo-box__clear-input {
 
   display: none;
   right: calc(2.5em + 3px);
-
-  &:hover {
-    @include add-background-svg("close-gray-80");
-  }
-
-  &:active {
-    @include add-background-svg("close-black");
-  }
 }
 
 .usa-combo-box__toggle-list {
   @include add-background-svg("arrow-down-gray-60");
   right: 1px;
-
-  &:hover {
-    @include add-background-svg("arrow-down-gray-80");
-  }
-
-  &:active {
-    @include add-background-svg("arrow-down");
-  }
 }
 
 .usa-combo-box__input-button-separator {
