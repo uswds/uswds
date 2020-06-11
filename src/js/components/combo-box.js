@@ -30,6 +30,8 @@ const LIST_OPTION_FOCUSED = `.${LIST_OPTION_FOCUSED_CLASS}`;
 const LIST_OPTION_SELECTED = `.${LIST_OPTION_SELECTED_CLASS}`;
 const STATUS = `.${STATUS_CLASS}`;
 
+const noop = () => {};
+
 /**
  * set the value of the element and dispatch a change event
  *
@@ -57,6 +59,9 @@ const changeElementValue = (el, value = "") => {
  * @property {HTMLUListElement} listEl
  * @property {HTMLDivElement} statusEl
  * @property {HTMLLIElement} focusedOptionEl
+ * @property {HTMLLIElement} selectedOptionEl
+ * @property {HTMLButtonElement} toggleListBtnEl
+ * @property {HTMLButtonElement} clearInputBtnEl
  */
 
 /**
@@ -79,6 +84,8 @@ const getComboBoxContext = el => {
   const statusEl = comboBoxEl.querySelector(STATUS);
   const focusedOptionEl = comboBoxEl.querySelector(LIST_OPTION_FOCUSED);
   const selectedOptionEl = comboBoxEl.querySelector(LIST_OPTION_SELECTED);
+  const toggleListBtnEl = comboBoxEl.querySelector(TOGGLE_LIST_BUTTON);
+  const clearInputBtnEl = comboBoxEl.querySelector(CLEAR_INPUT_BUTTON);
 
   const isPristine = comboBoxEl.classList.contains(COMBO_BOX_PRISTINE_CLASS);
 
@@ -90,8 +97,38 @@ const getComboBoxContext = el => {
     statusEl,
     focusedOptionEl,
     selectedOptionEl,
+    toggleListBtnEl,
+    clearInputBtnEl,
     isPristine
   };
+};
+
+/**
+ * Disable the combo-box component
+ *
+ * @param {HTMLInputElement} el An element within the combo box component
+ */
+const disable = el => {
+  const { inputEl, toggleListBtnEl, clearInputBtnEl } = getComboBoxContext(el);
+
+  clearInputBtnEl.hidden = true;
+  clearInputBtnEl.disabled = true;
+  toggleListBtnEl.disabled = true;
+  inputEl.disabled = true;
+};
+
+/**
+ * Enable the combo-box component
+ *
+ * @param {HTMLInputElement} el An element within the combo box component
+ */
+const enable = el => {
+  const { inputEl, toggleListBtnEl, clearInputBtnEl } = getComboBoxContext(el);
+
+  clearInputBtnEl.hidden = false;
+  clearInputBtnEl.disabled = false;
+  toggleListBtnEl.disabled = false;
+  inputEl.disabled = false;
 };
 
 /**
@@ -135,7 +172,7 @@ const enhanceComboBox = comboBoxEl => {
   selectEl.id = "";
   selectEl.value = "";
 
-  ["required", "disabled", "aria-label", "aria-labelledby"].forEach(name => {
+  ["required", "aria-label", "aria-labelledby"].forEach(name => {
     if (selectEl.hasAttribute(name)) {
       const value = selectEl.getAttribute(name);
       additionalAttributes.push(`${name}="${value}"`);
@@ -186,6 +223,11 @@ const enhanceComboBox = comboBoxEl => {
     changeElementValue(selectEl, selectedOption.value);
     changeElementValue(inputEl, selectedOption.text);
     comboBoxEl.classList.add(COMBO_BOX_PRISTINE_CLASS);
+  }
+
+  if (selectEl.disabled) {
+    disable(comboBoxEl);
+    selectEl.disabled = false;
   }
 };
 
@@ -323,7 +365,8 @@ const displayList = el => {
     : "No results.";
 
   if (isPristine && selectedItemId) {
-    highlightOption(listEl, null, listEl.querySelector("#" + selectedItemId), {
+    const selectedOptionEl = listEl.querySelector("#" + selectedItemId);
+    highlightOption(listEl, null, selectedOptionEl, {
       skipFocus: true
     });
   }
@@ -366,7 +409,7 @@ const selectItem = listOptionEl => {
 };
 
 /**
- * Clear the input of the combobox
+ * Clear the input of the combo box
  *
  * @param {HTMLButtonElement} clearButtonEl The clear input button
  */
@@ -609,8 +652,6 @@ const handleClickFromInput = el => {
   }
 };
 
-const noop = () => {};
-
 const comboBox = behavior(
   {
     [CLICK]: {
@@ -674,7 +715,12 @@ const comboBox = behavior(
       select(COMBO_BOX, root).forEach(comboBoxEl => {
         enhanceComboBox(comboBoxEl);
       });
-    }
+    },
+    getComboBoxContext,
+    disable,
+    enable,
+    displayList,
+    hideList
   }
 );
 
