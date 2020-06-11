@@ -7,6 +7,7 @@ const search = require("./search");
 const skipnav = require("./skipnav");
 const validator = require("./validator");
 const characterCount = require("./character-count");
+const comboBox = require("./combo-box");
 
 module.exports = {
   accordion,
@@ -17,5 +18,6 @@ module.exports = {
   search,
   skipnav,
   validator,
-  characterCount
+  characterCount,
+  comboBox
 };
