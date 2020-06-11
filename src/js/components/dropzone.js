@@ -36,14 +36,14 @@ const makeSafeForID = name => {
  * @param {HTMLinputElement|HTMLTextAreaElement} inputEl The character count input element
  * @returns {CharacterCountElements} elements The root and message element.
  */
-const getinputElements = inputEl => {
-  const dropzoneEl = inputEl.closest(DROPZONE);
-  const dropzoneInstructions = inputEl.querySelector(INSTRUCTIONS);
+const getDropzoneElements = droopzone => {
+  const dropzoneEl = droopzone;
+  const inputEl = droopzone.querySelector(INPUT);
+  const dropzoneInstructions = droopzone.querySelector(INSTRUCTIONS);
   if (!dropzoneEl) {
     throw new Error(`${INPUT} is missing outer ${DROPZONE}`);
   }
-
-  return { dropzoneEl, dropzoneInstructions };
+  return { inputEl, dropzoneEl, dropzoneInstructions };
 };
 
 
@@ -52,11 +52,8 @@ const getinputElements = inputEl => {
  *
  * @param {HTMLinputElement|HTMLTextAreaElement} inputEl The character count input element
  */
-const setupAttributes = inputEl => {
-  const { dropzoneEl } = getinputElements(inputEl);
-
+const setupAttributes = dropzoneEl => {
   dropzoneEl.classList.add(INITIALIZED_CLASS);
-
 };
 
 
@@ -122,10 +119,12 @@ const dropzone = behavior(
   },
   {
     init(root) {
-      select(DROPZONE, root).forEach(inputEl => {
-        const { dropzoneEl, dropzoneInstructions } = getinputElements(inputEl);
+      select(DROPZONE, root).forEach(droopzone => {
+        const { inputEl, dropzoneEl, dropzoneInstructions } = getDropzoneElements(droopzone);
 
-        setupAttributes(inputEl);
+        setupAttributes(dropzoneEl);
+
+        console.log(inputEl);
         inputEl.onchange = e => {
           handleChange(e, inputEl, dropzoneEl, dropzoneInstructions)
         }
