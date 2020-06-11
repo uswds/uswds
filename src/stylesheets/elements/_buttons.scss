@@ -53,22 +53,22 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
 
 .usa-button--accent-cool {
   @include no-knockout-font-smoothing;
-  @include set-text-and-bg("accent-cool", "ink");
+  @include set-text-and-bg("accent-cool");
 
   &:visited {
-    @include set-text-and-bg("accent-cool", "ink");
+    @include set-text-and-bg("accent-cool");
   }
 
   &:hover,
   &.usa-button--hover {
     @include add-knockout-font-smoothing;
-    @include set-text-and-bg("accent-cool-dark", "ink");
+    @include set-text-and-bg("accent-cool-dark");
   }
 
   &:active,
   &.usa-button--active {
     @include add-knockout-font-smoothing;
-    @include set-text-and-bg("accent-cool-darker", "ink");
+    @include set-text-and-bg("accent-cool-darker");
   }
 }
 
