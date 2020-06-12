@@ -11,7 +11,6 @@ const rename = require("gulp-rename");
 const sass = require("gulp-sass");
 const sourcemaps = require("gulp-sourcemaps");
 const changed = require("gulp-changed");
-const autoprefixerOptions = require("./browsers");
 const dutil = require("./doc-util");
 const pkg = require("../../package.json");
 
@@ -88,10 +87,7 @@ gulp.task(
   "sass",
   gulp.series("copy-vendor-sass", () => {
     dutil.logMessage(task, "Compiling Sass");
-    const pluginsProcess = [
-      discardComments(),
-      autoprefixer(autoprefixerOptions)
-    ];
+    const pluginsProcess = [discardComments(), autoprefixer()];
     const pluginsMinify = [csso({ forceMediaMerge: false })];
 
     return gulp
