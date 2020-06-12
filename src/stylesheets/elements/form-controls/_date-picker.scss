@@ -120,10 +120,9 @@
 
 .usa-date-picker__calendar__date {
   @extend %usa-date-picker__button;
-  background-color: color("base-lightest");
   padding: 10px 0px;
 
-  &--selected-date {
+  &--selected {
     @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
   }
 
@@ -196,6 +195,34 @@
 .usa-date-picker__calendar__month {
   @extend %usa-date-picker__button;
   padding: 10px 0;
+
+  &--selected {
+    @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
+  }
+
+  &--focused {
+    background-color: color("primary-vivid");
+    color: color("gray-2");
+
+    &:not([disabled]) {
+      background-color: color("primary-vivid");
+      color: color("gray-2");
+
+      &:hover {
+        background-color: color("primary-vivid");
+        color: color("gray-10");
+      }
+
+      &:focus {
+        background-color: color("primary-vivid");
+        color: color("gray-2");
+      }
+
+      &:active {
+        background-color: color("primary-dark");
+      }
+    }
+  }
 }
 
 // Date Picker - Year Selection View
@@ -230,4 +257,32 @@
 .usa-date-picker__calendar__year {
   @extend %usa-date-picker__button;
   padding: 10px 0;
+
+  &--selected {
+    @include focus-outline($width: 2px, $offset: -2px, $color: "blue-warm-80v");
+  }
+
+  &--focused {
+    background-color: color("primary-vivid");
+    color: color("gray-2");
+
+    &:not([disabled]) {
+      background-color: color("primary-vivid");
+      color: color("gray-2");
+
+      &:hover {
+        background-color: color("primary-vivid");
+        color: color("gray-10");
+      }
+
+      &:focus {
+        background-color: color("primary-vivid");
+        color: color("gray-2");
+      }
+
+      &:active {
+        background-color: color("primary-dark");
+      }
+    }
+  }
 }

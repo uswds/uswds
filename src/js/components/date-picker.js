@@ -13,10 +13,10 @@ const DATE_PICKER_STATUS_CLASS = `${DATE_PICKER_CLASS}__status`;
 const CALENDAR_DATE_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__date`;
 
 const CALENDAR_DATE_FOCUSED_CLASS = `${CALENDAR_DATE_CLASS}--focused`;
+const CALENDAR_DATE_SELECTED_CLASS = `${CALENDAR_DATE_CLASS}--selected`;
 const CALENDAR_DATE_PREVIOUS_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--previous-month`;
 const CALENDAR_DATE_CURRENT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--current-month`;
 const CALENDAR_DATE_NEXT_MONTH_CLASS = `${CALENDAR_DATE_CLASS}--next-month`;
-const CALENDAR_DATE_SELECTED_CLASS = `${CALENDAR_DATE_CLASS}--selected-date`;
 const CALENDAR_DATE_RANGE_DATE_CLASS = `${CALENDAR_DATE_CLASS}--range-date`;
 const CALENDAR_DATE_RANGE_DATE_START_CLASS = `${CALENDAR_DATE_CLASS}--range-date-start`;
 const CALENDAR_DATE_RANGE_DATE_END_CLASS = `${CALENDAR_DATE_CLASS}--range-date-end`;
@@ -28,7 +28,11 @@ const CALENDAR_NEXT_MONTH_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__next-month`;
 const CALENDAR_MONTH_SELECTION_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__month-selection`;
 const CALENDAR_YEAR_SELECTION_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year-selection`;
 const CALENDAR_MONTH_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__month`;
+const CALENDAR_MONTH_FOCUSED_CLASS = `${CALENDAR_MONTH_CLASS}--focused`;
+const CALENDAR_MONTH_SELECTED_CLASS = `${CALENDAR_MONTH_CLASS}--selected`;
 const CALENDAR_YEAR_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__year`;
+const CALENDAR_YEAR_FOCUSED_CLASS = `${CALENDAR_YEAR_CLASS}--focused`;
+const CALENDAR_YEAR_SELECTED_CLASS = `${CALENDAR_YEAR_CLASS}--selected`;
 const CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__previous-year-chunk`;
 const CALENDAR_NEXT_YEAR_CHUNK_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__next-year-chunk`;
 const CALENDAR_DATE_PICKER_CLASS = `${DATE_PICKER_CALENDAR_CLASS}__date-picker`;
@@ -60,10 +64,11 @@ const CALENDAR_MONTH = `.${CALENDAR_MONTH_CLASS}`;
 const CALENDAR_YEAR = `.${CALENDAR_YEAR_CLASS}`;
 const CALENDAR_PREVIOUS_YEAR_CHUNK = `.${CALENDAR_PREVIOUS_YEAR_CHUNK_CLASS}`;
 const CALENDAR_NEXT_YEAR_CHUNK = `.${CALENDAR_NEXT_YEAR_CHUNK_CLASS}`;
-
 const CALENDAR_DATE_PICKER = `.${CALENDAR_DATE_PICKER_CLASS}`;
 const CALENDAR_MONTH_PICKER = `.${CALENDAR_MONTH_PICKER_CLASS}`;
 const CALENDAR_YEAR_PICKER = `.${CALENDAR_YEAR_PICKER_CLASS}`;
+const CALENDAR_MONTH_FOCUSED = `.${CALENDAR_MONTH_FOCUSED_CLASS}`;
+const CALENDAR_YEAR_FOCUSED = `.${CALENDAR_YEAR_FOCUSED_CLASS}`;
 
 const VALIDATION_MESSAGE = "Please enter a valid date";
 
@@ -710,8 +715,9 @@ const validateDateInput = el => {
  *
  * @param {HTMLElement} el An element within the date picker component
  * @param {Date} _dateToDisplay a date to render on the calendar
+ * @returns {HTMLElement} a reference to the new calendar element
  */
-const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
+const renderCalendar = (el, _dateToDisplay) => {
   const {
     datePickerEl,
     calendarEl,
@@ -916,10 +922,7 @@ const renderCalendar = (el, _dateToDisplay, adjustFocus = true) => {
     statusEl.textContent = `${monthLabel} ${focusedYear}`;
   }
 
-  if (adjustFocus) {
-    const focusedDateEl = newCalendar.querySelector(CALENDAR_DATE_FOCUSED);
-    focusedDateEl.focus();
-  }
+  return newCalendar;
 };
 
 /**
@@ -1025,7 +1028,8 @@ const selectMonth = monthEl => {
   const selectedMonth = parseInt(monthEl.dataset.value, 10);
   let date = setMonth(calendarDate, selectedMonth);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  renderCalendar(calendarEl, date);
+  const newCalendar = renderCalendar(calendarEl, date);
+  newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
 };
 
 /**
@@ -1041,15 +1045,17 @@ const selectYear = yearEl => {
   const selectedYear = parseInt(yearEl.innerHTML, 10);
   let date = setYear(calendarDate, selectedYear);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  renderCalendar(calendarEl, date);
+  const newCalendar = renderCalendar(calendarEl, date);
+  newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
 };
 
 /**
  * Display the month selection screen in the date picker.
  *
  * @param {HTMLButtonElement} el An element within the date picker component
+ * @returns {HTMLElement} a reference to the new calendar element
  */
-const displayMonthSelection = el => {
+const displayMonthSelection = (el, monthToDisplay) => {
   const {
     calendarEl,
     statusEl,
@@ -1058,18 +1064,31 @@ const displayMonthSelection = el => {
     maxDate
   } = getDatePickerContext(el);
 
+  const selectedMonth = calendarDate.getMonth();
+  const focusedMonth = monthToDisplay || selectedMonth;
+
   const months = MONTH_LABELS.map((month, index) => {
-    const monthToDisplay = setMonth(calendarDate, index);
+    const monthToCheck = setMonth(calendarDate, index);
 
     const isDisabled = isDatesMonthOutsideMinOrMax(
-      monthToDisplay,
+      monthToCheck,
       minDate,
       maxDate
     );
 
+    const classes = [CALENDAR_MONTH_CLASS];
+
+    if (index === focusedMonth) {
+      classes.push(CALENDAR_MONTH_FOCUSED_CLASS);
+    }
+
+    if (index === selectedMonth) {
+      classes.push(CALENDAR_MONTH_SELECTED_CLASS);
+    }
+
     return `<button 
         type="button" 
-        class="${CALENDAR_MONTH_CLASS}" 
+        class="${classes.join(" ")}" 
         data-value="${index}"
         data-label="${month}"
         ${isDisabled ? `disabled="disabled"` : ""}
@@ -1085,9 +1104,9 @@ const displayMonthSelection = el => {
   newCalendar.innerHTML = monthsHtml;
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
-  newCalendar.focus();
-
   statusEl.textContent = "Select a month.";
+
+  return newCalendar;
 };
 
 /**
@@ -1095,6 +1114,7 @@ const displayMonthSelection = el => {
  *
  * @param {HTMLButtonElement} el An element within the date picker component
  * @param {number} yearToDisplay year to display in year selection
+ * @returns {HTMLElement} a reference to the new calendar element
  */
 const displayYearSelection = (el, yearToDisplay) => {
   const {
@@ -1104,11 +1124,11 @@ const displayYearSelection = (el, yearToDisplay) => {
     minDate,
     maxDate
   } = getDatePickerContext(el);
-  let yearToChunk = yearToDisplay;
 
-  if (yearToChunk == null) {
-    yearToChunk = calendarDate.getFullYear();
-  }
+  const selectedYear = calendarDate.getFullYear();
+  const focusedYear = yearToDisplay || selectedYear;
+
+  let yearToChunk = focusedYear;
   yearToChunk -= yearToChunk % YEAR_CHUNK;
   yearToChunk = Math.max(0, yearToChunk);
 
@@ -1133,10 +1153,20 @@ const displayYearSelection = (el, yearToDisplay) => {
       maxDate
     );
 
+    const classes = [CALENDAR_YEAR_CLASS];
+
+    if (yearIndex === focusedYear) {
+      classes.push(CALENDAR_YEAR_FOCUSED_CLASS);
+    }
+
+    if (yearIndex === selectedYear) {
+      classes.push(CALENDAR_YEAR_SELECTED_CLASS);
+    }
+
     years.push(
       `<button 
         type="button" 
-        class="${CALENDAR_YEAR_CLASS}" 
+        class="${classes.join(" ")}" 
         data-value="${yearIndex}"
         ${isDisabled ? `disabled="disabled"` : ""}
       >${yearIndex}</button>`
@@ -1166,11 +1196,11 @@ const displayYearSelection = (el, yearToDisplay) => {
     </div>`;
   calendarEl.parentNode.replaceChild(newCalendar, calendarEl);
 
-  newCalendar.focus();
-
   statusEl.textContent = `Showing years ${yearToChunk} to ${yearToChunk +
     YEAR_CHUNK -
     1}. Select a year.`;
+
+  return newCalendar;
 };
 
 /**
@@ -1211,7 +1241,8 @@ const handleUpFromDate = event => {
   const date = subWeeks(calendarDate, 1);
   const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
   if (!isSameDay(calendarDate, cappedDate)) {
-    renderCalendar(calendarEl, cappedDate);
+    const newCalendar = renderCalendar(calendarEl, cappedDate);
+    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
   }
   event.preventDefault();
 };
@@ -1228,7 +1259,8 @@ const handleDownFromDate = event => {
   const date = addWeeks(calendarDate, 1);
   const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
   if (!isSameDay(calendarDate, cappedDate)) {
-    renderCalendar(calendarEl, cappedDate);
+    const newCalendar = renderCalendar(calendarEl, cappedDate);
+    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
   }
   event.preventDefault();
 };
@@ -1245,7 +1277,8 @@ const handleLeftFromDate = event => {
   const date = subDays(calendarDate, 1);
   const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
   if (!isSameDay(calendarDate, cappedDate)) {
-    renderCalendar(calendarEl, cappedDate);
+    const newCalendar = renderCalendar(calendarEl, cappedDate);
+    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
   }
   event.preventDefault();
 };
@@ -1262,7 +1295,8 @@ const handleRightFromDate = event => {
   const date = addDays(calendarDate, 1);
   const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
   if (!isSameDay(calendarDate, cappedDate)) {
-    renderCalendar(calendarEl, cappedDate);
+    const newCalendar = renderCalendar(calendarEl, cappedDate);
+    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
   }
   event.preventDefault();
 };
@@ -1279,7 +1313,8 @@ const handleHomeFromDate = event => {
   const date = startOfWeek(calendarDate);
   const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
   if (!isSameDay(calendarDate, cappedDate)) {
-    renderCalendar(calendarEl, cappedDate);
+    const newCalendar = renderCalendar(calendarEl, cappedDate);
+    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
   }
   event.preventDefault();
 };
@@ -1296,7 +1331,8 @@ const handleEndFromDate = event => {
   const date = endOfWeek(calendarDate);
   const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
   if (!isSameDay(calendarDate, cappedDate)) {
-    renderCalendar(calendarEl, cappedDate);
+    const newCalendar = renderCalendar(calendarEl, cappedDate);
+    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
   }
   event.preventDefault();
 };
@@ -1313,7 +1349,8 @@ const handlePageDownFromDate = event => {
   const date = addMonths(calendarDate, 1);
   const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
   if (!isSameDay(calendarDate, cappedDate)) {
-    renderCalendar(calendarEl, cappedDate);
+    const newCalendar = renderCalendar(calendarEl, cappedDate);
+    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
   }
   event.preventDefault();
 };
@@ -1330,7 +1367,8 @@ const handlePageUpFromDate = event => {
   const date = subMonths(calendarDate, 1);
   const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
   if (!isSameDay(calendarDate, cappedDate)) {
-    renderCalendar(calendarEl, cappedDate);
+    const newCalendar = renderCalendar(calendarEl, cappedDate);
+    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
   }
   event.preventDefault();
 };
@@ -1347,7 +1385,8 @@ const handleShiftPageDownFromDate = event => {
   const date = addYears(calendarDate, 1);
   const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
   if (!isSameDay(calendarDate, cappedDate)) {
-    renderCalendar(calendarEl, cappedDate);
+    const newCalendar = renderCalendar(calendarEl, cappedDate);
+    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
   }
   event.preventDefault();
 };
@@ -1364,7 +1403,8 @@ const handleShiftPageUpFromDate = event => {
   const date = subYears(calendarDate, 1);
   const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
   if (!isSameDay(calendarDate, cappedDate)) {
-    renderCalendar(calendarEl, cappedDate);
+    const newCalendar = renderCalendar(calendarEl, cappedDate);
+    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
   }
   event.preventDefault();
 };
@@ -1406,7 +1446,8 @@ const toggleCalendar = el => {
       minDate,
       maxDate
     );
-    renderCalendar(calendarEl, dateToDisplay);
+    const newCalendar = renderCalendar(calendarEl, dateToDisplay);
+    newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
   } else {
     hideCalendar(el);
   }
@@ -1423,7 +1464,7 @@ const updateCalendarIfVisible = el => {
 
   if (calendarShown && inputDate) {
     const dateToDisplay = keepDateBetweenMinAndMax(inputDate, minDate, maxDate);
-    renderCalendar(calendarEl, dateToDisplay, false);
+    renderCalendar(calendarEl, dateToDisplay);
   }
 };
 
@@ -1443,7 +1484,8 @@ const handleMousemove = dateEl => {
   if (hoverDate === currentCalendarDate) return;
 
   const dateToDisplay = parseDateString(hoverDate);
-  renderCalendar(calendarEl, dateToDisplay);
+  const newCalendar = renderCalendar(calendarEl, dateToDisplay);
+  newCalendar.querySelector(CALENDAR_DATE_FOCUSED).focus();
 };
 
 const datePicker = behavior(
@@ -1480,10 +1522,12 @@ const datePicker = behavior(
         displayNextYearChunk(this);
       },
       [CALENDAR_MONTH_SELECTION]() {
-        displayMonthSelection(this);
+        const newCalendar = displayMonthSelection(this);
+        newCalendar.querySelector(CALENDAR_MONTH_FOCUSED).focus();
       },
       [CALENDAR_YEAR_SELECTION]() {
-        displayYearSelection(this);
+        const newCalendar = displayYearSelection(this);
+        newCalendar.querySelector(CALENDAR_YEAR_FOCUSED).focus();
       }
     },
     keyup: {

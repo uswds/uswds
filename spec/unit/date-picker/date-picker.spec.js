@@ -253,14 +253,18 @@ describe("date picker component", () => {
       )
     );
 
+    const focusedMonth = document.activeElement;
+
+    assert.equal(
+      focusedMonth.classList.contains(
+        "usa-date-picker__calendar__month--focused"
+      ),
+      true,
+      "calendar month is focused"
+    );
     assert.ok(
       getCalendarEl().querySelector(".usa-date-picker__calendar__month-picker"),
       "calendar is showing the month picker"
-    );
-    assert.equal(
-      document.activeElement,
-      getCalendarEl(),
-      "calendar is focused"
     );
   });
 
@@ -295,6 +299,7 @@ describe("date picker component", () => {
       )
     );
 
+    const focusedYear = document.activeElement;
     assert.ok(
       getCalendarEl().querySelector(".usa-date-picker__calendar__year-picker"),
       "calendar is showing the year picker"
@@ -306,9 +311,11 @@ describe("date picker component", () => {
       "shows correct first year of chunk"
     );
     assert.equal(
-      document.activeElement,
-      getCalendarEl(),
-      "calendar is focused"
+      focusedYear.classList.contains(
+        "usa-date-picker__calendar__year--focused"
+      ),
+      true,
+      "calendar year is focused"
     );
   });
 
