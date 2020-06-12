@@ -4,11 +4,11 @@ const behavior = require("./behavior");
 const select = require("./select");
 const activeElement = require("./active-element");
 
-const FOCUSABLE =
+const DEFAULT_FOCUSABLE =
   'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
 
 const tabHandler = context => {
-  const focusableElements = select(FOCUSABLE, context);
+  const focusableElements = select(DEFAULT_FOCUSABLE, context);
   const firstTabStop = focusableElements[0];
   const lastTabStop = focusableElements[focusableElements.length - 1];
 
