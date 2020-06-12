@@ -102,6 +102,18 @@ EVENTS.keydownArrowDown = el => {
   el.dispatchEvent(evt);
 };
 
+/**
+ * send a keydown Tab event
+ * @param {HTMLElement} el the element to sent the event to
+ */
+EVENTS.keydownTab = el => {
+  const evt = new KeyboardEvent("keydown", {
+    bubbles: true,
+    key: "Tab"
+  });
+  el.dispatchEvent(evt);
+};
+
 describe("combo box component change event dispatch", () => {
   const { body } = document;
 
@@ -172,6 +184,7 @@ describe("combo box component change event dispatch", () => {
     EVENTS.keyupA(input);
     assert.ok(!list.hidden, "should display the option list");
 
+    EVENTS.keydownTab(input);
     EVENTS.focusout(input);
 
     assert.equal(select.value, "", "should clear the value on the select");
@@ -224,6 +237,7 @@ describe("combo box component change event dispatch", () => {
     EVENTS.keyupO(input);
     assert.ok(!list.hidden, "should display the option list");
 
+    EVENTS.keydownTab(input);
     EVENTS.focusout(input);
 
     assert.equal(
