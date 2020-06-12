@@ -3,6 +3,7 @@ const behavior = require("../utils/behavior");
 const select = require("../utils/select");
 const { prefix: PREFIX } = require("../config");
 const { CLICK } = require("../events");
+const activeElement = require("../utils/active-element");
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_PICKER_ACTIVE_CLASS = `${DATE_PICKER_CLASS}--active`;
@@ -102,6 +103,24 @@ const ENTER_KEYCODE = 13;
 const YEAR_CHUNK = 12;
 
 const DEFAULT_MIN_DATE = "01/01/0000";
+
+const DATE_PICKER_FOCUSABLE = [
+  CALENDAR_PREVIOUS_YEAR,
+  CALENDAR_PREVIOUS_MONTH,
+  CALENDAR_YEAR_SELECTION,
+  CALENDAR_MONTH_SELECTION,
+  CALENDAR_NEXT_YEAR,
+  CALENDAR_NEXT_MONTH,
+  CALENDAR_DATE_FOCUSED
+].join(", ");
+
+const MONTH_PICKER_FOCUSABLE = CALENDAR_MONTH_FOCUSED;
+
+const YEAR_PICKER_FOCUSABLE = [
+  CALENDAR_PREVIOUS_YEAR_CHUNK,
+  CALENDAR_NEXT_YEAR_CHUNK,
+  CALENDAR_YEAR_FOCUSED
+].join(", ");
 
 // #region Date Manipulation Functions
 
@@ -857,7 +876,6 @@ const renderCalendar = (el, _dateToDisplay) => {
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
           <button 
             type="button"
-            tabindex="-1"
             class="${CALENDAR_PREVIOUS_YEAR_CLASS}"
             aria-label="Navigate back one year"
             ${prevButtonsDisabled ? `disabled="disabled"` : ""}
@@ -866,7 +884,6 @@ const renderCalendar = (el, _dateToDisplay) => {
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
           <button 
             type="button"
-            tabindex="-1"
             class="${CALENDAR_PREVIOUS_MONTH_CLASS}"
             aria-label="Navigate back one month"
             ${prevButtonsDisabled ? `disabled="disabled"` : ""}
@@ -875,19 +892,16 @@ const renderCalendar = (el, _dateToDisplay) => {
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_MONTH_LABEL_CLASS}">
           <button 
             type="button"
-            tabindex="-1"
             class="${CALENDAR_MONTH_SELECTION_CLASS}" aria-label="${monthLabel}. Click to select month"
           >${monthLabel}</button>
           <button 
             type="button"
-            tabindex="-1"
             class="${CALENDAR_YEAR_SELECTION_CLASS}" aria-label="${focusedYear}. Click to select year"
           >${focusedYear}</button>
         </div>
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
           <button 
             type="button"
-            tabindex="-1"
             class="${CALENDAR_NEXT_MONTH_CLASS}"
             aria-label="Navigate forward one month"
             ${nextButtonsDisabled ? `disabled="disabled"` : ""}
@@ -896,7 +910,6 @@ const renderCalendar = (el, _dateToDisplay) => {
         <div class="${CALENDAR_CELL_CLASS} ${CALENDAR_CELL_CENTER_ITEMS_CLASS}">
           <button 
             type="button"
-            tabindex="-1"
             class="${CALENDAR_NEXT_YEAR_CLASS}"
             aria-label="Navigate forward one year"
             ${nextButtonsDisabled ? `disabled="disabled"` : ""}
@@ -1093,7 +1106,8 @@ const displayMonthSelection = (el, monthToDisplay) => {
     }
 
     return `<button 
-        type="button" 
+        type="button"
+        tabindex="-1"
         class="${classes.join(" ")}" 
         data-value="${index}"
         data-label="${month}"
@@ -1172,6 +1186,7 @@ const displayYearSelection = (el, yearToDisplay) => {
     years.push(
       `<button 
         type="button" 
+        tabindex="-1"
         class="${classes.join(" ")}" 
         data-value="${yearIndex}"
         ${isDisabled ? `disabled="disabled"` : ""}
@@ -1626,6 +1641,44 @@ const updateCalendarIfVisible = el => {
   }
 };
 
+const tabHandler = focusable => {
+  const getFocusableContext = el => {
+    const { calendarEl } = getDatePickerContext(el);
+    const focusableElements = select(focusable, calendarEl);
+    const firstTabStop = focusableElements[0];
+    const lastTabStop = focusableElements[focusableElements.length - 1];
+
+    return {
+      focusableElements,
+      firstTabStop,
+      lastTabStop
+    };
+  };
+
+  return {
+    tabAhead(event) {
+      const { firstTabStop, lastTabStop } = getFocusableContext(event.target);
+
+      if (activeElement() === lastTabStop) {
+        event.preventDefault();
+        firstTabStop.focus();
+      }
+    },
+    tabBack(event) {
+      const { firstTabStop, lastTabStop } = getFocusableContext(event.target);
+
+      if (activeElement() === firstTabStop) {
+        event.preventDefault();
+        lastTabStop.focus();
+      }
+    }
+  };
+};
+
+const datePickerTabEventHandler = tabHandler(DATE_PICKER_FOCUSABLE);
+const monthPickerTabEventHandler = tabHandler(MONTH_PICKER_FOCUSABLE);
+const yearPickerTabEventHandler = tabHandler(YEAR_PICKER_FOCUSABLE);
+
 const datePicker = behavior(
   {
     [CLICK]: {
@@ -1692,6 +1745,10 @@ const datePicker = behavior(
         keyMap(event);
       },
       [CALENDAR_DATE_PICKER]: keymap({
+        Tab: datePickerTabEventHandler.tabAhead,
+        "Shift+Tab": datePickerTabEventHandler.tabBack
+      }),
+      [CALENDAR_DATE]: keymap({
         Up: handleUpFromDate,
         ArrowUp: handleUpFromDate,
         Down: handleDownFromDate,
@@ -1708,6 +1765,10 @@ const datePicker = behavior(
         "Shift+PageUp": handleShiftPageUpFromDate
       }),
       [CALENDAR_MONTH_PICKER]: keymap({
+        Tab: monthPickerTabEventHandler.tabAhead,
+        "Shift+Tab": monthPickerTabEventHandler.tabBack
+      }),
+      [CALENDAR_MONTH]: keymap({
         Up: handleUpFromMonth,
         ArrowUp: handleUpFromMonth,
         Down: handleDownFromMonth,
@@ -1722,6 +1783,10 @@ const datePicker = behavior(
         PageUp: handlePageUpFromMonth
       }),
       [CALENDAR_YEAR_PICKER]: keymap({
+        Tab: yearPickerTabEventHandler.tabAhead,
+        "Shift+Tab": yearPickerTabEventHandler.tabBack
+      }),
+      [CALENDAR_YEAR]: keymap({
         Up: handleUpFromYear,
         ArrowUp: handleUpFromYear,
         Down: handleDownFromYear,
