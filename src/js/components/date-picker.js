@@ -346,19 +346,25 @@ const max = (dateA, dateB) => {
 };
 
 /**
+ * Check if dates are the in the same year
+ *
+ * @param {Date} dateA date to compare
+ * @param {Date} dateB date to compare
+ * @returns {boolean} are dates in the same year
+ */
+const isSameYear = (dateA, dateB) => {
+  return dateA && dateB && dateA.getFullYear() === dateB.getFullYear();
+};
+
+/**
  * Check if dates are the in the same month
  *
  * @param {Date} dateA date to compare
  * @param {Date} dateB date to compare
- * @returns {Date} the adjusted date
+ * @returns {boolean} are dates in the same month
  */
 const isSameMonth = (dateA, dateB) => {
-  return (
-    dateA &&
-    dateB &&
-    dateA.getFullYear() === dateB.getFullYear() &&
-    dateA.getMonth() === dateB.getMonth()
-  );
+  return isSameYear(dateA, dateB) && dateA.getMonth() === dateB.getMonth();
 };
 
 /**
@@ -366,7 +372,7 @@ const isSameMonth = (dateA, dateB) => {
  *
  * @param {Date} dateA the date to compare
  * @param {Date} dateA the date to compare
- * @returns {Date} the adjusted date
+ * @returns {boolean} are dates the same date
  */
 const isSameDay = (dateA, dateB) => {
   return isSameMonth(dateA, dateB) && dateA.getDate() === dateB.getDate();
@@ -1451,6 +1457,96 @@ const handleMousemoveFromDate = dateEl => {
 
 // #region Calendar Month Event Handling
 
+const adjustMonthSelectionScreen = adjustMonthFn => {
+  return event => {
+    const monthEl = event.target;
+    const selectedMonth = parseInt(monthEl.dataset.value, 10);
+    const { calendarEl, calendarDate, minDate, maxDate } = getDatePickerContext(
+      monthEl
+    );
+    const currentDate = setMonth(calendarDate, selectedMonth);
+
+    let adjustedMonth = adjustMonthFn(selectedMonth);
+    adjustedMonth = Math.max(0, Math.min(11, adjustedMonth));
+
+    const date = setMonth(calendarDate, adjustedMonth);
+    const cappedDate = keepDateBetweenMinAndMax(date, minDate, maxDate);
+    if (!isSameMonth(currentDate, cappedDate)) {
+      const newCalendar = displayMonthSelection(calendarEl, adjustedMonth);
+      newCalendar.querySelector(CALENDAR_MONTH_FOCUSED).focus();
+    }
+    event.preventDefault();
+  };
+};
+
+/**
+ * Navigate back three months and display the month selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleUpFromMonth = adjustMonthSelectionScreen(
+  selectedMonth => selectedMonth - 3
+);
+
+/**
+ * Navigate forward three months and display the month selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleDownFromMonth = adjustMonthSelectionScreen(
+  selectedMonth => selectedMonth + 3
+);
+
+/**
+ * Navigate back one month and display the month selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleLeftFromMonth = adjustMonthSelectionScreen(
+  selectedMonth => selectedMonth - 1
+);
+
+/**
+ * Navigate forward one month and display the month selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleRightFromMonth = adjustMonthSelectionScreen(
+  selectedMonth => selectedMonth + 1
+);
+
+/**
+ * Navigate to the start of the row of months and display the month selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleHomeFromMonth = adjustMonthSelectionScreen(
+  selectedMonth => selectedMonth - (selectedMonth % 3)
+);
+
+/**
+ * Navigate to the end of the row of months and display the month selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handleEndFromMonth = adjustMonthSelectionScreen(
+  selectedMonth => selectedMonth + 2 - (selectedMonth % 3)
+);
+
+/**
+ * Navigate to the last month (December) and display the month selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handlePageDownFromMonth = adjustMonthSelectionScreen(() => 11);
+
+/**
+ * Navigate to the first month (January) and display the month selection screen.
+ *
+ * @param {KeyboardEvent} event the keydown event
+ */
+const handlePageUpFromMonth = adjustMonthSelectionScreen(() => 0);
+
 /**
  * update the focus on a month when the mouse moves.
  *
@@ -1614,7 +1710,18 @@ const datePicker = behavior(
         "Shift+PageUp": handleShiftPageUpFromDate
       }),
       [CALENDAR_MONTH_PICKER]: keymap({
-        Escape: handleEscapeFromCalendar
+        Up: handleUpFromMonth,
+        ArrowUp: handleUpFromMonth,
+        Down: handleDownFromMonth,
+        ArrowDown: handleDownFromMonth,
+        Left: handleLeftFromMonth,
+        ArrowLeft: handleLeftFromMonth,
+        Right: handleRightFromMonth,
+        ArrowRight: handleRightFromMonth,
+        Home: handleHomeFromMonth,
+        End: handleEndFromMonth,
+        PageDown: handlePageDownFromMonth,
+        PageUp: handlePageUpFromMonth
       }),
       [CALENDAR_YEAR_PICKER]: keymap({
         Escape: handleEscapeFromCalendar
