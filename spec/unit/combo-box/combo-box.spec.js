@@ -190,12 +190,8 @@ describe("combo box component", () => {
       select.classList.contains("usa-combo-box__select"),
       "add the class for the select element"
     );
-    assert.equal(
-      select.value,
-      "value-JavaScript",
-      "select the selected select item"
-    );
-    assert.equal(input.value, "JavaScript", "select the selected select item");
+    assert.equal(select.value, "", "the select value should be empty");
+    assert.equal(input.value, "", "the input should be empty");
   });
 
   it("should show the list by clicking the input", () => {
