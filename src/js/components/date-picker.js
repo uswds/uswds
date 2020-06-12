@@ -956,7 +956,8 @@ const displayPreviousYear = _buttonEl => {
   );
   let date = subYears(calendarDate, 1);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  renderCalendar(calendarEl, date);
+  const newCalendar = renderCalendar(calendarEl, date);
+  newCalendar.querySelector(CALENDAR_PREVIOUS_YEAR).focus();
 };
 
 /**
@@ -971,7 +972,8 @@ const displayPreviousMonth = _buttonEl => {
   );
   let date = subMonths(calendarDate, 1);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  renderCalendar(calendarEl, date);
+  const newCalendar = renderCalendar(calendarEl, date);
+  newCalendar.querySelector(CALENDAR_PREVIOUS_MONTH).focus();
 };
 
 /**
@@ -986,7 +988,8 @@ const displayNextMonth = _buttonEl => {
   );
   let date = addMonths(calendarDate, 1);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  renderCalendar(calendarEl, date);
+  const newCalendar = renderCalendar(calendarEl, date);
+  newCalendar.querySelector(CALENDAR_NEXT_MONTH).focus();
 };
 
 /**
@@ -1001,7 +1004,8 @@ const displayNextYear = _buttonEl => {
   );
   let date = addYears(calendarDate, 1);
   date = keepDateBetweenMinAndMax(date, minDate, maxDate);
-  renderCalendar(calendarEl, date);
+  const newCalendar = renderCalendar(calendarEl, date);
+  newCalendar.querySelector(CALENDAR_NEXT_YEAR).focus();
 };
 
 /**
@@ -1095,9 +1099,12 @@ const displayMonthSelection = (el, monthToDisplay) => {
       maxDate
     );
 
+    let tabindex = "-1";
+
     const classes = [CALENDAR_MONTH_CLASS];
 
     if (index === focusedMonth) {
+      tabindex = "0";
       classes.push(CALENDAR_MONTH_FOCUSED_CLASS);
     }
 
@@ -1107,7 +1114,7 @@ const displayMonthSelection = (el, monthToDisplay) => {
 
     return `<button 
         type="button"
-        tabindex="-1"
+        tabindex="${tabindex}"
         class="${classes.join(" ")}" 
         data-value="${index}"
         data-label="${month}"
@@ -1173,9 +1180,12 @@ const displayYearSelection = (el, yearToDisplay) => {
       maxDate
     );
 
+    let tabindex = "-1";
+
     const classes = [CALENDAR_YEAR_CLASS];
 
     if (yearIndex === focusedYear) {
+      tabindex = "0";
       classes.push(CALENDAR_YEAR_FOCUSED_CLASS);
     }
 
@@ -1185,8 +1195,8 @@ const displayYearSelection = (el, yearToDisplay) => {
 
     years.push(
       `<button 
-        type="button" 
-        tabindex="-1"
+        type="button"
+        tabindex="${tabindex}"
         class="${classes.join(" ")}" 
         data-value="${yearIndex}"
         ${isDisabled ? `disabled="disabled"` : ""}
@@ -1233,7 +1243,8 @@ const displayPreviousYearChunk = el => {
   if (el.disabled) return;
   const { firstYearChunkEl } = getDatePickerContext(el);
   const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
-  displayYearSelection(el, firstYearChunkYear - YEAR_CHUNK);
+  const newCalendar = displayYearSelection(el, firstYearChunkYear - YEAR_CHUNK);
+  newCalendar.querySelector(CALENDAR_PREVIOUS_YEAR_CHUNK).focus();
 };
 
 /**
@@ -1245,7 +1256,8 @@ const displayNextYearChunk = el => {
   if (el.disabled) return;
   const { firstYearChunkEl } = getDatePickerContext(el);
   const firstYearChunkYear = parseInt(firstYearChunkEl.textContent, 10);
-  displayYearSelection(el, firstYearChunkYear + YEAR_CHUNK);
+  const newCalendar = displayYearSelection(el, firstYearChunkYear + YEAR_CHUNK);
+  newCalendar.querySelector(CALENDAR_NEXT_YEAR_CHUNK).focus();
 };
 
 // #region Calendar Event Handling
